@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Theme, ThemeProps } from '../ThemeProvider';
 
-export interface ButtonProps {
+export interface ButtonProps extends ThemeProps {
     /**
      * Is this the principal call to action on the page?
      */
@@ -17,13 +18,15 @@ export interface ButtonProps {
     /**
      * Button contents
      */
-    children: React.ReactNode
+    children: React.ReactNode;
     /**
      * Optional click handler
      */
     onClick?: () => void;
+
+    theme: Theme;
 }
 
-export const Button = styled.button<ButtonProps>`
-    background: ${(props) => (props.primary ? 'blue' : 'red')};
+export const Button = styled.button`
+    background: ${(props: ButtonProps) => props.theme.colors.primary};
 `;
