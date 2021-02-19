@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Theme, ThemeProps } from '../ThemeProvider';
+import { ThemeProps } from '../ThemeProvider';
 
 export interface ButtonProps extends ThemeProps {
     /**
@@ -23,8 +23,6 @@ export interface ButtonProps extends ThemeProps {
      * Optional click handler
      */
     onClick?: () => void;
-
-    theme: Theme;
 }
 
 export const Button = styled.button`
