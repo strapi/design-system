@@ -1,0 +1,52 @@
+name: Playwright tests
+on:
+    pull_request:
+        branches: ['master']
+    workflow_dispatch:
+
+jobs:
+    e2e-ubuntu:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v1
+            - uses: microsoft/playwright-github-action@v1
+
+            - name: Install dependencies
+              run: npm i -g http-server && npm install
+
+            - name: Lint
+              run: npm run lint
+
+            - name: Build storybook
+              run: npm run build-storybook
+
+            - name: Start storybook
+              run: cd storybook-static && http-server -p 6006 &
+
+            - name: Run the tests
+              run: npm run test:ci
+
+    e2e-macos:
+        runs-on: macos-latest
+
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v1
+            - uses: microsoft/playwright-github-action@v1
+
+            - name: Install dependencies
+              run: npm i -g http-server && npm install
+
+            - name: Lint
+              run: npm run lint
+
+            - name: Build storybook
+              run: npm run build-storybook
+
+            - name: Start storybook
+              run: cd storybook-static && http-server -p 6006 &
+
+            - name: Run the tests
+              run: npm run test:ci
