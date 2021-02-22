@@ -39,6 +39,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
-    "test": "jest"
+    "test": "DEBUG=true jest",
+    "test:ci": "DEBUG=false jest"
   }
 }
