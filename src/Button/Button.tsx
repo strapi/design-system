@@ -26,5 +26,5 @@ export interface ButtonProps extends ThemeProps {
 }
 
 export const Button = styled.button`
-    background: ${(props: ButtonProps) => props.theme.colors.primary};
+    background: ${(props: ButtonProps) => props.theme.colors.avocado100};
 `;

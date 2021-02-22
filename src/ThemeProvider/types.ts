@@ -1,7 +1,6 @@
 export interface Theme {
-    colors: {
-        primary: string;
-    };
+    // Specify doesn't generate types for the moment
+    colors: { [key: string]: string };
 }
 
 export interface ThemeProps {
