@@ -16,6 +16,7 @@
     "@typescript-eslint/parser": "^4.15.1",
     "axe-playwright": "^1.1.7",
     "babel-loader": "^8.2.2",
+    "cross-env": "^7.0.3",
     "eslint": "^7.20.0",
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-prettier": "^3.3.1",
@@ -38,8 +39,8 @@
   "scripts": {
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
-    "test": "DEBUG=true jest",
-    "test:ci": "DEBUG=false jest"
+    "lint": "eslint 'src/**/*.{js,ts,tsx}' --quiet --fix",
+    "test:e2e": "cross-env DEBUG=true jest -c jest.e2e.js",
+    "test:ci:e2e": "cross-env DEBUG=false jest -c jest.e2e.js"
   }
 }
