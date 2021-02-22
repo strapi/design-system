@@ -26,7 +26,7 @@ jobs:
               run: cd storybook-static && http-server -p 6006 &
 
             - name: Run the tests
-              run: npm run test:ci
+              run: npm run test:ci:e2e
 
     e2e-macos:
         runs-on: macos-latest
@@ -49,7 +49,7 @@ jobs:
               run: cd storybook-static && http-server -p 6006 &
 
             - name: Run the tests
-              run: npm run test:ci
+              run: npm run test:ci:e2e
     deploy:
         runs-on: ubuntu-latest
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'

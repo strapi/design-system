@@ -40,7 +40,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "lint": "eslint 'src/**/*.{js,ts,tsx}' --quiet --fix",
-    "test": "cross-env DEBUG=true jest",
-    "test:ci": "cross-env DEBUG=false jest"
+    "test:e2e": "cross-env DEBUG=true jest -c jest.e2e.js",
+    "test:ci:e2e": "cross-env DEBUG=false jest -c jest.e2e.js"
   }
 }
