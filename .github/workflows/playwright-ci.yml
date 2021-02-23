@@ -52,7 +52,7 @@ jobs:
               run: npm run test:ci:e2e
     deploy:
         runs-on: ubuntu-latest
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        if: github.event.pull_request.merged == 'true'
 
         steps:
             - uses: actions/checkout@v2
