@@ -37,9 +37,10 @@
     "styled-components": "^5.2.1"
   },
   "scripts": {
-    "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
+    "type:check": "tsc --noEmit",
     "lint": "eslint 'src/**/*.{js,ts,tsx}' --quiet --fix",
+    "storybook": "start-storybook -p 6006",
     "test:e2e": "cross-env DEBUG=true jest -c jest.e2e.js",
     "test:ci:e2e": "cross-env DEBUG=false jest -c jest.e2e.js"
   }
