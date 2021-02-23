@@ -52,7 +52,7 @@ jobs:
               run: npm run test:ci:e2e
     deploy:
         runs-on: ubuntu-latest
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/master'
 
         steps:
             - uses: actions/checkout@v2
