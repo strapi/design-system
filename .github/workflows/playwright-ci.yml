@@ -21,6 +21,9 @@ jobs:
             - name: Lint
               run: npm run lint
 
+            - name: Unit / Integration tests
+              run: npm test
+
             - name: Build storybook
               run: npm run build-storybook
 
