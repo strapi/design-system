@@ -1,13 +1,11 @@
-const DEBUG = process.env.DEBUG;
-
 module.exports = {
   testRegex: 'src/.*\\.e2e\\.ts$',
   preset: 'jest-playwright-preset',
   testEnvironmentOptions: {
     'jest-playwright': {
-      browsers: ['chromium', 'firefox', 'webkit'],
+      browsers: ['firefox', 'chromium'],
       launchOptions: {
-        headless: DEBUG !== 'true',
+        // headless: false
         // devtools: true,
       },
     },
