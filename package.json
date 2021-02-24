@@ -11,10 +11,10 @@
         "@babel/preset-typescript": "^7.13.0",
         "@figspec/react": "^0.1.5",
         "@specifyapp/cli": "^0.0.50",
-        "@storybook/addon-actions": "^6.1.18",
-        "@storybook/addon-essentials": "^6.1.18",
-        "@storybook/addon-links": "^6.1.18",
-        "@storybook/react": "^6.1.18",
+        "@storybook/addon-actions": "^6.1.20",
+        "@storybook/addon-essentials": "^6.1.20",
+        "@storybook/addon-links": "^6.1.20",
+        "@storybook/react": "^6.1.20",
         "@testing-library/react": "^11.2.5",
         "@types/jest": "^26.0.20",
         "@types/react": "^17.0.2",
@@ -30,8 +30,10 @@
         "eslint-config-prettier": "^7.2.0",
         "eslint-plugin-prettier": "^3.3.1",
         "eslint-plugin-react": "^7.22.0",
+        "husky": "=4",
         "jest": "^26.6.3",
         "jest-playwright-preset": "^1.4.6",
+        "lint-staged": ">=10",
         "playwright": "^1.8.1",
         "prettier": "^2.2.1",
         "react": "^17.0.1",
@@ -50,12 +52,20 @@
         "build": "tsc",
         "build-storybook": "build-storybook",
         "type:check": "tsc --noEmit",
-        "lint": "eslint 'src/**/*.{js,ts,tsx}' --quiet --fix",
+        "lint": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
         "storybook": "start-storybook -p 6006",
         "test": "jest -c jest.config.js",
         "test:e2e": "cross-env DEBUG=true jest -c jest.e2e.js",
         "test:ci:e2e": "cross-env DEBUG=false jest -c jest.e2e.js",
         "specify:sync": "specify sync",
         "specify:pull": "specify pull"
+    },
+    "husky": {
+      "hooks": {
+        "pre-commit": "lint-staged"
+      }
+    },
+    "lint-staged": {
+      "*.{js,jsx,ts,tsx}": "eslint --ext .js,.jsx,.ts,.tsx --fix"
     }
 }

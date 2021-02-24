@@ -5,19 +5,19 @@ import { ThemeProvider } from '../ThemeProvider';
 import { lightTheme } from '../themes';
 
 describe('Button', () => {
-    it('match snapshots', () => {
-        const { container } = render(
-            <ThemeProvider theme={lightTheme}>
-                <Button>Hello world</Button>
-            </ThemeProvider>,
-        );
+  it('match snapshots', () => {
+    const { container } = render(
+      <ThemeProvider theme={lightTheme}>
+        <Button>Hello world</Button>
+      </ThemeProvider>,
+    );
 
-        expect(container.firstChild).toMatchInlineSnapshot(`
+    expect(container.firstChild).toMatchInlineSnapshot(`
             <button
               class="sc-bdfBwQ cNLWSM"
             >
               Hello world
             </button>
         `);
-    });
+  });
 });
