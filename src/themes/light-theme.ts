@@ -1,7 +1,7 @@
 import { Theme } from '../ThemeProvider';
 
 export const lightTheme: Theme = {
-    colors: {
+    color: {
         primary: 'yellow',
     },
 };
