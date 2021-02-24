@@ -14,7 +14,7 @@ describe('Button', () => {
 
         expect(container.firstChild).toMatchInlineSnapshot(`
             <button
-              class="sc-bdfBwQ jeBhmY"
+              class="sc-bdfBwQ cNLWSM"
             >
               Hello world
             </button>

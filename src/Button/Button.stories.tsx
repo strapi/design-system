@@ -10,7 +10,7 @@ export const Primary = () => {
 Primary.parameters = {
     design: {
         type: 'figma',
-        url: 'https://www.figma.com/file/PICiE8O4NLrHO1lhJftLdE/Design-System-%E2%9C%85?node-id=866%3A481',
+        url: process.env.FIGMA_BUTTON_URL,
     },
 };
 
