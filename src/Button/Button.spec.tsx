@@ -13,11 +13,11 @@ describe('Button', () => {
     );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
-            <button
-              class="sc-bdfBwQ cNLWSM"
-            >
-              Hello world
-            </button>
-        `);
+      <button
+        class="sc-bdfBwQ dHBwns"
+      >
+        Hello world
+      </button>
+    `);
   });
 });
