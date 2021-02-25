@@ -1,59 +1,59 @@
 name: Playwright tests
 on:
-    pull_request:
-        branches: ['master']
-    workflow_dispatch:
+  pull_request:
+    branches: ['develop', 'master']
+  workflow_dispatch:
 
 jobs:
-    e2e:
-        runs-on: ${{ matrix.os }}
-        strategy:
-            matrix:
-                os: [ubuntu-latest, macos-latest]
-        steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-node@v1
-            - uses: microsoft/playwright-github-action@v1
+  e2e:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - uses: microsoft/playwright-github-action@v1
 
-            - name: Install dependencies
-              run: npm i -g http-server && npm install
+      - name: Install dependencies
+        run: npm i -g http-server && npm install
 
-            - name: Lint
-              run: npm run lint
+      - name: Lint
+        run: npm run lint
 
-            - name: Unit / Integration tests
-              run: npm test
+      - name: Unit / Integration tests
+        run: npm test
 
-            - name: Build storybook
-              run: npm run build-storybook
+      - name: Build storybook
+        run: npm run build-storybook
 
-            - name: Build library
-              run: npm run build
+      - name: Build library
+        run: npm run build
 
-            - name: Start storybook
-              run: cd storybook-static && http-server -p 6006 &
+      - name: Start storybook
+        run: cd storybook-static && http-server -p 6006 &
 
-            - name: Run the tests
-              run: npm run test:ci:e2e
+      - name: Run the tests
+        run: npm run test:ci:e2e
 
-    # Remove until the Strapi conf :rocket:
-    # deploy:
-    #     runs-on: ubuntu-latest
-    #     needs: e2e
-    #     if: github.ref == 'refs/heads/master'
+  # Remove until the Strapi conf :rocket:
+  # deploy:
+  #     runs-on: ubuntu-latest
+  #     needs: e2e
+  #     if: github.ref == 'refs/heads/master'
 
-    #     steps:
-    #         - uses: actions/checkout@v2
-    #         - uses: actions/setup-node@v1
+  #     steps:
+  #         - uses: actions/checkout@v2
+  #         - uses: actions/setup-node@v1
 
-    #         - name: Install dependencies
-    #           run: npm install
+  #         - name: Install dependencies
+  #           run: npm install
 
-    #         - name: Build storybook
-    #           run: npm run build-storybook
+  #         - name: Build storybook
+  #           run: npm run build-storybook
 
-    #         - name: Deploy
-    #           uses: JamesIves/github-pages-deploy-action@4.0.0
-    #           with:
-    #               branch: gh-pages
-    #               folder: storybook-static
+  #         - name: Deploy
+  #           uses: JamesIves/github-pages-deploy-action@4.0.0
+  #           with:
+  #               branch: gh-pages
+  #               folder: storybook-static
