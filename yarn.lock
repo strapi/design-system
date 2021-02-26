@@ -2799,6 +2799,11 @@
   resolved "https://registry.yarnpkg.com/@types/unist/-/unist-2.0.3.tgz#9c088679876f374eb5983f150d4787aa6fb32d7e"
   integrity sha512-FvUupuM3rlRsRtCN+fDudtmytGO6iHJuuRKS1Ss0pG5z8oX0diNEw94UEL7hgDbpN94rgaK5R7sWm6RrSkZuAQ==
 
+"@types/uuid@^8.3.0":
+  version "8.3.0"
+  resolved "https://registry.yarnpkg.com/@types/uuid/-/uuid-8.3.0.tgz#215c231dff736d5ba92410e6d602050cce7e273f"
+  integrity sha512-eQ9qFW/fhfGJF8WKHGEHZEyVWfZxrT+6CLIJGBcZPfxUh/+BnEj+UCGYMlr9qZuX/2AltsvwrGqp0LhEW8D0zQ==
+
 "@types/wait-on@^5.2.0":
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/@types/wait-on/-/wait-on-5.2.0.tgz#f9096b7bd0c9c03052d6d402ae5cd51714480b2d"
@@ -3521,10 +3526,10 @@ axe-core@^4.0.1:
   resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.1.2.tgz#7cf783331320098bfbef620df3b3c770147bc224"
   integrity sha512-V+Nq70NxKhYt89ArVcaNL9FDryB3vQOd+BFXZIfO3RP6rwtj+2yqqqdHEkacutglPaZLkJeuXKCjCJDMGPtPqg==
 
-axe-playwright@^1.1.7:
-  version "1.1.7"
-  resolved "https://registry.yarnpkg.com/axe-playwright/-/axe-playwright-1.1.7.tgz#7ec8d800aed14f110c92add31b25e13d7cd3c542"
-  integrity sha512-XlTgMNBFn0gY1egGlwniuqHqSJhGrINWrulnGavJDgfP/UXNwdkEhm5F9SgwwvvklWZMrJgMG6L0fCvAjOLwxg==
+axe-playwright@^1.1.8:
+  version "1.1.8"
+  resolved "https://registry.yarnpkg.com/axe-playwright/-/axe-playwright-1.1.8.tgz#37313e0e99f18aac27e5d29a838aa084cc14ca2b"
+  integrity sha512-p8d18CSWpo+6YOiGmu9bnpWw7zu5Br/259X5fJtBs9Qe6TWbZ4MmKUQXdg5EW0KRH5RxYS7YILc4pkeq+lqBxA==
   dependencies:
     axe-core "^4.0.1"
 
@@ -5993,7 +5998,7 @@ expand-tilde@^1.2.2:
   dependencies:
     os-homedir "^1.0.1"
 
-expect-playwright@^0.3.1:
+expect-playwright@^0.3.2:
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/expect-playwright/-/expect-playwright-0.3.2.tgz#2b2ebbdb9c57eefcbeed87bbe3af569f85b502e9"
   integrity sha512-UnHrnrrYL1GHaX/rHkC+X4RwaTzxwgvZ39Wv/q9AMCk/8646vsW58heQQYEaev1yFtWynW5fQFn8IaXGrG8C6w==
@@ -8127,12 +8132,12 @@ jest-mock@^26.6.2:
     "@jest/types" "^26.6.2"
     "@types/node" "*"
 
-jest-playwright-preset@^1.4.6:
-  version "1.4.6"
-  resolved "https://registry.yarnpkg.com/jest-playwright-preset/-/jest-playwright-preset-1.4.6.tgz#b76829ee5937e364f0c9ad60e871f7f495fe4907"
-  integrity sha512-a/3KWUY4X/JLhklZf/VhKD6Epnwt98npV/8j2jmXD2QkHEU5JNvRzwtOMv3BlYKweTWoSj+vFmWGq1OLvMPx2A==
+jest-playwright-preset@^1.4.7:
+  version "1.4.7"
+  resolved "https://registry.yarnpkg.com/jest-playwright-preset/-/jest-playwright-preset-1.4.7.tgz#ca654591904d7606a284909b85594e4bd3cf7279"
+  integrity sha512-UKhhoCB6Eimzg9+agDmrdGkFthKt8/VD6xAWxCxX1Pu+aA3EiMp4QbduBAFfampSQflBrk2fTo566A3gZUqVnw==
   dependencies:
-    expect-playwright "^0.3.1"
+    expect-playwright "^0.3.2"
     jest-circus "^26.6.3"
     jest-environment-node "^26.6.2"
     jest-process-manager "^0.2.9"
@@ -10005,10 +10010,10 @@ playwright-core@>=1.2.0:
     rimraf "^3.0.2"
     ws "^7.3.1"
 
-playwright@^1.8.1:
-  version "1.8.1"
-  resolved "https://registry.yarnpkg.com/playwright/-/playwright-1.8.1.tgz#0a26035d1b5f2c31d9a4da09d649b4992f989d1e"
-  integrity sha512-nmuiDEDwB/SdAxiZQS5pLqPS3XXN8OJ1LKvTSiAbJvu+AUf7f0RD7nuq9xB0C08Emd6stx9yBMhANvD12k/+GQ==
+playwright@^1.9.0:
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/playwright/-/playwright-1.9.0.tgz#7876f005b7be08419b03f14a1d9c1504e0db6d37"
+  integrity sha512-vCVPCj6toZweLW2wz9g92FpsmKoLljz6ql1MeqBcVDgOh5yVR/rFdFQ6T+Ed1sqkssaissfSeZMNmTodQCsK3Q==
   dependencies:
     commander "^6.1.0"
     debug "^4.1.1"
@@ -10021,6 +10026,7 @@ playwright@^1.8.1:
     proper-lockfile "^4.1.1"
     proxy-from-env "^1.1.0"
     rimraf "^3.0.2"
+    stack-utils "^2.0.3"
     ws "^7.3.1"
 
 please-upgrade-node@^3.2.0:
@@ -11599,7 +11605,7 @@ stable@^0.1.8:
   resolved "https://registry.yarnpkg.com/stable/-/stable-0.1.8.tgz#836eb3c8382fe2936feaf544631017ce7d47a3cf"
   integrity sha512-ji9qxRnOVfcuLDySj9qzhGSEFVobyt1kIOSkj1qZzYLzq7Tos/oUUWvotUPQLlrsidqsK6tBH89Bc9kL5zHA6w==
 
-stack-utils@^2.0.2:
+stack-utils@^2.0.2, stack-utils@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/stack-utils/-/stack-utils-2.0.3.tgz#cd5f030126ff116b78ccb3c027fe302713b61277"
   integrity sha512-gL//fkxfWUsIlFL2Tl42Cl6+HFALEaB1FU76I/Fy+oZjRreP7OPMXFlGbxM7NQsI0ZpUfw76sHnv0WNYuTb7Iw==

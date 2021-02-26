@@ -1,4 +1,4 @@
-const { injectAxe, checkA11y } = require('axe-playwright');
+import { injectAxe, checkA11y } from 'axe-playwright';
 
 describe('Button', () => {
   beforeAll(async () => {
