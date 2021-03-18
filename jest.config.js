@@ -1,3 +1,3 @@
 module.exports = {
-  testRegex: 'src/.*\\.spec\\.(tsx|js)$',
+  testRegex: 'src/.*\\.spec\\.(jsx|js)$',
 };

@@ -9,10 +9,15 @@
             },
             "parsers": [
                 {
+                    "name": "name-assets-files-by-pattern",
+                    "options": {
+                      "pattern": "{{name}}.{{format}}"
+                    }
+                },
+                {
                     "name": "kebabcasify",
                     "options": {
-                        "keys": ["name"],
-                        "excludeFileExtension": true
+                        "keys": ["name"]
                     }
                 },
                 {
@@ -22,7 +27,7 @@
         },
         {
             "name": "Design Tokens / Colors",
-            "path": "src/themes/light-theme.ts",
+            "path": "src/themes/light-theme.js",
             "filter": {
                 "types": ["color"]
             },
