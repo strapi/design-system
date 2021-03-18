@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { RadioContext } from './context';
 import { getRadioSize, getSelectedRadioSize, getSelectedRadioPosition } from './utils';
 
-// TODO: we need to use the theme her
-const RadioInput = styled.input<any>`
+// TODO: we need to use the theme here
+const RadioInput = styled.input`
   margin: 0;
   padding: 0;
   background-color: white;
@@ -35,13 +36,8 @@ const RadioInput = styled.input<any>`
     background: ${(props) => props.theme.color.carbon200};
   }
 `;
-export interface RadioProps extends React.HTMLAttributes<HTMLInputElement> {
-  value: string;
-  id: string;
-  disabled?: boolean;
-}
 
-export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(({ value, id, disabled, ...props }, ref) => {
+export const Radio = React.forwardRef(({ value, id, disabled, ...props }, ref) => {
   const { onSelect, selected, name, size } = useContext(RadioContext);
   const isSelected = selected === value;
 
@@ -63,3 +59,9 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(({ value, id
 });
 
 Radio.displayName = 'Radio';
+
+Radio.propTypes = {
+  disabled: PropTypes.bool,
+  id: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+};

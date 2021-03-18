@@ -1,5 +1,5 @@
 module.exports = {
-  testRegex: 'src/.*\\.e2e\\.ts$',
+  testRegex: 'src/.*\\.e2e\\.js$',
   preset: 'jest-playwright-preset',
   testEnvironmentOptions: {
     'jest-playwright': {

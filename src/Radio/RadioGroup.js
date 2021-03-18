@@ -1,20 +1,11 @@
 import React, { useLayoutEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 import { genId } from '../helpers';
 import { RadioContext } from './context';
-import { RadioSize } from './types';
 
-type HtmlDivType = Omit<React.HTMLAttributes<HTMLDivElement>, 'onSelect'>;
-export interface RadioGroupProps extends HtmlDivType {
-  children: React.ReactNode;
-  labelledBy: string;
-  onSelect: (nextValue: string) => void;
-  value?: string;
-  size?: RadioSize;
-}
-
-export const RadioGroup = ({ children, labelledBy, onSelect, value, size = 'S', ...props }: RadioGroupProps) => {
+export const RadioGroup = ({ children, labelledBy, onSelect, value, size = 'S', ...props }) => {
   const nameRef = useRef(genId());
-  const radioGroupRef = useRef<HTMLDivElement>(null);
+  const radioGroupRef = useRef(null);
 
   useLayoutEffect(() => {
     if (!value) {
@@ -34,4 +25,12 @@ export const RadioGroup = ({ children, labelledBy, onSelect, value, size = 'S', 
       </div>
     </RadioContext.Provider>
   );
+};
+
+RadioGroup.propTypes = {
+  children: PropTypes.node.isRequired,
+  labelledBy: PropTypes.string.isRequired,
+  onSelect: PropTypes.func.isRequired,
+  size: PropTypes.oneOf(['S', 'L']),
+  value: PropTypes.string,
 };
