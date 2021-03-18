@@ -1,11 +1,10 @@
 import * as React from 'react';
-import { Meta } from '@storybook/react/types-6-0';
 import { withDesign } from 'storybook-addon-designs';
 import { Radio } from './Radio';
 import { RadioGroup } from './RadioGroup';
 
 export const Default = () => {
-  const [selected, setSelected] = React.useState<string | undefined>();
+  const [selected, setSelected] = React.useState();
 
   return (
     <div>
@@ -33,7 +32,7 @@ Default.parameters = {
 };
 
 export const Disabled = () => {
-  const [selected, setSelected] = React.useState<string | undefined>();
+  const [selected, setSelected] = React.useState();
 
   return (
     <div>
@@ -61,7 +60,7 @@ Disabled.parameters = {
 };
 
 export const LSize = () => {
-  const [selected, setSelected] = React.useState<string | undefined>();
+  const [selected, setSelected] = React.useState();
 
   return (
     <div>
@@ -92,4 +91,4 @@ export default {
   title: 'Radio',
   component: Radio,
   decorators: [withDesign],
-} as Meta;
+};

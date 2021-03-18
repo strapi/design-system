@@ -1,6 +1,4 @@
-import { RadioSize } from './types';
-
-export const getRadioSize = ({ size }: { size: RadioSize }) => {
+export const getRadioSize = ({ size }) => {
   if (size === 'S') {
     return '18px';
   }
@@ -8,7 +6,7 @@ export const getRadioSize = ({ size }: { size: RadioSize }) => {
   return '20px';
 };
 
-export const getSelectedRadioSize = ({ size }: { size: RadioSize }) => {
+export const getSelectedRadioSize = ({ size }) => {
   if (size === 'S') {
     return '10px';
   }

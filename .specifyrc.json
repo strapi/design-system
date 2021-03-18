@@ -22,7 +22,7 @@
         },
         {
             "name": "Design Tokens / Colors",
-            "path": "src/themes/light-theme.ts",
+            "path": "src/themes/light-theme.js",
             "filter": {
                 "types": ["color"]
             },
