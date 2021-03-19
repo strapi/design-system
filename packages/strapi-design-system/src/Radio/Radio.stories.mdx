@@ -1,0 +1,116 @@
+<!--- Radio.stories.mdx --->
+
+import { useState } from 'react';
+import { Meta, Story, Canvas, Source } from '@storybook/addon-docs/blocks';
+import { withDesign } from 'storybook-addon-designs';
+import { Radio } from './Radio';
+import { RadioGroup } from './RadioGroup';
+
+<Meta
+  title="Radio"
+  component={Radio}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/PICiE8O4NLrHO1lhJftLdE/Design-System-%E2%9C%85?node-id=815%3A800',
+    },
+  }}
+/>
+
+# Radio
+
+This is the doc of the `radio` component
+
+## Default
+
+Description...
+
+<Canvas>
+  <Story name="default">
+    {() => {
+      const [selected, setSelected] = useState();
+      return (
+        <div>
+          <label id="trophy-champions">Trophy champion</label>
+          <RadioGroup labelledBy="trophy-champions" onSelect={setSelected} value={selected}>
+            <div>
+                <label htmlFor="first">Mario</label>
+                <Radio value="first" id="first" />
+            </div>
+            <div>
+                <label htmlFor="second">Luigi</label>
+                <Radio value="second" id="second" />
+            </div>
+            <div>
+                <label htmlFor="third">Wario</label>
+                <Radio value="third" id="third" />
+            </div>
+          </RadioGroup>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Disabled
+
+Description...
+
+<Canvas>
+  <Story name="disabled">
+    {() => {
+      const [selected, setSelected] = useState();
+      return (
+        <div>
+          <label id="trophy-champions">Trophy champion</label>
+          <RadioGroup labelledBy="trophy-champions" onSelect={setSelected} value={selected}>
+            <div>
+                <label htmlFor="first">Mario</label>
+                <Radio value="first" id="first" />
+            </div>
+            <div>
+                <label htmlFor="second">Luigi</label>
+                <Radio value="second" id="second" disabled={true} />
+            </div>
+            <div>
+                <label htmlFor="third">Wario</label>
+                <Radio value="third" id="third" />
+            </div>
+          </RadioGroup>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## LSize
+
+Description...
+
+<Canvas>
+  <Story name="LSize">
+    {() => {
+      const [selected, setSelected] = useState();
+      return (
+        <div>
+          <label id="trophy-champions">Trophy champion</label>
+          <RadioGroup size="L" labelledBy="trophy-champions" onSelect={setSelected} value={selected}>
+            <div>
+                <label htmlFor="first">Mario</label>
+                <Radio value="first" id="first" />
+            </div>
+            <div>
+                <label htmlFor="second">Luigi</label>
+                <Radio value="second" id="second" />
+            </div>
+            <div>
+                <label htmlFor="third">Wario</label>
+                <Radio value="third" id="third" />
+            </div>
+          </RadioGroup>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
