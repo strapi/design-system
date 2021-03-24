@@ -3,9 +3,9 @@ module.exports = {
   preset: 'jest-playwright-preset',
   testEnvironmentOptions: {
     'jest-playwright': {
-      browsers: ['firefox', 'chromium'],
+      browsers: ['chromium', 'firefox', 'webkit'],
       launchOptions: {
-        // headless: false
+        // headless: true,
         // devtools: true,
       },
     },

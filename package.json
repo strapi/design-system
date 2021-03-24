@@ -1,64 +1,20 @@
 {
-    "name": "design-system-experiments",
-    "version": "1.0.0",
-    "main": "index.js",
-    "license": "MIT",
-    "devDependencies": {
-        "@babel/core": "^7.12.17",
-        "@babel/plugin-transform-runtime": "^7.13.2",
-        "@babel/preset-env": "^7.13.0",
-        "@babel/preset-react": "^7.12.13",
-        "@figspec/react": "^0.1.5",
-        "@specifyapp/cli": "^0.0.51",
-        "@storybook/addon-actions": "^6.1.20",
-        "@storybook/addon-essentials": "^6.1.20",
-        "@storybook/addon-links": "^6.1.20",
-        "@storybook/react": "^6.1.20",
-        "@testing-library/react": "^11.2.5",
-        "axe-playwright": "^1.1.8",
-        "babel-jest": "^26.6.3",
-        "babel-loader": "^8.2.2",
-        "cross-env": "^7.0.3",
-        "eslint": "^7.20.0",
-        "eslint-config-prettier": "^7.2.0",
-        "eslint-plugin-prettier": "^3.3.1",
-        "eslint-plugin-react": "^7.22.0",
-        "husky": "=4",
-        "jest": "^26.6.3",
-        "jest-playwright-preset": "^1.4.7",
-        "lint-staged": ">=10",
-        "playwright": "^1.9.0",
-        "prettier": "^2.2.1",
-        "react": "^17.0.1",
-        "react-dom": "^17.0.1",
-        "storybook-addon-designs": "^6.0.0-alpha.2"
-    },
-    "peerDependencies": {
-        "react": "^17.0.1",
-        "react-dom": "^17.0.1"
-    },
-    "dependencies": {
-        "prop-types": "^15.7.2",
-        "styled-components": "^5.2.1",
-        "uuid": "^8.3.2"
-    },
-    "scripts": {
-        "build": "tsc",
-        "build-storybook": "build-storybook",
-        "lint": "eslint . --ext .js,.jsx --fix",
-        "storybook": "start-storybook -p 6006",
-        "test": "jest -c jest.config.js",
-        "test:e2e": "cross-env PWDEBUG=1 jest -c jest.e2e.js",
-        "test:ci:e2e": "jest -c jest.e2e.js",
-        "specify:sync": "specify sync",
-        "specify:pull": "specify pull"
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged"
-        }
-    },
-    "lint-staged": {
-        "*.{js,jsx}": "eslint --ext .js,.jsx --fix"
-    }
+  "name": "design-system-experiments",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:strapi/design-system-experiments.git",
+  "license": "MIT",
+  "scripts": {
+    "build": "echo 'do webpack stuff here'",
+    "build-storybook": "lerna run build-storybook --stream",
+    "bootstrap": "lerna bootstrap",
+    "lint": "lerna run lint --stream",
+    "test": "lerna run test --stream",
+    "test:e2e": "lerna run test:e2e --stream",
+    "test:e2e:ci": "lerna run test:e2e:ci",
+    "storybook": "lerna run storybook --stream"
+  },
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
 }

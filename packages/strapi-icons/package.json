@@ -1,0 +1,10 @@
+{
+  "name": "@strapi/icons",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {},
+  "peerDependencies": {},
+  "dependencies": {},
+  "scripts": {}
+}

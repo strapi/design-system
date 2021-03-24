@@ -48,7 +48,7 @@ describe('Radio', () => {
           </label>
           <input
             aria-checked="false"
-            class="sc-bdfBwQ DFzle"
+            class="sc-bdfBwQ hWiZzG"
             id="first"
             name="1"
             tabindex="0"
@@ -62,7 +62,7 @@ describe('Radio', () => {
           </label>
           <input
             aria-checked="false"
-            class="sc-bdfBwQ DFzle"
+            class="sc-bdfBwQ hWiZzG"
             id="second"
             name="1"
             tabindex="-1"
@@ -76,7 +76,7 @@ describe('Radio', () => {
           </label>
           <input
             aria-checked="false"
-            class="sc-bdfBwQ DFzle"
+            class="sc-bdfBwQ hWiZzG"
             id="third"
             name="1"
             tabindex="-1"
@@ -126,7 +126,7 @@ describe('Radio', () => {
           </label>
           <input
             aria-checked="false"
-            class="sc-bdfBwQ DFzle"
+            class="sc-bdfBwQ hWiZzG"
             id="first"
             name="1"
             tabindex="-1"
@@ -140,7 +140,7 @@ describe('Radio', () => {
           </label>
           <input
             aria-checked="true"
-            class="sc-bdfBwQ DFzle"
+            class="sc-bdfBwQ hWiZzG"
             id="second"
             name="1"
             tabindex="0"
@@ -154,7 +154,7 @@ describe('Radio', () => {
           </label>
           <input
             aria-checked="false"
-            class="sc-bdfBwQ DFzle"
+            class="sc-bdfBwQ hWiZzG"
             id="third"
             name="1"
             tabindex="-1"

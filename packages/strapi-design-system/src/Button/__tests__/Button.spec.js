@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { render } from '@testing-library/react';
-import { Button } from './Button';
-import { ThemeProvider } from '../ThemeProvider';
-import { lightTheme } from '../themes';
+import { Button } from '../Button';
+import { ThemeProvider } from '../../ThemeProvider';
+import { lightTheme } from '../../themes';
 
 describe('Button', () => {
   it('match snapshots', () => {
@@ -14,7 +14,7 @@ describe('Button', () => {
 
     expect(container.firstChild).toMatchInlineSnapshot(`
       <button
-        class="sc-bdfBwQ eTSTBB"
+        class="sc-bdfBwQ dHBwns"
       >
         Hello world
       </button>
