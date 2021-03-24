@@ -4,10 +4,11 @@
     "main": "index.js",
     "license": "MIT",
     "devDependencies": {
-        "@babel/core": "^7.12.17",
+        "@babel/core": "^7.13.10",
         "@babel/plugin-transform-runtime": "^7.13.2",
         "@babel/preset-env": "^7.13.0",
         "@babel/preset-react": "^7.12.13",
+        "clean-webpack-plugin": "^3.0.0",
         "@figspec/react": "^0.1.5",
         "@specifyapp/cli": "^0.0.51",
         "@storybook/addon-actions": "^6.1.20",
@@ -31,7 +32,8 @@
         "prettier": "^2.2.1",
         "react": "^17.0.1",
         "react-dom": "^17.0.1",
-        "storybook-addon-designs": "^6.0.0-alpha.2"
+        "storybook-addon-designs": "^6.0.0-alpha.2",
+        "webpack-cli": "^4.5.0"
     },
     "peerDependencies": {
         "react": "^17.0.1",
@@ -43,6 +45,8 @@
         "uuid": "^8.3.2"
     },
     "scripts": {
+        "analyze:bundle": "cross-env BUNDLE_ANALYZE=1 webpack",
+        "build": "webpack",
         "build-storybook": "build-storybook",
         "lint": "eslint . --ext .js,.jsx --fix",
         "storybook": "start-storybook -p 6006",

@@ -5,16 +5,18 @@
   "repository": "git@github.com:strapi/design-system-experiments.git",
   "license": "MIT",
   "scripts": {
-    "build": "echo 'do webpack stuff here'",
+    "build": "lerna run build --stream",
     "build-storybook": "lerna run build-storybook --stream",
     "bootstrap": "lerna bootstrap",
     "lint": "lerna run lint --stream",
     "test": "lerna run test --stream",
     "test:e2e": "lerna run test:e2e --stream",
     "test:e2e:ci": "lerna run test:e2e:ci",
-    "storybook": "lerna run storybook --stream"
+    "storybook": "lerna run storybook --stream",
+    "analyze:bundle": "lerna run analyze:bundle --stream"
   },
   "devDependencies": {
-    "lerna": "^4.0.0"
+    "lerna": "^4.0.0",
+    "webpack-bundle-analyzer": "^4.4.0"
   }
 }
