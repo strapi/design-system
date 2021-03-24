@@ -16,25 +16,25 @@ jobs:
       - uses: microsoft/playwright-github-action@v1
 
       - name: Install dependencies
-        run: npm i -g http-server && npm install
+        run: yarn global add http-server && yarn
 
       - name: Lint
-        run: npm run lint
+        run: yarn lint
 
       - name: Unit / Integration tests
-        run: npm test
+        run: yarn test
 
       - name: Build storybook
-        run: npm run build-storybook
+        run: yarn build-storybook
 
       - name: Build library
-        run: npm run build
+        run: yarn build
 
       - name: Start storybook
-        run: cd storybook-static && http-server -p 6006 &
+        run: cd packages/strapi-design-system/storybook-static && http-server -p 6006 &
 
       - name: Run the tests
-        run: npm run test:e2e:ci
+        run: yarn test:e2e:ci
 
   # Remove until the Strapi conf :rocket:
   # deploy:

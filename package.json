@@ -5,6 +5,8 @@
   "repository": "git@github.com:strapi/design-system-experiments.git",
   "license": "MIT",
   "scripts": {
+    "build": "echo 'do webpack stuff here'",
+    "build-storybook": "lerna run build-storybook --stream",
     "bootstrap": "lerna bootstrap",
     "lint": "lerna run lint --stream",
     "test": "lerna run test --stream",
