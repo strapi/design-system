@@ -34,7 +34,7 @@ jobs:
         run: cd storybook-static && http-server -p 6006 &
 
       - name: Run the tests
-        run: npm run test:ci:e2e
+        run: npm run test:e2e:ci
 
   # Remove until the Strapi conf :rocket:
   # deploy:
