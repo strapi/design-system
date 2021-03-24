@@ -34,7 +34,7 @@ jobs:
         run: cd packages/strapi-design-system/storybook-static && http-server -p 6006 &
 
       - name: Run the tests
-        run: cd ../../../ && yarn test:e2e:ci
+        run: pwd && yarn test:e2e:ci
 
   # Remove until the Strapi conf :rocket:
   # deploy:
