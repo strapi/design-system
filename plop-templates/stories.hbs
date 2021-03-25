@@ -1,20 +1,22 @@
 import * as React from 'react';
 import { withDesign } from 'storybook-addon-designs';
-import { Button } from './Button';
+import { {{name}} } from './{{name}}';
 
 export const Default = () => {
-  return <Button>Hello world</Button>;
+  return (
+    <{{name}} />
+  );
 };
 
 Default.parameters = {
   design: {
     type: 'figma',
-    url: process.env.FIGMA_BUTTON_URL,
+    url: 'TODO: Fill the according figma file',
   },
 };
 
 export default {
-  title: 'Button',
-  component: Button,
+  title: '{{name}}',
+  component: '{{name}}',
   decorators: [withDesign],
 };
