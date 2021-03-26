@@ -1,0 +1,41 @@
+<!--- Button.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { withDesign } from 'storybook-addon-designs';
+import { Button } from './Button';
+
+<Meta
+  title="Button"
+  component={Button}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: 'figma',
+      url: process.env.FIGMA_BUTTON_URL,
+    },
+  }}
+/>
+
+# Button
+
+This is the doc of the `button` component
+
+## Button
+
+Description...
+
+<Canvas>
+  <Story name="base">
+    <Button>Hello world</Button>
+  </Story>
+</Canvas>
+
+## Button check
+
+Other story description...
+
+<Canvas>
+  <Story name="with icon">
+    <Button>with icon</Button>
+  </Story>
+</Canvas>

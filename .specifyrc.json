@@ -1,51 +1,54 @@
 {
-    "repository": "@strapi/Strapi-Design-System",
-    "rules": [
+  "repository": "@strapi/Strapi-Design-System",
+  "rules": [
+    {
+      "name": "Icons",
+      "path": "./packages/strapi-icons/assets/icons",
+      "filter": {
+        "types": ["vector"]
+      },
+      "parsers": [
         {
-            "name": "Icons",
-            "path": "./packages/strapi-icons/assets/icons",
-            "filter": {
-                "types": ["vector"]
-            },
-            "parsers": [
-                {
-                    "name": "kebabcasify",
-                    "options": {
-                        "keys": ["name"]
-                    }
-                },
-                {
-                    "name": "name-assets-files-by-pattern",
-                    "options": {
-                      "pattern": "{{name}}.{{format}}"
-                    }
-                }
-            ]
+          "name": "kebabcasify",
+          "options": {
+            "keys": ["name"]
+          }
         },
         {
-            "name": "Design Tokens / Colors",
-            "path": "./packages/strapi-design-system/src/themes/light-theme.js",
-            "filter": {
-                "types": ["color"]
-            },
-            "parsers": [
-                {
-                    "name": "to-jss",
-                    "options": {
-                        "formatName": "camelCase",
-                        "formatTokens": {
-                            "colorFormat": "hex6",
-                            "textStyleFormat": "classObject"
-                        },
-                        "formatConfig": {
-                            "jssObjectName": "lightTheme",
-                            "exportDefault": false,
-                            "tabWidth": 2,
-                            "singleQuote": true
-                        }
-                    }
-                }
-            ]
+          "name": "name-assets-files-by-pattern",
+          "options": {
+            "pattern": "{{name}}.{{format}}"
+          }
         }
-    ]
+      ]
+    },
+    {
+      "name": "Design Tokens",
+      "path": "./packages/strapi-design-system/src/themes/tokens.js",
+      "filter": {
+        "types": ["measurement", "color", "shadow", "textStyle"]
+      },
+      "parsers": [
+        {
+          "name": "to-jss",
+          "options": {
+            "formatName": "camelCase",
+            "formatTokens": {
+              "colorFormat": "hex6",
+              "measurementFormat": "string",
+              "fontSizeUnit": "px",
+              "shadowFormat": "string",
+              "textStyleFormat": "array"
+            },
+            "formatConfig": {
+              "jssObjectName": "tokens",
+              "exportDefault": false,
+              "tabWidth": 2,
+              "singleQuote": true
+            }
+          }
+        }
+      ]
+    }
+  ]
 }

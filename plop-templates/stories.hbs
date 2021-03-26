@@ -1,22 +1,31 @@
-import * as React from 'react';
+<!--- Button.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { withDesign } from 'storybook-addon-designs';
 import { {{name}} } from './{{name}}';
 
-export const Default = () => {
-  return (
+<Meta
+  title="{{name}}"
+  component={ {{name}} }
+  decorators={[withDesign]}
+  parameters={ {
+    design: {
+      type: 'figma',
+      url: 'TODO: Fill the according figma file',
+    },
+  } }
+/>
+
+# {{name}}
+
+This is the doc of the `{{name}}` component
+
+## {{name}}
+
+Description...
+
+<Canvas>
+  <Story name="base">
     <{{name}} />
-  );
-};
-
-Default.parameters = {
-  design: {
-    type: 'figma',
-    url: 'TODO: Fill the according figma file',
-  },
-};
-
-export default {
-  title: '{{name}}',
-  component: '{{name}}',
-  decorators: [withDesign],
-};
+  </Story>
+</Canvas>
