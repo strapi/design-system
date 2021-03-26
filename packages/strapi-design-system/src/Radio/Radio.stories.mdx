@@ -32,19 +32,15 @@ Description...
       const [selected, setSelected] = useState();
       return (
         <div>
-          <label id="trophy-champions">Trophy champion</label>
+          <label id="trophy-champions">Make a choice</label>
           <RadioGroup labelledBy="trophy-champions" onSelect={setSelected} value={selected}>
             <div>
-              <label htmlFor="first">Mario</label>
-              <Radio value="first" id="first" />
+              <label htmlFor="pizza">Pizza</label>
+              <Radio value="pizza" id="pizza" />
             </div>
             <div>
-              <label htmlFor="second">Luigi</label>
-              <Radio value="second" id="second" />
-            </div>
-            <div>
-              <label htmlFor="third">Wario</label>
-              <Radio value="third" id="third" />
+              <label htmlFor="bagel">Bagel</label>
+              <Radio value="bagel" id="bagel" />
             </div>
           </RadioGroup>
         </div>

@@ -2,8 +2,8 @@ import * as React from 'react';
 import { render, waitFor, screen } from '@testing-library/react';
 import { Radio } from '../Radio';
 import { RadioGroup } from '../RadioGroup';
-import { ThemeProvider } from '../../ThemeProvider';
-import { lightTheme } from '../../themes';
+import { lightTheme } from '../../themes/light-theme';
+import { ThemeProvider } from '../../ThemeProvider/ThemeProvider';
 
 jest.mock('uuid', () => ({ v4: () => 1 }));
 
@@ -48,7 +48,7 @@ describe('Radio', () => {
           </label>
           <input
             aria-checked="false"
-            class="sc-bdfBwQ hWiZzG"
+            class="sc-bdfBwQ bmbsAj"
             id="first"
             name="1"
             tabindex="0"
@@ -62,7 +62,7 @@ describe('Radio', () => {
           </label>
           <input
             aria-checked="false"
-            class="sc-bdfBwQ hWiZzG"
+            class="sc-bdfBwQ bmbsAj"
             id="second"
             name="1"
             tabindex="-1"
@@ -76,7 +76,7 @@ describe('Radio', () => {
           </label>
           <input
             aria-checked="false"
-            class="sc-bdfBwQ hWiZzG"
+            class="sc-bdfBwQ bmbsAj"
             id="third"
             name="1"
             tabindex="-1"
@@ -126,7 +126,7 @@ describe('Radio', () => {
           </label>
           <input
             aria-checked="false"
-            class="sc-bdfBwQ hWiZzG"
+            class="sc-bdfBwQ bmbsAj"
             id="first"
             name="1"
             tabindex="-1"
@@ -140,7 +140,7 @@ describe('Radio', () => {
           </label>
           <input
             aria-checked="true"
-            class="sc-bdfBwQ hWiZzG"
+            class="sc-bdfBwQ bmbsAj"
             id="second"
             name="1"
             tabindex="0"
@@ -154,7 +154,7 @@ describe('Radio', () => {
           </label>
           <input
             aria-checked="false"
-            class="sc-bdfBwQ hWiZzG"
+            class="sc-bdfBwQ bmbsAj"
             id="third"
             name="1"
             tabindex="-1"
