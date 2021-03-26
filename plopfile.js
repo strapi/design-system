@@ -27,7 +27,7 @@ module.exports = function (plop) {
       },
       {
         type: "add",
-        path: "packages/strapi-design-system/src/{{name}}/{{name}}.stories.js",
+        path: "packages/strapi-design-system/src/{{name}}/{{name}}.stories.mdx",
         templateFile: "plop-templates/stories.hbs",
       },
       {
