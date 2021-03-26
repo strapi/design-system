@@ -1,0 +1,5 @@
+node_modules
+*.js
+src
+.DS_Store
+dist

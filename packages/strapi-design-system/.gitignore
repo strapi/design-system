@@ -1,4 +1,4 @@
-.env
-.vscode
 node_modules
+dist
+storybook-static
 .DS_Store
