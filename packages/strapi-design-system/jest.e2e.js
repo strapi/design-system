@@ -1,4 +1,5 @@
 module.exports = {
+  setupFilesAfterEnv: ['expect-playwright'],
   testRegex: 'src/.*\\.e2e\\.js$',
   preset: 'jest-playwright-preset',
   testEnvironmentOptions: {
