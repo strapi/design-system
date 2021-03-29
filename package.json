@@ -10,6 +10,7 @@
     "bootstrap": "lerna bootstrap",
     "generate": "plop",
     "lint": "lerna run lint --stream",
+    "lint-staged": "lerna run lint-staged --stream --",
     "test": "lerna run test --stream",
     "test:e2e": "lerna run test:e2e --stream",
     "test:e2e:ci": "lerna run test:e2e:ci",
@@ -17,8 +18,16 @@
     "analyze:bundle": "lerna run analyze:bundle --stream"
   },
   "devDependencies": {
+    "husky": "=4",
     "lerna": "^4.0.0",
-    "plop": "^2.7.4",
-    "webpack-bundle-analyzer": "^4.4.0"
+    "lint-staged": ">=10"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": "yarn lint-staged"
   }
 }
