@@ -29,7 +29,7 @@ if (process.env.BUNDLE_ANALYZE) {
 }
 
 module.exports = {
-  entry: entry,
+  entry,
   mode: 'production',
   output: {
     filename: '[name].js',
