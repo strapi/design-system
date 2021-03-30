@@ -15,12 +15,15 @@
     "test:e2e": "lerna run test:e2e --stream",
     "test:e2e:ci": "lerna run test:e2e:ci",
     "storybook": "lerna run storybook --stream",
-    "analyze:bundle": "lerna run analyze:bundle --stream"
+    "analyze:bundle": "lerna run analyze:bundle --stream",
+    "specify:sync": "specify sync",
+    "specify:pull": "specify pull"
   },
   "devDependencies": {
     "husky": "=4",
     "lerna": "^4.0.0",
-    "lint-staged": ">=10"
+    "lint-staged": ">=10",
+    "@specifyapp/cli": "^0.0.51"
   },
   "husky": {
     "hooks": {

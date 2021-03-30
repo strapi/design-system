@@ -139,7 +139,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   *:focus-visible {
-    box-shadow: 0px 0px 6px ${(props) => props.theme.color.primary500};
+    box-shadow: 0px 0px 6px ${(props) => props.theme.colors.primary500};
     // Windows High Contrast won't see the bow shadow but transparent will
     // be replaced by a color
     // See https://sarahmhigley.com/writing/whcm-quick-tips/ for more details
