@@ -37,7 +37,6 @@ Box.defaultProps = {
 };
 
 Box.propTypes = {
-  as: PropTypes.number,
   children: PropTypes.node.isRequired,
   background: PropTypes.string,
   color: PropTypes.string,
