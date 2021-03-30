@@ -1,0 +1,31 @@
+<!--- Button.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { withDesign } from 'storybook-addon-designs';
+import { Checkbox } from './Checkbox';
+
+<Meta
+  title="Checkbox"
+  component={ Checkbox }
+  decorators={[withDesign]}
+  parameters={ {
+    design: {
+      type: 'figma',
+      url: 'TODO: Fill the according figma file',
+    },
+  } }
+/>
+
+# Checkbox
+
+This is the doc of the `Checkbox` component
+
+## Checkbox
+
+Description...
+
+<Canvas>
+  <Story name="base">
+    <Checkbox />
+  </Story>
+</Canvas>
