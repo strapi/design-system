@@ -26,7 +26,7 @@
       "name": "Design Tokens",
       "path": "./packages/strapi-design-system/src/themes/tokens.js",
       "filter": {
-        "types": ["measurement", "color", "shadow", "textStyle"]
+        "types": ["color", "shadow"]
       },
       "parsers": [
         {
@@ -35,10 +35,8 @@
             "formatName": "camelCase",
             "formatTokens": {
               "colorFormat": "hex6",
-              "measurementFormat": "string",
               "fontSizeUnit": "px",
-              "shadowFormat": "string",
-              "textStyleFormat": "array"
+              "shadowFormat": "string"
             },
             "formatConfig": {
               "jssObjectName": "tokens",
