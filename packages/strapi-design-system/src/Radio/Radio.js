@@ -8,8 +8,8 @@ import { getRadioSize, getSelectedRadioSize, getSelectedRadioPosition } from './
 const RadioInput = styled.input`
   margin: 0;
   padding: 0;
-  background-color: ${({ theme }) => theme.color.neutral0};
-  border: 1px solid ${({ theme }) => theme.color.primary600};
+  background-color: ${({ theme }) => theme.colors.neutral0};
+  border: 1px solid ${({ theme }) => theme.colors.primary600};
   border-radius: 50%;
   height: ${getRadioSize};
   width: ${getRadioSize};
@@ -28,12 +28,12 @@ const RadioInput = styled.input`
   }
 
   &:checked:after {
-    background: ${({ theme }) => theme.color.primary600};
+    background: ${({ theme }) => theme.colors.primary600};
   }
 
   &:disabled {
-    border: 1px solid ${({ theme }) => theme.color.carbon300};
-    background: ${({ theme }) => theme.color.neutral200};
+    border: 1px solid ${({ theme }) => theme.colors.carbon300};
+    background: ${({ theme }) => theme.colors.neutral200};
   }
 `;
 
