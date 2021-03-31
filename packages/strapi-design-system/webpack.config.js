@@ -11,7 +11,7 @@ const fileNames = fs.readdirSync(path.resolve(__dirname, 'src'));
 const entry = fileNames
   .filter((name) => !excludedFolders.includes(name))
   .reduce((acc, curr) => {
-    if (curr.includes('.js')) {
+    if (curr.includes('.js') && !curr.includes('stories')) {
       acc[curr.replace('.js', '')] = path.resolve(__dirname, 'src');
     } else {
       // Folder resolution
@@ -20,6 +20,8 @@ const entry = fileNames
 
     return acc;
   }, {});
+
+console.log(entry);
 
 // Plugin section
 const analyzePlugins = [];
