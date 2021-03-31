@@ -23,7 +23,8 @@
     "husky": "=4",
     "lerna": "^4.0.0",
     "lint-staged": ">=10",
-    "@specifyapp/cli": "^0.0.51"
+    "@specifyapp/cli": "^0.0.51",
+    "plop": "^2.7.4"
   },
   "husky": {
     "hooks": {
