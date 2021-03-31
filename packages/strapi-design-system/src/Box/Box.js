@@ -1,7 +1,16 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-export const Box = styled.div`
+/**
+ * Prevents these attributes from being spread on the DOM node
+ */
+const transientProps = {
+  color: true,
+};
+
+export const Box = styled.div.withConfig({
+  shouldForwardProp: (prop, defPropValFN) => !transientProps[prop] && defPropValFN(prop),
+})`
   // Colors
   background: ${({ theme, background }) => theme.colors[background]};
   color: ${({ theme, color }) => theme.colors[color]};

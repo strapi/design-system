@@ -1,0 +1,71 @@
+<!--- Button.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { withDesign } from 'storybook-addon-designs';
+import { Grid } from './Grid';
+import { Area } from './Area';
+import { Box } from '../Box';
+
+<Meta
+  title="Grid"
+  component={Grid}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: 'figma',
+      url: 'TODO: Fill the according figma file',
+    },
+  }}
+/>
+
+# Grid
+
+This is the doc of the `Grid` component
+
+## Grid
+
+Description...
+
+<Canvas>
+  <Story name="base">
+    <Grid
+      areas={[
+        ['first', 'second', 'third'],
+        ['last', 'last', 'last'],
+      ]}
+      cols="1fr 1fr 1fr"
+      rows="1fr 1fr"
+      background="primary700"
+      gap={4}
+      margin={8}
+      padding={4}
+    >
+      <Area name="first" color="neutral0">
+        First
+      </Area>
+      <Area name="second" background="neutral100">
+        Second
+      </Area>
+      <Area name="third" background="neutral100">
+        Third
+      </Area>
+      <Area name="last" background="neutral100" color="primary700">
+        Last
+      </Area>
+    </Grid>
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="base grid">
+    <Grid cols="repeat(12, 1fr)" rows="70vh" gap={5} margin={10}>
+      {Array(12)
+        .fill(null)
+        .map((_, i) => (
+          <Box key={i} background="warning200">
+            {i + 1}
+          </Box>
+        ))}
+    </Grid>
+  </Story>
+</Canvas>
