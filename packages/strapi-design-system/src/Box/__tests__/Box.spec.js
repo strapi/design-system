@@ -35,7 +35,7 @@ describe('Box', () => {
     },
   );
 
-  it('matches snapshots', () => {
+  it('matches snapshot', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
         <Box
