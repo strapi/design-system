@@ -1,5 +1,5 @@
 export const getRadioSize = ({ size }) => {
-  if (size === 'S') {
+  if (size === 'M') {
     return '18px';
   }
 
@@ -7,7 +7,7 @@ export const getRadioSize = ({ size }) => {
 };
 
 export const getSelectedRadioSize = ({ size }) => {
-  if (size === 'S') {
+  if (size === 'M') {
     return '10px';
   }
 

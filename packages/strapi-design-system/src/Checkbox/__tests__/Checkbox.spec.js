@@ -1,17 +1,17 @@
 import * as React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { Checkbox } from '../Checkbox';
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
 
 describe('Checkbox', () => {
-  it('snapshots the component', () => {
+  it('snapshots when the value is undefined (should have name=default)', async () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
-        <Checkbox />
+        <Checkbox name="default" onChange={() => undefined} value={undefined} />
       </ThemeProvider>,
     );
 
-    expect(container.firstChild).toMatchInlineSnapshot(``);
+    await waitFor(() => expect(screen.getByRole('checkbox').getAttribute('name')).toBe('default'));
   });
 });
