@@ -5,7 +5,7 @@ import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
 
 describe('Button', () => {
-  it('match snapshots', () => {
+  it('matches snapshot', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
         <Button>Hello world</Button>

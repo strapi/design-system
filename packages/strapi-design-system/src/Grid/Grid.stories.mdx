@@ -1,0 +1,69 @@
+<!--- Grid.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { withDesign } from 'storybook-addon-designs';
+import { Grid } from './Grid';
+import { Box } from '../Box';
+
+<Meta
+  title="Grid"
+  component={Grid}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: 'figma',
+      url: 'TODO: Fill the according figma file',
+    },
+  }}
+/>
+
+# Grid
+
+This is the doc of the `Grid` component
+
+## Grid
+
+The component allows to create a Grid on the screen using the CSS grid feature. This component extends the `<Box />` one and can receive the same props.
+
+<Canvas>
+  <Story name="base">
+    <Grid
+      areas={['first second third', 'last  last last']}
+      cols="1fr 1fr 1fr"
+      rows="1fr 1fr"
+      background="primary700"
+      gap={4}
+      margin={8}
+      padding={4}
+    >
+      <Box area="first" color="neutral0">
+        First
+      </Box>
+      <Box area="second" background="neutral100">
+        Second
+      </Box>
+      <Box area="third" background="neutral100">
+        Third
+      </Box>
+      <Box area="last" background="neutral100" color="primary700">
+        Last
+      </Box>
+    </Grid>
+  </Story>
+</Canvas>
+
+The following is a representation of the 12 columns Grid presented in the documentation.
+
+<Canvas>
+  <Story name="base grid">
+    <Grid cols="repeat(12, 1fr)" rows="70vh" gap={5} margin={10}>
+      {Array(12)
+        .fill(null)
+        .map((_, i) => (
+          <Box key={i} background="warning200">
+            {i + 1}
+          </Box>
+        ))}
+    </Grid>
+  </Story>
+</Canvas>
