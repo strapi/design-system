@@ -3,7 +3,7 @@ import styled from 'styled-components';
 // TODO: modify when necessary
 const fontFamily = `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;`;
 
-const handleColor = ({ theme, color }) => theme.colors[color];
+const handleColor = ({ theme, textColor }) => theme.colors[textColor];
 
 export const Header1 = styled.h1`
   font-family: ${fontFamily};

@@ -28,52 +28,52 @@ describe('Text', () => {
     expect(container.firstChild).toMatchInlineSnapshot(`
       <div>
         <h2
-          class="sc-bdfBwQ bJSPzh"
+          class="sc-bdfBwQ kFBXXw"
         >
           Header 1
         </h2>
         <h2
-          class="sc-gsTCUz egfSDB"
+          class="sc-gsTCUz kIKlxs"
         >
           Header 2
         </h2>
         <h3
-          class="sc-dlfnbm htIfAV"
+          class="sc-dlfnbm idYOgA"
         >
           Header 3
         </h3>
         <p
-          class="sc-hKgILt frQRKo"
+          class="sc-hKgILt dbLljx"
         >
           Subtitle
         </p>
         <p
-          class="sc-eCssSg eVkiln"
+          class="sc-eCssSg euVlJS"
         >
           Body
         </p>
         <p
-          class="sc-jSgupP hYIGFL"
+          class="sc-jSgupP dxdYde"
         >
           Body highlight
         </p>
         <p
-          class="sc-gKsewC keEVsD"
+          class="sc-gKsewC fahbEC"
         >
           Button text
         </p>
         <p
-          class="sc-iBPRYJ fEoQAx"
+          class="sc-iBPRYJ eyEpFY"
         >
           Button text S
         </p>
         <p
-          class="sc-fubCfw hXzLAV"
+          class="sc-fubCfw hVLfHs"
         >
           Text S
         </p>
         <p
-          class="sc-pFZIQ fartGS"
+          class="sc-pFZIQ hgofxX"
         >
           Table label
         </p>

@@ -26,10 +26,10 @@ const variants = {
   'table-label': TableLabel,
 };
 
-export const Text = React.forwardRef(({ variant, ...props }, ref) => {
+export const Text = React.forwardRef(({ variant, color, ...props }, ref) => {
   const Component = variants[variant];
 
-  return <Component ref={ref} {...props} />;
+  return <Component ref={ref} textColor={color} {...props} />;
 });
 
 Text.displayName = 'Text';
