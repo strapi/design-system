@@ -53,7 +53,7 @@ describe('Text', () => {
           Body
         </p>
         <p
-          class="sc-jSgupP dxdYde"
+          class="sc-eCssSg sc-jSgupP euVlJS dFwVZ"
         >
           Body highlight
         </p>
@@ -63,12 +63,12 @@ describe('Text', () => {
           Button text
         </p>
         <p
-          class="sc-iBPRYJ eyEpFY"
+          class="sc-iBPRYJ sc-fubCfw jQywVJ guofsF"
         >
           Button text S
         </p>
         <p
-          class="sc-fubCfw hVLfHs"
+          class="sc-iBPRYJ jQywVJ"
         >
           Text S
         </p>

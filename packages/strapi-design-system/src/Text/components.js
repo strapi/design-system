@@ -45,12 +45,8 @@ export const Body = styled.p`
   color: ${handleColor};
 `;
 
-export const BodyHighlight = styled.p`
-  font-family: ${fontFamily};
+export const BodyHighlight = styled(Body)`
   font-weight: 500;
-  font-size: ${14 / 16}rem;
-  line-height: 1.43;
-  color: ${handleColor};
 `;
 
 export const ButtonText = styled.p`
@@ -61,20 +57,16 @@ export const ButtonText = styled.p`
   color: ${handleColor};
 `;
 
-export const SmallButtonText = styled.p`
-  font-family: ${fontFamily};
-  font-weight: 500;
-  font-size: ${12 / 16}rem;
-  line-height: 1.33;
-  color: ${handleColor};
-`;
-
 export const SmallText = styled.p`
   font-family: ${fontFamily};
   font-weight: 400;
   font-size: ${12 / 16}rem;
   line-height: 1.33;
   color: ${handleColor};
+`;
+
+export const SmallButtonText = styled(SmallText)`
+  font-weight: 500;
 `;
 
 export const TableLabel = styled.p`
