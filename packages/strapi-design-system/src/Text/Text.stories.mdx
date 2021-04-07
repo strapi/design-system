@@ -1,0 +1,42 @@
+<!--- Text.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { withDesign } from 'storybook-addon-designs';
+import { Text } from './Text';
+
+<Meta
+  title="Text"
+  component={Text}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: 'figma',
+      url: 'TODO: Fill the according figma file',
+    },
+  }}
+/>
+
+# Text
+
+This is the doc of the `Text` component
+
+## Text
+
+The main way to display text content on the screen. Manages heading to paragraphs using "variants" and "as" props.
+
+<Canvas>
+  <Story name="base">
+    <Text variant="header-1" as="h2" color="primary500">
+      Header 1
+    </Text>
+    <Text variant="header-2">Header 2</Text>
+    <Text variant="header-3">Header 3</Text>
+    <Text variant="subtitle">Subtitle</Text>
+    <Text variant="body">Body</Text>
+    <Text variant="body-highlight">Body highlight</Text>
+    <Text variant="button-text">Button text</Text>
+    <Text variant="button-text-s">Button text S</Text>
+    <Text variant="text-s">Text S</Text>
+    <Text variant="table-label">Table label</Text>
+  </Story>
+</Canvas>
