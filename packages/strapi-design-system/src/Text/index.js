@@ -40,7 +40,7 @@ const textBodyStyles = {
   },
 };
 
-export const TextBody = styled.p`
+export const Text = styled.p`
   font-family: ${fontFamily};
   font-weight: ${({ highlighted }) => (highlighted ? 500 : 400)};
   font-size: ${({ small }) => textBodyStyles[small ? 'S' : 'M'].fontSize};
@@ -48,12 +48,12 @@ export const TextBody = styled.p`
   color: ${handleColor};
 `;
 
-export const Subtitle = styled(TextBody)`
+export const Subtitle = styled(Text)`
   font-size: 1rem;
   line-height: 1.5;
 `;
 
-export const TextButton = styled(TextBody)`
+export const TextButton = styled(Text)`
   font-weight: 600;
   line-height: 1.14;
 `;

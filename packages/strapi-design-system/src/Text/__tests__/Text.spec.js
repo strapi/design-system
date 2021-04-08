@@ -2,7 +2,7 @@ import * as React from 'react';
 import { render } from '@testing-library/react';
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
-import { H1, H2, H3, TextBody, TextButton, Subtitle } from '../';
+import { H1, H2, H3, Text, TextButton, Subtitle } from '../';
 
 describe('Text', () => {
   it('snapshots the component', () => {
@@ -12,12 +12,12 @@ describe('Text', () => {
           <H1>First title</H1>
           <H2>Second title</H2>
           <H3>third title</H3>
-          <TextBody>Text body</TextBody>
-          <TextBody highlighted={true}>Text body highlighted</TextBody>
-          <TextBody small={true}>Text body small</TextBody>
-          <TextBody small={true} highlighted={true}>
+          <Text>Text body</Text>
+          <Text highlighted={true}>Text body highlighted</Text>
+          <Text small={true}>Text body small</Text>
+          <Text small={true} highlighted={true}>
             Small button text
-          </TextBody>
+          </Text>
           <TextButton>Text button</TextButton>
           <Subtitle>Subtitle</Subtitle>
         </div>

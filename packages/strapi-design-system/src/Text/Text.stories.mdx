@@ -2,7 +2,7 @@
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { withDesign } from 'storybook-addon-designs';
-import { H1, H2, H3, TextBody, TextButton, Subtitle } from './';
+import { H1, H2, H3, Text, TextButton, Subtitle } from './';
 
 <Meta
   title="Text"
@@ -31,12 +31,12 @@ The main way to display text content on the screen
     </H1>
     <H2>Second title</H2>
     <H3>third title</H3>
-    <TextBody>Text body</TextBody>
-    <TextBody highlighted={true}>Text body highlighted</TextBody>
-    <TextBody small={true}>Text body small</TextBody>
-    <TextBody small={true} highlighted={true}>
+    <Text>Text body</Text>
+    <Text highlighted={true}>Text body highlighted</Text>
+    <Text small={true}>Text body small</Text>
+    <Text small={true} highlighted={true}>
       Small button text
-    </TextBody>
+    </Text>
     <TextButton>Text button</TextButton>
     <Subtitle>Subtitle</Subtitle>
   </Story>
