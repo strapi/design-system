@@ -2,7 +2,7 @@ import * as React from 'react';
 import { render } from '@testing-library/react';
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
-import { H1, H2, H3, TextBody, TextButton, Subtitle } from '../components';
+import { H1, H2, H3, TextBody, TextButton, Subtitle } from '../';
 
 describe('Text', () => {
   it('snapshots the component', () => {
