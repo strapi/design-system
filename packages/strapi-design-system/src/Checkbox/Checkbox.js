@@ -97,6 +97,7 @@ export const Checkbox = forwardRef(({ indeterminate, size, name, value, onChange
       aria-checked={ariaChecked}
       type="checkbox"
       ref={innerRef}
+      name={name}
       {...inputProps}
     />
   );

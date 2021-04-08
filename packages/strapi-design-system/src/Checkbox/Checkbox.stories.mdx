@@ -29,7 +29,12 @@ Description...
   <Story name="default">
     {() => {
       const [val, setValue] = useState(false);
-      return <Checkbox name="default" onChange={({ target: { value } }) => setValue(value)} value={val} />;
+      return (
+        <>
+          <label htmlFor="default">Parent</label>
+          <Checkbox id="default" name="default" onChange={({ target: { value } }) => setValue(value)} value={val} />
+        </>
+      );
     }}
   </Story>
 </Canvas>
@@ -41,7 +46,7 @@ Description...
 <Canvas>
   <Story name="indeterminate">
     {() => {
-      const [checkedItems, setCheckedItems] = React.useState([false, true]);
+      const [checkedItems, setCheckedItems] = React.useState([true, false]);
       const allChecked = checkedItems.every(Boolean);
       const isIndeterminate = checkedItems.some(Boolean) && !allChecked;
       return (

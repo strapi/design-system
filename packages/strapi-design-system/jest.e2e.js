@@ -6,7 +6,7 @@ module.exports = {
     'jest-playwright': {
       browsers: ['chromium', 'firefox', 'webkit'],
       launchOptions: {
-        // headless: true,
+        // headless: false,
         // devtools: true,
       },
     },
