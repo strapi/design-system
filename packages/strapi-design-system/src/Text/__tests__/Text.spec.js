@@ -37,7 +37,7 @@ describe('Text', () => {
           Second title
         </h2>
         <h3
-          class="sc-dlfnbm cxFMXI"
+          class="sc-dlfnbm fiMfsD"
         >
           third title
         </h3>
