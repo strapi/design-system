@@ -5,7 +5,7 @@ const fontFamily = `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxyge
 
 const handleColor = ({ theme, textColor }) => theme.colors[textColor];
 
-export const Header1 = styled.h1`
+export const H1 = styled.h1`
   font-family: ${fontFamily};
   font-weight: 600;
   font-size: ${32 / 16}rem;
@@ -13,7 +13,7 @@ export const Header1 = styled.h1`
   color: ${handleColor};
 `;
 
-export const Header2 = styled.h2`
+export const H2 = styled.h2`
   font-family: ${fontFamily};
   font-weight: 600;
   font-size: ${18 / 16}rem;
@@ -21,7 +21,7 @@ export const Header2 = styled.h2`
   color: ${handleColor};
 `;
 
-export const Header3 = styled.h3`
+export const H3 = styled.h3`
   font-family: ${fontFamily};
   font-weight: 500;
   font-size: 1rem;
@@ -29,51 +29,38 @@ export const Header3 = styled.h3`
   color: ${handleColor};
 `;
 
-export const Subtitle = styled.p`
+const textBodyStyles = {
+  S: {
+    fontSize: `${12 / 16}rem`,
+    lineHeight: 1.33,
+  },
+  M: {
+    fontSize: `${14 / 16}rem`,
+    lineHeight: 1.43,
+  },
+};
+
+export const TextBody = styled.p`
   font-family: ${fontFamily};
-  font-weight: 400;
+  font-weight: ${({ highlighted }) => (highlighted ? 500 : 400)};
+  font-size: ${({ small }) => textBodyStyles[small ? 'S' : 'M'].fontSize};
+  line-height: ${({ small }) => textBodyStyles[small ? 'S' : 'M'].lineHeight};
+  color: ${handleColor};
+`;
+
+export const Subtitle = styled(TextBody)`
   font-size: 1rem;
   line-height: 1.5;
-  color: ${handleColor};
 `;
 
-export const Body = styled.p`
-  font-family: ${fontFamily};
-  font-weight: 400;
-  font-size: ${14 / 16}rem;
-  line-height: 1.43;
-  color: ${handleColor};
-`;
-
-export const BodyHighlight = styled(Body)`
-  font-weight: 500;
-`;
-
-export const ButtonText = styled.p`
-  font-family: ${fontFamily};
+export const TextButton = styled(TextBody)`
   font-weight: 600;
-  font-size: ${14 / 16}rem;
   line-height: 1.14;
-  color: ${handleColor};
 `;
 
-export const SmallText = styled.p`
-  font-family: ${fontFamily};
-  font-weight: 400;
-  font-size: ${12 / 16}rem;
-  line-height: 1.33;
-  color: ${handleColor};
-`;
-
-export const SmallButtonText = styled(SmallText)`
-  font-weight: 500;
-`;
-
-export const TableLabel = styled.p`
-  font-family: ${fontFamily};
+export const TableLabel = styled(TextButton)`
   font-weight: 600;
   font-size: ${11 / 16}rem;
   line-height: 1.45;
   text-transform: uppercase;
-  color: ${handleColor};
 `;

@@ -2,11 +2,11 @@
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { withDesign } from 'storybook-addon-designs';
-import { Text } from './Text';
+import { H1, H2, H3, TextBody, TextButton, Subtitle } from './components';
 
 <Meta
   title="Text"
-  component={Text}
+  component={H1}
   decorators={[withDesign]}
   parameters={{
     design: {
@@ -18,25 +18,24 @@ import { Text } from './Text';
 
 # Text
 
-This is the doc of the `Text` component
+This is the doc of the different Text / Typography components.
 
 ## Text
 
-The main way to display text content on the screen. Manages heading to paragraphs using "variants" and "as" props.
+The main way to display text content on the screen
 
 <Canvas>
   <Story name="base">
-    <Text variant="header-1" as="h2" color="primary500">
-      Header 1
-    </Text>
-    <Text variant="header-2">Header 2</Text>
-    <Text variant="header-3">Header 3</Text>
-    <Text variant="subtitle">Subtitle</Text>
-    <Text variant="body">Body</Text>
-    <Text variant="body-highlight">Body highlight</Text>
-    <Text variant="button-text">Button text</Text>
-    <Text variant="button-text-s">Button text S</Text>
-    <Text variant="text-s">Text S</Text>
-    <Text variant="table-label">Table label</Text>
+    <H1 as="h2">First title</H1>
+    <H2>Second title</H2>
+    <H3>third title</H3>
+    <TextBody>Text body</TextBody>
+    <TextBody highlighted={true}>Text body highlighted</TextBody>
+    <TextBody small={true}>Text body small</TextBody>
+    <TextBody small={true} highlighted={true}>
+      Small button text
+    </TextBody>
+    <TextButton>Text button</TextButton>
+    <Subtitle>Subtitle</Subtitle>
   </Story>
 </Canvas>
