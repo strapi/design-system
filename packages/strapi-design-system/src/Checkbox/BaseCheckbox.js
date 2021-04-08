@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, forwardRef, useImperativeHandle, useMemo } from 'react';
+import React, { useEffect, useRef, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -66,8 +66,8 @@ const CheckboxInput = styled.input`
   }
 `;
 
-export const BaseCheckbox = forwardRef(({ indeterminate, size, name, value, onChange, ...inputProps }, ref) => {
-  const checkboxRef = useRef(ref);
+export const BaseCheckbox = ({ indeterminate, size, name, value, onValueChange, ...inputProps }) => {
+  const checkboxRef = useRef();
 
   useEffect(() => {
     if (checkboxRef.current && indeterminate) {
@@ -77,34 +77,29 @@ export const BaseCheckbox = forwardRef(({ indeterminate, size, name, value, onCh
     }
   }, [indeterminate]);
 
-  const handleChange = () => {
-    const target = {
-      name,
-      value: !value,
-    };
-
-    onChange({ target });
+  const handleValueChange = () => {
+    onValueChange(!value);
   };
 
   return (
     <CheckboxInput
       size={size}
       checked={value}
-      onChange={handleChange}
+      onChange={handleValueChange}
       type="checkbox"
       ref={checkboxRef}
       name={name}
       {...inputProps}
     />
   );
-});
+};
 
 BaseCheckbox.displayName = 'BaseCheckbox';
 
 BaseCheckbox.defaultProps = {
   indeterminate: false,
   name: null,
-  onChange: () => {},
+  onValueChange: () => {},
   size: 'M',
   value: false,
 };
@@ -112,7 +107,7 @@ BaseCheckbox.defaultProps = {
 BaseCheckbox.propTypes = {
   indeterminate: PropTypes.bool,
   name: PropTypes.string,
-  onChange: PropTypes.func,
+  onValueChange: PropTypes.func,
   size: PropTypes.oneOf(['M', 'L']),
   value: PropTypes.bool,
 };

@@ -1,16 +1,16 @@
 import * as React from 'react';
 import { render, waitFor, screen } from '@testing-library/react';
-import { Checkbox } from '../Checkbox';
+import { BaseCheckbox } from '../BaseCheckbox';
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
 
-describe('Checkbox', () => {
+describe('BaseCheckbox', () => {
   it('snapshots when the value is undefined (should have name=default)', async () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
         <div>
           <label htmlFor="default">Parent</label>
-          <Checkbox name="default" onChange={() => undefined} value={undefined} />
+          <BaseCheckbox name="default" onValueChange={() => undefined} value={undefined} />
         </div>
       </ThemeProvider>,
     );
@@ -25,7 +25,6 @@ describe('Checkbox', () => {
           Parent
         </label>
         <input
-          aria-checked="false"
           class="sc-bdfBwQ bkarNm"
           name="default"
           type="checkbox"
@@ -39,7 +38,7 @@ describe('Checkbox', () => {
       <ThemeProvider theme={lightTheme}>
         <div>
           <label htmlFor="default-true">Parent</label>
-          <Checkbox name="default-true" onChange={() => undefined} value={true} />
+          <BaseCheckbox name="default-true" onValueChange={() => undefined} value={true} />
         </div>
       </ThemeProvider>,
     );
@@ -52,7 +51,6 @@ describe('Checkbox', () => {
           Parent
         </label>
         <input
-          aria-checked="true"
           checked=""
           class="sc-bdfBwQ bkarNm"
           name="default-true"

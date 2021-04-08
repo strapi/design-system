@@ -32,7 +32,7 @@ Description...
       return (
         <>
           <label htmlFor="default">Parent</label>
-          <BaseCheckbox id="default" name="default" onChange={({ target: { value } }) => setValue(value)} value={val} />
+          <BaseCheckbox id="default" name="default" onValueChange={(value) => setValue(value)} value={val} />
         </>
       );
     }}
@@ -56,7 +56,7 @@ Description...
               id="parent"
               name="parent"
               indeterminate={isIndeterminate}
-              onChange={(e) => setCheckedItems([e.target.value, e.target.value])}
+              onValueChange={(value) => setCheckedItems([value, value])}
               value={allChecked}
             />
             <label htmlFor="parent">Parent</label>
@@ -67,7 +67,7 @@ Description...
                 <BaseCheckbox
                   id="child1"
                   name="child1"
-                  onChange={(e) => setCheckedItems([e.target.value, checkedItems[1]])}
+                  onValueChange={(value) => setCheckedItems([value, checkedItems[1]])}
                   value={checkedItems[0]}
                 />
                 <label htmlFor="child1">Child 1</label>
@@ -76,7 +76,7 @@ Description...
                 <BaseCheckbox
                   id="child2"
                   name="child2"
-                  onChange={(e) => setCheckedItems([checkedItems[0], e.target.value])}
+                  onValueChange={(value) => setCheckedItems([checkedItems[0], value])}
                   value={checkedItems[1]}
                 />
                 <label htmlFor="child2">Child 2</label>
@@ -115,7 +115,7 @@ Description...
   <Story name="LSize">
     {() => {
       const [val, setValue] = useState(false);
-      return <BaseCheckbox name="LSize" size="L" onChange={({ target: { value } }) => setValue(value)} value={val} />;
+      return <BaseCheckbox name="LSize" size="L" onValueChange={(value) => setValue(value)} value={val} />;
     }}
   </Story>
 </Canvas>
