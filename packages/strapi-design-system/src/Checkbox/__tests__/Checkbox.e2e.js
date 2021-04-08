@@ -11,16 +11,20 @@ describe('Checkbox', () => {
     await checkA11y(page);
   });
 
-  it('moves to the next element when pressing tab and select when pressing the spacebar', async () => {
-    await page.focus('text="Child 1"');
-    await page.keyboard.press('Tab');
-    await page.keyboard.press(' ');
+  it.jestPlaywrightSkip(
+    { browsers: ['webkit'] },
+    'moves to the next element when pressing tab and select when pressing the spacebar',
+    async () => {
+      await page.focus('text="Child 1"');
+      await page.keyboard.press('Tab');
+      await page.keyboard.press(' ');
 
-    const secondBox = await page.$('#child2');
-    expect(await secondBox?.isChecked()).toBe(true);
-  });
+      const secondBox = await page.$('#child2');
+      expect(await secondBox?.isChecked()).toBe(true);
+    },
+  );
 
-  it('select the parent element when all child are selected', async () => {
+  it.jestPlaywrightSkip({ browsers: ['webkit'] }, 'select the parent element when all child are selected', async () => {
     await page.focus('text="Child 1"');
     await page.keyboard.press('Tab');
     await page.keyboard.press(' ');
