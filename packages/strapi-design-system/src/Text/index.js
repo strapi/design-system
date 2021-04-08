@@ -29,7 +29,7 @@ export const H3 = styled.h3`
   color: ${handleColor};
 `;
 
-const textBodyStyles = {
+const textStyles = {
   S: {
     fontSize: `${12 / 16}rem`,
     lineHeight: 1.33,
@@ -43,8 +43,8 @@ const textBodyStyles = {
 export const Text = styled.p`
   font-family: ${fontFamily};
   font-weight: ${({ highlighted }) => (highlighted ? 500 : 400)};
-  font-size: ${({ small }) => textBodyStyles[small ? 'S' : 'M'].fontSize};
-  line-height: ${({ small }) => textBodyStyles[small ? 'S' : 'M'].lineHeight};
+  font-size: ${({ small }) => textStyles[small ? 'S' : 'M'].fontSize};
+  line-height: ${({ small }) => textStyles[small ? 'S' : 'M'].lineHeight};
   color: ${handleColor};
 `;
 
