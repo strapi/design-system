@@ -66,17 +66,14 @@ const CheckboxInput = styled.input`
   }
 `;
 
-export const Checkbox = forwardRef(({ indeterminate, size, name, value, onChange, ...inputProps }, ref) => {
-  const innerRef = useRef(null);
-  const ariaChecked = indeterminate ? 'mixed' : value;
-
-  useImperativeHandle(ref, () => innerRef.current, [innerRef]);
+export const BaseCheckbox = forwardRef(({ indeterminate, size, name, value, onChange, ...inputProps }, ref) => {
+  const checkboxRef = useRef(ref);
 
   useEffect(() => {
-    if (innerRef.current && indeterminate) {
-      innerRef.current.indeterminate = indeterminate;
+    if (checkboxRef.current && indeterminate) {
+      checkboxRef.current.indeterminate = indeterminate;
     } else {
-      innerRef.current.indeterminate = false;
+      checkboxRef.current.indeterminate = false;
     }
   }, [indeterminate]);
 
@@ -94,18 +91,17 @@ export const Checkbox = forwardRef(({ indeterminate, size, name, value, onChange
       size={size}
       checked={value}
       onChange={handleChange}
-      aria-checked={ariaChecked}
       type="checkbox"
-      ref={innerRef}
+      ref={checkboxRef}
       name={name}
       {...inputProps}
     />
   );
 });
 
-Checkbox.displayName = Checkbox;
+BaseCheckbox.displayName = 'BaseCheckbox';
 
-Checkbox.defaultProps = {
+BaseCheckbox.defaultProps = {
   indeterminate: false,
   name: null,
   onChange: () => {},
@@ -113,7 +109,7 @@ Checkbox.defaultProps = {
   value: false,
 };
 
-Checkbox.propTypes = {
+BaseCheckbox.propTypes = {
   indeterminate: PropTypes.bool,
   name: PropTypes.string,
   onChange: PropTypes.func,
