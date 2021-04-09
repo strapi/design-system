@@ -1,6 +1,7 @@
 import { useRef, useLayoutEffect } from 'react';
+import { positionTooltip } from '../utils/positionTooltip';
 
-export const useTooltipLayout = (visible) => {
+export const useTooltipLayout = (visible, position) => {
   const tooltipWrapperRef = useRef(null);
   const toggleSourceRef = useRef(null);
 
@@ -9,15 +10,10 @@ export const useTooltipLayout = (visible) => {
       const tooltip = tooltipWrapperRef.current;
       const toggleSource = toggleSourceRef.current;
 
-      const tooltipRect = tooltip.getBoundingClientRect();
-      const toggleSourceRect = toggleSource.getBoundingClientRect();
+      const tooltipPosition = positionTooltip(tooltip, toggleSource, position);
 
-      const widthDifference = (tooltipRect.width - toggleSourceRect.width) / 2;
-      const nextLeft = toggleSourceRect.left - widthDifference;
-      const nextTop = toggleSourceRect.top - tooltipRect.height - 8 + window.pageYOffset;
-
-      tooltip.style.left = `${nextLeft}px`;
-      tooltip.style.top = `${nextTop}px`;
+      tooltip.style.left = `${tooltipPosition.left}px`;
+      tooltip.style.top = `${tooltipPosition.top}px`;
     }
   }, [visible]);
 

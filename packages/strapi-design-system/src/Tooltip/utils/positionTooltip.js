@@ -1,4 +1,13 @@
-const positionBottom = (tooltipRect, toggleSourceRect) => {};
+const positionBottom = (tooltipRect, toggleSourceRect) => {
+  const widthDifference = (tooltipRect.width - toggleSourceRect.width) / 2;
+  const left = toggleSourceRect.left - widthDifference;
+  const top = toggleSourceRect.top + toggleSourceRect.height + SPACE_BETWEEN + window.pageYOffset;
+
+  return {
+    left,
+    top,
+  };
+};
 const positionRight = (tooltipRect, toggleSourceRect) => {};
 const positionLeft = (tooltipRect, toggleSourceRect) => {};
 const positionTop = (tooltipRect, toggleSourceRect) => {
