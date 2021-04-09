@@ -117,25 +117,25 @@ describe('Grid', () => {
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
-          class="sc-bdfBwQ sc-gsTCUz dIcVYS iDxAri"
+          class="sc-bdfBwQ sc-gsTCUz kaABpf iDxAri"
         >
           <div
-            class="sc-bdfBwQ cZGZsY"
+            class="sc-bdfBwQ dQZcTl"
           >
             First
           </div>
           <div
-            class="sc-bdfBwQ rjBWt"
+            class="sc-bdfBwQ lccTfY"
           >
             Second
           </div>
           <div
-            class="sc-bdfBwQ CyPsy"
+            class="sc-bdfBwQ bzcVvH"
           >
             Third
           </div>
           <div
-            class="sc-bdfBwQ eFnYiy"
+            class="sc-bdfBwQ jMDpNb"
           >
             Last
           </div>
