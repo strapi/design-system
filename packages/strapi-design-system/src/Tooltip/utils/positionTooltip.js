@@ -1,3 +1,5 @@
+const SPACE_BETWEEN = 8;
+
 const positionBottom = (tooltipRect, toggleSourceRect) => {
   const widthDifference = (tooltipRect.width - toggleSourceRect.width) / 2;
   const left = toggleSourceRect.left - widthDifference;
@@ -35,8 +37,6 @@ const positionTop = (tooltipRect, toggleSourceRect) => {
     top,
   };
 };
-
-const SPACE_BETWEEN = 8;
 
 export const positionTooltip = (tooltipNode, toggleSourceNode, position) => {
   const tooltipRect = tooltipNode.getBoundingClientRect();
