@@ -1,0 +1,33 @@
+<!--- Portal.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { withDesign } from 'storybook-addon-designs';
+import { Portal } from './Portal';
+
+<Meta
+  title="Portal"
+  component={Portal}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: 'figma',
+      url: 'TODO: Fill the according figma file',
+    },
+  }}
+/>
+
+# Portal
+
+This is the doc of the `Portal` component
+
+## Portal
+
+Creates a portal using a Declarative API
+
+<Canvas>
+  <Story name="base">
+    <Portal>
+      <aside>This is outside the root react app</aside>
+    </Portal>
+  </Story>
+</Canvas>
