@@ -48,6 +48,14 @@ module.exports = {
           },
         },
       },
+      {
+        test: /\.(png|jpg|svg)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+          },
+        ],
+      },
     ],
   },
   plugins: [new CleanWebpackPlugin()].concat(analyzePlugins),

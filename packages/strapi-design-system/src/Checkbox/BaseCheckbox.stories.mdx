@@ -1,0 +1,121 @@
+<!--- Button.stories.mdx --->
+
+import { useState } from 'react';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { withDesign } from 'storybook-addon-designs';
+import { BaseCheckbox } from './BaseCheckbox';
+
+<Meta
+  title="BaseCheckbox"
+  component={BaseCheckbox}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/PICiE8O4NLrHO1lhJftLdE/Design-System-%E2%9C%85?node-id=815%3A800',
+    },
+  }}
+/>
+
+# BaseCheckbox
+
+This is the doc of the `BaseCheckbox` component
+
+## Default
+
+Description...
+
+<Canvas>
+  <Story name="default">
+    {() => {
+      const [val, setValue] = useState(false);
+      return (
+        <>
+          <label htmlFor="default">Parent</label>
+          <BaseCheckbox id="default" name="default" onValueChange={(value) => setValue(value)} value={val} />
+        </>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Indeterminate
+
+Description...
+
+<Canvas>
+  <Story name="indeterminate">
+    {() => {
+      const [checkedItems, setCheckedItems] = React.useState([true, false]);
+      const allChecked = checkedItems.every(Boolean);
+      const isIndeterminate = checkedItems.some(Boolean) && !allChecked;
+      return (
+        <ul>
+          <li>
+            <BaseCheckbox
+              id="parent"
+              name="parent"
+              indeterminate={isIndeterminate}
+              onValueChange={(value) => setCheckedItems([value, value])}
+              value={allChecked}
+            />
+            <label htmlFor="parent">Parent</label>
+          </li>
+          <li>
+            <ul>
+              <li>
+                <BaseCheckbox
+                  id="child1"
+                  name="child1"
+                  onValueChange={(value) => setCheckedItems([value, checkedItems[1]])}
+                  value={checkedItems[0]}
+                />
+                <label htmlFor="child1">Child 1</label>
+              </li>
+              <li>
+                <BaseCheckbox
+                  id="child2"
+                  name="child2"
+                  onValueChange={(value) => setCheckedItems([checkedItems[0], value])}
+                  value={checkedItems[1]}
+                />
+                <label htmlFor="child2">Child 2</label>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Disabled
+
+Description...
+
+<Canvas>
+  <Story name="disabled">
+    {() => {
+      return (
+        <>
+          <BaseCheckbox name="disabled-unchecked" disabled />
+          <BaseCheckbox name="disabled-indeterminate" disabled indeterminate />
+          <BaseCheckbox name="disabled-checked" disabled value={true} />
+        </>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## LSize
+
+Description...
+
+<Canvas>
+  <Story name="LSize">
+    {() => {
+      const [val, setValue] = useState(false);
+      return <BaseCheckbox name="LSize" size="L" onValueChange={(value) => setValue(value)} value={val} />;
+    }}
+  </Story>
+</Canvas>
