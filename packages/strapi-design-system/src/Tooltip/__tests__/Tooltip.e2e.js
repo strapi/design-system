@@ -13,7 +13,7 @@ describe('Tooltip', () => {
 
   it('shows the tooltip when focusing the text content', async () => {
     await page.focus('text="Show tooltip"');
-    const isVisible = await page.isVisible('text="Content of the tooltip fefe"');
+    const isVisible = await page.isVisible('text="Content of the tooltip"');
 
     expect(isVisible).toBe(true);
   });
