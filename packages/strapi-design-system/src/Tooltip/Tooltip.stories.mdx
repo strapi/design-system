@@ -3,6 +3,8 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { withDesign } from 'storybook-addon-designs';
 import { Tooltip } from './Tooltip';
+import { Box } from '../Box';
+import { Grid } from '../Grid';
 
 <Meta
   title="Tooltip"
@@ -87,5 +89,57 @@ Description...
         sunt in culpa qui officia deserunt mollit anim id est laborum.
       </p>
     </div>
+  </Story>
+  <Story name="grid">
+    <p>
+      An infinite amount of content to place correctly the tooltip. Lorem ipsum dolor sit amet, consectetur adipiscing
+      elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+      exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+      voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+      in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+    <p>
+      An infinite amount of content to place correctly the tooltip. Lorem ipsum dolor sit amet, consectetur adipiscing
+      elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+      exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+      voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+      in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+    <Grid
+      areas={['first second', 'third fourth']}
+      cols="1fr 1fr"
+      rows="1fr 1fr"
+      gap={4}
+      padding={4}
+      style={{ marginTop: '200px' }}
+    >
+      <Box area="first">
+        <Tooltip content="First content">
+          <button>First</button>
+        </Tooltip>
+      </Box>
+      <Box area="second">
+        <Tooltip content="Second content">
+          <button>Second</button>
+        </Tooltip>
+      </Box>
+      <Box area="third">
+        <Tooltip content="Third content">
+          <button>Third</button>
+        </Tooltip>
+      </Box>
+      <Box area="fourth">
+        <Tooltip content="Fourth content">
+          <button>A longer CTA than the content</button>
+        </Tooltip>
+      </Box>
+    </Grid>
+    <p>
+      An infinite amount of content to place correctly the tooltip. Lorem ipsum dolor sit amet, consectetur adipiscing
+      elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+      exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+      voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+      in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
   </Story>
 </Canvas>
