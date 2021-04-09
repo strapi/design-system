@@ -74,6 +74,7 @@ describe('Tooltip', () => {
             class="sc-bdfBwQ sc-fubCfw bLVzZs dfOJIk"
             id="tooltip-123"
             role="tooltip"
+            style="left: 0px; top: -8px;"
           >
             <p
               class="sc-eCssSg cOhdbs"
