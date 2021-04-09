@@ -26,4 +26,16 @@ describe('positionTooltip', () => {
 
     expect(position).toEqual({ left: 470, top: 1138 });
   });
+
+  it('positions the tooltip on the left of the toggle source', () => {
+    const position = positionTooltip(tooltipNode, toggleSourceNode, 'left');
+
+    expect(position).toEqual({ left: 332, top: 1095 });
+  });
+
+  it('positions the tooltip on the right of the toggle source', () => {
+    const position = positionTooltip(tooltipNode, toggleSourceNode, 'right');
+
+    expect(position).toEqual({ left: 608, top: 1095 });
+  });
 });
