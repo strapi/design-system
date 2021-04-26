@@ -27,5 +27,5 @@ export const Radio = ({ value, id, children }) => {
 Radio.propTypes = {
   value: PropTypes.any.isRequired,
   id: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.string.isRequired,
 };
