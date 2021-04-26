@@ -24,6 +24,9 @@ export const Box = styled.div.withConfig({
 
   // Grid
   grid-area: ${({ area }) => area};
+
+  // Radius
+  border-radius: ${({ theme, hasRadius }) => (hasRadius ? theme.borderRadius : undefined)};
 `;
 
 Box.displayName = Box;
@@ -36,6 +39,7 @@ Box.defaultProps = {
   paddingRight: undefined,
   paddingBottom: undefined,
   paddingLeft: undefined,
+  hasRadius: false,
 };
 
 Box.propTypes = {
@@ -47,4 +51,5 @@ Box.propTypes = {
   paddingRight: PropTypes.number,
   paddingBottom: PropTypes.number,
   paddingLeft: PropTypes.number,
+  hasRadius: PropTypes.bool,
 };
