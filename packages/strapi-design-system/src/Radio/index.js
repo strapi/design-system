@@ -1,2 +1,2 @@
-export * from './Radio';
+export * from './BaseRadio';
 export * from './RadioGroup';

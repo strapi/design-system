@@ -1,9 +1,9 @@
 import { injectAxe, checkA11y } from 'axe-playwright';
 
-describe('Radio', () => {
+describe('BaseRadio', () => {
   beforeEach(async () => {
     // This is the URL of the Storybook Iframe
-    await page.goto('http://localhost:6006/iframe.html?id=radio--default-story&viewMode=story');
+    await page.goto('http://localhost:6006/iframe.html?id=baseradio--default-story&viewMode=story');
     await injectAxe(page);
   });
 

@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { render, waitFor, screen } from '@testing-library/react';
-import { Radio } from '../Radio';
+import { BaseRadio } from '../BaseRadio';
 import { RadioGroup } from '../RadioGroup';
 import { lightTheme } from '../../themes/light-theme';
 import { ThemeProvider } from '../../ThemeProvider/ThemeProvider';
 
 jest.mock('uuid', () => ({ v4: () => 1 }));
 
-describe('Radio', () => {
+describe('BaseRadio', () => {
   it('snapshots when the value is undefined (first element should have tabindex=0)', async () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
@@ -16,13 +16,13 @@ describe('Radio', () => {
 
           <RadioGroup labelledBy="trophy-champions" onSelect={() => undefined} value={undefined}>
             <label htmlFor="first">Mario</label>
-            <Radio value="first" id="first" />
+            <BaseRadio value="first" id="first" />
 
             <label htmlFor="second">Luigi</label>
-            <Radio value="second" id="second" />
+            <BaseRadio value="second" id="second" />
 
             <label htmlFor="third">Wario</label>
-            <Radio value="third" id="third" />
+            <BaseRadio value="third" id="third" />
           </RadioGroup>
         </div>
       </ThemeProvider>,
@@ -96,13 +96,13 @@ describe('Radio', () => {
 
           <RadioGroup labelledBy="trophy-champions" onSelect={() => undefined} value={'second'}>
             <label htmlFor="first">Mario</label>
-            <Radio value="first" id="first" />
+            <BaseRadio value="first" id="first" />
 
             <label htmlFor="second">Luigi</label>
-            <Radio value="second" id="second" />
+            <BaseRadio value="second" id="second" />
 
             <label htmlFor="third">Wario</label>
-            <Radio value="third" id="third" />
+            <BaseRadio value="third" id="third" />
           </RadioGroup>
         </div>
       </ThemeProvider>,

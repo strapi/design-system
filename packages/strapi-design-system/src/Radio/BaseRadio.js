@@ -37,7 +37,7 @@ const RadioInput = styled.input`
   }
 `;
 
-export const Radio = React.forwardRef(({ value, id, disabled, ...props }, ref) => {
+export const BaseRadio = React.forwardRef(({ value, id, disabled, ...props }, ref) => {
   const { onSelect, selected, name, size } = useContext(RadioContext);
   const isSelected = selected === value;
 
@@ -58,9 +58,9 @@ export const Radio = React.forwardRef(({ value, id, disabled, ...props }, ref) =
   );
 });
 
-Radio.displayName = 'Radio';
+BaseRadio.displayName = 'Radio';
 
-Radio.propTypes = {
+BaseRadio.propTypes = {
   disabled: PropTypes.bool,
   id: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
