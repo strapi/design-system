@@ -5,27 +5,21 @@ import { BaseRadio } from '../BaseRadio/BaseRadio';
 import { Text } from '../Text';
 import { Box } from '../Box';
 
-const RadioWrapper = styled.div`
+const TextLabel = styled(Text)`
   display: flex;
   align-items: center;
 `;
 
-export const Radio = ({ value, id, children }) => {
+export const Radio = ({ children, value, ...props }) => {
   return (
-    <RadioWrapper>
-      <BaseRadio value={value} id={id} />
-
-      <Box paddingLeft={2}>
-        <Text htmlFor={value} as="label">
-          {children}
-        </Text>
-      </Box>
-    </RadioWrapper>
+    <TextLabel as="label">
+      <BaseRadio value={value} {...props} />
+      <Box paddingLeft={2}>{children}</Box>
+    </TextLabel>
   );
 };
 
 Radio.propTypes = {
   value: PropTypes.any.isRequired,
-  id: PropTypes.string.isRequired,
   children: PropTypes.string.isRequired,
 };

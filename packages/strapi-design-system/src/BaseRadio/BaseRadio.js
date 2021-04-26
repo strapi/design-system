@@ -62,6 +62,6 @@ BaseRadio.displayName = 'Radio';
 
 BaseRadio.propTypes = {
   disabled: PropTypes.bool,
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
   value: PropTypes.string.isRequired,
 };

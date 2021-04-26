@@ -11,9 +11,7 @@ describe('Radio', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
         <RadioGroup labelledBy="trophy-champions" onSelect={() => null} value={'pizza'}>
-          <Radio id="pizza" value="pizza">
-            Pizza
-          </Radio>
+          <Radio value="pizza">Pizza</Radio>
         </RadioGroup>
       </ThemeProvider>,
     );
@@ -23,13 +21,12 @@ describe('Radio', () => {
         aria-labelledby="trophy-champions"
         role="radiogroup"
       >
-        <div
-          class="sc-pFZIQ frprlu"
+        <label
+          class="sc-eCssSg sc-pFZIQ geiiEt frprlu"
         >
           <input
             aria-checked="true"
             class="sc-bdfBwQ buUKqr"
-            id="pizza"
             name="1"
             tabindex="0"
             type="radio"
@@ -38,14 +35,9 @@ describe('Radio', () => {
           <div
             class="sc-fubCfw lkaSCX"
           >
-            <label
-              class="sc-eCssSg geiiEt"
-              for="pizza"
-            >
-              Pizza
-            </label>
+            Pizza
           </div>
-        </div>
+        </label>
       </div>
     `);
   });

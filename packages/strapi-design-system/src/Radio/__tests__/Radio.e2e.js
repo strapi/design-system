@@ -12,18 +12,18 @@ describe('Radio', () => {
   });
 
   it.each(['ArrowDown', 'ArrowRight'])('moves to the next element when pressing %s', async (keyPressed) => {
-    await page.focus('text="Pizza"');
+    await page.focus('[value="pizza"]');
     await page.keyboard.press(keyPressed);
 
-    const secondBox = await page.$('#bagel');
+    const secondBox = await page.$('[value="bagel"]');
     expect(await secondBox?.isChecked()).toBe(true);
   });
 
   it.each(['ArrowUp', 'ArrowLeft'])('moves to the previous element when pressing %s', async (keyPressed) => {
-    await page.focus('text="Bagel"');
+    await page.focus('[value="bagel"]');
     await page.keyboard.press(keyPressed);
 
-    const pizzaRadio = await page.$('#pizza');
+    const pizzaRadio = await page.$('[value="pizza"]');
     expect(await pizzaRadio?.isChecked()).toBe(true);
   });
 });
