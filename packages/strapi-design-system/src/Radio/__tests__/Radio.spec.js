@@ -4,6 +4,8 @@ import { Radio, RadioGroup } from '../';
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
 
+jest.mock('uuid', () => ({ v4: () => 1 }));
+
 describe('Radio', () => {
   it('snapshots the component', () => {
     const { container } = render(
@@ -28,7 +30,7 @@ describe('Radio', () => {
             aria-checked="true"
             class="sc-bdfBwQ buUKqr"
             id="pizza"
-            name="5d64adca-c5a2-4e1c-b12c-f691b6c87d34"
+            name="1"
             tabindex="0"
             type="radio"
             value="pizza"
