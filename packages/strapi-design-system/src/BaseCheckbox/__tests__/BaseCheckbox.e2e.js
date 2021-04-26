@@ -1,9 +1,9 @@
 import { injectAxe, checkA11y } from 'axe-playwright';
 
-describe('Checkbox', () => {
+describe('BaseCheckbox', () => {
   beforeEach(async () => {
     // This is the URL of the Storybook Iframe
-    await page.goto('http://localhost:6006/iframe.html?id=checkbox--indeterminate&viewMode=story');
+    await page.goto('http://localhost:6006/iframe.html?id=basecheckbox--indeterminate&viewMode=story');
     await injectAxe(page);
   });
 

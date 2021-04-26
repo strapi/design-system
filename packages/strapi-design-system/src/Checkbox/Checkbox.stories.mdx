@@ -1,0 +1,126 @@
+<!--- Button.stories.mdx --->
+
+import { useState } from 'react';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { withDesign } from 'storybook-addon-designs';
+import { Checkbox } from './Checkbox';
+
+<Meta
+  title="Checkbox"
+  component={Checkbox}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/PICiE8O4NLrHO1lhJftLdE/Design-System-%E2%9C%85?node-id=815%3A800',
+    },
+  }}
+/>
+
+# Checkbox
+
+This is the doc of the `Checkbox` component
+
+## Default
+
+Description...
+
+<Canvas>
+  <Story name="default">
+    {() => {
+      const [val, setValue] = useState(false);
+      return (
+        <Checkbox id="default" name="default" onValueChange={(value) => setValue(value)} value={val}>
+          Label
+        </Checkbox>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Not inline
+
+Description...
+
+<Canvas>
+  <Story name="not-inline">
+    {() => {
+      const [val, setValue] = useState(false);
+      return (
+        <Checkbox inline={false} id="default" name="default" onValueChange={(value) => setValue(value)} value={val}>
+          Label
+        </Checkbox>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Disabled
+
+Description...
+
+<Canvas>
+  <Story name="disabled">
+    {() => {
+      const [val, setValue] = useState(false);
+      return (
+        <Checkbox disabled id="default" name="default" onValueChange={(value) => setValue(value)} value={val}>
+          Label
+        </Checkbox>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Indeterminate
+
+Description...
+
+<Canvas>
+  <Story name="indeterminate">
+    {() => {
+      const [checkedItems, setCheckedItems] = React.useState([true, false]);
+      const allChecked = checkedItems.every(Boolean);
+      const isIndeterminate = checkedItems.some(Boolean) && !allChecked;
+      return (
+        <ul>
+          <li>
+            <Checkbox
+              id="parent"
+              name="parent"
+              indeterminate={isIndeterminate}
+              onValueChange={(value) => setCheckedItems([value, value])}
+              value={allChecked}
+            >
+              Parent
+            </Checkbox>
+          </li>
+          <li>
+            <ul>
+              <li>
+                <Checkbox
+                  id="child1"
+                  name="child1"
+                  onValueChange={(value) => setCheckedItems([value, checkedItems[1]])}
+                  value={checkedItems[0]}
+                >
+                  Child 1
+                </Checkbox>
+              </li>
+              <li>
+                <Checkbox
+                  id="child2"
+                  name="child2"
+                  onValueChange={(value) => setCheckedItems([checkedItems[0], value])}
+                  value={checkedItems[1]}
+                >
+                  Child 2
+                </Checkbox>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      );
+    }}
+  </Story>
+</Canvas>
