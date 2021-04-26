@@ -1,0 +1,47 @@
+<!--- Radio.stories.mdx --->
+
+import { useState } from 'react';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { withDesign } from 'storybook-addon-designs';
+import { Radio, RadioGroup } from './';
+
+<Meta
+  title="Radio"
+  component={Radio}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/PICiE8O4NLrHO1lhJftLdE/Design-System-%E2%9C%85?node-id=2222%3A90',
+    },
+  }}
+/>
+
+# Radio
+
+This is the doc of the `Radio` component
+
+## Default
+
+Description...
+
+<Canvas>
+  <Story name="default">
+    {() => {
+      const [selected, setSelected] = useState();
+      return (
+        <div>
+          <h2 id="trophy-champions">Make a choice</h2>
+          <RadioGroup labelledBy="trophy-champions" onSelect={setSelected} value={selected}>
+            <Radio id="pizza" value="pizza">
+              Pizza
+            </Radio>
+            <Radio id="bagel" value="bagel">
+              Bagel
+            </Radio>
+          </RadioGroup>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
