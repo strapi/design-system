@@ -1,0 +1,172 @@
+<!--- Field.stories.mdx --->
+
+import { useState } from 'react';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { withDesign } from 'storybook-addon-designs';
+import { FieldLabel } from './FieldLabel';
+import { FieldHint } from './FieldHint';
+import { FieldError } from './FieldError';
+import { FieldInput } from './FieldInput';
+import { Field } from './Field';
+import { Grid } from '../Grid';
+import { Box } from '../Box';
+import { Stack } from '../Stack';
+import { Tooltip } from '../Tooltip';
+import { Password, HelpIcon } from '@strapi/icons';
+import { FieldAction } from './FieldAction';
+
+<Meta
+  title="Field"
+  component={Field}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: 'figma',
+      url: 'TODO: Fill the according figma file',
+    },
+  }}
+/>
+
+# Field
+
+This is the doc of the `Field` component
+
+## Default
+
+The simplest representation of the Field components, no description, no error, no noise.
+
+<Canvas>
+  <Story name="default">
+    {() => {
+      const [value, setText] = useState('');
+      return (
+        <Field name="email">
+          <Stack size={1}>
+            <FieldLabel>Email</FieldLabel>
+            <FieldInput type="text" placeholder="Placeholder" value={value} onChange={(e) => setText(e.target.value)} />
+          </Stack>
+        </Field>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## With description
+
+An example of the Field components with a description
+
+<Canvas>
+  <Story name="With description">
+    {() => {
+      const [value, setText] = useState('');
+      return (
+        <Field name="email" hint="Description line">
+          <Stack size={1}>
+            <FieldLabel>Email</FieldLabel>
+            <FieldInput type="text" placeholder="Placeholder" value={value} onChange={(e) => setText(e.target.value)} />
+            <FieldHint />
+          </Stack>
+        </Field>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Password with description and error
+
+An example of the Field components with a description and an error when reaching 5 characters
+
+<Canvas>
+  <Story name="With password, description and error">
+    {() => {
+      const [value, setText] = useState('');
+      return (
+        <Field name="password" error={value.length > 5 ? 'Password is too short' : undefined} hint="Description line">
+          <Stack size={1}>
+            <FieldLabel>Password</FieldLabel>
+            <FieldInput
+              type="password"
+              placeholder="Placeholder"
+              value={value}
+              onChange={(e) => setText(e.target.value)}
+            />
+            <FieldHint />
+            <FieldError />
+          </Stack>
+        </Field>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Disabled field
+
+An example of the Field components in a disabled state:
+
+<Canvas>
+  <Story name="Disabled">
+    {() => {
+      return (
+        <Field name="password" hint="Description line">
+          <Stack size={1}>
+            <FieldLabel>Password</FieldLabel>
+            <FieldInput
+              placeholder="Placeholder"
+              value={'Hello world'}
+              disabled={true}
+              onChange={(e) => setText(e.target.value)}
+            />
+            <FieldHint />
+            <FieldError />
+          </Stack>
+        </Field>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Most complex input
+
+This is the most complex input that can be built with the Field components:
+
+<Canvas>
+  <Story name="Most complex input">
+    {() => {
+      const [email, setEmail] = useState('');
+      return (
+        <Box padding={8}>
+          <Field name="password" hint="Description line" error={email.length > 5 ? 'Email is too short' : undefined}>
+            <Stack size={1}>
+              <Grid cols="auto auto 1fr" gap={1}>
+                <FieldLabel>Password</FieldLabel>
+                <Tooltip content="Content of the tooltip">
+                  <button
+                    style={{ border: 'none', padding: 0, background: 'transparent' }}
+                    aria-label="Information about the email"
+                  >
+                    <HelpIcon aria-hidden={true} />
+                  </button>
+                </Tooltip>
+                <a href="#" style={{ marginLeft: 'auto' }}>
+                  Details
+                </a>
+              </Grid>
+              <FieldInput
+                placeholder="example@domain.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                Action={
+                  <FieldAction aria-label="Show password">
+                    <Password aria-hidden={true} />
+                  </FieldAction>
+                }
+              />
+              <FieldHint />
+              <FieldError />
+            </Stack>
+          </Field>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
