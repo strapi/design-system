@@ -5,8 +5,6 @@ import { RadioGroup } from '../RadioGroup';
 import { lightTheme } from '../../themes/light-theme';
 import { ThemeProvider } from '../../ThemeProvider/ThemeProvider';
 
-jest.mock('uuid', () => ({ v4: () => 1 }));
-
 describe('BaseRadio', () => {
   it('snapshots when the value is undefined (first element should have tabindex=0)', async () => {
     const { container } = render(
