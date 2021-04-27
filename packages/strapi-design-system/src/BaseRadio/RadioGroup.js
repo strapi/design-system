@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { RadioContext } from './context';
 import { setTabIndexOnFirstItem } from '../helpers/setTabIndexOnFirstItem';
 
-export const RadioGroup = ({ children, labelledBy, onSelect, value, size, name, ...props }) => {
+export const RadioGroup = ({ children, labelledBy, onValueChange, value, size, name, ...props }) => {
   const radioGroupRef = useRef(null);
 
   useLayoutEffect(() => {
@@ -13,7 +13,7 @@ export const RadioGroup = ({ children, labelledBy, onSelect, value, size, name, 
   }, [value]);
 
   return (
-    <RadioContext.Provider value={{ onSelect, selected: value, name, size }}>
+    <RadioContext.Provider value={{ onValueChange, selected: value, name, size }}>
       <div ref={radioGroupRef} role="radiogroup" aria-labelledby={labelledBy} {...props}>
         {children}
       </div>
@@ -29,7 +29,7 @@ RadioGroup.defaultProps = {
 RadioGroup.propTypes = {
   children: PropTypes.node.isRequired,
   labelledBy: PropTypes.string.isRequired,
-  onSelect: PropTypes.func.isRequired,
+  onValueChange: PropTypes.func.isRequired,
   value: PropTypes.string,
   size: PropTypes.oneOf(['M', 'L']),
   name: PropTypes.string.isRequired,

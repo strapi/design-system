@@ -32,7 +32,7 @@ Description...
       return (
         <div>
           <h2 id="trophy-champions">Make a choice</h2>
-          <RadioGroup labelledBy="trophy-champions" onSelect={setSelected} value={selected} name="meal">
+          <RadioGroup labelledBy="trophy-champions" onValueChange={setSelected} value={selected} name="meal">
             <Radio value="pizza">Pizza</Radio>
             <Radio value="bagel">Bagel</Radio>
           </RadioGroup>
