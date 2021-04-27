@@ -34,5 +34,8 @@
   },
   "lint-staged": {
     "*.{js,jsx}": "yarn lint-staged"
+  },
+  "dependencies": {
+    "@craco/craco": "^6.1.1"
   }
 }
