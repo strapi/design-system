@@ -65,7 +65,12 @@ Description...
       return (
         <div>
           <h2 id="trophy-champions">Trophy champion</h2>
-          <RadioGroup labelledBy="trophy-champions" onValueChange={setSelected} value={selected} name="prefered-meal">
+          <RadioGroup
+            labelledBy="trophy-champions"
+            onChange={(e) => setSelected(e.target.value)}
+            value={selected}
+            name="prefered-meal"
+          >
             <div>
               <label htmlFor="first">Mario</label>
               <BaseRadio value="first" id="first" />
@@ -99,7 +104,7 @@ Description...
           <RadioGroup
             size="L"
             labelledBy="trophy-champions"
-            onValueChange={setSelected}
+            onChange={(e) => setSelected(e.target.value)}
             value={selected}
             name="prefered-meal"
           >
