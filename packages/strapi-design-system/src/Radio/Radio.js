@@ -10,10 +10,10 @@ const TextLabel = styled(Text)`
   align-items: center;
 `;
 
-export const Radio = ({ children, value, ...props }) => {
+export const Radio = ({ children, ...props }) => {
   return (
-    <TextLabel as="label">
-      <BaseRadio value={value} {...props} />
+    <TextLabel as="label" textColor="neutral800">
+      <BaseRadio {...props} />
       <Box paddingLeft={2}>{children}</Box>
     </TextLabel>
   );

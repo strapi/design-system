@@ -33,7 +33,7 @@ Description...
       return (
         <div>
           <h2 id="trophy-champions">Make a choice</h2>
-          <RadioGroup labelledBy="trophy-champions" onSelect={setSelected} value={selected}>
+          <RadioGroup labelledBy="trophy-champions" onSelect={setSelected} value={selected} name="prefered-meal">
             <div>
               <label htmlFor="pizza">Pizza</label>
               <BaseRadio value="pizza" id="pizza" />
@@ -60,7 +60,7 @@ Description...
       return (
         <div>
           <h2 id="trophy-champions">Trophy champion</h2>
-          <RadioGroup labelledBy="trophy-champions" onSelect={setSelected} value={selected}>
+          <RadioGroup labelledBy="trophy-champions" onSelect={setSelected} value={selected} name="prefered-meal">
             <div>
               <label htmlFor="first">Mario</label>
               <BaseRadio value="first" id="first" />
@@ -91,7 +91,13 @@ Description...
       return (
         <div>
           <label id="trophy-champions">Trophy champion</label>
-          <RadioGroup size="L" labelledBy="trophy-champions" onSelect={setSelected} value={selected}>
+          <RadioGroup
+            size="L"
+            labelledBy="trophy-champions"
+            onSelect={setSelected}
+            value={selected}
+            name="prefered-meal"
+          >
             <div>
               <label htmlFor="first">Mario</label>
               <BaseRadio value="first" id="first" />

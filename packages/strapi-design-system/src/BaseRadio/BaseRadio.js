@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { RadioContext } from './context';
 import { getRadioSize, getSelectedRadioSize, getSelectedRadioPosition } from './utils';
 
-// TODO: we need to use the theme here
 const RadioInput = styled.input`
   margin: 0;
   padding: 0;
@@ -37,14 +36,13 @@ const RadioInput = styled.input`
   }
 `;
 
-export const BaseRadio = React.forwardRef(({ value, id, disabled, ...props }, ref) => {
+export const BaseRadio = React.forwardRef(({ value, disabled, ...props }, ref) => {
   const { onSelect, selected, name, size } = useContext(RadioContext);
   const isSelected = selected === value;
 
   return (
     <RadioInput
       ref={ref}
-      id={id}
       type="radio"
       name={name}
       value={value}
@@ -60,8 +58,11 @@ export const BaseRadio = React.forwardRef(({ value, id, disabled, ...props }, re
 
 BaseRadio.displayName = 'Radio';
 
+BaseRadio.defaultProps = {
+  disabled: false,
+};
+
 BaseRadio.propTypes = {
   disabled: PropTypes.bool,
-  id: PropTypes.string,
   value: PropTypes.string.isRequired,
 };
