@@ -33,7 +33,12 @@ Description...
       return (
         <div>
           <h2 id="trophy-champions">Make a choice</h2>
-          <RadioGroup labelledBy="trophy-champions" onValueChange={setSelected} value={selected} name="prefered-meal">
+          <RadioGroup
+            labelledBy="trophy-champions"
+            onChange={(e) => setSelected(e.target.value)}
+            value={selected}
+            name="prefered-meal"
+          >
             <div>
               <label htmlFor="pizza">Pizza</label>
               <BaseRadio value="pizza" id="pizza" />

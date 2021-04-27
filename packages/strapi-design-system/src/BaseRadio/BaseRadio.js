@@ -37,7 +37,7 @@ const RadioInput = styled.input`
 `;
 
 export const BaseRadio = React.forwardRef(({ value, disabled, ...props }, ref) => {
-  const { onValueChange, selected, name, size } = useContext(RadioContext);
+  const { onChange, selected, name, size } = useContext(RadioContext);
   const isSelected = selected === value;
 
   return (
@@ -48,9 +48,9 @@ export const BaseRadio = React.forwardRef(({ value, disabled, ...props }, ref) =
       value={value}
       tabIndex={isSelected ? 0 : -1}
       aria-checked={isSelected}
-      onChange={() => onValueChange(value)}
       disabled={disabled}
       size={size}
+      onChange={onChange}
       {...props}
     />
   );

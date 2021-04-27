@@ -10,7 +10,7 @@ describe('Radio', () => {
   it('snapshots the component', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
-        <RadioGroup labelledBy="trophy-champions" onValueChange={() => null} value={'pizza'} name="1">
+        <RadioGroup labelledBy="trophy-champions" onChange={() => null} value={'pizza'} name="1">
           <Radio value="pizza">Pizza</Radio>
         </RadioGroup>
       </ThemeProvider>,

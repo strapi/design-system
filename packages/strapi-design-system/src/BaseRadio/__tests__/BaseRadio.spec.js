@@ -14,7 +14,7 @@ describe('BaseRadio', () => {
         <div>
           <h2 id="trophy-champions">Trophy champion</h2>
 
-          <RadioGroup labelledBy="trophy-champions" onValueChange={() => undefined} value={undefined} name="1">
+          <RadioGroup labelledBy="trophy-champions" onChange={() => undefined} value={undefined} name="1">
             <label htmlFor="first">Mario</label>
             <BaseRadio value="first" id="first" />
 
@@ -94,7 +94,7 @@ describe('BaseRadio', () => {
         <div>
           <h2 id="trophy-champions">Trophy champion</h2>
 
-          <RadioGroup labelledBy="trophy-champions" onValueChange={() => undefined} value={'second'} name="1">
+          <RadioGroup labelledBy="trophy-champions" onChange={() => undefined} value={'second'} name="1">
             <label htmlFor="first">Mario</label>
             <BaseRadio value="first" id="first" />
 
