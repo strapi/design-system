@@ -22,7 +22,7 @@ describe('Radio', () => {
         role="radiogroup"
       >
         <label
-          class="sc-eCssSg sc-pFZIQ geiiEt frprlu"
+          class="sc-eCssSg sc-pFZIQ bCaUrK frprlu"
         >
           <input
             aria-checked="true"

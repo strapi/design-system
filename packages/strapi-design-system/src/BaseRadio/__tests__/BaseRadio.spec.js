@@ -12,7 +12,7 @@ describe('BaseRadio', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
         <div>
-          <label id="trophy-champions">Trophy champion</label>
+          <h2 id="trophy-champions">Trophy champion</h2>
 
           <RadioGroup labelledBy="trophy-champions" onSelect={() => undefined} value={undefined} name="1">
             <label htmlFor="first">Mario</label>
@@ -32,11 +32,11 @@ describe('BaseRadio', () => {
 
     expect(container.firstChild).toMatchInlineSnapshot(`
       <div>
-        <label
+        <h2
           id="trophy-champions"
         >
           Trophy champion
-        </label>
+        </h2>
         <div
           aria-labelledby="trophy-champions"
           role="radiogroup"
@@ -92,7 +92,7 @@ describe('BaseRadio', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
         <div>
-          <label id="trophy-champions">Trophy champion</label>
+          <h2 id="trophy-champions">Trophy champion</h2>
 
           <RadioGroup labelledBy="trophy-champions" onSelect={() => undefined} value={'second'} name="1">
             <label htmlFor="first">Mario</label>
@@ -110,11 +110,11 @@ describe('BaseRadio', () => {
 
     expect(container.firstChild).toMatchInlineSnapshot(`
       <div>
-        <label
+        <h2
           id="trophy-champions"
         >
           Trophy champion
-        </label>
+        </h2>
         <div
           aria-labelledby="trophy-champions"
           role="radiogroup"
