@@ -1,14 +1,8 @@
 {
-  "name": "app",
+  "name": "strapi-ds-app-example",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@buffetjs/core": "^3.3.5",
-    "@buffetjs/custom": "^3.3.5",
-    "@buffetjs/hooks": "^3.3.5",
-    "@buffetjs/icons": "^3.3.5",
-    "@buffetjs/styles": "^3.3.5",
-    "@buffetjs/utils": "^3.3.5",
     "@craco/craco": "^6.1.1",
     "@strapi/design-system": "../../packages/strapi-design-system",
     "react": "^17.0.2",

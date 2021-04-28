@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { ThemeProvider, lightTheme } from "@strapi/design-system";
-import { GlobalStyle } from "@buffetjs/styles";
 import "./index.css";
 import Main from "./App";
 import reportWebVitals from "./reportWebVitals";
@@ -9,7 +8,6 @@ import reportWebVitals from "./reportWebVitals";
 const App = () => {
   return (
     <ThemeProvider theme={lightTheme}>
-      <GlobalStyle />
       <Main />
     </ThemeProvider>
   );
