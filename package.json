@@ -20,6 +20,7 @@
     "specify:pull": "specify pull"
   },
   "devDependencies": {
+    "@craco/craco": "^6.1.2",
     "@specifyapp/cli": "^0.0.51",
     "husky": "=4",
     "lerna": "^4.0.0",
@@ -34,8 +35,5 @@
   },
   "lint-staged": {
     "*.{js,jsx}": "yarn lint-staged"
-  },
-  "dependencies": {
-    "@craco/craco": "^6.1.1"
   }
 }
