@@ -14,7 +14,7 @@ describe('Divider', () => {
 
     expect(container.firstChild).toMatchInlineSnapshot(`
       <div
-        class="sc-bdfBwQ sc-gsTCUz JFplQ eOJNjF"
+        class="sc-bdfBwQ sc-gsTCUz cqxnFA iDInEn"
       />
     `);
   });
