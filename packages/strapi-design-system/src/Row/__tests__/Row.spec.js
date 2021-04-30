@@ -17,7 +17,7 @@ describe('Row', () => {
 
     expect(container.firstChild).toMatchInlineSnapshot(`
       <div
-        class="sc-bdfBwQ klfjbK"
+        class="sc-bdfBwQ emJviY"
       >
         <div>
           Hello
