@@ -1,0 +1,31 @@
+<!--- Loader.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { withDesign } from 'storybook-addon-designs';
+import { Loader } from './Loader';
+
+<Meta
+  title="Loader"
+  component={Loader}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: 'figma',
+      url: 'TODO: Fill the according figma file',
+    },
+  }}
+/>
+
+# Loader
+
+This is the doc of the `Loader` component
+
+## Loader
+
+Description...
+
+<Canvas>
+  <Story name="base">
+    <Loader>Loading content...</Loader>
+  </Story>
+</Canvas>
