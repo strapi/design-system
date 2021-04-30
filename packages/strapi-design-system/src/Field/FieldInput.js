@@ -26,7 +26,7 @@ const Input = styled.input`
   }
 `;
 
-export const FieldInput = forwardRef(({ Action, ...props }, ref) => {
+export const FieldInput = forwardRef(({ action, ...props }, ref) => {
   const { id, error, hint, name } = useField();
 
   let ariaDescription;
@@ -51,7 +51,7 @@ export const FieldInput = forwardRef(({ Action, ...props }, ref) => {
         aria-invalid={hasError}
         {...props}
       />
-      {Action}
+      {action}
     </Row>
   );
 });
@@ -59,9 +59,9 @@ export const FieldInput = forwardRef(({ Action, ...props }, ref) => {
 FieldInput.displayName = 'FieldInput';
 
 FieldInput.defaultProps = {
-  Action: undefined,
+  action: undefined,
 };
 
 FieldInput.propTypes = {
-  Action: PropTypes.node,
+  action: PropTypes.element,
 };
