@@ -17,9 +17,18 @@ describe('Stack', () => {
     );
 
     expect(container).toMatchInlineSnapshot(`
+      .c0 > * {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+
+      .c0 > * + * {
+        margin-top: 16px;
+      }
+
       <div>
         <div
-          class="sc-bdvvaa jKcCGG"
+          class="c0"
         >
           <div>
             First

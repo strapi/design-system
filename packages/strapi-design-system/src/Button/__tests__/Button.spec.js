@@ -13,8 +13,12 @@ describe('Button', () => {
     );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
+      .c0 {
+        background: #f0f0ff;
+      }
+
       <button
-        class="sc-bdvvaa cXzbJj"
+        class="c0"
       >
         Hello world
       </button>

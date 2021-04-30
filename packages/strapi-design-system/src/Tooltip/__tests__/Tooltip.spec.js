@@ -19,6 +19,25 @@ describe('Tooltip', () => {
     );
 
     expect(document.body).toMatchInlineSnapshot(`
+      .c0 {
+        background: #212134;
+        padding: 8px;
+        border-radius: 4px;
+      }
+
+      .c2 {
+        font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
+        font-weight: 500;
+        font-size: 0.75rem;
+        line-height: 1.33;
+        color: #ffffff;
+      }
+
+      .c1 {
+        position: absolute;
+        display: none;
+      }
+
       <body>
         <div>
           <button
@@ -31,12 +50,12 @@ describe('Tooltip', () => {
           data-react-portal="true"
         >
           <div
-            class="sc-bdvvaa sc-furvIG jHlhYM jqYArE"
+            class="c0 c1"
             id="tooltip-123"
             role="tooltip"
           >
             <p
-              class="sc-eCImvq YHnvp"
+              class="c2"
             >
               Content of the tooltip fefe
             </p>
@@ -67,17 +86,36 @@ describe('Tooltip', () => {
             Show tooltip
           </button>
         </div>
-        <div
+        .c0 {
+        background: #212134;
+        padding: 8px;
+        border-radius: 4px;
+      }
+
+      .c2 {
+        font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
+        font-weight: 500;
+        font-size: 0.75rem;
+        line-height: 1.33;
+        color: #ffffff;
+      }
+
+      .c1 {
+        position: absolute;
+        display: revert;
+      }
+
+      <div
           data-react-portal="true"
         >
           <div
-            class="sc-bdvvaa sc-furvIG jHlhYM joXtcI"
+            class="c0 c1"
             id="tooltip-123"
             role="tooltip"
             style="left: 0px; top: -8px;"
           >
             <p
-              class="sc-eCImvq YHnvp"
+              class="c2"
             >
               Content of the tooltip fefe
             </p>

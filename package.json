@@ -23,6 +23,7 @@
   "devDependencies": {
     "@specifyapp/cli": "^0.0.51",
     "husky": "=4",
+    "jest-styled-components": "^7.0.4",
     "lerna": "^4.0.0",
     "lint-staged": ">=10",
     "plop": "^2.7.4",
