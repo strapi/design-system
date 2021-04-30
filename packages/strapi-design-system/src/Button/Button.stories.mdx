@@ -3,6 +3,7 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { withDesign } from 'storybook-addon-designs';
 import { Button } from './Button';
+import { Box } from '../Box';
 
 <Meta
   title="Button"
@@ -11,7 +12,7 @@ import { Button } from './Button';
   parameters={{
     design: {
       type: 'figma',
-      url: process.env.FIGMA_BUTTON_URL,
+      url: 'https://www.figma.com/file/PICiE8O4NLrHO1lhJftLdE/Design-System-%E2%9C%85?node-id=866%3A481',
     },
   }}
 />
@@ -20,22 +21,26 @@ import { Button } from './Button';
 
 This is the doc of the `button` component
 
-## Button
+## Variants
 
 Description...
 
 <Canvas>
-  <Story name="base">
-    <Button>Hello world</Button>
+  <Story name="variants">
+    {['default', 'secondary', 'tertiary', 'success', 'danger', 'success-light', 'danger-light'].map((variant) => (
+      <Box key={variant} paddingBottom={2}>
+        <Button variant={variant}>{variant}</Button>
+      </Box>
+    ))}
   </Story>
 </Canvas>
 
-## Button check
+## Disabled
 
-Other story description...
+Description...
 
 <Canvas>
-  <Story name="with icon">
-    <Button>with icon</Button>
+  <Story name="disabled">
+    <Button disabled>Disabled</Button>
   </Story>
 </Canvas>
