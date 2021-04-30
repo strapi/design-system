@@ -25,49 +25,108 @@ describe('Text', () => {
     );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
+      .c0 {
+        font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
+        font-weight: 600;
+        font-size: 2rem;
+        line-height: 1.25;
+      }
+
+      .c1 {
+        font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
+        font-weight: 600;
+        font-size: 1.125rem;
+        line-height: 1.22;
+      }
+
+      .c2 {
+        font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
+        font-weight: 600;
+        font-size: 1rem;
+        line-height: 1.25;
+      }
+
+      .c3 {
+        font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
+        font-weight: 400;
+        font-size: 0.875rem;
+        line-height: 1.43;
+      }
+
+      .c4 {
+        font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
+        font-weight: 500;
+        font-size: 0.875rem;
+        line-height: 1.43;
+      }
+
+      .c5 {
+        font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
+        font-weight: 400;
+        font-size: 0.75rem;
+        line-height: 1.33;
+      }
+
+      .c6 {
+        font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
+        font-weight: 500;
+        font-size: 0.75rem;
+        line-height: 1.33;
+      }
+
+      .c8 {
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+
+      .c7 {
+        font-weight: 600;
+        line-height: 1.14;
+      }
+
       <div>
         <h1
-          class="sc-bdfBwQ jNNyuU"
+          class="c0"
         >
           First title
         </h1>
         <h2
-          class="sc-gsTCUz bqDpXM"
+          class="c1"
         >
           Second title
         </h2>
         <h3
-          class="sc-dlfnbm fiMfsD"
+          class="c2"
         >
           third title
         </h3>
         <p
-          class="sc-hKgILt jBpBla"
+          class="c3"
         >
           Text body
         </p>
         <p
-          class="sc-hKgILt kRyzsv"
+          class="c4"
         >
           Text body highlighted
         </p>
         <p
-          class="sc-hKgILt lbLfOJ"
+          class="c5"
         >
           Text body small
         </p>
         <p
-          class="sc-hKgILt kmVYZw"
+          class="c6"
         >
           Small button text
         </p>
         <p
-          class="sc-hKgILt sc-jSgupP jBpBla hWQFoj"
+          class="c3 c7"
         >
           Text button
         </p>
         <p
-          class="sc-hKgILt sc-eCssSg jBpBla kuaQhu"
+          class="c3 c8"
         >
           Subtitle
         </p>

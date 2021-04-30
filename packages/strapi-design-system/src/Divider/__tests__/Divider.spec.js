@@ -13,8 +13,16 @@ describe('Divider', () => {
     );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
+      .c0 {
+        background: #eaeaef;
+      }
+
+      .c1 {
+        height: 1px;
+      }
+
       <div
-        class="sc-bdfBwQ sc-gsTCUz cqxnFA iDInEn"
+        class="c0 c1"
       />
     `);
   });

@@ -115,27 +115,58 @@ describe('Grid', () => {
     );
 
     expect(container).toMatchInlineSnapshot(`
+      .c0 {
+        background: #7b79ff;
+        padding: 16px;
+      }
+
+      .c2 {
+        color: #ffffff;
+        grid-area: first;
+      }
+
+      .c3 {
+        grid-area: second;
+      }
+
+      .c4 {
+        grid-area: third;
+      }
+
+      .c5 {
+        background: #66b7f1;
+        grid-area: last;
+      }
+
+      .c1 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 16px;
+        grid-template-areas: "first second third""last  last last";
+      }
+
       <div>
         <div
-          class="sc-bdfBwQ sc-gsTCUz kaABpf iDxAri"
+          class="c0 c1"
         >
           <div
-            class="sc-bdfBwQ dQZcTl"
+            class="c2"
           >
             First
           </div>
           <div
-            class="sc-bdfBwQ lccTfY"
+            class="c3"
           >
             Second
           </div>
           <div
-            class="sc-bdfBwQ bzcVvH"
+            class="c4"
           >
             Third
           </div>
           <div
-            class="sc-bdfBwQ jMDpNb"
+            class="c5"
           >
             Last
           </div>

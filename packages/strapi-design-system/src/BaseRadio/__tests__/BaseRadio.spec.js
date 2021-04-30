@@ -29,6 +29,38 @@ describe('BaseRadio', () => {
     await waitFor(() => expect(screen.getByLabelText('Mario').getAttribute('tabindex')).toBe('0'));
 
     expect(container.firstChild).toMatchInlineSnapshot(`
+      .c0 {
+        margin: 0;
+        padding: 0;
+        background-color: #ffffff;
+        border: 1px solid #4945ff;
+        border-radius: 50%;
+        height: 18px;
+        width: 18px;
+        -webkit-appearance: none;
+      }
+
+      .c0:after {
+        border-radius: 50%;
+        content: '';
+        position: relative;
+        z-index: 1;
+        display: block;
+        height: 10px;
+        width: 10px;
+        left: 3px;
+        top: 3px;
+      }
+
+      .c0:checked:after {
+        background: #4945ff;
+      }
+
+      .c0:disabled {
+        border: 1px solid;
+        background: #dcdce4;
+      }
+
       <div>
         <h2
           id="trophy-champions"
@@ -46,7 +78,7 @@ describe('BaseRadio', () => {
           </label>
           <input
             aria-checked="false"
-            class="sc-bdfBwQ buUKqr"
+            class="c0"
             id="first"
             name="1"
             tabindex="0"
@@ -60,7 +92,7 @@ describe('BaseRadio', () => {
           </label>
           <input
             aria-checked="false"
-            class="sc-bdfBwQ buUKqr"
+            class="c0"
             id="second"
             name="1"
             tabindex="-1"
@@ -74,7 +106,7 @@ describe('BaseRadio', () => {
           </label>
           <input
             aria-checked="false"
-            class="sc-bdfBwQ buUKqr"
+            class="c0"
             id="third"
             name="1"
             tabindex="-1"
@@ -107,6 +139,38 @@ describe('BaseRadio', () => {
     );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
+      .c0 {
+        margin: 0;
+        padding: 0;
+        background-color: #ffffff;
+        border: 1px solid #4945ff;
+        border-radius: 50%;
+        height: 18px;
+        width: 18px;
+        -webkit-appearance: none;
+      }
+
+      .c0:after {
+        border-radius: 50%;
+        content: '';
+        position: relative;
+        z-index: 1;
+        display: block;
+        height: 10px;
+        width: 10px;
+        left: 3px;
+        top: 3px;
+      }
+
+      .c0:checked:after {
+        background: #4945ff;
+      }
+
+      .c0:disabled {
+        border: 1px solid;
+        background: #dcdce4;
+      }
+
       <div>
         <h2
           id="trophy-champions"
@@ -124,7 +188,7 @@ describe('BaseRadio', () => {
           </label>
           <input
             aria-checked="false"
-            class="sc-bdfBwQ buUKqr"
+            class="c0"
             id="first"
             name="1"
             tabindex="-1"
@@ -138,7 +202,7 @@ describe('BaseRadio', () => {
           </label>
           <input
             aria-checked="true"
-            class="sc-bdfBwQ buUKqr"
+            class="c0"
             id="second"
             name="1"
             tabindex="0"
@@ -152,7 +216,7 @@ describe('BaseRadio', () => {
           </label>
           <input
             aria-checked="false"
-            class="sc-bdfBwQ buUKqr"
+            class="c0"
             id="third"
             name="1"
             tabindex="-1"
