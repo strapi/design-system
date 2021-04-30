@@ -1,0 +1,48 @@
+<!--- Pagination.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { withDesign } from 'storybook-addon-designs';
+import { Pagination } from './Pagination';
+import { PreviousLink, NextLink, PageLink, Dots } from './components';
+
+<Meta
+  title="Pagination"
+  component={Pagination}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: 'figma',
+      url: 'TODO: Fill the according figma file',
+    },
+  }}
+/>
+
+# Pagination
+
+This is the doc of the `Pagination` component
+
+## Pagination
+
+Description...
+
+<Canvas>
+  <Story name="base">
+    <Pagination activePage={2}>
+      <PreviousLink href="/1">Go to previous page</PreviousLink>
+      <PageLink number={1} href="/1">
+        Go to page 1
+      </PageLink>
+      <PageLink number={2} href="/2">
+        Go to page 2
+      </PageLink>
+      <Dots>And 23 other links</Dots>
+      <PageLink number={25} href="/25">
+        Go to page 3
+      </PageLink>
+      <PageLink number={26} href="/26">
+        Go to page 26
+      </PageLink>
+      <NextLink href="/3">Go to next page</NextLink>
+    </Pagination>
+  </Story>
+</Canvas>
