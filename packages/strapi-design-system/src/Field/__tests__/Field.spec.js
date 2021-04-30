@@ -32,11 +32,11 @@ describe('Field', () => {
           Email
         </label>
         <div
-          class="sc-iBPRYJ ipEIjR"
+          class="sc-iBPRYJ sc-pFZIQ ipEIjR dnwEvF"
         >
           <input
             aria-invalid="false"
-            class="sc-fubCfw bUaIIY"
+            class="sc-fubCfw vWxUD"
             id="field-1"
             name="email"
             placeholder="Placeholder"
@@ -68,12 +68,12 @@ describe('Field', () => {
           Email
         </label>
         <div
-          class="sc-iBPRYJ ipEIjR"
+          class="sc-iBPRYJ sc-pFZIQ ipEIjR dnwEvF"
         >
           <input
             aria-describedby="field-hint-1"
             aria-invalid="false"
-            class="sc-fubCfw bUaIIY"
+            class="sc-fubCfw vWxUD"
             id="field-1"
             name="email"
             placeholder="Placeholder"
@@ -112,12 +112,12 @@ describe('Field', () => {
           Email
         </label>
         <div
-          class="sc-iBPRYJ ipEIjR"
+          class="sc-iBPRYJ sc-pFZIQ ipEIjR dnwEvF"
         >
           <input
             aria-describedby="field-error-1"
             aria-invalid="true"
-            class="sc-fubCfw VYVPw"
+            class="sc-fubCfw vWxUD"
             id="field-1"
             name="email"
             placeholder="Placeholder"
@@ -162,12 +162,12 @@ describe('Field', () => {
           Email
         </label>
         <div
-          class="sc-iBPRYJ ipEIjR"
+          class="sc-iBPRYJ sc-pFZIQ ipEIjR dnwEvF"
         >
           <input
             aria-describedby="field-hint-1"
             aria-invalid="false"
-            class="sc-fubCfw bUaIIY"
+            class="sc-fubCfw vWxUD"
             disabled=""
             id="field-1"
             name="password"

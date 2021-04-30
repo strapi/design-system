@@ -5,11 +5,9 @@ import { useField } from './FieldContext';
 import { Row } from '../Row';
 
 const Input = styled.input`
-  border: 1px solid ${({ theme, hasError }) => (hasError ? theme.colors.danger600 : theme.colors.neutral200)};
-  border-radius: ${({ theme }) => theme.borderRadius};
+  border: none;
   padding: ${({ theme }) => `${theme.spaces[3]} ${theme.spaces[4]}`};
   color: ${({ theme }) => theme.colors.neutral800};
-  background: ${({ theme }) => theme.colors.neutral0};
   font-weight: 400;
   // TODO: Make sure to use the theme when it's ready
   font-size: ${14 / 16}rem;
@@ -24,6 +22,13 @@ const Input = styled.input`
     color: ${({ theme }) => theme.colors.neutral500};
     background: ${({ theme }) => theme.colors.neutral150};
   }
+`;
+
+const InputWrapper = styled(Row)`
+  border: 1px solid ${({ theme, hasError }) => (hasError ? theme.colors.danger600 : theme.colors.neutral200)};
+  border-radius: ${({ theme }) => theme.borderRadius};
+  background: ${({ theme }) => theme.colors.neutral0};
+  overflow: hidden;
 `;
 
 export const FieldInput = forwardRef(({ action, ...props }, ref) => {
@@ -41,7 +46,7 @@ export const FieldInput = forwardRef(({ action, ...props }, ref) => {
   const hasError = Boolean(error);
 
   return (
-    <Row justifyContent="space-between">
+    <InputWrapper justifyContent="space-between">
       <Input
         id={fieldId}
         name={name}
@@ -52,7 +57,7 @@ export const FieldInput = forwardRef(({ action, ...props }, ref) => {
         {...props}
       />
       {action}
-    </Row>
+    </InputWrapper>
   );
 });
 
