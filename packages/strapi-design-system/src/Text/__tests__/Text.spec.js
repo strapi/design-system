@@ -26,49 +26,42 @@ describe('Text', () => {
 
     expect(container.firstChild).toMatchInlineSnapshot(`
       .c0 {
-        font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
         font-weight: 600;
         font-size: 2rem;
         line-height: 1.25;
       }
 
       .c1 {
-        font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
         font-weight: 600;
         font-size: 1.125rem;
         line-height: 1.22;
       }
 
       .c2 {
-        font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
         font-weight: 600;
         font-size: 1rem;
         line-height: 1.25;
       }
 
       .c3 {
-        font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
         font-weight: 400;
         font-size: 0.875rem;
         line-height: 1.43;
       }
 
       .c4 {
-        font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
         font-weight: 500;
         font-size: 0.875rem;
         line-height: 1.43;
       }
 
       .c5 {
-        font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
         font-weight: 400;
         font-size: 0.75rem;
         line-height: 1.33;
       }
 
       .c6 {
-        font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
         font-weight: 500;
         font-size: 0.75rem;
         line-height: 1.33;

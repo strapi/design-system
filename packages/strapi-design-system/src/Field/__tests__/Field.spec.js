@@ -24,19 +24,82 @@ describe('Field', () => {
     );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
+      .c0 {
+        font-weight: 500;
+        font-size: 0.75rem;
+        line-height: 1.33;
+        color: #32324d;
+      }
+
+      .c1 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+
+      .c3 {
+        border: none;
+        padding: 12px 16px;
+        color: #32324d;
+        font-weight: 400;
+        font-size: 0.875rem;
+        display: block;
+        width: 100%;
+      }
+
+      .c3::-webkit-input-placeholder {
+        color: #8e8ea9;
+      }
+
+      .c3::-moz-placeholder {
+        color: #8e8ea9;
+      }
+
+      .c3:-ms-input-placeholder {
+        color: #8e8ea9;
+      }
+
+      .c3::placeholder {
+        color: #8e8ea9;
+      }
+
+      .c3:disabled {
+        color: #8e8ea9;
+        background: #eaeaef;
+      }
+
+      .c2 {
+        border: 1px solid #dcdce4;
+        border-radius: 4px;
+        background: #ffffff;
+        overflow: hidden;
+      }
+
       <div>
         <label
-          class="sc-hKgILt fopLzU"
+          class="c0"
           for="field-1"
         >
           Email
         </label>
         <div
-          class="sc-iBPRYJ sc-pFZIQ ipEIjR dnwEvF"
+          class="c1 c2"
         >
           <input
             aria-invalid="false"
-            class="sc-fubCfw vWxUD"
+            class="c3"
             id="field-1"
             name="email"
             placeholder="Placeholder"
@@ -60,20 +123,90 @@ describe('Field', () => {
     );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
+      .c0 {
+        font-weight: 500;
+        font-size: 0.75rem;
+        line-height: 1.33;
+        color: #32324d;
+      }
+
+      .c4 {
+        font-weight: 400;
+        font-size: 0.75rem;
+        line-height: 1.33;
+        color: #666687;
+      }
+
+      .c1 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+
+      .c3 {
+        border: none;
+        padding: 12px 16px;
+        color: #32324d;
+        font-weight: 400;
+        font-size: 0.875rem;
+        display: block;
+        width: 100%;
+      }
+
+      .c3::-webkit-input-placeholder {
+        color: #8e8ea9;
+      }
+
+      .c3::-moz-placeholder {
+        color: #8e8ea9;
+      }
+
+      .c3:-ms-input-placeholder {
+        color: #8e8ea9;
+      }
+
+      .c3::placeholder {
+        color: #8e8ea9;
+      }
+
+      .c3:disabled {
+        color: #8e8ea9;
+        background: #eaeaef;
+      }
+
+      .c2 {
+        border: 1px solid #dcdce4;
+        border-radius: 4px;
+        background: #ffffff;
+        overflow: hidden;
+      }
+
       <div>
         <label
-          class="sc-hKgILt fopLzU"
+          class="c0"
           for="field-1"
         >
           Email
         </label>
         <div
-          class="sc-iBPRYJ sc-pFZIQ ipEIjR dnwEvF"
+          class="c1 c2"
         >
           <input
             aria-describedby="field-hint-1"
             aria-invalid="false"
-            class="sc-fubCfw vWxUD"
+            class="c3"
             id="field-1"
             name="email"
             placeholder="Placeholder"
@@ -82,7 +215,7 @@ describe('Field', () => {
           />
         </div>
         <p
-          class="sc-hKgILt clHUCC"
+          class="c4"
           id="field-hint-1"
         >
           Description line
@@ -104,20 +237,90 @@ describe('Field', () => {
     );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
+      .c0 {
+        font-weight: 500;
+        font-size: 0.75rem;
+        line-height: 1.33;
+        color: #32324d;
+      }
+
+      .c4 {
+        font-weight: 400;
+        font-size: 0.75rem;
+        line-height: 1.33;
+        color: #dd2b23;
+      }
+
+      .c1 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+
+      .c3 {
+        border: none;
+        padding: 12px 16px;
+        color: #32324d;
+        font-weight: 400;
+        font-size: 0.875rem;
+        display: block;
+        width: 100%;
+      }
+
+      .c3::-webkit-input-placeholder {
+        color: #8e8ea9;
+      }
+
+      .c3::-moz-placeholder {
+        color: #8e8ea9;
+      }
+
+      .c3:-ms-input-placeholder {
+        color: #8e8ea9;
+      }
+
+      .c3::placeholder {
+        color: #8e8ea9;
+      }
+
+      .c3:disabled {
+        color: #8e8ea9;
+        background: #eaeaef;
+      }
+
+      .c2 {
+        border: 1px solid #dcdce4;
+        border-radius: 4px;
+        background: #ffffff;
+        overflow: hidden;
+      }
+
       <div>
         <label
-          class="sc-hKgILt fopLzU"
+          class="c0"
           for="field-1"
         >
           Email
         </label>
         <div
-          class="sc-iBPRYJ sc-pFZIQ ipEIjR dnwEvF"
+          class="c1 c2"
         >
           <input
             aria-describedby="field-error-1"
             aria-invalid="true"
-            class="sc-fubCfw vWxUD"
+            class="c3"
             id="field-1"
             name="email"
             placeholder="Placeholder"
@@ -126,7 +329,7 @@ describe('Field', () => {
           />
         </div>
         <p
-          class="sc-hKgILt dffNMk"
+          class="c4"
           id="field-error-1"
         >
           Too long email
@@ -154,20 +357,90 @@ describe('Field', () => {
     );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
+      .c0 {
+        font-weight: 500;
+        font-size: 0.75rem;
+        line-height: 1.33;
+        color: #32324d;
+      }
+
+      .c4 {
+        font-weight: 400;
+        font-size: 0.75rem;
+        line-height: 1.33;
+        color: #666687;
+      }
+
+      .c1 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+
+      .c3 {
+        border: none;
+        padding: 12px 16px;
+        color: #32324d;
+        font-weight: 400;
+        font-size: 0.875rem;
+        display: block;
+        width: 100%;
+      }
+
+      .c3::-webkit-input-placeholder {
+        color: #8e8ea9;
+      }
+
+      .c3::-moz-placeholder {
+        color: #8e8ea9;
+      }
+
+      .c3:-ms-input-placeholder {
+        color: #8e8ea9;
+      }
+
+      .c3::placeholder {
+        color: #8e8ea9;
+      }
+
+      .c3:disabled {
+        color: #8e8ea9;
+        background: #eaeaef;
+      }
+
+      .c2 {
+        border: 1px solid #dcdce4;
+        border-radius: 4px;
+        background: #ffffff;
+        overflow: hidden;
+      }
+
       <div>
         <label
-          class="sc-hKgILt fopLzU"
+          class="c0"
           for="field-1"
         >
           Email
         </label>
         <div
-          class="sc-iBPRYJ sc-pFZIQ ipEIjR dnwEvF"
+          class="c1 c2"
         >
           <input
             aria-describedby="field-hint-1"
             aria-invalid="false"
-            class="sc-fubCfw vWxUD"
+            class="c3"
             disabled=""
             id="field-1"
             name="password"
@@ -177,7 +450,7 @@ describe('Field', () => {
           />
         </div>
         <p
-          class="sc-hKgILt clHUCC"
+          class="c4"
           id="field-hint-1"
         >
           Description line
