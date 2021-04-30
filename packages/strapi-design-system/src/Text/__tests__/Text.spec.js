@@ -27,47 +27,47 @@ describe('Text', () => {
     expect(container.firstChild).toMatchInlineSnapshot(`
       <div>
         <h1
-          class="sc-bdfBwQ jNNyuU"
+          class="sc-bdvvaa hunptY"
         >
           First title
         </h1>
         <h2
-          class="sc-gsTCUz bqDpXM"
+          class="sc-gsDJrp cdbHpa"
         >
           Second title
         </h2>
         <h3
-          class="sc-dlfnbm fiMfsD"
+          class="sc-dkPtyc kuyvwb"
         >
           third title
         </h3>
         <p
-          class="sc-hKgILt jBpBla"
+          class="sc-hKwCoD hOkPvt"
         >
           Text body
         </p>
         <p
-          class="sc-hKgILt kRyzsv"
+          class="sc-hKwCoD caNOrs"
         >
           Text body highlighted
         </p>
         <p
-          class="sc-hKgILt lbLfOJ"
+          class="sc-hKwCoD buwkKi"
         >
           Text body small
         </p>
         <p
-          class="sc-hKgILt kmVYZw"
+          class="sc-hKwCoD drYhDL"
         >
           Small button text
         </p>
         <p
-          class="sc-hKgILt sc-jSgupP jBpBla hWQFoj"
+          class="sc-hKwCoD sc-jRQAMF hOkPvt eyClkJ"
         >
           Text button
         </p>
         <p
-          class="sc-hKgILt sc-eCssSg jBpBla kuaQhu"
+          class="sc-hKwCoD sc-eCImvq hOkPvt cUIRbr"
         >
           Subtitle
         </p>

@@ -19,7 +19,7 @@ describe('Stack', () => {
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
-          class="sc-bdfBwQ gkknTS"
+          class="sc-bdvvaa jKcCGG"
         >
           <div>
             First

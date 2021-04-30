@@ -46,7 +46,7 @@ describe('BaseRadio', () => {
           </label>
           <input
             aria-checked="false"
-            class="sc-bdfBwQ buUKqr"
+            class="sc-bdvvaa iWMear"
             id="first"
             name="1"
             tabindex="0"
@@ -60,7 +60,7 @@ describe('BaseRadio', () => {
           </label>
           <input
             aria-checked="false"
-            class="sc-bdfBwQ buUKqr"
+            class="sc-bdvvaa iWMear"
             id="second"
             name="1"
             tabindex="-1"
@@ -74,7 +74,7 @@ describe('BaseRadio', () => {
           </label>
           <input
             aria-checked="false"
-            class="sc-bdfBwQ buUKqr"
+            class="sc-bdvvaa iWMear"
             id="third"
             name="1"
             tabindex="-1"
@@ -124,7 +124,7 @@ describe('BaseRadio', () => {
           </label>
           <input
             aria-checked="false"
-            class="sc-bdfBwQ buUKqr"
+            class="sc-bdvvaa iWMear"
             id="first"
             name="1"
             tabindex="-1"
@@ -138,7 +138,7 @@ describe('BaseRadio', () => {
           </label>
           <input
             aria-checked="true"
-            class="sc-bdfBwQ buUKqr"
+            class="sc-bdvvaa iWMear"
             id="second"
             name="1"
             tabindex="0"
@@ -152,7 +152,7 @@ describe('BaseRadio', () => {
           </label>
           <input
             aria-checked="false"
-            class="sc-bdfBwQ buUKqr"
+            class="sc-bdvvaa iWMear"
             id="third"
             name="1"
             tabindex="-1"

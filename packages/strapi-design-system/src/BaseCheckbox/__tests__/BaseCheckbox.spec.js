@@ -25,7 +25,7 @@ describe('BaseCheckbox', () => {
           Parent
         </label>
         <input
-          class="sc-bdfBwQ bkarNm"
+          class="sc-bdvvaa eGASmy"
           name="default"
           type="checkbox"
         />
@@ -52,7 +52,7 @@ describe('BaseCheckbox', () => {
         </label>
         <input
           checked=""
-          class="sc-bdfBwQ bkarNm"
+          class="sc-bdvvaa eGASmy"
           name="default-true"
           type="checkbox"
         />

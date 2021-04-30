@@ -31,12 +31,12 @@ describe('Tooltip', () => {
           data-react-portal="true"
         >
           <div
-            class="sc-bdfBwQ sc-fubCfw bLVzZs bNBJAY"
+            class="sc-bdvvaa sc-furvIG jHlhYM jqYArE"
             id="tooltip-123"
             role="tooltip"
           >
             <p
-              class="sc-eCssSg cOhdbs"
+              class="sc-eCImvq YHnvp"
             >
               Content of the tooltip fefe
             </p>
@@ -71,13 +71,13 @@ describe('Tooltip', () => {
           data-react-portal="true"
         >
           <div
-            class="sc-bdfBwQ sc-fubCfw bLVzZs dfOJIk"
+            class="sc-bdvvaa sc-furvIG jHlhYM joXtcI"
             id="tooltip-123"
             role="tooltip"
             style="left: 0px; top: -8px;"
           >
             <p
-              class="sc-eCssSg cOhdbs"
+              class="sc-eCImvq YHnvp"
             >
               Content of the tooltip fefe
             </p>

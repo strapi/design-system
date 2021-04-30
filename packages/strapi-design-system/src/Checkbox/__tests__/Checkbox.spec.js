@@ -21,15 +21,15 @@ describe('Checkbox', () => {
     expect(container.firstChild).toMatchInlineSnapshot(`
       <div>
         <label
-          class="sc-eCssSg sc-pFZIQ bCaUrK AtDtz"
+          class="sc-eCImvq sc-pVTma fXjSrz keTyIL"
         >
           <input
-            class="sc-bdfBwQ bkarNm"
+            class="sc-bdvvaa eGASmy"
             name="default"
             type="checkbox"
           />
           <div
-            class="sc-fubCfw lkaSCX"
+            class="sc-furvIG jpwnkH"
           >
             Label
           </div>
@@ -52,16 +52,16 @@ describe('Checkbox', () => {
     expect(container.firstChild).toMatchInlineSnapshot(`
       <div>
         <label
-          class="sc-eCssSg sc-pFZIQ bCaUrK AtDtz"
+          class="sc-eCImvq sc-pVTma fXjSrz keTyIL"
         >
           <input
             checked=""
-            class="sc-bdfBwQ bkarNm"
+            class="sc-bdvvaa eGASmy"
             name="default-true"
             type="checkbox"
           />
           <div
-            class="sc-fubCfw lkaSCX"
+            class="sc-furvIG jpwnkH"
           >
             Label
           </div>

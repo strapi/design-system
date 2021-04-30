@@ -20,18 +20,18 @@ describe('Radio', () => {
         role="radiogroup"
       >
         <label
-          class="sc-eCssSg sc-pFZIQ bCaUrK frprlu"
+          class="sc-eCImvq sc-pVTma fXjSrz cClVsq"
         >
           <input
             aria-checked="true"
-            class="sc-bdfBwQ buUKqr"
+            class="sc-bdvvaa iWMear"
             name="1"
             tabindex="0"
             type="radio"
             value="pizza"
           />
           <div
-            class="sc-fubCfw lkaSCX"
+            class="sc-furvIG jpwnkH"
           >
             Pizza
           </div>
