@@ -85,7 +85,6 @@ describe('Checkbox', () => {
       }
 
       .c0 {
-        font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
         font-weight: 400;
         font-size: 0.875rem;
         line-height: 1.43;
@@ -208,7 +207,6 @@ describe('Checkbox', () => {
       }
 
       .c0 {
-        font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
         font-weight: 400;
         font-size: 0.875rem;
         line-height: 1.43;

@@ -1,0 +1,461 @@
+import * as React from 'react';
+import { render } from '@testing-library/react';
+import { ThemeProvider } from '../../ThemeProvider';
+import { lightTheme } from '../../themes';
+import { FieldLabel } from '../FieldLabel';
+import { FieldHint } from '../FieldHint';
+import { FieldError } from '../FieldError';
+import { FieldInput } from '../FieldInput';
+import { Field } from '../Field';
+
+jest.mock('uuid', () => ({
+  v4: () => 1,
+}));
+
+describe('Field', () => {
+  it('snapshots the default example', () => {
+    const { container } = render(
+      <ThemeProvider theme={lightTheme}>
+        <Field name="email">
+          <FieldLabel>Email</FieldLabel>
+          <FieldInput type="text" placeholder="Placeholder" value={'Hello world'} onChange={() => undefined} />
+        </Field>
+      </ThemeProvider>,
+    );
+
+    expect(container.firstChild).toMatchInlineSnapshot(`
+      .c0 {
+        font-weight: 500;
+        font-size: 0.75rem;
+        line-height: 1.33;
+        color: #32324d;
+      }
+
+      .c1 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+
+      .c3 {
+        border: none;
+        padding: 12px 16px;
+        color: #32324d;
+        font-weight: 400;
+        font-size: 0.875rem;
+        display: block;
+        width: 100%;
+      }
+
+      .c3::-webkit-input-placeholder {
+        color: #8e8ea9;
+      }
+
+      .c3::-moz-placeholder {
+        color: #8e8ea9;
+      }
+
+      .c3:-ms-input-placeholder {
+        color: #8e8ea9;
+      }
+
+      .c3::placeholder {
+        color: #8e8ea9;
+      }
+
+      .c3:disabled {
+        color: #8e8ea9;
+        background: #eaeaef;
+      }
+
+      .c2 {
+        border: 1px solid #dcdce4;
+        border-radius: 4px;
+        background: #ffffff;
+        overflow: hidden;
+      }
+
+      <div>
+        <label
+          class="c0"
+          for="field-1"
+        >
+          Email
+        </label>
+        <div
+          class="c1 c2"
+        >
+          <input
+            aria-invalid="false"
+            class="c3"
+            id="field-1"
+            name="email"
+            placeholder="Placeholder"
+            type="text"
+            value="Hello world"
+          />
+        </div>
+      </div>
+    `);
+  });
+
+  it('snapshots the "with description" example', () => {
+    const { container } = render(
+      <ThemeProvider theme={lightTheme}>
+        <Field name="email" hint="Description line">
+          <FieldLabel>Email</FieldLabel>
+          <FieldInput type="text" placeholder="Placeholder" value={'email'} onChange={() => undefined} />
+          <FieldHint />
+        </Field>
+      </ThemeProvider>,
+    );
+
+    expect(container.firstChild).toMatchInlineSnapshot(`
+      .c0 {
+        font-weight: 500;
+        font-size: 0.75rem;
+        line-height: 1.33;
+        color: #32324d;
+      }
+
+      .c4 {
+        font-weight: 400;
+        font-size: 0.75rem;
+        line-height: 1.33;
+        color: #666687;
+      }
+
+      .c1 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+
+      .c3 {
+        border: none;
+        padding: 12px 16px;
+        color: #32324d;
+        font-weight: 400;
+        font-size: 0.875rem;
+        display: block;
+        width: 100%;
+      }
+
+      .c3::-webkit-input-placeholder {
+        color: #8e8ea9;
+      }
+
+      .c3::-moz-placeholder {
+        color: #8e8ea9;
+      }
+
+      .c3:-ms-input-placeholder {
+        color: #8e8ea9;
+      }
+
+      .c3::placeholder {
+        color: #8e8ea9;
+      }
+
+      .c3:disabled {
+        color: #8e8ea9;
+        background: #eaeaef;
+      }
+
+      .c2 {
+        border: 1px solid #dcdce4;
+        border-radius: 4px;
+        background: #ffffff;
+        overflow: hidden;
+      }
+
+      <div>
+        <label
+          class="c0"
+          for="field-1"
+        >
+          Email
+        </label>
+        <div
+          class="c1 c2"
+        >
+          <input
+            aria-describedby="field-hint-1"
+            aria-invalid="false"
+            class="c3"
+            id="field-1"
+            name="email"
+            placeholder="Placeholder"
+            type="text"
+            value="email"
+          />
+        </div>
+        <p
+          class="c4"
+          id="field-hint-1"
+        >
+          Description line
+        </p>
+      </div>
+    `);
+  });
+
+  it('snapshots the "with error" example', () => {
+    const { container } = render(
+      <ThemeProvider theme={lightTheme}>
+        <Field name="email" hint="Description line" error="Too long email">
+          <FieldLabel>Email</FieldLabel>
+          <FieldInput type="text" placeholder="Placeholder" value={'too long email'} onChange={() => undefined} />
+          <FieldHint />
+          <FieldError />
+        </Field>
+      </ThemeProvider>,
+    );
+
+    expect(container.firstChild).toMatchInlineSnapshot(`
+      .c0 {
+        font-weight: 500;
+        font-size: 0.75rem;
+        line-height: 1.33;
+        color: #32324d;
+      }
+
+      .c4 {
+        font-weight: 400;
+        font-size: 0.75rem;
+        line-height: 1.33;
+        color: #dd2b23;
+      }
+
+      .c1 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+
+      .c3 {
+        border: none;
+        padding: 12px 16px;
+        color: #32324d;
+        font-weight: 400;
+        font-size: 0.875rem;
+        display: block;
+        width: 100%;
+      }
+
+      .c3::-webkit-input-placeholder {
+        color: #8e8ea9;
+      }
+
+      .c3::-moz-placeholder {
+        color: #8e8ea9;
+      }
+
+      .c3:-ms-input-placeholder {
+        color: #8e8ea9;
+      }
+
+      .c3::placeholder {
+        color: #8e8ea9;
+      }
+
+      .c3:disabled {
+        color: #8e8ea9;
+        background: #eaeaef;
+      }
+
+      .c2 {
+        border: 1px solid #dcdce4;
+        border-radius: 4px;
+        background: #ffffff;
+        overflow: hidden;
+      }
+
+      <div>
+        <label
+          class="c0"
+          for="field-1"
+        >
+          Email
+        </label>
+        <div
+          class="c1 c2"
+        >
+          <input
+            aria-describedby="field-error-1"
+            aria-invalid="true"
+            class="c3"
+            id="field-1"
+            name="email"
+            placeholder="Placeholder"
+            type="text"
+            value="too long email"
+          />
+        </div>
+        <p
+          class="c4"
+          id="field-error-1"
+        >
+          Too long email
+        </p>
+      </div>
+    `);
+  });
+
+  it('snapshots the "disabled" example', () => {
+    const { container } = render(
+      <ThemeProvider theme={lightTheme}>
+        <Field name="password" hint="Description line">
+          <FieldLabel>Email</FieldLabel>
+          <FieldInput
+            type="text"
+            disabled={true}
+            placeholder="Placeholder"
+            value={'email'}
+            onChange={() => undefined}
+          />
+          <FieldHint />
+          <FieldError />
+        </Field>
+      </ThemeProvider>,
+    );
+
+    expect(container.firstChild).toMatchInlineSnapshot(`
+      .c0 {
+        font-weight: 500;
+        font-size: 0.75rem;
+        line-height: 1.33;
+        color: #32324d;
+      }
+
+      .c4 {
+        font-weight: 400;
+        font-size: 0.75rem;
+        line-height: 1.33;
+        color: #666687;
+      }
+
+      .c1 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+
+      .c3 {
+        border: none;
+        padding: 12px 16px;
+        color: #32324d;
+        font-weight: 400;
+        font-size: 0.875rem;
+        display: block;
+        width: 100%;
+      }
+
+      .c3::-webkit-input-placeholder {
+        color: #8e8ea9;
+      }
+
+      .c3::-moz-placeholder {
+        color: #8e8ea9;
+      }
+
+      .c3:-ms-input-placeholder {
+        color: #8e8ea9;
+      }
+
+      .c3::placeholder {
+        color: #8e8ea9;
+      }
+
+      .c3:disabled {
+        color: #8e8ea9;
+        background: #eaeaef;
+      }
+
+      .c2 {
+        border: 1px solid #dcdce4;
+        border-radius: 4px;
+        background: #ffffff;
+        overflow: hidden;
+      }
+
+      <div>
+        <label
+          class="c0"
+          for="field-1"
+        >
+          Email
+        </label>
+        <div
+          class="c1 c2"
+        >
+          <input
+            aria-describedby="field-hint-1"
+            aria-invalid="false"
+            class="c3"
+            disabled=""
+            id="field-1"
+            name="password"
+            placeholder="Placeholder"
+            type="text"
+            value="email"
+          />
+        </div>
+        <p
+          class="c4"
+          id="field-hint-1"
+        >
+          Description line
+        </p>
+      </div>
+    `);
+  });
+});
