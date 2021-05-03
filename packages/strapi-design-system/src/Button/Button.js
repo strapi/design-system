@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Text } from '../Text';
 import { Box } from '../Box';
-import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle, getBoxPosition } from './utils';
+import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle, getIconPosition } from './utils';
 import { VARIANTS, BUTTON_SIZES } from './constants';
 
 export const ButtonStyle = styled.button`
@@ -16,7 +16,7 @@ export const ButtonStyle = styled.button`
   ${Box} {
     display: flex;
     align-items: center;
-    margin-top: ${getBoxPosition};
+    margin-top: ${getIconPosition};
   }
   ${Text} {
     color: ${({ theme }) => theme.colors.neutral0};
@@ -30,7 +30,7 @@ export const ButtonStyle = styled.button`
       fill: ${({ theme }) => theme.colors.neutral0};
     }
   }
-  &:disabled {
+  &[aria-disabled='true'] {
     ${getDisabledStyle}
     &:hover {
       ${getDisabledStyle}
@@ -45,9 +45,9 @@ export const ButtonStyle = styled.button`
   ${getVariantStyle}
 `;
 
-export const Button = ({ variant, leftIcon, rightIcon, children, size, ...props }) => {
+export const Button = ({ variant, leftIcon, rightIcon, disabled, children, size, ...props }) => {
   return (
-    <ButtonStyle size={size} variant={variant} {...props}>
+    <ButtonStyle aria-pressed={!disabled} aria-disabled={disabled} size={size} variant={variant} {...props}>
       {leftIcon && <Box paddingRight={2}>{leftIcon}</Box>}
       <Text small={size === 'S'}>{children}</Text>
       {rightIcon && <Box paddingLeft={2}>{rightIcon}</Box>}
@@ -56,15 +56,17 @@ export const Button = ({ variant, leftIcon, rightIcon, children, size, ...props 
 };
 
 Button.defaultProps = {
-  variant: 'default',
-  rightIcon: undefined,
+  disabled: false,
   leftIcon: undefined,
+  rightIcon: undefined,
   size: 'S',
+  variant: 'default',
 };
 Button.propTypes = {
-  rightIcon: PropTypes.element,
-  leftIcon: PropTypes.element,
   children: PropTypes.string.isRequired,
-  variant: PropTypes.oneOf(VARIANTS),
+  disabled: PropTypes.bool,
+  leftIcon: PropTypes.element,
+  rightIcon: PropTypes.element,
   size: PropTypes.oneOf(BUTTON_SIZES),
+  variant: PropTypes.oneOf(VARIANTS),
 };

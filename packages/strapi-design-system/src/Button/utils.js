@@ -18,6 +18,7 @@ export const getVariantColorName = (variant) => {
 export const getDisabledStyle = ({ theme }) => {
   return `
     cursor: unset;
+    pointer-events: none;
     border: 1px solid ${theme.colors.neutral200};
     background: ${theme.colors.neutral150};
     ${Text} {
@@ -115,7 +116,7 @@ export const getVariantStyle = ({ theme, variant }) => {
   }
 };
 
-export const getBoxPosition = ({ size }) => {
+export const getIconPosition = ({ size }) => {
   if (size === 'S') {
     return '1px';
   }
