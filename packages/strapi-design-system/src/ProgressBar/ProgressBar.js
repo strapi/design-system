@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { VisuallyHidden } from '../VisuallyHidden';
 
 const ProgressBarSmall = styled.div`
   background: ${({ theme }) => theme.colors.neutral600};
