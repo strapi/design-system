@@ -1,5 +1,5 @@
 import { Text } from '../Text';
-import { LIGHT_VARIANTS } from './constants';
+import { LIGHT_VARIANTS, VARIANTS } from './constants';
 
 export const getVariantColorName = (variant) => {
   if (LIGHT_VARIANTS.includes(variant)) {
@@ -8,7 +8,7 @@ export const getVariantColorName = (variant) => {
   if (variant === 'tertiary') {
     return 'neutral';
   }
-  if (['default', 'secondary'].includes(variant)) {
+  if (['default', 'secondary'].includes(variant) || !VARIANTS.includes(variant)) {
     return 'primary';
   }
 
@@ -17,8 +17,6 @@ export const getVariantColorName = (variant) => {
 
 export const getDisabledStyle = ({ theme }) => {
   return `
-    cursor: unset;
-    pointer-events: none;
     border: 1px solid ${theme.colors.neutral200};
     background: ${theme.colors.neutral150};
     ${Text} {
