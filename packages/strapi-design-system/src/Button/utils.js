@@ -2,7 +2,7 @@ import { Text } from '../Text';
 import { LIGHT_VARIANTS } from './constants';
 
 export const getVariantColorName = (variant) => {
-  if (variant.includes('-light')) {
+  if (LIGHT_VARIANTS.includes(variant)) {
     return variant.substring(0, variant.lastIndexOf('-'));
   }
   if (variant === 'tertiary') {
@@ -17,13 +17,16 @@ export const getVariantColorName = (variant) => {
 
 export const getDisabledStyle = ({ theme }) => {
   return `
+    cursor: unset;
     border: 1px solid ${theme.colors.neutral200};
     background: ${theme.colors.neutral150};
     ${Text} {
       color: ${theme.colors.neutral500};
     }
-    > svg {
-      fill: ${theme.colors.neutral500};
+    svg {
+      > g, path {
+        fill: ${theme.colors.neutral500};
+      }
     }
   `;
 };
@@ -53,6 +56,11 @@ export const getActiveStyle = ({ theme, variant }) => {
       ${Text} {
         color: ${theme.colors[`${getVariantColorName(variant)}600`]};
       }
+      svg {
+        > g, path {
+          fill: ${theme.colors[`${getVariantColorName(variant)}600`]};
+        }
+      }
     `;
   }
   if (variant === 'tertiary') {
@@ -75,10 +83,12 @@ export const getVariantStyle = ({ theme, variant }) => {
           border: 1px solid ${theme.colors[`${getVariantColorName(variant)}200`]};
           background: ${theme.colors[`${getVariantColorName(variant)}100`]};
           ${Text} {
-            color: ${theme.colors[`${getVariantColorName(variant)}600`]}
+            color: ${theme.colors[`${getVariantColorName(variant)}700`]};
           }
-          > svg {
-            fill: ${theme.colors[`${getVariantColorName(variant)}600`]}
+          svg {
+            > g, path {
+              fill: ${theme.colors[`${getVariantColorName(variant)}700`]};
+            }
           }
         `;
     }
@@ -87,17 +97,28 @@ export const getVariantStyle = ({ theme, variant }) => {
           border: 1px solid ${theme.colors.neutral200};
           background: ${theme.colors.neutral0};
           ${Text} {
-            color: ${theme.colors.neutral800}
+            color: ${theme.colors.neutral800};
           }
-          > svg {
-            fill: ${theme.colors.neutral800}
+          svg {
+            > g, path {
+              fill: ${theme.colors.neutral800};
+            }
           }
         `;
     }
     default: {
       return `
+          border: 1px solid ${theme.colors[`${getVariantColorName(variant)}600`]};
           background: ${theme.colors[`${getVariantColorName(variant)}600`]};
         `;
     }
   }
+};
+
+export const getBoxPosition = ({ size }) => {
+  if (size === 'S') {
+    return '1px';
+  }
+
+  return '3px';
 };

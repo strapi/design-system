@@ -8,21 +8,40 @@ describe('Loader', () => {
   it('snapshots the component', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
-        <Loader />
+        <Loader>Loading content...</Loader>
       </ThemeProvider>,
     );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
+      .c0 {
+        border: 0;
+        -webkit-clip: rect(0 0 0 0);
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+      }
+
+      .c1 {
+        -webkit-animation: gzYjWD 1s infinite linear;
+        animation: gzYjWD 1s infinite linear;
+      }
+
       <div
         aria-live="assertive"
         role="alert"
       >
         <div
-          class="sc-bdfBwQ eDhJsz"
-        />
+          class="c0"
+        >
+          Loading content...
+        </div>
         <img
           aria-hidden="true"
-          class="sc-gsTCUz eusWxo"
+          class="c1"
           src="test-file-stub"
         />
       </div>
