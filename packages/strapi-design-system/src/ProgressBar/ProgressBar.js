@@ -36,18 +36,10 @@ export const ProgressBar = ({ min, max, value, children, size, ...props }) => {
   };
 
   if (size === 'M') {
-    return (
-      <ProgressBarMedium {...sharedProps} value={value} {...props}>
-        <VisuallyHidden>{children}</VisuallyHidden>
-      </ProgressBarMedium>
-    );
+    return <ProgressBarMedium {...sharedProps} value={value} aria-label={children} {...props} />;
   }
 
-  return (
-    <ProgressBarSmall {...sharedProps} value={value} {...props}>
-      <VisuallyHidden>{children}</VisuallyHidden>
-    </ProgressBarSmall>
-  );
+  return <ProgressBarSmall {...sharedProps} value={value} aria-label={children} {...props} />;
 };
 
 ProgressBar.defaultProps = {
