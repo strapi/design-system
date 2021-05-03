@@ -33,8 +33,8 @@ export const Grid = styled(Box)`
 Grid.displayName = 'Grid';
 
 Grid.propTypes = {
-  cols: PropTypes.string,
-  rows: PropTypes.string,
-  gap: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
   areas: PropTypes.arrayOf(PropTypes.string),
+  cols: PropTypes.string,
+  gap: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
+  rows: PropTypes.string,
 };

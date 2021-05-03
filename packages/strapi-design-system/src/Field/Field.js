@@ -20,7 +20,7 @@ Field.defaultProps = {
 
 Field.propTypes = {
   children: PropTypes.node.isRequired,
-  name: PropTypes.string.isRequired,
   error: PropTypes.string,
   hint: PropTypes.string,
+  name: PropTypes.string.isRequired,
 };

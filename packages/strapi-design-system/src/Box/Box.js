@@ -43,13 +43,13 @@ Box.defaultProps = {
 };
 
 Box.propTypes = {
-  children: PropTypes.node.isRequired,
   background: PropTypes.string,
+  children: PropTypes.node.isRequired,
   color: PropTypes.string,
+  hasRadius: PropTypes.bool,
   padding: PropTypes.number,
-  paddingTop: PropTypes.number,
-  paddingRight: PropTypes.number,
   paddingBottom: PropTypes.number,
   paddingLeft: PropTypes.number,
-  hasRadius: PropTypes.bool,
+  paddingRight: PropTypes.number,
+  paddingTop: PropTypes.number,
 };

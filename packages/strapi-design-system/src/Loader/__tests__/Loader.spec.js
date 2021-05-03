@@ -8,7 +8,11 @@ describe('Loader', () => {
   it('snapshots the component', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
+<<<<<<< HEAD
         <Loader>Loading content...</Loader>
+=======
+        <Loader>Loading content</Loader>
+>>>>>>> ADd linting for alphabetical ordering
       </ThemeProvider>,
     );
 
