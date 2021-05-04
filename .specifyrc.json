@@ -3,7 +3,7 @@
   "rules": [
     {
       "name": "Icons",
-      "path": "./packages/strapi-icons/assets/icons",
+      "path": "packages/strapi-icons/assets/icons",
       "filter": {
         "types": ["vector"]
       },
@@ -24,7 +24,7 @@
     },
     {
       "name": "Design Tokens",
-      "path": "./packages/strapi-design-system/src/themes/tokens.js",
+      "path": "packages/strapi-design-system/src/themes/tokens.js",
       "filter": {
         "types": ["color", "shadow"]
       },
