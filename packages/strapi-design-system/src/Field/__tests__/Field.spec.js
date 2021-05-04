@@ -311,7 +311,7 @@ describe('Field', () => {
       }
 
       .c2 {
-        border: 1px solid #dcdce4;
+        border: 1px solid #dd2b23;
         border-radius: 4px;
         background: #ffffff;
         overflow: hidden;
