@@ -155,7 +155,12 @@ This is the most complex input that can be built with the Field components:
                 placeholder="example@domain.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                action={
+                leftAction={
+                  <FieldAction aria-label="Show password">
+                    <Password aria-hidden={true} />
+                  </FieldAction>
+                }
+                rightAction={
                   <FieldAction aria-label="Show password">
                     <Password aria-hidden={true} />
                   </FieldAction>

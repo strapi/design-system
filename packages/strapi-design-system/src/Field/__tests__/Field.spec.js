@@ -7,6 +7,7 @@ import { FieldHint } from '../FieldHint';
 import { FieldError } from '../FieldError';
 import { FieldInput } from '../FieldInput';
 import { Field } from '../Field';
+import { FieldAction } from '../FieldAction';
 
 jest.mock('uuid', () => ({
   v4: () => 1,
@@ -51,7 +52,10 @@ describe('Field', () => {
 
       .c3 {
         border: none;
-        padding: 12px 16px;
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 12px;
+        padding-bottom: 12px;
         color: #32324d;
         font-weight: 400;
         font-size: 0.875rem;
@@ -157,7 +161,10 @@ describe('Field', () => {
 
       .c3 {
         border: none;
-        padding: 12px 16px;
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 12px;
+        padding-bottom: 12px;
         color: #32324d;
         font-weight: 400;
         font-size: 0.875rem;
@@ -271,7 +278,10 @@ describe('Field', () => {
 
       .c3 {
         border: none;
-        padding: 12px 16px;
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 12px;
+        padding-bottom: 12px;
         color: #32324d;
         font-weight: 400;
         font-size: 0.875rem;
@@ -391,7 +401,10 @@ describe('Field', () => {
 
       .c3 {
         border: none;
-        padding: 12px 16px;
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 12px;
+        padding-bottom: 12px;
         color: #32324d;
         font-weight: 400;
         font-size: 0.875rem;
@@ -451,6 +464,178 @@ describe('Field', () => {
         </div>
         <p
           class="c4"
+          id="field-hint-1"
+        >
+          Description line
+        </p>
+      </div>
+    `);
+  });
+
+  it('snapshots with actions on both sides', () => {
+    const { container } = render(
+      <ThemeProvider theme={lightTheme}>
+        <Field name="password" hint="Description line">
+          <FieldLabel>Email</FieldLabel>
+          <FieldInput
+            type="text"
+            disabled={true}
+            placeholder="Placeholder"
+            value={'email'}
+            onChange={() => undefined}
+            leftAction={<FieldAction aria-label="Show password">Show</FieldAction>}
+            rightAction={<FieldAction aria-label="Show password">Hide</FieldAction>}
+          />
+          <FieldHint />
+          <FieldError />
+        </Field>
+      </ThemeProvider>,
+    );
+
+    expect(container.firstChild).toMatchInlineSnapshot(`
+      .c0 {
+        font-weight: 500;
+        font-size: 0.75rem;
+        line-height: 1.33;
+        color: #32324d;
+      }
+
+      .c7 {
+        font-weight: 400;
+        font-size: 0.75rem;
+        line-height: 1.33;
+        color: #666687;
+      }
+
+      .c1 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+
+      .c3 {
+        padding-right: 8px;
+        padding-left: 12px;
+      }
+
+      .c6 {
+        padding-right: 12px;
+        padding-left: 8px;
+      }
+
+      .c5 {
+        border: none;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        color: #32324d;
+        font-weight: 400;
+        font-size: 0.875rem;
+        display: block;
+        width: 100%;
+      }
+
+      .c5::-webkit-input-placeholder {
+        color: #8e8ea9;
+      }
+
+      .c5::-moz-placeholder {
+        color: #8e8ea9;
+      }
+
+      .c5:-ms-input-placeholder {
+        color: #8e8ea9;
+      }
+
+      .c5::placeholder {
+        color: #8e8ea9;
+      }
+
+      .c5:disabled {
+        color: #8e8ea9;
+        background: #eaeaef;
+      }
+
+      .c2 {
+        border: 1px solid #dcdce4;
+        border-radius: 4px;
+        background: #ffffff;
+        overflow: hidden;
+      }
+
+      .c4 {
+        border: none;
+        background: transparent;
+        font-size: 1.6rem;
+        width: auto;
+        padding: 0;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+
+      <div>
+        <label
+          class="c0"
+          for="field-1"
+        >
+          Email
+        </label>
+        <div
+          class="c1 c2"
+        >
+          <div
+            class="c3"
+          >
+            <button
+              aria-label="Show password"
+              class="c4"
+            >
+              Show
+            </button>
+          </div>
+          <input
+            aria-describedby="field-hint-1"
+            aria-invalid="false"
+            class="c5"
+            disabled=""
+            id="field-1"
+            name="password"
+            placeholder="Placeholder"
+            type="text"
+            value="email"
+          />
+          <div
+            class="c6"
+          >
+            <button
+              aria-label="Show password"
+              class="c4"
+            >
+              Hide
+            </button>
+          </div>
+        </div>
+        <p
+          class="c7"
           id="field-hint-1"
         >
           Description line
