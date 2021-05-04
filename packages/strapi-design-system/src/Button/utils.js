@@ -43,6 +43,7 @@ export const getHoverStyle = ({ theme, variant }) => {
   }
 
   return `
+    border: 1px solid ${theme.colors[`${getVariantColorName(variant)}500`]};
     background: ${theme.colors[`${getVariantColorName(variant)}500`]};
   `;
 };
@@ -69,6 +70,7 @@ export const getActiveStyle = ({ theme, variant }) => {
   }
 
   return `
+    border: 1px solid ${theme.colors[`${getVariantColorName(variant)}600`]};
     background: ${theme.colors[`${getVariantColorName(variant)}600`]};
   `;
 };

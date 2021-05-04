@@ -23,7 +23,7 @@ const handleAreas = ({ areas }) => {
 };
 
 export const Grid = styled(Box)`
-  display: grid;
+  display: ${({ inline }) => (inline ? 'inline-grid' : 'grid')};
   grid-template-columns: ${({ cols }) => cols};
   grid-template-rows: ${({ rows }) => rows};
   gap: ${handleGap};
@@ -32,9 +32,18 @@ export const Grid = styled(Box)`
 
 Grid.displayName = 'Grid';
 
+Grid.defaultProps = {
+  cols: undefined,
+  rows: undefined,
+  inline: false,
+  gap: undefined,
+  areas: undefined,
+};
+
 Grid.propTypes = {
   areas: PropTypes.arrayOf(PropTypes.string),
   cols: PropTypes.string,
   gap: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
+  inline: PropTypes.bool,
   rows: PropTypes.string,
 };

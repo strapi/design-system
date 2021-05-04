@@ -29,7 +29,7 @@ export const Box = styled.div.withConfig({
   border-radius: ${({ theme, hasRadius }) => (hasRadius ? theme.borderRadius : undefined)};
 `;
 
-Box.displayName = Box;
+Box.displayName = 'Box';
 
 Box.defaultProps = {
   background: undefined,

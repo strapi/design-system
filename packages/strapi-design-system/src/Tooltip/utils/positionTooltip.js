@@ -39,6 +39,7 @@ const positionTop = (tooltipRect, toggleSourceRect) => {
 };
 
 export const positionTooltip = (tooltipNode, toggleSourceNode, position) => {
+  console.log(tooltipNode, toggleSourceNode);
   const tooltipRect = tooltipNode.getBoundingClientRect();
   const toggleSourceRect = toggleSourceNode.getBoundingClientRect();
 

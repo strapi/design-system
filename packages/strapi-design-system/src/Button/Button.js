@@ -5,12 +5,10 @@ import { Text } from '../Text';
 import { Box } from '../Box';
 import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle, getIconPosition } from './utils';
 import { VARIANTS, BUTTON_SIZES } from './constants';
+import { BaseButton } from '../BaseButton';
 
-export const ButtonWrapper = styled.button`
-  display: flex;
-  cursor: pointer;
+export const ButtonWrapper = styled(BaseButton)`
   padding: ${({ theme }) => `${theme.spaces[2]} ${theme.spaces[4]}`};
-  border-radius: ${({ theme }) => theme.borderRadius};
   background: ${({ theme }) => theme.colors.primary600};
   border: none;
   ${Box} {
@@ -21,17 +19,7 @@ export const ButtonWrapper = styled.button`
   ${Text} {
     color: ${({ theme }) => theme.colors.neutral0};
   }
-  svg {
-    height: ${({ theme }) => theme.spaces[3]};
-  }
-  svg {
-    > g,
-    path {
-      fill: ${({ theme }) => theme.colors.neutral0};
-    }
-  }
   &[aria-disabled='true'] {
-    pointer-events: none;
     ${getDisabledStyle}
     &:active {
       ${getDisabledStyle}
@@ -46,9 +34,9 @@ export const ButtonWrapper = styled.button`
   ${getVariantStyle}
 `;
 
-export const Button = ({ variant, leftIcon, rightIcon, disabled, children, size, ...props }) => {
+export const Button = React.forwardRef(({ variant, leftIcon, rightIcon, disabled, children, size, ...props }, ref) => {
   return (
-    <ButtonWrapper aria-disabled={disabled} size={size} variant={variant} {...props}>
+    <ButtonWrapper ref={ref} aria-disabled={disabled} size={size} variant={variant} {...props}>
       {leftIcon && (
         <Box aria-hidden={true} paddingRight={2}>
           {leftIcon}
@@ -64,7 +52,9 @@ export const Button = ({ variant, leftIcon, rightIcon, disabled, children, size,
       )}
     </ButtonWrapper>
   );
-};
+});
+
+Button.displayName = 'Button';
 
 Button.defaultProps = {
   disabled: false,

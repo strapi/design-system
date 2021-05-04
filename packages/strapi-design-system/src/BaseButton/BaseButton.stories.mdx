@@ -1,0 +1,31 @@
+<!--- BaseButton.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { withDesign } from 'storybook-addon-designs';
+import { BaseButton } from './BaseButton';
+
+<Meta
+  title="BaseButton"
+  component={ BaseButton }
+  decorators={[withDesign]}
+  parameters={ {
+    design: {
+      type: 'figma',
+      url: 'TODO: Fill the according figma file',
+    },
+  } }
+/>
+
+# BaseButton
+
+This is the doc of the `BaseButton` component
+
+## BaseButton
+
+Description...
+
+<Canvas>
+  <Story name="base">
+    <BaseButton onClick={(e) => console.log(e)}>button</BaseButton>
+  </Story>
+</Canvas>
