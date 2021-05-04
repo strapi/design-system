@@ -2,27 +2,6 @@
   "repository": "@strapi/Strapi-Design-System",
   "rules": [
     {
-      "name": "Icons",
-      "path": "./packages/strapi-icons/assets/icons",
-      "filter": {
-        "types": ["vector"]
-      },
-      "parsers": [
-        {
-          "name": "kebabcasify",
-          "options": {
-            "keys": ["name"]
-          }
-        },
-        {
-          "name": "name-assets-files-by-pattern",
-          "options": {
-            "pattern": "{{name}}.{{format}}"
-          }
-        }
-      ]
-    },
-    {
       "name": "Design Tokens",
       "path": "./packages/strapi-design-system/src/themes/tokens.js",
       "filter": {
