@@ -19,9 +19,11 @@ describe('Divider', () => {
 
       .c1 {
         height: 1px;
+        margin: 0;
+        border: none;
       }
 
-      <div
+      <hr
         class="c0 c1"
       />
     `);

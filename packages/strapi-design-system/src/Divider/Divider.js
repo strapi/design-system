@@ -1,10 +1,15 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Box } from '../Box';
 import styled from 'styled-components';
 
-export const Divider = styled(Box)`
+const DividerWrapper = styled(Box)`
   height: 1px;
+  margin: 0;
+  border: none;
 `;
+
+export const Divider = (props) => <DividerWrapper {...props} as="hr" />;
 
 /**
  * The background props is implicitly passed to the Box component
