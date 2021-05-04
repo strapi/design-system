@@ -3,10 +3,15 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { useField } from './FieldContext';
 import { Row } from '../Row';
+import { Box } from '../Box';
 
 const Input = styled.input`
   border: none;
-  padding: ${({ theme }) => `${theme.spaces[3]} ${theme.spaces[4]}`};
+  padding-left: ${({ theme, hasLeftAction }) => (hasLeftAction ? 0 : theme.spaces[4])};
+  padding-right: ${({ theme, hasRightAction }) => (hasRightAction ? 0 : theme.spaces[4])};
+  padding-top: ${({ theme }) => `${theme.spaces[3]}`};
+  padding-bottom: ${({ theme }) => `${theme.spaces[3]}`};
+
   color: ${({ theme }) => theme.colors.neutral800};
   font-weight: 400;
   // TODO: Make sure to use the theme when it's ready
@@ -31,7 +36,7 @@ const InputWrapper = styled(Row)`
   overflow: hidden;
 `;
 
-export const FieldInput = forwardRef(({ action, ...props }, ref) => {
+export const FieldInput = forwardRef(({ rightAction, leftAction, ...props }, ref) => {
   const { id, error, hint, name } = useField();
 
   let ariaDescription;
@@ -47,6 +52,11 @@ export const FieldInput = forwardRef(({ action, ...props }, ref) => {
 
   return (
     <InputWrapper justifyContent="space-between">
+      {leftAction && (
+        <Box paddingLeft={3} paddingRight={2}>
+          {leftAction}
+        </Box>
+      )}
       <Input
         id={fieldId}
         name={name}
@@ -54,9 +64,15 @@ export const FieldInput = forwardRef(({ action, ...props }, ref) => {
         hasError={hasError}
         aria-describedby={ariaDescription}
         aria-invalid={hasError}
+        hasLeftAction={Boolean(leftAction)}
+        hasRightAction={Boolean(rightAction)}
         {...props}
       />
-      {action}
+      {rightAction && (
+        <Box paddingLeft={2} paddingRight={3}>
+          {rightAction}
+        </Box>
+      )}
     </InputWrapper>
   );
 });
@@ -64,9 +80,11 @@ export const FieldInput = forwardRef(({ action, ...props }, ref) => {
 FieldInput.displayName = 'FieldInput';
 
 FieldInput.defaultProps = {
-  action: undefined,
+  rightAction: undefined,
+  leftAction: undefined,
 };
 
 FieldInput.propTypes = {
-  action: PropTypes.element,
+  rightAction: PropTypes.element,
+  leftAction: PropTypes.element,
 };
