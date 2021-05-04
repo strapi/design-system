@@ -2,7 +2,7 @@
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { withDesign } from 'storybook-addon-designs';
-import { ContentIcon, Ct } from '@strapi/icons';
+import { EditIcon, PublishIcon, DeleteIcon, AddIcon } from '@strapi/icons';
 import { IconButton } from './IconButton';
 import { Box } from '../Box';
 import { Grid } from '../Grid'; 
@@ -31,17 +31,17 @@ Description...
   <Story name="base">
     <Box padding={7}>
       <Grid inline cols='repeat(4, auto)' gap={1}>
-        <IconButton title="Edit">
-          <ContentIcon />
+        <IconButton onClick={() => console.log('edit')} title="Edit">
+          <EditIcon />
         </IconButton>
-        <IconButton title="Create">
-          <Ct />
+        <IconButton onClick={() => console.log('Create')} title="Create">
+          <AddIcon />
         </IconButton>
-        <IconButton title="Delete">
-          <ContentIcon />
+        <IconButton onClick={() => console.log('Delete')} title="Delete">
+          <DeleteIcon />
         </IconButton>
-        <IconButton title="Duplicate">
-          <ContentIcon />
+        <IconButton onClick={() => console.log('Publish')} title="Publish">
+          <PublishIcon />
         </IconButton>
       </Grid>
     </Box>

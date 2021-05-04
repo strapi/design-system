@@ -13,7 +13,7 @@ describe('Button', () => {
     );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
-      .c2 {
+      .c3 {
         font-weight: 400;
         font-size: 0.75rem;
         line-height: 1.33;
@@ -25,15 +25,35 @@ describe('Button', () => {
         display: -ms-flexbox;
         display: flex;
         cursor: pointer;
-        padding: 8px 16px;
+        padding: 10px;
         border-radius: 4px;
+        background: #ffffff;
+        border: 1px solid #dcdce4;
+      }
+
+      .c0 svg {
+        height: 12px;
+        width: 12px;
+      }
+
+      .c0 svg > g,
+      .c0 svg path {
+        fill: #ffffff;
+      }
+
+      .c0[aria-disabled='true'] {
+        pointer-events: none;
+      }
+
+      .c1 {
+        padding: 8px 16px;
         background: #4945ff;
         border: none;
         border: 1px solid #4945ff;
         background: #4945ff;
       }
 
-      .c0 .sc-iCfLBT {
+      .c1 .sc-iCfLBT {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -45,21 +65,11 @@ describe('Button', () => {
         margin-top: 1px;
       }
 
-      .c0 .c1 {
+      .c1 .c2 {
         color: #ffffff;
       }
 
-      .c0 svg {
-        height: 12px;
-      }
-
-      .c0 svg > g,
-      .c0 svg path {
-        fill: #ffffff;
-      }
-
-      .c0[aria-disabled='true'] {
-        pointer-events: none;
+      .c1[aria-disabled='true'] {
         border: 1px solid #dcdce4;
         background: #eaeaef;
       }
@@ -73,7 +83,7 @@ describe('Button', () => {
         fill: #666687;
       }
 
-      .c0[aria-disabled='true']:active {
+      .c1[aria-disabled='true']:active {
         border: 1px solid #dcdce4;
         background: #eaeaef;
       }
@@ -87,17 +97,19 @@ describe('Button', () => {
         fill: #666687;
       }
 
-      .c0:hover {
+      .c1:hover {
+        border: 1px solid #7b79ff;
         background: #7b79ff;
       }
 
-      .c0:active {
+      .c1:active {
+        border: 1px solid #4945ff;
         background: #4945ff;
       }
 
       <button
         aria-disabled="false"
-        class="c0"
+        class="c0 c1"
       >
         <span
           class="c1 c2"
@@ -116,7 +128,7 @@ describe('Button', () => {
     );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
-      .c2 {
+      .c3 {
         font-weight: 400;
         font-size: 0.75rem;
         line-height: 1.33;
@@ -128,15 +140,35 @@ describe('Button', () => {
         display: -ms-flexbox;
         display: flex;
         cursor: pointer;
-        padding: 8px 16px;
+        padding: 10px;
         border-radius: 4px;
+        background: #ffffff;
+        border: 1px solid #dcdce4;
+      }
+
+      .c0 svg {
+        height: 12px;
+        width: 12px;
+      }
+
+      .c0 svg > g,
+      .c0 svg path {
+        fill: #ffffff;
+      }
+
+      .c0[aria-disabled='true'] {
+        pointer-events: none;
+      }
+
+      .c1 {
+        padding: 8px 16px;
         background: #4945ff;
         border: none;
         border: 1px solid #d9d8ff;
         background: #f0f0ff;
       }
 
-      .c0 .sc-iCfLBT {
+      .c1 .sc-iCfLBT {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -148,21 +180,11 @@ describe('Button', () => {
         margin-top: 1px;
       }
 
-      .c0 .c1 {
+      .c1 .c2 {
         color: #ffffff;
       }
 
-      .c0 svg {
-        height: 12px;
-      }
-
-      .c0 svg > g,
-      .c0 svg path {
-        fill: #ffffff;
-      }
-
-      .c0[aria-disabled='true'] {
-        pointer-events: none;
+      .c1[aria-disabled='true'] {
         border: 1px solid #dcdce4;
         background: #eaeaef;
       }
@@ -176,7 +198,7 @@ describe('Button', () => {
         fill: #666687;
       }
 
-      .c0[aria-disabled='true']:active {
+      .c1[aria-disabled='true']:active {
         border: 1px solid #dcdce4;
         background: #eaeaef;
       }
@@ -190,36 +212,36 @@ describe('Button', () => {
         fill: #666687;
       }
 
-      .c0:hover {
+      .c1:hover {
         background-color: #ffffff;
       }
 
-      .c0:active {
+      .c1:active {
         background-color: #ffffff;
         border: 1px solid #4945ff;
       }
 
-      .c0:active .c1 {
+      .c1:active .c2 {
         color: #4945ff;
       }
 
-      .c0:active svg > g,
-      .c0:active svg path {
+      .c1:active svg > g,
+      .c1:active svg path {
         fill: #4945ff;
       }
 
-      .c0 .c1 {
+      .c1 .c2 {
         color: #271fe0;
       }
 
-      .c0 svg > g,
-      .c0 svg path {
+      .c1 svg > g,
+      .c1 svg path {
         fill: #271fe0;
       }
 
       <button
         aria-disabled="false"
-        class="c0"
+        class="c0 c1"
       >
         <span
           class="c1 c2"
@@ -238,7 +260,7 @@ describe('Button', () => {
     );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
-      .c2 {
+      .c3 {
         font-weight: 400;
         font-size: 0.75rem;
         line-height: 1.33;
@@ -250,15 +272,35 @@ describe('Button', () => {
         display: -ms-flexbox;
         display: flex;
         cursor: pointer;
-        padding: 8px 16px;
+        padding: 10px;
         border-radius: 4px;
+        background: #ffffff;
+        border: 1px solid #dcdce4;
+      }
+
+      .c0 svg {
+        height: 12px;
+        width: 12px;
+      }
+
+      .c0 svg > g,
+      .c0 svg path {
+        fill: #ffffff;
+      }
+
+      .c0[aria-disabled='true'] {
+        pointer-events: none;
+      }
+
+      .c1 {
+        padding: 8px 16px;
         background: #4945ff;
         border: none;
         border: 1px solid #338648;
         background: #338648;
       }
 
-      .c0 .sc-iCfLBT {
+      .c1 .sc-iCfLBT {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -270,21 +312,11 @@ describe('Button', () => {
         margin-top: 1px;
       }
 
-      .c0 .c1 {
+      .c1 .c2 {
         color: #ffffff;
       }
 
-      .c0 svg {
-        height: 12px;
-      }
-
-      .c0 svg > g,
-      .c0 svg path {
-        fill: #ffffff;
-      }
-
-      .c0[aria-disabled='true'] {
-        pointer-events: none;
+      .c1[aria-disabled='true'] {
         border: 1px solid #dcdce4;
         background: #eaeaef;
       }
@@ -298,7 +330,7 @@ describe('Button', () => {
         fill: #666687;
       }
 
-      .c0[aria-disabled='true']:active {
+      .c1[aria-disabled='true']:active {
         border: 1px solid #dcdce4;
         background: #eaeaef;
       }
@@ -312,17 +344,19 @@ describe('Button', () => {
         fill: #666687;
       }
 
-      .c0:hover {
+      .c1:hover {
+        border: 1px solid #5cb176;
         background: #5cb176;
       }
 
-      .c0:active {
+      .c1:active {
+        border: 1px solid #338648;
         background: #338648;
       }
 
       <button
         aria-disabled="false"
-        class="c0"
+        class="c0 c1"
       >
         <span
           class="c1 c2"
@@ -341,7 +375,7 @@ describe('Button', () => {
     );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
-      .c2 {
+      .c3 {
         font-weight: 400;
         font-size: 0.75rem;
         line-height: 1.33;
@@ -353,15 +387,35 @@ describe('Button', () => {
         display: -ms-flexbox;
         display: flex;
         cursor: pointer;
-        padding: 8px 16px;
+        padding: 10px;
         border-radius: 4px;
+        background: #ffffff;
+        border: 1px solid #dcdce4;
+      }
+
+      .c0 svg {
+        height: 12px;
+        width: 12px;
+      }
+
+      .c0 svg > g,
+      .c0 svg path {
+        fill: #ffffff;
+      }
+
+      .c0[aria-disabled='true'] {
+        pointer-events: none;
+      }
+
+      .c1 {
+        padding: 8px 16px;
         background: #4945ff;
         border: none;
         border: 1px solid #f5c0b8;
         background: #fcecea;
       }
 
-      .c0 .sc-iCfLBT {
+      .c1 .sc-iCfLBT {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -373,21 +427,11 @@ describe('Button', () => {
         margin-top: 1px;
       }
 
-      .c0 .c1 {
+      .c1 .c2 {
         color: #ffffff;
       }
 
-      .c0 svg {
-        height: 12px;
-      }
-
-      .c0 svg > g,
-      .c0 svg path {
-        fill: #ffffff;
-      }
-
-      .c0[aria-disabled='true'] {
-        pointer-events: none;
+      .c1[aria-disabled='true'] {
         border: 1px solid #dcdce4;
         background: #eaeaef;
       }
@@ -401,7 +445,7 @@ describe('Button', () => {
         fill: #666687;
       }
 
-      .c0[aria-disabled='true']:active {
+      .c1[aria-disabled='true']:active {
         border: 1px solid #dcdce4;
         background: #eaeaef;
       }
@@ -415,36 +459,36 @@ describe('Button', () => {
         fill: #666687;
       }
 
-      .c0:hover {
+      .c1:hover {
         background-color: #ffffff;
       }
 
-      .c0:active {
+      .c1:active {
         background-color: #ffffff;
         border: 1px solid #dd2b23;
       }
 
-      .c0:active .c1 {
+      .c1:active .c2 {
         color: #dd2b23;
       }
 
-      .c0:active svg > g,
-      .c0:active svg path {
+      .c1:active svg > g,
+      .c1:active svg path {
         fill: #dd2b23;
       }
 
-      .c0 .c1 {
+      .c1 .c2 {
         color: #b72b1a;
       }
 
-      .c0 svg > g,
-      .c0 svg path {
+      .c1 svg > g,
+      .c1 svg path {
         fill: #b72b1a;
       }
 
       <button
         aria-disabled="false"
-        class="c0"
+        class="c0 c1"
       >
         <span
           class="c1 c2"
@@ -463,7 +507,7 @@ describe('Button', () => {
     );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
-      .c2 {
+      .c3 {
         font-weight: 400;
         font-size: 0.875rem;
         line-height: 1.43;
@@ -475,15 +519,35 @@ describe('Button', () => {
         display: -ms-flexbox;
         display: flex;
         cursor: pointer;
-        padding: 8px 16px;
+        padding: 10px;
         border-radius: 4px;
+        background: #ffffff;
+        border: 1px solid #dcdce4;
+      }
+
+      .c0 svg {
+        height: 12px;
+        width: 12px;
+      }
+
+      .c0 svg > g,
+      .c0 svg path {
+        fill: #ffffff;
+      }
+
+      .c0[aria-disabled='true'] {
+        pointer-events: none;
+      }
+
+      .c1 {
+        padding: 8px 16px;
         background: #4945ff;
         border: none;
         border: 1px solid #4945ff;
         background: #4945ff;
       }
 
-      .c0 .sc-iCfLBT {
+      .c1 .sc-iCfLBT {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -495,21 +559,11 @@ describe('Button', () => {
         margin-top: 3px;
       }
 
-      .c0 .c1 {
+      .c1 .c2 {
         color: #ffffff;
       }
 
-      .c0 svg {
-        height: 12px;
-      }
-
-      .c0 svg > g,
-      .c0 svg path {
-        fill: #ffffff;
-      }
-
-      .c0[aria-disabled='true'] {
-        pointer-events: none;
+      .c1[aria-disabled='true'] {
         border: 1px solid #dcdce4;
         background: #eaeaef;
       }
@@ -523,7 +577,7 @@ describe('Button', () => {
         fill: #666687;
       }
 
-      .c0[aria-disabled='true']:active {
+      .c1[aria-disabled='true']:active {
         border: 1px solid #dcdce4;
         background: #eaeaef;
       }
@@ -537,17 +591,19 @@ describe('Button', () => {
         fill: #666687;
       }
 
-      .c0:hover {
+      .c1:hover {
+        border: 1px solid #7b79ff;
         background: #7b79ff;
       }
 
-      .c0:active {
+      .c1:active {
+        border: 1px solid #4945ff;
         background: #4945ff;
       }
 
       <button
         aria-disabled="false"
-        class="c0"
+        class="c0 c1"
       >
         <span
           class="c1 c2"

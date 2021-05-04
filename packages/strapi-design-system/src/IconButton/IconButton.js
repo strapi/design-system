@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { ContentIcon } from '@strapi/icons';
-
 import { Tooltip } from '../Tooltip';
 import { BaseButton } from '../BaseButton';
 
@@ -47,6 +45,6 @@ IconButton.defaultProps = {
   title: undefined,
 };
 IconButton.propTypes = {
-  title: PropTypes.string,
   children: PropTypes.element.isRequired,
+  title: PropTypes.string,
 };

@@ -8,10 +8,43 @@ describe('BaseButton', () => {
   it('snapshots the component', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
-        <BaseButton />
+        <BaseButton>Button</BaseButton>
       </ThemeProvider>,
     );
 
-    expect(container.firstChild).toMatchInlineSnapshot(``);
+    expect(container.firstChild).toMatchInlineSnapshot(`
+      .c0 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        cursor: pointer;
+        padding: 10px;
+        border-radius: 4px;
+        background: #ffffff;
+        border: 1px solid #dcdce4;
+      }
+
+      .c0 svg {
+        height: 12px;
+        width: 12px;
+      }
+
+      .c0 svg > g,
+      .c0 svg path {
+        fill: #ffffff;
+      }
+
+      .c0[aria-disabled='true'] {
+        pointer-events: none;
+      }
+
+      <button
+        aria-disabled="false"
+        class="c0"
+      >
+        Button
+      </button>
+    `);
   });
 });

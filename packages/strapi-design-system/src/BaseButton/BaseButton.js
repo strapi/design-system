@@ -38,6 +38,6 @@ BaseButton.defaultProps = {
   disabled: false,
 };
 BaseButton.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   disabled: PropTypes.bool,
 };
