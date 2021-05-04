@@ -8,7 +8,7 @@ describe('Loader', () => {
   it('snapshots the component', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
-        <Loader>Loading content...</Loader>
+        <Loader>Loading content</Loader>
       </ThemeProvider>,
     );
 
@@ -37,7 +37,7 @@ describe('Loader', () => {
         <div
           class="c0"
         >
-          Loading content...
+          Loading content
         </div>
         <img
           aria-hidden="true"

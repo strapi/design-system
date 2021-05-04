@@ -29,8 +29,8 @@ RadioGroup.defaultProps = {
 RadioGroup.propTypes = {
   children: PropTypes.node.isRequired,
   labelledBy: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  value: PropTypes.string,
-  size: PropTypes.oneOf(['M', 'L']),
   name: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  size: PropTypes.oneOf(['M', 'L']),
+  value: PropTypes.string,
 };
