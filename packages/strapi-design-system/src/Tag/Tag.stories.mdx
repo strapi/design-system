@@ -1,0 +1,32 @@
+<!--- Tag.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { withDesign } from 'storybook-addon-designs';
+import { HelpIcon } from '@strapi/icons';
+import { Tag } from './Tag';
+
+<Meta
+  title="Tag"
+  component={Tag}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: 'figma',
+      url: 'TODO: Fill the according figma file',
+    },
+  }}
+/>
+
+# Tag
+
+This is the doc of the `Tag` component
+
+## Tag
+
+Description...
+
+<Canvas>
+  <Story name="base">
+    <Tag icon={<HelpIcon aria-hidden={true} />}>Hello world</Tag>
+  </Story>
+</Canvas>
