@@ -51,7 +51,7 @@ export const FieldInput = forwardRef(({ rightAction, leftAction, ...props }, ref
   const hasError = Boolean(error);
 
   return (
-    <InputWrapper justifyContent="space-between">
+    <InputWrapper justifyContent="space-between" hasError={hasError}>
       {leftAction && (
         <Box paddingLeft={3} paddingRight={2}>
           {leftAction}
@@ -61,7 +61,6 @@ export const FieldInput = forwardRef(({ rightAction, leftAction, ...props }, ref
         id={fieldId}
         name={name}
         ref={ref}
-        hasError={hasError}
         aria-describedby={ariaDescription}
         aria-invalid={hasError}
         hasLeftAction={Boolean(leftAction)}
