@@ -11,9 +11,9 @@ const PaginationList = styled(Row)`
   }
 `;
 
-export const Pagination = ({ children, label, activePage }) => {
+export const Pagination = ({ children, label, activePage, pageCount }) => {
   return (
-    <PaginationContext.Provider value={activePage}>
+    <PaginationContext.Provider value={{ activePage, pageCount }}>
       <PaginationWrapper aria-label={label}>
         <PaginationList as="ul">{children}</PaginationList>
       </PaginationWrapper>
@@ -26,7 +26,8 @@ Pagination.defaultProps = {
 };
 
 Pagination.propTypes = {
+  activePage: PropTypes.number.isRequired,
   children: PropTypes.node.isRequired,
   label: PropTypes.string,
-  activePage: PropTypes.number.isRequired,
+  pageCount: PropTypes.number.isRequired,
 };
