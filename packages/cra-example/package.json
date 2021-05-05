@@ -1,5 +1,5 @@
 {
-  "name": "strapi-ds-app-example",
+  "name": "@strapi/cra-example",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
