@@ -139,11 +139,9 @@ const GlobalStyle = createGlobalStyle`
   }
 
   *:focus-visible {
-    box-shadow: 0px 0px 6px ${(props) => props.theme.colors.primary500};
-    // Windows High Contrast won't see the bow shadow but transparent will
-    // be replaced by a color
-    // See https://sarahmhigley.com/writing/whcm-quick-tips/ for more details
-    outline: 4px solid transparent;
+    outline: 2px solid ${({ theme }) => theme.colors.primary600};
+    outline-offset: 2px;
+    box-shadow: revert;
   }
   /* Focusing the button with a mouse, touch, or stylus will show a subtle drop shadow. */
   *:focus:not(:focus-visible) {

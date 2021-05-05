@@ -23,20 +23,38 @@ const Input = styled.input`
     color: ${({ theme }) => theme.colors.neutral500};
   }
 
-  :disabled {
-    color: ${({ theme }) => theme.colors.neutral500};
-    background: ${({ theme }) => theme.colors.neutral150};
+  &:disabled {
+    background: inherit;
+    color: inherit;
+  }
+
+  // The focus state is moved to the parent thanks to :focus-within
+  &:focus {
+    outline: none;
   }
 `;
 
-const InputWrapper = styled(Row)`
+export const InputWrapper = styled(Row)`
   border: 1px solid ${({ theme, hasError }) => (hasError ? theme.colors.danger600 : theme.colors.neutral200)};
   border-radius: ${({ theme }) => theme.borderRadius};
   background: ${({ theme }) => theme.colors.neutral0};
   overflow: hidden;
+
+  ${({ theme, disabled }) =>
+    disabled
+      ? `
+    color: ${theme.colors.neutral500};
+    background: ${theme.colors.neutral150};
+  
+  `
+      : undefined}
+
+  &:focus-within {
+    outline: 1px solid ${({ theme }) => theme.colors.primary600};
+  }
 `;
 
-export const FieldInput = forwardRef(({ rightAction, leftAction, ...props }, ref) => {
+export const FieldInput = forwardRef(({ rightAction, leftAction, disabled, ...props }, ref) => {
   const { id, error, hint, name } = useField();
 
   let ariaDescription;
@@ -51,7 +69,7 @@ export const FieldInput = forwardRef(({ rightAction, leftAction, ...props }, ref
   const hasError = Boolean(error);
 
   return (
-    <InputWrapper justifyContent="space-between" hasError={hasError}>
+    <InputWrapper justifyContent="space-between" hasError={hasError} disabled={disabled}>
       {leftAction && (
         <Box paddingLeft={3} paddingRight={2}>
           {leftAction}
@@ -63,6 +81,7 @@ export const FieldInput = forwardRef(({ rightAction, leftAction, ...props }, ref
         ref={ref}
         aria-describedby={ariaDescription}
         aria-invalid={hasError}
+        disabled={disabled}
         hasLeftAction={Boolean(leftAction)}
         hasRightAction={Boolean(rightAction)}
         {...props}
@@ -79,11 +98,13 @@ export const FieldInput = forwardRef(({ rightAction, leftAction, ...props }, ref
 FieldInput.displayName = 'FieldInput';
 
 FieldInput.defaultProps = {
+  disabled: false,
   rightAction: undefined,
   leftAction: undefined,
 };
 
 FieldInput.propTypes = {
-  rightAction: PropTypes.element,
+  disabled: PropTypes.bool,
   leftAction: PropTypes.element,
+  rightAction: PropTypes.element,
 };
