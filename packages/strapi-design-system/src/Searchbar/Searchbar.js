@@ -42,8 +42,8 @@ export const Searchbar = ({ name, children, value, onClear, clearLabel, ...props
   const inputRef = useRef(null);
   const isCompleting = value.length > 0;
 
-  const handleClear = () => {
-    onClear();
+  const handleClear = (e) => {
+    onClear(e);
     inputRef.current.focus();
   };
 
