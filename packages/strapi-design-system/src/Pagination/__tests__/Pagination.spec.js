@@ -66,19 +66,19 @@ describe('Pagination', () => {
         width: 1px;
       }
 
-      .c8 {
+      .c7 {
         font-weight: 500;
         font-size: 0.75rem;
         line-height: 1.33;
       }
 
-      .c11 {
+      .c10 {
         font-weight: 400;
         font-size: 0.75rem;
         line-height: 1.33;
       }
 
-      .c9 {
+      .c8 {
         line-height: revert;
       }
 
@@ -110,32 +110,16 @@ describe('Pagination', () => {
         background: #ffffff;
       }
 
-      .c6:focus .c7 {
-        font-weight: bold;
-      }
-
       .c6:hover {
         box-shadow: 0px 1px 4px rgba(26,26,67,0.1);
       }
 
-      .c6:hover .c7 {
-        font-weight: bold;
-      }
-
-      .c10 {
+      .c9 {
         color: #32324d;
       }
 
-      .c10:focus .c7 {
-        font-weight: bold;
-      }
-
-      .c10:hover {
+      .c9:hover {
         box-shadow: 0px 1px 4px rgba(26,26,67,0.1);
-      }
-
-      .c10:hover .c7 {
-        font-weight: bold;
       }
 
       .c3 {
@@ -152,20 +136,20 @@ describe('Pagination', () => {
         fill: #c0c0cf;
       }
 
-      .c13 {
+      .c12 {
         font-size: 0.7rem;
       }
 
-      .c13 svg path {
+      .c12 svg path {
         fill: #8e8ea9;
       }
 
-      .c13:focus svg path,
-      .c13:hover svg path {
+      .c12:focus svg path,
+      .c12:hover svg path {
         fill: #4a4a6a;
       }
 
-      .c12 {
+      .c11 {
         color: #32324d;
       }
 
@@ -206,7 +190,7 @@ describe('Pagination', () => {
               </div>
               <p
                 aria-hidden="true"
-                class="c7 c8 c9"
+                class="c7 c8"
               >
                 1
               </p>
@@ -215,7 +199,7 @@ describe('Pagination', () => {
           <li>
             <a
               aria-current="false"
-              class="c2 c10"
+              class="c2 c9"
               href="/2"
             >
               <div
@@ -225,7 +209,7 @@ describe('Pagination', () => {
               </div>
               <p
                 aria-hidden="true"
-                class="c7 c11 c9"
+                class="c10 c8"
               >
                 2
               </p>
@@ -234,7 +218,7 @@ describe('Pagination', () => {
           <li>
             <a
               aria-current="false"
-              class="c2 c10"
+              class="c2 c9"
               href="/3"
             >
               <div
@@ -244,7 +228,7 @@ describe('Pagination', () => {
               </div>
               <p
                 aria-hidden="true"
-                class="c7 c11 c9"
+                class="c10 c8"
               >
                 3
               </p>
@@ -252,7 +236,7 @@ describe('Pagination', () => {
           </li>
           <li>
             <div
-              class="c2 c12"
+              class="c2 c11"
             >
               <div
                 class="c4"
@@ -261,7 +245,7 @@ describe('Pagination', () => {
               </div>
               <p
                 aria-hidden="true"
-                class="c7 c11 c9"
+                class="c10 c8"
               >
                 …
               </p>
@@ -270,7 +254,7 @@ describe('Pagination', () => {
           <li>
             <a
               aria-current="false"
-              class="c2 c10"
+              class="c2 c9"
               href="/4"
             >
               <div
@@ -280,7 +264,7 @@ describe('Pagination', () => {
               </div>
               <p
                 aria-hidden="true"
-                class="c7 c11 c9"
+                class="c10 c8"
               >
                 4
               </p>
@@ -289,7 +273,7 @@ describe('Pagination', () => {
           <li>
             <a
               aria-disabled="false"
-              class="c2 c13"
+              class="c2 c12"
               href="/3"
             >
               <div
@@ -361,19 +345,19 @@ describe('Pagination', () => {
         width: 1px;
       }
 
-      .c7 {
+      .c6 {
         font-weight: 400;
         font-size: 0.75rem;
         line-height: 1.33;
       }
 
-      .c12 {
+      .c11 {
         font-weight: 500;
         font-size: 0.75rem;
         line-height: 1.33;
       }
 
-      .c8 {
+      .c7 {
         line-height: revert;
       }
 
@@ -388,7 +372,7 @@ describe('Pagination', () => {
         display: flex;
       }
 
-      .c10 {
+      .c9 {
         padding: 12px;
         border-radius: 4px;
         box-shadow: 0px 1px 4px rgba(26,26,67,0.1);
@@ -404,33 +388,17 @@ describe('Pagination', () => {
         color: #32324d;
       }
 
-      .c5:focus .c6 {
-        font-weight: bold;
-      }
-
       .c5:hover {
         box-shadow: 0px 1px 4px rgba(26,26,67,0.1);
       }
 
-      .c5:hover .c6 {
-        font-weight: bold;
-      }
-
-      .c11 {
+      .c10 {
         color: #271fe0;
         background: #ffffff;
       }
 
-      .c11:focus .c6 {
-        font-weight: bold;
-      }
-
-      .c11:hover {
+      .c10:hover {
         box-shadow: 0px 1px 4px rgba(26,26,67,0.1);
-      }
-
-      .c11:hover .c6 {
-        font-weight: bold;
       }
 
       .c3 {
@@ -446,21 +414,21 @@ describe('Pagination', () => {
         fill: #4a4a6a;
       }
 
-      .c13 {
+      .c12 {
         font-size: 0.7rem;
         pointer-events: none;
       }
 
-      .c13 svg path {
+      .c12 svg path {
         fill: #c0c0cf;
       }
 
-      .c13:focus svg path,
-      .c13:hover svg path {
+      .c12:focus svg path,
+      .c12:hover svg path {
         fill: #c0c0cf;
       }
 
-      .c9 {
+      .c8 {
         color: #32324d;
       }
 
@@ -500,7 +468,7 @@ describe('Pagination', () => {
               </div>
               <p
                 aria-hidden="true"
-                class="c6 c7 c8"
+                class="c6 c7"
               >
                 1
               </p>
@@ -519,7 +487,7 @@ describe('Pagination', () => {
               </div>
               <p
                 aria-hidden="true"
-                class="c6 c7 c8"
+                class="c6 c7"
               >
                 2
               </p>
@@ -538,7 +506,7 @@ describe('Pagination', () => {
               </div>
               <p
                 aria-hidden="true"
-                class="c6 c7 c8"
+                class="c6 c7"
               >
                 3
               </p>
@@ -546,7 +514,7 @@ describe('Pagination', () => {
           </li>
           <li>
             <div
-              class="c2 c9"
+              class="c2 c8"
             >
               <div
                 class="c4"
@@ -555,7 +523,7 @@ describe('Pagination', () => {
               </div>
               <p
                 aria-hidden="true"
-                class="c6 c7 c8"
+                class="c6 c7"
               >
                 …
               </p>
@@ -564,7 +532,7 @@ describe('Pagination', () => {
           <li>
             <a
               aria-current="true"
-              class="c10 c11"
+              class="c9 c10"
               href="/4"
             >
               <div
@@ -574,7 +542,7 @@ describe('Pagination', () => {
               </div>
               <p
                 aria-hidden="true"
-                class="c6 c12 c8"
+                class="c11 c7"
               >
                 4
               </p>
@@ -583,7 +551,7 @@ describe('Pagination', () => {
           <li>
             <a
               aria-disabled="true"
-              class="c2 c13"
+              class="c2 c12"
               href="#"
               tabindex="-1"
             >

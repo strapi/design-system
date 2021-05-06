@@ -14,6 +14,7 @@ const PaginationText = styled(Text)`
 const LinkWrapper = styled.a`
   padding: ${({ theme }) => theme.spaces[3]};
   border-radius: ${({ theme }) => theme.borderRadius};
+  // TODO: make sure to use the one from the theme
   box-shadow: ${({ active }) => (active ? `0px 1px 4px rgba(26, 26, 67, 0.1)` : undefined)};
   text-decoration: none;
   display: flex;
@@ -23,18 +24,8 @@ const PageLinkWrapper = styled(LinkWrapper)`
   color: ${({ theme, active }) => (active ? theme.colors.primary700 : theme.colors.neutral800)};
   background: ${({ theme, active }) => (active ? theme.colors.neutral0 : undefined)};
 
-  &:focus {
-    ${PaginationText} {
-      font-weight: bold;
-    }
-  }
-
   &:hover {
     box-shadow: 0px 1px 4px rgba(26, 26, 67, 0.1);
-
-    ${PaginationText} {
-      font-weight: bold;
-    }
   }
 `;
 
