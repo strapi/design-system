@@ -1,0 +1,42 @@
+<!--- AssetTag.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { withDesign } from 'storybook-addon-designs';
+import { AssetTag } from './AssetTag';
+import { Stack } from '../Stack';
+
+<Meta
+  title="AssetTag"
+  component={AssetTag}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: 'figma',
+      url: 'TODO: Fill the according figma file',
+    },
+  }}
+/>
+
+# AssetTag
+
+This is the doc of the `AssetTag` component
+
+## AssetTag
+
+Description...
+
+<Canvas>
+  <Story name="base">
+    <Stack size={2}>
+      <div>
+        <AssetTag>Doc</AssetTag>
+      </div>
+      <div>
+        <AssetTag>Video</AssetTag>
+      </div>
+      <div>
+        <AssetTag>Image</AssetTag>
+      </div>
+    </Stack>
+  </Story>
+</Canvas>
