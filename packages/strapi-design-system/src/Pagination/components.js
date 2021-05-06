@@ -23,12 +23,15 @@ const PageLinkWrapper = styled(LinkWrapper)`
   color: ${({ theme, active }) => (active ? theme.colors.primary700 : theme.colors.neutral800)};
   background: ${({ theme, active }) => (active ? theme.colors.neutral0 : undefined)};
 
-  &:focus-visible {
-    box-shadow: 0px 0px 6px ${({ theme }) => theme.colors.primary500};
+  &:focus {
+    ${PaginationText} {
+      font-weight: bold;
+    }
   }
 
-  &:focus,
   &:hover {
+    box-shadow: 0px 1px 4px rgba(26, 26, 67, 0.1);
+
     ${PaginationText} {
       font-weight: bold;
     }

@@ -110,11 +110,14 @@ describe('Pagination', () => {
         background: #ffffff;
       }
 
-      .c6:focus-visible {
-        box-shadow: 0px 0px 6px #7b79ff;
+      .c6:focus .c7 {
+        font-weight: bold;
       }
 
-      .c6:focus .c7,
+      .c6:hover {
+        box-shadow: 0px 1px 4px rgba(26,26,67,0.1);
+      }
+
       .c6:hover .c7 {
         font-weight: bold;
       }
@@ -123,11 +126,14 @@ describe('Pagination', () => {
         color: #32324d;
       }
 
-      .c10:focus-visible {
-        box-shadow: 0px 0px 6px #7b79ff;
+      .c10:focus .c7 {
+        font-weight: bold;
       }
 
-      .c10:focus .c7,
+      .c10:hover {
+        box-shadow: 0px 1px 4px rgba(26,26,67,0.1);
+      }
+
       .c10:hover .c7 {
         font-weight: bold;
       }
@@ -398,11 +404,14 @@ describe('Pagination', () => {
         color: #32324d;
       }
 
-      .c5:focus-visible {
-        box-shadow: 0px 0px 6px #7b79ff;
+      .c5:focus .c6 {
+        font-weight: bold;
       }
 
-      .c5:focus .c6,
+      .c5:hover {
+        box-shadow: 0px 1px 4px rgba(26,26,67,0.1);
+      }
+
       .c5:hover .c6 {
         font-weight: bold;
       }
@@ -412,11 +421,14 @@ describe('Pagination', () => {
         background: #ffffff;
       }
 
-      .c11:focus-visible {
-        box-shadow: 0px 0px 6px #7b79ff;
+      .c11:focus .c6 {
+        font-weight: bold;
       }
 
-      .c11:focus .c6,
+      .c11:hover {
+        box-shadow: 0px 1px 4px rgba(26,26,67,0.1);
+      }
+
       .c11:hover .c6 {
         font-weight: bold;
       }
