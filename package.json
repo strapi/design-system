@@ -15,6 +15,7 @@
     "setup": "yarn && yarn bootstrap && yarn build",
     "specify:pull": "specify pull",
     "specify:sync": "specify sync",
+    "start:example": "yarn --cwd ./packages/cra-example start",
     "storybook": "lerna run storybook --stream",
     "test:e2e:ci": "lerna run test:e2e:ci",
     "test:e2e": "lerna run test:e2e --stream",
