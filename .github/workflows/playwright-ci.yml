@@ -18,16 +18,13 @@ jobs:
       - uses: microsoft/playwright-github-action@v1
 
       - name: Install dependencies
-        run: yarn global add http-server && yarn && yarn bootstrap
+        run: yarn global add http-server && yarn && yarn bootstrap && yarn build
 
       - name: Lint
         run: yarn lint
 
       - name: Unit / Integration tests
         run: yarn test
-
-      - name: Build library
-        run: yarn build
 
       - name: Build storybook
         run: yarn build-storybook
