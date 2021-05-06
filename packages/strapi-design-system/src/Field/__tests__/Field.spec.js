@@ -80,8 +80,12 @@ describe('Field', () => {
       }
 
       .c3:disabled {
-        color: #8e8ea9;
-        background: #eaeaef;
+        background: inherit;
+        color: inherit;
+      }
+
+      .c3:focus {
+        outline: none;
       }
 
       .c2 {
@@ -89,6 +93,10 @@ describe('Field', () => {
         border-radius: 4px;
         background: #ffffff;
         overflow: hidden;
+      }
+
+      .c2:focus-within {
+        border: 1px solid #4945ff;
       }
 
       <div>
@@ -189,8 +197,12 @@ describe('Field', () => {
       }
 
       .c3:disabled {
-        color: #8e8ea9;
-        background: #eaeaef;
+        background: inherit;
+        color: inherit;
+      }
+
+      .c3:focus {
+        outline: none;
       }
 
       .c2 {
@@ -198,6 +210,10 @@ describe('Field', () => {
         border-radius: 4px;
         background: #ffffff;
         overflow: hidden;
+      }
+
+      .c2:focus-within {
+        border: 1px solid #4945ff;
       }
 
       <div>
@@ -306,8 +322,12 @@ describe('Field', () => {
       }
 
       .c3:disabled {
-        color: #8e8ea9;
-        background: #eaeaef;
+        background: inherit;
+        color: inherit;
+      }
+
+      .c3:focus {
+        outline: none;
       }
 
       .c2 {
@@ -315,6 +335,10 @@ describe('Field', () => {
         border-radius: 4px;
         background: #ffffff;
         overflow: hidden;
+      }
+
+      .c2:focus-within {
+        border: 1px solid #4945ff;
       }
 
       <div>
@@ -429,8 +453,12 @@ describe('Field', () => {
       }
 
       .c3:disabled {
-        color: #8e8ea9;
-        background: #eaeaef;
+        background: inherit;
+        color: inherit;
+      }
+
+      .c3:focus {
+        outline: none;
       }
 
       .c2 {
@@ -438,6 +466,12 @@ describe('Field', () => {
         border-radius: 4px;
         background: #ffffff;
         overflow: hidden;
+        color: #8e8ea9;
+        background: #eaeaef;
+      }
+
+      .c2:focus-within {
+        border: 1px solid #4945ff;
       }
 
       <div>
@@ -449,6 +483,7 @@ describe('Field', () => {
         </label>
         <div
           class="c1 c2"
+          disabled=""
         >
           <input
             aria-describedby="field-hint-1"
@@ -565,8 +600,12 @@ describe('Field', () => {
       }
 
       .c5:disabled {
-        color: #8e8ea9;
-        background: #eaeaef;
+        background: inherit;
+        color: inherit;
+      }
+
+      .c5:focus {
+        outline: none;
       }
 
       .c2 {
@@ -574,6 +613,12 @@ describe('Field', () => {
         border-radius: 4px;
         background: #ffffff;
         overflow: hidden;
+        color: #8e8ea9;
+        background: #eaeaef;
+      }
+
+      .c2:focus-within {
+        border: 1px solid #4945ff;
       }
 
       .c4 {
@@ -601,6 +646,7 @@ describe('Field', () => {
         </label>
         <div
           class="c1 c2"
+          disabled=""
         >
           <div
             class="c3"

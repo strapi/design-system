@@ -1,0 +1,74 @@
+<!--- Searchbar.stories.mdx --->
+
+import { useState } from 'react';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { withDesign } from 'storybook-addon-designs';
+import { Searchbar } from './Searchbar';
+import { SearchForm } from './SearchForm';
+
+<Meta
+  title="Searchbar"
+  component={Searchbar}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: 'figma',
+      url: 'TODO: Fill the according figma file',
+    },
+  }}
+/>
+
+# Searchbar
+
+This is the doc of the `Searchbar` component
+
+## Searchbar default
+
+The default searchbar
+
+<Canvas>
+  <Story name="base">
+    {() => {
+      const [value, setValue] = useState('');
+      return (
+        <SearchForm>
+          <Searchbar
+            name="searchbar"
+            onClear={() => setValue('')}
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            clearLabel="Clearing the plugin search"
+            placeholder="e.g: strapi-plugin-abcd"
+          >
+            Searching for a plugin
+          </Searchbar>
+        </SearchForm>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Searchbar disabled
+
+The Searchbar disabled
+
+<Canvas>
+  <Story name="disabled">
+    {() => {
+      const [value, setValue] = useState('');
+      return (
+        <Searchbar
+          name="searchbar"
+          onClear={() => setValue('')}
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          clearLabel="Clearing the plugin search"
+          placeholder="e.g: strapi-plugin-abcd"
+          disabled={true}
+        >
+          Searching for a plugin
+        </Searchbar>
+      );
+    }}
+  </Story>
+</Canvas>
