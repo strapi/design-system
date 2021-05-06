@@ -127,7 +127,7 @@ describe('Searchbar', () => {
       }
 
       .c5:focus-within {
-        outline: 1px solid #4945ff;
+        border: 1px solid #4945ff;
       }
 
       .c12 {
@@ -175,15 +175,20 @@ describe('Searchbar', () => {
       }
 
       .c0 {
+        border-radius: 4px;
         box-shadow: 0px 1px 4px rgba(26,26,67,0.1),inset 0px 0px 3px rgba(0,0,0,0.1);
-      }
-
-      .c0 .c3 {
-        border: none;
       }
 
       .c0:focus-within .c7 svg path {
         fill: #4945ff;
+      }
+
+      .c0 .c3 {
+        border: 1px solid transparent;
+      }
+
+      .c0 .c3:focus-within {
+        border: 1px solid #4945ff;
       }
 
       <div

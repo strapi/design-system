@@ -96,7 +96,7 @@ describe('Field', () => {
       }
 
       .c2:focus-within {
-        outline: 1px solid #4945ff;
+        border: 1px solid #4945ff;
       }
 
       <div>
@@ -213,7 +213,7 @@ describe('Field', () => {
       }
 
       .c2:focus-within {
-        outline: 1px solid #4945ff;
+        border: 1px solid #4945ff;
       }
 
       <div>
@@ -338,7 +338,7 @@ describe('Field', () => {
       }
 
       .c2:focus-within {
-        outline: 1px solid #4945ff;
+        border: 1px solid #4945ff;
       }
 
       <div>
@@ -471,7 +471,7 @@ describe('Field', () => {
       }
 
       .c2:focus-within {
-        outline: 1px solid #4945ff;
+        border: 1px solid #4945ff;
       }
 
       <div>
@@ -618,7 +618,7 @@ describe('Field', () => {
       }
 
       .c2:focus-within {
-        outline: 1px solid #4945ff;
+        border: 1px solid #4945ff;
       }
 
       .c4 {

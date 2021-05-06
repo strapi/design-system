@@ -50,7 +50,7 @@ export const InputWrapper = styled(Row)`
       : undefined}
 
   &:focus-within {
-    outline: 1px solid ${({ theme }) => theme.colors.primary600};
+    border: 1px solid ${({ theme }) => theme.colors.primary600};
   }
 `;
 
