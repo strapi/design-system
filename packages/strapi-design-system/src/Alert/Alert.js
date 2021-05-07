@@ -50,7 +50,7 @@ const AlertIcon = ({ variant, ...props }) => {
   return <AlertInfoIcon {...props} />;
 };
 
-export const Alert = ({ title, children, variant, onClose, closeLabel }) => {
+export const Alert = ({ title, children, variant, onClose, closeLabel, titleAs }) => {
   return (
     <AlertWrapper hasRadius paddingLeft={5} paddingRight={6} paddingTop={5} variant={variant}>
       <Row alignItems="flex-start">
@@ -59,7 +59,7 @@ export const Alert = ({ title, children, variant, onClose, closeLabel }) => {
         </AlertIconWrapper>
         <AlertBody>
           <Box paddingBottom={2} paddingRight={1}>
-            <Text highlighted={true} textColor="neutral800">
+            <Text highlighted={true} textColor="neutral800" as={titleAs}>
               {title}
             </Text>
           </Box>
@@ -78,6 +78,7 @@ export const Alert = ({ title, children, variant, onClose, closeLabel }) => {
 
 Alert.defaultProps = {
   variant: 'default',
+  titleAs: 'p',
 };
 
 Alert.propTypes = {
@@ -85,6 +86,7 @@ Alert.propTypes = {
   closeLabel: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
+  titleAs: PropTypes.string,
   variant: PropTypes.oneOf(['danger', 'success', 'default']),
 };
 
