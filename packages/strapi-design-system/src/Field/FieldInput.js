@@ -43,7 +43,7 @@ export const InputWrapper = styled(Row)`
   ${({ theme, disabled }) =>
     disabled
       ? `
-    color: ${theme.colors.neutral500};
+    color: ${theme.colors.neutral600};
     background: ${theme.colors.neutral150};
   
   `
