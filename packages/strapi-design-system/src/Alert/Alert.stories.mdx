@@ -1,0 +1,57 @@
+<!--- Alert.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { withDesign } from 'storybook-addon-designs';
+import { Alert } from './Alert';
+import { Box } from '../Box';
+import { Stack } from '../Stack';
+
+<Meta
+  title="Alert"
+  component={Alert}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: 'figma',
+      url: 'TODO: Fill the according figma file',
+    },
+  }}
+/>
+
+# Alert
+
+This is the doc of the `Alert` component
+
+## Alert
+
+Description...
+
+<Canvas>
+  <Story name="base">
+    <Box padding={10} style={{ width: 700 }}>
+      <Stack size={4}>
+        <Alert title="Default variant" onClose={() => {}} closeLabel="Close notification">
+          Alert with title and longer description, lorem ipsum dolor sit amet constrectum adipisicng lorem ipsum dolor
+          sit amet consrectumis adipisingus.
+        </Alert>
+        <Alert title="Success variant" variant="success" onClose={() => {}} closeLabel="Close notification">
+          Alert with title and longer description, lorem ipsum dolor sit amet constrectum adipisicng lorem ipsum dolor
+          sit amet consrectumis adipisingus.
+        </Alert>
+        <Alert title="Danger variant" variant="danger" onClose={() => {}} closeLabel="Close notification">
+          Alert with title and longer description, lorem ipsum dolor sit amet constrectum adipisicng lorem ipsum dolor
+          sit amet consrectumis adipisingus.
+        </Alert>
+        <Alert title="Default variant" onClose={() => {}} closeLabel="Close notification">
+          Alert with title and longer description
+        </Alert>
+        <Alert title="Success variant" variant="success" onClose={() => {}} closeLabel="Close notification">
+          Alert with title and longer description
+        </Alert>
+        <Alert title="Danger variant" variant="danger" onClose={() => {}} closeLabel="Close notification">
+          Alert with title and longer description
+        </Alert>
+      </Stack>
+    </Box>
+  </Story>
+</Canvas>
