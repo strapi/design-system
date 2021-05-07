@@ -31,16 +31,16 @@ Description...
   <Story name="base">
     <Box padding={7}>
       <Grid inline cols='repeat(4, auto)' gap={1}>
-        <IconButton onClick={() => console.log('edit')} title="Edit">
+        <IconButton aria-label="Edit" onClick={() => console.log('edit')} title="Edit">
           <EditIcon />
         </IconButton>
-        <IconButton onClick={() => console.log('Create')} title="Create">
+        <IconButton aria-label="Create" onClick={() => console.log('Create')} title="Create">
           <AddIcon />
         </IconButton>
-        <IconButton onClick={() => console.log('Delete')} title="Delete">
+        <IconButton aria-label="Delete" onClick={() => console.log('Delete')} title="Delete">
           <DeleteIcon />
         </IconButton>
-        <IconButton onClick={() => console.log('Publish')} title="Publish">
+        <IconButton aria-label="Publish" onClick={() => console.log('Publish')} title="Publish">
           <PublishIcon />
         </IconButton>
       </Grid>
