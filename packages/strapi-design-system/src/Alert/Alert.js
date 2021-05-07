@@ -52,20 +52,12 @@ const AlertIcon = ({ variant, ...props }) => {
 
 export const Alert = ({ title, children, variant, onClose, closeLabel, titleAs, ...props }) => {
   return (
-    <AlertWrapper
-      hasRadius
-      paddingLeft={5}
-      paddingRight={6}
-      paddingTop={5}
-      variant={variant}
-      role={variant === 'danger' ? 'alert' : 'status'}
-      {...props}
-    >
+    <AlertWrapper hasRadius paddingLeft={5} paddingRight={6} paddingTop={5} variant={variant} {...props}>
       <Row alignItems="flex-start">
         <AlertIconWrapper paddingRight={3} variant={variant}>
           <AlertIcon variant={variant} aria-hidden={true} />
         </AlertIconWrapper>
-        <AlertBody>
+        <AlertBody role={variant === 'danger' ? 'alert' : 'status'}>
           <Box paddingBottom={2} paddingRight={1}>
             <Text highlighted={true} textColor="neutral800" as={titleAs}>
               {title}

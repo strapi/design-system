@@ -115,7 +115,6 @@ describe('Alert', () => {
 
       <div
         class="c0 c1"
-        role="alert"
       >
         <div
           class="c2"
@@ -129,6 +128,7 @@ describe('Alert', () => {
           </div>
           <div
             class="c5"
+            role="alert"
           >
             <div
               class="c6"
@@ -264,7 +264,6 @@ describe('Alert', () => {
 
       <div
         class="c0 c1"
-        role="status"
       >
         <div
           class="c2"
@@ -278,6 +277,7 @@ describe('Alert', () => {
           </div>
           <div
             class="c5"
+            role="status"
           >
             <div
               class="c6"
@@ -413,7 +413,6 @@ describe('Alert', () => {
 
       <div
         class="c0 c1"
-        role="status"
       >
         <div
           class="c2"
@@ -427,6 +426,7 @@ describe('Alert', () => {
           </div>
           <div
             class="c5"
+            role="status"
           >
             <div
               class="c6"
