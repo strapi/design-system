@@ -1,0 +1,56 @@
+<!--- Popover.stories.mdx --->
+
+import { useRef, useState } from 'react';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { withDesign } from 'storybook-addon-designs';
+import { Popover } from './Popover';
+import { Box } from '../Box';
+import { Button } from '../Button';
+import { Stack } from '../Stack';
+
+<Meta
+  title="Popover"
+  component={Popover}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: 'figma',
+      url: 'TODO: Fill the according figma file',
+    },
+  }}
+/>
+
+# Popover
+
+This is the doc of the `Popover` component
+
+## Popover
+
+Description...
+
+<Canvas>
+  <Story name="base">
+    {() => {
+      const [visible, setVisible] = useState(false);
+      const buttonRef = useRef();
+      return (
+        <Box padding={10}>
+          <button ref={buttonRef} onClick={() => setVisible((s) => !s)}>
+            Open popover
+          </button>
+          <Popover source={buttonRef} visible={visible}>
+            <ul style={{ width: '200px' }}>
+              {Array(15)
+                .fill(null)
+                .map((_, index) => (
+                  <Box key={index} padding={3}>
+                    Element {index}
+                  </Box>
+                ))}
+            </ul>
+          </Popover>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
