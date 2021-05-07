@@ -141,7 +141,7 @@ describe('Pagination', () => {
       }
 
       .c12 svg path {
-        fill: #8e8ea9;
+        fill: #666687;
       }
 
       .c12:focus svg path,
@@ -406,7 +406,7 @@ describe('Pagination', () => {
       }
 
       .c3 svg path {
-        fill: #8e8ea9;
+        fill: #666687;
       }
 
       .c3:focus svg path,

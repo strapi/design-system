@@ -65,12 +65,12 @@ describe('Button', () => {
       }
 
       .c0[aria-disabled='true'] .c1 {
-        color: #8e8ea9;
+        color: #666687;
       }
 
       .c0[aria-disabled='true'] svg > g,
       .c0[aria-disabled='true'] svg path {
-        fill: #8e8ea9;
+        fill: #666687;
       }
 
       .c0[aria-disabled='true']:active {
@@ -79,12 +79,12 @@ describe('Button', () => {
       }
 
       .c0[aria-disabled='true']:active .c1 {
-        color: #8e8ea9;
+        color: #666687;
       }
 
       .c0[aria-disabled='true']:active svg > g,
       .c0[aria-disabled='true']:active svg path {
-        fill: #8e8ea9;
+        fill: #666687;
       }
 
       .c0:hover {
@@ -168,12 +168,12 @@ describe('Button', () => {
       }
 
       .c0[aria-disabled='true'] .c1 {
-        color: #8e8ea9;
+        color: #666687;
       }
 
       .c0[aria-disabled='true'] svg > g,
       .c0[aria-disabled='true'] svg path {
-        fill: #8e8ea9;
+        fill: #666687;
       }
 
       .c0[aria-disabled='true']:active {
@@ -182,12 +182,12 @@ describe('Button', () => {
       }
 
       .c0[aria-disabled='true']:active .c1 {
-        color: #8e8ea9;
+        color: #666687;
       }
 
       .c0[aria-disabled='true']:active svg > g,
       .c0[aria-disabled='true']:active svg path {
-        fill: #8e8ea9;
+        fill: #666687;
       }
 
       .c0:hover {
@@ -290,12 +290,12 @@ describe('Button', () => {
       }
 
       .c0[aria-disabled='true'] .c1 {
-        color: #8e8ea9;
+        color: #666687;
       }
 
       .c0[aria-disabled='true'] svg > g,
       .c0[aria-disabled='true'] svg path {
-        fill: #8e8ea9;
+        fill: #666687;
       }
 
       .c0[aria-disabled='true']:active {
@@ -304,12 +304,12 @@ describe('Button', () => {
       }
 
       .c0[aria-disabled='true']:active .c1 {
-        color: #8e8ea9;
+        color: #666687;
       }
 
       .c0[aria-disabled='true']:active svg > g,
       .c0[aria-disabled='true']:active svg path {
-        fill: #8e8ea9;
+        fill: #666687;
       }
 
       .c0:hover {
@@ -393,12 +393,12 @@ describe('Button', () => {
       }
 
       .c0[aria-disabled='true'] .c1 {
-        color: #8e8ea9;
+        color: #666687;
       }
 
       .c0[aria-disabled='true'] svg > g,
       .c0[aria-disabled='true'] svg path {
-        fill: #8e8ea9;
+        fill: #666687;
       }
 
       .c0[aria-disabled='true']:active {
@@ -407,12 +407,12 @@ describe('Button', () => {
       }
 
       .c0[aria-disabled='true']:active .c1 {
-        color: #8e8ea9;
+        color: #666687;
       }
 
       .c0[aria-disabled='true']:active svg > g,
       .c0[aria-disabled='true']:active svg path {
-        fill: #8e8ea9;
+        fill: #666687;
       }
 
       .c0:hover {
@@ -515,12 +515,12 @@ describe('Button', () => {
       }
 
       .c0[aria-disabled='true'] .c1 {
-        color: #8e8ea9;
+        color: #666687;
       }
 
       .c0[aria-disabled='true'] svg > g,
       .c0[aria-disabled='true'] svg path {
-        fill: #8e8ea9;
+        fill: #666687;
       }
 
       .c0[aria-disabled='true']:active {
@@ -529,12 +529,12 @@ describe('Button', () => {
       }
 
       .c0[aria-disabled='true']:active .c1 {
-        color: #8e8ea9;
+        color: #666687;
       }
 
       .c0[aria-disabled='true']:active svg > g,
       .c0[aria-disabled='true']:active svg path {
-        fill: #8e8ea9;
+        fill: #666687;
       }
 
       .c0:hover {

@@ -466,7 +466,7 @@ describe('Field', () => {
         border-radius: 4px;
         background: #ffffff;
         overflow: hidden;
-        color: #8e8ea9;
+        color: #666687;
         background: #eaeaef;
       }
 
@@ -613,7 +613,7 @@ describe('Field', () => {
         border-radius: 4px;
         background: #ffffff;
         overflow: hidden;
-        color: #8e8ea9;
+        color: #666687;
         background: #eaeaef;
       }
 
