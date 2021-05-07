@@ -58,6 +58,7 @@ describe('IconButton', () => {
 
       <button
         aria-disabled="false"
+        aria-label="test"
         class="c0 c1"
         tabindex="0"
       >

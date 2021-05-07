@@ -5,7 +5,7 @@ import { withDesign } from 'storybook-addon-designs';
 import { EditIcon, PublishIcon, DeleteIcon, AddIcon } from '@strapi/icons';
 import { IconButton } from './IconButton';
 import { Box } from '../Box';
-import { Grid } from '../Grid'; 
+import { Grid } from '../Grid';
 
 <Meta
   title="IconButton"
@@ -30,17 +30,17 @@ Description...
 <Canvas>
   <Story name="base">
     <Box padding={7}>
-      <Grid inline cols='repeat(4, auto)' gap={1}>
-        <IconButton aria-label="Edit" onClick={() => console.log('edit')} title="Edit">
+      <Grid inline cols="repeat(4, auto)" gap={1}>
+        <IconButton onClick={() => console.log('edit')} title="Edit">
           <EditIcon />
         </IconButton>
-        <IconButton aria-label="Create" onClick={() => console.log('Create')} title="Create">
+        <IconButton onClick={() => console.log('Create')} title="Create">
           <AddIcon />
         </IconButton>
-        <IconButton aria-label="Delete" onClick={() => console.log('Delete')} title="Delete">
+        <IconButton onClick={() => console.log('Delete')} title="Delete">
           <DeleteIcon />
         </IconButton>
-        <IconButton aria-label="Publish" onClick={() => console.log('Publish')} title="Publish">
+        <IconButton onClick={() => console.log('Publish')} title="Publish">
           <PublishIcon />
         </IconButton>
       </Grid>
