@@ -20,11 +20,11 @@ export const getDisabledStyle = ({ theme }) => {
     border: 1px solid ${theme.colors.neutral200};
     background: ${theme.colors.neutral150};
     ${Text} {
-      color: ${theme.colors.neutral500};
+      color: ${theme.colors.neutral600};
     }
     svg {
       > g, path {
-        fill: ${theme.colors.neutral500};
+        fill: ${theme.colors.neutral600};
       }
     }
   `;
