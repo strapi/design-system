@@ -12,6 +12,6 @@ describe('Popover', () => {
       </ThemeProvider>,
     );
 
-    expect(container.firstChild).toMatchInlineSnapshot(``);
+    expect(container.firstChild).toMatchInlineSnapshot(`null`);
   });
 });
