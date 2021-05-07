@@ -35,11 +35,9 @@ Description...
       const buttonRef = useRef();
       return (
         <Box padding={10}>
-          <Box paddingBottom={1}>
-            <button ref={buttonRef} onClick={() => setVisible((s) => !s)}>
-              Open popover
-            </button>
-          </Box>
+          <button ref={buttonRef} onClick={() => setVisible((s) => !s)}>
+            Open popover
+          </button>
           <Popover source={buttonRef} visible={visible}>
             <ul style={{ width: '200px' }}>
               {Array(15)
