@@ -1,5 +1,6 @@
 <!--- Alert.stories.mdx --->
 
+import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { withDesign } from 'storybook-addon-designs';
 import { Alert } from './Alert';
@@ -53,5 +54,30 @@ Description...
         </Alert>
       </Stack>
     </Box>
+  </Story>
+</Canvas>
+
+## Alert
+
+Description...
+
+<Canvas>
+  <Story name="live region">
+    {() => {
+      const [visible, setVisible] = useState(false);
+      return (
+        <Box padding={10} style={{ width: 700 }}>
+          <Stack size={4}>
+            <button onClick={() => setVisible((s) => !s)}>Open alert</button>
+            {visible && (
+              <Alert title="Default variant" onClose={() => {}} closeLabel="Close notification" variant="danger">
+                Alert with title and longer description, lorem ipsum dolor sit amet constrectum adipisicng lorem ipsum
+                dolor sit amet consrectumis adipisingus.
+              </Alert>
+            )}
+          </Stack>
+        </Box>
+      );
+    }}
   </Story>
 </Canvas>
