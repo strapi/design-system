@@ -54,7 +54,9 @@ export const Button = ({ variant, leftIcon, rightIcon, disabled, children, size,
           {leftIcon}
         </Box>
       )}
-      <Text small={size === 'S'}>{children}</Text>
+      <Text small={size === 'S'} as="span">
+        {children}
+      </Text>
       {rightIcon && (
         <Box aria-hidden={true} paddingLeft={2}>
           {rightIcon}
