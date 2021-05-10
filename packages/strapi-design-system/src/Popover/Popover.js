@@ -49,6 +49,8 @@ export const Popover = ({ source, visible, children, ...props }) => {
   const popoverRef = useRef(null);
 
   useLayoutEffect(() => {
+    if (!popoverRef.current) return;
+
     if (visible) {
       const popover = popoverRef.current;
       const { left, top } = position(source.current);
