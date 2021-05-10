@@ -36,7 +36,7 @@ Description...
         voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
         sunt in culpa qui officia deserunt mollit anim id est laborum.
       </p>
-      <Tooltip content="Content of the tooltip">
+      <Tooltip description="Content of the tooltip">
         <button>Show tooltip</button>
       </Tooltip>
       <p>
@@ -57,7 +57,7 @@ Description...
         voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
         sunt in culpa qui officia deserunt mollit anim id est laborum.
       </p>
-      <Tooltip content="Smaller">
+      <Tooltip description="Smaller">
         <span>Show tooltip</span>
       </Tooltip>
       <p>
@@ -128,22 +128,22 @@ Description...
       style={{ marginTop: '200px' }}
     >
       <Box area="first">
-        <Tooltip content="First content">
+        <Tooltip description="First content">
           <button>First</button>
         </Tooltip>
       </Box>
       <Box area="second">
-        <Tooltip content="Second content" position="bottom">
+        <Tooltip description="Second content" position="bottom">
           <button>Second</button>
         </Tooltip>
       </Box>
       <Box area="third">
-        <Tooltip content="Third content" position="right">
+        <Tooltip description="Third content" position="right">
           <button>Third</button>
         </Tooltip>
       </Box>
       <Box area="fourth">
-        <Tooltip content="Fourth content" position="left">
+        <Tooltip description="Fourth content" position="left">
           <button>A longer CTA than the content</button>
         </Tooltip>
       </Box>
@@ -155,5 +155,15 @@ Description...
       voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
       in culpa qui officia deserunt mollit anim id est laborum.
     </p>
+  </Story>
+  <Story name="description">
+    <Tooltip description="This is the description">
+      <button>This is a label with a description in the tooltip</button>
+    </Tooltip>
+  </Story>
+  <Story name="label">
+    <Tooltip label="This is the label">
+      <button>+</button>
+    </Tooltip>
   </Story>
 </Canvas>

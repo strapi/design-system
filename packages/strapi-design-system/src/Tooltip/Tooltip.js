@@ -13,7 +13,7 @@ const TooltipWrapper = styled(Box)`
   display: ${({ visible }) => (visible ? 'revert' : 'none')};
 `;
 
-export const Tooltip = ({ children, content, delay, position, ...props }) => {
+export const Tooltip = ({ children, label, description, delay, position, ...props }) => {
   const tooltipId = useId('tooltip');
   const { visible, ...tooltipHandlers } = useTooltipHandlers(delay);
   const { tooltipWrapperRef, toggleSourceRef } = useTooltipLayout(visible, position);
@@ -21,7 +21,8 @@ export const Tooltip = ({ children, content, delay, position, ...props }) => {
   const childrenClone = React.cloneElement(children, {
     ref: toggleSourceRef,
     tabIndex: 0,
-    'aria-describedby': visible ? tooltipId : undefined,
+    'aria-labelledby': label ? tooltipId : undefined,
+    'aria-describedby': visible && description ? tooltipId : undefined,
     ...tooltipHandlers,
   });
 
@@ -39,7 +40,7 @@ export const Tooltip = ({ children, content, delay, position, ...props }) => {
           {...props}
         >
           <Text small={true} highlighted={true} textColor="neutral0">
-            {content}
+            {label || description}
           </Text>
         </TooltipWrapper>
       </Portal>
@@ -52,11 +53,14 @@ export const Tooltip = ({ children, content, delay, position, ...props }) => {
 Tooltip.defaultProps = {
   delay: 500,
   position: 'top',
+  label: undefined,
+  description: undefined,
 };
 
 Tooltip.propTypes = {
   children: PropTypes.node.isRequired,
-  content: PropTypes.string.isRequired,
   delay: PropTypes.number,
+  description: PropTypes.string,
+  label: PropTypes.string,
   position: PropTypes.oneOf(['top', 'left', 'bottom', 'right']),
 };

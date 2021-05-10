@@ -50,14 +50,13 @@ describe('Tooltip', () => {
         >
           <div
             class="c0 c1"
+            content="Content of the tooltip fefe"
             id="tooltip-123"
             role="tooltip"
           >
             <p
               class="c2"
-            >
-              Content of the tooltip fefe
-            </p>
+            />
           </div>
         </div>
       </body>
@@ -79,7 +78,6 @@ describe('Tooltip', () => {
       <body>
         <div>
           <button
-            aria-describedby="tooltip-123"
             tabindex="0"
           >
             Show tooltip
@@ -108,15 +106,14 @@ describe('Tooltip', () => {
         >
           <div
             class="c0 c1"
+            content="Content of the tooltip fefe"
             id="tooltip-123"
             role="tooltip"
             style="left: 0px; top: -8px;"
           >
             <p
               class="c2"
-            >
-              Content of the tooltip fefe
-            </p>
+            />
           </div>
         </div>
       </body>
