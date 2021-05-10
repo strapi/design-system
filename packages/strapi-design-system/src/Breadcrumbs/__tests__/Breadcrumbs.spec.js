@@ -4,6 +4,10 @@ import { Breadcrumbs, BreadCrumbItem } from '../Breadcrumbs';
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
 
+jest.mock('../../helpers/genId', () => ({
+  genId: () => 123,
+}));
+
 describe('Breadcrumbs', () => {
   it('snapshots the component', () => {
     const { container } = render(
@@ -40,7 +44,7 @@ describe('Breadcrumbs', () => {
       }
 
       <nav
-        id="breadcrumbs-e448d77d-f81c-418e-8c79-fc160f2a8d0c"
+        id="breadcrumbs-123"
       >
         <ol>
           <li
