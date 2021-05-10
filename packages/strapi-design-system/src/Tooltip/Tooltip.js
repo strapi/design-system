@@ -22,7 +22,7 @@ export const Tooltip = ({ children, label, description, delay, position, ...prop
     ref: toggleSourceRef,
     tabIndex: 0,
     'aria-labelledby': label ? tooltipId : undefined,
-    'aria-describedby': visible && description ? tooltipId : undefined,
+    'aria-describedby': description ? tooltipId : undefined,
     ...tooltipHandlers,
   });
 
