@@ -80,7 +80,7 @@ describe('Tooltip', () => {
       <body>
         <div>
           <button
-            aria-describedby="description-123"
+            aria-describedby="tooltip-123"
             tabindex="0"
           >
             Show tooltip
