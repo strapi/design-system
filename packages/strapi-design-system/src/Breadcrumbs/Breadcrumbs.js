@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Text } from '../Text';
 import { Box } from '../Box';
-import { VisuallyHidden } from '../VisuallyHidden';
 import { useId } from '../helpers/useId';
 
 const BreadCrumbItemWrapper = styled.li`
   display: inline-flex;
+  align-items: center;
 `;
 
 export const BreadCrumbItem = React.forwardRef(({ children, isLastChild, separator }, ref) => {
@@ -33,21 +33,18 @@ BreadCrumbItem.propTypes = {
   separator: PropTypes.string,
 };
 
-export const Breadcrumbs = React.forwardRef(({ label, description, children, ...props }, ref) => {
+export const Breadcrumbs = React.forwardRef(({ children, ...props }, ref) => {
   const breadCrumbsId = useId('breadcrumbs');
-  const descriptionId = useId('description');
   const validChildren = React.Children.toArray(children).filter((child) => React.isValidElement(child));
   const elements = validChildren.map((child, index) =>
     React.cloneElement(child, {
       separator: '/',
-      spacing: 1,
       isLastChild: validChildren.length === index + 1,
     }),
   );
 
   return (
-    <nav id={breadCrumbsId} aria-describedby={descriptionId} aria-label={label} ref={ref} {...props}>
-      <VisuallyHidden id={descriptionId}>{description}</VisuallyHidden>
+    <nav id={breadCrumbsId} ref={ref} {...props}>
       <ol>{elements}</ol>
     </nav>
   );
@@ -55,12 +52,6 @@ export const Breadcrumbs = React.forwardRef(({ label, description, children, ...
 
 Breadcrumbs.displayName = 'Breadcrumbs';
 
-Breadcrumbs.defaultProps = {
-  description: undefined,
-  label: undefined,
-};
 Breadcrumbs.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]).isRequired,
-  description: PropTypes.string,
-  label: PropTypes.string,
 };
