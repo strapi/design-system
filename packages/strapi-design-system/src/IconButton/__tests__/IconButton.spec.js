@@ -21,7 +21,7 @@ describe('IconButton', () => {
         display: -ms-flexbox;
         display: flex;
         cursor: pointer;
-        padding: 10px;
+        padding: 8px;
         border-radius: 4px;
         background: #ffffff;
         border: 1px solid #dcdce4;

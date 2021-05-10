@@ -29,10 +29,10 @@ const IconButtonWrapper = styled(BaseButton)`
   }
 `;
 
-export const IconButton = React.forwardRef(({ children, title, ...props }, ref) => {
+export const IconButton = React.forwardRef(({ children, title, description, ...props }, ref) => {
   return (
-    <Tooltip content={title} ariaLabel={title}>
-      <IconButtonWrapper {...props} ref={ref}>
+    <Tooltip content={title} description={description}>
+      <IconButtonWrapper aria-label={title} {...props} ref={ref}>
         {children}
       </IconButtonWrapper>
     </Tooltip>
@@ -46,5 +46,6 @@ IconButton.defaultProps = {
 };
 IconButton.propTypes = {
   children: PropTypes.element.isRequired,
+  description: PropTypes.string,
   title: PropTypes.string,
 };

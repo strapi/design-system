@@ -5,7 +5,7 @@ import styled from 'styled-components';
 export const BaseButtonWrapper = styled.button`
   display: flex;
   cursor: pointer;
-  padding: 10px;
+  padding: ${({ theme }) => theme.spaces[2]};
   border-radius: ${({ theme }) => theme.borderRadius};
   background: ${({ theme }) => theme.colors.neutral0};
   border: 1px solid ${({ theme }) => theme.colors.neutral200};

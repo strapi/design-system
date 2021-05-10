@@ -80,7 +80,7 @@ describe('Tooltip', () => {
       <body>
         <div>
           <button
-            aria-describedby="tooltip-123"
+            aria-describedby="description-123"
             tabindex="0"
           >
             Show tooltip
@@ -92,11 +92,23 @@ describe('Tooltip', () => {
         border-radius: 4px;
       }
 
-      .c2 {
+      .c3 {
         font-weight: 500;
         font-size: 0.75rem;
         line-height: 1.33;
         color: #ffffff;
+      }
+
+      .c2 {
+        border: 0;
+        -webkit-clip: rect(0 0 0 0);
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
       }
 
       .c1 {
@@ -113,8 +125,12 @@ describe('Tooltip', () => {
             role="tooltip"
             style="left: 0px; top: -8px;"
           >
-            <p
+            <div
               class="c2"
+              id="description-123"
+            />
+            <p
+              class="c3"
             >
               Content of the tooltip fefe
             </p>

@@ -25,7 +25,7 @@ describe('Button', () => {
         display: -ms-flexbox;
         display: flex;
         cursor: pointer;
-        padding: 10px;
+        padding: 8px;
         border-radius: 4px;
         background: #ffffff;
         border: 1px solid #dcdce4;
@@ -74,12 +74,12 @@ describe('Button', () => {
         background: #eaeaef;
       }
 
-      .c0[aria-disabled='true'] .c1 {
+      .c1[aria-disabled='true'] .c2 {
         color: #666687;
       }
 
-      .c0[aria-disabled='true'] svg > g,
-      .c0[aria-disabled='true'] svg path {
+      .c1[aria-disabled='true'] svg > g,
+      .c1[aria-disabled='true'] svg path {
         fill: #666687;
       }
 
@@ -88,12 +88,12 @@ describe('Button', () => {
         background: #eaeaef;
       }
 
-      .c0[aria-disabled='true']:active .c1 {
+      .c1[aria-disabled='true']:active .c2 {
         color: #666687;
       }
 
-      .c0[aria-disabled='true']:active svg > g,
-      .c0[aria-disabled='true']:active svg path {
+      .c1[aria-disabled='true']:active svg > g,
+      .c1[aria-disabled='true']:active svg path {
         fill: #666687;
       }
 
@@ -112,7 +112,7 @@ describe('Button', () => {
         class="c0 c1"
       >
         <span
-          class="c1 c2"
+          class="c2 c3"
         >
           Hello world
         </span>
@@ -140,7 +140,7 @@ describe('Button', () => {
         display: -ms-flexbox;
         display: flex;
         cursor: pointer;
-        padding: 10px;
+        padding: 8px;
         border-radius: 4px;
         background: #ffffff;
         border: 1px solid #dcdce4;
@@ -189,12 +189,12 @@ describe('Button', () => {
         background: #eaeaef;
       }
 
-      .c0[aria-disabled='true'] .c1 {
+      .c1[aria-disabled='true'] .c2 {
         color: #666687;
       }
 
-      .c0[aria-disabled='true'] svg > g,
-      .c0[aria-disabled='true'] svg path {
+      .c1[aria-disabled='true'] svg > g,
+      .c1[aria-disabled='true'] svg path {
         fill: #666687;
       }
 
@@ -203,12 +203,12 @@ describe('Button', () => {
         background: #eaeaef;
       }
 
-      .c0[aria-disabled='true']:active .c1 {
+      .c1[aria-disabled='true']:active .c2 {
         color: #666687;
       }
 
-      .c0[aria-disabled='true']:active svg > g,
-      .c0[aria-disabled='true']:active svg path {
+      .c1[aria-disabled='true']:active svg > g,
+      .c1[aria-disabled='true']:active svg path {
         fill: #666687;
       }
 
@@ -244,7 +244,7 @@ describe('Button', () => {
         class="c0 c1"
       >
         <span
-          class="c1 c2"
+          class="c2 c3"
         >
           Submit
         </span>
@@ -272,7 +272,7 @@ describe('Button', () => {
         display: -ms-flexbox;
         display: flex;
         cursor: pointer;
-        padding: 10px;
+        padding: 8px;
         border-radius: 4px;
         background: #ffffff;
         border: 1px solid #dcdce4;
@@ -321,12 +321,12 @@ describe('Button', () => {
         background: #eaeaef;
       }
 
-      .c0[aria-disabled='true'] .c1 {
+      .c1[aria-disabled='true'] .c2 {
         color: #666687;
       }
 
-      .c0[aria-disabled='true'] svg > g,
-      .c0[aria-disabled='true'] svg path {
+      .c1[aria-disabled='true'] svg > g,
+      .c1[aria-disabled='true'] svg path {
         fill: #666687;
       }
 
@@ -335,12 +335,12 @@ describe('Button', () => {
         background: #eaeaef;
       }
 
-      .c0[aria-disabled='true']:active .c1 {
+      .c1[aria-disabled='true']:active .c2 {
         color: #666687;
       }
 
-      .c0[aria-disabled='true']:active svg > g,
-      .c0[aria-disabled='true']:active svg path {
+      .c1[aria-disabled='true']:active svg > g,
+      .c1[aria-disabled='true']:active svg path {
         fill: #666687;
       }
 
@@ -359,7 +359,7 @@ describe('Button', () => {
         class="c0 c1"
       >
         <span
-          class="c1 c2"
+          class="c2 c3"
         >
           Success
         </span>
@@ -387,7 +387,7 @@ describe('Button', () => {
         display: -ms-flexbox;
         display: flex;
         cursor: pointer;
-        padding: 10px;
+        padding: 8px;
         border-radius: 4px;
         background: #ffffff;
         border: 1px solid #dcdce4;
@@ -436,12 +436,12 @@ describe('Button', () => {
         background: #eaeaef;
       }
 
-      .c0[aria-disabled='true'] .c1 {
+      .c1[aria-disabled='true'] .c2 {
         color: #666687;
       }
 
-      .c0[aria-disabled='true'] svg > g,
-      .c0[aria-disabled='true'] svg path {
+      .c1[aria-disabled='true'] svg > g,
+      .c1[aria-disabled='true'] svg path {
         fill: #666687;
       }
 
@@ -450,12 +450,12 @@ describe('Button', () => {
         background: #eaeaef;
       }
 
-      .c0[aria-disabled='true']:active .c1 {
+      .c1[aria-disabled='true']:active .c2 {
         color: #666687;
       }
 
-      .c0[aria-disabled='true']:active svg > g,
-      .c0[aria-disabled='true']:active svg path {
+      .c1[aria-disabled='true']:active svg > g,
+      .c1[aria-disabled='true']:active svg path {
         fill: #666687;
       }
 
@@ -491,7 +491,7 @@ describe('Button', () => {
         class="c0 c1"
       >
         <span
-          class="c1 c2"
+          class="c2 c3"
         >
           Remove
         </span>
@@ -519,7 +519,7 @@ describe('Button', () => {
         display: -ms-flexbox;
         display: flex;
         cursor: pointer;
-        padding: 10px;
+        padding: 8px;
         border-radius: 4px;
         background: #ffffff;
         border: 1px solid #dcdce4;
@@ -568,12 +568,12 @@ describe('Button', () => {
         background: #eaeaef;
       }
 
-      .c0[aria-disabled='true'] .c1 {
+      .c1[aria-disabled='true'] .c2 {
         color: #666687;
       }
 
-      .c0[aria-disabled='true'] svg > g,
-      .c0[aria-disabled='true'] svg path {
+      .c1[aria-disabled='true'] svg > g,
+      .c1[aria-disabled='true'] svg path {
         fill: #666687;
       }
 
@@ -582,12 +582,12 @@ describe('Button', () => {
         background: #eaeaef;
       }
 
-      .c0[aria-disabled='true']:active .c1 {
+      .c1[aria-disabled='true']:active .c2 {
         color: #666687;
       }
 
-      .c0[aria-disabled='true']:active svg > g,
-      .c0[aria-disabled='true']:active svg path {
+      .c1[aria-disabled='true']:active svg > g,
+      .c1[aria-disabled='true']:active svg path {
         fill: #666687;
       }
 
@@ -606,7 +606,7 @@ describe('Button', () => {
         class="c0 c1"
       >
         <span
-          class="c1 c2"
+          class="c2 c3"
         >
           Button
         </span>
