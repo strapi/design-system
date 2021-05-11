@@ -26,3 +26,4 @@ export * from './ThemeProvider';
 export * from './ToggleCheckbox';
 export * from './Tooltip';
 export * from './VisuallyHidden';
+export * from './themes';
