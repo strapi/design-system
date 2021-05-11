@@ -1,36 +1,44 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { After } from '@strapi/icons';
 import { Text } from '../Text';
 import { Box } from '../Box';
 import { useId } from '../helpers/useId';
 
-const BreadCrumbItemWrapper = styled.li`
+const CrumbWrapper = styled.li`
   display: inline-flex;
   align-items: center;
+  svg {
+    height: 10px;
+    width: 10px;
+  }
+  svg path {
+    fill: ${({ theme }) => theme.colors.neutral300};
+  }
 `;
 
-export const BreadCrumbItem = React.forwardRef(({ children, isLastChild, separator }, ref) => {
+export const Crumb = React.forwardRef(({ children, isLastChild }, ref) => {
   return (
-    <BreadCrumbItemWrapper ref={ref}>
-      <Text>{children}</Text>
+    <CrumbWrapper ref={ref}>
+      <Text highlighted color="neutral800">
+        {children}
+      </Text>
       {!isLastChild && (
-        <Box paddingLeft={1} paddingRight={1}>
-          {separator}
+        <Box paddingLeft={3} paddingRight={3}>
+          <After />
         </Box>
       )}
-    </BreadCrumbItemWrapper>
+    </CrumbWrapper>
   );
 });
-BreadCrumbItem.displayName = 'BreadCrumbItem';
-BreadCrumbItem.defaultProps = {
+Crumb.displayName = 'Crumb';
+Crumb.defaultProps = {
   isLastChild: false,
-  separator: '/',
 };
-BreadCrumbItem.propTypes = {
+Crumb.propTypes = {
   children: PropTypes.string.isRequired,
   isLastChild: PropTypes.bool,
-  separator: PropTypes.string,
 };
 
 export const Breadcrumbs = React.forwardRef(({ children, ...props }, ref) => {
@@ -38,7 +46,6 @@ export const Breadcrumbs = React.forwardRef(({ children, ...props }, ref) => {
   const validChildren = React.Children.toArray(children).filter((child) => React.isValidElement(child));
   const elements = validChildren.map((child, index) =>
     React.cloneElement(child, {
-      separator: '/',
       isLastChild: validChildren.length === index + 1,
     }),
   );

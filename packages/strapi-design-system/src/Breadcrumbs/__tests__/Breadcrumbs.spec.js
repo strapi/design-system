@@ -1,8 +1,13 @@
+/* eslint-disable react/display-name */
 import * as React from 'react';
 import { render } from '@testing-library/react';
-import { Breadcrumbs, BreadCrumbItem } from '../Breadcrumbs';
+import { Breadcrumbs, Crumb } from '../Breadcrumbs';
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
+
+jest.mock('@strapi/icons', () => ({
+  After: () => <span>After</span>,
+}));
 
 jest.mock('../../helpers/genId', () => ({
   genId: () => 123,
@@ -13,23 +18,23 @@ describe('Breadcrumbs', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
         <Breadcrumbs>
-          <BreadCrumbItem>Home</BreadCrumbItem>
-          <BreadCrumbItem>first</BreadCrumbItem>
-          <BreadCrumbItem>second</BreadCrumbItem>
+          <Crumb>Home</Crumb>
+          <Crumb>first</Crumb>
+          <Crumb>second</Crumb>
         </Breadcrumbs>
       </ThemeProvider>,
     );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
       .c1 {
-        font-weight: 400;
+        font-weight: 500;
         font-size: 0.875rem;
         line-height: 1.43;
       }
 
       .c2 {
-        padding-right: 4px;
-        padding-left: 4px;
+        padding-right: 12px;
+        padding-left: 12px;
       }
 
       .c0 {
@@ -43,6 +48,15 @@ describe('Breadcrumbs', () => {
         align-items: center;
       }
 
+      .c0 svg {
+        height: 10px;
+        width: 10px;
+      }
+
+      .c0 svg path {
+        fill: #c0c0cf;
+      }
+
       <nav
         id="breadcrumbs-123"
       >
@@ -52,13 +66,16 @@ describe('Breadcrumbs', () => {
           >
             <p
               class="c1"
+              color="neutral800"
             >
               Home
             </p>
             <div
               class="c2"
             >
-              /
+              <span>
+                After
+              </span>
             </div>
           </li>
           <li
@@ -66,13 +83,16 @@ describe('Breadcrumbs', () => {
           >
             <p
               class="c1"
+              color="neutral800"
             >
               first
             </p>
             <div
               class="c2"
             >
-              /
+              <span>
+                After
+              </span>
             </div>
           </li>
           <li
@@ -80,6 +100,7 @@ describe('Breadcrumbs', () => {
           >
             <p
               class="c1"
+              color="neutral800"
             >
               second
             </p>

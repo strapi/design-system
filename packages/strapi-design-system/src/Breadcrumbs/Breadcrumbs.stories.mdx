@@ -2,7 +2,7 @@
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { withDesign } from 'storybook-addon-designs';
-import { Breadcrumbs, BreadCrumbItem } from './Breadcrumbs';
+import { Breadcrumbs, Crumb } from './Breadcrumbs';
 import { Text } from '../Text';
 
 <Meta
@@ -28,9 +28,8 @@ Description...
 <Canvas>
   <Story name="base">
     <Breadcrumbs>
-      <BreadCrumbItem>Home</BreadCrumbItem>
-      <BreadCrumbItem>first</BreadCrumbItem>
-      <BreadCrumbItem>second</BreadCrumbItem>
+      <Crumb>Category</Crumb>
+      <Crumb>Name</Crumb>
     </Breadcrumbs>
   </Story>
 </Canvas>
