@@ -14,7 +14,6 @@ const PaginationText = styled(Text)`
 const LinkWrapper = styled.a`
   padding: ${({ theme }) => theme.spaces[3]};
   border-radius: ${({ theme }) => theme.borderRadius};
-  // TODO: make sure to use the one from the theme
   box-shadow: ${({ active, theme }) => (active ? theme.shadows.filterShadow : undefined)};
   text-decoration: none;
   display: flex;

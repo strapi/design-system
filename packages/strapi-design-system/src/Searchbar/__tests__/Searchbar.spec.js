@@ -176,7 +176,7 @@ describe('Searchbar', () => {
 
       .c0 {
         border-radius: 4px;
-        box-shadow: 0px 1px 4px rgba(26,26,67,0.1),inset 0px 0px 3px rgba(0,0,0,0.1);
+        box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
       }
 
       .c0:focus-within .c7 svg path {
