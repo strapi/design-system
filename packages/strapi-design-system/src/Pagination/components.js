@@ -15,7 +15,7 @@ const LinkWrapper = styled.a`
   padding: ${({ theme }) => theme.spaces[3]};
   border-radius: ${({ theme }) => theme.borderRadius};
   // TODO: make sure to use the one from the theme
-  box-shadow: ${({ active }) => (active ? `0px 1px 4px rgba(26, 26, 67, 0.1)` : undefined)};
+  box-shadow: ${({ active, theme }) => (active ? theme.shadows.filterShadow : undefined)};
   text-decoration: none;
   display: flex;
 `;
@@ -25,7 +25,7 @@ const PageLinkWrapper = styled(LinkWrapper)`
   background: ${({ theme, active }) => (active ? theme.colors.neutral0 : undefined)};
 
   &:hover {
-    box-shadow: 0px 1px 4px rgba(26, 26, 67, 0.1);
+    box-shadow: ${({ theme }) => theme.shadows.filterShadow};
   }
 `;
 
