@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { Box } from '../Box';
 
 const AnchorBox = styled(Box)`
@@ -14,8 +15,14 @@ const AnchorBox = styled(Box)`
   }
 `;
 
-export const SkipToContent = (props) => {
+export const SkipToContent = ({ children }) => {
   return (
-    <AnchorBox as="a" href="#main-content" background="primary600" color="neutral0" padding={3} hasRadius {...props} />
+    <AnchorBox as="a" href="#main-content" background="primary600" color="neutral0" padding={3} hasRadius>
+      {children}
+    </AnchorBox>
   );
+};
+
+SkipToContent.propTypes = {
+  children: PropTypes.node.isRequired,
 };
