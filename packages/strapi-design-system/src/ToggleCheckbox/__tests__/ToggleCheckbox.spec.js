@@ -63,6 +63,7 @@ describe('ToggleCheckbox', () => {
 
       .c0 {
         position: relative;
+        display: inline-block;
       }
 
       .c0:active,
