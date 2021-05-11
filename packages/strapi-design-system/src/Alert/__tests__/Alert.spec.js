@@ -10,6 +10,7 @@ jest.mock('@strapi/icons', () => ({
   AlertSucessIcon: () => <span>AlertSucessIcon</span>,
   AlertWarningIcon: () => <span>AlertWarningIcon</span>,
   CloseAlertIcon: () => <span>CloseAlertIcon</span>,
+  ExternalLink: () => <span>ExternalLink</span>,
 }));
 
 describe('Alert', () => {
@@ -41,6 +42,7 @@ describe('Alert', () => {
       }
 
       .c8 {
+        padding-right: 8px;
         padding-bottom: 20px;
       }
 
@@ -91,7 +93,7 @@ describe('Alert', () => {
       .c1 {
         border: 1px solid #f5c0b8;
         background: #fcecea;
-        box-shadow: 0px 2px 15px rgba(33,33,52,0.1);
+        box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
       }
 
       .c10 {
@@ -110,7 +112,7 @@ describe('Alert', () => {
       }
 
       .c4 svg path {
-        fill: #dd2b23;
+        fill: #b72b1a;
       }
 
       <div
@@ -190,6 +192,7 @@ describe('Alert', () => {
       }
 
       .c8 {
+        padding-right: 8px;
         padding-bottom: 20px;
       }
 
@@ -240,7 +243,7 @@ describe('Alert', () => {
       .c1 {
         border: 1px solid #c6f0c2;
         background: #eafbe7;
-        box-shadow: 0px 2px 15px rgba(33,33,52,0.1);
+        box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
       }
 
       .c10 {
@@ -259,7 +262,7 @@ describe('Alert', () => {
       }
 
       .c4 svg path {
-        fill: #338648;
+        fill: #2f6846;
       }
 
       <div
@@ -339,6 +342,7 @@ describe('Alert', () => {
       }
 
       .c8 {
+        padding-right: 8px;
         padding-bottom: 20px;
       }
 
@@ -389,7 +393,7 @@ describe('Alert', () => {
       .c1 {
         border: 1px solid #d9d8ff;
         background: #f0f0ff;
-        box-shadow: 0px 2px 15px rgba(33,33,52,0.1);
+        box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
       }
 
       .c10 {
@@ -408,7 +412,7 @@ describe('Alert', () => {
       }
 
       .c4 svg path {
-        fill: #4945ff;
+        fill: #271fe0;
       }
 
       <div

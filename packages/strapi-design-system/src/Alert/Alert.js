@@ -18,8 +18,7 @@ const AlertBody = styled(Box)`
 const AlertWrapper = styled(Box)`
   border: 1px solid ${handleBorderColor};
   background: ${handleBackgroundColor};
-  // TODO: fix this one when it's part of the theme
-  box-shadow: 0px 2px 15px rgba(33, 33, 52, 0.1);
+  box-shadow: ${({ theme }) => theme.shadows.filterShadow};
 `;
 
 const CloseButton = styled.button`
@@ -51,6 +50,20 @@ const AlertIcon = ({ variant, ...props }) => {
   return <AlertInfoIcon {...props} />;
 };
 
+const ActionBox = styled(Box)`
+  & a {
+    line-height: ${12 / 16}rem;
+  }
+
+  & a > span {
+    color: ${handleIconColor};
+
+    svg path {
+      fill: ${handleIconColor};
+    }
+  }
+`;
+
 export const Alert = ({ title, children, variant, onClose, closeLabel, titleAs, action, ...props }) => {
   return (
     <AlertWrapper hasRadius paddingLeft={5} paddingRight={6} paddingTop={5} variant={variant} {...props}>
@@ -69,7 +82,11 @@ export const Alert = ({ title, children, variant, onClose, closeLabel, titleAs, 
             <Text textColor="neutral800">{children}</Text>
           </Box>
 
-          {action && <Box paddingBottom={5}>{action}</Box>}
+          {action && (
+            <ActionBox paddingBottom={5} variant={variant}>
+              {action}
+            </ActionBox>
+          )}
         </AlertBody>
 
         <CloseButton onClick={onClose} aria-label={closeLabel}>

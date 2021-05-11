@@ -24,12 +24,12 @@ export const handleBorderColor = ({ theme, variant }) => {
 
 export const handleIconColor = ({ theme, variant }) => {
   if (variant === 'danger') {
-    return theme.colors.danger600;
+    return theme.colors.danger700;
   }
 
   if (variant === 'success') {
-    return theme.colors.success600;
+    return theme.colors.success700;
   }
 
-  return theme.colors.primary600;
+  return theme.colors.primary700;
 };
