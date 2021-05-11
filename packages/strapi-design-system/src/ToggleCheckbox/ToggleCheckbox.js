@@ -5,19 +5,23 @@ import { Text } from '../Text';
 import { VisuallyHidden } from '../VisuallyHidden';
 import { Box } from '../Box';
 
-const ToggleCheckboxWrapper = styled(Box)`
-  border: 1px solid ${({ theme }) => theme.colors.neutral200};
-  display: inline-flex;
-  // Masks the background of each value
-  overflow: hidden;
-`;
-
 const Label = styled.label`
+  position: relative;
+
   &:active,
   &:focus-within {
     outline: 2px solid ${({ theme }) => theme.colors.primary600};
     outline-offset: 2px;
   }
+`;
+
+const ToggleCheckboxWrapper = styled(Box)`
+  position: relative;
+  z-index: 1;
+  border: 1px solid ${({ theme }) => theme.colors.neutral200};
+  display: inline-flex;
+  // Masks the background of each value
+  overflow: hidden;
 `;
 
 const OnBox = styled(Box)`
@@ -29,15 +33,22 @@ const OffBox = styled(Box)`
   border-right: 1px solid ${({ theme }) => theme.colors.neutral200};
 `;
 
+/**
+ * visually Hiding the input under the wrapper without SR-only
+ * helps Android SR to provide information with touch and haptic
+ */
+const Input = styled.input`
+  position: absolute;
+`;
+
 export const ToggleCheckbox = React.forwardRef(({ onLabel, offLabel, children, checked, ...props }, ref) => {
   const labelColor = 'neutral800';
 
   return (
     <Label>
-      <VisuallyHidden>
-        {children}
-        <input type="checkbox" ref={ref} {...props} checked={checked} />
-      </VisuallyHidden>
+      <VisuallyHidden>{children}</VisuallyHidden>
+
+      <Input type="checkbox" ref={ref} {...props} checked={checked} />
 
       <ToggleCheckboxWrapper background="neutral0" aria-hidden={true} hasRadius>
         <OffBox

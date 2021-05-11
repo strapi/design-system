@@ -15,14 +15,14 @@ describe('ToggleCheckbox', () => {
     );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
-      .c6 {
+      .c7 {
         font-weight: 500;
         font-size: 0.75rem;
         line-height: 1.33;
         color: #32324d;
       }
 
-      .c9 {
+      .c10 {
         font-weight: 500;
         font-size: 0.75rem;
         line-height: 1.33;
@@ -41,19 +41,19 @@ describe('ToggleCheckbox', () => {
         width: 1px;
       }
 
-      .c2 {
+      .c3 {
         background: #ffffff;
         border-radius: 4px;
       }
 
-      .c4 {
+      .c5 {
         padding-top: 12px;
         padding-right: 32px;
         padding-bottom: 12px;
         padding-left: 32px;
       }
 
-      .c7 {
+      .c8 {
         background: #f0f0ff;
         padding-top: 12px;
         padding-right: 32px;
@@ -61,13 +61,8 @@ describe('ToggleCheckbox', () => {
         padding-left: 32px;
       }
 
-      .c3 {
-        border: 1px solid #dcdce4;
-        display: -webkit-inline-box;
-        display: -webkit-inline-flex;
-        display: -ms-inline-flexbox;
-        display: inline-flex;
-        overflow: hidden;
+      .c0 {
+        position: relative;
       }
 
       .c0:active,
@@ -76,13 +71,28 @@ describe('ToggleCheckbox', () => {
         outline-offset: 2px;
       }
 
-      .c8 {
+      .c4 {
+        position: relative;
+        z-index: 1;
+        border: 1px solid #dcdce4;
+        display: -webkit-inline-box;
+        display: -webkit-inline-flex;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        overflow: hidden;
+      }
+
+      .c9 {
         text-transform: uppercase;
       }
 
-      .c5 {
+      .c6 {
         text-transform: uppercase;
         border-right: 1px solid #dcdce4;
+      }
+
+      .c2 {
+        position: absolute;
       }
 
       <label
@@ -92,29 +102,30 @@ describe('ToggleCheckbox', () => {
           class="c1"
         >
           The field is required?
-          <input
-            checked=""
-            type="checkbox"
-          />
         </div>
+        <input
+          checked=""
+          class="c2"
+          type="checkbox"
+        />
         <div
           aria-hidden="true"
-          class="c2 c3"
+          class="c3 c4"
         >
           <div
-            class="c4 c5"
+            class="c5 c6"
           >
             <span
-              class="c6"
+              class="c7"
             >
               Off
             </span>
           </div>
           <div
-            class="c7 c8"
+            class="c8 c9"
           >
             <span
-              class="c9"
+              class="c10"
             >
               On
             </span>
