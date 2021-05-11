@@ -17,8 +17,7 @@ const position = (source) => {
 };
 
 const PopoverWrapper = styled(Box)`
-  // TODO: use the one in the theme when it's available
-  box-shadow: 0px 1px 4px rgba(33, 33, 52, 0.1);
+  box-shadow: ${({ theme }) => theme.shadows.filterShadow};
   display: ${({ visible }) => (visible ? 'block' : 'none')};
   position: absolute;
   border: 1px solid ${({ theme }) => theme.colors.neutral150};

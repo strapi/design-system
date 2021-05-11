@@ -96,7 +96,7 @@ describe('Pagination', () => {
       .c5 {
         padding: 12px;
         border-radius: 4px;
-        box-shadow: 0px 1px 4px rgba(26,26,67,0.1);
+        box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
         -webkit-text-decoration: none;
         text-decoration: none;
         display: -webkit-box;
@@ -111,7 +111,7 @@ describe('Pagination', () => {
       }
 
       .c6:hover {
-        box-shadow: 0px 1px 4px rgba(26,26,67,0.1);
+        box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
       }
 
       .c9 {
@@ -119,7 +119,7 @@ describe('Pagination', () => {
       }
 
       .c9:hover {
-        box-shadow: 0px 1px 4px rgba(26,26,67,0.1);
+        box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
       }
 
       .c3 {
@@ -375,7 +375,7 @@ describe('Pagination', () => {
       .c9 {
         padding: 12px;
         border-radius: 4px;
-        box-shadow: 0px 1px 4px rgba(26,26,67,0.1);
+        box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
         -webkit-text-decoration: none;
         text-decoration: none;
         display: -webkit-box;
@@ -389,7 +389,7 @@ describe('Pagination', () => {
       }
 
       .c5:hover {
-        box-shadow: 0px 1px 4px rgba(26,26,67,0.1);
+        box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
       }
 
       .c10 {
@@ -398,7 +398,7 @@ describe('Pagination', () => {
       }
 
       .c10:hover {
-        box-shadow: 0px 1px 4px rgba(26,26,67,0.1);
+        box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
       }
 
       .c3 {
