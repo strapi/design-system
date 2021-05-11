@@ -6,6 +6,7 @@ import { withDesign } from 'storybook-addon-designs';
 import { Alert } from './Alert';
 import { Box } from '../Box';
 import { Stack } from '../Stack';
+import { Link } from '../Link';
 
 <Meta
   title="Alert"
@@ -31,25 +32,59 @@ Description...
   <Story name="base">
     <Box padding={10} style={{ width: 700 }}>
       <Stack size={4}>
-        <Alert title="Default variant" onClose={() => {}} closeLabel="Close notification">
+        <Alert
+          title="Default variant"
+          onClose={() => {}}
+          closeLabel="Close notification"
+          action={<Link href="/somewhere">See more</Link>}
+        >
           Alert with title and longer description, lorem ipsum dolor sit amet constrectum adipisicng lorem ipsum dolor
           sit amet consrectumis adipisingus.
         </Alert>
-        <Alert title="Success variant" variant="success" onClose={() => {}} closeLabel="Close notification">
+        <Alert
+          title="Success variant"
+          variant="success"
+          onClose={() => {}}
+          closeLabel="Close notification"
+          action={<Link href="/somewhere">See more</Link>}
+        >
           Alert with title and longer description, lorem ipsum dolor sit amet constrectum adipisicng lorem ipsum dolor
           sit amet consrectumis adipisingus.
         </Alert>
-        <Alert title="Danger variant" variant="danger" onClose={() => {}} closeLabel="Close notification">
+        <Alert
+          title="Danger variant"
+          variant="danger"
+          onClose={() => {}}
+          closeLabel="Close notification"
+          action={<Link href="/somewhere">See more</Link>}
+        >
           Alert with title and longer description, lorem ipsum dolor sit amet constrectum adipisicng lorem ipsum dolor
           sit amet consrectumis adipisingus.
         </Alert>
-        <Alert title="Default variant" onClose={() => {}} closeLabel="Close notification">
+        <Alert
+          title="Default variant"
+          onClose={() => {}}
+          closeLabel="Close notification"
+          action={<Link href="/somewhere">See more</Link>}
+        >
           Alert with title and longer description
         </Alert>
-        <Alert title="Success variant" variant="success" onClose={() => {}} closeLabel="Close notification">
+        <Alert
+          title="Success variant"
+          variant="success"
+          onClose={() => {}}
+          closeLabel="Close notification"
+          action={<Link href="/somewhere">See more</Link>}
+        >
           Alert with title and longer description
         </Alert>
-        <Alert title="Danger variant" variant="danger" onClose={() => {}} closeLabel="Close notification">
+        <Alert
+          title="Danger variant"
+          variant="danger"
+          onClose={() => {}}
+          closeLabel="Close notification"
+          action={<Link href="/somewhere">See more</Link>}
+        >
           Alert with title and longer description
         </Alert>
       </Stack>

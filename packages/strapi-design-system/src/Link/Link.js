@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { ExternalLink } from '@strapi/icons';
 import { TableLabel } from '../Text';
 import { Box } from '../Box';
 
@@ -38,9 +39,16 @@ export const Link = ({ href, to, children, disabled, leftIcon, rightIcon, ...pro
           </Box>
         )}
         {children}
-        {rightIcon && (
+
+        {rightIcon && !href && (
           <Box as="span" aria-hidden={true} paddingLeft={2}>
             {rightIcon}
+          </Box>
+        )}
+
+        {href && (
+          <Box as="span" aria-hidden={true} paddingLeft={2}>
+            <ExternalLink />
           </Box>
         )}
       </TableLabel>

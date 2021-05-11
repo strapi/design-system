@@ -10,6 +10,7 @@ export * from './Field';
 export * from './FocusTrap';
 export * from './Grid';
 export * from './IconButton';
+export * from './Link';
 export * from './Loader';
 export * from './Main';
 export * from './Pagination';

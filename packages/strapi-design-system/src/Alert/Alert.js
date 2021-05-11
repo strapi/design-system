@@ -5,6 +5,7 @@ import { AlertInfoIcon, AlertSucessIcon, AlertWarningIcon, CloseAlertIcon } from
 import { Box } from '../Box';
 import { Text } from '../Text';
 import { Row } from '../Row';
+import { Link } from '../Link';
 import { handleBackgroundColor, handleBorderColor, handleIconColor } from './utils';
 
 const AlertBody = styled(Box)`
@@ -50,7 +51,7 @@ const AlertIcon = ({ variant, ...props }) => {
   return <AlertInfoIcon {...props} />;
 };
 
-export const Alert = ({ title, children, variant, onClose, closeLabel, titleAs, ...props }) => {
+export const Alert = ({ title, children, variant, onClose, closeLabel, titleAs, action, ...props }) => {
   return (
     <AlertWrapper hasRadius paddingLeft={5} paddingRight={6} paddingTop={5} variant={variant} {...props}>
       <Row alignItems="flex-start">
@@ -64,10 +65,13 @@ export const Alert = ({ title, children, variant, onClose, closeLabel, titleAs, 
             </Text>
           </Box>
 
-          <Box paddingBottom={5}>
+          <Box paddingBottom={action ? 2 : 5} paddingRight={2}>
             <Text textColor="neutral800">{children}</Text>
           </Box>
+
+          {action && <Box paddingBottom={5}>{action}</Box>}
         </AlertBody>
+
         <CloseButton onClick={onClose} aria-label={closeLabel}>
           <CloseAlertIcon aria-hidden={true} />
         </CloseButton>
@@ -77,11 +81,13 @@ export const Alert = ({ title, children, variant, onClose, closeLabel, titleAs, 
 };
 
 Alert.defaultProps = {
+  action: undefined,
   variant: 'default',
   titleAs: 'p',
 };
 
 Alert.propTypes = {
+  action: PropTypes.element,
   children: PropTypes.string.isRequired,
   closeLabel: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired,
