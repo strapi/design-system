@@ -1,4 +1,4 @@
-export const tokens = {
+export const colorTokenObject = {
   color: {
     alternative100: '#f6ecfc',
     alternative200: '#e0c1f4',
@@ -41,11 +41,5 @@ export const tokens = {
     warning500: '#fab861',
     warning600: '#f29d41',
     warning700: '#d9822f',
-  },
-  shadow: {
-    filterShadow: '0px 1px 4px #1a1a43, inset 0px 0px 3px #000000',
-    focusShadow: '0px 0px 6px #4cbfff',
-    popupShadow: '0px 2px 15px #4a4a6a',
-    tableShadow: '0px 1px 4px #1a1a43',
   },
 };
