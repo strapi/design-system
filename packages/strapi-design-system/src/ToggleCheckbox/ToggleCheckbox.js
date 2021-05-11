@@ -39,6 +39,10 @@ const OffBox = styled(Box)`
  */
 const Input = styled.input`
   position: absolute;
+  // These are pixel in order to escape the focus offset set in pixel. It's just a hack to hide
+  // the Input behind the toggle checkbox
+  left: 4px;
+  top: 4px;
 `;
 
 export const ToggleCheckbox = React.forwardRef(({ onLabel, offLabel, children, checked, ...props }, ref) => {

@@ -93,6 +93,8 @@ describe('ToggleCheckbox', () => {
 
       .c2 {
         position: absolute;
+        left: 4px;
+        top: 4px;
       }
 
       <label
