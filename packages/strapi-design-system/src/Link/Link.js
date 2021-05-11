@@ -48,7 +48,7 @@ export const Link = ({ href, to, children, disabled, leftIcon, rightIcon, ...pro
   );
 };
 
-Link.displayName = Link;
+Link.displayName = 'Link';
 
 Link.defaultProps = {
   href: undefined,
@@ -59,8 +59,16 @@ Link.defaultProps = {
 Link.propTypes = {
   children: PropTypes.node.isRequired,
   disabled: PropTypes.bool,
-  href: PropTypes.string,
+  href: (props) => {
+    if (!props.disabled && !props.to && !props.href) {
+      return new Error('href must be defined');
+    }
+  },
   leftIcon: PropTypes.element,
   rightIcon: PropTypes.element,
-  to: PropTypes.string,
+  to: (props) => {
+    if (!props.disabled && !props.href && !props.to) {
+      return new Error('to must be defined');
+    }
+  },
 };
