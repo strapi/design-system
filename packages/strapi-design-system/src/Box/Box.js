@@ -27,6 +27,9 @@ export const Box = styled.div.withConfig({
 
   // Radius
   border-radius: ${({ theme, hasRadius }) => (hasRadius ? theme.borderRadius : undefined)};
+
+  // Shadows
+  box-shadow: ${({ theme, shadow }) => theme.shadows[shadow]};
 `;
 
 Box.displayName = Box;
@@ -40,6 +43,7 @@ Box.defaultProps = {
   paddingBottom: undefined,
   paddingLeft: undefined,
   hasRadius: false,
+  shadow: undefined,
 };
 
 Box.propTypes = {
@@ -52,4 +56,5 @@ Box.propTypes = {
   paddingLeft: PropTypes.number,
   paddingRight: PropTypes.number,
   paddingTop: PropTypes.number,
+  shadow: PropTypes.string,
 };
