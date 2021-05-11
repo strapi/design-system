@@ -31,8 +31,8 @@ const IconButtonWrapper = styled(BaseButton)`
 
 export const IconButton = React.forwardRef(({ children, title, description, ...props }, ref) => {
   return (
-    <Tooltip content={title} description={description}>
-      <IconButtonWrapper aria-label={title} {...props} ref={ref}>
+    <Tooltip label={title}>
+      <IconButtonWrapper {...props} ref={ref}>
         {children}
       </IconButtonWrapper>
     </Tooltip>

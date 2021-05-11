@@ -4,6 +4,10 @@ import { IconButton } from '../IconButton';
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
 
+jest.mock('../../helpers/genId', () => ({
+  genId: () => 123,
+}));
+
 describe('IconButton', () => {
   it('snapshots the component', () => {
     const { container } = render(
@@ -58,7 +62,7 @@ describe('IconButton', () => {
 
       <button
         aria-disabled="false"
-        aria-label="test"
+        aria-labelledby="tooltip-123"
         class="c0 c1"
         tabindex="0"
       >
