@@ -1,0 +1,52 @@
+<!--- Link.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { withDesign } from 'storybook-addon-designs';
+import { BackIcon, NextIcon } from '@strapi/icons';
+import { Link } from './Link';
+import { Stack } from '../Stack';
+
+<Meta
+  title="Link"
+  component={Link}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: 'figma',
+      url: 'TODO: Fill the according figma file',
+    },
+  }}
+/>
+
+# Link
+
+This is the doc of the `Link` component
+
+## Link
+
+Description...
+
+<Canvas>
+  <Story name="base">
+    <Stack size={5}>
+      <div>
+        <Link href="https://strapi.io/">External link</Link>
+      </div>
+      <div>
+        <Link to="/somewhere-internal" leftIcon={<BackIcon />}>
+          Internal link
+        </Link>
+      </div>
+      <div>
+        <Link href="https://strapi.io/" rightIcon={<NextIcon />}>
+          External disabled link
+        </Link>
+      </div>
+      <div>
+        <Link to="/somewhere-internal" disabled leftIcon={<BackIcon />} rightIcon={<NextIcon />}>
+          Internal disabled link
+        </Link>
+      </div>
+    </Stack>
+  </Story>
+</Canvas>
