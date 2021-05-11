@@ -1,8 +1,13 @@
+/* eslint-disable react/display-name */
 import * as React from 'react';
 import { render } from '@testing-library/react';
 import { Link } from '../Link';
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
+
+jest.mock('@strapi/icons', () => ({
+  ExternalLink: () => <span>ExternalLink</span>,
+}));
 
 describe('Link', () => {
   it('snapshots the component with an external link', () => {
@@ -32,6 +37,10 @@ describe('Link', () => {
         text-transform: uppercase;
       }
 
+      .c4 {
+        padding-left: 8px;
+      }
+
       .c0 {
         text-transform: uppercase;
         -webkit-text-decoration: none;
@@ -56,6 +65,14 @@ describe('Link', () => {
           class="c1 c2 c3"
         >
           External link
+          <span
+            aria-hidden="true"
+            class="c4"
+          >
+            <span>
+              ExternalLink
+            </span>
+          </span>
         </span>
       </a>
     `);
