@@ -23,10 +23,10 @@
       ]
     },
     {
-      "name": "Design Tokens",
-      "path": "packages/strapi-design-system/src/themes/tokens.js",
+      "name": "Design Tokens / colors",
+      "path": "packages/strapi-design-system/src/themes/colors.js",
       "filter": {
-        "types": ["color", "shadow"]
+        "types": ["color"]
       },
       "parsers": [
         {
@@ -39,7 +39,32 @@
               "shadowFormat": "string"
             },
             "formatConfig": {
-              "jssObjectName": "tokens",
+              "jssObjectName": "colorTokenObject",
+              "exportDefault": false,
+              "tabWidth": 2,
+              "singleQuote": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Design Tokens / shadows",
+      "path": "packages/strapi-design-system/src/themes/shadows.js",
+      "filter": {
+        "types": ["shadow"]
+      },
+      "parsers": [
+        {
+          "name": "to-jss",
+          "options": {
+            "formatName": "camelCase",
+            "formatTokens": {
+              "colorFormat": "rgb",
+              "shadowFormat": "string"
+            },
+            "formatConfig": {
+              "jssObjectName": "shadowTokenObject",
               "exportDefault": false,
               "tabWidth": 2,
               "singleQuote": true
