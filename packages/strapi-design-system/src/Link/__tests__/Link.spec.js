@@ -42,6 +42,10 @@ describe('Link', () => {
         fill: #4945ff;
       }
 
+      .c0 svg {
+        font-size: 0.625rem;
+      }
+
       <a
         class="c0"
         href="https://strapi.io/"
@@ -102,6 +106,10 @@ describe('Link', () => {
 
       .c0 svg path {
         fill: #4945ff;
+      }
+
+      .c0 svg {
+        font-size: 0.625rem;
       }
 
       <a
@@ -179,6 +187,10 @@ describe('Link', () => {
 
       .c0 svg path {
         fill: #666687;
+      }
+
+      .c0 svg {
+        font-size: 0.625rem;
       }
 
       <a

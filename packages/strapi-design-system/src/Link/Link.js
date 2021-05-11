@@ -13,6 +13,10 @@ const LinkWrapper = styled.a`
     fill: ${({ disabled, theme }) => (disabled ? theme.colors.neutral600 : theme.colors.primary600)};
   }
 
+  svg {
+    font-size: ${10 / 16}rem;
+  }
+
   &:hover,
   &:active {
     color: ${({ theme }) => theme.colors.primary800};
