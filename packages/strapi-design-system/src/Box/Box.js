@@ -32,7 +32,7 @@ export const Box = styled.div.withConfig({
   box-shadow: ${({ theme, shadow }) => theme.shadows[shadow]};
 `;
 
-Box.displayName = Box;
+Box.displayName = 'Box';
 
 Box.defaultProps = {
   background: undefined,

@@ -7,6 +7,7 @@ import { Portal } from '../Portal';
 import { useTooltipHandlers } from './hooks/useTooltipHandlers';
 import { useTooltipLayout } from './hooks/useTooltipLayout';
 import { useId } from '../helpers/useId';
+import { VisuallyHidden } from '../VisuallyHidden';
 
 const TooltipWrapper = styled(Box)`
   position: absolute;
@@ -15,6 +16,7 @@ const TooltipWrapper = styled(Box)`
 
 export const Tooltip = ({ children, label, description, delay, position, ...props }) => {
   const tooltipId = useId('tooltip');
+  const descriptionId = useId('description');
   const { visible, ...tooltipHandlers } = useTooltipHandlers(delay);
   const { tooltipWrapperRef, toggleSourceRef } = useTooltipLayout(visible, position);
 
@@ -39,6 +41,7 @@ export const Tooltip = ({ children, label, description, delay, position, ...prop
           visible={visible}
           {...props}
         >
+          {visible && <VisuallyHidden id={descriptionId}>{description}</VisuallyHidden>}
           <Text small={true} highlighted={true} textColor="neutral0">
             {label || description}
           </Text>

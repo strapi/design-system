@@ -1,0 +1,49 @@
+<!--- IconButton.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { withDesign } from 'storybook-addon-designs';
+import { EditIcon, PublishIcon, DeleteIcon, AddIcon } from '@strapi/icons';
+import { IconButton } from './IconButton';
+import { Box } from '../Box';
+import { Grid } from '../Grid';
+
+<Meta
+  title="IconButton"
+  component={IconButton}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: 'figma',
+      url: 'TODO: Fill the according figma file',
+    },
+  }}
+/>
+
+# IconButton
+
+This is the doc of the `IconButton` component
+
+## IconButton
+
+Description...
+
+<Canvas>
+  <Story name="base">
+    <Box padding={7}>
+      <Grid inline cols="repeat(4, auto)" gap={1}>
+        <IconButton onClick={() => console.log('edit')} title="Edit">
+          <EditIcon />
+        </IconButton>
+        <IconButton onClick={() => console.log('Create')} title="Create">
+          <AddIcon />
+        </IconButton>
+        <IconButton onClick={() => console.log('Delete')} title="Delete">
+          <DeleteIcon />
+        </IconButton>
+        <IconButton onClick={() => console.log('Publish')} title="Publish">
+          <PublishIcon />
+        </IconButton>
+      </Grid>
+    </Box>
+  </Story>
+</Canvas>
