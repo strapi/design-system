@@ -7,6 +7,7 @@ import { Box } from '../Box';
 
 const Label = styled.label`
   position: relative;
+  display: inline-block;
 
   &:active,
   &:focus-within {
