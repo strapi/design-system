@@ -10,22 +10,13 @@ import {
   Grid,
   Row,
   Button,
-  Divider,
-  VisuallyHidden,
-  Field,
-  FieldInput,
-  FieldLabel,
-  FieldHint,
-  Tooltip,
   Loader,
 } from "@strapi/design-system";
-import {
-  BackIcon,
-  CheckIcon,
-  EditIcon,
-  ConfigureIcon,
-  HelpIcon,
-} from "@strapi/icons";
+import { BackIcon, CheckIcon } from "@strapi/icons";
+import { EditForm } from "./ContentManager/EditForm";
+import { Information } from "./ContentManager/Information";
+import { Reviews } from "./ContentManager/Reviews";
+import { SideActions } from "./ContentManager/SideAction";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -85,127 +76,14 @@ function App() {
               paddingRight={8}
               shadow="filterShadow"
             >
-              <VisuallyHidden>
-                <h2>Create a new restaurant form</h2>
-              </VisuallyHidden>
-
-              <form>
-                <Grid cols="1fr 1fr" rows="auto auto" gap={9}>
-                  <Field name="email" hint="Imagine all the people">
-                    <Stack size={1}>
-                      <Row>
-                        <FieldLabel>Email</FieldLabel>
-                        <Tooltip description="As a great poet of the street once said...">
-                          <button
-                            aria-label="Information about the email"
-                            style={{
-                              border: "none",
-                              background: "transparent",
-                              display: "flex",
-                            }}
-                          >
-                            <HelpIcon aria-hidden={true} />
-                          </button>
-                        </Tooltip>
-                      </Row>
-                      <FieldInput type="text" placeholder="toto@example.com" />
-                      <FieldHint />
-                    </Stack>
-                  </Field>
-
-                  <Field name="address">
-                    <Stack size={1}>
-                      <FieldLabel>Address</FieldLabel>
-                      <FieldInput
-                        type="text"
-                        placeholder="16 place of the poet of the street"
-                      />
-                    </Stack>
-                  </Field>
-
-                  <Field name="website">
-                    <Stack size={1}>
-                      <FieldLabel>Website</FieldLabel>
-                      <FieldInput
-                        type="text"
-                        placeholder="https://poet-of-the-street.io/"
-                      />
-                    </Stack>
-                  </Field>
-
-                  <Field name="email">
-                    <Stack size={1}>
-                      <FieldLabel>Email</FieldLabel>
-                      <FieldInput type="text" placeholder="Placeholder" />
-                    </Stack>
-                  </Field>
-                </Grid>
-              </form>
+              <EditForm />
             </Box>
 
             <Box area="sideinfo" as="aside">
               <Stack size={3}>
-                <Box
-                  hasRadius
-                  background="neutral0"
-                  paddingTop={3}
-                  paddingBottom={3}
-                  paddingLeft={6}
-                  paddingRight={6}
-                  shadow="filterShadow"
-                >
-                  <Text textColor="neutral700" as="h3" highlighted>
-                    Information
-                  </Text>
-
-                  <Box paddingTop={2} paddingBottom={4}>
-                    <Divider />
-                  </Box>
-
-                  <Stack size={3}>
-                    <Row justifyContent="space-between">
-                      <Text textColor="neutral800" highlighted small>
-                        Last update
-                      </Text>
-
-                      <Text small>3 months ago</Text>
-                    </Row>
-
-                    <Row justifyContent="space-between">
-                      <Text textColor="neutral800" small highlighted>
-                        By
-                      </Text>
-
-                      <Text small>Kai Doe</Text>
-                    </Row>
-                  </Stack>
-                </Box>
-
-                <Box
-                  hasRadius
-                  background="neutral0"
-                  paddingTop={3}
-                  paddingBottom={3}
-                  paddingLeft={6}
-                  paddingRight={6}
-                  shadow="filterShadow"
-                >
-                  <Text textColor="neutral700" as="h3" highlighted>
-                    Reviews (7)
-                  </Text>
-                </Box>
-
-                <Row>
-                  <Box paddingRight={3}>
-                    <Button variant="secondary" leftIcon={<EditIcon />}>
-                      Edit the model
-                    </Button>
-                  </Box>
-
-                  <Button variant="secondary" leftIcon={<ConfigureIcon />}>
-                    Configure the view
-                  </Button>
-                </Row>
+                <Information />
+                <Reviews />
+                <SideActions />
               </Stack>
             </Box>
           </Grid>
