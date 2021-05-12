@@ -1,0 +1,35 @@
+<!--- Switch.stories.mdx --->
+
+import { useState } from 'react';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { withDesign } from 'storybook-addon-designs';
+import { Switch } from './Switch';
+
+<Meta
+  title="Switch"
+  component={Switch}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: 'figma',
+      url: 'TODO: Fill the according figma file',
+    },
+  }}
+/>
+
+# Switch
+
+This is the doc of the `Switch` component
+
+## Switch
+
+Description...
+
+<Canvas>
+  <Story name="base">
+    {() => {
+      const [checked, setChecked] = useState(false);
+      return <Switch label="Activate the microphone" selected={checked} onSwitch={setChecked} />;
+    }}
+  </Story>
+</Canvas>
