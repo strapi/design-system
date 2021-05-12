@@ -1,0 +1,60 @@
+<!--- Textarea.stories.mdx --->
+
+import { useState } from 'react';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { withDesign } from 'storybook-addon-designs';
+import { Textarea } from './Textarea';
+import { Tooltip } from '../Tooltip';
+import { HelpIcon } from '@strapi/icons';
+
+<Meta
+  title="Textarea"
+  component={Textarea}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: 'figma',
+      url: 'TODO: Fill the according figma file',
+    },
+  }}
+/>
+
+# Textarea
+
+This is the doc of the `Textarea` component
+
+## Textarea
+
+Description...
+
+<Canvas>
+  <Story name="base">
+    {() => {
+      const [content, setContent] = useState('');
+      return (
+        <Box padding={10}>
+          <Textarea
+            placeholder="This is a content placeholder"
+            label="Content"
+            name="content"
+            hint="Description line"
+            error={content.length < 5 ? 'Content is too short' : undefined}
+            onChange={(e) => setContent(e.target.value)}
+            action={
+              <Tooltip description="Content of the tooltip" position="right">
+                <button
+                  aria-label="Information about the email"
+                  style={{ border: 'none', padding: 0, background: 'transparent' }}
+                >
+                  <HelpIcon aria-hidden={true} />
+                </button>
+              </Tooltip>
+            }
+          >
+            {content}
+          </Textarea>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
