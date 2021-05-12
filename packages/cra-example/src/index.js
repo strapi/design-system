@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { ThemeProvider, lightTheme } from "@strapi/design-system";
-import "./index.css";
 import Main from "./App";
 import reportWebVitals from "./reportWebVitals";
 
