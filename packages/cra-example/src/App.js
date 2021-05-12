@@ -1,19 +1,11 @@
-import { useState } from "react";
-import { Checkbox, Box } from "@strapi/design-system";
+import { Router } from "@reach/router";
+import { EditViewPage } from "./ContentManager/EditViewPage";
 
 function App() {
-  const [val, setValue] = useState();
-
-  const handleChange = (value) => setValue(value);
-
   return (
-    <Box>
-      <Box paddingBottom={5}>
-        <Checkbox onValueChange={handleChange} name="first" value={val}>
-          This is a Design System component
-        </Checkbox>
-      </Box>
-    </Box>
+    <Router>
+      <EditViewPage path="/" />
+    </Router>
   );
 }
 
