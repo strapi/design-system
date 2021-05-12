@@ -1,7 +1,12 @@
+import { Router } from "@reach/router";
 import { EditViewPage } from "./ContentManager/EditViewPage";
 
 function App() {
-  return <EditViewPage />;
+  return (
+    <Router>
+      <EditViewPage path="/" />
+    </Router>
+  );
 }
 
 export default App;
