@@ -4,6 +4,10 @@ import { Textarea } from '../Textarea';
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
 
+jest.mock('uuid', () => ({
+  v4: () => 1,
+}));
+
 describe('Textarea', () => {
   it('snapshots the component with a hint', () => {
     const { container } = render(
@@ -146,7 +150,7 @@ describe('Textarea', () => {
             >
               <label
                 class="c3"
-                for="field-674ac2e0-d5ab-4cef-a4a2-9604be53372a"
+                for="field-1"
               >
                 Content
               </label>
@@ -162,10 +166,10 @@ describe('Textarea', () => {
               class="c5 c6"
             >
               <textarea
-                aria-describedby="field-hint-674ac2e0-d5ab-4cef-a4a2-9604be53372a"
+                aria-describedby="field-hint-1"
                 aria-invalid="false"
                 class="c7"
-                id="field-674ac2e0-d5ab-4cef-a4a2-9604be53372a"
+                id="field-1"
                 name="content"
                 placeholder="This is a content placeholder"
               >
@@ -174,7 +178,7 @@ describe('Textarea', () => {
             </div>
             <p
               class="c8"
-              id="field-hint-674ac2e0-d5ab-4cef-a4a2-9604be53372a"
+              id="field-hint-1"
             >
               Description line
             </p>
@@ -326,7 +330,7 @@ describe('Textarea', () => {
             >
               <label
                 class="c3"
-                for="field-b0a5e4a9-5cdf-4a75-bdc6-0fa6f95b38be"
+                for="field-1"
               >
                 Content
               </label>
@@ -342,10 +346,10 @@ describe('Textarea', () => {
               class="c5 c6"
             >
               <textarea
-                aria-describedby="field-error-b0a5e4a9-5cdf-4a75-bdc6-0fa6f95b38be"
+                aria-describedby="field-error-1"
                 aria-invalid="true"
                 class="c7"
-                id="field-b0a5e4a9-5cdf-4a75-bdc6-0fa6f95b38be"
+                id="field-1"
                 name="content"
                 placeholder="This is a content placeholder"
               >
@@ -354,7 +358,7 @@ describe('Textarea', () => {
             </div>
             <p
               class="c8"
-              id="field-error-b0a5e4a9-5cdf-4a75-bdc6-0fa6f95b38be"
+              id="field-error-1"
             >
               An error occured
             </p>
