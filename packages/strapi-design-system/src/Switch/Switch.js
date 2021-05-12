@@ -50,14 +50,14 @@ const SwitchButton = styled.button`
 `;
 
 export const Switch = React.forwardRef(
-  ({ label, onSwitch, onLabel, offLabel, selected, visibleLabels, ...props }, ref) => {
+  ({ label, onChange, onLabel, offLabel, selected, visibleLabels, ...props }, ref) => {
     return (
       <SwitchButton
         ref={ref}
         role="switch"
         aria-checked={selected}
         aria-label={label}
-        onClick={() => onSwitch(!selected)}
+        onClick={onChange}
         visibleLabels={visibleLabels}
         {...props}
       >
@@ -87,8 +87,8 @@ Switch.defaultProps = {
 Switch.propTypes = {
   label: PropTypes.string.isRequired,
   offLabel: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
   onLabel: PropTypes.string,
-  onSwitch: PropTypes.func.isRequired,
   selected: PropTypes.bool.isRequired,
   visibleLabels: PropTypes.bool,
 };

@@ -8,7 +8,7 @@ describe('Switch', () => {
   it('snapshots the switch component when it s checked', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
-        <Switch label="Activate the microphone" selected={true} onSwitch={() => {}} />
+        <Switch label="Activate the microphone" selected={true} onChange={() => {}} />
       </ThemeProvider>,
     );
 
@@ -103,7 +103,7 @@ describe('Switch', () => {
   it('snapshots the switch component when it s not checked', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
-        <Switch label="Activate the microphone" selected={false} onSwitch={() => {}} />
+        <Switch label="Activate the microphone" selected={false} onChange={() => {}} />
       </ThemeProvider>,
     );
 
@@ -198,7 +198,7 @@ describe('Switch', () => {
   it('snapshots the switch component when it s not checked with visible labels', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
-        <Switch label="Activate the microphone" selected={false} onSwitch={() => {}} visibleLabels />
+        <Switch label="Activate the microphone" selected={false} onChange={() => {}} visibleLabels />
       </ThemeProvider>,
     );
 

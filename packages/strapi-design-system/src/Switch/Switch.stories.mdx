@@ -29,7 +29,14 @@ Description...
   <Story name="base">
     {() => {
       const [checked, setChecked] = useState(false);
-      return <Switch label="Activate the microphone" selected={checked} onSwitch={setChecked} visibleLabels />;
+      return (
+        <Switch
+          label="Activate the microphone"
+          selected={checked}
+          onChange={() => setChecked((s) => !s)}
+          visibleLabels
+        />
+      );
     }}
   </Story>
 </Canvas>
