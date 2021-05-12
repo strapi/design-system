@@ -32,8 +32,6 @@ describe('Switch', () => {
         border: none;
         border-radius: 16px;
         position: relative;
-        -webkit-transition: all 0.5s;
-        transition: all 0.5s;
         height: 1.5rem;
         width: 2.5rem;
       }
@@ -69,6 +67,13 @@ describe('Switch', () => {
         -webkit-transform: translateX(1rem);
         -ms-transform: translateX(1rem);
         transform: translateX(1rem);
+      }
+
+      @media (prefers-reduced-motion:reduce) {
+        .c3:before {
+          -webkit-transition: none;
+          transition: none;
+        }
       }
 
       <button
@@ -122,8 +127,6 @@ describe('Switch', () => {
         border: none;
         border-radius: 16px;
         position: relative;
-        -webkit-transition: all 0.5s;
-        transition: all 0.5s;
         height: 1.5rem;
         width: 2.5rem;
       }
@@ -159,6 +162,13 @@ describe('Switch', () => {
         -webkit-transform: translateX(1rem);
         -ms-transform: translateX(1rem);
         transform: translateX(1rem);
+      }
+
+      @media (prefers-reduced-motion:reduce) {
+        .c3:before {
+          -webkit-transition: none;
+          transition: none;
+        }
       }
 
       <button
@@ -217,8 +227,6 @@ describe('Switch', () => {
         border: none;
         border-radius: 16px;
         position: relative;
-        -webkit-transition: all 0.5s;
-        transition: all 0.5s;
         height: 1.5rem;
         width: 2.5rem;
       }
@@ -254,6 +262,13 @@ describe('Switch', () => {
         -webkit-transform: translateX(1rem);
         -ms-transform: translateX(1rem);
         transform: translateX(1rem);
+      }
+
+      @media (prefers-reduced-motion:reduce) {
+        .c3:before {
+          -webkit-transition: none;
+          transition: none;
+        }
       }
 
       <button

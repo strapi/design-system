@@ -9,7 +9,6 @@ const SwitchContent = styled.div`
   border: none;
   border-radius: 16px;
   position: relative;
-  transition: all 0.5s;
   height: ${24 / 16}rem;
   width: ${40 / 16}rem;
 
@@ -27,6 +26,12 @@ const SwitchContent = styled.div`
     transition: all 0.5s;
     left: ${({ theme }) => theme.spaces[1]};
     top: ${({ theme }) => theme.spaces[1]};
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &:before {
+      transition: none;
+    }
   }
 `;
 
