@@ -55,6 +55,7 @@ const AlertIcon = ({ variant, ...props }) => {
 const ActionBox = styled(Box)`
   & a {
     line-height: ${12 / 16}rem;
+    vertical-align: middle;
   }
 
   & a > span {
