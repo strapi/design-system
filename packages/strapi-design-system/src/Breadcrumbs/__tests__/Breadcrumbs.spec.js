@@ -26,13 +26,13 @@ describe('Breadcrumbs', () => {
     );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
-      .c1 {
+      .c2 {
         font-weight: 500;
         font-size: 0.875rem;
         line-height: 1.43;
       }
 
-      .c2 {
+      .c4 {
         padding-right: 12px;
         padding-left: 12px;
       }
@@ -42,71 +42,81 @@ describe('Breadcrumbs', () => {
         display: -webkit-inline-flex;
         display: -ms-inline-flexbox;
         display: inline-flex;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
         -webkit-align-items: center;
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
       }
 
-      .c0 svg {
+      .c1 svg {
         height: 10px;
         width: 10px;
       }
 
-      .c0 svg path {
+      .c1 svg path {
         fill: #c0c0cf;
       }
 
-      <nav
-        id="breadcrumbs-123"
-      >
-        <ol>
-          <li
-            class="c0"
+      .c1:last-of-type .c3 {
+        display: none;
+      }
+
+      <ol>
+        <li
+          class="c0 c1"
+        >
+          <p
+            class="c2"
+            color="neutral800"
           >
-            <p
-              class="c1"
-              color="neutral800"
-            >
-              Home
-            </p>
-            <div
-              class="c2"
-            >
-              <span>
-                After
-              </span>
-            </div>
-          </li>
-          <li
-            class="c0"
+            Home
+          </p>
+          <div
+            class="c3 c4"
           >
-            <p
-              class="c1"
-              color="neutral800"
-            >
-              first
-            </p>
-            <div
-              class="c2"
-            >
-              <span>
-                After
-              </span>
-            </div>
-          </li>
-          <li
-            class="c0"
+            <span>
+              After
+            </span>
+          </div>
+        </li>
+        <li
+          class="c0 c1"
+        >
+          <p
+            class="c2"
+            color="neutral800"
           >
-            <p
-              class="c1"
-              color="neutral800"
-            >
-              second
-            </p>
-          </li>
-        </ol>
-      </nav>
+            first
+          </p>
+          <div
+            class="c3 c4"
+          >
+            <span>
+              After
+            </span>
+          </div>
+        </li>
+        <li
+          class="c0 c1"
+        >
+          <p
+            class="c2"
+            color="neutral800"
+          >
+            second
+          </p>
+          <div
+            class="c3 c4"
+          >
+            <span>
+              After
+            </span>
+          </div>
+        </li>
+      </ol>
     `);
   });
 });
