@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { Row } from '../Row';
+import { Box } from '../Box';
 
-const SwitchButton = styled.button`
+const SwitchContent = styled.div`
   background: ${({ theme }) => theme.colors.danger500};
   border: none;
   border-radius: 16px;
@@ -12,7 +14,7 @@ const SwitchButton = styled.button`
   width: ${40 / 16}rem;
 
   & span {
-    font-size: 0px;
+    font-size: ${({ visibleLabels }) => (visibleLabels ? '1rem' : 0)};
   }
 
   &:before {
@@ -26,35 +28,55 @@ const SwitchButton = styled.button`
     left: ${({ theme }) => theme.spaces[1]};
     top: ${({ theme }) => theme.spaces[1]};
   }
+`;
 
-  &[aria-checked='true'] {
+const SwitchButton = styled.button`
+  background: transparent;
+  padding: 0;
+  border: none;
+
+  &[aria-checked='true'] ${SwitchContent} {
     background: ${({ theme }) => theme.colors.success500};
   }
 
-  &[aria-checked='true']:before {
+  &[aria-checked='true'] ${SwitchContent}:before {
     transform: translateX(1rem);
   }
 `;
 
-export const Switch = React.forwardRef(({ label, onSwitch, onLabel, offLabel, selected, ...props }, ref) => {
-  return (
-    <SwitchButton
-      ref={ref}
-      role="switch"
-      aria-checked={selected}
-      aria-label={label}
-      onClick={() => onSwitch(!selected)}
-      {...props}
-    >
-      <span>{onLabel}</span>
-      <span>{offLabel}</span>
-    </SwitchButton>
-  );
-});
+export const Switch = React.forwardRef(
+  ({ label, onSwitch, onLabel, offLabel, selected, visibleLabels, ...props }, ref) => {
+    return (
+      <SwitchButton
+        ref={ref}
+        role="switch"
+        aria-checked={selected}
+        aria-label={label}
+        onClick={() => onSwitch(!selected)}
+        visibleLabels={visibleLabels}
+        {...props}
+      >
+        <Row>
+          <SwitchContent>
+            <span>{onLabel}</span>
+            <span>{offLabel}</span>
+          </SwitchContent>
+
+          {visibleLabels && (
+            <Box as="span" aria-hidden={true} paddingLeft={2} color={selected ? 'success600' : 'danger600'}>
+              {selected ? onLabel : offLabel}
+            </Box>
+          )}
+        </Row>
+      </SwitchButton>
+    );
+  },
+);
 
 Switch.defaultProps = {
   onLabel: 'On',
   offLabel: 'Off',
+  visibleLabels: false,
 };
 
 Switch.propTypes = {
@@ -63,6 +85,7 @@ Switch.propTypes = {
   onLabel: PropTypes.string,
   onSwitch: PropTypes.func.isRequired,
   selected: PropTypes.bool.isRequired,
+  visibleLabels: PropTypes.bool,
 };
 
 Switch.displayName = 'Switch';
