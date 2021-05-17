@@ -1,0 +1,60 @@
+<!--- TextInput.stories.mdx --->
+
+import { useState } from 'react';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { withDesign } from 'storybook-addon-designs';
+import { TextInput } from './TextInput';
+import { Box } from '../Box';
+import { Tooltip } from '../Tooltip';
+import { HelpIcon } from '@strapi/icons';
+
+<Meta
+  title="TextInput"
+  component={TextInput}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: 'figma',
+      url: 'TODO: Fill the according figma file',
+    },
+  }}
+/>
+
+# TextInput
+
+This is the doc of the `TextInput` component
+
+## TextInput
+
+Description...
+
+<Canvas>
+  <Story name="base">
+    {() => {
+      const [content, setContent] = useState('');
+      return (
+        <Box padding={10}>
+          <TextInput
+            placeholder="This is a content placeholder"
+            label="Content"
+            name="content"
+            hint="Description line"
+            error={content.length > 5 ? 'Content is too long' : undefined}
+            onChange={(e) => setContent(e.target.value)}
+            value={content}
+            action={
+              <Tooltip description="Content of the tooltip">
+                <button
+                  aria-label="Information about the email"
+                  style={{ border: 'none', padding: 0, background: 'transparent' }}
+                >
+                  <HelpIcon aria-hidden={true} />
+                </button>
+              </Tooltip>
+            }
+          />
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>

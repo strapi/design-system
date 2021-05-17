@@ -234,14 +234,17 @@ describe('Searchbar', () => {
                 aria-label="Clearing the plugin search"
                 class="c12"
               >
-                <div
+                <span
                   aria-hidden="true"
-                  class="c8 c13"
                 >
-                  <span>
-                    CloseAlertIcon
-                  </span>
-                </div>
+                  <div
+                    class="c8 c13"
+                  >
+                    <span>
+                      CloseAlertIcon
+                    </span>
+                  </div>
+                </span>
               </button>
             </div>
           </div>
