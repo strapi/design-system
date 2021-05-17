@@ -5,7 +5,6 @@ import { After } from '@strapi/icons';
 import { Text } from '../Text';
 import { Box } from '../Box';
 import { Row } from '../Row';
-import { useId } from '../helpers/useId';
 
 const CrumbWrapper = styled(Row)`
   svg {
@@ -34,19 +33,15 @@ export const Crumb = ({ children }) => {
 };
 
 Crumb.displayName = 'Crumb';
-
 Crumb.propTypes = {
   children: PropTypes.string.isRequired,
 };
+const crumbType = PropTypes.shape({ type: PropTypes.oneOf([Crumb]) });
 
-export const Breadcrumbs = ({ children }) => {
-  const validChildren = React.Children.toArray(children).filter((child) => React.isValidElement(child));
-
-  return <ol>{validChildren}</ol>;
-};
+export const Breadcrumbs = ({ children }) => <ol>{children}</ol>;
 
 Breadcrumbs.displayName = 'Breadcrumbs';
 
 Breadcrumbs.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]).isRequired,
+  children: PropTypes.oneOfType([PropTypes.arrayOf(crumbType), crumbType]).isRequired,
 };
