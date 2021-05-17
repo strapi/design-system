@@ -1,0 +1,39 @@
+<!--- TextButton.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { withDesign } from 'storybook-addon-designs';
+import { BackIcon, NextIcon } from '@strapi/icons';
+import { TextButton } from './TextButton';
+
+<Meta
+  title="TextButton"
+  component={TextButton}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: 'figma',
+      url: 'TODO: Fill the according figma file',
+    },
+  }}
+/>
+
+# TextButton
+
+This is the doc of the `TextButton` component
+
+## TextButton
+
+Description...
+
+<Canvas>
+  <Story name="base">
+    <div>
+      <TextButton rightIcon={<NextIcon />}>Click on me</TextButton>
+    </div>
+    <div>
+      <TextButton disabled leftIcon={<BackIcon />}>
+        Disabled TextButton
+      </TextButton>
+    </div>
+  </Story>
+</Canvas>
