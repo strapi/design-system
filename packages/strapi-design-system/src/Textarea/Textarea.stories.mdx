@@ -40,7 +40,7 @@ Description...
             hint="Description line"
             error={content.length < 5 ? 'Content is too short' : undefined}
             onChange={(e) => setContent(e.target.value)}
-            action={
+            labelAction={
               <Tooltip description="Content of the tooltip" position="right">
                 <button
                   aria-label="Information about the email"

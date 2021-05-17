@@ -20,7 +20,7 @@ describe('TextInput', () => {
           error={undefined}
           onChange={(e) => {}}
           value={'content'}
-          action={<span>Hello world</span>}
+          labelAction={<span>Hello world</span>}
         />
       </ThemeProvider>,
     );

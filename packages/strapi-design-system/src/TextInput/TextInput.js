@@ -6,28 +6,28 @@ import { Row } from '../Row';
 import { Box } from '../Box';
 import styled from 'styled-components';
 
-const TextareaWrapper = styled.div`
+const TextInputWrapper = styled.div`
   & textarea {
     height: ${80 / 16}rem;
   }
 `;
 
 export const TextInput = React.forwardRef(
-  ({ leftAction, rightAction, name, hint, error, label, action, ...props }, ref) => {
+  ({ leftAction, rightAction, name, hint, error, label, labelAction, ...props }, ref) => {
     return (
-      <TextareaWrapper>
+      <TextInputWrapper>
         <Field name={name} hint={hint} error={error}>
           <Stack size={1}>
             <Row cols="auto auto 1fr" gap={1}>
               <FieldLabel>{label}</FieldLabel>
-              {action && <Box paddingLeft={1}>{action}</Box>}
+              {labelAction && <Box paddingLeft={1}>{labelAction}</Box>}
             </Row>
             <FieldInput ref={ref} leftAction={leftAction} rightAction={rightAction} {...props} />
             <FieldHint />
             <FieldError />
           </Stack>
         </Field>
-      </TextareaWrapper>
+      </TextInputWrapper>
     );
   },
 );
@@ -35,7 +35,7 @@ export const TextInput = React.forwardRef(
 TextInput.displayName = 'TextInput';
 
 TextInput.defaultProps = {
-  action: undefined,
+  labelAction: undefined,
   error: undefined,
   hint: undefined,
   leftAction: undefined,
@@ -43,10 +43,10 @@ TextInput.defaultProps = {
 };
 
 TextInput.propTypes = {
-  action: PropTypes.element,
   error: PropTypes.string,
   hint: PropTypes.string,
   label: PropTypes.string.isRequired,
+  labelAction: PropTypes.element,
   leftAction: PropTypes.element,
   name: PropTypes.string.isRequired,
   rightAction: PropTypes.element,
