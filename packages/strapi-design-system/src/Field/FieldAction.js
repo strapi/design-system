@@ -1,6 +1,8 @@
+import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-export const FieldAction = styled.button`
+const FieldActionWrapper = styled.button`
   border: none;
   background: transparent;
   // TODO: Make sure to use the theme when it's ready
@@ -10,3 +12,14 @@ export const FieldAction = styled.button`
   display: flex;
   align-items: center;
 `;
+
+export const FieldAction = ({ label, children, ...props }) => (
+  <FieldActionWrapper aria-label={label} {...props}>
+    <span aria-hidden={true}>{children}</span>
+  </FieldActionWrapper>
+);
+
+FieldAction.propTypes = {
+  children: PropTypes.node.isRequired,
+  label: PropTypes.string.isRequired,
+};

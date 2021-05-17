@@ -18,7 +18,7 @@ describe('Textarea', () => {
           name="content"
           hint="Description line"
           onChange={() => {}}
-          action={<span>Some action</span>}
+          labelAction={<span>Some action</span>}
         >
           Some content
         </Textarea>
@@ -198,7 +198,7 @@ describe('Textarea', () => {
           hint="Description line"
           error="An error occured"
           onChange={() => {}}
-          action={<span>Some action</span>}
+          labelAction={<span>Some action</span>}
         >
           Some content
         </Textarea>

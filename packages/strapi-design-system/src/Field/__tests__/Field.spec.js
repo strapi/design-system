@@ -518,8 +518,8 @@ describe('Field', () => {
             placeholder="Placeholder"
             value={'email'}
             onChange={() => undefined}
-            leftAction={<FieldAction aria-label="Show password">Show</FieldAction>}
-            rightAction={<FieldAction aria-label="Show password">Hide</FieldAction>}
+            leftAction={<FieldAction label="Show password">Show</FieldAction>}
+            rightAction={<FieldAction label="Show password">Hide</FieldAction>}
           />
           <FieldHint />
           <FieldError />
@@ -655,7 +655,11 @@ describe('Field', () => {
               aria-label="Show password"
               class="c4"
             >
-              Show
+              <span
+                aria-hidden="true"
+              >
+                Show
+              </span>
             </button>
           </div>
           <input
@@ -676,7 +680,11 @@ describe('Field', () => {
               aria-label="Show password"
               class="c4"
             >
-              Hide
+              <span
+                aria-hidden="true"
+              >
+                Hide
+              </span>
             </button>
           </div>
         </div>

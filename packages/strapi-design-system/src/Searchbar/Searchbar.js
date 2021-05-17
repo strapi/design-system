@@ -68,8 +68,8 @@ export const Searchbar = ({ name, children, value, onClear, clearLabel, ...props
           }
           rightAction={
             isCompleting ? (
-              <FieldAction aria-label={clearLabel} onClick={handleClear}>
-                <CloseIconWrapper aria-hidden={true}>
+              <FieldAction label={clearLabel} onClick={handleClear}>
+                <CloseIconWrapper>
                   <CloseAlertIcon />
                 </CloseIconWrapper>
               </FieldAction>

@@ -1,57 +1,48 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Field, FieldLabel, FieldHint, FieldError, FieldInput } from '../Field';
+import { Field, FieldLabel, FieldHint, FieldError, FieldInput, FieldAction } from '../Field';
 import { Stack } from '../Stack';
 import { Row } from '../Row';
 import { Box } from '../Box';
 import styled from 'styled-components';
 
-const TextareaWrapper = styled.div`
+const TextInputWrapper = styled.div`
   & textarea {
     height: ${80 / 16}rem;
   }
 `;
 
-export const Textarea = React.forwardRef(
-  ({ leftAction, rightAction, name, hint, error, label, children, labelAction, ...props }, ref) => {
+export const TextInput = React.forwardRef(
+  ({ leftAction, rightAction, name, hint, error, label, labelAction, ...props }, ref) => {
     return (
-      <TextareaWrapper>
+      <TextInputWrapper>
         <Field name={name} hint={hint} error={error}>
           <Stack size={1}>
             <Row cols="auto auto 1fr" gap={1}>
               <FieldLabel>{label}</FieldLabel>
               {labelAction && <Box paddingLeft={1}>{labelAction}</Box>}
             </Row>
-            <FieldInput
-              ref={ref}
-              as="textarea"
-              leftAction={leftAction}
-              rightAction={rightAction}
-              value={children}
-              {...props}
-            />
+            <FieldInput ref={ref} leftAction={leftAction} rightAction={rightAction} {...props} />
             <FieldHint />
             <FieldError />
           </Stack>
         </Field>
-      </TextareaWrapper>
+      </TextInputWrapper>
     );
   },
 );
 
-Textarea.displayName = 'Textarea';
+TextInput.displayName = 'TextInput';
 
-Textarea.defaultProps = {
+TextInput.defaultProps = {
   labelAction: undefined,
   error: undefined,
   hint: undefined,
   leftAction: undefined,
   rightAction: undefined,
-  children: '',
 };
 
-Textarea.propTypes = {
-  children: PropTypes.string,
+TextInput.propTypes = {
   error: PropTypes.string,
   hint: PropTypes.string,
   label: PropTypes.string.isRequired,
