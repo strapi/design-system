@@ -62,6 +62,7 @@ describe('TextButton', () => {
       }
 
       <button
+        aria-disabled="false"
         class="c0 c1"
       >
         <span
@@ -131,7 +132,6 @@ describe('TextButton', () => {
       .c1 {
         background: transparent;
         border: none;
-        pointer-events: none;
       }
 
       .c1 svg {
@@ -143,12 +143,12 @@ describe('TextButton', () => {
       }
 
       .c1 svg path {
-        fill: #666687;
+        fill: #4945ff;
       }
 
       <button
+        aria-disabled="true"
         class="c0 c1"
-        disabled=""
       >
         <span
           aria-hidden="true"
