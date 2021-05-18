@@ -16,27 +16,27 @@ export const Table = ({ colCount, rowCount, jumpStep, ...props }) => {
       switch (e.key) {
         case KeyboardKeys.ARROW_RIGHT: {
           e.preventDefault();
-          setColIndex((s) => (s < colCount - 1 ? s + 1 : s));
+          setColIndex((prevColIndex) => (prevColIndex < colCount - 1 ? prevColIndex + 1 : prevColIndex));
 
           break;
         }
 
         case KeyboardKeys.ARROW_LEFT: {
           e.preventDefault();
-          setColIndex((s) => (s > 0 ? s - 1 : s));
+          setColIndex((prevColIndex) => (prevColIndex > 0 ? prevColIndex - 1 : prevColIndex));
 
           break;
         }
 
         case KeyboardKeys.UP: {
           e.preventDefault();
-          setRowIndex((s) => (s > 0 ? s - 1 : s));
+          setRowIndex((prevRowIndex) => (prevRowIndex > 0 ? prevRowIndex - 1 : prevRowIndex));
           break;
         }
 
         case KeyboardKeys.DOWN: {
           e.preventDefault();
-          setRowIndex((s) => (s < rowCount - 1 ? s + 1 : s));
+          setRowIndex((prevRowIndex) => (prevRowIndex < rowCount - 1 ? prevRowIndex + 1 : prevRowIndex));
           break;
         }
 
@@ -65,7 +65,7 @@ export const Table = ({ colCount, rowCount, jumpStep, ...props }) => {
         case KeyboardKeys.PAGE_DOWN: {
           e.preventDefault();
 
-          setRowIndex((s) => (s + jumpStep < rowCount ? s + jumpStep : rowCount - 1));
+          setRowIndex((prevRowIndex) => (prevRowIndex + jumpStep < rowCount ? prevRowIndex + jumpStep : rowCount - 1));
 
           break;
         }
@@ -73,7 +73,7 @@ export const Table = ({ colCount, rowCount, jumpStep, ...props }) => {
         case KeyboardKeys.PAGE_UP: {
           e.preventDefault();
 
-          setRowIndex((s) => (s - jumpStep > 0 ? s - jumpStep : 0));
+          setRowIndex((prevRowIndex) => (prevRowIndex - jumpStep > 0 ? prevRowIndex - jumpStep : 0));
           break;
         }
 
