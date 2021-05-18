@@ -90,4 +90,70 @@ Description...
       );
     }}
   </Story>
+  <Story name="simple">
+    {() => {
+      const ROW_COUNT = 30;
+      const COL_COUNT = 5;
+      const rows = Array(ROW_COUNT - 1)
+        .fill(null)
+        .map(() =>
+          Array(COL_COUNT)
+            .fill(null)
+            .map((e, x) => x),
+        );
+      return (
+        <Box shadow="filterShadow" padding={3} hasRadius>
+          <Table colCount={COL_COUNT} rowCount={ROW_COUNT}>
+            <Thead>
+              <Tr>
+                <Th>
+                  <Box padding={2} background="neutral200">
+                    One
+                  </Box>
+                </Th>
+                <Th>
+                  <Box padding={2} background="neutral200">
+                    Two
+                  </Box>
+                </Th>
+                <Th>
+                  <Box padding={2} background="neutral200">
+                    Three
+                  </Box>
+                </Th>
+                <Th>
+                  <Box padding={2} background="neutral200">
+                    Four
+                  </Box>
+                </Th>
+                <Th>
+                  <Box padding={2} background="neutral200">
+                    Five
+                  </Box>
+                </Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              <Tr>
+                <Td>2/1</Td>
+                <Td>2/2</Td>
+                <Td>2/3</Td>
+                <Td>2/4</Td>
+                <Td>2/5</Td>
+              </Tr>
+              <Tr>
+                <Td>3/1</Td>
+                <Td>
+                  <a href="#">Link to somewhere</a>
+                </Td>
+                <Td>3/3</Td>
+                <Td>3/4</Td>
+                <Td>3/5</Td>
+              </Tr>
+            </Tbody>
+          </Table>
+        </Box>
+      );
+    }}
+  </Story>
 </Canvas>
