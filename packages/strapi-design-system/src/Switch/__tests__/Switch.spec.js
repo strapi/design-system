@@ -218,7 +218,7 @@ describe('Switch', () => {
       }
 
       .c4 {
-        color: #dd2b23;
+        color: #d02b20;
         padding-left: 8px;
       }
 
