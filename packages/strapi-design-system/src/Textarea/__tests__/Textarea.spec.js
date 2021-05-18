@@ -217,7 +217,7 @@ describe('Textarea', () => {
         font-weight: 400;
         font-size: 0.75rem;
         line-height: 1.33;
-        color: #dd2b23;
+        color: #d02b20;
       }
 
       .c2 {
@@ -295,7 +295,7 @@ describe('Textarea', () => {
       }
 
       .c6 {
-        border: 1px solid #dd2b23;
+        border: 1px solid #d02b20;
         border-radius: 4px;
         background: #ffffff;
         overflow: hidden;

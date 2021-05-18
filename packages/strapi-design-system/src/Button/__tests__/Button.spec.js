@@ -296,8 +296,8 @@ describe('Button', () => {
         padding: 8px 16px;
         background: #4945ff;
         border: none;
-        border: 1px solid #338648;
-        background: #338648;
+        border: 1px solid #328048;
+        background: #328048;
       }
 
       .c1 .sc-iCfLBT {
@@ -350,8 +350,8 @@ describe('Button', () => {
       }
 
       .c1:active {
-        border: 1px solid #338648;
-        background: #338648;
+        border: 1px solid #328048;
+        background: #328048;
       }
 
       <button
@@ -465,16 +465,16 @@ describe('Button', () => {
 
       .c1:active {
         background-color: #ffffff;
-        border: 1px solid #dd2b23;
+        border: 1px solid #d02b20;
       }
 
       .c1:active .c2 {
-        color: #dd2b23;
+        color: #d02b20;
       }
 
       .c1:active svg > g,
       .c1:active svg path {
-        fill: #dd2b23;
+        fill: #d02b20;
       }
 
       .c1 .c2 {
