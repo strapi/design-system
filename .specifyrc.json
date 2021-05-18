@@ -1,5 +1,5 @@
 {
-  "repository": "@strapi/Strapi-Design-System",
+  "repository": "@strapi/test-sync-specify",
   "rules": [
     {
       "name": "Icons",
