@@ -34,7 +34,9 @@ module.exports = {
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
-    libraryTarget: 'commonjs',
+    library: 'strapi-ds',
+    libraryTarget: 'umd',
+    globalObject: 'this',
   },
   module: {
     rules: [
@@ -61,7 +63,7 @@ module.exports = {
   plugins: [new CleanWebpackPlugin()].concat(analyzePlugins),
   externals: {
     react: 'react',
-    reactDOM: 'react-dom',
+    'react-dom': 'react-dom',
     'styled-components': {
       commonjs: 'styled-components',
       commonjs2: 'styled-components',
