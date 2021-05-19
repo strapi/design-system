@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { render } from '@testing-library/react';
 import { Table } from '../Table';
-import { Thead, Tbody } from '../Content';
+import { Thead } from '../Thead';
+import { Tbody } from '../Tbody';
 import { Tr } from '../Tr';
 import { Td, Th } from '../Cell';
 import { ThemeProvider } from '../../ThemeProvider';

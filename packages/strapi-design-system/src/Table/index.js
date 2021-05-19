@@ -1,4 +1,5 @@
 export * from './Table';
 export * from './Cell';
-export * from './Content';
+export * from './Thead';
+export * from './Tbody';
 export * from './Tr';
