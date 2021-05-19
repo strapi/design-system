@@ -6,7 +6,7 @@ const useCell = (isFocused) => {
   const cellRef = useRef(null);
 
   useEffect(() => {
-    if (mountedRef.current && isFocused) {
+    if (mountedRef.current && cellRef.current && isFocused) {
       cellRef.current.focus();
     }
   }, [isFocused]);
