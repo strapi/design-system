@@ -10,4 +10,6 @@ export const KeyboardKeys = {
   END: 'End',
   HOME: 'Home',
   DELETE: 'Delete',
+  PAGE_UP: 'PageUp',
+  PAGE_DOWN: 'PageDown',
 };
