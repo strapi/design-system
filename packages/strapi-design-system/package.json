@@ -30,6 +30,8 @@
     "jest-styled-components": "^7.0.4",
     "playwright": "^1.10.0",
     "prettier": "^2.2.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "storybook-addon-designs": "^6.0.0-alpha.2",
     "styled-components": "^5.2.1",
     "webpack-bundle-analyzer": "^4.4.0",
