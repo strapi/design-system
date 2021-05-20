@@ -36,7 +36,7 @@ module.exports = {
   },
   externals: {
     react: 'react',
-    reactDOM: 'react-dom',
+    'react-dom': 'react-dom',
   },
   plugins: [new CleanWebpackPlugin()],
 };

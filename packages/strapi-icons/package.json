@@ -1,7 +1,7 @@
 {
   "name": "@strapi/icons",
   "version": "0.0.1",
-  "main": "dist/index.js",
+  "main": "index.js",
   "license": "MIT",
   "devDependencies": {
     "@babel/preset-env": "^7.13.12",
@@ -21,7 +21,7 @@
     "jest-styled-components": "^7.0.4"
   },
   "scripts": {
-    "build": "yarn generate:icons && webpack",
+    "build": "yarn generate:icons && webpack &&  node ../../tools/copy-files.js",
     "generate:icons": "svgr --icon -d ./src ./assets/icons"
   }
 }

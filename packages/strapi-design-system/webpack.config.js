@@ -61,11 +61,7 @@ module.exports = {
   plugins: [new CleanWebpackPlugin()].concat(analyzePlugins),
   externals: {
     react: 'react',
-    reactDOM: 'react-dom',
-    'styled-components': {
-      commonjs: 'styled-components',
-      commonjs2: 'styled-components',
-      amd: 'styled-components',
-    },
+    'react-dom': 'react-dom',
+    'styled-components': 'styled-components',
   },
 };
