@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
+import CloseAlertIcon from '@strapi/icons/CloseAlertIcon';
 import { Box } from '../Box';
 import { Stack } from '../Stack';
 import { Text, H2 } from '../Text';
 import { Button } from '../Button';
 import { Row } from '../Row';
-import { CloseAlertIcon } from '@strapi/icons';
+
 import { FocusTrap } from './FocusTrap';
 
 const TrappedComponent = ({ onClose }) => {

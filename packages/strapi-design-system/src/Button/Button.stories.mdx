@@ -2,7 +2,9 @@
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { withDesign } from 'storybook-addon-designs';
-import { HelpIcon, ContentIcon, Ct } from '@strapi/icons';
+import HelpIcon from '@strapi/icons/HelpIcon';
+import ContentIcon from '@strapi/icons/ContentIcon';
+import Ct from '@strapi/icons/Ct';
 import { Button } from './Button';
 import { Box } from '../Box';
 
@@ -30,7 +32,9 @@ Description...
   <Story name="variants">
     {['default', 'secondary', 'tertiary', 'success', 'danger', 'success-light', 'danger-light'].map((variant) => (
       <Box key={variant} paddingBottom={2}>
-        <Button onClick={e => console.log(e)} variant={variant}>{variant}</Button>
+        <Button onClick={(e) => console.log(e)} variant={variant}>
+          {variant}
+        </Button>
       </Box>
     ))}
   </Story>
@@ -45,7 +49,7 @@ Description...
     <Box paddingBottom={2}>
       <Button disabled>Disabled</Button>
     </Box>
-    <Button onClick={e => console.log(e)} leftIcon={<ContentIcon />} disabled>
+    <Button onClick={(e) => console.log(e)} leftIcon={<ContentIcon />} disabled>
       Disabled
     </Button>
   </Story>
@@ -70,6 +74,8 @@ Description...
 
 <Canvas>
   <Story name="lsize">
-      <Button size='L' leftIcon={<ContentIcon />}>Content type</Button>
+    <Button size="L" leftIcon={<ContentIcon />}>
+      Content type
+    </Button>
   </Story>
 </Canvas>

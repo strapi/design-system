@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { BackFilter, NextFilter } from '@strapi/icons';
+import BackFilter from '@strapi/icons/BackFilter';
+import NextFilter from '@strapi/icons/NextFilter';
 import { VisuallyHidden } from '../VisuallyHidden';
 import { usePagination } from './PaginationContext';
 import { Text } from '../Text';
