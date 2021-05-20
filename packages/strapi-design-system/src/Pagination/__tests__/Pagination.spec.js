@@ -6,9 +6,14 @@ import { PreviousLink, NextLink, PageLink, Dots } from '../components';
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
 
-jest.mock('@strapi/icons', () => ({
-  BackFilter: () => <span>BackFilter</span>,
-  NextFilter: () => <span>NextFilter</span>,
+jest.mock('@strapi/icons/BackFilter', () => ({
+  __esModule: true,
+  default: () => <span>BackFilter</span>,
+}));
+
+jest.mock('@strapi/icons/NextFilter', () => ({
+  __esModule: true,
+  default: () => <span>NextFilter</span>,
 }));
 
 describe('Pagination', () => {

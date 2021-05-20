@@ -9,9 +9,14 @@ jest.mock('uuid', () => ({
   v4: () => 1,
 }));
 
-jest.mock('@strapi/icons', () => ({
-  SearchIcon: () => <span>SearchIcon</span>,
-  CloseAlertIcon: () => <span>CloseAlertIcon</span>,
+jest.mock('@strapi/icons/SearchIcon', () => ({
+  __esModule: true,
+  default: () => <span>SearchIcon</span>,
+}));
+
+jest.mock('@strapi/icons/CloseAlertIcon', () => ({
+  __esModule: true,
+  default: () => <span>CloseAlertIcon</span>,
 }));
 
 describe('Searchbar', () => {

@@ -5,8 +5,9 @@ import { Link } from '../Link';
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
 
-jest.mock('@strapi/icons', () => ({
-  ExternalLink: () => <span>ExternalLink</span>,
+jest.mock('@strapi/icons/ExternalLink', () => ({
+  __esModule: true,
+  default: () => <span>ExternalLink</span>,
 }));
 
 describe('Link', () => {

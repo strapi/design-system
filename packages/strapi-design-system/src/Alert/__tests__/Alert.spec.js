@@ -5,12 +5,29 @@ import { Alert } from '../Alert';
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
 
-jest.mock('@strapi/icons', () => ({
-  AlertInfoIcon: () => <span>AlertInfoIcon</span>,
-  AlertSucessIcon: () => <span>AlertSucessIcon</span>,
-  AlertWarningIcon: () => <span>AlertWarningIcon</span>,
-  CloseAlertIcon: () => <span>CloseAlertIcon</span>,
-  ExternalLink: () => <span>ExternalLink</span>,
+jest.mock('@strapi/icons/AlertInfoIcon', () => ({
+  __esModule: true,
+  default: () => <span>AlertInfoIcon</span>,
+}));
+
+jest.mock('@strapi/icons/AlertSucessIcon', () => ({
+  __esModule: true,
+  default: () => <span>AlertSucessIcon</span>,
+}));
+
+jest.mock('@strapi/icons/AlertWarningIcon', () => ({
+  __esModule: true,
+  default: () => <span>AlertWarningIcon</span>,
+}));
+
+jest.mock('@strapi/icons/CloseAlertIcon', () => ({
+  __esModule: true,
+  default: () => <span>CloseAlertIcon</span>,
+}));
+
+jest.mock('@strapi/icons/ExternalLink', () => ({
+  __esModule: true,
+  default: () => <span>ExternalLink</span>,
 }));
 
 describe('Alert', () => {
