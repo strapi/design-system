@@ -63,6 +63,7 @@ module.exports = {
     react: 'react',
     'react-dom': 'react-dom',
     'styled-components': 'styled-components',
+    '@strapi/icons': '@strapi/icons',
   },
   resolve: {
     alias: {
