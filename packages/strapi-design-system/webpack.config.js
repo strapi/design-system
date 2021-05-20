@@ -35,6 +35,7 @@ module.exports = {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
     libraryTarget: 'commonjs',
+    libraryName: 'strapi-ds',
   },
   module: {
     rules: [
