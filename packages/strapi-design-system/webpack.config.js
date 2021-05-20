@@ -60,12 +60,14 @@ module.exports = {
     ],
   },
   plugins: [new CleanWebpackPlugin()].concat(analyzePlugins),
-  externals: {
-    react: 'react',
-    'react-dom': 'react-dom',
-    'styled-components': 'styled-components',
-    '@strapi/icons': '@strapi/icons',
-  },
+  externals: [
+    {
+      react: 'react',
+      'react-dom': 'react-dom',
+      'styled-components': 'styled-components',
+    },
+    /^@strapi\/icons/,
+  ],
   resolve: {
     alias: {
       '@strapi/icons': path.dirname(require.resolve('../strapi-icons/dist')),
