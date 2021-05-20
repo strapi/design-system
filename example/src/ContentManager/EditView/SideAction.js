@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Row, Button } from "@strapi/design-system";
-import { EditIcon } from "@strapi/icons/EditIcon";
-import { ConfigureIcon } from "@strapi/icons/ConfigureIcon";
+import EditIcon from "@strapi/icons/EditIcon";
+import ConfigureIcon from "@strapi/icons/ConfigureIcon";
 
 export const SideActions = () => {
   return (
