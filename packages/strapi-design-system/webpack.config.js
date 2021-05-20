@@ -35,7 +35,6 @@ module.exports = {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
     libraryTarget: 'commonjs',
-    libraryName: 'strapi-ds',
   },
   module: {
     rules: [
@@ -64,5 +63,10 @@ module.exports = {
     react: 'react',
     'react-dom': 'react-dom',
     'styled-components': 'styled-components',
+  },
+  resolve: {
+    alias: {
+      '@strapi/icons': path.dirname(require.resolve('../strapi-icons/dist')),
+    },
   },
 };
