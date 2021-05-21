@@ -1,5 +1,7 @@
 import React from "react";
-import { Box, Row, Button } from "@strapi/design-system";
+import { Box } from "@strapi/design-system/Box";
+import { Row } from "@strapi/design-system/Row";
+import { Button } from "@strapi/design-system/Button";
 import EditIcon from "@strapi/icons/EditIcon";
 import ConfigureIcon from "@strapi/icons/ConfigureIcon";
 

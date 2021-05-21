@@ -5,7 +5,7 @@
   "dependencies": {
     "@craco/craco": "^6.1.1",
     "@reach/router": "^1.3.4",
-    "@strapi/design-system": "file:../packages/strapi-design-system",
+    "@strapi/design-system": "file:../packages/strapi-design-system/dist",
     "@strapi/icons": "file:../packages/strapi-icons/dist",
     "jest-styled-components": "^7.0.4",
     "react": "^17.0.2",

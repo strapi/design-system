@@ -1,15 +1,12 @@
 import { useEffect, useState } from "react";
-import {
-  Box,
-  H1,
-  Stack,
-  Text,
-  Link,
-  Grid,
-  Row,
-  Button,
-  Loader,
-} from "@strapi/design-system";
+import { Box } from "@strapi/design-system/Box";
+import { H1, Text } from "@strapi/design-system/Text";
+import { Stack } from "@strapi/design-system/Stack";
+import { Link } from "@strapi/design-system/Link";
+import { Grid } from "@strapi/design-system/Grid";
+import { Row } from "@strapi/design-system/Row";
+import { Button } from "@strapi/design-system/Button";
+import { Loader } from "@strapi/design-system/Loader";
 import BackIcon from "@strapi/icons/BackIcon";
 import CheckIcon from "@strapi/icons/CheckIcon";
 import { EditForm } from "./EditView/EditForm";

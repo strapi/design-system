@@ -1,5 +1,9 @@
 import React from "react";
-import { Box, Stack, Text, Row, Divider } from "@strapi/design-system";
+import { Box } from "@strapi/design-system/Box";
+import { Stack } from "@strapi/design-system/Stack";
+import { Text } from "@strapi/design-system/Text";
+import { Row } from "@strapi/design-system/Row";
+import { Divider } from "@strapi/design-system/Divider";
 
 export const Information = () => {
   return (

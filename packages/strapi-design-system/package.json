@@ -1,7 +1,7 @@
 {
   "name": "@strapi/design-system",
   "version": "0.0.1",
-  "main": "dist/index.js",
+  "main": "index.js",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.13.10",
@@ -49,7 +49,7 @@
   },
   "scripts": {
     "analyze:bundle": "cross-env BUNDLE_ANALYZE=1 webpack",
-    "build": "webpack",
+    "build": "webpack &&  node ../../tools/copy-files.js",
     "build-storybook": "build-storybook",
     "lint": "eslint . --ext .js,.jsx --fix",
     "lint-staged": "eslint --fix",

@@ -1,15 +1,16 @@
 import React from "react";
+import { Stack } from "@strapi/design-system/Stack";
+import { Grid } from "@strapi/design-system/Grid";
+import { Row } from "@strapi/design-system/Row";
+import { VisuallyHidden } from "@strapi/design-system/VisuallyHidden";
 import {
-  Stack,
-  Grid,
-  Row,
-  VisuallyHidden,
   Field,
   FieldInput,
   FieldLabel,
   FieldHint,
-  Tooltip,
-} from "@strapi/design-system";
+} from "@strapi/design-system/Field";
+import { Tooltip } from "@strapi/design-system/Tooltip";
+
 import HelpIcon from "@strapi/icons/HelpIcon";
 
 export const EditForm = () => {
