@@ -38,12 +38,12 @@
     "webpack-cli": "^4.5.0"
   },
   "peerDependencies": {
+    "@strapi/icons": "^0.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "styled-components": "^5.2.1"
   },
   "dependencies": {
-    "@strapi/icons": "^0.0.1",
     "prop-types": "^15.7.2",
     "uuid": "^8.3.2"
   },

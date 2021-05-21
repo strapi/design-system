@@ -10,7 +10,8 @@ import {
   Button,
   Loader,
 } from "@strapi/design-system";
-import { BackIcon, CheckIcon } from "@strapi/icons";
+import BackIcon from "@strapi/icons/BackIcon";
+import CheckIcon from "@strapi/icons/CheckIcon";
 import { EditForm } from "./EditView/EditForm";
 import { Information } from "./EditView/Information";
 import { Reviews } from "./EditView/Reviews";

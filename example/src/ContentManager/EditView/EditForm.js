@@ -10,7 +10,7 @@ import {
   FieldHint,
   Tooltip,
 } from "@strapi/design-system";
-import { HelpIcon } from "@strapi/icons";
+import HelpIcon from "@strapi/icons/HelpIcon";
 
 export const EditForm = () => {
   return (

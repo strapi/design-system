@@ -9,11 +9,6 @@ jest.mock('uuid', () => ({
   v4: () => 1,
 }));
 
-jest.mock('@strapi/icons', () => ({
-  SearchIcon: () => <span>SearchIcon</span>,
-  CloseAlertIcon: () => <span>CloseAlertIcon</span>,
-}));
-
 describe('Searchbar', () => {
   it('snapshots the component', () => {
     const { container } = render(
@@ -214,9 +209,21 @@ describe('Searchbar', () => {
               <div
                 class="c7 c8 c9"
               >
-                <span>
-                  SearchIcon
-                </span>
+                <svg
+                  aria-hidden="true"
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M23.813 20.163l-5.3-5.367a9.792 9.792 0 001.312-4.867C19.825 4.455 15.375 0 9.913 0 4.45 0 0 4.455 0 9.929c0 5.473 4.45 9.928 9.912 9.928a9.757 9.757 0 005.007-1.4l5.275 5.35a.634.634 0 00.913 0l2.706-2.737a.641.641 0 000-.907zM9.91 3.867c3.338 0 6.05 2.718 6.05 6.061s-2.712 6.061-6.05 6.061c-3.337 0-6.05-2.718-6.05-6.06 0-3.344 2.713-6.062 6.05-6.062z"
+                    fill="#32324D"
+                    fill-rule="evenodd"
+                  />
+                </svg>
               </div>
             </div>
             <input
@@ -240,9 +247,18 @@ describe('Searchbar', () => {
                   <div
                     class="c8 c13"
                   >
-                    <span>
-                      CloseAlertIcon
-                    </span>
+                    <svg
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M24 2.417L21.583 0 12 9.583 2.417 0 0 2.417 9.583 12 0 21.583 2.417 24 12 14.417 21.583 24 24 21.583 14.417 12 24 2.417z"
+                        fill="#212134"
+                      />
+                    </svg>
                   </div>
                 </span>
               </button>

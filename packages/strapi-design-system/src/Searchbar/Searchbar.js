@@ -1,9 +1,10 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import SearchIcon from '@strapi/icons/SearchIcon';
+import CloseAlertIcon from '@strapi/icons/CloseAlertIcon';
 import { Field, FieldLabel, FieldAction, FieldInput, InputWrapper } from '../Field';
 import { VisuallyHidden } from '../VisuallyHidden';
-import { SearchIcon, CloseAlertIcon } from '@strapi/icons';
 import { Row } from '../Row';
 
 const CloseIconWrapper = styled(Row)`

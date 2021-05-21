@@ -34,7 +34,8 @@ module.exports = {
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
-    libraryTarget: 'commonjs',
+    libraryTarget: 'umd',
+    library: 'strapiDs',
   },
   module: {
     rules: [
@@ -59,13 +60,17 @@ module.exports = {
     ],
   },
   plugins: [new CleanWebpackPlugin()].concat(analyzePlugins),
-  externals: {
-    react: 'react',
-    reactDOM: 'react-dom',
-    'styled-components': {
-      commonjs: 'styled-components',
-      commonjs2: 'styled-components',
-      amd: 'styled-components',
+  externals: [
+    {
+      react: 'react',
+      'react-dom': 'react-dom',
+      'styled-components': 'styled-components',
+    },
+    /^@strapi\/icons/,
+  ],
+  resolve: {
+    alias: {
+      '@strapi/icons': path.dirname(require.resolve('../strapi-icons/dist')),
     },
   },
 };

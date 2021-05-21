@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { AlertInfoIcon, AlertSucessIcon, AlertWarningIcon, CloseAlertIcon } from '@strapi/icons';
+import AlertInfoIcon from '@strapi/icons/AlertInfoIcon';
+import AlertSucessIcon from '@strapi/icons/AlertSucessIcon';
+import AlertWarningIcon from '@strapi/icons/AlertWarningIcon';
+import CloseAlertIcon from '@strapi/icons/CloseAlertIcon';
 import { Box } from '../Box';
 import { Text } from '../Text';
 import { Row } from '../Row';
-import { Link } from '../Link';
 import { handleBackgroundColor, handleBorderColor, handleIconColor } from './utils';
 
 const AlertBody = styled(Box)`

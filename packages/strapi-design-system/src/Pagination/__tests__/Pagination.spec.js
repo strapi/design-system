@@ -6,11 +6,6 @@ import { PreviousLink, NextLink, PageLink, Dots } from '../components';
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
 
-jest.mock('@strapi/icons', () => ({
-  BackFilter: () => <span>BackFilter</span>,
-  NextFilter: () => <span>NextFilter</span>,
-}));
-
 describe('Pagination', () => {
   it('snapshots the component', () => {
     const { container } = render(
@@ -172,9 +167,19 @@ describe('Pagination', () => {
               >
                 Go to previous page
               </div>
-              <span>
-                BackFilter
-              </span>
+              <svg
+                aria-hidden="true"
+                fill="none"
+                height="1em"
+                viewBox="0 0 10 16"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.88 14.12L3.773 8 9.88 1.88 8 0 0 8l8 8 1.88-1.88z"
+                  fill="#32324D"
+                />
+              </svg>
             </a>
           </li>
           <li>
@@ -281,9 +286,19 @@ describe('Pagination', () => {
               >
                 Go to next page
               </div>
-              <span>
-                NextFilter
-              </span>
+              <svg
+                aria-hidden="true"
+                fill="none"
+                height="1em"
+                viewBox="0 0 10 16"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 1.88L6.107 8 0 14.12 1.88 16l8-8-8-8L0 1.88z"
+                  fill="#32324D"
+                />
+              </svg>
             </a>
           </li>
         </ul>
@@ -450,9 +465,19 @@ describe('Pagination', () => {
               >
                 Go to previous page
               </div>
-              <span>
-                BackFilter
-              </span>
+              <svg
+                aria-hidden="true"
+                fill="none"
+                height="1em"
+                viewBox="0 0 10 16"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.88 14.12L3.773 8 9.88 1.88 8 0 0 8l8 8 1.88-1.88z"
+                  fill="#32324D"
+                />
+              </svg>
             </a>
           </li>
           <li>
@@ -560,9 +585,19 @@ describe('Pagination', () => {
               >
                 Go to next page
               </div>
-              <span>
-                NextFilter
-              </span>
+              <svg
+                aria-hidden="true"
+                fill="none"
+                height="1em"
+                viewBox="0 0 10 16"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 1.88L6.107 8 0 14.12 1.88 16l8-8-8-8L0 1.88z"
+                  fill="#32324D"
+                />
+              </svg>
             </a>
           </li>
         </ul>
