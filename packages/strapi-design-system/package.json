@@ -49,6 +49,7 @@
   },
   "scripts": {
     "analyze:bundle": "cross-env BUNDLE_ANALYZE=1 webpack",
+    "compare:bundle": "cross-env BUNDLE_ANALYZE=1 COMPARE_BUNDLE=1 webpack && node ./scripts/compare-webpack-size/compare-webpack-size.js",
     "build": "webpack",
     "build-storybook": "build-storybook",
     "lint": "eslint . --ext .js,.jsx --fix",

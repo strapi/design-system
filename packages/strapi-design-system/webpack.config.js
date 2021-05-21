@@ -25,7 +25,7 @@ const entry = fileNames
 const analyzePlugins = [];
 
 if (process.env.BUNDLE_ANALYZE) {
-  analyzePlugins.push(new BundleAnalyzerPlugin());
+  analyzePlugins.push(new BundleAnalyzerPlugin(process.env.COMPARE_BUNDLE ? { analyzerMode: 'json' } : undefined));
 }
 
 module.exports = {
