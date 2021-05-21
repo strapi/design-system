@@ -17,7 +17,8 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "eject": "craco eject"
+    "eject": "craco eject",
+    "test": "craco test"
   },
   "eslintConfig": {
     "extends": [
@@ -38,6 +39,9 @@
     ]
   },
   "devDependencies": {
-    "jest-styled-components": "^7.0.4"
+    "@testing-library/jest-dom": "^5.12.0",
+    "@testing-library/react": "^11.2.7",
+    "jest-styled-components": "^7.0.4",
+    "prettier": "^2.3.0"
   }
 }
