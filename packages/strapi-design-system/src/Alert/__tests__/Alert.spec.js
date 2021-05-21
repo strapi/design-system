@@ -5,31 +5,6 @@ import { Alert } from '../Alert';
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
 
-jest.mock('@strapi/icons/AlertInfoIcon', () => ({
-  __esModule: true,
-  default: () => <span>AlertInfoIcon</span>,
-}));
-
-jest.mock('@strapi/icons/AlertSucessIcon', () => ({
-  __esModule: true,
-  default: () => <span>AlertSucessIcon</span>,
-}));
-
-jest.mock('@strapi/icons/AlertWarningIcon', () => ({
-  __esModule: true,
-  default: () => <span>AlertWarningIcon</span>,
-}));
-
-jest.mock('@strapi/icons/CloseAlertIcon', () => ({
-  __esModule: true,
-  default: () => <span>CloseAlertIcon</span>,
-}));
-
-jest.mock('@strapi/icons/ExternalLink', () => ({
-  __esModule: true,
-  default: () => <span>ExternalLink</span>,
-}));
-
 describe('Alert', () => {
   it('snapshots the component with a "danger" variant', () => {
     const { container } = render(
@@ -141,9 +116,19 @@ describe('Alert', () => {
           <div
             class="c3 c4"
           >
-            <span>
-              AlertWarningIcon
-            </span>
+            <svg
+              aria-hidden="true"
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12 12-5.383 12-12S18.617 0 12 0zm1.154 18.456h-2.308V16.15h2.308v2.307zm-.23-3.687h-1.847l-.346-9.23h2.538l-.346 9.23z"
+                fill="#212134"
+              />
+            </svg>
           </div>
           <div
             class="c5"
@@ -172,9 +157,19 @@ describe('Alert', () => {
             aria-label="Close notification"
             class="c10"
           >
-            <span>
-              CloseAlertIcon
-            </span>
+            <svg
+              aria-hidden="true"
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M24 2.417L21.583 0 12 9.583 2.417 0 0 2.417 9.583 12 0 21.583 2.417 24 12 14.417 21.583 24 24 21.583 14.417 12 24 2.417z"
+                fill="#212134"
+              />
+            </svg>
           </button>
         </div>
       </div>
@@ -291,9 +286,21 @@ describe('Alert', () => {
           <div
             class="c3 c4"
           >
-            <span>
-              AlertSucessIcon
-            </span>
+            <svg
+              aria-hidden="true"
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M12 24c6.627 0 12-5.373 12-12S18.627 0 12 0 0 5.373 0 12s5.373 12 12 12zm-1.438-11.066L16.158 7.5 18 9.245l-7.438 7.18-4.462-4.1 1.84-1.745 2.622 2.354z"
+                fill="#212134"
+                fill-rule="evenodd"
+              />
+            </svg>
           </div>
           <div
             class="c5"
@@ -322,9 +329,19 @@ describe('Alert', () => {
             aria-label="Close notification"
             class="c10"
           >
-            <span>
-              CloseAlertIcon
-            </span>
+            <svg
+              aria-hidden="true"
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M24 2.417L21.583 0 12 9.583 2.417 0 0 2.417 9.583 12 0 21.583 2.417 24 12 14.417 21.583 24 24 21.583 14.417 12 24 2.417z"
+                fill="#212134"
+              />
+            </svg>
           </button>
         </div>
       </div>
@@ -441,9 +458,19 @@ describe('Alert', () => {
           <div
             class="c3 c4"
           >
-            <span>
-              AlertInfoIcon
-            </span>
+            <svg
+              aria-hidden="true"
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12 12-5.383 12-12S18.617 0 12 0zm0 4.92a1.56 1.56 0 110 3.12 1.56 1.56 0 010-3.12zm3.84 13.56h-7.2v-1.92h2.64v-5.28H9.36V9.36h3.84v7.2h2.64v1.92z"
+                fill="#212134"
+              />
+            </svg>
           </div>
           <div
             class="c5"
@@ -472,9 +499,19 @@ describe('Alert', () => {
             aria-label="Close notification"
             class="c10"
           >
-            <span>
-              CloseAlertIcon
-            </span>
+            <svg
+              aria-hidden="true"
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M24 2.417L21.583 0 12 9.583 2.417 0 0 2.417 9.583 12 0 21.583 2.417 24 12 14.417 21.583 24 24 21.583 14.417 12 24 2.417z"
+                fill="#212134"
+              />
+            </svg>
           </button>
         </div>
       </div>
