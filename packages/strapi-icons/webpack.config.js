@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const fileNames = fs
   .readdirSync(path.resolve(__dirname, 'src'))
@@ -11,6 +12,13 @@ const entry = fileNames.reduce((acc, curr) => {
 
   return acc;
 }, {});
+
+// Plugin section
+const analyzePlugins = [];
+
+if (process.env.BUNDLE_ANALYZE) {
+  analyzePlugins.push(new BundleAnalyzerPlugin());
+}
 
 module.exports = {
   entry: entry,
@@ -39,5 +47,5 @@ module.exports = {
     react: 'react',
     'react-dom': 'react-dom',
   },
-  plugins: [new CleanWebpackPlugin()],
+  plugins: [new CleanWebpackPlugin()].concat(analyzePlugins),
 };
