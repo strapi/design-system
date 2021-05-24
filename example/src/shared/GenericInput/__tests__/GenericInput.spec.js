@@ -8,6 +8,34 @@ jest.mock("uuid", () => ({
 }));
 
 describe("GenericInput", () => {
+  describe("unmatched type", () => {
+    let rawConsoleError;
+
+    beforeEach(() => {
+      // Hides the error message thrown by PropTypes preventing the test from giving an error in the logs
+      rawConsoleError = console.error;
+      console.error = () => undefined;
+    });
+
+    afterEach(() => {
+      console.error = rawConsoleError;
+    });
+
+    it("returns nothing when the type does not match any predicted ones", () => {
+      const { container } = render(
+        <ThemeProvider theme={lightTheme}>
+          <GenericInput
+            type="not existing type"
+            name="some text"
+            label="Hello world"
+          />
+        </ThemeProvider>
+      );
+
+      expect(container.firstChild).toBe(null);
+    });
+  });
+
   describe("text", () => {
     it("renders an input for type text", () => {
       const { container } = render(
@@ -95,22 +123,22 @@ describe("GenericInput", () => {
       );
 
       expect(container.firstChild).toMatchInlineSnapshot(`
-          <label
-            class="sc-eCApnc sc-fFSPTT imgJpN bwVixM"
+        <label
+          class="sc-eCApnc sc-fFSPTT imgJpN bwVixM"
+        >
+          <input
+            class="sc-ksluID bLZHCe"
+            id="some-id"
+            name="some text"
+            type="checkbox"
+          />
+          <div
+            class="sc-bdnxRM cpgqnJ"
           >
-            <input
-              class="sc-ksluID bLZHCe"
-              id="default"
-              name="some text"
-              type="checkbox"
-            />
-            <div
-              class="sc-bdnxRM cpgqnJ"
-            >
-              Hello world
-            </div>
-          </label>
-        `);
+            Hello world
+          </div>
+        </label>
+      `);
     });
 
     it("retrieves a boolean value when calling onChange", () => {

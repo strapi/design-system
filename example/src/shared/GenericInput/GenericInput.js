@@ -17,13 +17,13 @@ export const GenericInput = ({ type, label, name, onChange, ...props }) => {
 
   if (type === "checkbox") {
     return (
-      <Checkbox id="default" name={name} onValueChange={onChange}>
+      <Checkbox name={name} onValueChange={onChange} {...props}>
         {label}
       </Checkbox>
     );
   }
 
-  return <div>hello world</div>;
+  return null;
 };
 
 GenericInput.propTypes = {
