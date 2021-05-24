@@ -247,4 +247,75 @@ describe("GenericInput", () => {
       expect(onChangeSpy).toBeCalledWith("bagel");
     });
   });
+
+  describe("textarea", () => {
+    it("renders an input for type text", () => {
+      const { container } = render(
+        <ThemeProvider theme={lightTheme}>
+          <GenericInput
+            type="textarea"
+            name="long-content"
+            id="some-id"
+            label="Hello world"
+            onChange={() => {}}
+          />
+        </ThemeProvider>
+      );
+
+      expect(container.firstChild).toMatchInlineSnapshot(`
+        <div
+          class="sc-khIgEk fvOCv"
+        >
+          <div>
+            <div
+              class="sc-efHYUO cwLEVt"
+            >
+              <div
+                class="sc-fujyAs iDPWRy"
+              >
+                <label
+                  class="sc-eCApnc XCYtb"
+                  for="field-some-id"
+                >
+                  Hello world
+                </label>
+              </div>
+              <div
+                class="sc-fujyAs sc-dIvrsQ hbgaeN bldbdh"
+              >
+                <textarea
+                  aria-invalid="false"
+                  class="sc-iemWCZ cIJrJM"
+                  id="field-some-id"
+                  name="long-content"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      `);
+    });
+
+    it("retrieves a string on change", async () => {
+      const onChangeSpy = jest.fn();
+
+      render(
+        <ThemeProvider theme={lightTheme}>
+          <GenericInput
+            type="textarea"
+            name="long-content"
+            id="some-id"
+            label="Hello world"
+            onChange={onChangeSpy}
+          />
+        </ThemeProvider>
+      );
+
+      const input = await waitFor(() => screen.getByLabelText("Hello world"));
+
+      fireEvent.change(input, { target: { value: "hello moto" } });
+
+      expect(onChangeSpy).toBeCalledWith("hello moto");
+    });
+  });
 });

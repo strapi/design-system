@@ -1,6 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { TextInput, Checkbox, RadioGroup, Radio } from "@strapi/design-system";
+import {
+  TextInput,
+  Checkbox,
+  RadioGroup,
+  Radio,
+  Textarea,
+} from "@strapi/design-system";
 
 export const GenericInput = ({
   type,
@@ -46,6 +52,20 @@ export const GenericInput = ({
     );
   }
 
+  if (type === "textarea") {
+    const { value, ...regularProps } = props;
+    return (
+      <Textarea
+        label={label}
+        name={name}
+        onChange={(e) => onChange(e.target.value)}
+        {...regularProps}
+      >
+        {value}
+      </Textarea>
+    );
+  }
+
   return null;
 };
 
@@ -55,7 +75,7 @@ GenericInput.defaultProps = {
 };
 
 GenericInput.propTypes = {
-  type: PropTypes.oneOf(["text", "checkbox", "radio"]).isRequired,
+  type: PropTypes.oneOf(["text", "checkbox", "radio", "textarea"]).isRequired,
   label: PropTypes.string,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
