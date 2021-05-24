@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import { GenericInput } from "../GenericInput";
 import { ThemeProvider, lightTheme } from "@strapi/design-system";
 
@@ -46,7 +46,7 @@ describe("GenericInput", () => {
                 <input
                   aria-invalid="false"
                   class="sc-iemWCZ cIJrJM"
-                  id="some-id"
+                  id="field-some-id"
                   name="some text"
                   type="text"
                 />
@@ -55,6 +55,28 @@ describe("GenericInput", () => {
           </div>
         </div>
       `);
+    });
+
+    it("retrieves a string on change", async () => {
+      const onChangeSpy = jest.fn();
+
+      render(
+        <ThemeProvider theme={lightTheme}>
+          <GenericInput
+            type="text"
+            name="some text"
+            id="some-id"
+            label="Hello world"
+            onChange={onChangeSpy}
+          />
+        </ThemeProvider>
+      );
+
+      const input = await waitFor(() => screen.getByLabelText("Hello world"));
+
+      fireEvent.change(input, { target: { value: "hello moto" } });
+
+      expect(onChangeSpy).toBeCalledWith("hello moto");
     });
   });
 
@@ -92,7 +114,7 @@ describe("GenericInput", () => {
     });
 
     it("retrieves a boolean value when calling onChange", () => {
-      const onChangSpy = jest.fn();
+      const onChangeSpy = jest.fn();
 
       render(
         <ThemeProvider theme={lightTheme}>
@@ -101,7 +123,7 @@ describe("GenericInput", () => {
             name="some text"
             id="some-id"
             label="Hello world"
-            onChange={onChangSpy}
+            onChange={onChangeSpy}
             value={false}
           />
         </ThemeProvider>
@@ -111,7 +133,7 @@ describe("GenericInput", () => {
 
       fireEvent.click(input);
 
-      expect(onChangSpy).toBeCalledWith(true);
+      expect(onChangeSpy).toBeCalledWith(true);
     });
   });
 });
