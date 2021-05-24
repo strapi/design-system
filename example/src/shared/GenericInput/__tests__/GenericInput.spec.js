@@ -164,4 +164,87 @@ describe("GenericInput", () => {
       expect(onChangeSpy).toBeCalledWith(true);
     });
   });
+
+  describe("radio", () => {
+    it("renders a radio for type radio", () => {
+      const { container } = render(
+        <ThemeProvider theme={lightTheme}>
+          <GenericInput
+            type="radio"
+            name="favorite-plate"
+            onChange={() => {}}
+            options={[
+              { label: "Pizza", value: "pizza" },
+              { label: "Bagel", value: "bagel" },
+            ]}
+          />
+        </ThemeProvider>
+      );
+
+      expect(container.firstChild).toMatchInlineSnapshot(`
+        <div
+          role="radiogroup"
+        >
+          <label
+            class="sc-eCApnc sc-jcwpoC imgJpN jaONGg"
+          >
+            <input
+              aria-checked="false"
+              class="sc-hBMUJo kaPkmY"
+              name="favorite-plate"
+              tabindex="0"
+              type="radio"
+              value="pizza"
+            />
+            <div
+              class="sc-bdnxRM cpgqnJ"
+            >
+              Pizza
+            </div>
+          </label>
+          <label
+            class="sc-eCApnc sc-jcwpoC imgJpN jaONGg"
+          >
+            <input
+              aria-checked="false"
+              class="sc-hBMUJo kaPkmY"
+              name="favorite-plate"
+              tabindex="-1"
+              type="radio"
+              value="bagel"
+            />
+            <div
+              class="sc-bdnxRM cpgqnJ"
+            >
+              Bagel
+            </div>
+          </label>
+        </div>
+      `);
+    });
+
+    it("retrieves a boolean value when calling onChange", () => {
+      const onChangeSpy = jest.fn();
+
+      render(
+        <ThemeProvider theme={lightTheme}>
+          <GenericInput
+            type="radio"
+            name="favorite-plate"
+            onChange={onChangeSpy}
+            options={[
+              { label: "Pizza", value: "pizza" },
+              { label: "Bagel", value: "bagel" },
+            ]}
+          />
+        </ThemeProvider>
+      );
+
+      const bagel = screen.getByLabelText("Bagel");
+
+      fireEvent.click(bagel);
+
+      expect(onChangeSpy).toBeCalledWith("bagel");
+    });
+  });
 });
