@@ -3,10 +3,6 @@ import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import { GenericInput } from "../GenericInput";
 import { ThemeProvider, lightTheme } from "@strapi/design-system";
 
-jest.mock("uuid", () => ({
-  v4: () => 1,
-}));
-
 describe("GenericInput", () => {
   describe("unmatched type", () => {
     let rawConsoleError;
