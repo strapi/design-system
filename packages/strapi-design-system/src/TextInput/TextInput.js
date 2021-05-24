@@ -13,10 +13,10 @@ const TextInputWrapper = styled.div`
 `;
 
 export const TextInput = React.forwardRef(
-  ({ leftAction, rightAction, name, hint, error, label, labelAction, ...props }, ref) => {
+  ({ leftAction, rightAction, name, hint, error, label, labelAction, id, ...props }, ref) => {
     return (
       <TextInputWrapper>
-        <Field name={name} hint={hint} error={error}>
+        <Field name={name} hint={hint} error={error} id={id}>
           <Stack size={1}>
             <Row cols="auto auto 1fr" gap={1}>
               <FieldLabel>{label}</FieldLabel>
@@ -38,6 +38,7 @@ TextInput.defaultProps = {
   labelAction: undefined,
   error: undefined,
   hint: undefined,
+  id: undefined,
   leftAction: undefined,
   rightAction: undefined,
 };
@@ -45,6 +46,7 @@ TextInput.defaultProps = {
 TextInput.propTypes = {
   error: PropTypes.string,
   hint: PropTypes.string,
+  id: PropTypes.string,
   label: PropTypes.string.isRequired,
   labelAction: PropTypes.element,
   leftAction: PropTypes.element,
