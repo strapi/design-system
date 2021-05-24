@@ -9,10 +9,12 @@
     "@svgr/cli": "^5.5.0",
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^3.0.0",
+    "cross-env": "^7.0.3",
     "jest-styled-components": "^7.0.4",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "webpack": "^4.46.0",
+    "webpack-bundle-analyzer": "^4.4.0",
     "webpack-cli": "^4.5.0"
   },
   "peerDependencies": {
@@ -23,6 +25,7 @@
     "jest-styled-components": "^7.0.4"
   },
   "scripts": {
+    "analyze:bundle": "cross-env BUNDLE_ANALYZE=1 webpack",
     "build": "yarn generate:icons && webpack &&  node ../../tools/copy-files.js",
     "generate:icons": "svgr --icon -d ./src ./assets/icons"
   }
