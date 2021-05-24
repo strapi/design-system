@@ -14,6 +14,7 @@ import { Information } from "./EditView/Information";
 import { Reviews } from "./EditView/Reviews";
 import { SideActions } from "./EditView/SideAction";
 import { AdminLayout } from "../layouts/AdminLayout";
+import { GenericInput } from "../shared/GenericInput/GenericInput";
 
 export const EditViewPage = () => {
   const [loading, setLoading] = useState(true);
@@ -36,6 +37,7 @@ export const EditViewPage = () => {
 
   return (
     <AdminLayout>
+      <GenericInput />
       <Box>
         <Stack size={2}>
           <Link to="/" leftIcon={<BackIcon />}>
