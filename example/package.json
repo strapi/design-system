@@ -5,7 +5,7 @@
   "dependencies": {
     "@craco/craco": "^6.1.1",
     "@reach/router": "^1.3.4",
-    "@strapi/design-system": "file:../packages/strapi-design-system",
+    "@strapi/design-system": "file:../packages/strapi-design-system/dist",
     "@strapi/icons": "file:../packages/strapi-icons/dist",
     "jest-styled-components": "^7.0.4",
     "react": "^17.0.2",
@@ -17,7 +17,8 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "eject": "craco eject"
+    "eject": "craco eject",
+    "test": "craco test"
   },
   "eslintConfig": {
     "extends": [
@@ -38,6 +39,9 @@
     ]
   },
   "devDependencies": {
-    "jest-styled-components": "^7.0.4"
+    "@testing-library/jest-dom": "^5.12.0",
+    "@testing-library/react": "^11.2.7",
+    "jest-styled-components": "^7.0.4",
+    "prettier": "^2.3.0"
   }
 }

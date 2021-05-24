@@ -1,5 +1,6 @@
 import React from "react";
-import { SkipToContent, Main, Box } from "@strapi/design-system";
+import { Main, SkipToContent } from "@strapi/design-system/Main";
+import { Box } from "@strapi/design-system/Box";
 
 export const AdminLayout = ({ children }) => {
   return (
