@@ -28,7 +28,7 @@ export const FocusTrap = ({ onEscape, restoreFocus, ...props }) => {
     const focusableChildren = getFocusableNodes(trappedRef.current);
 
     if (focusableChildren.length > 0) {
-      const firstElement = focusableChildren.item(0);
+      const firstElement = focusableChildren[0];
 
       firstElement.focus();
     } else {
@@ -48,8 +48,8 @@ export const FocusTrap = ({ onEscape, restoreFocus, ...props }) => {
     const focusableChildren = getFocusableNodes(trappedRef.current);
 
     if (focusableChildren.length > 0) {
-      const firstElement = focusableChildren.item(0);
-      const lastElement = focusableChildren.item(focusableChildren.length - 1);
+      const firstElement = focusableChildren[0];
+      const lastElement = focusableChildren[focusableChildren.length - 1];
 
       // e.shiftKey allows to verify reverse tab
       if (e.shiftKey) {

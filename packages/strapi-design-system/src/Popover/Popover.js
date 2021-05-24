@@ -1,6 +1,7 @@
 import React, { useRef, useLayoutEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { useTheme } from '../ThemeProvider/hooks';
 import { Box } from '../Box';
 import { Portal } from '../Portal';
 

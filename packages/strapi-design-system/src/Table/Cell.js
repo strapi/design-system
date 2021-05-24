@@ -10,8 +10,8 @@ export const Td = ({ isFocusable, ...props }) => {
   const tdRef = useRef(null);
 
   useLayoutEffect(() => {
-    const focusableNodes = getFocusableNodes(tdRef.current);
-    const nextFocus = focusableNodes.item(0) || tdRef.current;
+    const focusableNodes = getFocusableNodes(tdRef.current, true);
+    const nextFocus = focusableNodes[0] || tdRef.current;
 
     nextFocus.setAttribute('tabIndex', isFocusable ? 0 : -1);
   }, [isFocusable]);

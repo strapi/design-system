@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useImperativeHandle, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Field, FieldLabel, FieldHint, FieldError, FieldInput, FieldAction } from '../Field';
 import { Stack } from '../Stack';
@@ -14,8 +14,14 @@ const TextInputWrapper = styled.div`
 
 export const TextInput = React.forwardRef(
   ({ leftAction, rightAction, name, hint, error, label, labelAction, id, ...props }, ref) => {
+    const inputWrapperRef = useRef(null);
+
+    useImperativeHandle(ref, () => ({
+      inputWrapperRef,
+    }));
+
     return (
-      <TextInputWrapper>
+      <TextInputWrapper ref={inputWrapperRef}>
         <Field name={name} hint={hint} error={error} id={id}>
           <Stack size={1}>
             <Row cols="auto auto 1fr" gap={1}>
