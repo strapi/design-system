@@ -6,6 +6,9 @@ import { KeyboardKeys } from '../helpers/keyboardKeys';
 export const FocusTrap = ({ onEscape, restoreFocus, ...props }) => {
   const trappedRef = useRef(null);
 
+  /**
+   * Restore the focus to the previously focused element (often, it's the CTA that opened the trap)
+   */
   useEffect(() => {
     if (restoreFocus) {
       const currentFocus = document.activeElement;
@@ -16,6 +19,9 @@ export const FocusTrap = ({ onEscape, restoreFocus, ...props }) => {
     }
   }, [restoreFocus]);
 
+  /**
+   * Sends the focus to the first element of the focus trap tree
+   */
   useEffect(() => {
     if (!trappedRef.current) return;
 
@@ -23,40 +29,42 @@ export const FocusTrap = ({ onEscape, restoreFocus, ...props }) => {
 
     if (focusableChildren.length > 0) {
       const firstElement = focusableChildren.item(0);
-      const lastElement = focusableChildren.item(focusableChildren.length - 1);
 
-      // Send the focus to the first element when mounting
       firstElement.focus();
-
-      const handleKeyDown = (e) => {
-        if (e.key === KeyboardKeys.ESCAPE) {
-          return onEscape();
-        }
-
-        if (e.key !== KeyboardKeys.TAB) return;
-
-        if (e.shiftKey) {
-          if (firstElement === document.activeElement) {
-            e.preventDefault();
-            lastElement.focus();
-          }
-        } else {
-          if (lastElement === document.activeElement) {
-            e.preventDefault();
-            firstElement.focus();
-          }
-        }
-      };
-
-      trappedRef.current?.addEventListener('keydown', handleKeyDown);
-
-      return () => {
-        trappedRef.current?.removeEventListener('keydown', handleKeyDown);
-      };
+    } else {
+      console.warn(
+        '[FocusTrap]: it seems there are no focusable elements in the focus trap tree. Make sure there s at least one.',
+      );
     }
   }, []);
 
-  return <div ref={trappedRef} {...props} />;
+  const handleKeyDown = (e) => {
+    if (e.key === KeyboardKeys.ESCAPE) {
+      return onEscape();
+    }
+
+    if (e.key !== KeyboardKeys.TAB) return;
+
+    const focusableChildren = getFocusableNodes(trappedRef.current);
+
+    if (focusableChildren.length > 0) {
+      const firstElement = focusableChildren.item(0);
+      const lastElement = focusableChildren.item(focusableChildren.length - 1);
+
+      // e.shiftKey allows to verify reverse tab
+      if (e.shiftKey) {
+        if (firstElement === document.activeElement) {
+          e.preventDefault();
+          lastElement.focus();
+        }
+      } else if (lastElement === document.activeElement) {
+        e.preventDefault();
+        firstElement.focus();
+      }
+    }
+  };
+
+  return <div ref={trappedRef} onKeyDown={handleKeyDown} {...props} />;
 };
 
 FocusTrap.defaultProps = {

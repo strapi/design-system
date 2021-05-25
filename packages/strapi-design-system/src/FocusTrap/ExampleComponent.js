@@ -10,6 +10,8 @@ import { Row } from '../Row';
 import { FocusTrap } from './FocusTrap';
 
 const TrappedComponent = ({ onClose }) => {
+  const [newLastVisible, setNewLastVisible] = useState(false);
+
   return (
     <FocusTrap onEscape={onClose}>
       <Box background="neutral0" padding={4} hasRadius style={{ width: '600px' }}>
@@ -31,7 +33,11 @@ const TrappedComponent = ({ onClose }) => {
           </Box>
           <Row justifyContent="space-between">
             <Button id="second">Second focusable</Button>
-            <Button id="last">Last focusable</Button>
+            <Button id="last" onClick={() => setNewLastVisible(true)}>
+              Last focusable (at the beginning)
+            </Button>
+
+            {newLastVisible && <Button id="real-last">Last focusable (at the end)</Button>}
           </Row>
         </Stack>
       </Box>
