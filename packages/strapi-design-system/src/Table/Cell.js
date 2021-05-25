@@ -1,47 +1,36 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
+import { getFocusableNodes } from '../helpers/getFocusableNodes';
 
-const useCell = (isFocused) => {
-  const mountedRef = useRef(false);
-  const cellRef = useRef(null);
-
-  useEffect(() => {
-    if (mountedRef.current && cellRef.current && isFocused) {
-      cellRef.current.focus();
-    }
-  }, [isFocused]);
-
-  useEffect(() => {
-    mountedRef.current = true;
-  }, []);
-
-  return cellRef;
+export const Th = ({ isFocusable, ...props }) => {
+  return <th tabIndex={isFocusable ? 0 : -1} {...props} />;
 };
 
-export const Th = ({ isFocused, ...props }) => {
-  const cellRef = useCell(isFocused);
+export const Td = ({ isFocusable, ...props }) => {
+  const tdRef = useRef(null);
 
-  return <th ref={cellRef} tabIndex={isFocused ? 0 : -1} {...props} />;
-};
+  useLayoutEffect(() => {
+    const focusableNodes = getFocusableNodes(tdRef.current);
+    const nextFocus = focusableNodes.item(0) || tdRef.current;
 
-export const Td = ({ isFocused, ...props }) => {
-  const cellRef = useCell(isFocused);
+    nextFocus.setAttribute('tabIndex', isFocusable ? 0 : -1);
+  }, [isFocusable]);
 
-  return <td ref={cellRef} tabIndex={isFocused ? 0 : -1} {...props} />;
+  return <td ref={tdRef} {...props} />;
 };
 
 Th.defaultProps = {
-  isFocused: false,
+  isFocusable: false,
 };
 
 Th.propTypes = {
-  isFocused: PropTypes.bool,
+  isFocusable: PropTypes.bool,
 };
 
 Td.defaultProps = {
-  isFocused: false,
+  isFocusable: false,
 };
 
 Td.propTypes = {
-  isFocused: PropTypes.bool,
+  isFocusable: PropTypes.bool,
 };
