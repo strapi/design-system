@@ -53,9 +53,8 @@ const AlertIcon = ({ variant, ...props }) => {
 };
 
 const ActionBox = styled(Box)`
-  & a {
-    line-height: ${12 / 16}rem;
-  }
+  // Checked with the designers, validated
+  padding-top: 1px;
 
   & a > span {
     color: ${handleIconColor};
