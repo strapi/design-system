@@ -9,7 +9,11 @@ import styled from 'styled-components';
 
 const TextareaWrapper = styled.div`
   & textarea {
+    // TODO: remove when we'll have fonts in the theme
     height: ${80 / 16}rem;
+    line-height: ${20 / 16}rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+      'Helvetica Neue', sans-serif;
   }
 
   & textarea::placeholder {

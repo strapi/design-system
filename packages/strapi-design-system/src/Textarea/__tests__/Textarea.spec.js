@@ -109,6 +109,8 @@ describe('Textarea', () => {
 
       .c0 textarea {
         height: 5rem;
+        line-height: 1.25rem;
+        font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans', 'Helvetica Neue',sans-serif;
       }
 
       .c0 textarea::-webkit-input-placeholder {
@@ -290,6 +292,8 @@ describe('Textarea', () => {
 
       .c0 textarea {
         height: 5rem;
+        line-height: 1.25rem;
+        font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans', 'Helvetica Neue',sans-serif;
       }
 
       .c0 textarea::-webkit-input-placeholder {
