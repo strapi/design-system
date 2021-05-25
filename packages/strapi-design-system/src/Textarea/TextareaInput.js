@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { useField } from '../Field';
 
 const Textarea = styled.textarea`
   display: block;
@@ -20,7 +21,7 @@ const Textarea = styled.textarea`
   color: ${({ theme, disabled }) => (disabled ? theme.colors.neutral600 : theme.colors.neutral800)};
   background: ${({ theme, disabled }) => (disabled ? teme.colors.neutral150 : theme.colors.neutral0)};
 
-  /* managed bu switching borders */
+  /* managed by switching borders */
   outline: none;
   &:focus {
     border: 1px solid ${({ theme }) => theme.colors.primary600};
