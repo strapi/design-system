@@ -33,7 +33,7 @@ describe('Textarea', () => {
         color: #32324d;
       }
 
-      .c8 {
+      .c6 {
         font-weight: 400;
         font-size: 0.75rem;
         line-height: 1.33;
@@ -54,75 +54,48 @@ describe('Textarea', () => {
         align-items: center;
       }
 
-      .c5 {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-        flex-direction: row;
-        -webkit-box-pack: justify;
-        -webkit-justify-content: space-between;
-        -ms-flex-pack: justify;
-        justify-content: space-between;
-        -webkit-align-items: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-      }
-
       .c4 {
         padding-left: 4px;
       }
 
-      .c7 {
-        border: none;
+      .c5 {
+        display: block;
+        width: 100%;
+        border: 1px solid #dcdce4;
+        border-radius: 4px;
         padding-left: 16px;
         padding-right: 16px;
         padding-top: 12px;
         padding-bottom: 12px;
-        color: #32324d;
         font-weight: 400;
         font-size: 0.875rem;
-        display: block;
-        width: 100%;
-      }
-
-      .c7::-webkit-input-placeholder {
-        color: #8e8ea9;
-      }
-
-      .c7::-moz-placeholder {
-        color: #8e8ea9;
-      }
-
-      .c7:-ms-input-placeholder {
-        color: #8e8ea9;
-      }
-
-      .c7::placeholder {
-        color: #8e8ea9;
-      }
-
-      .c7:disabled {
-        background: inherit;
-        color: inherit;
-      }
-
-      .c7:focus {
+        color: #32324d;
+        background: #ffffff;
         outline: none;
       }
 
-      .c6 {
-        border: 1px solid #dcdce4;
-        border-radius: 4px;
-        background: #ffffff;
-        overflow: hidden;
+      .c5:focus {
+        border: 1px solid #4945ff;
       }
 
-      .c6:focus-within {
-        border: 1px solid #4945ff;
+      .c5::-webkit-input-placeholder {
+        color: #8e8ea9;
+        opacity: 1;
+      }
+
+      .c5::-moz-placeholder {
+        color: #8e8ea9;
+        opacity: 1;
+      }
+
+      .c5:-ms-input-placeholder {
+        color: #8e8ea9;
+        opacity: 1;
+      }
+
+      .c5::placeholder {
+        color: #8e8ea9;
+        opacity: 1;
       }
 
       .c1 > * {
@@ -136,6 +109,38 @@ describe('Textarea', () => {
 
       .c0 textarea {
         height: 5rem;
+      }
+
+      .c0 textarea::-webkit-input-placeholder {
+        font-weight: 400;
+        font-size: 0.875rem;
+        line-height: 1.43;
+        color: #8e8ea9;
+        opacity: 1;
+      }
+
+      .c0 textarea::-moz-placeholder {
+        font-weight: 400;
+        font-size: 0.875rem;
+        line-height: 1.43;
+        color: #8e8ea9;
+        opacity: 1;
+      }
+
+      .c0 textarea:-ms-input-placeholder {
+        font-weight: 400;
+        font-size: 0.875rem;
+        line-height: 1.43;
+        color: #8e8ea9;
+        opacity: 1;
+      }
+
+      .c0 textarea::placeholder {
+        font-weight: 400;
+        font-size: 0.875rem;
+        line-height: 1.43;
+        color: #8e8ea9;
+        opacity: 1;
       }
 
       <div
@@ -162,22 +167,18 @@ describe('Textarea', () => {
                 </span>
               </div>
             </div>
-            <div
-              class="c5 c6"
+            <textarea
+              aria-describedby="field-hint-1"
+              aria-invalid="false"
+              class="c5"
+              id="field-1"
+              name="content"
+              placeholder="This is a content placeholder"
             >
-              <textarea
-                aria-describedby="field-hint-1"
-                aria-invalid="false"
-                class="c7"
-                id="field-1"
-                name="content"
-                placeholder="This is a content placeholder"
-              >
-                Some content
-              </textarea>
-            </div>
+              Some content
+            </textarea>
             <p
-              class="c8"
+              class="c6"
               id="field-hint-1"
             >
               Description line
@@ -213,7 +214,7 @@ describe('Textarea', () => {
         color: #32324d;
       }
 
-      .c8 {
+      .c6 {
         font-weight: 400;
         font-size: 0.75rem;
         line-height: 1.33;
@@ -234,75 +235,48 @@ describe('Textarea', () => {
         align-items: center;
       }
 
-      .c5 {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-        flex-direction: row;
-        -webkit-box-pack: justify;
-        -webkit-justify-content: space-between;
-        -ms-flex-pack: justify;
-        justify-content: space-between;
-        -webkit-align-items: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-      }
-
       .c4 {
         padding-left: 4px;
       }
 
-      .c7 {
-        border: none;
+      .c5 {
+        display: block;
+        width: 100%;
+        border: 1px solid #d02b20;
+        border-radius: 4px;
         padding-left: 16px;
         padding-right: 16px;
         padding-top: 12px;
         padding-bottom: 12px;
-        color: #32324d;
         font-weight: 400;
         font-size: 0.875rem;
-        display: block;
-        width: 100%;
-      }
-
-      .c7::-webkit-input-placeholder {
-        color: #8e8ea9;
-      }
-
-      .c7::-moz-placeholder {
-        color: #8e8ea9;
-      }
-
-      .c7:-ms-input-placeholder {
-        color: #8e8ea9;
-      }
-
-      .c7::placeholder {
-        color: #8e8ea9;
-      }
-
-      .c7:disabled {
-        background: inherit;
-        color: inherit;
-      }
-
-      .c7:focus {
+        color: #32324d;
+        background: #ffffff;
         outline: none;
       }
 
-      .c6 {
-        border: 1px solid #d02b20;
-        border-radius: 4px;
-        background: #ffffff;
-        overflow: hidden;
+      .c5:focus {
+        border: 1px solid #4945ff;
       }
 
-      .c6:focus-within {
-        border: 1px solid #4945ff;
+      .c5::-webkit-input-placeholder {
+        color: #8e8ea9;
+        opacity: 1;
+      }
+
+      .c5::-moz-placeholder {
+        color: #8e8ea9;
+        opacity: 1;
+      }
+
+      .c5:-ms-input-placeholder {
+        color: #8e8ea9;
+        opacity: 1;
+      }
+
+      .c5::placeholder {
+        color: #8e8ea9;
+        opacity: 1;
       }
 
       .c1 > * {
@@ -316,6 +290,38 @@ describe('Textarea', () => {
 
       .c0 textarea {
         height: 5rem;
+      }
+
+      .c0 textarea::-webkit-input-placeholder {
+        font-weight: 400;
+        font-size: 0.875rem;
+        line-height: 1.43;
+        color: #8e8ea9;
+        opacity: 1;
+      }
+
+      .c0 textarea::-moz-placeholder {
+        font-weight: 400;
+        font-size: 0.875rem;
+        line-height: 1.43;
+        color: #8e8ea9;
+        opacity: 1;
+      }
+
+      .c0 textarea:-ms-input-placeholder {
+        font-weight: 400;
+        font-size: 0.875rem;
+        line-height: 1.43;
+        color: #8e8ea9;
+        opacity: 1;
+      }
+
+      .c0 textarea::placeholder {
+        font-weight: 400;
+        font-size: 0.875rem;
+        line-height: 1.43;
+        color: #8e8ea9;
+        opacity: 1;
       }
 
       <div
@@ -342,22 +348,18 @@ describe('Textarea', () => {
                 </span>
               </div>
             </div>
-            <div
-              class="c5 c6"
+            <textarea
+              aria-describedby="field-error-1"
+              aria-invalid="true"
+              class="c5"
+              id="field-1"
+              name="content"
+              placeholder="This is a content placeholder"
             >
-              <textarea
-                aria-describedby="field-error-1"
-                aria-invalid="true"
-                class="c7"
-                id="field-1"
-                name="content"
-                placeholder="This is a content placeholder"
-              >
-                Some content
-              </textarea>
-            </div>
+              Some content
+            </textarea>
             <p
-              class="c8"
+              class="c6"
               id="field-error-1"
             >
               An error occured

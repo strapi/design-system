@@ -91,18 +91,22 @@ describe('Searchbar', () => {
 
       .c10::-webkit-input-placeholder {
         color: #8e8ea9;
+        opacity: 1;
       }
 
       .c10::-moz-placeholder {
         color: #8e8ea9;
+        opacity: 1;
       }
 
       .c10:-ms-input-placeholder {
         color: #8e8ea9;
+        opacity: 1;
       }
 
       .c10::placeholder {
         color: #8e8ea9;
+        opacity: 1;
       }
 
       .c10:disabled {

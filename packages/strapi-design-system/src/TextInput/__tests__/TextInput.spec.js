@@ -91,18 +91,22 @@ describe('TextInput', () => {
 
       .c7::-webkit-input-placeholder {
         color: #8e8ea9;
+        opacity: 1;
       }
 
       .c7::-moz-placeholder {
         color: #8e8ea9;
+        opacity: 1;
       }
 
       .c7:-ms-input-placeholder {
         color: #8e8ea9;
+        opacity: 1;
       }
 
       .c7::placeholder {
         color: #8e8ea9;
+        opacity: 1;
       }
 
       .c7:disabled {
