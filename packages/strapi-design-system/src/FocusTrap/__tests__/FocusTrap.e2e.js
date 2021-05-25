@@ -58,6 +58,39 @@ describe('FocusTrap', () => {
         await expect(page).toHaveFocus('[aria-label="Close"]');
       },
     );
+
+    it.jestPlaywrightSkip(
+      { browsers: ['webkit'] },
+      'traps the focus when dynamically adding an element in the focus tree and pressing Tab for Firefox and Chrome',
+      async () => {
+        await page.keyboard.press('Tab');
+        await expect(page).toHaveFocus('#second');
+
+        await page.keyboard.press('Tab');
+        await expect(page).toHaveFocus('#last');
+        await page.click('#last');
+
+        await page.keyboard.press('Tab');
+        await expect(page).toHaveFocus('#real-last');
+      },
+    );
+
+    it.jestPlaywrightSkip(
+      { browsers: ['firefox', 'chromium'] },
+      'traps the focus when pressing Tab for Webkit',
+      async () => {
+        await page.waitForSelector('[aria-label="Close"]');
+        await page.keyboard.press('Alt+Tab');
+        await expect(page).toHaveFocus('#second');
+
+        await page.keyboard.press('Alt+Tab');
+        await expect(page).toHaveFocus('#last');
+        await page.click('#last');
+
+        await page.keyboard.press('Alt+Tab');
+        await expect(page).toHaveFocus('#real-last');
+      },
+    );
   });
 
   describe('Pressing Shift+Tab in the trap', () => {
