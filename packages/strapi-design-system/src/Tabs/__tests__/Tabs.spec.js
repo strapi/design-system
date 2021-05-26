@@ -95,6 +95,14 @@ describe('Tabs', () => {
         flex: 1;
       }
 
+      .c1 .c2:first-of-type .c4 {
+        border-radius: 4px 0 0 0;
+      }
+
+      .c1 .c2:last-of-type .c4 {
+        border-radius: 0 4px 0 0;
+      }
+
       <div>
         <div
           aria-label="Some stuff for the label"

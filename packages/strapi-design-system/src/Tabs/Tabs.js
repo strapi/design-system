@@ -31,6 +31,14 @@ const TabsRow = styled(Row)`
   & > * {
     flex: 1;
   }
+
+  & ${TabButton}:first-of-type ${TabBox} {
+    border-radius: ${({ theme }) => `${theme.borderRadius} 0 0 0`};
+  }
+
+  & ${TabButton}:last-of-type ${TabBox} {
+    border-radius: ${({ theme }) => `0 ${theme.borderRadius} 0 0`};
+  }
 `;
 
 export const Tabs = ({ children, ...props }) => {
