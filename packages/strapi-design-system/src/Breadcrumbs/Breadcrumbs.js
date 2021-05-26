@@ -5,6 +5,7 @@ import { After } from '@strapi/icons';
 import { Text } from '../Text';
 import { Box } from '../Box';
 import { Row } from '../Row';
+import { VisuallyHidden } from '../VisuallyHidden';
 
 const CrumbWrapper = styled(Row)`
   svg {
@@ -38,10 +39,16 @@ Crumb.propTypes = {
 };
 const crumbType = PropTypes.shape({ type: PropTypes.oneOf([Crumb]) });
 
-export const Breadcrumbs = ({ children }) => <ol>{children}</ol>;
+export const Breadcrumbs = ({ children, label }) => (
+  <div>
+    <VisuallyHidden>{label}</VisuallyHidden>
+    <ol aria-hidden={true}>{children}</ol>
+  </div>
+);
 
 Breadcrumbs.displayName = 'Breadcrumbs';
 
 Breadcrumbs.propTypes = {
   children: PropTypes.oneOfType([PropTypes.arrayOf(crumbType), crumbType]).isRequired,
+  label: PropTypes.string.isRequired,
 };

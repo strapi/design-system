@@ -17,7 +17,7 @@ describe('Breadcrumbs', () => {
   it('snapshots the component', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
-        <Breadcrumbs>
+        <Breadcrumbs label="second page">
           <Crumb>Home</Crumb>
           <Crumb>first</Crumb>
           <Crumb>second</Crumb>
@@ -26,18 +26,18 @@ describe('Breadcrumbs', () => {
     );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
-      .c2 {
+      .c3 {
         font-weight: 500;
         font-size: 0.875rem;
         line-height: 1.43;
       }
 
-      .c4 {
+      .c5 {
         padding-right: 12px;
         padding-left: 12px;
       }
 
-      .c0 {
+      .c1 {
         display: -webkit-inline-box;
         display: -webkit-inline-flex;
         display: -ms-inline-flexbox;
@@ -51,72 +51,93 @@ describe('Breadcrumbs', () => {
         align-items: center;
       }
 
-      .c1 svg {
+      .c0 {
+        border: 0;
+        -webkit-clip: rect(0 0 0 0);
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+      }
+
+      .c2 svg {
         height: 10px;
         width: 10px;
       }
 
-      .c1 svg path {
+      .c2 svg path {
         fill: #c0c0cf;
       }
 
-      .c1:last-of-type .c3 {
+      .c2:last-of-type .c4 {
         display: none;
       }
 
-      <ol>
-        <li
-          class="c0 c1"
+      <div>
+        <div
+          class="c0"
         >
-          <p
-            class="c2"
-            color="neutral800"
-          >
-            Home
-          </p>
-          <div
-            class="c3 c4"
-          >
-            <span>
-              After
-            </span>
-          </div>
-        </li>
-        <li
-          class="c0 c1"
+          second page
+        </div>
+        <ol
+          aria-hidden="true"
         >
-          <p
-            class="c2"
-            color="neutral800"
+          <li
+            class="c1 c2"
           >
-            first
-          </p>
-          <div
-            class="c3 c4"
+            <p
+              class="c3"
+              color="neutral800"
+            >
+              Home
+            </p>
+            <div
+              class="c4 c5"
+            >
+              <span>
+                After
+              </span>
+            </div>
+          </li>
+          <li
+            class="c1 c2"
           >
-            <span>
-              After
-            </span>
-          </div>
-        </li>
-        <li
-          class="c0 c1"
-        >
-          <p
-            class="c2"
-            color="neutral800"
+            <p
+              class="c3"
+              color="neutral800"
+            >
+              first
+            </p>
+            <div
+              class="c4 c5"
+            >
+              <span>
+                After
+              </span>
+            </div>
+          </li>
+          <li
+            class="c1 c2"
           >
-            second
-          </p>
-          <div
-            class="c3 c4"
-          >
-            <span>
-              After
-            </span>
-          </div>
-        </li>
-      </ol>
+            <p
+              class="c3"
+              color="neutral800"
+            >
+              second
+            </p>
+            <div
+              class="c4 c5"
+            >
+              <span>
+                After
+              </span>
+            </div>
+          </li>
+        </ol>
+      </div>
     `);
   });
 });
