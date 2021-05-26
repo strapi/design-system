@@ -1,0 +1,59 @@
+<!--- Tabs.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { withDesign } from 'storybook-addon-designs';
+import { Tabs, Tab } from './Tabs';
+import { TabGroup } from './TabGroup';
+import { TabPanels, TabPanel } from './TabPanels';
+import { Box } from '../Box';
+
+<Meta
+  title="Tabs"
+  component={Tabs}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: 'figma',
+      url: 'TODO: Fill the according figma file',
+    },
+  }}
+/>
+
+# Tabs
+
+This is the doc of the `Tabs` component
+
+## Tabs
+
+Description...
+
+<Canvas>
+  <Story name="base">
+    <Box padding={8} background="primary100">
+      <TabGroup label="Some stuff for the label" id="tabs">
+        <Tabs>
+          <Tab>First</Tab>
+          <Tab>Second</Tab>
+          <Tab>Third</Tab>
+        </Tabs>
+        <TabPanels>
+          <TabPanel>
+            <Box padding={4} background="neutral0">
+              First panel
+            </Box>
+          </TabPanel>
+          <TabPanel>
+            <Box padding={4} background="neutral0">
+              Second panel
+            </Box>
+          </TabPanel>
+          <TabPanel>
+            <Box padding={4} background="neutral0">
+              Third panel
+            </Box>
+          </TabPanel>
+        </TabPanels>
+      </TabGroup>
+    </Box>
+  </Story>
+</Canvas>
