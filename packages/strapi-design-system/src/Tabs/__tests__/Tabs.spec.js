@@ -76,7 +76,6 @@ describe('Tabs', () => {
 
       .c10 {
         border-bottom: 1px solid #eaeaef;
-        border-radius: 4px 4px 0 0;
       }
 
       .c3 {

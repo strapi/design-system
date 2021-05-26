@@ -11,7 +11,7 @@ import { useTabsFocus } from './useTabsFocus';
 
 const TabBox = styled(Box)`
   border-bottom: 1px solid ${({ theme, selected }) => (selected ? theme.colors.neutral0 : theme.colors.neutral150)};
-  border-radius: 4px 4px 0 0;
+  border-radius: ${({ theme, selected }) => (selected ? `${theme.borderRadius} ${theme.borderRadius} 0 0` : undefined)};
 `;
 
 const TabButton = styled.button`
