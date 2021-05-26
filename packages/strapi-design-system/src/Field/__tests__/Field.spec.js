@@ -65,18 +65,22 @@ describe('Field', () => {
 
       .c3::-webkit-input-placeholder {
         color: #8e8ea9;
+        opacity: 1;
       }
 
       .c3::-moz-placeholder {
         color: #8e8ea9;
+        opacity: 1;
       }
 
       .c3:-ms-input-placeholder {
         color: #8e8ea9;
+        opacity: 1;
       }
 
       .c3::placeholder {
         color: #8e8ea9;
+        opacity: 1;
       }
 
       .c3:disabled {
@@ -182,18 +186,22 @@ describe('Field', () => {
 
       .c3::-webkit-input-placeholder {
         color: #8e8ea9;
+        opacity: 1;
       }
 
       .c3::-moz-placeholder {
         color: #8e8ea9;
+        opacity: 1;
       }
 
       .c3:-ms-input-placeholder {
         color: #8e8ea9;
+        opacity: 1;
       }
 
       .c3::placeholder {
         color: #8e8ea9;
+        opacity: 1;
       }
 
       .c3:disabled {
@@ -307,18 +315,22 @@ describe('Field', () => {
 
       .c3::-webkit-input-placeholder {
         color: #8e8ea9;
+        opacity: 1;
       }
 
       .c3::-moz-placeholder {
         color: #8e8ea9;
+        opacity: 1;
       }
 
       .c3:-ms-input-placeholder {
         color: #8e8ea9;
+        opacity: 1;
       }
 
       .c3::placeholder {
         color: #8e8ea9;
+        opacity: 1;
       }
 
       .c3:disabled {
@@ -438,18 +450,22 @@ describe('Field', () => {
 
       .c3::-webkit-input-placeholder {
         color: #8e8ea9;
+        opacity: 1;
       }
 
       .c3::-moz-placeholder {
         color: #8e8ea9;
+        opacity: 1;
       }
 
       .c3:-ms-input-placeholder {
         color: #8e8ea9;
+        opacity: 1;
       }
 
       .c3::placeholder {
         color: #8e8ea9;
+        opacity: 1;
       }
 
       .c3:disabled {
@@ -585,18 +601,22 @@ describe('Field', () => {
 
       .c5::-webkit-input-placeholder {
         color: #8e8ea9;
+        opacity: 1;
       }
 
       .c5::-moz-placeholder {
         color: #8e8ea9;
+        opacity: 1;
       }
 
       .c5:-ms-input-placeholder {
         color: #8e8ea9;
+        opacity: 1;
       }
 
       .c5::placeholder {
         color: #8e8ea9;
+        opacity: 1;
       }
 
       .c5:disabled {

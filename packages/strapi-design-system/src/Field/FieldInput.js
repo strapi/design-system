@@ -21,6 +21,7 @@ const Input = styled.input`
 
   ::placeholder {
     color: ${({ theme }) => theme.colors.neutral500};
+    opacity: 1;
   }
 
   &:disabled {
