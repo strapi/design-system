@@ -5,14 +5,6 @@ import { Breadcrumbs, Crumb } from '../Breadcrumbs';
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
 
-jest.mock('@strapi/icons', () => ({
-  After: () => <span>After</span>,
-}));
-
-jest.mock('../../helpers/genId', () => ({
-  genId: () => 123,
-}));
-
 describe('Breadcrumbs', () => {
   it('snapshots the component', () => {
     const { container } = render(
@@ -97,9 +89,18 @@ describe('Breadcrumbs', () => {
             <div
               class="c4 c5"
             >
-              <span>
-                After
-              </span>
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 10 16"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 1.88L6.107 8 0 14.12 1.88 16l8-8-8-8L0 1.88z"
+                  fill="#32324D"
+                />
+              </svg>
             </div>
           </li>
           <li
@@ -114,9 +115,18 @@ describe('Breadcrumbs', () => {
             <div
               class="c4 c5"
             >
-              <span>
-                After
-              </span>
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 10 16"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 1.88L6.107 8 0 14.12 1.88 16l8-8-8-8L0 1.88z"
+                  fill="#32324D"
+                />
+              </svg>
             </div>
           </li>
           <li
@@ -131,9 +141,18 @@ describe('Breadcrumbs', () => {
             <div
               class="c4 c5"
             >
-              <span>
-                After
-              </span>
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 10 16"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 1.88L6.107 8 0 14.12 1.88 16l8-8-8-8L0 1.88z"
+                  fill="#32324D"
+                />
+              </svg>
             </div>
           </li>
         </ol>

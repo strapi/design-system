@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { After } from '@strapi/icons';
+import After from '@strapi/icons/After';
 import { Text } from '../Text';
 import { Box } from '../Box';
 import { Row } from '../Row';
