@@ -1,13 +1,13 @@
-<!--- AssetTag.stories.mdx --->
+<!--- Badge.stories.mdx --->
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { withDesign } from 'storybook-addon-designs';
-import { AssetTag } from './AssetTag';
+import { Badge } from './Badge';
 import { Stack } from '../Stack';
 
 <Meta
-  title="AssetTag"
-  component={AssetTag}
+  title="Badge"
+  component={Badge}
   decorators={[withDesign]}
   parameters={{
     design: {
@@ -17,11 +17,11 @@ import { Stack } from '../Stack';
   }}
 />
 
-# AssetTag
+# Badge
 
-This is the doc of the `AssetTag` component
+This is the doc of the `Badge` component
 
-## AssetTag
+## Badge
 
 Description...
 
@@ -29,13 +29,13 @@ Description...
   <Story name="base">
     <Stack size={2}>
       <div>
-        <AssetTag>Doc</AssetTag>
+        <Badge>Doc</Badge>
       </div>
       <div>
-        <AssetTag>Video</AssetTag>
+        <Badge>Video</Badge>
       </div>
       <div>
-        <AssetTag>Image</AssetTag>
+        <Badge>Image</Badge>
       </div>
     </Stack>
   </Story>
