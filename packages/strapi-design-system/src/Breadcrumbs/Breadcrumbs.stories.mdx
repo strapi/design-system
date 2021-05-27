@@ -1,0 +1,35 @@
+<!--- Breadcrumbs.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { withDesign } from 'storybook-addon-designs';
+import { Breadcrumbs, Crumb } from './Breadcrumbs';
+import { Text } from '../Text';
+
+<Meta
+  title="Breadcrumbs"
+  component={Breadcrumbs}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: 'figma',
+      url: 'TODO: Fill the according figma file',
+    },
+  }}
+/>
+
+# Breadcrumbs
+
+This is the doc of the `Breadcrumbs` component
+
+## Breadcrumbs
+
+Description...
+
+<Canvas>
+  <Story name="base">
+    <Breadcrumbs label='Category model, name field'>
+      <Crumb>Category</Crumb>
+      <Crumb>Name</Crumb>
+    </Breadcrumbs>
+  </Story>
+</Canvas>

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 export const Row = styled.div`
-  display: flex;
+  display: ${({ inline }) => (inline ? 'inline-flex' : 'flex')};
   flex-direction: ${({ reverse }) => (reverse ? 'row-reverse' : 'row')};
   justify-content: ${({ justifyContent }) => justifyContent};
   align-items: ${({ alignItems }) => alignItems};
@@ -11,6 +11,7 @@ export const Row = styled.div`
 
 Row.defaultProps = {
   alignItems: 'center',
+  inline: false,
   justifyContent: undefined,
   reverse: false,
   wrap: undefined,
@@ -18,6 +19,7 @@ Row.defaultProps = {
 
 Row.propTypes = {
   alignItems: PropTypes.string,
+  inline: PropTypes.bool,
   justifyContent: PropTypes.string,
   reverse: PropTypes.bool,
   wrap: PropTypes.string,
