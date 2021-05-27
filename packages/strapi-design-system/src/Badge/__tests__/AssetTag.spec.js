@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { render } from '@testing-library/react';
-import { AssetTag } from '../AssetTag';
+import { Badge } from '../Badge';
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
 
-describe('AssetTag', () => {
+describe('Badge', () => {
   it('snapshots the component', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
-        <AssetTag>Doc</AssetTag>
+        <Badge>Doc</Badge>
       </ThemeProvider>,
     );
 

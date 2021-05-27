@@ -4,18 +4,18 @@ import { Box } from '../Box';
 import { TableLabel } from '../Text';
 import styled from 'styled-components';
 
-const AssetTagWrapper = styled(Box)`
+const BadgeWrapper = styled(Box)`
   display: inline-block;
 `;
 
-export const AssetTag = (props) => {
+export const Badge = (props) => {
   return (
-    <AssetTagWrapper padding={1} background="neutral100" hasRadius={true} color="neutral600">
+    <BadgeWrapper padding={1} background="neutral100" hasRadius={true} color="neutral600">
       <TableLabel {...props} />
-    </AssetTagWrapper>
+    </BadgeWrapper>
   );
 };
 
-AssetTag.displayName = AssetTag;
+Badge.displayName = Badge;
 
-AssetTag.propTypes = {};
+Badge.propTypes = {};
