@@ -18,7 +18,7 @@ const BrandIconWrapper = styled.div`
   }
 `;
 
-export const MainNavBrand = ({ workplace, title, icon }) => {
+export const NavBrand = ({ workplace, title, icon }) => {
   const condensed = useMainNav();
 
   if (condensed) {
@@ -52,7 +52,7 @@ export const MainNavBrand = ({ workplace, title, icon }) => {
   );
 };
 
-MainNavBrand.propTypes = {
+NavBrand.propTypes = {
   icon: PropTypes.node.isRequired,
   title: PropTypes.string.isRequired,
   workplace: PropTypes.string.isRequired,

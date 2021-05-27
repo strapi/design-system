@@ -39,7 +39,7 @@ const MainNavRow = styled(Row)`
   padding: ${({ theme }) => `${theme.spaces[2]} ${theme.spaces[3]}`};
 `;
 
-export const MainNavLink = ({ children, icon, active, ...props }) => {
+export const NavLink = ({ children, icon, active, ...props }) => {
   const condensed = useMainNav();
 
   if (condensed) {
@@ -75,11 +75,11 @@ export const MainNavLink = ({ children, icon, active, ...props }) => {
   );
 };
 
-MainNavLink.defaultProps = {
+NavLink.defaultProps = {
   active: false,
 };
 
-MainNavLink.propTypes = {
+NavLink.propTypes = {
   active: PropTypes.bool,
   children: PropTypes.string.isRequired,
   icon: PropTypes.node.isRequired,

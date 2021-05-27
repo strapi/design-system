@@ -7,7 +7,7 @@ import { useMainNav } from './MainNavContext';
 import { VisuallyHidden } from '../VisuallyHidden';
 import { Divider } from '../Divider';
 
-export const MainNavSection = ({ label, ...props }) => {
+export const NavSection = ({ label, ...props }) => {
   const condensed = useMainNav();
 
   if (condensed) {
@@ -51,6 +51,6 @@ export const MainNavSection = ({ label, ...props }) => {
   );
 };
 
-MainNavSection.propTypes = {
+NavSection.propTypes = {
   label: PropTypes.string.isRequired,
 };

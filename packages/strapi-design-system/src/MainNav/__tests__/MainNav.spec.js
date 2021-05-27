@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { render } from '@testing-library/react';
 import { MainNav } from '../MainNav';
-import { MainNavSection } from '../MainNavSection';
-import { MainNavSections } from '../MainNavSections';
-import { MainNavLink } from '../MainNavLink';
-import { MainNavBrand } from '../MainNavBrand';
+import { NavSection } from '../NavSection';
+import { NavSections } from '../NavSections';
+import { NavLink } from '../NavLink';
+import { NavBrand } from '../NavBrand';
 import { Box } from '../../Box';
 import { Divider } from '../../Divider';
 import { ThemeProvider } from '../../ThemeProvider';
@@ -19,37 +19,37 @@ describe('MainNav', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
         <MainNav condensed={false}>
-          <MainNavBrand workplace="Workplace" title="Strapi Dashboard" icon={<span>icon</span>} />
+          <NavBrand workplace="Workplace" title="Strapi Dashboard" icon={<span>icon</span>} />
           <Box paddingBottom={3}>
             <Divider />
           </Box>
-          <MainNavSections>
-            <MainNavLink href="/content" icon={<span>icon</span>}>
+          <NavSections>
+            <NavLink href="/content" icon={<span>icon</span>}>
               Content
-            </MainNavLink>
-            <MainNavSection label="Plugins">
-              <MainNavLink href="/builder" icon={<span>icon</span>} active>
+            </NavLink>
+            <NavSection label="Plugins">
+              <NavLink href="/builder" icon={<span>icon</span>} active>
                 Builder
-              </MainNavLink>
-              <MainNavLink href="/content" icon={<span>icon</span>}>
+              </NavLink>
+              <NavLink href="/content" icon={<span>icon</span>}>
                 Media library
-              </MainNavLink>
-              <MainNavLink href="/content" icon={<span>icon</span>}>
+              </NavLink>
+              <NavLink href="/content" icon={<span>icon</span>}>
                 Documentation
-              </MainNavLink>
-            </MainNavSection>
-            <MainNavSection label="General">
-              <MainNavLink href="/builder" icon={<span>icon</span>}>
+              </NavLink>
+            </NavSection>
+            <NavSection label="General">
+              <NavLink href="/builder" icon={<span>icon</span>}>
                 Plugins
-              </MainNavLink>
-              <MainNavLink href="/content" icon={<span>icon</span>}>
+              </NavLink>
+              <NavLink href="/content" icon={<span>icon</span>}>
                 Marketplace
-              </MainNavLink>
-              <MainNavLink href="/content" icon={<span>icon</span>}>
+              </NavLink>
+              <NavLink href="/content" icon={<span>icon</span>}>
                 Settings
-              </MainNavLink>
-            </MainNavSection>
-          </MainNavSections>
+              </NavLink>
+            </NavSection>
+          </NavSections>
           <Box paddingTop={3} paddingBottom={3}>
             <Divider />
           </Box>
@@ -546,37 +546,37 @@ describe('MainNav', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
         <MainNav condensed={true}>
-          <MainNavBrand workplace="Workplace" title="Strapi Dashboard" icon={<span>icon</span>} />
+          <NavBrand workplace="Workplace" title="Strapi Dashboard" icon={<span>icon</span>} />
           <Box paddingBottom={3}>
             <Divider />
           </Box>
-          <MainNavSections>
-            <MainNavLink href="/content" icon={<span>icon</span>}>
+          <NavSections>
+            <NavLink href="/content" icon={<span>icon</span>}>
               Content
-            </MainNavLink>
-            <MainNavSection label="Plugins">
-              <MainNavLink href="/builder" icon={<span>icon</span>} active>
+            </NavLink>
+            <NavSection label="Plugins">
+              <NavLink href="/builder" icon={<span>icon</span>} active>
                 Builder
-              </MainNavLink>
-              <MainNavLink href="/content" icon={<span>icon</span>}>
+              </NavLink>
+              <NavLink href="/content" icon={<span>icon</span>}>
                 Media library
-              </MainNavLink>
-              <MainNavLink href="/content" icon={<span>icon</span>}>
+              </NavLink>
+              <NavLink href="/content" icon={<span>icon</span>}>
                 Documentation
-              </MainNavLink>
-            </MainNavSection>
-            <MainNavSection label="General">
-              <MainNavLink href="/builder" icon={<span>icon</span>}>
+              </NavLink>
+            </NavSection>
+            <NavSection label="General">
+              <NavLink href="/builder" icon={<span>icon</span>}>
                 Plugins
-              </MainNavLink>
-              <MainNavLink href="/content" icon={<span>icon</span>}>
+              </NavLink>
+              <NavLink href="/content" icon={<span>icon</span>}>
                 Marketplace
-              </MainNavLink>
-              <MainNavLink href="/content" icon={<span>icon</span>}>
+              </NavLink>
+              <NavLink href="/content" icon={<span>icon</span>}>
                 Settings
-              </MainNavLink>
-            </MainNavSection>
-          </MainNavSections>
+              </NavLink>
+            </NavSection>
+          </NavSections>
           <Box paddingTop={3} paddingBottom={3}>
             <Divider />
           </Box>
