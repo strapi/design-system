@@ -12,7 +12,7 @@ export const Badge = ({ active, ...props }) => {
   return (
     <BadgeWrapper
       padding={1}
-      background={active ? 'primary200' : 'neutral100'}
+      background={active ? 'primary100' : 'neutral100'}
       hasRadius={true}
       color={active ? 'primary600' : 'neutral600'}
     >
