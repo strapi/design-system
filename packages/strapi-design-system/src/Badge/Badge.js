@@ -8,14 +8,23 @@ const BadgeWrapper = styled(Box)`
   display: inline-block;
 `;
 
-export const Badge = (props) => {
+export const Badge = ({ active, ...props }) => {
   return (
-    <BadgeWrapper padding={1} background="neutral100" hasRadius={true} color="neutral600">
+    <BadgeWrapper
+      padding={1}
+      background={active ? 'primary200' : 'neutral100'}
+      hasRadius={true}
+      color={active ? 'primary600' : 'neutral600'}
+    >
       <TableLabel {...props} />
     </BadgeWrapper>
   );
 };
 
-Badge.displayName = Badge;
+Badge.defaultProps = {
+  active: false,
+};
 
-Badge.propTypes = {};
+Badge.propTypes = {
+  active: PropTypes.bool,
+};
