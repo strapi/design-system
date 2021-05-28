@@ -22,6 +22,7 @@ const PopoverWrapper = styled(Box)`
   position: absolute;
   border: 1px solid ${({ theme }) => theme.colors.neutral150};
   background: ${({ theme }) => theme.colors.neutral0};
+  margin-top: ${({ theme, spacingTop }) => theme.spaces[spacingTop]};
 `;
 
 const PopoverScrollable = styled(Box)`
@@ -44,7 +45,7 @@ const PopoverScrollable = styled(Box)`
   }
 `;
 
-export const Popover = ({ source, visible, children, ...props }) => {
+export const Popover = ({ source, visible, children, spacingTop, ...props }) => {
   const popoverRef = useRef(null);
 
   useLayoutEffect(() => {
@@ -61,7 +62,14 @@ export const Popover = ({ source, visible, children, ...props }) => {
 
   return (
     <Portal>
-      <PopoverWrapper ref={popoverRef} hasRadius background="neutral0" visible={visible} padding={1}>
+      <PopoverWrapper
+        ref={popoverRef}
+        hasRadius
+        background="neutral0"
+        visible={visible}
+        padding={1}
+        spacingTop={spacingTop}
+      >
         <PopoverScrollable paddingRight={1} {...props}>
           {children}
         </PopoverScrollable>
@@ -70,10 +78,9 @@ export const Popover = ({ source, visible, children, ...props }) => {
   );
 };
 
-Popover.displayName = Popover;
-
 Popover.propTypes = {
   children: PropTypes.node.isRequired,
   source: PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+  spacingTop: PropTypes.number,
   visible: PropTypes.bool.isRequired,
 };

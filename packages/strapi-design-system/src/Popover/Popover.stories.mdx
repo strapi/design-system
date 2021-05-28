@@ -38,7 +38,7 @@ Description...
           <button ref={buttonRef} onClick={() => setVisible((s) => !s)}>
             Open popover
           </button>
-          <Popover source={buttonRef} visible={visible}>
+          <Popover source={buttonRef} visible={visible} spacingTop={4}>
             <ul style={{ width: '200px' }}>
               {Array(15)
                 .fill(null)
