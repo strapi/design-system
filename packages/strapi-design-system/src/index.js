@@ -14,6 +14,7 @@ export * from './IconButton';
 export * from './Link';
 export * from './Loader';
 export * from './Main';
+export * from './MainNav';
 export * from './Pagination';
 export * from './Popover';
 export * from './Portal';
