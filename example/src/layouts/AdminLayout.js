@@ -22,10 +22,10 @@ import strapiImage from "./strapi-img.png";
 export const AdminLayout = ({ children }) => {
   const [condensed, setCondensed] = useState(false);
   return (
-    <Box background="neutral100" style={{ height: "100vh", overflow: "auto" }}>
+    <Box background="neutral100">
       <SkipToContent>Skip to content</SkipToContent>
 
-      <Grid cols="auto 1fr" style={{ height: "100%" }}>
+      <Grid cols="auto 1fr" style={{ height: "100vh" }}>
         <MainNav condensed={condensed}>
           <NavBrand
             workplace="Workplace"
