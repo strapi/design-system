@@ -1,0 +1,91 @@
+<!--- MainNav.stories.mdx --->
+
+import { useState } from 'react';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import ContentIcon from '@strapi/icons/ContentIcon';
+import CtbIcon from '@strapi/icons/ContentTypeBuilderIcon';
+import MediaLibIcon from '@strapi/icons/MediaLibrary';
+import AlertInfoIcon from '@strapi/icons/AlertInfoIcon';
+import PluginsIcon from '@strapi/icons/PluginsIcons';
+import MarketPlaceIcon from '@strapi/icons/MarketplaceIcon';
+import SettingsIcon from '@strapi/icons/Settings';
+import { withDesign } from 'storybook-addon-designs';
+import { MainNav } from './MainNav';
+import { NavSection } from './NavSection';
+import { NavSections } from './NavSections';
+import { NavLink } from './NavLink';
+import { NavBrand } from './NavBrand';
+import { Box } from '../Box';
+import { Divider } from '../Divider';
+import strapiImage from './strapi-img.png';
+
+<Meta
+  title="MainNav"
+  component={MainNav}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: 'figma',
+      url: 'TODO: Fill the according figma file',
+    },
+  }}
+/>
+
+# MainNav
+
+This is the doc of the `MainNav` component
+
+## MainNav
+
+Description...
+
+<Canvas>
+  <Story name="base">
+    {() => {
+      const [condensed, setCondensed] = useState(false);
+      return (
+        <Box background="neutral100" padding={10} style={{ height: '100vh' }}>
+          <MainNav condensed={condensed}>
+            <NavBrand workplace="Workplace" title="Strapi Dashboard" icon={<img src={strapiImage} alt="" />} />
+            <Box paddingBottom={3}>
+              <Divider />
+            </Box>
+            <NavSections>
+              <NavLink href="/content" icon={<ContentIcon />}>
+                Content
+              </NavLink>
+              <NavSection label="Plugins">
+                <NavLink href="/builder" icon={<CtbIcon />} active>
+                  Builder
+                </NavLink>
+                <NavLink href="/content" icon={<MediaLibIcon />}>
+                  Media library
+                </NavLink>
+                <NavLink href="/content" icon={<AlertInfoIcon />}>
+                  Documentation
+                </NavLink>
+              </NavSection>
+              <NavSection label="General">
+                <NavLink href="/builder" icon={<PluginsIcon />}>
+                  Plugins
+                </NavLink>
+                <NavLink href="/content" icon={<MarketPlaceIcon />}>
+                  Marketplace
+                </NavLink>
+                <NavLink href="/content" icon={<SettingsIcon />}>
+                  Settings
+                </NavLink>
+              </NavSection>
+            </NavSections>
+            <Box paddingTop={3} paddingBottom={3}>
+              <Divider />
+            </Box>
+            <Box>
+              <button onClick={() => setCondensed((s) => !s)}>{`<`}</button>
+            </Box>
+          </MainNav>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
