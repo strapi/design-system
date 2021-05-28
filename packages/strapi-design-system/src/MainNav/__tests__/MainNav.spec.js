@@ -113,6 +113,7 @@ describe('MainNav', () => {
         width: 14rem;
         background: #ffffff;
         height: 100%;
+        position: relative;
       }
 
       .c7 {
@@ -637,6 +638,7 @@ describe('MainNav', () => {
         width: max-content;
         background: #ffffff;
         height: 100%;
+        position: relative;
       }
 
       .c9 > * {
