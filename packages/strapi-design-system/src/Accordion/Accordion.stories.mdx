@@ -1,0 +1,85 @@
+<!--- Accordion.stories.mdx --->
+
+import { useState } from 'react';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import EditIcon from '@strapi/icons/EditIcon';
+import { Accordion } from './Accordion';
+import { AccordionToggle } from './AccordionToggle';
+import { AccordionContent } from './AccordionContent';
+import { Box } from '../Box';
+import { Row } from '../Row';
+import { IconButton } from '../IconButton';
+
+<Meta title="Design System/Molecules/Accordion" component={Accordion} />
+
+# Accordion
+
+This is the doc of the `Accordion` component
+
+## Accordion
+
+Description...
+
+<Canvas>
+  <Story name="base">
+    {() => {
+      const [expanded, setExpanded] = useState(false);
+      return (
+        <div>
+          <Box padding={8} background="neutral100">
+            <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-1">
+              <AccordionToggle
+                title="User informations"
+                description="The following contains information about the current user"
+              />
+              <AccordionContent>
+                <Box padding={3}>My name is John Duff</Box>
+              </AccordionContent>
+            </Accordion>
+          </Box>
+          <Box padding={8} background="neutral0">
+            <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-2">
+              <AccordionToggle
+                variant="secondary"
+                title="User informations 2"
+                description="The following contains information about the current user 2"
+              />
+              <AccordionContent>
+                <Box padding={3}>My name is John Duff</Box>
+              </AccordionContent>
+            </Accordion>
+          </Box>
+          <Box padding={8} background="neutral100">
+            <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-3">
+              <AccordionToggle
+                togglePosition="left"
+                title="User informations 3"
+                description="The following contains information about the current user 3"
+              />
+              <AccordionContent>
+                <Box padding={3}>My name is John Duff</Box>
+              </AccordionContent>
+            </Accordion>
+          </Box>
+          <Box padding={8} background="neutral0">
+            <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-4">
+              <AccordionToggle
+                variant="secondary"
+                togglePosition="left"
+                title="User informations 4"
+                action={
+                  <IconButton onClick={() => console.log('edit')} title="Edit">
+                    <EditIcon />
+                  </IconButton>
+                }
+              />
+              <AccordionContent>
+                <Box padding={3}>My name is John Duff</Box>
+              </AccordionContent>
+            </Accordion>
+          </Box>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
