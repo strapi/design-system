@@ -17,7 +17,7 @@ export const NavUser = ({ src, children, ...props }) => {
 
   return (
     <NavUserBox paddingTop={3} paddingBottom={3} paddingLeft={2} paddingRight={2} as="a" {...props}>
-      <Row as="span">
+      <Row as="span" justifyContent={condensed ? 'center' : undefined}>
         <Avatar src={src} alt="" aria-hidden />
         {condensed ? (
           <VisuallyHidden>

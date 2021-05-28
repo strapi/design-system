@@ -8,6 +8,7 @@ const MainNavWrapper = styled(Grid)`
   width: ${({ condensed }) => (condensed ? 'max-content' : `${224 / 16}rem`)};
   background: ${({ theme }) => theme.colors.neutral0};
   height: 100%;
+  position: relative;
 `;
 
 export const MainNav = ({ condensed, ...props }) => {
