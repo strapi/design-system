@@ -33,18 +33,20 @@ export const DatePicker = ({ initialDate, selectedDate, onChange, label, selecte
     setVisible(false);
   };
 
+  const toggleVisibility = () => setVisible((prevVisible) => !prevVisible);
+
   return (
     <div>
       <TextInput
         ref={inputRef}
-        onClick={() => setVisible((s) => !s)}
+        onClick={toggleVisibility}
         // Prevent input from changing for now
         onChange={() => {}}
         value={formattedDate}
         placeholder={placeholder}
         leftAction={
           <DatePickerButton
-            onClick={() => setVisible((s) => !s)}
+            onClick={toggleVisibility}
             aria-label={selectedDate ? selectedDateLabel(langFormatter.format(selectedDate)) : label}
           >
             <CalendarIcon aria-hidden={true} />
@@ -55,7 +57,7 @@ export const DatePicker = ({ initialDate, selectedDate, onChange, label, selecte
         {...props}
       />
 
-      {inputRef && inputRef.current && inputRef.current.inputWrapperRef && (
+      {inputRef && inputRef.current && inputRef.current.inputWrapperRef && visible && (
         <Popover
           source={inputRef.current.inputWrapperRef}
           visible={visible}
