@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
-import { withDesign } from 'storybook-addon-designs';
 import HelpIcon from '@strapi/icons/HelpIcon';
 import { Textarea } from './Textarea';
 import { Tooltip } from '../Tooltip';
@@ -10,13 +9,6 @@ import { Tooltip } from '../Tooltip';
 <Meta
   title="Textarea"
   component={Textarea}
-  decorators={[withDesign]}
-  parameters={{
-    design: {
-      type: 'figma',
-      url: 'TODO: Fill the according figma file',
-    },
-  }}
 />
 
 # Textarea
