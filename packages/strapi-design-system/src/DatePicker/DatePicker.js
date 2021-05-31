@@ -57,10 +57,9 @@ export const DatePicker = ({ initialDate, selectedDate, onChange, label, selecte
         {...props}
       />
 
-      {inputRef && inputRef.current && inputRef.current.inputWrapperRef && visible && (
+      {inputRef.current && inputRef.current.inputWrapperRef && visible && (
         <Popover
           source={inputRef.current.inputWrapperRef}
-          visible={visible}
           role="dialog"
           aria-modal="true"
           aria-label={label}

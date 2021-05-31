@@ -12,7 +12,7 @@ describe('Popover', () => {
 
     const { container, getByText } = render(
       <ThemeProvider theme={lightTheme}>
-        <Popover source={{ current: source }} visible={true}>
+        <Popover source={{ current: source }}>
           <div>Hello world</div>
         </Popover>
       </ThemeProvider>,
@@ -36,7 +36,6 @@ describe('Popover', () => {
 
       .c1 {
         box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
-        display: block;
         position: absolute;
         border: 1px solid #eaeaef;
         background: #ffffff;
@@ -66,6 +65,7 @@ describe('Popover', () => {
       >
         <div
           class="c0 c1"
+          style="left: 0px; top: 0px;"
         >
           <div
             class="c2 c3"
