@@ -1,19 +1,11 @@
 <!--- {{name}}.stories.mdx --->
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
-import { withDesign } from 'storybook-addon-designs';
 import { {{name}} } from './{{name}}';
 
 <Meta
   title="{{name}}"
   component={ {{name}} }
-  decorators={[withDesign]}
-  parameters={ {
-    design: {
-      type: 'figma',
-      url: 'TODO: Fill the according figma file',
-    },
-  } }
 />
 
 # {{name}}
