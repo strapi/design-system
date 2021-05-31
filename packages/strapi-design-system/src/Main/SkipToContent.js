@@ -6,6 +6,7 @@ import { Box } from '../Box';
 const AnchorBox = styled(Box)`
   text-decoration: none;
   position: absolute;
+  z-index: 9999;
   left: -100%;
   top: -100%;
 
