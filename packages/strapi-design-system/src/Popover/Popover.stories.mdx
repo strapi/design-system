@@ -7,10 +7,7 @@ import { Box } from '../Box';
 import { Button } from '../Button';
 import { Stack } from '../Stack';
 
-<Meta
-  title="Popover"
-  component={Popover}
-/>
+<Meta title="Popover" component={Popover} />
 
 # Popover
 
@@ -30,17 +27,19 @@ Description...
           <button ref={buttonRef} onClick={() => setVisible((s) => !s)}>
             Open popover
           </button>
-          <Popover source={buttonRef} visible={visible} spacingTop={4}>
-            <ul style={{ width: '200px' }}>
-              {Array(15)
-                .fill(null)
-                .map((_, index) => (
-                  <Box key={index} padding={3}>
-                    Element {index}
-                  </Box>
-                ))}
-            </ul>
-          </Popover>
+          {visible && (
+            <Popover source={buttonRef} spacingTop={4}>
+              <ul style={{ width: '200px' }}>
+                {Array(15)
+                  .fill(null)
+                  .map((_, index) => (
+                    <Box key={index} padding={3}>
+                      Element {index}
+                    </Box>
+                  ))}
+              </ul>
+            </Popover>
+          )}
         </Box>
       );
     }}

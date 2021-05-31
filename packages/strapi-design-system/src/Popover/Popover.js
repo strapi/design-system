@@ -1,4 +1,4 @@
-import React, { useRef, useLayoutEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Box } from '../Box';
@@ -18,7 +18,6 @@ const position = (source) => {
 
 const PopoverWrapper = styled(Box)`
   box-shadow: ${({ theme }) => theme.shadows.filterShadow};
-  display: ${({ visible }) => (visible ? 'block' : 'none')};
   position: absolute;
   border: 1px solid ${({ theme }) => theme.colors.neutral150};
   background: ${({ theme }) => theme.colors.neutral0};
@@ -45,31 +44,17 @@ const PopoverScrollable = styled(Box)`
   }
 `;
 
-export const Popover = ({ source, visible, children, spacingTop, ...props }) => {
-  const popoverRef = useRef(null);
+export const Popover = ({ source, children, spacingTop, ...props }) => {
+  const { left, top } = position(source.current);
 
-  useLayoutEffect(() => {
-    if (!popoverRef.current) return;
-
-    if (visible) {
-      const popover = popoverRef.current;
-      const { left, top } = position(source.current);
-
-      popover.style.left = `${left}px`;
-      popover.style.top = `${top}px`;
-    }
-  }, [visible]);
+  const style = {
+    left: `${left}px`,
+    top: `${top}px`,
+  };
 
   return (
     <Portal>
-      <PopoverWrapper
-        ref={popoverRef}
-        hasRadius
-        background="neutral0"
-        visible={visible}
-        padding={1}
-        spacingTop={spacingTop}
-      >
+      <PopoverWrapper style={style} hasRadius background="neutral0" padding={1} spacingTop={spacingTop}>
         <PopoverScrollable paddingRight={1} {...props}>
           {children}
         </PopoverScrollable>
@@ -82,5 +67,4 @@ Popover.propTypes = {
   children: PropTypes.node.isRequired,
   source: PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
   spacingTop: PropTypes.number,
-  visible: PropTypes.bool.isRequired,
 };

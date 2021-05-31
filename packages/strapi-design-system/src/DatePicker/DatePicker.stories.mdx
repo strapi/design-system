@@ -1,0 +1,32 @@
+<!--- DatePicker.stories.mdx --->
+
+import { useState } from 'react';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { DatePicker } from './DatePicker';
+
+<Meta title="DatePicker" component={DatePicker} />
+
+# DatePicker
+
+This is the doc of the `DatePicker` component
+
+## DatePicker
+
+Description...
+
+<Canvas>
+  <Story name="base">
+    {() => {
+      const [date, setDate] = useState();
+      return (
+        <DatePicker
+          onChange={setDate}
+          selectedDate={date}
+          label="Date picker"
+          name="datepicker"
+          selectedDateLabel={(formattedDate) => `Date picker, current is ${formattedDate}`}
+        />
+      );
+    }}
+  </Story>
+</Canvas>

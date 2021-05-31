@@ -4,14 +4,14 @@ import { TableContext } from './TableContext';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 import { focusFocusable } from './focusFocusable';
 
-export const Table = ({ colCount, rowCount, jumpStep, ...props }) => {
+export const Table = ({ colCount, rowCount, jumpStep, initialCol, initialRow, ...props }) => {
   const tableRef = useRef(null);
   const mountedRef = useRef(false);
   /**
    * Rows will always have n+1 line because of the <tr><th></th></tr> elements
    */
-  const [rowIndex, setRowIndex] = useState(0);
-  const [colIndex, setColIndex] = useState(0);
+  const [rowIndex, setRowIndex] = useState(initialRow);
+  const [colIndex, setColIndex] = useState(initialCol);
 
   useEffect(() => {
     if (mountedRef.current) {
@@ -105,10 +105,14 @@ export const Table = ({ colCount, rowCount, jumpStep, ...props }) => {
 
 Table.defaultProps = {
   jumpStep: 3,
+  initialCol: 0,
+  initialRow: 0,
 };
 
 Table.propTypes = {
   colCount: PropTypes.number.isRequired,
+  initialCol: PropTypes.number,
+  initialRow: PropTypes.number,
   jumpStep: PropTypes.number,
   rowCount: PropTypes.number.isRequired,
 };

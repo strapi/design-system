@@ -48,14 +48,14 @@ describe("GenericInput", () => {
 
       expect(container.firstChild).toMatchInlineSnapshot(`
         <div
-          class="sc-Arkif cqHgOr"
+          class="sc-hhIiOg cXALHk"
         >
           <div>
             <div
-              class="sc-efHYUO cwLEVt"
+              class="sc-iklJeh gJvfyo"
             >
               <div
-                class="sc-fujyAs iDPWRy"
+                class="sc-fujyAs ezPyIe"
               >
                 <label
                   class="sc-eCApnc XCYtb"
@@ -65,11 +65,11 @@ describe("GenericInput", () => {
                 </label>
               </div>
               <div
-                class="sc-fujyAs sc-dIvrsQ hbgaeN bldbdh"
+                class="sc-fujyAs sc-dIvrsQ iotgDl bldbdh"
               >
                 <input
                   aria-invalid="false"
-                  class="sc-iemWCZ cIJrJM"
+                  class="sc-iemWCZ LWKNf"
                   id="field-some-id"
                   name="some text"
                   type="text"
@@ -182,7 +182,7 @@ describe("GenericInput", () => {
           role="radiogroup"
         >
           <label
-            class="sc-eCApnc sc-jcwpoC imgJpN jaONGg"
+            class="sc-eCApnc sc-bBjRSN imgJpN jdzIYP"
           >
             <input
               aria-checked="false"
@@ -199,7 +199,7 @@ describe("GenericInput", () => {
             </div>
           </label>
           <label
-            class="sc-eCApnc sc-jcwpoC imgJpN jaONGg"
+            class="sc-eCApnc sc-bBjRSN imgJpN jdzIYP"
           >
             <input
               aria-checked="false"
@@ -260,14 +260,14 @@ describe("GenericInput", () => {
 
       expect(container.firstChild).toMatchInlineSnapshot(`
         <div
-          class="sc-khIgEk fvOCv"
+          class="sc-lbVvki bwfhsz"
         >
           <div>
             <div
-              class="sc-efHYUO cwLEVt"
+              class="sc-iklJeh gJvfyo"
             >
               <div
-                class="sc-fujyAs iDPWRy"
+                class="sc-fujyAs ezPyIe"
               >
                 <label
                   class="sc-eCApnc XCYtb"
@@ -276,16 +276,12 @@ describe("GenericInput", () => {
                   Hello world
                 </label>
               </div>
-              <div
-                class="sc-fujyAs sc-dIvrsQ hbgaeN bldbdh"
-              >
-                <textarea
-                  aria-invalid="false"
-                  class="sc-iemWCZ cIJrJM"
-                  id="field-some-id"
-                  name="long-content"
-                />
-              </div>
+              <textarea
+                aria-invalid="false"
+                class="sc-eirqVv ixVjcw"
+                id="field-some-id"
+                name="long-content"
+              />
             </div>
           </div>
         </div>
