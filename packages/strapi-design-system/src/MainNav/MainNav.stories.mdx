@@ -13,7 +13,9 @@ import { withDesign } from 'storybook-addon-designs';
 import { MainNav } from './MainNav';
 import { NavSection } from './NavSection';
 import { NavSections } from './NavSections';
+import { NavCondense } from './NavCondense';
 import { NavLink } from './NavLink';
+import { NavUser } from './NavUser';
 import { NavBrand } from './NavBrand';
 import { Box } from '../Box';
 import { Divider } from '../Divider';
@@ -47,9 +49,7 @@ Description...
         <Box background="neutral100" padding={10} style={{ height: '100vh' }}>
           <MainNav condensed={condensed}>
             <NavBrand workplace="Workplace" title="Strapi Dashboard" icon={<img src={strapiImage} alt="" />} />
-            <Box paddingBottom={3}>
-              <Divider />
-            </Box>
+            <Divider />
             <NavSections>
               <NavLink href="/content" icon={<ContentIcon />}>
                 Content
@@ -77,12 +77,13 @@ Description...
                 </NavLink>
               </NavSection>
             </NavSections>
-            <Box paddingTop={3} paddingBottom={3}>
-              <Divider />
-            </Box>
-            <Box>
-              <button onClick={() => setCondensed((s) => !s)}>{`<`}</button>
-            </Box>
+            <Divider />
+            <NavUser src="https://avatars.githubusercontent.com/u/3874873?v=4" href="/somewhere-i-belong">
+              John Duff
+            </NavUser>
+            <NavCondense onClick={() => setCondensed((s) => !s)}>
+              {condensed ? 'Expanded the navbar' : 'Collapse the navbar'}
+            </NavCondense>
           </MainNav>
         </Box>
       );

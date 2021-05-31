@@ -1,0 +1,31 @@
+<!--- Avatar.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { withDesign } from 'storybook-addon-designs';
+import { Avatar } from './Avatar';
+
+<Meta
+  title="Avatar"
+  component={Avatar}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: 'figma',
+      url: 'TODO: Fill the according figma file',
+    },
+  }}
+/>
+
+# Avatar
+
+This is the doc of the `Avatar` component
+
+## Avatar
+
+Description...
+
+<Canvas>
+  <Story name="base">
+    <Avatar src="https://avatars.githubusercontent.com/u/3874873?v=4" alt="marvin frachet" />
+  </Story>
+</Canvas>

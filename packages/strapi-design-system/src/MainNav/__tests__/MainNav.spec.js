@@ -81,6 +81,7 @@ describe('MainNav', () => {
       }
 
       .c13 {
+        padding-top: 12px;
         padding-right: 12px;
         padding-left: 12px;
       }
@@ -112,6 +113,7 @@ describe('MainNav', () => {
         width: 14rem;
         background: #ffffff;
         height: 100%;
+        position: relative;
       }
 
       .c7 {
@@ -604,6 +606,7 @@ describe('MainNav', () => {
       }
 
       .c8 {
+        padding-top: 12px;
         padding-right: 12px;
         padding-left: 12px;
       }
@@ -635,6 +638,7 @@ describe('MainNav', () => {
         width: max-content;
         background: #ffffff;
         height: 100%;
+        position: relative;
       }
 
       .c9 > * {
