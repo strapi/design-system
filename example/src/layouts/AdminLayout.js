@@ -6,6 +6,8 @@ import {
   NavSections,
   NavLink,
   NavSection,
+  NavUser,
+  NavCondense,
 } from "@strapi/design-system/MainNav";
 import { Box } from "@strapi/design-system/Box";
 import { Divider } from "@strapi/design-system/Divider";
@@ -32,9 +34,7 @@ export const AdminLayout = ({ children }) => {
             title="Strapi Dashboard"
             icon={<img src={strapiImage} alt="" />}
           />
-          <Box paddingBottom={3}>
-            <Divider />
-          </Box>
+          <Divider />
           <NavSections>
             <NavLink href="/content" icon={<ContentIcon />}>
               Content
@@ -62,12 +62,16 @@ export const AdminLayout = ({ children }) => {
               </NavLink>
             </NavSection>
           </NavSections>
-          <Box paddingTop={3} paddingBottom={3}>
-            <Divider />
-          </Box>
-          <Box>
-            <button onClick={() => setCondensed((s) => !s)}>{`<`}</button>
-          </Box>
+          <Divider />
+          <NavUser
+            src="https://avatars.githubusercontent.com/u/3874873?v=4"
+            href="/somewhere-i-belong"
+          >
+            John Duff
+          </NavUser>
+          <NavCondense onClick={() => setCondensed((s) => !s)}>
+            {condensed ? "Expanded the navbar" : "Collapse the navbar"}
+          </NavCondense>
         </MainNav>
 
         <Box padding={11}>
