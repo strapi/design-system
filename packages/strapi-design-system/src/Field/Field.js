@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { genId } from '../helpers/genId';
 import { FieldContext } from './FieldContext';
 
-export const Field = ({ children, name, error, hint }) => {
-  const idRef = useRef(genId());
+export const Field = ({ children, name, error, hint, id }) => {
+  const idRef = useRef(id || genId());
 
   return (
     <div>
@@ -16,11 +16,13 @@ export const Field = ({ children, name, error, hint }) => {
 Field.defaultProps = {
   error: undefined,
   hint: undefined,
+  id: undefined,
 };
 
 Field.propTypes = {
   children: PropTypes.node.isRequired,
   error: PropTypes.string,
   hint: PropTypes.string,
+  id: PropTypes.string,
   name: PropTypes.string.isRequired,
 };
