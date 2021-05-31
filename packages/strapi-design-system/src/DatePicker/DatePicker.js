@@ -10,6 +10,7 @@ import { generateWeeks } from './generateWeeks';
 import { FocusTrap } from '../FocusTrap';
 import { TextInput } from '../TextInput';
 import { VisuallyHidden } from '../VisuallyHidden';
+import { getDayOfWeek } from './getDayOfWeek';
 
 const DatePickerButton = styled.button`
   border: none;
@@ -22,9 +23,9 @@ export const DatePicker = ({ initialDate, selectedDate, onChange, label, selecte
   const inputRef = useRef(null);
 
   const [weeks, activeRow, activeCol] = generateWeeks(initialDate, selectedDate);
+  const { sun, mon, tue, wed, thu, fri, sat } = getDayOfWeek();
 
   const langFormatter = new Intl.DateTimeFormat();
-
   const formattedDate = selectedDate ? langFormatter.format(selectedDate) : '';
   const placeholder = langFormatter.format(new Date(1970, 0, 1));
 
@@ -70,13 +71,13 @@ export const DatePicker = ({ initialDate, selectedDate, onChange, label, selecte
               <Table colCount={7} rowCount={weeks.length + 1} initialCol={activeCol} initialRow={activeRow} role="grid">
                 <Thead>
                   <Tr>
-                    <DatePickerTh>Sunday</DatePickerTh>
-                    <DatePickerTh>Monday</DatePickerTh>
-                    <DatePickerTh>Tuesday</DatePickerTh>
-                    <DatePickerTh>Wednesday</DatePickerTh>
-                    <DatePickerTh>Thursday</DatePickerTh>
-                    <DatePickerTh>Friday</DatePickerTh>
-                    <DatePickerTh>Saturday</DatePickerTh>
+                    <DatePickerTh>{sun}</DatePickerTh>
+                    <DatePickerTh>{mon}</DatePickerTh>
+                    <DatePickerTh>{tue}</DatePickerTh>
+                    <DatePickerTh>{wed}</DatePickerTh>
+                    <DatePickerTh>{thu}</DatePickerTh>
+                    <DatePickerTh>{fri}</DatePickerTh>
+                    <DatePickerTh>{sat}</DatePickerTh>
                   </Tr>
                 </Thead>
                 <Tbody>
