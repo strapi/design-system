@@ -4,7 +4,7 @@ describe('Table', () => {
   describe('Default story', () => {
     beforeEach(async () => {
       // This is the URL of the Storybook Iframe
-      await page.goto('http://localhost:6006/iframe.html?id=table--base&viewMode=story');
+      await page.goto('http://localhost:6006/iframe.html?id=design-system-atoms-table--base&viewMode=story');
       await injectAxe(page);
     });
 
@@ -145,7 +145,7 @@ describe('Table', () => {
   describe('Simple story', () => {
     beforeEach(async () => {
       // This is the URL of the Storybook Iframe
-      await page.goto('http://localhost:6006/iframe.html?id=table--simple&viewMode=story');
+      await page.goto('http://localhost:6006/iframe.html?id=design-system-atoms-table--simple&viewMode=story');
       await injectAxe(page);
     });
 

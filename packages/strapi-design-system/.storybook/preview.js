@@ -4,6 +4,11 @@ import { VisuallyHidden } from '../src/VisuallyHidden';
 import { lightTheme } from '../src/themes/light-theme';
 
 export const parameters = {
+  options: {
+    storySort: {
+      order: ['Design System', ['Molecules', 'Atoms', 'Organisms']],
+    },
+  },
   actions: { argTypesRegex: '^on[A-Z].*' },
 };
 
