@@ -5,10 +5,7 @@ import BackIcon from '@strapi/icons/BackIcon';
 import NextIcon from '@strapi/icons/NextIcon';
 import { TextButton } from './TextButton';
 
-<Meta
-  title="TextButton"
-  component={TextButton}
-/>
+<Meta title="TextButton" component={TextButton} />
 
 # TextButton
 
@@ -21,10 +18,12 @@ Description...
 <Canvas>
   <Story name="base">
     <div>
-      <TextButton rightIcon={<NextIcon />}>Click on me</TextButton>
+      <TextButton rightIcon={<NextIcon />} leftIcon={<BackIcon />}>
+        Click on me
+      </TextButton>
     </div>
     <div>
-      <TextButton disabled leftIcon={<BackIcon />}>
+      <TextButton disabled leftIcon={<BackIcon />} rightIcon={<NextIcon />}>
         Disabled TextButton
       </TextButton>
     </div>

@@ -24,7 +24,14 @@ export const TextButton = React.forwardRef(({ children, leftIcon, rightIcon, onC
   const handleClick = onClick && !disabled ? onClick : undefined;
 
   return (
-    <TextButtonWrapper ref={ref} aria-disabled={disabled} onClick={handleClick} as="button" {...props}>
+    <TextButtonWrapper
+      ref={ref}
+      aria-disabled={disabled}
+      disabled={disabled}
+      onClick={handleClick}
+      as="button"
+      {...props}
+    >
       {leftIcon && (
         <Box as="span" paddingRight={2} aria-hidden={true}>
           {leftIcon}
