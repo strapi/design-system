@@ -3,18 +3,13 @@ import { Box } from "@strapi/design-system/Box";
 import { H1, Text } from "@strapi/design-system/Text";
 import { Stack } from "@strapi/design-system/Stack";
 import { Link } from "@strapi/design-system/Link";
-import { Grid } from "@strapi/design-system/Grid";
 import { Row } from "@strapi/design-system/Row";
 import { Button } from "@strapi/design-system/Button";
 import { Loader } from "@strapi/design-system/Loader";
 import BackIcon from "@strapi/icons/BackIcon";
 import CheckIcon from "@strapi/icons/CheckIcon";
-import { EditForm } from "./EditView/EditForm";
-import { Information } from "./EditView/Information";
-import { Reviews } from "./EditView/Reviews";
-import { SideActions } from "./EditView/SideAction";
-import { AdminLayout } from "../layouts/AdminLayout";
-import { GenericInput } from "../shared/GenericInput/GenericInput";
+import { EditForm } from "../ContentManager/EditView/EditForm";
+import { OneBlockLayout } from "../layouts/OneBlockLayout";
 
 export const EditViewPage = () => {
   const [loading, setLoading] = useState(true);
@@ -36,8 +31,8 @@ export const EditViewPage = () => {
   }
 
   return (
-    <AdminLayout>
-      <Box>
+    <OneBlockLayout
+      header={
         <Stack size={2}>
           <Link to="/" leftIcon={<BackIcon />}>
             Back
@@ -48,35 +43,11 @@ export const EditViewPage = () => {
           </Row>
           <Text textColor="neutral700">API ID: Restaurant</Text>
         </Stack>
-
-        <Grid
-          paddingTop={10}
-          areas={["form form form sideinfo"]}
-          cols="3fr 1fr"
-          gap={6}
-        >
-          <Box
-            area="form"
-            hasRadius
-            background="neutral0"
-            paddingTop={6}
-            paddingBottom={6}
-            paddingLeft={8}
-            paddingRight={8}
-            shadow="filterShadow"
-          >
-            <EditForm />
-          </Box>
-
-          <Box area="sideinfo" as="aside">
-            <Stack size={3}>
-              <Information />
-              <Reviews />
-              <SideActions />
-            </Stack>
-          </Box>
-        </Grid>
+      }
+    >
+      <Box padding={6}>
+        <EditForm />
       </Box>
-    </AdminLayout>
+    </OneBlockLayout>
   );
 };
