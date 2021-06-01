@@ -37,7 +37,6 @@ export const EditViewPage = () => {
 
   return (
     <AdminLayout>
-      <GenericInput />
       <Box>
         <Stack size={2}>
           <Link to="/" leftIcon={<BackIcon />}>
