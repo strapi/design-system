@@ -22,10 +22,18 @@ export const EditViewPage = () => {
 
   if (loading) {
     return (
-      <Box background="neutral100" paddingTop={6} paddingBottom={6}>
-        <div style={{ textAlign: "center" }}>
-          <Loader>Loading strapi bro</Loader>
-        </div>
+      <Box
+        background="neutral100"
+        paddingTop={6}
+        paddingBottom={6}
+        style={{
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Loader>Loading strapi bro</Loader>
       </Box>
     );
   }
