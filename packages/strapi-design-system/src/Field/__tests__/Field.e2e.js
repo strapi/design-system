@@ -3,7 +3,9 @@ import { injectAxe, checkA11y } from 'axe-playwright';
 describe('Field', () => {
   beforeEach(async () => {
     // This is the URL of the Storybook Iframe
-    await page.goto('http://localhost:6006/iframe.html?id=field--most-complex-input&viewMode=story');
+    await page.goto(
+      'http://localhost:6006/iframe.html?id=design-system-atoms-field--most-complex-input&viewMode=story',
+    );
     await injectAxe(page);
   });
 
