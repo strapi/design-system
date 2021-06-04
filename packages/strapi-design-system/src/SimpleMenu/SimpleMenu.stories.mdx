@@ -1,12 +1,10 @@
 <!--- SimpleMenu.stories.mdx --->
 
+import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
-import { SimpleMenu } from './SimpleMenu';
+import { SimpleMenu, MenuItem } from './SimpleMenu';
 
-<Meta
-  title="SimpleMenu"
-  component={ SimpleMenu }
-/>
+<Meta title="Design System/Atoms/SimpleMenu" component={SimpleMenu} />
 
 # SimpleMenu
 
@@ -18,6 +16,21 @@ Description...
 
 <Canvas>
   <Story name="base">
-    <SimpleMenu />
+    {() => {
+      const [val, setValue] = useState('January');
+      return (
+        <SimpleMenu id="label" label={val}>
+          <MenuItem id="menuItem-January" onClick={() => setValue('January')}>
+            January
+          </MenuItem>
+          <MenuItem id="menuItem-February" onClick={() => setValue('February')}>
+            February
+          </MenuItem>
+          <MenuItem id="menuItem-Strapi" href="https://strapi.io">
+            Strapi website
+          </MenuItem>
+        </SimpleMenu>
+      );
+    }}
   </Story>
 </Canvas>

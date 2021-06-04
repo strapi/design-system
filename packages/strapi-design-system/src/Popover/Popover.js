@@ -30,6 +30,7 @@ const PopoverScrollable = styled(Box)`
   overflow-y: scroll;
 
   &::-webkit-scrollbar {
+    position: absolute;
     width: ${({ theme }) => theme.spaces[1]};
   }
 
@@ -55,9 +56,7 @@ export const Popover = ({ source, children, spacingTop, ...props }) => {
   return (
     <Portal>
       <PopoverWrapper style={style} hasRadius background="neutral0" padding={1} spacingTop={spacingTop}>
-        <PopoverScrollable paddingRight={1} {...props}>
-          {children}
-        </PopoverScrollable>
+        <PopoverScrollable {...props}>{children}</PopoverScrollable>
       </PopoverWrapper>
     </Portal>
   );
