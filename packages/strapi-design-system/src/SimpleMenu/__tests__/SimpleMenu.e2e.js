@@ -12,10 +12,12 @@ describe('SimpleMenu', () => {
   });
 
   it('select the second value of the menu', async () => {
-    await page.click('text="January"');
-    await page.click('text="February"');
+    await page.focus('button');
+    await page.keyboard.press('Enter');
+    await page.keyboard.press('ArrowDown');
+    await page.keyboard.press('Enter');
 
-    const label = await page.textContent('#label p');
+    const label = await page.textContent('button');
     expect(label).toBe('February');
   });
 });

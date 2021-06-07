@@ -4,6 +4,10 @@ import { SimpleMenu, MenuItem } from '../SimpleMenu';
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
 
+jest.mock('uuid', () => ({
+  v4: () => 1,
+}));
+
 describe('SimpleMenu', () => {
   it('snapshots the component', () => {
     const { container } = render(
@@ -52,6 +56,9 @@ describe('SimpleMenu', () => {
 
       <div>
         <button
+          aria-controls="simpleMenu-1"
+          aria-expanded="false"
+          aria-haspopup="true"
           class="c0"
         >
           <div
@@ -95,7 +102,7 @@ describe('SimpleMenu', () => {
     );
 
     const button = await waitFor(() => screen.getByText('January'));
-    fireEvent.click(button);
+    fireEvent.mouseDown(button);
 
     await waitFor(() => {
       expect(screen.getByText('February')).toBeInTheDocument();
@@ -116,7 +123,7 @@ describe('SimpleMenu', () => {
     );
 
     const button = await waitFor(() => screen.getByText('January'));
-    fireEvent.click(button);
+    fireEvent.mouseDown(button);
 
     const menuItemButton = await waitFor(() => screen.getByText('February'));
     fireEvent.click(menuItemButton);

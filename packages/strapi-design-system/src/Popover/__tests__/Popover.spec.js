@@ -42,11 +42,6 @@ describe('Popover', () => {
         overflow-y: scroll;
       }
 
-      .c2::-webkit-scrollbar {
-        position: absolute;
-        width: 4px;
-      }
-
       .c2::-webkit-scrollbar-track {
         background: #ffffff;
       }
