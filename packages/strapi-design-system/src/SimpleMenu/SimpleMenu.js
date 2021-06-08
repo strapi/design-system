@@ -42,9 +42,9 @@ export const MenuItem = ({ children, onClick, href, isFocused, ...props }) => {
   }, [isFocused]);
 
   const menuItemProps = {
-    tabIndex: -1,
+    tabIndex: isFocused ? 0 : -1,
     ref: menuItemRef,
-    role: 'menuItem',
+    role: 'menuitem',
     isFocused,
     ...props,
   };
@@ -91,15 +91,15 @@ export const SimpleMenu = ({ label, children, ...props }) => {
       if (e.key === KeyboardKeys.ESCAPE) {
         setVisible(false);
         setFocusItem(0);
-      }
-      if (e.key === KeyboardKeys.TAB) return;
-
-      if (e.key === KeyboardKeys.DOWN && focusedItemIndex < childrenArray.length - 1) {
-        setFocusItem((prev) => prev + 1);
+        menuButtonRef.current.focus();
       }
 
-      if (e.key === KeyboardKeys.UP && focusedItemIndex > 0) {
-        setFocusItem((prev) => prev - 1);
+      if (e.key === KeyboardKeys.DOWN) {
+        setFocusItem((prev) => (prev === childrenArray.length - 1 ? 0 : prev + 1));
+      }
+
+      if (e.key === KeyboardKeys.UP) {
+        setFocusItem((prev) => (prev === 0 ? childrenArray.length - 1 : prev - 1));
       }
     }
   };
@@ -111,9 +111,9 @@ export const SimpleMenu = ({ label, children, ...props }) => {
   };
 
   const handleBlur = (e) => {
-    if (!e.currentTarget.contains(e.relatedTarget)) {
-      setVisible(false);
-    }
+    // if (!e.currentTarget.contains(e.relatedTarget)) {
+    //   setVisible(false);
+    // }
   };
 
   const handleMenuButtonClick = () => {
@@ -123,9 +123,10 @@ export const SimpleMenu = ({ label, children, ...props }) => {
   const childrenClone = childrenArray.map((child, index) =>
     cloneElement(child, {
       onClick: () => {
-        setVisible(false);
-        setFocusItem(0);
         child.props.onClick();
+        // setFocusItem(0);
+        setVisible(false);
+        menuButtonRef.current.focus();
       },
       isFocused: focusedItemIndex === index,
     }),
@@ -137,10 +138,10 @@ export const SimpleMenu = ({ label, children, ...props }) => {
         aria-haspopup
         aria-expanded={visible}
         aria-controls={menuId}
-        {...props}
         onKeyDown={handleKeyDown}
         onMouseDown={handleMenuButtonClick}
         ref={menuButtonRef}
+        {...props}
       >
         <Box paddingRight={1}>
           <TextButton>{label}</TextButton>
