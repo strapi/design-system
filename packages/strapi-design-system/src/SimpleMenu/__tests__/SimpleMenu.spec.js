@@ -51,7 +51,11 @@ describe('SimpleMenu', () => {
       }
 
       .c0 svg {
-        height: 4px;
+        height: 0.25rem;
+      }
+
+      .c0 svg path {
+        fill: #8e8ea9;
       }
 
       <div>
@@ -64,11 +68,11 @@ describe('SimpleMenu', () => {
           <div
             class="c1"
           >
-            <p
+            <span
               class="c2 c3"
             >
               January
-            </p>
+            </span>
           </div>
           <svg
             aria-hidden="true"

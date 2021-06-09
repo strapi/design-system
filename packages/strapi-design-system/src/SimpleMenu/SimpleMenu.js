@@ -28,7 +28,10 @@ const MenuButton = styled.button`
   align-items: center;
   font-size: ${12 / 16}rem;
   svg {
-    height: 4px;
+    height: ${4 / 16}rem;
+    path {
+      fill: ${({ theme }) => theme.colors.neutral500};
+    }
   }
 `;
 
@@ -105,18 +108,21 @@ export const SimpleMenu = ({ label, children, ...props }) => {
   };
 
   const handleKeyDown = (e) => {
-    if (e.key === KeyboardKeys.ENTER) {
-      setVisible((prevVisible) => !prevVisible);
+    switch (e.key) {
+      case KeyboardKeys.SPACE:
+      case KeyboardKeys.ENTER: {
+        setVisible((prevVisible) => !prevVisible);
+      }
     }
   };
 
   const handleBlur = (e) => {
-    // if (!e.currentTarget.contains(e.relatedTarget)) {
-    //   setVisible(false);
-    // }
+    if (!e.currentTarget.contains(e.relatedTarget)) {
+      setVisible(false);
+    }
   };
 
-  const handleMenuButtonClick = () => {
+  const handleMenuButtonMouseDown = () => {
     setVisible((prevVisible) => !prevVisible);
   };
 
@@ -124,7 +130,6 @@ export const SimpleMenu = ({ label, children, ...props }) => {
     cloneElement(child, {
       onClick: () => {
         child.props.onClick();
-        // setFocusItem(0);
         setVisible(false);
         menuButtonRef.current.focus();
       },
@@ -139,12 +144,12 @@ export const SimpleMenu = ({ label, children, ...props }) => {
         aria-expanded={visible}
         aria-controls={menuId}
         onKeyDown={handleKeyDown}
-        onMouseDown={handleMenuButtonClick}
+        onMouseDown={handleMenuButtonMouseDown}
         ref={menuButtonRef}
         {...props}
       >
         <Box paddingRight={1}>
-          <TextButton>{label}</TextButton>
+          <TextButton as="span">{label}</TextButton>
         </Box>
         <FilterDropdown aria-hidden />
       </MenuButton>
