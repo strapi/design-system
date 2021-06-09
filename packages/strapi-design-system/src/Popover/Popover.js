@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Box } from '../Box';
 import { Portal } from '../Portal';
 
-const position = (source) => {
+const position = (source, fullWidth) => {
   const rect = source.getBoundingClientRect();
 
   const left = rect.left + window.pageXOffset;
@@ -13,6 +13,7 @@ const position = (source) => {
   return {
     left,
     top,
+    width: fullWidth ? rect.width : undefined,
   };
 };
 
@@ -44,12 +45,13 @@ const PopoverScrollable = styled(Box)`
   }
 `;
 
-export const Popover = ({ source, children, spacingTop, ...props }) => {
-  const { left, top } = position(source.current);
+export const Popover = ({ source, children, spacingTop, fullWidth, ...props }) => {
+  const { left, top, width } = position(source.current, fullWidth);
 
   const style = {
     left: `${left}px`,
     top: `${top}px`,
+    width: width ? `${width}px` : undefined,
   };
 
   return (
@@ -63,8 +65,13 @@ export const Popover = ({ source, children, spacingTop, ...props }) => {
   );
 };
 
+Popover.defaultProps = {
+  fullWidth: false,
+};
+
 Popover.propTypes = {
   children: PropTypes.node.isRequired,
+  fullWidth: PropTypes.bool,
   source: PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
   spacingTop: PropTypes.number,
 };
