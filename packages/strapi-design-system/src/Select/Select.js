@@ -38,7 +38,8 @@ export const Select = ({
     setExpanded((s) => !s);
 
     /**
-     * Make sure the focus is sent when React has finished its rendering phase
+     * the ref from the "ul" element is only known when "expanded" is true AND that react has batched the DOM with the according modifications
+     * we also know that react batches stuff every ~16ms, so pushing stuff in a macro-task makes sure React finishes before calling the callback
      */
     setTimeout(() => {
       if (!listRef.current) return;
