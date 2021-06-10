@@ -35,6 +35,9 @@ export const Option = ({ selected, children, onSelect, value, ...props }) => {
         onSelect();
         break;
       }
+
+      default:
+        break;
     }
   };
 

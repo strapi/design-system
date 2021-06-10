@@ -31,6 +31,9 @@ export const SelectList = forwardRef(({ labelledBy, selectedOptionId, children, 
         const options = ref.current.querySelectorAll('[role="option"]');
         return options[options.length - 1].focus();
       }
+
+      default:
+        break;
     }
   };
 

@@ -36,6 +36,9 @@ export const SelectButton = forwardRef(({ children, labelledBy, expanded, onTrig
         onTrigger('up');
         break;
       }
+
+      default:
+        break;
     }
   };
 

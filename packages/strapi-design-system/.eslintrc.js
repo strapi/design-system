@@ -17,5 +17,6 @@ module.exports = {
   ],
   rules: {
     'react/sort-prop-types': 1,
+    'default-case': 'error',
   },
 };

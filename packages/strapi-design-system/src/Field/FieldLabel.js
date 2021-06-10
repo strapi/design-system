@@ -9,7 +9,7 @@ export const FieldLabel = ({ children, ...props }) => {
   const fieldId = `field-${id}`;
 
   return (
-    <Text textColor="neutral800" htmlFor={fieldId} small={true} highlighted={true} as="label" {...props}>
+    <Text textColor="neutral800" htmlFor={fieldId} small highlighted as="label" {...props}>
       {children}
     </Text>
   );
