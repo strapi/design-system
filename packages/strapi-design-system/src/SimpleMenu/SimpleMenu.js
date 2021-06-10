@@ -52,6 +52,12 @@ export const MenuItem = ({ children, onClick, href, isFocused, ...props }) => {
     ...props,
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === KeyboardKeys.SPACE || e.key === KeyboardKeys.ENTER) {
+      onClick();
+    }
+  };
+
   return (
     <Row as="li" justifyContent="center">
       {href ? (
@@ -61,7 +67,7 @@ export const MenuItem = ({ children, onClick, href, isFocused, ...props }) => {
           </Box>
         </OptionLink>
       ) : (
-        <OptionButton onClick={onClick} {...menuItemProps}>
+        <OptionButton onKeyDown={handleKeyDown} onMouseDown={onClick} {...menuItemProps}>
           <Box padding={2}>
             <Text as="span">{children}</Text>
           </Box>
@@ -108,11 +114,8 @@ export const SimpleMenu = ({ label, children, ...props }) => {
   };
 
   const handleKeyDown = (e) => {
-    switch (e.key) {
-      case KeyboardKeys.SPACE:
-      case KeyboardKeys.ENTER: {
-        setVisible((prevVisible) => !prevVisible);
-      }
+    if (e.key === KeyboardKeys.ENTER || e.key === KeyboardKeys.SPACE) {
+      setVisible((prevVisible) => !prevVisible);
     }
   };
 

@@ -130,7 +130,7 @@ describe('SimpleMenu', () => {
     fireEvent.mouseDown(button);
 
     const menuItemButton = await waitFor(() => screen.getByText('February'));
-    fireEvent.click(menuItemButton);
+    fireEvent.mouseDown(menuItemButton);
 
     expect(onClickSpy).toBeCalled();
   });

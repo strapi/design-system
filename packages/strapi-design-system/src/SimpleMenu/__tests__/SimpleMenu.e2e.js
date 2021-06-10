@@ -11,11 +11,11 @@ describe('SimpleMenu', () => {
     await checkA11y(page);
   });
 
-  it('select the second value of the menu', async () => {
+  it.each(['Enter', 'Space'])('select the second value of the menu', async (keyPressed) => {
     await page.focus('button');
-    await page.keyboard.press('Enter');
+    await page.keyboard.press(keyPressed);
     await page.keyboard.press('ArrowDown');
-    await page.keyboard.press('Enter');
+    await page.keyboard.press(keyPressed);
 
     const label = await page.textContent('button');
     expect(label).toBe('February');
