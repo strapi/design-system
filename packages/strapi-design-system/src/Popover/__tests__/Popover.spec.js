@@ -30,10 +30,6 @@ describe('Popover', () => {
         border-radius: 4px;
       }
 
-      .c2 {
-        padding-right: 4px;
-      }
-
       .c1 {
         box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
         position: absolute;
@@ -41,20 +37,16 @@ describe('Popover', () => {
         background: #ffffff;
       }
 
-      .c3 {
+      .c2 {
         max-height: 15rem;
         overflow-y: scroll;
       }
 
-      .c3::-webkit-scrollbar {
-        width: 4px;
-      }
-
-      .c3::-webkit-scrollbar-track {
+      .c2::-webkit-scrollbar-track {
         background: #ffffff;
       }
 
-      .c3::-webkit-scrollbar-thumb {
+      .c2::-webkit-scrollbar-thumb {
         background: #eaeaef;
         border-radius: 4px;
         margin-right: 10px;
@@ -68,7 +60,7 @@ describe('Popover', () => {
           style="left: 0px; top: 0px;"
         >
           <div
-            class="c2 c3"
+            class="c2"
           >
             <div>
               Hello world
