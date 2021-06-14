@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { useField } from './FieldContext';
 import { Text } from '../Text';
 
-export const FieldLabel = ({ children }) => {
+export const FieldLabel = ({ children, ...props }) => {
   const { id } = useField();
 
   const fieldId = `field-${id}`;
 
   return (
-    <Text textColor="neutral800" htmlFor={fieldId} small={true} highlighted={true} as="label">
+    <Text textColor="neutral800" htmlFor={fieldId} small highlighted as="label" {...props}>
       {children}
     </Text>
   );

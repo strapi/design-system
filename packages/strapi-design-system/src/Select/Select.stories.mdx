@@ -1,0 +1,49 @@
+<!--- Select.stories.mdx --->
+
+import { useState } from 'react';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { Select } from './Select';
+import { Option } from './Option';
+import { Stack } from '../Stack';
+
+<Meta title="Select" component={Select} />
+
+# Select
+
+This is the doc of the `Select` component
+
+## Select
+
+Description...
+
+<Canvas>
+  <Story name="base">
+    {() => {
+      const [value, setValue] = useState();
+      const [error, toggleError] = useState();
+      const [disabled, toggleDisabled] = useState();
+      return (
+        <Stack size={11}>
+          <h2>Current value is {value}</h2>
+          <Select
+            id="select1"
+            label="Choose your meal"
+            placeholder="Your example"
+            hint="Description line"
+            clearLabel="Clear the meal"
+            error={error}
+            value={value}
+            onChange={setValue}
+            disabled={disabled}
+          >
+            <Option value={'pizza'}>Pizza</Option>
+            <Option value={'hamburger'}>Hamburger</Option>
+            <Option value={'bagel'}>Bagel</Option>
+          </Select>
+          <button onClick={() => toggleError((s) => (s ? undefined : 'An error occured'))}>Show the error state</button>
+          <button onClick={() => toggleDisabled((s) => !s)}>Show the disabled state</button>
+        </Stack>
+      );
+    }}
+  </Story>
+</Canvas>
