@@ -1,8 +1,8 @@
 import React, { cloneElement, Children } from 'react';
 import PropTypes from 'prop-types';
-import { useTable } from './TableContext';
+import { useTable } from './RawTableContext';
 
-export const Tbody = ({ children, ...props }) => {
+export const RawTbody = ({ children, ...props }) => {
   const { rowIndex, colIndex } = useTable();
 
   /**
@@ -16,6 +16,6 @@ export const Tbody = ({ children, ...props }) => {
   return <tbody {...props}>{childrenClone}</tbody>;
 };
 
-Tbody.propTypes = {
+RawTbody.propTypes = {
   children: PropTypes.node.isRequired,
 };

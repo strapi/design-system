@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import CalendarIcon from '@strapi/icons/Calendar';
 import styled from 'styled-components';
 import { Popover } from '../Popover';
-import { Table, Thead, Tbody, Tr } from '../Table';
+import { RawTable, RawThead, RawTbody, RawTr } from '../RawTable';
 import { DatePickerTh } from './DatePickerTh';
 import { DatePickerTd } from './DatePickerTd';
 import { generateWeeks } from './generateWeeks';
@@ -68,9 +68,15 @@ export const DatePicker = ({ initialDate, selectedDate, onChange, label, selecte
         >
           {visible && (
             <FocusTrap onEscape={() => setVisible(false)}>
-              <Table colCount={7} rowCount={weeks.length + 1} initialCol={activeCol} initialRow={activeRow} role="grid">
-                <Thead>
-                  <Tr>
+              <RawTable
+                colCount={7}
+                rowCount={weeks.length + 1}
+                initialCol={activeCol}
+                initialRow={activeRow}
+                role="grid"
+              >
+                <RawThead>
+                  <RawTr>
                     <DatePickerTh>{sun}</DatePickerTh>
                     <DatePickerTh>{mon}</DatePickerTh>
                     <DatePickerTh>{tue}</DatePickerTh>
@@ -78,11 +84,11 @@ export const DatePicker = ({ initialDate, selectedDate, onChange, label, selecte
                     <DatePickerTh>{thu}</DatePickerTh>
                     <DatePickerTh>{fri}</DatePickerTh>
                     <DatePickerTh>{sat}</DatePickerTh>
-                  </Tr>
-                </Thead>
-                <Tbody>
+                  </RawTr>
+                </RawThead>
+                <RawTbody>
                   {weeks.map((week, index) => (
-                    <Tr key={`week-${index}`}>
+                    <RawTr key={`week-${index}`}>
                       {week.map(({ date, outsideMonth, isSelected }) => {
                         return (
                           <DatePickerTd
@@ -98,10 +104,10 @@ export const DatePicker = ({ initialDate, selectedDate, onChange, label, selecte
                           </DatePickerTd>
                         );
                       })}
-                    </Tr>
+                    </RawTr>
                   ))}
-                </Tbody>
-              </Table>
+                </RawTbody>
+              </RawTable>
             </FocusTrap>
           )}
         </Popover>

@@ -24,7 +24,7 @@ export * from './Row';
 export * from './Searchbar';
 export * from './Stack';
 export * from './Switch';
-export * from './Table';
+export * from './RawTable';
 export * from './Tabs';
 export * from './Tag';
 export * from './Text';

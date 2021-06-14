@@ -1,23 +1,20 @@
-<!--- Table.stories.mdx --->
+<!--- RawTable.stories.mdx --->
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
-import { Table } from './Table';
-import { Th, Td } from './Cell';
-import { Tr } from './Tr';
-import { Thead } from './Thead';
-import { Tbody } from './Tbody';
+import { RawTable } from './RawTable';
+import { RawTh, RawTd } from './RawCell';
+import { RawTr } from './RawTr';
+import { RawThead } from './RawThead';
+import { RawTbody } from './RawTbody';
 import { Box } from '../Box';
 
-<Meta
-  title="Design System/Atoms/Table"
-  component={Table}
-/>
+<Meta title="Design System/Atoms/RawTable" component={RawTable} />
 
-# Table
+# RawTable
 
-This is the doc of the `Table` component
+This is the doc of the `RawTable` component
 
-## Table
+## RawTable
 
 Description...
 
@@ -35,50 +32,50 @@ Description...
         );
       return (
         <Box shadow="filterShadow" padding={3} hasRadius>
-          <Table colCount={COL_COUNT} rowCount={ROW_COUNT}>
-            <Thead>
-              <Tr>
-                <Th>
+          <RawTable colCount={COL_COUNT} rowCount={ROW_COUNT}>
+            <RawThead>
+              <RawTr>
+                <RawTh>
                   <Box padding={2} background="neutral200">
                     One
                   </Box>
-                </Th>
-                <Th>
+                </RawTh>
+                <RawTh>
                   <Box padding={2} background="neutral200">
                     Two
                   </Box>
-                </Th>
-                <Th>
+                </RawTh>
+                <RawTh>
                   <Box padding={2} background="neutral200">
                     Three
                   </Box>
-                </Th>
-                <Th>
+                </RawTh>
+                <RawTh>
                   <Box padding={2} background="neutral200">
                     Four
                   </Box>
-                </Th>
-                <Th>
+                </RawTh>
+                <RawTh>
                   <Box padding={2} background="neutral200">
                     Five
                   </Box>
-                </Th>
-              </Tr>
-            </Thead>
-            <Tbody>
+                </RawTh>
+              </RawTr>
+            </RawThead>
+            <RawTbody>
               {rows.map((row, rowIndex) => (
-                <Tr key={`row-${rowIndex}`}>
+                <RawTr key={`row-${rowIndex}`}>
                   {row.map((cell) => (
-                    <Td key={`cell-${rowIndex}-${cell}`}>
+                    <RawTd key={`cell-${rowIndex}-${cell}`}>
                       <Box padding={2}>
                         {rowIndex}/{cell}
                       </Box>
-                    </Td>
+                    </RawTd>
                   ))}
-                </Tr>
+                </RawTr>
               ))}
-            </Tbody>
-          </Table>
+            </RawTbody>
+          </RawTable>
         </Box>
       );
     }}
@@ -96,55 +93,55 @@ Description...
         );
       return (
         <Box shadow="filterShadow" padding={3} hasRadius>
-          <Table colCount={COL_COUNT} rowCount={ROW_COUNT}>
-            <Thead>
-              <Tr>
-                <Th>
+          <RawTable colCount={COL_COUNT} rowCount={ROW_COUNT}>
+            <RawThead>
+              <RawTr>
+                <RawTh>
                   <Box padding={2} background="neutral200">
                     One
                   </Box>
-                </Th>
-                <Th>
+                </RawTh>
+                <RawTh>
                   <Box padding={2} background="neutral200">
                     Two
                   </Box>
-                </Th>
-                <Th>
+                </RawTh>
+                <RawTh>
                   <Box padding={2} background="neutral200">
                     Three
                   </Box>
-                </Th>
-                <Th>
+                </RawTh>
+                <RawTh>
                   <Box padding={2} background="neutral200">
                     Four
                   </Box>
-                </Th>
-                <Th>
+                </RawTh>
+                <RawTh>
                   <Box padding={2} background="neutral200">
                     Five
                   </Box>
-                </Th>
-              </Tr>
-            </Thead>
-            <Tbody>
-              <Tr>
-                <Td>2/1</Td>
-                <Td>2/2</Td>
-                <Td>2/3</Td>
-                <Td>2/4</Td>
-                <Td>2/5</Td>
-              </Tr>
-              <Tr>
-                <Td>3/1</Td>
-                <Td>
+                </RawTh>
+              </RawTr>
+            </RawThead>
+            <RawTbody>
+              <RawTr>
+                <RawTd>2/1</RawTd>
+                <RawTd>2/2</RawTd>
+                <RawTd>2/3</RawTd>
+                <RawTd>2/4</RawTd>
+                <RawTd>2/5</RawTd>
+              </RawTr>
+              <RawTr>
+                <RawTd>3/1</RawTd>
+                <RawTd>
                   <a href="#">Link to somewhere</a>
-                </Td>
-                <Td>3/3</Td>
-                <Td>3/4</Td>
-                <Td>3/5</Td>
-              </Tr>
-            </Tbody>
-          </Table>
+                </RawTd>
+                <RawTd>3/3</RawTd>
+                <RawTd>3/4</RawTd>
+                <RawTd>3/5</RawTd>
+              </RawTr>
+            </RawTbody>
+          </RawTable>
         </Box>
       );
     }}

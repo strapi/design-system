@@ -1,10 +1,10 @@
 import { injectAxe, checkA11y } from 'axe-playwright';
 
-describe('Table', () => {
+describe('RawTable', () => {
   describe('Default story', () => {
     beforeEach(async () => {
       // This is the URL of the Storybook Iframe
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-atoms-table--base&viewMode=story');
+      await page.goto('http://localhost:6006/iframe.html?id=design-system-atoms-rawtable--base&viewMode=story');
       await injectAxe(page);
     });
 
@@ -145,7 +145,7 @@ describe('Table', () => {
   describe('Simple story', () => {
     beforeEach(async () => {
       // This is the URL of the Storybook Iframe
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-atoms-table--simple&viewMode=story');
+      await page.goto('http://localhost:6006/iframe.html?id=design-system-atoms-rawtable--simple&viewMode=story');
       await injectAxe(page);
     });
 

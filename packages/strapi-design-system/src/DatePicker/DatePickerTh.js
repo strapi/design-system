@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Th } from '../Table';
+import { RawTh } from '../RawTable';
 import { Text } from '../Text';
 import { VisuallyHidden } from '../VisuallyHidden';
 import { Row } from '../Row';
 
-const DatePickerThWrapper = styled(Th)`
+const DatePickerThWrapper = styled(RawTh)`
   // Trick to prevent the outline from overflowing because of the general outline-offset
   outline-offset: -2px;
   border-radius: ${({ theme }) => theme.borderRadius};
