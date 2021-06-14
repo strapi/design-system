@@ -1,27 +1,27 @@
 import { injectAxe, checkA11y } from 'axe-playwright';
 
 describe('Select', () => {
-  beforeEach(async () => {
-    // This is the URL of the Storybook Iframe
-    await page.goto('http://localhost:6006/iframe.html?id=select--base&viewMode=story');
-    await injectAxe(page);
-  });
+  describe('single', () => {
+    beforeEach(async () => {
+      // This is the URL of the Storybook Iframe
+      await page.goto('http://localhost:6006/iframe.html?id=select--base&viewMode=story');
+      await injectAxe(page);
+    });
 
-  it('triggers axe on the document', async () => {
-    await checkA11y(page);
-  });
+    it('triggers axe on the document', async () => {
+      await checkA11y(page);
+    });
 
-  it('triggers axe on the document when the popover is opened', async () => {
-    await page.click('text="Choose your meal"');
-    await checkA11y(page);
-  });
+    it('triggers axe on the document when the popover is opened', async () => {
+      await page.click('text="Choose your meal"');
+      await checkA11y(page);
+    });
 
-  it('triggers axe on the document when the button is disabled', async () => {
-    await page.click('text=Show the disabled state');
-    await checkA11y(page);
-  });
+    it('triggers axe on the document when the button is disabled', async () => {
+      await page.click('text=Show the disabled state');
+      await checkA11y(page);
+    });
 
-  describe('Keyboard interactions', () => {
     it.each(['Enter', 'ArrowDown', 'Space'])(
       'opens the listbox and highlights the first item when pressing %s',
       async (key) => {
@@ -115,6 +115,41 @@ describe('Select', () => {
       await page.keyboard.press(key);
 
       await expect(page).not.toHaveSelector('[role="listbox"]', { timeout: 1000 });
+    });
+  });
+
+  describe('multi', () => {
+    beforeEach(async () => {
+      await page.goto('http://localhost:6006/iframe.html?id=select--multi&viewMode=story');
+      await injectAxe(page);
+    });
+
+    it('triggers axe on the document', async () => {
+      await checkA11y(page);
+    });
+
+    it('triggers axe on the document when the popover is opened', async () => {
+      await page.click('text="Choose your meal"');
+      await checkA11y(page);
+    });
+
+    it('selects multiple values', async () => {
+      await page.focus('#select1');
+      await page.keyboard.press('ArrowDown');
+      await expect(page).toHaveSelector('[role="listbox"]');
+
+      // Select the first option
+      await page.keyboard.press('Enter');
+
+      // Move to the next option and select it
+      await page.keyboard.press('ArrowDown');
+      await page.keyboard.press('Enter');
+
+      // Close the menu to make assertions
+      await page.keyboard.press('Escape');
+
+      await expect(page).toHaveText('#select1', '2 currently selected');
+      await expect(page).toHaveText('h2', 'Current value is pizza,hamburger');
     });
   });
 });

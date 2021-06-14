@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { Select } from './Select';
+import { ClearButton } from './ClearButton';
 import { Option } from './Option';
 import { Stack } from '../Stack';
 
@@ -30,11 +31,49 @@ Description...
             label="Choose your meal"
             placeholder="Your example"
             hint="Description line"
-            clearLabel="Clear the meal"
             error={error}
             value={value}
             onChange={setValue}
             disabled={disabled}
+            action={<ClearButton onClick={() => setValue(undefined)}>Clear the input</ClearButton>}
+          >
+            <Option value={'pizza'}>Pizza</Option>
+            <Option value={'hamburger'}>Hamburger</Option>
+            <Option value={'bagel'}>Bagel</Option>
+          </Select>
+          <button onClick={() => toggleError((s) => (s ? undefined : 'An error occured'))}>Show the error state</button>
+          <button onClick={() => toggleDisabled((s) => !s)}>Show the disabled state</button>
+        </Stack>
+      );
+    }}
+  </Story>
+  <Story name="multi">
+    {() => {
+      const [values, setValues] = useState([]);
+      const [error, toggleError] = useState();
+      const [disabled, toggleDisabled] = useState();
+      const handleChange = (nextSelectValue) => {
+        if (values.includes(nextSelectValue)) {
+          setValues((v) => v.filter((selection) => selection !== nextSelectValue));
+        } else {
+          setValues((v) => [...v, nextSelectValue]);
+        }
+      };
+      return (
+        <Stack size={11}>
+          <h2>Current value is {values.join(',')}</h2>
+          <Select
+            id="select1"
+            label="Choose your meal"
+            placeholder="Your example"
+            hint="Description line"
+            action={<ClearButton onClick={() => setValues([])}>Clear the input</ClearButton>}
+            customizedLabel={(values) => `${values.length} currently selected`}
+            error={error}
+            value={values}
+            onChange={handleChange}
+            disabled={disabled}
+            multi
           >
             <Option value={'pizza'}>Pizza</Option>
             <Option value={'hamburger'}>Hamburger</Option>

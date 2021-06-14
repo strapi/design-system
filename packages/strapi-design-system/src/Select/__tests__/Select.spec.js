@@ -9,7 +9,7 @@ describe('Select', () => {
   it('snapshots the component', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
-        <Select label="Choose your meal" id={1} onChange={() => {}} clearLabel="Clear the selection">
+        <Select label="Choose your meal" id={1} onChange={() => {}}>
           <Option value={'pizza'}>Pizza</Option>
           <Option value={'hamburger'}>Hamburger</Option>
           <Option value={'bagel'}>Bagel</Option>
@@ -197,7 +197,7 @@ describe('Select', () => {
   it('opens the listbox when clicking on the input', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
-        <Select label="Choose your meal" id={1} onChange={() => {}} clearLabel="Clear the selection">
+        <Select label="Choose your meal" id={1} onChange={() => {}}>
           <Option value={'pizza'}>Pizza</Option>
           <Option value={'hamburger'}>Hamburger</Option>
           <Option value={'bagel'}>Bagel</Option>

@@ -24,6 +24,7 @@ describe('BaseCheckbox', () => {
         border-radius: 4px;
         border: 1px solid #c0c0cf;
         -webkit-appearance: none;
+        background: #ffffff;
       }
 
       .c0:checked {
@@ -115,6 +116,7 @@ describe('BaseCheckbox', () => {
         border-radius: 4px;
         border: 1px solid #c0c0cf;
         -webkit-appearance: none;
+        background: #ffffff;
       }
 
       .c0:checked {

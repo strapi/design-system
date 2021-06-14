@@ -1,7 +1,6 @@
-import React, { Children, cloneElement, useRef, useState } from 'react';
+import React, { Children, cloneElement, useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import DropdownIcon from '@strapi/icons/FilterDropdownIcon';
-import CloseAlertIcon from '@strapi/icons/CloseAlertIcon';
 import { SelectButton } from './SelectButton';
 import { Field, FieldHint, FieldLabel, FieldError } from '../Field';
 import { Popover } from '../Popover';
@@ -10,70 +9,42 @@ import { Text } from '../Text';
 import { Row } from '../Row';
 import { genId } from '../helpers/genId';
 import { SelectList } from './SelectList';
-import { SelectButtonWrapper, IconBox, CaretBox } from './components';
+import { SelectButtonWrapper, CaretBox } from './components';
+import { SelectContext } from './SelectContext';
+import { useListRef } from './hooks/useListRef';
+import { useButtonRef } from './hooks/useButtonRef';
+import { VisuallyHidden } from '../VisuallyHidden';
 
 export const Select = ({
   label,
   id,
   children,
+  customizedLabel,
   placeholder,
   onChange,
   value,
   hint,
   error,
   disabled,
-  clearLabel,
+  multi,
+  action,
   ...props
 }) => {
+  const [expanded, setExpanded] = useState(undefined);
   const idRef = useRef(id || genId());
-  const listRef = useRef(null);
-  const buttonRef = useRef(null);
+  const listRef = useListRef(expanded);
+  const buttonRef = useButtonRef(expanded);
   const containerRef = useRef(null);
-  const [expanded, setExpanded] = useState(false);
 
   const labelId = `label-${idRef.current}`;
   const contentId = `content-${idRef.current}`;
 
-  const handleTrigger = (direction = 'down') => {
-    setExpanded((s) => !s);
-
-    /**
-     * the ref from the "ul" element is only known when "expanded" is true AND that react has batched the DOM with the according modifications
-     * we also know that react batches stuff every ~16ms, so pushing stuff in a macro-task makes sure React finishes before calling the callback
-     */
-    setTimeout(() => {
-      if (!listRef.current) return;
-
-      const lastSelected = listRef.current.querySelector('[aria-selected="true"]');
-      const options = listRef.current.querySelectorAll('[role="option"]');
-
-      if (direction === 'up') {
-        const lastOption = lastSelected || options[options.length - 1];
-
-        if (lastOption) {
-          lastOption.focus();
-        }
-      } else {
-        const firstOption = lastSelected || options[0];
-
-        if (firstOption) {
-          firstOption.focus();
-        }
-      }
-    }, 0);
+  const focusButton = () => {
+    buttonRef.current.focus();
   };
 
   const handleEscape = () => {
-    setExpanded(false);
-
-    buttonRef.current.focus();
-  };
-
-  const handleClear = () => {
-    if (disabled) return;
-
-    onChange(undefined);
-    buttonRef.current.focus();
+    setExpanded(undefined);
   };
 
   const handleMouseDown = (e) => {
@@ -84,7 +55,7 @@ export const Select = ({
       return;
     }
 
-    handleTrigger();
+    setExpanded('down');
   };
 
   let selectOptionLabel;
@@ -94,12 +65,19 @@ export const Select = ({
     const optionId = `option-${idRef.current}-${node.props.value}`;
 
     const handleChange = () => {
-      onChange(node.props.value);
-      setExpanded(false);
-      buttonRef.current.focus();
+      if (multi) {
+        onChange(node.props.value);
+      } else {
+        /**
+         * We don't want to hide directly when the Select is a multi select so that the usr
+         * can select multiple values and decide themselves to close the popover
+         */
+        onChange(node.props.value);
+        setExpanded(undefined);
+      }
     };
 
-    const selected = node.props.value === value;
+    const selected = multi ? value.includes(node.props.value) : node.props.value === value;
 
     if (selected) {
       selectOptionLabel = node.props.children;
@@ -110,88 +88,97 @@ export const Select = ({
       id: optionId,
       onSelect: handleChange,
       selected,
+      multi,
     });
   });
 
   return (
-    <Field hint={hint} error={error} id={idRef.current}>
-      <Stack size={1}>
-        <FieldLabel as="span" id={labelId}>
-          {label}
-        </FieldLabel>
+    <SelectContext.Provider value={{ disabled, focusButton }}>
+      <Field hint={hint} error={error} id={idRef.current}>
+        <Stack size={1}>
+          <FieldLabel as="span" id={labelId}>
+            {label}
+          </FieldLabel>
 
-        <SelectButtonWrapper hasError={Boolean(error)} disabled={disabled} ref={containerRef}>
-          <Row justifyContent="space-between" as="span">
-            <SelectButton
-              ref={buttonRef}
-              labelledBy={selectOptionLabel ? `${labelId} ${contentId}` : labelId}
-              expanded={expanded}
-              onTrigger={handleTrigger}
-              id={idRef.current}
-              hasError={Boolean(error)}
-              disabled={disabled}
-              onMouseDown={handleMouseDown}
-              {...props}
-            >
-              <Text id={contentId} as="span" aria-hidden={true} textColor={value ? 'neutral800' : 'neutral600'}>
-                {selectOptionLabel || placeholder}
-              </Text>
-            </SelectButton>
+          <SelectButtonWrapper hasError={Boolean(error)} disabled={disabled} ref={containerRef}>
+            <Row justifyContent="space-between" as="span">
+              <SelectButton
+                ref={buttonRef}
+                labelledBy={selectOptionLabel ? `${labelId} ${contentId}` : labelId}
+                expanded={Boolean(expanded)}
+                onTrigger={setExpanded}
+                id={idRef.current}
+                hasError={Boolean(error)}
+                disabled={disabled}
+                onMouseDown={handleMouseDown}
+                {...props}
+              >
+                <Text id={contentId} as="span" aria-hidden={true} textColor={value ? 'neutral800' : 'neutral600'}>
+                  {customizedLabel ? customizedLabel(value) : selectOptionLabel || placeholder}
+                  {multi && <VisuallyHidden as="span">{value.join(', ')}</VisuallyHidden>}
+                </Text>
+              </SelectButton>
 
-            <Row>
-              {value && (
-                <IconBox as="button" onClick={handleClear} aria-label={clearLabel} aria-disabled={disabled}>
-                  <CloseAlertIcon />
-                </IconBox>
-              )}
+              <Row>
+                {(multi && value.length > 0) || (!multi && value) ? action : undefined}
 
-              <CaretBox paddingLeft={3} aria-hidden as="button" onMouseDown={handleMouseDown} tabIndex={-1}>
-                <DropdownIcon />
-              </CaretBox>
+                <CaretBox paddingLeft={3} aria-hidden as="button" onMouseDown={handleMouseDown} tabIndex={-1}>
+                  <DropdownIcon />
+                </CaretBox>
+              </Row>
             </Row>
-          </Row>
-        </SelectButtonWrapper>
+          </SelectButtonWrapper>
 
-        <FieldHint />
-        <FieldError />
-      </Stack>
+          <FieldHint />
+          <FieldError />
+        </Stack>
 
-      {expanded && (
-        <Popover source={containerRef} spacingTop={1} fullWidth>
-          <SelectList
-            selectId={idRef.current}
-            selectedOptionId={activeOptionId}
-            labelledBy={labelId}
-            ref={listRef}
-            onEscape={handleEscape}
-          >
-            {childrenClone}
-          </SelectList>
-        </Popover>
-      )}
-    </Field>
+        {expanded && (
+          <Popover source={containerRef} spacingTop={1} fullWidth>
+            <SelectList
+              selectId={idRef.current}
+              selectedOptionId={activeOptionId}
+              labelledBy={labelId}
+              ref={listRef}
+              onEscape={handleEscape}
+            >
+              {childrenClone}
+            </SelectList>
+          </Popover>
+        )}
+      </Field>
+    </SelectContext.Provider>
   );
 };
 
 Select.defaultProps = {
+  action: undefined,
   children: [],
+  customizedLabel: undefined,
   disabled: false,
   id: undefined,
   placeholder: undefined,
   value: undefined,
   hint: undefined,
   error: undefined,
+  multi: false,
 };
 
 Select.propTypes = {
+  action: PropTypes.node,
   children: PropTypes.arrayOf(PropTypes.node),
-  clearLabel: PropTypes.string.isRequired,
+  customizedLabel: PropTypes.func,
   disabled: PropTypes.bool,
   error: PropTypes.string,
   hint: PropTypes.string,
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   label: PropTypes.string.isRequired,
+  multi: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  value: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
+    PropTypes.string,
+    PropTypes.number,
+  ]),
 };

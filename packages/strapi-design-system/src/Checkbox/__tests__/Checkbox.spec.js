@@ -25,6 +25,7 @@ describe('Checkbox', () => {
         border-radius: 4px;
         border: 1px solid #c0c0cf;
         -webkit-appearance: none;
+        background: #ffffff;
       }
 
       .c2:checked {
@@ -147,6 +148,7 @@ describe('Checkbox', () => {
         border-radius: 4px;
         border: 1px solid #c0c0cf;
         -webkit-appearance: none;
+        background: #ffffff;
       }
 
       .c2:checked {

@@ -38,9 +38,7 @@ export const SelectList = forwardRef(({ labelledBy, selectedOptionId, children, 
   };
 
   const handleBlur = (e) => {
-    const focusTarget = e.relatedTarget;
-
-    if (!focusTarget || focusTarget.getAttribute('role') !== 'option') {
+    if (!e.currentTarget.contains(e.relatedTarget)) {
       onEscape();
     }
   };

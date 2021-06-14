@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import { Box } from '../Box';
 import { Text } from '../Text';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
+import { BaseCheckbox } from '../BaseCheckbox';
+import { Row } from '../Row';
 
 const OptionBox = styled(Box)`
   width: 100%;
@@ -17,7 +19,7 @@ const OptionBox = styled(Box)`
   }
 `;
 
-export const Option = ({ selected, children, onSelect, value, ...props }) => {
+export const Option = ({ selected, children, onSelect, value, multi, ...props }) => {
   const optionRef = useRef(null);
 
   useEffect(() => {
@@ -45,8 +47,8 @@ export const Option = ({ selected, children, onSelect, value, ...props }) => {
     <OptionBox
       as="li"
       hasRadius
-      paddingLeft={4}
-      paddingRight={4}
+      paddingLeft={multi ? 2 : 4}
+      paddingRight={multi ? 2 : 4}
       paddingTop={2}
       paddingBottom={2}
       ref={optionRef}
@@ -58,20 +60,29 @@ export const Option = ({ selected, children, onSelect, value, ...props }) => {
       onClick={onSelect}
       {...props}
     >
-      <Text as="span" textColor={selected ? 'primary600' : 'neutral800'} highlighted={selected}>
-        {children}
-      </Text>
+      <Row>
+        {multi && (
+          <Box paddingRight={2}>
+            <BaseCheckbox value={selected} aria-hidden={true} tabIndex={-1} />
+          </Box>
+        )}
+        <Text as="span" textColor={selected ? 'primary600' : 'neutral800'} highlighted={selected}>
+          {children}
+        </Text>
+      </Row>
     </OptionBox>
   );
 };
 
 Option.defaultProps = {
   selected: false,
+  multi: false,
   onSelect: () => undefined,
 };
 
 Option.propTypes = {
   children: PropTypes.string.isRequired,
+  multi: PropTypes.bool,
   onSelect: PropTypes.func,
   selected: PropTypes.bool,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
