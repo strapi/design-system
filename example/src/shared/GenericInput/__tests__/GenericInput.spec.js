@@ -123,7 +123,7 @@ describe("GenericInput", () => {
           class="sc-eCApnc sc-fFSPTT imgJpN bwVixM"
         >
           <input
-            class="sc-ksluID bLZHCe"
+            class="sc-ksluID ebQkWf"
             id="some-id"
             name="some text"
             type="checkbox"
