@@ -1,38 +1,38 @@
 import * as React from 'react';
 import { render } from '@testing-library/react';
-import { Table } from '../Table';
-import { Thead } from '../Thead';
-import { Tbody } from '../Tbody';
-import { Tr } from '../Tr';
-import { Td, Th } from '../Cell';
+import { RawTable } from '../RawTable';
+import { RawThead } from '../RawThead';
+import { RawTbody } from '../RawTbody';
+import { RawTr } from '../RawTr';
+import { RawTd, RawTh } from '../RawCell';
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
 
-describe('Table', () => {
+describe('RawTable', () => {
   it('snapshots the component', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
-        <Table colCount={3} rowCount={3}>
-          <Thead>
-            <Tr>
-              <Th>First</Th>
-              <Th>Second</Th>
-              <Th>Third</Th>
-            </Tr>
-          </Thead>
-          <Tbody>
-            <Tr>
-              <Td>1/1</Td>
-              <Td>1/2</Td>
-              <Td>1/3</Td>
-            </Tr>
-            <Tr>
-              <Td>2/1</Td>
-              <Td>2/2</Td>
-              <Td>2/3</Td>
-            </Tr>
-          </Tbody>
-        </Table>
+        <RawTable colCount={3} rowCount={3}>
+          <RawThead>
+            <RawTr>
+              <RawTh>First</RawTh>
+              <RawTh>Second</RawTh>
+              <RawTh>Third</RawTh>
+            </RawTr>
+          </RawThead>
+          <RawTbody>
+            <RawTr>
+              <RawTd>1/1</RawTd>
+              <RawTd>1/2</RawTd>
+              <RawTd>1/3</RawTd>
+            </RawTr>
+            <RawTr>
+              <RawTd>2/1</RawTd>
+              <RawTd>2/2</RawTd>
+              <RawTd>2/3</RawTd>
+            </RawTr>
+          </RawTbody>
+        </RawTable>
       </ThemeProvider>,
     );
 

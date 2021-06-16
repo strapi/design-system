@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import { TableContext } from './TableContext';
+import { RawTableContext } from './RawTableContext';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 import { focusFocusable } from './focusFocusable';
 
-export const Table = ({ colCount, rowCount, jumpStep, initialCol, initialRow, ...props }) => {
+export const RawTable = ({ colCount, rowCount, jumpStep, initialCol, initialRow, ...props }) => {
   const tableRef = useRef(null);
   const mountedRef = useRef(false);
   /**
@@ -97,19 +97,19 @@ export const Table = ({ colCount, rowCount, jumpStep, initialCol, initialRow, ..
   };
 
   return (
-    <TableContext.Provider value={{ rowIndex, colIndex }}>
+    <RawTableContext.Provider value={{ rowIndex, colIndex }}>
       <table ref={tableRef} aria-rowcount={rowCount} aria-colcount={colCount} onKeyDown={handleKeyDown} {...props} />
-    </TableContext.Provider>
+    </RawTableContext.Provider>
   );
 };
 
-Table.defaultProps = {
+RawTable.defaultProps = {
   jumpStep: 3,
   initialCol: 0,
   initialRow: 0,
 };
 
-Table.propTypes = {
+RawTable.propTypes = {
   colCount: PropTypes.number.isRequired,
   initialCol: PropTypes.number,
   initialRow: PropTypes.number,

@@ -2,11 +2,11 @@ import React, { useLayoutEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { getFocusableNodes } from '../helpers/getFocusableNodes';
 
-export const Th = ({ isFocusable, ...props }) => {
+export const RawTh = ({ isFocusable, ...props }) => {
   return <th tabIndex={isFocusable ? 0 : -1} {...props} />;
 };
 
-export const Td = ({ isFocusable, ...props }) => {
+export const RawTd = ({ isFocusable, ...props }) => {
   const tdRef = useRef(null);
 
   useLayoutEffect(() => {
@@ -19,18 +19,18 @@ export const Td = ({ isFocusable, ...props }) => {
   return <td ref={tdRef} {...props} />;
 };
 
-Th.defaultProps = {
+RawTh.defaultProps = {
   isFocusable: false,
 };
 
-Th.propTypes = {
+RawTh.propTypes = {
   isFocusable: PropTypes.bool,
 };
 
-Td.defaultProps = {
+RawTd.defaultProps = {
   isFocusable: false,
 };
 
-Td.propTypes = {
+RawTd.propTypes = {
   isFocusable: PropTypes.bool,
 };
