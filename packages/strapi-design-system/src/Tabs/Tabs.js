@@ -5,13 +5,11 @@ import { Box } from '../Box';
 import { useTabs } from './TabsContext';
 import { Row } from '../Row';
 import { TextButton } from '../Text';
-
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 import { useTabsFocus } from './useTabsFocus';
 
 const TabBox = styled(Box)`
   border-bottom: 1px solid ${({ theme, selected }) => (selected ? theme.colors.neutral0 : theme.colors.neutral150)};
-  border-radius: ${({ theme, selected }) => (selected ? `${theme.borderRadius} ${theme.borderRadius} 0 0` : undefined)};
 `;
 
 const TabButton = styled.button`
@@ -38,6 +36,10 @@ const TabsRow = styled(Row)`
 
   & ${TabButton}:last-of-type ${TabBox} {
     border-radius: ${({ theme }) => `0 ${theme.borderRadius} 0 0`};
+  }
+
+  & ${TabButton}[aria-selected="true"] ${TabBox} {
+    border-radius: ${({ theme }) => `${theme.borderRadius} ${theme.borderRadius} 0 0`};
   }
 `;
 
