@@ -11,6 +11,7 @@ import { Row } from '../Row';
 import { genId } from '../helpers/genId';
 import { SelectList } from './SelectList';
 import { SelectButtonWrapper, IconBox, CaretBox } from './components';
+import { useButtonRef } from './hooks/useButtonRef';
 
 export const Select = ({
   label,
@@ -26,47 +27,19 @@ export const Select = ({
   ...props
 }) => {
   const idRef = useRef(id || genId());
-  const listRef = useRef(null);
-  const buttonRef = useRef(null);
+  const [expanded, setExpanded] = useState(undefined);
+  const buttonRef = useButtonRef(expanded);
   const containerRef = useRef(null);
-  const [expanded, setExpanded] = useState(false);
 
   const labelId = `label-${idRef.current}`;
   const contentId = `content-${idRef.current}`;
 
   const handleTrigger = (direction = 'down') => {
-    setExpanded((s) => !s);
-
-    /**
-     * the ref from the "ul" element is only known when "expanded" is true AND that react has batched the DOM with the according modifications
-     * we also know that react batches stuff every ~16ms, so pushing stuff in a macro-task makes sure React finishes before calling the callback
-     */
-    setTimeout(() => {
-      if (!listRef.current) return;
-
-      const lastSelected = listRef.current.querySelector('[aria-selected="true"]');
-      const options = listRef.current.querySelectorAll('[role="option"]');
-
-      if (direction === 'up') {
-        const lastOption = lastSelected || options[options.length - 1];
-
-        if (lastOption) {
-          lastOption.focus();
-        }
-      } else {
-        const firstOption = lastSelected || options[0];
-
-        if (firstOption) {
-          firstOption.focus();
-        }
-      }
-    }, 0);
+    setExpanded(direction);
   };
 
   const handleEscape = () => {
-    setExpanded(false);
-
-    buttonRef.current.focus();
+    setExpanded(undefined);
   };
 
   const handleClear = () => {
@@ -84,31 +57,28 @@ export const Select = ({
       return;
     }
 
-    handleTrigger();
+    handleTrigger('down');
+  };
+
+  const handleSelectItem = (value) => {
+    onChange(value);
+    setExpanded(undefined);
   };
 
   let selectOptionLabel;
-  let activeOptionId;
 
   const childrenClone = Children.toArray(children).map((node) => {
     const optionId = `option-${idRef.current}-${node.props.value}`;
-
-    const handleChange = () => {
-      onChange(node.props.value);
-      setExpanded(false);
-      buttonRef.current.focus();
-    };
 
     const selected = node.props.value === value;
 
     if (selected) {
       selectOptionLabel = node.props.children;
-      activeOptionId = optionId;
     }
 
     return cloneElement(node, {
       id: optionId,
-      onSelect: handleChange,
+      onClick: () => handleSelectItem(node.props.value),
       selected,
     });
   });
@@ -125,7 +95,7 @@ export const Select = ({
             <SelectButton
               ref={buttonRef}
               labelledBy={selectOptionLabel ? `${labelId} ${contentId}` : labelId}
-              expanded={expanded}
+              expanded={Boolean(expanded)}
               onTrigger={handleTrigger}
               id={idRef.current}
               hasError={Boolean(error)}
@@ -160,10 +130,10 @@ export const Select = ({
         <Popover source={containerRef} spacingTop={1} fullWidth>
           <SelectList
             selectId={idRef.current}
-            selectedOptionId={activeOptionId}
             labelledBy={labelId}
-            ref={listRef}
             onEscape={handleEscape}
+            expanded={expanded}
+            onSelectItem={onChange}
           >
             {childrenClone}
           </SelectList>
