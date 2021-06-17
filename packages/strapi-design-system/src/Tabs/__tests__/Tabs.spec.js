@@ -71,7 +71,6 @@ describe('Tabs', () => {
 
       .c6 {
         border-bottom: 1px solid #ffffff;
-        border-radius: 4px 4px 0 0;
       }
 
       .c10 {
@@ -101,6 +100,10 @@ describe('Tabs', () => {
 
       .c1 .c2:last-of-type .c4 {
         border-radius: 0 4px 0 0;
+      }
+
+      .c1 .c2[aria-selected="true"] .c4 {
+        border-radius: 4px 4px 0 0;
       }
 
       <div>
