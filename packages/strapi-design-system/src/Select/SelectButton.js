@@ -2,6 +2,7 @@ import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
+import { DownState, UpState } from './constants';
 
 const StyledSelectButton = styled.button`
   text-align: left;
@@ -28,12 +29,14 @@ export const SelectButton = forwardRef(({ children, labelledBy, expanded, onTrig
       case KeyboardKeys.DOWN:
       case KeyboardKeys.SPACE:
       case KeyboardKeys.ENTER: {
-        onTrigger('down');
+        e.preventDefault();
+        onTrigger(DownState.Keyboard);
         break;
       }
 
       case KeyboardKeys.UP: {
-        onTrigger('up');
+        e.preventDefault();
+        onTrigger(UpState.Keyboard);
         break;
       }
 

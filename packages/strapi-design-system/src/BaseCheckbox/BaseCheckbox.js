@@ -1,7 +1,6 @@
-import React, { useEffect, useRef, forwardRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-
 import { getCheckboxSize } from './utils';
 import checkmarkIcon from './assets/checkmark.svg';
 import checkmarkIconDisabled from './assets/checkmark-black.svg';

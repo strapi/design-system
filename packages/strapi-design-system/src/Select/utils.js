@@ -1,3 +1,5 @@
+import computeScrollIntoView from 'compute-scroll-into-view';
+
 export const changeDescendant = (list, option) => {
   list.setAttribute('aria-activedescendant', option.getAttribute('id'));
 
@@ -5,6 +7,17 @@ export const changeDescendant = (list, option) => {
 
   options.forEach((opt) => opt.classList.remove('is-focused'));
   option.classList.add('is-focused');
+
+  const actions = computeScrollIntoView(option, {
+    scrollMode: 'if-needed',
+    block: 'nearest',
+    inline: 'nearest',
+  });
+
+  actions.forEach(({ el, top, left }) => {
+    el.scrollTop = top;
+    el.scrollLeft = left;
+  });
 };
 
 export const getActiveDescendant = (list) => {

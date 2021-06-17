@@ -1,7 +1,8 @@
-import { useEffect, useRef } from 'react';
+import { useRef, useEffect } from 'react';
+import { DownState, UpState } from '../constants';
 import { changeDescendant } from '../utils';
 
-export const useListRef = (expanded, onSelectItem) => {
+export const useListRef = (expanded, onSelectItem, multi) => {
   const listRef = useRef(null);
 
   useEffect(() => {
@@ -9,6 +10,7 @@ export const useListRef = (expanded, onSelectItem) => {
   }, []);
 
   useEffect(() => {
+    if (!listRef.current) return;
     const lastSelected = listRef.current.querySelector('[aria-selected="true"]');
     const options = listRef.current.querySelectorAll('[role="option"]');
 
@@ -16,17 +18,20 @@ export const useListRef = (expanded, onSelectItem) => {
 
     if (lastSelected) {
       nextOption = lastSelected;
-    } else if (expanded === 'up') {
+    } else if (expanded === UpState.Keyboard) {
       nextOption = options[options.length - 1];
-    } else if (expanded === 'down') {
+    } else if (expanded === DownState.Keyboard) {
       nextOption = options[0];
     }
 
     if (nextOption) {
       changeDescendant(listRef.current, nextOption);
-      onSelectItem(nextOption.getAttribute('data-strapi-value'));
+
+      if (!multi) {
+        onSelectItem(nextOption.getAttribute('data-strapi-value'));
+      }
     }
-  }, [expanded]);
+  }, []);
 
   return listRef;
 };
