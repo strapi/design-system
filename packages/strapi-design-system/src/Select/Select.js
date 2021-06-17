@@ -12,11 +12,14 @@ import { genId } from '../helpers/genId';
 import { SelectList } from './SelectList';
 import { SelectButtonWrapper, IconBox, CaretBox } from './components';
 import { useButtonRef } from './hooks/useButtonRef';
+import { VisuallyHidden } from '../VisuallyHidden';
+import { changeDescendant } from './utils';
 
 export const Select = ({
   label,
   id,
   children,
+  customizeContent,
   placeholder,
   onChange,
   value,
@@ -24,18 +27,45 @@ export const Select = ({
   error,
   disabled,
   clearLabel,
+  onClear,
+  multi,
   ...props
 }) => {
   const idRef = useRef(id || genId());
   const [expanded, setExpanded] = useState(undefined);
   const buttonRef = useButtonRef(expanded);
   const containerRef = useRef(null);
+  const listRef = useRef(null);
 
   const labelId = `label-${idRef.current}`;
   const contentId = `content-${idRef.current}`;
+  const ariaDescribedBy = error ? `field-error-${idRef.current}` : hint ? `field-hint-${idRef.current}` : undefined;
 
   const handleTrigger = (direction = 'down') => {
     setExpanded(direction);
+
+    setTimeout(() => {
+      const lastSelected = listRef.current.querySelector('[aria-selected="true"]');
+      const options = listRef.current.querySelectorAll('[role="option"]');
+
+      let nextOption;
+
+      if (lastSelected) {
+        nextOption = lastSelected;
+      } else if (direction === 'up') {
+        nextOption = options[options.length - 1];
+      } else if (direction === 'down') {
+        nextOption = options[0];
+      }
+
+      if (nextOption) {
+        changeDescendant(listRef.current, nextOption);
+
+        if (!multi) {
+          onChange(nextOption.getAttribute('data-strapi-value'));
+        }
+      }
+    }, 0);
   };
 
   const handleEscape = () => {
@@ -45,7 +75,7 @@ export const Select = ({
   const handleClear = () => {
     if (disabled) return;
 
-    onChange(undefined);
+    onClear();
     buttonRef.current.focus();
   };
 
@@ -57,12 +87,15 @@ export const Select = ({
       return;
     }
 
-    handleTrigger('down');
+    setExpanded('down');
   };
 
   const handleSelectItem = (value) => {
     onChange(value);
-    setExpanded(undefined);
+
+    if (!multi) {
+      setExpanded(undefined);
+    }
   };
 
   let selectOptionLabel;
@@ -70,7 +103,7 @@ export const Select = ({
   const childrenClone = Children.toArray(children).map((node) => {
     const optionId = `option-${idRef.current}-${node.props.value}`;
 
-    const selected = node.props.value === value;
+    const selected = multi ? value.includes(node.props.value) : node.props.value === value;
 
     if (selected) {
       selectOptionLabel = node.props.children;
@@ -80,6 +113,7 @@ export const Select = ({
       id: optionId,
       onClick: () => handleSelectItem(node.props.value),
       selected,
+      multi,
     });
   });
 
@@ -95,6 +129,7 @@ export const Select = ({
             <SelectButton
               ref={buttonRef}
               labelledBy={selectOptionLabel ? `${labelId} ${contentId}` : labelId}
+              aria-describedby={ariaDescribedBy}
               expanded={Boolean(expanded)}
               onTrigger={handleTrigger}
               id={idRef.current}
@@ -104,12 +139,13 @@ export const Select = ({
               {...props}
             >
               <Text id={contentId} as="span" aria-hidden={true} textColor={value ? 'neutral800' : 'neutral600'}>
-                {selectOptionLabel || placeholder}
+                {customizeContent ? customizeContent(value) : selectOptionLabel || placeholder}
+                {multi && <VisuallyHidden as="span">{value.join(', ')}</VisuallyHidden>}
               </Text>
             </SelectButton>
 
             <Row>
-              {value && (
+              {((multi && value && value.length) || (!multi && value)) && onClear && (
                 <IconBox as="button" onClick={handleClear} aria-label={clearLabel} aria-disabled={disabled}>
                   <CloseAlertIcon />
                 </IconBox>
@@ -129,11 +165,13 @@ export const Select = ({
       {expanded && (
         <Popover source={containerRef} spacingTop={1} fullWidth>
           <SelectList
+            ref={listRef}
             selectId={idRef.current}
             labelledBy={labelId}
             onEscape={handleEscape}
             expanded={expanded}
             onSelectItem={onChange}
+            multi={multi}
           >
             {childrenClone}
           </SelectList>
@@ -145,8 +183,11 @@ export const Select = ({
 
 Select.defaultProps = {
   children: [],
+  customizeContent: undefined,
   disabled: false,
   id: undefined,
+  multi: false,
+  onClear: undefined,
   placeholder: undefined,
   value: undefined,
   hint: undefined,
@@ -156,12 +197,19 @@ Select.defaultProps = {
 Select.propTypes = {
   children: PropTypes.arrayOf(PropTypes.node),
   clearLabel: PropTypes.string.isRequired,
+  customizeContent: PropTypes.func,
   disabled: PropTypes.bool,
   error: PropTypes.string,
   hint: PropTypes.string,
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   label: PropTypes.string.isRequired,
+  multi: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
+  onClear: PropTypes.func,
   placeholder: PropTypes.string,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  value: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
+    PropTypes.string,
+    PropTypes.number,
+  ]),
 };

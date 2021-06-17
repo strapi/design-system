@@ -1,11 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { forwardRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
-import { useListRef } from './hooks/useListRef';
+import { Stack } from '../Stack';
 import { changeDescendant, getActiveDescendant } from './utils';
 
-export const SelectList = ({ labelledBy, onSelectItem, children, onEscape, expanded }) => {
-  const listRef = useListRef(expanded, onSelectItem);
+export const SelectList = forwardRef(({ labelledBy, onSelectItem, children, multi, onEscape, expanded }, listRef) => {
+  useEffect(() => {
+    listRef.current.focus();
+  }, []);
 
   const handleKeyDown = (e) => {
     switch (e.key) {
@@ -15,39 +17,63 @@ export const SelectList = ({ labelledBy, onSelectItem, children, onEscape, expan
       }
 
       case KeyboardKeys.DOWN: {
+        e.preventDefault();
         const currentOption = getActiveDescendant(listRef.current);
         const nextOption = currentOption.nextSibling;
 
         if (nextOption) {
           changeDescendant(listRef.current, nextOption);
-          return onSelectItem(nextOption.getAttribute('data-strapi-value'));
-        }
 
-        const options = listRef.current.querySelectorAll('[role="option"]');
-        const firstOption = options[0];
-        changeDescendant(listRef.current, firstOption);
-        return onSelectItem(firstOption.getAttribute('data-strapi-value'));
+          if (!multi) {
+            onSelectItem(nextOption.getAttribute('data-strapi-value'));
+          }
+        } else {
+          const options = listRef.current.querySelectorAll('[role="option"]');
+          const firstOption = options[0];
+
+          changeDescendant(listRef.current, firstOption);
+
+          if (!multi) {
+            onSelectItem(firstOption.getAttribute('data-strapi-value'));
+          }
+        }
+        break;
       }
 
       case KeyboardKeys.UP: {
+        e.preventDefault();
         const currentOption = getActiveDescendant(listRef.current);
         const previousOption = currentOption.previousSibling;
 
         if (previousOption) {
           changeDescendant(listRef.current, previousOption);
-          return onSelectItem(previousOption.getAttribute('data-strapi-value'));
-        }
 
-        const options = listRef.current.querySelectorAll('[role="option"]');
-        const lastOption = options[options.length - 1];
-        changeDescendant(listRef.current, lastOption);
-        return onSelectItem(lastOption.getAttribute('data-strapi-value'));
+          if (!multi) {
+            onSelectItem(previousOption.getAttribute('data-strapi-value'));
+          }
+        } else {
+          const options = listRef.current.querySelectorAll('[role="option"]');
+          const lastOption = options[options.length - 1];
+
+          changeDescendant(listRef.current, lastOption);
+
+          if (!multi) {
+            onSelectItem(lastOption.getAttribute('data-strapi-value'));
+          }
+        }
+        break;
       }
 
       case KeyboardKeys.SPACE:
       case KeyboardKeys.ENTER: {
         e.preventDefault();
-        onEscape();
+
+        if (multi) {
+          const currentOption = getActiveDescendant(listRef.current);
+          onSelectItem(currentOption.getAttribute('data-strapi-value'));
+        } else {
+          onEscape();
+        }
 
         break;
       }
@@ -58,24 +84,34 @@ export const SelectList = ({ labelledBy, onSelectItem, children, onEscape, expan
   };
 
   return (
-    <ul
+    <Stack
+      as="ul"
+      size={1}
       role="listbox"
       aria-labelledby={labelledBy}
       tabIndex={-1}
       ref={listRef}
       onKeyDown={handleKeyDown}
       onBlur={onEscape}
+      aria-multiselectable={multi}
       // aria-activedescendant, this props is dynamically added in the useListRef
     >
       {children}
-    </ul>
+    </Stack>
   );
+});
+
+SelectList.displayName = 'SelectList';
+
+SelectList.defaultProps = {
+  multi: false,
 };
 
 SelectList.propTypes = {
   children: PropTypes.node.isRequired,
   expanded: PropTypes.oneOf(['up', 'down']).isRequired,
   labelledBy: PropTypes.string.isRequired,
+  multi: PropTypes.bool,
   onEscape: PropTypes.func.isRequired,
   onSelectItem: PropTypes.func.isRequired,
 };

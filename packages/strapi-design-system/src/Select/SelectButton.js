@@ -28,11 +28,13 @@ export const SelectButton = forwardRef(({ children, labelledBy, expanded, onTrig
       case KeyboardKeys.DOWN:
       case KeyboardKeys.SPACE:
       case KeyboardKeys.ENTER: {
+        e.preventDefault();
         onTrigger('down');
         break;
       }
 
       case KeyboardKeys.UP: {
+        e.preventDefault();
         onTrigger('up');
         break;
       }
