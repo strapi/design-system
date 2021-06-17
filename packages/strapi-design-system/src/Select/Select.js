@@ -45,6 +45,7 @@ export const Select = ({
     setExpanded(direction);
 
     setTimeout(() => {
+      if (!listRef.current) return;
       const lastSelected = listRef.current.querySelector('[aria-selected="true"]');
       const options = listRef.current.querySelectorAll('[role="option"]');
 
