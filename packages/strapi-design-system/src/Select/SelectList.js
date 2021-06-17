@@ -1,13 +1,13 @@
-import React, { forwardRef, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 import { Stack } from '../Stack';
 import { changeDescendant, getActiveDescendant } from './utils';
+import { useListRef } from './hooks/useListRef';
+import { DownState, UpState } from './constants';
 
-export const SelectList = forwardRef(({ labelledBy, onSelectItem, children, multi, onEscape, expanded }, listRef) => {
-  useEffect(() => {
-    listRef.current.focus();
-  }, []);
+export const SelectList = ({ labelledBy, onSelectItem, children, multi, onEscape, expanded }) => {
+  const listRef = useListRef(expanded, onSelectItem, multi);
 
   const handleKeyDown = (e) => {
     switch (e.key) {
@@ -99,9 +99,7 @@ export const SelectList = forwardRef(({ labelledBy, onSelectItem, children, mult
       {children}
     </Stack>
   );
-});
-
-SelectList.displayName = 'SelectList';
+};
 
 SelectList.defaultProps = {
   multi: false,
@@ -109,7 +107,7 @@ SelectList.defaultProps = {
 
 SelectList.propTypes = {
   children: PropTypes.node.isRequired,
-  expanded: PropTypes.oneOf(['up', 'down']).isRequired,
+  expanded: PropTypes.oneOf([UpState.Keyboard, UpState.Mouse, DownState.Keyboard, DownState.Mouse]).isRequired,
   labelledBy: PropTypes.string.isRequired,
   multi: PropTypes.bool,
   onEscape: PropTypes.func.isRequired,

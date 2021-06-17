@@ -13,7 +13,7 @@ import { SelectList } from './SelectList';
 import { SelectButtonWrapper, IconBox, CaretBox } from './components';
 import { useButtonRef } from './hooks/useButtonRef';
 import { VisuallyHidden } from '../VisuallyHidden';
-import { changeDescendant } from './utils';
+import { DownState } from './constants';
 
 export const Select = ({
   label,
@@ -35,39 +35,10 @@ export const Select = ({
   const [expanded, setExpanded] = useState(undefined);
   const buttonRef = useButtonRef(expanded);
   const containerRef = useRef(null);
-  const listRef = useRef(null);
 
   const labelId = `label-${idRef.current}`;
   const contentId = `content-${idRef.current}`;
   const ariaDescribedBy = error ? `field-error-${idRef.current}` : hint ? `field-hint-${idRef.current}` : undefined;
-
-  const handleTrigger = (direction = 'down') => {
-    setExpanded(direction);
-
-    setTimeout(() => {
-      if (!listRef.current) return;
-      const lastSelected = listRef.current.querySelector('[aria-selected="true"]');
-      const options = listRef.current.querySelectorAll('[role="option"]');
-
-      let nextOption;
-
-      if (lastSelected) {
-        nextOption = lastSelected;
-      } else if (direction === 'up') {
-        nextOption = options[options.length - 1];
-      } else if (direction === 'down') {
-        nextOption = options[0];
-      }
-
-      if (nextOption) {
-        changeDescendant(listRef.current, nextOption);
-
-        if (!multi) {
-          onChange(nextOption.getAttribute('data-strapi-value'));
-        }
-      }
-    }, 0);
-  };
 
   const handleEscape = () => {
     setExpanded(undefined);
@@ -88,7 +59,7 @@ export const Select = ({
       return;
     }
 
-    setExpanded('down');
+    setExpanded(DownState.Mouse);
   };
 
   const handleSelectItem = (value) => {
@@ -132,7 +103,7 @@ export const Select = ({
               labelledBy={selectOptionLabel ? `${labelId} ${contentId}` : labelId}
               aria-describedby={ariaDescribedBy}
               expanded={Boolean(expanded)}
-              onTrigger={handleTrigger}
+              onTrigger={setExpanded}
               id={idRef.current}
               hasError={Boolean(error)}
               disabled={disabled}
@@ -166,7 +137,6 @@ export const Select = ({
       {expanded && (
         <Popover source={containerRef} spacingTop={1} fullWidth>
           <SelectList
-            ref={listRef}
             selectId={idRef.current}
             labelledBy={labelId}
             onEscape={handleEscape}

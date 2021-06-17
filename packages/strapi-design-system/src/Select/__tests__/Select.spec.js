@@ -481,6 +481,7 @@ describe('Select', () => {
               class="c13"
             >
               <ul
+                aria-activedescendant="option-select1-pizza"
                 aria-labelledby="label-select1"
                 aria-multiselectable="false"
                 class="c0"
@@ -489,7 +490,7 @@ describe('Select', () => {
               >
                 <li
                   aria-selected="true"
-                  class="c14 c15"
+                  class="c14 c15 is-focused"
                   data-strapi-value="pizza"
                   id="option-select1-pizza"
                   role="option"
@@ -923,6 +924,7 @@ describe('Select', () => {
               class="c2"
             >
               <ul
+                aria-activedescendant="option-select1-pizza"
                 aria-labelledby="label-select1"
                 aria-multiselectable="true"
                 class="c3"
@@ -931,7 +933,7 @@ describe('Select', () => {
               >
                 <li
                   aria-selected="true"
-                  class="c4 c5"
+                  class="c4 c5 is-focused"
                   data-strapi-value="pizza"
                   id="option-select1-pizza"
                   role="option"
