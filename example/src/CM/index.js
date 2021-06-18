@@ -1,17 +1,17 @@
-import React, { useReducer } from 'react';
-import _ from 'lodash';
-import { Box, Button, Grid, H1, Row, Stack } from '@strapi/design-system';
-import { OneBlockLayout } from '../layouts/OneBlockLayout';
-import Inputs from './Inputs';
-import { layout } from './utils/layout';
-import schema, { getYupInnerErrors } from './utils/schema';
+import React, { useReducer } from "react";
+import _ from "lodash";
+import { Box, Button, Grid, H1, Row, Stack } from "@strapi/design-system";
+import { OneBlockLayout } from "../layouts/OneBlockLayout";
+import Inputs from "./Inputs";
+import { layout } from "./utils/layout";
+import schema, { getYupInnerErrors } from "./utils/schema";
 
 const initialState = {
   initialData: {
-    name: 'toto',
+    name: "toto",
   },
   modifiedData: {
-    name: 'toto',
+    name: "toto",
   },
   formErrors: null,
 };
@@ -19,15 +19,15 @@ const initialState = {
 const reducer = (state, action) => {
   // eslint-disable-next-line default-case
   switch (action.type) {
-    case 'ON_CHANGE': {
+    case "ON_CHANGE": {
       // const keys = 'name' || 'name.1.name'
 
       const nextState = _.cloneDeep(state);
-      _.set(nextState, ['modifiedData', ...action.keys], action.value);
+      _.set(nextState, ["modifiedData", ...action.keys], action.value);
 
       return nextState;
     }
-    case 'SET_ERRORS': {
+    case "SET_ERRORS": {
       return { ...state, formErrors: action.errors };
     }
     default:
@@ -36,12 +36,15 @@ const reducer = (state, action) => {
 };
 
 const CM = () => {
-  const [{ formErrors, modifiedData }, dispatch] = useReducer(reducer, initialState);
+  const [{ formErrors, modifiedData }, dispatch] = useReducer(
+    reducer,
+    initialState
+  );
 
   const handleChange = ({ name, value }) => {
     dispatch({
-      type: 'ON_CHANGE',
-      keys: name.split('.'),
+      type: "ON_CHANGE",
+      keys: name.split("."),
       value,
     });
   };
@@ -53,14 +56,14 @@ const CM = () => {
       await schema.validate(modifiedData, { abortEarly: false });
 
       dispatch({
-        type: 'SET_ERRORS',
+        type: "SET_ERRORS",
         errors: null,
       });
     } catch (err) {
       const errors = getYupInnerErrors(err);
 
       dispatch({
-        type: 'SET_ERRORS',
+        type: "SET_ERRORS",
         errors,
       });
     }
@@ -84,8 +87,9 @@ const CM = () => {
               const colArray = row.map((input) => input.size);
               const length = colArray.reduce((acc, curr) => acc + curr, 0);
               const rest = 12 - length;
-              const defaultCols = colArray.map((s) => s + 'fr').join(' ');
-              const cols = rest === 0 ? defaultCols : defaultCols + ' ' + rest + 'fr';
+              const defaultCols = colArray.map((s) => s + "fr").join(" ");
+              const cols =
+                rest === 0 ? defaultCols : defaultCols + " " + rest + "fr";
 
               return (
                 <Grid cols={cols} key={index} gap={5}>
@@ -94,7 +98,7 @@ const CM = () => {
                       <Box key={input.name}>
                         <Inputs
                           {...input}
-                          customInputs={{ text: () => 'TEXT CUSTOM' }}
+                          customInputs={{ string: () => "TEXT CUSTOM" }}
                           error={formErrors?.[input.name]}
                           onChange={handleChange}
                           value={modifiedData[input.name]}

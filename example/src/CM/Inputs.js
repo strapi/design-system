@@ -9,7 +9,33 @@ import {
   DatePicker,
 } from "@strapi/design-system";
 
-const Inputs = ({ name, onChange, type, options, value, label, ...rest }) => {
+const Inputs = ({
+  name,
+  onChange,
+  type,
+  options,
+  value,
+  label,
+  customInputs,
+  ...rest
+}) => {
+  const C = customInputs[type];
+
+  if (C) {
+    return (
+      <C
+        name={name}
+        onChange={onChange}
+        type={type}
+        options={options}
+        value={value}
+        label={label}
+        customInputs={customInputs}
+        {...rest}
+      />
+    );
+  }
+
   switch (type) {
     case "string":
     case "email":
