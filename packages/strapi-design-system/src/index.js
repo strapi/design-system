@@ -23,6 +23,7 @@ export * from './ProgressBar';
 export * from './Radio';
 export * from './Row';
 export * from './Searchbar';
+export * from './Select';
 export * from './Stack';
 export * from './Switch';
 export * from './RawTable';

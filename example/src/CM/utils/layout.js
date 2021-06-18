@@ -1,33 +1,33 @@
 const modelDef = {
   attributes: {
     name: {
-      type: 'string',
+      type: "string",
       required: true,
-      default: 'toto',
+      default: "toto",
     },
     email: {
-      type: 'email',
+      type: "email",
     },
     description: {
-      type: 'textarea',
+      type: "textarea",
       minLength: 20,
     },
     enum: {
-      type: 'enumeration', // select,
-      enum: ['un', 'deux', 'trois'],
+      type: "enumeration", // select,
+      enum: ["un", "deux", "trois"],
       required: true,
     },
     private: {
-      type: 'boolean', // checkbox || switch
+      type: "boolean", // checkbox || switch
     },
     min: {
-      type: 'boolean', // checkbox || switch
+      type: "boolean", // checkbox || switch
     },
     max: {
-      type: 'boolean', // checkbox || switch
+      type: "boolean", // checkbox || switch
     },
     date: {
-      type: 'date',
+      type: "date",
     },
   },
 };
@@ -35,62 +35,62 @@ const modelDef = {
 const layout = [
   [
     {
-      label: 'Name',
+      label: "Name",
       size: 6,
       disabled: false,
-      name: 'name',
-      type: 'string',
-      description: 'Please set your name',
+      name: "name",
+      type: "string",
+      description: "Please set your name",
     },
     {
-      label: 'Email',
-      type: 'email',
-      name: 'email',
+      label: "Email",
+      type: "email",
+      name: "email",
       size: 6,
     },
   ],
   [
     {
-      name: 'description',
-      type: 'textarea',
+      name: "description",
+      type: "textarea",
       size: 8,
-      label: ' Dscription',
+      label: " Dscription",
     },
   ],
   [
     {
-      name: 'enum',
-      type: 'select',
+      name: "enum",
+      type: "select",
       size: 6,
-      label: 'Enum',
-      options: ['un', 'deux', 'trois'],
+      label: "Enum",
+      options: ["un", "deux", "trois"],
     },
     {
-      type: 'date',
-      name: 'date',
-      label: 'Date',
+      type: "date",
+      name: "date",
+      label: "Date",
       size: 4,
     },
   ],
   [
     {
-      name: 'private',
-      label: 'Private',
-      type: 'checkbox',
-      description: 'Private',
+      name: "private",
+      label: "Private",
+      type: "checkbox",
+      description: "Private",
+      size: 4,
+      disabled: true
+    },
+    {
+      name: "max",
+      label: "Max",
+      type: "checkbox",
       size: 4,
     },
     {
-      name: 'max',
-      label: 'Max',
-      type: 'checkbox',
-
-      size: 4,
-    },
-    {
-      name: 'min',
-      label: 'Min',
-      type: 'checkbox',
+      name: "min",
+      label: "Min",
+      type: "checkbox",
       size: 4,
     },
   ],
