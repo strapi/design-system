@@ -6,6 +6,7 @@ export * from './BaseRadio';
 export * from './Box';
 export * from './Button';
 export * from './Checkbox';
+export * from './DatePicker';
 export * from './Divider';
 export * from './Field';
 export * from './FocusTrap';

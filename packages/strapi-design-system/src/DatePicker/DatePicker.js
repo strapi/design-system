@@ -116,7 +116,7 @@ export const DatePicker = ({ initialDate, selectedDate, onChange, label, selecte
   );
 };
 
-DatePicker.displayName = DatePicker;
+DatePicker.displayName = 'DatePicker';
 
 DatePicker.defaultProps = {
   initialDate: new Date(),
