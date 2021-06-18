@@ -129,7 +129,12 @@ const Inputs = ({
   }
 };
 
+Inputs.defaultProps = {
+  customInputs: {},
+};
+
 Inputs.propTypes = {
+  customInputs: PropTypes.object,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   type: PropTypes.string.isRequired,
