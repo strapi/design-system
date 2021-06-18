@@ -24,13 +24,13 @@ const Inputs = ({
   if (C) {
     return (
       <C
+        {...rest}
+        label={label}
         name={name}
         onChange={onChange}
-        type={type}
         options={options}
+        type={type}
         value={value}
-        label={label}
-        {...rest}
       />
     );
   }
