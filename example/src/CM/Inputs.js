@@ -30,7 +30,6 @@ const Inputs = ({
         options={options}
         value={value}
         label={label}
-        customInputs={customInputs}
         {...rest}
       />
     );
