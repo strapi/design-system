@@ -33,7 +33,12 @@ const Inputs = ({ name, onChange, type, options, value, label, ...rest }) => {
       };
 
       return (
-        <Checkbox {...rest} name={name} value={value} onValueChange={handleValueChange}>
+        <Checkbox
+          {...rest}
+          name={name}
+          value={value}
+          onValueChange={handleValueChange}
+        >
           {label}
         </Checkbox>
       );
@@ -76,9 +81,23 @@ const Inputs = ({ name, onChange, type, options, value, label, ...rest }) => {
         </Select>
       );
     }
-    case "date":
-      // return null;
-      return <DatePicker label={label} {...rest} />;
+    case "date": {
+      const handleChange = (nextDate) => {
+        onChange({ name, value: nextDate });
+      };
+
+      return (
+        <DatePicker
+          onChange={handleChange}
+          selectedDate={value}
+          label={label}
+          name={name}
+          selectedDateLabel={(formattedDate) =>
+            `Date picker, current is ${formattedDate}`
+          }
+        />
+      );
+    }
 
     default:
       return "Unknown";
