@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { DatePicker } from '../DatePicker';
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';

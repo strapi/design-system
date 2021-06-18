@@ -52,7 +52,7 @@ describe("GenericInput", () => {
         >
           <div>
             <div
-              class="sc-fFSPTT dUTuNO"
+              class="sc-cxNHIi jMjzYY"
             >
               <div
                 class="sc-fujyAs ezPyIe"
@@ -65,11 +65,11 @@ describe("GenericInput", () => {
                 </label>
               </div>
               <div
-                class="sc-fujyAs sc-iemWCZ iotgDl kIwkbd"
+                class="sc-fujyAs sc-bCwfaz iotgDl hNKRzV"
               >
                 <input
                   aria-invalid="false"
-                  class="sc-bkbkJK blykGF"
+                  class="sc-fKgJPI hBHNYV"
                   id="field-some-id"
                   name="some text"
                   type="text"
@@ -119,28 +119,21 @@ describe("GenericInput", () => {
       );
 
       expect(container.firstChild).toMatchInlineSnapshot(`
-        <div>
+        <label
+          class="sc-eCApnc sc-fFSPTT imgJpN bwVixM"
+        >
+          <input
+            class="sc-ksluID bLZHCe"
+            id="some-id"
+            name="some text"
+            type="checkbox"
+          />
           <div
-            class="sc-fFSPTT dUTuNO"
+            class="sc-bdnxRM cpgqnJ"
           >
-            <label
-              aria-invalid="false"
-              class="sc-eCApnc sc-hHEiqL imgJpN eHtNaW"
-            >
-              <input
-                class="sc-ksluID bLZHCe"
-                id="field-some-id"
-                name="some text"
-                type="checkbox"
-              />
-              <div
-                class="sc-bdnxRM cpgqnJ"
-              >
-                Hello world
-              </div>
-            </label>
+            Hello world
           </div>
-        </div>
+        </label>
       `);
     });
 
@@ -271,7 +264,7 @@ describe("GenericInput", () => {
         >
           <div>
             <div
-              class="sc-fFSPTT dUTuNO"
+              class="sc-cxNHIi jMjzYY"
             >
               <div
                 class="sc-fujyAs ezPyIe"

@@ -1,4 +1,4 @@
-import { isDateEqual } from './compareDates';
+import { isDateEqual } from '../compareDates';
 
 const CELL_COUNT = 7 * 6;
 
