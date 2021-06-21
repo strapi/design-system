@@ -4,10 +4,7 @@ import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { Checkbox } from './Checkbox';
 
-<Meta
-  title="Design System/Atoms/Checkbox"
-  component={Checkbox}
-/>
+<Meta title="Design System/Atoms/Checkbox" component={Checkbox} />
 
 # Checkbox
 
@@ -95,6 +92,52 @@ Description...
             </ul>
           </li>
         </ul>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Hint
+
+Description...
+
+<Canvas>
+  <Story name="hint">
+    {() => {
+      const [val, setValue] = useState(false);
+      return (
+        <Checkbox
+          hint="Description line lorem ipsum"
+          id="default"
+          name="default"
+          onValueChange={(value) => setValue(value)}
+          value={val}
+        >
+          Label
+        </Checkbox>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Error
+
+Description...
+
+<Canvas>
+  <Story name="error">
+    {() => {
+      const [val, setValue] = useState(false);
+      return (
+        <Checkbox
+          error="Description line lorem ipsum"
+          id="default"
+          name="default"
+          onValueChange={(value) => setValue(value)}
+          value={val}
+        >
+          Label
+        </Checkbox>
       );
     }}
   </Story>
