@@ -159,7 +159,6 @@ Select.defaultProps = {
   id: undefined,
   multi: false,
   onClear: undefined,
-  placeholder: undefined,
   value: undefined,
   hint: undefined,
   error: undefined,
@@ -177,7 +176,7 @@ Select.propTypes = {
   multi: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
   onClear: PropTypes.func,
-  placeholder: PropTypes.string,
+  placeholder: PropTypes.string.isRequired,
   value: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
     PropTypes.string,
