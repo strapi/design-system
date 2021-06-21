@@ -1,31 +1,45 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { BaseCheckbox } from '../BaseCheckbox';
-import { Text } from '../Text';
+import { Stack } from '../Stack';
+import { Field, FieldHint, FieldError, useField } from '../Field';
+import { CheckboxLabel } from './CheckboxLabel';
 import { Box } from '../Box';
 
-const TextLabel = styled(Text)`
-  display: flex;
-  align-items: center;
-  * {
-    cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'default')};
-  }
-`;
+const CheckboxTick = (props) => {
+  const { id } = useField();
 
-export const Checkbox = ({ children, disabled, ...props }) => {
+  const fieldId = `field-${id}`;
+
+  return <BaseCheckbox id={fieldId} {...props} />;
+};
+
+export const Checkbox = ({ children, disabled, id, hint, error, ...props }) => {
   return (
-    <TextLabel as="label" textColor="neutral800" disabled={disabled}>
-      <BaseCheckbox disabled={disabled} {...props} />
-      <Box paddingLeft={2}>{children}</Box>
-    </TextLabel>
+    <Field id={id} hint={hint} error={error}>
+      <Stack size={1}>
+        <CheckboxLabel as="label" textColor="neutral800" disabled={disabled}>
+          <CheckboxTick disabled={disabled} {...props} />
+          <Box paddingLeft={2}>{children}</Box>
+        </CheckboxLabel>
+
+        <FieldHint />
+        <FieldError />
+      </Stack>
+    </Field>
   );
 };
 
 Checkbox.defaultProps = {
   disabled: false,
+  id: undefined,
+  error: undefined,
+  hint: undefined,
 };
 Checkbox.propTypes = {
   children: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
+  error: PropTypes.string,
+  hint: PropTypes.string,
+  id: PropTypes.string,
 };
