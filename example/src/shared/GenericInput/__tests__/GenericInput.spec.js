@@ -48,11 +48,11 @@ describe("GenericInput", () => {
 
       expect(container.firstChild).toMatchInlineSnapshot(`
         <div
-          class="sc-gGLxEB fDjXvH"
+          class="sc-lmgQwP jjWIHc"
         >
           <div>
             <div
-              class="sc-iklJeh gJvfyo"
+              class="sc-cxNHIi jMjzYY"
             >
               <div
                 class="sc-fujyAs ezPyIe"
@@ -65,11 +65,11 @@ describe("GenericInput", () => {
                 </label>
               </div>
               <div
-                class="sc-fujyAs sc-dIvrsQ iotgDl bldbdh"
+                class="sc-fujyAs sc-bCwfaz iotgDl hNKRzV"
               >
                 <input
                   aria-invalid="false"
-                  class="sc-iemWCZ LWKNf"
+                  class="sc-fKgJPI hBHNYV"
                   id="field-some-id"
                   name="some text"
                   type="text"
@@ -182,7 +182,7 @@ describe("GenericInput", () => {
           role="radiogroup"
         >
           <label
-            class="sc-eCApnc sc-cOifOu imgJpN dtLyyn"
+            class="sc-eCApnc sc-gSYDnn imgJpN iqOTxb"
           >
             <input
               aria-checked="false"
@@ -199,7 +199,7 @@ describe("GenericInput", () => {
             </div>
           </label>
           <label
-            class="sc-eCApnc sc-cOifOu imgJpN dtLyyn"
+            class="sc-eCApnc sc-gSYDnn imgJpN iqOTxb"
           >
             <input
               aria-checked="false"
@@ -260,11 +260,11 @@ describe("GenericInput", () => {
 
       expect(container.firstChild).toMatchInlineSnapshot(`
         <div
-          class="sc-eirqVv kerjYA"
+          class="sc-jOFryr jRGyTJ"
         >
           <div>
             <div
-              class="sc-iklJeh gJvfyo"
+              class="sc-cxNHIi jMjzYY"
             >
               <div
                 class="sc-fujyAs ezPyIe"
@@ -278,7 +278,7 @@ describe("GenericInput", () => {
               </div>
               <textarea
                 aria-invalid="false"
-                class="sc-hhIiOg jGkmcH"
+                class="sc-amiJK fuMYcD"
                 id="field-some-id"
                 name="long-content"
               />

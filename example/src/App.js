@@ -1,10 +1,11 @@
-import { Router } from "@reach/router";
-import { H1, H2, Text } from "@strapi/design-system/Text";
-import { Box } from "@strapi/design-system/Box";
-import { OneBlockLayout } from "./layouts/OneBlockLayout";
-import { TwoColsLayout } from "./layouts/TwoColsLayout";
-import { EditViewPage } from "./pages/EditViewPage";
-import { GridLayout } from "./layouts/GridLayout";
+import { Router } from '@reach/router';
+import { H1, H2, Text } from '@strapi/design-system/Text';
+import { Box } from '@strapi/design-system/Box';
+import { OneBlockLayout } from './layouts/OneBlockLayout';
+import { TwoColsLayout } from './layouts/TwoColsLayout';
+import { EditViewPage } from './pages/EditViewPage';
+import { GridLayout } from './layouts/GridLayout';
+import CM from './CM';
 
 const OneBlockpage = () => {
   return (
@@ -40,13 +41,7 @@ const GridPage = () => {
       {Array(12)
         .fill(null)
         .map((_, index) => (
-          <Box
-            key={index}
-            padding={10}
-            background="neutral0"
-            shadow="filterShadow"
-            hasRadius
-          />
+          <Box key={index} padding={10} background="neutral0" shadow="filterShadow" hasRadius />
         ))}
     </GridLayout>
   );
@@ -55,10 +50,11 @@ const GridPage = () => {
 function App() {
   return (
     <Router>
-      <EditViewPage path="/" />
+      <CM path="/content-manager-test" />
       <OneBlockpage path="/one-block" />
       <TwoColsPage path="/two-cols" />
       <GridPage path="/grid" />
+      <EditViewPage path="/" />
     </Router>
   );
 }
