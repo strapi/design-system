@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Box } from '../Box';
 import { Portal } from '../Portal';
+import { useIntersection } from '../helpers/useIntersection';
 
 const position = (source, fullWidth) => {
   const rect = source.getBoundingClientRect();
@@ -41,8 +42,14 @@ const PopoverScrollable = styled(Box)`
   }
 `;
 
-export const Popover = ({ source, children, spacingTop, fullWidth, ...props }) => {
+const PopoverContent = ({ source, children, spacingTop, fullWidth, onReachEnd, intersectionId, ...props }) => {
+  const popoverRef = useRef(null);
   const { left, top, width } = position(source.current, fullWidth);
+
+  useIntersection(popoverRef, onReachEnd, {
+    selectorToWatch: `#${intersectionId}`,
+    skipWhen: !intersectionId || !onReachEnd,
+  });
 
   const style = {
     left: `${left}px`,
@@ -51,21 +58,37 @@ export const Popover = ({ source, children, spacingTop, fullWidth, ...props }) =
   };
 
   return (
+    <PopoverWrapper style={style} hasRadius background="neutral0" padding={1} spacingTop={spacingTop}>
+      <PopoverScrollable ref={popoverRef} {...props}>
+        {children}
+        {intersectionId && onReachEnd && <div id={intersectionId} />}
+      </PopoverScrollable>
+    </PopoverWrapper>
+  );
+};
+
+export const Popover = (props) => {
+  return (
     <Portal>
-      <PopoverWrapper style={style} hasRadius background="neutral0" padding={1} spacingTop={spacingTop}>
-        <PopoverScrollable {...props}>{children}</PopoverScrollable>
-      </PopoverWrapper>
+      <PopoverContent {...props} />
     </Portal>
   );
 };
 
-Popover.defaultProps = {
+const defaultProps = {
   fullWidth: false,
+  intersectionId: undefined,
+  onReachEnd: undefined,
 };
 
-Popover.propTypes = {
+const propTypes = {
   children: PropTypes.node.isRequired,
   fullWidth: PropTypes.bool,
+  intersectionId: PropTypes.string,
+  onReachEnd: PropTypes.func,
   source: PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
   spacingTop: PropTypes.number,
 };
+
+PopoverContent.propTypes = propTypes;
+PopoverContent.defaultProps = defaultProps;

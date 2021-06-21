@@ -49,7 +49,7 @@ Description...
   </Story>
 </Canvas>
 
-##  Select multi
+## Select multi
 
 Description...
 
@@ -59,8 +59,8 @@ Description...
       const [values, setValues] = useState([]);
       const [error, toggleError] = useState();
       const [disabled, toggleDisabled] = useState();
-      const onValueChange = newValue => 
-          setValues(s => s.includes(newValue) ? s.filter(x => x !== newValue) : [...s, newValue])
+      const onValueChange = (newValue) =>
+        setValues((s) => (s.includes(newValue) ? s.filter((x) => x !== newValue) : [...s, newValue]));
       return (
         <Stack size={11}>
           <h2>Current value is {values.join(', ')}</h2>
@@ -81,6 +81,13 @@ Description...
             <Option value={'pizza'}>Pizza</Option>
             <Option value={'hamburger'}>Hamburger</Option>
             <Option value={'bagel'}>Bagel</Option>
+            {Array(50)
+              .fill(null)
+              .map((_, i) => (
+                <Option value={`${i}`} key={i}>
+                  {i}
+                </Option>
+              ))}
           </Select>
           <button onClick={() => toggleError((s) => (s ? undefined : 'An error occured'))}>Show the error state</button>
           <button onClick={() => toggleDisabled((s) => !s)}>Show the disabled state</button>

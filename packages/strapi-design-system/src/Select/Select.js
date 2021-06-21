@@ -28,6 +28,7 @@ export const Select = ({
   disabled,
   clearLabel,
   onClear,
+  onReachEnd,
   multi,
   ...props
 }) => {
@@ -135,7 +136,13 @@ export const Select = ({
       </Stack>
 
       {expanded && (
-        <Popover source={containerRef} spacingTop={1} fullWidth>
+        <Popover
+          source={containerRef}
+          spacingTop={1}
+          fullWidth
+          intersectionId={`select-list-intersection-${idRef.current}`}
+          onReachEnd={onReachEnd}
+        >
           <SelectList
             selectId={idRef.current}
             labelledBy={labelId}
@@ -159,6 +166,7 @@ Select.defaultProps = {
   id: undefined,
   multi: false,
   onClear: undefined,
+  onReachEnd: undefined,
   value: undefined,
   hint: undefined,
   error: undefined,
@@ -176,6 +184,7 @@ Select.propTypes = {
   multi: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
   onClear: PropTypes.func,
+  onReachEnd: PropTypes.func,
   placeholder: PropTypes.string.isRequired,
   value: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
