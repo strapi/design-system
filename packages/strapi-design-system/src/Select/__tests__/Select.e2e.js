@@ -7,7 +7,7 @@ describe('Select', () => {
   describe('simple', () => {
     beforeEach(async () => {
       // This is the URL of the Storybook Iframe
-      await page.goto('http://localhost:6006/iframe.html?id=select--base&viewMode=story');
+      await page.goto('http://localhost:6006/iframe.html?id=design-system-atoms-select--base&viewMode=story');
       await injectAxe(page);
     });
 
@@ -142,7 +142,7 @@ describe('Select', () => {
   describe('multi', () => {
     beforeEach(async () => {
       // This is the URL of the Storybook Iframe
-      await page.goto('http://localhost:6006/iframe.html?id=select--multi&viewMode=story');
+      await page.goto('http://localhost:6006/iframe.html?id=design-system-atoms-select--multi&viewMode=story');
     });
 
     it('selects one value after the other when using the mouse and clears the selected values', async () => {
@@ -179,6 +179,8 @@ describe('Select', () => {
 
         await page.keyboard.press('Escape');
         await page.keyboard.press('Enter');
+
+        await expect(page).toHaveSelector('[role="listbox"]', { timeout: 1000 });
 
         const ariaDescendant = await getListDescendant();
         await expect(ariaDescendant).toBe('option-select1-hamburger');

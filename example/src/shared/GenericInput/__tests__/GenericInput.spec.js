@@ -189,7 +189,7 @@ describe("GenericInput", () => {
           role="radiogroup"
         >
           <label
-            class="sc-eCApnc sc-gSYDnn imgJpN iqOTxb"
+            class="sc-eCApnc sc-eJocfa imgJpN cJhSZu"
           >
             <input
               aria-checked="false"
@@ -206,7 +206,7 @@ describe("GenericInput", () => {
             </div>
           </label>
           <label
-            class="sc-eCApnc sc-gSYDnn imgJpN iqOTxb"
+            class="sc-eCApnc sc-eJocfa imgJpN cJhSZu"
           >
             <input
               aria-checked="false"
@@ -267,7 +267,7 @@ describe("GenericInput", () => {
 
       expect(container.firstChild).toMatchInlineSnapshot(`
         <div
-          class="sc-jOFryr jRGyTJ"
+          class="sc-kHWWYL klTgTN"
         >
           <div>
             <div
@@ -285,7 +285,7 @@ describe("GenericInput", () => {
               </div>
               <textarea
                 aria-invalid="false"
-                class="sc-amiJK fuMYcD"
+                class="sc-bTDOke kBqnU"
                 id="field-some-id"
                 name="long-content"
               />

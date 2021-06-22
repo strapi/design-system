@@ -82,7 +82,7 @@ MenuItem.defaultProps = {
   isFocused: false,
 };
 MenuItem.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   href: PropTypes.string,
   isFocused: PropTypes.bool,
   onClick: PropTypes.func,
@@ -95,11 +95,18 @@ export const SimpleMenu = ({ label, children, ...props }) => {
   const [focusedItemIndex, setFocusItem] = useState(0);
   const childrenArray = Children.toArray(children);
 
+  useEffect(() => {
+    // Useful to focus the selected item in the list
+    const defaultItemIndexToFocus = childrenArray.findIndex((c) => c.props.children === label);
+    if (defaultItemIndexToFocus !== -1) {
+      setFocusItem(defaultItemIndexToFocus);
+    }
+  }, [label]);
+
   const handleWrapperKeyDown = (e) => {
     if (visible) {
       if (e.key === KeyboardKeys.ESCAPE) {
         setVisible(false);
-        setFocusItem(0);
         menuButtonRef.current.focus();
       }
 
@@ -173,5 +180,5 @@ const menuItemType = PropTypes.shape({ type: PropTypes.oneOf([MenuItem]) });
 SimpleMenu.propTypes = {
   children: PropTypes.oneOfType([PropTypes.arrayOf(menuItemType), menuItemType]).isRequired,
   id: PropTypes.string,
-  label: PropTypes.string.isRequired,
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 };
