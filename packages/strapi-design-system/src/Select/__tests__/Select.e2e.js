@@ -180,6 +180,8 @@ describe('Select', () => {
         await page.keyboard.press('Escape');
         await page.keyboard.press('Enter');
 
+        await expect(page).toHaveSelector('[role="listbox"]', { timeout: 1000 });
+
         const ariaDescendant = await getListDescendant();
         await expect(ariaDescendant).toBe('option-select1-hamburger');
       });
