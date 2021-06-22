@@ -1,10 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, { bool } from 'prop-types';
 import styled from 'styled-components';
 import { Tooltip } from '../Tooltip';
 import { BaseButton } from '../BaseButton';
 
 const IconButtonWrapper = styled(BaseButton)`
+  border: ${({ borderLess }) => (borderLess ? 'none' : undefined)};
   svg {
     > g,
     path {
@@ -43,8 +44,10 @@ IconButton.displayName = 'IconButton';
 
 IconButton.defaultProps = {
   title: undefined,
+  borderLess: false,
 };
 IconButton.propTypes = {
+  borderLess: bool,
   children: PropTypes.element.isRequired,
   description: PropTypes.string,
   title: PropTypes.string,

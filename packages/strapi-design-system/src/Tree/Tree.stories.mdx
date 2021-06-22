@@ -3,6 +3,8 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { Tree } from './Tree';
 import { SubTree } from './SubTree';
+import EditIcon from '@strapi/icons/EditIcon';
+import DeleteIcon from '@strapi/icons/DeleteIcon';
 import AddIcon from '@strapi/icons/AddIcon';
 import { TreeItem } from './TreeItem';
 import { TextButton } from '../TextButton';
@@ -24,7 +26,7 @@ Description...
 
 <Canvas>
   <Story name="base">
-    <Box padding={11} style={{ width: '700px' }} background="primary100">
+    <Box padding={11} style={{ width: '700px' }}>
       <Tree
         root={<Box>Hello world</Box>}
         endAction={
@@ -54,7 +56,22 @@ Description...
             }
           >
             <TreeItem>
-              <Box>second item</Box>
+              <Box>
+                <Row justifyContent="space-between">
+                  <Text highlighted>Component 2</Text>
+                  <Text small>Texte</Text>
+                  <Row>
+                    <IconButton title="Edit" borderLess>
+                      <EditIcon />
+                    </IconButton>
+                    <Box paddingLeft={2}>
+                      <IconButton title="Delete" borderLess>
+                        <DeleteIcon />
+                      </IconButton>
+                    </Box>
+                  </Row>
+                </Row>
+              </Box>
             </TreeItem>
             <TreeItem>
               <Box>third Item</Box>
