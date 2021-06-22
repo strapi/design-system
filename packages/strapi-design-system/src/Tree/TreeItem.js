@@ -2,23 +2,38 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { TreeLeaf } from './TreeLeaf';
+import { Box } from '../Box';
 
-const TreeLeafWrapper = styled.div`
-  margin-left: calc(-${({ theme }) => theme.spaces[8]} - ${4 / 2 / 16}rem);
-  position: absolute;
+const TreeItemWrapper = styled.li`
+  margin-left: ${({ theme }) => theme.spaces[4]};
+  padding-top: ${({ theme }) => theme.spaces[6]};
+  padding-bottom: ${({ theme }) => theme.spaces[6]};
 `;
 
-export const TreeItem = ({ children, ...props }) => {
+const TreeItemLeafWrapper = styled(Box)`
+  position: absolute;
+  margin-left: calc(-${32 / 16}rem - 1rem);
+  transform: translateY(-50%);
+`;
+
+export const TreeItem = ({ children, removeLeaf, ...props }) => {
   return (
-    <li role="treeitem" tabIndex={-1} {...props} style={{ padding: '16px 0' }}>
-      <TreeLeafWrapper>
-        <TreeLeaf />
-      </TreeLeafWrapper>
+    <TreeItemWrapper role="treeitem" tabIndex={-1} {...props}>
+      {removeLeaf ? null : (
+        <TreeItemLeafWrapper>
+          <TreeLeaf />
+        </TreeItemLeafWrapper>
+      )}
       {children}
-    </li>
+    </TreeItemWrapper>
   );
+};
+
+TreeItem.defaultProps = {
+  removeLeaf: false,
 };
 
 TreeItem.propTypes = {
   children: PropTypes.node.isRequired,
+  removeLeaf: PropTypes.bool,
 };

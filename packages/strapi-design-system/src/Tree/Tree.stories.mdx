@@ -1,7 +1,8 @@
 <!--- Tree.stories.mdx --->
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
-import { Tree, SubTree } from './Tree';
+import { Tree } from './Tree';
+import { SubTree } from './SubTree';
 import AddIcon from '@strapi/icons/AddIcon';
 import { TreeItem } from './TreeItem';
 import { TextButton } from '../TextButton';
@@ -25,110 +26,40 @@ Description...
   <Story name="base">
     <Box padding={11} style={{ width: '700px' }} background="primary100">
       <Tree
+        root={<Box>Hello world</Box>}
         endAction={
           <TreeBubble icon={<AddIcon />}>
-            <TextButton>Add a new thing in here</TextButton>
+            <TextButton>Add a new thing</TextButton>
           </TreeBubble>
         }
       >
         <TreeItem>
-          <Box paddingTop={3} paddingBottom={3}>
-            First item
-          </Box>
-          <SubTree
-            endAction={
-              <TreeBubble icon={<AddIcon />}>
-                <TextButton>Add a new thing in here</TextButton>
-              </TreeBubble>
-            }
-          >
+          <Box>First item</Box>
+          <SubTree>
             <TreeItem>
-              <Box paddingTop={3} paddingBottom={3}>
-                <Row justifyContent="space-between">
-                  <Text highlighted>Component 2</Text>
-                  <Text small>Text</Text>
-                  <Box paddingLeft={8}>
-                    <Row>
-                      <IconButton title="Add">
-                        <AddIcon />
-                      </IconButton>
-                      <Box paddingLeft={2}>
-                        <IconButton title="Add">
-                          <AddIcon />
-                        </IconButton>
-                      </Box>
-                    </Row>
-                  </Box>
-                </Row>
-              </Box>
+              <Box>second item</Box>
+            </TreeItem>
+            <TreeItem>
+              <Box>third Item</Box>
             </TreeItem>
           </SubTree>
         </TreeItem>
         <TreeItem>
-          <Box paddingTop={3} paddingBottom={3}>
-            First item
-          </Box>
+          <Box>Second Item</Box>
           <SubTree
             endAction={
               <TreeBubble icon={<AddIcon />}>
-                <TextButton>Add a new thing in here</TextButton>
+                <TextButton>Add a new thing</TextButton>
               </TreeBubble>
             }
           >
             <TreeItem>
-              <Box paddingTop={3} paddingBottom={3}>
-                <Row justifyContent="space-between">
-                  <Text highlighted>Component 2</Text>
-                  <Text small>Text</Text>
-                  <Box paddingLeft={8}>
-                    <Row>
-                      <IconButton title="Add">
-                        <AddIcon />
-                      </IconButton>
-                      <Box paddingLeft={2}>
-                        <IconButton title="Add">
-                          <AddIcon />
-                        </IconButton>
-                      </Box>
-                    </Row>
-                  </Box>
-                </Row>
-              </Box>
-              <SubTree
-                endAction={
-                  <TreeBubble icon={<AddIcon />}>
-                    <TextButton>Add a new thing in here</TextButton>
-                  </TreeBubble>
-                }
-              >
-                <TreeItem>
-                  <Box paddingTop={3} paddingBottom={3}>
-                    <Row justifyContent="space-between">
-                      <Text highlighted>Component 2</Text>
-                      <Text small>Text</Text>
-                      <Box paddingLeft={8}>
-                        <Row>
-                          <IconButton title="Add">
-                            <AddIcon />
-                          </IconButton>
-                          <Box paddingLeft={2}>
-                            <IconButton title="Add">
-                              <AddIcon />
-                            </IconButton>
-                          </Box>
-                        </Row>
-                      </Box>
-                    </Row>
-                  </Box>
-                </TreeItem>
-              </SubTree>
+              <Box>second item</Box>
+            </TreeItem>
+            <TreeItem>
+              <Box>third Item</Box>
             </TreeItem>
           </SubTree>
-        </TreeItem>
-        <TreeItem>
-          <Box paddingTop={3} paddingBottom={3}>
-            First item
-          </Box>
         </TreeItem>
       </Tree>
     </Box>
