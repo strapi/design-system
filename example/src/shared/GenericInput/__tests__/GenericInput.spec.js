@@ -52,7 +52,7 @@ describe("GenericInput", () => {
         >
           <div>
             <div
-              class="sc-cxNHIi jMjzYY"
+              class="sc-fFSPTT dUTuNO"
             >
               <div
                 class="sc-fujyAs ezPyIe"
@@ -65,11 +65,11 @@ describe("GenericInput", () => {
                 </label>
               </div>
               <div
-                class="sc-fujyAs sc-bCwfaz iotgDl hNKRzV"
+                class="sc-fujyAs sc-iemWCZ iotgDl kIwkbd"
               >
                 <input
                   aria-invalid="false"
-                  class="sc-fKgJPI hBHNYV"
+                  class="sc-bkbkJK blykGF"
                   id="field-some-id"
                   name="some text"
                   type="text"
@@ -119,21 +119,28 @@ describe("GenericInput", () => {
       );
 
       expect(container.firstChild).toMatchInlineSnapshot(`
-        <label
-          class="sc-eCApnc sc-fFSPTT imgJpN bwVixM"
-        >
-          <input
-            class="sc-ksluID bLZHCe"
-            id="some-id"
-            name="some text"
-            type="checkbox"
-          />
+        <div>
           <div
-            class="sc-bdnxRM cpgqnJ"
+            class="sc-fFSPTT dUTuNO"
           >
-            Hello world
+            <label
+              aria-invalid="false"
+              class="sc-eCApnc sc-hHEiqL imgJpN eHtNaW"
+            >
+              <input
+                class="sc-ksluID bLZHCe"
+                id="field-some-id"
+                name="some text"
+                type="checkbox"
+              />
+              <div
+                class="sc-bdnxRM cpgqnJ"
+              >
+                Hello world
+              </div>
+            </label>
           </div>
-        </label>
+        </div>
       `);
     });
 
@@ -182,7 +189,7 @@ describe("GenericInput", () => {
           role="radiogroup"
         >
           <label
-            class="sc-eCApnc sc-gSYDnn imgJpN iqOTxb"
+            class="sc-eCApnc sc-eJocfa imgJpN cJhSZu"
           >
             <input
               aria-checked="false"
@@ -199,7 +206,7 @@ describe("GenericInput", () => {
             </div>
           </label>
           <label
-            class="sc-eCApnc sc-gSYDnn imgJpN iqOTxb"
+            class="sc-eCApnc sc-eJocfa imgJpN cJhSZu"
           >
             <input
               aria-checked="false"
@@ -260,11 +267,11 @@ describe("GenericInput", () => {
 
       expect(container.firstChild).toMatchInlineSnapshot(`
         <div
-          class="sc-jOFryr jRGyTJ"
+          class="sc-kHWWYL klTgTN"
         >
           <div>
             <div
-              class="sc-cxNHIi jMjzYY"
+              class="sc-fFSPTT dUTuNO"
             >
               <div
                 class="sc-fujyAs ezPyIe"
@@ -278,7 +285,7 @@ describe("GenericInput", () => {
               </div>
               <textarea
                 aria-invalid="false"
-                class="sc-amiJK fuMYcD"
+                class="sc-bTDOke kBqnU"
                 id="field-some-id"
                 name="long-content"
               />
