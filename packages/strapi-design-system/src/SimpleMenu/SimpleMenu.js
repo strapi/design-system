@@ -101,7 +101,7 @@ export const SimpleMenu = ({ label, children, ...props }) => {
     if (defaultItemIndexToFocus !== -1) {
       setFocusItem(defaultItemIndexToFocus);
     }
-  }, []);
+  }, [label]);
 
   const handleWrapperKeyDown = (e) => {
     if (visible) {
@@ -180,5 +180,5 @@ const menuItemType = PropTypes.shape({ type: PropTypes.oneOf([MenuItem]) });
 SimpleMenu.propTypes = {
   children: PropTypes.oneOfType([PropTypes.arrayOf(menuItemType), menuItemType]).isRequired,
   id: PropTypes.string,
-  label: PropTypes.string.isRequired,
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 };
