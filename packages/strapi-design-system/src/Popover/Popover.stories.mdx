@@ -45,3 +45,38 @@ Description...
     }}
   </Story>
 </Canvas>
+
+## onReachEnd
+
+Description...
+
+<Canvas>
+  <Story name="onReachEnd">
+    {() => {
+      const [items, setItems] = useState(Array(10).fill(null));
+      const buttonRef = useRef();
+      return (
+        <Box padding={10}>
+          <button ref={buttonRef} onClick={() => setVisible((s) => !s)}>
+            Open popover
+          </button>
+          <Popover
+            source={buttonRef}
+            spacingTop={4}
+            id="on-reach-end"
+            intersectionId="test-123"
+            onReachEnd={() => setItems(Array(15).fill(null))}
+          >
+            <ul style={{ width: '200px' }} id="list" tabIndex={-1}>
+              {items.map((_, index) => (
+                <Box key={index} padding={3} as="li" id={`item-${index}`}>
+                  Element {index}
+                </Box>
+              ))}
+            </ul>
+          </Popover>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
