@@ -28,5 +28,5 @@ export const useIntersection = (scrollableAreaRef, callback, { selectorToWatch, 
     return () => {
       observer.disconnect();
     };
-  }, [skipWhen]);
+  }, [skipWhen, callback, selectorToWatch]);
 };

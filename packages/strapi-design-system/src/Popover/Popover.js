@@ -75,13 +75,13 @@ export const Popover = (props) => {
   );
 };
 
-const defaultProps = {
+PopoverContent.defaultProps = {
   fullWidth: false,
   intersectionId: undefined,
   onReachEnd: undefined,
 };
 
-const propTypes = {
+PopoverContent.propTypes = {
   children: PropTypes.node.isRequired,
   fullWidth: PropTypes.bool,
   intersectionId: PropTypes.string,
@@ -89,6 +89,3 @@ const propTypes = {
   source: PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
   spacingTop: PropTypes.number,
 };
-
-PopoverContent.propTypes = propTypes;
-PopoverContent.defaultProps = defaultProps;
