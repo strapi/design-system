@@ -86,7 +86,7 @@ describe('Link', () => {
   it('snapshots the component with right and left icons', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
-        <Link to="https://strapi.io/" leftIcon={<span>Left</span>} rightIcon={<span>Right</span>}>
+        <Link to="https://strapi.io/" startIcon={<span>Left</span>} endIcon={<span>Right</span>}>
           External link
         </Link>
       </ThemeProvider>,
@@ -166,7 +166,7 @@ describe('Link', () => {
   it('snapshots the component with right and left icons and disabled state', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
-        <Link disabled to="https://strapi.io/" leftIcon={<span>Left</span>} rightIcon={<span>Right</span>}>
+        <Link disabled to="https://strapi.io/" startIcon={<span>Left</span>} endIcon={<span>Right</span>}>
           External link
         </Link>
       </ThemeProvider>,

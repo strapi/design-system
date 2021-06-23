@@ -42,12 +42,12 @@ export const EditViewPage = () => {
     <OneBlockLayout
       header={
         <Stack size={2}>
-          <Link to="/" leftIcon={<BackIcon />}>
+          <Link to="/" startIcon={<BackIcon />}>
             Back
           </Link>
           <Row justifyContent="space-between">
             <H1 id="main-title">Create a new entry</H1>
-            <Button leftIcon={<CheckIcon />}>Save</Button>
+            <Button startIcon={<CheckIcon />}>Save</Button>
           </Row>
           <Text textColor="neutral700">API ID: Restaurant</Text>
         </Stack>

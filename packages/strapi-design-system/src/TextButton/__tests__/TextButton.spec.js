@@ -8,7 +8,7 @@ describe('TextButton', () => {
   it('snapshots the component', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
-        <TextButton rightIcon={<span>Right icon</span>} leftIcon={<span>Left icon</span>}>
+        <TextButton endIcon={<span>Right icon</span>} startIcon={<span>Left icon</span>}>
           Click on me
         </TextButton>
       </ThemeProvider>,
@@ -93,7 +93,7 @@ describe('TextButton', () => {
   it('snapshots the component when disabled', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
-        <TextButton rightIcon={<span>Right icon</span>} leftIcon={<span>Left icon</span>} disabled>
+        <TextButton endIcon={<span>Right icon</span>} startIcon={<span>Left icon</span>} disabled>
           Click on me
         </TextButton>
       </ThemeProvider>,

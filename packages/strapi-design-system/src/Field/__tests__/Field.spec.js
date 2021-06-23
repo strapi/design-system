@@ -534,8 +534,8 @@ describe('Field', () => {
             placeholder="Placeholder"
             value={'email'}
             onChange={() => undefined}
-            leftAction={<FieldAction label="Show password">Show</FieldAction>}
-            rightAction={<FieldAction label="Show password">Hide</FieldAction>}
+            startAction={<FieldAction label="Show password">Show</FieldAction>}
+            endAction={<FieldAction label="Show password">Hide</FieldAction>}
           />
           <FieldHint />
           <FieldError />

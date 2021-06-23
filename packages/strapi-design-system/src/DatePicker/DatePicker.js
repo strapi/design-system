@@ -73,7 +73,7 @@ export const DatePicker = ({ initialDate, selectedDate, onChange, label, selecte
         onChange={() => {}}
         value={formattedDate}
         placeholder={placeholder}
-        leftAction={
+        startAction={
           <DatePickerButton
             onClick={toggleVisibility}
             aria-label={selectedDate ? selectedDateLabel(langFormatter.format(selectedDate)) : label}

@@ -25,7 +25,7 @@ const LinkWrapper = styled.a`
 `;
 
 // TODO: make sure to use the link from the router library chosen
-export const Link = ({ href, to, children, disabled, leftIcon, rightIcon, ...props }) => {
+export const Link = ({ href, to, children, disabled, startIcon, endIcon, ...props }) => {
   const linkHref = disabled ? '#' : href || to;
   const target = href ? '_blank' : undefined;
   const rel = href ? 'noreferrer noopener' : undefined;
@@ -33,16 +33,16 @@ export const Link = ({ href, to, children, disabled, leftIcon, rightIcon, ...pro
   return (
     <LinkWrapper target={target} rel={rel} href={linkHref} disabled={disabled} {...props}>
       <TableLabel textColor={disabled ? 'neutral600' : 'primary600'} as="span">
-        {leftIcon && (
+        {startIcon && (
           <Box as="span" aria-hidden={true} paddingRight={2}>
-            {leftIcon}
+            {startIcon}
           </Box>
         )}
         {children}
 
-        {rightIcon && !href && (
+        {endIcon && !href && (
           <Box as="span" aria-hidden={true} paddingLeft={2}>
-            {rightIcon}
+            {endIcon}
           </Box>
         )}
 
@@ -72,8 +72,8 @@ Link.propTypes = {
       return new Error('href must be defined');
     }
   },
-  leftIcon: PropTypes.element,
-  rightIcon: PropTypes.element,
+  startIcon: PropTypes.element,
+  endIcon: PropTypes.element,
   to: (props) => {
     if (!props.disabled && !props.href && !props.to) {
       return new Error('to must be defined');

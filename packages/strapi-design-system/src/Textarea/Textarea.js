@@ -26,7 +26,7 @@ const TextareaWrapper = styled.div`
 `;
 
 export const Textarea = React.forwardRef(
-  ({ leftAction, rightAction, name, hint, error, label, children, labelAction, id, ...props }, ref) => {
+  ({ startAction, endAction, name, hint, error, label, children, labelAction, id, ...props }, ref) => {
     return (
       <TextareaWrapper>
         <Field name={name} hint={hint} error={error} id={id}>
@@ -52,8 +52,8 @@ Textarea.defaultProps = {
   error: undefined,
   hint: undefined,
   id: undefined,
-  leftAction: undefined,
-  rightAction: undefined,
+  startAction: undefined,
+  endAction: undefined,
   children: '',
 };
 
@@ -64,7 +64,7 @@ Textarea.propTypes = {
   id: PropTypes.string,
   label: PropTypes.string.isRequired,
   labelAction: PropTypes.element,
-  leftAction: PropTypes.element,
+  startAction: PropTypes.element,
   name: PropTypes.string.isRequired,
-  rightAction: PropTypes.element,
+  endAction: PropTypes.element,
 };
