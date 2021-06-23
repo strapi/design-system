@@ -28,7 +28,7 @@ describe('TimePicker', () => {
     await waitFor(() => screen.getByText('00:00'));
 
     expect(container).toMatchInlineSnapshot(`
-      .c4 {
+      .c5 {
         text-align: left;
         border: none;
         padding-left: 16px;
@@ -40,7 +40,7 @@ describe('TimePicker', () => {
         background: transparent;
       }
 
-      .c4:focus {
+      .c5:focus {
         outline: none;
       }
 
@@ -51,7 +51,7 @@ describe('TimePicker', () => {
         color: #32324d;
       }
 
-      .c5 {
+      .c6 {
         font-weight: 400;
         font-size: 0.875rem;
         line-height: 1.43;
@@ -90,7 +90,7 @@ describe('TimePicker', () => {
         align-items: center;
       }
 
-      .c6 {
+      .c7 {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -104,7 +104,7 @@ describe('TimePicker', () => {
         align-items: center;
       }
 
-      .c8 {
+      .c4 {
         padding-left: 12px;
       }
 
@@ -167,17 +167,17 @@ describe('TimePicker', () => {
         border: 1px solid #4945ff;
       }
 
-      .c7 {
+      .c8 {
         background: transparent;
         border: none;
       }
 
-      .c7 svg {
+      .c8 svg {
         height: 0.6875rem;
         width: 0.6875rem;
       }
 
-      .c7 svg path {
+      .c8 svg path {
         fill: #666687;
       }
 
@@ -227,30 +227,49 @@ describe('TimePicker', () => {
               <span
                 class="c3"
               >
+                <div
+                  aria-hidden="true"
+                  class="c4"
+                >
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M0 12C0 5.37 5.364 0 11.994 0S24 5.37 24 12s-5.376 12-12.006 12S0 18.63 0 12zm2.4 0c0 5.304 4.296 9.6 9.6 9.6 5.304 0 9.6-4.296 9.6-9.6 0-5.304-4.296-9.6-9.6-9.6A9.597 9.597 0 002.4 12zm8.4-6h1.8v6.3l5.4 3.204-.906 1.476L10.8 13.2V6z"
+                      fill="#32324D"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </div>
                 <button
                   aria-describedby="field-hint-tp-1"
                   aria-disabled="false"
                   aria-expanded="true"
                   aria-haspopup="listbox"
                   aria-labelledby="label-tp-1 content-tp-1"
-                  class="c4"
+                  class="c5"
                   id="tp-1"
                 >
                   <span
                     aria-hidden="true"
-                    class="c5"
+                    class="c6"
                     id="content-tp-1"
                   >
                     11:00
                   </span>
                 </button>
                 <div
-                  class="c6"
+                  class="c7"
                 >
                   <button
                     aria-disabled="false"
                     aria-label="Clear the selected time picker value"
-                    class="c7"
+                    class="c8"
                   >
                     <svg
                       fill="none"
@@ -267,7 +286,7 @@ describe('TimePicker', () => {
                   </button>
                   <button
                     aria-hidden="true"
-                    class="c8 c7 c9"
+                    class="c4 c8 c9"
                     tabindex="-1"
                   >
                     <svg
@@ -322,10 +341,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       00:00
                     </span>
@@ -339,10 +358,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       00:15
                     </span>
@@ -356,10 +375,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       00:30
                     </span>
@@ -373,10 +392,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       00:45
                     </span>
@@ -390,10 +409,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       01:00
                     </span>
@@ -407,10 +426,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       01:15
                     </span>
@@ -424,10 +443,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       01:30
                     </span>
@@ -441,10 +460,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       01:45
                     </span>
@@ -458,10 +477,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       02:00
                     </span>
@@ -475,10 +494,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       02:15
                     </span>
@@ -492,10 +511,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       02:30
                     </span>
@@ -509,10 +528,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       02:45
                     </span>
@@ -526,10 +545,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       03:00
                     </span>
@@ -543,10 +562,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       03:15
                     </span>
@@ -560,10 +579,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       03:30
                     </span>
@@ -577,10 +596,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       03:45
                     </span>
@@ -594,10 +613,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       04:00
                     </span>
@@ -611,10 +630,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       04:15
                     </span>
@@ -628,10 +647,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       04:30
                     </span>
@@ -645,10 +664,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       04:45
                     </span>
@@ -662,10 +681,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       05:00
                     </span>
@@ -679,10 +698,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       05:15
                     </span>
@@ -696,10 +715,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       05:30
                     </span>
@@ -713,10 +732,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       05:45
                     </span>
@@ -730,10 +749,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       06:00
                     </span>
@@ -747,10 +766,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       06:15
                     </span>
@@ -764,10 +783,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       06:30
                     </span>
@@ -781,10 +800,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       06:45
                     </span>
@@ -798,10 +817,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       07:00
                     </span>
@@ -815,10 +834,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       07:15
                     </span>
@@ -832,10 +851,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       07:30
                     </span>
@@ -849,10 +868,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       07:45
                     </span>
@@ -866,10 +885,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       08:00
                     </span>
@@ -883,10 +902,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       08:15
                     </span>
@@ -900,10 +919,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       08:30
                     </span>
@@ -917,10 +936,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       08:45
                     </span>
@@ -934,10 +953,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       09:00
                     </span>
@@ -951,10 +970,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       09:15
                     </span>
@@ -968,10 +987,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       09:30
                     </span>
@@ -985,10 +1004,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       09:45
                     </span>
@@ -1002,10 +1021,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       10:00
                     </span>
@@ -1019,10 +1038,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       10:15
                     </span>
@@ -1036,10 +1055,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       10:30
                     </span>
@@ -1053,10 +1072,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       10:45
                     </span>
@@ -1070,7 +1089,7 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
                       class="c16"
@@ -1087,10 +1106,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       11:15
                     </span>
@@ -1104,10 +1123,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       11:30
                     </span>
@@ -1121,10 +1140,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       11:45
                     </span>
@@ -1138,10 +1157,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       12:00
                     </span>
@@ -1155,10 +1174,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       12:15
                     </span>
@@ -1172,10 +1191,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       12:30
                     </span>
@@ -1189,10 +1208,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       12:45
                     </span>
@@ -1206,10 +1225,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       13:00
                     </span>
@@ -1223,10 +1242,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       13:15
                     </span>
@@ -1240,10 +1259,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       13:30
                     </span>
@@ -1257,10 +1276,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       13:45
                     </span>
@@ -1274,10 +1293,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       14:00
                     </span>
@@ -1291,10 +1310,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       14:15
                     </span>
@@ -1308,10 +1327,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       14:30
                     </span>
@@ -1325,10 +1344,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       14:45
                     </span>
@@ -1342,10 +1361,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       15:00
                     </span>
@@ -1359,10 +1378,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       15:15
                     </span>
@@ -1376,10 +1395,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       15:30
                     </span>
@@ -1393,10 +1412,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       15:45
                     </span>
@@ -1410,10 +1429,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       16:00
                     </span>
@@ -1427,10 +1446,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       16:15
                     </span>
@@ -1444,10 +1463,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       16:30
                     </span>
@@ -1461,10 +1480,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       16:45
                     </span>
@@ -1478,10 +1497,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       17:00
                     </span>
@@ -1495,10 +1514,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       17:15
                     </span>
@@ -1512,10 +1531,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       17:30
                     </span>
@@ -1529,10 +1548,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       17:45
                     </span>
@@ -1546,10 +1565,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       18:00
                     </span>
@@ -1563,10 +1582,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       18:15
                     </span>
@@ -1580,10 +1599,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       18:30
                     </span>
@@ -1597,10 +1616,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       18:45
                     </span>
@@ -1614,10 +1633,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       19:00
                     </span>
@@ -1631,10 +1650,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       19:15
                     </span>
@@ -1648,10 +1667,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       19:30
                     </span>
@@ -1665,10 +1684,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       19:45
                     </span>
@@ -1682,10 +1701,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       20:00
                     </span>
@@ -1699,10 +1718,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       20:15
                     </span>
@@ -1716,10 +1735,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       20:30
                     </span>
@@ -1733,10 +1752,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       20:45
                     </span>
@@ -1750,10 +1769,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       21:00
                     </span>
@@ -1767,10 +1786,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       21:15
                     </span>
@@ -1784,10 +1803,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       21:30
                     </span>
@@ -1801,10 +1820,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       21:45
                     </span>
@@ -1818,10 +1837,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       22:00
                     </span>
@@ -1835,10 +1854,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       22:15
                     </span>
@@ -1852,10 +1871,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       22:30
                     </span>
@@ -1869,10 +1888,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       22:45
                     </span>
@@ -1886,10 +1905,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       23:00
                     </span>
@@ -1903,10 +1922,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       23:15
                     </span>
@@ -1920,10 +1939,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       23:30
                     </span>
@@ -1937,10 +1956,10 @@ describe('TimePicker', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       23:45
                     </span>

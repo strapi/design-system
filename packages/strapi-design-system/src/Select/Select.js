@@ -8,6 +8,7 @@ import { Popover } from '../Popover';
 import { Stack } from '../Stack';
 import { Text } from '../Text';
 import { Row } from '../Row';
+import { Box } from '../Box';
 import { genId } from '../helpers/genId';
 import { SelectList } from './SelectList';
 import { SelectButtonWrapper, IconBox, CaretBox } from './components';
@@ -31,6 +32,7 @@ export const Select = ({
   onClear,
   onReachEnd,
   multi,
+  startIcon,
   ...props
 }) => {
   const idRef = useRef(id || genId());
@@ -100,6 +102,11 @@ export const Select = ({
 
         <SelectButtonWrapper hasError={Boolean(error)} disabled={disabled} ref={containerRef}>
           <Row justifyContent="space-between" as="span">
+            {startIcon && (
+              <Box paddingLeft={3} aria-hidden={true}>
+                {startIcon}
+              </Box>
+            )}
             <SelectButton
               ref={buttonRef}
               labelledBy={selectOptionLabel ? `${labelId} ${contentId}` : labelId}
@@ -171,6 +178,7 @@ Select.defaultProps = {
   value: undefined,
   hint: undefined,
   error: undefined,
+  startIcon: undefined,
 };
 
 Select.propTypes = {
@@ -187,6 +195,7 @@ Select.propTypes = {
   onClear: PropTypes.func,
   onReachEnd: PropTypes.func,
   placeholder: PropTypes.string.isRequired,
+  startIcon: PropTypes.node,
   value: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
     PropTypes.string,

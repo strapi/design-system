@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import TimeIcon from '@strapi/icons/Time';
 import { Select, Option } from '../Select';
 
 export const TimePicker = ({
@@ -40,6 +41,7 @@ export const TimePicker = ({
       value={value}
       onChange={onChange}
       disabled={disabled}
+      startIcon={<TimeIcon />}
       {...props}
     >
       {times.map((time) => (
