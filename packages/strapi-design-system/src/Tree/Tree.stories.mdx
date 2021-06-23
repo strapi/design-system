@@ -37,7 +37,13 @@ Description...
       >
         <TreeItem>
           <Box>First item</Box>
-          <SubTree>
+          <SubTree
+            endAction={
+              <TreeBubble icon={<AddIcon />}>
+                <TextButton>Add a new thing</TextButton>
+              </TreeBubble>
+            }
+          >
             <TreeItem>
               <Box>second item</Box>
             </TreeItem>
