@@ -5,11 +5,9 @@ import { TreeItemContent } from './TreeItemContent';
 
 const SubTreeWrapper = styled.ul`
   margin-top: ${({ theme }) => theme.spaces[2]};
-  margin-left: ${({ theme }) => theme.spaces[8]};
 
   li:before {
     top: 0;
-
     content: '';
     position: absolute;
     height: 100%;
@@ -30,6 +28,10 @@ const SubTreeWrapper = styled.ul`
   }
 
   ${TreeItemContent} {
+    margin-left: ${({ theme }) => theme.spaces[8]};
+  }
+
+  [role='group'] {
     margin-left: ${({ theme }) => theme.spaces[8]};
   }
 `;
