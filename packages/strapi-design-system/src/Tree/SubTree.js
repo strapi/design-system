@@ -17,6 +17,12 @@ const SubTreeWrapper = styled.ul`
     background: ${({ theme }) => theme.colors.primary200};
   }
 
+  li:last-of-type {
+    &:before {
+      height: 50%;
+    }
+  }
+
   ${TreeItemContent} {
     margin-left: ${({ theme }) => theme.spaces[8]};
   }
