@@ -1,7 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TimeIcon from '@strapi/icons/Time';
+import styled from 'styled-components';
 import { Select, Option } from '../Select';
+
+const TimeIconWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  svg {
+    height: 1rem;
+    width: 1rem;
+  }
+
+  svg path {
+    fill: ${({ theme }) => theme.colors.neutral500};
+  }
+`;
 
 export const TimePicker = ({
   disabled,
@@ -41,7 +55,11 @@ export const TimePicker = ({
       value={value}
       onChange={onChange}
       disabled={disabled}
-      startIcon={<TimeIcon />}
+      startIcon={
+        <TimeIconWrapper>
+          <TimeIcon />
+        </TimeIconWrapper>
+      }
       {...props}
     >
       {times.map((time) => (
