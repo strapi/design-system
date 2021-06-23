@@ -18,22 +18,16 @@ const SubTreeWrapper = styled.div`
   }
 `;
 
-export const SubTree = ({ children, endAction, ...props }) => {
+export const SubTree = ({ children, ...props }) => {
   return (
     <SubTreeWrapper>
       <ul role="group" {...props}>
         {children}
       </ul>
-      {endAction}
     </SubTreeWrapper>
   );
 };
 
-SubTree.defaultProps = {
-  endAction: undefined,
-};
-
 SubTree.propTypes = {
   children: PropTypes.node.isRequired,
-  endAction: PropTypes.node,
 };

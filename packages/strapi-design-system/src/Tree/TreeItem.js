@@ -18,7 +18,7 @@ const TreeItemLeafWrapper = styled(Box)`
 
 export const TreeItem = ({ children, removeMarker, ...props }) => {
   return (
-    <TreeItemWrapper role="treeitem" tabIndex={-1} {...props}>
+    <TreeItemWrapper role="treeitem" {...props}>
       {removeMarker ? null : (
         <TreeItemLeafWrapper>
           <TreeItemMarker />

@@ -1,25 +1,46 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TreeItem } from './TreeItem';
+import { TreeItemContent } from './TreeItemContent';
 import { SubTree } from './SubTree';
+import { KeyboardKeys } from '../helpers/keyboardKeys';
+import { focusNextLeaf, focusPreviousLeaf } from './utils';
 
-export const Tree = ({ children, root, endAction, ...props }) => {
+export const Tree = ({ children, root, ...props }) => {
+  const handleKeyDown = (e) => {
+    switch (e.key) {
+      case KeyboardKeys.DOWN:
+      case KeyboardKeys.ARROW_LEFT: {
+        e.preventDefault();
+
+        focusNextLeaf(e.currentTarget);
+        break;
+      }
+
+      case KeyboardKeys.UP:
+      case KeyboardKeys.ARROW_RIGHT: {
+        e.preventDefault();
+
+        focusPreviousLeaf(e.currentTarget);
+        break;
+      }
+
+      default:
+        break;
+    }
+  };
+
   return (
-    <ul role="tree" {...props}>
+    <ul role="tree" onKeyDown={handleKeyDown} {...props}>
       <TreeItem removeMarker>
-        {root}
-        <SubTree endAction={endAction}>{children}</SubTree>
+        <TreeItemContent tabIndex={0}>{root}</TreeItemContent>
+        <SubTree>{children}</SubTree>
       </TreeItem>
     </ul>
   );
 };
 
-Tree.defaultProps = {
-  endAction: undefined,
-};
-
 Tree.propTypes = {
   children: PropTypes.node.isRequired,
-  endAction: PropTypes.node,
   root: PropTypes.node.isRequired,
 };

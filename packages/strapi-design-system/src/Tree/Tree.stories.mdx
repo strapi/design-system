@@ -7,6 +7,7 @@ import EditIcon from '@strapi/icons/EditIcon';
 import DeleteIcon from '@strapi/icons/DeleteIcon';
 import AddIcon from '@strapi/icons/AddIcon';
 import { TreeItem } from './TreeItem';
+import { TreeItemContent } from './TreeItemContent';
 import { TextButton } from '../TextButton';
 import { TreeBubble } from './TreeBubble';
 import { Box } from '../Box';
@@ -27,60 +28,63 @@ Description...
 <Canvas>
   <Story name="base">
     <Box padding={11} style={{ width: '700px' }}>
-      <Tree
-        root={<Box>Hello world</Box>}
-        endAction={
-          <TreeBubble icon={<AddIcon />}>
-            <TextButton>Add a new thing</TextButton>
-          </TreeBubble>
-        }
-      >
+      <Tree root={<Box>Hello world</Box>}>
         <TreeItem>
-          <Box>First item</Box>
-          <SubTree
-            endAction={
-              <TreeBubble icon={<AddIcon />}>
-                <TextButton>Add a new thing</TextButton>
-              </TreeBubble>
-            }
-          >
+          <TreeItemContent>
+            <Box>First item</Box>
+          </TreeItemContent>
+          <SubTree>
             <TreeItem>
-              <Box>second item</Box>
+              <TreeItemContent>
+                <Box>second item</Box>
+              </TreeItemContent>
             </TreeItem>
             <TreeItem>
-              <Box>third Item</Box>
+              <TreeItemContent>
+                <Box>third Item</Box>
+              </TreeItemContent>
+            </TreeItem>
+            <TreeItem>
+              <TreeBubble icon={<AddIcon />}>
+                <TextButton>Add a new thing here</TextButton>
+              </TreeBubble>
             </TreeItem>
           </SubTree>
         </TreeItem>
         <TreeItem>
-          <Box>Second Item</Box>
-          <SubTree
-            endAction={
-              <TreeBubble icon={<AddIcon />}>
-                <TextButton>Add a new thing</TextButton>
-              </TreeBubble>
-            }
-          >
+          <TreeItemContent>
+            <Box>Second Item</Box>
+          </TreeItemContent>
+          <SubTree>
             <TreeItem>
-              <Box>
-                <Row justifyContent="space-between">
-                  <Text highlighted>Component 2</Text>
-                  <Text small>Texte</Text>
-                  <Row>
-                    <IconButton title="Edit" noBorder>
-                      <EditIcon />
-                    </IconButton>
-                    <Box paddingLeft={2}>
-                      <IconButton title="Delete" noBorder>
-                        <DeleteIcon />
+              <TreeItemContent>
+                <Box>
+                  <Row justifyContent="space-between">
+                    <Text highlighted>Component 2</Text>
+                    <Text small>Texte</Text>
+                    <Row>
+                      <IconButton title="Edit" noBorder>
+                        <EditIcon />
                       </IconButton>
-                    </Box>
+                      <Box paddingLeft={2}>
+                        <IconButton title="Delete" noBorder>
+                          <DeleteIcon />
+                        </IconButton>
+                      </Box>
+                    </Row>
                   </Row>
-                </Row>
-              </Box>
+                </Box>
+              </TreeItemContent>
             </TreeItem>
             <TreeItem>
-              <Box>third Item</Box>
+              <TreeItemContent>
+                <Box>third Item</Box>
+              </TreeItemContent>
+            </TreeItem>
+            <TreeItem>
+              <TreeBubble icon={<AddIcon />}>
+                <TextButton>Add a new thing here</TextButton>
+              </TreeBubble>
             </TreeItem>
           </SubTree>
         </TreeItem>

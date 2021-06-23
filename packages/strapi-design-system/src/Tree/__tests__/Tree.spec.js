@@ -51,10 +51,6 @@ describe('Tree', () => {
     );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
-      .c5 {
-        padding-left: 24px;
-      }
-
       .c0 {
         margin-left: 16px;
         padding-top: 24px;
@@ -85,62 +81,21 @@ describe('Tree', () => {
         background: #d9d8ff;
       }
 
-      .c3 {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-        flex-direction: row;
-        -webkit-align-items: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-      }
-
-      .c4 {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        position: relative;
-        -webkit-align-items: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        -webkit-box-pack: center;
-        -webkit-justify-content: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-        border-radius: 50%;
-        background: #d9d8ff;
-        height: 1.5rem;
-        width: 1.5rem;
-        border: none;
-        margin-left: calc(-1.5rem - 1rem - 2px);
-      }
-
-      .c4 svg {
-        height: 0.625rem;
-        width: 0.625rem;
-      }
-
-      .c4 svg path {
-        fill: #4945ff;
-      }
-
       <ul
+        endaction="[object Object]"
         role="tree"
       >
         <li
           class="c0"
           role="treeitem"
-          tabindex="-1"
         >
-          <span>
-            Hello world
-          </span>
+          <div
+            tabindex="0"
+          >
+            <span>
+              Hello world
+            </span>
+          </div>
           <div
             class="c1"
           >
@@ -150,7 +105,6 @@ describe('Tree', () => {
               <li
                 class="c0"
                 role="treeitem"
-                tabindex="-1"
               >
                 <div
                   class="c2"
@@ -177,12 +131,12 @@ describe('Tree', () => {
                   class="c1"
                 >
                   <ul
+                    endaction="[object Object]"
                     role="group"
                   >
                     <li
                       class="c0"
                       role="treeitem"
-                      tabindex="-1"
                     >
                       <div
                         class="c2"
@@ -209,7 +163,6 @@ describe('Tree', () => {
                     <li
                       class="c0"
                       role="treeitem"
-                      tabindex="-1"
                     >
                       <div
                         class="c2"
@@ -234,31 +187,11 @@ describe('Tree', () => {
                       </span>
                     </li>
                   </ul>
-                  <div
-                    class="c3"
-                  >
-                    <div
-                      aria-hidden="true"
-                      class="c4"
-                    >
-                      <span>
-                        icon
-                      </span>
-                    </div>
-                    <div
-                      class="c5"
-                    >
-                      <span>
-                        Add a new thing
-                      </span>
-                    </div>
-                  </div>
                 </div>
               </li>
               <li
                 class="c0"
                 role="treeitem"
-                tabindex="-1"
               >
                 <div
                   class="c2"
@@ -285,49 +218,12 @@ describe('Tree', () => {
                   class="c1"
                 >
                   <ul
+                    endaction="[object Object]"
                     role="group"
                   />
-                  <div
-                    class="c3"
-                  >
-                    <div
-                      aria-hidden="true"
-                      class="c4"
-                    >
-                      <span>
-                        icon
-                      </span>
-                    </div>
-                    <div
-                      class="c5"
-                    >
-                      <span>
-                        Add a new thing
-                      </span>
-                    </div>
-                  </div>
                 </div>
               </li>
             </ul>
-            <div
-              class="c3"
-            >
-              <div
-                aria-hidden="true"
-                class="c4"
-              >
-                <span>
-                  icon
-                </span>
-              </div>
-              <div
-                class="c5"
-              >
-                <span>
-                  Add a new thing
-                </span>
-              </div>
-            </div>
           </div>
         </li>
       </ul>

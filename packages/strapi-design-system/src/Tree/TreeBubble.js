@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Box } from '../Box';
 import { Row } from '../Row';
+import { TreeItemContent } from './TreeItemContent';
 
 export const TreeBubbleWrapper = styled.div`
   display: flex;
@@ -33,12 +34,14 @@ export const TreeBubbleWrapper = styled.div`
 
 export const TreeBubble = ({ children, icon, ...props }) => {
   return (
-    <Row>
-      <TreeBubbleWrapper aria-hidden={true} {...props}>
-        {icon}
-      </TreeBubbleWrapper>
-      <Box paddingLeft={6}>{children}</Box>
-    </Row>
+    <TreeItemContent>
+      <Row>
+        <TreeBubbleWrapper aria-hidden={true} {...props}>
+          {icon}
+        </TreeBubbleWrapper>
+        <Box paddingLeft={6}>{children}</Box>
+      </Row>
+    </TreeItemContent>
   );
 };
 
