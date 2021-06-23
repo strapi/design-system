@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { TreeLeaf } from './TreeLeaf';
+import { TreeItemMarker } from './TreeItemMarker';
 import { Box } from '../Box';
 
 const TreeItemWrapper = styled.li`
@@ -16,12 +16,12 @@ const TreeItemLeafWrapper = styled(Box)`
   transform: translateY(-50%);
 `;
 
-export const TreeItem = ({ children, removeLeaf, ...props }) => {
+export const TreeItem = ({ children, removeMarker, ...props }) => {
   return (
     <TreeItemWrapper role="treeitem" tabIndex={-1} {...props}>
-      {removeLeaf ? null : (
+      {removeMarker ? null : (
         <TreeItemLeafWrapper>
-          <TreeLeaf />
+          <TreeItemMarker />
         </TreeItemLeafWrapper>
       )}
       {children}
@@ -30,10 +30,10 @@ export const TreeItem = ({ children, removeLeaf, ...props }) => {
 };
 
 TreeItem.defaultProps = {
-  removeLeaf: false,
+  removeMarker: false,
 };
 
 TreeItem.propTypes = {
   children: PropTypes.node.isRequired,
-  removeLeaf: PropTypes.bool,
+  removeMarker: PropTypes.bool,
 };

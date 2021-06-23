@@ -6,7 +6,7 @@ import { SubTree } from './SubTree';
 export const Tree = ({ children, root, endAction, ...props }) => {
   return (
     <ul role="tree" {...props}>
-      <TreeItem removeLeaf>
+      <TreeItem removeMarker>
         {root}
         <SubTree endAction={endAction}>{children}</SubTree>
       </TreeItem>

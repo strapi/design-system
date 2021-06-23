@@ -1,11 +1,11 @@
 import React from 'react';
-import PropTypes, { bool } from 'prop-types';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Tooltip } from '../Tooltip';
 import { BaseButton } from '../BaseButton';
 
 const IconButtonWrapper = styled(BaseButton)`
-  border: ${({ borderLess }) => (borderLess ? 'none' : undefined)};
+  border: ${({ noBorder }) => (noBorder ? 'none' : undefined)};
   svg {
     > g,
     path {
@@ -44,11 +44,11 @@ IconButton.displayName = 'IconButton';
 
 IconButton.defaultProps = {
   title: undefined,
-  borderLess: false,
+  noBorder: false,
 };
 IconButton.propTypes = {
-  borderLess: bool,
   children: PropTypes.element.isRequired,
   description: PropTypes.string,
+  noBorder: PropTypes.bool,
   title: PropTypes.string,
 };

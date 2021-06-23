@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const TreeLeaf = () => (
+export const TreeItemMarker = () => (
   <svg width="19" height="22" viewBox="0 0 19 22" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       fillRule="evenodd"
