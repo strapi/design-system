@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { Box } from '../Box';
 import { Row } from '../Row';
 import { TreeItemContent } from './TreeItemContent';
+import { TreeItem } from './TreeItem';
 
 export const TreeBubbleWrapper = styled.div`
   display: flex;
@@ -16,11 +17,7 @@ export const TreeBubbleWrapper = styled.div`
   width: ${24 / 16}rem;
   border: none;
 
-  // Moving to the left by
-  // the size of the bubble element (24)
-  // minus half the size of the space between the line and the bubble
-  // minus 2 (half the line width)
-  margin-left: calc(-${24 / 16}rem - ${32 / 16 / 2}rem - 2px);
+  margin-left: -${(32 + 24 + 4 - 4 / 2) / 16}rem;
 
   svg {
     height: ${10 / 16}rem;
@@ -34,14 +31,16 @@ export const TreeBubbleWrapper = styled.div`
 
 export const TreeBubble = ({ children, icon, ...props }) => {
   return (
-    <TreeItemContent>
-      <Row>
-        <TreeBubbleWrapper aria-hidden={true} {...props}>
-          {icon}
-        </TreeBubbleWrapper>
-        <Box paddingLeft={6}>{children}</Box>
-      </Row>
-    </TreeItemContent>
+    <TreeItem removeMarker>
+      <TreeItemContent>
+        <Row>
+          <TreeBubbleWrapper aria-hidden={true} {...props}>
+            {icon}
+          </TreeBubbleWrapper>
+          <Box paddingLeft={6}>{children}</Box>
+        </Row>
+      </TreeItemContent>
+    </TreeItem>
   );
 };
 
