@@ -7,7 +7,11 @@ import { KeyboardKeys } from '../helpers/keyboardKeys';
 import { focusNextLeaf, focusPreviousLeaf } from './utils';
 import styled from 'styled-components';
 
-const TreeWrapper = styled.ul``;
+const TreeWrapper = styled.ul`
+  li:last-of-type {
+    padding-bottom: 0;
+  }
+`;
 
 export const Tree = ({ children, root, ...props }) => {
   const handleKeyDown = (e) => {

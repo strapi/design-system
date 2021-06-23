@@ -16,6 +16,7 @@ const SubTreeWrapper = styled.ul`
   }
 
   li:last-of-type {
+    padding-bottom: 0;
     &:before {
       height: 50%;
     }
