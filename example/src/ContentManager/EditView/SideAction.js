@@ -9,12 +9,12 @@ export const SideActions = () => {
   return (
     <Row>
       <Box paddingRight={3}>
-        <Button variant="secondary" leftIcon={<EditIcon />}>
+        <Button variant="secondary" startIcon={<EditIcon />}>
           Edit the model
         </Button>
       </Box>
 
-      <Button variant="secondary" leftIcon={<ConfigureIcon />}>
+      <Button variant="secondary" startIcon={<ConfigureIcon />}>
         Configure the view
       </Button>
     </Row>
