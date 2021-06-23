@@ -1,5 +1,7 @@
-import React from 'react';
+import styled from 'styled-components';
 
-export const TreeItemContent = (props) => {
-  return <div tabIndex={-1} {...props} />;
+export const TreeItemContent = styled.div``;
+
+TreeItemContent.defaultProps = {
+  tabIndex: -1,
 };

@@ -17,7 +17,7 @@ export const TreeBubbleWrapper = styled.div`
   width: ${24 / 16}rem;
   border: none;
 
-  margin-left: -${(32 + 24 + 4 - 4 / 2) / 16}rem;
+  /* margin-left: -${(32 + 24 + 4 - 4 / 2) / 16}rem; */
 
   svg {
     height: ${10 / 16}rem;

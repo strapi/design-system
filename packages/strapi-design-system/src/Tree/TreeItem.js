@@ -5,14 +5,13 @@ import { TreeItemMarker } from './TreeItemMarker';
 import { Box } from '../Box';
 
 const TreeItemWrapper = styled.li`
-  margin-left: ${({ theme }) => theme.spaces[4]};
   padding-top: ${({ theme }) => theme.spaces[6]};
   padding-bottom: ${({ theme }) => theme.spaces[6]};
+  position: relative;
 `;
 
 const TreeItemLeafWrapper = styled(Box)`
   position: absolute;
-  margin-left: calc(-${32 / 16}rem - 1rem);
   transform: translateY(-50%);
 `;
 

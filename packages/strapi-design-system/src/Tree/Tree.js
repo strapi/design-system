@@ -5,6 +5,9 @@ import { TreeItemContent } from './TreeItemContent';
 import { SubTree } from './SubTree';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 import { focusNextLeaf, focusPreviousLeaf } from './utils';
+import styled from 'styled-components';
+
+const TreeWrapper = styled.ul``;
 
 export const Tree = ({ children, root, ...props }) => {
   const handleKeyDown = (e) => {
@@ -31,12 +34,12 @@ export const Tree = ({ children, root, ...props }) => {
   };
 
   return (
-    <ul role="tree" onKeyDown={handleKeyDown} {...props}>
+    <TreeWrapper role="tree" onKeyDown={handleKeyDown} {...props}>
       <TreeItem removeMarker>
         <TreeItemContent tabIndex={0}>{root}</TreeItemContent>
         <SubTree>{children}</SubTree>
       </TreeItem>
-    </ul>
+    </TreeWrapper>
   );
 };
 
