@@ -14,6 +14,7 @@ import { SelectButtonWrapper, IconBox, CaretBox } from './components';
 import { useButtonRef } from './hooks/useButtonRef';
 import { VisuallyHidden } from '../VisuallyHidden';
 import { DownState } from './constants';
+import { escapeSelector } from '../helpers/escapeSelector';
 
 export const Select = ({
   label,
@@ -83,7 +84,7 @@ export const Select = ({
     }
 
     return cloneElement(node, {
-      id: optionId,
+      id: escapeSelector(optionId),
       onClick: () => handleSelectItem(node.props.value),
       selected,
       multi,

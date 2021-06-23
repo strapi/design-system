@@ -307,7 +307,7 @@ describe('TimePicker', () => {
               class="c13"
             >
               <ul
-                aria-activedescendant="option-tp-1-11:00"
+                aria-activedescendant="option-tp-1-11-00"
                 aria-labelledby="label-tp-1"
                 aria-multiselectable="false"
                 class="c0"
@@ -318,7 +318,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="00:00"
-                  id="option-tp-1-00:00"
+                  id="option-tp-1-00-00"
                   role="option"
                 >
                   <div
@@ -335,7 +335,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="00:15"
-                  id="option-tp-1-00:15"
+                  id="option-tp-1-00-15"
                   role="option"
                 >
                   <div
@@ -352,7 +352,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="00:30"
-                  id="option-tp-1-00:30"
+                  id="option-tp-1-00-30"
                   role="option"
                 >
                   <div
@@ -369,7 +369,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="00:45"
-                  id="option-tp-1-00:45"
+                  id="option-tp-1-00-45"
                   role="option"
                 >
                   <div
@@ -386,7 +386,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="01:00"
-                  id="option-tp-1-01:00"
+                  id="option-tp-1-01-00"
                   role="option"
                 >
                   <div
@@ -403,7 +403,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="01:15"
-                  id="option-tp-1-01:15"
+                  id="option-tp-1-01-15"
                   role="option"
                 >
                   <div
@@ -420,7 +420,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="01:30"
-                  id="option-tp-1-01:30"
+                  id="option-tp-1-01-30"
                   role="option"
                 >
                   <div
@@ -437,7 +437,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="01:45"
-                  id="option-tp-1-01:45"
+                  id="option-tp-1-01-45"
                   role="option"
                 >
                   <div
@@ -454,7 +454,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="02:00"
-                  id="option-tp-1-02:00"
+                  id="option-tp-1-02-00"
                   role="option"
                 >
                   <div
@@ -471,7 +471,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="02:15"
-                  id="option-tp-1-02:15"
+                  id="option-tp-1-02-15"
                   role="option"
                 >
                   <div
@@ -488,7 +488,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="02:30"
-                  id="option-tp-1-02:30"
+                  id="option-tp-1-02-30"
                   role="option"
                 >
                   <div
@@ -505,7 +505,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="02:45"
-                  id="option-tp-1-02:45"
+                  id="option-tp-1-02-45"
                   role="option"
                 >
                   <div
@@ -522,7 +522,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="03:00"
-                  id="option-tp-1-03:00"
+                  id="option-tp-1-03-00"
                   role="option"
                 >
                   <div
@@ -539,7 +539,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="03:15"
-                  id="option-tp-1-03:15"
+                  id="option-tp-1-03-15"
                   role="option"
                 >
                   <div
@@ -556,7 +556,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="03:30"
-                  id="option-tp-1-03:30"
+                  id="option-tp-1-03-30"
                   role="option"
                 >
                   <div
@@ -573,7 +573,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="03:45"
-                  id="option-tp-1-03:45"
+                  id="option-tp-1-03-45"
                   role="option"
                 >
                   <div
@@ -590,7 +590,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="04:00"
-                  id="option-tp-1-04:00"
+                  id="option-tp-1-04-00"
                   role="option"
                 >
                   <div
@@ -607,7 +607,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="04:15"
-                  id="option-tp-1-04:15"
+                  id="option-tp-1-04-15"
                   role="option"
                 >
                   <div
@@ -624,7 +624,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="04:30"
-                  id="option-tp-1-04:30"
+                  id="option-tp-1-04-30"
                   role="option"
                 >
                   <div
@@ -641,7 +641,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="04:45"
-                  id="option-tp-1-04:45"
+                  id="option-tp-1-04-45"
                   role="option"
                 >
                   <div
@@ -658,7 +658,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="05:00"
-                  id="option-tp-1-05:00"
+                  id="option-tp-1-05-00"
                   role="option"
                 >
                   <div
@@ -675,7 +675,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="05:15"
-                  id="option-tp-1-05:15"
+                  id="option-tp-1-05-15"
                   role="option"
                 >
                   <div
@@ -692,7 +692,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="05:30"
-                  id="option-tp-1-05:30"
+                  id="option-tp-1-05-30"
                   role="option"
                 >
                   <div
@@ -709,7 +709,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="05:45"
-                  id="option-tp-1-05:45"
+                  id="option-tp-1-05-45"
                   role="option"
                 >
                   <div
@@ -726,7 +726,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="06:00"
-                  id="option-tp-1-06:00"
+                  id="option-tp-1-06-00"
                   role="option"
                 >
                   <div
@@ -743,7 +743,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="06:15"
-                  id="option-tp-1-06:15"
+                  id="option-tp-1-06-15"
                   role="option"
                 >
                   <div
@@ -760,7 +760,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="06:30"
-                  id="option-tp-1-06:30"
+                  id="option-tp-1-06-30"
                   role="option"
                 >
                   <div
@@ -777,7 +777,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="06:45"
-                  id="option-tp-1-06:45"
+                  id="option-tp-1-06-45"
                   role="option"
                 >
                   <div
@@ -794,7 +794,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="07:00"
-                  id="option-tp-1-07:00"
+                  id="option-tp-1-07-00"
                   role="option"
                 >
                   <div
@@ -811,7 +811,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="07:15"
-                  id="option-tp-1-07:15"
+                  id="option-tp-1-07-15"
                   role="option"
                 >
                   <div
@@ -828,7 +828,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="07:30"
-                  id="option-tp-1-07:30"
+                  id="option-tp-1-07-30"
                   role="option"
                 >
                   <div
@@ -845,7 +845,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="07:45"
-                  id="option-tp-1-07:45"
+                  id="option-tp-1-07-45"
                   role="option"
                 >
                   <div
@@ -862,7 +862,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="08:00"
-                  id="option-tp-1-08:00"
+                  id="option-tp-1-08-00"
                   role="option"
                 >
                   <div
@@ -879,7 +879,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="08:15"
-                  id="option-tp-1-08:15"
+                  id="option-tp-1-08-15"
                   role="option"
                 >
                   <div
@@ -896,7 +896,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="08:30"
-                  id="option-tp-1-08:30"
+                  id="option-tp-1-08-30"
                   role="option"
                 >
                   <div
@@ -913,7 +913,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="08:45"
-                  id="option-tp-1-08:45"
+                  id="option-tp-1-08-45"
                   role="option"
                 >
                   <div
@@ -930,7 +930,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="09:00"
-                  id="option-tp-1-09:00"
+                  id="option-tp-1-09-00"
                   role="option"
                 >
                   <div
@@ -947,7 +947,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="09:15"
-                  id="option-tp-1-09:15"
+                  id="option-tp-1-09-15"
                   role="option"
                 >
                   <div
@@ -964,7 +964,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="09:30"
-                  id="option-tp-1-09:30"
+                  id="option-tp-1-09-30"
                   role="option"
                 >
                   <div
@@ -981,7 +981,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="09:45"
-                  id="option-tp-1-09:45"
+                  id="option-tp-1-09-45"
                   role="option"
                 >
                   <div
@@ -998,7 +998,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="10:00"
-                  id="option-tp-1-10:00"
+                  id="option-tp-1-10-00"
                   role="option"
                 >
                   <div
@@ -1015,7 +1015,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="10:15"
-                  id="option-tp-1-10:15"
+                  id="option-tp-1-10-15"
                   role="option"
                 >
                   <div
@@ -1032,7 +1032,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="10:30"
-                  id="option-tp-1-10:30"
+                  id="option-tp-1-10-30"
                   role="option"
                 >
                   <div
@@ -1049,7 +1049,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="10:45"
-                  id="option-tp-1-10:45"
+                  id="option-tp-1-10-45"
                   role="option"
                 >
                   <div
@@ -1066,7 +1066,7 @@ describe('TimePicker', () => {
                   aria-selected="true"
                   class="c14 c15 is-focused"
                   data-strapi-value="11:00"
-                  id="option-tp-1-11:00"
+                  id="option-tp-1-11-00"
                   role="option"
                 >
                   <div
@@ -1083,7 +1083,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="11:15"
-                  id="option-tp-1-11:15"
+                  id="option-tp-1-11-15"
                   role="option"
                 >
                   <div
@@ -1100,7 +1100,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="11:30"
-                  id="option-tp-1-11:30"
+                  id="option-tp-1-11-30"
                   role="option"
                 >
                   <div
@@ -1117,7 +1117,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="11:45"
-                  id="option-tp-1-11:45"
+                  id="option-tp-1-11-45"
                   role="option"
                 >
                   <div
@@ -1134,7 +1134,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="12:00"
-                  id="option-tp-1-12:00"
+                  id="option-tp-1-12-00"
                   role="option"
                 >
                   <div
@@ -1151,7 +1151,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="12:15"
-                  id="option-tp-1-12:15"
+                  id="option-tp-1-12-15"
                   role="option"
                 >
                   <div
@@ -1168,7 +1168,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="12:30"
-                  id="option-tp-1-12:30"
+                  id="option-tp-1-12-30"
                   role="option"
                 >
                   <div
@@ -1185,7 +1185,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="12:45"
-                  id="option-tp-1-12:45"
+                  id="option-tp-1-12-45"
                   role="option"
                 >
                   <div
@@ -1202,7 +1202,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="13:00"
-                  id="option-tp-1-13:00"
+                  id="option-tp-1-13-00"
                   role="option"
                 >
                   <div
@@ -1219,7 +1219,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="13:15"
-                  id="option-tp-1-13:15"
+                  id="option-tp-1-13-15"
                   role="option"
                 >
                   <div
@@ -1236,7 +1236,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="13:30"
-                  id="option-tp-1-13:30"
+                  id="option-tp-1-13-30"
                   role="option"
                 >
                   <div
@@ -1253,7 +1253,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="13:45"
-                  id="option-tp-1-13:45"
+                  id="option-tp-1-13-45"
                   role="option"
                 >
                   <div
@@ -1270,7 +1270,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="14:00"
-                  id="option-tp-1-14:00"
+                  id="option-tp-1-14-00"
                   role="option"
                 >
                   <div
@@ -1287,7 +1287,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="14:15"
-                  id="option-tp-1-14:15"
+                  id="option-tp-1-14-15"
                   role="option"
                 >
                   <div
@@ -1304,7 +1304,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="14:30"
-                  id="option-tp-1-14:30"
+                  id="option-tp-1-14-30"
                   role="option"
                 >
                   <div
@@ -1321,7 +1321,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="14:45"
-                  id="option-tp-1-14:45"
+                  id="option-tp-1-14-45"
                   role="option"
                 >
                   <div
@@ -1338,7 +1338,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="15:00"
-                  id="option-tp-1-15:00"
+                  id="option-tp-1-15-00"
                   role="option"
                 >
                   <div
@@ -1355,7 +1355,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="15:15"
-                  id="option-tp-1-15:15"
+                  id="option-tp-1-15-15"
                   role="option"
                 >
                   <div
@@ -1372,7 +1372,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="15:30"
-                  id="option-tp-1-15:30"
+                  id="option-tp-1-15-30"
                   role="option"
                 >
                   <div
@@ -1389,7 +1389,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="15:45"
-                  id="option-tp-1-15:45"
+                  id="option-tp-1-15-45"
                   role="option"
                 >
                   <div
@@ -1406,7 +1406,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="16:00"
-                  id="option-tp-1-16:00"
+                  id="option-tp-1-16-00"
                   role="option"
                 >
                   <div
@@ -1423,7 +1423,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="16:15"
-                  id="option-tp-1-16:15"
+                  id="option-tp-1-16-15"
                   role="option"
                 >
                   <div
@@ -1440,7 +1440,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="16:30"
-                  id="option-tp-1-16:30"
+                  id="option-tp-1-16-30"
                   role="option"
                 >
                   <div
@@ -1457,7 +1457,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="16:45"
-                  id="option-tp-1-16:45"
+                  id="option-tp-1-16-45"
                   role="option"
                 >
                   <div
@@ -1474,7 +1474,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="17:00"
-                  id="option-tp-1-17:00"
+                  id="option-tp-1-17-00"
                   role="option"
                 >
                   <div
@@ -1491,7 +1491,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="17:15"
-                  id="option-tp-1-17:15"
+                  id="option-tp-1-17-15"
                   role="option"
                 >
                   <div
@@ -1508,7 +1508,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="17:30"
-                  id="option-tp-1-17:30"
+                  id="option-tp-1-17-30"
                   role="option"
                 >
                   <div
@@ -1525,7 +1525,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="17:45"
-                  id="option-tp-1-17:45"
+                  id="option-tp-1-17-45"
                   role="option"
                 >
                   <div
@@ -1542,7 +1542,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="18:00"
-                  id="option-tp-1-18:00"
+                  id="option-tp-1-18-00"
                   role="option"
                 >
                   <div
@@ -1559,7 +1559,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="18:15"
-                  id="option-tp-1-18:15"
+                  id="option-tp-1-18-15"
                   role="option"
                 >
                   <div
@@ -1576,7 +1576,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="18:30"
-                  id="option-tp-1-18:30"
+                  id="option-tp-1-18-30"
                   role="option"
                 >
                   <div
@@ -1593,7 +1593,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="18:45"
-                  id="option-tp-1-18:45"
+                  id="option-tp-1-18-45"
                   role="option"
                 >
                   <div
@@ -1610,7 +1610,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="19:00"
-                  id="option-tp-1-19:00"
+                  id="option-tp-1-19-00"
                   role="option"
                 >
                   <div
@@ -1627,7 +1627,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="19:15"
-                  id="option-tp-1-19:15"
+                  id="option-tp-1-19-15"
                   role="option"
                 >
                   <div
@@ -1644,7 +1644,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="19:30"
-                  id="option-tp-1-19:30"
+                  id="option-tp-1-19-30"
                   role="option"
                 >
                   <div
@@ -1661,7 +1661,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="19:45"
-                  id="option-tp-1-19:45"
+                  id="option-tp-1-19-45"
                   role="option"
                 >
                   <div
@@ -1678,7 +1678,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="20:00"
-                  id="option-tp-1-20:00"
+                  id="option-tp-1-20-00"
                   role="option"
                 >
                   <div
@@ -1695,7 +1695,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="20:15"
-                  id="option-tp-1-20:15"
+                  id="option-tp-1-20-15"
                   role="option"
                 >
                   <div
@@ -1712,7 +1712,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="20:30"
-                  id="option-tp-1-20:30"
+                  id="option-tp-1-20-30"
                   role="option"
                 >
                   <div
@@ -1729,7 +1729,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="20:45"
-                  id="option-tp-1-20:45"
+                  id="option-tp-1-20-45"
                   role="option"
                 >
                   <div
@@ -1746,7 +1746,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="21:00"
-                  id="option-tp-1-21:00"
+                  id="option-tp-1-21-00"
                   role="option"
                 >
                   <div
@@ -1763,7 +1763,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="21:15"
-                  id="option-tp-1-21:15"
+                  id="option-tp-1-21-15"
                   role="option"
                 >
                   <div
@@ -1780,7 +1780,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="21:30"
-                  id="option-tp-1-21:30"
+                  id="option-tp-1-21-30"
                   role="option"
                 >
                   <div
@@ -1797,7 +1797,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="21:45"
-                  id="option-tp-1-21:45"
+                  id="option-tp-1-21-45"
                   role="option"
                 >
                   <div
@@ -1814,7 +1814,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="22:00"
-                  id="option-tp-1-22:00"
+                  id="option-tp-1-22-00"
                   role="option"
                 >
                   <div
@@ -1831,7 +1831,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="22:15"
-                  id="option-tp-1-22:15"
+                  id="option-tp-1-22-15"
                   role="option"
                 >
                   <div
@@ -1848,7 +1848,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="22:30"
-                  id="option-tp-1-22:30"
+                  id="option-tp-1-22-30"
                   role="option"
                 >
                   <div
@@ -1865,7 +1865,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="22:45"
-                  id="option-tp-1-22:45"
+                  id="option-tp-1-22-45"
                   role="option"
                 >
                   <div
@@ -1882,7 +1882,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="23:00"
-                  id="option-tp-1-23:00"
+                  id="option-tp-1-23-00"
                   role="option"
                 >
                   <div
@@ -1899,7 +1899,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="23:15"
-                  id="option-tp-1-23:15"
+                  id="option-tp-1-23-15"
                   role="option"
                 >
                   <div
@@ -1916,7 +1916,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="23:30"
-                  id="option-tp-1-23:30"
+                  id="option-tp-1-23-30"
                   role="option"
                 >
                   <div
@@ -1933,7 +1933,7 @@ describe('TimePicker', () => {
                   aria-selected="false"
                   class="c14 c15"
                   data-strapi-value="23:45"
-                  id="option-tp-1-23:45"
+                  id="option-tp-1-23-45"
                   role="option"
                 >
                   <div

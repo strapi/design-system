@@ -42,7 +42,7 @@ export const TimePicker = ({
       disabled={disabled}
       {...props}
     >
-      {times.map((time, index) => (
+      {times.map((time) => (
         <Option value={time} key={time}>
           {time}
         </Option>
