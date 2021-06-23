@@ -145,12 +145,12 @@ This is the most complex input that can be built with the Field components:
                 placeholder="example@domain.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                leftAction={
+                startAction={
                   <FieldAction label="Show password">
                     <Password />
                   </FieldAction>
                 }
-                rightAction={
+                endAction={
                   <FieldAction label="Show password">
                     <Password />
                   </FieldAction>

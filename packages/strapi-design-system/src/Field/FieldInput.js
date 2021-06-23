@@ -55,7 +55,7 @@ export const InputWrapper = styled(Row)`
   }
 `;
 
-export const FieldInput = forwardRef(({ rightAction, leftAction, disabled, ...props }, ref) => {
+export const FieldInput = forwardRef(({ endAction, startAction, disabled, ...props }, ref) => {
   const { id, error, hint, name } = useField();
 
   let ariaDescription;
@@ -71,9 +71,9 @@ export const FieldInput = forwardRef(({ rightAction, leftAction, disabled, ...pr
 
   return (
     <InputWrapper justifyContent="space-between" hasError={hasError} disabled={disabled}>
-      {leftAction && (
+      {startAction && (
         <Box paddingLeft={3} paddingRight={2}>
-          {leftAction}
+          {startAction}
         </Box>
       )}
       <Input
@@ -83,13 +83,13 @@ export const FieldInput = forwardRef(({ rightAction, leftAction, disabled, ...pr
         aria-describedby={ariaDescription}
         aria-invalid={hasError}
         disabled={disabled}
-        hasLeftAction={Boolean(leftAction)}
-        hasRightAction={Boolean(rightAction)}
+        hasLeftAction={Boolean(startAction)}
+        hasRightAction={Boolean(endAction)}
         {...props}
       />
-      {rightAction && (
+      {endAction && (
         <Box paddingLeft={2} paddingRight={3}>
-          {rightAction}
+          {endAction}
         </Box>
       )}
     </InputWrapper>
@@ -100,12 +100,12 @@ FieldInput.displayName = 'FieldInput';
 
 FieldInput.defaultProps = {
   disabled: false,
-  rightAction: undefined,
-  leftAction: undefined,
+  endAction: undefined,
+  startAction: undefined,
 };
 
 FieldInput.propTypes = {
   disabled: PropTypes.bool,
-  leftAction: PropTypes.element,
-  rightAction: PropTypes.element,
+  startAction: PropTypes.element,
+  endAction: PropTypes.element,
 };

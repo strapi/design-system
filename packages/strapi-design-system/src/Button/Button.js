@@ -34,20 +34,20 @@ export const ButtonWrapper = styled(BaseButton)`
   ${getVariantStyle}
 `;
 
-export const Button = React.forwardRef(({ variant, leftIcon, rightIcon, disabled, children, size, ...props }, ref) => {
+export const Button = React.forwardRef(({ variant, startIcon, endIcon, disabled, children, size, ...props }, ref) => {
   return (
     <ButtonWrapper ref={ref} aria-disabled={disabled} size={size} variant={variant} {...props}>
-      {leftIcon && (
+      {startIcon && (
         <Box aria-hidden={true} paddingRight={2}>
-          {leftIcon}
+          {startIcon}
         </Box>
       )}
       <Text small={size === 'S'} as="span">
         {children}
       </Text>
-      {rightIcon && (
+      {endIcon && (
         <Box aria-hidden={true} paddingLeft={2}>
-          {rightIcon}
+          {endIcon}
         </Box>
       )}
     </ButtonWrapper>
@@ -58,16 +58,16 @@ Button.displayName = 'Button';
 
 Button.defaultProps = {
   disabled: false,
-  leftIcon: undefined,
-  rightIcon: undefined,
+  startIcon: undefined,
+  endIcon: undefined,
   size: 'S',
   variant: 'default',
 };
 Button.propTypes = {
   children: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
-  leftIcon: PropTypes.element,
-  rightIcon: PropTypes.element,
+  startIcon: PropTypes.element,
+  endIcon: PropTypes.element,
   size: PropTypes.oneOf(BUTTON_SIZES),
   variant: PropTypes.oneOf(VARIANTS),
 };

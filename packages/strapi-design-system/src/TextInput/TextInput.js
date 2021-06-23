@@ -13,7 +13,7 @@ const TextInputWrapper = styled.div`
 `;
 
 export const TextInput = React.forwardRef(
-  ({ leftAction, rightAction, name, hint, error, label, labelAction, id, ...props }, ref) => {
+  ({ startAction, endAction, name, hint, error, label, labelAction, id, ...props }, ref) => {
     const inputWrapperRef = useRef(null);
 
     useImperativeHandle(ref, () => ({
@@ -28,7 +28,7 @@ export const TextInput = React.forwardRef(
               <FieldLabel>{label}</FieldLabel>
               {labelAction && <Box paddingLeft={1}>{labelAction}</Box>}
             </Row>
-            <FieldInput ref={ref} leftAction={leftAction} rightAction={rightAction} {...props} />
+            <FieldInput ref={ref} startAction={startAction} endAction={endAction} {...props} />
             <FieldHint />
             <FieldError />
           </Stack>
@@ -45,8 +45,8 @@ TextInput.defaultProps = {
   error: undefined,
   hint: undefined,
   id: undefined,
-  leftAction: undefined,
-  rightAction: undefined,
+  startAction: undefined,
+  endAction: undefined,
 };
 
 TextInput.propTypes = {
@@ -55,7 +55,7 @@ TextInput.propTypes = {
   id: PropTypes.string,
   label: PropTypes.string.isRequired,
   labelAction: PropTypes.element,
-  leftAction: PropTypes.element,
+  startAction: PropTypes.element,
   name: PropTypes.string.isRequired,
-  rightAction: PropTypes.element,
+  endAction: PropTypes.element,
 };

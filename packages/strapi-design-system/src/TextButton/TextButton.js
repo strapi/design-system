@@ -20,7 +20,7 @@ const TextButtonWrapper = styled(Row)`
   }
 `;
 
-export const TextButton = React.forwardRef(({ children, leftIcon, rightIcon, onClick, disabled, ...props }, ref) => {
+export const TextButton = React.forwardRef(({ children, startIcon, endIcon, onClick, disabled, ...props }, ref) => {
   const handleClick = onClick && !disabled ? onClick : undefined;
 
   return (
@@ -32,17 +32,17 @@ export const TextButton = React.forwardRef(({ children, leftIcon, rightIcon, onC
       as="button"
       {...props}
     >
-      {leftIcon && (
+      {startIcon && (
         <Box as="span" paddingRight={2} aria-hidden={true}>
-          {leftIcon}
+          {startIcon}
         </Box>
       )}
       <Text small={true} textColor={disabled ? 'neutral600' : 'primary600'} as="span">
         {children}
       </Text>
-      {rightIcon && (
+      {endIcon && (
         <Box as="span" paddingLeft={2} aria-hidden={true}>
-          {rightIcon}
+          {endIcon}
         </Box>
       )}
     </TextButtonWrapper>
@@ -53,15 +53,15 @@ TextButton.displayName = 'TextButton';
 
 TextButton.defaultProps = {
   disabled: false,
-  leftIcon: undefined,
-  rightIcon: undefined,
+  startIcon: undefined,
+  endIcon: undefined,
   onClick: undefined,
 };
 
 TextButton.propTypes = {
   children: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
-  leftIcon: PropTypes.element,
+  startIcon: PropTypes.element,
   onClick: PropTypes.func,
-  rightIcon: PropTypes.element,
+  endIcon: PropTypes.element,
 };

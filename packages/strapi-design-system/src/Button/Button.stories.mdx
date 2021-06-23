@@ -7,10 +7,7 @@ import Ct from '@strapi/icons/Ct';
 import { Button } from './Button';
 import { Box } from '../Box';
 
-<Meta
-  title="Design System/Atoms/Button"
-  component={Button}
-/>
+<Meta title="Design System/Atoms/Button" component={Button} />
 
 # Button
 
@@ -41,7 +38,7 @@ Description...
     <Box paddingBottom={2}>
       <Button disabled>Disabled</Button>
     </Box>
-    <Button onClick={(e) => console.log(e)} leftIcon={<ContentIcon />} disabled>
+    <Button onClick={(e) => console.log(e)} startIcon={<ContentIcon />} disabled>
       Disabled
     </Button>
   </Story>
@@ -54,9 +51,9 @@ Description...
 <Canvas>
   <Story name="with-icon">
     <Box paddingBottom={2}>
-      <Button leftIcon={<ContentIcon />}>Content type</Button>
+      <Button startIcon={<ContentIcon />}>Content type</Button>
     </Box>
-    <Button rightIcon={<HelpIcon />}>Help</Button>
+    <Button endIcon={<HelpIcon />}>Help</Button>
   </Story>
 </Canvas>
 
@@ -66,7 +63,7 @@ Description...
 
 <Canvas>
   <Story name="lsize">
-    <Button size="L" leftIcon={<ContentIcon />}>
+    <Button size="L" startIcon={<ContentIcon />}>
       Content type
     </Button>
   </Story>

@@ -62,12 +62,12 @@ export const Searchbar = ({ name, children, value, onClear, clearLabel, ...props
         <FieldInput
           ref={inputRef}
           value={value}
-          leftAction={
+          startAction={
             <SearchIconWrapper>
               <SearchIcon aria-hidden={true} />
             </SearchIconWrapper>
           }
-          rightAction={
+          endAction={
             isCompleting ? (
               <FieldAction label={clearLabel} onClick={handleClear}>
                 <CloseIconWrapper>
