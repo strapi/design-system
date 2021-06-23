@@ -41,5 +41,5 @@ Checkbox.propTypes = {
   disabled: PropTypes.bool,
   error: PropTypes.string,
   hint: PropTypes.string,
-  id: PropTypes.string,
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };

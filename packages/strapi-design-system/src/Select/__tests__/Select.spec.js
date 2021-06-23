@@ -16,7 +16,13 @@ describe('Select', () => {
   it('snapshots the component', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
-        <Select label="Choose your meal" id={1} onChange={() => {}} clearLabel="Clear the selection">
+        <Select
+          label="Choose your meal"
+          id={1}
+          onChange={() => {}}
+          clearLabel="Clear the selection"
+          placeholder="Hello world"
+        >
           <Option value={'pizza'}>Pizza</Option>
           <Option value={'hamburger'}>Hamburger</Option>
           <Option value={'bagel'}>Bagel</Option>
@@ -168,7 +174,9 @@ describe('Select', () => {
                   aria-hidden="true"
                   class="c5"
                   id="content-1"
-                />
+                >
+                  Hello world
+                </span>
               </button>
               <div
                 class="c6"
