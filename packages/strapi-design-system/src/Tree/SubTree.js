@@ -9,7 +9,7 @@ const SubTreeWrapper = styled.ul`
 
   li:before {
     top: 0;
-    /* border-radius: ${({ theme }) => theme.borderRadius}; */
+
     content: '';
     position: absolute;
     height: 100%;
@@ -20,6 +20,12 @@ const SubTreeWrapper = styled.ul`
   li:last-of-type {
     &:before {
       height: 50%;
+    }
+  }
+
+  li:first-of-type {
+    &:before {
+      border-radius: ${({ theme }) => `${theme.borderRadius} ${theme.borderRadius} 0 0`};
     }
   }
 
