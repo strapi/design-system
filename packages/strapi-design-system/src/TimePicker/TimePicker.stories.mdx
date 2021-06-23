@@ -1,0 +1,62 @@
+<!--- TimePicker.stories.mdx --->
+
+import { useState } from 'react';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { TimePicker } from './TimePicker';
+
+<Meta title="TimePicker" component={TimePicker} />
+
+# TimePicker
+
+This is the doc of the `TimePicker` component
+
+## TimePicker
+
+Description...
+
+<Canvas>
+  <Story name="base">
+    {() => {
+      const [value, setValue] = useState();
+      return (
+        <TimePicker
+          label={'Choose a time'}
+          disabled={false}
+          error={undefined}
+          hint={'Description line'}
+          id={'tp-1'}
+          onClear={() => setValue(undefined)}
+          onChange={setValue}
+          value={value}
+          clearLabel={'Clear the selected time picker value'}
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
+## TimePicker 30 mns steps
+
+Description...
+
+<Canvas>
+  <Story name="30-mns-step">
+    {() => {
+      const [value, setValue] = useState();
+      return (
+        <TimePicker
+          step={30}
+          label={'Choose a time'}
+          disabled={false}
+          error={undefined}
+          hint={'Description line'}
+          id={'tp-1'}
+          onClear={() => setValue(undefined)}
+          onChange={setValue}
+          value={value}
+          clearLabel={'Clear the selected time picker value'}
+        />
+      );
+    }}
+  </Story>
+</Canvas>
