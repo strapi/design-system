@@ -1,0 +1,39 @@
+<!--- Status.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { Status } from './Status';
+import { Text } from '../Text';
+import { Stack } from '../Stack';
+
+<Meta title="Design System/Atoms/Status" component={Status} />
+
+# Status
+
+This is the doc of the `Status` component
+
+## Status
+
+Description...
+
+<Canvas>
+  <Story name="base">
+    <Stack size={3}>
+      <Status variant="success">
+        <Text>
+          Hello world{' '}
+          <Text as="span" highlighted>
+            thing happens
+          </Text>
+        </Text>
+      </Status>
+      <Status variant="secondary">
+        <Text>
+          Hello world{' '}
+          <Text as="span" highlighted>
+            thing happens
+          </Text>
+        </Text>
+      </Status>
+    </Stack>
+  </Story>
+</Canvas>

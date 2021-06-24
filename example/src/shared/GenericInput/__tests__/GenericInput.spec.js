@@ -134,7 +134,7 @@ describe("GenericInput", () => {
                 type="checkbox"
               />
               <div
-                class="sc-bdnxRM cpgqnJ"
+                class="sc-bdnxRM fIQrJy"
               >
                 Hello world
               </div>
@@ -200,7 +200,7 @@ describe("GenericInput", () => {
               value="pizza"
             />
             <div
-              class="sc-bdnxRM cpgqnJ"
+              class="sc-bdnxRM fIQrJy"
             >
               Pizza
             </div>
@@ -217,7 +217,7 @@ describe("GenericInput", () => {
               value="bagel"
             />
             <div
-              class="sc-bdnxRM cpgqnJ"
+              class="sc-bdnxRM fIQrJy"
             >
               Bagel
             </div>
