@@ -16,7 +16,13 @@ describe('Select', () => {
   it('snapshots the component', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
-        <Select label="Choose your meal" id={1} onChange={() => {}} clearLabel="Clear the selection">
+        <Select
+          label="Choose your meal"
+          id={1}
+          onChange={() => {}}
+          clearLabel="Clear the selection"
+          placeholder="Placeholder"
+        >
           <Option value={'pizza'}>Pizza</Option>
           <Option value={'hamburger'}>Hamburger</Option>
           <Option value={'bagel'}>Bagel</Option>
@@ -26,6 +32,7 @@ describe('Select', () => {
 
     expect(container.firstChild).toMatchInlineSnapshot(`
       .c4 {
+        font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans', 'Helvetica Neue',sans-serif;
         text-align: left;
         border: none;
         padding-left: 16px;
@@ -168,7 +175,9 @@ describe('Select', () => {
                   aria-hidden="true"
                   class="c5"
                   id="content-1"
-                />
+                >
+                  Placeholder
+                </span>
               </button>
               <div
                 class="c6"
@@ -213,6 +222,7 @@ describe('Select', () => {
           value={'pizza'}
           onChange={() => {}}
           disabled={false}
+          startIcon={<span>An icon</span>}
         >
           <Option value={'pizza'}>Pizza</Option>
           <Option value={'hamburger'}>Hamburger</Option>
@@ -227,7 +237,8 @@ describe('Select', () => {
     await waitFor(() => container.querySelector('[role="listbox"]'));
 
     expect(container).toMatchInlineSnapshot(`
-      .c4 {
+      .c5 {
+        font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans', 'Helvetica Neue',sans-serif;
         text-align: left;
         border: none;
         padding-left: 16px;
@@ -239,7 +250,7 @@ describe('Select', () => {
         background: transparent;
       }
 
-      .c4:focus {
+      .c5:focus {
         outline: none;
       }
 
@@ -250,7 +261,7 @@ describe('Select', () => {
         color: #32324d;
       }
 
-      .c5 {
+      .c6 {
         font-weight: 400;
         font-size: 0.875rem;
         line-height: 1.43;
@@ -289,7 +300,7 @@ describe('Select', () => {
         align-items: center;
       }
 
-      .c6 {
+      .c7 {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -303,7 +314,7 @@ describe('Select', () => {
         align-items: center;
       }
 
-      .c7 {
+      .c4 {
         padding-left: 12px;
       }
 
@@ -426,29 +437,37 @@ describe('Select', () => {
               <span
                 class="c3"
               >
+                <div
+                  aria-hidden="true"
+                  class="c4"
+                >
+                  <span>
+                    An icon
+                  </span>
+                </div>
                 <button
                   aria-describedby="field-hint-select1"
                   aria-disabled="false"
                   aria-expanded="true"
                   aria-haspopup="listbox"
                   aria-labelledby="label-select1 content-select1"
-                  class="c4"
+                  class="c5"
                   id="select1"
                 >
                   <span
                     aria-hidden="true"
-                    class="c5"
+                    class="c6"
                     id="content-select1"
                   >
                     Pizza
                   </span>
                 </button>
                 <div
-                  class="c6"
+                  class="c7"
                 >
                   <button
                     aria-hidden="true"
-                    class="c7 c8 c9"
+                    class="c4 c8 c9"
                     tabindex="-1"
                   >
                     <svg
@@ -503,7 +522,7 @@ describe('Select', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
                       class="c16"
@@ -520,10 +539,10 @@ describe('Select', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       Hamburger
                     </span>
@@ -537,10 +556,10 @@ describe('Select', () => {
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c7"
                   >
                     <span
-                      class="c5"
+                      class="c6"
                     >
                       Bagel
                     </span>
@@ -583,6 +602,7 @@ describe('Select', () => {
     expect(container).toMatchInlineSnapshot(`
       <body>
         .c4 {
+        font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans', 'Helvetica Neue',sans-serif;
         text-align: left;
         border: none;
         padding-left: 16px;

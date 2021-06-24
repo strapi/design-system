@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import AddIcon from '@strapi/icons/AddIcon';
 import { Select } from './Select';
 import { Option } from './Option';
 import { Stack } from '../Stack';
@@ -36,6 +37,7 @@ Description...
             value={value}
             onChange={setValue}
             disabled={disabled}
+            startIcon={<AddIcon />}
           >
             <Option value={'pizza'}>Pizza</Option>
             <Option value={'hamburger'}>Hamburger</Option>

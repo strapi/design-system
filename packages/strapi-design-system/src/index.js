@@ -33,6 +33,7 @@ export * from './Text';
 export * from './Textarea';
 export * from './TextButton';
 export * from './TextInput';
+export * from './TimePicker';
 export * from './ThemeProvider';
 export * from './themes';
 export * from './ToggleCheckbox';

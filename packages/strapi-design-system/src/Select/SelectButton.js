@@ -5,6 +5,8 @@ import { KeyboardKeys } from '../helpers/keyboardKeys';
 import { DownState, UpState } from './constants';
 
 const StyledSelectButton = styled.button`
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+    'Helvetica Neue', sans-serif;
   text-align: left;
   border: none;
   padding-left: ${({ theme, hasLeftAction }) => (hasLeftAction ? 0 : theme.spaces[4])};
