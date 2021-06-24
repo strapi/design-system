@@ -103,7 +103,7 @@ describe('Select', () => {
         await page.keyboard.press('Enter');
 
         await expect(await page.$('text=Current value is bagel')).toBeTruthy();
-        await expect(page).toHaveText('#select1', 'Bagel');
+        await expect(page).toHaveText('#content-select1', 'Bagel');
       });
 
       it('focuses the previously selected item when one is selected and the user reopens the popover', async () => {
@@ -135,7 +135,7 @@ describe('Select', () => {
       await page.click('text="Hamburger"');
 
       await page.click('[aria-label="Clear the meal"]');
-      await expect(page).toHaveText('#select1', 'Your example');
+      await expect(page).toHaveText('#content-select1', 'Your example');
     });
   });
 
@@ -146,15 +146,18 @@ describe('Select', () => {
     });
 
     it('selects one value after the other when using the mouse and clears the selected values', async () => {
-      await page.click('text="0 currently selected"');
+      await page.click('#select1');
+
+      await expect(page).toHaveSelector('[role="listbox"]', { timeout: 1000 });
+
       await page.click('text="Hamburger"');
       await page.click('text="Pizza"');
 
+      await expect(page).toHaveText('#content-select1', '2 currently selected');
       await expect(page).toHaveText('h2', 'Current value is hamburger, pizza');
-      await page.click('text="2 currently selected"');
 
       await page.click('[aria-label="Clear the meal"]');
-      await expect(page).toHaveText('#select1', '0 currently selected');
+      await expect(page).toHaveText('#content-select1', '0 currently selected');
     });
 
     describe('keyboard interactions', () => {
@@ -166,7 +169,7 @@ describe('Select', () => {
         await page.keyboard.press('Enter');
 
         await expect(page).toHaveText('h2', 'Current value is pizza, hamburger');
-        await expect(page).toHaveText('#select1', '2 currently selected');
+        await expect(page).toHaveText('#content-select1', '2 currently selected');
       });
 
       it('focuses the previously (first) selected item when one is selected and the user reopens the popover', async () => {

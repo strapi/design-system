@@ -5,17 +5,14 @@ import { KeyboardKeys } from '../helpers/keyboardKeys';
 import { DownState, UpState } from './constants';
 
 const StyledSelectButton = styled.button`
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
-    'Helvetica Neue', sans-serif;
-  text-align: left;
-  border: none;
-  padding-left: ${({ theme, hasLeftAction }) => (hasLeftAction ? 0 : theme.spaces[4])};
-  padding-right: ${({ theme, hasRightAction }) => (hasRightAction ? 0 : theme.spaces[4])};
-  padding-top: ${({ theme }) => `${theme.spaces[3]}`};
-  padding-bottom: ${({ theme }) => `${theme.spaces[3]}`};
-  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
   width: 100%;
   background: transparent;
+  border: none;
 
   // The focus state is moved to the parent thanks to :focus-within
   &:focus {
@@ -23,7 +20,7 @@ const StyledSelectButton = styled.button`
   }
 `;
 
-export const SelectButton = forwardRef(({ children, labelledBy, expanded, onTrigger, disabled, ...props }, ref) => {
+export const SelectButton = forwardRef(({ labelledBy, expanded, onTrigger, disabled, ...props }, ref) => {
   const handleKeyDown = (e) => {
     if (disabled) return;
 
@@ -56,9 +53,7 @@ export const SelectButton = forwardRef(({ children, labelledBy, expanded, onTrig
       onKeyDown={handleKeyDown}
       aria-disabled={disabled}
       {...props}
-    >
-      {children}
-    </StyledSelectButton>
+    />
   );
 });
 
@@ -70,7 +65,6 @@ SelectButton.defaultProps = {
 };
 
 SelectButton.propTypes = {
-  children: PropTypes.node.isRequired,
   disabled: PropTypes.bool,
   expanded: PropTypes.bool,
   labelledBy: PropTypes.string.isRequired,

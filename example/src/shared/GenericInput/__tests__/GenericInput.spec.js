@@ -267,7 +267,7 @@ describe("GenericInput", () => {
 
       expect(container.firstChild).toMatchInlineSnapshot(`
         <div
-          class="sc-kHWWYL klTgTN"
+          class="sc-daBunf jqHNBB"
         >
           <div>
             <div
@@ -285,7 +285,7 @@ describe("GenericInput", () => {
               </div>
               <textarea
                 aria-invalid="false"
-                class="sc-bTDOke kBqnU"
+                class="sc-dsXzNU jtBlXl"
                 id="field-some-id"
                 name="long-content"
               />

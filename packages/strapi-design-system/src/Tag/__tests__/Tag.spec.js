@@ -24,9 +24,7 @@ describe('Tag', () => {
       .c0 {
         background: #f0f0ff;
         color: #4945ff;
-        padding-top: 8px;
         padding-right: 12px;
-        padding-bottom: 8px;
         padding-left: 12px;
       }
 
@@ -51,6 +49,7 @@ describe('Tag', () => {
       .c1 {
         border: 1px solid #d9d8ff;
         border-radius: 4px;
+        height: 2rem;
       }
 
       .c1 svg path {

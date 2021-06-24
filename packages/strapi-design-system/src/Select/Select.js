@@ -16,6 +16,12 @@ import { useButtonRef } from './hooks/useButtonRef';
 import { VisuallyHidden } from '../VisuallyHidden';
 import { DownState } from './constants';
 import { escapeSelector } from '../helpers/escapeSelector';
+import { SelectTags } from './SelectTags';
+import styled from 'styled-components';
+
+const MainRow = styled(Row)`
+  min-height: ${40 / 16}rem;
+`;
 
 export const Select = ({
   label,
@@ -33,6 +39,7 @@ export const Select = ({
   onReachEnd,
   multi,
   startIcon,
+  withTags,
   ...props
 }) => {
   const idRef = useRef(id || genId());
@@ -43,6 +50,10 @@ export const Select = ({
   const labelId = `label-${idRef.current}`;
   const contentId = `content-${idRef.current}`;
   const ariaDescribedBy = error ? `field-error-${idRef.current}` : hint ? `field-hint-${idRef.current}` : undefined;
+
+  if (withTags && !multi) {
+    throw new Error('The "withTags" props can only be used when the "multi" prop is present');
+  }
 
   const handleEscape = () => {
     setExpanded(undefined);
@@ -75,6 +86,7 @@ export const Select = ({
   };
 
   let selectOptionLabel;
+  let tags = [];
 
   const childrenClone = Children.toArray(children).map((node) => {
     const optionId = `option-${idRef.current}-${node.props.value}`;
@@ -82,7 +94,11 @@ export const Select = ({
     const selected = multi ? value.includes(node.props.value) : node.props.value === value;
 
     if (selected) {
-      selectOptionLabel = node.props.children;
+      if (withTags) {
+        tags.push({ label: node.props.children, value: node.props.value });
+      } else {
+        selectOptionLabel = node.props.children;
+      }
     }
 
     return cloneElement(node, {
@@ -101,29 +117,50 @@ export const Select = ({
         </FieldLabel>
 
         <SelectButtonWrapper hasError={Boolean(error)} disabled={disabled} ref={containerRef}>
-          <Row justifyContent="space-between" as="span">
-            {startIcon && (
-              <Box paddingLeft={3} aria-hidden={true}>
-                {startIcon}
+          <SelectButton
+            ref={buttonRef}
+            labelledBy={`${labelId} ${contentId}`}
+            aria-describedby={ariaDescribedBy}
+            expanded={Boolean(expanded)}
+            onTrigger={setExpanded}
+            id={idRef.current}
+            hasError={Boolean(error)}
+            disabled={disabled}
+            onMouseDown={handleMouseDown}
+            {...props}
+          />
+
+          <MainRow justifyContent="space-between">
+            <Row>
+              {startIcon && (
+                <Box paddingLeft={3} aria-hidden={true}>
+                  {startIcon}
+                </Box>
+              )}
+
+              {withTags && <SelectTags tags={tags} onRemoveTag={onChange} />}
+
+              <Box paddingLeft={4} paddingRight={4}>
+                {withTags ? (
+                  <>
+                    {!value || value.length === 0 ? (
+                      <Text id={contentId} as="span" textColor={'neutral600'}>
+                        {placeholder}
+                      </Text>
+                    ) : null}
+                    <VisuallyHidden as="span" id={contentId}>
+                      {customizeContent ? customizeContent(value) : selectOptionLabel || placeholder}
+                      {value.join(', ')}
+                    </VisuallyHidden>
+                  </>
+                ) : (
+                  <Text id={contentId} as="span" textColor={value ? 'neutral800' : 'neutral600'}>
+                    {customizeContent ? customizeContent(value) : selectOptionLabel || placeholder}
+                    {multi && <VisuallyHidden as="span">{value.join(', ')}</VisuallyHidden>}
+                  </Text>
+                )}
               </Box>
-            )}
-            <SelectButton
-              ref={buttonRef}
-              labelledBy={selectOptionLabel ? `${labelId} ${contentId}` : labelId}
-              aria-describedby={ariaDescribedBy}
-              expanded={Boolean(expanded)}
-              onTrigger={setExpanded}
-              id={idRef.current}
-              hasError={Boolean(error)}
-              disabled={disabled}
-              onMouseDown={handleMouseDown}
-              {...props}
-            >
-              <Text id={contentId} as="span" aria-hidden={true} textColor={value ? 'neutral800' : 'neutral600'}>
-                {customizeContent ? customizeContent(value) : selectOptionLabel || placeholder}
-                {multi && <VisuallyHidden as="span">{value.join(', ')}</VisuallyHidden>}
-              </Text>
-            </SelectButton>
+            </Row>
 
             <Row>
               {((multi && value && value.length) || (!multi && value)) && onClear && (
@@ -136,7 +173,7 @@ export const Select = ({
                 <DropdownIcon />
               </CaretBox>
             </Row>
-          </Row>
+          </MainRow>
         </SelectButtonWrapper>
 
         <FieldHint />
@@ -179,6 +216,7 @@ Select.defaultProps = {
   hint: undefined,
   error: undefined,
   startIcon: undefined,
+  withTags: false,
 };
 
 Select.propTypes = {
@@ -201,4 +239,5 @@ Select.propTypes = {
     PropTypes.string,
     PropTypes.number,
   ]),
+  withTags: PropTypes.bool,
 };

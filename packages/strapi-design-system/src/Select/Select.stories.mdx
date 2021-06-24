@@ -91,3 +91,52 @@ Description...
     }}
   </Story>
 </Canvas>
+
+## Select multi with tags
+
+Description...
+
+<Canvas>
+  <Story name="multi-withTags">
+    {() => {
+      const [values, setValues] = useState([]);
+      const [error, toggleError] = useState();
+      const [disabled, toggleDisabled] = useState();
+      const onValueChange = (newValue) =>
+        setValues((s) => (s.includes(newValue) ? s.filter((x) => x !== newValue) : [...s, newValue]));
+      return (
+        <Stack size={11}>
+          <h2>Current value is {values.join(', ')}</h2>
+          <Select
+            id="select1"
+            label="Choose your meal"
+            placeholder="Your example"
+            onClear={() => setValues([])}
+            hint="Description line"
+            clearLabel="Clear the meal"
+            error={error}
+            value={values}
+            onChange={onValueChange}
+            disabled={disabled}
+            customizeContent={(values) => `${values.length} currently selected`}
+            multi
+            withTags
+          >
+            <Option value={'pizza'}>Pizza</Option>
+            <Option value={'hamburger'}>Hamburger</Option>
+            <Option value={'bagel'}>Bagel</Option>
+            {Array(20)
+              .fill(null)
+              .map((_, i) => (
+                <Option key={i} value={`${i}`}>
+                  Another option
+                </Option>
+              ))}
+          </Select>
+          <button onClick={() => toggleError((s) => (s ? undefined : 'An error occured'))}>Show the error state</button>
+          <button onClick={() => toggleDisabled((s) => !s)}>Show the disabled state</button>
+        </Stack>
+      );
+    }}
+  </Story>
+</Canvas>
