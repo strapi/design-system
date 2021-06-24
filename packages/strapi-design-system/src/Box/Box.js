@@ -25,8 +25,9 @@ export const Box = styled.div.withConfig({
   // Grid
   grid-area: ${({ area }) => area};
 
-  // Radius
+  // Borders
   border-radius: ${({ theme, hasRadius }) => (hasRadius ? theme.borderRadius : undefined)};
+  border: ${({ theme, borderColor }) => (borderColor ? `1px solid ${theme.colors[borderColor]}` : undefined)};
 
   // Shadows
   box-shadow: ${({ theme, shadow }) => theme.shadows[shadow]};
@@ -36,6 +37,7 @@ Box.displayName = 'Box';
 
 Box.defaultProps = {
   background: undefined,
+  borderColor: undefined,
   color: undefined,
   padding: undefined,
   paddingTop: undefined,
@@ -48,6 +50,7 @@ Box.defaultProps = {
 
 Box.propTypes = {
   background: PropTypes.string,
+  borderColor: PropTypes.string,
   children: PropTypes.node.isRequired,
   color: PropTypes.string,
   hasRadius: PropTypes.bool,
