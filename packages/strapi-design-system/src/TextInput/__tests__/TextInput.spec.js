@@ -80,13 +80,12 @@ describe('TextInput', () => {
         border: none;
         padding-left: 16px;
         padding-right: 16px;
-        padding-top: 12px;
-        padding-bottom: 12px;
         color: #32324d;
         font-weight: 400;
         font-size: 0.875rem;
         display: block;
         width: 100%;
+        height: 2.5rem;
       }
 
       .c7::-webkit-input-placeholder {

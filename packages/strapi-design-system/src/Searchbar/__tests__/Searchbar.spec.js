@@ -80,13 +80,12 @@ describe('Searchbar', () => {
         border: none;
         padding-left: 0;
         padding-right: 0;
-        padding-top: 12px;
-        padding-bottom: 12px;
         color: #32324d;
         font-weight: 400;
         font-size: 0.875rem;
         display: block;
         width: 100%;
+        height: 2.5rem;
       }
 
       .c10::-webkit-input-placeholder {
@@ -245,26 +244,22 @@ describe('Searchbar', () => {
                 aria-label="Clearing the plugin search"
                 class="c12"
               >
-                <span
-                  aria-hidden="true"
+                <div
+                  class="c8 c13"
                 >
-                  <div
-                    class="c8 c13"
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    <svg
-                      fill="none"
-                      height="1em"
-                      viewBox="0 0 24 24"
-                      width="1em"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M24 2.417L21.583 0 12 9.583 2.417 0 0 2.417 9.583 12 0 21.583 2.417 24 12 14.417 21.583 24 24 21.583 14.417 12 24 2.417z"
-                        fill="#212134"
-                      />
-                    </svg>
-                  </div>
-                </span>
+                    <path
+                      d="M24 2.417L21.583 0 12 9.583 2.417 0 0 2.417 9.583 12 0 21.583 2.417 24 12 14.417 21.583 24 24 21.583 14.417 12 24 2.417z"
+                      fill="#212134"
+                    />
+                  </svg>
+                </div>
               </button>
             </div>
           </div>

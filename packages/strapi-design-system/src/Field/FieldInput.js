@@ -9,8 +9,6 @@ const Input = styled.input`
   border: none;
   padding-left: ${({ theme, hasLeftAction }) => (hasLeftAction ? 0 : theme.spaces[4])};
   padding-right: ${({ theme, hasRightAction }) => (hasRightAction ? 0 : theme.spaces[4])};
-  padding-top: ${({ theme }) => `${theme.spaces[3]}`};
-  padding-bottom: ${({ theme }) => `${theme.spaces[3]}`};
 
   color: ${({ theme }) => theme.colors.neutral800};
   font-weight: 400;
@@ -18,6 +16,7 @@ const Input = styled.input`
   font-size: ${14 / 16}rem;
   display: block;
   width: 100%;
+  height: ${40 / 16}rem;
 
   ::placeholder {
     color: ${({ theme }) => theme.colors.neutral500};
