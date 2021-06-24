@@ -17,7 +17,7 @@ describe("App", () => {
         tabindex="-1"
       >
         <div
-          class="sc-iCoGMd elzOrB"
+          class="sc-iCoGMd fLRbIu"
           style="height: 100vh; display: flex; justify-content: center; align-items: center;"
         >
           <div
