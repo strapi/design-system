@@ -69,7 +69,7 @@ describe("GenericInput", () => {
               >
                 <input
                   aria-invalid="false"
-                  class="sc-bkbkJK blykGF"
+                  class="sc-bkbkJK kiUQEJ"
                   id="field-some-id"
                   name="some text"
                   type="text"

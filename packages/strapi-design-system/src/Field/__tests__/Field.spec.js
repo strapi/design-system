@@ -54,13 +54,12 @@ describe('Field', () => {
         border: none;
         padding-left: 16px;
         padding-right: 16px;
-        padding-top: 12px;
-        padding-bottom: 12px;
         color: #32324d;
         font-weight: 400;
         font-size: 0.875rem;
         display: block;
         width: 100%;
+        height: 2.5rem;
       }
 
       .c3::-webkit-input-placeholder {
@@ -175,13 +174,12 @@ describe('Field', () => {
         border: none;
         padding-left: 16px;
         padding-right: 16px;
-        padding-top: 12px;
-        padding-bottom: 12px;
         color: #32324d;
         font-weight: 400;
         font-size: 0.875rem;
         display: block;
         width: 100%;
+        height: 2.5rem;
       }
 
       .c3::-webkit-input-placeholder {
@@ -304,13 +302,12 @@ describe('Field', () => {
         border: none;
         padding-left: 16px;
         padding-right: 16px;
-        padding-top: 12px;
-        padding-bottom: 12px;
         color: #32324d;
         font-weight: 400;
         font-size: 0.875rem;
         display: block;
         width: 100%;
+        height: 2.5rem;
       }
 
       .c3::-webkit-input-placeholder {
@@ -439,13 +436,12 @@ describe('Field', () => {
         border: none;
         padding-left: 16px;
         padding-right: 16px;
-        padding-top: 12px;
-        padding-bottom: 12px;
         color: #32324d;
         font-weight: 400;
         font-size: 0.875rem;
         display: block;
         width: 100%;
+        height: 2.5rem;
       }
 
       .c3::-webkit-input-placeholder {
@@ -590,13 +586,12 @@ describe('Field', () => {
         border: none;
         padding-left: 0;
         padding-right: 0;
-        padding-top: 12px;
-        padding-bottom: 12px;
         color: #32324d;
         font-weight: 400;
         font-size: 0.875rem;
         display: block;
         width: 100%;
+        height: 2.5rem;
       }
 
       .c5::-webkit-input-placeholder {
@@ -675,11 +670,7 @@ describe('Field', () => {
               aria-label="Show password"
               class="c4"
             >
-              <span
-                aria-hidden="true"
-              >
-                Show
-              </span>
+              Show
             </button>
           </div>
           <input
@@ -700,11 +691,7 @@ describe('Field', () => {
               aria-label="Show password"
               class="c4"
             >
-              <span
-                aria-hidden="true"
-              >
-                Hide
-              </span>
+              Hide
             </button>
           </div>
         </div>
