@@ -45,6 +45,10 @@ export const Status = ({ variant, children, ...props }) => {
   );
 };
 
+Status.defaultProps = {
+  variant: 'primary',
+};
+
 Status.propTypes = {
   children: PropTypes.node.isRequired,
   variant: PropTypes.oneOf(['alternative', 'danger', 'neutral', 'primary', 'secondary', 'success', 'warning']),
