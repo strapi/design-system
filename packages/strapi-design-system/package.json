@@ -48,7 +48,6 @@
     "uuid": "^8.3.2"
   },
   "scripts": {
-    "prebuild": "jest --testRegex tests/check-exports.spec.js",
     "analyze:bundle": "cross-env BUNDLE_ANALYZE=1 webpack",
     "build": "webpack &&  node ../../tools/copy-files.js",
     "build-storybook": "build-storybook",
