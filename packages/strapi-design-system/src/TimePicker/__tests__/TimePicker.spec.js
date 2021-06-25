@@ -140,6 +140,11 @@ describe('TimePicker', () => {
         overflow-y: scroll;
       }
 
+      .c16::-webkit-scrollbar {
+        -webkit-appearance: none;
+        width: 4px;
+      }
+
       .c16::-webkit-scrollbar-track {
         background: #ffffff;
       }
@@ -367,7 +372,6 @@ describe('TimePicker', () => {
               class="c16"
             >
               <ul
-                aria-activedescendant="option-tp-1-11-00"
                 aria-labelledby="label-tp-1"
                 aria-multiselectable="false"
                 class="c0"
@@ -1124,7 +1128,7 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="true"
-                  class="c17 c18 is-focused"
+                  class="c17 c18"
                   data-strapi-value="11:00"
                   id="option-tp-1-11-00"
                   role="option"

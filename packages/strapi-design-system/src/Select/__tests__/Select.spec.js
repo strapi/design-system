@@ -365,6 +365,11 @@ describe('Select', () => {
         overflow-y: scroll;
       }
 
+      .c15::-webkit-scrollbar {
+        -webkit-appearance: none;
+        width: 4px;
+      }
+
       .c15::-webkit-scrollbar-track {
         background: #ffffff;
       }
@@ -539,7 +544,6 @@ describe('Select', () => {
               class="c15"
             >
               <ul
-                aria-activedescendant="option-select1-pizza"
                 aria-labelledby="label-select1"
                 aria-multiselectable="false"
                 class="c0"
@@ -548,7 +552,7 @@ describe('Select', () => {
               >
                 <li
                   aria-selected="true"
-                  class="c16 c17 is-focused"
+                  class="c16 c17"
                   data-strapi-value="pizza"
                   id="option-select1-pizza"
                   role="option"
@@ -916,6 +920,11 @@ describe('Select', () => {
         overflow-y: scroll;
       }
 
+      .c2::-webkit-scrollbar {
+        -webkit-appearance: none;
+        width: 4px;
+      }
+
       .c2::-webkit-scrollbar-track {
         background: #ffffff;
       }
@@ -999,7 +1008,6 @@ describe('Select', () => {
               class="c2"
             >
               <ul
-                aria-activedescendant="option-select1-pizza"
                 aria-labelledby="label-select1"
                 aria-multiselectable="true"
                 class="c3"
@@ -1008,7 +1016,7 @@ describe('Select', () => {
               >
                 <li
                   aria-selected="true"
-                  class="c4 c5 is-focused"
+                  class="c4 c5"
                   data-strapi-value="pizza"
                   id="option-select1-pizza"
                   role="option"
