@@ -16,12 +16,24 @@ const SelectTag = styled(Tag)`
   margin-top: ${({ theme }) => theme.spaces[1]};
 `;
 
-export const SelectTags = ({ tags, onRemoveTag }) => {
+export const SelectTags = ({ tags, onRemoveTag, disabled }) => {
+  const handleClick = (value) => {
+    if (disabled) return;
+
+    onRemoveTag(value);
+  };
+
   return (
     <SelectTagsWrapper>
       <Row wrap="wrap">
         {tags.map((tag) => (
-          <SelectTag icon={<CloseIcon />} onClick={() => onRemoveTag(tag.value)} tabIndex={-1} key={`tag-${tag.value}`}>
+          <SelectTag
+            icon={<CloseIcon />}
+            aria-disabled={disabled}
+            onClick={() => handleClick(tag.value)}
+            tabIndex={-1}
+            key={`tag-${tag.value}`}
+          >
             {tag.label}
           </SelectTag>
         ))}
@@ -31,10 +43,12 @@ export const SelectTags = ({ tags, onRemoveTag }) => {
 };
 
 SelectTags.defaultProps = {
+  disabled: false,
   tags: [],
 };
 
 SelectTags.propTypes = {
+  disabled: PropTypes.bool,
   onRemoveTag: PropTypes.func.isRequired,
   tags: PropTypes.arrayOf(
     PropTypes.shape({ label: PropTypes.string, value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]) }),

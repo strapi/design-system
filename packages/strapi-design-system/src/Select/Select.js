@@ -138,7 +138,7 @@ export const Select = ({
                 </Box>
               )}
 
-              {withTags && <SelectTags tags={tags} onRemoveTag={onChange} />}
+              {withTags && <SelectTags tags={tags} onRemoveTag={onChange} disabled={disabled} />}
 
               <Box paddingLeft={4} paddingRight={4}>
                 {withTags ? (
