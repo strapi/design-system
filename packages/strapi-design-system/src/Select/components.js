@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Box } from '../Box';
 
 export const SelectButtonWrapper = styled.div`
+  position: relative;
   border: 1px solid ${({ theme, hasError }) => (hasError ? theme.colors.danger600 : theme.colors.neutral200)};
   padding-right: ${({ theme }) => theme.spaces[3]};
   border-radius: ${({ theme }) => theme.borderRadius};
@@ -24,6 +25,8 @@ export const SelectButtonWrapper = styled.div`
 export const IconBox = styled(Box)`
   background: transparent;
   border: none;
+  position: relative;
+  z-index: 1;
 
   svg {
     height: ${11 / 16}rem;

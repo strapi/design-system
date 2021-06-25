@@ -19,6 +19,8 @@ export const SelectList = ({ labelledBy, onSelectItem, children, multi, onEscape
       case KeyboardKeys.DOWN: {
         e.preventDefault();
         const currentOption = getActiveDescendant(listRef.current);
+        if (!currentOption) return;
+
         const nextOption = currentOption.nextSibling;
 
         if (nextOption) {
@@ -43,6 +45,8 @@ export const SelectList = ({ labelledBy, onSelectItem, children, multi, onEscape
       case KeyboardKeys.UP: {
         e.preventDefault();
         const currentOption = getActiveDescendant(listRef.current);
+        if (!currentOption) return;
+
         const previousOption = currentOption.previousSibling;
 
         if (previousOption) {

@@ -6,8 +6,16 @@ import { Box } from '../Box';
 import { Row } from '../Row';
 
 const TagWrapper = styled(Box)`
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+    'Helvetica Neue', sans-serif;
   border: 1px solid ${({ theme }) => theme.colors.primary200};
   border-radius: ${({ theme }) => theme.borderRadius};
+  height: ${32 / 16}rem;
+
+  svg {
+    height: ${8 / 16}rem;
+    width: ${8 / 16}rem;
+  }
 
   svg path {
     fill: ${({ theme }) => theme.colors.primary600};
@@ -20,16 +28,7 @@ const TagText = styled(Text)`
 `;
 
 export const Tag = ({ children, icon, ...props }) => (
-  <TagWrapper
-    as="button"
-    background="primary100"
-    color="primary600"
-    paddingBottom={2}
-    paddingTop={2}
-    paddingLeft={3}
-    paddingRight={3}
-    {...props}
-  >
+  <TagWrapper as="button" background="primary100" color="primary600" paddingLeft={3} paddingRight={3} {...props}>
     <Row>
       <TagText small={true} highlighted={true} as="span">
         {children}

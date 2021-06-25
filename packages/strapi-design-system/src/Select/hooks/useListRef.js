@@ -25,7 +25,9 @@ export const useListRef = (expanded, onSelectItem, multi) => {
     }
 
     if (nextOption) {
-      changeDescendant(listRef.current, nextOption);
+      if (expanded === UpState.Keyboard || expanded === DownState.Keyboard) {
+        changeDescendant(listRef.current, nextOption);
+      }
 
       if (!multi) {
         onSelectItem(nextOption.getAttribute('data-strapi-value'));
