@@ -31,6 +31,11 @@ const PopoverScrollable = styled(Box)`
   max-height: ${3 * 5}rem;
   overflow-y: scroll;
 
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 4px;
+  }
+
   &::-webkit-scrollbar-track {
     background: ${({ theme }) => theme.colors.neutral0};
   }
