@@ -6,13 +6,6 @@ import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
 
 describe('Select', () => {
-  beforeEach(() => {
-    window.IntersectionObserver = () => ({
-      observe: () => {},
-      disconnect: () => {},
-    });
-  });
-
   it('snapshots the component', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
