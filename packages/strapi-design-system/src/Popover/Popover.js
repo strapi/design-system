@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Box } from '../Box';
@@ -49,7 +49,20 @@ const PopoverScrollable = styled(Box)`
 
 const PopoverContent = ({ source, children, spacingTop, fullWidth, onReachEnd, intersectionId, ...props }) => {
   const popoverRef = useRef(null);
-  const { left, top, width } = position(source.current, fullWidth);
+  const [{ left, top, width }, setPosition] = useState(position(source.current, fullWidth));
+
+  useEffect(() => {
+    const resizeHandler = () => {
+      setPosition(position(source.current, fullWidth));
+    };
+
+    const resizeObs = new ResizeObserver(resizeHandler);
+    resizeObs.observe(source.current);
+
+    return () => {
+      resizeObs.disconnect();
+    };
+  }, []);
 
   useIntersection(popoverRef, onReachEnd, {
     selectorToWatch: `#${intersectionId}`,
