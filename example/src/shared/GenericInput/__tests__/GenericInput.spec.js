@@ -3,7 +3,7 @@ import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import { GenericInput } from "../GenericInput";
 import { ThemeProvider, lightTheme } from "@strapi/design-system";
 
-describe("GenericInput", () => {
+describe.skip("GenericInput", () => {
   describe("unmatched type", () => {
     let rawConsoleError;
 
