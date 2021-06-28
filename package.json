@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "@specifyapp/cli": "^0.0.51",
+    "fs-extra": "^10.0.0",
     "husky": "=4",
     "jest-styled-components": "^7.0.4",
     "lerna": "^4.0.0",
