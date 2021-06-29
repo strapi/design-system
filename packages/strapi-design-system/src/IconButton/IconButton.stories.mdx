@@ -21,18 +21,10 @@ Description...
 <Canvas>
   <Story name="base">
     <Box padding={7}>
-      <IconButton onClick={() => console.log('edit')} title="Edit">
-        <EditIcon />
-      </IconButton>
-      <IconButton onClick={() => console.log('Create')} title="Create">
-        <AddIcon />
-      </IconButton>
-      <IconButton onClick={() => console.log('Delete')} title="Delete">
-        <DeleteIcon />
-      </IconButton>
-      <IconButton onClick={() => console.log('Publish')} title="Publish">
-        <PublishIcon />
-      </IconButton>
+      <IconButton onClick={() => console.log('edit')} label="Edit" icon={<EditIcon />} />
+      <IconButton onClick={() => console.log('Create')} label="Create" icon={<AddIcon />} />
+      <IconButton onClick={() => console.log('Delete')} label="Delete" icon={<DeleteIcon />} />
+      <IconButton onClick={() => console.log('Publish')} label="Publish" icon={<PublishIcon />} />
     </Box>
   </Story>
 </Canvas>

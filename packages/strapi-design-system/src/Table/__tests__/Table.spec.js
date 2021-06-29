@@ -96,9 +96,7 @@ describe('Table', () => {
                   </Text>
                 </Td>
                 <Td>
-                  <IconButton onClick={() => console.log('edit')} title="Edit" noBorder>
-                    <EditIcon />
-                  </IconButton>
+                  <IconButton onClick={() => console.log('edit')} label="Edit" noBorder icon={<EditIcon />} />
                 </Td>
               </Tr>
             ))}

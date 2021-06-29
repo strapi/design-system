@@ -1,0 +1,157 @@
+<!--- SubNav.stories.mdx --->
+
+import { useState } from 'react';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { Applications, AddIcon, ApiTokens, AlertWarningIcon, AlertInfoIcon } from '@strapi/icons';
+import { SubNav } from './SubNav';
+import { SubNavHeader } from './SubNavHeader';
+import { SubNavSection } from './SubNavSection';
+import { SubNavSections } from './SubNavSections';
+import { SubNavLink } from './SubNavLink';
+import { SubNavLinkSection } from './SubNavLinkSection';
+import { Box } from '../Box';
+import { Link } from '../Link';
+import { Row } from '../Row';
+
+<Meta title="Design System/Organisms/SubNav" component={SubNav} />
+
+# SubNav
+
+This is the doc of the `SubNav` component
+
+## SubNav
+
+Description...
+
+<Canvas>
+  <Story name="base">
+    {() => {
+      const [search, setSearch] = useState();
+      const links = [
+        {
+          id: 1,
+          label: 'Addresses',
+          icon: <AlertWarningIcon />,
+          to: '/address',
+        },
+        {
+          id: 2,
+          label: 'Categories',
+          to: '/category',
+        },
+        {
+          id: 3,
+          label: 'Cities',
+          icon: <Applications />,
+          to: '/city',
+        },
+        {
+          id: 4,
+          label: 'Countries',
+          to: '/country',
+          active: true,
+        },
+      ];
+      return (
+        <Row>
+          <Box padding={10} style={{ height: '100vh' }}>
+            <SubNav>
+              <SubNavHeader
+                searchable
+                value={search}
+                onClear={() => setSearch('')}
+                onChange={(e) => setSearch(e.target.value)}
+                label="Builder"
+                searchLabel="Search..."
+              />
+              <SubNavSections>
+                <SubNavSection label="Collection Type" collapsable badgeLabel={links.length}>
+                  {links.map((link) => (
+                    <SubNavLink href={link.to} active={link.active} key={link.id}>
+                      {link.label}
+                    </SubNavLink>
+                  ))}
+                </SubNavSection>
+                <Box as="li" paddingLeft={8}>
+                  <Link to="/somewhere-internal" startIcon={<AddIcon />}>
+                    Create new CT
+                  </Link>
+                </Box>
+                <SubNavSection label="Single Type" collapsable badgeLabel={links.length}>
+                  <SubNavLinkSection label="Default">
+                    {links.map((link) => (
+                      <SubNavLink href={link.to} key={link.id}>
+                        {link.label}
+                      </SubNavLink>
+                    ))}
+                  </SubNavLinkSection>
+                </SubNavSection>
+                <Box paddingLeft={8}>
+                  <Link to="/somewhere-internal" startIcon={<AddIcon />}>
+                    Create new ST
+                  </Link>
+                </Box>
+              </SubNavSections>
+            </SubNav>
+          </Box>
+          <Box padding={10} style={{ height: '100vh' }}>
+            <SubNav>
+              <SubNavHeader label="Settings" />
+              <SubNavSections>
+                <SubNavLink href="/blabla" withBullet icon={<Applications />}>
+                  Application
+                </SubNavLink>
+                <SubNavSection label="Global Settings">
+                  {links.map(
+                    (link) =>
+                      link.icon && (
+                        <SubNavLink href={link.to} active={link.active} icon={link.icon} key={link.id}>
+                          {link.label}
+                        </SubNavLink>
+                      ),
+                  )}
+                </SubNavSection>
+                <SubNavSection label="Permissions">
+                  {links.map(
+                    (link) =>
+                      link.icon && (
+                        <SubNavLink href={link.to} icon={link.icon} key={link.id}>
+                          {link.label}
+                        </SubNavLink>
+                      ),
+                  )}
+                </SubNavSection>
+              </SubNavSections>
+            </SubNav>
+          </Box>
+          <Box padding={10} style={{ height: '100vh' }}>
+            <SubNav>
+              <SubNavHeader label="Mixed" />
+              <SubNavSections>
+                <SubNavLink href="/blabla" withBullet icon={<Applications />}>
+                  Application
+                </SubNavLink>
+                <SubNavSection label="Global Settings">
+                  <SubNavLinkSection label="Sub section">
+                    {links.map((link) => (
+                      <SubNavLink href={link.to} active={link.active} icon={link.icon} key={link.id}>
+                        {link.label}
+                      </SubNavLink>
+                    ))}
+                  </SubNavLinkSection>
+                </SubNavSection>
+                <SubNavSection label="Permissions">
+                  {links.map((link) => (
+                    <SubNavLink href={link.to} icon={link.icon} key={link.id}>
+                      {link.label}
+                    </SubNavLink>
+                  ))}
+                </SubNavSection>
+              </SubNavSections>
+            </SubNav>
+          </Box>
+        </Row>
+      );
+    }}
+  </Story>
+</Canvas>
