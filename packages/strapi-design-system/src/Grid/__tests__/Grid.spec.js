@@ -9,7 +9,7 @@ describe('Grid', () => {
   it('verifies the styles of the grid and areas', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
-        <Grid cols="1fr 1fr 1fr" gap={4} margin={8} padding={4}>
+        <Grid gap={4} padding={4}>
           <Box col={6} color="neutral0">
             First
           </Box>
@@ -83,7 +83,7 @@ describe('Grid', () => {
       }
 
       .c0 {
-        overflow: auto;
+        overflow: hidden;
       }
 
       <div
