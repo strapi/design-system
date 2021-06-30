@@ -26,7 +26,7 @@ describe('Tabs', () => {
     );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
-      .c5 {
+      .c4 {
         background: #ffffff;
         padding: 16px;
       }
@@ -84,7 +84,7 @@ describe('Tabs', () => {
         outline-offset: -2px;
       }
 
-      .c2 + .c2 > .c4 {
+      .c2 + .c2 > .c5 {
         border-left: 1px solid #eaeaef;
       }
 
@@ -94,15 +94,15 @@ describe('Tabs', () => {
         flex: 1;
       }
 
-      .c1 .c2:first-of-type .c4 {
+      .c1 .c2:first-of-type .c5 {
         border-radius: 4px 0 0 0;
       }
 
-      .c1 .c2:last-of-type .c4 {
+      .c1 .c2:last-of-type .c5 {
         border-radius: 0 4px 0 0;
       }
 
-      .c1 .c2[aria-selected="true"] .c4 {
+      .c1 .c2[aria-selected="true"] .c5 {
         border-radius: 4px 4px 0 0;
       }
 
@@ -138,7 +138,7 @@ describe('Tabs', () => {
             tabindex="-1"
           >
             <div
-              class="c4 c9 c10"
+              class="c9 c5 c10"
             >
               <span
                 class="c11 c8"
@@ -155,7 +155,7 @@ describe('Tabs', () => {
             tabindex="-1"
           >
             <div
-              class="c4 c9 c10"
+              class="c9 c5 c10"
             >
               <span
                 class="c11 c8"

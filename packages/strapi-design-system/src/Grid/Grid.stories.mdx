@@ -4,10 +4,7 @@ import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { Grid } from './Grid';
 import { Box } from '../Box';
 
-<Meta
-  title="Design System/Molecules/Grid"
-  component={Grid}
-/>
+<Meta title="Design System/Molecules/Grid" component={Grid} />
 
 # Grid
 
@@ -19,25 +16,17 @@ The component allows to create a Grid on the screen using the CSS grid feature. 
 
 <Canvas>
   <Story name="base">
-    <Grid
-      areas={['first second third', 'last  last last']}
-      cols="1fr 1fr 1fr"
-      rows="1fr 1fr"
-      background="primary700"
-      gap={4}
-      margin={8}
-      padding={4}
-    >
-      <Box area="first" color="neutral0">
+    <Grid gap={5}>
+      <Box col={1} background="primary100">
         First
       </Box>
-      <Box area="second" background="neutral100">
+      <Box col={1} background="primary100">
         Second
       </Box>
-      <Box area="third" background="neutral100">
+      <Box col={1} background="primary100">
         Third
       </Box>
-      <Box area="last" background="neutral100" color="primary700">
+      <Box col={1} background="primary100" color="primary700">
         Last
       </Box>
     </Grid>
@@ -48,14 +37,50 @@ The following is a representation of the 12 columns Grid presented in the docume
 
 <Canvas>
   <Story name="base grid">
-    <Grid cols="repeat(12, 1fr)" rows="70vh" gap={5} margin={10}>
+    <Grid gap={5}>
       {Array(12)
         .fill(null)
         .map((_, i) => (
-          <Box key={i} background="warning200">
+          <Box key={i} background="warning200" col={1}>
             {i + 1}
           </Box>
         ))}
+    </Grid>
+  </Story>
+</Canvas>
+
+A more complex one
+
+<Canvas>
+  <Story name="complex grid">
+    <Grid gap={5} background={'primary200'}>
+      <Box background="neutral100" padding={5} col={6}>
+        Some box 1
+      </Box>
+      <Box background="neutral100" padding={5} col={6}>
+        Some box 2
+      </Box>
+      <Box background="neutral100" padding={5} col={3}>
+        Some box 3
+      </Box>
+      <Box background="neutral100" padding={5} col={3}>
+        Some box 4
+      </Box>
+      <Box background="neutral100" padding={5} col={3}>
+        Some box 5
+      </Box>
+      <Box background="neutral100" padding={5} col={3}>
+        Some box 6
+      </Box>
+      <Box background="neutral100" padding={5} col={9}>
+        Some box 7
+      </Box>
+      <Box background="neutral100" padding={5} col={2}>
+        Some box 8
+      </Box>
+      <Box background="neutral100" padding={5} col={1}>
+        Some box 9
+      </Box>
     </Grid>
   </Story>
 </Canvas>

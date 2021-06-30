@@ -14,17 +14,13 @@ describe('Divider', () => {
 
     expect(container.firstChild).toMatchInlineSnapshot(`
       .c0 {
-        background: #eaeaef;
-      }
-
-      .c1 {
         height: 1px;
         margin: 0;
         border: none;
       }
 
       <hr
-        class="c0 c1"
+        class="c0"
       />
     `);
   });

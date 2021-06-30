@@ -5,10 +5,7 @@ import { Tooltip } from './Tooltip';
 import { Box } from '../Box';
 import { Grid } from '../Grid';
 
-<Meta
-  title="Design System/Molecules/Tooltip"
-  component={Tooltip}
-/>
+<Meta title="Design System/Molecules/Tooltip" component={Tooltip} />
 
 # Tooltip
 
@@ -111,30 +108,23 @@ Description...
       voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
       in culpa qui officia deserunt mollit anim id est laborum.
     </p>
-    <Grid
-      areas={['first second', 'third fourth']}
-      cols="1fr 1fr"
-      rows="1fr 1fr"
-      gap={4}
-      padding={4}
-      style={{ marginTop: '200px' }}
-    >
-      <Box area="first">
+    <Grid gap={4} padding={4} style={{ marginTop: '200px' }}>
+      <Box area="first" col={6}>
         <Tooltip description="First content">
           <button>First</button>
         </Tooltip>
       </Box>
-      <Box area="second">
+      <Box area="second" col={6}>
         <Tooltip description="Second content" position="bottom">
           <button>Second</button>
         </Tooltip>
       </Box>
-      <Box area="third">
+      <Box area="third" col={6}>
         <Tooltip description="Third content" position="right">
           <button>Third</button>
         </Tooltip>
       </Box>
-      <Box area="fourth">
+      <Box area="fourth" col={6}>
         <Tooltip description="Fourth content" position="left">
           <button>A longer CTA than the content</button>
         </Tooltip>

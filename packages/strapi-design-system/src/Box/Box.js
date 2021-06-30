@@ -1,5 +1,8 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { useGrid } from '../Grid/GridContext';
+import { forwardRef } from 'react';
 
 /**
  * Prevents these attributes from being spread on the DOM node
@@ -8,7 +11,7 @@ const transientProps = {
   color: true,
 };
 
-export const Box = styled.div.withConfig({
+export const BoxWrapper = styled.div.withConfig({
   shouldForwardProp: (prop, defPropValFN) => !transientProps[prop] && defPropValFN(prop),
 })`
   // Colors
@@ -22,16 +25,24 @@ export const Box = styled.div.withConfig({
   padding-bottom: ${({ theme, paddingBottom }) => theme.spaces[paddingBottom]};
   padding-left: ${({ theme, paddingLeft }) => theme.spaces[paddingLeft]};
 
-  // Grid
-  grid-area: ${({ area }) => area};
-
   // Borders
   border-radius: ${({ theme, hasRadius }) => (hasRadius ? theme.borderRadius : undefined)};
   border: ${({ theme, borderColor }) => (borderColor ? `1px solid ${theme.colors[borderColor]}` : undefined)};
 
   // Shadows
   box-shadow: ${({ theme, shadow }) => theme.shadows[shadow]};
+
+  // Custom grid
+  flex: ${({ col }) => col};
+  flex-basis: ${({ col, theme, gap, gridCols }) =>
+    col ? `calc(${(col / gridCols) * 100}% - ${theme.spaces[gap]})` : undefined};
 `;
+
+export const Box = forwardRef((props, ref) => {
+  const { gap, gridCols } = useGrid();
+
+  return <BoxWrapper ref={ref} gap={gap} gridCols={gridCols} {...props} />;
+});
 
 Box.displayName = 'Box';
 

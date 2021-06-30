@@ -50,10 +50,6 @@ describe('Accordion', () => {
       }
 
       .c10 {
-        background: #d9d8ff;
-      }
-
-      .c11 {
         height: 2rem;
         width: 2rem;
         border-radius: 50%;
@@ -74,12 +70,12 @@ describe('Accordion', () => {
         transform: rotate(180deg);
       }
 
-      .c11 svg {
+      .c10 svg {
         height: 0.375rem;
         width: 0.6875rem;
       }
 
-      .c11 svg path {
+      .c10 svg path {
         fill: #4945ff;
       }
 
@@ -164,7 +160,7 @@ describe('Accordion', () => {
               </div>
               <span
                 aria-hidden="true"
-                class="c0 c9 c10 c11"
+                class="c9 c10"
               >
                 <svg
                   fill="none"

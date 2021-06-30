@@ -7,12 +7,8 @@ import DeleteIcon from '@strapi/icons/DeleteIcon';
 import AddIcon from '@strapi/icons/AddIcon';
 import { IconButton } from './IconButton';
 import { Box } from '../Box';
-import { Grid } from '../Grid';
 
-<Meta
-  title="Design System/Atoms/IconButton"
-  component={IconButton}
-/>
+<Meta title="Design System/Atoms/IconButton" component={IconButton} />
 
 # IconButton
 
@@ -25,20 +21,18 @@ Description...
 <Canvas>
   <Story name="base">
     <Box padding={7}>
-      <Grid inline cols="repeat(4, auto)" gap={1}>
-        <IconButton onClick={() => console.log('edit')} title="Edit">
-          <EditIcon />
-        </IconButton>
-        <IconButton onClick={() => console.log('Create')} title="Create">
-          <AddIcon />
-        </IconButton>
-        <IconButton onClick={() => console.log('Delete')} title="Delete">
-          <DeleteIcon />
-        </IconButton>
-        <IconButton onClick={() => console.log('Publish')} title="Publish">
-          <PublishIcon />
-        </IconButton>
-      </Grid>
+      <IconButton onClick={() => console.log('edit')} title="Edit">
+        <EditIcon />
+      </IconButton>
+      <IconButton onClick={() => console.log('Create')} title="Create">
+        <AddIcon />
+      </IconButton>
+      <IconButton onClick={() => console.log('Delete')} title="Delete">
+        <DeleteIcon />
+      </IconButton>
+      <IconButton onClick={() => console.log('Publish')} title="Publish">
+        <PublishIcon />
+      </IconButton>
     </Box>
   </Story>
 </Canvas>
