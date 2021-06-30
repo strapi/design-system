@@ -6,6 +6,7 @@ import checkmarkIcon from './assets/checkmark.svg';
 import checkmarkIconDisabled from './assets/checkmark-black.svg';
 
 const CheckboxInput = styled.input`
+  margin: 0;
   height: ${getCheckboxSize};
   width: ${getCheckboxSize};
   border-radius: ${({ theme }) => theme.borderRadius};

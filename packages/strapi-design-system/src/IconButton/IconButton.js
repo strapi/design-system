@@ -27,12 +27,13 @@ const IconButtonWrapper = styled(BaseButton)`
       }
     }
   }
+  ${({ noBorder }) => (noBorder ? `border: none;` : undefined)}
 `;
 
-export const IconButton = React.forwardRef(({ children, title, description, ...props }, ref) => {
+export const IconButton = React.forwardRef(({ children, title, description, noBorder, ...props }, ref) => {
   return (
     <Tooltip label={title}>
-      <IconButtonWrapper {...props} ref={ref}>
+      <IconButtonWrapper {...props} ref={ref} noBorder={noBorder}>
         {children}
       </IconButtonWrapper>
     </Tooltip>
@@ -43,9 +44,11 @@ IconButton.displayName = 'IconButton';
 
 IconButton.defaultProps = {
   title: undefined,
+  noBorder: false,
 };
 IconButton.propTypes = {
   children: PropTypes.element.isRequired,
   description: PropTypes.string,
+  noBorder: PropTypes.bool,
   title: PropTypes.string,
 };

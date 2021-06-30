@@ -33,6 +33,7 @@ export * from './Stack';
 export * from './Status';
 export * from './Switch';
 export * from './Tabs';
+export * from './Table';
 export * from './Tag';
 export * from './Text';
 export * from './TextButton';
