@@ -387,7 +387,7 @@ describe('Table', () => {
               class="c3"
             >
               <input
-                aria-label="Select undefined"
+                aria-label="Select Leon Lafrite"
                 class="c4"
                 tabindex="-1"
                 type="checkbox"
@@ -454,7 +454,7 @@ describe('Table', () => {
             >
               <button
                 aria-disabled="false"
-                aria-labelledby="tooltip-c7ea34b2-1d3e-4022-ad65-16660816017c"
+                aria-labelledby="tooltip-5cf4461c-9987-4925-bc3c-f78cfa3354c3"
                 class="c12 c13"
                 tabindex="-1"
               >
@@ -484,7 +484,7 @@ describe('Table', () => {
               class="c3"
             >
               <input
-                aria-label="Select undefined"
+                aria-label="Select Leon Lafrite"
                 class="c4"
                 tabindex="-1"
                 type="checkbox"
@@ -551,7 +551,7 @@ describe('Table', () => {
             >
               <button
                 aria-disabled="false"
-                aria-labelledby="tooltip-e5c8dc99-cfd4-4694-aab2-adaa25906518"
+                aria-labelledby="tooltip-4b235b24-23ff-4e64-98fd-d59674e0edd3"
                 class="c12 c13"
                 tabindex="-1"
               >
