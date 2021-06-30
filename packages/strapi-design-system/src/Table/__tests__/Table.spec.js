@@ -61,7 +61,7 @@ describe('Table', () => {
             {entries.map((entry) => (
               <Tr key={entry.id}>
                 <Td>
-                  <BaseCheckbox aria-label={`Select ${entry.name}`} />
+                  <BaseCheckbox aria-label={`Select ${entry.contact}`} />
                 </Td>
                 <Td>
                   <Text textColor="neutral600" as="span">
