@@ -16,14 +16,16 @@ describe('Avatar', () => {
       .c0 {
         border-radius: 50%;
         display: block;
-        height: 1.625rem;
-        width: 1.625rem;
+        height: 26px;
+        width: 26px;
       }
 
       <img
         alt="marvin frachet"
         class="c0"
+        height="26px"
         src="https://avatars.githubusercontent.com/u/3874873?v=4"
+        width="26px"
       />
     `);
   });
