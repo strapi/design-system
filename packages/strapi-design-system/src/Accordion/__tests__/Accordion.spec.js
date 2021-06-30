@@ -142,6 +142,7 @@ describe('Accordion', () => {
             aria-expanded="true"
             aria-labelledby="accordion-label-accordion"
             class="c4"
+            data-strapi-accordion-toggle="true"
           >
             <div
               class="c5"
