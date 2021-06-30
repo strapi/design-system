@@ -14,6 +14,10 @@ import { Text, TableLabel } from '../../Text';
 import { Avatar } from '../../Avatar';
 import { IconButton } from '../../IconButton';
 
+jest.mock('../../helpers/genId', () => ({
+  genId: () => 123,
+}));
+
 describe('Table', () => {
   it('snapshots the component', () => {
     const ROW_COUNT = 6;
@@ -454,7 +458,7 @@ describe('Table', () => {
             >
               <button
                 aria-disabled="false"
-                aria-labelledby="tooltip-5cf4461c-9987-4925-bc3c-f78cfa3354c3"
+                aria-labelledby="tooltip-123"
                 class="c12 c13"
                 tabindex="-1"
               >
@@ -551,7 +555,7 @@ describe('Table', () => {
             >
               <button
                 aria-disabled="false"
-                aria-labelledby="tooltip-4b235b24-23ff-4e64-98fd-d59674e0edd3"
+                aria-labelledby="tooltip-123"
                 class="c12 c13"
                 tabindex="-1"
               >
