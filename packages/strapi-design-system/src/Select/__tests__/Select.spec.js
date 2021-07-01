@@ -90,6 +90,10 @@ describe('Select', () => {
         padding-left: 16px;
       }
 
+      .c9 {
+        padding-left: 12px;
+      }
+
       .c0 > * {
         margin-top: 0;
         margin-bottom: 0;
@@ -112,23 +116,23 @@ describe('Select', () => {
         border: 1px solid #4945ff;
       }
 
-      .c9 {
+      .c10 {
         background: transparent;
         border: none;
         position: relative;
         z-index: 1;
       }
 
-      .c9 svg {
+      .c10 svg {
         height: 0.6875rem;
         width: 0.6875rem;
       }
 
-      .c9 svg path {
+      .c10 svg path {
         fill: #666687;
       }
 
-      .c10 {
+      .c11 {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -137,7 +141,7 @@ describe('Select', () => {
         border: none;
       }
 
-      .c10 svg {
+      .c11 svg {
         width: 0.375rem;
       }
 
@@ -189,7 +193,7 @@ describe('Select', () => {
               >
                 <button
                   aria-hidden="true"
-                  class="c9 c10"
+                  class="c9 c10 c11"
                   tabindex="-1"
                 >
                   <svg
@@ -278,7 +282,7 @@ describe('Select', () => {
         color: #666687;
       }
 
-      .c17 {
+      .c18 {
         font-weight: 500;
         font-size: 0.875rem;
         line-height: 1.43;
@@ -329,6 +333,15 @@ describe('Select', () => {
       .c13 {
         background: #ffffff;
         padding: 4px;
+        border-radius: 4px;
+      }
+
+      .c16 {
+        background: #ffffff;
+        padding-top: 8px;
+        padding-right: 16px;
+        padding-bottom: 8px;
+        padding-left: 16px;
         border-radius: 4px;
       }
 
@@ -415,18 +428,18 @@ describe('Select', () => {
         min-height: 2.5rem;
       }
 
-      .c16 {
+      .c17 {
         width: 100%;
         border: none;
         text-align: left;
         outline-offset: -3px;
       }
 
-      .c16.is-focused {
+      .c17.is-focused {
         background: #f0f0ff;
       }
 
-      .c16:hover {
+      .c17:hover {
         background: #f0f0ff;
       }
 
@@ -484,7 +497,7 @@ describe('Select', () => {
                 >
                   <button
                     aria-hidden="true"
-                    class="c10 c11"
+                    class="c7 c10 c11"
                     tabindex="-1"
                   >
                     <svg
@@ -532,7 +545,7 @@ describe('Select', () => {
               >
                 <li
                   aria-selected="true"
-                  class="c16"
+                  class="c16 c17"
                   data-strapi-value="pizza"
                   id="option-select1-pizza"
                   role="option"
@@ -541,7 +554,7 @@ describe('Select', () => {
                     class="c6"
                   >
                     <span
-                      class="c17"
+                      class="c18"
                     >
                       Pizza
                     </span>
@@ -549,7 +562,7 @@ describe('Select', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c16"
+                  class="c16 c17"
                   data-strapi-value="hamburger"
                   id="option-select1-hamburger"
                   role="option"
@@ -566,7 +579,7 @@ describe('Select', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c16"
+                  class="c16 c17"
                   data-strapi-value="bagel"
                   id="option-select1-bagel"
                   role="option"
@@ -646,7 +659,7 @@ describe('Select', () => {
         color: #32324d;
       }
 
-      .c12 {
+      .c13 {
         font-weight: 400;
         font-size: 0.75rem;
         line-height: 1.33;
@@ -690,6 +703,10 @@ describe('Select', () => {
         padding-left: 16px;
       }
 
+      .c10 {
+        padding-left: 12px;
+      }
+
       .c0 > * {
         margin-top: 0;
         margin-bottom: 0;
@@ -712,23 +729,23 @@ describe('Select', () => {
         border: 1px solid #4945ff;
       }
 
-      .c10 {
+      .c11 {
         background: transparent;
         border: none;
         position: relative;
         z-index: 1;
       }
 
-      .c10 svg {
+      .c11 svg {
         height: 0.6875rem;
         width: 0.6875rem;
       }
 
-      .c10 svg path {
+      .c11 svg path {
         fill: #666687;
       }
 
-      .c11 {
+      .c12 {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -737,7 +754,7 @@ describe('Select', () => {
         border: none;
       }
 
-      .c11 svg {
+      .c12 svg {
         width: 0.375rem;
       }
 
@@ -807,7 +824,7 @@ describe('Select', () => {
                 >
                   <button
                     aria-hidden="true"
-                    class="c10 c11"
+                    class="c10 c11 c12"
                     tabindex="-1"
                   >
                     <svg
@@ -829,28 +846,28 @@ describe('Select', () => {
               </div>
             </div>
             <p
-              class="c12"
+              class="c13"
               id="field-hint-select1"
             >
               Description line
             </p>
           </div>
         </div>
-        .c10 {
+        .c11 {
         font-weight: 400;
         font-size: 0.875rem;
         line-height: 1.43;
         color: #32324d;
       }
 
-      .c8 {
+      .c9 {
         font-weight: 500;
         font-size: 0.875rem;
         line-height: 1.43;
         color: #4945ff;
       }
 
-      .c5 {
+      .c6 {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -870,7 +887,16 @@ describe('Select', () => {
         border-radius: 4px;
       }
 
-      .c6 {
+      .c4 {
+        background: #ffffff;
+        padding-top: 8px;
+        padding-right: 16px;
+        padding-bottom: 8px;
+        padding-left: 16px;
+        border-radius: 4px;
+      }
+
+      .c7 {
         padding-right: 8px;
       }
 
@@ -911,7 +937,7 @@ describe('Select', () => {
         margin-top: 4px;
       }
 
-      .c7 {
+      .c8 {
         border: 1px solid #4945ff;
         border-radius: 4px;
         height: 18px;
@@ -922,7 +948,7 @@ describe('Select', () => {
         background-color: #4945ff;
       }
 
-      .c7::after {
+      .c8::after {
         content: '';
         background: url(test-file-stub) no-repeat no-repeat center center;
         width: 100%;
@@ -930,7 +956,7 @@ describe('Select', () => {
         position: absolute;
       }
 
-      .c9 {
+      .c10 {
         border: 1px solid #c0c0cf;
         border-radius: 4px;
         height: 18px;
@@ -941,7 +967,7 @@ describe('Select', () => {
         background-color: #ffffff;
       }
 
-      .c9::after {
+      .c10::after {
         content: '';
         background: url(test-file-stub) no-repeat no-repeat center center;
         width: 100%;
@@ -949,18 +975,18 @@ describe('Select', () => {
         position: absolute;
       }
 
-      .c4 {
+      .c5 {
         width: 100%;
         border: none;
         text-align: left;
         outline-offset: -3px;
       }
 
-      .c4.is-focused {
+      .c5.is-focused {
         background: #f0f0ff;
       }
 
-      .c4:hover {
+      .c5:hover {
         background: #f0f0ff;
       }
 
@@ -983,24 +1009,24 @@ describe('Select', () => {
               >
                 <li
                   aria-selected="true"
-                  class="c4"
+                  class="c4 c5"
                   data-strapi-value="pizza"
                   id="option-select1-pizza"
                   role="option"
                 >
                   <div
-                    class="c5"
+                    class="c6"
                   >
                     <div
                       aria-hidden="true"
-                      class="c6"
+                      class="c7"
                     >
                       <div
-                        class="c7"
+                        class="c8"
                       />
                     </div>
                     <span
-                      class="c8"
+                      class="c9"
                     >
                       Pizza
                     </span>
@@ -1008,24 +1034,24 @@ describe('Select', () => {
                 </li>
                 <li
                   aria-selected="true"
-                  class="c4"
+                  class="c4 c5"
                   data-strapi-value="hamburger"
                   id="option-select1-hamburger"
                   role="option"
                 >
                   <div
-                    class="c5"
+                    class="c6"
                   >
                     <div
                       aria-hidden="true"
-                      class="c6"
+                      class="c7"
                     >
                       <div
-                        class="c7"
+                        class="c8"
                       />
                     </div>
                     <span
-                      class="c8"
+                      class="c9"
                     >
                       Hamburger
                     </span>
@@ -1033,24 +1059,24 @@ describe('Select', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c4"
+                  class="c4 c5"
                   data-strapi-value="bagel"
                   id="option-select1-bagel"
                   role="option"
                 >
                   <div
-                    class="c5"
+                    class="c6"
                   >
                     <div
                       aria-hidden="true"
-                      class="c6"
+                      class="c7"
                     >
                       <div
-                        class="c9"
+                        class="c10"
                       />
                     </div>
                     <span
-                      class="c10"
+                      class="c11"
                     >
                       Bagel
                     </span>

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Text, H3 } from '../Text';
 import { AccordionContext } from './AccordionContext';
 import { genId } from '../helpers/genId';
-import { Box, BoxWrapper } from '../Box';
+import { Box } from '../Box';
 import { DropdownIconWrapper } from './DropdownIconWrapper';
 
 const AccordionWrapper = styled(Box)`
@@ -21,7 +21,7 @@ const AccordionWrapper = styled(Box)`
       color: ${({ theme, expanded }) => (expanded ? undefined : theme.colors.primary600)};
     }
 
-    & > ${BoxWrapper} {
+    & > ${Box} {
       background: ${({ theme }) => theme.colors.primary100};
     }
 

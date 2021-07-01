@@ -15,17 +15,24 @@ describe('Tag', () => {
     );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
-      .c2 {
+      .c3 {
         font-weight: 500;
         font-size: 0.75rem;
         line-height: 1.33;
       }
 
-      .c4 {
+      .c0 {
+        background: #f0f0ff;
+        color: #4945ff;
+        padding-right: 12px;
+        padding-left: 12px;
+      }
+
+      .c5 {
         padding-left: 8px;
       }
 
-      .c1 {
+      .c2 {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -39,44 +46,43 @@ describe('Tag', () => {
         align-items: center;
       }
 
-      .c0 {
+      .c1 {
         font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans', 'Helvetica Neue',sans-serif;
         border: 1px solid #d9d8ff;
         border-radius: 4px;
         height: 2rem;
       }
 
-      .c0 svg {
+      .c1 svg {
         height: 0.5rem;
         width: 0.5rem;
       }
 
-      .c0 svg path {
+      .c1 svg path {
         fill: #4945ff;
       }
 
-      .c3 {
+      .c4 {
         border-right: 1px solid #d9d8ff;
         padding-right: 8px;
       }
 
       <button
-        class="c0"
-        color="primary600"
+        class="c0 c1"
       >
         <div
-          class="c1"
+          class="c2"
         >
           <span
-            class="c2 c3"
+            class="c3 c4"
           >
             Hello world
           </span>
           <div
-            class="c4"
+            class="c5"
           >
             <div
-              class="c1"
+              class="c2"
             >
               <span
                 aria-hidden="true"

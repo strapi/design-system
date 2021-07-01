@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import After from '@strapi/icons/After';
 import { Text } from '../Text';
-import { Box, BoxWrapper } from '../Box';
+import { Box } from '../Box';
 import { Row } from '../Row';
 import { VisuallyHidden } from '../VisuallyHidden';
 
@@ -15,7 +15,7 @@ const CrumbWrapper = styled(Row)`
   svg path {
     fill: ${({ theme }) => theme.colors.neutral300};
   }
-  :last-of-type ${BoxWrapper} {
+  :last-of-type ${Box} {
     display: none;
   }
 `;

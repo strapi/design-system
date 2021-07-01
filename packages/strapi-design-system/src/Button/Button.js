@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Text } from '../Text';
-import { Box, BoxWrapper } from '../Box';
+import { Box } from '../Box';
 import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle, getIconPosition } from './utils';
 import { VARIANTS, BUTTON_SIZES } from './constants';
 import { BaseButton } from '../BaseButton';
@@ -12,7 +12,7 @@ export const ButtonWrapper = styled(BaseButton)`
   background: ${({ theme }) => theme.colors.primary600};
   border: none;
 
-  ${BoxWrapper} {
+  ${Box} {
     display: flex;
     align-items: center;
     margin-top: ${getIconPosition};

@@ -20,6 +20,13 @@ describe('Main', () => {
 
     expect(container.firstChild).toMatchInlineSnapshot(`
       .c0 {
+        background: #4945ff;
+        color: #ffffff;
+        padding: 12px;
+        border-radius: 4px;
+      }
+
+      .c1 {
         -webkit-text-decoration: none;
         text-decoration: none;
         position: absolute;
@@ -28,15 +35,14 @@ describe('Main', () => {
         top: -100%;
       }
 
-      .c0:focus {
+      .c1:focus {
         left: 12px;
         top: 12px;
       }
 
       <div>
         <a
-          class="c0"
-          color="neutral0"
+          class="c0 c1"
           href="#main-content"
         >
           Skip to main content
