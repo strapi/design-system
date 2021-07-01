@@ -104,12 +104,20 @@ describe('Table', () => {
 
     expect(container.firstChild).toMatchInlineSnapshot(`
       .c0 {
-        width: 100%;
         background: #ffffff;
+        padding-right: 12px;
+        padding-left: 12px;
+      }
+
+      .c2 {
+        width: 100%;
+      }
+
+      .c1 {
         border-radius: 4px 4px 0 0;
       }
 
-      .c8 {
+      .c10 {
         border: 0;
         -webkit-clip: rect(0 0 0 0);
         clip: rect(0 0 0 0);
@@ -121,7 +129,7 @@ describe('Table', () => {
         width: 1px;
       }
 
-      .c4 {
+      .c6 {
         margin: 0;
         height: 18px;
         width: 18px;
@@ -130,12 +138,12 @@ describe('Table', () => {
         -webkit-appearance: none;
       }
 
-      .c4:checked {
+      .c6:checked {
         background-color: #4945ff;
         border: 1px solid #4945ff;
       }
 
-      .c4:checked:after {
+      .c6:checked:after {
         content: '';
         display: block;
         position: relative;
@@ -149,21 +157,21 @@ describe('Table', () => {
         transform: translateX(-50%) translateY(-50%);
       }
 
-      .c4:checked:disabled:after {
+      .c6:checked:disabled:after {
         background: url(test-file-stub) no-repeat no-repeat center center;
       }
 
-      .c4:disabled {
+      .c6:disabled {
         background-color: #dcdce4;
         border: 1px solid #c0c0cf;
       }
 
-      .c4:indeterminate {
+      .c6:indeterminate {
         background-color: #4945ff;
         border: 1px solid #4945ff;
       }
 
-      .c4:indeterminate:after {
+      .c6:indeterminate:after {
         content: '';
         display: block;
         position: relative;
@@ -178,72 +186,81 @@ describe('Table', () => {
         transform: translateX(-50%) translateY(-50%);
       }
 
-      .c4:indeterminate:disabled {
+      .c6:indeterminate:disabled {
         background-color: #dcdce4;
         border: 1px solid #c0c0cf;
       }
 
-      .c4:indeterminate:disabled:after {
+      .c6:indeterminate:disabled:after {
         background-color: #8e8ea9;
       }
 
-      .c1 {
+      .c3 {
         border-bottom: 1px solid #eaeaef;
       }
 
-      .c9 tr:last-of-type {
+      .c11 tr:last-of-type {
         border-bottom: none;
       }
 
-      .c2 {
+      .c4 {
         border-bottom: 1px solid #eaeaef;
       }
 
-      .c3 {
+      .c4 td,
+      .c4 th {
         padding: 0 16px;
+      }
+
+      .c4 td:first-of-type,
+      .c4 th:first-of-type {
+        padding: 0 4px;
+      }
+
+      .c5 {
         vertical-align: middle;
         line-height: 3.25rem;
         text-align: left;
         color: #666687;
       }
 
-      .c3 input {
+      .c5 input {
         vertical-align: sub;
       }
 
-      .c5 {
+      .c7 {
         font-weight: 400;
         font-size: 0.875rem;
         line-height: 1.43;
       }
 
-      .c10 {
+      .c12 {
         font-weight: 400;
         font-size: 0.875rem;
         line-height: 1.43;
         color: #666687;
       }
 
-      .c6 {
+      .c8 {
         font-weight: 600;
         line-height: 1.14;
       }
 
-      .c7 {
+      .c9 {
         font-weight: 600;
         font-size: 0.6875rem;
         line-height: 1.45;
         text-transform: uppercase;
       }
 
-      .c11 {
+      .c13 {
         border-radius: 50%;
         display: block;
         height: 1.625rem;
         width: 1.625rem;
       }
 
-      .c12 {
+      .c14 {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -255,329 +272,333 @@ describe('Table', () => {
         border: 1px solid #dcdce4;
       }
 
-      .c12 svg {
+      .c14 svg {
         height: 12px;
         width: 12px;
       }
 
-      .c12 svg > g,
-      .c12 svg path {
+      .c14 svg > g,
+      .c14 svg path {
         fill: #ffffff;
       }
 
-      .c12[aria-disabled='true'] {
+      .c14[aria-disabled='true'] {
         pointer-events: none;
       }
 
-      .c13 {
+      .c15 {
         border: none;
       }
 
-      .c13 svg > g,
-      .c13 svg path {
+      .c15 svg > g,
+      .c15 svg path {
         fill: #8e8ea9;
       }
 
-      .c13:hover svg > g,
-      .c13:hover svg path {
+      .c15:hover svg > g,
+      .c15:hover svg path {
         fill: #666687;
       }
 
-      .c13:active svg > g,
-      .c13:active svg path {
+      .c15:active svg > g,
+      .c15:active svg path {
         fill: #a5a5ba;
       }
 
-      <table
-        aria-colcount="7"
-        aria-rowcount="6"
-        class="c0"
+      <div
+        class="c0 c1"
       >
-        <thead
-          class="c1"
+        <table
+          aria-colcount="7"
+          aria-rowcount="6"
+          class="c2"
         >
-          <tr
-            aria-rowindex="1"
-            class="c2"
+          <thead
+            class="c3"
           >
-            <th
-              aria-colindex="1"
-              class="c3"
+            <tr
+              aria-rowindex="1"
+              class="c4"
             >
-              <input
-                aria-label="Select all entries"
-                class="c4"
-                tabindex="0"
-                type="checkbox"
-              />
-            </th>
-            <th
-              aria-colindex="2"
-              class="c3"
-              tabindex="-1"
-            >
-              <span
-                class="c5 c6 c7"
+              <th
+                aria-colindex="1"
+                class="c5"
               >
-                ID
-              </span>
-            </th>
-            <th
-              aria-colindex="3"
-              class="c3"
-              tabindex="-1"
-            >
-              <span
-                class="c5 c6 c7"
-              >
-                Cover
-              </span>
-            </th>
-            <th
-              aria-colindex="4"
-              class="c3"
-              tabindex="-1"
-            >
-              <span
-                class="c5 c6 c7"
-              >
-                Description
-              </span>
-            </th>
-            <th
-              aria-colindex="5"
-              class="c3"
-              tabindex="-1"
-            >
-              <span
-                class="c5 c6 c7"
-              >
-                Categories
-              </span>
-            </th>
-            <th
-              aria-colindex="6"
-              class="c3"
-              tabindex="-1"
-            >
-              <span
-                class="c5 c6 c7"
-              >
-                Contact
-              </span>
-            </th>
-            <th
-              aria-colindex="7"
-              class="c3"
-              tabindex="-1"
-            >
-              <div
-                class="c8"
-              >
-                Actions
-              </div>
-            </th>
-          </tr>
-        </thead>
-        <tbody
-          class="c9"
-        >
-          <tr
-            aria-rowindex="2"
-            class="c2"
-          >
-            <td
-              aria-colindex="1"
-              class="c3"
-            >
-              <input
-                aria-label="Select Leon Lafrite"
-                class="c4"
-                tabindex="-1"
-                type="checkbox"
-              />
-            </td>
-            <td
-              aria-colindex="2"
-              class="c3"
-              tabindex="-1"
-            >
-              <span
-                class="c10"
-              >
-                0
-              </span>
-            </td>
-            <td
-              aria-colindex="3"
-              class="c3"
-              tabindex="-1"
-            >
-              <img
-                alt="Leon Lafrite"
-                class="c11"
-                src="https://avatars.githubusercontent.com/u/3874873?v=4"
-              />
-            </td>
-            <td
-              aria-colindex="4"
-              class="c3"
-              tabindex="-1"
-            >
-              <span
-                class="c10"
-              >
-                Chez Léon is a human sized Parisian...
-              </span>
-            </td>
-            <td
-              aria-colindex="5"
-              class="c3"
-              tabindex="-1"
-            >
-              <span
-                class="c10"
-              >
-                French cuisine
-              </span>
-            </td>
-            <td
-              aria-colindex="6"
-              class="c3"
-              tabindex="-1"
-            >
-              <span
-                class="c10"
-              >
-                Leon Lafrite
-              </span>
-            </td>
-            <td
-              aria-colindex="7"
-              class="c3"
-            >
-              <button
-                aria-disabled="false"
-                aria-labelledby="tooltip-123"
-                class="c12 c13"
+                <input
+                  aria-label="Select all entries"
+                  class="c6"
+                  tabindex="0"
+                  type="checkbox"
+                />
+              </th>
+              <th
+                aria-colindex="2"
+                class="c5"
                 tabindex="-1"
               >
-                <svg
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 24 24"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
+                <span
+                  class="c7 c8 c9"
                 >
-                  <path
-                    clip-rule="evenodd"
-                    d="M23.604 3.514c.528.528.528 1.36 0 1.887l-2.622 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.118 3.118zM0 24v-4.99l14.2-14.2 4.99 4.99L4.99 24H0z"
-                    fill="#212134"
-                    fill-rule="evenodd"
-                  />
-                </svg>
-              </button>
-            </td>
-          </tr>
-          <tr
-            aria-rowindex="3"
-            class="c2"
-          >
-            <td
-              aria-colindex="1"
-              class="c3"
-            >
-              <input
-                aria-label="Select Leon Lafrite"
-                class="c4"
-                tabindex="-1"
-                type="checkbox"
-              />
-            </td>
-            <td
-              aria-colindex="2"
-              class="c3"
-              tabindex="-1"
-            >
-              <span
-                class="c10"
-              >
-                1
-              </span>
-            </td>
-            <td
-              aria-colindex="3"
-              class="c3"
-              tabindex="-1"
-            >
-              <img
-                alt="Leon Lafrite"
-                class="c11"
-                src="https://avatars.githubusercontent.com/u/3874873?v=4"
-              />
-            </td>
-            <td
-              aria-colindex="4"
-              class="c3"
-              tabindex="-1"
-            >
-              <span
-                class="c10"
-              >
-                Chez Léon is a human sized Parisian...
-              </span>
-            </td>
-            <td
-              aria-colindex="5"
-              class="c3"
-              tabindex="-1"
-            >
-              <span
-                class="c10"
-              >
-                French cuisine
-              </span>
-            </td>
-            <td
-              aria-colindex="6"
-              class="c3"
-              tabindex="-1"
-            >
-              <span
-                class="c10"
-              >
-                Leon Lafrite
-              </span>
-            </td>
-            <td
-              aria-colindex="7"
-              class="c3"
-            >
-              <button
-                aria-disabled="false"
-                aria-labelledby="tooltip-123"
-                class="c12 c13"
+                  ID
+                </span>
+              </th>
+              <th
+                aria-colindex="3"
+                class="c5"
                 tabindex="-1"
               >
-                <svg
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 24 24"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
+                <span
+                  class="c7 c8 c9"
                 >
-                  <path
-                    clip-rule="evenodd"
-                    d="M23.604 3.514c.528.528.528 1.36 0 1.887l-2.622 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.118 3.118zM0 24v-4.99l14.2-14.2 4.99 4.99L4.99 24H0z"
-                    fill="#212134"
-                    fill-rule="evenodd"
-                  />
-                </svg>
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+                  Cover
+                </span>
+              </th>
+              <th
+                aria-colindex="4"
+                class="c5"
+                tabindex="-1"
+              >
+                <span
+                  class="c7 c8 c9"
+                >
+                  Description
+                </span>
+              </th>
+              <th
+                aria-colindex="5"
+                class="c5"
+                tabindex="-1"
+              >
+                <span
+                  class="c7 c8 c9"
+                >
+                  Categories
+                </span>
+              </th>
+              <th
+                aria-colindex="6"
+                class="c5"
+                tabindex="-1"
+              >
+                <span
+                  class="c7 c8 c9"
+                >
+                  Contact
+                </span>
+              </th>
+              <th
+                aria-colindex="7"
+                class="c5"
+                tabindex="-1"
+              >
+                <div
+                  class="c10"
+                >
+                  Actions
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            class="c11"
+          >
+            <tr
+              aria-rowindex="2"
+              class="c4"
+            >
+              <td
+                aria-colindex="1"
+                class="c5"
+              >
+                <input
+                  aria-label="Select Leon Lafrite"
+                  class="c6"
+                  tabindex="-1"
+                  type="checkbox"
+                />
+              </td>
+              <td
+                aria-colindex="2"
+                class="c5"
+                tabindex="-1"
+              >
+                <span
+                  class="c12"
+                >
+                  0
+                </span>
+              </td>
+              <td
+                aria-colindex="3"
+                class="c5"
+                tabindex="-1"
+              >
+                <img
+                  alt="Leon Lafrite"
+                  class="c13"
+                  src="https://avatars.githubusercontent.com/u/3874873?v=4"
+                />
+              </td>
+              <td
+                aria-colindex="4"
+                class="c5"
+                tabindex="-1"
+              >
+                <span
+                  class="c12"
+                >
+                  Chez Léon is a human sized Parisian...
+                </span>
+              </td>
+              <td
+                aria-colindex="5"
+                class="c5"
+                tabindex="-1"
+              >
+                <span
+                  class="c12"
+                >
+                  French cuisine
+                </span>
+              </td>
+              <td
+                aria-colindex="6"
+                class="c5"
+                tabindex="-1"
+              >
+                <span
+                  class="c12"
+                >
+                  Leon Lafrite
+                </span>
+              </td>
+              <td
+                aria-colindex="7"
+                class="c5"
+              >
+                <button
+                  aria-disabled="false"
+                  aria-labelledby="tooltip-123"
+                  class="c14 c15"
+                  tabindex="-1"
+                >
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M23.604 3.514c.528.528.528 1.36 0 1.887l-2.622 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.118 3.118zM0 24v-4.99l14.2-14.2 4.99 4.99L4.99 24H0z"
+                      fill="#212134"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </button>
+              </td>
+            </tr>
+            <tr
+              aria-rowindex="3"
+              class="c4"
+            >
+              <td
+                aria-colindex="1"
+                class="c5"
+              >
+                <input
+                  aria-label="Select Leon Lafrite"
+                  class="c6"
+                  tabindex="-1"
+                  type="checkbox"
+                />
+              </td>
+              <td
+                aria-colindex="2"
+                class="c5"
+                tabindex="-1"
+              >
+                <span
+                  class="c12"
+                >
+                  1
+                </span>
+              </td>
+              <td
+                aria-colindex="3"
+                class="c5"
+                tabindex="-1"
+              >
+                <img
+                  alt="Leon Lafrite"
+                  class="c13"
+                  src="https://avatars.githubusercontent.com/u/3874873?v=4"
+                />
+              </td>
+              <td
+                aria-colindex="4"
+                class="c5"
+                tabindex="-1"
+              >
+                <span
+                  class="c12"
+                >
+                  Chez Léon is a human sized Parisian...
+                </span>
+              </td>
+              <td
+                aria-colindex="5"
+                class="c5"
+                tabindex="-1"
+              >
+                <span
+                  class="c12"
+                >
+                  French cuisine
+                </span>
+              </td>
+              <td
+                aria-colindex="6"
+                class="c5"
+                tabindex="-1"
+              >
+                <span
+                  class="c12"
+                >
+                  Leon Lafrite
+                </span>
+              </td>
+              <td
+                aria-colindex="7"
+                class="c5"
+              >
+                <button
+                  aria-disabled="false"
+                  aria-labelledby="tooltip-123"
+                  class="c14 c15"
+                  tabindex="-1"
+                >
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M23.604 3.514c.528.528.528 1.36 0 1.887l-2.622 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.118 3.118zM0 24v-4.99l14.2-14.2 4.99 4.99L4.99 24H0z"
+                      fill="#212134"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     `);
   });
 });

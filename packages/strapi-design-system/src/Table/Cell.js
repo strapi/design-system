@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import { RawTh, RawTd } from '../RawTable/RawCell';
 
 const CellWrapper = styled(RawTd)`
-  padding: 0 ${({ theme }) => theme.spaces[4]};
   vertical-align: middle;
   line-height: ${52 / 16}rem;
   text-align: left;
