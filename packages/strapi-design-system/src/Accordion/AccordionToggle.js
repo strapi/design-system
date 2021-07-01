@@ -44,6 +44,7 @@ export const AccordionToggle = ({ title, description, as, variant, togglePositio
             aria-expanded={expanded}
             aria-controls={ariaControls}
             aria-labelledby={ariaLabelId}
+            data-strapi-accordion-toggle={true}
           >
             <Row>
               {dropdownIcon}
@@ -75,6 +76,7 @@ export const AccordionToggle = ({ title, description, as, variant, togglePositio
         aria-expanded={expanded}
         aria-controls={ariaControls}
         aria-labelledby={ariaLabelId}
+        data-strapi-accordion-toggle={true}
       >
         <Row justifyContent="space-between">
           <Box paddingRight={6}>
