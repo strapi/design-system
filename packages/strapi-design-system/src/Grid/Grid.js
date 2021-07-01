@@ -7,7 +7,6 @@ import { Box } from '../Box';
 const GridWrapper = styled(Box)`
   display: grid;
   gap: ${({ gap, theme }) => theme.spaces[gap]};
-
   grid-template-columns: repeat(${({ gridCols }) => gridCols}, 1fr);
 `;
 

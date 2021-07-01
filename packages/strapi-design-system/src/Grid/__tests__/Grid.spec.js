@@ -43,14 +43,17 @@ describe('Grid', () => {
 
       .c2 {
         grid-column: span 6;
+        word-break: break-all;
       }
 
       .c4 {
         grid-column: span 9;
+        word-break: break-all;
       }
 
       .c5 {
         grid-column: span 3;
+        word-break: break-all;
       }
 
       <div

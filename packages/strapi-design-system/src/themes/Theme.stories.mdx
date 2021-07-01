@@ -1,6 +1,7 @@
 <!--- TimePicker.stories.mdx --->
 
 import { useState } from 'react';
+import * as Icons from '@strapi/icons';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { Box } from '../Box';
 import { Row } from '../Row';
@@ -109,6 +110,38 @@ Description...
               </Row>
             ))}
           </Stack>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Icons
+
+Description...
+
+<Canvas>
+  <Story name="icons">
+    {() => {
+      console.log('wtf', Icons);
+      const iconsArray = Object.keys(Icons);
+      return (
+        <Box padding={8} background="neutral100">
+          <Grid gap={2}>
+            {iconsArray.map((icon) => {
+              const Icon = Icons[icon];
+              return (
+                <GridItem padding={2} col={2} key={icon} background={'neutral0'}>
+                  <Box>
+                    <Icon aria-hidden={true} />
+                  </Box>
+                  <Box>
+                    <Text highlighted>{icon}</Text>
+                  </Box>
+                </GridItem>
+              );
+            })}
+          </Grid>
         </Box>
       );
     }}

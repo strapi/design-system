@@ -6,6 +6,7 @@ import { useGrid } from './GridContext';
 
 const GridItemWrapper = styled.div`
   grid-column: span ${({ col }) => col};
+  word-break: break-all;
 `;
 
 export const GridItem = ({ col, ...props }) => {
