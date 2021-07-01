@@ -10,13 +10,16 @@ import { VisuallyHidden } from '../VisuallyHidden';
 
 const NavUserBox = styled(Box)`
   text-decoration: none;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 `;
 
 export const NavUser = ({ src, children, ...props }) => {
   const condensed = useMainNav();
 
   return (
-    <NavUserBox paddingTop={3} paddingBottom={3} paddingLeft={2} paddingRight={2} as="a" {...props}>
+    <NavUserBox paddingTop={3} paddingBottom={3} paddingLeft={5} paddingRight={5} as="a" {...props}>
       <Row as="span" justifyContent={condensed ? 'center' : undefined}>
         <Avatar src={src} alt="" aria-hidden />
         {condensed ? (
