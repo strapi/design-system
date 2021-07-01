@@ -28,8 +28,6 @@ export const Box = styled.div.withConfig({
 
   // Shadows
   box-shadow: ${({ theme, shadow }) => theme.shadows[shadow]};
-
-  // Custom grid
 `;
 
 Box.displayName = 'Box';

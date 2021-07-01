@@ -11,13 +11,11 @@ export const ButtonWrapper = styled(BaseButton)`
   padding: ${({ theme }) => `${theme.spaces[2]} ${theme.spaces[4]}`};
   background: ${({ theme }) => theme.colors.primary600};
   border: none;
-
   ${Box} {
     display: flex;
     align-items: center;
     margin-top: ${getIconPosition};
   }
-
   ${Text} {
     color: ${({ theme }) => theme.colors.neutral0};
   }
