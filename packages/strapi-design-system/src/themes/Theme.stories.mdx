@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { Box } from '../Box';
+import { Row } from '../Row';
+import { Text } from '../Text';
 import { Grid, GridItem } from '../Grid';
 import { useTheme } from '../ThemeProvider';
 import { Stack } from '../Stack';
@@ -13,7 +15,7 @@ import { Stack } from '../Stack';
 
 This is the doc of the `TimePicker` component
 
-## LightTheme
+## Colors
 
 Description...
 
@@ -53,6 +55,60 @@ Description...
               </GridItem>
             ))}
           </Grid>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Shadows
+
+Description...
+
+<Canvas>
+  <Story name="shadows">
+    {() => {
+      const theme = useTheme();
+      const shadows = Object.keys(theme.shadows);
+      return (
+        <Box padding={8} background="neutral100">
+          <Grid gap={4}>
+            {shadows.map((shadow) => (
+              <GridItem padding={8} shadow={shadow} background="neutral0">
+                {shadow}
+              </GridItem>
+            ))}
+          </Grid>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Spaces
+
+Description...
+
+<Canvas>
+  <Story name="spaces">
+    {() => {
+      const theme = useTheme();
+      const spaces = Object.keys(theme.spaces);
+      return (
+        <Box padding={8} background="neutral100">
+          <Stack>
+            {spaces.map((space) => (
+              <Row key={`space-${space}`}>
+                <Box background="primary500" hasRadius style={{ width: `${space * 4}px`, height: '4px' }} />
+                <Box paddingLeft={2}>
+                  <Text as="span">{space}</Text>{' '}
+                  <Text small as="span">
+                    ({space * 4}px)
+                  </Text>
+                </Box>
+              </Row>
+            ))}
+          </Stack>
         </Box>
       );
     }}
