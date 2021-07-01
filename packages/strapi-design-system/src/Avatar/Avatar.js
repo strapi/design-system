@@ -1,13 +1,21 @@
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-export const Avatar = styled.img`
+const avatarSize = '26px';
+
+const AvatarImg = styled.img`
   border-radius: 50%;
   display: block;
-  height: ${26 / 16}rem;
-  width: ${26 / 16}rem;
+  height: ${avatarSize};
+  width: ${avatarSize};
 `;
+
+export const Avatar = ({ src, alt }) => {
+  return <AvatarImg src={src} alt={alt} width={avatarSize} height={avatarSize} />;
+};
 
 Avatar.propTypes = {
   alt: PropTypes.string.isRequired,
+  src: PropTypes.string.isRequired,
 };
