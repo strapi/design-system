@@ -5,28 +5,15 @@ import { GridContext } from './GridContext';
 import { Box } from '../Box';
 
 const GridWrapper = styled(Box)`
-  display: flex;
-  flex-wrap: wrap;
-
-  & > * {
-    margin-right: ${({ gap, theme }) => theme.spaces[gap]};
-    margin-top: ${({ gap, theme }) => theme.spaces[gap]};
-  }
-
-  margin-right: -${({ gap, theme }) => theme.spaces[gap]};
-  margin-top: -${({ gap, theme }) => theme.spaces[gap]};
-`;
-
-const GridContainer = styled.div`
-  overflow: hidden;
+  display: grid;
+  gap: ${({ gap, theme }) => theme.spaces[gap]};
+  grid-template-columns: repeat(${({ gridCols }) => gridCols}, 1fr);
 `;
 
 export const Grid = ({ gap, gridCols, ...props }) => {
   return (
     <GridContext.Provider value={{ gap, gridCols }}>
-      <GridContainer>
-        <GridWrapper gap={gap} {...props} />
-      </GridContainer>
+      <GridWrapper gap={gap} gridCols={gridCols} {...props} />
     </GridContext.Provider>
   );
 };

@@ -23,7 +23,7 @@ describe('Grid', () => {
     );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
-      .c1 {
+      .c0 {
         padding: 16px;
       }
 
@@ -35,77 +35,62 @@ describe('Grid', () => {
         background: #66b7f1;
       }
 
+      .c1 {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(12,1fr);
+      }
+
       .c2 {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-        margin-right: -16px;
-        margin-top: -16px;
-      }
-
-      .c2 > * {
-        margin-right: 16px;
-        margin-top: 16px;
-      }
-
-      .c0 {
-        overflow: hidden;
+        grid-column: span 6;
+        word-break: break-all;
       }
 
       .c4 {
-        -webkit-flex: 6;
-        -ms-flex: 6;
-        flex: 6;
-        -webkit-flex-basis: calc(50% - 16px);
-        -ms-flex-preferred-size: calc(50% - 16px);
-        flex-basis: calc(50% - 16px);
+        grid-column: span 9;
+        word-break: break-all;
       }
 
       .c5 {
-        -webkit-flex: 9;
-        -ms-flex: 9;
-        flex: 9;
-        -webkit-flex-basis: calc(75% - 16px);
-        -ms-flex-preferred-size: calc(75% - 16px);
-        flex-basis: calc(75% - 16px);
-      }
-
-      .c7 {
-        -webkit-flex: 3;
-        -ms-flex: 3;
-        flex: 3;
-        -webkit-flex-basis: calc(25% - 16px);
-        -ms-flex-preferred-size: calc(25% - 16px);
-        flex-basis: calc(25% - 16px);
+        grid-column: span 3;
+        word-break: break-all;
       }
 
       <div
-        class="c0"
+        class="c0 c1"
       >
         <div
-          class="c1 c2"
+          class="c2"
         >
           <div
-            class="c3 c4"
+            class="c3"
           >
             First
           </div>
+        </div>
+        <div
+          class="c2"
+        >
           <div
-            class="c4"
+            class=""
           >
             Second
           </div>
+        </div>
+        <div
+          class="c4"
+        >
           <div
-            class="c5"
+            class=""
           >
             Third
           </div>
+        </div>
+        <div
+          class="c5"
+        >
           <div
-            class="c6 c7"
+            class="c6"
           >
             Last
           </div>
