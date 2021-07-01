@@ -9,7 +9,7 @@ import { FieldHint } from './FieldHint';
 import { FieldError } from './FieldError';
 import { FieldInput } from './FieldInput';
 import { Field } from './Field';
-import { Grid } from '../Grid';
+import { Row } from '../Row';
 import { Box } from '../Box';
 import { Stack } from '../Stack';
 import { Tooltip } from '../Tooltip';
@@ -127,20 +127,22 @@ This is the most complex input that can be built with the Field components:
         <Box padding={8}>
           <Field name="password" hint="Description line" error={email.length > 5 ? 'Email is too short' : undefined}>
             <Stack size={1}>
-              <Grid cols="auto auto 1fr" gap={1}>
+              <Row>
                 <FieldLabel>Password</FieldLabel>
-                <Tooltip description="Content of the tooltip">
-                  <button
-                    aria-label="Information about the email"
-                    style={{ border: 'none', padding: 0, background: 'transparent' }}
-                  >
-                    <HelpIcon aria-hidden={true} />
-                  </button>
-                </Tooltip>
+                <Box paddingLeft={2}>
+                  <Tooltip description="Content of the tooltip">
+                    <button
+                      aria-label="Information about the email"
+                      style={{ border: 'none', padding: 0, background: 'transparent' }}
+                    >
+                      <HelpIcon aria-hidden={true} />
+                    </button>
+                  </Tooltip>
+                </Box>
                 <a href="#" style={{ marginLeft: 'auto' }}>
                   Details
                 </a>
-              </Grid>
+              </Row>
               <FieldInput
                 placeholder="example@domain.com"
                 value={email}

@@ -22,9 +22,6 @@ export const Box = styled.div.withConfig({
   padding-bottom: ${({ theme, paddingBottom }) => theme.spaces[paddingBottom]};
   padding-left: ${({ theme, paddingLeft }) => theme.spaces[paddingLeft]};
 
-  // Grid
-  grid-area: ${({ area }) => area};
-
   // Borders
   border-radius: ${({ theme, hasRadius }) => (hasRadius ? theme.borderRadius : undefined)};
   border: ${({ theme, borderColor }) => (borderColor ? `1px solid ${theme.colors[borderColor]}` : undefined)};

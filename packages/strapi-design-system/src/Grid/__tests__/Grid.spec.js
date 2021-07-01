@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { Grid } from '../Grid';
-import { Box } from '../../Box';
+import { GridItem } from '../GridItem';
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
 
@@ -9,164 +9,103 @@ describe('Grid', () => {
   it('verifies the styles of the grid and areas', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
-        <Grid
-          areas={['first second third', 'last  last last']}
-          cols="1fr 1fr 1fr"
-          rows="1fr 1fr"
-          background="primary500"
-          gap={4}
-          margin={8}
-          padding={4}
-        >
-          <Box area="first" color="neutral0">
+        <Grid gap={4} padding={4}>
+          <GridItem col={6} color="neutral0">
             First
-          </Box>
-          <Box area="second">Second</Box>
-          <Box area="third">Third</Box>
-          <Box area="last" background="secondary500">
+          </GridItem>
+          <GridItem col={6}>Second</GridItem>
+          <GridItem col={9}>Third</GridItem>
+          <GridItem col={3} background="secondary500">
             Last
-          </Box>
+          </GridItem>
         </Grid>
       </ThemeProvider>,
     );
 
-    const grid = container.firstChild;
-    const first = screen.getByText('First');
-    const second = screen.getByText('Second');
-    const third = screen.getByText('Third');
-    const last = screen.getByText('Last');
-
-    expect(grid).toHaveStyle(`
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
-      gap: 16px;
-      grid-template-areas: "first second third""last  last last";
-    `);
-
-    expect(first).toHaveStyle(`grid-area: first;`);
-    expect(second).toHaveStyle(`grid-area: second;`);
-    expect(third).toHaveStyle(`grid-area: third;`);
-    expect(last).toHaveStyle(`
-      grid-area: last;
-      background: #66b7f1;
-    `);
-  });
-
-  it('allows for passing an array as a gap', () => {
-    const gap = [4, 5];
-
-    const { container } = render(
-      <ThemeProvider theme={lightTheme}>
-        <Grid
-          areas={['first second third', 'last  last last']}
-          cols="1fr 1fr 1fr"
-          rows="1fr 1fr"
-          background="primary500"
-          gap={gap}
-          margin={8}
-          padding={4}
-        >
-          <Box area="first" color="neutral0">
-            First
-          </Box>
-          <Box area="second">Second</Box>
-          <Box area="third">Third</Box>
-          <Box area="last" background="secondary500">
-            Last
-          </Box>
-        </Grid>
-      </ThemeProvider>,
-    );
-
-    const grid = container.firstChild;
-
-    expect(grid).toHaveStyle(`
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
-      gap: 16px 20px;
-      grid-template-areas: "first second third""last  last last";
-    `);
-  });
-
-  it('matches snapshots', () => {
-    const { container } = render(
-      <ThemeProvider theme={lightTheme}>
-        <Grid
-          areas={['first second third', 'last  last last']}
-          cols="1fr 1fr 1fr"
-          rows="1fr 1fr"
-          background="primary500"
-          gap={4}
-          margin={8}
-          padding={4}
-        >
-          <Box area="first" color="neutral0">
-            First
-          </Box>
-          <Box area="second">Second</Box>
-          <Box area="third">Third</Box>
-          <Box area="last" background="secondary500">
-            Last
-          </Box>
-        </Grid>
-      </ThemeProvider>,
-    );
-
-    expect(container).toMatchInlineSnapshot(`
-      .c0 {
-        background: #7b79ff;
+    expect(container.firstChild).toMatchInlineSnapshot(`
+      .c1 {
         padding: 16px;
       }
 
-      .c2 {
+      .c3 {
         color: #ffffff;
-        grid-area: first;
       }
 
-      .c3 {
-        grid-area: second;
+      .c6 {
+        background: #66b7f1;
+      }
+
+      .c2 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-right: -16px;
+        margin-top: -16px;
+      }
+
+      .c2 > * {
+        margin-right: 16px;
+        margin-top: 16px;
+      }
+
+      .c0 {
+        overflow: hidden;
       }
 
       .c4 {
-        grid-area: third;
+        -webkit-flex: 6;
+        -ms-flex: 6;
+        flex: 6;
+        -webkit-flex-basis: calc(50% - 16px);
+        -ms-flex-preferred-size: calc(50% - 16px);
+        flex-basis: calc(50% - 16px);
       }
 
       .c5 {
-        background: #66b7f1;
-        grid-area: last;
+        -webkit-flex: 9;
+        -ms-flex: 9;
+        flex: 9;
+        -webkit-flex-basis: calc(75% - 16px);
+        -ms-flex-preferred-size: calc(75% - 16px);
+        flex-basis: calc(75% - 16px);
       }
 
-      .c1 {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-        gap: 16px;
-        grid-template-areas: "first second third""last  last last";
+      .c7 {
+        -webkit-flex: 3;
+        -ms-flex: 3;
+        flex: 3;
+        -webkit-flex-basis: calc(25% - 16px);
+        -ms-flex-preferred-size: calc(25% - 16px);
+        flex-basis: calc(25% - 16px);
       }
 
-      <div>
+      <div
+        class="c0"
+      >
         <div
-          class="c0 c1"
+          class="c1 c2"
         >
           <div
-            class="c2"
+            class="c3 c4"
           >
             First
-          </div>
-          <div
-            class="c3"
-          >
-            Second
           </div>
           <div
             class="c4"
           >
-            Third
+            Second
           </div>
           <div
             class="c5"
+          >
+            Third
+          </div>
+          <div
+            class="c6 c7"
           >
             Last
           </div>
