@@ -13,28 +13,33 @@ const TableBox = styled(Box)`
   position: relative;
 
   &:before {
+    // TODO: make sure to add a token for this weird stuff
+    background: linear-gradient(90deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+    opacity: 0.2;
     position: absolute;
     height: 100%;
     content: ${({ overflowing }) => (overflowing === 'both' || overflowing === 'left' ? "''" : undefined)};
-    width: 10px;
-    background: red;
+    box-shadow: ${({ theme }) => theme.shadows.tableShadow};
+    width: 8px;
     left: 0;
   }
 
   &:after {
+    // TODO: make sure to add a token for this weird stuff
+    background: linear-gradient(270deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+    opacity: 0.2;
     position: absolute;
     height: 100%;
     content: ${({ overflowing }) => (overflowing === 'both' || overflowing === 'right' ? "''" : undefined)};
-    width: 10px;
-    background: red;
+    box-shadow: ${({ theme }) => theme.shadows.tableShadow};
+    width: ${({ theme }) => theme.spaces[2]};
     right: 0;
     top: 0;
   }
 `;
 
-const ScrollContainer = styled.div`
+const ScrollContainer = styled(Box)`
   overflow-x: scroll;
-  position: relative;
 `;
 
 export const Table = ({ colCount, rowCount, ...props }) => {
@@ -64,8 +69,8 @@ export const Table = ({ colCount, rowCount, ...props }) => {
   }, []);
 
   return (
-    <TableBox background="neutral0" paddingLeft={3} paddingRight={3} hasRadius overflowing={overflowing}>
-      <ScrollContainer ref={tableRef} onScroll={handleScroll}>
+    <TableBox background="neutral0" hasRadius overflowing={overflowing}>
+      <ScrollContainer ref={tableRef} onScroll={handleScroll} paddingLeft={3} paddingRight={3}>
         <TableWrapper colCount={colCount} rowCount={rowCount} {...props} />
       </ScrollContainer>
     </TableBox>
