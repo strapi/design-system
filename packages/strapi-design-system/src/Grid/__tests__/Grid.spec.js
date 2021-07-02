@@ -56,6 +56,42 @@ describe('Grid', () => {
         word-break: break-all;
       }
 
+      @media (max-width:1100px) {
+        .c2 {
+          grid-column: span;
+        }
+      }
+
+      @media (max-width:550px) {
+        .c2 {
+          grid-column: span;
+        }
+      }
+
+      @media (max-width:1100px) {
+        .c4 {
+          grid-column: span;
+        }
+      }
+
+      @media (max-width:550px) {
+        .c4 {
+          grid-column: span;
+        }
+      }
+
+      @media (max-width:1100px) {
+        .c5 {
+          grid-column: span;
+        }
+      }
+
+      @media (max-width:550px) {
+        .c5 {
+          grid-column: span;
+        }
+      }
+
       <div
         class="c0 c1"
       >

@@ -1,6 +1,14 @@
 import React, { useReducer } from "react";
 import _ from "lodash";
-import { Box, Button, Grid, H1, Row, Stack } from "@strapi/design-system";
+import {
+  Box,
+  Button,
+  Grid,
+  GridItem,
+  H1,
+  Row,
+  Stack,
+} from "@strapi/design-system";
 import { OneBlockLayout } from "../layouts/OneBlockLayout";
 import Inputs from "./Inputs";
 import { layout } from "./utils/layout";
@@ -83,32 +91,23 @@ const CM = () => {
       >
         <Box padding={6}>
           <Stack size={6}>
-            {layout.map((row, index) => {
-              const colArray = row.map((input) => input.size);
-              const length = colArray.reduce((acc, curr) => acc + curr, 0);
-              const rest = 12 - length;
-              const defaultCols = colArray.map((s) => s + "fr").join(" ");
-              const cols =
-                rest === 0 ? defaultCols : defaultCols + " " + rest + "fr";
-
-              return (
-                <Grid cols={cols} key={index} gap={5}>
-                  {row.map((input) => {
-                    return (
-                      <Box key={input.name}>
-                        <Inputs
-                          {...input}
-                          customInputs={{ string: () => "TEXT CUSTOM" }}
-                          error={formErrors?.[input.name]}
-                          onChange={handleChange}
-                          value={modifiedData[input.name]}
-                        />
-                      </Box>
-                    );
-                  })}
-                </Grid>
-              );
-            })}
+            <Grid gap={5}>
+              {layout.map((row, index) => {
+                return row.map((input) => {
+                  return (
+                    <GridItem key={input.name} col={input.size} xs={12} s={6}>
+                      <Inputs
+                        {...input}
+                        // customInputs={{ string: () => "TEXT CUSTOM" }}
+                        error={formErrors?.[input.name]}
+                        onChange={handleChange}
+                        value={modifiedData[input.name]}
+                      />
+                    </GridItem>
+                  );
+                });
+              })}
+            </Grid>
           </Stack>
         </Box>
       </OneBlockLayout>
