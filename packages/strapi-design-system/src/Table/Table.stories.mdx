@@ -28,7 +28,7 @@ Description...
   <Story name="base">
     {() => {
       const ROW_COUNT = 6;
-      const COL_COUNT = 7;
+      const COL_COUNT = 10;
       const entry = {
         cover: 'https://avatars.githubusercontent.com/u/3874873?v=4',
         description: 'Chez Léon is a human sized Parisian...',
@@ -65,6 +65,9 @@ Description...
                 <Th>
                   <VisuallyHidden>Actions</VisuallyHidden>
                 </Th>
+                <Th>More</Th>
+                <Th>More</Th>
+                <Th>More</Th>
               </Tr>
             </Thead>
             <Tbody>
@@ -100,6 +103,21 @@ Description...
                     <IconButton onClick={() => console.log('edit')} title="Edit" noBorder>
                       <EditIcon />
                     </IconButton>
+                  </Td>
+                  <Td>
+                    <Text textColor="neutral600" as="span">
+                      {entry.description}
+                    </Text>
+                  </Td>
+                  <Td>
+                    <Text textColor="neutral600" as="span">
+                      {entry.description}
+                    </Text>
+                  </Td>
+                  <Td>
+                    <Text textColor="neutral600" as="span">
+                      {entry.description}
+                    </Text>
                   </Td>
                 </Tr>
               ))}
