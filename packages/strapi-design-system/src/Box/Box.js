@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import handleResponsiveSpacing from '../helpers/handleResponsiveSpacing';
 
 /**
  * Prevents these attributes from being spread on the DOM node
@@ -16,11 +17,21 @@ export const Box = styled.div.withConfig({
   color: ${({ theme, color }) => theme.colors[color]};
 
   // Spaces
-  padding: ${({ theme, padding }) => theme.spaces[padding]};
-  padding-top: ${({ theme, paddingTop }) => theme.spaces[paddingTop]};
-  padding-right: ${({ theme, paddingRight }) => theme.spaces[paddingRight]};
-  padding-bottom: ${({ theme, paddingBottom }) => theme.spaces[paddingBottom]};
-  padding-left: ${({ theme, paddingLeft }) => theme.spaces[paddingLeft]};
+  ${({ theme, padding }) => handleResponsiveSpacing('padding', padding, theme)}
+
+  ${({ theme, paddingTop }) => handleResponsiveSpacing('padding-top', paddingTop, theme)}
+
+  ${({ theme, paddingRight }) => handleResponsiveSpacing('padding-right', paddingRight, theme)}
+
+  ${({ theme, paddingBottom }) => handleResponsiveSpacing('padding-bottom', paddingBottom, theme)}
+
+  ${({ theme, paddingLeft }) => handleResponsiveSpacing('padding-left', paddingLeft, theme)}
+
+  // Responsive hiding
+  ${({ theme, hiddenS }) => (hiddenS ? `${theme.mediaQueries.tablet} { display: none; }` : undefined)}
+
+  ${({ theme, hiddenXS }) => (hiddenXS ? `${theme.mediaQueries.mobile} { display: none; }` : undefined)}
+  
 
   // Borders
   border-radius: ${({ theme, hasRadius }) => (hasRadius ? theme.borderRadius : undefined)};
@@ -36,6 +47,8 @@ Box.defaultProps = {
   background: undefined,
   borderColor: undefined,
   color: undefined,
+  hiddenS: false,
+  hiddenXS: false,
   padding: undefined,
   paddingTop: undefined,
   paddingRight: undefined,
@@ -51,10 +64,12 @@ Box.propTypes = {
   children: PropTypes.node.isRequired,
   color: PropTypes.string,
   hasRadius: PropTypes.bool,
-  padding: PropTypes.number,
-  paddingBottom: PropTypes.number,
-  paddingLeft: PropTypes.number,
-  paddingRight: PropTypes.number,
-  paddingTop: PropTypes.number,
+  hiddenS: PropTypes.bool,
+  hiddenXS: PropTypes.bool,
+  padding: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
+  paddingBottom: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
+  paddingLeft: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
+  paddingRight: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
+  paddingTop: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
   shadow: PropTypes.string,
 };

@@ -82,10 +82,14 @@ const CM = () => {
       <OneBlockLayout
         header={
           <Stack size={2}>
-            <Row justifyContent="space-between">
-              <H1 id="main-title">Create a new entry</H1>
-              <Button type="submit">Save</Button>
-            </Row>
+            <Box paddingLeft={[0, 4]}>
+              <Row justifyContent="space-between" wrap="wrap">
+                <H1 id="main-title">Create a new entry</H1>
+                <Box paddingTop={[0, 2]}>
+                  <Button type="submit">Save</Button>
+                </Box>
+              </Row>
+            </Box>
           </Stack>
         }
       >
