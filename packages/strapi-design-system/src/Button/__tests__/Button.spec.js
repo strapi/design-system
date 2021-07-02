@@ -53,7 +53,7 @@ describe('Button', () => {
         background: #4945ff;
       }
 
-      .c1 .sc-iCfLBT {
+      .c1 .sc-iCoGMd {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -168,7 +168,7 @@ describe('Button', () => {
         background: #f0f0ff;
       }
 
-      .c1 .sc-iCfLBT {
+      .c1 .sc-iCoGMd {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -300,7 +300,7 @@ describe('Button', () => {
         background: #328048;
       }
 
-      .c1 .sc-iCfLBT {
+      .c1 .sc-iCoGMd {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -415,7 +415,7 @@ describe('Button', () => {
         background: #fcecea;
       }
 
-      .c1 .sc-iCfLBT {
+      .c1 .sc-iCoGMd {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -547,7 +547,7 @@ describe('Button', () => {
         background: #4945ff;
       }
 
-      .c1 .sc-iCfLBT {
+      .c1 .sc-iCoGMd {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
