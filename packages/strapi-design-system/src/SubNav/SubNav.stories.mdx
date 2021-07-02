@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { Applications, AddIcon, ApiTokens, AlertWarningIcon, AlertInfoIcon } from '@strapi/icons';
+import { matchSorter } from 'match-sorter';
 import { SubNav } from './SubNav';
 import { SubNavHeader } from './SubNavHeader';
 import { SubNavSection } from './SubNavSection';
@@ -26,7 +27,7 @@ Description...
 <Canvas>
   <Story name="base">
     {() => {
-      const [search, setSearch] = useState();
+      const [search, setSearch] = useState('');
       const links = [
         {
           id: 1,
@@ -52,10 +53,11 @@ Description...
           active: true,
         },
       ];
+      const filteredLinks = matchSorter(links, search, { keys: ['label'] });
       return (
         <Row>
           <Box padding={10} style={{ height: '100vh' }}>
-            <SubNav>
+            <SubNav aria-label="Builder sub nav">
               <SubNavHeader
                 searchable
                 value={search}
@@ -65,14 +67,14 @@ Description...
                 searchLabel="Search..."
               />
               <SubNavSections>
-                <SubNavSection label="Collection Type" collapsable badgeLabel={links.length}>
-                  {links.map((link) => (
+                <SubNavSection label="Collection Type" collapsable badgeLabel={filteredLinks.length.toString()}>
+                  {filteredLinks.map((link) => (
                     <SubNavLink href={link.to} active={link.active} key={link.id}>
                       {link.label}
                     </SubNavLink>
                   ))}
                 </SubNavSection>
-                <Box as="li" paddingLeft={8}>
+                <Box as="li" paddingLeft={7}>
                   <Link to="/somewhere-internal" startIcon={<AddIcon />}>
                     Create new CT
                   </Link>
@@ -86,7 +88,7 @@ Description...
                     ))}
                   </SubNavLinkSection>
                 </SubNavSection>
-                <Box paddingLeft={8}>
+                <Box paddingLeft={7}>
                   <Link to="/somewhere-internal" startIcon={<AddIcon />}>
                     Create new ST
                   </Link>
@@ -95,7 +97,7 @@ Description...
             </SubNav>
           </Box>
           <Box padding={10} style={{ height: '100vh' }}>
-            <SubNav>
+            <SubNav aria-label="Settings sub nav">
               <SubNavHeader label="Settings" />
               <SubNavSections>
                 <SubNavLink href="/blabla" withBullet icon={<Applications />}>
@@ -125,7 +127,7 @@ Description...
             </SubNav>
           </Box>
           <Box padding={10} style={{ height: '100vh' }}>
-            <SubNav>
+            <SubNav aria-label="Mixed sub nav">
               <SubNavHeader label="Mixed" />
               <SubNavSections>
                 <SubNavLink href="/blabla" withBullet icon={<Applications />}>

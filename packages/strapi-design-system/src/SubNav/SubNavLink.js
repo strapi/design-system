@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Bullet from '@strapi/icons/Bullet';
@@ -33,6 +33,9 @@ const SubNavLinkWrapper = styled(Box)`
 const CustomBullet = styled(Bullet)`
   width: ${12 / 16}rem;
   height: ${4 / 16}rem;
+  * {
+    fill: ${({ theme, active }) => (active ? theme.colors.primary600 : theme.colors.neutral600)};
+  }
 `;
 const IconWrapper = styled.div`
   svg {
@@ -48,7 +51,7 @@ export const SubNavLink = ({ children, icon, withBullet, as, active, ...props })
         as={as}
         icon={icon}
         background="neutral100"
-        paddingLeft={8}
+        paddingLeft={7}
         paddingBottom={2}
         paddingTop={2}
         active={active}
@@ -57,13 +60,15 @@ export const SubNavLink = ({ children, icon, withBullet, as, active, ...props })
       >
         <Row>
           {icon ? <IconWrapper>{icon}</IconWrapper> : <CustomBullet />}
-          <Box paddingLeft={3}>
-            <Text>{children}</Text>
+          <Box paddingLeft={2}>
+            <Text highlighted={active} as="span">
+              {children}
+            </Text>
           </Box>
         </Row>
         {withBullet && (
           <Box as={Row} paddingRight={4}>
-            <CustomBullet />
+            <CustomBullet active />
           </Box>
         )}
       </SubNavLinkWrapper>

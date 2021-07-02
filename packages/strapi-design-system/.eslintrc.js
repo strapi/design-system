@@ -18,5 +18,6 @@ module.exports = {
   rules: {
     'react/sort-prop-types': 1,
     'default-case': 'error',
+    'no-unused-vars': ['error', { vars: 'all', args: 'after-used', ignoreRestSiblings: false }],
   },
 };

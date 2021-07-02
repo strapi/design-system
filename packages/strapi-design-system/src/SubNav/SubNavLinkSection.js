@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import FilterDropdown from '@strapi/icons/FilterDropdown';
 import { Box } from '../Box';
 import { Row } from '../Row';
-import { Badge } from '../Badge';
 import { Text } from '../Text';
 import { useId } from '../helpers/useId';
 
@@ -24,6 +23,11 @@ const SubNavLinkSectionButton = styled.button`
   display: flex;
   align-items: center;
 `;
+const DropDownIconWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  transform: rotateX(${({ rotated }) => (rotated ? '0deg' : '180deg')});
+`;
 
 export const SubNavLinkSection = ({ label, children }) => {
   const [isOpen, setOpenLinks] = useState(true);
@@ -38,9 +42,11 @@ export const SubNavLinkSection = ({ label, children }) => {
       <SubNavLinkSectionWrapper paddingLeft={7} paddingTop={2} paddingBottom={2} paddingRight={4}>
         <Row justifyContent="space-between">
           <SubNavLinkSectionButton onClick={handleClick} aria-expanded={isOpen} aria-controls={listId}>
-            <FilterDropdown aria-hidden />
+            <DropDownIconWrapper rotated={isOpen}>
+              <FilterDropdown aria-hidden />
+            </DropDownIconWrapper>
             <Box paddingLeft={1}>
-              <Text highlighted textColor="neutral800">
+              <Text as="span" highlighted textColor="neutral800">
                 {label}
               </Text>
             </Box>

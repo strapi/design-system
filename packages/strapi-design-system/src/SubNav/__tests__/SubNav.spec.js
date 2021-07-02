@@ -105,32 +105,32 @@ describe('SubNav', () => {
         padding-right: 4px;
       }
 
-      .c20 {
+      .c21 {
         background: #eaeaef;
         color: #666687;
         padding: 4px;
         border-radius: 4px;
       }
 
-      .c24 {
+      .c25 {
         background: #f6f6f9;
         padding-top: 8px;
         padding-bottom: 8px;
-        padding-left: 40px;
+        padding-left: 32px;
       }
 
-      .c28 {
-        padding-left: 12px;
+      .c29 {
+        padding-left: 8px;
       }
 
-      .c30 {
+      .c32 {
         padding-top: 8px;
         padding-right: 16px;
         padding-bottom: 8px;
         padding-left: 32px;
       }
 
-      .c33 {
+      .c36 {
         padding-left: 4px;
       }
 
@@ -169,7 +169,7 @@ describe('SubNav', () => {
         align-items: center;
       }
 
-      .c26 {
+      .c27 {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -196,13 +196,19 @@ describe('SubNav', () => {
         color: #8e8ea9;
       }
 
-      .c23 {
+      .c24 {
         font-weight: 400;
         font-size: 0.875rem;
         line-height: 1.43;
       }
 
-      .c34 {
+      .c31 {
+        font-weight: 500;
+        font-size: 0.875rem;
+        line-height: 1.43;
+      }
+
+      .c37 {
         font-weight: 500;
         font-size: 0.875rem;
         line-height: 1.43;
@@ -221,8 +227,101 @@ describe('SubNav', () => {
         text-transform: uppercase;
       }
 
-      .c21 {
+      .c22 {
         display: inline-block;
+      }
+
+      .c14 {
+        border: none;
+        padding: 0;
+        background: transparent;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+
+      .c20 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-transform: rotateX(0deg);
+        -ms-transform: rotateX(0deg);
+        transform: rotateX(0deg);
+      }
+
+      .c13 {
+        max-height: 2rem;
+      }
+
+      .c13 svg {
+        height: 0.25rem;
+      }
+
+      .c13 svg path {
+        fill: #8e8ea9;
+      }
+
+      .c23 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        height: 1.25rem;
+        width: 1rem;
+      }
+
+      .c33 {
+        max-height: 2rem;
+      }
+
+      .c33 svg {
+        height: 0.25rem;
+      }
+
+      .c33 svg path {
+        fill: #4a4a6a;
+      }
+
+      .c34 {
+        border: none;
+        padding: 0;
+        background: transparent;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+
+      .c35 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-transform: rotateX(0deg);
+        -ms-transform: rotateX(0deg);
+        transform: rotateX(0deg);
       }
 
       .c4 {
@@ -251,63 +350,6 @@ describe('SubNav', () => {
         pointer-events: none;
       }
 
-      .c14 {
-        border: none;
-        padding: 0;
-        background: transparent;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-align-items: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-      }
-
-      .c13 {
-        max-height: 2rem;
-      }
-
-      .c13 svg {
-        height: 0.25rem;
-      }
-
-      .c13 svg path {
-        fill: #8e8ea9;
-      }
-
-      .c22 {
-        padding-top: 2px;
-        padding-bottom: 2px;
-      }
-
-      .c31 {
-        max-height: 2rem;
-      }
-
-      .c31 svg {
-        height: 0.25rem;
-      }
-
-      .c31 svg path {
-        fill: #4a4a6a;
-      }
-
-      .c32 {
-        border: none;
-        padding: 0;
-        background: transparent;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-align-items: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-      }
-
       .c5 svg > g,
       .c5 svg path {
         fill: #8e8ea9;
@@ -333,7 +375,7 @@ describe('SubNav', () => {
         width: 1.5rem;
       }
 
-      .c25 {
+      .c26 {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -351,11 +393,11 @@ describe('SubNav', () => {
         color: #32324d;
       }
 
-      .c25:focus-visible {
+      .c26:focus-visible {
         outline-offset: -2px;
       }
 
-      .c29 {
+      .c30 {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -375,21 +417,25 @@ describe('SubNav', () => {
         border-right: 2px solid #4945ff;
       }
 
-      .c29 svg > * {
+      .c30 svg > * {
         fill: #271fe0;
       }
 
-      .c29 .c16 {
+      .c30 .c16 {
         color: #271fe0;
       }
 
-      .c29:focus-visible {
+      .c30:focus-visible {
         outline-offset: -2px;
       }
 
-      .c27 {
+      .c28 {
         width: 0.75rem;
         height: 0.25rem;
+      }
+
+      .c28 * {
+        fill: #666687;
       }
 
       <nav
@@ -401,11 +447,11 @@ describe('SubNav', () => {
           <div
             class="c2"
           >
-            <h2
+            <h1
               class="c3"
             >
               Builder
-            </h2>
+            </h1>
             <span
               aria-labelledby="tooltip-123"
             >
@@ -465,27 +511,31 @@ describe('SubNav', () => {
                         Collection Type
                       </p>
                     </div>
-                    <svg
-                      aria-hidden="true"
-                      fill="none"
-                      height="1em"
-                      viewBox="0 0 14 8"
-                      width="1em"
-                      xmlns="http://www.w3.org/2000/svg"
+                    <div
+                      class="c20"
                     >
-                      <path
-                        clip-rule="evenodd"
-                        d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
-                        fill="#32324D"
-                        fill-rule="evenodd"
-                      />
-                    </svg>
+                      <svg
+                        aria-hidden="true"
+                        fill="none"
+                        height="1em"
+                        viewBox="0 0 14 8"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
+                          fill="#32324D"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                    </div>
                   </button>
                   <div
-                    class="c20 c21 c22"
+                    class="c21 c22 c23"
                   >
                     <p
-                      class="c16 c23 c18 c19"
+                      class="c16 c24 c18 c19"
                     >
                       4
                     </p>
@@ -498,14 +548,14 @@ describe('SubNav', () => {
                 <li>
                   <a
                     aria-current="false"
-                    class="c24 c25"
+                    class="c25 c26"
                     href="/address"
                   >
                     <div
-                      class="c26"
+                      class="c27"
                     >
                       <svg
-                        class="c27"
+                        class="c28"
                         fill="none"
                         height="1em"
                         viewBox="0 0 4 4"
@@ -520,13 +570,13 @@ describe('SubNav', () => {
                         />
                       </svg>
                       <div
-                        class="c28"
+                        class="c29"
                       >
-                        <p
-                          class="c16 c23"
+                        <span
+                          class="c16 c24"
                         >
                           Addresses
-                        </p>
+                        </span>
                       </div>
                     </div>
                   </a>
@@ -534,14 +584,14 @@ describe('SubNav', () => {
                 <li>
                   <a
                     aria-current="false"
-                    class="c24 c25"
+                    class="c25 c26"
                     href="/category"
                   >
                     <div
-                      class="c26"
+                      class="c27"
                     >
                       <svg
-                        class="c27"
+                        class="c28"
                         fill="none"
                         height="1em"
                         viewBox="0 0 4 4"
@@ -556,13 +606,13 @@ describe('SubNav', () => {
                         />
                       </svg>
                       <div
-                        class="c28"
+                        class="c29"
                       >
-                        <p
-                          class="c16 c23"
+                        <span
+                          class="c16 c24"
                         >
                           Categories
-                        </p>
+                        </span>
                       </div>
                     </div>
                   </a>
@@ -570,14 +620,14 @@ describe('SubNav', () => {
                 <li>
                   <a
                     aria-current="false"
-                    class="c24 c25"
+                    class="c25 c26"
                     href="/city"
                   >
                     <div
-                      class="c26"
+                      class="c27"
                     >
                       <svg
-                        class="c27"
+                        class="c28"
                         fill="none"
                         height="1em"
                         viewBox="0 0 4 4"
@@ -592,13 +642,13 @@ describe('SubNav', () => {
                         />
                       </svg>
                       <div
-                        class="c28"
+                        class="c29"
                       >
-                        <p
-                          class="c16 c23"
+                        <span
+                          class="c16 c24"
                         >
                           Cities
-                        </p>
+                        </span>
                       </div>
                     </div>
                   </a>
@@ -606,14 +656,14 @@ describe('SubNav', () => {
                 <li>
                   <a
                     aria-current="true"
-                    class="c24 c29"
+                    class="c25 c30"
                     href="/country"
                   >
                     <div
-                      class="c26"
+                      class="c27"
                     >
                       <svg
-                        class="c27"
+                        class="c28"
                         fill="none"
                         height="1em"
                         viewBox="0 0 4 4"
@@ -628,13 +678,13 @@ describe('SubNav', () => {
                         />
                       </svg>
                       <div
-                        class="c28"
+                        class="c29"
                       >
-                        <p
-                          class="c16 c23"
+                        <span
+                          class="c16 c31"
                         >
                           Countries
-                        </p>
+                        </span>
                       </div>
                     </div>
                   </a>
@@ -662,27 +712,31 @@ describe('SubNav', () => {
                         Single Type
                       </p>
                     </div>
-                    <svg
-                      aria-hidden="true"
-                      fill="none"
-                      height="1em"
-                      viewBox="0 0 14 8"
-                      width="1em"
-                      xmlns="http://www.w3.org/2000/svg"
+                    <div
+                      class="c20"
                     >
-                      <path
-                        clip-rule="evenodd"
-                        d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
-                        fill="#32324D"
-                        fill-rule="evenodd"
-                      />
-                    </svg>
+                      <svg
+                        aria-hidden="true"
+                        fill="none"
+                        height="1em"
+                        viewBox="0 0 14 8"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
+                          fill="#32324D"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                    </div>
                   </button>
                   <div
-                    class="c20 c21 c22"
+                    class="c21 c22 c23"
                   >
                     <p
-                      class="c16 c23 c18 c19"
+                      class="c16 c24 c18 c19"
                     >
                       4
                     </p>
@@ -694,7 +748,7 @@ describe('SubNav', () => {
               >
                 <li>
                   <div
-                    class="c30 c31"
+                    class="c32 c33"
                   >
                     <div
                       class="c2"
@@ -702,31 +756,35 @@ describe('SubNav', () => {
                       <button
                         aria-controls="list-123"
                         aria-expanded="true"
-                        class="c32"
+                        class="c34"
                       >
-                        <svg
-                          aria-hidden="true"
-                          fill="none"
-                          height="1em"
-                          viewBox="0 0 14 8"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            clip-rule="evenodd"
-                            d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
-                            fill="#32324D"
-                            fill-rule="evenodd"
-                          />
-                        </svg>
                         <div
-                          class="c33"
+                          class="c35"
                         >
-                          <p
-                            class="c16 c34"
+                          <svg
+                            aria-hidden="true"
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 14 8"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              clip-rule="evenodd"
+                              d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
+                              fill="#32324D"
+                              fill-rule="evenodd"
+                            />
+                          </svg>
+                        </div>
+                        <div
+                          class="c36"
+                        >
+                          <span
+                            class="c16 c37"
                           >
                             Default
-                          </p>
+                          </span>
                         </div>
                       </button>
                     </div>
@@ -737,14 +795,14 @@ describe('SubNav', () => {
                     <li>
                       <a
                         aria-current="false"
-                        class="c24 c25"
+                        class="c25 c26"
                         href="/address"
                       >
                         <div
-                          class="c26"
+                          class="c27"
                         >
                           <svg
-                            class="c27"
+                            class="c28"
                             fill="none"
                             height="1em"
                             viewBox="0 0 4 4"
@@ -759,13 +817,13 @@ describe('SubNav', () => {
                             />
                           </svg>
                           <div
-                            class="c28"
+                            class="c29"
                           >
-                            <p
-                              class="c16 c23"
+                            <span
+                              class="c16 c24"
                             >
                               Addresses
-                            </p>
+                            </span>
                           </div>
                         </div>
                       </a>
@@ -773,14 +831,14 @@ describe('SubNav', () => {
                     <li>
                       <a
                         aria-current="false"
-                        class="c24 c25"
+                        class="c25 c26"
                         href="/category"
                       >
                         <div
-                          class="c26"
+                          class="c27"
                         >
                           <svg
-                            class="c27"
+                            class="c28"
                             fill="none"
                             height="1em"
                             viewBox="0 0 4 4"
@@ -795,13 +853,13 @@ describe('SubNav', () => {
                             />
                           </svg>
                           <div
-                            class="c28"
+                            class="c29"
                           >
-                            <p
-                              class="c16 c23"
+                            <span
+                              class="c16 c24"
                             >
                               Categories
-                            </p>
+                            </span>
                           </div>
                         </div>
                       </a>
@@ -809,14 +867,14 @@ describe('SubNav', () => {
                     <li>
                       <a
                         aria-current="false"
-                        class="c24 c25"
+                        class="c25 c26"
                         href="/city"
                       >
                         <div
-                          class="c26"
+                          class="c27"
                         >
                           <svg
-                            class="c27"
+                            class="c28"
                             fill="none"
                             height="1em"
                             viewBox="0 0 4 4"
@@ -831,13 +889,13 @@ describe('SubNav', () => {
                             />
                           </svg>
                           <div
-                            class="c28"
+                            class="c29"
                           >
-                            <p
-                              class="c16 c23"
+                            <span
+                              class="c16 c24"
                             >
                               Cities
-                            </p>
+                            </span>
                           </div>
                         </div>
                       </a>
@@ -845,14 +903,14 @@ describe('SubNav', () => {
                     <li>
                       <a
                         aria-current="false"
-                        class="c24 c25"
+                        class="c25 c26"
                         href="/country"
                       >
                         <div
-                          class="c26"
+                          class="c27"
                         >
                           <svg
-                            class="c27"
+                            class="c28"
                             fill="none"
                             height="1em"
                             viewBox="0 0 4 4"
@@ -867,13 +925,13 @@ describe('SubNav', () => {
                             />
                           </svg>
                           <div
-                            class="c28"
+                            class="c29"
                           >
-                            <p
-                              class="c16 c23"
+                            <span
+                              class="c16 c24"
                             >
                               Countries
-                            </p>
+                            </span>
                           </div>
                         </div>
                       </a>

@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef } from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import SearchIcon from '@strapi/icons/SearchIcon';
@@ -43,7 +43,7 @@ const SearchbarWrapper = styled.div`
   }
 `;
 
-export const Searchbar = forwardRef(({ name, children, value, onClear, clearLabel, ...props }, ref) => {
+export const Searchbar = ({ name, children, value, onClear, clearLabel, ...props }) => {
   const inputRef = useRef(null);
   const isCompleting = value.length > 0;
 
@@ -81,7 +81,7 @@ export const Searchbar = forwardRef(({ name, children, value, onClear, clearLabe
       </Field>
     </SearchbarWrapper>
   );
-});
+};
 
 Searchbar.displayName = 'Searchbar';
 

@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import FilterDropdown from '@strapi/icons/FilterDropdown';
 import { TableLabel } from '../Text';
 import { Box } from '../Box';
 import { Row } from '../Row';
-import { Button } from '../Button';
 
 const SubNavSectionButton = styled.button`
   border: none;
@@ -13,6 +12,11 @@ const SubNavSectionButton = styled.button`
   background: transparent;
   display: flex;
   align-items: center;
+`;
+const DropDownIconWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  transform: rotateX(${({ rotated }) => (rotated ? '0deg' : '180deg')});
 `;
 
 export const SubNavSectionLabel = ({ collapsable, label, onClick, ariaExpanded, ariaControls }) => {
@@ -22,7 +26,11 @@ export const SubNavSectionLabel = ({ collapsable, label, onClick, ariaExpanded, 
         <Box paddingRight={1}>
           <TableLabel textColor="neutral500">{label}</TableLabel>
         </Box>
-        {collapsable && <FilterDropdown aria-hidden />}
+        {collapsable && (
+          <DropDownIconWrapper rotated={ariaExpanded}>
+            <FilterDropdown aria-hidden />
+          </DropDownIconWrapper>
+        )}
       </SubNavSectionButton>
     );
   }

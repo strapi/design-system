@@ -17,8 +17,10 @@ const SubNavSectionWrapper = styled(Box)`
   }
 `;
 const SubNavSectionBadge = styled(Badge)`
-  padding-top: 2px;
-  padding-bottom: 2px;
+  display: flex;
+  align-items: center;
+  height: ${20 / 16}rem;
+  width: ${16 / 16}rem;
 `;
 
 export const SubNavSection = ({ collapsable, label, badgeLabel, children }) => {
@@ -53,7 +55,7 @@ SubNavSection.defaultProps = {
   collapsable: false,
 };
 SubNavSection.propTypes = {
-  badgeLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  badgeLabel: PropTypes.string,
   children: PropTypes.node,
   collapsable: PropTypes.bool,
   label: PropTypes.string.isRequired,

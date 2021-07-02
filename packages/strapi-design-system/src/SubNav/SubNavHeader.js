@@ -24,16 +24,19 @@ const CloseIconWrapper = styled(Row)`
   }
 `;
 const SearchIconWrapper = styled(Row)`
-  font-size: 0.8rem;
-  svg path {
-    fill: ${({ theme, focused }) => (focused ? theme.colors.primary600 : theme.colors.neutral800)};
+  svg {
+    width: ${11 / 16}rem;
+    height: ${11 / 16}rem;
+    path {
+      fill: ${({ theme, focused }) => (focused ? theme.colors.primary600 : theme.colors.neutral800)};
+    }
   }
 `;
 const CustomDivider = styled(Divider)`
   width: ${24 / 16}rem;
 `;
 
-export const SubNavHeader = ({ label, searchLabel, searchable, onChange, value, onClear }) => {
+export const SubNavHeader = ({ as, label, searchLabel, searchable, onChange, value, onClear }) => {
   const [isSearchOpen, setSearchOpen] = useState(false);
   const previousSearchOpenValue = usePrevious(isSearchOpen);
   const clearButonId = useId('subnav-searchbar-clear');
@@ -50,7 +53,7 @@ export const SubNavHeader = ({ label, searchLabel, searchable, onChange, value, 
     }
   }, [isSearchOpen]);
 
-  const toggleSearch = (e) => {
+  const toggleSearch = () => {
     setSearchOpen((isOpen) => !isOpen);
   };
 
@@ -61,7 +64,7 @@ export const SubNavHeader = ({ label, searchLabel, searchable, onChange, value, 
 
   const handleBlur = (e) => {
     if (e.relatedTarget?.id !== clearButonId) {
-      setSearchOpen(false);
+      // setSearchOpen(false);
     }
   };
 
@@ -105,7 +108,7 @@ export const SubNavHeader = ({ label, searchLabel, searchable, onChange, value, 
   return (
     <Box paddingLeft={6} paddingTop={6} paddingBottom={2} paddingRight={4}>
       <Row justifyContent="space-between">
-        <H2>{label}</H2>
+        <H2 as={as}>{label}</H2>
         {searchable && (
           <IconButton ref={searchButtonRef} onClick={toggleSearch} label={searchLabel} icon={<Search />} />
         )}
@@ -118,6 +121,7 @@ export const SubNavHeader = ({ label, searchLabel, searchable, onChange, value, 
 };
 
 SubNavHeader.defaultProps = {
+  as: 'h1',
   searchable: false,
   onChange: () => {},
   onClear: () => {},
@@ -126,6 +130,7 @@ SubNavHeader.defaultProps = {
 };
 
 SubNavHeader.propTypes = {
+  as: PropTypes.string,
   label: PropTypes.string.isRequired,
   onChange: PropTypes.func,
   onClear: PropTypes.func,

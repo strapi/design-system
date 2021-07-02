@@ -74,13 +74,13 @@ Link.defaultProps = {
 Link.propTypes = {
   children: PropTypes.node.isRequired,
   disabled: PropTypes.bool,
+  endIcon: PropTypes.element,
   href: (props) => {
     if (!props.disabled && !props.to && !props.href) {
       return new Error('href must be defined');
     }
   },
   startIcon: PropTypes.element,
-  endIcon: PropTypes.element,
   to: (props) => {
     if (!props.disabled && !props.href && !props.to) {
       return new Error('to must be defined');
