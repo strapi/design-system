@@ -8,6 +8,7 @@ export * from './BaseRadio';
 export * from './Box';
 export * from './Breadcrumbs';
 export * from './Button';
+export * from './Card';
 export * from './Checkbox';
 export * from './DatePicker';
 export * from './Divider';
