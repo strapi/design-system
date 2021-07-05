@@ -33,7 +33,7 @@ Description...
   <Story name="base">
     <Cards padding={8} background="neutral100">
       <Stack size={3}>
-        <Card style={{ width: '240px' }}>
+        <Card style={{ width: '240px' }} id="first">
           <CardHeader>
             <CardCheckbox value={true} />
             <CardAction position="end">
@@ -53,7 +53,7 @@ Description...
           </CardBody>
         </Card>
         {/* Separator */}
-        <Card style={{ width: '240px' }}>
+        <Card style={{ width: '240px' }} id="second">
           <CardHeader>
             <CardCheckbox value={true} />
             <CardAsset src={firstImgPath} />
@@ -68,7 +68,7 @@ Description...
           </CardBody>
         </Card>
         {/* Separator */}
-        <Card style={{ width: '240px' }}>
+        <Card style={{ width: '240px' }} id="third">
           <CardHeader>
             <CardCheckbox value={true} />
             <CardAsset src={firstImgPath} />
@@ -82,7 +82,7 @@ Description...
           </CardBody>
         </Card>
         {/* Separator */}
-        <Card style={{ width: '240px' }}>
+        <Card style={{ width: '240px' }} id="fourth">
           <CardBody>
             <Box padding={2} background="primary100">
               <EditIcon />
