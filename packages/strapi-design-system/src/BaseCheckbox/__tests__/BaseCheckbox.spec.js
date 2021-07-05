@@ -19,6 +19,7 @@ describe('BaseCheckbox', () => {
 
     expect(container.firstChild).toMatchInlineSnapshot(`
       .c0 {
+        margin: 0;
         height: 18px;
         width: 18px;
         border-radius: 4px;
@@ -110,6 +111,7 @@ describe('BaseCheckbox', () => {
 
     expect(container.firstChild).toMatchInlineSnapshot(`
       .c0 {
+        margin: 0;
         height: 18px;
         width: 18px;
         border-radius: 4px;

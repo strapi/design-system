@@ -1,0 +1,130 @@
+<!--- Table.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import EditIcon from '@strapi/icons/EditIcon';
+import { Box } from '../Box';
+import { VisuallyHidden } from '../VisuallyHidden';
+import { BaseCheckbox } from '../BaseCheckbox';
+import { Table } from './Table';
+import { Thead } from './Thead';
+import { Tbody } from './Tbody';
+import { Tr } from './Tr';
+import { Td, Th } from './Cell';
+import { Text, TableLabel } from '../Text';
+import { Avatar } from '../Avatar';
+import { IconButton } from '../IconButton';
+
+<Meta title="Design System/Organisms/Table" component={Table} />
+
+# Table
+
+This is the doc of the `Table` component
+
+## Table
+
+Description...
+
+<Canvas>
+  <Story name="base">
+    {() => {
+      const ROW_COUNT = 6;
+      const COL_COUNT = 10;
+      const entry = {
+        cover: 'https://avatars.githubusercontent.com/u/3874873?v=4',
+        description: 'Chez Léon is a human sized Parisian',
+        category: 'French cuisine',
+        contact: 'Leon Lafrite',
+      };
+      const entries = [];
+      for (let i = 0; i < 5; i++) {
+        entries.push({ ...entry, id: i });
+      }
+      return (
+        <Box padding={8} background="neutral100">
+          <Table colCount={COL_COUNT} rowCount={ROW_COUNT}>
+            <Thead>
+              <Tr>
+                <Th>
+                  <BaseCheckbox aria-label="Select all entries" />
+                </Th>
+                <Th>
+                  <TableLabel as="span">ID</TableLabel>
+                </Th>
+                <Th>
+                  <TableLabel as="span">Cover</TableLabel>
+                </Th>
+                <Th>
+                  <TableLabel as="span">Description</TableLabel>
+                </Th>
+                <Th>
+                  <TableLabel as="span">Categories</TableLabel>
+                </Th>
+                <Th>
+                  <TableLabel as="span">Contact</TableLabel>
+                </Th>
+                <Th>
+                  <VisuallyHidden>Actions</VisuallyHidden>
+                </Th>
+                <Th>More</Th>
+                <Th>More</Th>
+                <Th>More</Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              {entries.map((entry) => (
+                <Tr key={entry.id}>
+                  <Td>
+                    <BaseCheckbox aria-label={`Select ${entry.contact}`} />
+                  </Td>
+                  <Td>
+                    <Text textColor="neutral600" as="span">
+                      {entry.id}
+                    </Text>
+                  </Td>
+                  <Td>
+                    <Avatar src={entry.cover} alt={entry.contact} />
+                  </Td>
+                  <Td>
+                    <Text textColor="neutral600" as="span">
+                      {entry.description}
+                    </Text>
+                  </Td>
+                  <Td>
+                    <Text textColor="neutral600" as="span">
+                      {entry.category}
+                    </Text>
+                  </Td>
+                  <Td>
+                    <Text textColor="neutral600" as="span">
+                      {entry.contact}
+                    </Text>
+                  </Td>
+                  <Td>
+                    <IconButton onClick={() => console.log('edit')} title="Edit" noBorder>
+                      <EditIcon />
+                    </IconButton>
+                  </Td>
+                  <Td>
+                    <Text textColor="neutral600" as="span">
+                      {entry.description}
+                    </Text>
+                  </Td>
+                  <Td>
+                    <Text textColor="neutral600" as="span">
+                      {entry.description}
+                    </Text>
+                  </Td>
+                  <Td>
+                    <Text textColor="neutral600" as="span">
+                      {entry.description}
+                    </Text>
+                  </Td>
+                </Tr>
+              ))}
+            </Tbody>
+          </Table>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>

@@ -20,6 +20,7 @@ describe('Checkbox', () => {
 
     expect(container.firstChild).toMatchInlineSnapshot(`
       .c3 {
+        margin: 0;
         height: 18px;
         width: 18px;
         border-radius: 4px;
@@ -159,6 +160,7 @@ describe('Checkbox', () => {
 
     expect(container.firstChild).toMatchInlineSnapshot(`
       .c3 {
+        margin: 0;
         height: 18px;
         width: 18px;
         border-radius: 4px;
@@ -299,6 +301,7 @@ describe('Checkbox', () => {
 
     expect(container.firstChild).toMatchInlineSnapshot(`
       .c3 {
+        margin: 0;
         height: 18px;
         width: 18px;
         border-radius: 4px;
@@ -453,6 +456,7 @@ describe('Checkbox', () => {
 
     expect(container.firstChild).toMatchInlineSnapshot(`
       .c3 {
+        margin: 0;
         height: 18px;
         width: 18px;
         border-radius: 4px;

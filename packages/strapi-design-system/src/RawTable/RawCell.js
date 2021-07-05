@@ -3,7 +3,16 @@ import PropTypes from 'prop-types';
 import { getFocusableNodes } from '../helpers/getFocusableNodes';
 
 export const RawTh = ({ isFocusable, ...props }) => {
-  return <th tabIndex={isFocusable ? 0 : -1} {...props} />;
+  const thRef = useRef(null);
+
+  useLayoutEffect(() => {
+    const focusableNodes = getFocusableNodes(thRef.current, true);
+    const nextFocus = focusableNodes[0] || thRef.current;
+
+    nextFocus.setAttribute('tabIndex', isFocusable ? 0 : -1);
+  }, [isFocusable]);
+
+  return <th ref={thRef} {...props} />;
 };
 
 export const RawTd = ({ isFocusable, ...props }) => {
