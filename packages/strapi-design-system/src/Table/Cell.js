@@ -9,6 +9,7 @@ const CellWrapper = styled(RawTd)`
   line-height: ${52 / 16}rem;
   text-align: left;
   color: ${({ theme }) => theme.colors.neutral600};
+  outline-offset: -2px;
 
   /**
   * Hack to make sure the checkbox looks aligned

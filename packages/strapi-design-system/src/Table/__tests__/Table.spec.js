@@ -252,6 +252,7 @@ describe('Table', () => {
         line-height: 3.25rem;
         text-align: left;
         color: #666687;
+        outline-offset: -2px;
       }
 
       .c7 input {
