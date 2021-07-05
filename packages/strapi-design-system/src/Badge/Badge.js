@@ -8,15 +8,16 @@ const BadgeWrapper = styled(Box)`
   display: inline-block;
 `;
 
-export const Badge = ({ active, ...props }) => {
+export const Badge = ({ active, children, ...props }) => {
   return (
     <BadgeWrapper
       padding={1}
       background={active ? 'primary100' : 'neutral100'}
       hasRadius={true}
       color={active ? 'primary600' : 'neutral600'}
+      {...props}
     >
-      <TableLabel {...props} />
+      <TableLabel>{children}</TableLabel>
     </BadgeWrapper>
   );
 };
@@ -27,4 +28,5 @@ Badge.defaultProps = {
 
 Badge.propTypes = {
   active: PropTypes.bool,
+  children: PropTypes.string.isRequired,
 };
