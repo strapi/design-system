@@ -37,8 +37,8 @@ describe('Grid', () => {
 
       .c1 {
         display: grid;
-        gap: 16px;
         grid-template-columns: repeat(12,1fr);
+        gap: 16px;
       }
 
       .c2 {

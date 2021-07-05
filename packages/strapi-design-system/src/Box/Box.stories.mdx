@@ -3,10 +3,7 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { Box } from './Box';
 
-<Meta
-  title="Design System/Molecules/Box"
-  component={Box}
-/>
+<Meta title="Design System/Molecules/Box" component={Box} />
 
 # Box
 
@@ -19,6 +16,18 @@ Description...
 <Canvas>
   <Story name="base">
     <Box padding={4} background="primary700" color="neutral0" shadow="filterShadow">
+      Hello world
+    </Box>
+  </Story>
+</Canvas>
+
+## Box
+
+Description...
+
+<Canvas>
+  <Story name="responsive-spaces">
+    <Box padding={[11, 6, 1]} background="primary700" color="neutral0" shadow="filterShadow" hiddenXS>
       Hello world
     </Box>
   </Story>
