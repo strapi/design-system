@@ -244,6 +244,7 @@ describe('Card', () => {
       <article
         aria-labelledby="card-title-1"
         class="c0"
+        id="1"
         style="width: 240px;"
         tabindex="0"
       >
