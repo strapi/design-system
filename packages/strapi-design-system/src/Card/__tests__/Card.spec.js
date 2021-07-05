@@ -116,6 +116,7 @@ describe('Card', () => {
       }
 
       .c4 {
+        margin: 0;
         height: 18px;
         width: 18px;
         border-radius: 4px;
