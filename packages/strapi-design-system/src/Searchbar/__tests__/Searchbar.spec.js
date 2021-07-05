@@ -17,7 +17,7 @@ describe('Searchbar', () => {
           name="searchbar"
           onClear={() => {}}
           value={'value'}
-          onChange={(e) => {}}
+          onChange={() => {}}
           clearLabel="Clearing the plugin search"
           placeholder="e.g: strapi-plugin-abcd"
         >

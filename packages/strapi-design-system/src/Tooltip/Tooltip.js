@@ -20,6 +20,13 @@ export const Tooltip = ({ children, label, description, delay, position, ...prop
   const { visible, ...tooltipHandlers } = useTooltipHandlers(delay);
   const { tooltipWrapperRef, toggleSourceRef } = useTooltipLayout(visible, position);
 
+  const childrenClone = React.cloneElement(children, {
+    tabIndex: 0,
+    'aria-labelledby': label ? tooltipId : undefined,
+    'aria-describedby': description ? tooltipId : undefined,
+    ...tooltipHandlers,
+  });
+
   return (
     <>
       <Portal>
@@ -40,14 +47,7 @@ export const Tooltip = ({ children, label, description, delay, position, ...prop
         </TooltipWrapper>
       </Portal>
 
-      <span
-        ref={toggleSourceRef}
-        aria-describedby={description ? tooltipId : undefined}
-        aria-labelledby={label ? tooltipId : undefined}
-        {...tooltipHandlers}
-      >
-        {children}
-      </span>
+      <span ref={toggleSourceRef}>{childrenClone}</span>
     </>
   );
 };

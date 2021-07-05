@@ -58,12 +58,12 @@ describe('IconButton', () => {
         fill: #a5a5ba;
       }
 
-      <span
-        aria-labelledby="tooltip-123"
-      >
+      <span>
         <button
           aria-disabled="false"
+          aria-labelledby="tooltip-123"
           class="c0 c1"
+          tabindex="0"
         >
           <div>
             A

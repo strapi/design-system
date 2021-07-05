@@ -61,7 +61,7 @@ TextButton.defaultProps = {
 TextButton.propTypes = {
   children: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
-  startIcon: PropTypes.element,
-  onClick: PropTypes.func,
   endIcon: PropTypes.element,
+  onClick: PropTypes.func,
+  startIcon: PropTypes.element,
 };

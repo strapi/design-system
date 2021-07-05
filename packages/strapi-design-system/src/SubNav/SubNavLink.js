@@ -34,7 +34,7 @@ const CustomBullet = styled(Bullet)`
   width: ${12 / 16}rem;
   height: ${4 / 16}rem;
   * {
-    fill: ${({ theme, active }) => (active ? theme.colors.primary600 : theme.colors.neutral600)};
+    fill: ${({ theme, $active }) => ($active ? theme.colors.primary600 : theme.colors.neutral600)};
   }
 `;
 const IconWrapper = styled.div`
@@ -68,7 +68,7 @@ export const SubNavLink = ({ children, icon, withBullet, as, active, ...props })
         </Row>
         {withBullet && (
           <Box as={Row} paddingRight={4}>
-            <CustomBullet active />
+            <CustomBullet $active={true} />
           </Box>
         )}
       </SubNavLinkWrapper>

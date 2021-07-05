@@ -13,6 +13,7 @@ import { SubNavLinkSection } from './SubNavLinkSection';
 import { Box } from '../Box';
 import { Link } from '../Link';
 import { Row } from '../Row';
+import { TextButton } from '../TextButton';
 
 <Meta title="Design System/Organisms/SubNav" component={SubNav} />
 
@@ -57,7 +58,7 @@ Description...
       return (
         <Row>
           <Box padding={10} style={{ height: '100vh' }}>
-            <SubNav aria-label="Builder sub nav">
+            <SubNav ariaLabel="Builder sub nav">
               <SubNavHeader
                 searchable
                 value={search}
@@ -75,11 +76,9 @@ Description...
                   ))}
                 </SubNavSection>
                 <Box as="li" paddingLeft={7}>
-                  <Link to="/somewhere-internal" startIcon={<AddIcon />}>
-                    Create new CT
-                  </Link>
+                  <TextButton startIcon={<AddIcon />}>Click on me</TextButton>
                 </Box>
-                <SubNavSection label="Single Type" collapsable badgeLabel={links.length}>
+                <SubNavSection label="Single Type" collapsable badgeLabel={links.length.toString()}>
                   <SubNavLinkSection label="Default">
                     {links.map((link) => (
                       <SubNavLink href={link.to} key={link.id}>
@@ -88,16 +87,14 @@ Description...
                     ))}
                   </SubNavLinkSection>
                 </SubNavSection>
-                <Box paddingLeft={7}>
-                  <Link to="/somewhere-internal" startIcon={<AddIcon />}>
-                    Create new ST
-                  </Link>
+                <Box as="li" paddingLeft={7}>
+                  <TextButton startIcon={<AddIcon />}>Click on me</TextButton>
                 </Box>
               </SubNavSections>
             </SubNav>
           </Box>
           <Box padding={10} style={{ height: '100vh' }}>
-            <SubNav aria-label="Settings sub nav">
+            <SubNav ariaLabel="Settings sub nav">
               <SubNavHeader label="Settings" />
               <SubNavSections>
                 <SubNavLink href="/blabla" withBullet icon={<Applications />}>
@@ -127,7 +124,7 @@ Description...
             </SubNav>
           </Box>
           <Box padding={10} style={{ height: '100vh' }}>
-            <SubNav aria-label="Mixed sub nav">
+            <SubNav ariaLabel="Mixed sub nav">
               <SubNavHeader label="Mixed" />
               <SubNavSections>
                 <SubNavLink href="/blabla" withBullet icon={<Applications />}>

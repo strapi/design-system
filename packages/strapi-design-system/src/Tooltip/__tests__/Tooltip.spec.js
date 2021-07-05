@@ -39,10 +39,11 @@ describe('Tooltip', () => {
 
       <body>
         <div>
-          <span
-            aria-describedby="tooltip-123"
-          >
-            <button>
+          <span>
+            <button
+              aria-describedby="tooltip-123"
+              tabindex="0"
+            >
               Show tooltip
             </button>
           </span>
@@ -80,10 +81,11 @@ describe('Tooltip', () => {
     expect(document.body).toMatchInlineSnapshot(`
       <body>
         <div>
-          <span
-            aria-describedby="tooltip-123"
-          >
-            <button>
+          <span>
+            <button
+              aria-describedby="tooltip-123"
+              tabindex="0"
+            >
               Show tooltip
             </button>
           </span>
@@ -158,10 +160,11 @@ describe('Tooltip', () => {
     expect(document.body).toMatchInlineSnapshot(`
       <body>
         <div>
-          <span
-            aria-labelledby="tooltip-123"
-          >
-            <button>
+          <span>
+            <button
+              aria-labelledby="tooltip-123"
+              tabindex="0"
+            >
               +
             </button>
           </span>

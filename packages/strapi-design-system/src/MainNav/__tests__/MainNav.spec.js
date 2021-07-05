@@ -787,13 +787,13 @@ describe('MainNav', () => {
             class="c8"
           >
             <li>
-              <span
-                aria-labelledby="tooltip-1"
-              >
+              <span>
                 <a
                   aria-current="false"
+                  aria-labelledby="tooltip-1"
                   class="c9"
                   href="/content"
+                  tabindex="0"
                 >
                   <span
                     class="c10 c11"
@@ -834,13 +834,13 @@ describe('MainNav', () => {
                   class="c14"
                 >
                   <li>
-                    <span
-                      aria-labelledby="tooltip-1"
-                    >
+                    <span>
                       <a
                         aria-current="true"
+                        aria-labelledby="tooltip-1"
                         class="c16"
                         href="/builder"
+                        tabindex="0"
                       >
                         <span
                           class="c10 c11"
@@ -858,13 +858,13 @@ describe('MainNav', () => {
                     </span>
                   </li>
                   <li>
-                    <span
-                      aria-labelledby="tooltip-1"
-                    >
+                    <span>
                       <a
                         aria-current="false"
+                        aria-labelledby="tooltip-1"
                         class="c9"
                         href="/content"
+                        tabindex="0"
                       >
                         <span
                           class="c10 c11"
@@ -882,13 +882,13 @@ describe('MainNav', () => {
                     </span>
                   </li>
                   <li>
-                    <span
-                      aria-labelledby="tooltip-1"
-                    >
+                    <span>
                       <a
                         aria-current="false"
+                        aria-labelledby="tooltip-1"
                         class="c9"
                         href="/content"
+                        tabindex="0"
                       >
                         <span
                           class="c10 c11"
@@ -932,13 +932,13 @@ describe('MainNav', () => {
                   class="c14"
                 >
                   <li>
-                    <span
-                      aria-labelledby="tooltip-1"
-                    >
+                    <span>
                       <a
                         aria-current="false"
+                        aria-labelledby="tooltip-1"
                         class="c9"
                         href="/builder"
+                        tabindex="0"
                       >
                         <span
                           class="c10 c11"
@@ -956,13 +956,13 @@ describe('MainNav', () => {
                     </span>
                   </li>
                   <li>
-                    <span
-                      aria-labelledby="tooltip-1"
-                    >
+                    <span>
                       <a
                         aria-current="false"
+                        aria-labelledby="tooltip-1"
                         class="c9"
                         href="/content"
+                        tabindex="0"
                       >
                         <span
                           class="c10 c11"
@@ -980,13 +980,13 @@ describe('MainNav', () => {
                     </span>
                   </li>
                   <li>
-                    <span
-                      aria-labelledby="tooltip-1"
-                    >
+                    <span>
                       <a
                         aria-current="false"
+                        aria-labelledby="tooltip-1"
                         class="c9"
                         href="/content"
+                        tabindex="0"
                       >
                         <span
                           class="c10 c11"

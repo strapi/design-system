@@ -42,7 +42,7 @@ describe('SubNav', () => {
     ];
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
-        <SubNav>
+        <SubNav ariaLabel="Builder sub nav">
           <SubNavHeader
             searchable
             value=""
@@ -52,14 +52,14 @@ describe('SubNav', () => {
             searchLabel="Search..."
           />
           <SubNavSections>
-            <SubNavSection label="Collection Type" collapsable badgeLabel={links.length}>
+            <SubNavSection label="Collection Type" collapsable badgeLabel={links.length.toString()}>
               {links.map((link) => (
                 <SubNavLink href={link.to} active={link.active} key={link.id}>
                   {link.label}
                 </SubNavLink>
               ))}
             </SubNavSection>
-            <SubNavSection label="Single Type" collapsable badgeLabel={links.length}>
+            <SubNavSection label="Single Type" collapsable badgeLabel={links.length.toString()}>
               <SubNavLinkSection label="Default">
                 {links.map((link) => (
                   <SubNavLink href={link.to} key={link.id}>
@@ -101,18 +101,18 @@ describe('SubNav', () => {
         padding-left: 24px;
       }
 
-      .c15 {
+      .c16 {
         padding-right: 4px;
       }
 
-      .c21 {
+      .c22 {
         background: #eaeaef;
         color: #666687;
         padding: 4px;
         border-radius: 4px;
       }
 
-      .c25 {
+      .c26 {
         background: #f6f6f9;
         padding-top: 8px;
         padding-bottom: 8px;
@@ -169,7 +169,7 @@ describe('SubNav', () => {
         align-items: center;
       }
 
-      .c27 {
+      .c14 {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -189,14 +189,14 @@ describe('SubNav', () => {
         line-height: 1.22;
       }
 
-      .c17 {
+      .c18 {
         font-weight: 400;
         font-size: 0.875rem;
         line-height: 1.43;
-        color: #8e8ea9;
+        color: #666687;
       }
 
-      .c24 {
+      .c25 {
         font-weight: 400;
         font-size: 0.875rem;
         line-height: 1.43;
@@ -215,37 +215,29 @@ describe('SubNav', () => {
         color: #32324d;
       }
 
-      .c18 {
+      .c19 {
         font-weight: 600;
         line-height: 1.14;
       }
 
-      .c19 {
+      .c20 {
         font-weight: 600;
         font-size: 0.6875rem;
         line-height: 1.45;
         text-transform: uppercase;
       }
 
-      .c22 {
+      .c23 {
         display: inline-block;
       }
 
-      .c14 {
+      .c15 {
         border: none;
         padding: 0;
         background: transparent;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-align-items: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
       }
 
-      .c20 {
+      .c21 {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -271,7 +263,7 @@ describe('SubNav', () => {
         fill: #8e8ea9;
       }
 
-      .c23 {
+      .c24 {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -375,7 +367,7 @@ describe('SubNav', () => {
         width: 1.5rem;
       }
 
-      .c26 {
+      .c27 {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -393,7 +385,7 @@ describe('SubNav', () => {
         color: #32324d;
       }
 
-      .c26:focus-visible {
+      .c27:focus-visible {
         outline-offset: -2px;
       }
 
@@ -421,7 +413,7 @@ describe('SubNav', () => {
         fill: #271fe0;
       }
 
-      .c30 .c16 {
+      .c30 .c17 {
         color: #271fe0;
       }
 
@@ -439,6 +431,7 @@ describe('SubNav', () => {
       }
 
       <nav
+        aria-label="Builder sub nav"
         class="c0"
       >
         <div
@@ -452,12 +445,12 @@ describe('SubNav', () => {
             >
               Builder
             </h1>
-            <span
-              aria-labelledby="tooltip-123"
-            >
+            <span>
               <button
                 aria-disabled="false"
+                aria-labelledby="tooltip-123"
                 class="c4 c5"
+                tabindex="0"
               >
                 <svg
                   fill="none"
@@ -497,22 +490,25 @@ describe('SubNav', () => {
                 <div
                   class="c2"
                 >
-                  <button
+                  <div
                     aria-controls="list-123"
                     aria-expanded="true"
-                    class="c14"
+                    aria-pressed="true"
+                    class="c14 c15"
+                    role="button"
+                    tabindex="0"
                   >
                     <div
-                      class="c15"
+                      class="c16"
                     >
                       <p
-                        class="c16 c17 c18 c19"
+                        class="c17 c18 c19 c20"
                       >
                         Collection Type
                       </p>
                     </div>
                     <div
-                      class="c20"
+                      class="c21"
                     >
                       <svg
                         aria-hidden="true"
@@ -530,12 +526,12 @@ describe('SubNav', () => {
                         />
                       </svg>
                     </div>
-                  </button>
+                  </div>
                   <div
-                    class="c21 c22 c23"
+                    class="c22 c23 c24"
                   >
                     <p
-                      class="c16 c24 c18 c19"
+                      class="c17 c25 c19 c20"
                     >
                       4
                     </p>
@@ -548,11 +544,11 @@ describe('SubNav', () => {
                 <li>
                   <a
                     aria-current="false"
-                    class="c25 c26"
+                    class="c26 c27"
                     href="/address"
                   >
                     <div
-                      class="c27"
+                      class="c14"
                     >
                       <svg
                         class="c28"
@@ -573,7 +569,7 @@ describe('SubNav', () => {
                         class="c29"
                       >
                         <span
-                          class="c16 c24"
+                          class="c17 c25"
                         >
                           Addresses
                         </span>
@@ -584,11 +580,11 @@ describe('SubNav', () => {
                 <li>
                   <a
                     aria-current="false"
-                    class="c25 c26"
+                    class="c26 c27"
                     href="/category"
                   >
                     <div
-                      class="c27"
+                      class="c14"
                     >
                       <svg
                         class="c28"
@@ -609,7 +605,7 @@ describe('SubNav', () => {
                         class="c29"
                       >
                         <span
-                          class="c16 c24"
+                          class="c17 c25"
                         >
                           Categories
                         </span>
@@ -620,11 +616,11 @@ describe('SubNav', () => {
                 <li>
                   <a
                     aria-current="false"
-                    class="c25 c26"
+                    class="c26 c27"
                     href="/city"
                   >
                     <div
-                      class="c27"
+                      class="c14"
                     >
                       <svg
                         class="c28"
@@ -645,7 +641,7 @@ describe('SubNav', () => {
                         class="c29"
                       >
                         <span
-                          class="c16 c24"
+                          class="c17 c25"
                         >
                           Cities
                         </span>
@@ -656,11 +652,11 @@ describe('SubNav', () => {
                 <li>
                   <a
                     aria-current="true"
-                    class="c25 c30"
+                    class="c26 c30"
                     href="/country"
                   >
                     <div
-                      class="c27"
+                      class="c14"
                     >
                       <svg
                         class="c28"
@@ -681,7 +677,7 @@ describe('SubNav', () => {
                         class="c29"
                       >
                         <span
-                          class="c16 c31"
+                          class="c17 c31"
                         >
                           Countries
                         </span>
@@ -698,22 +694,25 @@ describe('SubNav', () => {
                 <div
                   class="c2"
                 >
-                  <button
+                  <div
                     aria-controls="list-123"
                     aria-expanded="true"
-                    class="c14"
+                    aria-pressed="true"
+                    class="c14 c15"
+                    role="button"
+                    tabindex="0"
                   >
                     <div
-                      class="c15"
+                      class="c16"
                     >
                       <p
-                        class="c16 c17 c18 c19"
+                        class="c17 c18 c19 c20"
                       >
                         Single Type
                       </p>
                     </div>
                     <div
-                      class="c20"
+                      class="c21"
                     >
                       <svg
                         aria-hidden="true"
@@ -731,12 +730,12 @@ describe('SubNav', () => {
                         />
                       </svg>
                     </div>
-                  </button>
+                  </div>
                   <div
-                    class="c21 c22 c23"
+                    class="c22 c23 c24"
                   >
                     <p
-                      class="c16 c24 c18 c19"
+                      class="c17 c25 c19 c20"
                     >
                       4
                     </p>
@@ -781,7 +780,7 @@ describe('SubNav', () => {
                           class="c36"
                         >
                           <span
-                            class="c16 c37"
+                            class="c17 c37"
                           >
                             Default
                           </span>
@@ -795,11 +794,11 @@ describe('SubNav', () => {
                     <li>
                       <a
                         aria-current="false"
-                        class="c25 c26"
+                        class="c26 c27"
                         href="/address"
                       >
                         <div
-                          class="c27"
+                          class="c14"
                         >
                           <svg
                             class="c28"
@@ -820,7 +819,7 @@ describe('SubNav', () => {
                             class="c29"
                           >
                             <span
-                              class="c16 c24"
+                              class="c17 c25"
                             >
                               Addresses
                             </span>
@@ -831,11 +830,11 @@ describe('SubNav', () => {
                     <li>
                       <a
                         aria-current="false"
-                        class="c25 c26"
+                        class="c26 c27"
                         href="/category"
                       >
                         <div
-                          class="c27"
+                          class="c14"
                         >
                           <svg
                             class="c28"
@@ -856,7 +855,7 @@ describe('SubNav', () => {
                             class="c29"
                           >
                             <span
-                              class="c16 c24"
+                              class="c17 c25"
                             >
                               Categories
                             </span>
@@ -867,11 +866,11 @@ describe('SubNav', () => {
                     <li>
                       <a
                         aria-current="false"
-                        class="c25 c26"
+                        class="c26 c27"
                         href="/city"
                       >
                         <div
-                          class="c27"
+                          class="c14"
                         >
                           <svg
                             class="c28"
@@ -892,7 +891,7 @@ describe('SubNav', () => {
                             class="c29"
                           >
                             <span
-                              class="c16 c24"
+                              class="c17 c25"
                             >
                               Cities
                             </span>
@@ -903,11 +902,11 @@ describe('SubNav', () => {
                     <li>
                       <a
                         aria-current="false"
-                        class="c25 c26"
+                        class="c26 c27"
                         href="/country"
                       >
                         <div
-                          class="c27"
+                          class="c14"
                         >
                           <svg
                             class="c28"
@@ -928,7 +927,7 @@ describe('SubNav', () => {
                             class="c29"
                           >
                             <span
-                              class="c16 c24"
+                              class="c17 c25"
                             >
                               Countries
                             </span>
