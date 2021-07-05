@@ -15,6 +15,7 @@ import { CardAction } from './CardAction';
 import { CardCheckbox } from './CardCheckbox';
 import { CardTimer } from './CardTimer';
 import { IconButton } from '../IconButton';
+import { Cards } from './Cards';
 // Story assets
 import firstImgPath from './story-assets/first.jpg';
 
@@ -30,7 +31,7 @@ Description...
 
 <Canvas>
   <Story name="base">
-    <Box padding={8} background="neutral100">
+    <Cards padding={8} background="neutral100">
       <Stack size={3}>
         <Card style={{ width: '240px' }}>
           <CardHeader>
@@ -94,6 +95,6 @@ Description...
           </CardBody>
         </Card>
       </Stack>
-    </Box>
+    </Cards>
   </Story>
 </Canvas>
