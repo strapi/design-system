@@ -15,6 +15,7 @@ import { CardAction } from './CardAction';
 import { CardCheckbox } from './CardCheckbox';
 import { CardTimer } from './CardTimer';
 import { IconButton } from '../IconButton';
+import { Cards } from './Cards';
 // Story assets
 import firstImgPath from './story-assets/first.jpg';
 
@@ -30,9 +31,9 @@ Description...
 
 <Canvas>
   <Story name="base">
-    <Box padding={8} background="neutral100">
+    <Cards padding={8} background="neutral100">
       <Stack size={3}>
-        <Card style={{ width: '240px' }}>
+        <Card style={{ width: '240px' }} id="first">
           <CardHeader>
             <CardCheckbox value={true} />
             <CardAction position="end">
@@ -52,7 +53,7 @@ Description...
           </CardBody>
         </Card>
         {/* Separator */}
-        <Card style={{ width: '240px' }}>
+        <Card style={{ width: '240px' }} id="second">
           <CardHeader>
             <CardCheckbox value={true} />
             <CardAsset src={firstImgPath} />
@@ -67,7 +68,7 @@ Description...
           </CardBody>
         </Card>
         {/* Separator */}
-        <Card style={{ width: '240px' }}>
+        <Card style={{ width: '240px' }} id="third">
           <CardHeader>
             <CardCheckbox value={true} />
             <CardAsset src={firstImgPath} />
@@ -81,7 +82,7 @@ Description...
           </CardBody>
         </Card>
         {/* Separator */}
-        <Card style={{ width: '240px' }}>
+        <Card style={{ width: '240px' }} id="fourth">
           <CardBody>
             <Box padding={2} background="primary100">
               <EditIcon />
@@ -94,6 +95,6 @@ Description...
           </CardBody>
         </Card>
       </Stack>
-    </Box>
+    </Cards>
   </Story>
 </Canvas>

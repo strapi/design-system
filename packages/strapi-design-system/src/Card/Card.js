@@ -10,6 +10,7 @@ export const Card = ({ id, ...props }) => {
   return (
     <CardContext.Provider value={{ id: idRef.current }}>
       <Box
+        id={id}
         tabIndex={0}
         hasRadius
         background="neutral0"
