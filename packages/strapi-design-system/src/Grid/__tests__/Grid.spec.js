@@ -56,37 +56,37 @@ describe('Grid', () => {
         word-break: break-all;
       }
 
-      @media (max-width:1100px) {
+      @media (max-width:68.75rem) {
         .c2 {
           grid-column: span;
         }
       }
 
-      @media (max-width:550px) {
+      @media (max-width:34.375rem) {
         .c2 {
           grid-column: span;
         }
       }
 
-      @media (max-width:1100px) {
+      @media (max-width:68.75rem) {
         .c4 {
           grid-column: span;
         }
       }
 
-      @media (max-width:550px) {
+      @media (max-width:34.375rem) {
         .c4 {
           grid-column: span;
         }
       }
 
-      @media (max-width:1100px) {
+      @media (max-width:68.75rem) {
         .c5 {
           grid-column: span;
         }
       }
 
-      @media (max-width:550px) {
+      @media (max-width:34.375rem) {
         .c5 {
           grid-column: span;
         }
