@@ -1,10 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Grid } from '../Grid';
 import { MainNavContext } from './MainNavContext';
 
-const MainNavWrapper = styled(Grid)`
+const MainNavWrapper = styled.nav`
   width: ${({ condensed }) => (condensed ? 'max-content' : `${224 / 16}rem`)};
   background: ${({ theme }) => theme.colors.neutral0};
   height: 100%;
@@ -14,7 +13,7 @@ const MainNavWrapper = styled(Grid)`
 export const MainNav = ({ condensed, ...props }) => {
   return (
     <MainNavContext.Provider value={condensed}>
-      <MainNavWrapper as="nav" condensed={condensed} {...props} />
+      <MainNavWrapper condensed={condensed} {...props} />
     </MainNavContext.Provider>
   );
 };

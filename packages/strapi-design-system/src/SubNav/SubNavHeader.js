@@ -111,7 +111,13 @@ export const SubNavHeader = ({ as, label, searchLabel, searchable, onChange, val
       <Row justifyContent="space-between">
         <H2 as={as}>{label}</H2>
         {searchable && (
-          <IconButton ref={searchButtonRef} onClick={toggleSearch} label={searchLabel} icon={<Search />} />
+          <IconButton
+            tooltipPosition="right"
+            ref={searchButtonRef}
+            onClick={toggleSearch}
+            label={searchLabel}
+            icon={<Search />}
+          />
         )}
       </Row>
       <Box paddingTop={4}>

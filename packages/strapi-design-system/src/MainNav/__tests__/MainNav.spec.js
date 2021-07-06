@@ -61,6 +61,13 @@ describe('MainNav', () => {
     );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
+      .c0 {
+        width: 14rem;
+        background: #ffffff;
+        height: 100%;
+        position: relative;
+      }
+
       .c1 {
         padding-top: 16px;
         padding-right: 12px;
@@ -102,13 +109,6 @@ describe('MainNav', () => {
       .c24 {
         padding-top: 12px;
         padding-bottom: 12px;
-      }
-
-      .c0 {
-        width: 14rem;
-        background: #ffffff;
-        height: 100%;
-        position: relative;
       }
 
       .c6 {
@@ -585,6 +585,15 @@ describe('MainNav', () => {
     );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
+      .c0 {
+        width: -webkit-max-content;
+        width: -moz-max-content;
+        width: max-content;
+        background: #ffffff;
+        height: 100%;
+        position: relative;
+      }
+
       .c1 {
         padding-top: 16px;
         padding-right: 12px;
@@ -620,15 +629,6 @@ describe('MainNav', () => {
       .c17 {
         padding-top: 12px;
         padding-bottom: 12px;
-      }
-
-      .c0 {
-        width: -webkit-max-content;
-        width: -moz-max-content;
-        width: max-content;
-        background: #ffffff;
-        height: 100%;
-        position: relative;
       }
 
       .c8 > * {

@@ -133,6 +133,7 @@ describe('SubNav', () => {
       .c0 {
         width: 14.5rem;
         background: #f6f6f9;
+        border-right: 1px solid #dcdce4;
         height: 100%;
         position: relative;
         overflow-y: auto;

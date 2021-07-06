@@ -6,6 +6,7 @@ import { Grid } from '../Grid';
 const SubNavWrapper = styled(Grid)`
   width: ${232 / 16}rem;
   background: ${({ theme }) => theme.colors.neutral100};
+  border-right: 1px solid ${({ theme }) => theme.colors.neutral200};
   height: 100%;
   position: relative;
   overflow-y: auto;

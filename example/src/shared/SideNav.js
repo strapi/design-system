@@ -22,12 +22,8 @@ export const SideNav = () => {
   const [condensed, setCondensed] = useState(false);
 
   return (
-    <MainNav condensed={condensed}>
-      <NavBrand
-        workplace="Workplace"
-        title="Strapi Dashboard"
-        icon={<img src={strapiImage} alt="" />}
-      />
+    <MainNav style={{ borderRight: "2px solid #EAEAEF" }} condensed={condensed}>
+      <NavBrand workplace="Workplace" title="Strapi Dashboard" icon={<img src={strapiImage} alt="" />} />
       <Divider />
       <NavSections>
         <NavLink href="/content" icon={<ContentIcon />}>
@@ -56,11 +52,7 @@ export const SideNav = () => {
           </NavLink>
         </NavSection>
       </NavSections>
-      <Divider />
-      <NavUser
-        src="https://avatars.githubusercontent.com/u/3874873?v=4"
-        href="/somewhere-i-belong"
-      >
+      <NavUser src="https://avatars.githubusercontent.com/u/3874873?v=4" href="/somewhere-i-belong">
         John Duff
       </NavUser>
       <NavCondense onClick={() => setCondensed((s) => !s)}>
