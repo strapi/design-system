@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Text } from '../Text';
+import { Text, TextButton } from '../Text';
 import { Box } from '../Box';
 import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle, getIconPosition } from './utils';
 import { VARIANTS, BUTTON_SIZES } from './constants';
@@ -42,9 +42,15 @@ export const Button = React.forwardRef(({ variant, startIcon, endIcon, disabled,
           {startIcon}
         </Box>
       )}
-      <Text small={size === 'S'} as="span">
-        {children}
-      </Text>
+
+      {size === 's' ? (
+        <Text small={size === 'S'} as="span" highlighted>
+          {children}
+        </Text>
+      ) : (
+        <TextButton>{children}</TextButton>
+      )}
+
       {endIcon && (
         <Box aria-hidden={true} paddingLeft={2}>
           {endIcon}
@@ -66,8 +72,8 @@ Button.defaultProps = {
 Button.propTypes = {
   children: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
-  startIcon: PropTypes.element,
   endIcon: PropTypes.element,
   size: PropTypes.oneOf(BUTTON_SIZES),
+  startIcon: PropTypes.element,
   variant: PropTypes.oneOf(VARIANTS),
 };
