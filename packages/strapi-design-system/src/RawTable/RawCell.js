@@ -7,9 +7,11 @@ export const RawTh = ({ isFocusable, ...props }) => {
 
   useLayoutEffect(() => {
     const focusableNodes = getFocusableNodes(thRef.current, true);
-    const nextFocus = focusableNodes[0] || thRef.current;
-
-    nextFocus.setAttribute('tabIndex', isFocusable ? 0 : -1);
+    if (focusableNodes.length === 0) {
+      thRef.current.setAttribute('tabIndex', isFocusable ? 0 : -1);
+    } else {
+      focusableNodes.forEach((node) => node.setAttribute('tabIndex', isFocusable ? 0 : -1));
+    }
   }, [isFocusable]);
 
   return <th ref={thRef} {...props} />;
@@ -20,9 +22,12 @@ export const RawTd = ({ isFocusable, ...props }) => {
 
   useLayoutEffect(() => {
     const focusableNodes = getFocusableNodes(tdRef.current, true);
-    const nextFocus = focusableNodes[0] || tdRef.current;
 
-    nextFocus.setAttribute('tabIndex', isFocusable ? 0 : -1);
+    if (focusableNodes.length === 0) {
+      tdRef.current.setAttribute('tabIndex', isFocusable ? 0 : -1);
+    } else {
+      focusableNodes.forEach((node) => node.setAttribute('tabIndex', isFocusable ? 0 : -1));
+    }
   }, [isFocusable]);
 
   return <td ref={tdRef} {...props} />;
