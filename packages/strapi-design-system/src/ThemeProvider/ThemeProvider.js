@@ -154,6 +154,17 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
+
+  button {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    color: inherit;
+    font-size: 100%;
+    cursor: pointer;
+    font: inherit;
+  }
 `;
 
 export const ThemeProvider = ({ children, theme }) => {

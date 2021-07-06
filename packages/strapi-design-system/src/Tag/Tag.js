@@ -6,8 +6,6 @@ import { Box } from '../Box';
 import { Row } from '../Row';
 
 const TagWrapper = styled(Box)`
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
-    'Helvetica Neue', sans-serif;
   border: 1px solid ${({ theme }) => theme.colors.primary200};
   border-radius: ${({ theme }) => theme.borderRadius};
   height: ${32 / 16}rem;
