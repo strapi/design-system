@@ -44,21 +44,21 @@ describe('Card', () => {
         box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
       }
 
-      .c7 {
-        background: #212134;
+      .c8 {
+        background: #32324d;
         color: #ffffff;
         padding: 4px;
         border-radius: 4px;
       }
 
-      .c10 {
+      .c11 {
         padding-top: 8px;
         padding-right: 12px;
         padding-bottom: 8px;
         padding-left: 12px;
       }
 
-      .c14 {
+      .c15 {
         background: #f6f6f9;
         color: #666687;
         padding: 4px;
@@ -83,7 +83,7 @@ describe('Card', () => {
         align-items: center;
       }
 
-      .c11 {
+      .c12 {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -100,7 +100,6 @@ describe('Card', () => {
       .c2 {
         position: relative;
         border-bottom: 1px solid #eaeaef;
-        height: 5.5rem;
       }
 
       .c3 {
@@ -182,62 +181,75 @@ describe('Card', () => {
         background-color: #8e8ea9;
       }
 
-      .c6 {
-        display: block;
+      .c7 {
         margin: 0;
         padding: 0;
         height: 100%;
       }
 
-      .c9 {
+      .c6 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        height: 5.5rem;
+        width: 100%;
+        background: repeating-conic-gradient(#f6f6f9 0% 25%,transparent 0% 50%) 50% / 20px 20px;
+      }
+
+      .c10 {
         font-weight: 400;
         font-size: 0.75rem;
         line-height: 1.33;
       }
 
-      .c12 {
+      .c13 {
         font-weight: 500;
         font-size: 0.75rem;
         line-height: 1.33;
         color: #32324d;
       }
 
-      .c13 {
+      .c14 {
         font-weight: 400;
         font-size: 0.75rem;
         line-height: 1.33;
         color: #666687;
       }
 
-      .c17 {
+      .c18 {
         font-weight: 400;
         font-size: 0.875rem;
         line-height: 1.43;
       }
 
-      .c18 {
+      .c19 {
         font-weight: 600;
         line-height: 1.14;
       }
 
-      .c19 {
+      .c20 {
         font-weight: 600;
         font-size: 0.6875rem;
         line-height: 1.45;
         text-transform: uppercase;
       }
 
-      .c8 {
+      .c9 {
         position: absolute;
         bottom: 4px;
         right: 4px;
       }
 
-      .c15 {
+      .c16 {
         display: inline-block;
       }
 
-      .c16 {
+      .c17 {
         margin-left: auto;
       }
 
@@ -268,47 +280,51 @@ describe('Card', () => {
               Hello world
             </span>
           </div>
-          <img
-            aria-hidden="true"
+          <div
             class="c6"
-            src="./somewhere-it-belongs"
-          />
+          >
+            <img
+              aria-hidden="true"
+              class="c7"
+              src="./somewhere-it-belongs"
+            />
+          </div>
           <time
-            class="c7 c8"
+            class="c8 c9"
           >
             <p
-              class="c9"
+              class="c10"
             >
               05:39
             </p>
           </time>
         </div>
         <div
-          class="c10"
+          class="c11"
         >
           <div
-            class="c11"
+            class="c12"
           >
             <div
               class=""
             >
               <div
-                class="c12"
+                class="c13"
                 id="card-title-1"
               >
                 File name
               </div>
               <div
-                class="c13"
+                class="c14"
               >
                 PNG - 400x400
               </div>
             </div>
             <div
-              class="c14 c15 c16"
+              class="c15 c16 c17"
             >
               <p
-                class="c17 c18 c19"
+                class="c18 c19 c20"
               >
                 Doc
               </p>

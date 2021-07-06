@@ -11,7 +11,7 @@ const CardTimerWrapper = styled(Box)`
 `;
 
 export const CardTimer = ({ children, ...props }) => (
-  <CardTimerWrapper padding={1} background="neutral900" color="neutral0" as="time" hasRadius {...props}>
+  <CardTimerWrapper padding={1} background="neutral800" color="neutral0" as="time" hasRadius {...props}>
     <Text small>{children}</Text>
   </CardTimerWrapper>
 );
