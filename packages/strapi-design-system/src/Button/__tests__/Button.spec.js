@@ -15,8 +15,13 @@ describe('Button', () => {
     expect(container.firstChild).toMatchInlineSnapshot(`
       .c3 {
         font-weight: 400;
-        font-size: 0.75rem;
-        line-height: 1.33;
+        font-size: 0.875rem;
+        line-height: 1.43;
+      }
+
+      .c4 {
+        font-weight: 600;
+        line-height: 1.14;
       }
 
       .c0 {
@@ -111,11 +116,11 @@ describe('Button', () => {
         aria-disabled="false"
         class="c0 c1"
       >
-        <span
-          class="c2 c3"
+        <p
+          class="c2 c3 c4"
         >
           Hello world
-        </span>
+        </p>
       </button>
     `);
   });
@@ -130,8 +135,13 @@ describe('Button', () => {
     expect(container.firstChild).toMatchInlineSnapshot(`
       .c3 {
         font-weight: 400;
-        font-size: 0.75rem;
-        line-height: 1.33;
+        font-size: 0.875rem;
+        line-height: 1.43;
+      }
+
+      .c4 {
+        font-weight: 600;
+        line-height: 1.14;
       }
 
       .c0 {
@@ -243,11 +253,11 @@ describe('Button', () => {
         aria-disabled="false"
         class="c0 c1"
       >
-        <span
-          class="c2 c3"
+        <p
+          class="c2 c3 c4"
         >
           Submit
-        </span>
+        </p>
       </button>
     `);
   });
@@ -262,8 +272,13 @@ describe('Button', () => {
     expect(container.firstChild).toMatchInlineSnapshot(`
       .c3 {
         font-weight: 400;
-        font-size: 0.75rem;
-        line-height: 1.33;
+        font-size: 0.875rem;
+        line-height: 1.43;
+      }
+
+      .c4 {
+        font-weight: 600;
+        line-height: 1.14;
       }
 
       .c0 {
@@ -358,11 +373,11 @@ describe('Button', () => {
         aria-disabled="false"
         class="c0 c1"
       >
-        <span
-          class="c2 c3"
+        <p
+          class="c2 c3 c4"
         >
           Success
-        </span>
+        </p>
       </button>
     `);
   });
@@ -377,8 +392,13 @@ describe('Button', () => {
     expect(container.firstChild).toMatchInlineSnapshot(`
       .c3 {
         font-weight: 400;
-        font-size: 0.75rem;
-        line-height: 1.33;
+        font-size: 0.875rem;
+        line-height: 1.43;
+      }
+
+      .c4 {
+        font-weight: 600;
+        line-height: 1.14;
       }
 
       .c0 {
@@ -490,11 +510,11 @@ describe('Button', () => {
         aria-disabled="false"
         class="c0 c1"
       >
-        <span
-          class="c2 c3"
+        <p
+          class="c2 c3 c4"
         >
           Remove
-        </span>
+        </p>
       </button>
     `);
   });
@@ -511,6 +531,11 @@ describe('Button', () => {
         font-weight: 400;
         font-size: 0.875rem;
         line-height: 1.43;
+      }
+
+      .c4 {
+        font-weight: 600;
+        line-height: 1.14;
       }
 
       .c0 {
@@ -605,11 +630,11 @@ describe('Button', () => {
         aria-disabled="false"
         class="c0 c1"
       >
-        <span
-          class="c2 c3"
+        <p
+          class="c2 c3 c4"
         >
           Button
-        </span>
+        </p>
       </button>
     `);
   });

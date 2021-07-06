@@ -6,6 +6,8 @@ import { TableLabel } from '../Text';
 import { Box } from '../Box';
 
 const LinkWrapper = styled.a`
+  display: inline-flex;
+  align-items: center;
   text-transform: uppercase;
   text-decoration: none;
   pointer-events: ${({ disabled }) => (disabled ? 'none' : undefined)};
@@ -24,6 +26,10 @@ const LinkWrapper = styled.a`
   }
 `;
 
+const IconWrapper = styled(Box)`
+  display: flex;
+`;
+
 // TODO: make sure to use the link from the router library chosen
 export const Link = ({ href, to, children, disabled, startIcon, endIcon, ...props }) => {
   const linkHref = disabled ? '#' : href || to;
@@ -32,26 +38,27 @@ export const Link = ({ href, to, children, disabled, startIcon, endIcon, ...prop
 
   return (
     <LinkWrapper target={target} rel={rel} href={linkHref} disabled={disabled} {...props}>
+      {startIcon && (
+        <IconWrapper as="span" aria-hidden={true} paddingRight={2}>
+          {startIcon}
+        </IconWrapper>
+      )}
+
       <TableLabel textColor={disabled ? 'neutral600' : 'primary600'} as="span">
-        {startIcon && (
-          <Box as="span" aria-hidden={true} paddingRight={2}>
-            {startIcon}
-          </Box>
-        )}
         {children}
-
-        {endIcon && !href && (
-          <Box as="span" aria-hidden={true} paddingLeft={2}>
-            {endIcon}
-          </Box>
-        )}
-
-        {href && (
-          <Box as="span" aria-hidden={true} paddingLeft={2}>
-            <ExternalLink />
-          </Box>
-        )}
       </TableLabel>
+
+      {endIcon && !href && (
+        <IconWrapper as="span" aria-hidden={true} paddingLeft={2}>
+          {endIcon}
+        </IconWrapper>
+      )}
+
+      {href && (
+        <IconWrapper as="span" aria-hidden={true} paddingLeft={2}>
+          <ExternalLink />
+        </IconWrapper>
+      )}
     </LinkWrapper>
   );
 };
