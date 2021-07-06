@@ -163,6 +163,7 @@ const GlobalStyle = createGlobalStyle`
     color: inherit;
     font-size: 100%;
     cursor: pointer;
+    font: inherit;
   }
 `;
 
