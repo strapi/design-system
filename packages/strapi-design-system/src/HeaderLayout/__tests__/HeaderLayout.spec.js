@@ -34,10 +34,6 @@ describe('HeaderLayout', () => {
         padding-left: 16px;
       }
 
-      .c5 {
-        padding-top: 4px;
-      }
-
       .c2 {
         display: -webkit-box;
         display: -webkit-flex;
@@ -103,13 +99,9 @@ describe('HeaderLayout', () => {
             primary aciton
           </button>
         </div>
-        <div
-          class="c5"
-        >
-          <p>
-            36 entries found
-          </p>
-        </div>
+        <p>
+          36 entries found
+        </p>
       </div>
     `);
   });

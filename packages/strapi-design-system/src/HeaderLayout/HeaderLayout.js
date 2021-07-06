@@ -34,7 +34,7 @@ export const HeaderLayout = ({ navigationAction, primaryAction, secondaryAction,
         </Row>
         {primaryAction}
       </Row>
-      <Box paddingTop={1}>{subtitle}</Box>
+      {subtitle}
     </Box>
   );
 };
