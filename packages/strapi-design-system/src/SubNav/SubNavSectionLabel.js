@@ -5,7 +5,6 @@ import FilterDropdown from '@strapi/icons/FilterDropdown';
 import { TableLabel } from '../Text';
 import { Box } from '../Box';
 import { Row } from '../Row';
-import { KeyboardKeys } from '../helpers/keyboardKeys';
 
 const SubNavSectionLabelWrapper = styled(Row)`
   border: none;
@@ -19,20 +18,10 @@ const DropDownIconWrapper = styled.div`
 `;
 
 export const SubNavSectionLabel = ({ collapsable, label, onClick, ariaExpanded, ariaControls }) => {
-  const handleKeyDown = (e) => {
-    if ([KeyboardKeys.ENTER, KeyboardKeys.SPACE].includes(e.key)) {
-      e.preventDefault();
-      onClick();
-    }
-  };
-
   if (collapsable) {
     return (
       <SubNavSectionLabelWrapper
-        tabIndex="0"
-        role="button"
-        aria-pressed={true}
-        onKeyDown={handleKeyDown}
+        as="button"
         onClick={onClick}
         aria-expanded={ariaExpanded}
         aria-controls={ariaControls}

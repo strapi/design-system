@@ -12,6 +12,9 @@ const SubNavLinkWrapper = styled(Box)`
   justify-content: space-between;
   text-decoration: none;
   color: ${({ theme }) => theme.colors.neutral800};
+  svg > * {
+    fill: ${({ theme }) => theme.colors.neutral600};
+  }
   ${({ active, theme }) => {
     if (active) {
       return `

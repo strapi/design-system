@@ -34,6 +34,7 @@ const SearchIconWrapper = styled(Row)`
 `;
 const CustomDivider = styled(Divider)`
   width: ${24 / 16}rem;
+  background-color: ${({ theme }) => theme.colors.neutral200};
 `;
 
 export const SubNavHeader = ({ as, label, searchLabel, searchable, onChange, value, onClear }) => {
@@ -64,7 +65,7 @@ export const SubNavHeader = ({ as, label, searchLabel, searchable, onChange, val
 
   const handleBlur = (e) => {
     if (e.relatedTarget?.id !== clearButonId) {
-      // setSearchOpen(false);
+      setSearchOpen(false);
     }
   };
 
@@ -121,7 +122,7 @@ export const SubNavHeader = ({ as, label, searchLabel, searchable, onChange, val
 };
 
 SubNavHeader.defaultProps = {
-  as: 'h1',
+  as: 'h2',
   searchable: false,
   onChange: () => {},
   onClear: () => {},

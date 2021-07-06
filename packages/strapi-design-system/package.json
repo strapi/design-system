@@ -44,7 +44,6 @@
   },
   "dependencies": {
     "compute-scroll-into-view": "^1.0.17",
-    "match-sorter": "^6.3.0",
     "prop-types": "^15.7.2",
     "uuid": "^8.3.2"
   },

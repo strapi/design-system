@@ -11,17 +11,10 @@ const SubNavWrapper = styled(Grid)`
   overflow-y: auto;
 `;
 
-export const SubNav = ({ condensed, ariaLabel, ...props }) => {
-  return (
-    <SubNavWrapper aria-label={ariaLabel} as="nav" rows="auto auto 1fr auto auto" condensed={condensed} {...props} />
-  );
-};
-
-SubNav.defaultProps = {
-  condensed: false,
+export const SubNav = ({ ariaLabel, ...props }) => {
+  return <SubNavWrapper aria-label={ariaLabel} as="nav" {...props} />;
 };
 
 SubNav.propTypes = {
   ariaLabel: PropTypes.string.isRequired,
-  condensed: PropTypes.bool,
 };

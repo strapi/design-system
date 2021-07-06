@@ -365,6 +365,7 @@ describe('SubNav', () => {
 
       .c9 {
         width: 1.5rem;
+        background-color: #dcdce4;
       }
 
       .c27 {
@@ -383,6 +384,10 @@ describe('SubNav', () => {
         -webkit-text-decoration: none;
         text-decoration: none;
         color: #32324d;
+      }
+
+      .c27 svg > * {
+        fill: #666687;
       }
 
       .c27:focus-visible {
@@ -407,6 +412,10 @@ describe('SubNav', () => {
         color: #32324d;
         background-color: #f0f0ff;
         border-right: 2px solid #4945ff;
+      }
+
+      .c30 svg > * {
+        fill: #666687;
       }
 
       .c30 svg > * {
@@ -440,11 +449,11 @@ describe('SubNav', () => {
           <div
             class="c2"
           >
-            <h1
+            <h2
               class="c3"
             >
               Builder
-            </h1>
+            </h2>
             <span>
               <button
                 aria-disabled="false"
@@ -490,13 +499,10 @@ describe('SubNav', () => {
                 <div
                   class="c2"
                 >
-                  <div
+                  <button
                     aria-controls="list-123"
                     aria-expanded="true"
-                    aria-pressed="true"
                     class="c14 c15"
-                    role="button"
-                    tabindex="0"
                   >
                     <div
                       class="c16"
@@ -526,7 +532,7 @@ describe('SubNav', () => {
                         />
                       </svg>
                     </div>
-                  </div>
+                  </button>
                   <div
                     class="c22 c23 c24"
                   >
@@ -694,13 +700,10 @@ describe('SubNav', () => {
                 <div
                   class="c2"
                 >
-                  <div
+                  <button
                     aria-controls="list-123"
                     aria-expanded="true"
-                    aria-pressed="true"
                     class="c14 c15"
-                    role="button"
-                    tabindex="0"
                   >
                     <div
                       class="c16"
@@ -730,7 +733,7 @@ describe('SubNav', () => {
                         />
                       </svg>
                     </div>
-                  </div>
+                  </button>
                   <div
                     class="c22 c23 c24"
                   >

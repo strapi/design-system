@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { Applications, AddIcon, ApiTokens, AlertWarningIcon, AlertInfoIcon } from '@strapi/icons';
-import { matchSorter } from 'match-sorter';
 import { SubNav } from './SubNav';
 import { SubNavHeader } from './SubNavHeader';
 import { SubNavSection } from './SubNavSection';
@@ -46,15 +45,14 @@ Description...
           label: 'Cities',
           icon: <Applications />,
           to: '/city',
+          active: true,
         },
         {
           id: 4,
           label: 'Countries',
           to: '/country',
-          active: true,
         },
       ];
-      const filteredLinks = matchSorter(links, search, { keys: ['label'] });
       return (
         <Row>
           <Box padding={10} style={{ height: '100vh' }}>
@@ -68,8 +66,8 @@ Description...
                 searchLabel="Search..."
               />
               <SubNavSections>
-                <SubNavSection label="Collection Type" collapsable badgeLabel={filteredLinks.length.toString()}>
-                  {filteredLinks.map((link) => (
+                <SubNavSection label="Collection Type" collapsable badgeLabel={links.length.toString()}>
+                  {links.map((link) => (
                     <SubNavLink href={link.to} active={link.active} key={link.id}>
                       {link.label}
                     </SubNavLink>

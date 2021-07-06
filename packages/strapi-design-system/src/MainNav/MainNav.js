@@ -14,7 +14,7 @@ const MainNavWrapper = styled(Grid)`
 export const MainNav = ({ condensed, ...props }) => {
   return (
     <MainNavContext.Provider value={condensed}>
-      <MainNavWrapper as="nav" rows="auto auto 1fr auto auto" condensed={condensed} {...props} />
+      <MainNavWrapper as="nav" condensed={condensed} {...props} />
     </MainNavContext.Provider>
   );
 };
