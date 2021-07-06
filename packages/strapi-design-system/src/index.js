@@ -15,6 +15,7 @@ export * from './Divider';
 export * from './Field';
 export * from './FocusTrap';
 export * from './Grid';
+export * from './HeaderLayout';
 export * from './IconButton';
 export * from './Link';
 export * from './Loader';
