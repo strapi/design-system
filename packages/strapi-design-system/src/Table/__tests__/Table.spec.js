@@ -10,6 +10,7 @@ import { Thead } from '../Thead';
 import { Tbody } from '../Tbody';
 import { Tr } from '../Tr';
 import { Td, Th } from '../Cell';
+import { TFooter } from '../TFooter';
 import { Text, TableLabel } from '../../Text';
 import { Avatar } from '../../Avatar';
 import { IconButton } from '../../IconButton';
@@ -99,13 +100,13 @@ describe('Table', () => {
             ))}
           </Tbody>
         </Table>
+        <TFooter icon={<span>icon</span>}>Add another field to this collection type</TFooter>
       </ThemeProvider>,
     );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
       .c0 {
         background: #ffffff;
-        border-radius: 4px;
       }
 
       .c2 {
@@ -120,6 +121,7 @@ describe('Table', () => {
 
       .c1 {
         position: relative;
+        border-radius: 4px 4px 0 0;
       }
 
       .c1:before {

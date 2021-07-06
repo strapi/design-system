@@ -2,6 +2,7 @@
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import EditIcon from '@strapi/icons/EditIcon';
+import AddIcon from '@strapi/icons/AddIcon';
 import { Box } from '../Box';
 import { VisuallyHidden } from '../VisuallyHidden';
 import { BaseCheckbox } from '../BaseCheckbox';
@@ -13,6 +14,7 @@ import { Td, Th } from './Cell';
 import { Text, TableLabel } from '../Text';
 import { Avatar } from '../Avatar';
 import { IconButton } from '../IconButton';
+import { TFooter } from './TFooter';
 
 <Meta title="Design System/Organisms/Table" component={Table} />
 
@@ -123,6 +125,7 @@ Description...
               ))}
             </Tbody>
           </Table>
+          <TFooter icon={<AddIcon />}>Add another field to this collection type</TFooter>
         </Box>
       );
     }}
