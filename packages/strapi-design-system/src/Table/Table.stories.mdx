@@ -2,8 +2,10 @@
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import EditIcon from '@strapi/icons/EditIcon';
+import DeleteIcon from '@strapi/icons/DeleteIcon';
 import AddIcon from '@strapi/icons/AddIcon';
 import { Box } from '../Box';
+import { Row } from '../Row';
 import { VisuallyHidden } from '../VisuallyHidden';
 import { BaseCheckbox } from '../BaseCheckbox';
 import { Table } from './Table';
@@ -43,7 +45,11 @@ Description...
       }
       return (
         <Box padding={8} background="neutral100">
-          <Table colCount={COL_COUNT} rowCount={ROW_COUNT}>
+          <Table
+            colCount={COL_COUNT}
+            rowCount={ROW_COUNT}
+            footer={<TFooter icon={<AddIcon />}>Add another field to this collection type</TFooter>}
+          >
             <Thead>
               <Tr>
                 <Th>
@@ -64,12 +70,12 @@ Description...
                 <Th>
                   <TableLabel as="span">Contact</TableLabel>
                 </Th>
+                <Th>More</Th>
+                <Th>More</Th>
+                <Th>More</Th>
                 <Th>
                   <VisuallyHidden>Actions</VisuallyHidden>
                 </Th>
-                <Th>More</Th>
-                <Th>More</Th>
-                <Th>More</Th>
               </Tr>
             </Thead>
             <Tbody>
@@ -102,11 +108,6 @@ Description...
                     </Text>
                   </Td>
                   <Td>
-                    <IconButton onClick={() => console.log('edit')} title="Edit" noBorder>
-                      <EditIcon />
-                    </IconButton>
-                  </Td>
-                  <Td>
                     <Text textColor="neutral800" as="span">
                       {entry.description}
                     </Text>
@@ -120,12 +121,23 @@ Description...
                     <Text textColor="neutral800" as="span">
                       {entry.description}
                     </Text>
+                  </Td>
+                  <Td>
+                    <Row>
+                      <IconButton onClick={() => console.log('edit')} title="Edit" noBorder>
+                        <EditIcon />
+                      </IconButton>
+                      <Box paddingLeft={1}>
+                        <IconButton onClick={() => console.log('delete')} title="Delete" noBorder>
+                          <DeleteIcon />
+                        </IconButton>
+                      </Box>
+                    </Row>
                   </Td>
                 </Tr>
               ))}
             </Tbody>
           </Table>
-          <TFooter icon={<AddIcon />}>Add another field to this collection type</TFooter>
         </Box>
       );
     }}
