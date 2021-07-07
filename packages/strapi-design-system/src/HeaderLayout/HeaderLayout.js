@@ -44,7 +44,7 @@ HeaderLayout.defaultProps = {
   primaryAction: undefined,
   secondaryAction: undefined,
   subtitle: undefined,
-  sticky: undefined,
+  sticky: false,
 };
 
 HeaderLayout.propTypes = {
