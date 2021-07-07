@@ -21,16 +21,16 @@ describe('Carousel', () => {
           onPrevious={() => {}}
           actions={
             <CarouselActions>
-              <IconButton onClick={() => console.log('edit')} title="Edit">
+              <IconButton onClick={() => console.log('edit')} title="Edit" id="edit">
                 <span>First</span>
               </IconButton>
-              <IconButton onClick={() => console.log('Create')} title="Create">
+              <IconButton onClick={() => console.log('Create')} title="Create" id="create">
                 <span>Second</span>
               </IconButton>
-              <IconButton onClick={() => console.log('Delete')} title="Delete">
+              <IconButton onClick={() => console.log('Delete')} title="Delete" id="delete">
                 <span>Third</span>
               </IconButton>
-              <IconButton onClick={() => console.log('Publish')} title="Publish">
+              <IconButton onClick={() => console.log('Publish')} title="Publish" id="publish">
                 <span>Fourth</span>
               </IconButton>
             </CarouselActions>
@@ -286,8 +286,9 @@ describe('Carousel', () => {
             >
               <button
                 aria-disabled="false"
-                aria-labelledby="tooltip-c9092ae1-0ded-4731-9222-360af0ae68ff"
+                aria-labelledby="tooltip-1f2df813-151b-457e-a6ff-8d69863f0192"
                 class="c12 c13"
+                id="edit"
                 tabindex="0"
               >
                 <span>
@@ -296,8 +297,9 @@ describe('Carousel', () => {
               </button>
               <button
                 aria-disabled="false"
-                aria-labelledby="tooltip-439bb2e7-6e31-4f70-bc16-5ea9d9bd9d13"
+                aria-labelledby="tooltip-a2a12b79-2926-4ac8-ac6f-a7eed85881a4"
                 class="c12 c13"
+                id="create"
                 tabindex="0"
               >
                 <span>
@@ -306,8 +308,9 @@ describe('Carousel', () => {
               </button>
               <button
                 aria-disabled="false"
-                aria-labelledby="tooltip-a810ac9d-b0ce-4267-ba18-7a6b41647556"
+                aria-labelledby="tooltip-b5143f1e-f8b4-4ca6-9d70-2d8f80f2d631"
                 class="c12 c13"
+                id="delete"
                 tabindex="0"
               >
                 <span>
@@ -316,8 +319,9 @@ describe('Carousel', () => {
               </button>
               <button
                 aria-disabled="false"
-                aria-labelledby="tooltip-678a472c-8723-431b-9abc-c322208641e4"
+                aria-labelledby="tooltip-242f5951-4b54-4fb7-99bc-66c4b4b41d4c"
                 class="c12 c13"
+                id="publish"
                 tabindex="0"
               >
                 <span>
