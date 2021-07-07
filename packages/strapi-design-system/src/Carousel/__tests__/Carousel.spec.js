@@ -286,7 +286,7 @@ describe('Carousel', () => {
             >
               <button
                 aria-disabled="false"
-                aria-labelledby="tooltip-29bc175e-fe01-4217-a3ff-8a62a8439108"
+                aria-labelledby="tooltip-c9092ae1-0ded-4731-9222-360af0ae68ff"
                 class="c12 c13"
                 tabindex="0"
               >
@@ -296,7 +296,7 @@ describe('Carousel', () => {
               </button>
               <button
                 aria-disabled="false"
-                aria-labelledby="tooltip-0dcd25ba-255d-46e0-b358-265efed54b6a"
+                aria-labelledby="tooltip-439bb2e7-6e31-4f70-bc16-5ea9d9bd9d13"
                 class="c12 c13"
                 tabindex="0"
               >
@@ -306,7 +306,7 @@ describe('Carousel', () => {
               </button>
               <button
                 aria-disabled="false"
-                aria-labelledby="tooltip-8ea4aa05-7ee9-49ed-8d6d-3a7f4b4047d1"
+                aria-labelledby="tooltip-a810ac9d-b0ce-4267-ba18-7a6b41647556"
                 class="c12 c13"
                 tabindex="0"
               >
@@ -316,7 +316,7 @@ describe('Carousel', () => {
               </button>
               <button
                 aria-disabled="false"
-                aria-labelledby="tooltip-a7243b30-29ca-4796-a527-325874f35477"
+                aria-labelledby="tooltip-678a472c-8723-431b-9abc-c322208641e4"
                 class="c12 c13"
                 tabindex="0"
               >
