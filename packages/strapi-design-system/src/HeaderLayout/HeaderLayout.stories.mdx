@@ -1,0 +1,85 @@
+<!--- HeaderLayout.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import BackIcon from '@strapi/icons/BackIcon';
+import EditIcon from '@strapi/icons/EditIcon';
+import AddIcon from '@strapi/icons/AddIcon';
+import { HeaderLayout } from './HeaderLayout';
+import { Link } from '../Link';
+import { Subtitle, H1, H2, Text } from '../Text';
+import { Button } from '../Button';
+import { Box } from '../Box';
+import { VisuallyHidden } from '../VisuallyHidden';
+
+<Meta title="Design System/Layouts/HeaderLayouts" component={HeaderLayout} />
+
+# HeaderLayout
+
+This is the doc of the `HeaderLayout` component
+
+## HeaderLayout
+
+Description...
+
+<Canvas>
+  <Story name="base">
+    <Box background="neutral100">
+      <HeaderLayout
+        primaryAction={<Button startIcon={<AddIcon />}>Add an entry</Button>}
+        secondaryAction={
+          <Button variant="tertiary" startIcon={<EditIcon />}>
+            Edit
+          </Button>
+        }
+        title={<H1 as="h2">Other CT</H1>}
+        subtitle={<Subtitle textColor="neutral600">36 entries found</Subtitle>}
+      />
+      <HeaderLayout
+        navigationAction={
+          <Link startIcon={<BackIcon />} to="/">
+            Go back
+          </Link>
+        }
+        primaryAction={<Button startIcon={<AddIcon />}>Add an entry</Button>}
+        secondaryAction={
+          <Button variant="tertiary" startIcon={<EditIcon />}>
+            Edit
+          </Button>
+        }
+        title={<H1 as="h2">Restaurants</H1>}
+        subtitle={<Subtitle textColor="neutral600">36 entries found</Subtitle>}
+      />
+    </Box>
+  </Story>
+</Canvas>
+
+## HeaderLayout
+
+Description...
+
+<Canvas>
+  <Story name="sticky">
+    <Box background="neutral100">
+      <HeaderLayout
+        sticky
+        navigationAction={
+          <Link startIcon={<BackIcon />} to="/">
+            <VisuallyHidden>Go back</VisuallyHidden>
+          </Link>
+        }
+        primaryAction={<Button startIcon={<AddIcon />}>Add an entry</Button>}
+        secondaryAction={
+          <Button variant="tertiary" startIcon={<EditIcon />}>
+            Edit
+          </Button>
+        }
+        title={<H2>Restaurants</H2>}
+        subtitle={
+          <Text small={true} textColor="neutral600">
+            36 entries found
+          </Text>
+        }
+      />
+    </Box>
+  </Story>
+</Canvas>
