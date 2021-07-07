@@ -21,9 +21,19 @@ const CarouselSlides = styled(Box)`
 
 const CarouselAction = styled.button`
   grid-area: ${({ area }) => area};
+
   svg {
     width: ${6 / 16}rem;
     height: ${10 / 16}rem;
+  }
+
+  svg path {
+    fill: ${({ theme }) => theme.colors.neutral600};
+  }
+
+  &:focus svg path,
+  &:hover svg path {
+    fill: ${({ theme }) => theme.colors.neutral900};
   }
 `;
 

@@ -87,6 +87,15 @@ describe('Carousel', () => {
         height: 0.625rem;
       }
 
+      .c4 svg path {
+        fill: #666687;
+      }
+
+      .c4:focus svg path,
+      .c4:hover svg path {
+        fill: #212134;
+      }
+
       .c5 {
         grid-area: endAction;
       }
@@ -94,6 +103,15 @@ describe('Carousel', () => {
       .c5 svg {
         width: 0.375rem;
         height: 0.625rem;
+      }
+
+      .c5 svg path {
+        fill: #666687;
+      }
+
+      .c5:focus svg path,
+      .c5:hover svg path {
+        fill: #212134;
       }
 
       .c8 {
