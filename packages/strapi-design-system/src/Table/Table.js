@@ -11,6 +11,7 @@ const TableWrapper = styled(RawTable)`
 
 const TableBox = styled(Box)`
   position: relative;
+  border-radius: ${({ theme }) => theme.borderRadius} ${({ theme }) => theme.borderRadius} 0 0;
 
   &:before {
     // TODO: make sure to add a token for this weird stuff
@@ -42,7 +43,7 @@ const ScrollContainer = styled(Box)`
   overflow-x: scroll;
 `;
 
-export const Table = ({ colCount, rowCount, ...props }) => {
+export const Table = ({ colCount, rowCount, footer, ...props }) => {
   const tableRef = useRef(null);
   const [overflowing, setOverflowing] = useState();
 
@@ -69,15 +70,23 @@ export const Table = ({ colCount, rowCount, ...props }) => {
   }, []);
 
   return (
-    <TableBox background="neutral0" hasRadius overflowing={overflowing}>
-      <ScrollContainer ref={tableRef} onScroll={handleScroll} paddingLeft={3} paddingRight={3}>
-        <TableWrapper colCount={colCount} rowCount={rowCount} {...props} />
-      </ScrollContainer>
-    </TableBox>
+    <Box shadow="tableShadow">
+      <TableBox background="neutral0" overflowing={overflowing}>
+        <ScrollContainer ref={tableRef} onScroll={handleScroll} paddingLeft={3} paddingRight={3}>
+          <TableWrapper colCount={colCount} rowCount={rowCount} {...props} />
+        </ScrollContainer>
+      </TableBox>
+      {footer}
+    </Box>
   );
+};
+
+Table.defaultProps = {
+  footer: undefined,
 };
 
 Table.propTypes = {
   colCount: PropTypes.number.isRequired,
+  footer: PropTypes.node,
   rowCount: PropTypes.number.isRequired,
 };
