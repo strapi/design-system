@@ -21,18 +21,10 @@ describe('Carousel', () => {
           onPrevious={() => {}}
           actions={
             <CarouselActions>
-              <IconButton onClick={() => console.log('edit')} title="Edit" id="edit">
-                <span>First</span>
-              </IconButton>
-              <IconButton onClick={() => console.log('Create')} title="Create" id="create">
-                <span>Second</span>
-              </IconButton>
-              <IconButton onClick={() => console.log('Delete')} title="Delete" id="delete">
-                <span>Third</span>
-              </IconButton>
-              <IconButton onClick={() => console.log('Publish')} title="Publish" id="publish">
-                <span>Fourth</span>
-              </IconButton>
+              <button onClick={() => console.log('edit')}>First</button>
+              <button onClick={() => console.log('Create')}>Second</button>
+              <button onClick={() => console.log('Delete')}>Third</button>
+              <button onClick={() => console.log('Publish')}>Fourth</button>
             </CarouselActions>
           }
           style={{ width: '242px' }}
@@ -143,47 +135,6 @@ describe('Carousel', () => {
         margin-left: 4px;
       }
 
-      .c12 {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        cursor: pointer;
-        padding: 8px;
-        border-radius: 4px;
-        background: #ffffff;
-        border: 1px solid #dcdce4;
-      }
-
-      .c12 svg {
-        height: 12px;
-        width: 12px;
-      }
-
-      .c12 svg > g,
-      .c12 svg path {
-        fill: #ffffff;
-      }
-
-      .c12[aria-disabled='true'] {
-        pointer-events: none;
-      }
-
-      .c13 svg > g,
-      .c13 svg path {
-        fill: #8e8ea9;
-      }
-
-      .c13:hover svg > g,
-      .c13:hover svg path {
-        fill: #666687;
-      }
-
-      .c13:active svg > g,
-      .c13:active svg path {
-        fill: #a5a5ba;
-      }
-
       <div
         style="width: 242px;"
       >
@@ -284,49 +235,17 @@ describe('Carousel', () => {
             <div
               class="c8 c11"
             >
-              <button
-                aria-disabled="false"
-                aria-labelledby="tooltip-1f2df813-151b-457e-a6ff-8d69863f0192"
-                class="c12 c13"
-                id="edit"
-                tabindex="0"
-              >
-                <span>
-                  First
-                </span>
+              <button>
+                First
               </button>
-              <button
-                aria-disabled="false"
-                aria-labelledby="tooltip-a2a12b79-2926-4ac8-ac6f-a7eed85881a4"
-                class="c12 c13"
-                id="create"
-                tabindex="0"
-              >
-                <span>
-                  Second
-                </span>
+              <button>
+                Second
               </button>
-              <button
-                aria-disabled="false"
-                aria-labelledby="tooltip-b5143f1e-f8b4-4ca6-9d70-2d8f80f2d631"
-                class="c12 c13"
-                id="delete"
-                tabindex="0"
-              >
-                <span>
-                  Third
-                </span>
+              <button>
+                Third
               </button>
-              <button
-                aria-disabled="false"
-                aria-labelledby="tooltip-242f5951-4b54-4fb7-99bc-66c4b4b41d4c"
-                class="c12 c13"
-                id="publish"
-                tabindex="0"
-              >
-                <span>
-                  Fourth
-                </span>
+              <button>
+                Fourth
               </button>
             </div>
           </section>
