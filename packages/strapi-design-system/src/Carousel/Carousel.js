@@ -47,6 +47,8 @@ export const Carousel = ({
   onNext,
   actions,
   id,
+  hint,
+  error,
   ...props
 }) => {
   const prevActionRef = useRef(null);
@@ -100,17 +102,28 @@ export const Carousel = ({
           {actions}
         </CarouselGrid>
       </Box>
+      {hint || error ? (
+        <Box paddingTop={1}>
+          <Text small={true} textColor={error ? 'danger600' : 'neutral600'}>
+            {hint || error}
+          </Text>
+        </Box>
+      ) : null}
     </div>
   );
 };
 
 Carousel.defaultProps = {
   actions: undefined,
+  error: undefined,
+  hint: undefined,
 };
 
 Carousel.propTypes = {
   actions: PropTypes.node,
   children: PropTypes.node.isRequired,
+  error: PropTypes.string,
+  hint: PropTypes.string,
   id: PropTypes.string,
   label: PropTypes.string.isRequired,
   nextLabel: PropTypes.string.isRequired,
