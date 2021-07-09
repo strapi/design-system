@@ -18,7 +18,7 @@ describe('TextInput', () => {
           name="content"
           hint="Description line"
           error={undefined}
-          onChange={(e) => {}}
+          onChange={() => {}}
           value={'content'}
           labelAction={<span>Hello world</span>}
         />

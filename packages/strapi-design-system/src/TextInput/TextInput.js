@@ -1,6 +1,6 @@
 import React, { useImperativeHandle, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { Field, FieldLabel, FieldHint, FieldError, FieldInput, FieldAction } from '../Field';
+import { Field, FieldLabel, FieldHint, FieldError, FieldInput } from '../Field';
 import { Stack } from '../Stack';
 import { Row } from '../Row';
 import { Box } from '../Box';
@@ -50,12 +50,12 @@ TextInput.defaultProps = {
 };
 
 TextInput.propTypes = {
+  endAction: PropTypes.element,
   error: PropTypes.string,
   hint: PropTypes.string,
   id: PropTypes.string,
   label: PropTypes.string.isRequired,
   labelAction: PropTypes.element,
-  startAction: PropTypes.element,
   name: PropTypes.string.isRequired,
-  endAction: PropTypes.element,
+  startAction: PropTypes.element,
 };

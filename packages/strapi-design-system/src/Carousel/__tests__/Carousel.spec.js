@@ -6,7 +6,6 @@ import { lightTheme } from '../../themes';
 import { CarouselSlide } from '../CarouselSlide';
 import { CarouselImage } from '../CarouselImage';
 import { CarouselActions } from '../CarouselActions';
-import { IconButton } from '../../IconButton';
 
 describe('Carousel', () => {
   it('snapshots the component', () => {

@@ -39,12 +39,14 @@ describe('Tooltip', () => {
 
       <body>
         <div>
-          <button
-            aria-describedby="tooltip-123"
-            tabindex="0"
-          >
-            Show tooltip
-          </button>
+          <span>
+            <button
+              aria-describedby="tooltip-123"
+              tabindex="0"
+            >
+              Show tooltip
+            </button>
+          </span>
         </div>
         <div
           data-react-portal="true"
@@ -79,12 +81,14 @@ describe('Tooltip', () => {
     expect(document.body).toMatchInlineSnapshot(`
       <body>
         <div>
-          <button
-            aria-describedby="tooltip-123"
-            tabindex="0"
-          >
-            Show tooltip
-          </button>
+          <span>
+            <button
+              aria-describedby="tooltip-123"
+              tabindex="0"
+            >
+              Show tooltip
+            </button>
+          </span>
         </div>
         .c0 {
         background: #212134;
@@ -156,12 +160,14 @@ describe('Tooltip', () => {
     expect(document.body).toMatchInlineSnapshot(`
       <body>
         <div>
-          <button
-            aria-labelledby="tooltip-123"
-            tabindex="0"
-          >
-            +
-          </button>
+          <span>
+            <button
+              aria-labelledby="tooltip-123"
+              tabindex="0"
+            >
+              +
+            </button>
+          </span>
         </div>
         .c0 {
         background: #212134;

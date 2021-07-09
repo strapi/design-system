@@ -12,7 +12,7 @@ const TextLabel = styled(Text)`
 `;
 
 export const CheckboxLabel = (props) => {
-  const { id, error, hint, name } = useField();
+  const { id, error, hint } = useField();
 
   let ariaDescription;
 
@@ -22,7 +22,6 @@ export const CheckboxLabel = (props) => {
     ariaDescription = `field-hint-${id}`;
   }
 
-  const fieldId = `field-${id}`;
   const hasError = Boolean(error);
 
   return (

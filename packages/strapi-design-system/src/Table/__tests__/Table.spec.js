@@ -96,9 +96,7 @@ describe('Table', () => {
                   </Text>
                 </Td>
                 <Td>
-                  <IconButton onClick={() => console.log('edit')} title="Edit" noBorder>
-                    <EditIcon />
-                  </IconButton>
+                  <IconButton onClick={() => console.log('edit')} label="Edit" noBorder icon={<EditIcon />} />
                 </Td>
               </Tr>
             ))}
@@ -603,27 +601,29 @@ describe('Table', () => {
                     aria-colindex="7"
                     class="c8"
                   >
-                    <button
-                      aria-disabled="false"
-                      aria-labelledby="tooltip-123"
-                      class="c17 c18"
-                      tabindex="-1"
-                    >
-                      <svg
-                        fill="none"
-                        height="1em"
-                        viewBox="0 0 24 24"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
+                    <span>
+                      <button
+                        aria-disabled="false"
+                        aria-labelledby="tooltip-123"
+                        class="c17 c18"
+                        tabindex="-1"
                       >
-                        <path
-                          clip-rule="evenodd"
-                          d="M23.604 3.514c.528.528.528 1.36 0 1.887l-2.622 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.118 3.118zM0 24v-4.99l14.2-14.2 4.99 4.99L4.99 24H0z"
-                          fill="#212134"
-                          fill-rule="evenodd"
-                        />
-                      </svg>
-                    </button>
+                        <svg
+                          fill="none"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            clip-rule="evenodd"
+                            d="M23.604 3.514c.528.528.528 1.36 0 1.887l-2.622 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.118 3.118zM0 24v-4.99l14.2-14.2 4.99 4.99L4.99 24H0z"
+                            fill="#212134"
+                            fill-rule="evenodd"
+                          />
+                        </svg>
+                      </button>
+                    </span>
                   </td>
                 </tr>
                 <tr
@@ -702,27 +702,29 @@ describe('Table', () => {
                     aria-colindex="7"
                     class="c8"
                   >
-                    <button
-                      aria-disabled="false"
-                      aria-labelledby="tooltip-123"
-                      class="c17 c18"
-                      tabindex="-1"
-                    >
-                      <svg
-                        fill="none"
-                        height="1em"
-                        viewBox="0 0 24 24"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
+                    <span>
+                      <button
+                        aria-disabled="false"
+                        aria-labelledby="tooltip-123"
+                        class="c17 c18"
+                        tabindex="-1"
                       >
-                        <path
-                          clip-rule="evenodd"
-                          d="M23.604 3.514c.528.528.528 1.36 0 1.887l-2.622 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.118 3.118zM0 24v-4.99l14.2-14.2 4.99 4.99L4.99 24H0z"
-                          fill="#212134"
-                          fill-rule="evenodd"
-                        />
-                      </svg>
-                    </button>
+                        <svg
+                          fill="none"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            clip-rule="evenodd"
+                            d="M23.604 3.514c.528.528.528 1.36 0 1.887l-2.622 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.118 3.118zM0 24v-4.99l14.2-14.2 4.99 4.99L4.99 24H0z"
+                            fill="#212134"
+                            fill-rule="evenodd"
+                          />
+                        </svg>
+                      </button>
+                    </span>
                   </td>
                 </tr>
               </tbody>

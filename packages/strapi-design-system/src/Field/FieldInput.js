@@ -105,6 +105,6 @@ FieldInput.defaultProps = {
 
 FieldInput.propTypes = {
   disabled: PropTypes.bool,
-  startAction: PropTypes.element,
   endAction: PropTypes.element,
+  startAction: PropTypes.element,
 };

@@ -12,9 +12,7 @@ describe('IconButton', () => {
   it('snapshots the component', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
-        <IconButton title="test">
-          <div>A</div>
-        </IconButton>
+        <IconButton label="test" icon={<div>A</div>} />
       </ThemeProvider>,
     );
 
@@ -60,16 +58,18 @@ describe('IconButton', () => {
         fill: #a5a5ba;
       }
 
-      <button
-        aria-disabled="false"
-        aria-labelledby="tooltip-123"
-        class="c0 c1"
-        tabindex="0"
-      >
-        <div>
-          A
-        </div>
-      </button>
+      <span>
+        <button
+          aria-disabled="false"
+          aria-labelledby="tooltip-123"
+          class="c0 c1"
+          tabindex="0"
+        >
+          <div>
+            A
+          </div>
+        </button>
+      </span>
     `);
   });
 });

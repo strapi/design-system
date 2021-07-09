@@ -46,7 +46,6 @@ export const Carousel = ({
   onPrevious,
   onNext,
   actions,
-  id,
   hint,
   error,
   ...props
@@ -124,7 +123,6 @@ Carousel.propTypes = {
   children: PropTypes.node.isRequired,
   error: PropTypes.string,
   hint: PropTypes.string,
-  id: PropTypes.string,
   label: PropTypes.string.isRequired,
   nextLabel: PropTypes.string.isRequired,
   onNext: PropTypes.func.isRequired,

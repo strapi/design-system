@@ -787,26 +787,28 @@ describe('MainNav', () => {
             class="c8"
           >
             <li>
-              <a
-                aria-current="false"
-                aria-labelledby="tooltip-1"
-                class="c9"
-                href="/content"
-                tabindex="0"
-              >
-                <span
-                  class="c10 c11"
+              <span>
+                <a
+                  aria-current="false"
+                  aria-labelledby="tooltip-1"
+                  class="c9"
+                  href="/content"
+                  tabindex="0"
                 >
                   <span
-                    aria-hidden="true"
-                    class="c12 c13"
+                    class="c10 c11"
                   >
-                    <span>
-                      icon
+                    <span
+                      aria-hidden="true"
+                      class="c12 c13"
+                    >
+                      <span>
+                        icon
+                      </span>
                     </span>
                   </span>
-                </span>
-              </a>
+                </a>
+              </span>
             </li>
             <li
               class=""
@@ -832,70 +834,76 @@ describe('MainNav', () => {
                   class="c14"
                 >
                   <li>
-                    <a
-                      aria-current="true"
-                      aria-labelledby="tooltip-1"
-                      class="c16"
-                      href="/builder"
-                      tabindex="0"
-                    >
-                      <span
-                        class="c10 c11"
+                    <span>
+                      <a
+                        aria-current="true"
+                        aria-labelledby="tooltip-1"
+                        class="c16"
+                        href="/builder"
+                        tabindex="0"
                       >
                         <span
-                          aria-hidden="true"
-                          class="c12 c13"
+                          class="c10 c11"
                         >
-                          <span>
-                            icon
+                          <span
+                            aria-hidden="true"
+                            class="c12 c13"
+                          >
+                            <span>
+                              icon
+                            </span>
                           </span>
                         </span>
-                      </span>
-                    </a>
+                      </a>
+                    </span>
                   </li>
                   <li>
-                    <a
-                      aria-current="false"
-                      aria-labelledby="tooltip-1"
-                      class="c9"
-                      href="/content"
-                      tabindex="0"
-                    >
-                      <span
-                        class="c10 c11"
+                    <span>
+                      <a
+                        aria-current="false"
+                        aria-labelledby="tooltip-1"
+                        class="c9"
+                        href="/content"
+                        tabindex="0"
                       >
                         <span
-                          aria-hidden="true"
-                          class="c12 c13"
+                          class="c10 c11"
                         >
-                          <span>
-                            icon
+                          <span
+                            aria-hidden="true"
+                            class="c12 c13"
+                          >
+                            <span>
+                              icon
+                            </span>
                           </span>
                         </span>
-                      </span>
-                    </a>
+                      </a>
+                    </span>
                   </li>
                   <li>
-                    <a
-                      aria-current="false"
-                      aria-labelledby="tooltip-1"
-                      class="c9"
-                      href="/content"
-                      tabindex="0"
-                    >
-                      <span
-                        class="c10 c11"
+                    <span>
+                      <a
+                        aria-current="false"
+                        aria-labelledby="tooltip-1"
+                        class="c9"
+                        href="/content"
+                        tabindex="0"
                       >
                         <span
-                          aria-hidden="true"
-                          class="c12 c13"
+                          class="c10 c11"
                         >
-                          <span>
-                            icon
+                          <span
+                            aria-hidden="true"
+                            class="c12 c13"
+                          >
+                            <span>
+                              icon
+                            </span>
                           </span>
                         </span>
-                      </span>
-                    </a>
+                      </a>
+                    </span>
                   </li>
                 </ul>
               </div>
@@ -924,70 +932,76 @@ describe('MainNav', () => {
                   class="c14"
                 >
                   <li>
-                    <a
-                      aria-current="false"
-                      aria-labelledby="tooltip-1"
-                      class="c9"
-                      href="/builder"
-                      tabindex="0"
-                    >
-                      <span
-                        class="c10 c11"
+                    <span>
+                      <a
+                        aria-current="false"
+                        aria-labelledby="tooltip-1"
+                        class="c9"
+                        href="/builder"
+                        tabindex="0"
                       >
                         <span
-                          aria-hidden="true"
-                          class="c12 c13"
+                          class="c10 c11"
                         >
-                          <span>
-                            icon
+                          <span
+                            aria-hidden="true"
+                            class="c12 c13"
+                          >
+                            <span>
+                              icon
+                            </span>
                           </span>
                         </span>
-                      </span>
-                    </a>
+                      </a>
+                    </span>
                   </li>
                   <li>
-                    <a
-                      aria-current="false"
-                      aria-labelledby="tooltip-1"
-                      class="c9"
-                      href="/content"
-                      tabindex="0"
-                    >
-                      <span
-                        class="c10 c11"
+                    <span>
+                      <a
+                        aria-current="false"
+                        aria-labelledby="tooltip-1"
+                        class="c9"
+                        href="/content"
+                        tabindex="0"
                       >
                         <span
-                          aria-hidden="true"
-                          class="c12 c13"
+                          class="c10 c11"
                         >
-                          <span>
-                            icon
+                          <span
+                            aria-hidden="true"
+                            class="c12 c13"
+                          >
+                            <span>
+                              icon
+                            </span>
                           </span>
                         </span>
-                      </span>
-                    </a>
+                      </a>
+                    </span>
                   </li>
                   <li>
-                    <a
-                      aria-current="false"
-                      aria-labelledby="tooltip-1"
-                      class="c9"
-                      href="/content"
-                      tabindex="0"
-                    >
-                      <span
-                        class="c10 c11"
+                    <span>
+                      <a
+                        aria-current="false"
+                        aria-labelledby="tooltip-1"
+                        class="c9"
+                        href="/content"
+                        tabindex="0"
                       >
                         <span
-                          aria-hidden="true"
-                          class="c12 c13"
+                          class="c10 c11"
                         >
-                          <span>
-                            icon
+                          <span
+                            aria-hidden="true"
+                            class="c12 c13"
+                          >
+                            <span>
+                              icon
+                            </span>
                           </span>
                         </span>
-                      </span>
-                    </a>
+                      </a>
+                    </span>
                   </li>
                 </ul>
               </div>

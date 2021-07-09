@@ -34,6 +34,7 @@ export * from './Select';
 export * from './SimpleMenu';
 export * from './Stack';
 export * from './Status';
+export * from './SubNav';
 export * from './Switch';
 export * from './Tabs';
 export * from './Table';

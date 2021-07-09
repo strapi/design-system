@@ -68,11 +68,7 @@ Description...
                 variant="secondary"
                 togglePosition="left"
                 title="User informations 4"
-                action={
-                  <IconButton onClick={() => console.log('edit')} title="Edit">
-                    <EditIcon />
-                  </IconButton>
-                }
+                action={<IconButton onClick={() => console.log('edit')} label="Edit" icon={<EditIcon />} />}
               />
               <AccordionContent>
                 <Box padding={3}>My name is John Duff</Box>
@@ -135,11 +131,7 @@ Description...
                 variant="secondary"
                 togglePosition="left"
                 title="User informations 4"
-                action={
-                  <IconButton onClick={() => console.log('edit')} title="Edit">
-                    <EditIcon />
-                  </IconButton>
-                }
+                action={<IconButton onClick={() => console.log('edit')} label="Edit" icon={<EditIcon />} />}
               />
               <AccordionContent>
                 <Box padding={3}>My name is John Duff</Box>

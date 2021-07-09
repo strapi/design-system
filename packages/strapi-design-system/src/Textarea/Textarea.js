@@ -25,25 +25,23 @@ const TextareaWrapper = styled.div`
   }
 `;
 
-export const Textarea = React.forwardRef(
-  ({ startAction, endAction, name, hint, error, label, children, labelAction, id, ...props }, ref) => {
-    return (
-      <TextareaWrapper>
-        <Field name={name} hint={hint} error={error} id={id}>
-          <Stack size={1}>
-            <Row cols="auto auto 1fr" gap={1}>
-              <FieldLabel>{label}</FieldLabel>
-              {labelAction && <Box paddingLeft={1}>{labelAction}</Box>}
-            </Row>
-            <TextareaInput ref={ref} as="textarea" value={children} {...props} />
-            <FieldHint />
-            <FieldError />
-          </Stack>
-        </Field>
-      </TextareaWrapper>
-    );
-  },
-);
+export const Textarea = React.forwardRef(({ name, hint, error, label, children, labelAction, id, ...props }, ref) => {
+  return (
+    <TextareaWrapper>
+      <Field name={name} hint={hint} error={error} id={id}>
+        <Stack size={1}>
+          <Row cols="auto auto 1fr" gap={1}>
+            <FieldLabel>{label}</FieldLabel>
+            {labelAction && <Box paddingLeft={1}>{labelAction}</Box>}
+          </Row>
+          <TextareaInput ref={ref} as="textarea" value={children} {...props} />
+          <FieldHint />
+          <FieldError />
+        </Stack>
+      </Field>
+    </TextareaWrapper>
+  );
+});
 
 Textarea.displayName = 'Textarea';
 
@@ -52,8 +50,6 @@ Textarea.defaultProps = {
   error: undefined,
   hint: undefined,
   id: undefined,
-  startAction: undefined,
-  endAction: undefined,
   children: '',
 };
 
@@ -64,7 +60,5 @@ Textarea.propTypes = {
   id: PropTypes.string,
   label: PropTypes.string.isRequired,
   labelAction: PropTypes.element,
-  startAction: PropTypes.element,
   name: PropTypes.string.isRequired,
-  endAction: PropTypes.element,
 };

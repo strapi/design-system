@@ -233,7 +233,7 @@ Select.propTypes = {
   onClear: PropTypes.func,
   onReachEnd: PropTypes.func,
   placeholder: PropTypes.string.isRequired,
-  startIcon: PropTypes.node,
+  startIcon: PropTypes.element,
   value: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
     PropTypes.string,
