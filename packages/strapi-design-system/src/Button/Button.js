@@ -48,7 +48,7 @@ export const Button = React.forwardRef(({ variant, startIcon, endIcon, disabled,
           {children}
         </Text>
       ) : (
-        <TextButton>{children}</TextButton>
+        <TextButton as="span">{children}</TextButton>
       )}
 
       {endIcon && (
