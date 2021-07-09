@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 
 const handleColor = ({ theme, textColor }) => theme.colors[textColor];
@@ -34,12 +35,14 @@ const textStyles = {
   },
 };
 
-export const Text = styled.p`
+export const Text = styled.span`
   font-weight: ${({ highlighted }) => (highlighted ? 500 : 400)};
   font-size: ${({ small }) => textStyles[small ? 'S' : 'M'].fontSize};
   line-height: ${({ small }) => textStyles[small ? 'S' : 'M'].lineHeight};
   color: ${handleColor};
 `;
+
+export const P = (props) => <Text as="p" {...props} />;
 
 export const Subtitle = styled(Text)`
   font-size: 1rem;

@@ -30,7 +30,7 @@ export const DatePickerTd = ({ children, outsideMonth, onSelectDay, isSelected, 
   return (
     <RawTd {...props}>
       <DatePickerCellButton tabIndex={-1} onClick={onSelectDay} isSelected={isSelected}>
-        <Text small textColor={textColor} as="span">
+        <Text small textColor={textColor}>
           {children}
         </Text>
       </DatePickerCellButton>

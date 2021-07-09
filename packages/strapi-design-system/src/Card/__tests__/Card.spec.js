@@ -292,11 +292,11 @@ describe('Card', () => {
           <time
             class="c8 c9"
           >
-            <p
+            <span
               class="c10"
             >
               05:39
-            </p>
+            </span>
           </time>
         </div>
         <div
@@ -323,11 +323,11 @@ describe('Card', () => {
             <div
               class="c15 c16 c17"
             >
-              <p
+              <span
                 class="c18 c19 c20"
               >
                 Doc
-              </p>
+              </span>
             </div>
           </div>
         </div>

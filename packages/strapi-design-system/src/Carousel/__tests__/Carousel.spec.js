@@ -158,11 +158,11 @@ describe('Carousel', () => {
         <div
           class="c0"
         >
-          <p
+          <span
             class="c1"
           >
             Carousel of numbers (2/3)
-          </p>
+          </span>
         </div>
         <div
           class="c2"

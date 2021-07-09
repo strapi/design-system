@@ -37,7 +37,7 @@ export const TextButton = React.forwardRef(({ children, startIcon, endIcon, onCl
           {startIcon}
         </Box>
       )}
-      <Text small={true} textColor={disabled ? 'neutral600' : 'primary600'} as="span">
+      <Text small={true} textColor={disabled ? 'neutral600' : 'primary600'}>
         {children}
       </Text>
       {endIcon && (

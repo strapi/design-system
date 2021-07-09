@@ -144,7 +144,7 @@ export const Select = ({
                 {withTags ? (
                   <>
                     {!value || value.length === 0 ? (
-                      <Text id={contentId} as="span" textColor={'neutral600'}>
+                      <Text id={contentId} textColor={'neutral600'}>
                         {placeholder}
                       </Text>
                     ) : null}
@@ -154,7 +154,7 @@ export const Select = ({
                     </VisuallyHidden>
                   </>
                 ) : (
-                  <Text id={contentId} as="span" textColor={value ? 'neutral800' : 'neutral600'}>
+                  <Text id={contentId} textColor={value ? 'neutral800' : 'neutral600'}>
                     {customizeContent ? customizeContent(value) : selectOptionLabel || placeholder}
                     {multi && <VisuallyHidden as="span">{value.join(', ')}</VisuallyHidden>}
                   </Text>

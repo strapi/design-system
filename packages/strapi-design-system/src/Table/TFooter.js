@@ -42,7 +42,7 @@ export const TFooter = ({ children, icon, ...props }) => {
             {icon}
           </IconBox>
           <Box paddingLeft={3}>
-            <Text small={true} highlighted={true} textColor="primary600" as="span">
+            <Text small={true} highlighted={true} textColor="primary600">
               {children}
             </Text>
           </Box>

@@ -93,36 +93,36 @@ describe('Text', () => {
         >
           third title
         </h3>
-        <p
+        <span
           class="c3"
         >
           Text body
-        </p>
-        <p
+        </span>
+        <span
           class="c4"
         >
           Text body highlighted
-        </p>
-        <p
+        </span>
+        <span
           class="c5"
         >
           Text body small
-        </p>
-        <p
+        </span>
+        <span
           class="c6"
         >
           Small button text
-        </p>
-        <p
+        </span>
+        <span
           class="c3 c7"
         >
           Text button
-        </p>
-        <p
+        </span>
+        <span
           class="c3 c8"
         >
           Subtitle
-        </p>
+        </span>
       </div>
     `);
   });

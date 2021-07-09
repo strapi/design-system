@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Box } from '../Box';
-import { Text } from '../Text';
+import { P } from '../Text';
 import { Portal } from '../Portal';
 import { useTooltipHandlers } from './hooks/useTooltipHandlers';
 import { useTooltipLayout } from './hooks/useTooltipLayout';
@@ -41,9 +41,9 @@ export const Tooltip = ({ children, label, description, delay, position, ...prop
           {...props}
         >
           {visible && <VisuallyHidden id={descriptionId}>{description}</VisuallyHidden>}
-          <Text small={true} highlighted={true} textColor="neutral0">
+          <P small={true} highlighted={true} textColor="neutral0">
             {label || description}
-          </Text>
+          </P>
         </TooltipWrapper>
       </Portal>
 

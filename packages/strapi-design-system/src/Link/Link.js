@@ -44,9 +44,7 @@ export const Link = ({ href, to, children, disabled, startIcon, endIcon, ...prop
         </IconWrapper>
       )}
 
-      <TableLabel textColor={disabled ? 'neutral600' : 'primary600'} as="span">
-        {children}
-      </TableLabel>
+      <TableLabel textColor={disabled ? 'neutral600' : 'primary600'}>{children}</TableLabel>
 
       {endIcon && !href && (
         <IconWrapper as="span" aria-hidden={true} paddingLeft={2}>

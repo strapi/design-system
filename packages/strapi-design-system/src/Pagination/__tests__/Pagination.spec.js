@@ -193,12 +193,12 @@ describe('Pagination', () => {
               >
                 Page 1
               </div>
-              <p
+              <span
                 aria-hidden="true"
                 class="c7 c8"
               >
                 1
-              </p>
+              </span>
             </a>
           </li>
           <li>
@@ -212,12 +212,12 @@ describe('Pagination', () => {
               >
                 Page 2
               </div>
-              <p
+              <span
                 aria-hidden="true"
                 class="c10 c8"
               >
                 2
-              </p>
+              </span>
             </a>
           </li>
           <li>
@@ -231,12 +231,12 @@ describe('Pagination', () => {
               >
                 Page 3
               </div>
-              <p
+              <span
                 aria-hidden="true"
                 class="c10 c8"
               >
                 3
-              </p>
+              </span>
             </a>
           </li>
           <li>
@@ -248,12 +248,12 @@ describe('Pagination', () => {
               >
                 There are pages in between
               </div>
-              <p
+              <span
                 aria-hidden="true"
                 class="c10 c8"
               >
                 …
-              </p>
+              </span>
             </div>
           </li>
           <li>
@@ -267,12 +267,12 @@ describe('Pagination', () => {
               >
                 Page 4
               </div>
-              <p
+              <span
                 aria-hidden="true"
                 class="c10 c8"
               >
                 4
-              </p>
+              </span>
             </a>
           </li>
           <li>
@@ -491,12 +491,12 @@ describe('Pagination', () => {
               >
                 Page 1
               </div>
-              <p
+              <span
                 aria-hidden="true"
                 class="c6 c7"
               >
                 1
-              </p>
+              </span>
             </a>
           </li>
           <li>
@@ -510,12 +510,12 @@ describe('Pagination', () => {
               >
                 Page 2
               </div>
-              <p
+              <span
                 aria-hidden="true"
                 class="c6 c7"
               >
                 2
-              </p>
+              </span>
             </a>
           </li>
           <li>
@@ -529,12 +529,12 @@ describe('Pagination', () => {
               >
                 Page 3
               </div>
-              <p
+              <span
                 aria-hidden="true"
                 class="c6 c7"
               >
                 3
-              </p>
+              </span>
             </a>
           </li>
           <li>
@@ -546,12 +546,12 @@ describe('Pagination', () => {
               >
                 There are pages in between
               </div>
-              <p
+              <span
                 aria-hidden="true"
                 class="c6 c7"
               >
                 …
-              </p>
+              </span>
             </div>
           </li>
           <li>
@@ -565,12 +565,12 @@ describe('Pagination', () => {
               >
                 Page 4
               </div>
-              <p
+              <span
                 aria-hidden="true"
                 class="c11 c7"
               >
                 4
-              </p>
+              </span>
             </a>
           </li>
           <li>

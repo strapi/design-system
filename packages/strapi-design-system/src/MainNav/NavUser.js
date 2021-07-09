@@ -28,9 +28,7 @@ export const NavUser = ({ src, children, ...props }) => {
           </VisuallyHidden>
         ) : (
           <Box paddingLeft={2} as="span">
-            <Text as="span" textColor="neutral600">
-              {children}
-            </Text>
+            <Text textColor="neutral600">{children}</Text>
           </Box>
         )}
       </Row>

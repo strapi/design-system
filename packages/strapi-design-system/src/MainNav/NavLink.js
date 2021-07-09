@@ -66,7 +66,7 @@ export const NavLink = ({ children, icon, active, ...props }) => {
             {icon}
           </IconBox>
 
-          <Text as="span" textColor={active ? 'primary600' : 'neutral600'} highlighted={active}>
+          <Text textColor={active ? 'primary600' : 'neutral600'} highlighted={active}>
             {children}
           </Text>
         </MainNavRow>
