@@ -16,7 +16,7 @@ import { Td, Th } from './Cell';
 import { Text, TableLabel } from '../Text';
 import { Avatar } from '../Avatar';
 import { IconButton } from '../IconButton';
-import { TFooter } from './TFooter';
+import { Tfooter } from './Tfooter';
 
 <Meta title="Design System/Organisms/Table" component={Table} />
 
@@ -48,7 +48,7 @@ Description...
           <Table
             colCount={COL_COUNT}
             rowCount={ROW_COUNT}
-            footer={<TFooter icon={<AddIcon />}>Add another field to this collection type</TFooter>}
+            footer={<Tfooter icon={<AddIcon />}>Add another field to this collection type</Tfooter>}
           >
             <Thead>
               <Tr>

@@ -10,7 +10,7 @@ import { Thead } from '../Thead';
 import { Tbody } from '../Tbody';
 import { Tr } from '../Tr';
 import { Td, Th } from '../Cell';
-import { TFooter } from '../TFooter';
+import { Tfooter } from '../Tfooter';
 import { Text, TableLabel } from '../../Text';
 import { Avatar } from '../../Avatar';
 import { IconButton } from '../../IconButton';
@@ -39,7 +39,7 @@ describe('Table', () => {
         <Table
           colCount={COL_COUNT}
           rowCount={ROW_COUNT}
-          footer={<TFooter icon={<span>icon</span>}>Add another field to this collection type</TFooter>}
+          footer={<Tfooter icon={<span>icon</span>}>Add another field to this collection type</Tfooter>}
         >
           <Thead>
             <Tr>
@@ -170,7 +170,7 @@ describe('Table', () => {
       }
 
       .c4 {
-        overflow-x: scroll;
+        overflow-x: auto;
       }
 
       .c13 {

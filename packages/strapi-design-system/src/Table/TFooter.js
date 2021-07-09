@@ -32,7 +32,7 @@ const ButtonBox = styled(Box)`
   border: none;
 `;
 
-export const TFooter = ({ children, icon, ...props }) => {
+export const Tfooter = ({ children, icon, ...props }) => {
   return (
     <div>
       <Divider />
@@ -52,7 +52,7 @@ export const TFooter = ({ children, icon, ...props }) => {
   );
 };
 
-TFooter.propTypes = {
+Tfooter.propTypes = {
   children: PropTypes.string.isRequired,
   icon: PropTypes.node.isRequired,
 };
