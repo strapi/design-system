@@ -40,7 +40,7 @@ const TableBox = styled(Box)`
 `;
 
 const ScrollContainer = styled(Box)`
-  overflow-x: scroll;
+  overflow-x: auto;
 `;
 
 export const Table = ({ colCount, rowCount, footer, ...props }) => {

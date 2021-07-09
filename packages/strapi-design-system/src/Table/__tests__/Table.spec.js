@@ -170,7 +170,7 @@ describe('Table', () => {
       }
 
       .c4 {
-        overflow-x: scroll;
+        overflow-x: auto;
       }
 
       .c13 {
