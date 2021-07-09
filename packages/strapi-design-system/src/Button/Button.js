@@ -32,6 +32,8 @@ export const ButtonWrapper = styled(BaseButton)`
     ${getActiveStyle}
   }
   ${getVariantStyle}
+
+  box-shadow: ${({ theme, withShadow }) => (withShadow ? theme.shadows.tableShadow : undefined)};
 `;
 
 export const Button = React.forwardRef(({ variant, startIcon, endIcon, disabled, children, size, ...props }, ref) => {

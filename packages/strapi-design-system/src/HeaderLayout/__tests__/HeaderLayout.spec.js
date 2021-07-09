@@ -19,6 +19,24 @@ describe('HeaderLayout', () => {
     );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
+      .c4 {
+        font-weight: 600;
+        font-size: 2rem;
+        line-height: 1.25;
+      }
+
+      .c6 {
+        font-weight: 400;
+        font-size: 0.875rem;
+        line-height: 1.43;
+        color: #666687;
+      }
+
+      .c7 {
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+
       .c0 {
         padding-top: 24px;
         padding-right: 56px;
@@ -30,7 +48,7 @@ describe('HeaderLayout', () => {
         padding-bottom: 12px;
       }
 
-      .c4 {
+      .c5 {
         padding-left: 16px;
       }
 
@@ -84,11 +102,15 @@ describe('HeaderLayout', () => {
           <div
             class="c3"
           >
-            <h2>
-              CT
-            </h2>
-            <div
+            <h1
               class="c4"
+            >
+              <h2>
+                CT
+              </h2>
+            </h1>
+            <div
+              class="c5"
             >
               <button>
                 secondary action
@@ -99,8 +121,12 @@ describe('HeaderLayout', () => {
             primary aciton
           </button>
         </div>
-        <p>
-          36 entries found
+        <p
+          class="c6 c7"
+        >
+          <p>
+            36 entries found
+          </p>
         </p>
       </div>
     `);
@@ -121,6 +147,19 @@ describe('HeaderLayout', () => {
     );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
+      .c4 {
+        font-weight: 600;
+        font-size: 1.125rem;
+        line-height: 1.22;
+      }
+
+      .c5 {
+        font-weight: 400;
+        font-size: 0.75rem;
+        line-height: 1.33;
+        color: #666687;
+      }
+
       .c0 {
         padding-top: 12px;
         padding-right: 24px;
@@ -132,7 +171,7 @@ describe('HeaderLayout', () => {
         padding-right: 12px;
       }
 
-      .c4 {
+      .c6 {
         padding-left: 8px;
       }
 
@@ -189,11 +228,19 @@ describe('HeaderLayout', () => {
             <div
               class=""
             >
-              <h2>
-                CT
-              </h2>
-              <p>
-                36 entries found
+              <h1
+                class="c4"
+              >
+                <h2>
+                  CT
+                </h2>
+              </h1>
+              <p
+                class="c5"
+              >
+                <p>
+                  36 entries found
+                </p>
               </p>
             </div>
           </div>
@@ -204,7 +251,7 @@ describe('HeaderLayout', () => {
               secondary action
             </button>
             <div
-              class="c4"
+              class="c6"
             >
               <button>
                 primary aciton
