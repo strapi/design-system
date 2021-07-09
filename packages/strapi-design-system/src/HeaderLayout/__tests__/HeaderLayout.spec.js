@@ -12,8 +12,8 @@ describe('HeaderLayout', () => {
           navigationAction={<a href="/">Go back</a>}
           primaryAction={<button>primary aciton</button>}
           secondaryAction={<button>secondary action</button>}
-          title={<h2>CT</h2>}
-          subtitle={<p>36 entries found</p>}
+          title="CT"
+          subtitle="36 entries found"
         />
       </ThemeProvider>,
     );
@@ -105,9 +105,7 @@ describe('HeaderLayout', () => {
             <h1
               class="c4"
             >
-              <h2>
-                CT
-              </h2>
+              CT
             </h1>
             <div
               class="c5"
@@ -124,9 +122,7 @@ describe('HeaderLayout', () => {
         <p
           class="c6 c7"
         >
-          <p>
-            36 entries found
-          </p>
+          36 entries found
         </p>
       </div>
     `);
@@ -139,8 +135,8 @@ describe('HeaderLayout', () => {
           navigationAction={<a href="/">Go back</a>}
           primaryAction={<button>primary aciton</button>}
           secondaryAction={<button>secondary action</button>}
-          title={<h2>CT</h2>}
-          subtitle={<p>36 entries found</p>}
+          title={'CT'}
+          subtitle={'36 entries found'}
           sticky
         />
       </ThemeProvider>,
@@ -231,16 +227,12 @@ describe('HeaderLayout', () => {
               <h1
                 class="c4"
               >
-                <h2>
-                  CT
-                </h2>
+                CT
               </h1>
               <p
                 class="c5"
               >
-                <p>
-                  36 entries found
-                </p>
+                36 entries found
               </p>
             </div>
           </div>
