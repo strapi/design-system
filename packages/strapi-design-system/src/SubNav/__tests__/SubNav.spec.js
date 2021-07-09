@@ -130,10 +130,6 @@ describe('SubNav', () => {
         padding-left: 32px;
       }
 
-      .c36 {
-        padding-left: 4px;
-      }
-
       .c0 {
         width: 14.5rem;
         background: #f6f6f9;
@@ -208,7 +204,7 @@ describe('SubNav', () => {
         line-height: 1.43;
       }
 
-      .c37 {
+      .c36 {
         font-weight: 500;
         font-size: 0.875rem;
         line-height: 1.43;
@@ -311,6 +307,7 @@ describe('SubNav', () => {
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
+        width: 0.75rem;
         -webkit-transform: rotateX(0deg);
         -ms-transform: rotateX(0deg);
         transform: rotateX(0deg);
@@ -780,10 +777,10 @@ describe('SubNav', () => {
                           </svg>
                         </div>
                         <div
-                          class="c36"
+                          class="c29"
                         >
                           <span
-                            class="c17 c37"
+                            class="c17 c36"
                           >
                             Default
                           </span>

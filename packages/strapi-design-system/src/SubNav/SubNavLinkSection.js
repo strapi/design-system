@@ -26,6 +26,7 @@ const SubNavLinkSectionButton = styled.button`
 const DropDownIconWrapper = styled.div`
   display: flex;
   align-items: center;
+  width: ${12 / 16}rem;
   transform: rotateX(${({ rotated }) => (rotated ? '0deg' : '180deg')});
 `;
 
@@ -45,7 +46,7 @@ export const SubNavLinkSection = ({ label, children }) => {
             <DropDownIconWrapper rotated={isOpen}>
               <FilterDropdown aria-hidden />
             </DropDownIconWrapper>
-            <Box paddingLeft={1}>
+            <Box paddingLeft={2}>
               <Text as="span" highlighted textColor="neutral800">
                 {label}
               </Text>
