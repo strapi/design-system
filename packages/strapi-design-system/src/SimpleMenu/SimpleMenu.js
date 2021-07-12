@@ -63,13 +63,13 @@ export const MenuItem = ({ children, onClick, href, isFocused, ...props }) => {
       {href ? (
         <OptionLink href={href} {...menuItemProps}>
           <Box padding={2}>
-            <Text as="span">{children}</Text>
+            <Text>{children}</Text>
           </Box>
         </OptionLink>
       ) : (
         <OptionButton onKeyDown={handleKeyDown} onMouseDown={onClick} {...menuItemProps}>
           <Box padding={2}>
-            <Text as="span">{children}</Text>
+            <Text>{children}</Text>
           </Box>
         </OptionButton>
       )}
@@ -159,7 +159,7 @@ export const SimpleMenu = ({ label, children, ...props }) => {
         {...props}
       >
         <Box paddingRight={1}>
-          <TextButton as="span">{label}</TextButton>
+          <TextButton>{label}</TextButton>
         </Box>
         <FilterDropdown aria-hidden />
       </MenuButton>

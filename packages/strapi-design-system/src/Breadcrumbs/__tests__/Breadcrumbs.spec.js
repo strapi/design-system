@@ -80,12 +80,12 @@ describe('Breadcrumbs', () => {
           <li
             class="c1 c2"
           >
-            <p
+            <span
               class="c3"
               color="neutral800"
             >
               Home
-            </p>
+            </span>
             <div
               class="c4 c5"
             >
@@ -106,12 +106,12 @@ describe('Breadcrumbs', () => {
           <li
             class="c1 c2"
           >
-            <p
+            <span
               class="c3"
               color="neutral800"
             >
               first
-            </p>
+            </span>
             <div
               class="c4 c5"
             >
@@ -132,12 +132,12 @@ describe('Breadcrumbs', () => {
           <li
             class="c1 c2"
           >
-            <p
+            <span
               class="c3"
               color="neutral800"
             >
               second
-            </p>
+            </span>
             <div
               class="c4 c5"
             >

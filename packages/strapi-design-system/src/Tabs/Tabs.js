@@ -113,9 +113,7 @@ export const Tab = ({ selected, id, children, ...props }) => {
       {...props}
     >
       <TabBox padding={selected ? 4 : 3} background={selected ? 'neutral0' : 'neutral100'} selected={selected}>
-        <TextButton as="span" textColor={selected ? 'primary700' : 'neutral600'}>
-          {children}
-        </TextButton>
+        <TextButton textColor={selected ? 'primary700' : 'neutral600'}>{children}</TextButton>
       </TabBox>
     </TabButton>
   );

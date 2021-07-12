@@ -276,11 +276,11 @@ describe('MainNav', () => {
             <div
               class="c4"
             >
-              <p
+              <span
                 class="c5 c6 c7"
               >
                 Strapi Dashboard
-              </p>
+              </span>
               <p
                 class="c5 c8"
               >

@@ -45,11 +45,11 @@ describe('Badge', () => {
       <div
         class="c0 c1"
       >
-        <p
+        <span
           class="c2 c3 c4"
         >
           Doc
-        </p>
+        </span>
       </div>
     `);
   });

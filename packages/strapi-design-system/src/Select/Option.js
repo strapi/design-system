@@ -64,7 +64,7 @@ export const Option = ({ selected, children, value, multi, ...props }) => {
             <CheckMark selected={selected} />
           </Box>
         )}
-        <Text as="span" textColor={selected ? 'primary600' : 'neutral800'} highlighted={selected}>
+        <Text textColor={selected ? 'primary600' : 'neutral800'} highlighted={selected}>
           {children}
         </Text>
       </Row>

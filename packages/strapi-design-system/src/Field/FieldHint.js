@@ -1,6 +1,6 @@
 import React from 'react';
 import { useField } from './FieldContext';
-import { Text } from '../Text';
+import { P } from '../Text';
 
 export const FieldHint = () => {
   const { id, hint, error } = useField();
@@ -10,8 +10,8 @@ export const FieldHint = () => {
   }
 
   return (
-    <Text small={true} id={`field-hint-${id}`} textColor="neutral600">
+    <P small={true} id={`field-hint-${id}`} textColor="neutral600">
       {hint}
-    </Text>
+    </P>
   );
 };

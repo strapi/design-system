@@ -40,9 +40,7 @@ export const NavSection = ({ label, ...props }) => {
           hasRadius
           as="span"
         >
-          <TableLabel as="span" textColor="neutral600">
-            {label}
-          </TableLabel>
+          <TableLabel textColor="neutral600">{label}</TableLabel>
         </Box>
 
         <Stack as="ul" size={2} {...props}></Stack>

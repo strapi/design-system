@@ -47,19 +47,19 @@ describe('Table', () => {
                 <BaseCheckbox aria-label="Select all entries" />
               </Th>
               <Th>
-                <TableLabel as="span">ID</TableLabel>
+                <TableLabel>ID</TableLabel>
               </Th>
               <Th>
-                <TableLabel as="span">Cover</TableLabel>
+                <TableLabel>Cover</TableLabel>
               </Th>
               <Th>
-                <TableLabel as="span">Description</TableLabel>
+                <TableLabel>Description</TableLabel>
               </Th>
               <Th>
-                <TableLabel as="span">Categories</TableLabel>
+                <TableLabel>Categories</TableLabel>
               </Th>
               <Th>
-                <TableLabel as="span">Contact</TableLabel>
+                <TableLabel>Contact</TableLabel>
               </Th>
               <Th>
                 <VisuallyHidden>Actions</VisuallyHidden>
@@ -73,27 +73,19 @@ describe('Table', () => {
                   <BaseCheckbox aria-label={`Select ${entry.contact}`} />
                 </Td>
                 <Td>
-                  <Text textColor="neutral600" as="span">
-                    {entry.id}
-                  </Text>
+                  <Text textColor="neutral600">{entry.id}</Text>
                 </Td>
                 <Td>
                   <Avatar src={entry.cover} alt={entry.contact} />
                 </Td>
                 <Td>
-                  <Text textColor="neutral600" as="span">
-                    {entry.description}
-                  </Text>
+                  <Text textColor="neutral600">{entry.description}</Text>
                 </Td>
                 <Td>
-                  <Text textColor="neutral600" as="span">
-                    {entry.category}
-                  </Text>
+                  <Text textColor="neutral600">{entry.category}</Text>
                 </Td>
                 <Td>
-                  <Text textColor="neutral600" as="span">
-                    {entry.contact}
-                  </Text>
+                  <Text textColor="neutral600">{entry.contact}</Text>
                 </Td>
                 <Td>
                   <IconButton onClick={() => console.log('edit')} label="Edit" noBorder icon={<EditIcon />} />

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { render } from '@testing-library/react';
 import { Status } from '../Status';
-import { Text } from '../../Text';
+import { Text, P } from '../../Text';
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
 
@@ -10,12 +10,9 @@ describe('Status', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
         <Status variant="primary">
-          <Text>
-            Hello world{' '}
-            <Text as="span" highlighted>
-              thing happens
-            </Text>
-          </Text>
+          <P>
+            Hello world <Text highlighted>thing happens</Text>
+          </P>
         </Status>
       </ThemeProvider>,
     );
@@ -81,8 +78,7 @@ describe('Status', () => {
           <p
             class="c4 c5"
           >
-            Hello world
-             
+            Hello world 
             <span
               class="c4 c6"
             >

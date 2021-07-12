@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Box } from '../Box';
-import { Text, TextButton } from '../Text';
+import { P, TextButton } from '../Text';
 import { Row } from '../Row';
 import { useMainNav } from './MainNavContext';
 import { VisuallyHidden } from '../VisuallyHidden';
@@ -43,9 +43,9 @@ export const NavBrand = ({ workplace, title, icon }) => {
 
         <Box paddingLeft={2}>
           <TextButton textColor="neutral800">{title}</TextButton>
-          <Text small textColor="neutral600">
+          <P small textColor="neutral600">
             {workplace}
-          </Text>
+          </P>
         </Box>
       </Row>
     </Box>

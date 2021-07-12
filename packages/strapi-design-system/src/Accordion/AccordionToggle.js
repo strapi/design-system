@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import DropdownIcon from '@strapi/icons/FilterDropdown';
 import styled from 'styled-components';
-import { H3, Text } from '../Text';
+import { H3, P } from '../Text';
 import { useAccordion } from './AccordionContext';
 import { Box } from '../Box';
 import { Row } from '../Row';
@@ -55,9 +55,9 @@ export const AccordionToggle = ({ title, description, as, variant, togglePositio
                 </H3>
 
                 {description && (
-                  <Text id={ariaDescriptionId} textColor={descriptionColor}>
+                  <P id={ariaDescriptionId} textColor={descriptionColor}>
                     {description}
-                  </Text>
+                  </P>
                 )}
               </Box>
             </Row>
@@ -85,9 +85,9 @@ export const AccordionToggle = ({ title, description, as, variant, togglePositio
             </H3>
 
             {description && (
-              <Text id={ariaDescriptionId} textColor={descriptionColor}>
+              <P id={ariaDescriptionId} textColor={descriptionColor}>
                 {description}
-              </Text>
+              </P>
             )}
           </Box>
 

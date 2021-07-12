@@ -46,11 +46,11 @@ export const Button = React.forwardRef(({ variant, startIcon, endIcon, disabled,
       )}
 
       {size === 's' ? (
-        <Text small={size === 'S'} as="span" highlighted>
+        <Text small={size === 'S'} highlighted>
           {children}
         </Text>
       ) : (
-        <TextButton as="span">{children}</TextButton>
+        <TextButton>{children}</TextButton>
       )}
 
       {endIcon && (

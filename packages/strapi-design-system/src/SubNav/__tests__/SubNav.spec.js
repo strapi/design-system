@@ -504,11 +504,11 @@ describe('SubNav', () => {
                     <div
                       class="c16"
                     >
-                      <p
+                      <span
                         class="c17 c18 c19 c20"
                       >
                         Collection Type
-                      </p>
+                      </span>
                     </div>
                     <div
                       class="c21"
@@ -533,11 +533,11 @@ describe('SubNav', () => {
                   <div
                     class="c22 c23 c24"
                   >
-                    <p
+                    <span
                       class="c17 c25 c19 c20"
                     >
                       4
-                    </p>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -705,11 +705,11 @@ describe('SubNav', () => {
                     <div
                       class="c16"
                     >
-                      <p
+                      <span
                         class="c17 c18 c19 c20"
                       >
                         Single Type
-                      </p>
+                      </span>
                     </div>
                     <div
                       class="c21"
@@ -734,11 +734,11 @@ describe('SubNav', () => {
                   <div
                     class="c22 c23 c24"
                   >
-                    <p
+                    <span
                       class="c17 c25 c19 c20"
                     >
                       4
-                    </p>
+                    </span>
                   </div>
                 </div>
               </div>

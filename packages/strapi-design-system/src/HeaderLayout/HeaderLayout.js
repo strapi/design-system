@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { H1, Subtitle, Text, H2 } from '../Text';
+import { H1, Subtitle, P, H2 } from '../Text';
 import { Box } from '../Box';
 import { Row } from '../Row';
 
@@ -23,9 +23,9 @@ export const HeaderLayout = ({
               <H2 as="h1" {...props}>
                 {title}
               </H2>
-              <Text small={true} textColor="neutral600">
+              <P small={true} textColor="neutral600">
                 {subtitle}
-              </Text>
+              </P>
             </Box>
           </Row>
           <Row>
@@ -47,7 +47,9 @@ export const HeaderLayout = ({
         </Row>
         {primaryAction}
       </Row>
-      <Subtitle textColor="neutral600">{subtitle}</Subtitle>
+      <Subtitle textColor="neutral600" as="p">
+        {subtitle}
+      </Subtitle>
     </Box>
   );
 };
