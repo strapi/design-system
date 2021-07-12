@@ -6,7 +6,6 @@ import EditIcon from '@strapi/icons/EditIcon';
 import AddIcon from '@strapi/icons/AddIcon';
 import { HeaderLayout } from './HeaderLayout';
 import { Link } from '../Link';
-import { Subtitle, H1, H2, Text } from '../Text';
 import { Button } from '../Button';
 import { Box } from '../Box';
 import { VisuallyHidden } from '../VisuallyHidden';
@@ -27,12 +26,13 @@ Description...
       <HeaderLayout
         primaryAction={<Button startIcon={<AddIcon />}>Add an entry</Button>}
         secondaryAction={
-          <Button variant="tertiary" startIcon={<EditIcon />}>
+          <Button variant="tertiary" withShadow startIcon={<EditIcon />}>
             Edit
           </Button>
         }
-        title={<H1 as="h2">Other CT</H1>}
-        subtitle={<Subtitle textColor="neutral600">36 entries found</Subtitle>}
+        title="Other CT"
+        subtitle="36 entries found"
+        as="h2"
       />
       <HeaderLayout
         navigationAction={
@@ -42,12 +42,13 @@ Description...
         }
         primaryAction={<Button startIcon={<AddIcon />}>Add an entry</Button>}
         secondaryAction={
-          <Button variant="tertiary" startIcon={<EditIcon />}>
+          <Button variant="tertiary" withShadow startIcon={<EditIcon />}>
             Edit
           </Button>
         }
-        title={<H1 as="h2">Restaurants</H1>}
-        subtitle={<Subtitle textColor="neutral600">36 entries found</Subtitle>}
+        title="Restaurants"
+        subtitle="36 entries found"
+        as="h2"
       />
     </Box>
   </Story>
@@ -69,16 +70,13 @@ Description...
         }
         primaryAction={<Button startIcon={<AddIcon />}>Add an entry</Button>}
         secondaryAction={
-          <Button variant="tertiary" startIcon={<EditIcon />}>
+          <Button variant="tertiary" startIcon={<EditIcon />} withShadow>
             Edit
           </Button>
         }
-        title={<H2>Restaurants</H2>}
-        subtitle={
-          <Text small={true} textColor="neutral600">
-            36 entries found
-          </Text>
-        }
+        title="Restaurants"
+        subtitle="36 entries found"
+        as="h2"
       />
     </Box>
   </Story>

@@ -1,9 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { H1, Subtitle, Text, H2 } from '../Text';
 import { Box } from '../Box';
 import { Row } from '../Row';
 
-export const HeaderLayout = ({ navigationAction, primaryAction, secondaryAction, subtitle, title, sticky }) => {
+export const HeaderLayout = ({
+  navigationAction,
+  primaryAction,
+  secondaryAction,
+  subtitle,
+  title,
+  sticky,
+  ...props
+}) => {
   if (sticky) {
     return (
       <Box paddingLeft={6} paddingRight={6} paddingTop={3} paddingBottom={3}>
@@ -11,8 +20,12 @@ export const HeaderLayout = ({ navigationAction, primaryAction, secondaryAction,
           <Row>
             <Box paddingRight={3}>{navigationAction}</Box>
             <Box>
-              {title}
-              {subtitle}
+              <H2 as="h1" {...props}>
+                {title}
+              </H2>
+              <Text small={true} textColor="neutral600">
+                {subtitle}
+              </Text>
             </Box>
           </Row>
           <Row>
@@ -29,12 +42,12 @@ export const HeaderLayout = ({ navigationAction, primaryAction, secondaryAction,
       {navigationAction ? <Box paddingBottom={3}>{navigationAction}</Box> : null}
       <Row justifyContent="space-between">
         <Row>
-          {title}
+          <H1 {...props}>{title}</H1>
           {secondaryAction ? <Box paddingLeft={4}>{secondaryAction}</Box> : null}
         </Row>
         {primaryAction}
       </Row>
-      {subtitle}
+      <Subtitle textColor="neutral600">{subtitle}</Subtitle>
     </Box>
   );
 };
@@ -52,6 +65,6 @@ HeaderLayout.propTypes = {
   primaryAction: PropTypes.node,
   secondaryAction: PropTypes.node,
   sticky: PropTypes.bool,
-  subtitle: PropTypes.node,
-  title: PropTypes.node.isRequired,
+  subtitle: PropTypes.string,
+  title: PropTypes.string.isRequired,
 };
