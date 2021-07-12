@@ -18,7 +18,7 @@ export const H2 = styled.h2`
 `;
 
 export const H3 = styled.h3`
-  font-weight: 600;
+  font-weight: 500;
   font-size: 1rem;
   line-height: 1.25;
   color: ${handleColor};
