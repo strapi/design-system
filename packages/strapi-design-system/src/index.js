@@ -13,6 +13,7 @@ export * from './Carousel';
 export * from './Checkbox';
 export * from './DatePicker';
 export * from './Divider';
+export * from './EmptyStateLayout';
 export * from './Field';
 export * from './FocusTrap';
 export * from './Grid';

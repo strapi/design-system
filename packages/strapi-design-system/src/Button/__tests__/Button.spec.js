@@ -116,11 +116,11 @@ describe('Button', () => {
         aria-disabled="false"
         class="c0 c1"
       >
-        <p
+        <span
           class="c2 c3 c4"
         >
           Hello world
-        </p>
+        </span>
       </button>
     `);
   });
@@ -253,11 +253,11 @@ describe('Button', () => {
         aria-disabled="false"
         class="c0 c1"
       >
-        <p
+        <span
           class="c2 c3 c4"
         >
           Submit
-        </p>
+        </span>
       </button>
     `);
   });
@@ -373,11 +373,11 @@ describe('Button', () => {
         aria-disabled="false"
         class="c0 c1"
       >
-        <p
+        <span
           class="c2 c3 c4"
         >
           Success
-        </p>
+        </span>
       </button>
     `);
   });
@@ -510,11 +510,11 @@ describe('Button', () => {
         aria-disabled="false"
         class="c0 c1"
       >
-        <p
+        <span
           class="c2 c3 c4"
         >
           Remove
-        </p>
+        </span>
       </button>
     `);
   });
@@ -630,11 +630,11 @@ describe('Button', () => {
         aria-disabled="false"
         class="c0 c1"
       >
-        <p
+        <span
           class="c2 c3 c4"
         >
           Button
-        </p>
+        </span>
       </button>
     `);
   });

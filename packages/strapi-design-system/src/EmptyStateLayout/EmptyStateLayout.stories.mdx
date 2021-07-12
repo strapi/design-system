@@ -1,0 +1,31 @@
+<!--- EmptyStateLayout.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import AddIcon from '@strapi/icons/AddIcon';
+import { Illo } from './story-assets/Illo';
+import { EmptyStateLayout } from './EmptyStateLayout';
+import { Button } from '../Button';
+
+<Meta title="Design System/Layouts/EmptyStateLayout" component={EmptyStateLayout} />
+
+# EmptyStateLayout
+
+This is the doc of the `EmptyStateLayout` component
+
+## EmptyStateLayout
+
+Description...
+
+<Canvas>
+  <Story name="base">
+    <EmptyStateLayout
+      icon={<Illo />}
+      content="You don't have any content yet..."
+      action={
+        <Button variant="secondary" startIcon={<AddIcon />}>
+          Create your first content-type
+        </Button>
+      }
+    />
+  </Story>
+</Canvas>
