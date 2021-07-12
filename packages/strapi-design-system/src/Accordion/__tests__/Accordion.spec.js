@@ -22,7 +22,7 @@ describe('Accordion', () => {
 
     expect(container.firstChild).toMatchInlineSnapshot(`
       .c7 {
-        font-weight: 600;
+        font-weight: 500;
         font-size: 1rem;
         line-height: 1.25;
         color: #4945ff;

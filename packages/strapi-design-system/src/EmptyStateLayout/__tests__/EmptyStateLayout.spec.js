@@ -23,7 +23,7 @@ describe('EmptyStateLayout', () => {
 
     expect(container.firstChild).toMatchInlineSnapshot(`
       .c5 {
-        font-weight: 600;
+        font-weight: 500;
         font-size: 1rem;
         line-height: 1.25;
         color: #666687;
