@@ -22,37 +22,45 @@ describe('EmptyStateLayout', () => {
     );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
-      .c5 {
+      .c6 {
         font-weight: 500;
         font-size: 1rem;
         line-height: 1.25;
         color: #666687;
       }
 
-      .c10 {
+      .c11 {
         font-weight: 400;
         font-size: 0.875rem;
         line-height: 1.43;
       }
 
-      .c11 {
+      .c12 {
         font-weight: 600;
         line-height: 1.14;
       }
 
-      .c2 {
+      .c1 {
+        background: #ffffff;
+        padding-top: 56px;
+        padding-bottom: 56px;
+        border-radius: 4px;
+        box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
+      }
+
+      .c3 {
         padding-bottom: 24px;
       }
 
-      .c4 {
+      .c5 {
         padding-bottom: 16px;
       }
 
-      .c8 {
+      .c9 {
         padding-right: 8px;
       }
 
-      .c0 {
+      .c2 {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -66,11 +74,11 @@ describe('EmptyStateLayout', () => {
         align-items: center;
       }
 
-      .c3 svg {
+      .c4 svg {
         height: 5.5rem;
       }
 
-      .c6 {
+      .c7 {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -82,21 +90,21 @@ describe('EmptyStateLayout', () => {
         border: 1px solid #dcdce4;
       }
 
-      .c6 svg {
+      .c7 svg {
         height: 12px;
         width: 12px;
       }
 
-      .c6 svg > g,
-      .c6 svg path {
+      .c7 svg > g,
+      .c7 svg path {
         fill: #ffffff;
       }
 
-      .c6[aria-disabled='true'] {
+      .c7[aria-disabled='true'] {
         pointer-events: none;
       }
 
-      .c7 {
+      .c8 {
         padding: 8px 16px;
         background: #4945ff;
         border: none;
@@ -104,7 +112,7 @@ describe('EmptyStateLayout', () => {
         background: #f0f0ff;
       }
 
-      .c7 .c1 {
+      .c8 .c0 {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -116,99 +124,99 @@ describe('EmptyStateLayout', () => {
         margin-top: 1px;
       }
 
-      .c7 .c9 {
+      .c8 .c10 {
         color: #ffffff;
       }
 
-      .c7[aria-disabled='true'] {
+      .c8[aria-disabled='true'] {
         border: 1px solid #dcdce4;
         background: #eaeaef;
       }
 
-      .c7[aria-disabled='true'] .c9 {
+      .c8[aria-disabled='true'] .c10 {
         color: #666687;
       }
 
-      .c7[aria-disabled='true'] svg > g,
-      .c7[aria-disabled='true'] svg path {
+      .c8[aria-disabled='true'] svg > g,
+      .c8[aria-disabled='true'] svg path {
         fill: #666687;
       }
 
-      .c7[aria-disabled='true']:active {
+      .c8[aria-disabled='true']:active {
         border: 1px solid #dcdce4;
         background: #eaeaef;
       }
 
-      .c7[aria-disabled='true']:active .c9 {
+      .c8[aria-disabled='true']:active .c10 {
         color: #666687;
       }
 
-      .c7[aria-disabled='true']:active svg > g,
-      .c7[aria-disabled='true']:active svg path {
+      .c8[aria-disabled='true']:active svg > g,
+      .c8[aria-disabled='true']:active svg path {
         fill: #666687;
       }
 
-      .c7:hover {
+      .c8:hover {
         background-color: #ffffff;
       }
 
-      .c7:active {
+      .c8:active {
         background-color: #ffffff;
         border: 1px solid #4945ff;
       }
 
-      .c7:active .c9 {
+      .c8:active .c10 {
         color: #4945ff;
       }
 
-      .c7:active svg > g,
-      .c7:active svg path {
+      .c8:active svg > g,
+      .c8:active svg path {
         fill: #4945ff;
       }
 
-      .c7 .c9 {
+      .c8 .c10 {
         color: #271fe0;
       }
 
-      .c7 svg > g,
-      .c7 svg path {
+      .c8 svg > g,
+      .c8 svg path {
         fill: #271fe0;
       }
 
       <div
-        class="c0"
+        class="c0 c1 c2"
       >
         <div
           aria-hidden="true"
-          class="c1 c2 c3"
+          class="c0 c3 c4"
         >
           <span>
             Icon
           </span>
         </div>
         <div
-          class="c1 c4"
+          class="c0 c5"
         >
           <p
-            class="c5"
+            class="c6"
           >
             You don't have any content yet...
           </p>
         </div>
         <button
           aria-disabled="false"
-          class="c6 c7"
+          class="c7 c8"
         >
           <div
             aria-hidden="true"
-            class="c1 c8"
+            class="c0 c9"
           >
             <span>
               icon
             </span>
           </div>
           <span
-            class="c9 c10 c11"
+            class="c10 c11 c12"
           >
             Create your first content-type
           </span>

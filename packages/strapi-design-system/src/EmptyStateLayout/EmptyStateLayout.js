@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { H3 } from '../Text';
 import { Box } from '../Box';
 
-const EmptyStateWrapper = styled.div`
+const EmptyStateWrapper = styled(Box)`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,7 +18,7 @@ const EmptyStateImageWrapper = styled(Box)`
 
 export const EmptyStateLayout = ({ icon, content, action }) => {
   return (
-    <EmptyStateWrapper>
+    <EmptyStateWrapper background="neutral0" hasRadius shadow="tableShadow" paddingTop={10} paddingBottom={10}>
       <EmptyStateImageWrapper paddingBottom={6} aria-hidden>
         {icon}
       </EmptyStateImageWrapper>
