@@ -17,6 +17,7 @@ export * from './EmptyStateLayout';
 export * from './Field';
 export * from './FocusTrap';
 export * from './Grid';
+export * from './GridLayout';
 export * from './HeaderLayout';
 export * from './IconButton';
 export * from './Link';
