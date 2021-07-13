@@ -27,7 +27,7 @@ export const TwoColsLayout = ({ startActions, endActions, header, startCol, endC
           </Box>
         ) : null}
 
-        <Grid gap={5}>
+        <Grid gap={4}>
           <GridItem col={8} s={12}>
             <Box hasRadius background="neutral0" shadow="tableShadow">
               {startCol}
