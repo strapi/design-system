@@ -1,0 +1,56 @@
+<!--- OneBlockLayout.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import BackIcon from '@strapi/icons/BackIcon';
+import EditIcon from '@strapi/icons/EditIcon';
+import AddIcon from '@strapi/icons/AddIcon';
+import { OneBlockLayout } from './OneBlockLayout';
+import { Box } from '../Box';
+import { Button } from '../Button';
+import { HeaderLayout } from '../HeaderLayout';
+import { Row } from '../Row';
+
+<Meta title="Design System/Layouts/OneBlockLayout" component={OneBlockLayout} />
+
+# OneBlockLayout
+
+This is the doc of the `OneBlockLayout` component
+
+## OneBlockLayout
+
+Description...
+
+<Canvas>
+  <Story name="base">
+    <Box padding={8} background="neutral100">
+      <OneBlockLayout
+        header={
+          <HeaderLayout
+            primaryAction={<Button startIcon={<AddIcon />}>Add an entry</Button>}
+            secondaryAction={
+              <Button variant="tertiary" startIcon={<EditIcon />}>
+                Edit
+              </Button>
+            }
+            title="Other CT"
+            subtitle="36 entries found"
+            as="h2"
+          />
+        }
+        startActions={
+          <>
+            <Button variant="tertiary">Search</Button>
+            <Button variant="tertiary">Filter</Button>
+          </>
+        }
+        endActions={
+          <>
+            <Button variant="tertiary">Settings</Button>
+          </>
+        }
+      >
+        <Box padding={4}>hello world</Box>
+      </OneBlockLayout>
+    </Box>
+  </Story>
+</Canvas>
