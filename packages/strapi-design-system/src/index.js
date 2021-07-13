@@ -49,5 +49,6 @@ export * from './ThemeProvider';
 export * from './TimePicker';
 export * from './ToggleCheckbox';
 export * from './Tooltip';
+export * from './TwoColsLayout';
 export * from './VisuallyHidden';
 export * from './themes';
