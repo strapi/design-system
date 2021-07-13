@@ -5,6 +5,7 @@ import AddIcon from '@strapi/icons/AddIcon';
 import { Illo } from './story-assets/Illo';
 import { EmptyStateLayout } from './EmptyStateLayout';
 import { Button } from '../Button';
+import { Box } from '../Box';
 
 <Meta title="Design System/Layouts/EmptyStateLayout" component={EmptyStateLayout} />
 
@@ -18,14 +19,16 @@ Description...
 
 <Canvas>
   <Story name="base">
-    <EmptyStateLayout
-      icon={<Illo />}
-      content="You don't have any content yet..."
-      action={
-        <Button variant="secondary" startIcon={<AddIcon />}>
-          Create your first content-type
-        </Button>
-      }
-    />
+    <Box padding={8} background="neutral100">
+      <EmptyStateLayout
+        icon={<Illo />}
+        content="You don't have any content yet..."
+        action={
+          <Button variant="secondary" startIcon={<AddIcon />}>
+            Create your first content-type
+          </Button>
+        }
+      />
+    </Box>
   </Story>
 </Canvas>
