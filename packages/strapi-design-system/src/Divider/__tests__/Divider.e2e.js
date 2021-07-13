@@ -3,7 +3,7 @@ import { injectAxe, checkA11y } from 'axe-playwright';
 describe('Divider', () => {
   beforeEach(async () => {
     // This is the URL of the Storybook Iframe
-    await page.goto('http://localhost:6006/iframe.html?id=design-system-molecules-divider--base&viewMode=story');
+    await page.goto('http://localhost:6006/iframe.html?id=design-system-atoms-divider--base&viewMode=story');
     await injectAxe(page);
   });
 

@@ -4,7 +4,7 @@ describe('BaseCheckbox', () => {
   beforeEach(async () => {
     // This is the URL of the Storybook Iframe
     await page.goto(
-      'http://localhost:6006/iframe.html?id=design-system-molecules-basecheckbox--indeterminate&viewMode=story',
+      'http://localhost:6006/iframe.html?id=design-system-atoms-basecheckbox--indeterminate&viewMode=story',
     );
     await injectAxe(page);
   });

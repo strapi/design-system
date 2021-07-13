@@ -5,7 +5,7 @@ describe('Checkbox', () => {
     beforeEach(async () => {
       // This is the URL of the Storybook Iframe
       await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-atoms-checkbox--indeterminate&viewMode=story',
+        'http://localhost:6006/iframe.html?id=design-system-molecules-checkbox--indeterminate&viewMode=story',
       );
       await injectAxe(page);
     });
@@ -43,7 +43,7 @@ describe('Checkbox', () => {
 
   describe('hint', () => {
     it('verifies A11y errors on the hint page', async () => {
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-atoms-checkbox--hint&viewMode=story');
+      await page.goto('http://localhost:6006/iframe.html?id=design-system-molecules-checkbox--hint&viewMode=story');
       await injectAxe(page);
       await checkA11y(page);
     });
@@ -51,7 +51,7 @@ describe('Checkbox', () => {
 
   describe('error', () => {
     it('verifies A11y errors on the error page', async () => {
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-atoms-checkbox--error&viewMode=story');
+      await page.goto('http://localhost:6006/iframe.html?id=design-system-molecules-checkbox--error&viewMode=story');
       await injectAxe(page);
       await checkA11y(page);
     });
