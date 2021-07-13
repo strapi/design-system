@@ -6,7 +6,7 @@ import { lightTheme } from '../src/themes/light-theme';
 export const parameters = {
   options: {
     storySort: {
-      order: ['Design System', ['Molecules', 'Atoms', 'Organisms']],
+      order: ['Design System', ['Subatomic', 'Atoms', 'Molecules', 'Organisms', 'Layouts']],
     },
   },
   actions: { argTypesRegex: '^on[A-Z].*' },

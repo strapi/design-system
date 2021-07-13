@@ -4,7 +4,7 @@ describe('Field', () => {
   beforeEach(async () => {
     // This is the URL of the Storybook Iframe
     await page.goto(
-      'http://localhost:6006/iframe.html?id=design-system-atoms-field--most-complex-input&viewMode=story',
+      'http://localhost:6006/iframe.html?id=design-system-molecules-field--most-complex-input&viewMode=story',
     );
     await injectAxe(page);
   });
