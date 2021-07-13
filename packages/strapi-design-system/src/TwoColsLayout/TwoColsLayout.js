@@ -28,12 +28,12 @@ export const TwoColsLayout = ({ startActions, endActions, header, startCol, endC
         ) : null}
 
         <Grid gap={4}>
-          <GridItem col={8} s={12}>
+          <GridItem col={9} s={12}>
             <Box hasRadius background="neutral0" shadow="tableShadow">
               {startCol}
             </Box>
           </GridItem>
-          <GridItem col={4} s={12}>
+          <GridItem col={3} s={12}>
             <Box hasRadius background="neutral0" shadow="tableShadow">
               {endCol}
             </Box>
