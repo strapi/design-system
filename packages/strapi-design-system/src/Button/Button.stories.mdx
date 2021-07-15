@@ -13,7 +13,18 @@ import { Row } from '../Row';
 
 # Button
 
-<Description markdown="Button description..." />
+Buttons are a way to perform actions within a page. They help interact with its content via a single click. According to their style, specific labels and icons, they help understand the most important actions to take.
+
+**Best practices**
+
+- A button should have a relevant and clear label.
+- Be positioned in consistent locations in the interface.
+- If there are no primary button on a screen yet, this might be the one to look for.
+- Prefer to have not more than two buttons side to side.
+
+**When not to use**
+
+- To navigate to another page in your browser (use Link component instead).
 
 [View source](https://github.com/strapi/design-system-experiments/tree/develop/packages/strapi-design-system/src/Button)
 
@@ -25,6 +36,8 @@ import { Button } from '@strapi/design-system/Button';
 
 ## Usage
 
+The most common button component used in the interface (primary action). It can have different variants and meaning.
+
 <Canvas withSource="open">
   <Story name="default" parameters={{ docs: { source: { code: '<Button>Default button</Button>' } } }}>
     <Box paddingBottom={2}>
@@ -34,6 +47,8 @@ import { Button } from '@strapi/design-system/Button';
 </Canvas>
 
 ### Button sizes
+
+Main actions usually use a L button (top of a screen, footer of a modal, ...). For subsidiary action, a S button suits more (filters, configure the view, ...).
 
 Use the size prop to change the size of the button. You can set the value to `S` or `L`.
 
@@ -93,7 +108,49 @@ You can set the value to `default`, `secondary`, `tertiary`, `success`, `danger`
   </Story>
 </Canvas>
 
+#### Primary button
+
+Use a Primary button to inform about the importance of an action. This is the strongest call to action. No more than one primary button should appear on a screen. 
+
+Examples: Save, Finish, ...
+
+#### Secondary button
+
+Use a Secondary button mostly next to a primary button. This action has to be less important or is less likely to be perform by a user. 
+
+Examples: Edit model, Configure the view, ...
+
+#### Tertiary button
+
+Use a Tertiary button when the action has a low impact or is the least likely to be perform by a user. 
+
+Examples: Cancel, Close, ...
+
+#### Success button
+
+Use a Success button for reassurance. Use it preferably to indicate a validation, a success, an end of a workflow, ...
+
+Examples: Confirm, Save, ...
+
+#### Danger
+
+Use a Danger button to indicate a destructive action. They are most commonly found in confirmation modals. More generally the red color and danger style indicate an important action that could not be reversible. 
+
+Example: Delete
+
+#### Success-light
+
+Use a Success-light button to indicate a lower emphasis style to a successful action. 
+
+#### Danger-light
+
+Use a Danger-light button to indicate a lower emphasis style to a destructive action. 
+
+Example: Delete this entry
+
 ### Button with icon
+
+A button can be associated with an icon to give more impact.
 
 You can add start and end icons to the Button component using the `startIcon` and `endIcon` props respectively.
 
@@ -123,6 +180,8 @@ You can add start and end icons to the Button component using the `startIcon` an
 </Canvas>
 
 ### Button disabled
+
+All action that cannot be performed yet.
 
 <Canvas withSource="open">
   <Story
