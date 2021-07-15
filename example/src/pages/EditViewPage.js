@@ -8,8 +8,8 @@ import { Button } from "@strapi/design-system/Button";
 import { Loader } from "@strapi/design-system/Loader";
 import BackIcon from "@strapi/icons/BackIcon";
 import CheckIcon from "@strapi/icons/CheckIcon";
-import { EditForm } from "../ContentManager/EditView/EditForm";
-import { OneBlockLayout } from "../layouts/OneBlockLayout";
+import { EditForm } from "../CM/EditView/EditForm";
+import { OneBlockLayout } from "@strapi/design-system/OneBlockLayout";
 
 export const EditViewPage = () => {
   const [loading, setLoading] = useState(true);
@@ -40,7 +40,7 @@ export const EditViewPage = () => {
 
   return (
     <OneBlockLayout
-      header={
+      headerLayout={
         <Stack size={2}>
           <Link to="/" startIcon={<BackIcon />}>
             Back

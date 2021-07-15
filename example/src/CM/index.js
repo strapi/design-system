@@ -5,14 +5,16 @@ import {
   Button,
   Grid,
   GridItem,
-  H1,
-  Row,
+  HeaderLayout,
   Stack,
+  OneBlockLayout,
 } from "@strapi/design-system";
-import { OneBlockLayout } from "../layouts/OneBlockLayout";
+import EditIcon from "@strapi/icons/EditIcon";
+import AddIcon from "@strapi/icons/AddIcon";
 import Inputs from "./Inputs";
 import { layout } from "./utils/layout";
 import schema, { getYupInnerErrors } from "./utils/schema";
+import { AppLayout } from "../layouts/AppLayout";
 
 const initialState = {
   initialData: {
@@ -78,72 +80,50 @@ const CM = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <AppLayout>
       <OneBlockLayout
         header={
-          <Stack size={2}>
-            <Box paddingLeft={[0, 4]}>
-              <Row justifyContent="space-between" wrap="wrap">
-                <H1 id="main-title">Create a new entry</H1>
-                <Box paddingTop={[0, 2]}>
-                  <Button type="submit">Save</Button>
-                </Box>
-              </Row>
-            </Box>
-          </Stack>
+          <HeaderLayout
+            primaryAction={
+              <Button startIcon={<AddIcon />}>Add an entry</Button>
+            }
+            secondaryAction={
+              <Button variant="tertiary" startIcon={<EditIcon />}>
+                Edit
+              </Button>
+            }
+            title="Other CT"
+            subtitle="36 entries found"
+            as="h2"
+          />
         }
       >
-        <Box padding={6}>
-          <Stack size={6}>
-            <Grid gap={5}>
-              {layout.map((row, index) => {
-                return row.map((input) => {
-                  return (
-                    <GridItem key={input.name} col={input.size} xs={12} s={6}>
-                      <Inputs
-                        {...input}
-                        // customInputs={{ string: () => "TEXT CUSTOM" }}
-                        error={formErrors?.[input.name]}
-                        onChange={handleChange}
-                        value={modifiedData[input.name]}
-                      />
-                    </GridItem>
-                  );
-                });
-              })}
-            </Grid>
-          </Stack>
-        </Box>
+        <form onSubmit={handleSubmit}>
+          <Box padding={6}>
+            <Stack size={6}>
+              <Grid gap={5}>
+                {layout.map((row, index) => {
+                  return row.map((input) => {
+                    return (
+                      <GridItem key={input.name} col={input.size} xs={12} s={6}>
+                        <Inputs
+                          {...input}
+                          // customInputs={{ string: () => "TEXT CUSTOM" }}
+                          error={formErrors?.[input.name]}
+                          onChange={handleChange}
+                          value={modifiedData[input.name]}
+                        />
+                      </GridItem>
+                    );
+                  });
+                })}
+              </Grid>
+            </Stack>
+          </Box>
+        </form>
       </OneBlockLayout>
-    </form>
+    </AppLayout>
   );
 };
-
-// const CM = () => {
-//   return (
-//     <OneBlockLayout header="User">
-//       <Box padding={6}>
-//         <Stack size={6}>
-//           <Grid cols="1fr 1fr">
-//             <Box>Name</Box>
-//             <Box>Email</Box>
-//           </Grid>
-//           <Grid cols="8fr 4fr">
-//             <Box>Description</Box>
-//           </Grid>
-//           <Grid cols="6fr 4fr 2fr">
-//             <Box background="primary600">Enum</Box>
-//             <Box background="primary600"> Date</Box>
-//           </Grid>
-//           <Grid cols="4fr 4fr 4fr">
-//             <Box>Private</Box>
-//             <Box>Max</Box>
-//             <Box>Min</Box>
-//           </Grid>
-//         </Stack>
-//       </Box>
-//     </OneBlockLayout>
-//   );
-// };
 
 export default CM;
