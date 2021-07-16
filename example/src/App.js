@@ -1,12 +1,18 @@
-import { Router } from "@reach/router";
-import { EditViewPage } from "./pages/EditViewPage";
-import CM from "./CM";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { EditViewPage } from './pages/EditViewPage';
+import CM from './CM';
 
 function App() {
   return (
     <Router>
-      <CM path="/cm" />
-      <EditViewPage path="/" />
+      <Switch>
+        <Route path="/cm">
+          <CM />
+        </Route>
+      </Switch>
+      <Route path="/">
+        <EditViewPage />
+      </Route>
     </Router>
   );
 }
