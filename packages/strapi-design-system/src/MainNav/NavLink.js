@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { NavLink as RouterLink } from 'react-router-dom';
 import { Box } from '../Box';
 import { Row } from '../Row';
 import { Text } from '../Text';
@@ -12,7 +13,7 @@ const IconBox = styled(Box)`
 `;
 
 // TODO: make sure to use the Link component associated with the router we want to use
-const MainNavLinkWrapper = styled.a`
+const MainNavLinkWrapper = styled(RouterLink)`
   text-decoration: none;
   display: block;
   border-radius: ${({ theme }) => theme.borderRadius};

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 import { Avatar } from '../Avatar';
 import { Text } from '../Text';
 import { Row } from '../Row';
@@ -19,7 +20,7 @@ export const NavUser = ({ src, children, ...props }) => {
   const condensed = useMainNav();
 
   return (
-    <NavUserBox paddingTop={3} paddingBottom={3} paddingLeft={5} paddingRight={5} as="a" {...props}>
+    <NavUserBox paddingTop={3} paddingBottom={3} paddingLeft={5} paddingRight={5} as={NavLink} {...props}>
       <Row as="span" justifyContent={condensed ? 'center' : undefined}>
         <Avatar src={src} alt="" aria-hidden />
         {condensed ? (
