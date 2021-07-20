@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   MainNav,
   NavBrand,
@@ -7,11 +7,11 @@ import {
   NavSection,
   NavUser,
   NavCondense,
-} from '@strapi/design-system/MainNav';
-import { Divider } from '@strapi/design-system/Divider';
-import ContentIcon from '@strapi/icons/ContentIcon';
-import menu from './utils/menu';
-import strapiImage from './strapi-img.png';
+} from "@strapi/design-system/MainNav";
+import { Divider } from "@strapi/design-system/Divider";
+import ContentIcon from "@strapi/icons/ContentIcon";
+import menu from "./utils/menu";
+import strapiImage from "./strapi-img.png";
 
 export const SideNav = () => {
   const [condensed, setCondensed] = useState(false);
@@ -25,7 +25,7 @@ export const SideNav = () => {
       />
       <Divider />
       <NavSections>
-        <NavLink href="/content" icon={<ContentIcon />}>
+        <NavLink to="/cm" icon={<ContentIcon />}>
           Content
         </NavLink>
 
@@ -34,7 +34,7 @@ export const SideNav = () => {
             const Icon = link.icon;
 
             return (
-              <NavLink href={link.to} key={link.to} icon={<Icon />}>
+              <NavLink to={link.to} key={link.to} icon={<Icon />}>
                 {link.intlLabel.defaultMessage}
               </NavLink>
             );
@@ -45,7 +45,7 @@ export const SideNav = () => {
             const Icon = link.icon;
 
             return (
-              <NavLink href={link.to} key={link.to} icon={<Icon />}>
+              <NavLink to={link.to} key={link.to} icon={<Icon />}>
                 {link.intlLabel.defaultMessage}
               </NavLink>
             );
@@ -53,11 +53,14 @@ export const SideNav = () => {
         </NavSection>
       </NavSections>
       <Divider />
-      <NavUser src="https://avatars.githubusercontent.com/u/3874873?v=4" href="/somewhere-i-belong">
+      <NavUser
+        src="https://avatars.githubusercontent.com/u/3874873?v=4"
+        to="/somewhere-i-belong"
+      >
         John Duff
       </NavUser>
       <NavCondense onClick={() => setCondensed((s) => !s)}>
-        {condensed ? 'Expanded the navbar' : 'Collapse the navbar'}
+        {condensed ? "Expanded the navbar" : "Collapse the navbar"}
       </NavCondense>
     </MainNav>
   );

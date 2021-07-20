@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { render } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
 import { MainNav } from '../MainNav';
 import { NavSection } from '../NavSection';
 import { NavSections } from '../NavSections';
@@ -17,47 +18,49 @@ jest.mock('uuid', () => ({
 describe('MainNav', () => {
   it('snapshots the component in full size', () => {
     const { container } = render(
-      <ThemeProvider theme={lightTheme}>
-        <MainNav condensed={false}>
-          <NavBrand workplace="Workplace" title="Strapi Dashboard" icon={<span>icon</span>} />
-          <Box paddingBottom={3}>
-            <Divider />
-          </Box>
-          <NavSections>
-            <NavLink href="/content" icon={<span>icon</span>}>
-              Content
-            </NavLink>
-            <NavSection label="Plugins">
-              <NavLink href="/builder" icon={<span>icon</span>} active>
-                Builder
+      <BrowserRouter>
+        <ThemeProvider theme={lightTheme}>
+          <MainNav condensed={false}>
+            <NavBrand workplace="Workplace" title="Strapi Dashboard" icon={<span>icon</span>} />
+            <Box paddingBottom={3}>
+              <Divider />
+            </Box>
+            <NavSections>
+              <NavLink to="/content" icon={<span>icon</span>}>
+                Content
               </NavLink>
-              <NavLink href="/content" icon={<span>icon</span>}>
-                Media library
-              </NavLink>
-              <NavLink href="/content" icon={<span>icon</span>}>
-                Documentation
-              </NavLink>
-            </NavSection>
-            <NavSection label="General">
-              <NavLink href="/builder" icon={<span>icon</span>}>
-                Plugins
-              </NavLink>
-              <NavLink href="/content" icon={<span>icon</span>}>
-                Marketplace
-              </NavLink>
-              <NavLink href="/content" icon={<span>icon</span>}>
-                Settings
-              </NavLink>
-            </NavSection>
-          </NavSections>
-          <Box paddingTop={3} paddingBottom={3}>
-            <Divider />
-          </Box>
-          <Box>
-            <button onClick={() => {}}>{`<`}</button>
-          </Box>
-        </MainNav>
-      </ThemeProvider>,
+              <NavSection label="Plugins">
+                <NavLink to="/builder" icon={<span>icon</span>}>
+                  Builder
+                </NavLink>
+                <NavLink to="/content" icon={<span>icon</span>}>
+                  Media library
+                </NavLink>
+                <NavLink to="/content" icon={<span>icon</span>}>
+                  Documentation
+                </NavLink>
+              </NavSection>
+              <NavSection label="General">
+                <NavLink to="/builder" icon={<span>icon</span>}>
+                  Plugins
+                </NavLink>
+                <NavLink to="/content" icon={<span>icon</span>}>
+                  Marketplace
+                </NavLink>
+                <NavLink to="/content" icon={<span>icon</span>}>
+                  Settings
+                </NavLink>
+              </NavSection>
+            </NavSections>
+            <Box paddingTop={3} paddingBottom={3}>
+              <Divider />
+            </Box>
+            <Box>
+              <button onClick={() => {}}>{`<`}</button>
+            </Box>
+          </MainNav>
+        </ThemeProvider>
+      </BrowserRouter>,
     );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
@@ -99,7 +102,7 @@ describe('MainNav', () => {
         border-radius: 4px;
       }
 
-      .c24 {
+      .c23 {
         padding-top: 12px;
         padding-bottom: 12px;
       }
@@ -129,14 +132,13 @@ describe('MainNav', () => {
         font-weight: 400;
         font-size: 0.875rem;
         line-height: 1.43;
-        color: #666687;
       }
 
-      .c23 {
-        font-weight: 500;
+      .c21 {
+        font-weight: 400;
         font-size: 0.875rem;
         line-height: 1.43;
-        color: #4945ff;
+        color: #666687;
       }
 
       .c7 {
@@ -144,7 +146,7 @@ describe('MainNav', () => {
         line-height: 1.14;
       }
 
-      .c21 {
+      .c22 {
         font-weight: 600;
         font-size: 0.6875rem;
         line-height: 1.45;
@@ -201,6 +203,10 @@ describe('MainNav', () => {
         background: #ffffff;
       }
 
+      .c14 .c5 {
+        color: #666687;
+      }
+
       .c14 svg path {
         fill: #8e8ea9;
       }
@@ -217,28 +223,17 @@ describe('MainNav', () => {
         fill: #666687;
       }
 
-      .c22 {
-        -webkit-text-decoration: none;
-        text-decoration: none;
-        display: block;
-        border-radius: 4px;
+      .c14.active {
         background: #f0f0ff;
       }
 
-      .c22 svg path {
+      .c14.active svg path {
         fill: #4945ff;
       }
 
-      .c22:hover {
-        background: #f6f6f9;
-      }
-
-      .c22:hover .c5 {
-        color: #4a4a6a;
-      }
-
-      .c22:hover svg path {
-        fill: #666687;
+      .c14.active .c5 {
+        color: #4945ff;
+        font-weight: 500;
       }
 
       .c15 {
@@ -304,7 +299,6 @@ describe('MainNav', () => {
           >
             <li>
               <a
-                aria-current="false"
                 class="c14"
                 href="/content"
               >
@@ -337,7 +331,7 @@ describe('MainNav', () => {
                   class="c20"
                 >
                   <span
-                    class="c5 c18 c7 c21"
+                    class="c5 c21 c7 c22"
                   >
                     Plugins
                   </span>
@@ -347,8 +341,7 @@ describe('MainNav', () => {
                 >
                   <li>
                     <a
-                      aria-current="true"
-                      class="c22"
+                      class="c14"
                       href="/builder"
                     >
                       <span
@@ -363,7 +356,7 @@ describe('MainNav', () => {
                           </span>
                         </span>
                         <span
-                          class="c5 c23"
+                          class="c5 c18"
                         >
                           Builder
                         </span>
@@ -372,7 +365,6 @@ describe('MainNav', () => {
                   </li>
                   <li>
                     <a
-                      aria-current="false"
                       class="c14"
                       href="/content"
                     >
@@ -397,7 +389,6 @@ describe('MainNav', () => {
                   </li>
                   <li>
                     <a
-                      aria-current="false"
                       class="c14"
                       href="/content"
                     >
@@ -433,7 +424,7 @@ describe('MainNav', () => {
                   class="c20"
                 >
                   <span
-                    class="c5 c18 c7 c21"
+                    class="c5 c21 c7 c22"
                   >
                     General
                   </span>
@@ -443,7 +434,6 @@ describe('MainNav', () => {
                 >
                   <li>
                     <a
-                      aria-current="false"
                       class="c14"
                       href="/builder"
                     >
@@ -468,7 +458,6 @@ describe('MainNav', () => {
                   </li>
                   <li>
                     <a
-                      aria-current="false"
                       class="c14"
                       href="/content"
                     >
@@ -493,7 +482,6 @@ describe('MainNav', () => {
                   </li>
                   <li>
                     <a
-                      aria-current="false"
                       class="c14"
                       href="/content"
                     >
@@ -522,7 +510,7 @@ describe('MainNav', () => {
           </ul>
         </div>
         <div
-          class="c24"
+          class="c23"
         >
           <hr
             class="c10 c11"
@@ -541,47 +529,49 @@ describe('MainNav', () => {
 
   it('snapshots the component in condensed size', () => {
     const { container } = render(
-      <ThemeProvider theme={lightTheme}>
-        <MainNav condensed={true}>
-          <NavBrand workplace="Workplace" title="Strapi Dashboard" icon={<span>icon</span>} />
-          <Box paddingBottom={3}>
-            <Divider />
-          </Box>
-          <NavSections>
-            <NavLink href="/content" icon={<span>icon</span>}>
-              Content
-            </NavLink>
-            <NavSection label="Plugins">
-              <NavLink href="/builder" icon={<span>icon</span>} active>
-                Builder
+      <BrowserRouter>
+        <ThemeProvider theme={lightTheme}>
+          <MainNav condensed={true}>
+            <NavBrand workplace="Workplace" title="Strapi Dashboard" icon={<span>icon</span>} />
+            <Box paddingBottom={3}>
+              <Divider />
+            </Box>
+            <NavSections>
+              <NavLink to="/content" icon={<span>icon</span>}>
+                Content
               </NavLink>
-              <NavLink href="/content" icon={<span>icon</span>}>
-                Media library
-              </NavLink>
-              <NavLink href="/content" icon={<span>icon</span>}>
-                Documentation
-              </NavLink>
-            </NavSection>
-            <NavSection label="General">
-              <NavLink href="/builder" icon={<span>icon</span>}>
-                Plugins
-              </NavLink>
-              <NavLink href="/content" icon={<span>icon</span>}>
-                Marketplace
-              </NavLink>
-              <NavLink href="/content" icon={<span>icon</span>}>
-                Settings
-              </NavLink>
-            </NavSection>
-          </NavSections>
-          <Box paddingTop={3} paddingBottom={3}>
-            <Divider />
-          </Box>
-          <Box>
-            <button onClick={() => {}}>{`<`}</button>
-          </Box>
-        </MainNav>
-      </ThemeProvider>,
+              <NavSection label="Plugins">
+                <NavLink to="/builder" icon={<span>icon</span>}>
+                  Builder
+                </NavLink>
+                <NavLink to="/content" icon={<span>icon</span>}>
+                  Media library
+                </NavLink>
+                <NavLink to="/content" icon={<span>icon</span>}>
+                  Documentation
+                </NavLink>
+              </NavSection>
+              <NavSection label="General">
+                <NavLink to="/builder" icon={<span>icon</span>}>
+                  Plugins
+                </NavLink>
+                <NavLink to="/content" icon={<span>icon</span>}>
+                  Marketplace
+                </NavLink>
+                <NavLink to="/content" icon={<span>icon</span>}>
+                  Settings
+                </NavLink>
+              </NavSection>
+            </NavSections>
+            <Box paddingTop={3} paddingBottom={3}>
+              <Divider />
+            </Box>
+            <Box>
+              <button onClick={() => {}}>{`<`}</button>
+            </Box>
+          </MainNav>
+        </ThemeProvider>
+      </BrowserRouter>,
     );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
@@ -617,7 +607,7 @@ describe('MainNav', () => {
         border-radius: 4px;
       }
 
-      .c17 {
+      .c16 {
         padding-top: 12px;
         padding-bottom: 12px;
       }
@@ -693,6 +683,10 @@ describe('MainNav', () => {
         background: #ffffff;
       }
 
+      .c9 .c17 {
+        color: #666687;
+      }
+
       .c9 svg path {
         fill: #8e8ea9;
       }
@@ -701,7 +695,7 @@ describe('MainNav', () => {
         background: #f6f6f9;
       }
 
-      .c9:hover .c18 {
+      .c9:hover .c17 {
         color: #4a4a6a;
       }
 
@@ -709,28 +703,17 @@ describe('MainNav', () => {
         fill: #666687;
       }
 
-      .c16 {
-        -webkit-text-decoration: none;
-        text-decoration: none;
-        display: block;
-        border-radius: 4px;
+      .c9.active {
         background: #f0f0ff;
       }
 
-      .c16 svg path {
+      .c9.active svg path {
         fill: #4945ff;
       }
 
-      .c16:hover {
-        background: #f6f6f9;
-      }
-
-      .c16:hover .c18 {
-        color: #4a4a6a;
-      }
-
-      .c16:hover svg path {
-        fill: #666687;
+      .c9.active .c17 {
+        color: #4945ff;
+        font-weight: 500;
       }
 
       .c11 {
@@ -789,7 +772,6 @@ describe('MainNav', () => {
             <li>
               <span>
                 <a
-                  aria-current="false"
                   aria-labelledby="tooltip-1"
                   class="c9"
                   href="/content"
@@ -836,9 +818,8 @@ describe('MainNav', () => {
                   <li>
                     <span>
                       <a
-                        aria-current="true"
                         aria-labelledby="tooltip-1"
-                        class="c16"
+                        class="c9"
                         href="/builder"
                         tabindex="0"
                       >
@@ -860,7 +841,6 @@ describe('MainNav', () => {
                   <li>
                     <span>
                       <a
-                        aria-current="false"
                         aria-labelledby="tooltip-1"
                         class="c9"
                         href="/content"
@@ -884,7 +864,6 @@ describe('MainNav', () => {
                   <li>
                     <span>
                       <a
-                        aria-current="false"
                         aria-labelledby="tooltip-1"
                         class="c9"
                         href="/content"
@@ -934,7 +913,6 @@ describe('MainNav', () => {
                   <li>
                     <span>
                       <a
-                        aria-current="false"
                         aria-labelledby="tooltip-1"
                         class="c9"
                         href="/builder"
@@ -958,7 +936,6 @@ describe('MainNav', () => {
                   <li>
                     <span>
                       <a
-                        aria-current="false"
                         aria-labelledby="tooltip-1"
                         class="c9"
                         href="/content"
@@ -982,7 +959,6 @@ describe('MainNav', () => {
                   <li>
                     <span>
                       <a
-                        aria-current="false"
                         aria-labelledby="tooltip-1"
                         class="c9"
                         href="/content"
@@ -1009,7 +985,7 @@ describe('MainNav', () => {
           </ul>
         </div>
         <div
-          class="c17"
+          class="c16"
         >
           <hr
             class="c5 c6"
