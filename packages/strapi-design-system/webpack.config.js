@@ -30,7 +30,7 @@ if (process.env.BUNDLE_ANALYZE) {
 
 module.exports = {
   entry,
-  mode: 'production',
+  mode: 'development',
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
@@ -64,6 +64,7 @@ module.exports = {
     {
       react: 'react',
       'react-dom': 'react-dom',
+      'react-router-dom': 'react-router-dom',
       'styled-components': 'styled-components',
     },
     /^@strapi\/icons/,
