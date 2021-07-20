@@ -30,7 +30,7 @@ if (process.env.BUNDLE_ANALYZE) {
 
 module.exports = {
   entry,
-  mode: 'development',
+  mode: 'production',
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
