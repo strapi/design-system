@@ -1,6 +1,6 @@
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { EditViewPage } from './pages/EditViewPage';
-import CM from './CM';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { EditViewPage } from "./pages/EditViewPage";
+import CM from "./CM";
 
 function App() {
   return (
