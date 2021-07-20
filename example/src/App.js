@@ -15,7 +15,7 @@ function App() {
           <EditViewPage />
         </Route>
 
-        <Route path="/settings">
+        <Route path="/settings/:settingType">
           <SettingsPage />
         </Route>
       </Switch>

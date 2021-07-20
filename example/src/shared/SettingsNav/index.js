@@ -15,24 +15,24 @@ export const SettingsNav = () => {
       id: 1,
       label: "Addresses",
       icon: <AlertWarningIcon />,
-      to: "/address",
+      to: "/settings/address",
     },
     {
       id: 2,
       label: "Categories",
-      to: "/category",
+      to: "/settings/category",
     },
     {
       id: 3,
       label: "Cities",
       icon: <Applications />,
-      to: "/city",
+      to: "/settings/city",
       active: true,
     },
     {
       id: 4,
       label: "Countries",
-      to: "/country",
+      to: "/settings/country",
     },
   ];
 
@@ -48,10 +48,9 @@ export const SettingsNav = () => {
       />
       <SubNavSections>
         <SubNavLink
-          to="/blabla"
+          to="/settings/application"
           withBullet
           icon={<Applications />}
-          className="active"
         >
           Application
         </SubNavLink>

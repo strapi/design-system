@@ -7,6 +7,7 @@ import {
 } from "@strapi/design-system";
 import EditIcon from "@strapi/icons/EditIcon";
 import AddIcon from "@strapi/icons/AddIcon";
+import { Switch, Route } from "react-router-dom";
 import { AppLayout } from "../layouts/AppLayout";
 import { SettingsNav } from "../shared/SettingsNav";
 
@@ -30,7 +31,14 @@ const SettingsPage = () => {
           />
         }
       >
-        <Box padding={6}>Hello</Box>
+        <Switch>
+          <Route path="/settings/application">
+            <Box padding={6}>Hello</Box>
+          </Route>
+          <Route path="">
+            <Box padding={6}>TODO</Box>
+          </Route>
+        </Switch>
       </OneBlockLayout>
     </AppLayout>
   );

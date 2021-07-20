@@ -51,7 +51,7 @@ const menu = {
     },
     {
       icon: SettingsIcon,
-      to: "/settings",
+      to: "/settings/application",
       intlLabel: {
         id: "Settings",
         defaultMessage: "Settings",
