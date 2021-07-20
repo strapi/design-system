@@ -20,10 +20,7 @@ import { Box } from '../Box';
 import { Divider } from '../Divider';
 import strapiImage from './strapi-img.png';
 
-<Meta
-  title="Design System/Organisms/MainNav"
-  component={MainNav}
-/>
+<Meta title="Design System/Organisms/MainNav" component={MainNav} />
 
 # MainNav
 
@@ -43,7 +40,7 @@ Description...
             <NavBrand workplace="Workplace" title="Strapi Dashboard" icon={<img src={strapiImage} alt="" />} />
             <Divider />
             <NavSections>
-              <NavLink href="/content" icon={<ContentIcon />}>
+              <NavLink href="/content" icon={<ContentIcon />} className="active">
                 Content
               </NavLink>
               <NavSection label="Plugins">
