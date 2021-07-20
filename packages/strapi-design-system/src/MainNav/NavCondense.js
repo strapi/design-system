@@ -16,9 +16,10 @@ const NavCondenseWrapper = styled.button`
   display: flex;
   align-items: center;
   position: absolute;
-  bottom: ${({ theme }) => theme.spaces[3]};
+  bottom: ${({ theme }) => theme.spaces[2]};
   right: ${({ theme, condensed }) => (condensed ? 0 : theme.spaces[5])};
   transform: ${({ condensed }) => (condensed ? `translateX(50%)` : undefined)};
+  z-index: 2;
 `;
 
 export const NavCondense = ({ children, ...props }) => {

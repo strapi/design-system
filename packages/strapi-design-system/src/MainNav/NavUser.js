@@ -14,6 +14,7 @@ const NavUserBox = styled(Box)`
   position: absolute;
   bottom: 0;
   width: 100%;
+  border-top: 1px solid ${({ theme }) => theme.colors.neutral150};
 `;
 
 export const NavUser = ({ src, children, ...props }) => {
