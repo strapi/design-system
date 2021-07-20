@@ -10,6 +10,8 @@ export const AppLayout = ({ children, subNav }) => {
           <SideNav />
         </Box>
 
+        <Box style={{ height: "100vh" }}>{subNav}</Box>
+
         <Box style={{ flex: 1 }}>{children}</Box>
       </Row>
     </Box>

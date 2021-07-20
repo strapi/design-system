@@ -1,60 +1,60 @@
-import CtbIcon from '@strapi/icons/ContentTypeBuilderIcon';
-import MediaLibIcon from '@strapi/icons/MediaLibrary';
-import AlertInfoIcon from '@strapi/icons/AlertInfoIcon';
-import PluginsIcon from '@strapi/icons/PluginsIcons';
-import MarketPlaceIcon from '@strapi/icons/MarketplaceIcon';
-import SettingsIcon from '@strapi/icons/Settings';
+import CtbIcon from "@strapi/icons/ContentTypeBuilderIcon";
+import MediaLibIcon from "@strapi/icons/MediaLibrary";
+import AlertInfoIcon from "@strapi/icons/AlertInfoIcon";
+import PluginsIcon from "@strapi/icons/PluginsIcons";
+import MarketPlaceIcon from "@strapi/icons/MarketplaceIcon";
+import SettingsIcon from "@strapi/icons/Settings";
 
 const menu = {
   pluginSectionLinks: [
     {
       icon: CtbIcon,
-      to: '/builder',
+      to: "/builder",
       intlLabel: {
-        id: 'Content Type Builder',
-        defaultMessage: 'Content Type Builder',
+        id: "Content Type Builder",
+        defaultMessage: "Content Type Builder",
       },
     },
     {
       icon: MediaLibIcon,
-      to: '/upload',
+      to: "/upload",
       intlLabel: {
-        id: 'Media Library',
-        defaultMessage: 'Media Library',
+        id: "Media Library",
+        defaultMessage: "Media Library",
       },
     },
     {
       icon: AlertInfoIcon,
-      to: '/documentation',
+      to: "/documentation",
       intlLabel: {
-        id: 'Documentation',
-        defaultMessage: 'Documentation',
+        id: "Documentation",
+        defaultMessage: "Documentation",
       },
     },
   ],
   generalSectionLinks: [
     {
       icon: PluginsIcon,
-      to: '/plugins',
+      to: "/plugins",
       intlLabel: {
-        id: 'Plugins',
-        defaultMessage: 'Plugins',
+        id: "Plugins",
+        defaultMessage: "Plugins",
       },
     },
     {
       icon: MarketPlaceIcon,
-      to: '/marketplace',
+      to: "/marketplace",
       intlLabel: {
-        id: 'Marketplace',
-        defaultMessage: 'Marketplace',
+        id: "Marketplace",
+        defaultMessage: "Marketplace",
       },
     },
     {
       icon: SettingsIcon,
-      to: '/settings',
+      to: "/settings/application",
       intlLabel: {
-        id: 'Settings',
-        defaultMessage: 'Settings',
+        id: "Settings",
+        defaultMessage: "Settings",
       },
     },
   ],

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { Applications, AddIcon, ApiTokens, AlertWarningIcon, AlertInfoIcon } from '@strapi/icons';
+import { MemoryRouter } from 'react-router-dom';
 import { SubNav } from './SubNav';
 import { SubNavHeader } from './SubNavHeader';
 import { SubNavSection } from './SubNavSection';
@@ -54,100 +55,102 @@ Description...
         },
       ];
       return (
-        <Row>
-          <Box padding={10} style={{ height: '100vh' }}>
-            <SubNav ariaLabel="Builder sub nav">
-              <SubNavHeader
-                searchable
-                value={search}
-                onClear={() => setSearch('')}
-                onChange={(e) => setSearch(e.target.value)}
-                label="Builder"
-                searchLabel="Search..."
-              />
-              <SubNavSections>
-                <SubNavSection label="Collection Type" collapsable badgeLabel={links.length.toString()}>
-                  {links.map((link) => (
-                    <SubNavLink href={link.to} active={link.active} key={link.id}>
-                      {link.label}
-                    </SubNavLink>
-                  ))}
-                </SubNavSection>
-                <Box as="li" paddingLeft={7}>
-                  <TextButton startIcon={<AddIcon />}>Click on me</TextButton>
-                </Box>
-                <SubNavSection label="Single Type" collapsable badgeLabel={links.length.toString()}>
-                  <SubNavLinkSection label="Default">
+        <MemoryRouter>
+          <Row>
+            <Box padding={10} style={{ height: '100vh' }}>
+              <SubNav ariaLabel="Builder sub nav">
+                <SubNavHeader
+                  searchable
+                  value={search}
+                  onClear={() => setSearch('')}
+                  onChange={(e) => setSearch(e.target.value)}
+                  label="Builder"
+                  searchLabel="Search..."
+                />
+                <SubNavSections>
+                  <SubNavSection label="Collection Type" collapsable badgeLabel={links.length.toString()}>
                     {links.map((link) => (
-                      <SubNavLink href={link.to} key={link.id}>
+                      <SubNavLink to={link.to} active={link.active} key={link.id}>
                         {link.label}
                       </SubNavLink>
                     ))}
-                  </SubNavLinkSection>
-                </SubNavSection>
-                <Box as="li" paddingLeft={7}>
-                  <TextButton startIcon={<AddIcon />}>Click on me</TextButton>
-                </Box>
-              </SubNavSections>
-            </SubNav>
-          </Box>
-          <Box padding={10} style={{ height: '100vh' }}>
-            <SubNav ariaLabel="Settings sub nav">
-              <SubNavHeader label="Settings" />
-              <SubNavSections>
-                <SubNavLink href="/blabla" withBullet icon={<Applications />}>
-                  Application
-                </SubNavLink>
-                <SubNavSection label="Global Settings">
-                  {links.map(
-                    (link) =>
-                      link.icon && (
-                        <SubNavLink href={link.to} active={link.active} icon={link.icon} key={link.id}>
+                  </SubNavSection>
+                  <Box as="li" paddingLeft={7}>
+                    <TextButton startIcon={<AddIcon />}>Click on me</TextButton>
+                  </Box>
+                  <SubNavSection label="Single Type" collapsable badgeLabel={links.length.toString()}>
+                    <SubNavLinkSection label="Default">
+                      {links.map((link) => (
+                        <SubNavLink to={link.to} key={link.id}>
                           {link.label}
                         </SubNavLink>
-                      ),
-                  )}
-                </SubNavSection>
-                <SubNavSection label="Permissions">
-                  {links.map(
-                    (link) =>
-                      link.icon && (
-                        <SubNavLink href={link.to} icon={link.icon} key={link.id}>
+                      ))}
+                    </SubNavLinkSection>
+                  </SubNavSection>
+                  <Box as="li" paddingLeft={7}>
+                    <TextButton startIcon={<AddIcon />}>Click on me</TextButton>
+                  </Box>
+                </SubNavSections>
+              </SubNav>
+            </Box>
+            <Box padding={10} style={{ height: '100vh' }}>
+              <SubNav ariaLabel="Settings sub nav">
+                <SubNavHeader label="Settings" />
+                <SubNavSections>
+                  <SubNavLink to="/blabla" withBullet icon={<Applications />} className="active">
+                    Application
+                  </SubNavLink>
+                  <SubNavSection label="Global Settings">
+                    {links.map(
+                      (link) =>
+                        link.icon && (
+                          <SubNavLink to={link.to} active={link.active} icon={link.icon} key={link.id}>
+                            {link.label}
+                          </SubNavLink>
+                        ),
+                    )}
+                  </SubNavSection>
+                  <SubNavSection label="Permissions">
+                    {links.map(
+                      (link) =>
+                        link.icon && (
+                          <SubNavLink to={link.to} icon={link.icon} key={link.id}>
+                            {link.label}
+                          </SubNavLink>
+                        ),
+                    )}
+                  </SubNavSection>
+                </SubNavSections>
+              </SubNav>
+            </Box>
+            <Box padding={10} style={{ height: '100vh' }}>
+              <SubNav ariaLabel="Mixed sub nav">
+                <SubNavHeader label="Mixed" />
+                <SubNavSections>
+                  <SubNavLink to="/blabla" withBullet icon={<Applications />}>
+                    Application
+                  </SubNavLink>
+                  <SubNavSection label="Global Settings">
+                    <SubNavLinkSection label="Sub section">
+                      {links.map((link) => (
+                        <SubNavLink to={link.to} active={link.active} icon={link.icon} key={link.id}>
                           {link.label}
                         </SubNavLink>
-                      ),
-                  )}
-                </SubNavSection>
-              </SubNavSections>
-            </SubNav>
-          </Box>
-          <Box padding={10} style={{ height: '100vh' }}>
-            <SubNav ariaLabel="Mixed sub nav">
-              <SubNavHeader label="Mixed" />
-              <SubNavSections>
-                <SubNavLink href="/blabla" withBullet icon={<Applications />}>
-                  Application
-                </SubNavLink>
-                <SubNavSection label="Global Settings">
-                  <SubNavLinkSection label="Sub section">
+                      ))}
+                    </SubNavLinkSection>
+                  </SubNavSection>
+                  <SubNavSection label="Permissions">
                     {links.map((link) => (
-                      <SubNavLink href={link.to} active={link.active} icon={link.icon} key={link.id}>
+                      <SubNavLink to={link.to} icon={link.icon} key={link.id}>
                         {link.label}
                       </SubNavLink>
                     ))}
-                  </SubNavLinkSection>
-                </SubNavSection>
-                <SubNavSection label="Permissions">
-                  {links.map((link) => (
-                    <SubNavLink href={link.to} icon={link.icon} key={link.id}>
-                      {link.label}
-                    </SubNavLink>
-                  ))}
-                </SubNavSection>
-              </SubNavSections>
-            </SubNav>
-          </Box>
-        </Row>
+                  </SubNavSection>
+                </SubNavSections>
+              </SubNav>
+            </Box>
+          </Row>
+        </MemoryRouter>
       );
     }}
   </Story>

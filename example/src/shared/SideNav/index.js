@@ -52,7 +52,6 @@ export const SideNav = () => {
           })}
         </NavSection>
       </NavSections>
-      <Divider />
       <NavUser
         src="https://avatars.githubusercontent.com/u/3874873?v=4"
         to="/somewhere-i-belong"

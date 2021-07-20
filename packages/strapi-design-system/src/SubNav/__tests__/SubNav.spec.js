@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { render } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
 import { SubNav } from '../SubNav';
@@ -41,36 +42,38 @@ describe('SubNav', () => {
       },
     ];
     const { container } = render(
-      <ThemeProvider theme={lightTheme}>
-        <SubNav ariaLabel="Builder sub nav">
-          <SubNavHeader
-            searchable
-            value=""
-            onClear={() => {}}
-            onChange={() => {}}
-            label="Builder"
-            searchLabel="Search..."
-          />
-          <SubNavSections>
-            <SubNavSection label="Collection Type" collapsable badgeLabel={links.length.toString()}>
-              {links.map((link) => (
-                <SubNavLink href={link.to} active={link.active} key={link.id}>
-                  {link.label}
-                </SubNavLink>
-              ))}
-            </SubNavSection>
-            <SubNavSection label="Single Type" collapsable badgeLabel={links.length.toString()}>
-              <SubNavLinkSection label="Default">
+      <MemoryRouter>
+        <ThemeProvider theme={lightTheme}>
+          <SubNav ariaLabel="Builder sub nav">
+            <SubNavHeader
+              searchable
+              value=""
+              onClear={() => {}}
+              onChange={() => {}}
+              label="Builder"
+              searchLabel="Search..."
+            />
+            <SubNavSections>
+              <SubNavSection label="Collection Type" collapsable badgeLabel={links.length.toString()}>
                 {links.map((link) => (
-                  <SubNavLink href={link.to} key={link.id}>
+                  <SubNavLink to={link.to} active={link.active} key={link.id}>
                     {link.label}
                   </SubNavLink>
                 ))}
-              </SubNavLinkSection>
-            </SubNavSection>
-          </SubNavSections>
-        </SubNav>
-      </ThemeProvider>,
+              </SubNavSection>
+              <SubNavSection label="Single Type" collapsable badgeLabel={links.length.toString()}>
+                <SubNavLinkSection label="Default">
+                  {links.map((link) => (
+                    <SubNavLink to={link.to} key={link.id}>
+                      {link.label}
+                    </SubNavLink>
+                  ))}
+                </SubNavLinkSection>
+              </SubNavSection>
+            </SubNavSections>
+          </SubNav>
+        </ThemeProvider>
+      </MemoryRouter>,
     );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
@@ -123,7 +126,7 @@ describe('SubNav', () => {
         padding-left: 8px;
       }
 
-      .c32 {
+      .c30 {
         padding-top: 8px;
         padding-right: 16px;
         padding-bottom: 8px;
@@ -136,6 +139,7 @@ describe('SubNav', () => {
         height: 100%;
         position: relative;
         overflow-y: auto;
+        border-right: 1px solid #dcdce4;
       }
 
       .c11 > * {
@@ -198,13 +202,7 @@ describe('SubNav', () => {
         line-height: 1.43;
       }
 
-      .c31 {
-        font-weight: 500;
-        font-size: 0.875rem;
-        line-height: 1.43;
-      }
-
-      .c36 {
+      .c34 {
         font-weight: 500;
         font-size: 0.875rem;
         line-height: 1.43;
@@ -272,19 +270,19 @@ describe('SubNav', () => {
         width: 1rem;
       }
 
-      .c33 {
+      .c31 {
         max-height: 2rem;
       }
 
-      .c33 svg {
+      .c31 svg {
         height: 0.25rem;
       }
 
-      .c33 svg path {
+      .c31 svg path {
         fill: #4a4a6a;
       }
 
-      .c34 {
+      .c32 {
         border: none;
         padding: 0;
         background: transparent;
@@ -298,7 +296,7 @@ describe('SubNav', () => {
         align-items: center;
       }
 
-      .c35 {
+      .c33 {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -387,43 +385,21 @@ describe('SubNav', () => {
         fill: #666687;
       }
 
-      .c27:focus-visible {
-        outline-offset: -2px;
-      }
-
-      .c30 {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-align-items: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        -webkit-box-pack: justify;
-        -webkit-justify-content: space-between;
-        -ms-flex-pack: justify;
-        justify-content: space-between;
-        -webkit-text-decoration: none;
-        text-decoration: none;
-        color: #32324d;
+      .c27.active {
         background-color: #f0f0ff;
         border-right: 2px solid #4945ff;
       }
 
-      .c30 svg > * {
-        fill: #666687;
-      }
-
-      .c30 svg > * {
+      .c27.active svg > * {
         fill: #271fe0;
       }
 
-      .c30 .c17 {
+      .c27.active .c17 {
         color: #271fe0;
+        font-weight: 500;
       }
 
-      .c30:focus-visible {
+      .c27:focus-visible {
         outline-offset: -2px;
       }
 
@@ -546,7 +522,6 @@ describe('SubNav', () => {
               >
                 <li>
                   <a
-                    aria-current="false"
                     class="c26 c27"
                     href="/address"
                   >
@@ -582,7 +557,6 @@ describe('SubNav', () => {
                 </li>
                 <li>
                   <a
-                    aria-current="false"
                     class="c26 c27"
                     href="/category"
                   >
@@ -618,7 +592,6 @@ describe('SubNav', () => {
                 </li>
                 <li>
                   <a
-                    aria-current="false"
                     class="c26 c27"
                     href="/city"
                   >
@@ -654,8 +627,7 @@ describe('SubNav', () => {
                 </li>
                 <li>
                   <a
-                    aria-current="true"
-                    class="c26 c30"
+                    class="c26 c27"
                     href="/country"
                   >
                     <div
@@ -680,7 +652,7 @@ describe('SubNav', () => {
                         class="c29"
                       >
                         <span
-                          class="c17 c31"
+                          class="c17 c25"
                         >
                           Countries
                         </span>
@@ -747,7 +719,7 @@ describe('SubNav', () => {
               >
                 <li>
                   <div
-                    class="c32 c33"
+                    class="c30 c31"
                   >
                     <div
                       class="c2"
@@ -755,10 +727,10 @@ describe('SubNav', () => {
                       <button
                         aria-controls="list-123"
                         aria-expanded="true"
-                        class="c34"
+                        class="c32"
                       >
                         <div
-                          class="c35"
+                          class="c33"
                         >
                           <svg
                             aria-hidden="true"
@@ -780,7 +752,7 @@ describe('SubNav', () => {
                           class="c29"
                         >
                           <span
-                            class="c17 c36"
+                            class="c17 c34"
                           >
                             Default
                           </span>
@@ -793,7 +765,6 @@ describe('SubNav', () => {
                   >
                     <li>
                       <a
-                        aria-current="false"
                         class="c26 c27"
                         href="/address"
                       >
@@ -829,7 +800,6 @@ describe('SubNav', () => {
                     </li>
                     <li>
                       <a
-                        aria-current="false"
                         class="c26 c27"
                         href="/category"
                       >
@@ -865,7 +835,6 @@ describe('SubNav', () => {
                     </li>
                     <li>
                       <a
-                        aria-current="false"
                         class="c26 c27"
                         href="/city"
                       >
@@ -901,7 +870,6 @@ describe('SubNav', () => {
                     </li>
                     <li>
                       <a
-                        aria-current="false"
                         class="c26 c27"
                         href="/country"
                       >
