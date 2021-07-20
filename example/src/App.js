@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { EditViewPage } from "./pages/EditViewPage";
 import CM from "./CM";
+import SettingsPage from "./pages/SettingsPage";
 
 function App() {
   return (
@@ -9,10 +10,15 @@ function App() {
         <Route path="/cm">
           <CM />
         </Route>
+
+        <Route path="/cm/edit">
+          <EditViewPage />
+        </Route>
+
+        <Route path="/settings">
+          <SettingsPage />
+        </Route>
       </Switch>
-      <Route path="/">
-        <EditViewPage />
-      </Route>
     </Router>
   );
 }

@@ -9,6 +9,7 @@ const SubNavWrapper = styled(Grid)`
   height: 100%;
   position: relative;
   overflow-y: auto;
+  border-right: 1px solid ${({ theme }) => theme.colors.neutral200};
 `;
 
 export const SubNav = ({ ariaLabel, ...props }) => {
