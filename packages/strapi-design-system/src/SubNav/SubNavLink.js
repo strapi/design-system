@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Bullet from '@strapi/icons/Bullet';
+import { NavLink } from 'react-router-dom';
 import { Box } from '../Box';
 import { Text } from '../Text';
 import { Row } from '../Row';
@@ -15,8 +16,9 @@ const SubNavLinkWrapper = styled(Box)`
   svg > * {
     fill: ${({ theme }) => theme.colors.neutral600};
   }
-  ${({ active, theme }) => {
-    if (active) {
+
+  &.active {
+    ${({ theme }) => {
       return `
       background-color: ${theme.colors.primary100};
       border-right: 2px solid ${theme.colors.primary600};
@@ -25,10 +27,12 @@ const SubNavLinkWrapper = styled(Box)`
       }
       ${Text} {
         color: ${theme.colors.primary700};
+        font-weight: 500;
       }
       `;
-    }
-  }}
+    }}
+  }
+
   &:focus-visible {
     outline-offset: -2px;
   }
@@ -47,26 +51,22 @@ const IconWrapper = styled.div`
   }
 `;
 
-export const SubNavLink = ({ children, icon, withBullet, as, active, ...props }) => {
+export const SubNavLink = ({ children, icon, withBullet, ...props }) => {
   return (
     <li>
       <SubNavLinkWrapper
-        as={as}
+        as={NavLink}
         icon={icon}
         background="neutral100"
         paddingLeft={7}
         paddingBottom={2}
         paddingTop={2}
-        active={active}
-        aria-current={active}
         {...props}
       >
         <Row>
           {icon ? <IconWrapper>{icon}</IconWrapper> : <CustomBullet />}
           <Box paddingLeft={2}>
-            <Text highlighted={active} as="span">
-              {children}
-            </Text>
+            <Text as="span">{children}</Text>
           </Box>
         </Row>
         {withBullet && (
@@ -80,14 +80,10 @@ export const SubNavLink = ({ children, icon, withBullet, as, active, ...props })
 };
 
 SubNavLink.defaultProps = {
-  active: false,
-  as: 'a',
   icon: null,
   withBullet: false,
 };
 SubNavLink.propTypes = {
-  active: PropTypes.bool,
-  as: PropTypes.oneOfType([PropTypes.elementType, PropTypes.string]),
   children: PropTypes.node,
   icon: PropTypes.element,
   link: PropTypes.element,
