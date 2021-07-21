@@ -105,7 +105,7 @@ describe('Link', () => {
     const { container } = render(
       <MemoryRouter>
         <ThemeProvider theme={lightTheme}>
-          <Link to="https://strapi.io/" startIcon={<span>Left</span>} endIcon={<span>Right</span>}>
+          <Link to="/internal-link" startIcon={<span>Left</span>} endIcon={<span>Right</span>}>
             External link
           </Link>
         </ThemeProvider>
@@ -171,7 +171,7 @@ describe('Link', () => {
 
       <a
         class="c0"
-        href="https://strapi.io/"
+        href="/internal-link"
       >
         <span
           aria-hidden="true"
