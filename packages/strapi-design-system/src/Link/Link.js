@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
 import ExternalLink from '@strapi/icons/ExternalLink';
 import { TableLabel } from '../Text';
 import { Box } from '../Box';
@@ -31,20 +30,14 @@ const IconWrapper = styled(Box)`
   display: flex;
 `;
 
+// TODO: make sure to use the link from the router library chosen
 export const Link = ({ href, to, children, disabled, startIcon, endIcon, ...props }) => {
+  const linkHref = disabled ? '#' : href || to;
   const target = href ? '_blank' : undefined;
   const rel = href ? 'noreferrer noopener' : undefined;
 
   return (
-    <LinkWrapper
-      as={to ? NavLink : undefined}
-      to={disabled ? '#' : to}
-      href={disabled ? '#' : href}
-      target={target}
-      rel={rel}
-      disabled={disabled}
-      {...props}
-    >
+    <LinkWrapper target={target} rel={rel} href={linkHref} disabled={disabled} {...props}>
       {startIcon && (
         <IconWrapper as="span" aria-hidden={true} paddingRight={2}>
           {startIcon}

@@ -1,6 +1,7 @@
 /* eslint-disable react/display-name */
 import * as React from 'react';
 import { render } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import { Link } from '../Link';
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
@@ -8,9 +9,11 @@ import { lightTheme } from '../../themes';
 describe('Link', () => {
   it('snapshots the component with an external link', () => {
     const { container } = render(
-      <ThemeProvider theme={lightTheme}>
-        <Link href="https://strapi.io/">External link</Link>
-      </ThemeProvider>,
+      <MemoryRouter>
+        <ThemeProvider theme={lightTheme}>
+          <Link href="https://strapi.io/">External link</Link>
+        </ThemeProvider>
+      </MemoryRouter>,
     );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
@@ -100,11 +103,13 @@ describe('Link', () => {
 
   it('snapshots the component with right and left icons', () => {
     const { container } = render(
-      <ThemeProvider theme={lightTheme}>
-        <Link to="https://strapi.io/" startIcon={<span>Left</span>} endIcon={<span>Right</span>}>
-          External link
-        </Link>
-      </ThemeProvider>,
+      <MemoryRouter>
+        <ThemeProvider theme={lightTheme}>
+          <Link to="https://strapi.io/" startIcon={<span>Left</span>} endIcon={<span>Right</span>}>
+            External link
+          </Link>
+        </ThemeProvider>
+      </MemoryRouter>,
     );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
@@ -195,11 +200,13 @@ describe('Link', () => {
 
   it('snapshots the component with right and left icons and disabled state', () => {
     const { container } = render(
-      <ThemeProvider theme={lightTheme}>
-        <Link disabled to="https://strapi.io/" startIcon={<span>Left</span>} endIcon={<span>Right</span>}>
-          External link
-        </Link>
-      </ThemeProvider>,
+      <MemoryRouter>
+        <ThemeProvider theme={lightTheme}>
+          <Link disabled to="https://strapi.io/" startIcon={<span>Left</span>} endIcon={<span>Right</span>}>
+            External link
+          </Link>
+        </ThemeProvider>
+      </MemoryRouter>,
     );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
