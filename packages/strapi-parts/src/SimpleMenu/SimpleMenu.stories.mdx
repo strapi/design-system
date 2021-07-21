@@ -1,6 +1,7 @@
 <!--- SimpleMenu.stories.mdx --->
 
 import { useState } from 'react';
+import { ArgsTable } from '@storybook/addon-docs';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { SimpleMenu, MenuItem } from './SimpleMenu';
 
@@ -10,12 +11,41 @@ import { SimpleMenu, MenuItem } from './SimpleMenu';
 
 This is the doc of the `SimpleMenu` component
 
-## SimpleMenu
+[View source](https://github.com/strapi/design-system-experiments/tree/develop/packages/strapi-design-system/src/SimpleMenu)
+
+## Imports
+
+```js
+import { SimpleMenu, MenuItem } from '@strapi/design-system/SimpleMenu';
+```
+
+## Usage
 
 Description...
 
 <Canvas>
-  <Story name="base">
+  <Story
+    name="base"
+    parameters={{
+      docs: {
+        source: {
+          code: `
+const [val, setValue] = useState('January');\n
+return (
+  <SimpleMenu id="label" label={val}>
+    <MenuItem id="menuItem-January" onClick={() => setValue('January')}>
+      January
+    </MenuItem>
+    <MenuItem id="menuItem-February" onClick={() => setValue('February')}>
+      February
+    </MenuItem>
+  </SimpleMenu>
+);
+  `,
+        },
+      },
+    }}
+  >
     {() => {
       const [val, setValue] = useState('January');
       return (
@@ -26,11 +56,50 @@ Description...
           <MenuItem id="menuItem-February" onClick={() => setValue('February')}>
             February
           </MenuItem>
-          <MenuItem id="menuItem-Strapi" to="https://strapi.io">
-            Strapi website
-          </MenuItem>
         </SimpleMenu>
       );
     }}
   </Story>
 </Canvas>
+
+### With links
+
+<Canvas>
+  <Story
+    name="with-links"
+    parameters={{
+      docs: {
+        source: {
+          code: `
+<SimpleMenu label="Menu">
+  <MenuItem to="/">
+    Home
+  </MenuItem>
+  <MenuItem to="/somewhere">
+    Somewhere internal
+  </MenuItem>
+</SimpleMenu>
+  `,
+        },
+      },
+    }}
+  >
+    <SimpleMenu label="Menu">
+      <MenuItem to="/">Home</MenuItem>
+      <MenuItem to="/somewhere">Somewhere internal</MenuItem>
+    </SimpleMenu>
+  </Story>
+</Canvas>
+
+## Accessibility
+
+- When the menu button has focus, `Space` or `Enter` opens or closes the menu.
+- When the menu is open, the navigation between menu items can be done with the `ArrowDown` or `ArrowUp`
+
+## SimpleMenu props
+
+<ArgsTable of={SimpleMenu} />
+
+## MenuItem props
+
+<ArgsTable of={MenuItem} />

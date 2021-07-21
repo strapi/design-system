@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
 import { Alert } from './Alert';
 import { Box } from '../Box';
 import { Stack } from '../Stack';
@@ -13,95 +14,97 @@ import { Link } from '../Link';
 
 This is the doc of the `Alert` component
 
-## Alert
+[View source](https://github.com/strapi/design-system-experiments/tree/develop/packages/strapi-design-system/src/Alert)
+
+## Imports
+
+```js
+import { Alert } from '@strapi/design-system/Alert';
+```
+
+## Usage
 
 Description...
 
-<Canvas>
-  <Story name="base">
-    <Box padding={10} style={{ width: 700 }}>
-      <Stack size={4}>
-        <Alert
-          title="Default variant"
-          onClose={() => {}}
-          closeLabel="Close notification"
-          action={<Link to="/somewhere">See more</Link>}
-        >
-          Alert with title and longer description, lorem ipsum dolor sit amet constrectum adipisicng lorem ipsum dolor
-          sit amet consrectumis adipisingus.
+<Canvas withSource="open">
+  <Story
+    name="default"
+    parameters={{
+      docs: {
+        source: {
+          code: '<Alert title="Title">This is the default alert.</Alert>',
+        },
+      },
+    }}
+  >
+    <Box style={{ width: 700 }}>
+      <Alert title="Title">This is the default alert.</Alert>
+    </Box>
+  </Story>
+</Canvas>
+
+### Alert variants
+
+Use the variant prop to change the visual style of the Button.
+You can set the value to `default`, `success`, or `danger`.
+
+<Canvas withSource="open">
+  <Story
+    name="variants"
+    parameters={{
+      docs: {
+        source: {
+          code: '<Alert title="Title" variant="success">This is the default variant.</Alert>',
+        },
+      },
+    }}
+  >
+    <Box style={{ width: 700 }}>
+      <Stack size={1}>
+        <Alert title="Title">This is the default variant.</Alert>
+        <Alert title="Title" variant="success">
+          This is the success variant.
         </Alert>
-        <Alert
-          title="Success variant"
-          variant="success"
-          onClose={() => {}}
-          closeLabel="Close notification"
-          action={<Link to="/somewhere">See more</Link>}
-        >
-          Alert with title and longer description, lorem ipsum dolor sit amet constrectum adipisicng lorem ipsum dolor
-          sit amet consrectumis adipisingus.
-        </Alert>
-        <Alert
-          title="Danger variant"
-          variant="danger"
-          onClose={() => {}}
-          closeLabel="Close notification"
-          action={<Link to="/somewhere">See more</Link>}
-        >
-          Alert with title and longer description, lorem ipsum dolor sit amet constrectum adipisicng lorem ipsum dolor
-          sit amet consrectumis adipisingus.
-        </Alert>
-        <Alert
-          title="Default variant"
-          onClose={() => {}}
-          closeLabel="Close notification"
-          action={<Link to="/somewhere">See more</Link>}
-        >
-          Alert with title and longer description
-        </Alert>
-        <Alert
-          title="Success variant"
-          variant="success"
-          onClose={() => {}}
-          closeLabel="Close notification"
-          action={<Link to="/somewhere">See more</Link>}
-        >
-          Alert with title and longer description
-        </Alert>
-        <Alert
-          title="Danger variant"
-          variant="danger"
-          onClose={() => {}}
-          closeLabel="Close notification"
-          action={<Link to="/somewhere">See more</Link>}
-        >
-          Alert with title and longer description
+        <Alert title="Title" variant="danger">
+          This is the danger variant.
         </Alert>
       </Stack>
     </Box>
   </Story>
 </Canvas>
 
-## Alert
+### Alert with action
 
 Description...
 
-<Canvas>
-  <Story name="live region">
-    {() => {
-      const [visible, setVisible] = useState(false);
-      return (
-        <Box padding={10} style={{ width: 700 }}>
-          <Stack size={4}>
-            <button onClick={() => setVisible((s) => !s)}>Open alert</button>
-            {visible && (
-              <Alert title="Default variant" onClose={() => {}} closeLabel="Close notification" variant="danger">
-                Alert with title and longer description, lorem ipsum dolor sit amet constrectum adipisicng lorem ipsum
-                dolor sit amet consrectumis adipisingus.
-              </Alert>
-            )}
-          </Stack>
-        </Box>
-      );
+<Canvas withSource="open">
+  <Story
+    name="with-action"
+    parameters={{
+      docs: {
+        source: {
+          code: `
+<Alert title="This is the title of the alert" action={<Link to="/somewhere">See more</Link>}>
+  Alert with title and longer description, lorem ipsum dolor sit amet constrectum adipisicng lorem ipsum dolor sit
+  amet consrectumis adipisingus.
+</Alert>`,
+        },
+      },
     }}
+  >
+    <Box style={{ width: 700 }}>
+      <Alert title="This is the title of the alert" action={<Link to="/somewhere">See more</Link>}>
+        Alert with title and longer description, lorem ipsum dolor sit amet constrectum adipisicng lorem ipsum dolor sit
+        amet consrectumis adipisingus.
+      </Alert>
+    </Box>
   </Story>
 </Canvas>
+
+## Accessibility
+
+- ...
+
+## Props
+
+<ArgsTable of={Alert} />

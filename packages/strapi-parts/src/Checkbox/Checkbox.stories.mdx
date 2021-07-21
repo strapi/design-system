@@ -1,6 +1,7 @@
 <!--- Button.stories.mdx --->
 
 import { useState } from 'react';
+import { ArgsTable } from '@storybook/addon-docs';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { Checkbox } from './Checkbox';
 
@@ -8,14 +9,20 @@ import { Checkbox } from './Checkbox';
 
 # Checkbox
 
-This is the doc of the `Checkbox` component
-
-## Default
-
 Description...
 
-<Canvas>
-  <Story name="default">
+[View source](https://github.com/strapi/design-system-experiments/tree/develop/packages/strapi-design-system/src/Checkbox)
+
+## Imports
+
+```js
+import { Checkbox } from '@strapi/design-system/Checkbox';
+```
+
+## Usage
+
+<Canvas withSource="open">
+  <Story name="default" parameters={{ docs: { source: { code: '<Checkbox>Label</Checkbox>' } } }}>
     {() => {
       const [val, setValue] = useState(false);
       return (
@@ -27,29 +34,19 @@ Description...
   </Story>
 </Canvas>
 
-## Disabled
+### Indeterminate checkbox
 
-Description...
-
-<Canvas>
-  <Story name="disabled">
-    {() => {
-      const [val, setValue] = useState(false);
-      return (
-        <Checkbox disabled id="default" name="default" onValueChange={(value) => setValue(value)} value={val}>
-          Label
-        </Checkbox>
-      );
+<Canvas withSource="open">
+  <Story
+    name="sizes"
+    parameters={{
+      docs: {
+        source: {
+          code: `<Checkbox indeterminate>Parent</Checkbox>`,
+        },
+      },
     }}
-  </Story>
-</Canvas>
-
-## Indeterminate
-
-Description...
-
-<Canvas>
-  <Story name="indeterminate">
+  >
     {() => {
       const [checkedItems, setCheckedItems] = React.useState([true, false]);
       const allChecked = checkedItems.every(Boolean);
@@ -97,12 +94,32 @@ Description...
   </Story>
 </Canvas>
 
-## Hint
+### Disabled
 
 Description...
 
-<Canvas>
-  <Story name="hint">
+<Canvas withSource="open">
+  <Story name="disabled" parameters={{ docs: { source: { code: '<Checkbox disabled>Label</Checkbox>' } } }}>
+    {() => {
+      const [val, setValue] = useState(false);
+      return (
+        <Checkbox disabled id="default" name="default" onValueChange={(value) => setValue(value)} value={val}>
+          Label
+        </Checkbox>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Hint
+
+Description...
+
+<Canvas withSource="open">
+  <Story
+    name="hint"
+    parameters={{ docs: { source: { code: '<Checkbox hint="Description line lorem ipsum">Label</Checkbox>' } } }}
+  >
     {() => {
       const [val, setValue] = useState(false);
       return (
@@ -120,12 +137,15 @@ Description...
   </Story>
 </Canvas>
 
-## Error
+### Error
 
 Description...
 
-<Canvas>
-  <Story name="error">
+<Canvas withSource="open">
+  <Story
+    name="error"
+    parameters={{ docs: { source: { code: '<Checkbox error="Description line lorem ipsum">Label</Checkbox>' } } }}
+  >
     {() => {
       const [val, setValue] = useState(false);
       return (
@@ -142,3 +162,12 @@ Description...
     }}
   </Story>
 </Canvas>
+
+## Accessibility
+
+- Checkbox has role of checkbox.
+- When Checkbox has focus, `Space` or `Enter` activates/deactivates it.
+
+## Props
+
+<ArgsTable of={Checkbox} />
