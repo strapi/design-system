@@ -1,0 +1,42 @@
+<!--- ModalLayout.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ModalLayout } from './ModalLayout';
+import { ModalHeader } from './ModalHeader';
+import { ModalFooter } from './ModalFooter';
+import { ModalBody } from './ModalBody';
+import { TextButton } from '../Text';
+import { Row } from '../Row';
+import { Button } from '../Button';
+
+<Meta title="Design System/Layouts/ModalLayout" component={ModalLayout} />
+
+# ModalLayout
+
+This is the doc of the `ModalLayout` component
+
+## ModalLayout
+
+Description...
+
+<Canvas>
+  <Story name="base">
+    <ModalLayout onClose={() => undefined} labelledBy="title">
+      <ModalHeader>
+        <TextButton textColor="neutral800" as="h2" id="title">
+          Title
+        </TextButton>
+      </ModalHeader>
+      <ModalBody>Hello world</ModalBody>
+      <ModalFooter
+        startActions={<Button variant="tertiary">Cancel</Button>}
+        endActions={
+          <>
+            <Button variant="secondary">Add new stuff</Button>
+            <Button>Finish</Button>
+          </>
+        }
+      />
+    </ModalLayout>
+  </Story>
+</Canvas>
