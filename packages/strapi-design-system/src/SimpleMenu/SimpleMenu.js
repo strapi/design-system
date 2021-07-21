@@ -2,6 +2,7 @@ import React, { useRef, useState, Children, cloneElement, useEffect } from 'reac
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import FilterDropdown from '@strapi/icons/FilterDropdown';
+import { NavLink } from 'react-router-dom';
 import { TextButton, Text } from '../Text';
 import { Box } from '../Box';
 import { Row } from '../Row';
@@ -17,7 +18,7 @@ const OptionButton = styled.button`
   cursor: pointer;
   ${getOptionStyle}
 `;
-const OptionLink = styled.a`
+const OptionLink = styled(NavLink)`
   text-decoration: none;
   ${getOptionStyle}
 `;
@@ -35,7 +36,7 @@ const MenuButton = styled.button`
   }
 `;
 
-export const MenuItem = ({ children, onClick, href, isFocused, ...props }) => {
+export const MenuItem = ({ children, onClick, to, isFocused, ...props }) => {
   const menuItemRef = useRef();
 
   useEffect(() => {
@@ -60,8 +61,8 @@ export const MenuItem = ({ children, onClick, href, isFocused, ...props }) => {
 
   return (
     <Row as="li" justifyContent="center">
-      {href ? (
-        <OptionLink href={href} {...menuItemProps}>
+      {to ? (
+        <OptionLink to={to} {...menuItemProps}>
           <Box padding={2}>
             <Text>{children}</Text>
           </Box>
@@ -76,16 +77,18 @@ export const MenuItem = ({ children, onClick, href, isFocused, ...props }) => {
     </Row>
   );
 };
+
 MenuItem.defaultProps = {
   onClick: () => {},
-  href: undefined,
+  to: undefined,
   isFocused: false,
 };
+
 MenuItem.propTypes = {
   children: PropTypes.node.isRequired,
-  href: PropTypes.string,
   isFocused: PropTypes.bool,
   onClick: PropTypes.func,
+  to: PropTypes.string,
 };
 
 export const SimpleMenu = ({ label, children, ...props }) => {

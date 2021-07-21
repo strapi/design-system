@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import BackFilter from '@strapi/icons/BackFilter';
 import NextFilter from '@strapi/icons/NextFilter';
+import { NavLink } from 'react-router-dom';
 import { VisuallyHidden } from '../VisuallyHidden';
 import { usePagination } from './PaginationContext';
 import { Text } from '../Text';
@@ -11,8 +12,14 @@ const PaginationText = styled(Text)`
   line-height: revert;
 `;
 
+const transientProps = {
+  active: true,
+};
+
 // TODO: make sure to use the Link exposed by the chosen router
-const LinkWrapper = styled.a`
+const LinkWrapper = styled(NavLink).withConfig({
+  shouldForwardProp: (prop, defPropValFN) => !transientProps[prop] && defPropValFN(prop),
+})`
   padding: ${({ theme }) => theme.spaces[3]};
   border-radius: ${({ theme }) => theme.borderRadius};
   box-shadow: ${({ active, theme }) => (active ? theme.shadows.filterShadow : undefined)};
@@ -54,7 +61,7 @@ const DotsWrapper = styled(LinkWrapper)`
   color: ${({ theme }) => theme.colors.neutral800};
 `;
 
-export const PreviousLink = ({ children, href, ...props }) => {
+export const PreviousLink = ({ children, to, ...props }) => {
   const { activePage } = usePagination();
 
   const disabled = activePage === 1;
@@ -62,7 +69,7 @@ export const PreviousLink = ({ children, href, ...props }) => {
   return (
     <li>
       <ActionLinkWrapper
-        href={disabled ? '#' : href}
+        to={disabled ? '#' : to}
         aria-disabled={disabled}
         tabIndex={disabled ? -1 : undefined}
         {...props}
@@ -74,7 +81,7 @@ export const PreviousLink = ({ children, href, ...props }) => {
   );
 };
 
-export const NextLink = ({ children, href, ...props }) => {
+export const NextLink = ({ children, to, ...props }) => {
   const { activePage, pageCount } = usePagination();
 
   const disabled = activePage === pageCount;
@@ -82,7 +89,7 @@ export const NextLink = ({ children, href, ...props }) => {
   return (
     <li>
       <ActionLinkWrapper
-        href={disabled ? '#' : href}
+        to={disabled ? '#' : to}
         aria-disabled={disabled}
         tabIndex={disabled ? -1 : undefined}
         {...props}
@@ -101,7 +108,7 @@ export const PageLink = ({ number, children, ...props }) => {
 
   return (
     <li>
-      <PageLinkWrapper {...props} active={isActive} aria-current={isActive}>
+      <PageLinkWrapper {...props} active={isActive}>
         <VisuallyHidden>{children}</VisuallyHidden>
         <PaginationText aria-hidden={true} small={true} highlighted={isActive}>
           {number}
@@ -129,7 +136,7 @@ PageLink.propTypes = {
 
 const sharedPropTypes = {
   children: PropTypes.node.isRequired,
-  href: PropTypes.string.isRequired,
+  to: PropTypes.string.isRequired,
 };
 
 NextLink.propTypes = sharedPropTypes;
