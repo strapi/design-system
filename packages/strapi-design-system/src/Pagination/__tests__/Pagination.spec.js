@@ -1,6 +1,7 @@
 /* eslint-disable react/display-name */
 import * as React from 'react';
 import { render } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import { Pagination } from '../Pagination';
 import { PreviousLink, NextLink, PageLink, Dots } from '../components';
 import { ThemeProvider } from '../../ThemeProvider';
@@ -9,25 +10,27 @@ import { lightTheme } from '../../themes';
 describe('Pagination', () => {
   it('snapshots the component', () => {
     const { container } = render(
-      <ThemeProvider theme={lightTheme}>
-        <Pagination activePage={1} pageCount={4}>
-          <PreviousLink href="/1">Go to previous page</PreviousLink>
-          <PageLink number={1} href="/1">
-            Page 1
-          </PageLink>
-          <PageLink number={2} href="/2">
-            Page 2
-          </PageLink>
-          <PageLink number={3} href="/3">
-            Page 3
-          </PageLink>
-          <Dots>There are pages in between</Dots>
-          <PageLink number={4} href="/4">
-            Page 4
-          </PageLink>
-          <NextLink href="/3">Go to next page</NextLink>
-        </Pagination>
-      </ThemeProvider>,
+      <MemoryRouter>
+        <ThemeProvider theme={lightTheme}>
+          <Pagination activePage={1} pageCount={4}>
+            <PreviousLink to="/1">Go to previous page</PreviousLink>
+            <PageLink number={1} to="/1">
+              Page 1
+            </PageLink>
+            <PageLink number={2} to="/2">
+              Page 2
+            </PageLink>
+            <PageLink number={3} to="/3">
+              Page 3
+            </PageLink>
+            <Dots>There are pages in between</Dots>
+            <PageLink number={4} to="/4">
+              Page 4
+            </PageLink>
+            <NextLink to="/3">Go to next page</NextLink>
+          </Pagination>
+        </ThemeProvider>
+      </MemoryRouter>,
     );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
@@ -157,9 +160,10 @@ describe('Pagination', () => {
         >
           <li>
             <a
+              aria-current="page"
               aria-disabled="true"
-              class="c2 c3"
-              href="#"
+              class="c2 c3 active"
+              href="/"
               tabindex="-1"
             >
               <div
@@ -184,7 +188,6 @@ describe('Pagination', () => {
           </li>
           <li>
             <a
-              aria-current="true"
               class="c5 c6"
               href="/1"
             >
@@ -203,7 +206,6 @@ describe('Pagination', () => {
           </li>
           <li>
             <a
-              aria-current="false"
               class="c2 c9"
               href="/2"
             >
@@ -222,7 +224,6 @@ describe('Pagination', () => {
           </li>
           <li>
             <a
-              aria-current="false"
               class="c2 c9"
               href="/3"
             >
@@ -258,7 +259,6 @@ describe('Pagination', () => {
           </li>
           <li>
             <a
-              aria-current="false"
               class="c2 c9"
               href="/4"
             >
@@ -308,25 +308,27 @@ describe('Pagination', () => {
 
   it('snapshots the component with the last item disabled', () => {
     const { container } = render(
-      <ThemeProvider theme={lightTheme}>
-        <Pagination activePage={4} pageCount={4}>
-          <PreviousLink href="/1">Go to previous page</PreviousLink>
-          <PageLink number={1} href="/1">
-            Page 1
-          </PageLink>
-          <PageLink number={2} href="/2">
-            Page 2
-          </PageLink>
-          <PageLink number={3} href="/3">
-            Page 3
-          </PageLink>
-          <Dots>There are pages in between</Dots>
-          <PageLink number={4} href="/4">
-            Page 4
-          </PageLink>
-          <NextLink href="/3">Go to next page</NextLink>
-        </Pagination>
-      </ThemeProvider>,
+      <MemoryRouter>
+        <ThemeProvider theme={lightTheme}>
+          <Pagination activePage={4} pageCount={4}>
+            <PreviousLink to="/1">Go to previous page</PreviousLink>
+            <PageLink number={1} to="/1">
+              Page 1
+            </PageLink>
+            <PageLink number={2} to="/2">
+              Page 2
+            </PageLink>
+            <PageLink number={3} to="/3">
+              Page 3
+            </PageLink>
+            <Dots>There are pages in between</Dots>
+            <PageLink number={4} to="/4">
+              Page 4
+            </PageLink>
+            <NextLink to="/3">Go to next page</NextLink>
+          </Pagination>
+        </ThemeProvider>
+      </MemoryRouter>,
     );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
@@ -482,7 +484,6 @@ describe('Pagination', () => {
           </li>
           <li>
             <a
-              aria-current="false"
               class="c2 c5"
               href="/1"
             >
@@ -501,7 +502,6 @@ describe('Pagination', () => {
           </li>
           <li>
             <a
-              aria-current="false"
               class="c2 c5"
               href="/2"
             >
@@ -520,7 +520,6 @@ describe('Pagination', () => {
           </li>
           <li>
             <a
-              aria-current="false"
               class="c2 c5"
               href="/3"
             >
@@ -556,7 +555,6 @@ describe('Pagination', () => {
           </li>
           <li>
             <a
-              aria-current="true"
               class="c9 c10"
               href="/4"
             >
@@ -575,9 +573,10 @@ describe('Pagination', () => {
           </li>
           <li>
             <a
+              aria-current="page"
               aria-disabled="true"
-              class="c2 c12"
-              href="#"
+              class="c2 c12 active"
+              href="/"
               tabindex="-1"
             >
               <div

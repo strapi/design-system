@@ -12,8 +12,14 @@ const PaginationText = styled(Text)`
   line-height: revert;
 `;
 
+const transientProps = {
+  active: true,
+};
+
 // TODO: make sure to use the Link exposed by the chosen router
-const LinkWrapper = styled(NavLink)`
+const LinkWrapper = styled(NavLink).withConfig({
+  shouldForwardProp: (prop, defPropValFN) => !transientProps[prop] && defPropValFN(prop),
+})`
   padding: ${({ theme }) => theme.spaces[3]};
   border-radius: ${({ theme }) => theme.borderRadius};
   box-shadow: ${({ active, theme }) => (active ? theme.shadows.filterShadow : undefined)};
@@ -102,7 +108,7 @@ export const PageLink = ({ number, children, ...props }) => {
 
   return (
     <li>
-      <PageLinkWrapper {...props} active={isActive} aria-current={isActive}>
+      <PageLinkWrapper {...props} active={isActive}>
         <VisuallyHidden>{children}</VisuallyHidden>
         <PaginationText aria-hidden={true} small={true} highlighted={isActive}>
           {number}
