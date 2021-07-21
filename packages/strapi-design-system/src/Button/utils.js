@@ -115,11 +115,3 @@ export const getVariantStyle = ({ theme, variant }) => {
     }
   }
 };
-
-export const getIconPosition = ({ size }) => {
-  if (size === 'S') {
-    return '1px';
-  }
-
-  return '3px';
-};

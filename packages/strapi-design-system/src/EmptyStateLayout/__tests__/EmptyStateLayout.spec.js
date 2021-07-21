@@ -30,14 +30,9 @@ describe('EmptyStateLayout', () => {
       }
 
       .c11 {
-        font-weight: 400;
-        font-size: 0.875rem;
-        line-height: 1.43;
-      }
-
-      .c12 {
-        font-weight: 600;
-        line-height: 1.14;
+        font-weight: 500;
+        font-size: 0.75rem;
+        line-height: 1.33;
       }
 
       .c1 {
@@ -121,7 +116,7 @@ describe('EmptyStateLayout', () => {
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
-        margin-top: 1px;
+        margin-top: 2px;
       }
 
       .c8 .c10 {
@@ -216,7 +211,7 @@ describe('EmptyStateLayout', () => {
             </span>
           </div>
           <span
-            class="c10 c11 c12"
+            class="c10 c11"
           >
             Create your first content-type
           </span>

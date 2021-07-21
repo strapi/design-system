@@ -14,14 +14,9 @@ describe('Button', () => {
 
     expect(container.firstChild).toMatchInlineSnapshot(`
       .c3 {
-        font-weight: 400;
-        font-size: 0.875rem;
-        line-height: 1.43;
-      }
-
-      .c4 {
-        font-weight: 600;
-        line-height: 1.14;
+        font-weight: 500;
+        font-size: 0.75rem;
+        line-height: 1.33;
       }
 
       .c0 {
@@ -67,7 +62,7 @@ describe('Button', () => {
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
-        margin-top: 1px;
+        margin-top: 2px;
       }
 
       .c1 .c2 {
@@ -117,7 +112,7 @@ describe('Button', () => {
         class="c0 c1"
       >
         <span
-          class="c2 c3 c4"
+          class="c2 c3"
         >
           Hello world
         </span>
@@ -134,14 +129,9 @@ describe('Button', () => {
 
     expect(container.firstChild).toMatchInlineSnapshot(`
       .c3 {
-        font-weight: 400;
-        font-size: 0.875rem;
-        line-height: 1.43;
-      }
-
-      .c4 {
-        font-weight: 600;
-        line-height: 1.14;
+        font-weight: 500;
+        font-size: 0.75rem;
+        line-height: 1.33;
       }
 
       .c0 {
@@ -187,7 +177,7 @@ describe('Button', () => {
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
-        margin-top: 1px;
+        margin-top: 2px;
       }
 
       .c1 .c2 {
@@ -254,7 +244,7 @@ describe('Button', () => {
         class="c0 c1"
       >
         <span
-          class="c2 c3 c4"
+          class="c2 c3"
         >
           Submit
         </span>
@@ -271,14 +261,9 @@ describe('Button', () => {
 
     expect(container.firstChild).toMatchInlineSnapshot(`
       .c3 {
-        font-weight: 400;
-        font-size: 0.875rem;
-        line-height: 1.43;
-      }
-
-      .c4 {
-        font-weight: 600;
-        line-height: 1.14;
+        font-weight: 500;
+        font-size: 0.75rem;
+        line-height: 1.33;
       }
 
       .c0 {
@@ -324,7 +309,7 @@ describe('Button', () => {
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
-        margin-top: 1px;
+        margin-top: 2px;
       }
 
       .c1 .c2 {
@@ -374,7 +359,7 @@ describe('Button', () => {
         class="c0 c1"
       >
         <span
-          class="c2 c3 c4"
+          class="c2 c3"
         >
           Success
         </span>
@@ -391,14 +376,9 @@ describe('Button', () => {
 
     expect(container.firstChild).toMatchInlineSnapshot(`
       .c3 {
-        font-weight: 400;
-        font-size: 0.875rem;
-        line-height: 1.43;
-      }
-
-      .c4 {
-        font-weight: 600;
-        line-height: 1.14;
+        font-weight: 500;
+        font-size: 0.75rem;
+        line-height: 1.33;
       }
 
       .c0 {
@@ -444,7 +424,7 @@ describe('Button', () => {
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
-        margin-top: 1px;
+        margin-top: 2px;
       }
 
       .c1 .c2 {
@@ -511,7 +491,7 @@ describe('Button', () => {
         class="c0 c1"
       >
         <span
-          class="c2 c3 c4"
+          class="c2 c3"
         >
           Remove
         </span>
@@ -565,7 +545,7 @@ describe('Button', () => {
       }
 
       .c1 {
-        padding: 8px 16px;
+        padding: 10px 16px;
         background: #4945ff;
         border: none;
         border: 1px solid #4945ff;
@@ -581,7 +561,7 @@ describe('Button', () => {
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
-        margin-top: 3px;
+        margin-top: 2px;
       }
 
       .c1 .c2 {

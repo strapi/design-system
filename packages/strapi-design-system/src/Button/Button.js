@@ -3,18 +3,19 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Text, TextButton } from '../Text';
 import { Box } from '../Box';
-import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle, getIconPosition } from './utils';
+import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from './utils';
 import { VARIANTS, BUTTON_SIZES } from './constants';
 import { BaseButton } from '../BaseButton';
 
+// TODO: Check the L size button with Maeva
 export const ButtonWrapper = styled(BaseButton)`
-  padding: ${({ theme }) => `${theme.spaces[2]} ${theme.spaces[4]}`};
+  padding: ${({ theme, size }) => `${size === 'S' ? theme.spaces[2] : '10px'} ${theme.spaces[4]}`};
   background: ${({ theme }) => theme.colors.primary600};
   border: none;
   ${Box} {
     display: flex;
     align-items: center;
-    margin-top: ${getIconPosition};
+    margin-top: 2px;
   }
   ${Text} {
     color: ${({ theme }) => theme.colors.neutral0};
@@ -43,7 +44,7 @@ export const Button = React.forwardRef(({ variant, startIcon, endIcon, disabled,
         </Box>
       )}
 
-      {size === 's' ? (
+      {size === 'S' ? (
         <Text small={size === 'S'} highlighted>
           {children}
         </Text>
