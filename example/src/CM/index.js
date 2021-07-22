@@ -94,7 +94,6 @@ const CM = () => {
             }
             title="Other CT"
             subtitle="36 entries found"
-            as="h2"
           />
         }
       >
