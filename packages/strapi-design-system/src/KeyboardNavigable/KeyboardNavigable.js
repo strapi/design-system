@@ -3,7 +3,25 @@ import PropTypes from 'prop-types';
 import { Box } from '../Box';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 
-export const KeyboardNavigable = ({ tagName, ...props }) => {
+export const KeyboardNavigable = ({ tagName, attributeName, ...props }) => {
+  const isValidFocusedElement = () => {
+    const focused = document.activeElement;
+
+    if (tagName) {
+      return focused.tagName.toLowerCase() === tagName;
+    }
+
+    return focused.hasAttribute(attributeName);
+  };
+
+  const queryElement = (parentEl) => {
+    if (tagName) {
+      return parentEl.querySelectorAll(tagName);
+    }
+
+    return parentEl.querySelectorAll(`[${attributeName}]`);
+  };
+
   const handleKeyDown = (e) => {
     switch (e.key) {
       case KeyboardKeys.ARROW_RIGHT:
@@ -12,10 +30,10 @@ export const KeyboardNavigable = ({ tagName, ...props }) => {
 
         const focused = document.activeElement;
 
-        if (focused.tagName.toLowerCase() === tagName) {
+        if (isValidFocusedElement()) {
           e.preventDefault();
 
-          const allElements = [...e.currentTarget.querySelectorAll(tagName)];
+          const allElements = [...queryElement(e.currentTarget)];
           const focusedIndex = allElements.findIndex((node) => node === focused);
 
           const nextIndex = focusedIndex + 1 < allElements.length ? focusedIndex + 1 : 0;
@@ -30,10 +48,10 @@ export const KeyboardNavigable = ({ tagName, ...props }) => {
 
         const focused = document.activeElement;
 
-        if (focused.tagName.toLowerCase() === tagName) {
+        if (isValidFocusedElement()) {
           e.preventDefault();
 
-          const allElements = [...e.currentTarget.querySelectorAll(tagName)];
+          const allElements = [...queryElement(e.currentTarget)];
           const focusedIndex = allElements.findIndex((node) => node === focused);
 
           const nextIndex = focusedIndex - 1 > -1 ? focusedIndex - 1 : allElements.length - 1;
@@ -43,12 +61,10 @@ export const KeyboardNavigable = ({ tagName, ...props }) => {
       }
 
       case KeyboardKeys.HOME: {
-        const focused = document.activeElement;
-
-        if (focused.tagName.toLowerCase() === tagName) {
+        if (isValidFocusedElement()) {
           e.preventDefault();
 
-          const allElements = e.currentTarget.querySelectorAll(tagName);
+          const allElements = queryElement(e.currentTarget);
           allElements.item(0).focus();
         }
 
@@ -56,12 +72,10 @@ export const KeyboardNavigable = ({ tagName, ...props }) => {
       }
 
       case KeyboardKeys.END: {
-        const focused = document.activeElement;
-
-        if (focused.tagName.toLowerCase() === tagName) {
+        if (isValidFocusedElement()) {
           e.preventDefault();
 
-          const allElements = e.currentTarget.querySelectorAll(tagName);
+          const allElements = queryElement(e.currentTarget);
           allElements.item(allElements.length - 1).focus();
         }
 
@@ -77,9 +91,11 @@ export const KeyboardNavigable = ({ tagName, ...props }) => {
 };
 
 KeyboardNavigable.defaultProps = {
+  attributeName: undefined,
   tagName: undefined,
 };
 
 KeyboardNavigable.propTypes = {
+  attributeName: PropTypes.string,
   tagName: PropTypes.string,
 };

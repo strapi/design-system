@@ -5,7 +5,7 @@ import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import EditIcon from '@strapi/icons/EditIcon';
 import { Accordion } from './Accordion';
 import { AccordionToggle } from './AccordionToggle';
-import { AccordionGroup } from './AccordionGroup';
+import { KeyboardNavigable } from '../KeyboardNavigable';
 import { AccordionContent } from './AccordionContent';
 import { Box } from '../Box';
 import { Row } from '../Row';
@@ -89,7 +89,7 @@ Description...
   <Story name="group">
     {() => {
       return (
-        <AccordionGroup>
+        <KeyboardNavigable attributeName="data-strapi-accordion-toggle">
           <Box padding={8} background="neutral100">
             <Accordion expanded={false} toggle={() => {}} id="acc-1">
               <AccordionToggle
@@ -138,7 +138,7 @@ Description...
               </AccordionContent>
             </Accordion>
           </Box>
-        </AccordionGroup>
+        </KeyboardNavigable>
       );
     }}
   </Story>
