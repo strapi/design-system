@@ -15,7 +15,7 @@ import { CardAction } from './CardAction';
 import { CardCheckbox } from './CardCheckbox';
 import { CardTimer } from './CardTimer';
 import { IconButton } from '../IconButton';
-import { Cards } from './Cards';
+import { KeyboardNavigable } from '../KeyboardNavigable';
 // Story assets
 import firstImgPath from './story-assets/first.jpg';
 
@@ -31,7 +31,7 @@ Description...
 
 <Canvas>
   <Story name="base">
-    <Cards padding={8} background="neutral100">
+    <KeyboardNavigable padding={8} background="neutral100" tagName="article">
       <Stack size={3}>
         <Card style={{ width: '240px' }} id="first">
           <CardHeader>
@@ -95,6 +95,6 @@ Description...
           </CardBody>
         </Card>
       </Stack>
-    </Cards>
+    </KeyboardNavigable>
   </Story>
 </Canvas>

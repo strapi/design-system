@@ -20,6 +20,7 @@ export * from './Grid';
 export * from './GridLayout';
 export * from './HeaderLayout';
 export * from './IconButton';
+export * from './KeyboardNavigable';
 export * from './Link';
 export * from './Loader';
 export * from './Main';
