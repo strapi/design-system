@@ -27,7 +27,6 @@ const SettingsPage = () => {
             }
             title="Some settings"
             subtitle="36 entries found"
-            as="h2"
           />
         }
       >

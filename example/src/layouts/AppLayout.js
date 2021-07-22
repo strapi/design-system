@@ -1,10 +1,11 @@
 import React from "react";
-import { Row, Box } from "@strapi/design-system";
+import { Row, Box, SkipToContent } from "@strapi/design-system";
 import { SideNav } from "../shared/SideNav";
 
 export const AppLayout = ({ children, subNav }) => {
   return (
     <Box background="neutral100">
+      <SkipToContent>Skip to main content</SkipToContent>
       <Row alignItems="flex-start">
         <Box style={{ height: "100vh" }}>
           <SideNav />
