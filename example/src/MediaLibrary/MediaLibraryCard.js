@@ -22,9 +22,7 @@ export const MediaLibraryCard = () => (
     <CardHeader>
       <CardCheckbox value={true} />
       <CardAction position="end">
-        <IconButton title="Edit the thing">
-          <EditIcon />
-        </IconButton>
+        <IconButton icon={<EditIcon />} label="Edit the thing" />
       </CardAction>
       <CardAsset src={STATIC_IMAGE} />
       <CardTimer>05:39</CardTimer>
