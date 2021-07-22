@@ -13,20 +13,29 @@ describe('Avatar', () => {
     );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
-      .c0 {
+      .c1 {
         border-radius: 50%;
         display: block;
+        position: relative;
       }
 
-      <span>
-        <img
-          alt="marvin frachet"
+      .c0 {
+        position: relative;
+      }
+
+      <div>
+        <div
           class="c0"
-          height="26px"
-          src="https://avatars.githubusercontent.com/u/3874873?v=4"
-          width="26px"
-        />
-      </span>
+        >
+          <img
+            alt="marvin frachet"
+            class="c1"
+            height="26px"
+            src="https://avatars.githubusercontent.com/u/3874873?v=4"
+            width="26px"
+          />
+        </div>
+      </div>
     `);
   });
 
@@ -40,9 +49,14 @@ describe('Avatar', () => {
     fireEvent.mouseEnter(container.querySelector('img'));
 
     expect(container.firstChild).toMatchInlineSnapshot(`
-      .c1 {
+      .c3 {
         border-radius: 50%;
         display: block;
+        position: relative;
+      }
+
+      .c1 {
+        position: relative;
       }
 
       .c0 {
@@ -54,7 +68,17 @@ describe('Avatar', () => {
         margin-top: -4px;
       }
 
-      <span>
+      .c2 {
+        z-index: 1;
+        border-radius: 50%;
+        position: absolute;
+        width: 26px;
+        height: 26px;
+        background: #ffffff;
+        opacity: 0.4;
+      }
+
+      <div>
         <img
           alt=""
           aria-hidden="true"
@@ -63,14 +87,21 @@ describe('Avatar', () => {
           src="https://avatars.githubusercontent.com/u/3874873?v=4"
           width="64px"
         />
-        <img
-          alt="marvin frachet"
+        <div
           class="c1"
-          height="26px"
-          src="https://avatars.githubusercontent.com/u/3874873?v=4"
-          width="26px"
-        />
-      </span>
+        >
+          <div
+            class="c2"
+          />
+          <img
+            alt="marvin frachet"
+            class="c3"
+            height="26px"
+            src="https://avatars.githubusercontent.com/u/3874873?v=4"
+            width="26px"
+          />
+        </div>
+      </div>
     `);
   });
 
@@ -88,9 +119,14 @@ describe('Avatar', () => {
     fireEvent.mouseEnter(container.querySelector('img'));
 
     expect(container.firstChild).toMatchInlineSnapshot(`
-      .c1 {
+      .c3 {
         border-radius: 50%;
         display: block;
+        position: relative;
+      }
+
+      .c1 {
+        position: relative;
       }
 
       .c0 {
@@ -102,7 +138,17 @@ describe('Avatar', () => {
         margin-top: -4px;
       }
 
-      <span>
+      .c2 {
+        z-index: 1;
+        border-radius: 50%;
+        position: absolute;
+        width: 26px;
+        height: 26px;
+        background: #ffffff;
+        opacity: 0.4;
+      }
+
+      <div>
         <img
           alt=""
           aria-hidden="true"
@@ -111,14 +157,21 @@ describe('Avatar', () => {
           src="https://some-unknown-photo/x.png"
           width="64px"
         />
-        <img
-          alt="marvin frachet"
+        <div
           class="c1"
-          height="26px"
-          src="https://avatars.githubusercontent.com/u/3874873?v=4"
-          width="26px"
-        />
-      </span>
+        >
+          <div
+            class="c2"
+          />
+          <img
+            alt="marvin frachet"
+            class="c3"
+            height="26px"
+            src="https://avatars.githubusercontent.com/u/3874873?v=4"
+            width="26px"
+          />
+        </div>
+      </div>
     `);
   });
 });

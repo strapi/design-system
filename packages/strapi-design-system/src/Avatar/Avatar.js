@@ -8,6 +8,11 @@ const previewSize = 64;
 const AvatarImg = styled.img`
   border-radius: 50%;
   display: block;
+  position: relative;
+`;
+
+const AvatarImgWrapper = styled.div`
+  position: relative;
 `;
 
 const PreviewContainer = styled.img`
@@ -17,12 +22,22 @@ const PreviewContainer = styled.img`
   margin-top: -${({ theme }) => theme.spaces[1]};
 `;
 
+const Overlay = styled.div`
+  z-index: 1;
+  border-radius: 50%;
+  position: absolute;
+  width: ${avatarSize}px;
+  height: ${avatarSize}px;
+  background: ${({ theme }) => theme.colors.neutral0};
+  opacity: 0.4;
+`;
+
 export const Avatar = ({ src, alt, preview }) => {
   const [previewVisible, setPreviewVisible] = useState(false);
 
   return (
-    <span>
-      {preview && previewVisible && (
+    <div>
+      {preview && previewVisible ? (
         <PreviewContainer
           aria-hidden
           alt=""
@@ -30,16 +45,13 @@ export const Avatar = ({ src, alt, preview }) => {
           height={`${previewSize}px`}
           src={preview === true ? src : preview}
         />
-      )}
-      <AvatarImg
-        src={src}
-        alt={alt}
-        width={`${avatarSize}px`}
-        height={`${avatarSize}px`}
-        onMouseEnter={() => setPreviewVisible(true)}
-        onMouseLeave={() => setPreviewVisible(false)}
-      />
-    </span>
+      ) : null}
+
+      <AvatarImgWrapper onMouseEnter={() => setPreviewVisible(true)} onMouseLeave={() => setPreviewVisible(false)}>
+        {preview && previewVisible ? <Overlay /> : null}
+        <AvatarImg src={src} alt={alt} width={`${avatarSize}px`} height={`${avatarSize}px`} />
+      </AvatarImgWrapper>
+    </div>
   );
 };
 
