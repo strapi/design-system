@@ -16,7 +16,7 @@ const ModalWrapper = styled.div`
 
 const ModalContent = styled(Box)`
   position: relative;
-  max-width: ${800 / 16}rem;
+  max-width: ${830 / 16}rem;
   margin: 0 auto;
   overflow: hidden;
   margin-top: 10%;

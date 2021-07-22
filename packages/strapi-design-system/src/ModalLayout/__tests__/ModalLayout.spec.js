@@ -74,7 +74,7 @@ describe('ModalLayout', () => {
 
       .c2 {
         position: relative;
-        max-width: 50rem;
+        max-width: 51.875rem;
         margin: 0 auto;
         overflow: hidden;
         margin-top: 10%;
