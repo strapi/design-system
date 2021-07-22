@@ -5,10 +5,10 @@ import SettingsIcon from "@strapi/icons/SettingsIcon";
 import { AppLayout } from "../layouts/AppLayout";
 import {
   GridLayout,
-  Cards,
   HeaderLayout,
   Button,
   Main,
+  KeyboardNavigable,
 } from "@strapi/design-system";
 import { MediaLibraryCard } from "../MediaLibrary/MediaLibraryCard";
 
@@ -16,7 +16,7 @@ function MediaLibraryPage() {
   return (
     <AppLayout>
       <Main labelledBy="header">
-        <Cards>
+        <KeyboardNavigable tagName="article">
           <GridLayout
             header={
               <HeaderLayout
@@ -56,7 +56,7 @@ function MediaLibraryPage() {
             <MediaLibraryCard />
             <MediaLibraryCard />
           </GridLayout>
-        </Cards>
+        </KeyboardNavigable>
       </Main>
     </AppLayout>
   );
