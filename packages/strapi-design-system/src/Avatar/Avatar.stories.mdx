@@ -2,6 +2,7 @@
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { Avatar } from './Avatar';
+import { Box } from '../Box';
 
 <Meta title="Design System/Atoms/Avatar" component={Avatar} />
 
@@ -15,6 +16,8 @@ Description...
 
 <Canvas>
   <Story name="base">
-    <Avatar src="https://avatars.githubusercontent.com/u/3874873?v=4" alt="marvin frachet" />
+    <Box padding={11}>
+      <Avatar src="https://avatars.githubusercontent.com/u/3874873?v=4" alt="marvin frachet" preview />
+    </Box>
   </Story>
 </Canvas>
