@@ -13,7 +13,7 @@ export const AppLayout = ({ children, subNav }) => {
 
         <Box style={{ height: "100vh" }}>{subNav}</Box>
 
-        <Box style={{ flex: 1 }}>{children}</Box>
+        <Box style={{ flex: 1, overflow: "hidden" }}>{children}</Box>
       </Row>
     </Box>
   );
