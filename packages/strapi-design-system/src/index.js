@@ -24,6 +24,7 @@ export * from './Link';
 export * from './Loader';
 export * from './Main';
 export * from './MainNav';
+export * from './ModalLayout';
 export * from './OneBlockLayout';
 export * from './Pagination';
 export * from './Popover';
