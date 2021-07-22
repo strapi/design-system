@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const CardAssetImg = styled.img`
   // inline flows is based on typography and displays an extra white space below the image
@@ -10,19 +11,32 @@ const CardAssetImg = styled.img`
   height: 100%;
 `;
 
+const CardAssetSizes = {
+  S: 88,
+  M: 164,
+};
+
 const CardAssetWrapper = styled.div`
   display: flex;
   justify-content: center;
-  height: ${88 / 16}rem;
+  height: ${({ size }) => CardAssetSizes[size] / 16}rem;
   width: 100%;
   background: repeating-conic-gradient(${({ theme }) => theme.colors.neutral100} 0% 25%, transparent 0% 50%) 50% / 20px
     20px;
 `;
 
-export const CardAsset = (props) => {
+export const CardAsset = ({ size, ...props }) => {
   return (
-    <CardAssetWrapper>
+    <CardAssetWrapper size={size}>
       <CardAssetImg {...props} aria-hidden />
     </CardAssetWrapper>
   );
+};
+
+CardAsset.defaultProps = {
+  size: 'M',
+};
+
+CardAsset.propTypes = {
+  size: PropTypes.oneOf(['S', 'M']),
 };

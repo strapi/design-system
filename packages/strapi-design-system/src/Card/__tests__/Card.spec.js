@@ -196,7 +196,7 @@ describe('Card', () => {
         -webkit-justify-content: center;
         -ms-flex-pack: center;
         justify-content: center;
-        height: 5.5rem;
+        height: 10.25rem;
         width: 100%;
         background: repeating-conic-gradient(#f6f6f9 0% 25%,transparent 0% 50%) 50% / 20px 20px;
       }
