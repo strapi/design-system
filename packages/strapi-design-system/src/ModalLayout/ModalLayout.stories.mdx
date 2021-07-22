@@ -21,22 +21,25 @@ Description...
 
 <Canvas>
   <Story name="base">
-    <ModalLayout onClose={() => undefined} labelledBy="title">
-      <ModalHeader>
-        <TextButton textColor="neutral800" as="h2" id="title">
-          Title
-        </TextButton>
-      </ModalHeader>
-      <ModalBody>Hello world</ModalBody>
-      <ModalFooter
-        startActions={<Button variant="tertiary">Cancel</Button>}
-        endActions={
-          <>
-            <Button variant="secondary">Add new stuff</Button>
-            <Button>Finish</Button>
-          </>
-        }
-      />
-    </ModalLayout>
+    <div>
+      <p style={{ height: '100vh' }}>This is a raw content</p>
+      <ModalLayout onClose={() => undefined} labelledBy="title">
+        <ModalHeader>
+          <TextButton textColor="neutral800" as="h2" id="title">
+            Title
+          </TextButton>
+        </ModalHeader>
+        <ModalBody>Hello world</ModalBody>
+        <ModalFooter
+          startActions={<Button variant="tertiary">Cancel</Button>}
+          endActions={
+            <>
+              <Button variant="secondary">Add new stuff</Button>
+              <Button>Finish</Button>
+            </>
+          }
+        />
+      </ModalLayout>
+    </div>
   </Story>
 </Canvas>

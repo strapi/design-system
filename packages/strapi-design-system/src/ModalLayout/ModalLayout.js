@@ -9,13 +9,12 @@ import { ModalContext } from './ModalContext';
 const ModalWrapper = styled.div`
   position: absolute;
   inset: 0;
-  background: ${({ theme }) => theme.colors.neutral200};
-  opacity: 0.8;
+  // this is theme.colors.neutral200 with opacity
+  background: rgb(220, 220, 228, 0.8);
   padding: 0 ${({ theme }) => theme.spaces[8]};
 `;
 
 const ModalContent = styled(Box)`
-  position: relative;
   max-width: ${830 / 16}rem;
   margin: 0 auto;
   overflow: hidden;
@@ -26,18 +25,19 @@ export const ModalLayout = ({ onClose, labelledBy, ...props }) => {
   return (
     <Portal>
       <ModalContext.Provider value={onClose}>
-        <ModalWrapper />
-        <FocusTrap onEscape={onClose}>
-          <ModalContent
-            aria-labelledBy={labelledBy}
-            background="neutral0"
-            hasRadius
-            shadow="popupShadow"
-            role="dialog"
-            aria-modal={true}
-            {...props}
-          />
-        </FocusTrap>
+        <ModalWrapper>
+          <FocusTrap onEscape={onClose}>
+            <ModalContent
+              aria-labelledby={labelledBy}
+              background="neutral0"
+              hasRadius
+              shadow="popupShadow"
+              role="dialog"
+              aria-modal={true}
+              {...props}
+            />
+          </FocusTrap>
+        </ModalWrapper>
       </ModalContext.Provider>
     </Portal>
   );
