@@ -365,8 +365,6 @@ describe('Table', () => {
       .c16 {
         border-radius: 50%;
         display: block;
-        height: 26px;
-        width: 26px;
       }
 
       .c17 {
@@ -548,13 +546,15 @@ describe('Table', () => {
                     class="c8"
                     tabindex="-1"
                   >
-                    <img
-                      alt="Leon Lafrite"
-                      class="c16"
-                      height="26px"
-                      src="https://avatars.githubusercontent.com/u/3874873?v=4"
-                      width="26px"
-                    />
+                    <span>
+                      <img
+                        alt="Leon Lafrite"
+                        class="c16"
+                        height="26px"
+                        src="https://avatars.githubusercontent.com/u/3874873?v=4"
+                        width="26px"
+                      />
+                    </span>
                   </td>
                   <td
                     aria-colindex="4"
@@ -649,13 +649,15 @@ describe('Table', () => {
                     class="c8"
                     tabindex="-1"
                   >
-                    <img
-                      alt="Leon Lafrite"
-                      class="c16"
-                      height="26px"
-                      src="https://avatars.githubusercontent.com/u/3874873?v=4"
-                      width="26px"
-                    />
+                    <span>
+                      <img
+                        alt="Leon Lafrite"
+                        class="c16"
+                        height="26px"
+                        src="https://avatars.githubusercontent.com/u/3874873?v=4"
+                        width="26px"
+                      />
+                    </span>
                   </td>
                   <td
                     aria-colindex="4"
