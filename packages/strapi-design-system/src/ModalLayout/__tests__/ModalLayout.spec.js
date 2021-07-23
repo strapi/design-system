@@ -67,13 +67,11 @@ describe('ModalLayout', () => {
       .c0 {
         position: absolute;
         inset: 0;
-        background: #dcdce4;
-        opacity: 0.8;
+        background: rgb(220,220,228,0.8);
         padding: 0 40px;
       }
 
       .c2 {
-        position: relative;
         max-width: 51.875rem;
         margin: 0 auto;
         overflow: hidden;
@@ -195,72 +193,73 @@ describe('ModalLayout', () => {
         >
           <div
             class="c0"
-          />
-          <div>
-            <div
-              aria-modal="true"
-              class="c1 c2"
-              role="dialog"
-            >
+          >
+            <div>
               <div
-                class="c3 c4"
+                aria-modal="true"
+                class="c1 c2"
+                role="dialog"
               >
                 <div
-                  class="c5"
+                  class="c3 c4"
                 >
-                  <span>
-                    Title
-                  </span>
-                  <span>
-                    <button
-                      aria-disabled="false"
-                      aria-labelledby="tooltip-1"
-                      class="c6 c7"
-                      tabindex="0"
-                    >
-                      <svg
-                        fill="none"
-                        height="1em"
-                        viewBox="0 0 24 24"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
+                  <div
+                    class="c5"
+                  >
+                    <span>
+                      Title
+                    </span>
+                    <span>
+                      <button
+                        aria-disabled="false"
+                        aria-labelledby="tooltip-1"
+                        class="c6 c7"
+                        tabindex="0"
                       >
-                        <path
-                          d="M24 2.417L21.583 0 12 9.583 2.417 0 0 2.417 9.583 12 0 21.583 2.417 24 12 14.417 21.583 24 24 21.583 14.417 12 24 2.417z"
-                          fill="#212134"
-                        />
-                      </svg>
-                    </button>
-                  </span>
+                        <svg
+                          fill="none"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M24 2.417L21.583 0 12 9.583 2.417 0 0 2.417 9.583 12 0 21.583 2.417 24 12 14.417 21.583 24 24 21.583 14.417 12 24 2.417z"
+                            fill="#212134"
+                          />
+                        </svg>
+                      </button>
+                    </span>
+                  </div>
                 </div>
-              </div>
-              <div
-                class="c8"
-              >
-                Hello world
-              </div>
-              <div
-                class="c3 c9"
-              >
                 <div
-                  class="c5"
+                  class="c8"
+                >
+                  Hello world
+                </div>
+                <div
+                  class="c3 c9"
                 >
                   <div
-                    class="c10 c11"
+                    class="c5"
                   >
-                    <button>
-                      Cancel
-                    </button>
-                  </div>
-                  <div
-                    class="c10 c11"
-                  >
-                    <button>
-                      Add new stuff
-                    </button>
-                    <button>
-                      Finish
-                    </button>
+                    <div
+                      class="c10 c11"
+                    >
+                      <button>
+                        Cancel
+                      </button>
+                    </div>
+                    <div
+                      class="c10 c11"
+                    >
+                      <button>
+                        Add new stuff
+                      </button>
+                      <button>
+                        Finish
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
