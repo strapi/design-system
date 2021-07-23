@@ -9,7 +9,14 @@ import { Checkbox } from './Checkbox';
 
 # Checkbox
 
-Description...
+Checkboxes allow users to choose one or multiple values from a range of options. 
+
+**Best practices**
+
+- Content of the checkbox should be concise and straightforward.
+- Use the Radio button component if the user should select only one value.
+- Start all checkbox labels with a capital letter.
+- Avoid using hint state in tables.
 
 [View source](https://github.com/strapi/design-system-experiments/tree/develop/packages/strapi-design-system/src/Checkbox)
 
@@ -33,6 +40,7 @@ import { Checkbox } from '@strapi/design-system/Checkbox';
     }}
   </Story>
 </Canvas>
+
 
 ### Indeterminate checkbox
 
@@ -94,9 +102,21 @@ import { Checkbox } from '@strapi/design-system/Checkbox';
   </Story>
 </Canvas>
 
+#### Checked
+
+Checked state is used to show that an option has been selected. 
+
+#### Indeterminate
+
+Indeterminate state is used to show partially checked states.
+
+#### Unchecked
+
+Unchecked state is used to show that an option has been selected.
+
 ### Disabled
 
-Description...
+Checkboxes can possibily not be available to selection yet. This state can be related to a lack of permission or a need to pursue another action first. 
 
 <Canvas withSource="open">
   <Story name="disabled" parameters={{ docs: { source: { code: '<Checkbox disabled>Label</Checkbox>' } } }}>
@@ -113,7 +133,7 @@ Description...
 
 ### Hint
 
-Description...
+Use hint state to give more information about the purpose of a checkbox. 
 
 <Canvas withSource="open">
   <Story
@@ -139,7 +159,7 @@ Description...
 
 ### Error
 
-Description...
+Display an error message.
 
 <Canvas withSource="open">
   <Story
