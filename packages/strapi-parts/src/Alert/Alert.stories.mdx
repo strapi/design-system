@@ -12,7 +12,15 @@ import { Link } from '../Link';
 
 # Alert
 
-This is the doc of the `Alert` component
+Alerts are messages displayed over the content, at the top of the screen to give information to users. They have multiple purposes and provide context. 
+
+**Best practices**
+
+- The alert should be relevant to the page.
+- Address a single piece of information or required action.
+- Content of the alert should be concise and straightforward. Provide additional information on how to resolve the issue if needed.
+- Alerts should be used thoughtfully and occasionally not to overwhelmed the users.
+- Should not be used for marketing purposes.
 
 [View source](https://github.com/strapi/design-system-experiments/tree/develop/packages/strapi-design-system/src/Alert)
 
@@ -24,7 +32,7 @@ import { Alert } from '@strapi/design-system/Alert';
 
 ## Usage
 
-Description...
+The most common button component used in the interface. Alerts have a title, a description, and two sizes. This default one is aimed to give a small piece of text. 
 
 <Canvas withSource="open">
   <Story
@@ -73,9 +81,28 @@ You can set the value to `default`, `success`, or `danger`.
   </Story>
 </Canvas>
 
+*Default/Information*
+
+ Use a default alert for an informational purpose. 
+
+Examples: Latest update, a specific mode, ...
+
+*Success*
+
+Use a success alert to indicate a successful action.
+
+Examples: Content has been saved, the locale has been added, ...
+
+*Danger*
+
+Use a danger alert to indicate an issue. The description should provide a way to solve the conflict. 
+
+Examples: Something went wrong, your content could not be saved, ...
+
+
 ### Alert with action
 
-Description...
+Alerts can contain an action. Via a Link component, they mostly encourage the user to be redirected to another page with more information. The wording of the action should be clear and concise. 
 
 <Canvas withSource="open">
   <Story
@@ -103,7 +130,7 @@ Description...
 
 ## Accessibility
 
-- ...
+- Alerts use a combination of icons and colors to show their purpose and level of importance.
 
 ## Props
 
