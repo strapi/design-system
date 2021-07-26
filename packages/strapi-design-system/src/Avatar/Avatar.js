@@ -38,7 +38,7 @@ export const Avatar = ({ src, alt, preview }) => {
   const [previewVisible, setPreviewVisible] = useState(false);
 
   return (
-    <div>
+    <span>
       {preview && previewVisible ? (
         <PreviewContainer
           aria-hidden
@@ -53,7 +53,7 @@ export const Avatar = ({ src, alt, preview }) => {
         {preview && previewVisible ? <Overlay /> : null}
         <AvatarImg src={src} alt={alt} width={`${avatarSize}px`} height={`${avatarSize}px`} />
       </AvatarImgWrapper>
-    </div>
+    </span>
   );
 };
 

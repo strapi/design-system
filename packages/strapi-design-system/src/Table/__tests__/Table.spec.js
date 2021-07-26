@@ -553,7 +553,7 @@ describe('Table', () => {
                     class="c8"
                     tabindex="-1"
                   >
-                    <div>
+                    <span>
                       <div
                         class="c16"
                       >
@@ -565,7 +565,7 @@ describe('Table', () => {
                           width="26px"
                         />
                       </div>
-                    </div>
+                    </span>
                   </td>
                   <td
                     aria-colindex="4"
@@ -660,7 +660,7 @@ describe('Table', () => {
                     class="c8"
                     tabindex="-1"
                   >
-                    <div>
+                    <span>
                       <div
                         class="c16"
                       >
@@ -672,7 +672,7 @@ describe('Table', () => {
                           width="26px"
                         />
                       </div>
-                    </div>
+                    </span>
                   </td>
                   <td
                     aria-colindex="4"

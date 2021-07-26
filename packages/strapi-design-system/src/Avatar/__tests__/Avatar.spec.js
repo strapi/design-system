@@ -25,7 +25,7 @@ describe('Avatar', () => {
         height: 26px;
       }
 
-      <div>
+      <span>
         <div
           class="c0"
         >
@@ -37,7 +37,7 @@ describe('Avatar', () => {
             width="26px"
           />
         </div>
-      </div>
+      </span>
     `);
   });
 
@@ -82,7 +82,7 @@ describe('Avatar', () => {
         opacity: 0.4;
       }
 
-      <div>
+      <span>
         <img
           alt=""
           aria-hidden="true"
@@ -105,7 +105,7 @@ describe('Avatar', () => {
             width="26px"
           />
         </div>
-      </div>
+      </span>
     `);
   });
 
@@ -154,7 +154,7 @@ describe('Avatar', () => {
         opacity: 0.4;
       }
 
-      <div>
+      <span>
         <img
           alt=""
           aria-hidden="true"
@@ -177,7 +177,7 @@ describe('Avatar', () => {
             width="26px"
           />
         </div>
-      </div>
+      </span>
     `);
   });
 });
