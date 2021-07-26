@@ -6,7 +6,7 @@ import { Row } from '../Row';
 import { Box } from '../Box';
 import styled from 'styled-components';
 
-const TextInputWrapper = styled.div`
+export const TextInputWrapper = styled.div`
   & textarea {
     height: ${80 / 16}rem;
   }

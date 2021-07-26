@@ -25,12 +25,12 @@ const DatePickerCellButton = styled.button`
 `;
 
 export const DatePickerTd = ({ children, outsideMonth, onSelectDay, isSelected, ...props }) => {
-  const textColor = isSelected ? 'primary600' : outsideMonth ? 'neutral600' : 'neutral800';
+  const textColor = isSelected ? 'primary600' : outsideMonth ? 'neutral600' : 'neutral900';
 
   return (
     <RawTd {...props}>
       <DatePickerCellButton tabIndex={-1} onClick={onSelectDay} isSelected={isSelected}>
-        <Text small textColor={textColor}>
+        <Text small textColor={textColor} highlighted={isSelected}>
           {children}
         </Text>
       </DatePickerCellButton>

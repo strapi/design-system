@@ -9,6 +9,7 @@ module.exports = {
         // headless: false,
         // devtools: true,
       },
+      contextOptions: { locale: 'en-EN' },
     },
   },
 };

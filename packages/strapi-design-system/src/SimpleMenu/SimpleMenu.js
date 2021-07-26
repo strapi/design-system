@@ -49,7 +49,6 @@ export const MenuItem = ({ children, onClick, to, isFocused, ...props }) => {
     tabIndex: isFocused ? 0 : -1,
     ref: menuItemRef,
     role: 'menuitem',
-    isFocused,
     ...props,
   };
 
