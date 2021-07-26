@@ -140,3 +140,33 @@ Description...
     }}
   </Story>
 </Canvas>
+
+## Select size S
+
+Description...
+
+<Canvas>
+  <Story name="size-S">
+    {() => {
+      const [values, setValues] = useState([]);
+      const onValueChange = (newValue) =>
+        setValues((s) => (s.includes(newValue) ? s.filter((x) => x !== newValue) : [...s, newValue]));
+      return (
+        <Stack size={11}>
+          <Select
+            id="select1"
+            placeholder="Your example"
+            onClear={() => setValues([])}
+            size="S"
+            value={values}
+            onChange={onValueChange}
+          >
+            <Option value={'pizza'}>Pizza</Option>
+            <Option value={'hamburger'}>Hamburger</Option>
+            <Option value={'bagel'}>Bagel</Option>
+          </Select>
+        </Stack>
+      );
+    }}
+  </Story>
+</Canvas>

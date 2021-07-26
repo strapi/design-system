@@ -20,7 +20,7 @@ import { SelectTags } from './SelectTags';
 import styled from 'styled-components';
 
 const MainRow = styled(Row)`
-  min-height: ${40 / 16}rem;
+  min-height: ${({ size }) => (size === 'S' ? 34 / 16 : 40 / 16)}rem;
 `;
 
 export const Select = ({
@@ -38,6 +38,7 @@ export const Select = ({
   onClear,
   onReachEnd,
   multi,
+  size,
   startIcon,
   withTags,
   ...props
@@ -111,7 +112,7 @@ export const Select = ({
 
   return (
     <Field hint={hint} error={error} id={idRef.current}>
-      <Stack size={1}>
+      <Stack size={label || hint || error ? 1 : 0}>
         <FieldLabel as="span" id={labelId}>
           {label}
         </FieldLabel>
@@ -130,7 +131,7 @@ export const Select = ({
             {...props}
           />
 
-          <MainRow justifyContent="space-between">
+          <MainRow size={size} justifyContent="space-between">
             <Row>
               {startIcon && (
                 <Box paddingLeft={3} aria-hidden={true}>
@@ -215,6 +216,7 @@ Select.defaultProps = {
   value: undefined,
   hint: undefined,
   error: undefined,
+  size: 'M',
   startIcon: undefined,
   withTags: false,
 };
@@ -233,6 +235,7 @@ Select.propTypes = {
   onClear: PropTypes.func,
   onReachEnd: PropTypes.func,
   placeholder: PropTypes.string.isRequired,
+  size: PropTypes.oneOf(['S', 'M']),
   startIcon: PropTypes.element,
   value: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
