@@ -13,6 +13,8 @@ const AvatarImg = styled.img`
 
 const AvatarImgWrapper = styled.div`
   position: relative;
+  width: ${avatarSize}px;
+  height: ${avatarSize}px;
 `;
 
 const PreviewContainer = styled.img`

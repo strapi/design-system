@@ -21,6 +21,8 @@ describe('Avatar', () => {
 
       .c0 {
         position: relative;
+        width: 26px;
+        height: 26px;
       }
 
       <div>
@@ -57,6 +59,8 @@ describe('Avatar', () => {
 
       .c1 {
         position: relative;
+        width: 26px;
+        height: 26px;
       }
 
       .c0 {
@@ -127,6 +131,8 @@ describe('Avatar', () => {
 
       .c1 {
         position: relative;
+        width: 26px;
+        height: 26px;
       }
 
       .c0 {

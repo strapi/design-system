@@ -370,6 +370,8 @@ describe('Table', () => {
 
       .c16 {
         position: relative;
+        width: 26px;
+        height: 26px;
       }
 
       .c18 {
