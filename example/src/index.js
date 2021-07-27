@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { ThemeProvider } from "@strapi/design-system/ThemeProvider";
-import { lightTheme } from "@strapi/design-system/themes";
+import { ThemeProvider } from "@strapi/parts/ThemeProvider";
+import { lightTheme } from "@strapi/parts/themes";
 import Main from "./App";
 
 const App = () => {

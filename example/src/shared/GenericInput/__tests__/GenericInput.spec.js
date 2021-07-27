@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import { GenericInput } from "../GenericInput";
-import { ThemeProvider, lightTheme } from "@strapi/design-system";
+import { ThemeProvider, lightTheme } from "@strapi/parts";
 
 describe.skip("GenericInput", () => {
   describe("unmatched type", () => {

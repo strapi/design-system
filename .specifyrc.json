@@ -24,7 +24,7 @@
     },
     {
       "name": "Design Tokens / colors",
-      "path": "packages/strapi-design-system/src/themes/colors.js",
+      "path": "packages/strapi-parts/src/themes/colors.js",
       "filter": {
         "types": ["color"]
       },
@@ -50,7 +50,7 @@
     },
     {
       "name": "Design Tokens / shadows",
-      "path": "packages/strapi-design-system/src/themes/shadows.js",
+      "path": "packages/strapi-parts/src/themes/shadows.js",
       "filter": {
         "types": ["shadow"]
       },

@@ -13,8 +13,8 @@ import {
   ModalBody,
   ModalFooter,
   ModalHeader,
-} from "@strapi/design-system";
-import { TextButton } from "@strapi/design-system/Text";
+} from "@strapi/parts";
+import { TextButton } from "@strapi/parts/Text";
 import { MediaLibraryCard } from "../MediaLibrary/MediaLibraryCard";
 
 function MediaLibraryPage() {

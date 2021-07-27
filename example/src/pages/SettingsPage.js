@@ -21,7 +21,7 @@ import {
   Row,
   Searchbar,
   SearchForm,
-} from "@strapi/design-system";
+} from "@strapi/parts";
 import EditIcon from "@strapi/icons/EditIcon";
 import DeleteIcon from "@strapi/icons/DeleteIcon";
 import AddIcon from "@strapi/icons/AddIcon";

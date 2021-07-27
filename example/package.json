@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@craco/craco": "^6.1.1",
-    "@strapi/design-system": "file:../packages/strapi-design-system/dist",
+    "@strapi/parts": "file:../packages/strapi-parts/dist",
     "@strapi/icons": "file:../packages/strapi-icons/dist",
     "jest-styled-components": "^7.0.4",
     "lodash": "^4.17.21",

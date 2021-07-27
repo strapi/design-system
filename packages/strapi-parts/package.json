@@ -1,5 +1,5 @@
 {
-  "name": "@strapi/design-system",
+  "name": "@strapi/parts",
   "version": "0.0.1",
   "main": "index.js",
   "license": "MIT",
