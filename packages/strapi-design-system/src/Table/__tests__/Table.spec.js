@@ -111,20 +111,20 @@ describe('Table', () => {
         padding-left: 12px;
       }
 
-      .c19 {
+      .c20 {
         background: #eaeaef;
       }
 
-      .c21 {
+      .c22 {
         background: #f0f0ff;
         padding: 20px;
       }
 
-      .c24 {
+      .c25 {
         background: #d9d8ff;
       }
 
-      .c26 {
+      .c27 {
         padding-left: 12px;
       }
 
@@ -276,7 +276,7 @@ describe('Table', () => {
         vertical-align: sub;
       }
 
-      .c20 {
+      .c21 {
         height: 1px;
         margin: 0;
         border: none;
@@ -295,7 +295,7 @@ describe('Table', () => {
         color: #666687;
       }
 
-      .c27 {
+      .c28 {
         font-weight: 500;
         font-size: 0.75rem;
         line-height: 1.33;
@@ -314,7 +314,7 @@ describe('Table', () => {
         text-transform: uppercase;
       }
 
-      .c23 {
+      .c24 {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -328,7 +328,7 @@ describe('Table', () => {
         align-items: center;
       }
 
-      .c25 {
+      .c26 {
         height: 1.5rem;
         width: 1.5rem;
         border-radius: 50%;
@@ -346,30 +346,35 @@ describe('Table', () => {
         align-items: center;
       }
 
-      .c25 svg {
+      .c26 svg {
         height: 0.625rem;
         width: 0.625rem;
       }
 
-      .c25 svg path {
+      .c26 svg path {
         fill: #4945ff;
       }
 
-      .c22 {
+      .c23 {
         border-radius: 0 0 4px 4px;
         display: block;
         width: 100%;
         border: none;
       }
 
-      .c16 {
+      .c17 {
         border-radius: 50%;
         display: block;
-        height: 26px;
-        width: 26px;
+        position: relative;
       }
 
-      .c17 {
+      .c16 {
+        position: relative;
+        width: 26px;
+        height: 26px;
+      }
+
+      .c18 {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -381,36 +386,36 @@ describe('Table', () => {
         border: 1px solid #dcdce4;
       }
 
-      .c17 svg {
+      .c18 svg {
         height: 12px;
         width: 12px;
       }
 
-      .c17 svg > g,
-      .c17 svg path {
+      .c18 svg > g,
+      .c18 svg path {
         fill: #ffffff;
       }
 
-      .c17[aria-disabled='true'] {
+      .c18[aria-disabled='true'] {
         pointer-events: none;
       }
 
-      .c18 {
+      .c19 {
         border: none;
       }
 
-      .c18 svg > g,
-      .c18 svg path {
+      .c19 svg > g,
+      .c19 svg path {
         fill: #8e8ea9;
       }
 
-      .c18:hover svg > g,
-      .c18:hover svg path {
+      .c19:hover svg > g,
+      .c19:hover svg path {
         fill: #666687;
       }
 
-      .c18:active svg > g,
-      .c18:active svg path {
+      .c19:active svg > g,
+      .c19:active svg path {
         fill: #a5a5ba;
       }
 
@@ -548,13 +553,19 @@ describe('Table', () => {
                     class="c8"
                     tabindex="-1"
                   >
-                    <img
-                      alt="Leon Lafrite"
-                      class="c16"
-                      height="26px"
-                      src="https://avatars.githubusercontent.com/u/3874873?v=4"
-                      width="26px"
-                    />
+                    <span>
+                      <div
+                        class="c16"
+                      >
+                        <img
+                          alt="Leon Lafrite"
+                          class="c17"
+                          height="26px"
+                          src="https://avatars.githubusercontent.com/u/3874873?v=4"
+                          width="26px"
+                        />
+                      </div>
+                    </span>
                   </td>
                   <td
                     aria-colindex="4"
@@ -597,7 +608,7 @@ describe('Table', () => {
                       <button
                         aria-disabled="false"
                         aria-labelledby="tooltip-123"
-                        class="c17 c18"
+                        class="c18 c19"
                         tabindex="-1"
                       >
                         <svg
@@ -649,13 +660,19 @@ describe('Table', () => {
                     class="c8"
                     tabindex="-1"
                   >
-                    <img
-                      alt="Leon Lafrite"
-                      class="c16"
-                      height="26px"
-                      src="https://avatars.githubusercontent.com/u/3874873?v=4"
-                      width="26px"
-                    />
+                    <span>
+                      <div
+                        class="c16"
+                      >
+                        <img
+                          alt="Leon Lafrite"
+                          class="c17"
+                          height="26px"
+                          src="https://avatars.githubusercontent.com/u/3874873?v=4"
+                          width="26px"
+                        />
+                      </div>
+                    </span>
                   </td>
                   <td
                     aria-colindex="4"
@@ -698,7 +715,7 @@ describe('Table', () => {
                       <button
                         aria-disabled="false"
                         aria-labelledby="tooltip-123"
-                        class="c17 c18"
+                        class="c18 c19"
                         tabindex="-1"
                       >
                         <svg
@@ -725,27 +742,27 @@ describe('Table', () => {
         </div>
         <div>
           <hr
-            class="c19 c20"
+            class="c20 c21"
           />
           <button
-            class="c21 c22"
+            class="c22 c23"
           >
             <div
-              class="c23"
+              class="c24"
             >
               <div
                 aria-hidden="true"
-                class="c24 c25"
+                class="c25 c26"
               >
                 <span>
                   icon
                 </span>
               </div>
               <div
-                class="c26"
+                class="c27"
               >
                 <span
-                  class="c27"
+                  class="c28"
                 >
                   Add another field to this collection type
                 </span>
