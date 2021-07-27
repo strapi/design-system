@@ -25,6 +25,8 @@ describe('DatePicker', () => {
           selectedDate={new Date(1, 0, 2021)}
           label="Date picker"
           name="datepicker"
+          clearLabel={'Clear the datepicker'}
+          onClear={() => {}}
           selectedDateLabel={(formattedDate) => `Date picker, current is ${formattedDate}`}
           id="date-picker"
         />
@@ -32,11 +34,6 @@ describe('DatePicker', () => {
     );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
-      .c6 {
-        padding-right: 8px;
-        padding-left: 12px;
-      }
-
       .c3 {
         font-weight: 500;
         font-size: 0.75rem;
@@ -76,10 +73,20 @@ describe('DatePicker', () => {
         align-items: center;
       }
 
+      .c6 {
+        padding-right: 8px;
+        padding-left: 12px;
+      }
+
+      .c9 {
+        padding-right: 12px;
+        padding-left: 8px;
+      }
+
       .c8 {
         border: none;
         padding-left: 0;
-        padding-right: 16px;
+        padding-right: 0;
         color: #32324d;
         font-weight: 400;
         font-size: 0.875rem;
@@ -147,7 +154,29 @@ describe('DatePicker', () => {
         border-radius: 4px;
       }
 
-      <div>
+      .c7 svg path {
+        fill: #8e8ea9;
+      }
+
+      .c10 {
+        background: transparent;
+        border: none;
+        position: relative;
+        z-index: 1;
+      }
+
+      .c10 svg {
+        height: 0.6875rem;
+        width: 0.6875rem;
+      }
+
+      .c10 svg path {
+        fill: #666687;
+      }
+
+      <div
+        class=""
+      >
         <div
           class="c0"
         >
@@ -201,6 +230,28 @@ describe('DatePicker', () => {
                   placeholder="1"
                   value="1"
                 />
+                <div
+                  class="c9"
+                >
+                  <button
+                    aria-disabled="false"
+                    aria-label="Clear the datepicker"
+                    class="c10"
+                  >
+                    <svg
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M24 2.417L21.583 0 12 9.583 2.417 0 0 2.417 9.583 12 0 21.583 2.417 24 12 14.417 21.583 24 24 21.583 14.417 12 24 2.417z"
+                        fill="#212134"
+                      />
+                    </svg>
+                  </button>
+                </div>
               </div>
             </div>
           </div>

@@ -1,71 +1,45 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import CalendarIcon from '@strapi/icons/Calendar';
-import styled from 'styled-components';
-import { Popover } from '../Popover';
-import { RawTable, RawThead, RawTbody, RawTr } from '../RawTable';
-import { DatePickerTh } from './DatePickerTh';
-import { DatePickerTd } from './DatePickerTd';
-import { FocusTrap } from '../FocusTrap';
+import CloseAlertIcon from '@strapi/icons/CloseAlertIcon';
 import { TextInput } from '../TextInput';
-import { VisuallyHidden } from '../VisuallyHidden';
-import { getMonths, getDayOfWeek, generateWeeks, getYears } from './utils';
-import { SimpleMenu, MenuItem } from '../SimpleMenu';
-import { Row } from '../Row';
-import { Box } from '../Box';
+import { DatePickerButton, DatePickerWrapper, IconBox } from './components';
+import { DatePickerCalendar } from './DatePickerCalendar';
+import { formatDate } from './utils/formatDate';
 
-const DatePickerPopover = styled(Popover)`
-  max-height: ${3 * 6}rem;
-  overflow: hidden;
-`;
-
-const DatePickerButton = styled.button`
-  border: none;
-  background: transparent;
-  border-radius: ${({ theme }) => theme.borderRadius};
-`;
-
-export const DatePicker = ({ initialDate, selectedDate, onChange, label, selectedDateLabel, ...props }) => {
+export const DatePicker = ({
+  initialDate,
+  selectedDate,
+  onChange,
+  label,
+  selectedDateLabel,
+  onClear,
+  clearLabel,
+  disabled,
+  ...props
+}) => {
   const [visible, setVisible] = useState(false);
-  const [date, setDate] = useState(initialDate);
   const inputRef = useRef(null);
+  const datePickerButtonRef = useRef(null);
+  const formattedDate = selectedDate ? formatDate(selectedDate) : '';
+  const placeholder = formatDate(new Date(1970, 0, 1));
 
-  const [weeks, activeRow, activeCol] = generateWeeks(date, selectedDate);
-  const { sun, mon, tue, wed, thu, fri, sat } = getDayOfWeek();
-  const months = getMonths();
-  const years = getYears();
+  const toggleVisibility = () => setVisible((prevVisible) => !prevVisible);
 
-  const langFormatter = new Intl.DateTimeFormat();
-  const formattedDate = selectedDate ? langFormatter.format(selectedDate) : '';
-  const placeholder = langFormatter.format(new Date(1970, 0, 1));
+  const handleClear = () => {
+    if (disabled) return;
 
-  useEffect(() => {
-    if (selectedDate) {
-      setDate(selectedDate);
-    }
-  }, [selectedDate]);
+    onClear();
+    datePickerButtonRef.current.focus();
+  };
 
-  const handleSelectDay = (date) => {
+  const handleChange = (date) => {
     onChange(date);
     setVisible(false);
   };
 
-  const toggleVisibility = () => setVisible((prevVisible) => !prevVisible);
-
-  const handleMonthChange = (month) => {
-    const updatedDate = new Date(date);
-    updatedDate.setMonth(months.indexOf(month));
-    setDate(updatedDate);
-  };
-
-  const handleYearChange = (year) => {
-    const updatedDate = new Date(date);
-    updatedDate.setFullYear(year);
-    setDate(updatedDate);
-  };
-
   return (
-    <div>
+    <DatePickerWrapper highlighted={visible}>
       <TextInput
         ref={inputRef}
         onClick={toggleVisibility}
@@ -75,106 +49,54 @@ export const DatePicker = ({ initialDate, selectedDate, onChange, label, selecte
         placeholder={placeholder}
         startAction={
           <DatePickerButton
+            ref={datePickerButtonRef}
             onClick={toggleVisibility}
-            aria-label={selectedDate ? selectedDateLabel(langFormatter.format(selectedDate)) : label}
+            aria-label={selectedDate ? selectedDateLabel(formatDate(selectedDate)) : label}
           >
             <CalendarIcon aria-hidden={true} />
           </DatePickerButton>
         }
+        endAction={
+          onClear && formattedDate ? (
+            <IconBox as="button" onClick={handleClear} aria-label={clearLabel} aria-disabled={disabled}>
+              <CloseAlertIcon />
+            </IconBox>
+          ) : undefined
+        }
         aria-autocomplete="none"
         label={label}
+        disabled={disabled}
         {...props}
       />
 
       {inputRef.current && inputRef.current.inputWrapperRef && visible && (
-        <DatePickerPopover
-          source={inputRef.current.inputWrapperRef}
-          role="dialog"
-          aria-modal="true"
-          aria-label={label}
-          spacingTop={2}
-        >
-          {visible && (
-            <FocusTrap onEscape={() => setVisible(false)}>
-              <Box padding={4}>
-                <Box paddingBottom={4}>
-                  <Row>
-                    <SimpleMenu id="year" label={months[date.getMonth()]}>
-                      {months.map((month) => (
-                        <MenuItem key={month} onClick={() => handleMonthChange(month)}>
-                          {month}
-                        </MenuItem>
-                      ))}
-                    </SimpleMenu>
-                    <SimpleMenu id="months" label={date.getFullYear()}>
-                      {years.map((year) => (
-                        <MenuItem key={year} onClick={() => handleYearChange(year)}>
-                          {year}
-                        </MenuItem>
-                      ))}
-                    </SimpleMenu>
-                  </Row>
-                </Box>
-                <RawTable
-                  colCount={7}
-                  rowCount={weeks.length + 1}
-                  initialCol={activeCol}
-                  initialRow={activeRow}
-                  role="grid"
-                >
-                  <RawThead>
-                    <RawTr>
-                      <DatePickerTh>{sun}</DatePickerTh>
-                      <DatePickerTh>{mon}</DatePickerTh>
-                      <DatePickerTh>{tue}</DatePickerTh>
-                      <DatePickerTh>{wed}</DatePickerTh>
-                      <DatePickerTh>{thu}</DatePickerTh>
-                      <DatePickerTh>{fri}</DatePickerTh>
-                      <DatePickerTh>{sat}</DatePickerTh>
-                    </RawTr>
-                  </RawThead>
-                  <RawTbody>
-                    {weeks.map((week, index) => (
-                      <RawTr key={`week-${index}`}>
-                        {week.map(({ date, outsideMonth, isSelected }) => {
-                          return (
-                            <DatePickerTd
-                              key={`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`}
-                              outsideMonth={outsideMonth}
-                              onSelectDay={() => handleSelectDay(date)}
-                              isSelected={isSelected}
-                            >
-                              <span aria-hidden={true}>{date.getDate()}</span>
-                              <VisuallyHidden>
-                                <span>{langFormatter.format(date)}</span>
-                              </VisuallyHidden>
-                            </DatePickerTd>
-                          );
-                        })}
-                      </RawTr>
-                    ))}
-                  </RawTbody>
-                </RawTable>
-              </Box>
-            </FocusTrap>
-          )}
-        </DatePickerPopover>
+        <DatePickerCalendar
+          selectedDate={selectedDate}
+          initialDate={initialDate}
+          onChange={handleChange}
+          popoverSource={inputRef.current.inputWrapperRef}
+          label={label}
+        />
       )}
-    </div>
+    </DatePickerWrapper>
   );
 };
 
-DatePicker.displayName = 'DatePicker';
-
 DatePicker.defaultProps = {
+  clearLabel: undefined,
+  disabled: false,
   initialDate: new Date(),
+  onClear: undefined,
   selectedDate: undefined,
 };
 
 DatePicker.propTypes = {
+  clearLabel: PropTypes.string,
+  disabled: PropTypes.bool,
   initialDate: PropTypes.instanceOf(Date),
   label: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  onClear: PropTypes.func,
   selectedDate: PropTypes.instanceOf(Date),
   selectedDateLabel: PropTypes.func.isRequired,
 };

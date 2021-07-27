@@ -19,13 +19,20 @@ Description...
     {() => {
       const [date, setDate] = useState();
       return (
-        <DatePicker
-          onChange={setDate}
-          selectedDate={date}
-          label="Date picker"
-          name="datepicker"
-          selectedDateLabel={(formattedDate) => `Date picker, current is ${formattedDate}`}
-        />
+        <div>
+          <DatePicker
+            onChange={setDate}
+            selectedDate={date}
+            label="Date picker"
+            name="datepicker"
+            clearLabel={'Clear the datepicker'}
+            onClear={() => setDate(undefined)}
+            selectedDateLabel={(formattedDate) => `Date picker, current is ${formattedDate}`}
+          />
+          <div style={{ marginLeft: '500px' }}>
+            <button>Button outside picker</button>
+          </div>
+        </div>
       );
     }}
   </Story>

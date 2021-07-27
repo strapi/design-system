@@ -10,6 +10,7 @@ const DatePickerThWrapper = styled(RawTh)`
   // Trick to prevent the outline from overflowing because of the general outline-offset
   outline-offset: -2px;
   border-radius: ${({ theme }) => theme.borderRadius};
+  text-transform: capitalize;
 `;
 
 const DatePickerThRow = styled(Row)`
