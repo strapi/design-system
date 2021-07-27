@@ -74,7 +74,7 @@ export const DatePicker = ({
           selectedDate={selectedDate}
           initialDate={initialDate}
           onChange={handleChange}
-          source={inputRef.current.inputWrapperRef}
+          popoverSource={inputRef.current.inputWrapperRef}
           label={label}
         />
       )}

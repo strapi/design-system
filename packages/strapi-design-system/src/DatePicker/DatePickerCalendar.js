@@ -105,6 +105,6 @@ DatePickerCalendar.propTypes = {
   initialDate: PropTypes.instanceOf(Date),
   label: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  popoverSource: PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+  popoverSource: PropTypes.shape({ current: PropTypes.instanceOf(Element) }).isRequired,
   selectedDate: PropTypes.instanceOf(Date),
 };
