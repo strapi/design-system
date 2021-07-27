@@ -5,10 +5,6 @@ import { Searchbar } from '../Searchbar';
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
 
-jest.mock('uuid', () => ({
-  v4: () => 1,
-}));
-
 describe('Searchbar', () => {
   it('snapshots the component', () => {
     const { container } = render(

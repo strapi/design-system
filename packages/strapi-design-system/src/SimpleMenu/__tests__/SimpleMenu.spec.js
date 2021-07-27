@@ -4,10 +4,6 @@ import { SimpleMenu, MenuItem } from '../SimpleMenu';
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
 
-jest.mock('uuid', () => ({
-  v4: () => 1,
-}));
-
 describe('SimpleMenu', () => {
   it('snapshots the component', () => {
     const { container } = render(
