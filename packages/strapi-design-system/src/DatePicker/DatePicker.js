@@ -21,7 +21,6 @@ export const DatePicker = ({
   const [visible, setVisible] = useState(false);
   const inputRef = useRef(null);
   const datePickerButtonRef = useRef(null);
-  const langFormatter = new Intl.DateTimeFormat();
   const formattedDate = selectedDate ? formatDate(selectedDate) : '';
   const placeholder = formatDate(new Date(1970, 0, 1));
 
@@ -52,7 +51,7 @@ export const DatePicker = ({
           <DatePickerButton
             ref={datePickerButtonRef}
             onClick={toggleVisibility}
-            aria-label={selectedDate ? selectedDateLabel(langFormatter.format(selectedDate)) : label}
+            aria-label={selectedDate ? selectedDateLabel(formatDate(selectedDate)) : label}
           >
             <CalendarIcon aria-hidden={true} />
           </DatePickerButton>

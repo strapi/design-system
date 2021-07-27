@@ -11,7 +11,7 @@ import { DatePickerTd } from './DatePickerTd';
 import { FocusTrap } from '../FocusTrap';
 import { getMonths, getDayOfWeek, generateWeeks, getYears, formatDate } from './utils';
 
-export const DatePickerCalendar = ({ selectedDate, initialDate, source, onChange, label }) => {
+export const DatePickerCalendar = ({ selectedDate, initialDate, popoverSource, onChange, label }) => {
   const [date, setDate] = useState(initialDate);
   const [weeks, activeRow, activeCol] = generateWeeks(date, selectedDate);
   const { sun, mon, tue, wed, thu, fri, sat } = getDayOfWeek();
@@ -37,7 +37,7 @@ export const DatePickerCalendar = ({ selectedDate, initialDate, source, onChange
   };
 
   return (
-    <DatePickerPopover source={source} role="dialog" aria-modal="true" aria-label={label} spacingTop={1}>
+    <DatePickerPopover source={popoverSource} role="dialog" aria-modal="true" aria-label={label} spacingTop={1}>
       <FocusTrap onEscape={() => setVisible(false)}>
         <Box padding={4}>
           <Box paddingBottom={4} paddingLeft={2} paddingRight={2}>
@@ -105,6 +105,6 @@ DatePickerCalendar.propTypes = {
   initialDate: PropTypes.instanceOf(Date),
   label: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  popoverSource: PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
   selectedDate: PropTypes.instanceOf(Date),
-  source: PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
 };
