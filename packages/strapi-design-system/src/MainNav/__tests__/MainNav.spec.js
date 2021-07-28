@@ -11,10 +11,6 @@ import { Divider } from '../../Divider';
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
 
-jest.mock('uuid', () => ({
-  v4: () => 1,
-}));
-
 describe('MainNav', () => {
   it('snapshots the component in full size', () => {
     const { container } = render(
@@ -818,7 +814,7 @@ describe('MainNav', () => {
                   <li>
                     <span>
                       <a
-                        aria-labelledby="tooltip-1"
+                        aria-labelledby="tooltip-3"
                         class="c9"
                         href="/builder"
                         tabindex="0"
@@ -841,7 +837,7 @@ describe('MainNav', () => {
                   <li>
                     <span>
                       <a
-                        aria-labelledby="tooltip-1"
+                        aria-labelledby="tooltip-5"
                         class="c9"
                         href="/content"
                         tabindex="0"
@@ -864,7 +860,7 @@ describe('MainNav', () => {
                   <li>
                     <span>
                       <a
-                        aria-labelledby="tooltip-1"
+                        aria-labelledby="tooltip-7"
                         class="c9"
                         href="/content"
                         tabindex="0"
@@ -913,7 +909,7 @@ describe('MainNav', () => {
                   <li>
                     <span>
                       <a
-                        aria-labelledby="tooltip-1"
+                        aria-labelledby="tooltip-9"
                         class="c9"
                         href="/builder"
                         tabindex="0"
@@ -936,7 +932,7 @@ describe('MainNav', () => {
                   <li>
                     <span>
                       <a
-                        aria-labelledby="tooltip-1"
+                        aria-labelledby="tooltip-11"
                         class="c9"
                         href="/content"
                         tabindex="0"
@@ -959,7 +955,7 @@ describe('MainNav', () => {
                   <li>
                     <span>
                       <a
-                        aria-labelledby="tooltip-1"
+                        aria-labelledby="tooltip-13"
                         class="c9"
                         href="/content"
                         tabindex="0"

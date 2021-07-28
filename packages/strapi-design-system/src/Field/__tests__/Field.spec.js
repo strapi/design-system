@@ -9,10 +9,6 @@ import { FieldInput } from '../FieldInput';
 import { Field } from '../Field';
 import { FieldAction } from '../FieldAction';
 
-jest.mock('uuid', () => ({
-  v4: () => 1,
-}));
-
 describe('Field', () => {
   it('snapshots the default example', () => {
     const { container } = render(
@@ -225,7 +221,7 @@ describe('Field', () => {
       <div>
         <label
           class="c0"
-          for="field-1"
+          for="field-2"
         >
           Email
         </label>
@@ -233,10 +229,10 @@ describe('Field', () => {
           class="c1 c2"
         >
           <input
-            aria-describedby="field-hint-1"
+            aria-describedby="field-hint-2"
             aria-invalid="false"
             class="c3"
-            id="field-1"
+            id="field-2"
             name="email"
             placeholder="Placeholder"
             type="text"
@@ -245,7 +241,7 @@ describe('Field', () => {
         </div>
         <p
           class="c4"
-          id="field-hint-1"
+          id="field-hint-2"
         >
           Description line
         </p>
@@ -353,7 +349,7 @@ describe('Field', () => {
       <div>
         <label
           class="c0"
-          for="field-1"
+          for="field-3"
         >
           Email
         </label>
@@ -361,10 +357,10 @@ describe('Field', () => {
           class="c1 c2"
         >
           <input
-            aria-describedby="field-error-1"
+            aria-describedby="field-error-3"
             aria-invalid="true"
             class="c3"
-            id="field-1"
+            id="field-3"
             name="email"
             placeholder="Placeholder"
             type="text"
@@ -373,7 +369,7 @@ describe('Field', () => {
         </div>
         <p
           class="c4"
-          id="field-error-1"
+          id="field-error-3"
         >
           Too long email
         </p>
@@ -489,7 +485,7 @@ describe('Field', () => {
       <div>
         <label
           class="c0"
-          for="field-1"
+          for="field-4"
         >
           Email
         </label>
@@ -498,11 +494,11 @@ describe('Field', () => {
           disabled=""
         >
           <input
-            aria-describedby="field-hint-1"
+            aria-describedby="field-hint-4"
             aria-invalid="false"
             class="c3"
             disabled=""
-            id="field-1"
+            id="field-4"
             name="password"
             placeholder="Placeholder"
             type="text"
@@ -511,7 +507,7 @@ describe('Field', () => {
         </div>
         <p
           class="c4"
-          id="field-hint-1"
+          id="field-hint-4"
         >
           Description line
         </p>
@@ -655,7 +651,7 @@ describe('Field', () => {
       <div>
         <label
           class="c0"
-          for="field-1"
+          for="field-5"
         >
           Email
         </label>
@@ -674,11 +670,11 @@ describe('Field', () => {
             </button>
           </div>
           <input
-            aria-describedby="field-hint-1"
+            aria-describedby="field-hint-5"
             aria-invalid="false"
             class="c5"
             disabled=""
-            id="field-1"
+            id="field-5"
             name="password"
             placeholder="Placeholder"
             type="text"
@@ -697,7 +693,7 @@ describe('Field', () => {
         </div>
         <p
           class="c7"
-          id="field-hint-1"
+          id="field-hint-5"
         >
           Description line
         </p>

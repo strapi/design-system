@@ -1,3 +1,2 @@
-import { v4 } from 'uuid';
-
-export const genId = () => v4();
+let id = 0;
+export const genId = () => ++id;

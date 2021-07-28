@@ -7,10 +7,6 @@ import { ModalBody } from '../ModalBody';
 import { ModalFooter } from '../ModalFooter';
 import { ModalHeader } from '../ModalHeader';
 
-jest.mock('uuid', () => ({
-  v4: () => 1,
-}));
-
 describe('ModalLayout', () => {
   it('snapshots the component', async () => {
     const { container } = render(
@@ -277,7 +273,7 @@ describe('ModalLayout', () => {
           >
             <div
               class="c14"
-              id="description-1"
+              id="description-2"
             />
             <p
               class="c15"

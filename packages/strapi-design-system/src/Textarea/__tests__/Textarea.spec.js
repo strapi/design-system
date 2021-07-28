@@ -4,10 +4,6 @@ import { Textarea } from '../Textarea';
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
 
-jest.mock('uuid', () => ({
-  v4: () => 1,
-}));
-
 describe('Textarea', () => {
   it('snapshots the component with a hint', () => {
     const { container } = render(
@@ -340,7 +336,7 @@ describe('Textarea', () => {
             >
               <label
                 class="c3"
-                for="field-1"
+                for="field-2"
               >
                 Content
               </label>
@@ -353,10 +349,10 @@ describe('Textarea', () => {
               </div>
             </div>
             <textarea
-              aria-describedby="field-error-1"
+              aria-describedby="field-error-2"
               aria-invalid="true"
               class="c5"
-              id="field-1"
+              id="field-2"
               name="content"
               placeholder="This is a content placeholder"
             >
@@ -364,7 +360,7 @@ describe('Textarea', () => {
             </textarea>
             <p
               class="c6"
-              id="field-error-1"
+              id="field-error-2"
             >
               An error occured
             </p>

@@ -4,10 +4,6 @@ import { TextInput } from '../TextInput';
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
 
-jest.mock('uuid', () => ({
-  v4: () => 1,
-}));
-
 describe('TextInput', () => {
   it('snapshots the component', () => {
     const { container } = render(
