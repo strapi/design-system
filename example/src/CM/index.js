@@ -8,7 +8,7 @@ import {
   HeaderLayout,
   Stack,
   OneBlockLayout,
-} from "@strapi/design-system";
+} from "@strapi/parts";
 import EditIcon from "@strapi/icons/EditIcon";
 import AddIcon from "@strapi/icons/AddIcon";
 import Inputs from "./Inputs";

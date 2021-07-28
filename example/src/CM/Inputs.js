@@ -7,7 +7,7 @@ import {
   Select,
   Option,
   DatePicker,
-} from "@strapi/design-system";
+} from "@strapi/parts";
 
 const Inputs = ({
   name,

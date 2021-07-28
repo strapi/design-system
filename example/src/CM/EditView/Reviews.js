@@ -1,6 +1,6 @@
 import React from "react";
-import { Box } from "@strapi/design-system/Box";
-import { Text } from "@strapi/design-system/Text";
+import { Box } from "@strapi/parts/Box";
+import { Text } from "@strapi/parts/Text";
 
 export const Reviews = () => {
   return (

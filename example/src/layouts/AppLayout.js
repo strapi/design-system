@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Box, SkipToContent } from "@strapi/design-system";
+import { Row, Box, SkipToContent } from "@strapi/parts";
 import { SideNav } from "../shared/SideNav";
 
 export const AppLayout = ({ children, subNav }) => {
