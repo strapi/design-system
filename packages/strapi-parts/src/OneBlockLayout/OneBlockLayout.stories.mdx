@@ -1,9 +1,10 @@
 <!--- OneBlockLayout.stories.mdx --->
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
-import BackIcon from '@strapi/icons/BackIcon';
-import EditIcon from '@strapi/icons/EditIcon';
-import AddIcon from '@strapi/icons/AddIcon';
+import { Applications, ApiTokens, AlertWarningIcon, AlertInfoIcon, AddIcon, EditIcon, BackIcon } from '@strapi/icons';
+import { MemoryRouter } from 'react-router-dom';
+import { SubNav, SubNavHeader, SubNavSection, SubNavSections, SubNavLink, SubNavLinkSection } from '../SubNav';
+import { Link } from '../Link';
 import { OneBlockLayout } from './OneBlockLayout';
 import { Box } from '../Box';
 import { Button } from '../Button';
@@ -52,5 +53,200 @@ Description...
         <Box padding={4}>hello world</Box>
       </OneBlockLayout>
     </Box>
+  </Story>
+</Canvas>
+
+## OneBlockLayout with sidenav
+
+Description...
+
+<Canvas>
+  <Story name="sidenav">
+    {() => {
+      const links = [
+        {
+          id: 1,
+          label: 'Addresses',
+          icon: <AlertWarningIcon />,
+          to: '/address',
+        },
+        {
+          id: 2,
+          label: 'Categories',
+          to: '/category',
+        },
+        {
+          id: 3,
+          label: 'Cities',
+          icon: <Applications />,
+          to: '/city',
+          active: true,
+        },
+        {
+          id: 4,
+          label: 'Countries',
+          to: '/country',
+        },
+      ];
+      return (
+        <Box background="neutral100">
+          <OneBlockLayout
+            header={
+              <HeaderLayout
+                primaryAction={<Button startIcon={<AddIcon />}>Add an entry</Button>}
+                secondaryAction={
+                  <Button variant="tertiary" startIcon={<EditIcon />}>
+                    Edit
+                  </Button>
+                }
+                title="Other CT"
+                subtitle="36 entries found"
+                as="h2"
+              />
+            }
+            sideNav={
+              <SubNav ariaLabel="Builder sub nav">
+                <SubNavHeader
+                  searchable
+                  value={''}
+                  onClear={() => {}}
+                  onChange={(e) => {}}
+                  label="Builder"
+                  searchLabel="Search..."
+                />
+                <SubNavSections>
+                  <SubNavSection label="Collection Type" collapsable badgeLabel={links.length.toString()}>
+                    {links.map((link) => (
+                      <SubNavLink to={link.to} active={link.active} key={link.id}>
+                        {link.label}
+                      </SubNavLink>
+                    ))}
+                  </SubNavSection>
+                  <Box as="li" paddingLeft={7}>
+                    <TextButton startIcon={<AddIcon />}>Click on me</TextButton>
+                  </Box>
+                  <SubNavSection label="Single Type" collapsable badgeLabel={links.length.toString()}>
+                    <SubNavLinkSection label="Default">
+                      {links.map((link) => (
+                        <SubNavLink to={link.to} key={link.id}>
+                          {link.label}
+                        </SubNavLink>
+                      ))}
+                    </SubNavLinkSection>
+                  </SubNavSection>
+                  <Box as="li" paddingLeft={7}>
+                    <TextButton startIcon={<AddIcon />}>Click on me</TextButton>
+                  </Box>
+                </SubNavSections>
+              </SubNav>
+            }
+            startActions={
+              <>
+                <Button variant="tertiary">Search</Button>
+                <Button variant="tertiary">Filter</Button>
+              </>
+            }
+            endActions={
+              <>
+                <Button variant="tertiary">Settings</Button>
+              </>
+            }
+          >
+            <Box padding={4}>
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+              abcd
+              <br />
+            </Box>
+          </OneBlockLayout>
+        </Box>
+      );
+    }}
   </Story>
 </Canvas>

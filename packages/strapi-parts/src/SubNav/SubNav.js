@@ -3,11 +3,15 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Grid } from '../Grid';
 
+export const subNavWidth = `${232 / 16}rem`;
+
 const SubNavWrapper = styled(Grid)`
-  width: ${232 / 16}rem;
+  width: ${subNavWidth};
   background: ${({ theme }) => theme.colors.neutral100};
   height: 100%;
-  position: relative;
+  position: sticky;
+  top: 0;
+  height: 100vh;
   overflow-y: auto;
   border-right: 1px solid ${({ theme }) => theme.colors.neutral200};
 `;

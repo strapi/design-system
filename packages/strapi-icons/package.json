@@ -21,9 +21,6 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },
-  "dependencies": {
-    "jest-styled-components": "^7.0.4"
-  },
   "scripts": {
     "analyze:bundle": "cross-env BUNDLE_ANALYZE=1 webpack",
     "build": "yarn generate:icons && webpack &&  node ../../tools/copy-files.js",
