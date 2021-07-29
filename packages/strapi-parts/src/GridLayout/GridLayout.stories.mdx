@@ -1,9 +1,8 @@
 <!--- GridLayout.stories.mdx --->
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
-import BackIcon from '@strapi/icons/BackIcon';
-import EditIcon from '@strapi/icons/EditIcon';
-import AddIcon from '@strapi/icons/AddIcon';
+import { Applications, ApiTokens, AlertWarningIcon, AlertInfoIcon, AddIcon, EditIcon, BackIcon } from '@strapi/icons';
+import { SubNav, SubNavHeader, SubNavSection, SubNavSections, SubNavLink, SubNavLinkSection } from '../SubNav';
 import { GridLayout } from './GridLayout';
 import { Box } from '../Box';
 import { Button } from '../Button';
@@ -58,5 +57,109 @@ Description...
           ))}
       </GridLayout>
     </Box>
+  </Story>
+</Canvas>
+
+## GridLayout sideNav
+
+Description...
+
+<Canvas>
+  <Story name="sideNav">
+    {() => {
+      const links = [
+        {
+          id: 1,
+          label: 'Addresses',
+          icon: <AlertWarningIcon />,
+          to: '/address',
+        },
+        {
+          id: 2,
+          label: 'Categories',
+          to: '/category',
+        },
+        {
+          id: 3,
+          label: 'Cities',
+          icon: <Applications />,
+          to: '/city',
+          active: true,
+        },
+        {
+          id: 4,
+          label: 'Countries',
+          to: '/country',
+        },
+      ];
+      return (
+        <Box background="neutral100">
+          <GridLayout
+            header={
+              <HeaderLayout
+                primaryAction={<Button startIcon={<AddIcon />}>Add an entry</Button>}
+                secondaryAction={
+                  <Button variant="tertiary" startIcon={<EditIcon />}>
+                    Edit
+                  </Button>
+                }
+                title="Other CT"
+                subtitle="36 entries found"
+                as="h2"
+              />
+            }
+            startActions={
+              <>
+                <Button variant="tertiary">Search</Button>
+                <Button variant="tertiary">Filter</Button>
+              </>
+            }
+            endActions={
+              <>
+                <Button variant="tertiary">Settings</Button>
+              </>
+            }
+            sideNav={
+              <SubNav ariaLabel="Builder sub nav">
+                <SubNavHeader
+                  searchable
+                  value={''}
+                  onClear={() => {}}
+                  onChange={(e) => {}}
+                  label="Builder"
+                  searchLabel="Search..."
+                />
+                <SubNavSections>
+                  <SubNavSection label="Collection Type" collapsable badgeLabel={links.length.toString()}>
+                    {links.map((link) => (
+                      <SubNavLink to={link.to} active={link.active} key={link.id}>
+                        {link.label}
+                      </SubNavLink>
+                    ))}
+                  </SubNavSection>
+                  <SubNavSection label="Single Type" collapsable badgeLabel={links.length.toString()}>
+                    <SubNavLinkSection label="Default">
+                      {links.map((link) => (
+                        <SubNavLink to={link.to} key={link.id}>
+                          {link.label}
+                        </SubNavLink>
+                      ))}
+                    </SubNavLinkSection>
+                  </SubNavSection>
+                </SubNavSections>
+              </SubNav>
+            }
+          >
+            {Array(12)
+              .fill(null)
+              .map((_, idx) => (
+                <Box padding={4} hasRadius background="neutral0" padding={4} key={`box-${idx}`} shadow="tableShadow">
+                  hello world
+                </Box>
+              ))}
+          </GridLayout>
+        </Box>
+      );
+    }}
   </Story>
 </Canvas>
