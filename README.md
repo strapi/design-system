@@ -1,15 +1,5 @@
 **This repository is currently work in progress.**
 
-## Installation
-
-```sh
-$ git clone git@github.com:strapi/design-system-experiments.git # clone the project locally
-$ cd design-system-experiments # moves into the folder
-$ yarn # install dependencies
-$ yarn bootstrap # prepare lerna packages
-$ yarn storybook # starts the storybook
-```
-
 ## Testing a specific branch
 
 Make sure to have the project already cloned (see previous point). Then, run the following commands:

@@ -1,6 +1,6 @@
 {
   "name": "@strapi/icons",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha.2",
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
@@ -25,5 +25,6 @@
     "analyze:bundle": "cross-env BUNDLE_ANALYZE=1 webpack",
     "build": "yarn generate:icons && webpack &&  node ../../tools/copy-files.js",
     "generate:icons": "svgr --icon -d ./src ./assets/icons"
-  }
+  },
+  "gitHead": "1c4be11392604cc5ea65fb49f4ea6b8eeb953e6b"
 }
