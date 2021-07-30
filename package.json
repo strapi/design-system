@@ -4,6 +4,7 @@
   "main": "index.js",
   "repository": "git@github.com:strapi/parts.git",
   "license": "MIT",
+  "private": true,
   "scripts": {
     "analyze:bundle": "lerna run analyze:bundle --stream",
     "bootstrap": "lerna bootstrap",

@@ -4,10 +4,15 @@
   "private": true,
   "dependencies": {
     "@craco/craco": "^6.1.1",
+<<<<<<< HEAD
     "@strapi/parts": "file:../packages/strapi-parts/dist",
     "@strapi/icons": "file:../packages/strapi-icons/dist",
     "codemirror": "^5.62.2",
     "highlight.js": "^11.1.0",
+=======
+    "@strapi/parts": "*",
+    "@strapi/icons": "*",
+>>>>>>> 840a80496fe96ef1be54ea99e0a513b262e9f282
     "jest-styled-components": "^7.0.4",
     "lodash": "^4.17.21",
     "markdown-it": "^12.1.0",
