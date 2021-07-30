@@ -29,71 +29,83 @@ const modelDef = {
     date: {
       type: "date",
     },
+    content: {
+      type: "richtext"
+    }
   },
 };
 
 const layout = [
+  // [
+  //   {
+  //     label: "Name",
+  //     size: 6,
+  //     disabled: false,
+  //     name: "name",
+  //     type: "string",
+  //     description: "Please set your name",
+  //   },
+  //   {
+  //     label: "Email",
+  //     type: "email",
+  //     name: "email",
+  //     size: 6,
+  //   },
+  // ],
+  // [
+  //   {
+  //     name: "description",
+  //     type: "textarea",
+  //     size: 8,
+  //     label: " Dscription",
+  //   },
+  // ],
+  // [
+  //   {
+  //     name: "enum",
+  //     type: "select",
+  //     size: 6,
+  //     label: "Enum",
+  //     options: ["un", "deux", "trois"],
+  //   },
+  //   {
+  //     type: "date",
+  //     name: "date",
+  //     label: "Date",
+  //     size: 4,
+  //   },
+  // ],
   [
     {
-      label: "Name",
-      size: 6,
-      disabled: false,
-      name: "name",
-      type: "string",
-      description: "Please set your name",
-    },
-    {
-      label: "Email",
-      type: "email",
-      name: "email",
-      size: 6,
-    },
+      name: "content",
+      label: "Content",
+      description: "",
+      type: "wysiwyg",
+      size: 12,
+    }
   ],
-  [
-    {
-      name: "description",
-      type: "textarea",
-      size: 8,
-      label: " Dscription",
-    },
-  ],
-  [
-    {
-      name: "enum",
-      type: "select",
-      size: 6,
-      label: "Enum",
-      options: ["un", "deux", "trois"],
-    },
-    {
-      type: "date",
-      name: "date",
-      label: "Date",
-      size: 4,
-    },
-  ],
-  [
-    {
-      name: "private",
-      label: "Private",
-      type: "checkbox",
-      description: "Private",
-      size: 4,
-      disabled: true
-    },
-    {
-      name: "max",
-      label: "Max",
-      type: "checkbox",
-      size: 4,
-    },
-    {
-      name: "min",
-      label: "Min",
-      type: "checkbox",
-      size: 4,
-    },
-  ],
+  //   [
+  //     {
+  //       name: "private",
+  //       label: "Private",
+  //       type: "checkbox",
+  //       description: "Private",
+  //       size: 4,
+  //       disabled: true
+  //     },
+  //     {
+  //       name: "max",
+  //       label: "Max",
+  //       type: "checkbox",
+  //       size: 4,
+  //     },
+  //     {
+  //       name: "min",
+  //       label: "Min",
+  //       type: "checkbox",
+  //       size: 4,
+  //     },
+  //   ],
 ];
 
 export { layout, modelDef };

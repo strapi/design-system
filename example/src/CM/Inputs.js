@@ -9,6 +9,8 @@ import {
   DatePicker,
 } from "@strapi/parts";
 
+import Wysiwyg from './../shared/Wysiwyg/index';
+
 const Inputs = ({
   name,
   onChange,
@@ -122,6 +124,23 @@ const Inputs = ({
           }
         />
       );
+    }
+    case "wysiwyg": {
+      const handleChange = (value) => {
+        onChange({ name, value });
+      };
+
+      return (
+        <Wysiwyg
+          {...rest}
+          label={label}
+          name={name}
+          onChange={handleChange}
+          placeholder='Add a title'
+          options={options}
+          value={value}
+        />
+      )
     }
 
     default:

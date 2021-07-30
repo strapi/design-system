@@ -104,7 +104,7 @@ const CM = () => {
                 {layout.map((row, index) => {
                   return row.map((input) => {
                     return (
-                      <GridItem key={input.name} col={input.size} xs={12} s={6}>
+                      <GridItem key={input.name} col={input.size} xs={12}>
                         <Inputs
                           {...input}
                           // customInputs={{ string: () => "TEXT CUSTOM" }}
