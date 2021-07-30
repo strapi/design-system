@@ -1,0 +1,60 @@
+import { lightTheme } from './light-theme';
+
+const generateError = (customMessage) => `
+${customMessage}
+
+The following is an example:
+
+
+import { lightTheme, extendTheme } from '@strapi/parts/themes';
+
+const myCustomTheme = extendTheme(lightTheme, {
+    ${Object.keys(lightTheme)
+      .map((key) => `${key}: /* put the overrides for the ${key} key */,`)
+      .join('\n')}
+})
+`;
+
+const isObject = (item) => {
+  return item && typeof item === 'object' && !Array.isArray(item);
+};
+
+const mergeDeep = (target, overrides) => {
+  const output = Object.assign({}, target);
+
+  if (isObject(target) && isObject(overrides)) {
+    Object.keys(overrides).forEach((key) => {
+      if (isObject(overrides[key])) {
+        if (target.hasOwnProperty(key)) {
+          output[key] = mergeDeep(target[key], overrides[key]);
+        } else {
+          output[key] = overrides[key];
+        }
+      } else {
+        output[key] = overrides[key];
+      }
+    });
+  }
+
+  return output;
+};
+
+export const extendTheme = (theme, overrides) => {
+  if (!isObject(theme)) {
+    const error = generateError(
+      'The first argument should be an object and corresponds to the theme you want to extend.',
+    );
+
+    throw new Error(error);
+  }
+
+  if (!isObject(overrides)) {
+    const error = generateError(
+      'The second argument should be an object and corresponds to the keys of the theme you want to override.',
+    );
+
+    throw new Error(error);
+  }
+
+  return mergeDeep(theme, overrides);
+};
