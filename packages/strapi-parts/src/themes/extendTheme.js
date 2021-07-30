@@ -20,7 +20,7 @@ const isObject = (item) => {
 };
 
 const mergeDeep = (target, overrides) => {
-  const output = Object.assign({}, target);
+  const output = { ...target };
 
   if (isObject(target) && isObject(overrides)) {
     Object.keys(overrides).forEach((key) => {
