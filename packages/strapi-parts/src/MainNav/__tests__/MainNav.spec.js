@@ -106,8 +106,11 @@ describe('MainNav', () => {
       .c0 {
         width: 14rem;
         background: #ffffff;
-        height: 100%;
-        position: relative;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        z-index: 2;
       }
 
       .c6 {
@@ -613,8 +616,11 @@ describe('MainNav', () => {
         width: -moz-max-content;
         width: max-content;
         background: #ffffff;
-        height: 100%;
-        position: relative;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        z-index: 2;
       }
 
       .c8 > * {

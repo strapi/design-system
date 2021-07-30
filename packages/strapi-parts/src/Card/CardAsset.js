@@ -8,7 +8,8 @@ const CardAssetImg = styled.img`
   // addition infos: https://stackoverflow.com/questions/5804256/image-inside-div-has-extra-space-below-the-image
   margin: 0;
   padding: 0;
-  height: 100%;
+  max-height: 100%;
+  max-width: 100%;
 `;
 
 const CardAssetSizes = {

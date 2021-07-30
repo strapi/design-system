@@ -7,8 +7,10 @@ import { MainNavContext } from './MainNavContext';
 const MainNavWrapper = styled(Grid)`
   width: ${({ condensed }) => (condensed ? 'max-content' : `${224 / 16}rem`)};
   background: ${({ theme }) => theme.colors.neutral0};
-  height: 100%;
-  position: relative;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  z-index: 2;
 `;
 
 export const MainNav = ({ condensed, ...props }) => {

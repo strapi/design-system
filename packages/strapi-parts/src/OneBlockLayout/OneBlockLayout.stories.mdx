@@ -2,6 +2,7 @@
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { Applications, ApiTokens, AlertWarningIcon, AlertInfoIcon, AddIcon, EditIcon, BackIcon } from '@strapi/icons';
+import DeleteIcon from '@strapi/icons/DeleteIcon';
 import { MemoryRouter } from 'react-router-dom';
 import { SubNav, SubNavHeader, SubNavSection, SubNavSections, SubNavLink, SubNavLinkSection } from '../SubNav';
 import { Link } from '../Link';
@@ -10,6 +11,10 @@ import { Box } from '../Box';
 import { Button } from '../Button';
 import { HeaderLayout } from '../HeaderLayout';
 import { Row } from '../Row';
+import { Table, Thead, Tbody, Tr, Td, Th, TFooter } from '../Table';
+import { TableLabel, Text } from '../Text';
+import { BaseCheckbox } from '../BaseCheckbox';
+import { IconButton } from '../IconButton';
 
 <Meta title="Design System/Layouts/OneBlockLayout" component={OneBlockLayout} />
 
@@ -88,6 +93,18 @@ Description...
           to: '/country',
         },
       ];
+      const ROW_COUNT = 6;
+      const COL_COUNT = 10;
+      const entry = {
+        cover: 'https://avatars.githubusercontent.com/u/3874873?v=4',
+        description: 'Chez Léon is a human sized Parisian',
+        category: 'French cuisine',
+        contact: 'Leon Lafrite',
+      };
+      const entries = [];
+      for (let i = 0; i < 5; i++) {
+        entries.push({ ...entry, id: i });
+      }
       return (
         <Box background="neutral100">
           <OneBlockLayout
@@ -122,9 +139,6 @@ Description...
                       </SubNavLink>
                     ))}
                   </SubNavSection>
-                  <Box as="li" paddingLeft={7}>
-                    <TextButton startIcon={<AddIcon />}>Click on me</TextButton>
-                  </Box>
                   <SubNavSection label="Single Type" collapsable badgeLabel={links.length.toString()}>
                     <SubNavLinkSection label="Default">
                       {links.map((link) => (
@@ -134,9 +148,6 @@ Description...
                       ))}
                     </SubNavLinkSection>
                   </SubNavSection>
-                  <Box as="li" paddingLeft={7}>
-                    <TextButton startIcon={<AddIcon />}>Click on me</TextButton>
-                  </Box>
                 </SubNavSections>
               </SubNav>
             }
@@ -152,98 +163,81 @@ Description...
               </>
             }
           >
-            <Box padding={4}>
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-              abcd
-              <br />
-            </Box>
+            <Table
+              colCount={COL_COUNT}
+              rowCount={ROW_COUNT}
+              footer={<TFooter icon={<AddIcon />}>Add another field to this collection type</TFooter>}
+            >
+              <Thead>
+                <Tr>
+                  <Th>
+                    <BaseCheckbox aria-label="Select all entries" />
+                  </Th>
+                  <Th>
+                    <TableLabel>ID</TableLabel>
+                  </Th>
+                  <Th>
+                    <TableLabel>Cover</TableLabel>
+                  </Th>
+                  <Th>
+                    <TableLabel>Description</TableLabel>
+                  </Th>
+                  <Th>
+                    <TableLabel>Categories</TableLabel>
+                  </Th>
+                  <Th>
+                    <TableLabel>Contact</TableLabel>
+                  </Th>
+                  <Th>More</Th>
+                  <Th>More</Th>
+                  <Th>More</Th>
+                  <Th>
+                    <VisuallyHidden>Actions</VisuallyHidden>
+                  </Th>
+                </Tr>
+              </Thead>
+              <Tbody>
+                {entries.map((entry) => (
+                  <Tr key={entry.id}>
+                    <Td>
+                      <BaseCheckbox aria-label={`Select ${entry.contact}`} />
+                    </Td>
+                    <Td>
+                      <Text textColor="neutral800">{entry.id}</Text>
+                    </Td>
+                    <Td>
+                      <Avatar src={entry.cover} alt={entry.contact} />
+                    </Td>
+                    <Td>
+                      <Text textColor="neutral800">{entry.description}</Text>
+                    </Td>
+                    <Td>
+                      <Text textColor="neutral800">{entry.category}</Text>
+                    </Td>
+                    <Td>
+                      <Text textColor="neutral800">{entry.contact}</Text>
+                    </Td>
+                    <Td>
+                      <Text textColor="neutral800">{entry.description}</Text>
+                    </Td>
+                    <Td>
+                      <Text textColor="neutral800">{entry.description}</Text>
+                    </Td>
+                    <Td>
+                      <Text textColor="neutral800">{entry.description}</Text>
+                    </Td>
+                    <Td>
+                      <Row>
+                        <IconButton onClick={() => console.log('edit')} label="Edit" icon={<EditIcon />} />
+                        <Box paddingLeft={1}>
+                          <IconButton onClick={() => console.log('edit')} label="Delete" icon={<DeleteIcon />} />
+                        </Box>
+                      </Row>
+                    </Td>
+                  </Tr>
+                ))}
+              </Tbody>
+            </Table>
           </OneBlockLayout>
         </Box>
       );

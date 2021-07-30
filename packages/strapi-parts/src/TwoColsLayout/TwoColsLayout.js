@@ -5,8 +5,13 @@ import { Row } from '../Row';
 import { Grid, GridItem } from '../Grid';
 import styled from 'styled-components';
 
-const FlexBox = styled(Box)`
-  flex: 1;
+const GridContainer = styled(Box)`
+  display: grid;
+  grid-template-columns: ${({ hasSideNav }) => (hasSideNav ? `auto 1fr` : '1fr')};
+`;
+
+const OverflowingItem = styled(Box)`
+  overflow: auto;
 `;
 
 const BlockActions = styled(Row)`
@@ -19,9 +24,9 @@ const BlockActions = styled(Row)`
 
 export const TwoColsLayout = ({ startActions, sideNav, endActions, header, startCol, endCol }) => {
   return (
-    <Row alignItems="flex-start">
+    <GridContainer hasSideNav={Boolean(sideNav)}>
       {sideNav}
-      <FlexBox>
+      <OverflowingItem paddingBottom={10}>
         {header}
         <Box paddingLeft={10} paddingRight={10}>
           {startActions || endActions ? (
@@ -46,8 +51,8 @@ export const TwoColsLayout = ({ startActions, sideNav, endActions, header, start
             </GridItem>
           </Grid>
         </Box>
-      </FlexBox>
-    </Row>
+      </OverflowingItem>
+    </GridContainer>
   );
 };
 

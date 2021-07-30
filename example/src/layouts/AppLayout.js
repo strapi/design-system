@@ -7,13 +7,9 @@ export const AppLayout = ({ children, subNav }) => {
     <Box background="neutral100">
       <SkipToContent>Skip to main content</SkipToContent>
       <Row alignItems="flex-start">
-        <Box style={{ height: "100vh" }}>
-          <SideNav />
-        </Box>
-
-        <Box style={{ height: "100vh" }}>{subNav}</Box>
-
-        <Box style={{ flex: 1, overflow: "hidden" }}>{children}</Box>
+        <SideNav />
+        {subNav}
+        <Box style={{ flex: 1 }}>{children}</Box>
       </Row>
     </Box>
   );
