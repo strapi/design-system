@@ -136,13 +136,13 @@ describe('SubNav', () => {
       .c0 {
         width: 14.5rem;
         background: #f6f6f9;
-        height: 100%;
         position: -webkit-sticky;
         position: sticky;
         top: 0;
         height: 100vh;
         overflow-y: auto;
         border-right: 1px solid #dcdce4;
+        z-index: 1;
       }
 
       .c11 > * {

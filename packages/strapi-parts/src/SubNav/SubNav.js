@@ -8,12 +8,12 @@ export const subNavWidth = `${232 / 16}rem`;
 const SubNavWrapper = styled(Grid)`
   width: ${subNavWidth};
   background: ${({ theme }) => theme.colors.neutral100};
-  height: 100%;
   position: sticky;
   top: 0;
   height: 100vh;
   overflow-y: auto;
   border-right: 1px solid ${({ theme }) => theme.colors.neutral200};
+  z-index: 1;
 `;
 
 export const SubNav = ({ ariaLabel, ...props }) => {

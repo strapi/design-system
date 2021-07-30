@@ -4,10 +4,14 @@ import { Box } from '../Box';
 import { Row } from '../Row';
 import styled from 'styled-components';
 
-const FlexBox = styled(Box)`
-  flex: 1;
+const GridContainer = styled(Box)`
+  display: grid;
+  grid-template-columns: ${({ hasSideNav }) => (hasSideNav ? `auto 1fr` : '1fr')};
 `;
 
+const OverflowingItem = styled(Box)`
+  overflow: auto;
+`;
 const BlockActions = styled(Row)`
   & > * + * {
     margin-left: ${({ theme }) => theme.spaces[2]};
@@ -24,9 +28,9 @@ const GridLayoutWrapper = styled.div`
 
 export const GridLayout = ({ startActions, sideNav, endActions, header, children }) => {
   return (
-    <Row alignItems="flex-start">
+    <GridContainer hasSideNav={Boolean(sideNav)}>
       {sideNav}
-      <FlexBox>
+      <OverflowingItem paddingBottom={10}>
         {header}
         <Box paddingLeft={10} paddingRight={10}>
           {startActions || endActions ? (
@@ -40,8 +44,8 @@ export const GridLayout = ({ startActions, sideNav, endActions, header, children
 
           <GridLayoutWrapper>{children}</GridLayoutWrapper>
         </Box>
-      </FlexBox>
-    </Row>
+      </OverflowingItem>
+    </GridContainer>
   );
 };
 
