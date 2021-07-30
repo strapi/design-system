@@ -5,7 +5,7 @@ import {
     Button,
     Row, 
     Select
-} from "@strapi/design-system";
+} from "@strapi/parts";
 import {
     Bold,
     Italic,

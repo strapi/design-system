@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import WysiwygNav from './WysiwygNav';
 import WysiwygFooter from './WysiwygFooter';
 import Editor from './Editor';
-import { TextButton, Box } from "@strapi/design-system";
+import { TextButton, Box } from "@strapi/parts";
 
 
 const Wysiwyg = ({ label, placeholder, value, onChange }) => {

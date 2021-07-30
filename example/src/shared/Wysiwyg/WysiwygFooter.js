@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Text } from "@strapi/design-system";
+import { Row, Text } from "@strapi/parts";
 import { Expand } from "@strapi/icons";
 
 import {
