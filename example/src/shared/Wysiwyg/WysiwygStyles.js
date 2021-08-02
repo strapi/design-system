@@ -48,7 +48,7 @@ export const MoreButton = styled(IconButton)`
 
 export const NavWrapper = styled(Box)`
   border: ${({ theme }) => `1px solid ${theme.colors.neutral200}`};
-  border-radius: ${({ theme }) => `${theme.spaces[2]} ${theme.spaces[2]} 0 0`};
+  border-radius: ${({ theme }) => `${theme.spaces[1]} ${theme.spaces[1]} 0 0`};
   border-bottom: 0;
 `;
 

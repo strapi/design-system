@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import WysiwygNav from './WysiwygNav';
 import WysiwygFooter from './WysiwygFooter';
@@ -7,17 +7,38 @@ import { TextButton, Box } from "@strapi/parts";
 
 
 const Wysiwyg = ({ label, placeholder, value, onChange }) => {
+  const [markdownType, setMarkdownType] = useState(null);
+  const [listType, setListType] = useState(null);
+  const [titleType, setTitleType] = useState(null);
 
-    return (
-        <>
-            <TextButton>{label}</TextButton>
-            <Box paddingTop={1}>
-                <WysiwygNav placeholder={placeholder} />
-                <Editor value={value || ''} onChange={modifiedData => onChange(modifiedData)}/>
-                <WysiwygFooter />
-            </Box>
-        </>
-    )
+  // const [navbarClick, setNavbarClick] = useState(null);
+
+  return (
+    <>
+      <TextButton>{label}</TextButton>
+      <Box paddingTop={1}>
+        <WysiwygNav 
+          placeholder={placeholder} 
+          setListType={setListType}
+          setMarkdownType={setMarkdownType}
+          setTitleType={setTitleType}
+          // navbarClick={navbarClick}
+        />
+        <Editor 
+          value={value || ''} 
+          onChange={modifiedData => onChange(modifiedData)} 
+          listType={listType}
+          setListType={setListType}
+          markdownType={markdownType}
+          setMarkdownType={setMarkdownType}
+          titleType={titleType}
+          setTitleType={setTitleType}
+          // setNavbarClick={setNavbarClick}
+        />
+        <WysiwygFooter />
+      </Box>
+    </>
+  );
 };
 
 Wysiwyg.propTypes = {
