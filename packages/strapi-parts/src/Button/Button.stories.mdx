@@ -1,7 +1,7 @@
 <!--- Button.stories.mdx --->
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
-import { ArgsTable, Description } from '@storybook/addon-docs';
+import { ArgsTable } from '@storybook/addon-docs';
 import HelpIcon from '@strapi/icons/HelpIcon';
 import ContentIcon from '@strapi/icons/ContentIcon';
 import Ct from '@strapi/icons/Ct';
@@ -19,11 +19,8 @@ Buttons are a way to perform actions within a page. They help interact with its 
 
 - A button should have a relevant and clear label.
 - Be positioned in consistent locations in the interface.
-- If there are no primary button on a screen yet, this might be the one to look for.
+- If there are no primary action on a screen yet, this might be the one to look for.
 - Prefer to have not more than two buttons side to side.
-
-**When not to use**
-
 - To navigate to another page in your browser (use Link component instead).
 
 [View source](https://github.com/strapi/design-system-experiments/tree/develop/packages/strapi-parts/src/Button)
@@ -108,45 +105,15 @@ You can set the value to `default`, `secondary`, `tertiary`, `success`, `danger`
   </Story>
 </Canvas>
 
-#### Primary button
-
-Use a Primary button to inform about the importance of an action. This is the strongest call to action. No more than one primary button should appear on a screen. 
-
-Examples: Save, Finish, ...
-
-#### Secondary button
-
-Use a Secondary button mostly next to a primary button. This action has to be less important or is less likely to be perform by a user. 
-
-Examples: Edit model, Configure the view, ...
-
-#### Tertiary button
-
-Use a Tertiary button when the action has a low impact or is the least likely to be perform by a user. 
-
-Examples: Cancel, Close, ...
-
-#### Success button
-
-Use a Success button for reassurance. Use it preferably to indicate a validation, a success, an end of a workflow, ...
-
-Examples: Confirm, Save, ...
-
-#### Danger
-
-Use a Danger button to indicate a destructive action. They are most commonly found in confirmation modals. More generally the red color and danger style indicate an important action that could not be reversible. 
-
-Example: Delete
-
-#### Success-light
-
-Use a Success-light button to indicate a lower emphasis style to a successful action. 
-
-#### Danger-light
-
-Use a Danger-light button to indicate a lower emphasis style to a destructive action. 
-
-Example: Delete this entry
+| State                | Description                                                                                                                                                                                                                          |
+|----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Primary button       | Use a Primary button to inform about the importance of an action. This is the strongest call to action. No more than one primary button should appear on a screen.  Examples: Save, Finish, ...                                      |
+| Secondary button     | Use a Secondary button mostly next to a primary button. This action has to be less important or is less likely to be perform by a user.  Examples: Edit model, Configure the view, ...                                               |
+| Tertiary button      | Use a Tertiary button when the action has a low impact or is the least likely to be perform by a user.  Examples: Cancel, Close, ...                                                                                                 |
+| Success button       | Use a Success button for reassurance. Use it preferably to indicate a validation, a success, an end of a workflow, ... Examples: Confirm, Save, ...                                                                                  |
+| Danger button        | Use a Danger button to indicate a destructive action. They are most commonly found in confirmation modals. More generally the red color and danger style indicate an important action that could not be reversible.  Example: Delete |
+| Success-light button | Use a Success-light button to indicate a lower emphasis style to a successful action.                                                                                                                                                |
+| Danger-light button  | Use a Danger-light button to indicate a lower emphasis style to a destructive action.  Example: Delete this entry                                                                                                                    |
 
 ### Button with icon
 
