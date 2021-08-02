@@ -10,7 +10,7 @@ const GridContainer = styled(Box)`
 `;
 
 const OverflowingItem = styled(Box)`
-  overflow: auto;
+  overflow-x: hidden;
 `;
 const BlockActions = styled(Row)`
   & > * + * {
