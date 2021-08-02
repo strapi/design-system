@@ -29,42 +29,49 @@ describe('Text', () => {
         font-weight: 600;
         font-size: 2rem;
         line-height: 1.25;
+        color: #32324d;
       }
 
       .c1 {
         font-weight: 600;
         font-size: 1.125rem;
         line-height: 1.22;
+        color: #32324d;
       }
 
       .c2 {
         font-weight: 500;
         font-size: 1rem;
         line-height: 1.25;
+        color: #32324d;
       }
 
       .c3 {
         font-weight: 400;
         font-size: 0.875rem;
         line-height: 1.43;
+        color: #32324d;
       }
 
       .c4 {
         font-weight: 500;
         font-size: 0.875rem;
         line-height: 1.43;
+        color: #32324d;
       }
 
       .c5 {
         font-weight: 400;
         font-size: 0.75rem;
         line-height: 1.33;
+        color: #32324d;
       }
 
       .c6 {
         font-weight: 500;
         font-size: 0.75rem;
         line-height: 1.33;
+        color: #32324d;
       }
 
       .c8 {

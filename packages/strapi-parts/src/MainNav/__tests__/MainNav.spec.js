@@ -89,7 +89,7 @@ describe('MainNav', () => {
         padding-right: 12px;
       }
 
-      .c20 {
+      .c19 {
         background: #ffffff;
         padding-top: 4px;
         padding-right: 12px;
@@ -98,7 +98,7 @@ describe('MainNav', () => {
         border-radius: 4px;
       }
 
-      .c23 {
+      .c22 {
         padding-top: 12px;
         padding-bottom: 12px;
       }
@@ -127,13 +127,7 @@ describe('MainNav', () => {
         color: #666687;
       }
 
-      .c18 {
-        font-weight: 400;
-        font-size: 0.875rem;
-        line-height: 1.43;
-      }
-
-      .c21 {
+      .c20 {
         font-weight: 400;
         font-size: 0.875rem;
         line-height: 1.43;
@@ -145,7 +139,7 @@ describe('MainNav', () => {
         line-height: 1.14;
       }
 
-      .c22 {
+      .c21 {
         font-weight: 600;
         font-size: 0.6875rem;
         line-height: 1.45;
@@ -161,12 +155,12 @@ describe('MainNav', () => {
         margin-top: 16px;
       }
 
-      .c19 > * {
+      .c18 > * {
         margin-top: 0;
         margin-bottom: 0;
       }
 
-      .c19 > * + * {
+      .c18 > * + * {
         margin-top: 8px;
       }
 
@@ -313,7 +307,7 @@ describe('MainNav', () => {
                     </span>
                   </span>
                   <span
-                    class="c5 c18"
+                    class="c5 c6"
                   >
                     Content
                   </span>
@@ -324,19 +318,19 @@ describe('MainNav', () => {
               class=""
             >
               <div
-                class="c19"
+                class="c18"
               >
                 <span
-                  class="c20"
+                  class="c19"
                 >
                   <span
-                    class="c5 c21 c7 c22"
+                    class="c5 c20 c7 c21"
                   >
                     Plugins
                   </span>
                 </span>
                 <ul
-                  class="c19"
+                  class="c18"
                 >
                   <li>
                     <a
@@ -355,7 +349,7 @@ describe('MainNav', () => {
                           </span>
                         </span>
                         <span
-                          class="c5 c18"
+                          class="c5 c6"
                         >
                           Builder
                         </span>
@@ -379,7 +373,7 @@ describe('MainNav', () => {
                           </span>
                         </span>
                         <span
-                          class="c5 c18"
+                          class="c5 c6"
                         >
                           Media library
                         </span>
@@ -403,7 +397,7 @@ describe('MainNav', () => {
                           </span>
                         </span>
                         <span
-                          class="c5 c18"
+                          class="c5 c6"
                         >
                           Documentation
                         </span>
@@ -417,19 +411,19 @@ describe('MainNav', () => {
               class=""
             >
               <div
-                class="c19"
+                class="c18"
               >
                 <span
-                  class="c20"
+                  class="c19"
                 >
                   <span
-                    class="c5 c21 c7 c22"
+                    class="c5 c20 c7 c21"
                   >
                     General
                   </span>
                 </span>
                 <ul
-                  class="c19"
+                  class="c18"
                 >
                   <li>
                     <a
@@ -448,7 +442,7 @@ describe('MainNav', () => {
                           </span>
                         </span>
                         <span
-                          class="c5 c18"
+                          class="c5 c6"
                         >
                           Plugins
                         </span>
@@ -472,7 +466,7 @@ describe('MainNav', () => {
                           </span>
                         </span>
                         <span
-                          class="c5 c18"
+                          class="c5 c6"
                         >
                           Marketplace
                         </span>
@@ -496,7 +490,7 @@ describe('MainNav', () => {
                           </span>
                         </span>
                         <span
-                          class="c5 c18"
+                          class="c5 c6"
                         >
                           Settings
                         </span>
@@ -509,7 +503,7 @@ describe('MainNav', () => {
           </ul>
         </div>
         <div
-          class="c23"
+          class="c22"
         >
           <hr
             class="c10 c11"

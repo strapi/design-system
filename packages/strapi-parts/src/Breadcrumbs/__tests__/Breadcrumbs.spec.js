@@ -22,6 +22,7 @@ describe('Breadcrumbs', () => {
         font-weight: 500;
         font-size: 0.875rem;
         line-height: 1.43;
+        color: #32324d;
       }
 
       .c5 {

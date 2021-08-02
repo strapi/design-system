@@ -17,6 +17,7 @@ describe('Button', () => {
         font-weight: 500;
         font-size: 0.75rem;
         line-height: 1.33;
+        color: #32324d;
       }
 
       .c0 {
@@ -132,6 +133,7 @@ describe('Button', () => {
         font-weight: 500;
         font-size: 0.75rem;
         line-height: 1.33;
+        color: #32324d;
       }
 
       .c0 {
@@ -264,6 +266,7 @@ describe('Button', () => {
         font-weight: 500;
         font-size: 0.75rem;
         line-height: 1.33;
+        color: #32324d;
       }
 
       .c0 {
@@ -379,6 +382,7 @@ describe('Button', () => {
         font-weight: 500;
         font-size: 0.75rem;
         line-height: 1.33;
+        color: #32324d;
       }
 
       .c0 {
@@ -511,6 +515,7 @@ describe('Button', () => {
         font-weight: 400;
         font-size: 0.875rem;
         line-height: 1.43;
+        color: #32324d;
       }
 
       .c4 {

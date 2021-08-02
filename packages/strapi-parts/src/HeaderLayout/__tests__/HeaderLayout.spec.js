@@ -23,6 +23,7 @@ describe('HeaderLayout', () => {
         font-weight: 600;
         font-size: 2rem;
         line-height: 1.25;
+        color: #32324d;
       }
 
       .c6 {
@@ -147,6 +148,7 @@ describe('HeaderLayout', () => {
         font-weight: 600;
         font-size: 1.125rem;
         line-height: 1.22;
+        color: #32324d;
       }
 
       .c5 {
