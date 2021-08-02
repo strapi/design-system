@@ -40,13 +40,13 @@ The most common button component used in the interface. Alerts have a title, a d
     parameters={{
       docs: {
         source: {
-          code: '<Alert title="Title">This is the default alert.</Alert>',
+          code: '<Alert closeLabel="Close alert" title="Title">This is the default alert.</Alert>',
         },
       },
     }}
   >
     <Box style={{ width: 700 }}>
-      <Alert title="Title">This is the default alert.</Alert>
+      <Alert closeLabel="Close alert" title="Title">This is the default alert.</Alert>
     </Box>
   </Story>
 </Canvas>
@@ -62,18 +62,18 @@ You can set the value to `default`, `success`, or `danger`.
     parameters={{
       docs: {
         source: {
-          code: '<Alert title="Title" variant="success">This is the default variant.</Alert>',
+          code: '<Alert closeLabel="Close alert" title="Title" variant="success">This is the default variant.</Alert>',
         },
       },
     }}
   >
     <Box style={{ width: 700 }}>
       <Stack size={1}>
-        <Alert title="Title">This is the default variant.</Alert>
-        <Alert title="Title" variant="success">
+        <Alert onClose={() => {}} closeLabel='Close' title="Title">This is the default variant.</Alert>
+        <Alert onClose={() => {}} closeLabel='Close' title="Title" variant="success">
           This is the success variant.
         </Alert>
-        <Alert title="Title" variant="danger">
+        <Alert onClose={() => {}} closeLabel='Close' title="Title" variant="danger">
           This is the danger variant.
         </Alert>
       </Stack>
@@ -98,7 +98,7 @@ Alerts can contain an action. Via a Link component, they mostly encourage the us
       docs: {
         source: {
           code: `
-<Alert title="This is the title of the alert" action={<Link to="/somewhere">See more</Link>}>
+<Alert closeLabel="Close alert" title="This is the title of the alert" action={<Link to="/somewhere">See more</Link>}>
   Alert with title and longer description, lorem ipsum dolor sit amet constrectum adipisicng lorem ipsum dolor sit
   amet consrectumis adipisingus.
 </Alert>`,
@@ -107,7 +107,7 @@ Alerts can contain an action. Via a Link component, they mostly encourage the us
     }}
   >
     <Box style={{ width: 700 }}>
-      <Alert title="This is the title of the alert" action={<Link to="/somewhere">See more</Link>}>
+      <Alert closeLabel='Close' onClose={() => {}} title="This is the title of the alert" action={<Link to="/somewhere">See more</Link>}>
         Alert with title and longer description, lorem ipsum dolor sit amet constrectum adipisicng lorem ipsum dolor sit
         amet consrectumis adipisingus.
       </Alert>
