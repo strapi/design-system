@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const handleColor = ({ theme, textColor }) => theme.colors[textColor];
+const handleColor = ({ theme, textColor }) => theme.colors[textColor || 'neutral800'];
 
 export const H1 = styled.h1`
   font-weight: 600;

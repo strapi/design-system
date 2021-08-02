@@ -68,12 +68,14 @@ describe('Pagination', () => {
         font-weight: 500;
         font-size: 0.75rem;
         line-height: 1.33;
+        color: #32324d;
       }
 
       .c10 {
         font-weight: 400;
         font-size: 0.75rem;
         line-height: 1.33;
+        color: #32324d;
       }
 
       .c8 {
@@ -366,12 +368,14 @@ describe('Pagination', () => {
         font-weight: 400;
         font-size: 0.75rem;
         line-height: 1.33;
+        color: #32324d;
       }
 
       .c11 {
         font-weight: 500;
         font-size: 0.75rem;
         line-height: 1.33;
+        color: #32324d;
       }
 
       .c7 {

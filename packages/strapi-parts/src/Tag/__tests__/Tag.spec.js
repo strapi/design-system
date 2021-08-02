@@ -19,6 +19,7 @@ describe('Tag', () => {
         font-weight: 500;
         font-size: 0.75rem;
         line-height: 1.33;
+        color: #32324d;
       }
 
       .c0 {

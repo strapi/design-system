@@ -190,6 +190,7 @@ describe('SubNav', () => {
         font-weight: 600;
         font-size: 1.125rem;
         line-height: 1.22;
+        color: #32324d;
       }
 
       .c18 {
@@ -203,6 +204,7 @@ describe('SubNav', () => {
         font-weight: 400;
         font-size: 0.875rem;
         line-height: 1.43;
+        color: #32324d;
       }
 
       .c34 {

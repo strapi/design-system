@@ -206,6 +206,7 @@ describe('Card', () => {
         font-weight: 400;
         font-size: 0.75rem;
         line-height: 1.33;
+        color: #32324d;
       }
 
       .c13 {
@@ -226,6 +227,7 @@ describe('Card', () => {
         font-weight: 400;
         font-size: 0.875rem;
         line-height: 1.43;
+        color: #32324d;
       }
 
       .c19 {
