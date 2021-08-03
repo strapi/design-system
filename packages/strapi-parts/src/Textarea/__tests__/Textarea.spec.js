@@ -153,7 +153,7 @@ describe('Textarea', () => {
             >
               <label
                 class="c3"
-                for="field-1"
+                for="textarea-1"
               >
                 Content
               </label>
@@ -166,10 +166,10 @@ describe('Textarea', () => {
               </div>
             </div>
             <textarea
-              aria-describedby="field-hint-1"
+              aria-describedby="textarea-1-hint"
               aria-invalid="false"
               class="c5"
-              id="field-1"
+              id="textarea-1"
               name="content"
               placeholder="This is a content placeholder"
             >
@@ -177,7 +177,7 @@ describe('Textarea', () => {
             </textarea>
             <p
               class="c6"
-              id="field-hint-1"
+              id="textarea-1-hint"
             >
               Description line
             </p>
@@ -336,7 +336,7 @@ describe('Textarea', () => {
             >
               <label
                 class="c3"
-                for="field-2"
+                for="textarea-2"
               >
                 Content
               </label>
@@ -349,10 +349,10 @@ describe('Textarea', () => {
               </div>
             </div>
             <textarea
-              aria-describedby="field-error-2"
+              aria-describedby="textarea-2-error"
               aria-invalid="true"
               class="c5"
-              id="field-2"
+              id="textarea-2"
               name="content"
               placeholder="This is a content placeholder"
             >
@@ -360,7 +360,7 @@ describe('Textarea', () => {
             </textarea>
             <p
               class="c6"
-              id="field-error-2"
+              id="textarea-2-error"
             >
               An error occured
             </p>

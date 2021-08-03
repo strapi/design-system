@@ -9,7 +9,7 @@ import { Stack } from '../Stack';
 import { Text } from '../Text';
 import { Row } from '../Row';
 import { Box } from '../Box';
-import { genId } from '../helpers/genId';
+import { useId } from '../helpers/useId';
 import { SelectList } from './SelectList';
 import { SelectButtonWrapper, IconBox, CaretBox } from './components';
 import { useButtonRef } from './hooks/useButtonRef';
@@ -43,14 +43,14 @@ export const Select = ({
   withTags,
   ...props
 }) => {
-  const idRef = useRef(id || genId());
+  const generatedId = useId('select', id);
   const [expanded, setExpanded] = useState(undefined);
   const buttonRef = useButtonRef(expanded);
   const containerRef = useRef(null);
 
-  const labelId = `label-${idRef.current}`;
-  const contentId = `content-${idRef.current}`;
-  const ariaDescribedBy = error ? `field-error-${idRef.current}` : hint ? `field-hint-${idRef.current}` : undefined;
+  const labelId = `${generatedId}-label`;
+  const contentId = `${generatedId}-content`;
+  const ariaDescribedBy = error ? `${generatedId}-error` : hint ? `${generatedId}-hint` : undefined;
 
   if (withTags && !multi) {
     throw new Error('The "withTags" props can only be used when the "multi" prop is present');
@@ -90,7 +90,7 @@ export const Select = ({
   let tags = [];
 
   const childrenClone = Children.toArray(children).map((node) => {
-    const optionId = `option-${idRef.current}-${node.props.value}`;
+    const optionId = `${generatedId}-option-${node.props.value}`;
 
     const selected = multi ? value.includes(node.props.value) : node.props.value === value;
 
@@ -111,7 +111,7 @@ export const Select = ({
   });
 
   return (
-    <Field hint={hint} error={error} id={idRef.current}>
+    <Field hint={hint} error={error} id={generatedId}>
       <Stack size={label || hint || error ? 1 : 0}>
         <FieldLabel as="span" id={labelId}>
           {label}
@@ -124,7 +124,7 @@ export const Select = ({
             aria-describedby={ariaDescribedBy}
             expanded={Boolean(expanded)}
             onTrigger={setExpanded}
-            id={idRef.current}
+            id={generatedId}
             hasError={Boolean(error)}
             disabled={disabled}
             onMouseDown={handleMouseDown}
@@ -186,11 +186,11 @@ export const Select = ({
           source={containerRef}
           spacingTop={1}
           fullWidth
-          intersectionId={`select-list-intersection-${idRef.current}`}
+          intersectionId={`select-list-intersection-${generatedId}`}
           onReachEnd={onReachEnd}
         >
           <SelectList
-            selectId={idRef.current}
+            selectId={generatedId}
             labelledBy={labelId}
             onEscape={handleEscape}
             expanded={expanded}

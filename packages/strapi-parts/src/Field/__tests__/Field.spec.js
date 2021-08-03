@@ -229,7 +229,7 @@ describe('Field', () => {
           class="c1 c2"
         >
           <input
-            aria-describedby="field-hint-2"
+            aria-describedby="field-2-hint"
             aria-invalid="false"
             class="c3"
             id="field-2"
@@ -241,7 +241,7 @@ describe('Field', () => {
         </div>
         <p
           class="c4"
-          id="field-hint-2"
+          id="field-2-hint"
         >
           Description line
         </p>
@@ -357,7 +357,7 @@ describe('Field', () => {
           class="c1 c2"
         >
           <input
-            aria-describedby="field-error-3"
+            aria-describedby="field-3-error"
             aria-invalid="true"
             class="c3"
             id="field-3"
@@ -369,7 +369,7 @@ describe('Field', () => {
         </div>
         <p
           class="c4"
-          id="field-error-3"
+          id="field-3-error"
         >
           Too long email
         </p>
@@ -494,7 +494,7 @@ describe('Field', () => {
           disabled=""
         >
           <input
-            aria-describedby="field-hint-4"
+            aria-describedby="field-4-hint"
             aria-invalid="false"
             class="c3"
             disabled=""
@@ -507,7 +507,7 @@ describe('Field', () => {
         </div>
         <p
           class="c4"
-          id="field-hint-4"
+          id="field-4-hint"
         >
           Description line
         </p>
@@ -670,7 +670,7 @@ describe('Field', () => {
             </button>
           </div>
           <input
-            aria-describedby="field-hint-5"
+            aria-describedby="field-5-hint"
             aria-invalid="false"
             class="c5"
             disabled=""
@@ -693,7 +693,7 @@ describe('Field', () => {
         </div>
         <p
           class="c7"
-          id="field-hint-5"
+          id="field-5-hint"
         >
           Description line
         </p>

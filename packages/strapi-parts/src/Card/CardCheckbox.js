@@ -8,7 +8,7 @@ export const CardCheckbox = (props) => {
 
   return (
     <CardAction position="start">
-      <BaseCheckbox aria-labelledby={`card-title-${id}`} {...props} />
+      <BaseCheckbox aria-labelledby={`${id}-title`} {...props} />
     </CardAction>
   );
 };

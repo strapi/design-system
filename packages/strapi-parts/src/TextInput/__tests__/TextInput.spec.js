@@ -149,7 +149,7 @@ describe('TextInput', () => {
             >
               <label
                 class="c3"
-                for="field-1"
+                for="textinput-1"
               >
                 Content
               </label>
@@ -165,10 +165,10 @@ describe('TextInput', () => {
               class="c5 c6"
             >
               <input
-                aria-describedby="field-hint-1"
+                aria-describedby="textinput-1-hint"
                 aria-invalid="false"
                 class="c7"
-                id="field-1"
+                id="textinput-1"
                 name="content"
                 placeholder="This is a content placeholder"
                 value="content"
@@ -176,7 +176,7 @@ describe('TextInput', () => {
             </div>
             <p
               class="c8"
-              id="field-hint-1"
+              id="textinput-1-hint"
             >
               Description line
             </p>

@@ -33,7 +33,7 @@ describe('Select', () => {
           await page.keyboard.press(key);
 
           const ariaDescendant = await getListDescendant();
-          await expect(ariaDescendant).toBe('option-select1-pizza');
+          await expect(ariaDescendant).toBe('select1-option-pizza');
         },
       );
 
@@ -42,7 +42,7 @@ describe('Select', () => {
         await page.keyboard.press('ArrowUp');
 
         const ariaDescendant = await getListDescendant();
-        await expect(ariaDescendant).toBe('option-select1-bagel');
+        await expect(ariaDescendant).toBe('select1-option-bagel');
       });
 
       it('opens the listbox and highlights the different items when pressing ArrowDown', async () => {
@@ -50,19 +50,19 @@ describe('Select', () => {
         await page.keyboard.press('ArrowDown');
 
         const ariaDescendant1 = await getListDescendant();
-        await expect(ariaDescendant1).toBe('option-select1-pizza');
+        await expect(ariaDescendant1).toBe('select1-option-pizza');
 
         await page.keyboard.press('ArrowDown');
         const ariaDescendant2 = await getListDescendant();
-        await expect(ariaDescendant2).toBe('option-select1-hamburger');
+        await expect(ariaDescendant2).toBe('select1-option-hamburger');
 
         await page.keyboard.press('ArrowDown');
         const ariaDescendant3 = await getListDescendant();
-        await expect(ariaDescendant3).toBe('option-select1-bagel');
+        await expect(ariaDescendant3).toBe('select1-option-bagel');
 
         await page.keyboard.press('ArrowDown');
         const ariaDescendant4 = await getListDescendant();
-        await expect(ariaDescendant4).toBe('option-select1-pizza');
+        await expect(ariaDescendant4).toBe('select1-option-pizza');
       });
 
       it('opens the listbox and highlights the different items when pressing ArrowUp', async () => {
@@ -70,19 +70,19 @@ describe('Select', () => {
         await page.keyboard.press('ArrowUp');
 
         const ariaDescendant1 = await getListDescendant();
-        await expect(ariaDescendant1).toBe('option-select1-bagel');
+        await expect(ariaDescendant1).toBe('select1-option-bagel');
 
         await page.keyboard.press('ArrowUp');
         const ariaDescendant2 = await getListDescendant();
-        await expect(ariaDescendant2).toBe('option-select1-hamburger');
+        await expect(ariaDescendant2).toBe('select1-option-hamburger');
 
         await page.keyboard.press('ArrowUp');
         const ariaDescendant3 = await getListDescendant();
-        await expect(ariaDescendant3).toBe('option-select1-pizza');
+        await expect(ariaDescendant3).toBe('select1-option-pizza');
 
         await page.keyboard.press('ArrowUp');
         const ariaDescendant4 = await getListDescendant();
-        await expect(ariaDescendant4).toBe('option-select1-bagel');
+        await expect(ariaDescendant4).toBe('select1-option-bagel');
       });
 
       it('sends back the focus to the select button when pressing escape when the popover is visible', async () => {
@@ -103,7 +103,7 @@ describe('Select', () => {
         await page.keyboard.press('Enter');
 
         await expect(await page.$('text=Current value is bagel')).toBeTruthy();
-        await expect(page).toHaveText('#content-select1', 'Bagel');
+        await expect(page).toHaveText('#select1-content', 'Bagel');
       });
 
       it('focuses the previously selected item when one is selected and the user reopens the popover', async () => {
@@ -115,7 +115,7 @@ describe('Select', () => {
 
         await page.keyboard.press('Enter');
         const ariaDescendant = await getListDescendant();
-        await expect(ariaDescendant).toBe('option-select1-bagel');
+        await expect(ariaDescendant).toBe('select1-option-bagel');
       });
 
       it.each(['Enter', 'Space'])(
@@ -135,7 +135,7 @@ describe('Select', () => {
       await page.click('text="Hamburger"');
 
       await page.click('[aria-label="Clear the meal"]');
-      await expect(page).toHaveText('#content-select1', 'Your example');
+      await expect(page).toHaveText('#select1-content', 'Your example');
     });
   });
 
@@ -153,11 +153,11 @@ describe('Select', () => {
       await page.click('text="Hamburger"');
       await page.click('text="Pizza"');
 
-      await expect(page).toHaveText('#content-select1', '2 currently selected');
+      await expect(page).toHaveText('#select1-content', '2 currently selected');
       await expect(page).toHaveText('h2', 'Current value is hamburger, pizza');
 
       await page.click('[aria-label="Clear the meal"]');
-      await expect(page).toHaveText('#content-select1', '0 currently selected');
+      await expect(page).toHaveText('#select1-content', '0 currently selected');
     });
 
     describe('keyboard interactions', () => {
@@ -169,7 +169,7 @@ describe('Select', () => {
         await page.keyboard.press('Enter');
 
         await expect(page).toHaveText('h2', 'Current value is pizza, hamburger');
-        await expect(page).toHaveText('#content-select1', '2 currently selected');
+        await expect(page).toHaveText('#select1-content', '2 currently selected');
       });
 
       it('focuses the previously (first) selected item when one is selected and the user reopens the popover', async () => {
@@ -186,7 +186,7 @@ describe('Select', () => {
         await expect(page).toHaveSelector('[role="listbox"]', { timeout: 1000 });
 
         const ariaDescendant = await getListDescendant();
-        await expect(ariaDescendant).toBe('option-select1-hamburger');
+        await expect(ariaDescendant).toBe('select1-option-hamburger');
       });
     });
   });

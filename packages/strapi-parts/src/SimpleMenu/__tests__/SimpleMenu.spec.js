@@ -57,7 +57,7 @@ describe('SimpleMenu', () => {
 
       <div>
         <button
-          aria-controls="simpleMenu-1"
+          aria-controls="simplemenu-1"
           aria-expanded="false"
           aria-haspopup="true"
           class="c0"

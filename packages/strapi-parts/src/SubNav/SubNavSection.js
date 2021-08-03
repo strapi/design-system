@@ -23,9 +23,9 @@ const SubNavSectionBadge = styled(Badge)`
   width: ${16 / 16}rem;
 `;
 
-export const SubNavSection = ({ collapsable, label, badgeLabel, children }) => {
+export const SubNavSection = ({ collapsable, label, badgeLabel, children, id }) => {
   const [isOpen, setOpenLinks] = useState(true);
-  const listId = useId('list');
+  const listId = useId('subnav-list', id);
 
   const handleClick = () => {
     setOpenLinks((prev) => !prev);
@@ -53,10 +53,13 @@ export const SubNavSection = ({ collapsable, label, badgeLabel, children }) => {
 SubNavSection.defaultProps = {
   badgeLabel: null,
   collapsable: false,
+  id: undefined,
 };
+
 SubNavSection.propTypes = {
   badgeLabel: PropTypes.string,
   children: PropTypes.node,
   collapsable: PropTypes.bool,
+  id: PropTypes.string,
   label: PropTypes.string.isRequired,
 };

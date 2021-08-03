@@ -9,13 +9,7 @@ describe('Select', () => {
   it('snapshots the component', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
-        <Select
-          label="Choose your meal"
-          id={1}
-          onChange={() => {}}
-          clearLabel="Clear the selection"
-          placeholder="Placeholder"
-        >
+        <Select label="Choose your meal" onChange={() => {}} clearLabel="Clear the selection" placeholder="Placeholder">
           <Option value={'pizza'}>Pizza</Option>
           <Option value={'hamburger'}>Hamburger</Option>
           <Option value={'bagel'}>Bagel</Option>
@@ -155,8 +149,8 @@ describe('Select', () => {
         >
           <span
             class="c1"
-            for="field-1"
-            id="label-1"
+            for="select-1"
+            id="select-1-label"
           >
             Choose your meal
           </span>
@@ -167,9 +161,9 @@ describe('Select', () => {
               aria-disabled="false"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-labelledby="label-1 content-1"
+              aria-labelledby="select-1-label select-1-content"
               class="c3"
-              id="1"
+              id="select-1"
             />
             <div
               class="c4 c5"
@@ -182,7 +176,7 @@ describe('Select', () => {
                 >
                   <span
                     class="c8"
-                    id="content-1"
+                    id="select-1-content"
                   >
                     Placeholder
                   </span>
@@ -223,7 +217,6 @@ describe('Select', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
         <Select
-          id="select1"
           label="Choose your meal"
           placeholder="Your example"
           hint="Description line"
@@ -450,8 +443,8 @@ describe('Select', () => {
           >
             <span
               class="c1"
-              for="field-select1"
-              id="label-select1"
+              for="select-2"
+              id="select-2-label"
             >
               Choose your meal
             </span>
@@ -459,13 +452,13 @@ describe('Select', () => {
               class="c2"
             >
               <button
-                aria-describedby="field-hint-select1"
+                aria-describedby="select-2-hint"
                 aria-disabled="false"
                 aria-expanded="true"
                 aria-haspopup="listbox"
-                aria-labelledby="label-select1 content-select1"
+                aria-labelledby="select-2-label select-2-content"
                 class="c3"
-                id="select1"
+                id="select-2"
               />
               <div
                 class="c4 c5"
@@ -486,7 +479,7 @@ describe('Select', () => {
                   >
                     <span
                       class="c9"
-                      id="content-select1"
+                      id="select-2-content"
                     >
                       Pizza
                     </span>
@@ -520,7 +513,7 @@ describe('Select', () => {
             </div>
             <p
               class="c12"
-              id="field-hint-select1"
+              id="select-2-hint"
             >
               Description line
             </p>
@@ -537,7 +530,7 @@ describe('Select', () => {
               class="c15"
             >
               <ul
-                aria-labelledby="label-select1"
+                aria-labelledby="select-2-label"
                 aria-multiselectable="false"
                 class="c0"
                 role="listbox"
@@ -547,7 +540,7 @@ describe('Select', () => {
                   aria-selected="true"
                   class="c16 c17"
                   data-strapi-value="pizza"
-                  id="option-select1-pizza"
+                  id="select-2-option-pizza"
                   role="option"
                 >
                   <div
@@ -564,7 +557,7 @@ describe('Select', () => {
                   aria-selected="false"
                   class="c16 c17"
                   data-strapi-value="hamburger"
-                  id="option-select1-hamburger"
+                  id="select-2-option-hamburger"
                   role="option"
                 >
                   <div
@@ -581,7 +574,7 @@ describe('Select', () => {
                   aria-selected="false"
                   class="c16 c17"
                   data-strapi-value="bagel"
-                  id="option-select1-bagel"
+                  id="select-2-option-bagel"
                   role="option"
                 >
                   <div
@@ -606,7 +599,6 @@ describe('Select', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
         <Select
-          id="select1"
           label="Choose your meal"
           placeholder="Your example"
           hint="Description line"
@@ -780,8 +772,8 @@ describe('Select', () => {
           >
             <span
               class="c1"
-              for="field-select1"
-              id="label-select1"
+              for="select-4"
+              id="select-4-label"
             >
               Choose your meal
             </span>
@@ -789,13 +781,13 @@ describe('Select', () => {
               class="c2"
             >
               <button
-                aria-describedby="field-hint-select1"
+                aria-describedby="select-4-hint"
                 aria-disabled="false"
                 aria-expanded="true"
                 aria-haspopup="listbox"
-                aria-labelledby="label-select1 content-select1"
+                aria-labelledby="select-4-label select-4-content"
                 class="c3"
-                id="select1"
+                id="select-4"
               />
               <div
                 class="c4 c5"
@@ -808,7 +800,7 @@ describe('Select', () => {
                   >
                     <span
                       class="c8"
-                      id="content-select1"
+                      id="select-4-content"
                     >
                       Hamburger
                       <span
@@ -847,7 +839,7 @@ describe('Select', () => {
             </div>
             <p
               class="c13"
-              id="field-hint-select1"
+              id="select-4-hint"
             >
               Description line
             </p>
@@ -1001,7 +993,7 @@ describe('Select', () => {
               class="c2"
             >
               <ul
-                aria-labelledby="label-select1"
+                aria-labelledby="select-4-label"
                 aria-multiselectable="true"
                 class="c3"
                 role="listbox"
@@ -1011,7 +1003,7 @@ describe('Select', () => {
                   aria-selected="true"
                   class="c4 c5"
                   data-strapi-value="pizza"
-                  id="option-select1-pizza"
+                  id="select-4-option-pizza"
                   role="option"
                 >
                   <div
@@ -1036,7 +1028,7 @@ describe('Select', () => {
                   aria-selected="true"
                   class="c4 c5"
                   data-strapi-value="hamburger"
-                  id="option-select1-hamburger"
+                  id="select-4-option-hamburger"
                   role="option"
                 >
                   <div
@@ -1061,7 +1053,7 @@ describe('Select', () => {
                   aria-selected="false"
                   class="c4 c5"
                   data-strapi-value="bagel"
-                  id="option-select1-bagel"
+                  id="select-4-option-bagel"
                   role="option"
                 >
                   <div
@@ -1107,7 +1099,6 @@ describe('Select', () => {
         render(
           <ThemeProvider theme={lightTheme}>
             <Select
-              id="select1"
               label="Choose your meal"
               placeholder="Your example"
               hint="Description line"

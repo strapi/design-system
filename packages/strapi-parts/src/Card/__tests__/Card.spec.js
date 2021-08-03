@@ -17,7 +17,7 @@ describe('Card', () => {
   it('snapshots the component', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
-        <Card style={{ width: '240px' }} id="1">
+        <Card style={{ width: '240px' }}>
           <CardHeader>
             <CardCheckbox value={true} />
             <CardAction position="end">
@@ -257,9 +257,8 @@ describe('Card', () => {
       }
 
       <article
-        aria-labelledby="card-title-1"
+        aria-labelledby="card-1-title"
         class="c0"
-        id="1"
         style="width: 240px;"
         tabindex="0"
       >
@@ -270,7 +269,7 @@ describe('Card', () => {
             class="c3"
           >
             <input
-              aria-labelledby="card-title-1"
+              aria-labelledby="card-1-title"
               checked=""
               class="c4"
               type="checkbox"
@@ -313,7 +312,7 @@ describe('Card', () => {
             >
               <div
                 class="c13"
-                id="card-title-1"
+                id="card-1-title"
               >
                 File name
               </div>

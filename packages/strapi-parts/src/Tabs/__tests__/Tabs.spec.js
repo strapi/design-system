@@ -10,7 +10,7 @@ describe('Tabs', () => {
   it('snapshots the component', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
-        <TabGroup label="Some stuff for the label" id="tabs">
+        <TabGroup label="Some stuff for the label">
           <Tabs>
             <Tab>First</Tab>
             <Tab>Second</Tab>
@@ -113,10 +113,10 @@ describe('Tabs', () => {
           role="tablist"
         >
           <button
-            aria-controls="tab-panel-tabs-0"
+            aria-controls="tabgroup-1-0-tabpanel"
             aria-selected="true"
             class="c2 c3"
-            id="tab-tabs-0"
+            id="tabgroup-1-0-tab"
             role="tab"
             tabindex="0"
           >
@@ -133,7 +133,7 @@ describe('Tabs', () => {
           <button
             aria-selected="false"
             class="c2 c3"
-            id="tab-tabs-1"
+            id="tabgroup-1-1-tab"
             role="tab"
             tabindex="-1"
           >
@@ -150,7 +150,7 @@ describe('Tabs', () => {
           <button
             aria-selected="false"
             class="c2 c3"
-            id="tab-tabs-2"
+            id="tabgroup-1-2-tab"
             role="tab"
             tabindex="-1"
           >
@@ -167,8 +167,8 @@ describe('Tabs', () => {
         </div>
         <div>
           <div
-            aria-labelledby="tab-tabs-0"
-            id="tab-panel-tabs-0"
+            aria-labelledby="tabgroup-1-0-tab"
+            id="tabgroup-1-0-tabpanel"
             role="tabpanel"
             tabindex="0"
           >

@@ -6,6 +6,7 @@ import { TextInput } from '../TextInput';
 import { DatePickerButton, DatePickerWrapper, IconBox } from './components';
 import { DatePickerCalendar } from './DatePickerCalendar';
 import { formatDate } from './utils/formatDate';
+import { useId } from '../helpers/useId';
 
 export const DatePicker = ({
   initialDate,
@@ -16,8 +17,10 @@ export const DatePicker = ({
   onClear,
   clearLabel,
   disabled,
+  id,
   ...props
 }) => {
+  const generatedId = useId('datepicker', id);
   const [visible, setVisible] = useState(false);
   const inputRef = useRef(null);
   const datePickerButtonRef = useRef(null);
@@ -66,6 +69,7 @@ export const DatePicker = ({
         aria-autocomplete="none"
         label={label}
         disabled={disabled}
+        id={generatedId}
         {...props}
       />
 
@@ -85,6 +89,7 @@ export const DatePicker = ({
 DatePicker.defaultProps = {
   clearLabel: undefined,
   disabled: false,
+  id: undefined,
   initialDate: new Date(),
   onClear: undefined,
   selectedDate: undefined,
@@ -93,6 +98,7 @@ DatePicker.defaultProps = {
 DatePicker.propTypes = {
   clearLabel: PropTypes.string,
   disabled: PropTypes.bool,
+  id: PropTypes.string,
   initialDate: PropTypes.instanceOf(Date),
   label: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,

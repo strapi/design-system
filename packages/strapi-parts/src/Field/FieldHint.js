@@ -10,7 +10,7 @@ export const FieldHint = () => {
   }
 
   return (
-    <P small={true} id={`field-hint-${id}`} textColor="neutral600">
+    <P small={true} id={`${id}-hint`} textColor="neutral600">
       {hint}
     </P>
   );

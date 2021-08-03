@@ -59,7 +59,7 @@ export const MenuItem = ({ children, onClick, to, isFocused, ...props }) => {
   };
 
   return (
-    <Row as="li" justifyContent="center">
+    <Row as="li" justifyContent="center" role="menuitem">
       {to ? (
         <OptionLink to={to} {...menuItemProps}>
           <Box padding={2}>
@@ -90,9 +90,9 @@ MenuItem.propTypes = {
   to: PropTypes.string,
 };
 
-export const SimpleMenu = ({ label, children, ...props }) => {
+export const SimpleMenu = ({ label, children, id, ...props }) => {
   const menuButtonRef = useRef();
-  const menuId = useId('simpleMenu');
+  const menuId = useId('simplemenu', id);
   const [visible, setVisible] = useState(false);
   const [focusedItemIndex, setFocusItem] = useState(0);
   const childrenArray = Children.toArray(children);
@@ -167,7 +167,7 @@ export const SimpleMenu = ({ label, children, ...props }) => {
       </MenuButton>
       {visible && (
         <Popover onBlur={handleBlur} source={menuButtonRef} spacingTop={1}>
-          <Box role="menu" as="ul" padding={1}>
+          <Box role="menu" as="ul" padding={1} id={menuId}>
             {childrenClone}
           </Box>
         </Popover>

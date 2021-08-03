@@ -9,7 +9,7 @@ import { Checkbox } from './Checkbox';
 
 # Checkbox
 
-Checkboxes allow users to choose one or multiple values from a range of options. 
+Checkboxes allow users to choose one or multiple values from a range of options.
 
 **Best practices**
 
@@ -33,14 +33,13 @@ import { Checkbox } from '@strapi/design-system/Checkbox';
     {() => {
       const [val, setValue] = useState(false);
       return (
-        <Checkbox id="default" name="default" onValueChange={(value) => setValue(value)} value={val}>
+        <Checkbox name="default" onValueChange={(value) => setValue(value)} value={val}>
           Label
         </Checkbox>
       );
     }}
   </Story>
 </Canvas>
-
 
 ### Indeterminate checkbox
 
@@ -104,7 +103,7 @@ import { Checkbox } from '@strapi/design-system/Checkbox';
 
 #### Checked
 
-Checked state is used to show that an option has been selected. 
+Checked state is used to show that an option has been selected.
 
 #### Indeterminate
 
@@ -116,14 +115,14 @@ Unchecked state is used to show that an option has been selected.
 
 ### Disabled
 
-Checkboxes can possibily not be available to selection yet. This state can be related to a lack of permission or a need to pursue another action first. 
+Checkboxes can possibily not be available to selection yet. This state can be related to a lack of permission or a need to pursue another action first.
 
 <Canvas withSource="open">
   <Story name="disabled" parameters={{ docs: { source: { code: '<Checkbox disabled>Label</Checkbox>' } } }}>
     {() => {
       const [val, setValue] = useState(false);
       return (
-        <Checkbox disabled id="default" name="default" onValueChange={(value) => setValue(value)} value={val}>
+        <Checkbox disabled name="default" onValueChange={(value) => setValue(value)} value={val}>
           Label
         </Checkbox>
       );
@@ -133,7 +132,7 @@ Checkboxes can possibily not be available to selection yet. This state can be re
 
 ### Hint
 
-Use hint state to give more information about the purpose of a checkbox. 
+Use hint state to give more information about the purpose of a checkbox.
 
 <Canvas withSource="open">
   <Story
@@ -145,7 +144,6 @@ Use hint state to give more information about the purpose of a checkbox.
       return (
         <Checkbox
           hint="Description line lorem ipsum"
-          id="default"
           name="default"
           onValueChange={(value) => setValue(value)}
           value={val}
@@ -171,7 +169,6 @@ Display an error message.
       return (
         <Checkbox
           error="Description line lorem ipsum"
-          id="default"
           name="default"
           onValueChange={(value) => setValue(value)}
           value={val}

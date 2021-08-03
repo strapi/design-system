@@ -37,10 +37,10 @@ const CustomDivider = styled(Divider)`
   background-color: ${({ theme }) => theme.colors.neutral200};
 `;
 
-export const SubNavHeader = ({ as, label, searchLabel, searchable, onChange, value, onClear }) => {
+export const SubNavHeader = ({ as, label, searchLabel, searchable, onChange, value, onClear, id }) => {
   const [isSearchOpen, setSearchOpen] = useState(false);
   const previousSearchOpenValue = usePrevious(isSearchOpen);
-  const clearButonId = useId('subnav-searchbar-clear');
+  const clearButtonId = useId('subnav-searchbar-clear', id);
   const searchRef = useRef();
   const searchButtonRef = useRef();
   const isCompleting = value.length > 0;
@@ -64,7 +64,7 @@ export const SubNavHeader = ({ as, label, searchLabel, searchable, onChange, val
   };
 
   const handleBlur = (e) => {
-    if (e.relatedTarget?.id !== clearButonId) {
+    if (e.relatedTarget?.id !== clearButtonId) {
       setSearchOpen(false);
     }
   };
@@ -91,7 +91,7 @@ export const SubNavHeader = ({ as, label, searchLabel, searchable, onChange, val
           }
           endAction={
             isCompleting ? (
-              <FieldAction id={clearButonId} label="Clear label" onClick={handleClear}>
+              <FieldAction id={clearButtonId} label="Clear label" onClick={handleClear}>
                 <CloseIconWrapper>
                   <CloseAlertIcon />
                 </CloseIconWrapper>
@@ -128,10 +128,12 @@ SubNavHeader.defaultProps = {
   onClear: () => {},
   value: '',
   searchLabel: '',
+  id: undefined,
 };
 
 SubNavHeader.propTypes = {
   as: PropTypes.string,
+  id: PropTypes.string,
   label: PropTypes.string.isRequired,
   onChange: PropTypes.func,
   onClear: PropTypes.func,

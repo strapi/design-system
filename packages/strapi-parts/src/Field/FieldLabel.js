@@ -6,10 +6,8 @@ import { Text } from '../Text';
 export const FieldLabel = ({ children, ...props }) => {
   const { id } = useField();
 
-  const fieldId = `field-${id}`;
-
   return (
-    <Text textColor="neutral800" htmlFor={fieldId} small highlighted as="label" {...props}>
+    <Text textColor="neutral800" htmlFor={id} small highlighted as="label" {...props}>
       {children}
     </Text>
   );

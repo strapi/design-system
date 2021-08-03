@@ -22,7 +22,7 @@ describe('Checkbox', () => {
         await page.keyboard.press('Tab');
         await page.keyboard.press(' ');
 
-        const secondBox = await page.$('#field-child2');
+        const secondBox = await page.$('#child2');
         expect(await secondBox?.isChecked()).toBe(true);
       },
     );
@@ -35,7 +35,7 @@ describe('Checkbox', () => {
         await page.keyboard.press('Tab');
         await page.keyboard.press(' ');
 
-        const secondBox = await page.$('#field-parent');
+        const secondBox = await page.$('#parent');
         expect(await secondBox?.isChecked()).toBe(true);
       },
     );

@@ -9,7 +9,7 @@ describe('Checkbox', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
         <div>
-          <Checkbox name="default" onValueChange={() => undefined} value={undefined} id={2}>
+          <Checkbox name="default" onValueChange={() => undefined} value={undefined}>
             Label
           </Checkbox>
         </div>
@@ -127,12 +127,11 @@ describe('Checkbox', () => {
             class="c0"
           >
             <label
-              aria-invalid="false"
               class="c1 c2"
             >
               <input
                 class="c3"
-                id="field-2"
+                id="checkbox-1"
                 name="default"
                 type="checkbox"
               />
@@ -152,7 +151,7 @@ describe('Checkbox', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
         <div>
-          <Checkbox name="default-true" onValueChange={() => undefined} value={true} id={2}>
+          <Checkbox name="default-true" onValueChange={() => undefined} value={true}>
             Label
           </Checkbox>
         </div>
@@ -268,13 +267,12 @@ describe('Checkbox', () => {
             class="c0"
           >
             <label
-              aria-invalid="false"
               class="c1 c2"
             >
               <input
                 checked=""
                 class="c3"
-                id="field-2"
+                id="checkbox-2"
                 name="default-true"
                 type="checkbox"
               />
@@ -294,7 +292,7 @@ describe('Checkbox', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
         <div>
-          <Checkbox name="default-true" hint="Hello moto" onValueChange={() => undefined} value={true} id={2}>
+          <Checkbox name="default-true" hint="Hello moto" onValueChange={() => undefined} value={true}>
             Label
           </Checkbox>
         </div>
@@ -417,14 +415,13 @@ describe('Checkbox', () => {
             class="c0"
           >
             <label
-              aria-describedby="field-hint-2"
-              aria-invalid="false"
               class="c1 c2"
             >
               <input
+                aria-describedby="checkbox-3-hint"
                 checked=""
                 class="c3"
-                id="field-2"
+                id="checkbox-3"
                 name="default-true"
                 type="checkbox"
               />
@@ -436,7 +433,7 @@ describe('Checkbox', () => {
             </label>
             <p
               class="c5"
-              id="field-hint-2"
+              id="checkbox-3-hint"
             >
               Hello moto
             </p>
@@ -450,7 +447,7 @@ describe('Checkbox', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
         <div>
-          <Checkbox name="default-true" error="Hello moto" onValueChange={() => undefined} value={true} id={2}>
+          <Checkbox name="default-true" error="Hello moto" onValueChange={() => undefined} value={true}>
             Label
           </Checkbox>
         </div>
@@ -573,14 +570,13 @@ describe('Checkbox', () => {
             class="c0"
           >
             <label
-              aria-describedby="field-error-2"
-              aria-invalid="true"
               class="c1 c2"
             >
               <input
+                aria-describedby="checkbox-4-error"
                 checked=""
                 class="c3"
-                id="field-2"
+                id="checkbox-4"
                 name="default-true"
                 type="checkbox"
               />
@@ -592,7 +588,7 @@ describe('Checkbox', () => {
             </label>
             <p
               class="c5"
-              id="field-error-2"
+              id="checkbox-4-error"
             >
               Hello moto
             </p>
