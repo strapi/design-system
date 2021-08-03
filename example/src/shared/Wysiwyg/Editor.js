@@ -39,8 +39,8 @@ const Editor = (
 Editor.propTypes = {
   onChange: PropTypes.func,
   // value: PropTypes.string,
-  textareaRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
-  editorRef: PropTypes.func,
+  textareaRef: PropTypes.shape({ current: PropTypes.any }),
+  editorRef: PropTypes.shape({ current: PropTypes.any }),
 };
 
 export default Editor;
