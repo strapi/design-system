@@ -46,7 +46,6 @@ export const IconButtonGroup = styled(Row)`
     border-left: none;
 
     svg {
-      > g,
       path {
         fill: ${({ theme }) => theme.colors.neutral800};
       }
