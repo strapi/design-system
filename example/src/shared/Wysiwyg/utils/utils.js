@@ -1,3 +1,5 @@
+//MARKDOWN FUNCTIONS
+
 export const replaceText = (markdownName, textToChange) => {
   let editedText;
 
@@ -22,6 +24,9 @@ export const replaceText = (markdownName, textToChange) => {
       break;
     case 'Quote':
       editedText = `>${textToChange}`;
+      break;
+    case 'alt':
+      editedText = `[${textToChange}]()`;
       break;
     default:
       editedText = textToChange;
@@ -106,4 +111,63 @@ export const insertListOrTitle = (markdown, lineContent) => {
   }
   
   return textToInsert;
+};
+
+//EDITOR ACTIONS FUNCTIONS
+
+export const markdownHandler = (editor, markdownType) => {
+  const textToEdit = editor.current.getSelection();
+  let textToInsert;
+
+  if (textToEdit) {
+    const editedText = replaceText(markdownType, textToEdit);
+    editor.current.replaceSelection(editedText);
+    editor.current.focus();
+
+  } else {
+  
+    textToInsert = insertText(markdownType);
+    editor.current.replaceSelection(textToInsert.editedText);
+    editor.current.focus();
+
+    //set selection-focus to text to replace with content
+    const { line, ch } = editor.current.getCursor();
+    const endSelection = ch - textToInsert.selection.end;
+    const startSelection = ch - textToInsert.selection.end - textToInsert.selection.start;
+
+    editor.current.setSelection(
+      { line, ch: startSelection },
+      { line, ch: endSelection }
+    );
+  }
+};
+
+export const listHandler = (editor, listType) => {
+  let {line : currentLine} = editor.current.getCursor();
+  const listToInsert = insertListOrTitle(listType);
+  const lineContent = editor.current.getLine(currentLine);
+
+  const textToInsert = listToInsert + lineContent;
+  editor.current.setSelection(
+    { line: currentLine, ch: 0 },
+    { line: currentLine, ch: lineContent.length }
+  );
+  editor.current.replaceSelection(textToInsert);
+  editor.current.focus();
+};
+
+export const titleHandler = (editor, titleType) => {
+  let {line : currentLine} = editor.current.getCursor();
+  const titleToInsert = insertListOrTitle(titleType);
+  const lineContent = editor.current.getLine(currentLine);
+  // replace hastags followed by a space in case user want to change the type of title
+  const lineWithNoTitle = lineContent.replaceAll(/#{1,6}\s/g, '').trim();
+
+  const textToInsert = titleToInsert + lineWithNoTitle;
+  editor.current.setSelection(
+    { line: currentLine, ch: 0 },
+    { line: currentLine, ch: lineContent.length }
+  );
+  editor.current.replaceSelection(textToInsert);
+  setTimeout(() => editor.current.focus(), [0]);
 }

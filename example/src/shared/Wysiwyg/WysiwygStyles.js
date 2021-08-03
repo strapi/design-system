@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { IconButton, Box, Row, BaseButton } from "@strapi/parts";
+import { IconButton, Box, BaseButton, IconButtonGroup } from "@strapi/parts";
 
 //NAV BUTTONS
 export const CustomIconButton = styled(IconButton)`
@@ -11,25 +11,11 @@ export const CustomIconButton = styled(IconButton)`
   }
 `;
 
-export const MainButtons = styled(Row)`
+export const MainButtons = styled(IconButtonGroup)`
   margin-left: ${({ theme }) => theme.spaces[4]};
 `;
 
-export const SubMainButtons = styled(Row)`
-  @media (max-width: 950px) {
-    display:none;
-  }
-`;
-
-export const CollapsableButtons = styled(Row)`
-  padding: ${({ theme }) => `0 ${theme.spaces[2]}`};
-  @media (max-width: 1080px) {
-    display:none;
-  }
-`;
-
 export const MoreButton = styled(IconButton)`
-  display: none;
   margin: ${({ theme }) => `0 ${theme.spaces[2]}`};
   padding: ${({ theme }) => theme.spaces[2]};
 
@@ -37,10 +23,6 @@ export const MoreButton = styled(IconButton)`
     width: ${18/16}rem;
     height: ${18/16}rem;
   };
-
-  @media (max-width: 1080px) {
-    display: flex;
-  }
 `;
 
 
