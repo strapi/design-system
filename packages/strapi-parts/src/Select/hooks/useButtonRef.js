@@ -6,7 +6,7 @@ export const useButtonRef = (expanded) => {
   const mountedRef = useRef(null);
   /**
    * Allows to make sure to re-send the focus only when the last action was
-   * a triggered by a keyboard event
+   * triggered by a keyboard event
    */
   const previousState = useRef();
 
