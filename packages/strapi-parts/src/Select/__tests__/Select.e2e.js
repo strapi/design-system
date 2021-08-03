@@ -96,6 +96,16 @@ describe('Select', () => {
         await expect(page).toHaveFocus('#select1');
       });
 
+      it('does NOT send back the focus to the select button when closing the select with a mouse', async () => {
+        await page.click('#select1');
+        await expect(page).toHaveSelector('[role="listbox"]', { timeout: 1000 });
+
+        await page.click('body');
+        await expect(page).not.toHaveSelector('[role="listbox"]', { timeout: 1000 });
+
+        await expect(page).not.toHaveFocus('#select1');
+      });
+
       it('changes the button content and the select value when pressing Enter on an item', async () => {
         await page.focus('#select1');
         await page.keyboard.press('ArrowUp');
