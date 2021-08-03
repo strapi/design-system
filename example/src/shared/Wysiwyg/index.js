@@ -7,7 +7,7 @@ import { TextButton, Box } from "@strapi/parts";
 import { markdownHandler, listHandler, titleHandler } from './utils/utils';
 
 
-const Wysiwyg = ({ label, placeholder, value, onChange }) => {
+const Wysiwyg = ({ label, placeholder, onChange }) => {
   const textareaRef = useRef(null);
   const editorRef = useRef(null);
 
@@ -53,7 +53,7 @@ const Wysiwyg = ({ label, placeholder, value, onChange }) => {
           onActionClick={handleActionClick}
         />
         <Editor 
-          value={value || ''} 
+          // value={value || ''} 
           onChange={modifiedData => onChange(modifiedData)} 
           textareaRef={textareaRef}
           editorRef={editorRef}
