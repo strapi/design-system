@@ -5,7 +5,7 @@ import EditIcon from '@strapi/icons/EditIcon';
 import PublishIcon from '@strapi/icons/PublishIcon';
 import DeleteIcon from '@strapi/icons/DeleteIcon';
 import AddIcon from '@strapi/icons/AddIcon';
-import { IconButton } from './IconButton';
+import { IconButton, IconButtonGroup } from './IconButton';
 import { Box } from '../Box';
 import { Row } from '../Row';
 
@@ -28,6 +28,23 @@ Description...
         <IconButton onClick={() => console.log('Delete')} label="Delete" icon={<DeleteIcon />} />
         <IconButton onClick={() => console.log('Publish')} label="Publish" icon={<PublishIcon />} />
       </Row>
+    </Box>
+  </Story>
+</Canvas>
+
+## IconButtonGroup
+
+Description...
+
+<Canvas>
+  <Story name="group">
+    <Box padding={7}>
+      <IconButtonGroup>
+        <IconButton onClick={() => console.log('edit')} label="Edit" icon={<EditIcon />} />
+        <IconButton onClick={() => console.log('Create')} label="Create" icon={<AddIcon />} />
+        <IconButton onClick={() => console.log('Delete')} label="Delete" icon={<DeleteIcon />} />
+        <IconButton onClick={() => console.log('Publish')} label="Publish" icon={<PublishIcon />} />
+      </IconButtonGroup>
     </Box>
   </Story>
 </Canvas>
