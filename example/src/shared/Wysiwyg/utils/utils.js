@@ -160,8 +160,9 @@ export const titleHandler = (editor, titleType) => {
   let {line : currentLine} = editor.current.getCursor();
   const titleToInsert = insertListOrTitle(titleType);
   const lineContent = editor.current.getLine(currentLine);
+
   // replace hastags followed by a space in case user want to change the type of title
-  const lineWithNoTitle = lineContent.replaceAll(/#{1,6}\s/g, '').trim();
+  const lineWithNoTitle = lineContent.replace(/#{1,6}\s/g, '').trim();
 
   const textToInsert = titleToInsert + lineWithNoTitle;
   editor.current.setSelection(

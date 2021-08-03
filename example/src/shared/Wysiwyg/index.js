@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import WysiwygNav from './WysiwygNav';
 import WysiwygFooter from './WysiwygFooter';
@@ -66,10 +66,9 @@ const Wysiwyg = ({ label, placeholder, onChange }) => {
 
 Wysiwyg.propTypes = {
   label: PropTypes.string,
-  name: PropTypes.string,
   onChange: PropTypes.func,
   placeholder: PropTypes.string,
-  value: PropTypes.string,
+  // value: PropTypes.string,
 };
 
 export default Wysiwyg;

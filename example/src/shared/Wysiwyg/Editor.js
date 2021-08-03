@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import CodeMirror from 'codemirror';
-import 'codemirror/mode/markdown/markdown.js';
 
 import EditorWrapper from './EditorWrapper';
 import newlineAndIndentContinueMarkdownList from './utils/continueList';
 
 const Editor = (
-  {value, 
+  {
+  // value, 
   onChange, 
   textareaRef,
   editorRef
@@ -38,7 +38,9 @@ const Editor = (
 
 Editor.propTypes = {
   onChange: PropTypes.func,
-  value: PropTypes.string,
+  // value: PropTypes.string,
+  textareaRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+  editorRef: PropTypes.func,
 };
 
 export default Editor;

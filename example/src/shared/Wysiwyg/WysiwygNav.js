@@ -33,7 +33,7 @@ const WysiwygNav = ({ placeholder, onActionClick }) => {
         <Row justifyContent='space-between'>
           <Row>
 
-            <Select placeholder={placeholder} size='S' onChange={(value) => onActionClick(value)}>
+            <Select id='selectTitle' placeholder={placeholder} size='S' onChange={(value) => onActionClick(value)}>
               <Option value='h1'>h1</Option>
               <Option value='h2'>h2</Option>
               <Option value='h3'>h3</Option>
@@ -43,25 +43,25 @@ const WysiwygNav = ({ placeholder, onActionClick }) => {
             </Select>
 
             <MainButtons>
-              <CustomIconButton onClick={() => onActionClick("Bold")} label="Bold" name="Bold" icon={<Bold />} />
-              <CustomIconButton onClick={() => onActionClick("Italic")} label="Italic" name="Italic" icon={<Italic />} />
-              <CustomIconButton onClick={() => onActionClick("Underline")} label="Underline" name="Underline" icon={<Underline />} />
+              <CustomIconButton onClick={() => onActionClick("Bold")} id="Bold" label="Bold" name="Bold" icon={<Bold />} />
+              <CustomIconButton onClick={() => onActionClick("Italic")} id="Italic" label="Italic" name="Italic" icon={<Italic />} />
+              <CustomIconButton onClick={() => onActionClick("Underline")} id="Underline" label="Underline" name="Underline" icon={<Underline />} />
             </MainButtons>
 
             <IconButtonGroup>
-              <CustomIconButton onClick={() => onActionClick("Strikethrough")} label="Strikethrough" name="Strikethrough" icon={<Strikethrough />} />
-              <CustomIconButton onClick={() => onActionClick('BulletList')} label="BulletList" name="BulletList" icon={<BulletList />} />
-              <CustomIconButton onClick={() => onActionClick('NumberList')} label="NumberList" name="NumberList" icon={<NumberList />} />
+              <CustomIconButton onClick={() => onActionClick("Strikethrough")} id="Strikethrough" label="Strikethrough" name="Strikethrough" icon={<Strikethrough />} />
+              <CustomIconButton onClick={() => onActionClick('BulletList')} id="BulletList" label="BulletList" name="BulletList" icon={<BulletList />} />
+              <CustomIconButton onClick={() => onActionClick('NumberList')} id="NumberList" label="NumberList" name="NumberList" icon={<NumberList />} />
             </IconButtonGroup>
               
             <IconButtonGroup>
-              <CustomIconButton onClick={() => onActionClick("Code")} label="Code" name="Code" icon={<Code />} />
-              <CustomIconButton onClick={() => onActionClick("alt")} label="Image" name="Image" icon={<Image />} />
-              <CustomIconButton onClick={() => onActionClick("Link")} label="Link" name="Link" icon={<Link />} />
-              <CustomIconButton onClick={() => onActionClick("Quote")} label="Quote" name="Quote" icon={<Quote />} />
+              <CustomIconButton onClick={() => onActionClick("Code")} id="Code" label="Code" name="Code" icon={<Code />} />
+              <CustomIconButton onClick={() => onActionClick("alt")} id="Image" label="Image" name="Image" icon={<Image />} />
+              <CustomIconButton onClick={() => onActionClick("Link")} id="Link" label="Link" name="Link" icon={<Link />} />
+              <CustomIconButton onClick={() => onActionClick("Quote")} id="Quote" label="Quote" name="Quote" icon={<Quote />} />
             </IconButtonGroup>
 
-            <MoreButton onClick={() => console.log('more')} label="more" icon={<More />} />
+            <MoreButton onClick={() => console.log('more')} id="more" label="more" icon={<More />} />
           </Row>
 
           <Button variant='tertiary' size='L'>Preview mode</Button>
@@ -71,7 +71,8 @@ const WysiwygNav = ({ placeholder, onActionClick }) => {
 };
 
 WysiwygNav.propTypes = {
-  placeholder: PropTypes.string
+  placeholder: PropTypes.string,
+  onActionClick: PropTypes.func
 };
 
 export default WysiwygNav;
