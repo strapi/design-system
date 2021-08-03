@@ -55,7 +55,6 @@ export const IconButtonGroup = styled(Row)`
       background-color: ${({ theme }) => theme.colors.neutral150};
 
       svg {
-        > g,
         path {
           fill: ${({ theme }) => theme.colors.neutral900};
         }
@@ -64,7 +63,6 @@ export const IconButtonGroup = styled(Row)`
 
     &:active {
       svg {
-        > g,
         path {
           fill: ${({ theme }) => theme.colors.neutral700};
         }
