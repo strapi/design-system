@@ -28,6 +28,9 @@ const IconButtonWrapper = styled(BaseButton)`
       }
     }
   }
+  &[aria-disabled='true'] {
+    background-color: ${({ theme }) => theme.colors.neutral150};
+  }
   ${({ noBorder }) => (noBorder ? `border: none;` : undefined)}
 `;
 
@@ -47,24 +50,25 @@ export const IconButtonGroup = styled(Row)`
 
     svg {
       path {
-        fill: ${({ theme }) => theme.colors.neutral800};
+        fill: ${({ theme }) => theme.colors.neutral700};
       }
     }
 
     &:hover {
-      background-color: ${({ theme }) => theme.colors.neutral150};
+      background-color: ${({ theme }) => theme.colors.neutral100};
 
       svg {
         path {
-          fill: ${({ theme }) => theme.colors.neutral900};
+          fill: ${({ theme }) => theme.colors.neutral800};
         }
       }
     }
 
     &:active {
+      background-color: ${({ theme }) => theme.colors.neutral150};
       svg {
         path {
-          fill: ${({ theme }) => theme.colors.neutral700};
+          fill: ${({ theme }) => theme.colors.neutral900};
         }
       }
     }
