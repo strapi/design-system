@@ -27,7 +27,7 @@ describe("Wysiwyg", () => {
     expect(getByText("hello world")).toBeInTheDocument();
     expect(container.firstChild).toMatchInlineSnapshot(`
       <span
-        class="sc-hKFxyN sc-jSFjdj jwhsUi hPodxf"
+        class="sc-hKFxyN sc-jSFjdj jMHwLp hPodxf"
       >
         hello world
       </span>
@@ -76,7 +76,7 @@ describe("Wysiwyg", () => {
       const childrenDontHaveText = Array.from(node.children).every(
         (child) => !hasText(child)
       );
-  
+
       return nodeHasText && childrenDontHaveText;
     });
 
@@ -183,7 +183,7 @@ describe("Wysiwyg", () => {
 
     await waitFor(() => container.querySelector(".CodeMirror-cursor"));
     fireEvent.mouseDown(container.querySelector("#selectTitle"));
-    fireEvent.click(getByText('h1'));
+    fireEvent.click(getByText("h1"));
 
     expect(getByText("#")).toBeInTheDocument();
   });
@@ -197,7 +197,7 @@ describe("Wysiwyg", () => {
 
     await waitFor(() => container.querySelector(".CodeMirror-cursor"));
     fireEvent.mouseDown(container.querySelector("#selectTitle"));
-    fireEvent.click(getByText('h2'));
+    fireEvent.click(getByText("h2"));
 
     expect(getByText("##")).toBeInTheDocument();
   });
@@ -211,7 +211,7 @@ describe("Wysiwyg", () => {
 
     await waitFor(() => container.querySelector(".CodeMirror-cursor"));
     fireEvent.mouseDown(container.querySelector("#selectTitle"));
-    fireEvent.click(getByText('h3'));
+    fireEvent.click(getByText("h3"));
 
     expect(getByText("###")).toBeInTheDocument();
   });
@@ -225,7 +225,7 @@ describe("Wysiwyg", () => {
 
     await waitFor(() => container.querySelector(".CodeMirror-cursor"));
     fireEvent.mouseDown(container.querySelector("#selectTitle"));
-    fireEvent.click(getByText('h4'));
+    fireEvent.click(getByText("h4"));
 
     expect(getByText("####")).toBeInTheDocument();
   });
@@ -239,7 +239,7 @@ describe("Wysiwyg", () => {
 
     await waitFor(() => container.querySelector(".CodeMirror-cursor"));
     fireEvent.mouseDown(container.querySelector("#selectTitle"));
-    fireEvent.click(getByText('h5'));
+    fireEvent.click(getByText("h5"));
 
     expect(getByText("#####")).toBeInTheDocument();
   });
@@ -253,7 +253,7 @@ describe("Wysiwyg", () => {
 
     await waitFor(() => container.querySelector(".CodeMirror-cursor"));
     fireEvent.mouseDown(container.querySelector("#selectTitle"));
-    fireEvent.click(getByText('h6'));
+    fireEvent.click(getByText("h6"));
 
     expect(getByText("######")).toBeInTheDocument();
   });
@@ -267,11 +267,11 @@ describe("Wysiwyg", () => {
 
     await waitFor(() => container.querySelector(".CodeMirror-cursor"));
     fireEvent.mouseDown(container.querySelector("#selectTitle"));
-    fireEvent.click(getByText('h1'));
+    fireEvent.click(getByText("h1"));
     fireEvent.mouseDown(container.querySelector("#selectTitle"));
-    fireEvent.click(getByText('h4'));
+    fireEvent.click(getByText("h4"));
     fireEvent.mouseDown(container.querySelector("#selectTitle"));
-    fireEvent.click(getByText('h1'));
+    fireEvent.click(getByText("h1"));
 
     expect(queryByText("####")).not.toBeInTheDocument();
     expect(getByText("#")).toBeInTheDocument();
