@@ -35,31 +35,39 @@ export const ButtonWrapper = styled(BaseButton)`
   ${getVariantStyle}
 `;
 
-export const Button = React.forwardRef(({ variant, startIcon, endIcon, disabled, children, size, ...props }, ref) => {
-  return (
-    <ButtonWrapper ref={ref} aria-disabled={disabled} size={size} variant={variant} {...props}>
-      {startIcon && (
-        <Box aria-hidden={true} paddingRight={2}>
-          {startIcon}
-        </Box>
-      )}
+export const Button = React.forwardRef(
+  ({ variant, startIcon, endIcon, disabled, children, onClick, size, ...props }, ref) => {
+    const handleClick = (e) => {
+      if (!disabled) {
+        onClick(e);
+      }
+    };
 
-      {size === 'S' ? (
-        <Text small={size === 'S'} highlighted>
-          {children}
-        </Text>
-      ) : (
-        <TextButton>{children}</TextButton>
-      )}
+    return (
+      <ButtonWrapper ref={ref} aria-disabled={disabled} size={size} variant={variant} onClick={handleClick} {...props}>
+        {startIcon && (
+          <Box aria-hidden={true} paddingRight={2}>
+            {startIcon}
+          </Box>
+        )}
 
-      {endIcon && (
-        <Box aria-hidden={true} paddingLeft={2}>
-          {endIcon}
-        </Box>
-      )}
-    </ButtonWrapper>
-  );
-});
+        {size === 'S' ? (
+          <Text small={size === 'S'} highlighted>
+            {children}
+          </Text>
+        ) : (
+          <TextButton>{children}</TextButton>
+        )}
+
+        {endIcon && (
+          <Box aria-hidden={true} paddingLeft={2}>
+            {endIcon}
+          </Box>
+        )}
+      </ButtonWrapper>
+    );
+  },
+);
 
 Button.displayName = 'Button';
 
@@ -69,6 +77,7 @@ Button.defaultProps = {
   endIcon: undefined,
   size: 'S',
   variant: 'default',
+  onClick: undefined,
 };
 Button.propTypes = {
   children: PropTypes.string.isRequired,
@@ -77,4 +86,5 @@ Button.propTypes = {
   size: PropTypes.oneOf(BUTTON_SIZES),
   startIcon: PropTypes.element,
   variant: PropTypes.oneOf(VARIANTS),
+  onClick: PropTypes.func,
 };

@@ -75,10 +75,16 @@ export const IconButtonGroup = styled(Row)`
   }
 `;
 
-export const IconButton = React.forwardRef(({ label, noBorder, icon, ...props }, ref) => {
+export const IconButton = React.forwardRef(({ label, noBorder, icon, disabled, onClick, ...props }, ref) => {
+  const handleClick = (e) => {
+    if (!disabled) {
+      onClick(e);
+    }
+  };
+
   return (
     <Tooltip label={label}>
-      <IconButtonWrapper {...props} ref={ref} noBorder={noBorder}>
+      <IconButtonWrapper {...props} ref={ref} noBorder={noBorder} onClick={handleClick} aria-disabled={disabled}>
         {icon}
       </IconButtonWrapper>
     </Tooltip>
@@ -91,9 +97,13 @@ IconButton.defaultProps = {
   title: undefined,
   noBorder: false,
   label: undefined,
+  disabled: false,
+  onClick: undefined,
 };
 IconButton.propTypes = {
   icon: PropTypes.element.isRequired,
   label: PropTypes.string,
   noBorder: PropTypes.bool,
+  disabled: PropTypes.bool,
+  onClick: PropTypes.func,
 };
