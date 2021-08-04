@@ -66,50 +66,50 @@ describe('Tabs', () => {
 
   describe('Keyboard interactions', () => {
     it('moves to the next tab when pressing ArrowRight', async () => {
-      await page.waitForSelector('#tab-tabs-0');
+      await page.waitForSelector('#tabs-0-tab');
 
-      await page.focus('#tab-tabs-0');
+      await page.focus('#tabs-0-tab');
       await page.keyboard.press('ArrowRight');
-      await expect(page).toHaveFocus('#tab-tabs-1');
-
-      await page.keyboard.press('ArrowRight');
-      await expect(page).toHaveFocus('#tab-tabs-2');
+      await expect(page).toHaveFocus('#tabs-1-tab');
 
       await page.keyboard.press('ArrowRight');
-      await expect(page).toHaveFocus('#tab-tabs-0');
+      await expect(page).toHaveFocus('#tabs-2-tab');
+
+      await page.keyboard.press('ArrowRight');
+      await expect(page).toHaveFocus('#tabs-0-tab');
     });
 
     it('moves to the previous tab when pressing ArrowLeft', async () => {
-      await page.waitForSelector('#tab-tabs-0');
+      await page.waitForSelector('#tabs-0-tab');
 
-      await page.focus('#tab-tabs-0');
+      await page.focus('#tabs-0-tab');
       await page.keyboard.press('ArrowLeft');
-      await expect(page).toHaveFocus('#tab-tabs-2');
-
-      await page.keyboard.press('ArrowLeft');
-      await expect(page).toHaveFocus('#tab-tabs-1');
+      await expect(page).toHaveFocus('#tabs-2-tab');
 
       await page.keyboard.press('ArrowLeft');
-      await expect(page).toHaveFocus('#tab-tabs-0');
+      await expect(page).toHaveFocus('#tabs-1-tab');
+
+      await page.keyboard.press('ArrowLeft');
+      await expect(page).toHaveFocus('#tabs-0-tab');
     });
 
     it('moves to the first tab when pressing Home', async () => {
-      await page.waitForSelector('#tab-tabs-0');
+      await page.waitForSelector('#tabs-0-tab');
 
-      await page.focus('#tab-tabs-0');
+      await page.focus('#tabs-0-tab');
       await page.keyboard.press('ArrowLeft');
       await page.keyboard.press('Home');
 
-      await expect(page).toHaveFocus('#tab-tabs-0');
+      await expect(page).toHaveFocus('#tabs-0-tab');
     });
 
     it('moves to the last tab when pressing End', async () => {
-      await page.waitForSelector('#tab-tabs-0');
+      await page.waitForSelector('#tabs-0-tab');
 
-      await page.focus('#tab-tabs-0');
+      await page.focus('#tabs-0-tab');
       await page.keyboard.press('End');
 
-      await expect(page).toHaveFocus('#tab-tabs-2');
+      await expect(page).toHaveFocus('#tabs-2-tab');
     });
   });
 });

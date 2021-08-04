@@ -14,8 +14,8 @@ const TooltipWrapper = styled(Box)`
   display: ${({ visible }) => (visible ? 'revert' : 'none')};
 `;
 
-export const Tooltip = ({ children, label, description, delay, position, ...props }) => {
-  const tooltipId = useId('tooltip');
+export const Tooltip = ({ children, label, description, delay, position, id, ...props }) => {
+  const tooltipId = useId('tooltip', id);
   const descriptionId = useId('description');
   const { visible, ...tooltipHandlers } = useTooltipHandlers(delay);
   const { tooltipWrapperRef, toggleSourceRef } = useTooltipLayout(visible, position);
@@ -54,6 +54,7 @@ export const Tooltip = ({ children, label, description, delay, position, ...prop
 
 Tooltip.defaultProps = {
   delay: 500,
+  id: undefined,
   position: 'top',
   label: undefined,
   description: undefined,
@@ -63,6 +64,7 @@ Tooltip.propTypes = {
   children: PropTypes.node.isRequired,
   delay: PropTypes.number,
   description: PropTypes.string,
+  id: PropTypes.string,
   label: PropTypes.string,
   position: PropTypes.oneOf(['top', 'left', 'bottom', 'right']),
 };

@@ -1,14 +1,14 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Box } from '../Box';
 import { CardContext } from './CardContext';
-import { genId } from '../helpers/genId';
+import { useId } from '../helpers/useId';
 
 export const Card = ({ id, ...props }) => {
-  const idRef = useRef(id || genId());
+  const generatedId = useId('card', id);
 
   return (
-    <CardContext.Provider value={{ id: idRef.current }}>
+    <CardContext.Provider value={{ id: generatedId }}>
       <Box
         id={id}
         tabIndex={0}
@@ -16,7 +16,7 @@ export const Card = ({ id, ...props }) => {
         background="neutral0"
         shadow="tableShadow"
         as="article"
-        aria-labelledby={`card-title-${idRef.current}`}
+        aria-labelledby={`${generatedId}-title`}
         {...props}
       />
     </CardContext.Provider>

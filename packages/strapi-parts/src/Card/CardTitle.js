@@ -4,7 +4,7 @@ import { useCard } from './CardContext';
 
 export const CardTitle = (props) => {
   const { id } = useCard();
-  return <Text id={`card-title-${id}`} textColor="neutral800" small highlighted as="div" {...props} />;
+  return <Text id={`${id}-title`} textColor="neutral800" small highlighted as="div" {...props} />;
 };
 
 export const CardSubtitle = (props) => {

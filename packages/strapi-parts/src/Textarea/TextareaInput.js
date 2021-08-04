@@ -39,17 +39,16 @@ export const TextareaInput = forwardRef(({ disabled, ...props }, ref) => {
   let ariaDescription;
 
   if (error) {
-    ariaDescription = `field-error-${id}`;
+    ariaDescription = `${id}-error`;
   } else if (hint) {
-    ariaDescription = `field-hint-${id}`;
+    ariaDescription = `${id}-hint`;
   }
 
-  const fieldId = `field-${id}`;
   const hasError = Boolean(error);
 
   return (
     <Textarea
-      id={fieldId}
+      id={id}
       name={name}
       ref={ref}
       aria-describedby={ariaDescription}

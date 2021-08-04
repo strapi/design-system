@@ -100,8 +100,8 @@ Tabs.propTypes = {
 };
 
 export const Tab = ({ selected, id, children, ...props }) => {
-  const tabId = `tab-${id}`;
-  const tabPanelId = `tab-panel-${id}`;
+  const tabId = `${id}-tab`;
+  const tabPanelId = `${id}-tabpanel`;
 
   return (
     <TabButton

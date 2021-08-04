@@ -5,6 +5,7 @@ import { Stack } from '../Stack';
 import { Row } from '../Row';
 import { Box } from '../Box';
 import styled from 'styled-components';
+import { useId } from '../helpers/useId';
 
 export const TextInputWrapper = styled.div`
   & textarea {
@@ -14,6 +15,7 @@ export const TextInputWrapper = styled.div`
 
 export const TextInput = React.forwardRef(
   ({ startAction, endAction, name, hint, error, label, labelAction, id, ...props }, ref) => {
+    const generatedId = useId('textinput', id);
     const inputWrapperRef = useRef(null);
 
     useImperativeHandle(ref, () => ({
@@ -22,7 +24,7 @@ export const TextInput = React.forwardRef(
 
     return (
       <TextInputWrapper ref={inputWrapperRef}>
-        <Field name={name} hint={hint} error={error} id={id}>
+        <Field name={name} hint={hint} error={error} id={generatedId}>
           <Stack size={1}>
             <Row cols="auto auto 1fr" gap={1}>
               <FieldLabel>{label}</FieldLabel>

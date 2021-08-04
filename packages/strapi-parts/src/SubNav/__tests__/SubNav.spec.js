@@ -478,7 +478,7 @@ describe('SubNav', () => {
                   class="c2"
                 >
                   <button
-                    aria-controls="list-123"
+                    aria-controls="subnav-list-123"
                     aria-expanded="true"
                     class="c14 c15"
                   >
@@ -523,7 +523,7 @@ describe('SubNav', () => {
                 </div>
               </div>
               <ul
-                id="list-123"
+                id="subnav-list-123"
               >
                 <li>
                   <a
@@ -675,7 +675,7 @@ describe('SubNav', () => {
                   class="c2"
                 >
                   <button
-                    aria-controls="list-123"
+                    aria-controls="subnav-list-123"
                     aria-expanded="true"
                     class="c14 c15"
                   >
@@ -720,7 +720,7 @@ describe('SubNav', () => {
                 </div>
               </div>
               <ul
-                id="list-123"
+                id="subnav-list-123"
               >
                 <li>
                   <div
@@ -730,7 +730,7 @@ describe('SubNav', () => {
                       class="c2"
                     >
                       <button
-                        aria-controls="list-123"
+                        aria-controls="subnav-list-123"
                         aria-expanded="true"
                         class="c32"
                       >
@@ -766,7 +766,7 @@ describe('SubNav', () => {
                     </div>
                   </div>
                   <ul
-                    id="list-123"
+                    id="subnav-list-123"
                   >
                     <li>
                       <a

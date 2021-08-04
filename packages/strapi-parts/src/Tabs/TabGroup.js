@@ -1,14 +1,14 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { TabsContext } from './TabsContext';
-import { genId } from '../helpers/genId';
+import { useId } from '../helpers/useId';
 
 export const TabGroup = ({ id, label, ...props }) => {
-  const tabsId = useRef(id || genId());
+  const tabsId = useId('tabgroup', id);
   const [selectedTabIndex, setSelectedTabIndex] = useState(0);
 
   return (
-    <TabsContext.Provider value={{ id: tabsId.current, selectedTabIndex, selectTabIndex: setSelectedTabIndex, label }}>
+    <TabsContext.Provider value={{ id: tabsId, selectedTabIndex, selectTabIndex: setSelectedTabIndex, label }}>
       <div {...props} />
     </TabsContext.Provider>
   );

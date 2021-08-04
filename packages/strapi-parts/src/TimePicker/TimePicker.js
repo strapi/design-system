@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import TimeIcon from '@strapi/icons/Time';
 import styled from 'styled-components';
 import { Select, Option } from '../Select';
+import { useId } from '../helpers/useId';
 
 const TimeIconWrapper = styled.div`
   display: flex;
@@ -30,6 +31,7 @@ export const TimePicker = ({
   step,
   ...props
 }) => {
+  const generatedId = useId('timepicker', id);
   const hoursCount = 24;
   const times = [];
   let min = 0;
@@ -45,7 +47,7 @@ export const TimePicker = ({
 
   return (
     <Select
-      id={id}
+      id={generatedId}
       label={label}
       placeholder={'--:--'}
       hint={hint}

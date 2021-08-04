@@ -30,9 +30,9 @@ const DropDownIconWrapper = styled.div`
   transform: rotateX(${({ rotated }) => (rotated ? '0deg' : '180deg')});
 `;
 
-export const SubNavLinkSection = ({ label, children }) => {
+export const SubNavLinkSection = ({ label, children, id }) => {
   const [isOpen, setOpenLinks] = useState(true);
-  const listId = useId('list');
+  const listId = useId('subnav-list', id);
 
   const handleClick = () => {
     setOpenLinks((prev) => !prev);
@@ -59,7 +59,12 @@ export const SubNavLinkSection = ({ label, children }) => {
   );
 };
 
+SubNavLinkSection.defaultProps = {
+  id: undefined,
+};
+
 SubNavLinkSection.propTypes = {
   children: PropTypes.node,
+  id: PropTypes.string,
   label: PropTypes.string.isRequired,
 };

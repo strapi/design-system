@@ -1,25 +1,43 @@
 import React from 'react';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { BaseCheckbox } from '../BaseCheckbox';
 import { Stack } from '../Stack';
 import { Field, FieldHint, FieldError, useField } from '../Field';
-import { CheckboxLabel } from './CheckboxLabel';
 import { Box } from '../Box';
+import { useId } from '../helpers/useId';
+import { Text } from '../Text';
+
+const CheckboxLabel = styled(Text)`
+  display: flex;
+  align-items: center;
+  * {
+    cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'default')};
+  }
+`;
 
 const CheckboxTick = (props) => {
   const { id } = useField();
 
-  const fieldId = `field-${id}`;
-
-  return <BaseCheckbox id={fieldId} {...props} />;
+  return <BaseCheckbox id={id} {...props} />;
 };
 
 export const Checkbox = ({ children, disabled, id, hint, error, ...props }) => {
+  const generatedId = useId('checkbox', id);
+
+  let ariaDescription;
+
+  if (error) {
+    ariaDescription = `${generatedId}-error`;
+  } else if (hint) {
+    ariaDescription = `${generatedId}-hint`;
+  }
+
   return (
-    <Field id={id} hint={hint} error={error}>
+    <Field id={generatedId} hint={hint} error={error}>
       <Stack size={1}>
         <CheckboxLabel as="label" textColor="neutral800" disabled={disabled}>
-          <CheckboxTick disabled={disabled} {...props} />
+          <CheckboxTick disabled={disabled} aria-describedby={ariaDescription} {...props} />
           <Box paddingLeft={2}>{children}</Box>
         </CheckboxLabel>
 

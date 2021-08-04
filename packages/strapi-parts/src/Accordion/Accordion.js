@@ -1,9 +1,9 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Text, H3 } from '../Text';
 import { AccordionContext } from './AccordionContext';
-import { genId } from '../helpers/genId';
+import { useId } from '../helpers/useId';
 import { Box } from '../Box';
 import { DropdownIconWrapper } from './DropdownIconWrapper';
 
@@ -36,10 +36,10 @@ const AccordionWrapper = styled(Box)`
 `;
 
 export const Accordion = ({ children, toggle, expanded, id }) => {
-  const idRef = useRef(id || genId());
+  const generatedId = useId('accordion', id);
 
   return (
-    <AccordionContext.Provider value={{ expanded, toggle, id: idRef.current }}>
+    <AccordionContext.Provider value={{ expanded, toggle, id: generatedId }}>
       <AccordionWrapper expanded={expanded} hasRadius={true}>
         {children}
       </AccordionWrapper>

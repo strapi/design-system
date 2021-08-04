@@ -17,8 +17,8 @@ TabPanels.propTypes = {
 };
 
 export const TabPanel = ({ id, ...props }) => {
-  const tabId = `tab-${id}`;
-  const tabPanelId = `tab-panel-${id}`;
+  const tabId = `${id}-tab`;
+  const tabPanelId = `${id}-tabpanel`;
 
   return <div id={tabPanelId} role="tabpanel" tabIndex={0} aria-labelledby={tabId} {...props} />;
 };

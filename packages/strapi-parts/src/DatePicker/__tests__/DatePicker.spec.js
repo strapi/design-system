@@ -28,7 +28,6 @@ describe('DatePicker', () => {
           clearLabel={'Clear the datepicker'}
           onClear={() => {}}
           selectedDateLabel={(formattedDate) => `Date picker, current is ${formattedDate}`}
-          id="date-picker"
         />
       </ThemeProvider>,
     );
@@ -189,7 +188,7 @@ describe('DatePicker', () => {
               >
                 <label
                   class="c3"
-                  for="field-date-picker"
+                  for="datepicker-1"
                 >
                   Date picker
                 </label>
@@ -225,7 +224,7 @@ describe('DatePicker', () => {
                   aria-autocomplete="none"
                   aria-invalid="false"
                   class="c8"
-                  id="field-date-picker"
+                  id="datepicker-1"
                   name="datepicker"
                   placeholder="1"
                   value="1"
