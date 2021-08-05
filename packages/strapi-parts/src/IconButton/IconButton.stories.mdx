@@ -32,6 +32,23 @@ Description...
   </Story>
 </Canvas>
 
+## IconButton Disabled
+
+Description...
+
+<Canvas>
+  <Story name="base-disabled">
+    <Box padding={7}>
+      <Row>
+        <IconButton disabled onClick={() => console.log('edit')} label="Edit" icon={<EditIcon />} />
+        <IconButton disabled onClick={() => console.log('Create')} label="Create" icon={<AddIcon />} />
+        <IconButton disabled onClick={() => console.log('Delete')} label="Delete" icon={<DeleteIcon />} />
+        <IconButton disabled onClick={() => console.log('Publish')} label="Publish" icon={<PublishIcon />} />
+      </Row>
+    </Box>
+  </Story>
+</Canvas>
+
 ## IconButtonGroup
 
 Description...
@@ -44,23 +61,6 @@ Description...
         <IconButton onClick={() => console.log('Create')} label="Create" icon={<AddIcon />} />
         <IconButton onClick={() => console.log('Delete')} label="Delete" icon={<DeleteIcon />} />
         <IconButton onClick={() => console.log('Publish')} label="Publish" icon={<PublishIcon />} />
-      </IconButtonGroup>
-    </Box>
-  </Story>
-</Canvas>
-
-## IconButtonGroup disabled
-
-Description...
-
-<Canvas>
-  <Story name="group-disabled">
-    <Box padding={7}>
-      <IconButtonGroup>
-        <IconButton disabled onClick={() => console.log('edit')} label="Edit" icon={<EditIcon />} />
-        <IconButton disabled onClick={() => console.log('Create')} label="Create" icon={<AddIcon />} />
-        <IconButton disabled onClick={() => console.log('Delete')} label="Delete" icon={<DeleteIcon />} />
-        <IconButton disabled onClick={() => console.log('Publish')} label="Publish" icon={<PublishIcon />} />
       </IconButtonGroup>
     </Box>
   </Story>

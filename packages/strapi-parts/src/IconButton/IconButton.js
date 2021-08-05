@@ -30,6 +30,11 @@ const IconButtonWrapper = styled(BaseButton)`
   }
   &[aria-disabled='true'] {
     background-color: ${({ theme }) => theme.colors.neutral150};
+    svg {
+      path {
+        fill: ${({ theme }) => theme.colors.neutral600};
+      }
+    }
   }
   ${({ noBorder }) => (noBorder ? `border: none;` : undefined)}
 `;
@@ -69,6 +74,14 @@ export const IconButtonGroup = styled(Row)`
       svg {
         path {
           fill: ${({ theme }) => theme.colors.neutral900};
+        }
+      }
+    }
+
+    &[aria-disabled='true'] {
+      svg {
+        path {
+          fill: ${({ theme }) => theme.colors.neutral600};
         }
       }
     }
