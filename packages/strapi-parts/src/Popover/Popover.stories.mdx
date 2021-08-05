@@ -4,6 +4,7 @@ import { useRef, useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { Popover } from './Popover';
 import { Box } from '../Box';
+import { Row } from '../Row';
 import { Button } from '../Button';
 import { Stack } from '../Stack';
 
@@ -76,6 +77,41 @@ Description...
             </ul>
           </Popover>
         </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Popover
+
+Description...
+
+<Canvas>
+  <Story name="overflow-right">
+    {() => {
+      const [visible, setVisible] = useState(false);
+      const buttonRef = useRef();
+      return (
+        <Row justifyContent="flex-end">
+          <div>
+            <button ref={buttonRef} onClick={() => setVisible((s) => !s)}>
+              Open popover
+            </button>
+            {visible && (
+              <Popover source={buttonRef} spacingTop={4}>
+                <ul style={{ width: '200px' }}>
+                  {Array(15)
+                    .fill(null)
+                    .map((_, index) => (
+                      <Box key={index} padding={3}>
+                        Element {index}
+                      </Box>
+                    ))}
+                </ul>
+              </Popover>
+            )}
+          </div>
+        </Row>
       );
     }}
   </Story>

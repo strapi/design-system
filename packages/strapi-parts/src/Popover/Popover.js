@@ -1,18 +1,28 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Box } from '../Box';
 import { Portal } from '../Portal';
 import { useIntersection } from '../helpers/useIntersection';
+import { useResizeObserver } from '../helpers/useResizeObserver';
 
-const position = (source, fullWidth) => {
+export const position = (source, popover, fullWidth) => {
   const rect = source.getBoundingClientRect();
-
   const left = rect.left + window.pageXOffset;
   const top = rect.top + rect.height + window.pageYOffset;
 
+  if (!popover) {
+    return {
+      left,
+      top,
+      width: fullWidth ? rect.width : undefined,
+    };
+  }
+
+  const popoverRect = popover.getBoundingClientRect();
+
   return {
-    left,
+    left: popoverRect.left + popoverRect.width > window.innerWidth ? window.innerWidth - popoverRect.width - 20 : left,
     top,
     width: fullWidth ? rect.width : undefined,
   };
@@ -49,21 +59,9 @@ const PopoverScrollable = styled(Box)`
 
 const PopoverContent = ({ source, children, spacingTop, fullWidth, onReachEnd, intersectionId, ...props }) => {
   const popoverRef = useRef(null);
-  const [{ left, top, width }, setPosition] = useState(position(source.current, fullWidth));
+  const [{ left, top, width }, setPosition] = useState(position(source.current, popoverRef.current, fullWidth));
 
-  useEffect(() => {
-    const resizeHandler = () => {
-      setPosition(position(source.current, fullWidth));
-    };
-
-    const resizeObs = new ResizeObserver(resizeHandler);
-    resizeObs.observe(source.current);
-
-    return () => {
-      resizeObs.disconnect();
-    };
-  }, []);
-
+  useResizeObserver(source, () => setPosition(position(source.current, popoverRef.current, fullWidth)));
   useIntersection(popoverRef, onReachEnd, {
     selectorToWatch: `#${intersectionId}`,
     skipWhen: !intersectionId || !onReachEnd,
