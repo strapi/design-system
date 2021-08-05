@@ -32,17 +32,17 @@ const positionTop = (tooltipRect, toggleSourceRect) => {
   let left = toggleSourceRect.left - widthDifference;
   let top = toggleSourceRect.top - tooltipRect.height - SPACE_BETWEEN + window.pageYOffset;
 
-  // const tooltipPos = tooltipRect.width + tooltipRect.left;
-  // console.log(tooltipRect.left, 'tooltip position');
-  // console.log(window.innerWidth, 'window innerwidth')
-
   //handle overflow top, left and righ viewport situations
-  // if (tooltipPos === window.innerWidth) {
-  //   left = toggleSourceRect.left - tooltipRect.width - toggleSourceRect.width - SPACE_BETWEEN;
-  //   top = toggleSourceRect.height + tooltipRect.height / 2 + SPACE_BETWEEN;
-  //   top = toggleSourceRect.height / 2;
-  // } else
-  if (top < 0 && left < 0) {
+  const padding = window.innerWidth - toggleSourceRect.right;
+  const overflowRight = toggleSourceRect.left - padding + tooltipRect.width;
+
+  if (overflowRight > window.innerWidth) {
+    left = toggleSourceRect.left - tooltipRect.width - SPACE_BETWEEN;
+    top = toggleSourceRect.top + window.scrollY - toggleSourceRect.height / 2;
+  } else if (left < 0 && top > 0) {
+    left = toggleSourceRect.width + toggleSourceRect.left + SPACE_BETWEEN;
+    top = toggleSourceRect.top + window.scrollY - tooltipRect.height / 2 + SPACE_BETWEEN;
+  } else if (top < 0 && left < 0) {
     left = toggleSourceRect.width + toggleSourceRect.left + SPACE_BETWEEN;
     top = toggleSourceRect.height / 2;
   } else if (top < 0 && left > 0) {
