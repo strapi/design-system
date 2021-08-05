@@ -28,6 +28,14 @@ const IconButtonWrapper = styled(BaseButton)`
       }
     }
   }
+  &[aria-disabled='true'] {
+    background-color: ${({ theme }) => theme.colors.neutral150};
+    svg {
+      path {
+        fill: ${({ theme }) => theme.colors.neutral600};
+      }
+    }
+  }
   ${({ noBorder }) => (noBorder ? `border: none;` : undefined)}
 `;
 
@@ -47,13 +55,22 @@ export const IconButtonGroup = styled(Row)`
 
     svg {
       path {
-        fill: ${({ theme }) => theme.colors.neutral800};
+        fill: ${({ theme }) => theme.colors.neutral700};
       }
     }
 
     &:hover {
-      background-color: ${({ theme }) => theme.colors.neutral150};
+      background-color: ${({ theme }) => theme.colors.neutral100};
 
+      svg {
+        path {
+          fill: ${({ theme }) => theme.colors.neutral800};
+        }
+      }
+    }
+
+    &:active {
+      background-color: ${({ theme }) => theme.colors.neutral150};
       svg {
         path {
           fill: ${({ theme }) => theme.colors.neutral900};
@@ -61,20 +78,26 @@ export const IconButtonGroup = styled(Row)`
       }
     }
 
-    &:active {
+    &[aria-disabled='true'] {
       svg {
         path {
-          fill: ${({ theme }) => theme.colors.neutral700};
+          fill: ${({ theme }) => theme.colors.neutral600};
         }
       }
     }
   }
 `;
 
-export const IconButton = React.forwardRef(({ label, noBorder, icon, ...props }, ref) => {
+export const IconButton = React.forwardRef(({ label, noBorder, icon, disabled, onClick, ...props }, ref) => {
+  const handleClick = (e) => {
+    if (!disabled) {
+      onClick(e);
+    }
+  };
+
   return (
     <Tooltip label={label}>
-      <IconButtonWrapper {...props} ref={ref} noBorder={noBorder}>
+      <IconButtonWrapper {...props} ref={ref} noBorder={noBorder} onClick={handleClick} aria-disabled={disabled}>
         {icon}
       </IconButtonWrapper>
     </Tooltip>
@@ -87,9 +110,13 @@ IconButton.defaultProps = {
   title: undefined,
   noBorder: false,
   label: undefined,
+  disabled: false,
+  onClick: undefined,
 };
 IconButton.propTypes = {
   icon: PropTypes.element.isRequired,
   label: PropTypes.string,
   noBorder: PropTypes.bool,
+  disabled: PropTypes.bool,
+  onClick: PropTypes.func,
 };

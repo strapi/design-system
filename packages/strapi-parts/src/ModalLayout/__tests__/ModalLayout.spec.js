@@ -179,6 +179,14 @@ describe('ModalLayout', () => {
         fill: #a5a5ba;
       }
 
+      .c7[aria-disabled='true'] {
+        background-color: #eaeaef;
+      }
+
+      .c7[aria-disabled='true'] svg path {
+        fill: #666687;
+      }
+
       .c4 {
         border-bottom: 1px solid #eaeaef;
       }

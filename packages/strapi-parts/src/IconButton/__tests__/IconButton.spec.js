@@ -58,6 +58,14 @@ describe('IconButton', () => {
         fill: #a5a5ba;
       }
 
+      .c1[aria-disabled='true'] {
+        background-color: #eaeaef;
+      }
+
+      .c1[aria-disabled='true'] svg path {
+        fill: #666687;
+      }
+
       <span>
         <button
           aria-disabled="false"
