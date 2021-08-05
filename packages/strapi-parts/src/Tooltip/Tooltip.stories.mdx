@@ -17,6 +17,13 @@ This is the doc of the `Tooltip` component
 Description...
 
 <Canvas>
+  <Story name="top-right">
+    <Row justifyContent="flex-end">
+      <Tooltip label="This is the label">
+        <button>hello</button>
+      </Tooltip>
+    </Row>
+  </Story>
   <Story name="base">
     <div style={{ marginLeft: '400px', marginTop: '200px', width: '400px' }}>
       <p>
@@ -156,13 +163,6 @@ Description...
   </Story>
   <Story name="top-center">
     <Row justifyContent="center">
-      <Tooltip label="This is the label">
-        <button>hello</button>
-      </Tooltip>
-    </Row>
-  </Story>
-  <Story name="top-right">
-    <Row justifyContent="flex-end">
       <Tooltip label="This is the label">
         <button>hello</button>
       </Tooltip>
