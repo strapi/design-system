@@ -32,8 +32,8 @@ const positionTop = (tooltipRect, toggleSourceRect) => {
   let left = toggleSourceRect.left - widthDifference;
   let top = toggleSourceRect.top - tooltipRect.height - SPACE_BETWEEN + window.pageYOffset;
 
-  console.log('window.innerWidth', window.innerWidth);
-  console.log('toggleSourceRect.width + toggleSourceRect.left', toggleSourceRect.width + toggleSourceRect.left);
+  // console.log('window.innerWidth', window.innerWidth);
+  // console.log('toggleSourceRect.width + toggleSourceRect.left', toggleSourceRect.width + toggleSourceRect.left);
 
   //handle overflow top and left viewport situations
   if (top < 0 && left < 0) {
