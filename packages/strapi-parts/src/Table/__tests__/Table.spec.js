@@ -420,6 +420,14 @@ describe('Table', () => {
         fill: #a5a5ba;
       }
 
+      .c19[aria-disabled='true'] {
+        background-color: #eaeaef;
+      }
+
+      .c19[aria-disabled='true'] svg path {
+        fill: #666687;
+      }
+
       <div
         class="c0"
       >

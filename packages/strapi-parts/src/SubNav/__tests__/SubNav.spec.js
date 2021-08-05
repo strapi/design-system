@@ -357,6 +357,14 @@ describe('SubNav', () => {
         fill: #a5a5ba;
       }
 
+      .c5[aria-disabled='true'] {
+        background-color: #eaeaef;
+      }
+
+      .c5[aria-disabled='true'] svg path {
+        fill: #666687;
+      }
+
       .c8 {
         height: 1px;
         margin: 0;
