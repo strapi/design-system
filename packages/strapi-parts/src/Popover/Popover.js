@@ -20,13 +20,9 @@ export const position = (source, popover, fullWidth) => {
   }
 
   const popoverRect = popover.getBoundingClientRect();
-  const scrollbarWidth = popover.offsetWidth - popover.clientWidth;
 
   return {
-    left:
-      popoverRect.left + popoverRect.width > window.innerWidth
-        ? window.innerWidth - popoverRect.width - scrollbarWidth
-        : left,
+    left: popoverRect.left + popoverRect.width > window.innerWidth ? window.innerWidth - popoverRect.width - 20 : left,
     top,
     width: fullWidth ? rect.width : undefined,
   };
