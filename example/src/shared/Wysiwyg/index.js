@@ -53,8 +53,7 @@ const Wysiwyg = ({ label, placeholder, onChange }) => {
           onActionClick={handleActionClick}
         />
         <Editor 
-          // value={value || ''} 
-          onChange={modifiedData => onChange(modifiedData)} 
+          onChange={onChange} 
           textareaRef={textareaRef}
           editorRef={editorRef}
         />
@@ -67,8 +66,7 @@ const Wysiwyg = ({ label, placeholder, onChange }) => {
 Wysiwyg.propTypes = {
   label: PropTypes.string,
   onChange: PropTypes.func,
-  placeholder: PropTypes.string,
-  // value: PropTypes.string,
+  placeholder: PropTypes.string
 };
 
 export default Wysiwyg;
