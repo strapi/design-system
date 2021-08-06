@@ -1,39 +1,39 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-    Option,
-    Button,
-    Row, 
-    Select
+  Option,
+  Button,
+  Row, 
+  Select,
+  IconButtonGroup
 } from "@strapi/parts";
 import {
-    Bold,
-    Italic,
-    Underline,
-    Strikethrough,
-    BulletList,
-    NumberList,
-    Code,
-    Image,
-    Link,
-    Quote,
-    More
+  Bold,
+  Italic,
+  Underline,
+  Strikethrough,
+  BulletList,
+  NumberList,
+  Code,
+  Image,
+  Link,
+  Quote,
+  More
 } from "@strapi/icons";
 import {
   MainButtons,
-  SubMainButtons,
-  CollapsableButtons,
   CustomIconButton,
   NavWrapper,
   MoreButton
 } from './WysiwygStyles';
 
-const WysiwygNav = ({ placeholder }) => {
+const WysiwygNav = ({ placeholder, onActionClick }) => {
     return (
       <NavWrapper padding={2} background='neutral100'>
         <Row justifyContent='space-between'>
           <Row>
-            <Select placeholder={placeholder} size='S' onChange={() => {}}>
+
+            <Select id='selectTitle' placeholder={placeholder} size='S' onChange={(value) => onActionClick(value)}>
               <Option value='h1'>h1</Option>
               <Option value='h2'>h2</Option>
               <Option value='h3'>h3</Option>
@@ -43,24 +43,25 @@ const WysiwygNav = ({ placeholder }) => {
             </Select>
 
             <MainButtons>
-              <CustomIconButton onClick={() => console.log('bold')} label="Bold" icon={<Bold />} />
-              <CustomIconButton onClick={() => console.log('italic')} label="Italic" icon={<Italic />} />
-              <CustomIconButton onClick={() => console.log('underline')} label="Underline" icon={<Underline />} />
-              <SubMainButtons>
-                <CustomIconButton onClick={() => console.log('strikethrough')} label="Strikethrough" icon={<Strikethrough />} />
-                <CustomIconButton onClick={() => console.log('bulletlist')} label="BulletList" icon={<BulletList />} />
-                <CustomIconButton onClick={() => console.log('numberlist')} label="NumberList" icon={<NumberList />} />
-              </SubMainButtons>
+              <CustomIconButton onClick={() => onActionClick("Bold")} id="Bold" label="Bold" name="Bold" icon={<Bold />} />
+              <CustomIconButton onClick={() => onActionClick("Italic")} id="Italic" label="Italic" name="Italic" icon={<Italic />} />
+              <CustomIconButton onClick={() => onActionClick("Underline")} id="Underline" label="Underline" name="Underline" icon={<Underline />} />
             </MainButtons>
-              
-            <CollapsableButtons>
-              <CustomIconButton onClick={() => console.log('code')} label="Code" icon={<Code />} />
-              <CustomIconButton onClick={() => console.log('image')} label="Image" icon={<Image />} />
-              <CustomIconButton onClick={() => console.log('link')} label="Link" icon={<Link />} />
-              <CustomIconButton onClick={() => console.log('quote')} label="Quote" icon={<Quote />} />
-            </CollapsableButtons>
 
-            <MoreButton onClick={() => console.log('more')} label="more" icon={<More />} />
+            <IconButtonGroup>
+              <CustomIconButton onClick={() => onActionClick("Strikethrough")} id="Strikethrough" label="Strikethrough" name="Strikethrough" icon={<Strikethrough />} />
+              <CustomIconButton onClick={() => onActionClick('BulletList')} id="BulletList" label="BulletList" name="BulletList" icon={<BulletList />} />
+              <CustomIconButton onClick={() => onActionClick('NumberList')} id="NumberList" label="NumberList" name="NumberList" icon={<NumberList />} />
+            </IconButtonGroup>
+              
+            <IconButtonGroup>
+              <CustomIconButton onClick={() => onActionClick("Code")} id="Code" label="Code" name="Code" icon={<Code />} />
+              <CustomIconButton onClick={() => onActionClick("alt")} id="Image" label="Image" name="Image" icon={<Image />} />
+              <CustomIconButton onClick={() => onActionClick("Link")} id="Link" label="Link" name="Link" icon={<Link />} />
+              <CustomIconButton onClick={() => onActionClick("Quote")} id="Quote" label="Quote" name="Quote" icon={<Quote />} />
+            </IconButtonGroup>
+
+            <MoreButton onClick={() => console.log('more')} id="more" label="more" icon={<More />} />
           </Row>
 
           <Button variant='tertiary' size='L'>Preview mode</Button>
@@ -70,7 +71,8 @@ const WysiwygNav = ({ placeholder }) => {
 };
 
 WysiwygNav.propTypes = {
-  placeholder: PropTypes.string
+  placeholder: PropTypes.string,
+  onActionClick: PropTypes.func
 };
 
 export default WysiwygNav;

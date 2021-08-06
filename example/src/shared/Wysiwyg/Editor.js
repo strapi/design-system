@@ -1,43 +1,38 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import CodeMirror from 'codemirror';
-import 'codemirror/mode/markdown/markdown.js';
+
 import EditorWrapper from './EditorWrapper';
+import newlineAndIndentContinueMarkdownList from './utils/continueList';
 
-const Editor = ({ value, onChange }) => {
-    const textareaRef = useRef(null);
-    const editor = useRef(null);
+const Editor = (
+  {
+  onChange, 
+  textareaRef,
+  editorRef
+  }) => {
 
-    useEffect(() => {
-      const handleChange = (doc) => {
-        onChange(doc.getValue());
-      };
+  useEffect(() => {
+    editorRef.current = CodeMirror.fromTextArea(textareaRef.current, {
+      lineWrapping: true,
+      extraKeys: {'Enter': 'newlineAndIndentContinueMarkdownList'}
+    });
 
-      editor.current = CodeMirror.fromTextArea(textareaRef.current, {
-          mode: 'markdown',
-          lineWrapping: true
-      });
+    CodeMirror.commands.newlineAndIndentContinueMarkdownList = newlineAndIndentContinueMarkdownList;
+    editorRef.current.on('change', doc => onChange(doc.getValue()));
+  }, [editorRef, textareaRef]);
 
-      editor.current.on('change', handleChange)
-    }, []);
-
-    //we need to find a solution to control the component
-    // useEffect(() => {
-    //   editor.current.setValue(value);
-    //   editor.current.focus();
-    // }, [value])
-
-
-    return (
-        <EditorWrapper>
-            <textarea ref={textareaRef}></textarea>
-        </EditorWrapper>
-    )
+  return (
+      <EditorWrapper>
+          <textarea ref={textareaRef}></textarea>
+      </EditorWrapper>
+  )
 };
 
 Editor.propTypes = {
   onChange: PropTypes.func,
-  value: PropTypes.string,
+  textareaRef: PropTypes.shape({ current: PropTypes.any }),
+  editorRef: PropTypes.shape({ current: PropTypes.any }),
 };
 
 export default Editor;
