@@ -285,6 +285,7 @@ describe('ModalLayout', () => {
             />
             <p
               class="c15"
+              style="white-space: nowrap;"
             >
               Close the modal
             </p>

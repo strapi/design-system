@@ -26,7 +26,7 @@ describe('Tooltip', () => {
       }
 
       .c2 {
-        font-weight: 500;
+        font-weight: 400;
         font-size: 0.75rem;
         line-height: 1.33;
         color: #ffffff;
@@ -58,6 +58,7 @@ describe('Tooltip', () => {
           >
             <p
               class="c2"
+              style="white-space: nowrap;"
             >
               Content of the tooltip fefe
             </p>
@@ -137,6 +138,7 @@ describe('Tooltip', () => {
             </div>
             <p
               class="c3"
+              style="white-space: nowrap;"
             >
               Content of the tooltip fefe
             </p>
@@ -214,6 +216,7 @@ describe('Tooltip', () => {
             />
             <p
               class="c3"
+              style="white-space: nowrap;"
             >
               Content of the tooltip fefe
             </p>

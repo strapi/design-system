@@ -17,13 +17,6 @@ This is the doc of the `Tooltip` component
 Description...
 
 <Canvas>
-  <Story name="top-right">
-    <Row justifyContent="flex-end">
-      <Tooltip label="This is dzad zadzadzad zadzad za dza az zad az dza dazadz daz azdthe label">
-        <button>tooltip</button>
-      </Tooltip>
-    </Row>
-  </Story>
   <Story name="base">
     <div style={{ marginLeft: '400px', marginTop: '200px', width: '400px' }}>
       <p>
@@ -157,7 +150,7 @@ Description...
     </Tooltip>
   </Story>
   <Story name="top-left">
-    <div style={{ marginTop: '0px' }}>
+    <div>
       <Tooltip label="This is the label">
         <button>hello</button>
       </Tooltip>
@@ -167,6 +160,13 @@ Description...
     <Row justifyContent="center">
       <Tooltip label="This is the label">
         <button>hello</button>
+      </Tooltip>
+    </Row>
+  </Story>
+  <Story name="top-right">
+    <Row justifyContent="flex-end">
+      <Tooltip label="This is the label">
+        <button>tooltip</button>
       </Tooltip>
     </Row>
   </Story>

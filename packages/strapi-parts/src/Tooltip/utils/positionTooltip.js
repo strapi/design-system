@@ -32,20 +32,28 @@ const positionTop = (tooltipRect, toggleSourceRect) => {
   let left = toggleSourceRect.left - widthDifference;
   let top = toggleSourceRect.top - tooltipRect.height - SPACE_BETWEEN + window.pageYOffset;
 
-  //handle overflow top, left and righ viewport situations
-  const padding = window.innerWidth - toggleSourceRect.right;
-  const overflowRight = toggleSourceRect.left - padding + tooltipRect.width;
+  //CONDITIONS TO HANDLE TOOLTIP OVERFLOW OUT OF VIEWPORT
+
+  //calculate the space between rightside viewport to rightside source element
+  //knowing this space will help calculate if tooltip will overflow right side
+  const rightSpaceDifference = window.innerWidth - toggleSourceRect.right;
+
+  //calculate rightside pos of tooltip to compare later to window.innerWidth
+  const overflowRight = toggleSourceRect.left + tooltipRect.width - rightSpaceDifference;
 
   if (overflowRight > window.innerWidth) {
+    //if tooltip overflow right side of viewport
+    //place tooltip left side from source element
     left = toggleSourceRect.left - tooltipRect.width - SPACE_BETWEEN;
     top = toggleSourceRect.top + window.scrollY - toggleSourceRect.height / 2;
-  } else if (left < 0 && top > 0) {
+  } else if (left < 0) {
+    //if overflow left
+    //place tooltip right side from source element
     left = toggleSourceRect.width + toggleSourceRect.left + SPACE_BETWEEN;
     top = toggleSourceRect.top + window.scrollY - tooltipRect.height / 2 + SPACE_BETWEEN;
-  } else if (top < 0 && left < 0) {
-    left = toggleSourceRect.width + toggleSourceRect.left + SPACE_BETWEEN;
-    top = toggleSourceRect.height / 2;
   } else if (top < 0 && left > 0) {
+    //if overflow top but not left
+    //place tooltip below source element
     top = toggleSourceRect.height + tooltipRect.height / 2 + SPACE_BETWEEN;
   }
 
