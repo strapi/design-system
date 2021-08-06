@@ -1,5 +1,5 @@
 import * as React from "react";
-import { render, waitFor, prettyDOM, fireEvent } from "@testing-library/react";
+import { render, waitFor, fireEvent } from "@testing-library/react";
 import { lightTheme, ThemeProvider } from "@strapi/parts";
 import Wysiwyg from "../";
 

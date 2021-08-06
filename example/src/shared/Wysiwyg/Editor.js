@@ -7,7 +7,6 @@ import newlineAndIndentContinueMarkdownList from './utils/continueList';
 
 const Editor = (
   {
-  // value, 
   onChange, 
   textareaRef,
   editorRef
@@ -23,12 +22,6 @@ const Editor = (
     editorRef.current.on('change', doc => onChange(doc.getValue()));
   }, [editorRef, textareaRef]);
 
-  // useEffect(() => {
-  //   //we need to find a solution to control the component
-  //   editorRef.current.setValue(value);
-  //   editorRef.current.focus();
-  // }, [value])
-
   return (
       <EditorWrapper>
           <textarea ref={textareaRef}></textarea>
@@ -38,7 +31,6 @@ const Editor = (
 
 Editor.propTypes = {
   onChange: PropTypes.func,
-  // value: PropTypes.string,
   textareaRef: PropTypes.shape({ current: PropTypes.any }),
   editorRef: PropTypes.shape({ current: PropTypes.any }),
 };
