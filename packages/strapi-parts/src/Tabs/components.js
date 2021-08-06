@@ -5,8 +5,17 @@ import { Row } from '../Row';
 /** Simple variant */
 export const SimpleTabBox = styled(Box)`
   border-bottom: 2px solid
-    ${({ theme, selected, hasError }) =>
-      hasError ? theme.colors.danger600 : selected ? theme.colors.primary600 : 'transparent'};
+    ${({ theme, selected, hasError }) => {
+      if (selected) {
+        if (hasError) {
+          return theme.colors.danger600;
+        }
+
+        return theme.colors.primary600;
+      }
+
+      return 'transparent';
+    }};
 `;
 
 /** Default variant */
