@@ -15,17 +15,26 @@ document.createRange = () => {
 window.focus = jest.fn();
 
 describe("Wysiwyg", () => {
+  let renderedContainer; 
+  let getContainerByText; 
+  let containerQueryByText; 
+
+  beforeEach(() => { 
+    const { container, getByText, queryByText } = render( 
+      <ThemeProvider theme={lightTheme}> 
+        <Wysiwyg label={"hello world"} placeholder={""} onChange={jest.fn()} /> 
+      </ThemeProvider> 
+    ); 
+    renderedContainer = container; 
+    getContainerByText = getByText; 
+    containerQueryByText = queryByText; 
+  });
+
   it("should render the Wysiwyg", async () => {
-    const { container, getByText } = render(
-      <ThemeProvider theme={lightTheme}>
-        <Wysiwyg label={"hello world"} placeholder={""} />
-      </ThemeProvider>
-    );
+    await waitFor(() => renderedContainer.querySelector(".CodeMirror-cursor"));
 
-    await waitFor(() => container.querySelector(".CodeMirror-cursor"));
-
-    expect(getByText("hello world")).toBeInTheDocument();
-    expect(container.firstChild).toMatchInlineSnapshot(`
+    expect(getContainerByText("hello world")).toBeInTheDocument();
+    expect(renderedContainer.firstChild).toMatchInlineSnapshot(`
       <span
         class="sc-hKFxyN sc-jSFjdj jMHwLp hPodxf"
       >
@@ -35,42 +44,24 @@ describe("Wysiwyg", () => {
   });
 
   it("should render bold markdown when clicking the bold button", async () => {
-    const { container, getByText } = render(
-      <ThemeProvider theme={lightTheme}>
-        <Wysiwyg label={"hello world"} placeholder={""} onChange={jest.fn()} />
-      </ThemeProvider>
-    );
+    await waitFor(() => renderedContainer.querySelector(".CodeMirror-cursor"));
+    fireEvent.click(renderedContainer.querySelector("#Bold"));
 
-    await waitFor(() => container.querySelector(".CodeMirror-cursor"));
-    fireEvent.click(container.querySelector("#Bold"));
-
-    expect(getByText("**Bold**")).toBeInTheDocument();
+    expect(getContainerByText("**Bold**")).toBeInTheDocument();
   });
 
   it("should render italic markdown when clicking the italic button", async () => {
-    const { container, getByText } = render(
-      <ThemeProvider theme={lightTheme}>
-        <Wysiwyg label={"hello world"} placeholder={""} onChange={jest.fn()} />
-      </ThemeProvider>
-    );
+    await waitFor(() => renderedContainer.querySelector(".CodeMirror-cursor"));
+    fireEvent.click(renderedContainer.querySelector("#Italic"));
 
-    await waitFor(() => container.querySelector(".CodeMirror-cursor"));
-    fireEvent.click(container.querySelector("#Italic"));
-
-    expect(getByText("_Italic_")).toBeInTheDocument();
+    expect(getContainerByText("_Italic_")).toBeInTheDocument();
   });
 
   it("should render underline markdown when clicking the underline button", async () => {
-    const { container, getByText } = render(
-      <ThemeProvider theme={lightTheme}>
-        <Wysiwyg label={"hello world"} placeholder={""} onChange={jest.fn()} />
-      </ThemeProvider>
-    );
+    await waitFor(() => renderedContainer.querySelector(".CodeMirror-cursor"));
+    fireEvent.click(renderedContainer.querySelector("#Underline"));
 
-    await waitFor(() => container.querySelector(".CodeMirror-cursor"));
-    fireEvent.click(container.querySelector("#Underline"));
-
-    const hasUnderlineMarkdown = getByText((content, node) => {
+    const hasUnderlineMarkdown = getContainerByText((content, node) => {
       const hasText = (node) => node.textContent === "<u>Underline</u>";
       const nodeHasText = hasText(node);
       const childrenDontHaveText = Array.from(node.children).every(
@@ -84,196 +75,112 @@ describe("Wysiwyg", () => {
   });
 
   it("should render strikethrough markdown when clicking the strikethrough button", async () => {
-    const { container, getByText } = render(
-      <ThemeProvider theme={lightTheme}>
-        <Wysiwyg label={"hello world"} placeholder={""} onChange={jest.fn()} />
-      </ThemeProvider>
-    );
+    await waitFor(() => renderedContainer.querySelector(".CodeMirror-cursor"));
+    fireEvent.click(renderedContainer.querySelector("#Strikethrough"));
 
-    await waitFor(() => container.querySelector(".CodeMirror-cursor"));
-    fireEvent.click(container.querySelector("#Strikethrough"));
-
-    expect(getByText("~~Strikethrough~~")).toBeInTheDocument();
+    expect(getContainerByText("~~Strikethrough~~")).toBeInTheDocument();
   });
 
   it("should render bullet list markdown when clicking the bullet list button", async () => {
-    const { container, getByText } = render(
-      <ThemeProvider theme={lightTheme}>
-        <Wysiwyg label={"hello world"} placeholder={""} onChange={jest.fn()} />
-      </ThemeProvider>
-    );
+    await waitFor(() => renderedContainer.querySelector(".CodeMirror-cursor"));
+    fireEvent.click(renderedContainer.querySelector("#BulletList"));
 
-    await waitFor(() => container.querySelector(".CodeMirror-cursor"));
-    fireEvent.click(container.querySelector("#BulletList"));
-
-    expect(getByText("-")).toBeInTheDocument();
+    expect(getContainerByText("-")).toBeInTheDocument();
   });
 
   it("should render number list markdown when clicking the number list button", async () => {
-    const { container, getByText } = render(
-      <ThemeProvider theme={lightTheme}>
-        <Wysiwyg label={"hello world"} placeholder={""} onChange={jest.fn()} />
-      </ThemeProvider>
-    );
+    await waitFor(() => renderedContainer.querySelector(".CodeMirror-cursor"));
+    fireEvent.click(renderedContainer.querySelector("#NumberList"));
 
-    await waitFor(() => container.querySelector(".CodeMirror-cursor"));
-    fireEvent.click(container.querySelector("#NumberList"));
-
-    expect(getByText("1.")).toBeInTheDocument();
+    expect(getContainerByText("1.")).toBeInTheDocument();
   });
 
   it("should render code markdown when clicking the code button", async () => {
-    const { container, getByText } = render(
-      <ThemeProvider theme={lightTheme}>
-        <Wysiwyg label={"hello world"} placeholder={""} onChange={jest.fn()} />
-      </ThemeProvider>
-    );
+    await waitFor(() => renderedContainer.querySelector(".CodeMirror-cursor"));
+    fireEvent.click(renderedContainer.querySelector("#Code"));
 
-    await waitFor(() => container.querySelector(".CodeMirror-cursor"));
-    fireEvent.click(container.querySelector("#Code"));
-
-    expect(getByText("```Code```")).toBeInTheDocument();
+    expect(getContainerByText("```Code```")).toBeInTheDocument();
   });
 
   it("should render image markdown when clicking the image button", async () => {
-    const { container, getByText } = render(
-      <ThemeProvider theme={lightTheme}>
-        <Wysiwyg label={"hello world"} placeholder={""} onChange={jest.fn()} />
-      </ThemeProvider>
-    );
+    await waitFor(() => renderedContainer.querySelector(".CodeMirror-cursor"));
+    fireEvent.click(renderedContainer.querySelector("#Image"));
 
-    await waitFor(() => container.querySelector(".CodeMirror-cursor"));
-    fireEvent.click(container.querySelector("#Image"));
-
-    expect(getByText("[alt]()")).toBeInTheDocument();
+    expect(getContainerByText("[alt]()")).toBeInTheDocument();
   });
 
   it("should render link markdown when clicking the link button", async () => {
-    const { container, getByText } = render(
-      <ThemeProvider theme={lightTheme}>
-        <Wysiwyg label={"hello world"} placeholder={""} onChange={jest.fn()} />
-      </ThemeProvider>
-    );
+    await waitFor(() => renderedContainer.querySelector(".CodeMirror-cursor"));
+    fireEvent.click(renderedContainer.querySelector("#Link"));
 
-    await waitFor(() => container.querySelector(".CodeMirror-cursor"));
-    fireEvent.click(container.querySelector("#Link"));
-
-    expect(getByText("[Link](link)")).toBeInTheDocument();
+    expect(getContainerByText("[Link](link)")).toBeInTheDocument();
   });
 
   it("should render quote markdown when clicking the quote button", async () => {
-    const { container, getByText } = render(
-      <ThemeProvider theme={lightTheme}>
-        <Wysiwyg label={"hello world"} placeholder={""} onChange={jest.fn()} />
-      </ThemeProvider>
-    );
+    await waitFor(() => renderedContainer.querySelector(".CodeMirror-cursor"));
+    fireEvent.click(renderedContainer.querySelector("#Quote"));
 
-    await waitFor(() => container.querySelector(".CodeMirror-cursor"));
-    fireEvent.click(container.querySelector("#Quote"));
-
-    expect(getByText(">Quote")).toBeInTheDocument();
+    expect(getContainerByText(">Quote")).toBeInTheDocument();
   });
 
   it("should render h1 markdown when clicking the h1 button", async () => {
-    const { container, getByText } = render(
-      <ThemeProvider theme={lightTheme}>
-        <Wysiwyg label={"hello world"} placeholder={""} onChange={jest.fn()} />
-      </ThemeProvider>
-    );
+    await waitFor(() => renderedContainer.querySelector(".CodeMirror-cursor"));
+    fireEvent.mouseDown(renderedContainer.querySelector("#selectTitle"));
+    fireEvent.click(getContainerByText("h1"));
 
-    await waitFor(() => container.querySelector(".CodeMirror-cursor"));
-    fireEvent.mouseDown(container.querySelector("#selectTitle"));
-    fireEvent.click(getByText("h1"));
-
-    expect(getByText("#")).toBeInTheDocument();
+    expect(getContainerByText("#")).toBeInTheDocument();
   });
 
   it("should render h2 markdown when clicking the h2 button", async () => {
-    const { container, getByText } = render(
-      <ThemeProvider theme={lightTheme}>
-        <Wysiwyg label={"hello world"} placeholder={""} onChange={jest.fn()} />
-      </ThemeProvider>
-    );
+    await waitFor(() => renderedContainer.querySelector(".CodeMirror-cursor"));
+    fireEvent.mouseDown(renderedContainer.querySelector("#selectTitle"));
+    fireEvent.click(getContainerByText("h2"));
 
-    await waitFor(() => container.querySelector(".CodeMirror-cursor"));
-    fireEvent.mouseDown(container.querySelector("#selectTitle"));
-    fireEvent.click(getByText("h2"));
-
-    expect(getByText("##")).toBeInTheDocument();
+    expect(getContainerByText("##")).toBeInTheDocument();
   });
 
   it("should render h3 markdown when clicking the h3 button", async () => {
-    const { container, getByText } = render(
-      <ThemeProvider theme={lightTheme}>
-        <Wysiwyg label={"hello world"} placeholder={""} onChange={jest.fn()} />
-      </ThemeProvider>
-    );
+    await waitFor(() => renderedContainer.querySelector(".CodeMirror-cursor"));
+    fireEvent.mouseDown(renderedContainer.querySelector("#selectTitle"));
+    fireEvent.click(getContainerByText("h3"));
 
-    await waitFor(() => container.querySelector(".CodeMirror-cursor"));
-    fireEvent.mouseDown(container.querySelector("#selectTitle"));
-    fireEvent.click(getByText("h3"));
-
-    expect(getByText("###")).toBeInTheDocument();
+    expect(getContainerByText("###")).toBeInTheDocument();
   });
 
   it("should render h4 markdown when clicking the h4 button", async () => {
-    const { container, getByText } = render(
-      <ThemeProvider theme={lightTheme}>
-        <Wysiwyg label={"hello world"} placeholder={""} onChange={jest.fn()} />
-      </ThemeProvider>
-    );
+    await waitFor(() => renderedContainer.querySelector(".CodeMirror-cursor"));
+    fireEvent.mouseDown(renderedContainer.querySelector("#selectTitle"));
+    fireEvent.click(getContainerByText("h4"));
 
-    await waitFor(() => container.querySelector(".CodeMirror-cursor"));
-    fireEvent.mouseDown(container.querySelector("#selectTitle"));
-    fireEvent.click(getByText("h4"));
-
-    expect(getByText("####")).toBeInTheDocument();
+    expect(getContainerByText("####")).toBeInTheDocument();
   });
 
   it("should render h5 markdown when clicking the h5 button", async () => {
-    const { container, getByText } = render(
-      <ThemeProvider theme={lightTheme}>
-        <Wysiwyg label={"hello world"} placeholder={""} onChange={jest.fn()} />
-      </ThemeProvider>
-    );
+    await waitFor(() => renderedContainer.querySelector(".CodeMirror-cursor"));
+    fireEvent.mouseDown(renderedContainer.querySelector("#selectTitle"));
+    fireEvent.click(getContainerByText("h5"));
 
-    await waitFor(() => container.querySelector(".CodeMirror-cursor"));
-    fireEvent.mouseDown(container.querySelector("#selectTitle"));
-    fireEvent.click(getByText("h5"));
-
-    expect(getByText("#####")).toBeInTheDocument();
+    expect(getContainerByText("#####")).toBeInTheDocument();
   });
 
   it("should render h6 markdown when clicking the h6 button", async () => {
-    const { container, getByText } = render(
-      <ThemeProvider theme={lightTheme}>
-        <Wysiwyg label={"hello world"} placeholder={""} onChange={jest.fn()} />
-      </ThemeProvider>
-    );
+    await waitFor(() => renderedContainer.querySelector(".CodeMirror-cursor"));
+    fireEvent.mouseDown(renderedContainer.querySelector("#selectTitle"));
+    fireEvent.click(getContainerByText("h6"));
 
-    await waitFor(() => container.querySelector(".CodeMirror-cursor"));
-    fireEvent.mouseDown(container.querySelector("#selectTitle"));
-    fireEvent.click(getByText("h6"));
-
-    expect(getByText("######")).toBeInTheDocument();
+    expect(getContainerByText("######")).toBeInTheDocument();
   });
 
   it("should render h1 markdown when clicking the h4 button then clicking on the h1 button", async () => {
-    const { container, queryByText, getByText } = render(
-      <ThemeProvider theme={lightTheme}>
-        <Wysiwyg label={"hello world"} placeholder={""} onChange={jest.fn()} />
-      </ThemeProvider>
-    );
+    await waitFor(() => renderedContainer.querySelector(".CodeMirror-cursor"));
+    fireEvent.mouseDown(renderedContainer.querySelector("#selectTitle"));
+    fireEvent.click(getContainerByText("h1"));
+    fireEvent.mouseDown(renderedContainer.querySelector("#selectTitle"));
+    fireEvent.click(getContainerByText("h4"));
+    fireEvent.mouseDown(renderedContainer.querySelector("#selectTitle"));
+    fireEvent.click(getContainerByText("h1"));
 
-    await waitFor(() => container.querySelector(".CodeMirror-cursor"));
-    fireEvent.mouseDown(container.querySelector("#selectTitle"));
-    fireEvent.click(getByText("h1"));
-    fireEvent.mouseDown(container.querySelector("#selectTitle"));
-    fireEvent.click(getByText("h4"));
-    fireEvent.mouseDown(container.querySelector("#selectTitle"));
-    fireEvent.click(getByText("h1"));
-
-    expect(queryByText("####")).not.toBeInTheDocument();
-    expect(getByText("#")).toBeInTheDocument();
+    expect(containerQueryByText("####")).not.toBeInTheDocument();
+    expect(getContainerByText("#")).toBeInTheDocument();
   });
 });
