@@ -5,11 +5,10 @@ import { Tabs, Tab } from './Tabs';
 import { TabGroup } from './TabGroup';
 import { TabPanels, TabPanel } from './TabPanels';
 import { Box } from '../Box';
+import { Row } from '../Row';
+import { Badge } from '../Badge';
 
-<Meta
-  title="Design System/Molecules/Tabs"
-  component={Tabs}
-/>
+<Meta title="Design System/Molecules/Tabs" component={Tabs} />
 
 # Tabs
 
@@ -26,6 +25,41 @@ Description...
         <Tabs>
           <Tab>First</Tab>
           <Tab>Second</Tab>
+          <Tab>Third</Tab>
+        </Tabs>
+        <TabPanels>
+          <TabPanel>
+            <Box padding={4} background="neutral0">
+              First panel
+            </Box>
+          </TabPanel>
+          <TabPanel>
+            <Box padding={4} background="neutral0">
+              Second panel
+            </Box>
+          </TabPanel>
+          <TabPanel>
+            <Box padding={4} background="neutral0">
+              Third panel
+            </Box>
+          </TabPanel>
+        </TabPanels>
+      </TabGroup>
+    </Box>
+  </Story>
+</Canvas>
+
+## Tabs simple
+
+Description...
+
+<Canvas>
+  <Story name="simple">
+    <Box padding={8} background="neutral0">
+      <TabGroup label="Some stuff for the label" id="tabs" variant="simple">
+        <Tabs>
+          <Tab>First</Tab>
+          <Tab hasError>Second</Tab>
           <Tab>Third</Tab>
         </Tabs>
         <TabPanels>

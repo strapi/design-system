@@ -1,50 +1,13 @@
 import React, { Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { Box } from '../Box';
 import { useTabs } from './TabsContext';
-import { Row } from '../Row';
-import { TextButton } from '../Text';
+import { TextButton, TableLabel } from '../Text';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 import { useTabsFocus } from './useTabsFocus';
-
-const TabBox = styled(Box)`
-  border-bottom: 1px solid ${({ theme, selected }) => (selected ? theme.colors.neutral0 : theme.colors.neutral150)};
-`;
-
-const TabButton = styled.button`
-  border: none;
-  background: transparent;
-  padding: 0;
-
-  & + & > ${TabBox} {
-    border-left: 1px solid ${({ theme }) => theme.colors.neutral150};
-  }
-
-  // Hack preventing the outline from being overflow by the following tab
-  outline-offset: -2px;
-`;
-
-const TabsRow = styled(Row)`
-  & > * {
-    flex: 1;
-  }
-
-  & ${TabButton}:first-of-type ${TabBox} {
-    border-radius: ${({ theme }) => `${theme.borderRadius} 0 0 0`};
-  }
-
-  & ${TabButton}:last-of-type ${TabBox} {
-    border-radius: ${({ theme }) => `0 ${theme.borderRadius} 0 0`};
-  }
-
-  & ${TabButton}[aria-selected="true"] ${TabBox} {
-    border-radius: ${({ theme }) => `${theme.borderRadius} ${theme.borderRadius} 0 0`};
-  }
-`;
+import { DefaultTabsRow, DefaultTabButton, DefaultTabBox, SimpleTabBox } from './components';
 
 export const Tabs = ({ children, ...props }) => {
-  const { id, selectedTabIndex, selectTabIndex, label } = useTabs();
+  const { id, selectedTabIndex, selectTabIndex, label, variant } = useTabs();
   const tabsRef = useTabsFocus(selectedTabIndex);
 
   const childrenArray = Children.toArray(children).map((node, index) =>
@@ -52,6 +15,7 @@ export const Tabs = ({ children, ...props }) => {
       id: `${id}-${index}`,
       selected: index === selectedTabIndex,
       onClick: () => selectTabIndex(index),
+      variant,
     }),
   );
 
@@ -88,10 +52,25 @@ export const Tabs = ({ children, ...props }) => {
     }
   };
 
+  if (variant === 'simple') {
+    return (
+      <div ref={tabsRef} role="tablist" aria-label={label} onKeyDown={handleKeyDown} {...props}>
+        {childrenArray}
+      </div>
+    );
+  }
+
   return (
-    <TabsRow ref={tabsRef} role="tablist" alignItems="flex-end" aria-label={label} onKeyDown={handleKeyDown} {...props}>
+    <DefaultTabsRow
+      ref={tabsRef}
+      role="tablist"
+      alignItems="flex-end"
+      aria-label={label}
+      onKeyDown={handleKeyDown}
+      {...props}
+    >
       {childrenArray}
-    </TabsRow>
+    </DefaultTabsRow>
   );
 };
 
@@ -99,12 +78,43 @@ Tabs.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export const Tab = ({ selected, id, children, ...props }) => {
+export const Tab = ({ selected, id, children, variant, hasError, ...props }) => {
   const tabId = `${id}-tab`;
   const tabPanelId = `${id}-tabpanel`;
 
+  if (variant === 'simple') {
+    let textColor;
+
+    if (hasError) {
+      textColor = 'danger600';
+    } else if (selected) {
+      textColor = 'primary600';
+    } else {
+      textColor = 'neutral600';
+    }
+
+    return (
+      <button
+        id={tabId}
+        role="tab"
+        aria-controls={selected ? tabPanelId : undefined}
+        tabIndex={selected ? 0 : -1}
+        aria-selected={selected}
+        {...props}
+      >
+        <SimpleTabBox padding={4} selected={selected} hasError={hasError}>
+          <TableLabel textColor={textColor}>{children}</TableLabel>
+        </SimpleTabBox>
+      </button>
+    );
+  }
+
+  if (hasError) {
+    console.warn('The "hasError" prop is only available for the "simple" variant.');
+  }
+
   return (
-    <TabButton
+    <DefaultTabButton
       id={tabId}
       role="tab"
       aria-controls={selected ? tabPanelId : undefined}
@@ -112,20 +122,24 @@ export const Tab = ({ selected, id, children, ...props }) => {
       aria-selected={selected}
       {...props}
     >
-      <TabBox padding={selected ? 4 : 3} background={selected ? 'neutral0' : 'neutral100'} selected={selected}>
+      <DefaultTabBox padding={selected ? 4 : 3} background={selected ? 'neutral0' : 'neutral100'} selected={selected}>
         <TextButton textColor={selected ? 'primary700' : 'neutral600'}>{children}</TextButton>
-      </TabBox>
-    </TabButton>
+      </DefaultTabBox>
+    </DefaultTabButton>
   );
 };
 
 Tab.defaultProps = {
   selected: false,
   id: undefined,
+  variant: undefined,
+  hasError: false,
 };
 
 Tab.propTypes = {
   children: PropTypes.node.isRequired,
+  hasError: PropTypes.bool,
   id: PropTypes.string,
   selected: PropTypes.bool,
+  variant: PropTypes.oneOf(['simple']),
 };
