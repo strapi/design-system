@@ -254,7 +254,6 @@ describe('MainNav', () => {
             class="c2"
           >
             <div
-              aria-hidden="true"
               class="c3"
             >
               <span>
@@ -734,7 +733,6 @@ describe('MainNav', () => {
           class="c1"
         >
           <div
-            aria-hidden="true"
             class="c2"
           >
             <span>
