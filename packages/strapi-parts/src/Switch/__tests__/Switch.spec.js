@@ -81,6 +81,7 @@ describe('Switch', () => {
         aria-label="Activate the microphone"
         class="c0"
         role="switch"
+        type="button"
       >
         <div
           class="c1"
@@ -176,6 +177,7 @@ describe('Switch', () => {
         aria-label="Activate the microphone"
         class="c0"
         role="switch"
+        type="button"
       >
         <div
           class="c1"
@@ -276,6 +278,7 @@ describe('Switch', () => {
         aria-label="Activate the microphone"
         class="c0"
         role="switch"
+        type="button"
       >
         <div
           class="c1"

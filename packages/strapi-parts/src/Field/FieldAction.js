@@ -14,7 +14,7 @@ const FieldActionWrapper = styled.button`
 `;
 
 export const FieldAction = ({ label, children, ...props }) => (
-  <FieldActionWrapper aria-label={label} {...props}>
+  <FieldActionWrapper aria-label={label} type="button" {...props}>
     {children}
   </FieldActionWrapper>
 );

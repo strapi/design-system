@@ -67,7 +67,7 @@ export const MenuItem = ({ children, onClick, to, isFocused, ...props }) => {
           </Box>
         </OptionLink>
       ) : (
-        <OptionButton onKeyDown={handleKeyDown} onMouseDown={onClick} {...menuItemProps}>
+        <OptionButton onKeyDown={handleKeyDown} onMouseDown={onClick} type="button" {...menuItemProps}>
           <Box padding={2}>
             <Text>{children}</Text>
           </Box>
@@ -158,6 +158,7 @@ export const SimpleMenu = ({ label, children, id, ...props }) => {
         onKeyDown={handleKeyDown}
         onMouseDown={handleMenuButtonMouseDown}
         ref={menuButtonRef}
+        type="button"
         {...props}
       >
         <Box paddingRight={1}>

@@ -72,6 +72,7 @@ describe('IconButton', () => {
           aria-labelledby="tooltip-123"
           class="c0 c1"
           tabindex="0"
+          type="button"
         >
           <div>
             A
