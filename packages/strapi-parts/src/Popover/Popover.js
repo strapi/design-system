@@ -11,10 +11,6 @@ export const position = (source, popover, fullWidth, centered) => {
   let top = rect.top + rect.height + window.pageYOffset;
   let left = rect.left + window.pageXOffset;
 
-  if (centered) {
-    left = rect.left - rect.width / 2 + window.pageXOffset;
-  }
-
   if (!popover) {
     return {
       left,
@@ -24,6 +20,14 @@ export const position = (source, popover, fullWidth, centered) => {
   }
 
   const popoverRect = popover.getBoundingClientRect();
+
+  if (centered) {
+    console.log('went here centered');
+    console.log(popoverRect.width);
+    const widthDifference = (rect.width - popoverRect.width) / 2;
+    left = rect.left + widthDifference + window.pageXOffset;
+  }
+
   //if popover overflows left or right viewport
   if (popoverRect.left < 0) {
     left = rect.left + window.pageXOffset;
@@ -96,8 +100,8 @@ const PopoverContent = ({
   };
 
   return (
-    <PopoverWrapper style={style} hasRadius background="neutral0" padding={1} spacingTop={spacingTop}>
-      <PopoverScrollable ref={popoverRef} {...props}>
+    <PopoverWrapper ref={popoverRef} style={style} hasRadius background="neutral0" padding={1} spacingTop={spacingTop}>
+      <PopoverScrollable {...props}>
         {children}
         {intersectionId && onReachEnd && <div id={intersectionId} />}
       </PopoverScrollable>
