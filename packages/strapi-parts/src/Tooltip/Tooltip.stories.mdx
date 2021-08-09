@@ -3,6 +3,7 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { Tooltip } from './Tooltip';
 import { Box } from '../Box';
+import { Row } from '../Row';
 import { Grid, GridItem } from '../Grid';
 
 <Meta title="Design System/Molecules/Tooltip" component={Tooltip} />
@@ -147,5 +148,40 @@ Description...
     <Tooltip label="This is the label">
       <button>+</button>
     </Tooltip>
+  </Story>
+  <Story name="top-left">
+    <div>
+      <Tooltip label="This is the label">
+        <button>hello</button>
+      </Tooltip>
+    </div>
+  </Story>
+  <Story name="top-center">
+    <Row justifyContent="center">
+      <Tooltip label="This is the label">
+        <button>hello</button>
+      </Tooltip>
+    </Row>
+  </Story>
+  <Story name="top-right">
+    <Row justifyContent="flex-end">
+      <Tooltip label="This is the label dewdewd wedewdew">
+        <button>tooltip</button>
+      </Tooltip>
+    </Row>
+  </Story>
+  <Story name="right-center">
+    <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '200px' }}>
+      <Tooltip label="This is the label">
+        <button>tooltip</button>
+      </Tooltip>
+    </div>
+  </Story>
+  <Story name="left-center">
+    <div style={{ marginTop: '200px' }}>
+      <Tooltip label="This is the label">
+        <button>hello</button>
+      </Tooltip>
+    </div>
   </Story>
 </Canvas>

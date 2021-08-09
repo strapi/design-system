@@ -41,7 +41,7 @@ export const Tooltip = ({ children, label, description, delay, position, id, ...
           {...props}
         >
           {visible && <VisuallyHidden id={descriptionId}>{description}</VisuallyHidden>}
-          <P small={true} highlighted={true} textColor="neutral0">
+          <P small={true} highlighted={visible} textColor="neutral0">
             {label || description}
           </P>
         </TooltipWrapper>
