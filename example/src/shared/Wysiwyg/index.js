@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import WysiwygNav from './WysiwygNav';
 import WysiwygFooter from './WysiwygFooter';
@@ -10,6 +10,7 @@ import { markdownHandler, listHandler, titleHandler } from './utils/utils';
 const Wysiwyg = ({ label, placeholder, onChange }) => {
   const textareaRef = useRef(null);
   const editorRef = useRef(null);
+  const [visiblePopover, setVisiblePopover] = useState(false);
 
   const handleActionClick = value => {
     switch (value) {
@@ -42,6 +43,7 @@ const Wysiwyg = ({ label, placeholder, onChange }) => {
       default:
         return;
     }
+    setVisiblePopover((prev) => !prev);
   }
 
   return (
@@ -51,6 +53,8 @@ const Wysiwyg = ({ label, placeholder, onChange }) => {
         <WysiwygNav 
           placeholder={placeholder} 
           onActionClick={handleActionClick}
+          visiblePopover={visiblePopover}
+          setVisiblePopover={setVisiblePopover}
         />
         <Editor 
           onChange={onChange} 

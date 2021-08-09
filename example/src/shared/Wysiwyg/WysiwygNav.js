@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import {
   Option,
   Button,
   Row, 
   Select,
-  IconButtonGroup
+  IconButtonGroup,
+  Popover
 } from "@strapi/parts";
 import {
   Bold,
@@ -27,7 +28,9 @@ import {
   MoreButton
 } from './WysiwygStyles';
 
-const WysiwygNav = ({ placeholder, onActionClick }) => {
+const WysiwygNav = ({ placeholder, onActionClick, visiblePopover, setVisiblePopover }) => {
+    const buttonMoreRef = useRef();
+
     return (
       <NavWrapper padding={2} background='neutral100'>
         <Row justifyContent='space-between'>
@@ -48,20 +51,25 @@ const WysiwygNav = ({ placeholder, onActionClick }) => {
               <CustomIconButton onClick={() => onActionClick("Underline")} id="Underline" label="Underline" name="Underline" icon={<Underline />} />
             </MainButtons>
 
-            <IconButtonGroup>
-              <CustomIconButton onClick={() => onActionClick("Strikethrough")} id="Strikethrough" label="Strikethrough" name="Strikethrough" icon={<Strikethrough />} />
-              <CustomIconButton onClick={() => onActionClick('BulletList')} id="BulletList" label="BulletList" name="BulletList" icon={<BulletList />} />
-              <CustomIconButton onClick={() => onActionClick('NumberList')} id="NumberList" label="NumberList" name="NumberList" icon={<NumberList />} />
-            </IconButtonGroup>
-              
-            <IconButtonGroup>
-              <CustomIconButton onClick={() => onActionClick("Code")} id="Code" label="Code" name="Code" icon={<Code />} />
-              <CustomIconButton onClick={() => onActionClick("alt")} id="Image" label="Image" name="Image" icon={<Image />} />
-              <CustomIconButton onClick={() => onActionClick("Link")} id="Link" label="Link" name="Link" icon={<Link />} />
-              <CustomIconButton onClick={() => onActionClick("Quote")} id="Quote" label="Quote" name="Quote" icon={<Quote />} />
-            </IconButtonGroup>
+            <MoreButton ref={buttonMoreRef} onClick={() => setVisiblePopover((prev) => !prev)} id="more" label="more" icon={<More />} />
+            {visiblePopover && (
+              <Popover source={buttonMoreRef} spacingTop={4}>
+                <Row justifyContent='space-between'>
+                  <IconButtonGroup style={{marginRight: '8px'}}>
+                    <CustomIconButton onClick={() => onActionClick("Strikethrough")} id="Strikethrough" label="Strikethrough" name="Strikethrough" icon={<Strikethrough />} />
+                    <CustomIconButton onClick={() => onActionClick('BulletList')} id="BulletList" label="BulletList" name="BulletList" icon={<BulletList />} />
+                    <CustomIconButton onClick={() => onActionClick('NumberList')} id="NumberList" label="NumberList" name="NumberList" icon={<NumberList />} />
+                  </IconButtonGroup>
+                  <IconButtonGroup>
+                    <CustomIconButton onClick={() => onActionClick("Code")} id="Code" label="Code" name="Code" icon={<Code />} />
+                    <CustomIconButton onClick={() => onActionClick("alt")} id="Image" label="Image" name="Image" icon={<Image />} />
+                    <CustomIconButton onClick={() => onActionClick("Link")} id="Link" label="Link" name="Link" icon={<Link />} />
+                    <CustomIconButton onClick={() => onActionClick("Quote")} id="Quote" label="Quote" name="Quote" icon={<Quote />} />
+                  </IconButtonGroup>
+                </Row>
+              </Popover>
+            )}
 
-            <MoreButton onClick={() => console.log('more')} id="more" label="more" icon={<More />} />
           </Row>
 
           <Button variant='tertiary' size='L'>Preview mode</Button>
