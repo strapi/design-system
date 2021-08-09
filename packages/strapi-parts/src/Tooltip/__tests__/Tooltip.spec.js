@@ -58,7 +58,6 @@ describe('Tooltip', () => {
           >
             <p
               class="c2"
-              style="white-space: nowrap;"
             >
               Content of the tooltip fefe
             </p>
@@ -138,7 +137,6 @@ describe('Tooltip', () => {
             </div>
             <p
               class="c3"
-              style="white-space: nowrap;"
             >
               Content of the tooltip fefe
             </p>
@@ -216,7 +214,6 @@ describe('Tooltip', () => {
             />
             <p
               class="c3"
-              style="white-space: nowrap;"
             >
               Content of the tooltip fefe
             </p>
