@@ -53,7 +53,7 @@ const WysiwygNav = ({ placeholder, onActionClick, visiblePopover, setVisiblePopo
 
             <MoreButton ref={buttonMoreRef} onClick={() => setVisiblePopover((prev) => !prev)} id="more" label="more" icon={<More />} />
             {visiblePopover && (
-              <Popover source={buttonMoreRef} spacingTop={4}>
+              <Popover centered source={buttonMoreRef} spacingTop={1}>
                 <Row justifyContent='space-between'>
                   <IconButtonGroup style={{marginRight: '8px'}}>
                     <CustomIconButton onClick={() => onActionClick("Strikethrough")} id="Strikethrough" label="Strikethrough" name="Strikethrough" icon={<Strikethrough />} />
