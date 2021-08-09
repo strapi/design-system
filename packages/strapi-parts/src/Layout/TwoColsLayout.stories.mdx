@@ -1,0 +1,23 @@
+<!--- TwoColsLayout.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { TwoColsLayout } from './TwoColsLayout';
+import { Box } from '../Box';
+
+<Meta title="Design System/Layouts/TwoColsLayout" component={TwoColsLayout} />
+
+# TwoColsLayout
+
+This is the doc of the `TwoColsLayout` component
+
+## TwoColsLayout
+
+Description...
+
+<Canvas>
+  <Story name="base">
+    <Box padding={8} background="neutral100">
+      <TwoColsLayout startCol={<Box padding={4}>Hello world</Box>} endCol={<Box padding={4}>Hello world</Box>} />
+    </Box>
+  </Story>
+</Canvas>

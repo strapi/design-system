@@ -1,9 +1,9 @@
 import { injectAxe, checkA11y } from 'axe-playwright';
 
-describe('OneBlockLayout', () => {
+describe('Layout', () => {
   beforeEach(async () => {
     // This is the URL of the Storybook Iframe
-    await page.goto('http://localhost:6006/iframe.html?id=design-system-layouts-oneblocklayout--base&viewMode=story');
+    await page.goto('http://localhost:6006/iframe.html?id=design-system-layouts-layout--sidenav&viewMode=story');
     await injectAxe(page);
   });
 
