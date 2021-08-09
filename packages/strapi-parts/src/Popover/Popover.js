@@ -22,8 +22,6 @@ export const position = (source, popover, fullWidth, centered) => {
   const popoverRect = popover.getBoundingClientRect();
 
   if (centered) {
-    console.log('went here centered');
-    console.log(popoverRect.width);
     const widthDifference = (rect.width - popoverRect.width) / 2;
     left = rect.left + widthDifference + window.pageXOffset;
   }
