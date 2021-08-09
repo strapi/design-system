@@ -60,14 +60,11 @@ const PopoverScrollable = styled(Box)`
 export const position = (source, popover, fullWidth, centered) => {
   const rect = source.getBoundingClientRect();
   let top = rect.top + rect.height + window.pageYOffset;
-  let left = 0;
+  let left = rect.left + window.pageXOffset;
 
   if (centered) {
     left = rect.left - rect.width / 2 + window.pageXOffset;
-  } else {
-    left = rect.left + window.pageXOffset;
   }
-  console.log('popover', popover);
 
   if (!popover) {
     return {
@@ -78,9 +75,15 @@ export const position = (source, popover, fullWidth, centered) => {
   }
 
   const popoverRect = popover.getBoundingClientRect();
+  //if popover overflows left or right viewport
+  if (popoverRect.left < 0) {
+    left = rect.left + window.pageXOffset;
+  } else if (popoverRect.left + popoverRect.width > window.innerWidth) {
+    left = window.innerWidth - popoverRect.width - 20;
+  }
 
   return {
-    left: popoverRect.left + popoverRect.width > window.innerWidth ? window.innerWidth - popoverRect.width - 20 : left,
+    left,
     top,
     width: fullWidth ? rect.width : undefined,
   };
