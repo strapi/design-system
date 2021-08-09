@@ -25,10 +25,18 @@ import {
   MainButtons,
   CustomIconButton,
   NavWrapper,
-  MoreButton
+  MoreButton,
+  IconButtonGroupMargin
 } from './WysiwygStyles';
 
-const WysiwygNav = ({ placeholder, onActionClick, visiblePopover, setVisiblePopover }) => {
+const WysiwygNav = ({ 
+    placeholder, 
+    onActionClick, 
+    visiblePopover, 
+    setVisiblePopover, 
+    isPreviewMode, 
+    setIsPreviewMode 
+  }) => {
     const buttonMoreRef = useRef();
 
     return (
@@ -36,7 +44,7 @@ const WysiwygNav = ({ placeholder, onActionClick, visiblePopover, setVisiblePopo
         <Row justifyContent='space-between'>
           <Row>
 
-            <Select id='selectTitle' placeholder={placeholder} size='S' onChange={(value) => onActionClick(value)}>
+            <Select disabled={isPreviewMode ? true : false} id='selectTitle' placeholder={placeholder} size='S' onChange={(value) => onActionClick(value)}>
               <Option value='h1'>h1</Option>
               <Option value='h2'>h2</Option>
               <Option value='h3'>h3</Option>
@@ -46,25 +54,25 @@ const WysiwygNav = ({ placeholder, onActionClick, visiblePopover, setVisiblePopo
             </Select>
 
             <MainButtons>
-              <CustomIconButton onClick={() => onActionClick("Bold")} id="Bold" label="Bold" name="Bold" icon={<Bold />} />
-              <CustomIconButton onClick={() => onActionClick("Italic")} id="Italic" label="Italic" name="Italic" icon={<Italic />} />
-              <CustomIconButton onClick={() => onActionClick("Underline")} id="Underline" label="Underline" name="Underline" icon={<Underline />} />
+              <CustomIconButton disabled={isPreviewMode ? true : false} onClick={() => onActionClick("Bold")} id="Bold" label="Bold" name="Bold" icon={<Bold />} />
+              <CustomIconButton disabled={isPreviewMode ? true : false} onClick={() => onActionClick("Italic")} id="Italic" label="Italic" name="Italic" icon={<Italic />} />
+              <CustomIconButton disabled={isPreviewMode ? true : false} onClick={() => onActionClick("Underline")} id="Underline" label="Underline" name="Underline" icon={<Underline />} />
             </MainButtons>
 
-            <MoreButton ref={buttonMoreRef} onClick={() => setVisiblePopover((prev) => !prev)} id="more" label="more" icon={<More />} />
+            <MoreButton disabled={isPreviewMode ? true : false} ref={buttonMoreRef} onClick={() => setVisiblePopover((prev) => !prev)} id="more" label="more" icon={<More />} />
             {visiblePopover && (
               <Popover centered source={buttonMoreRef} spacingTop={1}>
-                <Row justifyContent='space-between'>
-                  <IconButtonGroup style={{marginRight: '8px'}}>
-                    <CustomIconButton onClick={() => onActionClick("Strikethrough")} id="Strikethrough" label="Strikethrough" name="Strikethrough" icon={<Strikethrough />} />
-                    <CustomIconButton onClick={() => onActionClick('BulletList')} id="BulletList" label="BulletList" name="BulletList" icon={<BulletList />} />
-                    <CustomIconButton onClick={() => onActionClick('NumberList')} id="NumberList" label="NumberList" name="NumberList" icon={<NumberList />} />
-                  </IconButtonGroup>
+                <Row>
+                  <IconButtonGroupMargin>
+                    <CustomIconButton disabled={isPreviewMode ? true : false} onClick={() => onActionClick("Strikethrough")} id="Strikethrough" label="Strikethrough" name="Strikethrough" icon={<Strikethrough />} />
+                    <CustomIconButton disabled={isPreviewMode ? true : false} onClick={() => onActionClick('BulletList')} id="BulletList" label="BulletList" name="BulletList" icon={<BulletList />} />
+                    <CustomIconButton disabled={isPreviewMode ? true : false} onClick={() => onActionClick('NumberList')} id="NumberList" label="NumberList" name="NumberList" icon={<NumberList />} />
+                  </IconButtonGroupMargin>
                   <IconButtonGroup>
-                    <CustomIconButton onClick={() => onActionClick("Code")} id="Code" label="Code" name="Code" icon={<Code />} />
-                    <CustomIconButton onClick={() => onActionClick("alt")} id="Image" label="Image" name="Image" icon={<Image />} />
-                    <CustomIconButton onClick={() => onActionClick("Link")} id="Link" label="Link" name="Link" icon={<Link />} />
-                    <CustomIconButton onClick={() => onActionClick("Quote")} id="Quote" label="Quote" name="Quote" icon={<Quote />} />
+                    <CustomIconButton disabled={isPreviewMode ? true : false} onClick={() => onActionClick("Code")} id="Code" label="Code" name="Code" icon={<Code />} />
+                    <CustomIconButton disabled={isPreviewMode ? true : false} onClick={() => onActionClick("alt")} id="Image" label="Image" name="Image" icon={<Image />} />
+                    <CustomIconButton disabled={isPreviewMode ? true : false} onClick={() => onActionClick("Link")} id="Link" label="Link" name="Link" icon={<Link />} />
+                    <CustomIconButton disabled={isPreviewMode ? true : false} onClick={() => onActionClick("Quote")} id="Quote" label="Quote" name="Quote" icon={<Quote />} />
                   </IconButtonGroup>
                 </Row>
               </Popover>
@@ -72,7 +80,9 @@ const WysiwygNav = ({ placeholder, onActionClick, visiblePopover, setVisiblePopo
 
           </Row>
 
-          <Button variant='tertiary' size='L'>Preview mode</Button>
+          <Button onClick={() => setIsPreviewMode(prev => !prev)} variant='tertiary' size='L'>
+            {isPreviewMode ? 'Markdown mode' : 'Preview mode'}
+          </Button>
         </Row>
       </NavWrapper>
     )

@@ -7,10 +7,11 @@ import { TextButton, Box } from "@strapi/parts";
 import { markdownHandler, listHandler, titleHandler } from './utils/utils';
 
 
-const Wysiwyg = ({ label, placeholder, onChange }) => {
+const Wysiwyg = ({ label, placeholder, onChange, value }) => {
   const textareaRef = useRef(null);
   const editorRef = useRef(null);
   const [visiblePopover, setVisiblePopover] = useState(false);
+  const [isPreviewMode, setIsPreviewMode] = useState(false);
 
   const handleActionClick = value => {
     switch (value) {
@@ -43,7 +44,7 @@ const Wysiwyg = ({ label, placeholder, onChange }) => {
       default:
         return;
     }
-    setVisiblePopover((prev) => !prev);
+    setVisiblePopover((isVisible) => isVisible ? !isVisible : isVisible);
   }
 
   return (
@@ -55,13 +56,19 @@ const Wysiwyg = ({ label, placeholder, onChange }) => {
           onActionClick={handleActionClick}
           visiblePopover={visiblePopover}
           setVisiblePopover={setVisiblePopover}
+          isPreviewMode={isPreviewMode}
+          setIsPreviewMode={setIsPreviewMode}
         />
         <Editor 
           onChange={onChange} 
           textareaRef={textareaRef}
           editorRef={editorRef}
+          isPreviewMode={isPreviewMode}
+          value={value}
         />
-        <WysiwygFooter />
+        <WysiwygFooter 
+          isPreviewMode={isPreviewMode}
+        />
       </Box>
     </>
   );

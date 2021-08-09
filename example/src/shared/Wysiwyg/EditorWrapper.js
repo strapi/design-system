@@ -6,6 +6,7 @@ const EditorWrapper = styled.div`
   .CodeMirror {
     /* Set height, width, borders, and global font properties here */
     /* font-family: monospace; */
+    position: relative;
     font-size: ${14 / 16}rem;
     height: 290px;
     color: ${({ theme }) => theme.colors.neutral800}};
