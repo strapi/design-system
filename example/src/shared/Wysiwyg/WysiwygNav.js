@@ -80,7 +80,9 @@ const WysiwygNav = ({ placeholder, onActionClick, visiblePopover, setVisiblePopo
 
 WysiwygNav.propTypes = {
   placeholder: PropTypes.string,
-  onActionClick: PropTypes.func
+  onActionClick: PropTypes.func,
+  visiblePopover: PropTypes.bool,
+  setVisiblePopover: PropTypes.func
 };
 
 export default WysiwygNav;
