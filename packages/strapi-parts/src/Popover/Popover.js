@@ -6,57 +6,6 @@ import { Portal } from '../Portal';
 import { useIntersection } from '../helpers/useIntersection';
 import { useResizeObserver } from '../helpers/useResizeObserver';
 
-// export const position = (source, popover, fullWidth) => {
-//   const rect = source.getBoundingClientRect();
-//   const left = rect.left + window.pageXOffset;
-//   const top = rect.top + rect.height + window.pageYOffset;
-
-//   if (!popover) {
-//     return {
-//       left,
-//       top,
-//       width: fullWidth ? rect.width : undefined,
-//     };
-//   }
-
-//   const popoverRect = popover.getBoundingClientRect();
-
-//   return {
-//     left: popoverRect.left + popoverRect.width > window.innerWidth ? window.innerWidth - popoverRect.width - 20 : left,
-//     top,
-//     width: fullWidth ? rect.width : undefined,
-//   };
-// };
-
-const PopoverWrapper = styled(Box)`
-  box-shadow: ${({ theme }) => theme.shadows.filterShadow};
-  position: absolute;
-  border: 1px solid ${({ theme }) => theme.colors.neutral150};
-  background: ${({ theme }) => theme.colors.neutral0};
-  margin-top: ${({ theme, spacingTop }) => theme.spaces[spacingTop]};
-`;
-
-const PopoverScrollable = styled(Box)`
-  // 16 is base base size, 3 is the factor to get closer to 40px and 5 is the number of elements visible in the list
-  max-height: ${3 * 5}rem;
-  overflow-y: scroll;
-
-  &::-webkit-scrollbar {
-    -webkit-appearance: none;
-    width: 4px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: ${({ theme }) => theme.colors.neutral0};
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: ${({ theme }) => theme.colors.neutral150};
-    border-radius: ${({ theme }) => theme.borderRadius};
-    margin-right: 10px;
-  }
-`;
-
 export const position = (source, popover, fullWidth, centered) => {
   const rect = source.getBoundingClientRect();
   let top = rect.top + rect.height + window.pageYOffset;
@@ -88,6 +37,35 @@ export const position = (source, popover, fullWidth, centered) => {
     width: fullWidth ? rect.width : undefined,
   };
 };
+
+const PopoverWrapper = styled(Box)`
+  box-shadow: ${({ theme }) => theme.shadows.filterShadow};
+  position: absolute;
+  border: 1px solid ${({ theme }) => theme.colors.neutral150};
+  background: ${({ theme }) => theme.colors.neutral0};
+  margin-top: ${({ theme, spacingTop }) => theme.spaces[spacingTop]};
+`;
+
+const PopoverScrollable = styled(Box)`
+  // 16 is base base size, 3 is the factor to get closer to 40px and 5 is the number of elements visible in the list
+  max-height: ${3 * 5}rem;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: ${({ theme }) => theme.colors.neutral0};
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: ${({ theme }) => theme.colors.neutral150};
+    border-radius: ${({ theme }) => theme.borderRadius};
+    margin-right: 10px;
+  }
+`;
 
 const PopoverContent = ({
   source,
