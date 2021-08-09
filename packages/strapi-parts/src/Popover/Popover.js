@@ -121,11 +121,11 @@ PopoverContent.defaultProps = {
 };
 
 PopoverContent.propTypes = {
+  centered: PropTypes.bool,
   children: PropTypes.node.isRequired,
   fullWidth: PropTypes.bool,
   intersectionId: PropTypes.string,
   onReachEnd: PropTypes.func,
   source: PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
   spacingTop: PropTypes.number,
-  centered: PropTypes.bool,
 };
