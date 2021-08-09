@@ -42,6 +42,7 @@ describe('BaseButton', () => {
       <button
         aria-disabled="false"
         class="c0"
+        type="button"
       >
         Button
       </button>

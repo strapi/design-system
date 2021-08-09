@@ -268,6 +268,7 @@ describe('TimePicker', () => {
                 aria-labelledby="timepicker-1-label timepicker-1-content"
                 class="c3"
                 id="timepicker-1"
+                type="button"
               />
               <div
                 class="c4 c5"

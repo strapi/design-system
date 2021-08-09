@@ -55,6 +55,7 @@ export const DatePicker = ({
             ref={datePickerButtonRef}
             onClick={toggleVisibility}
             aria-label={selectedDate ? selectedDateLabel(formatDate(selectedDate)) : label}
+            type="button"
           >
             <CalendarIcon aria-hidden={true} />
           </DatePickerButton>

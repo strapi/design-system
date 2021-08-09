@@ -52,6 +52,7 @@ export const SelectButton = forwardRef(({ labelledBy, expanded, onTrigger, disab
       aria-expanded={expanded}
       onKeyDown={handleKeyDown}
       aria-disabled={disabled}
+      type="button"
       {...props}
     />
   );
