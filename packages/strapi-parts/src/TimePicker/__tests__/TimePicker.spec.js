@@ -136,7 +136,8 @@ describe('TimePicker', () => {
 
       .c16 {
         max-height: 15rem;
-        overflow-y: scroll;
+        overflow-y: auto;
+        overflow-x: hidden;
       }
 
       .c16::-webkit-scrollbar {

@@ -72,56 +72,57 @@ describe('Popover', () => {
       });
 
       expect(container.firstChild).toMatchInlineSnapshot(`
-      .c0 {
-        background: #ffffff;
-        padding: 4px;
-        border-radius: 4px;
-      }
+        .c0 {
+          background: #ffffff;
+          padding: 4px;
+          border-radius: 4px;
+        }
 
-      .c1 {
-        box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
-        position: absolute;
-        border: 1px solid #eaeaef;
-        background: #ffffff;
-      }
+        .c1 {
+          box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
+          position: absolute;
+          border: 1px solid #eaeaef;
+          background: #ffffff;
+        }
 
-      .c2 {
-        max-height: 15rem;
-        overflow-y: scroll;
-      }
+        .c2 {
+          max-height: 15rem;
+          overflow-y: auto;
+          overflow-x: hidden;
+        }
 
-      .c2::-webkit-scrollbar {
-        -webkit-appearance: none;
-        width: 4px;
-      }
+        .c2::-webkit-scrollbar {
+          -webkit-appearance: none;
+          width: 4px;
+        }
 
-      .c2::-webkit-scrollbar-track {
-        background: #ffffff;
-      }
+        .c2::-webkit-scrollbar-track {
+          background: #ffffff;
+        }
 
-      .c2::-webkit-scrollbar-thumb {
-        background: #eaeaef;
-        border-radius: 4px;
-        margin-right: 10px;
-      }
+        .c2::-webkit-scrollbar-thumb {
+          background: #eaeaef;
+          border-radius: 4px;
+          margin-right: 10px;
+        }
 
-      <div
-        data-react-portal="true"
-      >
         <div
-          class="c0 c1"
-          style="left: 0px; top: 0px;"
+          data-react-portal="true"
         >
           <div
-            class="c2"
+            class="c0 c1"
+            style="left: 0px; top: 0px;"
           >
-            <div>
-              Hello world
+            <div
+              class="c2"
+            >
+              <div>
+                Hello world
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    `);
+      `);
     });
   });
 });
