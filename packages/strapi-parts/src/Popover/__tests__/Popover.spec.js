@@ -41,6 +41,15 @@ describe('Popover', () => {
 
       expect(position(source, popover)).toEqual({ left: 1210, top: 40, width: undefined });
     });
+
+    it('position the tooltip centered to source element if centered props', () => {
+      const source = { getBoundingClientRect: () => ({ left: 500, top: 10, width: 100, height: 20 }) };
+      const centered = true;
+      const popover = null;
+      const fullWidth = null;
+
+      expect(position(source, popover, fullWidth, centered)).toEqual({ left: 450, top: 30, width: undefined });
+    });
   });
 
   describe('rendering', () => {

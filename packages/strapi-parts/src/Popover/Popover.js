@@ -6,27 +6,27 @@ import { Portal } from '../Portal';
 import { useIntersection } from '../helpers/useIntersection';
 import { useResizeObserver } from '../helpers/useResizeObserver';
 
-export const position = (source, popover, fullWidth) => {
-  const rect = source.getBoundingClientRect();
-  const left = rect.left + window.pageXOffset;
-  const top = rect.top + rect.height + window.pageYOffset;
+// export const position = (source, popover, fullWidth) => {
+//   const rect = source.getBoundingClientRect();
+//   const left = rect.left + window.pageXOffset;
+//   const top = rect.top + rect.height + window.pageYOffset;
 
-  if (!popover) {
-    return {
-      left,
-      top,
-      width: fullWidth ? rect.width : undefined,
-    };
-  }
+//   if (!popover) {
+//     return {
+//       left,
+//       top,
+//       width: fullWidth ? rect.width : undefined,
+//     };
+//   }
 
-  const popoverRect = popover.getBoundingClientRect();
+//   const popoverRect = popover.getBoundingClientRect();
 
-  return {
-    left: popoverRect.left + popoverRect.width > window.innerWidth ? window.innerWidth - popoverRect.width - 20 : left,
-    top,
-    width: fullWidth ? rect.width : undefined,
-  };
-};
+//   return {
+//     left: popoverRect.left + popoverRect.width > window.innerWidth ? window.innerWidth - popoverRect.width - 20 : left,
+//     top,
+//     width: fullWidth ? rect.width : undefined,
+//   };
+// };
 
 const PopoverWrapper = styled(Box)`
   box-shadow: ${({ theme }) => theme.shadows.filterShadow};
@@ -57,11 +57,51 @@ const PopoverScrollable = styled(Box)`
   }
 `;
 
-const PopoverContent = ({ source, children, spacingTop, fullWidth, onReachEnd, intersectionId, ...props }) => {
-  const popoverRef = useRef(null);
-  const [{ left, top, width }, setPosition] = useState(position(source.current, popoverRef.current, fullWidth));
+export const position = (source, popover, fullWidth, centered) => {
+  const rect = source.getBoundingClientRect();
+  let top = rect.top + rect.height + window.pageYOffset;
+  let left = 0;
 
-  useResizeObserver(source, () => setPosition(position(source.current, popoverRef.current, fullWidth)));
+  if (centered) {
+    left = rect.left - rect.width / 2 + window.pageXOffset;
+  } else {
+    left = rect.left + window.pageXOffset;
+  }
+  console.log('popover', popover);
+
+  if (!popover) {
+    return {
+      left,
+      top,
+      width: fullWidth ? rect.width : undefined,
+    };
+  }
+
+  const popoverRect = popover.getBoundingClientRect();
+
+  return {
+    left: popoverRect.left + popoverRect.width > window.innerWidth ? window.innerWidth - popoverRect.width - 20 : left,
+    top,
+    width: fullWidth ? rect.width : undefined,
+  };
+};
+
+const PopoverContent = ({
+  source,
+  children,
+  spacingTop,
+  fullWidth,
+  onReachEnd,
+  intersectionId,
+  centered,
+  ...props
+}) => {
+  const popoverRef = useRef(null);
+  const [{ left, top, width }, setPosition] = useState(
+    position(source.current, popoverRef.current, fullWidth, centered),
+  );
+
+  useResizeObserver(source, () => setPosition(position(source.current, popoverRef.current, fullWidth, centered)));
   useIntersection(popoverRef, onReachEnd, {
     selectorToWatch: `#${intersectionId}`,
     skipWhen: !intersectionId || !onReachEnd,
@@ -95,6 +135,7 @@ PopoverContent.defaultProps = {
   fullWidth: false,
   intersectionId: undefined,
   onReachEnd: undefined,
+  centered: false,
 };
 
 PopoverContent.propTypes = {
@@ -104,4 +145,5 @@ PopoverContent.propTypes = {
   onReachEnd: PropTypes.func,
   source: PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
   spacingTop: PropTypes.number,
+  centered: PropTypes.bool,
 };
