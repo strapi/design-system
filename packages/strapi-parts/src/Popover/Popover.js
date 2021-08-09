@@ -6,10 +6,14 @@ import { Portal } from '../Portal';
 import { useIntersection } from '../helpers/useIntersection';
 import { useResizeObserver } from '../helpers/useResizeObserver';
 
-export const position = (source, popover, fullWidth) => {
+export const position = (source, popover, fullWidth, centered) => {
   const rect = source.getBoundingClientRect();
-  const left = rect.left + window.pageXOffset;
-  const top = rect.top + rect.height + window.pageYOffset;
+  let top = rect.top + rect.height + window.pageYOffset;
+  let left = rect.left + window.pageXOffset;
+
+  if (centered) {
+    left = rect.left - rect.width / 2 + window.pageXOffset;
+  }
 
   if (!popover) {
     return {
@@ -20,9 +24,15 @@ export const position = (source, popover, fullWidth) => {
   }
 
   const popoverRect = popover.getBoundingClientRect();
+  //if popover overflows left or right viewport
+  if (popoverRect.left < 0) {
+    left = rect.left + window.pageXOffset;
+  } else if (popoverRect.left + popoverRect.width > window.innerWidth) {
+    left = window.innerWidth - popoverRect.width - 20;
+  }
 
   return {
-    left: popoverRect.left + popoverRect.width > window.innerWidth ? window.innerWidth - popoverRect.width - 20 : left,
+    left,
     top,
     width: fullWidth ? rect.width : undefined,
   };
@@ -39,7 +49,8 @@ const PopoverWrapper = styled(Box)`
 const PopoverScrollable = styled(Box)`
   // 16 is base base size, 3 is the factor to get closer to 40px and 5 is the number of elements visible in the list
   max-height: ${3 * 5}rem;
-  overflow-y: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
 
   &::-webkit-scrollbar {
     -webkit-appearance: none;
@@ -57,11 +68,22 @@ const PopoverScrollable = styled(Box)`
   }
 `;
 
-const PopoverContent = ({ source, children, spacingTop, fullWidth, onReachEnd, intersectionId, ...props }) => {
+const PopoverContent = ({
+  source,
+  children,
+  spacingTop,
+  fullWidth,
+  onReachEnd,
+  intersectionId,
+  centered,
+  ...props
+}) => {
   const popoverRef = useRef(null);
-  const [{ left, top, width }, setPosition] = useState(position(source.current, popoverRef.current, fullWidth));
+  const [{ left, top, width }, setPosition] = useState(
+    position(source.current, popoverRef.current, fullWidth, centered),
+  );
 
-  useResizeObserver(source, () => setPosition(position(source.current, popoverRef.current, fullWidth)));
+  useResizeObserver(source, () => setPosition(position(source.current, popoverRef.current, fullWidth, centered)));
   useIntersection(popoverRef, onReachEnd, {
     selectorToWatch: `#${intersectionId}`,
     skipWhen: !intersectionId || !onReachEnd,
@@ -95,9 +117,11 @@ PopoverContent.defaultProps = {
   fullWidth: false,
   intersectionId: undefined,
   onReachEnd: undefined,
+  centered: false,
 };
 
 PopoverContent.propTypes = {
+  centered: PropTypes.bool,
   children: PropTypes.node.isRequired,
   fullWidth: PropTypes.bool,
   intersectionId: PropTypes.string,
