@@ -1,5 +1,5 @@
 import * as React from "react";
-import { render, waitFor, fireEvent } from "@testing-library/react";
+import { render, waitFor, fireEvent, prettyDOM } from "@testing-library/react";
 import { lightTheme, ThemeProvider } from "@strapi/parts";
 import Wysiwyg from "../";
 
@@ -14,7 +14,7 @@ document.createRange = () => {
 };
 window.focus = jest.fn();
 
-describe("Wysiwyg", () => {
+describe("Wysiwyg render and actions buttons", () => {
   let renderedContainer; 
   let getContainerByText; 
   let containerQueryByText; 
@@ -76,49 +76,56 @@ describe("Wysiwyg", () => {
 
   it("should render strikethrough markdown when clicking the strikethrough button", async () => {
     await waitFor(() => renderedContainer.querySelector(".CodeMirror-cursor"));
-    fireEvent.click(renderedContainer.querySelector("#Strikethrough"));
+    fireEvent.click(renderedContainer.querySelector("#more"));
+    fireEvent.click(document.getElementById("Strikethrough"));
 
     expect(getContainerByText("~~Strikethrough~~")).toBeInTheDocument();
   });
 
   it("should render bullet list markdown when clicking the bullet list button", async () => {
     await waitFor(() => renderedContainer.querySelector(".CodeMirror-cursor"));
-    fireEvent.click(renderedContainer.querySelector("#BulletList"));
+    fireEvent.click(renderedContainer.querySelector("#more"));
+    fireEvent.click(document.getElementById("BulletList"));
 
     expect(getContainerByText("-")).toBeInTheDocument();
   });
 
   it("should render number list markdown when clicking the number list button", async () => {
     await waitFor(() => renderedContainer.querySelector(".CodeMirror-cursor"));
-    fireEvent.click(renderedContainer.querySelector("#NumberList"));
+    fireEvent.click(renderedContainer.querySelector("#more"));
+    fireEvent.click(document.getElementById("NumberList"));
 
     expect(getContainerByText("1.")).toBeInTheDocument();
   });
 
   it("should render code markdown when clicking the code button", async () => {
     await waitFor(() => renderedContainer.querySelector(".CodeMirror-cursor"));
-    fireEvent.click(renderedContainer.querySelector("#Code"));
+    fireEvent.click(renderedContainer.querySelector("#more"));
+    fireEvent.click(document.getElementById("Code"));
 
     expect(getContainerByText("```Code```")).toBeInTheDocument();
   });
 
   it("should render image markdown when clicking the image button", async () => {
     await waitFor(() => renderedContainer.querySelector(".CodeMirror-cursor"));
-    fireEvent.click(renderedContainer.querySelector("#Image"));
+    fireEvent.click(renderedContainer.querySelector("#more"));
+    fireEvent.click(document.getElementById("Image"));
 
     expect(getContainerByText("[alt]()")).toBeInTheDocument();
   });
 
   it("should render link markdown when clicking the link button", async () => {
     await waitFor(() => renderedContainer.querySelector(".CodeMirror-cursor"));
-    fireEvent.click(renderedContainer.querySelector("#Link"));
+    fireEvent.click(renderedContainer.querySelector("#more"));
+    fireEvent.click(document.getElementById("Link"));
 
     expect(getContainerByText("[Link](link)")).toBeInTheDocument();
   });
 
   it("should render quote markdown when clicking the quote button", async () => {
     await waitFor(() => renderedContainer.querySelector(".CodeMirror-cursor"));
-    fireEvent.click(renderedContainer.querySelector("#Quote"));
+    fireEvent.click(renderedContainer.querySelector("#more"));
+    fireEvent.click(document.getElementById("Quote"));
 
     expect(getContainerByText(">Quote")).toBeInTheDocument();
   });
@@ -183,4 +190,111 @@ describe("Wysiwyg", () => {
     expect(containerQueryByText("####")).not.toBeInTheDocument();
     expect(getContainerByText("#")).toBeInTheDocument();
   });
+
+  //PREVIEW MODE TESTS
+
+  it("should disable bold button when editor is on preview mode", async () => {
+    await waitFor(() => renderedContainer.querySelector(".CodeMirror-cursor"));
+    fireEvent.click(renderedContainer.querySelector("#preview"));
+    fireEvent.click(renderedContainer.querySelector("#Bold"));
+
+    expect(containerQueryByText("**Bold**")).not.toBeInTheDocument();
+  });
+
+  it("should disable italic button when editor is on preview mode", async () => {
+    await waitFor(() => renderedContainer.querySelector(".CodeMirror-cursor"));
+    fireEvent.click(renderedContainer.querySelector("#preview"));
+    fireEvent.click(renderedContainer.querySelector("#Italic"));
+
+    expect(containerQueryByText("_Italic_")).not.toBeInTheDocument();
+  });
+
+  it("should disable underline button when editor is on preview mode", async () => {
+    await waitFor(() => renderedContainer.querySelector(".CodeMirror-cursor"));
+    fireEvent.click(renderedContainer.querySelector("#preview"));
+    fireEvent.click(renderedContainer.querySelector("#Underline"));
+
+    const hasUnderlineMarkdown = containerQueryByText((content, node) => {
+      const hasText = (node) => node.textContent === "<u>Underline</u>";
+      const nodeHasText = hasText(node);
+      const childrenDontHaveText = Array.from(node.children).every(
+        (child) => !hasText(child)
+      );
+
+      return nodeHasText && childrenDontHaveText;
+    });
+
+    expect(hasUnderlineMarkdown).not.toBeInTheDocument();
+  });
+
+  it("should disable strikethrough button when editor is on preview mode", async () => {
+    await waitFor(() => renderedContainer.querySelector(".CodeMirror-cursor"));
+    fireEvent.click(renderedContainer.querySelector("#preview"));
+    fireEvent.click(renderedContainer.querySelector("#more"));
+
+    expect(document.getElementById("Strikethrough")).not.toBeInTheDocument();
+  });
+
+  it("should disable bullet list button when editor is on preview mode", async () => {
+    await waitFor(() => renderedContainer.querySelector(".CodeMirror-cursor"));
+    fireEvent.click(renderedContainer.querySelector("#preview"));
+    fireEvent.click(renderedContainer.querySelector("#more"));
+
+    expect(document.getElementById("BulletList")).not.toBeInTheDocument();
+  });
+
+  it("should disable number list button when editor is on preview mode", async () => {
+    await waitFor(() => renderedContainer.querySelector(".CodeMirror-cursor"));
+    fireEvent.click(renderedContainer.querySelector("#preview"));
+    fireEvent.click(renderedContainer.querySelector("#more"));
+
+    expect(document.getElementById("NumbertList")).not.toBeInTheDocument();
+  });
+
+  it("should disable code button when editor is on preview mode", async () => {
+    await waitFor(() => renderedContainer.querySelector(".CodeMirror-cursor"));
+    fireEvent.click(renderedContainer.querySelector("#preview"));
+    fireEvent.click(renderedContainer.querySelector("#more"));
+
+    expect(document.getElementById("BulletList")).not.toBeInTheDocument();
+  });
+
+  it("should disable image button when editor is on preview mode", async () => {
+    await waitFor(() => renderedContainer.querySelector(".CodeMirror-cursor"));
+    fireEvent.click(renderedContainer.querySelector("#preview"));
+    fireEvent.click(renderedContainer.querySelector("#more"));
+
+    expect(document.getElementById("Image")).not.toBeInTheDocument();
+  });
+
+  it("should disable link button when editor is on preview mode", async () => {
+    await waitFor(() => renderedContainer.querySelector(".CodeMirror-cursor"));
+    fireEvent.click(renderedContainer.querySelector("#preview"));
+    fireEvent.click(renderedContainer.querySelector("#more"));
+
+    expect(document.getElementById("Link")).not.toBeInTheDocument();
+  });
+
+  it("should disable quote button when editor is on preview mode", async () => {
+    await waitFor(() => renderedContainer.querySelector(".CodeMirror-cursor"));
+    fireEvent.click(renderedContainer.querySelector("#preview"));
+    fireEvent.click(renderedContainer.querySelector("#more"));
+
+    expect(document.getElementById("Quote")).not.toBeInTheDocument();
+  });
+
+  it("should disable titles buttons when editor is on preview mode", async () => {
+    await waitFor(() => renderedContainer.querySelector(".CodeMirror-cursor"));
+    fireEvent.click(renderedContainer.querySelector("#preview"));
+
+    fireEvent.mouseDown(renderedContainer.querySelector("#selectTitle"));
+    expect(document.getElementById("h1")).not.toBeInTheDocument();
+    expect(document.getElementById("h2")).not.toBeInTheDocument();
+    expect(document.getElementById("h2")).not.toBeInTheDocument();
+    expect(document.getElementById("h3")).not.toBeInTheDocument();
+    expect(document.getElementById("h4")).not.toBeInTheDocument();
+    expect(document.getElementById("h5")).not.toBeInTheDocument();
+    expect(document.getElementById("h6")).not.toBeInTheDocument();
+  });
 });
+

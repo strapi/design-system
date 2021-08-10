@@ -3,14 +3,15 @@ import styled from 'styled-components';
 /* eslint-disable */
 
 const Wrapper = styled.div`
-  position: absolute;
+  /* position: absolute;
   top: 0;
   width: 100%;
-  height: 100%;
+  height: 100%; */
   overflow: auto;
   padding: 12px 17px 0 17px;
   font-size: 16px;
   background-color: #fff;
+  background-color: lightblue;
   /* line-height: 24px !important; */
   font-family: 'Lato';
   cursor: text;

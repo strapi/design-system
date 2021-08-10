@@ -61,7 +61,7 @@ const WysiwygNav = ({
 
             <MoreButton disabled={isPreviewMode ? true : false} ref={buttonMoreRef} onClick={() => setVisiblePopover((prev) => !prev)} id="more" label="more" icon={<More />} />
             {visiblePopover && (
-              <Popover centered source={buttonMoreRef} spacingTop={1}>
+              <Popover centered source={buttonMoreRef} spacingTop={1} id='popover'>
                 <Row>
                   <IconButtonGroupMargin>
                     <CustomIconButton disabled={isPreviewMode ? true : false} onClick={() => onActionClick("Strikethrough")} id="Strikethrough" label="Strikethrough" name="Strikethrough" icon={<Strikethrough />} />
@@ -80,7 +80,7 @@ const WysiwygNav = ({
 
           </Row>
 
-          <Button onClick={() => setIsPreviewMode(prev => !prev)} variant='tertiary' size='L'>
+          <Button onClick={() => setIsPreviewMode(prev => !prev)} variant='tertiary' size='L' id='preview'>
             {isPreviewMode ? 'Markdown mode' : 'Preview mode'}
           </Button>
         </Row>
