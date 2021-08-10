@@ -90,7 +90,7 @@ export const IconButtonGroup = styled(Row)`
 
 export const IconButton = React.forwardRef(({ label, noBorder, icon, disabled, onClick, ...props }, ref) => {
   const handleClick = (e) => {
-    if (!disabled) {
+    if (!disabled && onClick) {
       onClick(e);
     }
   };

@@ -38,7 +38,7 @@ export const ButtonWrapper = styled(BaseButton)`
 export const Button = React.forwardRef(
   ({ variant, startIcon, endIcon, disabled, children, onClick, size, ...props }, ref) => {
     const handleClick = (e) => {
-      if (!disabled) {
+      if (!disabled && onClick) {
         onClick(e);
       }
     };
