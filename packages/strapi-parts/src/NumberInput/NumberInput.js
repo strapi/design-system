@@ -68,6 +68,7 @@ export const NumberInput = React.forwardRef(
     const handleKeyDown = (e) => {
       switch (e.key) {
         case KeyboardKeys.DOWN: {
+          e.preventDefault();
           decrement();
           break;
         }
