@@ -50,6 +50,7 @@ describe('Main', () => {
         <main
           aria-labelledby="main-title"
           id="main-content"
+          tabindex="-1"
         >
           <h1
             id="main-title"
