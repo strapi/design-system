@@ -219,7 +219,6 @@ describe('ModalLayout', () => {
                         aria-labelledby="tooltip-1"
                         class="c6 c7"
                         tabindex="0"
-                        type="button"
                       >
                         <svg
                           fill="none"

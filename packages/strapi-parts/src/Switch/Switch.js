@@ -59,7 +59,6 @@ export const Switch = React.forwardRef(
         aria-label={label}
         onClick={onChange}
         visibleLabels={visibleLabels}
-        type="button"
         {...props}
       >
         <Row>

@@ -202,7 +202,6 @@ describe('DatePicker', () => {
                   <button
                     aria-label="Date picker, current is 1"
                     class="c7"
-                    type="button"
                   >
                     <svg
                       aria-hidden="true"

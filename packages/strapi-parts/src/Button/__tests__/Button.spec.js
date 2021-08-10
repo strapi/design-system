@@ -111,7 +111,6 @@ describe('Button', () => {
       <button
         aria-disabled="false"
         class="c0 c1"
-        type="button"
       >
         <span
           class="c2 c3"
@@ -245,7 +244,6 @@ describe('Button', () => {
       <button
         aria-disabled="false"
         class="c0 c1"
-        type="button"
       >
         <span
           class="c2 c3"
@@ -362,7 +360,6 @@ describe('Button', () => {
       <button
         aria-disabled="false"
         class="c0 c1"
-        type="button"
       >
         <span
           class="c2 c3"
@@ -496,7 +493,6 @@ describe('Button', () => {
       <button
         aria-disabled="false"
         class="c0 c1"
-        type="button"
       >
         <span
           class="c2 c3"
@@ -618,7 +614,6 @@ describe('Button', () => {
       <button
         aria-disabled="false"
         class="c0 c1"
-        type="button"
       >
         <span
           class="c2 c3 c4"

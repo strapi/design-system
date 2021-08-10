@@ -239,7 +239,6 @@ describe('Searchbar', () => {
               <button
                 aria-label="Clearing the plugin search"
                 class="c12"
-                type="button"
               >
                 <div
                   class="c8 c13"

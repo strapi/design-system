@@ -164,7 +164,6 @@ describe('Select', () => {
               aria-labelledby="select-1-label select-1-content"
               class="c3"
               id="select-1"
-              type="button"
             />
             <div
               class="c4 c5"
@@ -461,7 +460,6 @@ describe('Select', () => {
                 aria-labelledby="select-2-label select-2-content"
                 class="c3"
                 id="select-2"
-                type="button"
               />
               <div
                 class="c4 c5"
@@ -791,7 +789,6 @@ describe('Select', () => {
                 aria-labelledby="select-4-label select-4-content"
                 class="c3"
                 id="select-4"
-                type="button"
               />
               <div
                 class="c4 c5"

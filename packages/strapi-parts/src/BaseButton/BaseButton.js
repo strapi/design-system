@@ -26,7 +26,7 @@ export const BaseButtonWrapper = styled.button`
 
 export const BaseButton = React.forwardRef(({ disabled, children, ...props }, ref) => {
   return (
-    <BaseButtonWrapper ref={ref} aria-disabled={disabled} type="button" {...props}>
+    <BaseButtonWrapper ref={ref} aria-disabled={disabled} {...props}>
       {children}
     </BaseButtonWrapper>
   );

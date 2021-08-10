@@ -619,7 +619,6 @@ describe('Table', () => {
                         aria-labelledby="tooltip-123"
                         class="c18 c19"
                         tabindex="-1"
-                        type="button"
                       >
                         <svg
                           fill="none"
@@ -727,7 +726,6 @@ describe('Table', () => {
                         aria-labelledby="tooltip-123"
                         class="c18 c19"
                         tabindex="-1"
-                        type="button"
                       >
                         <svg
                           fill="none"

@@ -202,7 +202,6 @@ describe('EmptyStateLayout', () => {
         <button
           aria-disabled="false"
           class="c7 c8"
-          type="button"
         >
           <div
             aria-hidden="true"

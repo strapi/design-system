@@ -665,7 +665,6 @@ describe('Field', () => {
             <button
               aria-label="Show password"
               class="c4"
-              type="button"
             >
               Show
             </button>
@@ -687,7 +686,6 @@ describe('Field', () => {
             <button
               aria-label="Show password"
               class="c4"
-              type="button"
             >
               Hide
             </button>

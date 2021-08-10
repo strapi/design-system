@@ -446,7 +446,6 @@ describe('SubNav', () => {
                 aria-labelledby="tooltip-123"
                 class="c4 c5"
                 tabindex="0"
-                type="button"
               >
                 <svg
                   fill="none"
