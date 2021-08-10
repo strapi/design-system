@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 import { Box } from '../Box';
 import { P, TextButton } from '../Text';
 import { Row } from '../Row';
@@ -9,7 +10,6 @@ import { VisuallyHidden } from '../VisuallyHidden';
 
 const BrandIconWrapper = styled.div`
   border-radius: ${({ theme }) => theme.borderRadius};
-  overflow: hidden;
 
   svg,
   img {
@@ -18,18 +18,26 @@ const BrandIconWrapper = styled.div`
   }
 `;
 
-export const NavBrand = ({ workplace, title, icon }) => {
+const NavLinkWrapper = styled(NavLink)`
+  text-decoration: unset;
+  color: inherit;
+`;
+
+export const NavBrand = ({ workplace, title, icon, to }) => {
   const condensed = useMainNav();
 
   if (condensed) {
     return (
       <Box paddingLeft={3} paddingRight={3} paddingTop={4} paddingBottom={4}>
-        <BrandIconWrapper condensed={true}>{icon}</BrandIconWrapper>
-
-        <VisuallyHidden>
-          <span>{title}</span>
-          <span>{workplace}</span>
-        </VisuallyHidden>
+        <BrandIconWrapper condensed={true}>
+          <NavLink to={to}>
+            {icon}
+            <VisuallyHidden>
+              <span>{title}</span>
+              <span>{workplace}</span>
+            </VisuallyHidden>
+          </NavLink>
+        </BrandIconWrapper>
       </Box>
     );
   }
@@ -37,11 +45,18 @@ export const NavBrand = ({ workplace, title, icon }) => {
   return (
     <Box paddingLeft={3} paddingRight={3} paddingTop={4} paddingBottom={4}>
       <Row>
-        <BrandIconWrapper>{icon}</BrandIconWrapper>
+        <BrandIconWrapper as={NavLink} to={to} aria-hidden tabIndex={-1}>
+          {icon}
+        </BrandIconWrapper>
 
         <Box paddingLeft={2}>
-          <TextButton textColor="neutral800">{title}</TextButton>
-          <P small textColor="neutral600">
+          <TextButton textColor="neutral800" as="span">
+            <NavLinkWrapper to={to}>
+              {title}
+              <VisuallyHidden as="span">{workplace}</VisuallyHidden>
+            </NavLinkWrapper>
+          </TextButton>
+          <P small textColor="neutral600" aria-hidden>
             {workplace}
           </P>
         </Box>
@@ -50,8 +65,13 @@ export const NavBrand = ({ workplace, title, icon }) => {
   );
 };
 
+NavBrand.defaultProps = {
+  to: '/',
+};
+
 NavBrand.propTypes = {
   icon: PropTypes.node.isRequired,
   title: PropTypes.string.isRequired,
+  to: PropTypes.string,
   workplace: PropTypes.string.isRequired,
 };

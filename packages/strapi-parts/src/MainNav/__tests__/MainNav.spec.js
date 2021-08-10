@@ -71,25 +71,25 @@ describe('MainNav', () => {
         padding-left: 8px;
       }
 
-      .c9 {
+      .c11 {
         padding-bottom: 12px;
       }
 
-      .c10 {
+      .c12 {
         background: #eaeaef;
       }
 
-      .c12 {
+      .c14 {
         padding-top: 12px;
         padding-right: 12px;
         padding-left: 12px;
       }
 
-      .c16 {
+      .c18 {
         padding-right: 12px;
       }
 
-      .c19 {
+      .c21 {
         background: #ffffff;
         padding-top: 4px;
         padding-right: 12px;
@@ -98,7 +98,7 @@ describe('MainNav', () => {
         border-radius: 4px;
       }
 
-      .c22 {
+      .c24 {
         padding-top: 12px;
         padding-bottom: 12px;
       }
@@ -120,14 +120,14 @@ describe('MainNav', () => {
         color: #32324d;
       }
 
-      .c8 {
+      .c10 {
         font-weight: 400;
         font-size: 0.75rem;
         line-height: 1.33;
         color: #666687;
       }
 
-      .c20 {
+      .c22 {
         font-weight: 400;
         font-size: 0.875rem;
         line-height: 1.43;
@@ -139,32 +139,44 @@ describe('MainNav', () => {
         line-height: 1.14;
       }
 
-      .c21 {
+      .c23 {
         font-weight: 600;
         font-size: 0.6875rem;
         line-height: 1.45;
         text-transform: uppercase;
       }
 
-      .c13 > * {
+      .c15 > * {
         margin-top: 0;
         margin-bottom: 0;
       }
 
-      .c13 > * + * {
+      .c15 > * + * {
         margin-top: 16px;
       }
 
-      .c18 > * {
+      .c20 > * {
         margin-top: 0;
         margin-bottom: 0;
       }
 
-      .c18 > * + * {
+      .c20 > * + * {
         margin-top: 8px;
       }
 
-      .c11 {
+      .c9 {
+        border: 0;
+        -webkit-clip: rect(0 0 0 0);
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+      }
+
+      .c13 {
         height: 1px;
         margin: 0;
         border: none;
@@ -184,11 +196,11 @@ describe('MainNav', () => {
         align-items: center;
       }
 
-      .c17 {
+      .c19 {
         height: 1rem;
       }
 
-      .c14 {
+      .c16 {
         -webkit-text-decoration: none;
         text-decoration: none;
         display: block;
@@ -196,52 +208,57 @@ describe('MainNav', () => {
         background: #ffffff;
       }
 
-      .c14 .c5 {
+      .c16 .c5 {
         color: #666687;
       }
 
-      .c14 svg path {
+      .c16 svg path {
         fill: #8e8ea9;
       }
 
-      .c14:hover {
+      .c16:hover {
         background: #f6f6f9;
       }
 
-      .c14:hover .c5 {
+      .c16:hover .c5 {
         color: #4a4a6a;
       }
 
-      .c14:hover svg path {
+      .c16:hover svg path {
         fill: #666687;
       }
 
-      .c14.active {
+      .c16.active {
         background: #f0f0ff;
       }
 
-      .c14.active svg path {
+      .c16.active svg path {
         fill: #4945ff;
       }
 
-      .c14.active .c5 {
+      .c16.active .c5 {
         color: #4945ff;
         font-weight: 500;
       }
 
-      .c15 {
+      .c17 {
         padding: 8px 12px;
       }
 
       .c3 {
         border-radius: 4px;
-        overflow: hidden;
       }
 
       .c3 svg,
       .c3 img {
         height: 2rem;
         width: 2rem;
+      }
+
+      .c8 {
+        -webkit-text-decoration: unset;
+        text-decoration: unset;
+        color: inherit;
       }
 
       <nav
@@ -253,23 +270,39 @@ describe('MainNav', () => {
           <div
             class="c2"
           >
-            <div
-              class="c3"
+            <a
+              aria-current="page"
+              aria-hidden="true"
+              class="c3 active"
+              href="/"
+              tabindex="-1"
             >
               <span>
                 icon
               </span>
-            </div>
+            </a>
             <div
               class="c4"
             >
               <span
                 class="c5 c6 c7"
               >
-                Strapi Dashboard
+                <a
+                  aria-current="page"
+                  class="c8 active"
+                  href="/"
+                >
+                  Strapi Dashboard
+                  <span
+                    class="c9"
+                  >
+                    Workplace
+                  </span>
+                </a>
               </span>
               <p
-                class="c5 c8"
+                aria-hidden="true"
+                class="c5 c10"
               >
                 Workplace
               </p>
@@ -277,29 +310,29 @@ describe('MainNav', () => {
           </div>
         </div>
         <div
-          class="c9"
+          class="c11"
         >
           <hr
-            class="c10 c11"
+            class="c12 c13"
           />
         </div>
         <div
-          class="c12"
+          class="c14"
         >
           <ul
-            class="c13"
+            class="c15"
           >
             <li>
               <a
-                class="c14"
+                class="c16"
                 href="/content"
               >
                 <span
-                  class="c2 c15"
+                  class="c2 c17"
                 >
                   <span
                     aria-hidden="true"
-                    class="c16 c17"
+                    class="c18 c19"
                   >
                     <span>
                       icon
@@ -317,31 +350,31 @@ describe('MainNav', () => {
               class=""
             >
               <div
-                class="c18"
+                class="c20"
               >
                 <span
-                  class="c19"
+                  class="c21"
                 >
                   <span
-                    class="c5 c20 c7 c21"
+                    class="c5 c22 c7 c23"
                   >
                     Plugins
                   </span>
                 </span>
                 <ul
-                  class="c18"
+                  class="c20"
                 >
                   <li>
                     <a
-                      class="c14"
+                      class="c16"
                       href="/builder"
                     >
                       <span
-                        class="c2 c15"
+                        class="c2 c17"
                       >
                         <span
                           aria-hidden="true"
-                          class="c16 c17"
+                          class="c18 c19"
                         >
                           <span>
                             icon
@@ -357,15 +390,15 @@ describe('MainNav', () => {
                   </li>
                   <li>
                     <a
-                      class="c14"
+                      class="c16"
                       href="/content"
                     >
                       <span
-                        class="c2 c15"
+                        class="c2 c17"
                       >
                         <span
                           aria-hidden="true"
-                          class="c16 c17"
+                          class="c18 c19"
                         >
                           <span>
                             icon
@@ -381,15 +414,15 @@ describe('MainNav', () => {
                   </li>
                   <li>
                     <a
-                      class="c14"
+                      class="c16"
                       href="/content"
                     >
                       <span
-                        class="c2 c15"
+                        class="c2 c17"
                       >
                         <span
                           aria-hidden="true"
-                          class="c16 c17"
+                          class="c18 c19"
                         >
                           <span>
                             icon
@@ -410,31 +443,31 @@ describe('MainNav', () => {
               class=""
             >
               <div
-                class="c18"
+                class="c20"
               >
                 <span
-                  class="c19"
+                  class="c21"
                 >
                   <span
-                    class="c5 c20 c7 c21"
+                    class="c5 c22 c7 c23"
                   >
                     General
                   </span>
                 </span>
                 <ul
-                  class="c18"
+                  class="c20"
                 >
                   <li>
                     <a
-                      class="c14"
+                      class="c16"
                       href="/builder"
                     >
                       <span
-                        class="c2 c15"
+                        class="c2 c17"
                       >
                         <span
                           aria-hidden="true"
-                          class="c16 c17"
+                          class="c18 c19"
                         >
                           <span>
                             icon
@@ -450,15 +483,15 @@ describe('MainNav', () => {
                   </li>
                   <li>
                     <a
-                      class="c14"
+                      class="c16"
                       href="/content"
                     >
                       <span
-                        class="c2 c15"
+                        class="c2 c17"
                       >
                         <span
                           aria-hidden="true"
-                          class="c16 c17"
+                          class="c18 c19"
                         >
                           <span>
                             icon
@@ -474,15 +507,15 @@ describe('MainNav', () => {
                   </li>
                   <li>
                     <a
-                      class="c14"
+                      class="c16"
                       href="/content"
                     >
                       <span
-                        class="c2 c15"
+                        class="c2 c17"
                       >
                         <span
                           aria-hidden="true"
-                          class="c16 c17"
+                          class="c18 c19"
                         >
                           <span>
                             icon
@@ -502,10 +535,10 @@ describe('MainNav', () => {
           </ul>
         </div>
         <div
-          class="c22"
+          class="c24"
         >
           <hr
-            class="c10 c11"
+            class="c12 c13"
           />
         </div>
         <div
@@ -717,7 +750,6 @@ describe('MainNav', () => {
 
       .c2 {
         border-radius: 4px;
-        overflow: hidden;
       }
 
       .c2 svg,
@@ -735,19 +767,25 @@ describe('MainNav', () => {
           <div
             class="c2"
           >
-            <span>
-              icon
-            </span>
-          </div>
-          <div
-            class="c3"
-          >
-            <span>
-              Strapi Dashboard
-            </span>
-            <span>
-              Workplace
-            </span>
+            <a
+              aria-current="page"
+              class="active"
+              href="/"
+            >
+              <span>
+                icon
+              </span>
+              <div
+                class="c3"
+              >
+                <span>
+                  Strapi Dashboard
+                </span>
+                <span>
+                  Workplace
+                </span>
+              </div>
+            </a>
           </div>
         </div>
         <div
