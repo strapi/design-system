@@ -21,9 +21,6 @@ export const position = (source, popover, fullWidth, centered) => {
 
   const popoverRect = popover.getBoundingClientRect();
 
-  // const widthDifference = (tooltipRect.width - toggleSourceRect.width) / 2;
-  // let left = toggleSourceRect.left - widthDifference;
-
   if (centered) {
     const popoverBorderPadding = 10;
     const popoverTotalWidth = popoverRect.width + popoverBorderPadding;
