@@ -30,7 +30,7 @@
     "jest": "^26.6.3",
     "jest-playwright-preset": "^1.5.2",
     "jest-styled-components": "^7.0.4",
-    "playwright": "^1.11.1",
+    "playwright": "^1.13.1",
     "prettier": "^2.2.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -47,6 +47,7 @@
     "styled-components": "^5.2.1"
   },
   "dependencies": {
+    "@internationalized/number": "^3.0.2",
     "compute-scroll-into-view": "^1.0.17",
     "prop-types": "^15.7.2"
   },
