@@ -70,4 +70,15 @@ describe('NumberInput', () => {
     const value = await page.$eval('input', (el) => el.value);
     expect(value).toBe('1');
   });
+
+  it('increments the value when entering and bluring the field, and then pressing ArrowUp', async () => {
+    await page.click('input');
+    await page.click('button');
+    await page.focus('input');
+    await page.keyboard.press('ArrowUp');
+    await page.keyboard.press('Tab');
+
+    const value = await page.$eval('input', (el) => el.value);
+    expect(value).toBe('1');
+  });
 });

@@ -24,9 +24,11 @@ const ArrowButton = styled.button`
   }
 `;
 
+const INITIAL_VALUE = '';
+
 export const NumberInput = React.forwardRef(
   ({ startAction, name, hint, error, label, labelAction, id, onValueChange, value, step, ...props }, ref) => {
-    const [inputValue, setInputValue] = useState(value || '');
+    const [inputValue, setInputValue] = useState(value || INITIAL_VALUE);
     const generatedId = useId('numberinput', id);
     const numberParserRef = useRef(new NumberParser(getDefaultLocale()));
     const numberFormaterRef = useRef(new NumberFormatter(getDefaultLocale()));
@@ -85,7 +87,7 @@ export const NumberInput = React.forwardRef(
 
       if (isNaN(parsedValue)) {
         onValueChange(undefined);
-        setInputValue(undefined);
+        setInputValue(INITIAL_VALUE);
       } else {
         onValueChange(numberParserRef.current.parse(inputValue));
       }
