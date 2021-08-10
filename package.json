@@ -23,7 +23,7 @@
     "test:e2e:ci": "lerna run test:e2e:ci",
     "test:e2e": "lerna run test:e2e --stream",
     "test": "lerna run test --stream",
-    "publish": "yarn setup && lerna publish --no-git-tag-version --contents dist"
+    "release": "lerna publish --no-git-tag-version --contents dist"
   },
   "devDependencies": {
     "@specifyapp/cli": "^0.0.51",
