@@ -52,7 +52,7 @@ describe('Popover', () => {
       };
       const fullWidth = null;
 
-      expect(position(source, popover, fullWidth, centered)).toEqual({ left: 550, top: 30, width: undefined });
+      expect(position(source, popover, fullWidth, centered)).toEqual({ left: 545, top: 30, width: undefined });
     });
   });
 

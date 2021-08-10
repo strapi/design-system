@@ -21,8 +21,14 @@ export const position = (source, popover, fullWidth, centered) => {
 
   const popoverRect = popover.getBoundingClientRect();
 
+  // const widthDifference = (tooltipRect.width - toggleSourceRect.width) / 2;
+  // let left = toggleSourceRect.left - widthDifference;
+
   if (centered) {
-    const widthDifference = (rect.width - popoverRect.width) / 2;
+    const popoverBorderPadding = 10;
+    const popoverTotalWidth = popoverRect.width + popoverBorderPadding;
+    const widthDifference = (rect.width - popoverTotalWidth) / 2;
+
     left = rect.left + widthDifference + window.pageXOffset;
   }
 
@@ -98,8 +104,8 @@ const PopoverContent = ({
   };
 
   return (
-    <PopoverWrapper ref={popoverRef} style={style} hasRadius background="neutral0" padding={1} spacingTop={spacingTop}>
-      <PopoverScrollable {...props}>
+    <PopoverWrapper style={style} hasRadius background="neutral0" padding={1} spacingTop={spacingTop}>
+      <PopoverScrollable ref={popoverRef} {...props}>
         {children}
         {intersectionId && onReachEnd && <div id={intersectionId} />}
       </PopoverScrollable>
