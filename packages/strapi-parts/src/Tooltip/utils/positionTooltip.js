@@ -54,7 +54,7 @@ const positionTop = (tooltipRect, toggleSourceRect) => {
   } else if (top < 0 && left > 0) {
     //if overflow top but not left
     //place tooltip below source element
-    top = toggleSourceRect.height + tooltipRect.height / 2 + SPACE_BETWEEN;
+    top = toggleSourceRect.top + toggleSourceRect.height + SPACE_BETWEEN;
   }
 
   return {
