@@ -19,6 +19,10 @@ describe('Main', () => {
     );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
+      .c2 {
+        outline: none;
+      }
+
       .c0 {
         background: #4945ff;
         color: #ffffff;
@@ -49,6 +53,7 @@ describe('Main', () => {
         </a>
         <main
           aria-labelledby="main-title"
+          class="c2"
           id="main-content"
           tabindex="-1"
         >
