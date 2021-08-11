@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -37,13 +37,15 @@ const StackH = styled.div.withConfig({
   }
 `;
 
-export const Stack = ({ horizontal, size, ...props }) => {
+export const Stack = forwardRef(({ horizontal, size, ...props }, ref) => {
   if (horizontal) {
-    return <StackH size={size} {...props} />;
+    return <StackH ref={ref} size={size} {...props} />;
   }
 
-  return <StackV size={size} {...props} />;
-};
+  return <StackV ref={ref} size={size} {...props} />;
+});
+
+Stack.displayName = 'Stack';
 
 Stack.defaultProps = {
   horizontal: false,
