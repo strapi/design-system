@@ -7,7 +7,7 @@ import {
   GridItem,
   HeaderLayout,
   Stack,
-  OneBlockLayout,
+  Layout,
 } from "@strapi/parts";
 import EditIcon from "@strapi/icons/EditIcon";
 import AddIcon from "@strapi/icons/AddIcon";
@@ -81,22 +81,7 @@ const CM = () => {
 
   return (
     <AppLayout>
-      <OneBlockLayout
-        header={
-          <HeaderLayout
-            primaryAction={
-              <Button startIcon={<AddIcon />}>Add an entry</Button>
-            }
-            secondaryAction={
-              <Button variant="tertiary" startIcon={<EditIcon />}>
-                Edit
-              </Button>
-            }
-            title="Other CT"
-            subtitle="36 entries found"
-          />
-        }
-      >
+      <Layout>
         <form onSubmit={handleSubmit}>
           <Box padding={6}>
             <Stack size={6}>
@@ -120,7 +105,7 @@ const CM = () => {
             </Stack>
           </Box>
         </form>
-      </OneBlockLayout>
+      </Layout>
     </AppLayout>
   );
 };
