@@ -3,6 +3,7 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import EditIcon from '@strapi/icons/EditIcon';
 import DeleteIcon from '@strapi/icons/DeleteIcon';
+import DropdownIcon from '@strapi/icons/FilterDropdown';
 import AddIcon from '@strapi/icons/AddIcon';
 import { Box } from '../Box';
 import { Row } from '../Row';
@@ -55,7 +56,7 @@ Description...
                 <Th>
                   <BaseCheckbox aria-label="Select all entries" />
                 </Th>
-                <Th>
+                <Th action={<IconButton label="Sort on ID" icon={<DropdownIcon />} noBorder />}>
                   <TableLabel>ID</TableLabel>
                 </Th>
                 <Th>
