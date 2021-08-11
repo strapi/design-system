@@ -11,10 +11,6 @@ export const position = (source, popover, fullWidth, centered) => {
   let top = rect.top + rect.height + window.pageYOffset;
   let left = rect.left + window.pageXOffset;
 
-  if (centered) {
-    left = rect.left - rect.width / 2 + window.pageXOffset;
-  }
-
   if (!popover) {
     return {
       left,
@@ -24,6 +20,15 @@ export const position = (source, popover, fullWidth, centered) => {
   }
 
   const popoverRect = popover.getBoundingClientRect();
+
+  if (centered) {
+    const popoverBorderPadding = 10;
+    const popoverTotalWidth = popoverRect.width + popoverBorderPadding;
+    const widthDifference = (rect.width - popoverTotalWidth) / 2;
+
+    left = rect.left + widthDifference + window.pageXOffset;
+  }
+
   //if popover overflows left or right viewport
   if (popoverRect.left < 0) {
     left = rect.left + window.pageXOffset;
