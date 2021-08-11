@@ -44,18 +44,10 @@ Description...
           hint="Description line"
           actions={
             <CarouselActions>
-              <IconButton onClick={() => console.log('edit')} title="Edit" id="edit">
-                <EditIcon />
-              </IconButton>
-              <IconButton onClick={() => console.log('Create')} title="Create">
-                <AddIcon />
-              </IconButton>
-              <IconButton onClick={() => console.log('Delete')} title="Delete">
-                <DeleteIcon />
-              </IconButton>
-              <IconButton onClick={() => console.log('Publish')} title="Publish">
-                <PublishIcon />
-              </IconButton>
+              <IconButton onClick={() => console.log('edit')} label="Edit" id="edit" icon={<EditIcon />} />
+              <IconButton onClick={() => console.log('Create')} label="Create" icon={<AddIcon />} />
+              <IconButton onClick={() => console.log('Delete')} label="Delete" icon={<DeleteIcon />} />
+              <IconButton onClick={() => console.log('Publish')} label="Publish" icon={<PublishIcon />} />
             </CarouselActions>
           }
           style={{ width: '242px' }}
