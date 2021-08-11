@@ -72,7 +72,7 @@ describe('positionTooltip', () => {
 
     const position = positionTooltip(tooltipNode, toggleSourceNode);
 
-    expect(position).toEqual({ left: 345, top: 48 });
+    expect(position).toEqual({ left: 345, top: 43 });
   });
 
   it('positions the tooltip above the toggle source when toggle source pos is bottom-center', () => {
