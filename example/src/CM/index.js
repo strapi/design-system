@@ -7,7 +7,7 @@ import {
   GridItem,
   HeaderLayout,
   Stack,
-  OneBlockLayout,
+  Layout,
 } from "@strapi/parts";
 import EditIcon from "@strapi/icons/EditIcon";
 import AddIcon from "@strapi/icons/AddIcon";
@@ -81,7 +81,7 @@ const CM = () => {
 
   return (
     <AppLayout>
-      <OneBlockLayout
+      <Layout
         header={
           <HeaderLayout
             primaryAction={
@@ -120,7 +120,7 @@ const CM = () => {
             </Stack>
           </Box>
         </form>
-      </OneBlockLayout>
+      </Layout>
     </AppLayout>
   );
 };
