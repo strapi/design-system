@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-
+import { Row } from '../Row';
+import { Box } from '../Box';
 import { RawTh, RawTd } from '../RawTable/RawCell';
 
 const CellWrapper = styled(RawTd)`
@@ -11,6 +12,10 @@ const CellWrapper = styled(RawTd)`
   color: ${({ theme }) => theme.colors.neutral600};
   outline-offset: -4px;
 
+  svg {
+    height: ${4 / 16}rem;
+  }
+
   /**
   * Hack to make sure the checkbox looks aligned
   */
@@ -19,15 +24,23 @@ const CellWrapper = styled(RawTd)`
   }
 `;
 
-export const Th = ({ children, ...props }) => {
+export const Th = ({ children, action, ...props }) => {
   return (
     <CellWrapper as={RawTh} {...props}>
-      {children}
+      <Row>
+        {children}
+        {action ? <Box>{action}</Box> : null}
+      </Row>
     </CellWrapper>
   );
 };
 
+Th.defaultProps = {
+  action: undefined,
+};
+
 Th.propTypes = {
+  action: PropTypes.node,
   children: PropTypes.node.isRequired,
 };
 
