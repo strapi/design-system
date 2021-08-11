@@ -81,22 +81,7 @@ const CM = () => {
 
   return (
     <AppLayout>
-      <Layout
-        header={
-          <HeaderLayout
-            primaryAction={
-              <Button startIcon={<AddIcon />}>Add an entry</Button>
-            }
-            secondaryAction={
-              <Button variant="tertiary" startIcon={<EditIcon />}>
-                Edit
-              </Button>
-            }
-            title="Other CT"
-            subtitle="36 entries found"
-          />
-        }
-      >
+      <Layout>
         <form onSubmit={handleSubmit}>
           <Box padding={6}>
             <Stack size={6}>
