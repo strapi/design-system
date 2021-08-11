@@ -110,13 +110,14 @@ Description...
                   </Td>
                   <Td>
                     <Row>
-                      <IconButton onClick={() => console.log('edit')} title="Edit" noBorder>
-                        <EditIcon />
-                      </IconButton>
+                      <IconButton onClick={() => console.log('edit')} label="Edit" noBorder icon={<EditIcon />} />
                       <Box paddingLeft={1}>
-                        <IconButton onClick={() => console.log('delete')} title="Delete" noBorder>
-                          <DeleteIcon />
-                        </IconButton>
+                        <IconButton
+                          onClick={() => console.log('delete')}
+                          label="Delete"
+                          noBorder
+                          icon={<DeleteIcon />}
+                        />
                       </Box>
                     </Row>
                   </Td>
