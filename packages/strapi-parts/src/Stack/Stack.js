@@ -1,3 +1,4 @@
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -8,7 +9,7 @@ const transientProps = {
   size: true,
 };
 
-export const Stack = styled.div.withConfig({
+const StackV = styled.div.withConfig({
   shouldForwardProp: (prop, defPropValFN) => !transientProps[prop] && defPropValFN(prop),
 })`
   & > * {
@@ -21,6 +22,36 @@ export const Stack = styled.div.withConfig({
   }
 `;
 
+const StackH = styled.div.withConfig({
+  shouldForwardProp: (prop, defPropValFN) => !transientProps[prop] && defPropValFN(prop),
+})`
+  display: flex;
+  flex-direction: horizontal;
+  & > * {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  & > * + * {
+    margin-left: ${({ theme, size }) => theme.spaces[size]};
+  }
+`;
+
+export const Stack = forwardRef(({ horizontal, size, ...props }, ref) => {
+  if (horizontal) {
+    return <StackH ref={ref} size={size} {...props} />;
+  }
+
+  return <StackV ref={ref} size={size} {...props} />;
+});
+
+Stack.displayName = 'Stack';
+
+Stack.defaultProps = {
+  horizontal: false,
+};
+
 Stack.propTypes = {
+  horizontal: PropTypes.bool,
   size: PropTypes.number.isRequired,
 };
