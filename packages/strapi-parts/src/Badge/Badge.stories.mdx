@@ -1,6 +1,7 @@
 <!--- Badge.stories.mdx --->
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
 import { Badge } from './Badge';
 import { Stack } from '../Stack';
 
@@ -15,7 +16,20 @@ This is the doc of the `Badge` component
 
 ## Badge
 
-Description...
+Badges are used to give a quick visual indication to the users.
+
+**Best practices**
+
+- Badge component should be filled only with numbers or a single word.
+- Only use two words if you need to describe something complex.
+- Use them next to a label or a description.
+- Use the active state only with a label.
+- Use Tag component if the information given needs to be related to a performed action.
+
+
+## Usage
+
+Badges are used to give a quick and short scannable information to the users. They are mostly filled with numbers or a single word. 
 
 <Canvas>
   <Story name="base">
@@ -32,3 +46,7 @@ Description...
     </Stack>
   </Story>
 </Canvas>
+
+## Props
+
+<ArgsTable of={Badge} />
