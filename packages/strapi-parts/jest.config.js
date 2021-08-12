@@ -7,4 +7,8 @@ module.exports = {
     '\\.(css|less)$': '<rootDir>/__mocks__/styleMock.js',
     '^@strapi/icons/(.*)': '<rootDir>/../strapi-icons/dist/$1',
   },
+  transform: {
+    '^.+\\.[tj]sx?$': 'babel-jest',
+    '^.+\\.mdx?$': '@storybook/addon-docs/jest-transform-mdx',
+  },
 };

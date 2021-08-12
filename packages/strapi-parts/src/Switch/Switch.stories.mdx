@@ -4,10 +4,7 @@ import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { Switch } from './Switch';
 
-<Meta
-  title="Design System/Molecules/Switch"
-  component={Switch}
-/>
+<Meta title="Design System/Molecules/Switch" component={Switch} />
 
 # Switch
 
@@ -18,17 +15,17 @@ This is the doc of the `Switch` component
 Description...
 
 <Canvas>
-  <Story name="base">
-    {() => {
-      const [checked, setChecked] = useState(false);
-      return (
-        <Switch
-          label="Activate the microphone"
-          selected={checked}
-          onChange={() => setChecked((s) => !s)}
-          visibleLabels
-        />
-      );
-    }}
+  <Story name="activated">
+    <Switch label="Activate the microphone" selected={true} onChange={() => setChecked((s) => !s)} visibleLabels />
+  </Story>
+</Canvas>
+
+## Switch not activated
+
+Description...
+
+<Canvas>
+  <Story name="not-activated">
+    <Switch label="Activate the microphone" selected={false} onChange={() => setChecked((s) => !s)} visibleLabels />
   </Story>
 </Canvas>

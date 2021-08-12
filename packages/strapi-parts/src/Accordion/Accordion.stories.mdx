@@ -143,3 +143,21 @@ Description...
     }}
   </Story>
 </Canvas>
+
+## Accordion expanded
+
+Description...
+
+<Canvas>
+  <Story name="expanded">
+    <Accordion expanded={true} toggle={() => {}} id="acc-1">
+      <AccordionToggle
+        title="User informations"
+        description="The following contains information about the current user"
+      />
+      <AccordionContent>
+        <Box padding={3}>My name is John Duff</Box>
+      </AccordionContent>
+    </Accordion>
+  </Story>
+</Canvas>

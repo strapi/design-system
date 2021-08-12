@@ -7,7 +7,7 @@ const TrWrapper = styled(RawTr)`
 
   & td,
   & th {
-    padding: 0 ${({ theme }) => theme.spaces[4]};
+    padding: ${({ theme }) => theme.spaces[4]};
   }
 
   & td:first-of-type,

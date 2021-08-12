@@ -9,7 +9,7 @@ jest.mock('../../helpers/genId', () => ({
 }));
 
 describe('Tooltip', () => {
-  it('snapshots document.body when the tooltip is not shown (aria-describedby does not exist)', () => {
+  it('snapshots document.body when the tooltip is not visible but exists in the DOM', () => {
     render(
       <ThemeProvider theme={lightTheme}>
         <Tooltip description="Content of the tooltip fefe">

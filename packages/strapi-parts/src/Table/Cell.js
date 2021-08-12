@@ -7,7 +7,6 @@ import { RawTh, RawTd } from '../RawTable/RawCell';
 
 const CellWrapper = styled(RawTd)`
   vertical-align: middle;
-  line-height: ${52 / 16}rem;
   text-align: left;
   color: ${({ theme }) => theme.colors.neutral600};
   outline-offset: -4px;
@@ -31,7 +30,7 @@ export const Th = ({ children, action, ...props }) => {
     <ThWrapper as={RawTh} {...props}>
       <Row>
         {children}
-        {action ? <Box>{action}</Box> : null}
+        {action}
       </Row>
     </ThWrapper>
   );

@@ -5,42 +5,6 @@ import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
 
 describe('Avatar', () => {
-  it('snapshots the component', () => {
-    const { container } = render(
-      <ThemeProvider theme={lightTheme}>
-        <Avatar src="https://avatars.githubusercontent.com/u/3874873?v=4" alt="marvin frachet" />
-      </ThemeProvider>,
-    );
-
-    expect(container.firstChild).toMatchInlineSnapshot(`
-      .c1 {
-        border-radius: 50%;
-        display: block;
-        position: relative;
-      }
-
-      .c0 {
-        position: relative;
-        width: 26px;
-        height: 26px;
-      }
-
-      <span>
-        <div
-          class="c0"
-        >
-          <img
-            alt="marvin frachet"
-            class="c1"
-            height="26px"
-            src="https://avatars.githubusercontent.com/u/3874873?v=4"
-            width="26px"
-          />
-        </div>
-      </span>
-    `);
-  });
-
   it('snapshots the component with preview (boolean)', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
