@@ -3511,6 +3511,2518 @@ exports[`Storyshots Design System/Layouts/HeaderLayouts sticky 1`] = `
 </main>
 `;
 
+exports[`Storyshots Design System/Layouts/Layout sidenav 1`] = `
+.c0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.c2 {
+  background: #f6f6f9;
+}
+
+.c5 {
+  padding-top: 24px;
+  padding-right: 16px;
+  padding-bottom: 8px;
+  padding-left: 24px;
+}
+
+.c10 {
+  padding-top: 16px;
+}
+
+.c11 {
+  background: #eaeaef;
+}
+
+.c14 {
+  padding-top: 8px;
+  padding-bottom: 16px;
+}
+
+.c16 {
+  padding-top: 8px;
+  padding-right: 16px;
+  padding-bottom: 8px;
+  padding-left: 24px;
+}
+
+.c20 {
+  padding-right: 4px;
+}
+
+.c26 {
+  background: #eaeaef;
+  color: #666687;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.c30 {
+  background: #f6f6f9;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 32px;
+}
+
+.c33 {
+  padding-left: 8px;
+}
+
+.c34 {
+  padding-top: 8px;
+  padding-right: 16px;
+  padding-bottom: 8px;
+  padding-left: 32px;
+}
+
+.c39 {
+  padding-bottom: 56px;
+}
+
+.c41 {
+  padding-top: 56px;
+  padding-right: 56px;
+  padding-bottom: 56px;
+  padding-left: 56px;
+}
+
+.c43 {
+  padding-left: 16px;
+}
+
+.c45 {
+  padding-right: 8px;
+}
+
+.c49 {
+  padding-right: 56px;
+  padding-left: 56px;
+}
+
+.c50 {
+  padding-bottom: 16px;
+}
+
+.c53 {
+  box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
+}
+
+.c54 {
+  background: #ffffff;
+}
+
+.c56 {
+  padding-right: 12px;
+  padding-left: 12px;
+}
+
+.c67 {
+  padding-left: 4px;
+}
+
+.c68 {
+  background: #f0f0ff;
+  padding: 20px;
+}
+
+.c70 {
+  background: #d9d8ff;
+}
+
+.c72 {
+  padding-left: 12px;
+}
+
+.c42 {
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 1.25;
+  color: #32324d;
+}
+
+.c7 {
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.22;
+  color: #32324d;
+}
+
+.c22 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #666687;
+}
+
+.c29 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #32324d;
+}
+
+.c38 {
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #32324d;
+}
+
+.c46 {
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #32324d;
+}
+
+.c73 {
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #4945ff;
+}
+
+.c48 {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.c23 {
+  font-weight: 600;
+  line-height: 1.14;
+}
+
+.c24 {
+  font-weight: 600;
+  font-size: 0.6875rem;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c18 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c15 > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.c15 > * + * {
+  margin-top: 8px;
+}
+
+.c66 {
+  border-radius: 50%;
+  display: block;
+  position: relative;
+}
+
+.c65 {
+  position: relative;
+  width: 26px;
+  height: 26px;
+}
+
+.c27 {
+  display: inline-block;
+}
+
+.c8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  background: #ffffff;
+  border: 1px solid #dcdce4;
+}
+
+.c8 svg {
+  height: 12px;
+  width: 12px;
+}
+
+.c8 svg > g,
+.c8 svg path {
+  fill: #ffffff;
+}
+
+.c8[aria-disabled='true'] {
+  pointer-events: none;
+}
+
+.c63 {
+  margin: 0;
+  height: 18px;
+  width: 18px;
+  border-radius: 4px;
+  border: 1px solid #c0c0cf;
+  -webkit-appearance: none;
+  background-color: #ffffff;
+}
+
+.c63:checked {
+  background-color: #4945ff;
+  border: 1px solid #4945ff;
+}
+
+.c63:checked:after {
+  content: '';
+  display: block;
+  position: relative;
+  background: url(test-file-stub) no-repeat no-repeat center center;
+  width: 10px;
+  height: 10px;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.c63:checked:disabled:after {
+  background: url(test-file-stub) no-repeat no-repeat center center;
+}
+
+.c63:disabled {
+  background-color: #dcdce4;
+  border: 1px solid #c0c0cf;
+}
+
+.c63:indeterminate {
+  background-color: #4945ff;
+  border: 1px solid #4945ff;
+}
+
+.c63:indeterminate:after {
+  content: '';
+  display: block;
+  position: relative;
+  color: white;
+  height: 2px;
+  width: 10px;
+  background-color: #ffffff;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.c63:indeterminate:disabled {
+  background-color: #dcdce4;
+  border: 1px solid #c0c0cf;
+}
+
+.c63:indeterminate:disabled:after {
+  background-color: #8e8ea9;
+}
+
+.c44 {
+  padding: 8px 16px;
+  background: #4945ff;
+  border: none;
+  border: 1px solid #dcdce4;
+  background: #ffffff;
+}
+
+.c44 .c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 2px;
+}
+
+.c44 .c21 {
+  color: #ffffff;
+}
+
+.c44[aria-disabled='true'] {
+  border: 1px solid #dcdce4;
+  background: #eaeaef;
+}
+
+.c44[aria-disabled='true'] .c21 {
+  color: #666687;
+}
+
+.c44[aria-disabled='true'] svg > g,
+.c44[aria-disabled='true'] svg path {
+  fill: #666687;
+}
+
+.c44[aria-disabled='true']:active {
+  border: 1px solid #dcdce4;
+  background: #eaeaef;
+}
+
+.c44[aria-disabled='true']:active .c21 {
+  color: #666687;
+}
+
+.c44[aria-disabled='true']:active svg > g,
+.c44[aria-disabled='true']:active svg path {
+  fill: #666687;
+}
+
+.c44:hover {
+  background-color: #f6f6f9;
+}
+
+.c44:active {
+  background-color: #eaeaef;
+}
+
+.c44 .c21 {
+  color: #32324d;
+}
+
+.c44 svg > g,
+.c44 svg path {
+  fill: #32324d;
+}
+
+.c47 {
+  padding: 8px 16px;
+  background: #4945ff;
+  border: none;
+  border: 1px solid #4945ff;
+  background: #4945ff;
+}
+
+.c47 .c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 2px;
+}
+
+.c47 .c21 {
+  color: #ffffff;
+}
+
+.c47[aria-disabled='true'] {
+  border: 1px solid #dcdce4;
+  background: #eaeaef;
+}
+
+.c47[aria-disabled='true'] .c21 {
+  color: #666687;
+}
+
+.c47[aria-disabled='true'] svg > g,
+.c47[aria-disabled='true'] svg path {
+  fill: #666687;
+}
+
+.c47[aria-disabled='true']:active {
+  border: 1px solid #dcdce4;
+  background: #eaeaef;
+}
+
+.c47[aria-disabled='true']:active .c21 {
+  color: #666687;
+}
+
+.c47[aria-disabled='true']:active svg > g,
+.c47[aria-disabled='true']:active svg path {
+  fill: #666687;
+}
+
+.c47:hover {
+  border: 1px solid #7b79ff;
+  background: #7b79ff;
+}
+
+.c47:active {
+  border: 1px solid #4945ff;
+  background: #4945ff;
+}
+
+.c9 svg > g,
+.c9 svg path {
+  fill: #8e8ea9;
+}
+
+.c9:hover svg > g,
+.c9:hover svg path {
+  fill: #666687;
+}
+
+.c9:active svg > g,
+.c9:active svg path {
+  fill: #a5a5ba;
+}
+
+.c9[aria-disabled='true'] {
+  background-color: #eaeaef;
+}
+
+.c9[aria-disabled='true'] svg path {
+  fill: #666687;
+}
+
+.c12 {
+  height: 1px;
+  margin: 0;
+  border: none;
+}
+
+.c4 {
+  width: 14.5rem;
+  background: #f6f6f9;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  border-right: 1px solid #dcdce4;
+  z-index: 1;
+}
+
+.c13 {
+  width: 1.5rem;
+  background-color: #dcdce4;
+}
+
+.c31 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: #32324d;
+}
+
+.c31 svg > * {
+  fill: #666687;
+}
+
+.c31.active {
+  background-color: #f0f0ff;
+  border-right: 2px solid #4945ff;
+}
+
+.c31.active svg > * {
+  fill: #271fe0;
+}
+
+.c31.active .c21 {
+  color: #271fe0;
+  font-weight: 500;
+}
+
+.c31:focus-visible {
+  outline-offset: -2px;
+}
+
+.c32 {
+  width: 0.75rem;
+  height: 0.25rem;
+}
+
+.c32 * {
+  fill: #666687;
+}
+
+.c35 {
+  max-height: 2rem;
+}
+
+.c35 svg {
+  height: 0.25rem;
+}
+
+.c35 svg path {
+  fill: #4a4a6a;
+}
+
+.c36 {
+  border: none;
+  padding: 0;
+  background: transparent;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c37 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 0.75rem;
+  -webkit-transform: rotateX(0deg);
+  -ms-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+}
+
+.c19 {
+  border: none;
+  padding: 0;
+  background: transparent;
+}
+
+.c25 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transform: rotateX(0deg);
+  -ms-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+}
+
+.c17 {
+  max-height: 2rem;
+}
+
+.c17 svg {
+  height: 0.25rem;
+}
+
+.c17 svg path {
+  fill: #8e8ea9;
+}
+
+.c28 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 1.25rem;
+  width: 1rem;
+}
+
+.c3 {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+.c40 {
+  overflow-x: hidden;
+}
+
+.c51 > * + * {
+  margin-left: 8px;
+}
+
+.c52 {
+  margin-left: auto;
+}
+
+.c52 > * + * {
+  margin-left: 8px;
+}
+
+.c58 {
+  width: 100%;
+  white-space: nowrap;
+}
+
+.c55 {
+  position: relative;
+  border-radius: 4px 4px 0 0;
+}
+
+.c55:before {
+  background: linear-gradient(90deg,#000000 0%,rgba(0,0,0,0) 100%);
+  opacity: 0.2;
+  position: absolute;
+  height: 100%;
+  box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
+  width: 8px;
+  left: 0;
+}
+
+.c55:after {
+  background: linear-gradient(270deg,#000000 0%,rgba(0,0,0,0) 100%);
+  opacity: 0.2;
+  position: absolute;
+  height: 100%;
+  box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
+  width: 8px;
+  right: 0;
+  top: 0;
+}
+
+.c57 {
+  overflow-x: auto;
+}
+
+.c64 tr:last-of-type {
+  border-bottom: none;
+}
+
+.c59 {
+  border-bottom: 1px solid #eaeaef;
+}
+
+.c60 {
+  border-bottom: 1px solid #eaeaef;
+}
+
+.c60 td,
+.c60 th {
+  padding: 16px;
+}
+
+.c60 td:first-of-type,
+.c60 th:first-of-type {
+  padding: 0 4px;
+}
+
+.c61 {
+  vertical-align: middle;
+  text-align: left;
+  color: #666687;
+  outline-offset: -4px;
+}
+
+.c61 input {
+  vertical-align: sub;
+}
+
+.c62 svg {
+  height: 0.25rem;
+}
+
+.c71 {
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c71 svg {
+  height: 0.625rem;
+  width: 0.625rem;
+}
+
+.c71 svg path {
+  fill: #4945ff;
+}
+
+.c69 {
+  border-radius: 0 0 4px 4px;
+  display: block;
+  width: 100%;
+  border: none;
+}
+
+<main>
+  <div
+    class="c0"
+  >
+    <h1>
+      Storybook story
+    </h1>
+  </div>
+  <div
+    class="c1 c2"
+  >
+    <div
+      class="c1 c3"
+    >
+      <nav
+        aria-label="Builder sub nav"
+        class="c4"
+      >
+        <div
+          class="c1 c5"
+        >
+          <div
+            class="c6"
+          >
+            <h2
+              class="c7"
+            >
+              Builder
+            </h2>
+            <span>
+              <button
+                aria-disabled="false"
+                aria-labelledby="tooltip-48"
+                class="c8 c9"
+                tabindex="0"
+                type="button"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M23.813 20.163l-5.3-5.367a9.792 9.792 0 001.312-4.867C19.825 4.455 15.375 0 9.913 0 4.45 0 0 4.455 0 9.929c0 5.473 4.45 9.928 9.912 9.928a9.757 9.757 0 005.007-1.4l5.275 5.35a.634.634 0 00.913 0l2.706-2.737a.641.641 0 000-.907zM9.91 3.867c3.338 0 6.05 2.718 6.05 6.061s-2.712 6.061-6.05 6.061c-3.337 0-6.05-2.718-6.05-6.06 0-3.344 2.713-6.062 6.05-6.062z"
+                    fill="#32324D"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </button>
+            </span>
+          </div>
+          <div
+            class="c1 c10"
+          >
+            <hr
+              class="c1 c11 c12 c13"
+            />
+          </div>
+        </div>
+        <div
+          class="c1 c14"
+        >
+          <ul
+            class="c15"
+          >
+            <li>
+              <div
+                class="c1 c16 c17"
+              >
+                <div
+                  class="c6"
+                >
+                  <button
+                    aria-controls="subnav-list-50"
+                    aria-expanded="true"
+                    class="c18 c19"
+                  >
+                    <div
+                      class="c1 c20"
+                    >
+                      <span
+                        class="c21 c22 c23 c24"
+                      >
+                        Collection Type
+                      </span>
+                    </div>
+                    <div
+                      class="c25"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="none"
+                        height="1em"
+                        viewBox="0 0 14 8"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
+                          fill="#32324D"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                  </button>
+                  <div
+                    class="c1 c26 c27 c28"
+                  >
+                    <span
+                      class="c21 c29 c23 c24"
+                    >
+                      4
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <ul
+                id="subnav-list-50"
+              >
+                <li>
+                  <a
+                    class="c1 c30 c31"
+                    href="/address"
+                  >
+                    <div
+                      class="c18"
+                    >
+                      <svg
+                        class="c32"
+                        fill="none"
+                        height="1em"
+                        viewBox="0 0 4 4"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect
+                          fill="#A5A5BA"
+                          height="4"
+                          rx="2"
+                          width="4"
+                        />
+                      </svg>
+                      <div
+                        class="c1 c33"
+                      >
+                        <span
+                          class="c21 c29"
+                        >
+                          Addresses
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="c1 c30 c31"
+                    href="/category"
+                  >
+                    <div
+                      class="c18"
+                    >
+                      <svg
+                        class="c32"
+                        fill="none"
+                        height="1em"
+                        viewBox="0 0 4 4"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect
+                          fill="#A5A5BA"
+                          height="4"
+                          rx="2"
+                          width="4"
+                        />
+                      </svg>
+                      <div
+                        class="c1 c33"
+                      >
+                        <span
+                          class="c21 c29"
+                        >
+                          Categories
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="c1 c30 c31"
+                    href="/city"
+                  >
+                    <div
+                      class="c18"
+                    >
+                      <svg
+                        class="c32"
+                        fill="none"
+                        height="1em"
+                        viewBox="0 0 4 4"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect
+                          fill="#A5A5BA"
+                          height="4"
+                          rx="2"
+                          width="4"
+                        />
+                      </svg>
+                      <div
+                        class="c1 c33"
+                      >
+                        <span
+                          class="c21 c29"
+                        >
+                          Cities
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="c1 c30 c31"
+                    href="/country"
+                  >
+                    <div
+                      class="c18"
+                    >
+                      <svg
+                        class="c32"
+                        fill="none"
+                        height="1em"
+                        viewBox="0 0 4 4"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect
+                          fill="#A5A5BA"
+                          height="4"
+                          rx="2"
+                          width="4"
+                        />
+                      </svg>
+                      <div
+                        class="c1 c33"
+                      >
+                        <span
+                          class="c21 c29"
+                        >
+                          Countries
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div
+                class="c1 c16 c17"
+              >
+                <div
+                  class="c6"
+                >
+                  <button
+                    aria-controls="subnav-list-51"
+                    aria-expanded="true"
+                    class="c18 c19"
+                  >
+                    <div
+                      class="c1 c20"
+                    >
+                      <span
+                        class="c21 c22 c23 c24"
+                      >
+                        Single Type
+                      </span>
+                    </div>
+                    <div
+                      class="c25"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="none"
+                        height="1em"
+                        viewBox="0 0 14 8"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
+                          fill="#32324D"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                  </button>
+                  <div
+                    class="c1 c26 c27 c28"
+                  >
+                    <span
+                      class="c21 c29 c23 c24"
+                    >
+                      4
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <ul
+                id="subnav-list-51"
+              >
+                <li>
+                  <div
+                    class="c1 c34 c35"
+                  >
+                    <div
+                      class="c6"
+                    >
+                      <button
+                        aria-controls="subnav-list-52"
+                        aria-expanded="true"
+                        class="c36"
+                      >
+                        <div
+                          class="c37"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 14 8"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              clip-rule="evenodd"
+                              d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
+                              fill="#32324D"
+                              fill-rule="evenodd"
+                            />
+                          </svg>
+                        </div>
+                        <div
+                          class="c1 c33"
+                        >
+                          <span
+                            class="c21 c38"
+                          >
+                            Default
+                          </span>
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+                  <ul
+                    id="subnav-list-52"
+                  >
+                    <li>
+                      <a
+                        class="c1 c30 c31"
+                        href="/address"
+                      >
+                        <div
+                          class="c18"
+                        >
+                          <svg
+                            class="c32"
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 4 4"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <rect
+                              fill="#A5A5BA"
+                              height="4"
+                              rx="2"
+                              width="4"
+                            />
+                          </svg>
+                          <div
+                            class="c1 c33"
+                          >
+                            <span
+                              class="c21 c29"
+                            >
+                              Addresses
+                            </span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        class="c1 c30 c31"
+                        href="/category"
+                      >
+                        <div
+                          class="c18"
+                        >
+                          <svg
+                            class="c32"
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 4 4"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <rect
+                              fill="#A5A5BA"
+                              height="4"
+                              rx="2"
+                              width="4"
+                            />
+                          </svg>
+                          <div
+                            class="c1 c33"
+                          >
+                            <span
+                              class="c21 c29"
+                            >
+                              Categories
+                            </span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        class="c1 c30 c31"
+                        href="/city"
+                      >
+                        <div
+                          class="c18"
+                        >
+                          <svg
+                            class="c32"
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 4 4"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <rect
+                              fill="#A5A5BA"
+                              height="4"
+                              rx="2"
+                              width="4"
+                            />
+                          </svg>
+                          <div
+                            class="c1 c33"
+                          >
+                            <span
+                              class="c21 c29"
+                            >
+                              Cities
+                            </span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        class="c1 c30 c31"
+                        href="/country"
+                      >
+                        <div
+                          class="c18"
+                        >
+                          <svg
+                            class="c32"
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 4 4"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <rect
+                              fill="#A5A5BA"
+                              height="4"
+                              rx="2"
+                              width="4"
+                            />
+                          </svg>
+                          <div
+                            class="c1 c33"
+                          >
+                            <span
+                              class="c21 c29"
+                            >
+                              Countries
+                            </span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div
+        class="c1 c39 c40"
+      >
+        <div
+          class="c1 c41"
+        >
+          <div
+            class="c6"
+          >
+            <div
+              class="c18"
+            >
+              <h2
+                class="c42"
+              >
+                Other CT
+              </h2>
+              <div
+                class="c1 c43"
+              >
+                <button
+                  aria-disabled="false"
+                  class="c8 c44"
+                  type="button"
+                >
+                  <div
+                    aria-hidden="true"
+                    class="c1 c45"
+                  >
+                    <svg
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M23.604 3.514c.528.528.528 1.36 0 1.887l-2.622 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.118 3.118zM0 24v-4.99l14.2-14.2 4.99 4.99L4.99 24H0z"
+                        fill="#212134"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="c21 c46"
+                  >
+                    Edit
+                  </span>
+                </button>
+              </div>
+            </div>
+            <button
+              aria-disabled="false"
+              class="c8 c47"
+              type="button"
+            >
+              <div
+                aria-hidden="true"
+                class="c1 c45"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M24 13.604a.3.3 0 01-.3.3h-9.795V23.7a.3.3 0 01-.3.3h-3.21a.3.3 0 01-.3-.3v-9.795H.3a.3.3 0 01-.3-.3v-3.21a.3.3 0 01.3-.3h9.795V.3a.3.3 0 01.3-.3h3.21a.3.3 0 01.3.3v9.795H23.7a.3.3 0 01.3.3v3.21z"
+                    fill="#212134"
+                  />
+                </svg>
+              </div>
+              <span
+                class="c21 c46"
+              >
+                Add an entry
+              </span>
+            </button>
+          </div>
+          <p
+            class="c21 c22 c48"
+          >
+            36 entries found
+          </p>
+        </div>
+        <div
+          class="c1 c49"
+        >
+          <div
+            class="c1 c50"
+          >
+            <div
+              class="c6"
+            >
+              <div
+                class="c18 c51"
+              >
+                <button
+                  aria-disabled="false"
+                  class="c8 c44"
+                  type="button"
+                >
+                  <span
+                    class="c21 c46"
+                  >
+                    Search
+                  </span>
+                </button>
+                <button
+                  aria-disabled="false"
+                  class="c8 c44"
+                  type="button"
+                >
+                  <span
+                    class="c21 c46"
+                  >
+                    Filter
+                  </span>
+                </button>
+              </div>
+              <div
+                class="c18 c52"
+              >
+                <button
+                  aria-disabled="false"
+                  class="c8 c44"
+                  type="button"
+                >
+                  <span
+                    class="c21 c46"
+                  >
+                    Settings
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="c1 c49"
+        >
+          <div
+            class="c1 c53"
+          >
+            <div
+              class="c1 c54 c55"
+            >
+              <div
+                class="c1 c56 c57"
+              >
+                <table
+                  aria-colcount="10"
+                  aria-rowcount="6"
+                  class="c58"
+                >
+                  <thead
+                    class="c59"
+                  >
+                    <tr
+                      aria-rowindex="1"
+                      class="c60"
+                    >
+                      <th
+                        aria-colindex="1"
+                        class="c61 c62"
+                      >
+                        <div
+                          class="c18"
+                        >
+                          <input
+                            aria-label="Select all entries"
+                            class="c63"
+                            tabindex="0"
+                            type="checkbox"
+                          />
+                        </div>
+                      </th>
+                      <th
+                        aria-colindex="2"
+                        class="c61 c62"
+                        tabindex="-1"
+                      >
+                        <div
+                          class="c18"
+                        >
+                          <span
+                            class="c21 c29 c23 c24"
+                          >
+                            ID
+                          </span>
+                        </div>
+                      </th>
+                      <th
+                        aria-colindex="3"
+                        class="c61 c62"
+                        tabindex="-1"
+                      >
+                        <div
+                          class="c18"
+                        >
+                          <span
+                            class="c21 c29 c23 c24"
+                          >
+                            Cover
+                          </span>
+                        </div>
+                      </th>
+                      <th
+                        aria-colindex="4"
+                        class="c61 c62"
+                        tabindex="-1"
+                      >
+                        <div
+                          class="c18"
+                        >
+                          <span
+                            class="c21 c29 c23 c24"
+                          >
+                            Description
+                          </span>
+                        </div>
+                      </th>
+                      <th
+                        aria-colindex="5"
+                        class="c61 c62"
+                        tabindex="-1"
+                      >
+                        <div
+                          class="c18"
+                        >
+                          <span
+                            class="c21 c29 c23 c24"
+                          >
+                            Categories
+                          </span>
+                        </div>
+                      </th>
+                      <th
+                        aria-colindex="6"
+                        class="c61 c62"
+                        tabindex="-1"
+                      >
+                        <div
+                          class="c18"
+                        >
+                          <span
+                            class="c21 c29 c23 c24"
+                          >
+                            Contact
+                          </span>
+                        </div>
+                      </th>
+                      <th
+                        aria-colindex="7"
+                        class="c61 c62"
+                        tabindex="-1"
+                      >
+                        <div
+                          class="c18"
+                        >
+                          More
+                        </div>
+                      </th>
+                      <th
+                        aria-colindex="8"
+                        class="c61 c62"
+                        tabindex="-1"
+                      >
+                        <div
+                          class="c18"
+                        >
+                          More
+                        </div>
+                      </th>
+                      <th
+                        aria-colindex="9"
+                        class="c61 c62"
+                        tabindex="-1"
+                      >
+                        <div
+                          class="c18"
+                        >
+                          More
+                        </div>
+                      </th>
+                      <th
+                        aria-colindex="10"
+                        class="c61 c62"
+                        tabindex="-1"
+                      >
+                        <div
+                          class="c18"
+                        >
+                          <div
+                            class="c0"
+                          >
+                            Actions
+                          </div>
+                        </div>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody
+                    class="c64"
+                  >
+                    <tr
+                      aria-rowindex="2"
+                      class="c60"
+                    >
+                      <td
+                        aria-colindex="1"
+                        class="c61"
+                      >
+                        <input
+                          aria-label="Select Leon Lafrite"
+                          class="c63"
+                          tabindex="-1"
+                          type="checkbox"
+                        />
+                      </td>
+                      <td
+                        aria-colindex="2"
+                        class="c61"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="c21 c29"
+                        >
+                          0
+                        </span>
+                      </td>
+                      <td
+                        aria-colindex="3"
+                        class="c61"
+                        tabindex="-1"
+                      >
+                        <span>
+                          <div
+                            class="c65"
+                          >
+                            <img
+                              alt="Leon Lafrite"
+                              class="c66"
+                              height="26px"
+                              src="https://avatars.githubusercontent.com/u/3874873?v=4"
+                              width="26px"
+                            />
+                          </div>
+                        </span>
+                      </td>
+                      <td
+                        aria-colindex="4"
+                        class="c61"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="c21 c29"
+                        >
+                          Chez Léon is a human sized Parisian
+                        </span>
+                      </td>
+                      <td
+                        aria-colindex="5"
+                        class="c61"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="c21 c29"
+                        >
+                          French cuisine
+                        </span>
+                      </td>
+                      <td
+                        aria-colindex="6"
+                        class="c61"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="c21 c29"
+                        >
+                          Leon Lafrite
+                        </span>
+                      </td>
+                      <td
+                        aria-colindex="7"
+                        class="c61"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="c21 c29"
+                        >
+                          Chez Léon is a human sized Parisian
+                        </span>
+                      </td>
+                      <td
+                        aria-colindex="8"
+                        class="c61"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="c21 c29"
+                        >
+                          Chez Léon is a human sized Parisian
+                        </span>
+                      </td>
+                      <td
+                        aria-colindex="9"
+                        class="c61"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="c21 c29"
+                        >
+                          Chez Léon is a human sized Parisian
+                        </span>
+                      </td>
+                      <td
+                        aria-colindex="10"
+                        class="c61"
+                      >
+                        <div
+                          class="c18"
+                        >
+                          <span>
+                            <button
+                              aria-disabled="false"
+                              aria-labelledby="tooltip-53"
+                              class="c8 c9"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              <svg
+                                fill="none"
+                                height="1em"
+                                viewBox="0 0 24 24"
+                                width="1em"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  clip-rule="evenodd"
+                                  d="M23.604 3.514c.528.528.528 1.36 0 1.887l-2.622 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.118 3.118zM0 24v-4.99l14.2-14.2 4.99 4.99L4.99 24H0z"
+                                  fill="#212134"
+                                  fill-rule="evenodd"
+                                />
+                              </svg>
+                            </button>
+                          </span>
+                          <div
+                            class="c1 c67"
+                          >
+                            <span>
+                              <button
+                                aria-disabled="false"
+                                aria-labelledby="tooltip-55"
+                                class="c8 c9"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                <svg
+                                  fill="none"
+                                  height="1em"
+                                  viewBox="0 0 24 24"
+                                  width="1em"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M3.236 6.149a.2.2 0 00-.197.233L6 24h12l2.96-17.618a.2.2 0 00-.196-.233H3.236zM21.8 1.983c.11 0 .2.09.2.2v1.584a.2.2 0 01-.2.2H2.2a.2.2 0 01-.2-.2V2.183c0-.11.09-.2.2-.2h5.511c.9 0 1.631-1.09 1.631-1.983h5.316c0 .894.73 1.983 1.631 1.983H21.8z"
+                                    fill="#32324D"
+                                  />
+                                </svg>
+                              </button>
+                            </span>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr
+                      aria-rowindex="3"
+                      class="c60"
+                    >
+                      <td
+                        aria-colindex="1"
+                        class="c61"
+                      >
+                        <input
+                          aria-label="Select Leon Lafrite"
+                          class="c63"
+                          tabindex="-1"
+                          type="checkbox"
+                        />
+                      </td>
+                      <td
+                        aria-colindex="2"
+                        class="c61"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="c21 c29"
+                        >
+                          1
+                        </span>
+                      </td>
+                      <td
+                        aria-colindex="3"
+                        class="c61"
+                        tabindex="-1"
+                      >
+                        <span>
+                          <div
+                            class="c65"
+                          >
+                            <img
+                              alt="Leon Lafrite"
+                              class="c66"
+                              height="26px"
+                              src="https://avatars.githubusercontent.com/u/3874873?v=4"
+                              width="26px"
+                            />
+                          </div>
+                        </span>
+                      </td>
+                      <td
+                        aria-colindex="4"
+                        class="c61"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="c21 c29"
+                        >
+                          Chez Léon is a human sized Parisian
+                        </span>
+                      </td>
+                      <td
+                        aria-colindex="5"
+                        class="c61"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="c21 c29"
+                        >
+                          French cuisine
+                        </span>
+                      </td>
+                      <td
+                        aria-colindex="6"
+                        class="c61"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="c21 c29"
+                        >
+                          Leon Lafrite
+                        </span>
+                      </td>
+                      <td
+                        aria-colindex="7"
+                        class="c61"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="c21 c29"
+                        >
+                          Chez Léon is a human sized Parisian
+                        </span>
+                      </td>
+                      <td
+                        aria-colindex="8"
+                        class="c61"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="c21 c29"
+                        >
+                          Chez Léon is a human sized Parisian
+                        </span>
+                      </td>
+                      <td
+                        aria-colindex="9"
+                        class="c61"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="c21 c29"
+                        >
+                          Chez Léon is a human sized Parisian
+                        </span>
+                      </td>
+                      <td
+                        aria-colindex="10"
+                        class="c61"
+                      >
+                        <div
+                          class="c18"
+                        >
+                          <span>
+                            <button
+                              aria-disabled="false"
+                              aria-labelledby="tooltip-57"
+                              class="c8 c9"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              <svg
+                                fill="none"
+                                height="1em"
+                                viewBox="0 0 24 24"
+                                width="1em"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  clip-rule="evenodd"
+                                  d="M23.604 3.514c.528.528.528 1.36 0 1.887l-2.622 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.118 3.118zM0 24v-4.99l14.2-14.2 4.99 4.99L4.99 24H0z"
+                                  fill="#212134"
+                                  fill-rule="evenodd"
+                                />
+                              </svg>
+                            </button>
+                          </span>
+                          <div
+                            class="c1 c67"
+                          >
+                            <span>
+                              <button
+                                aria-disabled="false"
+                                aria-labelledby="tooltip-59"
+                                class="c8 c9"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                <svg
+                                  fill="none"
+                                  height="1em"
+                                  viewBox="0 0 24 24"
+                                  width="1em"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M3.236 6.149a.2.2 0 00-.197.233L6 24h12l2.96-17.618a.2.2 0 00-.196-.233H3.236zM21.8 1.983c.11 0 .2.09.2.2v1.584a.2.2 0 01-.2.2H2.2a.2.2 0 01-.2-.2V2.183c0-.11.09-.2.2-.2h5.511c.9 0 1.631-1.09 1.631-1.983h5.316c0 .894.73 1.983 1.631 1.983H21.8z"
+                                    fill="#32324D"
+                                  />
+                                </svg>
+                              </button>
+                            </span>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr
+                      aria-rowindex="4"
+                      class="c60"
+                    >
+                      <td
+                        aria-colindex="1"
+                        class="c61"
+                      >
+                        <input
+                          aria-label="Select Leon Lafrite"
+                          class="c63"
+                          tabindex="-1"
+                          type="checkbox"
+                        />
+                      </td>
+                      <td
+                        aria-colindex="2"
+                        class="c61"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="c21 c29"
+                        >
+                          2
+                        </span>
+                      </td>
+                      <td
+                        aria-colindex="3"
+                        class="c61"
+                        tabindex="-1"
+                      >
+                        <span>
+                          <div
+                            class="c65"
+                          >
+                            <img
+                              alt="Leon Lafrite"
+                              class="c66"
+                              height="26px"
+                              src="https://avatars.githubusercontent.com/u/3874873?v=4"
+                              width="26px"
+                            />
+                          </div>
+                        </span>
+                      </td>
+                      <td
+                        aria-colindex="4"
+                        class="c61"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="c21 c29"
+                        >
+                          Chez Léon is a human sized Parisian
+                        </span>
+                      </td>
+                      <td
+                        aria-colindex="5"
+                        class="c61"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="c21 c29"
+                        >
+                          French cuisine
+                        </span>
+                      </td>
+                      <td
+                        aria-colindex="6"
+                        class="c61"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="c21 c29"
+                        >
+                          Leon Lafrite
+                        </span>
+                      </td>
+                      <td
+                        aria-colindex="7"
+                        class="c61"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="c21 c29"
+                        >
+                          Chez Léon is a human sized Parisian
+                        </span>
+                      </td>
+                      <td
+                        aria-colindex="8"
+                        class="c61"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="c21 c29"
+                        >
+                          Chez Léon is a human sized Parisian
+                        </span>
+                      </td>
+                      <td
+                        aria-colindex="9"
+                        class="c61"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="c21 c29"
+                        >
+                          Chez Léon is a human sized Parisian
+                        </span>
+                      </td>
+                      <td
+                        aria-colindex="10"
+                        class="c61"
+                      >
+                        <div
+                          class="c18"
+                        >
+                          <span>
+                            <button
+                              aria-disabled="false"
+                              aria-labelledby="tooltip-61"
+                              class="c8 c9"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              <svg
+                                fill="none"
+                                height="1em"
+                                viewBox="0 0 24 24"
+                                width="1em"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  clip-rule="evenodd"
+                                  d="M23.604 3.514c.528.528.528 1.36 0 1.887l-2.622 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.118 3.118zM0 24v-4.99l14.2-14.2 4.99 4.99L4.99 24H0z"
+                                  fill="#212134"
+                                  fill-rule="evenodd"
+                                />
+                              </svg>
+                            </button>
+                          </span>
+                          <div
+                            class="c1 c67"
+                          >
+                            <span>
+                              <button
+                                aria-disabled="false"
+                                aria-labelledby="tooltip-63"
+                                class="c8 c9"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                <svg
+                                  fill="none"
+                                  height="1em"
+                                  viewBox="0 0 24 24"
+                                  width="1em"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M3.236 6.149a.2.2 0 00-.197.233L6 24h12l2.96-17.618a.2.2 0 00-.196-.233H3.236zM21.8 1.983c.11 0 .2.09.2.2v1.584a.2.2 0 01-.2.2H2.2a.2.2 0 01-.2-.2V2.183c0-.11.09-.2.2-.2h5.511c.9 0 1.631-1.09 1.631-1.983h5.316c0 .894.73 1.983 1.631 1.983H21.8z"
+                                    fill="#32324D"
+                                  />
+                                </svg>
+                              </button>
+                            </span>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr
+                      aria-rowindex="5"
+                      class="c60"
+                    >
+                      <td
+                        aria-colindex="1"
+                        class="c61"
+                      >
+                        <input
+                          aria-label="Select Leon Lafrite"
+                          class="c63"
+                          tabindex="-1"
+                          type="checkbox"
+                        />
+                      </td>
+                      <td
+                        aria-colindex="2"
+                        class="c61"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="c21 c29"
+                        >
+                          3
+                        </span>
+                      </td>
+                      <td
+                        aria-colindex="3"
+                        class="c61"
+                        tabindex="-1"
+                      >
+                        <span>
+                          <div
+                            class="c65"
+                          >
+                            <img
+                              alt="Leon Lafrite"
+                              class="c66"
+                              height="26px"
+                              src="https://avatars.githubusercontent.com/u/3874873?v=4"
+                              width="26px"
+                            />
+                          </div>
+                        </span>
+                      </td>
+                      <td
+                        aria-colindex="4"
+                        class="c61"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="c21 c29"
+                        >
+                          Chez Léon is a human sized Parisian
+                        </span>
+                      </td>
+                      <td
+                        aria-colindex="5"
+                        class="c61"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="c21 c29"
+                        >
+                          French cuisine
+                        </span>
+                      </td>
+                      <td
+                        aria-colindex="6"
+                        class="c61"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="c21 c29"
+                        >
+                          Leon Lafrite
+                        </span>
+                      </td>
+                      <td
+                        aria-colindex="7"
+                        class="c61"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="c21 c29"
+                        >
+                          Chez Léon is a human sized Parisian
+                        </span>
+                      </td>
+                      <td
+                        aria-colindex="8"
+                        class="c61"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="c21 c29"
+                        >
+                          Chez Léon is a human sized Parisian
+                        </span>
+                      </td>
+                      <td
+                        aria-colindex="9"
+                        class="c61"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="c21 c29"
+                        >
+                          Chez Léon is a human sized Parisian
+                        </span>
+                      </td>
+                      <td
+                        aria-colindex="10"
+                        class="c61"
+                      >
+                        <div
+                          class="c18"
+                        >
+                          <span>
+                            <button
+                              aria-disabled="false"
+                              aria-labelledby="tooltip-65"
+                              class="c8 c9"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              <svg
+                                fill="none"
+                                height="1em"
+                                viewBox="0 0 24 24"
+                                width="1em"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  clip-rule="evenodd"
+                                  d="M23.604 3.514c.528.528.528 1.36 0 1.887l-2.622 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.118 3.118zM0 24v-4.99l14.2-14.2 4.99 4.99L4.99 24H0z"
+                                  fill="#212134"
+                                  fill-rule="evenodd"
+                                />
+                              </svg>
+                            </button>
+                          </span>
+                          <div
+                            class="c1 c67"
+                          >
+                            <span>
+                              <button
+                                aria-disabled="false"
+                                aria-labelledby="tooltip-67"
+                                class="c8 c9"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                <svg
+                                  fill="none"
+                                  height="1em"
+                                  viewBox="0 0 24 24"
+                                  width="1em"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M3.236 6.149a.2.2 0 00-.197.233L6 24h12l2.96-17.618a.2.2 0 00-.196-.233H3.236zM21.8 1.983c.11 0 .2.09.2.2v1.584a.2.2 0 01-.2.2H2.2a.2.2 0 01-.2-.2V2.183c0-.11.09-.2.2-.2h5.511c.9 0 1.631-1.09 1.631-1.983h5.316c0 .894.73 1.983 1.631 1.983H21.8z"
+                                    fill="#32324D"
+                                  />
+                                </svg>
+                              </button>
+                            </span>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr
+                      aria-rowindex="6"
+                      class="c60"
+                    >
+                      <td
+                        aria-colindex="1"
+                        class="c61"
+                      >
+                        <input
+                          aria-label="Select Leon Lafrite"
+                          class="c63"
+                          tabindex="-1"
+                          type="checkbox"
+                        />
+                      </td>
+                      <td
+                        aria-colindex="2"
+                        class="c61"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="c21 c29"
+                        >
+                          4
+                        </span>
+                      </td>
+                      <td
+                        aria-colindex="3"
+                        class="c61"
+                        tabindex="-1"
+                      >
+                        <span>
+                          <div
+                            class="c65"
+                          >
+                            <img
+                              alt="Leon Lafrite"
+                              class="c66"
+                              height="26px"
+                              src="https://avatars.githubusercontent.com/u/3874873?v=4"
+                              width="26px"
+                            />
+                          </div>
+                        </span>
+                      </td>
+                      <td
+                        aria-colindex="4"
+                        class="c61"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="c21 c29"
+                        >
+                          Chez Léon is a human sized Parisian
+                        </span>
+                      </td>
+                      <td
+                        aria-colindex="5"
+                        class="c61"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="c21 c29"
+                        >
+                          French cuisine
+                        </span>
+                      </td>
+                      <td
+                        aria-colindex="6"
+                        class="c61"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="c21 c29"
+                        >
+                          Leon Lafrite
+                        </span>
+                      </td>
+                      <td
+                        aria-colindex="7"
+                        class="c61"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="c21 c29"
+                        >
+                          Chez Léon is a human sized Parisian
+                        </span>
+                      </td>
+                      <td
+                        aria-colindex="8"
+                        class="c61"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="c21 c29"
+                        >
+                          Chez Léon is a human sized Parisian
+                        </span>
+                      </td>
+                      <td
+                        aria-colindex="9"
+                        class="c61"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="c21 c29"
+                        >
+                          Chez Léon is a human sized Parisian
+                        </span>
+                      </td>
+                      <td
+                        aria-colindex="10"
+                        class="c61"
+                      >
+                        <div
+                          class="c18"
+                        >
+                          <span>
+                            <button
+                              aria-disabled="false"
+                              aria-labelledby="tooltip-69"
+                              class="c8 c9"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              <svg
+                                fill="none"
+                                height="1em"
+                                viewBox="0 0 24 24"
+                                width="1em"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  clip-rule="evenodd"
+                                  d="M23.604 3.514c.528.528.528 1.36 0 1.887l-2.622 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.118 3.118zM0 24v-4.99l14.2-14.2 4.99 4.99L4.99 24H0z"
+                                  fill="#212134"
+                                  fill-rule="evenodd"
+                                />
+                              </svg>
+                            </button>
+                          </span>
+                          <div
+                            class="c1 c67"
+                          >
+                            <span>
+                              <button
+                                aria-disabled="false"
+                                aria-labelledby="tooltip-71"
+                                class="c8 c9"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                <svg
+                                  fill="none"
+                                  height="1em"
+                                  viewBox="0 0 24 24"
+                                  width="1em"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M3.236 6.149a.2.2 0 00-.197.233L6 24h12l2.96-17.618a.2.2 0 00-.196-.233H3.236zM21.8 1.983c.11 0 .2.09.2.2v1.584a.2.2 0 01-.2.2H2.2a.2.2 0 01-.2-.2V2.183c0-.11.09-.2.2-.2h5.511c.9 0 1.631-1.09 1.631-1.983h5.316c0 .894.73 1.983 1.631 1.983H21.8z"
+                                    fill="#32324D"
+                                  />
+                                </svg>
+                              </button>
+                            </span>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div>
+              <hr
+                class="c1 c11 c12"
+              />
+              <button
+                class="c1 c68 c69"
+              >
+                <div
+                  class="c18"
+                >
+                  <div
+                    aria-hidden="true"
+                    class="c1 c70 c71"
+                  >
+                    <svg
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M24 13.604a.3.3 0 01-.3.3h-9.795V23.7a.3.3 0 01-.3.3h-3.21a.3.3 0 01-.3-.3v-9.795H.3a.3.3 0 01-.3-.3v-3.21a.3.3 0 01.3-.3h9.795V.3a.3.3 0 01.3-.3h3.21a.3.3 0 01.3.3v9.795H23.7a.3.3 0 01.3.3v3.21z"
+                        fill="#212134"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    class="c1 c72"
+                  >
+                    <span
+                      class="c21 c73"
+                    >
+                      Add another field to this collection type
+                    </span>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+`;
+
 exports[`Storyshots Design System/Layouts/ModalLayout base 1`] = `
 .c0 {
   border: 0;
@@ -9728,6 +12240,230 @@ exports[`Storyshots Design System/Molecules/IconButton group 1`] = `
 </main>
 `;
 
+exports[`Storyshots Design System/Molecules/Link base 1`] = `
+.c0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.c6 {
+  padding-right: 8px;
+}
+
+.c10 {
+  padding-left: 8px;
+}
+
+.c3 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #4945ff;
+}
+
+.c9 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #666687;
+}
+
+.c4 {
+  font-weight: 600;
+  line-height: 1.14;
+}
+
+.c5 {
+  font-weight: 600;
+  font-size: 0.6875rem;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.c1 > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.c1 > * + * {
+  margin-top: 20px;
+}
+
+.c2 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-transform: uppercase;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2 svg path {
+  fill: #4945ff;
+}
+
+.c2 svg {
+  font-size: 0.625rem;
+}
+
+.c8 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-transform: uppercase;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  pointer-events: none;
+}
+
+.c8 svg path {
+  fill: #666687;
+}
+
+.c8 svg {
+  font-size: 0.625rem;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+<main>
+  <div
+    class="c0"
+  >
+    <h1>
+      Storybook story
+    </h1>
+  </div>
+  <div
+    class="c1"
+  >
+    <div>
+      <a
+        class="c2"
+        href="/https://strapi.io/"
+      >
+        <span
+          class="c3 c4 c5"
+        >
+          External link
+        </span>
+      </a>
+    </div>
+    <div>
+      <a
+        class="c2"
+        href="/somewhere-internal"
+      >
+        <span
+          aria-hidden="true"
+          class="c6 c7"
+        >
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M24 13.3a.2.2 0 01-.2.2H5.74l8.239 8.239a.2.2 0 010 .282L12.14 23.86a.2.2 0 01-.282 0L.14 12.14a.2.2 0 010-.282L11.86.14a.2.2 0 01.282 0L13.98 1.98a.2.2 0 010 .282L5.74 10.5H23.8c.11 0 .2.09.2.2v2.6z"
+              fill="#212134"
+            />
+          </svg>
+        </span>
+        <span
+          class="c3 c4 c5"
+        >
+          Internal link
+        </span>
+      </a>
+    </div>
+    <div>
+      <a
+        class="c8"
+        disabled=""
+        href="#"
+      >
+        <span
+          class="c9 c4 c5"
+        >
+          External link
+        </span>
+      </a>
+    </div>
+    <div>
+      <a
+        class="c8"
+        disabled=""
+        href="#"
+      >
+        <span
+          aria-hidden="true"
+          class="c6 c7"
+        >
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M24 13.3a.2.2 0 01-.2.2H5.74l8.239 8.239a.2.2 0 010 .282L12.14 23.86a.2.2 0 01-.282 0L.14 12.14a.2.2 0 010-.282L11.86.14a.2.2 0 01.282 0L13.98 1.98a.2.2 0 010 .282L5.74 10.5H23.8c.11 0 .2.09.2.2v2.6z"
+              fill="#212134"
+            />
+          </svg>
+        </span>
+        <span
+          class="c9 c4 c5"
+        >
+          Internal disabled link
+        </span>
+        <span
+          aria-hidden="true"
+          class="c10 c7"
+        >
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 10.7c0-.11.09-.2.2-.2h18.06l-8.239-8.239a.2.2 0 010-.282L11.86.14a.2.2 0 01.282 0L23.86 11.86a.2.2 0 010 .282L12.14 23.86a.2.2 0 01-.282 0L10.02 22.02a.2.2 0 010-.282L18.26 13.5H.2a.2.2 0 01-.2-.2v-2.6z"
+              fill="#212134"
+            />
+          </svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</main>
+`;
+
 exports[`Storyshots Design System/Molecules/Pagination base 1`] = `
 .c0 {
   border: 0;
@@ -12577,7 +15313,7 @@ exports[`Storyshots Design System/Molecules/Searchbar base 1`] = `
         >
           <label
             class="c2"
-            for="field-51"
+            for="field-77"
           >
             Searching for a plugin
           </label>
@@ -12611,7 +15347,7 @@ exports[`Storyshots Design System/Molecules/Searchbar base 1`] = `
           <input
             aria-invalid="false"
             class="c10"
-            id="field-51"
+            id="field-77"
             name="searchbar"
             placeholder="e.g: strapi-plugin-abcd"
             value=""
@@ -12776,7 +15512,7 @@ exports[`Storyshots Design System/Molecules/Searchbar disabled 1`] = `
       >
         <label
           class="c2"
-          for="field-52"
+          for="field-78"
         >
           Searching for a plugin
         </label>
@@ -12812,7 +15548,7 @@ exports[`Storyshots Design System/Molecules/Searchbar disabled 1`] = `
           aria-invalid="false"
           class="c10"
           disabled=""
-          id="field-52"
+          id="field-78"
           name="searchbar"
           placeholder="e.g: strapi-plugin-abcd"
           value=""
@@ -14059,7 +16795,7 @@ exports[`Storyshots Design System/Molecules/SimpleMenu with-links 1`] = `
   </div>
   <div>
     <button
-      aria-controls="simplemenu-53"
+      aria-controls="simplemenu-79"
       aria-expanded="false"
       aria-haspopup="true"
       class="c1"
@@ -15278,7 +18014,7 @@ exports[`Storyshots Design System/Molecules/TextInput base 1`] = `
           >
             <label
               class="c5"
-              for="textinput-96"
+              for="textinput-135"
             >
               Content
             </label>
@@ -15287,7 +18023,7 @@ exports[`Storyshots Design System/Molecules/TextInput base 1`] = `
             >
               <span>
                 <button
-                  aria-describedby="tooltip-97"
+                  aria-describedby="tooltip-136"
                   aria-label="Information about the email"
                   style="padding: 0px; background: transparent;"
                   tabindex="0"
@@ -15313,10 +18049,10 @@ exports[`Storyshots Design System/Molecules/TextInput base 1`] = `
             class="c7 c8"
           >
             <input
-              aria-describedby="textinput-96-hint"
+              aria-describedby="textinput-135-hint"
               aria-invalid="false"
               class="c9"
-              id="textinput-96"
+              id="textinput-135"
               name="content"
               placeholder="This is a content placeholder"
               value=""
@@ -15324,7 +18060,7 @@ exports[`Storyshots Design System/Molecules/TextInput base 1`] = `
           </div>
           <p
             class="c10"
-            id="textinput-96-hint"
+            id="textinput-135-hint"
           >
             Description line
           </p>
@@ -15494,7 +18230,7 @@ exports[`Storyshots Design System/Molecules/Textarea base 1`] = `
           >
             <label
               class="c5"
-              for="textarea-99"
+              for="textarea-138"
             >
               Content
             </label>
@@ -15503,7 +18239,7 @@ exports[`Storyshots Design System/Molecules/Textarea base 1`] = `
             >
               <span>
                 <button
-                  aria-describedby="tooltip-100"
+                  aria-describedby="tooltip-139"
                   aria-label="Information about the email"
                   style="padding: 0px; background: transparent;"
                   tabindex="0"
@@ -15526,16 +18262,16 @@ exports[`Storyshots Design System/Molecules/Textarea base 1`] = `
             </div>
           </div>
           <textarea
-            aria-describedby="textarea-99-error"
+            aria-describedby="textarea-138-error"
             aria-invalid="true"
             class="c7"
-            id="textarea-99"
+            id="textarea-138"
             name="content"
             placeholder="This is a content placeholder"
           />
           <p
             class="c8"
-            id="textarea-99-error"
+            id="textarea-138-error"
           >
             Content is too short
           </p>
@@ -16254,7 +18990,7 @@ exports[`Storyshots Design System/Molecules/Tooltip base 1`] = `
     </p>
     <span>
       <button
-        aria-describedby="tooltip-102"
+        aria-describedby="tooltip-141"
         tabindex="0"
       >
         Show tooltip
@@ -16290,7 +19026,7 @@ exports[`Storyshots Design System/Molecules/Tooltip description 1`] = `
   </div>
   <span>
     <button
-      aria-describedby="tooltip-114"
+      aria-describedby="tooltip-153"
       tabindex="0"
     >
       This is a label with a description in the tooltip
@@ -16371,7 +19107,7 @@ exports[`Storyshots Design System/Molecules/Tooltip grid 1`] = `
       >
         <span>
           <button
-            aria-describedby="tooltip-106"
+            aria-describedby="tooltip-145"
             tabindex="0"
           >
             First
@@ -16387,7 +19123,7 @@ exports[`Storyshots Design System/Molecules/Tooltip grid 1`] = `
       >
         <span>
           <button
-            aria-describedby="tooltip-108"
+            aria-describedby="tooltip-147"
             tabindex="0"
           >
             Second
@@ -16403,7 +19139,7 @@ exports[`Storyshots Design System/Molecules/Tooltip grid 1`] = `
       >
         <span>
           <button
-            aria-describedby="tooltip-110"
+            aria-describedby="tooltip-149"
             tabindex="0"
           >
             Third
@@ -16419,7 +19155,7 @@ exports[`Storyshots Design System/Molecules/Tooltip grid 1`] = `
       >
         <span>
           <button
-            aria-describedby="tooltip-112"
+            aria-describedby="tooltip-151"
             tabindex="0"
           >
             A longer CTA than the content
@@ -16457,7 +19193,7 @@ exports[`Storyshots Design System/Molecules/Tooltip label 1`] = `
   </div>
   <span>
     <button
-      aria-labelledby="tooltip-116"
+      aria-labelledby="tooltip-155"
       tabindex="0"
     >
       +
@@ -16492,7 +19228,7 @@ exports[`Storyshots Design System/Molecules/Tooltip left-center 1`] = `
   >
     <span>
       <button
-        aria-labelledby="tooltip-126"
+        aria-labelledby="tooltip-165"
         tabindex="0"
       >
         hello
@@ -16528,7 +19264,7 @@ exports[`Storyshots Design System/Molecules/Tooltip right-center 1`] = `
   >
     <span>
       <button
-        aria-labelledby="tooltip-124"
+        aria-labelledby="tooltip-163"
         tabindex="0"
       >
         tooltip
@@ -16582,7 +19318,7 @@ exports[`Storyshots Design System/Molecules/Tooltip top-center 1`] = `
   >
     <span>
       <button
-        aria-labelledby="tooltip-120"
+        aria-labelledby="tooltip-159"
         tabindex="0"
       >
         hello
@@ -16616,7 +19352,7 @@ exports[`Storyshots Design System/Molecules/Tooltip top-left 1`] = `
   <div>
     <span>
       <button
-        aria-labelledby="tooltip-118"
+        aria-labelledby="tooltip-157"
         tabindex="0"
       >
         hello
@@ -16670,7 +19406,7 @@ exports[`Storyshots Design System/Molecules/Tooltip top-right 1`] = `
   >
     <span>
       <button
-        aria-labelledby="tooltip-122"
+        aria-labelledby="tooltip-161"
         tabindex="0"
       >
         tooltip
@@ -16709,7 +19445,7 @@ exports[`Storyshots Design System/Molecules/Tooltip with text inside 1`] = `
     </p>
     <span>
       <span
-        aria-describedby="tooltip-104"
+        aria-describedby="tooltip-143"
         tabindex="0"
       >
         Show tooltip
@@ -17395,6 +20131,1784 @@ exports[`Storyshots Design System/Organisms/MainNav base 1`] = `
 </main>
 `;
 
+exports[`Storyshots Design System/Organisms/SubNav base 1`] = `
+.c0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.c2 {
+  padding: 56px;
+}
+
+.c4 {
+  padding-top: 24px;
+  padding-right: 16px;
+  padding-bottom: 8px;
+  padding-left: 24px;
+}
+
+.c9 {
+  padding-top: 16px;
+}
+
+.c10 {
+  background: #eaeaef;
+}
+
+.c13 {
+  padding-top: 8px;
+  padding-bottom: 16px;
+}
+
+.c15 {
+  padding-top: 8px;
+  padding-right: 16px;
+  padding-bottom: 8px;
+  padding-left: 24px;
+}
+
+.c18 {
+  padding-right: 4px;
+}
+
+.c24 {
+  background: #eaeaef;
+  color: #666687;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.c28 {
+  background: #f6f6f9;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 32px;
+}
+
+.c31 {
+  padding-left: 8px;
+}
+
+.c32 {
+  padding-left: 32px;
+}
+
+.c34 {
+  padding-right: 8px;
+}
+
+.c36 {
+  padding-top: 8px;
+  padding-right: 16px;
+  padding-bottom: 8px;
+  padding-left: 32px;
+}
+
+.c42 {
+  padding-right: 16px;
+}
+
+.c6 {
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.22;
+  color: #32324d;
+}
+
+.c20 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #666687;
+}
+
+.c27 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #32324d;
+}
+
+.c35 {
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #4945ff;
+}
+
+.c40 {
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #32324d;
+}
+
+.c21 {
+  font-weight: 600;
+  line-height: 1.14;
+}
+
+.c22 {
+  font-weight: 600;
+  font-size: 0.6875rem;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c14 > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.c14 > * + * {
+  margin-top: 8px;
+}
+
+.c25 {
+  display: inline-block;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  background: #ffffff;
+  border: 1px solid #dcdce4;
+}
+
+.c7 svg {
+  height: 12px;
+  width: 12px;
+}
+
+.c7 svg > g,
+.c7 svg path {
+  fill: #ffffff;
+}
+
+.c7[aria-disabled='true'] {
+  pointer-events: none;
+}
+
+.c8 svg > g,
+.c8 svg path {
+  fill: #8e8ea9;
+}
+
+.c8:hover svg > g,
+.c8:hover svg path {
+  fill: #666687;
+}
+
+.c8:active svg > g,
+.c8:active svg path {
+  fill: #a5a5ba;
+}
+
+.c8[aria-disabled='true'] {
+  background-color: #eaeaef;
+}
+
+.c8[aria-disabled='true'] svg path {
+  fill: #666687;
+}
+
+.c11 {
+  height: 1px;
+  margin: 0;
+  border: none;
+}
+
+.c3 {
+  width: 14.5rem;
+  background: #f6f6f9;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  border-right: 1px solid #dcdce4;
+  z-index: 1;
+}
+
+.c12 {
+  width: 1.5rem;
+  background-color: #dcdce4;
+}
+
+.c29 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: #32324d;
+}
+
+.c29 svg > * {
+  fill: #666687;
+}
+
+.c29.active {
+  background-color: #f0f0ff;
+  border-right: 2px solid #4945ff;
+}
+
+.c29.active svg > * {
+  fill: #271fe0;
+}
+
+.c29.active .c19 {
+  color: #271fe0;
+  font-weight: 500;
+}
+
+.c29:focus-visible {
+  outline-offset: -2px;
+}
+
+.c30 {
+  width: 0.75rem;
+  height: 0.25rem;
+}
+
+.c30 * {
+  fill: #666687;
+}
+
+.c43 {
+  width: 0.75rem;
+  height: 0.25rem;
+}
+
+.c43 * {
+  fill: #4945ff;
+}
+
+.c41 svg {
+  height: 0.75rem;
+  width: 0.75rem;
+}
+
+.c37 {
+  max-height: 2rem;
+}
+
+.c37 svg {
+  height: 0.25rem;
+}
+
+.c37 svg path {
+  fill: #4a4a6a;
+}
+
+.c38 {
+  border: none;
+  padding: 0;
+  background: transparent;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c39 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 0.75rem;
+  -webkit-transform: rotateX(0deg);
+  -ms-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+}
+
+.c17 {
+  border: none;
+  padding: 0;
+  background: transparent;
+}
+
+.c23 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transform: rotateX(0deg);
+  -ms-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+}
+
+.c16 {
+  max-height: 2rem;
+}
+
+.c16 svg {
+  height: 0.25rem;
+}
+
+.c16 svg path {
+  fill: #8e8ea9;
+}
+
+.c26 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 1.25rem;
+  width: 1rem;
+}
+
+.c33 {
+  background: transparent;
+  border: none;
+}
+
+.c33 svg {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.625rem;
+}
+
+.c33 svg path {
+  fill: #4945ff;
+}
+
+<main>
+  <div
+    class="c0"
+  >
+    <h1>
+      Storybook story
+    </h1>
+  </div>
+  <div
+    class="c1"
+  >
+    <div
+      class="c2"
+      style="height: 100vh;"
+    >
+      <nav
+        aria-label="Builder sub nav"
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <div
+            class="c5"
+          >
+            <h2
+              class="c6"
+            >
+              Builder
+            </h2>
+            <span>
+              <button
+                aria-disabled="false"
+                aria-labelledby="tooltip-81"
+                class="c7 c8"
+                tabindex="0"
+                type="button"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M23.813 20.163l-5.3-5.367a9.792 9.792 0 001.312-4.867C19.825 4.455 15.375 0 9.913 0 4.45 0 0 4.455 0 9.929c0 5.473 4.45 9.928 9.912 9.928a9.757 9.757 0 005.007-1.4l5.275 5.35a.634.634 0 00.913 0l2.706-2.737a.641.641 0 000-.907zM9.91 3.867c3.338 0 6.05 2.718 6.05 6.061s-2.712 6.061-6.05 6.061c-3.337 0-6.05-2.718-6.05-6.06 0-3.344 2.713-6.062 6.05-6.062z"
+                    fill="#32324D"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </button>
+            </span>
+          </div>
+          <div
+            class="c9"
+          >
+            <hr
+              class="c10 c11 c12"
+            />
+          </div>
+        </div>
+        <div
+          class="c13"
+        >
+          <ul
+            class="c14"
+          >
+            <li>
+              <div
+                class="c15 c16"
+              >
+                <div
+                  class="c5"
+                >
+                  <button
+                    aria-controls="subnav-list-83"
+                    aria-expanded="true"
+                    class="c1 c17"
+                  >
+                    <div
+                      class="c18"
+                    >
+                      <span
+                        class="c19 c20 c21 c22"
+                      >
+                        Collection Type
+                      </span>
+                    </div>
+                    <div
+                      class="c23"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="none"
+                        height="1em"
+                        viewBox="0 0 14 8"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
+                          fill="#32324D"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                  </button>
+                  <div
+                    class="c24 c25 c26"
+                  >
+                    <span
+                      class="c19 c27 c21 c22"
+                    >
+                      4
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <ul
+                id="subnav-list-83"
+              >
+                <li>
+                  <a
+                    class="c28 c29"
+                    href="/address"
+                  >
+                    <div
+                      class="c1"
+                    >
+                      <svg
+                        class="c30"
+                        fill="none"
+                        height="1em"
+                        viewBox="0 0 4 4"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect
+                          fill="#A5A5BA"
+                          height="4"
+                          rx="2"
+                          width="4"
+                        />
+                      </svg>
+                      <div
+                        class="c31"
+                      >
+                        <span
+                          class="c19 c27"
+                        >
+                          Addresses
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="c28 c29"
+                    href="/category"
+                  >
+                    <div
+                      class="c1"
+                    >
+                      <svg
+                        class="c30"
+                        fill="none"
+                        height="1em"
+                        viewBox="0 0 4 4"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect
+                          fill="#A5A5BA"
+                          height="4"
+                          rx="2"
+                          width="4"
+                        />
+                      </svg>
+                      <div
+                        class="c31"
+                      >
+                        <span
+                          class="c19 c27"
+                        >
+                          Categories
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="c28 c29"
+                    href="/city"
+                  >
+                    <div
+                      class="c1"
+                    >
+                      <svg
+                        class="c30"
+                        fill="none"
+                        height="1em"
+                        viewBox="0 0 4 4"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect
+                          fill="#A5A5BA"
+                          height="4"
+                          rx="2"
+                          width="4"
+                        />
+                      </svg>
+                      <div
+                        class="c31"
+                      >
+                        <span
+                          class="c19 c27"
+                        >
+                          Cities
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="c28 c29"
+                    href="/country"
+                  >
+                    <div
+                      class="c1"
+                    >
+                      <svg
+                        class="c30"
+                        fill="none"
+                        height="1em"
+                        viewBox="0 0 4 4"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect
+                          fill="#A5A5BA"
+                          height="4"
+                          rx="2"
+                          width="4"
+                        />
+                      </svg>
+                      <div
+                        class="c31"
+                      >
+                        <span
+                          class="c19 c27"
+                        >
+                          Countries
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li
+              class="c32"
+            >
+              <button
+                aria-disabled="false"
+                class="c1 c33"
+              >
+                <span
+                  aria-hidden="true"
+                  class="c34"
+                >
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M24 13.604a.3.3 0 01-.3.3h-9.795V23.7a.3.3 0 01-.3.3h-3.21a.3.3 0 01-.3-.3v-9.795H.3a.3.3 0 01-.3-.3v-3.21a.3.3 0 01.3-.3h9.795V.3a.3.3 0 01.3-.3h3.21a.3.3 0 01.3.3v9.795H23.7a.3.3 0 01.3.3v3.21z"
+                      fill="#212134"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="c19 c35"
+                >
+                  Click on me
+                </span>
+              </button>
+            </li>
+            <li>
+              <div
+                class="c15 c16"
+              >
+                <div
+                  class="c5"
+                >
+                  <button
+                    aria-controls="subnav-list-84"
+                    aria-expanded="true"
+                    class="c1 c17"
+                  >
+                    <div
+                      class="c18"
+                    >
+                      <span
+                        class="c19 c20 c21 c22"
+                      >
+                        Single Type
+                      </span>
+                    </div>
+                    <div
+                      class="c23"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="none"
+                        height="1em"
+                        viewBox="0 0 14 8"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
+                          fill="#32324D"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                  </button>
+                  <div
+                    class="c24 c25 c26"
+                  >
+                    <span
+                      class="c19 c27 c21 c22"
+                    >
+                      4
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <ul
+                id="subnav-list-84"
+              >
+                <li>
+                  <div
+                    class="c36 c37"
+                  >
+                    <div
+                      class="c5"
+                    >
+                      <button
+                        aria-controls="subnav-list-85"
+                        aria-expanded="true"
+                        class="c38"
+                      >
+                        <div
+                          class="c39"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 14 8"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              clip-rule="evenodd"
+                              d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
+                              fill="#32324D"
+                              fill-rule="evenodd"
+                            />
+                          </svg>
+                        </div>
+                        <div
+                          class="c31"
+                        >
+                          <span
+                            class="c19 c40"
+                          >
+                            Default
+                          </span>
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+                  <ul
+                    id="subnav-list-85"
+                  >
+                    <li>
+                      <a
+                        class="c28 c29"
+                        href="/address"
+                      >
+                        <div
+                          class="c1"
+                        >
+                          <svg
+                            class="c30"
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 4 4"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <rect
+                              fill="#A5A5BA"
+                              height="4"
+                              rx="2"
+                              width="4"
+                            />
+                          </svg>
+                          <div
+                            class="c31"
+                          >
+                            <span
+                              class="c19 c27"
+                            >
+                              Addresses
+                            </span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        class="c28 c29"
+                        href="/category"
+                      >
+                        <div
+                          class="c1"
+                        >
+                          <svg
+                            class="c30"
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 4 4"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <rect
+                              fill="#A5A5BA"
+                              height="4"
+                              rx="2"
+                              width="4"
+                            />
+                          </svg>
+                          <div
+                            class="c31"
+                          >
+                            <span
+                              class="c19 c27"
+                            >
+                              Categories
+                            </span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        class="c28 c29"
+                        href="/city"
+                      >
+                        <div
+                          class="c1"
+                        >
+                          <svg
+                            class="c30"
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 4 4"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <rect
+                              fill="#A5A5BA"
+                              height="4"
+                              rx="2"
+                              width="4"
+                            />
+                          </svg>
+                          <div
+                            class="c31"
+                          >
+                            <span
+                              class="c19 c27"
+                            >
+                              Cities
+                            </span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        class="c28 c29"
+                        href="/country"
+                      >
+                        <div
+                          class="c1"
+                        >
+                          <svg
+                            class="c30"
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 4 4"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <rect
+                              fill="#A5A5BA"
+                              height="4"
+                              rx="2"
+                              width="4"
+                            />
+                          </svg>
+                          <div
+                            class="c31"
+                          >
+                            <span
+                              class="c19 c27"
+                            >
+                              Countries
+                            </span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li
+              class="c32"
+            >
+              <button
+                aria-disabled="false"
+                class="c1 c33"
+              >
+                <span
+                  aria-hidden="true"
+                  class="c34"
+                >
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M24 13.604a.3.3 0 01-.3.3h-9.795V23.7a.3.3 0 01-.3.3h-3.21a.3.3 0 01-.3-.3v-9.795H.3a.3.3 0 01-.3-.3v-3.21a.3.3 0 01.3-.3h9.795V.3a.3.3 0 01.3-.3h3.21a.3.3 0 01.3.3v9.795H23.7a.3.3 0 01.3.3v3.21z"
+                      fill="#212134"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="c19 c35"
+                >
+                  Click on me
+                </span>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div
+      class="c2"
+      style="height: 100vh;"
+    >
+      <nav
+        aria-label="Settings sub nav"
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <div
+            class="c5"
+          >
+            <h2
+              class="c6"
+            >
+              Settings
+            </h2>
+          </div>
+          <div
+            class="c9"
+          >
+            <hr
+              class="c10 c11 c12"
+            />
+          </div>
+        </div>
+        <div
+          class="c13"
+        >
+          <ul
+            class="c14"
+          >
+            <li>
+              <a
+                class="c28 c29 active"
+                href="/blabla"
+              >
+                <div
+                  class="c1"
+                >
+                  <div
+                    class="c41"
+                  >
+                    <svg
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M12.025.01a.798.798 0 00-.358.023.899.899 0 00-.19.081l-.032.015-.498.24-.499.24-1.188.571c-.395.19-.791.38-1.187.572-.965.463-1.928.926-2.893 1.392l-1.242.598-1.242.597c-.134.065-.269.128-.404.192-.225.106-.451.212-.673.323a.92.92 0 00-.18.09.782.782 0 00-.298.313.99.99 0 00-.138.503v10.939l-.001.504c-.002.337-.004.675.001 1.01v.022c0 .312.17.692.457.829l.499.24h.001l.497.24 1.187.57.004.002 1.185.57 2.892 1.392 1.241.598h.001l1.242.598c.204.097.406.195.609.293l.608.293a.792.792 0 00.482.14l11.072-5.576-11.063 5.575a.877.877 0 00.46-.133l.507-.24.507-.24 2.424-1.145 1.467-.693 1.465-.692 1.273-.601.008-.005 1.263-.596c.141-.067.283-.133.425-.198.27-.125.54-.25.805-.383l.019-.008c.198-.093.37-.364.425-.573a.993.993 0 00.032-.255V7.3c0-.169 0-.337.002-.505.001-.337.003-.674-.002-1.01v-.005-.02c0-.313-.17-.695-.457-.829l-.043-.02a.924.924 0 00-.077-.037l-.387-.183-.506-.24-2.424-1.145c-.489-.23-.978-.462-1.466-.693-.49-.23-.978-.462-1.466-.692l-1.272-.602-1.272-.6-.294-.14c-.312-.148-.623-.296-.937-.442l-.009-.003-.005-.003a.718.718 0 00-.226-.097 1.033 1.033 0 00-.131-.022zm-.11 2.006l-.368.173c-.135.064-.27.127-.404.192l-1.242.597-1.242.598c-.965.466-1.928.93-2.893 1.392L4.58 5.54l-.462.221.75.362h.003c.413.2.826.398 1.24.597a1588.47 1588.47 0 004.078 1.963h.002v.001l1.188.571.498.24.034.016.359-.166c.142-.066.284-.131.425-.198a2570.715 2570.715 0 014.01-1.896l1.466-.692 1.68-.793-.766-.362-1.272-.601-1.466-.693-1.466-.692-2.424-1.145-.506-.24-.036-.017zm-.93 9.252l-.563-.155c-.771-.212-1.396-.385.563.177V21.542l-.796-.383-1.187-.571a1657.48 1657.48 0 01-4.134-1.99L3.626 18l-.405-.198-.371-.181V7.257l.795.382 1.188.572a1585.297 1585.297 0 014.133 1.99h.001l1.242.598c.136.065.27.131.405.197l.371.182v.09zm1.85 7.54v2.747l1.122-.53.008-.004a2575.359 2575.359 0 002.74-1.295l1.465-.692 2.424-1.145.507-.24.046-.022c0-.14 0-.281.002-.421l.001-.505V7.245l-1.13.534-1.273.602-1.466.692-.002.001-1.464.692-2.424 1.145-.507.24-.045.022-.002.422-.002.504V18.81z"
+                        fill="#212134"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    class="c31"
+                  >
+                    <span
+                      class="c19 c27"
+                    >
+                      Application
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="c1 c42"
+                >
+                  <svg
+                    class="c43"
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 4 4"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect
+                      fill="#A5A5BA"
+                      height="4"
+                      rx="2"
+                      width="4"
+                    />
+                  </svg>
+                </div>
+              </a>
+            </li>
+            <li>
+              <div
+                class="c15 c16"
+              >
+                <div
+                  class="c5"
+                >
+                  <div
+                    class="c1 c17"
+                  >
+                    <div
+                      class="c18"
+                    >
+                      <span
+                        class="c19 c20 c21 c22"
+                      >
+                        Global Settings
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul
+                id="subnav-list-87"
+              >
+                <li>
+                  <a
+                    class="c28 c29"
+                    href="/address"
+                  >
+                    <div
+                      class="c1"
+                    >
+                      <div
+                        class="c41"
+                      >
+                        <svg
+                          fill="none"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12 12-5.383 12-12S18.617 0 12 0zm1.154 18.456h-2.308V16.15h2.308v2.307zm-.23-3.687h-1.847l-.346-9.23h2.538l-.346 9.23z"
+                            fill="#212134"
+                          />
+                        </svg>
+                      </div>
+                      <div
+                        class="c31"
+                      >
+                        <span
+                          class="c19 c27"
+                        >
+                          Addresses
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="c28 c29"
+                    href="/city"
+                  >
+                    <div
+                      class="c1"
+                    >
+                      <div
+                        class="c41"
+                      >
+                        <svg
+                          fill="none"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            clip-rule="evenodd"
+                            d="M12.025.01a.798.798 0 00-.358.023.899.899 0 00-.19.081l-.032.015-.498.24-.499.24-1.188.571c-.395.19-.791.38-1.187.572-.965.463-1.928.926-2.893 1.392l-1.242.598-1.242.597c-.134.065-.269.128-.404.192-.225.106-.451.212-.673.323a.92.92 0 00-.18.09.782.782 0 00-.298.313.99.99 0 00-.138.503v10.939l-.001.504c-.002.337-.004.675.001 1.01v.022c0 .312.17.692.457.829l.499.24h.001l.497.24 1.187.57.004.002 1.185.57 2.892 1.392 1.241.598h.001l1.242.598c.204.097.406.195.609.293l.608.293a.792.792 0 00.482.14l11.072-5.576-11.063 5.575a.877.877 0 00.46-.133l.507-.24.507-.24 2.424-1.145 1.467-.693 1.465-.692 1.273-.601.008-.005 1.263-.596c.141-.067.283-.133.425-.198.27-.125.54-.25.805-.383l.019-.008c.198-.093.37-.364.425-.573a.993.993 0 00.032-.255V7.3c0-.169 0-.337.002-.505.001-.337.003-.674-.002-1.01v-.005-.02c0-.313-.17-.695-.457-.829l-.043-.02a.924.924 0 00-.077-.037l-.387-.183-.506-.24-2.424-1.145c-.489-.23-.978-.462-1.466-.693-.49-.23-.978-.462-1.466-.692l-1.272-.602-1.272-.6-.294-.14c-.312-.148-.623-.296-.937-.442l-.009-.003-.005-.003a.718.718 0 00-.226-.097 1.033 1.033 0 00-.131-.022zm-.11 2.006l-.368.173c-.135.064-.27.127-.404.192l-1.242.597-1.242.598c-.965.466-1.928.93-2.893 1.392L4.58 5.54l-.462.221.75.362h.003c.413.2.826.398 1.24.597a1588.47 1588.47 0 004.078 1.963h.002v.001l1.188.571.498.24.034.016.359-.166c.142-.066.284-.131.425-.198a2570.715 2570.715 0 014.01-1.896l1.466-.692 1.68-.793-.766-.362-1.272-.601-1.466-.693-1.466-.692-2.424-1.145-.506-.24-.036-.017zm-.93 9.252l-.563-.155c-.771-.212-1.396-.385.563.177V21.542l-.796-.383-1.187-.571a1657.48 1657.48 0 01-4.134-1.99L3.626 18l-.405-.198-.371-.181V7.257l.795.382 1.188.572a1585.297 1585.297 0 014.133 1.99h.001l1.242.598c.136.065.27.131.405.197l.371.182v.09zm1.85 7.54v2.747l1.122-.53.008-.004a2575.359 2575.359 0 002.74-1.295l1.465-.692 2.424-1.145.507-.24.046-.022c0-.14 0-.281.002-.421l.001-.505V7.245l-1.13.534-1.273.602-1.466.692-.002.001-1.464.692-2.424 1.145-.507.24-.045.022-.002.422-.002.504V18.81z"
+                            fill="#212134"
+                            fill-rule="evenodd"
+                          />
+                        </svg>
+                      </div>
+                      <div
+                        class="c31"
+                      >
+                        <span
+                          class="c19 c27"
+                        >
+                          Cities
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div
+                class="c15 c16"
+              >
+                <div
+                  class="c5"
+                >
+                  <div
+                    class="c1 c17"
+                  >
+                    <div
+                      class="c18"
+                    >
+                      <span
+                        class="c19 c20 c21 c22"
+                      >
+                        Permissions
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul
+                id="subnav-list-88"
+              >
+                <li>
+                  <a
+                    class="c28 c29"
+                    href="/address"
+                  >
+                    <div
+                      class="c1"
+                    >
+                      <div
+                        class="c41"
+                      >
+                        <svg
+                          fill="none"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12 12-5.383 12-12S18.617 0 12 0zm1.154 18.456h-2.308V16.15h2.308v2.307zm-.23-3.687h-1.847l-.346-9.23h2.538l-.346 9.23z"
+                            fill="#212134"
+                          />
+                        </svg>
+                      </div>
+                      <div
+                        class="c31"
+                      >
+                        <span
+                          class="c19 c27"
+                        >
+                          Addresses
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="c28 c29"
+                    href="/city"
+                  >
+                    <div
+                      class="c1"
+                    >
+                      <div
+                        class="c41"
+                      >
+                        <svg
+                          fill="none"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            clip-rule="evenodd"
+                            d="M12.025.01a.798.798 0 00-.358.023.899.899 0 00-.19.081l-.032.015-.498.24-.499.24-1.188.571c-.395.19-.791.38-1.187.572-.965.463-1.928.926-2.893 1.392l-1.242.598-1.242.597c-.134.065-.269.128-.404.192-.225.106-.451.212-.673.323a.92.92 0 00-.18.09.782.782 0 00-.298.313.99.99 0 00-.138.503v10.939l-.001.504c-.002.337-.004.675.001 1.01v.022c0 .312.17.692.457.829l.499.24h.001l.497.24 1.187.57.004.002 1.185.57 2.892 1.392 1.241.598h.001l1.242.598c.204.097.406.195.609.293l.608.293a.792.792 0 00.482.14l11.072-5.576-11.063 5.575a.877.877 0 00.46-.133l.507-.24.507-.24 2.424-1.145 1.467-.693 1.465-.692 1.273-.601.008-.005 1.263-.596c.141-.067.283-.133.425-.198.27-.125.54-.25.805-.383l.019-.008c.198-.093.37-.364.425-.573a.993.993 0 00.032-.255V7.3c0-.169 0-.337.002-.505.001-.337.003-.674-.002-1.01v-.005-.02c0-.313-.17-.695-.457-.829l-.043-.02a.924.924 0 00-.077-.037l-.387-.183-.506-.24-2.424-1.145c-.489-.23-.978-.462-1.466-.693-.49-.23-.978-.462-1.466-.692l-1.272-.602-1.272-.6-.294-.14c-.312-.148-.623-.296-.937-.442l-.009-.003-.005-.003a.718.718 0 00-.226-.097 1.033 1.033 0 00-.131-.022zm-.11 2.006l-.368.173c-.135.064-.27.127-.404.192l-1.242.597-1.242.598c-.965.466-1.928.93-2.893 1.392L4.58 5.54l-.462.221.75.362h.003c.413.2.826.398 1.24.597a1588.47 1588.47 0 004.078 1.963h.002v.001l1.188.571.498.24.034.016.359-.166c.142-.066.284-.131.425-.198a2570.715 2570.715 0 014.01-1.896l1.466-.692 1.68-.793-.766-.362-1.272-.601-1.466-.693-1.466-.692-2.424-1.145-.506-.24-.036-.017zm-.93 9.252l-.563-.155c-.771-.212-1.396-.385.563.177V21.542l-.796-.383-1.187-.571a1657.48 1657.48 0 01-4.134-1.99L3.626 18l-.405-.198-.371-.181V7.257l.795.382 1.188.572a1585.297 1585.297 0 014.133 1.99h.001l1.242.598c.136.065.27.131.405.197l.371.182v.09zm1.85 7.54v2.747l1.122-.53.008-.004a2575.359 2575.359 0 002.74-1.295l1.465-.692 2.424-1.145.507-.24.046-.022c0-.14 0-.281.002-.421l.001-.505V7.245l-1.13.534-1.273.602-1.466.692-.002.001-1.464.692-2.424 1.145-.507.24-.045.022-.002.422-.002.504V18.81z"
+                            fill="#212134"
+                            fill-rule="evenodd"
+                          />
+                        </svg>
+                      </div>
+                      <div
+                        class="c31"
+                      >
+                        <span
+                          class="c19 c27"
+                        >
+                          Cities
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div
+      class="c2"
+      style="height: 100vh;"
+    >
+      <nav
+        aria-label="Mixed sub nav"
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <div
+            class="c5"
+          >
+            <h2
+              class="c6"
+            >
+              Mixed
+            </h2>
+          </div>
+          <div
+            class="c9"
+          >
+            <hr
+              class="c10 c11 c12"
+            />
+          </div>
+        </div>
+        <div
+          class="c13"
+        >
+          <ul
+            class="c14"
+          >
+            <li>
+              <a
+                class="c28 c29"
+                href="/blabla"
+              >
+                <div
+                  class="c1"
+                >
+                  <div
+                    class="c41"
+                  >
+                    <svg
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M12.025.01a.798.798 0 00-.358.023.899.899 0 00-.19.081l-.032.015-.498.24-.499.24-1.188.571c-.395.19-.791.38-1.187.572-.965.463-1.928.926-2.893 1.392l-1.242.598-1.242.597c-.134.065-.269.128-.404.192-.225.106-.451.212-.673.323a.92.92 0 00-.18.09.782.782 0 00-.298.313.99.99 0 00-.138.503v10.939l-.001.504c-.002.337-.004.675.001 1.01v.022c0 .312.17.692.457.829l.499.24h.001l.497.24 1.187.57.004.002 1.185.57 2.892 1.392 1.241.598h.001l1.242.598c.204.097.406.195.609.293l.608.293a.792.792 0 00.482.14l11.072-5.576-11.063 5.575a.877.877 0 00.46-.133l.507-.24.507-.24 2.424-1.145 1.467-.693 1.465-.692 1.273-.601.008-.005 1.263-.596c.141-.067.283-.133.425-.198.27-.125.54-.25.805-.383l.019-.008c.198-.093.37-.364.425-.573a.993.993 0 00.032-.255V7.3c0-.169 0-.337.002-.505.001-.337.003-.674-.002-1.01v-.005-.02c0-.313-.17-.695-.457-.829l-.043-.02a.924.924 0 00-.077-.037l-.387-.183-.506-.24-2.424-1.145c-.489-.23-.978-.462-1.466-.693-.49-.23-.978-.462-1.466-.692l-1.272-.602-1.272-.6-.294-.14c-.312-.148-.623-.296-.937-.442l-.009-.003-.005-.003a.718.718 0 00-.226-.097 1.033 1.033 0 00-.131-.022zm-.11 2.006l-.368.173c-.135.064-.27.127-.404.192l-1.242.597-1.242.598c-.965.466-1.928.93-2.893 1.392L4.58 5.54l-.462.221.75.362h.003c.413.2.826.398 1.24.597a1588.47 1588.47 0 004.078 1.963h.002v.001l1.188.571.498.24.034.016.359-.166c.142-.066.284-.131.425-.198a2570.715 2570.715 0 014.01-1.896l1.466-.692 1.68-.793-.766-.362-1.272-.601-1.466-.693-1.466-.692-2.424-1.145-.506-.24-.036-.017zm-.93 9.252l-.563-.155c-.771-.212-1.396-.385.563.177V21.542l-.796-.383-1.187-.571a1657.48 1657.48 0 01-4.134-1.99L3.626 18l-.405-.198-.371-.181V7.257l.795.382 1.188.572a1585.297 1585.297 0 014.133 1.99h.001l1.242.598c.136.065.27.131.405.197l.371.182v.09zm1.85 7.54v2.747l1.122-.53.008-.004a2575.359 2575.359 0 002.74-1.295l1.465-.692 2.424-1.145.507-.24.046-.022c0-.14 0-.281.002-.421l.001-.505V7.245l-1.13.534-1.273.602-1.466.692-.002.001-1.464.692-2.424 1.145-.507.24-.045.022-.002.422-.002.504V18.81z"
+                        fill="#212134"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    class="c31"
+                  >
+                    <span
+                      class="c19 c27"
+                    >
+                      Application
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="c1 c42"
+                >
+                  <svg
+                    class="c43"
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 4 4"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect
+                      fill="#A5A5BA"
+                      height="4"
+                      rx="2"
+                      width="4"
+                    />
+                  </svg>
+                </div>
+              </a>
+            </li>
+            <li>
+              <div
+                class="c15 c16"
+              >
+                <div
+                  class="c5"
+                >
+                  <div
+                    class="c1 c17"
+                  >
+                    <div
+                      class="c18"
+                    >
+                      <span
+                        class="c19 c20 c21 c22"
+                      >
+                        Global Settings
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul
+                id="subnav-list-90"
+              >
+                <li>
+                  <div
+                    class="c36 c37"
+                  >
+                    <div
+                      class="c5"
+                    >
+                      <button
+                        aria-controls="subnav-list-91"
+                        aria-expanded="true"
+                        class="c38"
+                      >
+                        <div
+                          class="c39"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 14 8"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              clip-rule="evenodd"
+                              d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
+                              fill="#32324D"
+                              fill-rule="evenodd"
+                            />
+                          </svg>
+                        </div>
+                        <div
+                          class="c31"
+                        >
+                          <span
+                            class="c19 c40"
+                          >
+                            Sub section
+                          </span>
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+                  <ul
+                    id="subnav-list-91"
+                  >
+                    <li>
+                      <a
+                        class="c28 c29"
+                        href="/address"
+                      >
+                        <div
+                          class="c1"
+                        >
+                          <div
+                            class="c41"
+                          >
+                            <svg
+                              fill="none"
+                              height="1em"
+                              viewBox="0 0 24 24"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12 12-5.383 12-12S18.617 0 12 0zm1.154 18.456h-2.308V16.15h2.308v2.307zm-.23-3.687h-1.847l-.346-9.23h2.538l-.346 9.23z"
+                                fill="#212134"
+                              />
+                            </svg>
+                          </div>
+                          <div
+                            class="c31"
+                          >
+                            <span
+                              class="c19 c27"
+                            >
+                              Addresses
+                            </span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        class="c28 c29"
+                        href="/category"
+                      >
+                        <div
+                          class="c1"
+                        >
+                          <svg
+                            class="c30"
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 4 4"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <rect
+                              fill="#A5A5BA"
+                              height="4"
+                              rx="2"
+                              width="4"
+                            />
+                          </svg>
+                          <div
+                            class="c31"
+                          >
+                            <span
+                              class="c19 c27"
+                            >
+                              Categories
+                            </span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        class="c28 c29"
+                        href="/city"
+                      >
+                        <div
+                          class="c1"
+                        >
+                          <div
+                            class="c41"
+                          >
+                            <svg
+                              fill="none"
+                              height="1em"
+                              viewBox="0 0 24 24"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                clip-rule="evenodd"
+                                d="M12.025.01a.798.798 0 00-.358.023.899.899 0 00-.19.081l-.032.015-.498.24-.499.24-1.188.571c-.395.19-.791.38-1.187.572-.965.463-1.928.926-2.893 1.392l-1.242.598-1.242.597c-.134.065-.269.128-.404.192-.225.106-.451.212-.673.323a.92.92 0 00-.18.09.782.782 0 00-.298.313.99.99 0 00-.138.503v10.939l-.001.504c-.002.337-.004.675.001 1.01v.022c0 .312.17.692.457.829l.499.24h.001l.497.24 1.187.57.004.002 1.185.57 2.892 1.392 1.241.598h.001l1.242.598c.204.097.406.195.609.293l.608.293a.792.792 0 00.482.14l11.072-5.576-11.063 5.575a.877.877 0 00.46-.133l.507-.24.507-.24 2.424-1.145 1.467-.693 1.465-.692 1.273-.601.008-.005 1.263-.596c.141-.067.283-.133.425-.198.27-.125.54-.25.805-.383l.019-.008c.198-.093.37-.364.425-.573a.993.993 0 00.032-.255V7.3c0-.169 0-.337.002-.505.001-.337.003-.674-.002-1.01v-.005-.02c0-.313-.17-.695-.457-.829l-.043-.02a.924.924 0 00-.077-.037l-.387-.183-.506-.24-2.424-1.145c-.489-.23-.978-.462-1.466-.693-.49-.23-.978-.462-1.466-.692l-1.272-.602-1.272-.6-.294-.14c-.312-.148-.623-.296-.937-.442l-.009-.003-.005-.003a.718.718 0 00-.226-.097 1.033 1.033 0 00-.131-.022zm-.11 2.006l-.368.173c-.135.064-.27.127-.404.192l-1.242.597-1.242.598c-.965.466-1.928.93-2.893 1.392L4.58 5.54l-.462.221.75.362h.003c.413.2.826.398 1.24.597a1588.47 1588.47 0 004.078 1.963h.002v.001l1.188.571.498.24.034.016.359-.166c.142-.066.284-.131.425-.198a2570.715 2570.715 0 014.01-1.896l1.466-.692 1.68-.793-.766-.362-1.272-.601-1.466-.693-1.466-.692-2.424-1.145-.506-.24-.036-.017zm-.93 9.252l-.563-.155c-.771-.212-1.396-.385.563.177V21.542l-.796-.383-1.187-.571a1657.48 1657.48 0 01-4.134-1.99L3.626 18l-.405-.198-.371-.181V7.257l.795.382 1.188.572a1585.297 1585.297 0 014.133 1.99h.001l1.242.598c.136.065.27.131.405.197l.371.182v.09zm1.85 7.54v2.747l1.122-.53.008-.004a2575.359 2575.359 0 002.74-1.295l1.465-.692 2.424-1.145.507-.24.046-.022c0-.14 0-.281.002-.421l.001-.505V7.245l-1.13.534-1.273.602-1.466.692-.002.001-1.464.692-2.424 1.145-.507.24-.045.022-.002.422-.002.504V18.81z"
+                                fill="#212134"
+                                fill-rule="evenodd"
+                              />
+                            </svg>
+                          </div>
+                          <div
+                            class="c31"
+                          >
+                            <span
+                              class="c19 c27"
+                            >
+                              Cities
+                            </span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        class="c28 c29"
+                        href="/country"
+                      >
+                        <div
+                          class="c1"
+                        >
+                          <svg
+                            class="c30"
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 4 4"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <rect
+                              fill="#A5A5BA"
+                              height="4"
+                              rx="2"
+                              width="4"
+                            />
+                          </svg>
+                          <div
+                            class="c31"
+                          >
+                            <span
+                              class="c19 c27"
+                            >
+                              Countries
+                            </span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div
+                class="c15 c16"
+              >
+                <div
+                  class="c5"
+                >
+                  <div
+                    class="c1 c17"
+                  >
+                    <div
+                      class="c18"
+                    >
+                      <span
+                        class="c19 c20 c21 c22"
+                      >
+                        Permissions
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul
+                id="subnav-list-92"
+              >
+                <li>
+                  <a
+                    class="c28 c29"
+                    href="/address"
+                  >
+                    <div
+                      class="c1"
+                    >
+                      <div
+                        class="c41"
+                      >
+                        <svg
+                          fill="none"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12 12-5.383 12-12S18.617 0 12 0zm1.154 18.456h-2.308V16.15h2.308v2.307zm-.23-3.687h-1.847l-.346-9.23h2.538l-.346 9.23z"
+                            fill="#212134"
+                          />
+                        </svg>
+                      </div>
+                      <div
+                        class="c31"
+                      >
+                        <span
+                          class="c19 c27"
+                        >
+                          Addresses
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="c28 c29"
+                    href="/category"
+                  >
+                    <div
+                      class="c1"
+                    >
+                      <svg
+                        class="c30"
+                        fill="none"
+                        height="1em"
+                        viewBox="0 0 4 4"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect
+                          fill="#A5A5BA"
+                          height="4"
+                          rx="2"
+                          width="4"
+                        />
+                      </svg>
+                      <div
+                        class="c31"
+                      >
+                        <span
+                          class="c19 c27"
+                        >
+                          Categories
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="c28 c29"
+                    href="/city"
+                  >
+                    <div
+                      class="c1"
+                    >
+                      <div
+                        class="c41"
+                      >
+                        <svg
+                          fill="none"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            clip-rule="evenodd"
+                            d="M12.025.01a.798.798 0 00-.358.023.899.899 0 00-.19.081l-.032.015-.498.24-.499.24-1.188.571c-.395.19-.791.38-1.187.572-.965.463-1.928.926-2.893 1.392l-1.242.598-1.242.597c-.134.065-.269.128-.404.192-.225.106-.451.212-.673.323a.92.92 0 00-.18.09.782.782 0 00-.298.313.99.99 0 00-.138.503v10.939l-.001.504c-.002.337-.004.675.001 1.01v.022c0 .312.17.692.457.829l.499.24h.001l.497.24 1.187.57.004.002 1.185.57 2.892 1.392 1.241.598h.001l1.242.598c.204.097.406.195.609.293l.608.293a.792.792 0 00.482.14l11.072-5.576-11.063 5.575a.877.877 0 00.46-.133l.507-.24.507-.24 2.424-1.145 1.467-.693 1.465-.692 1.273-.601.008-.005 1.263-.596c.141-.067.283-.133.425-.198.27-.125.54-.25.805-.383l.019-.008c.198-.093.37-.364.425-.573a.993.993 0 00.032-.255V7.3c0-.169 0-.337.002-.505.001-.337.003-.674-.002-1.01v-.005-.02c0-.313-.17-.695-.457-.829l-.043-.02a.924.924 0 00-.077-.037l-.387-.183-.506-.24-2.424-1.145c-.489-.23-.978-.462-1.466-.693-.49-.23-.978-.462-1.466-.692l-1.272-.602-1.272-.6-.294-.14c-.312-.148-.623-.296-.937-.442l-.009-.003-.005-.003a.718.718 0 00-.226-.097 1.033 1.033 0 00-.131-.022zm-.11 2.006l-.368.173c-.135.064-.27.127-.404.192l-1.242.597-1.242.598c-.965.466-1.928.93-2.893 1.392L4.58 5.54l-.462.221.75.362h.003c.413.2.826.398 1.24.597a1588.47 1588.47 0 004.078 1.963h.002v.001l1.188.571.498.24.034.016.359-.166c.142-.066.284-.131.425-.198a2570.715 2570.715 0 014.01-1.896l1.466-.692 1.68-.793-.766-.362-1.272-.601-1.466-.693-1.466-.692-2.424-1.145-.506-.24-.036-.017zm-.93 9.252l-.563-.155c-.771-.212-1.396-.385.563.177V21.542l-.796-.383-1.187-.571a1657.48 1657.48 0 01-4.134-1.99L3.626 18l-.405-.198-.371-.181V7.257l.795.382 1.188.572a1585.297 1585.297 0 014.133 1.99h.001l1.242.598c.136.065.27.131.405.197l.371.182v.09zm1.85 7.54v2.747l1.122-.53.008-.004a2575.359 2575.359 0 002.74-1.295l1.465-.692 2.424-1.145.507-.24.046-.022c0-.14 0-.281.002-.421l.001-.505V7.245l-1.13.534-1.273.602-1.466.692-.002.001-1.464.692-2.424 1.145-.507.24-.045.022-.002.422-.002.504V18.81z"
+                            fill="#212134"
+                            fill-rule="evenodd"
+                          />
+                        </svg>
+                      </div>
+                      <div
+                        class="c31"
+                      >
+                        <span
+                          class="c19 c27"
+                        >
+                          Cities
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="c28 c29"
+                    href="/country"
+                  >
+                    <div
+                      class="c1"
+                    >
+                      <svg
+                        class="c30"
+                        fill="none"
+                        height="1em"
+                        viewBox="0 0 4 4"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect
+                          fill="#A5A5BA"
+                          height="4"
+                          rx="2"
+                          width="4"
+                        />
+                      </svg>
+                      <div
+                        class="c31"
+                      >
+                        <span
+                          class="c19 c27"
+                        >
+                          Countries
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+</main>
+`;
+
 exports[`Storyshots Design System/Organisms/Table base 1`] = `
 .c0 {
   border: 0;
@@ -17660,12 +22174,12 @@ exports[`Storyshots Design System/Organisms/Table base 1`] = `
   overflow-x: auto;
 }
 
-.c8 {
-  border-bottom: 1px solid #eaeaef;
-}
-
 .c17 tr:last-of-type {
   border-bottom: none;
+}
+
+.c8 {
+  border-bottom: 1px solid #eaeaef;
 }
 
 .c9 {
@@ -17961,7 +22475,7 @@ exports[`Storyshots Design System/Organisms/Table base 1`] = `
                     <span>
                       <button
                         aria-disabled="false"
-                        aria-labelledby="tooltip-54"
+                        aria-labelledby="tooltip-93"
                         class="c20 c21"
                         tabindex="-1"
                         type="button"
@@ -17988,7 +22502,7 @@ exports[`Storyshots Design System/Organisms/Table base 1`] = `
                       <span>
                         <button
                           aria-disabled="false"
-                          aria-labelledby="tooltip-56"
+                          aria-labelledby="tooltip-95"
                           class="c20 c21"
                           tabindex="-1"
                           type="button"
@@ -18099,7 +22613,7 @@ exports[`Storyshots Design System/Organisms/Table base 1`] = `
                     <span>
                       <button
                         aria-disabled="false"
-                        aria-labelledby="tooltip-58"
+                        aria-labelledby="tooltip-97"
                         class="c20 c21"
                         tabindex="-1"
                         type="button"
@@ -18126,7 +22640,7 @@ exports[`Storyshots Design System/Organisms/Table base 1`] = `
                       <span>
                         <button
                           aria-disabled="false"
-                          aria-labelledby="tooltip-60"
+                          aria-labelledby="tooltip-99"
                           class="c20 c21"
                           tabindex="-1"
                           type="button"
@@ -18237,7 +22751,7 @@ exports[`Storyshots Design System/Organisms/Table base 1`] = `
                     <span>
                       <button
                         aria-disabled="false"
-                        aria-labelledby="tooltip-62"
+                        aria-labelledby="tooltip-101"
                         class="c20 c21"
                         tabindex="-1"
                         type="button"
@@ -18264,7 +22778,7 @@ exports[`Storyshots Design System/Organisms/Table base 1`] = `
                       <span>
                         <button
                           aria-disabled="false"
-                          aria-labelledby="tooltip-64"
+                          aria-labelledby="tooltip-103"
                           class="c20 c21"
                           tabindex="-1"
                           type="button"
@@ -18375,7 +22889,7 @@ exports[`Storyshots Design System/Organisms/Table base 1`] = `
                     <span>
                       <button
                         aria-disabled="false"
-                        aria-labelledby="tooltip-66"
+                        aria-labelledby="tooltip-105"
                         class="c20 c21"
                         tabindex="-1"
                         type="button"
@@ -18402,7 +22916,7 @@ exports[`Storyshots Design System/Organisms/Table base 1`] = `
                       <span>
                         <button
                           aria-disabled="false"
-                          aria-labelledby="tooltip-68"
+                          aria-labelledby="tooltip-107"
                           class="c20 c21"
                           tabindex="-1"
                           type="button"
@@ -18513,7 +23027,7 @@ exports[`Storyshots Design System/Organisms/Table base 1`] = `
                     <span>
                       <button
                         aria-disabled="false"
-                        aria-labelledby="tooltip-70"
+                        aria-labelledby="tooltip-109"
                         class="c20 c21"
                         tabindex="-1"
                         type="button"
@@ -18540,7 +23054,7 @@ exports[`Storyshots Design System/Organisms/Table base 1`] = `
                       <span>
                         <button
                           aria-disabled="false"
-                          aria-labelledby="tooltip-72"
+                          aria-labelledby="tooltip-111"
                           class="c20 c21"
                           tabindex="-1"
                           type="button"
@@ -18876,12 +23390,12 @@ exports[`Storyshots Design System/Organisms/Table withActions 1`] = `
   overflow-x: auto;
 }
 
-.c8 {
-  border-bottom: 1px solid #eaeaef;
-}
-
 .c19 tr:last-of-type {
   border-bottom: none;
+}
+
+.c8 {
+  border-bottom: 1px solid #eaeaef;
 }
 
 .c9 {
@@ -19009,7 +23523,7 @@ exports[`Storyshots Design System/Organisms/Table withActions 1`] = `
                     <span>
                       <button
                         aria-disabled="false"
-                        aria-labelledby="tooltip-74"
+                        aria-labelledby="tooltip-113"
                         class="c17 c18"
                         tabindex="-1"
                         type="button"
@@ -19200,7 +23714,7 @@ exports[`Storyshots Design System/Organisms/Table withActions 1`] = `
                     <span>
                       <button
                         aria-disabled="false"
-                        aria-labelledby="tooltip-76"
+                        aria-labelledby="tooltip-115"
                         class="c17 c18"
                         tabindex="-1"
                         type="button"
@@ -19227,7 +23741,7 @@ exports[`Storyshots Design System/Organisms/Table withActions 1`] = `
                       <span>
                         <button
                           aria-disabled="false"
-                          aria-labelledby="tooltip-78"
+                          aria-labelledby="tooltip-117"
                           class="c17 c18"
                           tabindex="-1"
                           type="button"
@@ -19338,7 +23852,7 @@ exports[`Storyshots Design System/Organisms/Table withActions 1`] = `
                     <span>
                       <button
                         aria-disabled="false"
-                        aria-labelledby="tooltip-80"
+                        aria-labelledby="tooltip-119"
                         class="c17 c18"
                         tabindex="-1"
                         type="button"
@@ -19365,7 +23879,7 @@ exports[`Storyshots Design System/Organisms/Table withActions 1`] = `
                       <span>
                         <button
                           aria-disabled="false"
-                          aria-labelledby="tooltip-82"
+                          aria-labelledby="tooltip-121"
                           class="c17 c18"
                           tabindex="-1"
                           type="button"
@@ -19476,7 +23990,7 @@ exports[`Storyshots Design System/Organisms/Table withActions 1`] = `
                     <span>
                       <button
                         aria-disabled="false"
-                        aria-labelledby="tooltip-84"
+                        aria-labelledby="tooltip-123"
                         class="c17 c18"
                         tabindex="-1"
                         type="button"
@@ -19503,7 +24017,7 @@ exports[`Storyshots Design System/Organisms/Table withActions 1`] = `
                       <span>
                         <button
                           aria-disabled="false"
-                          aria-labelledby="tooltip-86"
+                          aria-labelledby="tooltip-125"
                           class="c17 c18"
                           tabindex="-1"
                           type="button"
@@ -19614,7 +24128,7 @@ exports[`Storyshots Design System/Organisms/Table withActions 1`] = `
                     <span>
                       <button
                         aria-disabled="false"
-                        aria-labelledby="tooltip-88"
+                        aria-labelledby="tooltip-127"
                         class="c17 c18"
                         tabindex="-1"
                         type="button"
@@ -19641,7 +24155,7 @@ exports[`Storyshots Design System/Organisms/Table withActions 1`] = `
                       <span>
                         <button
                           aria-disabled="false"
-                          aria-labelledby="tooltip-90"
+                          aria-labelledby="tooltip-129"
                           class="c17 c18"
                           tabindex="-1"
                           type="button"
@@ -19752,7 +24266,7 @@ exports[`Storyshots Design System/Organisms/Table withActions 1`] = `
                     <span>
                       <button
                         aria-disabled="false"
-                        aria-labelledby="tooltip-92"
+                        aria-labelledby="tooltip-131"
                         class="c17 c18"
                         tabindex="-1"
                         type="button"
@@ -19779,7 +24293,7 @@ exports[`Storyshots Design System/Organisms/Table withActions 1`] = `
                       <span>
                         <button
                           aria-disabled="false"
-                          aria-labelledby="tooltip-94"
+                          aria-labelledby="tooltip-133"
                           class="c17 c18"
                           tabindex="-1"
                           type="button"
