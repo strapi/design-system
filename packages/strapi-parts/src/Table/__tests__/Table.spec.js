@@ -111,20 +111,20 @@ describe('Table', () => {
         padding-left: 12px;
       }
 
-      .c21 {
+      .c22 {
         background: #eaeaef;
       }
 
-      .c23 {
+      .c24 {
         background: #f0f0ff;
         padding: 20px;
       }
 
-      .c25 {
+      .c26 {
         background: #d9d8ff;
       }
 
-      .c27 {
+      .c28 {
         padding-left: 12px;
       }
 
@@ -163,7 +163,7 @@ describe('Table', () => {
         overflow-x: auto;
       }
 
-      .c14 {
+      .c15 {
         border: 0;
         -webkit-clip: rect(0 0 0 0);
         clip: rect(0 0 0 0);
@@ -175,7 +175,7 @@ describe('Table', () => {
         width: 1px;
       }
 
-      .c10 {
+      .c11 {
         margin: 0;
         height: 18px;
         width: 18px;
@@ -185,12 +185,12 @@ describe('Table', () => {
         background-color: #ffffff;
       }
 
-      .c10:checked {
+      .c11:checked {
         background-color: #4945ff;
         border: 1px solid #4945ff;
       }
 
-      .c10:checked:after {
+      .c11:checked:after {
         content: '';
         display: block;
         position: relative;
@@ -204,21 +204,21 @@ describe('Table', () => {
         transform: translateX(-50%) translateY(-50%);
       }
 
-      .c10:checked:disabled:after {
+      .c11:checked:disabled:after {
         background: url(test-file-stub) no-repeat no-repeat center center;
       }
 
-      .c10:disabled {
+      .c11:disabled {
         background-color: #dcdce4;
         border: 1px solid #c0c0cf;
       }
 
-      .c10:indeterminate {
+      .c11:indeterminate {
         background-color: #4945ff;
         border: 1px solid #4945ff;
       }
 
-      .c10:indeterminate:after {
+      .c11:indeterminate:after {
         content: '';
         display: block;
         position: relative;
@@ -233,12 +233,12 @@ describe('Table', () => {
         transform: translateX(-50%) translateY(-50%);
       }
 
-      .c10:indeterminate:disabled {
+      .c11:indeterminate:disabled {
         background-color: #dcdce4;
         border: 1px solid #c0c0cf;
       }
 
-      .c10:indeterminate:disabled:after {
+      .c11:indeterminate:disabled:after {
         background-color: #8e8ea9;
       }
 
@@ -246,7 +246,7 @@ describe('Table', () => {
         border-bottom: 1px solid #eaeaef;
       }
 
-      .c15 tr:last-of-type {
+      .c16 tr:last-of-type {
         border-bottom: none;
       }
 
@@ -264,7 +264,7 @@ describe('Table', () => {
         padding: 0 4px;
       }
 
-      .c9 {
+      .c10 {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -286,54 +286,54 @@ describe('Table', () => {
         outline-offset: -4px;
       }
 
-      .c8 svg {
-        height: 0.25rem;
-      }
-
       .c8 input {
         vertical-align: sub;
       }
 
-      .c22 {
+      .c9 svg {
+        height: 0.25rem;
+      }
+
+      .c23 {
         height: 1px;
         margin: 0;
         border: none;
       }
 
-      .c11 {
+      .c12 {
         font-weight: 400;
         font-size: 0.875rem;
         line-height: 1.43;
         color: #32324d;
       }
 
-      .c16 {
+      .c17 {
         font-weight: 400;
         font-size: 0.875rem;
         line-height: 1.43;
         color: #666687;
       }
 
-      .c28 {
+      .c29 {
         font-weight: 500;
         font-size: 0.75rem;
         line-height: 1.33;
         color: #4945ff;
       }
 
-      .c12 {
+      .c13 {
         font-weight: 600;
         line-height: 1.14;
       }
 
-      .c13 {
+      .c14 {
         font-weight: 600;
         font-size: 0.6875rem;
         line-height: 1.45;
         text-transform: uppercase;
       }
 
-      .c26 {
+      .c27 {
         height: 1.5rem;
         width: 1.5rem;
         border-radius: 50%;
@@ -351,35 +351,35 @@ describe('Table', () => {
         align-items: center;
       }
 
-      .c26 svg {
+      .c27 svg {
         height: 0.625rem;
         width: 0.625rem;
       }
 
-      .c26 svg path {
+      .c27 svg path {
         fill: #4945ff;
       }
 
-      .c24 {
+      .c25 {
         border-radius: 0 0 4px 4px;
         display: block;
         width: 100%;
         border: none;
       }
 
-      .c18 {
+      .c19 {
         border-radius: 50%;
         display: block;
         position: relative;
       }
 
-      .c17 {
+      .c18 {
         position: relative;
         width: 26px;
         height: 26px;
       }
 
-      .c19 {
+      .c20 {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -391,44 +391,44 @@ describe('Table', () => {
         border: 1px solid #dcdce4;
       }
 
-      .c19 svg {
+      .c20 svg {
         height: 12px;
         width: 12px;
       }
 
-      .c19 svg > g,
-      .c19 svg path {
+      .c20 svg > g,
+      .c20 svg path {
         fill: #ffffff;
       }
 
-      .c19[aria-disabled='true'] {
+      .c20[aria-disabled='true'] {
         pointer-events: none;
       }
 
-      .c20 {
+      .c21 {
         border: none;
       }
 
-      .c20 svg > g,
-      .c20 svg path {
+      .c21 svg > g,
+      .c21 svg path {
         fill: #8e8ea9;
       }
 
-      .c20:hover svg > g,
-      .c20:hover svg path {
+      .c21:hover svg > g,
+      .c21:hover svg path {
         fill: #666687;
       }
 
-      .c20:active svg > g,
-      .c20:active svg path {
+      .c21:active svg > g,
+      .c21:active svg path {
         fill: #a5a5ba;
       }
 
-      .c20[aria-disabled='true'] {
+      .c21[aria-disabled='true'] {
         background-color: #eaeaef;
       }
 
-      .c20[aria-disabled='true'] svg path {
+      .c21[aria-disabled='true'] svg path {
         fill: #666687;
       }
 
@@ -455,14 +455,14 @@ describe('Table', () => {
                 >
                   <th
                     aria-colindex="1"
-                    class="c8"
+                    class="c8 c9"
                   >
                     <div
-                      class="c9"
+                      class="c10"
                     >
                       <input
                         aria-label="Select all entries"
-                        class="c10"
+                        class="c11"
                         tabindex="0"
                         type="checkbox"
                       />
@@ -477,14 +477,14 @@ describe('Table', () => {
                   </th>
                   <th
                     aria-colindex="2"
-                    class="c8"
+                    class="c8 c9"
                     tabindex="-1"
                   >
                     <div
-                      class="c9"
+                      class="c10"
                     >
                       <span
-                        class="c11 c12 c13"
+                        class="c12 c13 c14"
                       >
                         ID
                       </span>
@@ -492,14 +492,14 @@ describe('Table', () => {
                   </th>
                   <th
                     aria-colindex="3"
-                    class="c8"
+                    class="c8 c9"
                     tabindex="-1"
                   >
                     <div
-                      class="c9"
+                      class="c10"
                     >
                       <span
-                        class="c11 c12 c13"
+                        class="c12 c13 c14"
                       >
                         Cover
                       </span>
@@ -507,14 +507,14 @@ describe('Table', () => {
                   </th>
                   <th
                     aria-colindex="4"
-                    class="c8"
+                    class="c8 c9"
                     tabindex="-1"
                   >
                     <div
-                      class="c9"
+                      class="c10"
                     >
                       <span
-                        class="c11 c12 c13"
+                        class="c12 c13 c14"
                       >
                         Description
                       </span>
@@ -522,14 +522,14 @@ describe('Table', () => {
                   </th>
                   <th
                     aria-colindex="5"
-                    class="c8"
+                    class="c8 c9"
                     tabindex="-1"
                   >
                     <div
-                      class="c9"
+                      class="c10"
                     >
                       <span
-                        class="c11 c12 c13"
+                        class="c12 c13 c14"
                       >
                         Categories
                       </span>
@@ -537,14 +537,14 @@ describe('Table', () => {
                   </th>
                   <th
                     aria-colindex="6"
-                    class="c8"
+                    class="c8 c9"
                     tabindex="-1"
                   >
                     <div
-                      class="c9"
+                      class="c10"
                     >
                       <span
-                        class="c11 c12 c13"
+                        class="c12 c13 c14"
                       >
                         Contact
                       </span>
@@ -552,14 +552,14 @@ describe('Table', () => {
                   </th>
                   <th
                     aria-colindex="7"
-                    class="c8"
+                    class="c8 c9"
                     tabindex="-1"
                   >
                     <div
-                      class="c9"
+                      class="c10"
                     >
                       <div
-                        class="c14"
+                        class="c15"
                       >
                         Actions
                       </div>
@@ -568,7 +568,7 @@ describe('Table', () => {
                 </tr>
               </thead>
               <tbody
-                class="c15"
+                class="c16"
               >
                 <tr
                   aria-rowindex="2"
@@ -580,7 +580,7 @@ describe('Table', () => {
                   >
                     <input
                       aria-label="Select Leon Lafrite"
-                      class="c10"
+                      class="c11"
                       tabindex="-1"
                       type="checkbox"
                     />
@@ -591,7 +591,7 @@ describe('Table', () => {
                     tabindex="-1"
                   >
                     <span
-                      class="c16"
+                      class="c17"
                     >
                       0
                     </span>
@@ -603,11 +603,11 @@ describe('Table', () => {
                   >
                     <span>
                       <div
-                        class="c17"
+                        class="c18"
                       >
                         <img
                           alt="Leon Lafrite"
-                          class="c18"
+                          class="c19"
                           height="26px"
                           src="https://avatars.githubusercontent.com/u/3874873?v=4"
                           width="26px"
@@ -621,7 +621,7 @@ describe('Table', () => {
                     tabindex="-1"
                   >
                     <span
-                      class="c16"
+                      class="c17"
                     >
                       Chez Léon is a human sized Parisian...
                     </span>
@@ -632,7 +632,7 @@ describe('Table', () => {
                     tabindex="-1"
                   >
                     <span
-                      class="c16"
+                      class="c17"
                     >
                       French cuisine
                     </span>
@@ -643,7 +643,7 @@ describe('Table', () => {
                     tabindex="-1"
                   >
                     <span
-                      class="c16"
+                      class="c17"
                     >
                       Leon Lafrite
                     </span>
@@ -656,7 +656,7 @@ describe('Table', () => {
                       <button
                         aria-disabled="false"
                         aria-labelledby="tooltip-123"
-                        class="c19 c20"
+                        class="c20 c21"
                         tabindex="-1"
                         type="button"
                       >
@@ -688,7 +688,7 @@ describe('Table', () => {
                   >
                     <input
                       aria-label="Select Leon Lafrite"
-                      class="c10"
+                      class="c11"
                       tabindex="-1"
                       type="checkbox"
                     />
@@ -699,7 +699,7 @@ describe('Table', () => {
                     tabindex="-1"
                   >
                     <span
-                      class="c16"
+                      class="c17"
                     >
                       1
                     </span>
@@ -711,11 +711,11 @@ describe('Table', () => {
                   >
                     <span>
                       <div
-                        class="c17"
+                        class="c18"
                       >
                         <img
                           alt="Leon Lafrite"
-                          class="c18"
+                          class="c19"
                           height="26px"
                           src="https://avatars.githubusercontent.com/u/3874873?v=4"
                           width="26px"
@@ -729,7 +729,7 @@ describe('Table', () => {
                     tabindex="-1"
                   >
                     <span
-                      class="c16"
+                      class="c17"
                     >
                       Chez Léon is a human sized Parisian...
                     </span>
@@ -740,7 +740,7 @@ describe('Table', () => {
                     tabindex="-1"
                   >
                     <span
-                      class="c16"
+                      class="c17"
                     >
                       French cuisine
                     </span>
@@ -751,7 +751,7 @@ describe('Table', () => {
                     tabindex="-1"
                   >
                     <span
-                      class="c16"
+                      class="c17"
                     >
                       Leon Lafrite
                     </span>
@@ -764,7 +764,7 @@ describe('Table', () => {
                       <button
                         aria-disabled="false"
                         aria-labelledby="tooltip-123"
-                        class="c19 c20"
+                        class="c20 c21"
                         tabindex="-1"
                         type="button"
                       >
@@ -792,27 +792,27 @@ describe('Table', () => {
         </div>
         <div>
           <hr
-            class="c21 c22"
+            class="c22 c23"
           />
           <button
-            class="c23 c24"
+            class="c24 c25"
           >
             <div
-              class="c9"
+              class="c10"
             >
               <div
                 aria-hidden="true"
-                class="c25 c26"
+                class="c26 c27"
               >
                 <span>
                   icon
                 </span>
               </div>
               <div
-                class="c27"
+                class="c28"
               >
                 <span
-                  class="c28"
+                  class="c29"
                 >
                   Add another field to this collection type
                 </span>

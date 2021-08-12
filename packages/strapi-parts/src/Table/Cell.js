@@ -12,10 +12,6 @@ const CellWrapper = styled(RawTd)`
   color: ${({ theme }) => theme.colors.neutral600};
   outline-offset: -4px;
 
-  svg {
-    height: ${4 / 16}rem;
-  }
-
   /**
   * Hack to make sure the checkbox looks aligned
   */
@@ -24,14 +20,20 @@ const CellWrapper = styled(RawTd)`
   }
 `;
 
+const ThWrapper = styled(CellWrapper)`
+  svg {
+    height: ${4 / 16}rem;
+  }
+`;
+
 export const Th = ({ children, action, ...props }) => {
   return (
-    <CellWrapper as={RawTh} {...props}>
+    <ThWrapper as={RawTh} {...props}>
       <Row>
         {children}
         {action ? <Box>{action}</Box> : null}
       </Row>
-    </CellWrapper>
+    </ThWrapper>
   );
 };
 
