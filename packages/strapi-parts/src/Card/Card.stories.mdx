@@ -1,6 +1,7 @@
 <!--- Card.stories.mdx --->
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
 import EditIcon from '@strapi/icons/EditIcon';
 import { Box } from '../Box';
 import { Stack } from '../Stack';
@@ -27,7 +28,18 @@ This is the doc of the `Card` component
 
 ## Card
 
-Description...
+Cards are used to gather a set of information that needs to stand out from the rest of the page. 
+
+**Best practices**
+
+- Content within the Card is mostly optional. Pick up what is needed.
+- Content can be added to the Card. Keep in mind that spacings are important in a Card component.
+- Main text is truncated at the end of the first line.
+- Prioritize content within the Card so users know exactly what are the main information.
+- If Call-to-Actions are used, they should be placed at the bottom of the Card.
+
+## Usage
+Cards are used to gather a set of related information. 
 
 <Canvas>
   <Story name="base">
@@ -96,3 +108,7 @@ Description...
     </KeyboardNavigable>
   </Story>
 </Canvas>
+
+## Props
+
+<ArgsTable of={Card} />
