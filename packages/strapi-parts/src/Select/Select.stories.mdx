@@ -155,11 +155,16 @@ Description...
         <Stack size={11}>
           <Select
             id="select1"
+            label="Choose your meal"
             placeholder="Your example"
             onClear={() => setValues([])}
-            size="S"
+            hint="Description line"
+            clearLabel="Clear the meal"
+            error={undefined}
             value={values}
             onChange={onValueChange}
+            disabled={false}
+            customizeContent={(values) => `${values.length} currently selected`}
           >
             <Option value={'pizza'}>Pizza</Option>
             <Option value={'hamburger'}>Hamburger</Option>

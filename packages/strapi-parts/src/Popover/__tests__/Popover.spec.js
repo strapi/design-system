@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { render, waitFor } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { Popover, position } from '../Popover';
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
@@ -58,24 +58,31 @@ describe('Popover', () => {
 
   describe('rendering', () => {
     it('snapshots the component', async () => {
-      const source = document.createElement('div');
-      source.innerText = 'Hello source';
-      document.body.appendChild(source);
+      const Component = () => {
+        const divRef = React.useRef(null);
+        const [visible, setVisible] = React.useState(true);
 
-      const { container, getByText } = render(
-        <ThemeProvider theme={lightTheme}>
-          <Popover source={{ current: source }}>
-            <div>Hello world</div>
-          </Popover>
-        </ThemeProvider>,
-        { container: document.body },
-      );
+        React.useEffect(() => {
+          setVisible(true);
+        }, []);
 
-      await waitFor(() => {
-        expect(getByText('Hello world')).toBeInTheDocument();
-      });
+        return (
+          <ThemeProvider theme={lightTheme}>
+            <div>
+              <div ref={divRef}>Source</div>
+              {visible && (
+                <Popover source={divRef}>
+                  <div>Hello world</div>
+                </Popover>
+              )}
+            </div>
+          </ThemeProvider>
+        );
+      };
 
-      expect(container.firstChild).toMatchInlineSnapshot(`
+      const { container } = render(<Component />, { container: document.body });
+
+      expect(container).toMatchInlineSnapshot(`
         .c0 {
           background: #ffffff;
           padding: 4px;
@@ -110,22 +117,29 @@ describe('Popover', () => {
           margin-right: 10px;
         }
 
-        <div
-          data-react-portal="true"
-        >
+        <body>
+          <div>
+            <div>
+              Source
+            </div>
+          </div>
           <div
-            class="c0 c1"
-            style="left: 0px; top: 0px;"
+            data-react-portal="true"
           >
             <div
-              class="c2"
+              class="c0 c1"
+              style="left: 0px; top: 0px;"
             >
-              <div>
-                Hello world
+              <div
+                class="c2"
+              >
+                <div>
+                  Hello world
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </body>
       `);
     });
   });

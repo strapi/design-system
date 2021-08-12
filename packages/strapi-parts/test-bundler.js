@@ -18,3 +18,11 @@ window.IntersectionObserver = () => ({
   observe: () => {},
   disconnect: () => {},
 });
+
+const realConsoleError = console.error.bind(console);
+console.error = (msg) => {
+  // This errors pops when we try to test portals with testing-library
+  if (!msg.includes('Warning: render(): Rendering components directly into document.body is discouraged')) {
+    realConsoleError(msg);
+  }
+};

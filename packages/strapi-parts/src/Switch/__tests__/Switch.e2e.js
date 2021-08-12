@@ -1,13 +1,17 @@
 import { injectAxe, checkA11y } from 'axe-playwright';
 
 describe('Switch', () => {
-  beforeEach(async () => {
-    // This is the URL of the Storybook Iframe
-    await page.goto('http://localhost:6006/iframe.html?id=design-system-molecules-switch--base&viewMode=story');
+  it('triggers axe on the document for the activated switch', async () => {
+    await page.goto('http://localhost:6006/iframe.html?id=design-system-molecules-switch--activated&viewMode=story');
     await injectAxe(page);
+    await checkA11y(page);
   });
 
-  it('triggers axe on the document', async () => {
+  it('triggers axe on the document for the not-activated switch', async () => {
+    await page.goto(
+      'http://localhost:6006/iframe.html?id=design-system-molecules-switch--not-activated&viewMode=story',
+    );
+    await injectAxe(page);
     await checkA11y(page);
   });
 });

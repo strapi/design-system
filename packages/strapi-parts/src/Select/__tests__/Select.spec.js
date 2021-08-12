@@ -6,214 +6,6 @@ import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
 
 describe('Select', () => {
-  it('snapshots the component', () => {
-    const { container } = render(
-      <ThemeProvider theme={lightTheme}>
-        <Select label="Choose your meal" onChange={() => {}} clearLabel="Clear the selection" placeholder="Placeholder">
-          <Option value={'pizza'}>Pizza</Option>
-          <Option value={'hamburger'}>Hamburger</Option>
-          <Option value={'bagel'}>Bagel</Option>
-        </Select>
-      </ThemeProvider>,
-    );
-
-    expect(container.firstChild).toMatchInlineSnapshot(`
-      .c3 {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        top: 0;
-        width: 100%;
-        background: transparent;
-        border: none;
-      }
-
-      .c3:focus {
-        outline: none;
-      }
-
-      .c1 {
-        font-weight: 500;
-        font-size: 0.75rem;
-        line-height: 1.33;
-        color: #32324d;
-      }
-
-      .c8 {
-        font-weight: 400;
-        font-size: 0.875rem;
-        line-height: 1.43;
-        color: #666687;
-      }
-
-      .c4 {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-        flex-direction: row;
-        -webkit-box-pack: justify;
-        -webkit-justify-content: space-between;
-        -ms-flex-pack: justify;
-        justify-content: space-between;
-        -webkit-align-items: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-      }
-
-      .c6 {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-        flex-direction: row;
-        -webkit-align-items: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-      }
-
-      .c7 {
-        padding-right: 16px;
-        padding-left: 16px;
-      }
-
-      .c9 {
-        padding-left: 12px;
-      }
-
-      .c0 > * {
-        margin-top: 0;
-        margin-bottom: 0;
-      }
-
-      .c0 > * + * {
-        margin-top: 4px;
-      }
-
-      .c2 {
-        position: relative;
-        border: 1px solid #dcdce4;
-        padding-right: 12px;
-        border-radius: 4px;
-        background: #ffffff;
-        overflow: hidden;
-      }
-
-      .c2:focus-within {
-        border: 1px solid #4945ff;
-      }
-
-      .c10 {
-        background: transparent;
-        border: none;
-        position: relative;
-        z-index: 1;
-      }
-
-      .c10 svg {
-        height: 0.6875rem;
-        width: 0.6875rem;
-      }
-
-      .c10 svg path {
-        fill: #666687;
-      }
-
-      .c11 {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        background: none;
-        border: none;
-      }
-
-      .c11 svg {
-        width: 0.375rem;
-      }
-
-      .c5 {
-        min-height: 2.5rem;
-      }
-
-      <div>
-        <div
-          class="c0"
-        >
-          <span
-            class="c1"
-            for="select-1"
-            id="select-1-label"
-          >
-            Choose your meal
-          </span>
-          <div
-            class="c2"
-          >
-            <button
-              aria-disabled="false"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-labelledby="select-1-label select-1-content"
-              class="c3"
-              id="select-1"
-              type="button"
-            />
-            <div
-              class="c4 c5"
-            >
-              <div
-                class="c6"
-              >
-                <div
-                  class="c7"
-                >
-                  <span
-                    class="c8"
-                    id="select-1-content"
-                  >
-                    Placeholder
-                  </span>
-                </div>
-              </div>
-              <div
-                class="c6"
-              >
-                <button
-                  aria-hidden="true"
-                  class="c9 c10 c11"
-                  tabindex="-1"
-                >
-                  <svg
-                    fill="none"
-                    height="1em"
-                    viewBox="0 0 14 8"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
-                      fill="#32324D"
-                      fill-rule="evenodd"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    `);
-  });
-
   it('opens the listbox when clicking on the input', async () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
@@ -445,8 +237,8 @@ describe('Select', () => {
           >
             <span
               class="c1"
-              for="select-2"
-              id="select-2-label"
+              for="select-1"
+              id="select-1-label"
             >
               Choose your meal
             </span>
@@ -454,13 +246,13 @@ describe('Select', () => {
               class="c2"
             >
               <button
-                aria-describedby="select-2-hint"
+                aria-describedby="select-1-hint"
                 aria-disabled="false"
                 aria-expanded="true"
                 aria-haspopup="listbox"
-                aria-labelledby="select-2-label select-2-content"
+                aria-labelledby="select-1-label select-1-content"
                 class="c3"
-                id="select-2"
+                id="select-1"
                 type="button"
               />
               <div
@@ -482,7 +274,7 @@ describe('Select', () => {
                   >
                     <span
                       class="c9"
-                      id="select-2-content"
+                      id="select-1-content"
                     >
                       Pizza
                     </span>
@@ -516,7 +308,7 @@ describe('Select', () => {
             </div>
             <p
               class="c12"
-              id="select-2-hint"
+              id="select-1-hint"
             >
               Description line
             </p>
@@ -533,7 +325,7 @@ describe('Select', () => {
               class="c15"
             >
               <ul
-                aria-labelledby="select-2-label"
+                aria-labelledby="select-1-label"
                 aria-multiselectable="false"
                 class="c0"
                 role="listbox"
@@ -543,7 +335,7 @@ describe('Select', () => {
                   aria-selected="true"
                   class="c16 c17"
                   data-strapi-value="pizza"
-                  id="select-2-option-pizza"
+                  id="select-1-option-pizza"
                   role="option"
                 >
                   <div
@@ -560,7 +352,7 @@ describe('Select', () => {
                   aria-selected="false"
                   class="c16 c17"
                   data-strapi-value="hamburger"
-                  id="select-2-option-hamburger"
+                  id="select-1-option-hamburger"
                   role="option"
                 >
                   <div
@@ -577,7 +369,7 @@ describe('Select', () => {
                   aria-selected="false"
                   class="c16 c17"
                   data-strapi-value="bagel"
-                  id="select-2-option-bagel"
+                  id="select-1-option-bagel"
                   role="option"
                 >
                   <div
@@ -775,8 +567,8 @@ describe('Select', () => {
           >
             <span
               class="c1"
-              for="select-4"
-              id="select-4-label"
+              for="select-3"
+              id="select-3-label"
             >
               Choose your meal
             </span>
@@ -784,13 +576,13 @@ describe('Select', () => {
               class="c2"
             >
               <button
-                aria-describedby="select-4-hint"
+                aria-describedby="select-3-hint"
                 aria-disabled="false"
                 aria-expanded="true"
                 aria-haspopup="listbox"
-                aria-labelledby="select-4-label select-4-content"
+                aria-labelledby="select-3-label select-3-content"
                 class="c3"
-                id="select-4"
+                id="select-3"
                 type="button"
               />
               <div
@@ -804,7 +596,7 @@ describe('Select', () => {
                   >
                     <span
                       class="c8"
-                      id="select-4-content"
+                      id="select-3-content"
                     >
                       Hamburger
                       <span
@@ -843,7 +635,7 @@ describe('Select', () => {
             </div>
             <p
               class="c13"
-              id="select-4-hint"
+              id="select-3-hint"
             >
               Description line
             </p>
@@ -998,7 +790,7 @@ describe('Select', () => {
               class="c2"
             >
               <ul
-                aria-labelledby="select-4-label"
+                aria-labelledby="select-3-label"
                 aria-multiselectable="true"
                 class="c3"
                 role="listbox"
@@ -1008,7 +800,7 @@ describe('Select', () => {
                   aria-selected="true"
                   class="c4 c5"
                   data-strapi-value="pizza"
-                  id="select-4-option-pizza"
+                  id="select-3-option-pizza"
                   role="option"
                 >
                   <div
@@ -1033,7 +825,7 @@ describe('Select', () => {
                   aria-selected="true"
                   class="c4 c5"
                   data-strapi-value="hamburger"
-                  id="select-4-option-hamburger"
+                  id="select-3-option-hamburger"
                   role="option"
                 >
                   <div
@@ -1058,7 +850,7 @@ describe('Select', () => {
                   aria-selected="false"
                   class="c4 c5"
                   data-strapi-value="bagel"
-                  id="select-4-option-bagel"
+                  id="select-3-option-bagel"
                   role="option"
                 >
                   <div

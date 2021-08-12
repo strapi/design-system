@@ -12,7 +12,7 @@ import { Link } from '../Link';
 
 # Alert
 
-Alerts are messages displayed over the content, at the top of the screen to give information to users. They have multiple purposes and provide context. 
+Alerts are messages displayed over the content, at the top of the screen to give information to users. They have multiple purposes and provide context.
 
 **Best practices**
 
@@ -32,7 +32,7 @@ import { Alert } from '@strapi/design-system/Alert';
 
 ## Usage
 
-The most common button component used in the interface. Alerts have a title, a description, and two sizes. This default one is aimed to give a small piece of text. 
+The most common button component used in the interface. Alerts have a title, a description, and two sizes. This default one is aimed to give a small piece of text.
 
 <Canvas withSource="open">
   <Story
@@ -46,7 +46,9 @@ The most common button component used in the interface. Alerts have a title, a d
     }}
   >
     <Box style={{ width: 700 }}>
-      <Alert closeLabel="Close alert" title="Title">This is the default alert.</Alert>
+      <Alert closeLabel="Close alert" title="Title" onClose={() => {}}>
+        This is the default alert.
+      </Alert>
     </Box>
   </Story>
 </Canvas>
@@ -69,11 +71,13 @@ You can set the value to `default`, `success`, or `danger`.
   >
     <Box style={{ width: 700 }}>
       <Stack size={1}>
-        <Alert onClose={() => {}} closeLabel='Close' title="Title">This is the default variant.</Alert>
-        <Alert onClose={() => {}} closeLabel='Close' title="Title" variant="success">
+        <Alert onClose={() => {}} closeLabel="Close" title="Title">
+          This is the default variant.
+        </Alert>
+        <Alert onClose={() => {}} closeLabel="Close" title="Title" variant="success">
           This is the success variant.
         </Alert>
-        <Alert onClose={() => {}} closeLabel='Close' title="Title" variant="danger">
+        <Alert onClose={() => {}} closeLabel="Close" title="Title" variant="danger">
           This is the danger variant.
         </Alert>
       </Stack>
@@ -82,14 +86,14 @@ You can set the value to `default`, `success`, or `danger`.
 </Canvas>
 
 | State               | Description                                                                                                           |
-|---------------------|-----------------------------------------------------------------------------------------------------------------------|
+| ------------------- | --------------------------------------------------------------------------------------------------------------------- |
 | Default/Information | Use a default alert for an informational purpose. Examples: Latest update, a specific mode, ...                       |
 | Success             | Use a success alert to indicate a successful action. Examples: Content has been saved, the locale has been added, ... |
 | Danger              | Examples: Content has been saved, the locale has been added, ...                                                      |
 
 ### Alert with action
 
-Alerts can contain an action. Via a Link component, they mostly encourage the user to be redirected to another page with more information. The wording of the action should be clear and concise. 
+Alerts can contain an action. Via a Link component, they mostly encourage the user to be redirected to another page with more information. The wording of the action should be clear and concise.
 
 <Canvas withSource="open">
   <Story
@@ -107,7 +111,12 @@ Alerts can contain an action. Via a Link component, they mostly encourage the us
     }}
   >
     <Box style={{ width: 700 }}>
-      <Alert closeLabel='Close' onClose={() => {}} title="This is the title of the alert" action={<Link to="/somewhere">See more</Link>}>
+      <Alert
+        closeLabel="Close"
+        onClose={() => {}}
+        title="This is the title of the alert"
+        action={<Link to="/somewhere">See more</Link>}
+      >
         Alert with title and longer description, lorem ipsum dolor sit amet constrectum adipisicng lorem ipsum dolor sit
         amet consrectumis adipisingus.
       </Alert>
