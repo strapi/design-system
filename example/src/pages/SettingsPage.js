@@ -3,7 +3,8 @@ import {
   Box,
   Button,
   HeaderLayout,
-  OneBlockLayout,
+  ContentLayout,
+  Layout,
   Main,
   Table,
   Thead,
@@ -16,11 +17,9 @@ import {
   TableLabel,
   VisuallyHidden,
   BaseCheckbox,
-  Avatar,
   IconButton,
   Row,
-  Searchbar,
-  SearchForm,
+  Stack,
 } from "@strapi/parts";
 import EditIcon from "@strapi/icons/EditIcon";
 import DeleteIcon from "@strapi/icons/DeleteIcon";
@@ -31,7 +30,7 @@ import { SettingsNav } from "../shared/SettingsNav";
 
 const SettingsPage = () => {
   const ROW_COUNT = 6;
-  const COL_COUNT = 10;
+  const COL_COUNT = 4;
   const entry = {
     cover: "https://avatars.githubusercontent.com/u/3874873?v=4",
     description: "Chez Léon is a human sized Parisian",
@@ -48,134 +47,90 @@ const SettingsPage = () => {
   return (
     <AppLayout subNav={<SettingsNav />}>
       <Main labelledBy="header">
-        <OneBlockLayout
-          startActions={
-            <SearchForm>
-              <Searchbar
-                name="searchbar"
-                onClear={() => {}}
-                value={""}
-                onChange={(e) => {}}
-                clearLabel="Clearing the plugin search"
-                placeholder="e.g: search for content"
-              >
-                Searching for a plugin
-              </Searchbar>
-            </SearchForm>
-          }
-          header={
-            <HeaderLayout
-              id="header"
-              primaryAction={
-                <Button startIcon={<AddIcon />}>Add an entry</Button>
-              }
-              secondaryAction={
-                <Button variant="tertiary" startIcon={<EditIcon />}>
-                  Edit
-                </Button>
-              }
-              title="Some settings"
-              subtitle="36 entries found"
-            />
-          }
-        >
+        <Layout>
           <Switch>
             <Route path="/settings/application">
-              <Table
-                colCount={COL_COUNT}
-                rowCount={ROW_COUNT}
-                footer={
-                  <TFooter icon={<AddIcon />}>
-                    Add another field to this collection type
-                  </TFooter>
+              <HeaderLayout
+                id="header"
+                primaryAction={
+                  <Button startIcon={<AddIcon />}>Add an entry</Button>
                 }
-              >
-                <Thead>
-                  <Tr>
-                    <Th>
-                      <BaseCheckbox aria-label="Select all entries" />
-                    </Th>
-                    <Th>
-                      <TableLabel>ID</TableLabel>
-                    </Th>
-                    <Th>
-                      <TableLabel>Cover</TableLabel>
-                    </Th>
-                    <Th>
-                      <TableLabel>Description</TableLabel>
-                    </Th>
-                    <Th>
-                      <TableLabel>Categories</TableLabel>
-                    </Th>
-                    <Th>
-                      <TableLabel>Contact</TableLabel>
-                    </Th>
-                    <Th>More</Th>
-                    <Th>More</Th>
-                    <Th>More</Th>
-                    <Th>
-                      <VisuallyHidden>Actions</VisuallyHidden>
-                    </Th>
-                  </Tr>
-                </Thead>
-                <Tbody>
-                  {entries.map((entry) => (
-                    <Tr key={entry.id}>
-                      <Td>
-                        <BaseCheckbox aria-label={`Select ${entry.contact}`} />
-                      </Td>
-                      <Td>
-                        <Text textColor="neutral800">{entry.id}</Text>
-                      </Td>
-                      <Td>
-                        <Avatar src={entry.cover} alt={entry.contact} />
-                      </Td>
-                      <Td>
-                        <Text textColor="neutral800">{entry.description}</Text>
-                      </Td>
-                      <Td>
-                        <Text textColor="neutral800">{entry.category}</Text>
-                      </Td>
-                      <Td>
-                        <Text textColor="neutral800">{entry.contact}</Text>
-                      </Td>
-                      <Td>
-                        <Text textColor="neutral800">{entry.description}</Text>
-                      </Td>
-                      <Td>
-                        <Text textColor="neutral800">{entry.description}</Text>
-                      </Td>
-                      <Td>
-                        <Text textColor="neutral800">{entry.description}</Text>
-                      </Td>
-                      <Td>
-                        <Row>
-                          <IconButton
-                            onClick={() => console.log("edit")}
-                            label="Edit"
-                            noBorder
-                            icon={<EditIcon />}
+                secondaryAction={
+                  <Button variant="tertiary" startIcon={<EditIcon />}>
+                    Edit
+                  </Button>
+                }
+                title="Some settings"
+                subtitle="36 entries found"
+              />
+              <ContentLayout>
+                <Table
+                  colCount={COL_COUNT}
+                  rowCount={ROW_COUNT}
+                  footer={
+                    <TFooter icon={<AddIcon />}>
+                      Add another field to this collection type
+                    </TFooter>
+                  }
+                >
+                  <Thead>
+                    <Tr>
+                      <Th>
+                        <BaseCheckbox aria-label="Select all entries" />
+                      </Th>
+                      <Th>
+                        <TableLabel>ID</TableLabel>
+                      </Th>
+                      <Th>
+                        <TableLabel>Cover</TableLabel>
+                      </Th>
+                      <Th>
+                        <VisuallyHidden>Actions</VisuallyHidden>
+                      </Th>
+                    </Tr>
+                  </Thead>
+                  <Tbody>
+                    {entries.map((entry) => (
+                      <Tr key={entry.id}>
+                        <Td>
+                          <BaseCheckbox
+                            aria-label={`Select ${entry.contact}`}
                           />
-                          <Box paddingLeft={1}>
+                        </Td>
+                        <Td>
+                          <Text textColor="neutral800">{entry.id}</Text>
+                        </Td>
+                        <Td>
+                          <Text textColor="neutral800">{entry.id}</Text>
+                        </Td>
+                        <Td>
+                          <Stack horizontal size={1}>
+                            <IconButton
+                              onClick={() => console.log("edit")}
+                              label="Edit"
+                              noBorder
+                              icon={<EditIcon />}
+                            />
+
                             <IconButton
                               onClick={() => console.log("edit")}
                               label="Delete"
                               noBorder
                               icon={<DeleteIcon />}
                             />
-                          </Box>
-                        </Row>
-                      </Td>
-                    </Tr>
-                  ))}
-                </Tbody>
-              </Table>
+                          </Stack>
+                        </Td>
+                      </Tr>
+                    ))}
+                  </Tbody>
+                </Table>
+              </ContentLayout>
             </Route>
             <Route path="">
               <Box padding={6}>TODO</Box>
             </Route>
           </Switch>
-        </OneBlockLayout>
+        </Layout>
       </Main>
     </AppLayout>
   );
