@@ -75,7 +75,7 @@ Description...
         <Box padding={8} background="neutral100">
           <Grid gap={4}>
             {shadows.map((shadow) => (
-              <GridItem padding={8} shadow={shadow} background="neutral0" col={3}>
+              <GridItem padding={8} shadow={shadow} background="neutral0" col={3} key={shadow}>
                 {shadow}
               </GridItem>
             ))}
@@ -97,10 +97,9 @@ Description...
       const spaces = Object.keys(theme.spaces);
       return (
         <Box padding={8} background="neutral100">
-          <Stack>
+          <Stack size={1}>
             {spaces.map((space) => (
               <Row key={`space-${space}`}>
-                <Box background="primary500" hasRadius style={{ width: `${space * 4}px`, height: '4px' }} />
                 <Box paddingLeft={2}>
                   <Text>{space}</Text> <Text small>({space * 4}px)</Text>
                 </Box>
