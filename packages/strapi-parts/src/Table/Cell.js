@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Row } from '../Row';
-import { Box } from '../Box';
 import { RawTh, RawTd } from '../RawTable/RawCell';
 
 const CellWrapper = styled(RawTd)`

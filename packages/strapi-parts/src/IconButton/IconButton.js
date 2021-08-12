@@ -114,9 +114,9 @@ IconButton.defaultProps = {
   onClick: undefined,
 };
 IconButton.propTypes = {
+  disabled: PropTypes.bool,
   icon: PropTypes.element.isRequired,
   label: PropTypes.string,
   noBorder: PropTypes.bool,
-  disabled: PropTypes.bool,
   onClick: PropTypes.func,
 };

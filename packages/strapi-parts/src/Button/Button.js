@@ -83,8 +83,8 @@ Button.propTypes = {
   children: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
   endIcon: PropTypes.element,
+  onClick: PropTypes.func,
   size: PropTypes.oneOf(BUTTON_SIZES),
   startIcon: PropTypes.element,
   variant: PropTypes.oneOf(VARIANTS),
-  onClick: PropTypes.func,
 };
