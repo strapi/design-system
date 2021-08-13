@@ -25,17 +25,36 @@ const useElementOnScreen = (options) => {
   return [containerRef, isVisible];
 };
 
+const useHeaderSize = () => {
+  const baseHeaderLayoutRef = useRef(null);
+  const [headerSize, setHeaderSize] = useState(null);
+
+  useEffect(() => {
+    if (baseHeaderLayoutRef.current) {
+      setHeaderSize(baseHeaderLayoutRef.current.getBoundingClientRect());
+    }
+  }, [baseHeaderLayoutRef]);
+
+  return {
+    baseHeaderLayoutRef,
+    headerSize,
+  };
+};
+
 export const HeaderLayout = (props) => {
   const [containerRef, isVisible] = useElementOnScreen({
     root: null,
     rootMargin: '0px',
     threshold: 0,
   });
+  const { baseHeaderLayoutRef, headerSize } = useHeaderSize();
 
   return (
     <>
-      <BaseHeaderLayout ref={containerRef} {...props} />
-      {!isVisible && <BaseHeaderLayout {...props} sticky />}
+      <Box style={{ height: headerSize?.height }} ref={containerRef}>
+        {isVisible && <BaseHeaderLayout ref={baseHeaderLayoutRef} {...props} />}
+      </Box>
+      {!isVisible && <BaseHeaderLayout {...props} sticky width={headerSize?.width} />}
     </>
   );
 };
@@ -43,15 +62,24 @@ export const HeaderLayout = (props) => {
 HeaderLayout.displayName = 'HeaderLayout';
 
 const StickyBox = styled(Box)`
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  width: ${(props) => props.width}px;
 `;
 
 export const BaseHeaderLayout = React.forwardRef(
-  ({ navigationAction, primaryAction, secondaryAction, subtitle, title, sticky, ...props }, ref) => {
+  ({ navigationAction, primaryAction, secondaryAction, subtitle, title, sticky, width, ...props }, ref) => {
     if (sticky) {
       return (
-        <StickyBox paddingLeft={6} paddingRight={6} paddingTop={3} paddingBottom={3} background="neutral0">
+        <StickyBox
+          paddingLeft={6}
+          paddingRight={6}
+          paddingTop={3}
+          paddingBottom={3}
+          background="neutral0"
+          width={width}
+        >
           <Row justifyContent="space-between">
             <Row>
               <Box paddingRight={3}>{navigationAction}</Box>
@@ -104,6 +132,7 @@ BaseHeaderLayout.defaultProps = {
   secondaryAction: undefined,
   subtitle: undefined,
   sticky: false,
+  width: undefined,
 };
 
 BaseHeaderLayout.propTypes = {
@@ -113,6 +142,7 @@ BaseHeaderLayout.propTypes = {
   sticky: PropTypes.bool,
   subtitle: PropTypes.string,
   title: PropTypes.string.isRequired,
+  width: PropTypes.number,
 };
 
 HeaderLayout.defaultProps = {
