@@ -24397,7 +24397,7 @@ exports[`Storyshots Design System/Organisms/Table base 1`] = `
 </main>
 `;
 
-exports[`Storyshots Design System/Organisms/Table withActions 1`] = `
+exports[`Storyshots Design System/Organisms/Table with th actions 1`] = `
 .c0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
