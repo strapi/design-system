@@ -6574,7 +6574,7 @@ exports[`Storyshots Design System/Layouts/TwoColsLayout base 1`] = `
 </main>
 `;
 
-exports[`Storyshots Design System/Molecules/Alert default 1`] = `
+exports[`Storyshots Design System/Molecules/Alert base 1`] = `
 .c0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
@@ -7608,7 +7608,7 @@ exports[`Storyshots Design System/Molecules/Breadcrumbs base 1`] = `
 </main>
 `;
 
-exports[`Storyshots Design System/Molecules/Button default 1`] = `
+exports[`Storyshots Design System/Molecules/Button base 1`] = `
 .c0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
