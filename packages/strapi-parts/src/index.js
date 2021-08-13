@@ -25,6 +25,7 @@ export * from './Loader';
 export * from './Main';
 export * from './MainNav';
 export * from './ModalLayout';
+export * from './NumberInput';
 export * from './Pagination';
 export * from './Popover';
 export * from './Portal';
