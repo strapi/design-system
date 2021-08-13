@@ -41,7 +41,7 @@ export const IconButtonGroupMargin = styled(IconButtonGroup)`
 //EDITOR && PREVIEW
 
 export const EditorAndPreviewWrapper = styled.div`
-  /* position: relative; */
+  position: relative;
 `;
 
 // FOOTER
