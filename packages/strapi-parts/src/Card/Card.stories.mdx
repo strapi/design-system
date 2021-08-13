@@ -31,56 +31,101 @@ Description...
 
 <Canvas>
   <Story name="base">
-    <KeyboardNavigable padding={8} background="neutral100" tagName="article">
-      <Stack size={3}>
-        <Card style={{ width: '240px' }} id="first">
-          <CardHeader>
-            <CardCheckbox value={true} />
-            <CardAction position="end">
-              <IconButton label="Edit the thing" icon={<EditIcon />} />
-            </CardAction>
-            <CardAsset src={firstImgPath} />
-            <CardTimer>05:39</CardTimer>
-          </CardHeader>
-          <CardBody>
-            <CardContent>
-              <CardTitle>File name</CardTitle>
-              <CardSubtitle>PNG - 400✕400</CardSubtitle>
-            </CardContent>
-            <CardBadge>Doc</CardBadge>
-          </CardBody>
-        </Card>
-        {/* Separator */}
-        <Card style={{ width: '240px' }} id="second">
-          <CardHeader>
-            <CardCheckbox value={true} />
-            <CardAsset src={firstImgPath} />
-            <CardTimer>05:39</CardTimer>
-          </CardHeader>
-          <CardBody>
-            <CardContent>
-              <CardTitle>File name</CardTitle>
-              <CardSubtitle>PNG - 400✕400</CardSubtitle>
-            </CardContent>
-            <CardBadge>Doc</CardBadge>
-          </CardBody>
-        </Card>
-        {/* Separator */}
-        <Card style={{ width: '240px' }} id="third">
-          <CardHeader>
-            <CardCheckbox value={true} />
-            <CardAsset src={firstImgPath} />
-          </CardHeader>
-          <CardBody>
-            <CardContent>
-              <CardTitle>File name</CardTitle>
-              <CardSubtitle>PNG - 400✕400</CardSubtitle>
-            </CardContent>
-            <CardBadge>Doc</CardBadge>
-          </CardBody>
-        </Card>
-        {/* Separator */}
-        <Card style={{ width: '240px' }} id="fourth">
+    <Card style={{ width: '240px' }} id="first">
+      <CardHeader>
+        <CardCheckbox value={true} />
+        <CardAction position="end">
+          <IconButton label="Edit the thing" icon={<EditIcon />} />
+        </CardAction>
+        <CardAsset src={firstImgPath} />
+        <CardTimer>05:39</CardTimer>
+      </CardHeader>
+      <CardBody>
+        <CardContent>
+          <CardTitle>File name</CardTitle>
+          <CardSubtitle>PNG - 400✕400</CardSubtitle>
+        </CardContent>
+        <CardBadge>Doc</CardBadge>
+      </CardBody>
+    </Card>
+  </Story>
+</Canvas>
+
+## Card without asset action
+
+Description...
+
+<Canvas>
+  <Story name="without asset action">
+    <Card style={{ width: '240px' }} id="second">
+      <CardHeader>
+        <CardCheckbox value={true} />
+        <CardAsset src={firstImgPath} />
+        <CardTimer>05:39</CardTimer>
+      </CardHeader>
+      <CardBody>
+        <CardContent>
+          <CardTitle>File name</CardTitle>
+          <CardSubtitle>PNG - 400✕400</CardSubtitle>
+        </CardContent>
+        <CardBadge>Doc</CardBadge>
+      </CardBody>
+    </Card>
+  </Story>
+</Canvas>
+
+## Card without asset action nor timer
+
+Description...
+
+<Canvas>
+  <Story name="without asset action nor timer">
+    <Card style={{ width: '240px' }} id="third">
+      <CardHeader>
+        <CardCheckbox value={true} />
+        <CardAsset src={firstImgPath} />
+      </CardHeader>
+      <CardBody>
+        <CardContent>
+          <CardTitle>File name</CardTitle>
+          <CardSubtitle>PNG - 400✕400</CardSubtitle>
+        </CardContent>
+        <CardBadge>Doc</CardBadge>
+      </CardBody>
+    </Card>
+  </Story>
+</Canvas>
+
+## Card without asset
+
+Description...
+
+<Canvas>
+  <Story name="without asset">
+    <Card style={{ width: '240px' }} id="fourth">
+      <CardBody>
+        <Box padding={2} background="primary100">
+          <EditIcon />
+        </Box>
+        <CardContent paddingLeft={2}>
+          <CardTitle>File name</CardTitle>
+          <CardSubtitle>PNG - 400✕400</CardSubtitle>
+        </CardContent>
+        <CardBadge>Doc</CardBadge>
+      </CardBody>
+    </Card>
+  </Story>
+</Canvas>
+
+## Card keyboard navigable
+
+Description...
+
+<Canvas>
+  <Story name="keyboard navigable">
+    <KeyboardNavigable tagName="article">
+      {['first', 'second', 'third', 'fourth'].map((id) => (
+        <Card style={{ width: '240px' }} id={id} key={id}>
           <CardBody>
             <Box padding={2} background="primary100">
               <EditIcon />
@@ -92,7 +137,7 @@ Description...
             <CardBadge>Doc</CardBadge>
           </CardBody>
         </Card>
-      </Stack>
+      ))}
     </KeyboardNavigable>
   </Story>
 </Canvas>
