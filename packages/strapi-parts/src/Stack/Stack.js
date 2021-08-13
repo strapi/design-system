@@ -37,7 +37,7 @@ const StackH = styled.div.withConfig({
   }
 `;
 
-export const Stack = forwardRef(({ horizontal, size, ...props }, ref) => {
+export const Stack = forwardRef(({ horizontal, size = 2, ...props }, ref) => {
   if (horizontal) {
     return <StackH ref={ref} size={size} {...props} />;
   }

@@ -4,26 +4,28 @@ import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import BackIcon from '@strapi/icons/BackIcon';
 import EditIcon from '@strapi/icons/EditIcon';
 import AddIcon from '@strapi/icons/AddIcon';
-import { HeaderLayout } from './HeaderLayout';
+import CheckIcon from '@strapi/icons/CheckIcon';
+import { BaseHeaderLayout, HeaderLayout } from './HeaderLayout';
 import { Link } from '../Link';
 import { Button } from '../Button';
 import { Box } from '../Box';
 import { VisuallyHidden } from '../VisuallyHidden';
+import { Stack } from '../Stack';
 
-<Meta title="Design System/Layouts/HeaderLayouts" component={HeaderLayout} />
+<Meta title="Design System/Layouts/BaseHeaderLayout" component={BaseHeaderLayout} />
 
-# HeaderLayout
+# BaseHeaderLayout
 
 This is the doc of the `HeaderLayout` component
 
-## HeaderLayout
+## BaseHeaderLayout
 
 Description...
 
 <Canvas>
   <Story name="base">
     <Box background="neutral100">
-      <HeaderLayout
+      <BaseHeaderLayout
         navigationAction={
           <Link startIcon={<BackIcon />} to="/">
             Go back
@@ -43,14 +45,14 @@ Description...
   </Story>
 </Canvas>
 
-## HeaderLayout without nav action
+## BaseHeaderLayout without nav action
 
 Description...
 
 <Canvas>
   <Story name="base without nav action">
     <Box background="neutral100">
-      <HeaderLayout
+      <BaseHeaderLayout
         primaryAction={<Button startIcon={<AddIcon />}>Add an entry</Button>}
         secondaryAction={
           <Button variant="tertiary" startIcon={<EditIcon />}>
@@ -65,18 +67,45 @@ Description...
   </Story>
 </Canvas>
 
-## HeaderLayout
+## BaseHeaderLayout sticky
 
 Description...
 
 <Canvas>
   <Story name="sticky">
     <Box background="neutral100">
-      <HeaderLayout
+      <BaseHeaderLayout
         sticky
         navigationAction={
           <Link startIcon={<BackIcon />} to="/">
             <VisuallyHidden>Go back</VisuallyHidden>
+          </Link>
+        }
+        primaryAction={<Button startIcon={<AddIcon />}>Add an entry</Button>}
+        secondaryAction={
+          <Button variant="tertiary" startIcon={<EditIcon />}>
+            Edit
+          </Button>
+        }
+        title="Restaurants"
+        subtitle="36 entries found"
+        as="h2"
+      />
+    </Box>
+  </Story>
+</Canvas>
+
+## HeaderLayout
+
+Open in a new tab.
+
+<Canvas>
+  <Story name="combined w/ scroll" parameters={{ layout: 'fullscreen' }}>
+    <Box background="neutral100" style={{ height: 2000 }}>
+      <HeaderLayout
+        navigationAction={
+          <Link startIcon={<BackIcon />} to="/">
+            Go back
           </Link>
         }
         primaryAction={<Button startIcon={<AddIcon />}>Add an entry</Button>}
