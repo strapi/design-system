@@ -153,6 +153,16 @@ describe('Select', () => {
     beforeEach(async () => {
       // This is the URL of the Storybook Iframe
       await page.goto('http://localhost:6006/iframe.html?id=design-system-molecules-select--multi&viewMode=story');
+      await injectAxe(page);
+    });
+
+    it('triggers axe on the document', async () => {
+      await checkA11y(page);
+    });
+
+    it('triggers axe on the document when the popover is opened', async () => {
+      await page.click('text="Choose your meal"');
+      await checkA11y(page);
     });
 
     it('selects one value after the other when using the mouse and clears the selected values', async () => {
