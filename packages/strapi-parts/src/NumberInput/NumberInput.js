@@ -95,39 +95,37 @@ export const NumberInput = React.forwardRef(
     };
 
     return (
-      <div>
-        <Field name={name} hint={hint} error={error} id={generatedId}>
-          <Stack size={1}>
-            <Row cols="auto auto 1fr" gap={1}>
-              <FieldLabel>{label}</FieldLabel>
-              {labelAction && <Box paddingLeft={1}>{labelAction}</Box>}
-            </Row>
-            <FieldInput
-              ref={ref}
-              startAction={startAction}
-              type="text"
-              inputmode="decimal"
-              onChange={handleChange}
-              onKeyDown={handleKeyDown}
-              onBlur={handleBlur}
-              value={inputValue || ''}
-              endAction={
-                <>
-                  <ArrowButton aria-hidden reverse onClick={increment} tabIndex={-1}>
-                    <FilterDropdownIcon />
-                  </ArrowButton>
-                  <ArrowButton aria-hidden onClick={decrement} tabIndex={-1}>
-                    <FilterDropdownIcon />
-                  </ArrowButton>
-                </>
-              }
-              {...props}
-            />
-            <FieldHint />
-            <FieldError />
-          </Stack>
-        </Field>
-      </div>
+      <Field name={name} hint={hint} error={error} id={generatedId}>
+        <Stack size={1}>
+          <Row cols="auto auto 1fr" gap={1}>
+            <FieldLabel>{label}</FieldLabel>
+            {labelAction && <Box paddingLeft={1}>{labelAction}</Box>}
+          </Row>
+          <FieldInput
+            ref={ref}
+            startAction={startAction}
+            type="text"
+            inputmode="decimal"
+            onChange={handleChange}
+            onKeyDown={handleKeyDown}
+            onBlur={handleBlur}
+            value={inputValue || ''}
+            endAction={
+              <>
+                <ArrowButton aria-hidden reverse onClick={increment} tabIndex={-1}>
+                  <FilterDropdownIcon />
+                </ArrowButton>
+                <ArrowButton aria-hidden onClick={decrement} tabIndex={-1}>
+                  <FilterDropdownIcon />
+                </ArrowButton>
+              </>
+            }
+            {...props}
+          />
+          <FieldHint />
+          <FieldError />
+        </Stack>
+      </Field>
     );
   },
 );

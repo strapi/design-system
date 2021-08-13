@@ -178,92 +178,90 @@ describe('NumberInput', () => {
       }
 
       <div>
-        <div>
+        <div
+          class="c0"
+        >
           <div
-            class="c0"
+            class="c1"
           >
+            <label
+              class="c2"
+              for="numberinput-1"
+            >
+              Content
+            </label>
             <div
-              class="c1"
+              class="c3"
             >
-              <label
-                class="c2"
-                for="numberinput-1"
-              >
-                Content
-              </label>
-              <div
-                class="c3"
-              >
-                <span>
-                  Hello world
-                </span>
-              </div>
+              <span>
+                Hello world
+              </span>
             </div>
-            <div
-              class="c4 c5"
-            >
-              <input
-                aria-describedby="numberinput-1-hint"
-                aria-invalid="false"
-                class="c6"
-                id="numberinput-1"
-                name="content"
-                placeholder="This is a content placeholder"
-                type="text"
-                value=""
-              />
-              <div
-                class="c7"
-              >
-                <button
-                  aria-hidden="true"
-                  class="c8"
-                  tabindex="-1"
-                >
-                  <svg
-                    fill="none"
-                    height="1em"
-                    viewBox="0 0 14 8"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
-                      fill="#32324D"
-                      fill-rule="evenodd"
-                    />
-                  </svg>
-                </button>
-                <button
-                  aria-hidden="true"
-                  class="c9"
-                  tabindex="-1"
-                >
-                  <svg
-                    fill="none"
-                    height="1em"
-                    viewBox="0 0 14 8"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
-                      fill="#32324D"
-                      fill-rule="evenodd"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <p
-              class="c10"
-              id="numberinput-1-hint"
-            >
-              Description line
-            </p>
           </div>
+          <div
+            class="c4 c5"
+          >
+            <input
+              aria-describedby="numberinput-1-hint"
+              aria-invalid="false"
+              class="c6"
+              id="numberinput-1"
+              name="content"
+              placeholder="This is a content placeholder"
+              type="text"
+              value=""
+            />
+            <div
+              class="c7"
+            >
+              <button
+                aria-hidden="true"
+                class="c8"
+                tabindex="-1"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 14 8"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
+                    fill="#32324D"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </button>
+              <button
+                aria-hidden="true"
+                class="c9"
+                tabindex="-1"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 14 8"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
+                    fill="#32324D"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <p
+            class="c10"
+            id="numberinput-1-hint"
+          >
+            Description line
+          </p>
         </div>
       </div>
     `);
