@@ -24,17 +24,6 @@ Description...
   <Story name="base">
     <Box background="neutral100">
       <HeaderLayout
-        primaryAction={<Button startIcon={<AddIcon />}>Add an entry</Button>}
-        secondaryAction={
-          <Button variant="tertiary" startIcon={<EditIcon />}>
-            Edit
-          </Button>
-        }
-        title="Other CT"
-        subtitle="36 entries found"
-        as="h2"
-      />
-      <HeaderLayout
         navigationAction={
           <Link startIcon={<BackIcon />} to="/">
             Go back
@@ -47,6 +36,28 @@ Description...
           </Button>
         }
         title="Restaurants"
+        subtitle="36 entries found"
+        as="h2"
+      />
+    </Box>
+  </Story>
+</Canvas>
+
+## HeaderLayout without nav action
+
+Description...
+
+<Canvas>
+  <Story name="base without nav action">
+    <Box background="neutral100">
+      <HeaderLayout
+        primaryAction={<Button startIcon={<AddIcon />}>Add an entry</Button>}
+        secondaryAction={
+          <Button variant="tertiary" startIcon={<EditIcon />}>
+            Edit
+          </Button>
+        }
+        title="Other CT"
         subtitle="36 entries found"
         as="h2"
       />

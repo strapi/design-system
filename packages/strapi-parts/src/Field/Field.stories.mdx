@@ -21,71 +21,51 @@ import { FieldAction } from './FieldAction';
 
 This is the doc of the `Field` component
 
-## Default
+## Base
 
 The simplest representation of the Field components, no description, no error, no noise.
 
 <Canvas>
-  <Story name="default">
-    {() => {
-      const [value, setText] = useState('');
-      return (
-        <Field name="email">
-          <Stack size={1}>
-            <FieldLabel>Email</FieldLabel>
-            <FieldInput type="text" placeholder="Placeholder" value={value} onChange={(e) => setText(e.target.value)} />
-          </Stack>
-        </Field>
-      );
-    }}
+  <Story name="base">
+    <Field name="email">
+      <Stack size={1}>
+        <FieldLabel>Email</FieldLabel>
+        <FieldInput type="text" placeholder="Placeholder" value={''} onChange={() => {}} />
+      </Stack>
+    </Field>
   </Story>
 </Canvas>
 
-## With description
+## with description
 
 An example of the Field components with a description
 
 <Canvas>
-  <Story name="With description">
-    {() => {
-      const [value, setText] = useState('');
-      return (
-        <Field name="email" hint="Description line">
-          <Stack size={1}>
-            <FieldLabel>Email</FieldLabel>
-            <FieldInput type="text" placeholder="Placeholder" value={value} onChange={(e) => setText(e.target.value)} />
-            <FieldHint />
-          </Stack>
-        </Field>
-      );
-    }}
+  <Story name="with description">
+    <Field name="email" hint="Description line">
+      <Stack size={1}>
+        <FieldLabel>Email</FieldLabel>
+        <FieldInput type="text" placeholder="Placeholder" value={''} onChange={() => {}} />
+        <FieldHint />
+      </Stack>
+    </Field>
   </Story>
 </Canvas>
 
-## Password with description and error
+## with error
 
-An example of the Field components with a description and an error when reaching 5 characters
+An example of the Field components with an error
 
 <Canvas>
-  <Story name="With password, description and error">
-    {() => {
-      const [value, setText] = useState('');
-      return (
-        <Field name="password" error={value.length > 5 ? 'Password is too short' : undefined} hint="Description line">
-          <Stack size={1}>
-            <FieldLabel>Password</FieldLabel>
-            <FieldInput
-              type="password"
-              placeholder="Placeholder"
-              value={value}
-              onChange={(e) => setText(e.target.value)}
-            />
-            <FieldHint />
-            <FieldError />
-          </Stack>
-        </Field>
-      );
-    }}
+  <Story name="with error">
+    <Field name="password" error={'Password is too short'}>
+      <Stack size={1}>
+        <FieldLabel>Password</FieldLabel>
+        <FieldInput type="password" placeholder="Placeholder" value={''} onChange={() => {}} />
+        <FieldHint />
+        <FieldError />
+      </Stack>
+    </Field>
   </Story>
 </Canvas>
 
@@ -94,24 +74,15 @@ An example of the Field components with a description and an error when reaching
 An example of the Field components in a disabled state:
 
 <Canvas>
-  <Story name="Disabled">
-    {() => {
-      return (
-        <Field name="password" hint="Description line">
-          <Stack size={1}>
-            <FieldLabel>Password</FieldLabel>
-            <FieldInput
-              placeholder="Placeholder"
-              value={'Hello world'}
-              disabled={true}
-              onChange={(e) => setText(e.target.value)}
-            />
-            <FieldHint />
-            <FieldError />
-          </Stack>
-        </Field>
-      );
-    }}
+  <Story name="disabled">
+    <Field name="password" hint="Description line">
+      <Stack size={1}>
+        <FieldLabel>Password</FieldLabel>
+        <FieldInput placeholder="Placeholder" value={'Hello world'} disabled={true} onChange={() => {}} />
+        <FieldHint />
+        <FieldError />
+      </Stack>
+    </Field>
   </Story>
 </Canvas>
 
@@ -120,7 +91,7 @@ An example of the Field components in a disabled state:
 This is the most complex input that can be built with the Field components:
 
 <Canvas>
-  <Story name="Most complex input">
+  <Story name="most complex input">
     {() => {
       const [email, setEmail] = useState('');
       return (

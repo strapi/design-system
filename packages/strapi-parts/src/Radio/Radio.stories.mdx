@@ -4,10 +4,7 @@ import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { Radio, RadioGroup } from './';
 
-<Meta
-  title="Design System/Molecules/Radio"
-  component={Radio}
-/>
+<Meta title="Design System/Molecules/Radio" component={Radio} />
 
 # Radio
 
@@ -18,7 +15,7 @@ This is the doc of the `Radio` component
 Description...
 
 <Canvas>
-  <Story name="default">
+  <Story name="base">
     {() => {
       const [selected, setSelected] = useState();
       return (

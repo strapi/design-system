@@ -1,9 +1,11 @@
 import { injectAxe, checkA11y } from 'axe-playwright';
 
-describe('Accordion', () => {
+describe('Accordion Keyboard Navigable', () => {
   beforeEach(async () => {
     // This is the URL of the Storybook Iframe
-    await page.goto('http://localhost:6006/iframe.html?id=design-system-molecules-accordion--group&viewMode=story');
+    await page.goto(
+      'http://localhost:6006/iframe.html?id=design-system-molecules-accordion--keyboard-navigable&viewMode=story',
+    );
     await injectAxe(page);
   });
 

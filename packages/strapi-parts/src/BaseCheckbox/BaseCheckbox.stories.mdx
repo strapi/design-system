@@ -4,10 +4,7 @@ import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { BaseCheckbox } from './BaseCheckbox';
 
-<Meta
-  title="Design System/Atoms/BaseCheckbox"
-  component={BaseCheckbox}
-/>
+<Meta title="Design System/Atoms/BaseCheckbox" component={BaseCheckbox} />
 
 # BaseCheckbox
 
@@ -18,14 +15,16 @@ This is the doc of the `BaseCheckbox` component
 Description...
 
 <Canvas>
-  <Story name="default">
+  <Story name="base">
     {() => {
       const [val, setValue] = useState(false);
       return (
-        <>
-          <label htmlFor="default">Parent</label>
-          <BaseCheckbox id="default" name="default" onValueChange={(value) => setValue(value)} value={val} />
-        </>
+        <BaseCheckbox
+          aria-label="Simple checkbox"
+          name="default"
+          onValueChange={(value) => setValue(value)}
+          value={val}
+        />
       );
     }}
   </Story>
@@ -90,9 +89,9 @@ Description...
     {() => {
       return (
         <>
-          <BaseCheckbox name="disabled-unchecked" disabled />
-          <BaseCheckbox name="disabled-indeterminate" disabled indeterminate />
-          <BaseCheckbox name="disabled-checked" disabled value={true} />
+          <BaseCheckbox name="disabled-unchecked" disabled aria-label="First checkbox" />
+          <BaseCheckbox name="disabled-indeterminate" disabled indeterminate aria-label="Second checkbox" />
+          <BaseCheckbox name="disabled-checked" disabled value={true} aria-label="Last checkbox" />
         </>
       );
     }}
@@ -104,10 +103,12 @@ Description...
 Description...
 
 <Canvas>
-  <Story name="LSize">
+  <Story name="L Size">
     {() => {
       const [val, setValue] = useState(false);
-      return <BaseCheckbox name="LSize" size="L" onValueChange={(value) => setValue(value)} value={val} />;
+      return (
+        <BaseCheckbox name="LSize" size="L" onValueChange={(value) => setValue(value)} value={val} aria-label="Lsize" />
+      );
     }}
   </Story>
 </Canvas>

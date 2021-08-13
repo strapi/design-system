@@ -114,7 +114,7 @@ exports[`Storyshots Design System/Atoms/BaseButton base 1`] = `
 </main>
 `;
 
-exports[`Storyshots Design System/Atoms/BaseCheckbox LSize 1`] = `
+exports[`Storyshots Design System/Atoms/BaseCheckbox L Size 1`] = `
 .c0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
@@ -203,6 +203,7 @@ exports[`Storyshots Design System/Atoms/BaseCheckbox LSize 1`] = `
     </h1>
   </div>
   <input
+    aria-label="Lsize"
     class="c1"
     name="LSize"
     type="checkbox"
@@ -210,7 +211,7 @@ exports[`Storyshots Design System/Atoms/BaseCheckbox LSize 1`] = `
 </main>
 `;
 
-exports[`Storyshots Design System/Atoms/BaseCheckbox default 1`] = `
+exports[`Storyshots Design System/Atoms/BaseCheckbox base 1`] = `
 .c0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
@@ -298,14 +299,9 @@ exports[`Storyshots Design System/Atoms/BaseCheckbox default 1`] = `
       Storybook story
     </h1>
   </div>
-  <label
-    for="default"
-  >
-    Parent
-  </label>
   <input
+    aria-label="Simple checkbox"
     class="c1"
-    id="default"
     name="default"
     type="checkbox"
   />
@@ -401,18 +397,21 @@ exports[`Storyshots Design System/Atoms/BaseCheckbox disabled 1`] = `
     </h1>
   </div>
   <input
+    aria-label="First checkbox"
     class="c1"
     disabled=""
     name="disabled-unchecked"
     type="checkbox"
   />
   <input
+    aria-label="Second checkbox"
     class="c1"
     disabled=""
     name="disabled-indeterminate"
     type="checkbox"
   />
   <input
+    aria-label="Last checkbox"
     checked=""
     class="c1"
     disabled=""
@@ -675,7 +674,7 @@ exports[`Storyshots Design System/Atoms/BaseRadio LSize 1`] = `
 </main>
 `;
 
-exports[`Storyshots Design System/Atoms/BaseRadio default 1`] = `
+exports[`Storyshots Design System/Atoms/BaseRadio base 1`] = `
 .c0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
@@ -928,7 +927,7 @@ exports[`Storyshots Design System/Atoms/Box base 1`] = `
 </main>
 `;
 
-exports[`Storyshots Design System/Atoms/Box responsive-spaces 1`] = `
+exports[`Storyshots Design System/Atoms/Box responsive spaces 1`] = `
 .c0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
@@ -2443,6 +2442,151 @@ exports[`Storyshots Design System/Layouts/EmptyStateLayout base 1`] = `
 </main>
 `;
 
+exports[`Storyshots Design System/Layouts/EmptyStateLayout without action 1`] = `
+.c0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.c1 {
+  background: #f6f6f9;
+  padding: 40px;
+}
+
+.c2 {
+  background: #ffffff;
+  padding-top: 56px;
+  padding-bottom: 56px;
+  border-radius: 4px;
+  box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
+}
+
+.c4 {
+  padding-bottom: 24px;
+}
+
+.c6 {
+  padding-bottom: 16px;
+}
+
+.c7 {
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.25;
+  color: #666687;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c5 svg {
+  height: 5.5rem;
+}
+
+<main>
+  <div
+    class="c0"
+  >
+    <h1>
+      Storybook story
+    </h1>
+  </div>
+  <div
+    class="c1"
+  >
+    <div
+      class="c2 c3"
+    >
+      <div
+        aria-hidden="true"
+        class="c4 c5"
+      >
+        <svg
+          fill="none"
+          height="88"
+          viewBox="0 0 159 88"
+          width="159"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M134.933 17.417C137.768 17.417 140.067 19.7153 140.067 22.5503C140.067 25.3854 137.768 27.6837 134.933 27.6837H105.6C108.435 27.6837 110.733 29.9819 110.733 32.817C110.733 35.6521 108.435 37.9503 105.6 37.9503H121.733C124.568 37.9503 126.867 40.2486 126.867 43.0837C126.867 45.9187 124.568 48.217 121.733 48.217H114.272C110.698 48.217 107.8 50.5153 107.8 53.3503C107.8 55.2404 109.267 56.9515 112.2 58.4837C115.035 58.4837 117.333 60.7819 117.333 63.617C117.333 66.4521 115.035 68.7503 112.2 68.7503H51.3333C48.4982 68.7503 46.2 66.4521 46.2 63.617C46.2 60.7819 48.4982 58.4837 51.3333 58.4837H22.7333C19.8982 58.4837 17.6 56.1854 17.6 53.3503C17.6 50.5153 19.8982 48.217 22.7333 48.217H52.0666C54.9017 48.217 57.2 45.9187 57.2 43.0837C57.2 40.2486 54.9017 37.9503 52.0666 37.9503H33.7333C30.8982 37.9503 28.6 35.6521 28.6 32.817C28.6 29.9819 30.8982 27.6837 33.7333 27.6837H63.0666C60.2316 27.6837 57.9333 25.3854 57.9333 22.5503C57.9333 19.7153 60.2316 17.417 63.0666 17.417H134.933ZM134.933 37.9503C137.768 37.9503 140.067 40.2486 140.067 43.0837C140.067 45.9187 137.768 48.217 134.933 48.217C132.098 48.217 129.8 45.9187 129.8 43.0837C129.8 40.2486 132.098 37.9503 134.933 37.9503Z"
+            fill="#DBDBFA"
+            fill-rule="evenodd"
+          />
+          <path
+            clip-rule="evenodd"
+            d="M95.826 16.6834L102.647 66.4348L103.26 71.4261C103.458 73.034 102.314 74.4976 100.706 74.695L57.7621 79.9679C56.1542 80.1653 54.6906 79.0219 54.4932 77.4139L47.8816 23.5671C47.7829 22.7631 48.3546 22.0313 49.1586 21.9326C49.1637 21.932 49.1688 21.9313 49.1739 21.9307L52.7367 21.5311L95.826 16.6834ZM55.6176 21.208L58.9814 20.8306Z"
+            fill="white"
+            fill-rule="evenodd"
+          />
+          <path
+            d="M55.6176 21.208L58.9814 20.8306M95.826 16.6834L102.647 66.4348L103.26 71.4261C103.458 73.034 102.314 74.4976 100.706 74.695L57.7621 79.9679C56.1542 80.1653 54.6906 79.0219 54.4932 77.4139L47.8816 23.5671C47.7829 22.7631 48.3546 22.0313 49.1586 21.9326C49.1637 21.932 49.1688 21.9313 49.1739 21.9307L52.7367 21.5311L95.826 16.6834Z"
+            stroke="#7E7BF6"
+            stroke-width="2.5"
+          />
+          <path
+            clip-rule="evenodd"
+            d="M93.9695 19.8144L100.144 64.9025L100.699 69.4258C100.878 70.8831 99.8559 72.2077 98.416 72.3845L59.9585 77.1065C58.5185 77.2833 57.2062 76.2453 57.0272 74.7881L51.0506 26.112C50.9519 25.308 51.5236 24.5762 52.3276 24.4775L57.0851 23.8934"
+            fill="#F0F0FF"
+            fill-rule="evenodd"
+          />
+          <path
+            clip-rule="evenodd"
+            d="M97.701 7.33301H64.2927C63.7358 7.33301 63.2316 7.55873 62.8667 7.92368C62.5017 8.28862 62.276 8.79279 62.276 9.34967V65.083C62.276 65.6399 62.5017 66.1441 62.8667 66.509C63.2316 66.874 63.7358 67.0997 64.2927 67.0997H107.559C108.116 67.0997 108.62 66.874 108.985 66.509C109.35 66.1441 109.576 65.6399 109.576 65.083V19.202C109.576 18.6669 109.363 18.1537 108.985 17.7755L99.1265 7.92324C98.7484 7.54531 98.2356 7.33301 97.701 7.33301Z"
+            fill="white"
+            fill-rule="evenodd"
+            stroke="#7F7CFA"
+            stroke-width="2.5"
+          />
+          <path
+            d="M98.026 8.17871V16.6833C98.026 17.8983 99.011 18.8833 100.226 18.8833H106.044"
+            stroke="#807EFA"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2.5"
+          />
+          <path
+            d="M70.1594 56.2838H89.2261M70.1594 18.8838H89.2261H70.1594ZM70.1594 27.6838H101.693H70.1594ZM70.1594 37.2171H101.693H70.1594ZM70.1594 46.7505H101.693H70.1594Z"
+            stroke="#817FFA"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2.5"
+          />
+        </svg>
+      </div>
+      <div
+        class="c6"
+      >
+        <p
+          class="c7"
+        >
+          You don't have any content yet...
+        </p>
+      </div>
+    </div>
+  </div>
+</main>
+`;
+
 exports[`Storyshots Design System/Layouts/GridLayout base 1`] = `
 .c0 {
   border: 0;
@@ -2571,6 +2715,436 @@ exports[`Storyshots Design System/Layouts/HeaderLayouts base 1`] = `
 }
 
 .c3 {
+  padding-top: 24px;
+  padding-right: 56px;
+  padding-bottom: 56px;
+  padding-left: 56px;
+}
+
+.c4 {
+  padding-bottom: 12px;
+}
+
+.c6 {
+  padding-right: 8px;
+}
+
+.c15 {
+  padding-left: 16px;
+}
+
+.c14 {
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 1.25;
+  color: #32324d;
+}
+
+.c9 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #4945ff;
+}
+
+.c18 {
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #32324d;
+}
+
+.c20 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #666687;
+}
+
+.c21 {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.c10 {
+  font-weight: 600;
+  line-height: 1.14;
+}
+
+.c11 {
+  font-weight: 600;
+  font-size: 0.6875rem;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.c12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c13 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c5 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-transform: uppercase;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c5 svg path {
+  fill: #4945ff;
+}
+
+.c5 svg {
+  font-size: 0.625rem;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c16 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  background: #ffffff;
+  border: 1px solid #dcdce4;
+}
+
+.c16 svg {
+  height: 12px;
+  width: 12px;
+}
+
+.c16 svg > g,
+.c16 svg path {
+  fill: #ffffff;
+}
+
+.c16[aria-disabled='true'] {
+  pointer-events: none;
+}
+
+.c17 {
+  padding: 8px 16px;
+  background: #4945ff;
+  border: none;
+  border: 1px solid #dcdce4;
+  background: #ffffff;
+}
+
+.c17 .c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 2px;
+}
+
+.c17 .c8 {
+  color: #ffffff;
+}
+
+.c17[aria-disabled='true'] {
+  border: 1px solid #dcdce4;
+  background: #eaeaef;
+}
+
+.c17[aria-disabled='true'] .c8 {
+  color: #666687;
+}
+
+.c17[aria-disabled='true'] svg > g,
+.c17[aria-disabled='true'] svg path {
+  fill: #666687;
+}
+
+.c17[aria-disabled='true']:active {
+  border: 1px solid #dcdce4;
+  background: #eaeaef;
+}
+
+.c17[aria-disabled='true']:active .c8 {
+  color: #666687;
+}
+
+.c17[aria-disabled='true']:active svg > g,
+.c17[aria-disabled='true']:active svg path {
+  fill: #666687;
+}
+
+.c17:hover {
+  background-color: #f6f6f9;
+}
+
+.c17:active {
+  background-color: #eaeaef;
+}
+
+.c17 .c8 {
+  color: #32324d;
+}
+
+.c17 svg > g,
+.c17 svg path {
+  fill: #32324d;
+}
+
+.c19 {
+  padding: 8px 16px;
+  background: #4945ff;
+  border: none;
+  border: 1px solid #4945ff;
+  background: #4945ff;
+}
+
+.c19 .c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 2px;
+}
+
+.c19 .c8 {
+  color: #ffffff;
+}
+
+.c19[aria-disabled='true'] {
+  border: 1px solid #dcdce4;
+  background: #eaeaef;
+}
+
+.c19[aria-disabled='true'] .c8 {
+  color: #666687;
+}
+
+.c19[aria-disabled='true'] svg > g,
+.c19[aria-disabled='true'] svg path {
+  fill: #666687;
+}
+
+.c19[aria-disabled='true']:active {
+  border: 1px solid #dcdce4;
+  background: #eaeaef;
+}
+
+.c19[aria-disabled='true']:active .c8 {
+  color: #666687;
+}
+
+.c19[aria-disabled='true']:active svg > g,
+.c19[aria-disabled='true']:active svg path {
+  fill: #666687;
+}
+
+.c19:hover {
+  border: 1px solid #7b79ff;
+  background: #7b79ff;
+}
+
+.c19:active {
+  border: 1px solid #4945ff;
+  background: #4945ff;
+}
+
+<main>
+  <div
+    class="c0"
+  >
+    <h1>
+      Storybook story
+    </h1>
+  </div>
+  <div
+    class="c1 c2"
+  >
+    <div
+      class="c1 c3"
+    >
+      <div
+        class="c1 c4"
+      >
+        <a
+          aria-current="page"
+          class="c5 active"
+          href="/"
+        >
+          <span
+            aria-hidden="true"
+            class="c1 c6 c7"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M24 13.3a.2.2 0 01-.2.2H5.74l8.239 8.239a.2.2 0 010 .282L12.14 23.86a.2.2 0 01-.282 0L.14 12.14a.2.2 0 010-.282L11.86.14a.2.2 0 01.282 0L13.98 1.98a.2.2 0 010 .282L5.74 10.5H23.8c.11 0 .2.09.2.2v2.6z"
+                fill="#212134"
+              />
+            </svg>
+          </span>
+          <span
+            class="c8 c9 c10 c11"
+          >
+            Go back
+          </span>
+        </a>
+      </div>
+      <div
+        class="c12"
+      >
+        <div
+          class="c13"
+        >
+          <h2
+            class="c14"
+          >
+            Restaurants
+          </h2>
+          <div
+            class="c1 c15"
+          >
+            <button
+              aria-disabled="false"
+              class="c16 c17"
+              type="button"
+            >
+              <div
+                aria-hidden="true"
+                class="c1 c6"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M23.604 3.514c.528.528.528 1.36 0 1.887l-2.622 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.118 3.118zM0 24v-4.99l14.2-14.2 4.99 4.99L4.99 24H0z"
+                    fill="#212134"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <span
+                class="c8 c18"
+              >
+                Edit
+              </span>
+            </button>
+          </div>
+        </div>
+        <button
+          aria-disabled="false"
+          class="c16 c19"
+          type="button"
+        >
+          <div
+            aria-hidden="true"
+            class="c1 c6"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M24 13.604a.3.3 0 01-.3.3h-9.795V23.7a.3.3 0 01-.3.3h-3.21a.3.3 0 01-.3-.3v-9.795H.3a.3.3 0 01-.3-.3v-3.21a.3.3 0 01.3-.3h9.795V.3a.3.3 0 01.3-.3h3.21a.3.3 0 01.3.3v9.795H23.7a.3.3 0 01.3.3v3.21z"
+                fill="#212134"
+              />
+            </svg>
+          </div>
+          <span
+            class="c8 c18"
+          >
+            Add an entry
+          </span>
+        </button>
+      </div>
+      <p
+        class="c8 c20 c21"
+      >
+        36 entries found
+      </p>
+    </div>
+  </div>
+</main>
+`;
+
+exports[`Storyshots Design System/Layouts/HeaderLayouts base without nav action 1`] = `
+.c0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.c2 {
+  background: #f6f6f9;
+}
+
+.c3 {
   padding-top: 56px;
   padding-right: 56px;
   padding-bottom: 56px;
@@ -2583,17 +3157,6 @@ exports[`Storyshots Design System/Layouts/HeaderLayouts base 1`] = `
 
 .c10 {
   padding-right: 8px;
-}
-
-.c16 {
-  padding-top: 24px;
-  padding-right: 56px;
-  padding-bottom: 56px;
-  padding-left: 56px;
-}
-
-.c17 {
-  padding-bottom: 12px;
 }
 
 .c6 {
@@ -2617,28 +3180,9 @@ exports[`Storyshots Design System/Layouts/HeaderLayouts base 1`] = `
   color: #666687;
 }
 
-.c20 {
-  font-weight: 400;
-  font-size: 0.875rem;
-  line-height: 1.43;
-  color: #4945ff;
-}
-
 .c15 {
   font-size: 1rem;
   line-height: 1.5;
-}
-
-.c21 {
-  font-weight: 600;
-  line-height: 1.14;
-}
-
-.c22 {
-  font-weight: 600;
-  font-size: 0.6875rem;
-  line-height: 1.45;
-  text-transform: uppercase;
 }
 
 .c4 {
@@ -2671,35 +3215,6 @@ exports[`Storyshots Design System/Layouts/HeaderLayouts base 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-}
-
-.c18 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  text-transform: uppercase;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c18 svg path {
-  fill: #4945ff;
-}
-
-.c18 svg {
-  font-size: 0.625rem;
-}
-
-.c19 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 .c8 {
@@ -2883,122 +3398,6 @@ exports[`Storyshots Design System/Layouts/HeaderLayouts base 1`] = `
             class="c6"
           >
             Other CT
-          </h2>
-          <div
-            class="c1 c7"
-          >
-            <button
-              aria-disabled="false"
-              class="c8 c9"
-              type="button"
-            >
-              <div
-                aria-hidden="true"
-                class="c1 c10"
-              >
-                <svg
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 24 24"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    clip-rule="evenodd"
-                    d="M23.604 3.514c.528.528.528 1.36 0 1.887l-2.622 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.118 3.118zM0 24v-4.99l14.2-14.2 4.99 4.99L4.99 24H0z"
-                    fill="#212134"
-                    fill-rule="evenodd"
-                  />
-                </svg>
-              </div>
-              <span
-                class="c11 c12"
-              >
-                Edit
-              </span>
-            </button>
-          </div>
-        </div>
-        <button
-          aria-disabled="false"
-          class="c8 c13"
-          type="button"
-        >
-          <div
-            aria-hidden="true"
-            class="c1 c10"
-          >
-            <svg
-              fill="none"
-              height="1em"
-              viewBox="0 0 24 24"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M24 13.604a.3.3 0 01-.3.3h-9.795V23.7a.3.3 0 01-.3.3h-3.21a.3.3 0 01-.3-.3v-9.795H.3a.3.3 0 01-.3-.3v-3.21a.3.3 0 01.3-.3h9.795V.3a.3.3 0 01.3-.3h3.21a.3.3 0 01.3.3v9.795H23.7a.3.3 0 01.3.3v3.21z"
-                fill="#212134"
-              />
-            </svg>
-          </div>
-          <span
-            class="c11 c12"
-          >
-            Add an entry
-          </span>
-        </button>
-      </div>
-      <p
-        class="c11 c14 c15"
-      >
-        36 entries found
-      </p>
-    </div>
-    <div
-      class="c1 c16"
-    >
-      <div
-        class="c1 c17"
-      >
-        <a
-          aria-current="page"
-          class="c18 active"
-          href="/"
-        >
-          <span
-            aria-hidden="true"
-            class="c1 c10 c19"
-          >
-            <svg
-              fill="none"
-              height="1em"
-              viewBox="0 0 24 24"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M24 13.3a.2.2 0 01-.2.2H5.74l8.239 8.239a.2.2 0 010 .282L12.14 23.86a.2.2 0 01-.282 0L.14 12.14a.2.2 0 010-.282L11.86.14a.2.2 0 01.282 0L13.98 1.98a.2.2 0 010 .282L5.74 10.5H23.8c.11 0 .2.09.2.2v2.6z"
-                fill="#212134"
-              />
-            </svg>
-          </span>
-          <span
-            class="c11 c20 c21 c22"
-          >
-            Go back
-          </span>
-        </a>
-      </div>
-      <div
-        class="c4"
-      >
-        <div
-          class="c5"
-        >
-          <h2
-            class="c6"
-          >
-            Restaurants
           </h2>
           <div
             class="c1 c7"
@@ -3511,7 +3910,7 @@ exports[`Storyshots Design System/Layouts/HeaderLayouts sticky 1`] = `
 </main>
 `;
 
-exports[`Storyshots Design System/Layouts/Layout sidenav 1`] = `
+exports[`Storyshots Design System/Layouts/Layout base 1`] = `
 .c0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
@@ -6175,7 +6574,7 @@ exports[`Storyshots Design System/Layouts/TwoColsLayout base 1`] = `
 </main>
 `;
 
-exports[`Storyshots Design System/Molecules/Alert default 1`] = `
+exports[`Storyshots Design System/Molecules/Alert base 1`] = `
 .c0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
@@ -6720,7 +7119,7 @@ exports[`Storyshots Design System/Molecules/Alert variants 1`] = `
 </main>
 `;
 
-exports[`Storyshots Design System/Molecules/Alert with-action 1`] = `
+exports[`Storyshots Design System/Molecules/Alert with action 1`] = `
 .c0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
@@ -7209,7 +7608,7 @@ exports[`Storyshots Design System/Molecules/Breadcrumbs base 1`] = `
 </main>
 `;
 
-exports[`Storyshots Design System/Molecules/Button default 1`] = `
+exports[`Storyshots Design System/Molecules/Button base 1`] = `
 .c0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
@@ -8727,87 +9126,73 @@ exports[`Storyshots Design System/Molecules/Card base 1`] = `
 }
 
 .c1 {
-  background: #f6f6f9;
-  padding: 40px;
-}
-
-.c3 {
   background: #ffffff;
   border-radius: 4px;
   box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
 }
 
-.c13 {
+.c11 {
   background: #32324d;
   color: #ffffff;
   padding: 4px;
   border-radius: 4px;
 }
 
-.c16 {
+.c14 {
   padding-top: 8px;
   padding-right: 12px;
   padding-bottom: 8px;
   padding-left: 12px;
 }
 
-.c20 {
+.c18 {
   background: #f6f6f9;
   color: #666687;
   padding: 4px;
   border-radius: 4px;
 }
 
-.c26 {
-  background: #f0f0ff;
-  padding: 8px;
-}
-
-.c27 {
-  padding-left: 8px;
-}
-
-.c15 {
+.c13 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
-  color: #32324d;
+  color: #ffffff;
 }
 
-.c18 {
+.c16 {
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #32324d;
 }
 
-.c19 {
+.c17 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #666687;
 }
 
-.c23 {
+.c21 {
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.43;
   color: #32324d;
 }
 
-.c24 {
+.c22 {
   font-weight: 600;
   line-height: 1.14;
 }
 
-.c25 {
+.c23 {
   font-weight: 600;
   font-size: 0.6875rem;
   line-height: 1.45;
   text-transform: uppercase;
 }
 
-.c4 {
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -8825,7 +9210,7 @@ exports[`Storyshots Design System/Molecules/Card base 1`] = `
   align-items: center;
 }
 
-.c17 {
+.c15 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -8839,20 +9224,11 @@ exports[`Storyshots Design System/Molecules/Card base 1`] = `
   align-items: center;
 }
 
-.c2 > * {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.c2 > * + * {
-  margin-top: 12px;
-}
-
-.c21 {
+.c19 {
   display: inline-block;
 }
 
-.c9 {
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -8864,21 +9240,21 @@ exports[`Storyshots Design System/Molecules/Card base 1`] = `
   border: 1px solid #dcdce4;
 }
 
-.c9 svg {
+.c7 svg {
   height: 12px;
   width: 12px;
 }
 
-.c9 svg > g,
-.c9 svg path {
+.c7 svg > g,
+.c7 svg path {
   fill: #ffffff;
 }
 
-.c9[aria-disabled='true'] {
+.c7[aria-disabled='true'] {
   pointer-events: none;
 }
 
-.c7 {
+.c5 {
   margin: 0;
   height: 18px;
   width: 18px;
@@ -8888,12 +9264,12 @@ exports[`Storyshots Design System/Molecules/Card base 1`] = `
   background-color: #ffffff;
 }
 
-.c7:checked {
+.c5:checked {
   background-color: #4945ff;
   border: 1px solid #4945ff;
 }
 
-.c7:checked:after {
+.c5:checked:after {
   content: '';
   display: block;
   position: relative;
@@ -8907,21 +9283,21 @@ exports[`Storyshots Design System/Molecules/Card base 1`] = `
   transform: translateX(-50%) translateY(-50%);
 }
 
-.c7:checked:disabled:after {
+.c5:checked:disabled:after {
   background: url(test-file-stub) no-repeat no-repeat center center;
 }
 
-.c7:disabled {
+.c5:disabled {
   background-color: #dcdce4;
   border: 1px solid #c0c0cf;
 }
 
-.c7:indeterminate {
+.c5:indeterminate {
   background-color: #4945ff;
   border: 1px solid #4945ff;
 }
 
-.c7:indeterminate:after {
+.c5:indeterminate:after {
   content: '';
   display: block;
   position: relative;
@@ -8936,23 +9312,23 @@ exports[`Storyshots Design System/Molecules/Card base 1`] = `
   transform: translateX(-50%) translateY(-50%);
 }
 
-.c7:indeterminate:disabled {
+.c5:indeterminate:disabled {
   background-color: #dcdce4;
   border: 1px solid #c0c0cf;
 }
 
-.c7:indeterminate:disabled:after {
+.c5:indeterminate:disabled:after {
   background-color: #8e8ea9;
 }
 
-.c12 {
+.c10 {
   margin: 0;
   padding: 0;
   max-height: 100%;
   max-width: 100%;
 }
 
-.c11 {
+.c9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -8966,53 +9342,53 @@ exports[`Storyshots Design System/Molecules/Card base 1`] = `
   background: repeating-conic-gradient(#f6f6f9 0% 25%,transparent 0% 50%) 50% / 20px 20px;
 }
 
-.c22 {
+.c20 {
   margin-left: auto;
 }
 
-.c5 {
+.c3 {
   position: relative;
   border-bottom: 1px solid #eaeaef;
 }
 
-.c6 {
+.c4 {
   position: absolute;
   top: 12px;
   left: 12px;
 }
 
-.c8 {
+.c6 {
   position: absolute;
   top: 12px;
   right: 12px;
 }
 
-.c14 {
+.c12 {
   position: absolute;
   bottom: 4px;
   right: 4px;
 }
 
-.c10 svg > g,
-.c10 svg path {
+.c8 svg > g,
+.c8 svg path {
   fill: #8e8ea9;
 }
 
-.c10:hover svg > g,
-.c10:hover svg path {
+.c8:hover svg > g,
+.c8:hover svg path {
   fill: #666687;
 }
 
-.c10:active svg > g,
-.c10:active svg path {
+.c8:active svg > g,
+.c8:active svg path {
   fill: #a5a5ba;
 }
 
-.c10[aria-disabled='true'] {
+.c8[aria-disabled='true'] {
   background-color: #eaeaef;
 }
 
-.c10[aria-disabled='true'] svg path {
+.c8[aria-disabled='true'] svg path {
   fill: #666687;
 }
 
@@ -9024,307 +9400,1203 @@ exports[`Storyshots Design System/Molecules/Card base 1`] = `
       Storybook story
     </h1>
   </div>
-  <div
+  <article
+    aria-labelledby="first-title"
     class="c1"
+    id="first"
+    style="width: 240px;"
+    tabindex="0"
+  >
+    <div
+      class="c2 c3"
+    >
+      <div
+        class="c4"
+      >
+        <input
+          aria-labelledby="first-title"
+          checked=""
+          class="c5"
+          type="checkbox"
+        />
+      </div>
+      <div
+        class="c6"
+      >
+        <span>
+          <button
+            aria-disabled="false"
+            aria-labelledby="tooltip-1"
+            class="c7 c8"
+            tabindex="0"
+            type="button"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M23.604 3.514c.528.528.528 1.36 0 1.887l-2.622 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.118 3.118zM0 24v-4.99l14.2-14.2 4.99 4.99L4.99 24H0z"
+                fill="#212134"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </button>
+        </span>
+      </div>
+      <div
+        class="c9"
+      >
+        <img
+          aria-hidden="true"
+          class="c10"
+          src="test-file-stub"
+        />
+      </div>
+      <time
+        class="c11 c12"
+      >
+        <span
+          class="c13"
+        >
+          05:39
+        </span>
+      </time>
+    </div>
+    <div
+      class="c14"
+    >
+      <div
+        class="c15"
+      >
+        <div
+          class=""
+        >
+          <div
+            class="c16"
+            id="first-title"
+          >
+            File name
+          </div>
+          <div
+            class="c17"
+          >
+            PNG - 400✕400
+          </div>
+        </div>
+        <div
+          class="c18 c19 c20"
+        >
+          <span
+            class="c21 c22 c23"
+          >
+            Doc
+          </span>
+        </div>
+      </div>
+    </div>
+  </article>
+</main>
+`;
+
+exports[`Storyshots Design System/Molecules/Card keyboard navigable 1`] = `
+.c0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.c1 {
+  background: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
+}
+
+.c2 {
+  padding-top: 8px;
+  padding-right: 12px;
+  padding-bottom: 8px;
+  padding-left: 12px;
+}
+
+.c4 {
+  background: #f0f0ff;
+  padding: 8px;
+}
+
+.c5 {
+  padding-left: 8px;
+}
+
+.c8 {
+  background: #f6f6f9;
+  color: #666687;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.c6 {
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #32324d;
+}
+
+.c7 {
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #666687;
+}
+
+.c11 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #32324d;
+}
+
+.c12 {
+  font-weight: 600;
+  line-height: 1.14;
+}
+
+.c13 {
+  font-weight: 600;
+  font-size: 0.6875rem;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c9 {
+  display: inline-block;
+}
+
+.c10 {
+  margin-left: auto;
+}
+
+<main>
+  <div
+    class="c0"
+  >
+    <h1>
+      Storybook story
+    </h1>
+  </div>
+  <div
+    class=""
+  >
+    <article
+      aria-labelledby="first-title"
+      class="c1"
+      id="first"
+      style="width: 240px;"
+      tabindex="0"
+    >
+      <div
+        class="c2"
+      >
+        <div
+          class="c3"
+        >
+          <div
+            class="c4"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M23.604 3.514c.528.528.528 1.36 0 1.887l-2.622 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.118 3.118zM0 24v-4.99l14.2-14.2 4.99 4.99L4.99 24H0z"
+                fill="#212134"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </div>
+          <div
+            class="c5"
+          >
+            <div
+              class="c6"
+              id="first-title"
+            >
+              File name
+            </div>
+            <div
+              class="c7"
+            >
+              PNG - 400✕400
+            </div>
+          </div>
+          <div
+            class="c8 c9 c10"
+          >
+            <span
+              class="c11 c12 c13"
+            >
+              Doc
+            </span>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article
+      aria-labelledby="second-title"
+      class="c1"
+      id="second"
+      style="width: 240px;"
+      tabindex="0"
+    >
+      <div
+        class="c2"
+      >
+        <div
+          class="c3"
+        >
+          <div
+            class="c4"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M23.604 3.514c.528.528.528 1.36 0 1.887l-2.622 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.118 3.118zM0 24v-4.99l14.2-14.2 4.99 4.99L4.99 24H0z"
+                fill="#212134"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </div>
+          <div
+            class="c5"
+          >
+            <div
+              class="c6"
+              id="second-title"
+            >
+              File name
+            </div>
+            <div
+              class="c7"
+            >
+              PNG - 400✕400
+            </div>
+          </div>
+          <div
+            class="c8 c9 c10"
+          >
+            <span
+              class="c11 c12 c13"
+            >
+              Doc
+            </span>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article
+      aria-labelledby="third-title"
+      class="c1"
+      id="third"
+      style="width: 240px;"
+      tabindex="0"
+    >
+      <div
+        class="c2"
+      >
+        <div
+          class="c3"
+        >
+          <div
+            class="c4"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M23.604 3.514c.528.528.528 1.36 0 1.887l-2.622 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.118 3.118zM0 24v-4.99l14.2-14.2 4.99 4.99L4.99 24H0z"
+                fill="#212134"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </div>
+          <div
+            class="c5"
+          >
+            <div
+              class="c6"
+              id="third-title"
+            >
+              File name
+            </div>
+            <div
+              class="c7"
+            >
+              PNG - 400✕400
+            </div>
+          </div>
+          <div
+            class="c8 c9 c10"
+          >
+            <span
+              class="c11 c12 c13"
+            >
+              Doc
+            </span>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article
+      aria-labelledby="fourth-title"
+      class="c1"
+      id="fourth"
+      style="width: 240px;"
+      tabindex="0"
+    >
+      <div
+        class="c2"
+      >
+        <div
+          class="c3"
+        >
+          <div
+            class="c4"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M23.604 3.514c.528.528.528 1.36 0 1.887l-2.622 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.118 3.118zM0 24v-4.99l14.2-14.2 4.99 4.99L4.99 24H0z"
+                fill="#212134"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </div>
+          <div
+            class="c5"
+          >
+            <div
+              class="c6"
+              id="fourth-title"
+            >
+              File name
+            </div>
+            <div
+              class="c7"
+            >
+              PNG - 400✕400
+            </div>
+          </div>
+          <div
+            class="c8 c9 c10"
+          >
+            <span
+              class="c11 c12 c13"
+            >
+              Doc
+            </span>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</main>
+`;
+
+exports[`Storyshots Design System/Molecules/Card without asset 1`] = `
+.c0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.c1 {
+  background: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
+}
+
+.c2 {
+  padding-top: 8px;
+  padding-right: 12px;
+  padding-bottom: 8px;
+  padding-left: 12px;
+}
+
+.c4 {
+  background: #f0f0ff;
+  padding: 8px;
+}
+
+.c5 {
+  padding-left: 8px;
+}
+
+.c8 {
+  background: #f6f6f9;
+  color: #666687;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.c6 {
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #32324d;
+}
+
+.c7 {
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #666687;
+}
+
+.c11 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #32324d;
+}
+
+.c12 {
+  font-weight: 600;
+  line-height: 1.14;
+}
+
+.c13 {
+  font-weight: 600;
+  font-size: 0.6875rem;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c9 {
+  display: inline-block;
+}
+
+.c10 {
+  margin-left: auto;
+}
+
+<main>
+  <div
+    class="c0"
+  >
+    <h1>
+      Storybook story
+    </h1>
+  </div>
+  <article
+    aria-labelledby="fourth-title"
+    class="c1"
+    id="fourth"
+    style="width: 240px;"
+    tabindex="0"
   >
     <div
       class="c2"
     >
-      <article
-        aria-labelledby="first-title"
+      <div
         class="c3"
-        id="first"
-        style="width: 240px;"
-        tabindex="0"
       >
         <div
-          class="c4 c5"
+          class="c4"
+        >
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M23.604 3.514c.528.528.528 1.36 0 1.887l-2.622 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.118 3.118zM0 24v-4.99l14.2-14.2 4.99 4.99L4.99 24H0z"
+              fill="#212134"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+        <div
+          class="c5"
         >
           <div
             class="c6"
+            id="fourth-title"
           >
-            <input
-              aria-labelledby="first-title"
-              checked=""
-              class="c7"
-              type="checkbox"
-            />
+            File name
           </div>
           <div
-            class="c8"
+            class="c7"
           >
-            <span>
-              <button
-                aria-disabled="false"
-                aria-labelledby="tooltip-1"
-                class="c9 c10"
-                tabindex="0"
-                type="button"
-              >
-                <svg
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 24 24"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    clip-rule="evenodd"
-                    d="M23.604 3.514c.528.528.528 1.36 0 1.887l-2.622 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.118 3.118zM0 24v-4.99l14.2-14.2 4.99 4.99L4.99 24H0z"
-                    fill="#212134"
-                    fill-rule="evenodd"
-                  />
-                </svg>
-              </button>
-            </span>
-          </div>
-          <div
-            class="c11"
-          >
-            <img
-              aria-hidden="true"
-              class="c12"
-              src="test-file-stub"
-            />
-          </div>
-          <time
-            class="c13 c14"
-          >
-            <span
-              class="c15"
-            >
-              05:39
-            </span>
-          </time>
-        </div>
-        <div
-          class="c16"
-        >
-          <div
-            class="c17"
-          >
-            <div
-              class=""
-            >
-              <div
-                class="c18"
-                id="first-title"
-              >
-                File name
-              </div>
-              <div
-                class="c19"
-              >
-                PNG - 400✕400
-              </div>
-            </div>
-            <div
-              class="c20 c21 c22"
-            >
-              <span
-                class="c23 c24 c25"
-              >
-                Doc
-              </span>
-            </div>
-          </div>
-        </div>
-      </article>
-      <article
-        aria-labelledby="second-title"
-        class="c3"
-        id="second"
-        style="width: 240px;"
-        tabindex="0"
-      >
-        <div
-          class="c4 c5"
-        >
-          <div
-            class="c6"
-          >
-            <input
-              aria-labelledby="second-title"
-              checked=""
-              class="c7"
-              type="checkbox"
-            />
-          </div>
-          <div
-            class="c11"
-          >
-            <img
-              aria-hidden="true"
-              class="c12"
-              src="test-file-stub"
-            />
-          </div>
-          <time
-            class="c13 c14"
-          >
-            <span
-              class="c15"
-            >
-              05:39
-            </span>
-          </time>
-        </div>
-        <div
-          class="c16"
-        >
-          <div
-            class="c17"
-          >
-            <div
-              class=""
-            >
-              <div
-                class="c18"
-                id="second-title"
-              >
-                File name
-              </div>
-              <div
-                class="c19"
-              >
-                PNG - 400✕400
-              </div>
-            </div>
-            <div
-              class="c20 c21 c22"
-            >
-              <span
-                class="c23 c24 c25"
-              >
-                Doc
-              </span>
-            </div>
-          </div>
-        </div>
-      </article>
-      <article
-        aria-labelledby="third-title"
-        class="c3"
-        id="third"
-        style="width: 240px;"
-        tabindex="0"
-      >
-        <div
-          class="c4 c5"
-        >
-          <div
-            class="c6"
-          >
-            <input
-              aria-labelledby="third-title"
-              checked=""
-              class="c7"
-              type="checkbox"
-            />
-          </div>
-          <div
-            class="c11"
-          >
-            <img
-              aria-hidden="true"
-              class="c12"
-              src="test-file-stub"
-            />
+            PNG - 400✕400
           </div>
         </div>
         <div
-          class="c16"
+          class="c8 c9 c10"
         >
-          <div
-            class="c17"
+          <span
+            class="c11 c12 c13"
           >
-            <div
-              class=""
-            >
-              <div
-                class="c18"
-                id="third-title"
-              >
-                File name
-              </div>
-              <div
-                class="c19"
-              >
-                PNG - 400✕400
-              </div>
-            </div>
-            <div
-              class="c20 c21 c22"
-            >
-              <span
-                class="c23 c24 c25"
-              >
-                Doc
-              </span>
-            </div>
-          </div>
+            Doc
+          </span>
         </div>
-      </article>
-      <article
-        aria-labelledby="fourth-title"
-        class="c3"
-        id="fourth"
-        style="width: 240px;"
-        tabindex="0"
-      >
-        <div
-          class="c16"
-        >
-          <div
-            class="c17"
-          >
-            <div
-              class="c26"
-            >
-              <svg
-                fill="none"
-                height="1em"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  clip-rule="evenodd"
-                  d="M23.604 3.514c.528.528.528 1.36 0 1.887l-2.622 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.118 3.118zM0 24v-4.99l14.2-14.2 4.99 4.99L4.99 24H0z"
-                  fill="#212134"
-                  fill-rule="evenodd"
-                />
-              </svg>
-            </div>
-            <div
-              class="c27"
-            >
-              <div
-                class="c18"
-                id="fourth-title"
-              >
-                File name
-              </div>
-              <div
-                class="c19"
-              >
-                PNG - 400✕400
-              </div>
-            </div>
-            <div
-              class="c20 c21 c22"
-            >
-              <span
-                class="c23 c24 c25"
-              >
-                Doc
-              </span>
-            </div>
-          </div>
-        </div>
-      </article>
+      </div>
     </div>
+  </article>
+</main>
+`;
+
+exports[`Storyshots Design System/Molecules/Card without asset action 1`] = `
+.c0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.c1 {
+  background: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
+}
+
+.c8 {
+  background: #32324d;
+  color: #ffffff;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.c11 {
+  padding-top: 8px;
+  padding-right: 12px;
+  padding-bottom: 8px;
+  padding-left: 12px;
+}
+
+.c15 {
+  background: #f6f6f9;
+  color: #666687;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.c10 {
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #ffffff;
+}
+
+.c13 {
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #32324d;
+}
+
+.c14 {
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #666687;
+}
+
+.c18 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #32324d;
+}
+
+.c19 {
+  font-weight: 600;
+  line-height: 1.14;
+}
+
+.c20 {
+  font-weight: 600;
+  font-size: 0.6875rem;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c16 {
+  display: inline-block;
+}
+
+.c5 {
+  margin: 0;
+  height: 18px;
+  width: 18px;
+  border-radius: 4px;
+  border: 1px solid #c0c0cf;
+  -webkit-appearance: none;
+  background-color: #ffffff;
+}
+
+.c5:checked {
+  background-color: #4945ff;
+  border: 1px solid #4945ff;
+}
+
+.c5:checked:after {
+  content: '';
+  display: block;
+  position: relative;
+  background: url(test-file-stub) no-repeat no-repeat center center;
+  width: 10px;
+  height: 10px;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.c5:checked:disabled:after {
+  background: url(test-file-stub) no-repeat no-repeat center center;
+}
+
+.c5:disabled {
+  background-color: #dcdce4;
+  border: 1px solid #c0c0cf;
+}
+
+.c5:indeterminate {
+  background-color: #4945ff;
+  border: 1px solid #4945ff;
+}
+
+.c5:indeterminate:after {
+  content: '';
+  display: block;
+  position: relative;
+  color: white;
+  height: 2px;
+  width: 10px;
+  background-color: #ffffff;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.c5:indeterminate:disabled {
+  background-color: #dcdce4;
+  border: 1px solid #c0c0cf;
+}
+
+.c5:indeterminate:disabled:after {
+  background-color: #8e8ea9;
+}
+
+.c7 {
+  margin: 0;
+  padding: 0;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 10.25rem;
+  width: 100%;
+  background: repeating-conic-gradient(#f6f6f9 0% 25%,transparent 0% 50%) 50% / 20px 20px;
+}
+
+.c17 {
+  margin-left: auto;
+}
+
+.c3 {
+  position: relative;
+  border-bottom: 1px solid #eaeaef;
+}
+
+.c4 {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+}
+
+.c9 {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+}
+
+<main>
+  <div
+    class="c0"
+  >
+    <h1>
+      Storybook story
+    </h1>
   </div>
+  <article
+    aria-labelledby="second-title"
+    class="c1"
+    id="second"
+    style="width: 240px;"
+    tabindex="0"
+  >
+    <div
+      class="c2 c3"
+    >
+      <div
+        class="c4"
+      >
+        <input
+          aria-labelledby="second-title"
+          checked=""
+          class="c5"
+          type="checkbox"
+        />
+      </div>
+      <div
+        class="c6"
+      >
+        <img
+          aria-hidden="true"
+          class="c7"
+          src="test-file-stub"
+        />
+      </div>
+      <time
+        class="c8 c9"
+      >
+        <span
+          class="c10"
+        >
+          05:39
+        </span>
+      </time>
+    </div>
+    <div
+      class="c11"
+    >
+      <div
+        class="c12"
+      >
+        <div
+          class=""
+        >
+          <div
+            class="c13"
+            id="second-title"
+          >
+            File name
+          </div>
+          <div
+            class="c14"
+          >
+            PNG - 400✕400
+          </div>
+        </div>
+        <div
+          class="c15 c16 c17"
+        >
+          <span
+            class="c18 c19 c20"
+          >
+            Doc
+          </span>
+        </div>
+      </div>
+    </div>
+  </article>
+</main>
+`;
+
+exports[`Storyshots Design System/Molecules/Card without asset action nor timer 1`] = `
+.c0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.c1 {
+  background: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
+}
+
+.c8 {
+  padding-top: 8px;
+  padding-right: 12px;
+  padding-bottom: 8px;
+  padding-left: 12px;
+}
+
+.c12 {
+  background: #f6f6f9;
+  color: #666687;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.c10 {
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #32324d;
+}
+
+.c11 {
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #666687;
+}
+
+.c15 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #32324d;
+}
+
+.c16 {
+  font-weight: 600;
+  line-height: 1.14;
+}
+
+.c17 {
+  font-weight: 600;
+  font-size: 0.6875rem;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c13 {
+  display: inline-block;
+}
+
+.c5 {
+  margin: 0;
+  height: 18px;
+  width: 18px;
+  border-radius: 4px;
+  border: 1px solid #c0c0cf;
+  -webkit-appearance: none;
+  background-color: #ffffff;
+}
+
+.c5:checked {
+  background-color: #4945ff;
+  border: 1px solid #4945ff;
+}
+
+.c5:checked:after {
+  content: '';
+  display: block;
+  position: relative;
+  background: url(test-file-stub) no-repeat no-repeat center center;
+  width: 10px;
+  height: 10px;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.c5:checked:disabled:after {
+  background: url(test-file-stub) no-repeat no-repeat center center;
+}
+
+.c5:disabled {
+  background-color: #dcdce4;
+  border: 1px solid #c0c0cf;
+}
+
+.c5:indeterminate {
+  background-color: #4945ff;
+  border: 1px solid #4945ff;
+}
+
+.c5:indeterminate:after {
+  content: '';
+  display: block;
+  position: relative;
+  color: white;
+  height: 2px;
+  width: 10px;
+  background-color: #ffffff;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.c5:indeterminate:disabled {
+  background-color: #dcdce4;
+  border: 1px solid #c0c0cf;
+}
+
+.c5:indeterminate:disabled:after {
+  background-color: #8e8ea9;
+}
+
+.c7 {
+  margin: 0;
+  padding: 0;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 10.25rem;
+  width: 100%;
+  background: repeating-conic-gradient(#f6f6f9 0% 25%,transparent 0% 50%) 50% / 20px 20px;
+}
+
+.c14 {
+  margin-left: auto;
+}
+
+.c3 {
+  position: relative;
+  border-bottom: 1px solid #eaeaef;
+}
+
+.c4 {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+}
+
+<main>
+  <div
+    class="c0"
+  >
+    <h1>
+      Storybook story
+    </h1>
+  </div>
+  <article
+    aria-labelledby="third-title"
+    class="c1"
+    id="third"
+    style="width: 240px;"
+    tabindex="0"
+  >
+    <div
+      class="c2 c3"
+    >
+      <div
+        class="c4"
+      >
+        <input
+          aria-labelledby="third-title"
+          checked=""
+          class="c5"
+          type="checkbox"
+        />
+      </div>
+      <div
+        class="c6"
+      >
+        <img
+          aria-hidden="true"
+          class="c7"
+          src="test-file-stub"
+        />
+      </div>
+    </div>
+    <div
+      class="c8"
+    >
+      <div
+        class="c9"
+      >
+        <div
+          class=""
+        >
+          <div
+            class="c10"
+            id="third-title"
+          >
+            File name
+          </div>
+          <div
+            class="c11"
+          >
+            PNG - 400✕400
+          </div>
+        </div>
+        <div
+          class="c12 c13 c14"
+        >
+          <span
+            class="c15 c16 c17"
+          >
+            Doc
+          </span>
+        </div>
+      </div>
+    </div>
+  </article>
 </main>
 `;
 
@@ -9726,7 +10998,7 @@ exports[`Storyshots Design System/Molecules/Carousel base 1`] = `
 </main>
 `;
 
-exports[`Storyshots Design System/Molecules/Checkbox default 1`] = `
+exports[`Storyshots Design System/Molecules/Checkbox base 1`] = `
 .c0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
@@ -10760,7 +12032,142 @@ exports[`Storyshots Design System/Molecules/DatePicker base 1`] = `
 </main>
 `;
 
-exports[`Storyshots Design System/Molecules/Field Disabled 1`] = `
+exports[`Storyshots Design System/Molecules/Field base 1`] = `
+.c0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.c2 {
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #32324d;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c1 > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.c1 > * + * {
+  margin-top: 4px;
+}
+
+.c5 {
+  border: none;
+  padding-left: 16px;
+  padding-right: 16px;
+  color: #32324d;
+  font-weight: 400;
+  font-size: 0.875rem;
+  display: block;
+  width: 100%;
+  height: 2.5rem;
+}
+
+.c5::-webkit-input-placeholder {
+  color: #8e8ea9;
+  opacity: 1;
+}
+
+.c5::-moz-placeholder {
+  color: #8e8ea9;
+  opacity: 1;
+}
+
+.c5:-ms-input-placeholder {
+  color: #8e8ea9;
+  opacity: 1;
+}
+
+.c5::placeholder {
+  color: #8e8ea9;
+  opacity: 1;
+}
+
+.c5:disabled {
+  background: inherit;
+  color: inherit;
+}
+
+.c5:focus {
+  outline: none;
+}
+
+.c4 {
+  border: 1px solid #dcdce4;
+  border-radius: 4px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.c4:focus-within {
+  border: 1px solid #4945ff;
+}
+
+<main>
+  <div
+    class="c0"
+  >
+    <h1>
+      Storybook story
+    </h1>
+  </div>
+  <div>
+    <div
+      class="c1"
+    >
+      <label
+        class="c2"
+        for="field-16"
+      >
+        Email
+      </label>
+      <div
+        class="c3 c4"
+      >
+        <input
+          aria-invalid="false"
+          class="c5"
+          id="field-16"
+          name="email"
+          placeholder="Placeholder"
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+  </div>
+</main>
+`;
+
+exports[`Storyshots Design System/Molecules/Field disabled 1`] = `
 .c0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
@@ -10912,7 +12319,7 @@ exports[`Storyshots Design System/Molecules/Field Disabled 1`] = `
 </main>
 `;
 
-exports[`Storyshots Design System/Molecules/Field Most complex input 1`] = `
+exports[`Storyshots Design System/Molecules/Field most complex input 1`] = `
 .c0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
@@ -11202,7 +12609,7 @@ exports[`Storyshots Design System/Molecules/Field Most complex input 1`] = `
 </main>
 `;
 
-exports[`Storyshots Design System/Molecules/Field With description 1`] = `
+exports[`Storyshots Design System/Molecules/Field with description 1`] = `
 .c0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
@@ -11351,7 +12758,7 @@ exports[`Storyshots Design System/Molecules/Field With description 1`] = `
 </main>
 `;
 
-exports[`Storyshots Design System/Molecules/Field With password, description and error 1`] = `
+exports[`Storyshots Design System/Molecules/Field with error 1`] = `
 .c0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
@@ -11375,7 +12782,7 @@ exports[`Storyshots Design System/Molecules/Field With password, description and
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
-  color: #666687;
+  color: #d02b20;
 }
 
 .c3 {
@@ -11447,7 +12854,7 @@ exports[`Storyshots Design System/Molecules/Field With password, description and
 }
 
 .c4 {
-  border: 1px solid #dcdce4;
+  border: 1px solid #d02b20;
   border-radius: 4px;
   background: #ffffff;
   overflow: hidden;
@@ -11479,8 +12886,8 @@ exports[`Storyshots Design System/Molecules/Field With password, description and
         class="c3 c4"
       >
         <input
-          aria-describedby="field-18-hint"
-          aria-invalid="false"
+          aria-describedby="field-18-error"
+          aria-invalid="true"
           class="c5"
           id="field-18"
           name="password"
@@ -11491,145 +12898,10 @@ exports[`Storyshots Design System/Molecules/Field With password, description and
       </div>
       <p
         class="c6"
-        id="field-18-hint"
+        id="field-18-error"
       >
-        Description line
+        Password is too short
       </p>
-    </div>
-  </div>
-</main>
-`;
-
-exports[`Storyshots Design System/Molecules/Field default 1`] = `
-.c0 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-
-.c2 {
-  font-weight: 500;
-  font-size: 0.75rem;
-  line-height: 1.33;
-  color: #32324d;
-}
-
-.c3 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c1 > * {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.c1 > * + * {
-  margin-top: 4px;
-}
-
-.c5 {
-  border: none;
-  padding-left: 16px;
-  padding-right: 16px;
-  color: #32324d;
-  font-weight: 400;
-  font-size: 0.875rem;
-  display: block;
-  width: 100%;
-  height: 2.5rem;
-}
-
-.c5::-webkit-input-placeholder {
-  color: #8e8ea9;
-  opacity: 1;
-}
-
-.c5::-moz-placeholder {
-  color: #8e8ea9;
-  opacity: 1;
-}
-
-.c5:-ms-input-placeholder {
-  color: #8e8ea9;
-  opacity: 1;
-}
-
-.c5::placeholder {
-  color: #8e8ea9;
-  opacity: 1;
-}
-
-.c5:disabled {
-  background: inherit;
-  color: inherit;
-}
-
-.c5:focus {
-  outline: none;
-}
-
-.c4 {
-  border: 1px solid #dcdce4;
-  border-radius: 4px;
-  background: #ffffff;
-  overflow: hidden;
-}
-
-.c4:focus-within {
-  border: 1px solid #4945ff;
-}
-
-<main>
-  <div
-    class="c0"
-  >
-    <h1>
-      Storybook story
-    </h1>
-  </div>
-  <div>
-    <div
-      class="c1"
-    >
-      <label
-        class="c2"
-        for="field-16"
-      >
-        Email
-      </label>
-      <div
-        class="c3 c4"
-      >
-        <input
-          aria-invalid="false"
-          class="c5"
-          id="field-16"
-          name="email"
-          placeholder="Placeholder"
-          type="text"
-          value=""
-        />
-      </div>
     </div>
   </div>
 </main>
@@ -11824,7 +13096,7 @@ exports[`Storyshots Design System/Molecules/IconButton base 1`] = `
 </main>
 `;
 
-exports[`Storyshots Design System/Molecules/IconButton base-disabled 1`] = `
+exports[`Storyshots Design System/Molecules/IconButton disabled 1`] = `
 .c0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
@@ -12409,7 +13681,7 @@ exports[`Storyshots Design System/Molecules/Link base 1`] = `
         <span
           class="c9 c4 c5"
         >
-          External link
+          External disabled link
         </span>
       </a>
     </div>
@@ -13205,7 +14477,7 @@ exports[`Storyshots Design System/Molecules/Popover overflow-right 1`] = `
 </main>
 `;
 
-exports[`Storyshots Design System/Molecules/Radio default 1`] = `
+exports[`Storyshots Design System/Molecules/Radio base 1`] = `
 .c0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
@@ -19136,7 +20408,139 @@ exports[`Storyshots Design System/Molecules/TimePicker base 1`] = `
 </main>
 `;
 
-exports[`Storyshots Design System/Molecules/ToggleCheckbox base 1`] = `
+exports[`Storyshots Design System/Molecules/ToggleCheckbox activated 1`] = `
+.c0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.c3 {
+  background: #ffffff;
+  border-radius: 4px;
+}
+
+.c5 {
+  padding-top: 12px;
+  padding-right: 32px;
+  padding-bottom: 12px;
+  padding-left: 32px;
+}
+
+.c8 {
+  background: #f0f0ff;
+  padding-top: 12px;
+  padding-right: 32px;
+  padding-bottom: 12px;
+  padding-left: 32px;
+}
+
+.c7 {
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #32324d;
+}
+
+.c10 {
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #271fe0;
+}
+
+.c1 {
+  position: relative;
+  display: inline-block;
+}
+
+.c1:active,
+.c1:focus-within {
+  outline: 2px solid #4945ff;
+  outline-offset: 2px;
+}
+
+.c4 {
+  position: relative;
+  z-index: 1;
+  border: 1px solid #dcdce4;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  overflow: hidden;
+}
+
+.c9 {
+  text-transform: uppercase;
+}
+
+.c6 {
+  text-transform: uppercase;
+  border-right: 1px solid #dcdce4;
+}
+
+.c2 {
+  position: absolute;
+  left: 4px;
+  top: 4px;
+}
+
+<main>
+  <div
+    class="c0"
+  >
+    <h1>
+      Storybook story
+    </h1>
+  </div>
+  <label
+    class="c1"
+  >
+    <div
+      class="c0"
+    >
+      The field is required?
+    </div>
+    <input
+      checked=""
+      class="c2"
+      type="checkbox"
+    />
+    <div
+      aria-hidden="true"
+      class="c3 c4"
+    >
+      <div
+        class="c5 c6"
+      >
+        <span
+          class="c7"
+        >
+          Off
+        </span>
+      </div>
+      <div
+        class="c8 c9"
+      >
+        <span
+          class="c10"
+        >
+          On
+        </span>
+      </div>
+    </div>
+  </label>
+</main>
+`;
+
+exports[`Storyshots Design System/Molecules/ToggleCheckbox not activated 1`] = `
 .c0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
@@ -23431,7 +24835,7 @@ exports[`Storyshots Design System/Organisms/Table base 1`] = `
 </main>
 `;
 
-exports[`Storyshots Design System/Organisms/Table withActions 1`] = `
+exports[`Storyshots Design System/Organisms/Table with th actions 1`] = `
 .c0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
