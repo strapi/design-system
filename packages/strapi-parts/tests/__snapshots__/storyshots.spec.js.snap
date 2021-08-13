@@ -12841,7 +12841,7 @@ exports[`Storyshots Design System/Molecules/IconButton base 1`] = `
 </main>
 `;
 
-exports[`Storyshots Design System/Molecules/IconButton base-disabled 1`] = `
+exports[`Storyshots Design System/Molecules/IconButton disabled 1`] = `
 .c0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
