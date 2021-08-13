@@ -4,28 +4,32 @@ import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { ToggleCheckbox } from './ToggleCheckbox';
 
-<Meta
-  title="Design System/Molecules/ToggleCheckbox"
-  component={ToggleCheckbox}
-/>
+<Meta title="Design System/Molecules/ToggleCheckbox" component={ToggleCheckbox} />
 
 # ToggleCheckbox
 
 This is the doc of the `ToggleCheckbox` component
 
-## ToggleCheckbox
+## ToggleCheckbox activated
 
 Description...
 
 <Canvas>
-  <Story name="base">
-    {() => {
-      const [val, setValue] = useState(false);
-      return (
-        <ToggleCheckbox onLabel={'On'} offLabel={'Off'} checked={val} onChange={() => setValue((s) => !s)}>
-          The field is required?
-        </ToggleCheckbox>
-      );
-    }}
+  <Story name="activated">
+    <ToggleCheckbox onLabel={'On'} offLabel={'Off'} checked={true} onChange={() => {}}>
+      The field is required?
+    </ToggleCheckbox>
+  </Story>
+</Canvas>
+
+## ToggleCheckbox not activated
+
+Description...
+
+<Canvas>
+  <Story name="not activated">
+    <ToggleCheckbox onLabel={'On'} offLabel={'Off'} checked={false} onChange={() => {}}>
+      The field is required?
+    </ToggleCheckbox>
   </Story>
 </Canvas>
