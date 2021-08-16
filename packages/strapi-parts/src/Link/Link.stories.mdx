@@ -1,6 +1,7 @@
 <!--- Link.stories.mdx --->
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
 import NextIcon from '@strapi/icons/NextIcon';
 import BackIcon from '@strapi/icons/BackIcon';
 import { Link } from './Link';
@@ -10,11 +11,24 @@ import { Stack } from '../Stack';
 
 # Link
 
-This is the doc of the `Link` component
+Links are used to send users to another page or an anchor. They are used for external navigation. 
 
-## Link
+**Best practices**
 
-Description...
+- Use TextButton component if the action is related to internal navigation.
+- Clicking on a Link opens a new tab.
+- Links should always be used with an icon. If it is an external link, use the ExternalLink icon accordingly.
+- Links text should describe an action and start with a verb.
+- Links text should be concise and describe their purpose. Users need to know exactly what they are about to do.
+- Use capital letters.
+
+## Usage
+
+Links are used for external navigation. Each link should send to another page in a new tab. Moreover, they should be associated with an icon to indicate its external navigation purpose.
+
+### Base
+
+The simplest representation of the Link component.
 
 <Canvas>
   <Story name="base">
@@ -40,3 +54,12 @@ Description...
     </Stack>
   </Story>
 </Canvas>
+
+### Disabled link
+
+Depending on the permissions a user have or the status of an action, a link can be unreachable or unavailable yet.
+
+
+## Props
+
+<ArgsTable of={Link} />
