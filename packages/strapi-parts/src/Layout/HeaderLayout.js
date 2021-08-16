@@ -4,26 +4,7 @@ import PropTypes from 'prop-types';
 import { H1, Subtitle, P, H2 } from '../Text';
 import { Box } from '../Box';
 import { Row } from '../Row';
-
-const useElementOnScreen = (options) => {
-  const containerRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(true);
-
-  const cb = ([entry]) => {
-    setIsVisible(entry.isIntersecting);
-  };
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(cb, options);
-    if (containerRef.current) observer.observe(containerRef.current);
-
-    return () => {
-      if (containerRef.current) observer.unobserve(containerRef.current);
-    };
-  }, [containerRef, options]);
-
-  return [containerRef, isVisible];
-};
+import { useElementOnScreen } from '../helpers/useElementOnScreen';
 
 const useHeaderSize = () => {
   const baseHeaderLayoutRef = useRef(null);
