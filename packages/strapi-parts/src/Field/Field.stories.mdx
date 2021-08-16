@@ -22,29 +22,7 @@ import { FieldAction } from './FieldAction';
 
 Fields are inputs that allow users to add or edit text. They support several text formats including numbers.
 
-**Best practices**
-
-- TextButton should be above - always
-- Icons are always on the right side within the input (writing area) itself, never on the left side.
-- Labels are always left-aligned above the input and on the left side.
-- Labels should be clear and concise. A few words only and without punctuation.
-- Description line should always be below the input. Use it as a help to give more details about the required action.
-- Within a form, unless users need a lot of space to write their content, the field should take 1 column space instead of two.
-- Make sure to use the placeholder feature whenever clarification are helpful on how to use the field.
-- Make sure to use to define the field as required whenever it is absolutely mandatory.
-- If a single line is not enough for the amount of text required, use TextArea component.
-- The error message will replace the description line. The two of them cannot be on top of each other.
-- The error message can be customized, make sure to write actionable information within it to help resolve an issue.
-
-
-## Usage
-
-Fields are mostly found in forms and modals. They give users the possibility to add or edit text. In addition of plain text, Fields can also include a placeholder and a description line. 
-
-The Field component is a base to all the different writing inputs: DatePicker, TimePicker, TextInput, Select, ...
-
-
-### Base
+## Base
 
 The simplest representation of the Field components, no description, no error, no noise.
 
@@ -59,7 +37,7 @@ The simplest representation of the Field components, no description, no error, n
   </Story>
 </Canvas>
 
-### With description
+## With description
 
 A Field with a description allows to add a small hint of advanced information. 
 
@@ -75,7 +53,7 @@ A Field with a description allows to add a small hint of advanced information.
   </Story>
 </Canvas>
 
-### With error
+## With error
 
 An example of the Field components with an error.
 
@@ -92,7 +70,7 @@ An example of the Field components with an error.
   </Story>
 </Canvas>
 
-### Disabled field
+## Disabled field
 
 Depending on the permissions a user have or the status of an action, a Field can be unreachable or unavailable yet.
 
@@ -109,13 +87,13 @@ Depending on the permissions a user have or the status of an action, a Field can
   </Story>
 </Canvas>
 
-### Password with description and error
+## Password with description and error
 
 Password fields are specific. They offer the possibility to have unreadable content. By clicking on the eye icon on the right side, it is possible to actually read the password.
 
 
 
-### Most complex input
+## Most complex input
 
 This is the most complex input that can be built with the Field components.
 
