@@ -19,14 +19,7 @@ const EmptyStateImageWrapper = styled(Box)`
 
 export const EmptyStateLayout = ({ icon, content, action }) => {
   return (
-    <EmptyStateWrapper
-      padding={11}
-      background="neutral0"
-      hasRadius
-      shadow="tableShadow"
-      paddingTop={10}
-      paddingBottom={10}
-    >
+    <EmptyStateWrapper padding={11} background="neutral0" hasRadius shadow="tableShadow">
       <EmptyStateImageWrapper paddingBottom={6} aria-hidden>
         {icon}
       </EmptyStateImageWrapper>
