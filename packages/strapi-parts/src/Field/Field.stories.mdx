@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
 import Password from '@strapi/icons/Password';
 import HelpIcon from '@strapi/icons/HelpIcon';
 import { FieldLabel } from './FieldLabel';
@@ -19,9 +20,29 @@ import { FieldAction } from './FieldAction';
 
 # Field
 
-This is the doc of the `Field` component
+Fields are inputs that allow users to add or edit text. They support several text formats including numbers.
 
-## Base
+**Best practices**
+
+- TextButton should be above - always
+- Icons are always on the right side within the input (writing area) itself, never on the left side.
+- Labels are always left-aligned above the input and on the left side.
+- Labels should be clear and concise. A few words only and without punctuation.
+- Description line should always be below the input. Use it as a help to give more details about the required action.
+- Within a form, unless users need a lot of space to write their content, the field should take 1 column space instead of two.
+- Make sure to use the placeholder feature whenever clarification are helpful on how to use the field.
+- Make sure to use to define the field as required whenever it is absolutely mandatory.
+- If a single line is not enough for the amount of text required, use TextArea component.
+- The error message will replace the description line. The two of them cannot be on top of each other.
+- The error message can be customized, make sure to write actionable information within it to help resolve an issue.
+
+## Usage
+
+Fields are mostly found in forms and modals. They give users the possibility to add or edit text. In addition of plain text, Fields can also include a placeholder and a description line. 
+
+The Field component is a base to all the different writing inputs: DatePicker, TimePicker, TextInput, Select, ...
+
+### Base
 
 The simplest representation of the Field components, no description, no error, no noise.
 
@@ -36,9 +57,9 @@ The simplest representation of the Field components, no description, no error, n
   </Story>
 </Canvas>
 
-## with description
+### With description
 
-An example of the Field components with a description
+A Field with a description allows to add a small hint of advanced information. 
 
 <Canvas>
   <Story name="with description">
@@ -52,9 +73,9 @@ An example of the Field components with a description
   </Story>
 </Canvas>
 
-## with error
+### With error
 
-An example of the Field components with an error
+An example of the Field components with an error.
 
 <Canvas>
   <Story name="with error">
@@ -69,9 +90,9 @@ An example of the Field components with an error
   </Story>
 </Canvas>
 
-## Disabled field
+### Disabled field
 
-An example of the Field components in a disabled state:
+Depending on the permissions a user have or the status of an action, a Field can be unreachable or unavailable yet.
 
 <Canvas>
   <Story name="disabled">
@@ -86,9 +107,14 @@ An example of the Field components in a disabled state:
   </Story>
 </Canvas>
 
-## Most complex input
+### Password with description and error
 
-This is the most complex input that can be built with the Field components:
+Password fields are specific. They offer the possibility to have unreadable content. By clicking on the eye icon on the right side, it is possible to actually read the password.
+
+
+### Most complex input
+
+This is the most complex input that can be built with the Field components.
 
 <Canvas>
   <Story name="most complex input">
@@ -138,3 +164,7 @@ This is the most complex input that can be built with the Field components:
     }}
   </Story>
 </Canvas>
+
+## Props
+
+<ArgsTable of={Field} />
