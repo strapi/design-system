@@ -79,6 +79,7 @@ export const BaseHeaderLayout = React.forwardRef(
           paddingBottom={3}
           background="neutral0"
           width={width}
+          data-strapi-header-sticky
         >
           <Row justifyContent="space-between">
             <Row>
@@ -107,6 +108,7 @@ export const BaseHeaderLayout = React.forwardRef(
         paddingBottom={10}
         paddingTop={navigationAction ? 6 : 10}
         background="neutral100"
+        data-strapi-header
       >
         {navigationAction ? <Box paddingBottom={3}>{navigationAction}</Box> : null}
         <Row justifyContent="space-between">
