@@ -1,6 +1,7 @@
 <!--- Breadcrumbs.stories.mdx --->
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
 import { Breadcrumbs, Crumb } from './Breadcrumbs';
 import { Text } from '../Text';
 
@@ -15,7 +16,17 @@ This is the doc of the `Breadcrumbs` component
 
 ## Breadcrumbs
 
-Description...
+Breadcrumbs are a visual information that inform users of their navigation. 
+
+**Best practices**
+
+- Use breadcrumbs whenever a long path to achieve an action is required.
+- Use breadcrumbs in modal's headers.
+- Using breadcrumbs in a page or a form is *not* a consistent experience.
+
+## Usage
+
+Breadcrumbs are visual information only and cannot be navigated. They are mostly part of modals' headers. 
 
 <Canvas>
   <Story name="base">
@@ -25,3 +36,7 @@ Description...
     </Breadcrumbs>
   </Story>
 </Canvas>
+
+## Props
+
+<ArgsTable of={Breadcrumbs} />
