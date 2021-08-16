@@ -2173,8 +2173,7 @@ exports[`Storyshots Design System/Layouts/EmptyStateLayout base 1`] = `
 
 .c3 {
   background: #ffffff;
-  padding-top: 56px;
-  padding-bottom: 56px;
+  padding: 64px;
   border-radius: 4px;
   box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
 }
@@ -2322,6 +2321,7 @@ exports[`Storyshots Design System/Layouts/EmptyStateLayout base 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  text-align: center;
 }
 
 .c6 svg {
@@ -2442,6 +2442,295 @@ exports[`Storyshots Design System/Layouts/EmptyStateLayout base 1`] = `
 </main>
 `;
 
+exports[`Storyshots Design System/Layouts/EmptyStateLayout with large text 1`] = `
+.c0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.c2 {
+  background: #f6f6f9;
+  padding: 40px;
+}
+
+.c3 {
+  background: #ffffff;
+  padding: 64px;
+  border-radius: 4px;
+  box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
+}
+
+.c5 {
+  padding-bottom: 24px;
+}
+
+.c7 {
+  padding-bottom: 16px;
+}
+
+.c11 {
+  padding-right: 8px;
+}
+
+.c8 {
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.25;
+  color: #666687;
+}
+
+.c13 {
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #32324d;
+}
+
+.c9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  background: #ffffff;
+  border: 1px solid #dcdce4;
+}
+
+.c9 svg {
+  height: 12px;
+  width: 12px;
+}
+
+.c9 svg > g,
+.c9 svg path {
+  fill: #ffffff;
+}
+
+.c9[aria-disabled='true'] {
+  pointer-events: none;
+}
+
+.c10 {
+  padding: 8px 16px;
+  background: #4945ff;
+  border: none;
+  border: 1px solid #d9d8ff;
+  background: #f0f0ff;
+}
+
+.c10 .c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 2px;
+}
+
+.c10 .c12 {
+  color: #ffffff;
+}
+
+.c10[aria-disabled='true'] {
+  border: 1px solid #dcdce4;
+  background: #eaeaef;
+}
+
+.c10[aria-disabled='true'] .c12 {
+  color: #666687;
+}
+
+.c10[aria-disabled='true'] svg > g,
+.c10[aria-disabled='true'] svg path {
+  fill: #666687;
+}
+
+.c10[aria-disabled='true']:active {
+  border: 1px solid #dcdce4;
+  background: #eaeaef;
+}
+
+.c10[aria-disabled='true']:active .c12 {
+  color: #666687;
+}
+
+.c10[aria-disabled='true']:active svg > g,
+.c10[aria-disabled='true']:active svg path {
+  fill: #666687;
+}
+
+.c10:hover {
+  background-color: #ffffff;
+}
+
+.c10:active {
+  background-color: #ffffff;
+  border: 1px solid #4945ff;
+}
+
+.c10:active .c12 {
+  color: #4945ff;
+}
+
+.c10:active svg > g,
+.c10:active svg path {
+  fill: #4945ff;
+}
+
+.c10 .c12 {
+  color: #271fe0;
+}
+
+.c10 svg > g,
+.c10 svg path {
+  fill: #271fe0;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+}
+
+.c6 svg {
+  height: 5.5rem;
+}
+
+<main>
+  <div
+    class="c0"
+  >
+    <h1>
+      Storybook story
+    </h1>
+  </div>
+  <div
+    class="c1 c2"
+  >
+    <div
+      class="c1 c3 c4"
+    >
+      <div
+        aria-hidden="true"
+        class="c1 c5 c6"
+      >
+        <svg
+          fill="none"
+          height="88"
+          viewBox="0 0 159 88"
+          width="159"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M134.933 17.417C137.768 17.417 140.067 19.7153 140.067 22.5503C140.067 25.3854 137.768 27.6837 134.933 27.6837H105.6C108.435 27.6837 110.733 29.9819 110.733 32.817C110.733 35.6521 108.435 37.9503 105.6 37.9503H121.733C124.568 37.9503 126.867 40.2486 126.867 43.0837C126.867 45.9187 124.568 48.217 121.733 48.217H114.272C110.698 48.217 107.8 50.5153 107.8 53.3503C107.8 55.2404 109.267 56.9515 112.2 58.4837C115.035 58.4837 117.333 60.7819 117.333 63.617C117.333 66.4521 115.035 68.7503 112.2 68.7503H51.3333C48.4982 68.7503 46.2 66.4521 46.2 63.617C46.2 60.7819 48.4982 58.4837 51.3333 58.4837H22.7333C19.8982 58.4837 17.6 56.1854 17.6 53.3503C17.6 50.5153 19.8982 48.217 22.7333 48.217H52.0666C54.9017 48.217 57.2 45.9187 57.2 43.0837C57.2 40.2486 54.9017 37.9503 52.0666 37.9503H33.7333C30.8982 37.9503 28.6 35.6521 28.6 32.817C28.6 29.9819 30.8982 27.6837 33.7333 27.6837H63.0666C60.2316 27.6837 57.9333 25.3854 57.9333 22.5503C57.9333 19.7153 60.2316 17.417 63.0666 17.417H134.933ZM134.933 37.9503C137.768 37.9503 140.067 40.2486 140.067 43.0837C140.067 45.9187 137.768 48.217 134.933 48.217C132.098 48.217 129.8 45.9187 129.8 43.0837C129.8 40.2486 132.098 37.9503 134.933 37.9503Z"
+            fill="#DBDBFA"
+            fill-rule="evenodd"
+          />
+          <path
+            clip-rule="evenodd"
+            d="M95.826 16.6834L102.647 66.4348L103.26 71.4261C103.458 73.034 102.314 74.4976 100.706 74.695L57.7621 79.9679C56.1542 80.1653 54.6906 79.0219 54.4932 77.4139L47.8816 23.5671C47.7829 22.7631 48.3546 22.0313 49.1586 21.9326C49.1637 21.932 49.1688 21.9313 49.1739 21.9307L52.7367 21.5311L95.826 16.6834ZM55.6176 21.208L58.9814 20.8306Z"
+            fill="white"
+            fill-rule="evenodd"
+          />
+          <path
+            d="M55.6176 21.208L58.9814 20.8306M95.826 16.6834L102.647 66.4348L103.26 71.4261C103.458 73.034 102.314 74.4976 100.706 74.695L57.7621 79.9679C56.1542 80.1653 54.6906 79.0219 54.4932 77.4139L47.8816 23.5671C47.7829 22.7631 48.3546 22.0313 49.1586 21.9326C49.1637 21.932 49.1688 21.9313 49.1739 21.9307L52.7367 21.5311L95.826 16.6834Z"
+            stroke="#7E7BF6"
+            stroke-width="2.5"
+          />
+          <path
+            clip-rule="evenodd"
+            d="M93.9695 19.8144L100.144 64.9025L100.699 69.4258C100.878 70.8831 99.8559 72.2077 98.416 72.3845L59.9585 77.1065C58.5185 77.2833 57.2062 76.2453 57.0272 74.7881L51.0506 26.112C50.9519 25.308 51.5236 24.5762 52.3276 24.4775L57.0851 23.8934"
+            fill="#F0F0FF"
+            fill-rule="evenodd"
+          />
+          <path
+            clip-rule="evenodd"
+            d="M97.701 7.33301H64.2927C63.7358 7.33301 63.2316 7.55873 62.8667 7.92368C62.5017 8.28862 62.276 8.79279 62.276 9.34967V65.083C62.276 65.6399 62.5017 66.1441 62.8667 66.509C63.2316 66.874 63.7358 67.0997 64.2927 67.0997H107.559C108.116 67.0997 108.62 66.874 108.985 66.509C109.35 66.1441 109.576 65.6399 109.576 65.083V19.202C109.576 18.6669 109.363 18.1537 108.985 17.7755L99.1265 7.92324C98.7484 7.54531 98.2356 7.33301 97.701 7.33301Z"
+            fill="white"
+            fill-rule="evenodd"
+            stroke="#7F7CFA"
+            stroke-width="2.5"
+          />
+          <path
+            d="M98.026 8.17871V16.6833C98.026 17.8983 99.011 18.8833 100.226 18.8833H106.044"
+            stroke="#807EFA"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2.5"
+          />
+          <path
+            d="M70.1594 56.2838H89.2261M70.1594 18.8838H89.2261H70.1594ZM70.1594 27.6838H101.693H70.1594ZM70.1594 37.2171H101.693H70.1594ZM70.1594 46.7505H101.693H70.1594Z"
+            stroke="#817FFA"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2.5"
+          />
+        </svg>
+      </div>
+      <div
+        class="c1 c7"
+      >
+        <p
+          class="c8"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
+      <button
+        aria-disabled="false"
+        class="c9 c10"
+        type="button"
+      >
+        <div
+          aria-hidden="true"
+          class="c1 c11"
+        >
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M24 13.604a.3.3 0 01-.3.3h-9.795V23.7a.3.3 0 01-.3.3h-3.21a.3.3 0 01-.3-.3v-9.795H.3a.3.3 0 01-.3-.3v-3.21a.3.3 0 01.3-.3h9.795V.3a.3.3 0 01.3-.3h3.21a.3.3 0 01.3.3v9.795H23.7a.3.3 0 01.3.3v3.21z"
+              fill="#212134"
+            />
+          </svg>
+        </div>
+        <span
+          class="c12 c13"
+        >
+          Create your first content-type
+        </span>
+      </button>
+    </div>
+  </div>
+</main>
+`;
+
 exports[`Storyshots Design System/Layouts/EmptyStateLayout without action 1`] = `
 .c0 {
   border: 0;
@@ -2462,8 +2751,7 @@ exports[`Storyshots Design System/Layouts/EmptyStateLayout without action 1`] = 
 
 .c2 {
   background: #ffffff;
-  padding-top: 56px;
-  padding-bottom: 56px;
+  padding: 64px;
   border-radius: 4px;
   box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
 }
@@ -2495,6 +2783,7 @@ exports[`Storyshots Design System/Layouts/EmptyStateLayout without action 1`] = 
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  text-align: center;
 }
 
 .c5 svg {
