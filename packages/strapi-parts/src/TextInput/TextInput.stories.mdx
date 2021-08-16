@@ -7,10 +7,7 @@ import { TextInput } from './TextInput';
 import { Box } from '../Box';
 import { Tooltip } from '../Tooltip';
 
-<Meta
-  title="Design System/Molecules/TextInput"
-  component={TextInput}
-/>
+<Meta title="Design System/Molecules/TextInput" component={TextInput} />
 
 # TextInput
 
@@ -48,5 +45,95 @@ Description...
         </Box>
       );
     }}
+  </Story>
+</Canvas>
+
+## TextInput password
+
+Description...
+
+<Canvas>
+  <Story name="password">
+    <Box padding={10}>
+      <TextInput
+        placeholder="This is a password placeholder"
+        type="password"
+        label="Password"
+        name="password"
+        hint="Description line"
+        onChange={() => {}}
+        value={'content'}
+        labelAction={
+          <Tooltip description="Content of the tooltip">
+            <button
+              aria-label="Information about the email"
+              style={{ border: 'none', padding: 0, background: 'transparent' }}
+            >
+              <HelpIcon aria-hidden={true} />
+            </button>
+          </Tooltip>
+        }
+      />
+    </Box>
+  </Story>
+</Canvas>
+
+## TextInput disabled
+
+Description...
+
+<Canvas>
+  <Story name="disabled">
+    <Box padding={10}>
+      <TextInput
+        placeholder="This is a content placeholder"
+        label="Content"
+        name="content"
+        hint="Description line"
+        onChange={() => {}}
+        value={'Disabled ontent'}
+        disabled
+        labelAction={
+          <Tooltip description="Content of the tooltip">
+            <button
+              aria-label="Information about the email"
+              style={{ border: 'none', padding: 0, background: 'transparent' }}
+            >
+              <HelpIcon aria-hidden={true} />
+            </button>
+          </Tooltip>
+        }
+      />
+    </Box>
+  </Story>
+</Canvas>
+
+## TextInput with error
+
+Description...
+
+<Canvas>
+  <Story name="with error">
+    <Box padding={10}>
+      <TextInput
+        placeholder="This is a content placeholder"
+        label="Content"
+        name="content"
+        hint="Description line"
+        error={'Content is too long'}
+        onChange={() => {}}
+        value={'content'}
+        labelAction={
+          <Tooltip description="Content of the tooltip">
+            <button
+              aria-label="Information about the email"
+              style={{ border: 'none', padding: 0, background: 'transparent' }}
+            >
+              <HelpIcon aria-hidden={true} />
+            </button>
+          </Tooltip>
+        }
+      />
+    </Box>
   </Story>
 </Canvas>

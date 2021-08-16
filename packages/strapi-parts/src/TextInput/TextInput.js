@@ -13,6 +13,12 @@ export const TextInputWrapper = styled.div`
   }
 `;
 
+const LabelAction = styled(Box)`
+  svg path {
+    fill: ${({ theme }) => theme.colors.neutral300};
+  }
+`;
+
 export const TextInput = React.forwardRef(
   ({ startAction, endAction, name, hint, error, label, labelAction, id, ...props }, ref) => {
     const generatedId = useId('textinput', id);
@@ -28,7 +34,7 @@ export const TextInput = React.forwardRef(
           <Stack size={1}>
             <Row cols="auto auto 1fr" gap={1}>
               <FieldLabel>{label}</FieldLabel>
-              {labelAction && <Box paddingLeft={1}>{labelAction}</Box>}
+              {labelAction && <LabelAction paddingLeft={1}>{labelAction}</LabelAction>}
             </Row>
             <FieldInput ref={ref} startAction={startAction} endAction={endAction} {...props} />
             <FieldHint />
