@@ -1,6 +1,7 @@
 <!--- Loader.stories.mdx --->
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
 import { Loader } from './Loader';
 
 <Meta
@@ -10,14 +11,27 @@ import { Loader } from './Loader';
 
 # Loader
 
-This is the doc of the `Loader` component
+Loaders indicate some data is currently loading where content usually takes place. They help to notify users that loading is ongoing.
 
-## Loader
+**Best** **practices**
 
-Description...
+- Once the content appears, the loader disappears.
+- If the trigger only concerns a portion of a page, the loader should be placed in that part.
+- Loaders should be scaled down if they aimed to be placed in a small portion of a page.
+- Use a loader whenever the wait time is to be longer than 1 second.
+
+
+## Usage
+
+Even if loaders give an indication that an action has been processed, they do not provide details about what is happening on the back-end side. 
 
 <Canvas>
   <Story name="base">
     <Loader>Loading content...</Loader>
   </Story>
 </Canvas>
+
+## Props
+
+<ArgsTable of={Loader} />
+
