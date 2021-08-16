@@ -130,7 +130,7 @@ exports[`Storyshots Design System/Atoms/BaseCheckbox L Size 1`] = `
 .c1 {
   margin: 0;
   height: 20px;
-  width: 20px;
+  min-width: 20px;
   border-radius: 4px;
   border: 1px solid #c0c0cf;
   -webkit-appearance: none;
@@ -227,7 +227,7 @@ exports[`Storyshots Design System/Atoms/BaseCheckbox base 1`] = `
 .c1 {
   margin: 0;
   height: 18px;
-  width: 18px;
+  min-width: 18px;
   border-radius: 4px;
   border: 1px solid #c0c0cf;
   -webkit-appearance: none;
@@ -324,7 +324,7 @@ exports[`Storyshots Design System/Atoms/BaseCheckbox disabled 1`] = `
 .c1 {
   margin: 0;
   height: 18px;
-  width: 18px;
+  min-width: 18px;
   border-radius: 4px;
   border: 1px solid #c0c0cf;
   -webkit-appearance: none;
@@ -437,7 +437,7 @@ exports[`Storyshots Design System/Atoms/BaseCheckbox indeterminate 1`] = `
 .c1 {
   margin: 0;
   height: 18px;
-  width: 18px;
+  min-width: 18px;
   border-radius: 4px;
   border: 1px solid #c0c0cf;
   -webkit-appearance: none;
@@ -4653,7 +4653,7 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
 .c63 {
   margin: 0;
   height: 18px;
-  width: 18px;
+  min-width: 18px;
   border-radius: 4px;
   border: 1px solid #c0c0cf;
   -webkit-appearance: none;
@@ -9723,7 +9723,7 @@ exports[`Storyshots Design System/Molecules/Card base 1`] = `
 .c5 {
   margin: 0;
   height: 18px;
-  width: 18px;
+  min-width: 18px;
   border-radius: 4px;
   border: 1px solid #c0c0cf;
   -webkit-appearance: none;
@@ -10598,7 +10598,7 @@ exports[`Storyshots Design System/Molecules/Card without asset action 1`] = `
 .c5 {
   margin: 0;
   height: 18px;
-  width: 18px;
+  min-width: 18px;
   border-radius: 4px;
   border: 1px solid #c0c0cf;
   -webkit-appearance: none;
@@ -10892,7 +10892,7 @@ exports[`Storyshots Design System/Molecules/Card without asset action nor timer 
 .c5 {
   margin: 0;
   height: 18px;
-  width: 18px;
+  min-width: 18px;
   border-radius: 4px;
   border: 1px solid #c0c0cf;
   -webkit-appearance: none;
@@ -11500,7 +11500,7 @@ exports[`Storyshots Design System/Molecules/Checkbox base 1`] = `
 .c4 {
   margin: 0;
   height: 18px;
-  width: 18px;
+  min-width: 18px;
   border-radius: 4px;
   border: 1px solid #c0c0cf;
   -webkit-appearance: none;
@@ -11647,7 +11647,7 @@ exports[`Storyshots Design System/Molecules/Checkbox disabled 1`] = `
 .c4 {
   margin: 0;
   height: 18px;
-  width: 18px;
+  min-width: 18px;
   border-radius: 4px;
   border: 1px solid #c0c0cf;
   -webkit-appearance: none;
@@ -11803,7 +11803,7 @@ exports[`Storyshots Design System/Molecules/Checkbox error 1`] = `
 .c4 {
   margin: 0;
   height: 18px;
-  width: 18px;
+  min-width: 18px;
   border-radius: 4px;
   border: 1px solid #c0c0cf;
   -webkit-appearance: none;
@@ -11964,7 +11964,7 @@ exports[`Storyshots Design System/Molecules/Checkbox hint 1`] = `
 .c4 {
   margin: 0;
   height: 18px;
-  width: 18px;
+  min-width: 18px;
   border-radius: 4px;
   border: 1px solid #c0c0cf;
   -webkit-appearance: none;
@@ -12118,7 +12118,7 @@ exports[`Storyshots Design System/Molecules/Checkbox indeterminate 1`] = `
 .c4 {
   margin: 0;
   height: 18px;
-  width: 18px;
+  min-width: 18px;
   border-radius: 4px;
   border: 1px solid #c0c0cf;
   -webkit-appearance: none;
@@ -24218,7 +24218,7 @@ exports[`Storyshots Design System/Organisms/Table base 1`] = `
 .c13 {
   margin: 0;
   height: 18px;
-  width: 18px;
+  min-width: 18px;
   border-radius: 4px;
   border: 1px solid #c0c0cf;
   -webkit-appearance: none;
@@ -25434,7 +25434,7 @@ exports[`Storyshots Design System/Organisms/Table with th actions 1`] = `
 .c13 {
   margin: 0;
   height: 18px;
-  width: 18px;
+  min-width: 18px;
   border-radius: 4px;
   border: 1px solid #c0c0cf;
   -webkit-appearance: none;
