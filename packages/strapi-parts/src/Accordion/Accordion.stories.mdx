@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
 import EditIcon from '@strapi/icons/EditIcon';
 import { Accordion } from './Accordion';
 import { AccordionToggle } from './AccordionToggle';
@@ -19,7 +20,17 @@ This is the doc of the `Accordion` component
 
 ## Accordion
 
-Description...
+Accordions are collapsable blocks that vertically hide a stack of content. Clicking on the block reveals the associated content.
+
+**Best practices**
+
+- Use accordion when you need big and/or related chunks of content to be organized in a same place.
+- Use accordion for lower priority information.
+- Use to shorten pages and increase readability.
+- The chevron icon pointing down indicates a collapsed state and pointing up indicates an expanded state.
+- Hover and active states should be used anytime it's possible.
+- Content should not scroll within an accordion.
+- Use chevron icon on the left side if call-to-actions are available on the right side.
 
 <Canvas>
   <Story name="base">
@@ -83,7 +94,7 @@ Description...
 
 ## Accordion keyboard navigable
 
-Description...
+The accordion component has two main states: collapsed and expanded. By default it has a collapsed state. If Call-to-actions are required, use them on the right side and use chevron icon on the left one.
 
 <Canvas>
   <Story name="keyboard navigable">
@@ -161,3 +172,7 @@ Description...
     </Accordion>
   </Story>
 </Canvas>
+
+## Props
+
+<ArgsTable of={Accordion} />
