@@ -1,6 +1,7 @@
 <!--- EmptyStateLayout.stories.mdx --->
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
 import AddIcon from '@strapi/icons/AddIcon';
 import { Illo } from './story-assets/Illo';
 import { EmptyStateLayout } from './EmptyStateLayout';
@@ -11,11 +12,21 @@ import { Box } from '../Box';
 
 # EmptyStateLayout
 
-This is the doc of the `EmptyStateLayout` component
+EmptyStates are a pattern used to indicate a page or a table is empty.
 
-## EmptyStateLayout
+**Best practices**
 
-Description...
+- Use everytime a page or a table is empty.
+- Use the most appropriate illustration to the usecase. If related to permissions, choose the eye one.
+- Use the button to help redirecting the user to a more relevant place.
+
+## Usage
+
+A page or a table might be empty for different reasons: no entries have been created yet, a user doesn't have the permission to access something, something went wrong, ...
+
+### EmptyStateLayout with action
+
+ EmptyStates can be coupled with a button to help redirecting the user to a more relevant place. 
 
 <Canvas>
   <Story name="base">
@@ -33,9 +44,9 @@ Description...
   </Story>
 </Canvas>
 
-## EmptyStateLayout without action
+### EmptyStateLayout without action
 
-Description...
+If no need to redirect the user to a more relavant place or if the context does not suit for that type of action, an EmptyState can be without any particular action. 
 
 <Canvas>
   <Story name="without action">
@@ -46,8 +57,6 @@ Description...
 </Canvas>
 
 ## EmptyStateLayout with large text
-
-Description...
 
 <Canvas>
   <Story name="with large text">
@@ -64,3 +73,8 @@ Description...
     </Box>
   </Story>
 </Canvas>
+
+## Props
+
+<ArgsTable of={EmptyStateLayout} />
+
