@@ -15,7 +15,7 @@ export const TextInputWrapper = styled.div`
 
 const LabelAction = styled(Box)`
   svg path {
-    fill: ${({ theme }) => theme.colors.neutral300};
+    fill: ${({ theme }) => theme.colors.neutral500};
   }
 `;
 

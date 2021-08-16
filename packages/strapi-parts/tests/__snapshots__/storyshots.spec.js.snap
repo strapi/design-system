@@ -20036,7 +20036,7 @@ exports[`Storyshots Design System/Molecules/TextInput base 1`] = `
 }
 
 .c7 svg path {
-  fill: #c0c0cf;
+  fill: #8e8ea9;
 }
 
 <main>
@@ -20254,7 +20254,7 @@ exports[`Storyshots Design System/Molecules/TextInput disabled 1`] = `
 }
 
 .c7 svg path {
-  fill: #c0c0cf;
+  fill: #8e8ea9;
 }
 
 <main>
@@ -20472,7 +20472,7 @@ exports[`Storyshots Design System/Molecules/TextInput password 1`] = `
 }
 
 .c7 svg path {
-  fill: #c0c0cf;
+  fill: #8e8ea9;
 }
 
 <main>
@@ -20689,7 +20689,7 @@ exports[`Storyshots Design System/Molecules/TextInput with error 1`] = `
 }
 
 .c7 svg path {
-  fill: #c0c0cf;
+  fill: #8e8ea9;
 }
 
 <main>
