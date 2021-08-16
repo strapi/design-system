@@ -44,3 +44,23 @@ Description...
     </Box>
   </Story>
 </Canvas>
+
+## EmptyStateLayout without large text
+
+Description...
+
+<Canvas>
+  <Story name="with large text">
+    <Box padding={8} background="neutral100">
+      <EmptyStateLayout
+        icon={<Illo />}
+        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        action={
+          <Button variant="secondary" startIcon={<AddIcon />}>
+            Create your first content-type
+          </Button>
+        }
+      />
+    </Box>
+  </Story>
+</Canvas>
