@@ -4,7 +4,7 @@ import CodeMirror from 'codemirror';
 
 import EditorWrapper from './EditorWrapper';
 import { EditorAndPreviewWrapper } from './WysiwygStyles';
-import PreviewWysiwyg from './../PreviewWysiwyg/index'
+import PreviewWysiwyg from './../PreviewWysiwyg';
 import newlineAndIndentContinueMarkdownList from './utils/continueList';
 
 const Editor = ({
