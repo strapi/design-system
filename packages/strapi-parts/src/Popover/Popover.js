@@ -46,6 +46,7 @@ export const position = (source, popover, fullWidth, centered) => {
 const PopoverWrapper = styled(Box)`
   box-shadow: ${({ theme }) => theme.shadows.filterShadow};
   position: absolute;
+  z-index: 3;
   border: 1px solid ${({ theme }) => theme.colors.neutral150};
   background: ${({ theme }) => theme.colors.neutral0};
   margin-top: ${({ theme, spacingTop }) => theme.spaces[spacingTop]};

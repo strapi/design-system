@@ -92,6 +92,7 @@ describe('Popover', () => {
         .c1 {
           box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
           position: absolute;
+          z-index: 3;
           border: 1px solid #eaeaef;
           background: #ffffff;
         }
