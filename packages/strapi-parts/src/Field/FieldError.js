@@ -10,7 +10,7 @@ export const FieldError = () => {
   }
 
   return (
-    <P small={true} id={`${id}-error`} textColor="danger600">
+    <P small={true} id={`${id}-error`} textColor="danger600" data-strapi-field-error>
       {error}
     </P>
   );
