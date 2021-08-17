@@ -100,7 +100,7 @@ export const Tab = ({ selected, id, children, variant, hasError, ...props }) => 
         aria-controls={selected ? tabPanelId : undefined}
         tabIndex={selected ? 0 : -1}
         aria-selected={selected}
-        type="role"
+        type="button"
         {...props}
       >
         <SimpleTabBox padding={4} selected={selected} hasError={hasError}>
