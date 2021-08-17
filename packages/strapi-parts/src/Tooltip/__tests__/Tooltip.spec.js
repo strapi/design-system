@@ -34,6 +34,7 @@ describe('Tooltip', () => {
 
       .c1 {
         position: absolute;
+        z-index: 3;
         display: none;
       }
 
@@ -117,6 +118,7 @@ describe('Tooltip', () => {
 
       .c1 {
         position: absolute;
+        z-index: 3;
         display: revert;
       }
 
@@ -196,6 +198,7 @@ describe('Tooltip', () => {
 
       .c1 {
         position: absolute;
+        z-index: 3;
         display: revert;
       }
 

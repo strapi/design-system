@@ -12281,6 +12281,7 @@ exports[`Storyshots Design System/Molecules/Checkbox error 1`] = `
       </label>
       <p
         class="c6"
+        data-strapi-field-error="true"
         id="checkbox-14-error"
       >
         Description line lorem ipsum
@@ -13813,6 +13814,7 @@ exports[`Storyshots Design System/Molecules/Field with error 1`] = `
       </div>
       <p
         class="c6"
+        data-strapi-field-error="true"
         id="field-18-error"
       >
         Password is too short
@@ -21360,6 +21362,7 @@ exports[`Storyshots Design System/Molecules/TextInput with error 1`] = `
           </div>
           <p
             class="c11"
+            data-strapi-field-error="true"
             id="textinput-147-error"
           >
             Content is too long
@@ -21581,6 +21584,7 @@ exports[`Storyshots Design System/Molecules/Textarea base 1`] = `
           />
           <p
             class="c8"
+            data-strapi-field-error="true"
             id="textarea-150-error"
           >
             Content is too short
