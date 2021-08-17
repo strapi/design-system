@@ -160,6 +160,16 @@ describe('Select', () => {
         margin-right: 10px;
       }
 
+      .c0 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+      }
+
       .c0 > * {
         margin-top: 0;
         margin-bottom: 0;
@@ -494,6 +504,16 @@ describe('Select', () => {
         align-items: center;
       }
 
+      .c0 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+      }
+
       .c0 > * {
         margin-top: 0;
         margin-bottom: 0;
@@ -715,6 +735,16 @@ describe('Select', () => {
         background: #eaeaef;
         border-radius: 4px;
         margin-right: 10px;
+      }
+
+      .c3 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
       }
 
       .c3 > * {

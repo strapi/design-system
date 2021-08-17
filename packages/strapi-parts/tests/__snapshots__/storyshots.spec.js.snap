@@ -1068,6 +1068,16 @@ exports[`Storyshots Design System/Atoms/FocusTrap base 1`] = `
   color: #32324d;
 }
 
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
 .c3 > * {
   margin-top: 0;
   margin-bottom: 0;
@@ -1919,6 +1929,16 @@ exports[`Storyshots Design System/Atoms/Stack base 1`] = `
   padding: 16px;
 }
 
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
 .c1 > * {
   margin-top: 0;
   margin-bottom: 0;
@@ -1981,9 +2001,9 @@ exports[`Storyshots Design System/Atoms/Stack horizontal 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: horizontal;
-  -ms-flex-direction: horizontal;
-  flex-direction: horizontal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
 }
 
 .c1 > * {
@@ -4888,6 +4908,16 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
   align-items: center;
 }
 
+.c15 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
 .c15 > * {
   margin-top: 0;
   margin-bottom: 0;
@@ -7645,6 +7675,16 @@ exports[`Storyshots Design System/Molecules/Alert variants 1`] = `
   fill: #b72b1a;
 }
 
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
 .c1 > * {
   margin-top: 0;
   margin-bottom: 0;
@@ -8174,6 +8214,16 @@ exports[`Storyshots Design System/Molecules/Badge base 1`] = `
   font-size: 0.6875rem;
   line-height: 1.45;
   text-transform: uppercase;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .c1 > * {
@@ -11777,6 +11827,16 @@ exports[`Storyshots Design System/Molecules/Checkbox base 1`] = `
   color: #32324d;
 }
 
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
 .c1 > * {
   margin-top: 0;
   margin-bottom: 0;
@@ -11922,6 +11982,16 @@ exports[`Storyshots Design System/Molecules/Checkbox disabled 1`] = `
   font-size: 0.875rem;
   line-height: 1.43;
   color: #32324d;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .c1 > * {
@@ -12078,6 +12148,16 @@ exports[`Storyshots Design System/Molecules/Checkbox error 1`] = `
   font-size: 0.75rem;
   line-height: 1.33;
   color: #d02b20;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .c1 > * {
@@ -12241,6 +12321,16 @@ exports[`Storyshots Design System/Molecules/Checkbox hint 1`] = `
   color: #666687;
 }
 
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
 .c1 > * {
   margin-top: 0;
   margin-bottom: 0;
@@ -12393,6 +12483,16 @@ exports[`Storyshots Design System/Molecules/Checkbox indeterminate 1`] = `
   font-size: 0.875rem;
   line-height: 1.43;
   color: #32324d;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .c1 > * {
@@ -12630,6 +12730,16 @@ exports[`Storyshots Design System/Molecules/DatePicker base 1`] = `
   align-items: center;
 }
 
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
 .c2 > * {
   margin-top: 0;
   margin-bottom: 0;
@@ -12825,6 +12935,16 @@ exports[`Storyshots Design System/Molecules/Field base 1`] = `
   align-items: center;
 }
 
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
 .c1 > * {
   margin-top: 0;
   margin-bottom: 0;
@@ -12965,6 +13085,16 @@ exports[`Storyshots Design System/Molecules/Field disabled 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .c1 > * {
@@ -13149,6 +13279,16 @@ exports[`Storyshots Design System/Molecules/Field most complex input 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .c2 > * {
@@ -13409,6 +13549,16 @@ exports[`Storyshots Design System/Molecules/Field with description 1`] = `
   align-items: center;
 }
 
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
 .c1 > * {
   margin-top: 0;
   margin-bottom: 0;
@@ -13556,6 +13706,16 @@ exports[`Storyshots Design System/Molecules/Field with error 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .c1 > * {
@@ -14314,6 +14474,16 @@ exports[`Storyshots Design System/Molecules/Link base 1`] = `
   text-transform: uppercase;
 }
 
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
 .c1 > * {
   margin-top: 0;
   margin-bottom: 0;
@@ -14566,6 +14736,16 @@ exports[`Storyshots Design System/Molecules/NumberInput base 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .c2 > * {
@@ -17967,6 +18147,16 @@ exports[`Storyshots Design System/Molecules/Select base 1`] = `
   align-items: center;
 }
 
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
 .c1 > * {
   margin-top: 0;
   margin-bottom: 0;
@@ -17974,6 +18164,16 @@ exports[`Storyshots Design System/Molecules/Select base 1`] = `
 
 .c1 > * + * {
   margin-top: 64px;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .c2 > * {
@@ -18237,6 +18437,16 @@ exports[`Storyshots Design System/Molecules/Select multi 1`] = `
   align-items: center;
 }
 
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
 .c1 > * {
   margin-top: 0;
   margin-bottom: 0;
@@ -18244,6 +18454,16 @@ exports[`Storyshots Design System/Molecules/Select multi 1`] = `
 
 .c1 > * + * {
   margin-top: 64px;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .c2 > * {
@@ -18511,6 +18731,16 @@ exports[`Storyshots Design System/Molecules/Select multi-withTags 1`] = `
   flex-wrap: wrap;
 }
 
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
 .c1 > * {
   margin-top: 0;
   margin-bottom: 0;
@@ -18518,6 +18748,16 @@ exports[`Storyshots Design System/Molecules/Select multi-withTags 1`] = `
 
 .c1 > * + * {
   margin-top: 64px;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .c2 > * {
@@ -18784,6 +19024,16 @@ exports[`Storyshots Design System/Molecules/Select size-S 1`] = `
   align-items: center;
 }
 
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
 .c1 > * {
   margin-top: 0;
   margin-bottom: 0;
@@ -18791,6 +19041,16 @@ exports[`Storyshots Design System/Molecules/Select size-S 1`] = `
 
 .c1 > * + * {
   margin-top: 64px;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .c2 > * {
@@ -19222,6 +19482,16 @@ exports[`Storyshots Design System/Molecules/Status base 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .c1 > * {
@@ -20259,6 +20529,16 @@ exports[`Storyshots Design System/Molecules/TextInput base 1`] = `
   align-items: center;
 }
 
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
 .c3 > * {
   margin-top: 0;
   margin-bottom: 0;
@@ -20473,6 +20753,16 @@ exports[`Storyshots Design System/Molecules/TextInput disabled 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .c3 > * {
@@ -20695,6 +20985,16 @@ exports[`Storyshots Design System/Molecules/TextInput password 1`] = `
   align-items: center;
 }
 
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
 .c3 > * {
   margin-top: 0;
   margin-bottom: 0;
@@ -20912,6 +21212,16 @@ exports[`Storyshots Design System/Molecules/TextInput with error 1`] = `
   align-items: center;
 }
 
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
 .c3 > * {
   margin-top: 0;
   margin-bottom: 0;
@@ -21108,6 +21418,16 @@ exports[`Storyshots Design System/Molecules/Textarea base 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .c3 > * {
@@ -21345,6 +21665,16 @@ exports[`Storyshots Design System/Molecules/TimePicker 30-mns-step 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .c1 > * {
@@ -21619,6 +21949,16 @@ exports[`Storyshots Design System/Molecules/TimePicker base 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .c1 > * {
@@ -22695,6 +23035,16 @@ exports[`Storyshots Design System/Organisms/MainNav base 1`] = `
   align-items: center;
 }
 
+.c15 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
 .c15 > * {
   margin-top: 0;
   margin-bottom: 0;
@@ -22702,6 +23052,16 @@ exports[`Storyshots Design System/Organisms/MainNav base 1`] = `
 
 .c15 > * + * {
   margin-top: 16px;
+}
+
+.c20 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .c20 > * {
@@ -23415,6 +23775,16 @@ exports[`Storyshots Design System/Organisms/SubNav base 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.c14 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .c14 > * {
@@ -27717,6 +28087,16 @@ exports[`Storyshots Design System/Subatomic/LightTheme colors 1`] = `
   background: #2f6846;
   color: #ffffff;
   padding: 12px;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .c4 > * {
@@ -33815,6 +34195,16 @@ exports[`Storyshots Design System/Subatomic/LightTheme spaces 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .c2 > * {
