@@ -4789,8 +4789,8 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
 }
 
 .c56 {
-  padding-right: 12px;
-  padding-left: 12px;
+  padding-right: 24px;
+  padding-left: 24px;
 }
 
 .c67 {
@@ -25432,8 +25432,8 @@ exports[`Storyshots Design System/Organisms/Table base 1`] = `
 }
 
 .c5 {
-  padding-right: 12px;
-  padding-left: 12px;
+  padding-right: 24px;
+  padding-left: 24px;
 }
 
 .c22 {
@@ -26648,8 +26648,8 @@ exports[`Storyshots Design System/Organisms/Table with th actions 1`] = `
 }
 
 .c5 {
-  padding-right: 12px;
-  padding-left: 12px;
+  padding-right: 24px;
+  padding-left: 24px;
 }
 
 .c22 {
