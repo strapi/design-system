@@ -18,18 +18,13 @@ export const Box = styled.div.withConfig({
 
   // Spaces
   ${({ theme, padding }) => handleResponsiveSpacing('padding', padding, theme)}
-
   ${({ theme, paddingTop }) => handleResponsiveSpacing('padding-top', paddingTop, theme)}
-
   ${({ theme, paddingRight }) => handleResponsiveSpacing('padding-right', paddingRight, theme)}
-
   ${({ theme, paddingBottom }) => handleResponsiveSpacing('padding-bottom', paddingBottom, theme)}
-
   ${({ theme, paddingLeft }) => handleResponsiveSpacing('padding-left', paddingLeft, theme)}
 
   // Responsive hiding
   ${({ theme, hiddenS }) => (hiddenS ? `${theme.mediaQueries.tablet} { display: none; }` : undefined)}
-
   ${({ theme, hiddenXS }) => (hiddenXS ? `${theme.mediaQueries.mobile} { display: none; }` : undefined)}
   
 

@@ -70,6 +70,30 @@ describe('TimePicker', () => {
         color: #4945ff;
       }
 
+      .c7 {
+        padding-left: 12px;
+      }
+
+      .c9 {
+        padding-right: 16px;
+        padding-left: 16px;
+      }
+
+      .c14 {
+        background: #ffffff;
+        padding: 4px;
+        border-radius: 4px;
+      }
+
+      .c17 {
+        background: #ffffff;
+        padding-top: 8px;
+        padding-right: 16px;
+        padding-bottom: 8px;
+        padding-left: 16px;
+        border-radius: 4px;
+      }
+
       .c4 {
         display: -webkit-box;
         display: -webkit-flex;
@@ -102,30 +126,6 @@ describe('TimePicker', () => {
         align-items: center;
       }
 
-      .c7 {
-        padding-left: 12px;
-      }
-
-      .c9 {
-        padding-right: 16px;
-        padding-left: 16px;
-      }
-
-      .c14 {
-        background: #ffffff;
-        padding: 4px;
-        border-radius: 4px;
-      }
-
-      .c17 {
-        background: #ffffff;
-        padding-top: 8px;
-        padding-right: 16px;
-        padding-bottom: 8px;
-        padding-left: 16px;
-        border-radius: 4px;
-      }
-
       .c15 {
         box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
         position: absolute;
@@ -153,6 +153,16 @@ describe('TimePicker', () => {
         background: #eaeaef;
         border-radius: 4px;
         margin-right: 10px;
+      }
+
+      .c0 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
       }
 
       .c0 > * {

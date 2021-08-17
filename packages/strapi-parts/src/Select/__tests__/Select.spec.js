@@ -75,6 +75,30 @@ describe('Select', () => {
         color: #4945ff;
       }
 
+      .c7 {
+        padding-left: 12px;
+      }
+
+      .c8 {
+        padding-right: 16px;
+        padding-left: 16px;
+      }
+
+      .c13 {
+        background: #ffffff;
+        padding: 4px;
+        border-radius: 4px;
+      }
+
+      .c16 {
+        background: #ffffff;
+        padding-top: 8px;
+        padding-right: 16px;
+        padding-bottom: 8px;
+        padding-left: 16px;
+        border-radius: 4px;
+      }
+
       .c4 {
         display: -webkit-box;
         display: -webkit-flex;
@@ -107,30 +131,6 @@ describe('Select', () => {
         align-items: center;
       }
 
-      .c7 {
-        padding-left: 12px;
-      }
-
-      .c8 {
-        padding-right: 16px;
-        padding-left: 16px;
-      }
-
-      .c13 {
-        background: #ffffff;
-        padding: 4px;
-        border-radius: 4px;
-      }
-
-      .c16 {
-        background: #ffffff;
-        padding-top: 8px;
-        padding-right: 16px;
-        padding-bottom: 8px;
-        padding-left: 16px;
-        border-radius: 4px;
-      }
-
       .c14 {
         box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
         position: absolute;
@@ -158,6 +158,16 @@ describe('Select', () => {
         background: #eaeaef;
         border-radius: 4px;
         margin-right: 10px;
+      }
+
+      .c0 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
       }
 
       .c0 > * {
@@ -453,6 +463,15 @@ describe('Select', () => {
         color: #666687;
       }
 
+      .c7 {
+        padding-right: 16px;
+        padding-left: 16px;
+      }
+
+      .c10 {
+        padding-left: 12px;
+      }
+
       .c4 {
         display: -webkit-box;
         display: -webkit-flex;
@@ -485,13 +504,14 @@ describe('Select', () => {
         align-items: center;
       }
 
-      .c7 {
-        padding-right: 16px;
-        padding-left: 16px;
-      }
-
-      .c10 {
-        padding-left: 12px;
+      .c0 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
       }
 
       .c0 > * {
@@ -655,20 +675,6 @@ describe('Select', () => {
         color: #4945ff;
       }
 
-      .c6 {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-        flex-direction: row;
-        -webkit-align-items: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-      }
-
       .c0 {
         background: #ffffff;
         padding: 4px;
@@ -686,6 +692,20 @@ describe('Select', () => {
 
       .c7 {
         padding-right: 8px;
+      }
+
+      .c6 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
       }
 
       .c1 {
@@ -715,6 +735,16 @@ describe('Select', () => {
         background: #eaeaef;
         border-radius: 4px;
         margin-right: 10px;
+      }
+
+      .c3 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
       }
 
       .c3 > * {
