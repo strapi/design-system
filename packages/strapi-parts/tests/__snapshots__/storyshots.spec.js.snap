@@ -3334,10 +3334,10 @@ exports[`Storyshots Design System/Layouts/HeaderLayout base 1`] = `
         </a>
       </div>
       <div
-        class="c12"
+        class="c1 c12"
       >
         <div
-          class="c13"
+          class="c1 c13"
         >
           <h2
             class="c14"
@@ -3682,10 +3682,10 @@ exports[`Storyshots Design System/Layouts/HeaderLayout base without nav action 1
       data-strapi-header="true"
     >
       <div
-        class="c4"
+        class="c1 c4"
       >
         <div
-          class="c5"
+          class="c1 c5"
         >
           <h2
             class="c6"
@@ -4119,10 +4119,10 @@ exports[`Storyshots Design System/Layouts/HeaderLayout combined w/ scroll 1`] = 
           </a>
         </div>
         <div
-          class="c12"
+          class="c1 c12"
         >
           <div
-            class="c13"
+            class="c1 c13"
           >
             <h2
               class="c14"
@@ -4526,10 +4526,10 @@ exports[`Storyshots Design System/Layouts/HeaderLayout sticky 1`] = `
       data-strapi-header-sticky="true"
     >
       <div
-        class="c5"
+        class="c1 c5"
       >
         <div
-          class="c6"
+          class="c1 c6"
         >
           <div
             class="c1 c7"
@@ -4617,7 +4617,7 @@ exports[`Storyshots Design System/Layouts/HeaderLayout sticky 1`] = `
           </div>
         </div>
         <div
-          class="c6"
+          class="c1 c6"
         >
           <div
             class="c1 c21"
@@ -5467,7 +5467,7 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
           class="c1 c5"
         >
           <div
-            class="c6"
+            class="c1 c6"
           >
             <h2
               class="c7"
@@ -5518,12 +5518,12 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
                 class="c1 c16 c17"
               >
                 <div
-                  class="c6"
+                  class="c1 c6"
                 >
                   <button
                     aria-controls="subnav-list-50"
                     aria-expanded="true"
-                    class="c18 c19"
+                    class="c1 c18 c19"
                   >
                     <div
                       class="c1 c20"
@@ -5574,7 +5574,7 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
                     href="/address"
                   >
                     <div
-                      class="c18"
+                      class="c1 c18"
                     >
                       <svg
                         class="c32"
@@ -5609,7 +5609,7 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
                     href="/category"
                   >
                     <div
-                      class="c18"
+                      class="c1 c18"
                     >
                       <svg
                         class="c32"
@@ -5644,7 +5644,7 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
                     href="/city"
                   >
                     <div
-                      class="c18"
+                      class="c1 c18"
                     >
                       <svg
                         class="c32"
@@ -5679,7 +5679,7 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
                     href="/country"
                   >
                     <div
-                      class="c18"
+                      class="c1 c18"
                     >
                       <svg
                         class="c32"
@@ -5715,12 +5715,12 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
                 class="c1 c16 c17"
               >
                 <div
-                  class="c6"
+                  class="c1 c6"
                 >
                   <button
                     aria-controls="subnav-list-51"
                     aria-expanded="true"
-                    class="c18 c19"
+                    class="c1 c18 c19"
                   >
                     <div
                       class="c1 c20"
@@ -5770,7 +5770,7 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
                     class="c1 c34 c35"
                   >
                     <div
-                      class="c6"
+                      class="c1 c6"
                     >
                       <button
                         aria-controls="subnav-list-52"
@@ -5817,7 +5817,7 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
                         href="/address"
                       >
                         <div
-                          class="c18"
+                          class="c1 c18"
                         >
                           <svg
                             class="c32"
@@ -5852,7 +5852,7 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
                         href="/category"
                       >
                         <div
-                          class="c18"
+                          class="c1 c18"
                         >
                           <svg
                             class="c32"
@@ -5887,7 +5887,7 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
                         href="/city"
                       >
                         <div
-                          class="c18"
+                          class="c1 c18"
                         >
                           <svg
                             class="c32"
@@ -5922,7 +5922,7 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
                         href="/country"
                       >
                         <div
-                          class="c18"
+                          class="c1 c18"
                         >
                           <svg
                             class="c32"
@@ -5970,10 +5970,10 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
             data-strapi-header="true"
           >
             <div
-              class="c6"
+              class="c1 c6"
             >
               <div
-                class="c18"
+                class="c1 c18"
               >
                 <h2
                   class="c42"
@@ -6058,10 +6058,10 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
             class="c1 c50"
           >
             <div
-              class="c6"
+              class="c1 c6"
             >
               <div
-                class="c18 c51"
+                class="c1 c18 c51"
               >
                 <button
                   aria-disabled="false"
@@ -6087,7 +6087,7 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
                 </button>
               </div>
               <div
-                class="c18 c52"
+                class="c1 c18 c52"
               >
                 <button
                   aria-disabled="false"
@@ -6133,7 +6133,7 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
                         class="c61 c62"
                       >
                         <div
-                          class="c18"
+                          class="c1 c18"
                         >
                           <input
                             aria-label="Select all entries"
@@ -6149,7 +6149,7 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <div
-                          class="c18"
+                          class="c1 c18"
                         >
                           <span
                             class="c21 c29 c23 c24"
@@ -6164,7 +6164,7 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <div
-                          class="c18"
+                          class="c1 c18"
                         >
                           <span
                             class="c21 c29 c23 c24"
@@ -6179,7 +6179,7 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <div
-                          class="c18"
+                          class="c1 c18"
                         >
                           <span
                             class="c21 c29 c23 c24"
@@ -6194,7 +6194,7 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <div
-                          class="c18"
+                          class="c1 c18"
                         >
                           <span
                             class="c21 c29 c23 c24"
@@ -6209,7 +6209,7 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <div
-                          class="c18"
+                          class="c1 c18"
                         >
                           <span
                             class="c21 c29 c23 c24"
@@ -6224,7 +6224,7 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <div
-                          class="c18"
+                          class="c1 c18"
                         >
                           More
                         </div>
@@ -6235,7 +6235,7 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <div
-                          class="c18"
+                          class="c1 c18"
                         >
                           More
                         </div>
@@ -6246,7 +6246,7 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <div
-                          class="c18"
+                          class="c1 c18"
                         >
                           More
                         </div>
@@ -6257,7 +6257,7 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <div
-                          class="c18"
+                          class="c1 c18"
                         >
                           <div
                             class="c0"
@@ -6387,7 +6387,7 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
                         class="c61"
                       >
                         <div
-                          class="c18"
+                          class="c1 c18"
                         >
                           <span>
                             <button
@@ -6558,7 +6558,7 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
                         class="c61"
                       >
                         <div
-                          class="c18"
+                          class="c1 c18"
                         >
                           <span>
                             <button
@@ -6729,7 +6729,7 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
                         class="c61"
                       >
                         <div
-                          class="c18"
+                          class="c1 c18"
                         >
                           <span>
                             <button
@@ -6900,7 +6900,7 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
                         class="c61"
                       >
                         <div
-                          class="c18"
+                          class="c1 c18"
                         >
                           <span>
                             <button
@@ -7071,7 +7071,7 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
                         class="c61"
                       >
                         <div
-                          class="c18"
+                          class="c1 c18"
                         >
                           <span>
                             <button
@@ -7138,7 +7138,7 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
                 class="c1 c68 c69"
               >
                 <div
-                  class="c18"
+                  class="c1 c18"
                 >
                   <div
                     aria-hidden="true"
@@ -8255,14 +8255,14 @@ exports[`Storyshots Design System/Molecules/Breadcrumbs base 1`] = `
   padding-left: 12px;
 }
 
-.c3 {
+.c4 {
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.43;
   color: #32324d;
 }
 
-.c1 {
+.c2 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -8276,16 +8276,16 @@ exports[`Storyshots Design System/Molecules/Breadcrumbs base 1`] = `
   align-items: center;
 }
 
-.c2 svg {
+.c3 svg {
   height: 10px;
   width: 10px;
 }
 
-.c2 svg path {
+.c3 svg path {
   fill: #c0c0cf;
 }
 
-.c2:last-of-type .c4 {
+.c3:last-of-type .c1 {
   display: none;
 }
 
@@ -8307,16 +8307,16 @@ exports[`Storyshots Design System/Molecules/Breadcrumbs base 1`] = `
       aria-hidden="true"
     >
       <li
-        class="c1 c2"
+        class="c1 c2 c3"
       >
         <span
-          class="c3"
+          class="c4"
           color="neutral800"
         >
           Category
         </span>
         <div
-          class="c4 c5"
+          class="c1 c5"
         >
           <svg
             fill="none"
@@ -8333,16 +8333,16 @@ exports[`Storyshots Design System/Molecules/Breadcrumbs base 1`] = `
         </div>
       </li>
       <li
-        class="c1 c2"
+        class="c1 c2 c3"
       >
         <span
-          class="c3"
+          class="c4"
           color="neutral800"
         >
           Name
         </span>
         <div
-          class="c4 c5"
+          class="c1 c5"
         >
           <svg
             fill="none"
@@ -8692,7 +8692,7 @@ exports[`Storyshots Design System/Molecules/Button icons 1`] = `
   color: #32324d;
 }
 
-.c1 {
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -8740,7 +8740,7 @@ exports[`Storyshots Design System/Molecules/Button icons 1`] = `
   background: #4945ff;
 }
 
-.c5 .c2 {
+.c5 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -8802,7 +8802,7 @@ exports[`Storyshots Design System/Molecules/Button icons 1`] = `
   background: #f0f0ff;
 }
 
-.c9 .c2 {
+.c9 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -8882,10 +8882,10 @@ exports[`Storyshots Design System/Molecules/Button icons 1`] = `
     </h1>
   </div>
   <div
-    class="c1"
+    class="c1 c2"
   >
     <div
-      class="c2 c3"
+      class="c1 c3"
     >
       <button
         aria-disabled="false"
@@ -8894,7 +8894,7 @@ exports[`Storyshots Design System/Molecules/Button icons 1`] = `
       >
         <div
           aria-hidden="true"
-          class="c2 c6"
+          class="c1 c6"
         >
           <svg
             fill="none"
@@ -8928,7 +8928,7 @@ exports[`Storyshots Design System/Molecules/Button icons 1`] = `
       </span>
       <div
         aria-hidden="true"
-        class="c2 c10"
+        class="c1 c10"
       >
         <svg
           fill="none"
@@ -8986,7 +8986,7 @@ exports[`Storyshots Design System/Molecules/Button sizes 1`] = `
   line-height: 1.14;
 }
 
-.c1 {
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -9034,7 +9034,7 @@ exports[`Storyshots Design System/Molecules/Button sizes 1`] = `
   background: #4945ff;
 }
 
-.c5 .c2 {
+.c5 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -9096,7 +9096,7 @@ exports[`Storyshots Design System/Molecules/Button sizes 1`] = `
   background: #4945ff;
 }
 
-.c8 .c2 {
+.c8 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -9159,10 +9159,10 @@ exports[`Storyshots Design System/Molecules/Button sizes 1`] = `
     </h1>
   </div>
   <div
-    class="c1"
+    class="c1 c2"
   >
     <div
-      class="c2 c3"
+      class="c1 c3"
     >
       <button
         aria-disabled="false"
@@ -9215,7 +9215,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   color: #32324d;
 }
 
-.c1 {
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -9263,7 +9263,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   background: #4945ff;
 }
 
-.c5 .c2 {
+.c5 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -9325,7 +9325,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   background: #f0f0ff;
 }
 
-.c8 .c2 {
+.c8 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -9404,7 +9404,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   background: #ffffff;
 }
 
-.c9 .c2 {
+.c9 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -9473,7 +9473,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   background: #328048;
 }
 
-.c10 .c2 {
+.c10 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -9535,7 +9535,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   background: #d02b20;
 }
 
-.c11 .c2 {
+.c11 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -9597,7 +9597,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   background: #eafbe7;
 }
 
-.c12 .c2 {
+.c12 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -9676,7 +9676,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   background: #fcecea;
 }
 
-.c13 .c2 {
+.c13 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -9756,10 +9756,10 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
     </h1>
   </div>
   <div
-    class="c1"
+    class="c1 c2"
   >
     <div
-      class="c2 c3"
+      class="c1 c3"
     >
       <button
         aria-disabled="false"
@@ -9774,7 +9774,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
       </button>
     </div>
     <div
-      class="c2 c3"
+      class="c1 c3"
     >
       <button
         aria-disabled="false"
@@ -9789,7 +9789,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
       </button>
     </div>
     <div
-      class="c2 c3"
+      class="c1 c3"
     >
       <button
         aria-disabled="false"
@@ -9804,7 +9804,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
       </button>
     </div>
     <div
-      class="c2 c3"
+      class="c1 c3"
     >
       <button
         aria-disabled="false"
@@ -9819,7 +9819,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
       </button>
     </div>
     <div
-      class="c2 c3"
+      class="c1 c3"
     >
       <button
         aria-disabled="false"
@@ -9834,7 +9834,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
       </button>
     </div>
     <div
-      class="c2 c3"
+      class="c1 c3"
     >
       <button
         aria-disabled="false"
@@ -9849,7 +9849,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
       </button>
     </div>
     <div
-      class="c2 c3"
+      class="c1 c3"
     >
       <button
         aria-disabled="false"
@@ -24316,7 +24316,7 @@ exports[`Storyshots Design System/Organisms/SubNav base 1`] = `
                   </div>
                 </div>
                 <div
-                  class="c1 c42"
+                  class="c1 sc-gtsrHT c42"
                 >
                   <svg
                     class="c43"
@@ -24613,7 +24613,7 @@ exports[`Storyshots Design System/Organisms/SubNav base 1`] = `
                   </div>
                 </div>
                 <div
-                  class="c1 c42"
+                  class="c1 sc-gtsrHT c42"
                 >
                   <svg
                     class="c43"

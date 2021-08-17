@@ -75,6 +75,30 @@ describe('Select', () => {
         color: #4945ff;
       }
 
+      .c7 {
+        padding-left: 12px;
+      }
+
+      .c8 {
+        padding-right: 16px;
+        padding-left: 16px;
+      }
+
+      .c13 {
+        background: #ffffff;
+        padding: 4px;
+        border-radius: 4px;
+      }
+
+      .c16 {
+        background: #ffffff;
+        padding-top: 8px;
+        padding-right: 16px;
+        padding-bottom: 8px;
+        padding-left: 16px;
+        border-radius: 4px;
+      }
+
       .c4 {
         display: -webkit-box;
         display: -webkit-flex;
@@ -105,30 +129,6 @@ describe('Select', () => {
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
-      }
-
-      .c7 {
-        padding-left: 12px;
-      }
-
-      .c8 {
-        padding-right: 16px;
-        padding-left: 16px;
-      }
-
-      .c13 {
-        background: #ffffff;
-        padding: 4px;
-        border-radius: 4px;
-      }
-
-      .c16 {
-        background: #ffffff;
-        padding-top: 8px;
-        padding-right: 16px;
-        padding-bottom: 8px;
-        padding-left: 16px;
-        border-radius: 4px;
       }
 
       .c14 {
@@ -453,6 +453,15 @@ describe('Select', () => {
         color: #666687;
       }
 
+      .c7 {
+        padding-right: 16px;
+        padding-left: 16px;
+      }
+
+      .c10 {
+        padding-left: 12px;
+      }
+
       .c4 {
         display: -webkit-box;
         display: -webkit-flex;
@@ -483,15 +492,6 @@ describe('Select', () => {
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
-      }
-
-      .c7 {
-        padding-right: 16px;
-        padding-left: 16px;
-      }
-
-      .c10 {
-        padding-left: 12px;
       }
 
       .c0 > * {
@@ -655,20 +655,6 @@ describe('Select', () => {
         color: #4945ff;
       }
 
-      .c6 {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-        flex-direction: row;
-        -webkit-align-items: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-      }
-
       .c0 {
         background: #ffffff;
         padding: 4px;
@@ -686,6 +672,20 @@ describe('Select', () => {
 
       .c7 {
         padding-right: 8px;
+      }
+
+      .c6 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
       }
 
       .c1 {

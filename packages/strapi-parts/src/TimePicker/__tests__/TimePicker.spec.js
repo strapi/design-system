@@ -70,6 +70,30 @@ describe('TimePicker', () => {
         color: #4945ff;
       }
 
+      .c7 {
+        padding-left: 12px;
+      }
+
+      .c9 {
+        padding-right: 16px;
+        padding-left: 16px;
+      }
+
+      .c14 {
+        background: #ffffff;
+        padding: 4px;
+        border-radius: 4px;
+      }
+
+      .c17 {
+        background: #ffffff;
+        padding-top: 8px;
+        padding-right: 16px;
+        padding-bottom: 8px;
+        padding-left: 16px;
+        border-radius: 4px;
+      }
+
       .c4 {
         display: -webkit-box;
         display: -webkit-flex;
@@ -100,30 +124,6 @@ describe('TimePicker', () => {
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
-      }
-
-      .c7 {
-        padding-left: 12px;
-      }
-
-      .c9 {
-        padding-right: 16px;
-        padding-left: 16px;
-      }
-
-      .c14 {
-        background: #ffffff;
-        padding: 4px;
-        border-radius: 4px;
-      }
-
-      .c17 {
-        background: #ffffff;
-        padding-top: 8px;
-        padding-right: 16px;
-        padding-bottom: 8px;
-        padding-left: 16px;
-        border-radius: 4px;
       }
 
       .c15 {
