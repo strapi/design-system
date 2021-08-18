@@ -6158,9 +6158,8 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
                             tabindex="0"
                             type="checkbox"
                           />
-                          <td
-                            class="c61 c63"
-                            tabindex="-1"
+                          <span
+                            class="c63"
                           />
                         </div>
                       </th>
@@ -6177,9 +6176,8 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
                           >
                             ID
                           </span>
-                          <td
-                            class="c61 c63"
-                            tabindex="-1"
+                          <span
+                            class="c63"
                           />
                         </div>
                       </th>
@@ -6196,9 +6194,8 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
                           >
                             Cover
                           </span>
-                          <td
-                            class="c61 c63"
-                            tabindex="-1"
+                          <span
+                            class="c63"
                           />
                         </div>
                       </th>
@@ -6215,9 +6212,8 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
                           >
                             Description
                           </span>
-                          <td
-                            class="c61 c63"
-                            tabindex="-1"
+                          <span
+                            class="c63"
                           />
                         </div>
                       </th>
@@ -6234,9 +6230,8 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
                           >
                             Categories
                           </span>
-                          <td
-                            class="c61 c63"
-                            tabindex="-1"
+                          <span
+                            class="c63"
                           />
                         </div>
                       </th>
@@ -6253,9 +6248,8 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
                           >
                             Contact
                           </span>
-                          <td
-                            class="c61 c63"
-                            tabindex="-1"
+                          <span
+                            class="c63"
                           />
                         </div>
                       </th>
@@ -6268,9 +6262,8 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
                           class="c1 c18"
                         >
                           More
-                          <td
-                            class="c61 c63"
-                            tabindex="-1"
+                          <span
+                            class="c63"
                           />
                         </div>
                       </th>
@@ -6283,9 +6276,8 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
                           class="c1 c18"
                         >
                           More
-                          <td
-                            class="c61 c63"
-                            tabindex="-1"
+                          <span
+                            class="c63"
                           />
                         </div>
                       </th>
@@ -6298,9 +6290,8 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
                           class="c1 c18"
                         >
                           More
-                          <td
-                            class="c61 c63"
-                            tabindex="-1"
+                          <span
+                            class="c63"
                           />
                         </div>
                       </th>
@@ -6317,9 +6308,8 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
                           >
                             Actions
                           </div>
-                          <td
-                            class="c61 c63"
-                            tabindex="-1"
+                          <span
+                            class="c63"
                           />
                         </div>
                       </th>
@@ -25815,9 +25805,8 @@ exports[`Storyshots Design System/Organisms/Table base 1`] = `
                       tabindex="0"
                       type="checkbox"
                     />
-                    <td
-                      class="c10 c13"
-                      tabindex="-1"
+                    <span
+                      class="c13"
                     />
                   </div>
                 </th>
@@ -25834,9 +25823,8 @@ exports[`Storyshots Design System/Organisms/Table base 1`] = `
                     >
                       ID
                     </span>
-                    <td
-                      class="c10 c13"
-                      tabindex="-1"
+                    <span
+                      class="c13"
                     />
                   </div>
                 </th>
@@ -25853,9 +25841,8 @@ exports[`Storyshots Design System/Organisms/Table base 1`] = `
                     >
                       Cover
                     </span>
-                    <td
-                      class="c10 c13"
-                      tabindex="-1"
+                    <span
+                      class="c13"
                     />
                   </div>
                 </th>
@@ -25872,9 +25859,8 @@ exports[`Storyshots Design System/Organisms/Table base 1`] = `
                     >
                       Description
                     </span>
-                    <td
-                      class="c10 c13"
-                      tabindex="-1"
+                    <span
+                      class="c13"
                     />
                   </div>
                 </th>
@@ -25891,9 +25877,8 @@ exports[`Storyshots Design System/Organisms/Table base 1`] = `
                     >
                       Categories
                     </span>
-                    <td
-                      class="c10 c13"
-                      tabindex="-1"
+                    <span
+                      class="c13"
                     />
                   </div>
                 </th>
@@ -25910,9 +25895,8 @@ exports[`Storyshots Design System/Organisms/Table base 1`] = `
                     >
                       Contact
                     </span>
-                    <td
-                      class="c10 c13"
-                      tabindex="-1"
+                    <span
+                      class="c13"
                     />
                   </div>
                 </th>
@@ -25929,9 +25913,8 @@ exports[`Storyshots Design System/Organisms/Table base 1`] = `
                     >
                       Actions
                     </div>
-                    <td
-                      class="c10 c13"
-                      tabindex="-1"
+                    <span
+                      class="c13"
                     />
                   </div>
                 </th>
@@ -27059,9 +27042,8 @@ exports[`Storyshots Design System/Organisms/Table with th actions 1`] = `
                       tabindex="0"
                       type="checkbox"
                     />
-                    <td
-                      class="c10 c13"
-                      tabindex="-1"
+                    <span
+                      class="c13"
                     />
                   </div>
                 </th>
@@ -27077,8 +27059,8 @@ exports[`Storyshots Design System/Organisms/Table with th actions 1`] = `
                     >
                       ID
                     </span>
-                    <td
-                      class="c10 c13"
+                    <span
+                      class="c13"
                     >
                       <span>
                         <button
@@ -27104,7 +27086,7 @@ exports[`Storyshots Design System/Organisms/Table with th actions 1`] = `
                           </svg>
                         </button>
                       </span>
-                    </td>
+                    </span>
                   </div>
                 </th>
                 <th
@@ -27120,9 +27102,8 @@ exports[`Storyshots Design System/Organisms/Table with th actions 1`] = `
                     >
                       Cover
                     </span>
-                    <td
-                      class="c10 c13"
-                      tabindex="-1"
+                    <span
+                      class="c13"
                     />
                   </div>
                 </th>
@@ -27139,9 +27120,8 @@ exports[`Storyshots Design System/Organisms/Table with th actions 1`] = `
                     >
                       Description
                     </span>
-                    <td
-                      class="c10 c13"
-                      tabindex="-1"
+                    <span
+                      class="c13"
                     />
                   </div>
                 </th>
@@ -27158,9 +27138,8 @@ exports[`Storyshots Design System/Organisms/Table with th actions 1`] = `
                     >
                       Categories
                     </span>
-                    <td
-                      class="c10 c13"
-                      tabindex="-1"
+                    <span
+                      class="c13"
                     />
                   </div>
                 </th>
@@ -27177,9 +27156,8 @@ exports[`Storyshots Design System/Organisms/Table with th actions 1`] = `
                     >
                       Contact
                     </span>
-                    <td
-                      class="c10 c13"
-                      tabindex="-1"
+                    <span
+                      class="c13"
                     />
                   </div>
                 </th>
@@ -27196,9 +27174,8 @@ exports[`Storyshots Design System/Organisms/Table with th actions 1`] = `
                     >
                       Actions
                     </div>
-                    <td
-                      class="c10 c13"
-                      tabindex="-1"
+                    <span
+                      class="c13"
                     />
                   </div>
                 </th>
