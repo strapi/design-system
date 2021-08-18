@@ -117,7 +117,12 @@ Description...
 Description...
 
 <Canvas>
-  <Story name="icons">
+  <Story
+    name="icons"
+    parameters={{
+      storyshots: { disable: true },
+    }}
+  >
     {() => {
       const iconsArray = Object.keys(Icons);
       return (
