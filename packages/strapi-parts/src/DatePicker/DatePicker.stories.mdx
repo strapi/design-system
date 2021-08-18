@@ -17,17 +17,14 @@ Date pickers help users selecting a specific date from a calendar. They can be a
 
 **Best practices**
 
-- When the date picker is clicked, it takes today's date.
-- It is not possible to write the date from the keyboard.
-- It is not possible to change the date format. However, the date format will be based on the browser locale. 
+- It is possible to change the date format by changing your browser locale.
 - A Date picker can used simultaneously with a Time picker in a form.
-- The PopOver closes after selecting a date.
-- One single format of date is currently available.
-- The Date picker is built on top on a Field component.
+
 
 ## Usage
 
-A date picker is used to select an unique date. It's not possible to select a date range. A date picker can have a null value via the Clear feature. A navigation via the keyboard is possible within the calendar PopOver, however it's impossible to write a date from the keyboard. 
+A Date picker is used to select an unique date. It is not possible to select a date range. It is not possible to write a date from the keyboard.
+When the Date picker is activated, it selects today's date. However, a Date picker can have a null value via the Clear feature. 
 
 <Canvas>
   <Story name="base">
