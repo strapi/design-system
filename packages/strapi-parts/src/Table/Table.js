@@ -72,7 +72,7 @@ export const Table = ({ colCount, rowCount, footer, ...props }) => {
   return (
     <Box shadow="tableShadow">
       <TableBox background="neutral0" overflowing={overflowing}>
-        <ScrollContainer ref={tableRef} onScroll={handleScroll} paddingLeft={3} paddingRight={3}>
+        <ScrollContainer ref={tableRef} onScroll={handleScroll} paddingLeft={6} paddingRight={6}>
           <TableWrapper colCount={colCount} rowCount={rowCount} {...props} />
         </ScrollContainer>
       </TableBox>
