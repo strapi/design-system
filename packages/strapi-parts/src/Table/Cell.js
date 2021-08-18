@@ -18,7 +18,7 @@ const CellWrapper = styled(RawTd)`
   }
 `;
 
-const ActionWrapper = styled(CellWrapper)`
+const ActionWrapper = styled.span`
   svg {
     height: ${4 / 16}rem;
   }
