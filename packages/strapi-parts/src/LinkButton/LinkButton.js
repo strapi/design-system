@@ -84,7 +84,7 @@ export const LinkButton = React.forwardRef(
   },
 );
 
-LinkButton.displayName = 'Button';
+LinkButton.displayName = 'LinkButton';
 
 LinkButton.defaultProps = {
   disabled: false,
