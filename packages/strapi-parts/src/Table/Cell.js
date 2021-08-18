@@ -18,7 +18,7 @@ const CellWrapper = styled(RawTd)`
   }
 `;
 
-const ThWrapper = styled(CellWrapper)`
+const ActionWrapper = styled.span`
   svg {
     height: ${4 / 16}rem;
   }
@@ -26,12 +26,12 @@ const ThWrapper = styled(CellWrapper)`
 
 export const Th = ({ children, action, ...props }) => {
   return (
-    <ThWrapper as={RawTh} {...props}>
+    <CellWrapper as={RawTh} {...props}>
       <Row>
         {children}
-        {action}
+        <ActionWrapper>{action}</ActionWrapper>
       </Row>
-    </ThWrapper>
+    </CellWrapper>
   );
 };
 
