@@ -50,14 +50,23 @@ export const ButtonWrapper = styled(BaseButton)`
 
 export const Button = React.forwardRef(
   ({ variant, startIcon, endIcon, disabled, children, onClick, size, loading, ...props }, ref) => {
+    const isDisabled = disabled || loading;
+
     const handleClick = (e) => {
-      if (!disabled && onClick) {
+      if (!isDisabled && onClick) {
         onClick(e);
       }
     };
 
     return (
-      <ButtonWrapper ref={ref} aria-disabled={disabled} size={size} variant={variant} onClick={handleClick} {...props}>
+      <ButtonWrapper
+        ref={ref}
+        aria-disabled={isDisabled}
+        size={size}
+        variant={variant}
+        onClick={handleClick}
+        {...props}
+      >
         {(startIcon || loading) && (
           <Box aria-hidden={true} paddingRight={2}>
             {loading ? (

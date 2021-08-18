@@ -8982,7 +8982,7 @@ exports[`Storyshots Design System/Molecules/Button icons 1`] = `
       </div>
     </button>
     <button
-      aria-disabled="false"
+      aria-disabled="true"
       class="c2 c3"
       type="button"
     >
