@@ -68,7 +68,7 @@ describe('Select', () => {
         color: #666687;
       }
 
-      .c18 {
+      .c19 {
         font-weight: 500;
         font-size: 0.875rem;
         line-height: 1.43;
@@ -84,13 +84,13 @@ describe('Select', () => {
         padding-left: 16px;
       }
 
-      .c13 {
+      .c14 {
         background: #ffffff;
         padding: 4px;
         border-radius: 4px;
       }
 
-      .c16 {
+      .c17 {
         background: #ffffff;
         padding-top: 8px;
         padding-right: 16px;
@@ -131,7 +131,7 @@ describe('Select', () => {
         align-items: center;
       }
 
-      .c14 {
+      .c15 {
         box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
         position: absolute;
         z-index: 3;
@@ -140,22 +140,22 @@ describe('Select', () => {
         margin-top: 4px;
       }
 
-      .c15 {
+      .c16 {
         max-height: 15rem;
         overflow-y: auto;
         overflow-x: hidden;
       }
 
-      .c15::-webkit-scrollbar {
+      .c16::-webkit-scrollbar {
         -webkit-appearance: none;
         width: 4px;
       }
 
-      .c15::-webkit-scrollbar-track {
+      .c16::-webkit-scrollbar-track {
         background: #ffffff;
       }
 
-      .c15::-webkit-scrollbar-thumb {
+      .c16::-webkit-scrollbar-thumb {
         background: #eaeaef;
         border-radius: 4px;
         margin-right: 10px;
@@ -222,22 +222,34 @@ describe('Select', () => {
         width: 0.375rem;
       }
 
+      .c13 {
+        border: 0;
+        -webkit-clip: rect(0 0 0 0);
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+      }
+
       .c5 {
         min-height: 2.5rem;
       }
 
-      .c17 {
+      .c18 {
         width: 100%;
         border: none;
         text-align: left;
         outline-offset: -3px;
       }
 
-      .c17.is-focused {
+      .c18.is-focused {
         background: #f0f0ff;
       }
 
-      .c17:hover {
+      .c18:hover {
         background: #f0f0ff;
       }
 
@@ -326,14 +338,33 @@ describe('Select', () => {
           </div>
         </div>
         <div
+          class="c13"
+        >
+          <p
+            aria-live="polite"
+            id="live-region-log"
+            role="log"
+          />
+          <p
+            aria-live="polite"
+            id="live-region-status"
+            role="status"
+          />
+          <p
+            aria-live="assertive"
+            id="live-region-alert"
+            role="alert"
+          />
+        </div>
+        <div
           data-react-portal="true"
         >
           <div
-            class="c13 c14"
+            class="c14 c15"
             style="left: 0px; top: 0px;"
           >
             <div
-              class="c15"
+              class="c16"
             >
               <ul
                 aria-labelledby="select-1-label"
@@ -344,7 +375,7 @@ describe('Select', () => {
               >
                 <li
                   aria-selected="true"
-                  class="c16 c17"
+                  class="c17 c18"
                   data-strapi-value="pizza"
                   id="select-1-option-pizza"
                   role="option"
@@ -353,7 +384,7 @@ describe('Select', () => {
                     class="c6"
                   >
                     <span
-                      class="c18"
+                      class="c19"
                     >
                       Pizza
                     </span>
@@ -361,7 +392,7 @@ describe('Select', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c16 c17"
+                  class="c17 c18"
                   data-strapi-value="hamburger"
                   id="select-1-option-hamburger"
                   role="option"
@@ -378,7 +409,7 @@ describe('Select', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c16 c17"
+                  class="c17 c18"
                   data-strapi-value="bagel"
                   id="select-1-option-bagel"
                   role="option"
@@ -661,6 +692,37 @@ describe('Select', () => {
               Description line
             </p>
           </div>
+        </div>
+        .c0 {
+        border: 0;
+        -webkit-clip: rect(0 0 0 0);
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+      }
+
+      <div
+          class="c0"
+        >
+          <p
+            aria-live="polite"
+            id="live-region-log"
+            role="log"
+          />
+          <p
+            aria-live="polite"
+            id="live-region-status"
+            role="status"
+          />
+          <p
+            aria-live="assertive"
+            id="live-region-alert"
+            role="alert"
+          />
         </div>
         .c11 {
         font-weight: 400;

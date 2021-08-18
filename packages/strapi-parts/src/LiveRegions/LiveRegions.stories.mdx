@@ -1,0 +1,30 @@
+<!--- LiveRegions.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { Stack } from '../Stack';
+import { Button } from '../Button';
+import { LiveRegions } from './LiveRegions';
+import { notifyLog, notifyStatus, notifyAlert } from './helpers';
+
+<Meta title="Design System/Molecules/LiveRegions" component={LiveRegions} />
+
+# LiveRegions
+
+This is the doc of the `LiveRegions` component
+
+## LiveRegions
+
+Description...
+
+<Canvas>
+  <Story name="base">
+    <div>
+      <p>In order for this story to make sense, make sure to turn on a Screen Reader of your choice.</p>
+      <Stack horizontal size={2}>
+        <Button onClick={() => notifyLog('A log message')}>Notify log</Button>
+        <Button onClick={() => notifyStatus('A status message')}>Notify status</Button>
+        <Button onClick={() => notifyAlert('An alert message')}>Notify alert</Button>
+      </Stack>
+    </div>
+  </Story>
+</Canvas>

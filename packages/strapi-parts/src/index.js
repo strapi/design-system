@@ -21,6 +21,7 @@ export * from './IconButton';
 export * from './KeyboardNavigable';
 export * from './Layout';
 export * from './Link';
+export * from './LiveRegions';
 export * from './Loader';
 export * from './Main';
 export * from './MainNav';
