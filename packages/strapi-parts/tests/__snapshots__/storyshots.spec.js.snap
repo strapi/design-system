@@ -9008,7 +9008,6 @@ exports[`Storyshots Design System/Molecules/Button icons 1`] = `
         class="c4 c5"
       >
         <div
-          aria-hidden="true"
           class="c10"
         >
           <svg

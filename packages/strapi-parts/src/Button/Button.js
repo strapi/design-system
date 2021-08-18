@@ -62,7 +62,7 @@ export const Button = React.forwardRef(
         {(startIcon || loading) && (
           <Box aria-hidden={true} paddingRight={2}>
             {loading ? (
-              <LoadingWrapper aria-hidden>
+              <LoadingWrapper>
                 <LoadingIcon />
               </LoadingWrapper>
             ) : (
