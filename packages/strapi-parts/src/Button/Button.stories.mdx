@@ -8,6 +8,7 @@ import Ct from '@strapi/icons/Ct';
 import { Button } from './Button';
 import { Box } from '../Box';
 import { Row } from '../Row';
+import { Stack } from '../Stack';
 
 <Meta title="Design System/Molecules/Button" component={Button} />
 
@@ -93,15 +94,13 @@ You can set the value to `default`, `secondary`, `tertiary`, `success`, `danger`
       },
     }}
   >
-    <Row>
+    <Stack size={2} horizontal>
       {['default', 'secondary', 'tertiary', 'success', 'danger', 'success-light', 'danger-light'].map((variant) => (
-        <Box key={variant} paddingRight={2}>
-          <Button onClick={(e) => console.log(e)} variant={variant}>
-            {variant}
-          </Button>
-        </Box>
+        <Button onClick={(e) => console.log(e)} variant={variant} key={variant}>
+          {variant}
+        </Button>
       ))}
-    </Row>
+    </Stack>
   </Story>
 </Canvas>
 
@@ -130,19 +129,22 @@ You can add start and end icons to the Button component using the `startIcon` an
           code: `
 <Button startIcon={<HelpIcon />}>Information</Button>
 <Button variant='secondary' endIcon={<ContentIcon />}>Write content</Button>
+<Button variant='secondary' endIcon={<ContentIcon />}>Write content</Button>
+<Button startIcon={<HelpIcon />} loading>With a loader</Button>
 `,
         },
       },
     }}
   >
-    <Row>
-      <Box paddingRight={1}>
-        <Button startIcon={<HelpIcon />}>Information</Button>
-      </Box>
+    <Stack size={2} horizontal>
+      <Button startIcon={<HelpIcon />}>Information</Button>
       <Button variant="secondary" endIcon={<ContentIcon />}>
         Write content
       </Button>
-    </Row>
+      <Button startIcon={<HelpIcon />} loading>
+        With a loader
+      </Button>
+    </Stack>
   </Story>
 </Canvas>
 
