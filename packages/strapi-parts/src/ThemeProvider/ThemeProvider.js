@@ -1,6 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider as StyledThemeProvider, createGlobalStyle } from 'styled-components';
+import { LiveRegions } from '../LiveRegions/LiveRegions';
 
 const GlobalStyle = createGlobalStyle`
  /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -172,6 +173,7 @@ export const ThemeProvider = ({ children, theme }) => {
     <StyledThemeProvider theme={theme}>
       <GlobalStyle />
       {children}
+      <LiveRegions />
     </StyledThemeProvider>
   );
 };
