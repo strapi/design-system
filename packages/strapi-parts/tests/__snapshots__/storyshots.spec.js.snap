@@ -19948,6 +19948,7 @@ exports[`Storyshots Design System/Molecules/Tabs base 1`] = `
           id="tabs-0-tab"
           role="tab"
           tabindex="0"
+          type="button"
         >
           <div
             class="c6 c7 c8"
@@ -19965,6 +19966,7 @@ exports[`Storyshots Design System/Molecules/Tabs base 1`] = `
           id="tabs-1-tab"
           role="tab"
           tabindex="-1"
+          type="button"
         >
           <div
             class="c6 c11 c12"
@@ -19982,6 +19984,7 @@ exports[`Storyshots Design System/Molecules/Tabs base 1`] = `
           id="tabs-2-tab"
           role="tab"
           tabindex="-1"
+          type="button"
         >
           <div
             class="c6 c11 c12"
@@ -20103,6 +20106,7 @@ exports[`Storyshots Design System/Molecules/Tabs simple 1`] = `
           id="tabs-0-tab"
           role="tab"
           tabindex="0"
+          type="button"
         >
           <div
             class="c2 c3"
@@ -20119,6 +20123,7 @@ exports[`Storyshots Design System/Molecules/Tabs simple 1`] = `
           id="tabs-1-tab"
           role="tab"
           tabindex="-1"
+          type="button"
         >
           <div
             class="c2 c7"
@@ -20135,6 +20140,7 @@ exports[`Storyshots Design System/Molecules/Tabs simple 1`] = `
           id="tabs-2-tab"
           role="tab"
           tabindex="-1"
+          type="button"
         >
           <div
             class="c2 c7"
