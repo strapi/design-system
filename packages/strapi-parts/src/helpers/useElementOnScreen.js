@@ -9,11 +9,17 @@ export const useElementOnScreen = (options) => {
   };
 
   useEffect(() => {
+    const containerEl = containerRef.current;
     const observer = new IntersectionObserver(callback, options);
-    if (containerRef.current) observer.observe(containerRef.current);
+
+    if (containerEl) {
+      observer.observe(containerRef.current);
+    }
 
     return () => {
-      if (containerRef.current) observer.disconnect();
+      if (containerEl) {
+        observer.disconnect();
+      }
     };
   }, [containerRef, options]);
 
