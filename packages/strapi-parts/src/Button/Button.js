@@ -29,7 +29,6 @@ export const ButtonWrapper = styled(BaseButton)`
   ${Box} {
     display: flex;
     align-items: center;
-    margin-top: 2px;
   }
   ${Text} {
     color: ${({ theme }) => theme.colors.neutral0};
