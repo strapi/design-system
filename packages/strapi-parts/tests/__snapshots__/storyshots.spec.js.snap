@@ -8723,26 +8723,22 @@ exports[`Storyshots Design System/Molecules/Button icons 1`] = `
   width: 1px;
 }
 
-.c3 {
-  padding-right: 4px;
-}
-
-.c6 {
+.c5 {
   padding-right: 8px;
 }
 
-.c10 {
+.c9 {
   padding-left: 8px;
 }
 
-.c8 {
+.c7 {
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #32324d;
 }
 
-.c2 {
+.c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -8750,13 +8746,18 @@ exports[`Storyshots Design System/Molecules/Button icons 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
 }
 
-.c4 {
+.c1 > * {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.c1 > * + * {
+  margin-left: 8px;
+}
+
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -8768,21 +8769,26 @@ exports[`Storyshots Design System/Molecules/Button icons 1`] = `
   border: 1px solid #dcdce4;
 }
 
-.c4 svg {
+.c2 svg {
   height: 12px;
   width: 12px;
 }
 
-.c4 svg > g,
-.c4 svg path {
+.c2 svg > g,
+.c2 svg path {
   fill: #ffffff;
 }
 
-.c4[aria-disabled='true'] {
+.c2[aria-disabled='true'] {
   pointer-events: none;
 }
 
-.c5 {
+.c10 {
+  -webkit-animation: gzYjWD 2s infinite linear;
+  animation: gzYjWD 2s infinite linear;
+}
+
+.c3 {
   padding: 8px 16px;
   background: #4945ff;
   border: none;
@@ -8790,7 +8796,7 @@ exports[`Storyshots Design System/Molecules/Button icons 1`] = `
   background: #4945ff;
 }
 
-.c5 .c1 {
+.c3 .c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -8802,49 +8808,49 @@ exports[`Storyshots Design System/Molecules/Button icons 1`] = `
   margin-top: 2px;
 }
 
-.c5 .c7 {
+.c3 .c6 {
   color: #ffffff;
 }
 
-.c5[aria-disabled='true'] {
+.c3[aria-disabled='true'] {
   border: 1px solid #dcdce4;
   background: #eaeaef;
 }
 
-.c5[aria-disabled='true'] .c7 {
+.c3[aria-disabled='true'] .c6 {
   color: #666687;
 }
 
-.c5[aria-disabled='true'] svg > g,
-.c5[aria-disabled='true'] svg path {
+.c3[aria-disabled='true'] svg > g,
+.c3[aria-disabled='true'] svg path {
   fill: #666687;
 }
 
-.c5[aria-disabled='true']:active {
+.c3[aria-disabled='true']:active {
   border: 1px solid #dcdce4;
   background: #eaeaef;
 }
 
-.c5[aria-disabled='true']:active .c7 {
+.c3[aria-disabled='true']:active .c6 {
   color: #666687;
 }
 
-.c5[aria-disabled='true']:active svg > g,
-.c5[aria-disabled='true']:active svg path {
+.c3[aria-disabled='true']:active svg > g,
+.c3[aria-disabled='true']:active svg path {
   fill: #666687;
 }
 
-.c5:hover {
+.c3:hover {
   border: 1px solid #7b79ff;
   background: #7b79ff;
 }
 
-.c5:active {
+.c3:active {
   border: 1px solid #4945ff;
   background: #4945ff;
 }
 
-.c9 {
+.c8 {
   padding: 8px 16px;
   background: #4945ff;
   border: none;
@@ -8852,7 +8858,7 @@ exports[`Storyshots Design System/Molecules/Button icons 1`] = `
   background: #f0f0ff;
 }
 
-.c9 .c1 {
+.c8 .c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -8864,62 +8870,62 @@ exports[`Storyshots Design System/Molecules/Button icons 1`] = `
   margin-top: 2px;
 }
 
-.c9 .c7 {
+.c8 .c6 {
   color: #ffffff;
 }
 
-.c9[aria-disabled='true'] {
+.c8[aria-disabled='true'] {
   border: 1px solid #dcdce4;
   background: #eaeaef;
 }
 
-.c9[aria-disabled='true'] .c7 {
+.c8[aria-disabled='true'] .c6 {
   color: #666687;
 }
 
-.c9[aria-disabled='true'] svg > g,
-.c9[aria-disabled='true'] svg path {
+.c8[aria-disabled='true'] svg > g,
+.c8[aria-disabled='true'] svg path {
   fill: #666687;
 }
 
-.c9[aria-disabled='true']:active {
+.c8[aria-disabled='true']:active {
   border: 1px solid #dcdce4;
   background: #eaeaef;
 }
 
-.c9[aria-disabled='true']:active .c7 {
+.c8[aria-disabled='true']:active .c6 {
   color: #666687;
 }
 
-.c9[aria-disabled='true']:active svg > g,
-.c9[aria-disabled='true']:active svg path {
+.c8[aria-disabled='true']:active svg > g,
+.c8[aria-disabled='true']:active svg path {
   fill: #666687;
 }
 
-.c9:hover {
+.c8:hover {
   background-color: #ffffff;
 }
 
-.c9:active {
+.c8:active {
   background-color: #ffffff;
   border: 1px solid #4945ff;
 }
 
-.c9:active .c7 {
+.c8:active .c6 {
   color: #4945ff;
 }
 
-.c9:active svg > g,
-.c9:active svg path {
+.c8:active svg > g,
+.c8:active svg path {
   fill: #4945ff;
 }
 
-.c9 .c7 {
+.c8 .c6 {
   color: #271fe0;
 }
 
-.c9 svg > g,
-.c9 svg path {
+.c8 svg > g,
+.c8 svg path {
   fill: #271fe0;
 }
 
@@ -8932,53 +8938,49 @@ exports[`Storyshots Design System/Molecules/Button icons 1`] = `
     </h1>
   </div>
   <div
-    class="c1 c2"
+    class="c1"
   >
-    <div
-      class="c1 c3"
-    >
-      <button
-        aria-disabled="false"
-        class="c4 c5"
-        type="button"
-      >
-        <div
-          aria-hidden="true"
-          class="c1 c6"
-        >
-          <svg
-            fill="none"
-            height="1em"
-            viewBox="0 0 24 24"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12 12-5.383 12-12S18.617 0 12 0zm0 4.92a1.56 1.56 0 110 3.12 1.56 1.56 0 010-3.12zm3.84 13.06a.5.5 0 01-.5.5h-6.2a.5.5 0 01-.5-.5v-.92a.5.5 0 01.5-.5h2.14v-5.28H9.86a.5.5 0 01-.5-.5v-.92a.5.5 0 01.5-.5h2.84a.5.5 0 01.5.5v6.7h2.14a.5.5 0 01.5.5v.92z"
-              fill="#212134"
-            />
-          </svg>
-        </div>
-        <span
-          class="c7 c8"
-        >
-          Information
-        </span>
-      </button>
-    </div>
     <button
       aria-disabled="false"
-      class="c4 c9"
+      class="c2 c3"
+      type="button"
+    >
+      <div
+        aria-hidden="true"
+        class="c4 c5"
+      >
+        <svg
+          fill="none"
+          height="1em"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12 12-5.383 12-12S18.617 0 12 0zm0 4.92a1.56 1.56 0 110 3.12 1.56 1.56 0 010-3.12zm3.84 13.06a.5.5 0 01-.5.5h-6.2a.5.5 0 01-.5-.5v-.92a.5.5 0 01.5-.5h2.14v-5.28H9.86a.5.5 0 01-.5-.5v-.92a.5.5 0 01.5-.5h2.84a.5.5 0 01.5.5v6.7h2.14a.5.5 0 01.5.5v.92z"
+            fill="#212134"
+          />
+        </svg>
+      </div>
+      <span
+        class="c6 c7"
+      >
+        Information
+      </span>
+    </button>
+    <button
+      aria-disabled="false"
+      class="c2 c8"
       type="button"
     >
       <span
-        class="c7 c8"
+        class="c6 c7"
       >
         Write content
       </span>
       <div
         aria-hidden="true"
-        class="c1 c10"
+        class="c4 c9"
       >
         <svg
           fill="none"
@@ -8995,6 +8997,41 @@ exports[`Storyshots Design System/Molecules/Button icons 1`] = `
           />
         </svg>
       </div>
+    </button>
+    <button
+      aria-disabled="false"
+      class="c2 c3"
+      type="button"
+    >
+      <div
+        aria-hidden="true"
+        class="c4 c5"
+      >
+        <div
+          aria-hidden="true"
+          class="c10"
+        >
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M12.057 18c.552 0 1 .451 1 .997v4.006a1 1 0 01-.941.995l-.059.002c-.552 0-1-.451-1-.997v-4.006a1 1 0 01.941-.995l.06-.002zm-3.06-.736l.055.03c.478.276.64.89.367 1.364l-2.002 3.468a1 1 0 01-1.31.394l-.055-.03a1.002 1.002 0 01-.368-1.363l2.003-3.469a1 1 0 011.31-.394zm7.42.394l2.002 3.468a1 1 0 01-.314 1.331l-.053.033a1.002 1.002 0 01-1.365-.363l-2.003-3.469a1 1 0 01.314-1.33l.054-.034a1.002 1.002 0 011.364.364zm-9.548-2.66l.033.054c.276.478.11 1.091-.364 1.364L3.07 18.42a1 1 0 01-1.331-.314l-.033-.053a1.001 1.001 0 01.364-1.365l3.468-2.003a1 1 0 011.33.314zm11.79-.313l3.468 2.002a1 1 0 01.393 1.31l-.03.055c-.276.478-.89.64-1.363.367l-3.469-2.003a1 1 0 01-.394-1.309l.03-.055c.276-.479.89-.64 1.364-.367zm4.344-3.628a1 1 0 01.995.941l.002.06c0 .551-.451 1-.997 1h-4.006a1 1 0 01-.995-.942L18 12.057c0-.552.451-1 .997-1h4.006zm-18 0a1 1 0 01.995.941l.002.06c0 .551-.451 1-.998 1H.998a1 1 0 01-.996-.942L0 12.057c0-.552.451-1 .998-1h4.004zm17.454-5.059l.033.054c.277.478.11 1.091-.363 1.365l-3.469 2.002a1 1 0 01-1.33-.314l-.034-.053a1.002 1.002 0 01.364-1.365l3.468-2.003a1 1 0 011.331.314zM3.07 5.684l3.468 2.003a1 1 0 01.394 1.31l-.03.055c-.276.478-.89.64-1.364.367L2.07 7.417a1 1 0 01-.394-1.31l.03-.055c.276-.479.89-.64 1.364-.368zm14.926-4.008l.056.03c.478.276.64.89.367 1.364l-2.003 3.468a1 1 0 01-1.309.394l-.055-.03a1.002 1.002 0 01-.367-1.364l2.002-3.468a1 1 0 011.31-.394zm-10.58.394L9.42 5.538a1 1 0 01-.314 1.33l-.053.034a1.002 1.002 0 01-1.365-.364L5.684 3.07a1 1 0 01.314-1.331l.054-.033a1.002 1.002 0 011.365.364zM12.058 0c.552 0 1 .451 1 .998v4.004a1 1 0 01-.941.996L12.057 6c-.552 0-1-.451-1-.998V.998a1 1 0 01.941-.996l.06-.002z"
+              fill="#212134"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+      <span
+        class="c6 c7"
+      >
+        With a loader
+      </span>
     </button>
   </div>
 </main>
@@ -9254,18 +9291,14 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   width: 1px;
 }
 
-.c3 {
-  padding-right: 8px;
-}
-
-.c7 {
+.c5 {
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #32324d;
 }
 
-.c2 {
+.c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -9273,13 +9306,18 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
 }
 
-.c4 {
+.c1 > * {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.c1 > * + * {
+  margin-left: 8px;
+}
+
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -9291,21 +9329,21 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   border: 1px solid #dcdce4;
 }
 
-.c4 svg {
+.c2 svg {
   height: 12px;
   width: 12px;
 }
 
-.c4 svg > g,
-.c4 svg path {
+.c2 svg > g,
+.c2 svg path {
   fill: #ffffff;
 }
 
-.c4[aria-disabled='true'] {
+.c2[aria-disabled='true'] {
   pointer-events: none;
 }
 
-.c5 {
+.c3 {
   padding: 8px 16px;
   background: #4945ff;
   border: none;
@@ -9313,7 +9351,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   background: #4945ff;
 }
 
-.c5 .c1 {
+.c3 .sc-gtsrHT {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -9325,49 +9363,49 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   margin-top: 2px;
 }
 
-.c5 .c6 {
+.c3 .c4 {
   color: #ffffff;
 }
 
-.c5[aria-disabled='true'] {
+.c3[aria-disabled='true'] {
   border: 1px solid #dcdce4;
   background: #eaeaef;
 }
 
-.c5[aria-disabled='true'] .c6 {
+.c3[aria-disabled='true'] .c4 {
   color: #666687;
 }
 
-.c5[aria-disabled='true'] svg > g,
-.c5[aria-disabled='true'] svg path {
+.c3[aria-disabled='true'] svg > g,
+.c3[aria-disabled='true'] svg path {
   fill: #666687;
 }
 
-.c5[aria-disabled='true']:active {
+.c3[aria-disabled='true']:active {
   border: 1px solid #dcdce4;
   background: #eaeaef;
 }
 
-.c5[aria-disabled='true']:active .c6 {
+.c3[aria-disabled='true']:active .c4 {
   color: #666687;
 }
 
-.c5[aria-disabled='true']:active svg > g,
-.c5[aria-disabled='true']:active svg path {
+.c3[aria-disabled='true']:active svg > g,
+.c3[aria-disabled='true']:active svg path {
   fill: #666687;
 }
 
-.c5:hover {
+.c3:hover {
   border: 1px solid #7b79ff;
   background: #7b79ff;
 }
 
-.c5:active {
+.c3:active {
   border: 1px solid #4945ff;
   background: #4945ff;
 }
 
-.c8 {
+.c6 {
   padding: 8px 16px;
   background: #4945ff;
   border: none;
@@ -9375,7 +9413,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   background: #f0f0ff;
 }
 
-.c8 .c1 {
+.c6 .sc-gtsrHT {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -9387,7 +9425,155 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   margin-top: 2px;
 }
 
-.c8 .c6 {
+.c6 .c4 {
+  color: #ffffff;
+}
+
+.c6[aria-disabled='true'] {
+  border: 1px solid #dcdce4;
+  background: #eaeaef;
+}
+
+.c6[aria-disabled='true'] .c4 {
+  color: #666687;
+}
+
+.c6[aria-disabled='true'] svg > g,
+.c6[aria-disabled='true'] svg path {
+  fill: #666687;
+}
+
+.c6[aria-disabled='true']:active {
+  border: 1px solid #dcdce4;
+  background: #eaeaef;
+}
+
+.c6[aria-disabled='true']:active .c4 {
+  color: #666687;
+}
+
+.c6[aria-disabled='true']:active svg > g,
+.c6[aria-disabled='true']:active svg path {
+  fill: #666687;
+}
+
+.c6:hover {
+  background-color: #ffffff;
+}
+
+.c6:active {
+  background-color: #ffffff;
+  border: 1px solid #4945ff;
+}
+
+.c6:active .c4 {
+  color: #4945ff;
+}
+
+.c6:active svg > g,
+.c6:active svg path {
+  fill: #4945ff;
+}
+
+.c6 .c4 {
+  color: #271fe0;
+}
+
+.c6 svg > g,
+.c6 svg path {
+  fill: #271fe0;
+}
+
+.c7 {
+  padding: 8px 16px;
+  background: #4945ff;
+  border: none;
+  border: 1px solid #dcdce4;
+  background: #ffffff;
+}
+
+.c7 .sc-gtsrHT {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 2px;
+}
+
+.c7 .c4 {
+  color: #ffffff;
+}
+
+.c7[aria-disabled='true'] {
+  border: 1px solid #dcdce4;
+  background: #eaeaef;
+}
+
+.c7[aria-disabled='true'] .c4 {
+  color: #666687;
+}
+
+.c7[aria-disabled='true'] svg > g,
+.c7[aria-disabled='true'] svg path {
+  fill: #666687;
+}
+
+.c7[aria-disabled='true']:active {
+  border: 1px solid #dcdce4;
+  background: #eaeaef;
+}
+
+.c7[aria-disabled='true']:active .c4 {
+  color: #666687;
+}
+
+.c7[aria-disabled='true']:active svg > g,
+.c7[aria-disabled='true']:active svg path {
+  fill: #666687;
+}
+
+.c7:hover {
+  background-color: #f6f6f9;
+}
+
+.c7:active {
+  background-color: #eaeaef;
+}
+
+.c7 .c4 {
+  color: #32324d;
+}
+
+.c7 svg > g,
+.c7 svg path {
+  fill: #32324d;
+}
+
+.c8 {
+  padding: 8px 16px;
+  background: #4945ff;
+  border: none;
+  border: 1px solid #328048;
+  background: #328048;
+}
+
+.c8 .sc-gtsrHT {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 2px;
+}
+
+.c8 .c4 {
   color: #ffffff;
 }
 
@@ -9396,7 +9582,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   background: #eaeaef;
 }
 
-.c8[aria-disabled='true'] .c6 {
+.c8[aria-disabled='true'] .c4 {
   color: #666687;
 }
 
@@ -9410,7 +9596,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   background: #eaeaef;
 }
 
-.c8[aria-disabled='true']:active .c6 {
+.c8[aria-disabled='true']:active .c4 {
   color: #666687;
 }
 
@@ -9420,41 +9606,24 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
 }
 
 .c8:hover {
-  background-color: #ffffff;
+  border: 1px solid #5cb176;
+  background: #5cb176;
 }
 
 .c8:active {
-  background-color: #ffffff;
-  border: 1px solid #4945ff;
-}
-
-.c8:active .c6 {
-  color: #4945ff;
-}
-
-.c8:active svg > g,
-.c8:active svg path {
-  fill: #4945ff;
-}
-
-.c8 .c6 {
-  color: #271fe0;
-}
-
-.c8 svg > g,
-.c8 svg path {
-  fill: #271fe0;
+  border: 1px solid #328048;
+  background: #328048;
 }
 
 .c9 {
   padding: 8px 16px;
   background: #4945ff;
   border: none;
-  border: 1px solid #dcdce4;
-  background: #ffffff;
+  border: 1px solid #d02b20;
+  background: #d02b20;
 }
 
-.c9 .c1 {
+.c9 .sc-gtsrHT {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -9466,7 +9635,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   margin-top: 2px;
 }
 
-.c9 .c6 {
+.c9 .c4 {
   color: #ffffff;
 }
 
@@ -9475,7 +9644,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   background: #eaeaef;
 }
 
-.c9[aria-disabled='true'] .c6 {
+.c9[aria-disabled='true'] .c4 {
   color: #666687;
 }
 
@@ -9489,7 +9658,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   background: #eaeaef;
 }
 
-.c9[aria-disabled='true']:active .c6 {
+.c9[aria-disabled='true']:active .c4 {
   color: #666687;
 }
 
@@ -9499,31 +9668,24 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
 }
 
 .c9:hover {
-  background-color: #f6f6f9;
+  border: 1px solid #ee5e52;
+  background: #ee5e52;
 }
 
 .c9:active {
-  background-color: #eaeaef;
-}
-
-.c9 .c6 {
-  color: #32324d;
-}
-
-.c9 svg > g,
-.c9 svg path {
-  fill: #32324d;
+  border: 1px solid #d02b20;
+  background: #d02b20;
 }
 
 .c10 {
   padding: 8px 16px;
   background: #4945ff;
   border: none;
-  border: 1px solid #328048;
-  background: #328048;
+  border: 1px solid #c6f0c2;
+  background: #eafbe7;
 }
 
-.c10 .c1 {
+.c10 .sc-gtsrHT {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -9535,7 +9697,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   margin-top: 2px;
 }
 
-.c10 .c6 {
+.c10 .c4 {
   color: #ffffff;
 }
 
@@ -9544,7 +9706,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   background: #eaeaef;
 }
 
-.c10[aria-disabled='true'] .c6 {
+.c10[aria-disabled='true'] .c4 {
   color: #666687;
 }
 
@@ -9558,7 +9720,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   background: #eaeaef;
 }
 
-.c10[aria-disabled='true']:active .c6 {
+.c10[aria-disabled='true']:active .c4 {
   color: #666687;
 }
 
@@ -9568,24 +9730,41 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
 }
 
 .c10:hover {
-  border: 1px solid #5cb176;
-  background: #5cb176;
+  background-color: #ffffff;
 }
 
 .c10:active {
+  background-color: #ffffff;
   border: 1px solid #328048;
-  background: #328048;
+}
+
+.c10:active .c4 {
+  color: #328048;
+}
+
+.c10:active svg > g,
+.c10:active svg path {
+  fill: #328048;
+}
+
+.c10 .c4 {
+  color: #2f6846;
+}
+
+.c10 svg > g,
+.c10 svg path {
+  fill: #2f6846;
 }
 
 .c11 {
   padding: 8px 16px;
   background: #4945ff;
   border: none;
-  border: 1px solid #d02b20;
-  background: #d02b20;
+  border: 1px solid #f5c0b8;
+  background: #fcecea;
 }
 
-.c11 .c1 {
+.c11 .sc-gtsrHT {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -9597,7 +9776,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   margin-top: 2px;
 }
 
-.c11 .c6 {
+.c11 .c4 {
   color: #ffffff;
 }
 
@@ -9606,7 +9785,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   background: #eaeaef;
 }
 
-.c11[aria-disabled='true'] .c6 {
+.c11[aria-disabled='true'] .c4 {
   color: #666687;
 }
 
@@ -9620,7 +9799,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   background: #eaeaef;
 }
 
-.c11[aria-disabled='true']:active .c6 {
+.c11[aria-disabled='true']:active .c4 {
   color: #666687;
 }
 
@@ -9630,170 +9809,29 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
 }
 
 .c11:hover {
-  border: 1px solid #ee5e52;
-  background: #ee5e52;
+  background-color: #ffffff;
 }
 
 .c11:active {
-  border: 1px solid #d02b20;
-  background: #d02b20;
-}
-
-.c12 {
-  padding: 8px 16px;
-  background: #4945ff;
-  border: none;
-  border: 1px solid #c6f0c2;
-  background: #eafbe7;
-}
-
-.c12 .c1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-top: 2px;
-}
-
-.c12 .c6 {
-  color: #ffffff;
-}
-
-.c12[aria-disabled='true'] {
-  border: 1px solid #dcdce4;
-  background: #eaeaef;
-}
-
-.c12[aria-disabled='true'] .c6 {
-  color: #666687;
-}
-
-.c12[aria-disabled='true'] svg > g,
-.c12[aria-disabled='true'] svg path {
-  fill: #666687;
-}
-
-.c12[aria-disabled='true']:active {
-  border: 1px solid #dcdce4;
-  background: #eaeaef;
-}
-
-.c12[aria-disabled='true']:active .c6 {
-  color: #666687;
-}
-
-.c12[aria-disabled='true']:active svg > g,
-.c12[aria-disabled='true']:active svg path {
-  fill: #666687;
-}
-
-.c12:hover {
-  background-color: #ffffff;
-}
-
-.c12:active {
-  background-color: #ffffff;
-  border: 1px solid #328048;
-}
-
-.c12:active .c6 {
-  color: #328048;
-}
-
-.c12:active svg > g,
-.c12:active svg path {
-  fill: #328048;
-}
-
-.c12 .c6 {
-  color: #2f6846;
-}
-
-.c12 svg > g,
-.c12 svg path {
-  fill: #2f6846;
-}
-
-.c13 {
-  padding: 8px 16px;
-  background: #4945ff;
-  border: none;
-  border: 1px solid #f5c0b8;
-  background: #fcecea;
-}
-
-.c13 .c1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-top: 2px;
-}
-
-.c13 .c6 {
-  color: #ffffff;
-}
-
-.c13[aria-disabled='true'] {
-  border: 1px solid #dcdce4;
-  background: #eaeaef;
-}
-
-.c13[aria-disabled='true'] .c6 {
-  color: #666687;
-}
-
-.c13[aria-disabled='true'] svg > g,
-.c13[aria-disabled='true'] svg path {
-  fill: #666687;
-}
-
-.c13[aria-disabled='true']:active {
-  border: 1px solid #dcdce4;
-  background: #eaeaef;
-}
-
-.c13[aria-disabled='true']:active .c6 {
-  color: #666687;
-}
-
-.c13[aria-disabled='true']:active svg > g,
-.c13[aria-disabled='true']:active svg path {
-  fill: #666687;
-}
-
-.c13:hover {
-  background-color: #ffffff;
-}
-
-.c13:active {
   background-color: #ffffff;
   border: 1px solid #d02b20;
 }
 
-.c13:active .c6 {
+.c11:active .c4 {
   color: #d02b20;
 }
 
-.c13:active svg > g,
-.c13:active svg path {
+.c11:active svg > g,
+.c11:active svg path {
   fill: #d02b20;
 }
 
-.c13 .c6 {
+.c11 .c4 {
   color: #b72b1a;
 }
 
-.c13 svg > g,
-.c13 svg path {
+.c11 svg > g,
+.c11 svg path {
   fill: #b72b1a;
 }
 
@@ -9806,113 +9844,85 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
     </h1>
   </div>
   <div
-    class="c1 c2"
+    class="c1"
   >
-    <div
-      class="c1 c3"
+    <button
+      aria-disabled="false"
+      class="c2 c3"
+      type="button"
     >
-      <button
-        aria-disabled="false"
+      <span
         class="c4 c5"
-        type="button"
       >
-        <span
-          class="c6 c7"
-        >
-          default
-        </span>
-      </button>
-    </div>
-    <div
-      class="c1 c3"
+        default
+      </span>
+    </button>
+    <button
+      aria-disabled="false"
+      class="c2 c6"
+      type="button"
     >
-      <button
-        aria-disabled="false"
-        class="c4 c8"
-        type="button"
+      <span
+        class="c4 c5"
       >
-        <span
-          class="c6 c7"
-        >
-          secondary
-        </span>
-      </button>
-    </div>
-    <div
-      class="c1 c3"
+        secondary
+      </span>
+    </button>
+    <button
+      aria-disabled="false"
+      class="c2 c7"
+      type="button"
     >
-      <button
-        aria-disabled="false"
-        class="c4 c9"
-        type="button"
+      <span
+        class="c4 c5"
       >
-        <span
-          class="c6 c7"
-        >
-          tertiary
-        </span>
-      </button>
-    </div>
-    <div
-      class="c1 c3"
+        tertiary
+      </span>
+    </button>
+    <button
+      aria-disabled="false"
+      class="c2 c8"
+      type="button"
     >
-      <button
-        aria-disabled="false"
-        class="c4 c10"
-        type="button"
+      <span
+        class="c4 c5"
       >
-        <span
-          class="c6 c7"
-        >
-          success
-        </span>
-      </button>
-    </div>
-    <div
-      class="c1 c3"
+        success
+      </span>
+    </button>
+    <button
+      aria-disabled="false"
+      class="c2 c9"
+      type="button"
     >
-      <button
-        aria-disabled="false"
-        class="c4 c11"
-        type="button"
+      <span
+        class="c4 c5"
       >
-        <span
-          class="c6 c7"
-        >
-          danger
-        </span>
-      </button>
-    </div>
-    <div
-      class="c1 c3"
+        danger
+      </span>
+    </button>
+    <button
+      aria-disabled="false"
+      class="c2 c10"
+      type="button"
     >
-      <button
-        aria-disabled="false"
-        class="c4 c12"
-        type="button"
+      <span
+        class="c4 c5"
       >
-        <span
-          class="c6 c7"
-        >
-          success-light
-        </span>
-      </button>
-    </div>
-    <div
-      class="c1 c3"
+        success-light
+      </span>
+    </button>
+    <button
+      aria-disabled="false"
+      class="c2 c11"
+      type="button"
     >
-      <button
-        aria-disabled="false"
-        class="c4 c13"
-        type="button"
+      <span
+        class="c4 c5"
       >
-        <span
-          class="c6 c7"
-        >
-          danger-light
-        </span>
-      </button>
-    </div>
+        danger-light
+      </span>
+    </button>
   </div>
 </main>
 `;

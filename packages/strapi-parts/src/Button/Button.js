@@ -1,11 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+import LoadingIcon from '@strapi/icons/LoadingIcon';
 import { Text, TextButton } from '../Text';
 import { Box } from '../Box';
 import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from './utils';
 import { VARIANTS, BUTTON_SIZES } from './constants';
 import { BaseButton } from '../BaseButton';
+
+const rotation = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+`;
+
+const LoadingWrapper = styled.div`
+  animation: ${rotation} 2s infinite linear;
+`;
 
 // TODO: Check the L size button with Maeva
 export const ButtonWrapper = styled(BaseButton)`
@@ -36,7 +50,7 @@ export const ButtonWrapper = styled(BaseButton)`
 `;
 
 export const Button = React.forwardRef(
-  ({ variant, startIcon, endIcon, disabled, children, onClick, size, ...props }, ref) => {
+  ({ variant, startIcon, endIcon, disabled, children, onClick, size, loading, ...props }, ref) => {
     const handleClick = (e) => {
       if (!disabled && onClick) {
         onClick(e);
@@ -45,9 +59,15 @@ export const Button = React.forwardRef(
 
     return (
       <ButtonWrapper ref={ref} aria-disabled={disabled} size={size} variant={variant} onClick={handleClick} {...props}>
-        {startIcon && (
+        {(startIcon || loading) && (
           <Box aria-hidden={true} paddingRight={2}>
-            {startIcon}
+            {loading ? (
+              <LoadingWrapper aria-hidden>
+                <LoadingIcon />
+              </LoadingWrapper>
+            ) : (
+              startIcon
+            )}
           </Box>
         )}
 
@@ -73,6 +93,7 @@ Button.displayName = 'Button';
 
 Button.defaultProps = {
   disabled: false,
+  loading: false,
   startIcon: undefined,
   endIcon: undefined,
   size: 'S',
@@ -83,6 +104,7 @@ Button.propTypes = {
   children: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
   endIcon: PropTypes.element,
+  loading: PropTypes.bool,
   onClick: PropTypes.func,
   size: PropTypes.oneOf(BUTTON_SIZES),
   startIcon: PropTypes.element,
