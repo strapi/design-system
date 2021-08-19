@@ -1,0 +1,100 @@
+<!--- LinkButton.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
+import HelpIcon from '@strapi/icons/HelpIcon';
+import ContentIcon from '@strapi/icons/ContentIcon';
+import Ct from '@strapi/icons/Ct';
+import { LinkButton } from './LinkButton';
+import { Box } from '../Box';
+import { Row } from '../Row';
+
+<Meta title="Design System/Molecules/LinkButton" component={LinkButton} />
+
+# LinkButton
+
+Description...
+
+## Usage
+
+Description...
+
+<Canvas>
+  <Story name="base">
+    <Box paddingBottom={2}>
+      <LinkButton variant="default" to="/">
+        Default
+      </LinkButton>
+    </Box>
+  </Story>
+</Canvas>
+
+### LinkButton sizes
+
+Description...
+
+<Canvas>
+  <Story name="sizes">
+    <Row>
+      <Box paddingRight={1}>
+        <LinkButton size="S" to="/">
+          Small
+        </LinkButton>
+      </Box>
+      <LinkButton size="L" to="/">
+        Large
+      </LinkButton>
+    </Row>
+  </Story>
+</Canvas>
+
+### LinkButton variants
+
+Description...
+
+<Canvas>
+  <Story name="variants">
+    <Row>
+      {['default', 'secondary', 'tertiary', 'success', 'danger', 'success-light', 'danger-light'].map((variant) => (
+        <Box key={variant} paddingRight={2}>
+          <LinkButton variant={variant} to="/">
+            {variant}
+          </LinkButton>
+        </Box>
+      ))}
+    </Row>
+  </Story>
+</Canvas>
+
+### LinkButton with icon
+
+Description...
+
+<Canvas>
+  <Story name="icons">
+    <Row>
+      <Box paddingRight={1}>
+        <LinkButton startIcon={<HelpIcon />} to="/">
+          Information
+        </LinkButton>
+      </Box>
+      <LinkButton variant="secondary" endIcon={<ContentIcon />} to="/">
+        Write content
+      </LinkButton>
+    </Row>
+  </Story>
+</Canvas>
+
+### LinkButton disabled
+
+Description...
+
+<Canvas>
+  <Story name="disabled">
+    <Box paddingRight={1}>
+      <LinkButton disabled to="/" startIcon={<HelpIcon />}>
+        Information
+      </LinkButton>
+    </Box>
+  </Story>
+</Canvas>
