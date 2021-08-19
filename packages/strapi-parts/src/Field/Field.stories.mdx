@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
 import Password from '@strapi/icons/Password';
 import HelpIcon from '@strapi/icons/HelpIcon';
 import { FieldLabel } from './FieldLabel';
@@ -19,7 +20,7 @@ import { FieldAction } from './FieldAction';
 
 # Field
 
-This is the doc of the `Field` component
+Fields are inputs that allow users to add or edit text. They support several text formats including numbers.
 
 ## Base
 
@@ -36,9 +37,9 @@ The simplest representation of the Field components, no description, no error, n
   </Story>
 </Canvas>
 
-## with description
+## With description
 
-An example of the Field components with a description
+A Field with a description allows to add a small hint of advanced information. 
 
 <Canvas>
   <Story name="with description">
@@ -52,9 +53,9 @@ An example of the Field components with a description
   </Story>
 </Canvas>
 
-## with error
+## With error
 
-An example of the Field components with an error
+An example of the Field components with an error.
 
 <Canvas>
   <Story name="with error">
@@ -71,7 +72,7 @@ An example of the Field components with an error
 
 ## Disabled field
 
-An example of the Field components in a disabled state:
+Depending on the permissions a user have or the status of an action, a Field can be unreachable or unavailable yet.
 
 <Canvas>
   <Story name="disabled">
@@ -86,9 +87,15 @@ An example of the Field components in a disabled state:
   </Story>
 </Canvas>
 
+## Password with description and error
+
+Password fields are specific. They offer the possibility to have unreadable content. By clicking on the eye icon on the right side, it is possible to actually read the password.
+
+
+
 ## Most complex input
 
-This is the most complex input that can be built with the Field components:
+This is the most complex input that can be built with the Field components.
 
 <Canvas>
   <Story name="most complex input">
@@ -138,3 +145,7 @@ This is the most complex input that can be built with the Field components:
     }}
   </Story>
 </Canvas>
+
+## Props
+
+<ArgsTable of={Field} />
