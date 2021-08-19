@@ -45,7 +45,7 @@ HeaderLayout.displayName = 'HeaderLayout';
 const StickyBox = styled(Box)`
   position: fixed;
   top: 0;
-  left: 0;
+  right: 0;
   width: ${(props) => props.width}px;
 `;
 
