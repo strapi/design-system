@@ -116,6 +116,7 @@ export const insertListOrTitle = (markdown, lineContent) => {
 //EDITOR ACTIONS FUNCTIONS
 
 export const markdownHandler = (editor, markdownType) => {
+  console.log(markdownType)
   const textToEdit = editor.current.getSelection();
   let textToInsert;
 
@@ -161,7 +162,7 @@ export const titleHandler = (editor, titleType) => {
   const titleToInsert = insertListOrTitle(titleType);
   const lineContent = editor.current.getLine(currentLine);
 
-  // replace hastags followed by a space in case user want to change the type of title
+  // replace hashtags followed by a space in case user want to change the type of title
   const lineWithNoTitle = lineContent.replace(/#{1,6}\s/g, '').trim();
 
   const textToInsert = titleToInsert + lineWithNoTitle;
@@ -170,5 +171,20 @@ export const titleHandler = (editor, titleType) => {
     { line: currentLine, ch: lineContent.length }
   );
   editor.current.replaceSelection(textToInsert);
-  setTimeout(() => editor.current.focus(), [0]);
+  setTimeout(() => editor.current.focus(), 0);
+}
+
+export const insertImage = (editor, files) => {
+  let {line} = editor.current.getCursor();
+
+  files.forEach((file, i) => {
+    //create a new line after first image markdown inserted
+    if(i > 0) {
+      line++
+      editor.current.replaceRange("\n", { line, ch: 0 });
+    }
+    editor.current.replaceSelection(`[${file.alt}](${file.url})`);
+  });
+
+  setTimeout(() => editor.current.focus(), 0);
 }

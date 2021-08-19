@@ -35,7 +35,8 @@ const WysiwygNav = ({
     visiblePopover, 
     setVisiblePopover, 
     isPreviewMode, 
-    setIsPreviewMode 
+    setIsPreviewMode,
+    setMediaLibVisible
   }) => {
     const buttonMoreRef = useRef();
 
@@ -101,7 +102,7 @@ const WysiwygNav = ({
                 </IconButtonGroupMargin>
                 <IconButtonGroup>
                   <CustomIconButton onClick={() => onActionClick("Code")} id="Code" label="Code" name="Code" icon={<Code />} />
-                  <CustomIconButton onClick={() => onActionClick("alt")} id="Image" label="Image" name="Image" icon={<Image />} />
+                  <CustomIconButton onClick={() => setMediaLibVisible(prev => !prev)} id="Image" label="Image" name="Image" icon={<Image />} />
                   <CustomIconButton onClick={() => onActionClick("Link")} id="Link" label="Link" name="Link" icon={<Link />} />
                   <CustomIconButton onClick={() => onActionClick("Quote")} id="Quote" label="Quote" name="Quote" icon={<Quote />} />
                 </IconButtonGroup>
@@ -125,7 +126,8 @@ WysiwygNav.propTypes = {
   visiblePopover: PropTypes.bool,
   setVisiblePopover: PropTypes.func, 
   isPreviewMode: PropTypes.bool, 
-  setIsPreviewMode: PropTypes.func
+  setIsPreviewMode: PropTypes.func,
+  setMediaLibVisible: PropTypes.func
 };
 
 export default WysiwygNav;

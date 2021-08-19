@@ -2,9 +2,10 @@ import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import WysiwygNav from './WysiwygNav';
 import WysiwygFooter from './WysiwygFooter';
+import MediaLibrary from './MediaLibrary';
 import Editor from './Editor';
 import { TextButton, Box } from "@strapi/parts";
-import { markdownHandler, listHandler, titleHandler } from './utils/utils';
+import { markdownHandler, listHandler, titleHandler, insertImage } from './utils/utils';
 
 
 const Wysiwyg = ({ label, placeholder, onChange, value }) => {
@@ -12,15 +13,14 @@ const Wysiwyg = ({ label, placeholder, onChange, value }) => {
   const editorRef = useRef(null);
   const [visiblePopover, setVisiblePopover] = useState(false);
   const [isPreviewMode, setIsPreviewMode] = useState(false);
+  const [mediaLibVisible, setMediaLibVisible] = useState(false);
 
   const handleActionClick = value => {
     switch (value) {
       case "Bold":
       case "Code":
       case "Italic":
-      case "Image":
       case "Link":
-      case "alt":
       case "Strikethrough":
       case "Underline":
       case "Quote": {
@@ -45,6 +45,11 @@ const Wysiwyg = ({ label, placeholder, onChange, value }) => {
         return;
     }
     setVisiblePopover((isVisible) => isVisible ? !isVisible : isVisible);
+  };
+
+  const handleSubmitImage = (files) => {
+    setMediaLibVisible(prev => !prev);
+    insertImage(editorRef, files);
   }
 
   return (
@@ -58,6 +63,7 @@ const Wysiwyg = ({ label, placeholder, onChange, value }) => {
           setVisiblePopover={setVisiblePopover}
           isPreviewMode={isPreviewMode}
           setIsPreviewMode={setIsPreviewMode}
+          setMediaLibVisible={setMediaLibVisible}
         />
         <Editor 
           onChange={onChange} 
@@ -70,6 +76,9 @@ const Wysiwyg = ({ label, placeholder, onChange, value }) => {
           isPreviewMode={isPreviewMode}
         />
       </Box>
+      {mediaLibVisible &&
+        <MediaLibrary setMediaLibVisible={setMediaLibVisible} handleSubmitImage={handleSubmitImage}/>    
+      }
     </>
   );
 };
