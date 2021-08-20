@@ -33,10 +33,10 @@ const WysiwygNav = ({
     placeholder, 
     onActionClick, 
     visiblePopover, 
-    setVisiblePopover, 
+    onTogglePopover, 
     isPreviewMode, 
-    setIsPreviewMode,
-    setMediaLibVisible
+    onTogglePreviewMode,
+    onToggleMediaLib
   }) => {
     const buttonMoreRef = useRef();
 
@@ -63,7 +63,7 @@ const WysiwygNav = ({
               <MoreButton disabled ref={buttonMoreRef} id="more" label="more" icon={<More />} />
             </Row>
 
-            <Button onClick={() => setIsPreviewMode(prev => !prev)} variant='tertiary' size='L' id='preview'>
+            <Button onClick={onTogglePreviewMode} variant='tertiary' size='L' id='preview'>
               Markdown mode
             </Button>
           </Row>
@@ -91,7 +91,7 @@ const WysiwygNav = ({
             <CustomIconButton onClick={() => onActionClick("Underline")} id="Underline" label="Underline" name="Underline" icon={<Underline />} />
           </MainButtons>
 
-          <MoreButton ref={buttonMoreRef} onClick={() => setVisiblePopover((prev) => !prev)} id="more" label="more" icon={<More />} />
+          <MoreButton ref={buttonMoreRef} onClick={onTogglePopover} id="more" label="more" icon={<More />} />
           {visiblePopover && (
             <Popover centered source={buttonMoreRef} spacingTop={1} id='popover'>
               <Row>
@@ -102,7 +102,7 @@ const WysiwygNav = ({
                 </IconButtonGroupMargin>
                 <IconButtonGroup>
                   <CustomIconButton onClick={() => onActionClick("Code")} id="Code" label="Code" name="Code" icon={<Code />} />
-                  <CustomIconButton onClick={() => setMediaLibVisible(prev => !prev)} id="Image" label="Image" name="Image" icon={<Image />} />
+                  <CustomIconButton onClick={onToggleMediaLib} id="Image" label="Image" name="Image" icon={<Image />} />
                   <CustomIconButton onClick={() => onActionClick("Link")} id="Link" label="Link" name="Link" icon={<Link />} />
                   <CustomIconButton onClick={() => onActionClick("Quote")} id="Quote" label="Quote" name="Quote" icon={<Quote />} />
                 </IconButtonGroup>
@@ -112,7 +112,7 @@ const WysiwygNav = ({
 
         </Row>
 
-        <Button onClick={() => setIsPreviewMode(prev => !prev)} variant='tertiary' size='L' id='preview'>
+        <Button onClick={onTogglePreviewMode} variant='tertiary' size='L' id='preview'>
           Preview mode
         </Button>
       </Row>
@@ -124,10 +124,10 @@ WysiwygNav.propTypes = {
   placeholder: PropTypes.string,
   onActionClick: PropTypes.func,
   visiblePopover: PropTypes.bool,
-  setVisiblePopover: PropTypes.func, 
+  onTogglePopover: PropTypes.func, 
   isPreviewMode: PropTypes.bool, 
-  setIsPreviewMode: PropTypes.func,
-  setMediaLibVisible: PropTypes.func
+  onTogglePreviewMode: PropTypes.func,
+  onToggleMediaLib: PropTypes.func
 };
 
 export default WysiwygNav;

@@ -110,8 +110,10 @@ describe("Wysiwyg render and actions buttons", () => {
     await waitFor(() => renderedContainer.querySelector(".CodeMirror-cursor"));
     fireEvent.click(renderedContainer.querySelector("#more"));
     fireEvent.click(document.getElementById("Image"));
+    fireEvent.click(document.getElementById("media-library"));
+    fireEvent.click(document.getElementById("insert-button"));
 
-    expect(getContainerByText("[alt]()")).toBeInTheDocument();
+    expect(getContainerByText("[sunset](http://localhost:3000/sunsetimage)")).toBeInTheDocument();
   });
 
   it("should render link markdown when clicking the link button", async () => {

@@ -15,6 +15,10 @@ const Wysiwyg = ({ label, placeholder, onChange, value }) => {
   const [isPreviewMode, setIsPreviewMode] = useState(false);
   const [mediaLibVisible, setMediaLibVisible] = useState(false);
 
+  const handleToggleMediaLib = () => setMediaLibVisible(prev => !prev);
+  const handleTogglePopover = () => setVisiblePopover(prev => !prev);
+  const handleTogglePreviewMode = () => setIsPreviewMode(prev => !prev);
+
   const handleActionClick = value => {
     switch (value) {
       case "Bold":
@@ -44,11 +48,12 @@ const Wysiwyg = ({ label, placeholder, onChange, value }) => {
       default:
         return;
     }
-    setVisiblePopover((isVisible) => isVisible ? !isVisible : isVisible);
+    handleTogglePopover()
   };
 
   const handleSubmitImage = (files) => {
-    setMediaLibVisible(prev => !prev);
+    handleToggleMediaLib();
+    handleTogglePopover();
     insertImage(editorRef, files);
   }
 
@@ -60,10 +65,10 @@ const Wysiwyg = ({ label, placeholder, onChange, value }) => {
           placeholder={placeholder} 
           onActionClick={handleActionClick}
           visiblePopover={visiblePopover}
-          setVisiblePopover={setVisiblePopover}
+          onTogglePopover={handleTogglePopover}
           isPreviewMode={isPreviewMode}
-          setIsPreviewMode={setIsPreviewMode}
-          setMediaLibVisible={setMediaLibVisible}
+          onTogglePreviewMode={handleTogglePreviewMode}
+          onToggleMediaLib={handleToggleMediaLib}
         />
         <Editor 
           onChange={onChange} 
@@ -77,7 +82,7 @@ const Wysiwyg = ({ label, placeholder, onChange, value }) => {
         />
       </Box>
       {mediaLibVisible &&
-        <MediaLibrary setMediaLibVisible={setMediaLibVisible} handleSubmitImage={handleSubmitImage}/>    
+        <MediaLibrary onToggle={handleToggleMediaLib} onSubmitImage={handleSubmitImage}/>    
       }
     </>
   );
@@ -86,7 +91,8 @@ const Wysiwyg = ({ label, placeholder, onChange, value }) => {
 Wysiwyg.propTypes = {
   label: PropTypes.string,
   onChange: PropTypes.func,
-  placeholder: PropTypes.string
+  placeholder: PropTypes.string,
+  value: PropTypes.string
 };
 
 export default Wysiwyg;

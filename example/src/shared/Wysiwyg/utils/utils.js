@@ -116,7 +116,6 @@ export const insertListOrTitle = (markdown, lineContent) => {
 //EDITOR ACTIONS FUNCTIONS
 
 export const markdownHandler = (editor, markdownType) => {
-  console.log(markdownType)
   const textToEdit = editor.current.getSelection();
   let textToInsert;
 
@@ -175,11 +174,12 @@ export const titleHandler = (editor, titleType) => {
 }
 
 export const insertImage = (editor, files) => {
-  let {line} = editor.current.getCursor();
+  let {line, ch} = editor.current.getCursor();
 
   files.forEach((file, i) => {
     //create a new line after first image markdown inserted
-    if(i > 0) {
+    //or if there is content in current line
+    if(i > 0 || (i === 0 && ch !== 0)) {
       line++
       editor.current.replaceRange("\n", { line, ch: 0 });
     }
