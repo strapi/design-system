@@ -127,15 +127,16 @@ const markdownWithTextToEdit = (editor, markdownType, textToEdit, isContent, lin
   editor.current.focus();
 };
 
-const markdownWithoutTextToEdit = (editor, markdownType, isContent, line) => {
+const markdownWithoutTextToEdit = (editor, markdownType, isContent, line, contentLength) => {
   let textToInsert = insertText(markdownType);
-  
+
   //if Code or Quote + content in current line : go to next line before inserting markdown text
   if((markdownType === "Code" || markdownType === "Quote") && isContent) {
-    line++;
+    editor.current.setCursor({line, ch : contentLength});
+    line++
     editor.current.replaceRange("\n", { line, ch: 0 });
   }
-  
+
   editor.current.replaceSelection(textToInsert.editedText);
   editor.current.focus();
 
@@ -148,17 +149,19 @@ const markdownWithoutTextToEdit = (editor, markdownType, isContent, line) => {
     { line, ch: startSelection },
     { line, ch: endSelection }
   );
+
 };
 
 export const markdownHandler = (editor, markdownType) => {
   const textToEdit = editor.current.getSelection();
   let { line } = editor.current.getCursor();
-  const isContent = editor.current.getValue(line).length > textToEdit.length;
+  const contentLength = editor.current.getLine(line).length;
+  const isContent = contentLength > textToEdit.length;
 
   if (textToEdit) {
     markdownWithTextToEdit(editor, markdownType, textToEdit, isContent, line);
   } else {
-    markdownWithoutTextToEdit(editor, markdownType, isContent, line);
+    markdownWithoutTextToEdit(editor, markdownType, isContent, line, contentLength);
   }
 };
 
@@ -197,9 +200,13 @@ export const insertImage = (editor, files) => {
   let {line, ch} = editor.current.getCursor();
 
   files.forEach((file, i) => {
+    let contentLength = editor.current.getLine(line).length;
+    editor.current.setCursor({line, ch : contentLength});
     //create a new line after first image markdown inserted
     //or if there is content in current line
     if(i > 0 || (i === 0 && ch !== 0)) {
+      contentLength = editor.current.getLine(line).length;
+      editor.current.setCursor({line, ch : contentLength});
       line++
       editor.current.replaceRange("\n", { line, ch: 0 });
     }
