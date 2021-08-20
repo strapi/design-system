@@ -25,9 +25,6 @@ export const replaceText = (markdownName, textToChange) => {
     case 'Quote':
       editedText = `>${textToChange}`;
       break;
-    case 'alt':
-      editedText = `[${textToChange}]()`;
-      break;
     default:
       editedText = textToChange;
   }
@@ -115,30 +112,53 @@ export const insertListOrTitle = (markdown, lineContent) => {
 
 //EDITOR ACTIONS FUNCTIONS
 
+const markdownWithTextToEdit = (editor, markdownType, textToEdit, isContent, line) => {
+  const editedText = replaceText(markdownType, textToEdit);
+
+  //if Code or Quote + content in current line : go to next line before inserting markdown text
+  if((markdownType === "Code" || markdownType === "Quote") && isContent) {
+    line++;
+    editor.current.replaceSelection('');
+    editor.current.focus();
+    editor.current.replaceRange("\n", { line, ch: 0 });
+  }
+
+  editor.current.replaceSelection(editedText);
+  editor.current.focus();
+};
+
+const markdownWithoutTextToEdit = (editor, markdownType, isContent, line) => {
+  let textToInsert = insertText(markdownType);
+  
+  //if Code or Quote + content in current line : go to next line before inserting markdown text
+  if((markdownType === "Code" || markdownType === "Quote") && isContent) {
+    line++;
+    editor.current.replaceRange("\n", { line, ch: 0 });
+  }
+  
+  editor.current.replaceSelection(textToInsert.editedText);
+  editor.current.focus();
+
+  //set selection-focus to text to replace with content
+  let { ch } = editor.current.getCursor();
+  const endSelection = ch - textToInsert.selection.end;
+  const startSelection = ch - textToInsert.selection.end - textToInsert.selection.start;
+
+  editor.current.setSelection(
+    { line, ch: startSelection },
+    { line, ch: endSelection }
+  );
+};
+
 export const markdownHandler = (editor, markdownType) => {
   const textToEdit = editor.current.getSelection();
-  let textToInsert;
+  let { line } = editor.current.getCursor();
+  const isContent = editor.current.getValue(line).length > textToEdit.length;
 
   if (textToEdit) {
-    const editedText = replaceText(markdownType, textToEdit);
-    editor.current.replaceSelection(editedText);
-    editor.current.focus();
-
+    markdownWithTextToEdit(editor, markdownType, textToEdit, isContent, line);
   } else {
-  
-    textToInsert = insertText(markdownType);
-    editor.current.replaceSelection(textToInsert.editedText);
-    editor.current.focus();
-
-    //set selection-focus to text to replace with content
-    const { line, ch } = editor.current.getCursor();
-    const endSelection = ch - textToInsert.selection.end;
-    const startSelection = ch - textToInsert.selection.end - textToInsert.selection.start;
-
-    editor.current.setSelection(
-      { line, ch: startSelection },
-      { line, ch: endSelection }
-    );
+    markdownWithoutTextToEdit(editor, markdownType, isContent, line);
   }
 };
 

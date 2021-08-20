@@ -21,19 +21,24 @@ const Wysiwyg = ({ label, placeholder, onChange, value }) => {
 
   const handleActionClick = value => {
     switch (value) {
-      case "Bold":
       case "Code":
-      case "Italic":
       case "Link":
       case "Strikethrough":
-      case "Underline":
       case "Quote": {
+        markdownHandler(editorRef, value);
+        handleTogglePopover();
+        break;
+      }
+      case "Bold":
+      case "Italic":
+      case "Underline": {
         markdownHandler(editorRef, value);
         break;
       }
       case "BulletList":
       case "NumberList": {
         listHandler(editorRef, value);
+        handleTogglePopover();
         break;
       }
       case "h1":
@@ -48,7 +53,6 @@ const Wysiwyg = ({ label, placeholder, onChange, value }) => {
       default:
         return;
     }
-    handleTogglePopover()
   };
 
   const handleSubmitImage = (files) => {
