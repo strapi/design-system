@@ -2,9 +2,10 @@ import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import WysiwygNav from './WysiwygNav';
 import WysiwygFooter from './WysiwygFooter';
+import MediaLibrary from './MediaLibrary';
 import Editor from './Editor';
 import { TextButton, Box } from "@strapi/parts";
-import { markdownHandler, listHandler, titleHandler } from './utils/utils';
+import { markdownHandler, listHandler, titleHandler, insertImage } from './utils/utils';
 
 
 const Wysiwyg = ({ label, placeholder, onChange, value }) => {
@@ -12,15 +13,18 @@ const Wysiwyg = ({ label, placeholder, onChange, value }) => {
   const editorRef = useRef(null);
   const [visiblePopover, setVisiblePopover] = useState(false);
   const [isPreviewMode, setIsPreviewMode] = useState(false);
+  const [mediaLibVisible, setMediaLibVisible] = useState(false);
+
+  const handleToggleMediaLib = () => setMediaLibVisible(prev => !prev);
+  const handleTogglePopover = () => setVisiblePopover(prev => !prev);
+  const handleTogglePreviewMode = () => setIsPreviewMode(prev => !prev);
 
   const handleActionClick = value => {
     switch (value) {
       case "Bold":
       case "Code":
       case "Italic":
-      case "Image":
       case "Link":
-      case "alt":
       case "Strikethrough":
       case "Underline":
       case "Quote": {
@@ -44,7 +48,13 @@ const Wysiwyg = ({ label, placeholder, onChange, value }) => {
       default:
         return;
     }
-    setVisiblePopover((isVisible) => isVisible ? !isVisible : isVisible);
+    handleTogglePopover()
+  };
+
+  const handleSubmitImage = (files) => {
+    handleToggleMediaLib();
+    handleTogglePopover();
+    insertImage(editorRef, files);
   }
 
   return (
@@ -55,9 +65,10 @@ const Wysiwyg = ({ label, placeholder, onChange, value }) => {
           placeholder={placeholder} 
           onActionClick={handleActionClick}
           visiblePopover={visiblePopover}
-          setVisiblePopover={setVisiblePopover}
+          onTogglePopover={handleTogglePopover}
           isPreviewMode={isPreviewMode}
-          setIsPreviewMode={setIsPreviewMode}
+          onTogglePreviewMode={handleTogglePreviewMode}
+          onToggleMediaLib={handleToggleMediaLib}
         />
         <Editor 
           onChange={onChange} 
@@ -70,6 +81,9 @@ const Wysiwyg = ({ label, placeholder, onChange, value }) => {
           isPreviewMode={isPreviewMode}
         />
       </Box>
+      {mediaLibVisible &&
+        <MediaLibrary onToggle={handleToggleMediaLib} onSubmitImage={handleSubmitImage}/>    
+      }
     </>
   );
 };
@@ -77,7 +91,8 @@ const Wysiwyg = ({ label, placeholder, onChange, value }) => {
 Wysiwyg.propTypes = {
   label: PropTypes.string,
   onChange: PropTypes.func,
-  placeholder: PropTypes.string
+  placeholder: PropTypes.string,
+  value: PropTypes.string
 };
 
 export default Wysiwyg;
