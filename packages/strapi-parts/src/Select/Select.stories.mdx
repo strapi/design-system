@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
 import AddIcon from '@strapi/icons/AddIcon';
 import { Select } from './Select';
 import { Option } from './Option';
@@ -11,11 +12,26 @@ import { Stack } from '../Stack';
 
 # Select
 
-This is the doc of the `Select` component
+Selects are fields that displays to users a list of options via a PopOver component. They allow users to make a single or multiple selections from this list. The selected option(s) of a Select need(s) to be stored whether it's single or a multi. Selects are part of forms. 
 
-## Select
+**Best practices**
 
-Description...
+- A select is part of a form.
+- The usage of Menu component is possible if the user needs to make a single choice.
+- Use Menu component for small spaces. When there is more space, use a Select.
+- Try to have a sort logic in the popover of the menu.
+- In a multi select component, the "0 currently selected" text, can be changed but it will never have a placeholder style.
+- Use sentence case into a Select and straight-to-the-point sentences.
+- An option should be written on a single line.
+
+
+## Usage
+
+A Select allow users to make a selection from a list.
+
+### Default Select
+
+The default Select. 
 
 <Canvas>
   <Story name="base">
@@ -51,9 +67,12 @@ Description...
   </Story>
 </Canvas>
 
+
 ## Select multi
 
-Description...
+A multi Select allow users to make multiple selections from a list. Prefer using a multi-Select when the amount of selection options is superior to 4 and there is no need to have them visible. 
+
+In a multi select component, the "0 currently selected" text, can be changed but it will never have a placeholder style.
 
 <Canvas>
   <Story name="multi">
@@ -92,9 +111,10 @@ Description...
   </Story>
 </Canvas>
 
+
 ## Select multi with tags
 
-Description...
+A multi Select allow users to visually select multiple options from a list. Prefer using a multi-Select with tags when the amount of selection options is less than 4 and there is a need to have them visible. 
 
 <Canvas>
   <Story name="multi-withTags">
@@ -141,9 +161,10 @@ Description...
   </Story>
 </Canvas>
 
+
 ## Select size S
 
-Description...
+Select should be scaled down if they aimed to be placed in a smaller portions of a page.
 
 <Canvas>
   <Story name="size-S">
@@ -175,3 +196,8 @@ Description...
     }}
   </Story>
 </Canvas>
+
+
+## Props
+
+<ArgsTable of={Select} />
