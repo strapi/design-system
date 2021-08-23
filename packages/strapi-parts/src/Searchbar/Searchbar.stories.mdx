@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
 import { Searchbar } from './Searchbar';
 import { SearchForm } from './SearchForm';
 
@@ -12,9 +13,24 @@ import { SearchForm } from './SearchForm';
 
 # Searchbar
 
-This is the doc of the `Searchbar` component
+SearchBars are used to search and navigate through specific content. 
 
-## Searchbar default
+**Best practices**
+
+- SearchBar should not be used at a global application level.
+- SearchBar can come with a PopOver component to access the list of suggested options.
+- The search icon nor the cancel one should be changed.
+- SearchBar should always have a "Search" placeholder.
+- SearchBar should be placed above the content to search into.
+- SearchBar do not have a label.
+- If adding a SearchBar, make sure to add a "No results found" state.
+
+## Usage
+
+SearchBars are used to search and navigate through specific content. 
+
+
+### Default SearchBar
 
 The default searchbar
 
@@ -40,9 +56,10 @@ The default searchbar
   </Story>
 </Canvas>
 
-## Searchbar disabled
 
-The Searchbar disabled
+### Disabled SearchBar
+
+Depending on the permissions a user have or the status of an action, a SearchBar can disabled.
 
 <Canvas>
   <Story name="disabled">
@@ -64,3 +81,9 @@ The Searchbar disabled
     }}
   </Story>
 </Canvas>
+
+
+## Props
+
+<ArgsTable of={Searchbar} />
+
