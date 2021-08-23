@@ -1,6 +1,7 @@
 <!--- Tag.stories.mdx --->
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
 import HelpIcon from '@strapi/icons/HelpIcon';
 import { Tag } from './Tag';
 
@@ -11,14 +12,27 @@ import { Tag } from './Tag';
 
 # Tag
 
-This is the doc of the `Tag` component
+Tags are used to give a quick information about a performed action. Tags can be added or removed from a page or another component. They are also used as a filter. 
 
-## Tag
+**Best practices**
 
-Description...
+- Tags text should be concise and easily scannable.
+- Tags text should be explicit and indicate its purpose.
+- Tags should be very close to or within the performed action.
+- Use Badge component if the information given is not related to a performed action.
+
+
+## Usage
+
+Tags are related to a performed action. They should be very close by the action's trigger. Moreover, a tag can be added or removed from that place. They cannot exist on their own. 
 
 <Canvas>
   <Story name="base">
     <Tag icon={<HelpIcon aria-hidden={true} />}>Hello world</Tag>
   </Story>
 </Canvas>
+
+
+## Props
+
+<ArgsTable of={Tag} />
