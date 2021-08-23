@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-/* eslint-disable */
-
 const Wrapper = styled.div`
   position: absolute;
   top: 0;
