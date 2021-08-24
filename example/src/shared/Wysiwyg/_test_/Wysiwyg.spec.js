@@ -18,11 +18,16 @@ describe("Wysiwyg render and actions buttons", () => {
   let renderedContainer; 
   let getContainerByText; 
   let containerQueryByText; 
+  let returnedValue;
 
   beforeEach(() => { 
+    const onChange = jest.fn((val) => {
+      returnedValue = val;
+    });
+
     const { container, getByText, queryByText } = render( 
       <ThemeProvider theme={lightTheme}> 
-        <Wysiwyg label={"hello world"} placeholder={""} onChange={jest.fn()} /> 
+        <Wysiwyg label={"hello world"} placeholder={""} onChange={onChange} /> 
       </ThemeProvider> 
     ); 
     renderedContainer = container; 
@@ -103,10 +108,12 @@ describe("Wysiwyg render and actions buttons", () => {
     fireEvent.click(renderedContainer.querySelector("#more"));
     fireEvent.click(document.getElementById("Code"));
 
-    expect(containerQueryByText(' ')).not.toBeInTheDocument();
-    expect(getContainerByText("Code")).toBeInTheDocument();
-    //jest doesn't insert ``` does it read it as code block too?
-    // expect(getContainerByText("```")).toBeInTheDocument();
+    const expected = `
+\`\`\`
+Code
+\`\`\``;
+
+    expect(returnedValue).toEqual(expected);
   });
 
   it("should render image markdown when clicking the image button", async () => {
@@ -300,6 +307,33 @@ describe("Wysiwyg render and actions buttons", () => {
     expect(document.getElementById("h4")).not.toBeInTheDocument();
     expect(document.getElementById("h5")).not.toBeInTheDocument();
     expect(document.getElementById("h6")).not.toBeInTheDocument();
+  });
+});
+
+describe("Wysiwyg render actions with initial value", () => {
+  let renderedContainer; 
+  let returnedValue = "hello world";
+
+  beforeEach(() => { 
+    const onChange = jest.fn((val) => {
+      returnedValue += val;
+    });
+
+    const { container, getByText, queryByText } = render( 
+      <ThemeProvider theme={lightTheme}> 
+        <Wysiwyg label={"hello world"} placeholder={""} onChange={onChange} /> 
+      </ThemeProvider> 
+    ); 
+    renderedContainer = container; 
+  });
+
+  it("should add markdown with initial value", async () => {
+    await waitFor(() => renderedContainer.querySelector(".CodeMirror-cursor"));
+    expect(returnedValue).toEqual('hello world');
+    const expected = returnedValue + '**Bold**';
+    fireEvent.click(renderedContainer.querySelector("#Bold"));
+    
+    expect(returnedValue).toEqual(expected);
   });
 });
 
