@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { Box } from '../Box';
 import { Stack } from '../Stack';
 
@@ -13,7 +14,7 @@ const FooterWrapper = styled(Box)`
   }
 `;
 
-export const ConfirmationDialogFooter = ({ startAction, endAction }) => {
+export const DialogFooter = ({ startAction, endAction }) => {
   return (
     <FooterWrapper padding={4}>
       <Stack horizontal size={2}>
@@ -24,14 +25,14 @@ export const ConfirmationDialogFooter = ({ startAction, endAction }) => {
   );
 };
 
-ConfirmationDialogFooter.displayName = 'ConfirmationDialogFooter';
+DialogFooter.displayName = 'DialogFooter';
 
-ConfirmationDialogFooter.defaultProps = {
+DialogFooter.defaultProps = {
   endAction: undefined,
   startAction: undefined,
 };
 
-ConfirmationDialogFooter.propTypes = {
+DialogFooter.propTypes = {
   endAction: PropTypes.node,
   startAction: PropTypes.node,
 };

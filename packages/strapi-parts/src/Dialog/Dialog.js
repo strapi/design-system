@@ -5,7 +5,6 @@ import { Box } from '../Box';
 import { H2 } from '../Text';
 import { FocusTrap } from '../FocusTrap';
 import { Portal } from '../Portal';
-import { ConfirmationDialogContext } from './ConfirmationDialogContext';
 
 const DialogWrapper = styled.div`
   position: absolute;
@@ -29,39 +28,37 @@ const DialogHeader = styled(Box)`
   border-bottom: 1px solid ${({ theme }) => theme.colors.neutral150};
 `;
 
-export const ConfirmationDialog = ({ onClose, labelledBy, title, ...props }) => {
+export const Dialog = ({ onClose, labelledBy, title, ...props }) => {
   return (
     <Portal>
-      <ConfirmationDialogContext.Provider value={onClose}>
-        <DialogWrapper>
-          <FocusTrap onEscape={onClose}>
-            <DialogContainer
-              aria-labelledby={labelledBy}
-              background="neutral0"
-              hasRadius
-              shadow="popupShadow"
-              role="dialog"
-              aria-modal={true}
-            >
-              <DialogHeader padding={6}>
-                <H2>{title}</H2>
-              </DialogHeader>
-              <Box {...props} />
-            </DialogContainer>
-          </FocusTrap>
-        </DialogWrapper>
-      </ConfirmationDialogContext.Provider>
+      <DialogWrapper>
+        <FocusTrap onEscape={onClose}>
+          <DialogContainer
+            aria-labelledby={labelledBy}
+            background="neutral0"
+            hasRadius
+            shadow="popupShadow"
+            role="dialog"
+            aria-modal={true}
+          >
+            <DialogHeader padding={6}>
+              <H2>{title}</H2>
+            </DialogHeader>
+            <Box {...props} />
+          </DialogContainer>
+        </FocusTrap>
+      </DialogWrapper>
     </Portal>
   );
 };
 
-ConfirmationDialog.displayName = 'ConfirmationDialog';
+Dialog.displayName = 'Dialog  ';
 
-ConfirmationDialog.defaultProps = {
+Dialog.defaultProps = {
   title: 'Title',
 };
 
-ConfirmationDialog.propTypes = {
+Dialog.propTypes = {
   labelledBy: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,

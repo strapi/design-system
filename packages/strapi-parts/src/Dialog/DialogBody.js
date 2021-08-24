@@ -15,7 +15,7 @@ const IconContainer = styled(Box)`
   }
 `;
 
-export const ConfirmationDialogBody = ({ children, icon }) => {
+export const DialogBody = ({ children, icon }) => {
   return (
     <Box paddingTop={8} paddingBottom={8} paddingLeft={6} paddingRight={6}>
       {icon && (
@@ -28,9 +28,9 @@ export const ConfirmationDialogBody = ({ children, icon }) => {
   );
 };
 
-ConfirmationDialogBody.displayName = 'ConfirmationDialog';
+DialogBody.displayName = 'DialogBody';
 
-ConfirmationDialogBody.propTypes = {
+DialogBody.propTypes = {
   children: PropTypes.node.isRequired,
   icon: PropTypes.node,
 };
