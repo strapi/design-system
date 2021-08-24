@@ -21,6 +21,8 @@ const Editor = ({
       extraKeys: {'Enter': 'newlineAndIndentContinueMarkdownList'},
       readOnly: false
     });
+    
+    if(value) editorRef.current.setValue(value);
 
     CodeMirror.commands.newlineAndIndentContinueMarkdownList = newlineAndIndentContinueMarkdownList;
     editorRef.current.on('change', doc => onChange(doc.getValue()));

@@ -19,9 +19,11 @@ import { AppLayout } from "../layouts/AppLayout";
 const initialState = {
   initialData: {
     name: "toto",
+    content: "hello world"
   },
   modifiedData: {
-    name: "toto",
+    name: "toto", 
+    content: "hello world"
   },
   formErrors: null,
 };
@@ -52,6 +54,7 @@ const CM = () => {
   );
 
   const handleChange = ({ name, value }) => {
+    console.log(value);
     dispatch({
       type: "ON_CHANGE",
       keys: name.split("."),
