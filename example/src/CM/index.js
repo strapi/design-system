@@ -54,7 +54,6 @@ const CM = () => {
   );
 
   const handleChange = ({ name, value }) => {
-    console.log(value);
     dispatch({
       type: "ON_CHANGE",
       keys: name.split("."),
