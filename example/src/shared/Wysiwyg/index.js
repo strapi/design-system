@@ -5,7 +5,7 @@ import WysiwygFooter from './WysiwygFooter';
 import MediaLibrary from './MediaLibrary';
 import Editor from './Editor';
 import { TextButton, Box } from "@strapi/parts";
-import { markdownHandler, listHandler, titleHandler, insertImage } from './utils/utils';
+import { markdownHandler, listHandler, titleHandler, insertImage, quoteAndCodeHandler } from './utils/utils';
 
 
 const Wysiwyg = ({ label, placeholder, onChange, value }) => {
@@ -21,19 +21,28 @@ const Wysiwyg = ({ label, placeholder, onChange, value }) => {
 
   const handleActionClick = value => {
     switch (value) {
-      case "Bold":
-      case "Code":
-      case "Italic":
       case "Link":
-      case "Strikethrough":
-      case "Underline":
+      case "Strikethrough": {
+        markdownHandler(editorRef, value);
+        handleTogglePopover();
+        break;
+      }
+      case "Code":
       case "Quote": {
+        quoteAndCodeHandler(editorRef, value);
+        handleTogglePopover();
+        break;
+      }
+      case "Bold":
+      case "Italic":
+      case "Underline": {
         markdownHandler(editorRef, value);
         break;
       }
       case "BulletList":
       case "NumberList": {
         listHandler(editorRef, value);
+        handleTogglePopover();
         break;
       }
       case "h1":
@@ -48,7 +57,6 @@ const Wysiwyg = ({ label, placeholder, onChange, value }) => {
       default:
         return;
     }
-    handleTogglePopover()
   };
 
   const handleSubmitImage = (files) => {

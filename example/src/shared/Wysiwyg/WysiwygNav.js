@@ -64,6 +64,7 @@ const WysiwygNav = ({
             </Row>
 
             <Button onClick={onTogglePreviewMode} variant='tertiary' size='L' id='preview'>
+              {/* to replace with format message */}
               Markdown mode
             </Button>
           </Row>
@@ -113,6 +114,7 @@ const WysiwygNav = ({
         </Row>
 
         <Button onClick={onTogglePreviewMode} variant='tertiary' size='L' id='preview'>
+          {/* to replace with format message */}
           Preview mode
         </Button>
       </Row>
