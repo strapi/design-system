@@ -1,22 +1,19 @@
 import React from 'react';
-import { Row, Text } from "@strapi/parts";
+import { Row, Text, Box } from "@strapi/parts";
 import { Expand } from "@strapi/icons";
 
-import {
-    FooterWrapper,
-    ExpandButton
-} from './WysiwygStyles';
+import { ExpandButton } from './WysiwygStyles';
 
-const WysiwygFooter = ({isPreviewMode}) => {
+const WysiwygFooter = ({isPreviewMode, onToggleExpand}) => {
     return (
-        <FooterWrapper padding={2} background='neutral100'>
-            <Row justifyContent='flex-end' alignItems='flex-end' >
-                <ExpandButton disabled={isPreviewMode ? true : false} onClick={() => console.log('expand')}>
-                    <Text>Expand</Text>
-                    <Expand/>
-                </ExpandButton>
-            </Row>
-        </FooterWrapper>
+      <Box padding={2} background='neutral100' hasRadius>
+        <Row justifyContent='flex-end' alignItems='flex-end' >
+          <ExpandButton disabled={isPreviewMode ? true : false} onClick={onToggleExpand}>
+            <Text>Expand</Text>
+            <Expand/>
+          </ExpandButton>
+        </Row>
+      </Box>
     )
 };
 

@@ -11,8 +11,8 @@ const Wrapper = styled.div`
   background-color: #fff;
   font-family: 'Lato';
   cursor: text;
-  border-left: ${({ theme }) => `1px solid ${theme.colors.neutral200}`};
-  border-right: ${({ theme }) => `1px solid ${theme.colors.neutral200}`};
+  /* border-left: ${({ theme }) => `1px solid ${theme.colors.neutral200}`};
+  border-right: ${({ theme }) => `1px solid ${theme.colors.neutral200}`}; */
 
   h1,
   h2,
