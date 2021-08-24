@@ -8,6 +8,7 @@ const EmptyStateWrapper = styled(Box)`
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 `;
 
 const EmptyStateImageWrapper = styled(Box)`
@@ -18,7 +19,7 @@ const EmptyStateImageWrapper = styled(Box)`
 
 export const EmptyStateLayout = ({ icon, content, action }) => {
   return (
-    <EmptyStateWrapper background="neutral0" hasRadius shadow="tableShadow" paddingTop={10} paddingBottom={10}>
+    <EmptyStateWrapper padding={11} background="neutral0" hasRadius shadow="tableShadow">
       <EmptyStateImageWrapper paddingBottom={6} aria-hidden>
         {icon}
       </EmptyStateImageWrapper>

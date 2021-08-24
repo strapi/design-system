@@ -83,38 +83,51 @@ describe('Popover', () => {
       const { container } = render(<Component />, { container: document.body });
 
       expect(container).toMatchInlineSnapshot(`
-        .c0 {
+        .c1 {
           background: #ffffff;
           padding: 4px;
           border-radius: 4px;
         }
 
-        .c1 {
+        .c2 {
           box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
           position: absolute;
+          z-index: 3;
           border: 1px solid #eaeaef;
           background: #ffffff;
         }
 
-        .c2 {
+        .c3 {
           max-height: 15rem;
           overflow-y: auto;
           overflow-x: hidden;
         }
 
-        .c2::-webkit-scrollbar {
+        .c3::-webkit-scrollbar {
           -webkit-appearance: none;
           width: 4px;
         }
 
-        .c2::-webkit-scrollbar-track {
+        .c3::-webkit-scrollbar-track {
           background: #ffffff;
         }
 
-        .c2::-webkit-scrollbar-thumb {
+        .c3::-webkit-scrollbar-thumb {
           background: #eaeaef;
           border-radius: 4px;
           margin-right: 10px;
+        }
+
+        .c0 {
+          border: 0;
+          -webkit-clip: rect(0 0 0 0);
+          clip: rect(0 0 0 0);
+          height: 1px;
+          margin: -1px;
+          overflow: hidden;
+          padding: 0;
+          position: absolute;
+          width: 1px;
         }
 
         <body>
@@ -124,14 +137,33 @@ describe('Popover', () => {
             </div>
           </div>
           <div
+            class="c0"
+          >
+            <p
+              aria-live="polite"
+              id="live-region-log"
+              role="log"
+            />
+            <p
+              aria-live="polite"
+              id="live-region-status"
+              role="status"
+            />
+            <p
+              aria-live="assertive"
+              id="live-region-alert"
+              role="alert"
+            />
+          </div>
+          <div
             data-react-portal="true"
           >
             <div
-              class="c0 c1"
+              class="c1 c2"
               style="left: 0px; top: 0px;"
             >
               <div
-                class="c2"
+                class="c3"
               >
                 <div>
                   Hello world

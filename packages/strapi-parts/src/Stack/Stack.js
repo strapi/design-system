@@ -12,6 +12,8 @@ const transientProps = {
 const StackV = styled.div.withConfig({
   shouldForwardProp: (prop, defPropValFN) => !transientProps[prop] && defPropValFN(prop),
 })`
+  display: flex;
+  flex-direction: column;
   & > * {
     margin-top: 0;
     margin-bottom: 0;
@@ -26,7 +28,7 @@ const StackH = styled.div.withConfig({
   shouldForwardProp: (prop, defPropValFN) => !transientProps[prop] && defPropValFN(prop),
 })`
   display: flex;
-  flex-direction: horizontal;
+  flex-direction: row;
   & > * {
     margin-left: 0;
     margin-right: 0;

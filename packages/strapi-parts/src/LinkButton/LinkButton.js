@@ -1,31 +1,18 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import styled, { keyframes } from 'styled-components';
-import LoadingIcon from '@strapi/icons/LoadingIcon';
 import { Text, TextButton } from '../Text';
 import { Box } from '../Box';
-import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from './utils';
-import { VARIANTS, BUTTON_SIZES } from './constants';
-import { BaseButton } from '../BaseButton';
+import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from '../Button/utils';
+import { VARIANTS, BUTTON_SIZES } from '../Button/constants';
+import { BaseButtonWrapper } from '../BaseButton';
 
-const rotation = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(359deg);
-  }
-`;
-
-const LoadingWrapper = styled.div`
-  animation: ${rotation} 2s infinite linear;
-`;
-
-// TODO: Check the L size button with Maeva
-export const ButtonWrapper = styled(BaseButton)`
+const LinkWrapper = styled(BaseButtonWrapper)`
   padding: ${({ theme, size }) => `${size === 'S' ? theme.spaces[2] : '10px'} ${theme.spaces[4]}`};
   background: ${({ theme }) => theme.colors.primary600};
   border: none;
+  border-radius: ${({ theme }) => theme.borderRadius};
   ${Box} {
     display: flex;
     align-items: center;
@@ -46,36 +33,36 @@ export const ButtonWrapper = styled(BaseButton)`
     ${getActiveStyle}
   }
   ${getVariantStyle}
+
+  /**
+    Link specific properties
+  */
+  display: inline-flex;
+  text-decoration: none;
+  pointer-events: ${({ disabled }) => (disabled ? 'none' : undefined)};
 `;
 
-export const Button = React.forwardRef(
-  ({ variant, startIcon, endIcon, disabled, children, onClick, size, loading, ...props }, ref) => {
-    const isDisabled = disabled || loading;
-
-    const handleClick = (e) => {
-      if (!isDisabled && onClick) {
-        onClick(e);
-      }
-    };
+export const LinkButton = React.forwardRef(
+  ({ variant, startIcon, endIcon, disabled, children, size, href, to, ...props }, ref) => {
+    const target = href ? '_blank' : undefined;
+    const rel = href ? 'noreferrer noopener' : undefined;
 
     return (
-      <ButtonWrapper
+      <LinkWrapper
         ref={ref}
-        aria-disabled={isDisabled}
+        aria-disabled={disabled}
         size={size}
         variant={variant}
-        onClick={handleClick}
+        target={target}
+        rel={rel}
+        to={disabled ? undefined : to}
+        href={disabled ? '#' : href}
         {...props}
+        as={to && !disabled ? NavLink : 'a'}
       >
-        {(startIcon || loading) && (
+        {startIcon && (
           <Box aria-hidden={true} paddingRight={2}>
-            {loading ? (
-              <LoadingWrapper>
-                <LoadingIcon />
-              </LoadingWrapper>
-            ) : (
-              startIcon
-            )}
+            {startIcon}
           </Box>
         )}
 
@@ -92,29 +79,39 @@ export const Button = React.forwardRef(
             {endIcon}
           </Box>
         )}
-      </ButtonWrapper>
+      </LinkWrapper>
     );
   },
 );
 
-Button.displayName = 'Button';
+LinkButton.displayName = 'LinkButton';
 
-Button.defaultProps = {
+LinkButton.defaultProps = {
   disabled: false,
-  loading: false,
   startIcon: undefined,
   endIcon: undefined,
   size: 'S',
   variant: 'default',
   onClick: undefined,
+  href: undefined,
+  to: undefined,
 };
-Button.propTypes = {
+LinkButton.propTypes = {
   children: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
   endIcon: PropTypes.element,
-  loading: PropTypes.bool,
+  href: (props) => {
+    if (!props.disabled && !props.to && !props.href) {
+      return new Error('href must be defined');
+    }
+  },
   onClick: PropTypes.func,
   size: PropTypes.oneOf(BUTTON_SIZES),
   startIcon: PropTypes.element,
+  to: (props) => {
+    if (!props.disabled && !props.href && !props.to) {
+      return new Error('to must be defined');
+    }
+  },
   variant: PropTypes.oneOf(VARIANTS),
 };

@@ -45,6 +45,7 @@ export const AccordionToggle = ({ title, description, as, variant, togglePositio
             aria-controls={ariaControls}
             aria-labelledby={ariaLabelId}
             data-strapi-accordion-toggle={true}
+            type="button"
           >
             <Row>
               {dropdownIcon}

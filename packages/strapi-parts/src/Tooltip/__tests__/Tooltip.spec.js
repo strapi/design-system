@@ -19,21 +19,34 @@ describe('Tooltip', () => {
     );
 
     expect(document.body).toMatchInlineSnapshot(`
-      .c0 {
+      .c1 {
         background: #212134;
         padding: 8px;
         border-radius: 4px;
       }
 
-      .c2 {
+      .c3 {
         font-weight: 400;
         font-size: 0.75rem;
         line-height: 1.33;
         color: #ffffff;
       }
 
-      .c1 {
+      .c0 {
+        border: 0;
+        -webkit-clip: rect(0 0 0 0);
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
         position: absolute;
+        width: 1px;
+      }
+
+      .c2 {
+        position: absolute;
+        z-index: 3;
         display: none;
       }
 
@@ -47,17 +60,36 @@ describe('Tooltip', () => {
               Show tooltip
             </button>
           </span>
+          <div
+            class="c0"
+          >
+            <p
+              aria-live="polite"
+              id="live-region-log"
+              role="log"
+            />
+            <p
+              aria-live="polite"
+              id="live-region-status"
+              role="status"
+            />
+            <p
+              aria-live="assertive"
+              id="live-region-alert"
+              role="alert"
+            />
+          </div>
         </div>
         <div
           data-react-portal="true"
         >
           <div
-            class="c0 c1"
+            class="c1 c2"
             id="tooltip-123"
             role="tooltip"
           >
             <p
-              class="c2"
+              class="c3"
             >
               Content of the tooltip fefe
             </p>
@@ -80,7 +112,19 @@ describe('Tooltip', () => {
 
     expect(document.body).toMatchInlineSnapshot(`
       <body>
-        <div>
+        .c0 {
+        border: 0;
+        -webkit-clip: rect(0 0 0 0);
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+      }
+
+      <div>
           <span>
             <button
               aria-describedby="tooltip-123"
@@ -89,6 +133,25 @@ describe('Tooltip', () => {
               Show tooltip
             </button>
           </span>
+          <div
+            class="c0"
+          >
+            <p
+              aria-live="polite"
+              id="live-region-log"
+              role="log"
+            />
+            <p
+              aria-live="polite"
+              id="live-region-status"
+              role="status"
+            />
+            <p
+              aria-live="assertive"
+              id="live-region-alert"
+              role="alert"
+            />
+          </div>
         </div>
         .c0 {
         background: #212134;
@@ -117,6 +180,7 @@ describe('Tooltip', () => {
 
       .c1 {
         position: absolute;
+        z-index: 3;
         display: revert;
       }
 
@@ -159,7 +223,19 @@ describe('Tooltip', () => {
 
     expect(document.body).toMatchInlineSnapshot(`
       <body>
-        <div>
+        .c0 {
+        border: 0;
+        -webkit-clip: rect(0 0 0 0);
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+      }
+
+      <div>
           <span>
             <button
               aria-labelledby="tooltip-123"
@@ -168,6 +244,25 @@ describe('Tooltip', () => {
               +
             </button>
           </span>
+          <div
+            class="c0"
+          >
+            <p
+              aria-live="polite"
+              id="live-region-log"
+              role="log"
+            />
+            <p
+              aria-live="polite"
+              id="live-region-status"
+              role="status"
+            />
+            <p
+              aria-live="assertive"
+              id="live-region-alert"
+              role="alert"
+            />
+          </div>
         </div>
         .c0 {
         background: #212134;
@@ -196,6 +291,7 @@ describe('Tooltip', () => {
 
       .c1 {
         position: absolute;
+        z-index: 3;
         display: revert;
       }
 

@@ -8,6 +8,7 @@ import { ModalContext } from './ModalContext';
 
 const ModalWrapper = styled.div`
   position: absolute;
+  z-index: 3;
   inset: 0;
   // this is theme.colors.neutral200 with opacity
   background: rgb(220, 220, 228, 0.8);
