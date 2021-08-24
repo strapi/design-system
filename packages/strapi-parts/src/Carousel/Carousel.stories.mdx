@@ -1,6 +1,7 @@
 <!--- Carousel.stories.mdx --->
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
 import { useState } from 'react';
 import EditIcon from '@strapi/icons/EditIcon';
 import PublishIcon from '@strapi/icons/PublishIcon';
@@ -21,7 +22,20 @@ This is the doc of the `Carousel` component
 
 ## Carousel
 
-Description...
+Carousels are slideshow components for navigating through a set of assets. 
+
+**Best practices**
+
+- Carousels should be mostly used in forms.
+- Carousels can also be used to display only one asset.
+- The end of a Carousel label should indicate the amount of included assets.
+- A set of actions is possible via Icon Buttons within a Carousel.
+- Carousels should at least give the possibility to remove an asset from it.
+- Carousels don't have any caption but can have a description line.
+
+## Usage
+
+A Carousel is mostly used in forms. Thanks to their navigational arrows they allow to easily switch from an asset to another. It has an infinite loop. A set of actions is possible via Icon Buttons within a Carousel. 
 
 <Canvas>
   <Story name="base">
@@ -66,3 +80,7 @@ Description...
     }}
   </Story>
 </Canvas>
+
+## Props
+
+<ArgsTable of={Carousel} />
