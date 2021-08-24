@@ -2,16 +2,21 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Box } from '../Box';
+import { Row } from '../Row';
 import { H2 } from '../Text';
 import { FocusTrap } from '../FocusTrap';
 import { Portal } from '../Portal';
+
+const setOpacity = (hex, alpha) =>
+  `${hex}${Math.floor(alpha * 255)
+    .toString(16)
+    .padStart(2, 0)}`;
 
 const DialogWrapper = styled.div`
   position: absolute;
   z-index: 3;
   inset: 0;
-  // theme.colors.neutral800 with opacity
-  background: rgba(50, 50, 77, 0.2);
+  background: ${({ theme }) => setOpacity(theme.colors.neutral800, 0.2)};
   padding: 0 ${({ theme }) => theme.spaces[8]};
 `;
 
@@ -22,9 +27,7 @@ const DialogContainer = styled(Box)`
   margin-top: 10%;
 `;
 
-const DialogHeader = styled(Box)`
-  display: flex;
-  justify-content: center;
+const DialogHeader = styled(Row)`
   border-bottom: 1px solid ${({ theme }) => theme.colors.neutral150};
 `;
 
@@ -41,7 +44,7 @@ export const Dialog = ({ onClose, labelledBy, title, ...props }) => {
             role="dialog"
             aria-modal={true}
           >
-            <DialogHeader padding={6}>
+            <DialogHeader padding={6} justifyContent="center">
               <H2>{title}</H2>
             </DialogHeader>
             <Box {...props} />
