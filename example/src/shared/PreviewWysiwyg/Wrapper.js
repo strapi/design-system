@@ -1,17 +1,18 @@
 import styled from 'styled-components';
 
-/* eslint-disable */
-
 const Wrapper = styled.div`
-  max-height: 555px;
-  min-height: 294px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
   overflow: auto;
-  padding: 20px 20px 0 20px;
+  padding: ${({ theme }) => `${theme.spaces[3]} ${theme.spaces[4]}`};
   font-size: 16px;
   background-color: #fff;
-  line-height: 24px !important;
   font-family: 'Lato';
   cursor: text;
+  border-left: ${({ theme }) => `1px solid ${theme.colors.neutral200}`};
+  border-right: ${({ theme }) => `1px solid ${theme.colors.neutral200}`};
 
   h1,
   h2,

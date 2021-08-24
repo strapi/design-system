@@ -19,9 +19,11 @@ import { AppLayout } from "../layouts/AppLayout";
 const initialState = {
   initialData: {
     name: "toto",
+    content: "hello world"
   },
   modifiedData: {
-    name: "toto",
+    name: "toto", 
+    content: "hello world"
   },
   formErrors: null,
 };

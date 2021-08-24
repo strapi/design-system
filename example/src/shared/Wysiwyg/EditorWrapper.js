@@ -5,7 +5,6 @@ const EditorWrapper = styled.div`
 
   .CodeMirror {
     /* Set height, width, borders, and global font properties here */
-    /* font-family: monospace; */
     font-size: ${14 / 16}rem;
     height: 290px;
     color: ${({ theme }) => theme.colors.neutral800}};
@@ -17,7 +16,8 @@ const EditorWrapper = styled.div`
   /* PADDING */
 
   .CodeMirror-lines {
-    padding: 12px 17px; /* Vertical padding around content */
+    padding: ${({ theme }) => `${theme.spaces[3]} ${theme.spaces[4]}`};
+   /* Vertical padding around content */
   }
 
   .CodeMirror-scrollbar-filler,

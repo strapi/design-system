@@ -1,33 +1,48 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import WysiwygNav from './WysiwygNav';
 import WysiwygFooter from './WysiwygFooter';
+import MediaLibrary from './MediaLibrary';
 import Editor from './Editor';
 import { TextButton, Box } from "@strapi/parts";
-import { markdownHandler, listHandler, titleHandler } from './utils/utils';
+import { markdownHandler, listHandler, titleHandler, insertImage, quoteAndCodeHandler } from './utils/utils';
 
 
-const Wysiwyg = ({ label, placeholder, onChange }) => {
+const Wysiwyg = ({ label, placeholder, onChange, value }) => {
   const textareaRef = useRef(null);
   const editorRef = useRef(null);
+  const [visiblePopover, setVisiblePopover] = useState(false);
+  const [isPreviewMode, setIsPreviewMode] = useState(false);
+  const [mediaLibVisible, setMediaLibVisible] = useState(false);
+
+  const handleToggleMediaLib = () => setMediaLibVisible(prev => !prev);
+  const handleTogglePopover = () => setVisiblePopover(prev => !prev);
+  const handleTogglePreviewMode = () => setIsPreviewMode(prev => !prev);
 
   const handleActionClick = value => {
     switch (value) {
-      case "Bold":
-      case "Code":
-      case "Italic":
-      case "Image":
       case "Link":
-      case "alt":
-      case "Strikethrough":
-      case "Underline":
+      case "Strikethrough": {
+        markdownHandler(editorRef, value);
+        handleTogglePopover();
+        break;
+      }
+      case "Code":
       case "Quote": {
+        quoteAndCodeHandler(editorRef, value);
+        handleTogglePopover();
+        break;
+      }
+      case "Bold":
+      case "Italic":
+      case "Underline": {
         markdownHandler(editorRef, value);
         break;
       }
       case "BulletList":
       case "NumberList": {
         listHandler(editorRef, value);
+        handleTogglePopover();
         break;
       }
       case "h1":
@@ -42,6 +57,12 @@ const Wysiwyg = ({ label, placeholder, onChange }) => {
       default:
         return;
     }
+  };
+
+  const handleSubmitImage = (files) => {
+    handleToggleMediaLib();
+    handleTogglePopover();
+    insertImage(editorRef, files);
   }
 
   return (
@@ -51,14 +72,26 @@ const Wysiwyg = ({ label, placeholder, onChange }) => {
         <WysiwygNav 
           placeholder={placeholder} 
           onActionClick={handleActionClick}
+          visiblePopover={visiblePopover}
+          onTogglePopover={handleTogglePopover}
+          isPreviewMode={isPreviewMode}
+          onTogglePreviewMode={handleTogglePreviewMode}
+          onToggleMediaLib={handleToggleMediaLib}
         />
         <Editor 
           onChange={onChange} 
           textareaRef={textareaRef}
           editorRef={editorRef}
+          isPreviewMode={isPreviewMode}
+          value={value}
         />
-        <WysiwygFooter />
+        <WysiwygFooter 
+          isPreviewMode={isPreviewMode}
+        />
       </Box>
+      {mediaLibVisible &&
+        <MediaLibrary onToggle={handleToggleMediaLib} onSubmitImage={handleSubmitImage}/>    
+      }
     </>
   );
 };
@@ -66,7 +99,8 @@ const Wysiwyg = ({ label, placeholder, onChange }) => {
 Wysiwyg.propTypes = {
   label: PropTypes.string,
   onChange: PropTypes.func,
-  placeholder: PropTypes.string
+  placeholder: PropTypes.string,
+  value: PropTypes.string
 };
 
 export default Wysiwyg;

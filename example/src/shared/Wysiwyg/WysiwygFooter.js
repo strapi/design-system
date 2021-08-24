@@ -7,11 +7,11 @@ import {
     ExpandButton
 } from './WysiwygStyles';
 
-const WysiwygFooter = () => {
+const WysiwygFooter = ({isPreviewMode}) => {
     return (
         <FooterWrapper padding={2} background='neutral100'>
             <Row justifyContent='flex-end' alignItems='flex-end' >
-                <ExpandButton>
+                <ExpandButton disabled={isPreviewMode ? true : false} onClick={() => console.log('expand')}>
                     <Text>Expand</Text>
                     <Expand/>
                 </ExpandButton>

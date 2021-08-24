@@ -34,6 +34,16 @@ export const NavWrapper = styled(Box)`
   border-bottom: 0;
 `;
 
+export const IconButtonGroupMargin = styled(IconButtonGroup)`
+  margin-right: ${({ theme }) => `${theme.spaces[2]}`};
+`;
+
+//EDITOR && PREVIEW
+
+export const EditorAndPreviewWrapper = styled.div`
+  position: relative;
+`;
+
 // FOOTER
 
 export const FooterWrapper = styled(Box)`
