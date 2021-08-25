@@ -5,7 +5,7 @@ import Editor from './Editor';
 import PreviewWysiwyg from './../PreviewWysiwyg';
 import MediaLibrary from './MediaLibrary';
 import { Portal, Row, Text } from "@strapi/parts";
-import { Expand } from "@strapi/icons";
+import { Collapse } from "@strapi/icons";
 import { ExpandButton, ExpandWrapper, ExpandContainer, PreviewWrapper, WysiwygContainer, PreviewHeader, PreviewContainer } from './WysiwygStyles';
 
 const WysiwygExpand = ({
@@ -52,7 +52,7 @@ const WysiwygExpand = ({
                   <ExpandButton id='collapse' onClick={(() => onToggleExpand('collapse'))}>
                     {/* to replace with format message */}
                     <Text>Collapse</Text>
-                    <Expand/>
+                    <Collapse/>
                   </ExpandButton>
                 </Row>
               </PreviewHeader>
