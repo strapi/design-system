@@ -9,8 +9,6 @@ const EditorWrapper = styled.div`
     height: 290px;
     color: ${({ theme }) => theme.colors.neutral800}};
     direction: ltr;
-    /* border-left: ${({ theme }) => `1px solid ${theme.colors.neutral200}`};
-    border-right: ${({ theme }) => `1px solid ${theme.colors.neutral200}`}; */
   }
 
   /* PADDING */
