@@ -348,7 +348,7 @@ describe("Wysiwyg expand mode", () => {
 
     const { container } = render( 
       <ThemeProvider theme={lightTheme}> 
-        <Wysiwyg value='hello world' label="hello world" placeholder="" onChange={onChange} /> 
+        <Wysiwyg label="hello world" placeholder="" onChange={onChange} /> 
       </ThemeProvider> 
     ); 
     renderedContainer = container; 

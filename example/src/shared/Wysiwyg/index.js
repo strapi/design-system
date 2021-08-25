@@ -71,7 +71,7 @@ const Wysiwyg = ({ label, placeholder, onChange, value }) => {
   
   const handleToggleExpand = (collapse) => {
     setIsExpandMode(prev => ! prev);
-    if(collapse === 'collapse') {
+    if(collapse === 'collapse' && value !== undefined) {
       editorRef.current.setValue(value);
     }
   }
