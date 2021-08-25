@@ -5,9 +5,9 @@ import { Text, Button } from "@strapi/parts";
 
 const image = [{alt: 'sunrise', url: 'http://localhost:3000/sunriseimage'}, {alt: 'sunset', url: 'http://localhost:3000/sunsetimage'}]
 
-const MediaLibrary = ({ onToggle, onSubmitImage }) => {
+const MediaLibrary = ({ onTogglePopover, onToggleMediaLib, onSubmitImage, editorRef }) => {
   return (
-    <ModalLayout onClose={onToggle} labelledBy="media-library" id="media-library">    
+    <ModalLayout onClose={onToggleMediaLib} labelledBy="media-library" id="media-library">    
       <ModalHeader>
         <Text>Media Library</Text>
       </ModalHeader>
@@ -15,16 +15,18 @@ const MediaLibrary = ({ onToggle, onSubmitImage }) => {
         <Text>Choose your picture 🔥</Text>
       </ModalBody>
       <ModalFooter 
-        startActions={<Button onClick={onToggle} variant="tertiary">Cancel</Button>} 
-        endActions={<Button id="insert-button" onClick={() => onSubmitImage(image)}>Insert</Button>} 
+        startActions={<Button onClick={onToggleMediaLib} variant="tertiary">Cancel</Button>} 
+        endActions={<Button id="insert-button" onClick={() => onSubmitImage(image, editorRef, onToggleMediaLib, onTogglePopover)}>Insert</Button>} 
       />
     </ModalLayout>
   )
 };
 
 MediaLibrary.propTypes = {
-  onToggle: PropTypes.func,
-  onSubmitImage: PropTypes.func
+  onTogglePopover: PropTypes.func,
+  onToggleMediaLib: PropTypes.func,
+  onSubmitImage: PropTypes.func,
+  editorRef: PropTypes.shape({ current: PropTypes.any })
 };
 
 export default MediaLibrary;

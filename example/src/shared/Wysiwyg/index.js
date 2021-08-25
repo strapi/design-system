@@ -17,24 +17,24 @@ const Wysiwyg = ({ label, placeholder, onChange, value }) => {
   const [visiblePopover, setVisiblePopover] = useState(false);
   const [isPreviewMode, setIsPreviewMode] = useState(false);
   const [mediaLibVisible, setMediaLibVisible] = useState(false);
-  const [isExpandMore, setIsExpandMode] = useState(false);
+  const [isExpandMode, setIsExpandMode] = useState(false);
 
   const handleToggleMediaLib = () => setMediaLibVisible(prev => !prev);
   const handleTogglePopover = () => setVisiblePopover(prev => !prev);
   const handleTogglePreviewMode = () => setIsPreviewMode(prev => !prev);
 
-  const handleActionClick = (value, currentEditorRef) => {
+  const handleActionClick = (value, currentEditorRef, togglePopover) => {
     switch (value) {
       case "Link":
       case "Strikethrough": {
         markdownHandler(currentEditorRef, value);
-        handleTogglePopover();
+        togglePopover();
         break;
       }
       case "Code":
       case "Quote": {
         quoteAndCodeHandler(currentEditorRef, value);
-        handleTogglePopover();
+        togglePopover();
         break;
       }
       case "Bold":
@@ -46,7 +46,7 @@ const Wysiwyg = ({ label, placeholder, onChange, value }) => {
       case "BulletList":
       case "NumberList": {
         listHandler(currentEditorRef, value);
-        handleTogglePopover();
+        togglePopover();
         break;
       }
       case "h1":
@@ -63,9 +63,9 @@ const Wysiwyg = ({ label, placeholder, onChange, value }) => {
     }
   };
 
-  const handleSubmitImage = (files, currentEditorRef) => {
-    handleToggleMediaLib();
-    handleTogglePopover();
+  const handleSubmitImage = (files, currentEditorRef, toggleMediaLib, togglePopover) => {
+    toggleMediaLib();
+    togglePopover();
     insertImage(currentEditorRef, files);
   }
   
@@ -103,20 +103,23 @@ const Wysiwyg = ({ label, placeholder, onChange, value }) => {
         />
       </WysiwygWrapper>
       {mediaLibVisible &&
-        <MediaLibrary onToggle={handleToggleMediaLib} onSubmitImage={handleSubmitImage}/>    
+        <MediaLibrary 
+          editorRef={editorRef} 
+          onToggleMediaLib={handleToggleMediaLib} 
+          onTogglePopover={handleTogglePopover}
+          onSubmitImage={handleSubmitImage}
+        />    
       }
-      {isExpandMore &&
+      {isExpandMode &&
         <WysiwygExpand 
           onToggleExpand={handleToggleExpand} 
           value={value}
           placeholder={placeholder} 
           onActionClick={handleActionClick}
-          visiblePopover={visiblePopover}
-          onTogglePopover={handleTogglePopover}
-          onToggleMediaLib={handleToggleMediaLib}
           onChange={onChange} 
           textareaRef={textareaRef}
           editorRef={editorRefExpanded}
+          onSubmitImage={handleSubmitImage}
         />
       }
     </>

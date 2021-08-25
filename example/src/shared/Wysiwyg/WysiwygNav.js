@@ -1,33 +1,8 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
-import {
-  Option,
-  Button,
-  Row, 
-  Box,
-  Select,
-  IconButtonGroup,
-  Popover
-} from "@strapi/parts";
-import {
-  Bold,
-  Italic,
-  Underline,
-  Strikethrough,
-  BulletList,
-  NumberList,
-  Code,
-  Image,
-  Link,
-  Quote,
-  More
-} from "@strapi/icons";
-import {
-  MainButtons,
-  CustomIconButton,
-  MoreButton,
-  IconButtonGroupMargin
-} from './WysiwygStyles';
+import { Option, Button, Row, Box, Select, IconButtonGroup, Popover} from "@strapi/parts";
+import { Bold, Italic, Underline, Strikethrough, BulletList, NumberList, Code, Image, Link, Quote, More } from "@strapi/icons";
+import { MainButtons, CustomIconButton, MoreButton, IconButtonGroupMargin } from './WysiwygStyles';
 
 const WysiwygNav = ({ 
     placeholder, 
@@ -88,9 +63,9 @@ const WysiwygNav = ({
           </Select>
 
           <MainButtons>
-            <CustomIconButton onClick={() => onActionClick("Bold", editorRef)} id="Bold" label="Bold" name="Bold" icon={<Bold />} />
-            <CustomIconButton onClick={() => onActionClick("Italic", editorRef)} id="Italic" label="Italic" name="Italic" icon={<Italic />} />
-            <CustomIconButton onClick={() => onActionClick("Underline", editorRef)} id="Underline" label="Underline" name="Underline" icon={<Underline />} />
+            <CustomIconButton onClick={() => onActionClick("Bold", editorRef, onTogglePopover)} id="Bold" label="Bold" name="Bold" icon={<Bold />} />
+            <CustomIconButton onClick={() => onActionClick("Italic", editorRef, onTogglePopover)} id="Italic" label="Italic" name="Italic" icon={<Italic />} />
+            <CustomIconButton onClick={() => onActionClick("Underline", editorRef, onTogglePopover)} id="Underline" label="Underline" name="Underline" icon={<Underline />} />
           </MainButtons>
 
           <MoreButton ref={buttonMoreRef} onClick={onTogglePopover} id="more" label="more" icon={<More />} />
@@ -98,15 +73,15 @@ const WysiwygNav = ({
             <Popover centered source={buttonMoreRef} spacingTop={1} id='popover'>
               <Row>
                 <IconButtonGroupMargin>
-                  <CustomIconButton onClick={() => onActionClick("Strikethrough", editorRef)} id="Strikethrough" label="Strikethrough" name="Strikethrough" icon={<Strikethrough />} />
-                  <CustomIconButton onClick={() => onActionClick('BulletList', editorRef)} id="BulletList" label="BulletList" name="BulletList" icon={<BulletList />} />
-                  <CustomIconButton onClick={() => onActionClick('NumberList', editorRef)} id="NumberList" label="NumberList" name="NumberList" icon={<NumberList />} />
+                  <CustomIconButton onClick={() => onActionClick("Strikethrough", editorRef, onTogglePopover)} id="Strikethrough" label="Strikethrough" name="Strikethrough" icon={<Strikethrough />} />
+                  <CustomIconButton onClick={() => onActionClick('BulletList', editorRef, onTogglePopover)} id="BulletList" label="BulletList" name="BulletList" icon={<BulletList />} />
+                  <CustomIconButton onClick={() => onActionClick('NumberList', editorRef, onTogglePopover)} id="NumberList" label="NumberList" name="NumberList" icon={<NumberList />} />
                 </IconButtonGroupMargin>
                 <IconButtonGroup>
-                  <CustomIconButton onClick={() => onActionClick("Code", editorRef)} id="Code" label="Code" name="Code" icon={<Code />} />
+                  <CustomIconButton onClick={() => onActionClick("Code", editorRef, onTogglePopover)} id="Code" label="Code" name="Code" icon={<Code />} />
                   <CustomIconButton onClick={onToggleMediaLib} id="Image" label="Image" name="Image" icon={<Image />} />
-                  <CustomIconButton onClick={() => onActionClick("Link", editorRef)} id="Link" label="Link" name="Link" icon={<Link />} />
-                  <CustomIconButton onClick={() => onActionClick("Quote", editorRef)} id="Quote" label="Quote" name="Quote" icon={<Quote />} />
+                  <CustomIconButton onClick={() => onActionClick("Link", editorRef, onTogglePopover)} id="Link" label="Link" name="Link" icon={<Link />} />
+                  <CustomIconButton onClick={() => onActionClick("Quote", editorRef, onTogglePopover)} id="Quote" label="Quote" name="Quote" icon={<Quote />} />
                 </IconButtonGroup>
               </Row>
             </Popover>
@@ -132,7 +107,8 @@ WysiwygNav.propTypes = {
   onTogglePopover: PropTypes.func, 
   isPreviewMode: PropTypes.bool, 
   onTogglePreviewMode: PropTypes.func,
-  onToggleMediaLib: PropTypes.func
+  onToggleMediaLib: PropTypes.func,
+  editorRef: PropTypes.shape({ current: PropTypes.any })
 };
 
 export default WysiwygNav;

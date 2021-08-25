@@ -36,7 +36,7 @@ const Editor = ({
     } else {
       editorRef.current.setOption('readOnly', false);
     }
-  }, [isPreviewMode])
+  }, [isPreviewMode, editorRef])
 
   return (
     <EditorAndPreviewWrapper>
@@ -54,6 +54,8 @@ Editor.propTypes = {
   onChange: PropTypes.func,
   textareaRef: PropTypes.shape({ current: PropTypes.any }),
   editorRef: PropTypes.shape({ current: PropTypes.any }),
+  isPreviewMode: PropTypes.bool,
+  value: PropTypes.string
 };
 
 export default Editor;
