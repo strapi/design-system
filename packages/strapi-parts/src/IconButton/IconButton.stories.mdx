@@ -1,6 +1,7 @@
 <!--- IconButton.stories.mdx --->
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
 import EditIcon from '@strapi/icons/EditIcon';
 import PublishIcon from '@strapi/icons/PublishIcon';
 import DeleteIcon from '@strapi/icons/DeleteIcon';
@@ -13,11 +14,28 @@ import { Row } from '../Row';
 
 # IconButton
 
-This is the doc of the `IconButton` component
+Icon Buttons are a way to perform actions within a page, a table or another object. They help interact with its content via a single click in small page portion. According to their minimal style, they help understand the most important actions to take.
 
-## IconButton
+**Best practices**
 
-Description...
+- Icon Buttons do not have labels
+- A Tooltip should be displayed at hover.
+- Icon Buttons can be used within a group form whenever the action are related.
+- Icon Buttons can be displayed next to each others whenever the actions are distinct.
+- In Table component, avoid using a border.
+- The icon chosen to represent the action should be perfectly explicit.
+
+
+## Imports
+
+```js
+import { IconButton } from '@strapi/parts/IconButton';
+```
+
+
+## Usage
+
+Icon Buttons are used to perform actions within a page, a table or another object. They have the advantage of being minimal and by so, efficient in small areas. Icon Buttons should be associated with Tooltips. 
 
 <Canvas>
   <Story name="base">
@@ -32,9 +50,9 @@ Description...
   </Story>
 </Canvas>
 
-## IconButton Disabled
+### IconButton Disabled
 
-Description...
+Depending on the status of an action or the permissions, an IconButton can be unaccessible or unreachable yet. 
 
 <Canvas>
   <Story name="disabled">
@@ -49,9 +67,9 @@ Description...
   </Story>
 </Canvas>
 
-## IconButtonGroup
+### IconButtonGroup
 
-Description...
+IconButtons can be used within another component is a Group shape. 
 
 <Canvas>
   <Story name="group">
@@ -65,3 +83,8 @@ Description...
     </Box>
   </Story>
 </Canvas>
+
+
+## Props
+
+<ArgsTable of={IconButton} />
