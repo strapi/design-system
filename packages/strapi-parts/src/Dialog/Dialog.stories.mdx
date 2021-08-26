@@ -5,6 +5,7 @@ import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { Text } from '../Text';
 import { Stack } from '../Stack';
 import { Row } from '../Row';
+import { Box } from '../Box';
 import { Button } from '../Button';
 import { Dialog } from './Dialog';
 import { DialogBody } from './DialogBody';
@@ -29,6 +30,21 @@ Description...
       return (
         <>
           <Button onClick={() => setIsVisible(true)}>Click me</Button>
+          <Box padding={10} background="neutral600">
+            test overflow
+          </Box>
+          <Box padding={10} background="neutral600">
+            test overflow
+          </Box>
+          <Box padding={10} background="neutral600">
+            test overflow
+          </Box>
+          <Box padding={10} background="neutral600">
+            test overflow
+          </Box>
+          <Box padding={10} background="neutral600">
+            test overflow
+          </Box>
           {isVisible && (
             <Dialog
               onClose={() => setIsVisible(false)}

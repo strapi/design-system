@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Box } from '../Box';
@@ -28,6 +28,17 @@ const DialogHeader = styled(Row)`
 `;
 
 export const Dialog = ({ onClose, labelledBy, title, describedBy, ...props }) => {
+  useEffect(() => {
+    const body = document.body;
+    body.style.height = '100vh';
+    body.style.overflowY = 'hidden';
+
+    return () => {
+      body.style.height = '100%';
+      body.style.overflowY = 'visible';
+    };
+  }, []);
+
   return (
     <Portal>
       <DialogWrapper>
@@ -55,6 +66,7 @@ export const Dialog = ({ onClose, labelledBy, title, describedBy, ...props }) =>
 Dialog.displayName = 'Dialog';
 
 Dialog.propTypes = {
+  describedBy: PropTypes.string.isRequired,
   labelledBy: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
