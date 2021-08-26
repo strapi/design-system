@@ -22665,7 +22665,7 @@ exports[`Storyshots Design System/Molecules/TextInput disabled 1`] = `
           >
             <label
               class="c5"
-              for="textinput-144"
+              for="textinput-141"
             >
               Content
             </label>
@@ -22674,7 +22674,7 @@ exports[`Storyshots Design System/Molecules/TextInput disabled 1`] = `
             >
               <span>
                 <button
-                  aria-describedby="tooltip-145"
+                  aria-describedby="tooltip-142"
                   aria-label="Information about the email"
                   style="padding: 0px; background: transparent;"
                   tabindex="0"
@@ -22701,11 +22701,11 @@ exports[`Storyshots Design System/Molecules/TextInput disabled 1`] = `
             disabled=""
           >
             <input
-              aria-describedby="textinput-144-hint"
+              aria-describedby="textinput-141-hint"
               aria-invalid="false"
               class="c10"
               disabled=""
-              id="textinput-144"
+              id="textinput-141"
               name="content"
               placeholder="This is a content placeholder"
               value="Disabled ontent"
@@ -22713,7 +22713,7 @@ exports[`Storyshots Design System/Molecules/TextInput disabled 1`] = `
           </div>
           <p
             class="c11"
-            id="textinput-144-hint"
+            id="textinput-141-hint"
           >
             Description line
           </p>
@@ -22893,7 +22893,7 @@ exports[`Storyshots Design System/Molecules/TextInput password 1`] = `
           >
             <label
               class="c5"
-              for="textinput-141"
+              for="textinput-147"
             >
               Password
             </label>
@@ -22902,7 +22902,7 @@ exports[`Storyshots Design System/Molecules/TextInput password 1`] = `
             >
               <span>
                 <button
-                  aria-describedby="tooltip-142"
+                  aria-describedby="tooltip-148"
                   aria-label="Information about the email"
                   style="padding: 0px; background: transparent;"
                   tabindex="0"
@@ -22928,10 +22928,10 @@ exports[`Storyshots Design System/Molecules/TextInput password 1`] = `
             class="c8 c9"
           >
             <input
-              aria-describedby="textinput-141-hint"
+              aria-describedby="textinput-147-hint"
               aria-invalid="false"
               class="c10"
-              id="textinput-141"
+              id="textinput-147"
               name="password"
               placeholder="This is a password placeholder"
               type="password"
@@ -22940,7 +22940,7 @@ exports[`Storyshots Design System/Molecules/TextInput password 1`] = `
           </div>
           <p
             class="c11"
-            id="textinput-141-hint"
+            id="textinput-147-hint"
           >
             Description line
           </p>
@@ -23120,7 +23120,7 @@ exports[`Storyshots Design System/Molecules/TextInput with error 1`] = `
           >
             <label
               class="c5"
-              for="textinput-147"
+              for="textinput-144"
             >
               Content
             </label>
@@ -23129,7 +23129,7 @@ exports[`Storyshots Design System/Molecules/TextInput with error 1`] = `
             >
               <span>
                 <button
-                  aria-describedby="tooltip-148"
+                  aria-describedby="tooltip-145"
                   aria-label="Information about the email"
                   style="padding: 0px; background: transparent;"
                   tabindex="0"
@@ -23155,10 +23155,10 @@ exports[`Storyshots Design System/Molecules/TextInput with error 1`] = `
             class="c8 c9"
           >
             <input
-              aria-describedby="textinput-147-error"
+              aria-describedby="textinput-144-error"
               aria-invalid="true"
               class="c10"
-              id="textinput-147"
+              id="textinput-144"
               name="content"
               placeholder="This is a content placeholder"
               value="content"
@@ -23167,7 +23167,7 @@ exports[`Storyshots Design System/Molecules/TextInput with error 1`] = `
           <p
             class="c11"
             data-strapi-field-error="true"
-            id="textinput-147-error"
+            id="textinput-144-error"
           >
             Content is too long
           </p>

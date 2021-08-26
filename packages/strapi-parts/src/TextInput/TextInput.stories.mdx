@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
 import HelpIcon from '@strapi/icons/HelpIcon';
 import { TextInput } from './TextInput';
 import { Box } from '../Box';
@@ -11,11 +12,31 @@ import { Tooltip } from '../Tooltip';
 
 # TextInput
 
-This is the doc of the `TextInput` component
+TextInputs are inputs that allow users to add or edit text. They support several text formats including numbers.
 
-## TextInput
+**Best practices**
 
-Description...
+- Icons are always on the right side within the input (writing area) itself, never on the left side.
+- Labels should be clear and concise. A few words only and without punctuation.
+- Use description line as a help to give more details about the required action.
+- Unless users need a lot of space to write their content, the input should take 1 column space instead of two.
+- Make sure to use the placeholder feature whenever clarification are helpful on how to use the input.
+- Make sure to use to define the input as required whenever it is absolutely mandatory.
+- If a single line is not enough for the amount of text required, use TextArea component.
+- The error message will replace the description line. The two of them cannot be on top of each other.
+- The error message can be customized, make sure to write actionable information within it to help resolve an issue.
+
+
+
+## Usage
+
+TextInputs are always found in forms. They give users the possibility to add or edit text. 
+
+
+
+### TextInput Base
+
+In addition of plain text, TextInputs can also include a placeholder and a description line. 
 
 <Canvas>
   <Story name="base">
@@ -48,39 +69,9 @@ Description...
   </Story>
 </Canvas>
 
-## TextInput password
+### Disabled TextInput 
 
-Description...
-
-<Canvas>
-  <Story name="password">
-    <Box padding={10}>
-      <TextInput
-        placeholder="This is a password placeholder"
-        type="password"
-        label="Password"
-        name="password"
-        hint="Description line"
-        onChange={() => {}}
-        value={'content'}
-        labelAction={
-          <Tooltip description="Content of the tooltip">
-            <button
-              aria-label="Information about the email"
-              style={{ border: 'none', padding: 0, background: 'transparent' }}
-            >
-              <HelpIcon aria-hidden={true} />
-            </button>
-          </Tooltip>
-        }
-      />
-    </Box>
-  </Story>
-</Canvas>
-
-## TextInput disabled
-
-Description...
+Depending on the permissions a user have or the status of an action, a TextInput can be unreachable or unavailable yet.
 
 <Canvas>
   <Story name="disabled">
@@ -108,9 +99,9 @@ Description...
   </Story>
 </Canvas>
 
-## TextInput with error
+### TextInput with error
 
-Description...
+TextInputs can display error. The error message is customizable and replaced the description line below the writing area. 
 
 <Canvas>
   <Story name="with error">
@@ -137,3 +128,37 @@ Description...
     </Box>
   </Story>
 </Canvas>
+
+### Password TextInput
+
+Password TextInputs are specific. They offer the possibility to have unreadable content. By clicking on the eye icon on the right side, it is possible to actually read the password. 
+
+<Canvas>
+  <Story name="password">
+    <Box padding={10}>
+      <TextInput
+        placeholder="This is a password placeholder"
+        type="password"
+        label="Password"
+        name="password"
+        hint="Description line"
+        onChange={() => {}}
+        value={'content'}
+        labelAction={
+          <Tooltip description="Content of the tooltip">
+            <button
+              aria-label="Information about the email"
+              style={{ border: 'none', padding: 0, background: 'transparent' }}
+            >
+              <HelpIcon aria-hidden={true} />
+            </button>
+          </Tooltip>
+        }
+      />
+    </Box>
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={TextInput} />
