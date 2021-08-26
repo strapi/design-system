@@ -1,6 +1,7 @@
 <!--- Divider.stories.mdx --->
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
 import { Divider } from './Divider';
 import { Box } from '../Box';
 
@@ -11,11 +12,16 @@ import { Box } from '../Box';
 
 # Divider
 
-This is the doc of the `Divider` component
+Dividers are used to separate two pieces of content. The have a generic style in the interface. 
 
-## Divider
+**Best practices**
 
-This shows a little divider
+- Depending on what is about to be made, a small spacing left and right can be added.
+- Dividers should not be bolder.
+
+## Usage
+
+Use a divider to separate content in forms, PopOvers, tables, ...
 
 <Canvas>
   <Story name="base">
@@ -24,3 +30,8 @@ This shows a little divider
     </Box>
   </Story>
 </Canvas>
+
+## Props
+
+<ArgsTable of={Divider} />
+
