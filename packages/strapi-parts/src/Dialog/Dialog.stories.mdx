@@ -12,7 +12,7 @@ import { DialogFooter } from './DialogFooter';
 import AlertWarningIcon from '@strapi/icons/AlertWarningIcon';
 import DeleteIcon from '@strapi/icons/DeleteIcon';
 
-<Meta title="Dialog" component={Dialog} />
+<Meta title="Design System/Layouts/Dialog" component={Dialog} />
 
 # Dialog
 
@@ -30,11 +30,16 @@ Description...
         <>
           <Button onClick={() => setIsVisible(true)}>Click me</Button>
           {isVisible && (
-            <Dialog onClose={() => setIsVisible(false)} title="Confirmation" labelledBy="confirmation">
+            <Dialog
+              onClose={() => setIsVisible(false)}
+              title="Confirmation"
+              labelledBy="confirmation"
+              describedBy="confirm-description"
+            >
               <DialogBody icon={<AlertWarningIcon />}>
                 <Stack size={2}>
                   <Row justifyContent="center">
-                    <Text>Are you sure you want to delete this?</Text>
+                    <Text id="confirm-description">Are you sure you want to delete this?</Text>
                   </Row>
                 </Stack>
               </DialogBody>

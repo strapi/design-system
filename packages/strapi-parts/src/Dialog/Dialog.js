@@ -6,11 +6,7 @@ import { Row } from '../Row';
 import { H2 } from '../Text';
 import { FocusTrap } from '../FocusTrap';
 import { Portal } from '../Portal';
-
-const setOpacity = (hex, alpha) =>
-  `${hex}${Math.floor(alpha * 255)
-    .toString(16)
-    .padStart(2, 0)}`;
+import { setOpacity } from '../helpers/setOpacity';
 
 const DialogWrapper = styled.div`
   position: absolute;
@@ -31,21 +27,22 @@ const DialogHeader = styled(Row)`
   border-bottom: 1px solid ${({ theme }) => theme.colors.neutral150};
 `;
 
-export const Dialog = ({ onClose, labelledBy, title, ...props }) => {
+export const Dialog = ({ onClose, labelledBy, title, describedBy, ...props }) => {
   return (
     <Portal>
       <DialogWrapper>
         <FocusTrap onEscape={onClose}>
           <DialogContainer
             aria-labelledby={labelledBy}
+            aria-describedby={describedBy}
+            aria-modal={true}
             background="neutral0"
             hasRadius
             shadow="popupShadow"
             role="dialog"
-            aria-modal={true}
           >
             <DialogHeader padding={6} justifyContent="center">
-              <H2>{title}</H2>
+              <H2 id="dialog-title">{title}</H2>
             </DialogHeader>
             <Box {...props} />
           </DialogContainer>
@@ -55,11 +52,7 @@ export const Dialog = ({ onClose, labelledBy, title, ...props }) => {
   );
 };
 
-Dialog.displayName = 'Dialog  ';
-
-Dialog.defaultProps = {
-  title: 'Title',
-};
+Dialog.displayName = 'Dialog';
 
 Dialog.propTypes = {
   labelledBy: PropTypes.string.isRequired,
