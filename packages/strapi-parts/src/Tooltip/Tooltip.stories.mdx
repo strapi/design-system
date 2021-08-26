@@ -1,6 +1,7 @@
 <!--- Tooltip.stories.mdx --->
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
 import { Tooltip } from './Tooltip';
 import { Box } from '../Box';
 import { Row } from '../Row';
@@ -10,11 +11,28 @@ import { Grid, GridItem } from '../Grid';
 
 # Tooltip
 
-This is the doc of the `Tooltip` component
+Tooltips are floating labels that display additional information upon hover of an element.
+
+**Best practices**
+
+- The tooltip should remain as long as the mouse is not moved.
+- The tooltip should provide additional useful details.
+- The tooltip should not be used to provide critical or urgent information.
+- Tooltip shouldn't be longer or wider than 400px.
+- Tooltips should be used sparingly.
+
+[View source](https://github.com/strapi/design-system-experiments/tree/develop/packages/strapi-parts/src/Tooltip)
+
+
+## Imports
+
+```js
+import { Tooltip } from '@strapi/parts/Tooltip';
+```
 
 ## Tooltip
 
-Description...
+Tooltips are used to show the full version of truncated text or is a way to display further information about an element. 
 
 <Canvas>
   <Story name="base">
@@ -185,3 +203,7 @@ Description...
     </div>
   </Story>
 </Canvas>
+
+## Props
+
+<ArgsTable of={Tooltip} />
