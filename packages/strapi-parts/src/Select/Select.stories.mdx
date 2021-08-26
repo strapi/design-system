@@ -17,12 +17,18 @@ Selects are fields that displays to users a list of options via a PopOver compon
 **Best practices**
 
 - A select is part of a form.
-- The usage of Menu component is possible if the user needs to make a single choice.
-- Use Menu component for small spaces. When there is more space, use a Select.
+- Prefer the usage of Menu component if the user needs to make a single choice.
 - Try to have a sort logic in the popover of the menu.
 - In a multi select component, the "0 currently selected" text, can be changed but it will never have a placeholder style.
 - Use sentence case into a Select and straight-to-the-point sentences.
 - An option should be written on a single line.
+
+
+## Imports
+
+```js
+import { Select, Option } from '@strapi/parts/Select';
+```
 
 
 ## Usage
@@ -70,7 +76,7 @@ The default Select.
 
 ### Select multi
 
-A multi Select allow users to make multiple selections from a list. Prefer using a multi-Select when the amount of selection options is superior to 4 and there is no need to have them visible. 
+A multi Select allow users to make multiple selections from a list. 
 
 In a multi select component, the "0 currently selected" text, can be changed but it will never have a placeholder style.
 
@@ -114,7 +120,7 @@ In a multi select component, the "0 currently selected" text, can be changed but
 
 ### Select multi with tags
 
-A multi Select allow users to visually select multiple options from a list. Prefer using a multi-Select with tags when the amount of selection options is less than 4 and there is a need to have them visible. 
+A multi Select allow users to visually select multiple options from a list. Prefer using a Select with multi tags when the selected values need to be visible in the input. 
 
 <Canvas>
   <Story name="multi-withTags">
