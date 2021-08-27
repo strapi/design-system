@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Box } from '../Box';
 import { FocusTrap } from '../FocusTrap';
 import { Portal } from '../Portal';
 import { ModalContext } from './ModalContext';
+import './overflowStyle.css';
 
 const ModalWrapper = styled.div`
   position: absolute;
@@ -23,6 +24,14 @@ const ModalContent = styled(Box)`
 `;
 
 export const ModalLayout = ({ onClose, labelledBy, ...props }) => {
+  useEffect(() => {
+    const body = document.body;
+    body.classList.add('modal-open');
+    return () => {
+      body.classList.remove('modal-open');
+    };
+  });
+
   return (
     <Portal>
       <ModalContext.Provider value={onClose}>
