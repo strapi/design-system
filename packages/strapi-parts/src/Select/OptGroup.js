@@ -3,9 +3,12 @@ import React from 'react';
 import { Option } from './Option';
 
 export const OptGroup = ({ children, label, ...props }) => {
+  const childrenValues = children.map((child) => child.props.value);
   return (
     <>
-      <Option {...props}>{label}</Option>
+      <Option data-opt-group={true} data-opt-group-children={childrenValues} {...props}>
+        {label}
+      </Option>
       {children}
     </>
   );

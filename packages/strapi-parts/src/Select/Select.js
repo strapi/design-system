@@ -78,12 +78,12 @@ export const Select = ({
     setExpanded(DownState.Mouse);
   };
 
-  const handleSelectItem = (newValue) => {
+  const handleSelectItem = (newValue, closeMenu = true) => {
     if (multi) {
       onChange(value.includes(newValue) ? value.filter((x) => x !== newValue) : [...value, newValue]);
     } else {
       onChange(newValue);
-      setExpanded(undefined);
+      if (closeMenu) setExpanded(undefined);
     }
   };
 
@@ -228,7 +228,7 @@ export const Select = ({
             labelledBy={labelId}
             onEscape={handleEscape}
             expanded={expanded}
-            onSelectItem={handleSelectItem}
+            onSelectItem={(value, isGroup) => (isGroup ? handleSelectGroupItem(value) : handleSelectItem(value, false))}
             multi={multi}
           >
             {childrenClone}
