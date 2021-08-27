@@ -167,7 +167,7 @@ const GlobalStyle = createGlobalStyle`
     font: inherit;
   }
 
-  body.modal-open {
+  .modal-open {
   height: 100vh;
   overflow-y: hidden;
   }
