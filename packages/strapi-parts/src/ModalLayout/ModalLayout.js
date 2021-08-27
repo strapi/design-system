@@ -5,7 +5,6 @@ import { Box } from '../Box';
 import { FocusTrap } from '../FocusTrap';
 import { Portal } from '../Portal';
 import { ModalContext } from './ModalContext';
-import './overflowStyle.css';
 
 const ModalWrapper = styled.div`
   position: absolute;
@@ -24,13 +23,14 @@ const ModalContent = styled(Box)`
 `;
 
 export const ModalLayout = ({ onClose, labelledBy, ...props }) => {
+  //FIX ME (find a way to do it globally)
   useEffect(() => {
     const body = document.body;
     body.classList.add('modal-open');
     return () => {
       body.classList.remove('modal-open');
     };
-  });
+  }, []);
 
   return (
     <Portal>
