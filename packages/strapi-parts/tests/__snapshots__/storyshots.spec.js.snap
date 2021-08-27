@@ -24522,7 +24522,7 @@ exports[`Storyshots Design System/Molecules/Tooltip base 1`] = `
     </p>
     <span>
       <button
-        aria-describedby="tooltip-149"
+        aria-describedby="tooltip-153"
         tabindex="0"
       >
         Show tooltip
@@ -24558,7 +24558,7 @@ exports[`Storyshots Design System/Molecules/Tooltip description 1`] = `
   </div>
   <span>
     <button
-      aria-describedby="tooltip-161"
+      aria-describedby="tooltip-165"
       tabindex="0"
     >
       This is a label with a description in the tooltip
@@ -24639,7 +24639,7 @@ exports[`Storyshots Design System/Molecules/Tooltip grid 1`] = `
       >
         <span>
           <button
-            aria-describedby="tooltip-153"
+            aria-describedby="tooltip-157"
             tabindex="0"
           >
             First
@@ -24655,7 +24655,7 @@ exports[`Storyshots Design System/Molecules/Tooltip grid 1`] = `
       >
         <span>
           <button
-            aria-describedby="tooltip-155"
+            aria-describedby="tooltip-159"
             tabindex="0"
           >
             Second
@@ -24671,7 +24671,7 @@ exports[`Storyshots Design System/Molecules/Tooltip grid 1`] = `
       >
         <span>
           <button
-            aria-describedby="tooltip-157"
+            aria-describedby="tooltip-161"
             tabindex="0"
           >
             Third
@@ -24687,7 +24687,7 @@ exports[`Storyshots Design System/Molecules/Tooltip grid 1`] = `
       >
         <span>
           <button
-            aria-describedby="tooltip-159"
+            aria-describedby="tooltip-163"
             tabindex="0"
           >
             A longer CTA than the content
@@ -24725,7 +24725,7 @@ exports[`Storyshots Design System/Molecules/Tooltip label 1`] = `
   </div>
   <span>
     <button
-      aria-labelledby="tooltip-163"
+      aria-labelledby="tooltip-167"
       tabindex="0"
     >
       +
@@ -24760,7 +24760,7 @@ exports[`Storyshots Design System/Molecules/Tooltip left-center 1`] = `
   >
     <span>
       <button
-        aria-labelledby="tooltip-173"
+        aria-labelledby="tooltip-177"
         tabindex="0"
       >
         hello
@@ -24796,7 +24796,7 @@ exports[`Storyshots Design System/Molecules/Tooltip right-center 1`] = `
   >
     <span>
       <button
-        aria-labelledby="tooltip-171"
+        aria-labelledby="tooltip-175"
         tabindex="0"
       >
         tooltip
@@ -24850,7 +24850,7 @@ exports[`Storyshots Design System/Molecules/Tooltip top-center 1`] = `
   >
     <span>
       <button
-        aria-labelledby="tooltip-167"
+        aria-labelledby="tooltip-171"
         tabindex="0"
       >
         hello
@@ -24884,7 +24884,7 @@ exports[`Storyshots Design System/Molecules/Tooltip top-left 1`] = `
   <div>
     <span>
       <button
-        aria-labelledby="tooltip-165"
+        aria-labelledby="tooltip-169"
         tabindex="0"
       >
         hello
@@ -24938,7 +24938,7 @@ exports[`Storyshots Design System/Molecules/Tooltip top-right 1`] = `
   >
     <span>
       <button
-        aria-labelledby="tooltip-169"
+        aria-labelledby="tooltip-173"
         tabindex="0"
       >
         tooltip
@@ -24977,7 +24977,7 @@ exports[`Storyshots Design System/Molecules/Tooltip with text inside 1`] = `
     </p>
     <span>
       <span
-        aria-describedby="tooltip-151"
+        aria-describedby="tooltip-155"
         tabindex="0"
       >
         Show tooltip
@@ -30979,6 +30979,444 @@ exports[`Storyshots Design System/Subatomic/LightTheme spaces 1`] = `
           </span>
         </div>
       </div>
+    </div>
+  </div>
+</main>
+`;
+
+exports[`Storyshots ToggleInput base 1`] = `
+.c0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.c5 {
+  padding-left: 4px;
+}
+
+.c9 {
+  background: #ffffff;
+  border-radius: 4px;
+}
+
+.c11 {
+  padding-top: 12px;
+  padding-right: 32px;
+  padding-bottom: 12px;
+  padding-left: 32px;
+}
+
+.c13 {
+  background: #f0f0ff;
+  padding-top: 12px;
+  padding-right: 32px;
+  padding-bottom: 12px;
+  padding-left: 32px;
+}
+
+.c4 {
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #32324d;
+}
+
+.c15 {
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #271fe0;
+}
+
+.c16 {
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #666687;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c2 > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.c2 > * + * {
+  margin-top: 4px;
+}
+
+.c7 {
+  position: relative;
+  display: inline-block;
+}
+
+.c7:active,
+.c7:focus-within {
+  outline: 2px solid #4945ff;
+  outline-offset: 2px;
+}
+
+.c10 {
+  position: relative;
+  z-index: 1;
+  border: 1px solid #dcdce4;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  overflow: hidden;
+}
+
+.c14 {
+  text-transform: uppercase;
+}
+
+.c12 {
+  text-transform: uppercase;
+  border-right: 1px solid #dcdce4;
+}
+
+.c8 {
+  position: absolute;
+  left: 4px;
+  top: 4px;
+}
+
+.c1 {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.c6 svg path {
+  fill: #8e8ea9;
+}
+
+<main>
+  <div
+    class="c0"
+  >
+    <h1>
+      Storybook story
+    </h1>
+  </div>
+  <div
+    class="c1"
+  >
+    <div
+      class="c2"
+    >
+      <div
+        class="c3"
+      >
+        <label
+          class="c4"
+          for="field-149"
+        >
+          Enabled
+        </label>
+        <div
+          class="c5 c6"
+        >
+          <span>
+            <button
+              aria-describedby="tooltip-150"
+              aria-label="Information about the email"
+              style="padding: 0px; background: transparent;"
+              tabindex="0"
+            >
+              <svg
+                aria-hidden="true"
+                fill="none"
+                height="1em"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12 12-5.383 12-12S18.617 0 12 0zm0 4.92a1.56 1.56 0 110 3.12 1.56 1.56 0 010-3.12zm3.84 13.06a.5.5 0 01-.5.5h-6.2a.5.5 0 01-.5-.5v-.92a.5.5 0 01.5-.5h2.14v-5.28H9.86a.5.5 0 01-.5-.5v-.92a.5.5 0 01.5-.5h2.84a.5.5 0 01.5.5v6.7h2.14a.5.5 0 01.5.5v.92z"
+                  fill="#212134"
+                />
+              </svg>
+            </button>
+          </span>
+        </div>
+      </div>
+      <label
+        class="c7"
+      >
+        <div
+          class="c0"
+        >
+          Enabled
+        </div>
+        <input
+          checked=""
+          class="c8"
+          type="checkbox"
+        />
+        <div
+          aria-hidden="true"
+          class="c9 c10"
+        >
+          <div
+            class="c11 c12"
+          >
+            <span
+              class="c4"
+            >
+              off
+            </span>
+          </div>
+          <div
+            class="c13 c14"
+          >
+            <span
+              class="c15"
+            >
+              on
+            </span>
+          </div>
+        </div>
+      </label>
+      <p
+        class="c16"
+        id="field-149-hint"
+      >
+        Enable provider
+      </p>
+    </div>
+  </div>
+</main>
+`;
+
+exports[`Storyshots ToggleInput error 1`] = `
+.c0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.c7 {
+  background: #ffffff;
+  border-radius: 4px;
+}
+
+.c9 {
+  background: #fcecea;
+  padding-top: 12px;
+  padding-right: 32px;
+  padding-bottom: 12px;
+  padding-left: 32px;
+}
+
+.c12 {
+  padding-top: 12px;
+  padding-right: 32px;
+  padding-bottom: 12px;
+  padding-left: 32px;
+}
+
+.c4 {
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #32324d;
+}
+
+.c11 {
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #b72b1a;
+}
+
+.c14 {
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #d02b20;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c2 > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.c2 > * + * {
+  margin-top: 4px;
+}
+
+.c5 {
+  position: relative;
+  display: inline-block;
+}
+
+.c5:active,
+.c5:focus-within {
+  outline: 2px solid #4945ff;
+  outline-offset: 2px;
+}
+
+.c8 {
+  position: relative;
+  z-index: 1;
+  border: 1px solid #dcdce4;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  overflow: hidden;
+}
+
+.c13 {
+  text-transform: uppercase;
+}
+
+.c10 {
+  text-transform: uppercase;
+  border-right: 1px solid #dcdce4;
+}
+
+.c6 {
+  position: absolute;
+  left: 4px;
+  top: 4px;
+}
+
+.c1 {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+<main>
+  <div
+    class="c0"
+  >
+    <h1>
+      Storybook story
+    </h1>
+  </div>
+  <div
+    class="c1"
+  >
+    <div
+      class="c2"
+    >
+      <div
+        class="c3"
+      >
+        <label
+          class="c4"
+          for="field-152"
+        >
+          Label
+        </label>
+      </div>
+      <label
+        class="c5"
+      >
+        <div
+          class="c0"
+        >
+          Label
+        </div>
+        <input
+          class="c6"
+          type="checkbox"
+        />
+        <div
+          aria-hidden="true"
+          class="c7 c8"
+        >
+          <div
+            class="c9 c10"
+          >
+            <span
+              class="c11"
+            >
+              off
+            </span>
+          </div>
+          <div
+            class="c12 c13"
+          >
+            <span
+              class="c4"
+            >
+              on
+            </span>
+          </div>
+        </div>
+      </label>
+      <p
+        class="c14"
+        data-strapi-field-error="true"
+        id="field-152-error"
+      >
+        this field is required
+      </p>
     </div>
   </div>
 </main>

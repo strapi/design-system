@@ -53,6 +53,7 @@ export * from './Textarea';
 export * from './ThemeProvider';
 export * from './TimePicker';
 export * from './ToggleCheckbox';
+export * from './ToggleInput';
 export * from './Tooltip';
 export * from './VisuallyHidden';
 export * from './themes';

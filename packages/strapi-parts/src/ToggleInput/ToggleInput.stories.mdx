@@ -1,0 +1,52 @@
+<!--- ToggleInput.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ToggleInput } from './ToggleInput';
+import { Tooltip } from '../Tooltip';
+import HelpIcon from '@strapi/icons/HelpIcon';
+
+<Meta title="ToggleInput" component={ToggleInput} />
+
+# ToggleInput
+
+This is the doc of the `ToggleInput` component
+
+## ToggleInput
+
+Description...
+
+<Canvas>
+  <Story name="base">
+    <ToggleInput
+      hint="Enable provider"
+      label="Enabled"
+      name="enable-provider"
+      labelAction={
+        <Tooltip description="Content of the tooltip">
+          <button
+            aria-label="Information about the email"
+            style={{ border: 'none', padding: 0, background: 'transparent' }}
+          >
+            <HelpIcon aria-hidden={true} />
+          </button>
+        </Tooltip>
+      }
+      onLabel="on"
+      offLabel="off"
+      checked={true}
+      onChange={() => {}}
+    />
+  </Story>
+  <Story name="error">
+    <ToggleInput
+      hint="Enable provider"
+      error="this field is required"
+      label="Label"
+      name="enable-provider"
+      onLabel="on"
+      offLabel="off"
+      checked={false}
+      onChange={() => {}}
+    />
+  </Story>
+</Canvas>
