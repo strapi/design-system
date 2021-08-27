@@ -28,6 +28,7 @@ const DialogHeader = styled(Row)`
 `;
 
 export const Dialog = ({ onClose, labelledBy, title, describedBy, ...props }) => {
+  //FIX ME (find a way to do it globally)
   useEffect(() => {
     const body = document.body;
     body.classList.add('modal-open');
