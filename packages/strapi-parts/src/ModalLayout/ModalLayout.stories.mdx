@@ -1,5 +1,6 @@
 <!--- ModalLayout.stories.mdx --->
 
+import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { ModalLayout } from './ModalLayout';
 import { ModalHeader } from './ModalHeader';
@@ -21,25 +22,37 @@ Description...
 
 <Canvas>
   <Story name="base">
-    <div>
-      <p style={{ height: '100vh' }}>This is a raw content</p>
-      <ModalLayout onClose={() => undefined} labelledBy="title">
-        <ModalHeader>
-          <TextButton textColor="neutral800" as="h2" id="title">
-            Title
-          </TextButton>
-        </ModalHeader>
-        <ModalBody>Hello world</ModalBody>
-        <ModalFooter
-          startActions={<Button variant="tertiary">Cancel</Button>}
-          endActions={
-            <>
-              <Button variant="secondary">Add new stuff</Button>
-              <Button>Finish</Button>
-            </>
-          }
-        />
-      </ModalLayout>
-    </div>
+    {() => {
+      const [isVisible, setIsVisible] = useState(false);
+      return (
+        <>
+          <Button onClick={() => setIsVisible((prev) => !prev)}>Click to open Modal</Button>
+          <p style={{ height: '120vh' }}>This is a raw content</p>
+          {isVisible && (
+            <ModalLayout onClose={() => setIsVisible((prev) => !prev)} labelledBy="title">
+              <ModalHeader>
+                <TextButton textColor="neutral800" as="h2" id="title">
+                  Title
+                </TextButton>
+              </ModalHeader>
+              <ModalBody>Hello world</ModalBody>
+              <ModalFooter
+                startActions={
+                  <Button onClick={() => setIsVisible((prev) => !prev)} variant="tertiary">
+                    Cancel
+                  </Button>
+                }
+                endActions={
+                  <>
+                    <Button variant="secondary">Add new stuff</Button>
+                    <Button onClick={() => setIsVisible((prev) => !prev)}>Finish</Button>
+                  </>
+                }
+              />
+            </ModalLayout>
+          )}
+        </>
+      );
+    }}
   </Story>
 </Canvas>
