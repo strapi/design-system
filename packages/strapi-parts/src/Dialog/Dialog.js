@@ -7,7 +7,6 @@ import { H2 } from '../Text';
 import { FocusTrap } from '../FocusTrap';
 import { Portal } from '../Portal';
 import { setOpacity } from '../helpers/setOpacity';
-import './overflowStyle.css';
 
 const DialogWrapper = styled.div`
   position: absolute;
