@@ -30,13 +30,14 @@ Tooltips are floating labels that display additional information upon hover of a
 import { Tooltip } from '@strapi/parts/Tooltip';
 ```
 
-## Tooltip
+## Usage
 
-Tooltips are used to show the full version of truncated text or is a way to display further information about an element. 
+Tooltips are used to show the full version of truncated text or is a way to display further information about an element.
+The tooltip will appear on top of adjacent text.
 
-<Canvas>
+<Canvas withSource="open">
   <Story name="base">
-    <div style={{ marginLeft: '400px', marginTop: '200px', width: '400px' }}>
+    <div>
       <p>
         An infinite amount of content to place correctly the tooltip. Lorem ipsum dolor sit amet, consectetur adipiscing
         elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
@@ -45,27 +46,6 @@ Tooltips are used to show the full version of truncated text or is a way to disp
         sunt in culpa qui officia deserunt mollit anim id est laborum.
       </p>
       <Tooltip description="Content of the tooltip">
-        <button>Show tooltip</button>
-      </Tooltip>
-      <p>
-        An infinite amount of content to place correctly the tooltip. Lorem ipsum dolor sit amet, consectetur adipiscing
-        elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-        sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
-    </div>
-  </Story>
-  <Story name="with text inside">
-    <div style={{ marginLeft: '400px', marginTop: '200px', width: '400px' }}>
-      <p>
-        An infinite amount of content to place correctly the tooltip. Lorem ipsum dolor sit amet, consectetur adipiscing
-        elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-        sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
-      <Tooltip description="Smaller">
         <span>Show tooltip</span>
       </Tooltip>
       <p>
@@ -75,132 +55,59 @@ Tooltips are used to show the full version of truncated text or is a way to disp
         voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
         sunt in culpa qui officia deserunt mollit anim id est laborum.
       </p>
-      <p>
-        An infinite amount of content to place correctly the tooltip. Lorem ipsum dolor sit amet, consectetur adipiscing
-        elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-        sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
-      <p>
-        An infinite amount of content to place correctly the tooltip. Lorem ipsum dolor sit amet, consectetur adipiscing
-        elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-        sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
-      <p>
-        An infinite amount of content to place correctly the tooltip. Lorem ipsum dolor sit amet, consectetur adipiscing
-        elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-        sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
     </div>
   </Story>
+</Canvas>
+
+### Tooltip with smaller text or longer description
+
+Tootips work with longer texts as well.
+
+<Canvas withSource="open">
+  <Story name="with text inside">
+    <div>
+      <Tooltip description="Smaller">
+        <span>Show tooltip</span>
+      </Tooltip>
+    </div>
+    <div>
+      <Tooltip description="Excepteur sint occaecat cupidatat non proident, sunt
+        in culpa qui officia deserunt mollit anim id est laborum.">
+        <button>A longer CTA with longer content</button>
+      </Tooltip>
+    </div>
+  </Story>
+</Canvas>
+
+### Alternative positioning
+
+You can change the position of the tooltip by changing the `position` parameter.
+The default position is `top`.
+
+<Canvas withSource="open">
   <Story name="grid">
-    <p>
-      An infinite amount of content to place correctly the tooltip. Lorem ipsum dolor sit amet, consectetur adipiscing
-      elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-      exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-      voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-      in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
-    <p>
-      An infinite amount of content to place correctly the tooltip. Lorem ipsum dolor sit amet, consectetur adipiscing
-      elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-      exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-      voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-      in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
-    <p>
-      An infinite amount of content to place correctly the tooltip. Lorem ipsum dolor sit amet, consectetur adipiscing
-      elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-      exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-      voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-      in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
-    <p>
-      An infinite amount of content to place correctly the tooltip. Lorem ipsum dolor sit amet, consectetur adipiscing
-      elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-      exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-      voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-      in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
-    <Grid gap={4} padding={4} style={{ marginTop: '200px' }}>
-      <GridItem col={6}>
-        <Tooltip description="First content">
-          <button>First</button>
+    <Grid gap={4} padding={4}>
+      <GridItem col={3}>
+        <Tooltip description="Tootips are neat.">
+          <button>Default tooltip</button>
         </Tooltip>
       </GridItem>
-      <GridItem col={6}>
-        <Tooltip description="Second content" position="bottom">
-          <button>Second</button>
+      <GridItem col={3}>
+        <Tooltip description="Tootips are neat." position="bottom">
+          <button>Bottom</button>
         </Tooltip>
       </GridItem>
-      <GridItem col={6}>
-        <Tooltip description="Third content" position="right">
-          <button>Third</button>
+      <GridItem col={3}>
+        <Tooltip description="Tootips are neat." position="right">
+          <button>Right</button>
         </Tooltip>
       </GridItem>
-      <GridItem col={6}>
-        <Tooltip description="Fourth content" position="left">
-          <button>A longer CTA than the content</button>
+      <GridItem col={3}>
+        <Tooltip description="Tootips are neat." position="left">
+          <button>Left</button>
         </Tooltip>
       </GridItem>
     </Grid>
-    <p>
-      An infinite amount of content to place correctly the tooltip. Lorem ipsum dolor sit amet, consectetur adipiscing
-      elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-      exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-      voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-      in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
-  </Story>
-  <Story name="description">
-    <Tooltip description="This is the description">
-      <button>This is a label with a description in the tooltip</button>
-    </Tooltip>
-  </Story>
-  <Story name="label">
-    <Tooltip label="This is the label">
-      <button>+</button>
-    </Tooltip>
-  </Story>
-  <Story name="top-left">
-    <div>
-      <Tooltip label="This is the label">
-        <button>hello</button>
-      </Tooltip>
-    </div>
-  </Story>
-  <Story name="top-center">
-    <Row justifyContent="center">
-      <Tooltip label="This is the label">
-        <button>hello</button>
-      </Tooltip>
-    </Row>
-  </Story>
-  <Story name="top-right">
-    <Row justifyContent="flex-end">
-      <Tooltip label="This is the label dewdewd wedewdew">
-        <button>tooltip</button>
-      </Tooltip>
-    </Row>
-  </Story>
-  <Story name="right-center">
-    <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '200px' }}>
-      <Tooltip label="This is the label">
-        <button>tooltip</button>
-      </Tooltip>
-    </div>
-  </Story>
-  <Story name="left-center">
-    <div style={{ marginTop: '200px' }}>
-      <Tooltip label="This is the label">
-        <button>hello</button>
-      </Tooltip>
-    </div>
   </Story>
 </Canvas>
 
