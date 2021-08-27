@@ -18,6 +18,11 @@ const WysiwygFooter = ({isPreviewMode, onToggleExpand}) => {
   )
 };
 
+WysiwygFooter.defaultProps = {
+  onToggleExpand: () => {}, 
+  isPreviewMode: false
+};
+
 WysiwygFooter.propTypes = {
   onToggleExpand: PropTypes.func, 
   isPreviewMode: PropTypes.bool

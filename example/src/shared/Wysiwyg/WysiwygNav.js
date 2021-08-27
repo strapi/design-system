@@ -63,9 +63,9 @@ const WysiwygNav = ({
           </Select>
 
           <MainButtons>
-            <CustomIconButton onClick={() => onActionClick("Bold", editorRef, onTogglePopover)} id="Bold" label="Bold" name="Bold" icon={<Bold />} />
-            <CustomIconButton onClick={() => onActionClick("Italic", editorRef, onTogglePopover)} id="Italic" label="Italic" name="Italic" icon={<Italic />} />
-            <CustomIconButton onClick={() => onActionClick("Underline", editorRef, onTogglePopover)} id="Underline" label="Underline" name="Underline" icon={<Underline />} />
+            <CustomIconButton onClick={() => onActionClick("Bold", editorRef)} id="Bold" label="Bold" name="Bold" icon={<Bold />} />
+            <CustomIconButton onClick={() => onActionClick("Italic", editorRef)} id="Italic" label="Italic" name="Italic" icon={<Italic />} />
+            <CustomIconButton onClick={() => onActionClick("Underline", editorRef)} id="Underline" label="Underline" name="Underline" icon={<Underline />} />
           </MainButtons>
 
           <MoreButton ref={buttonMoreRef} onClick={onTogglePopover} id="more" label="more" icon={<More />} />
@@ -100,6 +100,16 @@ const WysiwygNav = ({
   )
 };
 
+WysiwygNav.defaultProps = {
+  placeholder: '',
+  onActionClick: () => {},
+  visiblePopover: false,
+  onTogglePopover: () => {}, 
+  isPreviewMode: false, 
+  onTogglePreviewMode: () => {},
+  onToggleMediaLib: () => {}
+};
+
 WysiwygNav.propTypes = {
   placeholder: PropTypes.string,
   onActionClick: PropTypes.func,
@@ -108,7 +118,7 @@ WysiwygNav.propTypes = {
   isPreviewMode: PropTypes.bool, 
   onTogglePreviewMode: PropTypes.func,
   onToggleMediaLib: PropTypes.func,
-  editorRef: PropTypes.shape({ current: PropTypes.any })
+  editorRef: PropTypes.shape({ current: PropTypes.any }).isRequired
 };
 
 export default WysiwygNav;

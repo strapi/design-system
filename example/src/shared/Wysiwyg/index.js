@@ -126,6 +126,14 @@ const Wysiwyg = ({ label, placeholder, onChange, value }) => {
   );
 };
 
+Wysiwyg.defaultProps = {
+  label: '',
+  onChange: () => {},
+  placeholder: '',
+  value: ''
+};
+
+
 Wysiwyg.propTypes = {
   label: PropTypes.string,
   onChange: PropTypes.func,

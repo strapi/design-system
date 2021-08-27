@@ -7,7 +7,7 @@ const EditorWrapper = styled.div`
     /* Set height, width, borders, and global font properties here */
     font-size: ${14 / 16}rem;
     height: 290px;
-    color: ${({ theme }) => theme.colors.neutral800}};
+    color: ${({ theme }) => theme.colors.neutral800};
     direction: ltr;
   }
 
