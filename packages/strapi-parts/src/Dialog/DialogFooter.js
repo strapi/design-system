@@ -9,7 +9,7 @@ const FooterWrapper = styled(Box)`
 
   button {
     width: 100%;
-    display: flex;
+    display: inline-flex;
     justify-content: center;
   }
 `;
