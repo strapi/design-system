@@ -16,7 +16,6 @@ const IconContainer = styled(Box)`
 `;
 
 export const DialogBody = ({ children, icon }) => {
-  console.log(children)
   return (
     <Box paddingTop={8} paddingBottom={8} paddingLeft={6} paddingRight={6}>
       {icon && (
