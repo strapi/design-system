@@ -7,6 +7,7 @@ import { H2 } from '../Text';
 import { FocusTrap } from '../FocusTrap';
 import { Portal } from '../Portal';
 import { setOpacity } from '../helpers/setOpacity';
+import './overflowStyle.css';
 
 const DialogWrapper = styled.div`
   position: absolute;
@@ -30,12 +31,9 @@ const DialogHeader = styled(Row)`
 export const Dialog = ({ onClose, labelledBy, title, describedBy, ...props }) => {
   useEffect(() => {
     const body = document.body;
-    body.style.height = '100vh';
-    body.style.overflowY = 'hidden';
-
+    body.classList.add('modal-open');
     return () => {
-      body.style.height = '100%';
-      body.style.overflowY = 'visible';
+      body.classList.remove('modal-open');
     };
   }, []);
 
@@ -53,7 +51,7 @@ export const Dialog = ({ onClose, labelledBy, title, describedBy, ...props }) =>
             role="dialog"
           >
             <DialogHeader padding={6} justifyContent="center">
-              <H2 id="dialog-title">{title}</H2>
+              <H2 id={labelledBy}>{title}</H2>
             </DialogHeader>
             <Box {...props} />
           </DialogContainer>
