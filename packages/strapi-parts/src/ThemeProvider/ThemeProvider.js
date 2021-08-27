@@ -166,6 +166,11 @@ const GlobalStyle = createGlobalStyle`
     cursor: pointer;
     font: inherit;
   }
+
+  .modal-open {
+    height: 100vh;
+    overflow-y: hidden;
+  }
 `;
 
 export const ThemeProvider = ({ children, theme }) => {
