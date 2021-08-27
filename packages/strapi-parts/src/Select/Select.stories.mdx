@@ -7,7 +7,7 @@ import AddIcon from '@strapi/icons/AddIcon';
 import { Select } from './Select';
 import { Option } from './Option';
 import { Stack } from '../Stack';
-import produce from 'immer';
+import MultiSelectNested from './MultiSelectNested.js';
 
 <Meta title="Design System/Molecules/Select" component={Select} />
 
@@ -84,8 +84,6 @@ In a multi select component, the "0 currently selected" text, can be changed but
       const [values, setValues] = useState([]);
       const [error, toggleError] = useState();
       const [disabled, toggleDisabled] = useState();
-      const onValueChange = (newValue) =>
-        setValues((s) => (s.includes(newValue) ? s.filter((x) => x !== newValue) : [...s, newValue]));
       return (
         <Stack size={11}>
           <h2>Current value is {values.join(', ')}</h2>
@@ -98,7 +96,7 @@ In a multi select component, the "0 currently selected" text, can be changed but
             clearLabel="Clear the meal"
             error={error}
             value={values}
-            onChange={onValueChange}
+            onChange={setValues}
             disabled={disabled}
             customizeContent={(values) => `${values.length} currently selected`}
             multi
@@ -125,8 +123,6 @@ A multi Select allow users to visually select multiple options from a list. Pref
       const [values, setValues] = useState([]);
       const [error, toggleError] = useState();
       const [disabled, toggleDisabled] = useState();
-      const onValueChange = (newValue) =>
-        setValues((s) => (s.includes(newValue) ? s.filter((x) => x !== newValue) : [...s, newValue]));
       return (
         <Stack size={11}>
           <h2>Current value is {values.join(', ')}</h2>
@@ -139,7 +135,7 @@ A multi Select allow users to visually select multiple options from a list. Pref
             clearLabel="Clear the meal"
             error={error}
             value={values}
-            onChange={onValueChange}
+            onChange={setValues}
             disabled={disabled}
             customizeContent={(values) => `${values.length} currently selected`}
             multi
@@ -172,8 +168,6 @@ Select should be scaled down if they aimed to be placed in a smaller portions of
   <Story name="size-S">
     {() => {
       const [values, setValues] = useState([]);
-      const onValueChange = (newValue) =>
-        setValues((s) => (s.includes(newValue) ? s.filter((x) => x !== newValue) : [...s, newValue]));
       return (
         <Stack size={11}>
           <Select
@@ -185,7 +179,7 @@ Select should be scaled down if they aimed to be placed in a smaller portions of
             clearLabel="Clear the meal"
             error={undefined}
             value={values}
-            onChange={onValueChange}
+            onChange={setValues}
             disabled={false}
             customizeContent={(values) => `${values.length} currently selected`}
           >
@@ -196,6 +190,18 @@ Select should be scaled down if they aimed to be placed in a smaller portions of
         </Stack>
       );
     }}
+  </Story>
+</Canvas>
+
+### Select multi nested
+
+A multi nested Select allow users to make multiple selections from a list.
+
+In a multi select component, the "0 currently selected" text, can be changed but it will never have a placeholder style.
+
+<Canvas>
+  <Story name="multi-nested">
+    <MultiSelectNested />
   </Story>
 </Canvas>
 

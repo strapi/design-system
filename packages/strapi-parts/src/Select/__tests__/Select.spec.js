@@ -850,14 +850,6 @@ describe('Select', () => {
         background-color: #ffffff;
       }
 
-      .c10::after {
-        content: '';
-        background: url(test-file-stub) no-repeat no-repeat center center;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-      }
-
       .c5 {
         width: 100%;
         border: none;
