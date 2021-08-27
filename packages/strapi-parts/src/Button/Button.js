@@ -62,6 +62,7 @@ export const Button = React.forwardRef(
       <ButtonWrapper
         ref={ref}
         aria-disabled={isDisabled}
+        disabled={isDisabled}
         size={size}
         variant={variant}
         onClick={handleClick}
