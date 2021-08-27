@@ -173,7 +173,7 @@ export const Select = ({
                 </Box>
               )}
 
-              {withTags && <SelectTags tags={tags} onRemoveTag={onChange} disabled={disabled} />}
+              {withTags && <SelectTags tags={tags} onRemoveTag={handleSelectItem} disabled={disabled} />}
 
               <Box paddingLeft={4} paddingRight={4}>
                 {withTags ? (
@@ -228,7 +228,7 @@ export const Select = ({
             labelledBy={labelId}
             onEscape={handleEscape}
             expanded={expanded}
-            onSelectItem={onChange}
+            onSelectItem={handleSelectItem}
             multi={multi}
           >
             {childrenClone}
