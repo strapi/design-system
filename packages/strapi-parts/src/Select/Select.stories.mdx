@@ -7,12 +7,13 @@ import AddIcon from '@strapi/icons/AddIcon';
 import { Select } from './Select';
 import { Option } from './Option';
 import { Stack } from '../Stack';
+import produce from 'immer';
 
 <Meta title="Design System/Molecules/Select" component={Select} />
 
 # Select
 
-Selects are fields that displays to users a list of options via a PopOver component. They allow users to make a single or multiple selections from this list. The selected option(s) of a Select need(s) to be stored whether it's single or a multi. Selects are part of forms. 
+Selects are fields that displays to users a list of options via a PopOver component. They allow users to make a single or multiple selections from this list. The selected option(s) of a Select need(s) to be stored whether it's single or a multi. Selects are part of forms.
 
 **Best practices**
 
@@ -23,13 +24,11 @@ Selects are fields that displays to users a list of options via a PopOver compon
 - Use sentence case into a Select and straight-to-the-point sentences.
 - An option should be written on a single line.
 
-
 ## Imports
 
 ```js
 import { Select, Option } from '@strapi/parts/Select';
 ```
-
 
 ## Usage
 
@@ -37,7 +36,7 @@ A Select allow users to make a selection from a list.
 
 ### Default Select
 
-The default Select. 
+The default Select.
 
 <Canvas>
   <Story name="base">
@@ -73,10 +72,9 @@ The default Select.
   </Story>
 </Canvas>
 
-
 ### Select multi
 
-A multi Select allow users to make multiple selections from a list. 
+A multi Select allow users to make multiple selections from a list.
 
 In a multi select component, the "0 currently selected" text, can be changed but it will never have a placeholder style.
 
@@ -117,10 +115,9 @@ In a multi select component, the "0 currently selected" text, can be changed but
   </Story>
 </Canvas>
 
-
 ### Select multi with tags
 
-A multi Select allow users to visually select multiple options from a list. Prefer using a Select with multi tags when the selected values need to be visible in the input. 
+A multi Select allow users to visually select multiple options from a list. Prefer using a Select with multi tags when the selected values need to be visible in the input.
 
 <Canvas>
   <Story name="multi-withTags">
@@ -167,7 +164,6 @@ A multi Select allow users to visually select multiple options from a list. Pref
   </Story>
 </Canvas>
 
-
 ### Select size S
 
 Select should be scaled down if they aimed to be placed in a smaller portions of a page.
@@ -202,7 +198,6 @@ Select should be scaled down if they aimed to be placed in a smaller portions of
     }}
   </Story>
 </Canvas>
-
 
 ## Props
 
