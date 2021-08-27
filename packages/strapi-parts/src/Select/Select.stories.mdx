@@ -201,7 +201,68 @@ In a multi select component, the "0 currently selected" text, can be changed but
 
 <Canvas>
   <Story name="multi-nested">
-    <MultiSelectNested />
+    {() => {
+      const [error, toggleError] = useState();
+      const [disabled, toggleDisabled] = useState();
+      const options = [
+        {
+          label: 'Pizza',
+          children: [
+            {
+              label: 'Peperroni',
+              value: 'peperroni',
+            },
+            {
+              label: 'Marguerita',
+              value: 'marguerita',
+            },
+          ],
+        },
+        {
+          label: 'Hamburger',
+          value: 'hamburger',
+        },
+        {
+          label: 'Bagel',
+          value: 'bagel',
+        },
+        {
+          label: 'Pasta',
+          children: [
+            {
+              label: 'Tartuffo',
+              value: 'tartuffo',
+            },
+            {
+              label: 'Carbonara',
+              value: 'carbonara',
+            },
+          ],
+        },
+      ];
+      const [values, setValues] = useState([]);
+      return (
+        <Stack size={11}>
+          <h2>Current value is {values.join(', ')}</h2>
+          <MultiSelectNested
+            id="select1"
+            label="Choose your meal"
+            placeholder="Your example"
+            onClear={() => setValues([])}
+            hint="Description line"
+            clearLabel="Clear the meal"
+            error={error}
+            disabled={disabled}
+            customizeContent={(values) => `${values.length} currently selected`}
+            onChange={setValues}
+            value={values}
+            options={options}
+          />
+          <button onClick={() => toggleError((s) => (s ? undefined : 'An error occured'))}>Show the error state</button>
+          <button onClick={() => toggleDisabled((s) => !s)}>Show the disabled state</button>
+        </Stack>
+      );
+    }}
   </Story>
 </Canvas>
 
