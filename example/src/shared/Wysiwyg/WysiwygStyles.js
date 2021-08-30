@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 import { IconButton, Box, BaseButton, IconButtonGroup } from "@strapi/parts";
 
@@ -10,9 +10,12 @@ export const WysiwygWrapper = styled(Box)`
 //NAV BUTTONS
 export const CustomIconButton = styled(IconButton)`
   padding: ${({ theme }) => theme.spaces[2]};
+  // Trick to prevent the outline from overflowing because of the general outline-offset
+  outline-offset: -2px !important;
+
   svg {
-    width: ${18/16}rem;
-    height: ${18/16}rem;
+    width: ${18 / 16}rem;
+    height: ${18 / 16}rem;
   }
 `;
 
@@ -25,11 +28,10 @@ export const MoreButton = styled(IconButton)`
   padding: ${({ theme }) => theme.spaces[2]};
 
   svg {
-    width: ${18/16}rem;
-    height: ${18/16}rem;
-  };
+    width: ${18 / 16}rem;
+    height: ${18 / 16}rem;
+  }
 `;
-
 
 // NAV
 
@@ -54,8 +56,8 @@ export const ExpandButton = styled(BaseButton)`
     margin-left: ${({ theme }) => `${theme.spaces[2]}`};
     path {
       fill: ${({ theme }) => theme.colors.neutral700}};
-      width: ${12/16}rem;
-      height: ${12/16}rem;
+      width: ${12 / 16}rem;
+      height: ${12 / 16}rem;
     };
   };
 `;
