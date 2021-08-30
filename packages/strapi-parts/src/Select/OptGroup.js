@@ -9,7 +9,7 @@ export const OptGroup = ({ children, label, ...props }) => {
       <Option
         data-opt-group={true}
         data-opt-group-children={childrenValues}
-        aria-label={`${label}, ${children.length} items: ${childrenValues.join(', ')}`}
+        aria-label={`${label}, ${children.length} items`}
         {...props}
       >
         {label}
