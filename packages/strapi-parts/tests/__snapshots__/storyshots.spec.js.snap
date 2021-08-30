@@ -20719,7 +20719,7 @@ exports[`Storyshots Design System/Molecules/Select multi-nested 1`] = `
   padding-left: 16px;
 }
 
-.c12 {
+.c11 {
   padding-left: 12px;
 }
 
@@ -20842,19 +20842,19 @@ exports[`Storyshots Design System/Molecules/Select multi-nested 1`] = `
   border: 1px solid #4945ff;
 }
 
-.c11 {
+.c12 {
   background: transparent;
   border: none;
   position: relative;
   z-index: 1;
 }
 
-.c11 svg {
+.c12 svg {
   height: 0.6875rem;
   width: 0.6875rem;
 }
 
-.c11 svg path {
+.c12 svg path {
   fill: #666687;
 }
 
@@ -20888,7 +20888,7 @@ exports[`Storyshots Design System/Molecules/Select multi-nested 1`] = `
   >
     <h2>
       Current value is 
-      peperroni, marguerita, bagel, tartuffo
+      
     </h2>
     <div>
       <div
@@ -20927,12 +20927,10 @@ exports[`Storyshots Design System/Molecules/Select multi-nested 1`] = `
                   class="c10"
                   id="select1-content"
                 >
-                  4 currently selected
+                  0 currently selected
                   <span
                     class="c0"
-                  >
-                    peperroni, marguerita, bagel, tartuffo
-                  </span>
+                  />
                 </span>
               </div>
             </div>
@@ -20940,26 +20938,8 @@ exports[`Storyshots Design System/Molecules/Select multi-nested 1`] = `
               class="c8"
             >
               <button
-                aria-disabled="false"
-                aria-label="Clear the meal"
-                class="c11"
-              >
-                <svg
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 24 24"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M24 2.417L21.583 0 12 9.583 2.417 0 0 2.417 9.583 12 0 21.583 2.417 24 12 14.417 21.583 24 24 21.583 14.417 12 24 2.417z"
-                    fill="#212134"
-                  />
-                </svg>
-              </button>
-              <button
                 aria-hidden="true"
-                class="c12 c11 c13"
+                class="c11 c12 c13"
                 tabindex="-1"
               >
                 <svg
