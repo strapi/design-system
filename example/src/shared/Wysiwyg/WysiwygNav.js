@@ -32,6 +32,10 @@ const WysiwygNav = ({
   editorRef,
 }) => {
   const buttonMoreRef = useRef();
+  const handleEscapeMore = () => {
+    onTogglePopover();
+    buttonMoreRef.current.focus();
+  }
 
   if (isPreviewMode) {
     return (
@@ -110,12 +114,7 @@ const WysiwygNav = ({
           <MoreButton ref={buttonMoreRef} onClick={onTogglePopover} id="more" label="more" icon={<More />} />
           {visiblePopover && (
             <Popover centered source={buttonMoreRef} spacingTop={1} id="popover">
-              <FocusTrap
-                onEscape={() => {
-                  onTogglePopover();
-                  buttonMoreRef.current.focus();
-                }}
-              >
+              <FocusTrap onEscape={handleEscapeMore} restoreFocus={false}>
                 <Row>
                   <IconButtonGroupMargin>
                     <CustomIconButton
