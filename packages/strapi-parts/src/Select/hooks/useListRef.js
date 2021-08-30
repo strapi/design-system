@@ -2,7 +2,7 @@ import { useRef, useEffect } from 'react';
 import { DownState, UpState } from '../constants';
 import { changeDescendant } from '../utils';
 
-export const useListRef = (expanded, onSelectItem, multi) => {
+export const useListRef = (expanded) => {
   const listRef = useRef(null);
 
   useEffect(() => {
@@ -27,10 +27,6 @@ export const useListRef = (expanded, onSelectItem, multi) => {
     if (nextOption) {
       if (expanded === UpState.Keyboard || expanded === DownState.Keyboard) {
         changeDescendant(listRef.current, nextOption);
-      }
-
-      if (!multi) {
-        onSelectItem(nextOption.getAttribute('data-strapi-value'));
       }
     }
   }, []);
