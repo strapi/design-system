@@ -27,15 +27,22 @@ const DialogHeader = styled(Row)`
   border-bottom: 1px solid ${({ theme }) => theme.colors.neutral150};
 `;
 
-export const Dialog = ({ onClose, labelledBy, title, describedBy, ...props }) => {
+export const Dialog = ({ onClose, labelledBy, title, describedBy, isOpen, ...props }) => {
   //FIX ME (find a way to do it globally)
   useEffect(() => {
-    const body = document.body;
-    body.classList.add('modal-open');
+    const body = document?.body;
+    if (isOpen && body) {
+      const body = document.body;
+      body.classList.add('modal-open');
+    }
     return () => {
       body.classList.remove('modal-open');
     };
-  }, []);
+  }, [isOpen]);
+
+  if (!isOpen) {
+    return null;
+  }
 
   return (
     <Portal>
@@ -68,4 +75,5 @@ Dialog.propTypes = {
   labelledBy: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
+  isOpen: PropTypes.bool.isRequired,
 };

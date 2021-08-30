@@ -45,34 +45,33 @@ Description...
           <Box padding={10} background="neutral0">
             test overflow
           </Box>
-          {isVisible && (
-            <Dialog
-              onClose={() => setIsVisible(false)}
-              title="Confirmation"
-              labelledBy="confirmation"
-              describedBy="confirm-description"
-            >
-              <DialogBody icon={<AlertWarningIcon />}>
-                <Stack size={2}>
-                  <Row justifyContent="center">
-                    <Text id="confirm-description">Are you sure you want to delete this?</Text>
-                  </Row>
-                </Stack>
-              </DialogBody>
-              <DialogFooter
-                startAction={
-                  <Button onClick={() => setIsVisible(false)} variant="tertiary">
-                    Cancel
-                  </Button>
-                }
-                endAction={
-                  <Button variant="danger-light" startIcon={<DeleteIcon />}>
-                    Confirm
-                  </Button>
-                }
-              />
-            </Dialog>
-          )}
+          <Dialog
+            onClose={() => setIsVisible(false)}
+            title="Confirmation"
+            labelledBy="confirmation"
+            describedBy="confirm-description"
+            isOpen={isVisible}
+          >
+            <DialogBody icon={<AlertWarningIcon />}>
+              <Stack size={2}>
+                <Row justifyContent="center">
+                  <Text id="confirm-description">Are you sure you want to delete this?</Text>
+                </Row>
+              </Stack>
+            </DialogBody>
+            <DialogFooter
+              startAction={
+                <Button onClick={() => setIsVisible(false)} variant="tertiary">
+                  Cancel
+                </Button>
+              }
+              endAction={
+                <Button variant="danger-light" startIcon={<DeleteIcon />}>
+                  Confirm
+                </Button>
+              }
+            />
+          </Dialog>
         </>
       );
     }}
