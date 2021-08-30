@@ -1,12 +1,13 @@
-import React, { useEffect } from 'react';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import React from 'react';
+import styled from 'styled-components';
 import { Box } from '../Box';
+import { FocusTrap } from '../FocusTrap';
+import { setOpacity } from '../helpers/setOpacity';
+import useLockScroll from '../helpers/useLockScroll';
+import { Portal } from '../Portal';
 import { Row } from '../Row';
 import { H2 } from '../Text';
-import { FocusTrap } from '../FocusTrap';
-import { Portal } from '../Portal';
-import { setOpacity } from '../helpers/setOpacity';
 
 const DialogWrapper = styled.div`
   position: absolute;
@@ -28,17 +29,7 @@ const DialogHeader = styled(Row)`
 `;
 
 export const Dialog = ({ onClose, labelledBy, title, describedBy, isOpen, ...props }) => {
-  //FIX ME (find a way to do it globally)
-  useEffect(() => {
-    const body = document?.body;
-    if (isOpen && body) {
-      const body = document.body;
-      body.classList.add('modal-open');
-    }
-    return () => {
-      body.classList.remove('modal-open');
-    };
-  }, [isOpen]);
+  useLockScroll(isOpen);
 
   if (!isOpen) {
     return null;
@@ -72,8 +63,8 @@ Dialog.displayName = 'Dialog';
 
 Dialog.propTypes = {
   describedBy: PropTypes.string.isRequired,
+  isOpen: PropTypes.bool.isRequired,
   labelledBy: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
-  isOpen: PropTypes.bool.isRequired,
 };
