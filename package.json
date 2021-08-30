@@ -43,7 +43,5 @@
   "lint-staged": {
     "*.{js,jsx}": "yarn lint-staged"
   },
-  "dependencies": {
-    "immer": "^9.0.5"
-  }
+  "dependencies": {}
 }
