@@ -74,7 +74,15 @@ export const SelectList = ({ labelledBy, onSelectItem, children, multi, onEscape
 
         if (multi) {
           const currentOption = getActiveDescendant(listRef.current);
-          onSelectItem(currentOption.getAttribute('data-strapi-value'));
+
+          if (currentOption.getAttribute('data-opt-group')) {
+            onSelectItem(
+              currentOption.getAttribute('data-opt-group-children').split(','),
+              currentOption.getAttribute('data-opt-group'),
+            );
+          } else {
+            onSelectItem(currentOption.getAttribute('data-strapi-value'));
+          }
         } else {
           onEscape();
         }

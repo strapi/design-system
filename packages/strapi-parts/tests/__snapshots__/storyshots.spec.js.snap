@@ -20701,6 +20701,283 @@ exports[`Storyshots Design System/Molecules/Select multi 1`] = `
 </main>
 `;
 
+exports[`Storyshots Design System/Molecules/Select multi-nested 1`] = `
+.c0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.c9 {
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
+.c11 {
+  padding-left: 12px;
+}
+
+.c3 {
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #32324d;
+}
+
+.c10 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #32324d;
+}
+
+.c14 {
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #666687;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c1 > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.c1 > * + * {
+  margin-top: 64px;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c2 > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.c2 > * + * {
+  margin-top: 4px;
+}
+
+.c5 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  width: 100%;
+  background: transparent;
+  border: none;
+}
+
+.c5:focus {
+  outline: none;
+}
+
+.c4 {
+  position: relative;
+  border: 1px solid #dcdce4;
+  padding-right: 12px;
+  border-radius: 4px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.c4:focus-within {
+  border: 1px solid #4945ff;
+}
+
+.c12 {
+  background: transparent;
+  border: none;
+  position: relative;
+  z-index: 1;
+}
+
+.c12 svg {
+  height: 0.6875rem;
+  width: 0.6875rem;
+}
+
+.c12 svg path {
+  fill: #666687;
+}
+
+.c13 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  background: none;
+  border: none;
+}
+
+.c13 svg {
+  width: 0.375rem;
+}
+
+.c7 {
+  min-height: 2.5rem;
+}
+
+<main>
+  <div
+    class="c0"
+  >
+    <h1>
+      Storybook story
+    </h1>
+  </div>
+  <div
+    class="c1"
+  >
+    <h2>
+      Current value is 
+      
+    </h2>
+    <div>
+      <div
+        class="c2"
+      >
+        <span
+          class="c3"
+          for="select1"
+          id="select1-label"
+        >
+          Choose your meal
+        </span>
+        <div
+          class="c4"
+        >
+          <button
+            aria-describedby="select1-hint"
+            aria-disabled="false"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-labelledby="select1-label select1-content"
+            class="c5"
+            id="select1"
+            type="button"
+          />
+          <div
+            class="c6 c7"
+          >
+            <div
+              class="c8"
+            >
+              <div
+                class="c9"
+              >
+                <span
+                  class="c10"
+                  id="select1-content"
+                >
+                  0 currently selected
+                  <span
+                    class="c0"
+                  />
+                </span>
+              </div>
+            </div>
+            <div
+              class="c8"
+            >
+              <button
+                aria-hidden="true"
+                class="c11 c12 c13"
+                tabindex="-1"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 14 8"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
+                    fill="#32324D"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <p
+          class="c14"
+          id="select1-hint"
+        >
+          Description line
+        </p>
+      </div>
+    </div>
+    <button>
+      Show the error state
+    </button>
+    <button>
+      Show the disabled state
+    </button>
+  </div>
+</main>
+`;
+
 exports[`Storyshots Design System/Molecules/Select multi-withTags 1`] = `
 .c0 {
   border: 0;
