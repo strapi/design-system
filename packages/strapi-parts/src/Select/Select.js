@@ -123,8 +123,7 @@ export const Select = ({
   };
 
   const childrenClone = Children.toArray(children).map((node) => {
-    // Check OptGroup
-    if (node.type.name === 'OptGroup') {
+    if (node.type.displayName === 'OptGroup') {
       const optionId = `${generatedId}-option-${node.props.label}`;
 
       const selected = node.props.children.every((child) => value.includes(child.props.value));

@@ -111,3 +111,5 @@ Option.propTypes = {
   selected: PropTypes.bool,
   value: PropTypes.string.isRequired,
 };
+
+Option.displayName = 'Option';
