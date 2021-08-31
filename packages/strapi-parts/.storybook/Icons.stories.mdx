@@ -1,0 +1,39 @@
+<!--- Icons.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import * as icons from '@strapi/icons';
+import { Stack } from '../src/Stack';
+import { Grid, GridItem } from '../src/Grid';
+import { Box } from '../src/Box';
+import { Row } from '../src/Row';
+import { Text } from '../src/Text';
+
+<Meta title="Design System/Icons" />
+
+# Icons
+
+<Canvas>
+  <Story name="base">
+    {() => {
+      return (
+        <Stack size={6}>
+          <Grid gap={5}>
+            {Object.keys(icons).map((icon) => {
+              const Compo = icons[icon];
+              return (
+                <GridItem col={2} key={icon}>
+                  <Row>
+                    <Compo />
+                    <Box paddingLeft={2}>
+                      <Text>{icon}</Text>
+                    </Box>
+                  </Row>
+                </GridItem>
+              );
+            })}
+          </Grid>
+        </Stack>
+      );
+    }}
+  </Story>
+</Canvas>
