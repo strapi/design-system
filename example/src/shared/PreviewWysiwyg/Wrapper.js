@@ -7,12 +7,10 @@ const Wrapper = styled.div`
   height: 100%;
   overflow: auto;
   padding: ${({ theme }) => `${theme.spaces[3]} ${theme.spaces[4]}`};
-  font-size: 16px;
-  background-color: #fff;
-  font-family: 'Lato';
+  font-size: ${14 / 16}rem;
+  background-color: ${({ theme }) => theme.colors.neutral0};
   cursor: text;
-  border-left: ${({ theme }) => `1px solid ${theme.colors.neutral200}`};
-  border-right: ${({ theme }) => `1px solid ${theme.colors.neutral200}`};
+  color: ${({ theme }) => theme.colors.neutral800};
 
   h1,
   h2,
@@ -22,26 +20,25 @@ const Wrapper = styled.div`
   h6 {
     margin-block-start: 10px;
     margin-block-end: 10px;
-    font-family: 'Lato';
   }
 
   h1 {
-    font-size: 36px;
+    font-size: ${36 / 16}rem;
     font-weight: 600;
   }
 
   h2 {
-    font-size: 30px;
+    font-size: ${30 / 16}rem;
     font-weight: 500;
   }
 
   h3 {
-    font-size: 24px;
+    font-size: ${24 / 16}rem;
     font-weight: 500;
   }
 
   h4 {
-    font-size: 20px;
+    font-size: ${20 / 16}rem;
     font-weight: 500;
   }
 
@@ -52,7 +49,7 @@ const Wrapper = styled.div`
   blockquote {
     margin-top: 41px;
     margin-bottom: 34px;
-    font-size: 16px;
+    font-size: ${14 / 16}rem;
     font-weight: 400;
     border-left: 5px solid #eee;
     font-style: italic;
@@ -92,7 +89,6 @@ const Wrapper = styled.div`
   pre,
   code {
     font-size: 13px;
-    font-family: 'Lato';
     border-radius: 3px;
     background-color: #002b36;
   }
