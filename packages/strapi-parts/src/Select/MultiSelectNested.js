@@ -4,7 +4,7 @@ import { OptGroup } from './OptGroup';
 import { Option } from './Option';
 import { Select } from './Select';
 
-const MultiSelectNested = ({ options, ...props }) => {
+export const MultiSelectNested = ({ options, ...props }) => {
   return (
     <Select multi {...props}>
       {options.map(({ label, value, children }) =>
@@ -29,5 +29,3 @@ const MultiSelectNested = ({ options, ...props }) => {
 MultiSelectNested.propTypes = {
   options: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
-
-export default MultiSelectNested;
