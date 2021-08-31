@@ -4676,6 +4676,7 @@ exports[`Storyshots Design System/Layouts/HeaderLayout sticky 1`] = `
   top: 0;
   right: 0;
   width: px;
+  z-index: 10;
 }
 
 <main>

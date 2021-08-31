@@ -5,10 +5,19 @@ import { H1, Subtitle, P, H2 } from '../Text';
 import { Box } from '../Box';
 import { Row } from '../Row';
 import { useElementOnScreen } from '../helpers/useElementOnScreen';
+import { useResizeObserver } from '../helpers/useResizeObserver';
 
 const useHeaderSize = () => {
   const baseHeaderLayoutRef = useRef(null);
   const [headerSize, setHeaderSize] = useState(null);
+
+  const [containerRef, isVisible] = useElementOnScreen({
+    root: null,
+    rootMargin: '0px',
+    threshold: 0,
+  });
+
+  useResizeObserver(containerRef, () => setHeaderSize(containerRef.current.getBoundingClientRect()));
 
   useEffect(() => {
     if (baseHeaderLayoutRef.current) {
@@ -17,18 +26,15 @@ const useHeaderSize = () => {
   }, [baseHeaderLayoutRef]);
 
   return {
+    containerRef,
+    isVisible,
     baseHeaderLayoutRef,
     headerSize,
   };
 };
 
 export const HeaderLayout = (props) => {
-  const [containerRef, isVisible] = useElementOnScreen({
-    root: null,
-    rootMargin: '0px',
-    threshold: 0,
-  });
-  const { baseHeaderLayoutRef, headerSize } = useHeaderSize();
+  const { containerRef, isVisible, baseHeaderLayoutRef, headerSize } = useHeaderSize();
 
   return (
     <>
@@ -47,6 +53,7 @@ const StickyBox = styled(Box)`
   top: 0;
   right: 0;
   width: ${(props) => props.width}px;
+  z-index: ${({ theme }) => theme.zIndices[1]};
 `;
 
 export const BaseHeaderLayout = React.forwardRef(
