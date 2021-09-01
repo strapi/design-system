@@ -17,9 +17,9 @@ const EmptyStateImageWrapper = styled(Box)`
   }
 `;
 
-export const EmptyStateLayout = ({ icon, content, action }) => {
+export const EmptyStateLayout = ({ icon, content, action, hasRadius, shadow }) => {
   return (
-    <EmptyStateWrapper padding={11} background="neutral0" hasRadius shadow="tableShadow">
+    <EmptyStateWrapper padding={11} background="neutral0" hasRadius={hasRadius} shadow={shadow}>
       <EmptyStateImageWrapper paddingBottom={6} aria-hidden>
         {icon}
       </EmptyStateImageWrapper>
@@ -35,10 +35,14 @@ export const EmptyStateLayout = ({ icon, content, action }) => {
 
 EmptyStateLayout.defaultProps = {
   action: undefined,
+  hasRadius: true,
+  shadow: 'tableShadow',
 };
 
 EmptyStateLayout.propTypes = {
   action: PropTypes.node,
   content: PropTypes.string.isRequired,
+  hasRadius: PropTypes.bool,
   icon: PropTypes.node.isRequired,
+  shadow: PropTypes.string,
 };
