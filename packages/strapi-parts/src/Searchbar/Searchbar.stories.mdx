@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
 import { Searchbar } from './Searchbar';
 import { SearchForm } from './SearchForm';
 
@@ -14,7 +15,18 @@ import { SearchForm } from './SearchForm';
 
 This is the doc of the `Searchbar` component
 
-## Searchbar default
+[View source](https://github.com/strapi/parts/tree/develop/packages/strapi-parts/src/Searchbar)
+
+## Imports
+
+```js
+import { Searchbar } from '@strapi/parts/Searchbar';
+```
+
+## Usage
+
+
+### Searchbar default
 
 The default searchbar
 
@@ -40,7 +52,7 @@ The default searchbar
   </Story>
 </Canvas>
 
-## Searchbar disabled
+### Searchbar disabled
 
 The Searchbar disabled
 
@@ -64,3 +76,8 @@ The Searchbar disabled
     }}
   </Story>
 </Canvas>
+
+
+## Props
+
+<ArgsTable of={Searchbar} />

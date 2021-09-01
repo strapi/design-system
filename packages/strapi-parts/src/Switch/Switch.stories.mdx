@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
 import { Switch } from './Switch';
 
 <Meta title="Design System/Molecules/Switch" component={Switch} />
@@ -10,7 +11,15 @@ import { Switch } from './Switch';
 
 This is the doc of the `Switch` component
 
-## Switch
+[View source](https://github.com/strapi/parts/tree/develop/packages/strapi-parts/src/Switch)
+
+## Imports
+
+```js
+import { Switch } from '@strapi/parts/Switch';
+```
+
+## Usage
 
 Description...
 
@@ -29,3 +38,8 @@ Description...
     <Switch label="Activate the microphone" selected={false} onChange={() => setChecked((s) => !s)} visibleLabels />
   </Story>
 </Canvas>
+
+
+## Props
+
+<ArgsTable of={Switch} />

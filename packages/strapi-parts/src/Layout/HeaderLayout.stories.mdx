@@ -1,6 +1,7 @@
 <!--- HeaderLayout.stories.mdx --->
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
 import BackIcon from '@strapi/icons/BackIcon';
 import EditIcon from '@strapi/icons/EditIcon';
 import AddIcon from '@strapi/icons/AddIcon';
@@ -16,11 +17,17 @@ import { Stack } from '../Stack';
 
 # BaseHeaderLayout
 
-This is the doc of the `HeaderLayout` component
+This is the doc of the `HeaderLayout` component.
 
-## BaseHeaderLayout
+[View source](https://github.com/strapi/parts/tree/develop/packages/strapi-parts/src/Layout)
 
-Description...
+## Imports
+
+```js
+import { HeaderLayout } from '@strapi/parts/HeaderLayout';
+```
+
+## Usage
 
 <Canvas>
   <Story name="base">
@@ -121,3 +128,8 @@ Open in a new tab.
     </Box>
   </Story>
 </Canvas>
+
+
+## Props
+
+<ArgsTable of={HeaderLayout} />

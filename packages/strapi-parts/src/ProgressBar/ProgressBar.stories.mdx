@@ -1,6 +1,7 @@
 <!--- ProgressBar.stories.mdx --->
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
 import { ProgressBar } from './ProgressBar';
 
 <Meta
@@ -12,7 +13,17 @@ import { ProgressBar } from './ProgressBar';
 
 This is the doc of the `ProgressBar` component
 
-## ProgressBar M
+[View source](https://github.com/strapi/parts/tree/develop/packages/strapi-parts/src/ProgressBar)
+
+## Imports
+
+```js
+import { ProgressBar } from '@strapi/parts/ProgressBar';
+```
+
+## Usage
+
+### ProgressBar M
 
 Default "M" progressbar
 
@@ -22,7 +33,7 @@ Default "M" progressbar
   </Story>
 </Canvas>
 
-## ProgressBar S
+### ProgressBar S
 
 The "S" progressbar
 
@@ -33,3 +44,7 @@ The "S" progressbar
     </ProgressBar>
   </Story>
 </Canvas>
+
+## Props
+
+<ArgsTable of={ProgressBar} />

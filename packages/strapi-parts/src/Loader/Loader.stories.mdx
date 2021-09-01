@@ -13,10 +13,18 @@ import { Loader } from './Loader';
 
 Loaders indicate some data is currently loading where content usually takes place. They help to notify users that loading is ongoing.
 
-**Best** **practices**
+**Best practices**
 
 - Once the content appears, the loader disappears.
 - If the trigger only concerns a portion of a page, the loader should be placed in that part.
+
+[View source](https://github.com/strapi/parts/tree/develop/packages/strapi-parts/src/Loader)
+
+## Imports
+
+```js
+import { Loader } from '@strapi/parts/Loader';
+```
 
 
 ## Usage
@@ -32,4 +40,3 @@ Loaders shows an action has been processed. Moreover, details about what is happ
 ## Props
 
 <ArgsTable of={Loader} />
-

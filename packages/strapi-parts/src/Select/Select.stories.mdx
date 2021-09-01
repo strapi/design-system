@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
 import AddIcon from '@strapi/icons/AddIcon';
 import { Select } from './Select';
 import { Option } from './Option';
@@ -13,7 +14,15 @@ import { Stack } from '../Stack';
 
 This is the doc of the `Select` component
 
-## Select
+[View source](https://github.com/strapi/parts/tree/develop/packages/strapi-parts/src/Select)
+
+## Imports
+
+```js
+import { Select } from '@strapi/parts/Select';
+```
+
+## Usage
 
 Description...
 
@@ -175,3 +184,8 @@ Description...
     }}
   </Story>
 </Canvas>
+
+
+## Props
+
+<ArgsTable of={Select} />

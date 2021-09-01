@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
 import Applications from '@strapi/icons/Applications';
 import AddIcon from '@strapi/icons/AddIcon';
 import ApiTokens from '@strapi/icons/ApiTokens';
@@ -25,7 +26,15 @@ import { TextButton } from '../TextButton';
 
 This is the doc of the `SubNav` component
 
-## SubNav
+[View source](https://github.com/strapi/parts/tree/develop/packages/strapi-parts/src/SubNav)
+
+## Imports
+
+```js
+import { SubNav } from '@strapi/parts/SubNav';
+```
+
+## Usage
 
 Description...
 
@@ -157,3 +166,8 @@ Description...
     }}
   </Story>
 </Canvas>
+
+
+## Props
+
+<ArgsTable of={SubNav} />

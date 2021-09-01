@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
 import { ToggleCheckbox } from './ToggleCheckbox';
 
 <Meta title="Design System/Molecules/ToggleCheckbox" component={ToggleCheckbox} />
@@ -10,7 +11,17 @@ import { ToggleCheckbox } from './ToggleCheckbox';
 
 This is the doc of the `ToggleCheckbox` component
 
-## ToggleCheckbox activated
+[View source](https://github.com/strapi/parts/tree/develop/packages/strapi-parts/src/ToggleCheckbox)
+
+## Imports
+
+```js
+import { ToggleCheckbox } from '@strapi/parts/ToggleCheckbox';
+```
+
+## Usage
+
+### ToggleCheckbox activated
 
 Description...
 
@@ -22,7 +33,7 @@ Description...
   </Story>
 </Canvas>
 
-## ToggleCheckbox not activated
+### ToggleCheckbox not activated
 
 Description...
 
@@ -33,3 +44,8 @@ Description...
     </ToggleCheckbox>
   </Story>
 </Canvas>
+
+
+## Props
+
+<ArgsTable of={ToggleCheckbox} />

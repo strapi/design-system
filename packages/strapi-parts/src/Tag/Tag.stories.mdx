@@ -1,6 +1,7 @@
 <!--- Tag.stories.mdx --->
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
 import HelpIcon from '@strapi/icons/HelpIcon';
 import { Tag } from './Tag';
 
@@ -13,7 +14,15 @@ import { Tag } from './Tag';
 
 This is the doc of the `Tag` component
 
-## Tag
+[View source](https://github.com/strapi/parts/tree/develop/packages/strapi-parts/src/Tag)
+
+## Imports
+
+```js
+import { Tag } from '@strapi/parts/Tag';
+```
+
+## Usage
 
 Description...
 
@@ -22,3 +31,8 @@ Description...
     <Tag icon={<HelpIcon aria-hidden={true} />}>Hello world</Tag>
   </Story>
 </Canvas>
+
+
+## Props
+
+<ArgsTable of={Tag} />

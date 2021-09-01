@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
 import { TimePicker } from './TimePicker';
 
 <Meta title="Design System/Molecules/TimePicker" component={TimePicker} />
@@ -10,7 +11,15 @@ import { TimePicker } from './TimePicker';
 
 This is the doc of the `TimePicker` component
 
-## TimePicker
+[View source](https://github.com/strapi/parts/tree/develop/packages/strapi-parts/src/TimePicker)
+
+## Imports
+
+```js
+import { TimePicker } from '@strapi/parts/TimePicker';
+```
+
+## Usage
 
 Description...
 
@@ -60,3 +69,8 @@ Description...
     }}
   </Story>
 </Canvas>
+
+
+## Props
+
+<ArgsTable of={TimePicker} />

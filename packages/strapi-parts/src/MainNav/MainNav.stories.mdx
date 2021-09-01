@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
 import ContentIcon from '@strapi/icons/ContentIcon';
 import CtbIcon from '@strapi/icons/ContentTypeBuilderIcon';
 import MediaLibIcon from '@strapi/icons/MediaLibrary';
@@ -25,9 +26,18 @@ import strapiImage from './strapi-img.png';
 
 # MainNav
 
-This is the doc of the `MainNav` component
+This is the doc of the `MainNav` component.
 
-## MainNav
+[View source](https://github.com/strapi/parts/tree/develop/packages/strapi-parts/src/MainNav)
+
+## Imports
+
+```js
+import { MainNav } from '@strapi/parts/MainNav';
+```
+
+
+## Usage
 
 Description...
 
@@ -79,3 +89,8 @@ Description...
     }}
   </Story>
 </Canvas>
+
+
+## Props
+
+<ArgsTable of={MainNav} />

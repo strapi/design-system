@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
 import { Radio, RadioGroup } from './';
 
 <Meta title="Design System/Molecules/Radio" component={Radio} />
@@ -10,7 +11,17 @@ import { Radio, RadioGroup } from './';
 
 This is the doc of the `Radio` component
 
-## Default
+[View source](https://github.com/strapi/parts/tree/develop/packages/strapi-parts/src/Radio)
+
+## Imports
+
+```js
+import { Radio } from '@strapi/parts/Radio';
+```
+
+## Usage
+
+### Default
 
 Description...
 
@@ -35,3 +46,8 @@ Description...
     }}
   </Story>
 </Canvas>
+
+
+## Props
+
+<ArgsTable of={Radio} />

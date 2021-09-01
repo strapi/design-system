@@ -1,6 +1,7 @@
 <!--- RawTable.stories.mdx --->
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
 import { RawTable } from './RawTable';
 import { RawTh, RawTd } from './RawCell';
 import { RawTr } from './RawTr';
@@ -14,7 +15,15 @@ import { Box } from '../Box';
 
 This is the doc of the `RawTable` component
 
-## RawTable
+[View source](https://github.com/strapi/parts/tree/develop/packages/strapi-parts/src/RawTable)
+
+## Imports
+
+```js
+import { RawTable } from '@strapi/parts/RawTable';
+```
+
+## Usage
 
 Description...
 
@@ -147,3 +156,8 @@ Description...
     }}
   </Story>
 </Canvas>
+
+
+## Props
+
+<ArgsTable of={RawTable} />
