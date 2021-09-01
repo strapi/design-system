@@ -7,6 +7,7 @@ import { Row } from '../Row';
 import { Text } from '../Text';
 import { useMainNav } from './MainNavContext';
 import { Tooltip } from '../Tooltip';
+import { Badge } from '../Badge';
 
 const IconBox = styled(Box)`
   height: 1rem;
@@ -58,30 +59,35 @@ const MainNavRow = styled(Row)`
   padding: ${({ theme }) => `${theme.spaces[2]} ${theme.spaces[3]}`};
 `;
 
-const Notification = styled(Row)`
+const CustomBadge = styled(Badge)`
   ${({ condensed }) =>
     condensed &&
     `
-    position: absolute;
+	  position: absolute;
     transform: translate(35%, -50%);
     top: 0;
     right: 0;
   `}
 
-  background: ${({ theme }) => theme.colors.primary600};
-  height: ${({ theme }) => theme.spaces[5]};
-  padding: ${({ theme }) => `0 ${theme.spaces[2]}`};
-  border-radius: ${({ theme }) => theme.spaces[10]};
-
   ${Text} {
+    //find a solution to remove !important
     color: ${({ theme }) => theme.colors.neutral0} !important;
     line-height: 0;
   }
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: ${({ theme }) => theme.spaces[5]};
+  min-width: ${({ theme }) => theme.spaces[6]};
+  padding: ${({ theme }) => `0 ${theme.spaces[2]}`};
+  border-radius: ${({ theme }) => theme.spaces[10]};
+  background: ${({ theme }) => theme.colors.primary600};
 `;
 
-export const NavLink = ({ children, icon, notifications, ...props }) => {
+export const NavLink = ({ children, icon, badgeContent, badgeAriaLabel, ...props }) => {
   const condensed = useMainNav();
-  const isNotification = notifications > 0;
+  const withBadge = badgeContent > 0;
 
   if (condensed) {
     return (
@@ -92,12 +98,10 @@ export const NavLink = ({ children, icon, notifications, ...props }) => {
               <IconBox aria-hidden paddingRight={0} as="span">
                 {icon}
               </IconBox>
-              {isNotification && (
-                <Notification condensed justifyContent="center">
-                  <Text notifText small highlighted>
-                    {notifications}
-                  </Text>
-                </Notification>
+              {withBadge && (
+                <CustomBadge condensed aria-label={badgeAriaLabel}>
+                  {badgeContent}
+                </CustomBadge>
               )}
             </MainNavRow>
           </MainNavLinkWrapper>
@@ -116,12 +120,10 @@ export const NavLink = ({ children, icon, notifications, ...props }) => {
             </IconBox>
             <Text>{children}</Text>
           </Row>
-          {isNotification && (
-            <Notification justifyContent="center">
-              <Text notifText small highlighted>
-                {notifications}
-              </Text>
-            </Notification>
+          {withBadge && (
+            <CustomBadge justifyContent="center" aria-label={badgeAriaLabel}>
+              {badgeContent}
+            </CustomBadge>
           )}
         </MainNavRow>
       </MainNavLinkWrapper>
@@ -130,11 +132,13 @@ export const NavLink = ({ children, icon, notifications, ...props }) => {
 };
 
 NavLink.defaultProps = {
-  notifications: undefined,
+  badgeContent: undefined,
+  badgeAriaLabel: undefined,
 };
 
 NavLink.propTypes = {
   children: PropTypes.string.isRequired,
   icon: PropTypes.node.isRequired,
-  notifications: PropTypes.number,
+  badgeContent: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  badgeAriaLabel: PropTypes.string,
 };
