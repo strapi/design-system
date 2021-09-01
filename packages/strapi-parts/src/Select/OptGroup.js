@@ -23,3 +23,5 @@ OptGroup.propTypes = {
   children: PropTypes.arrayOf(PropTypes.node).isRequired,
   label: PropTypes.string.isRequired,
 };
+
+OptGroup.displayName = 'OptGroup';
