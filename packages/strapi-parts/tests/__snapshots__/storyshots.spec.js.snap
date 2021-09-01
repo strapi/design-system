@@ -2172,6 +2172,165 @@ exports[`Storyshots Design System/Atoms/Text base 1`] = `
 </main>
 `;
 
+exports[`Storyshots Design System/Layouts/Dialog base 1`] = `
+.c0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.c6 {
+  background: #ffffff;
+  padding: 56px;
+}
+
+.c4 {
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #32324d;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  background: #ffffff;
+  border: 1px solid #dcdce4;
+}
+
+.c1 svg {
+  height: 12px;
+  width: 12px;
+}
+
+.c1 svg > g,
+.c1 svg path {
+  fill: #ffffff;
+}
+
+.c1[aria-disabled='true'] {
+  pointer-events: none;
+}
+
+.c2 {
+  padding: 8px 16px;
+  background: #4945ff;
+  border: none;
+  border: 1px solid #4945ff;
+  background: #4945ff;
+}
+
+.c2 .c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c2 .c3 {
+  color: #ffffff;
+}
+
+.c2[aria-disabled='true'] {
+  border: 1px solid #dcdce4;
+  background: #eaeaef;
+}
+
+.c2[aria-disabled='true'] .c3 {
+  color: #666687;
+}
+
+.c2[aria-disabled='true'] svg > g,
+.c2[aria-disabled='true'] svg path {
+  fill: #666687;
+}
+
+.c2[aria-disabled='true']:active {
+  border: 1px solid #dcdce4;
+  background: #eaeaef;
+}
+
+.c2[aria-disabled='true']:active .c3 {
+  color: #666687;
+}
+
+.c2[aria-disabled='true']:active svg > g,
+.c2[aria-disabled='true']:active svg path {
+  fill: #666687;
+}
+
+.c2:hover {
+  border: 1px solid #7b79ff;
+  background: #7b79ff;
+}
+
+.c2:active {
+  border: 1px solid #4945ff;
+  background: #4945ff;
+}
+
+<main>
+  <div
+    class="c0"
+  >
+    <h1>
+      Storybook story
+    </h1>
+  </div>
+  <button
+    aria-disabled="false"
+    class="c1 c2"
+    type="button"
+  >
+    <span
+      class="c3 c4"
+    >
+      Click me
+    </span>
+  </button>
+  <div
+    class="c5 c6"
+  >
+    test overflow
+  </div>
+  <div
+    class="c5 c6"
+  >
+    test overflow
+  </div>
+  <div
+    class="c5 c6"
+  >
+    test overflow
+  </div>
+  <div
+    class="c5 c6"
+  >
+    test overflow
+  </div>
+  <div
+    class="c5 c6"
+  >
+    test overflow
+  </div>
+</main>
+`;
+
 exports[`Storyshots Design System/Layouts/EmptyStateLayout base 1`] = `
 .c0 {
   border: 0;
@@ -4517,6 +4676,7 @@ exports[`Storyshots Design System/Layouts/HeaderLayout sticky 1`] = `
   top: 0;
   right: 0;
   width: px;
+  z-index: 10;
 }
 
 <main>
@@ -7237,6 +7397,100 @@ exports[`Storyshots Design System/Layouts/ModalLayout base 1`] = `
   width: 1px;
 }
 
+.c4 {
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #32324d;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  background: #ffffff;
+  border: 1px solid #dcdce4;
+}
+
+.c1 svg {
+  height: 12px;
+  width: 12px;
+}
+
+.c1 svg > g,
+.c1 svg path {
+  fill: #ffffff;
+}
+
+.c1[aria-disabled='true'] {
+  pointer-events: none;
+}
+
+.c2 {
+  padding: 8px 16px;
+  background: #4945ff;
+  border: none;
+  border: 1px solid #4945ff;
+  background: #4945ff;
+}
+
+.c2 .sc-gtsrHT {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c2 .c3 {
+  color: #ffffff;
+}
+
+.c2[aria-disabled='true'] {
+  border: 1px solid #dcdce4;
+  background: #eaeaef;
+}
+
+.c2[aria-disabled='true'] .c3 {
+  color: #666687;
+}
+
+.c2[aria-disabled='true'] svg > g,
+.c2[aria-disabled='true'] svg path {
+  fill: #666687;
+}
+
+.c2[aria-disabled='true']:active {
+  border: 1px solid #dcdce4;
+  background: #eaeaef;
+}
+
+.c2[aria-disabled='true']:active .c3 {
+  color: #666687;
+}
+
+.c2[aria-disabled='true']:active svg > g,
+.c2[aria-disabled='true']:active svg path {
+  fill: #666687;
+}
+
+.c2:hover {
+  border: 1px solid #7b79ff;
+  background: #7b79ff;
+}
+
+.c2:active {
+  border: 1px solid #4945ff;
+  background: #4945ff;
+}
+
 <main>
   <div
     class="c0"
@@ -7245,13 +7499,22 @@ exports[`Storyshots Design System/Layouts/ModalLayout base 1`] = `
       Storybook story
     </h1>
   </div>
-  <div>
-    <p
-      style="height: 100vh;"
+  <button
+    aria-disabled="false"
+    class="c1 c2"
+    type="button"
+  >
+    <span
+      class="c3 c4"
     >
-      This is a raw content
-    </p>
-  </div>
+      Click to open Modal
+    </span>
+  </button>
+  <p
+    style="height: 120vh;"
+  >
+    This is a raw content
+  </p>
 </main>
 `;
 
@@ -8696,6 +8959,7 @@ exports[`Storyshots Design System/Molecules/Button disabled 1`] = `
     <button
       aria-disabled="true"
       class="c3 c4"
+      disabled=""
       type="button"
     >
       <div
@@ -9014,6 +9278,7 @@ exports[`Storyshots Design System/Molecules/Button icons 1`] = `
     <button
       aria-disabled="true"
       class="c2 c3"
+      disabled=""
       type="button"
     >
       <div
@@ -16668,7 +16933,7 @@ exports[`Storyshots Design System/Molecules/NumberInput base 1`] = `
         >
           <label
             class="c4"
-            for="numberinput-77"
+            for="numberinput-73"
           >
             Content
           </label>
@@ -16677,7 +16942,7 @@ exports[`Storyshots Design System/Molecules/NumberInput base 1`] = `
           >
             <span>
               <button
-                aria-describedby="tooltip-78"
+                aria-describedby="tooltip-74"
                 aria-label="Information about the email"
                 style="padding: 0px; background: transparent;"
                 tabindex="0"
@@ -16703,10 +16968,10 @@ exports[`Storyshots Design System/Molecules/NumberInput base 1`] = `
           class="c6 c7"
         >
           <input
-            aria-describedby="numberinput-77-hint"
+            aria-describedby="numberinput-73-hint"
             aria-invalid="false"
             class="c8"
-            id="numberinput-77"
+            id="numberinput-73"
             name="content"
             placeholder="This is a content placeholder"
             type="text"
@@ -16759,7 +17024,7 @@ exports[`Storyshots Design System/Molecules/NumberInput base 1`] = `
         </div>
         <p
           class="c12"
-          id="numberinput-77-hint"
+          id="numberinput-73-hint"
         >
           Description line
         </p>
@@ -19626,7 +19891,7 @@ exports[`Storyshots Design System/Molecules/Searchbar base 1`] = `
         >
           <label
             class="c2"
-            for="field-80"
+            for="field-76"
           >
             Searching for a plugin
           </label>
@@ -19660,7 +19925,7 @@ exports[`Storyshots Design System/Molecules/Searchbar base 1`] = `
           <input
             aria-invalid="false"
             class="c10"
-            id="field-80"
+            id="field-76"
             name="searchbar"
             placeholder="e.g: strapi-plugin-abcd"
             value=""
@@ -19825,7 +20090,7 @@ exports[`Storyshots Design System/Molecules/Searchbar disabled 1`] = `
       >
         <label
           class="c2"
-          for="field-81"
+          for="field-77"
         >
           Searching for a plugin
         </label>
@@ -19861,7 +20126,7 @@ exports[`Storyshots Design System/Molecules/Searchbar disabled 1`] = `
           aria-invalid="false"
           class="c10"
           disabled=""
-          id="field-81"
+          id="field-77"
           name="searchbar"
           placeholder="e.g: strapi-plugin-abcd"
           value=""
@@ -20163,6 +20428,283 @@ exports[`Storyshots Design System/Molecules/Select base 1`] = `
 `;
 
 exports[`Storyshots Design System/Molecules/Select multi 1`] = `
+.c0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.c9 {
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
+.c11 {
+  padding-left: 12px;
+}
+
+.c3 {
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #32324d;
+}
+
+.c10 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #32324d;
+}
+
+.c14 {
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #666687;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c1 > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.c1 > * + * {
+  margin-top: 64px;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c2 > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.c2 > * + * {
+  margin-top: 4px;
+}
+
+.c5 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  width: 100%;
+  background: transparent;
+  border: none;
+}
+
+.c5:focus {
+  outline: none;
+}
+
+.c4 {
+  position: relative;
+  border: 1px solid #dcdce4;
+  padding-right: 12px;
+  border-radius: 4px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.c4:focus-within {
+  border: 1px solid #4945ff;
+}
+
+.c12 {
+  background: transparent;
+  border: none;
+  position: relative;
+  z-index: 1;
+}
+
+.c12 svg {
+  height: 0.6875rem;
+  width: 0.6875rem;
+}
+
+.c12 svg path {
+  fill: #666687;
+}
+
+.c13 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  background: none;
+  border: none;
+}
+
+.c13 svg {
+  width: 0.375rem;
+}
+
+.c7 {
+  min-height: 2.5rem;
+}
+
+<main>
+  <div
+    class="c0"
+  >
+    <h1>
+      Storybook story
+    </h1>
+  </div>
+  <div
+    class="c1"
+  >
+    <h2>
+      Current value is 
+      
+    </h2>
+    <div>
+      <div
+        class="c2"
+      >
+        <span
+          class="c3"
+          for="select1"
+          id="select1-label"
+        >
+          Choose your meal
+        </span>
+        <div
+          class="c4"
+        >
+          <button
+            aria-describedby="select1-hint"
+            aria-disabled="false"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-labelledby="select1-label select1-content"
+            class="c5"
+            id="select1"
+            type="button"
+          />
+          <div
+            class="c6 c7"
+          >
+            <div
+              class="c8"
+            >
+              <div
+                class="c9"
+              >
+                <span
+                  class="c10"
+                  id="select1-content"
+                >
+                  0 currently selected
+                  <span
+                    class="c0"
+                  />
+                </span>
+              </div>
+            </div>
+            <div
+              class="c8"
+            >
+              <button
+                aria-hidden="true"
+                class="c11 c12 c13"
+                tabindex="-1"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 14 8"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
+                    fill="#32324D"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <p
+          class="c14"
+          id="select1-hint"
+        >
+          Description line
+        </p>
+      </div>
+    </div>
+    <button>
+      Show the error state
+    </button>
+    <button>
+      Show the disabled state
+    </button>
+  </div>
+</main>
+`;
+
+exports[`Storyshots Design System/Molecules/Select multi-nested 1`] = `
 .c0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
@@ -21188,7 +21730,7 @@ exports[`Storyshots Design System/Molecules/SimpleMenu with-links 1`] = `
   </div>
   <div>
     <button
-      aria-controls="simplemenu-82"
+      aria-controls="simplemenu-78"
       aria-expanded="false"
       aria-haspopup="true"
       class="c1"
@@ -22176,6 +22718,7 @@ exports[`Storyshots Design System/Molecules/TextButton base 1`] = `
     <button
       aria-disabled="false"
       class="c1 c2"
+      type="button"
     >
       <span
         aria-hidden="true"
@@ -22223,6 +22766,7 @@ exports[`Storyshots Design System/Molecules/TextButton base 1`] = `
       aria-disabled="true"
       class="c1 c6"
       disabled=""
+      type="button"
     >
       <span
         aria-hidden="true"
@@ -22437,7 +22981,7 @@ exports[`Storyshots Design System/Molecules/TextInput base 1`] = `
           >
             <label
               class="c5"
-              for="textinput-138"
+              for="textinput-134"
             >
               Content
             </label>
@@ -22446,7 +22990,7 @@ exports[`Storyshots Design System/Molecules/TextInput base 1`] = `
             >
               <span>
                 <button
-                  aria-describedby="tooltip-139"
+                  aria-describedby="tooltip-135"
                   aria-label="Information about the email"
                   style="padding: 0px; background: transparent;"
                   tabindex="0"
@@ -22472,10 +23016,10 @@ exports[`Storyshots Design System/Molecules/TextInput base 1`] = `
             class="c8 c9"
           >
             <input
-              aria-describedby="textinput-138-hint"
+              aria-describedby="textinput-134-hint"
               aria-invalid="false"
               class="c10"
-              id="textinput-138"
+              id="textinput-134"
               name="content"
               placeholder="This is a content placeholder"
               value=""
@@ -22483,7 +23027,7 @@ exports[`Storyshots Design System/Molecules/TextInput base 1`] = `
           </div>
           <p
             class="c11"
-            id="textinput-138-hint"
+            id="textinput-134-hint"
           >
             Description line
           </p>
@@ -22665,7 +23209,7 @@ exports[`Storyshots Design System/Molecules/TextInput disabled 1`] = `
           >
             <label
               class="c5"
-              for="textinput-141"
+              for="textinput-137"
             >
               Content
             </label>
@@ -22674,7 +23218,7 @@ exports[`Storyshots Design System/Molecules/TextInput disabled 1`] = `
             >
               <span>
                 <button
-                  aria-describedby="tooltip-142"
+                  aria-describedby="tooltip-138"
                   aria-label="Information about the email"
                   style="padding: 0px; background: transparent;"
                   tabindex="0"
@@ -22701,11 +23245,11 @@ exports[`Storyshots Design System/Molecules/TextInput disabled 1`] = `
             disabled=""
           >
             <input
-              aria-describedby="textinput-141-hint"
+              aria-describedby="textinput-137-hint"
               aria-invalid="false"
               class="c10"
               disabled=""
-              id="textinput-141"
+              id="textinput-137"
               name="content"
               placeholder="This is a content placeholder"
               value="Disabled ontent"
@@ -22713,7 +23257,7 @@ exports[`Storyshots Design System/Molecules/TextInput disabled 1`] = `
           </div>
           <p
             class="c11"
-            id="textinput-141-hint"
+            id="textinput-137-hint"
           >
             Description line
           </p>
@@ -22893,7 +23437,7 @@ exports[`Storyshots Design System/Molecules/TextInput password 1`] = `
           >
             <label
               class="c5"
-              for="textinput-147"
+              for="textinput-143"
             >
               Password
             </label>
@@ -22902,7 +23446,7 @@ exports[`Storyshots Design System/Molecules/TextInput password 1`] = `
             >
               <span>
                 <button
-                  aria-describedby="tooltip-148"
+                  aria-describedby="tooltip-144"
                   aria-label="Information about the email"
                   style="padding: 0px; background: transparent;"
                   tabindex="0"
@@ -22928,10 +23472,10 @@ exports[`Storyshots Design System/Molecules/TextInput password 1`] = `
             class="c8 c9"
           >
             <input
-              aria-describedby="textinput-147-hint"
+              aria-describedby="textinput-143-hint"
               aria-invalid="false"
               class="c10"
-              id="textinput-147"
+              id="textinput-143"
               name="password"
               placeholder="This is a password placeholder"
               type="password"
@@ -22940,7 +23484,7 @@ exports[`Storyshots Design System/Molecules/TextInput password 1`] = `
           </div>
           <p
             class="c11"
-            id="textinput-147-hint"
+            id="textinput-143-hint"
           >
             Description line
           </p>
@@ -23120,7 +23664,7 @@ exports[`Storyshots Design System/Molecules/TextInput with error 1`] = `
           >
             <label
               class="c5"
-              for="textinput-144"
+              for="textinput-140"
             >
               Content
             </label>
@@ -23129,7 +23673,7 @@ exports[`Storyshots Design System/Molecules/TextInput with error 1`] = `
             >
               <span>
                 <button
-                  aria-describedby="tooltip-145"
+                  aria-describedby="tooltip-141"
                   aria-label="Information about the email"
                   style="padding: 0px; background: transparent;"
                   tabindex="0"
@@ -23155,10 +23699,10 @@ exports[`Storyshots Design System/Molecules/TextInput with error 1`] = `
             class="c8 c9"
           >
             <input
-              aria-describedby="textinput-144-error"
+              aria-describedby="textinput-140-error"
               aria-invalid="true"
               class="c10"
-              id="textinput-144"
+              id="textinput-140"
               name="content"
               placeholder="This is a content placeholder"
               value="content"
@@ -23167,7 +23711,7 @@ exports[`Storyshots Design System/Molecules/TextInput with error 1`] = `
           <p
             class="c11"
             data-strapi-field-error="true"
-            id="textinput-144-error"
+            id="textinput-140-error"
           >
             Content is too long
           </p>
@@ -23347,7 +23891,7 @@ exports[`Storyshots Design System/Molecules/Textarea base 1`] = `
           >
             <label
               class="c5"
-              for="textarea-150"
+              for="textarea-146"
             >
               Content
             </label>
@@ -23356,7 +23900,7 @@ exports[`Storyshots Design System/Molecules/Textarea base 1`] = `
             >
               <span>
                 <button
-                  aria-describedby="tooltip-151"
+                  aria-describedby="tooltip-147"
                   aria-label="Information about the email"
                   style="padding: 0px; background: transparent;"
                   tabindex="0"
@@ -23379,17 +23923,17 @@ exports[`Storyshots Design System/Molecules/Textarea base 1`] = `
             </div>
           </div>
           <textarea
-            aria-describedby="textarea-150-error"
+            aria-describedby="textarea-146-error"
             aria-invalid="true"
             class="c7"
-            id="textarea-150"
+            id="textarea-146"
             name="content"
             placeholder="This is a content placeholder"
           />
           <p
             class="c8"
             data-strapi-field-error="true"
-            id="textarea-150-error"
+            id="textarea-146-error"
           >
             Content is too short
           </p>
@@ -24228,6 +24772,444 @@ exports[`Storyshots Design System/Molecules/ToggleCheckbox not activated 1`] = `
       </div>
     </div>
   </label>
+</main>
+`;
+
+exports[`Storyshots Design System/Molecules/ToggleInput base 1`] = `
+.c0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.c5 {
+  padding-left: 4px;
+}
+
+.c9 {
+  background: #ffffff;
+  border-radius: 4px;
+}
+
+.c11 {
+  padding-top: 12px;
+  padding-right: 32px;
+  padding-bottom: 12px;
+  padding-left: 32px;
+}
+
+.c13 {
+  background: #f0f0ff;
+  padding-top: 12px;
+  padding-right: 32px;
+  padding-bottom: 12px;
+  padding-left: 32px;
+}
+
+.c4 {
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #32324d;
+}
+
+.c15 {
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #271fe0;
+}
+
+.c16 {
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #666687;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c2 > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.c2 > * + * {
+  margin-top: 4px;
+}
+
+.c7 {
+  position: relative;
+  display: inline-block;
+}
+
+.c7:active,
+.c7:focus-within {
+  outline: 2px solid #4945ff;
+  outline-offset: 2px;
+}
+
+.c10 {
+  position: relative;
+  z-index: 1;
+  border: 1px solid #dcdce4;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  overflow: hidden;
+}
+
+.c14 {
+  text-transform: uppercase;
+}
+
+.c12 {
+  text-transform: uppercase;
+  border-right: 1px solid #dcdce4;
+}
+
+.c8 {
+  position: absolute;
+  left: 4px;
+  top: 4px;
+}
+
+.c1 {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.c6 svg path {
+  fill: #8e8ea9;
+}
+
+<main>
+  <div
+    class="c0"
+  >
+    <h1>
+      Storybook story
+    </h1>
+  </div>
+  <div
+    class="c1"
+  >
+    <div
+      class="c2"
+    >
+      <div
+        class="c3"
+      >
+        <label
+          class="c4"
+          for="field-149"
+        >
+          Enabled
+        </label>
+        <div
+          class="c5 c6"
+        >
+          <span>
+            <button
+              aria-describedby="tooltip-150"
+              aria-label="Information about the email"
+              style="padding: 0px; background: transparent;"
+              tabindex="0"
+            >
+              <svg
+                aria-hidden="true"
+                fill="none"
+                height="1em"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12 12-5.383 12-12S18.617 0 12 0zm0 4.92a1.56 1.56 0 110 3.12 1.56 1.56 0 010-3.12zm3.84 13.06a.5.5 0 01-.5.5h-6.2a.5.5 0 01-.5-.5v-.92a.5.5 0 01.5-.5h2.14v-5.28H9.86a.5.5 0 01-.5-.5v-.92a.5.5 0 01.5-.5h2.84a.5.5 0 01.5.5v6.7h2.14a.5.5 0 01.5.5v.92z"
+                  fill="#212134"
+                />
+              </svg>
+            </button>
+          </span>
+        </div>
+      </div>
+      <label
+        class="c7"
+      >
+        <div
+          class="c0"
+        >
+          Enabled
+        </div>
+        <input
+          checked=""
+          class="c8"
+          type="checkbox"
+        />
+        <div
+          aria-hidden="true"
+          class="c9 c10"
+        >
+          <div
+            class="c11 c12"
+          >
+            <span
+              class="c4"
+            >
+              off
+            </span>
+          </div>
+          <div
+            class="c13 c14"
+          >
+            <span
+              class="c15"
+            >
+              on
+            </span>
+          </div>
+        </div>
+      </label>
+      <p
+        class="c16"
+        id="field-149-hint"
+      >
+        Enable provider
+      </p>
+    </div>
+  </div>
+</main>
+`;
+
+exports[`Storyshots Design System/Molecules/ToggleInput error 1`] = `
+.c0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.c7 {
+  background: #ffffff;
+  border-radius: 4px;
+}
+
+.c9 {
+  background: #fcecea;
+  padding-top: 12px;
+  padding-right: 32px;
+  padding-bottom: 12px;
+  padding-left: 32px;
+}
+
+.c12 {
+  padding-top: 12px;
+  padding-right: 32px;
+  padding-bottom: 12px;
+  padding-left: 32px;
+}
+
+.c4 {
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #32324d;
+}
+
+.c11 {
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #b72b1a;
+}
+
+.c14 {
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #d02b20;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c2 > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.c2 > * + * {
+  margin-top: 4px;
+}
+
+.c5 {
+  position: relative;
+  display: inline-block;
+}
+
+.c5:active,
+.c5:focus-within {
+  outline: 2px solid #4945ff;
+  outline-offset: 2px;
+}
+
+.c8 {
+  position: relative;
+  z-index: 1;
+  border: 1px solid #dcdce4;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  overflow: hidden;
+}
+
+.c13 {
+  text-transform: uppercase;
+}
+
+.c10 {
+  text-transform: uppercase;
+  border-right: 1px solid #dcdce4;
+}
+
+.c6 {
+  position: absolute;
+  left: 4px;
+  top: 4px;
+}
+
+.c1 {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+<main>
+  <div
+    class="c0"
+  >
+    <h1>
+      Storybook story
+    </h1>
+  </div>
+  <div
+    class="c1"
+  >
+    <div
+      class="c2"
+    >
+      <div
+        class="c3"
+      >
+        <label
+          class="c4"
+          for="field-152"
+        >
+          Label
+        </label>
+      </div>
+      <label
+        class="c5"
+      >
+        <div
+          class="c0"
+        >
+          Label
+        </div>
+        <input
+          class="c6"
+          type="checkbox"
+        />
+        <div
+          aria-hidden="true"
+          class="c7 c8"
+        >
+          <div
+            class="c9 c10"
+          >
+            <span
+              class="c11"
+            >
+              off
+            </span>
+          </div>
+          <div
+            class="c12 c13"
+          >
+            <span
+              class="c4"
+            >
+              on
+            </span>
+          </div>
+        </div>
+      </label>
+      <p
+        class="c14"
+        data-strapi-field-error="true"
+        id="field-152-error"
+      >
+        this field is required
+      </p>
+    </div>
+  </div>
 </main>
 `;
 
@@ -25879,7 +26861,7 @@ exports[`Storyshots Design System/Organisms/SubNav base 1`] = `
             <span>
               <button
                 aria-disabled="false"
-                aria-labelledby="tooltip-84"
+                aria-labelledby="tooltip-80"
                 class="c7 c8"
                 tabindex="0"
                 type="button"
@@ -25923,7 +26905,7 @@ exports[`Storyshots Design System/Organisms/SubNav base 1`] = `
                   class="c5"
                 >
                   <button
-                    aria-controls="subnav-list-86"
+                    aria-controls="subnav-list-82"
                     aria-expanded="true"
                     class="c1 c17"
                   >
@@ -25968,7 +26950,7 @@ exports[`Storyshots Design System/Organisms/SubNav base 1`] = `
                 </div>
               </div>
               <ul
-                id="subnav-list-86"
+                id="subnav-list-82"
               >
                 <li>
                   <a
@@ -26118,6 +27100,7 @@ exports[`Storyshots Design System/Organisms/SubNav base 1`] = `
               <button
                 aria-disabled="false"
                 class="c1 c33"
+                type="button"
               >
                 <span
                   aria-hidden="true"
@@ -26151,7 +27134,7 @@ exports[`Storyshots Design System/Organisms/SubNav base 1`] = `
                   class="c5"
                 >
                   <button
-                    aria-controls="subnav-list-87"
+                    aria-controls="subnav-list-83"
                     aria-expanded="true"
                     class="c1 c17"
                   >
@@ -26196,7 +27179,7 @@ exports[`Storyshots Design System/Organisms/SubNav base 1`] = `
                 </div>
               </div>
               <ul
-                id="subnav-list-87"
+                id="subnav-list-83"
               >
                 <li>
                   <div
@@ -26206,7 +27189,7 @@ exports[`Storyshots Design System/Organisms/SubNav base 1`] = `
                       class="c5"
                     >
                       <button
-                        aria-controls="subnav-list-88"
+                        aria-controls="subnav-list-84"
                         aria-expanded="true"
                         class="c38"
                       >
@@ -26242,7 +27225,7 @@ exports[`Storyshots Design System/Organisms/SubNav base 1`] = `
                     </div>
                   </div>
                   <ul
-                    id="subnav-list-88"
+                    id="subnav-list-84"
                   >
                     <li>
                       <a
@@ -26394,6 +27377,7 @@ exports[`Storyshots Design System/Organisms/SubNav base 1`] = `
               <button
                 aria-disabled="false"
                 class="c1 c33"
+                type="button"
               >
                 <span
                   aria-hidden="true"
@@ -26537,7 +27521,7 @@ exports[`Storyshots Design System/Organisms/SubNav base 1`] = `
                 </div>
               </div>
               <ul
-                id="subnav-list-90"
+                id="subnav-list-86"
               >
                 <li>
                   <a
@@ -26638,7 +27622,7 @@ exports[`Storyshots Design System/Organisms/SubNav base 1`] = `
                 </div>
               </div>
               <ul
-                id="subnav-list-91"
+                id="subnav-list-87"
               >
                 <li>
                   <a
@@ -26834,7 +27818,7 @@ exports[`Storyshots Design System/Organisms/SubNav base 1`] = `
                 </div>
               </div>
               <ul
-                id="subnav-list-93"
+                id="subnav-list-89"
               >
                 <li>
                   <div
@@ -26844,7 +27828,7 @@ exports[`Storyshots Design System/Organisms/SubNav base 1`] = `
                       class="c5"
                     >
                       <button
-                        aria-controls="subnav-list-94"
+                        aria-controls="subnav-list-90"
                         aria-expanded="true"
                         class="c38"
                       >
@@ -26880,7 +27864,7 @@ exports[`Storyshots Design System/Organisms/SubNav base 1`] = `
                     </div>
                   </div>
                   <ul
-                    id="subnav-list-94"
+                    id="subnav-list-90"
                   >
                     <li>
                       <a
@@ -27053,7 +28037,7 @@ exports[`Storyshots Design System/Organisms/SubNav base 1`] = `
                 </div>
               </div>
               <ul
-                id="subnav-list-95"
+                id="subnav-list-91"
               >
                 <li>
                   <a
@@ -27796,6 +28780,144 @@ exports[`Storyshots Design System/Organisms/Table base 1`] = `
                     <span>
                       <button
                         aria-disabled="false"
+                        aria-labelledby="tooltip-92"
+                        class="c20 c21"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <svg
+                          fill="none"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            clip-rule="evenodd"
+                            d="M23.604 3.514c.528.528.528 1.36 0 1.887l-2.622 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.118 3.118zM0 24v-4.99l14.2-14.2 4.99 4.99L4.99 24H0z"
+                            fill="#212134"
+                            fill-rule="evenodd"
+                          />
+                        </svg>
+                      </button>
+                    </span>
+                    <div
+                      class="c22"
+                    >
+                      <span>
+                        <button
+                          aria-disabled="false"
+                          aria-labelledby="tooltip-94"
+                          class="c20 c21"
+                          tabindex="-1"
+                          type="button"
+                        >
+                          <svg
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 24 24"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M3.236 6.149a.2.2 0 00-.197.233L6 24h12l2.96-17.618a.2.2 0 00-.196-.233H3.236zM21.8 1.983c.11 0 .2.09.2.2v1.584a.2.2 0 01-.2.2H2.2a.2.2 0 01-.2-.2V2.183c0-.11.09-.2.2-.2h5.511c.9 0 1.631-1.09 1.631-1.983h5.316c0 .894.73 1.983 1.631 1.983H21.8z"
+                              fill="#32324D"
+                            />
+                          </svg>
+                        </button>
+                      </span>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr
+                aria-rowindex="3"
+                class="c9"
+              >
+                <td
+                  aria-colindex="1"
+                  class="c10"
+                >
+                  <input
+                    aria-label="Select Leon Lafrite"
+                    class="c12"
+                    tabindex="-1"
+                    type="checkbox"
+                  />
+                </td>
+                <td
+                  aria-colindex="2"
+                  class="c10"
+                  tabindex="-1"
+                >
+                  <span
+                    class="c14"
+                  >
+                    1
+                  </span>
+                </td>
+                <td
+                  aria-colindex="3"
+                  class="c10"
+                  tabindex="-1"
+                >
+                  <span>
+                    <div
+                      class="c18"
+                    >
+                      <img
+                        alt="Leon Lafrite"
+                        class="c19"
+                        height="26px"
+                        src="https://avatars.githubusercontent.com/u/3874873?v=4"
+                        width="26px"
+                      />
+                    </div>
+                  </span>
+                </td>
+                <td
+                  aria-colindex="4"
+                  class="c10"
+                  tabindex="-1"
+                >
+                  <span
+                    class="c14"
+                  >
+                    Chez Léon is a human sized Parisian
+                  </span>
+                </td>
+                <td
+                  aria-colindex="5"
+                  class="c10"
+                  tabindex="-1"
+                >
+                  <span
+                    class="c14"
+                  >
+                    French cuisine
+                  </span>
+                </td>
+                <td
+                  aria-colindex="6"
+                  class="c10"
+                  tabindex="-1"
+                >
+                  <span
+                    class="c14"
+                  >
+                    Leon Lafrite
+                  </span>
+                </td>
+                <td
+                  aria-colindex="7"
+                  class="c10"
+                >
+                  <div
+                    class="c11"
+                  >
+                    <span>
+                      <button
+                        aria-disabled="false"
                         aria-labelledby="tooltip-96"
                         class="c20 c21"
                         tabindex="-1"
@@ -27847,7 +28969,7 @@ exports[`Storyshots Design System/Organisms/Table base 1`] = `
                 </td>
               </tr>
               <tr
-                aria-rowindex="3"
+                aria-rowindex="4"
                 class="c9"
               >
                 <td
@@ -27869,7 +28991,7 @@ exports[`Storyshots Design System/Organisms/Table base 1`] = `
                   <span
                     class="c14"
                   >
-                    1
+                    2
                   </span>
                 </td>
                 <td
@@ -27985,7 +29107,7 @@ exports[`Storyshots Design System/Organisms/Table base 1`] = `
                 </td>
               </tr>
               <tr
-                aria-rowindex="4"
+                aria-rowindex="5"
                 class="c9"
               >
                 <td
@@ -28007,7 +29129,7 @@ exports[`Storyshots Design System/Organisms/Table base 1`] = `
                   <span
                     class="c14"
                   >
-                    2
+                    3
                   </span>
                 </td>
                 <td
@@ -28123,7 +29245,7 @@ exports[`Storyshots Design System/Organisms/Table base 1`] = `
                 </td>
               </tr>
               <tr
-                aria-rowindex="5"
+                aria-rowindex="6"
                 class="c9"
               >
                 <td
@@ -28145,7 +29267,7 @@ exports[`Storyshots Design System/Organisms/Table base 1`] = `
                   <span
                     class="c14"
                   >
-                    3
+                    4
                   </span>
                 </td>
                 <td
@@ -28238,144 +29360,6 @@ exports[`Storyshots Design System/Organisms/Table base 1`] = `
                         <button
                           aria-disabled="false"
                           aria-labelledby="tooltip-110"
-                          class="c20 c21"
-                          tabindex="-1"
-                          type="button"
-                        >
-                          <svg
-                            fill="none"
-                            height="1em"
-                            viewBox="0 0 24 24"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M3.236 6.149a.2.2 0 00-.197.233L6 24h12l2.96-17.618a.2.2 0 00-.196-.233H3.236zM21.8 1.983c.11 0 .2.09.2.2v1.584a.2.2 0 01-.2.2H2.2a.2.2 0 01-.2-.2V2.183c0-.11.09-.2.2-.2h5.511c.9 0 1.631-1.09 1.631-1.983h5.316c0 .894.73 1.983 1.631 1.983H21.8z"
-                              fill="#32324D"
-                            />
-                          </svg>
-                        </button>
-                      </span>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr
-                aria-rowindex="6"
-                class="c9"
-              >
-                <td
-                  aria-colindex="1"
-                  class="c10"
-                >
-                  <input
-                    aria-label="Select Leon Lafrite"
-                    class="c12"
-                    tabindex="-1"
-                    type="checkbox"
-                  />
-                </td>
-                <td
-                  aria-colindex="2"
-                  class="c10"
-                  tabindex="-1"
-                >
-                  <span
-                    class="c14"
-                  >
-                    4
-                  </span>
-                </td>
-                <td
-                  aria-colindex="3"
-                  class="c10"
-                  tabindex="-1"
-                >
-                  <span>
-                    <div
-                      class="c18"
-                    >
-                      <img
-                        alt="Leon Lafrite"
-                        class="c19"
-                        height="26px"
-                        src="https://avatars.githubusercontent.com/u/3874873?v=4"
-                        width="26px"
-                      />
-                    </div>
-                  </span>
-                </td>
-                <td
-                  aria-colindex="4"
-                  class="c10"
-                  tabindex="-1"
-                >
-                  <span
-                    class="c14"
-                  >
-                    Chez Léon is a human sized Parisian
-                  </span>
-                </td>
-                <td
-                  aria-colindex="5"
-                  class="c10"
-                  tabindex="-1"
-                >
-                  <span
-                    class="c14"
-                  >
-                    French cuisine
-                  </span>
-                </td>
-                <td
-                  aria-colindex="6"
-                  class="c10"
-                  tabindex="-1"
-                >
-                  <span
-                    class="c14"
-                  >
-                    Leon Lafrite
-                  </span>
-                </td>
-                <td
-                  aria-colindex="7"
-                  class="c10"
-                >
-                  <div
-                    class="c11"
-                  >
-                    <span>
-                      <button
-                        aria-disabled="false"
-                        aria-labelledby="tooltip-112"
-                        class="c20 c21"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <svg
-                          fill="none"
-                          height="1em"
-                          viewBox="0 0 24 24"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            clip-rule="evenodd"
-                            d="M23.604 3.514c.528.528.528 1.36 0 1.887l-2.622 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.118 3.118zM0 24v-4.99l14.2-14.2 4.99 4.99L4.99 24H0z"
-                            fill="#212134"
-                            fill-rule="evenodd"
-                          />
-                        </svg>
-                      </button>
-                    </span>
-                    <div
-                      class="c22"
-                    >
-                      <span>
-                        <button
-                          aria-disabled="false"
-                          aria-labelledby="tooltip-114"
                           class="c20 c21"
                           tabindex="-1"
                           type="button"
@@ -28850,7 +29834,7 @@ exports[`Storyshots Design System/Organisms/Table with th actions 1`] = `
                       <span>
                         <button
                           aria-disabled="false"
-                          aria-labelledby="tooltip-116"
+                          aria-labelledby="tooltip-112"
                           class="c17 c18"
                           tabindex="-1"
                           type="button"
@@ -29057,6 +30041,144 @@ exports[`Storyshots Design System/Organisms/Table with th actions 1`] = `
                     <span>
                       <button
                         aria-disabled="false"
+                        aria-labelledby="tooltip-114"
+                        class="c17 c18"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <svg
+                          fill="none"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            clip-rule="evenodd"
+                            d="M23.604 3.514c.528.528.528 1.36 0 1.887l-2.622 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.118 3.118zM0 24v-4.99l14.2-14.2 4.99 4.99L4.99 24H0z"
+                            fill="#212134"
+                            fill-rule="evenodd"
+                          />
+                        </svg>
+                      </button>
+                    </span>
+                    <div
+                      class="c22"
+                    >
+                      <span>
+                        <button
+                          aria-disabled="false"
+                          aria-labelledby="tooltip-116"
+                          class="c17 c18"
+                          tabindex="-1"
+                          type="button"
+                        >
+                          <svg
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 24 24"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M3.236 6.149a.2.2 0 00-.197.233L6 24h12l2.96-17.618a.2.2 0 00-.196-.233H3.236zM21.8 1.983c.11 0 .2.09.2.2v1.584a.2.2 0 01-.2.2H2.2a.2.2 0 01-.2-.2V2.183c0-.11.09-.2.2-.2h5.511c.9 0 1.631-1.09 1.631-1.983h5.316c0 .894.73 1.983 1.631 1.983H21.8z"
+                              fill="#32324D"
+                            />
+                          </svg>
+                        </button>
+                      </span>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr
+                aria-rowindex="3"
+                class="c9"
+              >
+                <td
+                  aria-colindex="1"
+                  class="c10"
+                >
+                  <input
+                    aria-label="Select Leon Lafrite"
+                    class="c12"
+                    tabindex="-1"
+                    type="checkbox"
+                  />
+                </td>
+                <td
+                  aria-colindex="2"
+                  class="c10"
+                  tabindex="-1"
+                >
+                  <span
+                    class="c14"
+                  >
+                    1
+                  </span>
+                </td>
+                <td
+                  aria-colindex="3"
+                  class="c10"
+                  tabindex="-1"
+                >
+                  <span>
+                    <div
+                      class="c20"
+                    >
+                      <img
+                        alt="Leon Lafrite"
+                        class="c21"
+                        height="26px"
+                        src="https://avatars.githubusercontent.com/u/3874873?v=4"
+                        width="26px"
+                      />
+                    </div>
+                  </span>
+                </td>
+                <td
+                  aria-colindex="4"
+                  class="c10"
+                  tabindex="-1"
+                >
+                  <span
+                    class="c14"
+                  >
+                    Chez Léon is a human sized Parisian
+                  </span>
+                </td>
+                <td
+                  aria-colindex="5"
+                  class="c10"
+                  tabindex="-1"
+                >
+                  <span
+                    class="c14"
+                  >
+                    French cuisine
+                  </span>
+                </td>
+                <td
+                  aria-colindex="6"
+                  class="c10"
+                  tabindex="-1"
+                >
+                  <span
+                    class="c14"
+                  >
+                    Leon Lafrite
+                  </span>
+                </td>
+                <td
+                  aria-colindex="7"
+                  class="c10"
+                >
+                  <div
+                    class="c11"
+                  >
+                    <span>
+                      <button
+                        aria-disabled="false"
                         aria-labelledby="tooltip-118"
                         class="c17 c18"
                         tabindex="-1"
@@ -29108,7 +30230,7 @@ exports[`Storyshots Design System/Organisms/Table with th actions 1`] = `
                 </td>
               </tr>
               <tr
-                aria-rowindex="3"
+                aria-rowindex="4"
                 class="c9"
               >
                 <td
@@ -29130,7 +30252,7 @@ exports[`Storyshots Design System/Organisms/Table with th actions 1`] = `
                   <span
                     class="c14"
                   >
-                    1
+                    2
                   </span>
                 </td>
                 <td
@@ -29246,7 +30368,7 @@ exports[`Storyshots Design System/Organisms/Table with th actions 1`] = `
                 </td>
               </tr>
               <tr
-                aria-rowindex="4"
+                aria-rowindex="5"
                 class="c9"
               >
                 <td
@@ -29268,7 +30390,7 @@ exports[`Storyshots Design System/Organisms/Table with th actions 1`] = `
                   <span
                     class="c14"
                   >
-                    2
+                    3
                   </span>
                 </td>
                 <td
@@ -29384,7 +30506,7 @@ exports[`Storyshots Design System/Organisms/Table with th actions 1`] = `
                 </td>
               </tr>
               <tr
-                aria-rowindex="5"
+                aria-rowindex="6"
                 class="c9"
               >
                 <td
@@ -29406,7 +30528,7 @@ exports[`Storyshots Design System/Organisms/Table with th actions 1`] = `
                   <span
                     class="c14"
                   >
-                    3
+                    4
                   </span>
                 </td>
                 <td
@@ -29499,144 +30621,6 @@ exports[`Storyshots Design System/Organisms/Table with th actions 1`] = `
                         <button
                           aria-disabled="false"
                           aria-labelledby="tooltip-132"
-                          class="c17 c18"
-                          tabindex="-1"
-                          type="button"
-                        >
-                          <svg
-                            fill="none"
-                            height="1em"
-                            viewBox="0 0 24 24"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M3.236 6.149a.2.2 0 00-.197.233L6 24h12l2.96-17.618a.2.2 0 00-.196-.233H3.236zM21.8 1.983c.11 0 .2.09.2.2v1.584a.2.2 0 01-.2.2H2.2a.2.2 0 01-.2-.2V2.183c0-.11.09-.2.2-.2h5.511c.9 0 1.631-1.09 1.631-1.983h5.316c0 .894.73 1.983 1.631 1.983H21.8z"
-                              fill="#32324D"
-                            />
-                          </svg>
-                        </button>
-                      </span>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr
-                aria-rowindex="6"
-                class="c9"
-              >
-                <td
-                  aria-colindex="1"
-                  class="c10"
-                >
-                  <input
-                    aria-label="Select Leon Lafrite"
-                    class="c12"
-                    tabindex="-1"
-                    type="checkbox"
-                  />
-                </td>
-                <td
-                  aria-colindex="2"
-                  class="c10"
-                  tabindex="-1"
-                >
-                  <span
-                    class="c14"
-                  >
-                    4
-                  </span>
-                </td>
-                <td
-                  aria-colindex="3"
-                  class="c10"
-                  tabindex="-1"
-                >
-                  <span>
-                    <div
-                      class="c20"
-                    >
-                      <img
-                        alt="Leon Lafrite"
-                        class="c21"
-                        height="26px"
-                        src="https://avatars.githubusercontent.com/u/3874873?v=4"
-                        width="26px"
-                      />
-                    </div>
-                  </span>
-                </td>
-                <td
-                  aria-colindex="4"
-                  class="c10"
-                  tabindex="-1"
-                >
-                  <span
-                    class="c14"
-                  >
-                    Chez Léon is a human sized Parisian
-                  </span>
-                </td>
-                <td
-                  aria-colindex="5"
-                  class="c10"
-                  tabindex="-1"
-                >
-                  <span
-                    class="c14"
-                  >
-                    French cuisine
-                  </span>
-                </td>
-                <td
-                  aria-colindex="6"
-                  class="c10"
-                  tabindex="-1"
-                >
-                  <span
-                    class="c14"
-                  >
-                    Leon Lafrite
-                  </span>
-                </td>
-                <td
-                  aria-colindex="7"
-                  class="c10"
-                >
-                  <div
-                    class="c11"
-                  >
-                    <span>
-                      <button
-                        aria-disabled="false"
-                        aria-labelledby="tooltip-134"
-                        class="c17 c18"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <svg
-                          fill="none"
-                          height="1em"
-                          viewBox="0 0 24 24"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            clip-rule="evenodd"
-                            d="M23.604 3.514c.528.528.528 1.36 0 1.887l-2.622 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.118 3.118zM0 24v-4.99l14.2-14.2 4.99 4.99L4.99 24H0z"
-                            fill="#212134"
-                            fill-rule="evenodd"
-                          />
-                        </svg>
-                      </button>
-                    </span>
-                    <div
-                      class="c22"
-                    >
-                      <span>
-                        <button
-                          aria-disabled="false"
-                          aria-labelledby="tooltip-136"
                           class="c17 c18"
                           tabindex="-1"
                           type="button"

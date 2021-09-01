@@ -78,18 +78,29 @@ export const Select = ({
     setExpanded(DownState.Mouse);
   };
 
-  const handleSelectItem = (value) => {
-    onChange(value);
-
-    if (!multi) {
-      setExpanded(undefined);
+  const handleSelectItem = (newValue, closeMenu = true) => {
+    if (multi) {
+      onChange(value.includes(newValue) ? value.filter((x) => x !== newValue) : [...value, newValue]);
+    } else {
+      onChange(newValue);
+      if (closeMenu) setExpanded(undefined);
     }
+  };
+
+  const handleSelectGroupItem = (newValue) => {
+    onChange(
+      value.includes(newValue[0])
+        ? value.filter(function (e) {
+            return this.indexOf(e) < 0;
+          }, newValue)
+        : [...value, ...newValue],
+    );
   };
 
   let selectOptionLabel;
   let tags = [];
 
-  const childrenClone = Children.toArray(children).map((node) => {
+  const cloneOption = (node, isChild) => {
     const optionId = `${generatedId}-option-${node.props.value}`;
 
     const selected = multi ? value.includes(node.props.value) : node.props.value === value;
@@ -107,7 +118,29 @@ export const Select = ({
       onClick: () => handleSelectItem(node.props.value),
       selected,
       multi,
+      isChild,
     });
+  };
+
+  const childrenClone = Children.toArray(children).map((node) => {
+    if (node.type.displayName === 'OptGroup') {
+      const optionId = `${generatedId}-option-${node.props.label}`;
+
+      const selected = node.props.children.every((child) => value.includes(child.props.value));
+      const indeterminate = !selected && node.props.children.some((child) => value.includes(child.props.value));
+
+      return cloneElement(node, {
+        id: escapeSelector(optionId),
+        onClick: () => handleSelectGroupItem(node.props.children.map((child) => child.props.value)),
+        selected,
+        indeterminate,
+        multi,
+        children: Children.toArray(node.props.children).map((node) => cloneOption(node, true)),
+        value: node.props.label,
+      });
+    } else {
+      return cloneOption(node);
+    }
   });
 
   return (
@@ -139,7 +172,7 @@ export const Select = ({
                 </Box>
               )}
 
-              {withTags && <SelectTags tags={tags} onRemoveTag={onChange} disabled={disabled} />}
+              {withTags && <SelectTags tags={tags} onRemoveTag={handleSelectItem} disabled={disabled} />}
 
               <Box paddingLeft={4} paddingRight={4}>
                 {withTags ? (
@@ -194,7 +227,7 @@ export const Select = ({
             labelledBy={labelId}
             onEscape={handleEscape}
             expanded={expanded}
-            onSelectItem={onChange}
+            onSelectItem={(value, isGroup) => (isGroup ? handleSelectGroupItem(value) : handleSelectItem(value, false))}
             multi={multi}
           >
             {childrenClone}

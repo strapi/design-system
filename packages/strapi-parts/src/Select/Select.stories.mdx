@@ -7,24 +7,38 @@ import AddIcon from '@strapi/icons/AddIcon';
 import { Select } from './Select';
 import { Option } from './Option';
 import { Stack } from '../Stack';
+import { MultiSelectNested } from './MultiSelectNested.js';
 
 <Meta title="Design System/Molecules/Select" component={Select} />
 
 # Select
 
-This is the doc of the `Select` component
+Selects are fields that displays to users a list of options via a PopOver component. They allow users to make a single or multiple selections from this list. The selected option(s) of a Select need(s) to be stored whether it's single or a multi. Selects are part of forms.
 
 [View source](https://github.com/strapi/parts/tree/develop/packages/strapi-parts/src/Select)
+
+**Best practices**
+
+- A select is part of a form.
+- Prefer the usage of Menu component if the user needs to make a single choice.
+- Try to have a sort logic in the popover of the menu.
+- In a multi select component, the "0 currently selected" text, can be changed but it will never have a placeholder style.
+- Use sentence case into a Select and straight-to-the-point sentences.
+- An option should be written on a single line.
 
 ## Imports
 
 ```js
-import { Select } from '@strapi/parts/Select';
+import { Select, Option } from '@strapi/parts/Select';
 ```
 
 ## Usage
 
-Description...
+A Select allow users to make a selection from a list.
+
+### Default Select
+
+The default Select.
 
 <Canvas>
   <Story name="base">
@@ -60,9 +74,11 @@ Description...
   </Story>
 </Canvas>
 
-## Select multi
+### Select multi
 
-Description...
+A multi Select allow users to make multiple selections from a list.
+
+In a multi select component, the "0 currently selected" text, can be changed but it will never have a placeholder style.
 
 <Canvas>
   <Story name="multi">
@@ -70,8 +86,6 @@ Description...
       const [values, setValues] = useState([]);
       const [error, toggleError] = useState();
       const [disabled, toggleDisabled] = useState();
-      const onValueChange = (newValue) =>
-        setValues((s) => (s.includes(newValue) ? s.filter((x) => x !== newValue) : [...s, newValue]));
       return (
         <Stack size={11}>
           <h2>Current value is {values.join(', ')}</h2>
@@ -84,7 +98,7 @@ Description...
             clearLabel="Clear the meal"
             error={error}
             value={values}
-            onChange={onValueChange}
+            onChange={setValues}
             disabled={disabled}
             customizeContent={(values) => `${values.length} currently selected`}
             multi
@@ -101,9 +115,9 @@ Description...
   </Story>
 </Canvas>
 
-## Select multi with tags
+### Select multi with tags
 
-Description...
+A multi Select allow users to visually select multiple options from a list. Prefer using a Select with multi tags when the selected values need to be visible in the input.
 
 <Canvas>
   <Story name="multi-withTags">
@@ -111,8 +125,6 @@ Description...
       const [values, setValues] = useState([]);
       const [error, toggleError] = useState();
       const [disabled, toggleDisabled] = useState();
-      const onValueChange = (newValue) =>
-        setValues((s) => (s.includes(newValue) ? s.filter((x) => x !== newValue) : [...s, newValue]));
       return (
         <Stack size={11}>
           <h2>Current value is {values.join(', ')}</h2>
@@ -125,7 +137,7 @@ Description...
             clearLabel="Clear the meal"
             error={error}
             value={values}
-            onChange={onValueChange}
+            onChange={setValues}
             disabled={disabled}
             customizeContent={(values) => `${values.length} currently selected`}
             multi
@@ -150,16 +162,14 @@ Description...
   </Story>
 </Canvas>
 
-## Select size S
+### Select size S
 
-Description...
+Select should be scaled down if they aimed to be placed in a smaller portions of a page.
 
 <Canvas>
   <Story name="size-S">
     {() => {
       const [values, setValues] = useState([]);
-      const onValueChange = (newValue) =>
-        setValues((s) => (s.includes(newValue) ? s.filter((x) => x !== newValue) : [...s, newValue]));
       return (
         <Stack size={11}>
           <Select
@@ -171,7 +181,7 @@ Description...
             clearLabel="Clear the meal"
             error={undefined}
             value={values}
-            onChange={onValueChange}
+            onChange={setValues}
             disabled={false}
             customizeContent={(values) => `${values.length} currently selected`}
           >
@@ -185,7 +195,81 @@ Description...
   </Story>
 </Canvas>
 
+### Select multi nested
+
+A multi nested Select allow users to make multiple selections from a list.
+
+In a multi select component, the "0 currently selected" text, can be changed but it will never have a placeholder style.
+
+<Canvas>
+  <Story name="multi-nested">
+    {() => {
+      const [error, toggleError] = useState();
+      const [disabled, toggleDisabled] = useState();
+      const options = [
+        {
+          label: 'Pizza',
+          children: [
+            {
+              label: 'Peperroni',
+              value: 'peperroni',
+            },
+            {
+              label: 'Marguerita',
+              value: 'marguerita',
+            },
+          ],
+        },
+        {
+          label: 'Hamburger',
+          value: 'hamburger',
+        },
+        {
+          label: 'Bagel',
+          value: 'bagel',
+        },
+        {
+          label: 'Pasta',
+          children: [
+            {
+              label: 'Tartuffo',
+              value: 'tartuffo',
+            },
+            {
+              label: 'Carbonara',
+              value: 'carbonara',
+            },
+          ],
+        },
+      ];
+      const [values, setValues] = useState([]);
+      return (
+        <Stack size={11}>
+          <h2>Current value is {values.join(', ')}</h2>
+          <MultiSelectNested
+            id="select1"
+            label="Choose your meal"
+            placeholder="Your example"
+            onClear={() => setValues([])}
+            hint="Description line"
+            clearLabel="Clear the meal"
+            error={error}
+            disabled={disabled}
+            customizeContent={(values) => `${values.length} currently selected`}
+            onChange={setValues}
+            value={values}
+            options={options}
+          />
+          <button onClick={() => toggleError((s) => (s ? undefined : 'An error occured'))}>Show the error state</button>
+          <button onClick={() => toggleDisabled((s) => !s)}>Show the disabled state</button>
+        </Stack>
+      );
+    }}
+  </Story>
+</Canvas>
 
 ## Props
+
+The Select component composes Field so you can pass all Field props, and React.InputHTMLAttributes.
 
 <ArgsTable of={Select} />

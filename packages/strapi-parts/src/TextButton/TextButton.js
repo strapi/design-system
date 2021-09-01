@@ -30,6 +30,7 @@ export const TextButton = React.forwardRef(({ children, startIcon, endIcon, onCl
       disabled={disabled}
       onClick={handleClick}
       as="button"
+      type="button"
       {...props}
     >
       {startIcon && (

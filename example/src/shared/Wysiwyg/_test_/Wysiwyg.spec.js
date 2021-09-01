@@ -319,7 +319,7 @@ describe("Wysiwyg render actions with initial value", () => {
       returnedValue += val;
     });
 
-    const { container, getByText, queryByText } = render( 
+    const { container } = render( 
       <ThemeProvider theme={lightTheme}> 
         <Wysiwyg label={"hello world"} placeholder={""} onChange={onChange} /> 
       </ThemeProvider> 
@@ -334,6 +334,40 @@ describe("Wysiwyg render actions with initial value", () => {
     fireEvent.click(renderedContainer.querySelector("#Bold"));
     
     expect(returnedValue).toEqual(expected);
+  });
+});
+
+describe("Wysiwyg expand mode", () => {
+  let renderedContainer; 
+  let returnedValue;
+
+  beforeEach(() => { 
+    const onChange = jest.fn((val) => {
+      returnedValue = val;
+    });
+
+    const { container } = render( 
+      <ThemeProvider theme={lightTheme}> 
+        <Wysiwyg label="hello world" placeholder="" onChange={onChange} /> 
+      </ThemeProvider> 
+    ); 
+    renderedContainer = container; 
+  });
+
+  it("should open wysiwyg expand portal when clicking on expand button", async () => {
+    await waitFor(() => renderedContainer.querySelector(".CodeMirror-cursor"));
+    expect(document.getElementById("wysiwyg-expand")).not.toBeInTheDocument();
+
+    fireEvent.click(renderedContainer.querySelector("#expand"));
+    expect(document.getElementById("wysiwyg-expand")).toBeInTheDocument();
+  });
+
+  it("should close wysiwyg expand portal when clicking on collapse button", async () => {
+    await waitFor(() => renderedContainer.querySelector(".CodeMirror-cursor"));
+    fireEvent.click(renderedContainer.querySelector("#expand"));
+    fireEvent.click(document.getElementById("collapse"));
+
+    expect(document.getElementById("wysiwyg-expand")).not.toBeInTheDocument();
   });
 });
 

@@ -1576,10 +1576,10 @@
     "@sinonjs/commons" "^1.7.0"
 
 "@strapi/icons@file:../packages/strapi-icons/dist":
-  version "0.0.1-alpha.2"
+  version "0.0.1-alpha.9"
 
 "@strapi/parts@file:../packages/strapi-parts/dist":
-  version "0.0.1-alpha.2"
+  version "0.0.1-alpha.9"
   dependencies:
     compute-scroll-into-view "^1.0.17"
     prop-types "^15.7.2"

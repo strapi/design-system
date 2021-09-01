@@ -2,47 +2,51 @@ import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import WysiwygNav from './WysiwygNav';
 import WysiwygFooter from './WysiwygFooter';
+import WysiwygExpand from './WysiwygExpand';
 import MediaLibrary from './MediaLibrary';
 import Editor from './Editor';
-import { TextButton, Box } from "@strapi/parts";
+import { TextButton } from '@strapi/parts';
+import { WysiwygWrapper } from './WysiwygStyles'
 import { markdownHandler, listHandler, titleHandler, insertImage, quoteAndCodeHandler } from './utils/utils';
 
 
 const Wysiwyg = ({ label, placeholder, onChange, value }) => {
   const textareaRef = useRef(null);
   const editorRef = useRef(null);
+  const editorRefExpanded = useRef(null);
   const [visiblePopover, setVisiblePopover] = useState(false);
   const [isPreviewMode, setIsPreviewMode] = useState(false);
   const [mediaLibVisible, setMediaLibVisible] = useState(false);
+  const [isExpandMode, setIsExpandMode] = useState(false);
 
   const handleToggleMediaLib = () => setMediaLibVisible(prev => !prev);
   const handleTogglePopover = () => setVisiblePopover(prev => !prev);
   const handleTogglePreviewMode = () => setIsPreviewMode(prev => !prev);
 
-  const handleActionClick = value => {
+  const handleActionClick = (value, currentEditorRef, togglePopover) => {
     switch (value) {
       case "Link":
       case "Strikethrough": {
-        markdownHandler(editorRef, value);
-        handleTogglePopover();
+        markdownHandler(currentEditorRef, value);
+        togglePopover();
         break;
       }
       case "Code":
       case "Quote": {
-        quoteAndCodeHandler(editorRef, value);
-        handleTogglePopover();
+        quoteAndCodeHandler(currentEditorRef, value);
+        togglePopover();
         break;
       }
       case "Bold":
       case "Italic":
       case "Underline": {
-        markdownHandler(editorRef, value);
+        markdownHandler(currentEditorRef, value);
         break;
       }
       case "BulletList":
       case "NumberList": {
-        listHandler(editorRef, value);
-        handleTogglePopover();
+        listHandler(currentEditorRef, value);
+        togglePopover();
         break;
       }
       case "h1":
@@ -51,7 +55,7 @@ const Wysiwyg = ({ label, placeholder, onChange, value }) => {
       case "h4":
       case "h5":
       case "h6": {
-        titleHandler(editorRef, value);
+        titleHandler(currentEditorRef, value);
         break;
       }
       default:
@@ -59,16 +63,23 @@ const Wysiwyg = ({ label, placeholder, onChange, value }) => {
     }
   };
 
-  const handleSubmitImage = (files) => {
-    handleToggleMediaLib();
-    handleTogglePopover();
-    insertImage(editorRef, files);
+  const handleSubmitImage = (files, currentEditorRef, toggleMediaLib, togglePopover) => {
+    toggleMediaLib();
+    togglePopover();
+    insertImage(currentEditorRef, files);
+  }
+  
+  const handleToggleExpand = (collapse) => {
+    setIsExpandMode(prev => ! prev);
+    if(collapse === 'collapse' && value !== undefined) {
+      editorRef.current.setValue(value);
+    }
   }
 
   return (
     <>
       <TextButton>{label}</TextButton>
-      <Box paddingTop={1}>
+      <WysiwygWrapper paddingTop={1} hasRadius>
         <WysiwygNav 
           placeholder={placeholder} 
           onActionClick={handleActionClick}
@@ -77,6 +88,7 @@ const Wysiwyg = ({ label, placeholder, onChange, value }) => {
           isPreviewMode={isPreviewMode}
           onTogglePreviewMode={handleTogglePreviewMode}
           onToggleMediaLib={handleToggleMediaLib}
+          editorRef={editorRef}
         />
         <Editor 
           onChange={onChange} 
@@ -87,14 +99,40 @@ const Wysiwyg = ({ label, placeholder, onChange, value }) => {
         />
         <WysiwygFooter 
           isPreviewMode={isPreviewMode}
+          onToggleExpand={handleToggleExpand}
         />
-      </Box>
+      </WysiwygWrapper>
       {mediaLibVisible &&
-        <MediaLibrary onToggle={handleToggleMediaLib} onSubmitImage={handleSubmitImage}/>    
+        <MediaLibrary 
+          editorRef={editorRef} 
+          onToggleMediaLib={handleToggleMediaLib} 
+          onTogglePopover={handleTogglePopover}
+          onSubmitImage={handleSubmitImage}
+        />    
+      }
+      {isExpandMode &&
+        <WysiwygExpand 
+          onToggleExpand={handleToggleExpand} 
+          value={value}
+          placeholder={placeholder} 
+          onActionClick={handleActionClick}
+          onChange={onChange} 
+          textareaRef={textareaRef}
+          editorRef={editorRefExpanded}
+          onSubmitImage={handleSubmitImage}
+        />
       }
     </>
   );
 };
+
+Wysiwyg.defaultProps = {
+  label: '',
+  onChange: () => {},
+  placeholder: '',
+  value: ''
+};
+
 
 Wysiwyg.propTypes = {
   label: PropTypes.string,

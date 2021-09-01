@@ -1,23 +1,31 @@
 import React from 'react';
-import { Row, Text } from "@strapi/parts";
+import PropTypes from 'prop-types';
+import { Row, Text, Box } from "@strapi/parts";
 import { Expand } from "@strapi/icons";
 
-import {
-    FooterWrapper,
-    ExpandButton
-} from './WysiwygStyles';
+import { ExpandButton } from './WysiwygStyles';
 
-const WysiwygFooter = ({isPreviewMode}) => {
-    return (
-        <FooterWrapper padding={2} background='neutral100'>
-            <Row justifyContent='flex-end' alignItems='flex-end' >
-                <ExpandButton disabled={isPreviewMode ? true : false} onClick={() => console.log('expand')}>
-                    <Text>Expand</Text>
-                    <Expand/>
-                </ExpandButton>
-            </Row>
-        </FooterWrapper>
-    )
+const WysiwygFooter = ({isPreviewMode, onToggleExpand}) => {
+  return (
+    <Box padding={2} background='neutral100' hasRadius>
+      <Row justifyContent='flex-end' alignItems='flex-end' >
+        <ExpandButton id='expand' disabled={isPreviewMode ? true : false} onClick={onToggleExpand}>
+          <Text>Expand</Text>
+          <Expand/>
+        </ExpandButton>
+      </Row>
+    </Box>
+  )
+};
+
+WysiwygFooter.defaultProps = {
+  onToggleExpand: () => {}, 
+  isPreviewMode: false
+};
+
+WysiwygFooter.propTypes = {
+  onToggleExpand: PropTypes.func, 
+  isPreviewMode: PropTypes.bool
 };
 
 export default WysiwygFooter;

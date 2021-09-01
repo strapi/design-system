@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import CodeMirror from 'codemirror';
 
@@ -14,20 +14,27 @@ const Editor = ({
     isPreviewMode,
     value
   }) => {
+
+  const initialValueRef = useRef(value);
+  const onChangeRef = useRef(onChange);
   
   useEffect(() => {
     editorRef.current = CodeMirror.fromTextArea(textareaRef.current, {
       lineWrapping: true,
-      extraKeys: {'Enter': 'newlineAndIndentContinueMarkdownList'},
+      extraKeys: {
+        'Enter': 'newlineAndIndentContinueMarkdownList',
+        'Tab': false,
+        'Shift-Tab': false
+      },
       readOnly: false
     });
     
-    if(value) {
-      editorRef.current.setValue(value);
+    if (initialValueRef.current) { 
+      editorRef.current.setValue(initialValueRef.current); 
     };
 
     CodeMirror.commands.newlineAndIndentContinueMarkdownList = newlineAndIndentContinueMarkdownList;
-    editorRef.current.on('change', doc => onChange(doc.getValue()));
+    editorRef.current.on('change', doc => onChangeRef.current(doc.getValue()));
   }, [editorRef, textareaRef]);
 
   useEffect(() => {
@@ -36,7 +43,7 @@ const Editor = ({
     } else {
       editorRef.current.setOption('readOnly', false);
     }
-  }, [isPreviewMode])
+  }, [isPreviewMode, editorRef])
 
   return (
     <EditorAndPreviewWrapper>
@@ -50,10 +57,18 @@ const Editor = ({
   )
 };
 
+Editor.defaultProps = {
+  onChange: () => {},
+  isPreviewMode: false,
+  value: ''
+};
+
 Editor.propTypes = {
   onChange: PropTypes.func,
-  textareaRef: PropTypes.shape({ current: PropTypes.any }),
-  editorRef: PropTypes.shape({ current: PropTypes.any }),
+  textareaRef: PropTypes.shape({ current: PropTypes.any }).isRequired,
+  editorRef: PropTypes.shape({ current: PropTypes.any }).isRequired,
+  isPreviewMode: PropTypes.bool,
+  value: PropTypes.string
 };
 
 export default Editor;
