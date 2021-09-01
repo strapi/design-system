@@ -59,11 +59,14 @@ const MainNavRow = styled(Row)`
 `;
 
 const Notification = styled(Row)`
-  //positionning when condensed
-  position: ${(props) => (props.condensed ? 'absolute' : '')};
-  transform: ${(props) => (props.condensed ? 'translate(35%, -50%)' : '')};
-  top: ${(props) => (props.condensed ? '0' : '')};
-  right: ${(props) => (props.condensed ? '0' : '')};
+  ${({ condensed }) =>
+    condensed &&
+    `
+    position: absolute;
+    transform: translate(35%, -50%);
+    top: 0;
+    right: 0;
+  `}
 
   background: ${({ theme }) => theme.colors.primary600};
   height: ${({ theme }) => theme.spaces[5]};
