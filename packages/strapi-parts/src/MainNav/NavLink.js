@@ -78,8 +78,8 @@ const CustomBadge = styled(Badge)`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: ${({ theme }) => theme.spaces[5]};
   min-width: ${({ theme }) => theme.spaces[6]};
+  height: ${({ theme }) => theme.spaces[5]};
   padding: ${({ theme }) => `0 ${theme.spaces[2]}`};
   border-radius: ${({ theme }) => theme.spaces[10]};
   background: ${({ theme }) => theme.colors.primary600};
