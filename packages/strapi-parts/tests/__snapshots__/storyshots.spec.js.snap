@@ -25756,11 +25756,11 @@ exports[`Storyshots Design System/Organisms/MainNav base 1`] = `
   padding-left: 12px;
 }
 
-.c18 {
+.c19 {
   padding-right: 12px;
 }
 
-.c21 {
+.c22 {
   background: #ffffff;
   padding-top: 4px;
   padding-right: 12px;
@@ -25769,7 +25769,7 @@ exports[`Storyshots Design System/Organisms/MainNav base 1`] = `
   border-radius: 4px;
 }
 
-.c24 {
+.c25 {
   padding-top: 12px;
   padding-right: 20px;
   padding-bottom: 12px;
@@ -25790,7 +25790,7 @@ exports[`Storyshots Design System/Organisms/MainNav base 1`] = `
   color: #666687;
 }
 
-.c22 {
+.c23 {
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.43;
@@ -25802,7 +25802,7 @@ exports[`Storyshots Design System/Organisms/MainNav base 1`] = `
   line-height: 1.14;
 }
 
-.c23 {
+.c24 {
   font-weight: 600;
   font-size: 0.6875rem;
   line-height: 1.45;
@@ -25817,6 +25817,24 @@ exports[`Storyshots Design System/Organisms/MainNav base 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c17 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -25842,7 +25860,7 @@ exports[`Storyshots Design System/Organisms/MainNav base 1`] = `
   margin-top: 16px;
 }
 
-.c20 {
+.c21 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -25852,22 +25870,22 @@ exports[`Storyshots Design System/Organisms/MainNav base 1`] = `
   flex-direction: column;
 }
 
-.c20 > * {
+.c21 > * {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-.c20 > * + * {
+.c21 > * + * {
   margin-top: 8px;
 }
 
-.c27 {
+.c28 {
   border-radius: 50%;
   display: block;
   position: relative;
 }
 
-.c26 {
+.c27 {
   position: relative;
   width: 26px;
   height: 26px;
@@ -25889,7 +25907,7 @@ exports[`Storyshots Design System/Organisms/MainNav base 1`] = `
   z-index: 2;
 }
 
-.c28 {
+.c29 {
   background: #ffffff;
   border: 1px solid #eaeaef;
   border-radius: 4px;
@@ -25912,11 +25930,12 @@ exports[`Storyshots Design System/Organisms/MainNav base 1`] = `
   z-index: 2;
 }
 
-.c19 {
+.c20 {
   height: 1rem;
 }
 
 .c16 {
+  position: relative;
   -webkit-text-decoration: none;
   text-decoration: none;
   display: block;
@@ -25957,11 +25976,11 @@ exports[`Storyshots Design System/Organisms/MainNav base 1`] = `
   font-weight: 500;
 }
 
-.c17 {
+.c18 {
   padding: 8px 12px;
 }
 
-.c25 {
+.c26 {
   -webkit-text-decoration: none;
   text-decoration: none;
   position: absolute;
@@ -26062,32 +26081,36 @@ exports[`Storyshots Design System/Organisms/MainNav base 1`] = `
               href="/cm"
             >
               <span
-                class="c4 c17"
+                class="c17 c18"
               >
-                <span
-                  aria-hidden="true"
-                  class="c18 c19"
+                <div
+                  class="c4"
                 >
-                  <svg
-                    fill="none"
-                    height="1em"
-                    viewBox="0 0 24 24"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <span
+                    aria-hidden="true"
+                    class="c19 c20"
                   >
-                    <path
-                      clip-rule="evenodd"
-                      d="M23.707.297A1 1 0 0023 .004h-2a13.907 13.907 0 00-5.38 1.077 1 1 0 00-.615.923V4.92a.035.035 0 01-.022.038l-2-1.47a1 1 0 00-1.265.052A14 14 0 007 14.004v1.585l-2.707 2.707a1 1 0 101.415 1.415l2.707-2.708H10a14.014 14.014 0 0014-14v-2a1 1 0 00-.293-.706zM18 23.999H3a3 3 0 01-3-3V6A3 3 0 013 3h3a1 1 0 110 2H3a1 1 0 00-1 1v15a1 1 0 001 1h15a1 1 0 001-1v-3a1 1 0 112 0v3a3 3 0 01-3 3z"
-                      fill="#212134"
-                      fill-rule="evenodd"
-                    />
-                  </svg>
-                </span>
-                <span
-                  class="c7 c8"
-                >
-                  Content
-                </span>
+                    <svg
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M23.707.297A1 1 0 0023 .004h-2a13.907 13.907 0 00-5.38 1.077 1 1 0 00-.615.923V4.92a.035.035 0 01-.022.038l-2-1.47a1 1 0 00-1.265.052A14 14 0 007 14.004v1.585l-2.707 2.707a1 1 0 101.415 1.415l2.707-2.708H10a14.014 14.014 0 0014-14v-2a1 1 0 00-.293-.706zM18 23.999H3a3 3 0 01-3-3V6A3 3 0 013 3h3a1 1 0 110 2H3a1 1 0 00-1 1v15a1 1 0 001 1h15a1 1 0 001-1v-3a1 1 0 112 0v3a3 3 0 01-3 3z"
+                        fill="#212134"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="c7 c8"
+                  >
+                    Content
+                  </span>
+                </div>
               </span>
             </a>
           </li>
@@ -26095,19 +26118,19 @@ exports[`Storyshots Design System/Organisms/MainNav base 1`] = `
             class=""
           >
             <div
-              class="c20"
+              class="c21"
             >
               <span
-                class="c21"
+                class="c22"
               >
                 <span
-                  class="c7 c22 c9 c23"
+                  class="c7 c23 c9 c24"
                 >
                   Plugins
                 </span>
               </span>
               <ul
-                class="c20"
+                class="c21"
               >
                 <li>
                   <a
@@ -26115,32 +26138,36 @@ exports[`Storyshots Design System/Organisms/MainNav base 1`] = `
                     href="/builder"
                   >
                     <span
-                      class="c4 c17"
+                      class="c17 c18"
                     >
-                      <span
-                        aria-hidden="true"
-                        class="c18 c19"
+                      <div
+                        class="c4"
                       >
-                        <svg
-                          fill="none"
-                          height="1em"
-                          viewBox="0 0 24 24"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
+                        <span
+                          aria-hidden="true"
+                          class="c19 c20"
                         >
-                          <path
-                            clip-rule="evenodd"
-                            d="M2.182 0A2.182 2.182 0 000 2.182v19.636C0 23.023.977 24 2.182 24h19.636A2.182 2.182 0 0024 21.818V2.182A2.182 2.182 0 0021.818 0H2.182zm9.354 11.987h7.539c.314 0 .55.209.55.549v6.539c0 .34-.236.55-.55.55h-7.539c-.34 0-.55-.236-.55-.55v-6.539c0-.34.236-.55.55-.55zm-6.638-2.27h14.177c.314 0 .549-.209.549-.549v-4.27c0-.34-.21-.549-.55-.549H4.899c-.313 0-.549.21-.549.55v4.269c0 .34.236.55.55.55zm3.27 9.907h-3.27a.536.536 0 01-.549-.55v-6.538c0-.34.236-.55.55-.55h3.269c.34 0 .55.21.55.55v6.539c0 .34-.236.55-.55.55z"
-                            fill="#212134"
-                            fill-rule="evenodd"
-                          />
-                        </svg>
-                      </span>
-                      <span
-                        class="c7 c8"
-                      >
-                        Builder
-                      </span>
+                          <svg
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 24 24"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              clip-rule="evenodd"
+                              d="M2.182 0A2.182 2.182 0 000 2.182v19.636C0 23.023.977 24 2.182 24h19.636A2.182 2.182 0 0024 21.818V2.182A2.182 2.182 0 0021.818 0H2.182zm9.354 11.987h7.539c.314 0 .55.209.55.549v6.539c0 .34-.236.55-.55.55h-7.539c-.34 0-.55-.236-.55-.55v-6.539c0-.34.236-.55.55-.55zm-6.638-2.27h14.177c.314 0 .549-.209.549-.549v-4.27c0-.34-.21-.549-.55-.549H4.899c-.313 0-.549.21-.549.55v4.269c0 .34.236.55.55.55zm3.27 9.907h-3.27a.536.536 0 01-.549-.55v-6.538c0-.34.236-.55.55-.55h3.269c.34 0 .55.21.55.55v6.539c0 .34-.236.55-.55.55z"
+                              fill="#212134"
+                              fill-rule="evenodd"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="c7 c8"
+                        >
+                          Builder
+                        </span>
+                      </div>
                     </span>
                   </a>
                 </li>
@@ -26150,32 +26177,36 @@ exports[`Storyshots Design System/Organisms/MainNav base 1`] = `
                     href="/content"
                   >
                     <span
-                      class="c4 c17"
+                      class="c17 c18"
                     >
-                      <span
-                        aria-hidden="true"
-                        class="c18 c19"
+                      <div
+                        class="c4"
                       >
-                        <svg
-                          fill="none"
-                          height="1em"
-                          viewBox="0 0 24 24"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
+                        <span
+                          aria-hidden="true"
+                          class="c19 c20"
                         >
-                          <path
-                            clip-rule="evenodd"
-                            d="M4.3.6a.9.9 0 100 1.8h15.311a.9.9 0 100-1.8H4.301zm17.1 3.7A1.6 1.6 0 0123 5.9v15.5a1.6 1.6 0 01-1.6 1.6H2.6A1.601 1.601 0 011 21.4V8 5.915C1 5.03 1.716 4.3 2.6 4.3h18.8zM5.032 19.18h14.336l-3.136-3.205-1.792 1.831-4.032-4.12-5.376 5.494zm13.44-8.697c0 1.282-.985 2.289-2.24 2.289-1.254 0-2.24-1.007-2.24-2.29 0-1.281.986-2.288 2.24-2.288 1.255 0 2.24 1.007 2.24 2.289z"
-                            fill="#212134"
-                            fill-rule="evenodd"
-                          />
-                        </svg>
-                      </span>
-                      <span
-                        class="c7 c8"
-                      >
-                        Media library
-                      </span>
+                          <svg
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 24 24"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              clip-rule="evenodd"
+                              d="M4.3.6a.9.9 0 100 1.8h15.311a.9.9 0 100-1.8H4.301zm17.1 3.7A1.6 1.6 0 0123 5.9v15.5a1.6 1.6 0 01-1.6 1.6H2.6A1.601 1.601 0 011 21.4V8 5.915C1 5.03 1.716 4.3 2.6 4.3h18.8zM5.032 19.18h14.336l-3.136-3.205-1.792 1.831-4.032-4.12-5.376 5.494zm13.44-8.697c0 1.282-.985 2.289-2.24 2.289-1.254 0-2.24-1.007-2.24-2.29 0-1.281.986-2.288 2.24-2.288 1.255 0 2.24 1.007 2.24 2.289z"
+                              fill="#212134"
+                              fill-rule="evenodd"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="c7 c8"
+                        >
+                          Media library
+                        </span>
+                      </div>
                     </span>
                   </a>
                 </li>
@@ -26185,30 +26216,34 @@ exports[`Storyshots Design System/Organisms/MainNav base 1`] = `
                     href="/content"
                   >
                     <span
-                      class="c4 c17"
+                      class="c17 c18"
                     >
-                      <span
-                        aria-hidden="true"
-                        class="c18 c19"
+                      <div
+                        class="c4"
                       >
-                        <svg
-                          fill="none"
-                          height="1em"
-                          viewBox="0 0 24 24"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
+                        <span
+                          aria-hidden="true"
+                          class="c19 c20"
                         >
-                          <path
-                            d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12 12-5.383 12-12S18.617 0 12 0zm0 4.92a1.56 1.56 0 110 3.12 1.56 1.56 0 010-3.12zm3.84 13.56h-7.2v-1.92h2.64v-5.28H9.36V9.36h3.84v7.2h2.64v1.92z"
-                            fill="#212134"
-                          />
-                        </svg>
-                      </span>
-                      <span
-                        class="c7 c8"
-                      >
-                        Documentation
-                      </span>
+                          <svg
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 24 24"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12 12-5.383 12-12S18.617 0 12 0zm0 4.92a1.56 1.56 0 110 3.12 1.56 1.56 0 010-3.12zm3.84 13.56h-7.2v-1.92h2.64v-5.28H9.36V9.36h3.84v7.2h2.64v1.92z"
+                              fill="#212134"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="c7 c8"
+                        >
+                          Documentation
+                        </span>
+                      </div>
                     </span>
                   </a>
                 </li>
@@ -26219,19 +26254,19 @@ exports[`Storyshots Design System/Organisms/MainNav base 1`] = `
             class=""
           >
             <div
-              class="c20"
+              class="c21"
             >
               <span
-                class="c21"
+                class="c22"
               >
                 <span
-                  class="c7 c22 c9 c23"
+                  class="c7 c23 c9 c24"
                 >
                   General
                 </span>
               </span>
               <ul
-                class="c20"
+                class="c21"
               >
                 <li>
                   <a
@@ -26239,32 +26274,36 @@ exports[`Storyshots Design System/Organisms/MainNav base 1`] = `
                     href="/builder"
                   >
                     <span
-                      class="c4 c17"
+                      class="c17 c18"
                     >
-                      <span
-                        aria-hidden="true"
-                        class="c18 c19"
+                      <div
+                        class="c4"
                       >
-                        <svg
-                          fill="none"
-                          height="1em"
-                          viewBox="0 0 25 25"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
+                        <span
+                          aria-hidden="true"
+                          class="c19 c20"
                         >
-                          <path
-                            clip-rule="evenodd"
-                            d="M13.58.448l3.177 3.176L18.66 1.72a3.267 3.267 0 114.62 4.62l-1.904 1.904 3.175 3.175a1.528 1.528 0 010 2.162l-3.175 3.175L20.2 15.58a3.267 3.267 0 10-4.62 4.62l1.177 1.177-3.176 3.176a1.528 1.528 0 01-2.162 0l-3.175-3.175-1.902 1.902a3.267 3.267 0 11-4.62-4.62l1.902-1.902-3.176-3.176a1.528 1.528 0 010-2.162l3.176-3.176L4.8 9.42a3.267 3.267 0 004.62-4.62L8.244 3.623 11.419.448a1.528 1.528 0 012.162 0z"
-                            fill="#212134"
-                            fill-rule="evenodd"
-                          />
-                        </svg>
-                      </span>
-                      <span
-                        class="c7 c8"
-                      >
-                        Plugins
-                      </span>
+                          <svg
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 25 25"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              clip-rule="evenodd"
+                              d="M13.58.448l3.177 3.176L18.66 1.72a3.267 3.267 0 114.62 4.62l-1.904 1.904 3.175 3.175a1.528 1.528 0 010 2.162l-3.175 3.175L20.2 15.58a3.267 3.267 0 10-4.62 4.62l1.177 1.177-3.176 3.176a1.528 1.528 0 01-2.162 0l-3.175-3.175-1.902 1.902a3.267 3.267 0 11-4.62-4.62l1.902-1.902-3.176-3.176a1.528 1.528 0 010-2.162l3.176-3.176L4.8 9.42a3.267 3.267 0 004.62-4.62L8.244 3.623 11.419.448a1.528 1.528 0 012.162 0z"
+                              fill="#212134"
+                              fill-rule="evenodd"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="c7 c8"
+                        >
+                          Plugins
+                        </span>
+                      </div>
                     </span>
                   </a>
                 </li>
@@ -26274,32 +26313,36 @@ exports[`Storyshots Design System/Organisms/MainNav base 1`] = `
                     href="/content"
                   >
                     <span
-                      class="c4 c17"
+                      class="c17 c18"
                     >
-                      <span
-                        aria-hidden="true"
-                        class="c18 c19"
+                      <div
+                        class="c4"
                       >
-                        <svg
-                          fill="none"
-                          height="1em"
-                          viewBox="0 0 24 24"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
+                        <span
+                          aria-hidden="true"
+                          class="c19 c20"
                         >
-                          <path
-                            clip-rule="evenodd"
-                            d="M23.12 3.907c-.025 0-.055-.005-.087-.011a.72.72 0 00-.13-.016H5.929l-.27-1.805A2.413 2.413 0 003.26 0H1.078C.485 0 0 .485 0 1.078c0 .593.485 1.078 1.078 1.078H3.26c.135 0 .243.107.27.242L5.2 13.77a2.954 2.954 0 002.91 2.506h11.21c1.401 0 2.614-.997 2.91-2.371l1.752-8.757a1.065 1.065 0 00-.863-1.24zm-4.932 13.927a2.8 2.8 0 00-2.802 2.802 2.8 2.8 0 002.802 2.802 2.8 2.8 0 002.803-2.802c-.027-1.536-1.267-2.802-2.803-2.802zm-9.646 0a2.786 2.786 0 012.775 2.667c.081 1.536-1.132 2.83-2.667 2.91h-.054a2.762 2.762 0 01-2.749-2.667 2.819 2.819 0 012.695-2.91z"
-                            fill="#212134"
-                            fill-rule="evenodd"
-                          />
-                        </svg>
-                      </span>
-                      <span
-                        class="c7 c8"
-                      >
-                        Marketplace
-                      </span>
+                          <svg
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 24 24"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              clip-rule="evenodd"
+                              d="M23.12 3.907c-.025 0-.055-.005-.087-.011a.72.72 0 00-.13-.016H5.929l-.27-1.805A2.413 2.413 0 003.26 0H1.078C.485 0 0 .485 0 1.078c0 .593.485 1.078 1.078 1.078H3.26c.135 0 .243.107.27.242L5.2 13.77a2.954 2.954 0 002.91 2.506h11.21c1.401 0 2.614-.997 2.91-2.371l1.752-8.757a1.065 1.065 0 00-.863-1.24zm-4.932 13.927a2.8 2.8 0 00-2.802 2.802 2.8 2.8 0 002.802 2.802 2.8 2.8 0 002.803-2.802c-.027-1.536-1.267-2.802-2.803-2.802zm-9.646 0a2.786 2.786 0 012.775 2.667c.081 1.536-1.132 2.83-2.667 2.91h-.054a2.762 2.762 0 01-2.749-2.667 2.819 2.819 0 012.695-2.91z"
+                              fill="#212134"
+                              fill-rule="evenodd"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="c7 c8"
+                        >
+                          Marketplace
+                        </span>
+                      </div>
                     </span>
                   </a>
                 </li>
@@ -26309,32 +26352,36 @@ exports[`Storyshots Design System/Organisms/MainNav base 1`] = `
                     href="/content"
                   >
                     <span
-                      class="c4 c17"
+                      class="c17 c18"
                     >
-                      <span
-                        aria-hidden="true"
-                        class="c18 c19"
+                      <div
+                        class="c4"
                       >
-                        <svg
-                          fill="none"
-                          height="1em"
-                          viewBox="0 0 24 24"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
+                        <span
+                          aria-hidden="true"
+                          class="c19 c20"
                         >
-                          <path
-                            clip-rule="evenodd"
-                            d="M21.255 12c0 .408-.037.792-.086 1.176l2.603 1.98c.234.18.296.504.148.768l-2.467 4.152c-.148.264-.47.372-.753.264l-3.072-1.2a9.544 9.544 0 01-2.085 1.176l-.468 3.18a.596.596 0 01-.605.504H9.535a.597.597 0 01-.604-.504l-.469-3.18a9.077 9.077 0 01-2.085-1.176l-3.072 1.2c-.271.096-.604 0-.752-.264L.086 15.924a.594.594 0 01.148-.768l2.603-1.98A9.263 9.263 0 012.75 12c0-.396.037-.792.087-1.176L.234 8.844a.581.581 0 01-.148-.768l2.467-4.152c.148-.264.469-.372.752-.264l3.072 1.2a9.545 9.545 0 012.085-1.176l.469-3.18A.597.597 0 019.535 0h4.935c.308 0 .567.216.604.504l.47 3.18c.752.3 1.443.696 2.084 1.176l3.072-1.2c.271-.096.605 0 .753.264l2.467 4.152a.594.594 0 01-.148.768l-2.603 1.98c.05.384.086.768.086 1.176zm-13.57 0c0 2.316 1.937 4.2 4.318 4.2 2.38 0 4.318-1.884 4.318-4.2 0-2.316-1.937-4.2-4.318-4.2-2.381 0-4.318 1.884-4.318 4.2z"
-                            fill="#32324D"
-                            fill-rule="evenodd"
-                          />
-                        </svg>
-                      </span>
-                      <span
-                        class="c7 c8"
-                      >
-                        Settings
-                      </span>
+                          <svg
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 24 24"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              clip-rule="evenodd"
+                              d="M21.255 12c0 .408-.037.792-.086 1.176l2.603 1.98c.234.18.296.504.148.768l-2.467 4.152c-.148.264-.47.372-.753.264l-3.072-1.2a9.544 9.544 0 01-2.085 1.176l-.468 3.18a.596.596 0 01-.605.504H9.535a.597.597 0 01-.604-.504l-.469-3.18a9.077 9.077 0 01-2.085-1.176l-3.072 1.2c-.271.096-.604 0-.752-.264L.086 15.924a.594.594 0 01.148-.768l2.603-1.98A9.263 9.263 0 012.75 12c0-.396.037-.792.087-1.176L.234 8.844a.581.581 0 01-.148-.768l2.467-4.152c.148-.264.469-.372.752-.264l3.072 1.2a9.545 9.545 0 012.085-1.176l.469-3.18A.597.597 0 019.535 0h4.935c.308 0 .567.216.604.504l.47 3.18c.752.3 1.443.696 2.084 1.176l3.072-1.2c.271-.096.605 0 .753.264l2.467 4.152a.594.594 0 01-.148.768l-2.603 1.98c.05.384.086.768.086 1.176zm-13.57 0c0 2.316 1.937 4.2 4.318 4.2 2.38 0 4.318-1.884 4.318-4.2 0-2.316-1.937-4.2-4.318-4.2-2.381 0-4.318 1.884-4.318 4.2z"
+                              fill="#32324D"
+                              fill-rule="evenodd"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="c7 c8"
+                        >
+                          Settings
+                        </span>
+                      </div>
                     </span>
                   </a>
                 </li>
@@ -26344,7 +26391,7 @@ exports[`Storyshots Design System/Organisms/MainNav base 1`] = `
         </ul>
       </div>
       <a
-        class="c24 c25"
+        class="c25 c26"
         href="/somewhere-i-belong"
       >
         <span
@@ -26352,11 +26399,11 @@ exports[`Storyshots Design System/Organisms/MainNav base 1`] = `
         >
           <span>
             <div
-              class="c26"
+              class="c27"
             >
               <img
                 alt=""
-                class="c27"
+                class="c28"
                 height="26px"
                 src="https://avatars.githubusercontent.com/u/3874873?v=4"
                 width="26px"
@@ -26367,7 +26414,7 @@ exports[`Storyshots Design System/Organisms/MainNav base 1`] = `
             class="c6"
           >
             <span
-              class="c7 c22"
+              class="c7 c23"
             >
               John Duff
             </span>
@@ -26375,7 +26422,784 @@ exports[`Storyshots Design System/Organisms/MainNav base 1`] = `
         </span>
       </a>
       <button
-        class="c28"
+        class="c29"
+      >
+        <svg
+          aria-hidden="true"
+          fill="none"
+          height="1em"
+          viewBox="0 0 10 16"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M9.88 14.12L3.773 8 9.88 1.88 8 0 0 8l8 8 1.88-1.88z"
+            fill="#32324D"
+          />
+        </svg>
+        <div
+          class="c0"
+        >
+          Collapse the navbar
+        </div>
+      </button>
+    </nav>
+  </div>
+</main>
+`;
+
+exports[`Storyshots Design System/Organisms/MainNav notifications 1`] = `
+.c0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.c1 {
+  background: #f6f6f9;
+  padding: 56px;
+}
+
+.c3 {
+  padding-top: 16px;
+  padding-right: 12px;
+  padding-bottom: 16px;
+  padding-left: 12px;
+}
+
+.c6 {
+  padding-left: 8px;
+}
+
+.c12 {
+  background: #eaeaef;
+}
+
+.c14 {
+  padding-top: 12px;
+  padding-right: 12px;
+  padding-left: 12px;
+}
+
+.c19 {
+  padding-right: 12px;
+}
+
+.c22 {
+  background: #ffffff;
+  padding-top: 4px;
+  padding-right: 12px;
+  padding-bottom: 4px;
+  padding-left: 12px;
+  border-radius: 4px;
+}
+
+.c28 {
+  padding-top: 12px;
+  padding-right: 20px;
+  padding-bottom: 12px;
+  padding-left: 20px;
+}
+
+.c8 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #32324d;
+}
+
+.c11 {
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #666687;
+}
+
+.c23 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #666687;
+}
+
+.c27 {
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #32324d;
+}
+
+.c9 {
+  font-weight: 600;
+  line-height: 1.14;
+}
+
+.c24 {
+  font-weight: 600;
+  font-size: 0.6875rem;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c17 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c25 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c15 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c15 > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.c15 > * + * {
+  margin-top: 16px;
+}
+
+.c21 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c21 > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.c21 > * + * {
+  margin-top: 8px;
+}
+
+.c31 {
+  border-radius: 50%;
+  display: block;
+  position: relative;
+}
+
+.c30 {
+  position: relative;
+  width: 26px;
+  height: 26px;
+}
+
+.c13 {
+  height: 1px;
+  margin: 0;
+  border: none;
+}
+
+.c2 {
+  width: 14rem;
+  background: #ffffff;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  z-index: 2;
+}
+
+.c32 {
+  background: #ffffff;
+  border: 1px solid #eaeaef;
+  border-radius: 4px;
+  padding: 8px 4px;
+  margin: 0;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: absolute;
+  bottom: 8px;
+  right: 20px;
+  z-index: 2;
+}
+
+.c20 {
+  height: 1rem;
+}
+
+.c16 {
+  position: relative;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  display: block;
+  border-radius: 4px;
+  background: #ffffff;
+}
+
+.c16 .c7 {
+  color: #666687;
+}
+
+.c16 svg path {
+  fill: #8e8ea9;
+}
+
+.c16:hover {
+  background: #f6f6f9;
+}
+
+.c16:hover .c7 {
+  color: #4a4a6a;
+}
+
+.c16:hover svg path {
+  fill: #666687;
+}
+
+.c16.active {
+  background: #f0f0ff;
+}
+
+.c16.active svg path {
+  fill: #4945ff;
+}
+
+.c16.active .c7 {
+  color: #4945ff;
+  font-weight: 500;
+}
+
+.c18 {
+  padding: 8px 12px;
+}
+
+.c26 {
+  background: #4945ff;
+  height: 20px;
+  padding: 0 8px;
+  border-radius: 56px;
+}
+
+.c26 .c7 {
+  color: #ffffff !important;
+  line-height: 0;
+}
+
+.c29 {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #eaeaef;
+}
+
+.c5 {
+  border-radius: 4px;
+}
+
+.c5 svg,
+.c5 img {
+  height: 2rem;
+  width: 2rem;
+}
+
+.c10 {
+  -webkit-text-decoration: unset;
+  text-decoration: unset;
+  color: inherit;
+}
+
+<main>
+  <div
+    class="c0"
+  >
+    <h1>
+      Storybook story
+    </h1>
+  </div>
+  <div
+    class="c1"
+    style="height: 100vh;"
+  >
+    <nav
+      class="c2"
+    >
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <a
+            aria-current="page"
+            aria-hidden="true"
+            class="c5 active"
+            href="/"
+            tabindex="-1"
+          >
+            <img
+              alt=""
+              src="test-file-stub"
+            />
+          </a>
+          <div
+            class="c6"
+          >
+            <span
+              class="c7 c8 c9"
+            >
+              <a
+                aria-current="page"
+                class="c10 active"
+                href="/"
+              >
+                Strapi Dashboard
+                <span
+                  class="c0"
+                >
+                  Workplace
+                </span>
+              </a>
+            </span>
+            <p
+              aria-hidden="true"
+              class="c7 c11"
+            >
+              Workplace
+            </p>
+          </div>
+        </div>
+      </div>
+      <hr
+        class="c12 c13"
+      />
+      <div
+        class="c14"
+      >
+        <ul
+          class="c15"
+        >
+          <li>
+            <a
+              class="c16 active"
+              href="/cm"
+            >
+              <span
+                class="c17 c18"
+              >
+                <div
+                  class="c4"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="c19 c20"
+                  >
+                    <svg
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M23.707.297A1 1 0 0023 .004h-2a13.907 13.907 0 00-5.38 1.077 1 1 0 00-.615.923V4.92a.035.035 0 01-.022.038l-2-1.47a1 1 0 00-1.265.052A14 14 0 007 14.004v1.585l-2.707 2.707a1 1 0 101.415 1.415l2.707-2.708H10a14.014 14.014 0 0014-14v-2a1 1 0 00-.293-.706zM18 23.999H3a3 3 0 01-3-3V6A3 3 0 013 3h3a1 1 0 110 2H3a1 1 0 00-1 1v15a1 1 0 001 1h15a1 1 0 001-1v-3a1 1 0 112 0v3a3 3 0 01-3 3z"
+                        fill="#212134"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="c7 c8"
+                  >
+                    Content
+                  </span>
+                </div>
+              </span>
+            </a>
+          </li>
+          <li
+            class=""
+          >
+            <div
+              class="c21"
+            >
+              <span
+                class="c22"
+              >
+                <span
+                  class="c7 c23 c9 c24"
+                >
+                  Plugins
+                </span>
+              </span>
+              <ul
+                class="c21"
+              >
+                <li>
+                  <a
+                    class="c16"
+                    href="/builder"
+                  >
+                    <span
+                      class="c17 c18"
+                    >
+                      <div
+                        class="c4"
+                      >
+                        <span
+                          aria-hidden="true"
+                          class="c19 c20"
+                        >
+                          <svg
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 24 24"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              clip-rule="evenodd"
+                              d="M2.182 0A2.182 2.182 0 000 2.182v19.636C0 23.023.977 24 2.182 24h19.636A2.182 2.182 0 0024 21.818V2.182A2.182 2.182 0 0021.818 0H2.182zm9.354 11.987h7.539c.314 0 .55.209.55.549v6.539c0 .34-.236.55-.55.55h-7.539c-.34 0-.55-.236-.55-.55v-6.539c0-.34.236-.55.55-.55zm-6.638-2.27h14.177c.314 0 .549-.209.549-.549v-4.27c0-.34-.21-.549-.55-.549H4.899c-.313 0-.549.21-.549.55v4.269c0 .34.236.55.55.55zm3.27 9.907h-3.27a.536.536 0 01-.549-.55v-6.538c0-.34.236-.55.55-.55h3.269c.34 0 .55.21.55.55v6.539c0 .34-.236.55-.55.55z"
+                              fill="#212134"
+                              fill-rule="evenodd"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="c7 c8"
+                        >
+                          Builder
+                        </span>
+                      </div>
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="c16"
+                    href="/content"
+                  >
+                    <span
+                      class="c17 c18"
+                    >
+                      <div
+                        class="c4"
+                      >
+                        <span
+                          aria-hidden="true"
+                          class="c19 c20"
+                        >
+                          <svg
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 24 24"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              clip-rule="evenodd"
+                              d="M4.3.6a.9.9 0 100 1.8h15.311a.9.9 0 100-1.8H4.301zm17.1 3.7A1.6 1.6 0 0123 5.9v15.5a1.6 1.6 0 01-1.6 1.6H2.6A1.601 1.601 0 011 21.4V8 5.915C1 5.03 1.716 4.3 2.6 4.3h18.8zM5.032 19.18h14.336l-3.136-3.205-1.792 1.831-4.032-4.12-5.376 5.494zm13.44-8.697c0 1.282-.985 2.289-2.24 2.289-1.254 0-2.24-1.007-2.24-2.29 0-1.281.986-2.288 2.24-2.288 1.255 0 2.24 1.007 2.24 2.289z"
+                              fill="#212134"
+                              fill-rule="evenodd"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="c7 c8"
+                        >
+                          Media library
+                        </span>
+                      </div>
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="c16"
+                    href="/content"
+                  >
+                    <span
+                      class="c17 c18"
+                    >
+                      <div
+                        class="c4"
+                      >
+                        <span
+                          aria-hidden="true"
+                          class="c19 c20"
+                        >
+                          <svg
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 24 24"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12 12-5.383 12-12S18.617 0 12 0zm0 4.92a1.56 1.56 0 110 3.12 1.56 1.56 0 010-3.12zm3.84 13.56h-7.2v-1.92h2.64v-5.28H9.36V9.36h3.84v7.2h2.64v1.92z"
+                              fill="#212134"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="c7 c8"
+                        >
+                          Documentation
+                        </span>
+                      </div>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li
+            class=""
+          >
+            <div
+              class="c21"
+            >
+              <span
+                class="c22"
+              >
+                <span
+                  class="c7 c23 c9 c24"
+                >
+                  General
+                </span>
+              </span>
+              <ul
+                class="c21"
+              >
+                <li>
+                  <a
+                    class="c16"
+                    href="/builder"
+                  >
+                    <span
+                      class="c17 c18"
+                    >
+                      <div
+                        class="c4"
+                      >
+                        <span
+                          aria-hidden="true"
+                          class="c19 c20"
+                        >
+                          <svg
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 25 25"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              clip-rule="evenodd"
+                              d="M13.58.448l3.177 3.176L18.66 1.72a3.267 3.267 0 114.62 4.62l-1.904 1.904 3.175 3.175a1.528 1.528 0 010 2.162l-3.175 3.175L20.2 15.58a3.267 3.267 0 10-4.62 4.62l1.177 1.177-3.176 3.176a1.528 1.528 0 01-2.162 0l-3.175-3.175-1.902 1.902a3.267 3.267 0 11-4.62-4.62l1.902-1.902-3.176-3.176a1.528 1.528 0 010-2.162l3.176-3.176L4.8 9.42a3.267 3.267 0 004.62-4.62L8.244 3.623 11.419.448a1.528 1.528 0 012.162 0z"
+                              fill="#212134"
+                              fill-rule="evenodd"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="c7 c8"
+                        >
+                          Plugins
+                        </span>
+                      </div>
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="c16"
+                    href="/content"
+                  >
+                    <span
+                      class="c17 c18"
+                    >
+                      <div
+                        class="c4"
+                      >
+                        <span
+                          aria-hidden="true"
+                          class="c19 c20"
+                        >
+                          <svg
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 24 24"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              clip-rule="evenodd"
+                              d="M23.12 3.907c-.025 0-.055-.005-.087-.011a.72.72 0 00-.13-.016H5.929l-.27-1.805A2.413 2.413 0 003.26 0H1.078C.485 0 0 .485 0 1.078c0 .593.485 1.078 1.078 1.078H3.26c.135 0 .243.107.27.242L5.2 13.77a2.954 2.954 0 002.91 2.506h11.21c1.401 0 2.614-.997 2.91-2.371l1.752-8.757a1.065 1.065 0 00-.863-1.24zm-4.932 13.927a2.8 2.8 0 00-2.802 2.802 2.8 2.8 0 002.802 2.802 2.8 2.8 0 002.803-2.802c-.027-1.536-1.267-2.802-2.803-2.802zm-9.646 0a2.786 2.786 0 012.775 2.667c.081 1.536-1.132 2.83-2.667 2.91h-.054a2.762 2.762 0 01-2.749-2.667 2.819 2.819 0 012.695-2.91z"
+                              fill="#212134"
+                              fill-rule="evenodd"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="c7 c8"
+                        >
+                          Marketplace
+                        </span>
+                      </div>
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="c16"
+                    href="/content"
+                  >
+                    <span
+                      class="c17 c18"
+                    >
+                      <div
+                        class="c4"
+                      >
+                        <span
+                          aria-hidden="true"
+                          class="c19 c20"
+                        >
+                          <svg
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 24 24"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              clip-rule="evenodd"
+                              d="M21.255 12c0 .408-.037.792-.086 1.176l2.603 1.98c.234.18.296.504.148.768l-2.467 4.152c-.148.264-.47.372-.753.264l-3.072-1.2a9.544 9.544 0 01-2.085 1.176l-.468 3.18a.596.596 0 01-.605.504H9.535a.597.597 0 01-.604-.504l-.469-3.18a9.077 9.077 0 01-2.085-1.176l-3.072 1.2c-.271.096-.604 0-.752-.264L.086 15.924a.594.594 0 01.148-.768l2.603-1.98A9.263 9.263 0 012.75 12c0-.396.037-.792.087-1.176L.234 8.844a.581.581 0 01-.148-.768l2.467-4.152c.148-.264.469-.372.752-.264l3.072 1.2a9.545 9.545 0 012.085-1.176l.469-3.18A.597.597 0 019.535 0h4.935c.308 0 .567.216.604.504l.47 3.18c.752.3 1.443.696 2.084 1.176l3.072-1.2c.271-.096.605 0 .753.264l2.467 4.152a.594.594 0 01-.148.768l-2.603 1.98c.05.384.086.768.086 1.176zm-13.57 0c0 2.316 1.937 4.2 4.318 4.2 2.38 0 4.318-1.884 4.318-4.2 0-2.316-1.937-4.2-4.318-4.2-2.381 0-4.318 1.884-4.318 4.2z"
+                              fill="#32324D"
+                              fill-rule="evenodd"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="c7 c8"
+                        >
+                          Settings
+                        </span>
+                      </div>
+                      <div
+                        class="c25 c26"
+                      >
+                        <span
+                          class="c7 c27"
+                        >
+                          2
+                        </span>
+                      </div>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <a
+        class="c28 c29"
+        href="/somewhere-i-belong"
+      >
+        <span
+          class="c4"
+        >
+          <span>
+            <div
+              class="c30"
+            >
+              <img
+                alt=""
+                class="c31"
+                height="26px"
+                src="https://avatars.githubusercontent.com/u/3874873?v=4"
+                width="26px"
+              />
+            </div>
+          </span>
+          <span
+            class="c6"
+          >
+            <span
+              class="c7 c23"
+            >
+              John Duff
+            </span>
+          </span>
+        </span>
+      </a>
+      <button
+        class="c32"
       >
         <svg
           aria-hidden="true"

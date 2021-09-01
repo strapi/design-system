@@ -14,6 +14,7 @@ const IconBox = styled(Box)`
 
 // TODO: make sure to use the Link component associated with the router we want to use
 const MainNavLinkWrapper = styled(RouterLink)`
+  position: relative;
   text-decoration: none;
   display: block;
   border-radius: ${({ theme }) => theme.borderRadius};
@@ -57,8 +58,27 @@ const MainNavRow = styled(Row)`
   padding: ${({ theme }) => `${theme.spaces[2]} ${theme.spaces[3]}`};
 `;
 
-export const NavLink = ({ children, icon, ...props }) => {
+const Notification = styled(Row)`
+  //positionning when condensed
+  position: ${(props) => (props.condensed ? 'absolute' : '')};
+  transform: ${(props) => (props.condensed ? 'translate(35%, -50%)' : '')};
+  top: ${(props) => (props.condensed ? '0' : '')};
+  right: ${(props) => (props.condensed ? '0' : '')};
+
+  background: ${({ theme }) => theme.colors.primary600};
+  height: ${({ theme }) => theme.spaces[5]};
+  padding: ${({ theme }) => `0 ${theme.spaces[2]}`};
+  border-radius: ${({ theme }) => theme.spaces[10]};
+
+  ${Text} {
+    color: ${({ theme }) => theme.colors.neutral0} !important;
+    line-height: 0;
+  }
+`;
+
+export const NavLink = ({ children, icon, notifications, ...props }) => {
   const condensed = useMainNav();
+  const isNotification = notifications > 0;
 
   if (condensed) {
     return (
@@ -69,6 +89,13 @@ export const NavLink = ({ children, icon, ...props }) => {
               <IconBox aria-hidden paddingRight={0} as="span">
                 {icon}
               </IconBox>
+              {isNotification && (
+                <Notification condensed justifyContent="center">
+                  <Text notifText small highlighted>
+                    {notifications}
+                  </Text>
+                </Notification>
+              )}
             </MainNavRow>
           </MainNavLinkWrapper>
         </Tooltip>
@@ -79,19 +106,32 @@ export const NavLink = ({ children, icon, ...props }) => {
   return (
     <li>
       <MainNavLinkWrapper {...props}>
-        <MainNavRow as="span">
-          <IconBox aria-hidden paddingRight={3} as="span">
-            {icon}
-          </IconBox>
-
-          <Text>{children}</Text>
+        <MainNavRow as="span" justifyContent="space-between">
+          <Row>
+            <IconBox aria-hidden paddingRight={3} as="span">
+              {icon}
+            </IconBox>
+            <Text>{children}</Text>
+          </Row>
+          {isNotification && (
+            <Notification justifyContent="center">
+              <Text notifText small highlighted>
+                {notifications}
+              </Text>
+            </Notification>
+          )}
         </MainNavRow>
       </MainNavLinkWrapper>
     </li>
   );
 };
 
+NavLink.defaultProps = {
+  notifications: undefined,
+};
+
 NavLink.propTypes = {
   children: PropTypes.string.isRequired,
   icon: PropTypes.node.isRequired,
+  notifications: PropTypes.number,
 };
