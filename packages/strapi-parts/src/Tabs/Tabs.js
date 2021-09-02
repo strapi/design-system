@@ -1,7 +1,7 @@
 import React, { Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import { useTabs } from './TabsContext';
-import { TextButton, TableLabel } from '../Text';
+import { ButtonText, TableLabel } from '../Text';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 import { useTabsFocus } from './useTabsFocus';
 import { DefaultTabsRow, DefaultTabButton, DefaultTabBox, SimpleTabBox } from './components';
@@ -125,7 +125,7 @@ export const Tab = ({ selected, id, children, variant, hasError, ...props }) => 
       {...props}
     >
       <DefaultTabBox padding={selected ? 4 : 3} background={selected ? 'neutral0' : 'neutral100'} selected={selected}>
-        <TextButton textColor={selected ? 'primary700' : 'neutral600'}>{children}</TextButton>
+        <ButtonText textColor={selected ? 'primary700' : 'neutral600'}>{children}</ButtonText>
       </DefaultTabBox>
     </DefaultTabButton>
   );

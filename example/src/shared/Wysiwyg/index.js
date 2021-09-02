@@ -5,10 +5,9 @@ import WysiwygFooter from './WysiwygFooter';
 import WysiwygExpand from './WysiwygExpand';
 import MediaLibrary from './MediaLibrary';
 import Editor from './Editor';
-import { TextButton } from '@strapi/parts';
+import { ButtonText } from '@strapi/parts';
 import { WysiwygWrapper } from './WysiwygStyles'
 import { markdownHandler, listHandler, titleHandler, insertImage, quoteAndCodeHandler } from './utils/utils';
-
 
 const Wysiwyg = ({ label, placeholder, onChange, value }) => {
   const textareaRef = useRef(null);
@@ -78,7 +77,7 @@ const Wysiwyg = ({ label, placeholder, onChange, value }) => {
 
   return (
     <>
-      <TextButton>{label}</TextButton>
+      <ButtonText>{label}</ButtonText>
       <WysiwygWrapper paddingTop={1} hasRadius>
         <WysiwygNav 
           placeholder={placeholder} 

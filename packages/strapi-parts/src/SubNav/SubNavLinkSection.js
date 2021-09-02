@@ -47,7 +47,7 @@ export const SubNavLinkSection = ({ label, children, id }) => {
               <FilterDropdown aria-hidden />
             </DropDownIconWrapper>
             <Box paddingLeft={2}>
-              <Text as="span" highlighted textColor="neutral800">
+              <Text as="span" bold textColor="neutral800">
                 {label}
               </Text>
             </Box>

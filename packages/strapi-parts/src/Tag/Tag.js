@@ -28,7 +28,7 @@ const TagText = styled(Text)`
 export const Tag = ({ children, icon, ...props }) => (
   <TagWrapper as="button" background="primary100" color="primary600" paddingLeft={3} paddingRight={3} {...props}>
     <Row>
-      <TagText small={true} highlighted={true} as="span">
+      <TagText small={true} bold={true} as="span">
         {children}
       </TagText>
 

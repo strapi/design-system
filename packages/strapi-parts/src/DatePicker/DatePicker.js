@@ -42,7 +42,7 @@ export const DatePicker = ({
   };
 
   return (
-    <DatePickerWrapper highlighted={visible}>
+    <DatePickerWrapper bold={visible}>
       <TextInput
         ref={inputRef}
         onClick={toggleVisibility}

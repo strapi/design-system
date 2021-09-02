@@ -19,8 +19,8 @@ export const DatePickerButton = styled.button`
 `;
 
 export const DatePickerWrapper = styled.div`
-  ${({ highlighted, theme }) =>
-    highlighted
+  ${({ bold, theme }) =>
+    bold
       ? `& ${InputWrapper} {
   border: 1px solid ${theme.colors.primary600};
 }`

@@ -36,7 +36,7 @@ const textStyles = {
 };
 
 export const Text = styled.span`
-  font-weight: ${({ highlighted }) => (highlighted ? 500 : 400)};
+  font-weight: ${({ bold }) => (bold ? 500 : 400)};
   font-size: ${({ small }) => textStyles[small ? 'S' : 'M'].fontSize};
   line-height: ${({ small }) => textStyles[small ? 'S' : 'M'].lineHeight};
   color: ${handleColor};
@@ -49,14 +49,21 @@ export const Subtitle = styled(Text)`
   line-height: 1.5;
 `;
 
-export const TextButton = styled(Text)`
+export const ButtonText = styled(Text)`
   font-weight: 600;
   line-height: 1.14;
 `;
 
-export const TableLabel = styled(TextButton)`
+export const TableLabel = styled(ButtonText)`
   font-weight: 600;
   font-size: ${11 / 16}rem;
   line-height: 1.45;
   text-transform: uppercase;
+`;
+
+export const EllipsisText = styled(Text)`
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;

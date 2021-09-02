@@ -81,7 +81,7 @@ export const Carousel = ({
   return (
     <div {...props} onKeyDown={handleKeyDown}>
       <Box paddingBottom={1}>
-        <Text textColor="neutral800" small highlighted>
+        <Text textColor="neutral800" small bold>
           {label}
         </Text>
       </Box>

@@ -16,7 +16,7 @@ export const Information = () => {
       paddingRight={6}
       shadow="filterShadow"
     >
-      <Text textColor="neutral700" as="h3" highlighted>
+      <Text textColor="neutral700" as="h3" bold>
         Information
       </Text>
 
@@ -26,7 +26,7 @@ export const Information = () => {
 
       <Stack size={3}>
         <Row justifyContent="space-between">
-          <Text textColor="neutral800" highlighted small>
+          <Text textColor="neutral800" bold small>
             Last update
           </Text>
 
@@ -34,7 +34,7 @@ export const Information = () => {
         </Row>
 
         <Row justifyContent="space-between">
-          <Text textColor="neutral800" small highlighted>
+          <Text textColor="neutral800" small bold>
             By
           </Text>
 

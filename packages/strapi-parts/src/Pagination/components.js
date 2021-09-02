@@ -110,7 +110,7 @@ export const PageLink = ({ number, children, ...props }) => {
     <li>
       <PageLinkWrapper {...props} active={isActive}>
         <VisuallyHidden>{children}</VisuallyHidden>
-        <PaginationText aria-hidden={true} small={true} highlighted={isActive}>
+        <PaginationText aria-hidden={true} small={true} bold={isActive}>
           {number}
         </PaginationText>
       </PageLinkWrapper>

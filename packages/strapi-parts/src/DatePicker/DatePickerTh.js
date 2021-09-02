@@ -22,7 +22,7 @@ export const DatePickerTh = ({ children, ...props }) => {
   return (
     <DatePickerThWrapper {...props}>
       <DatePickerThRow justifyContent="center">
-        <Text small highlighted={true} color="neutral800" aria-hidden>
+        <Text small bold={true} color="neutral800" aria-hidden>
           {children.substr(0, 2)}
         </Text>
 
