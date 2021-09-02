@@ -81,6 +81,7 @@ Description...
   <Story name="notifications">
     {() => {
       const [condensed, setCondensed] = useState(false);
+      const numberOfNotifications = 2;
       return (
         <Box background="neutral100" padding={10} style={{ height: '100vh' }}>
           <MainNav condensed={condensed}>
@@ -105,10 +106,15 @@ Description...
                 <NavLink to="/builder" icon={<PluginsIcon />}>
                   Plugins
                 </NavLink>
-                <NavLink to="/content" badgeContent={'1'} icon={<MarketPlaceIcon />} badgeAriaLabel="notifications">
+                <NavLink to="/content" badgeContent={'new'} icon={<MarketPlaceIcon />} badgeAriaLabel="new content">
                   Marketplace
                 </NavLink>
-                <NavLink to="/content" badgeContent={2} icon={<SettingsIcon />} badgeAriaLabel="notifications">
+                <NavLink
+                  to="/content"
+                  badgeContent={numberOfNotifications}
+                  icon={<SettingsIcon />}
+                  badgeAriaLabel={`${numberOfNotifications} notifications`}
+                >
                   Settings
                 </NavLink>
               </NavSection>

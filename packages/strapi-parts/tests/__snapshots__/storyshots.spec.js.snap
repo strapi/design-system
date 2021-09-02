@@ -26500,6 +26500,13 @@ exports[`Storyshots Design System/Organisms/MainNav notifications 1`] = `
   border-radius: 4px;
 }
 
+.c25 {
+  background: #f6f6f9;
+  color: #666687;
+  padding: 4px;
+  border-radius: 4px;
+}
+
 .c28 {
   padding-top: 12px;
   padding-right: 20px;
@@ -26526,13 +26533,6 @@ exports[`Storyshots Design System/Organisms/MainNav notifications 1`] = `
   font-size: 0.875rem;
   line-height: 1.43;
   color: #666687;
-}
-
-.c27 {
-  font-weight: 500;
-  font-size: 0.75rem;
-  line-height: 1.33;
-  color: #32324d;
 }
 
 .c9 {
@@ -26573,24 +26573,6 @@ exports[`Storyshots Design System/Organisms/MainNav notifications 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c25 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -26645,6 +26627,10 @@ exports[`Storyshots Design System/Organisms/MainNav notifications 1`] = `
   position: relative;
   width: 26px;
   height: 26px;
+}
+
+.c26 {
+  display: inline-block;
 }
 
 .c13 {
@@ -26736,14 +26722,27 @@ exports[`Storyshots Design System/Organisms/MainNav notifications 1`] = `
   padding: 8px 12px;
 }
 
-.c26 {
-  background: #4945ff;
+.c27 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 24px;
   height: 20px;
   padding: 0 8px;
   border-radius: 56px;
+  background: #4945ff;
 }
 
-.c26 .c7 {
+.c27 .c7 {
   color: #ffffff !important;
   line-height: 0;
 }
@@ -27111,6 +27110,16 @@ exports[`Storyshots Design System/Organisms/MainNav notifications 1`] = `
                           Marketplace
                         </span>
                       </div>
+                      <div
+                        aria-label="new content"
+                        class="c25 c26 c27"
+                      >
+                        <span
+                          class="c7 c8 c9 c24"
+                        >
+                          new
+                        </span>
+                      </div>
                     </span>
                   </a>
                 </li>
@@ -27151,10 +27160,11 @@ exports[`Storyshots Design System/Organisms/MainNav notifications 1`] = `
                         </span>
                       </div>
                       <div
-                        class="c25 c26"
+                        aria-label="2 notifications"
+                        class="c25 c26 c27"
                       >
                         <span
-                          class="c7 c27"
+                          class="c7 c8 c9 c24"
                         >
                           2
                         </span>

@@ -87,7 +87,6 @@ const CustomBadge = styled(Badge)`
 
 export const NavLink = ({ children, icon, badgeContent, badgeAriaLabel, ...props }) => {
   const condensed = useMainNav();
-  const withBadge = badgeContent > 0;
 
   if (condensed) {
     return (
@@ -98,7 +97,7 @@ export const NavLink = ({ children, icon, badgeContent, badgeAriaLabel, ...props
               <IconBox aria-hidden paddingRight={0} as="span">
                 {icon}
               </IconBox>
-              {withBadge && (
+              {badgeContent && (
                 <CustomBadge condensed aria-label={badgeAriaLabel}>
                   {badgeContent}
                 </CustomBadge>
@@ -120,7 +119,7 @@ export const NavLink = ({ children, icon, badgeContent, badgeAriaLabel, ...props
             </IconBox>
             <Text>{children}</Text>
           </Row>
-          {withBadge && (
+          {badgeContent && (
             <CustomBadge justifyContent="center" aria-label={badgeAriaLabel}>
               {badgeContent}
             </CustomBadge>
