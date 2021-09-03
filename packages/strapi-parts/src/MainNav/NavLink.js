@@ -7,6 +7,7 @@ import { Row } from '../Row';
 import { Text } from '../Text';
 import { useMainNav } from './MainNavContext';
 import { Tooltip } from '../Tooltip';
+import { Badge } from '../Badge';
 
 const IconBox = styled(Box)`
   height: 1rem;
@@ -14,6 +15,7 @@ const IconBox = styled(Box)`
 
 // TODO: make sure to use the Link component associated with the router we want to use
 const MainNavLinkWrapper = styled(RouterLink)`
+  position: relative;
   text-decoration: none;
   display: block;
   border-radius: ${({ theme }) => theme.borderRadius};
@@ -57,7 +59,33 @@ const MainNavRow = styled(Row)`
   padding: ${({ theme }) => `${theme.spaces[2]} ${theme.spaces[3]}`};
 `;
 
-export const NavLink = ({ children, icon, ...props }) => {
+const CustomBadge = styled(Badge)`
+  ${({ condensed }) =>
+    condensed &&
+    `
+	  position: absolute;
+    transform: translate(35%, -50%);
+    top: 0;
+    right: 0;
+  `}
+
+  ${Text} {
+    //find a solution to remove !important
+    color: ${({ theme }) => theme.colors.neutral0} !important;
+    line-height: 0;
+  }
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: ${({ theme }) => theme.spaces[6]};
+  height: ${({ theme }) => theme.spaces[5]};
+  padding: ${({ theme }) => `0 ${theme.spaces[2]}`};
+  border-radius: ${({ theme }) => theme.spaces[10]};
+  background: ${({ theme }) => theme.colors.primary600};
+`;
+
+export const NavLink = ({ children, icon, badgeContent, badgeAriaLabel, ...props }) => {
   const condensed = useMainNav();
 
   if (condensed) {
@@ -69,6 +97,11 @@ export const NavLink = ({ children, icon, ...props }) => {
               <IconBox aria-hidden paddingRight={0} as="span">
                 {icon}
               </IconBox>
+              {badgeContent && (
+                <CustomBadge condensed aria-label={badgeAriaLabel}>
+                  {badgeContent}
+                </CustomBadge>
+              )}
             </MainNavRow>
           </MainNavLinkWrapper>
         </Tooltip>
@@ -79,19 +112,32 @@ export const NavLink = ({ children, icon, ...props }) => {
   return (
     <li>
       <MainNavLinkWrapper {...props}>
-        <MainNavRow as="span">
-          <IconBox aria-hidden paddingRight={3} as="span">
-            {icon}
-          </IconBox>
-
-          <Text>{children}</Text>
+        <MainNavRow as="span" justifyContent="space-between">
+          <Row>
+            <IconBox aria-hidden paddingRight={3} as="span">
+              {icon}
+            </IconBox>
+            <Text>{children}</Text>
+          </Row>
+          {badgeContent && (
+            <CustomBadge justifyContent="center" aria-label={badgeAriaLabel}>
+              {badgeContent}
+            </CustomBadge>
+          )}
         </MainNavRow>
       </MainNavLinkWrapper>
     </li>
   );
 };
 
+NavLink.defaultProps = {
+  badgeContent: undefined,
+  badgeAriaLabel: undefined,
+};
+
 NavLink.propTypes = {
   children: PropTypes.string.isRequired,
   icon: PropTypes.node.isRequired,
+  badgeContent: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  badgeAriaLabel: PropTypes.string,
 };
