@@ -5,7 +5,7 @@ import WysiwygFooter from './WysiwygFooter';
 import WysiwygExpand from './WysiwygExpand';
 import MediaLibrary from './MediaLibrary';
 import Editor from './Editor';
-import { ButtonText } from '@strapi/parts';
+import { ButtonText } from '@strapi/parts/Text';
 import { WysiwygWrapper } from './WysiwygStyles'
 import { markdownHandler, listHandler, titleHandler, insertImage, quoteAndCodeHandler } from './utils/utils';
 
