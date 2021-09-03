@@ -2110,61 +2110,76 @@ exports[`Storyshots Design System/Atoms/Text base 1`] = `
 
 .c2 {
   font-weight: 600;
+  font-size: 2rem;
+  line-height: 1.25;
+  color: #7b79ff;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.c3 {
+  font-weight: 600;
   font-size: 1.125rem;
   line-height: 1.22;
   color: #32324d;
 }
 
-.c3 {
+.c4 {
   font-weight: 500;
   font-size: 1rem;
   line-height: 1.25;
   color: #32324d;
 }
 
-.c4 {
-  font-weight: 400;
-  font-size: 0.875rem;
-  line-height: 1.43;
-  color: #32324d;
-}
-
 .c5 {
-  font-weight: 500;
+  font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.43;
   color: #32324d;
 }
 
 .c6 {
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #32324d;
+}
+
+.c7 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #32324d;
 }
 
-.c7 {
+.c8 {
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #32324d;
 }
 
-.c9 {
+.c11 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #32324d;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.c10 {
   font-size: 1rem;
   line-height: 1.5;
 }
 
-.c8 {
+.c9 {
   font-weight: 600;
   line-height: 1.14;
-}
-
-.c10 {
-  display: block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 <main>
@@ -2182,49 +2197,54 @@ exports[`Storyshots Design System/Atoms/Text base 1`] = `
   </h2>
   <h2
     class="c2"
+    style="width: 200px;"
+  >
+    This is a very long title, lorem ipsum dolor sit amet
+  </h2>
+  <h2
+    class="c3"
   >
     Second title
   </h2>
   <h3
-    class="c3"
+    class="c4"
   >
     third title
   </h3>
   <span
-    class="c4"
+    class="c5"
   >
     Text body
   </span>
   <span
-    class="c5"
+    class="c6"
   >
     Text body bold
   </span>
   <span
-    class="c6"
+    class="c7"
   >
     Text body small
   </span>
   <span
-    class="c7"
+    class="c8"
   >
     Small button text
   </span>
   <span
-    class="c4 c8"
+    class="c5 c9"
   >
     Text button
   </span>
   <span
-    class="c4 c9"
+    class="c5 c10"
   >
     Subtitle
   </span>
-  <div
-    style="width: 200px;"
-  >
+  <div>
     <span
-      class="c4 c10"
+      class="c11"
+      style="width: 200px;"
     >
       This is a very long text, lorem ipsum dolor sit amet
     </span>

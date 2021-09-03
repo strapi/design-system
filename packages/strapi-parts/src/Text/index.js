@@ -2,12 +2,21 @@ import React from 'react';
 import styled from 'styled-components';
 
 const handleColor = ({ theme, textColor }) => theme.colors[textColor || 'neutral800'];
+const ellipsisStyle = ({ ellipsis }) =>
+  ellipsis &&
+  `
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  `;
 
 export const H1 = styled.h1`
   font-weight: 600;
   font-size: ${32 / 16}rem;
   line-height: 1.25;
   color: ${handleColor};
+  ${ellipsisStyle}
 `;
 
 export const H2 = styled.h2`
@@ -15,6 +24,7 @@ export const H2 = styled.h2`
   font-size: ${18 / 16}rem;
   line-height: 1.22;
   color: ${handleColor};
+  ${ellipsisStyle}
 `;
 
 export const H3 = styled.h3`
@@ -22,6 +32,7 @@ export const H3 = styled.h3`
   font-size: 1rem;
   line-height: 1.25;
   color: ${handleColor};
+  ${ellipsisStyle}
 `;
 
 const textStyles = {
@@ -40,6 +51,7 @@ export const Text = styled.span`
   font-size: ${({ small }) => textStyles[small ? 'S' : 'M'].fontSize};
   line-height: ${({ small }) => textStyles[small ? 'S' : 'M'].lineHeight};
   color: ${handleColor};
+  ${ellipsisStyle}
 `;
 
 export const P = (props) => <Text as="p" {...props} />;

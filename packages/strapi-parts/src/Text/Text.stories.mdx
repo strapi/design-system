@@ -18,6 +18,9 @@ The main way to display text content on the screen
     <H1 as="h2" textColor="primary500">
       First title
     </H1>
+    <H1 style={{ width: '200px' }} ellipsis as="h2" textColor="primary500">
+      This is a very long title, lorem ipsum dolor sit amet
+    </H1>
     <H2>Second title</H2>
     <H3>third title</H3>
     <Text>Text body</Text>
@@ -28,10 +31,10 @@ The main way to display text content on the screen
     </Text>
     <ButtonText>Text button</ButtonText>
     <Subtitle>Subtitle</Subtitle>
-    <div style={{ width: '200px' }}>
-      <EllipsisText>
+    <div>
+      <Text style={{ width: '200px' }} ellipsis>
         This is a very long text, lorem ipsum dolor sit amet
-      </EllipsisText>
+      </Text>
     </div>
   </Story>
 </Canvas>
