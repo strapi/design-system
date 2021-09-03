@@ -9,14 +9,13 @@ import { AccordionToggle } from './AccordionToggle';
 import { KeyboardNavigable } from '../KeyboardNavigable';
 import { AccordionContent } from './AccordionContent';
 import { Box } from '../Box';
-import { Row } from '../Row';
 import { IconButton } from '../IconButton';
 
 <Meta title="Design System/Molecules/Accordion" component={Accordion} />
 
 # Accordion
 
-This is the doc of the `Accordion` component
+Accordions are collapsable blocks that vertically hide a stack of content. Clicking on the block reveals the associated content.
 
 **Best practices**
 
@@ -33,12 +32,16 @@ This is the doc of the `Accordion` component
 ## Imports
 
 ```js
-import { Accordion } from '@strapi/parts/Accordion';
+import { Accordion, AccordionToggle, AccordionContent } from '@strapi/parts/Accordion';
+import { AccordionToggle } from '@strapi/parts/AccordionToggle';
+import { AccordionContent } from '@strapi/parts/AccordionContent';
+import { KeyboardNavigable } from '@strapi/parts/KeyboardNavigable';
+import { IconButton } from '@strapi/parts/IconButton';
+import EditIcon from '@strapi/icons/EditIcon';
+import { Box } from '@strapi/parts/Box';
 ```
 
 ## Usage
-
-Accordions are collapsable blocks that vertically hide a stack of content. Clicking on the block reveals the associated content.
 
 <Canvas>
   <Story name="base">
