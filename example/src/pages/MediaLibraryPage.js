@@ -14,7 +14,7 @@ import {
   ModalFooter,
   ModalHeader,
 } from "@strapi/parts";
-import { TextButton } from "@strapi/parts/Text";
+import { ButtonText } from "@strapi/parts/Text";
 import { MediaLibraryCard } from "../MediaLibrary/MediaLibraryCard";
 
 function MediaLibraryPage() {
@@ -75,9 +75,9 @@ function MediaLibraryPage() {
       {isVisible && (
         <ModalLayout onClose={() => setIsVisible(false)} labelledBy="title">
           <ModalHeader>
-            <TextButton textColor="neutral800" as="h2" id="title">
+            <ButtonText textColor="neutral800" as="h2" id="title">
               Title
-            </TextButton>
+            </ButtonText>
           </ModalHeader>
           <ModalBody>Hello world</ModalBody>
           <ModalFooter

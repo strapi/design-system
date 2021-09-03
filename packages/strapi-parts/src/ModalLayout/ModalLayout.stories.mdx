@@ -6,7 +6,7 @@ import { ModalLayout } from './ModalLayout';
 import { ModalHeader } from './ModalHeader';
 import { ModalFooter } from './ModalFooter';
 import { ModalBody } from './ModalBody';
-import { TextButton } from '../Text';
+import { ButtonText } from '../Text';
 import { Row } from '../Row';
 import { Button } from '../Button';
 
@@ -31,9 +31,9 @@ Description...
           {isVisible && (
             <ModalLayout onClose={() => setIsVisible((prev) => !prev)} labelledBy="title">
               <ModalHeader>
-                <TextButton textColor="neutral800" as="h2" id="title">
+                <ButtonText textColor="neutral800" as="h2" id="title">
                   Title
-                </TextButton>
+                </ButtonText>
               </ModalHeader>
               <ModalBody>Hello world</ModalBody>
               <ModalFooter

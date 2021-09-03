@@ -1,5 +1,5 @@
 import * as React from "react";
-import { render, waitFor, fireEvent, prettyDOM } from "@testing-library/react";
+import { render, waitFor, fireEvent } from "@testing-library/react";
 import { lightTheme, ThemeProvider } from "@strapi/parts";
 import Wysiwyg from "../";
 
@@ -15,24 +15,24 @@ document.createRange = () => {
 window.focus = jest.fn();
 
 describe("Wysiwyg render and actions buttons", () => {
-  let renderedContainer; 
-  let getContainerByText; 
-  let containerQueryByText; 
+  let renderedContainer;
+  let getContainerByText;
+  let containerQueryByText;
   let returnedValue;
 
-  beforeEach(() => { 
+  beforeEach(() => {
     const onChange = jest.fn((val) => {
       returnedValue = val;
     });
 
-    const { container, getByText, queryByText } = render( 
-      <ThemeProvider theme={lightTheme}> 
-        <Wysiwyg label={"hello world"} placeholder={""} onChange={onChange} /> 
-      </ThemeProvider> 
-    ); 
-    renderedContainer = container; 
-    getContainerByText = getByText; 
-    containerQueryByText = queryByText; 
+    const { container, getByText, queryByText } = render(
+      <ThemeProvider theme={lightTheme}>
+        <Wysiwyg label={"hello world"} placeholder={""} onChange={onChange} />
+      </ThemeProvider>
+    );
+    renderedContainer = container;
+    getContainerByText = getByText;
+    containerQueryByText = queryByText;
   });
 
   it("should render the Wysiwyg", async () => {
@@ -41,7 +41,7 @@ describe("Wysiwyg render and actions buttons", () => {
     expect(getContainerByText("hello world")).toBeInTheDocument();
     expect(renderedContainer.firstChild).toMatchInlineSnapshot(`
       <span
-        class="sc-hKFxyN sc-jSFjdj jMHwLp hPodxf"
+        class="sc-jVSGNQ sc-QxirK bSkxym ldCiYB"
       >
         hello world
       </span>
@@ -123,7 +123,9 @@ Code
     fireEvent.click(document.getElementById("media-library"));
     fireEvent.click(document.getElementById("insert-button"));
 
-    expect(getContainerByText("[sunset](http://localhost:3000/sunsetimage)")).toBeInTheDocument();
+    expect(
+      getContainerByText("[sunset](http://localhost:3000/sunsetimage)")
+    ).toBeInTheDocument();
   });
 
   it("should render link markdown when clicking the link button", async () => {
@@ -311,47 +313,47 @@ Code
 });
 
 describe("Wysiwyg render actions with initial value", () => {
-  let renderedContainer; 
+  let renderedContainer;
   let returnedValue = "hello world";
 
-  beforeEach(() => { 
+  beforeEach(() => {
     const onChange = jest.fn((val) => {
       returnedValue += val;
     });
 
-    const { container } = render( 
-      <ThemeProvider theme={lightTheme}> 
-        <Wysiwyg label={"hello world"} placeholder={""} onChange={onChange} /> 
-      </ThemeProvider> 
-    ); 
-    renderedContainer = container; 
+    const { container } = render(
+      <ThemeProvider theme={lightTheme}>
+        <Wysiwyg label={"hello world"} placeholder={""} onChange={onChange} />
+      </ThemeProvider>
+    );
+    renderedContainer = container;
   });
 
   it("should add markdown with initial value", async () => {
     await waitFor(() => renderedContainer.querySelector(".CodeMirror-cursor"));
-    expect(returnedValue).toEqual('hello world');
-    const expected = returnedValue + '**Bold**';
+    expect(returnedValue).toEqual("hello world");
+    const expected = returnedValue + "**Bold**";
     fireEvent.click(renderedContainer.querySelector("#Bold"));
-    
+
     expect(returnedValue).toEqual(expected);
   });
 });
 
 describe("Wysiwyg expand mode", () => {
-  let renderedContainer; 
+  let renderedContainer;
   let returnedValue;
 
-  beforeEach(() => { 
+  beforeEach(() => {
     const onChange = jest.fn((val) => {
       returnedValue = val;
     });
 
-    const { container } = render( 
-      <ThemeProvider theme={lightTheme}> 
-        <Wysiwyg label="hello world" placeholder="" onChange={onChange} /> 
-      </ThemeProvider> 
-    ); 
-    renderedContainer = container; 
+    const { container } = render(
+      <ThemeProvider theme={lightTheme}>
+        <Wysiwyg label="hello world" placeholder="" onChange={onChange} />
+      </ThemeProvider>
+    );
+    renderedContainer = container;
   });
 
   it("should open wysiwyg expand portal when clicking on expand button", async () => {
@@ -370,4 +372,3 @@ describe("Wysiwyg expand mode", () => {
     expect(document.getElementById("wysiwyg-expand")).not.toBeInTheDocument();
   });
 });
-

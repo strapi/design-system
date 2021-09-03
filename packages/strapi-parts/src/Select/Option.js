@@ -88,7 +88,7 @@ export const Option = ({ selected, indeterminate, children, value, multi, isChil
             <CheckMark selected={selected} indeterminate={indeterminate} />
           </Box>
         )}
-        <Text textColor={selected ? 'primary600' : 'neutral800'} highlighted={selected}>
+        <Text textColor={selected ? 'primary600' : 'neutral800'} bold={selected}>
           {children}
         </Text>
       </Row>

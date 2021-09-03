@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { Box } from '../Box';
-import { P, TextButton } from '../Text';
+import { P, ButtonText } from '../Text';
 import { Row } from '../Row';
 import { useMainNav } from './MainNavContext';
 import { VisuallyHidden } from '../VisuallyHidden';
@@ -50,12 +50,12 @@ export const NavBrand = ({ workplace, title, icon, to }) => {
         </BrandIconWrapper>
 
         <Box paddingLeft={2}>
-          <TextButton textColor="neutral800" as="span">
+          <ButtonText textColor="neutral800" as="span">
             <NavLinkWrapper to={to}>
               {title}
               <VisuallyHidden as="span">{workplace}</VisuallyHidden>
             </NavLinkWrapper>
-          </TextButton>
+          </ButtonText>
           <P small textColor="neutral600" aria-hidden>
             {workplace}
           </P>

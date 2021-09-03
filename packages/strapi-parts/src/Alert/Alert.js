@@ -74,7 +74,7 @@ export const Alert = ({ title, children, variant, onClose, closeLabel, titleAs, 
         </AlertIconWrapper>
         <AlertBody role={variant === 'danger' ? 'alert' : 'status'}>
           <Box paddingBottom={2} paddingRight={1}>
-            <Text highlighted={true} textColor="neutral800" as={titleAs}>
+            <Text bold={true} textColor="neutral800" as={titleAs}>
               {title}
             </Text>
           </Box>

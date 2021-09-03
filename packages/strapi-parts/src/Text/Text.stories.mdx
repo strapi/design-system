@@ -1,7 +1,7 @@
 <!--- Text.stories.mdx --->
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
-import { H1, H2, H3, Text, TextButton, Subtitle } from './';
+import { H1, H2, H3, Text, ButtonText, Subtitle, EllipsisText } from './';
 
 <Meta title="Design System/Atoms/Text" component={H1} />
 
@@ -18,15 +18,23 @@ The main way to display text content on the screen
     <H1 as="h2" textColor="primary500">
       First title
     </H1>
+    <H1 style={{ width: '200px' }} ellipsis as="h2" textColor="primary500">
+      This is a very long title, lorem ipsum dolor sit amet
+    </H1>
     <H2>Second title</H2>
     <H3>third title</H3>
     <Text>Text body</Text>
-    <Text highlighted={true}>Text body highlighted</Text>
+    <Text bold={true}>Text body bold</Text>
     <Text small={true}>Text body small</Text>
-    <Text small={true} highlighted={true}>
+    <Text small={true} bold={true}>
       Small button text
     </Text>
-    <TextButton>Text button</TextButton>
+    <ButtonText>Text button</ButtonText>
     <Subtitle>Subtitle</Subtitle>
+    <div>
+      <Text style={{ width: '200px' }} ellipsis>
+        This is a very long text, lorem ipsum dolor sit amet
+      </Text>
+    </div>
   </Story>
 </Canvas>

@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Text, TextButton } from '../Text';
+import { Text, ButtonText } from '../Text';
 import { Box } from '../Box';
 import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from '../Button/utils';
 import { VARIANTS, BUTTON_SIZES } from '../Button/constants';
@@ -67,11 +67,11 @@ export const LinkButton = React.forwardRef(
         )}
 
         {size === 'S' ? (
-          <Text small={size === 'S'} highlighted>
+          <Text small={size === 'S'} bold>
             {children}
           </Text>
         ) : (
-          <TextButton>{children}</TextButton>
+          <ButtonText>{children}</ButtonText>
         )}
 
         {endIcon && (
