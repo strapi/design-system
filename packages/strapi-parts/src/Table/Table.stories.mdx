@@ -1,6 +1,7 @@
 <!--- Table.stories.mdx --->
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
 import EditIcon from '@strapi/icons/EditIcon';
 import DeleteIcon from '@strapi/icons/DeleteIcon';
 import DropdownIcon from '@strapi/icons/FilterDropdown';
@@ -23,11 +24,27 @@ import { TFooter } from './TFooter';
 
 # Table
 
-This is the doc of the `Table` component
+Tables are used to gather and display similar types of data together. They are composed of a header, rows, and columns. Several type of data can be included within tables such as: plain text, Select, Avatars, Icon Buttons, ...
 
-## Table
+**Best practices**
 
-Description...
+- If there are any, Icon Buttons should be placed at the very right of a row.
+- Tables should be placed in a page’s main content area.
+- Column titles use a all caps style.
+- Narrowing a column of data is not possible.
+- Some columns can be sorted by clicking on their label.
+- If content is truncated, a tooltip should be available at hover to display the full text.
+- Checkboxes (i.e. a bulk action) are optional.
+- Tables can be associated with a Search bar and/or a filter button.
+
+
+## Usage
+
+Tables are used to gather and display similar types of data together. In the Content section, a reorganization of the columns is possible. Moreover, Columns can be sorted.
+
+### Default Table
+
+The default Table. 
 
 <Canvas>
   <Story name="base">
@@ -120,9 +137,10 @@ Description...
   </Story>
 </Canvas>
 
+
 ## Table with actions
 
-Description...
+Table with actions. 
 
 <Canvas>
   <Story name="with th actions">
@@ -214,3 +232,9 @@ Description...
     }}
   </Story>
 </Canvas>
+
+
+## Props
+
+<ArgsTable of={Table} />
+
