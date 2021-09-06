@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
 import Applications from '@strapi/icons/Applications';
 import AddIcon from '@strapi/icons/AddIcon';
 import ApiTokens from '@strapi/icons/ApiTokens';
@@ -23,11 +24,30 @@ import { TextButton } from '../TextButton';
 
 # SubNav
 
-This is the doc of the `SubNav` component
+The Sub Navigation is available and displayed on predefined sections of the admin panel to access advanced options (i.e. Content Manager, Content-types Builder and Settings). Thanks to it the users can easily navigation from an entry or a page to another. The Sub Navigation cannot be collapsed.
+
+**Best practices**
+
+- It is not possible to have more than 2 navigation bars next to each others.
+- Each page has its own icon taken from the iconography library.
+- Do not use icons for headers.
+- Use sentence case for page names and all caps for header labels.
+- Each plugin should have its own new category and its own header.
+
+
+## Usage
+
+The Sub Navigation cannot be collapsed. A notification system can appear in the Sub Navigation, especially in the Settings section for the Application page. 
+
+A Text Button component can be found at the bottom of a pages gathering in the Sub Navigation.
+
+
+## Hierarchy
+
+Related pages are gathered under specific headers within the Sub Navigation. These headers are helpful to understand the section hierarchy. Moreover, each page gets its very own icon to make it distinctive. 
 
 ## SubNav
 
-Description...
 
 <Canvas>
   <Story name="base">
@@ -157,3 +177,8 @@ Description...
     }}
   </Story>
 </Canvas>
+
+
+## Props
+
+<ArgsTable of={SubNav} />
