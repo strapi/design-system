@@ -5,7 +5,7 @@ import WysiwygFooter from './WysiwygFooter';
 import WysiwygExpand from './WysiwygExpand';
 import MediaLibrary from './MediaLibrary';
 import Editor from './Editor';
-import { ButtonText } from '@strapi/parts/Text';
+import { TextButton } from '@strapi/parts/Text';
 import { WysiwygWrapper } from './WysiwygStyles'
 import { markdownHandler, listHandler, titleHandler, insertImage, quoteAndCodeHandler } from './utils/utils';
 
@@ -77,7 +77,7 @@ const Wysiwyg = ({ label, placeholder, onChange, value }) => {
 
   return (
     <>
-      <ButtonText>{label}</ButtonText>
+      <TextButton>{label}</TextButton>
       <WysiwygWrapper paddingTop={1} hasRadius>
         <WysiwygNav 
           placeholder={placeholder} 
@@ -125,19 +125,19 @@ const Wysiwyg = ({ label, placeholder, onChange, value }) => {
   );
 };
 
-Wysiwyg.defaultProps = {
-  label: '',
-  onChange: () => {},
-  placeholder: '',
-  value: ''
-};
+// Wysiwyg.defaultProps = {
+//   label: '',
+//   onChange: () => {},
+//   placeholder: '',
+//   value: ''
+// };
 
 
-Wysiwyg.propTypes = {
-  label: PropTypes.string,
-  onChange: PropTypes.func,
-  placeholder: PropTypes.string,
-  value: PropTypes.string
-};
+// Wysiwyg.propTypes = {
+//   label: PropTypes.string,
+//   onChange: PropTypes.func,
+//   placeholder: PropTypes.string,
+//   value: PropTypes.string
+// };
 
 export default Wysiwyg;
