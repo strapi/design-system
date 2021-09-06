@@ -19,7 +19,7 @@ const Textarea = styled.textarea`
   font-size: ${14 / 16}rem;
 
   color: ${({ theme, disabled }) => (disabled ? theme.colors.neutral600 : theme.colors.neutral800)};
-  background: ${({ theme, disabled }) => (disabled ? teme.colors.neutral150 : theme.colors.neutral0)};
+  background: ${({ theme, disabled }) => (disabled ? theme.colors.neutral150 : theme.colors.neutral0)};
 
   /* managed by switching borders */
   outline: none;
