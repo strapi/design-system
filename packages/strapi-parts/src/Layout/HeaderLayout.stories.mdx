@@ -17,7 +17,13 @@ import { Stack } from '../Stack';
 
 # BaseHeaderLayout
 
-This is the doc of the `HeaderLayout` component.
+Headers can be composed of a main title, a description and buttons. They are placed at the very top of a page.
+
+**Best practices**
+
+- Always use a header on top of a page.
+- Always add a title in the header.
+- The main container should be placed right below the Header.
 
 [View source](https://github.com/strapi/parts/tree/develop/packages/strapi-parts/src/Layout)
 
@@ -38,6 +44,9 @@ import CheckIcon from '@strapi/icons/CheckIcon';
 ```
 
 ## Usage
+=======
+
+Headers are placed at the very top of each page. Descriptions and buttons are optional.
 
 <Canvas>
   <Story name="base">
@@ -62,9 +71,8 @@ import CheckIcon from '@strapi/icons/CheckIcon';
   </Story>
 </Canvas>
 
-## BaseHeaderLayout without nav action
+### BaseHeaderLayout without nav action
 
-Description...
 
 <Canvas>
   <Story name="base without nav action">
@@ -84,9 +92,8 @@ Description...
   </Story>
 </Canvas>
 
-## BaseHeaderLayout sticky
+### BaseHeaderLayout sticky
 
-Description...
 
 <Canvas>
   <Story name="sticky">
@@ -112,9 +119,9 @@ Description...
   </Story>
 </Canvas>
 
-## HeaderLayout
+### HeaderLayout
 
-Open in a new tab.
+This header is combined with scroll.
 
 <Canvas>
   <Story name="combined w/ scroll" parameters={{ layout: 'fullscreen' }}>

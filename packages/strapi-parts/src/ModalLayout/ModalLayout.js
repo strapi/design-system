@@ -26,9 +26,9 @@ export const ModalLayout = ({ onClose, labelledBy, ...props }) => {
   //FIX ME (find a way to do it globally)
   useEffect(() => {
     const body = document.body;
-    body.classList.add('modal-open');
+    body.classList.add('lock-body-scroll');
     return () => {
-      body.classList.remove('modal-open');
+      body.classList.remove('lock-body-scroll');
     };
   }, []);
 

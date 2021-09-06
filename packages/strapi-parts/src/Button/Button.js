@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
 import LoadingIcon from '@strapi/icons/LoadingIcon';
-import { Text, TextButton } from '../Text';
+import { Text, ButtonText } from '../Text';
 import { Box } from '../Box';
 import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from './utils';
 import { VARIANTS, BUTTON_SIZES } from './constants';
@@ -46,10 +46,18 @@ export const ButtonWrapper = styled(BaseButton)`
     ${getActiveStyle}
   }
   ${getVariantStyle}
+  ${({ fullWidth }) =>
+    fullWidth &&
+    `
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  `}
 `;
 
 export const Button = React.forwardRef(
-  ({ variant, startIcon, endIcon, disabled, children, onClick, size, loading, ...props }, ref) => {
+  ({ variant, startIcon, endIcon, disabled, children, onClick, size, loading, fullWidth, ...props }, ref) => {
     const isDisabled = disabled || loading;
 
     const handleClick = (e) => {
@@ -66,6 +74,7 @@ export const Button = React.forwardRef(
         size={size}
         variant={variant}
         onClick={handleClick}
+        fullWidth={fullWidth}
         {...props}
       >
         {(startIcon || loading) && (
@@ -81,11 +90,11 @@ export const Button = React.forwardRef(
         )}
 
         {size === 'S' ? (
-          <Text small={size === 'S'} highlighted>
+          <Text small={size === 'S'} bold>
             {children}
           </Text>
         ) : (
-          <TextButton>{children}</TextButton>
+          <ButtonText>{children}</ButtonText>
         )}
 
         {endIcon && (
@@ -102,17 +111,19 @@ Button.displayName = 'Button';
 
 Button.defaultProps = {
   disabled: false,
-  loading: false,
-  startIcon: undefined,
   endIcon: undefined,
-  size: 'S',
-  variant: 'default',
+  fullWidth: false,
+  loading: false,
   onClick: undefined,
+  size: 'S',
+  startIcon: undefined,
+  variant: 'default',
 };
 Button.propTypes = {
   children: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
   endIcon: PropTypes.element,
+  fullWidth: PropTypes.bool,
   loading: PropTypes.bool,
   onClick: PropTypes.func,
   size: PropTypes.oneOf(BUTTON_SIZES),

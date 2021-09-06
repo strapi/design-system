@@ -173,6 +173,31 @@ All action that cannot be performed yet.
   </Story>
 </Canvas>
 
+### Full width button
+
+All action that cannot be performed yet.
+
+<Canvas withSource="open">
+  <Story
+    name="fullWidth"
+    parameters={{
+      docs: {
+        source: {
+          code: `
+<Button fullWidth>Information</Button>
+`,
+        },
+      },
+    }}
+  >
+    <Box paddingRight={1}>
+      <Button fullWidth onClick={(e) => console.log('information')} startIcon={<HelpIcon />} endIcon={<HelpIcon />}>
+        Information
+      </Button>
+    </Box>
+  </Story>
+</Canvas>
+
 ## Accessibility
 
 - Button has role of button.

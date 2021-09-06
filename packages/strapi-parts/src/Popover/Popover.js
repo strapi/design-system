@@ -132,6 +132,6 @@ PopoverContent.propTypes = {
   fullWidth: PropTypes.bool,
   intersectionId: PropTypes.string,
   onReachEnd: PropTypes.func,
-  source: PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+  source: PropTypes.shape({ current: PropTypes.instanceOf(Element) }).isRequired,
   spacingTop: PropTypes.number,
 };

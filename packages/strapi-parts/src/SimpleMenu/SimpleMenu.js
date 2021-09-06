@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import FilterDropdown from '@strapi/icons/FilterDropdown';
 import { NavLink } from 'react-router-dom';
-import { TextButton, Text } from '../Text';
+import { ButtonText, Text } from '../Text';
 import { Box } from '../Box';
 import { Row } from '../Row';
 import { Popover } from '../Popover';
@@ -162,7 +162,7 @@ export const SimpleMenu = ({ label, children, id, ...props }) => {
         {...props}
       >
         <Box paddingRight={1}>
-          <TextButton>{label}</TextButton>
+          <ButtonText>{label}</ButtonText>
         </Box>
         <FilterDropdown aria-hidden />
       </MenuButton>

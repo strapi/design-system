@@ -5,11 +5,11 @@ import styled from 'styled-components';
 
 const DividerWrapper = styled(Box)`
   height: 1px;
-  margin: 0;
   border: none;
+  ${({ unsetMargin }) => (unsetMargin ? 'margin: 0;' : '')}
 `;
 
-export const Divider = (props) => <DividerWrapper {...props} as="hr" />;
+export const Divider = ({ unsetMargin, ...props }) => <DividerWrapper {...props} as="hr" unsetMargin={unsetMargin} />;
 
 /**
  * The background props is implicitly passed to the Box component
@@ -17,8 +17,10 @@ export const Divider = (props) => <DividerWrapper {...props} as="hr" />;
  */
 Divider.defaultProps = {
   background: 'neutral150',
+  unsetMargin: true,
 };
 
 Divider.propTypes = {
   background: PropTypes.string,
+  unsetMargin: PropTypes.bool,
 };

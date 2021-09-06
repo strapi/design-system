@@ -63,7 +63,7 @@ export const ToggleCheckbox = React.forwardRef(({ onLabel, offLabel, children, c
           paddingTop={3}
           paddingBottom={3}
         >
-          <Text small={true} highlighted={true} textColor={checked ? labelColor : 'danger700'}>
+          <Text small={true} bold={true} textColor={checked ? labelColor : 'danger700'}>
             {offLabel}
           </Text>
         </OffBox>
@@ -75,7 +75,7 @@ export const ToggleCheckbox = React.forwardRef(({ onLabel, offLabel, children, c
           paddingTop={3}
           paddingBottom={3}
         >
-          <Text small={true} highlighted={true} textColor={checked ? 'primary700' : labelColor}>
+          <Text small={true} bold={true} textColor={checked ? 'primary700' : labelColor}>
             {onLabel}
           </Text>
         </OnBox>

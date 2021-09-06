@@ -13,7 +13,7 @@ export const Reviews = () => {
       paddingRight={6}
       shadow="filterShadow"
     >
-      <Text textColor="neutral700" as="h3" highlighted>
+      <Text textColor="neutral700" as="h3" bold>
         Reviews (7)
       </Text>
     </Box>

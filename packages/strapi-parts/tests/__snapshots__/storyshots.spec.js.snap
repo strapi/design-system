@@ -1004,7 +1004,51 @@ exports[`Storyshots Design System/Atoms/Divider base 1`] = `
 
 .c3 {
   height: 1px;
+  border: none;
   margin: 0;
+}
+
+<main>
+  <div
+    class="c0"
+  >
+    <h1>
+      Storybook story
+    </h1>
+  </div>
+  <div
+    class="c1"
+  >
+    <hr
+      class="c2 c3"
+    />
+  </div>
+</main>
+`;
+
+exports[`Storyshots Design System/Atoms/Divider with-default-margin 1`] = `
+.c0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.c1 {
+  padding: 40px;
+}
+
+.c2 {
+  background: #eaeaef;
+}
+
+.c3 {
+  height: 1px;
   border: none;
 }
 
@@ -2066,52 +2110,74 @@ exports[`Storyshots Design System/Atoms/Text base 1`] = `
 
 .c2 {
   font-weight: 600;
+  font-size: 2rem;
+  line-height: 1.25;
+  color: #7b79ff;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.c3 {
+  font-weight: 600;
   font-size: 1.125rem;
   line-height: 1.22;
   color: #32324d;
 }
 
-.c3 {
+.c4 {
   font-weight: 500;
   font-size: 1rem;
   line-height: 1.25;
   color: #32324d;
 }
 
-.c4 {
-  font-weight: 400;
-  font-size: 0.875rem;
-  line-height: 1.43;
-  color: #32324d;
-}
-
 .c5 {
-  font-weight: 500;
+  font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.43;
   color: #32324d;
 }
 
 .c6 {
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #32324d;
+}
+
+.c7 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #32324d;
 }
 
-.c7 {
+.c8 {
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #32324d;
 }
 
-.c9 {
+.c11 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #32324d;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.c10 {
   font-size: 1rem;
   line-height: 1.5;
 }
 
-.c8 {
+.c9 {
   font-weight: 600;
   line-height: 1.14;
 }
@@ -2131,44 +2197,58 @@ exports[`Storyshots Design System/Atoms/Text base 1`] = `
   </h2>
   <h2
     class="c2"
+    style="width: 200px;"
+  >
+    This is a very long title, lorem ipsum dolor sit amet
+  </h2>
+  <h2
+    class="c3"
   >
     Second title
   </h2>
   <h3
-    class="c3"
+    class="c4"
   >
     third title
   </h3>
   <span
-    class="c4"
+    class="c5"
   >
     Text body
   </span>
   <span
-    class="c5"
-  >
-    Text body highlighted
-  </span>
-  <span
     class="c6"
   >
-    Text body small
+    Text body bold
   </span>
   <span
     class="c7"
   >
+    Text body small
+  </span>
+  <span
+    class="c8"
+  >
     Small button text
   </span>
   <span
-    class="c4 c8"
+    class="c5 c9"
   >
     Text button
   </span>
   <span
-    class="c4 c9"
+    class="c5 c10"
   >
     Subtitle
   </span>
+  <div>
+    <span
+      class="c11"
+      style="width: 200px;"
+    >
+      This is a very long text, lorem ipsum dolor sit amet
+    </span>
+  </div>
 </main>
 `;
 
@@ -5339,8 +5419,8 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
 
 .c12 {
   height: 1px;
-  margin: 0;
   border: none;
+  margin: 0;
 }
 
 .c4 {
@@ -8984,6 +9064,198 @@ exports[`Storyshots Design System/Molecules/Button disabled 1`] = `
       >
         Information
       </span>
+    </button>
+  </div>
+</main>
+`;
+
+exports[`Storyshots Design System/Molecules/Button fullWidth 1`] = `
+.c0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.c2 {
+  padding-right: 4px;
+}
+
+.c5 {
+  padding-right: 8px;
+}
+
+.c8 {
+  padding-left: 8px;
+}
+
+.c7 {
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #32324d;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  background: #ffffff;
+  border: 1px solid #dcdce4;
+}
+
+.c3 svg {
+  height: 12px;
+  width: 12px;
+}
+
+.c3 svg > g,
+.c3 svg path {
+  fill: #ffffff;
+}
+
+.c3[aria-disabled='true'] {
+  pointer-events: none;
+}
+
+.c4 {
+  padding: 8px 16px;
+  background: #4945ff;
+  border: none;
+  border: 1px solid #4945ff;
+  background: #4945ff;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+}
+
+.c4 .c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c4 .c6 {
+  color: #ffffff;
+}
+
+.c4[aria-disabled='true'] {
+  border: 1px solid #dcdce4;
+  background: #eaeaef;
+}
+
+.c4[aria-disabled='true'] .c6 {
+  color: #666687;
+}
+
+.c4[aria-disabled='true'] svg > g,
+.c4[aria-disabled='true'] svg path {
+  fill: #666687;
+}
+
+.c4[aria-disabled='true']:active {
+  border: 1px solid #dcdce4;
+  background: #eaeaef;
+}
+
+.c4[aria-disabled='true']:active .c6 {
+  color: #666687;
+}
+
+.c4[aria-disabled='true']:active svg > g,
+.c4[aria-disabled='true']:active svg path {
+  fill: #666687;
+}
+
+.c4:hover {
+  border: 1px solid #7b79ff;
+  background: #7b79ff;
+}
+
+.c4:active {
+  border: 1px solid #4945ff;
+  background: #4945ff;
+}
+
+<main>
+  <div
+    class="c0"
+  >
+    <h1>
+      Storybook story
+    </h1>
+  </div>
+  <div
+    class="c1 c2"
+  >
+    <button
+      aria-disabled="false"
+      class="c3 c4"
+      type="button"
+    >
+      <div
+        aria-hidden="true"
+        class="c1 c5"
+      >
+        <svg
+          fill="none"
+          height="1em"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12 12-5.383 12-12S18.617 0 12 0zm0 4.92a1.56 1.56 0 110 3.12 1.56 1.56 0 010-3.12zm3.84 13.06a.5.5 0 01-.5.5h-6.2a.5.5 0 01-.5-.5v-.92a.5.5 0 01.5-.5h2.14v-5.28H9.86a.5.5 0 01-.5-.5v-.92a.5.5 0 01.5-.5h2.84a.5.5 0 01.5.5v6.7h2.14a.5.5 0 01.5.5v.92z"
+            fill="#212134"
+          />
+        </svg>
+      </div>
+      <span
+        class="c6 c7"
+      >
+        Information
+      </span>
+      <div
+        aria-hidden="true"
+        class="c1 c8"
+      >
+        <svg
+          fill="none"
+          height="1em"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12 12-5.383 12-12S18.617 0 12 0zm0 4.92a1.56 1.56 0 110 3.12 1.56 1.56 0 010-3.12zm3.84 13.06a.5.5 0 01-.5.5h-6.2a.5.5 0 01-.5-.5v-.92a.5.5 0 01.5-.5h2.14v-5.28H9.86a.5.5 0 01-.5-.5v-.92a.5.5 0 01.5-.5h2.84a.5.5 0 01.5.5v6.7h2.14a.5.5 0 01.5.5v.92z"
+            fill="#212134"
+          />
+        </svg>
+      </div>
     </button>
   </div>
 </main>
@@ -25895,8 +26167,8 @@ exports[`Storyshots Design System/Organisms/MainNav base 1`] = `
 
 .c13 {
   height: 1px;
-  margin: 0;
   border: none;
+  margin: 0;
 }
 
 .c2 {
@@ -26637,8 +26909,8 @@ exports[`Storyshots Design System/Organisms/MainNav notifications 1`] = `
 
 .c13 {
   height: 1px;
-  margin: 0;
   border: none;
+  margin: 0;
 }
 
 .c2 {
@@ -27475,8 +27747,8 @@ exports[`Storyshots Design System/Organisms/SubNav base 1`] = `
 
 .c11 {
   height: 1px;
-  margin: 0;
   border: none;
+  margin: 0;
 }
 
 .c3 {
@@ -29253,8 +29525,8 @@ exports[`Storyshots Design System/Organisms/Table base 1`] = `
 
 .c24 {
   height: 1px;
-  margin: 0;
   border: none;
+  margin: 0;
 }
 
 .c7 {
@@ -30490,8 +30762,8 @@ exports[`Storyshots Design System/Organisms/Table with th actions 1`] = `
 
 .c24 {
   height: 1px;
-  margin: 0;
   border: none;
+  margin: 0;
 }
 
 .c7 {

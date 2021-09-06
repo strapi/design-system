@@ -7,7 +7,7 @@ export const FieldLabel = ({ children, ...props }) => {
   const { id } = useField();
 
   return (
-    <Text textColor="neutral800" htmlFor={id} small highlighted as="label" {...props}>
+    <Text textColor="neutral800" htmlFor={id} small bold as="label" {...props}>
       {children}
     </Text>
   );

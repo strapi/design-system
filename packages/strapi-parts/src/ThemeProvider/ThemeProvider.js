@@ -167,7 +167,7 @@ const GlobalStyle = createGlobalStyle`
     font: inherit;
   }
 
-  .modal-open {
+  .lock-body-scroll {
     height: 100vh;
     overflow-y: hidden;
   }

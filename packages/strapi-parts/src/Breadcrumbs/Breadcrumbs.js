@@ -23,7 +23,7 @@ const CrumbWrapper = styled(Row)`
 export const Crumb = ({ children }) => {
   return (
     <CrumbWrapper inline as="li">
-      <Text highlighted color="neutral800">
+      <Text bold color="neutral800">
         {children}
       </Text>
       <Box paddingLeft={3} paddingRight={3}>
