@@ -1,6 +1,7 @@
 <!--- HeaderLayout.stories.mdx --->
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
 import BackIcon from '@strapi/icons/BackIcon';
 import EditIcon from '@strapi/icons/EditIcon';
 import AddIcon from '@strapi/icons/AddIcon';
@@ -16,11 +17,25 @@ import { Stack } from '../Stack';
 
 # BaseHeaderLayout
 
-This is the doc of the `HeaderLayout` component
+Headers can be composed of a main title, a description and buttons. They are placed at the very top of a page. 
 
-## BaseHeaderLayout
+**Best practices**
 
-Description...
+- Always use a header on top of a page.
+- Always add a title in the header.
+- The main container should be placed right below the Header.
+
+
+## Imports
+
+```js
+import { HeaderLayout, ActionLayout, ContentLayout, HeaderLayout, TwoColsLayout } from '@strapi/parts/HeaderLayout';
+```
+
+
+## Usage
+
+Headers are placed at the very top of each page. Descriptions and buttons are optional.
 
 <Canvas>
   <Story name="base">
@@ -45,9 +60,8 @@ Description...
   </Story>
 </Canvas>
 
-## BaseHeaderLayout without nav action
+### BaseHeaderLayout without nav action
 
-Description...
 
 <Canvas>
   <Story name="base without nav action">
@@ -67,9 +81,8 @@ Description...
   </Story>
 </Canvas>
 
-## BaseHeaderLayout sticky
+### BaseHeaderLayout sticky
 
-Description...
 
 <Canvas>
   <Story name="sticky">
@@ -95,9 +108,9 @@ Description...
   </Story>
 </Canvas>
 
-## HeaderLayout
+### HeaderLayout
 
-Open in a new tab.
+This header is combined with scroll. 
 
 <Canvas>
   <Story name="combined w/ scroll" parameters={{ layout: 'fullscreen' }}>
@@ -121,3 +134,8 @@ Open in a new tab.
     </Box>
   </Story>
 </Canvas>
+
+
+## Props
+
+<ArgsTable of={HeaderLayout} />
