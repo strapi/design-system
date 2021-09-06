@@ -2,17 +2,33 @@
 
 import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
 import { TimePicker } from './TimePicker';
 
 <Meta title="Design System/Molecules/TimePicker" component={TimePicker} />
 
 # TimePicker
 
-This is the doc of the `TimePicker` component
+Time pickers help users selecting a specific timeslot from a suggested timetable. They can be associated to a Date picker component.
 
-## TimePicker
+**Best practices**
 
-Description...
+- It is not possible to write a timeslot from the keyboard.
+- It is not possible to change the time format.
+- The PopOver closes after selecting a timeslot.
+- A Time picker can used simultaneously with a Date picker in a form.
+- One single format of time is currently available, which is a 24-hour one.
+- The Time picker is built on top on a Field component.
+
+## Imports
+
+```js
+import { TimePicker } from '@strapi/parts/TimePicker';
+```
+
+## Usage
+
+Use the Time picker component whenever a specific time needs to be scheduled or indicated. It is only possible to select one single timeslot.
 
 <Canvas>
   <Story name="base">
@@ -35,9 +51,9 @@ Description...
   </Story>
 </Canvas>
 
-## TimePicker 30 mns steps
+### TimePicker 30 mns steps
 
-Description...
+The unit of the Time Picker can be modified by changing the `step` parameter.
 
 <Canvas>
   <Story name="30-mns-step">
@@ -60,3 +76,9 @@ Description...
     }}
   </Story>
 </Canvas>
+
+
+
+## Props
+
+<ArgsTable of={TimePicker} />
