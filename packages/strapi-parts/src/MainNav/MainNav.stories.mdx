@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
 import ContentIcon from '@strapi/icons/ContentIcon';
 import CtbIcon from '@strapi/icons/ContentTypeBuilderIcon';
 import MediaLibIcon from '@strapi/icons/MediaLibrary';
@@ -25,11 +26,34 @@ import strapiImage from './strapi-img.png';
 
 # MainNav
 
-This is the doc of the `MainNav` component
+The Main Navigation is consistenly available and displayed on all the different pages of the admin panel to access the different main sections. Thanks to it the users can easily navigation from a section to another. The Main Navigation can be whether collapsed or extended depending on the user's choice. 
 
-## MainNav
+**Best practices**
 
-Description...
+- It is not possible to have more than 2 navigation bars next to each others.
+- Each section has its own icon and is associated with a Tooltip.
+- Do not use icons for headers
+- Use sentence case for section names and all caps for header labels.
+- Logo asset on the top-left of the Main Navigation can be customized.
+
+
+## Usage
+
+The Main Navigation can be whether collapsed or extended depending on the user's choice with the Arrow icon at the bottom. 
+
+The user profile can be accessed by clicking on the user name at the bottom of the Main Navigation, as much as the possibility to log out the admin panel. 
+
+According to permissions, certain sections of the Main Navigation might not be visible nor accessible by specific users.
+
+
+## Hierarchy
+
+Related sections are gathered under specific headers within the Main Navigation. These headers are helpful to understand the global product hierarchy.
+
+Exception made for core plugins (i.e. Content Manager, Content-types Builder, Media Library) but a plugin should not take place in the Main Navigation. The Main Navigation remains are concise as possible to quickly reach the most important actions.
+
+
+### MainNav
 
 <Canvas>
   <Story name="base">
@@ -131,3 +155,8 @@ Description...
     }}
   </Story>
 </Canvas>
+
+
+## Props
+
+<ArgsTable of={MainNav} />
