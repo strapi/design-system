@@ -31,6 +31,8 @@ if (process.env.BUNDLE_ANALYZE) {
 module.exports = {
   entry,
   mode: 'production',
+  // FIXME remove when DS ready
+  devtool: 'eval-source-map',
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
