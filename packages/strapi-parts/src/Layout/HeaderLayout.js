@@ -17,7 +17,11 @@ const useHeaderSize = () => {
     threshold: 0,
   });
 
-  useResizeObserver(containerRef, () => setHeaderSize(containerRef.current.getBoundingClientRect()));
+  useResizeObserver(containerRef, () => {
+    if (containerRef.current) {
+      setHeaderSize(containerRef.current.getBoundingClientRect());
+    }
+  });
 
   useEffect(() => {
     if (baseHeaderLayoutRef.current) {
