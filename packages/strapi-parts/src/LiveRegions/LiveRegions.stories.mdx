@@ -39,7 +39,7 @@ Description...
 Description...
 
 <Canvas>
-  <Story name="log">
+  <Story name="alert">
     {() => {
       const [visible, setVisible] = useState(true);
       return (
@@ -47,7 +47,7 @@ Description...
           <Button onClick={() => setVisible((isVisible) => !isVisible)}>
             {visible ? 'Hide button' : 'Show button'}
           </Button>
-          {visible ? <StoryComponent notifyType="error" /> : null}
+          {visible ? <StoryComponent notifyType="alert" /> : null}
         </Stack>
       );
     }}
@@ -59,7 +59,7 @@ Description...
 Description...
 
 <Canvas>
-  <Story name="log">
+  <Story name="status">
     {() => {
       const [visible, setVisible] = useState(true);
       return (
