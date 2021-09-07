@@ -1,10 +1,12 @@
 <!--- LiveRegions.stories.mdx --->
 
+import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { LiveRegions } from './LiveRegions';
+import { StoryComponent } from './StoryComponent';
 import { Stack } from '../Stack';
 import { Button } from '../Button';
-import { LiveRegions } from './LiveRegions';
-import { notifyLog, notifyStatus, notifyAlert } from './helpers';
+import { useNotifyAT } from './useNotifyAT';
 
 <Meta title="Design System/Molecules/LiveRegions" component={LiveRegions} />
 
@@ -12,19 +14,62 @@ import { notifyLog, notifyStatus, notifyAlert } from './helpers';
 
 This is the doc of the `LiveRegions` component
 
-## LiveRegions
+## useNotifyAT log
 
 Description...
 
 <Canvas>
-  <Story name="base">
-    <div>
-      <p>In order for this story to make sense, make sure to turn on a Screen Reader of your choice.</p>
-      <Stack horizontal size={2}>
-        <Button onClick={() => notifyLog('A log message')}>Notify log</Button>
-        <Button onClick={() => notifyStatus('A status message')}>Notify status</Button>
-        <Button onClick={() => notifyAlert('An alert message')}>Notify alert</Button>
-      </Stack>
-    </div>
+  <Story name="log">
+    {() => {
+      const [visible, setVisible] = useState(true);
+      return (
+        <Stack size={3}>
+          <Button onClick={() => setVisible((isVisible) => !isVisible)}>
+            {visible ? 'Hide button' : 'Show button'}
+          </Button>
+          {visible ? <StoryComponent notifyType="log" /> : null}
+        </Stack>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## useNotifyAT error
+
+Description...
+
+<Canvas>
+  <Story name="alert">
+    {() => {
+      const [visible, setVisible] = useState(true);
+      return (
+        <Stack size={3}>
+          <Button onClick={() => setVisible((isVisible) => !isVisible)}>
+            {visible ? 'Hide button' : 'Show button'}
+          </Button>
+          {visible ? <StoryComponent notifyType="alert" /> : null}
+        </Stack>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## useNotifyAT status
+
+Description...
+
+<Canvas>
+  <Story name="status">
+    {() => {
+      const [visible, setVisible] = useState(true);
+      return (
+        <Stack size={3}>
+          <Button onClick={() => setVisible((isVisible) => !isVisible)}>
+            {visible ? 'Hide button' : 'Show button'}
+          </Button>
+          {visible ? <StoryComponent notifyType="status" /> : null}
+        </Stack>
+      );
+    }}
   </Story>
 </Canvas>

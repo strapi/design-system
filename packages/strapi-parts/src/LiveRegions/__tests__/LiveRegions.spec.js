@@ -2,7 +2,7 @@ import * as React from 'react';
 import { render } from '@testing-library/react';
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
-import { notifyAlert, notifyLog, notifyStatus } from '../helpers';
+import { useNotifyAT } from '../useNotifyAT';
 
 describe('LiveRegions', () => {
   beforeAll(() => {
@@ -22,13 +22,21 @@ describe('LiveRegions', () => {
   });
 
   it('snapshots the component when notifying a log', () => {
+    const TestComponent = () => {
+      const { notifyLog } = useNotifyAT();
+
+      React.useEffect(() => {
+        notifyLog('A log message');
+      }, []);
+
+      return null;
+    };
+
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
-        <div />
+        <TestComponent />
       </ThemeProvider>,
     );
-
-    notifyLog('A log message');
 
     expect(container).toMatchInlineSnapshot(`
       .c0 {
@@ -44,12 +52,12 @@ describe('LiveRegions', () => {
       }
 
       <div>
-        <div />
         <div
           class="c0"
         >
           <p
             aria-live="polite"
+            aria-relevant="all"
             id="live-region-log"
             role="log"
           >
@@ -57,11 +65,13 @@ describe('LiveRegions', () => {
           </p>
           <p
             aria-live="polite"
+            aria-relevant="all"
             id="live-region-status"
             role="status"
           />
           <p
             aria-live="assertive"
+            aria-relevant="all"
             id="live-region-alert"
             role="alert"
           />
@@ -71,13 +81,21 @@ describe('LiveRegions', () => {
   });
 
   it('snapshots the component when notifying a status', () => {
+    const TestComponent = () => {
+      const { notifyStatus } = useNotifyAT();
+
+      React.useEffect(() => {
+        notifyStatus('A status message');
+      }, []);
+
+      return null;
+    };
+
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
-        <div />
+        <TestComponent />
       </ThemeProvider>,
     );
-
-    notifyStatus('A status message');
 
     expect(container).toMatchInlineSnapshot(`
       .c0 {
@@ -93,17 +111,18 @@ describe('LiveRegions', () => {
       }
 
       <div>
-        <div />
         <div
           class="c0"
         >
           <p
             aria-live="polite"
+            aria-relevant="all"
             id="live-region-log"
             role="log"
           />
           <p
             aria-live="polite"
+            aria-relevant="all"
             id="live-region-status"
             role="status"
           >
@@ -111,6 +130,7 @@ describe('LiveRegions', () => {
           </p>
           <p
             aria-live="assertive"
+            aria-relevant="all"
             id="live-region-alert"
             role="alert"
           />
@@ -120,13 +140,21 @@ describe('LiveRegions', () => {
   });
 
   it('snapshots the component when notifying an alert', () => {
+    const TestComponent = () => {
+      const { notifyAlert } = useNotifyAT();
+
+      React.useEffect(() => {
+        notifyAlert('An alert message');
+      }, []);
+
+      return null;
+    };
+
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
-        <div />
+        <TestComponent />
       </ThemeProvider>,
     );
-
-    notifyAlert('An alert message');
 
     expect(container).toMatchInlineSnapshot(`
       .c0 {
@@ -142,22 +170,24 @@ describe('LiveRegions', () => {
       }
 
       <div>
-        <div />
         <div
           class="c0"
         >
           <p
             aria-live="polite"
+            aria-relevant="all"
             id="live-region-log"
             role="log"
           />
           <p
             aria-live="polite"
+            aria-relevant="all"
             id="live-region-status"
             role="status"
           />
           <p
             aria-live="assertive"
+            aria-relevant="all"
             id="live-region-alert"
             role="alert"
           >
