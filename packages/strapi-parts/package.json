@@ -53,7 +53,12 @@
   },
   "scripts": {
     "analyze:bundle": "cross-env BUNDLE_ANALYZE=1 webpack",
-    "build": "webpack &&  node ../../tools/copy-files.js",
+    "prebuild": "rimraf dist",
+    "build": "yarn build:dev && yarn build:prod && yarn copy:files && yarn create:index-files",
+    "build:dev": "cross-env NODE_ENV=development webpack-cli",
+    "build:prod": "cross-env NODE_ENV=production webpack-cli",
+    "copy:files": "node ../../tools/copy-files.js",
+    "create:index-files": "node ./createIndexFiles.js",
     "build-storybook": "build-storybook",
     "lint": "eslint . --ext .js,.jsx --fix",
     "lint-staged": "eslint --fix",
