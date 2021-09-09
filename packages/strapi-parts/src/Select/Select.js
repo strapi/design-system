@@ -240,23 +240,26 @@ export const Select = ({
 
 Select.defaultProps = {
   children: [],
+  clearLabel: 'Clear',
   customizeContent: undefined,
   disabled: false,
   id: undefined,
   multi: false,
+  onChange: () => {},
   onClear: undefined,
   onReachEnd: undefined,
   value: undefined,
   hint: undefined,
   error: undefined,
+  placeholder: 'Select...',
   size: 'M',
   startIcon: undefined,
   withTags: false,
 };
 
 Select.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.node),
-  clearLabel: PropTypes.string.isRequired,
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+  clearLabel: PropTypes.string,
   customizeContent: PropTypes.func,
   disabled: PropTypes.bool,
   error: PropTypes.string,
@@ -264,10 +267,10 @@ Select.propTypes = {
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   label: PropTypes.string.isRequired,
   multi: PropTypes.bool,
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
   onClear: PropTypes.func,
   onReachEnd: PropTypes.func,
-  placeholder: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
   size: PropTypes.oneOf(['S', 'M']),
   startIcon: PropTypes.element,
   value: PropTypes.oneOfType([
