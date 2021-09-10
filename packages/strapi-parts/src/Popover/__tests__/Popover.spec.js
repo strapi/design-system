@@ -141,16 +141,19 @@ describe('Popover', () => {
           >
             <p
               aria-live="polite"
+              aria-relevant="all"
               id="live-region-log"
               role="log"
             />
             <p
               aria-live="polite"
+              aria-relevant="all"
               id="live-region-status"
               role="status"
             />
             <p
               aria-live="assertive"
+              aria-relevant="all"
               id="live-region-alert"
               role="alert"
             />

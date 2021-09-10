@@ -1,12 +1,11 @@
 const fs = require('fs');
 const path = require('path');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 // Allows to create distinct bundles in the dist folder
 // for people wanting to import only specific components such as
 // import Button from '@strapi/parts/Button
-const excludedFolders = ['helpers'];
+const excludedFolders = ['helpers', '.DS_Store'];
 const fileNames = fs.readdirSync(path.resolve(__dirname, 'src'));
 const entry = fileNames
   .filter((name) => !excludedFolders.includes(name))
@@ -30,12 +29,14 @@ if (process.env.BUNDLE_ANALYZE) {
 
 module.exports = {
   entry,
-  mode: 'production',
+  mode: process.env.NODE_ENV,
+  devtool: process.env.NODE_ENV === 'development' ? 'eval-source-map' : false,
   output: {
-    filename: '[name].js',
+    filename: `[name].${process.env.NODE_ENV}.js`,
     path: path.resolve(__dirname, 'dist'),
     libraryTarget: 'umd',
     library: 'strapiDs',
+    umdNamedDefine: true,
   },
   module: {
     rules: [
@@ -59,7 +60,7 @@ module.exports = {
       },
     ],
   },
-  plugins: [new CleanWebpackPlugin()].concat(analyzePlugins),
+  plugins: [].concat(analyzePlugins),
   externals: [
     {
       react: 'react',

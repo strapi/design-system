@@ -109,7 +109,7 @@ Option.propTypes = {
   isChild: PropTypes.bool,
   multi: PropTypes.bool,
   selected: PropTypes.bool,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 };
 
 Option.displayName = 'Option';
