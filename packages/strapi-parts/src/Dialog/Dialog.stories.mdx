@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
 import { Text } from '../Text';
 import { Stack } from '../Stack';
 import { Row } from '../Row';
@@ -24,9 +25,7 @@ This is the doc of the `Dialog` component
 ## Imports
 
 ```js
-import { Dialog } from '@strapi/parts/Dialog';
-import { DialogBody } from '@strapi/parts/DialogBody';
-import { DialogFooter } from '@strapi/parts/DialogFooter';
+import { Dialog, DialogBody, DialogFooter } from '@strapi/parts/Dialog';
 import { Row } from '@strapi/parts/Row';
 import { Text } from '@strapi/parts/Text';
 import { Stack } from '@strapi/parts/Stack';
@@ -93,3 +92,16 @@ Description...
     }}
   </Story>
 </Canvas>
+
+
+## Props
+
+<ArgsTable of={Dialog} />
+
+### DialogBody props
+
+<ArgsTable of={DialogBody} />
+
+### DialogFooter props
+
+<ArgsTable of={DialogFooter} />
