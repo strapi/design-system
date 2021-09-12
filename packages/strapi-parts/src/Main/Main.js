@@ -7,9 +7,15 @@ const MainWrapper = styled.main`
 `;
 
 export const Main = ({ labelledBy, ...props }) => {
-  return <MainWrapper aria-labelledby={labelledBy} id="main-content" tabIndex={-1} {...props} />;
+  const ariaLabelledBy = labelledBy || 'main-content-title';
+
+  return <MainWrapper aria-labelledby={ariaLabelledBy} id="main-content" tabIndex={-1} {...props} />;
+};
+
+Main.defaultProps = {
+  labelledBy: undefined,
 };
 
 Main.propTypes = {
-  labelledBy: PropTypes.string.isRequired,
+  labelledBy: PropTypes.string,
 };

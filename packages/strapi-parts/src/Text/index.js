@@ -1,23 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
-const handleColor = ({ theme, textColor }) => theme.colors[textColor || 'neutral800'];
-const ellipsisStyle = ({ ellipsis }) =>
-  ellipsis &&
-  `
-    display: inline-block;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  `;
-
-export const H1 = styled.h1`
-  font-weight: 600;
-  font-size: ${32 / 16}rem;
-  line-height: 1.25;
-  color: ${handleColor};
-  ${ellipsisStyle}
-`;
+import { ellipsisStyle, handleColor } from './utils';
 
 export const H2 = styled.h2`
   font-weight: 600;
@@ -79,3 +62,5 @@ export const EllipsisText = styled(Text)`
   overflow: hidden;
   text-overflow: ellipsis;
 `;
+
+export * from './H1';
