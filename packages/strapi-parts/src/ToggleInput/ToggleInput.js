@@ -25,7 +25,9 @@ export const ToggleInput = ({ error, hint, label, name, labelAction, ...props })
           <FieldLabel>{label}</FieldLabel>
           {labelAction && <LabelAction paddingLeft={1}>{labelAction}</LabelAction>}
         </Row>
-        <ToggleCheckbox {...props}>{label}</ToggleCheckbox>
+        <ToggleCheckbox name={name} {...props}>
+          {label}
+        </ToggleCheckbox>
         <FieldHint />
         <FieldError />
       </Stack>

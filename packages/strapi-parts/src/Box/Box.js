@@ -56,7 +56,7 @@ Box.defaultProps = {
 Box.propTypes = {
   background: PropTypes.string,
   borderColor: PropTypes.string,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
   color: PropTypes.string,
   hasRadius: PropTypes.bool,
   hiddenS: PropTypes.bool,

@@ -7,6 +7,7 @@ import { Box } from '../Box';
 
 const Input = styled.input`
   border: none;
+  border-radius: ${({ theme }) => theme.borderRadius};
   padding-left: ${({ theme, hasLeftAction }) => (hasLeftAction ? 0 : theme.spaces[4])};
   padding-right: ${({ theme, hasRightAction }) => (hasRightAction ? 0 : theme.spaces[4])};
 
@@ -27,18 +28,12 @@ const Input = styled.input`
     background: inherit;
     color: inherit;
   }
-
-  // The focus state is moved to the parent thanks to :focus-within
-  &:focus {
-    outline: none;
-  }
 `;
 
 export const InputWrapper = styled(Row)`
   border: 1px solid ${({ theme, hasError }) => (hasError ? theme.colors.danger600 : theme.colors.neutral200)};
   border-radius: ${({ theme }) => theme.borderRadius};
   background: ${({ theme }) => theme.colors.neutral0};
-  overflow: hidden;
 
   ${({ theme, disabled }) =>
     disabled
@@ -48,10 +43,6 @@ export const InputWrapper = styled(Row)`
   
   `
       : undefined}
-
-  &:focus-within {
-    border: 1px solid ${({ theme }) => theme.colors.primary600};
-  }
 `;
 
 export const FieldInput = forwardRef(({ endAction, startAction, disabled, ...props }, ref) => {
