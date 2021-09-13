@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-
-const avatarSize = 26;
-const previewSize = 64;
+import { avatarSize, previewSize } from './constants';
 
 const AvatarImg = styled.img`
   border-radius: 50%;
@@ -15,6 +13,7 @@ const AvatarImgWrapper = styled.div`
   position: relative;
   width: ${avatarSize}px;
   height: ${avatarSize}px;
+  z-index: ${({ hovering }) => (hovering ? 1 : undefined)};
 `;
 
 const PreviewContainer = styled.img`
@@ -49,7 +48,11 @@ export const Avatar = ({ src, alt, preview }) => {
         />
       ) : null}
 
-      <AvatarImgWrapper onMouseEnter={() => setPreviewVisible(true)} onMouseLeave={() => setPreviewVisible(false)}>
+      <AvatarImgWrapper
+        hovering={preview && previewVisible}
+        onMouseEnter={() => setPreviewVisible(true)}
+        onMouseLeave={() => setPreviewVisible(false)}
+      >
         {preview && previewVisible ? <Overlay /> : null}
         <AvatarImg src={src} alt={alt} width={`${avatarSize}px`} height={`${avatarSize}px`} />
       </AvatarImgWrapper>
