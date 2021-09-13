@@ -10,21 +10,27 @@ import { Stack } from '../Stack';
 
 # Status
 
-Status are used to give an important visual indication to the users on a page level. 
+Status are used to give an important visual indication to the users on a page level.
 
 **Best practices**
-
 - Use clear and concise words.
 - Use rather outside of a form.
 - One form should not have more than one status.
 - Status should not be used if there are no state change possible.
 - Use colors of the theme if a new colors is required.
 - Status should not be clickable. They are visual information only.
+[View source](https://github.com/strapi/parts/tree/develop/packages/strapi-parts/src/Status)
 
+## Imports
+
+```js
+import { Status } from '@strapi/parts/Status';
+import { Text } from '@strapi/parts/Text';
+```
 
 ## Usage
 
-Use a Status sparingly within forms to give an important visual indication. Status are not clickable. 
+Use a Status sparingly within forms to give an important visual indication. Status are not clickable.
 
 <Canvas>
   <Story name="base">
@@ -42,7 +48,6 @@ Use a Status sparingly within forms to give an important visual indication. Stat
     </Stack>
   </Story>
 </Canvas>
-
 
 ## Props
 

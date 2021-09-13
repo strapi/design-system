@@ -20,6 +20,18 @@ EmptyStates are a pattern used to indicate a page or a table is empty.
 - Use the most appropriate illustration for the usecase. If related to permissions, choose the eye one.
 - Use the button to help redirecting the user to a more relevant place.
 
+[View source](https://github.com/strapi/parts/tree/develop/packages/strapi-parts/src/EmptyStateLayout)
+
+## Imports
+
+```js
+import { EmptyStateLayout } from '@strapi/parts/EmptyStateLayout';
+import { Button } from '@strapi/parts/Button';
+import AddIcon from '@strapi/icons/AddIcon';
+import EmptyStateDocument from '@strapi/icons/EmptyStateDocument';
+```
+
+
 ## Usage
 
 A page or a table might be empty for different reasons: no entries have been created yet, a user doesn't have the permission to access something, something went wrong, ...
@@ -27,7 +39,7 @@ A page or a table might be empty for different reasons: no entries have been cre
 
 ### EmptyStateLayout with action
 
- EmptyStates can be coupled with a button to help redirecting the user to a more relevant place. 
+ EmptyStates can be coupled with a button to help redirecting the user to a more relevant place.
 
 <Canvas>
   <Story name="base">
@@ -47,7 +59,7 @@ A page or a table might be empty for different reasons: no entries have been cre
 
 ### EmptyStateLayout without action
 
-If no need to redirect the user to a more relevant place or if the context does not suit for that type of action, an EmptyState without any particular action can be added. 
+If no need to redirect the user to a more relevant place or if the context does not suit for that type of action, an EmptyState without any particular action can be added.
 
 <Canvas>
   <Story name="without action">
@@ -57,7 +69,7 @@ If no need to redirect the user to a more relevant place or if the context does 
   </Story>
 </Canvas>
 
-## EmptyStateLayout with large text
+### EmptyStateLayout with longer text
 
 <Canvas>
   <Story name="with large text">
@@ -78,4 +90,3 @@ If no need to redirect the user to a more relevant place or if the context does 
 ## Props
 
 <ArgsTable of={EmptyStateLayout} />
-

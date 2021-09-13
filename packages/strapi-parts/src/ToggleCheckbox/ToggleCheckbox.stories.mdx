@@ -9,7 +9,7 @@ import { ToggleCheckbox } from './ToggleCheckbox';
 
 # ToggleCheckbox
 
-Toggles are used to switch between two different states. They are mostly used to switch between "On" and "Off" states. It is a binary choice. 
+Toggles are used to switch between two different states. They are mostly used to switch between "On" and "Off" states. It is a binary choice.
 
 **Best practices**
 
@@ -17,16 +17,22 @@ Toggles are used to switch between two different states. They are mostly used to
 - The state labels should only have a single word and be clear.
 - When in a Table component, prefer the usage of a Switch component.
 - Add a description line to give further information.
+[View source](https://github.com/strapi/parts/tree/develop/packages/strapi-parts/src/ToggleCheckbox)
 
+## Imports
+
+```js
+import { ToggleCheckbox } from '@strapi/parts/ToggleCheckbox';
+```
 
 ## Usage
 
-Use a toggle whenever the users need to turn something on or off in a form. A toggle can be disabled. 
+Use a toggle whenever the users need to turn something on or off in a form. A toggle can be disabled.
 
 
 ### Activated Toggle
 
-The activated state is one of the two available states for a Toggle. 
+The activated state is one of the two available states for a Toggle.
 
 
 <Canvas>
@@ -37,10 +43,9 @@ The activated state is one of the two available states for a Toggle.
   </Story>
 </Canvas>
 
+### ToggleCheckbox not activated
 
-### Deactivated Toggle
-
-The deactivated state is one of the two available states for a Toggle. 
+The deactivated state is one of the two available states for a Toggle.
 
 <Canvas>
   <Story name="not activated">

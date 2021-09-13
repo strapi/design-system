@@ -17,7 +17,7 @@ import { Stack } from '../Stack';
 
 # BaseHeaderLayout
 
-Headers can be composed of a main title, a description and buttons. They are placed at the very top of a page. 
+Headers can be composed of a main title, a description and buttons. They are placed at the very top of a page.
 
 **Best practices**
 
@@ -25,15 +25,26 @@ Headers can be composed of a main title, a description and buttons. They are pla
 - Always add a title in the header.
 - The main container should be placed right below the Header.
 
+[View source](https://github.com/strapi/parts/tree/develop/packages/strapi-parts/src/Layout)
 
 ## Imports
 
 ```js
-import { HeaderLayout, ActionLayout, ContentLayout, HeaderLayout, TwoColsLayout } from '@strapi/parts/HeaderLayout';
+import { BaseHeaderLayout, HeaderLayout } from '@strapi/parts/HeaderLayout';
+import { Box } from '@strapi/parts/Box';
+import { Link } from '@strapi/parts/Link';
+import { Stack } from '@strapi/parts/Stack';
+import { Button } from '@strapi/parts/Button';
+import { VisuallyHidden } from '@strapi/parts/VisuallyHidden';
+import BackIcon from '@strapi/icons/BackIcon';
+import EditIcon from '@strapi/icons/EditIcon';
+import AddIcon from '@strapi/icons/AddIcon';
+import CheckIcon from '@strapi/icons/CheckIcon';
+
 ```
 
-
 ## Usage
+=======
 
 Headers are placed at the very top of each page. Descriptions and buttons are optional.
 
@@ -110,7 +121,7 @@ Headers are placed at the very top of each page. Descriptions and buttons are op
 
 ### HeaderLayout
 
-This header is combined with scroll. 
+This header is combined with scroll.
 
 <Canvas>
   <Story name="combined w/ scroll" parameters={{ layout: 'fullscreen' }}>

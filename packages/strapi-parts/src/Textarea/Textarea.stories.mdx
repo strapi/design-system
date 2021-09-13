@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
 import HelpIcon from '@strapi/icons/HelpIcon';
 import { Textarea } from './Textarea';
 import { Tooltip } from '../Tooltip';
@@ -13,7 +14,18 @@ import { Box } from '../Box';
 
 This is the doc of the `Textarea` component
 
-## Textarea
+[View source](https://github.com/strapi/parts/tree/develop/packages/strapi-parts/src/Textarea)
+
+## Imports
+
+```js
+import HelpIcon from '@strapi/icons/HelpIcon';
+import { Textarea } from '@strapi/parts/Textarea';
+import { Tooltip } from '@strapi/parts/Tooltip';
+import { Box } from '@strapi/parts/Box';
+```
+
+## Usage
 
 Description...
 
@@ -48,3 +60,7 @@ Description...
     }}
   </Story>
 </Canvas>
+
+## Props
+
+<ArgsTable of={Textarea} />

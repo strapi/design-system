@@ -10,19 +10,27 @@ import { TextButton } from './TextButton';
 
 # TextButton
 
-TextButtons invites users to trigger an action related to the interface. They are used for internal navigation. 
+TextButtons invites users to trigger an action related to the interface. They are used for internal navigation.
+
 
 **Best practices**
-
 - Use Link component if the action if the action is related to external navigation.
 - TextButtons text should describe an action and start with a verb.
 - TextButtons text should be concise and describe their purpose. Users need to know exactly what they are about to do.
 - Use an icon with TextButtons to give more information and impact to your action.
+[View source](https://github.com/strapi/parts/tree/develop/packages/strapi-parts/src/TextButton)
 
+## Imports
+
+```js
+import { TextButton } from '@strapi/parts/TextButton';
+import BackIcon from '@strapi/icons/BackIcon';
+import NextIcon from '@strapi/icons/NextIcon';
+```
 
 ## Usage
 
-TextButtons are used for internal navigation. Each TextButton should redirect to an action or a page of the admin panel. Moreover, they can be associated with an icon on the left or on the right depending on the context. 
+TextButtons are used for internal navigation. Each TextButton should redirect to an action or a page of the admin panel. Moreover, they can be associated with an icon on the left or on the right depending on the context.
 
 Depending on the permissions a user have or the status of an action, a TextButton can be unreachable or unavailable yet.
 
@@ -44,4 +52,3 @@ Depending on the permissions a user have or the status of an action, a TextButto
 ## Props
 
 <ArgsTable of={TextButton} />
-

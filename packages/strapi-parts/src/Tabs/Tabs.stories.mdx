@@ -13,23 +13,32 @@ import { Badge } from '../Badge';
 
 # Tabs
 
-Tabs are a set of related views within a same page. They help classify better the different levels of information for a same topic. 
+Tabs are a set of related views within a same page. They help classify better the different levels of information for a same topic.
 
 **Best practices**
 
 - Tabs label should be concise. One word or two maximum is preferable.
 - Tabs navigation should follow a logical order: from Tab 1 to Tab 2 and then to Tab 3.
 - Avoid using more than 5 tabs to keep it easily scannable and readable.
+[View source](https://github.com/strapi/parts/tree/develop/packages/strapi-parts/src/Tabs)
 
+## Imports
+
+```js
+import { Tabs, Tab, TabGroup, TabPanels, TabPanel } from '@strapi/parts/Tabs';
+import { Box } from '@strapi/parts/Box';
+import { Row } from '@strapi/parts/Row';
+import { Badge } from '@strapi/parts/Badge';
+```
 
 ## Usage
 
-Tabs allow to classify related content in different views within a same page. 
+Tabs allow to classify related content in different views within a same page.
 
 
 ### Default Tabs
 
-Default Tabs mostly used in forms. 
+Default Tabs mostly used in forms.
 
 <Canvas>
   <Story name="base">
@@ -65,7 +74,7 @@ Default Tabs mostly used in forms.
 
 ### Simple Tabs
 
-Simple Tabs are used in modals. 
+Simple Tabs are used in modals.
 
 
 <Canvas>
@@ -99,7 +108,7 @@ Simple Tabs are used in modals.
   </Story>
 </Canvas>
 
+
 ## Props
 
 <ArgsTable of={Tabs} />
-

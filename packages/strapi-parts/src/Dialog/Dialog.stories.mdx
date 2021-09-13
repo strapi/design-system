@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
 import { Text } from '../Text';
 import { Stack } from '../Stack';
 import { Row } from '../Row';
@@ -19,7 +20,21 @@ import DeleteIcon from '@strapi/icons/DeleteIcon';
 
 This is the doc of the `Dialog` component
 
-## Dialog
+[View source](https://github.com/strapi/parts/tree/develop/packages/strapi-parts/src/Dialog)
+
+## Imports
+
+```js
+import { Dialog, DialogBody, DialogFooter } from '@strapi/parts/Dialog';
+import { Row } from '@strapi/parts/Row';
+import { Text } from '@strapi/parts/Text';
+import { Stack } from '@strapi/parts/Stack';
+import { Button } from '@strapi/parts/Button';
+import DeleteIcon from '@strapi/icons/DeleteIcon';
+import AlertWarningIcon from '@strapi/icons/AlertWarningIcon';
+```
+
+## Usage
 
 Description...
 
@@ -77,3 +92,16 @@ Description...
     }}
   </Story>
 </Canvas>
+
+
+## Props
+
+<ArgsTable of={Dialog} />
+
+### DialogBody props
+
+<ArgsTable of={DialogBody} />
+
+### DialogFooter props
+
+<ArgsTable of={DialogFooter} />

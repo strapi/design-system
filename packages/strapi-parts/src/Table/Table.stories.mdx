@@ -27,7 +27,6 @@ import { TFooter } from './TFooter';
 Tables are used to gather and display similar types of data together. They are composed of a header, rows, and columns. Several type of data can be included within tables such as: plain text, Select, Avatars, Icon Buttons, ...
 
 **Best practices**
-
 - If there are any, Icon Buttons should be placed at the very right of a row.
 - Tables should be placed in a page’s main content area.
 - Column titles use a all caps style.
@@ -36,6 +35,25 @@ Tables are used to gather and display similar types of data together. They are c
 - If content is truncated, a tooltip should be available at hover to display the full text.
 - Checkboxes (i.e. a bulk action) are optional.
 - Tables can be associated with a Search bar and/or a filter button.
+[View source](https://github.com/strapi/parts/tree/develop/packages/strapi-parts/src/Table)
+
+## Imports
+
+```js
+import EditIcon from '@strapi/icons/EditIcon';
+import DeleteIcon from '@strapi/icons/DeleteIcon';
+import DropdownIcon from '@strapi/icons/FilterDropdown';
+import AddIcon from '@strapi/icons/AddIcon';
+import { Box } from '@strapi/parts/Box';
+import { Row } from '@strapi/parts/Row';
+import { VisuallyHidden } from '@strapi/parts/VisuallyHidden';
+import { BaseCheckbox } from '@strapi/parts/BaseCheckbox';
+import { Table, Thead, Tbody, Tr, Td, Th } from '@strapi/parts/Table';
+import { Text, TableLabel } from '@strapi/parts/Text';
+import { Avatar } from '@strapi/parts/Avatar';
+import { IconButton } from '@strapi/parts/IconButton';
+import { TFooter } from '@strapi/parts/TFooter';
+```
 
 
 ## Usage
@@ -44,7 +62,7 @@ Tables are used to gather and display similar types of data together. In the Con
 
 ### Default Table
 
-The default Table. 
+The default Table.
 
 <Canvas>
   <Story name="base">
@@ -137,10 +155,9 @@ The default Table.
   </Story>
 </Canvas>
 
+### Table with actions
 
-## Table with actions
-
-Table with actions. 
+Table with actions.
 
 <Canvas>
   <Story name="with th actions">
@@ -233,8 +250,6 @@ Table with actions.
   </Story>
 </Canvas>
 
-
 ## Props
 
 <ArgsTable of={Table} />
-

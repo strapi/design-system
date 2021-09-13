@@ -1,6 +1,7 @@
 <!--- Button.stories.mdx --->
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
 import { Box } from './Box';
 
 <Meta title="Design System/Atoms/Box" component={Box} />
@@ -9,7 +10,15 @@ import { Box } from './Box';
 
 This is the doc of the `Box` component
 
-## Box
+[View source](https://github.com/strapi/parts/tree/develop/packages/strapi-parts/src/Box)
+
+## Imports
+
+```js
+import { Box } from '@strapi/parts/Box';
+```
+
+## Usage
 
 Description...
 
@@ -21,9 +30,9 @@ Description...
   </Story>
 </Canvas>
 
-## Box
+## Box with padding
 
-Description...
+Box component with padding added.
 
 <Canvas>
   <Story name="responsive spaces">
@@ -32,3 +41,8 @@ Description...
     </Box>
   </Story>
 </Canvas>
+
+
+## Props
+
+<ArgsTable of={Box} />

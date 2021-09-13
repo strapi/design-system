@@ -9,16 +9,11 @@ import { AccordionToggle } from './AccordionToggle';
 import { KeyboardNavigable } from '../KeyboardNavigable';
 import { AccordionContent } from './AccordionContent';
 import { Box } from '../Box';
-import { Row } from '../Row';
 import { IconButton } from '../IconButton';
 
 <Meta title="Design System/Molecules/Accordion" component={Accordion} />
 
 # Accordion
-
-This is the doc of the `Accordion` component
-
-## Accordion
 
 Accordions are collapsable blocks that vertically hide a stack of content. Clicking on the block reveals the associated content.
 
@@ -31,6 +26,22 @@ Accordions are collapsable blocks that vertically hide a stack of content. Click
 - Hover and active states should be used anytime it's possible.
 - Content should not scroll within an accordion.
 - Use chevron icon on the left side if call-to-actions are available on the right side.
+
+[View source](https://github.com/strapi/parts/tree/develop/packages/strapi-parts/src/Accordion)
+
+## Imports
+
+```js
+import { Accordion, AccordionToggle, AccordionContent } from '@strapi/parts/Accordion';
+import { AccordionToggle } from '@strapi/parts/AccordionToggle';
+import { AccordionContent } from '@strapi/parts/AccordionContent';
+import { KeyboardNavigable } from '@strapi/parts/KeyboardNavigable';
+import { IconButton } from '@strapi/parts/IconButton';
+import EditIcon from '@strapi/icons/EditIcon';
+import { Box } from '@strapi/parts/Box';
+```
+
+## Usage
 
 <Canvas>
   <Story name="base">
