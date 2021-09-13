@@ -65,7 +65,7 @@ Tooltip.defaultProps = {
 Tooltip.propTypes = {
   children: PropTypes.node.isRequired,
   delay: PropTypes.number,
-  description: PropTypes.string,
+  description: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   id: PropTypes.string,
   label: PropTypes.string,
   position: PropTypes.oneOf(['top', 'left', 'bottom', 'right']),
