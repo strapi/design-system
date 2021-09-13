@@ -24,6 +24,7 @@ import { TableLabel, Text } from '../Text';
 import { BaseCheckbox } from '../BaseCheckbox';
 import { IconButton } from '../IconButton';
 import { VisuallyHidden } from '../VisuallyHidden';
+import { Tag } from '../Tag';
 import { Avatar } from '../Avatar';
 
 <Meta title="Design System/Layouts/Layout" component={Layout} />
@@ -125,8 +126,13 @@ Description...
               <ActionLayout
                 startActions={
                   <>
-                    <Button variant="tertiary">Search</Button>
-                    <Button variant="tertiary">Filter</Button>
+                    {Array(20)
+                      .fill(null)
+                      .map((_, index) => (
+                        <Tag key={index} icon={<AddIcon aria-hidden={true} />}>
+                          Hello world {index}
+                        </Tag>
+                      ))}
                   </>
                 }
                 endActions={

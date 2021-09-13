@@ -21,12 +21,6 @@ const Textarea = styled.textarea`
   color: ${({ theme, disabled }) => (disabled ? theme.colors.neutral600 : theme.colors.neutral800)};
   background: ${({ theme, disabled }) => (disabled ? theme.colors.neutral150 : theme.colors.neutral0)};
 
-  /* managed by switching borders */
-  outline: none;
-  &:focus {
-    border: 1px solid ${({ theme }) => theme.colors.primary600};
-  }
-
   ::placeholder {
     color: ${({ theme }) => theme.colors.neutral500};
     opacity: 1;
