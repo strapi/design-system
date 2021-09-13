@@ -6,14 +6,11 @@ import { ArgsTable } from '@storybook/addon-docs';
 import { Searchbar } from './Searchbar';
 import { SearchForm } from './SearchForm';
 
-<Meta
-  title="Design System/Molecules/Searchbar"
-  component={Searchbar}
-/>
+<Meta title="Design System/Molecules/Searchbar" component={Searchbar} />
 
 # Searchbar
 
-SearchBars are used to search and navigate through specific content. 
+SearchBars are used to search and navigate through specific content.
 
 **Best practices**
 
@@ -21,7 +18,7 @@ SearchBars are used to search and navigate through specific content.
 - The search icon or the cancel one should not be changed.
 - SearchBar should always have a "Search" placeholder.
 - SearchBar should be placed above the content to search into.
-- SearchBar do not have a visual label but hidden details should be provided for accessibility matters. 
+- SearchBar do not have a visual label but hidden details should be provided for accessibility matters.
 - If adding a SearchBar, make sure to add a "No results found" state.
 
 ## Imports
@@ -30,11 +27,9 @@ SearchBars are used to search and navigate through specific content.
 import { Searchbar, SearchForm } from '@strapi/parts/Searchbar';
 ```
 
-
 ## Usage
 
-SearchBars are used to search and navigate through specific content. 
-
+SearchBars are used to search and navigate through specific content.
 
 ### Default SearchBar
 
@@ -62,7 +57,6 @@ The default SearchBar.
   </Story>
 </Canvas>
 
-
 ### Disabled SearchBar
 
 Depending on the status of an action or the permissions, a SearchBar can be disabled.
@@ -88,8 +82,6 @@ Depending on the status of an action or the permissions, a SearchBar can be disa
   </Story>
 </Canvas>
 
-
 ## Props
 
 <ArgsTable of={Searchbar} />
-

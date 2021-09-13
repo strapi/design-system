@@ -13302,6 +13302,7 @@ exports[`Storyshots Design System/Molecules/DatePicker base 1`] = `
 
 .c9 {
   border: none;
+  border-radius: 4px;
   padding-left: 0;
   padding-right: 16px;
   color: #32324d;
@@ -13337,19 +13338,10 @@ exports[`Storyshots Design System/Molecules/DatePicker base 1`] = `
   color: inherit;
 }
 
-.c9:focus {
-  outline: none;
-}
-
 .c6 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
-  overflow: hidden;
-}
-
-.c6:focus-within {
-  border: 1px solid #4945ff;
 }
 
 .c1 textarea {
@@ -13507,6 +13499,7 @@ exports[`Storyshots Design System/Molecules/Field base 1`] = `
 
 .c5 {
   border: none;
+  border-radius: 4px;
   padding-left: 16px;
   padding-right: 16px;
   color: #32324d;
@@ -13542,19 +13535,10 @@ exports[`Storyshots Design System/Molecules/Field base 1`] = `
   color: inherit;
 }
 
-.c5:focus {
-  outline: none;
-}
-
 .c4 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
-  overflow: hidden;
-}
-
-.c4:focus-within {
-  border: 1px solid #4945ff;
 }
 
 <main>
@@ -13659,6 +13643,7 @@ exports[`Storyshots Design System/Molecules/Field disabled 1`] = `
 
 .c5 {
   border: none;
+  border-radius: 4px;
   padding-left: 16px;
   padding-right: 16px;
   color: #32324d;
@@ -13694,21 +13679,12 @@ exports[`Storyshots Design System/Molecules/Field disabled 1`] = `
   color: inherit;
 }
 
-.c5:focus {
-  outline: none;
-}
-
 .c4 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
-  overflow: hidden;
   color: #666687;
   background: #eaeaef;
-}
-
-.c4:focus-within {
-  border: 1px solid #4945ff;
 }
 
 <main>
@@ -13853,6 +13829,7 @@ exports[`Storyshots Design System/Molecules/Field most complex input 1`] = `
 
 .c10 {
   border: none;
+  border-radius: 4px;
   padding-left: 0;
   padding-right: 0;
   color: #32324d;
@@ -13888,19 +13865,10 @@ exports[`Storyshots Design System/Molecules/Field most complex input 1`] = `
   color: inherit;
 }
 
-.c10:focus {
-  outline: none;
-}
-
 .c7 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
-  overflow: hidden;
-}
-
-.c7:focus-within {
-  border: 1px solid #4945ff;
 }
 
 .c9 {
@@ -14121,6 +14089,7 @@ exports[`Storyshots Design System/Molecules/Field with description 1`] = `
 
 .c5 {
   border: none;
+  border-radius: 4px;
   padding-left: 16px;
   padding-right: 16px;
   color: #32324d;
@@ -14156,19 +14125,10 @@ exports[`Storyshots Design System/Molecules/Field with description 1`] = `
   color: inherit;
 }
 
-.c5:focus {
-  outline: none;
-}
-
 .c4 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
-  overflow: hidden;
-}
-
-.c4:focus-within {
-  border: 1px solid #4945ff;
 }
 
 <main>
@@ -14280,6 +14240,7 @@ exports[`Storyshots Design System/Molecules/Field with error 1`] = `
 
 .c5 {
   border: none;
+  border-radius: 4px;
   padding-left: 16px;
   padding-right: 16px;
   color: #32324d;
@@ -14315,19 +14276,10 @@ exports[`Storyshots Design System/Molecules/Field with error 1`] = `
   color: inherit;
 }
 
-.c5:focus {
-  outline: none;
-}
-
 .c4 {
   border: 1px solid #d02b20;
   border-radius: 4px;
   background: #ffffff;
-  overflow: hidden;
-}
-
-.c4:focus-within {
-  border: 1px solid #4945ff;
 }
 
 <main>
@@ -17409,6 +17361,7 @@ exports[`Storyshots Design System/Molecules/NumberInput base 1`] = `
 
 .c8 {
   border: none;
+  border-radius: 4px;
   padding-left: 16px;
   padding-right: 0;
   color: #32324d;
@@ -17444,19 +17397,10 @@ exports[`Storyshots Design System/Molecules/NumberInput base 1`] = `
   color: inherit;
 }
 
-.c8:focus {
-  outline: none;
-}
-
 .c7 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
-  overflow: hidden;
-}
-
-.c7:focus-within {
-  border: 1px solid #4945ff;
 }
 
 .c10 {
@@ -20381,6 +20325,7 @@ exports[`Storyshots Design System/Molecules/Searchbar base 1`] = `
 
 .c10 {
   border: none;
+  border-radius: 4px;
   padding-left: 0;
   padding-right: 16px;
   color: #32324d;
@@ -20416,19 +20361,10 @@ exports[`Storyshots Design System/Molecules/Searchbar base 1`] = `
   color: inherit;
 }
 
-.c10:focus {
-  outline: none;
-}
-
 .c5 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
-  overflow: hidden;
-}
-
-.c5:focus-within {
-  border: 1px solid #4945ff;
 }
 
 .c9 {
@@ -20453,7 +20389,12 @@ exports[`Storyshots Design System/Molecules/Searchbar base 1`] = `
 }
 
 .c1 .c3:focus-within {
-  border: 1px solid #4945ff;
+  outline: 2px solid #4945ff;
+  outline-offset: 2px;
+}
+
+.c1 input {
+  outline: none;
 }
 
 <main>
@@ -20581,6 +20522,7 @@ exports[`Storyshots Design System/Molecules/Searchbar disabled 1`] = `
 
 .c10 {
   border: none;
+  border-radius: 4px;
   padding-left: 0;
   padding-right: 16px;
   color: #32324d;
@@ -20616,21 +20558,12 @@ exports[`Storyshots Design System/Molecules/Searchbar disabled 1`] = `
   color: inherit;
 }
 
-.c10:focus {
-  outline: none;
-}
-
 .c5 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
-  overflow: hidden;
   color: #666687;
   background: #eaeaef;
-}
-
-.c5:focus-within {
-  border: 1px solid #4945ff;
 }
 
 .c9 {
@@ -20655,7 +20588,12 @@ exports[`Storyshots Design System/Molecules/Searchbar disabled 1`] = `
 }
 
 .c1 .c3:focus-within {
-  border: 1px solid #4945ff;
+  outline: 2px solid #4945ff;
+  outline-offset: 2px;
+}
+
+.c1 input {
+  outline: none;
 }
 
 <main>
@@ -23485,6 +23423,7 @@ exports[`Storyshots Design System/Molecules/TextInput base 1`] = `
 
 .c10 {
   border: none;
+  border-radius: 4px;
   padding-left: 16px;
   padding-right: 16px;
   color: #32324d;
@@ -23520,19 +23459,10 @@ exports[`Storyshots Design System/Molecules/TextInput base 1`] = `
   color: inherit;
 }
 
-.c10:focus {
-  outline: none;
-}
-
 .c9 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
-  overflow: hidden;
-}
-
-.c9:focus-within {
-  border: 1px solid #4945ff;
 }
 
 .c2 textarea {
@@ -23711,6 +23641,7 @@ exports[`Storyshots Design System/Molecules/TextInput disabled 1`] = `
 
 .c10 {
   border: none;
+  border-radius: 4px;
   padding-left: 16px;
   padding-right: 16px;
   color: #32324d;
@@ -23746,21 +23677,12 @@ exports[`Storyshots Design System/Molecules/TextInput disabled 1`] = `
   color: inherit;
 }
 
-.c10:focus {
-  outline: none;
-}
-
 .c9 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
-  overflow: hidden;
   color: #666687;
   background: #eaeaef;
-}
-
-.c9:focus-within {
-  border: 1px solid #4945ff;
 }
 
 .c2 textarea {
@@ -23941,6 +23863,7 @@ exports[`Storyshots Design System/Molecules/TextInput password 1`] = `
 
 .c10 {
   border: none;
+  border-radius: 4px;
   padding-left: 16px;
   padding-right: 16px;
   color: #32324d;
@@ -23976,19 +23899,10 @@ exports[`Storyshots Design System/Molecules/TextInput password 1`] = `
   color: inherit;
 }
 
-.c10:focus {
-  outline: none;
-}
-
 .c9 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
-  overflow: hidden;
-}
-
-.c9:focus-within {
-  border: 1px solid #4945ff;
 }
 
 .c2 textarea {
@@ -24168,6 +24082,7 @@ exports[`Storyshots Design System/Molecules/TextInput with error 1`] = `
 
 .c10 {
   border: none;
+  border-radius: 4px;
   padding-left: 16px;
   padding-right: 16px;
   color: #32324d;
@@ -24203,19 +24118,10 @@ exports[`Storyshots Design System/Molecules/TextInput with error 1`] = `
   color: inherit;
 }
 
-.c10:focus {
-  outline: none;
-}
-
 .c9 {
   border: 1px solid #d02b20;
   border-radius: 4px;
   background: #ffffff;
-  overflow: hidden;
-}
-
-.c9:focus-within {
-  border: 1px solid #4945ff;
 }
 
 .c2 textarea {
@@ -24388,11 +24294,6 @@ exports[`Storyshots Design System/Molecules/Textarea base 1`] = `
   font-size: 0.875rem;
   color: #32324d;
   background: #ffffff;
-  outline: none;
-}
-
-.c7:focus {
-  border: 1px solid #4945ff;
 }
 
 .c7::-webkit-input-placeholder {
@@ -25559,6 +25460,7 @@ exports[`Storyshots Design System/Molecules/ToggleInput base 1`] = `
         <input
           checked=""
           class="c8"
+          name="enable-provider"
           type="checkbox"
         />
         <div
@@ -25760,6 +25662,7 @@ exports[`Storyshots Design System/Molecules/ToggleInput error 1`] = `
         </div>
         <input
           class="c6"
+          name="enable-provider"
           type="checkbox"
         />
         <div
