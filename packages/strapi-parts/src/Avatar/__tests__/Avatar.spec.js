@@ -25,6 +25,7 @@ describe('Avatar', () => {
         position: relative;
         width: 26px;
         height: 26px;
+        z-index: 1;
       }
 
       .c0 {
@@ -97,6 +98,7 @@ describe('Avatar', () => {
         position: relative;
         width: 26px;
         height: 26px;
+        z-index: 1;
       }
 
       .c0 {
