@@ -55,6 +55,7 @@ import { KeyboardNavigable } from '@strapi/parts/KeyboardNavigable';
 ```
 
 ## Usage
+
 Cards are used to gather a set of related information.
 
 <Canvas>
@@ -89,6 +90,31 @@ Description...
       <CardHeader>
         <CardCheckbox value={true} />
         <CardAsset src={firstImgPath} />
+        <CardTimer>05:39</CardTimer>
+      </CardHeader>
+      <CardBody>
+        <CardContent>
+          <CardTitle>File name</CardTitle>
+          <CardSubtitle>PNG - 400✕400</CardSubtitle>
+        </CardContent>
+        <CardBadge>Doc</CardBadge>
+      </CardBody>
+    </Card>
+  </Story>
+</Canvas>
+
+## Card with asset icon
+
+Description...
+
+<Canvas>
+  <Story name="with asset icon">
+    <Card style={{ width: '240px' }} id="second">
+      <CardHeader>
+        <CardCheckbox value={true} />
+        <CardAsset>
+          <EditIcon aria-label="Just a picture" />
+        </CardAsset>
         <CardTimer>05:39</CardTimer>
       </CardHeader>
       <CardBody>

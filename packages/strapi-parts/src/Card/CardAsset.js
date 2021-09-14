@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { Row } from '../Row';
 
 const CardAssetImg = styled.img`
   // inline flows is based on typography and displays an extra white space below the image
@@ -26,18 +27,20 @@ const CardAssetWrapper = styled.div`
     20px;
 `;
 
-export const CardAsset = ({ size, ...props }) => {
+export const CardAsset = ({ size, children, ...props }) => {
   return (
     <CardAssetWrapper size={size}>
-      <CardAssetImg {...props} aria-hidden />
+      {children ? <Row>{children}</Row> : <CardAssetImg {...props} aria-hidden />}
     </CardAssetWrapper>
   );
 };
 
 CardAsset.defaultProps = {
+  children: undefined,
   size: 'M',
 };
 
 CardAsset.propTypes = {
+  children: PropTypes.node,
   size: PropTypes.oneOf(['S', 'M']),
 };
