@@ -41,7 +41,7 @@ describe("Wysiwyg render and actions buttons", () => {
     expect(getContainerByText("hello world")).toBeInTheDocument();
     expect(renderedContainer.firstChild).toMatchInlineSnapshot(`
       <span
-        class="sc-jVSGNQ sc-QxirK bSkxym ldCiYB"
+        class="sc-jVKKMF sc-Qpmqz jcIMPP ebmldW"
       >
         hello world
       </span>
