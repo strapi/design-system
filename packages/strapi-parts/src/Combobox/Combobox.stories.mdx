@@ -1,0 +1,38 @@
+<!--- Combobox.stories.mdx --->
+
+import { useState } from 'react';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { Combobox } from './Combobox';
+
+<Meta title="Design System/Molecules/Combobox" component={Combobox} />
+
+# Combobox
+
+This is the doc of the `Combobox` component
+
+<Canvas>
+  <Story name="base">
+    {() => {
+      const [value, setValue] = useState('');
+      const options = [
+        {
+          name: 'Hamburger',
+          value: 'hamburger',
+        },
+        {
+          name: 'Bagel',
+          value: 'bagel',
+        },
+        {
+          name: 'Tartuffo',
+          value: 'tartuffo',
+        },
+        {
+          name: 'Carbonara',
+          value: 'carbonara',
+        },
+      ];
+      return <Combobox label="Fruits" value={value} onChange={setValue} options={options} />;
+    }}
+  </Story>
+</Canvas>
