@@ -24,7 +24,7 @@ export const KeyboardNavigable = ({ tagName, attributeName, ...props }) => {
 
   const handleKeyDown = (e) => {
     switch (e.key) {
-      case KeyboardKeys.ARROW_RIGHT:
+      case KeyboardKeys.RIGHT:
       case KeyboardKeys.DOWN: {
         e.preventDefault();
 
@@ -42,7 +42,7 @@ export const KeyboardNavigable = ({ tagName, attributeName, ...props }) => {
         break;
       }
 
-      case KeyboardKeys.ARROW_LEFT:
+      case KeyboardKeys.LEFT:
       case KeyboardKeys.UP: {
         e.preventDefault();
 

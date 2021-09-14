@@ -25,7 +25,6 @@ const MainRow = styled(Row)`
   padding-left: ${({ theme }) => theme.spaces[3]};
   border-radius: ${({ theme }) => theme.borderRadius};
   background: ${({ theme }) => theme.colors.neutral0};
-  overflow: hidden;
 
   ${({ theme, disabled }) =>
     disabled
@@ -65,7 +64,20 @@ const OptionBox = styled(Box)`
   }
 `;
 
-export const Combobox = ({ label, options, value, onChange, placeholder }) => {
+export const Combobox = ({
+  createMessage,
+  disabled,
+  label,
+  options,
+  value,
+  onChange,
+  placeholder,
+  isCreatable,
+  onCreateOption,
+  onLoadMore,
+  noOptionsMessage,
+  hasMoreItems,
+}) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [filteredOptions, setFilteredOptions] = useState(options);
@@ -74,7 +86,7 @@ export const Combobox = ({ label, options, value, onChange, placeholder }) => {
 
   useEffect(() => {
     setFilteredOptions(filterOptions(options, inputValue));
-  }, [inputValue]);
+  }, [inputValue, options]);
 
   const firstUpdate = useRef(true);
   useLayoutEffect(() => {
@@ -118,9 +130,8 @@ export const Combobox = ({ label, options, value, onChange, placeholder }) => {
       setInputValue(curValue);
     }
 
-    const menuState = filteredOptions.length > 0;
-    if (open !== menuState) {
-      updateMenuState(menuState, false);
+    if (!open) {
+      updateMenuState(true, false);
     }
   };
 
@@ -174,8 +185,15 @@ export const Combobox = ({ label, options, value, onChange, placeholder }) => {
 
   const onOptionSelect = (index) => {
     const selected = filteredOptions[index];
-    onChange(selected.value);
-    updateMenuState(false);
+    if (selected) {
+      onChange(selected.value);
+      return updateMenuState(false);
+    }
+
+    if (isCreatable) {
+      onCreateOption(inputValue);
+      updateMenuState(false);
+    }
   };
 
   const updateMenuState = (open, callFocus = true) => {
@@ -185,7 +203,7 @@ export const Combobox = ({ label, options, value, onChange, placeholder }) => {
 
   return (
     <>
-      <MainRow ref={containerRef}>
+      <MainRow ref={containerRef} disabled={disabled}>
         <Input
           aria-activedescendant={activeId}
           aria-autocomplete="list"
@@ -193,6 +211,7 @@ export const Combobox = ({ label, options, value, onChange, placeholder }) => {
           aria-expanded={`${open}`}
           aria-haspopup="listbox"
           aria-label={label}
+          disabled={disabled}
           ref={inputRef}
           role="combobox"
           type="text"
@@ -205,6 +224,7 @@ export const Combobox = ({ label, options, value, onChange, placeholder }) => {
         />
         <Row>
           <CaretBox
+            disabled={disabled}
             paddingLeft={3}
             aria-hidden
             as="button"
@@ -218,36 +238,61 @@ export const Combobox = ({ label, options, value, onChange, placeholder }) => {
           </CaretBox>
         </Row>
       </MainRow>
-      {open && Boolean(filteredOptions.length) && (
-        <Popover source={containerRef} spacingTop={1} fullWidth>
+      {open && (
+        <Popover
+          source={containerRef}
+          spacingTop={1}
+          fullWidth
+          intersectionId={`${htmlId}-listbox-popover-intersection`}
+          onReachEnd={hasMoreItems ? onLoadMore : undefined}
+        >
           <div role="listbox" ref={listboxRef} id={`${htmlId}-listbox`}>
-            {filteredOptions.map((option, i) => {
-              const isActive = activeIndex === i;
-              return (
-                <OptionBox
-                  hasRadius
-                  paddingLeft={4}
-                  paddingRight={4}
-                  paddingTop={2}
-                  paddingBottom={2}
-                  role="option"
-                  background={'neutral0'}
-                  key={`${htmlId}-${i}`}
-                  id={`${htmlId}-${i}`}
-                  aria-selected={selectedIndex === i ? 'true' : false}
-                  ref={(r) => {
-                    if (isActive) activeOptionRef.current = r;
-                  }}
-                  onClick={() => onOptionClick(i)}
-                  onMouseDown={onOptionMouseDown}
-                  isSelected={isActive}
-                >
-                  <Text textColor={isActive ? 'primary600' : 'neutral800'} bold={isActive}>
-                    {option.name}
-                  </Text>
-                </OptionBox>
-              );
-            })}
+            {Boolean(filteredOptions.length) ? (
+              filteredOptions.map((option, i) => {
+                const isActive = activeIndex === i;
+                return (
+                  <OptionBox
+                    hasRadius
+                    paddingLeft={4}
+                    paddingRight={4}
+                    paddingTop={2}
+                    paddingBottom={2}
+                    role="option"
+                    background={'neutral0'}
+                    key={`${htmlId}-${i}`}
+                    id={`${htmlId}-${i}`}
+                    aria-selected={selectedIndex === i ? 'true' : false}
+                    ref={(r) => {
+                      if (isActive) activeOptionRef.current = r;
+                    }}
+                    onClick={() => onOptionClick(i)}
+                    onMouseDown={onOptionMouseDown}
+                    isSelected={isActive}
+                  >
+                    <Text textColor={isActive ? 'primary600' : 'neutral800'} bold={isActive}>
+                      {option.name}
+                    </Text>
+                  </OptionBox>
+                );
+              })
+            ) : isCreatable ? (
+              <OptionBox
+                paddingLeft={4}
+                paddingRight={4}
+                paddingTop={2}
+                paddingBottom={2}
+                ref={activeOptionRef}
+                onMouseDown={onOptionMouseDown}
+                role="option"
+                onClick={() => onOptionSelect()}
+              >
+                <Text textColor="neutral800">{createMessage(inputValue)}</Text>
+              </OptionBox>
+            ) : (
+              <Box paddingLeft={4} paddingRight={4} paddingTop={2} paddingBottom={2} ref={activeOptionRef}>
+                <Text textColor="neutral800">{noOptionsMessage(inputValue)}</Text>
+              </Box>
+            )}
           </div>
         </Popover>
       )}
@@ -256,12 +301,26 @@ export const Combobox = ({ label, options, value, onChange, placeholder }) => {
 };
 
 Combobox.defaultProps = {
+  createMessage: (value) => `Create "${value}"`,
+  disabled: false,
+  hasMoreItems: false,
+  isCreatable: false,
+  noOptionsMessage: () => 'No results found',
+  onCreateOption: undefined,
+  onLoadMore: undefined,
   placeholder: 'Select or enter a value',
 };
 
 Combobox.propTypes = {
+  createMessage: PropTypes.func,
+  disabled: PropTypes.bool,
+  hasMoreItems: PropTypes.bool,
+  isCreatable: PropTypes.bool,
   label: PropTypes.string.isRequired,
+  noOptionsMessage: PropTypes.func,
   onChange: PropTypes.func.isRequired,
+  onCreateOption: PropTypes.func,
+  onLoadMore: PropTypes.func,
   options: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,

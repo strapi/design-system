@@ -59,14 +59,14 @@ export const Carousel = ({
 
   const handleKeyDown = (e) => {
     switch (e.key) {
-      case KeyboardKeys.ARROW_RIGHT: {
+      case KeyboardKeys.RIGHT: {
         e.preventDefault();
         nextActionRef.current.focus();
         onNext();
         break;
       }
 
-      case KeyboardKeys.ARROW_LEFT: {
+      case KeyboardKeys.LEFT: {
         e.preventDefault();
         prevActionRef.current.focus();
         onPrevious();

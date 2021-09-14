@@ -36,3 +36,118 @@ This is the doc of the `Combobox` component
     }}
   </Story>
 </Canvas>
+
+# Combobox disabled
+
+This is the doc of the `Combobox` component
+
+<Canvas>
+  <Story name="disabled">
+    {() => {
+      const [value, setValue] = useState('');
+      const [options, setOptions] = useState([
+        {
+          name: 'Hamburger',
+          value: 'hamburger',
+        },
+        {
+          name: 'Sandwich',
+          value: 'sandwich',
+        },
+        {
+          name: 'Peperroni',
+          value: 'peperroni',
+        },
+        {
+          name: 'Asparagus',
+          value: 'asparagus',
+        },
+        {
+          name: 'Lettuce',
+          value: 'lettuce',
+        },
+        {
+          name: 'Tomato',
+          value: 'tomato',
+        },
+        {
+          name: 'Bagel',
+          value: 'bagel',
+        },
+        {
+          name: 'Tartuffo',
+          value: 'tartuffo',
+        },
+        {
+          name: 'Carbonara',
+          value: 'carbonara',
+        },
+      ]);
+      return <Combobox label="Food" value={value} onChange={setValue} options={options} disabled />;
+    }}
+  </Story>
+</Canvas>
+
+# Combobox creatable
+
+This is the doc of the `Combobox` component
+
+<Canvas>
+  <Story name="creatable">
+    {() => {
+      const [value, setValue] = useState('');
+      const [options, setOptions] = useState([
+        {
+          name: 'Hamburger',
+          value: 'hamburger',
+        },
+        {
+          name: 'Sandwich',
+          value: 'sandwich',
+        },
+        {
+          name: 'Peperroni',
+          value: 'peperroni',
+        },
+        {
+          name: 'Asparagus',
+          value: 'asparagus',
+        },
+        {
+          name: 'Lettuce',
+          value: 'lettuce',
+        },
+        {
+          name: 'Tomato',
+          value: 'tomato',
+        },
+        {
+          name: 'Bagel',
+          value: 'bagel',
+        },
+        {
+          name: 'Tartuffo',
+          value: 'tartuffo',
+        },
+        {
+          name: 'Carbonara',
+          value: 'carbonara',
+        },
+      ]);
+      const onCreateOption = (value) => {
+        setOptions((opt) => [...opt, { name: value, value }]);
+        setValue(value);
+      };
+      return (
+        <Combobox
+          label="Food"
+          value={value}
+          onChange={setValue}
+          options={options}
+          isCreatable
+          onCreateOption={onCreateOption}
+        />
+      );
+    }}
+  </Story>
+</Canvas>

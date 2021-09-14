@@ -1,19 +1,4 @@
-export const Keys = {
-  Backspace: 'Backspace',
-  Clear: 'Clear',
-  Down: 'ArrowDown',
-  End: 'End',
-  Enter: 'Enter',
-  Escape: 'Escape',
-  Home: 'Home',
-  Left: 'ArrowLeft',
-  PageDown: 'PageDown',
-  PageUp: 'PageUp',
-  Right: 'ArrowRight',
-  Space: ' ',
-  Tab: 'Tab',
-  Up: 'ArrowUp',
-};
+import { KeyboardKeys } from '../helpers/keyboardKeys';
 
 export const MenuActions = {
   Close: 'Close',
@@ -64,23 +49,23 @@ export function findMatches(options, search) {
 // return combobox action from key press
 export function getActionFromKey(key, menuOpen) {
   // handle opening when closed
-  if (!menuOpen && key === Keys.Down) {
+  if (!menuOpen && key === KeyboardKeys.DOWN) {
     return MenuActions.Open;
   }
   // handle keys when open
-  if (key === Keys.Down || key === Keys.Right) {
+  if (key === KeyboardKeys.DOWN || key === KeyboardKeys.RIGHT) {
     return MenuActions.Next;
-  } else if (key === Keys.Up || key === Keys.Left) {
+  } else if (key === KeyboardKeys.UP || key === KeyboardKeys.LEFT) {
     return MenuActions.Previous;
-  } else if (key === Keys.Home) {
+  } else if (key === KeyboardKeys.HOME) {
     return MenuActions.First;
-  } else if (key === Keys.End) {
+  } else if (key === KeyboardKeys.END) {
     return MenuActions.Last;
-  } else if (key === Keys.Escape) {
+  } else if (key === KeyboardKeys.ESCAPE) {
     return MenuActions.Close;
-  } else if (key === Keys.Enter) {
+  } else if (key === KeyboardKeys.ENTER) {
     return MenuActions.CloseSelect;
-  } else if (key === Keys.Backspace || key === Keys.Clear || key.length === 1) {
+  } else if (key === KeyboardKeys.BACKSPACE || key === KeyboardKeys.CLEAR || key.length === 1) {
     return MenuActions.Type;
   }
 }
