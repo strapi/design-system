@@ -10,8 +10,8 @@ export const MainRow = styled(Row)`
   border-radius: ${({ theme }) => theme.borderRadius};
   background: ${({ theme }) => theme.colors.neutral0};
 
-  ${({ theme, disabled }) =>
-    disabled
+  ${({ theme, $disabled }) =>
+    $disabled
       ? `
     color: ${theme.colors.neutral600};
     background: ${theme.colors.neutral150};

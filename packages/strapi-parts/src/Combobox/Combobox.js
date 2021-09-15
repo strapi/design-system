@@ -21,6 +21,7 @@ export const Combobox = ({
   placeholder,
   creatable,
   loading,
+  loadingMessage,
   onCreateOption,
   onLoadMore,
   noOptionsMessage,
@@ -166,7 +167,7 @@ export const Combobox = ({
 
   return (
     <>
-      <MainRow ref={containerRef} disabled={disabled}>
+      <MainRow ref={containerRef} $disabled={disabled}>
         <Input
           aria-activedescendant={activeId}
           aria-autocomplete="list"
@@ -235,7 +236,7 @@ export const Combobox = ({
             )}
             {loading && (
               <Row justifyContent="center" alignItems="center" paddingTop={2} paddingBottom={2}>
-                <Loader small>Loading content...</Loader>
+                <Loader small>{loadingMessage}</Loader>
               </Row>
             )}
           </div>
@@ -249,6 +250,7 @@ Combobox.defaultProps = {
   createMessage: (value) => `Create "${value}"`,
   disabled: false,
   loading: false,
+  loadingMessage: 'Loading content...',
   hasMoreItems: false,
   creatable: false,
   noOptionsMessage: () => 'No results found',
@@ -265,6 +267,7 @@ Combobox.propTypes = {
   hasMoreItems: PropTypes.bool,
   label: PropTypes.string.isRequired,
   loading: PropTypes.bool,
+  loadingMessage: PropTypes.string,
   noOptionsMessage: PropTypes.func,
   onChange: PropTypes.func.isRequired,
   onCreateOption: PropTypes.func,
