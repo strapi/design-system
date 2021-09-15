@@ -25,14 +25,14 @@ export const RawTable = ({ colCount, rowCount, jumpStep, initialCol, initialRow,
 
   const handleKeyDown = (e) => {
     switch (e.key) {
-      case KeyboardKeys.ARROW_RIGHT: {
+      case KeyboardKeys.RIGHT: {
         e.preventDefault();
         setColIndex((prevColIndex) => (prevColIndex < colCount - 1 ? prevColIndex + 1 : prevColIndex));
 
         break;
       }
 
-      case KeyboardKeys.ARROW_LEFT: {
+      case KeyboardKeys.LEFT: {
         e.preventDefault();
         setColIndex((prevColIndex) => (prevColIndex > 0 ? prevColIndex - 1 : prevColIndex));
 

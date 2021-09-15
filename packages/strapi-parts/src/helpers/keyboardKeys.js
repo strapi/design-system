@@ -1,8 +1,8 @@
 export const KeyboardKeys = {
   DOWN: 'ArrowDown',
   UP: 'ArrowUp',
-  ARROW_RIGHT: 'ArrowRight',
-  ARROW_LEFT: 'ArrowLeft',
+  RIGHT: 'ArrowRight',
+  LEFT: 'ArrowLeft',
   ESCAPE: 'Escape',
   ENTER: 'Enter',
   SPACE: ' ',
@@ -12,4 +12,6 @@ export const KeyboardKeys = {
   DELETE: 'Delete',
   PAGE_UP: 'PageUp',
   PAGE_DOWN: 'PageDown',
+  BACKSPACE: 'Backspace',
+  CLEAR: 'Clear',
 };

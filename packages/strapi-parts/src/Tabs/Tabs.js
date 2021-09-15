@@ -21,14 +21,14 @@ export const Tabs = ({ children, ...props }) => {
 
   const handleKeyDown = (e) => {
     switch (e.key) {
-      case KeyboardKeys.ARROW_RIGHT: {
+      case KeyboardKeys.RIGHT: {
         const nextIndex = selectedTabIndex + 1;
         selectTabIndex(nextIndex >= childrenArray.length ? 0 : nextIndex);
 
         break;
       }
 
-      case KeyboardKeys.ARROW_LEFT: {
+      case KeyboardKeys.LEFT: {
         const nextIndex = selectedTabIndex - 1;
         selectTabIndex(nextIndex < 0 ? childrenArray.length - 1 : nextIndex);
 

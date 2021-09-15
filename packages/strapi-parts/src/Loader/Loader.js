@@ -15,19 +15,25 @@ const rotation = keyframes`
 
 const LoaderImg = styled.img`
   animation: ${rotation} 1s infinite linear;
+  ${({ small }) => small && `width: 25px; height: 25px;`}
 `;
 
-export const Loader = forwardRef(({ children, ...props }, ref) => {
+export const Loader = forwardRef(({ children, small, ...props }, ref) => {
   return (
     <div role="alert" aria-live="assertive" ref={ref} {...props}>
       <VisuallyHidden>{children}</VisuallyHidden>
-      <LoaderImg src={loaderSvg} aria-hidden={true} />
+      <LoaderImg src={loaderSvg} aria-hidden={true} small={small} />
     </div>
   );
 });
 
 Loader.displayName = 'Loader';
 
+Loader.defaultProps = {
+  small: false,
+};
+
 Loader.propTypes = {
   children: PropTypes.string.isRequired,
+  small: PropTypes.bool,
 };
