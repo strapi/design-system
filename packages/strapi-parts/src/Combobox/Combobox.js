@@ -227,9 +227,11 @@ export const Combobox = ({
                 <Text textColor="neutral800">{createMessage(inputValue)}</Text>
               </OptionBox>
             ) : (
-              <Box paddingLeft={4} paddingRight={4} paddingTop={2} paddingBottom={2} ref={activeOptionRef}>
-                <Text textColor="neutral800">{noOptionsMessage(inputValue)}</Text>
-              </Box>
+              !loading && (
+                <Box paddingLeft={4} paddingRight={4} paddingTop={2} paddingBottom={2} ref={activeOptionRef}>
+                  <Text textColor="neutral800">{noOptionsMessage(inputValue)}</Text>
+                </Box>
+              )
             )}
             {loading && (
               <Row justifyContent="center" alignItems="center" paddingTop={2} paddingBottom={2}>
