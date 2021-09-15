@@ -17,7 +17,8 @@ import { Row } from '../Row';
 Icon Buttons are a way to perform actions within a page, a table or another object. They help interact with its content via a single click in small page portion. According to their minimal style, they help understand the most important actions to take.
 
 **Best practices**
->>>>>>> develop
+
+> > > > > > > develop
 
 - Icon Buttons do not have labels.
 - A Tooltip should be displayed at hover.
@@ -25,7 +26,7 @@ Icon Buttons are a way to perform actions within a page, a table or another obje
 - Icon Buttons can be displayed next to each others whenever the actions are distinct.
 - In Table component, avoid using a border.
 - The icon chosen to represent the action should be perfectly explicit.
-[View source](https://github.com/strapi/parts/tree/develop/packages/strapi-parts/src/IconButton)
+  [View source](https://github.com/strapi/parts/tree/develop/packages/strapi-parts/src/IconButton)
 
 ## Imports
 
@@ -36,7 +37,6 @@ import PublishIcon from '@strapi/icons/PublishIcon';
 import DeleteIcon from '@strapi/icons/DeleteIcon';
 import AddIcon from '@strapi/icons/AddIcon';
 ```
-
 
 ## Usage
 
@@ -72,6 +72,18 @@ Depending on the status of an action or the permissions, an IconButton can be un
   </Story>
 </Canvas>
 
+### IconButton Disabled
+
+An Icon button without the tooltip. It can be interested to rely on this component to avoid showing a tooltip when focusing the modals close button. **However, when not using a label, the developer should add an explicit aria-label to the button.**
+
+<Canvas>
+  <Story name="without tooltip">
+    <Box padding={7}>
+      <IconButton onClick={() => console.log('edit')} aria-label="Edit" icon={<EditIcon />} />
+    </Box>
+  </Story>
+</Canvas>
+
 ### IconButtonGroup
 
 IconButtons can be used within another component is a Group shape.
@@ -88,7 +100,6 @@ IconButtons can be used within another component is a Group shape.
     </Box>
   </Story>
 </Canvas>
-
 
 ## Props
 
