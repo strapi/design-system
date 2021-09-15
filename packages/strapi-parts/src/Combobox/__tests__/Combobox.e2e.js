@@ -35,6 +35,12 @@ describe('Combobox', () => {
     await expect(page).not.toHaveSelector('[role="listbox"]', { timeout: 300 });
   });
 
+  it('Displays no results', async () => {
+    await page.fill('input', 'Apple Pie');
+    const content = await page.textContent('text="No results found"');
+    await expect(content).toBe('No results found');
+  });
+
   it('Type a value', async () => {
     await page.fill('input', 'Hamburger');
     let options = await page.$$('[role="option"]');
