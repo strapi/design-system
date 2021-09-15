@@ -13,13 +13,13 @@ const ModalWrapper = styled.div`
   // this is theme.colors.neutral200 with opacity
   background: rgb(220, 220, 228, 0.8);
   padding: 0 ${({ theme }) => theme.spaces[8]};
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const ModalContent = styled(Box)`
-  max-width: ${830 / 16}rem;
-  margin: 0 auto;
-  overflow: hidden;
-  margin-top: 10%;
+  width: ${830 / 16}rem;
 `;
 
 export const ModalLayout = ({ onClose, labelledBy, ...props }) => {
