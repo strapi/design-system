@@ -180,10 +180,10 @@ export const Combobox = ({
           role="combobox"
           type="text"
           value={inputValue}
-          onBlur={!disabled ? onInputBlur : undefined}
-          onClick={!disabled ? () => updateMenuState(true) : undefined}
-          onInput={!disabled ? onInput : undefined}
-          onKeyDown={!disabled ? onInputKeyDown : undefined}
+          onBlur={disabled ? undefined : onInputBlur}
+          onClick={disabled ? undefined : () => updateMenuState(true)}
+          onInput={disabled ? undefined : onInput }
+          onKeyDown={disabled ? undefined : onInputKeyDown}
           placeholder={placeholder}
         />
         <Row>
