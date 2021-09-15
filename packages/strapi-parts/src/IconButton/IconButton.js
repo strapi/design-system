@@ -95,6 +95,14 @@ export const IconButton = React.forwardRef(({ label, noBorder, icon, disabled, o
     }
   };
 
+  if (!label) {
+    return (
+      <IconButtonWrapper {...props} ref={ref} noBorder={noBorder} onClick={handleClick} aria-disabled={disabled}>
+        {icon}
+      </IconButtonWrapper>
+    );
+  }
+
   return (
     <Tooltip label={label}>
       <IconButtonWrapper {...props} ref={ref} noBorder={noBorder} onClick={handleClick} aria-disabled={disabled}>
@@ -107,9 +115,8 @@ export const IconButton = React.forwardRef(({ label, noBorder, icon, disabled, o
 IconButton.displayName = 'IconButton';
 
 IconButton.defaultProps = {
-  title: undefined,
-  noBorder: false,
   label: undefined,
+  noBorder: false,
   disabled: false,
   onClick: undefined,
 };
