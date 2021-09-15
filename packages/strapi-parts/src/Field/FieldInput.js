@@ -24,7 +24,7 @@ const Input = styled.input`
     opacity: 1;
   }
 
-  &:disabled {
+  &[aria-disabled='true'] {
     background: inherit;
     color: inherit;
   }
@@ -45,7 +45,7 @@ export const InputWrapper = styled(Row)`
       : undefined}
 `;
 
-export const FieldInput = forwardRef(({ endAction, startAction, disabled, ...props }, ref) => {
+export const FieldInput = forwardRef(({ endAction, startAction, disabled, onChange, ...props }, ref) => {
   const { id, error, hint, name } = useField();
 
   let ariaDescription;
@@ -57,6 +57,12 @@ export const FieldInput = forwardRef(({ endAction, startAction, disabled, ...pro
   }
 
   const hasError = Boolean(error);
+
+  const handleChange = (e) => {
+    if (!disabled) {
+      onChange(e);
+    }
+  };
 
   return (
     <InputWrapper justifyContent="space-between" hasError={hasError} disabled={disabled}>
@@ -71,9 +77,10 @@ export const FieldInput = forwardRef(({ endAction, startAction, disabled, ...pro
         ref={ref}
         aria-describedby={ariaDescription}
         aria-invalid={hasError}
-        disabled={disabled}
+        aria-disabled={disabled}
         hasLeftAction={Boolean(startAction)}
         hasRightAction={Boolean(endAction)}
+        onChange={handleChange}
         {...props}
       />
       {endAction && (
@@ -91,10 +98,12 @@ FieldInput.defaultProps = {
   disabled: false,
   endAction: undefined,
   startAction: undefined,
+  onChange: () => {},
 };
 
 FieldInput.propTypes = {
   disabled: PropTypes.bool,
   endAction: PropTypes.element,
+  onChange: PropTypes.func,
   startAction: PropTypes.element,
 };
