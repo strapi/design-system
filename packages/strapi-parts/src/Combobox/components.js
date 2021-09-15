@@ -34,6 +34,10 @@ export const Input = styled.input`
     box-shadow: none;
     outline-offset: 0;
   }
+  &[aria-disabled='true'] {
+    background: inherit;
+    color: inherit;
+  }
 `;
 
 export const OptionBox = styled(Box)`

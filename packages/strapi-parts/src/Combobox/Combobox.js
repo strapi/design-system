@@ -2,14 +2,7 @@ import React, { useEffect, useState, useRef, useLayoutEffect, Children, cloneEle
 import PropTypes from 'prop-types';
 import { useId } from '../helpers/useId';
 import DropdownIcon from '@strapi/icons/FilterDropdownIcon';
-import {
-  getActionFromKey,
-  getUpdatedIndex,
-  isScrollable,
-  maintainScrollVisibility,
-  MenuActions,
-  filterOptions,
-} from './utils';
+import { getActionFromKey, getUpdatedIndex, maintainScrollVisibility, MenuActions, filterOptions } from './utils';
 
 import { Row } from '../Row';
 import { CaretBox } from '../Select/components';
@@ -69,10 +62,10 @@ export const Combobox = ({
   const listboxRef = useRef();
 
   useEffect(() => {
-    if (open && isScrollable(listboxRef.current)) {
-      maintainScrollVisibility(activeOptionRef.current, listboxRef.current);
+    if (open && activeOptionRef.current) {
+      maintainScrollVisibility(activeOptionRef.current);
     }
-  });
+  }, [activeIndex]);
 
   const activeId = open ? `${htmlId}-${activeIndex}` : '';
 
@@ -181,15 +174,16 @@ export const Combobox = ({
           aria-expanded={`${open}`}
           aria-haspopup="listbox"
           aria-label={label}
-          disabled={disabled}
+          aria-disabled={disabled}
+          readOnly={disabled}
           ref={inputRef}
           role="combobox"
           type="text"
           value={inputValue}
-          onBlur={onInputBlur}
-          onClick={() => updateMenuState(true)}
-          onInput={onInput}
-          onKeyDown={onInputKeyDown}
+          onBlur={!disabled ? onInputBlur : undefined}
+          onClick={!disabled ? () => updateMenuState(true) : undefined}
+          onInput={!disabled ? onInput : undefined}
+          onKeyDown={!disabled ? onInputKeyDown : undefined}
           placeholder={placeholder}
         />
         <Row>

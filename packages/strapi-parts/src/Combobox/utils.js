@@ -1,3 +1,4 @@
+import computeScrollIntoView from 'compute-scroll-into-view';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 
 export const MenuActions = {
@@ -98,14 +99,15 @@ export function isScrollable(element) {
 }
 
 // ensure given child element is within the parent's visible scroll area
-export function maintainScrollVisibility(activeElement, scrollParent) {
-  const { offsetHeight, offsetTop } = activeElement;
-  const { offsetHeight: parentOffsetHeight, scrollTop } = scrollParent;
-  const isAbove = offsetTop < scrollTop;
-  const isBelow = offsetTop + offsetHeight > scrollTop + parentOffsetHeight;
-  if (isAbove) {
-    scrollParent.scrollTo(0, offsetTop);
-  } else if (isBelow) {
-    scrollParent.scrollTo(0, offsetTop - parentOffsetHeight + offsetHeight);
-  }
+export function maintainScrollVisibility(activeElement) {
+  const actions = computeScrollIntoView(activeElement, {
+    scrollMode: 'if-needed',
+    block: 'nearest',
+    inline: 'nearest',
+  });
+
+  actions.forEach(({ el, top, left }) => {
+    el.scrollTop = top;
+    el.scrollLeft = left;
+  });
 }
