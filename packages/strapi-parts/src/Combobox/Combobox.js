@@ -11,10 +11,14 @@ import { Box } from '../Box';
 import { Text } from '../Text';
 import { Loader } from '../Loader/Loader';
 import { Input, MainRow, OptionBox } from './components';
+import { Field, FieldError, FieldHint, FieldLabel } from '../Field';
+import { Stack } from '../Stack';
 
 export const Combobox = ({
   createMessage,
   disabled,
+  hint,
+  error,
   label,
   value,
   onChange,
@@ -56,11 +60,13 @@ export const Combobox = ({
   }, [value]);
 
   const activeOptionRef = useRef();
-  const htmlId = useId('combobox');
   const ignoreBlur = useRef(false);
   const inputRef = useRef();
   const containerRef = useRef();
   const listboxRef = useRef();
+
+  const generatedId = useId('combobox');
+  const labelId = `${generatedId}-label`;
 
   useEffect(() => {
     if (open && activeOptionRef.current) {
@@ -68,7 +74,7 @@ export const Combobox = ({
     }
   }, [activeIndex]);
 
-  const activeId = open ? `${htmlId}-${activeIndex}` : '';
+  const activeId = open ? `${generatedId}-${activeIndex}` : '';
 
   const onInput = () => {
     const curValue = inputRef.current.value;
@@ -154,7 +160,7 @@ export const Combobox = ({
   const filteredNodesClone = Children.toArray(filteredNodes).map((node, i) => {
     const isActive = activeIndex === i;
     return cloneElement(node, {
-      id: `${htmlId}-${i}`,
+      id: `${generatedId}-${i}`,
       'aria-selected': selectedIndex === i ? 'true' : false,
       ref: (r) => {
         if (isActive) activeOptionRef.current = r;
@@ -166,52 +172,59 @@ export const Combobox = ({
   });
 
   return (
-    <>
-      <MainRow ref={containerRef} $disabled={disabled}>
-        <Input
-          aria-activedescendant={activeId}
-          aria-autocomplete="list"
-          aria-controls={`${htmlId}-listbox`}
-          aria-expanded={`${open}`}
-          aria-haspopup="listbox"
-          aria-label={label}
-          aria-disabled={disabled}
-          readOnly={disabled}
-          ref={inputRef}
-          role="combobox"
-          type="text"
-          value={inputValue}
-          onBlur={disabled ? undefined : onInputBlur}
-          onClick={disabled ? undefined : () => updateMenuState(true)}
-          onInput={disabled ? undefined : onInput}
-          onKeyDown={disabled ? undefined : onInputKeyDown}
-          placeholder={placeholder}
-        />
-        <Row>
-          <CaretBox
-            disabled={disabled}
-            paddingLeft={3}
-            aria-hidden
-            as="button"
-            onClick={() => {
-              inputRef.current.focus();
-              updateMenuState(true);
-            }}
-            tabIndex={-1}
-          >
-            <DropdownIcon />
-          </CaretBox>
-        </Row>
-      </MainRow>
+    <Field hint={hint} error={error} id={generatedId}>
+      <Stack size={label || hint || error ? 1 : 0}>
+        <FieldLabel as="span" id={labelId}>
+          {label}
+        </FieldLabel>
+        <MainRow ref={containerRef} $disabled={disabled} hasError={error}>
+          <Input
+            aria-activedescendant={activeId}
+            aria-autocomplete="list"
+            aria-controls={`${generatedId}-listbox`}
+            aria-expanded={`${open}`}
+            aria-haspopup="listbox"
+            aria-describedby={labelId}
+            aria-disabled={disabled}
+            readOnly={disabled}
+            ref={inputRef}
+            role="combobox"
+            type="text"
+            value={inputValue}
+            onBlur={disabled ? undefined : onInputBlur}
+            onClick={disabled ? undefined : () => updateMenuState(true)}
+            onInput={disabled ? undefined : onInput}
+            onKeyDown={disabled ? undefined : onInputKeyDown}
+            placeholder={placeholder}
+          />
+          <Row>
+            <CaretBox
+              disabled={disabled}
+              paddingLeft={3}
+              aria-hidden
+              as="button"
+              onClick={() => {
+                inputRef.current.focus();
+                updateMenuState(true);
+              }}
+              tabIndex={-1}
+            >
+              <DropdownIcon />
+            </CaretBox>
+          </Row>
+        </MainRow>
+        <FieldHint />
+        <FieldError />
+      </Stack>
       {open && (
         <Popover
           source={containerRef}
           spacingTop={1}
           fullWidth
-          intersectionId={`${htmlId}-listbox-popover-intersection`}
+          intersectionId={`${generatedId}-listbox-popover-intersection`}
           onReachEnd={hasMoreItems && !loading ? onLoadMore : undefined}
         >
-          <div role="listbox" ref={listboxRef} id={`${htmlId}-listbox`}>
+          <div role="listbox" ref={listboxRef} id={`${generatedId}-listbox`}>
             {Boolean(filteredNodes.length) ? (
               filteredNodesClone
             ) : creatable ? (
@@ -242,13 +255,17 @@ export const Combobox = ({
           </div>
         </Popover>
       )}
-    </>
+    </Field>
   );
 };
 
-Combobox.defaultProps = {
+export const CreatableCombobox = (props) => <Combobox {...props} creatable />;
+
+Combobox.defaultProps = CreatableCombobox.defaultProps = {
   createMessage: (value) => `Create "${value}"`,
   disabled: false,
+  hint: undefined,
+  error: undefined,
   loading: false,
   loadingMessage: 'Loading content...',
   hasMoreItems: false,
@@ -264,7 +281,9 @@ Combobox.propTypes = {
   creatable: PropTypes.bool,
   createMessage: PropTypes.func,
   disabled: PropTypes.bool,
+  error: PropTypes.string,
   hasMoreItems: PropTypes.bool,
+  hint: PropTypes.string,
   label: PropTypes.string.isRequired,
   loading: PropTypes.bool,
   loadingMessage: PropTypes.string,
@@ -276,4 +295,7 @@ Combobox.propTypes = {
   value: PropTypes.string.isRequired,
 };
 
-export default Combobox;
+CreatableCombobox.propTypes = {
+  ...Combobox.propTypes,
+  onCreateOption: PropTypes.func.isRequired,
+};
