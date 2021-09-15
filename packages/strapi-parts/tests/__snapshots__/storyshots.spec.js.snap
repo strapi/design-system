@@ -14477,7 +14477,7 @@ exports[`Storyshots Design System/Molecules/DatePicker base 1`] = `
   opacity: 1;
 }
 
-.c9:disabled {
+.c9[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
@@ -14561,6 +14561,7 @@ exports[`Storyshots Design System/Molecules/DatePicker base 1`] = `
               </div>
               <input
                 aria-autocomplete="none"
+                aria-disabled="false"
                 aria-invalid="false"
                 class="c9"
                 id="datepicker-15"
@@ -14674,7 +14675,7 @@ exports[`Storyshots Design System/Molecules/Field base 1`] = `
   opacity: 1;
 }
 
-.c5:disabled {
+.c5[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
@@ -14707,6 +14708,7 @@ exports[`Storyshots Design System/Molecules/Field base 1`] = `
         class="c3 c4"
       >
         <input
+          aria-disabled="false"
           aria-invalid="false"
           class="c5"
           id="field-16"
@@ -14818,7 +14820,7 @@ exports[`Storyshots Design System/Molecules/Field disabled 1`] = `
   opacity: 1;
 }
 
-.c5:disabled {
+.c5[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
@@ -14855,9 +14857,9 @@ exports[`Storyshots Design System/Molecules/Field disabled 1`] = `
       >
         <input
           aria-describedby="field-19-hint"
+          aria-disabled="true"
           aria-invalid="false"
           class="c5"
-          disabled=""
           id="field-19"
           name="password"
           placeholder="Placeholder"
@@ -15004,7 +15006,7 @@ exports[`Storyshots Design System/Molecules/Field most complex input 1`] = `
   opacity: 1;
 }
 
-.c10:disabled {
+.c10[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
@@ -15120,6 +15122,7 @@ exports[`Storyshots Design System/Molecules/Field most complex input 1`] = `
           </div>
           <input
             aria-describedby="field-20-hint"
+            aria-disabled="false"
             aria-invalid="false"
             class="c10"
             id="field-20"
@@ -15264,7 +15267,7 @@ exports[`Storyshots Design System/Molecules/Field with description 1`] = `
   opacity: 1;
 }
 
-.c5:disabled {
+.c5[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
@@ -15298,6 +15301,7 @@ exports[`Storyshots Design System/Molecules/Field with description 1`] = `
       >
         <input
           aria-describedby="field-17-hint"
+          aria-disabled="false"
           aria-invalid="false"
           class="c5"
           id="field-17"
@@ -15415,7 +15419,7 @@ exports[`Storyshots Design System/Molecules/Field with error 1`] = `
   opacity: 1;
 }
 
-.c5:disabled {
+.c5[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
@@ -15449,6 +15453,7 @@ exports[`Storyshots Design System/Molecules/Field with error 1`] = `
       >
         <input
           aria-describedby="field-18-error"
+          aria-disabled="false"
           aria-invalid="true"
           class="c5"
           id="field-18"
@@ -18536,7 +18541,7 @@ exports[`Storyshots Design System/Molecules/NumberInput base 1`] = `
   opacity: 1;
 }
 
-.c8:disabled {
+.c8[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
@@ -18642,6 +18647,7 @@ exports[`Storyshots Design System/Molecules/NumberInput base 1`] = `
         >
           <input
             aria-describedby="numberinput-73-hint"
+            aria-disabled="false"
             aria-invalid="false"
             class="c8"
             id="numberinput-73"
@@ -21500,7 +21506,7 @@ exports[`Storyshots Design System/Molecules/Searchbar base 1`] = `
   opacity: 1;
 }
 
-.c10:disabled {
+.c10[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
@@ -21593,6 +21599,7 @@ exports[`Storyshots Design System/Molecules/Searchbar base 1`] = `
             </div>
           </div>
           <input
+            aria-disabled="false"
             aria-invalid="false"
             class="c10"
             id="field-76"
@@ -21697,7 +21704,7 @@ exports[`Storyshots Design System/Molecules/Searchbar disabled 1`] = `
   opacity: 1;
 }
 
-.c10:disabled {
+.c10[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
@@ -21790,9 +21797,9 @@ exports[`Storyshots Design System/Molecules/Searchbar disabled 1`] = `
           </div>
         </div>
         <input
+          aria-disabled="true"
           aria-invalid="false"
           class="c10"
-          disabled=""
           id="field-77"
           name="searchbar"
           placeholder="e.g: strapi-plugin-abcd"
@@ -24598,7 +24605,7 @@ exports[`Storyshots Design System/Molecules/TextInput base 1`] = `
   opacity: 1;
 }
 
-.c10:disabled {
+.c10[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
@@ -24676,6 +24683,7 @@ exports[`Storyshots Design System/Molecules/TextInput base 1`] = `
           >
             <input
               aria-describedby="textinput-134-hint"
+              aria-disabled="false"
               aria-invalid="false"
               class="c10"
               id="textinput-134"
@@ -24816,7 +24824,7 @@ exports[`Storyshots Design System/Molecules/TextInput disabled 1`] = `
   opacity: 1;
 }
 
-.c10:disabled {
+.c10[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
@@ -24897,9 +24905,9 @@ exports[`Storyshots Design System/Molecules/TextInput disabled 1`] = `
           >
             <input
               aria-describedby="textinput-137-hint"
+              aria-disabled="true"
               aria-invalid="false"
               class="c10"
-              disabled=""
               id="textinput-137"
               name="content"
               placeholder="This is a content placeholder"
@@ -25038,7 +25046,7 @@ exports[`Storyshots Design System/Molecules/TextInput password 1`] = `
   opacity: 1;
 }
 
-.c10:disabled {
+.c10[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
@@ -25116,6 +25124,7 @@ exports[`Storyshots Design System/Molecules/TextInput password 1`] = `
           >
             <input
               aria-describedby="textinput-143-hint"
+              aria-disabled="false"
               aria-invalid="false"
               class="c10"
               id="textinput-143"
@@ -25257,7 +25266,7 @@ exports[`Storyshots Design System/Molecules/TextInput with error 1`] = `
   opacity: 1;
 }
 
-.c10:disabled {
+.c10[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
@@ -25335,6 +25344,7 @@ exports[`Storyshots Design System/Molecules/TextInput with error 1`] = `
           >
             <input
               aria-describedby="textinput-140-error"
+              aria-disabled="false"
               aria-invalid="true"
               class="c10"
               id="textinput-140"
