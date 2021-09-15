@@ -9,6 +9,7 @@ import { ModalFooter } from './ModalFooter';
 import { ModalBody } from './ModalBody';
 import { ButtonText } from '../Text';
 import { Row } from '../Row';
+import { Box } from '../Box';
 import { Button } from '../Button';
 
 <Meta title="Design System/Layouts/ModalLayout" component={ModalLayout} />
@@ -50,7 +51,15 @@ Description...
                   Title
                 </ButtonText>
               </ModalHeader>
-              <ModalBody>Hello world</ModalBody>
+              <ModalBody>
+                {Array(50)
+                  .fill(null)
+                  .map((_, index) => (
+                    <Box key={`box-${index}`} padding={8} background="neutral100">
+                      Hello world
+                    </Box>
+                  ))}
+              </ModalBody>
               <ModalFooter
                 startActions={
                   <Button onClick={() => setIsVisible((prev) => !prev)} variant="tertiary">
@@ -71,7 +80,6 @@ Description...
     }}
   </Story>
 </Canvas>
-
 
 ## Props
 
