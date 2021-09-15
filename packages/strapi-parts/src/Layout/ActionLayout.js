@@ -12,9 +12,9 @@ const BlockActions = styled(Row)`
   margin-left: ${({ pullRight }) => (pullRight ? 'auto' : undefined)};
 `;
 
-export const ActionLayout = ({ startActions, endActions, withPadding }) => {
+export const ActionLayout = ({ startActions, endActions }) => {
   return startActions || endActions ? (
-    <Box paddingLeft={withPadding ? 10 : 0} paddingRight={withPadding ? 10 : 0}>
+    <Box paddingLeft={10} paddingRight={10}>
       <Box paddingBottom={4}>
         <Row justifyContent="space-between">
           {startActions && <BlockActions wrap="wrap">{startActions}</BlockActions>}
@@ -32,11 +32,9 @@ export const ActionLayout = ({ startActions, endActions, withPadding }) => {
 ActionLayout.defaultProps = {
   endActions: undefined,
   startActions: undefined,
-  withPadding: true,
 };
 
 ActionLayout.propTypes = {
   endActions: PropTypes.node,
   startActions: PropTypes.node,
-  withPadding: PropTypes.bool,
 };
