@@ -12,6 +12,6 @@ export const KeyboardKeys = {
   DELETE: 'Delete',
   PAGE_UP: 'PageUp',
   PAGE_DOWN: 'PageDown',
-  BACKSPANCE: 'Backspace',
+  BACKSPACE: 'Backspace',
   CLEAR: 'Clear',
 };
