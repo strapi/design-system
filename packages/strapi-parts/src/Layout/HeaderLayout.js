@@ -42,9 +42,9 @@ export const HeaderLayout = (props) => {
 
   return (
     <>
-      <Box style={{ height: headerSize?.height }} ref={containerRef}>
+      <div style={{ height: headerSize?.height }} ref={containerRef}>
         {isVisible && <BaseHeaderLayout ref={baseHeaderLayoutRef} {...props} />}
-      </Box>
+      </div>
       {!isVisible && <BaseHeaderLayout {...props} sticky width={headerSize?.width} />}
     </>
   );
