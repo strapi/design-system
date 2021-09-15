@@ -60,3 +60,28 @@ describe('Combobox', () => {
     await expect(inputValue).toBe('Tartuffo');
   });
 });
+
+describe('Combobox - creatable', () => {
+  beforeEach(async () => {
+    // This is the URL of the Storybook Iframe
+    await page.goto(
+      'http://localhost:6006/iframe.html?id=design-system-molecules-combobox--creatable&globals=&viewMode=story',
+    );
+    await injectAxe(page);
+  });
+
+  it('triggers axe on the document', async () => {
+    await checkA11y(page);
+  });
+
+  it('Create a new item', async () => {
+    await page.fill('input', 'Apple Pie');
+    const content = await page.textContent('[role="option"]');
+    await expect(content).toBe('Create "Apple Pie"');
+
+    await page.click('[role="option"]');
+
+    const inputValue = await page.getAttribute('input', 'value');
+    await expect(inputValue).toBe('Apple Pie');
+  });
+});

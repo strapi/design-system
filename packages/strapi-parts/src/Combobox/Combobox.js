@@ -183,7 +183,7 @@ export const Combobox = ({
           value={inputValue}
           onBlur={disabled ? undefined : onInputBlur}
           onClick={disabled ? undefined : () => updateMenuState(true)}
-          onInput={disabled ? undefined : onInput }
+          onInput={disabled ? undefined : onInput}
           onKeyDown={disabled ? undefined : onInputKeyDown}
           placeholder={placeholder}
         />
