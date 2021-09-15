@@ -19,7 +19,9 @@ export const MainRow = styled(Row)`
       : undefined}
 
   &:focus-within {
-    border: 1px solid ${({ theme }) => theme.colors.primary600};
+    outline: 2px solid ${({ theme }) => theme.colors.primary600};
+    outline-offset: 2px;
+    box-shadow: revert;
   }
 `;
 
