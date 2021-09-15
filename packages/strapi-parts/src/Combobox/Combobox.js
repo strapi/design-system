@@ -1,6 +1,5 @@
-import React, { useEffect, useState, useRef, useLayoutEffect } from 'react';
+import React, { useEffect, useState, useRef, useLayoutEffect, Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { useId } from '../helpers/useId';
 import DropdownIcon from '@strapi/icons/FilterDropdownIcon';
 import {
@@ -17,76 +16,33 @@ import { CaretBox } from '../Select/components';
 import { Popover } from '../Popover';
 import { Box } from '../Box';
 import { Text } from '../Text';
-
-const MainRow = styled(Row)`
-  position: relative;
-  border: 1px solid ${({ theme, hasError }) => (hasError ? theme.colors.danger600 : theme.colors.neutral200)};
-  padding-right: ${({ theme }) => theme.spaces[3]};
-  padding-left: ${({ theme }) => theme.spaces[3]};
-  border-radius: ${({ theme }) => theme.borderRadius};
-  background: ${({ theme }) => theme.colors.neutral0};
-
-  ${({ theme, disabled }) =>
-    disabled
-      ? `
-    color: ${theme.colors.neutral600};
-    background: ${theme.colors.neutral150};
-  `
-      : undefined}
-
-  &:focus-within {
-    border: 1px solid ${({ theme }) => theme.colors.primary600};
-  }
-`;
-
-const Input = styled.input`
-  min-height: ${40 / 16}rem;
-  border: none;
-  flex: 1;
-  font-size: ${14 / 16}rem;
-  color: ${({ theme }) => theme.colors.neutral800};
-  &:focus-visible {
-    outline: none;
-    box-shadow: none;
-    outline-offset: 0;
-  }
-`;
-
-const OptionBox = styled(Box)`
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline-offset: -3px;
-  ${({ isSelected, theme }) => isSelected && `background: ${theme.colors.primary100};`}
-
-  &:hover {
-    background: ${({ theme }) => theme.colors.primary100};
-  }
-`;
+import { Loader } from '../Loader/Loader';
+import { Input, MainRow, OptionBox } from './components';
 
 export const Combobox = ({
   createMessage,
   disabled,
   label,
-  options,
   value,
   onChange,
   placeholder,
-  isCreatable,
+  creatable,
+  loading,
   onCreateOption,
   onLoadMore,
   noOptionsMessage,
   hasMoreItems,
+  children: nodes,
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState(null);
-  const [filteredOptions, setFilteredOptions] = useState(options);
+  const [filteredNodes, setFilteredNodes] = useState(nodes);
   const [open, setOpen] = useState(false);
-  const [inputValue, setInputValue] = useState(value ? options.find((v) => v.value === value)?.name : '');
+  const [inputValue, setInputValue] = useState(value ? nodes.find((v) => v.value === value)?.name : '');
 
   useEffect(() => {
-    setFilteredOptions(filterOptions(options, inputValue));
-  }, [inputValue, options]);
+    setFilteredNodes(filterOptions(nodes, inputValue));
+  }, [inputValue, nodes]);
 
   const firstUpdate = useRef(true);
   useLayoutEffect(() => {
@@ -95,13 +51,13 @@ export const Combobox = ({
       return;
     }
 
-    const index = filteredOptions.findIndex((v) => v.value === value);
+    const index = filteredNodes.findIndex((node) => node.props.value === value);
     if (index !== -1) {
-      const selected = filteredOptions[index];
-      setInputValue(selected.name);
+      const selected = filteredNodes[index];
+      setInputValue(selected.props.children);
       setActiveIndex(0);
       setSelectedIndex(0);
-      setFilteredOptions(filterOptions(options, inputValue));
+      setFilteredNodes(filterOptions(nodes, inputValue));
     }
   }, [value]);
 
@@ -122,7 +78,7 @@ export const Combobox = ({
 
   const onInput = () => {
     const curValue = inputRef.current.value;
-    setFilteredOptions(filterOptions(options, curValue));
+    setFilteredNodes(filterOptions(nodes, curValue));
     setActiveIndex(0);
     setSelectedIndex(null);
 
@@ -137,7 +93,7 @@ export const Combobox = ({
 
   const onInputKeyDown = (event) => {
     const { key } = event;
-    const max = filteredOptions.length - 1;
+    const max = filteredNodes.length - 1;
     const action = getActionFromKey(key, open);
 
     switch (action) {
@@ -184,13 +140,13 @@ export const Combobox = ({
   };
 
   const onOptionSelect = (index) => {
-    const selected = filteredOptions[index];
+    const selected = filteredNodes[index];
     if (selected) {
-      onChange(selected.value);
+      onChange(selected.props.value);
       return updateMenuState(false);
     }
 
-    if (isCreatable) {
+    if (creatable) {
       onCreateOption(inputValue);
       updateMenuState(false);
     }
@@ -200,6 +156,20 @@ export const Combobox = ({
     setOpen(open);
     callFocus && inputRef.current.focus();
   };
+
+  const filteredNodesClone = Children.toArray(filteredNodes).map((node, i) => {
+    const isActive = activeIndex === i;
+    return cloneElement(node, {
+      id: `${htmlId}-${i}`,
+      'aria-selected': selectedIndex === i ? 'true' : false,
+      ref: (r) => {
+        if (isActive) activeOptionRef.current = r;
+      },
+      onClick: () => onOptionClick(i),
+      onMouseDown: onOptionMouseDown,
+      isSelected: isActive,
+    });
+  });
 
   return (
     <>
@@ -244,38 +214,12 @@ export const Combobox = ({
           spacingTop={1}
           fullWidth
           intersectionId={`${htmlId}-listbox-popover-intersection`}
-          onReachEnd={hasMoreItems ? onLoadMore : undefined}
+          onReachEnd={hasMoreItems && !loading ? onLoadMore : undefined}
         >
           <div role="listbox" ref={listboxRef} id={`${htmlId}-listbox`}>
-            {Boolean(filteredOptions.length) ? (
-              filteredOptions.map((option, i) => {
-                const isActive = activeIndex === i;
-                return (
-                  <OptionBox
-                    hasRadius
-                    paddingLeft={4}
-                    paddingRight={4}
-                    paddingTop={2}
-                    paddingBottom={2}
-                    role="option"
-                    background={'neutral0'}
-                    key={`${htmlId}-${i}`}
-                    id={`${htmlId}-${i}`}
-                    aria-selected={selectedIndex === i ? 'true' : false}
-                    ref={(r) => {
-                      if (isActive) activeOptionRef.current = r;
-                    }}
-                    onClick={() => onOptionClick(i)}
-                    onMouseDown={onOptionMouseDown}
-                    isSelected={isActive}
-                  >
-                    <Text textColor={isActive ? 'primary600' : 'neutral800'} bold={isActive}>
-                      {option.name}
-                    </Text>
-                  </OptionBox>
-                );
-              })
-            ) : isCreatable ? (
+            {Boolean(filteredNodes.length) ? (
+              filteredNodesClone
+            ) : creatable ? (
               <OptionBox
                 paddingLeft={4}
                 paddingRight={4}
@@ -293,6 +237,11 @@ export const Combobox = ({
                 <Text textColor="neutral800">{noOptionsMessage(inputValue)}</Text>
               </Box>
             )}
+            {loading && (
+              <Row justifyContent="center" alignItems="center" paddingTop={2} paddingBottom={2}>
+                <Loader small>Loading content...</Loader>
+              </Row>
+            )}
           </div>
         </Popover>
       )}
@@ -303,8 +252,9 @@ export const Combobox = ({
 Combobox.defaultProps = {
   createMessage: (value) => `Create "${value}"`,
   disabled: false,
+  loading: false,
   hasMoreItems: false,
-  isCreatable: false,
+  creatable: false,
   noOptionsMessage: () => 'No results found',
   onCreateOption: undefined,
   onLoadMore: undefined,
@@ -312,21 +262,17 @@ Combobox.defaultProps = {
 };
 
 Combobox.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+  creatable: PropTypes.bool,
   createMessage: PropTypes.func,
   disabled: PropTypes.bool,
   hasMoreItems: PropTypes.bool,
-  isCreatable: PropTypes.bool,
   label: PropTypes.string.isRequired,
+  loading: PropTypes.bool,
   noOptionsMessage: PropTypes.func,
   onChange: PropTypes.func.isRequired,
   onCreateOption: PropTypes.func,
   onLoadMore: PropTypes.func,
-  options: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-    }),
-  ),
   placeholder: PropTypes.string,
   value: PropTypes.string.isRequired,
 };

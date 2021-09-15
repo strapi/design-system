@@ -30,7 +30,7 @@ export const TreeActions = {
 // returns an array of options that begin with the filter string, case-independent
 export function filterOptions(options = [], filter, exclude = []) {
   return options.filter((option) => {
-    const matches = option.name.toLowerCase().indexOf(filter.toLowerCase()) === 0;
+    const matches = option.props.children.toLowerCase().indexOf(filter.toLowerCase()) === 0;
     return matches && exclude.indexOf(option) < 0;
   });
 }

@@ -1,8 +1,9 @@
 <!--- Combobox.stories.mdx --->
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { Combobox } from './Combobox';
+import { ComboboxOption } from './ComboboxOption'
 
 <Meta title="Design System/Molecules/Combobox" component={Combobox} />
 
@@ -14,30 +15,20 @@ This is the doc of the `Combobox` component
   <Story name="base">
     {() => {
       const [value, setValue] = useState('');
-      const options = [
-        {
-          name: 'Hamburger',
-          value: 'hamburger',
-        },
-        {
-          name: 'Bagel',
-          value: 'bagel',
-        },
-        {
-          name: 'Tartuffo',
-          value: 'tartuffo',
-        },
-        {
-          name: 'Carbonara',
-          value: 'carbonara',
-        },
-      ];
-      return <Combobox label="Fruits" value={value} onChange={setValue} options={options} />;
+      return  <Combobox
+                label="Food"
+                value={value}
+                onChange={setValue}>
+                <ComboboxOption value="hamburger">Hamburger</ComboboxOption>
+                <ComboboxOption value="bagel">Bagel</ComboboxOption>
+                <ComboboxOption value="tartuffo">Tartuffo</ComboboxOption>
+                <ComboboxOption value="carbonara">Carbonara</ComboboxOption>
+              </Combobox>;
     }}
   </Story>
 </Canvas>
 
-# Combobox disabled
+# Disabled
 
 This is the doc of the `Combobox` component
 
@@ -45,50 +36,21 @@ This is the doc of the `Combobox` component
   <Story name="disabled">
     {() => {
       const [value, setValue] = useState('');
-      const [options, setOptions] = useState([
-        {
-          name: 'Hamburger',
-          value: 'hamburger',
-        },
-        {
-          name: 'Sandwich',
-          value: 'sandwich',
-        },
-        {
-          name: 'Peperroni',
-          value: 'peperroni',
-        },
-        {
-          name: 'Asparagus',
-          value: 'asparagus',
-        },
-        {
-          name: 'Lettuce',
-          value: 'lettuce',
-        },
-        {
-          name: 'Tomato',
-          value: 'tomato',
-        },
-        {
-          name: 'Bagel',
-          value: 'bagel',
-        },
-        {
-          name: 'Tartuffo',
-          value: 'tartuffo',
-        },
-        {
-          name: 'Carbonara',
-          value: 'carbonara',
-        },
-      ]);
-      return <Combobox label="Food" value={value} onChange={setValue} options={options} disabled />;
+      return  <Combobox
+                label="Food"
+                disabled
+                value={value}
+                onChange={setValue}>
+                <ComboboxOption value="hamburger">Hamburger</ComboboxOption>
+                <ComboboxOption value="bagel">Bagel</ComboboxOption>
+                <ComboboxOption value="tartuffo">Tartuffo</ComboboxOption>
+                <ComboboxOption value="carbonara">Carbonara</ComboboxOption>
+              </Combobox>;
     }}
   </Story>
 </Canvas>
 
-# Combobox creatable
+# Creatable
 
 This is the doc of the `Combobox` component
 
@@ -143,10 +105,97 @@ This is the doc of the `Combobox` component
           label="Food"
           value={value}
           onChange={setValue}
-          options={options}
-          isCreatable
+          creatable
           onCreateOption={onCreateOption}
-        />
+        >
+          {
+            options.map(({ name, value }) => 
+              <ComboboxOption key={value} value={value}>{name}</ComboboxOption>)
+          }
+        </Combobox>
+      );
+    }}
+  </Story>
+</Canvas>
+
+# Infinite scroll
+
+This is the doc of the `Combobox` component
+
+<Canvas>
+  <Story name="infinite-scroll">
+    {() => {
+      const [value, setValue] = useState('');
+      const defaultOptions = [
+        {
+          name: 'Hamburger',
+          value: 'hamburger',
+        },
+        {
+          name: 'Sandwich',
+          value: 'sandwich',
+        },
+        {
+          name: 'Peperroni',
+          value: 'peperroni',
+        },
+        {
+          name: 'Asparagus',
+          value: 'asparagus',
+        },
+        {
+          name: 'Lettuce',
+          value: 'lettuce',
+        },
+        {
+          name: 'Tomato',
+          value: 'tomato',
+        },
+        {
+          name: 'Bagel',
+          value: 'bagel',
+        },
+        {
+          name: 'Tartuffo',
+          value: 'tartuffo',
+        },
+        {
+          name: 'Carbonara',
+          value: 'carbonara',
+        },
+      ];
+      const [options, setOptions] = useState(defaultOptions);
+      const i = useRef(0)
+      const [isLoading, setIsLoading] = useState(false);
+      const [hasMoreItems, setHasMoreItems] = useState(true)
+      const loadMore = () => {
+        setIsLoading(true);
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            resolve();
+            setOptions(opts => [...opts, ...defaultOptions.map(v => ({ name: v.name + i.current, value: v.value + i.current}))])
+            setIsLoading(false);
+            if (i.current === 2) {
+              setHasMoreItems(false);
+            }
+            i.current++;
+          }, 2000);
+        });
+      }
+      return (
+        <Combobox
+          label="Food"
+          value={value}
+          onChange={setValue}
+          hasMoreItems={hasMoreItems}
+          loading={isLoading}
+          onLoadMore={loadMore}
+        >
+          {
+            options.map(({ name, value }) => 
+              <ComboboxOption key={value} value={value}>{name}</ComboboxOption>)
+          }
+        </Combobox>
       );
     }}
   </Story>
