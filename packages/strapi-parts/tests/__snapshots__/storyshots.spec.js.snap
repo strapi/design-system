@@ -14500,13 +14500,13 @@ exports[`Storyshots Design System/Molecules/Combobox base 1`] = `
     <div
       class="c1"
     >
-      <span
+      <label
         class="c2"
         for="combobox-15"
         id="combobox-15-label"
       >
         Food
-      </span>
+      </label>
       <div
         class="c3 c4"
       >
@@ -14519,6 +14519,7 @@ exports[`Storyshots Design System/Molecules/Combobox base 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           class="c5"
+          id="combobox-15"
           placeholder="Select or enter a value"
           role="combobox"
           type="text"
@@ -14688,13 +14689,13 @@ exports[`Storyshots Design System/Molecules/Combobox creatable 1`] = `
     <div
       class="c1"
     >
-      <span
+      <label
         class="c2"
         for="combobox-21"
         id="combobox-21-label"
       >
         Food
-      </span>
+      </label>
       <div
         class="c3 c4"
       >
@@ -14707,6 +14708,7 @@ exports[`Storyshots Design System/Molecules/Combobox creatable 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           class="c5"
+          id="combobox-21"
           placeholder="Select or enter a value"
           role="combobox"
           type="text"
@@ -14878,13 +14880,13 @@ exports[`Storyshots Design System/Molecules/Combobox disabled 1`] = `
     <div
       class="c1"
     >
-      <span
+      <label
         class="c2"
         for="combobox-17"
         id="combobox-17-label"
       >
         Food
-      </span>
+      </label>
       <div
         class="c3 c4"
       >
@@ -14897,6 +14899,7 @@ exports[`Storyshots Design System/Molecules/Combobox disabled 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           class="c5"
+          id="combobox-17"
           placeholder="Select or enter a value"
           readonly=""
           role="combobox"
@@ -15075,13 +15078,13 @@ exports[`Storyshots Design System/Molecules/Combobox error 1`] = `
     <div
       class="c1"
     >
-      <span
+      <label
         class="c2"
         for="combobox-19"
         id="combobox-19-label"
       >
         Food
-      </span>
+      </label>
       <div
         class="c3 c4"
       >
@@ -15094,6 +15097,7 @@ exports[`Storyshots Design System/Molecules/Combobox error 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           class="c5"
+          id="combobox-19"
           placeholder="Select or enter a value"
           role="combobox"
           type="text"
@@ -15270,13 +15274,13 @@ exports[`Storyshots Design System/Molecules/Combobox infinite-scroll 1`] = `
     <div
       class="c1"
     >
-      <span
+      <label
         class="c2"
         for="combobox-25"
         id="combobox-25-label"
       >
         Food
-      </span>
+      </label>
       <div
         class="c3 c4"
       >
@@ -15289,6 +15293,7 @@ exports[`Storyshots Design System/Molecules/Combobox infinite-scroll 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           class="c5"
+          id="combobox-25"
           placeholder="Select or enter a value"
           role="combobox"
           type="text"
@@ -15458,13 +15463,13 @@ exports[`Storyshots Design System/Molecules/Combobox loading 1`] = `
     <div
       class="c1"
     >
-      <span
+      <label
         class="c2"
         for="combobox-23"
         id="combobox-23-label"
       >
         Food
-      </span>
+      </label>
       <div
         class="c3 c4"
       >
@@ -15477,6 +15482,7 @@ exports[`Storyshots Design System/Molecules/Combobox loading 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           class="c5"
+          id="combobox-23"
           placeholder="Select or enter a value"
           role="combobox"
           type="text"

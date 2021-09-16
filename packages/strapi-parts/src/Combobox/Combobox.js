@@ -31,6 +31,7 @@ export const Combobox = ({
   noOptionsMessage,
   hasMoreItems,
   children: nodes,
+  ...props
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState(null);
@@ -160,7 +161,7 @@ export const Combobox = ({
   const filteredNodesClone = Children.toArray(filteredNodes).map((node, i) => {
     const isActive = activeIndex === i;
     return cloneElement(node, {
-      id: `${generatedId}-${i}`,
+      id: `${generatedId}-options-${i}`,
       'aria-selected': selectedIndex === i ? 'true' : false,
       ref: (r) => {
         if (isActive) activeOptionRef.current = r;
@@ -174,11 +175,10 @@ export const Combobox = ({
   return (
     <Field hint={hint} error={error} id={generatedId}>
       <Stack size={label || hint || error ? 1 : 0}>
-        <FieldLabel as="span" id={labelId}>
-          {label}
-        </FieldLabel>
+        <FieldLabel id={labelId}>{label}</FieldLabel>
         <MainRow ref={containerRef} $disabled={disabled} hasError={error}>
           <Input
+            id={generatedId}
             aria-activedescendant={activeId}
             aria-autocomplete="list"
             aria-controls={`${generatedId}-listbox`}
@@ -196,6 +196,7 @@ export const Combobox = ({
             onInput={disabled ? undefined : onInput}
             onKeyDown={disabled ? undefined : onInputKeyDown}
             placeholder={placeholder}
+            {...props}
           />
           <Row>
             <CaretBox
