@@ -203,7 +203,14 @@ export const Select = ({
                 </IconBox>
               )}
 
-              <CaretBox paddingLeft={3} aria-hidden as="button" onMouseDown={handleMouseDown} tabIndex={-1}>
+              <CaretBox
+                paddingLeft={3}
+                aria-hidden
+                as="button"
+                type="button"
+                onMouseDown={handleMouseDown}
+                tabIndex={-1}
+              >
                 <DropdownIcon />
               </CaretBox>
             </Row>

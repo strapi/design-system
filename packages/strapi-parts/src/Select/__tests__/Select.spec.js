@@ -310,6 +310,7 @@ describe('Select', () => {
                     aria-hidden="true"
                     class="c7 c10 c11"
                     tabindex="-1"
+                    type="button"
                   >
                     <svg
                       fill="none"
@@ -669,6 +670,7 @@ describe('Select', () => {
                     aria-hidden="true"
                     class="c10 c11 c12"
                     tabindex="-1"
+                    type="button"
                   >
                     <svg
                       fill="none"

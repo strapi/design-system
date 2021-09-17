@@ -23504,6 +23504,7 @@ exports[`Storyshots Design System/Molecules/Select base 1`] = `
                 aria-hidden="true"
                 class="c9 c12 c13"
                 tabindex="-1"
+                type="button"
               >
                 <svg
                   fill="none"
@@ -23781,6 +23782,7 @@ exports[`Storyshots Design System/Molecules/Select multi 1`] = `
                 aria-hidden="true"
                 class="c11 c12 c13"
                 tabindex="-1"
+                type="button"
               >
                 <svg
                   fill="none"
@@ -24058,6 +24060,7 @@ exports[`Storyshots Design System/Molecules/Select multi-nested 1`] = `
                 aria-hidden="true"
                 class="c11 c12 c13"
                 tabindex="-1"
+                type="button"
               >
                 <svg
                   fill="none"
@@ -24368,6 +24371,7 @@ exports[`Storyshots Design System/Molecules/Select multi-withTags 1`] = `
                 aria-hidden="true"
                 class="c13 c14 c15"
                 tabindex="-1"
+                type="button"
               >
                 <svg
                   fill="none"
@@ -24656,6 +24660,7 @@ exports[`Storyshots Design System/Molecules/Select size-S 1`] = `
                 aria-hidden="true"
                 class="c12 c11 c13"
                 tabindex="-1"
+                type="button"
               >
                 <svg
                   fill="none"
@@ -27278,6 +27283,7 @@ exports[`Storyshots Design System/Molecules/TimePicker 30-mns-step 1`] = `
               aria-hidden="true"
               class="c8 c12 c13"
               tabindex="-1"
+              type="button"
             >
               <svg
                 fill="none"
@@ -27562,6 +27568,7 @@ exports[`Storyshots Design System/Molecules/TimePicker base 1`] = `
               aria-hidden="true"
               class="c8 c12 c13"
               tabindex="-1"
+              type="button"
             >
               <svg
                 fill="none"
