@@ -11349,7 +11349,7 @@ exports[`Storyshots Design System/Molecules/Card base 1`] = `
   padding-left: 12px;
 }
 
-.c18 {
+.c20 {
   background: #f6f6f9;
   color: #666687;
   padding: 4px;
@@ -11363,33 +11363,33 @@ exports[`Storyshots Design System/Molecules/Card base 1`] = `
   color: #ffffff;
 }
 
-.c16 {
+.c17 {
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #32324d;
 }
 
-.c17 {
+.c18 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #666687;
 }
 
-.c21 {
+.c23 {
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.43;
   color: #32324d;
 }
 
-.c22 {
+.c24 {
   font-weight: 600;
   line-height: 1.14;
 }
 
-.c23 {
+.c25 {
   font-weight: 600;
   font-size: 0.6875rem;
   line-height: 1.45;
@@ -11422,13 +11422,13 @@ exports[`Storyshots Design System/Molecules/Card base 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
 }
 
-.c19 {
+.c21 {
   display: inline-block;
 }
 
@@ -11525,6 +11525,10 @@ exports[`Storyshots Design System/Molecules/Card base 1`] = `
   background-color: #8e8ea9;
 }
 
+.c16 {
+  word-break: break-all;
+}
+
 .c10 {
   margin: 0;
   padding: 0;
@@ -11546,8 +11550,12 @@ exports[`Storyshots Design System/Molecules/Card base 1`] = `
   background: repeating-conic-gradient(#f6f6f9 0% 25%,transparent 0% 50%) 50% / 20px 20px;
 }
 
-.c20 {
+.c19 {
   margin-left: auto;
+}
+
+.c22 {
+  margin-left: 4px;
 }
 
 .c3 {
@@ -11678,28 +11686,32 @@ exports[`Storyshots Design System/Molecules/Card base 1`] = `
         class="c15"
       >
         <div
-          class=""
+          class="c16"
         >
           <div
-            class="c16"
+            class="c17"
             id="first-title"
           >
-            File name
+            File name fezof hzoeah fohzeofhozaehfohzeoafhzoaehfohzaeo fhozahf ozaehfoa
           </div>
           <div
-            class="c17"
+            class="c18"
           >
             PNG - 400✕400
           </div>
         </div>
         <div
-          class="c18 c19 c20"
+          class="c19"
         >
-          <span
-            class="c21 c22 c23"
+          <div
+            class="c20 c21 c22"
           >
-            Doc
-          </span>
+            <span
+              class="c23 c24 c25"
+            >
+              Doc
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -11742,40 +11754,40 @@ exports[`Storyshots Design System/Molecules/Card keyboard navigable 1`] = `
   padding-left: 8px;
 }
 
-.c8 {
+.c10 {
   background: #f6f6f9;
   color: #666687;
   padding: 4px;
   border-radius: 4px;
 }
 
-.c6 {
+.c7 {
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #32324d;
 }
 
-.c7 {
+.c8 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #666687;
 }
 
-.c11 {
+.c13 {
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.43;
   color: #32324d;
 }
 
-.c12 {
+.c14 {
   font-weight: 600;
   line-height: 1.14;
 }
 
-.c13 {
+.c15 {
   font-weight: 600;
   font-size: 0.6875rem;
   line-height: 1.45;
@@ -11790,18 +11802,26 @@ exports[`Storyshots Design System/Molecules/Card keyboard navigable 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
 }
 
-.c9 {
+.c11 {
   display: inline-block;
 }
 
-.c10 {
+.c6 {
+  word-break: break-all;
+}
+
+.c9 {
   margin-left: auto;
+}
+
+.c12 {
+  margin-left: 4px;
 }
 
 <main>
@@ -11847,28 +11867,32 @@ exports[`Storyshots Design System/Molecules/Card keyboard navigable 1`] = `
             </svg>
           </div>
           <div
-            class="c5"
+            class="c5 c6"
           >
             <div
-              class="c6"
+              class="c7"
               id="first-title"
             >
               File name
             </div>
             <div
-              class="c7"
+              class="c8"
             >
               PNG - 400✕400
             </div>
           </div>
           <div
-            class="c8 c9 c10"
+            class="c9"
           >
-            <span
-              class="c11 c12 c13"
+            <div
+              class="c10 c11 c12"
             >
-              Doc
-            </span>
+              <span
+                class="c13 c14 c15"
+              >
+                Doc
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -11905,28 +11929,32 @@ exports[`Storyshots Design System/Molecules/Card keyboard navigable 1`] = `
             </svg>
           </div>
           <div
-            class="c5"
+            class="c5 c6"
           >
             <div
-              class="c6"
+              class="c7"
               id="second-title"
             >
               File name
             </div>
             <div
-              class="c7"
+              class="c8"
             >
               PNG - 400✕400
             </div>
           </div>
           <div
-            class="c8 c9 c10"
+            class="c9"
           >
-            <span
-              class="c11 c12 c13"
+            <div
+              class="c10 c11 c12"
             >
-              Doc
-            </span>
+              <span
+                class="c13 c14 c15"
+              >
+                Doc
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -11963,28 +11991,32 @@ exports[`Storyshots Design System/Molecules/Card keyboard navigable 1`] = `
             </svg>
           </div>
           <div
-            class="c5"
+            class="c5 c6"
           >
             <div
-              class="c6"
+              class="c7"
               id="third-title"
             >
               File name
             </div>
             <div
-              class="c7"
+              class="c8"
             >
               PNG - 400✕400
             </div>
           </div>
           <div
-            class="c8 c9 c10"
+            class="c9"
           >
-            <span
-              class="c11 c12 c13"
+            <div
+              class="c10 c11 c12"
             >
-              Doc
-            </span>
+              <span
+                class="c13 c14 c15"
+              >
+                Doc
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -12021,28 +12053,32 @@ exports[`Storyshots Design System/Molecules/Card keyboard navigable 1`] = `
             </svg>
           </div>
           <div
-            class="c5"
+            class="c5 c6"
           >
             <div
-              class="c6"
+              class="c7"
               id="fourth-title"
             >
               File name
             </div>
             <div
-              class="c7"
+              class="c8"
             >
               PNG - 400✕400
             </div>
           </div>
           <div
-            class="c8 c9 c10"
+            class="c9"
           >
-            <span
-              class="c11 c12 c13"
+            <div
+              class="c10 c11 c12"
             >
-              Doc
-            </span>
+              <span
+                class="c13 c14 c15"
+              >
+                Doc
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -12084,7 +12120,7 @@ exports[`Storyshots Design System/Molecules/Card with asset icon 1`] = `
   padding-left: 12px;
 }
 
-.c14 {
+.c17 {
   background: #f6f6f9;
   color: #666687;
   padding: 4px;
@@ -12098,33 +12134,33 @@ exports[`Storyshots Design System/Molecules/Card with asset icon 1`] = `
   color: #ffffff;
 }
 
-.c12 {
+.c14 {
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #32324d;
 }
 
-.c13 {
+.c15 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #666687;
 }
 
-.c17 {
+.c20 {
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.43;
   color: #32324d;
 }
 
-.c18 {
+.c21 {
   font-weight: 600;
   line-height: 1.14;
 }
 
-.c19 {
+.c22 {
   font-weight: 600;
   font-size: 0.6875rem;
   line-height: 1.45;
@@ -12163,7 +12199,21 @@ exports[`Storyshots Design System/Molecules/Card with asset icon 1`] = `
   align-items: center;
 }
 
-.c15 {
+.c12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+.c18 {
   display: inline-block;
 }
 
@@ -12234,6 +12284,10 @@ exports[`Storyshots Design System/Molecules/Card with asset icon 1`] = `
   background-color: #8e8ea9;
 }
 
+.c13 {
+  word-break: break-all;
+}
+
 .c6 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -12250,6 +12304,10 @@ exports[`Storyshots Design System/Molecules/Card with asset icon 1`] = `
 
 .c16 {
   margin-left: auto;
+}
+
+.c19 {
+  margin-left: 4px;
 }
 
 .c3 {
@@ -12334,31 +12392,35 @@ exports[`Storyshots Design System/Molecules/Card with asset icon 1`] = `
       class="c11"
     >
       <div
-        class="c7"
+        class="c12"
       >
         <div
-          class=""
+          class="c13"
         >
           <div
-            class="c12"
+            class="c14"
             id="second-title"
           >
             File name
           </div>
           <div
-            class="c13"
+            class="c15"
           >
             PNG - 400✕400
           </div>
         </div>
         <div
-          class="c14 c15 c16"
+          class="c16"
         >
-          <span
+          <div
             class="c17 c18 c19"
           >
-            Doc
-          </span>
+            <span
+              class="c20 c21 c22"
+            >
+              Doc
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -12401,40 +12463,40 @@ exports[`Storyshots Design System/Molecules/Card without asset 1`] = `
   padding-left: 8px;
 }
 
-.c8 {
+.c10 {
   background: #f6f6f9;
   color: #666687;
   padding: 4px;
   border-radius: 4px;
 }
 
-.c6 {
+.c7 {
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #32324d;
 }
 
-.c7 {
+.c8 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #666687;
 }
 
-.c11 {
+.c13 {
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.43;
   color: #32324d;
 }
 
-.c12 {
+.c14 {
   font-weight: 600;
   line-height: 1.14;
 }
 
-.c13 {
+.c15 {
   font-weight: 600;
   font-size: 0.6875rem;
   line-height: 1.45;
@@ -12449,18 +12511,26 @@ exports[`Storyshots Design System/Molecules/Card without asset 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
 }
 
-.c9 {
+.c11 {
   display: inline-block;
 }
 
-.c10 {
+.c6 {
+  word-break: break-all;
+}
+
+.c9 {
   margin-left: auto;
+}
+
+.c12 {
+  margin-left: 4px;
 }
 
 <main>
@@ -12503,28 +12573,32 @@ exports[`Storyshots Design System/Molecules/Card without asset 1`] = `
           </svg>
         </div>
         <div
-          class="c5"
+          class="c5 c6"
         >
           <div
-            class="c6"
+            class="c7"
             id="fourth-title"
           >
             File name
           </div>
           <div
-            class="c7"
+            class="c8"
           >
             PNG - 400✕400
           </div>
         </div>
         <div
-          class="c8 c9 c10"
+          class="c9"
         >
-          <span
-            class="c11 c12 c13"
+          <div
+            class="c10 c11 c12"
           >
-            Doc
-          </span>
+            <span
+              class="c13 c14 c15"
+            >
+              Doc
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -12565,7 +12639,7 @@ exports[`Storyshots Design System/Molecules/Card without asset action 1`] = `
   padding-left: 12px;
 }
 
-.c15 {
+.c17 {
   background: #f6f6f9;
   color: #666687;
   padding: 4px;
@@ -12579,33 +12653,33 @@ exports[`Storyshots Design System/Molecules/Card without asset action 1`] = `
   color: #ffffff;
 }
 
-.c13 {
+.c14 {
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #32324d;
 }
 
-.c14 {
+.c15 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #666687;
 }
 
-.c18 {
+.c20 {
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.43;
   color: #32324d;
 }
 
-.c19 {
+.c21 {
   font-weight: 600;
   line-height: 1.14;
 }
 
-.c20 {
+.c22 {
   font-weight: 600;
   font-size: 0.6875rem;
   line-height: 1.45;
@@ -12638,13 +12712,13 @@ exports[`Storyshots Design System/Molecules/Card without asset action 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
 }
 
-.c16 {
+.c18 {
   display: inline-block;
 }
 
@@ -12715,6 +12789,10 @@ exports[`Storyshots Design System/Molecules/Card without asset action 1`] = `
   background-color: #8e8ea9;
 }
 
+.c13 {
+  word-break: break-all;
+}
+
 .c7 {
   margin: 0;
   padding: 0;
@@ -12736,8 +12814,12 @@ exports[`Storyshots Design System/Molecules/Card without asset action 1`] = `
   background: repeating-conic-gradient(#f6f6f9 0% 25%,transparent 0% 50%) 50% / 20px 20px;
 }
 
-.c17 {
+.c16 {
   margin-left: auto;
+}
+
+.c19 {
+  margin-left: 4px;
 }
 
 .c3 {
@@ -12811,28 +12893,32 @@ exports[`Storyshots Design System/Molecules/Card without asset action 1`] = `
         class="c12"
       >
         <div
-          class=""
+          class="c13"
         >
           <div
-            class="c13"
+            class="c14"
             id="second-title"
           >
             File name
           </div>
           <div
-            class="c14"
+            class="c15"
           >
             PNG - 400✕400
           </div>
         </div>
         <div
-          class="c15 c16 c17"
+          class="c16"
         >
-          <span
-            class="c18 c19 c20"
+          <div
+            class="c17 c18 c19"
           >
-            Doc
-          </span>
+            <span
+              class="c20 c21 c22"
+            >
+              Doc
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -12866,40 +12952,40 @@ exports[`Storyshots Design System/Molecules/Card without asset action nor timer 
   padding-left: 12px;
 }
 
-.c12 {
+.c14 {
   background: #f6f6f9;
   color: #666687;
   padding: 4px;
   border-radius: 4px;
 }
 
-.c10 {
+.c11 {
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #32324d;
 }
 
-.c11 {
+.c12 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #666687;
 }
 
-.c15 {
+.c17 {
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.43;
   color: #32324d;
 }
 
-.c16 {
+.c18 {
   font-weight: 600;
   line-height: 1.14;
 }
 
-.c17 {
+.c19 {
   font-weight: 600;
   font-size: 0.6875rem;
   line-height: 1.45;
@@ -12932,13 +13018,13 @@ exports[`Storyshots Design System/Molecules/Card without asset action nor timer 
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
 }
 
-.c13 {
+.c15 {
   display: inline-block;
 }
 
@@ -13009,6 +13095,10 @@ exports[`Storyshots Design System/Molecules/Card without asset action nor timer 
   background-color: #8e8ea9;
 }
 
+.c10 {
+  word-break: break-all;
+}
+
 .c7 {
   margin: 0;
   padding: 0;
@@ -13030,8 +13120,12 @@ exports[`Storyshots Design System/Molecules/Card without asset action nor timer 
   background: repeating-conic-gradient(#f6f6f9 0% 25%,transparent 0% 50%) 50% / 20px 20px;
 }
 
-.c14 {
+.c13 {
   margin-left: auto;
+}
+
+.c16 {
+  margin-left: 4px;
 }
 
 .c3 {
@@ -13090,28 +13184,32 @@ exports[`Storyshots Design System/Molecules/Card without asset action nor timer 
         class="c9"
       >
         <div
-          class=""
+          class="c10"
         >
           <div
-            class="c10"
+            class="c11"
             id="third-title"
           >
             File name
           </div>
           <div
-            class="c11"
+            class="c12"
           >
             PNG - 400✕400
           </div>
         </div>
         <div
-          class="c12 c13 c14"
+          class="c13"
         >
-          <span
-            class="c15 c16 c17"
+          <div
+            class="c14 c15 c16"
           >
-            Doc
-          </span>
+            <span
+              class="c17 c18 c19"
+            >
+              Doc
+            </span>
+          </div>
         </div>
       </div>
     </div>
