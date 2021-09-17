@@ -1335,7 +1335,7 @@ exports[`Storyshots Design System/Atoms/FocusTrap base 1`] = `
     class="c1 c2"
   >
     <div
-      class="c3"
+      class="c1 c3"
     >
       <div
         class="c1 c4"
@@ -2072,12 +2072,17 @@ exports[`Storyshots Design System/Atoms/Stack base 1`] = `
   width: 1px;
 }
 
-.c2 {
+.c1 {
+  background: #b8e1ff;
+  padding: 12px;
+}
+
+.c3 {
   background: #f0f0ff;
   padding: 16px;
 }
 
-.c1 {
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2087,12 +2092,12 @@ exports[`Storyshots Design System/Atoms/Stack base 1`] = `
   flex-direction: column;
 }
 
-.c1 > * {
+.c2 > * {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-.c1 > * + * {
+.c2 > * + * {
   margin-top: 16px;
 }
 
@@ -2105,20 +2110,20 @@ exports[`Storyshots Design System/Atoms/Stack base 1`] = `
     </h1>
   </div>
   <div
-    class="c1"
+    class="c1 c2"
   >
     <div
-      class="c2"
+      class="c3"
     >
       First
     </div>
     <div
-      class="c2"
+      class="c3"
     >
       Second
     </div>
     <div
-      class="c2"
+      class="c3"
     >
       Third
     </div>
@@ -2139,12 +2144,17 @@ exports[`Storyshots Design System/Atoms/Stack horizontal 1`] = `
   width: 1px;
 }
 
-.c2 {
+.c1 {
+  background: #b8e1ff;
+  padding: 12px;
+}
+
+.c3 {
   background: #f0f0ff;
   padding: 16px;
 }
 
-.c1 {
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2154,12 +2164,12 @@ exports[`Storyshots Design System/Atoms/Stack horizontal 1`] = `
   flex-direction: row;
 }
 
-.c1 > * {
+.c2 > * {
   margin-left: 0;
   margin-right: 0;
 }
 
-.c1 > * + * {
+.c2 > * + * {
   margin-left: 16px;
 }
 
@@ -2172,20 +2182,20 @@ exports[`Storyshots Design System/Atoms/Stack horizontal 1`] = `
     </h1>
   </div>
   <div
-    class="c1"
+    class="c1 c2"
   >
     <div
-      class="c2"
+      class="c3"
     >
       First
     </div>
     <div
-      class="c2"
+      class="c3"
     >
       Second
     </div>
     <div
-      class="c2"
+      class="c3"
     >
       Third
     </div>
@@ -5928,7 +5938,7 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
           class="c1 c14"
         >
           <ul
-            class="c15"
+            class="c1 c15"
           >
             <li>
               <div
@@ -10128,7 +10138,7 @@ exports[`Storyshots Design System/Molecules/Button icons 1`] = `
   color: #32324d;
 }
 
-.c1 {
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -10138,16 +10148,16 @@ exports[`Storyshots Design System/Molecules/Button icons 1`] = `
   flex-direction: row;
 }
 
-.c1 > * {
+.c2 > * {
   margin-left: 0;
   margin-right: 0;
 }
 
-.c1 > * + * {
+.c2 > * + * {
   margin-left: 8px;
 }
 
-.c2 {
+.c3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -10159,17 +10169,17 @@ exports[`Storyshots Design System/Molecules/Button icons 1`] = `
   border: 1px solid #dcdce4;
 }
 
-.c2 svg {
+.c3 svg {
   height: 12px;
   width: 12px;
 }
 
-.c2 svg > g,
-.c2 svg path {
+.c3 svg > g,
+.c3 svg path {
   fill: #ffffff;
 }
 
-.c2[aria-disabled='true'] {
+.c3[aria-disabled='true'] {
   pointer-events: none;
 }
 
@@ -10178,7 +10188,7 @@ exports[`Storyshots Design System/Molecules/Button icons 1`] = `
   animation: gzYjWD 2s infinite linear;
 }
 
-.c3 {
+.c4 {
   padding: 8px 16px;
   background: #4945ff;
   border: none;
@@ -10186,7 +10196,7 @@ exports[`Storyshots Design System/Molecules/Button icons 1`] = `
   background: #4945ff;
 }
 
-.c3 .c4 {
+.c4 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -10197,44 +10207,44 @@ exports[`Storyshots Design System/Molecules/Button icons 1`] = `
   align-items: center;
 }
 
-.c3 .c6 {
+.c4 .c6 {
   color: #ffffff;
 }
 
-.c3[aria-disabled='true'] {
+.c4[aria-disabled='true'] {
   border: 1px solid #dcdce4;
   background: #eaeaef;
 }
 
-.c3[aria-disabled='true'] .c6 {
+.c4[aria-disabled='true'] .c6 {
   color: #666687;
 }
 
-.c3[aria-disabled='true'] svg > g,
-.c3[aria-disabled='true'] svg path {
+.c4[aria-disabled='true'] svg > g,
+.c4[aria-disabled='true'] svg path {
   fill: #666687;
 }
 
-.c3[aria-disabled='true']:active {
+.c4[aria-disabled='true']:active {
   border: 1px solid #dcdce4;
   background: #eaeaef;
 }
 
-.c3[aria-disabled='true']:active .c6 {
+.c4[aria-disabled='true']:active .c6 {
   color: #666687;
 }
 
-.c3[aria-disabled='true']:active svg > g,
-.c3[aria-disabled='true']:active svg path {
+.c4[aria-disabled='true']:active svg > g,
+.c4[aria-disabled='true']:active svg path {
   fill: #666687;
 }
 
-.c3:hover {
+.c4:hover {
   border: 1px solid #7b79ff;
   background: #7b79ff;
 }
 
-.c3:active {
+.c4:active {
   border: 1px solid #4945ff;
   background: #4945ff;
 }
@@ -10247,7 +10257,7 @@ exports[`Storyshots Design System/Molecules/Button icons 1`] = `
   background: #f0f0ff;
 }
 
-.c8 .c4 {
+.c8 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -10326,16 +10336,16 @@ exports[`Storyshots Design System/Molecules/Button icons 1`] = `
     </h1>
   </div>
   <div
-    class="c1"
+    class="c1 c2"
   >
     <button
       aria-disabled="false"
-      class="c2 c3"
+      class="c3 c4"
       type="button"
     >
       <div
         aria-hidden="true"
-        class="c4 c5"
+        class="c1 c5"
       >
         <svg
           fill="none"
@@ -10358,7 +10368,7 @@ exports[`Storyshots Design System/Molecules/Button icons 1`] = `
     </button>
     <button
       aria-disabled="false"
-      class="c2 c8"
+      class="c3 c8"
       type="button"
     >
       <span
@@ -10368,7 +10378,7 @@ exports[`Storyshots Design System/Molecules/Button icons 1`] = `
       </span>
       <div
         aria-hidden="true"
-        class="c4 c9"
+        class="c1 c9"
       >
         <svg
           fill="none"
@@ -10388,13 +10398,13 @@ exports[`Storyshots Design System/Molecules/Button icons 1`] = `
     </button>
     <button
       aria-disabled="true"
-      class="c2 c3"
+      class="c3 c4"
       disabled=""
       type="button"
     >
       <div
         aria-hidden="true"
-        class="c4 c5"
+        class="c1 c5"
       >
         <div
           class="c10"
@@ -10677,14 +10687,14 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   width: 1px;
 }
 
-.c5 {
+.c6 {
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #32324d;
 }
 
-.c1 {
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -10694,16 +10704,16 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   flex-direction: row;
 }
 
-.c1 > * {
+.c2 > * {
   margin-left: 0;
   margin-right: 0;
 }
 
-.c1 > * + * {
+.c2 > * + * {
   margin-left: 8px;
 }
 
-.c2 {
+.c3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -10715,21 +10725,21 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   border: 1px solid #dcdce4;
 }
 
-.c2 svg {
+.c3 svg {
   height: 12px;
   width: 12px;
 }
 
-.c2 svg > g,
-.c2 svg path {
+.c3 svg > g,
+.c3 svg path {
   fill: #ffffff;
 }
 
-.c2[aria-disabled='true'] {
+.c3[aria-disabled='true'] {
   pointer-events: none;
 }
 
-.c3 {
+.c4 {
   padding: 8px 16px;
   background: #4945ff;
   border: none;
@@ -10737,7 +10747,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   background: #4945ff;
 }
 
-.c3 .sc-gtsrHT {
+.c4 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -10748,49 +10758,49 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   align-items: center;
 }
 
-.c3 .c4 {
+.c4 .c5 {
   color: #ffffff;
 }
 
-.c3[aria-disabled='true'] {
+.c4[aria-disabled='true'] {
   border: 1px solid #dcdce4;
   background: #eaeaef;
 }
 
-.c3[aria-disabled='true'] .c4 {
+.c4[aria-disabled='true'] .c5 {
   color: #666687;
 }
 
-.c3[aria-disabled='true'] svg > g,
-.c3[aria-disabled='true'] svg path {
+.c4[aria-disabled='true'] svg > g,
+.c4[aria-disabled='true'] svg path {
   fill: #666687;
 }
 
-.c3[aria-disabled='true']:active {
+.c4[aria-disabled='true']:active {
   border: 1px solid #dcdce4;
   background: #eaeaef;
 }
 
-.c3[aria-disabled='true']:active .c4 {
+.c4[aria-disabled='true']:active .c5 {
   color: #666687;
 }
 
-.c3[aria-disabled='true']:active svg > g,
-.c3[aria-disabled='true']:active svg path {
+.c4[aria-disabled='true']:active svg > g,
+.c4[aria-disabled='true']:active svg path {
   fill: #666687;
 }
 
-.c3:hover {
+.c4:hover {
   border: 1px solid #7b79ff;
   background: #7b79ff;
 }
 
-.c3:active {
+.c4:active {
   border: 1px solid #4945ff;
   background: #4945ff;
 }
 
-.c6 {
+.c7 {
   padding: 8px 16px;
   background: #4945ff;
   border: none;
@@ -10798,7 +10808,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   background: #f0f0ff;
 }
 
-.c6 .sc-gtsrHT {
+.c7 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -10809,85 +10819,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   align-items: center;
 }
 
-.c6 .c4 {
-  color: #ffffff;
-}
-
-.c6[aria-disabled='true'] {
-  border: 1px solid #dcdce4;
-  background: #eaeaef;
-}
-
-.c6[aria-disabled='true'] .c4 {
-  color: #666687;
-}
-
-.c6[aria-disabled='true'] svg > g,
-.c6[aria-disabled='true'] svg path {
-  fill: #666687;
-}
-
-.c6[aria-disabled='true']:active {
-  border: 1px solid #dcdce4;
-  background: #eaeaef;
-}
-
-.c6[aria-disabled='true']:active .c4 {
-  color: #666687;
-}
-
-.c6[aria-disabled='true']:active svg > g,
-.c6[aria-disabled='true']:active svg path {
-  fill: #666687;
-}
-
-.c6:hover {
-  background-color: #ffffff;
-}
-
-.c6:active {
-  background-color: #ffffff;
-  border: 1px solid #4945ff;
-}
-
-.c6:active .c4 {
-  color: #4945ff;
-}
-
-.c6:active svg > g,
-.c6:active svg path {
-  fill: #4945ff;
-}
-
-.c6 .c4 {
-  color: #271fe0;
-}
-
-.c6 svg > g,
-.c6 svg path {
-  fill: #271fe0;
-}
-
-.c7 {
-  padding: 8px 16px;
-  background: #4945ff;
-  border: none;
-  border: 1px solid #dcdce4;
-  background: #ffffff;
-}
-
-.c7 .sc-gtsrHT {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c7 .c4 {
+.c7 .c5 {
   color: #ffffff;
 }
 
@@ -10896,7 +10828,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   background: #eaeaef;
 }
 
-.c7[aria-disabled='true'] .c4 {
+.c7[aria-disabled='true'] .c5 {
   color: #666687;
 }
 
@@ -10910,7 +10842,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   background: #eaeaef;
 }
 
-.c7[aria-disabled='true']:active .c4 {
+.c7[aria-disabled='true']:active .c5 {
   color: #666687;
 }
 
@@ -10920,31 +10852,41 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
 }
 
 .c7:hover {
-  background-color: #f6f6f9;
+  background-color: #ffffff;
 }
 
 .c7:active {
-  background-color: #eaeaef;
+  background-color: #ffffff;
+  border: 1px solid #4945ff;
 }
 
-.c7 .c4 {
-  color: #32324d;
+.c7:active .c5 {
+  color: #4945ff;
+}
+
+.c7:active svg > g,
+.c7:active svg path {
+  fill: #4945ff;
+}
+
+.c7 .c5 {
+  color: #271fe0;
 }
 
 .c7 svg > g,
 .c7 svg path {
-  fill: #32324d;
+  fill: #271fe0;
 }
 
 .c8 {
   padding: 8px 16px;
   background: #4945ff;
   border: none;
-  border: 1px solid #328048;
-  background: #328048;
+  border: 1px solid #dcdce4;
+  background: #ffffff;
 }
 
-.c8 .sc-gtsrHT {
+.c8 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -10955,7 +10897,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   align-items: center;
 }
 
-.c8 .c4 {
+.c8 .c5 {
   color: #ffffff;
 }
 
@@ -10964,7 +10906,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   background: #eaeaef;
 }
 
-.c8[aria-disabled='true'] .c4 {
+.c8[aria-disabled='true'] .c5 {
   color: #666687;
 }
 
@@ -10978,7 +10920,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   background: #eaeaef;
 }
 
-.c8[aria-disabled='true']:active .c4 {
+.c8[aria-disabled='true']:active .c5 {
   color: #666687;
 }
 
@@ -10988,24 +10930,31 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
 }
 
 .c8:hover {
-  border: 1px solid #5cb176;
-  background: #5cb176;
+  background-color: #f6f6f9;
 }
 
 .c8:active {
-  border: 1px solid #328048;
-  background: #328048;
+  background-color: #eaeaef;
+}
+
+.c8 .c5 {
+  color: #32324d;
+}
+
+.c8 svg > g,
+.c8 svg path {
+  fill: #32324d;
 }
 
 .c9 {
   padding: 8px 16px;
   background: #4945ff;
   border: none;
-  border: 1px solid #d02b20;
-  background: #d02b20;
+  border: 1px solid #328048;
+  background: #328048;
 }
 
-.c9 .sc-gtsrHT {
+.c9 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -11016,7 +10965,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   align-items: center;
 }
 
-.c9 .c4 {
+.c9 .c5 {
   color: #ffffff;
 }
 
@@ -11025,7 +10974,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   background: #eaeaef;
 }
 
-.c9[aria-disabled='true'] .c4 {
+.c9[aria-disabled='true'] .c5 {
   color: #666687;
 }
 
@@ -11039,7 +10988,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   background: #eaeaef;
 }
 
-.c9[aria-disabled='true']:active .c4 {
+.c9[aria-disabled='true']:active .c5 {
   color: #666687;
 }
 
@@ -11049,24 +10998,24 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
 }
 
 .c9:hover {
-  border: 1px solid #ee5e52;
-  background: #ee5e52;
+  border: 1px solid #5cb176;
+  background: #5cb176;
 }
 
 .c9:active {
-  border: 1px solid #d02b20;
-  background: #d02b20;
+  border: 1px solid #328048;
+  background: #328048;
 }
 
 .c10 {
   padding: 8px 16px;
   background: #4945ff;
   border: none;
-  border: 1px solid #c6f0c2;
-  background: #eafbe7;
+  border: 1px solid #d02b20;
+  background: #d02b20;
 }
 
-.c10 .sc-gtsrHT {
+.c10 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -11077,7 +11026,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   align-items: center;
 }
 
-.c10 .c4 {
+.c10 .c5 {
   color: #ffffff;
 }
 
@@ -11086,7 +11035,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   background: #eaeaef;
 }
 
-.c10[aria-disabled='true'] .c4 {
+.c10[aria-disabled='true'] .c5 {
   color: #666687;
 }
 
@@ -11100,7 +11049,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   background: #eaeaef;
 }
 
-.c10[aria-disabled='true']:active .c4 {
+.c10[aria-disabled='true']:active .c5 {
   color: #666687;
 }
 
@@ -11110,41 +11059,24 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
 }
 
 .c10:hover {
-  background-color: #ffffff;
+  border: 1px solid #ee5e52;
+  background: #ee5e52;
 }
 
 .c10:active {
-  background-color: #ffffff;
-  border: 1px solid #328048;
-}
-
-.c10:active .c4 {
-  color: #328048;
-}
-
-.c10:active svg > g,
-.c10:active svg path {
-  fill: #328048;
-}
-
-.c10 .c4 {
-  color: #2f6846;
-}
-
-.c10 svg > g,
-.c10 svg path {
-  fill: #2f6846;
+  border: 1px solid #d02b20;
+  background: #d02b20;
 }
 
 .c11 {
   padding: 8px 16px;
   background: #4945ff;
   border: none;
-  border: 1px solid #f5c0b8;
-  background: #fcecea;
+  border: 1px solid #c6f0c2;
+  background: #eafbe7;
 }
 
-.c11 .sc-gtsrHT {
+.c11 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -11155,7 +11087,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   align-items: center;
 }
 
-.c11 .c4 {
+.c11 .c5 {
   color: #ffffff;
 }
 
@@ -11164,7 +11096,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   background: #eaeaef;
 }
 
-.c11[aria-disabled='true'] .c4 {
+.c11[aria-disabled='true'] .c5 {
   color: #666687;
 }
 
@@ -11178,7 +11110,7 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   background: #eaeaef;
 }
 
-.c11[aria-disabled='true']:active .c4 {
+.c11[aria-disabled='true']:active .c5 {
   color: #666687;
 }
 
@@ -11193,24 +11125,102 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
 
 .c11:active {
   background-color: #ffffff;
-  border: 1px solid #d02b20;
+  border: 1px solid #328048;
 }
 
-.c11:active .c4 {
-  color: #d02b20;
+.c11:active .c5 {
+  color: #328048;
 }
 
 .c11:active svg > g,
 .c11:active svg path {
-  fill: #d02b20;
+  fill: #328048;
 }
 
-.c11 .c4 {
-  color: #b72b1a;
+.c11 .c5 {
+  color: #2f6846;
 }
 
 .c11 svg > g,
 .c11 svg path {
+  fill: #2f6846;
+}
+
+.c12 {
+  padding: 8px 16px;
+  background: #4945ff;
+  border: none;
+  border: 1px solid #f5c0b8;
+  background: #fcecea;
+}
+
+.c12 .c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c12 .c5 {
+  color: #ffffff;
+}
+
+.c12[aria-disabled='true'] {
+  border: 1px solid #dcdce4;
+  background: #eaeaef;
+}
+
+.c12[aria-disabled='true'] .c5 {
+  color: #666687;
+}
+
+.c12[aria-disabled='true'] svg > g,
+.c12[aria-disabled='true'] svg path {
+  fill: #666687;
+}
+
+.c12[aria-disabled='true']:active {
+  border: 1px solid #dcdce4;
+  background: #eaeaef;
+}
+
+.c12[aria-disabled='true']:active .c5 {
+  color: #666687;
+}
+
+.c12[aria-disabled='true']:active svg > g,
+.c12[aria-disabled='true']:active svg path {
+  fill: #666687;
+}
+
+.c12:hover {
+  background-color: #ffffff;
+}
+
+.c12:active {
+  background-color: #ffffff;
+  border: 1px solid #d02b20;
+}
+
+.c12:active .c5 {
+  color: #d02b20;
+}
+
+.c12:active svg > g,
+.c12:active svg path {
+  fill: #d02b20;
+}
+
+.c12 .c5 {
+  color: #b72b1a;
+}
+
+.c12 svg > g,
+.c12 svg path {
   fill: #b72b1a;
 }
 
@@ -11223,81 +11233,81 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
     </h1>
   </div>
   <div
-    class="c1"
+    class="c1 c2"
   >
     <button
       aria-disabled="false"
-      class="c2 c3"
+      class="c3 c4"
       type="button"
     >
       <span
-        class="c4 c5"
+        class="c5 c6"
       >
         default
       </span>
     </button>
     <button
       aria-disabled="false"
-      class="c2 c6"
+      class="c3 c7"
       type="button"
     >
       <span
-        class="c4 c5"
+        class="c5 c6"
       >
         secondary
       </span>
     </button>
     <button
       aria-disabled="false"
-      class="c2 c7"
+      class="c3 c8"
       type="button"
     >
       <span
-        class="c4 c5"
+        class="c5 c6"
       >
         tertiary
       </span>
     </button>
     <button
       aria-disabled="false"
-      class="c2 c8"
+      class="c3 c9"
       type="button"
     >
       <span
-        class="c4 c5"
+        class="c5 c6"
       >
         success
       </span>
     </button>
     <button
       aria-disabled="false"
-      class="c2 c9"
+      class="c3 c10"
       type="button"
     >
       <span
-        class="c4 c5"
+        class="c5 c6"
       >
         danger
       </span>
     </button>
     <button
       aria-disabled="false"
-      class="c2 c10"
+      class="c3 c11"
       type="button"
     >
       <span
-        class="c4 c5"
+        class="c5 c6"
       >
         success-light
       </span>
     </button>
     <button
       aria-disabled="false"
-      class="c2 c11"
+      class="c3 c12"
       type="button"
     >
       <span
-        class="c4 c5"
+        class="c5 c6"
       >
         danger-light
       </span>
@@ -19197,14 +19207,14 @@ exports[`Storyshots Design System/Molecules/LiveRegions alert 1`] = `
   width: 1px;
 }
 
-.c5 {
+.c6 {
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #32324d;
 }
 
-.c1 {
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -19214,16 +19224,16 @@ exports[`Storyshots Design System/Molecules/LiveRegions alert 1`] = `
   flex-direction: column;
 }
 
-.c1 > * {
+.c2 > * {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-.c1 > * + * {
+.c2 > * + * {
   margin-top: 12px;
 }
 
-.c2 {
+.c3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -19235,21 +19245,21 @@ exports[`Storyshots Design System/Molecules/LiveRegions alert 1`] = `
   border: 1px solid #dcdce4;
 }
 
-.c2 svg {
+.c3 svg {
   height: 12px;
   width: 12px;
 }
 
-.c2 svg > g,
-.c2 svg path {
+.c3 svg > g,
+.c3 svg path {
   fill: #ffffff;
 }
 
-.c2[aria-disabled='true'] {
+.c3[aria-disabled='true'] {
   pointer-events: none;
 }
 
-.c3 {
+.c4 {
   padding: 8px 16px;
   background: #4945ff;
   border: none;
@@ -19257,7 +19267,7 @@ exports[`Storyshots Design System/Molecules/LiveRegions alert 1`] = `
   background: #4945ff;
 }
 
-.c3 .sc-gtsrHT {
+.c4 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -19268,44 +19278,44 @@ exports[`Storyshots Design System/Molecules/LiveRegions alert 1`] = `
   align-items: center;
 }
 
-.c3 .c4 {
+.c4 .c5 {
   color: #ffffff;
 }
 
-.c3[aria-disabled='true'] {
+.c4[aria-disabled='true'] {
   border: 1px solid #dcdce4;
   background: #eaeaef;
 }
 
-.c3[aria-disabled='true'] .c4 {
+.c4[aria-disabled='true'] .c5 {
   color: #666687;
 }
 
-.c3[aria-disabled='true'] svg > g,
-.c3[aria-disabled='true'] svg path {
+.c4[aria-disabled='true'] svg > g,
+.c4[aria-disabled='true'] svg path {
   fill: #666687;
 }
 
-.c3[aria-disabled='true']:active {
+.c4[aria-disabled='true']:active {
   border: 1px solid #dcdce4;
   background: #eaeaef;
 }
 
-.c3[aria-disabled='true']:active .c4 {
+.c4[aria-disabled='true']:active .c5 {
   color: #666687;
 }
 
-.c3[aria-disabled='true']:active svg > g,
-.c3[aria-disabled='true']:active svg path {
+.c4[aria-disabled='true']:active svg > g,
+.c4[aria-disabled='true']:active svg path {
   fill: #666687;
 }
 
-.c3:hover {
+.c4:hover {
   border: 1px solid #7b79ff;
   background: #7b79ff;
 }
 
-.c3:active {
+.c4:active {
   border: 1px solid #4945ff;
   background: #4945ff;
 }
@@ -19319,26 +19329,26 @@ exports[`Storyshots Design System/Molecules/LiveRegions alert 1`] = `
     </h1>
   </div>
   <div
-    class="c1"
+    class="c1 c2"
   >
     <button
       aria-disabled="false"
-      class="c2 c3"
+      class="c3 c4"
       type="button"
     >
       <span
-        class="c4 c5"
+        class="c5 c6"
       >
         Hide button
       </span>
     </button>
     <button
       aria-disabled="false"
-      class="c2 c3"
+      class="c3 c4"
       type="button"
     >
       <span
-        class="c4 c5"
+        class="c5 c6"
       >
         Toggle 
         alert
@@ -19361,14 +19371,14 @@ exports[`Storyshots Design System/Molecules/LiveRegions log 1`] = `
   width: 1px;
 }
 
-.c5 {
+.c6 {
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #32324d;
 }
 
-.c1 {
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -19378,16 +19388,16 @@ exports[`Storyshots Design System/Molecules/LiveRegions log 1`] = `
   flex-direction: column;
 }
 
-.c1 > * {
+.c2 > * {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-.c1 > * + * {
+.c2 > * + * {
   margin-top: 12px;
 }
 
-.c2 {
+.c3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -19399,21 +19409,21 @@ exports[`Storyshots Design System/Molecules/LiveRegions log 1`] = `
   border: 1px solid #dcdce4;
 }
 
-.c2 svg {
+.c3 svg {
   height: 12px;
   width: 12px;
 }
 
-.c2 svg > g,
-.c2 svg path {
+.c3 svg > g,
+.c3 svg path {
   fill: #ffffff;
 }
 
-.c2[aria-disabled='true'] {
+.c3[aria-disabled='true'] {
   pointer-events: none;
 }
 
-.c3 {
+.c4 {
   padding: 8px 16px;
   background: #4945ff;
   border: none;
@@ -19421,7 +19431,7 @@ exports[`Storyshots Design System/Molecules/LiveRegions log 1`] = `
   background: #4945ff;
 }
 
-.c3 .sc-gtsrHT {
+.c4 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -19432,44 +19442,44 @@ exports[`Storyshots Design System/Molecules/LiveRegions log 1`] = `
   align-items: center;
 }
 
-.c3 .c4 {
+.c4 .c5 {
   color: #ffffff;
 }
 
-.c3[aria-disabled='true'] {
+.c4[aria-disabled='true'] {
   border: 1px solid #dcdce4;
   background: #eaeaef;
 }
 
-.c3[aria-disabled='true'] .c4 {
+.c4[aria-disabled='true'] .c5 {
   color: #666687;
 }
 
-.c3[aria-disabled='true'] svg > g,
-.c3[aria-disabled='true'] svg path {
+.c4[aria-disabled='true'] svg > g,
+.c4[aria-disabled='true'] svg path {
   fill: #666687;
 }
 
-.c3[aria-disabled='true']:active {
+.c4[aria-disabled='true']:active {
   border: 1px solid #dcdce4;
   background: #eaeaef;
 }
 
-.c3[aria-disabled='true']:active .c4 {
+.c4[aria-disabled='true']:active .c5 {
   color: #666687;
 }
 
-.c3[aria-disabled='true']:active svg > g,
-.c3[aria-disabled='true']:active svg path {
+.c4[aria-disabled='true']:active svg > g,
+.c4[aria-disabled='true']:active svg path {
   fill: #666687;
 }
 
-.c3:hover {
+.c4:hover {
   border: 1px solid #7b79ff;
   background: #7b79ff;
 }
 
-.c3:active {
+.c4:active {
   border: 1px solid #4945ff;
   background: #4945ff;
 }
@@ -19483,26 +19493,26 @@ exports[`Storyshots Design System/Molecules/LiveRegions log 1`] = `
     </h1>
   </div>
   <div
-    class="c1"
+    class="c1 c2"
   >
     <button
       aria-disabled="false"
-      class="c2 c3"
+      class="c3 c4"
       type="button"
     >
       <span
-        class="c4 c5"
+        class="c5 c6"
       >
         Hide button
       </span>
     </button>
     <button
       aria-disabled="false"
-      class="c2 c3"
+      class="c3 c4"
       type="button"
     >
       <span
-        class="c4 c5"
+        class="c5 c6"
       >
         Toggle 
         log
@@ -19525,14 +19535,14 @@ exports[`Storyshots Design System/Molecules/LiveRegions status 1`] = `
   width: 1px;
 }
 
-.c5 {
+.c6 {
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #32324d;
 }
 
-.c1 {
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -19542,16 +19552,16 @@ exports[`Storyshots Design System/Molecules/LiveRegions status 1`] = `
   flex-direction: column;
 }
 
-.c1 > * {
+.c2 > * {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-.c1 > * + * {
+.c2 > * + * {
   margin-top: 12px;
 }
 
-.c2 {
+.c3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -19563,21 +19573,21 @@ exports[`Storyshots Design System/Molecules/LiveRegions status 1`] = `
   border: 1px solid #dcdce4;
 }
 
-.c2 svg {
+.c3 svg {
   height: 12px;
   width: 12px;
 }
 
-.c2 svg > g,
-.c2 svg path {
+.c3 svg > g,
+.c3 svg path {
   fill: #ffffff;
 }
 
-.c2[aria-disabled='true'] {
+.c3[aria-disabled='true'] {
   pointer-events: none;
 }
 
-.c3 {
+.c4 {
   padding: 8px 16px;
   background: #4945ff;
   border: none;
@@ -19585,7 +19595,7 @@ exports[`Storyshots Design System/Molecules/LiveRegions status 1`] = `
   background: #4945ff;
 }
 
-.c3 .sc-gtsrHT {
+.c4 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -19596,44 +19606,44 @@ exports[`Storyshots Design System/Molecules/LiveRegions status 1`] = `
   align-items: center;
 }
 
-.c3 .c4 {
+.c4 .c5 {
   color: #ffffff;
 }
 
-.c3[aria-disabled='true'] {
+.c4[aria-disabled='true'] {
   border: 1px solid #dcdce4;
   background: #eaeaef;
 }
 
-.c3[aria-disabled='true'] .c4 {
+.c4[aria-disabled='true'] .c5 {
   color: #666687;
 }
 
-.c3[aria-disabled='true'] svg > g,
-.c3[aria-disabled='true'] svg path {
+.c4[aria-disabled='true'] svg > g,
+.c4[aria-disabled='true'] svg path {
   fill: #666687;
 }
 
-.c3[aria-disabled='true']:active {
+.c4[aria-disabled='true']:active {
   border: 1px solid #dcdce4;
   background: #eaeaef;
 }
 
-.c3[aria-disabled='true']:active .c4 {
+.c4[aria-disabled='true']:active .c5 {
   color: #666687;
 }
 
-.c3[aria-disabled='true']:active svg > g,
-.c3[aria-disabled='true']:active svg path {
+.c4[aria-disabled='true']:active svg > g,
+.c4[aria-disabled='true']:active svg path {
   fill: #666687;
 }
 
-.c3:hover {
+.c4:hover {
   border: 1px solid #7b79ff;
   background: #7b79ff;
 }
 
-.c3:active {
+.c4:active {
   border: 1px solid #4945ff;
   background: #4945ff;
 }
@@ -19647,26 +19657,26 @@ exports[`Storyshots Design System/Molecules/LiveRegions status 1`] = `
     </h1>
   </div>
   <div
-    class="c1"
+    class="c1 c2"
   >
     <button
       aria-disabled="false"
-      class="c2 c3"
+      class="c3 c4"
       type="button"
     >
       <span
-        class="c4 c5"
+        class="c5 c6"
       >
         Hide button
       </span>
     </button>
     <button
       aria-disabled="false"
-      class="c2 c3"
+      class="c3 c4"
       type="button"
     >
       <span
-        class="c4 c5"
+        class="c5 c6"
       >
         Toggle 
         status
