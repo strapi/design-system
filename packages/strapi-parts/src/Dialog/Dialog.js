@@ -8,6 +8,7 @@ import useLockScroll from '../helpers/useLockScroll';
 import { Portal } from '../Portal';
 import { Row } from '../Row';
 import { H2 } from '../Text';
+import { useId } from '../helpers/useId';
 
 const DialogWrapper = styled.div`
   position: absolute;
@@ -28,12 +29,16 @@ const DialogHeader = styled(Row)`
   border-bottom: 1px solid ${({ theme }) => theme.colors.neutral150};
 `;
 
-export const Dialog = ({ onClose, labelledBy, title, describedBy, isOpen, ...props }) => {
+export const Dialog = ({ onClose, title, as, isOpen, id, ...props }) => {
+  const generatedId = useId('dialog', id);
+
   useLockScroll(isOpen);
 
   if (!isOpen) {
     return null;
   }
+
+  const labelledBy = `${generatedId}-label`;
 
   return (
     <Portal>
@@ -41,7 +46,6 @@ export const Dialog = ({ onClose, labelledBy, title, describedBy, isOpen, ...pro
         <FocusTrap onEscape={onClose}>
           <DialogContainer
             aria-labelledby={labelledBy}
-            aria-describedby={describedBy}
             aria-modal={true}
             background="neutral0"
             hasRadius
@@ -49,7 +53,9 @@ export const Dialog = ({ onClose, labelledBy, title, describedBy, isOpen, ...pro
             role="dialog"
           >
             <DialogHeader padding={6} justifyContent="center">
-              <H2 id={labelledBy}>{title}</H2>
+              <H2 as={as} id={labelledBy}>
+                {title}
+              </H2>
             </DialogHeader>
             <Box {...props} />
           </DialogContainer>
@@ -61,10 +67,15 @@ export const Dialog = ({ onClose, labelledBy, title, describedBy, isOpen, ...pro
 
 Dialog.displayName = 'Dialog';
 
+Dialog.defaultProps = {
+  as: 'h2',
+  id: undefined,
+};
+
 Dialog.propTypes = {
-  describedBy: PropTypes.string.isRequired,
+  as: PropTypes.string,
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   isOpen: PropTypes.bool.isRequired,
-  labelledBy: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
 };
