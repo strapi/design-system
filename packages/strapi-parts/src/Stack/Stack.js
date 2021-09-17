@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { Box } from '../Box';
 
 /**
  * Prevents these attributes from being spread on the DOM node
@@ -9,11 +10,12 @@ const transientProps = {
   size: true,
 };
 
-const StackV = styled.div.withConfig({
+const StackV = styled(Box).withConfig({
   shouldForwardProp: (prop, defPropValFN) => !transientProps[prop] && defPropValFN(prop),
 })`
   display: flex;
   flex-direction: column;
+
   & > * {
     margin-top: 0;
     margin-bottom: 0;
@@ -24,7 +26,7 @@ const StackV = styled.div.withConfig({
   }
 `;
 
-const StackH = styled.div.withConfig({
+const StackH = styled(Box).withConfig({
   shouldForwardProp: (prop, defPropValFN) => !transientProps[prop] && defPropValFN(prop),
 })`
   display: flex;

@@ -75,7 +75,7 @@ export const BaseHeaderLayout = React.forwardRef(
         >
           <Row justifyContent="space-between">
             <Row>
-              <Box paddingRight={3}>{navigationAction}</Box>
+              {navigationAction && <Box paddingRight={3}>{navigationAction}</Box>}
               <Box>
                 <H2 as="h1" {...props}>
                   {title}

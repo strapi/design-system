@@ -60,13 +60,7 @@ Description...
           <Box padding={10} background="neutral0">
             test overflow
           </Box>
-          <Dialog
-            onClose={() => setIsVisible(false)}
-            title="Confirmation"
-            labelledBy="confirmation"
-            describedBy="confirm-description"
-            isOpen={isVisible}
-          >
+          <Dialog onClose={() => setIsVisible(false)} title="Confirmation" isOpen={isVisible}>
             <DialogBody icon={<AlertWarningIcon />}>
               <Stack size={2}>
                 <Row justifyContent="center">
@@ -92,7 +86,6 @@ Description...
     }}
   </Story>
 </Canvas>
-
 
 ## Props
 

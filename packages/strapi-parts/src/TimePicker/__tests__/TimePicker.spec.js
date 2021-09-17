@@ -358,6 +358,7 @@ describe('TimePicker', () => {
                     aria-hidden="true"
                     class="c7 c11 c12"
                     tabindex="-1"
+                    type="button"
                   >
                     <svg
                       fill="none"
