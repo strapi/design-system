@@ -2224,6 +2224,13 @@ exports[`Storyshots Design System/Atoms/Text base 1`] = `
   text-overflow: ellipsis;
 }
 
+.c12 {
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: #4945ff;
+  text-transform: uppercase;
+}
+
 .c3 {
   font-weight: 600;
   font-size: 1.125rem;
@@ -2354,6 +2361,11 @@ exports[`Storyshots Design System/Atoms/Text base 1`] = `
       This is a very long text, lorem ipsum dolor sit amet
     </span>
   </div>
+  <span
+    class="c12"
+  >
+    Fully customized Typography
+  </span>
 </main>
 `;
 

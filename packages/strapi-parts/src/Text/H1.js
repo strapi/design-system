@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import { ellipsisStyle, handleColor } from './utils';
 
 const StyledH1 = styled.h1`
-  font-weight: 600;
-  font-size: ${32 / 16}rem;
-  line-height: 1.25;
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
+  font-size: ${({ theme }) => theme.fontSizes[5]};
+  line-height: ${({ theme }) => theme.lineHeights[2]};
   color: ${handleColor};
   ${ellipsisStyle}
 `;
