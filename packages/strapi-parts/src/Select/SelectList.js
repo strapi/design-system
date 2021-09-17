@@ -56,18 +56,18 @@ export const SelectList = ({ labelledBy, onSelectItem, children, multi, onEscape
       case KeyboardKeys.ENTER: {
         e.preventDefault();
 
-        if (multi) {
-          const currentOption = getActiveDescendant(listRef.current);
+        const currentOption = getActiveDescendant(listRef.current);
 
-          if (currentOption.getAttribute('data-opt-group')) {
-            onSelectItem(
-              currentOption.getAttribute('data-opt-group-children').split(','),
-              currentOption.getAttribute('data-opt-group'),
-            );
-          } else {
-            onSelectItem(currentOption.getAttribute('data-strapi-value'));
-          }
+        if (currentOption.getAttribute('data-opt-group')) {
+          onSelectItem(
+            currentOption.getAttribute('data-opt-group-children').split(','),
+            currentOption.getAttribute('data-opt-group'),
+          );
         } else {
+          onSelectItem(currentOption.getAttribute('data-strapi-value'));
+        }
+
+        if (!multi) {
           onEscape();
         }
 
