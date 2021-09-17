@@ -7,7 +7,7 @@ import { useListRef } from './hooks/useListRef';
 import { DownState, UpState } from './constants';
 
 export const SelectList = ({ labelledBy, onSelectItem, children, multi, onEscape, expanded }) => {
-  const listRef = useListRef(expanded, onSelectItem, multi);
+  const listRef = useListRef(expanded);
 
   const handleKeyDown = (e) => {
     switch (e.key) {
@@ -25,19 +25,11 @@ export const SelectList = ({ labelledBy, onSelectItem, children, multi, onEscape
 
         if (nextOption) {
           changeDescendant(listRef.current, nextOption);
-
-          if (!multi) {
-            onSelectItem(nextOption.getAttribute('data-strapi-value'));
-          }
         } else {
           const options = listRef.current.querySelectorAll('[role="option"]');
           const firstOption = options[0];
 
           changeDescendant(listRef.current, firstOption);
-
-          if (!multi) {
-            onSelectItem(firstOption.getAttribute('data-strapi-value'));
-          }
         }
         break;
       }
@@ -51,19 +43,11 @@ export const SelectList = ({ labelledBy, onSelectItem, children, multi, onEscape
 
         if (previousOption) {
           changeDescendant(listRef.current, previousOption);
-
-          if (!multi) {
-            onSelectItem(previousOption.getAttribute('data-strapi-value'));
-          }
         } else {
           const options = listRef.current.querySelectorAll('[role="option"]');
           const lastOption = options[options.length - 1];
 
           changeDescendant(listRef.current, lastOption);
-
-          if (!multi) {
-            onSelectItem(lastOption.getAttribute('data-strapi-value'));
-          }
         }
         break;
       }
@@ -72,18 +56,18 @@ export const SelectList = ({ labelledBy, onSelectItem, children, multi, onEscape
       case KeyboardKeys.ENTER: {
         e.preventDefault();
 
-        if (multi) {
-          const currentOption = getActiveDescendant(listRef.current);
+        const currentOption = getActiveDescendant(listRef.current);
 
-          if (currentOption.getAttribute('data-opt-group')) {
-            onSelectItem(
-              currentOption.getAttribute('data-opt-group-children').split(','),
-              currentOption.getAttribute('data-opt-group'),
-            );
-          } else {
-            onSelectItem(currentOption.getAttribute('data-strapi-value'));
-          }
+        if (currentOption.getAttribute('data-opt-group')) {
+          onSelectItem(
+            currentOption.getAttribute('data-opt-group-children').split(','),
+            currentOption.getAttribute('data-opt-group'),
+          );
         } else {
+          onSelectItem(currentOption.getAttribute('data-strapi-value'));
+        }
+
+        if (!multi) {
           onEscape();
         }
 
