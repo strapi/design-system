@@ -8357,6 +8357,17 @@ exports[`Storyshots Design System/Layouts/ModalLayout base 1`] = `
   background: #4945ff;
 }
 
+.c2 .sc-gtsrHT {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
 .c2 .c3 {
   color: #ffffff;
 }
@@ -10726,6 +10737,17 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   background: #4945ff;
 }
 
+.c3 .sc-gtsrHT {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
 .c3 .c4 {
   color: #ffffff;
 }
@@ -10774,6 +10796,17 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   border: none;
   border: 1px solid #d9d8ff;
   background: #f0f0ff;
+}
+
+.c6 .sc-gtsrHT {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .c6 .c4 {
@@ -10843,6 +10876,17 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   background: #ffffff;
 }
 
+.c7 .sc-gtsrHT {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
 .c7 .c4 {
   color: #ffffff;
 }
@@ -10900,6 +10944,17 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   background: #328048;
 }
 
+.c8 .sc-gtsrHT {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
 .c8 .c4 {
   color: #ffffff;
 }
@@ -10950,6 +11005,17 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   background: #d02b20;
 }
 
+.c9 .sc-gtsrHT {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
 .c9 .c4 {
   color: #ffffff;
 }
@@ -10998,6 +11064,17 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   border: none;
   border: 1px solid #c6f0c2;
   background: #eafbe7;
+}
+
+.c10 .sc-gtsrHT {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .c10 .c4 {
@@ -11065,6 +11142,17 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
   border: none;
   border: 1px solid #f5c0b8;
   background: #fcecea;
+}
+
+.c11 .sc-gtsrHT {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .c11 .c4 {
@@ -19169,6 +19257,17 @@ exports[`Storyshots Design System/Molecules/LiveRegions alert 1`] = `
   background: #4945ff;
 }
 
+.c3 .sc-gtsrHT {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
 .c3 .c4 {
   color: #ffffff;
 }
@@ -19322,6 +19421,17 @@ exports[`Storyshots Design System/Molecules/LiveRegions log 1`] = `
   background: #4945ff;
 }
 
+.c3 .sc-gtsrHT {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
 .c3 .c4 {
   color: #ffffff;
 }
@@ -19473,6 +19583,17 @@ exports[`Storyshots Design System/Molecules/LiveRegions status 1`] = `
   border: none;
   border: 1px solid #4945ff;
   background: #4945ff;
+}
+
+.c3 .sc-gtsrHT {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .c3 .c4 {
@@ -30794,7 +30915,7 @@ exports[`Storyshots Design System/Organisms/SubNav base 1`] = `
                   </div>
                 </div>
                 <div
-                  class="c1 sc-gsTEea c42"
+                  class="c1 sc-gtsrHT c42"
                 >
                   <svg
                     class="c43"
@@ -31091,7 +31212,7 @@ exports[`Storyshots Design System/Organisms/SubNav base 1`] = `
                   </div>
                 </div>
                 <div
-                  class="c1 sc-gsTEea c42"
+                  class="c1 sc-gtsrHT c42"
                 >
                   <svg
                     class="c43"
