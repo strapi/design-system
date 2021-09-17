@@ -21,6 +21,10 @@ const LoadingWrapper = styled.div`
   animation: ${rotation} 2s infinite linear;
 `;
 
+const BoxFullHeight = styled(Box)`
+  height: 100%;
+`;
+
 // TODO: Check the L size button with Maeva
 export const ButtonWrapper = styled(BaseButton)`
   padding: ${({ theme, size }) => `${size === 'S' ? theme.spaces[2] : '10px'} ${theme.spaces[4]}`};
@@ -78,7 +82,7 @@ export const Button = React.forwardRef(
         {...props}
       >
         {(startIcon || loading) && (
-          <Box aria-hidden={true} paddingRight={2}>
+          <BoxFullHeight aria-hidden={true} paddingRight={2}>
             {loading ? (
               <LoadingWrapper>
                 <LoadingIcon />
@@ -86,7 +90,7 @@ export const Button = React.forwardRef(
             ) : (
               startIcon
             )}
-          </Box>
+          </BoxFullHeight>
         )}
 
         {size === 'S' ? (
