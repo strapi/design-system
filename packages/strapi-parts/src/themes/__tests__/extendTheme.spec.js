@@ -29,6 +29,9 @@ describe('extendTheme', () => {
       spaces: /* put the overrides for the spaces key */,
       borderRadius: /* put the overrides for the borderRadius key */,
       mediaQueries: /* put the overrides for the mediaQueries key */,
+      fontSizes: /* put the overrides for the fontSizes key */,
+      lineHeights: /* put the overrides for the lineHeights key */,
+      fontWeights: /* put the overrides for the fontWeights key */,
       })
       "
     `);
@@ -59,6 +62,9 @@ describe('extendTheme', () => {
       spaces: /* put the overrides for the spaces key */,
       borderRadius: /* put the overrides for the borderRadius key */,
       mediaQueries: /* put the overrides for the mediaQueries key */,
+      fontSizes: /* put the overrides for the fontSizes key */,
+      lineHeights: /* put the overrides for the lineHeights key */,
+      fontWeights: /* put the overrides for the fontWeights key */,
       })
       "
     `);
