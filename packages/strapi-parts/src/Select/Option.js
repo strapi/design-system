@@ -64,7 +64,7 @@ const OptionBox = styled(Box)`
   }
 `;
 
-export const Option = ({ selected, indeterminate, children, value, multi, isChild, ...props }) => {
+export const Option = ({ selected, indeterminate, children, value, multi, isChild, startIcon, ...props }) => {
   const optionRef = useRef(null);
 
   return (
@@ -83,6 +83,12 @@ export const Option = ({ selected, indeterminate, children, value, multi, isChil
       {...props}
     >
       <Row>
+        {startIcon && (
+          <Box paddingRight={2} aria-hidden>
+            {startIcon}
+          </Box>
+        )}
+
         {multi && (
           <Box paddingRight={2} aria-hidden>
             <CheckMark selected={selected} indeterminate={indeterminate} />
@@ -100,6 +106,7 @@ Option.defaultProps = {
   isChild: false,
   multi: false,
   selected: false,
+  startIcon: undefined,
   indeterminate: false,
 };
 
@@ -109,6 +116,7 @@ Option.propTypes = {
   isChild: PropTypes.bool,
   multi: PropTypes.bool,
   selected: PropTypes.bool,
+  startIcon: PropTypes.node,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 };
 

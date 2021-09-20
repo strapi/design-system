@@ -68,7 +68,12 @@ The default Select.
             disabled={disabled}
             startIcon={<AddIcon />}
           >
-            <Option value={'pizza'}>Pizza</Option>
+            <Option
+              value={'pizza'}
+              startIcon={<div style={{ height: '6px', borderRadius: '50%', width: '6px', background: 'red' }} />}
+            >
+              Pizza
+            </Option>
             <Option value={'hamburger'}>Hamburger</Option>
             <Option value={'bagel'}>Bagel</Option>
           </Select>
