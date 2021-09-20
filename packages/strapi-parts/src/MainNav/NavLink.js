@@ -10,7 +10,10 @@ import { Tooltip } from '../Tooltip';
 import { Badge } from '../Badge';
 
 const IconBox = styled(Box)`
-  height: 1rem;
+  svg {
+    width: 1rem;
+    height: 1rem;
+  }
 `;
 
 // TODO: make sure to use the Link component associated with the router we want to use
