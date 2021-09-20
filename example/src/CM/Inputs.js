@@ -139,6 +139,7 @@ const Inputs = ({
           placeholder='Add a title'
           options={options}
           value={value}
+          error='This is a required field'
         />
       )
     }
