@@ -374,7 +374,7 @@ describe("Wysiwyg expand mode", () => {
 });
 
 describe("Wysiwyg error state", () => {
-  it('should show error message', async () => {
+  it("should show error message", async () => {
     let returnedValue;
 
     const onChange = jest.fn((val) => {
@@ -383,11 +383,16 @@ describe("Wysiwyg error state", () => {
 
     const { container, getByText } = render(
       <ThemeProvider theme={lightTheme}>
-        <Wysiwyg label="hello world" placeholder="" onChange={onChange} error='This is a required field' />
+        <Wysiwyg
+          label="hello world"
+          placeholder=""
+          onChange={onChange}
+          error="This is a required field"
+        />
       </ThemeProvider>
     );
 
     await waitFor(() => container.querySelector(".CodeMirror-cursor"));
-    expect(getByText('This is a required field')).toBeInTheDocument();
-  })
+    expect(getByText("This is a required field")).toBeInTheDocument();
+  });
 });

@@ -70,7 +70,8 @@ const Editor = ({
 Editor.defaultProps = {
   onChange: () => {},
   isPreviewMode: false,
-  value: ''
+  value: '',
+  error: undefined
 };
 
 Editor.propTypes = {
@@ -78,7 +79,8 @@ Editor.propTypes = {
   textareaRef: PropTypes.shape({ current: PropTypes.any }).isRequired,
   editorRef: PropTypes.shape({ current: PropTypes.any }).isRequired,
   isPreviewMode: PropTypes.bool,
-  value: PropTypes.string
+  value: PropTypes.string,
+  error: PropTypes.string
 };
 
 export default Editor;
