@@ -6,7 +6,7 @@ import { Portal } from '../Portal';
 import { useIntersection } from '../helpers/useIntersection';
 import { useResizeObserver } from '../helpers/useResizeObserver';
 
-export const position = (source, popover, fullWidth, centered, spacing) => {
+export const position = (source, popover, fullWidth, centered, spacing = 0) => {
   const rect = source.getBoundingClientRect();
   let top = rect.top + rect.height + window.pageYOffset + spacing;
   let left = rect.left + window.pageXOffset;
