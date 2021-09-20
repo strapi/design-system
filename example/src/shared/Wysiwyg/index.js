@@ -96,6 +96,7 @@ const Wysiwyg = ({ label, placeholder, onChange, value, error }) => {
           editorRef={editorRef}
           isPreviewMode={isPreviewMode}
           value={value}
+          error={error}
         />
         <WysiwygFooter 
           isPreviewMode={isPreviewMode}

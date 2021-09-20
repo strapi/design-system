@@ -12,7 +12,8 @@ const Editor = ({
     textareaRef,
     editorRef,
     isPreviewMode,
-    value
+    value,
+    error
   }) => {
 
   const initialValueRef = useRef(value);
@@ -44,6 +45,15 @@ const Editor = ({
       editorRef.current.setOption('readOnly', false);
     }
   }, [isPreviewMode, editorRef])
+
+  useEffect(() => {
+    if(error) {
+      editorRef.current.setOption('screenReaderLabel', error);
+    } else {
+      // to replace with translation
+      editorRef.current.setOption('screenReaderLabel', 'Editor');
+    }
+  }, [error]);
 
   return (
     <EditorAndPreviewWrapper>
