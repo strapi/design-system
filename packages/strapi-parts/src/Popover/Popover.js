@@ -6,9 +6,9 @@ import { Portal } from '../Portal';
 import { useIntersection } from '../helpers/useIntersection';
 import { useResizeObserver } from '../helpers/useResizeObserver';
 
-export const position = (source, popover, fullWidth, centered) => {
+export const position = (source, popover, fullWidth, centered, spacing = 0) => {
   const rect = source.getBoundingClientRect();
-  let top = rect.top + rect.height + window.pageYOffset;
+  let top = rect.top + rect.height + window.pageYOffset + spacing;
   let left = rect.left + window.pageXOffset;
 
   if (!popover) {
@@ -36,6 +36,12 @@ export const position = (source, popover, fullWidth, centered) => {
     left = window.innerWidth - popoverRect.width - 20;
   }
 
+  const windowSizeAtPosition = window.innerHeight + window.pageYOffset;
+
+  if (top + popoverRect.height + spacing > windowSizeAtPosition) {
+    top = window.pageYOffset + rect.top - popoverRect.height - rect.height - spacing;
+  }
+
   return {
     left,
     top,
@@ -49,7 +55,6 @@ const PopoverWrapper = styled(Box)`
   z-index: 3;
   border: 1px solid ${({ theme }) => theme.colors.neutral150};
   background: ${({ theme }) => theme.colors.neutral0};
-  margin-top: ${({ theme, spacingTop }) => theme.spaces[spacingTop]};
 `;
 
 const PopoverScrollable = styled(Box)`
@@ -74,22 +79,15 @@ const PopoverScrollable = styled(Box)`
   }
 `;
 
-const PopoverContent = ({
-  source,
-  children,
-  spacingTop,
-  fullWidth,
-  onReachEnd,
-  intersectionId,
-  centered,
-  ...props
-}) => {
+const PopoverContent = ({ source, children, spacing, fullWidth, onReachEnd, intersectionId, centered, ...props }) => {
   const popoverRef = useRef(null);
   const [{ left, top, width }, setPosition] = useState(
-    position(source.current, popoverRef.current, fullWidth, centered),
+    position(source.current, popoverRef.current, fullWidth, centered, spacing),
   );
 
-  useResizeObserver(source, () => setPosition(position(source.current, popoverRef.current, fullWidth, centered)));
+  useResizeObserver(source, () =>
+    setPosition(position(source.current, popoverRef.current, fullWidth, centered, spacing)),
+  );
   useIntersection(popoverRef, onReachEnd, {
     selectorToWatch: `#${intersectionId}`,
     skipWhen: !intersectionId || !onReachEnd,
@@ -102,7 +100,7 @@ const PopoverContent = ({
   };
 
   return (
-    <PopoverWrapper style={style} hasRadius background="neutral0" padding={1} spacingTop={spacingTop}>
+    <PopoverWrapper style={style} hasRadius background="neutral0" padding={1}>
       <PopoverScrollable ref={popoverRef} {...props}>
         {children}
         {intersectionId && onReachEnd && <div id={intersectionId} />}
@@ -133,5 +131,5 @@ PopoverContent.propTypes = {
   intersectionId: PropTypes.string,
   onReachEnd: PropTypes.func,
   source: PropTypes.shape({ current: PropTypes.instanceOf(Element) }).isRequired,
-  spacingTop: PropTypes.number,
+  spacing: PropTypes.number,
 };

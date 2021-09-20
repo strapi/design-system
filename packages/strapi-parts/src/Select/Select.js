@@ -224,7 +224,7 @@ export const Select = ({
       {expanded && (
         <Popover
           source={containerRef}
-          spacingTop={1}
+          spacing={4}
           fullWidth
           intersectionId={`select-list-intersection-${generatedId}`}
           onReachEnd={onReachEnd}

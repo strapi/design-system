@@ -20558,24 +20558,6 @@ exports[`Storyshots Design System/Molecules/Popover overflow-right 1`] = `
   width: 1px;
 }
 
-.c1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
 <main>
   <div
     class="c0"
@@ -20585,12 +20567,16 @@ exports[`Storyshots Design System/Molecules/Popover overflow-right 1`] = `
     </h1>
   </div>
   <div
-    class="c1"
+    style="height: 200vh;"
   >
-    <div>
-      <button>
-        Open popover
-      </button>
+    <div
+      style="position: absolute; bottom: 0px; right: 0px;"
+    >
+      <div>
+        <button>
+          Open popover
+        </button>
+      </div>
     </div>
   </div>
 </main>
