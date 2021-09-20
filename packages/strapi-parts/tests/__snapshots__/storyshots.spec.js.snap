@@ -28693,17 +28693,13 @@ exports[`Storyshots Design System/Organisms/MainNav base 1`] = `
   top: 0;
   height: 100vh;
   z-index: 2;
+  border-right: 1px solid #eaeaef;
 }
 
 .c29 {
   background: #ffffff;
   border: 1px solid #eaeaef;
   border-radius: 4px;
-  padding: 8px 4px;
-  margin: 0;
-  width: -webkit-min-content;
-  width: -moz-min-content;
-  width: min-content;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -28712,13 +28708,25 @@ exports[`Storyshots Design System/Organisms/MainNav base 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   position: absolute;
-  bottom: 8px;
+  bottom: 0.8125rem;
   right: 20px;
   z-index: 2;
+  width: 1.125rem;
+  height: 1.5625rem;
 }
 
-.c20 {
+.c29 svg {
+  width: 0.375rem;
+  height: 0.5625rem;
+}
+
+.c20 svg {
+  width: 1rem;
   height: 1rem;
 }
 
@@ -29435,17 +29443,13 @@ exports[`Storyshots Design System/Organisms/MainNav notifications 1`] = `
   top: 0;
   height: 100vh;
   z-index: 2;
+  border-right: 1px solid #eaeaef;
 }
 
 .c32 {
   background: #ffffff;
   border: 1px solid #eaeaef;
   border-radius: 4px;
-  padding: 8px 4px;
-  margin: 0;
-  width: -webkit-min-content;
-  width: -moz-min-content;
-  width: min-content;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -29454,13 +29458,25 @@ exports[`Storyshots Design System/Organisms/MainNav notifications 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   position: absolute;
-  bottom: 8px;
+  bottom: 0.8125rem;
   right: 20px;
   z-index: 2;
+  width: 1.125rem;
+  height: 1.5625rem;
 }
 
-.c20 {
+.c32 svg {
+  width: 0.375rem;
+  height: 0.5625rem;
+}
+
+.c20 svg {
+  width: 1rem;
   height: 1rem;
 }
 

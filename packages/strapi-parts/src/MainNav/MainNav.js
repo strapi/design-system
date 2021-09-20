@@ -11,6 +11,7 @@ const MainNavWrapper = styled(Grid)`
   top: 0;
   height: 100vh;
   z-index: 2;
+  border-right: 1px solid ${({ theme }) => theme.colors.neutral150};
 `;
 
 export const MainNav = ({ condensed, ...props }) => {
