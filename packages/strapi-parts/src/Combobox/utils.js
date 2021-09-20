@@ -29,11 +29,8 @@ export const TreeActions = {
 
 // filter an array of options against an input string
 // returns an array of options that begin with the filter string, case-independent
-export function filterOptions(options = [], filter, exclude = []) {
-  return options.filter((option) => {
-    const matches = option.props.children.toLowerCase().indexOf(filter.toLowerCase()) === 0;
-    return matches && exclude.indexOf(option) < 0;
-  });
+export function filterOptions(options = [], filter) {
+  return options.filter((option) => option.props.children.toLowerCase().includes(filter.toLowerCase()));
 }
 
 // return an array of exact option name matches from a comma-separated string

@@ -27,6 +27,7 @@ export const MainRow = styled(Row)`
 
 export const Input = styled.input`
   min-height: ${40 / 16}rem;
+  min-width: 0;
   border: none;
   flex: 1;
   font-size: ${14 / 16}rem;

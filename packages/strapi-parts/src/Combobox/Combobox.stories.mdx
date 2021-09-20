@@ -2,7 +2,7 @@
 
 import { useState, useRef } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
-import { Combobox, CreatableCombobox } from './Combobox';
+import { Combobox, CreatableCombobox, AsyncCombobox } from './Combobox';
 import { ComboboxOption } from './ComboboxOption'
 
 <Meta title="Design System/Molecules/Combobox" component={Combobox} />
@@ -139,29 +139,12 @@ This is the doc of the `Combobox` component
   </Story>
 </Canvas>
 
-# Loading
-
-<Canvas>
-  <Story name="loading">
-    {() => {
-      return  (
-        <Combobox
-          label="Food"
-          loading
-          value=''
-          onChange={() => {}}>
-        </Combobox>
-      );
-    }}
-  </Story>
-</Canvas>
-
-# Infinite scroll
+# Async loading + ∞ scrolling
 
 This is the doc of the `Combobox` component
 
 <Canvas>
-  <Story name="infinite-scroll">
+  <Story name="async-loading">
     {() => {
       const [value, setValue] = useState('');
       const defaultOptions = [
@@ -204,36 +187,49 @@ This is the doc of the `Combobox` component
       ];
       const [options, setOptions] = useState(defaultOptions);
       const i = useRef(0)
-      const [isLoading, setIsLoading] = useState(false);
       const [hasMoreItems, setHasMoreItems] = useState(true)
+      const onSearchOption = (inputValue) => {
+        if (!inputValue) {
+          return new Promise(resolve => {
+            setTimeout(() => {
+              setOptions(defaultOptions)
+              resolve()
+            }, 700)
+          })
+        }
+        return new Promise(resolve => {
+          setTimeout(() => {
+            setOptions(defaultOptions.filter(v => v.name.toLowerCase().includes(inputValue.toLowerCase())))
+            resolve()
+          }, 700)
+        })
+      }
       const loadMore = () => {
-        setIsLoading(true);
         return new Promise((resolve) => {
           setTimeout(() => {
-            resolve();
             setOptions(opts => [...opts, ...defaultOptions.map(v => ({ name: v.name + i.current, value: v.value + i.current}))])
-            setIsLoading(false);
             if (i.current === 2) {
               setHasMoreItems(false);
             }
             i.current++;
+            resolve();
           }, 2000);
         });
       }
       return (
-        <Combobox
+        <AsyncCombobox
           label="Food"
           value={value}
           onChange={setValue}
           hasMoreItems={hasMoreItems}
-          loading={isLoading}
           onLoadMore={loadMore}
+          onSearchOption={onSearchOption}
         >
           {
             options.map(({ name, value }) => 
               <ComboboxOption key={value} value={value}>{name}</ComboboxOption>)
           }
-        </Combobox>
+        </AsyncCombobox>
       );
     }}
   </Story>

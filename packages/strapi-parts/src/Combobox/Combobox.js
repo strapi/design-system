@@ -14,7 +14,7 @@ import { Input, MainRow, OptionBox } from './components';
 import { Field, FieldError, FieldHint, FieldLabel } from '../Field';
 import { Stack } from '../Stack';
 
-export const Combobox = ({
+export const BaseCombobox = ({
   createMessage,
   disabled,
   hint,
@@ -27,9 +27,11 @@ export const Combobox = ({
   loading,
   loadingMessage,
   onCreateOption,
+  onSearchOption,
   onLoadMore,
   noOptionsMessage,
   hasMoreItems,
+  resetSearchOnSelection,
   children: nodes,
   ...props
 }) => {
@@ -43,6 +45,10 @@ export const Combobox = ({
     setFilteredNodes(filterOptions(nodes, inputValue));
   }, [inputValue, nodes]);
 
+  useEffect(() => {
+    onSearchOption?.(inputValue);
+  }, [inputValue]);
+
   const firstUpdate = useRef(true);
   useLayoutEffect(() => {
     if (firstUpdate.current) {
@@ -53,7 +59,7 @@ export const Combobox = ({
     const index = filteredNodes.findIndex((node) => node.props.value === value);
     if (index !== -1) {
       const selected = filteredNodes[index];
-      setInputValue(selected.props.children);
+      setInputValue(resetSearchOnSelection ? '' : selected.props.children);
       setActiveIndex(0);
       setSelectedIndex(0);
       setFilteredNodes(filterOptions(nodes, inputValue));
@@ -260,10 +266,21 @@ export const Combobox = ({
   );
 };
 
-export const CreatableCombobox = (props) => <Combobox {...props} creatable />;
+const commonPropTypes = {
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+  disabled: PropTypes.bool,
+  error: PropTypes.string,
+  hint: PropTypes.string,
+  label: PropTypes.string.isRequired,
+  noOptionsMessage: PropTypes.func,
+  onChange: PropTypes.func.isRequired,
+  placeholder: PropTypes.string,
+  value: PropTypes.string.isRequired,
+};
 
-Combobox.defaultProps = CreatableCombobox.defaultProps = {
+BaseCombobox.defaultProps = {
   createMessage: (value) => `Create "${value}"`,
+  onSearchOption: undefined,
   disabled: false,
   hint: undefined,
   error: undefined,
@@ -275,28 +292,69 @@ Combobox.defaultProps = CreatableCombobox.defaultProps = {
   onCreateOption: undefined,
   onLoadMore: undefined,
   placeholder: 'Select or enter a value',
+  resetSearchOnSelection: false,
+};
+
+BaseCombobox.propTypes = {
+  ...commonPropTypes,
+  creatable: PropTypes.bool,
+  createMessage: PropTypes.func,
+  hasMoreItems: PropTypes.bool,
+  loading: PropTypes.bool,
+  loadingMessage: PropTypes.string,
+  onCreateOption: PropTypes.func,
+  onLoadMore: PropTypes.func,
+  onSearchOption: PropTypes.func,
+  resetSearchOnSelection: PropTypes.bool,
+};
+
+export const Combobox = BaseCombobox;
+
+Combobox.defaultProps = {
+  ...BaseCombobox.defaultProps,
 };
 
 Combobox.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-  creatable: PropTypes.bool,
-  createMessage: PropTypes.func,
-  disabled: PropTypes.bool,
-  error: PropTypes.string,
-  hasMoreItems: PropTypes.bool,
-  hint: PropTypes.string,
-  label: PropTypes.string.isRequired,
-  loading: PropTypes.bool,
-  loadingMessage: PropTypes.string,
-  noOptionsMessage: PropTypes.func,
-  onChange: PropTypes.func.isRequired,
-  onCreateOption: PropTypes.func,
-  onLoadMore: PropTypes.func,
-  placeholder: PropTypes.string,
-  value: PropTypes.string.isRequired,
+  ...commonPropTypes,
+};
+
+export const CreatableCombobox = (props) => <BaseCombobox {...props} creatable />;
+
+CreatableCombobox.defaultProps = {
+  ...Combobox.defaultProps,
 };
 
 CreatableCombobox.propTypes = {
-  ...Combobox.propTypes,
+  ...commonPropTypes,
+  creatable: PropTypes.bool,
+  createMessage: PropTypes.func,
   onCreateOption: PropTypes.func.isRequired,
+};
+
+export const AsyncCombobox = (props) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const onLoadMore = async () => {
+    setIsLoading(true);
+    await props.onLoadMore();
+    setIsLoading(false);
+  };
+
+  const onSearchOption = async (val) => {
+    setIsLoading(true);
+    await props.onSearchOption(val);
+    setIsLoading(false);
+  };
+
+  return <Combobox {...props} loading={isLoading} onLoadMore={onLoadMore} onSearchOption={onSearchOption} />;
+};
+
+AsyncCombobox.defaultProps = {
+  ...Combobox.defaultProps,
+};
+
+AsyncCombobox.propTypes = {
+  ...commonPropTypes,
+  onLoadMore: PropTypes.func.isRequired,
+  onSearchOption: PropTypes.func.isRequired,
+  resetSearchOnSelection: PropTypes.bool,
 };
