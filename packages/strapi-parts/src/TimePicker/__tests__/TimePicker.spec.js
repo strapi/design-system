@@ -132,7 +132,6 @@ describe('TimePicker', () => {
         z-index: 3;
         border: 1px solid #eaeaef;
         background: #ffffff;
-        margin-top: 4px;
       }
 
       .c17 {
@@ -413,7 +412,7 @@ describe('TimePicker', () => {
         >
           <div
             class="c15 c16"
-            style="left: 0px; top: 0px;"
+            style="left: 0px; top: 4px;"
           >
             <div
               class="c17"

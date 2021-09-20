@@ -167,7 +167,7 @@ export const SimpleMenu = ({ label, children, id, ...props }) => {
         <FilterDropdown aria-hidden />
       </MenuButton>
       {visible && (
-        <Popover onBlur={handleBlur} source={menuButtonRef} spacingTop={1}>
+        <Popover onBlur={handleBlur} source={menuButtonRef} spacing={4}>
           <Box role="menu" as="ul" padding={1} id={menuId}>
             {childrenClone}
           </Box>
