@@ -37,7 +37,7 @@ export const DatePickerCalendar = ({ selectedDate, initialDate, popoverSource, o
   };
 
   return (
-    <DatePickerPopover source={popoverSource} role="dialog" aria-modal="true" aria-label={label} spacingTop={1}>
+    <DatePickerPopover source={popoverSource} role="dialog" aria-modal="true" aria-label={label} spacing={16}>
       <FocusTrap onEscape={() => setVisible(false)}>
         <Box padding={4}>
           <Box paddingBottom={4} paddingLeft={2} paddingRight={2}>

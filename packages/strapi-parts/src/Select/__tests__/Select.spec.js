@@ -137,7 +137,6 @@ describe('Select', () => {
         z-index: 3;
         border: 1px solid #eaeaef;
         background: #ffffff;
-        margin-top: 4px;
       }
 
       .c16 {
@@ -365,7 +364,7 @@ describe('Select', () => {
         >
           <div
             class="c14 c15"
-            style="left: 0px; top: 0px;"
+            style="left: 0px; top: 4px;"
           >
             <div
               class="c16"
@@ -785,7 +784,6 @@ describe('Select', () => {
         z-index: 3;
         border: 1px solid #eaeaef;
         background: #ffffff;
-        margin-top: 4px;
       }
 
       .c2 {
@@ -878,7 +876,7 @@ describe('Select', () => {
         >
           <div
             class="c0 c1"
-            style="left: 0px; top: 0px;"
+            style="left: 0px; top: 4px;"
           >
             <div
               class="c2"

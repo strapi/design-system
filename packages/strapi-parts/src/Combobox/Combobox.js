@@ -220,7 +220,7 @@ export const Combobox = ({
       {open && (
         <Popover
           source={containerRef}
-          spacingTop={1}
+          spacing={4}
           fullWidth
           intersectionId={`${generatedId}-listbox-popover-intersection`}
           onReachEnd={hasMoreItems && !loading ? onLoadMore : undefined}

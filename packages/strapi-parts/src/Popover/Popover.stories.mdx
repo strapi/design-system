@@ -38,7 +38,7 @@ Description...
             Open popover
           </button>
           {visible && (
-            <Popover centered source={buttonRef} spacingTop={4}>
+            <Popover centered source={buttonRef} spacing={16}>
               <ul style={{ width: '200px' }}>
                 {Array(15)
                   .fill(null)
@@ -71,7 +71,7 @@ Description...
             Open popover
           </button>
           {visible && (
-            <Popover source={buttonRef} spacingTop={4}>
+            <Popover source={buttonRef} spacing={16}>
               <ul style={{ width: '200px' }}>
                 {Array(15)
                   .fill(null)
@@ -105,7 +105,7 @@ Description...
           </button>
           <Popover
             source={buttonRef}
-            spacingTop={4}
+            spacing={16}
             id="on-reach-end"
             intersectionId="test-123"
             onReachEnd={() => setItems(Array(15).fill(null))}
@@ -134,26 +134,28 @@ Description...
       const [visible, setVisible] = useState(false);
       const buttonRef = useRef();
       return (
-        <Row justifyContent="flex-end">
-          <div>
-            <button ref={buttonRef} onClick={() => setVisible((s) => !s)}>
-              Open popover
-            </button>
-            {visible && (
-              <Popover centered source={buttonRef} spacingTop={4}>
-                <ul style={{ width: '200px' }}>
-                  {Array(15)
-                    .fill(null)
-                    .map((_, index) => (
-                      <Box key={index} padding={3} as="li">
-                        Element {index}
-                      </Box>
-                    ))}
-                </ul>
-              </Popover>
-            )}
+        <div style={{ height: '200vh' }}>
+          <div style={{ position: 'absolute', bottom: 0, right: 0 }}>
+            <div>
+              <button ref={buttonRef} onClick={() => setVisible((s) => !s)}>
+                Open popover
+              </button>
+              {visible && (
+                <Popover centered source={buttonRef} spacing={16}>
+                  <ul style={{ width: '200px' }}>
+                    {Array(15)
+                      .fill(null)
+                      .map((_, index) => (
+                        <Box key={index} padding={3} as="li">
+                          Element {index}
+                        </Box>
+                      ))}
+                  </ul>
+                </Popover>
+              )}
+            </div>
           </div>
-        </Row>
+        </div>
       );
     }}
   </Story>
