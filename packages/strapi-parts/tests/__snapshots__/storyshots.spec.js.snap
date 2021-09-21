@@ -5585,8 +5585,8 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  height: 32px;
-  width: 32px;
+  height: 2rem;
+  width: 2rem;
 }
 
 .c9 svg > g,
@@ -11679,8 +11679,8 @@ exports[`Storyshots Design System/Molecules/Card base 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  height: 32px;
-  width: 32px;
+  height: 2rem;
+  width: 2rem;
 }
 
 .c8 svg > g,
@@ -13423,8 +13423,8 @@ exports[`Storyshots Design System/Molecules/Carousel base 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  height: 32px;
-  width: 32px;
+  height: 2rem;
+  width: 2rem;
 }
 
 .c14 svg > g,
@@ -16934,8 +16934,8 @@ exports[`Storyshots Design System/Molecules/IconButton base 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  height: 32px;
-  width: 32px;
+  height: 2rem;
+  width: 2rem;
 }
 
 .c4 svg > g,
@@ -17140,8 +17140,8 @@ exports[`Storyshots Design System/Molecules/IconButton disabled 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  height: 32px;
-  width: 32px;
+  height: 2rem;
+  width: 2rem;
 }
 
 .c4 svg > g,
@@ -17346,8 +17346,8 @@ exports[`Storyshots Design System/Molecules/IconButton group 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  height: 32px;
-  width: 32px;
+  height: 2rem;
+  width: 2rem;
 }
 
 .c6 svg > g,
@@ -17576,8 +17576,8 @@ exports[`Storyshots Design System/Molecules/IconButton without tooltip 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  height: 32px;
-  width: 32px;
+  height: 2rem;
+  width: 2rem;
 }
 
 .c3 svg > g,
@@ -30370,8 +30370,8 @@ exports[`Storyshots Design System/Organisms/SubNav base 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  height: 32px;
-  width: 32px;
+  height: 2rem;
+  width: 2rem;
 }
 
 .c8 svg > g,
@@ -32161,8 +32161,8 @@ exports[`Storyshots Design System/Organisms/Table base 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  height: 32px;
-  width: 32px;
+  height: 2rem;
+  width: 2rem;
   border: none;
 }
 
@@ -33412,8 +33412,8 @@ exports[`Storyshots Design System/Organisms/Table with th actions 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  height: 32px;
-  width: 32px;
+  height: 2rem;
+  width: 2rem;
   border: none;
 }
 
