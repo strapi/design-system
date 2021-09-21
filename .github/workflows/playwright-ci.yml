@@ -64,5 +64,3 @@ jobs:
       - name: Run the tests
         run: yarn test:e2e:ci
 
-      - name: Run tests of the example app
-        run: yarn setup:example && yarn test:example
