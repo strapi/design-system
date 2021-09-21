@@ -41,7 +41,6 @@ jobs:
             ${{ runner.os }}-lerna-
 
       - name: Install dependencies
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn global add http-server && yarn
 
       - name: Build
