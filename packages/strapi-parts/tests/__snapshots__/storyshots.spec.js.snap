@@ -5572,6 +5572,23 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
   background: #4945ff;
 }
 
+.c9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 32px;
+  width: 32px;
+}
+
 .c9 svg > g,
 .c9 svg path {
   fill: #8e8ea9;
@@ -11649,6 +11666,23 @@ exports[`Storyshots Design System/Molecules/Card base 1`] = `
   right: 4px;
 }
 
+.c8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 32px;
+  width: 32px;
+}
+
 .c8 svg > g,
 .c8 svg path {
   fill: #8e8ea9;
@@ -13374,6 +13408,23 @@ exports[`Storyshots Design System/Molecules/Carousel base 1`] = `
 
 .c13[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c14 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 32px;
+  width: 32px;
 }
 
 .c14 svg > g,
@@ -16870,6 +16921,23 @@ exports[`Storyshots Design System/Molecules/IconButton base 1`] = `
   pointer-events: none;
 }
 
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 32px;
+  width: 32px;
+}
+
 .c4 svg > g,
 .c4 svg path {
   fill: #8e8ea9;
@@ -17059,6 +17127,23 @@ exports[`Storyshots Design System/Molecules/IconButton disabled 1`] = `
   pointer-events: none;
 }
 
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 32px;
+  width: 32px;
+}
+
 .c4 svg > g,
 .c4 svg path {
   fill: #8e8ea9;
@@ -17246,6 +17331,23 @@ exports[`Storyshots Design System/Molecules/IconButton group 1`] = `
 
 .c4[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 32px;
+  width: 32px;
 }
 
 .c6 svg > g,
@@ -17459,6 +17561,23 @@ exports[`Storyshots Design System/Molecules/IconButton without tooltip 1`] = `
 
 .c2[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 32px;
+  width: 32px;
 }
 
 .c3 svg > g,
@@ -30238,6 +30357,23 @@ exports[`Storyshots Design System/Organisms/SubNav base 1`] = `
   pointer-events: none;
 }
 
+.c8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 32px;
+  width: 32px;
+}
+
 .c8 svg > g,
 .c8 svg path {
   fill: #8e8ea9;
@@ -32013,6 +32149,20 @@ exports[`Storyshots Design System/Organisms/Table base 1`] = `
 }
 
 .c21 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 32px;
+  width: 32px;
   border: none;
 }
 
@@ -33250,6 +33400,20 @@ exports[`Storyshots Design System/Organisms/Table with th actions 1`] = `
 }
 
 .c18 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 32px;
+  width: 32px;
   border: none;
 }
 
