@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { IconButton, Box, BaseButton, IconButtonGroup } from "@strapi/parts";
 
 export const WysiwygWrapper = styled(Box)`
-  border: ${({ theme }) => `1px solid ${theme.colors.neutral200}`};
+  border: 1px solid ${({ theme, error }) => (error ? theme.colors.danger600 : theme.colors.neutral200)};
   margin-top: ${({ theme }) => `${theme.spaces[2]}`};
 `;
 
@@ -55,7 +55,7 @@ export const ExpandButton = styled(BaseButton)`
   svg {
     margin-left: ${({ theme }) => `${theme.spaces[2]}`};
     path {
-      fill: ${({ theme }) => theme.colors.neutral700}};
+      fill: ${({ theme }) => theme.colors.neutral700};
       width: ${12 / 16}rem;
       height: ${12 / 16}rem;
     };

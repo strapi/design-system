@@ -41,7 +41,7 @@ describe("Wysiwyg render and actions buttons", () => {
     expect(getContainerByText("hello world")).toBeInTheDocument();
     expect(renderedContainer.firstChild).toMatchInlineSnapshot(`
       <span
-        class="sc-gJryWy sc-fFYUIl dZlOus ivRTtQ"
+        class="sc-jVSGNQ sc-QxirK bSkxym ldCiYB"
       >
         hello world
       </span>
@@ -370,5 +370,29 @@ describe("Wysiwyg expand mode", () => {
     fireEvent.click(document.getElementById("collapse"));
 
     expect(document.getElementById("wysiwyg-expand")).not.toBeInTheDocument();
+  });
+});
+
+describe("Wysiwyg error state", () => {
+  it("should show error message", async () => {
+    let returnedValue;
+
+    const onChange = jest.fn((val) => {
+      returnedValue = val;
+    });
+
+    const { container, getByText } = render(
+      <ThemeProvider theme={lightTheme}>
+        <Wysiwyg
+          label="hello world"
+          placeholder=""
+          onChange={onChange}
+          error="This is a required field"
+        />
+      </ThemeProvider>
+    );
+
+    await waitFor(() => container.querySelector(".CodeMirror-cursor"));
+    expect(getByText("This is a required field")).toBeInTheDocument();
   });
 });

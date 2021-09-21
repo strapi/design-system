@@ -12,7 +12,8 @@ const Editor = ({
     textareaRef,
     editorRef,
     isPreviewMode,
-    value
+    value,
+    error
   }) => {
 
   const initialValueRef = useRef(value);
@@ -45,6 +46,15 @@ const Editor = ({
     }
   }, [isPreviewMode, editorRef])
 
+  useEffect(() => {
+    if(error) {
+      editorRef.current.setOption('screenReaderLabel', error);
+    } else {
+      // to replace with translation
+      editorRef.current.setOption('screenReaderLabel', 'Editor');
+    }
+  }, [error]);
+
   return (
     <EditorAndPreviewWrapper>
       <EditorWrapper>
@@ -60,7 +70,8 @@ const Editor = ({
 Editor.defaultProps = {
   onChange: () => {},
   isPreviewMode: false,
-  value: ''
+  value: '',
+  error: undefined
 };
 
 Editor.propTypes = {
@@ -68,7 +79,8 @@ Editor.propTypes = {
   textareaRef: PropTypes.shape({ current: PropTypes.any }).isRequired,
   editorRef: PropTypes.shape({ current: PropTypes.any }).isRequired,
   isPreviewMode: PropTypes.bool,
-  value: PropTypes.string
+  value: PropTypes.string,
+  error: PropTypes.string
 };
 
 export default Editor;

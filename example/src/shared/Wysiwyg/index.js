@@ -5,11 +5,12 @@ import WysiwygFooter from './WysiwygFooter';
 import WysiwygExpand from './WysiwygExpand';
 import MediaLibrary from './MediaLibrary';
 import Editor from './Editor';
-import { ButtonText } from '@strapi/parts/Text';
+import { ButtonText, P } from '@strapi/parts/Text';
+import { Box } from '@strapi/parts/Box';
 import { WysiwygWrapper } from './WysiwygStyles'
 import { markdownHandler, listHandler, titleHandler, insertImage, quoteAndCodeHandler } from './utils/utils';
 
-const Wysiwyg = ({ label, placeholder, onChange, value }) => {
+const Wysiwyg = ({ label, placeholder, onChange, value, error }) => {
   const textareaRef = useRef(null);
   const editorRef = useRef(null);
   const editorRefExpanded = useRef(null);
@@ -17,7 +18,7 @@ const Wysiwyg = ({ label, placeholder, onChange, value }) => {
   const [isPreviewMode, setIsPreviewMode] = useState(false);
   const [mediaLibVisible, setMediaLibVisible] = useState(false);
   const [isExpandMode, setIsExpandMode] = useState(false);
-
+  
   const handleToggleMediaLib = () => setMediaLibVisible(prev => !prev);
   const handleTogglePopover = () => setVisiblePopover(prev => !prev);
   const handleTogglePreviewMode = () => setIsPreviewMode(prev => !prev);
@@ -78,7 +79,7 @@ const Wysiwyg = ({ label, placeholder, onChange, value }) => {
   return (
     <>
       <ButtonText>{label}</ButtonText>
-      <WysiwygWrapper paddingTop={1} hasRadius>
+      <WysiwygWrapper paddingTop={1} hasRadius error={error}>
         <WysiwygNav 
           placeholder={placeholder} 
           onActionClick={handleActionClick}
@@ -95,12 +96,18 @@ const Wysiwyg = ({ label, placeholder, onChange, value }) => {
           editorRef={editorRef}
           isPreviewMode={isPreviewMode}
           value={value}
+          error={error}
         />
         <WysiwygFooter 
           isPreviewMode={isPreviewMode}
           onToggleExpand={handleToggleExpand}
         />
       </WysiwygWrapper>
+      {error && 
+        <Box paddingTop={1}>
+          <P small textColor="danger600" data-strapi-field-error>{error}</P>
+        </Box>
+      }
       {mediaLibVisible &&
         <MediaLibrary 
           editorRef={editorRef} 
