@@ -11620,6 +11620,9 @@ exports[`Storyshots Design System/Molecules/Card base 1`] = `
 
 .c19 {
   margin-left: auto;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
 }
 
 .c22 {
@@ -11886,6 +11889,9 @@ exports[`Storyshots Design System/Molecules/Card keyboard navigable 1`] = `
 
 .c9 {
   margin-left: auto;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
 }
 
 .c12 {
@@ -12372,6 +12378,9 @@ exports[`Storyshots Design System/Molecules/Card with asset icon 1`] = `
 
 .c16 {
   margin-left: auto;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
 }
 
 .c19 {
@@ -12595,6 +12604,9 @@ exports[`Storyshots Design System/Molecules/Card without asset 1`] = `
 
 .c9 {
   margin-left: auto;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
 }
 
 .c12 {
@@ -12884,6 +12896,9 @@ exports[`Storyshots Design System/Molecules/Card without asset action 1`] = `
 
 .c16 {
   margin-left: auto;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
 }
 
 .c19 {
@@ -13190,6 +13205,9 @@ exports[`Storyshots Design System/Molecules/Card without asset action nor timer 
 
 .c13 {
   margin-left: auto;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
 }
 
 .c16 {

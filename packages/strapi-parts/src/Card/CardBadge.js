@@ -4,6 +4,7 @@ import { Badge } from '../Badge';
 
 const CardBadgeWrapper = styled.div`
   margin-left: auto;
+  flex-shrink: 0;
 `;
 
 const BadgePosition = styled(Badge)`
