@@ -24,6 +24,10 @@ export const TextInput = React.forwardRef(
     const generatedId = useId('textinput', id);
     const inputWrapperRef = useRef(null);
 
+    if (!label && !props['aria-label']) {
+      throw new Error('The TextInput component needs a "label" or an "aria-label" props');
+    }
+
     useImperativeHandle(ref, () => ({
       inputWrapperRef,
     }));
@@ -32,10 +36,12 @@ export const TextInput = React.forwardRef(
       <TextInputWrapper ref={inputWrapperRef}>
         <Field name={name} hint={hint} error={error} id={generatedId}>
           <Stack size={1}>
-            <Row cols="auto auto 1fr" gap={1}>
-              <FieldLabel>{label}</FieldLabel>
-              {labelAction && <LabelAction paddingLeft={1}>{labelAction}</LabelAction>}
-            </Row>
+            {label && (
+              <Row>
+                <FieldLabel>{label}</FieldLabel>
+                {labelAction && <LabelAction paddingLeft={1}>{labelAction}</LabelAction>}
+              </Row>
+            )}
             <FieldInput ref={ref} startAction={startAction} endAction={endAction} {...props} />
             <FieldHint />
             <FieldError />
@@ -49,6 +55,8 @@ export const TextInput = React.forwardRef(
 TextInput.displayName = 'TextInput';
 
 TextInput.defaultProps = {
+  'aria-label': undefined,
+  label: undefined,
   labelAction: undefined,
   error: undefined,
   hint: undefined,
@@ -58,11 +66,12 @@ TextInput.defaultProps = {
 };
 
 TextInput.propTypes = {
+  'aria-label': PropTypes.string,
   endAction: PropTypes.element,
   error: PropTypes.string,
   hint: PropTypes.string,
   id: PropTypes.string,
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   labelAction: PropTypes.element,
   name: PropTypes.string.isRequired,
   startAction: PropTypes.element,
