@@ -42,7 +42,10 @@ jobs:
 
       - name: Install dependencies
         if: steps.yarn-cache.outputs.cache-hit != 'true'
-        run: yarn global add http-server && yarn && yarn bootstrap && yarn build
+        run: yarn global add http-server && yarn && yarn bootstrap
+
+      - name: Build
+        run: yarn build
 
       - name: Lint
         run: yarn lint
