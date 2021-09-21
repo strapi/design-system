@@ -3,7 +3,7 @@
 import { useState, useRef } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { Combobox, CreatableCombobox } from './Combobox';
-import { ComboboxOption } from './ComboboxOption'
+import { ComboboxOption } from './ComboboxOption';
 
 <Meta title="Design System/Molecules/Combobox" component={Combobox} />
 
@@ -15,20 +15,19 @@ This is the doc of the `Combobox` component
   <Story name="base">
     {() => {
       const [value, setValue] = useState('');
-      return  <Combobox
-                label="Food"
-                value={value}
-                onChange={setValue}>
-                <ComboboxOption value="hamburger">Hamburger</ComboboxOption>
-                <ComboboxOption value="bagel">Bagel</ComboboxOption>
-                <ComboboxOption value="tartuffo">Tartuffo</ComboboxOption>
-                <ComboboxOption value="carbonara">Carbonara</ComboboxOption>
-              </Combobox>;
+      return (
+        <Combobox label="Food" value={value} onChange={setValue}>
+          <ComboboxOption value="hamburger">Hamburger</ComboboxOption>
+          <ComboboxOption value="bagel">Bagel</ComboboxOption>
+          <ComboboxOption value="tartuffo">Tartuffo</ComboboxOption>
+          <ComboboxOption value="carbonara">Carbonara</ComboboxOption>
+        </Combobox>
+      );
     }}
   </Story>
 </Canvas>
 
-# Disabled
+## Disabled
 
 This is the doc of the `Combobox` component
 
@@ -36,21 +35,39 @@ This is the doc of the `Combobox` component
   <Story name="disabled">
     {() => {
       const [value, setValue] = useState('');
-      return  <Combobox
-                label="Food"
-                disabled
-                value={value}
-                onChange={setValue}>
-                <ComboboxOption value="hamburger">Hamburger</ComboboxOption>
-                <ComboboxOption value="bagel">Bagel</ComboboxOption>
-                <ComboboxOption value="tartuffo">Tartuffo</ComboboxOption>
-                <ComboboxOption value="carbonara">Carbonara</ComboboxOption>
-              </Combobox>;
+      return (
+        <Combobox label="Food" disabled value={value} onChange={setValue}>
+          <ComboboxOption value="hamburger">Hamburger</ComboboxOption>
+          <ComboboxOption value="bagel">Bagel</ComboboxOption>
+          <ComboboxOption value="tartuffo">Tartuffo</ComboboxOption>
+          <ComboboxOption value="carbonara">Carbonara</ComboboxOption>
+        </Combobox>
+      );
     }}
   </Story>
 </Canvas>
 
-# Error
+## Without label
+
+This is the doc of the `Combobox` component
+
+<Canvas>
+  <Story name="withoutLabel">
+    {() => {
+      const [value, setValue] = useState('');
+      return (
+        <Combobox aria-label="Food" value={value} onChange={setValue}>
+          <ComboboxOption value="hamburger">Hamburger</ComboboxOption>
+          <ComboboxOption value="bagel">Bagel</ComboboxOption>
+          <ComboboxOption value="tartuffo">Tartuffo</ComboboxOption>
+          <ComboboxOption value="carbonara">Carbonara</ComboboxOption>
+        </Combobox>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Error
 
 This is the doc of the `Combobox` component
 
@@ -58,21 +75,19 @@ This is the doc of the `Combobox` component
   <Story name="error">
     {() => {
       const [value, setValue] = useState('');
-      return  <Combobox
-                label="Food"
-                value={value}
-                error="An error occured"
-                onChange={setValue}>
-                <ComboboxOption value="hamburger">Hamburger</ComboboxOption>
-                <ComboboxOption value="bagel">Bagel</ComboboxOption>
-                <ComboboxOption value="tartuffo">Tartuffo</ComboboxOption>
-                <ComboboxOption value="carbonara">Carbonara</ComboboxOption>
-              </Combobox>;
+      return (
+        <Combobox label="Food" value={value} error="An error occured" onChange={setValue}>
+          <ComboboxOption value="hamburger">Hamburger</ComboboxOption>
+          <ComboboxOption value="bagel">Bagel</ComboboxOption>
+          <ComboboxOption value="tartuffo">Tartuffo</ComboboxOption>
+          <ComboboxOption value="carbonara">Carbonara</ComboboxOption>
+        </Combobox>
+      );
     }}
   </Story>
 </Canvas>
 
-# Creatable
+## Creatable
 
 This is the doc of the `Combobox` component
 
@@ -123,40 +138,29 @@ This is the doc of the `Combobox` component
         setValue(value);
       };
       return (
-        <CreatableCombobox
-          label="Food"
-          value={value}
-          onChange={setValue}
-          onCreateOption={onCreateOption}
-        >
-          {
-            options.map(({ name, value }) => 
-              <ComboboxOption key={value} value={value}>{name}</ComboboxOption>)
-          }
+        <CreatableCombobox label="Food" value={value} onChange={setValue} onCreateOption={onCreateOption}>
+          {options.map(({ name, value }) => (
+            <ComboboxOption key={value} value={value}>
+              {name}
+            </ComboboxOption>
+          ))}
         </CreatableCombobox>
       );
     }}
   </Story>
 </Canvas>
 
-# Loading
+## Loading
 
 <Canvas>
   <Story name="loading">
     {() => {
-      return  (
-        <Combobox
-          label="Food"
-          loading
-          value=''
-          onChange={() => {}}>
-        </Combobox>
-      );
+      return <Combobox label="Food" loading value="" onChange={() => {}}></Combobox>;
     }}
   </Story>
 </Canvas>
 
-# Infinite scroll
+## Infinite scroll
 
 This is the doc of the `Combobox` component
 
@@ -203,15 +207,18 @@ This is the doc of the `Combobox` component
         },
       ];
       const [options, setOptions] = useState(defaultOptions);
-      const i = useRef(0)
+      const i = useRef(0);
       const [isLoading, setIsLoading] = useState(false);
-      const [hasMoreItems, setHasMoreItems] = useState(true)
+      const [hasMoreItems, setHasMoreItems] = useState(true);
       const loadMore = () => {
         setIsLoading(true);
         return new Promise((resolve) => {
           setTimeout(() => {
             resolve();
-            setOptions(opts => [...opts, ...defaultOptions.map(v => ({ name: v.name + i.current, value: v.value + i.current}))])
+            setOptions((opts) => [
+              ...opts,
+              ...defaultOptions.map((v) => ({ name: v.name + i.current, value: v.value + i.current })),
+            ]);
             setIsLoading(false);
             if (i.current === 2) {
               setHasMoreItems(false);
@@ -219,7 +226,7 @@ This is the doc of the `Combobox` component
             i.current++;
           }, 2000);
         });
-      }
+      };
       return (
         <Combobox
           label="Food"
@@ -229,10 +236,11 @@ This is the doc of the `Combobox` component
           loading={isLoading}
           onLoadMore={loadMore}
         >
-          {
-            options.map(({ name, value }) => 
-              <ComboboxOption key={value} value={value}>{name}</ComboboxOption>)
-          }
+          {options.map(({ name, value }) => (
+            <ComboboxOption key={value} value={value}>
+              {name}
+            </ComboboxOption>
+          ))}
         </Combobox>
       );
     }}

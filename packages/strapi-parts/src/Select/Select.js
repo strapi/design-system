@@ -146,9 +146,11 @@ export const Select = ({
   return (
     <Field hint={hint} error={error} id={generatedId}>
       <Stack size={label || hint || error ? 1 : 0}>
-        <FieldLabel as="span" id={labelId}>
-          {label}
-        </FieldLabel>
+        {label && (
+          <FieldLabel as="span" id={labelId}>
+            {label}
+          </FieldLabel>
+        )}
 
         <SelectButtonWrapper hasError={Boolean(error)} disabled={disabled} ref={containerRef}>
           <SelectButton
@@ -231,7 +233,7 @@ export const Select = ({
         >
           <SelectList
             selectId={generatedId}
-            labelledBy={labelId}
+            labelledBy={label ? labelId : undefined}
             onEscape={handleEscape}
             expanded={expanded}
             onSelectItem={(value, isGroup) => (isGroup ? handleSelectGroupItem(value) : handleSelectItem(value, false))}
@@ -246,11 +248,13 @@ export const Select = ({
 };
 
 Select.defaultProps = {
+  'aria-label': undefined,
   children: [],
   clearLabel: 'Clear',
   customizeContent: undefined,
   disabled: false,
   id: undefined,
+  label: undefined,
   multi: false,
   onChange: () => {},
   onClear: undefined,
@@ -265,6 +269,7 @@ Select.defaultProps = {
 };
 
 Select.propTypes = {
+  'aria-label': PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
   clearLabel: PropTypes.string,
   customizeContent: PropTypes.func,
@@ -272,7 +277,7 @@ Select.propTypes = {
   error: PropTypes.string,
   hint: PropTypes.string,
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   multi: PropTypes.bool,
   onChange: PropTypes.func,
   onClear: PropTypes.func,
