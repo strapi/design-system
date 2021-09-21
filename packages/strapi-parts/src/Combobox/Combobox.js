@@ -345,7 +345,9 @@ export const AsyncCombobox = (props) => {
     setIsLoading(false);
   };
 
-  return <Combobox {...props} loading={isLoading} onLoadMore={onLoadMore} onSearchOption={onSearchOption} />;
+  return (
+    <Combobox {...props} loading={isLoading || props.loading} onLoadMore={onLoadMore} onSearchOption={onSearchOption} />
+  );
 };
 
 AsyncCombobox.defaultProps = {
@@ -354,6 +356,7 @@ AsyncCombobox.defaultProps = {
 
 AsyncCombobox.propTypes = {
   ...commonPropTypes,
+  loading: PropTypes.bool,
   onLoadMore: PropTypes.func.isRequired,
   onSearchOption: PropTypes.func.isRequired,
   resetSearchOnSelection: PropTypes.bool,
