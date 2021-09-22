@@ -2,7 +2,7 @@
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { ArgsTable } from '@storybook/addon-docs';
-import { Avatar } from './Avatar';
+import { Avatar, AvatarBasic } from './Avatar';
 import { AvatarGroup } from './AvatarGroup';
 import { Box } from '../Box';
 
@@ -48,6 +48,16 @@ The avatar has a feature to display a preview of its thumbnail.
         <Avatar src="https://avatars.githubusercontent.com/u/3874873?v=4" alt="marvin frachet" preview />
         <Avatar src="https://avatars.githubusercontent.com/u/3874873?v=4" alt="marvin frachet" preview />
       </AvatarGroup>
+    </Box>
+  </Story>
+</Canvas>
+
+## Basic initials
+
+<Canvas>
+  <Story name="initials">
+    <Box padding={11}>
+      <AvatarBasic initials="MF" />
     </Box>
   </Story>
 </Canvas>
