@@ -129,15 +129,22 @@ Description...
                     {Array(20)
                       .fill(null)
                       .map((_, index) => (
-                        <Tag key={index} icon={<AddIcon aria-hidden={true} />}>
-                          Hello world {index}
-                        </Tag>
+                        <Box paddingTop={2}>
+                          <Tag key={index} icon={<AddIcon aria-hidden={true} />}>
+                            Hello world {index}
+                          </Tag>
+                        </Box>
                       ))}
                   </>
                 }
                 endActions={
                   <>
-                    <Button variant="tertiary">Settings</Button>
+                    <Button size="M" variant="tertiary">
+                      Settings
+                    </Button>
+                    <Button size="M" variant="tertiary">
+                      Settings
+                    </Button>
                   </>
                 }
               />
