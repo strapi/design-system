@@ -5766,8 +5766,6 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  height: 1.25rem;
-  width: 1rem;
 }
 
 .c3 {
@@ -31423,8 +31421,6 @@ exports[`Storyshots Design System/Organisms/SubNav base 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  height: 1.25rem;
-  width: 1rem;
 }
 
 .c33 {
