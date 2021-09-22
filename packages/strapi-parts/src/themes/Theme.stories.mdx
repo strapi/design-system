@@ -101,7 +101,7 @@ Description...
             {spaces.map((space) => (
               <Row key={`space-${space}`}>
                 <Box paddingLeft={2}>
-                  <Text>{space}</Text> <Text small>({space * 4}px)</Text>
+                  <Text>{space}</Text> <Text small>({theme.spaces[space]})</Text>
                 </Box>
               </Row>
             ))}
