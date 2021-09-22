@@ -67,7 +67,7 @@ const getColor =
   ({ theme }) =>
     theme.colors[colorName];
 
-const AvatarBasicWrapper = styled(Row)`
+const InitialsWrapper = styled(Row)`
   width: ${avatarSize}px;
   height: ${avatarSize}px;
   border-radius: 50%;
@@ -85,17 +85,17 @@ const AvatarBasicWrapper = styled(Row)`
   }
 `;
 
-export const AvatarBasic = ({ initials }) => {
+export const Initials = ({ initials }) => {
   return (
-    <AvatarBasicWrapper justifyContent="center">
+    <InitialsWrapper justifyContent="center">
       <Typography fontWeight="bold" textColor="neutral0" fontSize={0} textTransform="uppercase">
         {initials}
       </Typography>
-    </AvatarBasicWrapper>
+    </InitialsWrapper>
   );
 };
 
-AvatarBasic.propTypes = {
+Initials.propTypes = {
   initials: PropTypes.string.isRequired,
 };
 
