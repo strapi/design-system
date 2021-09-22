@@ -98,13 +98,14 @@ export const SelectList = ({ labelledBy, onSelectItem, children, multi, onEscape
 };
 
 SelectList.defaultProps = {
+  labelledBy: undefined,
   multi: false,
 };
 
 SelectList.propTypes = {
   children: PropTypes.node.isRequired,
   expanded: PropTypes.oneOf([UpState.Keyboard, UpState.Mouse, DownState.Keyboard, DownState.Mouse]).isRequired,
-  labelledBy: PropTypes.string.isRequired,
+  labelledBy: PropTypes.string,
   multi: PropTypes.bool,
   onEscape: PropTypes.func.isRequired,
   onSelectItem: PropTypes.func.isRequired,

@@ -33,10 +33,12 @@ export const Textarea = React.forwardRef(({ name, hint, error, label, children, 
     <TextareaWrapper>
       <Field name={name} hint={hint} error={error} id={generatedId}>
         <Stack size={1}>
-          <Row cols="auto auto 1fr" gap={1}>
-            <FieldLabel>{label}</FieldLabel>
-            {labelAction && <Box paddingLeft={1}>{labelAction}</Box>}
-          </Row>
+          {label && (
+            <Row>
+              <FieldLabel>{label}</FieldLabel>
+              {labelAction && <Box paddingLeft={1}>{labelAction}</Box>}
+            </Row>
+          )}
           <TextareaInput ref={ref} as="textarea" value={children} {...props} />
           <FieldHint />
           <FieldError />
@@ -49,6 +51,8 @@ export const Textarea = React.forwardRef(({ name, hint, error, label, children, 
 Textarea.displayName = 'Textarea';
 
 Textarea.defaultProps = {
+  'aria-label': undefined,
+  label: undefined,
   labelAction: undefined,
   error: undefined,
   hint: undefined,
@@ -57,11 +61,12 @@ Textarea.defaultProps = {
 };
 
 Textarea.propTypes = {
+  'aria-label': PropTypes.string,
   children: PropTypes.string,
   error: PropTypes.string,
   hint: PropTypes.string,
   id: PropTypes.string,
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   labelAction: PropTypes.element,
   name: PropTypes.string.isRequired,
 };

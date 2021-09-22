@@ -6,6 +6,12 @@ import { BaseButton } from '../BaseButton';
 import { Row } from '../Row';
 
 const IconButtonWrapper = styled(BaseButton)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: ${32 / 16}rem;
+  width: ${32 / 16}rem;
+
   svg {
     > g,
     path {

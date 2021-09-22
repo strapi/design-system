@@ -165,6 +165,36 @@ Password TextInputs are specific. They offer the possibility to have unreadable 
   </Story>
 </Canvas>
 
+### TextInput without label
+
+Password TextInputs are specific. They offer the possibility to have unreadable content. By clicking on the eye icon on the right side, it is possible to actually read the password.
+
+<Canvas>
+  <Story name="withoutLabel">
+    <Box padding={10}>
+      <TextInput
+        placeholder="This is a password placeholder"
+        type="password"
+        aria-label="Password"
+        name="password"
+        hint="Description line"
+        onChange={() => {}}
+        value={'content'}
+        labelAction={
+          <Tooltip description="Content of the tooltip">
+            <button
+              aria-label="Information about the email"
+              style={{ border: 'none', padding: 0, background: 'transparent' }}
+            >
+              <HelpIcon aria-hidden={true} />
+            </button>
+          </Tooltip>
+        }
+      />
+    </Box>
+  </Story>
+</Canvas>
+
 ## Props
 
 <ArgsTable of={TextInput} />

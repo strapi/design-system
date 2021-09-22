@@ -63,6 +63,44 @@ Description...
   </Story>
 </Canvas>
 
+## Without label
+
+Description...
+
+<Canvas>
+  <Story name="withoutLabel">
+    {() => {
+      const [content, setContent] = useState();
+      return (
+        <Box padding={10}>
+          <NumberInput
+            placeholder="This is a content placeholder"
+            aria-label="Content"
+            name="content"
+            hint="Description line"
+            error={undefined}
+            onValueChange={(value) => setContent(value)}
+            value={content}
+            labelAction={
+              <Tooltip description="Content of the tooltip">
+                <button
+                  aria-label="Information about the email"
+                  style={{ border: 'none', padding: 0, background: 'transparent' }}
+                >
+                  <HelpIcon aria-hidden={true} />
+                </button>
+              </Tooltip>
+            }
+          />
+          <Box as="p" padding={4} background="neutral100">
+            {`The value is ${content}`}
+          </Box>
+          <button>Escape</button>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
 
 ## Props
 

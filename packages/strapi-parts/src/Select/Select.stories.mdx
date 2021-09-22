@@ -85,6 +85,49 @@ The default Select.
   </Story>
 </Canvas>
 
+### Without label
+
+The default Select.
+
+<Canvas>
+  <Story name="withoutLabel">
+    {() => {
+      const [value, setValue] = useState();
+      const [error, toggleError] = useState();
+      const [disabled, toggleDisabled] = useState();
+      return (
+        <Stack size={11}>
+          <h2>Current value is {value}</h2>
+          <Select
+            id="select1"
+            aria-label="Choose your meal"
+            placeholder="Your example"
+            hint="Description line"
+            onClear={() => setValue(undefined)}
+            clearLabel="Clear the meal"
+            error={error}
+            value={value}
+            onChange={setValue}
+            disabled={disabled}
+            startIcon={<AddIcon />}
+          >
+            <Option
+              value={'pizza'}
+              startIcon={<div style={{ height: '6px', borderRadius: '50%', width: '6px', background: 'red' }} />}
+            >
+              Pizza
+            </Option>
+            <Option value={'hamburger'}>Hamburger</Option>
+            <Option value={'bagel'}>Bagel</Option>
+          </Select>
+          <button onClick={() => toggleError((s) => (s ? undefined : 'An error occured'))}>Show the error state</button>
+          <button onClick={() => toggleDisabled((s) => !s)}>Show the disabled state</button>
+        </Stack>
+      );
+    }}
+  </Story>
+</Canvas>
+
 ### Select multi
 
 A multi Select allow users to make multiple selections from a list.

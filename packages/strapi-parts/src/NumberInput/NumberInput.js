@@ -33,6 +33,10 @@ export const NumberInput = React.forwardRef(
     const numberParserRef = useRef(new NumberParser(getDefaultLocale()));
     const numberFormaterRef = useRef(new NumberFormatter(getDefaultLocale()));
 
+    if (!label && !props['aria-label']) {
+      throw new Error('The NumberInput component needs a "label" or an "aria-label" props');
+    }
+
     useEffect(() => {
       if (value !== undefined) {
         setInputValue(numberFormaterRef.current.format(value));
@@ -97,10 +101,12 @@ export const NumberInput = React.forwardRef(
     return (
       <Field name={name} hint={hint} error={error} id={generatedId}>
         <Stack size={1}>
-          <Row cols="auto auto 1fr" gap={1}>
-            <FieldLabel>{label}</FieldLabel>
-            {labelAction && <Box paddingLeft={1}>{labelAction}</Box>}
-          </Row>
+          {label && (
+            <Row cols="auto auto 1fr" gap={1}>
+              <FieldLabel>{label}</FieldLabel>
+              {labelAction && <Box paddingLeft={1}>{labelAction}</Box>}
+            </Row>
+          )}
           <FieldInput
             ref={ref}
             startAction={startAction}
@@ -133,6 +139,8 @@ export const NumberInput = React.forwardRef(
 NumberInput.displayName = 'NumberInput';
 
 NumberInput.defaultProps = {
+  'aria-label': undefined,
+  label: undefined,
   labelAction: undefined,
   error: undefined,
   hint: undefined,
@@ -143,10 +151,11 @@ NumberInput.defaultProps = {
 };
 
 NumberInput.propTypes = {
+  'aria-label': PropTypes.string,
   error: PropTypes.string,
   hint: PropTypes.string,
   id: PropTypes.string,
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   labelAction: PropTypes.element,
   name: PropTypes.string.isRequired,
   onValueChange: PropTypes.func.isRequired,

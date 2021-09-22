@@ -39,6 +39,10 @@ export const Combobox = ({
   const [open, setOpen] = useState(false);
   const [inputValue, setInputValue] = useState(value ? nodes.find((v) => v.value === value)?.name : '');
 
+  if (!label && !props['aria-label']) {
+    throw new Error('The Combobox component needs a "label" or an "aria-label" props');
+  }
+
   useEffect(() => {
     setFilteredNodes(filterOptions(nodes, inputValue));
   }, [inputValue, nodes]);
@@ -175,7 +179,7 @@ export const Combobox = ({
   return (
     <Field hint={hint} error={error} id={generatedId}>
       <Stack size={label || hint || error ? 1 : 0}>
-        <FieldLabel id={labelId}>{label}</FieldLabel>
+        {label && <FieldLabel id={labelId}>{label}</FieldLabel>}
         <MainRow ref={containerRef} $disabled={disabled} hasError={error}>
           <Input
             id={generatedId}
@@ -184,7 +188,7 @@ export const Combobox = ({
             aria-controls={`${generatedId}-listbox`}
             aria-expanded={`${open}`}
             aria-haspopup="listbox"
-            aria-describedby={labelId}
+            aria-describedby={label ? labelId : undefined}
             aria-disabled={disabled}
             readOnly={disabled}
             ref={inputRef}
@@ -263,6 +267,8 @@ export const Combobox = ({
 export const CreatableCombobox = (props) => <Combobox {...props} creatable />;
 
 Combobox.defaultProps = CreatableCombobox.defaultProps = {
+  'aria-label': undefined,
+  label: undefined,
   createMessage: (value) => `Create "${value}"`,
   disabled: false,
   hint: undefined,
@@ -278,6 +284,7 @@ Combobox.defaultProps = CreatableCombobox.defaultProps = {
 };
 
 Combobox.propTypes = {
+  'aria-label': PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
   creatable: PropTypes.bool,
   createMessage: PropTypes.func,
@@ -285,7 +292,7 @@ Combobox.propTypes = {
   error: PropTypes.string,
   hasMoreItems: PropTypes.bool,
   hint: PropTypes.string,
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   loading: PropTypes.bool,
   loadingMessage: PropTypes.string,
   noOptionsMessage: PropTypes.func,
