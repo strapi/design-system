@@ -208,7 +208,7 @@ exports[`Storyshots Design System/Atoms/Avatar initials 1`] = `
   width: 26px;
   height: 26px;
   border-radius: 50%;
-  background: linear-gradient(157deg,#4945ff 0%,#7b79ff 50%,#d9d8ff 81%,#f0f0ff 96%);
+  background: linear-gradient( 157deg, #4945ff 0%, #7b79ff 50%, #d9d8ff 81%, #f0f0ff 96% );
 }
 
 .c3 span {
