@@ -29,11 +29,22 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      - name: Install dependencies
+      - name: restore lerna
+        uses: actions/cache@v2
+        with:
+          path: |
+            node_modules
+            */*/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install yarn dependencies
         run: yarn global add http-server && yarn
 
+      - name: Install Lerna dependencies
+        run: yarn bootstrap
+
       - name: Build
-        run: yarn bootstrap && yarn build
+        run: yarn build
 
       - name: Lint
         run: yarn lint
