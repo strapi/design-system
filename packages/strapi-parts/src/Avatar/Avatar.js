@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { avatarSize, previewSize } from './constants';
+import { Typography } from '../Text';
+import { Row } from '../Row';
 
 const AvatarImg = styled.img`
   border-radius: 50%;
@@ -58,6 +60,43 @@ export const Avatar = ({ src, alt, preview }) => {
       </AvatarImgWrapper>
     </span>
   );
+};
+
+const getColor =
+  (colorName) =>
+  ({ theme }) =>
+    theme.colors[colorName];
+
+const InitialsWrapper = styled(Row)`
+  width: ${avatarSize}px;
+  height: ${avatarSize}px;
+  border-radius: 50%;
+
+  background: linear-gradient(
+    157deg,
+    ${getColor('primary600')} 0%,
+    ${getColor('primary500')} 50%,
+    ${getColor('primary200')} 81%,
+    ${getColor('primary100')} 96%
+  );
+
+  span {
+    line-height: 0;
+  }
+`;
+
+export const Initials = ({ initials }) => {
+  return (
+    <InitialsWrapper justifyContent="center">
+      <Typography fontWeight="bold" textColor="neutral0" fontSize={0} textTransform="uppercase">
+        {initials}
+      </Typography>
+    </InitialsWrapper>
+  );
+};
+
+Initials.propTypes = {
+  initials: PropTypes.string.isRequired,
 };
 
 Avatar.defaultProps = {
