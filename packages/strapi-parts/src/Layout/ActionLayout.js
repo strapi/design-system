@@ -16,13 +16,9 @@ export const ActionLayout = ({ startActions, endActions }) => {
   return startActions || endActions ? (
     <Box paddingLeft={10} paddingRight={10}>
       <Box paddingBottom={4}>
-        <Row justifyContent="space-between">
+        <Row justifyContent="space-between" alignItems="flex-start">
           {startActions && <BlockActions wrap="wrap">{startActions}</BlockActions>}
-          {endActions && (
-            <BlockActions pullRight wrap="wrap">
-              {endActions}
-            </BlockActions>
-          )}
+          {endActions && <BlockActions pullRight>{endActions}</BlockActions>}
         </Row>
       </Box>
     </Box>
