@@ -60,4 +60,4 @@ jobs:
         run: http-server -p 6006 &
 
       - name: Run the tests
-        run: yarn playwright install && yarn test:e2e:ci
+        run: npx playwright install && yarn test:e2e:ci
