@@ -19,8 +19,6 @@ const SubNavSectionWrapper = styled(Box)`
 const SubNavSectionBadge = styled(Badge)`
   display: flex;
   align-items: center;
-  height: ${20 / 16}rem;
-  width: ${16 / 16}rem;
 `;
 
 export const SubNavSection = ({ collapsable, label, badgeLabel, children, id }) => {
