@@ -5031,7 +5031,7 @@ exports[`Storyshots Design System/Layouts/HeaderLayout sticky 1`] = `
   top: 0;
   right: 0;
   width: px;
-  z-index: 3;
+  z-index: 4;
   box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
 }
 

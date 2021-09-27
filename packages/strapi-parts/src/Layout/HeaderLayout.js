@@ -57,7 +57,7 @@ const StickyBox = styled(Box)`
   top: 0;
   right: 0;
   width: ${(props) => props.width}px;
-  z-index: 3;
+  z-index: 4;
   box-shadow: ${({ theme }) => theme.shadows.tableShadow};
 `;
 
