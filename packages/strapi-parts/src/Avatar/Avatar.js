@@ -68,8 +68,8 @@ const getColor =
     theme.colors[colorName];
 
 const InitialsWrapper = styled(Row)`
-  min-width: ${avatarSize}px;
-  min-height: ${avatarSize}px;
+  width: ${avatarSize}px;
+  height: ${avatarSize}px;
   border-radius: 50%;
 
   background: linear-gradient(

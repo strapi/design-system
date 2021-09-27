@@ -205,8 +205,8 @@ exports[`Storyshots Design System/Atoms/Avatar initials 1`] = `
 }
 
 .c3 {
-  min-width: 26px;
-  min-height: 26px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
   background: linear-gradient( 157deg, #4945ff 0%, #7b79ff 50%, #d9d8ff 81%, #f0f0ff 96% );
 }
@@ -30675,8 +30675,8 @@ exports[`Storyshots Design System/Organisms/MainNav notifications 1`] = `
 }
 
 .c31 {
-  min-width: 26px;
-  min-height: 26px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
   background: linear-gradient( 157deg, #4945ff 0%, #7b79ff 50%, #d9d8ff 81%, #f0f0ff 96% );
 }

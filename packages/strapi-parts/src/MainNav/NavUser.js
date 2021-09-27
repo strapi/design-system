@@ -16,12 +16,12 @@ const NavUserBox = styled(Box)`
   border-top: 1px solid ${({ theme }) => theme.colors.neutral150};
 `;
 
-export const NavUser = ({ src, children, initials, ...props }) => {
+export const NavUser = React.forwardRef(({ src, children, initials, ...props }, ref) => {
   const condensed = useMainNav();
 
   return (
     <NavUserBox paddingTop={3} paddingBottom={3} paddingLeft={5} paddingRight={5} {...props}>
-      <Row as="button" justifyContent={condensed ? 'center' : undefined}>
+      <Row as="button" justifyContent={condensed ? 'center' : undefined} ref={ref}>
         {src ? <Avatar src={src} alt="" aria-hidden /> : <Initials>{initials}</Initials>}
         {condensed ? (
           <VisuallyHidden>
@@ -35,7 +35,7 @@ export const NavUser = ({ src, children, initials, ...props }) => {
       </Row>
     </NavUserBox>
   );
-};
+});
 
 NavUser.displayName = 'NavUser';
 
