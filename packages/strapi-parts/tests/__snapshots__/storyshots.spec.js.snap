@@ -6073,6 +6073,12 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
   padding: 0 4px;
 }
 
+.c68 th {
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 3.5rem;
+}
+
 .c69 {
   vertical-align: middle;
   text-align: left;
@@ -33528,6 +33534,12 @@ exports[`Storyshots Design System/Organisms/Table base 1`] = `
   padding: 0 4px;
 }
 
+.c9 th {
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 3.5rem;
+}
+
 .c10 {
   vertical-align: middle;
   text-align: left;
@@ -34777,6 +34789,12 @@ exports[`Storyshots Design System/Organisms/Table with th actions 1`] = `
 .c9 td:first-of-type,
 .c9 th:first-of-type {
   padding: 0 4px;
+}
+
+.c9 th {
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 3.5rem;
 }
 
 .c10 {
