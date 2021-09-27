@@ -30422,11 +30422,11 @@ exports[`Storyshots Design System/Organisms/MainNav base 1`] = `
           </li>
         </ul>
       </div>
-      <a
+      <div
         class="c25 c26"
-        href="/somewhere-i-belong"
+        to="/somewhere-i-belong"
       >
-        <span
+        <button
           class="c4"
         >
           <span>
@@ -30451,8 +30451,8 @@ exports[`Storyshots Design System/Organisms/MainNav base 1`] = `
               John Duff
             </span>
           </span>
-        </span>
-      </a>
+        </button>
+      </div>
       <button
         class="c29"
       >
@@ -30818,7 +30818,6 @@ exports[`Storyshots Design System/Organisms/MainNav notifications 1`] = `
   bottom: 0;
   width: 100%;
   border-top: 1px solid #eaeaef;
-  cursor: pointer;
 }
 
 .c5 {
@@ -31245,7 +31244,7 @@ exports[`Storyshots Design System/Organisms/MainNav notifications 1`] = `
       <div
         class="c28 c29"
       >
-        <span
+        <button
           class="c4"
         >
           <div
@@ -31266,7 +31265,7 @@ exports[`Storyshots Design System/Organisms/MainNav notifications 1`] = `
               John Duff
             </span>
           </span>
-        </span>
+        </button>
       </div>
       <button
         class="c33"

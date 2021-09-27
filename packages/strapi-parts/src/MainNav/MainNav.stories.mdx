@@ -16,7 +16,7 @@ import { NavSection } from './NavSection';
 import { NavSections } from './NavSections';
 import { NavCondense } from './NavCondense';
 import { NavLink } from './NavLink';
-import { NavUser, NavUserInitials } from './NavUser';
+import { NavUser } from './NavUser';
 import { NavBrand } from './NavBrand';
 import { Box } from '../Box';
 import { Stack } from '../Stack';
@@ -129,9 +129,7 @@ Exception made for core plugins (i.e. Content Manager, Content-types Builder, Me
   <Story name="notifications">
     {() => {
       const [condensed, setCondensed] = useState(false);
-      const [userVisible, setUserVisible] = useState(false);
       const numberOfNotifications = 2;
-      const navUserRef = useRef();
       return (
         <Box background="neutral100" padding={10} style={{ height: '100vh' }}>
           <MainNav condensed={condensed}>
@@ -169,17 +167,7 @@ Exception made for core plugins (i.e. Content Manager, Content-types Builder, Me
                 </NavLink>
               </NavSection>
             </NavSections>
-            <NavUserInitials onClick={() => setUserVisible((prev) => !prev)} ref={navUserRef} initials="JD">
-              John Duff
-            </NavUserInitials>
-            {userVisible && (
-              <Popover source={navUserRef} spacing={2}>
-                <Stack>
-                  <Text>Profile</Text>
-                  <Text>Logout</Text>
-                </Stack>
-              </Popover>
-            )}
+            <NavUser initials="JD">John Duff</NavUser>
             <NavCondense onClick={() => setCondensed((s) => !s)}>
               {condensed ? 'Expanded the navbar' : 'Collapse the navbar'}
             </NavCondense>

@@ -85,18 +85,18 @@ const InitialsWrapper = styled(Row)`
   }
 `;
 
-export const Initials = ({ initials }) => {
+export const Initials = ({ children }) => {
   return (
     <InitialsWrapper justifyContent="center">
       <Typography fontWeight="bold" textColor="neutral0" fontSize={0} textTransform="uppercase">
-        {initials}
+        {children}
       </Typography>
     </InitialsWrapper>
   );
 };
 
 Initials.propTypes = {
-  initials: PropTypes.string.isRequired,
+  children: PropTypes.string.isRequired,
 };
 
 Avatar.defaultProps = {

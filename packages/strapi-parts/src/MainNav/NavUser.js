@@ -1,7 +1,6 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
 import { Avatar, Initials } from '../Avatar';
 import { Text } from '../Text';
 import { Row } from '../Row';
@@ -17,13 +16,13 @@ const NavUserBox = styled(Box)`
   border-top: 1px solid ${({ theme }) => theme.colors.neutral150};
 `;
 
-export const NavUser = ({ src, children, ...props }) => {
+export const NavUser = ({ src, children, initials, ...props }) => {
   const condensed = useMainNav();
 
   return (
-    <NavUserBox paddingTop={3} paddingBottom={3} paddingLeft={5} paddingRight={5} as={NavLink} {...props}>
-      <Row as="span" justifyContent={condensed ? 'center' : undefined}>
-        <Avatar src={src} alt="" aria-hidden />
+    <NavUserBox paddingTop={3} paddingBottom={3} paddingLeft={5} paddingRight={5} {...props}>
+      <Row as="button" justifyContent={condensed ? 'center' : undefined}>
+        {src ? <Avatar src={src} alt="" aria-hidden /> : <Initials>{initials}</Initials>}
         {condensed ? (
           <VisuallyHidden>
             <span>{children}</span>
@@ -38,44 +37,15 @@ export const NavUser = ({ src, children, ...props }) => {
   );
 };
 
-const NavUserBoxInitials = styled(Box)`
-  text-decoration: none;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  border-top: 1px solid ${({ theme }) => theme.colors.neutral150};
-  cursor: pointer;
-`;
+NavUser.displayName = 'NavUser';
 
-export const NavUserInitials = forwardRef(({ initials, children, ...props }, ref) => {
-  const condensed = useMainNav();
-
-  return (
-    <NavUserBoxInitials paddingTop={3} paddingBottom={3} paddingLeft={5} paddingRight={5} {...props}>
-      <Row ref={ref} as="span" justifyContent={condensed ? 'center' : undefined}>
-        <Initials initials={initials} />
-        {condensed ? (
-          <VisuallyHidden>
-            <span>{children}</span>
-          </VisuallyHidden>
-        ) : (
-          <Box paddingLeft={2} as="span">
-            <Text textColor="neutral600">{children}</Text>
-          </Box>
-        )}
-      </Row>
-    </NavUserBoxInitials>
-  );
-});
-
-NavUserInitials.propTypes = {
-  children: PropTypes.string.isRequired,
-  initials: PropTypes.string.isRequired,
+NavUser.defaultProps = {
+  src: undefined,
+  initials: undefined,
 };
 
 NavUser.propTypes = {
-  children: PropTypes.string.isRequired,
-  src: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+  initials: PropTypes.node,
+  src: PropTypes.string,
 };
-
-NavUserInitials.displayName = 'NavUserInitials';
