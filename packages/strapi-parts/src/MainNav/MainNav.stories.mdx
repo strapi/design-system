@@ -1,6 +1,6 @@
 <!--- MainNav.stories.mdx --->
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { ArgsTable } from '@storybook/addon-docs';
 import ContentIcon from '@strapi/icons/ContentIcon';
@@ -19,7 +19,10 @@ import { NavLink } from './NavLink';
 import { NavUser } from './NavUser';
 import { NavBrand } from './NavBrand';
 import { Box } from '../Box';
+import { Stack } from '../Stack';
+import { Text } from '../Text';
 import { Divider } from '../Divider';
+import { Popover } from '../Popover';
 import strapiImage from './strapi-img.png';
 
 <Meta title="Design System/Organisms/MainNav" component={MainNav} />
@@ -164,9 +167,7 @@ Exception made for core plugins (i.e. Content Manager, Content-types Builder, Me
                 </NavLink>
               </NavSection>
             </NavSections>
-            <NavUser src="https://avatars.githubusercontent.com/u/3874873?v=4" to="/somewhere-i-belong">
-              John Duff
-            </NavUser>
+            <NavUser initials="JD">John Duff</NavUser>
             <NavCondense onClick={() => setCondensed((s) => !s)}>
               {condensed ? 'Expanded the navbar' : 'Collapse the navbar'}
             </NavCondense>

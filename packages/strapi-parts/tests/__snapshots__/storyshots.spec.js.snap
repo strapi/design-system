@@ -30550,11 +30550,11 @@ exports[`Storyshots Design System/Organisms/MainNav base 1`] = `
           </li>
         </ul>
       </div>
-      <a
+      <div
         class="c25 c26"
-        href="/somewhere-i-belong"
+        to="/somewhere-i-belong"
       >
-        <span
+        <button
           class="c4"
         >
           <span>
@@ -30579,8 +30579,8 @@ exports[`Storyshots Design System/Organisms/MainNav base 1`] = `
               John Duff
             </span>
           </span>
-        </span>
-      </a>
+        </button>
+      </div>
       <button
         class="c29"
       >
@@ -30674,6 +30674,13 @@ exports[`Storyshots Design System/Organisms/MainNav notifications 1`] = `
   padding-left: 20px;
 }
 
+.c32 {
+  font-weight: 600;
+  font-size: 0.6875rem;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
 .c8 {
   font-weight: 400;
   font-size: 0.875rem;
@@ -30739,6 +30746,24 @@ exports[`Storyshots Design System/Organisms/MainNav notifications 1`] = `
   align-items: center;
 }
 
+.c30 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
 .c15 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -30778,15 +30803,14 @@ exports[`Storyshots Design System/Organisms/MainNav notifications 1`] = `
 }
 
 .c31 {
-  border-radius: 50%;
-  display: block;
-  position: relative;
-}
-
-.c30 {
-  position: relative;
   width: 26px;
   height: 26px;
+  border-radius: 50%;
+  background: linear-gradient( 157deg, #4945ff 0%, #7b79ff 50%, #d9d8ff 81%, #f0f0ff 96% );
+}
+
+.c31 span {
+  line-height: 0;
 }
 
 .c26 {
@@ -30810,7 +30834,7 @@ exports[`Storyshots Design System/Organisms/MainNav notifications 1`] = `
   border-right: 1px solid #eaeaef;
 }
 
-.c32 {
+.c33 {
   background: #ffffff;
   border: 1px solid #eaeaef;
   border-radius: 4px;
@@ -30834,7 +30858,7 @@ exports[`Storyshots Design System/Organisms/MainNav notifications 1`] = `
   height: 1.5625rem;
 }
 
-.c32 svg {
+.c33 svg {
   width: 0.375rem;
   height: 0.5625rem;
 }
@@ -31345,26 +31369,21 @@ exports[`Storyshots Design System/Organisms/MainNav notifications 1`] = `
           </li>
         </ul>
       </div>
-      <a
+      <div
         class="c28 c29"
-        href="/somewhere-i-belong"
       >
-        <span
+        <button
           class="c4"
         >
-          <span>
-            <div
-              class="c30"
+          <div
+            class="c30 c31"
+          >
+            <span
+              class="c32"
             >
-              <img
-                alt=""
-                class="c31"
-                height="26px"
-                src="https://avatars.githubusercontent.com/u/3874873?v=4"
-                width="26px"
-              />
-            </div>
-          </span>
+              JD
+            </span>
+          </div>
           <span
             class="c6"
           >
@@ -31374,10 +31393,10 @@ exports[`Storyshots Design System/Organisms/MainNav notifications 1`] = `
               John Duff
             </span>
           </span>
-        </span>
-      </a>
+        </button>
+      </div>
       <button
-        class="c32"
+        class="c33"
       >
         <svg
           aria-hidden="true"
