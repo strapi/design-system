@@ -27,6 +27,7 @@ const BoxFullHeight = styled(Box)`
 
 // TODO: Check the L size button with Maeva
 export const ButtonWrapper = styled(BaseButton)`
+  align-items: center;
   padding: ${({ theme, size }) => `${size === 'S' ? theme.spaces[2] : '10px'} ${theme.spaces[4]}`};
   background: ${({ theme }) => theme.colors.primary600};
   border: none;
@@ -55,7 +56,6 @@ export const ButtonWrapper = styled(BaseButton)`
     `
     display: inline-flex;
     justify-content: center;
-    align-items: center;
     width: 100%;
   `}
 `;

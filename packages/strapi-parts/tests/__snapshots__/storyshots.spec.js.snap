@@ -1340,6 +1340,10 @@ exports[`Storyshots Design System/Atoms/FocusTrap base 1`] = `
 }
 
 .c8 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 8px 16px;
   background: #4945ff;
   border: none;
@@ -2508,6 +2512,10 @@ exports[`Storyshots Design System/Layouts/Dialog base 1`] = `
 }
 
 .c2 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 8px 16px;
   background: #4945ff;
   border: none;
@@ -2697,6 +2705,10 @@ exports[`Storyshots Design System/Layouts/EmptyStateLayout base 1`] = `
 }
 
 .c10 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 8px 16px;
   background: #4945ff;
   border: none;
@@ -2989,6 +3001,10 @@ exports[`Storyshots Design System/Layouts/EmptyStateLayout with large text 1`] =
 }
 
 .c10 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 8px 16px;
   background: #4945ff;
   border: none;
@@ -3628,6 +3644,10 @@ exports[`Storyshots Design System/Layouts/HeaderLayout base 1`] = `
 }
 
 .c17 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 8px 16px;
   background: #4945ff;
   border: none;
@@ -3696,6 +3716,10 @@ exports[`Storyshots Design System/Layouts/HeaderLayout base 1`] = `
 }
 
 .c20 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 8px 16px;
   background: #4945ff;
   border: none;
@@ -4010,6 +4034,10 @@ exports[`Storyshots Design System/Layouts/HeaderLayout base without nav action 1
 }
 
 .c9 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 8px 16px;
   background: #4945ff;
   border: none;
@@ -4078,6 +4106,10 @@ exports[`Storyshots Design System/Layouts/HeaderLayout base without nav action 1
 }
 
 .c14 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 8px 16px;
   background: #4945ff;
   border: none;
@@ -4412,6 +4444,10 @@ exports[`Storyshots Design System/Layouts/HeaderLayout combined w/ scroll 1`] = 
 }
 
 .c17 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 8px 16px;
   background: #4945ff;
   border: none;
@@ -4480,6 +4516,10 @@ exports[`Storyshots Design System/Layouts/HeaderLayout combined w/ scroll 1`] = 
 }
 
 .c20 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 8px 16px;
   background: #4945ff;
   border: none;
@@ -4850,6 +4890,10 @@ exports[`Storyshots Design System/Layouts/HeaderLayout sticky 1`] = `
 }
 
 .c19 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 8px 16px;
   background: #4945ff;
   border: none;
@@ -4918,6 +4962,10 @@ exports[`Storyshots Design System/Layouts/HeaderLayout sticky 1`] = `
 }
 
 .c23 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 8px 16px;
   background: #4945ff;
   border: none;
@@ -5543,6 +5591,10 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
 }
 
 .c44 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 8px 16px;
   background: #4945ff;
   border: none;
@@ -5611,6 +5663,10 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
 }
 
 .c48 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 8px 16px;
   background: #4945ff;
   border: none;
@@ -5672,6 +5728,10 @@ exports[`Storyshots Design System/Layouts/Layout base 1`] = `
 }
 
 .c60 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 10px 16px;
   background: #4945ff;
   border: none;
@@ -8660,6 +8720,10 @@ exports[`Storyshots Design System/Layouts/ModalLayout base 1`] = `
 }
 
 .c2 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 8px 16px;
   background: #4945ff;
   border: none;
@@ -9973,6 +10037,10 @@ exports[`Storyshots Design System/Molecules/Button base 1`] = `
 }
 
 .c4 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 8px 16px;
   background: #4945ff;
   border: none;
@@ -10118,6 +10186,10 @@ exports[`Storyshots Design System/Molecules/Button disabled 1`] = `
 }
 
 .c4 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 8px 16px;
   background: #4945ff;
   border: none;
@@ -10285,6 +10357,10 @@ exports[`Storyshots Design System/Molecules/Button fullWidth 1`] = `
 }
 
 .c4 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 8px 16px;
   background: #4945ff;
   border: none;
@@ -10298,10 +10374,6 @@ exports[`Storyshots Design System/Molecules/Button fullWidth 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   width: 100%;
 }
 
@@ -10501,6 +10573,10 @@ exports[`Storyshots Design System/Molecules/Button icons 1`] = `
 }
 
 .c4 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 8px 16px;
   background: #4945ff;
   border: none;
@@ -10562,6 +10638,10 @@ exports[`Storyshots Design System/Molecules/Button icons 1`] = `
 }
 
 .c9 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 8px 16px;
   background: #4945ff;
   border: none;
@@ -10852,6 +10932,10 @@ exports[`Storyshots Design System/Molecules/Button sizes 1`] = `
 }
 
 .c5 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 8px 16px;
   background: #4945ff;
   border: none;
@@ -10913,6 +10997,10 @@ exports[`Storyshots Design System/Molecules/Button sizes 1`] = `
 }
 
 .c8 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 10px 16px;
   background: #4945ff;
   border: none;
@@ -11080,6 +11168,10 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
 }
 
 .c4 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 8px 16px;
   background: #4945ff;
   border: none;
@@ -11141,6 +11233,10 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
 }
 
 .c7 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 8px 16px;
   background: #4945ff;
   border: none;
@@ -11219,6 +11315,10 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
 }
 
 .c8 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 8px 16px;
   background: #4945ff;
   border: none;
@@ -11287,6 +11387,10 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
 }
 
 .c9 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 8px 16px;
   background: #4945ff;
   border: none;
@@ -11348,6 +11452,10 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
 }
 
 .c10 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 8px 16px;
   background: #4945ff;
   border: none;
@@ -11409,6 +11517,10 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
 }
 
 .c11 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 8px 16px;
   background: #4945ff;
   border: none;
@@ -11487,6 +11599,10 @@ exports[`Storyshots Design System/Molecules/Button variants 1`] = `
 }
 
 .c12 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 8px 16px;
   background: #4945ff;
   border: none;
@@ -19993,6 +20109,10 @@ exports[`Storyshots Design System/Molecules/LiveRegions alert 1`] = `
 }
 
 .c4 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 8px 16px;
   background: #4945ff;
   border: none;
@@ -20157,6 +20277,10 @@ exports[`Storyshots Design System/Molecules/LiveRegions log 1`] = `
 }
 
 .c4 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 8px 16px;
   background: #4945ff;
   border: none;
@@ -20321,6 +20445,10 @@ exports[`Storyshots Design System/Molecules/LiveRegions status 1`] = `
 }
 
 .c4 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 8px 16px;
   background: #4945ff;
   border: none;
