@@ -14,6 +14,13 @@ const TrWrapper = styled(RawTr)`
   & th:first-of-type {
     padding: 0 ${({ theme }) => theme.spaces[1]};
   }
+
+  // Resetting padding values and fixing a height
+  th {
+    padding-top: 0;
+    padding-bottom: 0;
+    height: ${56 / 16}rem;
+  }
 `;
 
 export const Tr = (props) => {
