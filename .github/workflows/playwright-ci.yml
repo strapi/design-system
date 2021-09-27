@@ -59,5 +59,8 @@ jobs:
         working-directory: ./packages/strapi-parts/storybook-static
         run: http-server -p 6006 &
 
+      - name: Configure Playwright
+        run: npx playwright install
+
       - name: Run the tests
-        run: npx playwright install && yarn test:e2e:ci
+        run: yarn test:e2e:ci
