@@ -1,5 +1,6 @@
 <!--- HeaderLayout.stories.mdx --->
 
+import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { ArgsTable } from '@storybook/addon-docs';
 import BackIcon from '@strapi/icons/BackIcon';
@@ -7,6 +8,7 @@ import EditIcon from '@strapi/icons/EditIcon';
 import AddIcon from '@strapi/icons/AddIcon';
 import CheckIcon from '@strapi/icons/CheckIcon';
 import { BaseHeaderLayout, HeaderLayout } from './HeaderLayout';
+import { ModalLayout } from '../ModalLayout';
 import { Link } from '../Link';
 import { Button } from '../Button';
 import { Box } from '../Box';
@@ -123,24 +125,39 @@ This header is combined with scroll.
 
 <Canvas>
   <Story name="combined w/ scroll" parameters={{ layout: 'fullscreen' }}>
-    <Box background="neutral100" style={{ height: 2000 }}>
-      <HeaderLayout
-        navigationAction={
-          <Link startIcon={<BackIcon />} to="/">
-            Go back
-          </Link>
-        }
-        primaryAction={<Button startIcon={<AddIcon />}>Add an entry</Button>}
-        secondaryAction={
-          <Button variant="tertiary" startIcon={<EditIcon />}>
-            Edit
-          </Button>
-        }
-        title="Restaurants"
-        subtitle="36 entries found"
-        as="h2"
-      />
-    </Box>
+    {() => {
+      const [isVisible, setIsVisible] = useState(false);
+      return (
+        <Box background="neutral100" style={{ height: 2000 }}>
+          <HeaderLayout
+            navigationAction={
+              <Link startIcon={<BackIcon />} to="/">
+                Go back
+              </Link>
+            }
+            primaryAction={
+              <Button startIcon={<AddIcon />} onClick={() => setIsVisible(true)}>
+                Add an entry
+              </Button>
+            }
+            secondaryAction={
+              <Button variant="tertiary" startIcon={<EditIcon />}>
+                Edit
+              </Button>
+            }
+            title="Restaurants"
+            subtitle="36 entries found"
+            as="h2"
+          />
+          {isVisible && (
+            <ModalLayout onClose={() => setIsVisible(false)} labelledBy="subtitle">
+              <button onClick={() => setIsVisible(false)}>Close me</button>
+              <h2 id="subtitle">Here we are</h2>
+            </ModalLayout>
+          )}
+        </Box>
+      );
+    }}
   </Story>
 </Canvas>
 

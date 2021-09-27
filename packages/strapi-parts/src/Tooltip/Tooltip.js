@@ -12,7 +12,7 @@ import { VisuallyHidden } from '../VisuallyHidden';
 const TooltipWrapper = styled(Box)`
   position: absolute;
   /* z-index exist because of its position inside Modals */
-  z-index: 3;
+  z-index: 4;
   display: ${({ visible }) => (visible ? 'revert' : 'none')};
 `;
 

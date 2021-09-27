@@ -12,7 +12,7 @@ import { useId } from '../helpers/useId';
 
 const DialogWrapper = styled.div`
   position: absolute;
-  z-index: 3;
+  z-index: 4;
   inset: 0;
   background: ${({ theme }) => setOpacity(theme.colors.neutral800, 0.2)};
   padding: 0 ${({ theme }) => theme.spaces[8]};
