@@ -18,7 +18,7 @@ import DeleteIcon from '@strapi/icons/DeleteIcon';
 
 # Dialog
 
-This is the doc of the `Dialog` component
+`Dialog` creates a box to confirm a delete action.
 
 [View source](https://github.com/strapi/parts/tree/develop/packages/strapi-parts/src/Dialog)
 
@@ -36,8 +36,6 @@ import AlertWarningIcon from '@strapi/icons/AlertWarningIcon';
 
 ## Usage
 
-Description...
-
 <Canvas>
   <Story name="base">
     {() => {
@@ -45,21 +43,6 @@ Description...
       return (
         <>
           <Button onClick={() => setIsVisible(true)}>Click me</Button>
-          <Box padding={10} background="neutral0">
-            test overflow
-          </Box>
-          <Box padding={10} background="neutral0">
-            test overflow
-          </Box>
-          <Box padding={10} background="neutral0">
-            test overflow
-          </Box>
-          <Box padding={10} background="neutral0">
-            test overflow
-          </Box>
-          <Box padding={10} background="neutral0">
-            test overflow
-          </Box>
           <Dialog onClose={() => setIsVisible(false)} title="Confirmation" isOpen={isVisible}>
             <DialogBody icon={<AlertWarningIcon />}>
               <Stack size={2}>
