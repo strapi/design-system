@@ -29,14 +29,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      - name: restore lerna
-        uses: actions/cache@v2
-        with:
-          path: |
-            node_modules
-            */*/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
-
       - name: Install yarn dependencies
         run: yarn global add http-server && yarn
 
@@ -59,8 +51,5 @@ jobs:
         working-directory: ./packages/strapi-parts/storybook-static
         run: http-server -p 6006 &
 
-      - name: Configure Playwright
-        run: npx playwright install
-
       - name: Run the tests
-        run: yarn test:e2e:ci
+        run: npx playwright install && yarn test:e2e:ci
