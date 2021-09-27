@@ -8,8 +8,10 @@ import {
   HeaderLayout,
   Stack,
   Layout,
+  Link,
 } from "@strapi/parts";
 import EditIcon from "@strapi/icons/EditIcon";
+import BackIcon from "@strapi/icons/BackIcon";
 import AddIcon from "@strapi/icons/AddIcon";
 import Inputs from "./Inputs";
 import { layout } from "./utils/layout";
@@ -19,11 +21,11 @@ import { AppLayout } from "../layouts/AppLayout";
 const initialState = {
   initialData: {
     name: "toto",
-    content: "hello world"
+    content: "hello world",
   },
   modifiedData: {
-    name: "toto", 
-    content: "hello world"
+    name: "toto",
+    content: "hello world",
   },
   formErrors: null,
 };
@@ -83,31 +85,51 @@ const CM = () => {
 
   return (
     <AppLayout>
-      <Layout>
-        <form onSubmit={handleSubmit}>
-          <Box padding={6}>
-            <Stack size={6}>
-              <Grid gap={5}>
-                {layout.map((row, index) => {
-                  return row.map((input) => {
-                    return (
-                      <GridItem key={input.name} col={input.size} xs={12}>
-                        <Inputs
-                          {...input}
-                          // customInputs={{ string: () => "TEXT CUSTOM" }}
-                          error={formErrors?.[input.name]}
-                          onChange={handleChange}
-                          value={modifiedData[input.name]}
-                        />
-                      </GridItem>
-                    );
-                  });
-                })}
-              </Grid>
-            </Stack>
-          </Box>
-        </form>
-      </Layout>
+      <div style={{ height: "200vh" }}>
+        <Layout>
+          <HeaderLayout
+            navigationAction={
+              <Link startIcon={<BackIcon />} to="/">
+                Go back
+              </Link>
+            }
+            primaryAction={
+              <Button startIcon={<AddIcon />}>Add an entry</Button>
+            }
+            secondaryAction={
+              <Button variant="tertiary" startIcon={<EditIcon />}>
+                Edit
+              </Button>
+            }
+            title="Restaurants"
+            subtitle="36 entries found"
+            as="h2"
+          />
+          <form onSubmit={handleSubmit}>
+            <Box padding={6}>
+              <Stack size={6}>
+                <Grid gap={5}>
+                  {layout.map((row, index) => {
+                    return row.map((input) => {
+                      return (
+                        <GridItem key={input.name} col={input.size} xs={12}>
+                          <Inputs
+                            {...input}
+                            // customInputs={{ string: () => "TEXT CUSTOM" }}
+                            error={formErrors?.[input.name]}
+                            onChange={handleChange}
+                            value={modifiedData[input.name]}
+                          />
+                        </GridItem>
+                      );
+                    });
+                  })}
+                </Grid>
+              </Stack>
+            </Box>
+          </form>
+        </Layout>
+      </div>
     </AppLayout>
   );
 };
