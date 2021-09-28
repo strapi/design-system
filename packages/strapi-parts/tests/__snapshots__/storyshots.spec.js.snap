@@ -29911,7 +29911,7 @@ exports[`Storyshots Design System/Organisms/MainNav base 1`] = `
 
 .c14 {
   padding-top: 12px;
-  padding-right: 12px;
+  padding-right: 8px;
   padding-left: 12px;
 }
 
@@ -30275,7 +30275,7 @@ exports[`Storyshots Design System/Organisms/MainNav base 1`] = `
                   <span
                     class="c7 c8"
                   >
-                    Content
+                    Content-type-builder
                   </span>
                 </div>
               </span>
@@ -30650,7 +30650,7 @@ exports[`Storyshots Design System/Organisms/MainNav notifications 1`] = `
 
 .c14 {
   padding-top: 12px;
-  padding-right: 12px;
+  padding-right: 8px;
   padding-left: 12px;
 }
 
