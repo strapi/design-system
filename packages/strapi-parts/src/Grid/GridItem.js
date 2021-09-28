@@ -6,7 +6,6 @@ import { useGrid } from './GridContext';
 
 const GridItemWrapper = styled.div`
   grid-column: span ${({ col }) => col};
-  word-break: break-all;
 
   ${({ theme }) => theme.mediaQueries.tablet} {
     grid-column: span ${({ s }) => s};

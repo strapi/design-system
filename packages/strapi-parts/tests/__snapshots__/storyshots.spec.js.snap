@@ -1479,7 +1479,6 @@ exports[`Storyshots Design System/Atoms/Grid base 1`] = `
 
 .c2 {
   grid-column: span 1;
-  word-break: break-all;
 }
 
 @media (max-width:68.75rem) {
@@ -1570,7 +1569,6 @@ exports[`Storyshots Design System/Atoms/Grid base grid 1`] = `
 
 .c2 {
   grid-column: span 1;
-  word-break: break-all;
 }
 
 @media (max-width:68.75rem) {
@@ -1743,22 +1741,18 @@ exports[`Storyshots Design System/Atoms/Grid complex grid 1`] = `
 
 .c3 {
   grid-column: span 6;
-  word-break: break-all;
 }
 
 .c5 {
   grid-column: span 3;
-  word-break: break-all;
 }
 
 .c6 {
   grid-column: span 8;
-  word-break: break-all;
 }
 
 .c7 {
   grid-column: span 2;
-  word-break: break-all;
 }
 
 @media (max-width:68.75rem) {
@@ -8860,12 +8854,10 @@ exports[`Storyshots Design System/Layouts/TwoColsLayout base 1`] = `
 
 .c3 {
   grid-column: span 9;
-  word-break: break-all;
 }
 
 .c6 {
   grid-column: span 3;
-  word-break: break-all;
 }
 
 @media (max-width:68.75rem) {
@@ -29744,7 +29736,6 @@ exports[`Storyshots Design System/Molecules/Tooltip grid 1`] = `
 
 .c3 {
   grid-column: span 3;
-  word-break: break-all;
 }
 
 @media (max-width:68.75rem) {
@@ -36038,7 +36029,6 @@ exports[`Storyshots Design System/Subatomic/LightTheme colors 1`] = `
 
 .c2 {
   grid-column: span;
-  word-break: break-all;
 }
 
 @media (max-width:68.75rem) {
@@ -36374,7 +36364,6 @@ exports[`Storyshots Design System/Subatomic/LightTheme shadows 1`] = `
 
 .c3 {
   grid-column: span 3;
-  word-break: break-all;
 }
 
 @media (max-width:68.75rem) {
