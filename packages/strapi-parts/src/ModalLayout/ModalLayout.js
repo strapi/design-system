@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Box } from '../Box';
@@ -23,14 +23,27 @@ const ModalContent = styled(Box)`
 `;
 
 export const ModalLayout = ({ onClose, labelledBy, ...props }) => {
+  const modalContentRef = useRef();
+
   //FIX ME (find a way to do it globally)
   useEffect(() => {
     const body = document.body;
     body.classList.add('lock-body-scroll');
+    document.addEventListener('mousedown', handleClickAway);
+
     return () => {
       body.classList.remove('lock-body-scroll');
+      document.removeEventListener('mousedown', handleClick);
     };
   }, []);
+
+  const handleClickAway = (e) => {
+    if (modalContentRef.current.contains(e.target)) {
+      return;
+    }
+
+    onClose();
+  };
 
   return (
     <Portal>
@@ -39,6 +52,7 @@ export const ModalLayout = ({ onClose, labelledBy, ...props }) => {
           <FocusTrap onEscape={onClose}>
             <ModalContent
               aria-labelledby={labelledBy}
+              ref={modalContentRef}
               background="neutral0"
               hasRadius
               shadow="popupShadow"
