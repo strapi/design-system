@@ -11,7 +11,7 @@ import { H2 } from '../Text';
 import { useId } from '../helpers/useId';
 
 const DialogWrapper = styled.div`
-  position: absolute;
+  position: fixed;
   z-index: 4;
   inset: 0;
   background: ${({ theme }) => setOpacity(theme.colors.neutral800, 0.2)};
