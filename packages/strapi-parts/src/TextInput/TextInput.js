@@ -15,7 +15,7 @@ const LabelAction = styled(Box)`
 `;
 
 export const TextInput = React.forwardRef(
-  ({ size, startAction, endAction, name, hint, error, label, labelAction, id, ...props }, ref) => {
+  ({ size, startAction, endAction, name, hint, error, label, labelAction, id, required, ...props }, ref) => {
     const generatedId = useId('textinput', id);
     const inputWrapperRef = useRef(null);
 
@@ -33,7 +33,7 @@ export const TextInput = React.forwardRef(
           <Stack size={1}>
             {label && (
               <Row>
-                <FieldLabel>{label}</FieldLabel>
+                <FieldLabel required={required}>{label}</FieldLabel>
                 {labelAction && <LabelAction paddingLeft={1}>{labelAction}</LabelAction>}
               </Row>
             )}
@@ -59,6 +59,7 @@ TextInput.defaultProps = {
   startAction: undefined,
   size: 'M',
   endAction: undefined,
+  required: false,
 };
 
 TextInput.propTypes = {
@@ -70,6 +71,7 @@ TextInput.propTypes = {
   label: PropTypes.string,
   labelAction: PropTypes.element,
   name: PropTypes.string.isRequired,
+  required: PropTypes.bool,
   size: PropTypes.oneOf(Object.keys(sizes.input)),
   startAction: PropTypes.element,
 };

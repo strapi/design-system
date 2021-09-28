@@ -6699,7 +6699,7 @@ exports[`Storyshots Design System/Components/Combobox base 1`] = `
   width: 1px;
 }
 
-.c6 {
+.c7 {
   padding-left: 12px;
 }
 
@@ -6711,6 +6711,13 @@ exports[`Storyshots Design System/Components/Combobox base 1`] = `
 }
 
 .c3 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #d02b20;
+}
+
+.c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -6743,23 +6750,23 @@ exports[`Storyshots Design System/Components/Combobox base 1`] = `
   margin-top: 4px;
 }
 
-.c7 {
+.c8 {
   background: transparent;
   border: none;
   position: relative;
   z-index: 1;
 }
 
-.c7 svg {
+.c8 svg {
   height: 0.6875rem;
   width: 0.6875rem;
 }
 
-.c7 svg path {
+.c8 svg path {
   fill: #666687;
 }
 
-.c8 {
+.c9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -6768,11 +6775,11 @@ exports[`Storyshots Design System/Components/Combobox base 1`] = `
   border: none;
 }
 
-.c8 svg {
+.c9 svg {
   width: 0.375rem;
 }
 
-.c4 {
+.c5 {
   position: relative;
   border: 1px solid #dcdce4;
   padding-right: 12px;
@@ -6781,12 +6788,12 @@ exports[`Storyshots Design System/Components/Combobox base 1`] = `
   background: #ffffff;
 }
 
-.c4:focus-within {
+.c5:focus-within {
   outline: none;
   box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
-.c5 {
+.c6 {
   min-height: 2.5rem;
   border: none;
   -webkit-flex: 1;
@@ -6796,13 +6803,13 @@ exports[`Storyshots Design System/Components/Combobox base 1`] = `
   color: #32324d;
 }
 
-.c5:focus-visible {
+.c6:focus-visible {
   outline: none;
   box-shadow: none;
   outline-offset: 0;
 }
 
-.c5[aria-disabled='true'] {
+.c6[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
@@ -6825,9 +6832,12 @@ exports[`Storyshots Design System/Components/Combobox base 1`] = `
         id="combobox-15-label"
       >
         Food
+        <span
+          class="c3"
+        />
       </label>
       <div
-        class="c3 c4"
+        class="c4 c5"
       >
         <input
           aria-activedescendant=""
@@ -6837,7 +6847,7 @@ exports[`Storyshots Design System/Components/Combobox base 1`] = `
           aria-disabled="false"
           aria-expanded="false"
           aria-haspopup="listbox"
-          class="c5"
+          class="c6"
           id="combobox-15"
           placeholder="Select or enter a value"
           role="combobox"
@@ -6845,11 +6855,11 @@ exports[`Storyshots Design System/Components/Combobox base 1`] = `
           value=""
         />
         <div
-          class="c3"
+          class="c4"
         >
           <button
             aria-hidden="true"
-            class="c6 c7 c8"
+            class="c7 c8 c9"
             tabindex="-1"
           >
             <svg
@@ -6887,7 +6897,7 @@ exports[`Storyshots Design System/Components/Combobox creatable 1`] = `
   width: 1px;
 }
 
-.c6 {
+.c7 {
   padding-left: 12px;
 }
 
@@ -6899,6 +6909,13 @@ exports[`Storyshots Design System/Components/Combobox creatable 1`] = `
 }
 
 .c3 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #d02b20;
+}
+
+.c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -6931,23 +6948,23 @@ exports[`Storyshots Design System/Components/Combobox creatable 1`] = `
   margin-top: 4px;
 }
 
-.c7 {
+.c8 {
   background: transparent;
   border: none;
   position: relative;
   z-index: 1;
 }
 
-.c7 svg {
+.c8 svg {
   height: 0.6875rem;
   width: 0.6875rem;
 }
 
-.c7 svg path {
+.c8 svg path {
   fill: #666687;
 }
 
-.c8 {
+.c9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -6956,11 +6973,11 @@ exports[`Storyshots Design System/Components/Combobox creatable 1`] = `
   border: none;
 }
 
-.c8 svg {
+.c9 svg {
   width: 0.375rem;
 }
 
-.c4 {
+.c5 {
   position: relative;
   border: 1px solid #dcdce4;
   padding-right: 12px;
@@ -6969,12 +6986,12 @@ exports[`Storyshots Design System/Components/Combobox creatable 1`] = `
   background: #ffffff;
 }
 
-.c4:focus-within {
+.c5:focus-within {
   outline: none;
   box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
-.c5 {
+.c6 {
   min-height: 2.5rem;
   border: none;
   -webkit-flex: 1;
@@ -6984,13 +7001,13 @@ exports[`Storyshots Design System/Components/Combobox creatable 1`] = `
   color: #32324d;
 }
 
-.c5:focus-visible {
+.c6:focus-visible {
   outline: none;
   box-shadow: none;
   outline-offset: 0;
 }
 
-.c5[aria-disabled='true'] {
+.c6[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
@@ -7013,9 +7030,12 @@ exports[`Storyshots Design System/Components/Combobox creatable 1`] = `
         id="combobox-23-label"
       >
         Food
+        <span
+          class="c3"
+        />
       </label>
       <div
-        class="c3 c4"
+        class="c4 c5"
       >
         <input
           aria-activedescendant=""
@@ -7025,7 +7045,7 @@ exports[`Storyshots Design System/Components/Combobox creatable 1`] = `
           aria-disabled="false"
           aria-expanded="false"
           aria-haspopup="listbox"
-          class="c5"
+          class="c6"
           id="combobox-23"
           placeholder="Select or enter a value"
           role="combobox"
@@ -7033,11 +7053,11 @@ exports[`Storyshots Design System/Components/Combobox creatable 1`] = `
           value=""
         />
         <div
-          class="c3"
+          class="c4"
         >
           <button
             aria-hidden="true"
-            class="c6 c7 c8"
+            class="c7 c8 c9"
             tabindex="-1"
           >
             <svg
@@ -7075,7 +7095,7 @@ exports[`Storyshots Design System/Components/Combobox disabled 1`] = `
   width: 1px;
 }
 
-.c6 {
+.c7 {
   padding-left: 12px;
 }
 
@@ -7087,6 +7107,13 @@ exports[`Storyshots Design System/Components/Combobox disabled 1`] = `
 }
 
 .c3 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #d02b20;
+}
+
+.c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -7119,23 +7146,23 @@ exports[`Storyshots Design System/Components/Combobox disabled 1`] = `
   margin-top: 4px;
 }
 
-.c7 {
+.c8 {
   background: transparent;
   border: none;
   position: relative;
   z-index: 1;
 }
 
-.c7 svg {
+.c8 svg {
   height: 0.6875rem;
   width: 0.6875rem;
 }
 
-.c7 svg path {
+.c8 svg path {
   fill: #666687;
 }
 
-.c8 {
+.c9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -7144,11 +7171,11 @@ exports[`Storyshots Design System/Components/Combobox disabled 1`] = `
   border: none;
 }
 
-.c8 svg {
+.c9 svg {
   width: 0.375rem;
 }
 
-.c4 {
+.c5 {
   position: relative;
   border: 1px solid #dcdce4;
   padding-right: 12px;
@@ -7159,12 +7186,12 @@ exports[`Storyshots Design System/Components/Combobox disabled 1`] = `
   background: #eaeaef;
 }
 
-.c4:focus-within {
+.c5:focus-within {
   outline: none;
   box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
-.c5 {
+.c6 {
   min-height: 2.5rem;
   border: none;
   -webkit-flex: 1;
@@ -7174,13 +7201,13 @@ exports[`Storyshots Design System/Components/Combobox disabled 1`] = `
   color: #32324d;
 }
 
-.c5:focus-visible {
+.c6:focus-visible {
   outline: none;
   box-shadow: none;
   outline-offset: 0;
 }
 
-.c5[aria-disabled='true'] {
+.c6[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
@@ -7203,9 +7230,12 @@ exports[`Storyshots Design System/Components/Combobox disabled 1`] = `
         id="combobox-17-label"
       >
         Food
+        <span
+          class="c3"
+        />
       </label>
       <div
-        class="c3 c4"
+        class="c4 c5"
       >
         <input
           aria-activedescendant=""
@@ -7215,7 +7245,7 @@ exports[`Storyshots Design System/Components/Combobox disabled 1`] = `
           aria-disabled="true"
           aria-expanded="false"
           aria-haspopup="listbox"
-          class="c5"
+          class="c6"
           id="combobox-17"
           placeholder="Select or enter a value"
           readonly=""
@@ -7224,11 +7254,11 @@ exports[`Storyshots Design System/Components/Combobox disabled 1`] = `
           value=""
         />
         <div
-          class="c3"
+          class="c4"
         >
           <button
             aria-hidden="true"
-            class="c6 c7 c8"
+            class="c7 c8 c9"
             disabled=""
             tabindex="-1"
           >
@@ -7267,7 +7297,7 @@ exports[`Storyshots Design System/Components/Combobox error 1`] = `
   width: 1px;
 }
 
-.c6 {
+.c7 {
   padding-left: 12px;
 }
 
@@ -7278,14 +7308,21 @@ exports[`Storyshots Design System/Components/Combobox error 1`] = `
   color: #32324d;
 }
 
-.c9 {
+.c3 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #d02b20;
+}
+
+.c10 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #d02b20;
 }
 
-.c3 {
+.c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -7318,23 +7355,23 @@ exports[`Storyshots Design System/Components/Combobox error 1`] = `
   margin-top: 4px;
 }
 
-.c7 {
+.c8 {
   background: transparent;
   border: none;
   position: relative;
   z-index: 1;
 }
 
-.c7 svg {
+.c8 svg {
   height: 0.6875rem;
   width: 0.6875rem;
 }
 
-.c7 svg path {
+.c8 svg path {
   fill: #666687;
 }
 
-.c8 {
+.c9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -7343,11 +7380,11 @@ exports[`Storyshots Design System/Components/Combobox error 1`] = `
   border: none;
 }
 
-.c8 svg {
+.c9 svg {
   width: 0.375rem;
 }
 
-.c4 {
+.c5 {
   position: relative;
   border: 1px solid #d02b20;
   padding-right: 12px;
@@ -7356,12 +7393,12 @@ exports[`Storyshots Design System/Components/Combobox error 1`] = `
   background: #ffffff;
 }
 
-.c4:focus-within {
+.c5:focus-within {
   outline: none;
   box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
-.c5 {
+.c6 {
   min-height: 2.5rem;
   border: none;
   -webkit-flex: 1;
@@ -7371,13 +7408,13 @@ exports[`Storyshots Design System/Components/Combobox error 1`] = `
   color: #32324d;
 }
 
-.c5:focus-visible {
+.c6:focus-visible {
   outline: none;
   box-shadow: none;
   outline-offset: 0;
 }
 
-.c5[aria-disabled='true'] {
+.c6[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
@@ -7400,9 +7437,12 @@ exports[`Storyshots Design System/Components/Combobox error 1`] = `
         id="combobox-21-label"
       >
         Food
+        <span
+          class="c3"
+        />
       </label>
       <div
-        class="c3 c4"
+        class="c4 c5"
       >
         <input
           aria-activedescendant=""
@@ -7412,7 +7452,7 @@ exports[`Storyshots Design System/Components/Combobox error 1`] = `
           aria-disabled="false"
           aria-expanded="false"
           aria-haspopup="listbox"
-          class="c5"
+          class="c6"
           id="combobox-21"
           placeholder="Select or enter a value"
           role="combobox"
@@ -7420,11 +7460,11 @@ exports[`Storyshots Design System/Components/Combobox error 1`] = `
           value=""
         />
         <div
-          class="c3"
+          class="c4"
         >
           <button
             aria-hidden="true"
-            class="c6 c7 c8"
+            class="c7 c8 c9"
             tabindex="-1"
           >
             <svg
@@ -7445,7 +7485,7 @@ exports[`Storyshots Design System/Components/Combobox error 1`] = `
         </div>
       </div>
       <p
-        class="c9"
+        class="c10"
         data-strapi-field-error="true"
         id="combobox-21-error"
       >
@@ -7469,7 +7509,7 @@ exports[`Storyshots Design System/Components/Combobox infinite-scroll 1`] = `
   width: 1px;
 }
 
-.c6 {
+.c7 {
   padding-left: 12px;
 }
 
@@ -7481,6 +7521,13 @@ exports[`Storyshots Design System/Components/Combobox infinite-scroll 1`] = `
 }
 
 .c3 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #d02b20;
+}
+
+.c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -7513,23 +7560,23 @@ exports[`Storyshots Design System/Components/Combobox infinite-scroll 1`] = `
   margin-top: 4px;
 }
 
-.c7 {
+.c8 {
   background: transparent;
   border: none;
   position: relative;
   z-index: 1;
 }
 
-.c7 svg {
+.c8 svg {
   height: 0.6875rem;
   width: 0.6875rem;
 }
 
-.c7 svg path {
+.c8 svg path {
   fill: #666687;
 }
 
-.c8 {
+.c9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -7538,11 +7585,11 @@ exports[`Storyshots Design System/Components/Combobox infinite-scroll 1`] = `
   border: none;
 }
 
-.c8 svg {
+.c9 svg {
   width: 0.375rem;
 }
 
-.c4 {
+.c5 {
   position: relative;
   border: 1px solid #dcdce4;
   padding-right: 12px;
@@ -7551,12 +7598,12 @@ exports[`Storyshots Design System/Components/Combobox infinite-scroll 1`] = `
   background: #ffffff;
 }
 
-.c4:focus-within {
+.c5:focus-within {
   outline: none;
   box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
-.c5 {
+.c6 {
   min-height: 2.5rem;
   border: none;
   -webkit-flex: 1;
@@ -7566,13 +7613,13 @@ exports[`Storyshots Design System/Components/Combobox infinite-scroll 1`] = `
   color: #32324d;
 }
 
-.c5:focus-visible {
+.c6:focus-visible {
   outline: none;
   box-shadow: none;
   outline-offset: 0;
 }
 
-.c5[aria-disabled='true'] {
+.c6[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
@@ -7595,9 +7642,12 @@ exports[`Storyshots Design System/Components/Combobox infinite-scroll 1`] = `
         id="combobox-27-label"
       >
         Food
+        <span
+          class="c3"
+        />
       </label>
       <div
-        class="c3 c4"
+        class="c4 c5"
       >
         <input
           aria-activedescendant=""
@@ -7607,7 +7657,7 @@ exports[`Storyshots Design System/Components/Combobox infinite-scroll 1`] = `
           aria-disabled="false"
           aria-expanded="false"
           aria-haspopup="listbox"
-          class="c5"
+          class="c6"
           id="combobox-27"
           placeholder="Select or enter a value"
           role="combobox"
@@ -7615,11 +7665,11 @@ exports[`Storyshots Design System/Components/Combobox infinite-scroll 1`] = `
           value=""
         />
         <div
-          class="c3"
+          class="c4"
         >
           <button
             aria-hidden="true"
-            class="c6 c7 c8"
+            class="c7 c8 c9"
             tabindex="-1"
           >
             <svg
@@ -7657,7 +7707,7 @@ exports[`Storyshots Design System/Components/Combobox loading 1`] = `
   width: 1px;
 }
 
-.c6 {
+.c7 {
   padding-left: 12px;
 }
 
@@ -7669,6 +7719,13 @@ exports[`Storyshots Design System/Components/Combobox loading 1`] = `
 }
 
 .c3 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #d02b20;
+}
+
+.c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -7701,23 +7758,23 @@ exports[`Storyshots Design System/Components/Combobox loading 1`] = `
   margin-top: 4px;
 }
 
-.c7 {
+.c8 {
   background: transparent;
   border: none;
   position: relative;
   z-index: 1;
 }
 
-.c7 svg {
+.c8 svg {
   height: 0.6875rem;
   width: 0.6875rem;
 }
 
-.c7 svg path {
+.c8 svg path {
   fill: #666687;
 }
 
-.c8 {
+.c9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -7726,11 +7783,11 @@ exports[`Storyshots Design System/Components/Combobox loading 1`] = `
   border: none;
 }
 
-.c8 svg {
+.c9 svg {
   width: 0.375rem;
 }
 
-.c4 {
+.c5 {
   position: relative;
   border: 1px solid #dcdce4;
   padding-right: 12px;
@@ -7739,12 +7796,12 @@ exports[`Storyshots Design System/Components/Combobox loading 1`] = `
   background: #ffffff;
 }
 
-.c4:focus-within {
+.c5:focus-within {
   outline: none;
   box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
-.c5 {
+.c6 {
   min-height: 2.5rem;
   border: none;
   -webkit-flex: 1;
@@ -7754,13 +7811,13 @@ exports[`Storyshots Design System/Components/Combobox loading 1`] = `
   color: #32324d;
 }
 
-.c5:focus-visible {
+.c6:focus-visible {
   outline: none;
   box-shadow: none;
   outline-offset: 0;
 }
 
-.c5[aria-disabled='true'] {
+.c6[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
@@ -7783,9 +7840,12 @@ exports[`Storyshots Design System/Components/Combobox loading 1`] = `
         id="combobox-25-label"
       >
         Food
+        <span
+          class="c3"
+        />
       </label>
       <div
-        class="c3 c4"
+        class="c4 c5"
       >
         <input
           aria-activedescendant=""
@@ -7795,7 +7855,7 @@ exports[`Storyshots Design System/Components/Combobox loading 1`] = `
           aria-disabled="false"
           aria-expanded="false"
           aria-haspopup="listbox"
-          class="c5"
+          class="c6"
           id="combobox-25"
           placeholder="Select or enter a value"
           role="combobox"
@@ -7803,11 +7863,11 @@ exports[`Storyshots Design System/Components/Combobox loading 1`] = `
           value=""
         />
         <div
-          class="c3"
+          class="c4"
         >
           <button
             aria-hidden="true"
-            class="c6 c7 c8"
+            class="c7 c8 c9"
             tabindex="-1"
           >
             <svg
@@ -8019,7 +8079,7 @@ exports[`Storyshots Design System/Components/DatePicker base 1`] = `
   width: 1px;
 }
 
-.c6 {
+.c7 {
   padding-right: 8px;
   padding-left: 12px;
 }
@@ -8029,6 +8089,13 @@ exports[`Storyshots Design System/Components/DatePicker base 1`] = `
   font-size: 0.75rem;
   line-height: 1.33;
   color: #32324d;
+}
+
+.c4 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #d02b20;
 }
 
 .c2 {
@@ -8045,7 +8112,7 @@ exports[`Storyshots Design System/Components/DatePicker base 1`] = `
   align-items: center;
 }
 
-.c4 {
+.c5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -8082,7 +8149,7 @@ exports[`Storyshots Design System/Components/DatePicker base 1`] = `
   margin-top: 4px;
 }
 
-.c8 {
+.c9 {
   border: none;
   border-radius: 4px;
   padding-left: 0;
@@ -8094,37 +8161,37 @@ exports[`Storyshots Design System/Components/DatePicker base 1`] = `
   width: 100%;
 }
 
-.c8::-webkit-input-placeholder {
+.c9::-webkit-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c8::-moz-placeholder {
+.c9::-moz-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c8:-ms-input-placeholder {
+.c9:-ms-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c8::placeholder {
+.c9::placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c8[aria-disabled='true'] {
+.c9[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
 
-.c8:focus {
+.c9:focus {
   outline: none;
   box-shadow: none;
 }
 
-.c5 {
+.c6 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
@@ -8137,18 +8204,24 @@ exports[`Storyshots Design System/Components/DatePicker base 1`] = `
   transition-duration: 0.2s;
 }
 
+<<<<<<< HEAD
 .c5:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
+=======
+.c6:focus-within {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
 }
 
-.c7 {
+.c8 {
   border: none;
   background: transparent;
   border-radius: 4px;
 }
 
-.c7 svg path {
+.c8 svg path {
   fill: #8e8ea9;
 }
 
@@ -8177,17 +8250,20 @@ exports[`Storyshots Design System/Components/DatePicker base 1`] = `
                 for="datepicker-29"
               >
                 Date picker
+                <span
+                  class="c4"
+                />
               </label>
             </div>
             <div
-              class="c4 c5"
+              class="c5 c6"
             >
               <div
-                class="c6"
+                class="c7"
               >
                 <button
                   aria-label="Date picker"
-                  class="c7"
+                  class="c8"
                   type="button"
                 >
                   <svg
@@ -8211,7 +8287,7 @@ exports[`Storyshots Design System/Components/DatePicker base 1`] = `
                 aria-autocomplete="none"
                 aria-disabled="false"
                 aria-invalid="false"
-                class="c8"
+                class="c9"
                 id="datepicker-29"
                 name="datepicker"
                 placeholder="1/1/1970"
@@ -8246,7 +8322,7 @@ exports[`Storyshots Design System/Components/DatePicker size S 1`] = `
   width: 1px;
 }
 
-.c6 {
+.c7 {
   padding-right: 8px;
   padding-left: 12px;
 }
@@ -8256,6 +8332,13 @@ exports[`Storyshots Design System/Components/DatePicker size S 1`] = `
   font-size: 0.75rem;
   line-height: 1.33;
   color: #32324d;
+}
+
+.c4 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #d02b20;
 }
 
 .c2 {
@@ -8272,7 +8355,7 @@ exports[`Storyshots Design System/Components/DatePicker size S 1`] = `
   align-items: center;
 }
 
-.c4 {
+.c5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -8309,7 +8392,7 @@ exports[`Storyshots Design System/Components/DatePicker size S 1`] = `
   margin-top: 4px;
 }
 
-.c8 {
+.c9 {
   border: none;
   border-radius: 4px;
   padding-left: 0;
@@ -8321,37 +8404,37 @@ exports[`Storyshots Design System/Components/DatePicker size S 1`] = `
   width: 100%;
 }
 
-.c8::-webkit-input-placeholder {
+.c9::-webkit-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c8::-moz-placeholder {
+.c9::-moz-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c8:-ms-input-placeholder {
+.c9:-ms-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c8::placeholder {
+.c9::placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c8[aria-disabled='true'] {
+.c9[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
 
-.c8:focus {
+.c9:focus {
   outline: none;
   box-shadow: none;
 }
 
-.c5 {
+.c6 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
@@ -8364,18 +8447,24 @@ exports[`Storyshots Design System/Components/DatePicker size S 1`] = `
   transition-duration: 0.2s;
 }
 
+<<<<<<< HEAD
 .c5:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
+=======
+.c6:focus-within {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
 }
 
-.c7 {
+.c8 {
   border: none;
   background: transparent;
   border-radius: 4px;
 }
 
-.c7 svg path {
+.c8 svg path {
   fill: #8e8ea9;
 }
 
@@ -8404,17 +8493,20 @@ exports[`Storyshots Design System/Components/DatePicker size S 1`] = `
                 for="datepicker-30"
               >
                 Date picker
+                <span
+                  class="c4"
+                />
               </label>
             </div>
             <div
-              class="c4 c5"
+              class="c5 c6"
             >
               <div
-                class="c6"
+                class="c7"
               >
                 <button
                   aria-label="Date picker"
-                  class="c7"
+                  class="c8"
                   type="button"
                 >
                   <svg
@@ -8438,7 +8530,7 @@ exports[`Storyshots Design System/Components/DatePicker size S 1`] = `
                 aria-autocomplete="none"
                 aria-disabled="false"
                 aria-invalid="false"
-                class="c8"
+                class="c9"
                 id="datepicker-30"
                 name="datepicker"
                 placeholder="1/1/1970"
@@ -9536,6 +9628,13 @@ exports[`Storyshots Design System/Components/Field base 1`] = `
 }
 
 .c3 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #d02b20;
+}
+
+.c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -9572,7 +9671,7 @@ exports[`Storyshots Design System/Components/Field base 1`] = `
   margin-top: 4px;
 }
 
-.c5 {
+.c6 {
   border: none;
   border-radius: 4px;
   padding-left: 16px;
@@ -9584,37 +9683,37 @@ exports[`Storyshots Design System/Components/Field base 1`] = `
   width: 100%;
 }
 
-.c5::-webkit-input-placeholder {
+.c6::-webkit-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c5::-moz-placeholder {
+.c6::-moz-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c5:-ms-input-placeholder {
+.c6:-ms-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c5::placeholder {
+.c6::placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c5[aria-disabled='true'] {
+.c6[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
 
-.c5:focus {
+.c6:focus {
   outline: none;
   box-shadow: none;
 }
 
-.c4 {
+.c5 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
@@ -9627,9 +9726,15 @@ exports[`Storyshots Design System/Components/Field base 1`] = `
   transition-duration: 0.2s;
 }
 
+<<<<<<< HEAD
 .c4:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
+=======
+.c5:focus-within {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
 }
 
 <main>
@@ -9649,14 +9754,17 @@ exports[`Storyshots Design System/Components/Field base 1`] = `
         for="field-32"
       >
         Email
+        <span
+          class="c3"
+        />
       </label>
       <div
-        class="c3 c4"
+        class="c4 c5"
       >
         <input
           aria-disabled="false"
           aria-invalid="false"
-          class="c5"
+          class="c6"
           id="field-32"
           name="email"
           placeholder="Placeholder"
@@ -9689,14 +9797,21 @@ exports[`Storyshots Design System/Components/Field disabled 1`] = `
   color: #32324d;
 }
 
-.c6 {
+.c3 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #d02b20;
+}
+
+.c7 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #666687;
 }
 
-.c3 {
+.c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -9733,7 +9848,7 @@ exports[`Storyshots Design System/Components/Field disabled 1`] = `
   margin-top: 4px;
 }
 
-.c5 {
+.c6 {
   border: none;
   border-radius: 4px;
   padding-left: 16px;
@@ -9745,37 +9860,37 @@ exports[`Storyshots Design System/Components/Field disabled 1`] = `
   width: 100%;
 }
 
-.c5::-webkit-input-placeholder {
+.c6::-webkit-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c5::-moz-placeholder {
+.c6::-moz-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c5:-ms-input-placeholder {
+.c6:-ms-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c5::placeholder {
+.c6::placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c5[aria-disabled='true'] {
+.c6[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
 
-.c5:focus {
+.c6:focus {
   outline: none;
   box-shadow: none;
 }
 
-.c4 {
+.c5 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
@@ -9790,9 +9905,15 @@ exports[`Storyshots Design System/Components/Field disabled 1`] = `
   background: #eaeaef;
 }
 
+<<<<<<< HEAD
 .c4:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
+=======
+.c5:focus-within {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
 }
 
 <main>
@@ -9812,16 +9933,19 @@ exports[`Storyshots Design System/Components/Field disabled 1`] = `
         for="field-35"
       >
         Password
+        <span
+          class="c3"
+        />
       </label>
       <div
-        class="c3 c4"
+        class="c4 c5"
         disabled=""
       >
         <input
           aria-describedby="field-35-hint"
           aria-disabled="true"
           aria-invalid="false"
-          class="c5"
+          class="c6"
           id="field-35"
           name="password"
           placeholder="Placeholder"
@@ -9829,7 +9953,7 @@ exports[`Storyshots Design System/Components/Field disabled 1`] = `
         />
       </div>
       <p
-        class="c6"
+        class="c7"
         id="field-35-hint"
       >
         Description line
@@ -9856,16 +9980,16 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
   padding: 40px;
 }
 
-.c5 {
+.c6 {
   padding-left: 8px;
 }
 
-.c8 {
+.c9 {
   padding-right: 8px;
   padding-left: 12px;
 }
 
-.c11 {
+.c12 {
   padding-right: 12px;
   padding-left: 8px;
 }
@@ -9877,7 +10001,14 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
   color: #32324d;
 }
 
-.c12 {
+.c5 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #d02b20;
+}
+
+.c13 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
@@ -9898,7 +10029,7 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
   align-items: center;
 }
 
-.c6 {
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -9935,7 +10066,7 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
   margin-top: 4px;
 }
 
-.c10 {
+.c11 {
   border: none;
   border-radius: 4px;
   padding-left: 0;
@@ -9947,37 +10078,37 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
   width: 100%;
 }
 
-.c10::-webkit-input-placeholder {
+.c11::-webkit-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10::-moz-placeholder {
+.c11::-moz-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10:-ms-input-placeholder {
+.c11:-ms-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10::placeholder {
+.c11::placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10[aria-disabled='true'] {
+.c11[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
 
-.c10:focus {
+.c11:focus {
   outline: none;
   box-shadow: none;
 }
 
-.c7 {
+.c8 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
@@ -9990,12 +10121,18 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
   transition-duration: 0.2s;
 }
 
+<<<<<<< HEAD
 .c7:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
+=======
+.c8:focus-within {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
 }
 
-.c9 {
+.c10 {
   border: none;
   background: transparent;
   font-size: 1.6rem;
@@ -10034,9 +10171,12 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
             for="field-36"
           >
             Password
+            <span
+              class="c5"
+            />
           </label>
           <div
-            class="c5"
+            class="c6"
           >
             <span>
               <button
@@ -10069,14 +10209,14 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
           </a>
         </div>
         <div
-          class="c6 c7"
+          class="c7 c8"
         >
           <div
-            class="c8"
+            class="c9"
           >
             <button
               aria-label="Show password"
-              class="c9"
+              class="c10"
               type="button"
             >
               <svg
@@ -10102,18 +10242,18 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
             aria-describedby="field-36-hint"
             aria-disabled="false"
             aria-invalid="false"
-            class="c10"
+            class="c11"
             id="field-36"
             name="password"
             placeholder="example@domain.com"
             value=""
           />
           <div
-            class="c11"
+            class="c12"
           >
             <button
               aria-label="Show password"
-              class="c9"
+              class="c10"
               type="button"
             >
               <svg
@@ -10137,7 +10277,7 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
           </div>
         </div>
         <p
-          class="c12"
+          class="c13"
           id="field-36-hint"
         >
           Description line
@@ -10165,16 +10305,16 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
   padding: 40px;
 }
 
-.c5 {
+.c6 {
   padding-left: 8px;
 }
 
-.c8 {
+.c9 {
   padding-right: 8px;
   padding-left: 12px;
 }
 
-.c11 {
+.c12 {
   padding-right: 12px;
   padding-left: 8px;
 }
@@ -10186,7 +10326,14 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
   color: #32324d;
 }
 
-.c12 {
+.c5 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #d02b20;
+}
+
+.c13 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
@@ -10207,7 +10354,7 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
   align-items: center;
 }
 
-.c6 {
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -10244,7 +10391,7 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
   margin-top: 4px;
 }
 
-.c10 {
+.c11 {
   border: none;
   border-radius: 4px;
   padding-left: 0;
@@ -10256,37 +10403,37 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
   width: 100%;
 }
 
-.c10::-webkit-input-placeholder {
+.c11::-webkit-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10::-moz-placeholder {
+.c11::-moz-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10:-ms-input-placeholder {
+.c11:-ms-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10::placeholder {
+.c11::placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10[aria-disabled='true'] {
+.c11[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
 
-.c10:focus {
+.c11:focus {
   outline: none;
   box-shadow: none;
 }
 
-.c7 {
+.c8 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
@@ -10299,12 +10446,18 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
   transition-duration: 0.2s;
 }
 
+<<<<<<< HEAD
 .c7:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
+=======
+.c8:focus-within {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
 }
 
-.c9 {
+.c10 {
   border: none;
   background: transparent;
   font-size: 1.6rem;
@@ -10343,9 +10496,12 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
             for="field-39"
           >
             Password
+            <span
+              class="c5"
+            />
           </label>
           <div
-            class="c5"
+            class="c6"
           >
             <span>
               <button
@@ -10378,14 +10534,14 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
           </a>
         </div>
         <div
-          class="c6 c7"
+          class="c7 c8"
         >
           <div
-            class="c8"
+            class="c9"
           >
             <button
               aria-label="Show password"
-              class="c9"
+              class="c10"
               type="button"
             >
               <svg
@@ -10411,18 +10567,18 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
             aria-describedby="field-39-hint"
             aria-disabled="false"
             aria-invalid="false"
-            class="c10"
+            class="c11"
             id="field-39"
             name="password"
             placeholder="example@domain.com"
             value=""
           />
           <div
-            class="c11"
+            class="c12"
           >
             <button
               aria-label="Show password"
-              class="c9"
+              class="c10"
               type="button"
             >
               <svg
@@ -10446,7 +10602,7 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
           </div>
         </div>
         <p
-          class="c12"
+          class="c13"
           id="field-39-hint"
         >
           Description line
@@ -10477,14 +10633,21 @@ exports[`Storyshots Design System/Components/Field with description 1`] = `
   color: #32324d;
 }
 
-.c6 {
+.c3 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #d02b20;
+}
+
+.c7 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #666687;
 }
 
-.c3 {
+.c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -10521,7 +10684,7 @@ exports[`Storyshots Design System/Components/Field with description 1`] = `
   margin-top: 4px;
 }
 
-.c5 {
+.c6 {
   border: none;
   border-radius: 4px;
   padding-left: 16px;
@@ -10533,37 +10696,37 @@ exports[`Storyshots Design System/Components/Field with description 1`] = `
   width: 100%;
 }
 
-.c5::-webkit-input-placeholder {
+.c6::-webkit-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c5::-moz-placeholder {
+.c6::-moz-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c5:-ms-input-placeholder {
+.c6:-ms-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c5::placeholder {
+.c6::placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c5[aria-disabled='true'] {
+.c6[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
 
-.c5:focus {
+.c6:focus {
   outline: none;
   box-shadow: none;
 }
 
-.c4 {
+.c5 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
@@ -10576,9 +10739,15 @@ exports[`Storyshots Design System/Components/Field with description 1`] = `
   transition-duration: 0.2s;
 }
 
+<<<<<<< HEAD
 .c4:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
+=======
+.c5:focus-within {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
 }
 
 <main>
@@ -10596,17 +10765,23 @@ exports[`Storyshots Design System/Components/Field with description 1`] = `
       <label
         class="c2"
         for="field-33"
+        required=""
       >
         Email
+        <span
+          class="c3"
+        >
+          *
+        </span>
       </label>
       <div
-        class="c3 c4"
+        class="c4 c5"
       >
         <input
           aria-describedby="field-33-hint"
           aria-disabled="false"
           aria-invalid="false"
-          class="c5"
+          class="c6"
           id="field-33"
           name="email"
           placeholder="Placeholder"
@@ -10615,7 +10790,7 @@ exports[`Storyshots Design System/Components/Field with description 1`] = `
         />
       </div>
       <p
-        class="c6"
+        class="c7"
         id="field-33-hint"
       >
         Description line
@@ -10645,14 +10820,21 @@ exports[`Storyshots Design System/Components/Field with error 1`] = `
   color: #32324d;
 }
 
-.c6 {
+.c3 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #d02b20;
+}
+
+.c7 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #d02b20;
 }
 
-.c3 {
+.c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -10689,7 +10871,7 @@ exports[`Storyshots Design System/Components/Field with error 1`] = `
   margin-top: 4px;
 }
 
-.c5 {
+.c6 {
   border: none;
   border-radius: 4px;
   padding-left: 16px;
@@ -10701,37 +10883,37 @@ exports[`Storyshots Design System/Components/Field with error 1`] = `
   width: 100%;
 }
 
-.c5::-webkit-input-placeholder {
+.c6::-webkit-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c5::-moz-placeholder {
+.c6::-moz-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c5:-ms-input-placeholder {
+.c6:-ms-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c5::placeholder {
+.c6::placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c5[aria-disabled='true'] {
+.c6[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
 
-.c5:focus {
+.c6:focus {
   outline: none;
   box-shadow: none;
 }
 
-.c4 {
+.c5 {
   border: 1px solid #d02b20;
   border-radius: 4px;
   background: #ffffff;
@@ -10744,9 +10926,15 @@ exports[`Storyshots Design System/Components/Field with error 1`] = `
   transition-duration: 0.2s;
 }
 
+<<<<<<< HEAD
 .c4:focus-within {
   border: 1px solid #d02b20;
   box-shadow: #d02b20 0px 0px 0px 2px;
+=======
+.c5:focus-within {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
 }
 
 <main>
@@ -10766,15 +10954,18 @@ exports[`Storyshots Design System/Components/Field with error 1`] = `
         for="field-34"
       >
         Password
+        <span
+          class="c3"
+        />
       </label>
       <div
-        class="c3 c4"
+        class="c4 c5"
       >
         <input
           aria-describedby="field-34-error"
           aria-disabled="false"
           aria-invalid="true"
-          class="c5"
+          class="c6"
           id="field-34"
           name="password"
           placeholder="Placeholder"
@@ -10783,7 +10974,7 @@ exports[`Storyshots Design System/Components/Field with error 1`] = `
         />
       </div>
       <p
-        class="c6"
+        class="c7"
         data-strapi-field-error="true"
         id="field-34-error"
       >
@@ -22740,16 +22931,16 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
   padding: 56px;
 }
 
-.c5 {
+.c6 {
   padding-left: 4px;
 }
 
-.c9 {
+.c10 {
   padding-right: 12px;
   padding-left: 8px;
 }
 
-.c13 {
+.c14 {
   background: #f6f6f9;
   padding: 16px;
 }
@@ -22761,7 +22952,14 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
   color: #32324d;
 }
 
-.c12 {
+.c5 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #d02b20;
+}
+
+.c13 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
@@ -22782,7 +22980,7 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
   align-items: center;
 }
 
-.c6 {
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -22819,7 +23017,7 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
   margin-top: 4px;
 }
 
-.c8 {
+.c9 {
   border: none;
   border-radius: 4px;
   padding-left: 16px;
@@ -22831,37 +23029,37 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
   width: 100%;
 }
 
-.c8::-webkit-input-placeholder {
+.c9::-webkit-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c8::-moz-placeholder {
+.c9::-moz-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c8:-ms-input-placeholder {
+.c9:-ms-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c8::placeholder {
+.c9::placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c8[aria-disabled='true'] {
+.c9[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
 
-.c8:focus {
+.c9:focus {
   outline: none;
   box-shadow: none;
 }
 
-.c7 {
+.c8 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
@@ -22874,12 +23072,18 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
   transition-duration: 0.2s;
 }
 
+<<<<<<< HEAD
 .c7:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
+=======
+.c8:focus-within {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
 }
 
-.c10 {
+.c11 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -22894,7 +23098,7 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
   transform: translateY(-2px);
 }
 
-.c10 svg {
+.c11 svg {
   display: block;
   height: 0.25rem;
   -webkit-transform: rotateX(180deg);
@@ -22902,7 +23106,7 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
   transform: rotateX(180deg);
 }
 
-.c11 {
+.c12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -22917,7 +23121,7 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
   transform: translateY(2px);
 }
 
-.c11 svg {
+.c12 svg {
   display: block;
   height: 0.25rem;
 }
@@ -22945,9 +23149,12 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
             for="numberinput-92"
           >
             Content
+            <span
+              class="c5"
+            />
           </label>
           <div
-            class="c5"
+            class="c6"
           >
             <span>
               <button
@@ -22974,13 +23181,13 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
           </div>
         </div>
         <div
-          class="c6 c7"
+          class="c7 c8"
         >
           <input
             aria-describedby="numberinput-92-hint"
             aria-disabled="false"
             aria-invalid="false"
-            class="c8"
+            class="c9"
             id="numberinput-92"
             name="content"
             placeholder="This is a content placeholder"
@@ -22988,28 +23195,8 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
             value=""
           />
           <div
-            class="c9"
+            class="c10"
           >
-            <button
-              aria-hidden="true"
-              class="c10"
-              tabindex="-1"
-            >
-              <svg
-                fill="none"
-                height="1em"
-                viewBox="0 0 14 8"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  clip-rule="evenodd"
-                  d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
-                  fill="#32324D"
-                  fill-rule="evenodd"
-                />
-              </svg>
-            </button>
             <button
               aria-hidden="true"
               class="c11"
@@ -23030,10 +23217,30 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
                 />
               </svg>
             </button>
+            <button
+              aria-hidden="true"
+              class="c12"
+              tabindex="-1"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 14 8"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
+                  fill="#32324D"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </button>
           </div>
         </div>
         <p
-          class="c12"
+          class="c13"
           id="numberinput-92-hint"
         >
           Description line
@@ -23041,7 +23248,7 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
       </div>
     </div>
     <p
-      class="c13"
+      class="c14"
     >
       The value is undefined
     </p>
@@ -23069,16 +23276,16 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
   padding: 56px;
 }
 
-.c5 {
+.c6 {
   padding-left: 4px;
 }
 
-.c9 {
+.c10 {
   padding-right: 12px;
   padding-left: 8px;
 }
 
-.c13 {
+.c14 {
   background: #f6f6f9;
   padding: 16px;
 }
@@ -23090,7 +23297,14 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
   color: #32324d;
 }
 
-.c12 {
+.c5 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #d02b20;
+}
+
+.c13 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
@@ -23111,7 +23325,7 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
   align-items: center;
 }
 
-.c6 {
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -23148,7 +23362,7 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
   margin-top: 4px;
 }
 
-.c8 {
+.c9 {
   border: none;
   border-radius: 4px;
   padding-left: 16px;
@@ -23160,37 +23374,37 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
   width: 100%;
 }
 
-.c8::-webkit-input-placeholder {
+.c9::-webkit-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c8::-moz-placeholder {
+.c9::-moz-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c8:-ms-input-placeholder {
+.c9:-ms-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c8::placeholder {
+.c9::placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c8[aria-disabled='true'] {
+.c9[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
 
-.c8:focus {
+.c9:focus {
   outline: none;
   box-shadow: none;
 }
 
-.c7 {
+.c8 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
@@ -23203,12 +23417,18 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
   transition-duration: 0.2s;
 }
 
+<<<<<<< HEAD
 .c7:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
+=======
+.c8:focus-within {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
 }
 
-.c10 {
+.c11 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -23223,7 +23443,7 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
   transform: translateY(-2px);
 }
 
-.c10 svg {
+.c11 svg {
   display: block;
   height: 0.25rem;
   -webkit-transform: rotateX(180deg);
@@ -23231,7 +23451,7 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
   transform: rotateX(180deg);
 }
 
-.c11 {
+.c12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -23246,7 +23466,7 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
   transform: translateY(2px);
 }
 
-.c11 svg {
+.c12 svg {
   display: block;
   height: 0.25rem;
 }
@@ -23274,9 +23494,12 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
             for="numberinput-96"
           >
             Content
+            <span
+              class="c5"
+            />
           </label>
           <div
-            class="c5"
+            class="c6"
           >
             <span>
               <button
@@ -23303,13 +23526,13 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
           </div>
         </div>
         <div
-          class="c6 c7"
+          class="c7 c8"
         >
           <input
             aria-describedby="numberinput-96-hint"
             aria-disabled="false"
             aria-invalid="false"
-            class="c8"
+            class="c9"
             id="numberinput-96"
             name="content"
             placeholder="This is a content placeholder"
@@ -23317,28 +23540,8 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
             value=""
           />
           <div
-            class="c9"
+            class="c10"
           >
-            <button
-              aria-hidden="true"
-              class="c10"
-              tabindex="-1"
-            >
-              <svg
-                fill="none"
-                height="1em"
-                viewBox="0 0 14 8"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  clip-rule="evenodd"
-                  d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
-                  fill="#32324D"
-                  fill-rule="evenodd"
-                />
-              </svg>
-            </button>
             <button
               aria-hidden="true"
               class="c11"
@@ -23359,10 +23562,30 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
                 />
               </svg>
             </button>
+            <button
+              aria-hidden="true"
+              class="c12"
+              tabindex="-1"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 14 8"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
+                  fill="#32324D"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </button>
           </div>
         </div>
         <p
-          class="c12"
+          class="c13"
           id="numberinput-96-hint"
         >
           Description line
@@ -23370,7 +23593,7 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
       </div>
     </div>
     <p
-      class="c13"
+      class="c14"
     >
       The value is undefined
     </p>
@@ -24381,7 +24604,7 @@ exports[`Storyshots Design System/Components/Searchbar base 1`] = `
   width: 1px;
 }
 
-.c6 {
+.c7 {
   padding-right: 8px;
   padding-left: 12px;
 }
@@ -24393,7 +24616,14 @@ exports[`Storyshots Design System/Components/Searchbar base 1`] = `
   color: #32324d;
 }
 
-.c4 {
+.c3 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #d02b20;
+}
+
+.c5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -24411,7 +24641,7 @@ exports[`Storyshots Design System/Components/Searchbar base 1`] = `
   align-items: center;
 }
 
-.c8 {
+.c9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -24425,7 +24655,7 @@ exports[`Storyshots Design System/Components/Searchbar base 1`] = `
   align-items: center;
 }
 
-.c10 {
+.c11 {
   border: none;
   border-radius: 4px;
   padding-left: 0;
@@ -24437,37 +24667,37 @@ exports[`Storyshots Design System/Components/Searchbar base 1`] = `
   width: 100%;
 }
 
-.c10::-webkit-input-placeholder {
+.c11::-webkit-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10::-moz-placeholder {
+.c11::-moz-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10:-ms-input-placeholder {
+.c11:-ms-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10::placeholder {
+.c11::placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10[aria-disabled='true'] {
+.c11[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
 
-.c10:focus {
+.c11:focus {
   outline: none;
   box-shadow: none;
 }
 
-.c5 {
+.c6 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
@@ -24480,16 +24710,22 @@ exports[`Storyshots Design System/Components/Searchbar base 1`] = `
   transition-duration: 0.2s;
 }
 
+<<<<<<< HEAD
 .c5:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
+=======
+.c6:focus-within {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
 }
 
-.c9 {
+.c10 {
   font-size: 0.8rem;
 }
 
-.c9 svg path {
+.c10 svg path {
   fill: #32324d;
 }
 
@@ -24504,17 +24740,27 @@ exports[`Storyshots Design System/Components/Searchbar base 1`] = `
   transition-duration: 0.2s;
 }
 
-.c1:focus-within .c7 svg path {
+.c1:focus-within .c8 svg path {
   fill: #4945ff;
 }
 
-.c1 .c3 {
+.c1 .c4 {
   border: 1px solid transparent;
 }
 
+<<<<<<< HEAD
 .c1 .c3:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
+=======
+.c1 .c4:focus-within {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
+}
+
+.c1 input {
+  outline: none;
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
 }
 
 <main>
@@ -24540,16 +24786,19 @@ exports[`Storyshots Design System/Components/Searchbar base 1`] = `
             for="field-99"
           >
             Searching for a plugin
+            <span
+              class="c3"
+            />
           </label>
         </div>
         <div
-          class="c3 c4 c5"
+          class="c4 c5 c6"
         >
           <div
-            class="c6"
+            class="c7"
           >
             <div
-              class="c7 c8 c9"
+              class="c8 c9 c10"
             >
               <svg
                 aria-hidden="true"
@@ -24571,7 +24820,7 @@ exports[`Storyshots Design System/Components/Searchbar base 1`] = `
           <input
             aria-disabled="false"
             aria-invalid="false"
-            class="c10"
+            class="c11"
             id="field-99"
             name="searchbar"
             placeholder="e.g: strapi-plugin-abcd"
@@ -24597,7 +24846,7 @@ exports[`Storyshots Design System/Components/Searchbar disabled 1`] = `
   width: 1px;
 }
 
-.c6 {
+.c7 {
   padding-right: 8px;
   padding-left: 12px;
 }
@@ -24609,7 +24858,14 @@ exports[`Storyshots Design System/Components/Searchbar disabled 1`] = `
   color: #32324d;
 }
 
-.c4 {
+.c3 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #d02b20;
+}
+
+.c5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -24627,7 +24883,7 @@ exports[`Storyshots Design System/Components/Searchbar disabled 1`] = `
   align-items: center;
 }
 
-.c8 {
+.c9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -24641,7 +24897,7 @@ exports[`Storyshots Design System/Components/Searchbar disabled 1`] = `
   align-items: center;
 }
 
-.c10 {
+.c11 {
   border: none;
   border-radius: 4px;
   padding-left: 0;
@@ -24653,37 +24909,37 @@ exports[`Storyshots Design System/Components/Searchbar disabled 1`] = `
   width: 100%;
 }
 
-.c10::-webkit-input-placeholder {
+.c11::-webkit-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10::-moz-placeholder {
+.c11::-moz-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10:-ms-input-placeholder {
+.c11:-ms-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10::placeholder {
+.c11::placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10[aria-disabled='true'] {
+.c11[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
 
-.c10:focus {
+.c11:focus {
   outline: none;
   box-shadow: none;
 }
 
-.c5 {
+.c6 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
@@ -24698,16 +24954,22 @@ exports[`Storyshots Design System/Components/Searchbar disabled 1`] = `
   background: #eaeaef;
 }
 
+<<<<<<< HEAD
 .c5:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
+=======
+.c6:focus-within {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
 }
 
-.c9 {
+.c10 {
   font-size: 0.8rem;
 }
 
-.c9 svg path {
+.c10 svg path {
   fill: #32324d;
 }
 
@@ -24722,17 +24984,27 @@ exports[`Storyshots Design System/Components/Searchbar disabled 1`] = `
   transition-duration: 0.2s;
 }
 
-.c1:focus-within .c7 svg path {
+.c1:focus-within .c8 svg path {
   fill: #4945ff;
 }
 
-.c1 .c3 {
+.c1 .c4 {
   border: 1px solid transparent;
 }
 
+<<<<<<< HEAD
 .c1 .c3:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
+=======
+.c1 .c4:focus-within {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
+}
+
+.c1 input {
+  outline: none;
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
 }
 
 <main>
@@ -24755,17 +25027,20 @@ exports[`Storyshots Design System/Components/Searchbar disabled 1`] = `
           for="field-101"
         >
           Searching for a plugin
+          <span
+            class="c3"
+          />
         </label>
       </div>
       <div
-        class="c3 c4 c5"
+        class="c4 c5 c6"
         disabled=""
       >
         <div
-          class="c6"
+          class="c7"
         >
           <div
-            class="c7 c8 c9"
+            class="c8 c9 c10"
           >
             <svg
               aria-hidden="true"
@@ -24787,7 +25062,7 @@ exports[`Storyshots Design System/Components/Searchbar disabled 1`] = `
         <input
           aria-disabled="true"
           aria-invalid="false"
-          class="c10"
+          class="c11"
           id="field-101"
           name="searchbar"
           placeholder="e.g: strapi-plugin-abcd"
@@ -24812,7 +25087,7 @@ exports[`Storyshots Design System/Components/Searchbar size S 1`] = `
   width: 1px;
 }
 
-.c6 {
+.c7 {
   padding-right: 8px;
   padding-left: 12px;
 }
@@ -24824,7 +25099,14 @@ exports[`Storyshots Design System/Components/Searchbar size S 1`] = `
   color: #32324d;
 }
 
-.c4 {
+.c3 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #d02b20;
+}
+
+.c5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -24842,7 +25124,7 @@ exports[`Storyshots Design System/Components/Searchbar size S 1`] = `
   align-items: center;
 }
 
-.c8 {
+.c9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -24856,7 +25138,7 @@ exports[`Storyshots Design System/Components/Searchbar size S 1`] = `
   align-items: center;
 }
 
-.c10 {
+.c11 {
   border: none;
   border-radius: 4px;
   padding-left: 0;
@@ -24868,37 +25150,37 @@ exports[`Storyshots Design System/Components/Searchbar size S 1`] = `
   width: 100%;
 }
 
-.c10::-webkit-input-placeholder {
+.c11::-webkit-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10::-moz-placeholder {
+.c11::-moz-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10:-ms-input-placeholder {
+.c11:-ms-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10::placeholder {
+.c11::placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10[aria-disabled='true'] {
+.c11[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
 
-.c10:focus {
+.c11:focus {
   outline: none;
   box-shadow: none;
 }
 
-.c5 {
+.c6 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
@@ -24911,16 +25193,22 @@ exports[`Storyshots Design System/Components/Searchbar size S 1`] = `
   transition-duration: 0.2s;
 }
 
+<<<<<<< HEAD
 .c5:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
+=======
+.c6:focus-within {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
 }
 
-.c9 {
+.c10 {
   font-size: 0.8rem;
 }
 
-.c9 svg path {
+.c10 svg path {
   fill: #32324d;
 }
 
@@ -24935,17 +25223,27 @@ exports[`Storyshots Design System/Components/Searchbar size S 1`] = `
   transition-duration: 0.2s;
 }
 
-.c1:focus-within .c7 svg path {
+.c1:focus-within .c8 svg path {
   fill: #4945ff;
 }
 
-.c1 .c3 {
+.c1 .c4 {
   border: 1px solid transparent;
 }
 
+<<<<<<< HEAD
 .c1 .c3:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
+=======
+.c1 .c4:focus-within {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
+}
+
+.c1 input {
+  outline: none;
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
 }
 
 <main>
@@ -24971,16 +25269,19 @@ exports[`Storyshots Design System/Components/Searchbar size S 1`] = `
             for="field-100"
           >
             Searching for a plugin
+            <span
+              class="c3"
+            />
           </label>
         </div>
         <div
-          class="c3 c4 c5"
+          class="c4 c5 c6"
         >
           <div
-            class="c6"
+            class="c7"
           >
             <div
-              class="c7 c8 c9"
+              class="c8 c9 c10"
             >
               <svg
                 aria-hidden="true"
@@ -25002,7 +25303,7 @@ exports[`Storyshots Design System/Components/Searchbar size S 1`] = `
           <input
             aria-disabled="false"
             aria-invalid="false"
-            class="c10"
+            class="c11"
             id="field-100"
             name="searchbar"
             placeholder="e.g: strapi-plugin-abcd"
@@ -25028,11 +25329,11 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
   width: 1px;
 }
 
-.c9 {
+.c10 {
   padding-left: 12px;
 }
 
-.c10 {
+.c11 {
   padding-right: 16px;
   padding-left: 16px;
 }
@@ -25044,21 +25345,28 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
   color: #32324d;
 }
 
-.c11 {
+.c4 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #d02b20;
+}
+
+.c12 {
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.43;
   color: #666687;
 }
 
-.c14 {
+.c15 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #666687;
 }
 
-.c4 {
+.c5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -25072,7 +25380,7 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
   align-items: center;
 }
 
-.c7 {
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -25128,7 +25436,7 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
   margin-top: 4px;
 }
 
-.c5 {
+.c6 {
   position: relative;
   border: 1px solid #dcdce4;
   padding-right: 12px;
@@ -25144,28 +25452,34 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
   transition-duration: 0.2s;
 }
 
+<<<<<<< HEAD
 .c5:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
+=======
+.c6:focus-within {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
 }
 
-.c12 {
+.c13 {
   background: transparent;
   border: none;
   position: relative;
   z-index: 1;
 }
 
-.c12 svg {
+.c13 svg {
   height: 0.6875rem;
   width: 0.6875rem;
 }
 
-.c12 svg path {
+.c13 svg path {
   fill: #666687;
 }
 
-.c13 {
+.c14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -25174,11 +25488,11 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
   border: none;
 }
 
-.c13 svg {
+.c14 svg {
   width: 0.375rem;
 }
 
-.c6 {
+.c7 {
   position: absolute;
   left: 0;
   right: 0;
@@ -25189,11 +25503,11 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
   border: none;
 }
 
-.c6:focus {
+.c7:focus {
   outline: none;
 }
 
-.c8 {
+.c9 {
   width: 100%;
 }
 
@@ -25219,11 +25533,17 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
           class="c3"
           for="select1"
           id="select1-label"
+          required=""
         >
           Choose your meal
+          <span
+            class="c4"
+          >
+            *
+          </span>
         </span>
         <div
-          class="c4 c5"
+          class="c5 c6"
         >
           <button
             aria-describedby="select1-hint"
@@ -25231,19 +25551,19 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-labelledby="select1-label select1-content"
-            class="c6"
+            class="c7"
             id="select1"
             type="button"
           />
           <div
-            class="c7 c8"
+            class="c8 c9"
           >
             <div
-              class="c4"
+              class="c5"
             >
               <div
                 aria-hidden="true"
-                class="c9"
+                class="c10"
               >
                 <svg
                   fill="none"
@@ -25259,10 +25579,10 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
                 </svg>
               </div>
               <div
-                class="c10"
+                class="c11"
               >
                 <span
-                  class="c11"
+                  class="c12"
                   id="select1-content"
                 >
                   Your example
@@ -25270,11 +25590,11 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
               </div>
             </div>
             <div
-              class="c4"
+              class="c5"
             >
               <button
                 aria-hidden="true"
-                class="c9 c12 c13"
+                class="c10 c13 c14"
                 tabindex="-1"
                 type="button"
               >
@@ -25297,7 +25617,7 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
           </div>
         </div>
         <p
-          class="c14"
+          class="c15"
           id="select1-hint"
         >
           Description line
@@ -25327,12 +25647,12 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
   width: 1px;
 }
 
-.c9 {
+.c10 {
   padding-right: 16px;
   padding-left: 16px;
 }
 
-.c11 {
+.c12 {
   padding-left: 12px;
 }
 
@@ -25343,21 +25663,28 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
   color: #32324d;
 }
 
-.c10 {
+.c4 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #d02b20;
+}
+
+.c11 {
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.43;
   color: #32324d;
 }
 
-.c14 {
+.c15 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #666687;
 }
 
-.c4 {
+.c5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -25371,7 +25698,7 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
   align-items: center;
 }
 
-.c7 {
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -25427,7 +25754,7 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
   margin-top: 4px;
 }
 
-.c5 {
+.c6 {
   position: relative;
   border: 1px solid #dcdce4;
   padding-right: 12px;
@@ -25443,28 +25770,34 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
   transition-duration: 0.2s;
 }
 
+<<<<<<< HEAD
 .c5:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
+=======
+.c6:focus-within {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
 }
 
-.c12 {
+.c13 {
   background: transparent;
   border: none;
   position: relative;
   z-index: 1;
 }
 
-.c12 svg {
+.c13 svg {
   height: 0.6875rem;
   width: 0.6875rem;
 }
 
-.c12 svg path {
+.c13 svg path {
   fill: #666687;
 }
 
-.c13 {
+.c14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -25473,11 +25806,11 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
   border: none;
 }
 
-.c13 svg {
+.c14 svg {
   width: 0.375rem;
 }
 
-.c6 {
+.c7 {
   position: absolute;
   left: 0;
   right: 0;
@@ -25488,11 +25821,11 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
   border: none;
 }
 
-.c6:focus {
+.c7:focus {
   outline: none;
 }
 
-.c8 {
+.c9 {
   width: 100%;
 }
 
@@ -25521,9 +25854,12 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
           id="select1-label"
         >
           Choose your meal
+          <span
+            class="c4"
+          />
         </span>
         <div
-          class="c4 c5"
+          class="c5 c6"
         >
           <button
             aria-describedby="select1-hint"
@@ -25531,21 +25867,21 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-labelledby="select1-label select1-content"
-            class="c6"
+            class="c7"
             id="select1"
             type="button"
           />
           <div
-            class="c7 c8"
+            class="c8 c9"
           >
             <div
-              class="c4"
+              class="c5"
             >
               <div
-                class="c9"
+                class="c10"
               >
                 <span
-                  class="c10"
+                  class="c11"
                   id="select1-content"
                 >
                   0 currently selected
@@ -25556,11 +25892,11 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
               </div>
             </div>
             <div
-              class="c4"
+              class="c5"
             >
               <button
                 aria-hidden="true"
-                class="c11 c12 c13"
+                class="c12 c13 c14"
                 tabindex="-1"
                 type="button"
               >
@@ -25583,7 +25919,7 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
           </div>
         </div>
         <p
-          class="c14"
+          class="c15"
           id="select1-hint"
         >
           Description line
@@ -25613,12 +25949,12 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
   width: 1px;
 }
 
-.c9 {
+.c10 {
   padding-right: 16px;
   padding-left: 16px;
 }
 
-.c11 {
+.c12 {
   padding-left: 12px;
 }
 
@@ -25629,21 +25965,28 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
   color: #32324d;
 }
 
-.c10 {
+.c4 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #d02b20;
+}
+
+.c11 {
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.43;
   color: #32324d;
 }
 
-.c14 {
+.c15 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #666687;
 }
 
-.c4 {
+.c5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -25657,7 +26000,7 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
   align-items: center;
 }
 
-.c7 {
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -25713,7 +26056,7 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
   margin-top: 4px;
 }
 
-.c5 {
+.c6 {
   position: relative;
   border: 1px solid #dcdce4;
   padding-right: 12px;
@@ -25729,28 +26072,34 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
   transition-duration: 0.2s;
 }
 
+<<<<<<< HEAD
 .c5:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
+=======
+.c6:focus-within {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
 }
 
-.c12 {
+.c13 {
   background: transparent;
   border: none;
   position: relative;
   z-index: 1;
 }
 
-.c12 svg {
+.c13 svg {
   height: 0.6875rem;
   width: 0.6875rem;
 }
 
-.c12 svg path {
+.c13 svg path {
   fill: #666687;
 }
 
-.c13 {
+.c14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -25759,11 +26108,11 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
   border: none;
 }
 
-.c13 svg {
+.c14 svg {
   width: 0.375rem;
 }
 
-.c6 {
+.c7 {
   position: absolute;
   left: 0;
   right: 0;
@@ -25774,11 +26123,11 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
   border: none;
 }
 
-.c6:focus {
+.c7:focus {
   outline: none;
 }
 
-.c8 {
+.c9 {
   width: 100%;
 }
 
@@ -25807,9 +26156,12 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
           id="select1-label"
         >
           Choose your meal
+          <span
+            class="c4"
+          />
         </span>
         <div
-          class="c4 c5"
+          class="c5 c6"
         >
           <button
             aria-describedby="select1-hint"
@@ -25817,21 +26169,21 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-labelledby="select1-label select1-content"
-            class="c6"
+            class="c7"
             id="select1"
             type="button"
           />
           <div
-            class="c7 c8"
+            class="c8 c9"
           >
             <div
-              class="c4"
+              class="c5"
             >
               <div
-                class="c9"
+                class="c10"
               >
                 <span
-                  class="c10"
+                  class="c11"
                   id="select1-content"
                 >
                   0 currently selected
@@ -25842,11 +26194,11 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
               </div>
             </div>
             <div
-              class="c4"
+              class="c5"
             >
               <button
                 aria-hidden="true"
-                class="c11 c12 c13"
+                class="c12 c13 c14"
                 tabindex="-1"
                 type="button"
               >
@@ -25869,7 +26221,7 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
           </div>
         </div>
         <p
-          class="c14"
+          class="c15"
           id="select1-hint"
         >
           Description line
@@ -25899,12 +26251,12 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
   width: 1px;
 }
 
-.c11 {
+.c12 {
   padding-right: 16px;
   padding-left: 16px;
 }
 
-.c13 {
+.c14 {
   padding-left: 12px;
 }
 
@@ -25915,21 +26267,28 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
   color: #32324d;
 }
 
-.c12 {
+.c4 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #d02b20;
+}
+
+.c13 {
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.43;
   color: #666687;
 }
 
-.c16 {
+.c17 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #666687;
 }
 
-.c4 {
+.c5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -25943,7 +26302,7 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
   align-items: center;
 }
 
-.c7 {
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -25961,7 +26320,7 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
   align-items: center;
 }
 
-.c10 {
+.c11 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -26016,7 +26375,7 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
   margin-top: 4px;
 }
 
-.c5 {
+.c6 {
   position: relative;
   border: 1px solid #dcdce4;
   padding-right: 12px;
@@ -26032,28 +26391,34 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
   transition-duration: 0.2s;
 }
 
+<<<<<<< HEAD
 .c5:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
+=======
+.c6:focus-within {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
 }
 
-.c14 {
+.c15 {
   background: transparent;
   border: none;
   position: relative;
   z-index: 1;
 }
 
-.c14 svg {
+.c15 svg {
   height: 0.6875rem;
   width: 0.6875rem;
 }
 
-.c14 svg path {
+.c15 svg path {
   fill: #666687;
 }
 
-.c15 {
+.c16 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -26062,11 +26427,11 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
   border: none;
 }
 
-.c15 svg {
+.c16 svg {
   width: 0.375rem;
 }
 
-.c6 {
+.c7 {
   position: absolute;
   left: 0;
   right: 0;
@@ -26077,15 +26442,15 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
   border: none;
 }
 
-.c6:focus {
+.c7:focus {
   outline: none;
 }
 
-.c9 {
+.c10 {
   margin-bottom: 4px;
 }
 
-.c8 {
+.c9 {
   width: 100%;
 }
 
@@ -26114,9 +26479,12 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
           id="select1-label"
         >
           Choose your meal
+          <span
+            class="c4"
+          />
         </span>
         <div
-          class="c4 c5"
+          class="c5 c6"
         >
           <button
             aria-describedby="select1-hint"
@@ -26124,29 +26492,29 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-labelledby="select1-label select1-content"
-            class="c6"
+            class="c7"
             id="select1"
             type="button"
           />
           <div
-            class="c7 c8"
+            class="c8 c9"
           >
             <div
-              class="c4"
+              class="c5"
             >
               <div
-                class="c9"
+                class="c10"
               >
                 <div
-                  class="c10"
+                  class="c11"
                   wrap="wrap"
                 />
               </div>
               <div
-                class="c11"
+                class="c12"
               >
                 <span
-                  class="c12"
+                  class="c13"
                   id="select1-content"
                 >
                   Your example
@@ -26161,11 +26529,11 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
               </div>
             </div>
             <div
-              class="c4"
+              class="c5"
             >
               <button
                 aria-hidden="true"
-                class="c13 c14 c15"
+                class="c14 c15 c16"
                 tabindex="-1"
                 type="button"
               >
@@ -26188,7 +26556,7 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
           </div>
         </div>
         <p
-          class="c16"
+          class="c17"
           id="select1-hint"
         >
           Description line
@@ -26218,12 +26586,12 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
   width: 1px;
 }
 
-.c9 {
+.c10 {
   padding-right: 16px;
   padding-left: 16px;
 }
 
-.c12 {
+.c13 {
   padding-left: 12px;
 }
 
@@ -26234,21 +26602,28 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
   color: #32324d;
 }
 
-.c10 {
+.c4 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #d02b20;
+}
+
+.c11 {
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.43;
   color: #32324d;
 }
 
-.c14 {
+.c15 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #666687;
 }
 
-.c4 {
+.c5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -26262,7 +26637,7 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
   align-items: center;
 }
 
-.c7 {
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -26318,7 +26693,7 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
   margin-top: 4px;
 }
 
-.c5 {
+.c6 {
   position: relative;
   border: 1px solid #dcdce4;
   padding-right: 12px;
@@ -26334,28 +26709,34 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
   transition-duration: 0.2s;
 }
 
+<<<<<<< HEAD
 .c5:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
+=======
+.c6:focus-within {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
 }
 
-.c11 {
+.c12 {
   background: transparent;
   border: none;
   position: relative;
   z-index: 1;
 }
 
-.c11 svg {
+.c12 svg {
   height: 0.6875rem;
   width: 0.6875rem;
 }
 
-.c11 svg path {
+.c12 svg path {
   fill: #666687;
 }
 
-.c13 {
+.c14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -26364,11 +26745,11 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
   border: none;
 }
 
-.c13 svg {
+.c14 svg {
   width: 0.375rem;
 }
 
-.c6 {
+.c7 {
   position: absolute;
   left: 0;
   right: 0;
@@ -26379,11 +26760,11 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
   border: none;
 }
 
-.c6:focus {
+.c7:focus {
   outline: none;
 }
 
-.c8 {
+.c9 {
   width: 100%;
 }
 
@@ -26408,9 +26789,12 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
           id="select1-label"
         >
           Choose your meal
+          <span
+            class="c4"
+          />
         </span>
         <div
-          class="c4 c5"
+          class="c5 c6"
         >
           <button
             aria-describedby="select1-hint"
@@ -26418,21 +26802,21 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-labelledby="select1-label select1-content"
-            class="c6"
+            class="c7"
             id="select1"
             type="button"
           />
           <div
-            class="c7 c8"
+            class="c8 c9"
           >
             <div
-              class="c4"
+              class="c5"
             >
               <div
-                class="c9"
+                class="c10"
               >
                 <span
-                  class="c10"
+                  class="c11"
                   id="select1-content"
                 >
                   0 currently selected
@@ -26440,12 +26824,12 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
               </div>
             </div>
             <div
-              class="c4"
+              class="c5"
             >
               <button
                 aria-disabled="false"
                 aria-label="Clear the meal"
-                class="c11"
+                class="c12"
               >
                 <svg
                   fill="none"
@@ -26462,7 +26846,7 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
               </button>
               <button
                 aria-hidden="true"
-                class="c12 c11 c13"
+                class="c13 c12 c14"
                 tabindex="-1"
                 type="button"
               >
@@ -26485,7 +26869,7 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
           </div>
         </div>
         <p
-          class="c14"
+          class="c15"
           id="select1-hint"
         >
           Description line
@@ -32540,7 +32924,7 @@ exports[`Storyshots Design System/Components/TextInput base 1`] = `
   padding: 56px;
 }
 
-.c5 {
+.c6 {
   padding-left: 4px;
 }
 
@@ -32551,7 +32935,14 @@ exports[`Storyshots Design System/Components/TextInput base 1`] = `
   color: #32324d;
 }
 
-.c10 {
+.c5 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #d02b20;
+}
+
+.c11 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
@@ -32572,7 +32963,7 @@ exports[`Storyshots Design System/Components/TextInput base 1`] = `
   align-items: center;
 }
 
-.c7 {
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -32609,7 +33000,7 @@ exports[`Storyshots Design System/Components/TextInput base 1`] = `
   margin-top: 4px;
 }
 
-.c9 {
+.c10 {
   border: none;
   border-radius: 4px;
   padding-left: 16px;
@@ -32621,37 +33012,37 @@ exports[`Storyshots Design System/Components/TextInput base 1`] = `
   width: 100%;
 }
 
-.c9::-webkit-input-placeholder {
+.c10::-webkit-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c9::-moz-placeholder {
+.c10::-moz-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c9:-ms-input-placeholder {
+.c10:-ms-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c9::placeholder {
+.c10::placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c9[aria-disabled='true'] {
+.c10[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
 
-.c9:focus {
+.c10:focus {
   outline: none;
   box-shadow: none;
 }
 
-.c8 {
+.c9 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
@@ -32664,12 +33055,18 @@ exports[`Storyshots Design System/Components/TextInput base 1`] = `
   transition-duration: 0.2s;
 }
 
+<<<<<<< HEAD
 .c8:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
+=======
+.c9:focus-within {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
 }
 
-.c6 svg path {
+.c7 svg path {
   fill: #8e8ea9;
 }
 
@@ -32697,9 +33094,12 @@ exports[`Storyshots Design System/Components/TextInput base 1`] = `
               for="textinput-158"
             >
               Content
+              <span
+                class="c5"
+              />
             </label>
             <div
-              class="c5 c6"
+              class="c6 c7"
             >
               <span>
                 <button
@@ -32726,13 +33126,13 @@ exports[`Storyshots Design System/Components/TextInput base 1`] = `
             </div>
           </div>
           <div
-            class="c7 c8"
+            class="c8 c9"
           >
             <input
               aria-describedby="textinput-158-hint"
               aria-disabled="false"
               aria-invalid="false"
-              class="c9"
+              class="c10"
               id="textinput-158"
               name="content"
               placeholder="This is a content placeholder"
@@ -32740,7 +33140,7 @@ exports[`Storyshots Design System/Components/TextInput base 1`] = `
             />
           </div>
           <p
-            class="c10"
+            class="c11"
             id="textinput-158-hint"
           >
             Description line
@@ -32769,7 +33169,7 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
   padding: 56px;
 }
 
-.c5 {
+.c6 {
   padding-left: 4px;
 }
 
@@ -32780,7 +33180,14 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
   color: #32324d;
 }
 
-.c10 {
+.c5 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #d02b20;
+}
+
+.c11 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
@@ -32801,7 +33208,7 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
   align-items: center;
 }
 
-.c7 {
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -32838,7 +33245,7 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
   margin-top: 4px;
 }
 
-.c9 {
+.c10 {
   border: none;
   border-radius: 4px;
   padding-left: 16px;
@@ -32850,37 +33257,37 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
   width: 100%;
 }
 
-.c9::-webkit-input-placeholder {
+.c10::-webkit-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c9::-moz-placeholder {
+.c10::-moz-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c9:-ms-input-placeholder {
+.c10:-ms-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c9::placeholder {
+.c10::placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c9[aria-disabled='true'] {
+.c10[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
 
-.c9:focus {
+.c10:focus {
   outline: none;
   box-shadow: none;
 }
 
-.c8 {
+.c9 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
@@ -32895,12 +33302,18 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
   background: #eaeaef;
 }
 
+<<<<<<< HEAD
 .c8:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
+=======
+.c9:focus-within {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
 }
 
-.c6 svg path {
+.c7 svg path {
   fill: #8e8ea9;
 }
 
@@ -32928,9 +33341,12 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
               for="textinput-161"
             >
               Content
+              <span
+                class="c5"
+              />
             </label>
             <div
-              class="c5 c6"
+              class="c6 c7"
             >
               <span>
                 <button
@@ -32957,14 +33373,14 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
             </div>
           </div>
           <div
-            class="c7 c8"
+            class="c8 c9"
             disabled=""
           >
             <input
               aria-describedby="textinput-161-hint"
               aria-disabled="true"
               aria-invalid="false"
-              class="c9"
+              class="c10"
               id="textinput-161"
               name="content"
               placeholder="This is a content placeholder"
@@ -32972,7 +33388,7 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
             />
           </div>
           <p
-            class="c10"
+            class="c11"
             id="textinput-161-hint"
           >
             Description line
@@ -33001,7 +33417,7 @@ exports[`Storyshots Design System/Components/TextInput password 1`] = `
   padding: 56px;
 }
 
-.c5 {
+.c6 {
   padding-left: 4px;
 }
 
@@ -33012,7 +33428,14 @@ exports[`Storyshots Design System/Components/TextInput password 1`] = `
   color: #32324d;
 }
 
-.c10 {
+.c5 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #d02b20;
+}
+
+.c11 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
@@ -33033,7 +33456,7 @@ exports[`Storyshots Design System/Components/TextInput password 1`] = `
   align-items: center;
 }
 
-.c7 {
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -33070,7 +33493,7 @@ exports[`Storyshots Design System/Components/TextInput password 1`] = `
   margin-top: 4px;
 }
 
-.c9 {
+.c10 {
   border: none;
   border-radius: 4px;
   padding-left: 16px;
@@ -33082,37 +33505,37 @@ exports[`Storyshots Design System/Components/TextInput password 1`] = `
   width: 100%;
 }
 
-.c9::-webkit-input-placeholder {
+.c10::-webkit-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c9::-moz-placeholder {
+.c10::-moz-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c9:-ms-input-placeholder {
+.c10:-ms-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c9::placeholder {
+.c10::placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c9[aria-disabled='true'] {
+.c10[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
 
-.c9:focus {
+.c10:focus {
   outline: none;
   box-shadow: none;
 }
 
-.c8 {
+.c9 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
@@ -33125,12 +33548,18 @@ exports[`Storyshots Design System/Components/TextInput password 1`] = `
   transition-duration: 0.2s;
 }
 
+<<<<<<< HEAD
 .c8:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
+=======
+.c9:focus-within {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
 }
 
-.c6 svg path {
+.c7 svg path {
   fill: #8e8ea9;
 }
 
@@ -33158,9 +33587,12 @@ exports[`Storyshots Design System/Components/TextInput password 1`] = `
               for="textinput-170"
             >
               Password
+              <span
+                class="c5"
+              />
             </label>
             <div
-              class="c5 c6"
+              class="c6 c7"
             >
               <span>
                 <button
@@ -33187,13 +33619,13 @@ exports[`Storyshots Design System/Components/TextInput password 1`] = `
             </div>
           </div>
           <div
-            class="c7 c8"
+            class="c8 c9"
           >
             <input
               aria-describedby="textinput-170-hint"
               aria-disabled="false"
               aria-invalid="false"
-              class="c9"
+              class="c10"
               id="textinput-170"
               name="password"
               placeholder="This is a password placeholder"
@@ -33202,7 +33634,7 @@ exports[`Storyshots Design System/Components/TextInput password 1`] = `
             />
           </div>
           <p
-            class="c10"
+            class="c11"
             id="textinput-170-hint"
           >
             Description line
@@ -33231,7 +33663,7 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
   padding: 56px;
 }
 
-.c5 {
+.c6 {
   padding-left: 4px;
 }
 
@@ -33242,7 +33674,14 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
   color: #32324d;
 }
 
-.c10 {
+.c5 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #d02b20;
+}
+
+.c11 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
@@ -33263,7 +33702,7 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
   align-items: center;
 }
 
-.c7 {
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -33300,7 +33739,7 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
   margin-top: 4px;
 }
 
-.c9 {
+.c10 {
   border: none;
   border-radius: 4px;
   padding-left: 16px;
@@ -33312,37 +33751,37 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
   width: 100%;
 }
 
-.c9::-webkit-input-placeholder {
+.c10::-webkit-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c9::-moz-placeholder {
+.c10::-moz-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c9:-ms-input-placeholder {
+.c10:-ms-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c9::placeholder {
+.c10::placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c9[aria-disabled='true'] {
+.c10[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
 
-.c9:focus {
+.c10:focus {
   outline: none;
   box-shadow: none;
 }
 
-.c8 {
+.c9 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
@@ -33355,12 +33794,18 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
   transition-duration: 0.2s;
 }
 
+<<<<<<< HEAD
 .c8:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
+=======
+.c9:focus-within {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
 }
 
-.c6 svg path {
+.c7 svg path {
   fill: #8e8ea9;
 }
 
@@ -33388,9 +33833,12 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
               for="textinput-164"
             >
               Content
+              <span
+                class="c5"
+              />
             </label>
             <div
-              class="c5 c6"
+              class="c6 c7"
             >
               <span>
                 <button
@@ -33417,13 +33865,13 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
             </div>
           </div>
           <div
-            class="c7 c8"
+            class="c8 c9"
           >
             <input
               aria-describedby="textinput-164-hint"
               aria-disabled="false"
               aria-invalid="false"
-              class="c9"
+              class="c10"
               id="textinput-164"
               name="content"
               placeholder="This is a content placeholder"
@@ -33431,7 +33879,7 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
             />
           </div>
           <p
-            class="c10"
+            class="c11"
             id="textinput-164-hint"
           >
             Description line
@@ -33460,7 +33908,7 @@ exports[`Storyshots Design System/Components/TextInput with error 1`] = `
   padding: 56px;
 }
 
-.c5 {
+.c6 {
   padding-left: 4px;
 }
 
@@ -33471,7 +33919,14 @@ exports[`Storyshots Design System/Components/TextInput with error 1`] = `
   color: #32324d;
 }
 
-.c10 {
+.c5 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #d02b20;
+}
+
+.c11 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
@@ -33492,7 +33947,7 @@ exports[`Storyshots Design System/Components/TextInput with error 1`] = `
   align-items: center;
 }
 
-.c7 {
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -33529,7 +33984,7 @@ exports[`Storyshots Design System/Components/TextInput with error 1`] = `
   margin-top: 4px;
 }
 
-.c9 {
+.c10 {
   border: none;
   border-radius: 4px;
   padding-left: 16px;
@@ -33541,37 +33996,37 @@ exports[`Storyshots Design System/Components/TextInput with error 1`] = `
   width: 100%;
 }
 
-.c9::-webkit-input-placeholder {
+.c10::-webkit-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c9::-moz-placeholder {
+.c10::-moz-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c9:-ms-input-placeholder {
+.c10:-ms-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c9::placeholder {
+.c10::placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c9[aria-disabled='true'] {
+.c10[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
 
-.c9:focus {
+.c10:focus {
   outline: none;
   box-shadow: none;
 }
 
-.c8 {
+.c9 {
   border: 1px solid #d02b20;
   border-radius: 4px;
   background: #ffffff;
@@ -33584,12 +34039,18 @@ exports[`Storyshots Design System/Components/TextInput with error 1`] = `
   transition-duration: 0.2s;
 }
 
+<<<<<<< HEAD
 .c8:focus-within {
   border: 1px solid #d02b20;
   box-shadow: #d02b20 0px 0px 0px 2px;
+=======
+.c9:focus-within {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
 }
 
-.c6 svg path {
+.c7 svg path {
   fill: #8e8ea9;
 }
 
@@ -33617,9 +34078,12 @@ exports[`Storyshots Design System/Components/TextInput with error 1`] = `
               for="textinput-167"
             >
               Content
+              <span
+                class="c5"
+              />
             </label>
             <div
-              class="c5 c6"
+              class="c6 c7"
             >
               <span>
                 <button
@@ -33646,13 +34110,13 @@ exports[`Storyshots Design System/Components/TextInput with error 1`] = `
             </div>
           </div>
           <div
-            class="c7 c8"
+            class="c8 c9"
           >
             <input
               aria-describedby="textinput-167-error"
               aria-disabled="false"
               aria-invalid="true"
-              class="c9"
+              class="c10"
               id="textinput-167"
               name="content"
               placeholder="This is a content placeholder"
@@ -33660,7 +34124,7 @@ exports[`Storyshots Design System/Components/TextInput with error 1`] = `
             />
           </div>
           <p
-            class="c10"
+            class="c11"
             data-strapi-field-error="true"
             id="textinput-167-error"
           >
@@ -33856,7 +34320,7 @@ exports[`Storyshots Design System/Components/Textarea base 1`] = `
   padding: 56px;
 }
 
-.c6 {
+.c7 {
   padding-left: 4px;
 }
 
@@ -33867,6 +34331,16 @@ exports[`Storyshots Design System/Components/Textarea base 1`] = `
   color: #32324d;
 }
 
+<<<<<<< HEAD
+=======
+.c6 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #d02b20;
+}
+
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
 .c9 {
   font-weight: 400;
   font-size: 0.75rem;
@@ -33907,7 +34381,13 @@ exports[`Storyshots Design System/Components/Textarea base 1`] = `
   margin-top: 4px;
 }
 
+<<<<<<< HEAD
 .c7 {
+=======
+.c8 {
+  display: block;
+  width: 100%;
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
   border: 1px solid #d02b20;
   border-radius: 4px;
   padding-left: 16px;
@@ -34025,9 +34505,12 @@ exports[`Storyshots Design System/Components/Textarea base 1`] = `
               for="textarea-174"
             >
               Content
+              <span
+                class="c6"
+              />
             </label>
             <div
-              class="c6"
+              class="c7"
             >
               <span>
                 <button
@@ -34053,6 +34536,7 @@ exports[`Storyshots Design System/Components/Textarea base 1`] = `
               </span>
             </div>
           </div>
+<<<<<<< HEAD
           <div
             class="c7"
           >
@@ -34065,6 +34549,16 @@ exports[`Storyshots Design System/Components/Textarea base 1`] = `
               placeholder="This is a content placeholder"
             />
           </div>
+=======
+          <textarea
+            aria-describedby="textarea-174-error"
+            aria-invalid="true"
+            class="c8"
+            id="textarea-174"
+            name="content"
+            placeholder="This is a content placeholder"
+          />
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
           <p
             class="c9"
             data-strapi-field-error="true"
@@ -34092,11 +34586,11 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
   width: 1px;
 }
 
-.c8 {
+.c9 {
   padding-left: 12px;
 }
 
-.c10 {
+.c11 {
   padding-right: 16px;
   padding-left: 16px;
 }
@@ -34108,21 +34602,28 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
   color: #32324d;
 }
 
-.c11 {
+.c3 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #d02b20;
+}
+
+.c12 {
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.43;
   color: #666687;
 }
 
-.c14 {
+.c15 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #666687;
 }
 
-.c3 {
+.c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -34136,7 +34637,7 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
   align-items: center;
 }
 
-.c6 {
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -34173,7 +34674,7 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
   margin-top: 4px;
 }
 
-.c4 {
+.c5 {
   position: relative;
   border: 1px solid #dcdce4;
   padding-right: 12px;
@@ -34189,28 +34690,34 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
   transition-duration: 0.2s;
 }
 
+<<<<<<< HEAD
 .c4:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
+=======
+.c5:focus-within {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
 }
 
-.c12 {
+.c13 {
   background: transparent;
   border: none;
   position: relative;
   z-index: 1;
 }
 
-.c12 svg {
+.c13 svg {
   height: 0.6875rem;
   width: 0.6875rem;
 }
 
-.c12 svg path {
+.c13 svg path {
   fill: #666687;
 }
 
-.c13 {
+.c14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -34219,11 +34726,11 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
   border: none;
 }
 
-.c13 svg {
+.c14 svg {
   width: 0.375rem;
 }
 
-.c5 {
+.c6 {
   position: absolute;
   left: 0;
   right: 0;
@@ -34234,15 +34741,15 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
   border: none;
 }
 
-.c5:focus {
+.c6:focus {
   outline: none;
 }
 
-.c7 {
+.c8 {
   width: 100%;
 }
 
-.c9 {
+.c10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -34253,12 +34760,12 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
   align-items: center;
 }
 
-.c9 svg {
+.c10 svg {
   height: 1rem;
   width: 1rem;
 }
 
-.c9 svg path {
+.c10 svg path {
   fill: #8e8ea9;
 }
 
@@ -34280,9 +34787,12 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
         id="tp-1-label"
       >
         Choose a time
+        <span
+          class="c3"
+        />
       </span>
       <div
-        class="c3 c4"
+        class="c4 c5"
       >
         <button
           aria-describedby="tp-1-hint"
@@ -34290,22 +34800,22 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-labelledby="tp-1-label tp-1-content"
-          class="c5"
+          class="c6"
           id="tp-1"
           type="button"
         />
         <div
-          class="c6 c7"
+          class="c7 c8"
         >
           <div
-            class="c3"
+            class="c4"
           >
             <div
               aria-hidden="true"
-              class="c8"
+              class="c9"
             >
               <div
-                class="c9"
+                class="c10"
               >
                 <svg
                   fill="none"
@@ -34324,10 +34834,10 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
               </div>
             </div>
             <div
-              class="c10"
+              class="c11"
             >
               <span
-                class="c11"
+                class="c12"
                 id="tp-1-content"
               >
                 --:--
@@ -34335,11 +34845,11 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
             </div>
           </div>
           <div
-            class="c3"
+            class="c4"
           >
             <button
               aria-hidden="true"
-              class="c8 c12 c13"
+              class="c9 c13 c14"
               tabindex="-1"
               type="button"
             >
@@ -34362,7 +34872,7 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
         </div>
       </div>
       <p
-        class="c14"
+        class="c15"
         id="tp-1-hint"
       >
         Description line
@@ -34385,11 +34895,11 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
   width: 1px;
 }
 
-.c8 {
+.c9 {
   padding-left: 12px;
 }
 
-.c10 {
+.c11 {
   padding-right: 16px;
   padding-left: 16px;
 }
@@ -34401,21 +34911,28 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
   color: #32324d;
 }
 
-.c11 {
+.c3 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #d02b20;
+}
+
+.c12 {
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.43;
   color: #666687;
 }
 
-.c14 {
+.c15 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #666687;
 }
 
-.c3 {
+.c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -34429,7 +34946,7 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
   align-items: center;
 }
 
-.c6 {
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -34466,7 +34983,7 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
   margin-top: 4px;
 }
 
-.c4 {
+.c5 {
   position: relative;
   border: 1px solid #dcdce4;
   padding-right: 12px;
@@ -34482,28 +34999,34 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
   transition-duration: 0.2s;
 }
 
+<<<<<<< HEAD
 .c4:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
+=======
+.c5:focus-within {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
 }
 
-.c12 {
+.c13 {
   background: transparent;
   border: none;
   position: relative;
   z-index: 1;
 }
 
-.c12 svg {
+.c13 svg {
   height: 0.6875rem;
   width: 0.6875rem;
 }
 
-.c12 svg path {
+.c13 svg path {
   fill: #666687;
 }
 
-.c13 {
+.c14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -34512,11 +35035,11 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
   border: none;
 }
 
-.c13 svg {
+.c14 svg {
   width: 0.375rem;
 }
 
-.c5 {
+.c6 {
   position: absolute;
   left: 0;
   right: 0;
@@ -34527,15 +35050,15 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
   border: none;
 }
 
-.c5:focus {
+.c6:focus {
   outline: none;
 }
 
-.c7 {
+.c8 {
   width: 100%;
 }
 
-.c9 {
+.c10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -34546,12 +35069,12 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
   align-items: center;
 }
 
-.c9 svg {
+.c10 svg {
   height: 1rem;
   width: 1rem;
 }
 
-.c9 svg path {
+.c10 svg path {
   fill: #8e8ea9;
 }
 
@@ -34573,9 +35096,12 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
         id="tp-1-label"
       >
         Choose a time
+        <span
+          class="c3"
+        />
       </span>
       <div
-        class="c3 c4"
+        class="c4 c5"
       >
         <button
           aria-describedby="tp-1-hint"
@@ -34583,22 +35109,22 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-labelledby="tp-1-label tp-1-content"
-          class="c5"
+          class="c6"
           id="tp-1"
           type="button"
         />
         <div
-          class="c6 c7"
+          class="c7 c8"
         >
           <div
-            class="c3"
+            class="c4"
           >
             <div
               aria-hidden="true"
-              class="c8"
+              class="c9"
             >
               <div
-                class="c9"
+                class="c10"
               >
                 <svg
                   fill="none"
@@ -34617,10 +35143,10 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
               </div>
             </div>
             <div
-              class="c10"
+              class="c11"
             >
               <span
-                class="c11"
+                class="c12"
                 id="tp-1-content"
               >
                 --:--
@@ -34628,11 +35154,11 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
             </div>
           </div>
           <div
-            class="c3"
+            class="c4"
           >
             <button
               aria-hidden="true"
-              class="c8 c12 c13"
+              class="c9 c13 c14"
               tabindex="-1"
               type="button"
             >
@@ -34655,7 +35181,7 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
         </div>
       </div>
       <p
-        class="c14"
+        class="c15"
         id="tp-1-hint"
       >
         Description line
@@ -34678,11 +35204,11 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
   width: 1px;
 }
 
-.c8 {
+.c9 {
   padding-left: 12px;
 }
 
-.c10 {
+.c11 {
   padding-right: 16px;
   padding-left: 16px;
 }
@@ -34694,21 +35220,28 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
   color: #32324d;
 }
 
-.c11 {
+.c3 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #d02b20;
+}
+
+.c12 {
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.43;
   color: #666687;
 }
 
-.c14 {
+.c15 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #666687;
 }
 
-.c3 {
+.c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -34722,7 +35255,7 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
   align-items: center;
 }
 
-.c6 {
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -34759,7 +35292,7 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
   margin-top: 4px;
 }
 
-.c4 {
+.c5 {
   position: relative;
   border: 1px solid #dcdce4;
   padding-right: 12px;
@@ -34775,28 +35308,34 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
   transition-duration: 0.2s;
 }
 
+<<<<<<< HEAD
 .c4:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
+=======
+.c5:focus-within {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
 }
 
-.c12 {
+.c13 {
   background: transparent;
   border: none;
   position: relative;
   z-index: 1;
 }
 
-.c12 svg {
+.c13 svg {
   height: 0.6875rem;
   width: 0.6875rem;
 }
 
-.c12 svg path {
+.c13 svg path {
   fill: #666687;
 }
 
-.c13 {
+.c14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -34805,11 +35344,11 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
   border: none;
 }
 
-.c13 svg {
+.c14 svg {
   width: 0.375rem;
 }
 
-.c5 {
+.c6 {
   position: absolute;
   left: 0;
   right: 0;
@@ -34820,15 +35359,15 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
   border: none;
 }
 
-.c5:focus {
+.c6:focus {
   outline: none;
 }
 
-.c7 {
+.c8 {
   width: 100%;
 }
 
-.c9 {
+.c10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -34839,12 +35378,12 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
   align-items: center;
 }
 
-.c9 svg {
+.c10 svg {
   height: 1rem;
   width: 1rem;
 }
 
-.c9 svg path {
+.c10 svg path {
   fill: #8e8ea9;
 }
 
@@ -34866,9 +35405,12 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
         id="tp-1-label"
       >
         Choose a time
+        <span
+          class="c3"
+        />
       </span>
       <div
-        class="c3 c4"
+        class="c4 c5"
       >
         <button
           aria-describedby="tp-1-hint"
@@ -34876,22 +35418,22 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-labelledby="tp-1-label tp-1-content"
-          class="c5"
+          class="c6"
           id="tp-1"
           type="button"
         />
         <div
-          class="c6 c7"
+          class="c7 c8"
         >
           <div
-            class="c3"
+            class="c4"
           >
             <div
               aria-hidden="true"
-              class="c8"
+              class="c9"
             >
               <div
-                class="c9"
+                class="c10"
               >
                 <svg
                   fill="none"
@@ -34910,10 +35452,10 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
               </div>
             </div>
             <div
-              class="c10"
+              class="c11"
             >
               <span
-                class="c11"
+                class="c12"
                 id="tp-1-content"
               >
                 --:--
@@ -34921,11 +35463,11 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
             </div>
           </div>
           <div
-            class="c3"
+            class="c4"
           >
             <button
               aria-hidden="true"
-              class="c8 c12 c13"
+              class="c9 c13 c14"
               tabindex="-1"
               type="button"
             >
@@ -34948,7 +35490,7 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
         </div>
       </div>
       <p
-        class="c14"
+        class="c15"
         id="tp-1-hint"
       >
         Description line
@@ -35428,22 +35970,34 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
   width: 1px;
 }
 
-.c5 {
+.c6 {
   padding-left: 4px;
 }
 
+<<<<<<< HEAD
 .c8 {
+=======
+.c10 {
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
   background: #ffffff;
   border-radius: 4px;
 }
 
+<<<<<<< HEAD
 .c10 {
   background: #ffffff;
+=======
+.c12 {
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
   padding-right: 32px;
   padding-left: 32px;
 }
 
+<<<<<<< HEAD
 .c12 {
+=======
+.c14 {
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
   background: #f0f0ff;
   padding-right: 32px;
   padding-left: 32px;
@@ -35456,14 +36010,25 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
   color: #32324d;
 }
 
+<<<<<<< HEAD
 .c14 {
+=======
+.c5 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #d02b20;
+}
+
+.c16 {
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #271fe0;
 }
 
-.c16 {
+.c17 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
@@ -35503,12 +36068,22 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
   margin-top: 4px;
 }
 
-.c7 {
+.c8 {
   position: relative;
   display: inline-block;
 }
 
+<<<<<<< HEAD
 .c9 {
+=======
+.c8:active,
+.c8:focus-within {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
+}
+
+.c11 {
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
   height: 2.5rem;
   border: 1px solid #dcdce4;
   display: -webkit-inline-box;
@@ -35524,25 +36099,37 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
   transition-duration: 0.2s;
 }
 
+<<<<<<< HEAD
 .c9:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
 .c13 {
+=======
+.c15 {
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
   text-transform: uppercase;
   position: relative;
   z-index: 2;
 }
 
+<<<<<<< HEAD
 .c11 {
+=======
+.c13 {
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
   text-transform: uppercase;
   border-right: 1px solid #dcdce4;
   position: relative;
   z-index: 2;
 }
 
+<<<<<<< HEAD
 .c15 {
+=======
+.c9 {
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
   position: absolute;
   z-index: 1;
   left: 4px;
@@ -35555,7 +36142,7 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
   width: fit-content;
 }
 
-.c6 svg path {
+.c7 svg path {
   fill: #8e8ea9;
 }
 
@@ -35581,9 +36168,12 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
           for="field-177"
         >
           Enabled
+          <span
+            class="c5"
+          />
         </label>
         <div
-          class="c5 c6"
+          class="c6 c7"
         >
           <span>
             <button
@@ -35610,19 +36200,34 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
         </div>
       </div>
       <label
-        class="c7"
+        class="c8"
       >
         <div
           class="c0"
         >
           Enabled
         </div>
+<<<<<<< HEAD
         <div
           class="c8 c9"
         >
           <div
             aria-hidden="true"
             class="c10 c3 c11"
+=======
+        <input
+          checked=""
+          class="c9"
+          name="enable-provider"
+          type="checkbox"
+        />
+        <div
+          aria-hidden="true"
+          class="c10 c11"
+        >
+          <div
+            class="c12 c3 c13"
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
           >
             <span
               class="c4"
@@ -35631,11 +36236,18 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
             </span>
           </div>
           <div
+<<<<<<< HEAD
             aria-hidden="true"
             class="c12 c3 c13"
           >
             <span
               class="c14"
+=======
+            class="c14 c3 c15"
+          >
+            <span
+              class="c16"
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
             >
               on
             </span>
@@ -35649,7 +36261,7 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
         </div>
       </label>
       <p
-        class="c16"
+        class="c17"
         id="field-177-hint"
       >
         Enable provider
@@ -35672,19 +36284,31 @@ exports[`Storyshots Design System/Components/ToggleInput error 1`] = `
   width: 1px;
 }
 
+<<<<<<< HEAD
 .c6 {
+=======
+.c8 {
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
   background: #ffffff;
   border-radius: 4px;
 }
 
+<<<<<<< HEAD
 .c8 {
+=======
+.c10 {
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
   background: #fcecea;
   padding-right: 32px;
   padding-left: 32px;
 }
 
+<<<<<<< HEAD
 .c11 {
   background: #ffffff;
+=======
+.c13 {
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
   padding-right: 32px;
   padding-left: 32px;
 }
@@ -35696,6 +36320,7 @@ exports[`Storyshots Design System/Components/ToggleInput error 1`] = `
   color: #32324d;
 }
 
+<<<<<<< HEAD
 .c10 {
   font-weight: 500;
   font-size: 0.75rem;
@@ -35907,13 +36532,23 @@ exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
 }
 
 .c10 {
+=======
+.c5 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #d02b20;
+}
+
+.c12 {
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #b72b1a;
 }
 
-.c14 {
+.c15 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
@@ -35953,19 +36588,231 @@ exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
   margin-top: 4px;
 }
 
-.c5 {
+.c6 {
   position: relative;
   display: inline-block;
 }
 
+<<<<<<< HEAD
 .c7 {
   height: 2rem;
+=======
+.c6:active,
+.c6:focus-within {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
+}
+
+.c9 {
+  height: 2.5rem;
+  position: relative;
+  z-index: 1;
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
   border: 1px solid #dcdce4;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
   overflow: hidden;
+<<<<<<< HEAD
+=======
+}
+
+.c14 {
+  text-transform: uppercase;
+}
+
+.c11 {
+  text-transform: uppercase;
+  border-right: 1px solid #dcdce4;
+}
+
+.c7 {
+  position: absolute;
+  left: 4px;
+  top: 4px;
+}
+
+.c1 {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+<main>
+  <div
+    class="c0"
+  >
+    <h1>
+      Storybook story
+    </h1>
+  </div>
+  <div
+    class="c1"
+  >
+    <div
+      class="c2"
+    >
+      <div
+        class="c3"
+      >
+        <label
+          class="c4"
+          for="field-180"
+        >
+          Label
+          <span
+            class="c5"
+          />
+        </label>
+      </div>
+      <label
+        class="c6"
+      >
+        <div
+          class="c0"
+        >
+          Label
+        </div>
+        <input
+          class="c7"
+          name="enable-provider"
+          type="checkbox"
+        />
+        <div
+          aria-hidden="true"
+          class="c8 c9"
+        >
+          <div
+            class="c10 c3 c11"
+          >
+            <span
+              class="c12"
+            >
+              off
+            </span>
+          </div>
+          <div
+            class="c13 c3 c14"
+          >
+            <span
+              class="c4"
+            >
+              on
+            </span>
+          </div>
+        </div>
+      </label>
+      <p
+        class="c15"
+        data-strapi-field-error="true"
+        id="field-180-error"
+      >
+        this field is required
+      </p>
+    </div>
+  </div>
+</main>
+`;
+
+exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
+.c0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.c8 {
+  background: #ffffff;
+  border-radius: 4px;
+}
+
+.c10 {
+  background: #fcecea;
+  padding-right: 32px;
+  padding-left: 32px;
+}
+
+.c13 {
+  padding-right: 32px;
+  padding-left: 32px;
+}
+
+.c4 {
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #32324d;
+}
+
+.c5 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #d02b20;
+}
+
+.c12 {
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #b72b1a;
+}
+
+.c15 {
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #d02b20;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c2 > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.c2 > * + * {
+  margin-top: 4px;
+}
+
+.c6 {
+  position: relative;
+  display: inline-block;
+}
+
+.c6:active,
+.c6:focus-within {
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
   outline: none;
   box-shadow: 0;
   -webkit-transition-property: border-color,box-shadow,fill;
@@ -35974,25 +36821,49 @@ exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
   transition-duration: 0.2s;
 }
 
+<<<<<<< HEAD
 .c7:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
 .c12 {
+=======
+.c9 {
+  height: 2rem;
+  position: relative;
+  z-index: 1;
+  border: 1px solid #dcdce4;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  overflow: hidden;
+}
+
+.c14 {
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
   text-transform: uppercase;
   position: relative;
   z-index: 2;
 }
 
+<<<<<<< HEAD
 .c9 {
+=======
+.c11 {
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
   text-transform: uppercase;
   border-right: 1px solid #dcdce4;
   position: relative;
   z-index: 2;
 }
 
+<<<<<<< HEAD
 .c13 {
+=======
+.c7 {
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
   position: absolute;
   z-index: 1;
   left: 4px;
@@ -36027,16 +36898,20 @@ exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
           for="field-181"
         >
           Label
+          <span
+            class="c5"
+          />
         </label>
       </div>
       <label
-        class="c5"
+        class="c6"
       >
         <div
           class="c0"
         >
           Label
         </div>
+<<<<<<< HEAD
         <div
           class="c6 c7"
         >
@@ -36046,13 +36921,33 @@ exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
           >
             <span
               class="c10"
+=======
+        <input
+          class="c7"
+          name="enable-provider"
+          type="checkbox"
+        />
+        <div
+          aria-hidden="true"
+          class="c8 c9"
+        >
+          <div
+            class="c10 c3 c11"
+          >
+            <span
+              class="c12"
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
             >
               off
             </span>
           </div>
           <div
+<<<<<<< HEAD
             aria-hidden="true"
             class="c11 c3 c12"
+=======
+            class="c13 c3 c14"
+>>>>>>> 86c4a80 (Add required state to the FieldLabel)
           >
             <span
               class="c4"
@@ -36068,7 +36963,7 @@ exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
         </div>
       </label>
       <p
-        class="c14"
+        class="c15"
         data-strapi-field-error="true"
         id="field-181-error"
       >
