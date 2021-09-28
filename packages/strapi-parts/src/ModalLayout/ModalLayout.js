@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Box } from '../Box';
 import { FocusTrap } from '../FocusTrap';
 import { Portal } from '../Portal';
 import { ModalContext } from './ModalContext';
+import { useClickAwayListener } from '../helpers/useClickAwayListener';
 
 const ModalWrapper = styled.div`
   position: fixed;
@@ -23,10 +24,15 @@ const ModalContent = styled(Box)`
 `;
 
 export const ModalLayout = ({ onClose, labelledBy, ...props }) => {
+  const modalRef = useRef();
+
+  useClickAwayListener(modalRef, onClose);
+
   //FIX ME (find a way to do it globally)
   useEffect(() => {
     const body = document.body;
     body.classList.add('lock-body-scroll');
+
     return () => {
       body.classList.remove('lock-body-scroll');
     };
@@ -39,6 +45,7 @@ export const ModalLayout = ({ onClose, labelledBy, ...props }) => {
           <FocusTrap onEscape={onClose}>
             <ModalContent
               aria-labelledby={labelledBy}
+              ref={modalRef}
               background="neutral0"
               hasRadius
               shadow="popupShadow"
