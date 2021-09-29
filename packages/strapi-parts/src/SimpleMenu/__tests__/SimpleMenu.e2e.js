@@ -4,7 +4,7 @@ describe('SimpleMenu', () => {
   describe('base', () => {
     beforeEach(async () => {
       // This is the URL of the Storybook Iframe
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-molecules-simplemenu--base&viewMode=story');
+      await page.goto('http://localhost:6006/iframe.html?id=design-system-components-simplemenu--base&viewMode=story');
       await injectAxe(page);
     });
 
@@ -44,7 +44,7 @@ describe('SimpleMenu', () => {
     beforeEach(async () => {
       // This is the URL of the Storybook Iframe
       await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-molecules-simplemenu--with-links&viewMode=story',
+        'http://localhost:6006/iframe.html?id=design-system-components-simplemenu--with-links&viewMode=story',
       );
       await injectAxe(page);
     });

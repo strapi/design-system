@@ -7,7 +7,7 @@ describe('Select', () => {
   describe('simple', () => {
     beforeEach(async () => {
       // This is the URL of the Storybook Iframe
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-molecules-select--base&viewMode=story');
+      await page.goto('http://localhost:6006/iframe.html?id=design-system-components-select--base&viewMode=story');
       await injectAxe(page);
     });
 
@@ -152,7 +152,7 @@ describe('Select', () => {
   describe('multi', () => {
     beforeEach(async () => {
       // This is the URL of the Storybook Iframe
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-molecules-select--multi&viewMode=story');
+      await page.goto('http://localhost:6006/iframe.html?id=design-system-components-select--multi&viewMode=story');
       await injectAxe(page);
     });
 

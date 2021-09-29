@@ -4,7 +4,7 @@ describe('ToggleCheckbox', () => {
   describe('activated', () => {
     it('triggers axe on the document', async () => {
       await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-molecules-togglecheckbox--activated&viewMode=storyy',
+        'http://localhost:6006/iframe.html?id=design-system-components-togglecheckbox--activated&viewMode=storyy',
       );
       await injectAxe(page);
       await checkA11y(page);
@@ -14,7 +14,7 @@ describe('ToggleCheckbox', () => {
   describe('not activated', () => {
     it('triggers axe on the document', async () => {
       await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-molecules-togglecheckbox--not-activated&viewMode=story',
+        'http://localhost:6006/iframe.html?id=design-system-components-togglecheckbox--not-activated&viewMode=story',
       );
       await injectAxe(page);
       await checkA11y(page);

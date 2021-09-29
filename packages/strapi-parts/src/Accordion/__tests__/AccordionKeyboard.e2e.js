@@ -4,7 +4,7 @@ describe('Accordion Keyboard Navigable', () => {
   beforeEach(async () => {
     // This is the URL of the Storybook Iframe
     await page.goto(
-      'http://localhost:6006/iframe.html?id=design-system-molecules-accordion--keyboard-navigable&viewMode=story',
+      'http://localhost:6006/iframe.html?id=design-system-components-accordion--keyboard-navigable&viewMode=story',
     );
     await injectAxe(page);
   });

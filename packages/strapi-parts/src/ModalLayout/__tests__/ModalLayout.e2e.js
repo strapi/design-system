@@ -3,7 +3,7 @@ import { injectAxe, getViolations } from 'axe-playwright';
 describe('ModalLayout', () => {
   beforeEach(async () => {
     // This is the URL of the Storybook Iframe
-    await page.goto('http://localhost:6006/iframe.html?id=design-system-layouts-modallayout--base&viewMode=story');
+    await page.goto('http://localhost:6006/iframe.html?id=design-system-components-modallayout--base&viewMode=story');
     await injectAxe(page);
   });
 
