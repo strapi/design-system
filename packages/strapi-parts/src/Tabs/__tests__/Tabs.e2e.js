@@ -4,7 +4,7 @@ describe('Tabs', () => {
   describe('default variant', () => {
     beforeEach(async () => {
       // This is the URL of the Storybook Iframe
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-molecules-tabs--base&viewMode=story');
+      await page.goto('http://localhost:6006/iframe.html?id=design-system-components-tabs--base&viewMode=story');
       await injectAxe(page);
     });
 
@@ -118,7 +118,7 @@ describe('Tabs', () => {
   describe('simple variant', () => {
     beforeEach(async () => {
       // This is the URL of the Storybook Iframe
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-molecules-tabs--simple&viewMode=story');
+      await page.goto('http://localhost:6006/iframe.html?id=design-system-components-tabs--simple&viewMode=story');
       await injectAxe(page);
     });
 

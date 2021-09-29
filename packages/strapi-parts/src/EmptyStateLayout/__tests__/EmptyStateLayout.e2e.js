@@ -4,7 +4,7 @@ describe('EmptyStateLayout', () => {
   describe('base', () => {
     it('triggers axe on the document', async () => {
       await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-layouts-emptystatelayout--base&viewMode=story',
+        'http://localhost:6006/iframe.html?id=design-system-components-emptystatelayout--base&viewMode=story',
       );
       await injectAxe(page);
       await checkA11y(page);
@@ -14,7 +14,7 @@ describe('EmptyStateLayout', () => {
   describe('without action', () => {
     it('triggers axe on the document', async () => {
       await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-layouts-emptystatelayout--without-action&viewMode=story',
+        'http://localhost:6006/iframe.html?id=design-system-components-emptystatelayout--without-action&viewMode=story',
       );
       await injectAxe(page);
       await checkA11y(page);
