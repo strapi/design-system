@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { Box } from '../Box';
 import { FocusTrap } from '../FocusTrap';
@@ -9,9 +9,10 @@ import { Portal } from '../Portal';
 import { Row } from '../Row';
 import { H2 } from '../Text';
 import { useId } from '../helpers/useId';
+import { useClickAwayListener } from '../helpers/useClickAwayListener';
 
 const DialogWrapper = styled.div`
-  position: absolute;
+  position: fixed;
   z-index: 4;
   inset: 0;
   background: ${({ theme }) => setOpacity(theme.colors.neutral800, 0.2)};
@@ -31,8 +32,10 @@ const DialogHeader = styled(Row)`
 
 export const Dialog = ({ onClose, title, as, isOpen, id, ...props }) => {
   const generatedId = useId('dialog', id);
+  const dialogRef = useRef();
 
   useLockScroll(isOpen);
+  useClickAwayListener(dialogRef, onClose);
 
   if (!isOpen) {
     return null;
@@ -45,6 +48,7 @@ export const Dialog = ({ onClose, title, as, isOpen, id, ...props }) => {
       <DialogWrapper>
         <FocusTrap onEscape={onClose}>
           <DialogContainer
+            ref={dialogRef}
             aria-labelledby={labelledBy}
             aria-modal={true}
             background="neutral0"
