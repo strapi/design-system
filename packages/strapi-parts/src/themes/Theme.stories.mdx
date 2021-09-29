@@ -9,6 +9,7 @@ import { Text } from '../Text';
 import { Grid, GridItem } from '../Grid';
 import { useTheme } from '../ThemeProvider';
 import { Stack } from '../Stack';
+import { Searchbar, SearchForm } from '../Searchbar';
 
 <Meta title="Design System/Subatomic/LightTheme" component={Box} />
 
@@ -124,24 +125,46 @@ Description...
     }}
   >
     {() => {
-      const iconsArray = Object.keys(Icons);
+      const [value, setValue] = useState('');
+      const iconsArray = Object.keys(Icons).filter((icon) => {
+        if (!value) {
+          return true;
+        }
+        return icon.toLowerCase().includes(value.toLowerCase());
+      });
       return (
-        <Box padding={8} background="neutral100">
-          <Grid gap={2}>
-            {iconsArray.map((icon) => {
-              const Icon = Icons[icon];
-              return (
-                <GridItem padding={2} col={2} key={icon} background={'neutral0'}>
-                  <Box>
-                    <Icon aria-hidden={true} />
-                  </Box>
-                  <Box>
-                    <Text bold>{icon}</Text>
-                  </Box>
-                </GridItem>
-              );
-            })}
-          </Grid>
+        <Box>
+          <Box paddingBottom={8}>
+            <SearchForm>
+              <Searchbar
+                name="searchbar"
+                onClear={() => setValue('')}
+                value={value}
+                onChange={(e) => setValue(e.target.value)}
+                clearLabel="Clearing the asset search"
+                placeholder="e.g: AddAsset"
+              >
+                Search for an icon
+              </Searchbar>
+            </SearchForm>
+          </Box>
+          <Box padding={8} background="neutral100">
+            <Grid gap={2}>
+              {iconsArray.map((icon) => {
+                const Icon = Icons[icon];
+                return (
+                  <GridItem padding={2} col={2} key={icon} background={'neutral0'}>
+                    <Box>
+                      <Icon aria-hidden={true} />
+                    </Box>
+                    <Box>
+                      <Text bold>{icon}</Text>
+                    </Box>
+                  </GridItem>
+                );
+              })}
+            </Grid>
+          </Box>
         </Box>
       );
     }}
