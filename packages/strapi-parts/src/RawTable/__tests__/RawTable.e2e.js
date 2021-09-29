@@ -4,7 +4,9 @@ describe('RawTable', () => {
   describe('Default story', () => {
     beforeEach(async () => {
       // This is the URL of the Storybook Iframe
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-molecules-rawtable--base&viewMode=story');
+      await page.goto(
+        'http://localhost:6006/iframe.html?id=design-system-technical-components-rawtable--base&viewMode=story',
+      );
       await injectAxe(page);
     });
 
@@ -145,7 +147,9 @@ describe('RawTable', () => {
   describe('Simple story', () => {
     beforeEach(async () => {
       // This is the URL of the Storybook Iframe
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-molecules-rawtable--simple&viewMode=story');
+      await page.goto(
+        'http://localhost:6006/iframe.html?id=design-system-technical-components-rawtable--simple&viewMode=story',
+      );
       await injectAxe(page);
     });
 

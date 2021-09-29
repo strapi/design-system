@@ -3,7 +3,7 @@ import { injectAxe, checkA11y } from 'axe-playwright';
 describe('LinkButton', () => {
   describe('base', () => {
     it('triggers axe on the document', async () => {
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-molecules-linkbutton--base&viewMode=story');
+      await page.goto('http://localhost:6006/iframe.html?id=design-system-components-linkbutton--base&viewMode=story');
       await injectAxe(page);
       await checkA11y(page);
     });
@@ -11,7 +11,7 @@ describe('LinkButton', () => {
 
   describe('sizes', () => {
     it('triggers axe on the document', async () => {
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-molecules-linkbutton--sizes&viewMode=story');
+      await page.goto('http://localhost:6006/iframe.html?id=design-system-components-linkbutton--sizes&viewMode=story');
       await injectAxe(page);
       await checkA11y(page);
     });
@@ -20,7 +20,7 @@ describe('LinkButton', () => {
   describe('variants', () => {
     it('triggers axe on the document', async () => {
       await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-molecules-linkbutton--variants&viewMode=story',
+        'http://localhost:6006/iframe.html?id=design-system-components-linkbutton--variants&viewMode=story',
       );
       await injectAxe(page);
       await checkA11y(page);
@@ -29,7 +29,7 @@ describe('LinkButton', () => {
 
   describe('icons', () => {
     it('triggers axe on the document', async () => {
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-molecules-linkbutton--icons&viewMode=story');
+      await page.goto('http://localhost:6006/iframe.html?id=design-system-components-linkbutton--icons&viewMode=story');
       await injectAxe(page);
       await checkA11y(page);
     });
@@ -38,7 +38,7 @@ describe('LinkButton', () => {
   describe('disabled', () => {
     it('triggers axe on the document', async () => {
       await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-molecules-linkbutton--disabled&viewMode=story',
+        'http://localhost:6006/iframe.html?id=design-system-components-linkbutton--disabled&viewMode=story',
       );
       await injectAxe(page);
       await checkA11y(page);

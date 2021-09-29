@@ -3,7 +3,9 @@ import { injectAxe, checkA11y } from 'axe-playwright';
 describe('Portal', () => {
   beforeEach(async () => {
     // This is the URL of the Storybook Iframe
-    await page.goto('http://localhost:6006/iframe.html?id=design-system-atoms-portal--base&viewMode=story');
+    await page.goto(
+      'http://localhost:6006/iframe.html?id=design-system-technical-components-portal--base&viewMode=story',
+    );
     await injectAxe(page);
   });
 

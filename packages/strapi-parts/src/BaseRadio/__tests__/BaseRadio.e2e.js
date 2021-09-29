@@ -4,7 +4,9 @@ describe('BaseRadio', () => {
   describe('base', () => {
     beforeEach(async () => {
       // This is the URL of the Storybook Iframe
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-atoms-baseradio--base&viewMode=story');
+      await page.goto(
+        'http://localhost:6006/iframe.html?id=design-system-technical-components-baseradio--base&viewMode=story',
+      );
       await injectAxe(page);
     });
 
@@ -32,7 +34,9 @@ describe('BaseRadio', () => {
   describe('disabled', () => {
     it('triggers axe on the document', async () => {
       // This is the URL of the Storybook Iframe
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-atoms-baseradio--disabled&viewMode=story');
+      await page.goto(
+        'http://localhost:6006/iframe.html?id=design-system-technical-components-baseradio--disabled&viewMode=story',
+      );
       await injectAxe(page);
       await checkA11y(page);
     });
