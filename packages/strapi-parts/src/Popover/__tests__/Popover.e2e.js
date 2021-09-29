@@ -22,6 +22,8 @@ describe('Popover', () => {
     });
 
     it('adds item when reaching the end', async () => {
+      await page.focus('#popover1');
+      await page.keyboard.press('Enter');
       const lis = await page.$$('#on-reach-end li');
       expect(lis.length).toBe(10);
 
