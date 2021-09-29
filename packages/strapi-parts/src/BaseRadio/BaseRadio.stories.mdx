@@ -77,42 +77,6 @@ The BaseButton can be disabled.
   </Story>
 </Canvas>
 
-## LSize
-
-A bigger size can be used.
-
-<Canvas>
-  <Story name="LSize">
-    {() => {
-      const [selected, setSelected] = useState();
-      return (
-        <div>
-          <label id="trophy-champions">Trophy champion</label>
-          <RadioGroup
-            size="L"
-            labelledBy="trophy-champions"
-            onChange={(e) => setSelected(e.target.value)}
-            value={selected}
-            name="prefered-meal"
-          >
-            <div>
-              <label htmlFor="first">Mario</label>
-              <BaseRadio value="first" id="first" />
-            </div>
-            <div>
-              <label htmlFor="second">Luigi</label>
-              <BaseRadio value="second" id="second" />
-            </div>
-            <div>
-              <label htmlFor="third">Wario</label>
-              <BaseRadio value="third" id="third" />
-            </div>
-          </RadioGroup>
-        </div>
-      );
-    }}
-  </Story>
-</Canvas>
 
 ## Props
 

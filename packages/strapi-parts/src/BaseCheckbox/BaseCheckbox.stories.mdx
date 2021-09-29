@@ -96,21 +96,6 @@ The BaseCheckbox can be disabled.
   </Story>
 </Canvas>
 
-## LSize
-
-A bigger size can be used.
-
-<Canvas>
-  <Story name="L Size">
-    {() => {
-      const [val, setValue] = useState(false);
-      return (
-        <BaseCheckbox name="LSize" size="L" onValueChange={(value) => setValue(value)} value={val} aria-label="Lsize" />
-      );
-    }}
-  </Story>
-</Canvas>
-
 ## Props
 
 <ArgsTable of={BaseCheckbox} />
