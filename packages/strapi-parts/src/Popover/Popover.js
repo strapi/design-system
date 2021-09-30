@@ -38,8 +38,10 @@ export const position = (source, popover, fullWidth, centered, spacing = 0) => {
 
   const windowSizeAtPosition = window.innerHeight + window.pageYOffset;
 
+  //if popover overflows bottom of viewport
   if (top + popoverRect.height + spacing > windowSizeAtPosition) {
-    top = window.pageYOffset + rect.top - popoverRect.height - rect.height - spacing;
+    const popoverBorderPadding = 10;
+    top = window.pageYOffset + rect.top - popoverRect.height - popoverBorderPadding - spacing;
   }
 
   return {
