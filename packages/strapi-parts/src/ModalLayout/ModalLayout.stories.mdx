@@ -16,7 +16,7 @@ import { Button } from '../Button';
 
 # ModalLayout
 
-This is the doc of the `ModalLayout` component
+The `ModalLayout` can be used to create a custom modal.
 
 [View source](https://github.com/strapi/parts/tree/develop/packages/strapi-parts/src/ModalLayout)
 
@@ -34,8 +34,6 @@ import { Button } from '@strapi/parts/Button';
 
 ## Usage
 
-Description...
-
 <Canvas>
   <Story name="base">
     {() => {
@@ -43,7 +41,7 @@ Description...
       return (
         <>
           <Button onClick={() => setIsVisible((prev) => !prev)}>Click to open Modal</Button>
-          <p style={{ height: '120vh' }}>This is a raw content</p>
+          <p style={{ height: '60vh' }}>This is a raw content</p>
           {isVisible && (
             <ModalLayout onClose={() => setIsVisible((prev) => !prev)} labelledBy="title">
               <ModalHeader>
@@ -83,4 +81,14 @@ Description...
 
 ## Props
 
+### ModalLayout props
+
 <ArgsTable of={ModalLayout} />
+
+### ModalHeader props
+
+<ArgsTable of={ModalHeader} />
+
+### ModalFooter props
+
+<ArgsTable of={ModalFooter} />

@@ -1,7 +1,7 @@
 <!--- Radio.stories.mdx --->
 
 import { useState } from 'react';
-import { Meta, Story, Canvas, Source } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, Source, ArgsTable } from '@storybook/addon-docs/blocks';
 import { BaseRadio } from './BaseRadio';
 import { RadioGroup } from './RadioGroup';
 
@@ -9,7 +9,7 @@ import { RadioGroup } from './RadioGroup';
 
 # BaseRadio
 
-This is the doc of the `BaseRadio` component
+The `BaseRadio` component is the basis of the `Radio` component.
 
 ## Usage
 
@@ -43,7 +43,7 @@ This is the doc of the `BaseRadio` component
 
 ## Disabled
 
-Description...
+The BaseButton can be disabled.
 
 <Canvas>
   <Story name="disabled">
@@ -77,39 +77,7 @@ Description...
   </Story>
 </Canvas>
 
-## LSize
 
-Description...
+## Props
 
-<Canvas>
-  <Story name="LSize">
-    {() => {
-      const [selected, setSelected] = useState();
-      return (
-        <div>
-          <label id="trophy-champions">Trophy champion</label>
-          <RadioGroup
-            size="L"
-            labelledBy="trophy-champions"
-            onChange={(e) => setSelected(e.target.value)}
-            value={selected}
-            name="prefered-meal"
-          >
-            <div>
-              <label htmlFor="first">Mario</label>
-              <BaseRadio value="first" id="first" />
-            </div>
-            <div>
-              <label htmlFor="second">Luigi</label>
-              <BaseRadio value="second" id="second" />
-            </div>
-            <div>
-              <label htmlFor="third">Wario</label>
-              <BaseRadio value="third" id="third" />
-            </div>
-          </RadioGroup>
-        </div>
-      );
-    }}
-  </Story>
-</Canvas>
+<ArgsTable of={BaseRadio} />

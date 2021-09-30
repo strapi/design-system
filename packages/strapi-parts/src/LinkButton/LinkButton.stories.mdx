@@ -13,7 +13,18 @@ import { Row } from '../Row';
 
 # LinkButton
 
-Description...
+LinkButtons are a way to perform actions that links to a different page component that will stay within one page. They help interact with its content via a single click. According to their style, specific labels and icons, they help understand the most important actions to take.
+
+The difference with the `Button` component will be that the action of the LinkButton redirects to a different page.
+The difference with the `Link` is the style.
+
+Best practices
+
+- A link button should have a relevant and clear label.
+- Be positioned in consistent locations in the interface.
+- If there are no primary action on a screen yet, this might be the one to look for.
+- Prefer to have not more than two buttons side to side.
+- To navigate to another page in your browser (use Link component instead).
 
 [View source](https://github.com/strapi/parts/tree/develop/packages/strapi-parts/src/LinkButton)
 
@@ -27,7 +38,9 @@ import ContentIcon from '@strapi/icons/ContentIcon';
 
 ## Usage
 
-Description...
+The most common LinkButton component used in the interface (primary action). It can have different variants and meaning.
+
+Use the `to` parameter to redirect using the router's routes, `href` parameter for an external url.
 
 <Canvas>
   <Story name="base">
@@ -41,7 +54,9 @@ Description...
 
 ### LinkButton sizes
 
-Description...
+Main actions usually use a L LinkButton (top of a screen, footer of a modal, ...). For subsidiary action, a S LinkButton suits more (filters, configure the view, ...).
+
+Use the size prop to change the size of the button. You can set the value to S or L.
 
 <Canvas>
   <Story name="sizes">
@@ -60,7 +75,7 @@ Description...
 
 ### LinkButton variants
 
-Description...
+Use the variant prop to change the visual style of the LinkButton. You can set the value to default, secondary, tertiary, success, danger, success-light, or danger-light.
 
 <Canvas>
   <Story name="variants">
@@ -78,7 +93,7 @@ Description...
 
 ### LinkButton with icon
 
-Description...
+A LinkButton can be associated with an icon to give more impact. You can add start and end icons to the Button component using the startIcon and endIcon props respectively.
 
 <Canvas>
   <Story name="icons">
@@ -97,7 +112,7 @@ Description...
 
 ### LinkButton disabled
 
-Description...
+For all actions that cannot be performed yet, you can use the disabled state.
 
 <Canvas>
   <Story name="disabled">
@@ -108,7 +123,6 @@ Description...
     </Box>
   </Story>
 </Canvas>
-
 
 ## Props
 

@@ -1,7 +1,7 @@
 <!--- Combobox.stories.mdx --->
 
 import { useState, useRef } from 'react';
-import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
 import { Combobox, CreatableCombobox } from './Combobox';
 import { ComboboxOption } from './ComboboxOption';
 
@@ -246,3 +246,7 @@ This is the doc of the `Combobox` component
     }}
   </Story>
 </Canvas>
+
+## Props
+
+<ArgsTable of={Combobox} />

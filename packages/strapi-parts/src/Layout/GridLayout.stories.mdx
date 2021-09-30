@@ -8,11 +8,16 @@ import { Box } from '../Box';
 
 # GridLayout
 
-This is the doc of the `GridLayout` component
+`GridLayout` creates a responsive grid that will dispatch `Box` elements in 1, 2 or 3 columns depending on the size of the screen.
 
-## GridLayout
+## Imports
 
-Description...
+```js
+import GridLayout from '@strapi/parts/GridLayout';
+import Box from '@strapi/parts/Box';
+```
+
+## Usage
 
 <Canvas>
   <Story name="base">
@@ -21,7 +26,7 @@ Description...
         {Array(12)
           .fill(null)
           .map((_, idx) => (
-            <Box padding={4} hasRadius background="neutral0" padding={4} key={`box-${idx}`} shadow="tableShadow">
+            <Box padding={4} hasRadius background="neutral0" key={`box-${idx}`} shadow="tableShadow">
               hello world
             </Box>
           ))}
