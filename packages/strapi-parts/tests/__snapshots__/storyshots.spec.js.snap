@@ -11096,7 +11096,7 @@ exports[`Storyshots Design System/Components/HeaderLayout sticky 1`] = `
   font-weight: 600;
   font-size: 1.125rem;
   line-height: 1.22;
-  color: #32324d;
+  color: #666687;
 }
 
 .c12 {

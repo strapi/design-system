@@ -78,7 +78,7 @@ export const BaseHeaderLayout = React.forwardRef(
             <Row>
               {navigationAction && <Box paddingRight={3}>{navigationAction}</Box>}
               <Box>
-                <H2 as="h1" {...props}>
+                <H2 textColor="neutral600" as="h1" {...props}>
                   {title}
                 </H2>
                 <P small={true} textColor="neutral600">
