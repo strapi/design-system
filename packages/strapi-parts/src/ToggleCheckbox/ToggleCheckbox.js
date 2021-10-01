@@ -14,8 +14,8 @@ const Label = styled.label`
 
   &:active,
   &:focus-within {
-    outline: 2px solid ${({ theme }) => theme.colors.primary600};
-    outline-offset: 2px;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.6);
   }
 `;
 

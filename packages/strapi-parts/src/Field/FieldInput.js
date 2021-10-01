@@ -33,6 +33,7 @@ const Input = styled.input`
   //focus managed by InputWrapper
   &:focus {
     outline: none;
+    box-shadow: none;
   }
 `;
 
@@ -43,9 +44,8 @@ export const InputWrapper = styled(Row)`
   height: ${getThemeSize('input')};
 
   &:focus-within {
-    outline: 2px solid ${({ theme }) => theme.colors.primary600};
-    outline-offset: 2px;
-    box-shadow: revert;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.6);
   }
 
   ${({ theme, disabled }) =>

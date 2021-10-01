@@ -190,9 +190,8 @@ describe('Select', () => {
       }
 
       .c3:focus-within {
-        outline: 2px solid #4945ff;
-        outline-offset: 2px;
-        box-shadow: revert;
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
       }
 
       .c10 {
@@ -572,9 +571,8 @@ describe('Select', () => {
       }
 
       .c3:focus-within {
-        outline: 2px solid #4945ff;
-        outline-offset: 2px;
-        box-shadow: revert;
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
       }
 
       .c11 {
