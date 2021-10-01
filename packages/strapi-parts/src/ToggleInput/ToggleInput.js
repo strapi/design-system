@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { sizes } from '../themes/sizes';
 import { Field, FieldHint, FieldError, FieldLabel } from '../Field';
 import { Stack } from '../Stack';
 import { Box } from '../Box';
@@ -17,7 +18,7 @@ const LabelAction = styled(Box)`
   }
 `;
 
-export const ToggleInput = ({ error, hint, label, name, labelAction, ...props }) => {
+export const ToggleInput = ({ size, error, hint, label, name, labelAction, ...props }) => {
   return (
     <FieldWrapper name={name} hint={hint} error={error}>
       <Stack size={1}>
@@ -25,7 +26,7 @@ export const ToggleInput = ({ error, hint, label, name, labelAction, ...props })
           <FieldLabel>{label}</FieldLabel>
           {labelAction && <LabelAction paddingLeft={1}>{labelAction}</LabelAction>}
         </Row>
-        <ToggleCheckbox name={name} {...props}>
+        <ToggleCheckbox size={size} name={name} {...props}>
           {label}
         </ToggleCheckbox>
         <FieldHint />
@@ -43,6 +44,7 @@ ToggleInput.defaultProps = {
   label: '',
   labelAction: undefined,
   name: '',
+  size: 'M',
 };
 
 ToggleInput.propTypes = {
@@ -51,4 +53,5 @@ ToggleInput.propTypes = {
   label: PropTypes.string,
   labelAction: PropTypes.node,
   name: PropTypes.string,
+  size: PropTypes.oneOf(Object.keys(sizes.input)),
 };
