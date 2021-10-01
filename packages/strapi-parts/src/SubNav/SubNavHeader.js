@@ -15,7 +15,7 @@ import { usePrevious } from '../helpers/usePrevious';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 
 const Searchbar = styled(FieldInput)`
-  height: ${32 / 16}rem;
+  height: ${({ theme }) => theme.sizes.input.S};
 `;
 const CloseIconWrapper = styled(Row)`
   font-size: 0.5rem;
