@@ -1,13 +1,16 @@
 import styled from 'styled-components';
 import { Box } from '../Box';
+import { Row } from '../Row';
+import { getThemeSize } from '../themes/utils';
 
-export const SelectButtonWrapper = styled.div`
+export const SelectButtonWrapper = styled(Row)`
   position: relative;
   border: 1px solid ${({ theme, hasError }) => (hasError ? theme.colors.danger600 : theme.colors.neutral200)};
   padding-right: ${({ theme }) => theme.spaces[3]};
   border-radius: ${({ theme }) => theme.borderRadius};
   background: ${({ theme }) => theme.colors.neutral0};
   overflow: hidden;
+  min-height: ${getThemeSize('input')};
 
   ${({ theme, disabled }) =>
     disabled

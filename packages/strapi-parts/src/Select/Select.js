@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import DropdownIcon from '@strapi/icons/FilterDropdownIcon';
 import CloseAlertIcon from '@strapi/icons/CloseAlertIcon';
 import { sizes } from '../themes/sizes';
-import { getThemeSize } from '../themes/utils';
 import { SelectButton } from './SelectButton';
 import { Field, FieldHint, FieldLabel, FieldError } from '../Field';
 import { Popover } from '../Popover';
@@ -22,7 +21,7 @@ import { SelectTags } from './SelectTags';
 import styled from 'styled-components';
 
 const MainRow = styled(Row)`
-  min-height: ${getThemeSize('input')};
+  width: 100%;
 `;
 
 export const Select = ({
@@ -154,7 +153,7 @@ export const Select = ({
           </FieldLabel>
         )}
 
-        <SelectButtonWrapper hasError={Boolean(error)} disabled={disabled} ref={containerRef}>
+        <SelectButtonWrapper size={size} hasError={Boolean(error)} disabled={disabled} ref={containerRef}>
           <SelectButton
             ref={buttonRef}
             labelledBy={`${labelId} ${contentId}`}
@@ -168,7 +167,7 @@ export const Select = ({
             {...props}
           />
 
-          <MainRow size={size} justifyContent="space-between">
+          <MainRow justifyContent="space-between">
             <Row>
               {startIcon && (
                 <Box paddingLeft={3} aria-hidden={true}>
