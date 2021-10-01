@@ -8,7 +8,7 @@ import { Row } from '../Row';
 import { H2 } from '../Text';
 import { IconButton } from '../IconButton';
 import { Box } from '../Box';
-import { FieldInput, FieldAction } from '../Field';
+import { FieldInput, FieldAction, Field, InputWrapper } from '../Field';
 import { Divider } from '../Divider';
 import { useId } from '../helpers/useId';
 import { usePrevious } from '../helpers/usePrevious';
@@ -35,6 +35,30 @@ const SearchIconWrapper = styled(Row)`
 const CustomDivider = styled(Divider)`
   width: ${24 / 16}rem;
   background-color: ${({ theme }) => theme.colors.neutral200};
+`;
+const SearchWrapper = styled(Box)`
+  &:focus-within {
+    ${SearchIconWrapper} {
+      svg path {
+        fill: ${({ theme }) => theme.colors.primary600};
+      }
+    }
+  }
+
+  ${InputWrapper} {
+    border: 1px solid transparent;
+  }
+
+  ${InputWrapper}:focus-within {
+    outline: 2px solid ${({ theme }) => theme.colors.primary600};
+    outline-offset: 2px;
+  }
+
+  /**
+Focused is managed at the wrapper level */
+  input {
+    outline: none;
+  }
 `;
 
 export const SubNavHeader = ({ as, label, searchLabel, searchable, onChange, value, onClear, id }) => {
@@ -77,32 +101,34 @@ export const SubNavHeader = ({ as, label, searchLabel, searchable, onChange, val
 
   if (isSearchOpen) {
     return (
-      <Box paddingLeft={4} paddingTop={5} paddingBottom={2} paddingRight={4}>
-        <Searchbar
-          onKeyDown={handleKeyDown}
-          ref={searchRef}
-          onBlur={handleBlur}
-          value={value}
-          onChange={onChange}
-          startAction={
-            <SearchIconWrapper focused={isSearchOpen}>
-              <SearchIcon aria-hidden={true} />
-            </SearchIconWrapper>
-          }
-          endAction={
-            isCompleting ? (
-              <FieldAction id={clearButtonId} label="Clear label" onClick={handleClear}>
-                <CloseIconWrapper>
-                  <CloseAlertIcon />
-                </CloseIconWrapper>
-              </FieldAction>
-            ) : undefined
-          }
-        />
+      <SearchWrapper paddingLeft={4} paddingTop={5} paddingBottom={2} paddingRight={4}>
+        <Field name="subnav-search">
+          <Searchbar
+            onKeyDown={handleKeyDown}
+            ref={searchRef}
+            onBlur={handleBlur}
+            value={value}
+            onChange={onChange}
+            startAction={
+              <SearchIconWrapper focused={isSearchOpen}>
+                <SearchIcon aria-hidden={true} />
+              </SearchIconWrapper>
+            }
+            endAction={
+              isCompleting ? (
+                <FieldAction id={clearButtonId} label="Clear label" onClick={handleClear}>
+                  <CloseIconWrapper>
+                    <CloseAlertIcon />
+                  </CloseIconWrapper>
+                </FieldAction>
+              ) : undefined
+            }
+          />
+        </Field>
         <Box paddingLeft={2} paddingTop={4}>
           <CustomDivider />
         </Box>
-      </Box>
+      </SearchWrapper>
     );
   }
 
