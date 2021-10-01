@@ -12,13 +12,14 @@ import { TimePicker } from './TimePicker';
 Time pickers help users selecting a specific timeslot from a suggested timetable. They can be associated to a Date picker component.
 
 **Best practices**
+
 - It is not possible to write a timeslot from the keyboard.
 - It is not possible to change the time format.
 - The PopOver closes after selecting a timeslot.
 - A Time picker can used simultaneously with a Date picker in a form.
 - One single format of time is currently available, which is a 24-hour one.
 - The Time picker is built on top on a Field component.
-[View source](https://github.com/strapi/parts/tree/develop/packages/strapi-parts/src/TimePicker)
+  [View source](https://github.com/strapi/parts/tree/develop/packages/strapi-parts/src/TimePicker)
 
 ## Imports
 
@@ -67,6 +68,33 @@ The unit of the Time Picker can be modified by changing the `step` parameter.
           error={undefined}
           hint={'Description line'}
           id={'tp-1'}
+          onClear={() => setValue(undefined)}
+          onChange={setValue}
+          value={value}
+          clearLabel={'Clear the selected time picker value'}
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Size S
+
+TODO
+
+<Canvas>
+  <Story name="size S">
+    {() => {
+      const [value, setValue] = useState();
+      return (
+        <TimePicker
+          step={30}
+          label={'Choose a time'}
+          disabled={false}
+          error={undefined}
+          hint={'Description line'}
+          id={'tp-1'}
+          size="S"
           onClear={() => setValue(undefined)}
           onChange={setValue}
           value={value}

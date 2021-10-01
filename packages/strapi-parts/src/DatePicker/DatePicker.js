@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import CalendarIcon from '@strapi/icons/Calendar';
 import CloseAlertIcon from '@strapi/icons/CloseAlertIcon';
+import { sizes } from '../themes/sizes';
 import { TextInput } from '../TextInput';
 import { DatePickerButton, DatePickerWrapper, IconBox } from './components';
 import { DatePickerCalendar } from './DatePickerCalendar';

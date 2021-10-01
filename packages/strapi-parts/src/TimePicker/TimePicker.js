@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TimeIcon from '@strapi/icons/Time';
 import styled from 'styled-components';
+import { sizes } from '../themes/sizes';
 import { Select, Option } from '../Select';
 import { useId } from '../helpers/useId';
 
@@ -29,6 +30,7 @@ export const TimePicker = ({
   clearLabel,
   label,
   step,
+  size,
   ...props
 }) => {
   const generatedId = useId('timepicker', id);
@@ -55,6 +57,7 @@ export const TimePicker = ({
       clearLabel={clearLabel}
       error={error}
       value={value}
+      size={size}
       onChange={onChange}
       disabled={disabled}
       startIcon={
@@ -80,6 +83,7 @@ TimePicker.defaultProps = {
   value: undefined,
   hint: undefined,
   error: undefined,
+  size: 'M',
   step: 15,
 };
 
@@ -92,6 +96,7 @@ TimePicker.propTypes = {
   label: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   onClear: PropTypes.func,
+  size: PropTypes.oneOf(Object.keys(sizes.input)),
   step: PropTypes.number,
   value: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
