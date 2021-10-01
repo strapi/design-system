@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import SearchIcon from '@strapi/icons/SearchIcon';
 import CloseAlertIcon from '@strapi/icons/CloseAlertIcon';
+import { sizes } from '../themes/sizes';
 import { Field, FieldLabel, FieldAction, FieldInput, InputWrapper } from '../Field';
 import { VisuallyHidden } from '../VisuallyHidden';
 import { Row } from '../Row';
@@ -50,7 +51,7 @@ const SearchbarWrapper = styled.div`
   }
 `;
 
-export const Searchbar = ({ name, children, value, onClear, clearLabel, ...props }) => {
+export const Searchbar = ({ name, size, children, value, onClear, clearLabel, ...props }) => {
   const inputRef = useRef(null);
   const isCompleting = value.length > 0;
 
@@ -74,6 +75,7 @@ export const Searchbar = ({ name, children, value, onClear, clearLabel, ...props
               <SearchIcon aria-hidden={true} />
             </SearchIconWrapper>
           }
+          size={size}
           endAction={
             isCompleting ? (
               <FieldAction label={clearLabel} onClick={handleClear}>
@@ -94,6 +96,7 @@ Searchbar.displayName = 'Searchbar';
 
 Searchbar.defaultProps = {
   value: '',
+  size: 'M',
 };
 
 Searchbar.propTypes = {
@@ -101,5 +104,6 @@ Searchbar.propTypes = {
   clearLabel: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   onClear: PropTypes.func.isRequired,
+  size: PropTypes.oneOf(Object.keys(sizes.input)),
   value: PropTypes.string,
 };
