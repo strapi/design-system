@@ -1,6 +1,8 @@
 import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { sizes } from '../themes/sizes';
+import { getThemeSize } from '../themes/utils';
 import { useField } from './FieldContext';
 import { Row } from '../Row';
 import { Box } from '../Box';
@@ -17,7 +19,7 @@ const Input = styled.input`
   font-size: ${14 / 16}rem;
   display: block;
   width: 100%;
-  height: ${40 / 16}rem;
+  height: ${getThemeSize('input')};
 
   ::placeholder {
     color: ${({ theme }) => theme.colors.neutral500};
@@ -45,7 +47,7 @@ export const InputWrapper = styled(Row)`
       : undefined}
 `;
 
-export const FieldInput = forwardRef(({ endAction, startAction, disabled, onChange, ...props }, ref) => {
+export const FieldInput = forwardRef(({ endAction, startAction, disabled, onChange, size, ...props }, ref) => {
   const { id, error, hint, name } = useField();
 
   let ariaDescription;
@@ -81,6 +83,7 @@ export const FieldInput = forwardRef(({ endAction, startAction, disabled, onChan
         hasLeftAction={Boolean(startAction)}
         hasRightAction={Boolean(endAction)}
         onChange={handleChange}
+        size={size}
         {...props}
       />
       {endAction && (
@@ -97,6 +100,7 @@ FieldInput.displayName = 'FieldInput';
 FieldInput.defaultProps = {
   disabled: false,
   endAction: undefined,
+  size: 'M',
   startAction: undefined,
   onChange: () => {},
 };
@@ -105,5 +109,6 @@ FieldInput.propTypes = {
   disabled: PropTypes.bool,
   endAction: PropTypes.element,
   onChange: PropTypes.func,
+  size: PropTypes.oneOf(Object.keys(sizes.input)),
   startAction: PropTypes.element,
 };
