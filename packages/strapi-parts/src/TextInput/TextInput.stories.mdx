@@ -105,6 +105,36 @@ Depending on the permissions a user have or the status of an action, a TextInput
   </Story>
 </Canvas>
 
+### TextInput size S
+
+TODO
+
+<Canvas>
+  <Story name="size S">
+    <Box padding={10}>
+      <TextInput
+        placeholder="This is a content placeholder"
+        label="Content"
+        name="content"
+        hint="Description line"
+        onChange={() => {}}
+        value={'size S input'}
+        size="S"
+        labelAction={
+          <Tooltip description="Content of the tooltip">
+            <button
+              aria-label="Information about the email"
+              style={{ border: 'none', padding: 0, background: 'transparent' }}
+            >
+              <HelpIcon aria-hidden={true} />
+            </button>
+          </Tooltip>
+        }
+      />
+    </Box>
+  </Story>
+</Canvas>
+
 ### TextInput with error
 
 TextInputs can display error. The error message is customizable and replaced the description line below the writing area.
