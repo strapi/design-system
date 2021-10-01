@@ -11,7 +11,6 @@ import { DatePicker } from './DatePicker';
 
 Date pickers help users selecting a specific date from a calendar. They can be associated to a Time picker component.
 
-
 **Best practices**
 
 - It is possible to change the date format by changing your browser locale.
@@ -24,7 +23,6 @@ Date pickers help users selecting a specific date from a calendar. They can be a
 ```js
 import { DatePicker } from '@strapi/parts/DatePicker';
 ```
-
 
 ## Usage
 
@@ -42,6 +40,35 @@ import { DatePicker } from '@strapi/parts/DatePicker';
             selectedDate={date}
             label="Date picker"
             name="datepicker"
+            clearLabel={'Clear the datepicker'}
+            onClear={() => setDate(undefined)}
+            selectedDateLabel={(formattedDate) => `Date picker, current is ${formattedDate}`}
+          />
+          <div style={{ marginLeft: '500px' }}>
+            <button>Button outside picker</button>
+          </div>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Size S
+
+TODO
+
+<Canvas>
+  <Story name="size S">
+    {() => {
+      const [date, setDate] = useState();
+      return (
+        <div>
+          <DatePicker
+            onChange={setDate}
+            selectedDate={date}
+            label="Date picker"
+            name="datepicker"
+            size="S"
             clearLabel={'Clear the datepicker'}
             onClear={() => setDate(undefined)}
             selectedDateLabel={(formattedDate) => `Date picker, current is ${formattedDate}`}
