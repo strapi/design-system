@@ -6397,9 +6397,8 @@ exports[`Storyshots Design System/Components/Combobox base 1`] = `
 }
 
 .c4:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
-  box-shadow: revert;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 .c5 {
@@ -6586,9 +6585,8 @@ exports[`Storyshots Design System/Components/Combobox creatable 1`] = `
 }
 
 .c4:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
-  box-shadow: revert;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 .c5 {
@@ -6777,9 +6775,8 @@ exports[`Storyshots Design System/Components/Combobox disabled 1`] = `
 }
 
 .c4:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
-  box-shadow: revert;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 .c5 {
@@ -6975,9 +6972,8 @@ exports[`Storyshots Design System/Components/Combobox error 1`] = `
 }
 
 .c4:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
-  box-shadow: revert;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 .c5 {
@@ -7171,9 +7167,8 @@ exports[`Storyshots Design System/Components/Combobox infinite-scroll 1`] = `
 }
 
 .c4:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
-  box-shadow: revert;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 .c5 {
@@ -7360,9 +7355,8 @@ exports[`Storyshots Design System/Components/Combobox loading 1`] = `
 }
 
 .c4:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
-  box-shadow: revert;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 .c5 {
@@ -7542,9 +7536,8 @@ exports[`Storyshots Design System/Components/Combobox withoutLabel 1`] = `
 }
 
 .c3:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
-  box-shadow: revert;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 .c4 {
@@ -7743,6 +7736,7 @@ exports[`Storyshots Design System/Components/DatePicker base 1`] = `
 
 .c8:focus {
   outline: none;
+  box-shadow: none;
 }
 
 .c5 {
@@ -7753,9 +7747,8 @@ exports[`Storyshots Design System/Components/DatePicker base 1`] = `
 }
 
 .c5:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
-  box-shadow: revert;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 .c7 {
@@ -7964,6 +7957,7 @@ exports[`Storyshots Design System/Components/DatePicker size S 1`] = `
 
 .c8:focus {
   outline: none;
+  box-shadow: none;
 }
 
 .c5 {
@@ -7974,9 +7968,8 @@ exports[`Storyshots Design System/Components/DatePicker size S 1`] = `
 }
 
 .c5:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
-  box-shadow: revert;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 .c7 {
@@ -9125,6 +9118,7 @@ exports[`Storyshots Design System/Components/Field base 1`] = `
 
 .c5:focus {
   outline: none;
+  box-shadow: none;
 }
 
 .c4 {
@@ -9135,9 +9129,8 @@ exports[`Storyshots Design System/Components/Field base 1`] = `
 }
 
 .c4:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
-  box-shadow: revert;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 <main>
@@ -9280,6 +9273,7 @@ exports[`Storyshots Design System/Components/Field disabled 1`] = `
 
 .c5:focus {
   outline: none;
+  box-shadow: none;
 }
 
 .c4 {
@@ -9292,9 +9286,8 @@ exports[`Storyshots Design System/Components/Field disabled 1`] = `
 }
 
 .c4:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
-  box-shadow: revert;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 <main>
@@ -9476,6 +9469,7 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
 
 .c10:focus {
   outline: none;
+  box-shadow: none;
 }
 
 .c7 {
@@ -9486,9 +9480,8 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
 }
 
 .c7:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
-  box-shadow: revert;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 .c9 {
@@ -9779,6 +9772,7 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
 
 .c10:focus {
   outline: none;
+  box-shadow: none;
 }
 
 .c7 {
@@ -9789,9 +9783,8 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
 }
 
 .c7:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
-  box-shadow: revert;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 .c9 {
@@ -10050,6 +10043,7 @@ exports[`Storyshots Design System/Components/Field with description 1`] = `
 
 .c5:focus {
   outline: none;
+  box-shadow: none;
 }
 
 .c4 {
@@ -10060,9 +10054,8 @@ exports[`Storyshots Design System/Components/Field with description 1`] = `
 }
 
 .c4:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
-  box-shadow: revert;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 <main>
@@ -10212,6 +10205,7 @@ exports[`Storyshots Design System/Components/Field with error 1`] = `
 
 .c5:focus {
   outline: none;
+  box-shadow: none;
 }
 
 .c4 {
@@ -10222,9 +10216,8 @@ exports[`Storyshots Design System/Components/Field with error 1`] = `
 }
 
 .c4:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
-  box-shadow: revert;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 <main>
@@ -21600,6 +21593,7 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
 
 .c8:focus {
   outline: none;
+  box-shadow: none;
 }
 
 .c7 {
@@ -21610,9 +21604,8 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
 }
 
 .c7:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
-  box-shadow: revert;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 .c10 {
@@ -21923,6 +21916,7 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
 
 .c8:focus {
   outline: none;
+  box-shadow: none;
 }
 
 .c7 {
@@ -21933,9 +21927,8 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
 }
 
 .c7:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
-  box-shadow: revert;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 .c10 {
@@ -22221,6 +22214,7 @@ exports[`Storyshots Design System/Components/NumberInput withoutLabel 1`] = `
 
 .c5:focus {
   outline: none;
+  box-shadow: none;
 }
 
 .c4 {
@@ -22231,9 +22225,8 @@ exports[`Storyshots Design System/Components/NumberInput withoutLabel 1`] = `
 }
 
 .c4:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
-  box-shadow: revert;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 .c7 {
@@ -23124,6 +23117,7 @@ exports[`Storyshots Design System/Components/Searchbar base 1`] = `
 
 .c10:focus {
   outline: none;
+  box-shadow: none;
 }
 
 .c5 {
@@ -23134,9 +23128,8 @@ exports[`Storyshots Design System/Components/Searchbar base 1`] = `
 }
 
 .c5:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
-  box-shadow: revert;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 .c9 {
@@ -23161,8 +23154,8 @@ exports[`Storyshots Design System/Components/Searchbar base 1`] = `
 }
 
 .c1 .c3:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 .c1 input {
@@ -23332,6 +23325,7 @@ exports[`Storyshots Design System/Components/Searchbar disabled 1`] = `
 
 .c10:focus {
   outline: none;
+  box-shadow: none;
 }
 
 .c5 {
@@ -23344,9 +23338,8 @@ exports[`Storyshots Design System/Components/Searchbar disabled 1`] = `
 }
 
 .c5:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
-  box-shadow: revert;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 .c9 {
@@ -23371,8 +23364,8 @@ exports[`Storyshots Design System/Components/Searchbar disabled 1`] = `
 }
 
 .c1 .c3:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 .c1 input {
@@ -23539,6 +23532,7 @@ exports[`Storyshots Design System/Components/Searchbar size S 1`] = `
 
 .c10:focus {
   outline: none;
+  box-shadow: none;
 }
 
 .c5 {
@@ -23549,9 +23543,8 @@ exports[`Storyshots Design System/Components/Searchbar size S 1`] = `
 }
 
 .c5:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
-  box-shadow: revert;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 .c9 {
@@ -23576,8 +23569,8 @@ exports[`Storyshots Design System/Components/Searchbar size S 1`] = `
 }
 
 .c1 .c3:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 .c1 input {
@@ -23775,9 +23768,8 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
 }
 
 .c5:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
-  box-shadow: revert;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 .c12 {
@@ -24069,9 +24061,8 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
 }
 
 .c5:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
-  box-shadow: revert;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 .c12 {
@@ -24350,9 +24341,8 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
 }
 
 .c5:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
-  box-shadow: revert;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 .c12 {
@@ -24648,9 +24638,8 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
 }
 
 .c5:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
-  box-shadow: revert;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 .c14 {
@@ -24945,9 +24934,8 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
 }
 
 .c5:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
-  box-shadow: revert;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 .c11 {
@@ -25224,9 +25212,8 @@ exports[`Storyshots Design System/Components/Select withoutLabel 1`] = `
 }
 
 .c4:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
-  box-shadow: revert;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 .c11 {
@@ -31095,6 +31082,7 @@ exports[`Storyshots Design System/Components/TextInput base 1`] = `
 
 .c9:focus {
   outline: none;
+  box-shadow: none;
 }
 
 .c8 {
@@ -31105,9 +31093,8 @@ exports[`Storyshots Design System/Components/TextInput base 1`] = `
 }
 
 .c8:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
-  box-shadow: revert;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 .c6 svg path {
@@ -31318,6 +31305,7 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
 
 .c9:focus {
   outline: none;
+  box-shadow: none;
 }
 
 .c8 {
@@ -31330,9 +31318,8 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
 }
 
 .c8:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
-  box-shadow: revert;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 .c6 svg path {
@@ -31544,6 +31531,7 @@ exports[`Storyshots Design System/Components/TextInput password 1`] = `
 
 .c9:focus {
   outline: none;
+  box-shadow: none;
 }
 
 .c8 {
@@ -31554,9 +31542,8 @@ exports[`Storyshots Design System/Components/TextInput password 1`] = `
 }
 
 .c8:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
-  box-shadow: revert;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 .c6 svg path {
@@ -31768,6 +31755,7 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
 
 .c9:focus {
   outline: none;
+  box-shadow: none;
 }
 
 .c8 {
@@ -31778,9 +31766,8 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
 }
 
 .c8:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
-  box-shadow: revert;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 .c6 svg path {
@@ -31991,6 +31978,7 @@ exports[`Storyshots Design System/Components/TextInput with error 1`] = `
 
 .c9:focus {
   outline: none;
+  box-shadow: none;
 }
 
 .c8 {
@@ -32001,9 +31989,8 @@ exports[`Storyshots Design System/Components/TextInput with error 1`] = `
 }
 
 .c8:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
-  box-shadow: revert;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 .c6 svg path {
@@ -32190,6 +32177,7 @@ exports[`Storyshots Design System/Components/TextInput withoutLabel 1`] = `
 
 .c5:focus {
   outline: none;
+  box-shadow: none;
 }
 
 .c4 {
@@ -32200,9 +32188,8 @@ exports[`Storyshots Design System/Components/TextInput withoutLabel 1`] = `
 }
 
 .c4:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
-  box-shadow: revert;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 <main>
@@ -32572,9 +32559,8 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
 }
 
 .c4:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
-  box-shadow: revert;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 .c12 {
@@ -32860,9 +32846,8 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
 }
 
 .c4:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
-  box-shadow: revert;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 .c12 {
@@ -33148,9 +33133,8 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
 }
 
 .c4:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
-  box-shadow: revert;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 .c12 {
@@ -33395,8 +33379,8 @@ exports[`Storyshots Design System/Components/ToggleCheckbox activated 1`] = `
 
 .c1:active,
 .c1:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 .c4 {
@@ -33539,8 +33523,8 @@ exports[`Storyshots Design System/Components/ToggleCheckbox not activated 1`] = 
 
 .c1:active,
 .c1:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 .c4 {
@@ -33682,8 +33666,8 @@ exports[`Storyshots Design System/Components/ToggleCheckbox size S 1`] = `
 
 .c1:active,
 .c1:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 .c4 {
@@ -33855,8 +33839,8 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
 
 .c7:active,
 .c7:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 .c10 {
@@ -34086,8 +34070,8 @@ exports[`Storyshots Design System/Components/ToggleInput error 1`] = `
 
 .c5:active,
 .c5:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 .c8 {
@@ -34287,8 +34271,8 @@ exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
 
 .c5:active,
 .c5:focus-within {
-  outline: 2px solid #4945ff;
-  outline-offset: 2px;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
 }
 
 .c8 {
