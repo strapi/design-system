@@ -7641,19 +7641,19 @@ exports[`Storyshots Design System/Components/DatePicker base 1`] = `
   width: 1px;
 }
 
-.c7 {
+.c6 {
   padding-right: 8px;
   padding-left: 12px;
 }
 
-.c4 {
+.c3 {
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #32324d;
 }
 
-.c3 {
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -7667,7 +7667,7 @@ exports[`Storyshots Design System/Components/DatePicker base 1`] = `
   align-items: center;
 }
 
-.c5 {
+.c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -7685,7 +7685,7 @@ exports[`Storyshots Design System/Components/DatePicker base 1`] = `
   align-items: center;
 }
 
-.c2 {
+.c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -7695,16 +7695,16 @@ exports[`Storyshots Design System/Components/DatePicker base 1`] = `
   flex-direction: column;
 }
 
-.c2 > * {
+.c1 > * {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-.c2 > * + * {
+.c1 > * + * {
   margin-top: 4px;
 }
 
-.c9 {
+.c8 {
   border: none;
   border-radius: 4px;
   padding-left: 0;
@@ -7714,51 +7714,57 @@ exports[`Storyshots Design System/Components/DatePicker base 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
-  height: 2.5rem;
 }
 
-.c9::-webkit-input-placeholder {
+.c8::-webkit-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c9::-moz-placeholder {
+.c8::-moz-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c9:-ms-input-placeholder {
+.c8:-ms-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c9::placeholder {
+.c8::placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c9[aria-disabled='true'] {
+.c8[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
 
-.c6 {
+.c8:focus {
+  outline: none;
+}
+
+.c5 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
+  height: 2.5rem;
 }
 
-.c1 textarea {
-  height: 5rem;
+.c5:focus-within {
+  outline: 2px solid #4945ff;
+  outline-offset: 2px;
+  box-shadow: revert;
 }
 
-.c8 {
+.c7 {
   border: none;
   background: transparent;
   border-radius: 4px;
 }
 
-.c8 svg path {
+.c7 svg path {
   fill: #8e8ea9;
 }
 
@@ -7774,32 +7780,30 @@ exports[`Storyshots Design System/Components/DatePicker base 1`] = `
     <div
       class=""
     >
-      <div
-        class="c1"
-      >
+      <div>
         <div>
           <div
-            class="c2"
+            class="c1"
           >
             <div
-              class="c3"
+              class="c2"
             >
               <label
-                class="c4"
+                class="c3"
                 for="datepicker-29"
               >
                 Date picker
               </label>
             </div>
             <div
-              class="c5 c6"
+              class="c4 c5"
             >
               <div
-                class="c7"
+                class="c6"
               >
                 <button
                   aria-label="Date picker"
-                  class="c8"
+                  class="c7"
                   type="button"
                 >
                   <svg
@@ -7823,7 +7827,7 @@ exports[`Storyshots Design System/Components/DatePicker base 1`] = `
                 aria-autocomplete="none"
                 aria-disabled="false"
                 aria-invalid="false"
-                class="c9"
+                class="c8"
                 id="datepicker-29"
                 name="datepicker"
                 placeholder="1/1/1970"
@@ -7858,19 +7862,19 @@ exports[`Storyshots Design System/Components/DatePicker size S 1`] = `
   width: 1px;
 }
 
-.c7 {
+.c6 {
   padding-right: 8px;
   padding-left: 12px;
 }
 
-.c4 {
+.c3 {
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #32324d;
 }
 
-.c3 {
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -7884,7 +7888,7 @@ exports[`Storyshots Design System/Components/DatePicker size S 1`] = `
   align-items: center;
 }
 
-.c5 {
+.c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -7902,7 +7906,7 @@ exports[`Storyshots Design System/Components/DatePicker size S 1`] = `
   align-items: center;
 }
 
-.c2 {
+.c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -7912,16 +7916,16 @@ exports[`Storyshots Design System/Components/DatePicker size S 1`] = `
   flex-direction: column;
 }
 
-.c2 > * {
+.c1 > * {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-.c2 > * + * {
+.c1 > * + * {
   margin-top: 4px;
 }
 
-.c9 {
+.c8 {
   border: none;
   border-radius: 4px;
   padding-left: 0;
@@ -7931,51 +7935,57 @@ exports[`Storyshots Design System/Components/DatePicker size S 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
-  height: 2rem;
 }
 
-.c9::-webkit-input-placeholder {
+.c8::-webkit-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c9::-moz-placeholder {
+.c8::-moz-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c9:-ms-input-placeholder {
+.c8:-ms-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c9::placeholder {
+.c8::placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c9[aria-disabled='true'] {
+.c8[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
 
-.c6 {
+.c8:focus {
+  outline: none;
+}
+
+.c5 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
+  height: 2rem;
 }
 
-.c1 textarea {
-  height: 5rem;
+.c5:focus-within {
+  outline: 2px solid #4945ff;
+  outline-offset: 2px;
+  box-shadow: revert;
 }
 
-.c8 {
+.c7 {
   border: none;
   background: transparent;
   border-radius: 4px;
 }
 
-.c8 svg path {
+.c7 svg path {
   fill: #8e8ea9;
 }
 
@@ -7991,32 +8001,30 @@ exports[`Storyshots Design System/Components/DatePicker size S 1`] = `
     <div
       class=""
     >
-      <div
-        class="c1"
-      >
+      <div>
         <div>
           <div
-            class="c2"
+            class="c1"
           >
             <div
-              class="c3"
+              class="c2"
             >
               <label
-                class="c4"
+                class="c3"
                 for="datepicker-30"
               >
                 Date picker
               </label>
             </div>
             <div
-              class="c5 c6"
+              class="c4 c5"
             >
               <div
-                class="c7"
+                class="c6"
               >
                 <button
                   aria-label="Date picker"
-                  class="c8"
+                  class="c7"
                   type="button"
                 >
                   <svg
@@ -8040,7 +8048,7 @@ exports[`Storyshots Design System/Components/DatePicker size S 1`] = `
                 aria-autocomplete="none"
                 aria-disabled="false"
                 aria-invalid="false"
-                class="c9"
+                class="c8"
                 id="datepicker-30"
                 name="datepicker"
                 placeholder="1/1/1970"
@@ -9088,7 +9096,6 @@ exports[`Storyshots Design System/Components/Field base 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
-  height: 2.5rem;
 }
 
 .c5::-webkit-input-placeholder {
@@ -9116,10 +9123,21 @@ exports[`Storyshots Design System/Components/Field base 1`] = `
   color: inherit;
 }
 
+.c5:focus {
+  outline: none;
+}
+
 .c4 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
+  height: 2.5rem;
+}
+
+.c4:focus-within {
+  outline: 2px solid #4945ff;
+  outline-offset: 2px;
+  box-shadow: revert;
 }
 
 <main>
@@ -9233,7 +9251,6 @@ exports[`Storyshots Design System/Components/Field disabled 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
-  height: 2.5rem;
 }
 
 .c5::-webkit-input-placeholder {
@@ -9261,12 +9278,23 @@ exports[`Storyshots Design System/Components/Field disabled 1`] = `
   color: inherit;
 }
 
+.c5:focus {
+  outline: none;
+}
+
 .c4 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
+  height: 2.5rem;
   color: #666687;
   background: #eaeaef;
+}
+
+.c4:focus-within {
+  outline: 2px solid #4945ff;
+  outline-offset: 2px;
+  box-shadow: revert;
 }
 
 <main>
@@ -9419,7 +9447,6 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
-  height: 2.5rem;
 }
 
 .c10::-webkit-input-placeholder {
@@ -9447,10 +9474,21 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
   color: inherit;
 }
 
+.c10:focus {
+  outline: none;
+}
+
 .c7 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
+  height: 2.5rem;
+}
+
+.c7:focus-within {
+  outline: 2px solid #4945ff;
+  outline-offset: 2px;
+  box-shadow: revert;
 }
 
 .c9 {
@@ -9712,7 +9750,6 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
   font-size: 0.875rem;
   display: block;
   width: 100%;
-  height: 2rem;
 }
 
 .c10::-webkit-input-placeholder {
@@ -9740,10 +9777,21 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
   color: inherit;
 }
 
+.c10:focus {
+  outline: none;
+}
+
 .c7 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
+  height: 2rem;
+}
+
+.c7:focus-within {
+  outline: 2px solid #4945ff;
+  outline-offset: 2px;
+  box-shadow: revert;
 }
 
 .c9 {
@@ -9973,7 +10021,6 @@ exports[`Storyshots Design System/Components/Field with description 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
-  height: 2.5rem;
 }
 
 .c5::-webkit-input-placeholder {
@@ -10001,10 +10048,21 @@ exports[`Storyshots Design System/Components/Field with description 1`] = `
   color: inherit;
 }
 
+.c5:focus {
+  outline: none;
+}
+
 .c4 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
+  height: 2.5rem;
+}
+
+.c4:focus-within {
+  outline: 2px solid #4945ff;
+  outline-offset: 2px;
+  box-shadow: revert;
 }
 
 <main>
@@ -10125,7 +10183,6 @@ exports[`Storyshots Design System/Components/Field with error 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
-  height: 2.5rem;
 }
 
 .c5::-webkit-input-placeholder {
@@ -10153,10 +10210,21 @@ exports[`Storyshots Design System/Components/Field with error 1`] = `
   color: inherit;
 }
 
+.c5:focus {
+  outline: none;
+}
+
 .c4 {
   border: 1px solid #d02b20;
   border-radius: 4px;
   background: #ffffff;
+  height: 2.5rem;
+}
+
+.c4:focus-within {
+  outline: 2px solid #4945ff;
+  outline-offset: 2px;
+  box-shadow: revert;
 }
 
 <main>
@@ -21503,7 +21571,6 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
-  height: 2.5rem;
 }
 
 .c8::-webkit-input-placeholder {
@@ -21531,10 +21598,21 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
   color: inherit;
 }
 
+.c8:focus {
+  outline: none;
+}
+
 .c7 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
+  height: 2.5rem;
+}
+
+.c7:focus-within {
+  outline: 2px solid #4945ff;
+  outline-offset: 2px;
+  box-shadow: revert;
 }
 
 .c10 {
@@ -21816,7 +21894,6 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
-  height: 2rem;
 }
 
 .c8::-webkit-input-placeholder {
@@ -21844,10 +21921,21 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
   color: inherit;
 }
 
+.c8:focus {
+  outline: none;
+}
+
 .c7 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
+  height: 2rem;
+}
+
+.c7:focus-within {
+  outline: 2px solid #4945ff;
+  outline-offset: 2px;
+  box-shadow: revert;
 }
 
 .c10 {
@@ -22104,7 +22192,6 @@ exports[`Storyshots Design System/Components/NumberInput withoutLabel 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
-  height: 2.5rem;
 }
 
 .c5::-webkit-input-placeholder {
@@ -22132,10 +22219,21 @@ exports[`Storyshots Design System/Components/NumberInput withoutLabel 1`] = `
   color: inherit;
 }
 
+.c5:focus {
+  outline: none;
+}
+
 .c4 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
+  height: 2.5rem;
+}
+
+.c4:focus-within {
+  outline: 2px solid #4945ff;
+  outline-offset: 2px;
+  box-shadow: revert;
 }
 
 .c7 {
@@ -22997,7 +23095,6 @@ exports[`Storyshots Design System/Components/Searchbar base 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
-  height: 2.5rem;
 }
 
 .c10::-webkit-input-placeholder {
@@ -23025,10 +23122,21 @@ exports[`Storyshots Design System/Components/Searchbar base 1`] = `
   color: inherit;
 }
 
+.c10:focus {
+  outline: none;
+}
+
 .c5 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
+  height: 2.5rem;
+}
+
+.c5:focus-within {
+  outline: 2px solid #4945ff;
+  outline-offset: 2px;
+  box-shadow: revert;
 }
 
 .c9 {
@@ -23195,7 +23303,6 @@ exports[`Storyshots Design System/Components/Searchbar disabled 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
-  height: 2.5rem;
 }
 
 .c10::-webkit-input-placeholder {
@@ -23223,12 +23330,23 @@ exports[`Storyshots Design System/Components/Searchbar disabled 1`] = `
   color: inherit;
 }
 
+.c10:focus {
+  outline: none;
+}
+
 .c5 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
+  height: 2.5rem;
   color: #666687;
   background: #eaeaef;
+}
+
+.c5:focus-within {
+  outline: 2px solid #4945ff;
+  outline-offset: 2px;
+  box-shadow: revert;
 }
 
 .c9 {
@@ -23392,7 +23510,6 @@ exports[`Storyshots Design System/Components/Searchbar size S 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
-  height: 2rem;
 }
 
 .c10::-webkit-input-placeholder {
@@ -23420,10 +23537,21 @@ exports[`Storyshots Design System/Components/Searchbar size S 1`] = `
   color: inherit;
 }
 
+.c10:focus {
+  outline: none;
+}
+
 .c5 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
+  height: 2rem;
+}
+
+.c5:focus-within {
+  outline: 2px solid #4945ff;
+  outline-offset: 2px;
+  box-shadow: revert;
 }
 
 .c9 {
@@ -23566,7 +23694,21 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
   color: #666687;
 }
 
-.c6 {
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -23578,20 +23720,6 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c8 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -23636,17 +23764,20 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
   margin-top: 4px;
 }
 
-.c4 {
+.c5 {
   position: relative;
   border: 1px solid #dcdce4;
   padding-right: 12px;
   border-radius: 4px;
   background: #ffffff;
   overflow: hidden;
+  min-height: 2.5rem;
 }
 
-.c4:focus-within {
-  border: 1px solid #4945ff;
+.c5:focus-within {
+  outline: 2px solid #4945ff;
+  outline-offset: 2px;
+  box-shadow: revert;
 }
 
 .c12 {
@@ -23678,7 +23809,7 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
   width: 0.375rem;
 }
 
-.c5 {
+.c6 {
   position: absolute;
   left: 0;
   right: 0;
@@ -23689,12 +23820,12 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
   border: none;
 }
 
-.c5:focus {
+.c6:focus {
   outline: none;
 }
 
-.c7 {
-  min-height: 2.5rem;
+.c8 {
+  width: 100%;
 }
 
 <main>
@@ -23723,7 +23854,7 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
           Choose your meal
         </span>
         <div
-          class="c4"
+          class="c4 c5"
         >
           <button
             aria-describedby="select1-hint"
@@ -23731,15 +23862,15 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-labelledby="select1-label select1-content"
-            class="c5"
+            class="c6"
             id="select1"
             type="button"
           />
           <div
-            class="c6 c7"
+            class="c7 c8"
           >
             <div
-              class="c8"
+              class="c4"
             >
               <div
                 aria-hidden="true"
@@ -23770,7 +23901,7 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
               </div>
             </div>
             <div
-              class="c8"
+              class="c4"
             >
               <button
                 aria-hidden="true"
@@ -23857,7 +23988,21 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
   color: #666687;
 }
 
-.c6 {
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -23869,20 +24014,6 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c8 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -23927,17 +24058,20 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
   margin-top: 4px;
 }
 
-.c4 {
+.c5 {
   position: relative;
   border: 1px solid #dcdce4;
   padding-right: 12px;
   border-radius: 4px;
   background: #ffffff;
   overflow: hidden;
+  min-height: 2.5rem;
 }
 
-.c4:focus-within {
-  border: 1px solid #4945ff;
+.c5:focus-within {
+  outline: 2px solid #4945ff;
+  outline-offset: 2px;
+  box-shadow: revert;
 }
 
 .c12 {
@@ -23969,7 +24103,7 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
   width: 0.375rem;
 }
 
-.c5 {
+.c6 {
   position: absolute;
   left: 0;
   right: 0;
@@ -23980,12 +24114,12 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
   border: none;
 }
 
-.c5:focus {
+.c6:focus {
   outline: none;
 }
 
-.c7 {
-  min-height: 2.5rem;
+.c8 {
+  width: 100%;
 }
 
 <main>
@@ -24015,7 +24149,7 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
           Choose your meal
         </span>
         <div
-          class="c4"
+          class="c4 c5"
         >
           <button
             aria-describedby="select1-hint"
@@ -24023,15 +24157,15 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-labelledby="select1-label select1-content"
-            class="c5"
+            class="c6"
             id="select1"
             type="button"
           />
           <div
-            class="c6 c7"
+            class="c7 c8"
           >
             <div
-              class="c8"
+              class="c4"
             >
               <div
                 class="c9"
@@ -24048,7 +24182,7 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
               </div>
             </div>
             <div
-              class="c8"
+              class="c4"
             >
               <button
                 aria-hidden="true"
@@ -24135,7 +24269,21 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
   color: #666687;
 }
 
-.c6 {
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -24147,20 +24295,6 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c8 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -24205,17 +24339,20 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
   margin-top: 4px;
 }
 
-.c4 {
+.c5 {
   position: relative;
   border: 1px solid #dcdce4;
   padding-right: 12px;
   border-radius: 4px;
   background: #ffffff;
   overflow: hidden;
+  min-height: 2.5rem;
 }
 
-.c4:focus-within {
-  border: 1px solid #4945ff;
+.c5:focus-within {
+  outline: 2px solid #4945ff;
+  outline-offset: 2px;
+  box-shadow: revert;
 }
 
 .c12 {
@@ -24247,7 +24384,7 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
   width: 0.375rem;
 }
 
-.c5 {
+.c6 {
   position: absolute;
   left: 0;
   right: 0;
@@ -24258,12 +24395,12 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
   border: none;
 }
 
-.c5:focus {
+.c6:focus {
   outline: none;
 }
 
-.c7 {
-  min-height: 2.5rem;
+.c8 {
+  width: 100%;
 }
 
 <main>
@@ -24293,7 +24430,7 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
           Choose your meal
         </span>
         <div
-          class="c4"
+          class="c4 c5"
         >
           <button
             aria-describedby="select1-hint"
@@ -24301,15 +24438,15 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-labelledby="select1-label select1-content"
-            class="c5"
+            class="c6"
             id="select1"
             type="button"
           />
           <div
-            class="c6 c7"
+            class="c7 c8"
           >
             <div
-              class="c8"
+              class="c4"
             >
               <div
                 class="c9"
@@ -24326,7 +24463,7 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
               </div>
             </div>
             <div
-              class="c8"
+              class="c4"
             >
               <button
                 aria-hidden="true"
@@ -24413,7 +24550,21 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
   color: #666687;
 }
 
-.c6 {
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -24425,20 +24576,6 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c8 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -24500,17 +24637,20 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
   margin-top: 4px;
 }
 
-.c4 {
+.c5 {
   position: relative;
   border: 1px solid #dcdce4;
   padding-right: 12px;
   border-radius: 4px;
   background: #ffffff;
   overflow: hidden;
+  min-height: 2.5rem;
 }
 
-.c4:focus-within {
-  border: 1px solid #4945ff;
+.c5:focus-within {
+  outline: 2px solid #4945ff;
+  outline-offset: 2px;
+  box-shadow: revert;
 }
 
 .c14 {
@@ -24542,7 +24682,7 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
   width: 0.375rem;
 }
 
-.c5 {
+.c6 {
   position: absolute;
   left: 0;
   right: 0;
@@ -24553,7 +24693,7 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
   border: none;
 }
 
-.c5:focus {
+.c6:focus {
   outline: none;
 }
 
@@ -24561,8 +24701,8 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
   margin-bottom: 4px;
 }
 
-.c7 {
-  min-height: 2.5rem;
+.c8 {
+  width: 100%;
 }
 
 <main>
@@ -24592,7 +24732,7 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
           Choose your meal
         </span>
         <div
-          class="c4"
+          class="c4 c5"
         >
           <button
             aria-describedby="select1-hint"
@@ -24600,15 +24740,15 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-labelledby="select1-label select1-content"
-            class="c5"
+            class="c6"
             id="select1"
             type="button"
           />
           <div
-            class="c6 c7"
+            class="c7 c8"
           >
             <div
-              class="c8"
+              class="c4"
             >
               <div
                 class="c9"
@@ -24637,7 +24777,7 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
               </div>
             </div>
             <div
-              class="c8"
+              class="c4"
             >
               <button
                 aria-hidden="true"
@@ -24724,7 +24864,21 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
   color: #666687;
 }
 
-.c6 {
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -24736,20 +24890,6 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c8 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -24794,17 +24934,20 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
   margin-top: 4px;
 }
 
-.c4 {
+.c5 {
   position: relative;
   border: 1px solid #dcdce4;
   padding-right: 12px;
   border-radius: 4px;
   background: #ffffff;
   overflow: hidden;
+  min-height: 2rem;
 }
 
-.c4:focus-within {
-  border: 1px solid #4945ff;
+.c5:focus-within {
+  outline: 2px solid #4945ff;
+  outline-offset: 2px;
+  box-shadow: revert;
 }
 
 .c11 {
@@ -24836,7 +24979,7 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
   width: 0.375rem;
 }
 
-.c5 {
+.c6 {
   position: absolute;
   left: 0;
   right: 0;
@@ -24847,12 +24990,12 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
   border: none;
 }
 
-.c5:focus {
+.c6:focus {
   outline: none;
 }
 
-.c7 {
-  min-height: 2rem;
+.c8 {
+  width: 100%;
 }
 
 <main>
@@ -24878,7 +25021,7 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
           Choose your meal
         </span>
         <div
-          class="c4"
+          class="c4 c5"
         >
           <button
             aria-describedby="select1-hint"
@@ -24886,15 +25029,15 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-labelledby="select1-label select1-content"
-            class="c5"
+            class="c6"
             id="select1"
             type="button"
           />
           <div
-            class="c6 c7"
+            class="c7 c8"
           >
             <div
-              class="c8"
+              class="c4"
             >
               <div
                 class="c9"
@@ -24908,7 +25051,7 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
               </div>
             </div>
             <div
-              class="c8"
+              class="c4"
             >
               <button
                 aria-disabled="false"
@@ -25000,7 +25143,21 @@ exports[`Storyshots Design System/Components/Select withoutLabel 1`] = `
   color: #666687;
 }
 
-.c5 {
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -25012,20 +25169,6 @@ exports[`Storyshots Design System/Components/Select withoutLabel 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c7 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -25070,17 +25213,20 @@ exports[`Storyshots Design System/Components/Select withoutLabel 1`] = `
   margin-top: 4px;
 }
 
-.c3 {
+.c4 {
   position: relative;
   border: 1px solid #dcdce4;
   padding-right: 12px;
   border-radius: 4px;
   background: #ffffff;
   overflow: hidden;
+  min-height: 2.5rem;
 }
 
-.c3:focus-within {
-  border: 1px solid #4945ff;
+.c4:focus-within {
+  outline: 2px solid #4945ff;
+  outline-offset: 2px;
+  box-shadow: revert;
 }
 
 .c11 {
@@ -25112,7 +25258,7 @@ exports[`Storyshots Design System/Components/Select withoutLabel 1`] = `
   width: 0.375rem;
 }
 
-.c4 {
+.c5 {
   position: absolute;
   left: 0;
   right: 0;
@@ -25123,12 +25269,12 @@ exports[`Storyshots Design System/Components/Select withoutLabel 1`] = `
   border: none;
 }
 
-.c4:focus {
+.c5:focus {
   outline: none;
 }
 
-.c6 {
-  min-height: 2.5rem;
+.c7 {
+  width: 100%;
 }
 
 <main>
@@ -25150,7 +25296,7 @@ exports[`Storyshots Design System/Components/Select withoutLabel 1`] = `
         class="c2"
       >
         <div
-          class="c3"
+          class="c3 c4"
         >
           <button
             aria-describedby="select1-hint"
@@ -25159,15 +25305,15 @@ exports[`Storyshots Design System/Components/Select withoutLabel 1`] = `
             aria-haspopup="listbox"
             aria-label="Choose your meal"
             aria-labelledby="select1-label select1-content"
-            class="c4"
+            class="c5"
             id="select1"
             type="button"
           />
           <div
-            class="c5 c6"
+            class="c6 c7"
           >
             <div
-              class="c7"
+              class="c3"
             >
               <div
                 aria-hidden="true"
@@ -25198,7 +25344,7 @@ exports[`Storyshots Design System/Components/Select withoutLabel 1`] = `
               </div>
             </div>
             <div
-              class="c7"
+              class="c3"
             >
               <button
                 aria-hidden="true"
@@ -30841,25 +30987,25 @@ exports[`Storyshots Design System/Components/TextInput base 1`] = `
   padding: 56px;
 }
 
-.c6 {
+.c5 {
   padding-left: 4px;
 }
 
-.c5 {
+.c4 {
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #32324d;
 }
 
-.c11 {
+.c10 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #666687;
 }
 
-.c4 {
+.c3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -30873,7 +31019,7 @@ exports[`Storyshots Design System/Components/TextInput base 1`] = `
   align-items: center;
 }
 
-.c8 {
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -30891,7 +31037,7 @@ exports[`Storyshots Design System/Components/TextInput base 1`] = `
   align-items: center;
 }
 
-.c3 {
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -30901,16 +31047,16 @@ exports[`Storyshots Design System/Components/TextInput base 1`] = `
   flex-direction: column;
 }
 
-.c3 > * {
+.c2 > * {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-.c3 > * + * {
+.c2 > * + * {
   margin-top: 4px;
 }
 
-.c10 {
+.c9 {
   border: none;
   border-radius: 4px;
   padding-left: 16px;
@@ -30920,45 +31066,51 @@ exports[`Storyshots Design System/Components/TextInput base 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
-  height: 2.5rem;
 }
 
-.c10::-webkit-input-placeholder {
+.c9::-webkit-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10::-moz-placeholder {
+.c9::-moz-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10:-ms-input-placeholder {
+.c9:-ms-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10::placeholder {
+.c9::placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10[aria-disabled='true'] {
+.c9[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
 
-.c9 {
+.c9:focus {
+  outline: none;
+}
+
+.c8 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
+  height: 2.5rem;
 }
 
-.c2 textarea {
-  height: 5rem;
+.c8:focus-within {
+  outline: 2px solid #4945ff;
+  outline-offset: 2px;
+  box-shadow: revert;
 }
 
-.c7 svg path {
+.c6 svg path {
   fill: #8e8ea9;
 }
 
@@ -30973,24 +31125,22 @@ exports[`Storyshots Design System/Components/TextInput base 1`] = `
   <div
     class="c1"
   >
-    <div
-      class="c2"
-    >
+    <div>
       <div>
         <div
-          class="c3"
+          class="c2"
         >
           <div
-            class="c4"
+            class="c3"
           >
             <label
-              class="c5"
+              class="c4"
               for="textinput-158"
             >
               Content
             </label>
             <div
-              class="c6 c7"
+              class="c5 c6"
             >
               <span>
                 <button
@@ -31017,13 +31167,13 @@ exports[`Storyshots Design System/Components/TextInput base 1`] = `
             </div>
           </div>
           <div
-            class="c8 c9"
+            class="c7 c8"
           >
             <input
               aria-describedby="textinput-158-hint"
               aria-disabled="false"
               aria-invalid="false"
-              class="c10"
+              class="c9"
               id="textinput-158"
               name="content"
               placeholder="This is a content placeholder"
@@ -31031,7 +31181,7 @@ exports[`Storyshots Design System/Components/TextInput base 1`] = `
             />
           </div>
           <p
-            class="c11"
+            class="c10"
             id="textinput-158-hint"
           >
             Description line
@@ -31060,25 +31210,25 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
   padding: 56px;
 }
 
-.c6 {
+.c5 {
   padding-left: 4px;
 }
 
-.c5 {
+.c4 {
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #32324d;
 }
 
-.c11 {
+.c10 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #666687;
 }
 
-.c4 {
+.c3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -31092,7 +31242,7 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
   align-items: center;
 }
 
-.c8 {
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -31110,7 +31260,7 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
   align-items: center;
 }
 
-.c3 {
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -31120,16 +31270,16 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
   flex-direction: column;
 }
 
-.c3 > * {
+.c2 > * {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-.c3 > * + * {
+.c2 > * + * {
   margin-top: 4px;
 }
 
-.c10 {
+.c9 {
   border: none;
   border-radius: 4px;
   padding-left: 16px;
@@ -31139,47 +31289,53 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
-  height: 2.5rem;
 }
 
-.c10::-webkit-input-placeholder {
+.c9::-webkit-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10::-moz-placeholder {
+.c9::-moz-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10:-ms-input-placeholder {
+.c9:-ms-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10::placeholder {
+.c9::placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10[aria-disabled='true'] {
+.c9[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
 
-.c9 {
+.c9:focus {
+  outline: none;
+}
+
+.c8 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
+  height: 2.5rem;
   color: #666687;
   background: #eaeaef;
 }
 
-.c2 textarea {
-  height: 5rem;
+.c8:focus-within {
+  outline: 2px solid #4945ff;
+  outline-offset: 2px;
+  box-shadow: revert;
 }
 
-.c7 svg path {
+.c6 svg path {
   fill: #8e8ea9;
 }
 
@@ -31194,24 +31350,22 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
   <div
     class="c1"
   >
-    <div
-      class="c2"
-    >
+    <div>
       <div>
         <div
-          class="c3"
+          class="c2"
         >
           <div
-            class="c4"
+            class="c3"
           >
             <label
-              class="c5"
+              class="c4"
               for="textinput-161"
             >
               Content
             </label>
             <div
-              class="c6 c7"
+              class="c5 c6"
             >
               <span>
                 <button
@@ -31238,14 +31392,14 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
             </div>
           </div>
           <div
-            class="c8 c9"
+            class="c7 c8"
             disabled=""
           >
             <input
               aria-describedby="textinput-161-hint"
               aria-disabled="true"
               aria-invalid="false"
-              class="c10"
+              class="c9"
               id="textinput-161"
               name="content"
               placeholder="This is a content placeholder"
@@ -31253,7 +31407,7 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
             />
           </div>
           <p
-            class="c11"
+            class="c10"
             id="textinput-161-hint"
           >
             Description line
@@ -31282,25 +31436,25 @@ exports[`Storyshots Design System/Components/TextInput password 1`] = `
   padding: 56px;
 }
 
-.c6 {
+.c5 {
   padding-left: 4px;
 }
 
-.c5 {
+.c4 {
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #32324d;
 }
 
-.c11 {
+.c10 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #666687;
 }
 
-.c4 {
+.c3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -31314,7 +31468,7 @@ exports[`Storyshots Design System/Components/TextInput password 1`] = `
   align-items: center;
 }
 
-.c8 {
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -31332,7 +31486,7 @@ exports[`Storyshots Design System/Components/TextInput password 1`] = `
   align-items: center;
 }
 
-.c3 {
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -31342,16 +31496,16 @@ exports[`Storyshots Design System/Components/TextInput password 1`] = `
   flex-direction: column;
 }
 
-.c3 > * {
+.c2 > * {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-.c3 > * + * {
+.c2 > * + * {
   margin-top: 4px;
 }
 
-.c10 {
+.c9 {
   border: none;
   border-radius: 4px;
   padding-left: 16px;
@@ -31361,45 +31515,51 @@ exports[`Storyshots Design System/Components/TextInput password 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
-  height: 2.5rem;
 }
 
-.c10::-webkit-input-placeholder {
+.c9::-webkit-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10::-moz-placeholder {
+.c9::-moz-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10:-ms-input-placeholder {
+.c9:-ms-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10::placeholder {
+.c9::placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10[aria-disabled='true'] {
+.c9[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
 
-.c9 {
+.c9:focus {
+  outline: none;
+}
+
+.c8 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
+  height: 2.5rem;
 }
 
-.c2 textarea {
-  height: 5rem;
+.c8:focus-within {
+  outline: 2px solid #4945ff;
+  outline-offset: 2px;
+  box-shadow: revert;
 }
 
-.c7 svg path {
+.c6 svg path {
   fill: #8e8ea9;
 }
 
@@ -31414,24 +31574,22 @@ exports[`Storyshots Design System/Components/TextInput password 1`] = `
   <div
     class="c1"
   >
-    <div
-      class="c2"
-    >
+    <div>
       <div>
         <div
-          class="c3"
+          class="c2"
         >
           <div
-            class="c4"
+            class="c3"
           >
             <label
-              class="c5"
+              class="c4"
               for="textinput-170"
             >
               Password
             </label>
             <div
-              class="c6 c7"
+              class="c5 c6"
             >
               <span>
                 <button
@@ -31458,13 +31616,13 @@ exports[`Storyshots Design System/Components/TextInput password 1`] = `
             </div>
           </div>
           <div
-            class="c8 c9"
+            class="c7 c8"
           >
             <input
               aria-describedby="textinput-170-hint"
               aria-disabled="false"
               aria-invalid="false"
-              class="c10"
+              class="c9"
               id="textinput-170"
               name="password"
               placeholder="This is a password placeholder"
@@ -31473,7 +31631,7 @@ exports[`Storyshots Design System/Components/TextInput password 1`] = `
             />
           </div>
           <p
-            class="c11"
+            class="c10"
             id="textinput-170-hint"
           >
             Description line
@@ -31502,25 +31660,25 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
   padding: 56px;
 }
 
-.c6 {
+.c5 {
   padding-left: 4px;
 }
 
-.c5 {
+.c4 {
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #32324d;
 }
 
-.c11 {
+.c10 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #666687;
 }
 
-.c4 {
+.c3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -31534,7 +31692,7 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
   align-items: center;
 }
 
-.c8 {
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -31552,7 +31710,7 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
   align-items: center;
 }
 
-.c3 {
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -31562,16 +31720,16 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
   flex-direction: column;
 }
 
-.c3 > * {
+.c2 > * {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-.c3 > * + * {
+.c2 > * + * {
   margin-top: 4px;
 }
 
-.c10 {
+.c9 {
   border: none;
   border-radius: 4px;
   padding-left: 16px;
@@ -31581,45 +31739,51 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
-  height: 2rem;
 }
 
-.c10::-webkit-input-placeholder {
+.c9::-webkit-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10::-moz-placeholder {
+.c9::-moz-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10:-ms-input-placeholder {
+.c9:-ms-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10::placeholder {
+.c9::placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10[aria-disabled='true'] {
+.c9[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
 
-.c9 {
+.c9:focus {
+  outline: none;
+}
+
+.c8 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
+  height: 2rem;
 }
 
-.c2 textarea {
-  height: 5rem;
+.c8:focus-within {
+  outline: 2px solid #4945ff;
+  outline-offset: 2px;
+  box-shadow: revert;
 }
 
-.c7 svg path {
+.c6 svg path {
   fill: #8e8ea9;
 }
 
@@ -31634,24 +31798,22 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
   <div
     class="c1"
   >
-    <div
-      class="c2"
-    >
+    <div>
       <div>
         <div
-          class="c3"
+          class="c2"
         >
           <div
-            class="c4"
+            class="c3"
           >
             <label
-              class="c5"
+              class="c4"
               for="textinput-164"
             >
               Content
             </label>
             <div
-              class="c6 c7"
+              class="c5 c6"
             >
               <span>
                 <button
@@ -31678,13 +31840,13 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
             </div>
           </div>
           <div
-            class="c8 c9"
+            class="c7 c8"
           >
             <input
               aria-describedby="textinput-164-hint"
               aria-disabled="false"
               aria-invalid="false"
-              class="c10"
+              class="c9"
               id="textinput-164"
               name="content"
               placeholder="This is a content placeholder"
@@ -31692,7 +31854,7 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
             />
           </div>
           <p
-            class="c11"
+            class="c10"
             id="textinput-164-hint"
           >
             Description line
@@ -31721,25 +31883,25 @@ exports[`Storyshots Design System/Components/TextInput with error 1`] = `
   padding: 56px;
 }
 
-.c6 {
+.c5 {
   padding-left: 4px;
 }
 
-.c5 {
+.c4 {
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #32324d;
 }
 
-.c11 {
+.c10 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #d02b20;
 }
 
-.c4 {
+.c3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -31753,7 +31915,7 @@ exports[`Storyshots Design System/Components/TextInput with error 1`] = `
   align-items: center;
 }
 
-.c8 {
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -31771,7 +31933,7 @@ exports[`Storyshots Design System/Components/TextInput with error 1`] = `
   align-items: center;
 }
 
-.c3 {
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -31781,16 +31943,16 @@ exports[`Storyshots Design System/Components/TextInput with error 1`] = `
   flex-direction: column;
 }
 
-.c3 > * {
+.c2 > * {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-.c3 > * + * {
+.c2 > * + * {
   margin-top: 4px;
 }
 
-.c10 {
+.c9 {
   border: none;
   border-radius: 4px;
   padding-left: 16px;
@@ -31800,45 +31962,51 @@ exports[`Storyshots Design System/Components/TextInput with error 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
-  height: 2.5rem;
 }
 
-.c10::-webkit-input-placeholder {
+.c9::-webkit-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10::-moz-placeholder {
+.c9::-moz-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10:-ms-input-placeholder {
+.c9:-ms-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10::placeholder {
+.c9::placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10[aria-disabled='true'] {
+.c9[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
 
-.c9 {
+.c9:focus {
+  outline: none;
+}
+
+.c8 {
   border: 1px solid #d02b20;
   border-radius: 4px;
   background: #ffffff;
+  height: 2.5rem;
 }
 
-.c2 textarea {
-  height: 5rem;
+.c8:focus-within {
+  outline: 2px solid #4945ff;
+  outline-offset: 2px;
+  box-shadow: revert;
 }
 
-.c7 svg path {
+.c6 svg path {
   fill: #8e8ea9;
 }
 
@@ -31853,24 +32021,22 @@ exports[`Storyshots Design System/Components/TextInput with error 1`] = `
   <div
     class="c1"
   >
-    <div
-      class="c2"
-    >
+    <div>
       <div>
         <div
-          class="c3"
+          class="c2"
         >
           <div
-            class="c4"
+            class="c3"
           >
             <label
-              class="c5"
+              class="c4"
               for="textinput-167"
             >
               Content
             </label>
             <div
-              class="c6 c7"
+              class="c5 c6"
             >
               <span>
                 <button
@@ -31897,13 +32063,13 @@ exports[`Storyshots Design System/Components/TextInput with error 1`] = `
             </div>
           </div>
           <div
-            class="c8 c9"
+            class="c7 c8"
           >
             <input
               aria-describedby="textinput-167-error"
               aria-disabled="false"
               aria-invalid="true"
-              class="c10"
+              class="c9"
               id="textinput-167"
               name="content"
               placeholder="This is a content placeholder"
@@ -31911,7 +32077,7 @@ exports[`Storyshots Design System/Components/TextInput with error 1`] = `
             />
           </div>
           <p
-            class="c11"
+            class="c10"
             data-strapi-field-error="true"
             id="textinput-167-error"
           >
@@ -31941,14 +32107,14 @@ exports[`Storyshots Design System/Components/TextInput withoutLabel 1`] = `
   padding: 56px;
 }
 
-.c7 {
+.c6 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #666687;
 }
 
-.c4 {
+.c3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -31966,7 +32132,7 @@ exports[`Storyshots Design System/Components/TextInput withoutLabel 1`] = `
   align-items: center;
 }
 
-.c3 {
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -31976,16 +32142,16 @@ exports[`Storyshots Design System/Components/TextInput withoutLabel 1`] = `
   flex-direction: column;
 }
 
-.c3 > * {
+.c2 > * {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-.c3 > * + * {
+.c2 > * + * {
   margin-top: 4px;
 }
 
-.c6 {
+.c5 {
   border: none;
   border-radius: 4px;
   padding-left: 16px;
@@ -31995,42 +32161,48 @@ exports[`Storyshots Design System/Components/TextInput withoutLabel 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
-  height: 2.5rem;
 }
 
-.c6::-webkit-input-placeholder {
+.c5::-webkit-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c6::-moz-placeholder {
+.c5::-moz-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c6:-ms-input-placeholder {
+.c5:-ms-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c6::placeholder {
+.c5::placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c6[aria-disabled='true'] {
+.c5[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
 
-.c5 {
+.c5:focus {
+  outline: none;
+}
+
+.c4 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
+  height: 2.5rem;
 }
 
-.c2 textarea {
-  height: 5rem;
+.c4:focus-within {
+  outline: 2px solid #4945ff;
+  outline-offset: 2px;
+  box-shadow: revert;
 }
 
 <main>
@@ -32044,22 +32216,20 @@ exports[`Storyshots Design System/Components/TextInput withoutLabel 1`] = `
   <div
     class="c1"
   >
-    <div
-      class="c2"
-    >
+    <div>
       <div>
         <div
-          class="c3"
+          class="c2"
         >
           <div
-            class="c4 c5"
+            class="c3 c4"
           >
             <input
               aria-describedby="textinput-173-hint"
               aria-disabled="false"
               aria-invalid="false"
               aria-label="Password"
-              class="c6"
+              class="c5"
               id="textinput-173"
               name="password"
               placeholder="This is a password placeholder"
@@ -32068,7 +32238,7 @@ exports[`Storyshots Design System/Components/TextInput withoutLabel 1`] = `
             />
           </div>
           <p
-            class="c7"
+            class="c6"
             id="textinput-173-hint"
           >
             Description line
@@ -32340,7 +32510,21 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
   color: #666687;
 }
 
-.c5 {
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -32352,20 +32536,6 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c7 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -32391,17 +32561,20 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
   margin-top: 4px;
 }
 
-.c3 {
+.c4 {
   position: relative;
   border: 1px solid #dcdce4;
   padding-right: 12px;
   border-radius: 4px;
   background: #ffffff;
   overflow: hidden;
+  min-height: 2.5rem;
 }
 
-.c3:focus-within {
-  border: 1px solid #4945ff;
+.c4:focus-within {
+  outline: 2px solid #4945ff;
+  outline-offset: 2px;
+  box-shadow: revert;
 }
 
 .c12 {
@@ -32433,7 +32606,7 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
   width: 0.375rem;
 }
 
-.c4 {
+.c5 {
   position: absolute;
   left: 0;
   right: 0;
@@ -32444,12 +32617,12 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
   border: none;
 }
 
-.c4:focus {
+.c5:focus {
   outline: none;
 }
 
-.c6 {
-  min-height: 2.5rem;
+.c7 {
+  width: 100%;
 }
 
 .c9 {
@@ -32492,7 +32665,7 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
         Choose a time
       </span>
       <div
-        class="c3"
+        class="c3 c4"
       >
         <button
           aria-describedby="tp-1-hint"
@@ -32500,15 +32673,15 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-labelledby="tp-1-label tp-1-content"
-          class="c4"
+          class="c5"
           id="tp-1"
           type="button"
         />
         <div
-          class="c5 c6"
+          class="c6 c7"
         >
           <div
-            class="c7"
+            class="c3"
           >
             <div
               aria-hidden="true"
@@ -32545,7 +32718,7 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
             </div>
           </div>
           <div
-            class="c7"
+            class="c3"
           >
             <button
               aria-hidden="true"
@@ -32625,7 +32798,21 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
   color: #666687;
 }
 
-.c5 {
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -32637,20 +32824,6 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c7 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -32676,17 +32849,20 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
   margin-top: 4px;
 }
 
-.c3 {
+.c4 {
   position: relative;
   border: 1px solid #dcdce4;
   padding-right: 12px;
   border-radius: 4px;
   background: #ffffff;
   overflow: hidden;
+  min-height: 2.5rem;
 }
 
-.c3:focus-within {
-  border: 1px solid #4945ff;
+.c4:focus-within {
+  outline: 2px solid #4945ff;
+  outline-offset: 2px;
+  box-shadow: revert;
 }
 
 .c12 {
@@ -32718,7 +32894,7 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
   width: 0.375rem;
 }
 
-.c4 {
+.c5 {
   position: absolute;
   left: 0;
   right: 0;
@@ -32729,12 +32905,12 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
   border: none;
 }
 
-.c4:focus {
+.c5:focus {
   outline: none;
 }
 
-.c6 {
-  min-height: 2.5rem;
+.c7 {
+  width: 100%;
 }
 
 .c9 {
@@ -32777,7 +32953,7 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
         Choose a time
       </span>
       <div
-        class="c3"
+        class="c3 c4"
       >
         <button
           aria-describedby="tp-1-hint"
@@ -32785,15 +32961,15 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-labelledby="tp-1-label tp-1-content"
-          class="c4"
+          class="c5"
           id="tp-1"
           type="button"
         />
         <div
-          class="c5 c6"
+          class="c6 c7"
         >
           <div
-            class="c7"
+            class="c3"
           >
             <div
               aria-hidden="true"
@@ -32830,7 +33006,7 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
             </div>
           </div>
           <div
-            class="c7"
+            class="c3"
           >
             <button
               aria-hidden="true"
@@ -32910,7 +33086,21 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
   color: #666687;
 }
 
-.c5 {
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -32922,20 +33112,6 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c7 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -32961,17 +33137,20 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
   margin-top: 4px;
 }
 
-.c3 {
+.c4 {
   position: relative;
   border: 1px solid #dcdce4;
   padding-right: 12px;
   border-radius: 4px;
   background: #ffffff;
   overflow: hidden;
+  min-height: 2rem;
 }
 
-.c3:focus-within {
-  border: 1px solid #4945ff;
+.c4:focus-within {
+  outline: 2px solid #4945ff;
+  outline-offset: 2px;
+  box-shadow: revert;
 }
 
 .c12 {
@@ -33003,7 +33182,7 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
   width: 0.375rem;
 }
 
-.c4 {
+.c5 {
   position: absolute;
   left: 0;
   right: 0;
@@ -33014,12 +33193,12 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
   border: none;
 }
 
-.c4:focus {
+.c5:focus {
   outline: none;
 }
 
-.c6 {
-  min-height: 2rem;
+.c7 {
+  width: 100%;
 }
 
 .c9 {
@@ -33062,7 +33241,7 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
         Choose a time
       </span>
       <div
-        class="c3"
+        class="c3 c4"
       >
         <button
           aria-describedby="tp-1-hint"
@@ -33070,15 +33249,15 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-labelledby="tp-1-label tp-1-content"
-          class="c4"
+          class="c5"
           id="tp-1"
           type="button"
         />
         <div
-          class="c5 c6"
+          class="c6 c7"
         >
           <div
-            class="c7"
+            class="c3"
           >
             <div
               aria-hidden="true"
@@ -33115,7 +33294,7 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
             </div>
           </div>
           <div
-            class="c7"
+            class="c3"
           >
             <button
               aria-hidden="true"
@@ -33171,32 +33350,42 @@ exports[`Storyshots Design System/Components/ToggleCheckbox activated 1`] = `
 }
 
 .c5 {
-  padding-top: 12px;
   padding-right: 32px;
-  padding-bottom: 12px;
+  padding-left: 32px;
+}
+
+.c9 {
+  background: #f0f0ff;
+  padding-right: 32px;
   padding-left: 32px;
 }
 
 .c8 {
-  background: #f0f0ff;
-  padding-top: 12px;
-  padding-right: 32px;
-  padding-bottom: 12px;
-  padding-left: 32px;
-}
-
-.c7 {
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #32324d;
 }
 
-.c10 {
+.c11 {
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #271fe0;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .c1 {
@@ -33221,13 +33410,15 @@ exports[`Storyshots Design System/Components/ToggleCheckbox activated 1`] = `
   overflow: hidden;
 }
 
-.c9 {
+.c10 {
   text-transform: uppercase;
+  height: 2.5rem;
 }
 
-.c6 {
+.c7 {
   text-transform: uppercase;
   border-right: 1px solid #dcdce4;
+  height: 2.5rem;
 }
 
 .c2 {
@@ -33262,19 +33453,19 @@ exports[`Storyshots Design System/Components/ToggleCheckbox activated 1`] = `
       class="c3 c4"
     >
       <div
-        class="c5 c6"
+        class="c5 c6 c7"
       >
         <span
-          class="c7"
+          class="c8"
         >
           Off
         </span>
       </div>
       <div
-        class="c8 c9"
+        class="c9 c6 c10"
       >
         <span
-          class="c10"
+          class="c11"
         >
           On
         </span>
@@ -33304,31 +33495,41 @@ exports[`Storyshots Design System/Components/ToggleCheckbox not activated 1`] = 
 
 .c5 {
   background: #fcecea;
-  padding-top: 12px;
   padding-right: 32px;
-  padding-bottom: 12px;
+  padding-left: 32px;
+}
+
+.c9 {
+  padding-right: 32px;
   padding-left: 32px;
 }
 
 .c8 {
-  padding-top: 12px;
-  padding-right: 32px;
-  padding-bottom: 12px;
-  padding-left: 32px;
-}
-
-.c7 {
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #b72b1a;
 }
 
-.c10 {
+.c11 {
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #32324d;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .c1 {
@@ -33353,13 +33554,15 @@ exports[`Storyshots Design System/Components/ToggleCheckbox not activated 1`] = 
   overflow: hidden;
 }
 
-.c9 {
+.c10 {
   text-transform: uppercase;
+  height: 2.5rem;
 }
 
-.c6 {
+.c7 {
   text-transform: uppercase;
   border-right: 1px solid #dcdce4;
+  height: 2.5rem;
 }
 
 .c2 {
@@ -33393,19 +33596,162 @@ exports[`Storyshots Design System/Components/ToggleCheckbox not activated 1`] = 
       class="c3 c4"
     >
       <div
-        class="c5 c6"
+        class="c5 c6 c7"
       >
         <span
-          class="c7"
+          class="c8"
         >
           Off
         </span>
       </div>
       <div
-        class="c8 c9"
+        class="c9 c6 c10"
       >
         <span
-          class="c10"
+          class="c11"
+        >
+          On
+        </span>
+      </div>
+    </div>
+  </label>
+</main>
+`;
+
+exports[`Storyshots Design System/Components/ToggleCheckbox size S 1`] = `
+.c0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.c3 {
+  background: #ffffff;
+  border-radius: 4px;
+}
+
+.c5 {
+  background: #fcecea;
+  padding-right: 32px;
+  padding-left: 32px;
+}
+
+.c9 {
+  padding-right: 32px;
+  padding-left: 32px;
+}
+
+.c8 {
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #b72b1a;
+}
+
+.c11 {
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #32324d;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c1 {
+  position: relative;
+  display: inline-block;
+}
+
+.c1:active,
+.c1:focus-within {
+  outline: 2px solid #4945ff;
+  outline-offset: 2px;
+}
+
+.c4 {
+  position: relative;
+  z-index: 1;
+  border: 1px solid #dcdce4;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  overflow: hidden;
+}
+
+.c10 {
+  text-transform: uppercase;
+  height: 2rem;
+}
+
+.c7 {
+  text-transform: uppercase;
+  border-right: 1px solid #dcdce4;
+  height: 2rem;
+}
+
+.c2 {
+  position: absolute;
+  left: 4px;
+  top: 4px;
+}
+
+<main>
+  <div
+    class="c0"
+  >
+    <h1>
+      Storybook story
+    </h1>
+  </div>
+  <label
+    class="c1"
+  >
+    <div
+      class="c0"
+    >
+      The field is required?
+    </div>
+    <input
+      class="c2"
+      type="checkbox"
+    />
+    <div
+      aria-hidden="true"
+      class="c3 c4"
+    >
+      <div
+        class="c5 c6 c7"
+      >
+        <span
+          class="c8"
+        >
+          Off
+        </span>
+      </div>
+      <div
+        class="c9 c6 c10"
+      >
+        <span
+          class="c11"
         >
           On
         </span>
@@ -33438,17 +33784,13 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
 }
 
 .c11 {
-  padding-top: 12px;
   padding-right: 32px;
-  padding-bottom: 12px;
   padding-left: 32px;
 }
 
 .c13 {
   background: #f0f0ff;
-  padding-top: 12px;
   padding-right: 32px;
-  padding-bottom: 12px;
   padding-left: 32px;
 }
 
@@ -33530,11 +33872,13 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
 
 .c14 {
   text-transform: uppercase;
+  height: 2.5rem;
 }
 
 .c12 {
   text-transform: uppercase;
   border-right: 1px solid #dcdce4;
+  height: 2.5rem;
 }
 
 .c8 {
@@ -33622,7 +33966,7 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
           class="c9 c10"
         >
           <div
-            class="c11 c12"
+            class="c11 c3 c12"
           >
             <span
               class="c4"
@@ -33631,7 +33975,7 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
             </span>
           </div>
           <div
-            class="c13 c14"
+            class="c13 c3 c14"
           >
             <span
               class="c15"
@@ -33672,16 +34016,12 @@ exports[`Storyshots Design System/Components/ToggleInput error 1`] = `
 
 .c9 {
   background: #fcecea;
-  padding-top: 12px;
   padding-right: 32px;
-  padding-bottom: 12px;
   padding-left: 32px;
 }
 
 .c12 {
-  padding-top: 12px;
   padding-right: 32px;
-  padding-bottom: 12px;
   padding-left: 32px;
 }
 
@@ -33763,11 +34103,13 @@ exports[`Storyshots Design System/Components/ToggleInput error 1`] = `
 
 .c13 {
   text-transform: uppercase;
+  height: 2.5rem;
 }
 
 .c10 {
   text-transform: uppercase;
   border-right: 1px solid #dcdce4;
+  height: 2.5rem;
 }
 
 .c6 {
@@ -33824,7 +34166,7 @@ exports[`Storyshots Design System/Components/ToggleInput error 1`] = `
           class="c7 c8"
         >
           <div
-            class="c9 c10"
+            class="c9 c3 c10"
           >
             <span
               class="c11"
@@ -33833,7 +34175,7 @@ exports[`Storyshots Design System/Components/ToggleInput error 1`] = `
             </span>
           </div>
           <div
-            class="c12 c13"
+            class="c12 c3 c13"
           >
             <span
               class="c4"
@@ -33847,6 +34189,207 @@ exports[`Storyshots Design System/Components/ToggleInput error 1`] = `
         class="c14"
         data-strapi-field-error="true"
         id="field-180-error"
+      >
+        this field is required
+      </p>
+    </div>
+  </div>
+</main>
+`;
+
+exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
+.c0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.c7 {
+  background: #ffffff;
+  border-radius: 4px;
+}
+
+.c9 {
+  background: #fcecea;
+  padding-right: 32px;
+  padding-left: 32px;
+}
+
+.c12 {
+  padding-right: 32px;
+  padding-left: 32px;
+}
+
+.c4 {
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #32324d;
+}
+
+.c11 {
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #b72b1a;
+}
+
+.c14 {
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #d02b20;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c2 > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.c2 > * + * {
+  margin-top: 4px;
+}
+
+.c5 {
+  position: relative;
+  display: inline-block;
+}
+
+.c5:active,
+.c5:focus-within {
+  outline: 2px solid #4945ff;
+  outline-offset: 2px;
+}
+
+.c8 {
+  position: relative;
+  z-index: 1;
+  border: 1px solid #dcdce4;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  overflow: hidden;
+}
+
+.c13 {
+  text-transform: uppercase;
+  height: 2rem;
+}
+
+.c10 {
+  text-transform: uppercase;
+  border-right: 1px solid #dcdce4;
+  height: 2rem;
+}
+
+.c6 {
+  position: absolute;
+  left: 4px;
+  top: 4px;
+}
+
+.c1 {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+<main>
+  <div
+    class="c0"
+  >
+    <h1>
+      Storybook story
+    </h1>
+  </div>
+  <div
+    class="c1"
+  >
+    <div
+      class="c2"
+    >
+      <div
+        class="c3"
+      >
+        <label
+          class="c4"
+          for="field-181"
+        >
+          Label
+        </label>
+      </div>
+      <label
+        class="c5"
+      >
+        <div
+          class="c0"
+        >
+          Label
+        </div>
+        <input
+          class="c6"
+          name="enable-provider"
+          type="checkbox"
+        />
+        <div
+          aria-hidden="true"
+          class="c7 c8"
+        >
+          <div
+            class="c9 c3 c10"
+          >
+            <span
+              class="c11"
+            >
+              off
+            </span>
+          </div>
+          <div
+            class="c12 c3 c13"
+          >
+            <span
+              class="c4"
+            >
+              on
+            </span>
+          </div>
+        </div>
+      </label>
+      <p
+        class="c14"
+        data-strapi-field-error="true"
+        id="field-181-error"
       >
         this field is required
       </p>
@@ -33882,7 +34425,7 @@ exports[`Storyshots Design System/Components/Tooltip base 1`] = `
     </p>
     <span>
       <span
-        aria-describedby="tooltip-181"
+        aria-describedby="tooltip-182"
         tabindex="0"
       >
         Show tooltip
@@ -33953,7 +34496,7 @@ exports[`Storyshots Design System/Components/Tooltip grid 1`] = `
       >
         <span>
           <button
-            aria-describedby="tooltip-187"
+            aria-describedby="tooltip-188"
             tabindex="0"
           >
             Default tooltip
@@ -33969,7 +34512,7 @@ exports[`Storyshots Design System/Components/Tooltip grid 1`] = `
       >
         <span>
           <button
-            aria-describedby="tooltip-189"
+            aria-describedby="tooltip-190"
             tabindex="0"
           >
             Bottom
@@ -33985,7 +34528,7 @@ exports[`Storyshots Design System/Components/Tooltip grid 1`] = `
       >
         <span>
           <button
-            aria-describedby="tooltip-191"
+            aria-describedby="tooltip-192"
             tabindex="0"
           >
             Right
@@ -34001,7 +34544,7 @@ exports[`Storyshots Design System/Components/Tooltip grid 1`] = `
       >
         <span>
           <button
-            aria-describedby="tooltip-193"
+            aria-describedby="tooltip-194"
             tabindex="0"
           >
             Left
@@ -34037,7 +34580,7 @@ exports[`Storyshots Design System/Components/Tooltip with text inside 1`] = `
   <div>
     <span>
       <span
-        aria-describedby="tooltip-183"
+        aria-describedby="tooltip-184"
         tabindex="0"
       >
         Show tooltip
@@ -34047,7 +34590,7 @@ exports[`Storyshots Design System/Components/Tooltip with text inside 1`] = `
   <div>
     <span>
       <button
-        aria-describedby="tooltip-185"
+        aria-describedby="tooltip-186"
         tabindex="0"
       >
         A longer CTA with longer content

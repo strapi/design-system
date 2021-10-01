@@ -29,6 +29,11 @@ const Input = styled.input`
     background: inherit;
     color: inherit;
   }
+
+  //focus managed by InputWrapper
+  &:focus {
+    outline: none;
+  }
 `;
 
 export const InputWrapper = styled(Row)`
@@ -36,6 +41,12 @@ export const InputWrapper = styled(Row)`
   border-radius: ${({ theme }) => theme.borderRadius};
   background: ${({ theme }) => theme.colors.neutral0};
   height: ${getThemeSize('input')};
+
+  &:focus-within {
+    outline: 2px solid ${({ theme }) => theme.colors.primary600};
+    outline-offset: 2px;
+    box-shadow: revert;
+  }
 
   ${({ theme, disabled }) =>
     disabled
