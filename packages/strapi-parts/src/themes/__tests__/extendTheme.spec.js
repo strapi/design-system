@@ -25,6 +25,7 @@ describe('extendTheme', () => {
       const myCustomTheme = extendTheme(lightTheme, {
           colors: /* put the overrides for the colors key */,
       shadows: /* put the overrides for the shadows key */,
+      sizes: /* put the overrides for the sizes key */,
       zIndices: /* put the overrides for the zIndices key */,
       spaces: /* put the overrides for the spaces key */,
       borderRadius: /* put the overrides for the borderRadius key */,
@@ -58,6 +59,7 @@ describe('extendTheme', () => {
       const myCustomTheme = extendTheme(lightTheme, {
           colors: /* put the overrides for the colors key */,
       shadows: /* put the overrides for the shadows key */,
+      sizes: /* put the overrides for the sizes key */,
       zIndices: /* put the overrides for the zIndices key */,
       spaces: /* put the overrides for the spaces key */,
       borderRadius: /* put the overrides for the borderRadius key */,
