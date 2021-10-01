@@ -19,7 +19,6 @@ const Input = styled.input`
   font-size: ${14 / 16}rem;
   display: block;
   width: 100%;
-  height: ${getThemeSize('input')};
 
   ::placeholder {
     color: ${({ theme }) => theme.colors.neutral500};
@@ -36,6 +35,7 @@ export const InputWrapper = styled(Row)`
   border: 1px solid ${({ theme, hasError }) => (hasError ? theme.colors.danger600 : theme.colors.neutral200)};
   border-radius: ${({ theme }) => theme.borderRadius};
   background: ${({ theme }) => theme.colors.neutral0};
+  height: ${getThemeSize('input')};
 
   ${({ theme, disabled }) =>
     disabled
@@ -67,7 +67,7 @@ export const FieldInput = forwardRef(({ endAction, startAction, disabled, onChan
   };
 
   return (
-    <InputWrapper justifyContent="space-between" hasError={hasError} disabled={disabled}>
+    <InputWrapper size={size} justifyContent="space-between" hasError={hasError} disabled={disabled}>
       {startAction && (
         <Box paddingLeft={3} paddingRight={2}>
           {startAction}
@@ -83,7 +83,6 @@ export const FieldInput = forwardRef(({ endAction, startAction, disabled, onChan
         hasLeftAction={Boolean(startAction)}
         hasRightAction={Boolean(endAction)}
         onChange={handleChange}
-        size={size}
         {...props}
       />
       {endAction && (

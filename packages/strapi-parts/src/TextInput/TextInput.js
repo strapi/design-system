@@ -8,12 +8,6 @@ import { sizes } from '../themes/sizes';
 import styled from 'styled-components';
 import { useId } from '../helpers/useId';
 
-export const TextInputWrapper = styled.div`
-  & textarea {
-    height: ${80 / 16}rem;
-  }
-`;
-
 const LabelAction = styled(Box)`
   svg path {
     fill: ${({ theme }) => theme.colors.neutral500};
@@ -34,7 +28,7 @@ export const TextInput = React.forwardRef(
     }));
 
     return (
-      <TextInputWrapper ref={inputWrapperRef}>
+      <div ref={inputWrapperRef}>
         <Field name={name} hint={hint} error={error} id={generatedId}>
           <Stack size={1}>
             {label && (
@@ -48,7 +42,7 @@ export const TextInput = React.forwardRef(
             <FieldError />
           </Stack>
         </Field>
-      </TextInputWrapper>
+      </div>
     );
   },
 );
