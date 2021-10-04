@@ -5,6 +5,7 @@ import ExternalLink from '@strapi/icons/ExternalLink';
 import { NavLink } from 'react-router-dom';
 import { TableLabel } from '../Text';
 import { Box } from '../Box';
+import { buttonFocusStyle } from '../themes/utils';
 
 const LinkWrapper = styled.a`
   display: inline-flex;
@@ -25,6 +26,8 @@ const LinkWrapper = styled.a`
   &:active {
     color: ${({ theme }) => theme.colors.primary800};
   }
+
+  ${buttonFocusStyle};
 `;
 
 const IconWrapper = styled(Box)`

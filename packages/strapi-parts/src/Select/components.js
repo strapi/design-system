@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Box } from '../Box';
 import { Row } from '../Row';
-import { getThemeSize } from '../themes/utils';
+import { getThemeSize, inputFocusStyle } from '../themes/utils';
 
 export const SelectButtonWrapper = styled(Row)`
   position: relative;
@@ -20,10 +20,7 @@ export const SelectButtonWrapper = styled(Row)`
   `
       : undefined}
 
-  &:focus-within {
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.6);
-  }
+  ${inputFocusStyle()}
 `;
 
 export const IconBox = styled(Box)`

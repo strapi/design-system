@@ -7,6 +7,7 @@ import { NavLink } from 'react-router-dom';
 import { VisuallyHidden } from '../VisuallyHidden';
 import { usePagination } from './PaginationContext';
 import { Text } from '../Text';
+import { buttonFocusStyle } from '../themes/utils';
 
 const PaginationText = styled(Text)`
   line-height: revert;
@@ -25,6 +26,8 @@ const LinkWrapper = styled(NavLink).withConfig({
   box-shadow: ${({ active, theme }) => (active ? theme.shadows.filterShadow : undefined)};
   text-decoration: none;
   display: flex;
+
+  ${buttonFocusStyle}
 `;
 
 const PageLinkWrapper = styled(LinkWrapper)`

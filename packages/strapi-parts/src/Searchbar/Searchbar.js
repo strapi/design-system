@@ -6,6 +6,7 @@ import CloseAlertIcon from '@strapi/icons/CloseAlertIcon';
 import { sizes } from '../themes/sizes';
 import { Field, FieldLabel, FieldAction, FieldInput, InputWrapper } from '../Field';
 import { VisuallyHidden } from '../VisuallyHidden';
+import { inputFocusStyle } from '../themes/utils';
 import { Row } from '../Row';
 
 const CloseIconWrapper = styled(Row)`
@@ -39,16 +40,7 @@ const SearchbarWrapper = styled.div`
     border: 1px solid transparent;
   }
 
-  ${InputWrapper}:focus-within {
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.6);
-  }
-
-  /**
-  Focused is managed at the wrapper level */
-  input {
-    outline: none;
-  }
+  ${inputFocusStyle(InputWrapper)}
 `;
 
 export const Searchbar = forwardRef(({ name, size, children, value, onClear, clearLabel, ...props }, ref) => {

@@ -187,11 +187,17 @@ describe('Select', () => {
         background: #ffffff;
         overflow: hidden;
         min-height: 2.5rem;
+        outline: none;
+        box-shadow: 0;
+        -webkit-transition-property: border-color,box-shadow,fill;
+        transition-property: border-color,box-shadow,fill;
+        -webkit-transition-duration: 0.2s;
+        transition-duration: 0.2s;
       }
 
       .c3:focus-within {
-        outline: none;
-        box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
+        border: 1px solid #4945ff;
+        box-shadow: #4945ff 0px 0px 0px 2px;
       }
 
       .c10 {
@@ -568,11 +574,17 @@ describe('Select', () => {
         background: #ffffff;
         overflow: hidden;
         min-height: 2.5rem;
+        outline: none;
+        box-shadow: 0;
+        -webkit-transition-property: border-color,box-shadow,fill;
+        transition-property: border-color,box-shadow,fill;
+        -webkit-transition-duration: 0.2s;
+        transition-duration: 0.2s;
       }
 
       .c3:focus-within {
-        outline: none;
-        box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
+        border: 1px solid #4945ff;
+        box-shadow: #4945ff 0px 0px 0px 2px;
       }
 
       .c11 {

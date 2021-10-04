@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { buttonFocusStyle } from '../themes/utils';
 
 export const BaseButtonWrapper = styled.button`
   display: flex;
@@ -22,6 +23,8 @@ export const BaseButtonWrapper = styled.button`
   &[aria-disabled='true'] {
     pointer-events: none;
   }
+
+  ${buttonFocusStyle}
 `;
 
 export const BaseButton = React.forwardRef(({ disabled, children, ...props }, ref) => {
