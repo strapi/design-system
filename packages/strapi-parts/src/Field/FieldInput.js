@@ -43,9 +43,7 @@ export const InputWrapper = styled(Row)`
   background: ${({ theme }) => theme.colors.neutral0};
   height: ${getThemeSize('input')};
 
-  &:focus-within {
-    ${inputFocusStyle}
-  }
+  ${inputFocusStyle()}
 
   ${({ theme, disabled }) =>
     disabled

@@ -20,9 +20,7 @@ export const SelectButtonWrapper = styled(Row)`
   `
       : undefined}
 
-  &:focus-within {
-    ${inputFocusStyle}
-  }
+  ${inputFocusStyle()}
 `;
 
 export const IconBox = styled(Box)`

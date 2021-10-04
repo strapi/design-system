@@ -25,10 +25,7 @@ export const BaseButtonWrapper = styled.button`
     pointer-events: none;
   }
 
-  &:focus-visible {
-    outline: none;
-    ${buttonFocusStyle}
-  }
+  ${buttonFocusStyle}
 `;
 
 export const BaseButton = React.forwardRef(({ disabled, children, ...props }, ref) => {

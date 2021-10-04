@@ -20,9 +20,7 @@ const ToggleCheckboxWrapper = styled(Box)`
   // Masks the background of each value
   overflow: hidden;
 
-  &:focus-within {
-    ${inputFocusStyle}
-  }
+  ${inputFocusStyle()}
 `;
 
 const OnBox = styled(Row)`

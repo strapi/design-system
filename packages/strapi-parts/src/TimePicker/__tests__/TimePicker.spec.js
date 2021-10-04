@@ -182,6 +182,11 @@ describe('TimePicker', () => {
         background: #ffffff;
         overflow: hidden;
         min-height: 2.5rem;
+        box-shadow: 0;
+        -webkit-transition-property: border-color,box-shadow,fill;
+        transition-property: border-color,box-shadow,fill;
+        -webkit-transition-duration: 0.2s;
+        transition-duration: 0.2s;
       }
 
       .c3:focus-within {

@@ -40,9 +40,7 @@ const SearchbarWrapper = styled.div`
     border: 1px solid transparent;
   }
 
-  ${InputWrapper}:focus-within {
-    ${inputFocusStyle}
-  }
+  ${inputFocusStyle(InputWrapper)}
 
   /**
   Focused is managed at the wrapper level */

@@ -1344,6 +1344,21 @@ exports[`Storyshots Design System/Components/Button base 1`] = `
   pointer-events: none;
 }
 
+.c3:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
+}
+
 .c3:focus-visible {
   outline: none;
 }
@@ -1503,6 +1518,21 @@ exports[`Storyshots Design System/Components/Button disabled 1`] = `
 
 .c3[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c3:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
 }
 
 .c3:focus-visible {
@@ -1690,6 +1720,21 @@ exports[`Storyshots Design System/Components/Button fullWidth 1`] = `
 
 .c3[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c3:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
 }
 
 .c3:focus-visible {
@@ -1917,6 +1962,21 @@ exports[`Storyshots Design System/Components/Button icons 1`] = `
 
 .c3[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c3:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
 }
 
 .c3:focus-visible {
@@ -2303,6 +2363,21 @@ exports[`Storyshots Design System/Components/Button sizes 1`] = `
   pointer-events: none;
 }
 
+.c4:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
+}
+
 .c4:focus-visible {
   outline: none;
 }
@@ -2553,6 +2628,21 @@ exports[`Storyshots Design System/Components/Button variants 1`] = `
 
 .c3[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c3:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
 }
 
 .c3:focus-visible {
@@ -3316,6 +3406,21 @@ exports[`Storyshots Design System/Components/Card base 1`] = `
 
 .c7[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c7:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
 }
 
 .c7:focus-visible {
@@ -5217,6 +5322,21 @@ exports[`Storyshots Design System/Components/Carousel base 1`] = `
 
 .c13[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c13:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
 }
 
 .c13:focus-visible {
@@ -7872,6 +7992,11 @@ exports[`Storyshots Design System/Components/DatePicker base 1`] = `
   border-radius: 4px;
   background: #ffffff;
   height: 2.5rem;
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
 .c5:focus-within {
@@ -8093,6 +8218,11 @@ exports[`Storyshots Design System/Components/DatePicker size S 1`] = `
   border-radius: 4px;
   background: #ffffff;
   height: 2rem;
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
 .c5:focus-within {
@@ -8236,6 +8366,21 @@ exports[`Storyshots Design System/Components/Dialog base 1`] = `
 
 .c1[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c1:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
 }
 
 .c1:focus-visible {
@@ -8505,6 +8650,21 @@ exports[`Storyshots Design System/Components/EmptyStateLayout base 1`] = `
 
 .c9[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c9:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
 }
 
 .c9:focus-visible {
@@ -8817,6 +8977,21 @@ exports[`Storyshots Design System/Components/EmptyStateLayout with large text 1`
 
 .c9[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c9:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
 }
 
 .c9:focus-visible {
@@ -9302,6 +9477,11 @@ exports[`Storyshots Design System/Components/Field base 1`] = `
   border-radius: 4px;
   background: #ffffff;
   height: 2.5rem;
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
 .c4:focus-within {
@@ -9457,6 +9637,11 @@ exports[`Storyshots Design System/Components/Field disabled 1`] = `
   border-radius: 4px;
   background: #ffffff;
   height: 2.5rem;
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
   color: #666687;
   background: #eaeaef;
 }
@@ -9653,6 +9838,11 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
   border-radius: 4px;
   background: #ffffff;
   height: 2.5rem;
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
 .c7:focus-within {
@@ -9956,6 +10146,11 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
   border-radius: 4px;
   background: #ffffff;
   height: 2rem;
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
 .c7:focus-within {
@@ -10227,6 +10422,11 @@ exports[`Storyshots Design System/Components/Field with description 1`] = `
   border-radius: 4px;
   background: #ffffff;
   height: 2.5rem;
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
 .c4:focus-within {
@@ -10389,6 +10589,11 @@ exports[`Storyshots Design System/Components/Field with error 1`] = `
   border-radius: 4px;
   background: #ffffff;
   height: 2.5rem;
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
 .c4:focus-within {
@@ -10719,6 +10924,21 @@ exports[`Storyshots Design System/Components/HeaderLayout base 1`] = `
 
 .c16[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c16:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
 }
 
 .c16:focus-visible {
@@ -11125,6 +11345,21 @@ exports[`Storyshots Design System/Components/HeaderLayout base without nav actio
 
 .c8[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c8:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
 }
 
 .c8:focus-visible {
@@ -11551,6 +11786,21 @@ exports[`Storyshots Design System/Components/HeaderLayout combined w/ scroll 1`]
 
 .c16[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c16:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
 }
 
 .c16:focus-visible {
@@ -12015,6 +12265,21 @@ exports[`Storyshots Design System/Components/HeaderLayout sticky 1`] = `
   pointer-events: none;
 }
 
+.c18:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
+}
+
 .c18:focus-visible {
   outline: none;
 }
@@ -12386,6 +12651,21 @@ exports[`Storyshots Design System/Components/IconButton base 1`] = `
   pointer-events: none;
 }
 
+.c3:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
+}
+
 .c3:focus-visible {
   outline: none;
 }
@@ -12608,6 +12888,21 @@ exports[`Storyshots Design System/Components/IconButton disabled 1`] = `
   pointer-events: none;
 }
 
+.c3:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
+}
+
 .c3:focus-visible {
   outline: none;
 }
@@ -12828,6 +13123,21 @@ exports[`Storyshots Design System/Components/IconButton group 1`] = `
 
 .c4[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c4:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
 }
 
 .c4:focus-visible {
@@ -13074,6 +13384,21 @@ exports[`Storyshots Design System/Components/IconButton without tooltip 1`] = `
 
 .c2[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c2:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
 }
 
 .c2:focus-visible {
@@ -13503,6 +13828,21 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
 
 .c8[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c8:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
 }
 
 .c8:focus-visible {
@@ -17984,6 +18324,21 @@ exports[`Storyshots Design System/Components/LinkButton base 1`] = `
   pointer-events: none;
 }
 
+.c3:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
+}
+
 .c3:focus-visible {
   outline: none;
 }
@@ -18148,6 +18503,21 @@ exports[`Storyshots Design System/Components/LinkButton disabled 1`] = `
 
 .c3[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c3:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
 }
 
 .c3:focus-visible {
@@ -18347,6 +18717,21 @@ exports[`Storyshots Design System/Components/LinkButton icons 1`] = `
 
 .c4[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c4:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
 }
 
 .c4:focus-visible {
@@ -18675,6 +19060,21 @@ exports[`Storyshots Design System/Components/LinkButton sizes 1`] = `
   pointer-events: none;
 }
 
+.c4:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
+}
+
 .c4:focus-visible {
   outline: none;
 }
@@ -18934,6 +19334,21 @@ exports[`Storyshots Design System/Components/LinkButton variants 1`] = `
 
 .c4[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c4:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
 }
 
 .c4:focus-visible {
@@ -19685,6 +20100,21 @@ exports[`Storyshots Design System/Components/LiveRegions alert 1`] = `
   pointer-events: none;
 }
 
+.c3:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
+}
+
 .c3:focus-visible {
   outline: none;
 }
@@ -19869,6 +20299,21 @@ exports[`Storyshots Design System/Components/LiveRegions log 1`] = `
   pointer-events: none;
 }
 
+.c3:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
+}
+
 .c3:focus-visible {
   outline: none;
 }
@@ -20051,6 +20496,21 @@ exports[`Storyshots Design System/Components/LiveRegions status 1`] = `
 
 .c3[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c3:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
 }
 
 .c3:focus-visible {
@@ -21815,6 +22275,21 @@ exports[`Storyshots Design System/Components/ModalLayout base 1`] = `
   pointer-events: none;
 }
 
+.c1:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
+}
+
 .c1:focus-visible {
   outline: none;
 }
@@ -22065,6 +22540,11 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
   border-radius: 4px;
   background: #ffffff;
   height: 2.5rem;
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
 .c7:focus-within {
@@ -22388,6 +22868,11 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
   border-radius: 4px;
   background: #ffffff;
   height: 2rem;
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
 .c7:focus-within {
@@ -22686,6 +23171,11 @@ exports[`Storyshots Design System/Components/NumberInput withoutLabel 1`] = `
   border-radius: 4px;
   background: #ffffff;
   height: 2.5rem;
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
 .c4:focus-within {
@@ -23589,6 +24079,11 @@ exports[`Storyshots Design System/Components/Searchbar base 1`] = `
   border-radius: 4px;
   background: #ffffff;
   height: 2.5rem;
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
 .c5:focus-within {
@@ -23607,6 +24102,11 @@ exports[`Storyshots Design System/Components/Searchbar base 1`] = `
 .c1 {
   border-radius: 4px;
   box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
 .c1:focus-within .c7 svg path {
@@ -23797,6 +24297,11 @@ exports[`Storyshots Design System/Components/Searchbar disabled 1`] = `
   border-radius: 4px;
   background: #ffffff;
   height: 2.5rem;
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
   color: #666687;
   background: #eaeaef;
 }
@@ -23817,6 +24322,11 @@ exports[`Storyshots Design System/Components/Searchbar disabled 1`] = `
 .c1 {
   border-radius: 4px;
   box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
 .c1:focus-within .c7 svg path {
@@ -24004,6 +24514,11 @@ exports[`Storyshots Design System/Components/Searchbar size S 1`] = `
   border-radius: 4px;
   background: #ffffff;
   height: 2rem;
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
 .c5:focus-within {
@@ -24022,6 +24537,11 @@ exports[`Storyshots Design System/Components/Searchbar size S 1`] = `
 .c1 {
   border-radius: 4px;
   box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
 .c1:focus-within .c7 svg path {
@@ -24229,6 +24749,11 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
   background: #ffffff;
   overflow: hidden;
   min-height: 2.5rem;
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
 .c5:focus-within {
@@ -24522,6 +25047,11 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
   background: #ffffff;
   overflow: hidden;
   min-height: 2.5rem;
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
 .c5:focus-within {
@@ -24802,6 +25332,11 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
   background: #ffffff;
   overflow: hidden;
   min-height: 2.5rem;
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
 .c5:focus-within {
@@ -25099,6 +25634,11 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
   background: #ffffff;
   overflow: hidden;
   min-height: 2.5rem;
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
 .c5:focus-within {
@@ -25395,6 +25935,11 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
   background: #ffffff;
   overflow: hidden;
   min-height: 2rem;
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
 .c5:focus-within {
@@ -25673,6 +26218,11 @@ exports[`Storyshots Design System/Components/Select withoutLabel 1`] = `
   background: #ffffff;
   overflow: hidden;
   min-height: 2.5rem;
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
 .c4:focus-within {
@@ -26404,6 +26954,21 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
 
 .c7[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c7:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
 }
 
 .c7:focus-visible {
@@ -28384,6 +28949,21 @@ exports[`Storyshots Design System/Components/Table base 1`] = `
   pointer-events: none;
 }
 
+.c20:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
+}
+
 .c20:focus-visible {
   outline: none;
 }
@@ -29655,6 +30235,21 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
 
 .c17[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c17:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
 }
 
 .c17:focus-visible {
@@ -31602,6 +32197,11 @@ exports[`Storyshots Design System/Components/TextInput base 1`] = `
   border-radius: 4px;
   background: #ffffff;
   height: 2.5rem;
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
 .c8:focus-within {
@@ -31825,6 +32425,11 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
   border-radius: 4px;
   background: #ffffff;
   height: 2.5rem;
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
   color: #666687;
   background: #eaeaef;
 }
@@ -32051,6 +32656,11 @@ exports[`Storyshots Design System/Components/TextInput password 1`] = `
   border-radius: 4px;
   background: #ffffff;
   height: 2.5rem;
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
 .c8:focus-within {
@@ -32275,6 +32885,11 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
   border-radius: 4px;
   background: #ffffff;
   height: 2rem;
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
 .c8:focus-within {
@@ -32498,6 +33113,11 @@ exports[`Storyshots Design System/Components/TextInput with error 1`] = `
   border-radius: 4px;
   background: #ffffff;
   height: 2.5rem;
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
 .c8:focus-within {
@@ -32697,6 +33317,11 @@ exports[`Storyshots Design System/Components/TextInput withoutLabel 1`] = `
   border-radius: 4px;
   background: #ffffff;
   height: 2.5rem;
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
 .c4:focus-within {
@@ -33068,6 +33693,11 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
   background: #ffffff;
   overflow: hidden;
   min-height: 2.5rem;
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
 .c4:focus-within {
@@ -33355,6 +33985,11 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
   background: #ffffff;
   overflow: hidden;
   min-height: 2.5rem;
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
 .c4:focus-within {
@@ -33642,6 +34277,11 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
   background: #ffffff;
   overflow: hidden;
   min-height: 2rem;
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
 .c4:focus-within {
@@ -33898,6 +34538,11 @@ exports[`Storyshots Design System/Components/ToggleCheckbox activated 1`] = `
   display: -ms-inline-flexbox;
   display: inline-flex;
   overflow: hidden;
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
 .c3:focus-within {
@@ -34045,6 +34690,11 @@ exports[`Storyshots Design System/Components/ToggleCheckbox not activated 1`] = 
   display: -ms-inline-flexbox;
   display: inline-flex;
   overflow: hidden;
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
 .c3:focus-within {
@@ -34191,6 +34841,11 @@ exports[`Storyshots Design System/Components/ToggleCheckbox size S 1`] = `
   display: -ms-inline-flexbox;
   display: inline-flex;
   overflow: hidden;
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
 .c3:focus-within {
@@ -34367,6 +35022,11 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
   display: -ms-inline-flexbox;
   display: inline-flex;
   overflow: hidden;
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
 .c9:focus-within {
@@ -34601,6 +35261,11 @@ exports[`Storyshots Design System/Components/ToggleInput error 1`] = `
   display: -ms-inline-flexbox;
   display: inline-flex;
   overflow: hidden;
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
 .c7:focus-within {
@@ -34805,6 +35470,11 @@ exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
   display: -ms-inline-flexbox;
   display: inline-flex;
   overflow: hidden;
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
 .c7:focus-within {
@@ -35271,6 +35941,21 @@ exports[`Storyshots Design System/Technical Components/BaseButton base 1`] = `
 
 .c1[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c1:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
 }
 
 .c1:focus-visible {
@@ -36046,6 +36731,21 @@ exports[`Storyshots Design System/Technical Components/FocusTrap base 1`] = `
 
 .c7[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c7:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
 }
 
 .c7:focus-visible {
