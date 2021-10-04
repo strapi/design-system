@@ -58,14 +58,14 @@ export const ToggleCheckbox = React.forwardRef(({ size, onLabel, offLabel, child
     <Label>
       <VisuallyHidden>{children}</VisuallyHidden>
 
-      <ToggleCheckboxWrapper background="neutral0" aria-hidden={true} hasRadius size={size}>
-        <OffBox background={checked ? 'neutral0' : 'danger100'} paddingLeft={7} paddingRight={7}>
+      <ToggleCheckboxWrapper background="neutral0" hasRadius size={size}>
+        <OffBox background={checked ? 'neutral0' : 'danger100'} paddingLeft={7} paddingRight={7} aria-hidden={true}>
           <Text small={true} bold={true} textColor={checked ? labelColor : 'danger700'}>
             {offLabel}
           </Text>
         </OffBox>
 
-        <OnBox background={checked ? 'primary100' : 'neutral0'} paddingLeft={7} paddingRight={7}>
+        <OnBox background={checked ? 'primary100' : 'neutral0'} paddingLeft={7} paddingRight={7} aria-hidden={true}>
           <Text small={true} bold={true} textColor={checked ? 'primary700' : labelColor}>
             {onLabel}
           </Text>

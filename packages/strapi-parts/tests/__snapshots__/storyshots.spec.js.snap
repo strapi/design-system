@@ -33463,10 +33463,10 @@ exports[`Storyshots Design System/Components/ToggleCheckbox activated 1`] = `
       The field is required?
     </div>
     <div
-      aria-hidden="true"
       class="c2 c3"
     >
       <div
+        aria-hidden="true"
         class="c4 c5 c6"
       >
         <span
@@ -33476,6 +33476,7 @@ exports[`Storyshots Design System/Components/ToggleCheckbox activated 1`] = `
         </span>
       </div>
       <div
+        aria-hidden="true"
         class="c8 c5 c9"
       >
         <span
@@ -33610,10 +33611,10 @@ exports[`Storyshots Design System/Components/ToggleCheckbox not activated 1`] = 
       The field is required?
     </div>
     <div
-      aria-hidden="true"
       class="c2 c3"
     >
       <div
+        aria-hidden="true"
         class="c4 c5 c6"
       >
         <span
@@ -33623,6 +33624,7 @@ exports[`Storyshots Design System/Components/ToggleCheckbox not activated 1`] = 
         </span>
       </div>
       <div
+        aria-hidden="true"
         class="c8 c5 c9"
       >
         <span
@@ -33756,10 +33758,10 @@ exports[`Storyshots Design System/Components/ToggleCheckbox size S 1`] = `
       The field is required?
     </div>
     <div
-      aria-hidden="true"
       class="c2 c3"
     >
       <div
+        aria-hidden="true"
         class="c4 c5 c6"
       >
         <span
@@ -33769,6 +33771,7 @@ exports[`Storyshots Design System/Components/ToggleCheckbox size S 1`] = `
         </span>
       </div>
       <div
+        aria-hidden="true"
         class="c8 c5 c9"
       >
         <span
@@ -33984,10 +33987,10 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
           Enabled
         </div>
         <div
-          aria-hidden="true"
           class="c8 c9"
         >
           <div
+            aria-hidden="true"
             class="c10 c3 c11"
           >
             <span
@@ -33997,6 +34000,7 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
             </span>
           </div>
           <div
+            aria-hidden="true"
             class="c12 c3 c13"
           >
             <span
@@ -34188,10 +34192,10 @@ exports[`Storyshots Design System/Components/ToggleInput error 1`] = `
           Label
         </div>
         <div
-          aria-hidden="true"
           class="c6 c7"
         >
           <div
+            aria-hidden="true"
             class="c8 c3 c9"
           >
             <span
@@ -34201,6 +34205,7 @@ exports[`Storyshots Design System/Components/ToggleInput error 1`] = `
             </span>
           </div>
           <div
+            aria-hidden="true"
             class="c11 c3 c12"
           >
             <span
@@ -34392,10 +34397,10 @@ exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
           Label
         </div>
         <div
-          aria-hidden="true"
           class="c6 c7"
         >
           <div
+            aria-hidden="true"
             class="c8 c3 c9"
           >
             <span
@@ -34405,6 +34410,7 @@ exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
             </span>
           </div>
           <div
+            aria-hidden="true"
             class="c11 c3 c12"
           >
             <span
