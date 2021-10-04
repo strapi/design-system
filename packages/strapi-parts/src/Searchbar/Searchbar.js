@@ -41,12 +41,6 @@ const SearchbarWrapper = styled.div`
   }
 
   ${inputFocusStyle(InputWrapper)}
-
-  /**
-  Focused is managed at the wrapper level */
-  input {
-    outline: none;
-  }
 `;
 
 export const Searchbar = forwardRef(({ name, size, children, value, onClear, clearLabel, ...props }, ref) => {

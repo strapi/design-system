@@ -6,6 +6,7 @@ export const inputFocusStyle =
   (rootElement = '&') =>
   ({ theme, hasError }) =>
     `
+      outline: none;
       box-shadow: 0;
       transition-property: border-color, box-shadow, fill;
       transition-duration: 0.2s;
@@ -18,6 +19,7 @@ export const inputFocusStyle =
 
 export const buttonFocusStyle = ({ theme }) => `
   position: relative;
+  outline: none;
   
   &:after {
     transition-property: all;

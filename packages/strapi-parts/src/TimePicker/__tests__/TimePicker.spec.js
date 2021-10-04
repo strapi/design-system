@@ -182,6 +182,7 @@ describe('TimePicker', () => {
         background: #ffffff;
         overflow: hidden;
         min-height: 2.5rem;
+        outline: none;
         box-shadow: 0;
         -webkit-transition-property: border-color,box-shadow,fill;
         transition-property: border-color,box-shadow,fill;
