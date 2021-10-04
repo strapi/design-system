@@ -4,14 +4,9 @@ import { Field, FieldLabel, FieldHint, FieldError, FieldInput } from '../Field';
 import { Stack } from '../Stack';
 import { Row } from '../Row';
 import { Box } from '../Box';
+import { sizes } from '../themes/sizes';
 import styled from 'styled-components';
 import { useId } from '../helpers/useId';
-
-export const TextInputWrapper = styled.div`
-  & textarea {
-    height: ${80 / 16}rem;
-  }
-`;
 
 const LabelAction = styled(Box)`
   svg path {
@@ -20,7 +15,7 @@ const LabelAction = styled(Box)`
 `;
 
 export const TextInput = React.forwardRef(
-  ({ startAction, endAction, name, hint, error, label, labelAction, id, ...props }, ref) => {
+  ({ size, startAction, endAction, name, hint, error, label, labelAction, id, ...props }, ref) => {
     const generatedId = useId('textinput', id);
     const inputWrapperRef = useRef(null);
 
@@ -33,7 +28,7 @@ export const TextInput = React.forwardRef(
     }));
 
     return (
-      <TextInputWrapper ref={inputWrapperRef}>
+      <div ref={inputWrapperRef}>
         <Field name={name} hint={hint} error={error} id={generatedId}>
           <Stack size={1}>
             {label && (
@@ -42,12 +37,12 @@ export const TextInput = React.forwardRef(
                 {labelAction && <LabelAction paddingLeft={1}>{labelAction}</LabelAction>}
               </Row>
             )}
-            <FieldInput ref={ref} startAction={startAction} endAction={endAction} {...props} />
+            <FieldInput size={size} ref={ref} startAction={startAction} endAction={endAction} {...props} />
             <FieldHint />
             <FieldError />
           </Stack>
         </Field>
-      </TextInputWrapper>
+      </div>
     );
   },
 );
@@ -62,6 +57,7 @@ TextInput.defaultProps = {
   hint: undefined,
   id: undefined,
   startAction: undefined,
+  size: 'M',
   endAction: undefined,
 };
 
@@ -74,5 +70,6 @@ TextInput.propTypes = {
   label: PropTypes.string,
   labelAction: PropTypes.element,
   name: PropTypes.string.isRequired,
+  size: PropTypes.oneOf(Object.keys(sizes.input)),
   startAction: PropTypes.element,
 };

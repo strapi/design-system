@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import CalendarIcon from '@strapi/icons/Calendar';
 import CloseAlertIcon from '@strapi/icons/CloseAlertIcon';
+import { sizes } from '../themes/sizes';
 import { TextInput } from '../TextInput';
 import { DatePickerButton, DatePickerWrapper, IconBox } from './components';
 import { DatePickerCalendar } from './DatePickerCalendar';
@@ -11,6 +12,7 @@ import { useId } from '../helpers/useId';
 export const DatePicker = ({
   initialDate,
   selectedDate,
+  size,
   onChange,
   label,
   selectedDateLabel,
@@ -50,6 +52,7 @@ export const DatePicker = ({
         onChange={() => {}}
         value={formattedDate}
         placeholder={placeholder}
+        size={size}
         startAction={
           <DatePickerButton
             ref={datePickerButtonRef}
@@ -94,6 +97,7 @@ DatePicker.defaultProps = {
   initialDate: new Date(),
   onClear: undefined,
   selectedDate: undefined,
+  size: 'M',
 };
 
 DatePicker.propTypes = {
@@ -106,4 +110,5 @@ DatePicker.propTypes = {
   onClear: PropTypes.func,
   selectedDate: PropTypes.instanceOf(Date),
   selectedDateLabel: PropTypes.func.isRequired,
+  size: PropTypes.oneOf(Object.keys(sizes.input)),
 };

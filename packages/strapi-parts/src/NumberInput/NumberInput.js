@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import FilterDropdownIcon from '@strapi/icons/FilterDropdownIcon';
 import styled from 'styled-components';
+import { sizes } from '../themes/sizes';
 import { NumberFormatter, NumberParser } from '@internationalized/number';
 import { Field, FieldLabel, FieldHint, FieldError, FieldInput } from '../Field';
 import { Stack } from '../Stack';
@@ -15,7 +16,7 @@ const ArrowButton = styled.button`
   display: flex;
   height: 1rem;
   align-items: ${({ reverse }) => (reverse ? 'flex-end' : 'flex-start')};
-  margin-bottom: ${({ reverse, theme }) => (reverse ? theme.spaces[1] : 0)};
+  transform: translateY(${({ reverse }) => (reverse ? `-2px` : `2px`)});
 
   svg {
     display: block;
@@ -27,7 +28,7 @@ const ArrowButton = styled.button`
 const INITIAL_VALUE = '';
 
 export const NumberInput = React.forwardRef(
-  ({ startAction, name, hint, error, label, labelAction, id, onValueChange, value, step, ...props }, ref) => {
+  ({ size, startAction, name, hint, error, label, labelAction, id, onValueChange, value, step, ...props }, ref) => {
     const [inputValue, setInputValue] = useState(value || INITIAL_VALUE);
     const generatedId = useId('numberinput', id);
     const numberParserRef = useRef(new NumberParser(getDefaultLocale()));
@@ -116,6 +117,7 @@ export const NumberInput = React.forwardRef(
             onKeyDown={handleKeyDown}
             onBlur={handleBlur}
             value={inputValue || ''}
+            size={size}
             endAction={
               <>
                 <ArrowButton aria-hidden reverse onClick={increment} tabIndex={-1}>
@@ -147,6 +149,7 @@ NumberInput.defaultProps = {
   id: undefined,
   startAction: undefined,
   value: undefined,
+  size: 'M',
   step: 1,
 };
 
@@ -159,6 +162,7 @@ NumberInput.propTypes = {
   labelAction: PropTypes.element,
   name: PropTypes.string.isRequired,
   onValueChange: PropTypes.func.isRequired,
+  size: PropTypes.oneOf(Object.keys(sizes.input)),
   startAction: PropTypes.element,
   step: PropTypes.number,
   value: PropTypes.number,

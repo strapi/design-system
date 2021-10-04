@@ -48,12 +48,29 @@ import HelpIcon from '@strapi/icons/HelpIcon';
   </Story>
 </Canvas>
 
-
 ### Error handling
 
 <Canvas>
   <Story name="error">
     <ToggleInput
+      hint="Enable provider"
+      error="this field is required"
+      label="Label"
+      name="enable-provider"
+      onLabel="on"
+      offLabel="off"
+      checked={false}
+      onChange={() => {}}
+    />
+  </Story>
+</Canvas>
+
+### Size S
+
+<Canvas>
+  <Story name="size S">
+    <ToggleInput
+      size="S"
       hint="Enable provider"
       error="this field is required"
       label="Label"

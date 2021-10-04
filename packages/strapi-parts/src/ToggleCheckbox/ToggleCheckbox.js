@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { sizes } from '../themes/sizes';
+import { getThemeSize } from '../themes/utils';
 import { Text } from '../Text';
 import { VisuallyHidden } from '../VisuallyHidden';
 import { Box } from '../Box';
+import { Row } from '../Row';
 
 const Label = styled.label`
   position: relative;
@@ -11,12 +14,13 @@ const Label = styled.label`
 
   &:active,
   &:focus-within {
-    outline: 2px solid ${({ theme }) => theme.colors.primary600};
-    outline-offset: 2px;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.6);
   }
 `;
 
 const ToggleCheckboxWrapper = styled(Box)`
+  height: ${getThemeSize('input')};
   position: relative;
   z-index: 1;
   border: 1px solid ${({ theme }) => theme.colors.neutral200};
@@ -25,11 +29,11 @@ const ToggleCheckboxWrapper = styled(Box)`
   overflow: hidden;
 `;
 
-const OnBox = styled(Box)`
+const OnBox = styled(Row)`
   text-transform: uppercase;
 `;
 
-const OffBox = styled(Box)`
+const OffBox = styled(Row)`
   text-transform: uppercase;
   border-right: 1px solid ${({ theme }) => theme.colors.neutral200};
 `;
@@ -46,7 +50,7 @@ const Input = styled.input`
   top: 4px;
 `;
 
-export const ToggleCheckbox = React.forwardRef(({ onLabel, offLabel, children, checked, ...props }, ref) => {
+export const ToggleCheckbox = React.forwardRef(({ size, onLabel, offLabel, children, checked, ...props }, ref) => {
   const labelColor = 'neutral800';
 
   return (
@@ -55,26 +59,14 @@ export const ToggleCheckbox = React.forwardRef(({ onLabel, offLabel, children, c
 
       <Input type="checkbox" ref={ref} {...props} checked={checked} />
 
-      <ToggleCheckboxWrapper background="neutral0" aria-hidden={true} hasRadius>
-        <OffBox
-          background={checked ? undefined : 'danger100'}
-          paddingLeft={7}
-          paddingRight={7}
-          paddingTop={3}
-          paddingBottom={3}
-        >
+      <ToggleCheckboxWrapper background="neutral0" aria-hidden={true} hasRadius size={size}>
+        <OffBox background={checked ? undefined : 'danger100'} paddingLeft={7} paddingRight={7}>
           <Text small={true} bold={true} textColor={checked ? labelColor : 'danger700'}>
             {offLabel}
           </Text>
         </OffBox>
 
-        <OnBox
-          background={checked ? 'primary100' : undefined}
-          paddingLeft={7}
-          paddingRight={7}
-          paddingTop={3}
-          paddingBottom={3}
-        >
+        <OnBox background={checked ? 'primary100' : undefined} paddingLeft={7} paddingRight={7}>
           <Text small={true} bold={true} textColor={checked ? 'primary700' : labelColor}>
             {onLabel}
           </Text>
@@ -86,9 +78,14 @@ export const ToggleCheckbox = React.forwardRef(({ onLabel, offLabel, children, c
 
 ToggleCheckbox.displayName = 'ToggleCheckbox';
 
+ToggleCheckbox.defaultProps = {
+  size: 'M',
+};
+
 ToggleCheckbox.propTypes = {
   checked: PropTypes.bool.isRequired,
   children: PropTypes.string.isRequired,
   offLabel: PropTypes.string.isRequired,
   onLabel: PropTypes.string.isRequired,
+  size: PropTypes.oneOf(Object.keys(sizes.input)),
 };

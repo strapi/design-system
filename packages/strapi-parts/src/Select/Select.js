@@ -2,6 +2,7 @@ import React, { Children, cloneElement, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import DropdownIcon from '@strapi/icons/FilterDropdownIcon';
 import CloseAlertIcon from '@strapi/icons/CloseAlertIcon';
+import { sizes } from '../themes/sizes';
 import { SelectButton } from './SelectButton';
 import { Field, FieldHint, FieldLabel, FieldError } from '../Field';
 import { Popover } from '../Popover';
@@ -20,7 +21,7 @@ import { SelectTags } from './SelectTags';
 import styled from 'styled-components';
 
 const MainRow = styled(Row)`
-  min-height: ${({ size }) => (size === 'S' ? 34 / 16 : 40 / 16)}rem;
+  width: 100%;
 `;
 
 export const Select = ({
@@ -152,7 +153,7 @@ export const Select = ({
           </FieldLabel>
         )}
 
-        <SelectButtonWrapper hasError={Boolean(error)} disabled={disabled} ref={containerRef}>
+        <SelectButtonWrapper size={size} hasError={Boolean(error)} disabled={disabled} ref={containerRef}>
           <SelectButton
             ref={buttonRef}
             labelledBy={`${labelId} ${contentId}`}
@@ -166,7 +167,7 @@ export const Select = ({
             {...props}
           />
 
-          <MainRow size={size} justifyContent="space-between">
+          <MainRow justifyContent="space-between">
             <Row>
               {startIcon && (
                 <Box paddingLeft={3} aria-hidden={true}>
@@ -283,7 +284,7 @@ Select.propTypes = {
   onClear: PropTypes.func,
   onReachEnd: PropTypes.func,
   placeholder: PropTypes.string,
-  size: PropTypes.oneOf(['S', 'M']),
+  size: PropTypes.oneOf(Object.keys(sizes.input)),
   startIcon: PropTypes.element,
   value: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
