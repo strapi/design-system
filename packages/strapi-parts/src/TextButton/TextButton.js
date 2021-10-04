@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { Box } from '../Box';
 import { Text } from '../Text';
 import { Row } from '../Row';
+import { buttonFocusStyle } from '../themes/utils';
 
 const TextButtonWrapper = styled(Row)`
   background: transparent;
@@ -24,6 +25,8 @@ const TextButtonWrapper = styled(Row)`
   svg path {
     fill: ${({ theme }) => theme.colors.primary600};
   }
+
+  ${buttonFocusStyle}
 `;
 
 export const TextButton = React.forwardRef(({ children, startIcon, endIcon, onClick, disabled, ...props }, ref) => {

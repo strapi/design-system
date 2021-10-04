@@ -17,6 +17,8 @@ export const inputFocusStyle =
     `;
 
 export const buttonFocusStyle = ({ theme }) => `
+  position: relative;
+  
   &:after {
     transition-property: all;
     transition-duration: 0.2s;

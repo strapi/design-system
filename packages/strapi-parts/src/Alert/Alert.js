@@ -9,6 +9,7 @@ import { Box } from '../Box';
 import { Text, P } from '../Text';
 import { Row } from '../Row';
 import { handleBackgroundColor, handleBorderColor, handleIconColor } from './utils';
+import { buttonFocusStyle } from '../themes/utils';
 
 const AlertBody = styled(Box)`
   flex: 1;
@@ -31,6 +32,7 @@ const CloseButton = styled.button`
     fill: ${({ theme }) => theme.colors.neutral700};
   }
   margin-top: ${({ theme }) => theme.spaces[1]};
+  ${buttonFocusStyle};
 `;
 
 const AlertIconWrapper = styled(Box)`

@@ -6,7 +6,6 @@ import { buttonFocusStyle } from '../themes/utils';
 export const BaseButtonWrapper = styled.button`
   display: flex;
   cursor: pointer;
-  position: relative;
   padding: ${({ theme }) => theme.spaces[2]};
   border-radius: ${({ theme }) => theme.borderRadius};
   background: ${({ theme }) => theme.colors.neutral0};
