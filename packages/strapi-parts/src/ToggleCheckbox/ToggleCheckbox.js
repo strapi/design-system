@@ -20,6 +20,7 @@ const Label = styled.label`
 `;
 
 const ToggleCheckboxWrapper = styled(Box)`
+  height: ${getThemeSize('input')};
   position: relative;
   z-index: 1;
   border: 1px solid ${({ theme }) => theme.colors.neutral200};
@@ -30,13 +31,11 @@ const ToggleCheckboxWrapper = styled(Box)`
 
 const OnBox = styled(Row)`
   text-transform: uppercase;
-  height: ${getThemeSize('input')};
 `;
 
 const OffBox = styled(Row)`
   text-transform: uppercase;
   border-right: 1px solid ${({ theme }) => theme.colors.neutral200};
-  height: ${getThemeSize('input')};
 `;
 
 /**
@@ -60,14 +59,14 @@ export const ToggleCheckbox = React.forwardRef(({ size, onLabel, offLabel, child
 
       <Input type="checkbox" ref={ref} {...props} checked={checked} />
 
-      <ToggleCheckboxWrapper background="neutral0" aria-hidden={true} hasRadius>
-        <OffBox size={size} background={checked ? undefined : 'danger100'} paddingLeft={7} paddingRight={7}>
+      <ToggleCheckboxWrapper background="neutral0" aria-hidden={true} hasRadius size={size}>
+        <OffBox background={checked ? undefined : 'danger100'} paddingLeft={7} paddingRight={7}>
           <Text small={true} bold={true} textColor={checked ? labelColor : 'danger700'}>
             {offLabel}
           </Text>
         </OffBox>
 
-        <OnBox size={size} background={checked ? 'primary100' : undefined} paddingLeft={7} paddingRight={7}>
+        <OnBox background={checked ? 'primary100' : undefined} paddingLeft={7} paddingRight={7}>
           <Text small={true} bold={true} textColor={checked ? 'primary700' : labelColor}>
             {onLabel}
           </Text>

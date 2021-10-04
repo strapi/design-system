@@ -33384,6 +33384,7 @@ exports[`Storyshots Design System/Components/ToggleCheckbox activated 1`] = `
 }
 
 .c4 {
+  height: 2.5rem;
   position: relative;
   z-index: 1;
   border: 1px solid #dcdce4;
@@ -33396,13 +33397,11 @@ exports[`Storyshots Design System/Components/ToggleCheckbox activated 1`] = `
 
 .c10 {
   text-transform: uppercase;
-  height: 2.5rem;
 }
 
 .c7 {
   text-transform: uppercase;
   border-right: 1px solid #dcdce4;
-  height: 2.5rem;
 }
 
 .c2 {
@@ -33528,6 +33527,7 @@ exports[`Storyshots Design System/Components/ToggleCheckbox not activated 1`] = 
 }
 
 .c4 {
+  height: 2.5rem;
   position: relative;
   z-index: 1;
   border: 1px solid #dcdce4;
@@ -33540,13 +33540,11 @@ exports[`Storyshots Design System/Components/ToggleCheckbox not activated 1`] = 
 
 .c10 {
   text-transform: uppercase;
-  height: 2.5rem;
 }
 
 .c7 {
   text-transform: uppercase;
   border-right: 1px solid #dcdce4;
-  height: 2.5rem;
 }
 
 .c2 {
@@ -33671,6 +33669,7 @@ exports[`Storyshots Design System/Components/ToggleCheckbox size S 1`] = `
 }
 
 .c4 {
+  height: 2rem;
   position: relative;
   z-index: 1;
   border: 1px solid #dcdce4;
@@ -33683,13 +33682,11 @@ exports[`Storyshots Design System/Components/ToggleCheckbox size S 1`] = `
 
 .c10 {
   text-transform: uppercase;
-  height: 2rem;
 }
 
 .c7 {
   text-transform: uppercase;
   border-right: 1px solid #dcdce4;
-  height: 2rem;
 }
 
 .c2 {
@@ -33844,6 +33841,7 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
 }
 
 .c10 {
+  height: 2.5rem;
   position: relative;
   z-index: 1;
   border: 1px solid #dcdce4;
@@ -33856,13 +33854,11 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
 
 .c14 {
   text-transform: uppercase;
-  height: 2.5rem;
 }
 
 .c12 {
   text-transform: uppercase;
   border-right: 1px solid #dcdce4;
-  height: 2.5rem;
 }
 
 .c8 {
@@ -34075,6 +34071,7 @@ exports[`Storyshots Design System/Components/ToggleInput error 1`] = `
 }
 
 .c8 {
+  height: 2.5rem;
   position: relative;
   z-index: 1;
   border: 1px solid #dcdce4;
@@ -34087,13 +34084,11 @@ exports[`Storyshots Design System/Components/ToggleInput error 1`] = `
 
 .c13 {
   text-transform: uppercase;
-  height: 2.5rem;
 }
 
 .c10 {
   text-transform: uppercase;
   border-right: 1px solid #dcdce4;
-  height: 2.5rem;
 }
 
 .c6 {
@@ -34276,6 +34271,7 @@ exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
 }
 
 .c8 {
+  height: 2rem;
   position: relative;
   z-index: 1;
   border: 1px solid #dcdce4;
@@ -34288,13 +34284,11 @@ exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
 
 .c13 {
   text-transform: uppercase;
-  height: 2rem;
 }
 
 .c10 {
   text-transform: uppercase;
   border-right: 1px solid #dcdce4;
-  height: 2rem;
 }
 
 .c6 {
