@@ -27201,6 +27201,14 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
   border: none;
 }
 
+.c33[aria-disabled='true'] {
+  pointer-events: none;
+}
+
+.c33[aria-disabled='true'] svg path {
+  fill: #666687;
+}
+
 .c33 svg {
   display: -webkit-box;
   display: -webkit-flex;
@@ -31902,7 +31910,7 @@ exports[`Storyshots Design System/Components/TextButton base 1`] = `
   color: #4945ff;
 }
 
-.c7 {
+.c6 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
@@ -31928,6 +31936,14 @@ exports[`Storyshots Design System/Components/TextButton base 1`] = `
   border: none;
 }
 
+.c2[aria-disabled='true'] {
+  pointer-events: none;
+}
+
+.c2[aria-disabled='true'] svg path {
+  fill: #666687;
+}
+
 .c2 svg {
   display: -webkit-box;
   display: -webkit-flex;
@@ -31938,24 +31954,6 @@ exports[`Storyshots Design System/Components/TextButton base 1`] = `
 
 .c2 svg path {
   fill: #4945ff;
-}
-
-.c6 {
-  background: transparent;
-  border: none;
-  pointer-events: none;
-}
-
-.c6 svg {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  font-size: 0.625rem;
-}
-
-.c6 svg path {
-  fill: #666687;
 }
 
 <main>
@@ -32016,8 +32014,7 @@ exports[`Storyshots Design System/Components/TextButton base 1`] = `
   <div>
     <button
       aria-disabled="true"
-      class="c1 c6"
-      disabled=""
+      class="c1 c2"
       type="button"
     >
       <span
@@ -32038,7 +32035,7 @@ exports[`Storyshots Design System/Components/TextButton base 1`] = `
         </svg>
       </span>
       <span
-        class="c7"
+        class="c6"
       >
         Disabled TextButton
       </span>
@@ -33402,7 +33399,7 @@ exports[`Storyshots Design System/Components/Textarea base 1`] = `
   color: #32324d;
 }
 
-.c8 {
+.c9 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
@@ -33443,44 +33440,62 @@ exports[`Storyshots Design System/Components/Textarea base 1`] = `
 }
 
 .c7 {
-  display: block;
-  width: 100%;
   border: 1px solid #d02b20;
   border-radius: 4px;
   padding-left: 16px;
   padding-right: 16px;
   padding-top: 12px;
   padding-bottom: 12px;
+  background: #ffffff;
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+}
+
+.c7:focus-within {
+  border: 1px solid #d02b20;
+  box-shadow: #d02b20 0px 0px 0px 2px;
+}
+
+.c8 {
+  display: block;
+  width: 100%;
   font-weight: 400;
   font-size: 0.875rem;
+  border: none;
   color: #32324d;
-  background: #ffffff;
+  resize: none;
 }
 
-.c7::-webkit-input-placeholder {
+.c8::-webkit-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c7::-moz-placeholder {
+.c8::-moz-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c7:-ms-input-placeholder {
+.c8:-ms-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c7::placeholder {
+.c8::placeholder {
   color: #8e8ea9;
   opacity: 1;
+}
+
+.c8:focus-within {
+  outline: none;
 }
 
 .c2 textarea {
   height: 5rem;
   line-height: 1.25rem;
-  font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans', 'Helvetica Neue',sans-serif;
 }
 
 .c2 textarea::-webkit-input-placeholder {
@@ -33569,16 +33584,20 @@ exports[`Storyshots Design System/Components/Textarea base 1`] = `
               </span>
             </div>
           </div>
-          <textarea
-            aria-describedby="textarea-174-error"
-            aria-invalid="true"
+          <div
             class="c7"
-            id="textarea-174"
-            name="content"
-            placeholder="This is a content placeholder"
-          />
+          >
+            <textarea
+              aria-describedby="textarea-174-error"
+              aria-invalid="true"
+              class="c8"
+              id="textarea-174"
+              name="content"
+              placeholder="This is a content placeholder"
+            />
+          </div>
           <p
-            class="c8"
+            class="c9"
             data-strapi-field-error="true"
             id="textarea-174-error"
           >
