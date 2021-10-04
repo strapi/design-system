@@ -3,7 +3,19 @@ export const getThemeSize = (type) => {
 };
 
 export const inputFocusStyle = ({ theme, hasError }) => `
-outline: 2px solid ${hasError ? theme.colors.danger600 : theme.colors.primary600};
 border: 1px solid ${hasError ? theme.colors.danger600 : theme.colors.primary600};
-box-shadow: revert;
+box-shadow: ${hasError ? theme.colors.danger600 : theme.colors.primary600} 0px 0px 0px 2px;
+`;
+
+export const buttonFocusStyle = ({ theme }) => `
+&:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid ${theme.colors.primary600};
+}
 `;

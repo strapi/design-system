@@ -1323,6 +1323,7 @@ exports[`Storyshots Design System/Components/Button base 1`] = `
   display: -ms-flexbox;
   display: flex;
   cursor: pointer;
+  position: relative;
   padding: 8px;
   border-radius: 4px;
   background: #ffffff;
@@ -1341,6 +1342,21 @@ exports[`Storyshots Design System/Components/Button base 1`] = `
 
 .c3[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c3:focus-visible {
+  outline: none;
+}
+
+.c3:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
 }
 
 .c4 {
@@ -1468,6 +1484,7 @@ exports[`Storyshots Design System/Components/Button disabled 1`] = `
   display: -ms-flexbox;
   display: flex;
   cursor: pointer;
+  position: relative;
   padding: 8px;
   border-radius: 4px;
   background: #ffffff;
@@ -1486,6 +1503,21 @@ exports[`Storyshots Design System/Components/Button disabled 1`] = `
 
 .c3[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c3:focus-visible {
+  outline: none;
+}
+
+.c3:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
 }
 
 .c6 {
@@ -1639,6 +1671,7 @@ exports[`Storyshots Design System/Components/Button fullWidth 1`] = `
   display: -ms-flexbox;
   display: flex;
   cursor: pointer;
+  position: relative;
   padding: 8px;
   border-radius: 4px;
   background: #ffffff;
@@ -1657,6 +1690,21 @@ exports[`Storyshots Design System/Components/Button fullWidth 1`] = `
 
 .c3[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c3:focus-visible {
+  outline: none;
+}
+
+.c3:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
 }
 
 .c6 {
@@ -1850,6 +1898,7 @@ exports[`Storyshots Design System/Components/Button icons 1`] = `
   display: -ms-flexbox;
   display: flex;
   cursor: pointer;
+  position: relative;
   padding: 8px;
   border-radius: 4px;
   background: #ffffff;
@@ -1868,6 +1917,21 @@ exports[`Storyshots Design System/Components/Button icons 1`] = `
 
 .c3[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c3:focus-visible {
+  outline: none;
+}
+
+.c3:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
 }
 
 .c11 {
@@ -2218,6 +2282,7 @@ exports[`Storyshots Design System/Components/Button sizes 1`] = `
   display: -ms-flexbox;
   display: flex;
   cursor: pointer;
+  position: relative;
   padding: 8px;
   border-radius: 4px;
   background: #ffffff;
@@ -2236,6 +2301,21 @@ exports[`Storyshots Design System/Components/Button sizes 1`] = `
 
 .c4[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c4:focus-visible {
+  outline: none;
+}
+
+.c4:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
 }
 
 .c5 {
@@ -2454,6 +2534,7 @@ exports[`Storyshots Design System/Components/Button variants 1`] = `
   display: -ms-flexbox;
   display: flex;
   cursor: pointer;
+  position: relative;
   padding: 8px;
   border-radius: 4px;
   background: #ffffff;
@@ -2472,6 +2553,21 @@ exports[`Storyshots Design System/Components/Button variants 1`] = `
 
 .c3[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c3:focus-visible {
+  outline: none;
+}
+
+.c3:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
 }
 
 .c4 {
@@ -3201,6 +3297,7 @@ exports[`Storyshots Design System/Components/Card base 1`] = `
   display: -ms-flexbox;
   display: flex;
   cursor: pointer;
+  position: relative;
   padding: 8px;
   border-radius: 4px;
   background: #ffffff;
@@ -3219,6 +3316,21 @@ exports[`Storyshots Design System/Components/Card base 1`] = `
 
 .c7[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c7:focus-visible {
+  outline: none;
+}
+
+.c7:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
 }
 
 .c5 {
@@ -5086,6 +5198,7 @@ exports[`Storyshots Design System/Components/Carousel base 1`] = `
   display: -ms-flexbox;
   display: flex;
   cursor: pointer;
+  position: relative;
   padding: 8px;
   border-radius: 4px;
   background: #ffffff;
@@ -5104,6 +5217,21 @@ exports[`Storyshots Design System/Components/Carousel base 1`] = `
 
 .c13[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c13:focus-visible {
+  outline: none;
+}
+
+.c13:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
 }
 
 .c14 {
@@ -7747,9 +7875,8 @@ exports[`Storyshots Design System/Components/DatePicker base 1`] = `
 }
 
 .c5:focus-within {
-  outline: 2px solid #4945ff;
   border: 1px solid #4945ff;
-  box-shadow: revert;
+  box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
 .c7 {
@@ -7969,9 +8096,8 @@ exports[`Storyshots Design System/Components/DatePicker size S 1`] = `
 }
 
 .c5:focus-within {
-  outline: 2px solid #4945ff;
   border: 1px solid #4945ff;
-  box-shadow: revert;
+  box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
 .c7 {
@@ -8091,6 +8217,7 @@ exports[`Storyshots Design System/Components/Dialog base 1`] = `
   display: -ms-flexbox;
   display: flex;
   cursor: pointer;
+  position: relative;
   padding: 8px;
   border-radius: 4px;
   background: #ffffff;
@@ -8109,6 +8236,21 @@ exports[`Storyshots Design System/Components/Dialog base 1`] = `
 
 .c1[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c1:focus-visible {
+  outline: none;
+}
+
+.c1:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
 }
 
 .c2 {
@@ -8344,6 +8486,7 @@ exports[`Storyshots Design System/Components/EmptyStateLayout base 1`] = `
   display: -ms-flexbox;
   display: flex;
   cursor: pointer;
+  position: relative;
   padding: 8px;
   border-radius: 4px;
   background: #ffffff;
@@ -8362,6 +8505,21 @@ exports[`Storyshots Design System/Components/EmptyStateLayout base 1`] = `
 
 .c9[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c9:focus-visible {
+  outline: none;
+}
+
+.c9:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
 }
 
 .c12 {
@@ -8640,6 +8798,7 @@ exports[`Storyshots Design System/Components/EmptyStateLayout with large text 1`
   display: -ms-flexbox;
   display: flex;
   cursor: pointer;
+  position: relative;
   padding: 8px;
   border-radius: 4px;
   background: #ffffff;
@@ -8658,6 +8817,21 @@ exports[`Storyshots Design System/Components/EmptyStateLayout with large text 1`
 
 .c9[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c9:focus-visible {
+  outline: none;
+}
+
+.c9:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
 }
 
 .c12 {
@@ -9131,9 +9305,8 @@ exports[`Storyshots Design System/Components/Field base 1`] = `
 }
 
 .c4:focus-within {
-  outline: 2px solid #4945ff;
   border: 1px solid #4945ff;
-  box-shadow: revert;
+  box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
 <main>
@@ -9289,9 +9462,8 @@ exports[`Storyshots Design System/Components/Field disabled 1`] = `
 }
 
 .c4:focus-within {
-  outline: 2px solid #4945ff;
   border: 1px solid #4945ff;
-  box-shadow: revert;
+  box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
 <main>
@@ -9484,9 +9656,8 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
 }
 
 .c7:focus-within {
-  outline: 2px solid #4945ff;
   border: 1px solid #4945ff;
-  box-shadow: revert;
+  box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
 .c9 {
@@ -9788,9 +9959,8 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
 }
 
 .c7:focus-within {
-  outline: 2px solid #4945ff;
   border: 1px solid #4945ff;
-  box-shadow: revert;
+  box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
 .c9 {
@@ -10060,9 +10230,8 @@ exports[`Storyshots Design System/Components/Field with description 1`] = `
 }
 
 .c4:focus-within {
-  outline: 2px solid #4945ff;
   border: 1px solid #4945ff;
-  box-shadow: revert;
+  box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
 <main>
@@ -10223,9 +10392,8 @@ exports[`Storyshots Design System/Components/Field with error 1`] = `
 }
 
 .c4:focus-within {
-  outline: 2px solid #d02b20;
   border: 1px solid #d02b20;
-  box-shadow: revert;
+  box-shadow: #d02b20 0px 0px 0px 2px;
 }
 
 <main>
@@ -10532,6 +10700,7 @@ exports[`Storyshots Design System/Components/HeaderLayout base 1`] = `
   display: -ms-flexbox;
   display: flex;
   cursor: pointer;
+  position: relative;
   padding: 8px;
   border-radius: 4px;
   background: #ffffff;
@@ -10550,6 +10719,21 @@ exports[`Storyshots Design System/Components/HeaderLayout base 1`] = `
 
 .c16[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c16:focus-visible {
+  outline: none;
+}
+
+.c16:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
 }
 
 .c18 {
@@ -10922,6 +11106,7 @@ exports[`Storyshots Design System/Components/HeaderLayout base without nav actio
   display: -ms-flexbox;
   display: flex;
   cursor: pointer;
+  position: relative;
   padding: 8px;
   border-radius: 4px;
   background: #ffffff;
@@ -10940,6 +11125,21 @@ exports[`Storyshots Design System/Components/HeaderLayout base without nav actio
 
 .c8[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c8:focus-visible {
+  outline: none;
+}
+
+.c8:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
 }
 
 .c11 {
@@ -11332,6 +11532,7 @@ exports[`Storyshots Design System/Components/HeaderLayout combined w/ scroll 1`]
   display: -ms-flexbox;
   display: flex;
   cursor: pointer;
+  position: relative;
   padding: 8px;
   border-radius: 4px;
   background: #ffffff;
@@ -11350,6 +11551,21 @@ exports[`Storyshots Design System/Components/HeaderLayout combined w/ scroll 1`]
 
 .c16[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c16:focus-visible {
+  outline: none;
+}
+
+.c16:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
 }
 
 .c18 {
@@ -11778,6 +11994,7 @@ exports[`Storyshots Design System/Components/HeaderLayout sticky 1`] = `
   display: -ms-flexbox;
   display: flex;
   cursor: pointer;
+  position: relative;
   padding: 8px;
   border-radius: 4px;
   background: #ffffff;
@@ -11796,6 +12013,21 @@ exports[`Storyshots Design System/Components/HeaderLayout sticky 1`] = `
 
 .c18[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c18:focus-visible {
+  outline: none;
+}
+
+.c18:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
 }
 
 .c20 {
@@ -12133,6 +12365,7 @@ exports[`Storyshots Design System/Components/IconButton base 1`] = `
   display: -ms-flexbox;
   display: flex;
   cursor: pointer;
+  position: relative;
   padding: 8px;
   border-radius: 4px;
   background: #ffffff;
@@ -12151,6 +12384,21 @@ exports[`Storyshots Design System/Components/IconButton base 1`] = `
 
 .c3[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c3:focus-visible {
+  outline: none;
+}
+
+.c3:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
 }
 
 .c4 {
@@ -12339,6 +12587,7 @@ exports[`Storyshots Design System/Components/IconButton disabled 1`] = `
   display: -ms-flexbox;
   display: flex;
   cursor: pointer;
+  position: relative;
   padding: 8px;
   border-radius: 4px;
   background: #ffffff;
@@ -12357,6 +12606,21 @@ exports[`Storyshots Design System/Components/IconButton disabled 1`] = `
 
 .c3[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c3:focus-visible {
+  outline: none;
+}
+
+.c3:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
 }
 
 .c4 {
@@ -12545,6 +12809,7 @@ exports[`Storyshots Design System/Components/IconButton group 1`] = `
   display: -ms-flexbox;
   display: flex;
   cursor: pointer;
+  position: relative;
   padding: 8px;
   border-radius: 4px;
   background: #ffffff;
@@ -12563,6 +12828,21 @@ exports[`Storyshots Design System/Components/IconButton group 1`] = `
 
 .c4[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c4:focus-visible {
+  outline: none;
+}
+
+.c4:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
 }
 
 .c6 {
@@ -12775,6 +13055,7 @@ exports[`Storyshots Design System/Components/IconButton without tooltip 1`] = `
   display: -ms-flexbox;
   display: flex;
   cursor: pointer;
+  position: relative;
   padding: 8px;
   border-radius: 4px;
   background: #ffffff;
@@ -12793,6 +13074,21 @@ exports[`Storyshots Design System/Components/IconButton without tooltip 1`] = `
 
 .c2[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c2:focus-visible {
+  outline: none;
+}
+
+.c2:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
 }
 
 .c3 {
@@ -13188,6 +13484,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
   display: -ms-flexbox;
   display: flex;
   cursor: pointer;
+  position: relative;
   padding: 8px;
   border-radius: 4px;
   background: #ffffff;
@@ -13206,6 +13503,21 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
 
 .c8[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c8:focus-visible {
+  outline: none;
+}
+
+.c8:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
 }
 
 .c71 {
@@ -17651,6 +17963,7 @@ exports[`Storyshots Design System/Components/LinkButton base 1`] = `
   display: -ms-flexbox;
   display: flex;
   cursor: pointer;
+  position: relative;
   padding: 8px;
   border-radius: 4px;
   background: #ffffff;
@@ -17669,6 +17982,21 @@ exports[`Storyshots Design System/Components/LinkButton base 1`] = `
 
 .c3[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c3:focus-visible {
+  outline: none;
+}
+
+.c3:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
 }
 
 .c4 {
@@ -17801,6 +18129,7 @@ exports[`Storyshots Design System/Components/LinkButton disabled 1`] = `
   display: -ms-flexbox;
   display: flex;
   cursor: pointer;
+  position: relative;
   padding: 8px;
   border-radius: 4px;
   background: #ffffff;
@@ -17819,6 +18148,21 @@ exports[`Storyshots Design System/Components/LinkButton disabled 1`] = `
 
 .c3[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c3:focus-visible {
+  outline: none;
+}
+
+.c3:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
 }
 
 .c4 {
@@ -17984,6 +18328,7 @@ exports[`Storyshots Design System/Components/LinkButton icons 1`] = `
   display: -ms-flexbox;
   display: flex;
   cursor: pointer;
+  position: relative;
   padding: 8px;
   border-radius: 4px;
   background: #ffffff;
@@ -18002,6 +18347,21 @@ exports[`Storyshots Design System/Components/LinkButton icons 1`] = `
 
 .c4[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c4:focus-visible {
+  outline: none;
+}
+
+.c4:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
 }
 
 .c5 {
@@ -18294,6 +18654,7 @@ exports[`Storyshots Design System/Components/LinkButton sizes 1`] = `
   display: -ms-flexbox;
   display: flex;
   cursor: pointer;
+  position: relative;
   padding: 8px;
   border-radius: 4px;
   background: #ffffff;
@@ -18312,6 +18673,21 @@ exports[`Storyshots Design System/Components/LinkButton sizes 1`] = `
 
 .c4[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c4:focus-visible {
+  outline: none;
+}
+
+.c4:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
 }
 
 .c5 {
@@ -18539,6 +18915,7 @@ exports[`Storyshots Design System/Components/LinkButton variants 1`] = `
   display: -ms-flexbox;
   display: flex;
   cursor: pointer;
+  position: relative;
   padding: 8px;
   border-radius: 4px;
   background: #ffffff;
@@ -18557,6 +18934,21 @@ exports[`Storyshots Design System/Components/LinkButton variants 1`] = `
 
 .c4[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c4:focus-visible {
+  outline: none;
+}
+
+.c4:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
 }
 
 .c5 {
@@ -19272,6 +19664,7 @@ exports[`Storyshots Design System/Components/LiveRegions alert 1`] = `
   display: -ms-flexbox;
   display: flex;
   cursor: pointer;
+  position: relative;
   padding: 8px;
   border-radius: 4px;
   background: #ffffff;
@@ -19290,6 +19683,21 @@ exports[`Storyshots Design System/Components/LiveRegions alert 1`] = `
 
 .c3[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c3:focus-visible {
+  outline: none;
+}
+
+.c3:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
 }
 
 .c4 {
@@ -19440,6 +19848,7 @@ exports[`Storyshots Design System/Components/LiveRegions log 1`] = `
   display: -ms-flexbox;
   display: flex;
   cursor: pointer;
+  position: relative;
   padding: 8px;
   border-radius: 4px;
   background: #ffffff;
@@ -19458,6 +19867,21 @@ exports[`Storyshots Design System/Components/LiveRegions log 1`] = `
 
 .c3[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c3:focus-visible {
+  outline: none;
+}
+
+.c3:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
 }
 
 .c4 {
@@ -19608,6 +20032,7 @@ exports[`Storyshots Design System/Components/LiveRegions status 1`] = `
   display: -ms-flexbox;
   display: flex;
   cursor: pointer;
+  position: relative;
   padding: 8px;
   border-radius: 4px;
   background: #ffffff;
@@ -19626,6 +20051,21 @@ exports[`Storyshots Design System/Components/LiveRegions status 1`] = `
 
 .c3[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c3:focus-visible {
+  outline: none;
+}
+
+.c3:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
 }
 
 .c4 {
@@ -21354,6 +21794,7 @@ exports[`Storyshots Design System/Components/ModalLayout base 1`] = `
   display: -ms-flexbox;
   display: flex;
   cursor: pointer;
+  position: relative;
   padding: 8px;
   border-radius: 4px;
   background: #ffffff;
@@ -21372,6 +21813,21 @@ exports[`Storyshots Design System/Components/ModalLayout base 1`] = `
 
 .c1[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c1:focus-visible {
+  outline: none;
+}
+
+.c1:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
 }
 
 .c2 {
@@ -21612,9 +22068,8 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
 }
 
 .c7:focus-within {
-  outline: 2px solid #4945ff;
   border: 1px solid #4945ff;
-  box-shadow: revert;
+  box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
 .c10 {
@@ -21936,9 +22391,8 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
 }
 
 .c7:focus-within {
-  outline: 2px solid #4945ff;
   border: 1px solid #4945ff;
-  box-shadow: revert;
+  box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
 .c10 {
@@ -22235,9 +22689,8 @@ exports[`Storyshots Design System/Components/NumberInput withoutLabel 1`] = `
 }
 
 .c4:focus-within {
-  outline: 2px solid #4945ff;
   border: 1px solid #4945ff;
-  box-shadow: revert;
+  box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
 .c7 {
@@ -23139,9 +23592,8 @@ exports[`Storyshots Design System/Components/Searchbar base 1`] = `
 }
 
 .c5:focus-within {
-  outline: 2px solid #4945ff;
   border: 1px solid #4945ff;
-  box-shadow: revert;
+  box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
 .c9 {
@@ -23166,9 +23618,8 @@ exports[`Storyshots Design System/Components/Searchbar base 1`] = `
 }
 
 .c1 .c3:focus-within {
-  outline: 2px solid #4945ff;
   border: 1px solid #4945ff;
-  box-shadow: revert;
+  box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
 .c1 input {
@@ -23351,9 +23802,8 @@ exports[`Storyshots Design System/Components/Searchbar disabled 1`] = `
 }
 
 .c5:focus-within {
-  outline: 2px solid #4945ff;
   border: 1px solid #4945ff;
-  box-shadow: revert;
+  box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
 .c9 {
@@ -23378,9 +23828,8 @@ exports[`Storyshots Design System/Components/Searchbar disabled 1`] = `
 }
 
 .c1 .c3:focus-within {
-  outline: 2px solid #4945ff;
   border: 1px solid #4945ff;
-  box-shadow: revert;
+  box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
 .c1 input {
@@ -23558,9 +24007,8 @@ exports[`Storyshots Design System/Components/Searchbar size S 1`] = `
 }
 
 .c5:focus-within {
-  outline: 2px solid #4945ff;
   border: 1px solid #4945ff;
-  box-shadow: revert;
+  box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
 .c9 {
@@ -23585,9 +24033,8 @@ exports[`Storyshots Design System/Components/Searchbar size S 1`] = `
 }
 
 .c1 .c3:focus-within {
-  outline: 2px solid #4945ff;
   border: 1px solid #4945ff;
-  box-shadow: revert;
+  box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
 .c1 input {
@@ -23785,9 +24232,8 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
 }
 
 .c5:focus-within {
-  outline: 2px solid #4945ff;
   border: 1px solid #4945ff;
-  box-shadow: revert;
+  box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
 .c12 {
@@ -24079,9 +24525,8 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
 }
 
 .c5:focus-within {
-  outline: 2px solid #4945ff;
   border: 1px solid #4945ff;
-  box-shadow: revert;
+  box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
 .c12 {
@@ -24360,9 +24805,8 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
 }
 
 .c5:focus-within {
-  outline: 2px solid #4945ff;
   border: 1px solid #4945ff;
-  box-shadow: revert;
+  box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
 .c12 {
@@ -24658,9 +25102,8 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
 }
 
 .c5:focus-within {
-  outline: 2px solid #4945ff;
   border: 1px solid #4945ff;
-  box-shadow: revert;
+  box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
 .c14 {
@@ -24955,9 +25398,8 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
 }
 
 .c5:focus-within {
-  outline: 2px solid #4945ff;
   border: 1px solid #4945ff;
-  box-shadow: revert;
+  box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
 .c11 {
@@ -25234,9 +25676,8 @@ exports[`Storyshots Design System/Components/Select withoutLabel 1`] = `
 }
 
 .c4:focus-within {
-  outline: 2px solid #4945ff;
   border: 1px solid #4945ff;
-  box-shadow: revert;
+  box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
 .c11 {
@@ -25944,6 +26385,7 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
   display: -ms-flexbox;
   display: flex;
   cursor: pointer;
+  position: relative;
   padding: 8px;
   border-radius: 4px;
   background: #ffffff;
@@ -25962,6 +26404,21 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
 
 .c7[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c7:focus-visible {
+  outline: none;
+}
+
+.c7:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
 }
 
 .c8 {
@@ -27906,6 +28363,7 @@ exports[`Storyshots Design System/Components/Table base 1`] = `
   display: -ms-flexbox;
   display: flex;
   cursor: pointer;
+  position: relative;
   padding: 8px;
   border-radius: 4px;
   background: #ffffff;
@@ -27924,6 +28382,21 @@ exports[`Storyshots Design System/Components/Table base 1`] = `
 
 .c20[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c20:focus-visible {
+  outline: none;
+}
+
+.c20:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
 }
 
 .c12 {
@@ -29163,6 +29636,7 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
   display: -ms-flexbox;
   display: flex;
   cursor: pointer;
+  position: relative;
   padding: 8px;
   border-radius: 4px;
   background: #ffffff;
@@ -29181,6 +29655,21 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
 
 .c17[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c17:focus-visible {
+  outline: none;
+}
+
+.c17:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
 }
 
 .c12 {
@@ -31116,9 +31605,8 @@ exports[`Storyshots Design System/Components/TextInput base 1`] = `
 }
 
 .c8:focus-within {
-  outline: 2px solid #4945ff;
   border: 1px solid #4945ff;
-  box-shadow: revert;
+  box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
 .c6 svg path {
@@ -31342,9 +31830,8 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
 }
 
 .c8:focus-within {
-  outline: 2px solid #4945ff;
   border: 1px solid #4945ff;
-  box-shadow: revert;
+  box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
 .c6 svg path {
@@ -31567,9 +32054,8 @@ exports[`Storyshots Design System/Components/TextInput password 1`] = `
 }
 
 .c8:focus-within {
-  outline: 2px solid #4945ff;
   border: 1px solid #4945ff;
-  box-shadow: revert;
+  box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
 .c6 svg path {
@@ -31792,9 +32278,8 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
 }
 
 .c8:focus-within {
-  outline: 2px solid #4945ff;
   border: 1px solid #4945ff;
-  box-shadow: revert;
+  box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
 .c6 svg path {
@@ -32016,9 +32501,8 @@ exports[`Storyshots Design System/Components/TextInput with error 1`] = `
 }
 
 .c8:focus-within {
-  outline: 2px solid #d02b20;
   border: 1px solid #d02b20;
-  box-shadow: revert;
+  box-shadow: #d02b20 0px 0px 0px 2px;
 }
 
 .c6 svg path {
@@ -32216,9 +32700,8 @@ exports[`Storyshots Design System/Components/TextInput withoutLabel 1`] = `
 }
 
 .c4:focus-within {
-  outline: 2px solid #4945ff;
   border: 1px solid #4945ff;
-  box-shadow: revert;
+  box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
 <main>
@@ -32588,9 +33071,8 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
 }
 
 .c4:focus-within {
-  outline: 2px solid #4945ff;
   border: 1px solid #4945ff;
-  box-shadow: revert;
+  box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
 .c12 {
@@ -32876,9 +33358,8 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
 }
 
 .c4:focus-within {
-  outline: 2px solid #4945ff;
   border: 1px solid #4945ff;
-  box-shadow: revert;
+  box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
 .c12 {
@@ -33164,9 +33645,8 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
 }
 
 .c4:focus-within {
-  outline: 2px solid #4945ff;
   border: 1px solid #4945ff;
-  box-shadow: revert;
+  box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
 .c12 {
@@ -33421,9 +33901,8 @@ exports[`Storyshots Design System/Components/ToggleCheckbox activated 1`] = `
 }
 
 .c3:focus-within {
-  outline: 2px solid #4945ff;
   border: 1px solid #4945ff;
-  box-shadow: revert;
+  box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
 .c9 {
@@ -33569,9 +34048,8 @@ exports[`Storyshots Design System/Components/ToggleCheckbox not activated 1`] = 
 }
 
 .c3:focus-within {
-  outline: 2px solid #4945ff;
   border: 1px solid #4945ff;
-  box-shadow: revert;
+  box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
 .c9 {
@@ -33716,9 +34194,8 @@ exports[`Storyshots Design System/Components/ToggleCheckbox size S 1`] = `
 }
 
 .c3:focus-within {
-  outline: 2px solid #4945ff;
   border: 1px solid #4945ff;
-  box-shadow: revert;
+  box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
 .c9 {
@@ -33893,9 +34370,8 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
 }
 
 .c9:focus-within {
-  outline: 2px solid #4945ff;
   border: 1px solid #4945ff;
-  box-shadow: revert;
+  box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
 .c13 {
@@ -34128,9 +34604,8 @@ exports[`Storyshots Design System/Components/ToggleInput error 1`] = `
 }
 
 .c7:focus-within {
-  outline: 2px solid #4945ff;
   border: 1px solid #4945ff;
-  box-shadow: revert;
+  box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
 .c12 {
@@ -34333,9 +34808,8 @@ exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
 }
 
 .c7:focus-within {
-  outline: 2px solid #4945ff;
   border: 1px solid #4945ff;
-  box-shadow: revert;
+  box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
 .c12 {
@@ -34778,6 +35252,7 @@ exports[`Storyshots Design System/Technical Components/BaseButton base 1`] = `
   display: -ms-flexbox;
   display: flex;
   cursor: pointer;
+  position: relative;
   padding: 8px;
   border-radius: 4px;
   background: #ffffff;
@@ -34796,6 +35271,21 @@ exports[`Storyshots Design System/Technical Components/BaseButton base 1`] = `
 
 .c1[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c1:focus-visible {
+  outline: none;
+}
+
+.c1:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
 }
 
 <main>
@@ -35537,6 +36027,7 @@ exports[`Storyshots Design System/Technical Components/FocusTrap base 1`] = `
   display: -ms-flexbox;
   display: flex;
   cursor: pointer;
+  position: relative;
   padding: 8px;
   border-radius: 4px;
   background: #ffffff;
@@ -35555,6 +36046,21 @@ exports[`Storyshots Design System/Technical Components/FocusTrap base 1`] = `
 
 .c7[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c7:focus-visible {
+  outline: none;
+}
+
+.c7:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
 }
 
 .c8 {

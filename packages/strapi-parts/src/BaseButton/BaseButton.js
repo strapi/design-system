@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { buttonFocusStyle } from '../themes/utils';
 
 export const BaseButtonWrapper = styled.button`
   display: flex;
   cursor: pointer;
+  position: relative;
   padding: ${({ theme }) => theme.spaces[2]};
   border-radius: ${({ theme }) => theme.borderRadius};
   background: ${({ theme }) => theme.colors.neutral0};
@@ -21,6 +23,11 @@ export const BaseButtonWrapper = styled.button`
   }
   &[aria-disabled='true'] {
     pointer-events: none;
+  }
+
+  &:focus-visible {
+    outline: none;
+    ${buttonFocusStyle}
   }
 `;
 
