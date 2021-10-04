@@ -185,8 +185,9 @@ describe('TimePicker', () => {
       }
 
       .c3:focus-within {
-        outline: none;
-        box-shadow: 0 0 0 2px rgba(66,153,225,0.6);
+        outline: 2px solid #4945ff;
+        border: 1px solid #4945ff;
+        box-shadow: revert;
       }
 
       .c11 {

@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { sizes } from '../themes/sizes';
-import { getThemeSize } from '../themes/utils';
+import { getThemeSize, inputFocusStyle } from '../themes/utils';
 import { useField } from './FieldContext';
 import { Row } from '../Row';
 import { Box } from '../Box';
@@ -44,8 +44,7 @@ export const InputWrapper = styled(Row)`
   height: ${getThemeSize('input')};
 
   &:focus-within {
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.6);
+    ${inputFocusStyle}
   }
 
   ${({ theme, disabled }) =>

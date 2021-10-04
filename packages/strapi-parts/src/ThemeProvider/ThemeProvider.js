@@ -140,8 +140,9 @@ const GlobalStyle = createGlobalStyle`
   }
 
   *:focus-visible {
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.6);
+    outline: 2px solid ${({ theme }) => theme.colors.primary600};
+    outline-offset: 2px;
+    box-shadow: revert;
   }
 
   /* Focusing the button with a mouse, touch, or stylus will show a subtle drop shadow. */
