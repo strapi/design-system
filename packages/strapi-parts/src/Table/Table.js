@@ -11,7 +11,8 @@ const TableWrapper = styled(RawTable)`
 
 const TableBox = styled(Box)`
   position: relative;
-  border-radius: ${({ theme }) => theme.borderRadius} ${({ theme }) => theme.borderRadius} 0 0;
+  border-radius: ${({ theme, footer }) =>
+    footer ? `${theme.borderRadius} ${theme.borderRadius} 0 0` : theme.borderRadius};
 
   &:before {
     // TODO: make sure to add a token for this weird stuff
@@ -46,6 +47,7 @@ const ScrollContainer = styled(Box)`
 export const Table = ({ colCount, rowCount, footer, ...props }) => {
   const tableRef = useRef(null);
   const [overflowing, setOverflowing] = useState();
+  console.log(footer);
 
   const handleScroll = (e) => {
     const maxScrollLeft = e.target.scrollWidth - e.target.clientWidth;
@@ -70,8 +72,8 @@ export const Table = ({ colCount, rowCount, footer, ...props }) => {
   }, []);
 
   return (
-    <Box shadow="tableShadow">
-      <TableBox background="neutral0" overflowing={overflowing}>
+    <Box shadow="tableShadow" hasRadius>
+      <TableBox footer={footer} background="neutral0" overflowing={overflowing}>
         <ScrollContainer ref={tableRef} onScroll={handleScroll} paddingLeft={6} paddingRight={6}>
           <TableWrapper colCount={colCount} rowCount={rowCount} {...props} />
         </ScrollContainer>

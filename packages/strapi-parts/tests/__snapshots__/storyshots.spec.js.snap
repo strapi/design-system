@@ -13871,6 +13871,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
 }
 
 .c62 {
+  border-radius: 4px;
   box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
 }
 
@@ -29299,6 +29300,7 @@ exports[`Storyshots Design System/Components/Table base 1`] = `
 }
 
 .c2 {
+  border-radius: 4px;
   box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
 }
 
@@ -30588,6 +30590,7 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
 }
 
 .c2 {
+  border-radius: 4px;
   box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
 }
 
@@ -30604,35 +30607,11 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
   padding-left: 4px;
 }
 
-.c23 {
-  background: #eaeaef;
-}
-
-.c25 {
-  background: #f0f0ff;
-  padding: 20px;
-}
-
-.c27 {
-  background: #d9d8ff;
-}
-
-.c29 {
-  padding-left: 12px;
-}
-
 .c14 {
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.43;
   color: #32324d;
-}
-
-.c30 {
-  font-weight: 500;
-  font-size: 0.75rem;
-  line-height: 1.33;
-  color: #4945ff;
 }
 
 .c15 {
@@ -30839,12 +30818,6 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
   fill: #666687;
 }
 
-.c24 {
-  height: 1px;
-  border: none;
-  margin: 0;
-}
-
 .c7 {
   width: 100%;
   white-space: nowrap;
@@ -30852,7 +30825,7 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
 
 .c4 {
   position: relative;
-  border-radius: 4px 4px 0 0;
+  border-radius: 4px;
 }
 
 .c4:before {
@@ -30921,40 +30894,6 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
 
 .c13 svg {
   height: 0.25rem;
-}
-
-.c28 {
-  height: 1.5rem;
-  width: 1.5rem;
-  border-radius: 50%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c28 svg {
-  height: 0.625rem;
-  width: 0.625rem;
-}
-
-.c28 svg path {
-  fill: #4945ff;
-}
-
-.c26 {
-  border-radius: 0 0 4px 4px;
-  display: block;
-  width: 100%;
-  border: none;
 }
 
 <main>
@@ -31837,45 +31776,6 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
             </tbody>
           </table>
         </div>
-      </div>
-      <div>
-        <hr
-          class="c23 c24"
-        />
-        <button
-          class="c25 c26"
-        >
-          <div
-            class="c11"
-          >
-            <div
-              aria-hidden="true"
-              class="c27 c28"
-            >
-              <svg
-                fill="none"
-                height="1em"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M24 13.604a.3.3 0 01-.3.3h-9.795V23.7a.3.3 0 01-.3.3h-3.21a.3.3 0 01-.3-.3v-9.795H.3a.3.3 0 01-.3-.3v-3.21a.3.3 0 01.3-.3h9.795V.3a.3.3 0 01.3-.3h3.21a.3.3 0 01.3.3v9.795H23.7a.3.3 0 01.3.3v3.21z"
-                  fill="#212134"
-                />
-              </svg>
-            </div>
-            <div
-              class="c29"
-            >
-              <span
-                class="c30"
-              >
-                Add another field to this collection type
-              </span>
-            </div>
-          </div>
-        </button>
       </div>
     </div>
   </div>
