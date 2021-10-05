@@ -32,7 +32,7 @@ jobs:
       - name: Install yarn dependencies
         run: yarn global add http-server && yarn
 
-      - name: Install Lerna dependencies
+      - name: Link locale packages and install their dependencies
         run: yarn bootstrap
 
       - name: Build
@@ -53,6 +53,3 @@ jobs:
 
       - name: Run the tests
         run: yarn test:e2e:ci
-
-        # - name: Run tests of the example app
-        #   run: yarn setup:example && yarn test:example
