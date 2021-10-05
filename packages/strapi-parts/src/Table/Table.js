@@ -48,7 +48,6 @@ const ScrollContainer = styled(Box)`
 export const Table = ({ colCount, rowCount, footer, ...props }) => {
   const tableRef = useRef(null);
   const [overflowing, setOverflowing] = useState();
-  console.log(footer);
 
   const handleScroll = (e) => {
     const maxScrollLeft = e.target.scrollWidth - e.target.clientWidth;
