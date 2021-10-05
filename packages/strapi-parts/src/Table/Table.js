@@ -13,6 +13,7 @@ const TableBox = styled(Box)`
   position: relative;
   border-radius: ${({ theme, footer }) =>
     footer ? `${theme.borderRadius} ${theme.borderRadius} 0 0` : theme.borderRadius};
+  overflow: hidden;
 
   &:before {
     // TODO: make sure to add a token for this weird stuff

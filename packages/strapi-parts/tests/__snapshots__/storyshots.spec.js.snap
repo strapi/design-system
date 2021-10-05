@@ -14638,6 +14638,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
 .c64 {
   position: relative;
   border-radius: 4px 4px 0 0;
+  overflow: hidden;
 }
 
 .c64:before {
@@ -29566,6 +29567,7 @@ exports[`Storyshots Design System/Components/Table base 1`] = `
 .c4 {
   position: relative;
   border-radius: 4px 4px 0 0;
+  overflow: hidden;
 }
 
 .c4:before {
@@ -30826,6 +30828,7 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
 .c4 {
   position: relative;
   border-radius: 4px;
+  overflow: hidden;
 }
 
 .c4:before {
