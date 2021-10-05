@@ -11,8 +11,8 @@ const TableWrapper = styled(RawTable)`
 
 const TableBox = styled(Box)`
   position: relative;
-  border-radius: ${({ theme, footer }) =>
-    footer ? `${theme.borderRadius} ${theme.borderRadius} 0 0` : theme.borderRadius};
+  border-radius: ${({ theme, withoutFullBorderRadius }) =>
+    withoutFullBorderRadius ? `${theme.borderRadius} ${theme.borderRadius} 0 0` : theme.borderRadius};
   overflow: hidden;
 
   &:before {
@@ -73,7 +73,7 @@ export const Table = ({ colCount, rowCount, footer, ...props }) => {
 
   return (
     <Box shadow="tableShadow" hasRadius>
-      <TableBox footer={footer} background="neutral0" overflowing={overflowing}>
+      <TableBox withoutFullBorderRadius={footer} background="neutral0" overflowing={overflowing}>
         <ScrollContainer ref={tableRef} onScroll={handleScroll} paddingLeft={6} paddingRight={6}>
           <TableWrapper colCount={colCount} rowCount={rowCount} {...props} />
         </ScrollContainer>
