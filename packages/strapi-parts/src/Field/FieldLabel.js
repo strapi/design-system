@@ -9,7 +9,7 @@ export const FieldLabel = ({ children, required, ...props }) => {
   return (
     <Text textColor="neutral800" htmlFor={id} small bold as="label" required={required} {...props}>
       {children}
-      <Text textColor="danger600">{required && '*'}</Text>
+      {required && <Text textColor="danger600">*</Text>}
     </Text>
   );
 };
