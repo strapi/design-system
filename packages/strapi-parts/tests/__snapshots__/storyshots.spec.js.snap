@@ -5388,6 +5388,7 @@ exports[`Storyshots Design System/Components/Carousel base 1`] = `
   background: #f6f6f9;
   padding: 8px;
   border-radius: 4px;
+  border-color: #dcdce4;
   border: 1px solid #dcdce4;
 }
 
@@ -26993,6 +26994,7 @@ exports[`Storyshots Design System/Components/Status base 1`] = `
   padding-bottom: 16px;
   padding-left: 20px;
   border-radius: 4px;
+  border-color: #c6f0c2;
   border: 1px solid #c6f0c2;
 }
 
@@ -27003,6 +27005,7 @@ exports[`Storyshots Design System/Components/Status base 1`] = `
   padding-bottom: 16px;
   padding-left: 20px;
   border-radius: 4px;
+  border-color: #b8e1ff;
   border: 1px solid #b8e1ff;
 }
 
@@ -37067,6 +37070,8 @@ exports[`Storyshots Design System/Technical Components/Box base 1`] = `
   background: #271fe0;
   color: #ffffff;
   padding: 16px;
+  border-color: #d02b20;
+  border: 1px solid #d02b20;
   box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
 }
 
@@ -37103,6 +37108,9 @@ exports[`Storyshots Design System/Technical Components/Box responsive spaces 1`]
   background: #271fe0;
   color: #ffffff;
   padding: 64px;
+  border-style: dotted;
+  border-width: 2px;
+  border-color: #d02b20;
   box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
 }
 

@@ -30,7 +30,17 @@ export const Box = styled.div.withConfig({
 
   // Borders
   border-radius: ${({ theme, hasRadius }) => (hasRadius ? theme.borderRadius : undefined)};
-  border: ${({ theme, borderColor }) => (borderColor ? `1px solid ${theme.colors[borderColor]}` : undefined)};
+  border-style: ${({ borderStyle }) => borderStyle};
+  border-width: ${({ borderWidth }) => borderWidth};
+  border-color: ${({ borderColor, theme }) => theme.colors[borderColor]};
+  border: ${({ theme, borderColor, borderStyle, borderWidth }) => {
+    // This condition prevents borderColor from override the border-color attribute when not passing borderStyle nor borderWidth
+    if (borderColor && !borderStyle && !borderWidth) {
+      return `1px solid ${theme.colors[borderColor]}`;
+    }
+
+    return undefined;
+  }};
 
   // Shadows
   box-shadow: ${({ theme, shadow }) => theme.shadows[shadow]};

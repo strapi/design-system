@@ -25,7 +25,7 @@ The `Box` component allows creation of containers according to the guidelines of
 
 <Canvas>
   <Story name="base">
-    <Box padding={4} background="primary700" color="neutral0" shadow="filterShadow">
+    <Box padding={4} background="primary700" color="neutral0" shadow="filterShadow" borderColor="danger600">
       Hello world
     </Box>
   </Story>
@@ -37,7 +37,16 @@ The `Box` component with padding added.
 
 <Canvas>
   <Story name="responsive spaces">
-    <Box padding={[11, 6, 1]} background="primary700" color="neutral0" shadow="filterShadow" hiddenXS>
+    <Box
+      padding={[11, 6, 1]}
+      background="primary700"
+      color="neutral0"
+      shadow="filterShadow"
+      hiddenXS
+      borderColor="danger600"
+      borderStyle="dotted"
+      borderWidth="2px"
+    >
       Hello world
     </Box>
   </Story>
