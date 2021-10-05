@@ -10477,14 +10477,21 @@ exports[`Storyshots Design System/Components/Field with description 1`] = `
   color: #32324d;
 }
 
-.c6 {
+.c3 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #d02b20;
+}
+
+.c7 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #666687;
 }
 
-.c3 {
+.c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -10521,7 +10528,7 @@ exports[`Storyshots Design System/Components/Field with description 1`] = `
   margin-top: 4px;
 }
 
-.c5 {
+.c6 {
   border: none;
   border-radius: 4px;
   padding-left: 16px;
@@ -10533,37 +10540,37 @@ exports[`Storyshots Design System/Components/Field with description 1`] = `
   width: 100%;
 }
 
-.c5::-webkit-input-placeholder {
+.c6::-webkit-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c5::-moz-placeholder {
+.c6::-moz-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c5:-ms-input-placeholder {
+.c6:-ms-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c5::placeholder {
+.c6::placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c5[aria-disabled='true'] {
+.c6[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
 
-.c5:focus {
+.c6:focus {
   outline: none;
   box-shadow: none;
 }
 
-.c4 {
+.c5 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
@@ -10576,7 +10583,7 @@ exports[`Storyshots Design System/Components/Field with description 1`] = `
   transition-duration: 0.2s;
 }
 
-.c4:focus-within {
+.c5:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
 }
@@ -10596,17 +10603,23 @@ exports[`Storyshots Design System/Components/Field with description 1`] = `
       <label
         class="c2"
         for="field-33"
+        required=""
       >
         Email
+        <span
+          class="c3"
+        >
+          *
+        </span>
       </label>
       <div
-        class="c3 c4"
+        class="c4 c5"
       >
         <input
           aria-describedby="field-33-hint"
           aria-disabled="false"
           aria-invalid="false"
-          class="c5"
+          class="c6"
           id="field-33"
           name="email"
           placeholder="Placeholder"
@@ -10615,7 +10628,7 @@ exports[`Storyshots Design System/Components/Field with description 1`] = `
         />
       </div>
       <p
-        class="c6"
+        class="c7"
         id="field-33-hint"
       >
         Description line
@@ -25028,11 +25041,11 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
   width: 1px;
 }
 
-.c9 {
+.c10 {
   padding-left: 12px;
 }
 
-.c10 {
+.c11 {
   padding-right: 16px;
   padding-left: 16px;
 }
@@ -25044,21 +25057,28 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
   color: #32324d;
 }
 
-.c11 {
+.c4 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #d02b20;
+}
+
+.c12 {
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.43;
   color: #666687;
 }
 
-.c14 {
+.c15 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #666687;
 }
 
-.c4 {
+.c5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -25072,7 +25092,7 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
   align-items: center;
 }
 
-.c7 {
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -25128,7 +25148,7 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
   margin-top: 4px;
 }
 
-.c5 {
+.c6 {
   position: relative;
   border: 1px solid #dcdce4;
   padding-right: 12px;
@@ -25144,28 +25164,28 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
   transition-duration: 0.2s;
 }
 
-.c5:focus-within {
+.c6:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
-.c12 {
+.c13 {
   background: transparent;
   border: none;
   position: relative;
   z-index: 1;
 }
 
-.c12 svg {
+.c13 svg {
   height: 0.6875rem;
   width: 0.6875rem;
 }
 
-.c12 svg path {
+.c13 svg path {
   fill: #666687;
 }
 
-.c13 {
+.c14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -25174,11 +25194,11 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
   border: none;
 }
 
-.c13 svg {
+.c14 svg {
   width: 0.375rem;
 }
 
-.c6 {
+.c7 {
   position: absolute;
   left: 0;
   right: 0;
@@ -25189,11 +25209,11 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
   border: none;
 }
 
-.c6:focus {
+.c7:focus {
   outline: none;
 }
 
-.c8 {
+.c9 {
   width: 100%;
 }
 
@@ -25219,11 +25239,17 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
           class="c3"
           for="select1"
           id="select1-label"
+          required=""
         >
           Choose your meal
+          <span
+            class="c4"
+          >
+            *
+          </span>
         </span>
         <div
-          class="c4 c5"
+          class="c5 c6"
         >
           <button
             aria-describedby="select1-hint"
@@ -25231,19 +25257,19 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-labelledby="select1-label select1-content"
-            class="c6"
+            class="c7"
             id="select1"
             type="button"
           />
           <div
-            class="c7 c8"
+            class="c8 c9"
           >
             <div
-              class="c4"
+              class="c5"
             >
               <div
                 aria-hidden="true"
-                class="c9"
+                class="c10"
               >
                 <svg
                   fill="none"
@@ -25259,10 +25285,10 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
                 </svg>
               </div>
               <div
-                class="c10"
+                class="c11"
               >
                 <span
-                  class="c11"
+                  class="c12"
                   id="select1-content"
                 >
                   Your example
@@ -25270,11 +25296,11 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
               </div>
             </div>
             <div
-              class="c4"
+              class="c5"
             >
               <button
                 aria-hidden="true"
-                class="c9 c12 c13"
+                class="c10 c13 c14"
                 tabindex="-1"
                 type="button"
               >
@@ -25297,7 +25323,7 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
           </div>
         </div>
         <p
-          class="c14"
+          class="c15"
           id="select1-hint"
         >
           Description line

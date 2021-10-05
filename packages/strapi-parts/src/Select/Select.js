@@ -39,6 +39,7 @@ export const Select = ({
   onClear,
   onReachEnd,
   multi,
+  required,
   size,
   startIcon,
   withTags,
@@ -148,7 +149,7 @@ export const Select = ({
     <Field hint={hint} error={error} id={generatedId}>
       <Stack size={label || hint || error ? 1 : 0}>
         {label && (
-          <FieldLabel as="span" id={labelId}>
+          <FieldLabel required={required} as="span" id={labelId}>
             {label}
           </FieldLabel>
         )}
@@ -264,6 +265,7 @@ Select.defaultProps = {
   hint: undefined,
   error: undefined,
   placeholder: 'Select...',
+  required: false,
   size: 'M',
   startIcon: undefined,
   withTags: false,
@@ -284,6 +286,7 @@ Select.propTypes = {
   onClear: PropTypes.func,
   onReachEnd: PropTypes.func,
   placeholder: PropTypes.string,
+  required: PropTypes.bool,
   size: PropTypes.oneOf(Object.keys(sizes.input)),
   startIcon: PropTypes.element,
   value: PropTypes.oneOfType([
