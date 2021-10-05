@@ -1,11 +1,12 @@
 <!--- ToggleInput.stories.mdx --->
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
 import { ToggleInput } from './ToggleInput';
 import { Tooltip } from '../Tooltip';
 import HelpIcon from '@strapi/icons/HelpIcon';
 
-<Meta title="Design System/Molecules/ToggleInput" component={ToggleInput} />
+<Meta title="Design System/Components/ToggleInput" component={ToggleInput} />
 
 # ToggleInput
 
@@ -22,8 +23,6 @@ import HelpIcon from '@strapi/icons/HelpIcon';
 ```
 
 ## Usage
-
-Description...
 
 <Canvas>
   <Story name="base">
@@ -47,6 +46,11 @@ Description...
       onChange={() => {}}
     />
   </Story>
+</Canvas>
+
+### Error handling
+
+<Canvas>
   <Story name="error">
     <ToggleInput
       hint="Enable provider"
@@ -60,3 +64,25 @@ Description...
     />
   </Story>
 </Canvas>
+
+### Size S
+
+<Canvas>
+  <Story name="size S">
+    <ToggleInput
+      size="S"
+      hint="Enable provider"
+      error="this field is required"
+      label="Label"
+      name="enable-provider"
+      onLabel="on"
+      offLabel="off"
+      checked={false}
+      onChange={() => {}}
+    />
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={ToggleInput} />

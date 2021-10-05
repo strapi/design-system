@@ -3,7 +3,7 @@ import { injectAxe, checkA11y } from 'axe-playwright';
 describe('Card', () => {
   describe('base', () => {
     it('triggers axe on the document', async () => {
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-molecules-card--base&viewMode=story');
+      await page.goto('http://localhost:6006/iframe.html?id=design-system-components-card--base&viewMode=story');
       await injectAxe(page);
       await checkA11y(page);
     });
@@ -12,7 +12,7 @@ describe('Card', () => {
   describe('without asset action', () => {
     it('triggers axe on the document', async () => {
       await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-molecules-card--without-asset-action&viewMode=story',
+        'http://localhost:6006/iframe.html?id=design-system-components-card--without-asset-action&viewMode=story',
       );
       await injectAxe(page);
       await checkA11y(page);
@@ -22,7 +22,7 @@ describe('Card', () => {
   describe('without asset action nor timer', () => {
     it('triggers axe on the document', async () => {
       await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-molecules-card--without-asset-action-nor-timer&viewMode=story',
+        'http://localhost:6006/iframe.html?id=design-system-components-card--without-asset-action-nor-timer&viewMode=story',
       );
       await injectAxe(page);
       await checkA11y(page);
@@ -32,7 +32,7 @@ describe('Card', () => {
   describe('without asset', () => {
     it('triggers axe on the document', async () => {
       await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-molecules-card--without-asset&viewMode=story',
+        'http://localhost:6006/iframe.html?id=design-system-components-card--without-asset&viewMode=story',
       );
       await injectAxe(page);
       await checkA11y(page);
@@ -42,7 +42,7 @@ describe('Card', () => {
   describe('keyboard navigable', () => {
     it('triggers axe on the document', async () => {
       await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-molecules-card--keyboard-navigable&viewMode=story',
+        'http://localhost:6006/iframe.html?id=design-system-components-card--keyboard-navigable&viewMode=story',
       );
       await injectAxe(page);
       await checkA11y(page);

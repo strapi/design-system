@@ -1,18 +1,16 @@
 <!--- Button.stories.mdx --->
 
 import { useState } from 'react';
-import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
 import { BaseCheckbox } from './BaseCheckbox';
 
-<Meta title="Design System/Atoms/BaseCheckbox" component={BaseCheckbox} />
+<Meta title="Design System/Technical Components/BaseCheckbox" component={BaseCheckbox} />
 
 # BaseCheckbox
 
-This is the doc of the `BaseCheckbox` component
+The `BaseCheckbox` component is the basis of the `Checkbox` component.
 
-## Default
-
-Description...
+## Usage
 
 <Canvas>
   <Story name="base">
@@ -32,7 +30,7 @@ Description...
 
 ## Indeterminate
 
-Description...
+The `BaseCheckbox` can have an indeterminate state.
 
 <Canvas>
   <Story name="indeterminate">
@@ -82,7 +80,7 @@ Description...
 
 ## Disabled
 
-Description...
+The `BaseCheckbox` can be disabled.
 
 <Canvas>
   <Story name="disabled">
@@ -98,17 +96,6 @@ Description...
   </Story>
 </Canvas>
 
-## LSize
+## Props
 
-Description...
-
-<Canvas>
-  <Story name="L Size">
-    {() => {
-      const [val, setValue] = useState(false);
-      return (
-        <BaseCheckbox name="LSize" size="L" onValueChange={(value) => setValue(value)} value={val} aria-label="Lsize" />
-      );
-    }}
-  </Story>
-</Canvas>
+<ArgsTable of={BaseCheckbox} />

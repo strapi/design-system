@@ -3,7 +3,7 @@ import { injectAxe, checkA11y } from 'axe-playwright';
 describe('MainNav', () => {
   beforeEach(async () => {
     // This is the URL of the Storybook Iframe
-    await page.goto('localhost:6006/iframe.html?id=design-system-organisms-mainnav--base&viewMode=story');
+    await page.goto('localhost:6006/iframe.html?id=design-system-components-mainnav--base&viewMode=story');
     await injectAxe(page);
   });
 

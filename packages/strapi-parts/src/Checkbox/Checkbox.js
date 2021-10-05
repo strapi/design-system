@@ -10,7 +10,7 @@ import { Text } from '../Text';
 
 const CheckboxLabel = styled(Text)`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   * {
     cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'default')};
   }

@@ -1,6 +1,8 @@
 import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { sizes } from '../themes/sizes';
+import { getThemeSize, inputFocusStyle } from '../themes/utils';
 import { useField } from './FieldContext';
 import { Row } from '../Row';
 import { Box } from '../Box';
@@ -17,7 +19,6 @@ const Input = styled.input`
   font-size: ${14 / 16}rem;
   display: block;
   width: 100%;
-  height: ${40 / 16}rem;
 
   ::placeholder {
     color: ${({ theme }) => theme.colors.neutral500};
@@ -28,12 +29,21 @@ const Input = styled.input`
     background: inherit;
     color: inherit;
   }
+
+  //focus managed by InputWrapper
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
 `;
 
 export const InputWrapper = styled(Row)`
   border: 1px solid ${({ theme, hasError }) => (hasError ? theme.colors.danger600 : theme.colors.neutral200)};
   border-radius: ${({ theme }) => theme.borderRadius};
   background: ${({ theme }) => theme.colors.neutral0};
+  height: ${getThemeSize('input')};
+
+  ${inputFocusStyle()}
 
   ${({ theme, disabled }) =>
     disabled
@@ -45,7 +55,7 @@ export const InputWrapper = styled(Row)`
       : undefined}
 `;
 
-export const FieldInput = forwardRef(({ endAction, startAction, disabled, onChange, ...props }, ref) => {
+export const FieldInput = forwardRef(({ endAction, startAction, disabled, onChange, size, ...props }, ref) => {
   const { id, error, hint, name } = useField();
 
   let ariaDescription;
@@ -65,7 +75,7 @@ export const FieldInput = forwardRef(({ endAction, startAction, disabled, onChan
   };
 
   return (
-    <InputWrapper justifyContent="space-between" hasError={hasError} disabled={disabled}>
+    <InputWrapper size={size} justifyContent="space-between" hasError={hasError} disabled={disabled}>
       {startAction && (
         <Box paddingLeft={3} paddingRight={2}>
           {startAction}
@@ -97,6 +107,7 @@ FieldInput.displayName = 'FieldInput';
 FieldInput.defaultProps = {
   disabled: false,
   endAction: undefined,
+  size: 'M',
   startAction: undefined,
   onChange: () => {},
 };
@@ -105,5 +116,6 @@ FieldInput.propTypes = {
   disabled: PropTypes.bool,
   endAction: PropTypes.element,
   onChange: PropTypes.func,
+  size: PropTypes.oneOf(Object.keys(sizes.input)),
   startAction: PropTypes.element,
 };

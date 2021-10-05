@@ -3,7 +3,9 @@ import { injectAxe, checkA11y } from 'axe-playwright';
 describe('HeaderLayout', () => {
   describe('base', () => {
     it('triggers axe on the document', async () => {
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-layouts-headerlayout--base&viewMode=story');
+      await page.goto(
+        'http://localhost:6006/iframe.html?id=design-system-components-headerlayout--base&viewMode=story',
+      );
       await injectAxe(page);
       await checkA11y(page);
     });
@@ -12,7 +14,7 @@ describe('HeaderLayout', () => {
   describe('base without nav action', () => {
     it('triggers axe on the document', async () => {
       await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-layouts-headerlayout--base-without-nav-action&args=&viewMode=story',
+        'http://localhost:6006/iframe.html?id=design-system-components-headerlayout--base-without-nav-action&args=&viewMode=story',
       );
       await injectAxe(page);
       await checkA11y(page);
@@ -22,7 +24,7 @@ describe('HeaderLayout', () => {
   describe('sticky', () => {
     it('triggers axe on the document', async () => {
       await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-layouts-headerlayout--sticky&args=&viewMode=story',
+        'http://localhost:6006/iframe.html?id=design-system-components-headerlayout--sticky&args=&viewMode=story',
       );
       await injectAxe(page);
       await checkA11y(page);
@@ -32,7 +34,7 @@ describe('HeaderLayout', () => {
   describe('combined w/ scroll', () => {
     it('triggers axe on the document', async () => {
       await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-layouts-headerlayout--combined-w-scroll&args=&viewMode=story',
+        'http://localhost:6006/iframe.html?id=design-system-components-headerlayout--combined-w-scroll&args=&viewMode=story',
       );
       await injectAxe(page);
       await checkA11y(page);
@@ -40,7 +42,7 @@ describe('HeaderLayout', () => {
 
     it('displays the sticky header when scrolling down', async () => {
       await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-layouts-headerlayout--combined-w-scroll&args=&viewMode=story',
+        'http://localhost:6006/iframe.html?id=design-system-components-headerlayout--combined-w-scroll&args=&viewMode=story',
       );
 
       await expect(page).toHaveSelector('[data-strapi-header]');
@@ -55,7 +57,7 @@ describe('HeaderLayout', () => {
 
     it('displays the sticky header when scrolling back up', async () => {
       await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-layouts-headerlayout--combined-w-scroll&args=&viewMode=story',
+        'http://localhost:6006/iframe.html?id=design-system-components-headerlayout--combined-w-scroll&args=&viewMode=story',
       );
       await page.evaluate(() => window.scrollTo(0, 400));
       await expect(page).toHaveSelector('[data-strapi-header-sticky]');

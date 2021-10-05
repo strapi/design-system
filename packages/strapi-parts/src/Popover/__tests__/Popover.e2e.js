@@ -4,7 +4,7 @@ describe('Popover', () => {
   describe('base', () => {
     beforeEach(async () => {
       // This is the URL of the Storybook Iframe
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-molecules-popover--base&viewMode=story');
+      await page.goto('http://localhost:6006/iframe.html?id=design-system-components-popover--base&viewMode=story');
       await injectAxe(page);
     });
 
@@ -17,11 +17,13 @@ describe('Popover', () => {
     beforeEach(async () => {
       // This is the URL of the Storybook Iframe
       await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-molecules-popover--on-reach-end&viewMode=story',
+        'http://localhost:6006/iframe.html?id=design-system-components-popover--on-reach-end&viewMode=story',
       );
     });
 
     it('adds item when reaching the end', async () => {
+      await page.focus('#popover1');
+      await page.keyboard.press('Enter');
       const lis = await page.$$('#on-reach-end li');
       expect(lis.length).toBe(10);
 

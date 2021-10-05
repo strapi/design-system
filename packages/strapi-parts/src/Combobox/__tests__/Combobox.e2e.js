@@ -4,7 +4,7 @@ describe('Combobox', () => {
   beforeEach(async () => {
     // This is the URL of the Storybook Iframe
     await page.goto(
-      'http://localhost:6006/iframe.html?id=design-system-molecules-combobox--base&globals=&viewMode=story',
+      'http://localhost:6006/iframe.html?id=design-system-components-combobox--base&globals=&viewMode=story',
     );
     await injectAxe(page);
   });
@@ -71,7 +71,7 @@ describe('Combobox - creatable', () => {
   beforeEach(async () => {
     // This is the URL of the Storybook Iframe
     await page.goto(
-      'http://localhost:6006/iframe.html?id=design-system-molecules-combobox--creatable&globals=&viewMode=story',
+      'http://localhost:6006/iframe.html?id=design-system-components-combobox--creatable&globals=&viewMode=story',
     );
     await injectAxe(page);
   });

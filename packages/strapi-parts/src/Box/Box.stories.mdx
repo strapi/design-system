@@ -3,8 +3,9 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { ArgsTable } from '@storybook/addon-docs';
 import { Box } from './Box';
+import { BoxProps } from './BoxProps';
 
-<Meta title="Design System/Atoms/Box" component={Box} />
+<Meta title="Design System/Technical Components/Box" component={Box} />
 
 # Box
 
@@ -20,7 +21,7 @@ import { Box } from '@strapi/parts/Box';
 
 ## Usage
 
-Description...
+The `Box` component allows creation of containers according to the guidelines of the Strapi design system (border-radius, shadows, background-color, padding, border, etc).
 
 <Canvas>
   <Story name="base">
@@ -32,7 +33,7 @@ Description...
 
 ## Box with padding
 
-Box component with padding added.
+The `Box` component with padding added.
 
 <Canvas>
   <Story name="responsive spaces">
@@ -42,7 +43,6 @@ Box component with padding added.
   </Story>
 </Canvas>
 
-
 ## Props
 
-<ArgsTable of={Box} />
+<ArgsTable of={BoxProps} />

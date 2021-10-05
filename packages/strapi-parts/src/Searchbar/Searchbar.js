@@ -1,10 +1,12 @@
-import React, { useRef } from 'react';
+import React, { forwardRef, useRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import SearchIcon from '@strapi/icons/SearchIcon';
 import CloseAlertIcon from '@strapi/icons/CloseAlertIcon';
+import { sizes } from '../themes/sizes';
 import { Field, FieldLabel, FieldAction, FieldInput, InputWrapper } from '../Field';
 import { VisuallyHidden } from '../VisuallyHidden';
+import { inputFocusStyle } from '../themes/utils';
 import { Row } from '../Row';
 
 const CloseIconWrapper = styled(Row)`
@@ -38,19 +40,10 @@ const SearchbarWrapper = styled.div`
     border: 1px solid transparent;
   }
 
-  ${InputWrapper}:focus-within {
-    outline: 2px solid ${({ theme }) => theme.colors.primary600};
-    outline-offset: 2px;
-  }
-
-  /**
-  Focused is managed at the wrapper level */
-  input {
-    outline: none;
-  }
+  ${inputFocusStyle(InputWrapper)}
 `;
 
-export const Searchbar = ({ name, children, value, onClear, clearLabel, ...props }) => {
+export const Searchbar = forwardRef(({ name, size, children, value, onClear, clearLabel, ...props }, ref) => {
   const inputRef = useRef(null);
   const isCompleting = value.length > 0;
 
@@ -58,6 +51,8 @@ export const Searchbar = ({ name, children, value, onClear, clearLabel, ...props
     onClear(e);
     inputRef.current.focus();
   };
+
+  const actualRef = ref || inputRef;
 
   return (
     <SearchbarWrapper>
@@ -67,13 +62,14 @@ export const Searchbar = ({ name, children, value, onClear, clearLabel, ...props
         </VisuallyHidden>
 
         <FieldInput
-          ref={inputRef}
+          ref={actualRef}
           value={value}
           startAction={
             <SearchIconWrapper>
               <SearchIcon aria-hidden={true} />
             </SearchIconWrapper>
           }
+          size={size}
           endAction={
             isCompleting ? (
               <FieldAction label={clearLabel} onClick={handleClear}>
@@ -88,12 +84,13 @@ export const Searchbar = ({ name, children, value, onClear, clearLabel, ...props
       </Field>
     </SearchbarWrapper>
   );
-};
+});
 
 Searchbar.displayName = 'Searchbar';
 
 Searchbar.defaultProps = {
   value: '',
+  size: 'M',
 };
 
 Searchbar.propTypes = {
@@ -101,5 +98,6 @@ Searchbar.propTypes = {
   clearLabel: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   onClear: PropTypes.func.isRequired,
+  size: PropTypes.oneOf(Object.keys(sizes.input)),
   value: PropTypes.string,
 };

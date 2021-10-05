@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Box } from '../Box';
 import { Row } from '../Row';
 
-const BlockActions = styled(Row)`
+const StartBlockActions = styled(Row)`
   & > * + * {
     margin-left: ${({ theme }) => theme.spaces[2]};
   }
@@ -12,13 +12,17 @@ const BlockActions = styled(Row)`
   margin-left: ${({ pullRight }) => (pullRight ? 'auto' : undefined)};
 `;
 
+const EndBlockActions = styled(StartBlockActions)`
+  flex-shrink: 0;
+`;
+
 export const ActionLayout = ({ startActions, endActions }) => {
   return startActions || endActions ? (
     <Box paddingLeft={10} paddingRight={10}>
       <Box paddingBottom={4}>
         <Row justifyContent="space-between" alignItems="flex-start">
-          {startActions && <BlockActions wrap="wrap">{startActions}</BlockActions>}
-          {endActions && <BlockActions pullRight>{endActions}</BlockActions>}
+          {startActions && <StartBlockActions wrap="wrap">{startActions}</StartBlockActions>}
+          {endActions && <EndBlockActions pullRight>{endActions}</EndBlockActions>}
         </Row>
       </Box>
     </Box>

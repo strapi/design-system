@@ -5,7 +5,7 @@ import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { ArgsTable } from '@storybook/addon-docs';
 import { ToggleCheckbox } from './ToggleCheckbox';
 
-<Meta title="Design System/Molecules/ToggleCheckbox" component={ToggleCheckbox} />
+<Meta title="Design System/Components/ToggleCheckbox" component={ToggleCheckbox} />
 
 # ToggleCheckbox
 
@@ -17,7 +17,7 @@ Toggles are used to switch between two different states. They are mostly used to
 - The state labels should only have a single word and be clear.
 - When in a Table component, prefer the usage of a Switch component.
 - Add a description line to give further information.
-[View source](https://github.com/strapi/parts/tree/develop/packages/strapi-parts/src/ToggleCheckbox)
+  [View source](https://github.com/strapi/parts/tree/develop/packages/strapi-parts/src/ToggleCheckbox)
 
 ## Imports
 
@@ -29,11 +29,9 @@ import { ToggleCheckbox } from '@strapi/parts/ToggleCheckbox';
 
 Use a toggle whenever the users need to turn something on or off in a form. A toggle can be disabled.
 
-
 ### Activated Toggle
 
 The activated state is one of the two available states for a Toggle.
-
 
 <Canvas>
   <Story name="activated">
@@ -55,6 +53,17 @@ The deactivated state is one of the two available states for a Toggle.
   </Story>
 </Canvas>
 
+### ToggleCheckbox size S
+
+The deactivated state is one of the two available states for a Toggle.
+
+<Canvas>
+  <Story name="size S">
+    <ToggleCheckbox size="S" onLabel={'On'} offLabel={'Off'} checked={false} onChange={() => {}}>
+      The field is required?
+    </ToggleCheckbox>
+  </Story>
+</Canvas>
 
 ## Props
 

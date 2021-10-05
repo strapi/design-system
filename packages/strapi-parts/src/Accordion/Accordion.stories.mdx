@@ -11,7 +11,7 @@ import { AccordionContent } from './AccordionContent';
 import { Box } from '../Box';
 import { IconButton } from '../IconButton';
 
-<Meta title="Design System/Molecules/Accordion" component={Accordion} />
+<Meta title="Design System/Components/Accordion" component={Accordion} />
 
 # Accordion
 
@@ -33,8 +33,6 @@ Accordions are collapsable blocks that vertically hide a stack of content. Click
 
 ```js
 import { Accordion, AccordionToggle, AccordionContent } from '@strapi/parts/Accordion';
-import { AccordionToggle } from '@strapi/parts/AccordionToggle';
-import { AccordionContent } from '@strapi/parts/AccordionContent';
 import { KeyboardNavigable } from '@strapi/parts/KeyboardNavigable';
 import { IconButton } from '@strapi/parts/IconButton';
 import EditIcon from '@strapi/icons/EditIcon';
@@ -168,7 +166,7 @@ The accordion component has two main states: collapsed and expanded. By default 
 
 ## Accordion expanded
 
-Description...
+The Accordion component can also be open by default using the parameter `expanded={true}`.
 
 <Canvas>
   <Story name="expanded">

@@ -20,7 +20,7 @@ import { KeyboardNavigable } from '../KeyboardNavigable';
 // Story assets
 import firstImgPath from './story-assets/first.jpg';
 
-<Meta title="Design System/Molecules/Card" component={Card} />
+<Meta title="Design System/Components/Card" component={Card} />
 
 # Card
 
@@ -85,7 +85,7 @@ Cards are used to gather a set of related information.
 
 ## Card without asset action
 
-Description...
+Cards can be used without actions by removing the `CardAction` block.
 
 <Canvas>
   <Story name="without asset action">
@@ -108,7 +108,7 @@ Description...
 
 ## Card with asset icon
 
-Description...
+The image asset can be replaced by an icon.
 
 <Canvas>
   <Story name="with asset icon">
@@ -133,7 +133,7 @@ Description...
 
 ## Card without asset action nor timer
 
-Description...
+The `CardTimer` can be removed as well as the `CardAction` block.
 
 <Canvas>
   <Story name="without asset action nor timer">
@@ -155,7 +155,7 @@ Description...
 
 ## Card without asset
 
-Description...
+If no `CardHeader` is present, the card will display a version with the body only.
 
 <Canvas>
   <Story name="without asset">
@@ -176,7 +176,7 @@ Description...
 
 ## Card keyboard navigable
 
-Description...
+You wrap the Card in a `KeyboardNavigable` block to ensure it can be scanned using the keyboard.
 
 <Canvas>
   <Story name="keyboard navigable">

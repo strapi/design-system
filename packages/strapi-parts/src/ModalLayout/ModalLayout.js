@@ -7,8 +7,8 @@ import { Portal } from '../Portal';
 import { ModalContext } from './ModalContext';
 
 const ModalWrapper = styled.div`
-  position: absolute;
-  z-index: 3;
+  position: fixed;
+  z-index: 4;
   inset: 0;
   // this is theme.colors.neutral200 with opacity
   background: rgb(220, 220, 228, 0.8);
@@ -27,6 +27,7 @@ export const ModalLayout = ({ onClose, labelledBy, ...props }) => {
   useEffect(() => {
     const body = document.body;
     body.classList.add('lock-body-scroll');
+
     return () => {
       body.classList.remove('lock-body-scroll');
     };
