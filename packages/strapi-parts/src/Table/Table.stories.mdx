@@ -155,6 +155,97 @@ The default Table.
   </Story>
 </Canvas>
 
+### Default Table without footer
+
+The default Table.
+
+<Canvas>
+  <Story name="base without footer">
+    {() => {
+      const ROW_COUNT = 6;
+      const COL_COUNT = 10;
+      const entry = {
+        cover: 'https://avatars.githubusercontent.com/u/3874873?v=4',
+        description: 'Chez Léon is a human sized Parisian',
+        category: 'French cuisine',
+        contact: 'Leon Lafrite',
+      };
+      const entries = [];
+      for (let i = 0; i < 5; i++) {
+        entries.push({ ...entry, id: i });
+      }
+      return (
+        <Box padding={8} background="neutral100">
+          <Table colCount={COL_COUNT} rowCount={ROW_COUNT}>
+            <Thead>
+              <Tr>
+                <Th>
+                  <BaseCheckbox aria-label="Select all entries" />
+                </Th>
+                <Th>
+                  <TableLabel>ID</TableLabel>
+                </Th>
+                <Th>
+                  <TableLabel>Cover</TableLabel>
+                </Th>
+                <Th>
+                  <TableLabel>Description</TableLabel>
+                </Th>
+                <Th>
+                  <TableLabel>Categories</TableLabel>
+                </Th>
+                <Th>
+                  <TableLabel>Contact</TableLabel>
+                </Th>
+                <Th>
+                  <VisuallyHidden>Actions</VisuallyHidden>
+                </Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              {entries.map((entry) => (
+                <Tr key={entry.id}>
+                  <Td>
+                    <BaseCheckbox aria-label={`Select ${entry.contact}`} />
+                  </Td>
+                  <Td>
+                    <Text textColor="neutral800">{entry.id}</Text>
+                  </Td>
+                  <Td>
+                    <Avatar src={entry.cover} alt={entry.contact} />
+                  </Td>
+                  <Td>
+                    <Text textColor="neutral800">{entry.description}</Text>
+                  </Td>
+                  <Td>
+                    <Text textColor="neutral800">{entry.category}</Text>
+                  </Td>
+                  <Td>
+                    <Text textColor="neutral800">{entry.contact}</Text>
+                  </Td>
+                  <Td>
+                    <Row>
+                      <IconButton onClick={() => console.log('edit')} label="Edit" noBorder icon={<EditIcon />} />
+                      <Box paddingLeft={1}>
+                        <IconButton
+                          onClick={() => console.log('delete')}
+                          label="Delete"
+                          noBorder
+                          icon={<DeleteIcon />}
+                        />
+                      </Box>
+                    </Row>
+                  </Td>
+                </Tr>
+              ))}
+            </Tbody>
+          </Table>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
 ### Table with actions
 
 Table with actions.
