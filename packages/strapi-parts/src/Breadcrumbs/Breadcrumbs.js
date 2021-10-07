@@ -39,11 +39,11 @@ Crumb.propTypes = {
 };
 const crumbType = PropTypes.shape({ type: PropTypes.oneOf([Crumb]) });
 
-export const Breadcrumbs = ({ children, label }) => (
-  <div>
+export const Breadcrumbs = ({ children, label, ...props }) => (
+  <Row {...props}>
     <VisuallyHidden>{label}</VisuallyHidden>
     <ol aria-hidden={true}>{children}</ol>
-  </div>
+  </Row>
 );
 
 Breadcrumbs.displayName = 'Breadcrumbs';
