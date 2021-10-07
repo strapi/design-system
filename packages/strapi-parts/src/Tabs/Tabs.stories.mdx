@@ -20,7 +20,7 @@ Tabs are a set of related views within a same page. They help classify better th
 - Tabs label should be concise. One word or two maximum is preferable.
 - Tabs navigation should follow a logical order: from Tab 1 to Tab 2 and then to Tab 3.
 - Avoid using more than 5 tabs to keep it easily scannable and readable.
-[View source](https://github.com/strapi/parts/tree/develop/packages/strapi-parts/src/Tabs)
+  [View source](https://github.com/strapi/parts/tree/develop/packages/strapi-parts/src/Tabs)
 
 ## Imports
 
@@ -35,7 +35,6 @@ import { Badge } from '@strapi/parts/Badge';
 
 Tabs allow to classify related content in different views within a same page.
 
-
 ### Default Tabs
 
 Default Tabs mostly used in forms.
@@ -45,7 +44,7 @@ Default Tabs mostly used in forms.
     <Box padding={8} background="primary100">
       <TabGroup label="Some stuff for the label" id="tabs">
         <Tabs>
-          <Tab>First</Tab>
+          <Tab onClick={() => console.log('click')}>First</Tab>
           <Tab>Second</Tab>
           <Tab>Third</Tab>
         </Tabs>
@@ -71,11 +70,9 @@ Default Tabs mostly used in forms.
   </Story>
 </Canvas>
 
-
 ### Simple Tabs
 
 Simple Tabs are used in modals.
-
 
 <Canvas>
   <Story name="simple">
@@ -107,7 +104,6 @@ Simple Tabs are used in modals.
     </Box>
   </Story>
 </Canvas>
-
 
 ## Props
 
