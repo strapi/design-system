@@ -30,6 +30,7 @@ export const Input = styled.input`
   flex: 1;
   font-size: ${14 / 16}rem;
   color: ${({ theme }) => theme.colors.neutral800};
+  outline: none;
   &:focus-visible {
     outline: none;
     box-shadow: none;

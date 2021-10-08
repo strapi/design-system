@@ -2,6 +2,7 @@
 
 import { useState, useRef } from 'react';
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import DeleteIcon from '@strapi/icons/DeleteIcon';
 import { Combobox, CreatableCombobox } from './Combobox';
 import { ComboboxOption } from './ComboboxOption';
 
@@ -77,6 +78,26 @@ This is the doc of the `Combobox` component
       const [value, setValue] = useState('');
       return (
         <Combobox label="Food" value={value} error="An error occured" onChange={setValue}>
+          <ComboboxOption value="hamburger">Hamburger</ComboboxOption>
+          <ComboboxOption value="bagel">Bagel</ComboboxOption>
+          <ComboboxOption value="tartuffo">Tartuffo</ComboboxOption>
+          <ComboboxOption value="carbonara">Carbonara</ComboboxOption>
+        </Combobox>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Initial data
+
+This is the doc of the `Combobox` component
+
+<Canvas>
+  <Story name="initial-data">
+    {() => {
+      const [value, setValue] = useState('tartuffo');
+      return (
+        <Combobox label="Food" value={value} onChange={setValue}>
           <ComboboxOption value="hamburger">Hamburger</ComboboxOption>
           <ComboboxOption value="bagel">Bagel</ComboboxOption>
           <ComboboxOption value="tartuffo">Tartuffo</ComboboxOption>

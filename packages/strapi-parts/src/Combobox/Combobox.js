@@ -2,10 +2,11 @@ import React, { useEffect, useState, useRef, useLayoutEffect, Children, cloneEle
 import PropTypes from 'prop-types';
 import { useId } from '../helpers/useId';
 import DropdownIcon from '@strapi/icons/FilterDropdownIcon';
+import CloseAlertIcon from '@strapi/icons/CloseAlertIcon';
 import { getActionFromKey, getUpdatedIndex, maintainScrollVisibility, MenuActions, filterOptions } from './utils';
 
 import { Row } from '../Row';
-import { CaretBox } from '../Select/components';
+import { CaretBox, IconBox } from '../Select/components';
 import { Popover } from '../Popover';
 import { Box } from '../Box';
 import { Text } from '../Text';
@@ -15,6 +16,7 @@ import { Field, FieldError, FieldHint, FieldLabel } from '../Field';
 import { Stack } from '../Stack';
 
 export const Combobox = ({
+  clearLabel,
   createMessage,
   disabled,
   hint,
@@ -31,13 +33,16 @@ export const Combobox = ({
   noOptionsMessage,
   hasMoreItems,
   children: nodes,
+  onClear,
   ...props
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [filteredNodes, setFilteredNodes] = useState(nodes);
   const [open, setOpen] = useState(false);
-  const [inputValue, setInputValue] = useState(value ? nodes.find((v) => v.value === value)?.name : '');
+  const [inputValue, setInputValue] = useState(
+    value ? nodes.find((v) => v.props.value == value.toLowerCase())?.props?.children : '',
+  );
 
   if (!label && !props['aria-label']) {
     throw new Error('The Combobox component needs a "label" or an "aria-label" props');
@@ -123,6 +128,11 @@ export const Combobox = ({
   };
 
   const onInputBlur = () => {
+    if (value && !ignoreBlur.current) {
+      const valueToSet = nodes.find((node) => node.props?.value.toLowerCase() === value.toLowerCase()).props?.children;
+      setInputValue(valueToSet);
+    }
+
     if (ignoreBlur.current) {
       ignoreBlur.current = false;
       return;
@@ -148,6 +158,7 @@ export const Combobox = ({
     const selected = filteredNodes[index];
     if (selected) {
       onChange(selected.props.value);
+      setInputValue(selected.props.children);
       return updateMenuState(false);
     }
 
@@ -164,9 +175,12 @@ export const Combobox = ({
 
   const filteredNodesClone = Children.toArray(filteredNodes).map((node, i) => {
     const isActive = activeIndex === i;
+
     return cloneElement(node, {
-      id: `${generatedId}-options-${i}`,
-      'aria-selected': selectedIndex === i ? 'true' : false,
+      id: `${generatedId}-${i}`,
+      'aria-selected': selectedIndex === i ? true : false,
+      'aria-posinset': i + 1,
+      'aria-setsize': Children.toArray(filteredNodes).length,
       ref: (r) => {
         if (isActive) activeOptionRef.current = r;
       },
@@ -176,42 +190,85 @@ export const Combobox = ({
     });
   });
 
+  const handleClear = () => {
+    inputRef.current.focus();
+
+    if (onClear) {
+      onClear();
+    }
+
+    setInputValue('');
+  };
+
+  const handleCaretClick = () => {
+    inputRef.current.focus();
+    updateMenuState(true);
+  };
+
   return (
     <Field hint={hint} error={error} id={generatedId}>
       <Stack size={label || hint || error ? 1 : 0}>
         {label && <FieldLabel id={labelId}>{label}</FieldLabel>}
         <MainRow ref={containerRef} $disabled={disabled} hasError={error}>
-          <Input
-            id={generatedId}
-            aria-activedescendant={activeId}
-            aria-autocomplete="list"
-            aria-controls={`${generatedId}-listbox`}
-            aria-expanded={`${open}`}
-            aria-haspopup="listbox"
-            aria-describedby={label ? labelId : undefined}
-            aria-disabled={disabled}
-            readOnly={disabled}
-            ref={inputRef}
-            role="combobox"
-            type="text"
-            value={inputValue}
-            onBlur={disabled ? undefined : onInputBlur}
-            onClick={disabled ? undefined : () => updateMenuState(true)}
-            onInput={disabled ? undefined : onInput}
-            onKeyDown={disabled ? undefined : onInputKeyDown}
-            placeholder={placeholder}
-            {...props}
-          />
+          {disabled ? (
+            <Input
+              id={generatedId}
+              aria-activedescendant={activeId}
+              aria-autocomplete="list"
+              aria-controls={`${generatedId}-listbox`}
+              aria-expanded={open}
+              aria-haspopup="listbox"
+              aria-labelledby={label ? labelId : undefined}
+              aria-disabled
+              readOnly
+              ref={inputRef}
+              role="combobox"
+              type="text"
+              value={inputValue}
+              placeholder={placeholder}
+              {...props}
+            />
+          ) : (
+            <Input
+              id={generatedId}
+              aria-activedescendant={activeId}
+              aria-autocomplete="list"
+              aria-controls={`${generatedId}-listbox`}
+              aria-expanded={open}
+              aria-haspopup="listbox"
+              aria-labelledby={label ? labelId : undefined}
+              ref={inputRef}
+              role="combobox"
+              type="text"
+              value={inputValue}
+              onBlur={onInputBlur}
+              onClick={() => updateMenuState(true)}
+              onInput={onInput}
+              onKeyDown={onInputKeyDown}
+              placeholder={placeholder}
+              {...props}
+            />
+          )}
           <Row>
+            {inputValue && (
+              <IconBox
+                id={`${generatedId}-clear`}
+                aria-label={clearLabel}
+                disabled={disabled}
+                paddingLeft={3}
+                aria-hidden
+                as="button"
+                onClick={handleClear}
+              >
+                <CloseAlertIcon />
+              </IconBox>
+            )}
             <CaretBox
               disabled={disabled}
               paddingLeft={3}
               aria-hidden
               as="button"
-              onClick={() => {
-                inputRef.current.focus();
-                updateMenuState(true);
-              }}
+              onClick={handleCaretClick}
               tabIndex={-1}
             >
               <DropdownIcon />
@@ -223,13 +280,19 @@ export const Combobox = ({
       </Stack>
       {open && (
         <Popover
+          id={`${generatedId}-popover`}
           source={containerRef}
           spacing={4}
           fullWidth
           intersectionId={`${generatedId}-listbox-popover-intersection`}
           onReachEnd={hasMoreItems && !loading ? onLoadMore : undefined}
         >
-          <div role="listbox" ref={listboxRef} id={`${generatedId}-listbox`}>
+          <div
+            role="listbox"
+            ref={listboxRef}
+            id={`${generatedId}-listbox`}
+            aria-labelledby={label ? labelId : undefined}
+          >
             {Boolean(filteredNodes.length) ? (
               filteredNodesClone
             ) : creatable ? (
@@ -268,16 +331,18 @@ export const CreatableCombobox = (props) => <Combobox {...props} creatable />;
 
 Combobox.defaultProps = CreatableCombobox.defaultProps = {
   'aria-label': undefined,
-  label: undefined,
+  clearLabel: 'clear',
+  creatable: false,
   createMessage: (value) => `Create "${value}"`,
   disabled: false,
-  hint: undefined,
   error: undefined,
+  hasMoreItems: false,
+  hint: undefined,
+  label: undefined,
   loading: false,
   loadingMessage: 'Loading content...',
-  hasMoreItems: false,
-  creatable: false,
   noOptionsMessage: () => 'No results found',
+  onClear: undefined,
   onCreateOption: undefined,
   onLoadMore: undefined,
   placeholder: 'Select or enter a value',
@@ -286,6 +351,7 @@ Combobox.defaultProps = CreatableCombobox.defaultProps = {
 Combobox.propTypes = {
   'aria-label': PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+  clearLabel: PropTypes.string,
   creatable: PropTypes.bool,
   createMessage: PropTypes.func,
   disabled: PropTypes.bool,
@@ -297,6 +363,7 @@ Combobox.propTypes = {
   loadingMessage: PropTypes.string,
   noOptionsMessage: PropTypes.func,
   onChange: PropTypes.func.isRequired,
+  onClear: PropTypes.func,
   onCreateOption: PropTypes.func,
   onLoadMore: PropTypes.func,
   placeholder: PropTypes.string,
