@@ -3,12 +3,11 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { ArgsTable } from '@storybook/addon-docs';
 import { Breadcrumbs, Crumb } from './Breadcrumbs';
+import { Stack } from '../Stack';
 import { Text } from '../Text';
+import Ct from '@strapi/icons/Ct';
 
-<Meta
-  title="Design System/Components/Breadcrumbs"
-  component={Breadcrumbs}
-/>
+<Meta title="Design System/Components/Breadcrumbs" component={Breadcrumbs} />
 
 # Breadcrumbs
 
@@ -18,7 +17,7 @@ Breadcrumbs are a visual information that inform users of their navigation.
 
 - Use breadcrumbs whenever a long path to achieve an action is required.
 - Use breadcrumbs in modal's headers.
-- Using breadcrumbs in a page or a form is *not* a consistent experience.
+- Using breadcrumbs in a page or a form is _not_ a consistent experience.
 
 [View source](https://github.com/strapi/parts/tree/develop/packages/strapi-parts/src/Breadcrumbs)
 
@@ -34,10 +33,13 @@ Breadcrumbs are visual information only and cannot be navigated. They are mostly
 
 <Canvas>
   <Story name="base">
-    <Breadcrumbs label='Category model, name field'>
-      <Crumb>Category</Crumb>
-      <Crumb>Name</Crumb>
-    </Breadcrumbs>
+    <Stack horizontal size={3}>
+      <Ct />
+      <Breadcrumbs label="Category model, name field">
+        <Crumb>Category</Crumb>
+        <Crumb>Name</Crumb>
+      </Breadcrumbs>
+    </Stack>
   </Story>
 </Canvas>
 
