@@ -14,7 +14,7 @@ export const Tabs = ({ children, ...props }) => {
     cloneElement(node, {
       id: `${id}-${index}`,
       selected: index === selectedTabIndex,
-      onClick: () => selectTabIndex(index),
+      onTabClick: () => selectTabIndex(index),
       variant,
     }),
   );
@@ -78,9 +78,17 @@ Tabs.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export const Tab = ({ selected, id, children, variant, hasError, ...props }) => {
+export const Tab = ({ selected, id, children, variant, hasError, onClick, onTabClick, ...props }) => {
   const tabId = `${id}-tab`;
   const tabPanelId = `${id}-tabpanel`;
+
+  const handleClick = (e) => {
+    onTabClick(e);
+
+    if (onClick) {
+      onClick(e);
+    }
+  };
 
   if (variant === 'simple') {
     let textColor;
@@ -101,6 +109,7 @@ export const Tab = ({ selected, id, children, variant, hasError, ...props }) => 
         tabIndex={selected ? 0 : -1}
         aria-selected={selected}
         type="button"
+        onClick={handleClick}
         {...props}
       >
         <SimpleTabBox padding={4} selected={selected} hasError={hasError}>
@@ -122,6 +131,7 @@ export const Tab = ({ selected, id, children, variant, hasError, ...props }) => 
       aria-controls={selected ? tabPanelId : undefined}
       tabIndex={selected ? 0 : -1}
       aria-selected={selected}
+      onClick={handleClick}
       {...props}
     >
       <DefaultTabBox padding={selected ? 4 : 3} background={selected ? 'neutral0' : 'neutral100'} selected={selected}>
@@ -134,6 +144,8 @@ export const Tab = ({ selected, id, children, variant, hasError, ...props }) => 
 Tab.defaultProps = {
   selected: false,
   id: undefined,
+  onClick: undefined,
+  onTabClick: undefined,
   variant: undefined,
   hasError: false,
 };
@@ -142,6 +154,8 @@ Tab.propTypes = {
   children: PropTypes.node.isRequired,
   hasError: PropTypes.bool,
   id: PropTypes.string,
+  onClick: PropTypes.func,
+  onTabClick: PropTypes.func,
   selected: PropTypes.bool,
   variant: PropTypes.oneOf(['simple']),
 };
