@@ -19,7 +19,9 @@ const ToggleCheckboxWrapper = styled(Box)`
   display: inline-flex;
   // Masks the background of each value
   overflow: hidden;
-
+  &:hover {
+    cursor: pointer;
+  }
   ${inputFocusStyle()}
 `;
 
