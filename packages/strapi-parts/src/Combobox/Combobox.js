@@ -36,13 +36,14 @@ export const Combobox = ({
   onClear,
   ...props
 }) => {
+  const getInputValueFromNodes = () =>
+    nodes.find((node) => node.props?.value.toLowerCase() === value.toLowerCase()).props?.children;
+
   const [activeIndex, setActiveIndex] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [filteredNodes, setFilteredNodes] = useState(nodes);
   const [open, setOpen] = useState(false);
-  const [inputValue, setInputValue] = useState(
-    value ? nodes.find((v) => v.props.value == value.toLowerCase())?.props?.children : '',
-  );
+  const [inputValue, setInputValue] = useState(value ? getInputValueFromNodes() : '');
 
   if (!label && !props['aria-label']) {
     throw new Error('The Combobox component needs a "label" or an "aria-label" props');
@@ -129,7 +130,7 @@ export const Combobox = ({
 
   const onInputBlur = () => {
     if (value && !ignoreBlur.current) {
-      const valueToSet = nodes.find((node) => node.props?.value.toLowerCase() === value.toLowerCase()).props?.children;
+      const valueToSet = getInputValueFromNodes();
       setInputValue(valueToSet);
     }
 
@@ -210,45 +211,26 @@ export const Combobox = ({
       <Stack size={label || hint || error ? 1 : 0}>
         {label && <FieldLabel id={labelId}>{label}</FieldLabel>}
         <MainRow ref={containerRef} $disabled={disabled} hasError={error}>
-          {disabled ? (
-            <Input
-              id={generatedId}
-              aria-activedescendant={activeId}
-              aria-autocomplete="list"
-              aria-controls={`${generatedId}-listbox`}
-              aria-expanded={open}
-              aria-haspopup="listbox"
-              aria-labelledby={label ? labelId : undefined}
-              aria-disabled
-              readOnly
-              ref={inputRef}
-              role="combobox"
-              type="text"
-              value={inputValue}
-              placeholder={placeholder}
-              {...props}
-            />
-          ) : (
-            <Input
-              id={generatedId}
-              aria-activedescendant={activeId}
-              aria-autocomplete="list"
-              aria-controls={`${generatedId}-listbox`}
-              aria-expanded={open}
-              aria-haspopup="listbox"
-              aria-labelledby={label ? labelId : undefined}
-              ref={inputRef}
-              role="combobox"
-              type="text"
-              value={inputValue}
-              onBlur={onInputBlur}
-              onClick={() => updateMenuState(true)}
-              onInput={onInput}
-              onKeyDown={onInputKeyDown}
-              placeholder={placeholder}
-              {...props}
-            />
-          )}
+          <Input
+            aria-activedescendant={activeId}
+            aria-autocomplete="list"
+            aria-controls={`${generatedId}-listbox`}
+            aria-disabled={disabled}
+            aria-expanded={open}
+            aria-haspopup="listbox"
+            aria-labelledby={label ? labelId : undefined}
+            id={generatedId}
+            onBlur={disabled ? undefined : onInputBlur}
+            onClick={disabled ? undefined : () => updateMenuState(true)}
+            onInput={disabled ? undefined : onInput}
+            onKeyDown={disabled ? undefined : onInputKeyDown}
+            placeholder={placeholder}
+            readOnly={disabled}
+            ref={inputRef}
+            role="combobox"
+            type="text"
+            value={inputValue}
+          />
           <Row>
             {inputValue && (
               <IconBox
