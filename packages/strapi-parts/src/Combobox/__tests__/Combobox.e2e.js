@@ -67,11 +67,11 @@ describe('Combobox', () => {
   });
 });
 
-describe('Combobox - creatable', () => {
+describe('Combobox - initial data', () => {
   beforeEach(async () => {
     // This is the URL of the Storybook Iframe
     await page.goto(
-      'http://localhost:6006/iframe.html?id=design-system-components-combobox--creatable&globals=&viewMode=story',
+      'http://localhost:6006/iframe.html?id=design-system-components-combobox--initial-data&args=&viewMode=story',
     );
     await injectAxe(page);
   });
@@ -80,14 +80,36 @@ describe('Combobox - creatable', () => {
     await checkA11y(page);
   });
 
-  it('Create a new item', async () => {
-    await page.fill('input', 'Apple Pie');
-    const content = await page.textContent('[role="option"]');
-    await expect(content).toBe('Create "Apple Pie"');
-
-    await page.click('[role="option"]');
-
+  it('initialize the value and clear it', async () => {
     const inputValue = await page.getAttribute('input', 'value');
-    await expect(inputValue).toBe('Apple Pie');
+    await expect(inputValue).toBe('Tartuffo');
+    await page.click('#combobox-1-clear');
+    const newValue = await page.getAttribute('input', 'value');
+    await expect(newValue).toBe('');
   });
 });
+
+// describe('Combobox - creatable', () => {
+//   beforeEach(async () => {
+//     // This is the URL of the Storybook Iframe
+//     await page.goto(
+//       'http://localhost:6006/iframe.html?id=design-system-components-combobox--creatable&globals=&viewMode=story',
+//     );
+//     await injectAxe(page);
+//   });
+
+//   it('triggers axe on the document', async () => {
+//     await checkA11y(page);
+//   });
+
+//   it('Create a new item', async () => {
+//     await page.fill('input', 'Apple Pie');
+//     const content = await page.textContent('[role="option"]');
+//     await expect(content).toBe('Create "Apple Pie"');
+
+//     await page.click('[role="option"]');
+
+//     const inputValue = await page.getAttribute('input', 'value');
+//     await expect(inputValue).toBe('Apple Pie');
+//   });
+// });

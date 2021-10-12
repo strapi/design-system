@@ -30,21 +30,13 @@ export const TreeActions = {
 // filter an array of options against an input string
 // returns an array of options that begin with the filter string, case-independent
 export function filterOptions(options = [], filter, exclude = []) {
-  return options.filter((option) => {
-    const matches = option.props.children.toLowerCase().indexOf(filter.toLowerCase()) === 0;
-    return matches && exclude.indexOf(option) < 0;
-  });
-}
-
-// return an array of exact option name matches from a comma-separated string
-export function findMatches(options, search) {
-  const names = search.split(',');
-  return names
-    .map((name) => {
-      const match = options.filter((option) => name.trim().toLowerCase() === option.name.toLowerCase());
-      return match.length > 0 ? match[0] : null;
-    })
-    .filter((option) => option !== null);
+  return filter
+    ? options.filter((option) => {
+        const optionChildren = option.props.children.toString();
+        const matches = optionChildren.toLowerCase().indexOf(filter.toString().toLowerCase()) === 0;
+        return matches && exclude.indexOf(option) < 0;
+      })
+    : options;
 }
 
 // return combobox action from key press
@@ -71,12 +63,6 @@ export function getActionFromKey(key, menuOpen) {
   }
 }
 
-// get index of option that matches a string
-export function getIndexByLetter(options, filter) {
-  const firstMatch = filterOptions(options, filter)[0];
-  return firstMatch ? options.indexOf(firstMatch) : -1;
-}
-
 // get updated option index
 export function getUpdatedIndex(current, max, action) {
   switch (action) {
@@ -91,11 +77,6 @@ export function getUpdatedIndex(current, max, action) {
     default:
       return current;
   }
-}
-
-// check if an element is currently scrollable
-export function isScrollable(element) {
-  return element && element.clientHeight < element.scrollHeight;
 }
 
 // ensure given child element is within the parent's visible scroll area

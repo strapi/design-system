@@ -2,6 +2,7 @@
 
 import { useState, useRef } from 'react';
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import DeleteIcon from '@strapi/icons/DeleteIcon';
 import { Combobox, CreatableCombobox } from './Combobox';
 import { ComboboxOption } from './ComboboxOption';
 
@@ -87,160 +88,20 @@ This is the doc of the `Combobox` component
   </Story>
 </Canvas>
 
-## Creatable
+## Initial data
 
 This is the doc of the `Combobox` component
 
 <Canvas>
-  <Story name="creatable">
+  <Story name="initial-data">
     {() => {
-      const [value, setValue] = useState('');
-      const [options, setOptions] = useState([
-        {
-          name: 'Hamburger',
-          value: 'hamburger',
-        },
-        {
-          name: 'Sandwich',
-          value: 'sandwich',
-        },
-        {
-          name: 'Peperroni',
-          value: 'peperroni',
-        },
-        {
-          name: 'Asparagus',
-          value: 'asparagus',
-        },
-        {
-          name: 'Lettuce',
-          value: 'lettuce',
-        },
-        {
-          name: 'Tomato',
-          value: 'tomato',
-        },
-        {
-          name: 'Bagel',
-          value: 'bagel',
-        },
-        {
-          name: 'Tartuffo',
-          value: 'tartuffo',
-        },
-        {
-          name: 'Carbonara',
-          value: 'carbonara',
-        },
-      ]);
-      const onCreateOption = (value) => {
-        setOptions((opt) => [...opt, { name: value, value }]);
-        setValue(value);
-      };
+      const [value, setValue] = useState('tartuffo');
       return (
-        <CreatableCombobox label="Food" value={value} onChange={setValue} onCreateOption={onCreateOption}>
-          {options.map(({ name, value }) => (
-            <ComboboxOption key={value} value={value}>
-              {name}
-            </ComboboxOption>
-          ))}
-        </CreatableCombobox>
-      );
-    }}
-  </Story>
-</Canvas>
-
-## Loading
-
-<Canvas>
-  <Story name="loading">
-    {() => {
-      return <Combobox label="Food" loading value="" onChange={() => {}}></Combobox>;
-    }}
-  </Story>
-</Canvas>
-
-## Infinite scroll
-
-This is the doc of the `Combobox` component
-
-<Canvas>
-  <Story name="infinite-scroll">
-    {() => {
-      const [value, setValue] = useState('');
-      const defaultOptions = [
-        {
-          name: 'Hamburger',
-          value: 'hamburger',
-        },
-        {
-          name: 'Sandwich',
-          value: 'sandwich',
-        },
-        {
-          name: 'Peperroni',
-          value: 'peperroni',
-        },
-        {
-          name: 'Asparagus',
-          value: 'asparagus',
-        },
-        {
-          name: 'Lettuce',
-          value: 'lettuce',
-        },
-        {
-          name: 'Tomato',
-          value: 'tomato',
-        },
-        {
-          name: 'Bagel',
-          value: 'bagel',
-        },
-        {
-          name: 'Tartuffo',
-          value: 'tartuffo',
-        },
-        {
-          name: 'Carbonara',
-          value: 'carbonara',
-        },
-      ];
-      const [options, setOptions] = useState(defaultOptions);
-      const i = useRef(0);
-      const [isLoading, setIsLoading] = useState(false);
-      const [hasMoreItems, setHasMoreItems] = useState(true);
-      const loadMore = () => {
-        setIsLoading(true);
-        return new Promise((resolve) => {
-          setTimeout(() => {
-            resolve();
-            setOptions((opts) => [
-              ...opts,
-              ...defaultOptions.map((v) => ({ name: v.name + i.current, value: v.value + i.current })),
-            ]);
-            setIsLoading(false);
-            if (i.current === 2) {
-              setHasMoreItems(false);
-            }
-            i.current++;
-          }, 2000);
-        });
-      };
-      return (
-        <Combobox
-          label="Food"
-          value={value}
-          onChange={setValue}
-          hasMoreItems={hasMoreItems}
-          loading={isLoading}
-          onLoadMore={loadMore}
-        >
-          {options.map(({ name, value }) => (
-            <ComboboxOption key={value} value={value}>
-              {name}
-            </ComboboxOption>
-          ))}
+        <Combobox label="Food" value={value} onChange={setValue}>
+          <ComboboxOption value="hamburger">Hamburger</ComboboxOption>
+          <ComboboxOption value="bagel">Bagel</ComboboxOption>
+          <ComboboxOption value="tartuffo">Tartuffo</ComboboxOption>
+          <ComboboxOption value="carbonara">Carbonara</ComboboxOption>
         </Combobox>
       );
     }}
