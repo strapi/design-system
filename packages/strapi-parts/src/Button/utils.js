@@ -42,6 +42,12 @@ export const getHoverStyle = ({ theme, variant }) => {
     `;
   }
 
+  if (variant === 'ghost') {
+    return `
+      background-color: ${theme.colors.neutral100};
+    `;
+  }
+
   return `
     border: 1px solid ${theme.colors[`${getVariantColorName(variant)}500`]};
     background: ${theme.colors[`${getVariantColorName(variant)}500`]};
@@ -106,6 +112,22 @@ export const getVariantStyle = ({ theme, variant }) => {
             }
           }
         `;
+    }
+    case 'ghost': {
+      return `
+        border: 1px solid transparent;
+        background: transparent;
+
+        ${Text} {
+          color: ${theme.colors.neutral800};
+        }
+
+        svg {
+          > g, path {
+            fill: ${theme.colors.neutral500};
+          }
+        }
+      `;
     }
     default: {
       return `
