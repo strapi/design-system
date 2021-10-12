@@ -67,6 +67,7 @@ export const SubNavHeader = ({ as, label, searchLabel, searchable, onChange, val
             ref={searchRef}
             onBlur={handleBlur}
             onClear={handleClear}
+            onSubmit={(e) => e.preventDefault()}
             clearLabel="Clear"
             size="S"
           >
