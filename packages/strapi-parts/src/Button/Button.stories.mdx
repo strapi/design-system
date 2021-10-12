@@ -96,11 +96,13 @@ You can set the value to `default`, `secondary`, `tertiary`, `success`, `danger`
     }}
   >
     <Stack size={2} horizontal>
-      {['default', 'secondary', 'tertiary', 'success', 'danger', 'success-light', 'danger-light'].map((variant) => (
-        <Button onClick={(e) => console.log(e)} variant={variant} key={variant}>
-          {variant}
-        </Button>
-      ))}
+      {['default', 'secondary', 'tertiary', 'success', 'danger', 'success-light', 'danger-light', 'ghost'].map(
+        (variant) => (
+          <Button onClick={(e) => console.log(e)} variant={variant} key={variant}>
+            {variant}
+          </Button>
+        ),
+      )}
     </Stack>
   </Story>
 </Canvas>

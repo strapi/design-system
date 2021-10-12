@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import FilterDropdown from '@strapi/icons/FilterDropdown';
 import { NavLink } from 'react-router-dom';
-import { ButtonText, Text } from '../Text';
+import { Text } from '../Text';
 import { Box } from '../Box';
 import { Row } from '../Row';
+import { Button } from '../Button';
 import { Popover } from '../Popover';
 import { getOptionStyle } from './utils';
 import { useId } from '../helpers/useId';
@@ -18,21 +19,18 @@ const OptionButton = styled.button`
   cursor: pointer;
   ${getOptionStyle}
 `;
+
 const OptionLink = styled(NavLink)`
   text-decoration: none;
   ${getOptionStyle}
 `;
-const MenuButton = styled.button`
-  border: none;
-  background: transparent;
+
+const IconWrapper = styled.span`
   display: flex;
   align-items: center;
-  font-size: ${12 / 16}rem;
   svg {
-    height: ${4 / 16}rem;
-    path {
-      fill: ${({ theme }) => theme.colors.neutral500};
-    }
+    height: 4px;
+    width: 6px;
   }
 `;
 
@@ -90,12 +88,13 @@ MenuItem.propTypes = {
   to: PropTypes.string,
 };
 
-export const SimpleMenu = ({ label, children, id, ...props }) => {
+export const SimpleMenu = ({ label, children, id, as: asComp, ...props }) => {
   const menuButtonRef = useRef();
   const menuId = useId('simplemenu', id);
   const [visible, setVisible] = useState(false);
   const [focusedItemIndex, setFocusItem] = useState(0);
   const childrenArray = Children.toArray(children);
+  const Component = asComp || Button;
 
   useEffect(() => {
     // Useful to focus the selected item in the list
@@ -151,7 +150,8 @@ export const SimpleMenu = ({ label, children, id, ...props }) => {
 
   return (
     <div onKeyDown={handleWrapperKeyDown}>
-      <MenuButton
+      <Component
+        label={label}
         aria-haspopup
         aria-expanded={visible}
         aria-controls={menuId}
@@ -159,13 +159,16 @@ export const SimpleMenu = ({ label, children, id, ...props }) => {
         onMouseDown={handleMenuButtonMouseDown}
         ref={menuButtonRef}
         type="button"
+        variant="ghost"
+        endIcon={
+          <IconWrapper>
+            <FilterDropdown aria-hidden />
+          </IconWrapper>
+        }
         {...props}
       >
-        <Box paddingRight={1}>
-          <ButtonText>{label}</ButtonText>
-        </Box>
-        <FilterDropdown aria-hidden />
-      </MenuButton>
+        {label}
+      </Component>
       {visible && (
         <Popover onBlur={handleBlur} source={menuButtonRef} spacing={4}>
           <Box role="menu" as="ul" padding={1} id={menuId}>
@@ -177,10 +180,16 @@ export const SimpleMenu = ({ label, children, id, ...props }) => {
   );
 };
 
+SimpleMenu.defaultProps = {
+  as: undefined,
+};
+
 SimpleMenu.displayName = 'SimpleMenu';
 
 const menuItemType = PropTypes.shape({ type: PropTypes.oneOf([MenuItem]) });
+
 SimpleMenu.propTypes = {
+  as: PropTypes.any,
   children: PropTypes.oneOfType([PropTypes.arrayOf(menuItemType), menuItemType]).isRequired,
   id: PropTypes.string,
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
