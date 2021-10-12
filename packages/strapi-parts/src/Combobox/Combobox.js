@@ -238,7 +238,6 @@ export const Combobox = ({
                 aria-label={clearLabel}
                 disabled={disabled}
                 paddingLeft={3}
-                aria-hidden
                 as="button"
                 onClick={handleClear}
               >

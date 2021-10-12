@@ -7437,7 +7437,6 @@ exports[`Storyshots Design System/Components/Combobox initial-data 1`] = `
           class="c3"
         >
           <button
-            aria-hidden="true"
             aria-label="clear"
             class="c6 c7"
             id="combobox-19-clear"
