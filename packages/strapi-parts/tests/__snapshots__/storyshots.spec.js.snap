@@ -23066,6 +23066,7 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
               aria-hidden="true"
               class="c10"
               tabindex="-1"
+              type="button"
             >
               <svg
                 fill="none"
@@ -23086,6 +23087,7 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
               aria-hidden="true"
               class="c11"
               tabindex="-1"
+              type="button"
             >
               <svg
                 fill="none"
@@ -23395,6 +23397,7 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
               aria-hidden="true"
               class="c10"
               tabindex="-1"
+              type="button"
             >
               <svg
                 fill="none"
@@ -23415,6 +23418,7 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
               aria-hidden="true"
               class="c11"
               tabindex="-1"
+              type="button"
             >
               <svg
                 fill="none"
@@ -23664,6 +23668,7 @@ exports[`Storyshots Design System/Components/NumberInput withoutLabel 1`] = `
               aria-hidden="true"
               class="c7"
               tabindex="-1"
+              type="button"
             >
               <svg
                 fill="none"
@@ -23684,6 +23689,7 @@ exports[`Storyshots Design System/Components/NumberInput withoutLabel 1`] = `
               aria-hidden="true"
               class="c8"
               tabindex="-1"
+              type="button"
             >
               <svg
                 fill="none"

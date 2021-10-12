@@ -120,10 +120,10 @@ export const NumberInput = React.forwardRef(
             size={size}
             endAction={
               <>
-                <ArrowButton aria-hidden reverse onClick={increment} tabIndex={-1}>
+                <ArrowButton aria-hidden reverse onClick={increment} tabIndex={-1} type="button">
                   <FilterDropdownIcon />
                 </ArrowButton>
-                <ArrowButton aria-hidden onClick={decrement} tabIndex={-1}>
+                <ArrowButton aria-hidden onClick={decrement} tabIndex={-1} type="button">
                   <FilterDropdownIcon />
                 </ArrowButton>
               </>
