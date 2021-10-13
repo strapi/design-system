@@ -14,8 +14,10 @@ import { Loader } from '../Loader/Loader';
 import { Input, MainRow, OptionBox } from './components';
 import { Field, FieldError, FieldHint, FieldLabel } from '../Field';
 import { Stack } from '../Stack';
+import { KeyboardKeys } from '../helpers/keyboardKeys';
 
 export const Combobox = ({
+  backspaceToClear,
   clearLabel,
   createMessage,
   disabled,
@@ -87,6 +89,11 @@ export const Combobox = ({
 
   const activeId = open ? `${generatedId}-${activeIndex}` : '';
 
+  const clearCombobox = () => {
+    onChange(null);
+    setInputValue('');
+  };
+
   const onInput = () => {
     const curValue = inputRef.current.value;
     setFilteredNodes(filterOptions(nodes, curValue));
@@ -107,12 +114,15 @@ export const Combobox = ({
     const max = filteredNodes.length - 1;
     const action = getActionFromKey(key, open);
 
+    if (value && key === KeyboardKeys.BACKSPACE && backspaceToClear) {
+      clearCombobox();
+    }
+
     switch (action) {
       case MenuActions.Next:
       case MenuActions.Last:
       case MenuActions.First:
       case MenuActions.Previous:
-        event.preventDefault();
         return onOptionChange(getUpdatedIndex(activeIndex, max, action));
       case MenuActions.CloseSelect:
         event.preventDefault();
@@ -198,7 +208,7 @@ export const Combobox = ({
       onClear();
     }
 
-    setInputValue('');
+    clearCombobox();
   };
 
   const handleCaretClick = () => {
@@ -228,6 +238,7 @@ export const Combobox = ({
             readOnly={disabled}
             ref={inputRef}
             role="combobox"
+            autocomplete="nope"
             type="text"
             value={inputValue}
           />
@@ -312,6 +323,7 @@ export const CreatableCombobox = (props) => <Combobox {...props} creatable />;
 
 Combobox.defaultProps = CreatableCombobox.defaultProps = {
   'aria-label': undefined,
+  backspaceToClear: true,
   clearLabel: 'clear',
   creatable: false,
   createMessage: (value) => `Create "${value}"`,
@@ -327,10 +339,12 @@ Combobox.defaultProps = CreatableCombobox.defaultProps = {
   onCreateOption: undefined,
   onLoadMore: undefined,
   placeholder: 'Select or enter a value',
+  value: undefined,
 };
 
 Combobox.propTypes = {
   'aria-label': PropTypes.string,
+  backspaceToClear: PropTypes.bool,
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
   clearLabel: PropTypes.string,
   creatable: PropTypes.bool,
@@ -348,7 +362,7 @@ Combobox.propTypes = {
   onCreateOption: PropTypes.func,
   onLoadMore: PropTypes.func,
   placeholder: PropTypes.string,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
 };
 
 CreatableCombobox.propTypes = {
