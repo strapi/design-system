@@ -20,7 +20,6 @@
     "start:example": "yarn --cwd ./packages/cra-example start",
     "storybook": "lerna run storybook --stream",
     "test:example": "yarn --cwd example test --watchAll=false",
-    "test:e2e:ci": "lerna run test:e2e:ci",
     "test:e2e": "lerna run test:e2e --stream",
     "test": "lerna run test --stream",
     "release": "lerna version --no-push --no-git-tag-version && yarn setup && git commit -am \"Releasing\" && lerna publish from-package --contents dist"

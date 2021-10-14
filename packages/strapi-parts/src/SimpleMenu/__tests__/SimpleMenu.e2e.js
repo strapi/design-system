@@ -1,73 +1,71 @@
-import { injectAxe, checkA11y, getViolations } from 'axe-playwright';
+const { test, expect } = require('@playwright/test');
+const { checkA11y, injectAxe, configureAxe } = require('axe-playwright');
 
-describe('SimpleMenu', () => {
-  describe('base', () => {
-    beforeEach(async () => {
+test.describe('SimpleMenu', () => {
+  test.describe('base', () => {
+    test.beforeEach(async ({ page }) => {
       // This is the URL of the Storybook Iframe
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-components-simplemenu--base&viewMode=story');
-      await injectAxe(page);
+      await page.goto('/iframe.html?id=design-system-components-simplemenu--base&viewMode=story');
     });
 
-    it('triggers axe on the document', async () => {
+    test('triggers axe on the document', async ({ page }) => {
+      await injectAxe(page);
       await checkA11y(page);
     });
 
-    it('triggers axe on the document when the menu is opened', async () => {
+    test('triggers axe on the document when the menu is opened', async ({ page }) => {
       await page.click('button');
 
-      await expect(page).toHaveSelector('[role="menu"]');
+      await expect(page.locator('[role="menu"]')).not.toHaveCount(0);
 
-      const violations = await getViolations(page);
-
+      await injectAxe(page);
       // Axe throws an error because the portal is not wrapped by a region.
-      const realViolations = violations
-        .filter((violation) => violation.id !== 'region')
-        .filter((violation) => violation.id !== 'aria-required-parent');
-
-      console.log('realViolations', realViolations);
-
-      expect(realViolations.length).toBe(0);
+      await configureAxe(page, {
+        rules: [
+          { id: 'region', enabled: false },
+          { id: 'aria-required-parent', enabled: false },
+        ],
+      });
+      await checkA11y(page);
     });
 
-    it.each(['Enter', 'Space'])('select the second value of the menu', async (keyPressed) => {
-      await page.focus('button');
-      await page.keyboard.press(keyPressed);
-      await page.keyboard.press('ArrowDown');
-      await page.keyboard.press(keyPressed);
+    ['Enter', 'Space'].forEach((key) => {
+      test(`selects the second value of the menu when pressing ${key}`, async ({ page }) => {
+        await page.focus('button');
+        await page.keyboard.press(key);
+        await page.keyboard.press('ArrowDown');
+        await page.keyboard.press(key);
 
-      const label = await page.textContent('button');
-      expect(label).toBe('February');
+        await expect(page.locator('button')).toHaveText('February');
+      });
     });
   });
 
-  describe('with links', () => {
-    beforeEach(async () => {
+  test.describe('with links', () => {
+    test.beforeEach(async ({ page }) => {
       // This is the URL of the Storybook Iframe
-      await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-components-simplemenu--with-links&viewMode=story',
-      );
-      await injectAxe(page);
+      await page.goto('/iframe.html?id=design-system-components-simplemenu--with-links&viewMode=story');
     });
 
-    it('triggers axe on the document', async () => {
+    test('triggers axe on the document', async ({ page }) => {
+      await injectAxe(page);
       await checkA11y(page);
     });
 
-    it('triggers axe on the document when the menu is opened', async () => {
+    test('triggers axe on the document when the menu is opened', async ({ page }) => {
       await page.click('button');
 
-      await expect(page).toHaveSelector('[role="menu"]');
+      await expect(page.locator('[role="menu"]')).not.toHaveCount(0);
 
-      const violations = await getViolations(page);
-
+      await injectAxe(page);
       // Axe throws an error because the portal is not wrapped by a region.
-      const realViolations = violations
-        .filter((violation) => violation.id !== 'region')
-        .filter((violation) => violation.id !== 'aria-required-parent');
-
-      console.log('realViolations', realViolations);
-
-      expect(realViolations.length).toBe(0);
+      await configureAxe(page, {
+        rules: [
+          { id: 'region', enabled: false },
+          { id: 'aria-required-parent', enabled: false },
+        ],
+      });
+      await checkA11y(page);
     });
   });
 });

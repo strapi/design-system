@@ -1,91 +1,71 @@
-import { injectAxe, checkA11y } from 'axe-playwright';
+const { test, expect } = require('@playwright/test');
+const { checkA11y, injectAxe } = require('axe-playwright');
 
-describe('Combobox', () => {
-  beforeEach(async () => {
+test.describe('Combobox', () => {
+  test.beforeEach(async ({ page }) => {
     // This is the URL of the Storybook Iframe
-    await page.goto(
-      'http://localhost:6006/iframe.html?id=design-system-components-combobox--base&globals=&viewMode=story',
-    );
-    await injectAxe(page);
+    await page.goto('/iframe.html?id=design-system-components-combobox--base&globals=&viewMode=story');
   });
 
-  it('triggers axe on the document', async () => {
+  test('triggers axe on the document', async ({ page }) => {
+    await injectAxe(page);
     await checkA11y(page);
   });
 
-  it('Focus and select a value then close the combobox', async () => {
+  test('selects a value', async ({ page }) => {
     await page.click('input');
-    await expect(page).toHaveSelector('[role="listbox"]', { timeout: 300 });
+    await expect(page.locator('[role="listbox"]')).not.toHaveCount(0);
 
     await page.click('text="Tartuffo"');
-
-    const inputValue = await page.getAttribute('input', 'value');
-    await expect(inputValue).toBe('Tartuffo');
-    await expect(page).not.toHaveSelector('[role="listbox"]', { timeout: 300 });
+    await expect(page.locator('input')).toHaveValue('Tartuffo');
+    await expect(page.locator('[role="listbox"]')).toHaveCount(0);
   });
 
-  it('Select a value', async () => {
-    await page.click('input');
-    await expect(page).toHaveSelector('[role="listbox"]', { timeout: 300 });
-
-    await page.click('text="Tartuffo"');
-
-    const inputValue = await page.getAttribute('input', 'value');
-    await expect(inputValue).toBe('Tartuffo');
-    await expect(page).not.toHaveSelector('[role="listbox"]', { timeout: 300 });
-  });
-
-  it('Displays no results', async () => {
+  test('displays no results', async ({ page }) => {
     await page.fill('input', 'Apple Pie');
-    const content = await page.textContent('text="No results found"');
-    await expect(content).toBe('No results found');
+    await expect(page.locator('text="No results found"')).not.toHaveCount(0);
   });
 
-  it('Type a value', async () => {
+  test('updates according to the input value', async ({ page }) => {
     await page.fill('input', 'Hamburger');
-    let options = await page.$$('[role="option"]');
-    expect(options.length).toEqual(1);
+    await expect(page.locator('[role="option"]')).toHaveCount(1);
 
     await page.fill('input', '');
-    options = await page.$$('[role="option"]');
-    expect(options.length).toEqual(4);
+    await expect(page.locator('[role="option"]')).toHaveCount(4);
   });
 
-  it('Select with keyboard', async () => {
+  test('selects with keyboard', async ({ page }) => {
     await page.focus('input');
     await page.keyboard.press('ArrowDown');
     await page.keyboard.press('ArrowDown');
     await page.keyboard.press('ArrowDown');
-
     const ariaDescendantValue = await page.getAttribute('input', 'aria-activedescendant');
     expect(ariaDescendantValue).toBe('combobox-1-2');
 
     await page.keyboard.press('Enter');
-
-    const inputValue = await page.getAttribute('input', 'value');
-    await expect(inputValue).toBe('Tartuffo');
+    await expect(page.locator('input')).toHaveValue('Tartuffo');
   });
 });
 
-describe('Combobox - initial data', () => {
-  beforeEach(async () => {
+test.describe('Combobox - initial data', () => {
+  test.beforeEach(async ({ page }) => {
     // This is the URL of the Storybook Iframe
     await page.goto(
       'http://localhost:6006/iframe.html?id=design-system-components-combobox--initial-data&args=&viewMode=story',
     );
-    await injectAxe(page);
   });
 
-  it('triggers axe on the document', async () => {
+  test('triggers axe on the document', async ({ page }) => {
+    await injectAxe(page);
     await checkA11y(page);
   });
 
-  it('initialize the value and clear it', async () => {
+  test('initialize the value and clear it', async ({ page }) => {
     const inputValue = await page.getAttribute('input', 'value');
-    await expect(inputValue).toBe('Tartuffo');
+    expect(inputValue).toBe('Tartuffo');
     await page.click('#combobox-1-clear');
     const newValue = await page.getAttribute('input', 'value');
-    await expect(newValue).toBe('');
+    expect(newValue).toBe('');
   });
 });
 

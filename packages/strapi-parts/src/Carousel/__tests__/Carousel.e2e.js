@@ -1,31 +1,36 @@
-import { injectAxe, checkA11y } from 'axe-playwright';
+const { test, expect } = require('@playwright/test');
+const { checkA11y, injectAxe } = require('axe-playwright');
 
-describe('Carousel', () => {
-  beforeEach(async () => {
+test.describe('Carousel', () => {
+  test.beforeEach(async ({ page }) => {
     // This is the URL of the Storybook Iframe
-    await page.goto('http://localhost:6006/iframe.html?id=design-system-components-carousel--base&viewMode=story');
-    await injectAxe(page);
+    await page.goto('/iframe.html?id=design-system-components-carousel--base&viewMode=story');
   });
 
-  it('triggers axe on the document', async () => {
+  test('triggers axe on the document', async ({ page }) => {
+    await injectAxe(page);
     await checkA11y(page);
   });
 
-  describe('keyboard interactions', () => {
-    it('focuses the next button when pressing arrow right when the focus is inside the carousel', async () => {
+  test.describe('keyboard interactions', () => {
+    test('focuses the next button when pressing arrow right when the focus is inside the carousel', async ({
+      page,
+    }) => {
       await page.focus('#edit');
       await page.keyboard.press('ArrowRight');
 
       expect(await page.$('text="Carousel of numbers (2/3)"')).toBeTruthy();
-      await expect(page).toHaveFocus('[aria-label="Next slide"]');
+      await expect(page.locator('[aria-label="Next slide"]')).toBeFocused();
     });
 
-    it('focuses the previous button when pressing arrow right when the focus is inside the carousel', async () => {
+    test('focuses the previous button when pressing arrow right when the focus is inside the carousel', async ({
+      page,
+    }) => {
       await page.focus('#edit');
       await page.keyboard.press('ArrowLeft');
 
       expect(await page.$('text="Carousel of numbers (3/3)"')).toBeTruthy();
-      await expect(page).toHaveFocus('[aria-label="Previous slide"]');
+      await expect(page.locator('[aria-label="Previous slide"]')).toBeFocused();
     });
   });
 });

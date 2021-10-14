@@ -1,27 +1,26 @@
-import { injectAxe, checkA11y } from 'axe-playwright';
+const { test, expect } = require('@playwright/test');
+const { checkA11y, injectAxe } = require('axe-playwright');
 
-describe('Popover', () => {
-  describe('base', () => {
-    beforeEach(async () => {
+test.describe('Popover', () => {
+  test.describe('base', () => {
+    test.beforeEach(async ({ page }) => {
       // This is the URL of the Storybook Iframe
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-components-popover--base&viewMode=story');
-      await injectAxe(page);
+      await page.goto('/iframe.html?id=design-system-components-popover--base&viewMode=story');
     });
 
-    it('triggers axe on the document', async () => {
+    test('triggers axe on the document', async ({ page }) => {
+      await injectAxe(page);
       await checkA11y(page);
     });
   });
 
-  describe('onReachEnd', () => {
-    beforeEach(async () => {
+  test.describe('onReachEnd', () => {
+    test.beforeEach(async ({ page }) => {
       // This is the URL of the Storybook Iframe
-      await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-components-popover--on-reach-end&viewMode=story',
-      );
+      await page.goto('/iframe.html?id=design-system-components-popover--on-reach-end&viewMode=story');
     });
 
-    it('adds item when reaching the end', async () => {
+    test('adds item when reaching the end', async ({ page }) => {
       await page.focus('#popover1');
       await page.keyboard.press('Enter');
       const lis = await page.$$('#on-reach-end li');

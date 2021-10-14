@@ -1,22 +1,24 @@
-import { injectAxe, checkA11y } from 'axe-playwright';
+const { test, expect } = require('@playwright/test');
+const { checkA11y, injectAxe } = require('axe-playwright');
 
-describe('DatePicker', () => {
-  beforeEach(async () => {
+test.describe('DatePicker', () => {
+  test.beforeEach(async ({ page }) => {
     // This is the URL of the Storybook Iframe
-    await page.goto('http://localhost:6006/iframe.html?id=design-system-components-datepicker--base&viewMode=story');
+    await page.goto('/iframe.html?id=design-system-components-datepicker--base&viewMode=story');
+  });
+
+  test('triggers axe on the document', async ({ page }) => {
     await injectAxe(page);
-  });
-
-  it('triggers axe on the document', async () => {
     await checkA11y(page);
   });
 
-  it('triggers axe on the document with the dropdown open', async () => {
+  test('triggers axe on the document with the dropdown open', async ({ page }) => {
     await page.click('input');
+    await injectAxe(page);
     await checkA11y(page);
   });
 
-  it('selects a value and closes the dialog', async () => {
+  test('selects a value and closes the dialog', async ({ page }) => {
     await page.click('input');
     expect(await page.$('[role="dialog"]')).toBeTruthy();
 
@@ -33,7 +35,9 @@ describe('DatePicker', () => {
     expect(await page.$('[role="dialog"]')).toBeFalsy();
   });
 
-  it('clears the input and sends the focus back to the calendar button when pressing the clear button', async () => {
+  test('clears the input and sends the focus back to the calendar button when pressing the clear button', async ({
+    page,
+  }) => {
     await page.click('input');
     expect(await page.$('[role="dialog"]')).toBeTruthy();
 
@@ -46,6 +50,6 @@ describe('DatePicker', () => {
     await page.click('[aria-label="Clear the datepicker"]');
     const value = await page.$eval('input', (el) => el.value);
     expect(value).toBe('');
-    await expect(page).toHaveFocus('[aria-label="Date picker"]');
+    await expect(page.locator('[aria-label="Date picker"]')).toBeFocused();
   });
 });

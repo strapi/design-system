@@ -1,18 +1,16 @@
-import { injectAxe, getViolations } from 'axe-playwright';
+const { test } = require('@playwright/test');
+const { injectAxe, configureAxe, checkA11y } = require('axe-playwright');
 
-describe('ModalLayout', () => {
-  beforeEach(async () => {
+test.describe('ModalLayout', () => {
+  test.beforeEach(async ({ page }) => {
     // This is the URL of the Storybook Iframe
-    await page.goto('http://localhost:6006/iframe.html?id=design-system-components-modallayout--base&viewMode=story');
-    await injectAxe(page);
+    await page.goto('/iframe.html?id=design-system-components-modallayout--base&viewMode=story');
   });
 
-  it('triggers axe on the document', async () => {
-    const violations = await getViolations(page);
-
+  test('triggers axe on the document', async ({ page }) => {
+    await injectAxe(page);
     // Axe throws an error about landmark for the role dialog
-    const realViolations = violations.filter((violation) => violation.id !== 'region');
-
-    expect(realViolations.length).toBe(0);
+    await configureAxe(page, { rules: [{ id: 'region', enabled: false }] });
+    await checkA11y(page);
   });
 });

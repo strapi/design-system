@@ -1,29 +1,32 @@
-import { injectAxe, checkA11y } from 'axe-playwright';
+const { test, expect } = require('@playwright/test');
+const { checkA11y, injectAxe } = require('axe-playwright');
 
-describe('Radio', () => {
-  beforeEach(async () => {
+test.describe('Radio', () => {
+  test.beforeEach(async ({ page }) => {
     // This is the URL of the Storybook Iframe
-    await page.goto('http://localhost:6006/iframe.html?id=design-system-components-radio--base&viewMode=story');
-    await injectAxe(page);
+    await page.goto('/iframe.html?id=design-system-components-radio--base&viewMode=story');
   });
 
-  it('triggers axe on the document', async () => {
+  test('triggers axe on the document', async ({ page }) => {
+    await injectAxe(page);
     await checkA11y(page);
   });
 
-  it.each(['ArrowDown', 'ArrowRight'])('moves to the next element when pressing %s', async (keyPressed) => {
-    await page.focus('[value="pizza"]');
-    await page.keyboard.press(keyPressed);
+  ['ArrowDown', 'ArrowRight'].forEach((key) => {
+    test(`moves to the next element when pressing ${key}`, async ({ page }) => {
+      await page.focus('[value="pizza"]');
+      await page.keyboard.press(key);
 
-    const secondBox = await page.$('[value="bagel"]');
-    expect(await secondBox?.isChecked()).toBe(true);
+      await expect(page.locator('[value="bagel"]')).toBeChecked();
+    });
   });
 
-  it.each(['ArrowUp', 'ArrowLeft'])('moves to the previous element when pressing %s', async (keyPressed) => {
-    await page.focus('[value="bagel"]');
-    await page.keyboard.press(keyPressed);
+  ['ArrowUp', 'ArrowLeft'].forEach((key) => {
+    test(`moves to the previous element when pressing ${key}`, async ({ page }) => {
+      await page.focus('[value="bagel"]');
+      await page.keyboard.press(key);
 
-    const pizzaRadio = await page.$('[value="pizza"]');
-    expect(await pizzaRadio?.isChecked()).toBe(true);
+      await expect(page.locator('[value="pizza"]')).toBeChecked();
+    });
   });
 });

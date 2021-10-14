@@ -1,19 +1,20 @@
-import { injectAxe, checkA11y } from 'axe-playwright';
+const { test } = require('@playwright/test');
+const { checkA11y, injectAxe } = require('axe-playwright');
 
-describe('Accordion', () => {
-  beforeEach(async () => {
+test.describe('Accordion', () => {
+  test.beforeEach(async ({ page }) => {
     // This is the URL of the Storybook Iframe
-    await page.goto('http://localhost:6006/iframe.html?id=design-system-components-accordion--base&viewMode=story');
-    await injectAxe(page);
+    await page.goto('/iframe.html?id=design-system-components-accordion--base&viewMode=story');
   });
 
-  it('triggers axe on the document', async () => {
+  test('triggers axe on the document', async ({ page }) => {
+    await injectAxe(page);
     await checkA11y(page);
   });
 
-  it('triggers axe on the document when the accordion is expanded', async () => {
+  test('triggers axe on the document when the accordion is expanded', async ({ page }) => {
     await page.click('[aria-labelledby="accordion-label-acc-1"]');
-
+    await injectAxe(page);
     await checkA11y(page);
   });
 });

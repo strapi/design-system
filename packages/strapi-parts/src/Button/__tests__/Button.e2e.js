@@ -1,41 +1,42 @@
-import { injectAxe, checkA11y } from 'axe-playwright';
+const { test } = require('@playwright/test');
+const { checkA11y, injectAxe } = require('axe-playwright');
 
-describe('Button', () => {
-  describe('base', () => {
-    it('triggers axe on the document', async () => {
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-components-button--base&viewMode=story');
+test.describe('Button', () => {
+  test.describe('base', () => {
+    test('triggers axe on the document', async ({ page }) => {
+      await page.goto('/iframe.html?id=design-system-components-button--base&viewMode=story');
       await injectAxe(page);
       await checkA11y(page);
     });
   });
 
-  describe('sizes', () => {
-    it('triggers axe on the document', async () => {
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-components-button--sizes&viewMode=story');
+  test.describe('sizes', () => {
+    test('triggers axe on the document', async ({ page }) => {
+      await page.goto('/iframe.html?id=design-system-components-button--sizes&viewMode=story');
       await injectAxe(page);
       await checkA11y(page);
     });
   });
 
-  describe('variants', () => {
-    it('triggers axe on the document', async () => {
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-components-button--variants&viewMode=story');
+  test.describe('variants', () => {
+    test('triggers axe on the document', async ({ page }) => {
+      await page.goto('/iframe.html?id=design-system-components-button--variants&viewMode=story');
       await injectAxe(page);
       await checkA11y(page);
     });
   });
 
-  describe('icons', () => {
-    it('triggers axe on the document', async () => {
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-components-button--icons&viewMode=story');
+  test.describe('icons', () => {
+    test('triggers axe on the document', async ({ page }) => {
+      await page.goto('/iframe.html?id=design-system-components-button--icons&viewMode=story');
       await injectAxe(page);
       await checkA11y(page);
     });
   });
 
-  describe('disabled', () => {
-    it('triggers axe on the document', async () => {
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-components-button--disabled&viewMode=story');
+  test.describe('disabled', () => {
+    test('triggers axe on the document', async ({ page }) => {
+      await page.goto('/iframe.html?id=design-system-components-button--disabled&viewMode=story');
       await injectAxe(page);
       await checkA11y(page);
     });

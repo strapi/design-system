@@ -1,42 +1,41 @@
-import { injectAxe, checkA11y } from 'axe-playwright';
+const { test, expect } = require('@playwright/test');
+const { checkA11y, injectAxe } = require('axe-playwright');
 
-describe('BaseRadio', () => {
-  describe('base', () => {
-    beforeEach(async () => {
+test.describe('BaseRadio', () => {
+  test.describe('base', () => {
+    test.beforeEach(async ({ page }) => {
       // This is the URL of the Storybook Iframe
-      await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-technical-components-baseradio--base&viewMode=story',
-      );
-      await injectAxe(page);
+      await page.goto('/iframe.html?id=design-system-technical-components-baseradio--base&viewMode=story');
     });
 
-    it('triggers axe on the document', async () => {
+    test('triggers axe on the document', async ({ page }) => {
+      await injectAxe(page);
       await checkA11y(page);
     });
 
-    it.each(['ArrowDown', 'ArrowRight'])('moves to the next element when pressing %s', async (keyPressed) => {
-      await page.focus('text="Pizza"');
-      await page.keyboard.press(keyPressed);
+    ['ArrowDown', 'ArrowRight'].forEach((key) => {
+      test(`moves to the next element when pressing ${key}`, async ({ page }) => {
+        await page.focus('text="Pizza"');
+        await page.keyboard.press(key);
 
-      const secondBox = await page.$('#bagel');
-      expect(await secondBox?.isChecked()).toBe(true);
+        await expect(page.locator('#bagel')).toBeChecked();
+      });
     });
 
-    it.each(['ArrowUp', 'ArrowLeft'])('moves to the previous element when pressing %s', async (keyPressed) => {
-      await page.focus('text="Bagel"');
-      await page.keyboard.press(keyPressed);
+    ['ArrowUp', 'ArrowLeft'].forEach((key) => {
+      test(`moves to the previous element when pressing ${key}`, async ({ page }) => {
+        await page.focus('text="Bagel"');
+        await page.keyboard.press(key);
 
-      const pizzaRadio = await page.$('#pizza');
-      expect(await pizzaRadio?.isChecked()).toBe(true);
+        await expect(page.locator('#pizza')).toBeChecked();
+      });
     });
   });
 
-  describe('disabled', () => {
-    it('triggers axe on the document', async () => {
+  test.describe('disabled', () => {
+    test('triggers axe on the document', async ({ page }) => {
       // This is the URL of the Storybook Iframe
-      await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-technical-components-baseradio--disabled&viewMode=story',
-      );
+      await page.goto('/iframe.html?id=design-system-technical-components-baseradio--disabled&viewMode=story');
       await injectAxe(page);
       await checkA11y(page);
     });

@@ -1,13 +1,13 @@
-import React from 'react';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import React from 'react';
 import { NavLink as RouterLink } from 'react-router-dom';
+import styled from 'styled-components';
+import { Badge } from '../Badge';
 import { Box } from '../Box';
 import { Row } from '../Row';
 import { Text } from '../Text';
-import { useMainNav } from './MainNavContext';
 import { Tooltip } from '../Tooltip';
-import { Badge } from '../Badge';
+import { useMainNav } from './MainNavContext';
 
 const IconBox = styled(Box)`
   svg {
@@ -139,8 +139,8 @@ NavLink.defaultProps = {
 };
 
 NavLink.propTypes = {
+  badgeAriaLabel: PropTypes.string,
+  badgeContent: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   children: PropTypes.string.isRequired,
   icon: PropTypes.node.isRequired,
-  badgeContent: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  badgeAriaLabel: PropTypes.string,
 };
