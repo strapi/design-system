@@ -56,10 +56,10 @@ export const Box = styled.div.withConfig({
 
   // Position
   position: ${({ position }) => position};
-  left: ${({ left }) => left};
-  right: ${({ right }) => right};
-  top: ${({ top }) => top};
-  bottom: ${({ bottom }) => bottom};
+  left: ${({ left, theme }) => theme.spaces[left] || left};
+  right: ${({ right, theme }) => theme.spaces[right] || right};
+  top: ${({ top, theme }) => theme.spaces[top] || top};
+  bottom: ${({ bottom, theme }) => theme.spaces[bottom] || bottom};
   z-index: ${({ zIndex }) => zIndex};
   overflow: ${({ overflow }) => overflow};
   cursor: ${({ cursor }) => cursor};
