@@ -19,6 +19,7 @@ export * from './EmptyStateLayout';
 export * from './Field';
 export * from './FocusTrap';
 export * from './Grid';
+export * from './Icon';
 export * from './IconButton';
 export * from './KeyboardNavigable';
 export * from './Layout';

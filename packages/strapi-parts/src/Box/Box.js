@@ -12,6 +12,9 @@ const transientProps = {
 export const Box = styled.div.withConfig({
   shouldForwardProp: (prop, defPropValFN) => !transientProps[prop] && defPropValFN(prop),
 })`
+  // Font
+  font-size: ${({ fontSize, theme }) => theme.fontSizes[fontSize] || fontSize};
+
   // Colors
   background: ${({ theme, background }) => theme.colors[background]};
   color: ${({ theme, color }) => theme.colors[color]};
@@ -44,6 +47,34 @@ export const Box = styled.div.withConfig({
 
   // Shadows
   box-shadow: ${({ theme, shadow }) => theme.shadows[shadow]};
+
+  // Handlers
+  pointer-events: ${({ pointerEvents }) => pointerEvents};
+  &:hover {
+    ${({ _hover, theme }) => (_hover ? _hover(theme) : undefined)}
+  }
+
+  // Position
+  position: ${({ position }) => position};
+  left: ${({ left }) => left};
+  right: ${({ right }) => right};
+  top: ${({ top }) => top};
+  bottom: ${({ bottom }) => bottom};
+  z-index: ${({ zIndex }) => zIndex};
+  overflow: ${({ overflow }) => overflow};
+  cursor: ${({ cursor }) => cursor};
+
+  // Size
+  width: ${({ width, theme }) => theme.sizes[width] || width};
+  max-width: ${({ maxWidth, theme }) => theme.sizes[maxWidth] || maxWidth};
+  min-width: ${({ minWidth, theme }) => theme.sizes[minWidth] || minWidth};
+  height: ${({ height, theme }) => theme.sizes[height] || height};
+  max-height: ${({ maxHeight, theme }) => theme.sizes[maxHeight] || maxHeight};
+  min-height: ${({ minHeight, theme }) => theme.sizes[minHeight] || minHeight};
+
+  // Animation
+  transition: ${({ transition }) => transition};
+  animation: ${({ animation }) => animation};
 `;
 
 Box.displayName = 'Box';
@@ -61,12 +92,15 @@ Box.defaultProps = {
   paddingLeft: undefined,
   hasRadius: false,
   shadow: undefined,
+  children: null,
+  _hover: () => undefined,
 };
 
 Box.propTypes = {
+  _hover: PropTypes.func,
   background: PropTypes.string,
   borderColor: PropTypes.string,
-  children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
+  children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
   color: PropTypes.string,
   hasRadius: PropTypes.bool,
   hiddenS: PropTypes.bool,

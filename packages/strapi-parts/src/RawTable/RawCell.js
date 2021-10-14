@@ -1,5 +1,6 @@
 import React, { useLayoutEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
+import { Box } from '../Box';
 import { getFocusableNodes } from '../helpers/getFocusableNodes';
 
 export const RawTh = ({ isFocusable, ...props }) => {
@@ -14,7 +15,7 @@ export const RawTh = ({ isFocusable, ...props }) => {
     }
   }, [isFocusable]);
 
-  return <th ref={thRef} {...props} />;
+  return <Box as="th" ref={thRef} {...props} />;
 };
 
 export const RawTd = ({ isFocusable, ...props }) => {
@@ -30,7 +31,7 @@ export const RawTd = ({ isFocusable, ...props }) => {
     }
   }, [isFocusable]);
 
-  return <td ref={tdRef} {...props} />;
+  return <Box as="td" ref={tdRef} {...props} />;
 };
 
 RawTh.defaultProps = {
