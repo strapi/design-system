@@ -11,13 +11,12 @@ import { Popover } from '../Popover';
 import { Box } from '../Box';
 import { Text } from '../Text';
 import { Loader } from '../Loader/Loader';
-import { Input, MainRow, OptionBox } from './components';
+import { Input, MainRow, OptionBox, ValueContainer, InputContainer } from './components';
 import { Field, FieldError, FieldHint, FieldLabel } from '../Field';
 import { Stack } from '../Stack';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 
 export const Combobox = ({
-  backspaceToClear,
   clearLabel,
   createMessage,
   disabled,
@@ -64,8 +63,6 @@ export const Combobox = ({
 
     const index = filteredNodes.findIndex((node) => node.props.value === value);
     if (index !== -1) {
-      const selected = filteredNodes[index];
-      setInputValue(selected.props.children);
       setActiveIndex(0);
       setSelectedIndex(0);
       setFilteredNodes(filterOptions(nodes, inputValue));
@@ -114,7 +111,7 @@ export const Combobox = ({
     const max = filteredNodes.length - 1;
     const action = getActionFromKey(key, open);
 
-    if (value && key === KeyboardKeys.BACKSPACE && backspaceToClear) {
+    if (value && !inputValue && key === KeyboardKeys.BACKSPACE) {
       clearCombobox();
     }
 
@@ -140,8 +137,7 @@ export const Combobox = ({
 
   const onInputBlur = () => {
     if (value && !ignoreBlur.current) {
-      const valueToSet = getInputValueFromNodes();
-      setInputValue(valueToSet);
+      setInputValue('');
     }
 
     if (ignoreBlur.current) {
@@ -169,7 +165,7 @@ export const Combobox = ({
     const selected = filteredNodes[index];
     if (selected) {
       onChange(selected.props.value);
-      setInputValue(selected.props.children);
+      setInputValue('');
       return updateMenuState(false);
     }
 
@@ -221,29 +217,36 @@ export const Combobox = ({
       <Stack size={label || hint || error ? 1 : 0}>
         {label && <FieldLabel id={labelId}>{label}</FieldLabel>}
         <MainRow ref={containerRef} $disabled={disabled} hasError={error}>
-          <Input
-            aria-activedescendant={activeId}
-            aria-autocomplete="list"
-            aria-controls={`${generatedId}-listbox`}
-            aria-disabled={disabled}
-            aria-expanded={open}
-            aria-haspopup="listbox"
-            aria-labelledby={label ? labelId : undefined}
-            id={generatedId}
-            onBlur={disabled ? undefined : onInputBlur}
-            onClick={disabled ? undefined : () => updateMenuState(true)}
-            onInput={disabled ? undefined : onInput}
-            onKeyDown={disabled ? undefined : onInputKeyDown}
-            placeholder={placeholder}
-            readOnly={disabled}
-            ref={inputRef}
-            role="combobox"
-            autocomplete="nope"
-            type="text"
-            value={inputValue}
-          />
+          <InputContainer>
+            {!inputValue && value && (
+              <ValueContainer>
+                <Text>{getInputValueFromNodes()}</Text>
+              </ValueContainer>
+            )}
+            <Input
+              aria-activedescendant={activeId}
+              aria-autocomplete="list"
+              aria-controls={`${generatedId}-listbox`}
+              aria-disabled={disabled}
+              aria-expanded={open}
+              aria-haspopup="listbox"
+              aria-labelledby={label ? labelId : undefined}
+              id={generatedId}
+              onBlur={disabled ? undefined : onInputBlur}
+              onClick={disabled ? undefined : () => updateMenuState(true)}
+              onInput={disabled ? undefined : onInput}
+              onKeyDown={disabled ? undefined : onInputKeyDown}
+              placeholder={value ? '' : placeholder}
+              readOnly={disabled}
+              ref={inputRef}
+              role="combobox"
+              autocomplete="nope"
+              type="text"
+              value={inputValue}
+            />
+          </InputContainer>
           <Row>
-            {inputValue && (
+            {(value || inputValue) && (
               <IconBox
                 id={`${generatedId}-clear`}
                 aria-label={clearLabel}
@@ -323,7 +326,6 @@ export const CreatableCombobox = (props) => <Combobox {...props} creatable />;
 
 Combobox.defaultProps = CreatableCombobox.defaultProps = {
   'aria-label': undefined,
-  backspaceToClear: true,
   clearLabel: 'clear',
   creatable: false,
   createMessage: (value) => `Create "${value}"`,
@@ -344,7 +346,6 @@ Combobox.defaultProps = CreatableCombobox.defaultProps = {
 
 Combobox.propTypes = {
   'aria-label': PropTypes.string,
-  backspaceToClear: PropTypes.bool,
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
   clearLabel: PropTypes.string,
   creatable: PropTypes.bool,
