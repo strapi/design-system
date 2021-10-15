@@ -46,9 +46,9 @@ export function getActionFromKey(key, menuOpen) {
     return MenuActions.Open;
   }
   // handle keys when open
-  if (key === KeyboardKeys.DOWN || key === KeyboardKeys.RIGHT) {
+  if (key === KeyboardKeys.DOWN) {
     return MenuActions.Next;
-  } else if (key === KeyboardKeys.UP || key === KeyboardKeys.LEFT) {
+  } else if (key === KeyboardKeys.UP) {
     return MenuActions.Previous;
   } else if (key === KeyboardKeys.HOME) {
     return MenuActions.First;

@@ -19,8 +19,8 @@ describe('Combobox', () => {
 
     await page.click('text="Tartuffo"');
 
-    const inputValue = await page.getAttribute('input', 'value');
-    await expect(inputValue).toBe('Tartuffo');
+    const selectedValue = await page.textContent('#combobox-1-selected-value');
+    await expect(selectedValue).toBe('Tartuffo');
     await expect(page).not.toHaveSelector('[role="listbox"]', { timeout: 300 });
   });
 
@@ -30,8 +30,8 @@ describe('Combobox', () => {
 
     await page.click('text="Tartuffo"');
 
-    const inputValue = await page.getAttribute('input', 'value');
-    await expect(inputValue).toBe('Tartuffo');
+    const selectedValue = await page.textContent('#combobox-1-selected-value');
+    await expect(selectedValue).toBe('Tartuffo');
     await expect(page).not.toHaveSelector('[role="listbox"]', { timeout: 300 });
   });
 
@@ -62,8 +62,8 @@ describe('Combobox', () => {
 
     await page.keyboard.press('Enter');
 
-    const inputValue = await page.getAttribute('input', 'value');
-    await expect(inputValue).toBe('Tartuffo');
+    const selectedValue = await page.textContent('#combobox-1-selected-value');
+    await expect(selectedValue).toBe('Tartuffo');
   });
 });
 
@@ -80,12 +80,9 @@ describe('Combobox - initial data', () => {
     await checkA11y(page);
   });
 
-  it('initialize the value and clear it', async () => {
-    const inputValue = await page.getAttribute('input', 'value');
-    await expect(inputValue).toBe('Tartuffo');
-    await page.click('#combobox-1-clear');
-    const newValue = await page.getAttribute('input', 'value');
-    await expect(newValue).toBe('');
+  it('initialize the value', async () => {
+    const selectedValue = await page.textContent('#combobox-1-selected-value');
+    await expect(selectedValue).toBe('Tartuffo');
   });
 });
 
@@ -109,7 +106,7 @@ describe('Combobox - creatable', () => {
 
     await page.click('[role="option"]');
 
-    const inputValue = await page.getAttribute('input', 'value');
-    await expect(inputValue).toBe('Apple Pie');
+    const selectedValue = await page.textContent('#combobox-1-selected-value');
+    await expect(selectedValue).toBe('Apple Pie');
   });
 });
