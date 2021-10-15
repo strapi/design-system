@@ -25,6 +25,10 @@ export const Box = styled.div.withConfig({
   ${({ theme, paddingRight }) => handleResponsiveSpacing('padding-right', paddingRight, theme)}
   ${({ theme, paddingBottom }) => handleResponsiveSpacing('padding-bottom', paddingBottom, theme)}
   ${({ theme, paddingLeft }) => handleResponsiveSpacing('padding-left', paddingLeft, theme)}
+  ${({ theme, marginLeft }) => handleResponsiveSpacing('margin-left', marginLeft, theme)}
+  ${({ theme, marginRight }) => handleResponsiveSpacing('margin-right', marginRight, theme)}
+  ${({ theme, marginTop }) => handleResponsiveSpacing('margin-top', marginTop, theme)}
+  ${({ theme, marginBottom }) => handleResponsiveSpacing('margin-bottom', marginBottom, theme)}
 
   // Responsive hiding
   ${({ theme, hiddenS }) => (hiddenS ? `${theme.mediaQueries.tablet} { display: none; }` : undefined)}
