@@ -12,6 +12,7 @@ export const SelectList = ({ labelledBy, onSelectItem, children, multi, onEscape
   const handleKeyDown = (e) => {
     switch (e.key) {
       case KeyboardKeys.ESCAPE: {
+        e.stopPropagation();
         onEscape();
         break;
       }
