@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useAccordion } from './AccordionContext';
+import { Box } from '../Box';
 
 export const AccordionContent = ({ children, ...props }) => {
   const { expanded, id } = useAccordion();
@@ -14,9 +15,9 @@ export const AccordionContent = ({ children, ...props }) => {
   const ariaDescriptionId = `accordion-desc-${id}`;
 
   return (
-    <div role="region" id={idContent} aria-labelledby={ariaLabelId} aria-describedby={ariaDescriptionId} {...props}>
+    <Box role="region" id={idContent} aria-labelledby={ariaLabelId} aria-describedby={ariaDescriptionId} {...props}>
       {children}
-    </div>
+    </Box>
   );
 };
 
