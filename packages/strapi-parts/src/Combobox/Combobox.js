@@ -241,7 +241,7 @@ export const Combobox = ({
       <Stack size={label || hint || error ? 1 : 0}>
         {label && <FieldLabel id={labelId}>{label}</FieldLabel>}
         <MainRow ref={containerRef} $disabled={disabled} hasError={error}>
-          <InputContainer>
+          <InputContainer wrap="wrap">
             {!inputValue && value && (
               <ValueContainer id={`${generatedId}-selected-value`}>
                 <Text>{getInputValueFromNodes()}</Text>

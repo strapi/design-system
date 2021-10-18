@@ -27,12 +27,10 @@ export const ValueContainer = styled.div`
   grid-area: 1 / 1 / 2 / 3;
 `;
 
-export const InputContainer = styled.div`
+export const InputContainer = styled(Row)`
   display: grid;
   flex: 1 1 0%;
-  flex-wrap: wrap;
   position: relative;
-  align-items: center;
 `;
 
 export const Input = styled.input`

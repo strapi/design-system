@@ -6841,7 +6841,7 @@ exports[`Storyshots Design System/Components/Combobox base 1`] = `
   width: 1px;
 }
 
-.c7 {
+.c8 {
   padding-left: 12px;
 }
 
@@ -6866,6 +6866,23 @@ exports[`Storyshots Design System/Components/Combobox base 1`] = `
   align-items: center;
 }
 
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -6885,23 +6902,23 @@ exports[`Storyshots Design System/Components/Combobox base 1`] = `
   margin-top: 4px;
 }
 
-.c8 {
+.c9 {
   background: transparent;
   border: none;
   position: relative;
   z-index: 1;
 }
 
-.c8 svg {
+.c9 svg {
   height: 0.6875rem;
   width: 0.6875rem;
 }
 
-.c8 svg path {
+.c9 svg path {
   fill: #666687;
 }
 
-.c9 {
+.c10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -6910,7 +6927,7 @@ exports[`Storyshots Design System/Components/Combobox base 1`] = `
   border: none;
 }
 
-.c9 svg {
+.c10 svg {
   width: 0.375rem;
 }
 
@@ -6934,22 +6951,15 @@ exports[`Storyshots Design System/Components/Combobox base 1`] = `
   box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
-.c5 {
+.c6 {
   display: grid;
   -webkit-flex: 1 1 0%;
   -ms-flex: 1 1 0%;
   flex: 1 1 0%;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
   position: relative;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
 }
 
-.c6 {
+.c7 {
   display: inline-grid;
   grid-area: 1 / 1 / 2 / 3;
   grid-template-columns: 0px min-content;
@@ -6964,13 +6974,13 @@ exports[`Storyshots Design System/Components/Combobox base 1`] = `
   outline: none;
 }
 
-.c6:focus-visible {
+.c7:focus-visible {
   outline: none;
   box-shadow: none;
   outline-offset: 0;
 }
 
-.c6[aria-disabled='true'] {
+.c7[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
@@ -7004,7 +7014,8 @@ exports[`Storyshots Design System/Components/Combobox base 1`] = `
         class="c3 c4"
       >
         <div
-          class="c5"
+          class="c5 c6"
+          wrap="wrap"
         >
           
           <input
@@ -7017,7 +7028,7 @@ exports[`Storyshots Design System/Components/Combobox base 1`] = `
             aria-labelledby="combobox-15-label"
             autocomplete="off"
             autocorrect="off"
-            class="c6"
+            class="c7"
             id="combobox-15"
             placeholder="Select or enter a value"
             role="combobox"
@@ -7032,7 +7043,7 @@ exports[`Storyshots Design System/Components/Combobox base 1`] = `
           
           <button
             aria-hidden="true"
-            class="c7 c8 c9"
+            class="c8 c9 c10"
             tabindex="-1"
           >
             <svg
@@ -7070,7 +7081,7 @@ exports[`Storyshots Design System/Components/Combobox creatable 1`] = `
   width: 1px;
 }
 
-.c7 {
+.c8 {
   padding-left: 12px;
 }
 
@@ -7095,6 +7106,23 @@ exports[`Storyshots Design System/Components/Combobox creatable 1`] = `
   align-items: center;
 }
 
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -7114,23 +7142,23 @@ exports[`Storyshots Design System/Components/Combobox creatable 1`] = `
   margin-top: 4px;
 }
 
-.c8 {
+.c9 {
   background: transparent;
   border: none;
   position: relative;
   z-index: 1;
 }
 
-.c8 svg {
+.c9 svg {
   height: 0.6875rem;
   width: 0.6875rem;
 }
 
-.c8 svg path {
+.c9 svg path {
   fill: #666687;
 }
 
-.c9 {
+.c10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -7139,7 +7167,7 @@ exports[`Storyshots Design System/Components/Combobox creatable 1`] = `
   border: none;
 }
 
-.c9 svg {
+.c10 svg {
   width: 0.375rem;
 }
 
@@ -7163,22 +7191,15 @@ exports[`Storyshots Design System/Components/Combobox creatable 1`] = `
   box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
-.c5 {
+.c6 {
   display: grid;
   -webkit-flex: 1 1 0%;
   -ms-flex: 1 1 0%;
   flex: 1 1 0%;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
   position: relative;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
 }
 
-.c6 {
+.c7 {
   display: inline-grid;
   grid-area: 1 / 1 / 2 / 3;
   grid-template-columns: 0px min-content;
@@ -7193,13 +7214,13 @@ exports[`Storyshots Design System/Components/Combobox creatable 1`] = `
   outline: none;
 }
 
-.c6:focus-visible {
+.c7:focus-visible {
   outline: none;
   box-shadow: none;
   outline-offset: 0;
 }
 
-.c6[aria-disabled='true'] {
+.c7[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
@@ -7233,7 +7254,8 @@ exports[`Storyshots Design System/Components/Combobox creatable 1`] = `
         class="c3 c4"
       >
         <div
-          class="c5"
+          class="c5 c6"
+          wrap="wrap"
         >
           
           <input
@@ -7246,7 +7268,7 @@ exports[`Storyshots Design System/Components/Combobox creatable 1`] = `
             aria-labelledby="combobox-20-label"
             autocomplete="off"
             autocorrect="off"
-            class="c6"
+            class="c7"
             id="combobox-20"
             placeholder="Select or enter a value"
             role="combobox"
@@ -7261,7 +7283,7 @@ exports[`Storyshots Design System/Components/Combobox creatable 1`] = `
           
           <button
             aria-hidden="true"
-            class="c7 c8 c9"
+            class="c8 c9 c10"
             tabindex="-1"
           >
             <svg
@@ -7299,7 +7321,7 @@ exports[`Storyshots Design System/Components/Combobox disabled 1`] = `
   width: 1px;
 }
 
-.c7 {
+.c8 {
   padding-left: 12px;
 }
 
@@ -7324,6 +7346,23 @@ exports[`Storyshots Design System/Components/Combobox disabled 1`] = `
   align-items: center;
 }
 
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -7343,23 +7382,23 @@ exports[`Storyshots Design System/Components/Combobox disabled 1`] = `
   margin-top: 4px;
 }
 
-.c8 {
+.c9 {
   background: transparent;
   border: none;
   position: relative;
   z-index: 1;
 }
 
-.c8 svg {
+.c9 svg {
   height: 0.6875rem;
   width: 0.6875rem;
 }
 
-.c8 svg path {
+.c9 svg path {
   fill: #666687;
 }
 
-.c9 {
+.c10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -7368,7 +7407,7 @@ exports[`Storyshots Design System/Components/Combobox disabled 1`] = `
   border: none;
 }
 
-.c9 svg {
+.c10 svg {
   width: 0.375rem;
 }
 
@@ -7394,22 +7433,15 @@ exports[`Storyshots Design System/Components/Combobox disabled 1`] = `
   box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
-.c5 {
+.c6 {
   display: grid;
   -webkit-flex: 1 1 0%;
   -ms-flex: 1 1 0%;
   flex: 1 1 0%;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
   position: relative;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
 }
 
-.c6 {
+.c7 {
   display: inline-grid;
   grid-area: 1 / 1 / 2 / 3;
   grid-template-columns: 0px min-content;
@@ -7424,13 +7456,13 @@ exports[`Storyshots Design System/Components/Combobox disabled 1`] = `
   outline: none;
 }
 
-.c6:focus-visible {
+.c7:focus-visible {
   outline: none;
   box-shadow: none;
   outline-offset: 0;
 }
 
-.c6[aria-disabled='true'] {
+.c7[aria-disabled='true'] {
   background: inherit;
   color: inherit;
 }
@@ -7464,7 +7496,8 @@ exports[`Storyshots Design System/Components/Combobox disabled 1`] = `
         class="c3 c4"
       >
         <div
-          class="c5"
+          class="c5 c6"
+          wrap="wrap"
         >
           
           <input
@@ -7477,7 +7510,7 @@ exports[`Storyshots Design System/Components/Combobox disabled 1`] = `
             aria-labelledby="combobox-16-label"
             autocomplete="off"
             autocorrect="off"
-            class="c6"
+            class="c7"
             id="combobox-16"
             placeholder="Select or enter a value"
             readonly=""
@@ -7493,7 +7526,7 @@ exports[`Storyshots Design System/Components/Combobox disabled 1`] = `
           
           <button
             aria-hidden="true"
-            class="c7 c8 c9"
+            class="c8 c9 c10"
             disabled=""
             tabindex="-1"
           >
@@ -7532,7 +7565,7 @@ exports[`Storyshots Design System/Components/Combobox error 1`] = `
   width: 1px;
 }
 
-.c7 {
+.c8 {
   padding-left: 12px;
 }
 
@@ -7543,7 +7576,7 @@ exports[`Storyshots Design System/Components/Combobox error 1`] = `
   color: #32324d;
 }
 
-.c10 {
+.c11 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
@@ -7564,6 +7597,23 @@ exports[`Storyshots Design System/Components/Combobox error 1`] = `
   align-items: center;
 }
 
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -7581,6 +7631,526 @@ exports[`Storyshots Design System/Components/Combobox error 1`] = `
 
 .c1 > * + * {
   margin-top: 4px;
+}
+
+.c9 {
+  background: transparent;
+  border: none;
+  position: relative;
+  z-index: 1;
+}
+
+.c9 svg {
+  height: 0.6875rem;
+  width: 0.6875rem;
+}
+
+.c9 svg path {
+  fill: #666687;
+}
+
+.c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  background: none;
+  border: none;
+}
+
+.c10 svg {
+  width: 0.375rem;
+}
+
+.c4 {
+  position: relative;
+  border: 1px solid #d02b20;
+  padding-right: 12px;
+  padding-left: 12px;
+  border-radius: 4px;
+  background: #ffffff;
+  outline: none;
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+}
+
+.c4:focus-within {
+  border: 1px solid #d02b20;
+  box-shadow: #d02b20 0px 0px 0px 2px;
+}
+
+.c6 {
+  display: grid;
+  -webkit-flex: 1 1 0%;
+  -ms-flex: 1 1 0%;
+  flex: 1 1 0%;
+  position: relative;
+}
+
+.c7 {
+  display: inline-grid;
+  grid-area: 1 / 1 / 2 / 3;
+  grid-template-columns: 0px min-content;
+  background: transparent;
+  min-height: 2.5rem;
+  border: none;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  font-size: 0.875rem;
+  color: #32324d;
+  outline: none;
+}
+
+.c7:focus-visible {
+  outline: none;
+  box-shadow: none;
+  outline-offset: 0;
+}
+
+.c7[aria-disabled='true'] {
+  background: inherit;
+  color: inherit;
+}
+
+<main>
+  <div
+    class="c0"
+  >
+    <h1>
+      Storybook story
+    </h1>
+  </div>
+  <div>
+    <div
+      aria-atomic="false"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="c0"
+    />
+    <div
+      class="c1"
+    >
+      <label
+        class="c2"
+        for="combobox-18"
+        id="combobox-18-label"
+      >
+        Food
+      </label>
+      <div
+        class="c3 c4"
+      >
+        <div
+          class="c5 c6"
+          wrap="wrap"
+        >
+          
+          <input
+            aria-activedescendant=""
+            aria-autocomplete="list"
+            aria-controls="combobox-18-listbox"
+            aria-disabled="false"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-labelledby="combobox-18-label"
+            autocomplete="off"
+            autocorrect="off"
+            class="c7"
+            id="combobox-18"
+            placeholder="Select or enter a value"
+            role="combobox"
+            spellcheck="off"
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          class="c3"
+        >
+          
+          <button
+            aria-hidden="true"
+            class="c8 c9 c10"
+            tabindex="-1"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 14 8"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
+                fill="#32324D"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <p
+        class="c11"
+        data-strapi-field-error="true"
+        id="combobox-18-error"
+      >
+        An error occured
+      </p>
+    </div>
+  </div>
+</main>
+`;
+
+exports[`Storyshots Design System/Components/Combobox initial-data 1`] = `
+.c0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.c10 {
+  padding-left: 12px;
+}
+
+.c2 {
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #32324d;
+}
+
+.c8 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #32324d;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c1 > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.c1 > * + * {
+  margin-top: 4px;
+}
+
+.c11 {
+  background: transparent;
+  border: none;
+  position: relative;
+  z-index: 1;
+}
+
+.c11 svg {
+  height: 0.6875rem;
+  width: 0.6875rem;
+}
+
+.c11 svg path {
+  fill: #666687;
+}
+
+.c12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  background: none;
+  border: none;
+}
+
+.c12 svg {
+  width: 0.375rem;
+}
+
+.c4 {
+  position: relative;
+  border: 1px solid #dcdce4;
+  padding-right: 12px;
+  padding-left: 12px;
+  border-radius: 4px;
+  background: #ffffff;
+  outline: none;
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+}
+
+.c4:focus-within {
+  border: 1px solid #4945ff;
+  box-shadow: #4945ff 0px 0px 0px 2px;
+}
+
+.c7 {
+  padding: 1px 2px;
+  grid-area: 1 / 1 / 2 / 3;
+}
+
+.c6 {
+  display: grid;
+  -webkit-flex: 1 1 0%;
+  -ms-flex: 1 1 0%;
+  flex: 1 1 0%;
+  position: relative;
+}
+
+.c9 {
+  display: inline-grid;
+  grid-area: 1 / 1 / 2 / 3;
+  grid-template-columns: 0px min-content;
+  background: transparent;
+  min-height: 2.5rem;
+  border: none;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  font-size: 0.875rem;
+  color: #32324d;
+  outline: none;
+}
+
+.c9:focus-visible {
+  outline: none;
+  box-shadow: none;
+  outline-offset: 0;
+}
+
+.c9[aria-disabled='true'] {
+  background: inherit;
+  color: inherit;
+}
+
+<main>
+  <div
+    class="c0"
+  >
+    <h1>
+      Storybook story
+    </h1>
+  </div>
+  <div>
+    <div
+      aria-atomic="false"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="c0"
+    >
+      tartuffo
+    </div>
+    <div
+      class="c1"
+    >
+      <label
+        class="c2"
+        for="combobox-19"
+        id="combobox-19-label"
+      >
+        Food
+      </label>
+      <div
+        class="c3 c4"
+      >
+        <div
+          class="c5 c6"
+          wrap="wrap"
+        >
+          <div
+            class="c7"
+            id="combobox-19-selected-value"
+          >
+            <span
+              class="c8"
+            >
+              Tartuffo
+            </span>
+          </div>
+          <input
+            aria-activedescendant=""
+            aria-autocomplete="list"
+            aria-controls="combobox-19-listbox"
+            aria-disabled="false"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-labelledby="combobox-19-label"
+            autocomplete="off"
+            autocorrect="off"
+            class="c9"
+            id="combobox-19"
+            placeholder=""
+            role="combobox"
+            spellcheck="off"
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          class="c3"
+        >
+          <button
+            aria-label="clear"
+            class="c10 c11"
+            id="combobox-19-clear"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M24 2.417L21.583 0 12 9.583 2.417 0 0 2.417 9.583 12 0 21.583 2.417 24 12 14.417 21.583 24 24 21.583 14.417 12 24 2.417z"
+                fill="#212134"
+              />
+            </svg>
+          </button>
+          <button
+            aria-hidden="true"
+            class="c10 c11 c12"
+            tabindex="-1"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 14 8"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
+                fill="#32324D"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+`;
+
+exports[`Storyshots Design System/Components/Combobox withoutLabel 1`] = `
+.c0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.c7 {
+  padding-left: 12px;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c1 > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.c1 > * + * {
+  margin-top: 0px;
 }
 
 .c8 {
@@ -7612,9 +8182,9 @@ exports[`Storyshots Design System/Components/Combobox error 1`] = `
   width: 0.375rem;
 }
 
-.c4 {
+.c3 {
   position: relative;
-  border: 1px solid #d02b20;
+  border: 1px solid #dcdce4;
   padding-right: 12px;
   padding-left: 12px;
   border-radius: 4px;
@@ -7627,9 +8197,9 @@ exports[`Storyshots Design System/Components/Combobox error 1`] = `
   transition-duration: 0.2s;
 }
 
-.c4:focus-within {
-  border: 1px solid #d02b20;
-  box-shadow: #d02b20 0px 0px 0px 2px;
+.c3:focus-within {
+  border: 1px solid #4945ff;
+  box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
 .c5 {
@@ -7637,14 +8207,7 @@ exports[`Storyshots Design System/Components/Combobox error 1`] = `
   -webkit-flex: 1 1 0%;
   -ms-flex: 1 1 0%;
   flex: 1 1 0%;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
   position: relative;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
 }
 
 .c6 {
@@ -7691,508 +8254,12 @@ exports[`Storyshots Design System/Components/Combobox error 1`] = `
     <div
       class="c1"
     >
-      <label
-        class="c2"
-        for="combobox-18"
-        id="combobox-18-label"
-      >
-        Food
-      </label>
-      <div
-        class="c3 c4"
-      >
-        <div
-          class="c5"
-        >
-          
-          <input
-            aria-activedescendant=""
-            aria-autocomplete="list"
-            aria-controls="combobox-18-listbox"
-            aria-disabled="false"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-labelledby="combobox-18-label"
-            autocomplete="off"
-            autocorrect="off"
-            class="c6"
-            id="combobox-18"
-            placeholder="Select or enter a value"
-            role="combobox"
-            spellcheck="off"
-            type="text"
-            value=""
-          />
-        </div>
-        <div
-          class="c3"
-        >
-          
-          <button
-            aria-hidden="true"
-            class="c7 c8 c9"
-            tabindex="-1"
-          >
-            <svg
-              fill="none"
-              height="1em"
-              viewBox="0 0 14 8"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                clip-rule="evenodd"
-                d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
-                fill="#32324D"
-                fill-rule="evenodd"
-              />
-            </svg>
-          </button>
-        </div>
-      </div>
-      <p
-        class="c10"
-        data-strapi-field-error="true"
-        id="combobox-18-error"
-      >
-        An error occured
-      </p>
-    </div>
-  </div>
-</main>
-`;
-
-exports[`Storyshots Design System/Components/Combobox initial-data 1`] = `
-.c0 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-
-.c9 {
-  padding-left: 12px;
-}
-
-.c2 {
-  font-weight: 500;
-  font-size: 0.75rem;
-  line-height: 1.33;
-  color: #32324d;
-}
-
-.c7 {
-  font-weight: 400;
-  font-size: 0.875rem;
-  line-height: 1.43;
-  color: #32324d;
-}
-
-.c3 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c1 > * {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.c1 > * + * {
-  margin-top: 4px;
-}
-
-.c10 {
-  background: transparent;
-  border: none;
-  position: relative;
-  z-index: 1;
-}
-
-.c10 svg {
-  height: 0.6875rem;
-  width: 0.6875rem;
-}
-
-.c10 svg path {
-  fill: #666687;
-}
-
-.c11 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  background: none;
-  border: none;
-}
-
-.c11 svg {
-  width: 0.375rem;
-}
-
-.c4 {
-  position: relative;
-  border: 1px solid #dcdce4;
-  padding-right: 12px;
-  padding-left: 12px;
-  border-radius: 4px;
-  background: #ffffff;
-  outline: none;
-  box-shadow: 0;
-  -webkit-transition-property: border-color,box-shadow,fill;
-  transition-property: border-color,box-shadow,fill;
-  -webkit-transition-duration: 0.2s;
-  transition-duration: 0.2s;
-}
-
-.c4:focus-within {
-  border: 1px solid #4945ff;
-  box-shadow: #4945ff 0px 0px 0px 2px;
-}
-
-.c6 {
-  padding: 1px 2px;
-  grid-area: 1 / 1 / 2 / 3;
-}
-
-.c5 {
-  display: grid;
-  -webkit-flex: 1 1 0%;
-  -ms-flex: 1 1 0%;
-  flex: 1 1 0%;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  position: relative;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c8 {
-  display: inline-grid;
-  grid-area: 1 / 1 / 2 / 3;
-  grid-template-columns: 0px min-content;
-  background: transparent;
-  min-height: 2.5rem;
-  border: none;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  font-size: 0.875rem;
-  color: #32324d;
-  outline: none;
-}
-
-.c8:focus-visible {
-  outline: none;
-  box-shadow: none;
-  outline-offset: 0;
-}
-
-.c8[aria-disabled='true'] {
-  background: inherit;
-  color: inherit;
-}
-
-<main>
-  <div
-    class="c0"
-  >
-    <h1>
-      Storybook story
-    </h1>
-  </div>
-  <div>
-    <div
-      aria-atomic="false"
-      aria-live="polite"
-      aria-relevant="additions text"
-      class="c0"
-    >
-      tartuffo
-    </div>
-    <div
-      class="c1"
-    >
-      <label
-        class="c2"
-        for="combobox-19"
-        id="combobox-19-label"
-      >
-        Food
-      </label>
-      <div
-        class="c3 c4"
-      >
-        <div
-          class="c5"
-        >
-          <div
-            class="c6"
-          >
-            <span
-              class="c7"
-            >
-              Tartuffo
-            </span>
-          </div>
-          <input
-            aria-activedescendant=""
-            aria-autocomplete="list"
-            aria-controls="combobox-19-listbox"
-            aria-disabled="false"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-labelledby="combobox-19-label"
-            autocomplete="off"
-            autocorrect="off"
-            class="c8"
-            id="combobox-19"
-            placeholder=""
-            role="combobox"
-            spellcheck="off"
-            type="text"
-            value=""
-          />
-        </div>
-        <div
-          class="c3"
-        >
-          <button
-            aria-label="clear"
-            class="c9 c10"
-            id="combobox-19-clear"
-          >
-            <svg
-              fill="none"
-              height="1em"
-              viewBox="0 0 24 24"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M24 2.417L21.583 0 12 9.583 2.417 0 0 2.417 9.583 12 0 21.583 2.417 24 12 14.417 21.583 24 24 21.583 14.417 12 24 2.417z"
-                fill="#212134"
-              />
-            </svg>
-          </button>
-          <button
-            aria-hidden="true"
-            class="c9 c10 c11"
-            tabindex="-1"
-          >
-            <svg
-              fill="none"
-              height="1em"
-              viewBox="0 0 14 8"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                clip-rule="evenodd"
-                d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
-                fill="#32324D"
-                fill-rule="evenodd"
-              />
-            </svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</main>
-`;
-
-exports[`Storyshots Design System/Components/Combobox withoutLabel 1`] = `
-.c0 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-
-.c6 {
-  padding-left: 12px;
-}
-
-.c2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c1 > * {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.c1 > * + * {
-  margin-top: 0px;
-}
-
-.c7 {
-  background: transparent;
-  border: none;
-  position: relative;
-  z-index: 1;
-}
-
-.c7 svg {
-  height: 0.6875rem;
-  width: 0.6875rem;
-}
-
-.c7 svg path {
-  fill: #666687;
-}
-
-.c8 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  background: none;
-  border: none;
-}
-
-.c8 svg {
-  width: 0.375rem;
-}
-
-.c3 {
-  position: relative;
-  border: 1px solid #dcdce4;
-  padding-right: 12px;
-  padding-left: 12px;
-  border-radius: 4px;
-  background: #ffffff;
-  outline: none;
-  box-shadow: 0;
-  -webkit-transition-property: border-color,box-shadow,fill;
-  transition-property: border-color,box-shadow,fill;
-  -webkit-transition-duration: 0.2s;
-  transition-duration: 0.2s;
-}
-
-.c3:focus-within {
-  border: 1px solid #4945ff;
-  box-shadow: #4945ff 0px 0px 0px 2px;
-}
-
-.c4 {
-  display: grid;
-  -webkit-flex: 1 1 0%;
-  -ms-flex: 1 1 0%;
-  flex: 1 1 0%;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  position: relative;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c5 {
-  display: inline-grid;
-  grid-area: 1 / 1 / 2 / 3;
-  grid-template-columns: 0px min-content;
-  background: transparent;
-  min-height: 2.5rem;
-  border: none;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  font-size: 0.875rem;
-  color: #32324d;
-  outline: none;
-}
-
-.c5:focus-visible {
-  outline: none;
-  box-shadow: none;
-  outline-offset: 0;
-}
-
-.c5[aria-disabled='true'] {
-  background: inherit;
-  color: inherit;
-}
-
-<main>
-  <div
-    class="c0"
-  >
-    <h1>
-      Storybook story
-    </h1>
-  </div>
-  <div>
-    <div
-      aria-atomic="false"
-      aria-live="polite"
-      aria-relevant="additions text"
-      class="c0"
-    />
-    <div
-      class="c1"
-    >
       <div
         class="c2 c3"
       >
         <div
-          class="c4"
+          class="c4 c5"
+          wrap="wrap"
         >
           
           <input
@@ -8204,7 +8271,7 @@ exports[`Storyshots Design System/Components/Combobox withoutLabel 1`] = `
             aria-haspopup="listbox"
             autocomplete="off"
             autocorrect="off"
-            class="c5"
+            class="c6"
             id="combobox-17"
             placeholder="Select or enter a value"
             role="combobox"
@@ -8219,7 +8286,7 @@ exports[`Storyshots Design System/Components/Combobox withoutLabel 1`] = `
           
           <button
             aria-hidden="true"
-            class="c6 c7 c8"
+            class="c7 c8 c9"
             tabindex="-1"
           >
             <svg
