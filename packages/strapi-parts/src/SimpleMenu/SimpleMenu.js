@@ -107,6 +107,7 @@ export const SimpleMenu = ({ label, children, id, as: asComp, ...props }) => {
   const handleWrapperKeyDown = (e) => {
     if (visible) {
       if (e.key === KeyboardKeys.ESCAPE) {
+        e.stopPropagation();
         setVisible(false);
         menuButtonRef.current.focus();
       }
