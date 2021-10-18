@@ -11,9 +11,13 @@ import { Popover } from '../Popover';
 import { Box } from '../Box';
 import { Text } from '../Text';
 import { Loader } from '../Loader/Loader';
-import { Input, MainRow, OptionBox } from './components';
+import { Input, MainRow, ValueContainer, InputContainer } from './components';
+import { ComboboxOption } from './ComboboxOption';
+import { ComboboxList } from './ComboboxList';
 import { Field, FieldError, FieldHint, FieldLabel } from '../Field';
 import { Stack } from '../Stack';
+import { KeyboardKeys } from '../helpers/keyboardKeys';
+import { VisuallyHidden } from '../VisuallyHidden';
 
 export const Combobox = ({
   clearLabel,
@@ -43,49 +47,47 @@ export const Combobox = ({
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [filteredNodes, setFilteredNodes] = useState(nodes);
   const [open, setOpen] = useState(false);
-  const [inputValue, setInputValue] = useState(value ? getInputValueFromNodes() : '');
-
-  if (!label && !props['aria-label']) {
-    throw new Error('The Combobox component needs a "label" or an "aria-label" props');
-  }
-
-  useEffect(() => {
-    setFilteredNodes(filterOptions(nodes, inputValue));
-  }, [inputValue, nodes]);
-
-  const firstUpdate = useRef(true);
-  useLayoutEffect(() => {
-    if (firstUpdate.current) {
-      firstUpdate.current = false;
-      return;
-    }
-
-    const index = filteredNodes.findIndex((node) => node.props.value === value);
-    if (index !== -1) {
-      const selected = filteredNodes[index];
-      setInputValue(selected.props.children);
-      setActiveIndex(0);
-      setSelectedIndex(0);
-      setFilteredNodes(filterOptions(nodes, inputValue));
-    }
-  }, [value]);
+  const [inputValue, setInputValue] = useState('');
 
   const activeOptionRef = useRef();
   const ignoreBlur = useRef(false);
   const inputRef = useRef();
   const containerRef = useRef();
   const listboxRef = useRef();
+  const firstUpdate = useRef(true);
 
   const generatedId = useId('combobox');
   const labelId = `${generatedId}-label`;
 
+  if (!label && !props['aria-label']) {
+    throw new Error('The Combobox component needs a "label" or an "aria-label" props');
+  }
+
+  // Filter the nodes on input changes.
+  useEffect(() => {
+    setFilteredNodes(filterOptions(nodes, inputValue));
+  }, [inputValue, nodes]);
+
+  // Maintain the scroll visibility
   useEffect(() => {
     if (open && activeOptionRef.current) {
       maintainScrollVisibility(activeOptionRef.current);
     }
   }, [activeIndex]);
 
+  useLayoutEffect(() => {
+    if (firstUpdate.current) {
+      firstUpdate.current = false;
+      return;
+    }
+  }, [value]);
+
   const activeId = open ? `${generatedId}-${activeIndex}` : '';
+
+  const clearCombobox = () => {
+    onChange(null);
+    setInputValue('');
+  };
 
   const onInput = () => {
     const curValue = inputRef.current.value;
@@ -104,16 +106,36 @@ export const Combobox = ({
 
   const onInputKeyDown = (event) => {
     const { key } = event;
-    const max = filteredNodes.length - 1;
+    const max = creatable && inputValue ? filteredNodes.length : filteredNodes.length - 1;
     const action = getActionFromKey(key, open);
 
+    if (value && !inputValue && key === KeyboardKeys.BACKSPACE) {
+      clearCombobox();
+    }
+
     switch (action) {
-      case MenuActions.Next:
-      case MenuActions.Last:
-      case MenuActions.First:
-      case MenuActions.Previous:
-        event.preventDefault();
+      case MenuActions.Next: {
+        if (activeIndex === max) {
+          return onOptionChange(0);
+        }
+
         return onOptionChange(getUpdatedIndex(activeIndex, max, action));
+      }
+      case MenuActions.Previous: {
+        if (activeIndex === 0) {
+          return onOptionChange(max);
+        }
+
+        return onOptionChange(getUpdatedIndex(activeIndex, max, action));
+      }
+      case MenuActions.Last:
+      case MenuActions.First: {
+        if (activeIndex === max) {
+          return onOptionChange(0);
+        }
+
+        return onOptionChange(getUpdatedIndex(activeIndex, max, action));
+      }
       case MenuActions.CloseSelect:
         event.preventDefault();
         onOptionSelect(activeIndex);
@@ -130,8 +152,7 @@ export const Combobox = ({
 
   const onInputBlur = () => {
     if (value && !ignoreBlur.current) {
-      const valueToSet = getInputValueFromNodes();
-      setInputValue(valueToSet);
+      setInputValue('');
     }
 
     if (ignoreBlur.current) {
@@ -157,9 +178,10 @@ export const Combobox = ({
 
   const onOptionSelect = (index) => {
     const selected = filteredNodes[index];
+    setInputValue('');
+
     if (selected) {
       onChange(selected.props.value);
-      setInputValue(selected.props.children);
       return updateMenuState(false);
     }
 
@@ -198,7 +220,7 @@ export const Combobox = ({
       onClear();
     }
 
-    setInputValue('');
+    clearCombobox();
   };
 
   const handleCaretClick = () => {
@@ -206,33 +228,51 @@ export const Combobox = ({
     updateMenuState(true);
   };
 
+  const hasOption = () => {
+    const nodeIndex = filteredNodes.findIndex((node) => node.props?.children === inputValue);
+    return inputValue && nodeIndex === -1;
+  };
+
   return (
     <Field hint={hint} error={error} id={generatedId}>
+      <VisuallyHidden aria-live="polite" aria-atomic="false" aria-relevant="additions text">
+        {value}
+      </VisuallyHidden>
       <Stack size={label || hint || error ? 1 : 0}>
         {label && <FieldLabel id={labelId}>{label}</FieldLabel>}
         <MainRow ref={containerRef} $disabled={disabled} hasError={error}>
-          <Input
-            aria-activedescendant={activeId}
-            aria-autocomplete="list"
-            aria-controls={`${generatedId}-listbox`}
-            aria-disabled={disabled}
-            aria-expanded={open}
-            aria-haspopup="listbox"
-            aria-labelledby={label ? labelId : undefined}
-            id={generatedId}
-            onBlur={disabled ? undefined : onInputBlur}
-            onClick={disabled ? undefined : () => updateMenuState(true)}
-            onInput={disabled ? undefined : onInput}
-            onKeyDown={disabled ? undefined : onInputKeyDown}
-            placeholder={placeholder}
-            readOnly={disabled}
-            ref={inputRef}
-            role="combobox"
-            type="text"
-            value={inputValue}
-          />
+          <InputContainer wrap="wrap">
+            {!inputValue && value && (
+              <ValueContainer id={`${generatedId}-selected-value`}>
+                <Text>{getInputValueFromNodes()}</Text>
+              </ValueContainer>
+            )}
+            <Input
+              aria-activedescendant={activeId}
+              aria-autocomplete="list"
+              aria-controls={`${generatedId}-listbox`}
+              aria-disabled={disabled}
+              aria-expanded={open}
+              aria-haspopup="listbox"
+              aria-labelledby={label ? labelId : undefined}
+              id={generatedId}
+              onBlur={disabled ? undefined : onInputBlur}
+              onClick={disabled ? undefined : () => updateMenuState(true)}
+              onInput={disabled ? undefined : onInput}
+              onKeyDown={disabled ? undefined : onInputKeyDown}
+              placeholder={value ? '' : placeholder}
+              readOnly={disabled}
+              ref={inputRef}
+              role="combobox"
+              autoComplete="off"
+              autoCorrect="off"
+              spellCheck="off"
+              type="text"
+              value={inputValue}
+            />
+          </InputContainer>
           <Row>
-            {inputValue && (
+            {(value || inputValue) && (
               <IconBox
                 id={`${generatedId}-clear`}
                 aria-label={clearLabel}
@@ -274,27 +314,28 @@ export const Combobox = ({
             id={`${generatedId}-listbox`}
             aria-labelledby={label ? labelId : undefined}
           >
-            {Boolean(filteredNodes.length) ? (
-              filteredNodesClone
-            ) : creatable ? (
-              <OptionBox
-                paddingLeft={4}
-                paddingRight={4}
-                paddingTop={2}
-                paddingBottom={2}
-                ref={activeOptionRef}
-                onMouseDown={onOptionMouseDown}
-                role="option"
-                onClick={() => onOptionSelect()}
-              >
-                <Text textColor="neutral800">{createMessage(inputValue)}</Text>
-              </OptionBox>
-            ) : (
-              !loading && (
-                <Box paddingLeft={4} paddingRight={4} paddingTop={2} paddingBottom={2} ref={activeOptionRef}>
-                  <Text textColor="neutral800">{noOptionsMessage(inputValue)}</Text>
-                </Box>
-              )
+            {(Boolean(filteredNodes.length) || creatable) && (
+              <>
+                <ComboboxList activeOptionRef={activeOptionRef} options={filteredNodesClone} />
+                {hasOption(inputValue) && creatable && (
+                  <ComboboxOption
+                    isSelected={activeIndex === filteredNodes.length}
+                    ref={(r) => {
+                      if (activeIndex === filteredNodes.length) activeOptionRef.current = r;
+                    }}
+                    onMouseDown={onOptionMouseDown}
+                    onClick={() => onOptionSelect()}
+                    taindex={0}
+                  >
+                    {createMessage(inputValue)}
+                  </ComboboxOption>
+                )}
+              </>
+            )}
+            {!Boolean(filteredNodes.length) && !creatable && !loading && (
+              <Box paddingLeft={4} paddingRight={4} paddingTop={2} paddingBottom={2} ref={activeOptionRef}>
+                <Text textColor="neutral800">{noOptionsMessage(inputValue)}</Text>
+              </Box>
             )}
             {loading && (
               <Row justifyContent="center" alignItems="center" paddingTop={2} paddingBottom={2}>
@@ -327,6 +368,7 @@ Combobox.defaultProps = CreatableCombobox.defaultProps = {
   onCreateOption: undefined,
   onLoadMore: undefined,
   placeholder: 'Select or enter a value',
+  value: undefined,
 };
 
 Combobox.propTypes = {
@@ -348,7 +390,7 @@ Combobox.propTypes = {
   onCreateOption: PropTypes.func,
   onLoadMore: PropTypes.func,
   placeholder: PropTypes.string,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
 };
 
 CreatableCombobox.propTypes = {

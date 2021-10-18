@@ -19,8 +19,8 @@ describe('Combobox', () => {
 
     await page.click('text="Tartuffo"');
 
-    const inputValue = await page.getAttribute('input', 'value');
-    await expect(inputValue).toBe('Tartuffo');
+    const selectedValue = await page.textContent('#combobox-1-selected-value');
+    await expect(selectedValue).toBe('Tartuffo');
     await expect(page).not.toHaveSelector('[role="listbox"]', { timeout: 300 });
   });
 
@@ -30,8 +30,8 @@ describe('Combobox', () => {
 
     await page.click('text="Tartuffo"');
 
-    const inputValue = await page.getAttribute('input', 'value');
-    await expect(inputValue).toBe('Tartuffo');
+    const selectedValue = await page.textContent('#combobox-1-selected-value');
+    await expect(selectedValue).toBe('Tartuffo');
     await expect(page).not.toHaveSelector('[role="listbox"]', { timeout: 300 });
   });
 
@@ -62,8 +62,8 @@ describe('Combobox', () => {
 
     await page.keyboard.press('Enter');
 
-    const inputValue = await page.getAttribute('input', 'value');
-    await expect(inputValue).toBe('Tartuffo');
+    const selectedValue = await page.textContent('#combobox-1-selected-value');
+    await expect(selectedValue).toBe('Tartuffo');
   });
 });
 
@@ -80,36 +80,33 @@ describe('Combobox - initial data', () => {
     await checkA11y(page);
   });
 
-  it('initialize the value and clear it', async () => {
-    const inputValue = await page.getAttribute('input', 'value');
-    await expect(inputValue).toBe('Tartuffo');
-    await page.click('#combobox-1-clear');
-    const newValue = await page.getAttribute('input', 'value');
-    await expect(newValue).toBe('');
+  it('initialize the value', async () => {
+    const selectedValue = await page.textContent('#combobox-1-selected-value');
+    await expect(selectedValue).toBe('Tartuffo');
   });
 });
 
-// describe('Combobox - creatable', () => {
-//   beforeEach(async () => {
-//     // This is the URL of the Storybook Iframe
-//     await page.goto(
-//       'http://localhost:6006/iframe.html?id=design-system-components-combobox--creatable&globals=&viewMode=story',
-//     );
-//     await injectAxe(page);
-//   });
+describe('Combobox - creatable', () => {
+  beforeEach(async () => {
+    // This is the URL of the Storybook Iframe
+    await page.goto(
+      'http://localhost:6006/iframe.html?id=design-system-components-combobox--creatable&globals=&viewMode=story',
+    );
+    await injectAxe(page);
+  });
 
-//   it('triggers axe on the document', async () => {
-//     await checkA11y(page);
-//   });
+  it('triggers axe on the document', async () => {
+    await checkA11y(page);
+  });
 
-//   it('Create a new item', async () => {
-//     await page.fill('input', 'Apple Pie');
-//     const content = await page.textContent('[role="option"]');
-//     await expect(content).toBe('Create "Apple Pie"');
+  it('Create a new item', async () => {
+    await page.fill('input', 'Apple Pie');
+    const content = await page.textContent('[role="option"]');
+    await expect(content).toBe('Create "Apple Pie"');
 
-//     await page.click('[role="option"]');
+    await page.click('[role="option"]');
 
-//     const inputValue = await page.getAttribute('input', 'value');
-//     await expect(inputValue).toBe('Apple Pie');
-//   });
-// });
+    const selectedValue = await page.textContent('#combobox-1-selected-value');
+    await expect(selectedValue).toBe('Apple Pie');
+  });
+});

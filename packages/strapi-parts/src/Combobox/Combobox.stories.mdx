@@ -108,6 +108,77 @@ This is the doc of the `Combobox` component
   </Story>
 </Canvas>
 
+## Creatable
+
+This is the doc of the `Combobox` component
+
+<Canvas>
+  <Story name="creatable">
+    {() => {
+      const [value, setValue] = useState('');
+      const [options, setOptions] = useState([
+        {
+          name: 'Hamburger',
+          value: 'hamburger',
+        },
+        {
+          name: 'Hambu',
+          value: 'hambu',
+        },
+        {
+          name: 'Ham',
+          value: 'ham',
+        },
+        {
+          name: 'Sandwich',
+          value: 'sandwich',
+        },
+        {
+          name: 'Peperroni',
+          value: 'peperroni',
+        },
+        {
+          name: 'Asparagus',
+          value: 'asparagus',
+        },
+        {
+          name: 'Lettuce',
+          value: 'lettuce',
+        },
+        {
+          name: 'Tomato',
+          value: 'tomato',
+        },
+        {
+          name: 'Bagel',
+          value: 'bagel',
+        },
+        {
+          name: 'Tartuffo',
+          value: 'tartuffo',
+        },
+        {
+          name: 'Carbonara',
+          value: 'carbonara',
+        },
+      ]);
+      const onCreateOption = (value) => {
+        setOptions((opt) => [...opt, { name: value, value }]);
+        setValue(value);
+      };
+      return (
+        <CreatableCombobox label="Food" value={value} onChange={setValue} onCreateOption={onCreateOption}>
+          {options.map(({ name, value }) => (
+            <ComboboxOption key={value} value={value}>
+              {name}
+            </ComboboxOption>
+          ))}
+        </CreatableCombobox>
+      );
+    }}
+  </Story>
+</Canvas>
+
 ## Props
 
 <ArgsTable of={Combobox} />

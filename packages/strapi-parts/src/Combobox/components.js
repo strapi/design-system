@@ -1,6 +1,7 @@
 import { Box } from '../Box';
 import { Row } from '../Row';
 import styled from 'styled-components';
+import { inputFocusStyle } from '../themes/utils';
 
 export const MainRow = styled(Row)`
   position: relative;
@@ -18,13 +19,25 @@ export const MainRow = styled(Row)`
   `
       : undefined}
 
-  &:focus-within {
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.6);
-  }
+  ${inputFocusStyle()}
+`;
+
+export const ValueContainer = styled.div`
+  padding: 1px 2px;
+  grid-area: 1 / 1 / 2 / 3;
+`;
+
+export const InputContainer = styled(Row)`
+  display: grid;
+  flex: 1 1 0%;
+  position: relative;
 `;
 
 export const Input = styled.input`
+  display: inline-grid;
+  grid-area: 1 / 1 / 2 / 3;
+  grid-template-columns: 0px min-content;
+  background: transparent;
   min-height: ${40 / 16}rem;
   border: none;
   flex: 1;
