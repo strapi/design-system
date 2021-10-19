@@ -274,7 +274,6 @@ describe('Select', () => {
             </span>
             <div
               class="c2 c3"
-              direction="row"
             >
               <button
                 aria-describedby="select-1-hint"
@@ -288,11 +287,9 @@ describe('Select', () => {
               />
               <div
                 class="c5 c6"
-                direction="row"
               >
                 <div
                   class="c2"
-                  direction="row"
                 >
                   <div
                     aria-hidden="true"
@@ -315,7 +312,6 @@ describe('Select', () => {
                 </div>
                 <div
                   class="c2"
-                  direction="row"
                 >
                   <button
                     aria-hidden="true"
@@ -397,7 +393,6 @@ describe('Select', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c19"
@@ -415,7 +410,6 @@ describe('Select', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c9"
@@ -433,7 +427,6 @@ describe('Select', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c9"
@@ -652,7 +645,6 @@ describe('Select', () => {
             </span>
             <div
               class="c2 c3"
-              direction="row"
             >
               <button
                 aria-describedby="select-3-hint"
@@ -666,11 +658,9 @@ describe('Select', () => {
               />
               <div
                 class="c5 c6"
-                direction="row"
               >
                 <div
                   class="c2"
-                  direction="row"
                 >
                   <div
                     class="c7"
@@ -690,7 +680,6 @@ describe('Select', () => {
                 </div>
                 <div
                   class="c2"
-                  direction="row"
                 >
                   <button
                     aria-hidden="true"
@@ -924,7 +913,6 @@ describe('Select', () => {
                 >
                   <div
                     class="c6"
-                    direction="row"
                   >
                     <div
                       aria-hidden="true"
@@ -950,7 +938,6 @@ describe('Select', () => {
                 >
                   <div
                     class="c6"
-                    direction="row"
                   >
                     <div
                       aria-hidden="true"
@@ -976,7 +963,6 @@ describe('Select', () => {
                 >
                   <div
                     class="c6"
-                    direction="row"
                   >
                     <div
                       aria-hidden="true"

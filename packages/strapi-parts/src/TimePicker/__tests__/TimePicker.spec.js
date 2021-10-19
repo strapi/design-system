@@ -289,7 +289,6 @@ describe('TimePicker', () => {
             </span>
             <div
               class="c2 c3"
-              direction="row"
             >
               <button
                 aria-describedby="timepicker-1-hint"
@@ -303,11 +302,9 @@ describe('TimePicker', () => {
               />
               <div
                 class="c5 c6"
-                direction="row"
               >
                 <div
                   class="c2"
-                  direction="row"
                 >
                   <div
                     aria-hidden="true"
@@ -345,7 +342,6 @@ describe('TimePicker', () => {
                 </div>
                 <div
                   class="c2"
-                  direction="row"
                 >
                   <button
                     aria-disabled="false"
@@ -445,7 +441,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -463,7 +458,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -481,7 +475,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -499,7 +492,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -517,7 +509,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -535,7 +526,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -553,7 +543,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -571,7 +560,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -589,7 +577,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -607,7 +594,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -625,7 +611,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -643,7 +628,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -661,7 +645,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -679,7 +662,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -697,7 +679,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -715,7 +696,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -733,7 +713,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -751,7 +730,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -769,7 +747,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -787,7 +764,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -805,7 +781,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -823,7 +798,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -841,7 +815,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -859,7 +832,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -877,7 +849,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -895,7 +866,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -913,7 +883,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -931,7 +900,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -949,7 +917,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -967,7 +934,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -985,7 +951,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1003,7 +968,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1021,7 +985,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1039,7 +1002,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1057,7 +1019,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1075,7 +1036,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1093,7 +1053,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1111,7 +1070,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1129,7 +1087,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1147,7 +1104,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1165,7 +1121,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1183,7 +1138,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1201,7 +1155,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1219,7 +1172,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1237,7 +1189,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c20"
@@ -1255,7 +1206,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1273,7 +1223,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1291,7 +1240,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1309,7 +1257,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1327,7 +1274,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1345,7 +1291,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1363,7 +1308,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1381,7 +1325,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1399,7 +1342,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1417,7 +1359,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1435,7 +1376,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1453,7 +1393,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1471,7 +1410,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1489,7 +1427,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1507,7 +1444,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1525,7 +1461,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1543,7 +1478,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1561,7 +1495,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1579,7 +1512,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1597,7 +1529,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1615,7 +1546,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1633,7 +1563,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1651,7 +1580,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1669,7 +1597,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1687,7 +1614,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1705,7 +1631,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1723,7 +1648,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1741,7 +1665,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1759,7 +1682,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1777,7 +1699,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1795,7 +1716,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1813,7 +1733,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1831,7 +1750,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1849,7 +1767,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1867,7 +1784,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1885,7 +1801,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1903,7 +1818,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1921,7 +1835,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1939,7 +1852,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1957,7 +1869,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1975,7 +1886,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -1993,7 +1903,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -2011,7 +1920,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -2029,7 +1937,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -2047,7 +1954,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -2065,7 +1971,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -2083,7 +1988,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -2101,7 +2005,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -2119,7 +2022,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -2137,7 +2039,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"
@@ -2155,7 +2056,6 @@ describe('TimePicker', () => {
                 >
                   <div
                     class="c2"
-                    direction="row"
                   >
                     <span
                       class="c10"

@@ -2,7 +2,16 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Box } from '../Box';
 
-export const Flex = styled(Box)`
+/**
+ * Prevents these attributes from being spread on the DOM node
+ */
+const transientProps = {
+  direction: true,
+};
+
+export const Flex = styled(Box).withConfig({
+  shouldForwardProp: (prop, defPropValFN) => !transientProps[prop] && defPropValFN(prop),
+})`
   display: ${({ inline }) => (inline ? 'inline-flex' : 'flex')};
   flex-direction: ${({ direction }) => direction};
   justify-content: ${({ justifyContent }) => justifyContent};

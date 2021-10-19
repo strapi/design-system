@@ -152,7 +152,6 @@ exports[`Storyshots Design System/Components/Alert base 1`] = `
     >
       <div
         class="c3"
-        direction="row"
       >
         <div
           class="c4 c5"
@@ -420,7 +419,6 @@ exports[`Storyshots Design System/Components/Alert variants 1`] = `
       >
         <div
           class="c4"
-          direction="row"
         >
           <div
             class="c5 c6"
@@ -487,7 +485,6 @@ exports[`Storyshots Design System/Components/Alert variants 1`] = `
       >
         <div
           class="c4"
-          direction="row"
         >
           <div
             class="c5 c14"
@@ -556,7 +553,6 @@ exports[`Storyshots Design System/Components/Alert variants 1`] = `
       >
         <div
           class="c4"
-          direction="row"
         >
           <div
             class="c5 c16"
@@ -864,7 +860,6 @@ exports[`Storyshots Design System/Components/Alert with action 1`] = `
     >
       <div
         class="c3"
-        direction="row"
       >
         <div
           class="c4 c5"
@@ -1061,7 +1056,6 @@ exports[`Storyshots Design System/Components/Avatar group 1`] = `
   >
     <div
       class="c2 c3"
-      direction="row"
     >
       <span>
         <div
@@ -1173,7 +1167,6 @@ exports[`Storyshots Design System/Components/Avatar initials 1`] = `
   >
     <div
       class="c2 c3"
-      direction="row"
     >
       <span
         class="c4"
@@ -1387,7 +1380,6 @@ exports[`Storyshots Design System/Components/Breadcrumbs base 1`] = `
   </div>
   <div
     class="c1 c2 c3"
-    direction="row"
   >
     <svg
       fill="none"
@@ -1412,7 +1404,6 @@ exports[`Storyshots Design System/Components/Breadcrumbs base 1`] = `
     </svg>
     <div
       class="c1 c2"
-      direction="row"
     >
       <div
         class="c0"
@@ -1424,7 +1415,6 @@ exports[`Storyshots Design System/Components/Breadcrumbs base 1`] = `
       >
         <li
           class="c1 c4 c5"
-          direction="row"
         >
           <span
             class="c6"
@@ -1451,7 +1441,6 @@ exports[`Storyshots Design System/Components/Breadcrumbs base 1`] = `
         </li>
         <li
           class="c1 c4 c5"
-          direction="row"
         >
           <span
             class="c6"
@@ -2357,7 +2346,6 @@ exports[`Storyshots Design System/Components/Button icons 1`] = `
   </div>
   <div
     class="c1 c2 c3"
-    direction="row"
   >
     <button
       aria-disabled="false"
@@ -2732,7 +2720,6 @@ exports[`Storyshots Design System/Components/Button sizes 1`] = `
   </div>
   <div
     class="c1 c2"
-    direction="row"
   >
     <div
       class="c1 c3"
@@ -3461,7 +3448,6 @@ exports[`Storyshots Design System/Components/Button variants 1`] = `
   </div>
   <div
     class="c1 c2 c3"
-    direction="row"
   >
     <button
       aria-disabled="false"
@@ -3912,7 +3898,6 @@ exports[`Storyshots Design System/Components/Card base 1`] = `
   >
     <div
       class="c2 c3"
-      direction="row"
     >
       <div
         class="c4"
@@ -3976,7 +3961,6 @@ exports[`Storyshots Design System/Components/Card base 1`] = `
     >
       <div
         class="c15"
-        direction="row"
       >
         <div
           class="c16"
@@ -4143,7 +4127,6 @@ exports[`Storyshots Design System/Components/Card keyboard navigable 1`] = `
       >
         <div
           class="c3"
-          direction="row"
         >
           <div
             class="c4"
@@ -4206,7 +4189,6 @@ exports[`Storyshots Design System/Components/Card keyboard navigable 1`] = `
       >
         <div
           class="c3"
-          direction="row"
         >
           <div
             class="c4"
@@ -4269,7 +4251,6 @@ exports[`Storyshots Design System/Components/Card keyboard navigable 1`] = `
       >
         <div
           class="c3"
-          direction="row"
         >
           <div
             class="c4"
@@ -4332,7 +4313,6 @@ exports[`Storyshots Design System/Components/Card keyboard navigable 1`] = `
       >
         <div
           class="c3"
-          direction="row"
         >
           <div
             class="c4"
@@ -4647,7 +4627,6 @@ exports[`Storyshots Design System/Components/Card with asset icon 1`] = `
   >
     <div
       class="c2 c3"
-      direction="row"
     >
       <div
         class="c4"
@@ -4664,7 +4643,6 @@ exports[`Storyshots Design System/Components/Card with asset icon 1`] = `
       >
         <div
           class="c7"
-          direction="row"
         >
           <svg
             aria-label="Just a picture"
@@ -4698,7 +4676,6 @@ exports[`Storyshots Design System/Components/Card with asset icon 1`] = `
     >
       <div
         class="c12"
-        direction="row"
       >
         <div
           class="c13"
@@ -4862,7 +4839,6 @@ exports[`Storyshots Design System/Components/Card without asset 1`] = `
     >
       <div
         class="c3"
-        direction="row"
       >
         <div
           class="c4"
@@ -5169,7 +5145,6 @@ exports[`Storyshots Design System/Components/Card without asset action 1`] = `
   >
     <div
       class="c2 c3"
-      direction="row"
     >
       <div
         class="c4"
@@ -5205,7 +5180,6 @@ exports[`Storyshots Design System/Components/Card without asset action 1`] = `
     >
       <div
         class="c12"
-        direction="row"
       >
         <div
           class="c13"
@@ -5474,7 +5448,6 @@ exports[`Storyshots Design System/Components/Card without asset action nor timer
   >
     <div
       class="c2 c3"
-      direction="row"
     >
       <div
         class="c4"
@@ -5501,7 +5474,6 @@ exports[`Storyshots Design System/Components/Card without asset action nor timer
     >
       <div
         class="c9"
-        direction="row"
       >
         <div
           class="c10"
@@ -5842,7 +5814,6 @@ exports[`Storyshots Design System/Components/Carousel base 1`] = `
             aria-label="1 of 3 slides"
             aria-roledescription="slide"
             class="c9 c10"
-            direction="row"
             role="group"
           >
             <img
@@ -5855,7 +5826,6 @@ exports[`Storyshots Design System/Components/Carousel base 1`] = `
             aria-label="2 of 3 slides"
             aria-roledescription="slide"
             class="c9 c11"
-            direction="row"
             role="group"
           >
             <img
@@ -5868,7 +5838,6 @@ exports[`Storyshots Design System/Components/Carousel base 1`] = `
             aria-label="3 of 3 slides"
             aria-roledescription="slide"
             class="c9 c11"
-            direction="row"
             role="group"
           >
             <img
@@ -5880,7 +5849,6 @@ exports[`Storyshots Design System/Components/Carousel base 1`] = `
         </div>
         <div
           class="c9 c12"
-          direction="row"
         >
           <span>
             <button
@@ -7044,11 +7012,9 @@ exports[`Storyshots Design System/Components/Combobox base 1`] = `
       </label>
       <div
         class="c3 c4"
-        direction="row"
       >
         <div
           class="c5 c6"
-          direction="row"
           wrap="wrap"
         >
           
@@ -7073,7 +7039,6 @@ exports[`Storyshots Design System/Components/Combobox base 1`] = `
         </div>
         <div
           class="c3"
-          direction="row"
         >
           
           <button
@@ -7287,11 +7252,9 @@ exports[`Storyshots Design System/Components/Combobox creatable 1`] = `
       </label>
       <div
         class="c3 c4"
-        direction="row"
       >
         <div
           class="c5 c6"
-          direction="row"
           wrap="wrap"
         >
           
@@ -7316,7 +7279,6 @@ exports[`Storyshots Design System/Components/Combobox creatable 1`] = `
         </div>
         <div
           class="c3"
-          direction="row"
         >
           
           <button
@@ -7532,11 +7494,9 @@ exports[`Storyshots Design System/Components/Combobox disabled 1`] = `
       </label>
       <div
         class="c3 c4"
-        direction="row"
       >
         <div
           class="c5 c6"
-          direction="row"
           wrap="wrap"
         >
           
@@ -7562,7 +7522,6 @@ exports[`Storyshots Design System/Components/Combobox disabled 1`] = `
         </div>
         <div
           class="c3"
-          direction="row"
         >
           
           <button
@@ -7784,11 +7743,9 @@ exports[`Storyshots Design System/Components/Combobox error 1`] = `
       </label>
       <div
         class="c3 c4"
-        direction="row"
       >
         <div
           class="c5 c6"
-          direction="row"
           wrap="wrap"
         >
           
@@ -7813,7 +7770,6 @@ exports[`Storyshots Design System/Components/Combobox error 1`] = `
         </div>
         <div
           class="c3"
-          direction="row"
         >
           
           <button
@@ -8048,11 +8004,9 @@ exports[`Storyshots Design System/Components/Combobox initial-data 1`] = `
       </label>
       <div
         class="c3 c4"
-        direction="row"
       >
         <div
           class="c5 c6"
-          direction="row"
           wrap="wrap"
         >
           <div
@@ -8086,7 +8040,6 @@ exports[`Storyshots Design System/Components/Combobox initial-data 1`] = `
         </div>
         <div
           class="c3"
-          direction="row"
         >
           <button
             aria-label="clear"
@@ -8303,11 +8256,9 @@ exports[`Storyshots Design System/Components/Combobox withoutLabel 1`] = `
     >
       <div
         class="c2 c3"
-        direction="row"
       >
         <div
           class="c4 c5"
-          direction="row"
           wrap="wrap"
         >
           
@@ -8331,7 +8282,6 @@ exports[`Storyshots Design System/Components/Combobox withoutLabel 1`] = `
         </div>
         <div
           class="c2"
-          direction="row"
         >
           
           <button
@@ -8526,7 +8476,6 @@ exports[`Storyshots Design System/Components/DatePicker base 1`] = `
           >
             <div
               class="c2"
-              direction="row"
             >
               <label
                 class="c3"
@@ -8537,7 +8486,6 @@ exports[`Storyshots Design System/Components/DatePicker base 1`] = `
             </div>
             <div
               class="c4 c5"
-              direction="row"
             >
               <div
                 class="c6"
@@ -8755,7 +8703,6 @@ exports[`Storyshots Design System/Components/DatePicker size S 1`] = `
           >
             <div
               class="c2"
-              direction="row"
             >
               <label
                 class="c3"
@@ -8766,7 +8713,6 @@ exports[`Storyshots Design System/Components/DatePicker size S 1`] = `
             </div>
             <div
               class="c4 c5"
-              direction="row"
             >
               <div
                 class="c6"
@@ -10011,7 +9957,6 @@ exports[`Storyshots Design System/Components/Field base 1`] = `
       </label>
       <div
         class="c3 c4"
-        direction="row"
       >
         <input
           aria-disabled="false"
@@ -10175,7 +10120,6 @@ exports[`Storyshots Design System/Components/Field disabled 1`] = `
       </label>
       <div
         class="c3 c4"
-        direction="row"
         disabled=""
       >
         <input
@@ -10389,7 +10333,6 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
       >
         <div
           class="c3"
-          direction="row"
         >
           <label
             class="c4"
@@ -10432,7 +10375,6 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
         </div>
         <div
           class="c6 c7"
-          direction="row"
         >
           <div
             class="c8"
@@ -10700,7 +10642,6 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
       >
         <div
           class="c3"
-          direction="row"
         >
           <label
             class="c4"
@@ -10743,7 +10684,6 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
         </div>
         <div
           class="c6 c7"
-          direction="row"
         >
           <div
             class="c8"
@@ -10979,7 +10919,6 @@ exports[`Storyshots Design System/Components/Field with description 1`] = `
       </label>
       <div
         class="c4 c5"
-        direction="row"
       >
         <input
           aria-describedby="field-25-hint"
@@ -11148,7 +11087,6 @@ exports[`Storyshots Design System/Components/Field with error 1`] = `
       </label>
       <div
         class="c3 c4"
-        direction="row"
       >
         <input
           aria-describedby="field-26-error"
@@ -11707,11 +11645,9 @@ exports[`Storyshots Design System/Components/HeaderLayout base 1`] = `
       </div>
       <div
         class="c1 c12"
-        direction="row"
       >
         <div
           class="c1 c13"
-          direction="row"
         >
           <h2
             class="c14"
@@ -12099,11 +12035,9 @@ exports[`Storyshots Design System/Components/HeaderLayout base without nav actio
     >
       <div
         class="c1 c4"
-        direction="row"
       >
         <div
           class="c1 c5"
-          direction="row"
         >
           <h2
             class="c6"
@@ -12611,11 +12545,9 @@ exports[`Storyshots Design System/Components/HeaderLayout combined w/ scroll 1`]
         </div>
         <div
           class="c1 c12"
-          direction="row"
         >
           <div
             class="c1 c13"
-            direction="row"
           >
             <h2
               class="c14"
@@ -13096,11 +13028,9 @@ exports[`Storyshots Design System/Components/HeaderLayout sticky 1`] = `
     >
       <div
         class="c1 c5"
-        direction="row"
       >
         <div
           class="c1 c6"
-          direction="row"
         >
           <div
             class="c1 c7"
@@ -13189,7 +13119,6 @@ exports[`Storyshots Design System/Components/HeaderLayout sticky 1`] = `
         </div>
         <div
           class="c1 c6"
-          direction="row"
         >
           <div
             class="c1 c22"
@@ -13372,7 +13301,6 @@ exports[`Storyshots Design System/Components/IconButton base 1`] = `
   >
     <div
       class="c2"
-      direction="row"
     >
       <span>
         <button
@@ -13611,7 +13539,6 @@ exports[`Storyshots Design System/Components/IconButton disabled 1`] = `
   >
     <div
       class="c2"
-      direction="row"
     >
       <span>
         <button
@@ -13888,7 +13815,6 @@ exports[`Storyshots Design System/Components/IconButton group 1`] = `
   >
     <div
       class="c2 c3"
-      direction="row"
     >
       <span>
         <button
@@ -15164,7 +15090,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
         >
           <div
             class="c1 c6"
-            direction="row"
           >
             <h2
               class="c7"
@@ -15216,13 +15141,11 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
               >
                 <div
                   class="c1 c6"
-                  direction="row"
                 >
                   <button
                     aria-controls="subnav-list-61"
                     aria-expanded="true"
                     class="c1 c18 c19"
-                    direction="row"
                   >
                     <div
                       class="c1 c20"
@@ -15274,7 +15197,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   >
                     <div
                       class="c1 c18"
-                      direction="row"
                     >
                       <svg
                         class="c32"
@@ -15310,7 +15232,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   >
                     <div
                       class="c1 c18"
-                      direction="row"
                     >
                       <svg
                         class="c32"
@@ -15346,7 +15267,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   >
                     <div
                       class="c1 c18"
-                      direction="row"
                     >
                       <svg
                         class="c32"
@@ -15382,7 +15302,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   >
                     <div
                       class="c1 c18"
-                      direction="row"
                     >
                       <svg
                         class="c32"
@@ -15419,13 +15338,11 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
               >
                 <div
                   class="c1 c6"
-                  direction="row"
                 >
                   <button
                     aria-controls="subnav-list-62"
                     aria-expanded="true"
                     class="c1 c18 c19"
-                    direction="row"
                   >
                     <div
                       class="c1 c20"
@@ -15476,7 +15393,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   >
                     <div
                       class="c1 c6"
-                      direction="row"
                     >
                       <button
                         aria-controls="subnav-list-63"
@@ -15524,7 +15440,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       >
                         <div
                           class="c1 c18"
-                          direction="row"
                         >
                           <svg
                             class="c32"
@@ -15560,7 +15475,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       >
                         <div
                           class="c1 c18"
-                          direction="row"
                         >
                           <svg
                             class="c32"
@@ -15596,7 +15510,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       >
                         <div
                           class="c1 c18"
-                          direction="row"
                         >
                           <svg
                             class="c32"
@@ -15632,7 +15545,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       >
                         <div
                           class="c1 c18"
-                          direction="row"
                         >
                           <svg
                             class="c32"
@@ -15680,11 +15592,9 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
           >
             <div
               class="c1 c6"
-              direction="row"
             >
               <div
                 class="c1 c18"
-                direction="row"
               >
                 <h2
                   class="c42"
@@ -15770,11 +15680,9 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
           >
             <div
               class="c1 c52"
-              direction="row"
             >
               <div
                 class="c1 c53 c54"
-                direction="row"
                 wrap="wrap"
               >
                 <div
@@ -15785,7 +15693,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   >
                     <div
                       class="c1 c18"
-                      direction="row"
                     >
                       <span
                         class="c21 c47 c58"
@@ -15798,7 +15705,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       >
                         <div
                           class="c1 c18"
-                          direction="row"
                         >
                           <svg
                             aria-hidden="true"
@@ -15826,7 +15732,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   >
                     <div
                       class="c1 c18"
-                      direction="row"
                     >
                       <span
                         class="c21 c47 c58"
@@ -15839,7 +15744,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       >
                         <div
                           class="c1 c18"
-                          direction="row"
                         >
                           <svg
                             aria-hidden="true"
@@ -15867,7 +15771,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   >
                     <div
                       class="c1 c18"
-                      direction="row"
                     >
                       <span
                         class="c21 c47 c58"
@@ -15880,7 +15783,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       >
                         <div
                           class="c1 c18"
-                          direction="row"
                         >
                           <svg
                             aria-hidden="true"
@@ -15908,7 +15810,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   >
                     <div
                       class="c1 c18"
-                      direction="row"
                     >
                       <span
                         class="c21 c47 c58"
@@ -15921,7 +15822,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       >
                         <div
                           class="c1 c18"
-                          direction="row"
                         >
                           <svg
                             aria-hidden="true"
@@ -15949,7 +15849,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   >
                     <div
                       class="c1 c18"
-                      direction="row"
                     >
                       <span
                         class="c21 c47 c58"
@@ -15962,7 +15861,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       >
                         <div
                           class="c1 c18"
-                          direction="row"
                         >
                           <svg
                             aria-hidden="true"
@@ -15990,7 +15888,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   >
                     <div
                       class="c1 c18"
-                      direction="row"
                     >
                       <span
                         class="c21 c47 c58"
@@ -16003,7 +15900,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       >
                         <div
                           class="c1 c18"
-                          direction="row"
                         >
                           <svg
                             aria-hidden="true"
@@ -16031,7 +15927,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   >
                     <div
                       class="c1 c18"
-                      direction="row"
                     >
                       <span
                         class="c21 c47 c58"
@@ -16044,7 +15939,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       >
                         <div
                           class="c1 c18"
-                          direction="row"
                         >
                           <svg
                             aria-hidden="true"
@@ -16072,7 +15966,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   >
                     <div
                       class="c1 c18"
-                      direction="row"
                     >
                       <span
                         class="c21 c47 c58"
@@ -16085,7 +15978,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       >
                         <div
                           class="c1 c18"
-                          direction="row"
                         >
                           <svg
                             aria-hidden="true"
@@ -16113,7 +16005,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   >
                     <div
                       class="c1 c18"
-                      direction="row"
                     >
                       <span
                         class="c21 c47 c58"
@@ -16126,7 +16017,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       >
                         <div
                           class="c1 c18"
-                          direction="row"
                         >
                           <svg
                             aria-hidden="true"
@@ -16154,7 +16044,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   >
                     <div
                       class="c1 c18"
-                      direction="row"
                     >
                       <span
                         class="c21 c47 c58"
@@ -16167,7 +16056,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       >
                         <div
                           class="c1 c18"
-                          direction="row"
                         >
                           <svg
                             aria-hidden="true"
@@ -16195,7 +16083,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   >
                     <div
                       class="c1 c18"
-                      direction="row"
                     >
                       <span
                         class="c21 c47 c58"
@@ -16208,7 +16095,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       >
                         <div
                           class="c1 c18"
-                          direction="row"
                         >
                           <svg
                             aria-hidden="true"
@@ -16236,7 +16122,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   >
                     <div
                       class="c1 c18"
-                      direction="row"
                     >
                       <span
                         class="c21 c47 c58"
@@ -16249,7 +16134,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       >
                         <div
                           class="c1 c18"
-                          direction="row"
                         >
                           <svg
                             aria-hidden="true"
@@ -16277,7 +16161,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   >
                     <div
                       class="c1 c18"
-                      direction="row"
                     >
                       <span
                         class="c21 c47 c58"
@@ -16290,7 +16173,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       >
                         <div
                           class="c1 c18"
-                          direction="row"
                         >
                           <svg
                             aria-hidden="true"
@@ -16318,7 +16200,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   >
                     <div
                       class="c1 c18"
-                      direction="row"
                     >
                       <span
                         class="c21 c47 c58"
@@ -16331,7 +16212,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       >
                         <div
                           class="c1 c18"
-                          direction="row"
                         >
                           <svg
                             aria-hidden="true"
@@ -16359,7 +16239,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   >
                     <div
                       class="c1 c18"
-                      direction="row"
                     >
                       <span
                         class="c21 c47 c58"
@@ -16372,7 +16251,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       >
                         <div
                           class="c1 c18"
-                          direction="row"
                         >
                           <svg
                             aria-hidden="true"
@@ -16400,7 +16278,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   >
                     <div
                       class="c1 c18"
-                      direction="row"
                     >
                       <span
                         class="c21 c47 c58"
@@ -16413,7 +16290,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       >
                         <div
                           class="c1 c18"
-                          direction="row"
                         >
                           <svg
                             aria-hidden="true"
@@ -16441,7 +16317,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   >
                     <div
                       class="c1 c18"
-                      direction="row"
                     >
                       <span
                         class="c21 c47 c58"
@@ -16454,7 +16329,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       >
                         <div
                           class="c1 c18"
-                          direction="row"
                         >
                           <svg
                             aria-hidden="true"
@@ -16482,7 +16356,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   >
                     <div
                       class="c1 c18"
-                      direction="row"
                     >
                       <span
                         class="c21 c47 c58"
@@ -16495,7 +16368,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       >
                         <div
                           class="c1 c18"
-                          direction="row"
                         >
                           <svg
                             aria-hidden="true"
@@ -16523,7 +16395,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   >
                     <div
                       class="c1 c18"
-                      direction="row"
                     >
                       <span
                         class="c21 c47 c58"
@@ -16536,7 +16407,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       >
                         <div
                           class="c1 c18"
-                          direction="row"
                         >
                           <svg
                             aria-hidden="true"
@@ -16564,7 +16434,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   >
                     <div
                       class="c1 c18"
-                      direction="row"
                     >
                       <span
                         class="c21 c47 c58"
@@ -16577,7 +16446,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       >
                         <div
                           class="c1 c18"
-                          direction="row"
                         >
                           <svg
                             aria-hidden="true"
@@ -16600,7 +16468,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
               </div>
               <div
                 class="c1 c18 c59 c60"
-                direction="row"
               >
                 <button
                   aria-disabled="false"
@@ -16658,7 +16525,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       >
                         <div
                           class="c1 c18"
-                          direction="row"
                         >
                           <input
                             aria-label="Select all entries"
@@ -16678,7 +16544,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       >
                         <div
                           class="c1 c18"
-                          direction="row"
                         >
                           <span
                             class="c21 c29 c23 c24"
@@ -16697,7 +16562,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       >
                         <div
                           class="c1 c18"
-                          direction="row"
                         >
                           <span
                             class="c21 c29 c23 c24"
@@ -16716,7 +16580,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       >
                         <div
                           class="c1 c18"
-                          direction="row"
                         >
                           <span
                             class="c21 c29 c23 c24"
@@ -16735,7 +16598,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       >
                         <div
                           class="c1 c18"
-                          direction="row"
                         >
                           <span
                             class="c21 c29 c23 c24"
@@ -16754,7 +16616,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       >
                         <div
                           class="c1 c18"
-                          direction="row"
                         >
                           <span
                             class="c21 c29 c23 c24"
@@ -16773,7 +16634,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       >
                         <div
                           class="c1 c18"
-                          direction="row"
                         >
                           More
                           <span
@@ -16788,7 +16648,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       >
                         <div
                           class="c1 c18"
-                          direction="row"
                         >
                           More
                           <span
@@ -16803,7 +16662,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       >
                         <div
                           class="c1 c18"
-                          direction="row"
                         >
                           More
                           <span
@@ -16818,7 +16676,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       >
                         <div
                           class="c1 c18"
-                          direction="row"
                         >
                           <div
                             class="c0"
@@ -16952,7 +16809,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       >
                         <div
                           class="c1 c18"
-                          direction="row"
                         >
                           <span>
                             <button
@@ -17124,7 +16980,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       >
                         <div
                           class="c1 c18"
-                          direction="row"
                         >
                           <span>
                             <button
@@ -17296,7 +17151,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       >
                         <div
                           class="c1 c18"
-                          direction="row"
                         >
                           <span>
                             <button
@@ -17468,7 +17322,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       >
                         <div
                           class="c1 c18"
-                          direction="row"
                         >
                           <span>
                             <button
@@ -17640,7 +17493,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       >
                         <div
                           class="c1 c18"
-                          direction="row"
                         >
                           <span>
                             <button
@@ -17708,7 +17560,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
               >
                 <div
                   class="c1 c18"
-                  direction="row"
                 >
                   <div
                     aria-hidden="true"
@@ -18505,7 +18356,6 @@ exports[`Storyshots Design System/Components/LightTheme spaces 1`] = `
     >
       <div
         class="c3"
-        direction="row"
       >
         <div
           class="c4"
@@ -18527,7 +18377,6 @@ exports[`Storyshots Design System/Components/LightTheme spaces 1`] = `
       </div>
       <div
         class="c3"
-        direction="row"
       >
         <div
           class="c4"
@@ -18549,7 +18398,6 @@ exports[`Storyshots Design System/Components/LightTheme spaces 1`] = `
       </div>
       <div
         class="c3"
-        direction="row"
       >
         <div
           class="c4"
@@ -18571,7 +18419,6 @@ exports[`Storyshots Design System/Components/LightTheme spaces 1`] = `
       </div>
       <div
         class="c3"
-        direction="row"
       >
         <div
           class="c4"
@@ -18593,7 +18440,6 @@ exports[`Storyshots Design System/Components/LightTheme spaces 1`] = `
       </div>
       <div
         class="c3"
-        direction="row"
       >
         <div
           class="c4"
@@ -18615,7 +18461,6 @@ exports[`Storyshots Design System/Components/LightTheme spaces 1`] = `
       </div>
       <div
         class="c3"
-        direction="row"
       >
         <div
           class="c4"
@@ -18637,7 +18482,6 @@ exports[`Storyshots Design System/Components/LightTheme spaces 1`] = `
       </div>
       <div
         class="c3"
-        direction="row"
       >
         <div
           class="c4"
@@ -18659,7 +18503,6 @@ exports[`Storyshots Design System/Components/LightTheme spaces 1`] = `
       </div>
       <div
         class="c3"
-        direction="row"
       >
         <div
           class="c4"
@@ -18681,7 +18524,6 @@ exports[`Storyshots Design System/Components/LightTheme spaces 1`] = `
       </div>
       <div
         class="c3"
-        direction="row"
       >
         <div
           class="c4"
@@ -18703,7 +18545,6 @@ exports[`Storyshots Design System/Components/LightTheme spaces 1`] = `
       </div>
       <div
         class="c3"
-        direction="row"
       >
         <div
           class="c4"
@@ -18725,7 +18566,6 @@ exports[`Storyshots Design System/Components/LightTheme spaces 1`] = `
       </div>
       <div
         class="c3"
-        direction="row"
       >
         <div
           class="c4"
@@ -18747,7 +18587,6 @@ exports[`Storyshots Design System/Components/LightTheme spaces 1`] = `
       </div>
       <div
         class="c3"
-        direction="row"
       >
         <div
           class="c4"
@@ -19712,7 +19551,6 @@ exports[`Storyshots Design System/Components/LinkButton icons 1`] = `
   </div>
   <div
     class="c1 c2"
-    direction="row"
   >
     <div
       class="c1 c3"
@@ -20038,7 +19876,6 @@ exports[`Storyshots Design System/Components/LinkButton sizes 1`] = `
   </div>
   <div
     class="c1 c2"
-    direction="row"
   >
     <div
       class="c1 c3"
@@ -20714,7 +20551,6 @@ exports[`Storyshots Design System/Components/LinkButton variants 1`] = `
   </div>
   <div
     class="c1 c2"
-    direction="row"
   >
     <div
       class="c1 c3"
@@ -21799,7 +21635,6 @@ exports[`Storyshots Design System/Components/MainNav base 1`] = `
       >
         <div
           class="c4"
-          direction="row"
         >
           <a
             aria-current="page"
@@ -21857,11 +21692,9 @@ exports[`Storyshots Design System/Components/MainNav base 1`] = `
             >
               <span
                 class="c17 c18"
-                direction="row"
               >
                 <div
                   class="c4"
-                  direction="row"
                 >
                   <span
                     aria-hidden="true"
@@ -21916,11 +21749,9 @@ exports[`Storyshots Design System/Components/MainNav base 1`] = `
                   >
                     <span
                       class="c17 c18"
-                      direction="row"
                     >
                       <div
                         class="c4"
-                        direction="row"
                       >
                         <span
                           aria-hidden="true"
@@ -21957,11 +21788,9 @@ exports[`Storyshots Design System/Components/MainNav base 1`] = `
                   >
                     <span
                       class="c17 c18"
-                      direction="row"
                     >
                       <div
                         class="c4"
-                        direction="row"
                       >
                         <span
                           aria-hidden="true"
@@ -21998,11 +21827,9 @@ exports[`Storyshots Design System/Components/MainNav base 1`] = `
                   >
                     <span
                       class="c17 c18"
-                      direction="row"
                     >
                       <div
                         class="c4"
-                        direction="row"
                       >
                         <span
                           aria-hidden="true"
@@ -22058,11 +21885,9 @@ exports[`Storyshots Design System/Components/MainNav base 1`] = `
                   >
                     <span
                       class="c17 c18"
-                      direction="row"
                     >
                       <div
                         class="c4"
-                        direction="row"
                       >
                         <span
                           aria-hidden="true"
@@ -22099,11 +21924,9 @@ exports[`Storyshots Design System/Components/MainNav base 1`] = `
                   >
                     <span
                       class="c17 c18"
-                      direction="row"
                     >
                       <div
                         class="c4"
-                        direction="row"
                       >
                         <span
                           aria-hidden="true"
@@ -22140,11 +21963,9 @@ exports[`Storyshots Design System/Components/MainNav base 1`] = `
                   >
                     <span
                       class="c17 c18"
-                      direction="row"
                     >
                       <div
                         class="c4"
-                        direction="row"
                       >
                         <span
                           aria-hidden="true"
@@ -22185,7 +22006,6 @@ exports[`Storyshots Design System/Components/MainNav base 1`] = `
       >
         <button
           class="c4"
-          direction="row"
         >
           <span>
             <div
@@ -22614,7 +22434,6 @@ exports[`Storyshots Design System/Components/MainNav notifications 1`] = `
       >
         <div
           class="c4"
-          direction="row"
         >
           <a
             aria-current="page"
@@ -22672,11 +22491,9 @@ exports[`Storyshots Design System/Components/MainNav notifications 1`] = `
             >
               <span
                 class="c17 c18"
-                direction="row"
               >
                 <div
                   class="c4"
-                  direction="row"
                 >
                   <span
                     aria-hidden="true"
@@ -22731,11 +22548,9 @@ exports[`Storyshots Design System/Components/MainNav notifications 1`] = `
                   >
                     <span
                       class="c17 c18"
-                      direction="row"
                     >
                       <div
                         class="c4"
-                        direction="row"
                       >
                         <span
                           aria-hidden="true"
@@ -22772,11 +22587,9 @@ exports[`Storyshots Design System/Components/MainNav notifications 1`] = `
                   >
                     <span
                       class="c17 c18"
-                      direction="row"
                     >
                       <div
                         class="c4"
-                        direction="row"
                       >
                         <span
                           aria-hidden="true"
@@ -22813,11 +22626,9 @@ exports[`Storyshots Design System/Components/MainNav notifications 1`] = `
                   >
                     <span
                       class="c17 c18"
-                      direction="row"
                     >
                       <div
                         class="c4"
-                        direction="row"
                       >
                         <span
                           aria-hidden="true"
@@ -22873,11 +22684,9 @@ exports[`Storyshots Design System/Components/MainNav notifications 1`] = `
                   >
                     <span
                       class="c17 c18"
-                      direction="row"
                     >
                       <div
                         class="c4"
-                        direction="row"
                       >
                         <span
                           aria-hidden="true"
@@ -22914,11 +22723,9 @@ exports[`Storyshots Design System/Components/MainNav notifications 1`] = `
                   >
                     <span
                       class="c17 c18"
-                      direction="row"
                     >
                       <div
                         class="c4"
-                        direction="row"
                       >
                         <span
                           aria-hidden="true"
@@ -22965,11 +22772,9 @@ exports[`Storyshots Design System/Components/MainNav notifications 1`] = `
                   >
                     <span
                       class="c17 c18"
-                      direction="row"
                     >
                       <div
                         class="c4"
-                        direction="row"
                       >
                         <span
                           aria-hidden="true"
@@ -23019,11 +22824,9 @@ exports[`Storyshots Design System/Components/MainNav notifications 1`] = `
       >
         <button
           class="c4"
-          direction="row"
         >
           <div
             class="c30 c31"
-            direction="row"
           >
             <span
               class="c32"
@@ -23455,7 +23258,6 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
       >
         <div
           class="c3"
-          direction="row"
         >
           <label
             class="c4"
@@ -23492,7 +23294,6 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
         </div>
         <div
           class="c6 c7"
-          direction="row"
         >
           <input
             aria-describedby="numberinput-84-hint"
@@ -23788,7 +23589,6 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
       >
         <div
           class="c3"
-          direction="row"
         >
           <label
             class="c4"
@@ -23825,7 +23625,6 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
         </div>
         <div
           class="c6 c7"
-          direction="row"
         >
           <input
             aria-describedby="numberinput-88-hint"
@@ -24096,7 +23895,6 @@ exports[`Storyshots Design System/Components/NumberInput withoutLabel 1`] = `
       >
         <div
           class="c3 c4"
-          direction="row"
         >
           <input
             aria-describedby="numberinput-87-hint"
@@ -24375,7 +24173,6 @@ exports[`Storyshots Design System/Components/Pagination base 1`] = `
   >
     <ul
       class="c1 c2"
-      direction="row"
     >
       <li>
         <a
@@ -25072,14 +24869,12 @@ exports[`Storyshots Design System/Components/Searchbar base 1`] = `
         </div>
         <div
           class="c3 c4 c5"
-          direction="row"
         >
           <div
             class="c6"
           >
             <div
               class="c7 c8 c9"
-              direction="row"
             >
               <svg
                 aria-hidden="true"
@@ -25289,7 +25084,6 @@ exports[`Storyshots Design System/Components/Searchbar disabled 1`] = `
       </div>
       <div
         class="c3 c4 c5"
-        direction="row"
         disabled=""
       >
         <div
@@ -25297,7 +25091,6 @@ exports[`Storyshots Design System/Components/Searchbar disabled 1`] = `
         >
           <div
             class="c7 c8 c9"
-            direction="row"
           >
             <svg
               aria-hidden="true"
@@ -25507,14 +25300,12 @@ exports[`Storyshots Design System/Components/Searchbar size S 1`] = `
         </div>
         <div
           class="c3 c4 c5"
-          direction="row"
         >
           <div
             class="c6"
           >
             <div
               class="c7 c8 c9"
-              direction="row"
             >
               <svg
                 aria-hidden="true"
@@ -25771,7 +25562,6 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
         </span>
         <div
           class="c5 c6"
-          direction="row"
         >
           <button
             aria-describedby="select1-hint"
@@ -25785,11 +25575,9 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
           />
           <div
             class="c8 c9"
-            direction="row"
           >
             <div
               class="c5"
-              direction="row"
             >
               <div
                 aria-hidden="true"
@@ -25821,7 +25609,6 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
             </div>
             <div
               class="c5"
-              direction="row"
             >
               <button
                 aria-hidden="true"
@@ -26075,7 +25862,6 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
         </span>
         <div
           class="c4 c5"
-          direction="row"
         >
           <button
             aria-describedby="select1-hint"
@@ -26089,11 +25875,9 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
           />
           <div
             class="c7 c8"
-            direction="row"
           >
             <div
               class="c4"
-              direction="row"
             >
               <div
                 class="c9"
@@ -26111,7 +25895,6 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
             </div>
             <div
               class="c4"
-              direction="row"
             >
               <button
                 aria-hidden="true"
@@ -26365,7 +26148,6 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
         </span>
         <div
           class="c4 c5"
-          direction="row"
         >
           <button
             aria-describedby="select1-hint"
@@ -26379,11 +26161,9 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
           />
           <div
             class="c7 c8"
-            direction="row"
           >
             <div
               class="c4"
-              direction="row"
             >
               <div
                 class="c9"
@@ -26401,7 +26181,6 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
             </div>
             <div
               class="c4"
-              direction="row"
             >
               <button
                 aria-hidden="true"
@@ -26676,7 +26455,6 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
         </span>
         <div
           class="c4 c5"
-          direction="row"
         >
           <button
             aria-describedby="select1-hint"
@@ -26690,18 +26468,15 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
           />
           <div
             class="c7 c8"
-            direction="row"
           >
             <div
               class="c4"
-              direction="row"
             >
               <div
                 class="c9"
               >
                 <div
                   class="c10"
-                  direction="row"
                   wrap="wrap"
                 />
               </div>
@@ -26725,7 +26500,6 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
             </div>
             <div
               class="c4"
-              direction="row"
             >
               <button
                 aria-hidden="true"
@@ -26975,7 +26749,6 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
         </span>
         <div
           class="c4 c5"
-          direction="row"
         >
           <button
             aria-describedby="select1-hint"
@@ -26989,11 +26762,9 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
           />
           <div
             class="c7 c8"
-            direction="row"
           >
             <div
               class="c4"
-              direction="row"
             >
               <div
                 class="c9"
@@ -27008,7 +26779,6 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
             </div>
             <div
               class="c4"
-              direction="row"
             >
               <button
                 aria-disabled="false"
@@ -27259,7 +27029,6 @@ exports[`Storyshots Design System/Components/Select withoutLabel 1`] = `
       >
         <div
           class="c3 c4"
-          direction="row"
         >
           <button
             aria-describedby="select1-hint"
@@ -27274,11 +27043,9 @@ exports[`Storyshots Design System/Components/Select withoutLabel 1`] = `
           />
           <div
             class="c6 c7"
-            direction="row"
           >
             <div
               class="c3"
-              direction="row"
             >
               <div
                 aria-hidden="true"
@@ -27310,7 +27077,6 @@ exports[`Storyshots Design System/Components/Select withoutLabel 1`] = `
             </div>
             <div
               class="c3"
-              direction="row"
             >
               <button
                 aria-hidden="true"
@@ -28073,7 +27839,6 @@ exports[`Storyshots Design System/Components/Status base 1`] = `
     >
       <div
         class="c4"
-        direction="row"
       >
         <div
           class="c5"
@@ -28095,7 +27860,6 @@ exports[`Storyshots Design System/Components/Status base 1`] = `
     >
       <div
         class="c4"
-        direction="row"
       >
         <div
           class="c11"
@@ -28638,7 +28402,6 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
   </div>
   <div
     class="c1"
-    direction="row"
   >
     <div
       class="c2"
@@ -28653,7 +28416,6 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
         >
           <div
             class="c5"
-            direction="row"
           >
             <h2
               class="c6"
@@ -28705,13 +28467,11 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
               >
                 <div
                   class="c5"
-                  direction="row"
                 >
                   <button
                     aria-controls="subnav-list-101"
                     aria-expanded="true"
                     class="c1 c17"
-                    direction="row"
                   >
                     <div
                       class="c18"
@@ -28763,7 +28523,6 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                   >
                     <div
                       class="c1"
-                      direction="row"
                     >
                       <svg
                         class="c30"
@@ -28799,7 +28558,6 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                   >
                     <div
                       class="c1"
-                      direction="row"
                     >
                       <svg
                         class="c30"
@@ -28835,7 +28593,6 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                   >
                     <div
                       class="c1"
-                      direction="row"
                     >
                       <svg
                         class="c30"
@@ -28871,7 +28628,6 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                   >
                     <div
                       class="c1"
-                      direction="row"
                     >
                       <svg
                         class="c30"
@@ -28908,7 +28664,6 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
               <button
                 aria-disabled="false"
                 class="c1 c33"
-                direction="row"
                 type="button"
               >
                 <span
@@ -28941,13 +28696,11 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
               >
                 <div
                   class="c5"
-                  direction="row"
                 >
                   <button
                     aria-controls="subnav-list-102"
                     aria-expanded="true"
                     class="c1 c17"
-                    direction="row"
                   >
                     <div
                       class="c18"
@@ -28998,7 +28751,6 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                   >
                     <div
                       class="c5"
-                      direction="row"
                     >
                       <button
                         aria-controls="subnav-list-103"
@@ -29046,7 +28798,6 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                       >
                         <div
                           class="c1"
-                          direction="row"
                         >
                           <svg
                             class="c30"
@@ -29082,7 +28833,6 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                       >
                         <div
                           class="c1"
-                          direction="row"
                         >
                           <svg
                             class="c30"
@@ -29118,7 +28868,6 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                       >
                         <div
                           class="c1"
-                          direction="row"
                         >
                           <svg
                             class="c30"
@@ -29154,7 +28903,6 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                       >
                         <div
                           class="c1"
-                          direction="row"
                         >
                           <svg
                             class="c30"
@@ -29193,7 +28941,6 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
               <button
                 aria-disabled="false"
                 class="c1 c33"
-                direction="row"
                 type="button"
               >
                 <span
@@ -29237,7 +28984,6 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
         >
           <div
             class="c5"
-            direction="row"
           >
             <h2
               class="c6"
@@ -29266,7 +29012,6 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
               >
                 <div
                   class="c1"
-                  direction="row"
                 >
                   <div
                     class="c41"
@@ -29298,7 +29043,6 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                 </div>
                 <div
                   class="c1 sc-gtsrHT c42"
-                  direction="row"
                 >
                   <svg
                     class="c43"
@@ -29324,11 +29068,9 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
               >
                 <div
                   class="c5"
-                  direction="row"
                 >
                   <div
                     class="c1 c17"
-                    direction="row"
                   >
                     <div
                       class="c18"
@@ -29352,7 +29094,6 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                   >
                     <div
                       class="c1"
-                      direction="row"
                     >
                       <div
                         class="c41"
@@ -29389,7 +29130,6 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                   >
                     <div
                       class="c1"
-                      direction="row"
                     >
                       <div
                         class="c41"
@@ -29429,11 +29169,9 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
               >
                 <div
                   class="c5"
-                  direction="row"
                 >
                   <div
                     class="c1 c17"
-                    direction="row"
                   >
                     <div
                       class="c18"
@@ -29457,7 +29195,6 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                   >
                     <div
                       class="c1"
-                      direction="row"
                     >
                       <div
                         class="c41"
@@ -29494,7 +29231,6 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                   >
                     <div
                       class="c1"
-                      direction="row"
                     >
                       <div
                         class="c41"
@@ -29545,7 +29281,6 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
         >
           <div
             class="c5"
-            direction="row"
           >
             <h2
               class="c6"
@@ -29574,7 +29309,6 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
               >
                 <div
                   class="c1"
-                  direction="row"
                 >
                   <div
                     class="c41"
@@ -29606,7 +29340,6 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                 </div>
                 <div
                   class="c1 sc-gtsrHT c42"
-                  direction="row"
                 >
                   <svg
                     class="c43"
@@ -29632,11 +29365,9 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
               >
                 <div
                   class="c5"
-                  direction="row"
                 >
                   <div
                     class="c1 c17"
-                    direction="row"
                   >
                     <div
                       class="c18"
@@ -29659,7 +29390,6 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                   >
                     <div
                       class="c5"
-                      direction="row"
                     >
                       <button
                         aria-controls="subnav-list-109"
@@ -29707,7 +29437,6 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                       >
                         <div
                           class="c1"
-                          direction="row"
                         >
                           <div
                             class="c41"
@@ -29744,7 +29473,6 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                       >
                         <div
                           class="c1"
-                          direction="row"
                         >
                           <svg
                             class="c30"
@@ -29780,7 +29508,6 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                       >
                         <div
                           class="c1"
-                          direction="row"
                         >
                           <div
                             class="c41"
@@ -29819,7 +29546,6 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                       >
                         <div
                           class="c1"
-                          direction="row"
                         >
                           <svg
                             class="c30"
@@ -29858,11 +29584,9 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
               >
                 <div
                   class="c5"
-                  direction="row"
                 >
                   <div
                     class="c1 c17"
-                    direction="row"
                   >
                     <div
                       class="c18"
@@ -29886,7 +29610,6 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                   >
                     <div
                       class="c1"
-                      direction="row"
                     >
                       <div
                         class="c41"
@@ -29923,7 +29646,6 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                   >
                     <div
                       class="c1"
-                      direction="row"
                     >
                       <svg
                         class="c30"
@@ -29959,7 +29681,6 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                   >
                     <div
                       class="c1"
-                      direction="row"
                     >
                       <div
                         class="c41"
@@ -29998,7 +29719,6 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                   >
                     <div
                       class="c1"
-                      direction="row"
                     >
                       <svg
                         class="c30"
@@ -30135,7 +29855,6 @@ exports[`Storyshots Design System/Components/Switch activated 1`] = `
   >
     <div
       class="c2"
-      direction="row"
     >
       <div
         class="c3 c4"
@@ -30256,7 +29975,6 @@ exports[`Storyshots Design System/Components/Switch not-activated 1`] = `
   >
     <div
       class="c2"
-      direction="row"
     >
       <div
         class="c3 c4"
@@ -30706,7 +30424,6 @@ exports[`Storyshots Design System/Components/Table base 1`] = `
                 >
                   <div
                     class="c11"
-                    direction="row"
                   >
                     <input
                       aria-label="Select all entries"
@@ -30726,7 +30443,6 @@ exports[`Storyshots Design System/Components/Table base 1`] = `
                 >
                   <div
                     class="c11"
-                    direction="row"
                   >
                     <span
                       class="c14 c15 c16"
@@ -30745,7 +30461,6 @@ exports[`Storyshots Design System/Components/Table base 1`] = `
                 >
                   <div
                     class="c11"
-                    direction="row"
                   >
                     <span
                       class="c14 c15 c16"
@@ -30764,7 +30479,6 @@ exports[`Storyshots Design System/Components/Table base 1`] = `
                 >
                   <div
                     class="c11"
-                    direction="row"
                   >
                     <span
                       class="c14 c15 c16"
@@ -30783,7 +30497,6 @@ exports[`Storyshots Design System/Components/Table base 1`] = `
                 >
                   <div
                     class="c11"
-                    direction="row"
                   >
                     <span
                       class="c14 c15 c16"
@@ -30802,7 +30515,6 @@ exports[`Storyshots Design System/Components/Table base 1`] = `
                 >
                   <div
                     class="c11"
-                    direction="row"
                   >
                     <span
                       class="c14 c15 c16"
@@ -30821,7 +30533,6 @@ exports[`Storyshots Design System/Components/Table base 1`] = `
                 >
                   <div
                     class="c11"
-                    direction="row"
                   >
                     <div
                       class="c0"
@@ -30922,7 +30633,6 @@ exports[`Storyshots Design System/Components/Table base 1`] = `
                 >
                   <div
                     class="c11"
-                    direction="row"
                   >
                     <span>
                       <button
@@ -31061,7 +30771,6 @@ exports[`Storyshots Design System/Components/Table base 1`] = `
                 >
                   <div
                     class="c11"
-                    direction="row"
                   >
                     <span>
                       <button
@@ -31200,7 +30909,6 @@ exports[`Storyshots Design System/Components/Table base 1`] = `
                 >
                   <div
                     class="c11"
-                    direction="row"
                   >
                     <span>
                       <button
@@ -31339,7 +31047,6 @@ exports[`Storyshots Design System/Components/Table base 1`] = `
                 >
                   <div
                     class="c11"
-                    direction="row"
                   >
                     <span>
                       <button
@@ -31478,7 +31185,6 @@ exports[`Storyshots Design System/Components/Table base 1`] = `
                 >
                   <div
                     class="c11"
-                    direction="row"
                   >
                     <span>
                       <button
@@ -31546,7 +31252,6 @@ exports[`Storyshots Design System/Components/Table base 1`] = `
         >
           <div
             class="c11"
-            direction="row"
           >
             <div
               aria-hidden="true"
@@ -31945,7 +31650,6 @@ exports[`Storyshots Design System/Components/Table base without footer 1`] = `
                 >
                   <div
                     class="c11"
-                    direction="row"
                   >
                     <input
                       aria-label="Select all entries"
@@ -31965,7 +31669,6 @@ exports[`Storyshots Design System/Components/Table base without footer 1`] = `
                 >
                   <div
                     class="c11"
-                    direction="row"
                   >
                     <span
                       class="c14 c15 c16"
@@ -31984,7 +31687,6 @@ exports[`Storyshots Design System/Components/Table base without footer 1`] = `
                 >
                   <div
                     class="c11"
-                    direction="row"
                   >
                     <span
                       class="c14 c15 c16"
@@ -32003,7 +31705,6 @@ exports[`Storyshots Design System/Components/Table base without footer 1`] = `
                 >
                   <div
                     class="c11"
-                    direction="row"
                   >
                     <span
                       class="c14 c15 c16"
@@ -32022,7 +31723,6 @@ exports[`Storyshots Design System/Components/Table base without footer 1`] = `
                 >
                   <div
                     class="c11"
-                    direction="row"
                   >
                     <span
                       class="c14 c15 c16"
@@ -32041,7 +31741,6 @@ exports[`Storyshots Design System/Components/Table base without footer 1`] = `
                 >
                   <div
                     class="c11"
-                    direction="row"
                   >
                     <span
                       class="c14 c15 c16"
@@ -32060,7 +31759,6 @@ exports[`Storyshots Design System/Components/Table base without footer 1`] = `
                 >
                   <div
                     class="c11"
-                    direction="row"
                   >
                     <div
                       class="c0"
@@ -32161,7 +31859,6 @@ exports[`Storyshots Design System/Components/Table base without footer 1`] = `
                 >
                   <div
                     class="c11"
-                    direction="row"
                   >
                     <span>
                       <button
@@ -32300,7 +31997,6 @@ exports[`Storyshots Design System/Components/Table base without footer 1`] = `
                 >
                   <div
                     class="c11"
-                    direction="row"
                   >
                     <span>
                       <button
@@ -32439,7 +32135,6 @@ exports[`Storyshots Design System/Components/Table base without footer 1`] = `
                 >
                   <div
                     class="c11"
-                    direction="row"
                   >
                     <span>
                       <button
@@ -32578,7 +32273,6 @@ exports[`Storyshots Design System/Components/Table base without footer 1`] = `
                 >
                   <div
                     class="c11"
-                    direction="row"
                   >
                     <span>
                       <button
@@ -32717,7 +32411,6 @@ exports[`Storyshots Design System/Components/Table base without footer 1`] = `
                 >
                   <div
                     class="c11"
-                    direction="row"
                   >
                     <span>
                       <button
@@ -33208,7 +32901,6 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
                 >
                   <div
                     class="c11"
-                    direction="row"
                   >
                     <input
                       aria-label="Select all entries"
@@ -33227,7 +32919,6 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
                 >
                   <div
                     class="c11"
-                    direction="row"
                   >
                     <span
                       class="c14 c15 c16"
@@ -33271,7 +32962,6 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
                 >
                   <div
                     class="c11"
-                    direction="row"
                   >
                     <span
                       class="c14 c15 c16"
@@ -33290,7 +32980,6 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
                 >
                   <div
                     class="c11"
-                    direction="row"
                   >
                     <span
                       class="c14 c15 c16"
@@ -33309,7 +32998,6 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
                 >
                   <div
                     class="c11"
-                    direction="row"
                   >
                     <span
                       class="c14 c15 c16"
@@ -33328,7 +33016,6 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
                 >
                   <div
                     class="c11"
-                    direction="row"
                   >
                     <span
                       class="c14 c15 c16"
@@ -33347,7 +33034,6 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
                 >
                   <div
                     class="c11"
-                    direction="row"
                   >
                     <div
                       class="c0"
@@ -33448,7 +33134,6 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
                 >
                   <div
                     class="c11"
-                    direction="row"
                   >
                     <span>
                       <button
@@ -33587,7 +33272,6 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
                 >
                   <div
                     class="c11"
-                    direction="row"
                   >
                     <span>
                       <button
@@ -33726,7 +33410,6 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
                 >
                   <div
                     class="c11"
-                    direction="row"
                   >
                     <span>
                       <button
@@ -33865,7 +33548,6 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
                 >
                   <div
                     class="c11"
-                    direction="row"
                   >
                     <span>
                       <button
@@ -34004,7 +33686,6 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
                 >
                   <div
                     class="c11"
-                    direction="row"
                   >
                     <span>
                       <button
@@ -34072,7 +33753,6 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
         >
           <div
             class="c11"
-            direction="row"
           >
             <div
               aria-hidden="true"
@@ -34221,7 +33901,6 @@ exports[`Storyshots Design System/Components/Tabs base 1`] = `
       <div
         aria-label="Some stuff for the label"
         class="c2 c3"
-        direction="row"
         role="tablist"
       >
         <button
@@ -34533,7 +34212,6 @@ exports[`Storyshots Design System/Components/Tag base 1`] = `
   >
     <div
       class="c3"
-      direction="row"
     >
       <span
         class="c4 c5"
@@ -34545,7 +34223,6 @@ exports[`Storyshots Design System/Components/Tag base 1`] = `
       >
         <div
           class="c3"
-          direction="row"
         >
           <svg
             aria-hidden="true"
@@ -34685,7 +34362,6 @@ exports[`Storyshots Design System/Components/TextButton base 1`] = `
     <button
       aria-disabled="false"
       class="c1 c2"
-      direction="row"
       type="button"
     >
       <span
@@ -34733,7 +34409,6 @@ exports[`Storyshots Design System/Components/TextButton base 1`] = `
     <button
       aria-disabled="true"
       class="c1 c2"
-      direction="row"
       type="button"
     >
       <span
@@ -34948,7 +34623,6 @@ exports[`Storyshots Design System/Components/TextInput base 1`] = `
         >
           <div
             class="c3"
-            direction="row"
           >
             <label
               class="c4"
@@ -34985,7 +34659,6 @@ exports[`Storyshots Design System/Components/TextInput base 1`] = `
           </div>
           <div
             class="c7 c8"
-            direction="row"
           >
             <input
               aria-describedby="textinput-173-hint"
@@ -35181,7 +34854,6 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
         >
           <div
             class="c3"
-            direction="row"
           >
             <label
               class="c4"
@@ -35218,7 +34890,6 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
           </div>
           <div
             class="c7 c8"
-            direction="row"
             disabled=""
           >
             <input
@@ -35413,7 +35084,6 @@ exports[`Storyshots Design System/Components/TextInput password 1`] = `
         >
           <div
             class="c3"
-            direction="row"
           >
             <label
               class="c4"
@@ -35450,7 +35120,6 @@ exports[`Storyshots Design System/Components/TextInput password 1`] = `
           </div>
           <div
             class="c7 c8"
-            direction="row"
           >
             <input
               aria-describedby="textinput-185-hint"
@@ -35645,7 +35314,6 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
         >
           <div
             class="c3"
-            direction="row"
           >
             <label
               class="c4"
@@ -35682,7 +35350,6 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
           </div>
           <div
             class="c7 c8"
-            direction="row"
           >
             <input
               aria-describedby="textinput-179-hint"
@@ -35876,7 +35543,6 @@ exports[`Storyshots Design System/Components/TextInput with error 1`] = `
         >
           <div
             class="c3"
-            direction="row"
           >
             <label
               class="c4"
@@ -35913,7 +35579,6 @@ exports[`Storyshots Design System/Components/TextInput with error 1`] = `
           </div>
           <div
             class="c7 c8"
-            direction="row"
           >
             <input
               aria-describedby="textinput-182-error"
@@ -36079,7 +35744,6 @@ exports[`Storyshots Design System/Components/TextInput withoutLabel 1`] = `
         >
           <div
             class="c3 c4"
-            direction="row"
           >
             <input
               aria-describedby="textinput-188-hint"
@@ -36287,7 +35951,6 @@ exports[`Storyshots Design System/Components/Textarea base 1`] = `
         >
           <div
             class="c4"
-            direction="row"
           >
             <label
               class="c5"
@@ -36552,7 +36215,6 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
       </span>
       <div
         class="c3 c4"
-        direction="row"
       >
         <button
           aria-describedby="tp-1-hint"
@@ -36566,11 +36228,9 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
         />
         <div
           class="c6 c7"
-          direction="row"
         >
           <div
             class="c3"
-            direction="row"
           >
             <div
               aria-hidden="true"
@@ -36608,7 +36268,6 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
           </div>
           <div
             class="c3"
-            direction="row"
           >
             <button
               aria-hidden="true"
@@ -36849,7 +36508,6 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
       </span>
       <div
         class="c3 c4"
-        direction="row"
       >
         <button
           aria-describedby="tp-1-hint"
@@ -36863,11 +36521,9 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
         />
         <div
           class="c6 c7"
-          direction="row"
         >
           <div
             class="c3"
-            direction="row"
           >
             <div
               aria-hidden="true"
@@ -36905,7 +36561,6 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
           </div>
           <div
             class="c3"
-            direction="row"
           >
             <button
               aria-hidden="true"
@@ -37146,7 +36801,6 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
       </span>
       <div
         class="c3 c4"
-        direction="row"
       >
         <button
           aria-describedby="tp-1-hint"
@@ -37160,11 +36814,9 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
         />
         <div
           class="c6 c7"
-          direction="row"
         >
           <div
             class="c3"
-            direction="row"
           >
             <div
               aria-hidden="true"
@@ -37202,7 +36854,6 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
           </div>
           <div
             class="c3"
-            direction="row"
           >
             <button
               aria-hidden="true"
@@ -37365,7 +37016,6 @@ exports[`Storyshots Design System/Components/ToggleCheckbox activated 1`] = `
       <div
         aria-hidden="true"
         class="c4 c5 c6"
-        direction="row"
       >
         <span
           class="c7"
@@ -37376,7 +37026,6 @@ exports[`Storyshots Design System/Components/ToggleCheckbox activated 1`] = `
       <div
         aria-hidden="true"
         class="c8 c5 c9"
-        direction="row"
       >
         <span
           class="c10"
@@ -37520,7 +37169,6 @@ exports[`Storyshots Design System/Components/ToggleCheckbox not activated 1`] = 
       <div
         aria-hidden="true"
         class="c4 c5 c6"
-        direction="row"
       >
         <span
           class="c7"
@@ -37531,7 +37179,6 @@ exports[`Storyshots Design System/Components/ToggleCheckbox not activated 1`] = 
       <div
         aria-hidden="true"
         class="c8 c5 c9"
-        direction="row"
       >
         <span
           class="c10"
@@ -37674,7 +37321,6 @@ exports[`Storyshots Design System/Components/ToggleCheckbox size S 1`] = `
       <div
         aria-hidden="true"
         class="c4 c5 c6"
-        direction="row"
       >
         <span
           class="c7"
@@ -37685,7 +37331,6 @@ exports[`Storyshots Design System/Components/ToggleCheckbox size S 1`] = `
       <div
         aria-hidden="true"
         class="c8 c5 c9"
-        direction="row"
       >
         <span
           class="c10"
@@ -37862,7 +37507,6 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
     >
       <div
         class="c3"
-        direction="row"
       >
         <label
           class="c4"
@@ -37911,7 +37555,6 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
           <div
             aria-hidden="true"
             class="c10 c3 c11"
-            direction="row"
           >
             <span
               class="c4"
@@ -37922,7 +37565,6 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
           <div
             aria-hidden="true"
             class="c12 c3 c13"
-            direction="row"
           >
             <span
               class="c14"
@@ -38101,7 +37743,6 @@ exports[`Storyshots Design System/Components/ToggleInput error 1`] = `
     >
       <div
         class="c3"
-        direction="row"
       >
         <label
           class="c4"
@@ -38124,7 +37765,6 @@ exports[`Storyshots Design System/Components/ToggleInput error 1`] = `
           <div
             aria-hidden="true"
             class="c8 c3 c9"
-            direction="row"
           >
             <span
               class="c10"
@@ -38135,7 +37775,6 @@ exports[`Storyshots Design System/Components/ToggleInput error 1`] = `
           <div
             aria-hidden="true"
             class="c11 c3 c12"
-            direction="row"
           >
             <span
               class="c4"
@@ -38314,7 +37953,6 @@ exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
     >
       <div
         class="c3"
-        direction="row"
       >
         <label
           class="c4"
@@ -38337,7 +37975,6 @@ exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
           <div
             aria-hidden="true"
             class="c8 c3 c9"
-            direction="row"
           >
             <span
               class="c10"
@@ -38348,7 +37985,6 @@ exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
           <div
             aria-hidden="true"
             class="c11 c3 c12"
-            direction="row"
           >
             <span
               class="c4"
@@ -39481,7 +39117,6 @@ exports[`Storyshots Design System/Technical Components/Flex base 1`] = `
   </div>
   <div
     class="c1"
-    direction="row"
   >
     <div>
       Hello
@@ -42670,7 +42305,6 @@ exports[`Storyshots Design System/Technical Components/Stack horizontal 1`] = `
   </div>
   <div
     class="c1 c2 c3"
-    direction="row"
   >
     <div
       class="c4"
