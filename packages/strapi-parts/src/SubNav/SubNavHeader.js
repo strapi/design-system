@@ -17,7 +17,7 @@ const CustomDivider = styled(Divider)`
   background-color: ${({ theme }) => theme.colors.neutral200};
 `;
 
-export const SubNavHeader = ({ as, label, searchLabel, searchable, onChange, value, onClear, id }) => {
+export const SubNavHeader = ({ as, label, searchLabel, searchable, onChange, value, onClear, onSubmit, id }) => {
   const [isSearchOpen, setSearchOpen] = useState(false);
   const previousSearchOpenValue = usePrevious(isSearchOpen);
   const clearButtonId = useId('subnav-searchbar-clear', id);
@@ -67,7 +67,7 @@ export const SubNavHeader = ({ as, label, searchLabel, searchable, onChange, val
             ref={searchRef}
             onBlur={handleBlur}
             onClear={handleClear}
-            onSubmit={(e) => e.preventDefault()}
+            onSubmit={onSubmit}
             clearLabel="Clear"
             size="S"
           >
@@ -101,6 +101,7 @@ SubNavHeader.defaultProps = {
   searchable: false,
   onChange: () => {},
   onClear: () => {},
+  onSubmit: () => {},
   value: '',
   searchLabel: '',
   id: undefined,
@@ -112,6 +113,7 @@ SubNavHeader.propTypes = {
   label: PropTypes.string.isRequired,
   onChange: PropTypes.func,
   onClear: PropTypes.func,
+  onSubmit: PropTypes.func,
   searchLabel: PropTypes.string,
   searchable: PropTypes.bool,
   value: PropTypes.string,
