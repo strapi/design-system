@@ -1,6 +1,15 @@
 import React, { useRef } from "react";
 import PropTypes from "prop-types";
-import { Option, Button, Row, Box, Select, IconButtonGroup, Popover, FocusTrap } from "@strapi/parts";
+import {
+  Option,
+  Button,
+  Flex,
+  Box,
+  Select,
+  IconButtonGroup,
+  Popover,
+  FocusTrap,
+} from "@strapi/parts";
 import {
   Bold,
   Italic,
@@ -35,14 +44,19 @@ const WysiwygNav = ({
   const handleEscapeMore = () => {
     onTogglePopover();
     buttonMoreRef.current.focus();
-  }
+  };
 
   if (isPreviewMode) {
     return (
       <Box padding={2} background="neutral100">
-        <Row justifyContent="space-between">
-          <Row>
-            <Select disabled id="selectTitle" placeholder={placeholder} size="S">
+        <Flex justifyContent="space-between">
+          <Flex>
+            <Select
+              disabled
+              id="selectTitle"
+              placeholder={placeholder}
+              size="S"
+            >
               <Option value="h1">h1</Option>
               <Option value="h2">h2</Option>
               <Option value="h3">h3</Option>
@@ -52,27 +66,56 @@ const WysiwygNav = ({
             </Select>
 
             <MainButtons>
-              <CustomIconButton disabled id="Bold" label="Bold" name="Bold" icon={<Bold />} />
-              <CustomIconButton disabled id="Italic" label="Italic" name="Italic" icon={<Italic />} />
-              <CustomIconButton disabled id="Underline" label="Underline" name="Underline" icon={<Underline />} />
+              <CustomIconButton
+                disabled
+                id="Bold"
+                label="Bold"
+                name="Bold"
+                icon={<Bold />}
+              />
+              <CustomIconButton
+                disabled
+                id="Italic"
+                label="Italic"
+                name="Italic"
+                icon={<Italic />}
+              />
+              <CustomIconButton
+                disabled
+                id="Underline"
+                label="Underline"
+                name="Underline"
+                icon={<Underline />}
+              />
             </MainButtons>
 
-            <MoreButton disabled ref={buttonMoreRef} id="more" label="more" icon={<More />} />
-          </Row>
+            <MoreButton
+              disabled
+              ref={buttonMoreRef}
+              id="more"
+              label="more"
+              icon={<More />}
+            />
+          </Flex>
 
-          <Button onClick={onTogglePreviewMode} variant="tertiary" size="L" id="preview">
+          <Button
+            onClick={onTogglePreviewMode}
+            variant="tertiary"
+            size="L"
+            id="preview"
+          >
             {/* to replace with format message */}
             Markdown mode
           </Button>
-        </Row>
+        </Flex>
       </Box>
     );
   }
 
   return (
     <Box padding={2} background="neutral100">
-      <Row justifyContent="space-between">
-        <Row>
+      <Flex justifyContent="space-between">
+        <Flex>
           <Select
             id="selectTitle"
             placeholder={placeholder}
@@ -111,28 +154,49 @@ const WysiwygNav = ({
             />
           </MainButtons>
 
-          <MoreButton ref={buttonMoreRef} onClick={onTogglePopover} id="more" label="more" icon={<More />} />
+          <MoreButton
+            ref={buttonMoreRef}
+            onClick={onTogglePopover}
+            id="more"
+            label="more"
+            icon={<More />}
+          />
           {visiblePopover && (
-            <Popover centered source={buttonMoreRef} spacingTop={1} id="popover">
+            <Popover
+              centered
+              source={buttonMoreRef}
+              spacingTop={1}
+              id="popover"
+            >
               <FocusTrap onEscape={handleEscapeMore} restoreFocus={false}>
-                <Row>
+                <Flex>
                   <IconButtonGroupMargin>
                     <CustomIconButton
-                      onClick={() => onActionClick("Strikethrough", editorRef, onTogglePopover)}
+                      onClick={() =>
+                        onActionClick(
+                          "Strikethrough",
+                          editorRef,
+                          onTogglePopover
+                        )
+                      }
                       id="Strikethrough"
                       label="Strikethrough"
                       name="Strikethrough"
                       icon={<Strikethrough />}
                     />
                     <CustomIconButton
-                      onClick={() => onActionClick("BulletList", editorRef, onTogglePopover)}
+                      onClick={() =>
+                        onActionClick("BulletList", editorRef, onTogglePopover)
+                      }
                       id="BulletList"
                       label="BulletList"
                       name="BulletList"
                       icon={<BulletList />}
                     />
                     <CustomIconButton
-                      onClick={() => onActionClick("NumberList", editorRef, onTogglePopover)}
+                      onClick={() =>
+                        onActionClick("NumberList", editorRef, onTogglePopover)
+                      }
                       id="NumberList"
                       label="NumberList"
                       name="NumberList"
@@ -141,7 +205,9 @@ const WysiwygNav = ({
                   </IconButtonGroupMargin>
                   <IconButtonGroup>
                     <CustomIconButton
-                      onClick={() => onActionClick("Code", editorRef, onTogglePopover)}
+                      onClick={() =>
+                        onActionClick("Code", editorRef, onTogglePopover)
+                      }
                       id="Code"
                       label="Code"
                       name="Code"
@@ -155,33 +221,42 @@ const WysiwygNav = ({
                       icon={<Image />}
                     />
                     <CustomIconButton
-                      onClick={() => onActionClick("Link", editorRef, onTogglePopover)}
+                      onClick={() =>
+                        onActionClick("Link", editorRef, onTogglePopover)
+                      }
                       id="Link"
                       label="Link"
                       name="Link"
                       icon={<Link />}
                     />
                     <CustomIconButton
-                      onClick={() => onActionClick("Quote", editorRef, onTogglePopover)}
+                      onClick={() =>
+                        onActionClick("Quote", editorRef, onTogglePopover)
+                      }
                       id="Quote"
                       label="Quote"
                       name="Quote"
                       icon={<Quote />}
                     />
                   </IconButtonGroup>
-                </Row>
+                </Flex>
               </FocusTrap>
             </Popover>
           )}
-        </Row>
+        </Flex>
 
         {onTogglePreviewMode && (
-          <Button onClick={onTogglePreviewMode} variant="tertiary" size="L" id="preview">
+          <Button
+            onClick={onTogglePreviewMode}
+            variant="tertiary"
+            size="L"
+            id="preview"
+          >
             {/* to replace with format message */}
             Preview mode
           </Button>
         )}
-      </Row>
+      </Flex>
     </Box>
   );
 };

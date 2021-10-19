@@ -1,13 +1,13 @@
 import React from "react";
 import { Box } from "@strapi/parts/Box";
-import { Row } from "@strapi/parts/Row";
+import { Flex } from "@strapi/parts/Flex";
 import { Button } from "@strapi/parts/Button";
 import EditIcon from "@strapi/icons/EditIcon";
 import ConfigureIcon from "@strapi/icons/ConfigureIcon";
 
 export const SideActions = () => {
   return (
-    <Row>
+    <Flex>
       <Box paddingRight={3}>
         <Button variant="secondary" startIcon={<EditIcon />}>
           Edit the model
@@ -17,6 +17,6 @@ export const SideActions = () => {
       <Button variant="secondary" startIcon={<ConfigureIcon />}>
         Configure the view
       </Button>
-    </Row>
+    </Flex>
   );
 };

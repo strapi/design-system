@@ -2,7 +2,7 @@ import React from "react";
 import { Box } from "@strapi/parts/Box";
 import { Stack } from "@strapi/parts/Stack";
 import { Text } from "@strapi/parts/Text";
-import { Row } from "@strapi/parts/Row";
+import { Flex } from "@strapi/parts/Flex";
 import { Divider } from "@strapi/parts/Divider";
 
 export const Information = () => {
@@ -25,21 +25,21 @@ export const Information = () => {
       </Box>
 
       <Stack size={3}>
-        <Row justifyContent="space-between">
+        <Flex justifyContent="space-between">
           <Text textColor="neutral800" bold small>
             Last update
           </Text>
 
           <Text small>3 months ago</Text>
-        </Row>
+        </Flex>
 
-        <Row justifyContent="space-between">
+        <Flex justifyContent="space-between">
           <Text textColor="neutral800" small bold>
             By
           </Text>
 
           <Text small>Kai Doe</Text>
-        </Row>
+        </Flex>
       </Stack>
     </Box>
   );

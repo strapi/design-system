@@ -1,14 +1,9 @@
 import React from "react";
 import { Stack } from "@strapi/parts/Stack";
 import { Grid } from "@strapi/parts/Grid";
-import { Row } from "@strapi/parts/Row";
+import { Flex } from "@strapi/parts/Flex";
 import { VisuallyHidden } from "@strapi/parts/VisuallyHidden";
-import {
-  Field,
-  FieldInput,
-  FieldLabel,
-  FieldHint,
-} from "@strapi/parts/Field";
+import { Field, FieldInput, FieldLabel, FieldHint } from "@strapi/parts/Field";
 import { Tooltip } from "@strapi/parts/Tooltip";
 
 import HelpIcon from "@strapi/icons/HelpIcon";
@@ -24,7 +19,7 @@ export const EditForm = () => {
         <Grid cols="1fr 1fr" rows="auto auto" gap={9}>
           <Field name="email" hint="Imagine all the people">
             <Stack size={1}>
-              <Row>
+              <Flex>
                 <FieldLabel>Email</FieldLabel>
                 <Tooltip description="As a great poet of the street once said...">
                   <button
@@ -38,7 +33,7 @@ export const EditForm = () => {
                     <HelpIcon aria-hidden={true} />
                   </button>
                 </Tooltip>
-              </Row>
+              </Flex>
               <FieldInput type="text" placeholder="toto@example.com" />
               <FieldHint />
             </Stack>
