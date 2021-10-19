@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { H3, P } from '../Text';
 import { useAccordion } from './AccordionContext';
 import { Box } from '../Box';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 import { DropdownIconWrapper } from './DropdownIconWrapper';
 
 const ToggleButton = styled.button`
@@ -38,7 +38,7 @@ export const AccordionToggle = ({ title, description, as, variant, togglePositio
   if (togglePosition === 'left') {
     return (
       <Box padding={6} hasRadius background={boxBackground}>
-        <Row justifyContent="space-between">
+        <Flex justifyContent="space-between">
           <ToggleButton
             onClick={toggle}
             aria-expanded={expanded}
@@ -47,7 +47,7 @@ export const AccordionToggle = ({ title, description, as, variant, togglePositio
             data-strapi-accordion-toggle={true}
             type="button"
           >
-            <Row>
+            <Flex>
               {dropdownIcon}
 
               <Box paddingLeft={6}>
@@ -61,11 +61,11 @@ export const AccordionToggle = ({ title, description, as, variant, togglePositio
                   </P>
                 )}
               </Box>
-            </Row>
+            </Flex>
           </ToggleButton>
 
           {action && <Box paddingLeft={3}>{action}</Box>}
-        </Row>
+        </Flex>
       </Box>
     );
   }
@@ -80,7 +80,7 @@ export const AccordionToggle = ({ title, description, as, variant, togglePositio
         data-strapi-accordion-toggle={true}
         type="button"
       >
-        <Row justifyContent="space-between">
+        <Flex justifyContent="space-between">
           <Box paddingRight={6}>
             <H3 as={as} id={ariaLabelId} textColor={titleColor}>
               {title}
@@ -94,7 +94,7 @@ export const AccordionToggle = ({ title, description, as, variant, togglePositio
           </Box>
 
           {dropdownIcon}
-        </Row>
+        </Flex>
       </ToggleButton>
     </Box>
   );

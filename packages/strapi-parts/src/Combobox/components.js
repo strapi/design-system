@@ -1,9 +1,9 @@
 import { Box } from '../Box';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 import styled from 'styled-components';
 import { inputFocusStyle } from '../themes/utils';
 
-export const MainRow = styled(Row)`
+export const MainRow = styled(Flex)`
   position: relative;
   border: 1px solid ${({ theme, hasError }) => (hasError ? theme.colors.danger600 : theme.colors.neutral200)};
   padding-right: ${({ theme }) => theme.spaces[3]};
@@ -27,7 +27,7 @@ export const ValueContainer = styled.div`
   grid-area: 1 / 1 / 2 / 3;
 `;
 
-export const InputContainer = styled(Row)`
+export const InputContainer = styled(Flex)`
   display: grid;
   flex: 1 1 0%;
   position: relative;

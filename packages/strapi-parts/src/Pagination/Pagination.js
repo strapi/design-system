@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 import { PaginationContext } from './PaginationContext';
 
 const PaginationWrapper = styled.nav``;
-const PaginationList = styled(Row)`
+const PaginationList = styled(Flex)`
   & > * + * {
     margin-left: ${({ theme }) => theme.spaces[1]};
   }

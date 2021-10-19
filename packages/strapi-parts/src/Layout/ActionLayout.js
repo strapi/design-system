@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Box } from '../Box';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 
-const StartBlockActions = styled(Row)`
+const StartBlockActions = styled(Flex)`
   & > * + * {
     margin-left: ${({ theme }) => theme.spaces[2]};
   }
@@ -20,10 +20,10 @@ export const ActionLayout = ({ startActions, endActions }) => {
   return startActions || endActions ? (
     <Box paddingLeft={10} paddingRight={10}>
       <Box paddingBottom={4}>
-        <Row justifyContent="space-between" alignItems="flex-start">
+        <Flex justifyContent="space-between" alignItems="flex-start">
           {startActions && <StartBlockActions wrap="wrap">{startActions}</StartBlockActions>}
           {endActions && <EndBlockActions pullRight>{endActions}</EndBlockActions>}
-        </Row>
+        </Flex>
       </Box>
     </Box>
   ) : null;

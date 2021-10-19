@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { Box } from '../Box';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 import { getThemeSize, inputFocusStyle } from '../themes/utils';
 
-export const SelectButtonWrapper = styled(Row)`
+export const SelectButtonWrapper = styled(Flex)`
   position: relative;
   border: 1px solid ${({ theme, hasError }) => (hasError ? theme.colors.danger600 : theme.colors.neutral200)};
   padding-right: ${({ theme }) => theme.spaces[3]};

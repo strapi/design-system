@@ -7,7 +7,7 @@ import AlertWarningIcon from '@strapi/icons/AlertWarningIcon';
 import CloseAlertIcon from '@strapi/icons/CloseAlertIcon';
 import { Box } from '../Box';
 import { Text, P } from '../Text';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 import { handleBackgroundColor, handleBorderColor, handleIconColor } from './utils';
 import { buttonFocusStyle } from '../themes/utils';
 
@@ -70,7 +70,7 @@ const ActionBox = styled(Box)`
 export const Alert = ({ title, children, variant, onClose, closeLabel, titleAs, action, ...props }) => {
   return (
     <AlertWrapper hasRadius paddingLeft={5} paddingRight={6} paddingTop={5} variant={variant} {...props}>
-      <Row alignItems="flex-start">
+      <Flex alignItems="flex-start">
         <AlertIconWrapper paddingRight={3} variant={variant}>
           <AlertIcon variant={variant} aria-hidden={true} />
         </AlertIconWrapper>
@@ -95,7 +95,7 @@ export const Alert = ({ title, children, variant, onClose, closeLabel, titleAs, 
         <CloseButton onClick={onClose} aria-label={closeLabel}>
           <CloseAlertIcon aria-hidden={true} />
         </CloseButton>
-      </Row>
+      </Flex>
     </AlertWrapper>
   );
 };

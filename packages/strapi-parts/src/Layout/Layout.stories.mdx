@@ -18,7 +18,7 @@ import { Button } from '../Button';
 import { HeaderLayout } from './HeaderLayout';
 import { ActionLayout } from './ActionLayout';
 import { ContentLayout } from './ContentLayout';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 import { Table, Thead, Tbody, Tr, Td, Th, TFooter } from '../Table';
 import { TableLabel, Text } from '../Text';
 import { BaseCheckbox } from '../BaseCheckbox';
@@ -219,12 +219,12 @@ import Layout from '@strapi/parts/Layout';
                           <Text textColor="neutral800">{entry.description}</Text>
                         </Td>
                         <Td>
-                          <Row>
+                          <Flex>
                             <IconButton onClick={() => console.log('edit')} label="Edit" icon={<EditIcon />} />
                             <Box paddingLeft={1}>
                               <IconButton onClick={() => console.log('edit')} label="Delete" icon={<DeleteIcon />} />
                             </Box>
-                          </Row>
+                          </Flex>
                         </Td>
                       </Tr>
                     ))}

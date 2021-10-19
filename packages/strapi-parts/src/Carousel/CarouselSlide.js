@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 import styled from 'styled-components';
 
-const CarouselSlideWrapper = styled(Row)`
+const CarouselSlideWrapper = styled(Flex)`
   display: ${({ selected }) => (selected ? 'flex' : 'none')};
 `;
 

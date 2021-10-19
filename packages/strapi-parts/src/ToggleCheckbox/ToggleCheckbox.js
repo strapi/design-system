@@ -6,7 +6,7 @@ import { getThemeSize, inputFocusStyle } from '../themes/utils';
 import { Text } from '../Text';
 import { VisuallyHidden } from '../VisuallyHidden';
 import { Box } from '../Box';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 
 const Label = styled.label`
   position: relative;
@@ -23,13 +23,13 @@ const ToggleCheckboxWrapper = styled(Box)`
   ${inputFocusStyle()}
 `;
 
-const OnBox = styled(Row)`
+const OnBox = styled(Flex)`
   text-transform: uppercase;
   position: relative;
   z-index: 2;
 `;
 
-const OffBox = styled(Row)`
+const OffBox = styled(Flex)`
   text-transform: uppercase;
   border-right: 1px solid ${({ theme }) => theme.colors.neutral200};
   position: relative;

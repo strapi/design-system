@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { NavLink as RouterLink } from 'react-router-dom';
 import { Box } from '../Box';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 import { Text } from '../Text';
 import { useMainNav } from './MainNavContext';
 import { Tooltip } from '../Tooltip';
@@ -58,7 +58,7 @@ const MainNavLinkWrapper = styled(RouterLink)`
   }
 `;
 
-const MainNavRow = styled(Row)`
+const MainNavRow = styled(Flex)`
   padding: ${({ theme }) => `${theme.spaces[2]} ${theme.spaces[3]}`};
 `;
 
@@ -116,12 +116,12 @@ export const NavLink = ({ children, icon, badgeContent, badgeAriaLabel, ...props
     <li>
       <MainNavLinkWrapper {...props}>
         <MainNavRow as="span" justifyContent="space-between">
-          <Row>
+          <Flex>
             <IconBox aria-hidden paddingRight={3} as="span">
               {icon}
             </IconBox>
             <Text>{children}</Text>
-          </Row>
+          </Flex>
           {badgeContent && (
             <CustomBadge justifyContent="center" aria-label={badgeAriaLabel}>
               {badgeContent}

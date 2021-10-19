@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { avatarSize, previewSize } from './constants';
 import { Typography } from '../Text';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 
 const AvatarImg = styled.img`
   border-radius: 50%;
@@ -67,7 +67,7 @@ const getColor =
   ({ theme }) =>
     theme.colors[colorName];
 
-const InitialsWrapper = styled(Row)`
+const InitialsWrapper = styled(Flex)`
   width: ${avatarSize}px;
   height: ${avatarSize}px;
   border-radius: 50%;

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { Box } from '../Box';
 import { P, ButtonText } from '../Text';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 import { useMainNav } from './MainNavContext';
 import { VisuallyHidden } from '../VisuallyHidden';
 
@@ -44,7 +44,7 @@ export const NavBrand = ({ workplace, title, icon, to }) => {
 
   return (
     <Box paddingLeft={3} paddingRight={3} paddingTop={4} paddingBottom={4}>
-      <Row>
+      <Flex>
         <BrandIconWrapper as={NavLink} to={to} aria-hidden tabIndex={-1}>
           {icon}
         </BrandIconWrapper>
@@ -60,7 +60,7 @@ export const NavBrand = ({ workplace, title, icon, to }) => {
             {workplace}
           </P>
         </Box>
-      </Row>
+      </Flex>
     </Box>
   );
 };

@@ -20,7 +20,10 @@ const handleResponsiveSpacing = (position, value, theme) => {
 
     return spaces;
   }
-  return `${position}: ${theme.spaces[value]};`;
+
+  // Fallback to the passed value when necessary
+  const realValue = theme.spaces[value] || value;
+  return `${position}: ${realValue};`;
 };
 
 export default handleResponsiveSpacing;

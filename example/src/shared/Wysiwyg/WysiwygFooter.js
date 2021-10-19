@@ -1,31 +1,35 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Row, Text, Box } from "@strapi/parts";
+import React from "react";
+import PropTypes from "prop-types";
+import { Flex, Text, Box } from "@strapi/parts";
 import { Expand } from "@strapi/icons";
 
-import { ExpandButton } from './WysiwygStyles';
+import { ExpandButton } from "./WysiwygStyles";
 
-const WysiwygFooter = ({isPreviewMode, onToggleExpand}) => {
+const WysiwygFooter = ({ isPreviewMode, onToggleExpand }) => {
   return (
-    <Box padding={2} background='neutral100' hasRadius>
-      <Row justifyContent='flex-end' alignItems='flex-end' >
-        <ExpandButton id='expand' disabled={isPreviewMode ? true : false} onClick={onToggleExpand}>
+    <Box padding={2} background="neutral100" hasRadius>
+      <Flex justifyContent="flex-end" alignItems="flex-end">
+        <ExpandButton
+          id="expand"
+          disabled={isPreviewMode ? true : false}
+          onClick={onToggleExpand}
+        >
           <Text>Expand</Text>
-          <Expand/>
+          <Expand />
         </ExpandButton>
-      </Row>
+      </Flex>
     </Box>
-  )
+  );
 };
 
 WysiwygFooter.defaultProps = {
-  onToggleExpand: () => {}, 
-  isPreviewMode: false
+  onToggleExpand: () => {},
+  isPreviewMode: false,
 };
 
 WysiwygFooter.propTypes = {
-  onToggleExpand: PropTypes.func, 
-  isPreviewMode: PropTypes.bool
+  onToggleExpand: PropTypes.func,
+  isPreviewMode: PropTypes.bool,
 };
 
 export default WysiwygFooter;

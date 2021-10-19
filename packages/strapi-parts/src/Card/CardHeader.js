@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 
-const CardHeaderWrapper = styled(Row)`
+const CardHeaderWrapper = styled(Flex)`
   position: relative;
   border-bottom: 1px solid ${({ theme }) => theme.colors.neutral150};
 `;

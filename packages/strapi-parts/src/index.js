@@ -37,7 +37,7 @@ export * from './Portal';
 export * from './ProgressBar';
 export * from './Radio';
 export * from './RawTable';
-export * from './Row';
+export * from './Flex';
 export * from './Searchbar';
 export * from './Select';
 export * from './SimpleMenu';

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Box } from '../Box';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 import { Badge } from '../Badge';
 import { SubNavSectionLabel } from './SubNavSectionLabel';
 import { useId } from '../helpers/useId';
@@ -32,7 +32,7 @@ export const SubNavSection = ({ collapsable, label, badgeLabel, children, id }) 
   return (
     <li>
       <SubNavSectionWrapper paddingLeft={6} paddingTop={2} paddingBottom={2} paddingRight={4}>
-        <Row justifyContent="space-between">
+        <Flex justifyContent="space-between">
           <SubNavSectionLabel
             onClick={handleClick}
             ariaExpanded={isOpen}
@@ -41,7 +41,7 @@ export const SubNavSection = ({ collapsable, label, badgeLabel, children, id }) 
             label={label}
           />
           {badgeLabel && <SubNavSectionBadge backgroundColor="neutral150">{badgeLabel}</SubNavSectionBadge>}
-        </Row>
+        </Flex>
       </SubNavSectionWrapper>
       {(!collapsable || isOpen) && <ul id={listId}>{children}</ul>}
     </li>

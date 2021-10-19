@@ -18,7 +18,7 @@ import {
   VisuallyHidden,
   BaseCheckbox,
   IconButton,
-  Row,
+  Flex,
   Stack,
 } from "@strapi/parts";
 import EditIcon from "@strapi/icons/EditIcon";

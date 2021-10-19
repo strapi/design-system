@@ -4,7 +4,7 @@ import { useState } from 'react';
 import * as Icons from '@strapi/icons';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { Box } from '../Box';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 import { Text } from '../Text';
 import { Grid, GridItem } from '../Grid';
 import { useTheme } from '../ThemeProvider';
@@ -101,11 +101,11 @@ Description...
         <Box padding={8} background="neutral100">
           <Stack size={1}>
             {spaces.map((space) => (
-              <Row key={`space-${space}`}>
+              <Flex key={`space-${space}`}>
                 <Box paddingLeft={2}>
                   <Text>{space}</Text> <Text small>({theme.spaces[space]})</Text>
                 </Box>
-              </Row>
+              </Flex>
             ))}
           </Stack>
         </Box>

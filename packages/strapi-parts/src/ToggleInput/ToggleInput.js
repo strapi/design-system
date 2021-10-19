@@ -5,7 +5,7 @@ import { sizes } from '../themes/sizes';
 import { Field, FieldHint, FieldError, FieldLabel } from '../Field';
 import { Stack } from '../Stack';
 import { Box } from '../Box';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 import { ToggleCheckbox } from '../ToggleCheckbox';
 
 const FieldWrapper = styled(Field)`
@@ -22,10 +22,10 @@ export const ToggleInput = ({ size, error, hint, label, name, labelAction, ...pr
   return (
     <FieldWrapper name={name} hint={hint} error={error}>
       <Stack size={1}>
-        <Row>
+        <Flex>
           <FieldLabel>{label}</FieldLabel>
           {labelAction && <LabelAction paddingLeft={1}>{labelAction}</LabelAction>}
-        </Row>
+        </Flex>
         <ToggleCheckbox size={size} name={name} {...props}>
           {label}
         </ToggleCheckbox>

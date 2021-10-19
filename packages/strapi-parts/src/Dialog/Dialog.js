@@ -6,7 +6,7 @@ import { FocusTrap } from '../FocusTrap';
 import { setOpacity } from '../helpers/setOpacity';
 import useLockScroll from '../helpers/useLockScroll';
 import { Portal } from '../Portal';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 import { H2 } from '../Text';
 import { useId } from '../helpers/useId';
 
@@ -25,7 +25,7 @@ const DialogContainer = styled(Box)`
   margin-top: 10%;
 `;
 
-const DialogHeader = styled(Row)`
+const DialogHeader = styled(Flex)`
   border-bottom: 1px solid ${({ theme }) => theme.colors.neutral150};
 `;
 

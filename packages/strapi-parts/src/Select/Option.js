@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Box } from '../Box';
 import { Text } from '../Text';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 import checkmarkIcon from '../BaseCheckbox/assets/checkmark.svg';
 
 const CheckMark = styled.div`
@@ -82,7 +82,7 @@ export const Option = ({ selected, indeterminate, children, value, multi, isChil
       data-strapi-value={value}
       {...props}
     >
-      <Row>
+      <Flex>
         {startIcon && (
           <Box paddingRight={2} aria-hidden>
             {startIcon}
@@ -97,7 +97,7 @@ export const Option = ({ selected, indeterminate, children, value, multi, isChil
         <Text textColor={selected ? 'primary600' : 'neutral800'} bold={selected}>
           {children}
         </Text>
-      </Row>
+      </Flex>
     </OptionBox>
   );
 };

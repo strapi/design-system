@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { RawTh } from '../RawTable';
 import { Text } from '../Text';
 import { VisuallyHidden } from '../VisuallyHidden';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 
 const DatePickerThWrapper = styled(RawTh)`
   // Trick to prevent the outline from overflowing because of the general outline-offset
@@ -13,7 +13,7 @@ const DatePickerThWrapper = styled(RawTh)`
   text-transform: capitalize;
 `;
 
-const DatePickerThRow = styled(Row)`
+const DatePickerThRow = styled(Flex)`
   height: ${24 / 16}rem;
   width: ${32 / 16}rem;
 `;

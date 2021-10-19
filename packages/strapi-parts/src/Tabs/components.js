@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Box } from '../Box';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 
 /** Simple variant */
 export const SimpleTabBox = styled(Box)`
@@ -36,7 +36,7 @@ export const DefaultTabButton = styled.button`
   outline-offset: -2px;
 `;
 
-export const DefaultTabsRow = styled(Row)`
+export const DefaultTabsRow = styled(Flex)`
   & > * {
     flex: 1;
   }

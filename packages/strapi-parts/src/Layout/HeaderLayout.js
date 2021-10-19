@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { H1, Subtitle, P, H2 } from '../Text';
 import { Box } from '../Box';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 import { useElementOnScreen } from '../helpers/useElementOnScreen';
 import { useResizeObserver } from '../helpers/useResizeObserver';
 
@@ -74,8 +74,8 @@ export const BaseHeaderLayout = React.forwardRef(
           width={width}
           data-strapi-header-sticky
         >
-          <Row justifyContent="space-between">
-            <Row>
+          <Flex justifyContent="space-between">
+            <Flex>
               {navigationAction && <Box paddingRight={3}>{navigationAction}</Box>}
               <Box>
                 <H2 as="h1" {...props}>
@@ -86,9 +86,9 @@ export const BaseHeaderLayout = React.forwardRef(
                 </P>
               </Box>
               {secondaryAction ? <Box paddingLeft={4}>{secondaryAction}</Box> : null}
-            </Row>
-            <Row>{primaryAction ? <Box paddingLeft={2}>{primaryAction}</Box> : undefined}</Row>
-          </Row>
+            </Flex>
+            <Flex>{primaryAction ? <Box paddingLeft={2}>{primaryAction}</Box> : undefined}</Flex>
+          </Flex>
         </StickyBox>
       );
     }
@@ -104,13 +104,13 @@ export const BaseHeaderLayout = React.forwardRef(
         data-strapi-header
       >
         {navigationAction ? <Box paddingBottom={3}>{navigationAction}</Box> : null}
-        <Row justifyContent="space-between">
-          <Row>
+        <Flex justifyContent="space-between">
+          <Flex>
             <H1 {...props}>{title}</H1>
             {secondaryAction ? <Box paddingLeft={4}>{secondaryAction}</Box> : null}
-          </Row>
+          </Flex>
           {primaryAction}
-        </Row>
+        </Flex>
         <Subtitle textColor="neutral600" as="p">
           {subtitle}
         </Subtitle>

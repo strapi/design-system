@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box } from '../Box';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 import { Text } from '../Text';
 import styled from 'styled-components';
 
@@ -37,10 +37,10 @@ export const Status = ({ variant, children, ...props }) => {
       paddingRight={5}
       {...props}
     >
-      <Row>
+      <Flex>
         <Bullet backgroundColor={bulletColor} />
         {children}
-      </Row>
+      </Flex>
     </StatusWrapper>
   );
 };

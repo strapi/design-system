@@ -4,7 +4,7 @@ import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { ArgsTable } from '@storybook/addon-docs';
 import { Tooltip } from './Tooltip';
 import { Box } from '../Box';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 import { Grid, GridItem } from '../Grid';
 
 <Meta title="Design System/Components/Tooltip" component={Tooltip} />
@@ -14,20 +14,20 @@ import { Grid, GridItem } from '../Grid';
 Tooltips are floating labels that display additional information upon hover of an element.
 
 **Best practices**
+
 - The tooltip should remain as long as the mouse is not moved.
 - The tooltip should provide additional useful details.
 - The tooltip should not be used to provide critical or urgent information.
 - Tooltip shouldn't be longer or wider than 400px.
 - Tooltips should be used sparingly.
-[View source](https://github.com/strapi/parts/tree/develop/packages/strapi-parts/src/Tooltip)
-
+  [View source](https://github.com/strapi/parts/tree/develop/packages/strapi-parts/src/Tooltip)
 
 ## Imports
 
 ```js
 import { Tooltip } from '@strapi/parts/Tooltip';
 import { Box } from '@strapi/parts/Box';
-import { Row } from '@strapi/parts/Row';
+import { Flex } from '@strapi/parts/Flex';
 import { Grid, GridItem } from '@strapi/parts/Grid';
 ```
 
@@ -72,8 +72,10 @@ Tootips work with longer texts as well.
       </Tooltip>
     </div>
     <div>
-      <Tooltip description="Excepteur sint occaecat cupidatat non proident, sunt
-        in culpa qui officia deserunt mollit anim id est laborum.">
+      <Tooltip
+        description="Excepteur sint occaecat cupidatat non proident, sunt
+        in culpa qui officia deserunt mollit anim id est laborum."
+      >
         <button>A longer CTA with longer content</button>
       </Tooltip>
     </div>

@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Box } from '../Box';
 import { Text } from '../Text';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 import { buttonFocusStyle } from '../themes/utils';
 
-const TextButtonWrapper = styled(Row)`
+const TextButtonWrapper = styled(Flex)`
   background: transparent;
   border: none;
 

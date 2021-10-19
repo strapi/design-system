@@ -8,7 +8,7 @@ import DeleteIcon from '@strapi/icons/DeleteIcon';
 import AddIcon from '@strapi/icons/AddIcon';
 import { IconButton, IconButtonGroup } from './IconButton';
 import { Box } from '../Box';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 
 <Meta title="Design System/Components/IconButton" component={IconButton} />
 
@@ -44,12 +44,12 @@ Icon Buttons are used to perform actions within a page, a table or another objec
 <Canvas>
   <Story name="base">
     <Box padding={7}>
-      <Row>
+      <Flex>
         <IconButton onClick={() => console.log('edit')} label="Edit" icon={<EditIcon />} />
         <IconButton onClick={() => console.log('Create')} label="Create" icon={<AddIcon />} />
         <IconButton onClick={() => console.log('Delete')} label="Delete" icon={<DeleteIcon />} />
         <IconButton onClick={() => console.log('Publish')} label="Publish" icon={<PublishIcon />} />
-      </Row>
+      </Flex>
     </Box>
   </Story>
 </Canvas>
@@ -61,12 +61,12 @@ Depending on the status of an action or the permissions, an IconButton can be un
 <Canvas>
   <Story name="disabled">
     <Box padding={7}>
-      <Row>
+      <Flex>
         <IconButton disabled onClick={() => console.log('edit')} label="Edit" icon={<EditIcon />} />
         <IconButton disabled onClick={() => console.log('Create')} label="Create" icon={<AddIcon />} />
         <IconButton disabled onClick={() => console.log('Delete')} label="Delete" icon={<DeleteIcon />} />
         <IconButton disabled onClick={() => console.log('Publish')} label="Publish" icon={<PublishIcon />} />
-      </Row>
+      </Flex>
     </Box>
   </Story>
 </Canvas>

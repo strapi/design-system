@@ -7,16 +7,16 @@ import { sizes } from '../themes/sizes';
 import { Field, FieldLabel, FieldAction, FieldInput, InputWrapper } from '../Field';
 import { VisuallyHidden } from '../VisuallyHidden';
 import { inputFocusStyle } from '../themes/utils';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 
-const CloseIconWrapper = styled(Row)`
+const CloseIconWrapper = styled(Flex)`
   font-size: 0.5rem;
   svg path {
     fill: ${({ theme }) => theme.colors.neutral400};
   }
 `;
 
-const SearchIconWrapper = styled(Row)`
+const SearchIconWrapper = styled(Flex)`
   font-size: 0.8rem;
 
   svg path {

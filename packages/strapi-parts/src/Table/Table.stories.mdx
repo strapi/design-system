@@ -7,7 +7,7 @@ import DeleteIcon from '@strapi/icons/DeleteIcon';
 import DropdownIcon from '@strapi/icons/FilterDropdown';
 import AddIcon from '@strapi/icons/AddIcon';
 import { Box } from '../Box';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 import { VisuallyHidden } from '../VisuallyHidden';
 import { BaseCheckbox } from '../BaseCheckbox';
 import { Table } from './Table';
@@ -46,7 +46,7 @@ import DeleteIcon from '@strapi/icons/DeleteIcon';
 import DropdownIcon from '@strapi/icons/FilterDropdown';
 import AddIcon from '@strapi/icons/AddIcon';
 import { Box } from '@strapi/parts/Box';
-import { Row } from '@strapi/parts/Row';
+import { Flex } from '@strapi/parts/Flex';
 import { VisuallyHidden } from '@strapi/parts/VisuallyHidden';
 import { BaseCheckbox } from '@strapi/parts/BaseCheckbox';
 import { Table, Thead, Tbody, Tr, Td, Th } from '@strapi/parts/Table';
@@ -133,7 +133,7 @@ The default Table.
                     <Text textColor="neutral800">{entry.contact}</Text>
                   </Td>
                   <Td>
-                    <Row>
+                    <Flex>
                       <IconButton onClick={() => console.log('edit')} label="Edit" noBorder icon={<EditIcon />} />
                       <Box paddingLeft={1}>
                         <IconButton
@@ -143,7 +143,7 @@ The default Table.
                           icon={<DeleteIcon />}
                         />
                       </Box>
-                    </Row>
+                    </Flex>
                   </Td>
                 </Tr>
               ))}
@@ -224,7 +224,7 @@ The default Table.
                     <Text textColor="neutral800">{entry.contact}</Text>
                   </Td>
                   <Td>
-                    <Row>
+                    <Flex>
                       <IconButton onClick={() => console.log('edit')} label="Edit" noBorder icon={<EditIcon />} />
                       <Box paddingLeft={1}>
                         <IconButton
@@ -234,7 +234,7 @@ The default Table.
                           icon={<DeleteIcon />}
                         />
                       </Box>
-                    </Row>
+                    </Flex>
                   </Td>
                 </Tr>
               ))}
@@ -319,7 +319,7 @@ Table with actions.
                     <Text textColor="neutral800">{entry.contact}</Text>
                   </Td>
                   <Td>
-                    <Row>
+                    <Flex>
                       <IconButton onClick={() => console.log('edit')} label="Edit" noBorder icon={<EditIcon />} />
                       <Box paddingLeft={1}>
                         <IconButton
@@ -329,7 +329,7 @@ Table with actions.
                           icon={<DeleteIcon />}
                         />
                       </Box>
-                    </Row>
+                    </Flex>
                   </Td>
                 </Tr>
               ))}
