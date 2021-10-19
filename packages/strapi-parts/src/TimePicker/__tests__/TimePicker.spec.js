@@ -15,7 +15,7 @@ describe('TimePicker', () => {
           hint={'Description line'}
           onClear={() => {}}
           onChange={() => {}}
-          value={'11:00'}
+          value={'11:32:45'}
           clearLabel={'Clear the selected time picker value'}
         />
       </ThemeProvider>,
@@ -336,7 +336,7 @@ describe('TimePicker', () => {
                       class="c10"
                       id="timepicker-1-content"
                     >
-                      11:00
+                      11:30
                     </span>
                   </div>
                 </div>
@@ -1181,7 +1181,7 @@ describe('TimePicker', () => {
                   </div>
                 </li>
                 <li
-                  aria-selected="true"
+                  aria-selected="false"
                   class="c18 c19"
                   data-strapi-value="11:00"
                   id="timepicker-1-option-11-00"
@@ -1191,7 +1191,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c20"
+                      class="c10"
                     >
                       11:00
                     </span>
@@ -1215,7 +1215,7 @@ describe('TimePicker', () => {
                   </div>
                 </li>
                 <li
-                  aria-selected="false"
+                  aria-selected="true"
                   class="c18 c19"
                   data-strapi-value="11:30"
                   id="timepicker-1-option-11-30"
@@ -1225,7 +1225,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       11:30
                     </span>
