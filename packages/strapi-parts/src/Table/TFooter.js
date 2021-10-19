@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Box } from '../Box';
 import { Divider } from '../Divider';
 import { Text } from '../Text';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 import styled from 'styled-components';
 
 const IconBox = styled(Box)`
@@ -37,7 +37,7 @@ export const TFooter = ({ children, icon, ...props }) => {
     <div>
       <Divider />
       <ButtonBox as="button" background="primary100" padding={5} {...props}>
-        <Row>
+        <Flex>
           <IconBox aria-hidden background="primary200">
             {icon}
           </IconBox>
@@ -46,7 +46,7 @@ export const TFooter = ({ children, icon, ...props }) => {
               {children}
             </Text>
           </Box>
-        </Row>
+        </Flex>
       </ButtonBox>
     </div>
   );

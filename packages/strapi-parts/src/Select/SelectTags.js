@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import CloseIcon from '@strapi/icons/CloseAlertIcon';
 import styled from 'styled-components';
 import { Tag } from '../Tag';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 
 const SelectTagsWrapper = styled.div`
   margin-bottom: ${({ theme }) => theme.spaces[1]};
@@ -25,7 +25,7 @@ export const SelectTags = ({ tags, onRemoveTag, disabled }) => {
 
   return (
     <SelectTagsWrapper>
-      <Row wrap="wrap">
+      <Flex wrap="wrap">
         {tags.map((tag) => (
           <SelectTag
             icon={<CloseIcon />}
@@ -37,7 +37,7 @@ export const SelectTags = ({ tags, onRemoveTag, disabled }) => {
             {tag.label}
           </SelectTag>
         ))}
-      </Row>
+      </Flex>
     </SelectTagsWrapper>
   );
 };

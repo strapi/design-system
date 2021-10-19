@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 import { avatarSize } from './constants';
 
-export const AvatarGroup = styled(Row)`
+export const AvatarGroup = styled(Flex)`
   & > * + * {
     margin-left: -${avatarSize / 2}px;
   }

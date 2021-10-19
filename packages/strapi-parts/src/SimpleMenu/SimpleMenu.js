@@ -5,7 +5,7 @@ import FilterDropdown from '@strapi/icons/FilterDropdown';
 import { NavLink } from 'react-router-dom';
 import { Text } from '../Text';
 import { Box } from '../Box';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 import { Button } from '../Button';
 import { Popover } from '../Popover';
 import { getOptionStyle } from './utils';
@@ -57,7 +57,7 @@ export const MenuItem = ({ children, onClick, to, isFocused, ...props }) => {
   };
 
   return (
-    <Row as="li" justifyContent="center" role="menuitem">
+    <Flex as="li" justifyContent="center" role="menuitem">
       {to ? (
         <OptionLink to={to} {...menuItemProps}>
           <Box padding={2}>
@@ -71,7 +71,7 @@ export const MenuItem = ({ children, onClick, to, isFocused, ...props }) => {
           </Box>
         </OptionButton>
       )}
-    </Row>
+    </Flex>
   );
 };
 

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Text } from '../Text';
 import { Box } from '../Box';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 
 const TagWrapper = styled(Box)`
   border: 1px solid ${({ theme }) => theme.colors.primary200};
@@ -27,15 +27,15 @@ const TagText = styled(Text)`
 
 export const Tag = ({ children, icon, ...props }) => (
   <TagWrapper as="button" background="primary100" color="primary600" paddingLeft={3} paddingRight={3} {...props}>
-    <Row>
+    <Flex>
       <TagText small={true} bold={true} as="span">
         {children}
       </TagText>
 
       <Box paddingLeft={2}>
-        <Row>{icon}</Row>
+        <Flex>{icon}</Flex>
       </Box>
-    </Row>
+    </Flex>
   </TagWrapper>
 );
 

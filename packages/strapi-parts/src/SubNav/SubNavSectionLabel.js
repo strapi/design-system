@@ -4,9 +4,9 @@ import styled from 'styled-components';
 import FilterDropdown from '@strapi/icons/FilterDropdown';
 import { TableLabel } from '../Text';
 import { Box } from '../Box';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 
-const SubNavSectionLabelWrapper = styled(Row)`
+const SubNavSectionLabelWrapper = styled(Flex)`
   border: none;
   padding: 0;
   background: transparent;

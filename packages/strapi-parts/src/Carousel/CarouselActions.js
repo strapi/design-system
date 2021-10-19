@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 
-const CarouselActionsWrapper = styled(Row)`
+const CarouselActionsWrapper = styled(Flex)`
   & > * + * {
     margin-left: ${({ theme }) => theme.spaces[1]};
   }

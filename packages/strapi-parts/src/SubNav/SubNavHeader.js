@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Search from '@strapi/icons/Search';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 import { H2 } from '../Text';
 import { IconButton } from '../IconButton';
 import { Box } from '../Box';
@@ -83,12 +83,12 @@ export const SubNavHeader = ({ as, label, searchLabel, searchable, onChange, val
 
   return (
     <Box paddingLeft={6} paddingTop={6} paddingBottom={2} paddingRight={4}>
-      <Row justifyContent="space-between">
+      <Flex justifyContent="space-between">
         <H2 as={as}>{label}</H2>
         {searchable && (
           <IconButton ref={searchButtonRef} onClick={toggleSearch} label={searchLabel} icon={<Search />} />
         )}
-      </Row>
+      </Flex>
       <Box paddingTop={4}>
         <CustomDivider />
       </Box>

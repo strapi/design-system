@@ -8,7 +8,7 @@ import ContentIcon from '@strapi/icons/ContentIcon';
 import Ct from '@strapi/icons/Ct';
 import { Button } from './Button';
 import { Box } from '../Box';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 import { Stack } from '../Stack';
 
 <Meta title="Design System/Components/Button" component={Button} />
@@ -65,12 +65,12 @@ Use the size prop to change the size of the button. You can set the value to `S`
       },
     }}
   >
-    <Row>
+    <Flex>
       <Box paddingRight={1}>
         <Button size="S">Small</Button>
       </Box>
       <Button size="L">Large</Button>
-    </Row>
+    </Flex>
   </Story>
 </Canvas>
 

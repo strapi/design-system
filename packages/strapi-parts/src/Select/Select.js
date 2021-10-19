@@ -8,7 +8,7 @@ import { Field, FieldHint, FieldLabel, FieldError } from '../Field';
 import { Popover } from '../Popover';
 import { Stack } from '../Stack';
 import { Text } from '../Text';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 import { Box } from '../Box';
 import { useId } from '../helpers/useId';
 import { SelectList } from './SelectList';
@@ -20,7 +20,7 @@ import { escapeSelector } from '../helpers/escapeSelector';
 import { SelectTags } from './SelectTags';
 import styled from 'styled-components';
 
-const MainRow = styled(Row)`
+const MainRow = styled(Flex)`
   width: 100%;
 `;
 
@@ -169,7 +169,7 @@ export const Select = ({
           />
 
           <MainRow justifyContent="space-between">
-            <Row>
+            <Flex>
               {startIcon && (
                 <Box paddingLeft={3} aria-hidden={true}>
                   {startIcon}
@@ -198,9 +198,9 @@ export const Select = ({
                   </Text>
                 )}
               </Box>
-            </Row>
+            </Flex>
 
-            <Row>
+            <Flex>
               {((multi && value && value.length) || (!multi && value)) && onClear && (
                 <IconBox as="button" onClick={handleClear} aria-label={clearLabel} aria-disabled={disabled}>
                   <CloseAlertIcon />
@@ -217,7 +217,7 @@ export const Select = ({
               >
                 <DropdownIcon />
               </CaretBox>
-            </Row>
+            </Flex>
           </MainRow>
         </SelectButtonWrapper>
 

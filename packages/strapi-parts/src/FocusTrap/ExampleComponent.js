@@ -5,7 +5,7 @@ import { Box } from '../Box';
 import { Stack } from '../Stack';
 import { Text, H2 } from '../Text';
 import { Button } from '../Button';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 
 import { FocusTrap } from './FocusTrap';
 
@@ -16,12 +16,12 @@ const TrappedComponent = ({ onClose }) => {
     <FocusTrap onEscape={onClose}>
       <Box background="neutral0" padding={4} hasRadius style={{ width: '600px' }}>
         <Stack size={2}>
-          <Row justifyContent="space-between">
+          <Flex justifyContent="space-between">
             <H2>Hey folks!</H2>
             <button style={{ border: 'none', background: 'transparent' }} onClick={onClose} aria-label="Close">
               <CloseAlertIcon aria-hidden={true} />
             </button>
-          </Row>
+          </Flex>
           <Box paddingTop={2} paddingBottom={2}>
             <Text>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
@@ -31,14 +31,14 @@ const TrappedComponent = ({ onClose }) => {
               mollit anim id est laborum.
             </Text>
           </Box>
-          <Row justifyContent="space-between">
+          <Flex justifyContent="space-between">
             <Button id="second">Second focusable</Button>
             <Button id="last" onClick={() => setNewLastVisible(true)}>
               Last focusable (at the beginning)
             </Button>
 
             {newLastVisible && <Button id="real-last">Last focusable (at the end)</Button>}
-          </Row>
+          </Flex>
         </Stack>
       </Box>
     </FocusTrap>

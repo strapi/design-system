@@ -10,7 +10,7 @@ import { FieldHint } from './FieldHint';
 import { FieldError } from './FieldError';
 import { FieldInput } from './FieldInput';
 import { Field } from './Field';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 import { Box } from '../Box';
 import { Stack } from '../Stack';
 import { Tooltip } from '../Tooltip';
@@ -35,7 +35,7 @@ import { FieldError } from '@strapi/parts/FieldError';
 import { FieldInput } from '@strapi/parts/FieldInput';
 import { FieldAction } from '@strapi/parts/FieldAction';
 import { Field } from '@strapi/parts/Field';
-import { Row } from '@strapi/parts/Row';
+import { Flex } from '@strapi/parts/Flex';
 import { Box } from '@strapi/parts/Box';
 import { Stack } from '@strapi/parts/Stack';
 import { Tooltip } from '@strapi/parts/Tooltip';
@@ -122,7 +122,7 @@ This is the most complex input that can be built with the Field components.
         <Box padding={8}>
           <Field name="password" hint="Description line" error={email.length > 5 ? 'Email is too short' : undefined}>
             <Stack size={1}>
-              <Row>
+              <Flex>
                 <FieldLabel>Password</FieldLabel>
                 <Box paddingLeft={2}>
                   <Tooltip description="Content of the tooltip">
@@ -137,7 +137,7 @@ This is the most complex input that can be built with the Field components.
                 <a href="#" style={{ marginLeft: 'auto' }}>
                   Details
                 </a>
-              </Row>
+              </Flex>
               <FieldInput
                 placeholder="example@domain.com"
                 value={email}
@@ -175,7 +175,7 @@ This is the most complex input that can be built with the Field components.
         <Box padding={8}>
           <Field name="password" hint="Description line" error={email.length > 5 ? 'Email is too short' : undefined}>
             <Stack size={1}>
-              <Row>
+              <Flex>
                 <FieldLabel>Password</FieldLabel>
                 <Box paddingLeft={2}>
                   <Tooltip description="Content of the tooltip">
@@ -190,7 +190,7 @@ This is the most complex input that can be built with the Field components.
                 <a href="#" style={{ marginLeft: 'auto' }}>
                   Details
                 </a>
-              </Row>
+              </Flex>
               <FieldInput
                 placeholder="example@domain.com"
                 value={email}

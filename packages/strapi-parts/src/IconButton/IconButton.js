@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Tooltip } from '../Tooltip';
 import { BaseButton } from '../BaseButton';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 
 const IconButtonWrapper = styled(BaseButton)`
   display: flex;
@@ -45,7 +45,7 @@ const IconButtonWrapper = styled(BaseButton)`
   ${({ noBorder }) => (noBorder ? `border: none;` : undefined)}
 `;
 
-export const IconButtonGroup = styled(Row)`
+export const IconButtonGroup = styled(Flex)`
   & span:first-child button {
     border-left: 1px solid ${({ theme }) => theme.colors.neutral200};
     border-radius: ${({ theme }) => `${theme.borderRadius} 0 0 ${theme.borderRadius}`};

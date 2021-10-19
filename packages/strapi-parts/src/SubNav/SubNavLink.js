@@ -5,7 +5,7 @@ import Bullet from '@strapi/icons/Bullet';
 import { NavLink } from 'react-router-dom';
 import { Box } from '../Box';
 import { Text } from '../Text';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 
 const SubNavLinkWrapper = styled(Box)`
   display: flex;
@@ -63,14 +63,14 @@ export const SubNavLink = ({ children, icon, withBullet, ...props }) => {
         paddingTop={2}
         {...props}
       >
-        <Row>
+        <Flex>
           {icon ? <IconWrapper>{icon}</IconWrapper> : <CustomBullet />}
           <Box paddingLeft={2}>
             <Text as="span">{children}</Text>
           </Box>
-        </Row>
+        </Flex>
         {withBullet && (
-          <Box as={Row} paddingRight={4}>
+          <Box as={Flex} paddingRight={4}>
             <CustomBullet $active={true} />
           </Box>
         )}

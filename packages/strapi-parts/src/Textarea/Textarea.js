@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Field, FieldLabel, FieldHint, FieldError } from '../Field';
 import { TextareaInput } from './TextareaInput';
 import { Stack } from '../Stack';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 import { Box } from '../Box';
 import styled from 'styled-components';
 import { useId } from '../helpers/useId';
@@ -32,10 +32,10 @@ export const Textarea = React.forwardRef(({ name, hint, error, label, children, 
       <Field name={name} hint={hint} error={error} id={generatedId}>
         <Stack size={1}>
           {label && (
-            <Row>
+            <Flex>
               <FieldLabel>{label}</FieldLabel>
               {labelAction && <Box paddingLeft={1}>{labelAction}</Box>}
-            </Row>
+            </Flex>
           )}
           <TextareaInput ref={ref} as="textarea" value={children} {...props} />
           <FieldHint />

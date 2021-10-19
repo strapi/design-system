@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Box } from '../Box';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 
 /**
  * Prevents these attributes from being spread on the DOM node
@@ -27,7 +27,7 @@ const StackV = styled(Box).withConfig({
   }
 `;
 
-const StackH = styled(Row).withConfig({
+const StackH = styled(Flex).withConfig({
   shouldForwardProp: (prop, defPropValFN) => !transientProps[prop] && defPropValFN(prop),
 })`
   & > * {

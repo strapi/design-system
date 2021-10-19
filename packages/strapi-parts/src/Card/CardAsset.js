@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 
 const CardAssetImg = styled.img`
   // inline flows is based on typography and displays an extra white space below the image
@@ -30,7 +30,7 @@ const CardAssetWrapper = styled.div`
 export const CardAsset = ({ size, children, ...props }) => {
   return (
     <CardAssetWrapper size={size}>
-      {children ? <Row>{children}</Row> : <CardAssetImg {...props} aria-hidden />}
+      {children ? <Flex>{children}</Flex> : <CardAssetImg {...props} aria-hidden />}
     </CardAssetWrapper>
   );
 };

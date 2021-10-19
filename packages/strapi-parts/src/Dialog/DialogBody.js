@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Box } from '../Box';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 
 const IconContainer = styled(Box)`
   svg {
@@ -20,7 +20,7 @@ export const DialogBody = ({ children, icon }) => {
     <Box paddingTop={8} paddingBottom={8} paddingLeft={6} paddingRight={6}>
       {icon && (
         <IconContainer paddingBottom={2}>
-          <Row justifyContent="center">{icon}</Row>
+          <Flex justifyContent="center">{icon}</Flex>
         </IconContainer>
       )}
       {children}

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import FilterDropdown from '@strapi/icons/FilterDropdown';
 import { Box } from '../Box';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 import { Text } from '../Text';
 import { useId } from '../helpers/useId';
 
@@ -41,7 +41,7 @@ export const SubNavLinkSection = ({ label, children, id }) => {
   return (
     <li>
       <SubNavLinkSectionWrapper paddingLeft={7} paddingTop={2} paddingBottom={2} paddingRight={4}>
-        <Row justifyContent="space-between">
+        <Flex justifyContent="space-between">
           <SubNavLinkSectionButton onClick={handleClick} aria-expanded={isOpen} aria-controls={listId}>
             <DropDownIconWrapper rotated={isOpen}>
               <FilterDropdown aria-hidden />
@@ -52,7 +52,7 @@ export const SubNavLinkSection = ({ label, children, id }) => {
               </Text>
             </Box>
           </SubNavLinkSectionButton>
-        </Row>
+        </Flex>
       </SubNavLinkSectionWrapper>
       {isOpen && <ul id={listId}>{children}</ul>}
     </li>

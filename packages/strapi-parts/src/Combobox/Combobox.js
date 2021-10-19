@@ -5,7 +5,7 @@ import DropdownIcon from '@strapi/icons/FilterDropdownIcon';
 import CloseAlertIcon from '@strapi/icons/CloseAlertIcon';
 import { getActionFromKey, getUpdatedIndex, maintainScrollVisibility, MenuActions, filterOptions } from './utils';
 
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 import { CaretBox, IconBox } from '../Select/components';
 import { Popover } from '../Popover';
 import { Box } from '../Box';
@@ -271,7 +271,7 @@ export const Combobox = ({
               value={inputValue}
             />
           </InputContainer>
-          <Row>
+          <Flex>
             {(value || inputValue) && (
               <IconBox
                 id={`${generatedId}-clear`}
@@ -294,7 +294,7 @@ export const Combobox = ({
             >
               <DropdownIcon />
             </CaretBox>
-          </Row>
+          </Flex>
         </MainRow>
         <FieldHint />
         <FieldError />
@@ -338,9 +338,9 @@ export const Combobox = ({
               </Box>
             )}
             {loading && (
-              <Row justifyContent="center" alignItems="center" paddingTop={2} paddingBottom={2}>
+              <Flex justifyContent="center" alignItems="center" paddingTop={2} paddingBottom={2}>
                 <Loader small>{loadingMessage}</Loader>
-              </Row>
+              </Flex>
             )}
           </div>
         </Popover>

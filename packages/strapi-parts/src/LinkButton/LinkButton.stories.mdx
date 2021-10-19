@@ -7,7 +7,7 @@ import ContentIcon from '@strapi/icons/ContentIcon';
 import Ct from '@strapi/icons/Ct';
 import { LinkButton } from './LinkButton';
 import { Box } from '../Box';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 
 <Meta title="Design System/Components/LinkButton" component={LinkButton} />
 
@@ -60,7 +60,7 @@ Use the size prop to change the size of the button. You can set the value to S o
 
 <Canvas>
   <Story name="sizes">
-    <Row>
+    <Flex>
       <Box paddingRight={1}>
         <LinkButton size="S" to="/">
           Small
@@ -69,7 +69,7 @@ Use the size prop to change the size of the button. You can set the value to S o
       <LinkButton size="L" to="/">
         Large
       </LinkButton>
-    </Row>
+    </Flex>
   </Story>
 </Canvas>
 
@@ -79,7 +79,7 @@ Use the variant prop to change the visual style of the LinkButton. You can set t
 
 <Canvas>
   <Story name="variants">
-    <Row>
+    <Flex>
       {['default', 'secondary', 'tertiary', 'success', 'danger', 'success-light', 'danger-light'].map((variant) => (
         <Box key={variant} paddingRight={2}>
           <LinkButton variant={variant} to="/">
@@ -87,7 +87,7 @@ Use the variant prop to change the visual style of the LinkButton. You can set t
           </LinkButton>
         </Box>
       ))}
-    </Row>
+    </Flex>
   </Story>
 </Canvas>
 
@@ -97,7 +97,7 @@ A LinkButton can be associated with an icon to give more impact. You can add sta
 
 <Canvas>
   <Story name="icons">
-    <Row>
+    <Flex>
       <Box paddingRight={1}>
         <LinkButton startIcon={<HelpIcon />} to="/">
           Information
@@ -106,7 +106,7 @@ A LinkButton can be associated with an icon to give more impact. You can add sta
       <LinkButton variant="secondary" endIcon={<ContentIcon />} to="/">
         Write content
       </LinkButton>
-    </Row>
+    </Flex>
   </Story>
 </Canvas>
 

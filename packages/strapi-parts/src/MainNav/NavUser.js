@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Avatar, Initials } from '../Avatar';
 import { Text } from '../Text';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 import { Box } from '../Box';
 import { useMainNav } from './MainNavContext';
 import { VisuallyHidden } from '../VisuallyHidden';
@@ -21,7 +21,7 @@ export const NavUser = React.forwardRef(({ src, children, initials, ...props }, 
 
   return (
     <NavUserBox paddingTop={3} paddingBottom={3} paddingLeft={5} paddingRight={5} {...props}>
-      <Row as="button" justifyContent={condensed ? 'center' : undefined} ref={ref}>
+      <Flex as="button" justifyContent={condensed ? 'center' : undefined} ref={ref}>
         {src ? <Avatar src={src} alt="" aria-hidden /> : <Initials>{initials}</Initials>}
         {condensed ? (
           <VisuallyHidden>
@@ -32,7 +32,7 @@ export const NavUser = React.forwardRef(({ src, children, initials, ...props }, 
             <Text textColor="neutral600">{children}</Text>
           </Box>
         )}
-      </Row>
+      </Flex>
     </NavUserBox>
   );
 });

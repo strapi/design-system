@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { VisuallyHidden } from '../VisuallyHidden';
 import { DatePickerPopover } from './components';
 import { SimpleMenu, MenuItem } from '../SimpleMenu';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 import { Box } from '../Box';
 import { RawTable, RawThead, RawTbody, RawTr } from '../RawTable';
 import { DatePickerTh } from './DatePickerTh';
@@ -41,7 +41,7 @@ export const DatePickerCalendar = ({ selectedDate, initialDate, popoverSource, o
       <FocusTrap onEscape={() => setVisible(false)}>
         <Box padding={4}>
           <Box paddingBottom={4} paddingLeft={2} paddingRight={2}>
-            <Row>
+            <Flex>
               <SimpleMenu label={months[date.getMonth()]}>
                 {months.map((month) => (
                   <MenuItem key={month} onClick={() => handleMonthChange(month)}>
@@ -58,7 +58,7 @@ export const DatePickerCalendar = ({ selectedDate, initialDate, popoverSource, o
                   ))}
                 </SimpleMenu>
               </Box>
-            </Row>
+            </Flex>
           </Box>
           <RawTable colCount={7} rowCount={weeks.length + 1} initialCol={activeCol} initialRow={activeRow} role="grid">
             <RawThead>

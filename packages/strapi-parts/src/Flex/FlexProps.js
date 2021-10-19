@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const RowProps = (props) => <div {...props} />;
+export const FlexProps = (props) => <div {...props} />;
 
-RowProps.defaultProps = {
+FlexProps.defaultProps = {
   alignItems: 'center',
   inline: false,
   justifyContent: undefined,
@@ -11,7 +11,7 @@ RowProps.defaultProps = {
   wrap: undefined,
 };
 
-RowProps.propTypes = {
+FlexProps.propTypes = {
   alignItems: PropTypes.string,
   inline: PropTypes.bool,
   justifyContent: PropTypes.string,

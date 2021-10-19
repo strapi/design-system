@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { sizes } from '../themes/sizes';
 import { getThemeSize, inputFocusStyle } from '../themes/utils';
 import { useField } from './FieldContext';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 import { Box } from '../Box';
 
 const Input = styled.input`
@@ -37,7 +37,7 @@ const Input = styled.input`
   }
 `;
 
-export const InputWrapper = styled(Row)`
+export const InputWrapper = styled(Flex)`
   border: 1px solid ${({ theme, hasError }) => (hasError ? theme.colors.danger600 : theme.colors.neutral200)};
   border-radius: ${({ theme }) => theme.borderRadius};
   background: ${({ theme }) => theme.colors.neutral0};

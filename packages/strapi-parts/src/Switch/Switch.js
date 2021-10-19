@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 import { Box } from '../Box';
 
 const SwitchContent = styled.div`
@@ -62,7 +62,7 @@ export const Switch = React.forwardRef(
         type="button"
         {...props}
       >
-        <Row>
+        <Flex>
           <SwitchContent>
             <span>{onLabel}</span>
             <span>{offLabel}</span>
@@ -73,7 +73,7 @@ export const Switch = React.forwardRef(
               {selected ? onLabel : offLabel}
             </Box>
           )}
-        </Row>
+        </Flex>
       </SwitchButton>
     );
   },

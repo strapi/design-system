@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import CloseAlertIcon from '@strapi/icons/CloseAlertIcon';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 import { Box } from '../Box';
 import { IconButton } from '../IconButton';
 import { useModal } from './ModalContext';
@@ -16,10 +16,10 @@ export const ModalHeader = ({ children, closeLabel }) => {
 
   return (
     <ModalHeaderWrapper paddingTop={4} paddingBottom={4} paddingLeft={5} paddingRight={5} background="neutral100">
-      <Row justifyContent="space-between">
+      <Flex justifyContent="space-between">
         {children}
         <IconButton onClick={onClose} aria-label={closeLabel} icon={<CloseAlertIcon />} />
-      </Row>
+      </Flex>
     </ModalHeaderWrapper>
   );
 };

@@ -79,6 +79,12 @@ export const Box = styled.div.withConfig({
   // Animation
   transition: ${({ transition }) => transition};
   animation: ${({ animation }) => animation};
+
+  //Flexbox children props
+  flex-shrink: ${({ shrink }) => shrink};
+  flex-grow: ${({ grow }) => grow};
+  flex-basis: ${({ basis }) => basis};
+  flex: ${({ flex }) => flex};
 `;
 
 Box.displayName = 'Box';
@@ -97,15 +103,22 @@ Box.defaultProps = {
   hasRadius: false,
   shadow: undefined,
   children: null,
+  shrink: undefined,
+  grow: undefined,
+  basis: undefined,
+  flex: undefined,
   _hover: () => undefined,
 };
 
 Box.propTypes = {
   _hover: PropTypes.func,
   background: PropTypes.string,
+  basis: PropTypes.oneOfType([PropTypes.string, PropTypes.string]),
   borderColor: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
   color: PropTypes.string,
+  flex: PropTypes.oneOfType([PropTypes.string, PropTypes.string]),
+  grow: PropTypes.oneOfType([PropTypes.string, PropTypes.string]),
   hasRadius: PropTypes.bool,
   hiddenS: PropTypes.bool,
   hiddenXS: PropTypes.bool,
@@ -115,4 +128,5 @@ Box.propTypes = {
   paddingRight: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
   paddingTop: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
   shadow: PropTypes.string,
+  shrink: PropTypes.oneOfType([PropTypes.string, PropTypes.string]),
 };

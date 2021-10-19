@@ -4,10 +4,10 @@ import styled from 'styled-components';
 import After from '@strapi/icons/After';
 import { Text } from '../Text';
 import { Box } from '../Box';
-import { Row } from '../Row';
+import { Flex } from '../Flex';
 import { VisuallyHidden } from '../VisuallyHidden';
 
-const CrumbWrapper = styled(Row)`
+const CrumbWrapper = styled(Flex)`
   svg {
     height: 10px;
     width: 10px;
@@ -40,10 +40,10 @@ Crumb.propTypes = {
 const crumbType = PropTypes.shape({ type: PropTypes.oneOf([Crumb]) });
 
 export const Breadcrumbs = ({ children, label, ...props }) => (
-  <Row {...props}>
+  <Flex {...props}>
     <VisuallyHidden>{label}</VisuallyHidden>
     <ol aria-hidden={true}>{children}</ol>
-  </Row>
+  </Flex>
 );
 
 Breadcrumbs.displayName = 'Breadcrumbs';
