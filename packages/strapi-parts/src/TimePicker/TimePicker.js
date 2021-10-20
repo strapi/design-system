@@ -47,6 +47,18 @@ export const TimePicker = ({
     }
   }
 
+  // The time picker will select the closest value in the list.
+  // This is a temporary fix.
+  const getClosestValue = () => {
+    const valueMinutes = value.split(':')[1];
+    const minutes = times.reduce((prev, curr) => {
+      const minutes = curr.split(':')[1];
+      return Math.abs(minutes - valueMinutes) < Math.abs(prev - valueMinutes) ? minutes : prev;
+    }, times[0].split(':')[1]);
+
+    return `${value.split(':')[0]}:${minutes}`;
+  };
+
   return (
     <Select
       id={generatedId}
@@ -56,7 +68,7 @@ export const TimePicker = ({
       onClear={onClear}
       clearLabel={clearLabel}
       error={error}
-      value={value}
+      value={value ? getClosestValue() : null}
       size={size}
       onChange={onChange}
       disabled={disabled}
