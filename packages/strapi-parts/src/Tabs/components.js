@@ -34,6 +34,10 @@ export const DefaultTabButton = styled.button`
 
   // Hack preventing the outline from being overflow by the following tab
   outline-offset: -2px;
+
+  &[aria-disabled='true'] {
+    cursor: not-allowed;
+  }
 `;
 
 export const DefaultTabsRow = styled(Flex)`

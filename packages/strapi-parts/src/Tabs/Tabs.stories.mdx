@@ -105,6 +105,67 @@ Simple Tabs are used in modals.
   </Story>
 </Canvas>
 
+### Disabled Tabs
+
+Disabled Tabs are used in modals.
+
+<Canvas>
+  <Story name="disabled">
+    <Box padding={8} background="neutral0">
+      <TabGroup label="Some stuff for the label" id="tabs" variant="simple">
+        <Tabs>
+          <Tab>First</Tab>
+          <Tab hasError>Second</Tab>
+          <Tab disabled>Third</Tab>
+        </Tabs>
+        <TabPanels>
+          <TabPanel>
+            <Box padding={4} background="neutral0">
+              First panel
+            </Box>
+          </TabPanel>
+          <TabPanel>
+            <Box padding={4} background="neutral0">
+              Second panel
+            </Box>
+          </TabPanel>
+          <TabPanel>
+            <Box padding={4} background="neutral0">
+              Third panel
+            </Box>
+          </TabPanel>
+        </TabPanels>
+      </TabGroup>
+    </Box>
+    <Box padding={8} background="primary100">
+      <TabGroup label="Some stuff for the label" id="tabs">
+        <Tabs>
+          <Tab onClick={() => console.log('click')}>First</Tab>
+          <Tab>Second</Tab>
+          <Tab disabled>Third</Tab>
+        </Tabs>
+        <TabPanels>
+          <TabPanel>
+            <Box padding={4} background="neutral0">
+              First panel
+            </Box>
+          </TabPanel>
+          <TabPanel>
+            <Box padding={4} background="neutral0">
+              Second panel
+            </Box>
+          </TabPanel>
+          <TabPanel>
+            <Box padding={4} background="neutral0">
+              Third panel
+            </Box>
+          </TabPanel>
+        </TabPanels>
+      </TabGroup>
+    </Box>
+  </Story>
+</Canvas>
+
 ## Props
 
 <ArgsTable of={Tabs} />
