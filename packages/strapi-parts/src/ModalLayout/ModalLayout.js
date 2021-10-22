@@ -20,6 +20,7 @@ const ModalWrapper = styled.div`
 
 const ModalContent = styled(Box)`
   width: ${830 / 16}rem;
+  overflow: hidden;
 `;
 
 export const ModalLayout = ({ onClose, labelledBy, ...props }) => {
