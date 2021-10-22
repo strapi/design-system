@@ -5,6 +5,7 @@ import { Box } from '../Box';
 import { Flex } from '../Flex';
 
 const ModalFooterWrapper = styled(Box)`
+  border-radius: 0 0 ${({ theme }) => theme.spaces[1]} ${({ theme }) => theme.spaces[1]};
   border-top: 1px solid ${({ theme }) => theme.colors.neutral150};
 `;
 
