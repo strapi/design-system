@@ -1,10 +1,17 @@
 import React, { Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { useTabs } from './TabsContext';
 import { ButtonText, TableLabel } from '../Text';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 import { useTabsFocus } from './useTabsFocus';
 import { DefaultTabsRow, DefaultTabButton, DefaultTabBox, SimpleTabBox } from './components';
+
+const TabButton = styled.button`
+  &[aria-disabled='true'] {
+    cursor: not-allowed;
+  }
+`;
 
 export const Tabs = ({ children, ...props }) => {
   const { id, selectedTabIndex, selectTabIndex, label, variant } = useTabs();
@@ -78,11 +85,15 @@ Tabs.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export const Tab = ({ selected, id, children, variant, hasError, onClick, onTabClick, ...props }) => {
+export const Tab = ({ disabled, selected, id, children, variant, hasError, onClick, onTabClick, ...props }) => {
   const tabId = `${id}-tab`;
   const tabPanelId = `${id}-tabpanel`;
 
   const handleClick = (e) => {
+    if (disabled) {
+      return;
+    }
+
     onTabClick(e);
 
     if (onClick) {
@@ -97,12 +108,14 @@ export const Tab = ({ selected, id, children, variant, hasError, onClick, onTabC
       textColor = 'danger600';
     } else if (selected) {
       textColor = 'primary600';
+    } else if (disabled) {
+      textColor = 'neutral600';
     } else {
       textColor = 'neutral600';
     }
 
     return (
-      <button
+      <TabButton
         id={tabId}
         role="tab"
         aria-controls={selected ? tabPanelId : undefined}
@@ -110,12 +123,13 @@ export const Tab = ({ selected, id, children, variant, hasError, onClick, onTabC
         aria-selected={selected}
         type="button"
         onClick={handleClick}
+        aria-disabled={disabled}
         {...props}
       >
         <SimpleTabBox padding={4} selected={selected} hasError={hasError}>
           <TableLabel textColor={textColor}>{children}</TableLabel>
         </SimpleTabBox>
-      </button>
+      </TabButton>
     );
   }
 
@@ -132,6 +146,7 @@ export const Tab = ({ selected, id, children, variant, hasError, onClick, onTabC
       tabIndex={selected ? 0 : -1}
       aria-selected={selected}
       onClick={handleClick}
+      aria-disabled={disabled}
       {...props}
     >
       <DefaultTabBox padding={selected ? 4 : 3} background={selected ? 'neutral0' : 'neutral100'} selected={selected}>
@@ -142,6 +157,7 @@ export const Tab = ({ selected, id, children, variant, hasError, onClick, onTabC
 };
 
 Tab.defaultProps = {
+  disabled: false,
   selected: false,
   id: undefined,
   onClick: undefined,
@@ -152,6 +168,7 @@ Tab.defaultProps = {
 
 Tab.propTypes = {
   children: PropTypes.node.isRequired,
+  disabled: PropTypes.bool,
   hasError: PropTypes.bool,
   id: PropTypes.string,
   onClick: PropTypes.func,
