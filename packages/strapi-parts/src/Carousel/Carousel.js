@@ -3,33 +3,23 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import NextFilterIcon from '@strapi/icons/NextFilter';
 import BackFilterIcon from '@strapi/icons/BackFilter';
+import { Icon } from '../Icon';
 import { Box } from '../Box';
 import { Text } from '../Text';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 
-const CarouselGrid = styled.div`
+const CarouselGrid = styled(Box)`
   display: grid;
   grid-template-columns: auto 1fr auto;
   grid-template-areas: 'startAction slides endAction';
-  position: relative;
 `;
 
 const CarouselSlides = styled(Box)`
-  width: 100%;
   grid-area: slides;
 `;
 
 const CarouselAction = styled.button`
   grid-area: ${({ area }) => area};
-
-  svg {
-    width: ${6 / 16}rem;
-    height: ${10 / 16}rem;
-  }
-
-  svg path {
-    fill: ${({ theme }) => theme.colors.neutral600};
-  }
 
   &:focus svg path,
   &:hover svg path {
@@ -78,6 +68,8 @@ export const Carousel = ({
     }
   };
 
+  const hasChildren = childrenArray.length > 1;
+
   return (
     <div {...props} onKeyDown={handleKeyDown}>
       <Box paddingBottom={1}>
@@ -86,16 +78,26 @@ export const Carousel = ({
         </Text>
       </Box>
       <Box padding={2} borderColor="neutral200" hasRadius background="neutral100">
-        <CarouselGrid as="section" aria-roledescription="carousel" aria-label={label}>
-          <CarouselAction onClick={onPrevious} area="startAction" ref={prevActionRef} aria-label={previousLabel}>
-            <BackFilterIcon aria-hidden={true} />
-          </CarouselAction>
+        <CarouselGrid as="section" aria-roledescription="carousel" aria-label={label} position="relative">
+          {hasChildren && (
+            <CarouselAction
+              onClick={onPrevious}
+              area="startAction"
+              ref={prevActionRef}
+              aria-label={previousLabel}
+              type="button"
+            >
+              <Icon as={BackFilterIcon} aria-hidden={true} width="6px" height="10px" color="neutral600" />
+            </CarouselAction>
+          )}
 
-          <CarouselAction onClick={onNext} area="endAction" ref={nextActionRef} aria-label={nextLabel}>
-            <NextFilterIcon aria-hidden={true} />
-          </CarouselAction>
+          {hasChildren && (
+            <CarouselAction onClick={onNext} area="endAction" ref={nextActionRef} aria-label={nextLabel} type="button">
+              <Icon as={NextFilterIcon} aria-hidden={true} width="6px" height="10px" color="neutral600" />
+            </CarouselAction>
+          )}
 
-          <CarouselSlides aria-live="polite" paddingLeft={2} paddingRight={2}>
+          <CarouselSlides aria-live="polite" paddingLeft={2} paddingRight={2} width="100%">
             {childrenArray}
           </CarouselSlides>
           {actions}

@@ -7,19 +7,19 @@ const CarouselSlideWrapper = styled(Flex)`
   display: ${({ selected }) => (selected ? 'flex' : 'none')};
 `;
 
-export const CarouselSlide = ({ label, children, selected }) => {
-  return (
-    <CarouselSlideWrapper
-      selected={selected}
-      role="group"
-      aria-roledescription="slide"
-      aria-label={label}
-      justifyContent="center"
-    >
-      {children}
-    </CarouselSlideWrapper>
-  );
-};
+export const CarouselSlide = ({ label, children, selected, ...props }) => (
+  <CarouselSlideWrapper
+    selected={selected}
+    role="group"
+    aria-roledescription="slide"
+    aria-label={label}
+    justifyContent="center"
+    height="124px"
+    {...props}
+  >
+    {children}
+  </CarouselSlideWrapper>
+);
 
 CarouselSlide.defaultProps = {
   selected: false,
