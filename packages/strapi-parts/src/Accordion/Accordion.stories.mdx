@@ -10,6 +10,7 @@ import { KeyboardNavigable } from '../KeyboardNavigable';
 import { AccordionContent } from './AccordionContent';
 import { Box } from '../Box';
 import { IconButton } from '../IconButton';
+import { AccordionGroup } from './AccordionGroup';
 
 <Meta title="Design System/Components/Accordion" component={Accordion} />
 
@@ -48,15 +49,26 @@ import { Box } from '@strapi/parts/Box';
       return (
         <div>
           <Box padding={8} background="neutral100">
-            <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-1">
-              <AccordionToggle
-                title="User informations"
-                description="The following contains information about the current user"
-              />
-              <AccordionContent>
-                <Box padding={3}>My name is John Duff</Box>
-              </AccordionContent>
-            </Accordion>
+            <AccordionGroup>
+              <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-1" size="S">
+                <AccordionToggle
+                  title="User informations"
+                  description="The following contains information about the current user"
+                />
+                <AccordionContent>
+                  <Box padding={3}>My name is John Duff</Box>
+                </AccordionContent>
+              </Accordion>
+              <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-1" size="S">
+                <AccordionToggle
+                  title="User informations"
+                  description="The following contains information about the current user"
+                />
+                <AccordionContent>
+                  <Box padding={3}>My name is John Duff</Box>
+                </AccordionContent>
+              </Accordion>
+            </AccordionGroup>
           </Box>
           <Box padding={8} background="neutral0">
             <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-2">

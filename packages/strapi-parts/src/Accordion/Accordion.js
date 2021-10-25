@@ -10,6 +10,7 @@ import { DropdownIconWrapper } from './DropdownIconWrapper';
 const AccordionWrapper = styled(Box)`
   border: ${({ theme, expanded }) => (expanded ? `1px solid ${theme.colors.primary600}` : `1px solid transparent`)};
   overflow: hidden;
+  height: ${({ theme, size }) => theme.sizes.accordions[size]};
 
   &:hover {
     border: 1px solid ${({ theme }) => theme.colors.primary600};
@@ -35,12 +36,12 @@ const AccordionWrapper = styled(Box)`
   }
 `;
 
-export const Accordion = ({ children, toggle, expanded, id }) => {
+export const Accordion = ({ children, toggle, expanded, id, size }) => {
   const generatedId = useId('accordion', id);
 
   return (
     <AccordionContext.Provider value={{ expanded, toggle, id: generatedId }}>
-      <AccordionWrapper expanded={expanded} hasRadius={true}>
+      <AccordionWrapper expanded={expanded} hasRadius={true} size={size}>
         {children}
       </AccordionWrapper>
     </AccordionContext.Provider>
@@ -51,11 +52,13 @@ Accordion.defaultProps = {
   expanded: false,
   id: undefined,
   toggle: false,
+  size: 'M',
 };
 
 Accordion.propTypes = {
   children: PropTypes.node.isRequired,
   expanded: PropTypes.bool,
   id: PropTypes.string,
+  size: PropTypes.oneOf(['S', 'M']),
   toggle: PropTypes.func.isRequired,
 };
