@@ -35,6 +35,7 @@ module.exports = {
     filename: `[name].${process.env.NODE_ENV}.js`,
     path: path.resolve(__dirname, 'dist'),
     libraryTarget: 'umd',
+    globalObject: 'this',
     library: 'strapiDs',
     umdNamedDefine: true,
   },
