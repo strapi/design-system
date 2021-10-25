@@ -18,7 +18,9 @@ const ToggleButton = styled.button`
 `;
 
 export const AccordionToggle = ({ title, description, as, variant, togglePosition, action, ...props }) => {
-  const { toggle, expanded, id } = useAccordion();
+  const { toggle, expanded, id, size } = useAccordion();
+
+  const boxSize = size === 'M' ? 6 : 3;
 
   const ariaControls = `accordion-content-${id}`;
   const ariaLabelId = `accordion-label-${id}`;
@@ -37,7 +39,7 @@ export const AccordionToggle = ({ title, description, as, variant, togglePositio
 
   if (togglePosition === 'left') {
     return (
-      <Box padding={6} hasRadius background={boxBackground}>
+      <Box padding={boxSize} background={boxBackground}>
         <Flex justifyContent="space-between">
           <ToggleButton
             onClick={toggle}
@@ -71,7 +73,7 @@ export const AccordionToggle = ({ title, description, as, variant, togglePositio
   }
 
   return (
-    <Box padding={6} hasRadius background={boxBackground}>
+    <Box padding={boxSize} background={boxBackground} size={size}>
       <ToggleButton
         onClick={toggle}
         aria-expanded={expanded}

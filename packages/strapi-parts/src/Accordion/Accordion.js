@@ -8,9 +8,11 @@ import { Box } from '../Box';
 import { DropdownIconWrapper } from './DropdownIconWrapper';
 
 const AccordionWrapper = styled(Box)`
-  border: ${({ theme, expanded }) => (expanded ? `1px solid ${theme.colors.primary600}` : `1px solid transparent`)};
+  /* border: ${({ theme, expanded }) =>
+    expanded ? `1px solid ${theme.colors.primary600}` : `1px solid transparent`}; */
+  border: ${({ theme, expanded }) =>
+    expanded ? `1px solid ${theme.colors.primary600}` : `1px solid ${theme.colors.neutral100}`};
   overflow: hidden;
-  height: ${({ theme, size }) => theme.sizes.accordions[size]};
 
   &:hover {
     border: 1px solid ${({ theme }) => theme.colors.primary600};
@@ -40,8 +42,8 @@ export const Accordion = ({ children, toggle, expanded, id, size }) => {
   const generatedId = useId('accordion', id);
 
   return (
-    <AccordionContext.Provider value={{ expanded, toggle, id: generatedId }}>
-      <AccordionWrapper expanded={expanded} hasRadius={true} size={size}>
+    <AccordionContext.Provider value={{ expanded, toggle, id: generatedId, size }}>
+      <AccordionWrapper expanded={expanded} hasRadius>
         {children}
       </AccordionWrapper>
     </AccordionContext.Provider>
