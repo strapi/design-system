@@ -280,6 +280,7 @@ export const Combobox = ({
                 paddingLeft={3}
                 as="button"
                 onClick={handleClear}
+                type="button"
               >
                 <CloseAlertIcon />
               </IconBox>
@@ -291,6 +292,7 @@ export const Combobox = ({
               as="button"
               onClick={handleCaretClick}
               tabIndex={-1}
+              type="button"
             >
               <DropdownIcon />
             </CaretBox>
