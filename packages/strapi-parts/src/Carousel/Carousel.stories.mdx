@@ -91,6 +91,34 @@ A Carousel is mostly used in forms. Thanks to their navigational arrows they all
       );
     }}
   </Story>
+  <Story name="one slide only">
+    {() => {
+      return (
+        <Carousel
+          label={`Carousel of numbers 1/1)`}
+          selectedSlide={0}
+          previousLabel="Previous slide"
+          nextLabel="Next slide"
+          onNext={() => {}}
+          onPrevious={() => {}}
+          hint="Description line"
+          actions={
+            <CarouselActions>
+              <IconButton onClick={() => console.log('edit')} label="Edit" id="edit" icon={<EditIcon />} />
+              <IconButton onClick={() => console.log('Create')} label="Create" icon={<AddIcon />} />
+              <IconButton onClick={() => console.log('Delete')} label="Delete" icon={<DeleteIcon />} />
+              <IconButton onClick={() => console.log('Publish')} label="Publish" icon={<PublishIcon />} />
+            </CarouselActions>
+          }
+          style={{ width: '242px' }}
+        >
+          <CarouselSlide label="1 of 1 slides">
+            <CarouselImage src={firstPathImg} alt="First" />
+          </CarouselSlide>
+        </Carousel>
+      );
+    }}
+  </Story>
 </Canvas>
 
 ## Props
