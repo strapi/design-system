@@ -5759,6 +5759,7 @@ exports[`Storyshots Design System/Components/Carousel base 1`] = `
     </h1>
   </div>
   <div
+    class=""
     style="width: 242px;"
   >
     <div
@@ -6195,6 +6196,7 @@ exports[`Storyshots Design System/Components/Carousel one slide only 1`] = `
     </h1>
   </div>
   <div
+    class=""
     style="width: 242px;"
   >
     <div

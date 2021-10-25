@@ -71,7 +71,7 @@ export const Carousel = ({
   const hasChildren = childrenArray.length > 1;
 
   return (
-    <div {...props} onKeyDown={handleKeyDown}>
+    <Box {...props} onKeyDown={handleKeyDown}>
       <Box paddingBottom={1}>
         <Text textColor="neutral800" small bold>
           {label}
@@ -110,7 +110,7 @@ export const Carousel = ({
           </Text>
         </Box>
       ) : null}
-    </div>
+    </Box>
   );
 };
 
