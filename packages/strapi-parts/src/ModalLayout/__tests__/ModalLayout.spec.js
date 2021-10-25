@@ -2,6 +2,7 @@ import * as React from 'react';
 import { render } from '@testing-library/react';
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
+import { Button } from '../../Button';
 import { ModalLayout, ModalHeader, ModalBody, ModalFooter } from '../index';
 
 describe('ModalLayout', () => {
@@ -11,7 +12,19 @@ describe('ModalLayout', () => {
         <ModalLayout onClose={() => jest.fn()} labelledBy="title">
           <ModalHeader>Modal Title</ModalHeader>
           <ModalBody>Hello World</ModalBody>
-          <ModalFooter />
+          <ModalFooter
+            startActions={
+              <Button onClick={() => jest.fn} variant="tertiary">
+                Cancel
+              </Button>
+            }
+            endActions={
+              <>
+                <Button variant="secondary">Add new stuff</Button>
+                <Button onClick={() => jest.fn()}>Finish</Button>
+              </>
+            }
+          />
         </ModalLayout>
       </ThemeProvider>,
     );
@@ -29,13 +42,20 @@ describe('ModalLayout', () => {
         width: 1px;
       }
 
-      .c2 {
+      .c17 {
+        font-weight: 500;
+        font-size: 0.75rem;
+        line-height: 1.33;
+        color: #32324d;
+      }
+
+      .c3 {
         background: #ffffff;
         border-radius: 4px;
         box-shadow: 0px 2px 15px rgba(33,33,52,0.1);
       }
 
-      .c4 {
+      .c5 {
         background: #f6f6f9;
         padding-top: 16px;
         padding-right: 20px;
@@ -43,11 +63,288 @@ describe('ModalLayout', () => {
         padding-left: 20px;
       }
 
-      .c9 {
+      .c10 {
         padding-top: 24px;
         padding-right: 40px;
         padding-bottom: 24px;
         padding-left: 40px;
+      }
+
+      .c8 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 4px;
+        background: #ffffff;
+        border: 1px solid #dcdce4;
+        position: relative;
+        outline: none;
+      }
+
+      .c8 svg {
+        height: 12px;
+        width: 12px;
+      }
+
+      .c8 svg > g,
+      .c8 svg path {
+        fill: #ffffff;
+      }
+
+      .c8[aria-disabled='true'] {
+        pointer-events: none;
+      }
+
+      .c8:after {
+        -webkit-transition-property: all;
+        transition-property: all;
+        -webkit-transition-duration: 0.2s;
+        transition-duration: 0.2s;
+        border-radius: 8px;
+        content: '';
+        position: absolute;
+        top: -4px;
+        bottom: -4px;
+        left: -4px;
+        right: -4px;
+        border: 2px solid transparent;
+      }
+
+      .c8:focus-visible {
+        outline: none;
+      }
+
+      .c8:focus-visible:after {
+        border-radius: 8px;
+        content: '';
+        position: absolute;
+        top: -5px;
+        bottom: -5px;
+        left: -5px;
+        right: -5px;
+        border: 2px solid #4945ff;
+      }
+
+      .c15 {
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        padding: 8px 16px;
+        background: #4945ff;
+        border: none;
+        border: 1px solid #dcdce4;
+        background: #ffffff;
+      }
+
+      .c15 .c2 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+
+      .c15 .c16 {
+        color: #ffffff;
+      }
+
+      .c15[aria-disabled='true'] {
+        border: 1px solid #dcdce4;
+        background: #eaeaef;
+      }
+
+      .c15[aria-disabled='true'] .c16 {
+        color: #666687;
+      }
+
+      .c15[aria-disabled='true'] svg > g,
+      .c15[aria-disabled='true'] svg path {
+        fill: #666687;
+      }
+
+      .c15[aria-disabled='true']:active {
+        border: 1px solid #dcdce4;
+        background: #eaeaef;
+      }
+
+      .c15[aria-disabled='true']:active .c16 {
+        color: #666687;
+      }
+
+      .c15[aria-disabled='true']:active svg > g,
+      .c15[aria-disabled='true']:active svg path {
+        fill: #666687;
+      }
+
+      .c15:hover {
+        background-color: #f6f6f9;
+      }
+
+      .c15:active {
+        background-color: #eaeaef;
+      }
+
+      .c15 .c16 {
+        color: #32324d;
+      }
+
+      .c15 svg > g,
+      .c15 svg path {
+        fill: #32324d;
+      }
+
+      .c18 {
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        padding: 8px 16px;
+        background: #4945ff;
+        border: none;
+        border: 1px solid #d9d8ff;
+        background: #f0f0ff;
+      }
+
+      .c18 .c2 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+
+      .c18 .c16 {
+        color: #ffffff;
+      }
+
+      .c18[aria-disabled='true'] {
+        border: 1px solid #dcdce4;
+        background: #eaeaef;
+      }
+
+      .c18[aria-disabled='true'] .c16 {
+        color: #666687;
+      }
+
+      .c18[aria-disabled='true'] svg > g,
+      .c18[aria-disabled='true'] svg path {
+        fill: #666687;
+      }
+
+      .c18[aria-disabled='true']:active {
+        border: 1px solid #dcdce4;
+        background: #eaeaef;
+      }
+
+      .c18[aria-disabled='true']:active .c16 {
+        color: #666687;
+      }
+
+      .c18[aria-disabled='true']:active svg > g,
+      .c18[aria-disabled='true']:active svg path {
+        fill: #666687;
+      }
+
+      .c18:hover {
+        background-color: #ffffff;
+      }
+
+      .c18:active {
+        background-color: #ffffff;
+        border: 1px solid #4945ff;
+      }
+
+      .c18:active .c16 {
+        color: #4945ff;
+      }
+
+      .c18:active svg > g,
+      .c18:active svg path {
+        fill: #4945ff;
+      }
+
+      .c18 .c16 {
+        color: #271fe0;
+      }
+
+      .c18 svg > g,
+      .c18 svg path {
+        fill: #271fe0;
+      }
+
+      .c19 {
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        padding: 8px 16px;
+        background: #4945ff;
+        border: none;
+        border: 1px solid #4945ff;
+        background: #4945ff;
+      }
+
+      .c19 .c2 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+
+      .c19 .c16 {
+        color: #ffffff;
+      }
+
+      .c19[aria-disabled='true'] {
+        border: 1px solid #dcdce4;
+        background: #eaeaef;
+      }
+
+      .c19[aria-disabled='true'] .c16 {
+        color: #666687;
+      }
+
+      .c19[aria-disabled='true'] svg > g,
+      .c19[aria-disabled='true'] svg path {
+        fill: #666687;
+      }
+
+      .c19[aria-disabled='true']:active {
+        border: 1px solid #dcdce4;
+        background: #eaeaef;
+      }
+
+      .c19[aria-disabled='true']:active .c16 {
+        color: #666687;
+      }
+
+      .c19[aria-disabled='true']:active svg > g,
+      .c19[aria-disabled='true']:active svg path {
+        fill: #666687;
+      }
+
+      .c19:hover {
+        border: 1px solid #7b79ff;
+        background: #7b79ff;
+      }
+
+      .c19:active {
+        border: 1px solid #4945ff;
+        background: #4945ff;
       }
 
       .c1 {
@@ -70,11 +367,11 @@ describe('ModalLayout', () => {
         justify-content: center;
       }
 
-      .c3 {
+      .c4 {
         width: 51.875rem;
       }
 
-      .c6 {
+      .c7 {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -92,7 +389,7 @@ describe('ModalLayout', () => {
         align-items: center;
       }
 
-      .c12 {
+      .c13 {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -106,65 +403,7 @@ describe('ModalLayout', () => {
         align-items: center;
       }
 
-      .c7 {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        cursor: pointer;
-        padding: 8px;
-        border-radius: 4px;
-        background: #ffffff;
-        border: 1px solid #dcdce4;
-        position: relative;
-        outline: none;
-      }
-
-      .c7 svg {
-        height: 12px;
-        width: 12px;
-      }
-
-      .c7 svg > g,
-      .c7 svg path {
-        fill: #ffffff;
-      }
-
-      .c7[aria-disabled='true'] {
-        pointer-events: none;
-      }
-
-      .c7:after {
-        -webkit-transition-property: all;
-        transition-property: all;
-        -webkit-transition-duration: 0.2s;
-        transition-duration: 0.2s;
-        border-radius: 8px;
-        content: '';
-        position: absolute;
-        top: -4px;
-        bottom: -4px;
-        left: -4px;
-        right: -4px;
-        border: 2px solid transparent;
-      }
-
-      .c7:focus-visible {
-        outline: none;
-      }
-
-      .c7:focus-visible:after {
-        border-radius: 8px;
-        content: '';
-        position: absolute;
-        top: -5px;
-        bottom: -5px;
-        left: -5px;
-        right: -5px;
-        border: 2px solid #4945ff;
-      }
-
-      .c8 {
+      .c9 {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -181,44 +420,44 @@ describe('ModalLayout', () => {
         width: 2rem;
       }
 
-      .c8 svg > g,
-      .c8 svg path {
+      .c9 svg > g,
+      .c9 svg path {
         fill: #8e8ea9;
       }
 
-      .c8:hover svg > g,
-      .c8:hover svg path {
+      .c9:hover svg > g,
+      .c9:hover svg path {
         fill: #666687;
       }
 
-      .c8:active svg > g,
-      .c8:active svg path {
+      .c9:active svg > g,
+      .c9:active svg path {
         fill: #a5a5ba;
       }
 
-      .c8[aria-disabled='true'] {
+      .c9[aria-disabled='true'] {
         background-color: #eaeaef;
       }
 
-      .c8[aria-disabled='true'] svg path {
+      .c9[aria-disabled='true'] svg path {
         fill: #666687;
       }
 
-      .c5 {
+      .c6 {
         border-radius: 4px 4px 0 0;
         border-bottom: 1px solid #eaeaef;
       }
 
-      .c11 {
+      .c12 {
         border-radius: 0 0 4px 4px;
         border-top: 1px solid #eaeaef;
       }
 
-      .c13 > * + * {
+      .c14 > * + * {
         margin-left: 8px;
       }
 
-      .c10 {
+      .c11 {
         overflow: auto;
         max-height: 60vh;
       }
@@ -260,20 +499,20 @@ describe('ModalLayout', () => {
               <div
                 aria-labelledby="title"
                 aria-modal="true"
-                class="c2 c3"
+                class="c2 c3 c4"
                 role="dialog"
               >
                 <div
-                  class="c4 c5"
+                  class="c2 c5 c6"
                 >
                   <div
-                    class="c6"
+                    class="c2 c7"
                   >
                     Modal Title
                     <button
                       aria-disabled="false"
                       aria-label="Close the modal"
-                      class="c7 c8"
+                      class="c8 c9"
                       type="button"
                     >
                       <svg
@@ -292,22 +531,57 @@ describe('ModalLayout', () => {
                   </div>
                 </div>
                 <div
-                  class="c9 c10"
+                  class="c2 c10 c11"
                 >
                   Hello World
                 </div>
                 <div
-                  class="c4 c11"
+                  class="c2 c5 c12"
                 >
                   <div
-                    class="c6"
+                    class="c2 c7"
                   >
                     <div
-                      class="c12 c13"
-                    />
+                      class="c2 c13 c14"
+                    >
+                      <button
+                        aria-disabled="false"
+                        class="c8 c15"
+                        type="button"
+                      >
+                        <span
+                          class="c16 c17"
+                        >
+                          Cancel
+                        </span>
+                      </button>
+                    </div>
                     <div
-                      class="c12 c13"
-                    />
+                      class="c2 c13 c14"
+                    >
+                      <button
+                        aria-disabled="false"
+                        class="c8 c18"
+                        type="button"
+                      >
+                        <span
+                          class="c16 c17"
+                        >
+                          Add new stuff
+                        </span>
+                      </button>
+                      <button
+                        aria-disabled="false"
+                        class="c8 c19"
+                        type="button"
+                      >
+                        <span
+                          class="c16 c17"
+                        >
+                          Finish
+                        </span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
