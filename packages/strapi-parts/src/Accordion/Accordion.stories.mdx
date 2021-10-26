@@ -128,7 +128,8 @@ import { Box } from '@strapi/parts/Box';
                   }}>
                     <HelpIcon aria-hidden={true} />
                   </button>
-                </Tooltip>}
+                </Tooltip>
+              }
             >
               <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-1" size="S">
                 <AccordionToggle title="User informations" togglePosition="left" />
@@ -136,13 +137,7 @@ import { Box } from '@strapi/parts/Box';
                   <Box padding={3}>My name is John Duff</Box>
                 </AccordionContent>
               </Accordion>
-              <Accordion
-                expanded={false}
-                toggle={() => setExpanded((s) => !s)}
-                id="acc-2"
-                size="S"
-                variant="secondary"
-              >
+              <Accordion expanded={false} toggle={() => setExpanded((s) => !s)} id="acc-2" size="S" variant="secondary">
                 <AccordionToggle title="User informations" togglePosition="left" />
                 <AccordionContent>
                   <Box padding={3}>My name is John Duff</Box>

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import DropdownIcon from '@strapi/icons/FilterDropdown';
 import styled from 'styled-components';
-import { H3, P } from '../Text';
+import { H3, P, Text } from '../Text';
 import { useAccordion } from './AccordionContext';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
@@ -53,9 +53,15 @@ export const AccordionToggle = ({ title, description, as, togglePosition, action
               {dropdownIcon}
 
               <Box paddingLeft={6}>
-                <H3 as={as} id={ariaLabelId} textColor={titleColor}>
-                  {title}
-                </H3>
+                {size === 'S' ? (
+                  <Text bold={true} as={as} id={ariaLabelId} textColor={titleColor}>
+                    {title}
+                  </Text>
+                ) : (
+                  <H3 as={as} id={ariaLabelId} textColor={titleColor}>
+                    {title}
+                  </H3>
+                )}
 
                 {description && (
                   <P id={ariaDescriptionId} textColor={descriptionColor}>
@@ -84,9 +90,15 @@ export const AccordionToggle = ({ title, description, as, togglePosition, action
       >
         <Flex justifyContent="space-between">
           <Box paddingRight={6}>
-            <H3 as={as} id={ariaLabelId} textColor={titleColor}>
-              {title}
-            </H3>
+            {size === 'S' ? (
+              <Text bold={true} as={as} id={ariaLabelId} textColor={titleColor}>
+                {title}
+              </Text>
+            ) : (
+              <H3 as={as} id={ariaLabelId} textColor={titleColor}>
+                {title}
+              </H3>
+            )}
 
             {description && (
               <P id={ariaDescriptionId} textColor={descriptionColor}>
