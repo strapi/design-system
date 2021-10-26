@@ -26,7 +26,15 @@ const ToggleButton = styled.button`
 `;
 
 export const AccordionToggle = ({ title, description, as, togglePosition, action, titleIcon, ...props }) => {
-  const { toggle, expanded, id, size, variant } = useAccordion();
+  const { toggle, expanded, id, size, variant, disabled } = useAccordion();
+
+  const handleToggle = () => {
+    if (disabled) {
+      return null;
+    }
+
+    toggle();
+  };
 
   const boxSize = size === 'M' ? 6 : 3;
 
@@ -34,7 +42,13 @@ export const AccordionToggle = ({ title, description, as, togglePosition, action
   const ariaLabelId = `accordion-label-${id}`;
   const ariaDescriptionId = `accordion-desc-${id}`;
 
-  const boxBackground = expanded ? 'primary100' : variant === 'primary' ? 'neutral0' : 'neutral100';
+  const boxBackground = expanded
+    ? 'primary100'
+    : disabled
+    ? 'neutral150'
+    : variant === 'primary'
+    ? 'neutral0'
+    : 'neutral100';
   const titleColor = expanded ? 'primary600' : 'neutral700';
   const descriptionColor = expanded ? 'primary600' : 'neutral600';
   const iconColor = expanded ? 'primary200' : 'neutral200';
@@ -50,7 +64,7 @@ export const AccordionToggle = ({ title, description, as, togglePosition, action
       <Box data-strapi-accordion-header={true} padding={boxSize} background={boxBackground}>
         <Flex justifyContent="space-between">
           <ToggleButton
-            onClick={toggle}
+            onClick={handleToggle}
             aria-expanded={expanded}
             aria-controls={ariaControls}
             aria-labelledby={ariaLabelId}
@@ -96,7 +110,7 @@ export const AccordionToggle = ({ title, description, as, togglePosition, action
   return (
     <Box data-strapi-accordion-header={true} padding={boxSize} background={boxBackground} size={size}>
       <ToggleButton
-        onClick={toggle}
+        onClick={handleToggle}
         aria-expanded={expanded}
         aria-controls={ariaControls}
         aria-labelledby={ariaLabelId}

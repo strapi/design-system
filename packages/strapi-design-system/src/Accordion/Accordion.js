@@ -7,9 +7,13 @@ import { useId } from '../helpers/useId';
 import { Box } from '../Box';
 import { DropdownIconWrapper } from './DropdownIconWrapper';
 
-const getBorder = ({ theme, expanded, variant }) => {
+const getBorder = ({ theme, expanded, variant, disabled }) => {
   if (expanded) {
     return `1px solid ${theme.colors.primary600}`;
+  }
+
+  if (disabled) {
+    return `1px solid ${theme.colors.neutral150}`;
   }
 
   if (variant === 'primary') {
@@ -50,12 +54,18 @@ const AccordionWrapper = styled(Box)`
   }
 `;
 
-export const Accordion = ({ children, toggle, expanded, id, size, variant }) => {
+export const Accordion = ({ children, toggle, expanded, id, size, variant, disabled }) => {
   const generatedId = useId('accordion', id);
 
   return (
-    <AccordionContext.Provider value={{ expanded, toggle, id: generatedId, size, variant }}>
-      <AccordionWrapper data-strapi-expanded={expanded} expanded={expanded} hasRadius variant={variant}>
+    <AccordionContext.Provider value={{ expanded, toggle, id: generatedId, size, variant, disabled }}>
+      <AccordionWrapper
+        data-strapi-expanded={expanded}
+        disabled={disabled}
+        expanded={expanded}
+        hasRadius
+        variant={variant}
+      >
         {children}
       </AccordionWrapper>
     </AccordionContext.Provider>
@@ -63,6 +73,7 @@ export const Accordion = ({ children, toggle, expanded, id, size, variant }) => 
 };
 
 Accordion.defaultProps = {
+  disabled: false,
   expanded: false,
   id: undefined,
   toggle: false,
@@ -72,6 +83,7 @@ Accordion.defaultProps = {
 
 Accordion.propTypes = {
   children: PropTypes.node.isRequired,
+  disabled: PropTypes.bool,
   expanded: PropTypes.bool,
   id: PropTypes.string,
   size: PropTypes.oneOf(['S', 'M']),
