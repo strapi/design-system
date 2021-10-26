@@ -7,7 +7,7 @@ import {
   Select,
   Option,
   DatePicker,
-} from "@strapi/parts";
+} from "@strapi/design-system";
 
 import Wysiwyg from './../shared/Wysiwyg/index';
 

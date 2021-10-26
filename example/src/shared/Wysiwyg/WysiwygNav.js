@@ -9,7 +9,7 @@ import {
   IconButtonGroup,
   Popover,
   FocusTrap,
-} from "@strapi/parts";
+} from "@strapi/design-system";
 import {
   Bold,
   Italic,

@@ -1,0 +1,80 @@
+<!--- LiveRegions.stories.mdx --->
+
+import { useState } from 'react';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { LiveRegions } from './LiveRegions';
+import { StoryComponent } from './StoryComponent';
+import { Stack } from '../Stack';
+import { Button } from '../Button';
+import { useNotifyAT } from './useNotifyAT';
+
+<Meta title="Design System/Components/LiveRegions" component={LiveRegions} />
+
+# LiveRegions
+
+This is the doc of the `LiveRegions` component.
+
+[View source](https://github.com/strapi/design-system/tree/develop/packages/strapi-design-system/src/LiveRegions)
+
+## Imports
+
+```js
+import { LiveRegions } from '@strapi/design-system/LiveRegions';
+import { Stack } from '@strapi/design-system/Stack';
+import { Button } from '@strapi/design-system/Button';
+import { notifyLog, notifyStatus, notifyAlert } from '@strapi/design-system/helpers';
+```
+
+## useNotifyAT log
+
+<Canvas>
+  <Story name="log">
+    {() => {
+      const [visible, setVisible] = useState(true);
+      return (
+        <Stack size={3}>
+          <Button onClick={() => setVisible((isVisible) => !isVisible)}>
+            {visible ? 'Hide button' : 'Show button'}
+          </Button>
+          {visible ? <StoryComponent notifyType="log" /> : null}
+        </Stack>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## useNotifyAT error
+
+<Canvas>
+  <Story name="alert">
+    {() => {
+      const [visible, setVisible] = useState(true);
+      return (
+        <Stack size={3}>
+          <Button onClick={() => setVisible((isVisible) => !isVisible)}>
+            {visible ? 'Hide button' : 'Show button'}
+          </Button>
+          {visible ? <StoryComponent notifyType="alert" /> : null}
+        </Stack>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## useNotifyAT status
+
+<Canvas>
+  <Story name="status">
+    {() => {
+      const [visible, setVisible] = useState(true);
+      return (
+        <Stack size={3}>
+          <Button onClick={() => setVisible((isVisible) => !isVisible)}>
+            {visible ? 'Hide button' : 'Show button'}
+          </Button>
+          {visible ? <StoryComponent notifyType="status" /> : null}
+        </Stack>
+      );
+    }}
+  </Story>
+</Canvas>

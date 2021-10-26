@@ -1,15 +1,15 @@
 {
-  "name": "parts",
+  "name": "design-system",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:strapi/parts.git",
+  "repository": "git@github.com:strapi/design-system.git",
   "license": "MIT",
   "private": true,
   "scripts": {
     "analyze:bundle": "lerna run analyze:bundle --stream",
     "bootstrap": "lerna bootstrap",
     "build-storybook": "lerna run build-storybook --stream",
-    "build": "lerna run build --stream --scope=@strapi/icons && lerna run build --stream --scope=@strapi/parts",
+    "build": "lerna run build --stream --scope=@strapi/icons && lerna run build --stream --scope=@strapi/design-system",
     "generate": "plop",
     "lint-staged": "lerna run lint-staged --stream --",
     "lint": "lerna run lint --stream",

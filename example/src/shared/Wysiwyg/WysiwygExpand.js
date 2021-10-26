@@ -4,7 +4,7 @@ import WysiwygNav from "./WysiwygNav";
 import Editor from "./Editor";
 import PreviewWysiwyg from "./../PreviewWysiwyg";
 import MediaLibrary from "./MediaLibrary";
-import { Portal, Flex, Text, FocusTrap } from "@strapi/parts";
+import { Portal, Flex, Text, FocusTrap } from "@strapi/design-system";
 import { Collapse } from "@strapi/icons";
 import {
   ExpandButton,

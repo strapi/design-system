@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { IconButton, Box, BaseButton, IconButtonGroup } from "@strapi/parts";
+import { IconButton, Box, BaseButton, IconButtonGroup } from "@strapi/design-system";
 
 export const WysiwygWrapper = styled(Box)`
   border: 1px solid ${({ theme, error }) => (error ? theme.colors.danger600 : theme.colors.neutral200)};

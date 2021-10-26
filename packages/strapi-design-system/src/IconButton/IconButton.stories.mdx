@@ -1,0 +1,105 @@
+<!--- IconButton.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
+import EditIcon from '@strapi/icons/EditIcon';
+import PublishIcon from '@strapi/icons/PublishIcon';
+import DeleteIcon from '@strapi/icons/DeleteIcon';
+import AddIcon from '@strapi/icons/AddIcon';
+import { IconButton, IconButtonGroup } from './IconButton';
+import { Box } from '../Box';
+import { Flex } from '../Flex';
+
+<Meta title="Design System/Components/IconButton" component={IconButton} />
+
+# IconButton
+
+Icon Buttons are a way to perform actions within a page, a table or another object. They help interact with its content via a single click in small page portion. According to their minimal style, they help understand the most important actions to take.
+
+**Best practices**
+
+- Icon Buttons do not have labels.
+- A Tooltip should be displayed at hover.
+- Icon Buttons can be used within a group form whenever the action are related.
+- Icon Buttons can be displayed next to each others whenever the actions are distinct.
+- In Table component, avoid using a border.
+- The icon chosen to represent the action should be perfectly explicit.
+  [View source](https://github.com/strapi/design-system/tree/develop/packages/strapi-design-system/src/IconButton)
+
+## Imports
+
+```js
+import { IconButton } from '@strapi/design-system/IconButton';
+import { IconButtonGroup } from '@strapi/design-system/IconButton';
+import EditIcon from '@strapi/icons/EditIcon';
+import PublishIcon from '@strapi/icons/PublishIcon';
+import DeleteIcon from '@strapi/icons/DeleteIcon';
+import AddIcon from '@strapi/icons/AddIcon';
+```
+
+## Usage
+
+Icon Buttons are used to perform actions within a page, a table or another object. They have the advantage of being minimal and by so, efficient in small areas. Icon Buttons should be associated with Tooltips.
+
+<Canvas>
+  <Story name="base">
+    <Box padding={7}>
+      <Flex>
+        <IconButton onClick={() => console.log('edit')} label="Edit" icon={<EditIcon />} />
+        <IconButton onClick={() => console.log('Create')} label="Create" icon={<AddIcon />} />
+        <IconButton onClick={() => console.log('Delete')} label="Delete" icon={<DeleteIcon />} />
+        <IconButton onClick={() => console.log('Publish')} label="Publish" icon={<PublishIcon />} />
+      </Flex>
+    </Box>
+  </Story>
+</Canvas>
+
+### IconButton Disabled
+
+Depending on the status of an action or the permissions, an IconButton can be unaccessible or unreachable yet.
+
+<Canvas>
+  <Story name="disabled">
+    <Box padding={7}>
+      <Flex>
+        <IconButton disabled onClick={() => console.log('edit')} label="Edit" icon={<EditIcon />} />
+        <IconButton disabled onClick={() => console.log('Create')} label="Create" icon={<AddIcon />} />
+        <IconButton disabled onClick={() => console.log('Delete')} label="Delete" icon={<DeleteIcon />} />
+        <IconButton disabled onClick={() => console.log('Publish')} label="Publish" icon={<PublishIcon />} />
+      </Flex>
+    </Box>
+  </Story>
+</Canvas>
+
+### IconButton Disabled
+
+An Icon button without the tooltip. It can be interesting to rely on this component to avoid showing a tooltip when focusing the modals close button. **However, when not using a label, the developer should add an explicit aria-label to the button.**
+
+<Canvas>
+  <Story name="without tooltip">
+    <Box padding={7}>
+      <IconButton onClick={() => console.log('edit')} aria-label="Edit" icon={<EditIcon />} />
+    </Box>
+  </Story>
+</Canvas>
+
+### IconButtonGroup
+
+IconButtons can be used within another component is a Group shape.
+
+<Canvas>
+  <Story name="group">
+    <Box padding={7}>
+      <IconButtonGroup>
+        <IconButton onClick={() => console.log('edit')} label="Edit" icon={<EditIcon />} />
+        <IconButton onClick={() => console.log('Create')} label="Create" icon={<AddIcon />} />
+        <IconButton onClick={() => console.log('Delete')} label="Delete" icon={<DeleteIcon />} />
+        <IconButton onClick={() => console.log('Publish')} label="Publish" icon={<PublishIcon />} />
+      </IconButtonGroup>
+    </Box>
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={IconButton} />
