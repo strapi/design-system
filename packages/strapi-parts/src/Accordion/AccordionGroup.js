@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Box } from '../Box';
 import { Text } from '../Text';
+import { Flex } from '../Flex';
 import { KeyboardNavigable } from '../KeyboardNavigable';
 
 const AccordionFooter = styled(Box)`
@@ -43,13 +44,22 @@ const EnhancedGroup = styled(Box)`
   `}
 `;
 
-export const AccordionGroup = ({ children, footer, label }) => {
+const LabelAction = styled(Box)`
+  svg path {
+    fill: ${({ theme }) => theme.colors.neutral500};
+  }
+`;
+
+export const AccordionGroup = ({ children, footer, label, labelAction }) => {
   return (
     <KeyboardNavigable attributeName="data-strapi-accordion-toggle">
       {label && (
-        <Text as="label" textColor="neutral800" small={true} bold={true}>
-          {label}
-        </Text>
+        <Flex paddingBottom={1}>
+          <Text as="label" textColor="neutral800" small={true} bold={true}>
+            {label}
+          </Text>
+          {labelAction && <LabelAction paddingLeft={1}>{labelAction}</LabelAction>}
+        </Flex>
       )}
       <EnhancedGroup footer={footer}>{children}</EnhancedGroup>
       {footer && <AccordionFooter>{footer}</AccordionFooter>}
@@ -60,10 +70,12 @@ export const AccordionGroup = ({ children, footer, label }) => {
 AccordionGroup.defaultProps = {
   footer: null,
   label: null,
+  labelAction: undefined,
 };
 
 AccordionGroup.propTypes = {
   children: PropTypes.node.isRequired,
   footer: PropTypes.node,
   label: PropTypes.string,
+  labelAction: PropTypes.node,
 };
