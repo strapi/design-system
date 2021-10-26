@@ -4,14 +4,17 @@ import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { ArgsTable } from '@storybook/addon-docs';
 import EditIcon from '@strapi/icons/EditIcon';
+import AddIcon from '@strapi/icons/AddIcon';
 import { Accordion } from './Accordion';
 import { AccordionToggle } from './AccordionToggle';
 import { KeyboardNavigable } from '../KeyboardNavigable';
 import { AccordionContent } from './AccordionContent';
 import { AccordionGroup } from './AccordionGroup';
 import { Box } from '../Box';
+import { Flex } from '../Flex';
 import { Text } from '../Text';
 import { IconButton } from '../IconButton';
+import { TextButton } from '../TextButton';
 
 <Meta title="Design System/Components/Accordion" component={Accordion} />
 
@@ -51,9 +54,7 @@ import { Box } from '@strapi/parts/Box';
         <div>
           <Box padding={8} background="neutral100">
             <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-1" size="S">
-              <AccordionToggle
-                title="User informations"
-              />
+              <AccordionToggle title="User informations" />
               <AccordionContent>
                 <Box padding={3}>My name is John Duff</Box>
               </AccordionContent>
@@ -109,43 +110,33 @@ import { Box } from '@strapi/parts/Box';
       return (
         <div>
           <Box padding={8} background="neutral0">
-            <AccordionGroup 
+            <AccordionGroup
               footer={
-                <button style={{
-                  background: 'white',
-                  width: '100%',
-                  paddingTop: '14px',
-                  paddingBottom: '14px',
-                }}>
-                  <Text textColor="primary600" bold>
-                    Add an entry
-                  </Text>
-                </button>
+                <Flex justifyContent="center" height="48px">
+                  <TextButton startIcon={<AddIcon />}>Add an entry</TextButton>
+                </Flex>
               }
             >
               <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-1" size="S">
-                <AccordionToggle
-                  title="User informations"
-                  togglePosition="left"
-                />
+                <AccordionToggle title="User informations" togglePosition="left" />
                 <AccordionContent>
                   <Box padding={3}>My name is John Duff</Box>
                 </AccordionContent>
               </Accordion>
-              <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-2" size="S" variant="secondary">
-                <AccordionToggle
-                  title="User informations"
-                  togglePosition="left"
-                />
+              <Accordion
+                expanded={expanded}
+                toggle={() => setExpanded((s) => !s)}
+                id="acc-2"
+                size="S"
+                variant="secondary"
+              >
+                <AccordionToggle title="User informations" togglePosition="left" />
                 <AccordionContent>
                   <Box padding={3}>My name is John Duff</Box>
                 </AccordionContent>
               </Accordion>
               <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-3" size="S">
-                <AccordionToggle
-                  title="User informations"
-                  togglePosition="left"
-                />
+                <AccordionToggle title="User informations" togglePosition="left" />
                 <AccordionContent>
                   <Box padding={3}>My name is John Duff</Box>
                 </AccordionContent>

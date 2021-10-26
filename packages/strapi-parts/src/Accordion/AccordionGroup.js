@@ -29,6 +29,17 @@ const EnhancedGroup = styled(Box)`
     }
   }
 
+  & [data-strapi-expanded='true'] {
+    border-right: 1px solid ${({ theme }) => theme.colors.primary600};
+    border-left: 1px solid ${({ theme }) => theme.colors.primary600};
+    border-bottom: 1px solid ${({ theme }) => theme.colors.primary600};
+    border-top: 1px solid ${({ theme }) => theme.colors.primary100};
+  }
+
+  & [data-strapi-expanded='true']:first-of-type {
+    border-top: 1px solid ${({ theme }) => theme.colors.primary600};
+  }
+
   ${({ theme, footer }) => `
     &:not(${footer}) {
       & > *:last-of-type {

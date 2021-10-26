@@ -7,15 +7,21 @@ import { useId } from '../helpers/useId';
 import { Box } from '../Box';
 import { DropdownIconWrapper } from './DropdownIconWrapper';
 
+const getBorder = ({ theme, expanded, variant }) => {
+  if (expanded) {
+    return `1px solid ${theme.colors.primary600}`;
+  }
+
+  if (variant === 'primary') {
+    return `1px solid ${theme.colors.neutral0}`;
+  }
+
+  return `1px solid ${theme.colors.neutral100}`;
+};
+
 const AccordionWrapper = styled(Box)`
-  /* border: ${({ theme, expanded }) =>
-    expanded ? `1px solid ${theme.colors.primary600}` : '1px solid transparent'}; */
-  border: ${({ theme, expanded, variant }) =>
-    expanded
-      ? `1px solid ${theme.colors.primary600}!important`
-      : variant === 'primary'
-      ? `1px solid ${theme.colors.neutral0}`
-      : `1px solid ${theme.colors.neutral100}`};
+  border: ${getBorder};
+
   overflow: hidden;
 
   &:hover {
@@ -47,7 +53,7 @@ export const Accordion = ({ children, toggle, expanded, id, size, variant }) => 
 
   return (
     <AccordionContext.Provider value={{ expanded, toggle, id: generatedId, size, variant }}>
-      <AccordionWrapper expanded={expanded} hasRadius variant={variant}>
+      <AccordionWrapper data-strapi-expanded={expanded} expanded={expanded} hasRadius variant={variant}>
         {children}
       </AccordionWrapper>
     </AccordionContext.Provider>
