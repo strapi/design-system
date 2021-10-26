@@ -40,7 +40,7 @@ export const AccordionToggle = ({ title, description, as, togglePosition, action
   const iconColor = expanded ? 'primary200' : 'neutral200';
 
   const dropdownIcon = (
-    <DropdownIconWrapper expanded={expanded} aria-hidden {...props} as="span" background={iconColor}>
+    <DropdownIconWrapper size={size} expanded={expanded} aria-hidden {...props} as="span" background={iconColor}>
       <DropdownIcon />
     </DropdownIconWrapper>
   );
