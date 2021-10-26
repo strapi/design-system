@@ -53,7 +53,7 @@ export const Accordion = ({ children, toggle, expanded, id, size, variant }) => 
 
   return (
     <AccordionContext.Provider value={{ expanded, toggle, id: generatedId, size, variant }}>
-      <AccordionWrapper data-strapi-expanded={expanded || false} expanded={expanded} hasRadius variant={variant}>
+      <AccordionWrapper data-strapi-expanded={expanded} expanded={expanded} hasRadius variant={variant}>
         {children}
       </AccordionWrapper>
     </AccordionContext.Provider>
