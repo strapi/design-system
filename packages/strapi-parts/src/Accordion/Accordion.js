@@ -9,10 +9,10 @@ import { DropdownIconWrapper } from './DropdownIconWrapper';
 
 const AccordionWrapper = styled(Box)`
   /* border: ${({ theme, expanded }) =>
-    expanded ? `1px solid ${theme.colors.primary600}` : `1px solid transparent`}; */
+    expanded ? `1px solid ${theme.colors.primary600}` : '1px solid transparent'}; */
   border: ${({ theme, expanded, variant }) =>
     expanded
-      ? `1px solid ${theme.colors.primary600}`
+      ? `1px solid ${theme.colors.primary600}!important`
       : variant === 'primary'
       ? `1px solid ${theme.colors.neutral0}`
       : `1px solid ${theme.colors.neutral100}`};

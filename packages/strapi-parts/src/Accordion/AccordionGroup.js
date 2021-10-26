@@ -1,27 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { Box } from '../Box';
 import { KeyboardNavigable } from '../KeyboardNavigable';
-import styled from 'styled-components';
 
 const EnhancedGroup = styled(Box)`
   & > * {
     border-radius: unset;
-    border: 1px solid ${({ theme }) => theme.colors.neutral200};
+    border-right: 1px solid ${({ theme }) => theme.colors.neutral200};
+    border-left: 1px solid ${({ theme }) => theme.colors.neutral200};
+    border-bottom: 1px solid ${({ theme }) => theme.colors.neutral200};
   }
 
   & > *:first-of-type {
+    border-top: 1px solid ${({ theme }) => theme.colors.neutral200};
     border-radius: ${({ theme }) => theme.borderRadius} ${({ theme }) => theme.borderRadius} 0 0;
+
+    &:hover {
+      border-top: 1px solid ${({ theme }) => theme.colors.primary600};
+    }
   }
 
   ${({ theme, footer }) => `
     &:not(${footer}) {
       & > *:last-of-type {
         border-radius: 0 0 ${theme.borderRadius} ${theme.borderRadius};
-      }
-
-      button {
-        backgroud: red;
       }
     }
   `}

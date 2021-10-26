@@ -145,6 +145,15 @@ import { Box } from '@strapi/parts/Box';
                   <Box padding={3}>My name is John Duff</Box>
                 </AccordionContent>
               </Accordion>
+              <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-3" size="S">
+                <AccordionToggle
+                  title="User informations"
+                  togglePosition="left"
+                />
+                <AccordionContent>
+                  <Box padding={3}>My name is John Duff</Box>
+                </AccordionContent>
+              </Accordion>
             </AccordionGroup>
           </Box>
         </div>
