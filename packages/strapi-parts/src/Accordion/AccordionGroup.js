@@ -5,19 +5,42 @@ import { KeyboardNavigable } from '../KeyboardNavigable';
 import styled from 'styled-components';
 
 const EnhancedGroup = styled(Box)`
-  & [data-strapi-accordion-toggle='true']:first-of-type {
-    border-radius: 4px 4px 0 0;
+  & > * {
+    border-radius: unset;
+    border: 1px solid ${({ theme }) => theme.colors.neutral200};
   }
+
+  & > *:first-of-type {
+    border-radius: ${({ theme }) => theme.borderRadius} ${({ theme }) => theme.borderRadius} 0 0;
+  }
+
+  ${({ theme, footer }) => `
+    &:not(${footer}) {
+      & > *:last-of-type {
+        border-radius: 0 0 ${theme.borderRadius} ${theme.borderRadius};
+      }
+
+      button {
+        backgroud: red;
+      }
+    }
+  `}
 `;
 
-export const AccordionGroup = ({ children }) => {
+export const AccordionGroup = ({ children, footer }) => {
   return (
     <KeyboardNavigable attributeName="data-strapi-accordion-toggle">
-      <EnhancedGroup>{children}</EnhancedGroup>
+      <EnhancedGroup footer={footer}>{children}</EnhancedGroup>
+      {footer}
     </KeyboardNavigable>
   );
 };
 
+AccordionGroup.defaultProps = {
+  footer: null,
+};
+
 AccordionGroup.propTypes = {
   children: PropTypes.node.isRequired,
+  footer: PropTypes.node,
 };

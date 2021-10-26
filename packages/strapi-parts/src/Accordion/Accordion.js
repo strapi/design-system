@@ -10,8 +10,12 @@ import { DropdownIconWrapper } from './DropdownIconWrapper';
 const AccordionWrapper = styled(Box)`
   /* border: ${({ theme, expanded }) =>
     expanded ? `1px solid ${theme.colors.primary600}` : `1px solid transparent`}; */
-  border: ${({ theme, expanded }) =>
-    expanded ? `1px solid ${theme.colors.primary600}` : `1px solid ${theme.colors.neutral100}`};
+  border: ${({ theme, expanded, variant }) =>
+    expanded
+      ? `1px solid ${theme.colors.primary600}`
+      : variant === 'primary'
+      ? `1px solid ${theme.colors.neutral0}`
+      : `1px solid ${theme.colors.neutral100}`};
   overflow: hidden;
 
   &:hover {
@@ -38,12 +42,12 @@ const AccordionWrapper = styled(Box)`
   }
 `;
 
-export const Accordion = ({ children, toggle, expanded, id, size }) => {
+export const Accordion = ({ children, toggle, expanded, id, size, variant }) => {
   const generatedId = useId('accordion', id);
 
   return (
-    <AccordionContext.Provider value={{ expanded, toggle, id: generatedId, size }}>
-      <AccordionWrapper expanded={expanded} hasRadius>
+    <AccordionContext.Provider value={{ expanded, toggle, id: generatedId, size, variant }}>
+      <AccordionWrapper expanded={expanded} hasRadius variant={variant}>
         {children}
       </AccordionWrapper>
     </AccordionContext.Provider>
@@ -55,6 +59,7 @@ Accordion.defaultProps = {
   id: undefined,
   toggle: false,
   size: 'M',
+  variant: 'primary',
 };
 
 Accordion.propTypes = {
@@ -63,4 +68,5 @@ Accordion.propTypes = {
   id: PropTypes.string,
   size: PropTypes.oneOf(['S', 'M']),
   toggle: PropTypes.func.isRequired,
+  variant: PropTypes.oneOf(['primary', 'secondary']),
 };

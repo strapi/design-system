@@ -8,9 +8,10 @@ import { Accordion } from './Accordion';
 import { AccordionToggle } from './AccordionToggle';
 import { KeyboardNavigable } from '../KeyboardNavigable';
 import { AccordionContent } from './AccordionContent';
-import { Box } from '../Box';
-import { IconButton } from '../IconButton';
 import { AccordionGroup } from './AccordionGroup';
+import { Box } from '../Box';
+import { Text } from '../Text';
+import { IconButton } from '../IconButton';
 
 <Meta title="Design System/Components/Accordion" component={Accordion} />
 
@@ -49,31 +50,18 @@ import { Box } from '@strapi/parts/Box';
       return (
         <div>
           <Box padding={8} background="neutral100">
-            <AccordionGroup>
-              <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-1" size="S">
-                <AccordionToggle
-                  title="User informations"
-                  description="The following contains information about the current user"
-                />
-                <AccordionContent>
-                  <Box padding={3}>My name is John Duff</Box>
-                </AccordionContent>
-              </Accordion>
-              <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-1" size="S">
-                <AccordionToggle
-                  title="User informations"
-                  description="The following contains information about the current user"
-                />
-                <AccordionContent>
-                  <Box padding={3}>My name is John Duff</Box>
-                </AccordionContent>
-              </Accordion>
-            </AccordionGroup>
+            <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-1" size="S">
+              <AccordionToggle
+                title="User informations"
+              />
+              <AccordionContent>
+                <Box padding={3}>My name is John Duff</Box>
+              </AccordionContent>
+            </Accordion>
           </Box>
           <Box padding={8} background="neutral0">
-            <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-2">
+            <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-2" variant="secondary">
               <AccordionToggle
-                variant="secondary"
                 title="User informations 2"
                 description="The following contains information about the current user 2"
               />
@@ -95,9 +83,8 @@ import { Box } from '@strapi/parts/Box';
             </Accordion>
           </Box>
           <Box padding={8} background="neutral0">
-            <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-4">
+            <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-4" variant="secondary">
               <AccordionToggle
-                variant="secondary"
                 togglePosition="left"
                 title="User informations 4"
                 action={<IconButton onClick={() => console.log('edit')} label="Edit" icon={<EditIcon />} />}
@@ -106,6 +93,59 @@ import { Box } from '@strapi/parts/Box';
                 <Box padding={3}>My name is John Duff</Box>
               </AccordionContent>
             </Accordion>
+          </Box>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## AccordionGroup
+
+<Canvas>
+  <Story name="accordion-group">
+    {() => {
+      const [expanded, setExpanded] = useState(false);
+      return (
+        <div>
+          <Box padding={8} background="neutral0">
+            <AccordionGroup 
+              footer={
+                <button style={{
+                  background: 'white',
+                  width: '100%',
+                  borderRadius: '0 0 4px 4px',
+                  paddingTop: '14px',
+                  paddingBottom: '14px',
+                  borderBottom: '1px solid #dcdce4',
+                  borderLeft: '1px solid #dcdce4',
+                  borderRight: '1px solid #dcdce4'
+                }}>
+                  <Text textColor="primary600" bold>
+                    Add an entry
+                  </Text>
+                </button>
+              }
+            >
+              <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-1" size="S">
+                <AccordionToggle
+                  title="User informations"
+                  togglePosition="left"
+                />
+                <AccordionContent>
+                  <Box padding={3}>My name is John Duff</Box>
+                </AccordionContent>
+              </Accordion>
+              <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-2" size="S" variant="secondary">
+                <AccordionToggle
+                  title="User informations"
+                  togglePosition="left"
+                />
+                <AccordionContent>
+                  <Box padding={3}>My name is John Duff</Box>
+                </AccordionContent>
+              </Accordion>
+            </AccordionGroup>
           </Box>
         </div>
       );

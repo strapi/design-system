@@ -17,8 +17,8 @@ const ToggleButton = styled.button`
   padding: 0;
 `;
 
-export const AccordionToggle = ({ title, description, as, variant, togglePosition, action, ...props }) => {
-  const { toggle, expanded, id, size } = useAccordion();
+export const AccordionToggle = ({ title, description, as, togglePosition, action, ...props }) => {
+  const { toggle, expanded, id, size, variant } = useAccordion();
 
   const boxSize = size === 'M' ? 6 : 3;
 
