@@ -28,12 +28,31 @@ const EnhancedGroup = styled(Box)`
       border-top: 1px solid ${({ theme }) => theme.colors.primary600};
     }
   }
+
+  & [data-expanded='true'] {
+    border-right: 1px solid ${({ theme }) => theme.colors.primary600};
+    border-left: 1px solid ${({ theme }) => theme.colors.primary600};
+    border-bottom: 1px solid ${({ theme }) => theme.colors.primary600};
+    border-top: 1px solid ${({ theme }) => theme.colors.primary100};
+  }
+
+  & [data-expanded='true']:first-of-type {
+    border-top: 1px solid ${({ theme }) => theme.colors.primary600};
+  }
+
+  ${({ theme, footer }) => `
+    &:not(${footer}) {
+      & > *:last-of-type {
+        border-radius: 0 0 ${theme.borderRadius} ${theme.borderRadius};
+      }
+    }
+  `}
 `;
 
 export const AccordionGroup = ({ children, footer }) => {
   return (
     <KeyboardNavigable attributeName="data-strapi-accordion-toggle">
-      <EnhancedGroup>{children}</EnhancedGroup>
+      <EnhancedGroup footer={footer}>{children}</EnhancedGroup>
       {footer && <AccordionFooter>{footer}</AccordionFooter>}
     </KeyboardNavigable>
   );
