@@ -1,10 +1,10 @@
 import React from "react";
-import { Stack } from "@strapi/parts/Stack";
-import { Grid } from "@strapi/parts/Grid";
-import { Flex } from "@strapi/parts/Flex";
-import { VisuallyHidden } from "@strapi/parts/VisuallyHidden";
-import { Field, FieldInput, FieldLabel, FieldHint } from "@strapi/parts/Field";
-import { Tooltip } from "@strapi/parts/Tooltip";
+import { Stack } from "@strapi/design-system/Stack";
+import { Grid } from "@strapi/design-system/Grid";
+import { Flex } from "@strapi/design-system/Flex";
+import { VisuallyHidden } from "@strapi/design-system/VisuallyHidden";
+import { Field, FieldInput, FieldLabel, FieldHint } from "@strapi/design-system/Field";
+import { Tooltip } from "@strapi/design-system/Tooltip";
 
 import HelpIcon from "@strapi/icons/HelpIcon";
 

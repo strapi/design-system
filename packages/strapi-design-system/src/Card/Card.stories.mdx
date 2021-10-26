@@ -1,0 +1,204 @@
+<!--- Card.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
+import EditIcon from '@strapi/icons/EditIcon';
+import { Box } from '../Box';
+import { Stack } from '../Stack';
+import { Card } from './Card';
+import { CardContent } from './CardContent';
+import { CardAsset } from './CardAsset';
+import { CardBadge } from './CardBadge';
+import { CardTitle, CardSubtitle } from './CardTitle';
+import { CardBody } from './CardBody';
+import { CardHeader } from './CardHeader';
+import { CardAction } from './CardAction';
+import { CardCheckbox } from './CardCheckbox';
+import { CardTimer } from './CardTimer';
+import { IconButton } from '../IconButton';
+import { KeyboardNavigable } from '../KeyboardNavigable';
+// Story assets
+import firstImgPath from './story-assets/first.jpg';
+
+<Meta title="Design System/Components/Card" component={Card} />
+
+# Card
+
+Cards are used to gather a set of information that needs to stand out from the rest of the page.
+
+**Best practices**
+
+- Content within the Card is mostly optional. Pick up what is needed.
+- Content can be added to the Card. Keep in mind that spacings are important in a Card component.
+- Main text is truncated at the end of the first line.
+- Prioritize content within the Card so users know exactly what are the main information.
+- If Call-to-Actions are used, they should be placed at the bottom of the Card.
+
+[View source](https://github.com/strapi/design-system/tree/develop/packages/strapi-design-system/src/Card)
+
+## Imports
+
+```js
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardCheckbox,
+  CardAction,
+  CardAsset,
+  CardTimer,
+  CardContent,
+  CardBadge,
+  CardTitle,
+  CardSubtitle,
+} from '@strapi/design-system/Card';
+import { IconButton } from '@strapi/design-system/IconButton';
+import EditIcon from '@strapi/icons/EditIcon';
+import { KeyboardNavigable } from '@strapi/design-system/KeyboardNavigable';
+```
+
+## Usage
+
+Cards are used to gather a set of related information.
+
+<Canvas>
+  <Story name="base">
+    <Card style={{ width: '240px' }} id="first">
+      <CardHeader>
+        <CardCheckbox value={true} />
+        <CardAction position="end">
+          <IconButton label="Edit the thing" icon={<EditIcon />} />
+        </CardAction>
+        <CardAsset src={firstImgPath} />
+        <CardTimer>05:39</CardTimer>
+      </CardHeader>
+      <CardBody>
+        <CardContent>
+          <CardTitle>File name fezof hzoeah fohzeofhozaehfohzeoafhzoaehfohzaeo fhozahf ozaehfoa</CardTitle>
+          <CardSubtitle>PNG - 400✕400</CardSubtitle>
+        </CardContent>
+        <CardBadge>Doc</CardBadge>
+      </CardBody>
+    </Card>
+  </Story>
+</Canvas>
+
+## Card without asset action
+
+Cards can be used without actions by removing the `CardAction` block.
+
+<Canvas>
+  <Story name="without asset action">
+    <Card style={{ width: '240px' }} id="second">
+      <CardHeader>
+        <CardCheckbox value={true} />
+        <CardAsset src={firstImgPath} />
+        <CardTimer>05:39</CardTimer>
+      </CardHeader>
+      <CardBody>
+        <CardContent>
+          <CardTitle>File name</CardTitle>
+          <CardSubtitle>PNG - 400✕400</CardSubtitle>
+        </CardContent>
+        <CardBadge>Doc</CardBadge>
+      </CardBody>
+    </Card>
+  </Story>
+</Canvas>
+
+## Card with asset icon
+
+The image asset can be replaced by an icon.
+
+<Canvas>
+  <Story name="with asset icon">
+    <Card style={{ width: '240px' }} id="second">
+      <CardHeader>
+        <CardCheckbox value={true} />
+        <CardAsset>
+          <EditIcon aria-label="Just a picture" />
+        </CardAsset>
+        <CardTimer>05:39</CardTimer>
+      </CardHeader>
+      <CardBody>
+        <CardContent>
+          <CardTitle>File name</CardTitle>
+          <CardSubtitle>PNG - 400✕400</CardSubtitle>
+        </CardContent>
+        <CardBadge>Doc</CardBadge>
+      </CardBody>
+    </Card>
+  </Story>
+</Canvas>
+
+## Card without asset action nor timer
+
+The `CardTimer` can be removed as well as the `CardAction` block.
+
+<Canvas>
+  <Story name="without asset action nor timer">
+    <Card style={{ width: '240px' }} id="third">
+      <CardHeader>
+        <CardCheckbox value={true} />
+        <CardAsset src={firstImgPath} />
+      </CardHeader>
+      <CardBody>
+        <CardContent>
+          <CardTitle>File name</CardTitle>
+          <CardSubtitle>PNG - 400✕400</CardSubtitle>
+        </CardContent>
+        <CardBadge>Doc</CardBadge>
+      </CardBody>
+    </Card>
+  </Story>
+</Canvas>
+
+## Card without asset
+
+If no `CardHeader` is present, the card will display a version with the body only.
+
+<Canvas>
+  <Story name="without asset">
+    <Card style={{ width: '240px' }} id="fourth">
+      <CardBody>
+        <Box padding={2} background="primary100">
+          <EditIcon />
+        </Box>
+        <CardContent paddingLeft={2}>
+          <CardTitle>File name</CardTitle>
+          <CardSubtitle>PNG - 400✕400</CardSubtitle>
+        </CardContent>
+        <CardBadge>Doc</CardBadge>
+      </CardBody>
+    </Card>
+  </Story>
+</Canvas>
+
+## Card keyboard navigable
+
+You wrap the Card in a `KeyboardNavigable` block to ensure it can be scanned using the keyboard.
+
+<Canvas>
+  <Story name="keyboard navigable">
+    <KeyboardNavigable tagName="article">
+      {['first', 'second', 'third', 'fourth'].map((id) => (
+        <Card style={{ width: '240px' }} id={id} key={id}>
+          <CardBody>
+            <Box padding={2} background="primary100">
+              <EditIcon />
+            </Box>
+            <CardContent paddingLeft={2}>
+              <CardTitle>File name</CardTitle>
+              <CardSubtitle>PNG - 400✕400</CardSubtitle>
+            </CardContent>
+            <CardBadge>Doc</CardBadge>
+          </CardBody>
+        </Card>
+      ))}
+    </KeyboardNavigable>
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Card} />

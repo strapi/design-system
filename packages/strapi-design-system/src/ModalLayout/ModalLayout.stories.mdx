@@ -1,0 +1,94 @@
+<!--- ModalLayout.stories.mdx --->
+
+import { useState } from 'react';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
+import { ModalLayout } from './ModalLayout';
+import { ModalHeader } from './ModalHeader';
+import { ModalFooter } from './ModalFooter';
+import { ModalBody } from './ModalBody';
+import { ButtonText } from '../Text';
+import { Flex } from '../Flex';
+import { Box } from '../Box';
+import { Button } from '../Button';
+
+<Meta title="Design System/Components/ModalLayout" component={ModalLayout} />
+
+# ModalLayout
+
+The `ModalLayout` can be used to create a custom modal.
+
+[View source](https://github.com/strapi/design-system/tree/develop/packages/strapi-design-system/src/ModalLayout)
+
+## Imports
+
+```js
+import { ModalLayout } from '@strapi/design-system/ModalLayout';
+import { ModalHeader } from '@strapi/design-system/ModalHeader';
+import { ModalFooter } from '@strapi/design-system/ModalFooter';
+import { ModalBody } from '@strapi/design-system/ModalBody';
+import { TextButton } from '@strapi/design-system/Text';
+import { Flex } from '@strapi/design-system/Flex';
+import { Button } from '@strapi/design-system/Button';
+```
+
+## Usage
+
+<Canvas>
+  <Story name="base">
+    {() => {
+      const [isVisible, setIsVisible] = useState(false);
+      return (
+        <>
+          <Button onClick={() => setIsVisible((prev) => !prev)}>Click to open Modal</Button>
+          <p style={{ height: '60vh' }}>This is a raw content</p>
+          {isVisible && (
+            <ModalLayout onClose={() => setIsVisible((prev) => !prev)} labelledBy="title">
+              <ModalHeader>
+                <ButtonText textColor="neutral800" as="h2" id="title">
+                  Title
+                </ButtonText>
+              </ModalHeader>
+              <ModalBody>
+                {Array(50)
+                  .fill(null)
+                  .map((_, index) => (
+                    <Box key={`box-${index}`} padding={8} background="neutral100">
+                      Hello world
+                    </Box>
+                  ))}
+              </ModalBody>
+              <ModalFooter
+                startActions={
+                  <Button onClick={() => setIsVisible((prev) => !prev)} variant="tertiary">
+                    Cancel
+                  </Button>
+                }
+                endActions={
+                  <>
+                    <Button variant="secondary">Add new stuff</Button>
+                    <Button onClick={() => setIsVisible((prev) => !prev)}>Finish</Button>
+                  </>
+                }
+              />
+            </ModalLayout>
+          )}
+        </>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Props
+
+### ModalLayout props
+
+<ArgsTable of={ModalLayout} />
+
+### ModalHeader props
+
+<ArgsTable of={ModalHeader} />
+
+### ModalFooter props
+
+<ArgsTable of={ModalFooter} />

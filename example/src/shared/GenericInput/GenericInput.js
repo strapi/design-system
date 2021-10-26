@@ -6,7 +6,7 @@ import {
   RadioGroup,
   Radio,
   Textarea,
-} from "@strapi/parts";
+} from "@strapi/design-system";
 
 export const GenericInput = ({
   type,

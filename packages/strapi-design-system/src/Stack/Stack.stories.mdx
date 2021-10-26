@@ -1,0 +1,65 @@
+<!--- Stack.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
+import { Stack } from './Stack';
+import { Box } from '../Box';
+
+<Meta title="Design System/Technical Components/Stack" component={Stack} />
+
+# Stack
+
+This is the doc of the `Stack` component
+
+[View source](https://github.com/strapi/design-system/tree/develop/packages/strapi-design-system/src/Stack)
+
+## Imports
+
+```js
+import { Stack } from '@strapi/design-system/Stack';
+import { Box } from '@strapi/design-system/Box';
+```
+
+## Usage
+
+Add vertical spacing between direct child: it allows not to have to deal with `margin-top` and `margin-bottom` anymore.
+
+<Canvas>
+  <Story name="base">
+    <Stack size={4} background="secondary200" padding={3}>
+      <Box background="primary100" padding={4}>
+        First
+      </Box>
+      <Box background="primary100" padding={4}>
+        Second
+      </Box>
+      <Box background="primary100" padding={4}>
+        Third
+      </Box>
+    </Stack>
+  </Story>
+</Canvas>
+
+### Stack
+
+Add vertical spacing between direct child: it allows not to have to deal with `margin-top` and `margin-bottom` anymore.
+
+<Canvas>
+  <Story name="horizontal">
+    <Stack size={4} horizontal background="secondary200" padding={3}>
+      <Box background="primary100" padding={4}>
+        First
+      </Box>
+      <Box background="primary100" padding={4}>
+        Second
+      </Box>
+      <Box background="primary100" padding={4}>
+        Third
+      </Box>
+    </Stack>
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Stack} />

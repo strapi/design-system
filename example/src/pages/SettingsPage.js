@@ -20,7 +20,7 @@ import {
   IconButton,
   Flex,
   Stack,
-} from "@strapi/parts";
+} from "@strapi/design-system";
 import EditIcon from "@strapi/icons/EditIcon";
 import DeleteIcon from "@strapi/icons/DeleteIcon";
 import AddIcon from "@strapi/icons/AddIcon";
