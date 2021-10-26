@@ -39,7 +39,7 @@ export const AccordionToggle = ({ title, description, as, togglePosition, action
 
   if (togglePosition === 'left') {
     return (
-      <Box padding={boxSize} background={boxBackground}>
+      <Box data-strapi-accordion-header={true} padding={boxSize} background={boxBackground}>
         <Flex justifyContent="space-between">
           <ToggleButton
             onClick={toggle}

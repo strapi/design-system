@@ -34,7 +34,7 @@ const AccordionWrapper = styled(Box)`
       color: ${({ theme, expanded }) => (expanded ? undefined : theme.colors.primary600)};
     }
 
-    & > ${Box} {
+    & > [data-strapi-accordion-header='true'] {
       background: ${({ theme }) => theme.colors.primary100};
     }
 
