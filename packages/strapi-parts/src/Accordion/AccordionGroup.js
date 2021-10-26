@@ -29,14 +29,14 @@ const EnhancedGroup = styled(Box)`
     }
   }
 
-  & [data-expanded='true'] {
+  & [data-strapi-expanded='true'] {
     border-right: 1px solid ${({ theme }) => theme.colors.primary600};
     border-left: 1px solid ${({ theme }) => theme.colors.primary600};
     border-bottom: 1px solid ${({ theme }) => theme.colors.primary600};
     border-top: 1px solid ${({ theme }) => theme.colors.primary100};
   }
 
-  & [data-expanded='true']:first-of-type {
+  & [data-strapi-expanded='true']:first-of-type {
     border-top: 1px solid ${({ theme }) => theme.colors.primary600};
   }
 
