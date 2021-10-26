@@ -4,6 +4,14 @@ import styled from 'styled-components';
 import { Box } from '../Box';
 import { KeyboardNavigable } from '../KeyboardNavigable';
 
+const AccordionFooter = styled(Box)`
+  border-bottom: 1px solid ${({ theme }) => theme.colors.neutral200};
+  border-right: 1px solid ${({ theme }) => theme.colors.neutral200};
+  border-left: 1px solid ${({ theme }) => theme.colors.neutral200};
+  border-radius: 0 0 ${({ theme }) => theme.borderRadius} ${({ theme }) => theme.borderRadius};
+  overflow: hidden;
+`;
+
 const EnhancedGroup = styled(Box)`
   & > * {
     border-radius: unset;
@@ -34,7 +42,7 @@ export const AccordionGroup = ({ children, footer }) => {
   return (
     <KeyboardNavigable attributeName="data-strapi-accordion-toggle">
       <EnhancedGroup footer={footer}>{children}</EnhancedGroup>
-      {footer}
+      {footer && <AccordionFooter>{footer}</AccordionFooter>}
     </KeyboardNavigable>
   );
 };
