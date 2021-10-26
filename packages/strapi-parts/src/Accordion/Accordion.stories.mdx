@@ -15,8 +15,10 @@ import { Flex } from '../Flex';
 import { Text } from '../Text';
 import { IconButton } from '../IconButton';
 import { TextButton } from '../TextButton';
+import { Stack } from '../Stack';
 import { Tooltip } from '../Tooltip';
 import HelpIcon from '@strapi/icons/HelpIcon';
+import DeleteIcon from '@strapi/icons/DeleteIcon';
 
 <Meta title="Design System/Components/Accordion" component={Accordion} />
 
@@ -132,7 +134,26 @@ import { Box } from '@strapi/parts/Box';
               }
             >
               <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-1" size="S">
-                <AccordionToggle title="User informations" togglePosition="left" />
+                <AccordionToggle 
+                  action={
+                    <Stack horizontal>
+                      <IconButton 
+                        noBorder 
+                        onClick={() => console.log('edit')} 
+                        label="Edit" 
+                        icon={<EditIcon />} 
+                      />
+                      <IconButton 
+                        noBorder 
+                        onClick={() => console.log('delete')} 
+                        label="Delete" 
+                        icon={<DeleteIcon />} 
+                      />
+                    </Stack>
+                  } 
+                    title="User informations" 
+                    togglePosition="left" 
+                  />
                 <AccordionContent>
                   <Box padding={3}>My name is John Duff</Box>
                 </AccordionContent>
@@ -146,7 +167,7 @@ import { Box } from '@strapi/parts/Box';
               <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-3" size="S">
                 <AccordionToggle title="User informations" togglePosition="left" />
                 <AccordionContent>
-                  <Box padding={3}>My name is John Duff</Box>
+                  <Box padding={3}>My name is Michka</Box>
                 </AccordionContent>
               </Accordion>
             </AccordionGroup>
