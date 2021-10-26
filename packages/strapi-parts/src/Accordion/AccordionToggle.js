@@ -52,7 +52,7 @@ export const AccordionToggle = ({ title, description, as, togglePosition, action
             <Flex>
               {dropdownIcon}
 
-              <Box paddingLeft={6}>
+              <Box paddingLeft={4}>
                 {size === 'S' ? (
                   <Text bold={true} as={as} id={ariaLabelId} textColor={titleColor}>
                     {title}
