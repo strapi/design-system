@@ -1,0 +1,36 @@
+<!--- GridLayout.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { GridLayout } from './GridLayout';
+import { Box } from '../Box';
+
+<Meta title="Design System/Components/GridLayout" component={GridLayout} />
+
+# GridLayout
+
+`GridLayout` creates a responsive grid that will dispatch `Box` elements in 1, 2 or 3 columns depending on the size of the screen.
+
+## Imports
+
+```js
+import GridLayout from '@strapi/design-system/GridLayout';
+import Box from '@strapi/design-system/Box';
+```
+
+## Usage
+
+<Canvas>
+  <Story name="base">
+    <Box padding={8} background="neutral100">
+      <GridLayout>
+        {Array(12)
+          .fill(null)
+          .map((_, idx) => (
+            <Box padding={4} hasRadius background="neutral0" key={`box-${idx}`} shadow="tableShadow">
+              hello world
+            </Box>
+          ))}
+      </GridLayout>
+    </Box>
+  </Story>
+</Canvas>

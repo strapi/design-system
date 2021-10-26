@@ -9,7 +9,7 @@ import {
   Stack,
   Layout,
   Link,
-} from "@strapi/parts";
+} from "@strapi/design-system";
 import EditIcon from "@strapi/icons/EditIcon";
 import BackIcon from "@strapi/icons/BackIcon";
 import AddIcon from "@strapi/icons/AddIcon";

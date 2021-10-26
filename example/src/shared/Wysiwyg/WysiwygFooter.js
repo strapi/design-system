@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Flex, Text, Box } from "@strapi/parts";
+import { Flex, Text, Box } from "@strapi/design-system";
 import { Expand } from "@strapi/icons";
 
 import { ExpandButton } from "./WysiwygStyles";

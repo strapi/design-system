@@ -1,0 +1,56 @@
+<!--- Divider.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
+import { Divider } from './Divider';
+import { Box } from '../Box';
+
+<Meta
+  title="Design System/Components/Divider"
+  component={Divider}
+/>
+
+# Divider
+
+Dividers are used to separate two pieces of content. They have a generic style in the interface.
+
+**Best practices**
+
+- Depending on what is about to be made, a small spacing left and right can be added.
+- Dividers should not be bolder.
+
+[View source](https://github.com/strapi/design-system/tree/develop/packages/strapi-design-system/src/Divider)
+
+## Imports
+
+```js
+import { Divider } from '@strapi/design-system/Divider';
+```
+
+## Usage
+
+Use a divider to separate content in forms, PopOvers, tables, ...
+
+<Canvas>
+  <Story name="base">
+    <Box padding={8}>
+      <Divider />
+    </Box>
+  </Story>
+</Canvas>
+
+### With default margin
+
+Use a divider to separate content in forms, PopOvers, tables, ...
+
+<Canvas>
+  <Story name="with-default-margin">
+    <Box padding={8}>
+      <Divider unsetMargin={false} />
+    </Box>
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Divider} />

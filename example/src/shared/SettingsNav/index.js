@@ -6,7 +6,7 @@ import {
   SubNavHeader,
   SubNavSection,
   SubNavSections,
-} from "@strapi/parts";
+} from "@strapi/design-system";
 
 export const SettingsNav = () => {
   const [search, setSearch] = useState("");

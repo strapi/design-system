@@ -48,7 +48,7 @@ jobs:
         run: yarn build-storybook
 
       - name: Start storybook
-        working-directory: ./packages/strapi-parts/storybook-static
+        working-directory: ./packages/strapi-design-system/storybook-static
         run: http-server -p 6006 &
 
       - name: Run the tests

@@ -1,0 +1,42 @@
+<!--- Loader.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
+import { Loader } from './Loader';
+
+<Meta
+  title="Design System/Components/Loader"
+  component={Loader}
+/>
+
+# Loader
+
+Loaders indicate some data is currently loading where content usually takes place. They help to notify users that loading is ongoing.
+
+**Best practices**
+
+- Once the content appears, the loader disappears.
+- If the trigger only concerns a portion of a page, the loader should be placed in that part.
+
+[View source](https://github.com/strapi/design-system/tree/develop/packages/strapi-design-system/src/Loader)
+
+## Imports
+
+```js
+import { Loader } from '@strapi/design-system/Loader';
+```
+
+
+## Usage
+
+Loaders shows an action has been processed. Moreover, details about what is happening should be provided even if visually hidden.
+
+<Canvas>
+  <Story name="base">
+    <Loader>Loading content...</Loader>
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Loader} />

@@ -17,29 +17,29 @@ module.exports = function (plop) {
     actions: [
       {
         type: "add",
-        path: "packages/strapi-parts/src/{{name}}/index.js",
+        path: "packages/strapi-design-system/src/{{name}}/index.js",
         templateFile: "plop-templates/root.hbs",
       },
       {
         type: "add",
-        path: "packages/strapi-parts/src/{{name}}/{{name}}.js",
+        path: "packages/strapi-design-system/src/{{name}}/{{name}}.js",
         templateFile: "plop-templates/component.hbs",
       },
       {
         type: "add",
-        path: "packages/strapi-parts/src/{{name}}/{{name}}.stories.mdx",
+        path: "packages/strapi-design-system/src/{{name}}/{{name}}.stories.mdx",
         templateFile: "plop-templates/stories.hbs",
       },
       {
         type: "add",
         path:
-          "packages/strapi-parts/src/{{name}}/__tests__/{{name}}.spec.js",
+          "packages/strapi-design-system/src/{{name}}/__tests__/{{name}}.spec.js",
         templateFile: "plop-templates/unit-test.hbs",
       },
       {
         type: "add",
         path:
-          "packages/strapi-parts/src/{{name}}/__tests__/{{name}}.e2e.js",
+          "packages/strapi-design-system/src/{{name}}/__tests__/{{name}}.e2e.js",
         templateFile: "plop-templates/e2e-test.hbs",
       },
     ],

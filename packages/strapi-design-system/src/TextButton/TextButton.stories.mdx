@@ -1,0 +1,54 @@
+<!--- TextButton.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
+import BackIcon from '@strapi/icons/BackIcon';
+import NextIcon from '@strapi/icons/NextIcon';
+import { TextButton } from './TextButton';
+
+<Meta title="Design System/Components/TextButton" component={TextButton} />
+
+# TextButton
+
+TextButtons invites users to trigger an action related to the interface. They are used for internal navigation.
+
+
+**Best practices**
+- Use Link component if the action if the action is related to external navigation.
+- TextButtons text should describe an action and start with a verb.
+- TextButtons text should be concise and describe their purpose. Users need to know exactly what they are about to do.
+- Use an icon with TextButtons to give more information and impact to your action.
+[View source](https://github.com/strapi/design-system/tree/develop/packages/strapi-design-system/src/TextButton)
+
+## Imports
+
+```js
+import { TextButton } from '@strapi/design-system/TextButton';
+import BackIcon from '@strapi/icons/BackIcon';
+import NextIcon from '@strapi/icons/NextIcon';
+```
+
+## Usage
+
+TextButtons are used for internal navigation. Each TextButton should redirect to an action or a page of the admin panel. Moreover, they can be associated with an icon on the left or on the right depending on the context.
+
+Depending on the permissions a user have or the status of an action, a TextButton can be unreachable or unavailable yet.
+
+<Canvas>
+  <Story name="base">
+    <div>
+      <TextButton endIcon={<NextIcon />} startIcon={<BackIcon />}>
+        Click on me
+      </TextButton>
+    </div>
+    <div>
+      <TextButton disabled startIcon={<BackIcon />} endIcon={<NextIcon />}>
+        Disabled TextButton
+      </TextButton>
+    </div>
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={TextButton} />
