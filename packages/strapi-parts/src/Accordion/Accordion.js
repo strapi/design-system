@@ -40,8 +40,10 @@ const AccordionWrapper = styled(Box)`
 
     ${DropdownIconWrapper} {
       background: ${({ theme }) => theme.colors.primary200};
+    }
 
-      svg path {
+    svg {
+      path {
         fill: ${({ theme }) => theme.colors.primary600};
       }
     }

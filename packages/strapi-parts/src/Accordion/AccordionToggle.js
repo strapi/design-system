@@ -8,6 +8,14 @@ import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { DropdownIconWrapper } from './DropdownIconWrapper';
 
+const TitleIconWrapper = styled(Box)`
+  svg {
+    path {
+      fill: ${({ theme }) => theme.colors.neutral500};
+    }
+  }
+`;
+
 const ToggleButton = styled.button`
   border: none;
   background: transparent;
@@ -17,7 +25,7 @@ const ToggleButton = styled.button`
   padding: 0;
 `;
 
-export const AccordionToggle = ({ title, description, as, togglePosition, action, ...props }) => {
+export const AccordionToggle = ({ title, description, as, togglePosition, action, titleIcon, ...props }) => {
   const { toggle, expanded, id, size, variant } = useAccordion();
 
   const boxSize = size === 'M' ? 6 : 3;
@@ -53,15 +61,18 @@ export const AccordionToggle = ({ title, description, as, togglePosition, action
               {dropdownIcon}
 
               <Box paddingLeft={4}>
-                {size === 'S' ? (
-                  <Text bold={true} as={as} id={ariaLabelId} textColor={titleColor}>
-                    {title}
-                  </Text>
-                ) : (
-                  <H3 as={as} id={ariaLabelId} textColor={titleColor}>
-                    {title}
-                  </H3>
-                )}
+                <Flex>
+                  {titleIcon && <TitleIconWrapper paddingRight={2}>{titleIcon}</TitleIconWrapper>}
+                  {size === 'S' ? (
+                    <Text bold={true} as={as} id={ariaLabelId} textColor={titleColor}>
+                      {title}
+                    </Text>
+                  ) : (
+                    <H3 as={as} id={ariaLabelId} textColor={titleColor}>
+                      {title}
+                    </H3>
+                  )}
+                </Flex>
 
                 {description && (
                   <P id={ariaDescriptionId} textColor={descriptionColor}>
@@ -119,6 +130,7 @@ AccordionToggle.defaultProps = {
   as: 'span',
   description: undefined,
   variant: 'primary',
+  titleIcon: undefined,
   togglePosition: 'right',
 };
 
@@ -127,6 +139,7 @@ AccordionToggle.propTypes = {
   as: PropTypes.string,
   description: PropTypes.string,
   title: PropTypes.string.isRequired,
+  titleIcon: PropTypes.node,
   togglePosition: PropTypes.oneOf(['right', 'left']),
   variant: PropTypes.oneOf(['primary', 'secondary']),
 };
