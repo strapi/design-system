@@ -73,7 +73,7 @@ export const AccordionToggle = ({ title, description, as, togglePosition, action
   }
 
   return (
-    <Box padding={boxSize} background={boxBackground} size={size}>
+    <Box data-strapi-accordion-header={true} padding={boxSize} background={boxBackground} size={size}>
       <ToggleButton
         onClick={toggle}
         aria-expanded={expanded}

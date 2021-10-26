@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Box } from '../Box';
+import { Text } from '../Text';
 import { KeyboardNavigable } from '../KeyboardNavigable';
 
 const AccordionFooter = styled(Box)`
@@ -42,9 +43,14 @@ const EnhancedGroup = styled(Box)`
   `}
 `;
 
-export const AccordionGroup = ({ children, footer }) => {
+export const AccordionGroup = ({ children, footer, label }) => {
   return (
     <KeyboardNavigable attributeName="data-strapi-accordion-toggle">
+      {label && (
+        <Text as="label" textColor="neutral800" small={true} bold={true}>
+          {label}
+        </Text>
+      )}
       <EnhancedGroup footer={footer}>{children}</EnhancedGroup>
       {footer && <AccordionFooter>{footer}</AccordionFooter>}
     </KeyboardNavigable>
@@ -53,9 +59,11 @@ export const AccordionGroup = ({ children, footer }) => {
 
 AccordionGroup.defaultProps = {
   footer: null,
+  label: null,
 };
 
 AccordionGroup.propTypes = {
   children: PropTypes.node.isRequired,
   footer: PropTypes.node,
+  label: PropTypes.string,
 };
