@@ -28,20 +28,12 @@ const EnhancedGroup = styled(Box)`
       border-top: 1px solid ${({ theme }) => theme.colors.primary600};
     }
   }
-
-  ${({ theme, footer }) => `
-    &:not(${footer}) {
-      & > *:last-of-type {
-        border-radius: 0 0 ${theme.borderRadius} ${theme.borderRadius};
-      }
-    }
-  `}
 `;
 
 export const AccordionGroup = ({ children, footer }) => {
   return (
     <KeyboardNavigable attributeName="data-strapi-accordion-toggle">
-      <EnhancedGroup footer={footer}>{children}</EnhancedGroup>
+      <EnhancedGroup>{children}</EnhancedGroup>
       {footer && <AccordionFooter>{footer}</AccordionFooter>}
     </KeyboardNavigable>
   );

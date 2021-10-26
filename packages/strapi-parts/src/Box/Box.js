@@ -58,6 +58,9 @@ export const Box = styled.div.withConfig({
     ${({ _hover, theme }) => (_hover ? _hover(theme) : undefined)}
   }
 
+  // Display
+  display: ${({ display }) => display};
+
   // Position
   position: ${({ position }) => position};
   left: ${({ left, theme }) => theme.spaces[left] || left};
@@ -85,6 +88,11 @@ export const Box = styled.div.withConfig({
   flex-grow: ${({ grow }) => grow};
   flex-basis: ${({ basis }) => basis};
   flex: ${({ flex }) => flex};
+
+  // Text
+  text-align: ${({ textAlign }) => textAlign};
+  text-transform: ${({ textTransform }) => textTransform};
+  line-height: ${({ lineHeight }) => lineHeight};
 `;
 
 Box.displayName = 'Box';
