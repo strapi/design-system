@@ -8,10 +8,10 @@ import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { DropdownIconWrapper } from './DropdownIconWrapper';
 
-const TitleIconWrapper = styled(Box)`
+const TitleIconWrapper = styled(Flex)`
   svg {
     path {
-      fill: ${({ theme }) => theme.colors.neutral500};
+      fill: ${({ theme, expanded }) => (expanded ? theme.colors.primary600 : theme.colors.neutral500)};
     }
   }
 `;
@@ -62,7 +62,11 @@ export const AccordionToggle = ({ title, description, as, togglePosition, action
 
               <Box paddingLeft={4}>
                 <Flex>
-                  {titleIcon && <TitleIconWrapper paddingRight={2}>{titleIcon}</TitleIconWrapper>}
+                  {titleIcon && (
+                    <TitleIconWrapper expanded={expanded} paddingRight={2}>
+                      {titleIcon}
+                    </TitleIconWrapper>
+                  )}
                   {size === 'S' ? (
                     <Text bold={true} as={as} id={ariaLabelId} textColor={titleColor}>
                       {title}
