@@ -7435,6 +7435,7 @@ exports[`Storyshots Design System/Components/Combobox base 1`] = `
             aria-hidden="true"
             class="c8 c9 c10"
             tabindex="-1"
+            type="button"
           >
             <svg
               fill="none"
@@ -7675,6 +7676,7 @@ exports[`Storyshots Design System/Components/Combobox creatable 1`] = `
             aria-hidden="true"
             class="c8 c9 c10"
             tabindex="-1"
+            type="button"
           >
             <svg
               fill="none"
@@ -7919,6 +7921,7 @@ exports[`Storyshots Design System/Components/Combobox disabled 1`] = `
             class="c8 c9 c10"
             disabled=""
             tabindex="-1"
+            type="button"
           >
             <svg
               fill="none"
@@ -8166,6 +8169,7 @@ exports[`Storyshots Design System/Components/Combobox error 1`] = `
             aria-hidden="true"
             class="c8 c9 c10"
             tabindex="-1"
+            type="button"
           >
             <svg
               fill="none"
@@ -8435,6 +8439,7 @@ exports[`Storyshots Design System/Components/Combobox initial-data 1`] = `
             aria-label="clear"
             class="c10 c11"
             id="combobox-27-clear"
+            type="button"
           >
             <svg
               fill="none"
@@ -8453,6 +8458,7 @@ exports[`Storyshots Design System/Components/Combobox initial-data 1`] = `
             aria-hidden="true"
             class="c10 c11 c12"
             tabindex="-1"
+            type="button"
           >
             <svg
               fill="none"
@@ -8678,6 +8684,7 @@ exports[`Storyshots Design System/Components/Combobox withoutLabel 1`] = `
             aria-hidden="true"
             class="c7 c8 c9"
             tabindex="-1"
+            type="button"
           >
             <svg
               fill="none"
