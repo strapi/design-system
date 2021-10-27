@@ -38006,7 +38006,7 @@ exports[`Storyshots Design System/Components/ToggleCheckbox activated 1`] = `
 }
 
 .c8 {
-  background: #fcecea;
+  background: #f0f0ff;
   padding-right: 32px;
   padding-left: 32px;
 }
@@ -38467,7 +38467,7 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
 }
 
 .c12 {
-  background: #fcecea;
+  background: #f0f0ff;
   padding-right: 32px;
   padding-left: 32px;
 }
