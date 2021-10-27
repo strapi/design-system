@@ -8,6 +8,7 @@ import { useAccordion } from './AccordionContext';
 import { Flex } from '../Flex';
 import { Stack } from '../Stack';
 import { Icon } from '../Icon';
+import { getBackground } from './utils';
 
 const ToggleButton = styled(TextButton)`
   text-align: left;
@@ -19,36 +20,32 @@ const ToggleButton = styled(TextButton)`
   }
 `;
 
+const FlexWithSize = styled(Flex)`
+  height: ${({ theme, size }) => theme.sizes.accordions[size]};
+`;
+
 export const AccordionToggle = ({ title, description, as, togglePosition, action, ...props }) => {
-  const { toggle, expanded, id, size, variant, disabled } = useAccordion();
   const toggleButtonRef = useRef(null);
+  const { toggle, expanded, id, size, variant, disabled } = useAccordion();
 
-  const handleToggle = () => {
-    if (disabled) {
-      return null;
-    }
-
-    toggle();
-  };
-
-  const boxSize = size === 'M' ? 6 : 3;
-
+  // Accessibility identifiers
   const ariaControls = `accordion-content-${id}`;
   const ariaLabelId = `accordion-label-${id}`;
   const ariaDescriptionId = `accordion-desc-${id}`;
 
-  const boxBackground = expanded
-    ? 'primary100'
-    : disabled
-    ? 'neutral150'
-    : variant === 'primary'
-    ? 'neutral0'
-    : 'neutral100';
+  // Style overrides
+  const boxPadding = size === 'M' ? 6 : 4;
+  const boxBackground = getBackground({ expanded, disabled, variant });
   const titleColor = expanded ? 'primary600' : 'neutral700';
   const descriptionColor = expanded ? 'primary600' : 'neutral600';
   const iconColor = expanded ? 'primary200' : 'neutral200';
-
   const iconSize = size === 'M' ? `${32 / 16}rem` : `${24 / 16}rem`;
+
+  const handleToggle = () => {
+    if (!disabled) {
+      toggle();
+    }
+  };
 
   const dropdownIcon = (
     <Flex
@@ -58,7 +55,6 @@ export const AccordionToggle = ({ title, description, as, togglePosition, action
       width={iconSize}
       transform={expanded ? `rotate(180deg)` : undefined}
       disabled={disabled}
-      size={size}
       aria-hidden
       as="span"
       background={iconColor}
@@ -75,11 +71,13 @@ export const AccordionToggle = ({ title, description, as, togglePosition, action
 
   if (togglePosition === 'left') {
     return (
-      <Flex
+      <FlexWithSize
         data-strapi-accordion-header={true}
-        padding={boxSize}
+        paddingLeft={boxPadding}
+        paddingRight={boxPadding}
         background={boxBackground}
         justifyContent="space-between"
+        size={size}
       >
         <Stack horizontal size={3} flex={1}>
           {dropdownIcon}
@@ -116,14 +114,15 @@ export const AccordionToggle = ({ title, description, as, togglePosition, action
         </Stack>
 
         {action}
-      </Flex>
+      </FlexWithSize>
     );
   }
 
   return (
-    <Flex
+    <FlexWithSize
       data-strapi-accordion-header={true}
-      padding={boxSize}
+      paddingRight={boxPadding}
+      paddingLeft={boxPadding}
       background={boxBackground}
       size={size}
       justifyContent="space-between"
@@ -162,7 +161,7 @@ export const AccordionToggle = ({ title, description, as, togglePosition, action
         {dropdownIcon}
         {action}
       </Stack>
-    </Flex>
+    </FlexWithSize>
   );
 };
 
