@@ -83,6 +83,22 @@ import Information from '@strapi/icons/Information';
   </Story>
 </Canvas>
 
+### Null value
+
+<Canvas>
+  <Story name="null-value">
+    <ToggleInput
+      hint="Enable provider"
+      label="Label"
+      name="enable-provider"
+      onLabel="on"
+      offLabel="off"
+      checked={null}
+      onChange={() => {}}
+    />
+  </Story>
+</Canvas>
+
 ## Props
 
 <ArgsTable of={ToggleInput} />

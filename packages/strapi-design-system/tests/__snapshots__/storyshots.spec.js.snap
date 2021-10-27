@@ -38006,7 +38006,7 @@ exports[`Storyshots Design System/Components/ToggleCheckbox activated 1`] = `
 }
 
 .c8 {
-  background: #f0f0ff;
+  background: #fcecea;
   padding-right: 32px;
   padding-left: 32px;
 }
@@ -38467,7 +38467,7 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
 }
 
 .c12 {
-  background: #f0f0ff;
+  background: #fcecea;
   padding-right: 32px;
   padding-left: 32px;
 }
@@ -38892,6 +38892,209 @@ exports[`Storyshots Design System/Components/ToggleInput error 1`] = `
 </main>
 `;
 
+exports[`Storyshots Design System/Components/ToggleInput null-value 1`] = `
+.c0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.c6 {
+  background: #ffffff;
+  border-radius: 4px;
+}
+
+.c8 {
+  background: #ffffff;
+  padding-right: 32px;
+  padding-left: 32px;
+}
+
+.c4 {
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #32324d;
+}
+
+.c10 {
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #b72b1a;
+}
+
+.c13 {
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #666687;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c2 > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.c2 > * + * {
+  margin-top: 4px;
+}
+
+.c5 {
+  position: relative;
+  display: inline-block;
+}
+
+.c7 {
+  height: 2.5rem;
+  border: 1px solid #dcdce4;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  overflow: hidden;
+  outline: none;
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+}
+
+.c7:focus-within {
+  border: 1px solid #4945ff;
+  box-shadow: #4945ff 0px 0px 0px 2px;
+}
+
+.c11 {
+  text-transform: uppercase;
+  position: relative;
+  z-index: 2;
+}
+
+.c9 {
+  text-transform: uppercase;
+  border-right: 1px solid #dcdce4;
+  position: relative;
+  z-index: 2;
+}
+
+.c12 {
+  position: absolute;
+  z-index: 1;
+  left: 4px;
+  top: 4px;
+}
+
+.c1 {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+<main>
+  <div
+    class="c0"
+  >
+    <h1>
+      Storybook story
+    </h1>
+  </div>
+  <div
+    class="c1"
+  >
+    <div
+      class="c2"
+    >
+      <div
+        class="c3"
+      >
+        <label
+          class="c4"
+          for="field-205"
+        >
+          Label
+        </label>
+      </div>
+      <label
+        class="c5"
+      >
+        <div
+          class="c0"
+        >
+          Label
+        </div>
+        <div
+          class="c6 c7"
+        >
+          <div
+            aria-hidden="true"
+            class="c8 c3 c9"
+          >
+            <span
+              class="c10"
+            >
+              off
+            </span>
+          </div>
+          <div
+            aria-hidden="true"
+            class="c8 c3 c11"
+          >
+            <span
+              class="c4"
+            >
+              on
+            </span>
+          </div>
+          <input
+            class="c12"
+            name="enable-provider"
+            type="checkbox"
+          />
+        </div>
+      </label>
+      <p
+        class="c13"
+        id="field-205-hint"
+      >
+        Enable provider
+      </p>
+    </div>
+  </div>
+</main>
+`;
+
 exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
 .c0 {
   border: 0;
@@ -39129,7 +39332,7 @@ exports[`Storyshots Design System/Components/Tooltip base 1`] = `
     </p>
     <span>
       <span
-        aria-describedby="tooltip-205"
+        aria-describedby="tooltip-206"
         tabindex="0"
       >
         Show tooltip
@@ -39200,7 +39403,7 @@ exports[`Storyshots Design System/Components/Tooltip grid 1`] = `
       >
         <span>
           <button
-            aria-describedby="tooltip-211"
+            aria-describedby="tooltip-212"
             tabindex="0"
           >
             Default tooltip
@@ -39216,7 +39419,7 @@ exports[`Storyshots Design System/Components/Tooltip grid 1`] = `
       >
         <span>
           <button
-            aria-describedby="tooltip-213"
+            aria-describedby="tooltip-214"
             tabindex="0"
           >
             Bottom
@@ -39232,7 +39435,7 @@ exports[`Storyshots Design System/Components/Tooltip grid 1`] = `
       >
         <span>
           <button
-            aria-describedby="tooltip-215"
+            aria-describedby="tooltip-216"
             tabindex="0"
           >
             Right
@@ -39248,7 +39451,7 @@ exports[`Storyshots Design System/Components/Tooltip grid 1`] = `
       >
         <span>
           <button
-            aria-describedby="tooltip-217"
+            aria-describedby="tooltip-218"
             tabindex="0"
           >
             Left
@@ -39284,7 +39487,7 @@ exports[`Storyshots Design System/Components/Tooltip with text inside 1`] = `
   <div>
     <span>
       <span
-        aria-describedby="tooltip-207"
+        aria-describedby="tooltip-208"
         tabindex="0"
       >
         Show tooltip
@@ -39294,7 +39497,7 @@ exports[`Storyshots Design System/Components/Tooltip with text inside 1`] = `
   <div>
     <span>
       <button
-        aria-describedby="tooltip-209"
+        aria-describedby="tooltip-210"
         tabindex="0"
       >
         A longer CTA with longer content
