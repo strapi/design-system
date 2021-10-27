@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
-// FIXME
-import LoadingIcon from '@strapi/icons/Spinner';
+import Loader from '@strapi/icons/Loader';
 import { Text, ButtonText } from '../Text';
 import { Box } from '../Box';
 import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from './utils';
@@ -86,7 +85,7 @@ export const Button = React.forwardRef(
           <BoxFullHeight aria-hidden={true} paddingRight={2}>
             {loading ? (
               <LoadingWrapper>
-                <LoadingIcon />
+                <Loader />
               </LoadingWrapper>
             ) : (
               startIcon
