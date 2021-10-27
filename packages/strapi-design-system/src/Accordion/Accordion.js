@@ -5,6 +5,7 @@ import { Text, H3 } from '../Text';
 import { AccordionContext } from './AccordionContext';
 import { useId } from '../helpers/useId';
 import { Box } from '../Box';
+import { Flex } from '../Flex';
 
 const getBorder = ({ theme, expanded, variant, disabled }) => {
   if (expanded) {
@@ -24,11 +25,11 @@ const getBorder = ({ theme, expanded, variant, disabled }) => {
 
 const AccordionWrapper = styled(Box)`
   border: ${getBorder};
-
   overflow: hidden;
 
   &:hover {
     border: 1px solid ${({ theme }) => theme.colors.primary600};
+
     ${H3} {
       color: ${({ theme, expanded }) => (expanded ? undefined : theme.colors.primary700)};
     }
@@ -37,8 +38,12 @@ const AccordionWrapper = styled(Box)`
       color: ${({ theme, expanded }) => (expanded ? undefined : theme.colors.primary600)};
     }
 
-    & > [data-strapi-accordion-header='true'] {
+    & > ${Flex} {
       background: ${({ theme }) => theme.colors.primary100};
+    }
+
+    [data-strapi-dropdown='true'] {
+      background: ${({ theme }) => theme.colors.primary200};
     }
 
     svg {

@@ -14,8 +14,11 @@ const ToggleButton = styled(TextButton)`
   text-align: left;
 
   svg {
+    width: ${14 / 16}rem;
+    height: ${14 / 16}rem;
+
     path {
-      fill: ${({ theme }) => theme.colors.neutral500};
+      fill: ${({ theme, expanded }) => (expanded ? theme.colors.primary600 : theme.colors.neutral500)};
     }
   }
 `;
@@ -54,6 +57,7 @@ export const AccordionToggle = ({ title, description, as, togglePosition, action
       height={iconSize}
       width={iconSize}
       transform={expanded ? `rotate(180deg)` : undefined}
+      data-strapi-dropdown={true}
       disabled={disabled}
       aria-hidden
       as="span"
@@ -72,12 +76,12 @@ export const AccordionToggle = ({ title, description, as, togglePosition, action
   if (togglePosition === 'left') {
     return (
       <FlexWithSize
-        data-strapi-accordion-header={true}
         paddingLeft={boxPadding}
         paddingRight={boxPadding}
         background={boxBackground}
         justifyContent="space-between"
         size={size}
+        cursor={disabled ? 'not-allowed' : ''}
       >
         <Stack horizontal size={3} flex={1}>
           {dropdownIcon}
@@ -85,10 +89,12 @@ export const AccordionToggle = ({ title, description, as, togglePosition, action
           <ToggleButton
             ref={toggleButtonRef}
             onClick={handleToggle}
+            aria-disabled={disabled}
             aria-expanded={expanded}
             aria-controls={ariaControls}
             aria-labelledby={ariaLabelId}
             data-strapi-accordion-toggle={true}
+            expanded={expanded}
             type="button"
             flex={1}
             {...props}
@@ -120,20 +126,22 @@ export const AccordionToggle = ({ title, description, as, togglePosition, action
 
   return (
     <FlexWithSize
-      data-strapi-accordion-header={true}
       paddingRight={boxPadding}
       paddingLeft={boxPadding}
       background={boxBackground}
       size={size}
       justifyContent="space-between"
+      cursor={disabled ? 'not-allowed' : ''}
     >
       <ToggleButton
         ref={toggleButtonRef}
         onClick={handleToggle}
+        aria-disabled={disabled}
         aria-expanded={expanded}
         aria-controls={ariaControls}
         aria-labelledby={ariaLabelId}
         data-strapi-accordion-toggle={true}
+        expanded={expanded}
         type="button"
         flex={1}
         {...props}
