@@ -20,7 +20,9 @@ export const Tabs = ({ children, ...props }) => {
   const childrenArray = Children.toArray(children).map((node, index) =>
     cloneElement(node, {
       id: `${id}-${index}`,
-      selected: index === selectedTabIndex,
+      index,
+      // selected: index === selectedTabIndex,
+      selectedTabIndex,
       onTabClick: () => selectTabIndex(index),
       variant,
     }),
@@ -85,9 +87,21 @@ Tabs.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export const Tab = ({ disabled, selected, id, children, variant, hasError, onClick, onTabClick, ...props }) => {
+export const Tab = ({
+  disabled,
+  id,
+  index,
+  children,
+  variant,
+  hasError,
+  onClick,
+  onTabClick,
+  selectedTabIndex,
+  ...props
+}) => {
   const tabId = `${id}-tab`;
   const tabPanelId = `${id}-tabpanel`;
+  const selected = index === selectedTabIndex;
 
   const handleClick = (e) => {
     if (disabled) {
@@ -137,6 +151,8 @@ export const Tab = ({ disabled, selected, id, children, variant, hasError, onCli
     console.warn('The "hasError" prop is only available for the "simple" variant.');
   }
 
+  const showRightBorder = selectedTabIndex - 1 === index;
+
   return (
     <DefaultTabButton
       id={tabId}
@@ -147,6 +163,7 @@ export const Tab = ({ disabled, selected, id, children, variant, hasError, onCli
       aria-selected={selected}
       onClick={handleClick}
       aria-disabled={disabled}
+      showRightBorder={showRightBorder}
       {...props}
     >
       <DefaultTabBox padding={selected ? 4 : 3} background={selected ? 'neutral0' : 'neutral100'} selected={selected}>
@@ -158,12 +175,13 @@ export const Tab = ({ disabled, selected, id, children, variant, hasError, onCli
 
 Tab.defaultProps = {
   disabled: false,
-  selected: false,
+  hasError: false,
   id: undefined,
+  index: undefined,
   onClick: undefined,
   onTabClick: undefined,
+  selectedTabIndex: undefined,
   variant: undefined,
-  hasError: false,
 };
 
 Tab.propTypes = {
@@ -171,8 +189,9 @@ Tab.propTypes = {
   disabled: PropTypes.bool,
   hasError: PropTypes.bool,
   id: PropTypes.string,
+  index: PropTypes.number,
   onClick: PropTypes.func,
   onTabClick: PropTypes.func,
-  selected: PropTypes.bool,
+  selectedTabIndex: PropTypes.number,
   variant: PropTypes.oneOf(['simple']),
 };

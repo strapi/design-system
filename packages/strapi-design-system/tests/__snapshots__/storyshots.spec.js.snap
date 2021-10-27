@@ -34265,6 +34265,10 @@ exports[`Storyshots Design System/Components/Tabs base 1`] = `
   border-left: 1px solid #eaeaef;
 }
 
+.c5 .c6 {
+  border-right: none;
+}
+
 .c5[aria-disabled='true'] {
   cursor: not-allowed;
 }
@@ -34285,6 +34289,8 @@ exports[`Storyshots Design System/Components/Tabs base 1`] = `
 
 .c3 .c4[aria-selected="true"] .c6 {
   border-radius: 4px 4px 0 0;
+  border-left: none;
+  border-right: none;
 }
 
 <main>
@@ -34500,6 +34506,10 @@ exports[`Storyshots Design System/Components/Tabs disabled 1`] = `
   border-left: 1px solid #eaeaef;
 }
 
+.c16 .c17 {
+  border-right: none;
+}
+
 .c16[aria-disabled='true'] {
   cursor: not-allowed;
 }
@@ -34520,6 +34530,8 @@ exports[`Storyshots Design System/Components/Tabs disabled 1`] = `
 
 .c14 .c15[aria-selected="true"] .c17 {
   border-radius: 4px 4px 0 0;
+  border-left: none;
+  border-right: none;
 }
 
 .c2[aria-disabled='true'] {

@@ -30,6 +30,12 @@ export const DefaultTabButton = styled.button`
 
   & + & > ${DefaultTabBox} {
     border-left: 1px solid ${({ theme }) => theme.colors.neutral150};
+    // border-right: 1px solid ${({ theme }) => theme.colors.neutral150};
+  }
+
+  ${DefaultTabBox} {
+    border-right: ${({ theme, showRightBorder }) =>
+      showRightBorder ? `1px solid ${theme.colors.neutral150}` : 'none'};
   }
 
   // Hack preventing the outline from being overflow by the following tab
@@ -55,5 +61,7 @@ export const DefaultTabsRow = styled(Flex)`
 
   & ${DefaultTabButton}[aria-selected="true"] ${DefaultTabBox} {
     border-radius: ${({ theme }) => `${theme.borderRadius} ${theme.borderRadius} 0 0`};
+    border-left: none;
+    border-right: none;
   }
 `;
