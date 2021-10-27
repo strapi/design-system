@@ -52,11 +52,11 @@ const Input = styled.input`
 export const ToggleCheckbox = React.forwardRef(({ size, onLabel, offLabel, children, checked, ...props }, ref) => {
   const labelColor = 'neutral800';
   let offCheckboxBackgroundColor = checked ? 'neutral0' : 'danger100';
-  let rightCheckboxBackgroundColor = checked ? 'danger100' : 'neutral0';
+  let onCheckboxBackgroundColor = checked ? 'danger100' : 'neutral0';
 
   if (checked === null) {
     offCheckboxBackgroundColor = 'neutral0';
-    rightCheckboxBackgroundColor = 'neutral0';
+    onCheckboxBackgroundColor = 'neutral0';
   }
 
   return (
@@ -70,7 +70,7 @@ export const ToggleCheckbox = React.forwardRef(({ size, onLabel, offLabel, child
           </Text>
         </OffBox>
 
-        <OnBox background={rightCheckboxBackgroundColor} paddingLeft={7} paddingRight={7} aria-hidden={true}>
+        <OnBox background={onCheckboxBackgroundColor} paddingLeft={7} paddingRight={7} aria-hidden={true}>
           <Text small={true} bold={true} textColor={checked ? 'primary700' : labelColor}>
             {onLabel}
           </Text>
