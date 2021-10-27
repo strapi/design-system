@@ -1,32 +1,27 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import DropdownIcon from '@strapi/icons/FilterDropdown';
 import styled from 'styled-components';
+import { TextButton } from '../TextButton';
 import { H3, P, Text } from '../Text';
 import { useAccordion } from './AccordionContext';
-import { Box } from '../Box';
 import { Flex } from '../Flex';
-import { DropdownIconWrapper } from './DropdownIconWrapper';
+import { Stack } from '../Stack';
+import { Icon } from '../Icon';
 
-const TitleIconWrapper = styled(Flex)`
+const ToggleButton = styled(TextButton)`
+  text-align: left;
+
   svg {
     path {
-      fill: ${({ theme, expanded }) => (expanded ? theme.colors.primary600 : theme.colors.neutral500)};
+      fill: ${({ theme }) => theme.colors.neutral500};
     }
   }
 `;
 
-const ToggleButton = styled.button`
-  border: none;
-  background: transparent;
-  display: block;
-  width: 100%;
-  text-align: unset;
-  padding: 0;
-`;
-
-export const AccordionToggle = ({ title, description, as, togglePosition, action, titleIcon, ...props }) => {
+export const AccordionToggle = ({ title, description, as, togglePosition, action, ...props }) => {
   const { toggle, expanded, id, size, variant, disabled } = useAccordion();
+  const toggleButtonRef = useRef(null);
 
   const handleToggle = () => {
     if (disabled) {
@@ -53,93 +48,121 @@ export const AccordionToggle = ({ title, description, as, togglePosition, action
   const descriptionColor = expanded ? 'primary600' : 'neutral600';
   const iconColor = expanded ? 'primary200' : 'neutral200';
 
+  const iconSize = size === 'M' ? `${32 / 16}rem` : `${24 / 16}rem`;
+
   const dropdownIcon = (
-    <DropdownIconWrapper size={size} expanded={expanded} aria-hidden {...props} as="span" background={iconColor}>
-      <DropdownIcon />
-    </DropdownIconWrapper>
+    <Flex
+      justifyContent="center"
+      borderRadius="50%"
+      height={iconSize}
+      width={iconSize}
+      transform={expanded ? `rotate(180deg)` : undefined}
+      disabled={disabled}
+      size={size}
+      aria-hidden
+      as="span"
+      background={iconColor}
+      cursor={disabled ? 'not-allowed' : 'pointer'}
+      onClick={() => toggleButtonRef?.current?.click()}
+    >
+      <Icon
+        as={DropdownIcon}
+        width={size === 'M' ? `${11 / 16}rem` : `${8 / 16}rem}`}
+        color={expanded ? 'primary600' : 'neutral600'}
+      />
+    </Flex>
   );
 
   if (togglePosition === 'left') {
     return (
-      <Box data-strapi-accordion-header={true} padding={boxSize} background={boxBackground}>
-        <Flex justifyContent="space-between">
+      <Flex
+        data-strapi-accordion-header={true}
+        padding={boxSize}
+        background={boxBackground}
+        justifyContent="space-between"
+      >
+        <Stack horizontal size={3} flex={1}>
+          {dropdownIcon}
+
           <ToggleButton
+            ref={toggleButtonRef}
             onClick={handleToggle}
             aria-expanded={expanded}
             aria-controls={ariaControls}
             aria-labelledby={ariaLabelId}
             data-strapi-accordion-toggle={true}
             type="button"
+            flex={1}
+            {...props}
           >
-            <Flex>
-              {dropdownIcon}
+            <>
+              {size === 'S' ? (
+                <Text bold={true} as={as} id={ariaLabelId} textColor={titleColor}>
+                  {title}
+                </Text>
+              ) : (
+                <H3 as={as} id={ariaLabelId} textColor={titleColor}>
+                  {title}
+                </H3>
+              )}
 
-              <Box paddingLeft={4}>
-                <Flex>
-                  {titleIcon && (
-                    <TitleIconWrapper expanded={expanded} paddingRight={2}>
-                      {titleIcon}
-                    </TitleIconWrapper>
-                  )}
-                  {size === 'S' ? (
-                    <Text bold={true} as={as} id={ariaLabelId} textColor={titleColor}>
-                      {title}
-                    </Text>
-                  ) : (
-                    <H3 as={as} id={ariaLabelId} textColor={titleColor}>
-                      {title}
-                    </H3>
-                  )}
-                </Flex>
-
-                {description && (
-                  <P id={ariaDescriptionId} textColor={descriptionColor}>
-                    {description}
-                  </P>
-                )}
-              </Box>
-            </Flex>
+              {description && (
+                <P id={ariaDescriptionId} textColor={descriptionColor}>
+                  {description}
+                </P>
+              )}
+            </>
           </ToggleButton>
+        </Stack>
 
-          {action && <Box paddingLeft={3}>{action}</Box>}
-        </Flex>
-      </Box>
+        {action}
+      </Flex>
     );
   }
 
   return (
-    <Box data-strapi-accordion-header={true} padding={boxSize} background={boxBackground} size={size}>
+    <Flex
+      data-strapi-accordion-header={true}
+      padding={boxSize}
+      background={boxBackground}
+      size={size}
+      justifyContent="space-between"
+    >
       <ToggleButton
+        ref={toggleButtonRef}
         onClick={handleToggle}
         aria-expanded={expanded}
         aria-controls={ariaControls}
         aria-labelledby={ariaLabelId}
         data-strapi-accordion-toggle={true}
         type="button"
+        flex={1}
+        {...props}
       >
-        <Flex justifyContent="space-between">
-          <Box paddingRight={6}>
-            {size === 'S' ? (
-              <Text bold={true} as={as} id={ariaLabelId} textColor={titleColor}>
-                {title}
-              </Text>
-            ) : (
-              <H3 as={as} id={ariaLabelId} textColor={titleColor}>
-                {title}
-              </H3>
-            )}
+        <>
+          {size === 'S' ? (
+            <Text bold={true} as={as} id={ariaLabelId} textColor={titleColor}>
+              {title}
+            </Text>
+          ) : (
+            <H3 as={as} id={ariaLabelId} textColor={titleColor}>
+              {title}
+            </H3>
+          )}
 
-            {description && (
-              <P id={ariaDescriptionId} textColor={descriptionColor}>
-                {description}
-              </P>
-            )}
-          </Box>
-
-          {dropdownIcon}
-        </Flex>
+          {description && (
+            <P id={ariaDescriptionId} textColor={descriptionColor}>
+              {description}
+            </P>
+          )}
+        </>
       </ToggleButton>
-    </Box>
+
+      <Stack horizontal size={3}>
+        {dropdownIcon}
+        {action}
+      </Stack>
+    </Flex>
   );
 };
 
@@ -148,7 +171,6 @@ AccordionToggle.defaultProps = {
   as: 'span',
   description: undefined,
   variant: 'primary',
-  titleIcon: undefined,
   togglePosition: 'right',
 };
 
@@ -157,7 +179,6 @@ AccordionToggle.propTypes = {
   as: PropTypes.string,
   description: PropTypes.string,
   title: PropTypes.string.isRequired,
-  titleIcon: PropTypes.node,
   togglePosition: PropTypes.oneOf(['right', 'left']),
   variant: PropTypes.oneOf(['primary', 'secondary']),
 };
