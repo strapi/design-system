@@ -11,7 +11,6 @@ const AccordionFooter = styled(Box)`
   border-right: 1px solid ${({ theme }) => theme.colors.neutral200};
   border-left: 1px solid ${({ theme }) => theme.colors.neutral200};
   border-radius: 0 0 ${({ theme }) => theme.borderRadius} ${({ theme }) => theme.borderRadius};
-  overflow: hidden;
 `;
 
 const EnhancedGroup = styled(Box)`

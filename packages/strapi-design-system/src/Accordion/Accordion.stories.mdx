@@ -69,6 +69,7 @@ import { Box } from '@strapi/design-system/Box';
               <AccordionToggle
                 title="User informations 2"
                 description="The following contains information about the current user 2"
+                action={<IconButton onClick={() => console.log('edit')} label="Edit" icon={<EditIcon />} />}
               />
               <AccordionContent>
                 <Box padding={3}>My name is John Duff</Box>
@@ -117,44 +118,39 @@ import { Box } from '@strapi/design-system/Box';
             <AccordionGroup
               footer={
                 <Flex justifyContent="center" height="48px" background="neutral150">
-                  <TextButton disabled={true} startIcon={<AddIcon />}>Add an entry</TextButton>
+                  <TextButton disabled={true} startIcon={<AddIcon />}>
+                    Add an entry
+                  </TextButton>
                 </Flex>
               }
               label="Label"
               labelAction={
                 <Tooltip description="Content of the tooltip">
-                  <button aria-label="Information about the email" style={{
-                    border: 'none',
-                    padding: 0,
-                    background: 'transparent'
-                  }}>
+                  <button
+                    aria-label="Information about the email"
+                    style={{
+                      border: 'none',
+                      padding: 0,
+                      background: 'transparent',
+                    }}
+                  >
                     <HelpIcon aria-hidden={true} />
                   </button>
                 </Tooltip>
               }
             >
               <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-1" size="S">
-                <AccordionToggle 
+                <AccordionToggle
+                  startIcon={<HelpIcon aria-hidden={true} />}
                   action={
-                    <Stack horizontal>
-                      <IconButton 
-                        noBorder 
-                        onClick={() => console.log('edit')} 
-                        label="Edit" 
-                        icon={<EditIcon />} 
-                      />
-                      <IconButton 
-                        noBorder 
-                        onClick={() => console.log('delete')} 
-                        label="Delete" 
-                        icon={<DeleteIcon />} 
-                      />
+                    <Stack horizontal size={0}>
+                      <IconButton noBorder onClick={() => console.log('edit')} label="Edit" icon={<EditIcon />} />
+                      <IconButton noBorder onClick={() => console.log('delete')} label="Delete" icon={<DeleteIcon />} />
                     </Stack>
-                  } 
-                    title="User informations" 
-                    titleIcon={<HelpIcon aria-hidden={true} />}
-                    togglePosition="left" 
-                  />
+                  }
+                  title="User informations"
+                  togglePosition="left"
+                />
                 <AccordionContent>
                   <Box padding={3}>My name is John Duff</Box>
                 </AccordionContent>
@@ -171,7 +167,14 @@ import { Box } from '@strapi/design-system/Box';
                   <Box padding={3}>My name is Michka</Box>
                 </AccordionContent>
               </Accordion>
-              <Accordion disabled={true} expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-2" size="S" variant="secondary">
+              <Accordion
+                disabled={true}
+                expanded={expanded}
+                toggle={() => setExpanded((s) => !s)}
+                id="acc-2"
+                size="S"
+                variant="secondary"
+              >
                 <AccordionToggle title="User informations" togglePosition="left" />
                 <AccordionContent>
                   <Box padding={3}>My name is John Duff</Box>

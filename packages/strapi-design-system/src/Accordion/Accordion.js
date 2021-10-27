@@ -5,7 +5,6 @@ import { Text, H3 } from '../Text';
 import { AccordionContext } from './AccordionContext';
 import { useId } from '../helpers/useId';
 import { Box } from '../Box';
-import { DropdownIconWrapper } from './DropdownIconWrapper';
 
 const getBorder = ({ theme, expanded, variant, disabled }) => {
   if (expanded) {
@@ -40,10 +39,6 @@ const AccordionWrapper = styled(Box)`
 
     & > [data-strapi-accordion-header='true'] {
       background: ${({ theme }) => theme.colors.primary100};
-    }
-
-    ${DropdownIconWrapper} {
-      background: ${({ theme }) => theme.colors.primary200};
     }
 
     svg {
