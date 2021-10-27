@@ -7373,6 +7373,7 @@ exports[`Storyshots Design System/Components/Combobox base 1`] = `
 .c7[aria-disabled='true'] {
   background: inherit;
   color: inherit;
+  cursor: not-allowed;
 }
 
 <main>
@@ -7614,6 +7615,7 @@ exports[`Storyshots Design System/Components/Combobox creatable 1`] = `
 .c7[aria-disabled='true'] {
   background: inherit;
   color: inherit;
+  cursor: not-allowed;
 }
 
 <main>
@@ -7857,6 +7859,7 @@ exports[`Storyshots Design System/Components/Combobox disabled 1`] = `
 .c7[aria-disabled='true'] {
   background: inherit;
   color: inherit;
+  cursor: not-allowed;
 }
 
 <main>
@@ -8107,6 +8110,7 @@ exports[`Storyshots Design System/Components/Combobox error 1`] = `
 .c7[aria-disabled='true'] {
   background: inherit;
   color: inherit;
+  cursor: not-allowed;
 }
 
 <main>
@@ -8367,6 +8371,7 @@ exports[`Storyshots Design System/Components/Combobox initial-data 1`] = `
 .c9[aria-disabled='true'] {
   background: inherit;
   color: inherit;
+  cursor: not-allowed;
 }
 
 <main>
@@ -8630,6 +8635,7 @@ exports[`Storyshots Design System/Components/Combobox withoutLabel 1`] = `
 .c6[aria-disabled='true'] {
   background: inherit;
   color: inherit;
+  cursor: not-allowed;
 }
 
 <main>
@@ -25922,6 +25928,10 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
   outline: none;
 }
 
+.c7[aria-disabled='true'] {
+  cursor: not-allowed;
+}
+
 .c9 {
   width: 100%;
 }
@@ -26227,6 +26237,10 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
   outline: none;
 }
 
+.c6[aria-disabled='true'] {
+  cursor: not-allowed;
+}
+
 .c8 {
   width: 100%;
 }
@@ -26511,6 +26525,10 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
 
 .c6:focus {
   outline: none;
+}
+
+.c6[aria-disabled='true'] {
+  cursor: not-allowed;
 }
 
 .c8 {
@@ -26816,6 +26834,10 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
   outline: none;
 }
 
+.c6[aria-disabled='true'] {
+  cursor: not-allowed;
+}
+
 .c9 {
   margin-bottom: 4px;
 }
@@ -27118,6 +27140,10 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
   outline: none;
 }
 
+.c6[aria-disabled='true'] {
+  cursor: not-allowed;
+}
+
 .c8 {
   width: 100%;
 }
@@ -27400,6 +27426,10 @@ exports[`Storyshots Design System/Components/Select withoutLabel 1`] = `
 
 .c5:focus {
   outline: none;
+}
+
+.c5[aria-disabled='true'] {
+  cursor: not-allowed;
 }
 
 .c7 {
@@ -36906,6 +36936,10 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
   outline: none;
 }
 
+.c5[aria-disabled='true'] {
+  cursor: not-allowed;
+}
+
 .c7 {
   width: 100%;
 }
@@ -37197,6 +37231,10 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
 
 .c5:focus {
   outline: none;
+}
+
+.c5[aria-disabled='true'] {
+  cursor: not-allowed;
 }
 
 .c7 {
@@ -37494,6 +37532,10 @@ exports[`Storyshots Design System/Components/TimePicker initial-data 1`] = `
 
 .c7:focus {
   outline: none;
+}
+
+.c7[aria-disabled='true'] {
+  cursor: not-allowed;
 }
 
 .c9 {
@@ -37815,6 +37857,10 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
 
 .c5:focus {
   outline: none;
+}
+
+.c5[aria-disabled='true'] {
+  cursor: not-allowed;
 }
 
 .c7 {

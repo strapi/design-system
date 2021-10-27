@@ -18,6 +18,10 @@ const StyledSelectButton = styled.button`
   &:focus {
     outline: none;
   }
+
+  &[aria-disabled='true'] {
+    cursor: not-allowed;
+  }
 `;
 
 export const SelectButton = forwardRef(({ labelledBy, expanded, onTrigger, disabled, ...props }, ref) => {
