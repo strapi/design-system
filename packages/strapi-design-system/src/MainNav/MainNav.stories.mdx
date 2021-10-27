@@ -3,13 +3,13 @@
 import { useState, useRef } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { ArgsTable } from '@storybook/addon-docs';
-import ContentIcon from '@strapi/icons/ContentIcon';
-import CtbIcon from '@strapi/icons/ContentTypeBuilderIcon';
-import MediaLibIcon from '@strapi/icons/MediaLibrary';
-import AlertInfoIcon from '@strapi/icons/AlertInfoIcon';
-import PluginsIcon from '@strapi/icons/PluginsIcons';
-import MarketPlaceIcon from '@strapi/icons/MarketplaceIcon';
-import SettingsIcon from '@strapi/icons/Settings';
+import Write from '@strapi/icons/Write';
+import Layer from '@strapi/icons/Layer';
+import Landscape from '@strapi/icons/Landscape';
+import Information from '@strapi/icons/Information';
+import Puzzle from '@strapi/icons/Puzzle';
+import ShoppingCart from '@strapi/icons/ShoppingCart';
+import Cog from '@strapi/icons/Cog';
 import { MemoryRouter } from 'react-router-dom';
 import { MainNav } from './MainNav';
 import { NavSection } from './NavSection';
@@ -43,13 +43,13 @@ The Main Navigation is consistenly available and displayed on all the different 
 ## Imports
 
 ```js
-import ContentIcon from '@strapi/icons/ContentIcon';
-import CtbIcon from '@strapi/icons/ContentTypeBuilderIcon';
-import MediaLibIcon from '@strapi/icons/MediaLibrary';
-import AlertInfoIcon from '@strapi/icons/AlertInfoIcon';
-import PluginsIcon from '@strapi/icons/PluginsIcons';
-import MarketPlaceIcon from '@strapi/icons/MarketplaceIcon';
-import SettingsIcon from '@strapi/icons/Settings';
+import Write from '@strapi/icons/Write';
+import Layer from '@strapi/icons/ContentTypeBuilderIcon';
+import Landscape from '@strapi/icons/MediaLibrary';
+import Information from '@strapi/icons/Information';
+import Puzzle from '@strapi/icons/PluginsIcons';
+import ShoppingCart from '@strapi/icons/MarketplaceIcon';
+import Cog from '@strapi/icons/Settings';
 import { MemoryRouter } from 'react-router-dom';
 import { MainNav } from '@strapi/design-system/MainNav';
 import { NavSection } from '@strapi/design-system/NavSection';
@@ -89,28 +89,28 @@ Exception made for core plugins (i.e. Content Manager, Content-types Builder, Me
             <NavBrand workplace="Workplace" title="Strapi Dashboard" icon={<img src={strapiImage} alt="" />} />
             <Divider />
             <NavSections>
-              <NavLink to="/cm" icon={<ContentIcon />} className="active">
+              <NavLink to="/cm" icon={<Write />} className="active">
                 Content-type-builder
               </NavLink>
               <NavSection label="Plugins">
-                <NavLink to="/builder" icon={<CtbIcon />}>
+                <NavLink to="/builder" icon={<Layer />}>
                   Builder
                 </NavLink>
-                <NavLink to="/content" icon={<MediaLibIcon />}>
+                <NavLink to="/content" icon={<Landscape />}>
                   Media library
                 </NavLink>
-                <NavLink to="/content" icon={<AlertInfoIcon />}>
+                <NavLink to="/content" icon={<Information />}>
                   Documentation
                 </NavLink>
               </NavSection>
               <NavSection label="General">
-                <NavLink to="/builder" icon={<PluginsIcon />}>
+                <NavLink to="/builder" icon={<Puzzle />}>
                   Plugins
                 </NavLink>
-                <NavLink to="/content" icon={<MarketPlaceIcon />}>
+                <NavLink to="/content" icon={<ShoppingCart />}>
                   Marketplace
                 </NavLink>
-                <NavLink to="/content" icon={<SettingsIcon />}>
+                <NavLink to="/content" icon={<Cog />}>
                   Settings
                 </NavLink>
               </NavSection>
@@ -136,31 +136,31 @@ Exception made for core plugins (i.e. Content Manager, Content-types Builder, Me
             <NavBrand workplace="Workplace" title="Strapi Dashboard" icon={<img src={strapiImage} alt="" />} />
             <Divider />
             <NavSections>
-              <NavLink to="/cm" icon={<ContentIcon />} className="active">
+              <NavLink to="/cm" icon={<Write />} className="active">
                 Content
               </NavLink>
               <NavSection label="Plugins">
-                <NavLink to="/builder" icon={<CtbIcon />}>
+                <NavLink to="/builder" icon={<Layer />}>
                   Builder
                 </NavLink>
-                <NavLink to="/content" icon={<MediaLibIcon />}>
+                <NavLink to="/content" icon={<Landscape />}>
                   Media library
                 </NavLink>
-                <NavLink to="/content" icon={<AlertInfoIcon />}>
+                <NavLink to="/content" icon={<Information />}>
                   Documentation
                 </NavLink>
               </NavSection>
               <NavSection label="General">
-                <NavLink to="/builder" icon={<PluginsIcon />}>
+                <NavLink to="/builder" icon={<Puzzle />}>
                   Plugins
                 </NavLink>
-                <NavLink to="/content" badgeContent={'new'} icon={<MarketPlaceIcon />} badgeAriaLabel="new content">
+                <NavLink to="/content" badgeContent={'new'} icon={<ShoppingCart />} badgeAriaLabel="new content">
                   Marketplace
                 </NavLink>
                 <NavLink
                   to="/content"
                   badgeContent={numberOfNotifications}
-                  icon={<SettingsIcon />}
+                  icon={<Cog />}
                   badgeAriaLabel={`${numberOfNotifications} notifications`}
                 >
                   Settings

@@ -1,8 +1,8 @@
 import React, { Children, cloneElement, useRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import NextFilterIcon from '@strapi/icons/NextFilter';
-import BackFilterIcon from '@strapi/icons/BackFilter';
+import ChevronRight from '@strapi/icons/ChevronRight';
+import ChevronLeft from '@strapi/icons/ChevronLeft';
 import { Icon } from '../Icon';
 import { Box } from '../Box';
 import { Text } from '../Text';
@@ -87,13 +87,13 @@ export const Carousel = ({
               aria-label={previousLabel}
               type="button"
             >
-              <Icon as={BackFilterIcon} aria-hidden={true} width="6px" height="10px" color="neutral600" />
+              <Icon as={ChevronLeft} aria-hidden={true} width="6px" height="10px" color="neutral600" />
             </CarouselAction>
           )}
 
           {hasChildren && (
             <CarouselAction onClick={onNext} area="endAction" ref={nextActionRef} aria-label={nextLabel} type="button">
-              <Icon as={NextFilterIcon} aria-hidden={true} width="6px" height="10px" color="neutral600" />
+              <Icon as={ChevronRight} aria-hidden={true} width="6px" height="10px" color="neutral600" />
             </CarouselAction>
           )}
 

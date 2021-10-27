@@ -3,10 +3,10 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { ArgsTable } from '@storybook/addon-docs';
 import { useState } from 'react';
-import EditIcon from '@strapi/icons/EditIcon';
-import PublishIcon from '@strapi/icons/PublishIcon';
-import DeleteIcon from '@strapi/icons/DeleteIcon';
-import AddIcon from '@strapi/icons/AddIcon';
+import Pencil from '@strapi/icons/Pencil';
+import Play from '@strapi/icons/Play';
+import Trash from '@strapi/icons/Trash';
+import Plus from '@strapi/icons/Plus';
 import { Carousel } from './Carousel';
 import { CarouselSlide } from './CarouselSlide';
 import { CarouselImage } from './CarouselImage';
@@ -38,10 +38,10 @@ import { Carousel } from '@strapi/design-system/Carousel';
 import { CarouselSlide } from '@strapi/design-system/CarouselSlide';
 import { CarouselImage } from '@strapi/design-system/CarouselImage';
 import { CarouselActions } from '@strapi/design-system/CarouselActions';
-import AddIcon from '@strapi/icons/AddIcon';
-import EditIcon from '@strapi/icons/EditIcon';
-import DeleteIcon from '@strapi/icons/DeleteIcon';
-import PublishIcon from '@strapi/icons/PublishIcon';
+import Plus from '@strapi/icons/Plus';
+import Pencil from '@strapi/icons/Pencil';
+import Trash from '@strapi/icons/Trash';
+import Play from '@strapi/icons/Play';
 import { IconButton } from '@strapi/design-system/IconButton';
 ```
 
@@ -70,10 +70,10 @@ A Carousel is mostly used in forms. Thanks to their navigational arrows they all
           hint="Description line"
           actions={
             <CarouselActions>
-              <IconButton onClick={() => console.log('edit')} label="Edit" id="edit" icon={<EditIcon />} />
-              <IconButton onClick={() => console.log('Create')} label="Create" icon={<AddIcon />} />
-              <IconButton onClick={() => console.log('Delete')} label="Delete" icon={<DeleteIcon />} />
-              <IconButton onClick={() => console.log('Publish')} label="Publish" icon={<PublishIcon />} />
+              <IconButton onClick={() => console.log('edit')} label="Edit" id="edit" icon={<Pencil />} />
+              <IconButton onClick={() => console.log('Create')} label="Create" icon={<Plus />} />
+              <IconButton onClick={() => console.log('Delete')} label="Delete" icon={<Trash />} />
+              <IconButton onClick={() => console.log('Publish')} label="Publish" icon={<Play />} />
             </CarouselActions>
           }
           style={{ width: '242px' }}
@@ -104,10 +104,10 @@ A Carousel is mostly used in forms. Thanks to their navigational arrows they all
           hint="Description line"
           actions={
             <CarouselActions>
-              <IconButton onClick={() => console.log('edit')} label="Edit" id="edit" icon={<EditIcon />} />
-              <IconButton onClick={() => console.log('Create')} label="Create" icon={<AddIcon />} />
-              <IconButton onClick={() => console.log('Delete')} label="Delete" icon={<DeleteIcon />} />
-              <IconButton onClick={() => console.log('Publish')} label="Publish" icon={<PublishIcon />} />
+              <IconButton onClick={() => console.log('edit')} label="Edit" id="edit" icon={<Pencil />} />
+              <IconButton onClick={() => console.log('Create')} label="Create" icon={<Plus />} />
+              <IconButton onClick={() => console.log('Delete')} label="Delete" icon={<Trash />} />
+              <IconButton onClick={() => console.log('Publish')} label="Publish" icon={<Play />} />
             </CarouselActions>
           }
           style={{ width: '242px' }}

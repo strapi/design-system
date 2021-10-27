@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import TimeIcon from '@strapi/icons/Time';
+import Clock from '@strapi/icons/Clock';
 import styled from 'styled-components';
 import { sizes } from '../themes/sizes';
 import { Select, Option } from '../Select';
@@ -74,7 +74,7 @@ export const TimePicker = ({
       disabled={disabled}
       startIcon={
         <TimeIconWrapper>
-          <TimeIcon />
+          <Clock />
         </TimeIconWrapper>
       }
       {...props}

@@ -1,14 +1,14 @@
 <!--- Layout.stories.mdx --->
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
-import Applications from '@strapi/icons/Applications';
-import ApiTokens from '@strapi/icons/ApiTokens';
-import AlertWarningIcon from '@strapi/icons/AlertWarningIcon';
-import AlertInfoIcon from '@strapi/icons/AlertInfoIcon';
-import AddIcon from '@strapi/icons/AddIcon';
-import EditIcon from '@strapi/icons/EditIcon';
-import BackIcon from '@strapi/icons/BackIcon';
-import DeleteIcon from '@strapi/icons/DeleteIcon';
+import Apps from '@strapi/icons/Apps';
+import Key from '@strapi/icons/Key';
+import ExclamationMarkCircle from '@strapi/icons/ExclamationMarkCircle';
+import Information from '@strapi/icons/Information';
+import Plus from '@strapi/icons/Plus';
+import Pencil from '@strapi/icons/Pencil';
+import ArrowLeft from '@strapi/icons/ArrowLeft';
+import Trash from '@strapi/icons/Trash';
 import { MemoryRouter } from 'react-router-dom';
 import { SubNav, SubNavHeader, SubNavSection, SubNavSections, SubNavLink, SubNavLinkSection } from '../SubNav';
 import { Link } from '../Link';
@@ -50,7 +50,7 @@ import Layout from '@strapi/design-system/Layout';
         {
           id: 1,
           label: 'Addresses',
-          icon: <AlertWarningIcon />,
+          icon: <ExclamationMarkCircle />,
           to: '/address',
         },
         {
@@ -61,7 +61,7 @@ import Layout from '@strapi/design-system/Layout';
         {
           id: 3,
           label: 'Cities',
-          icon: <Applications />,
+          icon: <Apps />,
           to: '/city',
           active: true,
         },
@@ -119,9 +119,9 @@ import Layout from '@strapi/design-system/Layout';
           >
             <>
               <HeaderLayout
-                primaryAction={<Button startIcon={<AddIcon />}>Add an entry</Button>}
+                primaryAction={<Button startIcon={<Plus />}>Add an entry</Button>}
                 secondaryAction={
-                  <Button variant="tertiary" startIcon={<EditIcon />}>
+                  <Button variant="tertiary" startIcon={<Pencil />}>
                     Edit
                   </Button>
                 }
@@ -136,7 +136,7 @@ import Layout from '@strapi/design-system/Layout';
                       .fill(null)
                       .map((_, index) => (
                         <Box paddingTop={2}>
-                          <Tag key={index} icon={<AddIcon aria-hidden={true} />}>
+                          <Tag key={index} icon={<Plus aria-hidden={true} />}>
                             Hello world {index}
                           </Tag>
                         </Box>
@@ -158,7 +158,7 @@ import Layout from '@strapi/design-system/Layout';
                 <Table
                   colCount={COL_COUNT}
                   rowCount={ROW_COUNT}
-                  footer={<TFooter icon={<AddIcon />}>Add another field to this collection type</TFooter>}
+                  footer={<TFooter icon={<Plus />}>Add another field to this collection type</TFooter>}
                 >
                   <Thead>
                     <Tr>
@@ -220,9 +220,9 @@ import Layout from '@strapi/design-system/Layout';
                         </Td>
                         <Td>
                           <Flex>
-                            <IconButton onClick={() => console.log('edit')} label="Edit" icon={<EditIcon />} />
+                            <IconButton onClick={() => console.log('edit')} label="Edit" icon={<Pencil />} />
                             <Box paddingLeft={1}>
-                              <IconButton onClick={() => console.log('edit')} label="Delete" icon={<DeleteIcon />} />
+                              <IconButton onClick={() => console.log('edit')} label="Delete" icon={<Trash />} />
                             </Box>
                           </Flex>
                         </Td>

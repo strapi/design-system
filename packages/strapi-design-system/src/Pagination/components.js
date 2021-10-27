@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import BackFilter from '@strapi/icons/BackFilter';
-import NextFilter from '@strapi/icons/NextFilter';
+import ChevronLeft from '@strapi/icons/ChevronLeft';
+import ChevronRight from '@strapi/icons/ChevronRight';
 import { NavLink } from 'react-router-dom';
 import { VisuallyHidden } from '../VisuallyHidden';
 import { usePagination } from './PaginationContext';
@@ -78,7 +78,7 @@ export const PreviousLink = ({ children, to, ...props }) => {
         {...props}
       >
         <VisuallyHidden>{children}</VisuallyHidden>
-        <BackFilter aria-hidden={true} />
+        <ChevronLeft aria-hidden={true} />
       </ActionLinkWrapper>
     </li>
   );
@@ -98,7 +98,7 @@ export const NextLink = ({ children, to, ...props }) => {
         {...props}
       >
         <VisuallyHidden>{children}</VisuallyHidden>
-        <NextFilter aria-hidden={true} />
+        <ChevronRight aria-hidden={true} />
       </ActionLinkWrapper>
     </li>
   );

@@ -1,8 +1,8 @@
 import React, { forwardRef, useRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import SearchIcon from '@strapi/icons/SearchIcon';
-import CloseAlertIcon from '@strapi/icons/CloseAlertIcon';
+import Search from '@strapi/icons/Search';
+import Cross from '@strapi/icons/Cross';
 import { sizes } from '../themes/sizes';
 import { Field, FieldLabel, FieldAction, FieldInput, InputWrapper } from '../Field';
 import { VisuallyHidden } from '../VisuallyHidden';
@@ -66,7 +66,7 @@ export const Searchbar = forwardRef(({ name, size, children, value, onClear, cle
           value={value}
           startAction={
             <SearchIconWrapper>
-              <SearchIcon aria-hidden={true} />
+              <Search aria-hidden={true} />
             </SearchIconWrapper>
           }
           size={size}
@@ -74,7 +74,7 @@ export const Searchbar = forwardRef(({ name, size, children, value, onClear, cle
             isCompleting ? (
               <FieldAction label={clearLabel} onClick={handleClear}>
                 <CloseIconWrapper>
-                  <CloseAlertIcon />
+                  <Cross />
                 </CloseIconWrapper>
               </FieldAction>
             ) : undefined

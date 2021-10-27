@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
-import DropdownIcon from '@strapi/icons/FilterDropdown';
+import DropdownIcon from '@strapi/icons/CarretDown';
 import styled from 'styled-components';
 import { TextButton } from '../TextButton';
 import { H3, P, Text } from '../Text';

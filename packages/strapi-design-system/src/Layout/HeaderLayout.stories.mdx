@@ -3,10 +3,10 @@
 import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { ArgsTable } from '@storybook/addon-docs';
-import BackIcon from '@strapi/icons/BackIcon';
-import EditIcon from '@strapi/icons/EditIcon';
-import AddIcon from '@strapi/icons/AddIcon';
-import CheckIcon from '@strapi/icons/CheckIcon';
+import ArrowLeft from '@strapi/icons/ArrowLeft';
+import Pencil from '@strapi/icons/Pencil';
+import Plus from '@strapi/icons/Plus';
+import Check from '@strapi/icons/Check';
 import { BaseHeaderLayout, HeaderLayout } from './HeaderLayout';
 import { ModalLayout } from '../ModalLayout';
 import { Link } from '../Link';
@@ -38,10 +38,10 @@ import { Link } from '@strapi/design-system/Link';
 import { Stack } from '@strapi/design-system/Stack';
 import { Button } from '@strapi/design-system/Button';
 import { VisuallyHidden } from '@strapi/design-system/VisuallyHidden';
-import BackIcon from '@strapi/icons/BackIcon';
-import EditIcon from '@strapi/icons/EditIcon';
-import AddIcon from '@strapi/icons/AddIcon';
-import CheckIcon from '@strapi/icons/CheckIcon';
+import ArrowLeft from '@strapi/icons/ArrowLeft';
+import Pencil from '@strapi/icons/Pencil';
+import Plus from '@strapi/icons/Plus';
+import Check from '@strapi/icons/Check';
 ```
 
 ## Usage
@@ -55,13 +55,13 @@ Headers are placed at the very top of each page. Descriptions and buttons are op
     <Box background="neutral100">
       <BaseHeaderLayout
         navigationAction={
-          <Link startIcon={<BackIcon />} to="/">
+          <Link startIcon={<ArrowLeft />} to="/">
             Go back
           </Link>
         }
-        primaryAction={<Button startIcon={<AddIcon />}>Add an entry</Button>}
+        primaryAction={<Button startIcon={<Plus />}>Add an entry</Button>}
         secondaryAction={
-          <Button variant="tertiary" startIcon={<EditIcon />}>
+          <Button variant="tertiary" startIcon={<Pencil />}>
             Edit
           </Button>
         }
@@ -79,9 +79,9 @@ Headers are placed at the very top of each page. Descriptions and buttons are op
   <Story name="base without nav action">
     <Box background="neutral100">
       <BaseHeaderLayout
-        primaryAction={<Button startIcon={<AddIcon />}>Add an entry</Button>}
+        primaryAction={<Button startIcon={<Plus />}>Add an entry</Button>}
         secondaryAction={
-          <Button variant="tertiary" startIcon={<EditIcon />}>
+          <Button variant="tertiary" startIcon={<Pencil />}>
             Edit
           </Button>
         }
@@ -101,13 +101,13 @@ Headers are placed at the very top of each page. Descriptions and buttons are op
       <BaseHeaderLayout
         sticky
         navigationAction={
-          <Link startIcon={<BackIcon />} to="/">
+          <Link startIcon={<ArrowLeft />} to="/">
             <VisuallyHidden>Go back</VisuallyHidden>
           </Link>
         }
-        primaryAction={<Button startIcon={<AddIcon />}>Add an entry</Button>}
+        primaryAction={<Button startIcon={<Plus />}>Add an entry</Button>}
         secondaryAction={
-          <Button variant="tertiary" startIcon={<EditIcon />}>
+          <Button variant="tertiary" startIcon={<Pencil />}>
             Edit
           </Button>
         }
@@ -131,17 +131,17 @@ This header is combined with scroll.
         <Box background="neutral100" style={{ height: 2000 }}>
           <HeaderLayout
             navigationAction={
-              <Link startIcon={<BackIcon />} to="/">
+              <Link startIcon={<ArrowLeft />} to="/">
                 Go back
               </Link>
             }
             primaryAction={
-              <Button startIcon={<AddIcon />} onClick={() => setIsVisible(true)}>
+              <Button startIcon={<Plus />} onClick={() => setIsVisible(true)}>
                 Add an entry
               </Button>
             }
             secondaryAction={
-              <Button variant="tertiary" startIcon={<EditIcon />}>
+              <Button variant="tertiary" startIcon={<Pencil />}>
                 Edit
               </Button>
             }

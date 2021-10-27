@@ -42,6 +42,10 @@ describe('TimePicker', () => {
         outline: none;
       }
 
+      .c4[aria-disabled='true'] {
+        cursor: not-allowed;
+      }
+
       .c1 {
         font-weight: 500;
         font-size: 0.75rem;

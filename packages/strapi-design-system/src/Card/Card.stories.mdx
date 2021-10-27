@@ -2,7 +2,7 @@
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { ArgsTable } from '@storybook/addon-docs';
-import EditIcon from '@strapi/icons/EditIcon';
+import Pencil from '@strapi/icons/Pencil';
 import { Box } from '../Box';
 import { Stack } from '../Stack';
 import { Card } from './Card';
@@ -53,7 +53,7 @@ import {
   CardSubtitle,
 } from '@strapi/design-system/Card';
 import { IconButton } from '@strapi/design-system/IconButton';
-import EditIcon from '@strapi/icons/EditIcon';
+import Pencil from '@strapi/icons/Pencil';
 import { KeyboardNavigable } from '@strapi/design-system/KeyboardNavigable';
 ```
 
@@ -67,7 +67,7 @@ Cards are used to gather a set of related information.
       <CardHeader>
         <CardCheckbox value={true} />
         <CardAction position="end">
-          <IconButton label="Edit the thing" icon={<EditIcon />} />
+          <IconButton label="Edit the thing" icon={<Pencil />} />
         </CardAction>
         <CardAsset src={firstImgPath} />
         <CardTimer>05:39</CardTimer>
@@ -116,7 +116,7 @@ The image asset can be replaced by an icon.
       <CardHeader>
         <CardCheckbox value={true} />
         <CardAsset>
-          <EditIcon aria-label="Just a picture" />
+          <Pencil aria-label="Just a picture" />
         </CardAsset>
         <CardTimer>05:39</CardTimer>
       </CardHeader>
@@ -162,7 +162,7 @@ If no `CardHeader` is present, the card will display a version with the body onl
     <Card style={{ width: '240px' }} id="fourth">
       <CardBody>
         <Box padding={2} background="primary100">
-          <EditIcon />
+          <Pencil />
         </Box>
         <CardContent paddingLeft={2}>
           <CardTitle>File name</CardTitle>
@@ -185,7 +185,7 @@ You wrap the Card in a `KeyboardNavigable` block to ensure it can be scanned usi
         <Card style={{ width: '240px' }} id={id} key={id}>
           <CardBody>
             <Box padding={2} background="primary100">
-              <EditIcon />
+              <Pencil />
             </Box>
             <CardContent paddingLeft={2}>
               <CardTitle>File name</CardTitle>

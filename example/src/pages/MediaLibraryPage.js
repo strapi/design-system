@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import AddIcon from "@strapi/icons/AddIcon";
-import SearchIcon from "@strapi/icons/SearchIcon";
-import SettingsIcon from "@strapi/icons/SettingsIcon";
+import AddIcon from "@strapi/icons/Plus";
+import SearchIcon from "@strapi/icons/Search";
+import SettingsIcon from "@strapi/icons/Cog";
 import { AppLayout } from "../layouts/AppLayout";
 import {
   GridLayout,

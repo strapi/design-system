@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
-import FilterDropdownIcon from '@strapi/icons/FilterDropdownIcon';
+import CarretDown from '@strapi/icons/CarretDown';
 import styled from 'styled-components';
 import { sizes } from '../themes/sizes';
 import { NumberFormatter, NumberParser } from '@internationalized/number';
@@ -121,10 +121,10 @@ export const NumberInput = React.forwardRef(
             endAction={
               <>
                 <ArrowButton aria-hidden reverse onClick={increment} tabIndex={-1} type="button">
-                  <FilterDropdownIcon />
+                  <CarretDown />
                 </ArrowButton>
                 <ArrowButton aria-hidden onClick={decrement} tabIndex={-1} type="button">
-                  <FilterDropdownIcon />
+                  <CarretDown />
                 </ArrowButton>
               </>
             }

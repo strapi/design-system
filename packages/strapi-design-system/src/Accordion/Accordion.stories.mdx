@@ -3,8 +3,6 @@
 import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { ArgsTable } from '@storybook/addon-docs';
-import EditIcon from '@strapi/icons/EditIcon';
-import AddIcon from '@strapi/icons/AddIcon';
 import { Accordion } from './Accordion';
 import { AccordionToggle } from './AccordionToggle';
 import { KeyboardNavigable } from '../KeyboardNavigable';
@@ -17,8 +15,11 @@ import { IconButton } from '../IconButton';
 import { TextButton } from '../TextButton';
 import { Stack } from '../Stack';
 import { Tooltip } from '../Tooltip';
-import HelpIcon from '@strapi/icons/HelpIcon';
-import DeleteIcon from '@strapi/icons/DeleteIcon';
+import Pencil from '@strapi/icons/Pencil';
+import Information from '@strapi/icons/Information';
+import Trash from '@strapi/icons/Trash';
+import User from '@strapi/icons/User';
+import Plus from '@strapi/icons/Plus';
 
 <Meta title="Design System/Components/Accordion" component={Accordion} />
 
@@ -44,7 +45,7 @@ Accordions are collapsable blocks that vertically hide a stack of content. Click
 import { Accordion, AccordionToggle, AccordionContent } from '@strapi/design-system/Accordion';
 import { KeyboardNavigable } from '@strapi/design-system/KeyboardNavigable';
 import { IconButton } from '@strapi/design-system/IconButton';
-import EditIcon from '@strapi/icons/EditIcon';
+import Pencil from '@strapi/icons/Pencil';
 import { Box } from '@strapi/design-system/Box';
 ```
 
@@ -69,7 +70,7 @@ import { Box } from '@strapi/design-system/Box';
               <AccordionToggle
                 title="User informations 2"
                 description="The following contains information about the current user 2"
-                action={<IconButton onClick={() => console.log('edit')} label="Edit" icon={<EditIcon />} />}
+                action={<IconButton onClick={() => console.log('edit')} label="Edit" icon={<Pencil />} />}
               />
               <AccordionContent>
                 <Box padding={3}>My name is John Duff</Box>
@@ -93,7 +94,7 @@ import { Box } from '@strapi/design-system/Box';
               <AccordionToggle
                 togglePosition="left"
                 title="User informations 4"
-                action={<IconButton onClick={() => console.log('edit')} label="Edit" icon={<EditIcon />} />}
+                action={<IconButton onClick={() => console.log('edit')} label="Edit" icon={<Pencil />} />}
               />
               <AccordionContent>
                 <Box padding={3}>My name is John Duff</Box>
@@ -118,7 +119,7 @@ import { Box } from '@strapi/design-system/Box';
             <AccordionGroup
               footer={
                 <Flex justifyContent="center" height="48px" background="neutral150">
-                  <TextButton disabled={true} startIcon={<AddIcon />}>
+                  <TextButton disabled={true} startIcon={<Plus />}>
                     Add an entry
                   </TextButton>
                 </Flex>
@@ -134,18 +135,18 @@ import { Box } from '@strapi/design-system/Box';
                       background: 'transparent',
                     }}
                   >
-                    <HelpIcon aria-hidden={true} />
+                    <Information aria-hidden={true} />
                   </button>
                 </Tooltip>
               }
             >
               <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-1" size="S">
                 <AccordionToggle
-                  startIcon={<HelpIcon aria-hidden={true} />}
+                  startIcon={<User aria-hidden={true} />}
                   action={
                     <Stack horizontal size={0}>
-                      <IconButton noBorder onClick={() => console.log('edit')} label="Edit" icon={<EditIcon />} />
-                      <IconButton noBorder onClick={() => console.log('delete')} label="Delete" icon={<DeleteIcon />} />
+                      <IconButton noBorder onClick={() => console.log('edit')} label="Edit" icon={<Pencil />} />
+                      <IconButton noBorder onClick={() => console.log('delete')} label="Delete" icon={<Trash />} />
                     </Stack>
                   }
                   title="User informations"
@@ -238,7 +239,7 @@ The accordion component has two main states: collapsed and expanded. By default 
                 variant="secondary"
                 togglePosition="left"
                 title="User informations 4"
-                action={<IconButton onClick={() => console.log('edit')} label="Edit" icon={<EditIcon />} />}
+                action={<IconButton onClick={() => console.log('edit')} label="Edit" icon={<Pencil />} />}
               />
               <AccordionContent>
                 <Box padding={3}>My name is John Duff</Box>
