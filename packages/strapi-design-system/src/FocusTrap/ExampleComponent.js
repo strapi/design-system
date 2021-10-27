@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
-import CloseAlertIcon from '@strapi/icons/CloseAlertIcon';
+import Cross from '@strapi/icons/Cross';
 import { Box } from '../Box';
 import { Stack } from '../Stack';
 import { Text, H2 } from '../Text';
@@ -19,7 +19,7 @@ const TrappedComponent = ({ onClose }) => {
           <Flex justifyContent="space-between">
             <H2>Hey folks!</H2>
             <button style={{ border: 'none', background: 'transparent' }} onClick={onClose} aria-label="Close">
-              <CloseAlertIcon aria-hidden={true} />
+              <Cross aria-hidden={true} />
             </button>
           </Flex>
           <Box paddingTop={2} paddingBottom={2}>

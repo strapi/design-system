@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { ArgsTable } from '@storybook/addon-docs';
-import EditIcon from '@strapi/icons/EditIcon';
+import Pencil from '@strapi/icons/Pencil';
 import { Accordion } from './Accordion';
 import { AccordionToggle } from './AccordionToggle';
 import { KeyboardNavigable } from '../KeyboardNavigable';
@@ -35,7 +35,7 @@ Accordions are collapsable blocks that vertically hide a stack of content. Click
 import { Accordion, AccordionToggle, AccordionContent } from '@strapi/design-system/Accordion';
 import { KeyboardNavigable } from '@strapi/design-system/KeyboardNavigable';
 import { IconButton } from '@strapi/design-system/IconButton';
-import EditIcon from '@strapi/icons/EditIcon';
+import Pencil from '@strapi/icons/Pencil';
 import { Box } from '@strapi/design-system/Box';
 ```
 
@@ -88,7 +88,7 @@ import { Box } from '@strapi/design-system/Box';
                 variant="secondary"
                 togglePosition="left"
                 title="User informations 4"
-                action={<IconButton onClick={() => console.log('edit')} label="Edit" icon={<EditIcon />} />}
+                action={<IconButton onClick={() => console.log('edit')} label="Edit" icon={<Pencil />} />}
               />
               <AccordionContent>
                 <Box padding={3}>My name is John Duff</Box>
@@ -151,7 +151,7 @@ The accordion component has two main states: collapsed and expanded. By default 
                 variant="secondary"
                 togglePosition="left"
                 title="User informations 4"
-                action={<IconButton onClick={() => console.log('edit')} label="Edit" icon={<EditIcon />} />}
+                action={<IconButton onClick={() => console.log('edit')} label="Edit" icon={<Pencil />} />}
               />
               <AccordionContent>
                 <Box padding={3}>My name is John Duff</Box>

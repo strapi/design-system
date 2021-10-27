@@ -14,7 +14,7 @@ import {
   Bold,
   Italic,
   Underline,
-  Strikethrough,
+  StrikeThrough as Strikethrough,
   BulletList,
   NumberList,
   Code,

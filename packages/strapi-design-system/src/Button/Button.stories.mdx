@@ -2,10 +2,9 @@
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { ArgsTable } from '@storybook/addon-docs';
-import HelpIcon from '@strapi/icons/HelpIcon';
-import AddIcon from '@strapi/icons/AddIcon';
-import ContentIcon from '@strapi/icons/ContentIcon';
-import Ct from '@strapi/icons/Ct';
+import Information from '@strapi/icons/Information';
+import Plus from '@strapi/icons/Plus';
+import Write from '@strapi/icons/Write';
 import { Button } from './Button';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
@@ -130,24 +129,24 @@ You can add start and end icons to the Button component using the `startIcon` an
       docs: {
         source: {
           code: `
-<Button startIcon={<HelpIcon />}>Information</Button>
-<Button variant='secondary' endIcon={<ContentIcon />}>Write content</Button>
-<Button variant='secondary' endIcon={<ContentIcon />}>Write content</Button>
-<Button startIcon={<HelpIcon />} loading>With a loader</Button>
+<Button startIcon={<Information />}>Information</Button>
+<Button variant='secondary' endIcon={<Write />}>Write content</Button>
+<Button variant='secondary' endIcon={<Write />}>Write content</Button>
+<Button startIcon={<Information />} loading>With a loader</Button>
 `,
         },
       },
     }}
   >
     <Stack size={2} horizontal>
-      <Button startIcon={<HelpIcon />}>Information</Button>
-      <Button variant="secondary" endIcon={<ContentIcon />}>
+      <Button startIcon={<Information />}>Information</Button>
+      <Button variant="secondary" endIcon={<Write />}>
         Write content
       </Button>
-      <Button startIcon={<HelpIcon />} loading>
+      <Button startIcon={<Information />} loading>
         With a loader
       </Button>
-      <Button startIcon={<AddIcon />}>Woops</Button>
+      <Button startIcon={<Plus />}>Woops</Button>
     </Stack>
   </Story>
 </Canvas>
@@ -163,14 +162,14 @@ All action that cannot be performed yet.
       docs: {
         source: {
           code: `
-<Button disabled startIcon={<HelpIcon />}>Information</Button>
+<Button disabled startIcon={<Information />}>Information</Button>
 `,
         },
       },
     }}
   >
     <Box paddingRight={1}>
-      <Button disabled onClick={(e) => console.log('information')} startIcon={<HelpIcon />}>
+      <Button disabled onClick={(e) => console.log('information')} startIcon={<Information />}>
         Information
       </Button>
     </Box>
@@ -195,7 +194,12 @@ All action that cannot be performed yet.
     }}
   >
     <Box paddingRight={1}>
-      <Button fullWidth onClick={(e) => console.log('information')} startIcon={<HelpIcon />} endIcon={<HelpIcon />}>
+      <Button
+        fullWidth
+        onClick={(e) => console.log('information')}
+        startIcon={<Information />}
+        endIcon={<Information />}
+      >
         Information
       </Button>
     </Box>

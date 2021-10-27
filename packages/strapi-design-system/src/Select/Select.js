@@ -1,7 +1,7 @@
 import React, { Children, cloneElement, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import DropdownIcon from '@strapi/icons/FilterDropdownIcon';
-import CloseAlertIcon from '@strapi/icons/CloseAlertIcon';
+import CarretDown from '@strapi/icons/CarretDown';
+import Cross from '@strapi/icons/Cross';
 import { sizes } from '../themes/sizes';
 import { SelectButton } from './SelectButton';
 import { Field, FieldHint, FieldLabel, FieldError } from '../Field';
@@ -203,7 +203,7 @@ export const Select = ({
             <Flex>
               {((multi && value && value.length) || (!multi && value)) && onClear && (
                 <IconBox as="button" onClick={handleClear} aria-label={clearLabel} aria-disabled={disabled}>
-                  <CloseAlertIcon />
+                  <Cross />
                 </IconBox>
               )}
 
@@ -215,7 +215,7 @@ export const Select = ({
                 onMouseDown={handleMouseDown}
                 tabIndex={-1}
               >
-                <DropdownIcon />
+                <CarretDown />
               </CaretBox>
             </Flex>
           </MainRow>

@@ -2,9 +2,8 @@
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { ArgsTable } from '@storybook/addon-docs';
-import HelpIcon from '@strapi/icons/HelpIcon';
-import ContentIcon from '@strapi/icons/ContentIcon';
-import Ct from '@strapi/icons/Ct';
+import Information from '@strapi/icons/Information';
+import Write from '@strapi/icons/Write';
 import { LinkButton } from './LinkButton';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
@@ -32,8 +31,8 @@ Best practices
 
 ```js
 import { LinkButton } from '@strapi/design-system/LinkButton';
-import HelpIcon from '@strapi/icons/HelpIcon';
-import ContentIcon from '@strapi/icons/ContentIcon';
+import Information from '@strapi/icons/Information';
+import Write from '@strapi/icons/Write';
 ```
 
 ## Usage
@@ -99,11 +98,11 @@ A LinkButton can be associated with an icon to give more impact. You can add sta
   <Story name="icons">
     <Flex>
       <Box paddingRight={1}>
-        <LinkButton startIcon={<HelpIcon />} to="/">
+        <LinkButton startIcon={<Information />} to="/">
           Information
         </LinkButton>
       </Box>
-      <LinkButton variant="secondary" endIcon={<ContentIcon />} to="/">
+      <LinkButton variant="secondary" endIcon={<Write />} to="/">
         Write content
       </LinkButton>
     </Flex>
@@ -117,7 +116,7 @@ For all actions that cannot be performed yet, you can use the disabled state.
 <Canvas>
   <Story name="disabled">
     <Box paddingRight={1}>
-      <LinkButton disabled to="/" startIcon={<HelpIcon />}>
+      <LinkButton disabled to="/" startIcon={<Information />}>
         Information
       </LinkButton>
     </Box>

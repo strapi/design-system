@@ -2,7 +2,7 @@
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { ArgsTable } from '@storybook/addon-docs';
-import AddIcon from '@strapi/icons/AddIcon';
+import Plus from '@strapi/icons/Plus';
 import { Illo } from './story-assets/Illo';
 import { EmptyStateLayout } from './EmptyStateLayout';
 import { Button } from '../Button';
@@ -27,19 +27,17 @@ EmptyStates are a pattern used to indicate a page or a table is empty.
 ```js
 import { EmptyStateLayout } from '@strapi/design-system/EmptyStateLayout';
 import { Button } from '@strapi/design-system/Button';
-import AddIcon from '@strapi/icons/AddIcon';
-import EmptyStateDocument from '@strapi/icons/EmptyStateDocument';
+import Plus from '@strapi/icons/Plus';
+import EmptyDocuments from '@strapi/icons/EmptyDocuments';
 ```
-
 
 ## Usage
 
 A page or a table might be empty for different reasons: no entries have been created yet, a user doesn't have the permission to access something, something went wrong, ...
 
-
 ### EmptyStateLayout with action
 
- EmptyStates can be coupled with a button to help redirecting the user to a more relevant place.
+EmptyStates can be coupled with a button to help redirecting the user to a more relevant place.
 
 <Canvas>
   <Story name="base">
@@ -48,7 +46,7 @@ A page or a table might be empty for different reasons: no entries have been cre
         icon={<Illo />}
         content="You don't have any content yet..."
         action={
-          <Button variant="secondary" startIcon={<AddIcon />}>
+          <Button variant="secondary" startIcon={<Plus />}>
             Create your first content-type
           </Button>
         }
@@ -78,7 +76,7 @@ If no need to redirect the user to a more relevant place or if the context does 
         icon={<Illo />}
         content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         action={
-          <Button variant="secondary" startIcon={<AddIcon />}>
+          <Button variant="secondary" startIcon={<Plus />}>
             Create your first content-type
           </Button>
         }

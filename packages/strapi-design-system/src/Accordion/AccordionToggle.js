@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DropdownIcon from '@strapi/icons/FilterDropdown';
+import DropdownIcon from '@strapi/icons/CarretDown';
 import styled from 'styled-components';
 import { H3, P } from '../Text';
 import { useAccordion } from './AccordionContext';

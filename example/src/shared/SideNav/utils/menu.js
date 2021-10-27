@@ -1,9 +1,9 @@
-import CtbIcon from "@strapi/icons/ContentTypeBuilderIcon";
-import MediaLibIcon from "@strapi/icons/MediaLibrary";
-import AlertInfoIcon from "@strapi/icons/AlertInfoIcon";
-import PluginsIcon from "@strapi/icons/PluginsIcons";
-import MarketPlaceIcon from "@strapi/icons/MarketplaceIcon";
-import SettingsIcon from "@strapi/icons/Settings";
+import CtbIcon from "@strapi/icons/Layout";
+import MediaLibIcon from "@strapi/icons/Landscape";
+import AlertInfoIcon from "@strapi/icons/ExclamationMarkCircle";
+import PluginsIcon from "@strapi/icons/Puzzle";
+import MarketPlaceIcon from "@strapi/icons/ShopingCart";
+import SettingsIcon from "@strapi/icons/Cog";
 
 const menu = {
   pluginSectionLinks: [

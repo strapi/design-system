@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
-import LoadingIcon from '@strapi/icons/LoadingIcon';
+// FIXME
+import LoadingIcon from '@strapi/icons/Spinner';
 import { Text, ButtonText } from '../Text';
 import { Box } from '../Box';
 import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from './utils';

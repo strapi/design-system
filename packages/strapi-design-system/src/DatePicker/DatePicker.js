@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import CalendarIcon from '@strapi/icons/Calendar';
-import CloseAlertIcon from '@strapi/icons/CloseAlertIcon';
+import Cross from '@strapi/icons/Cross';
 import { sizes } from '../themes/sizes';
 import { TextInput } from '../TextInput';
 import { DatePickerButton, DatePickerWrapper, IconBox } from './components';
@@ -66,7 +66,7 @@ export const DatePicker = ({
         endAction={
           onClear && formattedDate ? (
             <IconBox as="button" onClick={handleClear} aria-label={clearLabel} aria-disabled={disabled}>
-              <CloseAlertIcon />
+              <Cross />
             </IconBox>
           ) : undefined
         }
