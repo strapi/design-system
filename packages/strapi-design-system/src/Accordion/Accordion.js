@@ -27,7 +27,7 @@ const AccordionWrapper = styled(Box)`
   border: ${getBorder};
   overflow: hidden;
 
-  &:hover {
+  &:hover:not([aria-disabled='true']) {
     border: 1px solid ${({ theme }) => theme.colors.primary600};
 
     ${H3} {
@@ -62,6 +62,7 @@ export const Accordion = ({ children, toggle, expanded, id, size, variant, disab
       <AccordionWrapper
         data-strapi-expanded={expanded}
         disabled={disabled}
+        aria-disabled={disabled}
         expanded={expanded}
         hasRadius
         variant={variant}
