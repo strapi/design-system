@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef, useLayoutEffect, Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import { useId } from '../helpers/useId';
-import DropdownIcon from '@strapi/icons/FilterDropdownIcon';
-import CloseAlertIcon from '@strapi/icons/CloseAlertIcon';
+import CarretDown from '@strapi/icons/CarretDown';
+import Cross from '@strapi/icons/Cross';
 import { getActionFromKey, getUpdatedIndex, maintainScrollVisibility, MenuActions, filterOptions } from './utils';
 
 import { Flex } from '../Flex';
@@ -282,7 +282,7 @@ export const Combobox = ({
                 onClick={handleClear}
                 type="button"
               >
-                <CloseAlertIcon />
+                <Cross />
               </IconBox>
             )}
             <CaretBox
@@ -294,7 +294,7 @@ export const Combobox = ({
               tabIndex={-1}
               type="button"
             >
-              <DropdownIcon />
+              <CarretDown />
             </CaretBox>
           </Flex>
         </MainRow>

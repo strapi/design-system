@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import AlertInfoIcon from '@strapi/icons/AlertInfoIcon';
-import AlertSucessIcon from '@strapi/icons/AlertSucessIcon';
-import AlertWarningIcon from '@strapi/icons/AlertWarningIcon';
-import CloseAlertIcon from '@strapi/icons/CloseAlertIcon';
+import Information from '@strapi/icons/Information';
+import CheckCircle from '@strapi/icons/CheckCircle';
+import ExclamationMarkCircle from '@strapi/icons/ExclamationMarkCircle';
+import Cross from '@strapi/icons/Cross';
 import { Box } from '../Box';
 import { Text, P } from '../Text';
 import { Flex } from '../Flex';
@@ -44,14 +44,14 @@ const AlertIconWrapper = styled(Box)`
 
 const AlertIcon = ({ variant, ...props }) => {
   if (variant === 'success') {
-    return <AlertSucessIcon {...props} />;
+    return <CheckCircle {...props} />;
   }
 
   if (variant === 'danger') {
-    return <AlertWarningIcon {...props} />;
+    return <ExclamationMarkCircle {...props} />;
   }
 
-  return <AlertInfoIcon {...props} />;
+  return <Information {...props} />;
 };
 
 const ActionBox = styled(Box)`
@@ -93,7 +93,7 @@ export const Alert = ({ title, children, variant, onClose, closeLabel, titleAs, 
         </AlertBody>
 
         <CloseButton onClick={onClose} aria-label={closeLabel}>
-          <CloseAlertIcon aria-hidden={true} />
+          <Cross aria-hidden={true} />
         </CloseButton>
       </Flex>
     </AlertWrapper>

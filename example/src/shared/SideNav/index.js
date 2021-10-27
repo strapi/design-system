@@ -9,7 +9,7 @@ import {
   NavCondense,
 } from "@strapi/design-system/MainNav";
 import { Divider } from "@strapi/design-system/Divider";
-import ContentIcon from "@strapi/icons/ContentIcon";
+import ContentIcon from "@strapi/icons/Write";
 import menu from "./utils/menu";
 import strapiImage from "./strapi-img.png";
 

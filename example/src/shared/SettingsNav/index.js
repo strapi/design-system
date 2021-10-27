@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Applications, AlertWarningIcon } from "@strapi/icons";
+import { Apps as Applications ,ExclamationMarkCircle as AlertWarningIcon } from "@strapi/icons";
 import {
   SubNavLink,
   SubNav,

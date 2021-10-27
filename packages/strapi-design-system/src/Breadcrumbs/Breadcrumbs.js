@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import After from '@strapi/icons/After';
+import ChevronRight from '@strapi/icons/ChevronRight';
 import { Text } from '../Text';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
@@ -27,7 +27,7 @@ export const Crumb = ({ children }) => {
         {children}
       </Text>
       <Box paddingLeft={3} paddingRight={3}>
-        <After />
+        <ChevronRight />
       </Box>
     </CrumbWrapper>
   );

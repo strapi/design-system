@@ -1613,15 +1613,15 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@strapi/icons@file:../packages/strapi-icons/dist":
-  version "0.0.1-alpha.27"
-
-"@strapi/parts@file:../packages/strapi-parts/dist":
-  version "0.0.1-alpha.27"
+"@strapi/design-system@file:../packages/strapi-design-system/dist":
+  version "0.0.1-alpha.50"
   dependencies:
     "@internationalized/number" "^3.0.2"
     compute-scroll-into-view "^1.0.17"
     prop-types "^15.7.2"
+
+"@strapi/icons@file:../packages/strapi-icons/dist":
+  version "0.0.1-alpha.50"
 
 "@surma/rollup-plugin-off-main-thread@^1.1.1":
   version "1.4.2"

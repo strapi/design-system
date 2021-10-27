@@ -10,9 +10,9 @@ import {
   Layout,
   Link,
 } from "@strapi/design-system";
-import EditIcon from "@strapi/icons/EditIcon";
-import BackIcon from "@strapi/icons/BackIcon";
-import AddIcon from "@strapi/icons/AddIcon";
+import EditIcon from "@strapi/icons/Pencil";
+import BackIcon from "@strapi/icons/ArrowLeft";
+import AddIcon from "@strapi/icons/Plus";
 import Inputs from "./Inputs";
 import { layout } from "./utils/layout";
 import schema, { getYupInnerErrors } from "./utils/schema";
