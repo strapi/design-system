@@ -3,13 +3,23 @@
 import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { ArgsTable } from '@storybook/addon-docs';
-import Pencil from '@strapi/icons/Pencil';
 import { Accordion } from './Accordion';
 import { AccordionToggle } from './AccordionToggle';
 import { KeyboardNavigable } from '../KeyboardNavigable';
 import { AccordionContent } from './AccordionContent';
+import { AccordionGroup } from './AccordionGroup';
 import { Box } from '../Box';
+import { Flex } from '../Flex';
+import { Text } from '../Text';
 import { IconButton } from '../IconButton';
+import { TextButton } from '../TextButton';
+import { Stack } from '../Stack';
+import { Tooltip } from '../Tooltip';
+import Pencil from '@strapi/icons/Pencil';
+import Information from '@strapi/icons/Information';
+import Trash from '@strapi/icons/Trash';
+import User from '@strapi/icons/User';
+import Plus from '@strapi/icons/Plus';
 
 <Meta title="Design System/Components/Accordion" component={Accordion} />
 
@@ -48,22 +58,19 @@ import { Box } from '@strapi/design-system/Box';
       return (
         <div>
           <Box padding={8} background="neutral100">
-            <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-1">
-              <AccordionToggle
-                title="User informations"
-                description="The following contains information about the current user"
-              />
+            <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-1" size="S">
+              <AccordionToggle title="User informations" />
               <AccordionContent>
                 <Box padding={3}>My name is John Duff</Box>
               </AccordionContent>
             </Accordion>
           </Box>
           <Box padding={8} background="neutral0">
-            <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-2">
+            <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-2" variant="secondary">
               <AccordionToggle
-                variant="secondary"
                 title="User informations 2"
                 description="The following contains information about the current user 2"
+                action={<IconButton onClick={() => console.log('edit')} label="Edit" icon={<Pencil />} />}
               />
               <AccordionContent>
                 <Box padding={3}>My name is John Duff</Box>
@@ -83,9 +90,8 @@ import { Box } from '@strapi/design-system/Box';
             </Accordion>
           </Box>
           <Box padding={8} background="neutral0">
-            <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-4">
+            <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-4" variant="secondary">
               <AccordionToggle
-                variant="secondary"
                 togglePosition="left"
                 title="User informations 4"
                 action={<IconButton onClick={() => console.log('edit')} label="Edit" icon={<Pencil />} />}
@@ -94,6 +100,88 @@ import { Box } from '@strapi/design-system/Box';
                 <Box padding={3}>My name is John Duff</Box>
               </AccordionContent>
             </Accordion>
+          </Box>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## AccordionGroup
+
+<Canvas>
+  <Story name="accordion-group">
+    {() => {
+      const [expanded, setExpanded] = useState(false);
+      return (
+        <div>
+          <Box padding={8} background="neutral0">
+            <AccordionGroup
+              footer={
+                <Flex justifyContent="center" height="48px" background="neutral150">
+                  <TextButton disabled={true} startIcon={<Plus />}>
+                    Add an entry
+                  </TextButton>
+                </Flex>
+              }
+              label="Label"
+              labelAction={
+                <Tooltip description="Content of the tooltip">
+                  <button
+                    aria-label="Information about the email"
+                    style={{
+                      border: 'none',
+                      padding: 0,
+                      background: 'transparent',
+                    }}
+                  >
+                    <Information aria-hidden={true} />
+                  </button>
+                </Tooltip>
+              }
+            >
+              <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-1" size="S">
+                <AccordionToggle
+                  startIcon={<User aria-hidden={true} />}
+                  action={
+                    <Stack horizontal size={0}>
+                      <IconButton noBorder onClick={() => console.log('edit')} label="Edit" icon={<Pencil />} />
+                      <IconButton noBorder onClick={() => console.log('delete')} label="Delete" icon={<Trash />} />
+                    </Stack>
+                  }
+                  title="User informations"
+                  togglePosition="left"
+                />
+                <AccordionContent>
+                  <Box padding={3}>My name is John Duff</Box>
+                </AccordionContent>
+              </Accordion>
+              <Accordion expanded={false} toggle={() => setExpanded((s) => !s)} id="acc-2" size="S" variant="secondary">
+                <AccordionToggle title="User informations" togglePosition="left" />
+                <AccordionContent>
+                  <Box padding={3}>My name is John Duff</Box>
+                </AccordionContent>
+              </Accordion>
+              <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-3" size="S">
+                <AccordionToggle title="User informations" togglePosition="left" />
+                <AccordionContent>
+                  <Box padding={3}>My name is Michka</Box>
+                </AccordionContent>
+              </Accordion>
+              <Accordion
+                disabled={true}
+                expanded={false}
+                toggle={() => setExpanded((s) => !s)}
+                id="acc-2"
+                size="S"
+                variant="secondary"
+              >
+                <AccordionToggle startIcon={<User aria-hidden={true} />} title="User informations" togglePosition="left" />
+                <AccordionContent>
+                  <Box padding={3}>My name is John Duff</Box>
+                </AccordionContent>
+              </Accordion>
+            </AccordionGroup>
           </Box>
         </div>
       );
