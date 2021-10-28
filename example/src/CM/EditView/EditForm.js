@@ -6,7 +6,7 @@ import { VisuallyHidden } from "@strapi/design-system/VisuallyHidden";
 import { Field, FieldInput, FieldLabel, FieldHint } from "@strapi/design-system/Field";
 import { Tooltip } from "@strapi/design-system/Tooltip";
 
-import HelpIcon from "@strapi/icons/HelpIcon";
+import HelpIcon from "@strapi/icons/Information";
 
 export const EditForm = () => {
   return (

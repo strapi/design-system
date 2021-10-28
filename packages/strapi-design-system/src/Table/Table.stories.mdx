@@ -2,10 +2,10 @@
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { ArgsTable } from '@storybook/addon-docs';
-import EditIcon from '@strapi/icons/EditIcon';
-import DeleteIcon from '@strapi/icons/DeleteIcon';
-import DropdownIcon from '@strapi/icons/FilterDropdown';
-import AddIcon from '@strapi/icons/AddIcon';
+import Pencil from '@strapi/icons/Pencil';
+import Trash from '@strapi/icons/Trash';
+import CarretDown from '@strapi/icons/CarretDown';
+import Plus from '@strapi/icons/Plus';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { VisuallyHidden } from '../VisuallyHidden';
@@ -41,10 +41,10 @@ Tables are used to gather and display similar types of data together. They are c
 ## Imports
 
 ```js
-import EditIcon from '@strapi/icons/EditIcon';
-import DeleteIcon from '@strapi/icons/DeleteIcon';
-import DropdownIcon from '@strapi/icons/FilterDropdown';
-import AddIcon from '@strapi/icons/AddIcon';
+import Pencil from '@strapi/icons/Pencil';
+import Trash from '@strapi/icons/Trash';
+import CarretDown from '@strapi/icons/FilterDropdown';
+import Plus from '@strapi/icons/Plus';
 import { Box } from '@strapi/design-system/Box';
 import { Flex } from '@strapi/design-system/Flex';
 import { VisuallyHidden } from '@strapi/design-system/VisuallyHidden';
@@ -84,7 +84,7 @@ The default Table.
           <Table
             colCount={COL_COUNT}
             rowCount={ROW_COUNT}
-            footer={<TFooter icon={<AddIcon />}>Add another field to this collection type</TFooter>}
+            footer={<TFooter icon={<Plus />}>Add another field to this collection type</TFooter>}
           >
             <Thead>
               <Tr>
@@ -134,14 +134,9 @@ The default Table.
                   </Td>
                   <Td>
                     <Flex>
-                      <IconButton onClick={() => console.log('edit')} label="Edit" noBorder icon={<EditIcon />} />
+                      <IconButton onClick={() => console.log('edit')} label="Edit" noBorder icon={<Pencil />} />
                       <Box paddingLeft={1}>
-                        <IconButton
-                          onClick={() => console.log('delete')}
-                          label="Delete"
-                          noBorder
-                          icon={<DeleteIcon />}
-                        />
+                        <IconButton onClick={() => console.log('delete')} label="Delete" noBorder icon={<Trash />} />
                       </Box>
                     </Flex>
                   </Td>
@@ -225,14 +220,9 @@ The default Table.
                   </Td>
                   <Td>
                     <Flex>
-                      <IconButton onClick={() => console.log('edit')} label="Edit" noBorder icon={<EditIcon />} />
+                      <IconButton onClick={() => console.log('edit')} label="Edit" noBorder icon={<Pencil />} />
                       <Box paddingLeft={1}>
-                        <IconButton
-                          onClick={() => console.log('delete')}
-                          label="Delete"
-                          noBorder
-                          icon={<DeleteIcon />}
-                        />
+                        <IconButton onClick={() => console.log('delete')} label="Delete" noBorder icon={<Trash />} />
                       </Box>
                     </Flex>
                   </Td>
@@ -270,14 +260,14 @@ Table with actions.
           <Table
             colCount={COL_COUNT}
             rowCount={ROW_COUNT}
-            footer={<TFooter icon={<AddIcon />}>Add another field to this collection type</TFooter>}
+            footer={<TFooter icon={<Plus />}>Add another field to this collection type</TFooter>}
           >
             <Thead>
               <Tr>
                 <Th>
                   <BaseCheckbox aria-label="Select all entries" />
                 </Th>
-                <Th action={<IconButton label="Sort on ID" icon={<DropdownIcon />} noBorder />}>
+                <Th action={<IconButton label="Sort on ID" icon={<CarretDown />} noBorder />}>
                   <TableLabel>ID</TableLabel>
                 </Th>
                 <Th>
@@ -320,14 +310,9 @@ Table with actions.
                   </Td>
                   <Td>
                     <Flex>
-                      <IconButton onClick={() => console.log('edit')} label="Edit" noBorder icon={<EditIcon />} />
+                      <IconButton onClick={() => console.log('edit')} label="Edit" noBorder icon={<Pencil />} />
                       <Box paddingLeft={1}>
-                        <IconButton
-                          onClick={() => console.log('delete')}
-                          label="Delete"
-                          noBorder
-                          icon={<DeleteIcon />}
-                        />
+                        <IconButton onClick={() => console.log('delete')} label="Delete" noBorder icon={<Trash />} />
                       </Box>
                     </Flex>
                   </Td>

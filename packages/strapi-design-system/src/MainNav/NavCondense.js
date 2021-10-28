@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import NextFilter from '@strapi/icons/NextFilter';
-import BackFilter from '@strapi/icons/BackFilter';
+import ChevronRight from '@strapi/icons/ChevronRight';
+import ChevronLeft from '@strapi/icons/ChevronLeft';
 import { VisuallyHidden } from '../VisuallyHidden';
 import { useMainNav } from './MainNavContext';
 
@@ -32,7 +32,7 @@ export const NavCondense = ({ children, ...props }) => {
 
   return (
     <NavCondenseWrapper as="button" condensed={condensed} {...props}>
-      {condensed ? <NextFilter aria-hidden /> : <BackFilter aria-hidden />}
+      {condensed ? <ChevronRight aria-hidden /> : <ChevronLeft aria-hidden />}
       <VisuallyHidden>{children}</VisuallyHidden>
     </NavCondenseWrapper>
   );

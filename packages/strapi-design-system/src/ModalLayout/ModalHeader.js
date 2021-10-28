@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import CloseAlertIcon from '@strapi/icons/CloseAlertIcon';
+import Cross from '@strapi/icons/Cross';
 import { Flex } from '../Flex';
 import { Box } from '../Box';
 import { IconButton } from '../IconButton';
@@ -19,7 +19,7 @@ export const ModalHeader = ({ children, closeLabel }) => {
     <ModalHeaderWrapper paddingTop={4} paddingBottom={4} paddingLeft={5} paddingRight={5} background="neutral100">
       <Flex justifyContent="space-between">
         {children}
-        <IconButton onClick={onClose} aria-label={closeLabel} icon={<CloseAlertIcon />} />
+        <IconButton onClick={onClose} aria-label={closeLabel} icon={<Cross />} />
       </Flex>
     </ModalHeaderWrapper>
   );

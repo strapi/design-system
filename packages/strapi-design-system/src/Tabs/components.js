@@ -30,7 +30,6 @@ export const DefaultTabButton = styled.button`
 
   & + & > ${DefaultTabBox} {
     border-left: 1px solid ${({ theme }) => theme.colors.neutral150};
-    // border-right: 1px solid ${({ theme }) => theme.colors.neutral150};
   }
 
   ${DefaultTabBox} {

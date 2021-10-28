@@ -52,6 +52,7 @@ export const Input = styled.input`
   &[aria-disabled='true'] {
     background: inherit;
     color: inherit;
+    cursor: not-allowed;
   }
 `;
 

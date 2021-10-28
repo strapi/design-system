@@ -14,14 +14,13 @@ const TabButton = styled.button`
 `;
 
 export const Tabs = ({ children, ...props }) => {
-  const { id, selectedTabIndex, selectTabIndex, label, variant } = useTabs();
-  const tabsRef = useTabsFocus(selectedTabIndex);
+  const { id, selectedTabIndex, selectTabIndex, label, variant, onTabChange } = useTabs();
+  const tabsRef = useTabsFocus(selectedTabIndex, onTabChange);
 
   const childrenArray = Children.toArray(children).map((node, index) =>
     cloneElement(node, {
       id: `${id}-${index}`,
       index,
-      // selected: index === selectedTabIndex,
       selectedTabIndex,
       onTabClick: () => selectTabIndex(index),
       variant,
@@ -29,29 +28,73 @@ export const Tabs = ({ children, ...props }) => {
   );
 
   const handleKeyDown = (e) => {
+    const hasAllChildrenDisabled = childrenArray.every((node) => node.props.disabled);
+
+    if (hasAllChildrenDisabled) {
+      return;
+    }
+
     switch (e.key) {
       case KeyboardKeys.RIGHT: {
-        const nextIndex = selectedTabIndex + 1;
-        selectTabIndex(nextIndex >= childrenArray.length ? 0 : nextIndex);
+        const nextWantedIndex = selectedTabIndex + 1;
+        const findNextIndex = (ref) => {
+          const isDisabled = childrenArray[ref].props.disabled;
+
+          if (!isDisabled) {
+            return ref;
+          }
+
+          if (ref === childrenArray.length - 1) {
+            return findNextIndex(0);
+          }
+
+          return findNextIndex(ref + 1);
+        };
+
+        const nextIndex = findNextIndex(nextWantedIndex >= childrenArray.length ? 0 : nextWantedIndex);
+
+        selectTabIndex(nextIndex);
 
         break;
       }
 
       case KeyboardKeys.LEFT: {
-        const nextIndex = selectedTabIndex - 1;
-        selectTabIndex(nextIndex < 0 ? childrenArray.length - 1 : nextIndex);
+        const nextWantedIndex = selectedTabIndex - 1;
+        const findNextIndex = (ref) => {
+          const isDisabled = childrenArray[ref].props.disabled;
+
+          if (!isDisabled) {
+            return ref;
+          }
+
+          if (ref === 0) {
+            return findNextIndex(childrenArray.length - 1);
+          }
+
+          return findNextIndex(ref - 1);
+        };
+        const nextIndex = findNextIndex(nextWantedIndex < 0 ? childrenArray.length - 1 : nextWantedIndex);
+
+        selectTabIndex(nextIndex);
 
         break;
       }
 
       case KeyboardKeys.HOME: {
-        selectTabIndex(0);
+        const nextIndex = childrenArray.findIndex((node) => !node.props.disabled);
+
+        selectTabIndex(nextIndex);
 
         break;
       }
 
       case KeyboardKeys.END: {
-        selectTabIndex(childrenArray.length - 1);
+        const arrayOfChildrenProps = childrenArray.map((node, index) => ({ isDisabled: node.props.disabled, index }));
+        const firstNonDisabledChildren = arrayOfChildrenProps.reverse().find(({ isDisabled }) => !isDisabled);
+
+        if (firstNonDisabledChildren) {
+          selectTabIndex(firstNonDisabledChildren.index);
+        }
 
         break;
       }
@@ -87,32 +130,17 @@ Tabs.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export const Tab = ({
-  disabled,
-  id,
-  index,
-  children,
-  variant,
-  hasError,
-  onClick,
-  onTabClick,
-  selectedTabIndex,
-  ...props
-}) => {
+export const Tab = ({ disabled, id, children, variant, hasError, index, selectedTabIndex, onTabClick, ...props }) => {
   const tabId = `${id}-tab`;
   const tabPanelId = `${id}-tabpanel`;
   const selected = index === selectedTabIndex;
 
-  const handleClick = (e) => {
+  const handleClick = () => {
     if (disabled) {
       return;
     }
 
-    onTabClick(e);
-
-    if (onClick) {
-      onClick(e);
-    }
+    onTabClick();
   };
 
   if (variant === 'simple') {
@@ -178,7 +206,6 @@ Tab.defaultProps = {
   hasError: false,
   id: undefined,
   index: undefined,
-  onClick: undefined,
   onTabClick: undefined,
   selectedTabIndex: undefined,
   variant: undefined,
@@ -190,7 +217,6 @@ Tab.propTypes = {
   hasError: PropTypes.bool,
   id: PropTypes.string,
   index: PropTypes.number,
-  onClick: PropTypes.func,
   onTabClick: PropTypes.func,
   selectedTabIndex: PropTypes.number,
   variant: PropTypes.oneOf(['simple']),

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Bullet from '@strapi/icons/Bullet';
+import Dot from '@strapi/icons/Dot';
 import { NavLink } from 'react-router-dom';
 import { Box } from '../Box';
 import { Text } from '../Text';
@@ -37,7 +37,7 @@ const SubNavLinkWrapper = styled(Box)`
     outline-offset: -2px;
   }
 `;
-const CustomBullet = styled(Bullet)`
+const CustomBullet = styled(Dot)`
   width: ${12 / 16}rem;
   height: ${4 / 16}rem;
   * {

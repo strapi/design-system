@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import FilterDropdown from '@strapi/icons/FilterDropdown';
+import CarretDown from '@strapi/icons/CarretDown';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { Text } from '../Text';
@@ -44,7 +44,7 @@ export const SubNavLinkSection = ({ label, children, id }) => {
         <Flex justifyContent="space-between">
           <SubNavLinkSectionButton onClick={handleClick} aria-expanded={isOpen} aria-controls={listId}>
             <DropDownIconWrapper rotated={isOpen}>
-              <FilterDropdown aria-hidden />
+              <CarretDown aria-hidden />
             </DropDownIconWrapper>
             <Box paddingLeft={2}>
               <Text as="span" bold textColor="neutral800">

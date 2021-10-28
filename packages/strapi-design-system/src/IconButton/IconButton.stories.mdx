@@ -2,10 +2,10 @@
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { ArgsTable } from '@storybook/addon-docs';
-import EditIcon from '@strapi/icons/EditIcon';
-import PublishIcon from '@strapi/icons/PublishIcon';
-import DeleteIcon from '@strapi/icons/DeleteIcon';
-import AddIcon from '@strapi/icons/AddIcon';
+import Pencil from '@strapi/icons/Pencil';
+import Play from '@strapi/icons/Play';
+import Trash from '@strapi/icons/Trash';
+import Plus from '@strapi/icons/Plus';
 import { IconButton, IconButtonGroup } from './IconButton';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
@@ -31,10 +31,10 @@ Icon Buttons are a way to perform actions within a page, a table or another obje
 ```js
 import { IconButton } from '@strapi/design-system/IconButton';
 import { IconButtonGroup } from '@strapi/design-system/IconButton';
-import EditIcon from '@strapi/icons/EditIcon';
-import PublishIcon from '@strapi/icons/PublishIcon';
-import DeleteIcon from '@strapi/icons/DeleteIcon';
-import AddIcon from '@strapi/icons/AddIcon';
+import Pencil from '@strapi/icons/Pencil';
+import Play from '@strapi/icons/Play';
+import Trash from '@strapi/icons/Trash';
+import Plus from '@strapi/icons/Plus';
 ```
 
 ## Usage
@@ -45,10 +45,10 @@ Icon Buttons are used to perform actions within a page, a table or another objec
   <Story name="base">
     <Box padding={7}>
       <Flex>
-        <IconButton onClick={() => console.log('edit')} label="Edit" icon={<EditIcon />} />
-        <IconButton onClick={() => console.log('Create')} label="Create" icon={<AddIcon />} />
-        <IconButton onClick={() => console.log('Delete')} label="Delete" icon={<DeleteIcon />} />
-        <IconButton onClick={() => console.log('Publish')} label="Publish" icon={<PublishIcon />} />
+        <IconButton onClick={() => console.log('edit')} label="Edit" icon={<Pencil />} />
+        <IconButton onClick={() => console.log('Create')} label="Create" icon={<Plus />} />
+        <IconButton onClick={() => console.log('Delete')} label="Delete" icon={<Trash />} />
+        <IconButton onClick={() => console.log('Publish')} label="Publish" icon={<Play />} />
       </Flex>
     </Box>
   </Story>
@@ -62,10 +62,10 @@ Depending on the status of an action or the permissions, an IconButton can be un
   <Story name="disabled">
     <Box padding={7}>
       <Flex>
-        <IconButton disabled onClick={() => console.log('edit')} label="Edit" icon={<EditIcon />} />
-        <IconButton disabled onClick={() => console.log('Create')} label="Create" icon={<AddIcon />} />
-        <IconButton disabled onClick={() => console.log('Delete')} label="Delete" icon={<DeleteIcon />} />
-        <IconButton disabled onClick={() => console.log('Publish')} label="Publish" icon={<PublishIcon />} />
+        <IconButton disabled onClick={() => console.log('edit')} label="Edit" icon={<Pencil />} />
+        <IconButton disabled onClick={() => console.log('Create')} label="Create" icon={<Plus />} />
+        <IconButton disabled onClick={() => console.log('Delete')} label="Delete" icon={<Trash />} />
+        <IconButton disabled onClick={() => console.log('Publish')} label="Publish" icon={<Play />} />
       </Flex>
     </Box>
   </Story>
@@ -78,7 +78,7 @@ An Icon button without the tooltip. It can be interesting to rely on this compon
 <Canvas>
   <Story name="without tooltip">
     <Box padding={7}>
-      <IconButton onClick={() => console.log('edit')} aria-label="Edit" icon={<EditIcon />} />
+      <IconButton onClick={() => console.log('edit')} aria-label="Edit" icon={<Pencil />} />
     </Box>
   </Story>
 </Canvas>
@@ -91,10 +91,10 @@ IconButtons can be used within another component is a Group shape.
   <Story name="group">
     <Box padding={7}>
       <IconButtonGroup>
-        <IconButton onClick={() => console.log('edit')} label="Edit" icon={<EditIcon />} />
-        <IconButton onClick={() => console.log('Create')} label="Create" icon={<AddIcon />} />
-        <IconButton onClick={() => console.log('Delete')} label="Delete" icon={<DeleteIcon />} />
-        <IconButton onClick={() => console.log('Publish')} label="Publish" icon={<PublishIcon />} />
+        <IconButton onClick={() => console.log('edit')} label="Edit" icon={<Pencil />} />
+        <IconButton onClick={() => console.log('Create')} label="Create" icon={<Plus />} />
+        <IconButton onClick={() => console.log('Delete')} label="Delete" icon={<Trash />} />
+        <IconButton onClick={() => console.log('Publish')} label="Publish" icon={<Play />} />
       </IconButtonGroup>
     </Box>
   </Story>

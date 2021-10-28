@@ -3,11 +3,11 @@
 import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { ArgsTable } from '@storybook/addon-docs';
-import Applications from '@strapi/icons/Applications';
-import AddIcon from '@strapi/icons/AddIcon';
-import ApiTokens from '@strapi/icons/ApiTokens';
-import AlertWarningIcon from '@strapi/icons/AlertWarningIcon';
-import AlertInfoIcon from '@strapi/icons/AlertInfoIcon';
+import Apps from '@strapi/icons/Apps';
+import Plus from '@strapi/icons/Plus';
+import Key from '@strapi/icons/Key';
+import ExclamationMarkCircle from '@strapi/icons/ExclamationMarkCircle';
+import Information from '@strapi/icons/Information';
 import { MemoryRouter } from 'react-router-dom';
 import { SubNav } from './SubNav';
 import { SubNavHeader } from './SubNavHeader';
@@ -49,11 +49,11 @@ Related pages are gathered under specific headers within the Sub Navigation. The
 ## Imports
 
 ```js
-import Applications from '@strapi/icons/Applications';
-import AddIcon from '@strapi/icons/AddIcon';
-import ApiTokens from '@strapi/icons/ApiTokens';
-import AlertWarningIcon from '@strapi/icons/AlertWarningIcon';
-import AlertInfoIcon from '@strapi/icons/AlertInfoIcon';
+import Apps from '@strapi/icons/Apps';
+import Plus from '@strapi/icons/Plus';
+import Key from '@strapi/icons/Key';
+import ExclamationMarkCircle from '@strapi/icons/ExclamationMarkCircle';
+import Information from '@strapi/icons/Information';
 import { MemoryRouter } from 'react-router-dom';
 import {
   SubNav,
@@ -79,7 +79,7 @@ import { TextButton } from '@strapi/design-system/TextButton';
         {
           id: 1,
           label: 'Addresses',
-          icon: <AlertWarningIcon />,
+          icon: <ExclamationMarkCircle />,
           to: '/address',
         },
         {
@@ -90,7 +90,7 @@ import { TextButton } from '@strapi/design-system/TextButton';
         {
           id: 3,
           label: 'Cities',
-          icon: <Applications />,
+          icon: <Apps />,
           to: '/city',
           active: true,
         },
@@ -121,7 +121,7 @@ import { TextButton } from '@strapi/design-system/TextButton';
                   ))}
                 </SubNavSection>
                 <Box as="li" paddingLeft={7}>
-                  <TextButton startIcon={<AddIcon />}>Click on me</TextButton>
+                  <TextButton startIcon={<Plus />}>Click on me</TextButton>
                 </Box>
                 <SubNavSection label="Single Type" collapsable badgeLabel={links.length.toString()}>
                   <SubNavLinkSection label="Default">
@@ -133,7 +133,7 @@ import { TextButton } from '@strapi/design-system/TextButton';
                   </SubNavLinkSection>
                 </SubNavSection>
                 <Box as="li" paddingLeft={7}>
-                  <TextButton startIcon={<AddIcon />}>Click on me</TextButton>
+                  <TextButton startIcon={<Plus />}>Click on me</TextButton>
                 </Box>
               </SubNavSections>
             </SubNav>
@@ -142,7 +142,7 @@ import { TextButton } from '@strapi/design-system/TextButton';
             <SubNav ariaLabel="Settings sub nav">
               <SubNavHeader label="Settings" />
               <SubNavSections>
-                <SubNavLink to="/blabla" withBullet icon={<Applications />} className="active">
+                <SubNavLink to="/blabla" withBullet icon={<Apps />} className="active">
                   Application
                 </SubNavLink>
                 <SubNavSection label="Global Settings">
@@ -172,7 +172,7 @@ import { TextButton } from '@strapi/design-system/TextButton';
             <SubNav ariaLabel="Mixed sub nav">
               <SubNavHeader label="Mixed" />
               <SubNavSections>
-                <SubNavLink to="/blabla" withBullet icon={<Applications />}>
+                <SubNavLink to="/blabla" withBullet icon={<Apps />}>
                   Application
                 </SubNavLink>
                 <SubNavSection label="Global Settings">

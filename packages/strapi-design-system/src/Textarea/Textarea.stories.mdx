@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { ArgsTable } from '@storybook/addon-docs';
-import HelpIcon from '@strapi/icons/HelpIcon';
+import Information from '@strapi/icons/Information';
 import { Textarea } from './Textarea';
 import { Tooltip } from '../Tooltip';
 import { Box } from '../Box';
@@ -24,13 +24,12 @@ TextAreas are inputs that allow users to add or edit text. They support long tex
 - The error message will replace the description line. The two of them cannot be on top of each other.
 - The error message can be customized, make sure to write actionable information within it to help resolve an issue.
 
-
 [View source](https://github.com/strapi/design-system/tree/develop/packages/strapi-design-system/src/Textarea)
 
 ## Imports
 
 ```js
-import HelpIcon from '@strapi/icons/HelpIcon';
+import Information from '@strapi/icons/Information';
 import { Textarea } from '@strapi/design-system/Textarea';
 import { Tooltip } from '@strapi/design-system/Tooltip';
 import { Box } from '@strapi/design-system/Box';
@@ -57,7 +56,7 @@ import { Box } from '@strapi/design-system/Box';
                   aria-label="Information about the email"
                   style={{ border: 'none', padding: 0, background: 'transparent' }}
                 >
-                  <HelpIcon aria-hidden={true} />
+                  <Information aria-hidden={true} />
                 </button>
               </Tooltip>
             }

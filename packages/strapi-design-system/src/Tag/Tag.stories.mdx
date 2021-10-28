@@ -2,32 +2,29 @@
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { ArgsTable } from '@storybook/addon-docs';
-import HelpIcon from '@strapi/icons/HelpIcon';
+import Information from '@strapi/icons/Information';
 import { Tag } from './Tag';
 
-<Meta
-  title="Design System/Components/Tag"
-  component={Tag}
-/>
+<Meta title="Design System/Components/Tag" component={Tag} />
 
 # Tag
 
 Tags are used to give a quick information about a performed action. Tags can be added or removed from a page or another component. They are also used as a filter.
 
 **Best practices**
+
 - Tags text should be concise and easily scannable.
 - Tags text should be explicit and indicate its purpose.
 - Tags should be very close to or within the performed action.
 - Use Badge component if the information given is not related to a performed action.
-[View source](https://github.com/strapi/design-system/tree/develop/packages/strapi-design-system/src/Tag)
+  [View source](https://github.com/strapi/design-system/tree/develop/packages/strapi-design-system/src/Tag)
 
 ## Imports
 
 ```js
 import { Tag } from '@strapi/design-system/Tag';
-import HelpIcon from '@strapi/icons/HelpIcon';
+import Information from '@strapi/icons/Information';
 ```
-
 
 ## Usage
 
@@ -35,10 +32,9 @@ Tags are related to a performed action. They should be very close by the action'
 
 <Canvas>
   <Story name="base">
-    <Tag icon={<HelpIcon aria-hidden={true} />}>Hello world</Tag>
+    <Tag icon={<Information aria-hidden={true} />}>Hello world</Tag>
   </Story>
 </Canvas>
-
 
 ## Props
 
