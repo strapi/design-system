@@ -167,6 +167,10 @@ const GlobalStyle = createGlobalStyle`
     font: inherit;
   }
 
+  textarea {
+    font: inherit;
+  }
+
   .lock-body-scroll {
     height: 100vh;
     overflow-y: hidden;
