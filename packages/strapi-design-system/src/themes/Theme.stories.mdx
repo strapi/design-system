@@ -1,0 +1,182 @@
+<!--- TimePicker.stories.mdx --->
+
+import { useState } from 'react';
+import * as Icons from '@strapi/icons';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { Box } from '../Box';
+import { Flex } from '../Flex';
+import { Text } from '../Text';
+import { Grid, GridItem } from '../Grid';
+import { useTheme } from '../ThemeProvider';
+import { Stack } from '../Stack';
+import { Searchbar, SearchForm } from '../Searchbar';
+import { Icon } from '../Icon';
+
+<Meta title="Design System/Components/LightTheme" component={Box} />
+
+# LightTheme
+
+This is the doc of the `Theme` component
+
+## Colors
+
+Description...
+
+<Canvas>
+  <Story name="colors">
+    {() => {
+      const theme = useTheme();
+      /* Excluding warning since they don't have enough contrast on for neutral900 and neutral0 */
+      const colorsKey = Object.keys(theme.colors).filter((color) => !color.includes('warning'));
+      const colors = [];
+      let ruptureKey;
+      for (const colorKey of colorsKey) {
+        const prefix = colorKey.substr(0, 2);
+        if (ruptureKey !== prefix) {
+          colors.push([]);
+          ruptureKey = prefix;
+        }
+        colors[colors.length - 1].push(colorKey);
+      }
+      return (
+        <Box>
+          <Grid>
+            {colors.map((colorGroup, idx) => (
+              <GridItem key={`color-group-${idx}`} padding={4}>
+                <Stack size={2}>
+                  {colorGroup.map((color) => (
+                    <Box
+                      key={color}
+                      padding={3}
+                      background={color}
+                      color={['600', '700', '800', '900'].some((v) => color.includes(v)) ? 'neutral0' : 'neutral900'}
+                    >
+                      {color}
+                    </Box>
+                  ))}
+                </Stack>
+              </GridItem>
+            ))}
+          </Grid>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Shadows
+
+Description...
+
+<Canvas>
+  <Story name="shadows">
+    {() => {
+      const theme = useTheme();
+      const shadows = Object.keys(theme.shadows);
+      return (
+        <Box padding={8} background="neutral100">
+          <Grid gap={4}>
+            {shadows.map((shadow) => (
+              <GridItem padding={8} shadow={shadow} background="neutral0" col={3} key={shadow}>
+                {shadow}
+              </GridItem>
+            ))}
+          </Grid>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Spaces
+
+Description...
+
+<Canvas>
+  <Story name="spaces">
+    {() => {
+      const theme = useTheme();
+      const spaces = Object.keys(theme.spaces);
+      return (
+        <Box padding={8} background="neutral100">
+          <Stack size={1}>
+            {spaces.map((space) => (
+              <Flex key={`space-${space}`}>
+                <Box paddingLeft={2}>
+                  <Text>{space}</Text> <Text small>({theme.spaces[space]})</Text>
+                </Box>
+              </Flex>
+            ))}
+          </Stack>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Icons
+
+Description...
+
+<Canvas>
+  <Story
+    name="icons"
+    parameters={{
+      storyshots: { disable: true },
+    }}
+  >
+    {() => {
+      const [value, setValue] = useState('');
+      const iconsArray = Object.keys(Icons).filter((icon) => {
+        if (!value) {
+          return true;
+        }
+        return icon.toLowerCase().includes(value.toLowerCase());
+      });
+      return (
+        <Box>
+          <Box paddingBottom={8}>
+            <SearchForm>
+              <Searchbar
+                name="searchbar"
+                onClear={() => setValue('')}
+                value={value}
+                onChange={(e) => setValue(e.target.value)}
+                clearLabel="Clearing the asset search"
+                placeholder="e.g: AddAsset"
+              >
+                Search for an icon
+              </Searchbar>
+            </SearchForm>
+          </Box>
+          <Box padding={8} background="neutral100">
+            <Grid gap={2}>
+              {iconsArray.map((icon) => {
+                const RealIcon = Icons[icon];
+                return (
+                  <GridItem padding={2} col={2} key={icon} background={'neutral0'}>
+                    <Box>
+                      <Icon
+                        aria-hidden={true}
+                        colors={(theme) => ({
+                          rect: {
+                            fill: theme.colors.danger600,
+                          },
+                        })}
+                        as={RealIcon}
+                        fontSize={5}
+                      />
+                    </Box>
+                    <Box>
+                      <Text bold>{icon}</Text>
+                    </Box>
+                  </GridItem>
+                );
+              })}
+            </Grid>
+          </Box>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>

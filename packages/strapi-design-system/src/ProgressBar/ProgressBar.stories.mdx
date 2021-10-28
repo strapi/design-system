@@ -1,0 +1,50 @@
+<!--- ProgressBar.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
+import { ProgressBar } from './ProgressBar';
+
+<Meta
+  title="Design System/Components/ProgressBar"
+  component={ProgressBar}
+/>
+
+# ProgressBar
+
+This is the doc of the `ProgressBar` component
+
+[View source](https://github.com/strapi/design-system/tree/develop/packages/strapi-design-system/src/ProgressBar)
+
+## Imports
+
+```js
+import { ProgressBar } from '@strapi/design-system/ProgressBar';
+```
+
+## Usage
+
+### ProgressBar M
+
+Default "M" progressbar
+
+<Canvas>
+  <Story name="M">
+    <ProgressBar value={33}>33/100 plugins loaded</ProgressBar>
+  </Story>
+</Canvas>
+
+### ProgressBar S
+
+The "S" progressbar
+
+<Canvas>
+  <Story name="S">
+    <ProgressBar value={100} size="S">
+      100/200 plugins loaded
+    </ProgressBar>
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={ProgressBar} />

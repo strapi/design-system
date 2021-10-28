@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Applications, AlertWarningIcon } from "@strapi/icons";
+import { Apps as Applications ,ExclamationMarkCircle as AlertWarningIcon } from "@strapi/icons";
 import {
   SubNavLink,
   SubNav,
   SubNavHeader,
   SubNavSection,
   SubNavSections,
-} from "@strapi/parts";
+} from "@strapi/design-system";
 
 export const SettingsNav = () => {
   const [search, setSearch] = useState("");

@@ -1,9 +1,9 @@
 import React from "react";
-import { Box } from "@strapi/parts/Box";
-import { Stack } from "@strapi/parts/Stack";
-import { Text } from "@strapi/parts/Text";
-import { Row } from "@strapi/parts/Row";
-import { Divider } from "@strapi/parts/Divider";
+import { Box } from "@strapi/design-system/Box";
+import { Stack } from "@strapi/design-system/Stack";
+import { Text } from "@strapi/design-system/Text";
+import { Flex } from "@strapi/design-system/Flex";
+import { Divider } from "@strapi/design-system/Divider";
 
 export const Information = () => {
   return (
@@ -25,21 +25,21 @@ export const Information = () => {
       </Box>
 
       <Stack size={3}>
-        <Row justifyContent="space-between">
+        <Flex justifyContent="space-between">
           <Text textColor="neutral800" bold small>
             Last update
           </Text>
 
           <Text small>3 months ago</Text>
-        </Row>
+        </Flex>
 
-        <Row justifyContent="space-between">
+        <Flex justifyContent="space-between">
           <Text textColor="neutral800" small bold>
             By
           </Text>
 
           <Text small>Kai Doe</Text>
-        </Row>
+        </Flex>
       </Stack>
     </Box>
   );

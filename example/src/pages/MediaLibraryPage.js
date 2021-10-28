@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import AddIcon from "@strapi/icons/AddIcon";
-import SearchIcon from "@strapi/icons/SearchIcon";
-import SettingsIcon from "@strapi/icons/SettingsIcon";
+import AddIcon from "@strapi/icons/Plus";
+import SearchIcon from "@strapi/icons/Search";
+import SettingsIcon from "@strapi/icons/Cog";
 import { AppLayout } from "../layouts/AppLayout";
 import {
   GridLayout,
@@ -13,8 +13,8 @@ import {
   ModalBody,
   ModalFooter,
   ModalHeader,
-} from "@strapi/parts";
-import { ButtonText } from "@strapi/parts/Text";
+} from "@strapi/design-system";
+import { ButtonText } from "@strapi/design-system/Text";
 import { MediaLibraryCard } from "../MediaLibrary/MediaLibraryCard";
 
 function MediaLibraryPage() {

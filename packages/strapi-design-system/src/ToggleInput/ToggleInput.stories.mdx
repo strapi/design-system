@@ -1,0 +1,104 @@
+<!--- ToggleInput.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
+import { ToggleInput } from './ToggleInput';
+import { Tooltip } from '../Tooltip';
+import Information from '@strapi/icons/Information';
+
+<Meta title="Design System/Components/ToggleInput" component={ToggleInput} />
+
+# ToggleInput
+
+This is the doc of the `ToggleInput` component
+
+[View source](https://github.com/strapi/design-system/tree/develop/packages/strapi-design-system/src/ToggleInput)
+
+## Imports
+
+```js
+import { ToggleInput } from '@strapi/design-system/ToggleInput';
+import { Tooltip } from '@strapi/design-system/Tooltip';
+import Information from '@strapi/icons/Information';
+```
+
+## Usage
+
+<Canvas>
+  <Story name="base">
+    <ToggleInput
+      hint="Enable provider"
+      label="Enabled"
+      name="enable-provider"
+      labelAction={
+        <Tooltip description="Content of the tooltip">
+          <button
+            aria-label="Information about the email"
+            style={{ border: 'none', padding: 0, background: 'transparent' }}
+          >
+            <Information aria-hidden={true} />
+          </button>
+        </Tooltip>
+      }
+      onLabel="on"
+      offLabel="off"
+      checked={true}
+      onChange={() => {}}
+    />
+  </Story>
+</Canvas>
+
+### Error handling
+
+<Canvas>
+  <Story name="error">
+    <ToggleInput
+      hint="Enable provider"
+      error="this field is required"
+      label="Label"
+      name="enable-provider"
+      onLabel="on"
+      offLabel="off"
+      checked={false}
+      onChange={() => {}}
+    />
+  </Story>
+</Canvas>
+
+### Size S
+
+<Canvas>
+  <Story name="size S">
+    <ToggleInput
+      size="S"
+      hint="Enable provider"
+      error="this field is required"
+      label="Label"
+      name="enable-provider"
+      onLabel="on"
+      offLabel="off"
+      checked={false}
+      onChange={() => {}}
+    />
+  </Story>
+</Canvas>
+
+### Null value
+
+<Canvas>
+  <Story name="null-value">
+    <ToggleInput
+      hint="Enable provider"
+      label="Label"
+      name="enable-provider"
+      onLabel="on"
+      offLabel="off"
+      checked={null}
+      onChange={() => {}}
+    />
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={ToggleInput} />

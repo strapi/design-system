@@ -12,8 +12,8 @@ import {
   CardBadge,
   CardCheckbox,
   IconButton,
-} from "@strapi/parts";
-import EditIcon from "@strapi/icons/EditIcon";
+} from "@strapi/design-system";
+import EditIcon from "@strapi/icons/Pencil";
 
 const STATIC_IMAGE = `https://c4.wallpaperflare.com/wallpaper/600/28/14/flat-design-illustration-wallpaper-preview.jpg`;
 

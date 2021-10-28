@@ -18,12 +18,12 @@ import {
   VisuallyHidden,
   BaseCheckbox,
   IconButton,
-  Row,
+  Flex,
   Stack,
-} from "@strapi/parts";
-import EditIcon from "@strapi/icons/EditIcon";
-import DeleteIcon from "@strapi/icons/DeleteIcon";
-import AddIcon from "@strapi/icons/AddIcon";
+} from "@strapi/design-system";
+import EditIcon from "@strapi/icons/Pencil";
+import DeleteIcon from "@strapi/icons/Trash";
+import AddIcon from "@strapi/icons/Plus";
 import { Switch, Route } from "react-router-dom";
 import { AppLayout } from "../layouts/AppLayout";
 import { SettingsNav } from "../shared/SettingsNav";

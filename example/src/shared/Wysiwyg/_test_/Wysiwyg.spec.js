@@ -1,6 +1,6 @@
 import * as React from "react";
 import { render, waitFor, fireEvent } from "@testing-library/react";
-import { lightTheme, ThemeProvider } from "@strapi/parts";
+import { lightTheme, ThemeProvider } from "@strapi/design-system";
 import Wysiwyg from "../";
 
 document.createRange = () => {

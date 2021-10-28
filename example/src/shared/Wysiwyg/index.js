@@ -5,8 +5,8 @@ import WysiwygFooter from './WysiwygFooter';
 import WysiwygExpand from './WysiwygExpand';
 import MediaLibrary from './MediaLibrary';
 import Editor from './Editor';
-import { ButtonText, P } from '@strapi/parts/Text';
-import { Box } from '@strapi/parts/Box';
+import { ButtonText, P } from '@strapi/design-system/Text';
+import { Box } from '@strapi/design-system/Box';
 import { WysiwygWrapper } from './WysiwygStyles'
 import { markdownHandler, listHandler, titleHandler, insertImage, quoteAndCodeHandler } from './utils/utils';
 

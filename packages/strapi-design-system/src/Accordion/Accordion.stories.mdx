@@ -1,0 +1,187 @@
+<!--- Accordion.stories.mdx --->
+
+import { useState } from 'react';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
+import Pencil from '@strapi/icons/Pencil';
+import { Accordion } from './Accordion';
+import { AccordionToggle } from './AccordionToggle';
+import { KeyboardNavigable } from '../KeyboardNavigable';
+import { AccordionContent } from './AccordionContent';
+import { Box } from '../Box';
+import { IconButton } from '../IconButton';
+
+<Meta title="Design System/Components/Accordion" component={Accordion} />
+
+# Accordion
+
+Accordions are collapsable blocks that vertically hide a stack of content. Clicking on the block reveals the associated content.
+
+**Best practices**
+
+- Use accordion when you need big and/or related chunks of content to be organized in a same place.
+- Use accordion for lower priority information.
+- Use to shorten pages and increase readability.
+- The chevron icon pointing down indicates a collapsed state and pointing up indicates an expanded state.
+- Hover and active states should be used anytime it's possible.
+- Content should not scroll within an accordion.
+- Use chevron icon on the left side if call-to-actions are available on the right side.
+
+[View source](https://github.com/strapi/design-system/tree/develop/packages/strapi-design-system/src/Accordion)
+
+## Imports
+
+```js
+import { Accordion, AccordionToggle, AccordionContent } from '@strapi/design-system/Accordion';
+import { KeyboardNavigable } from '@strapi/design-system/KeyboardNavigable';
+import { IconButton } from '@strapi/design-system/IconButton';
+import Pencil from '@strapi/icons/Pencil';
+import { Box } from '@strapi/design-system/Box';
+```
+
+## Usage
+
+<Canvas>
+  <Story name="base">
+    {() => {
+      const [expanded, setExpanded] = useState(false);
+      return (
+        <div>
+          <Box padding={8} background="neutral100">
+            <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-1">
+              <AccordionToggle
+                title="User informations"
+                description="The following contains information about the current user"
+              />
+              <AccordionContent>
+                <Box padding={3}>My name is John Duff</Box>
+              </AccordionContent>
+            </Accordion>
+          </Box>
+          <Box padding={8} background="neutral0">
+            <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-2">
+              <AccordionToggle
+                variant="secondary"
+                title="User informations 2"
+                description="The following contains information about the current user 2"
+              />
+              <AccordionContent>
+                <Box padding={3}>My name is John Duff</Box>
+              </AccordionContent>
+            </Accordion>
+          </Box>
+          <Box padding={8} background="neutral100">
+            <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-3">
+              <AccordionToggle
+                togglePosition="left"
+                title="User informations 3"
+                description="The following contains information about the current user 3"
+              />
+              <AccordionContent>
+                <Box padding={3}>My name is John Duff</Box>
+              </AccordionContent>
+            </Accordion>
+          </Box>
+          <Box padding={8} background="neutral0">
+            <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-4">
+              <AccordionToggle
+                variant="secondary"
+                togglePosition="left"
+                title="User informations 4"
+                action={<IconButton onClick={() => console.log('edit')} label="Edit" icon={<Pencil />} />}
+              />
+              <AccordionContent>
+                <Box padding={3}>My name is John Duff</Box>
+              </AccordionContent>
+            </Accordion>
+          </Box>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Accordion keyboard navigable
+
+The accordion component has two main states: collapsed and expanded. By default it has a collapsed state. If Call-to-actions are required, use them on the right side and use chevron icon on the left one.
+
+<Canvas>
+  <Story name="keyboard navigable">
+    {() => {
+      return (
+        <KeyboardNavigable attributeName="data-strapi-accordion-toggle">
+          <Box padding={8} background="neutral100">
+            <Accordion expanded={false} toggle={() => {}} id="acc-1">
+              <AccordionToggle
+                title="User informations"
+                description="The following contains information about the current user"
+              />
+              <AccordionContent>
+                <Box padding={3}>My name is John Duff</Box>
+              </AccordionContent>
+            </Accordion>
+          </Box>
+          <Box padding={8} background="neutral0">
+            <Accordion expanded={false} toggle={() => {}} id="acc-2">
+              <AccordionToggle
+                variant="secondary"
+                title="User informations 2"
+                description="The following contains information about the current user 2"
+              />
+              <AccordionContent>
+                <Box padding={3}>My name is John Duff</Box>
+              </AccordionContent>
+            </Accordion>
+          </Box>
+          <Box padding={8} background="neutral100">
+            <Accordion expanded={false} toggle={() => {}} id="acc-3">
+              <AccordionToggle
+                togglePosition="left"
+                title="User informations 3"
+                description="The following contains information about the current user 3"
+              />
+              <AccordionContent>
+                <Box padding={3}>My name is John Duff</Box>
+              </AccordionContent>
+            </Accordion>
+          </Box>
+          <Box padding={8} background="neutral0">
+            <Accordion expanded={false} toggle={() => {}} id="acc-4">
+              <AccordionToggle
+                variant="secondary"
+                togglePosition="left"
+                title="User informations 4"
+                action={<IconButton onClick={() => console.log('edit')} label="Edit" icon={<Pencil />} />}
+              />
+              <AccordionContent>
+                <Box padding={3}>My name is John Duff</Box>
+              </AccordionContent>
+            </Accordion>
+          </Box>
+        </KeyboardNavigable>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Accordion expanded
+
+The Accordion component can also be open by default using the parameter `expanded={true}`.
+
+<Canvas>
+  <Story name="expanded">
+    <Accordion expanded={true} toggle={() => {}} id="acc-1">
+      <AccordionToggle
+        title="User informations"
+        description="The following contains information about the current user"
+      />
+      <AccordionContent>
+        <Box padding={3}>My name is John Duff</Box>
+      </AccordionContent>
+    </Accordion>
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Accordion} />
