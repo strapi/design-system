@@ -38840,7 +38840,7 @@ exports[`Storyshots Design System/Components/ToggleInput null-value 1`] = `
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.33;
-  color: #b72b1a;
+  color: #666687;
 }
 
 .c13 {
@@ -38985,7 +38985,7 @@ exports[`Storyshots Design System/Components/ToggleInput null-value 1`] = `
             class="c8 c3 c11"
           >
             <span
-              class="c4"
+              class="c10"
             >
               on
             </span>
