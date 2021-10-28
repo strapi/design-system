@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-export const useTabsFocus = (selectedTabIndex) => {
+export const useTabsFocus = (selectedTabIndex, onTabChange) => {
   const tabsRef = useRef(null);
   const mountedRef = useRef(null);
 
@@ -15,6 +15,7 @@ export const useTabsFocus = (selectedTabIndex) => {
 
       if (nextFocusEl) {
         nextFocusEl.focus();
+        onTabChange(selectedTabIndex);
       }
     }
 

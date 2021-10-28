@@ -34418,19 +34418,9 @@ exports[`Storyshots Design System/Components/Tabs disabled 1`] = `
   padding: 16px;
 }
 
-.c11 {
+.c10 {
   background: #ffffff;
   padding: 16px;
-}
-
-.c12 {
-  background: #f0f0ff;
-  padding: 40px;
-}
-
-.c20 {
-  background: #f6f6f9;
-  padding: 12px;
 }
 
 .c5 {
@@ -34444,21 +34434,7 @@ exports[`Storyshots Design System/Components/Tabs disabled 1`] = `
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.43;
-  color: #d02b20;
-}
-
-.c10 {
-  font-weight: 400;
-  font-size: 0.875rem;
-  line-height: 1.43;
   color: #666687;
-}
-
-.c19 {
-  font-weight: 400;
-  font-size: 0.875rem;
-  line-height: 1.43;
-  color: #271fe0;
 }
 
 .c6 {
@@ -34473,67 +34449,12 @@ exports[`Storyshots Design System/Components/Tabs disabled 1`] = `
   text-transform: uppercase;
 }
 
-.c13 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: flex-end;
-  -webkit-box-align: flex-end;
-  -ms-flex-align: flex-end;
-  align-items: flex-end;
-}
-
 .c4 {
   border-bottom: 2px solid #4945ff;
 }
 
 .c8 {
   border-bottom: 2px solid transparent;
-}
-
-.c18 {
-  border-bottom: 1px solid #ffffff;
-}
-
-.c21 {
-  border-bottom: 1px solid #eaeaef;
-}
-
-.c16 {
-  border: none;
-  background: transparent;
-  padding: 0;
-  outline-offset: -2px;
-}
-
-.c15 + .c15 > .c17 {
-  border-left: 1px solid #eaeaef;
-}
-
-.c16[aria-disabled='true'] {
-  cursor: not-allowed;
-}
-
-.c14 > * {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-}
-
-.c14 .c15:first-of-type .c17 {
-  border-radius: 4px 0 0 0;
-}
-
-.c14 .c15:last-of-type .c17 {
-  border-radius: 0 4px 0 0;
-}
-
-.c14 .c15[aria-selected="true"] .c17 {
-  border-radius: 4px 4px 0 0;
 }
 
 .c2[aria-disabled='true'] {
@@ -34558,7 +34479,7 @@ exports[`Storyshots Design System/Components/Tabs disabled 1`] = `
       >
         <button
           aria-controls="tabs-0-tabpanel"
-          aria-disabled="false"
+          aria-disabled="true"
           aria-selected="true"
           class="c2"
           id="tabs-0-tab"
@@ -34608,93 +34529,85 @@ exports[`Storyshots Design System/Components/Tabs disabled 1`] = `
             class="c3 c8"
           >
             <span
-              class="c10 c6 c7"
+              class="c9 c6 c7"
             >
               Third
-            </span>
-          </div>
-        </button>
-      </div>
-      <div>
-        <div
-          aria-labelledby="tabs-0-tab"
-          id="tabs-0-tabpanel"
-          role="tabpanel"
-          tabindex="0"
-        >
-          <div
-            class="c11"
-          >
-            First panel
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="c12"
-  >
-    <div>
-      <div
-        aria-label="Some stuff for the label"
-        class="c13 c14"
-        role="tablist"
-      >
-        <button
-          aria-controls="tabs-0-tabpanel"
-          aria-disabled="false"
-          aria-selected="true"
-          class="c15 c16"
-          id="tabs-0-tab"
-          role="tab"
-          tabindex="0"
-          type="button"
-        >
-          <div
-            class="c17 c11 c18"
-          >
-            <span
-              class="c19 c6"
-            >
-              First
             </span>
           </div>
         </button>
         <button
           aria-disabled="false"
           aria-selected="false"
-          class="c15 c16"
-          id="tabs-1-tab"
+          class="c2"
+          id="tabs-3-tab"
           role="tab"
           tabindex="-1"
           type="button"
         >
           <div
-            class="c17 c20 c21"
+            class="c3 c8"
           >
             <span
-              class="c10 c6"
+              class="c9 c6 c7"
             >
-              Second
+              Fourth
             </span>
           </div>
         </button>
         <button
           aria-disabled="true"
           aria-selected="false"
-          class="c15 c16"
-          id="tabs-2-tab"
+          class="c2"
+          id="tabs-4-tab"
           role="tab"
           tabindex="-1"
           type="button"
         >
           <div
-            class="c17 c20 c21"
+            class="c3 c8"
           >
             <span
-              class="c10 c6"
+              class="c9 c6 c7"
             >
-              Third
+              Fifth
+            </span>
+          </div>
+        </button>
+        <button
+          aria-disabled="false"
+          aria-selected="false"
+          class="c2"
+          id="tabs-5-tab"
+          role="tab"
+          tabindex="-1"
+          type="button"
+        >
+          <div
+            class="c3 c8"
+          >
+            <span
+              class="c9 c6 c7"
+            >
+              Sixth
+            </span>
+          </div>
+        </button>
+        <button
+          aria-disabled="true"
+          aria-selected="false"
+          class="c2"
+          id="tabs-6-tab"
+          role="tab"
+          tabindex="-1"
+          type="button"
+        >
+          <div
+            class="c3 c8"
+          >
+            <span
+              class="c9 c6 c7"
+            >
+              Seventh
             </span>
           </div>
         </button>
@@ -34707,7 +34620,7 @@ exports[`Storyshots Design System/Components/Tabs disabled 1`] = `
           tabindex="0"
         >
           <div
-            class="c11"
+            class="c10"
           >
             First panel
           </div>
