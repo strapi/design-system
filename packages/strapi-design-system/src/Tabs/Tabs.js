@@ -14,8 +14,8 @@ const TabButton = styled.button`
 `;
 
 export const Tabs = ({ children, ...props }) => {
-  const { id, selectedTabIndex, selectTabIndex, label, variant } = useTabs();
-  const tabsRef = useTabsFocus(selectedTabIndex);
+  const { id, selectedTabIndex, selectTabIndex, label, variant, onTabChange } = useTabs();
+  const tabsRef = useTabsFocus(selectedTabIndex, onTabChange);
 
   const childrenArray = Children.toArray(children).map((node, index) =>
     cloneElement(node, {
@@ -29,27 +29,65 @@ export const Tabs = ({ children, ...props }) => {
   const handleKeyDown = (e) => {
     switch (e.key) {
       case KeyboardKeys.RIGHT: {
-        const nextIndex = selectedTabIndex + 1;
-        selectTabIndex(nextIndex >= childrenArray.length ? 0 : nextIndex);
+        const nextWantedIndex = selectedTabIndex + 1;
+        const findNextIndex = (ref) => {
+          const isDisabled = childrenArray[ref].props.disabled;
+
+          if (!isDisabled) {
+            return ref;
+          }
+
+          if (ref === childrenArray.length - 1) {
+            return findNextIndex(0);
+          }
+
+          return findNextIndex(ref + 1);
+        };
+
+        const nextIndex = findNextIndex(nextWantedIndex >= childrenArray.length ? 0 : nextWantedIndex);
+
+        selectTabIndex(nextIndex);
 
         break;
       }
 
       case KeyboardKeys.LEFT: {
-        const nextIndex = selectedTabIndex - 1;
-        selectTabIndex(nextIndex < 0 ? childrenArray.length - 1 : nextIndex);
+        const nextWantedIndex = selectedTabIndex - 1;
+        const findNextIndex = (ref) => {
+          const isDisabled = childrenArray[ref].props.disabled;
+
+          if (!isDisabled) {
+            return ref;
+          }
+
+          if (ref === 0) {
+            return findNextIndex(childrenArray.length - 1);
+          }
+
+          return findNextIndex(ref - 1);
+        };
+        const nextIndex = findNextIndex(nextWantedIndex < 0 ? childrenArray.length - 1 : nextWantedIndex);
+
+        selectTabIndex(nextIndex);
 
         break;
       }
 
       case KeyboardKeys.HOME: {
-        selectTabIndex(0);
+        const nextIndex = childrenArray.findIndex((node) => !node.props.disabled);
+
+        selectTabIndex(nextIndex);
 
         break;
       }
 
       case KeyboardKeys.END: {
-        selectTabIndex(childrenArray.length - 1);
+        const arrayOfChildrenProps = childrenArray.map((node, index) => ({ isDisabled: node.props.disabled, index }));
+        const firstNonDisabledChildren = arrayOfChildrenProps.reverse().find(({ isDisabled }) => !isDisabled);
+
+        if (firstNonDisabledChildren) {
+          selectTabIndex(firstNonDisabledChildren.index);
+        }
 
         break;
       }
@@ -85,7 +123,7 @@ Tabs.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export const Tab = ({ disabled, selected, id, children, variant, hasError, onClick, onTabClick, ...props }) => {
+export const Tab = ({ disabled, selected, id, children, variant, hasError, onTabClick, ...props }) => {
   const tabId = `${id}-tab`;
   const tabPanelId = `${id}-tabpanel`;
 
@@ -95,10 +133,6 @@ export const Tab = ({ disabled, selected, id, children, variant, hasError, onCli
     }
 
     onTabClick(e);
-
-    if (onClick) {
-      onClick(e);
-    }
   };
 
   if (variant === 'simple') {
@@ -160,7 +194,6 @@ Tab.defaultProps = {
   disabled: false,
   selected: false,
   id: undefined,
-  onClick: undefined,
   onTabClick: undefined,
   variant: undefined,
   hasError: false,
@@ -171,7 +204,7 @@ Tab.propTypes = {
   disabled: PropTypes.bool,
   hasError: PropTypes.bool,
   id: PropTypes.string,
-  onClick: PropTypes.func,
+
   onTabClick: PropTypes.func,
   selected: PropTypes.bool,
   variant: PropTypes.oneOf(['simple']),

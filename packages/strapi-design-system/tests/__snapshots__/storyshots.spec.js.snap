@@ -34558,7 +34558,7 @@ exports[`Storyshots Design System/Components/Tabs disabled 1`] = `
       >
         <button
           aria-controls="tabs-0-tabpanel"
-          aria-disabled="false"
+          aria-disabled="true"
           aria-selected="true"
           class="c2"
           id="tabs-0-tab"
@@ -34611,6 +34611,44 @@ exports[`Storyshots Design System/Components/Tabs disabled 1`] = `
               class="c10 c6 c7"
             >
               Third
+            </span>
+          </div>
+        </button>
+        <button
+          aria-disabled="false"
+          aria-selected="false"
+          class="c2"
+          id="tabs-3-tab"
+          role="tab"
+          tabindex="-1"
+          type="button"
+        >
+          <div
+            class="c3 c8"
+          >
+            <span
+              class="c10 c6 c7"
+            >
+              Fourth
+            </span>
+          </div>
+        </button>
+        <button
+          aria-disabled="true"
+          aria-selected="false"
+          class="c2"
+          id="tabs-4-tab"
+          role="tab"
+          tabindex="-1"
+          type="button"
+        >
+          <div
+            class="c3 c8"
+          >
+            <span
+              class="c10 c6 c7"
+            >
+              Fifth
             </span>
           </div>
         </button>
