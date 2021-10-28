@@ -27,6 +27,12 @@ export const Tabs = ({ children, ...props }) => {
   );
 
   const handleKeyDown = (e) => {
+    const hasAllChildrenDisabled = childrenArray.every((node) => node.props.disabled);
+
+    if (hasAllChildrenDisabled) {
+      return;
+    }
+
     switch (e.key) {
       case KeyboardKeys.RIGHT: {
         const nextWantedIndex = selectedTabIndex + 1;
