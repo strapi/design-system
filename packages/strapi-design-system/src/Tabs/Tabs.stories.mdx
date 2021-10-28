@@ -115,10 +115,12 @@ Disabled Tabs are used in modals.
       <TabGroup label="Some stuff for the label" id="tabs" variant="simple">
         <Tabs>
           <Tab disabled>First</Tab>
-          <Tab hasError>Second</Tab>
+          <Tab>Second</Tab>
           <Tab disabled>Third</Tab>
           <Tab>Fourth</Tab>
           <Tab disabled>Fifth</Tab>
+          <Tab>Sixth</Tab>
+          <Tab disabled>Seventh</Tab>
         </Tabs>
         <TabPanels>
           <TabPanel>
@@ -146,30 +148,14 @@ Disabled Tabs are used in modals.
               Fifth panel
             </Box>
           </TabPanel>
-        </TabPanels>
-      </TabGroup>
-    </Box>
-    <Box padding={8} background="primary100">
-      <TabGroup label="Some stuff for the label" id="tabs">
-        <Tabs>
-          <Tab onClick={() => console.log('click')}>First</Tab>
-          <Tab>Second</Tab>
-          <Tab disabled>Third</Tab>
-        </Tabs>
-        <TabPanels>
           <TabPanel>
             <Box padding={4} background="neutral0">
-              First panel
+              Sixth panel
             </Box>
           </TabPanel>
           <TabPanel>
             <Box padding={4} background="neutral0">
-              Second panel
-            </Box>
-          </TabPanel>
-          <TabPanel>
-            <Box padding={4} background="neutral0">
-              Third panel
+              Seventh panel
             </Box>
           </TabPanel>
         </TabPanels>
