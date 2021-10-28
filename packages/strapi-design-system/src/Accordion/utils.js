@@ -1,11 +1,15 @@
 export const getBackground = ({ expanded, disabled, variant }) => {
-  const boxBackground = expanded
-    ? 'primary100'
-    : disabled
-    ? 'neutral150'
-    : variant === 'primary'
-    ? 'neutral0'
-    : 'neutral100';
+  let boxBackground;
+
+  if (expanded) {
+    boxBackground = 'primary100';
+  } else if (disabled) {
+    boxBackground = 'neutral150';
+  } else if (variant === 'primary') {
+    boxBackground = 'neutral0';
+  } else {
+    boxBackground = 'neutral100';
+  }
 
   return boxBackground;
 };
