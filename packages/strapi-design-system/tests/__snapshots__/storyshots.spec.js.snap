@@ -21781,6 +21781,12 @@ exports[`Storyshots Design System/Components/MainNav base 1`] = `
   padding-left: 20px;
 }
 
+.c30 {
+  color: #666687;
+  width: 0.375rem;
+  height: 0.375rem;
+}
+
 .c8 {
   font-weight: 400;
   font-size: 0.875rem;
@@ -21896,6 +21902,10 @@ exports[`Storyshots Design System/Components/MainNav base 1`] = `
   height: 26px;
 }
 
+.c31 path {
+  fill: #666687;
+}
+
 .c13 {
   height: 1px;
   border: none;
@@ -21935,11 +21945,6 @@ exports[`Storyshots Design System/Components/MainNav base 1`] = `
   z-index: 2;
   width: 1.125rem;
   height: 1.5625rem;
-}
-
-.c29 svg {
-  width: 0.375rem;
-  height: 0.5625rem;
 }
 
 .c20 svg {
@@ -22437,10 +22442,11 @@ exports[`Storyshots Design System/Components/MainNav base 1`] = `
       >
         <svg
           aria-hidden="true"
+          class="c30 c31"
           fill="none"
-          height="1em"
+          height="0.375rem"
           viewBox="0 0 10 16"
-          width="1em"
+          width="0.375rem"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -22523,6 +22529,12 @@ exports[`Storyshots Design System/Components/MainNav notifications 1`] = `
   padding-right: 20px;
   padding-bottom: 12px;
   padding-left: 20px;
+}
+
+.c34 {
+  color: #666687;
+  width: 0.375rem;
+  height: 0.375rem;
 }
 
 .c32 {
@@ -22668,6 +22680,10 @@ exports[`Storyshots Design System/Components/MainNav notifications 1`] = `
   display: inline-block;
 }
 
+.c35 path {
+  fill: #666687;
+}
+
 .c13 {
   height: 1px;
   border: none;
@@ -22707,11 +22723,6 @@ exports[`Storyshots Design System/Components/MainNav notifications 1`] = `
   z-index: 2;
   width: 1.125rem;
   height: 1.5625rem;
-}
-
-.c33 svg {
-  width: 0.375rem;
-  height: 0.5625rem;
 }
 
 .c20 svg {
@@ -23249,10 +23260,11 @@ exports[`Storyshots Design System/Components/MainNav notifications 1`] = `
       >
         <svg
           aria-hidden="true"
+          class="c34 c35"
           fill="none"
-          height="1em"
+          height="0.375rem"
           viewBox="0 0 10 16"
-          width="1em"
+          width="0.375rem"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
