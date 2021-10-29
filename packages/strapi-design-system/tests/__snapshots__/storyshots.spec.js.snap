@@ -23467,7 +23467,11 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
   padding-left: 8px;
 }
 
-.c13 {
+.c11 {
+  color: #8e8ea9;
+}
+
+.c15 {
   background: #f6f6f9;
   padding: 16px;
 }
@@ -23479,7 +23483,7 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
   color: #32324d;
 }
 
-.c12 {
+.c14 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
@@ -23535,6 +23539,10 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
 
 .c2 > * + * {
   margin-top: 4px;
+}
+
+.c12 path {
+  fill: #8e8ea9;
 }
 
 .c8 {
@@ -23620,7 +23628,7 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
   transform: rotateX(180deg);
 }
 
-.c11 {
+.c13 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -23635,7 +23643,7 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
   transform: translateY(2px);
 }
 
-.c11 svg {
+.c13 svg {
   display: block;
   height: 0.25rem;
 }
@@ -23715,6 +23723,7 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
               type="button"
             >
               <svg
+                class="c11 c12"
                 fill="none"
                 height="1em"
                 viewBox="0 0 14 8"
@@ -23731,11 +23740,12 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
             </button>
             <button
               aria-hidden="true"
-              class="c11"
+              class="c13"
               tabindex="-1"
               type="button"
             >
               <svg
+                class="c11 c12"
                 fill="none"
                 height="1em"
                 viewBox="0 0 14 8"
@@ -23753,7 +23763,7 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
           </div>
         </div>
         <p
-          class="c12"
+          class="c14"
           id="numberinput-92-hint"
         >
           Description line
@@ -23761,7 +23771,7 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
       </div>
     </div>
     <p
-      class="c13"
+      class="c15"
     >
       The value is undefined
     </p>
@@ -23798,7 +23808,11 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
   padding-left: 8px;
 }
 
-.c13 {
+.c11 {
+  color: #8e8ea9;
+}
+
+.c15 {
   background: #f6f6f9;
   padding: 16px;
 }
@@ -23810,7 +23824,7 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
   color: #32324d;
 }
 
-.c12 {
+.c14 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
@@ -23866,6 +23880,10 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
 
 .c2 > * + * {
   margin-top: 4px;
+}
+
+.c12 path {
+  fill: #8e8ea9;
 }
 
 .c8 {
@@ -23951,7 +23969,7 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
   transform: rotateX(180deg);
 }
 
-.c11 {
+.c13 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -23966,7 +23984,7 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
   transform: translateY(2px);
 }
 
-.c11 svg {
+.c13 svg {
   display: block;
   height: 0.25rem;
 }
@@ -24046,6 +24064,7 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
               type="button"
             >
               <svg
+                class="c11 c12"
                 fill="none"
                 height="1em"
                 viewBox="0 0 14 8"
@@ -24062,11 +24081,12 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
             </button>
             <button
               aria-hidden="true"
-              class="c11"
+              class="c13"
               tabindex="-1"
               type="button"
             >
               <svg
+                class="c11 c12"
                 fill="none"
                 height="1em"
                 viewBox="0 0 14 8"
@@ -24084,7 +24104,7 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
           </div>
         </div>
         <p
-          class="c12"
+          class="c14"
           id="numberinput-96-hint"
         >
           Description line
@@ -24092,7 +24112,7 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
       </div>
     </div>
     <p
-      class="c13"
+      class="c15"
     >
       The value is undefined
     </p>
@@ -24125,12 +24145,16 @@ exports[`Storyshots Design System/Components/NumberInput withoutLabel 1`] = `
   padding-left: 8px;
 }
 
-.c10 {
+.c8 {
+  color: #8e8ea9;
+}
+
+.c12 {
   background: #f6f6f9;
   padding: 16px;
 }
 
-.c9 {
+.c11 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
@@ -24172,6 +24196,10 @@ exports[`Storyshots Design System/Components/NumberInput withoutLabel 1`] = `
 
 .c2 > * + * {
   margin-top: 4px;
+}
+
+.c9 path {
+  fill: #8e8ea9;
 }
 
 .c5 {
@@ -24257,7 +24285,7 @@ exports[`Storyshots Design System/Components/NumberInput withoutLabel 1`] = `
   transform: rotateX(180deg);
 }
 
-.c8 {
+.c10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -24272,7 +24300,7 @@ exports[`Storyshots Design System/Components/NumberInput withoutLabel 1`] = `
   transform: translateY(2px);
 }
 
-.c8 svg {
+.c10 svg {
   display: block;
   height: 0.25rem;
 }
@@ -24317,6 +24345,7 @@ exports[`Storyshots Design System/Components/NumberInput withoutLabel 1`] = `
               type="button"
             >
               <svg
+                class="c8 c9"
                 fill="none"
                 height="1em"
                 viewBox="0 0 14 8"
@@ -24333,11 +24362,12 @@ exports[`Storyshots Design System/Components/NumberInput withoutLabel 1`] = `
             </button>
             <button
               aria-hidden="true"
-              class="c8"
+              class="c10"
               tabindex="-1"
               type="button"
             >
               <svg
+                class="c8 c9"
                 fill="none"
                 height="1em"
                 viewBox="0 0 14 8"
@@ -24355,7 +24385,7 @@ exports[`Storyshots Design System/Components/NumberInput withoutLabel 1`] = `
           </div>
         </div>
         <p
-          class="c9"
+          class="c11"
           id="numberinput-95-hint"
         >
           Description line
@@ -24363,7 +24393,7 @@ exports[`Storyshots Design System/Components/NumberInput withoutLabel 1`] = `
       </div>
     </div>
     <p
-      class="c10"
+      class="c12"
     >
       The value is undefined
     </p>
