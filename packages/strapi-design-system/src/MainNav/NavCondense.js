@@ -21,6 +21,11 @@ const NavCondenseWrapper = styled.button`
   z-index: 2;
   width: ${18 / 16}rem;
   height: ${25 / 16}rem;
+
+  svg {
+    width: ${6 / 16}rem;
+    height: ${9 / 16}rem;
+  }
 `;
 
 export const NavCondense = ({ children, ...props }) => {
@@ -28,13 +33,7 @@ export const NavCondense = ({ children, ...props }) => {
 
   return (
     <NavCondenseWrapper as="button" condensed={condensed} {...props}>
-      <Icon
-        as={condensed ? ChevronRight : ChevronLeft}
-        aria-hidden
-        width={`${6 / 16}rem`}
-        height={`${6 / 16}rem`}
-        color="neutral600"
-      />
+      <Icon as={condensed ? ChevronRight : ChevronLeft} aria-hidden color="neutral600" />
       <VisuallyHidden>{children}</VisuallyHidden>
     </NavCondenseWrapper>
   );
