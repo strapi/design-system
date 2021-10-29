@@ -45,12 +45,6 @@ const AccordionWrapper = styled(Box)`
     [data-strapi-dropdown='true'] {
       background: ${({ theme }) => theme.colors.primary200};
     }
-
-    svg {
-      path {
-        fill: ${({ theme }) => theme.colors.primary600};
-      }
-    }
   }
 `;
 
