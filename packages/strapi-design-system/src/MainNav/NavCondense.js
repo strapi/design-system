@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import ChevronRight from '@strapi/icons/ChevronRight';
 import ChevronLeft from '@strapi/icons/ChevronLeft';
+import { Icon } from '../Icon';
 import { VisuallyHidden } from '../VisuallyHidden';
 import { useMainNav } from './MainNavContext';
 
@@ -20,11 +21,6 @@ const NavCondenseWrapper = styled.button`
   z-index: 2;
   width: ${18 / 16}rem;
   height: ${25 / 16}rem;
-
-  svg {
-    width: ${6 / 16}rem;
-    height: ${9 / 16}rem;
-  }
 `;
 
 export const NavCondense = ({ children, ...props }) => {
@@ -32,7 +28,13 @@ export const NavCondense = ({ children, ...props }) => {
 
   return (
     <NavCondenseWrapper as="button" condensed={condensed} {...props}>
-      {condensed ? <ChevronRight aria-hidden /> : <ChevronLeft aria-hidden />}
+      <Icon
+        as={condensed ? ChevronRight : ChevronLeft}
+        aria-hidden
+        width={`${6 / 16}rem`}
+        height={`${6 / 16}rem`}
+        color="neutral600"
+      />
       <VisuallyHidden>{children}</VisuallyHidden>
     </NavCondenseWrapper>
   );
