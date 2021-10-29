@@ -40,7 +40,11 @@ export const SubNavSection = ({ collapsable, label, badgeLabel, children, id }) 
             collapsable={collapsable}
             label={label}
           />
-          {badgeLabel && <SubNavSectionBadge backgroundColor="neutral150">{badgeLabel}</SubNavSectionBadge>}
+          {badgeLabel && (
+            <SubNavSectionBadge backgroundColor="neutral150" textColor="neutral600">
+              {badgeLabel}
+            </SubNavSectionBadge>
+          )}
         </Flex>
       </SubNavSectionWrapper>
       {(!collapsable || isOpen) && <ul id={listId}>{children}</ul>}
