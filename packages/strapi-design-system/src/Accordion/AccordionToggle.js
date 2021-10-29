@@ -25,6 +25,14 @@ const ToggleButton = styled(TextButton)`
 
 const FlexWithSize = styled(Flex)`
   height: ${({ theme, size }) => theme.sizes.accordions[size]};
+
+  &:hover {
+    svg {
+      path {
+        fill: ${({ theme }) => theme.colors.primary600};
+      }
+    }
+  }
 `;
 
 export const AccordionToggle = ({ title, description, as, togglePosition, action, ...props }) => {
