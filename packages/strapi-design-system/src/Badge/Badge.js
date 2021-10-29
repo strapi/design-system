@@ -10,14 +10,8 @@ const BadgeWrapper = styled(Box)`
 
 export const Badge = ({ active, textColor, backgroundColor, children, ...props }) => {
   return (
-    <BadgeWrapper
-      padding={1}
-      background={active ? 'primary100' : backgroundColor}
-      hasRadius={true}
-      color={active ? 'primary600' : textColor}
-      {...props}
-    >
-      <TableLabel>{children}</TableLabel>
+    <BadgeWrapper padding={1} background={active ? 'primary100' : backgroundColor} hasRadius {...props}>
+      <TableLabel textColor={active ? 'primary600' : textColor}>{children}</TableLabel>
     </BadgeWrapper>
   );
 };

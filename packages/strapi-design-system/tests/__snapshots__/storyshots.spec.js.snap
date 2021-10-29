@@ -1193,14 +1193,12 @@ exports[`Storyshots Design System/Components/Badge base 1`] = `
 
 .c2 {
   background: #f6f6f9;
-  color: #666687;
   padding: 4px;
   border-radius: 4px;
 }
 
 .c7 {
   background: #f0f0ff;
-  color: #4945ff;
   padding: 4px;
   border-radius: 4px;
 }
@@ -1209,7 +1207,14 @@ exports[`Storyshots Design System/Components/Badge base 1`] = `
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.43;
-  color: #32324d;
+  color: #666687;
+}
+
+.c8 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #4945ff;
 }
 
 .c5 {
@@ -1285,7 +1290,7 @@ exports[`Storyshots Design System/Components/Badge base 1`] = `
         class="c7 c3"
       >
         <span
-          class="c4 c5 c6"
+          class="c8 c5 c6"
         >
           Image
         </span>
@@ -3576,7 +3581,6 @@ exports[`Storyshots Design System/Components/Card base 1`] = `
 
 .c20 {
   background: #f6f6f9;
-  color: #666687;
   padding: 4px;
   border-radius: 4px;
 }
@@ -3606,7 +3610,7 @@ exports[`Storyshots Design System/Components/Card base 1`] = `
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.43;
-  color: #32324d;
+  color: #666687;
 }
 
 .c24 {
@@ -4033,7 +4037,6 @@ exports[`Storyshots Design System/Components/Card keyboard navigable 1`] = `
 
 .c10 {
   background: #f6f6f9;
-  color: #666687;
   padding: 4px;
   border-radius: 4px;
 }
@@ -4056,7 +4059,7 @@ exports[`Storyshots Design System/Components/Card keyboard navigable 1`] = `
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.43;
-  color: #32324d;
+  color: #666687;
 }
 
 .c14 {
@@ -4402,7 +4405,6 @@ exports[`Storyshots Design System/Components/Card with asset icon 1`] = `
 
 .c17 {
   background: #f6f6f9;
-  color: #666687;
   padding: 4px;
   border-radius: 4px;
 }
@@ -4432,7 +4434,7 @@ exports[`Storyshots Design System/Components/Card with asset icon 1`] = `
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.43;
-  color: #32324d;
+  color: #666687;
 }
 
 .c21 {
@@ -4748,7 +4750,6 @@ exports[`Storyshots Design System/Components/Card without asset 1`] = `
 
 .c10 {
   background: #f6f6f9;
-  color: #666687;
   padding: 4px;
   border-radius: 4px;
 }
@@ -4771,7 +4772,7 @@ exports[`Storyshots Design System/Components/Card without asset 1`] = `
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.43;
-  color: #32324d;
+  color: #666687;
 }
 
 .c14 {
@@ -4927,7 +4928,6 @@ exports[`Storyshots Design System/Components/Card without asset action 1`] = `
 
 .c17 {
   background: #f6f6f9;
-  color: #666687;
   padding: 4px;
   border-radius: 4px;
 }
@@ -4957,7 +4957,7 @@ exports[`Storyshots Design System/Components/Card without asset action 1`] = `
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.43;
-  color: #32324d;
+  color: #666687;
 }
 
 .c21 {
@@ -5243,7 +5243,6 @@ exports[`Storyshots Design System/Components/Card without asset action nor timer
 
 .c14 {
   background: #f6f6f9;
-  color: #666687;
   padding: 4px;
   border-radius: 4px;
 }
@@ -5266,7 +5265,7 @@ exports[`Storyshots Design System/Components/Card without asset action nor timer
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.43;
-  color: #32324d;
+  color: #666687;
 }
 
 .c18 {
@@ -14515,19 +14514,18 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
 
 .c26 {
   background: #eaeaef;
-  color: #666687;
   padding: 4px;
   border-radius: 4px;
 }
 
-.c30 {
+.c29 {
   background: #f6f6f9;
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 32px;
 }
 
-.c33 {
+.c32 {
   padding-left: 8px;
 }
 
@@ -14627,7 +14625,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
   color: #666687;
 }
 
-.c29 {
+.c33 {
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.43;
@@ -15175,7 +15173,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
   background-color: #dcdce4;
 }
 
-.c31 {
+.c30 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -15193,34 +15191,34 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
   color: #32324d;
 }
 
-.c31 svg > * {
+.c30 svg > * {
   fill: #666687;
 }
 
-.c31.active {
+.c30.active {
   background-color: #f0f0ff;
   border-right: 2px solid #4945ff;
 }
 
-.c31.active svg > * {
+.c30.active svg > * {
   fill: #271fe0;
 }
 
-.c31.active .c21 {
+.c30.active .c21 {
   color: #271fe0;
   font-weight: 500;
 }
 
-.c31:focus-visible {
+.c30:focus-visible {
   outline-offset: -2px;
 }
 
-.c32 {
+.c31 {
   width: 0.75rem;
   height: 0.25rem;
 }
 
-.c32 * {
+.c31 * {
   fill: #666687;
 }
 
@@ -15583,7 +15581,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                     class="c1 c26 c27 c28"
                   >
                     <span
-                      class="c21 c29 c23 c24"
+                      class="c21 c22 c23 c24"
                     >
                       4
                     </span>
@@ -15595,14 +15593,14 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
               >
                 <li>
                   <a
-                    class="c1 c30 c31"
+                    class="c1 c29 c30"
                     href="/address"
                   >
                     <div
                       class="c1 c18"
                     >
                       <svg
-                        class="c32"
+                        class="c31"
                         fill="none"
                         height="1em"
                         viewBox="0 0 4 4"
@@ -15617,10 +15615,10 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         />
                       </svg>
                       <div
-                        class="c1 c33"
+                        class="c1 c32"
                       >
                         <span
-                          class="c21 c29"
+                          class="c21 c33"
                         >
                           Addresses
                         </span>
@@ -15630,14 +15628,14 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                 </li>
                 <li>
                   <a
-                    class="c1 c30 c31"
+                    class="c1 c29 c30"
                     href="/category"
                   >
                     <div
                       class="c1 c18"
                     >
                       <svg
-                        class="c32"
+                        class="c31"
                         fill="none"
                         height="1em"
                         viewBox="0 0 4 4"
@@ -15652,10 +15650,10 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         />
                       </svg>
                       <div
-                        class="c1 c33"
+                        class="c1 c32"
                       >
                         <span
-                          class="c21 c29"
+                          class="c21 c33"
                         >
                           Categories
                         </span>
@@ -15665,14 +15663,14 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                 </li>
                 <li>
                   <a
-                    class="c1 c30 c31"
+                    class="c1 c29 c30"
                     href="/city"
                   >
                     <div
                       class="c1 c18"
                     >
                       <svg
-                        class="c32"
+                        class="c31"
                         fill="none"
                         height="1em"
                         viewBox="0 0 4 4"
@@ -15687,10 +15685,10 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         />
                       </svg>
                       <div
-                        class="c1 c33"
+                        class="c1 c32"
                       >
                         <span
-                          class="c21 c29"
+                          class="c21 c33"
                         >
                           Cities
                         </span>
@@ -15700,14 +15698,14 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                 </li>
                 <li>
                   <a
-                    class="c1 c30 c31"
+                    class="c1 c29 c30"
                     href="/country"
                   >
                     <div
                       class="c1 c18"
                     >
                       <svg
-                        class="c32"
+                        class="c31"
                         fill="none"
                         height="1em"
                         viewBox="0 0 4 4"
@@ -15722,10 +15720,10 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         />
                       </svg>
                       <div
-                        class="c1 c33"
+                        class="c1 c32"
                       >
                         <span
-                          class="c21 c29"
+                          class="c21 c33"
                         >
                           Countries
                         </span>
@@ -15780,7 +15778,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                     class="c1 c26 c27 c28"
                   >
                     <span
-                      class="c21 c29 c23 c24"
+                      class="c21 c22 c23 c24"
                     >
                       4
                     </span>
@@ -15822,7 +15820,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                           </svg>
                         </div>
                         <div
-                          class="c1 c33"
+                          class="c1 c32"
                         >
                           <span
                             class="c21 c38"
@@ -15838,14 +15836,14 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   >
                     <li>
                       <a
-                        class="c1 c30 c31"
+                        class="c1 c29 c30"
                         href="/address"
                       >
                         <div
                           class="c1 c18"
                         >
                           <svg
-                            class="c32"
+                            class="c31"
                             fill="none"
                             height="1em"
                             viewBox="0 0 4 4"
@@ -15860,10 +15858,10 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                             />
                           </svg>
                           <div
-                            class="c1 c33"
+                            class="c1 c32"
                           >
                             <span
-                              class="c21 c29"
+                              class="c21 c33"
                             >
                               Addresses
                             </span>
@@ -15873,14 +15871,14 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                     </li>
                     <li>
                       <a
-                        class="c1 c30 c31"
+                        class="c1 c29 c30"
                         href="/category"
                       >
                         <div
                           class="c1 c18"
                         >
                           <svg
-                            class="c32"
+                            class="c31"
                             fill="none"
                             height="1em"
                             viewBox="0 0 4 4"
@@ -15895,10 +15893,10 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                             />
                           </svg>
                           <div
-                            class="c1 c33"
+                            class="c1 c32"
                           >
                             <span
-                              class="c21 c29"
+                              class="c21 c33"
                             >
                               Categories
                             </span>
@@ -15908,14 +15906,14 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                     </li>
                     <li>
                       <a
-                        class="c1 c30 c31"
+                        class="c1 c29 c30"
                         href="/city"
                       >
                         <div
                           class="c1 c18"
                         >
                           <svg
-                            class="c32"
+                            class="c31"
                             fill="none"
                             height="1em"
                             viewBox="0 0 4 4"
@@ -15930,10 +15928,10 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                             />
                           </svg>
                           <div
-                            class="c1 c33"
+                            class="c1 c32"
                           >
                             <span
-                              class="c21 c29"
+                              class="c21 c33"
                             >
                               Cities
                             </span>
@@ -15943,14 +15941,14 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                     </li>
                     <li>
                       <a
-                        class="c1 c30 c31"
+                        class="c1 c29 c30"
                         href="/country"
                       >
                         <div
                           class="c1 c18"
                         >
                           <svg
-                            class="c32"
+                            class="c31"
                             fill="none"
                             height="1em"
                             viewBox="0 0 4 4"
@@ -15965,10 +15963,10 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                             />
                           </svg>
                           <div
-                            class="c1 c33"
+                            class="c1 c32"
                           >
                             <span
-                              class="c21 c29"
+                              class="c21 c33"
                             >
                               Countries
                             </span>
@@ -16104,7 +16102,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         0
                       </span>
                       <div
-                        class="c1 c33"
+                        class="c1 c32"
                       >
                         <div
                           class="c1 c18"
@@ -16143,7 +16141,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         1
                       </span>
                       <div
-                        class="c1 c33"
+                        class="c1 c32"
                       >
                         <div
                           class="c1 c18"
@@ -16182,7 +16180,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         2
                       </span>
                       <div
-                        class="c1 c33"
+                        class="c1 c32"
                       >
                         <div
                           class="c1 c18"
@@ -16221,7 +16219,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         3
                       </span>
                       <div
-                        class="c1 c33"
+                        class="c1 c32"
                       >
                         <div
                           class="c1 c18"
@@ -16260,7 +16258,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         4
                       </span>
                       <div
-                        class="c1 c33"
+                        class="c1 c32"
                       >
                         <div
                           class="c1 c18"
@@ -16299,7 +16297,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         5
                       </span>
                       <div
-                        class="c1 c33"
+                        class="c1 c32"
                       >
                         <div
                           class="c1 c18"
@@ -16338,7 +16336,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         6
                       </span>
                       <div
-                        class="c1 c33"
+                        class="c1 c32"
                       >
                         <div
                           class="c1 c18"
@@ -16377,7 +16375,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         7
                       </span>
                       <div
-                        class="c1 c33"
+                        class="c1 c32"
                       >
                         <div
                           class="c1 c18"
@@ -16416,7 +16414,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         8
                       </span>
                       <div
-                        class="c1 c33"
+                        class="c1 c32"
                       >
                         <div
                           class="c1 c18"
@@ -16455,7 +16453,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         9
                       </span>
                       <div
-                        class="c1 c33"
+                        class="c1 c32"
                       >
                         <div
                           class="c1 c18"
@@ -16494,7 +16492,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         10
                       </span>
                       <div
-                        class="c1 c33"
+                        class="c1 c32"
                       >
                         <div
                           class="c1 c18"
@@ -16533,7 +16531,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         11
                       </span>
                       <div
-                        class="c1 c33"
+                        class="c1 c32"
                       >
                         <div
                           class="c1 c18"
@@ -16572,7 +16570,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         12
                       </span>
                       <div
-                        class="c1 c33"
+                        class="c1 c32"
                       >
                         <div
                           class="c1 c18"
@@ -16611,7 +16609,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         13
                       </span>
                       <div
-                        class="c1 c33"
+                        class="c1 c32"
                       >
                         <div
                           class="c1 c18"
@@ -16650,7 +16648,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         14
                       </span>
                       <div
-                        class="c1 c33"
+                        class="c1 c32"
                       >
                         <div
                           class="c1 c18"
@@ -16689,7 +16687,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         15
                       </span>
                       <div
-                        class="c1 c33"
+                        class="c1 c32"
                       >
                         <div
                           class="c1 c18"
@@ -16728,7 +16726,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         16
                       </span>
                       <div
-                        class="c1 c33"
+                        class="c1 c32"
                       >
                         <div
                           class="c1 c18"
@@ -16767,7 +16765,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         17
                       </span>
                       <div
-                        class="c1 c33"
+                        class="c1 c32"
                       >
                         <div
                           class="c1 c18"
@@ -16806,7 +16804,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         18
                       </span>
                       <div
-                        class="c1 c33"
+                        class="c1 c32"
                       >
                         <div
                           class="c1 c18"
@@ -16845,7 +16843,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         19
                       </span>
                       <div
-                        class="c1 c33"
+                        class="c1 c32"
                       >
                         <div
                           class="c1 c18"
@@ -16878,7 +16876,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   type="button"
                 >
                   <span
-                    class="c21 c29 c23"
+                    class="c21 c33 c23"
                   >
                     Settings
                   </span>
@@ -16889,7 +16887,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   type="button"
                 >
                   <span
-                    class="c21 c29 c23"
+                    class="c21 c33 c23"
                   >
                     Settings
                   </span>
@@ -16949,7 +16947,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                           class="c1 c18"
                         >
                           <span
-                            class="c21 c29 c23 c24"
+                            class="c21 c33 c23 c24"
                           >
                             ID
                           </span>
@@ -16967,7 +16965,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                           class="c1 c18"
                         >
                           <span
-                            class="c21 c29 c23 c24"
+                            class="c21 c33 c23 c24"
                           >
                             Cover
                           </span>
@@ -16985,7 +16983,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                           class="c1 c18"
                         >
                           <span
-                            class="c21 c29 c23 c24"
+                            class="c21 c33 c23 c24"
                           >
                             Description
                           </span>
@@ -17003,7 +17001,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                           class="c1 c18"
                         >
                           <span
-                            class="c21 c29 c23 c24"
+                            class="c21 c33 c23 c24"
                           >
                             Categories
                           </span>
@@ -17021,7 +17019,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                           class="c1 c18"
                         >
                           <span
-                            class="c21 c29 c23 c24"
+                            class="c21 c33 c23 c24"
                           >
                             Contact
                           </span>
@@ -17116,7 +17114,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <span
-                          class="c21 c29"
+                          class="c21 c33"
                         >
                           0
                         </span>
@@ -17146,7 +17144,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <span
-                          class="c21 c29"
+                          class="c21 c33"
                         >
                           Chez Léon is a human sized Parisian
                         </span>
@@ -17157,7 +17155,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <span
-                          class="c21 c29"
+                          class="c21 c33"
                         >
                           French cuisine
                         </span>
@@ -17168,7 +17166,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <span
-                          class="c21 c29"
+                          class="c21 c33"
                         >
                           Leon Lafrite
                         </span>
@@ -17179,7 +17177,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <span
-                          class="c21 c29"
+                          class="c21 c33"
                         >
                           Chez Léon is a human sized Parisian
                         </span>
@@ -17190,7 +17188,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <span
-                          class="c21 c29"
+                          class="c21 c33"
                         >
                           Chez Léon is a human sized Parisian
                         </span>
@@ -17201,7 +17199,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <span
-                          class="c21 c29"
+                          class="c21 c33"
                         >
                           Chez Léon is a human sized Parisian
                         </span>
@@ -17287,7 +17285,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <span
-                          class="c21 c29"
+                          class="c21 c33"
                         >
                           1
                         </span>
@@ -17317,7 +17315,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <span
-                          class="c21 c29"
+                          class="c21 c33"
                         >
                           Chez Léon is a human sized Parisian
                         </span>
@@ -17328,7 +17326,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <span
-                          class="c21 c29"
+                          class="c21 c33"
                         >
                           French cuisine
                         </span>
@@ -17339,7 +17337,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <span
-                          class="c21 c29"
+                          class="c21 c33"
                         >
                           Leon Lafrite
                         </span>
@@ -17350,7 +17348,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <span
-                          class="c21 c29"
+                          class="c21 c33"
                         >
                           Chez Léon is a human sized Parisian
                         </span>
@@ -17361,7 +17359,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <span
-                          class="c21 c29"
+                          class="c21 c33"
                         >
                           Chez Léon is a human sized Parisian
                         </span>
@@ -17372,7 +17370,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <span
-                          class="c21 c29"
+                          class="c21 c33"
                         >
                           Chez Léon is a human sized Parisian
                         </span>
@@ -17458,7 +17456,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <span
-                          class="c21 c29"
+                          class="c21 c33"
                         >
                           2
                         </span>
@@ -17488,7 +17486,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <span
-                          class="c21 c29"
+                          class="c21 c33"
                         >
                           Chez Léon is a human sized Parisian
                         </span>
@@ -17499,7 +17497,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <span
-                          class="c21 c29"
+                          class="c21 c33"
                         >
                           French cuisine
                         </span>
@@ -17510,7 +17508,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <span
-                          class="c21 c29"
+                          class="c21 c33"
                         >
                           Leon Lafrite
                         </span>
@@ -17521,7 +17519,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <span
-                          class="c21 c29"
+                          class="c21 c33"
                         >
                           Chez Léon is a human sized Parisian
                         </span>
@@ -17532,7 +17530,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <span
-                          class="c21 c29"
+                          class="c21 c33"
                         >
                           Chez Léon is a human sized Parisian
                         </span>
@@ -17543,7 +17541,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <span
-                          class="c21 c29"
+                          class="c21 c33"
                         >
                           Chez Léon is a human sized Parisian
                         </span>
@@ -17629,7 +17627,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <span
-                          class="c21 c29"
+                          class="c21 c33"
                         >
                           3
                         </span>
@@ -17659,7 +17657,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <span
-                          class="c21 c29"
+                          class="c21 c33"
                         >
                           Chez Léon is a human sized Parisian
                         </span>
@@ -17670,7 +17668,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <span
-                          class="c21 c29"
+                          class="c21 c33"
                         >
                           French cuisine
                         </span>
@@ -17681,7 +17679,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <span
-                          class="c21 c29"
+                          class="c21 c33"
                         >
                           Leon Lafrite
                         </span>
@@ -17692,7 +17690,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <span
-                          class="c21 c29"
+                          class="c21 c33"
                         >
                           Chez Léon is a human sized Parisian
                         </span>
@@ -17703,7 +17701,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <span
-                          class="c21 c29"
+                          class="c21 c33"
                         >
                           Chez Léon is a human sized Parisian
                         </span>
@@ -17714,7 +17712,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <span
-                          class="c21 c29"
+                          class="c21 c33"
                         >
                           Chez Léon is a human sized Parisian
                         </span>
@@ -17800,7 +17798,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <span
-                          class="c21 c29"
+                          class="c21 c33"
                         >
                           4
                         </span>
@@ -17830,7 +17828,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <span
-                          class="c21 c29"
+                          class="c21 c33"
                         >
                           Chez Léon is a human sized Parisian
                         </span>
@@ -17841,7 +17839,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <span
-                          class="c21 c29"
+                          class="c21 c33"
                         >
                           French cuisine
                         </span>
@@ -17852,7 +17850,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <span
-                          class="c21 c29"
+                          class="c21 c33"
                         >
                           Leon Lafrite
                         </span>
@@ -17863,7 +17861,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <span
-                          class="c21 c29"
+                          class="c21 c33"
                         >
                           Chez Léon is a human sized Parisian
                         </span>
@@ -17874,7 +17872,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <span
-                          class="c21 c29"
+                          class="c21 c33"
                         >
                           Chez Léon is a human sized Parisian
                         </span>
@@ -17885,7 +17883,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         tabindex="-1"
                       >
                         <span
-                          class="c21 c29"
+                          class="c21 c33"
                         >
                           Chez Léon is a human sized Parisian
                         </span>
@@ -22513,7 +22511,6 @@ exports[`Storyshots Design System/Components/MainNav notifications 1`] = `
 
 .c25 {
   background: #f6f6f9;
-  color: #666687;
   padding: 4px;
   border-radius: 4px;
 }
@@ -23156,7 +23153,7 @@ exports[`Storyshots Design System/Components/MainNav notifications 1`] = `
                         class="c25 c26 c27"
                       >
                         <span
-                          class="c7 c8 c9 c24"
+                          class="c7 c23 c9 c24"
                         >
                           new
                         </span>
@@ -23205,7 +23202,7 @@ exports[`Storyshots Design System/Components/MainNav notifications 1`] = `
                         class="c25 c26 c27"
                       >
                         <span
-                          class="c7 c8 c9 c24"
+                          class="c7 c23 c9 c24"
                         >
                           2
                         </span>
@@ -28353,19 +28350,18 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
 
 .c24 {
   background: #eaeaef;
-  color: #666687;
   padding: 4px;
   border-radius: 4px;
 }
 
-.c28 {
+.c27 {
   background: #f6f6f9;
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 32px;
 }
 
-.c31 {
+.c30 {
   padding-left: 8px;
 }
 
@@ -28402,7 +28398,7 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
   color: #666687;
 }
 
-.c27 {
+.c31 {
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.43;
@@ -28611,7 +28607,7 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
   background-color: #dcdce4;
 }
 
-.c29 {
+.c28 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -28629,34 +28625,34 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
   color: #32324d;
 }
 
-.c29 svg > * {
+.c28 svg > * {
   fill: #666687;
 }
 
-.c29.active {
+.c28.active {
   background-color: #f0f0ff;
   border-right: 2px solid #4945ff;
 }
 
-.c29.active svg > * {
+.c28.active svg > * {
   fill: #271fe0;
 }
 
-.c29.active .c19 {
+.c28.active .c19 {
   color: #271fe0;
   font-weight: 500;
 }
 
-.c29:focus-visible {
+.c28:focus-visible {
   outline-offset: -2px;
 }
 
-.c30 {
+.c29 {
   width: 0.75rem;
   height: 0.25rem;
 }
 
-.c30 * {
+.c29 * {
   fill: #666687;
 }
 
@@ -28929,7 +28925,7 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                     class="c24 c25 c26"
                   >
                     <span
-                      class="c19 c27 c21 c22"
+                      class="c19 c20 c21 c22"
                     >
                       4
                     </span>
@@ -28941,14 +28937,14 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
               >
                 <li>
                   <a
-                    class="c28 c29"
+                    class="c27 c28"
                     href="/address"
                   >
                     <div
                       class="c1"
                     >
                       <svg
-                        class="c30"
+                        class="c29"
                         fill="none"
                         height="1em"
                         viewBox="0 0 4 4"
@@ -28963,10 +28959,10 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                         />
                       </svg>
                       <div
-                        class="c31"
+                        class="c30"
                       >
                         <span
-                          class="c19 c27"
+                          class="c19 c31"
                         >
                           Addresses
                         </span>
@@ -28976,14 +28972,14 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                 </li>
                 <li>
                   <a
-                    class="c28 c29"
+                    class="c27 c28"
                     href="/category"
                   >
                     <div
                       class="c1"
                     >
                       <svg
-                        class="c30"
+                        class="c29"
                         fill="none"
                         height="1em"
                         viewBox="0 0 4 4"
@@ -28998,10 +28994,10 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                         />
                       </svg>
                       <div
-                        class="c31"
+                        class="c30"
                       >
                         <span
-                          class="c19 c27"
+                          class="c19 c31"
                         >
                           Categories
                         </span>
@@ -29011,14 +29007,14 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                 </li>
                 <li>
                   <a
-                    class="c28 c29"
+                    class="c27 c28"
                     href="/city"
                   >
                     <div
                       class="c1"
                     >
                       <svg
-                        class="c30"
+                        class="c29"
                         fill="none"
                         height="1em"
                         viewBox="0 0 4 4"
@@ -29033,10 +29029,10 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                         />
                       </svg>
                       <div
-                        class="c31"
+                        class="c30"
                       >
                         <span
-                          class="c19 c27"
+                          class="c19 c31"
                         >
                           Cities
                         </span>
@@ -29046,14 +29042,14 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                 </li>
                 <li>
                   <a
-                    class="c28 c29"
+                    class="c27 c28"
                     href="/country"
                   >
                     <div
                       class="c1"
                     >
                       <svg
-                        class="c30"
+                        class="c29"
                         fill="none"
                         height="1em"
                         viewBox="0 0 4 4"
@@ -29068,10 +29064,10 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                         />
                       </svg>
                       <div
-                        class="c31"
+                        class="c30"
                       >
                         <span
-                          class="c19 c27"
+                          class="c19 c31"
                         >
                           Countries
                         </span>
@@ -29158,7 +29154,7 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                     class="c24 c25 c26"
                   >
                     <span
-                      class="c19 c27 c21 c22"
+                      class="c19 c20 c21 c22"
                     >
                       4
                     </span>
@@ -29200,7 +29196,7 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                           </svg>
                         </div>
                         <div
-                          class="c31"
+                          class="c30"
                         >
                           <span
                             class="c19 c40"
@@ -29216,14 +29212,14 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                   >
                     <li>
                       <a
-                        class="c28 c29"
+                        class="c27 c28"
                         href="/address"
                       >
                         <div
                           class="c1"
                         >
                           <svg
-                            class="c30"
+                            class="c29"
                             fill="none"
                             height="1em"
                             viewBox="0 0 4 4"
@@ -29238,10 +29234,10 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                             />
                           </svg>
                           <div
-                            class="c31"
+                            class="c30"
                           >
                             <span
-                              class="c19 c27"
+                              class="c19 c31"
                             >
                               Addresses
                             </span>
@@ -29251,14 +29247,14 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                     </li>
                     <li>
                       <a
-                        class="c28 c29"
+                        class="c27 c28"
                         href="/category"
                       >
                         <div
                           class="c1"
                         >
                           <svg
-                            class="c30"
+                            class="c29"
                             fill="none"
                             height="1em"
                             viewBox="0 0 4 4"
@@ -29273,10 +29269,10 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                             />
                           </svg>
                           <div
-                            class="c31"
+                            class="c30"
                           >
                             <span
-                              class="c19 c27"
+                              class="c19 c31"
                             >
                               Categories
                             </span>
@@ -29286,14 +29282,14 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                     </li>
                     <li>
                       <a
-                        class="c28 c29"
+                        class="c27 c28"
                         href="/city"
                       >
                         <div
                           class="c1"
                         >
                           <svg
-                            class="c30"
+                            class="c29"
                             fill="none"
                             height="1em"
                             viewBox="0 0 4 4"
@@ -29308,10 +29304,10 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                             />
                           </svg>
                           <div
-                            class="c31"
+                            class="c30"
                           >
                             <span
-                              class="c19 c27"
+                              class="c19 c31"
                             >
                               Cities
                             </span>
@@ -29321,14 +29317,14 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                     </li>
                     <li>
                       <a
-                        class="c28 c29"
+                        class="c27 c28"
                         href="/country"
                       >
                         <div
                           class="c1"
                         >
                           <svg
-                            class="c30"
+                            class="c29"
                             fill="none"
                             height="1em"
                             viewBox="0 0 4 4"
@@ -29343,10 +29339,10 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                             />
                           </svg>
                           <div
-                            class="c31"
+                            class="c30"
                           >
                             <span
-                              class="c19 c27"
+                              class="c19 c31"
                             >
                               Countries
                             </span>
@@ -29430,7 +29426,7 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
           >
             <li>
               <a
-                class="c28 c29 active"
+                class="c27 c28 active"
                 href="/blabla"
               >
                 <div
@@ -29453,10 +29449,10 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                     </svg>
                   </div>
                   <div
-                    class="c31"
+                    class="c30"
                   >
                     <span
-                      class="c19 c27"
+                      class="c19 c31"
                     >
                       Application
                     </span>
@@ -29510,7 +29506,7 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
               >
                 <li>
                   <a
-                    class="c28 c29"
+                    class="c27 c28"
                     href="/address"
                   >
                     <div
@@ -29533,10 +29529,10 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                         </svg>
                       </div>
                       <div
-                        class="c31"
+                        class="c30"
                       >
                         <span
-                          class="c19 c27"
+                          class="c19 c31"
                         >
                           Addresses
                         </span>
@@ -29546,7 +29542,7 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                 </li>
                 <li>
                   <a
-                    class="c28 c29"
+                    class="c27 c28"
                     href="/city"
                   >
                     <div
@@ -29569,10 +29565,10 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                         </svg>
                       </div>
                       <div
-                        class="c31"
+                        class="c30"
                       >
                         <span
-                          class="c19 c27"
+                          class="c19 c31"
                         >
                           Cities
                         </span>
@@ -29609,7 +29605,7 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
               >
                 <li>
                   <a
-                    class="c28 c29"
+                    class="c27 c28"
                     href="/address"
                   >
                     <div
@@ -29632,10 +29628,10 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                         </svg>
                       </div>
                       <div
-                        class="c31"
+                        class="c30"
                       >
                         <span
-                          class="c19 c27"
+                          class="c19 c31"
                         >
                           Addresses
                         </span>
@@ -29645,7 +29641,7 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                 </li>
                 <li>
                   <a
-                    class="c28 c29"
+                    class="c27 c28"
                     href="/city"
                   >
                     <div
@@ -29668,10 +29664,10 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                         </svg>
                       </div>
                       <div
-                        class="c31"
+                        class="c30"
                       >
                         <span
-                          class="c19 c27"
+                          class="c19 c31"
                         >
                           Cities
                         </span>
@@ -29721,7 +29717,7 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
           >
             <li>
               <a
-                class="c28 c29"
+                class="c27 c28"
                 href="/blabla"
               >
                 <div
@@ -29744,10 +29740,10 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                     </svg>
                   </div>
                   <div
-                    class="c31"
+                    class="c30"
                   >
                     <span
-                      class="c19 c27"
+                      class="c19 c31"
                     >
                       Application
                     </span>
@@ -29831,7 +29827,7 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                           </svg>
                         </div>
                         <div
-                          class="c31"
+                          class="c30"
                         >
                           <span
                             class="c19 c40"
@@ -29847,7 +29843,7 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                   >
                     <li>
                       <a
-                        class="c28 c29"
+                        class="c27 c28"
                         href="/address"
                       >
                         <div
@@ -29870,10 +29866,10 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                             </svg>
                           </div>
                           <div
-                            class="c31"
+                            class="c30"
                           >
                             <span
-                              class="c19 c27"
+                              class="c19 c31"
                             >
                               Addresses
                             </span>
@@ -29883,14 +29879,14 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                     </li>
                     <li>
                       <a
-                        class="c28 c29"
+                        class="c27 c28"
                         href="/category"
                       >
                         <div
                           class="c1"
                         >
                           <svg
-                            class="c30"
+                            class="c29"
                             fill="none"
                             height="1em"
                             viewBox="0 0 4 4"
@@ -29905,10 +29901,10 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                             />
                           </svg>
                           <div
-                            class="c31"
+                            class="c30"
                           >
                             <span
-                              class="c19 c27"
+                              class="c19 c31"
                             >
                               Categories
                             </span>
@@ -29918,7 +29914,7 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                     </li>
                     <li>
                       <a
-                        class="c28 c29"
+                        class="c27 c28"
                         href="/city"
                       >
                         <div
@@ -29941,10 +29937,10 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                             </svg>
                           </div>
                           <div
-                            class="c31"
+                            class="c30"
                           >
                             <span
-                              class="c19 c27"
+                              class="c19 c31"
                             >
                               Cities
                             </span>
@@ -29954,14 +29950,14 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                     </li>
                     <li>
                       <a
-                        class="c28 c29"
+                        class="c27 c28"
                         href="/country"
                       >
                         <div
                           class="c1"
                         >
                           <svg
-                            class="c30"
+                            class="c29"
                             fill="none"
                             height="1em"
                             viewBox="0 0 4 4"
@@ -29976,10 +29972,10 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                             />
                           </svg>
                           <div
-                            class="c31"
+                            class="c30"
                           >
                             <span
-                              class="c19 c27"
+                              class="c19 c31"
                             >
                               Countries
                             </span>
@@ -30018,7 +30014,7 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
               >
                 <li>
                   <a
-                    class="c28 c29"
+                    class="c27 c28"
                     href="/address"
                   >
                     <div
@@ -30041,10 +30037,10 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                         </svg>
                       </div>
                       <div
-                        class="c31"
+                        class="c30"
                       >
                         <span
-                          class="c19 c27"
+                          class="c19 c31"
                         >
                           Addresses
                         </span>
@@ -30054,14 +30050,14 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                 </li>
                 <li>
                   <a
-                    class="c28 c29"
+                    class="c27 c28"
                     href="/category"
                   >
                     <div
                       class="c1"
                     >
                       <svg
-                        class="c30"
+                        class="c29"
                         fill="none"
                         height="1em"
                         viewBox="0 0 4 4"
@@ -30076,10 +30072,10 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                         />
                       </svg>
                       <div
-                        class="c31"
+                        class="c30"
                       >
                         <span
-                          class="c19 c27"
+                          class="c19 c31"
                         >
                           Categories
                         </span>
@@ -30089,7 +30085,7 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                 </li>
                 <li>
                   <a
-                    class="c28 c29"
+                    class="c27 c28"
                     href="/city"
                   >
                     <div
@@ -30112,10 +30108,10 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                         </svg>
                       </div>
                       <div
-                        class="c31"
+                        class="c30"
                       >
                         <span
-                          class="c19 c27"
+                          class="c19 c31"
                         >
                           Cities
                         </span>
@@ -30125,14 +30121,14 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                 </li>
                 <li>
                   <a
-                    class="c28 c29"
+                    class="c27 c28"
                     href="/country"
                   >
                     <div
                       class="c1"
                     >
                       <svg
-                        class="c30"
+                        class="c29"
                         fill="none"
                         height="1em"
                         viewBox="0 0 4 4"
@@ -30147,10 +30143,10 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                         />
                       </svg>
                       <div
-                        class="c31"
+                        class="c30"
                       >
                         <span
-                          class="c19 c27"
+                          class="c19 c31"
                         >
                           Countries
                         </span>
