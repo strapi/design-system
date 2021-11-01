@@ -3,6 +3,9 @@
   --Primary600: #4945FF;
   --Neutral200:#DCDCE4;
   --Neutral600:#666687;
+  --Neutral800:#32324D;
+  --Primary100:#F0F0FF;
+  --Primary700:#271FE0;
 }
 
 
@@ -22,4 +25,5 @@ a {
 
 * {
   box-sizing: border-box;
+  margin:0;
 }

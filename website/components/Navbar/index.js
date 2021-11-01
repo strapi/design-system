@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Image from 'next/image';
+import NavSection from "components/NavSection";
 import StyledLink from "components/StyledLink";
 
 const Wrapper = styled.div`
@@ -18,14 +19,7 @@ const BottomPart = styled.div`
 const Navigation = styled.div`
     padding: 12px 0;
 `
-const SectionTitle = styled.h3`
-    font-weight: 700;
-    font-size: 11px;
-    color: var(--Primary600);
-    padding: 8px 24px;
-    width:100%;
-    text-transform: uppercase;
-`
+
 const HorizontalLine = styled.div`
     background:var(--Neutral200);
     width:1.5rem;
@@ -44,18 +38,19 @@ const Navbar = () => {
             </TopPart>
             <HorizontalLine/>
             <Navigation>
-                <SectionTitle>
-                    Getting Started
-                </SectionTitle>
-                <SectionTitle>
-                    Foundations
-                </SectionTitle>
-                <SectionTitle>
-                    components
-                </SectionTitle>
+                <NavSection title="getting started" pages={[
+                    {
+                        name:"Principles",
+                        link:"/"
+                    },
+                    {
+                        name:"Accessibility",
+                        link:"#"
+                    }
+                ]}/>
             </Navigation>
             <BottomPart>
-                <StyledLink href="https://github.com" target="_blank">
+                <StyledLink href="https://github.com" target="_blank" padding={8}>
                     <Icon>
                         <Image src="/github.svg" height={16} width={16} /> 
                     </Icon>
