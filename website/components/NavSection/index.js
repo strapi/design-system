@@ -23,6 +23,7 @@ const LinksList = styled.ul`
         padding: 0.5rem 0 0.5rem 2rem;
         font-size: 14px;
         list-style-position: inside;
+        cursor: pointer;
         :hover{
             background-color:var(--Primary100);
             color:var(--Primary700);
@@ -39,7 +40,7 @@ const NavSection = ({title,pages}) => {
     const router = useRouter();
 
     return(
-        <>
+        <div>
             <SectionTitle>
                 {title} <Image src="/dropdown-icon.svg" width={7} height={4}/>
             </SectionTitle>
@@ -54,7 +55,7 @@ const NavSection = ({title,pages}) => {
                         </Link>
                 })}
             </LinksList>
-        </>
+        </div>
     )
 }
 

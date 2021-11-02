@@ -4,7 +4,7 @@ import NavSection from "components/NavSection";
 import StyledLink from "components/StyledLink";
 
 const Wrapper = styled.div`
-    height:100vh;
+    position: fixed;
 `
 
 const TopPart = styled.div`
@@ -18,6 +18,9 @@ const BottomPart = styled.div`
 
 const Navigation = styled.div`
     padding: 12px 0;
+    display: flex;
+    flex-direction:column;
+    gap:1rem;
 `
 
 const HorizontalLine = styled.div`
@@ -30,7 +33,7 @@ const Icon = styled.span`
     padding: 0px 10px;
 `
 
-const Navbar = () => {
+const Navbar = ({navigationContent}) => {
     return(
         <Wrapper>
             <TopPart>
@@ -38,16 +41,13 @@ const Navbar = () => {
             </TopPart>
             <HorizontalLine/>
             <Navigation>
-                <NavSection title="getting started" pages={[
-                    {
-                        name:"Principles",
-                        link:"/"
-                    },
-                    {
-                        name:"Accessibility",
-                        link:"#"
-                    }
-                ]}/>
+                {navigationContent.map((section,index) => (
+                    <NavSection 
+                        title={section.title} 
+                        pages={section.pages}
+                        key={index}
+                    />
+                ))}
             </Navigation>
             <BottomPart>
                 <StyledLink href="https://github.com" target="_blank" padding={8}>
