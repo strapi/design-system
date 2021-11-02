@@ -50,20 +50,26 @@ export const TimePicker = ({
   // The time picker will select the closest value in the list.
   // This is a temporary fix.
   const getClosestValue = () => {
+    const valueHours = value.split(':')[0];
     const valueMinutes = value.split(':')[1];
+
+    const hours = times.reduce((prev, curr) => {
+      const hours = curr.split(':')[0];
+      return Math.abs(hours - valueHours) < Math.abs(prev - valueHours) ? hours : prev;
+    }, times[0].split(':')[0]);
     const minutes = times.reduce((prev, curr) => {
       const minutes = curr.split(':')[1];
       return Math.abs(minutes - valueMinutes) < Math.abs(prev - valueMinutes) ? minutes : prev;
     }, times[0].split(':')[1]);
 
-    return `${value.split(':')[0]}:${minutes}`;
+    return `${hours}:${minutes}`;
   };
 
   return (
     <Select
       id={generatedId}
       label={label}
-      placeholder={'--:--'}
+      placeholder="--:--"
       hint={hint}
       onClear={onClear}
       clearLabel={clearLabel}
@@ -90,13 +96,14 @@ export const TimePicker = ({
 
 TimePicker.defaultProps = {
   disabled: false,
-  id: undefined,
-  onClear: undefined,
-  value: undefined,
-  hint: undefined,
   error: undefined,
+  hint: undefined,
+  id: undefined,
+  label: undefined,
+  onClear: undefined,
   size: 'M',
   step: 15,
+  value: undefined,
 };
 
 TimePicker.propTypes = {
@@ -105,7 +112,7 @@ TimePicker.propTypes = {
   error: PropTypes.string,
   hint: PropTypes.string,
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   onClear: PropTypes.func,
   size: PropTypes.oneOf(Object.keys(sizes.input)),
