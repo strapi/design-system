@@ -1,4 +1,5 @@
 import NextHead from 'next/head'
+import PropTypes from 'prop-types';
 
 const Head = ({
     meta
@@ -15,6 +16,10 @@ const Head = ({
         </NextHead>
     )
 
+}
+
+Head.protoTypes = {
+    meta:PropTypes.object
 }
 
 export default Head;

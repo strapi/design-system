@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Head from 'components/Head';
 import Navbar from 'components/Navbar';
 import StyledLink from "components/StyledLink";
+import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`
     display:grid;
@@ -66,7 +67,11 @@ const Layout = ({
         </div>
     </Wrapper>
     )
+}
 
+Layout.propTypes = {
+    children: PropTypes.object,
+    meta: PropTypes.object
 }
 
 export default Layout;

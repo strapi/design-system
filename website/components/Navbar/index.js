@@ -3,6 +3,7 @@ import Image from 'next/image';
 import NavSection from "components/NavSection";
 import StyledLink from "components/StyledLink";
 import Link from "next/link";
+import PropTypes from "prop-types";
 
 const Wrapper = styled.div`
     position: fixed;
@@ -68,6 +69,11 @@ const Navbar = ({navigationContent}) => {
             </BottomPart>
         </Wrapper>
     )
+}
+
+
+Navbar.propTypes = {
+    navigationContent: PropTypes.object
 }
 
 export default Navbar;

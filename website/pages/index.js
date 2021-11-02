@@ -2,7 +2,7 @@ import Layout from 'components/Layout'
 
 export default function Home() {
   return (
-    <Layout>
+    <Layout meta={{}}>
       <main>
         <h1>Design System</h1>
       </main>
