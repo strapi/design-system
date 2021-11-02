@@ -18,19 +18,19 @@ const TableBox = styled(Box)`
 
   &:before {
     // TODO: make sure to add a token for this weird stuff
-    background: linear-gradient(90deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(90deg, #c0c0cf 0%, rgba(0, 0, 0, 0) 100%);
     opacity: 0.2;
     position: absolute;
     height: 100%;
     content: ${({ overflowing }) => (overflowing === 'both' || overflowing === 'left' ? "''" : undefined)};
     box-shadow: ${({ theme }) => theme.shadows.tableShadow};
-    width: 8px;
+    width: ${({ theme }) => theme.spaces[2]};
     left: 0;
   }
 
   &:after {
     // TODO: make sure to add a token for this weird stuff
-    background: linear-gradient(270deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(270deg, #c0c0cf 0%, rgba(0, 0, 0, 0) 100%);
     opacity: 0.2;
     position: absolute;
     height: 100%;
