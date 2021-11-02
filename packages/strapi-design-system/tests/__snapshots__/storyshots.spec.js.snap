@@ -3727,6 +3727,7 @@ exports[`Storyshots Design System/Components/Card base 1`] = `
   border: 1px solid #c0c0cf;
   -webkit-appearance: none;
   background-color: #ffffff;
+  cursor: pointer;
 }
 
 .c5:checked {
@@ -4507,6 +4508,7 @@ exports[`Storyshots Design System/Components/Card with asset icon 1`] = `
   border: 1px solid #c0c0cf;
   -webkit-appearance: none;
   background-color: #ffffff;
+  cursor: pointer;
 }
 
 .c5:checked {
@@ -5016,6 +5018,7 @@ exports[`Storyshots Design System/Components/Card without asset action 1`] = `
   border: 1px solid #c0c0cf;
   -webkit-appearance: none;
   background-color: #ffffff;
+  cursor: pointer;
 }
 
 .c5:checked {
@@ -5324,6 +5327,7 @@ exports[`Storyshots Design System/Components/Card without asset action nor timer
   border: 1px solid #c0c0cf;
   -webkit-appearance: none;
   background-color: #ffffff;
+  cursor: pointer;
 }
 
 .c5:checked {
@@ -6397,6 +6401,7 @@ exports[`Storyshots Design System/Components/Checkbox base 1`] = `
   border: 1px solid #c0c0cf;
   -webkit-appearance: none;
   background-color: #ffffff;
+  cursor: pointer;
 }
 
 .c4:checked {
@@ -6468,7 +6473,7 @@ exports[`Storyshots Design System/Components/Checkbox base 1`] = `
 }
 
 .c3 * {
-  cursor: default;
+  cursor: pointer;
 }
 
 <main>
@@ -6554,6 +6559,7 @@ exports[`Storyshots Design System/Components/Checkbox disabled 1`] = `
   border: 1px solid #c0c0cf;
   -webkit-appearance: none;
   background-color: #ffffff;
+  cursor: pointer;
 }
 
 .c4:checked {
@@ -6720,6 +6726,7 @@ exports[`Storyshots Design System/Components/Checkbox error 1`] = `
   border: 1px solid #c0c0cf;
   -webkit-appearance: none;
   background-color: #ffffff;
+  cursor: pointer;
 }
 
 .c4:checked {
@@ -6791,7 +6798,7 @@ exports[`Storyshots Design System/Components/Checkbox error 1`] = `
 }
 
 .c3 * {
-  cursor: default;
+  cursor: pointer;
 }
 
 <main>
@@ -6892,6 +6899,7 @@ exports[`Storyshots Design System/Components/Checkbox hint 1`] = `
   border: 1px solid #c0c0cf;
   -webkit-appearance: none;
   background-color: #ffffff;
+  cursor: pointer;
 }
 
 .c4:checked {
@@ -6963,7 +6971,7 @@ exports[`Storyshots Design System/Components/Checkbox hint 1`] = `
 }
 
 .c3 * {
-  cursor: default;
+  cursor: pointer;
 }
 
 <main>
@@ -7056,6 +7064,7 @@ exports[`Storyshots Design System/Components/Checkbox indeterminate 1`] = `
   border: 1px solid #c0c0cf;
   -webkit-appearance: none;
   background-color: #ffffff;
+  cursor: pointer;
 }
 
 .c4:checked {
@@ -7127,7 +7136,7 @@ exports[`Storyshots Design System/Components/Checkbox indeterminate 1`] = `
 }
 
 .c3 * {
-  cursor: default;
+  cursor: pointer;
 }
 
 <main>
@@ -14836,6 +14845,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
   border: 1px solid #c0c0cf;
   -webkit-appearance: none;
   background-color: #ffffff;
+  cursor: pointer;
 }
 
 .c71:checked {
@@ -30616,6 +30626,7 @@ exports[`Storyshots Design System/Components/Table base 1`] = `
   border: 1px solid #c0c0cf;
   -webkit-appearance: none;
   background-color: #ffffff;
+  cursor: pointer;
 }
 
 .c12:checked {
@@ -31882,6 +31893,7 @@ exports[`Storyshots Design System/Components/Table base without footer 1`] = `
   border: 1px solid #c0c0cf;
   -webkit-appearance: none;
   background-color: #ffffff;
+  cursor: pointer;
 }
 
 .c12:checked {
@@ -33093,6 +33105,7 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
   border: 1px solid #c0c0cf;
   -webkit-appearance: none;
   background-color: #ffffff;
+  cursor: pointer;
 }
 
 .c12:checked {
@@ -39695,6 +39708,7 @@ exports[`Storyshots Design System/Technical Components/BaseCheckbox base 1`] = `
   border: 1px solid #c0c0cf;
   -webkit-appearance: none;
   background-color: #ffffff;
+  cursor: pointer;
 }
 
 .c1:checked {
@@ -39792,6 +39806,7 @@ exports[`Storyshots Design System/Technical Components/BaseCheckbox disabled 1`]
   border: 1px solid #c0c0cf;
   -webkit-appearance: none;
   background-color: #ffffff;
+  cursor: pointer;
 }
 
 .c1:checked {
@@ -39905,6 +39920,7 @@ exports[`Storyshots Design System/Technical Components/BaseCheckbox indeterminat
   border: 1px solid #c0c0cf;
   -webkit-appearance: none;
   background-color: #ffffff;
+  cursor: pointer;
 }
 
 .c1:checked {
