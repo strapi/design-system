@@ -11177,18 +11177,16 @@ exports[`Storyshots Design System/Components/Field with description 1`] = `
   width: 1px;
 }
 
+.c3 {
+  line-height: 1.14;
+  color: #d02b20;
+}
+
 .c2 {
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #32324d;
-}
-
-.c3 {
-  font-weight: 400;
-  font-size: 0.875rem;
-  line-height: 1.43;
-  color: #d02b20;
 }
 
 .c7 {
@@ -25806,18 +25804,16 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
   padding-left: 16px;
 }
 
+.c4 {
+  line-height: 1.14;
+  color: #d02b20;
+}
+
 .c3 {
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #32324d;
-}
-
-.c4 {
-  font-weight: 400;
-  font-size: 0.875rem;
-  line-height: 1.43;
-  color: #d02b20;
 }
 
 .c12 {
