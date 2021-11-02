@@ -2,7 +2,7 @@ import CtbIcon from "@strapi/icons/Layout";
 import MediaLibIcon from "@strapi/icons/Landscape";
 import AlertInfoIcon from "@strapi/icons/ExclamationMarkCircle";
 import PluginsIcon from "@strapi/icons/Puzzle";
-import MarketPlaceIcon from "@strapi/icons/ShopingCart";
+import ShoppingCart from "@strapi/icons/ShoppingCart";
 import SettingsIcon from "@strapi/icons/Cog";
 
 const menu = {
@@ -42,7 +42,7 @@ const menu = {
       },
     },
     {
-      icon: MarketPlaceIcon,
+      icon: ShoppingCart,
       to: "/marketplace",
       intlLabel: {
         id: "Marketplace",
