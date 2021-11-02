@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Image from 'next/image';
 import NavSection from "components/NavSection";
 import StyledLink from "components/StyledLink";
+import Link from "next/link";
 
 const Wrapper = styled.div`
     position: fixed;
@@ -37,7 +38,9 @@ const Navbar = ({navigationContent}) => {
     return(
         <Wrapper>
             <TopPart>
-                <Image src='/logo.svg' width={161} height={25} />
+                <Link href="/" passHref>
+                    <Image src='/logo.svg' width={161} height={25} />
+                </Link>
             </TopPart>
             <HorizontalLine/>
             <Navigation>

@@ -40,11 +40,11 @@ const Layout = ({
                             pages:[
                                 {
                                     name:"principles", 
-                                    link:"/"
+                                    link:"/principles"
                                 },
                                 {
                                     name:"Accessibility",
-                                    link:"#"
+                                    link:"/accessibility"
                                 }
                             ]
                         }
