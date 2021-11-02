@@ -83,7 +83,7 @@ export const SubNavHeader = ({ as, label, searchLabel, searchable, onChange, val
 
   return (
     <Box paddingLeft={6} paddingTop={6} paddingBottom={2} paddingRight={4}>
-      <Flex justifyContent="space-between">
+      <Flex justifyContent="space-between" alignItems="flex-start">
         <H2 as={as}>{label}</H2>
         {searchable && (
           <IconButton ref={searchButtonRef} onClick={toggleSearch} label={searchLabel} icon={<Search />} />
