@@ -25823,11 +25823,18 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
   color: #666687;
 }
 
-.c15 {
+.c16 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #666687;
+}
+
+.c13 {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .c5 {
@@ -25921,23 +25928,23 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
   box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
-.c13 {
+.c14 {
   background: transparent;
   border: none;
   position: relative;
   z-index: 1;
 }
 
-.c13 svg {
+.c14 svg {
   height: 0.6875rem;
   width: 0.6875rem;
 }
 
-.c13 svg path {
+.c14 svg path {
   fill: #666687;
 }
 
-.c14 {
+.c15 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -25946,7 +25953,7 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
   border: none;
 }
 
-.c14 svg {
+.c15 svg {
   width: 0.375rem;
 }
 
@@ -26044,7 +26051,7 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
                 class="c11"
               >
                 <span
-                  class="c12"
+                  class="c12 c13"
                   id="select1-content"
                 >
                   Your example
@@ -26056,7 +26063,304 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
             >
               <button
                 aria-hidden="true"
-                class="c10 c13 c14"
+                class="c10 c14 c15"
+                tabindex="-1"
+                type="button"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 14 8"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
+                    fill="#32324D"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <p
+          class="c16"
+          id="select1-hint"
+        >
+          Description line
+        </p>
+      </div>
+    </div>
+    <button>
+      Show the error state
+    </button>
+    <button>
+      Show the disabled state
+    </button>
+  </div>
+</main>
+`;
+
+exports[`Storyshots Design System/Components/Select multi 1`] = `
+.c0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.c9 {
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
+.c12 {
+  padding-left: 12px;
+}
+
+.c3 {
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #32324d;
+}
+
+.c10 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #32324d;
+}
+
+.c15 {
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #666687;
+}
+
+.c11 {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c1 > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.c1 > * + * {
+  margin-top: 64px;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c2 > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.c2 > * + * {
+  margin-top: 4px;
+}
+
+.c5 {
+  position: relative;
+  border: 1px solid #dcdce4;
+  padding-right: 12px;
+  border-radius: 4px;
+  background: #ffffff;
+  overflow: hidden;
+  min-height: 2.5rem;
+  outline: none;
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+}
+
+.c5:focus-within {
+  border: 1px solid #4945ff;
+  box-shadow: #4945ff 0px 0px 0px 2px;
+}
+
+.c13 {
+  background: transparent;
+  border: none;
+  position: relative;
+  z-index: 1;
+}
+
+.c13 svg {
+  height: 0.6875rem;
+  width: 0.6875rem;
+}
+
+.c13 svg path {
+  fill: #666687;
+}
+
+.c14 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  background: none;
+  border: none;
+}
+
+.c14 svg {
+  width: 0.375rem;
+}
+
+.c6 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  width: 100%;
+  background: transparent;
+  border: none;
+}
+
+.c6:focus {
+  outline: none;
+}
+
+.c6[aria-disabled='true'] {
+  cursor: not-allowed;
+}
+
+.c8 {
+  width: 100%;
+}
+
+<main>
+  <div
+    class="c0"
+  >
+    <h1>
+      Storybook story
+    </h1>
+  </div>
+  <div
+    class="c1"
+  >
+    <h2>
+      Current value is 
+      
+    </h2>
+    <div>
+      <div
+        class="c2"
+      >
+        <span
+          class="c3"
+          for="select1"
+          id="select1-label"
+        >
+          Choose your meal
+        </span>
+        <div
+          class="c4 c5"
+        >
+          <button
+            aria-describedby="select1-hint"
+            aria-disabled="false"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-labelledby="select1-label select1-content"
+            class="c6"
+            id="select1"
+            type="button"
+          />
+          <div
+            class="c7 c8"
+          >
+            <div
+              class="c4"
+            >
+              <div
+                class="c9"
+              >
+                <span
+                  class="c10 c11"
+                  id="select1-content"
+                >
+                  0 currently selected
+                  <span
+                    class="c0"
+                  />
+                </span>
+              </div>
+            </div>
+            <div
+              class="c4"
+            >
+              <button
+                aria-hidden="true"
+                class="c12 c13 c14"
                 tabindex="-1"
                 type="button"
               >
@@ -26096,296 +26400,6 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
 </main>
 `;
 
-exports[`Storyshots Design System/Components/Select multi 1`] = `
-.c0 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-
-.c9 {
-  padding-right: 16px;
-  padding-left: 16px;
-}
-
-.c11 {
-  padding-left: 12px;
-}
-
-.c3 {
-  font-weight: 500;
-  font-size: 0.75rem;
-  line-height: 1.33;
-  color: #32324d;
-}
-
-.c10 {
-  font-weight: 400;
-  font-size: 0.875rem;
-  line-height: 1.43;
-  color: #32324d;
-}
-
-.c14 {
-  font-weight: 400;
-  font-size: 0.75rem;
-  line-height: 1.33;
-  color: #666687;
-}
-
-.c4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c7 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c1 > * {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.c1 > * + * {
-  margin-top: 64px;
-}
-
-.c2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c2 > * {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.c2 > * + * {
-  margin-top: 4px;
-}
-
-.c5 {
-  position: relative;
-  border: 1px solid #dcdce4;
-  padding-right: 12px;
-  border-radius: 4px;
-  background: #ffffff;
-  overflow: hidden;
-  min-height: 2.5rem;
-  outline: none;
-  box-shadow: 0;
-  -webkit-transition-property: border-color,box-shadow,fill;
-  transition-property: border-color,box-shadow,fill;
-  -webkit-transition-duration: 0.2s;
-  transition-duration: 0.2s;
-}
-
-.c5:focus-within {
-  border: 1px solid #4945ff;
-  box-shadow: #4945ff 0px 0px 0px 2px;
-}
-
-.c12 {
-  background: transparent;
-  border: none;
-  position: relative;
-  z-index: 1;
-}
-
-.c12 svg {
-  height: 0.6875rem;
-  width: 0.6875rem;
-}
-
-.c12 svg path {
-  fill: #666687;
-}
-
-.c13 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  background: none;
-  border: none;
-}
-
-.c13 svg {
-  width: 0.375rem;
-}
-
-.c6 {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  width: 100%;
-  background: transparent;
-  border: none;
-}
-
-.c6:focus {
-  outline: none;
-}
-
-.c6[aria-disabled='true'] {
-  cursor: not-allowed;
-}
-
-.c8 {
-  width: 100%;
-}
-
-<main>
-  <div
-    class="c0"
-  >
-    <h1>
-      Storybook story
-    </h1>
-  </div>
-  <div
-    class="c1"
-  >
-    <h2>
-      Current value is 
-      
-    </h2>
-    <div>
-      <div
-        class="c2"
-      >
-        <span
-          class="c3"
-          for="select1"
-          id="select1-label"
-        >
-          Choose your meal
-        </span>
-        <div
-          class="c4 c5"
-        >
-          <button
-            aria-describedby="select1-hint"
-            aria-disabled="false"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-labelledby="select1-label select1-content"
-            class="c6"
-            id="select1"
-            type="button"
-          />
-          <div
-            class="c7 c8"
-          >
-            <div
-              class="c4"
-            >
-              <div
-                class="c9"
-              >
-                <span
-                  class="c10"
-                  id="select1-content"
-                >
-                  0 currently selected
-                  <span
-                    class="c0"
-                  />
-                </span>
-              </div>
-            </div>
-            <div
-              class="c4"
-            >
-              <button
-                aria-hidden="true"
-                class="c11 c12 c13"
-                tabindex="-1"
-                type="button"
-              >
-                <svg
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 14 8"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    clip-rule="evenodd"
-                    d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
-                    fill="#32324D"
-                    fill-rule="evenodd"
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-        <p
-          class="c14"
-          id="select1-hint"
-        >
-          Description line
-        </p>
-      </div>
-    </div>
-    <button>
-      Show the error state
-    </button>
-    <button>
-      Show the disabled state
-    </button>
-  </div>
-</main>
-`;
-
 exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
 .c0 {
   border: 0;
@@ -26404,7 +26418,7 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
   padding-left: 16px;
 }
 
-.c11 {
+.c12 {
   padding-left: 12px;
 }
 
@@ -26422,11 +26436,18 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
   color: #32324d;
 }
 
-.c14 {
+.c15 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #666687;
+}
+
+.c11 {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .c4 {
@@ -26520,23 +26541,23 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
   box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
-.c12 {
+.c13 {
   background: transparent;
   border: none;
   position: relative;
   z-index: 1;
 }
 
-.c12 svg {
+.c13 svg {
   height: 0.6875rem;
   width: 0.6875rem;
 }
 
-.c12 svg path {
+.c13 svg path {
   fill: #666687;
 }
 
-.c13 {
+.c14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -26545,7 +26566,7 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
   border: none;
 }
 
-.c13 svg {
+.c14 svg {
   width: 0.375rem;
 }
 
@@ -26621,7 +26642,7 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
                 class="c9"
               >
                 <span
-                  class="c10"
+                  class="c10 c11"
                   id="select1-content"
                 >
                   0 currently selected
@@ -26636,7 +26657,7 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
             >
               <button
                 aria-hidden="true"
-                class="c11 c12 c13"
+                class="c12 c13 c14"
                 tabindex="-1"
                 type="button"
               >
@@ -26659,7 +26680,7 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
           </div>
         </div>
         <p
-          class="c14"
+          class="c15"
           id="select1-hint"
         >
           Description line
@@ -26694,7 +26715,7 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
   padding-left: 16px;
 }
 
-.c13 {
+.c14 {
   padding-left: 12px;
 }
 
@@ -26712,11 +26733,18 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
   color: #666687;
 }
 
-.c16 {
+.c17 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #666687;
+}
+
+.c13 {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .c4 {
@@ -26827,23 +26855,23 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
   box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
-.c14 {
+.c15 {
   background: transparent;
   border: none;
   position: relative;
   z-index: 1;
 }
 
-.c14 svg {
+.c15 svg {
   height: 0.6875rem;
   width: 0.6875rem;
 }
 
-.c14 svg path {
+.c15 svg path {
   fill: #666687;
 }
 
-.c15 {
+.c16 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -26852,7 +26880,7 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
   border: none;
 }
 
-.c15 svg {
+.c16 svg {
   width: 0.375rem;
 }
 
@@ -26940,7 +26968,7 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
                 class="c11"
               >
                 <span
-                  class="c12"
+                  class="c12 c13"
                   id="select1-content"
                 >
                   Your example
@@ -26959,7 +26987,7 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
             >
               <button
                 aria-hidden="true"
-                class="c13 c14 c15"
+                class="c14 c15 c16"
                 tabindex="-1"
                 type="button"
               >
@@ -26982,7 +27010,7 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
           </div>
         </div>
         <p
-          class="c16"
+          class="c17"
           id="select1-hint"
         >
           Description line
@@ -27017,7 +27045,7 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
   padding-left: 16px;
 }
 
-.c12 {
+.c13 {
   padding-left: 12px;
 }
 
@@ -27035,11 +27063,18 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
   color: #32324d;
 }
 
-.c14 {
+.c15 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #666687;
+}
+
+.c11 {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .c4 {
@@ -27133,23 +27168,23 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
   box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
-.c11 {
+.c12 {
   background: transparent;
   border: none;
   position: relative;
   z-index: 1;
 }
 
-.c11 svg {
+.c12 svg {
   height: 0.6875rem;
   width: 0.6875rem;
 }
 
-.c11 svg path {
+.c12 svg path {
   fill: #666687;
 }
 
-.c13 {
+.c14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -27158,7 +27193,7 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
   border: none;
 }
 
-.c13 svg {
+.c14 svg {
   width: 0.375rem;
 }
 
@@ -27230,7 +27265,7 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
                 class="c9"
               >
                 <span
-                  class="c10"
+                  class="c10 c11"
                   id="select1-content"
                 >
                   0 currently selected
@@ -27243,7 +27278,7 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
               <button
                 aria-disabled="false"
                 aria-label="Clear the meal"
-                class="c11"
+                class="c12"
               >
                 <svg
                   fill="none"
@@ -27260,7 +27295,7 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
               </button>
               <button
                 aria-hidden="true"
-                class="c12 c11 c13"
+                class="c13 c12 c14"
                 tabindex="-1"
                 type="button"
               >
@@ -27283,7 +27318,7 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
           </div>
         </div>
         <p
-          class="c14"
+          class="c15"
           id="select1-hint"
         >
           Description line
@@ -27323,11 +27358,18 @@ exports[`Storyshots Design System/Components/Select withoutLabel 1`] = `
   color: #666687;
 }
 
-.c13 {
+.c14 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #666687;
+}
+
+.c11 {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .c3 {
@@ -27421,23 +27463,23 @@ exports[`Storyshots Design System/Components/Select withoutLabel 1`] = `
   box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
-.c11 {
+.c12 {
   background: transparent;
   border: none;
   position: relative;
   z-index: 1;
 }
 
-.c11 svg {
+.c12 svg {
   height: 0.6875rem;
   width: 0.6875rem;
 }
 
-.c11 svg path {
+.c12 svg path {
   fill: #666687;
 }
 
-.c12 {
+.c13 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -27446,7 +27488,7 @@ exports[`Storyshots Design System/Components/Select withoutLabel 1`] = `
   border: none;
 }
 
-.c12 svg {
+.c13 svg {
   width: 0.375rem;
 }
 
@@ -27532,7 +27574,7 @@ exports[`Storyshots Design System/Components/Select withoutLabel 1`] = `
                 class="c9"
               >
                 <span
-                  class="c10"
+                  class="c10 c11"
                   id="select1-content"
                 >
                   Your example
@@ -27544,7 +27586,7 @@ exports[`Storyshots Design System/Components/Select withoutLabel 1`] = `
             >
               <button
                 aria-hidden="true"
-                class="c8 c11 c12"
+                class="c8 c12 c13"
                 tabindex="-1"
                 type="button"
               >
@@ -27567,7 +27609,7 @@ exports[`Storyshots Design System/Components/Select withoutLabel 1`] = `
           </div>
         </div>
         <p
-          class="c13"
+          class="c14"
           id="select1-hint"
         >
           Description line
@@ -36774,11 +36816,18 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
   color: #666687;
 }
 
-.c14 {
+.c15 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #666687;
+}
+
+.c12 {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .c3 {
@@ -36853,23 +36902,23 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
   box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
-.c12 {
+.c13 {
   background: transparent;
   border: none;
   position: relative;
   z-index: 1;
 }
 
-.c12 svg {
+.c13 svg {
   height: 0.6875rem;
   width: 0.6875rem;
 }
 
-.c12 svg path {
+.c13 svg path {
   fill: #666687;
 }
 
-.c13 {
+.c14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -36878,7 +36927,7 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
   border: none;
 }
 
-.c13 svg {
+.c14 svg {
   width: 0.375rem;
 }
 
@@ -36990,7 +37039,7 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
               class="c10"
             >
               <span
-                class="c11"
+                class="c11 c12"
                 id="tp-1-content"
               >
                 --:--
@@ -37002,7 +37051,7 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
           >
             <button
               aria-hidden="true"
-              class="c8 c12 c13"
+              class="c8 c13 c14"
               tabindex="-1"
               type="button"
             >
@@ -37025,7 +37074,7 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
         </div>
       </div>
       <p
-        class="c14"
+        class="c15"
         id="tp-1-hint"
       >
         Description line
@@ -37071,11 +37120,18 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
   color: #666687;
 }
 
-.c14 {
+.c15 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #666687;
+}
+
+.c12 {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .c3 {
@@ -37150,23 +37206,23 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
   box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
-.c12 {
+.c13 {
   background: transparent;
   border: none;
   position: relative;
   z-index: 1;
 }
 
-.c12 svg {
+.c13 svg {
   height: 0.6875rem;
   width: 0.6875rem;
 }
 
-.c12 svg path {
+.c13 svg path {
   fill: #666687;
 }
 
-.c13 {
+.c14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -37175,7 +37231,7 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
   border: none;
 }
 
-.c13 svg {
+.c14 svg {
   width: 0.375rem;
 }
 
@@ -37287,7 +37343,7 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
               class="c10"
             >
               <span
-                class="c11"
+                class="c11 c12"
                 id="tp-1-content"
               >
                 --:--
@@ -37299,7 +37355,7 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
           >
             <button
               aria-hidden="true"
-              class="c8 c12 c13"
+              class="c8 c13 c14"
               tabindex="-1"
               type="button"
             >
@@ -37322,7 +37378,7 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
         </div>
       </div>
       <p
-        class="c14"
+        class="c15"
         id="tp-1-hint"
       >
         Description line
@@ -37372,11 +37428,18 @@ exports[`Storyshots Design System/Components/TimePicker initial-data 1`] = `
   color: #32324d;
 }
 
-.c15 {
+.c16 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #666687;
+}
+
+.c13 {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .c5 {
@@ -37451,23 +37514,23 @@ exports[`Storyshots Design System/Components/TimePicker initial-data 1`] = `
   box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
-.c13 {
+.c14 {
   background: transparent;
   border: none;
   position: relative;
   z-index: 1;
 }
 
-.c13 svg {
+.c14 svg {
   height: 0.6875rem;
   width: 0.6875rem;
 }
 
-.c13 svg path {
+.c14 svg path {
   fill: #666687;
 }
 
-.c14 {
+.c15 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -37476,7 +37539,7 @@ exports[`Storyshots Design System/Components/TimePicker initial-data 1`] = `
   border: none;
 }
 
-.c14 svg {
+.c15 svg {
   width: 0.375rem;
 }
 
@@ -37597,7 +37660,7 @@ exports[`Storyshots Design System/Components/TimePicker initial-data 1`] = `
                 class="c12"
               >
                 <span
-                  class="c1"
+                  class="c1 c13"
                   id="tp-1-content"
                 >
                   13:32
@@ -37610,7 +37673,7 @@ exports[`Storyshots Design System/Components/TimePicker initial-data 1`] = `
               <button
                 aria-disabled="false"
                 aria-label="Clear the selected time picker value"
-                class="c13"
+                class="c14"
               >
                 <svg
                   fill="none"
@@ -37627,7 +37690,7 @@ exports[`Storyshots Design System/Components/TimePicker initial-data 1`] = `
               </button>
               <button
                 aria-hidden="true"
-                class="c10 c13 c14"
+                class="c10 c14 c15"
                 tabindex="-1"
                 type="button"
               >
@@ -37650,7 +37713,7 @@ exports[`Storyshots Design System/Components/TimePicker initial-data 1`] = `
           </div>
         </div>
         <p
-          class="c15"
+          class="c16"
           id="tp-1-hint"
         >
           Description line
@@ -37697,11 +37760,18 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
   color: #666687;
 }
 
-.c14 {
+.c15 {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.33;
   color: #666687;
+}
+
+.c12 {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .c3 {
@@ -37776,23 +37846,23 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
   box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
-.c12 {
+.c13 {
   background: transparent;
   border: none;
   position: relative;
   z-index: 1;
 }
 
-.c12 svg {
+.c13 svg {
   height: 0.6875rem;
   width: 0.6875rem;
 }
 
-.c12 svg path {
+.c13 svg path {
   fill: #666687;
 }
 
-.c13 {
+.c14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -37801,7 +37871,7 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
   border: none;
 }
 
-.c13 svg {
+.c14 svg {
   width: 0.375rem;
 }
 
@@ -37913,7 +37983,7 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
               class="c10"
             >
               <span
-                class="c11"
+                class="c11 c12"
                 id="tp-1-content"
               >
                 --:--
@@ -37925,7 +37995,7 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
           >
             <button
               aria-hidden="true"
-              class="c8 c12 c13"
+              class="c8 c13 c14"
               tabindex="-1"
               type="button"
             >
@@ -37948,7 +38018,7 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
         </div>
       </div>
       <p
-        class="c14"
+        class="c15"
         id="tp-1-hint"
       >
         Description line
