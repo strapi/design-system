@@ -10,6 +10,7 @@ import { formatDate } from './utils/formatDate';
 import { useId } from '../helpers/useId';
 
 export const DatePicker = ({
+  ariaLabel,
   initialDate,
   selectedDate,
   size,
@@ -72,6 +73,7 @@ export const DatePicker = ({
         }
         aria-autocomplete="none"
         label={label}
+        aria-label={ariaLabel}
         disabled={disabled}
         id={generatedId}
         {...props}
@@ -83,7 +85,7 @@ export const DatePicker = ({
           initialDate={initialDate}
           onChange={handleChange}
           popoverSource={inputRef.current.inputWrapperRef}
-          label={label}
+          label={label || ariaLabel}
         />
       )}
     </DatePickerWrapper>
@@ -91,6 +93,7 @@ export const DatePicker = ({
 };
 
 DatePicker.defaultProps = {
+  ariaLabel: undefined,
   clearLabel: undefined,
   disabled: false,
   id: undefined,
@@ -102,6 +105,7 @@ DatePicker.defaultProps = {
 };
 
 DatePicker.propTypes = {
+  ariaLabel: PropTypes.string,
   clearLabel: PropTypes.string,
   disabled: PropTypes.bool,
   id: PropTypes.string,
