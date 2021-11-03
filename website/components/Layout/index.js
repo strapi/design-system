@@ -26,7 +26,8 @@ const Footer = styled.footer`
 
 const Layout = ({
     children,
-    meta
+    meta,
+    navigationContent
 }) => {
 
     return (
@@ -34,23 +35,7 @@ const Layout = ({
         <Head meta={meta}/>
         <header>
             <Navbar
-                navigationContent={
-                    [
-                        {
-                            title:"getting started",
-                            pages:[
-                                {
-                                    name:"principles", 
-                                    link:"/principles"
-                                },
-                                {
-                                    name:"Accessibility",
-                                    link:"/accessibility"
-                                }
-                            ]
-                        }
-                    ]
-                }
+                navigationContent={navigationContent}
             />
         </header>
         <div>

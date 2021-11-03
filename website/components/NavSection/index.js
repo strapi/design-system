@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 import Image from 'next/image';
 import Link from 'next/link';
@@ -7,7 +8,7 @@ import { useRouter } from "next/router";
 const SectionTitle = styled.h3`
     font-weight: 700;
     font-size: 11px;
-    color: var(--Primary600);
+    color: ${props => props.isActive ? 'var(--Primary600)' : 'var(--Neutral600)'};
     padding: 0.5rem 1.5rem;
     width:100%;
     text-transform: uppercase;
@@ -37,21 +38,29 @@ const LinksList = styled.ul`
 
 const NavSection = ({title,pages}) => {
 
+    const [isSectionActive, setIsSectionActive] = useState(false)
     const router = useRouter();
 
     return(
         <div>
-            <SectionTitle>
-                {title} <Image src="/dropdown-icon.svg" width={7} height={4}/>
+            <SectionTitle isActive={isSectionActive}>
+                {title} 
+                <Image 
+                    src={isSectionActive ? "/dropdown-icon-active.svg" : "/dropdown-icon.svg"} 
+                    width={7} 
+                    height={4}
+                />
             </SectionTitle>
             <LinksList>
-                {pages.map((page,index) => {
+                {pages?.map((page,index) => {
+                    const isActive = router.pathname == page.link;
+                    if(isActive) setIsSectionActive(isActive);
                    return <Link 
                             href={page.link} 
                             key={index} 
                             passHref
                         >
-                            <li className={router.pathname == page.link ? "active" : ""}>{page.name}</li>
+                            <li className={isActive ? "active" : ""}>{page.name}</li>
                         </Link>
                 })}
             </LinksList>

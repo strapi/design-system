@@ -7,6 +7,10 @@ import PropTypes from "prop-types";
 
 const Wrapper = styled.div`
     position: fixed;
+    overflow-y:scroll;
+    height: 100%;
+    top:0;
+    bottom:0;
 `
 
 const TopPart = styled.div`
@@ -45,7 +49,7 @@ const Navbar = ({navigationContent}) => {
             </TopPart>
             <HorizontalLine/>
             <Navigation>
-                {navigationContent.map((section,index) => (
+                {navigationContent?.map((section,index) => (
                     <NavSection 
                         title={section.title} 
                         pages={section.pages}
