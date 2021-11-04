@@ -4,6 +4,7 @@ import DropdownIcon from '@strapi/icons/CarretDown';
 import styled from 'styled-components';
 import { TextButton } from '../TextButton';
 import { Typography } from '../Text';
+import { AccordionTypography } from './Accordion';
 import { useAccordion } from './AccordionContext';
 import { Flex } from '../Flex';
 import { Stack } from '../Stack';
@@ -113,9 +114,9 @@ export const AccordionToggle = ({ title, description, as, togglePosition, action
                   {title}
                 </Typography>
               ) : (
-                <Typography variant="delta" as={as} id={ariaLabelId} textColor={titleColor}>
+                <AccordionTypography variant="delta" as={as} id={ariaLabelId} textColor={titleColor}>
                   {title}
-                </Typography>
+                </AccordionTypography>
               )}
 
               {description && (

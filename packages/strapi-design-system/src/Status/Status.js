@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
-import { Text } from '../Text';
+import { Typography } from '../Text';
 import styled from 'styled-components';
 
 const Bullet = styled.div`
@@ -14,7 +14,7 @@ const Bullet = styled.div`
 `;
 
 const StatusWrapper = styled(Box)`
-  ${Text} {
+  ${Typography} {
     color: ${({ theme, textColor }) => theme.colors[textColor]};
   }
 `;

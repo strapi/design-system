@@ -24,7 +24,7 @@ const MainNavLinkWrapper = styled(RouterLink)`
   border-radius: ${({ theme }) => theme.borderRadius};
   background: ${({ theme }) => theme.colors.neutral0};
 
-  ${Text} {
+  ${Typography} {
     color: ${({ theme }) => theme.colors.neutral600};
   }
 
@@ -35,7 +35,7 @@ const MainNavLinkWrapper = styled(RouterLink)`
   &:hover {
     background: ${({ theme }) => theme.colors.neutral100};
 
-    ${Text} {
+    ${Typography} {
       color: ${({ theme }) => theme.colors.neutral700};
     }
 
@@ -51,7 +51,7 @@ const MainNavLinkWrapper = styled(RouterLink)`
       fill: ${({ theme }) => theme.colors.primary600};
     }
 
-    ${Text} {
+    ${Typography} {
       color: ${({ theme }) => theme.colors.primary600};
       font-weight: 500;
     }
@@ -72,7 +72,7 @@ const CustomBadge = styled(Badge)`
     right: 0;
   `}
 
-  ${Text} {
+  ${Typography} {
     //find a solution to remove !important
     color: ${({ theme }) => theme.colors.neutral0} !important;
     line-height: 0;
@@ -139,8 +139,8 @@ NavLink.defaultProps = {
 };
 
 NavLink.propTypes = {
+  badgeAriaLabel: PropTypes.string,
+  badgeContent: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   children: PropTypes.string.isRequired,
   icon: PropTypes.node.isRequired,
-  badgeContent: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  badgeAriaLabel: PropTypes.string,
 };

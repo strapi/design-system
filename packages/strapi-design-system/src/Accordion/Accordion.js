@@ -23,6 +23,8 @@ const getBorder = ({ theme, expanded, variant, disabled }) => {
   return `1px solid ${theme.colors.neutral100}`;
 };
 
+export const AccordionTypography = styled(Typography)``;
+
 const AccordionWrapper = styled(Box)`
   border: ${getBorder};
   overflow: hidden;
@@ -30,7 +32,7 @@ const AccordionWrapper = styled(Box)`
   &:hover:not([aria-disabled='true']) {
     border: 1px solid ${({ theme }) => theme.colors.primary600};
 
-    h3 {
+    ${AccordionTypography} {
       color: ${({ theme, expanded }) => (expanded ? undefined : theme.colors.primary700)};
     }
 

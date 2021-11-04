@@ -41,6 +41,7 @@ export const variantStyle = ({ variant, theme }) => {
     case OMEGA: {
       return `
         font-size: ${theme.fontSizes[2]};
+        line-height: ${theme.lineHeights[4]};
       `;
     }
     case PI: {
