@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import DropdownIcon from '@strapi/icons/CarretDown';
 import styled from 'styled-components';
 import { TextButton } from '../TextButton';
-import { Typography } from '../Text';
+import { Typography } from '../Typography';
 import { AccordionTypography } from './Accordion';
 import { useAccordion } from './AccordionContext';
 import { Flex } from '../Flex';

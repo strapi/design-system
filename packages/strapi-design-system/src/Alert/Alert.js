@@ -6,7 +6,7 @@ import CheckCircle from '@strapi/icons/CheckCircle';
 import ExclamationMarkCircle from '@strapi/icons/ExclamationMarkCircle';
 import Cross from '@strapi/icons/Cross';
 import { Box } from '../Box';
-import { Typography } from '../Text';
+import { Typography } from '../Typography';
 import { Flex } from '../Flex';
 import { handleBackgroundColor, handleBorderColor, handleIconColor } from './utils';
 import { buttonFocusStyle } from '../themes/utils';

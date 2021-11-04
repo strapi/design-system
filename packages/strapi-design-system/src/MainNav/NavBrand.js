@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { Box } from '../Box';
-import { Typography } from '../Text';
+import { Typography } from '../Typography';
 import { Flex } from '../Flex';
 import { useMainNav } from './MainNavContext';
 import { VisuallyHidden } from '../VisuallyHidden';

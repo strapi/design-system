@@ -6,7 +6,7 @@ import { Stack } from '../Stack';
 import { Field, FieldHint, FieldError, useField } from '../Field';
 import { Box } from '../Box';
 import { useId } from '../helpers/useId';
-import { Text } from '../Text';
+import { Text } from '../Typography';
 
 const CheckboxLabel = styled(Text)`
   display: flex;

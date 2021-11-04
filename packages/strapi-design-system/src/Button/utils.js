@@ -1,4 +1,4 @@
-import { Typography } from '../Text';
+import { Typography } from '../Typography';
 import { LIGHT_VARIANTS, VARIANTS } from './constants';
 
 export const getVariantColorName = (variant) => {

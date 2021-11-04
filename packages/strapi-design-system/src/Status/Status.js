@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
-import { Typography } from '../Text';
+import { Typography } from '../Typography';
 import styled from 'styled-components';
 
 const Bullet = styled.div`

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useField } from './FieldContext';
-import { Typography } from '../Text';
+import { Typography } from '../Typography';
 
 export const FieldHint = () => {
   const { id, hint, error } = useField();

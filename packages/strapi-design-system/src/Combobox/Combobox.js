@@ -9,7 +9,7 @@ import { Flex } from '../Flex';
 import { CaretBox, IconBox } from '../Select/components';
 import { Popover } from '../Popover';
 import { Box } from '../Box';
-import { Typography } from '../Text';
+import { Typography } from '../Typography';
 import { Loader } from '../Loader/Loader';
 import { Input, MainRow, ValueContainer, InputContainer } from './components';
 import { ComboboxOption } from './ComboboxOption';

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Avatar, Initials } from '../Avatar';
-import { Typography } from '../Text';
+import { Typography } from '../Typography';
 import { Flex } from '../Flex';
 import { Box } from '../Box';
 import { useMainNav } from './MainNavContext';

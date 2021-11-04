@@ -2,7 +2,7 @@ import React, { Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { useTabs } from './TabsContext';
-import { Typography } from '../Text';
+import { Typography } from '../Typography';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 import { useTabsFocus } from './useTabsFocus';
 import { DefaultTabsRow, DefaultTabButton, DefaultTabBox, SimpleTabBox } from './components';

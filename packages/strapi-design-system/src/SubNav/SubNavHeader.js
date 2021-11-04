@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Search from '@strapi/icons/Search';
 import { Flex } from '../Flex';
-import { Typography } from '../Text';
+import { Typography } from '../Typography';
 import { IconButton } from '../IconButton';
 import { Box } from '../Box';
 import { Divider } from '../Divider';

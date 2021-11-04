@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { NavLink as RouterLink } from 'react-router-dom';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
-import { Typography } from '../Text';
+import { Typography } from '../Typography';
 import { useMainNav } from './MainNavContext';
 import { Tooltip } from '../Tooltip';
 import { Badge } from '../Badge';

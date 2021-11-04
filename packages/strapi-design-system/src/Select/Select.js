@@ -7,7 +7,7 @@ import { SelectButton } from './SelectButton';
 import { Field, FieldHint, FieldLabel, FieldError } from '../Field';
 import { Popover } from '../Popover';
 import { Stack } from '../Stack';
-import { Typography } from '../Text';
+import { Typography } from '../Typography';
 import { Flex } from '../Flex';
 import { Box } from '../Box';
 import { useId } from '../helpers/useId';

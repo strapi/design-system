@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Typography } from '../Text';
+import { Typography } from '../Typography';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { useElementOnScreen } from '../helpers/useElementOnScreen';

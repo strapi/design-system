@@ -6,7 +6,7 @@ import ChevronRight from '@strapi/icons/ChevronRight';
 import { NavLink } from 'react-router-dom';
 import { VisuallyHidden } from '../VisuallyHidden';
 import { usePagination } from './PaginationContext';
-import { Typography } from '../Text';
+import { Typography } from '../Typography';
 import { buttonFocusStyle } from '../themes/utils';
 
 const PaginationText = styled(Typography)`

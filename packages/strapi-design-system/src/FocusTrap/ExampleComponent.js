@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Cross from '@strapi/icons/Cross';
 import { Box } from '../Box';
 import { Stack } from '../Stack';
-import { Typography } from '../Text';
+import { Typography } from '../Typography';
 import { Button } from '../Button';
 import { Flex } from '../Flex';
 

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
 import Loader from '@strapi/icons/Loader';
-import { Typography } from '../Text';
+import { Typography } from '../Typography';
 import { Box } from '../Box';
 import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from './utils';
 import { VARIANTS, BUTTON_SIZES } from './constants';

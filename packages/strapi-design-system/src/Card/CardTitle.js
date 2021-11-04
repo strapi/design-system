@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography } from '../Text';
+import { Typography } from '../Typography';
 import { useCard } from './CardContext';
 
 export const CardTitle = (props) => {

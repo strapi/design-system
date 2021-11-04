@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useField } from './FieldContext';
-import { Typography } from '../Text';
+import { Typography } from '../Typography';
 
 export const FieldLabel = ({ children, required, ...props }) => {
   const { id } = useField();

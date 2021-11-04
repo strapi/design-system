@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Dot from '@strapi/icons/Dot';
 import { NavLink } from 'react-router-dom';
 import { Box } from '../Box';
-import { Typography } from '../Text';
+import { Typography } from '../Typography';
 import { Flex } from '../Flex';
 
 const SubNavLinkWrapper = styled(Box)`

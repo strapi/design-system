@@ -5,7 +5,7 @@ import ChevronRight from '@strapi/icons/ChevronRight';
 import ChevronLeft from '@strapi/icons/ChevronLeft';
 import { Icon } from '../Icon';
 import { Box } from '../Box';
-import { Typography } from '../Text';
+import { Typography } from '../Typography';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 
 const CarouselGrid = styled(Box)`

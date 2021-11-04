@@ -7,7 +7,7 @@ import { setOpacity } from '../helpers/setOpacity';
 import useLockScroll from '../helpers/useLockScroll';
 import { Portal } from '../Portal';
 import { Flex } from '../Flex';
-import { Typography } from '../Text';
+import { Typography } from '../Typography';
 import { useId } from '../helpers/useId';
 
 const DialogWrapper = styled.div`

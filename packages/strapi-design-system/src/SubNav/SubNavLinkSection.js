@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import CarretDown from '@strapi/icons/CarretDown';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
-import { Typography } from '../Text';
+import { Typography } from '../Typography';
 import { useId } from '../helpers/useId';
 
 const SubNavLinkSectionWrapper = styled(Box)`
@@ -47,7 +47,7 @@ export const SubNavLinkSection = ({ label, children, id }) => {
               <CarretDown aria-hidden />
             </DropDownIconWrapper>
             <Box paddingLeft={2}>
-              <Typography as="span" fontWeight="bold" textColor="neutral800">
+              <Typography as="span" fontWeight="semiBold" textColor="neutral800">
                 {label}
               </Typography>
             </Box>

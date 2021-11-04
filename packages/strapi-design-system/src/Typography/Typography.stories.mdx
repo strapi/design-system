@@ -1,23 +1,23 @@
-<!--- Text.stories.mdx --->
+<!--- Typography.stories.mdx --->
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
-import { H1, H2, H3, Text, Typography, Subtitle, EllipsisText } from './';
+import { Typography } from './Typography';
 import { Box } from '../Box';
 import { Divider } from '../Divider';
 import { TEXT_VARIANTS } from './constants';
 
-<Meta title="Design System/Technical Components/Text" component={Typography} />
+<Meta title="Design System/Technical Components/Typography" component={Typography} />
 
 # Text
 
 This is the doc of the different Text / Typography components.
 
-[View source](https://github.com/strapi/design-system/tree/develop/packages/strapi-design-system/src/Text)
+[View source](https://github.com/strapi/design-system/tree/develop/packages/strapi-design-system/src/Typography)
 
 ## Imports
 
 ```js
-import { H1, H2, H3, Text, TextButton, Subtitle } from '@strapi/design-system/Typography';
+import { Typography } from '@strapi/design-system/Typography';
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ import { H1, H2, H3, Text, TextButton, Subtitle } from '@strapi/design-system/Ty
 The main way to display text content on the screen
 
 <Canvas>
-  <Story name="base">
+  <Story name="variants">
     <Box>
       <Typography variant="beta">Variants</Typography>
       <Divider />

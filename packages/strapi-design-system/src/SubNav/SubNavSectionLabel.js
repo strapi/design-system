@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import CarretDown from '@strapi/icons/CarretDown';
-import { Typography } from '../Text';
+import { Typography } from '../Typography';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
 

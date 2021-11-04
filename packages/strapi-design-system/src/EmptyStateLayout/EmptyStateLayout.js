@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Typography } from '../Text';
+import { Typography } from '../Typography';
 import { Box } from '../Box';
 
 const EmptyStateWrapper = styled(Box)`

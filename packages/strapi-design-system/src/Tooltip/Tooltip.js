@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Box } from '../Box';
-import { Typography } from '../Text';
+import { Typography } from '../Typography';
 import { Portal } from '../Portal';
 import { useTooltipHandlers } from './hooks/useTooltipHandlers';
 import { useTooltipLayout } from './hooks/useTooltipLayout';

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { BaseRadio } from '../BaseRadio/BaseRadio';
-import { Text } from '../Text';
+import { Text } from '../Typography';
 import { Box } from '../Box';
 
 const TextLabel = styled(Text)`

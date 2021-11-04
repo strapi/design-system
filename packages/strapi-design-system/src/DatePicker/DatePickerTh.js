@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { RawTh } from '../RawTable';
-import { Typography } from '../Text';
+import { Typography } from '../Typography';
 import { VisuallyHidden } from '../VisuallyHidden';
 import { Flex } from '../Flex';
 
