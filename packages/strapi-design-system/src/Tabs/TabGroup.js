@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import { TabsContext } from './TabsContext';
 import { useId } from '../helpers/useId';
 
-export const TabGroup = ({ id, label, onTabChange, variant, ...props }) => {
+export const TabGroup = ({ id, initialSelectedTabIndex, label, onTabChange, variant, ...props }) => {
   const tabsId = useId('tabgroup', id);
   const Tabs = Children.toArray(props.children).find((node) => node.type.displayName === 'Tabs');
-  let firstSelectedTab = 0;
+  let firstSelectedTab = initialSelectedTabIndex || 0;
 
-  if (Tabs) {
+  if (Tabs && initialSelectedTabIndex === undefined) {
     firstSelectedTab = Tabs.props.children.findIndex((node) => !node.props.disabled);
   }
   const [selectedTabIndex, setSelectedTabIndex] = useState(firstSelectedTab === -1 ? 0 : firstSelectedTab);
@@ -24,6 +24,7 @@ export const TabGroup = ({ id, label, onTabChange, variant, ...props }) => {
 
 TabGroup.defaultProps = {
   id: undefined,
+  initialSelectedTabIndex: undefined,
   onTabChange: () => {},
   variant: undefined,
 };
@@ -31,6 +32,7 @@ TabGroup.defaultProps = {
 TabGroup.propTypes = {
   children: PropTypes.node.isRequired,
   id: PropTypes.string,
+  initialSelectedTabIndex: PropTypes.number,
   label: PropTypes.string.isRequired,
   onTabChange: PropTypes.func,
   variant: PropTypes.oneOf(['simple']),

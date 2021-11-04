@@ -200,4 +200,23 @@ describe('Tabs', () => {
       });
     });
   });
+
+  describe('Initial selected tabs', () => {
+    beforeEach(async () => {
+      // This is the URL of the Storybook Iframe
+      await page.goto('http://localhost:6006/iframe.html?id=design-system-components-tabs--selected&viewMode=story');
+      await injectAxe(page);
+    });
+
+    it('verifies that only the first not visible panel is visible at the beginning', async () => {
+      const isFirstPanelVisible = await page.isVisible('text="First panel"');
+      expect(isFirstPanelVisible).toBeFalsy();
+
+      const isSecondPanelVisible = await page.isVisible('text="Second panel"');
+      expect(isSecondPanelVisible).toBeTruthy();
+
+      const isThirdPanelVisible = await page.isVisible('text="Third panel"');
+      expect(isThirdPanelVisible).toBeFalsy();
+    });
+  });
 });
