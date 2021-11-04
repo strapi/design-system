@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Dot from '@strapi/icons/Dot';
 import { NavLink } from 'react-router-dom';
 import { Box } from '../Box';
-import { Text } from '../Text';
+import { Typography } from '../Text';
 import { Flex } from '../Flex';
 
 const SubNavLinkWrapper = styled(Box)`
@@ -25,7 +25,7 @@ const SubNavLinkWrapper = styled(Box)`
       svg > * {
         fill: ${theme.colors.primary700};
       }
-      ${Text} {
+      ${Typography} {
         color: ${theme.colors.primary700};
         font-weight: 500;
       }
@@ -66,7 +66,7 @@ export const SubNavLink = ({ children, icon, withBullet, ...props }) => {
         <Flex>
           {icon ? <IconWrapper>{icon}</IconWrapper> : <CustomBullet />}
           <Box paddingLeft={2}>
-            <Text as="span">{children}</Text>
+            <Typography as="span">{children}</Typography>
           </Box>
         </Flex>
         {withBullet && (

@@ -3,7 +3,7 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { ArgsTable } from '@storybook/addon-docs';
 import { Status } from './Status';
-import { Text } from '../Text';
+import { Typography } from '../Text';
 import { Stack } from '../Stack';
 
 <Meta title="Design System/Components/Status" component={Status} />
@@ -13,13 +13,14 @@ import { Stack } from '../Stack';
 Status are used to give an important visual indication to the users on a page level.
 
 **Best practices**
+
 - Use clear and concise words.
 - Use rather outside of a form.
 - One form should not have more than one status.
 - Status should not be used if there are no state change possible.
 - Use colors of the theme if a new colors is required.
 - Status should not be clickable. They are visual information only.
-[View source](https://github.com/strapi/design-system/tree/develop/packages/strapi-design-system/src/Status)
+  [View source](https://github.com/strapi/design-system/tree/develop/packages/strapi-design-system/src/Status)
 
 ## Imports
 
@@ -36,14 +37,14 @@ Use a Status sparingly within forms to give an important visual indication. Stat
   <Story name="base">
     <Stack size={3}>
       <Status variant="success">
-        <Text>
-          Hello world <Text bold>thing happens</Text>
-        </Text>
+        <Typography>
+          Hello world <Typography fontWeight="bold">thing happens</Typography>
+        </Typography>
       </Status>
       <Status variant="secondary">
-        <Text>
-          Hello world <Text bold>thing happens</Text>
-        </Text>
+        <Typography>
+          Hello world <Typography fontWeight="bold">thing happens</Typography>
+        </Typography>
       </Status>
     </Stack>
   </Story>

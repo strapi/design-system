@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import ExternalLink from '@strapi/icons/ExternalLink';
 import { NavLink } from 'react-router-dom';
-import { TableLabel } from '../Text';
+import { Typography } from '../Text';
 import { Box } from '../Box';
 import { buttonFocusStyle } from '../themes/utils';
 
@@ -55,7 +55,9 @@ export const Link = ({ href, to, children, disabled, startIcon, endIcon, ...prop
         </IconWrapper>
       )}
 
-      <TableLabel textColor={disabled ? 'neutral600' : 'primary600'}>{children}</TableLabel>
+      <Typography variant="sigma" textColor={disabled ? 'neutral600' : 'primary600'}>
+        {children}
+      </Typography>
 
       {endIcon && !href && (
         <IconWrapper as="span" aria-hidden={true} paddingLeft={2}>

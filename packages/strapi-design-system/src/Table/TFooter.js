@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box } from '../Box';
 import { Divider } from '../Divider';
-import { Text } from '../Text';
+import { Typography } from '../Text';
 import { Flex } from '../Flex';
 import styled from 'styled-components';
 
@@ -42,9 +42,9 @@ export const TFooter = ({ children, icon, ...props }) => {
             {icon}
           </IconBox>
           <Box paddingLeft={3}>
-            <Text small={true} bold={true} textColor="primary600">
+            <Typography variant="pi" fontWeight="bold" textColor="primary600">
               {children}
-            </Text>
+            </Typography>
           </Box>
         </Flex>
       </ButtonBox>

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Text, H3 } from '../Text';
+import { Typography } from '../Text';
 import { AccordionContext } from './AccordionContext';
 import { useId } from '../helpers/useId';
 import { Box } from '../Box';
@@ -30,11 +30,11 @@ const AccordionWrapper = styled(Box)`
   &:hover:not([aria-disabled='true']) {
     border: 1px solid ${({ theme }) => theme.colors.primary600};
 
-    ${H3} {
+    h3 {
       color: ${({ theme, expanded }) => (expanded ? undefined : theme.colors.primary700)};
     }
 
-    ${Text} {
+    ${Typography} {
       color: ${({ theme, expanded }) => (expanded ? undefined : theme.colors.primary600)};
     }
 

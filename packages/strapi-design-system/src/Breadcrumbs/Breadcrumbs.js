@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import ChevronRight from '@strapi/icons/ChevronRight';
-import { Text } from '../Text';
+import { Typography } from '../Text';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { VisuallyHidden } from '../VisuallyHidden';
@@ -23,9 +23,9 @@ const CrumbWrapper = styled(Flex)`
 export const Crumb = ({ children }) => {
   return (
     <CrumbWrapper inline as="li">
-      <Text bold color="neutral800">
+      <Typography fontWeight="bold" color="neutral800">
         {children}
-      </Text>
+      </Typography>
       <Box paddingLeft={3} paddingRight={3}>
         <ChevronRight />
       </Box>

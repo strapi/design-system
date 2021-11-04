@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Avatar, Initials } from '../Avatar';
-import { Text } from '../Text';
+import { Typography } from '../Text';
 import { Flex } from '../Flex';
 import { Box } from '../Box';
 import { useMainNav } from './MainNavContext';
@@ -29,7 +29,7 @@ export const NavUser = React.forwardRef(({ src, children, initials, ...props }, 
           </VisuallyHidden>
         ) : (
           <Box paddingLeft={2} as="span">
-            <Text textColor="neutral600">{children}</Text>
+            <Typography textColor="neutral600">{children}</Typography>
           </Box>
         )}
       </Flex>

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
 import Loader from '@strapi/icons/Loader';
-import { Text, ButtonText } from '../Text';
+import { Typography } from '../Text';
 import { Box } from '../Box';
 import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from './utils';
 import { VARIANTS, BUTTON_SIZES } from './constants';
@@ -35,7 +35,7 @@ export const ButtonWrapper = styled(BaseButton)`
     display: flex;
     align-items: center;
   }
-  ${Text} {
+  ${Typography} {
     color: ${({ theme }) => theme.colors.neutral0};
   }
   &[aria-disabled='true'] {
@@ -94,11 +94,13 @@ export const Button = React.forwardRef(
         )}
 
         {size === 'S' ? (
-          <Text small={size === 'S'} bold>
+          <Typography variant="pi" fontWeight="bold">
             {children}
-          </Text>
+          </Typography>
         ) : (
-          <ButtonText>{children}</ButtonText>
+          <Typography variant="omega" fontWeight="bold">
+            {children}
+          </Typography>
         )}
 
         {endIcon && (

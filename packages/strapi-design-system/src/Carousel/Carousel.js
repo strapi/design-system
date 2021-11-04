@@ -5,7 +5,7 @@ import ChevronRight from '@strapi/icons/ChevronRight';
 import ChevronLeft from '@strapi/icons/ChevronLeft';
 import { Icon } from '../Icon';
 import { Box } from '../Box';
-import { Text } from '../Text';
+import { Typography } from '../Text';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 
 const CarouselGrid = styled(Box)`
@@ -73,9 +73,9 @@ export const Carousel = ({
   return (
     <Box {...props} onKeyDown={handleKeyDown}>
       <Box paddingBottom={1}>
-        <Text textColor="neutral800" small bold>
+        <Typography variant="pi" textColor="neutral800" fontWeight="bold">
           {label}
-        </Text>
+        </Typography>
       </Box>
       <Box padding={2} borderColor="neutral200" hasRadius background="neutral100">
         <CarouselGrid as="section" aria-roledescription="carousel" aria-label={label} position="relative">
@@ -105,9 +105,9 @@ export const Carousel = ({
       </Box>
       {hint || error ? (
         <Box paddingTop={1}>
-          <Text small={true} textColor={error ? 'danger600' : 'neutral600'}>
+          <Typography variant="pi" textColor={error ? 'danger600' : 'neutral600'}>
             {hint || error}
-          </Text>
+          </Typography>
         </Box>
       ) : null}
     </Box>

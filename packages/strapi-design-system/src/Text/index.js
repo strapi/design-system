@@ -57,7 +57,7 @@ export const ButtonText = styled(Text)`
   line-height: ${({ theme }) => theme.lineHeights[0]};
 `;
 
-export const TableLabel = styled(ButtonText)`
+export const TableLabel = styled(Typography)`
   font-weight: ${({ theme }) => theme.fontWeights.bold};
   font-size: ${({ theme }) => theme.fontSizes[0]};
   line-height: ${({ theme }) => theme.lineHeights[5]};

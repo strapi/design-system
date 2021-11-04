@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { NavLink as RouterLink } from 'react-router-dom';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
-import { Text } from '../Text';
+import { Typography } from '../Text';
 import { useMainNav } from './MainNavContext';
 import { Tooltip } from '../Tooltip';
 import { Badge } from '../Badge';
@@ -120,7 +120,7 @@ export const NavLink = ({ children, icon, badgeContent, badgeAriaLabel, ...props
             <IconBox aria-hidden paddingRight={3} as="span">
               {icon}
             </IconBox>
-            <Text>{children}</Text>
+            <Typography>{children}</Typography>
           </Flex>
           {badgeContent && (
             <CustomBadge justifyContent="center" aria-label={badgeAriaLabel}>

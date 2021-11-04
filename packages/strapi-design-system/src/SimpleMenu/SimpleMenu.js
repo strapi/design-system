@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import CarretDown from '@strapi/icons/CarretDown';
 import { NavLink } from 'react-router-dom';
-import { Text } from '../Text';
+import { Typography } from '../Text';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { Button } from '../Button';
@@ -61,13 +61,13 @@ export const MenuItem = ({ children, onClick, to, isFocused, ...props }) => {
       {to ? (
         <OptionLink to={to} {...menuItemProps}>
           <Box padding={2}>
-            <Text>{children}</Text>
+            <Typography>{children}</Typography>
           </Box>
         </OptionLink>
       ) : (
         <OptionButton onKeyDown={handleKeyDown} onMouseDown={onClick} type="button" {...menuItemProps}>
           <Box padding={2}>
-            <Text>{children}</Text>
+            <Typography>{children}</Typography>
           </Box>
         </OptionButton>
       )}

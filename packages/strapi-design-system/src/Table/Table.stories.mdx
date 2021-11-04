@@ -15,7 +15,7 @@ import { Thead } from './Thead';
 import { Tbody } from './Tbody';
 import { Tr } from './Tr';
 import { Td, Th } from './Cell';
-import { Text, TableLabel } from '../Text';
+import { Typography } from '../Text';
 import { Avatar } from '../Avatar';
 import { IconButton } from '../IconButton';
 import { TFooter } from './TFooter';
@@ -50,7 +50,7 @@ import { Flex } from '@strapi/design-system/Flex';
 import { VisuallyHidden } from '@strapi/design-system/VisuallyHidden';
 import { BaseCheckbox } from '@strapi/design-system/BaseCheckbox';
 import { Table, Thead, Tbody, Tr, Td, Th } from '@strapi/design-system/Table';
-import { Text, TableLabel } from '@strapi/design-system/Text';
+import { Typography } from '@strapi/design-system/Text';
 import { Avatar } from '@strapi/design-system/Avatar';
 import { IconButton } from '@strapi/design-system/IconButton';
 import { TFooter } from '@strapi/design-system/TFooter';
@@ -92,19 +92,19 @@ The default Table.
                   <BaseCheckbox aria-label="Select all entries" />
                 </Th>
                 <Th>
-                  <TableLabel>ID</TableLabel>
+                  <Typography variant="sigma">ID</Typography>
                 </Th>
                 <Th>
-                  <TableLabel>Cover</TableLabel>
+                  <Typography variant="sigma">Cover</Typography>
                 </Th>
                 <Th>
-                  <TableLabel>Description</TableLabel>
+                  <Typography variant="sigma">Description</Typography>
                 </Th>
                 <Th>
-                  <TableLabel>Categories</TableLabel>
+                  <Typography variant="sigma">Categories</Typography>
                 </Th>
                 <Th>
-                  <TableLabel>Contact</TableLabel>
+                  <Typography variant="sigma">Contact</Typography>
                 </Th>
                 <Th>
                   <VisuallyHidden>Actions</VisuallyHidden>
@@ -118,19 +118,19 @@ The default Table.
                     <BaseCheckbox aria-label={`Select ${entry.contact}`} />
                   </Td>
                   <Td>
-                    <Text textColor="neutral800">{entry.id}</Text>
+                    <Typography textColor="neutral800">{entry.id}</Typography>
                   </Td>
                   <Td>
                     <Avatar src={entry.cover} alt={entry.contact} />
                   </Td>
                   <Td>
-                    <Text textColor="neutral800">{entry.description}</Text>
+                    <Typography textColor="neutral800">{entry.description}</Typography>
                   </Td>
                   <Td>
-                    <Text textColor="neutral800">{entry.category}</Text>
+                    <Typography textColor="neutral800">{entry.category}</Typography>
                   </Td>
                   <Td>
-                    <Text textColor="neutral800">{entry.contact}</Text>
+                    <Typography textColor="neutral800">{entry.contact}</Typography>
                   </Td>
                   <Td>
                     <Flex>
@@ -178,19 +178,19 @@ The default Table.
                   <BaseCheckbox aria-label="Select all entries" />
                 </Th>
                 <Th>
-                  <TableLabel>ID</TableLabel>
+                  <Typography variant="sigma">ID</Typography>
                 </Th>
                 <Th>
-                  <TableLabel>Cover</TableLabel>
+                  <Typography variant="sigma">Cover</Typography>
                 </Th>
                 <Th>
-                  <TableLabel>Description</TableLabel>
+                  <Typography variant="sigma">Description</Typography>
                 </Th>
                 <Th>
-                  <TableLabel>Categories</TableLabel>
+                  <Typography variant="sigma">Categories</Typography>
                 </Th>
                 <Th>
-                  <TableLabel>Contact</TableLabel>
+                  <Typography variant="sigma">Contact</Typography>
                 </Th>
                 <Th>
                   <VisuallyHidden>Actions</VisuallyHidden>
@@ -204,19 +204,19 @@ The default Table.
                     <BaseCheckbox aria-label={`Select ${entry.contact}`} />
                   </Td>
                   <Td>
-                    <Text textColor="neutral800">{entry.id}</Text>
+                    <Typography textColor="neutral800">{entry.id}</Typography>
                   </Td>
                   <Td>
                     <Avatar src={entry.cover} alt={entry.contact} />
                   </Td>
                   <Td>
-                    <Text textColor="neutral800">{entry.description}</Text>
+                    <Typography textColor="neutral800">{entry.description}</Typography>
                   </Td>
                   <Td>
-                    <Text textColor="neutral800">{entry.category}</Text>
+                    <Typography textColor="neutral800">{entry.category}</Typography>
                   </Td>
                   <Td>
-                    <Text textColor="neutral800">{entry.contact}</Text>
+                    <Typography textColor="neutral800">{entry.contact}</Typography>
                   </Td>
                   <Td>
                     <Flex>
@@ -268,19 +268,19 @@ Table with actions.
                   <BaseCheckbox aria-label="Select all entries" />
                 </Th>
                 <Th action={<IconButton label="Sort on ID" icon={<CarretDown />} noBorder />}>
-                  <TableLabel>ID</TableLabel>
+                  <Typography variant="sigma">ID</Typography>
                 </Th>
                 <Th>
-                  <TableLabel>Cover</TableLabel>
+                  <Typography variant="sigma">Cover</Typography>
                 </Th>
                 <Th>
-                  <TableLabel>Description</TableLabel>
+                  <Typography variant="sigma">Description</Typography>
                 </Th>
                 <Th>
-                  <TableLabel>Categories</TableLabel>
+                  <Typography variant="sigma">Categories</Typography>
                 </Th>
                 <Th>
-                  <TableLabel>Contact</TableLabel>
+                  <Typography variant="sigma">Contact</Typography>
                 </Th>
                 <Th>
                   <VisuallyHidden>Actions</VisuallyHidden>
@@ -294,19 +294,19 @@ Table with actions.
                     <BaseCheckbox aria-label={`Select ${entry.contact}`} />
                   </Td>
                   <Td>
-                    <Text textColor="neutral800">{entry.id}</Text>
+                    <Typography textColor="neutral800">{entry.id}</Typography>
                   </Td>
                   <Td>
                     <Avatar src={entry.cover} alt={entry.contact} />
                   </Td>
                   <Td>
-                    <Text textColor="neutral800">{entry.description}</Text>
+                    <Typography textColor="neutral800">{entry.description}</Typography>
                   </Td>
                   <Td>
-                    <Text textColor="neutral800">{entry.category}</Text>
+                    <Typography textColor="neutral800">{entry.category}</Typography>
                   </Td>
                   <Td>
-                    <Text textColor="neutral800">{entry.contact}</Text>
+                    <Typography textColor="neutral800">{entry.contact}</Typography>
                   </Td>
                   <Td>
                     <Flex>

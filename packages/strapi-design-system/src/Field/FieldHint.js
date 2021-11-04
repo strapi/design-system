@@ -1,6 +1,6 @@
 import React from 'react';
 import { useField } from './FieldContext';
-import { P } from '../Text';
+import { Typography } from '../Text';
 
 export const FieldHint = () => {
   const { id, hint, error } = useField();
@@ -10,8 +10,8 @@ export const FieldHint = () => {
   }
 
   return (
-    <P small={true} id={`${id}-hint`} textColor="neutral600">
+    <Typography variant="pi" as="p" id={`${id}-hint`} textColor="neutral600">
       {hint}
-    </P>
+    </Typography>
   );
 };

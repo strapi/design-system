@@ -6,10 +6,10 @@ import ChevronRight from '@strapi/icons/ChevronRight';
 import { NavLink } from 'react-router-dom';
 import { VisuallyHidden } from '../VisuallyHidden';
 import { usePagination } from './PaginationContext';
-import { Text } from '../Text';
+import { Typography } from '../Text';
 import { buttonFocusStyle } from '../themes/utils';
 
-const PaginationText = styled(Text)`
+const PaginationText = styled(Typography)`
   line-height: revert;
 `;
 
@@ -113,7 +113,7 @@ export const PageLink = ({ number, children, ...props }) => {
     <li>
       <PageLinkWrapper {...props} active={isActive}>
         <VisuallyHidden>{children}</VisuallyHidden>
-        <PaginationText aria-hidden={true} small={true} bold={isActive}>
+        <PaginationText aria-hidden={true} variant="pi" fontWeight={isActive ? 'bold' : null}>
           {number}
         </PaginationText>
       </PageLinkWrapper>
@@ -125,7 +125,7 @@ export const Dots = ({ children, ...props }) => (
   <li>
     <DotsWrapper {...props} as="div">
       <VisuallyHidden>{children}</VisuallyHidden>
-      <PaginationText aria-hidden={true} small={true}>
+      <PaginationText aria-hidden={true} variant="pi">
         …
       </PaginationText>
     </DotsWrapper>

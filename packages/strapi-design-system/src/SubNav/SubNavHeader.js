@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Search from '@strapi/icons/Search';
 import { Flex } from '../Flex';
-import { H2 } from '../Text';
+import { Typography } from '../Text';
 import { IconButton } from '../IconButton';
 import { Box } from '../Box';
 import { Divider } from '../Divider';
@@ -84,7 +84,9 @@ export const SubNavHeader = ({ as, label, searchLabel, searchable, onChange, val
   return (
     <Box paddingLeft={6} paddingTop={6} paddingBottom={2} paddingRight={4}>
       <Flex justifyContent="space-between" alignItems="flex-start">
-        <H2 as={as}>{label}</H2>
+        <Typography variant="beta" as={as}>
+          {label}
+        </Typography>
         {searchable && (
           <IconButton ref={searchButtonRef} onClick={toggleSearch} label={searchLabel} icon={<Search />} />
         )}

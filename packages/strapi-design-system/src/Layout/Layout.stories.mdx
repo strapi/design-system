@@ -20,7 +20,7 @@ import { ActionLayout } from './ActionLayout';
 import { ContentLayout } from './ContentLayout';
 import { Flex } from '../Flex';
 import { Table, Thead, Tbody, Tr, Td, Th, TFooter } from '../Table';
-import { TableLabel, Text } from '../Text';
+import { Typography } from '../Text';
 import { BaseCheckbox } from '../BaseCheckbox';
 import { IconButton } from '../IconButton';
 import { VisuallyHidden } from '../VisuallyHidden';
@@ -166,19 +166,19 @@ import Layout from '@strapi/design-system/Layout';
                         <BaseCheckbox aria-label="Select all entries" />
                       </Th>
                       <Th>
-                        <TableLabel>ID</TableLabel>
+                        <Typography variant="sigma">ID</Typography>
                       </Th>
                       <Th>
-                        <TableLabel>Cover</TableLabel>
+                        <Typography variant="sigma">Cover</Typography>
                       </Th>
                       <Th>
-                        <TableLabel>Description</TableLabel>
+                        <Typography variant="sigma">Description</Typography>
                       </Th>
                       <Th>
-                        <TableLabel>Categories</TableLabel>
+                        <Typography variant="sigma">Categories</Typography>
                       </Th>
                       <Th>
-                        <TableLabel>Contact</TableLabel>
+                        <Typography variant="sigma">Contact</Typography>
                       </Th>
                       <Th>More</Th>
                       <Th>More</Th>
@@ -195,28 +195,28 @@ import Layout from '@strapi/design-system/Layout';
                           <BaseCheckbox aria-label={`Select ${entry.contact}`} />
                         </Td>
                         <Td>
-                          <Text textColor="neutral800">{entry.id}</Text>
+                          <Typography textColor="neutral800">{entry.id}</Typography>
                         </Td>
                         <Td>
                           <Avatar src={entry.cover} alt={entry.contact} />
                         </Td>
                         <Td>
-                          <Text textColor="neutral800">{entry.description}</Text>
+                          <Typography textColor="neutral800">{entry.description}</Typography>
                         </Td>
                         <Td>
-                          <Text textColor="neutral800">{entry.category}</Text>
+                          <Typography textColor="neutral800">{entry.category}</Typography>
                         </Td>
                         <Td>
-                          <Text textColor="neutral800">{entry.contact}</Text>
+                          <Typography textColor="neutral800">{entry.contact}</Typography>
                         </Td>
                         <Td>
-                          <Text textColor="neutral800">{entry.description}</Text>
+                          <Typography textColor="neutral800">{entry.description}</Typography>
                         </Td>
                         <Td>
-                          <Text textColor="neutral800">{entry.description}</Text>
+                          <Typography textColor="neutral800">{entry.description}</Typography>
                         </Td>
                         <Td>
-                          <Text textColor="neutral800">{entry.description}</Text>
+                          <Typography textColor="neutral800">{entry.description}</Typography>
                         </Td>
                         <Td>
                           <Flex>

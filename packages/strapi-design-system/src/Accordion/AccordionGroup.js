@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Box } from '../Box';
-import { Text } from '../Text';
+import { Typography } from '../Text';
 import { Flex } from '../Flex';
 import { KeyboardNavigable } from '../KeyboardNavigable';
 
@@ -54,9 +54,9 @@ export const AccordionGroup = ({ children, footer, label, labelAction }) => {
     <KeyboardNavigable attributeName="data-strapi-accordion-toggle">
       {label && (
         <Flex paddingBottom={1}>
-          <Text as="label" textColor="neutral800" small={true} bold={true}>
+          <Typography variant="pi" as="label" textColor="neutral800" fontWeight="bold">
             {label}
-          </Text>
+          </Typography>
           {labelAction && <LabelAction paddingLeft={1}>{labelAction}</LabelAction>}
         </Flex>
       )}

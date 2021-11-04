@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import { Text } from '../Text';
+import { Typography } from '../Text';
 import { OptionBox } from './components';
 
 export const ComboboxOption = forwardRef(({ isSelected, children, ...props }, ref) => {
@@ -17,9 +17,9 @@ export const ComboboxOption = forwardRef(({ isSelected, children, ...props }, re
       ref={ref}
       {...props}
     >
-      <Text textColor={isSelected ? 'primary600' : 'neutral800'} bold={isSelected}>
+      <Typography textColor={isSelected ? 'primary600' : 'neutral800'} fontWeight={isSelected ? 'bold' : null}>
         {children}
-      </Text>
+      </Typography>
     </OptionBox>
   );
 });
