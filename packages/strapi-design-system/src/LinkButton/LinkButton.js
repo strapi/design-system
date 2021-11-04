@@ -71,9 +71,7 @@ export const LinkButton = React.forwardRef(
             {children}
           </Typography>
         ) : (
-          <Typography variant="omega" fontWeight="bold">
-            {children}
-          </Typography>
+          <Typography fontWeight="bold">{children}</Typography>
         )}
 
         {endIcon && (

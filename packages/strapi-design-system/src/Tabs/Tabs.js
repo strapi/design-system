@@ -197,7 +197,7 @@ export const Tab = ({ disabled, id, children, variant, hasError, index, selected
       {...props}
     >
       <DefaultTabBox padding={selected ? 4 : 3} background={selected ? 'neutral0' : 'neutral100'} selected={selected}>
-        <Typography variant="omega" fontWeight="bold" textColor={selected ? 'primary700' : 'neutral600'}>
+        <Typography fontWeight="bold" textColor={selected ? 'primary700' : 'neutral600'}>
           {children}
         </Typography>
       </DefaultTabBox>

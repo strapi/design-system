@@ -50,7 +50,7 @@ export const NavBrand = ({ workplace, title, icon, to }) => {
         </BrandIconWrapper>
 
         <Box paddingLeft={2}>
-          <Typography variant="omega" fontWeight="bold" textColor="neutral800" as="span">
+          <Typography fontWeight="bold" textColor="neutral800" as="span">
             <NavLinkWrapper to={to}>
               {title}
               <VisuallyHidden as="span">{workplace}</VisuallyHidden>
