@@ -164,6 +164,41 @@ Disabled Tabs are used in modals.
   </Story>
 </Canvas>
 
+### Selected Tab
+
+Chose which tab is selected
+
+<Canvas>
+  <Story name="selected">
+    <Box padding={8} background="neutral0">
+      <TabGroup label="Some stuff for the label" id="tabs" variant="simple" initialSelectedTabIndex={1}>
+        <Tabs>
+          <Tab>First</Tab>
+          <Tab>Second</Tab>
+          <Tab>Third</Tab>
+        </Tabs>
+        <TabPanels>
+          <TabPanel>
+            <Box padding={4} background="neutral0">
+              First panel
+            </Box>
+          </TabPanel>
+          <TabPanel>
+            <Box padding={4} background="neutral0">
+              Second panel
+            </Box>
+          </TabPanel>
+          <TabPanel>
+            <Box padding={4} background="neutral0">
+              Third panel
+            </Box>
+          </TabPanel>
+        </TabPanels>
+      </TabGroup>
+    </Box>
+  </Story>
+</Canvas>
+
 ## Props
 
 <ArgsTable of={TabGroup} />
