@@ -17,7 +17,6 @@
     "setup:example": "yarn --cwd example",
     "specify:pull": "specify pull",
     "specify:sync": "specify sync",
-    "start:example": "yarn --cwd ./packages/cra-example start",
     "storybook": "lerna run storybook --stream",
     "test:example": "yarn --cwd example test --watchAll=false",
     "test:e2e:ci": "lerna run test:e2e:ci",
