@@ -6,9 +6,9 @@ import { Stack } from '../Stack';
 import { Field, FieldHint, FieldError, useField } from '../Field';
 import { Box } from '../Box';
 import { useId } from '../helpers/useId';
-import { Text } from '../Text';
+import { Typography } from '../Typography';
 
-const CheckboxLabel = styled(Text)`
+const CheckboxLabel = styled(Typography)`
   display: flex;
   align-items: flex-start;
   * {

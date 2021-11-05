@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { RawTd } from '../RawTable';
-import { Text } from '../Text';
+import { Typography } from '../Typography';
 
 const DatePickerCellButton = styled.button`
   border: none;
@@ -19,7 +19,7 @@ const DatePickerCellButton = styled.button`
     background: ${({ theme }) => theme.colors.primary100};
   }
 
-  &:hover > ${Text} {
+  &:hover > ${Typography} {
     color: ${({ theme }) => theme.colors.primary600};
   }
 `;
@@ -30,9 +30,9 @@ export const DatePickerTd = ({ children, outsideMonth, onSelectDay, isSelected, 
   return (
     <RawTd {...props}>
       <DatePickerCellButton tabIndex={-1} onClick={onSelectDay} isSelected={isSelected} type="button">
-        <Text small textColor={textColor} bold={isSelected}>
+        <Typography variant="pi" textColor={textColor} fontWeight={isSelected ? 'bold' : null}>
           {children}
-        </Text>
+        </Typography>
       </DatePickerCellButton>
     </RawTd>
   );

@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import DropdownIcon from '@strapi/icons/CarretDown';
 import styled from 'styled-components';
 import { TextButton } from '../TextButton';
-import { H3, P, Text } from '../Text';
+import { Typography } from '../Typography';
+import { AccordionTypography } from './Accordion';
 import { useAccordion } from './AccordionContext';
 import { Flex } from '../Flex';
 import { Stack } from '../Stack';
@@ -109,19 +110,19 @@ export const AccordionToggle = ({ title, description, as, togglePosition, action
           >
             <>
               {size === 'S' ? (
-                <Text bold={true} as={as} id={ariaLabelId} textColor={titleColor}>
+                <Typography fontWeight="bold" as={as} id={ariaLabelId} textColor={titleColor}>
                   {title}
-                </Text>
+                </Typography>
               ) : (
-                <H3 as={as} id={ariaLabelId} textColor={titleColor}>
+                <AccordionTypography variant="delta" as={as} id={ariaLabelId} textColor={titleColor}>
                   {title}
-                </H3>
+                </AccordionTypography>
               )}
 
               {description && (
-                <P id={ariaDescriptionId} textColor={descriptionColor}>
+                <Typography as="p" id={ariaDescriptionId} textColor={descriptionColor}>
                   {description}
-                </P>
+                </Typography>
               )}
             </>
           </ToggleButton>
@@ -156,19 +157,19 @@ export const AccordionToggle = ({ title, description, as, togglePosition, action
       >
         <>
           {size === 'S' ? (
-            <Text bold={true} as={as} id={ariaLabelId} textColor={titleColor}>
+            <Typography fontWeight="bold" as={as} id={ariaLabelId} textColor={titleColor}>
               {title}
-            </Text>
+            </Typography>
           ) : (
-            <H3 as={as} id={ariaLabelId} textColor={titleColor}>
+            <Typography variant="delta" as={as} id={ariaLabelId} textColor={titleColor}>
               {title}
-            </H3>
+            </Typography>
           )}
 
           {description && (
-            <P id={ariaDescriptionId} textColor={descriptionColor}>
+            <Typography as="p" id={ariaDescriptionId} textColor={descriptionColor}>
               {description}
-            </P>
+            </Typography>
           )}
         </>
       </ToggleButton>

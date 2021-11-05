@@ -9,7 +9,7 @@ import { Flex } from '../Flex';
 import { CaretBox, IconBox } from '../Select/components';
 import { Popover } from '../Popover';
 import { Box } from '../Box';
-import { Text } from '../Text';
+import { Typography } from '../Typography';
 import { Loader } from '../Loader/Loader';
 import { Input, MainRow, ValueContainer, InputContainer } from './components';
 import { ComboboxOption } from './ComboboxOption';
@@ -244,7 +244,7 @@ export const Combobox = ({
           <InputContainer wrap="wrap">
             {!inputValue && value && (
               <ValueContainer id={`${generatedId}-selected-value`}>
-                <Text>{getInputValueFromNodes()}</Text>
+                <Typography>{getInputValueFromNodes()}</Typography>
               </ValueContainer>
             )}
             <Input
@@ -336,7 +336,7 @@ export const Combobox = ({
             )}
             {!Boolean(filteredNodes.length) && !creatable && !loading && (
               <Box paddingLeft={4} paddingRight={4} paddingTop={2} paddingBottom={2} ref={activeOptionRef}>
-                <Text textColor="neutral800">{noOptionsMessage(inputValue)}</Text>
+                <Typography textColor="neutral800">{noOptionsMessage(inputValue)}</Typography>
               </Box>
             )}
             {loading && (

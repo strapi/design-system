@@ -7,7 +7,7 @@ import { setOpacity } from '../helpers/setOpacity';
 import useLockScroll from '../helpers/useLockScroll';
 import { Portal } from '../Portal';
 import { Flex } from '../Flex';
-import { H2 } from '../Text';
+import { Typography } from '../Typography';
 import { useId } from '../helpers/useId';
 
 const DialogWrapper = styled.div`
@@ -53,9 +53,9 @@ export const Dialog = ({ onClose, title, as, isOpen, id, ...props }) => {
             role="dialog"
           >
             <DialogHeader padding={6} justifyContent="center">
-              <H2 as={as} id={labelledBy}>
+              <Typography variant="beta" as={as || 'h2'} id={labelledBy}>
                 {title}
-              </H2>
+              </Typography>
             </DialogHeader>
             <Box {...props} />
           </DialogContainer>

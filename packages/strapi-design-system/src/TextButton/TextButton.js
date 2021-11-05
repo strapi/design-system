@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Box } from '../Box';
-import { Text } from '../Text';
+import { Typography } from '../Typography';
 import { Flex } from '../Flex';
 import { buttonFocusStyle } from '../themes/utils';
 
@@ -39,9 +39,9 @@ export const TextButton = React.forwardRef(({ children, startIcon, endIcon, onCl
           {startIcon}
         </Box>
       )}
-      <Text small={true} textColor={disabled ? 'neutral600' : 'primary600'}>
+      <Typography variant="pi" textColor={disabled ? 'neutral600' : 'primary600'}>
         {children}
-      </Text>
+      </Typography>
       {endIcon && (
         <Box as="span" paddingLeft={2} aria-hidden={true}>
           {endIcon}

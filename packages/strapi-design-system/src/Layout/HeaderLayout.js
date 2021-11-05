@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { H1, Subtitle, P, H2 } from '../Text';
+import { Typography } from '../Typography';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { useElementOnScreen } from '../helpers/useElementOnScreen';
@@ -78,12 +78,12 @@ export const BaseHeaderLayout = React.forwardRef(
             <Flex>
               {navigationAction && <Box paddingRight={3}>{navigationAction}</Box>}
               <Box>
-                <H2 as="h1" {...props}>
+                <Typography variant="beta" as="h1" {...props}>
                   {title}
-                </H2>
-                <P small={true} textColor="neutral600">
+                </Typography>
+                <Typography variant="pi" textColor="neutral600">
                   {subtitle}
-                </P>
+                </Typography>
               </Box>
               {secondaryAction ? <Box paddingLeft={4}>{secondaryAction}</Box> : null}
             </Flex>
@@ -106,14 +106,16 @@ export const BaseHeaderLayout = React.forwardRef(
         {navigationAction ? <Box paddingBottom={3}>{navigationAction}</Box> : null}
         <Flex justifyContent="space-between">
           <Flex>
-            <H1 {...props}>{title}</H1>
+            <Typography as="h1" variant="alpha" {...props}>
+              {title}
+            </Typography>
             {secondaryAction ? <Box paddingLeft={4}>{secondaryAction}</Box> : null}
           </Flex>
           {primaryAction}
         </Flex>
-        <Subtitle textColor="neutral600" as="p">
+        <Typography variant="epsilon" textColor="neutral600" as="p">
           {subtitle}
-        </Subtitle>
+        </Typography>
       </Box>
     );
   },

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { H3 } from '../Text';
+import { Typography } from '../Typography';
 import { Box } from '../Box';
 
 const EmptyStateWrapper = styled(Box)`
@@ -24,9 +24,9 @@ export const EmptyStateLayout = ({ icon, content, action, hasRadius, shadow }) =
         {icon}
       </EmptyStateImageWrapper>
       <Box paddingBottom={4}>
-        <H3 as="p" textColor="neutral600">
+        <Typography variant="delta" as="p" textColor="neutral600">
           {content}
-        </H3>
+        </Typography>
       </Box>
       {action}
     </EmptyStateWrapper>

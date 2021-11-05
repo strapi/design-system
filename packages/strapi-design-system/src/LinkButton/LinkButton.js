@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Text, ButtonText } from '../Text';
+import { Typography } from '../Typography';
 import { Box } from '../Box';
 import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from '../Button/utils';
 import { VARIANTS, BUTTON_SIZES } from '../Button/constants';
@@ -17,7 +17,7 @@ const LinkWrapper = styled(BaseButtonWrapper)`
     display: flex;
     align-items: center;
   }
-  ${Text} {
+  ${Typography} {
     color: ${({ theme }) => theme.colors.neutral0};
   }
   &[aria-disabled='true'] {
@@ -67,11 +67,11 @@ export const LinkButton = React.forwardRef(
         )}
 
         {size === 'S' ? (
-          <Text small={size === 'S'} bold>
+          <Typography variant="pi" fontWeight="bold">
             {children}
-          </Text>
+          </Typography>
         ) : (
-          <ButtonText>{children}</ButtonText>
+          <Typography fontWeight="bold">{children}</Typography>
         )}
 
         {endIcon && (

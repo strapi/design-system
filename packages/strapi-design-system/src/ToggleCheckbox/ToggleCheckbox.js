@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { sizes } from '../themes/sizes';
 import { getThemeSize, inputFocusStyle } from '../themes/utils';
-import { Text } from '../Text';
+import { Typography } from '../Typography';
 import { VisuallyHidden } from '../VisuallyHidden';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
@@ -69,15 +69,15 @@ export const ToggleCheckbox = React.forwardRef(({ size, onLabel, offLabel, child
 
       <ToggleCheckboxWrapper background="neutral0" hasRadius size={size}>
         <OffBox background={offCheckboxBackgroundColor} paddingLeft={7} paddingRight={7} aria-hidden={true}>
-          <Text small={true} bold={true} textColor={offCheckboxLabelColor}>
+          <Typography variant="pi" fontWeight="bold" textColor={offCheckboxLabelColor}>
             {offLabel}
-          </Text>
+          </Typography>
         </OffBox>
 
         <OnBox background={onCheckboxBackgroundColor} paddingLeft={7} paddingRight={7} aria-hidden={true}>
-          <Text small={true} bold={true} textColor={onCheckboxLabelColor}>
+          <Typography variant="pi" fontWeight="bold" textColor={onCheckboxLabelColor}>
             {onLabel}
-          </Text>
+          </Typography>
         </OnBox>
 
         <Input type="checkbox" ref={ref} {...props} checked={checked} />

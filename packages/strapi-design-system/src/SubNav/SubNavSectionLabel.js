@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import CarretDown from '@strapi/icons/CarretDown';
-import { TableLabel } from '../Text';
+import { Typography } from '../Typography';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
 
@@ -27,7 +27,9 @@ export const SubNavSectionLabel = ({ collapsable, label, onClick, ariaExpanded, 
         aria-controls={ariaControls}
       >
         <Box paddingRight={1}>
-          <TableLabel textColor="neutral600">{label}</TableLabel>
+          <Typography variant="sigma" textColor="neutral600">
+            {label}
+          </Typography>
         </Box>
         {collapsable && (
           <DropDownIconWrapper rotated={ariaExpanded}>
@@ -41,7 +43,9 @@ export const SubNavSectionLabel = ({ collapsable, label, onClick, ariaExpanded, 
   return (
     <SubNavSectionLabelWrapper>
       <Box paddingRight={1}>
-        <TableLabel textColor="neutral600">{label}</TableLabel>
+        <Typography variant="sigma" textColor="neutral600">
+          {label}
+        </Typography>
       </Box>
     </SubNavSectionLabelWrapper>
   );

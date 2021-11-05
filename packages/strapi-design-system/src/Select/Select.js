@@ -7,7 +7,7 @@ import { SelectButton } from './SelectButton';
 import { Field, FieldHint, FieldLabel, FieldError } from '../Field';
 import { Popover } from '../Popover';
 import { Stack } from '../Stack';
-import { EllipsisText } from '../Text';
+import { Typography } from '../Typography';
 import { Flex } from '../Flex';
 import { Box } from '../Box';
 import { useId } from '../helpers/useId';
@@ -182,9 +182,9 @@ export const Select = ({
                 {withTags ? (
                   <>
                     {!value || value.length === 0 ? (
-                      <EllipsisText id={contentId} textColor={'neutral600'}>
+                      <Typography ellipsis id={contentId} textColor={'neutral600'}>
                         {placeholder}
-                      </EllipsisText>
+                      </Typography>
                     ) : null}
                     <VisuallyHidden as="span" id={contentId}>
                       {customizeContent ? customizeContent(value) : selectOptionLabel || placeholder}
@@ -192,10 +192,10 @@ export const Select = ({
                     </VisuallyHidden>
                   </>
                 ) : (
-                  <EllipsisText id={contentId} textColor={value ? 'neutral800' : 'neutral600'}>
+                  <Typography ellipsis id={contentId} textColor={value ? 'neutral800' : 'neutral600'}>
                     {customizeContent ? customizeContent(value) : selectOptionLabel || placeholder}
                     {multi && <VisuallyHidden as="span">{value.join(', ')}</VisuallyHidden>}
-                  </EllipsisText>
+                  </Typography>
                 )}
               </Box>
             </Flex>

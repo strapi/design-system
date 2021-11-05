@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box } from '../Box';
-import { TableLabel } from '../Text';
+import { Typography } from '../Typography';
 import { Stack } from '../Stack';
 import { useMainNav } from './MainNavContext';
 import { VisuallyHidden } from '../VisuallyHidden';
@@ -40,7 +40,9 @@ export const NavSection = ({ label, ...props }) => {
           hasRadius
           as="span"
         >
-          <TableLabel textColor="neutral600">{label}</TableLabel>
+          <Typography variant="sigma" textColor="neutral600">
+            {label}
+          </Typography>
         </Box>
 
         <Stack as="ul" size={2} {...props}></Stack>
