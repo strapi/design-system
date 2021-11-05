@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { BaseRadio } from '../BaseRadio/BaseRadio';
-import { Text } from '../Typography';
+import { Typography } from '../Typography';
 import { Box } from '../Box';
 
-const TextLabel = styled(Text)`
+const TextLabel = styled(Typography)`
   display: flex;
   align-items: center;
 `;
