@@ -1,6 +1,6 @@
 {
   "name": "@strapi/icons",
-  "version": "0.0.1-alpha.62",
+  "version": "0.0.1-alpha.63",
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {

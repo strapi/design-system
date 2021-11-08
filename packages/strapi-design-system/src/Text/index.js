@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ellipsisStyle, handleColor } from './utils';
+import { Typography } from '../Typography';
 
 export const H2 = styled.h2`
   font-weight: ${({ theme }) => theme.fontWeights.bold};
