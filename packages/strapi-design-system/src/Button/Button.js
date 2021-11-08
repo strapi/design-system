@@ -1,4 +1,5 @@
 import React from 'react';
+
 import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
 import Loader from '@strapi/icons/Loader';
@@ -124,7 +125,7 @@ Button.defaultProps = {
   variant: 'default',
 };
 Button.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   disabled: PropTypes.bool,
   endIcon: PropTypes.element,
   fullWidth: PropTypes.bool,
