@@ -76,7 +76,7 @@ export const AccordionToggle = ({ title, description, as, togglePosition, action
     >
       <Icon
         as={DropdownIcon}
-        width={size === 'M' ? `${11 / 16}rem` : `${8 / 16}rem}`}
+        width={size === 'M' ? `${11 / 16}rem` : `${8 / 16}rem`}
         color={expanded ? 'primary600' : 'neutral600'}
       />
     </Flex>

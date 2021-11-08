@@ -49,7 +49,7 @@ const LabelAction = styled(Box)`
   }
 `;
 
-export const AccordionGroup = ({ children, footer, label, labelAction }) => {
+export const AccordionGroup = ({ children, footer, label, labelAction, hasError }) => {
   return (
     <KeyboardNavigable attributeName="data-strapi-accordion-toggle">
       {label && (
@@ -62,12 +62,20 @@ export const AccordionGroup = ({ children, footer, label, labelAction }) => {
       )}
       <EnhancedGroup footer={footer}>{children}</EnhancedGroup>
       {footer && <AccordionFooter>{footer}</AccordionFooter>}
+      {hasError && (
+        <Box paddingTop={1}>
+          <Typography variant="pi" textColor="danger600">
+            {hasError}
+          </Typography>
+        </Box>
+      )}
     </KeyboardNavigable>
   );
 };
 
 AccordionGroup.defaultProps = {
   footer: null,
+  hasError: undefined,
   label: null,
   labelAction: undefined,
 };
@@ -75,6 +83,7 @@ AccordionGroup.defaultProps = {
 AccordionGroup.propTypes = {
   children: PropTypes.node.isRequired,
   footer: PropTypes.node,
+  hasError: PropTypes.string,
   label: PropTypes.string,
   labelAction: PropTypes.node,
 };

@@ -58,7 +58,7 @@ import { Box } from '@strapi/design-system/Box';
       return (
         <div>
           <Box padding={8} background="neutral100">
-            <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-1" size="S">
+            <Accordion hasError={true} errorMessage='Min length required' expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-1" size="S">
               <AccordionToggle title="User informations" />
               <AccordionContent>
                 <Box padding={3}>My name is John Duff</Box>
@@ -117,6 +117,7 @@ import { Box } from '@strapi/design-system/Box';
         <div>
           <Box padding={8} background="neutral0">
             <AccordionGroup
+              hasError='The components contain error(s)'
               footer={
                 <Flex justifyContent="center" height="48px" background="neutral150">
                   <TextButton disabled={true} startIcon={<Plus />}>
@@ -140,7 +141,7 @@ import { Box } from '@strapi/design-system/Box';
                 </Tooltip>
               }
             >
-              <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-1" size="S">
+              <Accordion hasError={true} error expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-1" size="S">
                 <AccordionToggle
                   startIcon={<User aria-hidden={true} />}
                   action={
@@ -156,7 +157,7 @@ import { Box } from '@strapi/design-system/Box';
                   <Box padding={3}>My name is John Duff</Box>
                 </AccordionContent>
               </Accordion>
-              <Accordion expanded={false} toggle={() => setExpanded((s) => !s)} id="acc-2" size="S" variant="secondary">
+              <Accordion expanded={false} toggle={() => setExpanded((s) => !s)} id="acc-2" size="S">
                 <AccordionToggle title="User informations" togglePosition="left" />
                 <AccordionContent>
                   <Box padding={3}>My name is John Duff</Box>
@@ -169,12 +170,10 @@ import { Box } from '@strapi/design-system/Box';
                 </AccordionContent>
               </Accordion>
               <Accordion
-                disabled={true}
                 expanded={false}
                 toggle={() => setExpanded((s) => !s)}
                 id="acc-2"
                 size="S"
-                variant="secondary"
               >
                 <AccordionToggle startIcon={<User aria-hidden={true} />} title="User informations" togglePosition="left" />
                 <AccordionContent>
