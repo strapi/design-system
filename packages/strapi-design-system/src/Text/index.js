@@ -72,4 +72,3 @@ export const EllipsisText = styled(Text)`
 `;
 
 export * from './H1';
-export * from './Typography';
