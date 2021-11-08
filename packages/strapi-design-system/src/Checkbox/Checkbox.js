@@ -12,7 +12,7 @@ const CheckboxLabel = styled(Typography)`
   display: flex;
   align-items: flex-start;
   * {
-    cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'default')};
+    cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   }
 `;
 
