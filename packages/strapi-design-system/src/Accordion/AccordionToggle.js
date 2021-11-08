@@ -26,6 +26,8 @@ const ToggleButton = styled(TextButton)`
 
 const FlexWithSize = styled(Flex)`
   height: ${({ theme, size }) => theme.sizes.accordions[size]};
+  border-radius: ${({ theme, expanded }) =>
+    expanded ? `${theme.borderRadius} ${theme.borderRadius} 0 0` : theme.borderRadius};
 
   &:hover {
     svg {
@@ -88,6 +90,7 @@ export const AccordionToggle = ({ title, description, as, togglePosition, action
         paddingLeft={boxPadding}
         paddingRight={boxPadding}
         background={boxBackground}
+        expanded={expanded}
         justifyContent="space-between"
         size={size}
         cursor={disabled ? 'not-allowed' : ''}
@@ -138,6 +141,7 @@ export const AccordionToggle = ({ title, description, as, togglePosition, action
       paddingRight={boxPadding}
       paddingLeft={boxPadding}
       background={boxBackground}
+      expanded={expanded}
       size={size}
       justifyContent="space-between"
       cursor={disabled ? 'not-allowed' : ''}
