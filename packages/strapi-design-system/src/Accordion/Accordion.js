@@ -7,8 +7,8 @@ import { useId } from '../helpers/useId';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
 
-const getBorder = ({ theme, expanded, variant, disabled, hasError }) => {
-  if (hasError) {
+const getBorder = ({ theme, expanded, variant, disabled, error }) => {
+  if (error) {
     return `1px solid ${theme.colors.danger600} !important`;
   }
 
@@ -54,7 +54,7 @@ const AccordionWrapper = styled(Box)`
   }
 `;
 
-export const Accordion = ({ children, toggle, expanded, id, size, variant, disabled, hasError, errorMessage }) => {
+export const Accordion = ({ children, toggle, expanded, id, size, variant, disabled, error, hasErrorMessage }) => {
   const generatedId = useId('accordion', id);
 
   return (
@@ -66,14 +66,14 @@ export const Accordion = ({ children, toggle, expanded, id, size, variant, disab
         expanded={expanded}
         hasRadius
         variant={variant}
-        hasError={hasError}
+        error={error}
       >
         {children}
       </AccordionWrapper>
-      {errorMessage && (
+      {error && hasErrorMessage && (
         <Box paddingTop={1}>
           <Typography variant="pi" textColor="danger600">
-            {errorMessage}
+            {error}
           </Typography>
         </Box>
       )}
@@ -83,9 +83,9 @@ export const Accordion = ({ children, toggle, expanded, id, size, variant, disab
 
 Accordion.defaultProps = {
   disabled: false,
-  errorMessage: undefined,
+  error: undefined,
   expanded: false,
-  hasError: false,
+  hasErrorMessage: true,
   id: undefined,
   toggle: false,
   size: 'M',
@@ -95,9 +95,9 @@ Accordion.defaultProps = {
 Accordion.propTypes = {
   children: PropTypes.node.isRequired,
   disabled: PropTypes.bool,
-  errorMessage: PropTypes.string,
+  error: PropTypes.string,
   expanded: PropTypes.bool,
-  hasError: PropTypes.bool,
+  hasErrorMessage: PropTypes.bool,
   id: PropTypes.string,
   size: PropTypes.oneOf(['S', 'M']),
   toggle: PropTypes.func.isRequired,
