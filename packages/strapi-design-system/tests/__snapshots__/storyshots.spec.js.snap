@@ -43595,12 +43595,33 @@ exports[`Storyshots Design System/Technical Components/Typography variants 1`] =
 }
 
 .c9 {
+  font-weight: 500;
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
+.c10 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
+.c11 {
   color: #32324d;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
-.c10 {
+.c12 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c13 {
   color: #32324d;
   font-weight: 600;
   font-size: 0.6875rem;
@@ -43639,7 +43660,7 @@ exports[`Storyshots Design System/Technical Components/Typography variants 1`] =
       <span
         class="c5"
       >
-        alpha
+        Alpha - header 1
       </span>
     </div>
     <div
@@ -43648,7 +43669,7 @@ exports[`Storyshots Design System/Technical Components/Typography variants 1`] =
       <span
         class="c1"
       >
-        beta
+        Beta - header 2
       </span>
     </div>
     <div
@@ -43657,7 +43678,7 @@ exports[`Storyshots Design System/Technical Components/Typography variants 1`] =
       <span
         class="c6"
       >
-        delta
+        Delta - header 3
       </span>
     </div>
     <div
@@ -43666,7 +43687,7 @@ exports[`Storyshots Design System/Technical Components/Typography variants 1`] =
       <span
         class="c7"
       >
-        epsilon
+        Epsilon - subtitle
       </span>
     </div>
     <div
@@ -43675,7 +43696,7 @@ exports[`Storyshots Design System/Technical Components/Typography variants 1`] =
       <span
         class="c8"
       >
-        omega
+        Omega - body
       </span>
     </div>
     <div
@@ -43684,7 +43705,7 @@ exports[`Storyshots Design System/Technical Components/Typography variants 1`] =
       <span
         class="c9"
       >
-        pi
+        Omega semibold - body highlight
       </span>
     </div>
     <div
@@ -43693,7 +43714,34 @@ exports[`Storyshots Design System/Technical Components/Typography variants 1`] =
       <span
         class="c10"
       >
-        sigma
+        Omega bold - button text
+      </span>
+    </div>
+    <div
+      class="c4"
+    >
+      <span
+        class="c11"
+      >
+        Pi - small text
+      </span>
+    </div>
+    <div
+      class="c4"
+    >
+      <span
+        class="c12"
+      >
+        Pi bold - small button text
+      </span>
+    </div>
+    <div
+      class="c4"
+    >
+      <span
+        class="c13"
+      >
+        Sigma - table label
       </span>
     </div>
   </div>
