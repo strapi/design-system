@@ -3,7 +3,7 @@ import { ALPHA, BETA, DELTA, EPSILON, OMEGA, PI, SIGMA } from './constants';
 export const ellipsisStyle = ({ ellipsis }) =>
   ellipsis &&
   `
-    display: inline-block;
+    display: block;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
