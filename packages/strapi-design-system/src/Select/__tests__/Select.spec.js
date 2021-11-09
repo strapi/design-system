@@ -52,31 +52,39 @@ describe('Select', () => {
       }
 
       .c1 {
-        font-weight: 500;
+        font-weight: 600;
+        color: #32324d;
         font-size: 0.75rem;
         line-height: 1.33;
-        color: #32324d;
       }
 
       .c9 {
-        font-weight: 400;
+        color: #32324d;
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         font-size: 0.875rem;
         line-height: 1.43;
-        color: #32324d;
       }
 
       .c12 {
-        font-weight: 400;
+        color: #666687;
         font-size: 0.75rem;
         line-height: 1.33;
-        color: #666687;
       }
 
       .c19 {
-        font-weight: 500;
+        font-weight: 600;
+        color: #4945ff;
         font-size: 0.875rem;
         line-height: 1.43;
-        color: #4945ff;
+      }
+
+      .c20 {
+        color: #32324d;
+        font-size: 0.875rem;
+        line-height: 1.43;
       }
 
       .c7 {
@@ -416,7 +424,7 @@ describe('Select', () => {
                     class="c2"
                   >
                     <span
-                      class="c9"
+                      class="c20"
                     >
                       Hamburger
                     </span>
@@ -433,7 +441,7 @@ describe('Select', () => {
                     class="c2"
                   >
                     <span
-                      class="c9"
+                      class="c20"
                     >
                       Bagel
                     </span>
@@ -494,24 +502,26 @@ describe('Select', () => {
       }
 
       .c1 {
-        font-weight: 500;
+        font-weight: 600;
+        color: #32324d;
         font-size: 0.75rem;
         line-height: 1.33;
-        color: #32324d;
       }
 
       .c8 {
-        font-weight: 400;
+        color: #32324d;
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         font-size: 0.875rem;
         line-height: 1.43;
-        color: #32324d;
       }
 
       .c13 {
-        font-weight: 400;
+        color: #666687;
         font-size: 0.75rem;
         line-height: 1.33;
-        color: #666687;
       }
 
       .c7 {
@@ -755,18 +765,17 @@ describe('Select', () => {
             role="alert"
           />
         </div>
-        .c11 {
-        font-weight: 400;
+        .c9 {
+        font-weight: 600;
+        color: #4945ff;
         font-size: 0.875rem;
         line-height: 1.43;
-        color: #32324d;
       }
 
-      .c9 {
-        font-weight: 500;
+      .c11 {
+        color: #32324d;
         font-size: 0.875rem;
         line-height: 1.43;
-        color: #4945ff;
       }
 
       .c0 {

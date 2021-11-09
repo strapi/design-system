@@ -1,4 +1,4 @@
-import { Text } from '../Text';
+import { Typography } from '../Typography';
 import { LIGHT_VARIANTS, VARIANTS } from './constants';
 
 export const getVariantColorName = (variant) => {
@@ -19,7 +19,7 @@ export const getDisabledStyle = ({ theme }) => {
   return `
     border: 1px solid ${theme.colors.neutral200};
     background: ${theme.colors.neutral150};
-    ${Text} {
+    ${Typography} {
       color: ${theme.colors.neutral600};
     }
     svg {
@@ -59,7 +59,7 @@ export const getActiveStyle = ({ theme, variant }) => {
     return `
       background-color: ${theme.colors.neutral0};
       border: 1px solid ${theme.colors[`${getVariantColorName(variant)}600`]};
-      ${Text} {
+      ${Typography} {
         color: ${theme.colors[`${getVariantColorName(variant)}600`]};
       }
       svg {
@@ -89,7 +89,7 @@ export const getVariantStyle = ({ theme, variant }) => {
       return `
           border: 1px solid ${theme.colors[`${getVariantColorName(variant)}200`]};
           background: ${theme.colors[`${getVariantColorName(variant)}100`]};
-          ${Text} {
+          ${Typography} {
             color: ${theme.colors[`${getVariantColorName(variant)}700`]};
           }
           svg {
@@ -103,7 +103,7 @@ export const getVariantStyle = ({ theme, variant }) => {
       return `
           border: 1px solid ${theme.colors.neutral200};
           background: ${theme.colors.neutral0};
-          ${Text} {
+          ${Typography} {
             color: ${theme.colors.neutral800};
           }
           svg {
@@ -118,7 +118,7 @@ export const getVariantStyle = ({ theme, variant }) => {
         border: 1px solid transparent;
         background: transparent;
 
-        ${Text} {
+        ${Typography} {
           color: ${theme.colors.neutral800};
         }
 

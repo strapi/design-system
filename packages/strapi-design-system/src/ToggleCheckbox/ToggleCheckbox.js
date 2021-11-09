@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { sizes } from '../themes/sizes';
 import { getThemeSize, inputFocusStyle } from '../themes/utils';
-import { Text } from '../Text';
+import { Typography } from '../Typography';
 import { VisuallyHidden } from '../VisuallyHidden';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
@@ -51,12 +51,16 @@ const Input = styled.input`
 
 export const ToggleCheckbox = React.forwardRef(({ size, onLabel, offLabel, children, checked, ...props }, ref) => {
   const labelColor = 'neutral800';
+  let offCheckboxLabelColor = checked ? labelColor : 'danger700';
+  let onCheckboxLabelColor = checked ? 'primary700' : labelColor;
   let offCheckboxBackgroundColor = checked ? 'neutral0' : 'danger100';
   let onCheckboxBackgroundColor = checked ? 'primary100' : 'neutral0';
 
   if (checked === null) {
     offCheckboxBackgroundColor = 'neutral0';
     onCheckboxBackgroundColor = 'neutral0';
+    offCheckboxLabelColor = 'neutral600';
+    onCheckboxLabelColor = 'neutral600';
   }
 
   return (
@@ -65,15 +69,15 @@ export const ToggleCheckbox = React.forwardRef(({ size, onLabel, offLabel, child
 
       <ToggleCheckboxWrapper background="neutral0" hasRadius size={size}>
         <OffBox background={offCheckboxBackgroundColor} paddingLeft={7} paddingRight={7} aria-hidden={true}>
-          <Text small={true} bold={true} textColor={checked ? labelColor : 'danger700'}>
+          <Typography variant="pi" fontWeight="bold" textColor={offCheckboxLabelColor}>
             {offLabel}
-          </Text>
+          </Typography>
         </OffBox>
 
         <OnBox background={onCheckboxBackgroundColor} paddingLeft={7} paddingRight={7} aria-hidden={true}>
-          <Text small={true} bold={true} textColor={checked ? 'primary700' : labelColor}>
+          <Typography variant="pi" fontWeight="bold" textColor={onCheckboxLabelColor}>
             {onLabel}
-          </Text>
+          </Typography>
         </OnBox>
 
         <Input type="checkbox" ref={ref} {...props} checked={checked} />

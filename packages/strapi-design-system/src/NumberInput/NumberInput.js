@@ -8,6 +8,7 @@ import { Field, FieldLabel, FieldHint, FieldError, FieldInput } from '../Field';
 import { Stack } from '../Stack';
 import { Flex } from '../Flex';
 import { Box } from '../Box';
+import { Icon } from '../Icon';
 import { useId } from '../helpers/useId';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 import { getDefaultLocale } from '../helpers/getDefaultLocale';
@@ -121,10 +122,10 @@ export const NumberInput = React.forwardRef(
             endAction={
               <>
                 <ArrowButton aria-hidden reverse onClick={increment} tabIndex={-1} type="button">
-                  <CarretDown />
+                  <Icon as={CarretDown} color="neutral500" />
                 </ArrowButton>
                 <ArrowButton aria-hidden onClick={decrement} tabIndex={-1} type="button">
-                  <CarretDown />
+                  <Icon as={CarretDown} color="neutral500" />
                 </ArrowButton>
               </>
             }

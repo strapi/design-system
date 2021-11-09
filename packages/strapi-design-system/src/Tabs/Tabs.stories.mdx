@@ -42,9 +42,9 @@ Default Tabs mostly used in forms.
 <Canvas>
   <Story name="base">
     <Box padding={8} background="primary100">
-      <TabGroup label="Some stuff for the label" id="tabs">
+      <TabGroup label="Some stuff for the label" id="tabs" onTabChange={(selected) => console.log(selected)}>
         <Tabs>
-          <Tab onClick={() => console.log('click')}>First</Tab>
+          <Tab>First</Tab>
           <Tab>Second</Tab>
           <Tab>Third</Tab>
         </Tabs>
@@ -114,9 +114,13 @@ Disabled Tabs are used in modals.
     <Box padding={8} background="neutral0">
       <TabGroup label="Some stuff for the label" id="tabs" variant="simple">
         <Tabs>
-          <Tab>First</Tab>
-          <Tab hasError>Second</Tab>
+          <Tab disabled>First</Tab>
+          <Tab>Second</Tab>
           <Tab disabled>Third</Tab>
+          <Tab>Fourth</Tab>
+          <Tab disabled>Fifth</Tab>
+          <Tab>Sixth</Tab>
+          <Tab disabled>Seventh</Tab>
         </Tabs>
         <TabPanels>
           <TabPanel>
@@ -134,15 +138,44 @@ Disabled Tabs are used in modals.
               Third panel
             </Box>
           </TabPanel>
+          <TabPanel>
+            <Box padding={4} background="neutral0">
+              Fourth panel
+            </Box>
+          </TabPanel>
+          <TabPanel>
+            <Box padding={4} background="neutral0">
+              Fifth panel
+            </Box>
+          </TabPanel>
+          <TabPanel>
+            <Box padding={4} background="neutral0">
+              Sixth panel
+            </Box>
+          </TabPanel>
+          <TabPanel>
+            <Box padding={4} background="neutral0">
+              Seventh panel
+            </Box>
+          </TabPanel>
         </TabPanels>
       </TabGroup>
     </Box>
-    <Box padding={8} background="primary100">
-      <TabGroup label="Some stuff for the label" id="tabs">
+  </Story>
+</Canvas>
+
+### Selected Tab
+
+Chose which tab is selected
+
+<Canvas>
+  <Story name="selected">
+    <Box padding={8} background="neutral0">
+      <TabGroup label="Some stuff for the label" id="tabs" variant="simple" initialSelectedTabIndex={1}>
         <Tabs>
-          <Tab onClick={() => console.log('click')}>First</Tab>
+          <Tab>First</Tab>
           <Tab>Second</Tab>
-          <Tab disabled>Third</Tab>
+          <Tab>Third</Tab>
         </Tabs>
         <TabPanels>
           <TabPanel>
@@ -168,4 +201,4 @@ Disabled Tabs are used in modals.
 
 ## Props
 
-<ArgsTable of={Tabs} />
+<ArgsTable of={TabGroup} />

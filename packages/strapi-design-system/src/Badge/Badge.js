@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box } from '../Box';
-import { TableLabel } from '../Text';
+import { Typography } from '../Typography';
 import styled from 'styled-components';
 
 const BadgeWrapper = styled(Box)`
@@ -10,14 +10,10 @@ const BadgeWrapper = styled(Box)`
 
 export const Badge = ({ active, textColor, backgroundColor, children, ...props }) => {
   return (
-    <BadgeWrapper
-      padding={1}
-      background={active ? 'primary100' : backgroundColor}
-      hasRadius={true}
-      color={active ? 'primary600' : textColor}
-      {...props}
-    >
-      <TableLabel>{children}</TableLabel>
+    <BadgeWrapper padding={1} background={active ? 'primary100' : backgroundColor} hasRadius {...props}>
+      <Typography variant="sigma" textColor={active ? 'primary600' : textColor}>
+        {children}
+      </Typography>
     </BadgeWrapper>
   );
 };

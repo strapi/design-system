@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Box } from '../Box';
-import { Text } from '../Text';
+import { Typography } from '../Typography';
 
 const CardTimerWrapper = styled(Box)`
   position: absolute;
@@ -12,9 +12,9 @@ const CardTimerWrapper = styled(Box)`
 
 export const CardTimer = ({ children, ...props }) => (
   <CardTimerWrapper padding={1} background="neutral800" color="neutral0" as="time" hasRadius {...props}>
-    <Text small textColor="neutral0">
+    <Typography variant="pi" textColor="neutral0">
       {children}
-    </Text>
+    </Typography>
   </CardTimerWrapper>
 );
 

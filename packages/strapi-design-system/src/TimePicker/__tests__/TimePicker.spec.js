@@ -47,31 +47,39 @@ describe('TimePicker', () => {
       }
 
       .c1 {
-        font-weight: 500;
+        font-weight: 600;
+        color: #32324d;
         font-size: 0.75rem;
         line-height: 1.33;
-        color: #32324d;
       }
 
       .c10 {
-        font-weight: 400;
+        color: #32324d;
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         font-size: 0.875rem;
         line-height: 1.43;
-        color: #32324d;
       }
 
       .c13 {
-        font-weight: 400;
+        color: #666687;
         font-size: 0.75rem;
         line-height: 1.33;
-        color: #666687;
       }
 
       .c20 {
-        font-weight: 500;
+        color: #32324d;
         font-size: 0.875rem;
         line-height: 1.43;
+      }
+
+      .c21 {
+        font-weight: 600;
         color: #4945ff;
+        font-size: 0.875rem;
+        line-height: 1.43;
       }
 
       .c7 {
@@ -447,7 +455,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       00:00
                     </span>
@@ -464,7 +472,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       00:15
                     </span>
@@ -481,7 +489,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       00:30
                     </span>
@@ -498,7 +506,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       00:45
                     </span>
@@ -515,7 +523,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       01:00
                     </span>
@@ -532,7 +540,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       01:15
                     </span>
@@ -549,7 +557,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       01:30
                     </span>
@@ -566,7 +574,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       01:45
                     </span>
@@ -583,7 +591,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       02:00
                     </span>
@@ -600,7 +608,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       02:15
                     </span>
@@ -617,7 +625,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       02:30
                     </span>
@@ -634,7 +642,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       02:45
                     </span>
@@ -651,7 +659,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       03:00
                     </span>
@@ -668,7 +676,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       03:15
                     </span>
@@ -685,7 +693,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       03:30
                     </span>
@@ -702,7 +710,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       03:45
                     </span>
@@ -719,7 +727,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       04:00
                     </span>
@@ -736,7 +744,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       04:15
                     </span>
@@ -753,7 +761,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       04:30
                     </span>
@@ -770,7 +778,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       04:45
                     </span>
@@ -787,7 +795,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       05:00
                     </span>
@@ -804,7 +812,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       05:15
                     </span>
@@ -821,7 +829,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       05:30
                     </span>
@@ -838,7 +846,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       05:45
                     </span>
@@ -855,7 +863,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       06:00
                     </span>
@@ -872,7 +880,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       06:15
                     </span>
@@ -889,7 +897,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       06:30
                     </span>
@@ -906,7 +914,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       06:45
                     </span>
@@ -923,7 +931,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       07:00
                     </span>
@@ -940,7 +948,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       07:15
                     </span>
@@ -957,7 +965,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       07:30
                     </span>
@@ -974,7 +982,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       07:45
                     </span>
@@ -991,7 +999,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       08:00
                     </span>
@@ -1008,7 +1016,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       08:15
                     </span>
@@ -1025,7 +1033,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       08:30
                     </span>
@@ -1042,7 +1050,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       08:45
                     </span>
@@ -1059,7 +1067,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       09:00
                     </span>
@@ -1076,7 +1084,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       09:15
                     </span>
@@ -1093,7 +1101,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       09:30
                     </span>
@@ -1110,7 +1118,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       09:45
                     </span>
@@ -1127,7 +1135,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       10:00
                     </span>
@@ -1144,7 +1152,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       10:15
                     </span>
@@ -1161,7 +1169,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       10:30
                     </span>
@@ -1178,7 +1186,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       10:45
                     </span>
@@ -1195,7 +1203,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       11:00
                     </span>
@@ -1212,7 +1220,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       11:15
                     </span>
@@ -1229,7 +1237,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c20"
+                      class="c21"
                     >
                       11:30
                     </span>
@@ -1246,7 +1254,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       11:45
                     </span>
@@ -1263,7 +1271,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       12:00
                     </span>
@@ -1280,7 +1288,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       12:15
                     </span>
@@ -1297,7 +1305,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       12:30
                     </span>
@@ -1314,7 +1322,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       12:45
                     </span>
@@ -1331,7 +1339,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       13:00
                     </span>
@@ -1348,7 +1356,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       13:15
                     </span>
@@ -1365,7 +1373,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       13:30
                     </span>
@@ -1382,7 +1390,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       13:45
                     </span>
@@ -1399,7 +1407,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       14:00
                     </span>
@@ -1416,7 +1424,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       14:15
                     </span>
@@ -1433,7 +1441,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       14:30
                     </span>
@@ -1450,7 +1458,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       14:45
                     </span>
@@ -1467,7 +1475,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       15:00
                     </span>
@@ -1484,7 +1492,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       15:15
                     </span>
@@ -1501,7 +1509,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       15:30
                     </span>
@@ -1518,7 +1526,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       15:45
                     </span>
@@ -1535,7 +1543,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       16:00
                     </span>
@@ -1552,7 +1560,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       16:15
                     </span>
@@ -1569,7 +1577,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       16:30
                     </span>
@@ -1586,7 +1594,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       16:45
                     </span>
@@ -1603,7 +1611,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       17:00
                     </span>
@@ -1620,7 +1628,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       17:15
                     </span>
@@ -1637,7 +1645,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       17:30
                     </span>
@@ -1654,7 +1662,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       17:45
                     </span>
@@ -1671,7 +1679,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       18:00
                     </span>
@@ -1688,7 +1696,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       18:15
                     </span>
@@ -1705,7 +1713,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       18:30
                     </span>
@@ -1722,7 +1730,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       18:45
                     </span>
@@ -1739,7 +1747,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       19:00
                     </span>
@@ -1756,7 +1764,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       19:15
                     </span>
@@ -1773,7 +1781,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       19:30
                     </span>
@@ -1790,7 +1798,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       19:45
                     </span>
@@ -1807,7 +1815,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       20:00
                     </span>
@@ -1824,7 +1832,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       20:15
                     </span>
@@ -1841,7 +1849,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       20:30
                     </span>
@@ -1858,7 +1866,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       20:45
                     </span>
@@ -1875,7 +1883,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       21:00
                     </span>
@@ -1892,7 +1900,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       21:15
                     </span>
@@ -1909,7 +1917,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       21:30
                     </span>
@@ -1926,7 +1934,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       21:45
                     </span>
@@ -1943,7 +1951,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       22:00
                     </span>
@@ -1960,7 +1968,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       22:15
                     </span>
@@ -1977,7 +1985,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       22:30
                     </span>
@@ -1994,7 +2002,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       22:45
                     </span>
@@ -2011,7 +2019,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       23:00
                     </span>
@@ -2028,7 +2036,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       23:15
                     </span>
@@ -2045,7 +2053,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       23:30
                     </span>
@@ -2062,7 +2070,7 @@ describe('TimePicker', () => {
                     class="c2"
                   >
                     <span
-                      class="c10"
+                      class="c20"
                     >
                       23:45
                     </span>

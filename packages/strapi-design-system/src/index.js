@@ -57,5 +57,6 @@ export * from './TimePicker';
 export * from './ToggleCheckbox';
 export * from './ToggleInput';
 export * from './Tooltip';
+export * from './Typography';
 export * from './VisuallyHidden';
 export * from './themes';

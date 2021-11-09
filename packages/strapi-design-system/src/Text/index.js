@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ellipsisStyle, handleColor } from './utils';
+import { Typography } from '../Typography';
 
 export const H2 = styled.h2`
   font-weight: ${({ theme }) => theme.fontWeights.bold};
@@ -57,7 +58,7 @@ export const ButtonText = styled(Text)`
   line-height: ${({ theme }) => theme.lineHeights[0]};
 `;
 
-export const TableLabel = styled(ButtonText)`
+export const TableLabel = styled(Typography)`
   font-weight: ${({ theme }) => theme.fontWeights.bold};
   font-size: ${({ theme }) => theme.fontSizes[0]};
   line-height: ${({ theme }) => theme.lineHeights[5]};
@@ -72,4 +73,3 @@ export const EllipsisText = styled(Text)`
 `;
 
 export * from './H1';
-export * from './Typography';

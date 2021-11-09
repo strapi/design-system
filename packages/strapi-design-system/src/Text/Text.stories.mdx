@@ -1,13 +1,13 @@
 <!--- Text.stories.mdx --->
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
-import { H1, H2, H3, Text, ButtonText, Subtitle, EllipsisText, Typography } from './';
+import { H1, H2, H3, Text, ButtonText, Subtitle, EllipsisText, TableLabel } from './';
 
 <Meta title="Design System/Technical Components/Text" component={H1} />
 
 # Text
 
-This is the doc of the different Text / Typography components.
+This is the doc of the different Text components.
 
 [View source](https://github.com/strapi/design-system/tree/develop/packages/strapi-design-system/src/Text)
 
@@ -39,13 +39,11 @@ The main way to display text content on the screen
     </Text>
     <ButtonText>Text button</ButtonText>
     <Subtitle>Subtitle</Subtitle>
+    <TableLabel>Table label</TableLabel>
     <div>
       <Text style={{ width: '200px' }} ellipsis>
         This is a very long text, lorem ipsum dolor sit amet
       </Text>
     </div>
-    <Typography fontWeight="bold" textColor="primary600" fontSize={4} textTransform="uppercase">
-      Fully customized Typography
-    </Typography>
   </Story>
 </Canvas>

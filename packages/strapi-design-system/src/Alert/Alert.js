@@ -6,7 +6,7 @@ import CheckCircle from '@strapi/icons/CheckCircle';
 import ExclamationMarkCircle from '@strapi/icons/ExclamationMarkCircle';
 import Cross from '@strapi/icons/Cross';
 import { Box } from '../Box';
-import { Text, P } from '../Text';
+import { Typography } from '../Typography';
 import { Flex } from '../Flex';
 import { handleBackgroundColor, handleBorderColor, handleIconColor } from './utils';
 import { buttonFocusStyle } from '../themes/utils';
@@ -76,13 +76,15 @@ export const Alert = ({ title, children, variant, onClose, closeLabel, titleAs, 
         </AlertIconWrapper>
         <AlertBody role={variant === 'danger' ? 'alert' : 'status'}>
           <Box paddingBottom={2} paddingRight={1}>
-            <Text bold={true} textColor="neutral800" as={titleAs}>
+            <Typography fontWeight="bold" textColor="neutral800" as={titleAs}>
               {title}
-            </Text>
+            </Typography>
           </Box>
 
           <Box paddingBottom={action ? 2 : 5} paddingRight={2}>
-            <P textColor="neutral800">{children}</P>
+            <Typography as="p" textColor="neutral800">
+              {children}
+            </Typography>
           </Box>
 
           {action && (

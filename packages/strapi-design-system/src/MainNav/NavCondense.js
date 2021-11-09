@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import ChevronRight from '@strapi/icons/ChevronRight';
 import ChevronLeft from '@strapi/icons/ChevronLeft';
+import { Icon } from '../Icon';
 import { VisuallyHidden } from '../VisuallyHidden';
 import { useMainNav } from './MainNavContext';
 
@@ -32,7 +33,7 @@ export const NavCondense = ({ children, ...props }) => {
 
   return (
     <NavCondenseWrapper as="button" condensed={condensed} {...props}>
-      {condensed ? <ChevronRight aria-hidden /> : <ChevronLeft aria-hidden />}
+      <Icon as={condensed ? ChevronRight : ChevronLeft} aria-hidden color="neutral600" />
       <VisuallyHidden>{children}</VisuallyHidden>
     </NavCondenseWrapper>
   );

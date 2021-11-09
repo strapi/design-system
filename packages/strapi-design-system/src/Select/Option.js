@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Box } from '../Box';
-import { Text } from '../Text';
+import { Typography } from '../Typography';
 import { Flex } from '../Flex';
 import checkmarkIcon from '../BaseCheckbox/assets/checkmark.svg';
 
@@ -94,9 +94,9 @@ export const Option = ({ selected, indeterminate, children, value, multi, isChil
             <CheckMark selected={selected} indeterminate={indeterminate} />
           </Box>
         )}
-        <Text textColor={selected ? 'primary600' : 'neutral800'} bold={selected}>
+        <Typography textColor={selected ? 'primary600' : 'neutral800'} fontWeight={selected ? 'bold' : null}>
           {children}
-        </Text>
+        </Typography>
       </Flex>
     </OptionBox>
   );

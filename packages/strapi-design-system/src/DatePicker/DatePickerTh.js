@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { RawTh } from '../RawTable';
-import { Text } from '../Text';
+import { Typography } from '../Typography';
 import { VisuallyHidden } from '../VisuallyHidden';
 import { Flex } from '../Flex';
 
@@ -22,9 +22,9 @@ export const DatePickerTh = ({ children, ...props }) => {
   return (
     <DatePickerThWrapper {...props}>
       <DatePickerThRow justifyContent="center">
-        <Text small bold={true} color="neutral800" aria-hidden>
+        <Typography variant="pi" fontWeight="bold" color="neutral800" aria-hidden>
           {children.substr(0, 2)}
-        </Text>
+        </Typography>
 
         <VisuallyHidden>
           <span>{children}</span>

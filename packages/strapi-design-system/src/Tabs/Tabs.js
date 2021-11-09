@@ -2,7 +2,7 @@ import React, { Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { useTabs } from './TabsContext';
-import { ButtonText, TableLabel } from '../Text';
+import { Typography } from '../Typography';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 import { useTabsFocus } from './useTabsFocus';
 import { DefaultTabsRow, DefaultTabButton, DefaultTabBox, SimpleTabBox } from './components';
@@ -14,42 +14,87 @@ const TabButton = styled.button`
 `;
 
 export const Tabs = ({ children, ...props }) => {
-  const { id, selectedTabIndex, selectTabIndex, label, variant } = useTabs();
-  const tabsRef = useTabsFocus(selectedTabIndex);
+  const { id, selectedTabIndex, selectTabIndex, label, variant, onTabChange } = useTabs();
+  const tabsRef = useTabsFocus(selectedTabIndex, onTabChange);
 
   const childrenArray = Children.toArray(children).map((node, index) =>
     cloneElement(node, {
       id: `${id}-${index}`,
-      selected: index === selectedTabIndex,
+      index,
+      selectedTabIndex,
       onTabClick: () => selectTabIndex(index),
       variant,
     }),
   );
 
   const handleKeyDown = (e) => {
+    const hasAllChildrenDisabled = childrenArray.every((node) => node.props.disabled);
+
+    if (hasAllChildrenDisabled) {
+      return;
+    }
+
     switch (e.key) {
       case KeyboardKeys.RIGHT: {
-        const nextIndex = selectedTabIndex + 1;
-        selectTabIndex(nextIndex >= childrenArray.length ? 0 : nextIndex);
+        const nextWantedIndex = selectedTabIndex + 1;
+        const findNextIndex = (ref) => {
+          const isDisabled = childrenArray[ref].props.disabled;
+
+          if (!isDisabled) {
+            return ref;
+          }
+
+          if (ref === childrenArray.length - 1) {
+            return findNextIndex(0);
+          }
+
+          return findNextIndex(ref + 1);
+        };
+
+        const nextIndex = findNextIndex(nextWantedIndex >= childrenArray.length ? 0 : nextWantedIndex);
+
+        selectTabIndex(nextIndex);
 
         break;
       }
 
       case KeyboardKeys.LEFT: {
-        const nextIndex = selectedTabIndex - 1;
-        selectTabIndex(nextIndex < 0 ? childrenArray.length - 1 : nextIndex);
+        const nextWantedIndex = selectedTabIndex - 1;
+        const findNextIndex = (ref) => {
+          const isDisabled = childrenArray[ref].props.disabled;
+
+          if (!isDisabled) {
+            return ref;
+          }
+
+          if (ref === 0) {
+            return findNextIndex(childrenArray.length - 1);
+          }
+
+          return findNextIndex(ref - 1);
+        };
+        const nextIndex = findNextIndex(nextWantedIndex < 0 ? childrenArray.length - 1 : nextWantedIndex);
+
+        selectTabIndex(nextIndex);
 
         break;
       }
 
       case KeyboardKeys.HOME: {
-        selectTabIndex(0);
+        const nextIndex = childrenArray.findIndex((node) => !node.props.disabled);
+
+        selectTabIndex(nextIndex);
 
         break;
       }
 
       case KeyboardKeys.END: {
-        selectTabIndex(childrenArray.length - 1);
+        const arrayOfChildrenProps = childrenArray.map((node, index) => ({ isDisabled: node.props.disabled, index }));
+        const firstNonDisabledChildren = arrayOfChildrenProps.reverse().find(({ isDisabled }) => !isDisabled);
+
+        if (firstNonDisabledChildren) {
+          selectTabIndex(firstNonDisabledChildren.index);
+        }
 
         break;
       }
@@ -85,20 +130,17 @@ Tabs.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export const Tab = ({ disabled, selected, id, children, variant, hasError, onClick, onTabClick, ...props }) => {
+export const Tab = ({ disabled, id, children, variant, hasError, index, selectedTabIndex, onTabClick, ...props }) => {
   const tabId = `${id}-tab`;
   const tabPanelId = `${id}-tabpanel`;
+  const selected = index === selectedTabIndex;
 
-  const handleClick = (e) => {
+  const handleClick = () => {
     if (disabled) {
       return;
     }
 
-    onTabClick(e);
-
-    if (onClick) {
-      onClick(e);
-    }
+    onTabClick();
   };
 
   if (variant === 'simple') {
@@ -127,7 +169,9 @@ export const Tab = ({ disabled, selected, id, children, variant, hasError, onCli
         {...props}
       >
         <SimpleTabBox padding={4} selected={selected} hasError={hasError}>
-          <TableLabel textColor={textColor}>{children}</TableLabel>
+          <Typography variant="sigma" textColor={textColor}>
+            {children}
+          </Typography>
         </SimpleTabBox>
       </TabButton>
     );
@@ -136,6 +180,8 @@ export const Tab = ({ disabled, selected, id, children, variant, hasError, onCli
   if (hasError) {
     console.warn('The "hasError" prop is only available for the "simple" variant.');
   }
+
+  const showRightBorder = selectedTabIndex - 1 === index;
 
   return (
     <DefaultTabButton
@@ -147,10 +193,13 @@ export const Tab = ({ disabled, selected, id, children, variant, hasError, onCli
       aria-selected={selected}
       onClick={handleClick}
       aria-disabled={disabled}
+      showRightBorder={showRightBorder}
       {...props}
     >
       <DefaultTabBox padding={selected ? 4 : 3} background={selected ? 'neutral0' : 'neutral100'} selected={selected}>
-        <ButtonText textColor={selected ? 'primary700' : 'neutral600'}>{children}</ButtonText>
+        <Typography fontWeight="bold" textColor={selected ? 'primary700' : 'neutral600'}>
+          {children}
+        </Typography>
       </DefaultTabBox>
     </DefaultTabButton>
   );
@@ -158,12 +207,12 @@ export const Tab = ({ disabled, selected, id, children, variant, hasError, onCli
 
 Tab.defaultProps = {
   disabled: false,
-  selected: false,
-  id: undefined,
-  onClick: undefined,
-  onTabClick: undefined,
-  variant: undefined,
   hasError: false,
+  id: undefined,
+  index: undefined,
+  onTabClick: undefined,
+  selectedTabIndex: undefined,
+  variant: undefined,
 };
 
 Tab.propTypes = {
@@ -171,8 +220,8 @@ Tab.propTypes = {
   disabled: PropTypes.bool,
   hasError: PropTypes.bool,
   id: PropTypes.string,
-  onClick: PropTypes.func,
+  index: PropTypes.number,
   onTabClick: PropTypes.func,
-  selected: PropTypes.bool,
+  selectedTabIndex: PropTypes.number,
   variant: PropTypes.oneOf(['simple']),
 };
