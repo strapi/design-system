@@ -31,7 +31,6 @@ export const AccordionTypography = styled(Typography)``;
 
 const AccordionWrapper = styled(Box)`
   border: ${getBorder};
-  overflow: hidden;
 
   &:hover:not([aria-disabled='true']) {
     border: 1px solid ${({ theme }) => theme.colors.primary600};

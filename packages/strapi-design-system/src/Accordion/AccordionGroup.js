@@ -15,6 +15,12 @@ const AccordionFooter = styled(Box)`
 
 const EnhancedGroup = styled(Box)`
   & > * {
+    & > * {
+      border-radius: unset;
+    }
+  }
+
+  & > * {
     border-radius: unset;
     border-right: 1px solid ${({ theme }) => theme.colors.neutral200};
     border-left: 1px solid ${({ theme }) => theme.colors.neutral200};
@@ -24,6 +30,9 @@ const EnhancedGroup = styled(Box)`
   & > *:first-of-type {
     border-top: 1px solid ${({ theme }) => theme.colors.neutral200};
     border-radius: ${({ theme }) => theme.borderRadius} ${({ theme }) => theme.borderRadius} 0 0;
+    & > * {
+      border-radius: ${({ theme }) => theme.borderRadius} ${({ theme }) => theme.borderRadius} 0 0;
+    }
 
     &:hover {
       border-top: 1px solid ${({ theme }) => theme.colors.primary600};
