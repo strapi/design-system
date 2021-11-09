@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import Image from 'next/image';
 import Link from 'next/link';
@@ -37,9 +37,12 @@ const LinksList = styled.ul`
 `
 
 const NavSection = ({title,pages}) => {
-
-    const [isSectionActive, setIsSectionActive] = useState(false)
+    const [isSectionActive, setIsSectionActive] = useState(false);
     const router = useRouter();
+    useEffect(()=>{
+        const pageLinks = pages.map((page)=>page.link)
+        setIsSectionActive(pageLinks.includes(`/${router.query.slug}`))
+    },[router]);
 
     return(
         <div>
@@ -53,14 +56,13 @@ const NavSection = ({title,pages}) => {
             </SectionTitle>
             <LinksList>
                 {pages?.map((page,index) => {
-                    const isActive = router.pathname == page.link;
-                    if(isActive) setIsSectionActive(isActive);
+                    const isActive = `/${router.query.slug}` === page.link;
                    return <Link 
                             href={page.link} 
                             key={index} 
                             passHref
                         >
-                            <li className={isActive ? "active" : ""}>{page.name}</li>
+                            <li className={isActive ? "active" : ""} >{page.name}</li>
                         </Link>
                 })}
             </LinksList>

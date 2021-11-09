@@ -1,16 +1,15 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter'
+import pages from 'data/structure';
 
 const root = process.cwd();
 
-export async function getFiles(type){
-    return fs.readdirSync(path.join(root,'data',type))
+export async function getFiles(){
+    return fs.readdirSync(path.join(root,'data','pages'))
 }
-export async function getFileBySlug(type, slug) {
-    const source = slug
-        ? fs.readFileSync(path.join(root, 'data', type, `${slug}`), 'utf8')
-        : fs.readFileSync(path.join(root, 'data', `${type}`), 'utf8')
+export async function getFileBySlug(slug) {
+    const source = fs.readFileSync(path.join(root, 'data','pages',`${slug}.mdx`), 'utf8')
     const { content, data } = matter(source)
     return {
         content,
@@ -20,37 +19,28 @@ export async function getFileBySlug(type, slug) {
 
 export async function getNavbarContent(){
     const navContent = [];
-    const files = await getFiles('');
-    await Promise.all(files.map(async (file) => {
-        const mdxFiles = await getFiles(file);
-        const pagesArray = await createPagesArray(mdxFiles,file);
+    await Promise.all(pages.map(async (pageSection) => {
+        const pagesArray = await createPagesArray(pageSection.pages);
         navContent.push({
-            title:getNameFromFileName(file),
+            title:pageSection.title,
             pages: pagesArray
         });
     }));
     return navContent;
 }
 
-async function createPagesArray(pages,sectionName){
+async function createPagesArray(pages){
     return await Promise.all(pages.map( pageFileName => {
-        const result = createPageObject(pageFileName,sectionName)
+        const result = createPageObject(pageFileName)
         return result;
     }));
 }
 
-async function createPageObject(pageFileName,sectionName){
-    const pageName = getNameFromFileName(pageFileName);
-    const pagePath = `/${pageName.split(' ').join('-')}`
-    const { data } = await getFileBySlug(sectionName,pageFileName)
+async function createPageObject(pageName){
+    const pagePath = `/${pageName}`
+    const { data } = await getFileBySlug(pageName)
     return {
         name:data.title,
         link:pagePath
     }
-}
-
-function getNameFromFileName (filename) {
-    const filenameArray = filename.split('-');
-    filenameArray.shift();
-    return filenameArray.join(' ').split('.mdx').join('');
 }
