@@ -1,30 +1,30 @@
 module.exports = {
-    "settings": {
-        "react": {
-            "version": "detect"
-        }
+  settings: {
+    react: {
+      version: 'detect',
     },
-    "env": {
-        "browser": true,
-        "es2021": true,
-        "node":true
+  },
+  env: {
+    browser: true,
+    es2021: true,
+    node: true,
+  },
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:prettier/recommended',
+    'plugin:jsx-a11y/recommended',
+  ],
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
     },
-    "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended"
-    ],
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 13,
-        "sourceType": "module"
-    },
-    "plugins": [
-        "react"
-    ],
-    "rules": {
-        "react/prop-types": "off",
-        "react/react-in-jsx-scope": "off"
-    }
+    ecmaVersion: 13,
+    sourceType: 'module',
+  },
+  plugins: ['react'],
+  rules: {
+    'react/prop-types': 'off',
+    'react/react-in-jsx-scope': 'off',
+  },
 };
