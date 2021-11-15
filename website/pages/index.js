@@ -1,10 +1,11 @@
 import Layout from 'components/Layout';
 import { getNavbarContent } from 'lib/mdx';
+import { H1 } from '@strapi/design-system/Text';
 
 export default function Home({ navbarContent }) {
   return (
     <Layout meta={{}} navigationContent={navbarContent ? navbarContent : {}}>
-      <h1>Main Page</h1>
+      <H1 textColor="neutral800">Main Page</H1>
     </Layout>
   );
 }

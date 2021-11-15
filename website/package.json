@@ -10,6 +10,7 @@
     "lint-staged": "eslint --fix"
   },
   "dependencies": {
+    "@strapi/design-system": "^0.0.1-alpha.64",
     "gray-matter": "^4.0.3",
     "next": "11.1.2",
     "next-mdx-remote": "^3.0.7",

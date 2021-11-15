@@ -27,3 +27,12 @@ a {
   box-sizing: border-box;
   margin:0;
 }
+
+ul {
+  list-style-type: disc !important;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}

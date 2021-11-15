@@ -2,11 +2,20 @@ import Layout from 'components/Layout';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote } from 'next-mdx-remote';
 import { getFileBySlug, getFiles, getNavbarContent } from 'lib/mdx';
+import { H1, H2, Text, Subtitle } from '@strapi/design-system/Text';
+
+const components = {
+  h1: (props) => <H1 style={{ paddingBottom: 24 }} textColor="neutral800" {...props} />,
+  h2: (props) => <H2 style={{ paddingBottom: 16 }} textColor="neutral800" {...props} />,
+  h4: (props) => <Subtitle textColor="neutral700" {...props} />,
+  p: (props) => <Text textColor="neutral700" {...props} />,
+  strong: (props) => <Text textColor="primary600" bold={true} {...props} />,
+};
 
 const PostPage = ({ mdxSource, frontMatter, navbarContent }) => {
   return (
     <Layout meta={frontMatter} navigationContent={navbarContent}>
-      <MDXRemote {...mdxSource} />
+      <MDXRemote {...mdxSource} components={components} />
     </Layout>
   );
 };
