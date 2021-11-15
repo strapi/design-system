@@ -25646,7 +25646,7 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
 
 .c12 {
   color: #666687;
-  display: inline-block;
+  display: block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -25957,7 +25957,7 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
 
 .c10 {
   color: #32324d;
-  display: inline-block;
+  display: block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -26249,7 +26249,7 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
 
 .c10 {
   color: #32324d;
-  display: inline-block;
+  display: block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -26541,7 +26541,7 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
 
 .c12 {
   color: #666687;
-  display: inline-block;
+  display: block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -26866,7 +26866,7 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
 
 .c10 {
   color: #32324d;
-  display: inline-block;
+  display: block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -27156,7 +27156,7 @@ exports[`Storyshots Design System/Components/Select withoutLabel 1`] = `
 
 .c10 {
   color: #666687;
-  display: inline-block;
+  display: block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -36699,7 +36699,7 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
 
 .c11 {
   color: #666687;
-  display: inline-block;
+  display: block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -36998,7 +36998,7 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
 
 .c11 {
   color: #666687;
-  display: inline-block;
+  display: block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -37307,7 +37307,7 @@ exports[`Storyshots Design System/Components/TimePicker initial-data 1`] = `
 
 .c13 {
   color: #32324d;
-  display: inline-block;
+  display: block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -37634,7 +37634,7 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
 
 .c11 {
   color: #666687;
-  display: inline-block;
+  display: block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -43743,6 +43743,12 @@ exports[`Storyshots Design System/Technical Components/Typography variants 1`] =
   padding-left: 16px;
 }
 
+.c14 {
+  padding-top: 8px;
+  padding-left: 16px;
+  width: 200px;
+}
+
 .c1 {
   color: #32324d;
   font-weight: 600;
@@ -43809,6 +43815,16 @@ exports[`Storyshots Design System/Technical Components/Typography variants 1`] =
   font-size: 0.6875rem;
   line-height: 1.45;
   text-transform: uppercase;
+}
+
+.c15 {
+  color: #32324d;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.875rem;
+  line-height: 1.43;
 }
 
 .c3 {
@@ -43924,6 +43940,16 @@ exports[`Storyshots Design System/Technical Components/Typography variants 1`] =
         class="c13"
       >
         Sigma - table label
+      </span>
+    </div>
+    <div
+      class="c14"
+      width="200px"
+    >
+      <span
+        class="c15"
+      >
+        Ellipsis example - long text - long text
       </span>
     </div>
   </div>
