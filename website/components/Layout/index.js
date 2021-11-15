@@ -11,13 +11,6 @@ const Wrapper = styled.div`
   padding: 1.5rem;
 `;
 
-const Main = styled.div`
-  background: #ffffff;
-  border-radius: 4px;
-  filter: drop-shadow(0px 1px 4px rgba(33, 33, 52, 0.1));
-  padding: 3rem 3.5rem;
-`;
-
 const Footer = styled.footer`
   display: flex;
   gap: 2rem;
@@ -32,7 +25,7 @@ const Layout = ({ children, meta, navigationContent }) => {
         <Navbar navigationContent={navigationContent} />
       </header>
       <div>
-        <Main>{children}</Main>
+        <div>{children}</div>
         <Footer>
           <StyledLink href="https://strapi.io" target="_blank">
             © 2021 Strapi

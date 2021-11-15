@@ -3,6 +3,7 @@ import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote } from 'next-mdx-remote';
 import { getFileBySlug, getFiles, getNavbarContent } from 'lib/mdx';
 import { H1, H2, Text, Subtitle } from '@strapi/design-system/Text';
+import { Box } from '@strapi/design-system/Box';
 
 const components = {
   h1: (props) => <H1 style={{ paddingBottom: 24 }} textColor="neutral800" {...props} />,
@@ -15,7 +16,9 @@ const components = {
 const PostPage = ({ mdxSource, frontMatter, navbarContent }) => {
   return (
     <Layout meta={frontMatter} navigationContent={navbarContent}>
-      <MDXRemote {...mdxSource} components={components} />
+      <Box padding={8} background="neutral0" shadow="filterShadow" hasRadius={true}>
+        <MDXRemote {...mdxSource} components={components} />
+      </Box>
     </Layout>
   );
 };
