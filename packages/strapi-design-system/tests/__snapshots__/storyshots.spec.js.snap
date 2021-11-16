@@ -277,25 +277,6 @@ exports[`Storyshots Design System/Components/Alert variants 1`] = `
   align-items: flex-start;
 }
 
-.c1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c1 > * {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.c1 > * + * {
-  margin-top: 4px;
-}
-
 .c7 {
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -395,6 +376,25 @@ exports[`Storyshots Design System/Components/Alert variants 1`] = `
 
 .c16 svg path {
   fill: #b72b1a;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c1 > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.c1 > * + * {
+  margin-top: 4px;
 }
 
 <main>
@@ -1207,10 +1207,6 @@ exports[`Storyshots Design System/Components/Badge base 1`] = `
   text-transform: uppercase;
 }
 
-.c3 {
-  display: inline-block;
-}
-
 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1228,6 +1224,10 @@ exports[`Storyshots Design System/Components/Badge base 1`] = `
 
 .c1 > * + * {
   margin-top: 8px;
+}
+
+.c3 {
+  display: inline-block;
 }
 
 <main>
@@ -5509,10 +5509,6 @@ exports[`Storyshots Design System/Components/Carousel base 1`] = `
   margin-left: 4px;
 }
 
-.c8 path {
-  fill: #666687;
-}
-
 .c19 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -5608,6 +5604,10 @@ exports[`Storyshots Design System/Components/Carousel base 1`] = `
 }
 
 .c20[aria-disabled='true'] svg path {
+  fill: #666687;
+}
+
+.c8 path {
   fill: #666687;
 }
 
@@ -14320,109 +14320,66 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
   background: #f6f6f9;
 }
 
-.c4 {
-  padding-top: 16px;
-  padding-right: 12px;
-  padding-bottom: 16px;
-  padding-left: 12px;
-}
-
-.c7 {
-  padding-left: 8px;
-}
-
-.c12 {
-  background: #eaeaef;
-}
-
-.c14 {
-  padding-top: 12px;
-  padding-right: 8px;
-  padding-left: 12px;
-}
-
-.c19 {
-  padding-right: 12px;
-}
-
-.c23 {
-  background: #ffffff;
-  padding-top: 4px;
-  padding-right: 12px;
-  padding-bottom: 4px;
-  padding-left: 12px;
-  border-radius: 4px;
-}
-
-.c25 {
-  background: #f6f6f9;
-  padding: 4px;
-  border-radius: 4px;
-}
-
-.c28 {
-  padding-top: 12px;
-  padding-right: 20px;
-  padding-bottom: 12px;
-  padding-left: 20px;
-}
-
-.c35 {
-  color: #666687;
-}
-
-.c39 {
+.c5 {
   padding-top: 24px;
   padding-right: 16px;
   padding-bottom: 8px;
   padding-left: 24px;
 }
 
-.c44 {
+.c11 {
   padding-top: 16px;
 }
 
-.c46 {
+.c12 {
+  background: #eaeaef;
+}
+
+.c15 {
   padding-top: 8px;
   padding-bottom: 16px;
 }
 
-.c47 {
+.c17 {
   padding-top: 8px;
   padding-right: 16px;
   padding-bottom: 8px;
   padding-left: 24px;
 }
 
-.c50 {
+.c22 {
   padding-right: 4px;
 }
 
-.c52 {
+.c25 {
   background: #eaeaef;
   padding: 4px;
   border-radius: 4px;
 }
 
-.c54 {
+.c28 {
   background: #f6f6f9;
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 32px;
 }
 
-.c57 {
+.c31 {
+  padding-left: 8px;
+}
+
+.c33 {
   padding-top: 8px;
   padding-right: 16px;
   padding-bottom: 8px;
   padding-left: 32px;
 }
 
-.c62 {
+.c38 {
   padding-bottom: 56px;
 }
 
-.c64 {
+.c40 {
   background: #f6f6f9;
   padding-top: 56px;
   padding-right: 56px;
@@ -14430,28 +14387,28 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
   padding-left: 56px;
 }
 
-.c66 {
+.c42 {
   padding-left: 16px;
 }
 
-.c68 {
+.c44 {
   padding-right: 8px;
 }
 
-.c73 {
+.c49 {
   padding-right: 56px;
   padding-left: 56px;
 }
 
-.c74 {
+.c50 {
   padding-bottom: 16px;
 }
 
-.c77 {
+.c53 {
   padding-top: 8px;
 }
 
-.c78 {
+.c54 {
   background: #f0f0ff;
   color: #4945ff;
   padding-right: 12px;
@@ -14463,65 +14420,42 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
   height: 2rem;
 }
 
-.c83 {
+.c61 {
   background: #ffffff;
   border-radius: 4px;
   box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
 }
 
-.c86 {
+.c64 {
   padding-right: 24px;
   padding-left: 24px;
 }
 
-.c98 {
+.c76 {
   padding-left: 4px;
 }
 
-.c99 {
+.c77 {
   background: #f0f0ff;
   padding: 20px;
 }
 
-.c101 {
+.c79 {
   background: #d9d8ff;
 }
 
-.c103 {
+.c81 {
   padding-left: 12px;
 }
 
-.c3 {
-  width: 14rem;
-  background: #ffffff;
-  position: fixed;
-  left: 0;
-  top: 0;
-  height: 100vh;
-  z-index: 2;
-  border-right: 1px solid #eaeaef;
-}
-
-.c9 {
+.c8 {
+  color: #32324d;
   font-weight: 600;
-  color: #32324d;
-  font-size: 0.875rem;
-  line-height: 1.43;
+  font-size: 1.125rem;
+  line-height: 1.22;
 }
 
-.c11 {
-  color: #666687;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c21 {
-  color: #32324d;
-  font-size: 0.875rem;
-  line-height: 1.43;
-}
-
-.c24 {
+.c23 {
   color: #666687;
   font-weight: 600;
   font-size: 0.6875rem;
@@ -14530,16 +14464,14 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
 }
 
 .c32 {
-  font-weight: 600;
-  font-size: 0.6875rem;
-  color: #ffffff;
-  text-transform: uppercase;
+  color: #32324d;
   font-size: 0.875rem;
   line-height: 1.43;
 }
 
-.c33 {
-  color: #666687;
+.c37 {
+  font-weight: 500;
+  color: #32324d;
   font-size: 0.875rem;
   line-height: 1.43;
 }
@@ -14547,38 +14479,31 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
 .c41 {
   color: #32324d;
   font-weight: 600;
-  font-size: 1.125rem;
-  line-height: 1.22;
-}
-
-.c61 {
-  font-weight: 500;
-  color: #32324d;
-  font-size: 0.875rem;
-  line-height: 1.43;
-}
-
-.c65 {
-  color: #32324d;
-  font-weight: 600;
   font-size: 2rem;
   line-height: 1.25;
 }
 
-.c70 {
+.c46 {
   font-weight: 600;
   color: #32324d;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
-.c72 {
+.c48 {
   color: #666687;
   font-size: 1rem;
   line-height: 1.5;
 }
 
-.c94 {
+.c60 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
+.c72 {
   color: #32324d;
   font-weight: 600;
   font-size: 0.6875rem;
@@ -14586,64 +14511,14 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
   text-transform: uppercase;
 }
 
-.c104 {
+.c82 {
   font-weight: 600;
   color: #4945ff;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
-.c5 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c17 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c30 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c40 {
+.c6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -14661,7 +14536,39 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
   align-items: flex-start;
 }
 
-.c75 {
+.c19 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c20 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c51 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -14678,212 +14585,42 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
   flex-wrap: wrap;
 }
 
-.c6 {
-  border-radius: 4px;
+.c16 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
-.c6 svg,
-.c6 img {
-  height: 2rem;
-  width: 2rem;
+.c16 > * {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
-.c10 {
-  -webkit-text-decoration: unset;
-  text-decoration: unset;
-  color: inherit;
+.c16 > * + * {
+  margin-top: 8px;
+}
+
+.c75 {
+  border-radius: 50%;
+  display: block;
+  position: relative;
+}
+
+.c74 {
+  position: relative;
+  width: 26px;
+  height: 26px;
 }
 
 .c26 {
   display: inline-block;
 }
 
-.c20 svg {
-  width: 1rem;
-  height: 1rem;
-}
-
-.c16 {
-  position: relative;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  display: block;
-  border-radius: 4px;
-  background: #ffffff;
-}
-
-.c16 .c8 {
-  color: #666687;
-}
-
-.c16 svg path {
-  fill: #8e8ea9;
-}
-
-.c16:hover {
-  background: #f6f6f9;
-}
-
-.c16:hover .c8 {
-  color: #4a4a6a;
-}
-
-.c16:hover svg path {
-  fill: #666687;
-}
-
-.c16.active {
-  background: #f0f0ff;
-}
-
-.c16.active svg path {
-  fill: #4945ff;
-}
-
-.c16.active .c8 {
-  color: #4945ff;
-  font-weight: 500;
-}
-
-.c18 {
-  padding: 8px 12px;
-}
-
-.c27 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  min-width: 24px;
-  height: 20px;
-  padding: 0 8px;
-  border-radius: 56px;
-  background: #4945ff;
-}
-
-.c27 .c8 {
-  color: #ffffff !important;
-  line-height: 0;
-}
-
-.c15 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c15 > * {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.c15 > * + * {
-  margin-top: 16px;
-}
-
-.c22 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c22 > * {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.c22 > * + * {
-  margin-top: 8px;
-}
-
-.c13 {
-  height: 1px;
-  border: none;
-  margin: 0;
-}
-
-.c97 {
-  border-radius: 50%;
-  display: block;
-  position: relative;
-}
-
-.c96 {
-  position: relative;
-  width: 26px;
-  height: 26px;
-}
-
-.c31 {
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background: linear-gradient( 157deg, #4945ff 0%, #7b79ff 50%, #d9d8ff 81%, #f0f0ff 96% );
-}
-
-.c31 span {
-  line-height: 0;
-}
-
-.c29 {
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  border-top: 1px solid #eaeaef;
-}
-
-.c36 path {
-  fill: #666687;
-}
-
-.c34 {
-  background: #ffffff;
-  border: 1px solid #eaeaef;
-  border-radius: 4px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  position: absolute;
-  bottom: 0.8125rem;
-  right: 20px;
-  z-index: 2;
-  width: 1.125rem;
-  height: 1.5625rem;
-}
-
-.c34 svg {
-  width: 0.375rem;
-  height: 0.5625rem;
-}
-
-.c42 {
+.c9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -14897,21 +14634,21 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
   outline: none;
 }
 
-.c42 svg {
+.c9 svg {
   height: 12px;
   width: 12px;
 }
 
-.c42 svg > g,
-.c42 svg path {
+.c9 svg > g,
+.c9 svg path {
   fill: #ffffff;
 }
 
-.c42[aria-disabled='true'] {
+.c9[aria-disabled='true'] {
   pointer-events: none;
 }
 
-.c42:after {
+.c9:after {
   -webkit-transition-property: all;
   transition-property: all;
   -webkit-transition-duration: 0.2s;
@@ -14926,11 +14663,11 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
   border: 2px solid transparent;
 }
 
-.c42:focus-visible {
+.c9:focus-visible {
   outline: none;
 }
 
-.c42:focus-visible:after {
+.c9:focus-visible:after {
   border-radius: 8px;
   content: '';
   position: absolute;
@@ -14941,7 +14678,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
   border: 2px solid #4945ff;
 }
 
-.c92 {
+.c70 {
   margin: 0;
   height: 18px;
   min-width: 18px;
@@ -14952,12 +14689,12 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
   cursor: pointer;
 }
 
-.c92:checked {
+.c70:checked {
   background-color: #4945ff;
   border: 1px solid #4945ff;
 }
 
-.c92:checked:after {
+.c70:checked:after {
   content: '';
   display: block;
   position: relative;
@@ -14971,21 +14708,21 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
   transform: translateX(-50%) translateY(-50%);
 }
 
-.c92:checked:disabled:after {
+.c70:checked:disabled:after {
   background: url(test-file-stub) no-repeat no-repeat center center;
 }
 
-.c92:disabled {
+.c70:disabled {
   background-color: #dcdce4;
   border: 1px solid #c0c0cf;
 }
 
-.c92:indeterminate {
+.c70:indeterminate {
   background-color: #4945ff;
   border: 1px solid #4945ff;
 }
 
-.c92:indeterminate:after {
+.c70:indeterminate:after {
   content: '';
   display: block;
   position: relative;
@@ -15000,20 +14737,20 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
   transform: translateX(-50%) translateY(-50%);
 }
 
-.c92:indeterminate:disabled {
+.c70:indeterminate:disabled {
   background-color: #dcdce4;
   border: 1px solid #c0c0cf;
 }
 
-.c92:indeterminate:disabled:after {
+.c70:indeterminate:disabled:after {
   background-color: #8e8ea9;
 }
 
-.c69 {
+.c45 {
   height: 100%;
 }
 
-.c67 {
+.c43 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -15025,7 +14762,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
   background: #ffffff;
 }
 
-.c67 .c1 {
+.c43 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -15036,56 +14773,56 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
   align-items: center;
 }
 
-.c67 .c8 {
+.c43 .c7 {
   color: #ffffff;
 }
 
-.c67[aria-disabled='true'] {
+.c43[aria-disabled='true'] {
   border: 1px solid #dcdce4;
   background: #eaeaef;
 }
 
-.c67[aria-disabled='true'] .c8 {
+.c43[aria-disabled='true'] .c7 {
   color: #666687;
 }
 
-.c67[aria-disabled='true'] svg > g,
-.c67[aria-disabled='true'] svg path {
+.c43[aria-disabled='true'] svg > g,
+.c43[aria-disabled='true'] svg path {
   fill: #666687;
 }
 
-.c67[aria-disabled='true']:active {
+.c43[aria-disabled='true']:active {
   border: 1px solid #dcdce4;
   background: #eaeaef;
 }
 
-.c67[aria-disabled='true']:active .c8 {
+.c43[aria-disabled='true']:active .c7 {
   color: #666687;
 }
 
-.c67[aria-disabled='true']:active svg > g,
-.c67[aria-disabled='true']:active svg path {
+.c43[aria-disabled='true']:active svg > g,
+.c43[aria-disabled='true']:active svg path {
   fill: #666687;
 }
 
-.c67:hover {
+.c43:hover {
   background-color: #f6f6f9;
 }
 
-.c67:active {
+.c43:active {
   background-color: #eaeaef;
 }
 
-.c67 .c8 {
+.c43 .c7 {
   color: #32324d;
 }
 
-.c67 svg > g,
-.c67 svg path {
+.c43 svg > g,
+.c43 svg path {
   fill: #32324d;
 }
 
-.c71 {
+.c47 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -15097,7 +14834,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
   background: #4945ff;
 }
 
-.c71 .c1 {
+.c47 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -15108,49 +14845,121 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
   align-items: center;
 }
 
-.c71 .c8 {
+.c47 .c7 {
   color: #ffffff;
 }
 
-.c71[aria-disabled='true'] {
+.c47[aria-disabled='true'] {
   border: 1px solid #dcdce4;
   background: #eaeaef;
 }
 
-.c71[aria-disabled='true'] .c8 {
+.c47[aria-disabled='true'] .c7 {
   color: #666687;
 }
 
-.c71[aria-disabled='true'] svg > g,
-.c71[aria-disabled='true'] svg path {
+.c47[aria-disabled='true'] svg > g,
+.c47[aria-disabled='true'] svg path {
   fill: #666687;
 }
 
-.c71[aria-disabled='true']:active {
+.c47[aria-disabled='true']:active {
   border: 1px solid #dcdce4;
   background: #eaeaef;
 }
 
-.c71[aria-disabled='true']:active .c8 {
+.c47[aria-disabled='true']:active .c7 {
   color: #666687;
 }
 
-.c71[aria-disabled='true']:active svg > g,
-.c71[aria-disabled='true']:active svg path {
+.c47[aria-disabled='true']:active svg > g,
+.c47[aria-disabled='true']:active svg path {
   fill: #666687;
 }
 
-.c71:hover {
+.c47:hover {
   border: 1px solid #7b79ff;
   background: #7b79ff;
 }
 
-.c71:active {
+.c47:active {
   border: 1px solid #4945ff;
   background: #4945ff;
 }
 
-.c43 {
+.c59 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 10px 16px;
+  background: #4945ff;
+  border: none;
+  border: 1px solid #dcdce4;
+  background: #ffffff;
+}
+
+.c59 .c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c59 .c7 {
+  color: #ffffff;
+}
+
+.c59[aria-disabled='true'] {
+  border: 1px solid #dcdce4;
+  background: #eaeaef;
+}
+
+.c59[aria-disabled='true'] .c7 {
+  color: #666687;
+}
+
+.c59[aria-disabled='true'] svg > g,
+.c59[aria-disabled='true'] svg path {
+  fill: #666687;
+}
+
+.c59[aria-disabled='true']:active {
+  border: 1px solid #dcdce4;
+  background: #eaeaef;
+}
+
+.c59[aria-disabled='true']:active .c7 {
+  color: #666687;
+}
+
+.c59[aria-disabled='true']:active svg > g,
+.c59[aria-disabled='true']:active svg path {
+  fill: #666687;
+}
+
+.c59:hover {
+  background-color: #f6f6f9;
+}
+
+.c59:active {
+  background-color: #eaeaef;
+}
+
+.c59 .c7 {
+  color: #32324d;
+}
+
+.c59 svg > g,
+.c59 svg path {
+  fill: #32324d;
+}
+
+.c10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -15167,47 +14976,53 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
   width: 2rem;
 }
 
-.c43 svg > g,
-.c43 svg path {
+.c10 svg > g,
+.c10 svg path {
   fill: #8e8ea9;
 }
 
-.c43:hover svg > g,
-.c43:hover svg path {
+.c10:hover svg > g,
+.c10:hover svg path {
   fill: #666687;
 }
 
-.c43:active svg > g,
-.c43:active svg path {
+.c10:active svg > g,
+.c10:active svg path {
   fill: #a5a5ba;
 }
 
-.c43[aria-disabled='true'] {
+.c10[aria-disabled='true'] {
   background-color: #eaeaef;
 }
 
-.c43[aria-disabled='true'] svg path {
+.c10[aria-disabled='true'] svg path {
   fill: #666687;
 }
 
-.c38 {
+.c13 {
+  height: 1px;
+  border: none;
+  margin: 0;
+}
+
+.c4 {
   width: 14.5rem;
   background: #f6f6f9;
-  position: fixed;
+  position: -webkit-sticky;
+  position: sticky;
   top: 0;
-  left: 14rem;
   height: 100vh;
   overflow-y: auto;
   border-right: 1px solid #dcdce4;
   z-index: 1;
 }
 
-.c45 {
+.c14 {
   width: 1.5rem;
   background-color: #dcdce4;
 }
 
-.c55 {
+.c29 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -15225,50 +15040,50 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
   color: #32324d;
 }
 
-.c55 svg > * {
+.c29 svg > * {
   fill: #666687;
 }
 
-.c55.active {
+.c29.active {
   background-color: #f0f0ff;
   border-right: 2px solid #4945ff;
 }
 
-.c55.active svg > * {
+.c29.active svg > * {
   fill: #271fe0;
 }
 
-.c55.active .c8 {
+.c29.active .c7 {
   color: #271fe0;
   font-weight: 500;
 }
 
-.c55:focus-visible {
+.c29:focus-visible {
   outline-offset: -2px;
 }
 
-.c56 {
+.c30 {
   width: 0.75rem;
   height: 0.25rem;
 }
 
-.c56 * {
+.c30 * {
   fill: #666687;
 }
 
-.c58 {
+.c34 {
   max-height: 2rem;
 }
 
-.c58 svg {
+.c34 svg {
   height: 0.25rem;
 }
 
-.c58 svg path {
+.c34 svg path {
   fill: #4a4a6a;
 }
 
-.c59 {
+.c35 {
   border: none;
   padding: 0;
   background: transparent;
@@ -15282,7 +15097,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
   align-items: center;
 }
 
-.c60 {
+.c36 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -15297,13 +15112,13 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
   transform: rotateX(0deg);
 }
 
-.c49 {
+.c21 {
   border: none;
   padding: 0;
   background: transparent;
 }
 
-.c51 {
+.c24 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -15317,19 +15132,19 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
   transform: rotateX(0deg);
 }
 
-.c48 {
+.c18 {
   max-height: 2rem;
 }
 
-.c48 svg {
+.c18 svg {
   height: 0.25rem;
 }
 
-.c48 svg path {
+.c18 svg path {
   fill: #8e8ea9;
 }
 
-.c53 {
+.c27 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -15340,47 +15155,47 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
   align-items: center;
 }
 
-.c37 {
+.c3 {
   display: grid;
-  margin-left: calc(14rem + 14.5rem);
+  grid-template-columns: auto 1fr;
 }
 
-.c63 {
+.c39 {
   overflow-x: hidden;
 }
 
-.c76 > * + * {
+.c52 > * + * {
   margin-left: 8px;
 }
 
-.c81 {
+.c57 {
   margin-left: auto;
 }
 
-.c81 > * + * {
+.c57 > * + * {
   margin-left: 8px;
 }
 
-.c82 {
+.c58 {
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
 }
 
-.c84 {
+.c62 {
   overflow: hidden;
 }
 
-.c88 {
+.c66 {
   width: 100%;
   white-space: nowrap;
 }
 
-.c85 {
+.c63 {
   position: relative;
 }
 
-.c85:before {
+.c63:before {
   background: linear-gradient(90deg,#c0c0cf 0%,rgba(0,0,0,0) 100%);
   opacity: 0.2;
   position: absolute;
@@ -15390,7 +15205,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
   left: 0;
 }
 
-.c85:after {
+.c63:after {
   background: linear-gradient(270deg,#c0c0cf 0%,rgba(0,0,0,0) 100%);
   opacity: 0.2;
   position: absolute;
@@ -15401,54 +15216,54 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
   top: 0;
 }
 
-.c87 {
+.c65 {
   overflow-x: auto;
 }
 
-.c95 tr:last-of-type {
+.c73 tr:last-of-type {
   border-bottom: none;
 }
 
-.c89 {
+.c67 {
   border-bottom: 1px solid #eaeaef;
 }
 
-.c90 {
+.c68 {
   border-bottom: 1px solid #eaeaef;
 }
 
-.c90 td,
-.c90 th {
+.c68 td,
+.c68 th {
   padding: 16px;
 }
 
-.c90 td:first-of-type,
-.c90 th:first-of-type {
+.c68 td:first-of-type,
+.c68 th:first-of-type {
   padding: 0 4px;
 }
 
-.c90 th {
+.c68 th {
   padding-top: 0;
   padding-bottom: 0;
   height: 3.5rem;
 }
 
-.c91 {
+.c69 {
   vertical-align: middle;
   text-align: left;
   color: #666687;
   outline-offset: -4px;
 }
 
-.c91 input {
+.c69 input {
   vertical-align: sub;
 }
 
-.c93 svg {
+.c71 svg {
   height: 0.25rem;
 }
 
-.c102 {
+.c80 {
   height: 1.5rem;
   width: 1.5rem;
   border-radius: 50%;
@@ -15466,32 +15281,32 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
   align-items: center;
 }
 
-.c102 svg {
+.c80 svg {
   height: 0.625rem;
   width: 0.625rem;
 }
 
-.c102 svg path {
+.c80 svg path {
   fill: #4945ff;
 }
 
-.c100 {
+.c78 {
   border-radius: 0 0 4px 4px;
   display: block;
   width: 100%;
   border: none;
 }
 
-.c79 svg {
+.c55 svg {
   height: 0.5rem;
   width: 0.5rem;
 }
 
-.c79 svg path {
+.c55 svg path {
   fill: #4945ff;
 }
 
-.c80 {
+.c56 {
   border-right: 1px solid #d9d8ff;
   padding-right: 8px;
 }
@@ -15507,462 +15322,21 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
   <div
     class="c1 c2"
   >
-    <nav
-      class="c3"
-    >
-      <div
-        class="c1 c4"
-      >
-        <div
-          class="c1 c5"
-        >
-          <a
-            aria-current="page"
-            aria-hidden="true"
-            class="c6 active"
-            href="/"
-            tabindex="-1"
-          >
-            <img
-              alt=""
-              src="test-file-stub"
-            />
-          </a>
-          <div
-            class="c1 c7"
-          >
-            <span
-              class="c8 c9"
-            >
-              <a
-                aria-current="page"
-                class="c10 active"
-                href="/"
-              >
-                Strapi Dashboard
-                <span
-                  class="c0"
-                >
-                  Workplace
-                </span>
-              </a>
-            </span>
-            <p
-              aria-hidden="true"
-              class="c8 c11"
-            >
-              Workplace
-            </p>
-          </div>
-        </div>
-      </div>
-      <hr
-        class="c1 c12 c13"
-      />
-      <div
-        class="c1 c14"
-      >
-        <ul
-          class="c1 c15"
-        >
-          <li>
-            <a
-              class="c16 active"
-              href="/cm"
-            >
-              <span
-                class="c1 c17 c18"
-              >
-                <div
-                  class="c1 c5"
-                >
-                  <span
-                    aria-hidden="true"
-                    class="c1 c19 c20"
-                  >
-                    <svg
-                      fill="none"
-                      height="1em"
-                      viewBox="0 0 24 24"
-                      width="1em"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        clip-rule="evenodd"
-                        d="M23.708.297A1 1 0 0023 .004h-2a13.907 13.907 0 00-5.38 1.077 1 1 0 00-.615.923V4.92a.035.035 0 01-.023.038l-2-1.47a1 1 0 00-1.265.052 14 14 0 00-4.717 10.463v1.585l-2.708 2.708a1 1 0 101.415 1.415l2.708-2.708H10a14.015 14.015 0 0014-14v-2a1 1 0 00-.293-.707zM18 24H3a3 3 0 01-3-3V6a3 3 0 013-3h3a1 1 0 010 2H3a1 1 0 00-1 1v15a1 1 0 001 1h15a1 1 0 001-1v-3a1 1 0 012 0v3a3 3 0 01-3 3z"
-                        fill="#212134"
-                        fill-rule="evenodd"
-                      />
-                    </svg>
-                  </span>
-                  <span
-                    class="c8 c21"
-                  >
-                    Content
-                  </span>
-                </div>
-              </span>
-            </a>
-          </li>
-          <li
-            class="c1 "
-          >
-            <div
-              class="c1 c22"
-            >
-              <span
-                class="c1 c23"
-              >
-                <span
-                  class="c8 c24"
-                >
-                  Plugins
-                </span>
-              </span>
-              <ul
-                class="c1 c22"
-              >
-                <li>
-                  <a
-                    class="c16"
-                    href="/builder"
-                  >
-                    <span
-                      class="c1 c17 c18"
-                    >
-                      <div
-                        class="c1 c5"
-                      >
-                        <span
-                          aria-hidden="true"
-                          class="c1 c19 c20"
-                        >
-                          <svg
-                            fill="none"
-                            height="1em"
-                            viewBox="0 0 24 24"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M4.8.2c0-.11.09-.2.2-.2h18.8c.11 0 .2.09.2.2v4.4a.2.2 0 01-.2.2H5a.2.2 0 01-.2-.2V.2zM0 9.8c0-.11.09-.2.2-.2H19c.11 0 .2.09.2.2v4.4a.2.2 0 01-.2.2H.2a.2.2 0 01-.2-.2V9.8zM5 19.2a.2.2 0 00-.2.2v4.4c0 .11.09.2.2.2h18.8a.2.2 0 00.2-.2v-4.4a.2.2 0 00-.2-.2H5z"
-                              fill="#212134"
-                            />
-                          </svg>
-                        </span>
-                        <span
-                          class="c8 c21"
-                        >
-                          Builder
-                        </span>
-                      </div>
-                    </span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    class="c16"
-                    href="/content"
-                  >
-                    <span
-                      class="c1 c17 c18"
-                    >
-                      <div
-                        class="c1 c5"
-                      >
-                        <span
-                          aria-hidden="true"
-                          class="c1 c19 c20"
-                        >
-                          <svg
-                            fill="none"
-                            height="1em"
-                            viewBox="0 0 24 24"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              clip-rule="evenodd"
-                              d="M4.3.6a.9.9 0 100 1.8h15.311a.9.9 0 100-1.8H4.301zm17.1 3.7A1.6 1.6 0 0123 5.9v15.5a1.6 1.6 0 01-1.6 1.6H2.6A1.601 1.601 0 011 21.4V8 5.915C1 5.03 1.716 4.3 2.6 4.3h18.8zM5.032 19.18h14.336l-3.136-3.205-1.792 1.831-4.032-4.12-5.376 5.494zm13.44-8.697c0 1.282-.985 2.289-2.24 2.289-1.254 0-2.24-1.007-2.24-2.29 0-1.281.986-2.288 2.24-2.288 1.255 0 2.24 1.007 2.24 2.289z"
-                              fill="#212134"
-                              fill-rule="evenodd"
-                            />
-                          </svg>
-                        </span>
-                        <span
-                          class="c8 c21"
-                        >
-                          Media library
-                        </span>
-                      </div>
-                    </span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    class="c16"
-                    href="/content"
-                  >
-                    <span
-                      class="c1 c17 c18"
-                    >
-                      <div
-                        class="c1 c5"
-                      >
-                        <span
-                          aria-hidden="true"
-                          class="c1 c19 c20"
-                        >
-                          <svg
-                            fill="none"
-                            height="1em"
-                            viewBox="0 0 24 24"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12 12-5.383 12-12S18.617 0 12 0zm0 4.92a1.56 1.56 0 110 3.12 1.56 1.56 0 010-3.12zm3.84 13.06a.5.5 0 01-.5.5h-6.2a.5.5 0 01-.5-.5v-.92a.5.5 0 01.5-.5h2.14v-5.28H9.86a.5.5 0 01-.5-.5v-.92a.5.5 0 01.5-.5h2.84a.5.5 0 01.5.5v6.7h2.14a.5.5 0 01.5.5v.92z"
-                              fill="#212134"
-                            />
-                          </svg>
-                        </span>
-                        <span
-                          class="c8 c21"
-                        >
-                          Documentation
-                        </span>
-                      </div>
-                    </span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li
-            class="c1 "
-          >
-            <div
-              class="c1 c22"
-            >
-              <span
-                class="c1 c23"
-              >
-                <span
-                  class="c8 c24"
-                >
-                  General
-                </span>
-              </span>
-              <ul
-                class="c1 c22"
-              >
-                <li>
-                  <a
-                    class="c16"
-                    href="/builder"
-                  >
-                    <span
-                      class="c1 c17 c18"
-                    >
-                      <div
-                        class="c1 c5"
-                      >
-                        <span
-                          aria-hidden="true"
-                          class="c1 c19 c20"
-                        >
-                          <svg
-                            fill="none"
-                            height="1em"
-                            viewBox="0 0 26 26"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              clip-rule="evenodd"
-                              d="M14.06 1.171l3.118 3.118 1.869-1.869a3.206 3.206 0 114.534 4.534l-1.869 1.869 3.117 3.117a1.5 1.5 0 010 2.121l-3.116 3.117-1.155-1.155a3.206 3.206 0 10-4.535 4.534l1.155 1.155-3.117 3.118a1.5 1.5 0 01-2.122 0l-3.116-3.117-1.868 1.867a3.206 3.206 0 11-4.534-4.534l1.867-1.867-3.117-3.118a1.5 1.5 0 010-2.121l3.117-3.118 1.155 1.156a3.206 3.206 0 004.535-4.535L8.822 4.288l3.117-3.117a1.5 1.5 0 012.122 0z"
-                              fill="#212134"
-                              fill-rule="evenodd"
-                            />
-                          </svg>
-                        </span>
-                        <span
-                          class="c8 c21"
-                        >
-                          Plugins
-                        </span>
-                      </div>
-                    </span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    class="c16"
-                    href="/content"
-                  >
-                    <span
-                      class="c1 c17 c18"
-                    >
-                      <div
-                        class="c1 c5"
-                      >
-                        <span
-                          aria-hidden="true"
-                          class="c1 c19 c20"
-                        >
-                          <svg
-                            fill="none"
-                            height="1em"
-                            viewBox="0 0 24 24"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              clip-rule="evenodd"
-                              d="M23.12 3.907c-.025 0-.055-.005-.087-.011a.72.72 0 00-.13-.016H5.929l-.27-1.805A2.413 2.413 0 003.26 0H1.078C.485 0 0 .485 0 1.078c0 .593.485 1.078 1.078 1.078H3.26c.135 0 .243.107.27.242L5.2 13.77a2.954 2.954 0 002.91 2.506h11.21c1.401 0 2.614-.997 2.91-2.371l1.752-8.757a1.065 1.065 0 00-.863-1.24zm-4.932 13.927a2.8 2.8 0 00-2.802 2.802 2.8 2.8 0 002.802 2.802 2.8 2.8 0 002.803-2.802c-.027-1.536-1.267-2.802-2.803-2.802zm-9.646 0a2.786 2.786 0 012.775 2.667c.081 1.536-1.132 2.83-2.667 2.91h-.054a2.762 2.762 0 01-2.749-2.667 2.819 2.819 0 012.695-2.91z"
-                              fill="#212134"
-                              fill-rule="evenodd"
-                            />
-                          </svg>
-                        </span>
-                        <span
-                          class="c8 c21"
-                        >
-                          Marketplace
-                        </span>
-                      </div>
-                      <div
-                        aria-label="new content"
-                        class="c1 c25 c26 c27"
-                      >
-                        <span
-                          class="c8 c24"
-                        >
-                          new
-                        </span>
-                      </div>
-                    </span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    class="c16"
-                    href="/content"
-                  >
-                    <span
-                      class="c1 c17 c18"
-                    >
-                      <div
-                        class="c1 c5"
-                      >
-                        <span
-                          aria-hidden="true"
-                          class="c1 c19 c20"
-                        >
-                          <svg
-                            fill="none"
-                            height="1em"
-                            viewBox="0 0 24 24"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              clip-rule="evenodd"
-                              d="M21.255 12c0 .408-.037.792-.086 1.176l2.603 1.98c.234.18.296.504.148.768l-2.467 4.152c-.148.264-.47.372-.753.264l-3.072-1.2a9.544 9.544 0 01-2.085 1.176l-.468 3.18a.596.596 0 01-.605.504H9.535a.597.597 0 01-.604-.504l-.469-3.18a9.077 9.077 0 01-2.085-1.176l-3.072 1.2c-.271.096-.604 0-.752-.264L.086 15.924a.594.594 0 01.148-.768l2.603-1.98A9.263 9.263 0 012.75 12c0-.396.037-.792.087-1.176L.234 8.844a.581.581 0 01-.148-.768l2.467-4.152c.148-.264.469-.372.752-.264l3.072 1.2a9.545 9.545 0 012.085-1.176l.469-3.18A.597.597 0 019.535 0h4.935c.308 0 .567.216.604.504l.47 3.18c.752.3 1.443.696 2.084 1.176l3.072-1.2c.271-.096.605 0 .753.264l2.467 4.152a.594.594 0 01-.148.768l-2.603 1.98c.05.384.086.768.086 1.176zm-13.57 0c0 2.316 1.937 4.2 4.318 4.2 2.38 0 4.318-1.884 4.318-4.2 0-2.316-1.937-4.2-4.318-4.2-2.381 0-4.318 1.884-4.318 4.2z"
-                              fill="#212134"
-                              fill-rule="evenodd"
-                            />
-                          </svg>
-                        </span>
-                        <span
-                          class="c8 c21"
-                        >
-                          Settings
-                        </span>
-                      </div>
-                      <div
-                        aria-label="6 notifications"
-                        class="c1 c25 c26 c27"
-                      >
-                        <span
-                          class="c8 c24"
-                        >
-                          6
-                        </span>
-                      </div>
-                    </span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div
-        class="c1 c28 c29"
-      >
-        <button
-          class="c1 c5"
-        >
-          <div
-            class="c1 c30 c31"
-          >
-            <span
-              class="c8 c32"
-            >
-              JD
-            </span>
-          </div>
-          <span
-            class="c1 c7"
-          >
-            <span
-              class="c8 c33"
-            >
-              John Duff
-            </span>
-          </span>
-        </button>
-      </div>
-      <button
-        class="c34"
-      >
-        <svg
-          aria-hidden="true"
-          class="c1 c35 c36"
-          fill="none"
-          height="1em"
-          viewBox="0 0 10 16"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M9.88 14.12L3.773 8 9.88 1.88 8 0 0 8l8 8 1.88-1.88z"
-            fill="#32324D"
-          />
-        </svg>
-        <div
-          class="c0"
-        >
-          Expand the navbar
-        </div>
-      </button>
-    </nav>
     <div
-      class="c1 c37"
+      class="c1 c3"
     >
       <nav
         aria-label="Builder sub nav"
-        class="c38"
+        class="c4"
       >
         <div
-          class="c1 c39"
+          class="c1 c5"
         >
           <div
-            class="c1 c40"
+            class="c1 c6"
           >
             <h2
-              class="c8 c41"
+              class="c7 c8"
             >
               Builder
             </h2>
@@ -15970,7 +15344,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
               <button
                 aria-disabled="false"
                 aria-labelledby="tooltip-67"
-                class="c42 c43"
+                class="c9 c10"
                 tabindex="0"
                 type="button"
               >
@@ -15992,42 +15366,42 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
             </span>
           </div>
           <div
-            class="c1 c44"
+            class="c1 c11"
           >
             <hr
-              class="c1 c12 c13 c45"
+              class="c1 c12 c13 c14"
             />
           </div>
         </div>
         <div
-          class="c1 c46"
+          class="c1 c15"
         >
           <ul
-            class="c1 c22"
+            class="c1 c16"
           >
             <li>
               <div
-                class="c1 c47 c48"
+                class="c1 c17 c18"
               >
                 <div
-                  class="c1 c17"
+                  class="c1 c19"
                 >
                   <button
                     aria-controls="subnav-list-69"
                     aria-expanded="true"
-                    class="c1 c5 c49"
+                    class="c1 c20 c21"
                   >
                     <div
-                      class="c1 c50"
+                      class="c1 c22"
                     >
                       <span
-                        class="c8 c24"
+                        class="c7 c23"
                       >
                         Collection Type
                       </span>
                     </div>
                     <div
-                      class="c51"
+                      class="c24"
                     >
                       <svg
                         aria-hidden="true"
@@ -16047,10 +15421,10 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                     </div>
                   </button>
                   <div
-                    class="c1 c52 c26 c53"
+                    class="c1 c25 c26 c27"
                   >
                     <span
-                      class="c8 c24"
+                      class="c7 c23"
                     >
                       4
                     </span>
@@ -16062,14 +15436,14 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
               >
                 <li>
                   <a
-                    class="c1 c54 c55"
+                    class="c1 c28 c29"
                     href="/address"
                   >
                     <div
-                      class="c1 c5"
+                      class="c1 c20"
                     >
                       <svg
-                        class="c56"
+                        class="c30"
                         fill="none"
                         height="1em"
                         viewBox="0 0 4 4"
@@ -16084,10 +15458,10 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         />
                       </svg>
                       <div
-                        class="c1 c7"
+                        class="c1 c31"
                       >
                         <span
-                          class="c8 c21"
+                          class="c7 c32"
                         >
                           Addresses
                         </span>
@@ -16097,14 +15471,14 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                 </li>
                 <li>
                   <a
-                    class="c1 c54 c55"
+                    class="c1 c28 c29"
                     href="/category"
                   >
                     <div
-                      class="c1 c5"
+                      class="c1 c20"
                     >
                       <svg
-                        class="c56"
+                        class="c30"
                         fill="none"
                         height="1em"
                         viewBox="0 0 4 4"
@@ -16119,10 +15493,10 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         />
                       </svg>
                       <div
-                        class="c1 c7"
+                        class="c1 c31"
                       >
                         <span
-                          class="c8 c21"
+                          class="c7 c32"
                         >
                           Categories
                         </span>
@@ -16132,14 +15506,14 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                 </li>
                 <li>
                   <a
-                    class="c1 c54 c55"
+                    class="c1 c28 c29"
                     href="/city"
                   >
                     <div
-                      class="c1 c5"
+                      class="c1 c20"
                     >
                       <svg
-                        class="c56"
+                        class="c30"
                         fill="none"
                         height="1em"
                         viewBox="0 0 4 4"
@@ -16154,10 +15528,10 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         />
                       </svg>
                       <div
-                        class="c1 c7"
+                        class="c1 c31"
                       >
                         <span
-                          class="c8 c21"
+                          class="c7 c32"
                         >
                           Cities
                         </span>
@@ -16167,14 +15541,14 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                 </li>
                 <li>
                   <a
-                    class="c1 c54 c55"
+                    class="c1 c28 c29"
                     href="/country"
                   >
                     <div
-                      class="c1 c5"
+                      class="c1 c20"
                     >
                       <svg
-                        class="c56"
+                        class="c30"
                         fill="none"
                         height="1em"
                         viewBox="0 0 4 4"
@@ -16189,10 +15563,10 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                         />
                       </svg>
                       <div
-                        class="c1 c7"
+                        class="c1 c31"
                       >
                         <span
-                          class="c8 c21"
+                          class="c7 c32"
                         >
                           Countries
                         </span>
@@ -16204,27 +15578,27 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
             </li>
             <li>
               <div
-                class="c1 c47 c48"
+                class="c1 c17 c18"
               >
                 <div
-                  class="c1 c17"
+                  class="c1 c19"
                 >
                   <button
                     aria-controls="subnav-list-70"
                     aria-expanded="true"
-                    class="c1 c5 c49"
+                    class="c1 c20 c21"
                   >
                     <div
-                      class="c1 c50"
+                      class="c1 c22"
                     >
                       <span
-                        class="c8 c24"
+                        class="c7 c23"
                       >
                         Single Type
                       </span>
                     </div>
                     <div
-                      class="c51"
+                      class="c24"
                     >
                       <svg
                         aria-hidden="true"
@@ -16244,10 +15618,10 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                     </div>
                   </button>
                   <div
-                    class="c1 c52 c26 c53"
+                    class="c1 c25 c26 c27"
                   >
                     <span
-                      class="c8 c24"
+                      class="c7 c23"
                     >
                       4
                     </span>
@@ -16259,18 +15633,18 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
               >
                 <li>
                   <div
-                    class="c1 c57 c58"
+                    class="c1 c33 c34"
                   >
                     <div
-                      class="c1 c17"
+                      class="c1 c19"
                     >
                       <button
                         aria-controls="subnav-list-71"
                         aria-expanded="true"
-                        class="c59"
+                        class="c35"
                       >
                         <div
-                          class="c60"
+                          class="c36"
                         >
                           <svg
                             aria-hidden="true"
@@ -16289,10 +15663,10 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                           </svg>
                         </div>
                         <div
-                          class="c1 c7"
+                          class="c1 c31"
                         >
                           <span
-                            class="c8 c61"
+                            class="c7 c37"
                           >
                             Default
                           </span>
@@ -16305,14 +15679,14 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   >
                     <li>
                       <a
-                        class="c1 c54 c55"
+                        class="c1 c28 c29"
                         href="/address"
                       >
                         <div
-                          class="c1 c5"
+                          class="c1 c20"
                         >
                           <svg
-                            class="c56"
+                            class="c30"
                             fill="none"
                             height="1em"
                             viewBox="0 0 4 4"
@@ -16327,10 +15701,10 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                             />
                           </svg>
                           <div
-                            class="c1 c7"
+                            class="c1 c31"
                           >
                             <span
-                              class="c8 c21"
+                              class="c7 c32"
                             >
                               Addresses
                             </span>
@@ -16340,14 +15714,14 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                     </li>
                     <li>
                       <a
-                        class="c1 c54 c55"
+                        class="c1 c28 c29"
                         href="/category"
                       >
                         <div
-                          class="c1 c5"
+                          class="c1 c20"
                         >
                           <svg
-                            class="c56"
+                            class="c30"
                             fill="none"
                             height="1em"
                             viewBox="0 0 4 4"
@@ -16362,10 +15736,10 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                             />
                           </svg>
                           <div
-                            class="c1 c7"
+                            class="c1 c31"
                           >
                             <span
-                              class="c8 c21"
+                              class="c7 c32"
                             >
                               Categories
                             </span>
@@ -16375,14 +15749,14 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                     </li>
                     <li>
                       <a
-                        class="c1 c54 c55"
+                        class="c1 c28 c29"
                         href="/city"
                       >
                         <div
-                          class="c1 c5"
+                          class="c1 c20"
                         >
                           <svg
-                            class="c56"
+                            class="c30"
                             fill="none"
                             height="1em"
                             viewBox="0 0 4 4"
@@ -16397,10 +15771,10 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                             />
                           </svg>
                           <div
-                            class="c1 c7"
+                            class="c1 c31"
                           >
                             <span
-                              class="c8 c21"
+                              class="c7 c32"
                             >
                               Cities
                             </span>
@@ -16410,14 +15784,14 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                     </li>
                     <li>
                       <a
-                        class="c1 c54 c55"
+                        class="c1 c28 c29"
                         href="/country"
                       >
                         <div
-                          class="c1 c5"
+                          class="c1 c20"
                         >
                           <svg
-                            class="c56"
+                            class="c30"
                             fill="none"
                             height="1em"
                             viewBox="0 0 4 4"
@@ -16432,10 +15806,10 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                             />
                           </svg>
                           <div
-                            class="c1 c7"
+                            class="c1 c31"
                           >
                             <span
-                              class="c8 c21"
+                              class="c7 c32"
                             >
                               Countries
                             </span>
@@ -16451,37 +15825,37 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
         </div>
       </nav>
       <div
-        class="c1 c62 c63"
+        class="c1 c38 c39"
       >
         <div
           style="height: 0px;"
         >
           <div
-            class="c1 c64"
+            class="c1 c40"
             data-strapi-header="true"
           >
             <div
-              class="c1 c17"
+              class="c1 c19"
             >
               <div
-                class="c1 c5"
+                class="c1 c20"
               >
                 <h2
-                  class="c8 c65"
+                  class="c7 c41"
                 >
                   Other CT
                 </h2>
                 <div
-                  class="c1 c66"
+                  class="c1 c42"
                 >
                   <button
                     aria-disabled="false"
-                    class="c42 c67"
+                    class="c9 c43"
                     type="button"
                   >
                     <div
                       aria-hidden="true"
-                      class="c1 c68 c69"
+                      class="c1 c44 c45"
                     >
                       <svg
                         fill="none"
@@ -16499,7 +15873,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       </svg>
                     </div>
                     <span
-                      class="c8 c70"
+                      class="c7 c46"
                     >
                       Edit
                     </span>
@@ -16508,12 +15882,12 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
               </div>
               <button
                 aria-disabled="false"
-                class="c42 c71"
+                class="c9 c47"
                 type="button"
               >
                 <div
                   aria-hidden="true"
-                  class="c1 c68 c69"
+                  class="c1 c44 c45"
                 >
                   <svg
                     fill="none"
@@ -16529,53 +15903,54 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   </svg>
                 </div>
                 <span
-                  class="c8 c70"
+                  class="c7 c46"
                 >
                   Add an entry
                 </span>
               </button>
             </div>
             <p
-              class="c8 c72"
+              class="c7 c48"
             >
               36 entries found
             </p>
           </div>
         </div>
         <div
-          class="c1 c73"
+          class="c1 c49"
         >
           <div
-            class="c1 c74"
+            class="c1 c50"
           >
             <div
-              class="c1 c40"
+              class="c1 c6"
             >
               <div
-                class="c1 c75 c76"
+                class="c1 c51 c52"
                 wrap="wrap"
               >
                 <div
-                  class="c1 c77"
+                  class="c1 c53"
                 >
                   <button
                     aria-disabled="false"
-                    class="c1 c78 c79"
+                    class="c1 c54 c55"
                     height="2rem"
                   >
                     <div
-                      class="c1 c5"
+                      class="c1 c20"
                     >
                       <span
-                        class="c8 c70 c80"
+                        class="c7 c46 c56"
                       >
-                        Hello world
+                        Hello world 
+                        0
                       </span>
                       <div
-                        class="c1 c7"
+                        class="c1 c31"
                       >
                         <div
-                          class="c1 c5"
+                          class="c1 c20"
                         >
                           <svg
                             aria-hidden="true"
@@ -16596,26 +15971,27 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   </button>
                 </div>
                 <div
-                  class="c1 c77"
+                  class="c1 c53"
                 >
                   <button
                     aria-disabled="false"
-                    class="c1 c78 c79"
+                    class="c1 c54 c55"
                     height="2rem"
                   >
                     <div
-                      class="c1 c5"
+                      class="c1 c20"
                     >
                       <span
-                        class="c8 c70 c80"
+                        class="c7 c46 c56"
                       >
-                        Hello world
+                        Hello world 
+                        1
                       </span>
                       <div
-                        class="c1 c7"
+                        class="c1 c31"
                       >
                         <div
-                          class="c1 c5"
+                          class="c1 c20"
                         >
                           <svg
                             aria-hidden="true"
@@ -16636,26 +16012,27 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   </button>
                 </div>
                 <div
-                  class="c1 c77"
+                  class="c1 c53"
                 >
                   <button
                     aria-disabled="false"
-                    class="c1 c78 c79"
+                    class="c1 c54 c55"
                     height="2rem"
                   >
                     <div
-                      class="c1 c5"
+                      class="c1 c20"
                     >
                       <span
-                        class="c8 c70 c80"
+                        class="c7 c46 c56"
                       >
-                        Hello world
+                        Hello world 
+                        2
                       </span>
                       <div
-                        class="c1 c7"
+                        class="c1 c31"
                       >
                         <div
-                          class="c1 c5"
+                          class="c1 c20"
                         >
                           <svg
                             aria-hidden="true"
@@ -16676,26 +16053,27 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   </button>
                 </div>
                 <div
-                  class="c1 c77"
+                  class="c1 c53"
                 >
                   <button
                     aria-disabled="false"
-                    class="c1 c78 c79"
+                    class="c1 c54 c55"
                     height="2rem"
                   >
                     <div
-                      class="c1 c5"
+                      class="c1 c20"
                     >
                       <span
-                        class="c8 c70 c80"
+                        class="c7 c46 c56"
                       >
-                        Hello world
+                        Hello world 
+                        3
                       </span>
                       <div
-                        class="c1 c7"
+                        class="c1 c31"
                       >
                         <div
-                          class="c1 c5"
+                          class="c1 c20"
                         >
                           <svg
                             aria-hidden="true"
@@ -16716,26 +16094,27 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   </button>
                 </div>
                 <div
-                  class="c1 c77"
+                  class="c1 c53"
                 >
                   <button
                     aria-disabled="false"
-                    class="c1 c78 c79"
+                    class="c1 c54 c55"
                     height="2rem"
                   >
                     <div
-                      class="c1 c5"
+                      class="c1 c20"
                     >
                       <span
-                        class="c8 c70 c80"
+                        class="c7 c46 c56"
                       >
-                        Hello world
+                        Hello world 
+                        4
                       </span>
                       <div
-                        class="c1 c7"
+                        class="c1 c31"
                       >
                         <div
-                          class="c1 c5"
+                          class="c1 c20"
                         >
                           <svg
                             aria-hidden="true"
@@ -16756,26 +16135,27 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   </button>
                 </div>
                 <div
-                  class="c1 c77"
+                  class="c1 c53"
                 >
                   <button
                     aria-disabled="false"
-                    class="c1 c78 c79"
+                    class="c1 c54 c55"
                     height="2rem"
                   >
                     <div
-                      class="c1 c5"
+                      class="c1 c20"
                     >
                       <span
-                        class="c8 c70 c80"
+                        class="c7 c46 c56"
                       >
-                        Hello world
+                        Hello world 
+                        5
                       </span>
                       <div
-                        class="c1 c7"
+                        class="c1 c31"
                       >
                         <div
-                          class="c1 c5"
+                          class="c1 c20"
                         >
                           <svg
                             aria-hidden="true"
@@ -16796,26 +16176,27 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   </button>
                 </div>
                 <div
-                  class="c1 c77"
+                  class="c1 c53"
                 >
                   <button
                     aria-disabled="false"
-                    class="c1 c78 c79"
+                    class="c1 c54 c55"
                     height="2rem"
                   >
                     <div
-                      class="c1 c5"
+                      class="c1 c20"
                     >
                       <span
-                        class="c8 c70 c80"
+                        class="c7 c46 c56"
                       >
-                        Hello world
+                        Hello world 
+                        6
                       </span>
                       <div
-                        class="c1 c7"
+                        class="c1 c31"
                       >
                         <div
-                          class="c1 c5"
+                          class="c1 c20"
                         >
                           <svg
                             aria-hidden="true"
@@ -16836,26 +16217,27 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   </button>
                 </div>
                 <div
-                  class="c1 c77"
+                  class="c1 c53"
                 >
                   <button
                     aria-disabled="false"
-                    class="c1 c78 c79"
+                    class="c1 c54 c55"
                     height="2rem"
                   >
                     <div
-                      class="c1 c5"
+                      class="c1 c20"
                     >
                       <span
-                        class="c8 c70 c80"
+                        class="c7 c46 c56"
                       >
-                        Hello world
+                        Hello world 
+                        7
                       </span>
                       <div
-                        class="c1 c7"
+                        class="c1 c31"
                       >
                         <div
-                          class="c1 c5"
+                          class="c1 c20"
                         >
                           <svg
                             aria-hidden="true"
@@ -16876,26 +16258,27 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   </button>
                 </div>
                 <div
-                  class="c1 c77"
+                  class="c1 c53"
                 >
                   <button
                     aria-disabled="false"
-                    class="c1 c78 c79"
+                    class="c1 c54 c55"
                     height="2rem"
                   >
                     <div
-                      class="c1 c5"
+                      class="c1 c20"
                     >
                       <span
-                        class="c8 c70 c80"
+                        class="c7 c46 c56"
                       >
-                        Hello world
+                        Hello world 
+                        8
                       </span>
                       <div
-                        class="c1 c7"
+                        class="c1 c31"
                       >
                         <div
-                          class="c1 c5"
+                          class="c1 c20"
                         >
                           <svg
                             aria-hidden="true"
@@ -16916,26 +16299,27 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   </button>
                 </div>
                 <div
-                  class="c1 c77"
+                  class="c1 c53"
                 >
                   <button
                     aria-disabled="false"
-                    class="c1 c78 c79"
+                    class="c1 c54 c55"
                     height="2rem"
                   >
                     <div
-                      class="c1 c5"
+                      class="c1 c20"
                     >
                       <span
-                        class="c8 c70 c80"
+                        class="c7 c46 c56"
                       >
-                        Hello world
+                        Hello world 
+                        9
                       </span>
                       <div
-                        class="c1 c7"
+                        class="c1 c31"
                       >
                         <div
-                          class="c1 c5"
+                          class="c1 c20"
                         >
                           <svg
                             aria-hidden="true"
@@ -16956,26 +16340,27 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   </button>
                 </div>
                 <div
-                  class="c1 c77"
+                  class="c1 c53"
                 >
                   <button
                     aria-disabled="false"
-                    class="c1 c78 c79"
+                    class="c1 c54 c55"
                     height="2rem"
                   >
                     <div
-                      class="c1 c5"
+                      class="c1 c20"
                     >
                       <span
-                        class="c8 c70 c80"
+                        class="c7 c46 c56"
                       >
-                        Hello world
+                        Hello world 
+                        10
                       </span>
                       <div
-                        class="c1 c7"
+                        class="c1 c31"
                       >
                         <div
-                          class="c1 c5"
+                          class="c1 c20"
                         >
                           <svg
                             aria-hidden="true"
@@ -16996,26 +16381,27 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   </button>
                 </div>
                 <div
-                  class="c1 c77"
+                  class="c1 c53"
                 >
                   <button
                     aria-disabled="false"
-                    class="c1 c78 c79"
+                    class="c1 c54 c55"
                     height="2rem"
                   >
                     <div
-                      class="c1 c5"
+                      class="c1 c20"
                     >
                       <span
-                        class="c8 c70 c80"
+                        class="c7 c46 c56"
                       >
-                        Hello world
+                        Hello world 
+                        11
                       </span>
                       <div
-                        class="c1 c7"
+                        class="c1 c31"
                       >
                         <div
-                          class="c1 c5"
+                          class="c1 c20"
                         >
                           <svg
                             aria-hidden="true"
@@ -17036,26 +16422,27 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   </button>
                 </div>
                 <div
-                  class="c1 c77"
+                  class="c1 c53"
                 >
                   <button
                     aria-disabled="false"
-                    class="c1 c78 c79"
+                    class="c1 c54 c55"
                     height="2rem"
                   >
                     <div
-                      class="c1 c5"
+                      class="c1 c20"
                     >
                       <span
-                        class="c8 c70 c80"
+                        class="c7 c46 c56"
                       >
-                        Hello world
+                        Hello world 
+                        12
                       </span>
                       <div
-                        class="c1 c7"
+                        class="c1 c31"
                       >
                         <div
-                          class="c1 c5"
+                          class="c1 c20"
                         >
                           <svg
                             aria-hidden="true"
@@ -17076,26 +16463,27 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   </button>
                 </div>
                 <div
-                  class="c1 c77"
+                  class="c1 c53"
                 >
                   <button
                     aria-disabled="false"
-                    class="c1 c78 c79"
+                    class="c1 c54 c55"
                     height="2rem"
                   >
                     <div
-                      class="c1 c5"
+                      class="c1 c20"
                     >
                       <span
-                        class="c8 c70 c80"
+                        class="c7 c46 c56"
                       >
-                        Hello world
+                        Hello world 
+                        13
                       </span>
                       <div
-                        class="c1 c7"
+                        class="c1 c31"
                       >
                         <div
-                          class="c1 c5"
+                          class="c1 c20"
                         >
                           <svg
                             aria-hidden="true"
@@ -17116,26 +16504,27 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   </button>
                 </div>
                 <div
-                  class="c1 c77"
+                  class="c1 c53"
                 >
                   <button
                     aria-disabled="false"
-                    class="c1 c78 c79"
+                    class="c1 c54 c55"
                     height="2rem"
                   >
                     <div
-                      class="c1 c5"
+                      class="c1 c20"
                     >
                       <span
-                        class="c8 c70 c80"
+                        class="c7 c46 c56"
                       >
-                        Hello world
+                        Hello world 
+                        14
                       </span>
                       <div
-                        class="c1 c7"
+                        class="c1 c31"
                       >
                         <div
-                          class="c1 c5"
+                          class="c1 c20"
                         >
                           <svg
                             aria-hidden="true"
@@ -17156,26 +16545,27 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   </button>
                 </div>
                 <div
-                  class="c1 c77"
+                  class="c1 c53"
                 >
                   <button
                     aria-disabled="false"
-                    class="c1 c78 c79"
+                    class="c1 c54 c55"
                     height="2rem"
                   >
                     <div
-                      class="c1 c5"
+                      class="c1 c20"
                     >
                       <span
-                        class="c8 c70 c80"
+                        class="c7 c46 c56"
                       >
-                        Hello world
+                        Hello world 
+                        15
                       </span>
                       <div
-                        class="c1 c7"
+                        class="c1 c31"
                       >
                         <div
-                          class="c1 c5"
+                          class="c1 c20"
                         >
                           <svg
                             aria-hidden="true"
@@ -17196,26 +16586,27 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   </button>
                 </div>
                 <div
-                  class="c1 c77"
+                  class="c1 c53"
                 >
                   <button
                     aria-disabled="false"
-                    class="c1 c78 c79"
+                    class="c1 c54 c55"
                     height="2rem"
                   >
                     <div
-                      class="c1 c5"
+                      class="c1 c20"
                     >
                       <span
-                        class="c8 c70 c80"
+                        class="c7 c46 c56"
                       >
-                        Hello world
+                        Hello world 
+                        16
                       </span>
                       <div
-                        class="c1 c7"
+                        class="c1 c31"
                       >
                         <div
-                          class="c1 c5"
+                          class="c1 c20"
                         >
                           <svg
                             aria-hidden="true"
@@ -17236,26 +16627,27 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   </button>
                 </div>
                 <div
-                  class="c1 c77"
+                  class="c1 c53"
                 >
                   <button
                     aria-disabled="false"
-                    class="c1 c78 c79"
+                    class="c1 c54 c55"
                     height="2rem"
                   >
                     <div
-                      class="c1 c5"
+                      class="c1 c20"
                     >
                       <span
-                        class="c8 c70 c80"
+                        class="c7 c46 c56"
                       >
-                        Hello world
+                        Hello world 
+                        17
                       </span>
                       <div
-                        class="c1 c7"
+                        class="c1 c31"
                       >
                         <div
-                          class="c1 c5"
+                          class="c1 c20"
                         >
                           <svg
                             aria-hidden="true"
@@ -17276,26 +16668,27 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   </button>
                 </div>
                 <div
-                  class="c1 c77"
+                  class="c1 c53"
                 >
                   <button
                     aria-disabled="false"
-                    class="c1 c78 c79"
+                    class="c1 c54 c55"
                     height="2rem"
                   >
                     <div
-                      class="c1 c5"
+                      class="c1 c20"
                     >
                       <span
-                        class="c8 c70 c80"
+                        class="c7 c46 c56"
                       >
-                        Hello world
+                        Hello world 
+                        18
                       </span>
                       <div
-                        class="c1 c7"
+                        class="c1 c31"
                       >
                         <div
-                          class="c1 c5"
+                          class="c1 c20"
                         >
                           <svg
                             aria-hidden="true"
@@ -17316,26 +16709,27 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   </button>
                 </div>
                 <div
-                  class="c1 c77"
+                  class="c1 c53"
                 >
                   <button
                     aria-disabled="false"
-                    class="c1 c78 c79"
+                    class="c1 c54 c55"
                     height="2rem"
                   >
                     <div
-                      class="c1 c5"
+                      class="c1 c20"
                     >
                       <span
-                        class="c8 c70 c80"
+                        class="c7 c46 c56"
                       >
-                        Hello world
+                        Hello world 
+                        19
                       </span>
                       <div
-                        class="c1 c7"
+                        class="c1 c31"
                       >
                         <div
-                          class="c1 c5"
+                          class="c1 c20"
                         >
                           <svg
                             aria-hidden="true"
@@ -17357,26 +16751,26 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                 </div>
               </div>
               <div
-                class="c1 c5 c81 c82"
+                class="c1 c20 c57 c58"
               >
                 <button
                   aria-disabled="false"
-                  class="c42 c67"
+                  class="c9 c59"
                   type="button"
                 >
                   <span
-                    class="c8 c70"
+                    class="c7 c60"
                   >
                     Settings
                   </span>
                 </button>
                 <button
                   aria-disabled="false"
-                  class="c42 c67"
+                  class="c9 c59"
                   type="button"
                 >
                   <span
-                    class="c8 c70"
+                    class="c7 c60"
                   >
                     Settings
                   </span>
@@ -17386,186 +16780,186 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
           </div>
         </div>
         <div
-          class="c1 c73"
+          class="c1 c49"
         >
           <div
-            class="c1 c83 c84"
+            class="c1 c61 c62"
           >
             <div
-              class="c1 c85"
+              class="c1 c63"
             >
               <div
-                class="c1 c86 c87"
+                class="c1 c64 c65"
               >
                 <table
                   aria-colcount="10"
                   aria-rowcount="6"
-                  class="c88"
+                  class="c66"
                 >
                   <thead
-                    class="c89"
+                    class="c67"
                   >
                     <tr
                       aria-rowindex="1"
-                      class="c1 c90"
+                      class="c1 c68"
                     >
                       <th
                         aria-colindex="1"
-                        class="c1 c91"
+                        class="c1 c69"
                       >
                         <div
-                          class="c1 c5"
+                          class="c1 c20"
                         >
                           <input
                             aria-label="Select all entries"
-                            class="c92"
+                            class="c70"
                             tabindex="0"
                             type="checkbox"
                           />
                           <span
-                            class="c93"
+                            class="c71"
                           />
                         </div>
                       </th>
                       <th
                         aria-colindex="2"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <div
-                          class="c1 c5"
+                          class="c1 c20"
                         >
                           <span
-                            class="c8 c94"
+                            class="c7 c72"
                           >
                             ID
                           </span>
                           <span
-                            class="c93"
+                            class="c71"
                           />
                         </div>
                       </th>
                       <th
                         aria-colindex="3"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <div
-                          class="c1 c5"
+                          class="c1 c20"
                         >
                           <span
-                            class="c8 c94"
+                            class="c7 c72"
                           >
                             Cover
                           </span>
                           <span
-                            class="c93"
+                            class="c71"
                           />
                         </div>
                       </th>
                       <th
                         aria-colindex="4"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <div
-                          class="c1 c5"
+                          class="c1 c20"
                         >
                           <span
-                            class="c8 c94"
+                            class="c7 c72"
                           >
                             Description
                           </span>
                           <span
-                            class="c93"
+                            class="c71"
                           />
                         </div>
                       </th>
                       <th
                         aria-colindex="5"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <div
-                          class="c1 c5"
+                          class="c1 c20"
                         >
                           <span
-                            class="c8 c94"
+                            class="c7 c72"
                           >
                             Categories
                           </span>
                           <span
-                            class="c93"
+                            class="c71"
                           />
                         </div>
                       </th>
                       <th
                         aria-colindex="6"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <div
-                          class="c1 c5"
+                          class="c1 c20"
                         >
                           <span
-                            class="c8 c94"
+                            class="c7 c72"
                           >
                             Contact
                           </span>
                           <span
-                            class="c93"
+                            class="c71"
                           />
                         </div>
                       </th>
                       <th
                         aria-colindex="7"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <div
-                          class="c1 c5"
+                          class="c1 c20"
                         >
                           More
                           <span
-                            class="c93"
+                            class="c71"
                           />
                         </div>
                       </th>
                       <th
                         aria-colindex="8"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <div
-                          class="c1 c5"
+                          class="c1 c20"
                         >
                           More
                           <span
-                            class="c93"
+                            class="c71"
                           />
                         </div>
                       </th>
                       <th
                         aria-colindex="9"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <div
-                          class="c1 c5"
+                          class="c1 c20"
                         >
                           More
                           <span
-                            class="c93"
+                            class="c71"
                           />
                         </div>
                       </th>
                       <th
                         aria-colindex="10"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <div
-                          class="c1 c5"
+                          class="c1 c20"
                         >
                           <div
                             class="c0"
@@ -17573,53 +16967,53 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                             Actions
                           </div>
                           <span
-                            class="c93"
+                            class="c71"
                           />
                         </div>
                       </th>
                     </tr>
                   </thead>
                   <tbody
-                    class="c95"
+                    class="c73"
                   >
                     <tr
                       aria-rowindex="2"
-                      class="c1 c90"
+                      class="c1 c68"
                     >
                       <td
                         aria-colindex="1"
-                        class="c1 c91"
+                        class="c1 c69"
                       >
                         <input
                           aria-label="Select Leon Lafrite"
-                          class="c92"
+                          class="c70"
                           tabindex="-1"
                           type="checkbox"
                         />
                       </td>
                       <td
                         aria-colindex="2"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <span
-                          class="c8 c21"
+                          class="c7 c32"
                         >
                           0
                         </span>
                       </td>
                       <td
                         aria-colindex="3"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <span>
                           <div
-                            class="c96"
+                            class="c74"
                           >
                             <img
                               alt="Leon Lafrite"
-                              class="c97"
+                              class="c75"
                               height="26px"
                               src="https://avatars.githubusercontent.com/u/3874873?v=4"
                               width="26px"
@@ -17629,82 +17023,82 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       </td>
                       <td
                         aria-colindex="4"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <span
-                          class="c8 c21"
+                          class="c7 c32"
                         >
                           Chez Léon is a human sized Parisian
                         </span>
                       </td>
                       <td
                         aria-colindex="5"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <span
-                          class="c8 c21"
+                          class="c7 c32"
                         >
                           French cuisine
                         </span>
                       </td>
                       <td
                         aria-colindex="6"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <span
-                          class="c8 c21"
+                          class="c7 c32"
                         >
                           Leon Lafrite
                         </span>
                       </td>
                       <td
                         aria-colindex="7"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <span
-                          class="c8 c21"
+                          class="c7 c32"
                         >
                           Chez Léon is a human sized Parisian
                         </span>
                       </td>
                       <td
                         aria-colindex="8"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <span
-                          class="c8 c21"
+                          class="c7 c32"
                         >
                           Chez Léon is a human sized Parisian
                         </span>
                       </td>
                       <td
                         aria-colindex="9"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <span
-                          class="c8 c21"
+                          class="c7 c32"
                         >
                           Chez Léon is a human sized Parisian
                         </span>
                       </td>
                       <td
                         aria-colindex="10"
-                        class="c1 c91"
+                        class="c1 c69"
                       >
                         <div
-                          class="c1 c5"
+                          class="c1 c20"
                         >
                           <span>
                             <button
                               aria-disabled="false"
                               aria-labelledby="tooltip-72"
-                              class="c42 c43"
+                              class="c9 c10"
                               tabindex="-1"
                               type="button"
                             >
@@ -17725,13 +17119,13 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                             </button>
                           </span>
                           <div
-                            class="c1 c98"
+                            class="c1 c76"
                           >
                             <span>
                               <button
                                 aria-disabled="false"
                                 aria-labelledby="tooltip-74"
-                                class="c42 c43"
+                                class="c9 c10"
                                 tabindex="-1"
                                 type="button"
                               >
@@ -17755,42 +17149,42 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                     </tr>
                     <tr
                       aria-rowindex="3"
-                      class="c1 c90"
+                      class="c1 c68"
                     >
                       <td
                         aria-colindex="1"
-                        class="c1 c91"
+                        class="c1 c69"
                       >
                         <input
                           aria-label="Select Leon Lafrite"
-                          class="c92"
+                          class="c70"
                           tabindex="-1"
                           type="checkbox"
                         />
                       </td>
                       <td
                         aria-colindex="2"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <span
-                          class="c8 c21"
+                          class="c7 c32"
                         >
                           1
                         </span>
                       </td>
                       <td
                         aria-colindex="3"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <span>
                           <div
-                            class="c96"
+                            class="c74"
                           >
                             <img
                               alt="Leon Lafrite"
-                              class="c97"
+                              class="c75"
                               height="26px"
                               src="https://avatars.githubusercontent.com/u/3874873?v=4"
                               width="26px"
@@ -17800,82 +17194,82 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       </td>
                       <td
                         aria-colindex="4"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <span
-                          class="c8 c21"
+                          class="c7 c32"
                         >
                           Chez Léon is a human sized Parisian
                         </span>
                       </td>
                       <td
                         aria-colindex="5"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <span
-                          class="c8 c21"
+                          class="c7 c32"
                         >
                           French cuisine
                         </span>
                       </td>
                       <td
                         aria-colindex="6"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <span
-                          class="c8 c21"
+                          class="c7 c32"
                         >
                           Leon Lafrite
                         </span>
                       </td>
                       <td
                         aria-colindex="7"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <span
-                          class="c8 c21"
+                          class="c7 c32"
                         >
                           Chez Léon is a human sized Parisian
                         </span>
                       </td>
                       <td
                         aria-colindex="8"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <span
-                          class="c8 c21"
+                          class="c7 c32"
                         >
                           Chez Léon is a human sized Parisian
                         </span>
                       </td>
                       <td
                         aria-colindex="9"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <span
-                          class="c8 c21"
+                          class="c7 c32"
                         >
                           Chez Léon is a human sized Parisian
                         </span>
                       </td>
                       <td
                         aria-colindex="10"
-                        class="c1 c91"
+                        class="c1 c69"
                       >
                         <div
-                          class="c1 c5"
+                          class="c1 c20"
                         >
                           <span>
                             <button
                               aria-disabled="false"
                               aria-labelledby="tooltip-76"
-                              class="c42 c43"
+                              class="c9 c10"
                               tabindex="-1"
                               type="button"
                             >
@@ -17896,13 +17290,13 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                             </button>
                           </span>
                           <div
-                            class="c1 c98"
+                            class="c1 c76"
                           >
                             <span>
                               <button
                                 aria-disabled="false"
                                 aria-labelledby="tooltip-78"
-                                class="c42 c43"
+                                class="c9 c10"
                                 tabindex="-1"
                                 type="button"
                               >
@@ -17926,42 +17320,42 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                     </tr>
                     <tr
                       aria-rowindex="4"
-                      class="c1 c90"
+                      class="c1 c68"
                     >
                       <td
                         aria-colindex="1"
-                        class="c1 c91"
+                        class="c1 c69"
                       >
                         <input
                           aria-label="Select Leon Lafrite"
-                          class="c92"
+                          class="c70"
                           tabindex="-1"
                           type="checkbox"
                         />
                       </td>
                       <td
                         aria-colindex="2"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <span
-                          class="c8 c21"
+                          class="c7 c32"
                         >
                           2
                         </span>
                       </td>
                       <td
                         aria-colindex="3"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <span>
                           <div
-                            class="c96"
+                            class="c74"
                           >
                             <img
                               alt="Leon Lafrite"
-                              class="c97"
+                              class="c75"
                               height="26px"
                               src="https://avatars.githubusercontent.com/u/3874873?v=4"
                               width="26px"
@@ -17971,82 +17365,82 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       </td>
                       <td
                         aria-colindex="4"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <span
-                          class="c8 c21"
+                          class="c7 c32"
                         >
                           Chez Léon is a human sized Parisian
                         </span>
                       </td>
                       <td
                         aria-colindex="5"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <span
-                          class="c8 c21"
+                          class="c7 c32"
                         >
                           French cuisine
                         </span>
                       </td>
                       <td
                         aria-colindex="6"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <span
-                          class="c8 c21"
+                          class="c7 c32"
                         >
                           Leon Lafrite
                         </span>
                       </td>
                       <td
                         aria-colindex="7"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <span
-                          class="c8 c21"
+                          class="c7 c32"
                         >
                           Chez Léon is a human sized Parisian
                         </span>
                       </td>
                       <td
                         aria-colindex="8"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <span
-                          class="c8 c21"
+                          class="c7 c32"
                         >
                           Chez Léon is a human sized Parisian
                         </span>
                       </td>
                       <td
                         aria-colindex="9"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <span
-                          class="c8 c21"
+                          class="c7 c32"
                         >
                           Chez Léon is a human sized Parisian
                         </span>
                       </td>
                       <td
                         aria-colindex="10"
-                        class="c1 c91"
+                        class="c1 c69"
                       >
                         <div
-                          class="c1 c5"
+                          class="c1 c20"
                         >
                           <span>
                             <button
                               aria-disabled="false"
                               aria-labelledby="tooltip-80"
-                              class="c42 c43"
+                              class="c9 c10"
                               tabindex="-1"
                               type="button"
                             >
@@ -18067,13 +17461,13 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                             </button>
                           </span>
                           <div
-                            class="c1 c98"
+                            class="c1 c76"
                           >
                             <span>
                               <button
                                 aria-disabled="false"
                                 aria-labelledby="tooltip-82"
-                                class="c42 c43"
+                                class="c9 c10"
                                 tabindex="-1"
                                 type="button"
                               >
@@ -18097,42 +17491,42 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                     </tr>
                     <tr
                       aria-rowindex="5"
-                      class="c1 c90"
+                      class="c1 c68"
                     >
                       <td
                         aria-colindex="1"
-                        class="c1 c91"
+                        class="c1 c69"
                       >
                         <input
                           aria-label="Select Leon Lafrite"
-                          class="c92"
+                          class="c70"
                           tabindex="-1"
                           type="checkbox"
                         />
                       </td>
                       <td
                         aria-colindex="2"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <span
-                          class="c8 c21"
+                          class="c7 c32"
                         >
                           3
                         </span>
                       </td>
                       <td
                         aria-colindex="3"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <span>
                           <div
-                            class="c96"
+                            class="c74"
                           >
                             <img
                               alt="Leon Lafrite"
-                              class="c97"
+                              class="c75"
                               height="26px"
                               src="https://avatars.githubusercontent.com/u/3874873?v=4"
                               width="26px"
@@ -18142,82 +17536,82 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       </td>
                       <td
                         aria-colindex="4"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <span
-                          class="c8 c21"
+                          class="c7 c32"
                         >
                           Chez Léon is a human sized Parisian
                         </span>
                       </td>
                       <td
                         aria-colindex="5"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <span
-                          class="c8 c21"
+                          class="c7 c32"
                         >
                           French cuisine
                         </span>
                       </td>
                       <td
                         aria-colindex="6"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <span
-                          class="c8 c21"
+                          class="c7 c32"
                         >
                           Leon Lafrite
                         </span>
                       </td>
                       <td
                         aria-colindex="7"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <span
-                          class="c8 c21"
+                          class="c7 c32"
                         >
                           Chez Léon is a human sized Parisian
                         </span>
                       </td>
                       <td
                         aria-colindex="8"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <span
-                          class="c8 c21"
+                          class="c7 c32"
                         >
                           Chez Léon is a human sized Parisian
                         </span>
                       </td>
                       <td
                         aria-colindex="9"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <span
-                          class="c8 c21"
+                          class="c7 c32"
                         >
                           Chez Léon is a human sized Parisian
                         </span>
                       </td>
                       <td
                         aria-colindex="10"
-                        class="c1 c91"
+                        class="c1 c69"
                       >
                         <div
-                          class="c1 c5"
+                          class="c1 c20"
                         >
                           <span>
                             <button
                               aria-disabled="false"
                               aria-labelledby="tooltip-84"
-                              class="c42 c43"
+                              class="c9 c10"
                               tabindex="-1"
                               type="button"
                             >
@@ -18238,13 +17632,13 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                             </button>
                           </span>
                           <div
-                            class="c1 c98"
+                            class="c1 c76"
                           >
                             <span>
                               <button
                                 aria-disabled="false"
                                 aria-labelledby="tooltip-86"
-                                class="c42 c43"
+                                class="c9 c10"
                                 tabindex="-1"
                                 type="button"
                               >
@@ -18268,42 +17662,42 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                     </tr>
                     <tr
                       aria-rowindex="6"
-                      class="c1 c90"
+                      class="c1 c68"
                     >
                       <td
                         aria-colindex="1"
-                        class="c1 c91"
+                        class="c1 c69"
                       >
                         <input
                           aria-label="Select Leon Lafrite"
-                          class="c92"
+                          class="c70"
                           tabindex="-1"
                           type="checkbox"
                         />
                       </td>
                       <td
                         aria-colindex="2"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <span
-                          class="c8 c21"
+                          class="c7 c32"
                         >
                           4
                         </span>
                       </td>
                       <td
                         aria-colindex="3"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <span>
                           <div
-                            class="c96"
+                            class="c74"
                           >
                             <img
                               alt="Leon Lafrite"
-                              class="c97"
+                              class="c75"
                               height="26px"
                               src="https://avatars.githubusercontent.com/u/3874873?v=4"
                               width="26px"
@@ -18313,82 +17707,82 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       </td>
                       <td
                         aria-colindex="4"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <span
-                          class="c8 c21"
+                          class="c7 c32"
                         >
                           Chez Léon is a human sized Parisian
                         </span>
                       </td>
                       <td
                         aria-colindex="5"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <span
-                          class="c8 c21"
+                          class="c7 c32"
                         >
                           French cuisine
                         </span>
                       </td>
                       <td
                         aria-colindex="6"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <span
-                          class="c8 c21"
+                          class="c7 c32"
                         >
                           Leon Lafrite
                         </span>
                       </td>
                       <td
                         aria-colindex="7"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <span
-                          class="c8 c21"
+                          class="c7 c32"
                         >
                           Chez Léon is a human sized Parisian
                         </span>
                       </td>
                       <td
                         aria-colindex="8"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <span
-                          class="c8 c21"
+                          class="c7 c32"
                         >
                           Chez Léon is a human sized Parisian
                         </span>
                       </td>
                       <td
                         aria-colindex="9"
-                        class="c1 c91"
+                        class="c1 c69"
                         tabindex="-1"
                       >
                         <span
-                          class="c8 c21"
+                          class="c7 c32"
                         >
                           Chez Léon is a human sized Parisian
                         </span>
                       </td>
                       <td
                         aria-colindex="10"
-                        class="c1 c91"
+                        class="c1 c69"
                       >
                         <div
-                          class="c1 c5"
+                          class="c1 c20"
                         >
                           <span>
                             <button
                               aria-disabled="false"
                               aria-labelledby="tooltip-88"
-                              class="c42 c43"
+                              class="c9 c10"
                               tabindex="-1"
                               type="button"
                             >
@@ -18409,13 +17803,13 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                             </button>
                           </span>
                           <div
-                            class="c1 c98"
+                            class="c1 c76"
                           >
                             <span>
                               <button
                                 aria-disabled="false"
                                 aria-labelledby="tooltip-90"
-                                class="c42 c43"
+                                class="c9 c10"
                                 tabindex="-1"
                                 type="button"
                               >
@@ -18446,14 +17840,14 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                 class="c1 c12 c13"
               />
               <button
-                class="c1 c99 c100"
+                class="c1 c77 c78"
               >
                 <div
-                  class="c1 c5"
+                  class="c1 c20"
                 >
                   <div
                     aria-hidden="true"
-                    class="c1 c101 c102"
+                    class="c1 c79 c80"
                   >
                     <svg
                       fill="none"
@@ -18469,10 +17863,10 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                     </svg>
                   </div>
                   <div
-                    class="c1 c103"
+                    class="c1 c81"
                   >
                     <span
-                      class="c8 c104"
+                      class="c7 c82"
                     >
                       Add another field to this collection type
                     </span>
@@ -18721,16 +18115,6 @@ exports[`Storyshots Design System/Components/LightTheme colors 1`] = `
   padding: 12px;
 }
 
-.c1 {
-  display: grid;
-  grid-template-columns: repeat(12,1fr);
-  gap: 0px;
-}
-
-.c2 {
-  grid-column: span;
-}
-
 .c4 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -18748,6 +18132,16 @@ exports[`Storyshots Design System/Components/LightTheme colors 1`] = `
 
 .c4 > * + * {
   margin-top: 8px;
+}
+
+.c1 {
+  display: grid;
+  grid-template-columns: repeat(12,1fr);
+  gap: 0px;
+}
+
+.c2 {
+  grid-column: span;
 }
 
 @media (max-width:68.75rem) {
@@ -22255,17 +21649,6 @@ exports[`Storyshots Design System/Components/MainNav base 1`] = `
   color: #666687;
 }
 
-.c2 {
-  width: 14rem;
-  background: #ffffff;
-  position: fixed;
-  left: 0;
-  top: 0;
-  height: 100vh;
-  z-index: 2;
-  border-right: 1px solid #eaeaef;
-}
-
 .c8 {
   font-weight: 600;
   color: #32324d;
@@ -22331,20 +21714,104 @@ exports[`Storyshots Design System/Components/MainNav base 1`] = `
   align-items: center;
 }
 
-.c5 {
+.c14 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c14 > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.c14 > * + * {
+  margin-top: 16px;
+}
+
+.c21 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c21 > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.c21 > * + * {
+  margin-top: 8px;
+}
+
+.c27 {
+  border-radius: 50%;
+  display: block;
+  position: relative;
+}
+
+.c26 {
+  position: relative;
+  width: 26px;
+  height: 26px;
+}
+
+.c31 path {
+  fill: #666687;
+}
+
+.c12 {
+  height: 1px;
+  border: none;
+  margin: 0;
+}
+
+.c2 {
+  width: 14rem;
+  background: #ffffff;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  z-index: 2;
+  border-right: 1px solid #eaeaef;
+}
+
+.c29 {
+  background: #ffffff;
+  border: 1px solid #eaeaef;
   border-radius: 4px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 0.8125rem;
+  right: 20px;
+  z-index: 2;
+  width: 1.125rem;
+  height: 1.5625rem;
 }
 
-.c5 svg,
-.c5 img {
-  height: 2rem;
-  width: 2rem;
-}
-
-.c9 {
-  -webkit-text-decoration: unset;
-  text-decoration: unset;
-  color: inherit;
+.c29 svg {
+  width: 0.375rem;
+  height: 0.5625rem;
 }
 
 .c19 svg {
@@ -22398,62 +21865,6 @@ exports[`Storyshots Design System/Components/MainNav base 1`] = `
   padding: 8px 12px;
 }
 
-.c14 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c14 > * {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.c14 > * + * {
-  margin-top: 16px;
-}
-
-.c21 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c21 > * {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.c21 > * + * {
-  margin-top: 8px;
-}
-
-.c12 {
-  height: 1px;
-  border: none;
-  margin: 0;
-}
-
-.c27 {
-  border-radius: 50%;
-  display: block;
-  position: relative;
-}
-
-.c26 {
-  position: relative;
-  width: 26px;
-  height: 26px;
-}
-
 .c25 {
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -22463,37 +21874,20 @@ exports[`Storyshots Design System/Components/MainNav base 1`] = `
   border-top: 1px solid #eaeaef;
 }
 
-.c31 path {
-  fill: #666687;
-}
-
-.c29 {
-  background: #ffffff;
-  border: 1px solid #eaeaef;
+.c5 {
   border-radius: 4px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  position: absolute;
-  bottom: 0.8125rem;
-  right: 20px;
-  z-index: 2;
-  width: 1.125rem;
-  height: 1.5625rem;
 }
 
-.c29 svg {
-  width: 0.375rem;
-  height: 0.5625rem;
+.c5 svg,
+.c5 img {
+  height: 2rem;
+  width: 2rem;
+}
+
+.c9 {
+  -webkit-text-decoration: unset;
+  text-decoration: unset;
+  color: inherit;
 }
 
 <main>
@@ -23007,17 +22401,6 @@ exports[`Storyshots Design System/Components/MainNav notifications 1`] = `
   color: #666687;
 }
 
-.c2 {
-  width: 14rem;
-  background: #ffffff;
-  position: fixed;
-  left: 0;
-  top: 0;
-  height: 100vh;
-  z-index: 2;
-  border-right: 1px solid #eaeaef;
-}
-
 .c8 {
   font-weight: 600;
   color: #32324d;
@@ -23110,24 +22493,107 @@ exports[`Storyshots Design System/Components/MainNav notifications 1`] = `
   align-items: center;
 }
 
-.c5 {
-  border-radius: 4px;
+.c14 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
-.c5 svg,
-.c5 img {
-  height: 2rem;
-  width: 2rem;
+.c14 > * {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
-.c9 {
-  -webkit-text-decoration: unset;
-  text-decoration: unset;
-  color: inherit;
+.c14 > * + * {
+  margin-top: 16px;
+}
+
+.c21 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c21 > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.c21 > * + * {
+  margin-top: 8px;
+}
+
+.c30 {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: linear-gradient( 157deg, #4945ff 0%, #7b79ff 50%, #d9d8ff 81%, #f0f0ff 96% );
+}
+
+.c30 span {
+  line-height: 0;
 }
 
 .c25 {
   display: inline-block;
+}
+
+.c35 path {
+  fill: #666687;
+}
+
+.c12 {
+  height: 1px;
+  border: none;
+  margin: 0;
+}
+
+.c2 {
+  width: 14rem;
+  background: #ffffff;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  z-index: 2;
+  border-right: 1px solid #eaeaef;
+}
+
+.c33 {
+  background: #ffffff;
+  border: 1px solid #eaeaef;
+  border-radius: 4px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 0.8125rem;
+  right: 20px;
+  z-index: 2;
+  width: 1.125rem;
+  height: 1.5625rem;
+}
+
+.c33 svg {
+  width: 0.375rem;
+  height: 0.5625rem;
 }
 
 .c19 svg {
@@ -23206,61 +22672,6 @@ exports[`Storyshots Design System/Components/MainNav notifications 1`] = `
   line-height: 0;
 }
 
-.c14 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c14 > * {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.c14 > * + * {
-  margin-top: 16px;
-}
-
-.c21 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c21 > * {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.c21 > * + * {
-  margin-top: 8px;
-}
-
-.c12 {
-  height: 1px;
-  border: none;
-  margin: 0;
-}
-
-.c30 {
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background: linear-gradient( 157deg, #4945ff 0%, #7b79ff 50%, #d9d8ff 81%, #f0f0ff 96% );
-}
-
-.c30 span {
-  line-height: 0;
-}
-
 .c28 {
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -23270,37 +22681,20 @@ exports[`Storyshots Design System/Components/MainNav notifications 1`] = `
   border-top: 1px solid #eaeaef;
 }
 
-.c35 path {
-  fill: #666687;
-}
-
-.c33 {
-  background: #ffffff;
-  border: 1px solid #eaeaef;
+.c5 {
   border-radius: 4px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  position: absolute;
-  bottom: 0.8125rem;
-  right: 20px;
-  z-index: 2;
-  width: 1.125rem;
-  height: 1.5625rem;
 }
 
-.c33 svg {
-  width: 0.375rem;
-  height: 0.5625rem;
+.c5 svg,
+.c5 img {
+  height: 2rem;
+  width: 2rem;
+}
+
+.c9 {
+  -webkit-text-decoration: unset;
+  text-decoration: unset;
+  color: inherit;
 }
 
 <main>
@@ -28996,10 +28390,6 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
   align-items: center;
 }
 
-.c24 {
-  display: inline-block;
-}
-
 .c15 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -29019,10 +28409,8 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
   margin-top: 8px;
 }
 
-.c12 {
-  height: 1px;
-  border: none;
-  margin: 0;
+.c24 {
+  display: inline-block;
 }
 
 .c8 {
@@ -29123,12 +28511,18 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
   fill: #666687;
 }
 
+.c12 {
+  height: 1px;
+  border: none;
+  margin: 0;
+}
+
 .c3 {
   width: 14.5rem;
   background: #f6f6f9;
-  position: fixed;
+  position: -webkit-sticky;
+  position: sticky;
   top: 0;
-  left: 14rem;
   height: 100vh;
   overflow-y: auto;
   border-right: 1px solid #dcdce4;
@@ -31022,12 +30416,6 @@ exports[`Storyshots Design System/Components/Table base 1`] = `
   align-items: center;
 }
 
-.c23 {
-  height: 1px;
-  border: none;
-  margin: 0;
-}
-
 .c18 {
   border-radius: 50%;
   display: block;
@@ -31205,6 +30593,12 @@ exports[`Storyshots Design System/Components/Table base 1`] = `
 
 .c20[aria-disabled='true'] svg path {
   fill: #666687;
+}
+
+.c23 {
+  height: 1px;
+  border: none;
+  margin: 0;
 }
 
 .c3 {
@@ -33491,12 +32885,6 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
   align-items: center;
 }
 
-.c23 {
-  height: 1px;
-  border: none;
-  margin: 0;
-}
-
 .c20 {
   border-radius: 50%;
   display: block;
@@ -33674,6 +33062,12 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
 
 .c16[aria-disabled='true'] svg path {
   fill: #666687;
+}
+
+.c23 {
+  height: 1px;
+  border: none;
+  margin: 0;
 }
 
 .c3 {

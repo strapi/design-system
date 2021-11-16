@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import { Box } from '../Box';
 import { Typography } from '../Typography';
 import { Flex } from '../Flex';
-import { useMainNav } from './useMainNav';
+import { useMainNav } from './MainNavContext';
 import { VisuallyHidden } from '../VisuallyHidden';
 
 const BrandIconWrapper = styled.div`
@@ -24,7 +24,7 @@ const NavLinkWrapper = styled(NavLink)`
 `;
 
 export const NavBrand = ({ workplace, title, icon, to }) => {
-  const { condensed } = useMainNav();
+  const condensed = useMainNav();
 
   if (condensed) {
     return (
