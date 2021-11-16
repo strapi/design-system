@@ -23,6 +23,7 @@ import { Stack } from '../Stack';
 import { Text } from '../Typography';
 import { Divider } from '../Divider';
 import { Popover } from '../Popover';
+import { MainNavProvider, useMainNav } from './useMainNav';
 import strapiImage from './strapi-img.png';
 
 <Meta title="Design System/Components/MainNav" component={MainNav} />
@@ -82,10 +83,10 @@ Exception made for core plugins (i.e. Content Manager, Content-types Builder, Me
 <Canvas>
   <Story name="base">
     {() => {
-      const [condensed, setCondensed] = useState(false);
+      const { condensed } = useMainNav();
       return (
         <Box background="neutral100" padding={10} style={{ height: '100vh' }}>
-          <MainNav condensed={condensed}>
+          <MainNav>
             <NavBrand workplace="Workplace" title="Strapi Dashboard" icon={<img src={strapiImage} alt="" />} />
             <Divider />
             <NavSections>
@@ -118,9 +119,7 @@ Exception made for core plugins (i.e. Content Manager, Content-types Builder, Me
             <NavUser src="https://avatars.githubusercontent.com/u/3874873?v=4" to="/somewhere-i-belong">
               John Duff
             </NavUser>
-            <NavCondense onClick={() => setCondensed((s) => !s)}>
-              {condensed ? 'Expanded the navbar' : 'Collapse the navbar'}
-            </NavCondense>
+            <NavCondense>{condensed ? 'Expanded the navbar' : 'Collapse the navbar'}</NavCondense>
           </MainNav>
         </Box>
       );
@@ -128,11 +127,11 @@ Exception made for core plugins (i.e. Content Manager, Content-types Builder, Me
   </Story>
   <Story name="notifications">
     {() => {
-      const [condensed, setCondensed] = useState(false);
       const numberOfNotifications = 2;
+      const { condensed } = useMainNav();
       return (
         <Box background="neutral100" padding={10} style={{ height: '100vh' }}>
-          <MainNav condensed={condensed}>
+          <MainNav>
             <NavBrand workplace="Workplace" title="Strapi Dashboard" icon={<img src={strapiImage} alt="" />} />
             <Divider />
             <NavSections>
@@ -168,9 +167,7 @@ Exception made for core plugins (i.e. Content Manager, Content-types Builder, Me
               </NavSection>
             </NavSections>
             <NavUser initials="JD">John Duff</NavUser>
-            <NavCondense onClick={() => setCondensed((s) => !s)}>
-              {condensed ? 'Expanded the navbar' : 'Collapse the navbar'}
-            </NavCondense>
+            <NavCondense>{condensed ? 'Expanded the navbar' : 'Collapse the navbar'}</NavCondense>
           </MainNav>
         </Box>
       );

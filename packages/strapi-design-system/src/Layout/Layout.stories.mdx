@@ -27,6 +27,8 @@ import { IconButton } from '../IconButton';
 import { VisuallyHidden } from '../VisuallyHidden';
 import { Tag } from '../Tag';
 import { Avatar } from '../Avatar';
+import { MainNavProvider } from '../MainNav';
+import { MainNavigation } from './story-components/MainNavigation';
 
 <Meta title="Design System/Components/Layout" component={Layout} />
 
@@ -86,6 +88,7 @@ import Layout from '@strapi/design-system/Layout';
       }
       return (
         <Box background="neutral100">
+          <MainNavigation />
           <Layout
             sideNav={
               <SubNav ariaLabel="Builder sub nav">
@@ -137,8 +140,8 @@ import Layout from '@strapi/design-system/Layout';
                       .fill(null)
                       .map((_, index) => (
                         <Box paddingTop={2}>
-                          <Tag key={index} icon={<Plus aria-hidden={true} />}>
-                            Hello world {index}
+                          <Tag key={`tag-bla-${index}`} icon={<Plus aria-hidden={true} />}>
+                            Hello world
                           </Tag>
                         </Box>
                       ))}
@@ -146,12 +149,8 @@ import Layout from '@strapi/design-system/Layout';
                 }
                 endActions={
                   <>
-                    <Button size="M" variant="tertiary">
-                      Settings
-                    </Button>
-                    <Button size="M" variant="tertiary">
-                      Settings
-                    </Button>
+                    <Button variant="tertiary">Settings</Button>
+                    <Button variant="tertiary">Settings</Button>
                   </>
                 }
               />

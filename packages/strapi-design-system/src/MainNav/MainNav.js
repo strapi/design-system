@@ -1,31 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 import { Grid } from '../Grid';
-import { MainNavContext } from './MainNavContext';
+import { useMainNav } from './useMainNav';
+import { MainNavSizes } from './constants';
 
 const MainNavWrapper = styled(Grid)`
-  width: ${({ condensed }) => (condensed ? 'max-content' : `${224 / 16}rem`)};
+  width: ${({ condensed }) => (condensed ? MainNavSizes.S : MainNavSizes.M)};
   background: ${({ theme }) => theme.colors.neutral0};
-  position: sticky;
+  position: fixed;
+  left: 0;
   top: 0;
   height: 100vh;
   z-index: 2;
   border-right: 1px solid ${({ theme }) => theme.colors.neutral150};
 `;
 
-export const MainNav = ({ condensed, ...props }) => {
-  return (
-    <MainNavContext.Provider value={condensed}>
-      <MainNavWrapper as="nav" condensed={condensed} {...props} />
-    </MainNavContext.Provider>
-  );
-};
-
-MainNav.defaultProps = {
-  condensed: false,
-};
-
-MainNav.propTypes = {
-  condensed: PropTypes.bool,
+export const MainNav = (props) => {
+  const { condensed } = useMainNav();
+  return <MainNavWrapper as="nav" condensed={condensed} {...props} />;
 };
