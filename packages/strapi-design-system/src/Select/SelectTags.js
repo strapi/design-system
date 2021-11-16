@@ -17,23 +17,11 @@ const SelectTag = styled(Tag)`
 `;
 
 export const SelectTags = ({ tags, onRemoveTag, disabled }) => {
-  const handleClick = (value) => {
-    if (disabled) return;
-
-    onRemoveTag(value);
-  };
-
   return (
     <SelectTagsWrapper>
       <Flex wrap="wrap">
         {tags.map((tag) => (
-          <SelectTag
-            icon={<Cross />}
-            aria-disabled={disabled}
-            onClick={() => handleClick(tag.value)}
-            tabIndex={-1}
-            key={`tag-${tag.value}`}
-          >
+          <SelectTag icon={<Cross />} disabled={disabled} onClick={onRemoveTag} tabIndex={-1} key={`tag-${tag.value}`}>
             {tag.label}
           </SelectTag>
         ))}
