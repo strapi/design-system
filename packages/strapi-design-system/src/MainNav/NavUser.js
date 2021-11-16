@@ -5,7 +5,7 @@ import { Avatar, Initials } from '../Avatar';
 import { Typography } from '../Typography';
 import { Flex } from '../Flex';
 import { Box } from '../Box';
-import { useMainNav } from './useMainNav';
+import { useMainNav } from './MainNavContext';
 import { VisuallyHidden } from '../VisuallyHidden';
 
 const NavUserBox = styled(Box)`
@@ -17,7 +17,7 @@ const NavUserBox = styled(Box)`
 `;
 
 export const NavUser = React.forwardRef(({ src, children, initials, ...props }, ref) => {
-  const { condensed } = useMainNav();
+  const condensed = useMainNav();
 
   return (
     <NavUserBox paddingTop={3} paddingBottom={3} paddingLeft={5} paddingRight={5} {...props}>

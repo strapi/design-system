@@ -5,7 +5,7 @@ import { NavLink as RouterLink } from 'react-router-dom';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { Typography } from '../Typography';
-import { useMainNav } from './useMainNav';
+import { useMainNav } from './MainNavContext';
 import { Tooltip } from '../Tooltip';
 import { Badge } from '../Badge';
 
@@ -89,7 +89,7 @@ const CustomBadge = styled(Badge)`
 `;
 
 export const NavLink = ({ children, icon, badgeContent, badgeAriaLabel, ...props }) => {
-  const { condensed } = useMainNav();
+  const condensed = useMainNav();
 
   if (condensed) {
     return (
