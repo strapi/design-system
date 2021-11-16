@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import { Box } from '../Box';
 import { Typography } from '../Typography';
 import { Stack } from '../Stack';
-import { useMainNav } from './MainNavContext';
+import { useMainNav } from './useMainNav';
 import { VisuallyHidden } from '../VisuallyHidden';
 import { Divider } from '../Divider';
 
 export const NavSection = ({ label, ...props }) => {
-  const condensed = useMainNav();
+  const { condensed } = useMainNav();
 
   if (condensed) {
     return (

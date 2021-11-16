@@ -5,7 +5,7 @@ import ChevronRight from '@strapi/icons/ChevronRight';
 import ChevronLeft from '@strapi/icons/ChevronLeft';
 import { Icon } from '../Icon';
 import { VisuallyHidden } from '../VisuallyHidden';
-import { useMainNav } from './MainNavContext';
+import { useMainNav } from './useMainNav';
 
 const NavCondenseWrapper = styled.button`
   background: ${({ theme }) => theme.colors.neutral0};
@@ -29,10 +29,10 @@ const NavCondenseWrapper = styled.button`
 `;
 
 export const NavCondense = ({ children, ...props }) => {
-  const condensed = useMainNav();
+  const { condensed, onCondense } = useMainNav();
 
   return (
-    <NavCondenseWrapper as="button" condensed={condensed} {...props}>
+    <NavCondenseWrapper as="button" condensed={condensed} onClick={() => onCondense(!condensed)} {...props}>
       <Icon as={condensed ? ChevronRight : ChevronLeft} aria-hidden color="neutral600" />
       <VisuallyHidden>{children}</VisuallyHidden>
     </NavCondenseWrapper>

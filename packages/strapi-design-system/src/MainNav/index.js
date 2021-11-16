@@ -5,3 +5,4 @@ export * from './NavSection';
 export * from './NavSections';
 export * from './NavUser';
 export * from './NavCondense';
+export * from './useMainNav';

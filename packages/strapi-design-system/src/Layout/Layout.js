@@ -2,10 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Box } from '../Box';
+import { useMainNav } from '../MainNav/useMainNav';
+import { MainNavSizes } from '../MainNav/constants';
+import { SubNavSize } from '../SubNav/constants';
+
+const handleLeftMargin = ({ hasMainNavCondensed, hasSideNav }) => {
+  const mainNavSize = hasMainNavCondensed ? MainNavSizes.S : MainNavSizes.M;
+
+  if (hasSideNav) {
+    return `calc(${mainNavSize} + ${SubNavSize})`;
+  }
+
+  return mainNavSize;
+};
 
 const GridContainer = styled(Box)`
   display: grid;
-  grid-template-columns: ${({ hasSideNav }) => (hasSideNav ? `auto 1fr` : '1fr')};
+  margin-left: ${handleLeftMargin};
 `;
 
 const OverflowingItem = styled(Box)`
@@ -13,8 +26,10 @@ const OverflowingItem = styled(Box)`
 `;
 
 export const Layout = ({ sideNav, children }) => {
+  const { condensed } = useMainNav();
+
   return (
-    <GridContainer hasSideNav={Boolean(sideNav)}>
+    <GridContainer hasSideNav={Boolean(sideNav)} hasMainNavCondensed={condensed}>
       {sideNav}
       <OverflowingItem paddingBottom={10}>{children}</OverflowingItem>
     </GridContainer>
