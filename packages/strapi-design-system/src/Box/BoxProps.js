@@ -16,13 +16,23 @@ BoxProps.defaultProps = {
   paddingLeft: undefined,
   hasRadius: false,
   shadow: undefined,
+  children: null,
+  shrink: undefined,
+  grow: undefined,
+  basis: undefined,
+  flex: undefined,
+  _hover: () => undefined,
 };
 
 BoxProps.propTypes = {
+  _hover: PropTypes.func,
   background: PropTypes.string,
+  basis: PropTypes.oneOfType([PropTypes.string, PropTypes.string]),
   borderColor: PropTypes.string,
-  children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
+  children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
   color: PropTypes.string,
+  flex: PropTypes.oneOfType([PropTypes.string, PropTypes.string]),
+  grow: PropTypes.oneOfType([PropTypes.string, PropTypes.string]),
   hasRadius: PropTypes.bool,
   hiddenS: PropTypes.bool,
   hiddenXS: PropTypes.bool,
@@ -32,4 +42,5 @@ BoxProps.propTypes = {
   paddingRight: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
   paddingTop: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
   shadow: PropTypes.string,
+  shrink: PropTypes.oneOfType([PropTypes.string, PropTypes.string]),
 };

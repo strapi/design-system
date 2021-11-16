@@ -5,6 +5,8 @@ export const FlexProps = (props) => <div {...props} />;
 
 FlexProps.defaultProps = {
   alignItems: 'center',
+  basis: undefined,
+  direction: 'row',
   inline: false,
   justifyContent: undefined,
   reverse: false,
@@ -13,6 +15,8 @@ FlexProps.defaultProps = {
 
 FlexProps.propTypes = {
   alignItems: PropTypes.string,
+  basis: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  direction: PropTypes.string,
   inline: PropTypes.bool,
   justifyContent: PropTypes.string,
   reverse: PropTypes.bool,
