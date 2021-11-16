@@ -11,6 +11,12 @@ const Wrapper = styled.div`
   padding: 1.5rem;
 `;
 
+const Main = styled.main`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+`;
+
 const Footer = styled.footer`
   display: flex;
   gap: 2rem;
@@ -25,7 +31,7 @@ const Layout = ({ children, meta, navigationContent }) => {
         <Navbar navigationContent={navigationContent} />
       </header>
       <div>
-        <div>{children}</div>
+        <Main>{children}</Main>
         <Footer>
           <StyledLink href="https://strapi.io" target="_blank">
             © 2021 Strapi

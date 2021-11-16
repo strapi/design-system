@@ -54,7 +54,7 @@ const Navbar = ({ navigationContent }) => {
         ))}
       </Navigation>
       <BottomPart>
-        <StyledLink href="https://github.com" target="_blank" padding={8}>
+        <StyledLink href="https://github.com/strapi/design-system" target="_blank" padding={8}>
           <Icon>
             <Image src="/github.svg" height={16} width={16} />
           </Icon>
