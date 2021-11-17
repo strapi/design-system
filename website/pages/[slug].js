@@ -5,6 +5,7 @@ import { getFileBySlug, getFiles, getNavbarContent } from 'lib/mdx';
 import { H1, H2, Text, Subtitle } from '@strapi/design-system/Text';
 import { Box } from '@strapi/design-system/Box';
 import BottomNavigation from 'components/BottomNavigation';
+import PropTypes from 'prop-types';
 
 const components = {
   h1: (props) => <H1 style={{ paddingBottom: 24 }} textColor="neutral800" {...props} />,
@@ -72,6 +73,20 @@ export const getStaticPaths = async () => {
     paths,
     fallback: false,
   };
+};
+
+PostPage.propTypes = {
+  next: PropTypes.shape({
+    title: PropTypes.string,
+    path: PropTypes.string,
+  }),
+  previous: PropTypes.shape({
+    title: PropTypes.string,
+    path: PropTypes.string,
+  }),
+  frontMatter: PropTypes.object,
+  mdxSource: PropTypes.object,
+  navbarContent: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default PostPage;

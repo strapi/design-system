@@ -14,8 +14,12 @@ const Head = ({ meta }) => {
   );
 };
 
-Head.protoTypes = {
-  meta: PropTypes.object,
+Head.propTypes = {
+  meta: PropTypes.shape({
+    title: PropTypes.string,
+    description: PropTypes.string,
+    type: PropTypes.string,
+  }),
 };
 
 export default Head;

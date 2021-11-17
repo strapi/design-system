@@ -55,8 +55,9 @@ const Layout = ({ children, meta, navigationContent }) => {
 };
 
 Layout.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   meta: PropTypes.object,
+  navigationContent: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default Layout;

@@ -64,9 +64,9 @@ const NavSection = ({ title, pages }) => {
   );
 };
 
-NavSection.protoTypes = {
+NavSection.propTypes = {
   title: PropTypes.string.isRequired,
-  pages: PropTypes.array,
+  pages: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default NavSection;

@@ -6,6 +6,7 @@ import { Box } from '@strapi/design-system/Box';
 import { Grid, GridItem } from '@strapi/design-system/Grid';
 import styled from 'styled-components';
 import StyledLink from 'components/StyledLink';
+import PropTypes from 'prop-types';
 
 const Icon = styled.span`
   padding: 0px 8px;
@@ -99,4 +100,8 @@ export default function Home({ navbarContent }) {
 export const getStaticProps = async () => {
   const navbarContent = await getNavbarContent();
   return { props: { navbarContent } };
+};
+
+Home.propTypes = {
+  navbarContent: PropTypes.arrayOf(PropTypes.object),
 };

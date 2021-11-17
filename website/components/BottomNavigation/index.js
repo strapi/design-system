@@ -43,8 +43,14 @@ const BottomNavigation = ({ next, previous }) => {
 };
 
 BottomNavigation.propTypes = {
-  next: PropTypes.object,
-  previous: PropTypes.object,
+  next: PropTypes.shape({
+    title: PropTypes.string,
+    path: PropTypes.string,
+  }),
+  previous: PropTypes.shape({
+    title: PropTypes.string,
+    path: PropTypes.string,
+  }),
 };
 
 export default BottomNavigation;
