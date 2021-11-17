@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import StyledLink from 'components/StyledLink';
-import { Subtitle } from '@strapi/design-system/Text';
+import { Typography } from '@strapi/design-system/Typography';
 import Link from 'next/link';
 
 const Wrapper = styled.div`
@@ -17,7 +17,9 @@ const BottomNavigation = ({ next, previous }) => {
       <div>
         {previous.path && (
           <>
-            <Subtitle textColor="neutral700">Previous</Subtitle>
+            <Typography variant="epsilon" textColor="neutral700">
+              Previous
+            </Typography>
             <Link href={previous.path} passHref>
               <StyledLink active={true} padding={0} size={18}>
                 {previous.title}
@@ -29,7 +31,9 @@ const BottomNavigation = ({ next, previous }) => {
       <div>
         {next.path && (
           <>
-            <Subtitle textColor="neutral700">Next</Subtitle>
+            <Typography variant="epsilon" textColor="neutral700">
+              Next
+            </Typography>
             <Link href={next.path} passHref>
               <StyledLink active={true} padding={0} size={18}>
                 {next.title}
