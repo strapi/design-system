@@ -5,13 +5,8 @@ import { H1, H2, Text, Subtitle } from '@strapi/design-system/Text';
 import { Box } from '@strapi/design-system/Box';
 import { Grid, GridItem } from '@strapi/design-system/Grid';
 import styled from 'styled-components';
+import StyledLink from 'components/StyledLink';
 
-const StyledLink = styled.a`
-  color: var(--Primary600);
-  font-size: 11px;
-  display: flex;
-  padding: ${(props) => `${props.padding}px 0`};
-`;
 const Icon = styled.span`
   padding: 0px 8px;
 `;
@@ -40,7 +35,7 @@ export default function Home({ navbarContent }) {
             <Text textColor="neutral700">
               Get started with the Principles, the update and everything related to the Design System! accessibility
             </Text>
-            <StyledLink href="/principles" target="_blank" padding={16}>
+            <StyledLink href="/principles" target="_blank" padding={16} active={true} size={11}>
               GET STARTED
               <Icon>
                 <Image src="/next-icon.svg" height={10} width={10} />
@@ -55,7 +50,7 @@ export default function Home({ navbarContent }) {
             <Text textColor="neutral700">
               Get started with the Principles, the update and everything related to the Design System! accessibility
             </Text>
-            <StyledLink href="/foundations" target="_blank" padding={16}>
+            <StyledLink href="/typography" target="_blank" padding={16} active={true} size={11}>
               SEE THE FOUNDATIONS
               <Icon>
                 <Image src="/next-icon.svg" height={10} width={10} />
@@ -70,7 +65,7 @@ export default function Home({ navbarContent }) {
             <Text textColor="neutral700">
               Get started with the Principles, the update and everything related to the Design System! accessibility
             </Text>
-            <StyledLink href="/components" target="_blank" padding={16}>
+            <StyledLink href="/actions" target="_blank" padding={16} active={true} size={11}>
               SEE THE COMPONENTS
               <Icon>
                 <Image src="/next-icon.svg" height={10} width={10} />
@@ -90,7 +85,7 @@ export default function Home({ navbarContent }) {
           A new look and feel, with an updated color palette, icons, and more, with accessibility features to make sure
           that the experiences you create work for everyone.
         </Subtitle>
-        <StyledLink href="#" target="_blank" padding={24}>
+        <StyledLink href="#" target="_blank" padding={24} active={true} size={11}>
           SEE ALL NEW UPDATES
           <Icon>
             <Image src="/next-icon.svg" height={10} width={10} />
