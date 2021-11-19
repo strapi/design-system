@@ -1,10 +1,12 @@
 <!--- Typography.stories.mdx --->
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
 import { Typography } from './Typography';
 import { Box } from '../Box';
 import { Divider } from '../Divider';
 import { TEXT_VARIANTS } from './constants';
+import { TypographyProps } from './TypographyProps';
 
 <Meta title="Design System/Technical Components/Typography" component={Typography} />
 
@@ -30,34 +32,40 @@ The main way to display text content on the screen
       <Typography variant="beta">Variants</Typography>
       <Divider />
       <Box paddingTop={2} paddingLeft={4}>
-        <Typography variant='alpha'>Alpha - header 1</Typography>
+        <Typography variant="alpha">Alpha - header 1</Typography>
       </Box>
       <Box paddingTop={2} paddingLeft={4}>
-        <Typography variant='beta'>Beta - header 2</Typography>
+        <Typography variant="beta">Beta - header 2</Typography>
       </Box>
       <Box paddingTop={2} paddingLeft={4}>
-        <Typography variant='delta'>Delta - header 3</Typography>
+        <Typography variant="delta">Delta - header 3</Typography>
       </Box>
       <Box paddingTop={2} paddingLeft={4}>
-        <Typography variant='epsilon'>Epsilon - subtitle</Typography>
+        <Typography variant="epsilon">Epsilon - subtitle</Typography>
       </Box>
       <Box paddingTop={2} paddingLeft={4}>
-        <Typography variant='omega'>Omega - body</Typography>
+        <Typography variant="omega">Omega - body</Typography>
       </Box>
       <Box paddingTop={2} paddingLeft={4}>
-        <Typography variant='omega' fontWeight='semiBold'>Omega semibold - body highlight</Typography>
+        <Typography variant="omega" fontWeight="semiBold">
+          Omega semibold - body highlight
+        </Typography>
       </Box>
       <Box paddingTop={2} paddingLeft={4}>
-        <Typography variant='omega' fontWeight='bold'>Omega bold - button text</Typography>
+        <Typography variant="omega" fontWeight="bold">
+          Omega bold - button text
+        </Typography>
       </Box>
       <Box paddingTop={2} paddingLeft={4}>
-        <Typography variant='pi'>Pi - small text</Typography>
+        <Typography variant="pi">Pi - small text</Typography>
       </Box>
       <Box paddingTop={2} paddingLeft={4}>
-        <Typography variant='pi' fontWeight='bold'>Pi bold - small button text</Typography>
+        <Typography variant="pi" fontWeight="bold">
+          Pi bold - small button text
+        </Typography>
       </Box>
       <Box paddingTop={2} paddingLeft={4}>
-        <Typography variant='sigma'>Sigma - table label</Typography>
+        <Typography variant="sigma">Sigma - table label</Typography>
       </Box>
       <Box paddingTop={2} paddingLeft={4} width="200px">
         <Typography ellipsis>Ellipsis example - long text - long text</Typography>
@@ -65,3 +73,7 @@ The main way to display text content on the screen
     </Box>
   </Story>
 </Canvas>
+
+## Props
+
+<ArgsTable of={TypographyProps} />
