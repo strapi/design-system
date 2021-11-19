@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { useField } from './FieldContext';
 import { Typography } from '../Typography';
 
-const RequiredIcon = styled(Typography)`
+const TypographyAsterisk = styled(Typography)`
   line-height: 0;
 `;
 
@@ -22,7 +22,7 @@ export const FieldLabel = ({ children, required, ...props }) => {
       {...props}
     >
       {children}
-      {required && <RequiredIcon textColor="danger600">*</RequiredIcon>}
+      {required && <TypographyAsterisk textColor="danger600">*</TypographyAsterisk>}
     </Typography>
   );
 };
