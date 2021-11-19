@@ -12,14 +12,7 @@ const components = {
   h2: (props) => {
     return (
       <Box paddingBottom={4}>
-        <Typography variant="beta" style={{ paddingBottom: 24 }} textColor="neutral800" {...props} />
-      </Box>
-    );
-  },
-  h4: (props) => {
-    return (
-      <Box paddingBottom={8}>
-        <Typography variant="epsilon" textColor="neutral700" {...props} />
+        <Typography variant="beta" textColor="neutral800" {...props} />
       </Box>
     );
   },

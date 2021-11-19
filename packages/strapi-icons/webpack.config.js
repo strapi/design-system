@@ -27,6 +27,7 @@ module.exports = {
     path: path.resolve(__dirname, './dist'),
     libraryTarget: 'umd',
     library: 'strapiIcons',
+    globalObject: 'this',
   },
   mode: 'production',
   module: {

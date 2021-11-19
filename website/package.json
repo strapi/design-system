@@ -10,7 +10,8 @@
     "lint-staged": "eslint --fix"
   },
   "dependencies": {
-    "@strapi/design-system": "^0.0.1-alpha.64",
+    "@strapi/design-system": "file:../packages/strapi-design-system/dist",
+    "@strapi/icons": "file:../packages/strapi-icons/dist",
     "gray-matter": "^4.0.3",
     "next": "11.1.2",
     "next-mdx-remote": "^3.0.7",
@@ -27,6 +28,7 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.26.1",
-    "prettier": "^2.4.1"
+    "prettier": "^2.4.1",
+    "react-router-dom": "^6.0.2"
   }
 }

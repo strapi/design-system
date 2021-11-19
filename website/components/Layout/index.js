@@ -1,63 +1,53 @@
-import styled from 'styled-components';
 import Head from 'components/Head';
 import Navbar from 'components/Navbar';
 import StyledLink from 'components/StyledLink';
 import PropTypes from 'prop-types';
+import { Layout, ContentLayout } from '@strapi/design-system/Layout';
+import { Box } from '@strapi/design-system/Box';
+import { Stack } from '@strapi/design-system/Stack';
 
-const Wrapper = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
-  gap: 2rem;
-  padding: 1.5rem;
-`;
-
-const Main = styled.main`
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-`;
-
-const Footer = styled.footer`
-  display: flex;
-  gap: 2rem;
-  padding: 38px 0;
-`;
-
-const Layout = ({ children, meta, navigationContent }) => {
+const AppLayout = ({ children, meta, navigationContent, aside }) => {
   return (
-    <Wrapper>
+    <Layout sideNav={<Navbar navigationContent={navigationContent} />}>
       <Head meta={meta} />
-      <header>
-        <Navbar navigationContent={navigationContent} />
-      </header>
-      <div>
-        <Main>{children}</Main>
-        <Footer>
-          <StyledLink href="https://strapi.io" target="_blank">
-            © 2021 Strapi
-          </StyledLink>
-          <StyledLink href="https://strapi.io/careers" target="_blank">
-            Careers
-          </StyledLink>
-          <StyledLink href="#" target="_blank">
-            Privacy
-          </StyledLink>
-          <StyledLink href="#" target="_blank">
-            License
-          </StyledLink>
-          <StyledLink href="https://strapi.io" target="_blank">
-            strapi.io
-          </StyledLink>
-        </Footer>
-      </div>
-    </Wrapper>
+      <Box padding={4}>
+        <ContentLayout>
+          <Stack as="main" size={4}>
+            {children}
+          </Stack>
+          <Stack as="footer" size={4} horizontal paddingTop={10}>
+            <StyledLink href="https://strapi.io" target="_blank">
+              © 2021 Strapi
+            </StyledLink>
+            <StyledLink href="https://strapi.io/careers" target="_blank">
+              Careers
+            </StyledLink>
+            <StyledLink href="#" target="_blank">
+              Privacy
+            </StyledLink>
+            <StyledLink href="#" target="_blank">
+              License
+            </StyledLink>
+            <StyledLink href="https://strapi.io" target="_blank">
+              strapi.io
+            </StyledLink>
+          </Stack>
+        </ContentLayout>
+        {aside}
+      </Box>
+    </Layout>
   );
 };
 
-Layout.propTypes = {
+AppLayout.propTypes = {
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-  meta: PropTypes.object,
+  meta: PropTypes.shape({
+    title: PropTypes.string,
+    description: PropTypes.string,
+    type: PropTypes.string,
+  }),
   navigationContent: PropTypes.arrayOf(PropTypes.object),
+  aside: PropTypes.object,
 };
 
-export default Layout;
+export default AppLayout;
