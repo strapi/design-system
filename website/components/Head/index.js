@@ -22,4 +22,12 @@ Head.propTypes = {
   }),
 };
 
+Head.defaultProps = {
+  meta: {
+    title: 'Strapi Design System',
+    description: '',
+    type: 'website',
+  },
+};
+
 export default Head;

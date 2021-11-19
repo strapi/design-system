@@ -2,46 +2,48 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import StyledLink from 'components/StyledLink';
 import { Typography } from '@strapi/design-system/Typography';
+import { Flex } from '@strapi/design-system/Flex';
+import { useTheme } from '@strapi/design-system/ThemeProvider';
 import Link from 'next/link';
 
 const Wrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  border-top: 1px solid var(--Neutral200);
-  padding-top: 2.5rem;
+  border-top: ${(props) => `1px solid ${props.theme.colors.neutral200}`};
 `;
 
 const BottomNavigation = ({ next, previous }) => {
+  const theme = useTheme();
   return (
-    <Wrapper>
-      <div>
-        {previous.path && (
-          <>
-            <Typography variant="epsilon" textColor="neutral700">
-              Previous
-            </Typography>
-            <Link href={previous.path} passHref>
-              <StyledLink active={true} padding={0} size={18}>
-                {previous.title}
-              </StyledLink>
-            </Link>
-          </>
-        )}
-      </div>
-      <div>
-        {next.path && (
-          <>
-            <Typography variant="epsilon" textColor="neutral700">
-              Next
-            </Typography>
-            <Link href={next.path} passHref>
-              <StyledLink active={true} padding={0} size={18}>
-                {next.title}
-              </StyledLink>
-            </Link>
-          </>
-        )}
-      </div>
+    <Wrapper theme={theme}>
+      <Flex justifyContent="space-between" paddingTop={8}>
+        <div>
+          {previous.path && (
+            <>
+              <Typography variant="epsilon" textColor="neutral700">
+                Previous
+              </Typography>
+              <Link href={previous.path} passHref>
+                <StyledLink theme={theme} active={true} padding={0} size={18}>
+                  {previous.title}
+                </StyledLink>
+              </Link>
+            </>
+          )}
+        </div>
+        <div>
+          {next.path && (
+            <>
+              <Typography variant="epsilon" textColor="neutral700">
+                Next
+              </Typography>
+              <Link href={next.path} passHref>
+                <StyledLink theme={theme} active={true} padding={0} size={18}>
+                  {next.title}
+                </StyledLink>
+              </Link>
+            </>
+          )}
+        </div>
+      </Flex>
     </Wrapper>
   );
 };

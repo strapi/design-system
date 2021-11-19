@@ -1,4 +1,3 @@
-import '../styles/globals.css';
 import { ThemeProvider } from '@strapi/design-system/ThemeProvider';
 import { lightTheme } from '@strapi/design-system/themes';
 import PropTypes from 'prop-types';

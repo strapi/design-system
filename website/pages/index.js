@@ -4,15 +4,14 @@ import { getNavbarContent } from 'lib/mdx';
 import { Typography } from '@strapi/design-system/Typography';
 import { Box } from '@strapi/design-system/Box';
 import { Grid, GridItem } from '@strapi/design-system/Grid';
-import styled from 'styled-components';
+import { Icon } from '@strapi/design-system/Icon';
+import ArrowRight from '@strapi/icons/ArrowRight';
 import StyledLink from 'components/StyledLink';
 import PropTypes from 'prop-types';
-
-const Icon = styled.span`
-  padding: 0px 8px;
-`;
+import { useTheme } from '@strapi/design-system/ThemeProvider';
 
 export default function Home({ navbarContent }) {
+  const theme = useTheme();
   return (
     <Layout meta={{ title: 'Welcome' }} navigationContent={navbarContent ? navbarContent : {}}>
       <Box padding={8} background="neutral0" shadow="filterShadow" hasRadius={true}>
@@ -40,11 +39,9 @@ export default function Home({ navbarContent }) {
             <Typography variant="omega" textColor="neutral700">
               Get started with the Principles, the update and everything related to the Design System! accessibility
             </Typography>
-            <StyledLink href="/principles" target="_blank" padding={16} active={true} size={11}>
+            <StyledLink theme={theme} href="/principles" target="_blank" padding={16} active={true} size={11}>
               GET STARTED
-              <Icon>
-                <Image src="/next-icon.svg" height={10} width={10} />
-              </Icon>
+              <Icon as={ArrowRight} height={10} width={10} marginLeft={1} color="primary600" />
             </StyledLink>
           </GridItem>
           <GridItem col={4}>
@@ -57,11 +54,9 @@ export default function Home({ navbarContent }) {
             <Typography variant="omega" textColor="neutral700">
               Get started with the Principles, the update and everything related to the Design System! accessibility
             </Typography>
-            <StyledLink href="/typography" target="_blank" padding={16} active={true} size={11}>
+            <StyledLink theme={theme} href="/typography" target="_blank" padding={16} active={true} size={11}>
               SEE THE FOUNDATIONS
-              <Icon>
-                <Image src="/next-icon.svg" height={10} width={10} />
-              </Icon>
+              <Icon as={ArrowRight} height={10} width={10} marginLeft={1} color="primary600" />
             </StyledLink>
           </GridItem>
           <GridItem col={4}>
@@ -74,11 +69,9 @@ export default function Home({ navbarContent }) {
             <Typography variant="omega" textColor="neutral700">
               Get started with the Principles, the update and everything related to the Design System! accessibility
             </Typography>
-            <StyledLink href="/actions" target="_blank" padding={16} active={true} size={11}>
+            <StyledLink theme={theme} href="/actions" target="_blank" padding={16} active={true} size={11}>
               SEE THE COMPONENTS
-              <Icon>
-                <Image src="/next-icon.svg" height={10} width={10} />
-              </Icon>
+              <Icon as={ArrowRight} height={10} width={10} marginLeft={1} color="primary600" />
             </StyledLink>
           </GridItem>
         </Grid>
@@ -98,11 +91,9 @@ export default function Home({ navbarContent }) {
           A new look and feel, with an updated color palette, icons, and more, with accessibility features to make sure
           that the experiences you create work for everyone.
         </Typography>
-        <StyledLink href="#" target="_blank" padding={24} active={true} size={11}>
+        <StyledLink theme={theme} href="#" target="_blank" padding={24} active={true} size={11}>
           SEE ALL NEW UPDATES
-          <Icon>
-            <Image src="/next-icon.svg" height={10} width={10} />
-          </Icon>
+          <Icon as={ArrowRight} height={10} width={10} marginLeft={1} color="primary600" />
         </StyledLink>
       </Box>
     </Layout>
