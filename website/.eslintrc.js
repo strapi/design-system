@@ -23,7 +23,7 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {
-    'react/prop-types': 'warn',
+    'react/prop-types': 'error',
     'react/react-in-jsx-scope': 'off',
   },
 };
