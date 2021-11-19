@@ -1,7 +1,12 @@
 import React from 'react';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { useField } from './FieldContext';
 import { Typography } from '../Typography';
+
+const RequiredIcon = styled(Typography)`
+  line-height: 0;
+`;
 
 export const FieldLabel = ({ children, required, ...props }) => {
   const { id } = useField();
@@ -17,11 +22,7 @@ export const FieldLabel = ({ children, required, ...props }) => {
       {...props}
     >
       {children}
-      {required && (
-        <Typography textColor="danger600" lineHeight={0}>
-          *
-        </Typography>
-      )}
+      {required && <RequiredIcon textColor="danger600">*</RequiredIcon>}
     </Typography>
   );
 };
