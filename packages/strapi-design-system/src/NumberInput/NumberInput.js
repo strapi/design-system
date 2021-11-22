@@ -29,7 +29,10 @@ const ArrowButton = styled.button`
 const INITIAL_VALUE = '';
 
 export const NumberInput = React.forwardRef(
-  ({ size, startAction, name, hint, error, label, labelAction, id, onValueChange, value, step, ...props }, ref) => {
+  (
+    { size, startAction, name, hint, error, label, labelAction, id, onValueChange, value, step, required, ...props },
+    ref,
+  ) => {
     const [inputValue, setInputValue] = useState(value || INITIAL_VALUE);
     const generatedId = useId('numberinput', id);
     const numberParserRef = useRef(new NumberParser(getDefaultLocale()));
@@ -105,7 +108,7 @@ export const NumberInput = React.forwardRef(
         <Stack size={1}>
           {label && (
             <Flex cols="auto auto 1fr" gap={1}>
-              <FieldLabel>{label}</FieldLabel>
+              <FieldLabel required={required}>{label}</FieldLabel>
               {labelAction && <Box paddingLeft={1}>{labelAction}</Box>}
             </Flex>
           )}
@@ -143,15 +146,16 @@ NumberInput.displayName = 'NumberInput';
 
 NumberInput.defaultProps = {
   'aria-label': undefined,
-  label: undefined,
-  labelAction: undefined,
   error: undefined,
   hint: undefined,
   id: undefined,
-  startAction: undefined,
-  value: undefined,
+  label: undefined,
+  labelAction: undefined,
+  required: false,
   size: 'M',
+  startAction: undefined,
   step: 1,
+  value: undefined,
 };
 
 NumberInput.propTypes = {
@@ -163,6 +167,7 @@ NumberInput.propTypes = {
   labelAction: PropTypes.element,
   name: PropTypes.string.isRequired,
   onValueChange: PropTypes.func.isRequired,
+  required: PropTypes.bool,
   size: PropTypes.oneOf(Object.keys(sizes.input)),
   startAction: PropTypes.element,
   step: PropTypes.number,
