@@ -57,6 +57,9 @@ export const NumberInput = React.forwardRef(
     const increment = (fromKeyBoard) => {
       const parsedValue = numberParserRef.current.parse(inputValue);
 
+      // If value is changed from keyboard we want to let handleBlur to activate onValueChange
+      // If value is changed when clicking on arrows we want to activate onValueChange immediately
+
       if (isNaN(parsedValue)) {
         if (fromKeyBoard) {
           setInputValue(numberFormaterRef.current.format(step));
@@ -74,6 +77,9 @@ export const NumberInput = React.forwardRef(
 
     const decrement = (fromKeyBoard) => {
       const parsedValue = numberParserRef.current.parse(inputValue);
+
+      // If value is changed from keyboard we want to let handleBlur to activate onValueChange
+      // If value is changed when clicking on arrows we want to activate onValueChange immediately
 
       if (isNaN(parsedValue)) {
         if (fromKeyBoard) {
