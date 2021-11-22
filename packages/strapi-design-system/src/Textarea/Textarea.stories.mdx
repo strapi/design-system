@@ -69,6 +69,40 @@ import { Box } from '@strapi/design-system/Box';
   </Story>
 </Canvas>
 
+## Disabled state
+
+<Canvas>
+  <Story name="disabled">
+    {() => {
+      const [content, setContent] = useState('');
+      return (
+        <Box padding={10}>
+          <Textarea
+            placeholder="This is a content placeholder"
+            label="Content"
+            name="content"
+            hint="Description line"
+            disabled
+            onChange={(e) => setContent(e.target.value)}
+            labelAction={
+              <Tooltip description="Content of the tooltip" position="right">
+                <button
+                  aria-label="Information about the email"
+                  style={{ border: 'none', padding: 0, background: 'transparent' }}
+                >
+                  <Information aria-hidden={true} />
+                </button>
+              </Tooltip>
+            }
+          >
+            {content}
+          </Textarea>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
 ## Props
 
 <ArgsTable of={Textarea} />

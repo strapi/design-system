@@ -50,7 +50,7 @@ export const TextareaInput = forwardRef(({ disabled, ...props }, ref) => {
   const hasError = Boolean(error);
 
   return (
-    <TextareaWrapper hasError={hasError}>
+    <TextareaWrapper hasError={hasError} disabled={disabled}>
       <Textarea
         id={id}
         name={name}
