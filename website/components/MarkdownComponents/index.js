@@ -24,6 +24,15 @@ const components = {
     );
   },
   strong: (props) => <Typography variant="omega" fontWeight="semiBold" textColor="primary600" {...props} />,
+  em: (props) => <Typography variant="beta" textColor="primary600" {...props} />,
+  blockquote: (props) => <Box paddingLeft={6} {...props} />,
+  img: (props) => {
+    return (
+      <Box paddingBottom={10}>
+        <img width="100%" height="100%" alt={props.alt} {...props} />
+      </Box>
+    );
+  },
 };
 
 export default components;

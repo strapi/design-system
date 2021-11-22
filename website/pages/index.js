@@ -14,7 +14,7 @@ export default function Home({ navbarContent }) {
   const theme = useTheme();
   return (
     <Layout meta={{ title: 'Welcome' }} navigationContent={navbarContent ? navbarContent : {}}>
-      <Box padding={8} background="neutral0" shadow="filterShadow" hasRadius={true}>
+      <Box padding={10} background="neutral0" shadow="filterShadow" hasRadius={true}>
         <Box paddingBottom={6}>
           <Typography variant="alpha" textColor="neutral800">
             Welcome on Strapi Design System!{' '}
