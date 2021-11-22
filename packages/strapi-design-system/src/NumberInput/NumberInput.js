@@ -54,23 +54,39 @@ export const NumberInput = React.forwardRef(
       }
     };
 
-    const increment = () => {
+    const increment = (fromKeyBoard) => {
       const parsedValue = numberParserRef.current.parse(inputValue);
 
       if (isNaN(parsedValue)) {
-        setInputValue(numberFormaterRef.current.format(step));
+        if (fromKeyBoard) {
+          setInputValue(numberFormaterRef.current.format(step));
+        } else {
+          onValueChange(step);
+        }
       } else {
-        setInputValue(numberFormaterRef.current.format(parsedValue + step));
+        if (fromKeyBoard) {
+          setInputValue(numberFormaterRef.current.format(parsedValue + step));
+        } else {
+          onValueChange(parsedValue + step);
+        }
       }
     };
 
-    const decrement = () => {
+    const decrement = (fromKeyBoard) => {
       const parsedValue = numberParserRef.current.parse(inputValue);
 
       if (isNaN(parsedValue)) {
-        setInputValue(numberFormaterRef.current.format(-step));
+        if (fromKeyBoard) {
+          setInputValue(numberFormaterRef.current.format(-step));
+        } else {
+          onValueChange(-step);
+        }
       } else {
-        setInputValue(numberFormaterRef.current.format(parsedValue - step));
+        if (fromKeyBoard) {
+          setInputValue(numberFormaterRef.current.format(parsedValue - step));
+        } else {
+          onValueChange(parsedValue - step);
+        }
       }
     };
 
@@ -78,13 +94,13 @@ export const NumberInput = React.forwardRef(
       switch (e.key) {
         case KeyboardKeys.DOWN: {
           e.preventDefault();
-          decrement();
+          decrement(true);
           break;
         }
 
         case KeyboardKeys.UP: {
           e.preventDefault();
-          increment();
+          increment(true);
           break;
         }
         default:
@@ -124,10 +140,27 @@ export const NumberInput = React.forwardRef(
             size={size}
             endAction={
               <>
-                <ArrowButton aria-hidden reverse onClick={increment} tabIndex={-1} type="button">
+                <ArrowButton
+                  aria-hidden
+                  reverse
+                  onClick={() => {
+                    // increment needs an argument, so we can't remove the parenthesis
+                    increment();
+                  }}
+                  tabIndex={-1}
+                  type="button"
+                >
                   <Icon as={CarretDown} color="neutral500" />
                 </ArrowButton>
-                <ArrowButton aria-hidden onClick={decrement} tabIndex={-1} type="button">
+                <ArrowButton
+                  aria-hidden
+                  onClick={() => {
+                    // decrement needs an argument, so we can't remove the parenthesis
+                    decrement();
+                  }}
+                  tabIndex={-1}
+                  type="button"
+                >
                   <Icon as={CarretDown} color="neutral500" />
                 </ArrowButton>
               </>
