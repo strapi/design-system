@@ -155,6 +155,7 @@ export const NumberInput = React.forwardRef(
                   }}
                   tabIndex={-1}
                   type="button"
+                  data-testid="ArrowUp"
                 >
                   <Icon as={CarretDown} color="neutral500" />
                 </ArrowButton>
@@ -166,6 +167,7 @@ export const NumberInput = React.forwardRef(
                   }}
                   tabIndex={-1}
                   type="button"
+                  data-testid="ArrowDown"
                 >
                   <Icon as={CarretDown} color="neutral500" />
                 </ArrowButton>

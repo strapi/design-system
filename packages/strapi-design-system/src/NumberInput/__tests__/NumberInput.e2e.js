@@ -71,14 +71,17 @@ describe('NumberInput', () => {
     expect(value).toBe('1');
   });
 
-  it('increments the value when entering and bluring the field, and then pressing ArrowUp', async () => {
-    await page.click('input');
-    await page.click('button');
-    await page.focus('input');
-    await page.keyboard.press('ArrowUp');
-    await page.keyboard.press('Tab');
+  it('increments the value when clicking on ArrowUp without blur needed', async () => {
+    await page.click('[data-testid="ArrowUp"]');
 
     const value = await page.$eval('input', (el) => el.value);
     expect(value).toBe('1');
+  });
+
+  it('decrements the value when clicking on ArrowUp without blur needed', async () => {
+    await page.click('[data-testid="ArrowDown"]');
+
+    const value = await page.$eval('input', (el) => el.value);
+    expect(value).toBe('-1');
   });
 });
