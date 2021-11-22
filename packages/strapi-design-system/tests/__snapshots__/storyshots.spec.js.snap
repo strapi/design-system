@@ -23601,6 +23601,7 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
             <button
               aria-hidden="true"
               class="c10"
+              data-testid="ArrowUp"
               tabindex="-1"
               type="button"
             >
@@ -23623,6 +23624,7 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
             <button
               aria-hidden="true"
               class="c13"
+              data-testid="ArrowDown"
               tabindex="-1"
               type="button"
             >
@@ -23919,6 +23921,7 @@ exports[`Storyshots Design System/Components/NumberInput required 1`] = `
             <button
               aria-hidden="true"
               class="c10"
+              data-testid="ArrowUp"
               tabindex="-1"
               type="button"
             >
@@ -23941,6 +23944,7 @@ exports[`Storyshots Design System/Components/NumberInput required 1`] = `
             <button
               aria-hidden="true"
               class="c13"
+              data-testid="ArrowDown"
               tabindex="-1"
               type="button"
             >
@@ -24251,6 +24255,7 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
             <button
               aria-hidden="true"
               class="c10"
+              data-testid="ArrowUp"
               tabindex="-1"
               type="button"
             >
@@ -24273,6 +24278,7 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
             <button
               aria-hidden="true"
               class="c13"
+              data-testid="ArrowDown"
               tabindex="-1"
               type="button"
             >
@@ -24531,6 +24537,7 @@ exports[`Storyshots Design System/Components/NumberInput withoutLabel 1`] = `
             <button
               aria-hidden="true"
               class="c7"
+              data-testid="ArrowUp"
               tabindex="-1"
               type="button"
             >
@@ -24553,6 +24560,7 @@ exports[`Storyshots Design System/Components/NumberInput withoutLabel 1`] = `
             <button
               aria-hidden="true"
               class="c10"
+              data-testid="ArrowDown"
               tabindex="-1"
               type="button"
             >
