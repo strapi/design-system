@@ -1,33 +1,29 @@
 import NextHead from 'next/head';
 import PropTypes from 'prop-types';
 
-const Head = ({ meta }) => {
+const Head = ({ title, description, type }) => {
   return (
     <NextHead>
-      <title>{meta?.title}</title>
-      <meta content={meta?.description} name="description" />
-      <meta property="og:type" content={meta?.type} />
+      <title>{title}</title>
+      <meta content={description} name="description" />
+      <meta property="og:type" content={type} />
       <meta property="og:site_name" content="Strapi Design System" />
-      <meta property="og:description" content={meta?.description} />
-      <meta property="og:title" content={meta?.title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:title" content={title} />
     </NextHead>
   );
 };
 
 Head.propTypes = {
-  meta: PropTypes.shape({
-    title: PropTypes.string,
-    description: PropTypes.string,
-    type: PropTypes.string,
-  }),
+  title: PropTypes.string,
+  description: PropTypes.string,
+  type: PropTypes.string,
 };
 
 Head.defaultProps = {
-  meta: {
-    title: 'Strapi Design System',
-    description: '',
-    type: 'website',
-  },
+  title: 'Strapi Design System',
+  description: '',
+  type: 'website',
 };
 
 export default Head;

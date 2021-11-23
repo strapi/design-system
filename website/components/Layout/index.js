@@ -11,7 +11,7 @@ const Layout = ({ children, meta, navigationContent }) => {
   return (
     <Box background="neutral100">
       <PageLayout sideNav={<Navbar navigationContent={navigationContent} />}>
-        <Head meta={meta} />
+        <Head {...meta} />
         <Box padding={4}>
           <ContentLayout>
             <Main>
