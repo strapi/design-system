@@ -18,7 +18,7 @@ const ArrowButton = styled.button`
   height: 1rem;
   align-items: ${({ reverse }) => (reverse ? 'flex-end' : 'flex-start')};
   transform: translateY(${({ reverse }) => (reverse ? `-2px` : `2px`)});
-
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : undefined)};
   svg {
     display: block;
     height: ${4 / 16}rem;
@@ -30,7 +30,22 @@ const INITIAL_VALUE = '';
 
 export const NumberInput = React.forwardRef(
   (
-    { size, startAction, name, hint, error, label, labelAction, id, onValueChange, value, step, required, ...props },
+    {
+      size,
+      startAction,
+      name,
+      hint,
+      error,
+      label,
+      labelAction,
+      id,
+      onValueChange,
+      value,
+      step,
+      required,
+      disabled,
+      ...props
+    },
     ref,
   ) => {
     const [inputValue, setInputValue] = useState(value || INITIAL_VALUE);
@@ -54,39 +69,64 @@ export const NumberInput = React.forwardRef(
       }
     };
 
-    const increment = () => {
+    const increment = (fromKeyBoard) => {
       const parsedValue = numberParserRef.current.parse(inputValue);
 
+      // If value is changed from keyboard we want to let handleBlur to activate onValueChange
+      // If value is changed when clicking on arrows we want to activate onValueChange immediately
+
       if (isNaN(parsedValue)) {
-        setInputValue(numberFormaterRef.current.format(step));
+        if (fromKeyBoard) {
+          setInputValue(numberFormaterRef.current.format(step));
+        } else {
+          onValueChange(step);
+        }
       } else {
-        setInputValue(numberFormaterRef.current.format(parsedValue + step));
+        if (fromKeyBoard) {
+          setInputValue(numberFormaterRef.current.format(parsedValue + step));
+        } else {
+          onValueChange(parsedValue + step);
+        }
       }
     };
 
-    const decrement = () => {
+    const decrement = (fromKeyBoard) => {
       const parsedValue = numberParserRef.current.parse(inputValue);
 
+      // If value is changed from keyboard we want to let handleBlur to activate onValueChange
+      // If value is changed when clicking on arrows we want to activate onValueChange immediately
+
       if (isNaN(parsedValue)) {
-        setInputValue(numberFormaterRef.current.format(-step));
+        if (fromKeyBoard) {
+          setInputValue(numberFormaterRef.current.format(-step));
+        } else {
+          onValueChange(-step);
+        }
       } else {
-        setInputValue(numberFormaterRef.current.format(parsedValue - step));
+        if (fromKeyBoard) {
+          setInputValue(numberFormaterRef.current.format(parsedValue - step));
+        } else {
+          onValueChange(parsedValue - step);
+        }
       }
     };
 
     const handleKeyDown = (e) => {
+      if (disabled) return;
+
       switch (e.key) {
         case KeyboardKeys.DOWN: {
           e.preventDefault();
-          decrement();
+          decrement(true);
           break;
         }
 
         case KeyboardKeys.UP: {
           e.preventDefault();
-          increment();
+          increment(true);
           break;
         }
+
         default:
           break;
       }
@@ -115,6 +155,7 @@ export const NumberInput = React.forwardRef(
           <FieldInput
             ref={ref}
             startAction={startAction}
+            disabled={disabled}
             type="text"
             inputmode="decimal"
             onChange={handleChange}
@@ -124,10 +165,31 @@ export const NumberInput = React.forwardRef(
             size={size}
             endAction={
               <>
-                <ArrowButton aria-hidden reverse onClick={increment} tabIndex={-1} type="button">
+                <ArrowButton
+                  disabled={disabled}
+                  aria-hidden
+                  reverse
+                  onClick={() => {
+                    // increment needs an argument, so we can't remove the parenthesis
+                    increment();
+                  }}
+                  tabIndex={-1}
+                  type="button"
+                  data-testid="ArrowUp"
+                >
                   <Icon as={CarretDown} color="neutral500" />
                 </ArrowButton>
-                <ArrowButton aria-hidden onClick={decrement} tabIndex={-1} type="button">
+                <ArrowButton
+                  disabled={disabled}
+                  aria-hidden
+                  onClick={() => {
+                    // decrement needs an argument, so we can't remove the parenthesis
+                    decrement();
+                  }}
+                  tabIndex={-1}
+                  type="button"
+                  data-testid="ArrowDown"
+                >
                   <Icon as={CarretDown} color="neutral500" />
                 </ArrowButton>
               </>
@@ -146,6 +208,7 @@ NumberInput.displayName = 'NumberInput';
 
 NumberInput.defaultProps = {
   'aria-label': undefined,
+  disabled: false,
   error: undefined,
   hint: undefined,
   id: undefined,
@@ -160,6 +223,7 @@ NumberInput.defaultProps = {
 
 NumberInput.propTypes = {
   'aria-label': PropTypes.string,
+  disabled: PropTypes.bool,
   error: PropTypes.string,
   hint: PropTypes.string,
   id: PropTypes.string,

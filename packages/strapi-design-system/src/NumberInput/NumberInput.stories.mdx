@@ -178,6 +178,32 @@ NumberInputs required field.
   </Story>
 </Canvas>
 
+## Disabled
+
+NumberInputs disabled field.
+
+<Canvas>
+  <Story name="disabled">
+    {() => {
+      const [content, setContent] = useState();
+      return (
+        <Box padding={10}>
+          <NumberInput
+            placeholder="This is a content placeholder"
+            label="Content"
+            name="content"
+            hint="Description line"
+            error={undefined}
+            onValueChange={(value) => setContent(value)}
+            value={content}
+            disabled={true}
+          />
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
 ## Props
 
 <ArgsTable of={NumberInput} />
