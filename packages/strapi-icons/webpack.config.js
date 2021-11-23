@@ -28,6 +28,7 @@ module.exports = {
     libraryTarget: 'umd',
     globalObject: 'this',
     library: 'strapiIcons',
+    globalObject: 'this',
   },
   mode: 'production',
   module: {
