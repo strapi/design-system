@@ -8,15 +8,7 @@ import { Icon } from '@strapi/design-system/Icon';
 import Discourse from '@strapi/icons/Discourse';
 import Github from '@strapi/icons/Github';
 import Image from 'next/image';
-import styled from 'styled-components';
 import { useTheme } from '@strapi/design-system/ThemeProvider';
-
-const HorizontalLine = styled.div`
-  background: ${(props) => props.theme.colors.neutral200};
-  width: 1.5rem;
-  height: 1px;
-  margin: 0 0 0 1.5rem;
-`;
 
 const Navbar = ({ navigationContent }) => {
   const theme = useTheme();
@@ -27,7 +19,7 @@ const Navbar = ({ navigationContent }) => {
           <Image src="/logo.svg" width={161} height={25} alt="Strapi Design System" />
         </Link>
       </Box>
-      <HorizontalLine theme={theme} />
+      <Box background="neutral200" marginLeft={6} width="1.5rem" height="1px" />
       <SubNavSections>
         {navigationContent?.map((section, index) => {
           return <NavSection title={section.title} pages={section.pages} key={index} />;
@@ -48,7 +40,17 @@ const Navbar = ({ navigationContent }) => {
 };
 
 Navbar.propTypes = {
-  navigationContent: PropTypes.array,
+  navigationContent: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      pages: PropTypes.arrayOf(
+        PropTypes.shape({
+          link: PropTypes.string,
+          name: PropTypes.string,
+        }),
+      ),
+    }),
+  ),
 };
 
 export default Navbar;
