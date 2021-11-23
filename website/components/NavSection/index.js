@@ -5,9 +5,9 @@ import { SubNavSection, SubNavLink } from '@strapi/design-system/SubNav';
 const NavSection = ({ title, pages }) => {
   return (
     <SubNavSection label={title} collapsable>
-      {pages.map((page, index) => {
+      {pages.map((page) => {
         return (
-          <Link href={page.link} passHref key={index}>
+          <Link href={page.link} passHref key={page.link}>
             <SubNavLink href={page.link} as="a">
               {page.name}
             </SubNavLink>
@@ -24,7 +24,7 @@ NavSection.propTypes = {
     PropTypes.shape({
       link: PropTypes.string,
       name: PropTypes.string,
-    }),
+    }).isRequired,
   ),
 };
 

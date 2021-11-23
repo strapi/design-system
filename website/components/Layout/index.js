@@ -50,7 +50,17 @@ AppLayout.propTypes = {
     description: PropTypes.string,
     type: PropTypes.string,
   }),
-  navigationContent: PropTypes.arrayOf(PropTypes.object),
+  navigationContent: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      pages: PropTypes.arrayOf(
+        PropTypes.shape({
+          link: PropTypes.string,
+          name: PropTypes.string,
+        }),
+      ),
+    }),
+  ),
 };
 
 export default AppLayout;
