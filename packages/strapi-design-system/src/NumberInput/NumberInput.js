@@ -30,7 +30,22 @@ const INITIAL_VALUE = '';
 
 export const NumberInput = React.forwardRef(
   (
-    { size, startAction, name, hint, error, label, labelAction, id, onValueChange, value, step, required, ...props },
+    {
+      size,
+      startAction,
+      name,
+      hint,
+      error,
+      label,
+      labelAction,
+      id,
+      onValueChange,
+      value,
+      step,
+      required,
+      disabled,
+      ...props
+    },
     ref,
   ) => {
     const [inputValue, setInputValue] = useState(value || INITIAL_VALUE);
@@ -97,20 +112,23 @@ export const NumberInput = React.forwardRef(
     };
 
     const handleKeyDown = (e) => {
-      switch (e.key) {
-        case KeyboardKeys.DOWN: {
-          e.preventDefault();
-          decrement(true);
-          break;
-        }
+      if (!disabled) {
+        switch (e.key) {
+          case KeyboardKeys.DOWN: {
+            e.preventDefault();
+            decrement(true);
+            break;
+          }
 
-        case KeyboardKeys.UP: {
-          e.preventDefault();
-          increment(true);
-          break;
+          case KeyboardKeys.UP: {
+            e.preventDefault();
+            increment(true);
+            break;
+          }
+
+          default:
+            break;
         }
-        default:
-          break;
       }
     };
 
@@ -137,6 +155,7 @@ export const NumberInput = React.forwardRef(
           <FieldInput
             ref={ref}
             startAction={startAction}
+            disabled={disabled}
             type="text"
             inputmode="decimal"
             onChange={handleChange}
@@ -151,7 +170,7 @@ export const NumberInput = React.forwardRef(
                   reverse
                   onClick={() => {
                     // increment needs an argument, so we can't remove the parenthesis
-                    increment();
+                    !disabled && increment();
                   }}
                   tabIndex={-1}
                   type="button"
@@ -163,7 +182,7 @@ export const NumberInput = React.forwardRef(
                   aria-hidden
                   onClick={() => {
                     // decrement needs an argument, so we can't remove the parenthesis
-                    decrement();
+                    !disabled && decrement();
                   }}
                   tabIndex={-1}
                   type="button"
@@ -187,6 +206,7 @@ NumberInput.displayName = 'NumberInput';
 
 NumberInput.defaultProps = {
   'aria-label': undefined,
+  disabled: false,
   error: undefined,
   hint: undefined,
   id: undefined,
@@ -201,6 +221,7 @@ NumberInput.defaultProps = {
 
 NumberInput.propTypes = {
   'aria-label': PropTypes.string,
+  disabled: PropTypes.bool,
   error: PropTypes.string,
   hint: PropTypes.string,
   id: PropTypes.string,
