@@ -24075,6 +24075,7 @@ exports[`Storyshots Design System/Components/NumberInput disabled 1`] = `
   -webkit-transform: translateY(-2px);
   -ms-transform: translateY(-2px);
   transform: translateY(-2px);
+  cursor: not-allowed;
 }
 
 .c9 svg {
@@ -24098,6 +24099,7 @@ exports[`Storyshots Design System/Components/NumberInput disabled 1`] = `
   -webkit-transform: translateY(2px);
   -ms-transform: translateY(2px);
   transform: translateY(2px);
+  cursor: not-allowed;
 }
 
 .c12 svg {
@@ -24152,6 +24154,7 @@ exports[`Storyshots Design System/Components/NumberInput disabled 1`] = `
               aria-hidden="true"
               class="c9"
               data-testid="ArrowUp"
+              disabled=""
               tabindex="-1"
               type="button"
             >
@@ -24175,6 +24178,7 @@ exports[`Storyshots Design System/Components/NumberInput disabled 1`] = `
               aria-hidden="true"
               class="c12"
               data-testid="ArrowDown"
+              disabled=""
               tabindex="-1"
               type="button"
             >

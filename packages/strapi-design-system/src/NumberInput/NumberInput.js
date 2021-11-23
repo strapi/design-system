@@ -18,7 +18,7 @@ const ArrowButton = styled.button`
   height: 1rem;
   align-items: ${({ reverse }) => (reverse ? 'flex-end' : 'flex-start')};
   transform: translateY(${({ reverse }) => (reverse ? `-2px` : `2px`)});
-
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : undefined)};
   svg {
     display: block;
     height: ${4 / 16}rem;
@@ -166,11 +166,12 @@ export const NumberInput = React.forwardRef(
             endAction={
               <>
                 <ArrowButton
+                  disabled={disabled}
                   aria-hidden
                   reverse
                   onClick={() => {
                     // increment needs an argument, so we can't remove the parenthesis
-                    !disabled && increment();
+                    increment();
                   }}
                   tabIndex={-1}
                   type="button"
@@ -179,10 +180,11 @@ export const NumberInput = React.forwardRef(
                   <Icon as={CarretDown} color="neutral500" />
                 </ArrowButton>
                 <ArrowButton
+                  disabled={disabled}
                   aria-hidden
                   onClick={() => {
                     // decrement needs an argument, so we can't remove the parenthesis
-                    !disabled && decrement();
+                    decrement();
                   }}
                   tabIndex={-1}
                   type="button"
