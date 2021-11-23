@@ -1,51 +1,73 @@
 import { injectAxe, checkA11y } from 'axe-playwright';
 
 describe('DatePicker', () => {
-  beforeEach(async () => {
-    // This is the URL of the Storybook Iframe
-    await page.goto('http://localhost:6006/iframe.html?id=design-system-components-datepicker--base&viewMode=story');
-    await injectAxe(page);
+  describe('disabled', () => {
+    beforeEach(async () => {
+      // This is the URL of the Storybook Iframe
+      await page.goto(
+        'http://localhost:6006/iframe.html?id=design-system-components-datepicker--disabled&viewMode=story',
+      );
+      await injectAxe(page);
+    });
+
+    it('triggers axe on the document', async () => {
+      await checkA11y(page);
+    });
+
+    it('does not open the dialog when clicking the input', async () => {
+      await page.click('input');
+
+      expect(await page.$('[role="dialog"]')).toBeFalsy();
+    });
   });
 
-  it('triggers axe on the document', async () => {
-    await checkA11y(page);
-  });
+  describe('base', () => {
+    beforeEach(async () => {
+      // This is the URL of the Storybook Iframe
+      await page.goto('http://localhost:6006/iframe.html?id=design-system-components-datepicker--base&viewMode=story');
+      await injectAxe(page);
+    });
 
-  it('triggers axe on the document with the dropdown open', async () => {
-    await page.click('input');
-    await checkA11y(page);
-  });
+    it('triggers axe on the document', async () => {
+      await checkA11y(page);
+    });
 
-  it('selects a value and closes the dialog', async () => {
-    await page.click('input');
-    expect(await page.$('[role="dialog"]')).toBeTruthy();
+    it('triggers axe on the document with the dropdown open', async () => {
+      await page.click('input');
+      await checkA11y(page);
+    });
 
-    await page.click(':nth-match(button[aria-haspopup], 1)');
-    await page.click('text="January"');
+    it('selects a value and closes the dialog', async () => {
+      await page.click('input');
+      expect(await page.$('[role="dialog"]')).toBeTruthy();
 
-    await page.click(':nth-match(button[aria-haspopup], 2)');
-    await page.click('text="2021"');
+      await page.click(':nth-match(button[aria-haspopup], 1)');
+      await page.click('text="January"');
 
-    await page.click('text="14"');
+      await page.click(':nth-match(button[aria-haspopup], 2)');
+      await page.click('text="2021"');
 
-    const value = await page.$eval('input', (el) => el.value);
-    expect(value).toBe('1/14/2021');
-    expect(await page.$('[role="dialog"]')).toBeFalsy();
-  });
+      await page.click('text="14"');
 
-  it('clears the input and sends the focus back to the calendar button when pressing the clear button', async () => {
-    await page.click('input');
-    expect(await page.$('[role="dialog"]')).toBeTruthy();
+      const value = await page.$eval('input', (el) => el.value);
+      expect(value).toBe('1/14/2021');
+      expect(await page.$('[role="dialog"]')).toBeFalsy();
+    });
 
-    await page.click(':nth-match(button[aria-haspopup], 1)');
-    await page.click('text="January"');
-    await page.click(':nth-match(button[aria-haspopup], 2)');
-    await page.click('text="2021"');
-    await page.click('text="14"');
+    it('clears the input and sends the focus back to the calendar button when pressing the clear button', async () => {
+      await page.click('input');
+      expect(await page.$('[role="dialog"]')).toBeTruthy();
 
-    await page.click('[aria-label="Clear the datepicker"]');
-    const value = await page.$eval('input', (el) => el.value);
-    expect(value).toBe('');
-    await expect(page).toHaveFocus('[aria-label="Date picker"]');
+      await page.click(':nth-match(button[aria-haspopup], 1)');
+      await page.click('text="January"');
+      await page.click(':nth-match(button[aria-haspopup], 2)');
+      await page.click('text="2021"');
+      await page.click('text="14"');
+
+      await page.click('[aria-label="Clear the datepicker"]');
+      const value = await page.$eval('input', (el) => el.value);
+      expect(value).toBe('');
+      await expect(page).toHaveFocus('[aria-label="Date picker"]');
+    });
   });
 });
