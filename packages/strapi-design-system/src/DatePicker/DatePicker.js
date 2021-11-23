@@ -30,7 +30,10 @@ export const DatePicker = ({
   const formattedDate = selectedDate ? formatDate(selectedDate) : '';
   const placeholder = formatDate(new Date(1970, 0, 1));
 
-  const toggleVisibility = () => setVisible((prevVisible) => !prevVisible);
+  const toggleVisibility = () => {
+    if (disabled) return;
+    setVisible((prevVisible) => !prevVisible);
+  };
 
   const handleClear = () => {
     if (disabled) return;
@@ -48,7 +51,7 @@ export const DatePicker = ({
     <DatePickerWrapper bold={visible}>
       <TextInput
         ref={inputRef}
-        onClick={disabled ? undefined : toggleVisibility}
+        onClick={toggleVisibility}
         // Prevent input from changing for now
         onChange={() => {}}
         value={formattedDate}
@@ -60,6 +63,7 @@ export const DatePicker = ({
             onClick={toggleVisibility}
             aria-label={selectedDate ? selectedDateLabel(formatDate(selectedDate)) : label}
             type="button"
+            aria-disabled={disabled}
           >
             <CalendarIcon aria-hidden={true} />
           </DatePickerButton>

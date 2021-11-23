@@ -8789,6 +8789,7 @@ exports[`Storyshots Design System/Components/DatePicker base 1`] = `
                 class="c6"
               >
                 <button
+                  aria-disabled="false"
                   aria-label="Date picker"
                   class="c7"
                   type="button"
@@ -8917,6 +8918,7 @@ exports[`Storyshots Design System/Components/DatePicker disabled 1`] = `
   border-radius: 4px;
   padding-left: 0;
   padding-right: 16px;
+  cursor: not-allowed;
   color: #32324d;
   font-weight: 400;
   font-size: 0.875rem;
@@ -8978,6 +8980,7 @@ exports[`Storyshots Design System/Components/DatePicker disabled 1`] = `
   border: none;
   background: transparent;
   border-radius: 4px;
+  cursor: not-allowed;
 }
 
 .c7 svg path {
@@ -9019,6 +9022,7 @@ exports[`Storyshots Design System/Components/DatePicker disabled 1`] = `
                 class="c6"
               >
                 <button
+                  aria-disabled="true"
                   aria-label="Date picker"
                   class="c7"
                   type="button"
@@ -9246,6 +9250,7 @@ exports[`Storyshots Design System/Components/DatePicker size S 1`] = `
                 class="c6"
               >
                 <button
+                  aria-disabled="false"
                   aria-label="Date picker"
                   class="c7"
                   type="button"
@@ -10570,6 +10575,7 @@ exports[`Storyshots Design System/Components/Field disabled 1`] = `
   border-radius: 4px;
   padding-left: 16px;
   padding-right: 16px;
+  cursor: not-allowed;
   color: #32324d;
   font-weight: 400;
   font-size: 0.875rem;
@@ -25824,6 +25830,7 @@ exports[`Storyshots Design System/Components/Searchbar disabled 1`] = `
   border-radius: 4px;
   padding-left: 0;
   padding-right: 16px;
+  cursor: not-allowed;
   color: #32324d;
   font-weight: 400;
   font-size: 0.875rem;
@@ -36138,6 +36145,7 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
   border-radius: 4px;
   padding-left: 16px;
   padding-right: 16px;
+  cursor: not-allowed;
   color: #32324d;
   font-weight: 400;
   font-size: 0.875rem;
