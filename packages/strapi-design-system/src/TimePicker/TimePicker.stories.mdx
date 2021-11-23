@@ -138,6 +138,29 @@ TODO
   </Story>
 </Canvas>
 
+### Disabled
+
+<Canvas>
+  <Story name="disabled">
+    {() => {
+      const [value, setValue] = useState();
+      return (
+        <TimePicker
+          label={'Choose a time'}
+          disabled
+          error={undefined}
+          hint={'Description line'}
+          id={'tp-1'}
+          onClear={() => setValue(undefined)}
+          onChange={setValue}
+          value={value}
+          clearLabel={'Clear the selected time picker value'}
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
 ## Props
 
 <ArgsTable of={TimePicker} />

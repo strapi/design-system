@@ -43,6 +43,7 @@ export const CaretBox = styled(IconBox)`
   display: flex;
   background: none;
   border: none;
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : undefined)};
 
   svg {
     width: ${6 / 16}rem;

@@ -214,6 +214,7 @@ export const Select = ({
                 type="button"
                 onMouseDown={handleMouseDown}
                 tabIndex={-1}
+                disabled={disabled}
               >
                 <CarretDown />
               </CaretBox>
