@@ -13,10 +13,12 @@ import { useTheme } from '@strapi/design-system/ThemeProvider';
 const Navbar = ({ navigationContent }) => {
   const theme = useTheme();
   return (
-    <SubNav ariaLabel="main nav">
+    <SubNav ariaLabel="Main Navbar">
       <Box padding={5}>
         <Link href="/" passHref>
-          <Image src="/logo.svg" width={161} height={25} alt="Strapi Design System" />
+          <a href="/">
+            <Image src="/logo.svg" width={161} height={25} alt="Strapi Design System" />
+          </a>
         </Link>
       </Box>
       <Box background="neutral200" marginLeft={6} width="1.5rem" height="1px" />
