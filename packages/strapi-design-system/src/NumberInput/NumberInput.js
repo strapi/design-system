@@ -112,23 +112,23 @@ export const NumberInput = React.forwardRef(
     };
 
     const handleKeyDown = (e) => {
-      if (!disabled) {
-        switch (e.key) {
-          case KeyboardKeys.DOWN: {
-            e.preventDefault();
-            decrement(true);
-            break;
-          }
+      if (disabled) return;
 
-          case KeyboardKeys.UP: {
-            e.preventDefault();
-            increment(true);
-            break;
-          }
-
-          default:
-            break;
+      switch (e.key) {
+        case KeyboardKeys.DOWN: {
+          e.preventDefault();
+          decrement(true);
+          break;
         }
+
+        case KeyboardKeys.UP: {
+          e.preventDefault();
+          increment(true);
+          break;
+        }
+
+        default:
+          break;
       }
     };
 
