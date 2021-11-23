@@ -11,19 +11,22 @@ describe('NumberInput', () => {
     await checkA11y(page);
   });
 
-  it('fills the input when typing valid numberic numbers', async () => {
+  it('fills the input when typing valid numeric numbers', async () => {
     await page.fill('input', '123.123');
+    await page.keyboard.press('Tab');
 
     const value = await page.$eval('input', (el) => el.value);
     expect(value).toBe('123.123');
+    // expect(await page.$('text="The value is 123123"')).toBeTruthy();
   });
 
-  it('fills the input when typing a valid numberic and a trailing comma', async () => {
+  it('fills the input when typing a valid numeric and a trailing comma', async () => {
     await page.fill('input', '123456,');
     await page.keyboard.press('Tab');
 
     const value = await page.$eval('input', (el) => el.value);
     expect(value).toBe('123,456');
+    expect(await page.$('text="The value is 123456"')).toBeTruthy();
   });
 
   it('erases the value in the input when pressing backspace', async () => {
@@ -33,6 +36,7 @@ describe('NumberInput', () => {
 
     const value = await page.$eval('input', (el) => el.value);
     expect(value).toBe('');
+    expect(await page.$('text="The value is undefined"')).toBeTruthy();
   });
 
   it('puts the step value in the input when pressing ArrowUp and that the input is empty', async () => {
@@ -42,6 +46,7 @@ describe('NumberInput', () => {
 
     const value = await page.$eval('input', (el) => el.value);
     expect(value).toBe('1');
+    expect(await page.$('text="The value is 1"')).toBeTruthy();
   });
 
   it('puts the step value in the input when pressing ArrowDown and that the input contains only the minus sign', async () => {
@@ -51,6 +56,7 @@ describe('NumberInput', () => {
 
     const value = await page.$eval('input', (el) => el.value);
     expect(value).toBe('-1');
+    expect(await page.$('text="The value is -1"')).toBeTruthy();
   });
 
   it('puts the step value in the input when pressing ArrowDown and that the input is empty', async () => {
@@ -60,6 +66,7 @@ describe('NumberInput', () => {
 
     const value = await page.$eval('input', (el) => el.value);
     expect(value).toBe('-1');
+    expect(await page.$('text="The value is -1"')).toBeTruthy();
   });
 
   it('puts the step value in the input when pressing ArrowUp and that the input contains only the minus sign', async () => {
@@ -69,6 +76,7 @@ describe('NumberInput', () => {
 
     const value = await page.$eval('input', (el) => el.value);
     expect(value).toBe('1');
+    expect(await page.$('text="The value is 1"')).toBeTruthy();
   });
 
   it('increments the value when clicking on ArrowUp without blur needed', async () => {
@@ -76,6 +84,7 @@ describe('NumberInput', () => {
 
     const value = await page.$eval('input', (el) => el.value);
     expect(value).toBe('1');
+    expect(await page.$('text="The value is 1"')).toBeTruthy();
   });
 
   it('decrements the value when clicking on ArrowUp without blur needed', async () => {
@@ -83,5 +92,6 @@ describe('NumberInput', () => {
 
     const value = await page.$eval('input', (el) => el.value);
     expect(value).toBe('-1');
+    expect(await page.$('text="The value is -1"')).toBeTruthy();
   });
 });
