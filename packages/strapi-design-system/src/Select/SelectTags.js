@@ -21,7 +21,13 @@ export const SelectTags = ({ tags, onRemoveTag, disabled }) => {
     <SelectTagsWrapper>
       <Flex wrap="wrap">
         {tags.map((tag) => (
-          <SelectTag icon={<Cross />} disabled={disabled} onClick={onRemoveTag} tabIndex={-1} key={`tag-${tag.value}`}>
+          <SelectTag
+            icon={<Cross />}
+            disabled={disabled}
+            onClick={() => onRemoveTag(tag.value)}
+            tabIndex={-1}
+            key={`tag-${tag.value}`}
+          >
             {tag.label}
           </SelectTag>
         ))}

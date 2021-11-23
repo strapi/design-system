@@ -12,6 +12,7 @@ const Input = styled.input`
   border-radius: ${({ theme }) => theme.borderRadius};
   padding-left: ${({ theme, hasLeftAction }) => (hasLeftAction ? 0 : theme.spaces[4])};
   padding-right: ${({ theme, hasRightAction }) => (hasRightAction ? 0 : theme.spaces[4])};
+  cursor: ${(props) => (props['aria-disabled'] ? 'not-allowed' : undefined)};
 
   color: ${({ theme }) => theme.colors.neutral800};
   font-weight: 400;

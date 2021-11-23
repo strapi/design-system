@@ -18,7 +18,7 @@ const ArrowButton = styled.button`
   height: 1rem;
   align-items: ${({ reverse }) => (reverse ? 'flex-end' : 'flex-start')};
   transform: translateY(${({ reverse }) => (reverse ? `-2px` : `2px`)});
-
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : undefined)};
   svg {
     display: block;
     height: ${4 / 16}rem;
@@ -29,7 +29,25 @@ const ArrowButton = styled.button`
 const INITIAL_VALUE = '';
 
 export const NumberInput = React.forwardRef(
-  ({ size, startAction, name, hint, error, label, labelAction, id, onValueChange, value, step, ...props }, ref) => {
+  (
+    {
+      size,
+      startAction,
+      name,
+      hint,
+      error,
+      label,
+      labelAction,
+      id,
+      onValueChange,
+      value,
+      step,
+      required,
+      disabled,
+      ...props
+    },
+    ref,
+  ) => {
     const [inputValue, setInputValue] = useState(value || INITIAL_VALUE);
     const generatedId = useId('numberinput', id);
     const numberParserRef = useRef(new NumberParser(getDefaultLocale()));
@@ -51,39 +69,64 @@ export const NumberInput = React.forwardRef(
       }
     };
 
-    const increment = () => {
+    const increment = (fromKeyBoard) => {
       const parsedValue = numberParserRef.current.parse(inputValue);
 
+      // If value is changed from keyboard we want to let handleBlur to activate onValueChange
+      // If value is changed when clicking on arrows we want to activate onValueChange immediately
+
       if (isNaN(parsedValue)) {
-        setInputValue(numberFormaterRef.current.format(step));
+        if (fromKeyBoard) {
+          setInputValue(numberFormaterRef.current.format(step));
+        } else {
+          onValueChange(step);
+        }
       } else {
-        setInputValue(numberFormaterRef.current.format(parsedValue + step));
+        if (fromKeyBoard) {
+          setInputValue(numberFormaterRef.current.format(parsedValue + step));
+        } else {
+          onValueChange(parsedValue + step);
+        }
       }
     };
 
-    const decrement = () => {
+    const decrement = (fromKeyBoard) => {
       const parsedValue = numberParserRef.current.parse(inputValue);
 
+      // If value is changed from keyboard we want to let handleBlur to activate onValueChange
+      // If value is changed when clicking on arrows we want to activate onValueChange immediately
+
       if (isNaN(parsedValue)) {
-        setInputValue(numberFormaterRef.current.format(-step));
+        if (fromKeyBoard) {
+          setInputValue(numberFormaterRef.current.format(-step));
+        } else {
+          onValueChange(-step);
+        }
       } else {
-        setInputValue(numberFormaterRef.current.format(parsedValue - step));
+        if (fromKeyBoard) {
+          setInputValue(numberFormaterRef.current.format(parsedValue - step));
+        } else {
+          onValueChange(parsedValue - step);
+        }
       }
     };
 
     const handleKeyDown = (e) => {
+      if (disabled) return;
+
       switch (e.key) {
         case KeyboardKeys.DOWN: {
           e.preventDefault();
-          decrement();
+          decrement(true);
           break;
         }
 
         case KeyboardKeys.UP: {
           e.preventDefault();
-          increment();
+          increment(true);
           break;
         }
+
         default:
           break;
       }
@@ -105,13 +148,14 @@ export const NumberInput = React.forwardRef(
         <Stack size={1}>
           {label && (
             <Flex cols="auto auto 1fr" gap={1}>
-              <FieldLabel>{label}</FieldLabel>
+              <FieldLabel required={required}>{label}</FieldLabel>
               {labelAction && <Box paddingLeft={1}>{labelAction}</Box>}
             </Flex>
           )}
           <FieldInput
             ref={ref}
             startAction={startAction}
+            disabled={disabled}
             type="text"
             inputmode="decimal"
             onChange={handleChange}
@@ -121,10 +165,31 @@ export const NumberInput = React.forwardRef(
             size={size}
             endAction={
               <>
-                <ArrowButton aria-hidden reverse onClick={increment} tabIndex={-1} type="button">
+                <ArrowButton
+                  disabled={disabled}
+                  aria-hidden
+                  reverse
+                  onClick={() => {
+                    // increment needs an argument, so we can't remove the parenthesis
+                    increment();
+                  }}
+                  tabIndex={-1}
+                  type="button"
+                  data-testid="ArrowUp"
+                >
                   <Icon as={CarretDown} color="neutral500" />
                 </ArrowButton>
-                <ArrowButton aria-hidden onClick={decrement} tabIndex={-1} type="button">
+                <ArrowButton
+                  disabled={disabled}
+                  aria-hidden
+                  onClick={() => {
+                    // decrement needs an argument, so we can't remove the parenthesis
+                    decrement();
+                  }}
+                  tabIndex={-1}
+                  type="button"
+                  data-testid="ArrowDown"
+                >
                   <Icon as={CarretDown} color="neutral500" />
                 </ArrowButton>
               </>
@@ -143,19 +208,22 @@ NumberInput.displayName = 'NumberInput';
 
 NumberInput.defaultProps = {
   'aria-label': undefined,
-  label: undefined,
-  labelAction: undefined,
+  disabled: false,
   error: undefined,
   hint: undefined,
   id: undefined,
-  startAction: undefined,
-  value: undefined,
+  label: undefined,
+  labelAction: undefined,
+  required: false,
   size: 'M',
+  startAction: undefined,
   step: 1,
+  value: undefined,
 };
 
 NumberInput.propTypes = {
   'aria-label': PropTypes.string,
+  disabled: PropTypes.bool,
   error: PropTypes.string,
   hint: PropTypes.string,
   id: PropTypes.string,
@@ -163,6 +231,7 @@ NumberInput.propTypes = {
   labelAction: PropTypes.element,
   name: PropTypes.string.isRequired,
   onValueChange: PropTypes.func.isRequired,
+  required: PropTypes.bool,
   size: PropTypes.oneOf(Object.keys(sizes.input)),
   startAction: PropTypes.element,
   step: PropTypes.number,

@@ -12,6 +12,7 @@ export const DatePickerButton = styled.button`
   border: none;
   background: transparent;
   border-radius: ${({ theme }) => theme.borderRadius};
+  cursor: ${(props) => (props['aria-disabled'] ? 'not-allowed' : undefined)};
 
   & svg path {
     fill: ${({ theme }) => theme.colors.neutral500};
