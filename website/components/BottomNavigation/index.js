@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import StyledLink from 'components/StyledLink';
 import { Typography } from '@strapi/design-system/Typography';
 import { Flex } from '@strapi/design-system/Flex';
+import { Box } from '@strapi/design-system/Box';
 import Link from 'next/link';
 
 const Wrapper = styled.div`
@@ -13,7 +14,7 @@ const BottomNavigation = ({ next, previous }) => {
   return (
     <Wrapper>
       <Flex justifyContent="space-between" paddingTop={8}>
-        <div>
+        <Box>
           {previous.path && (
             <>
               <Typography variant="epsilon" textColor="neutral700">
@@ -26,8 +27,8 @@ const BottomNavigation = ({ next, previous }) => {
               </Link>
             </>
           )}
-        </div>
-        <div>
+        </Box>
+        <Box>
           {next.path && (
             <>
               <Typography variant="epsilon" textColor="neutral700">
@@ -40,7 +41,7 @@ const BottomNavigation = ({ next, previous }) => {
               </Link>
             </>
           )}
-        </div>
+        </Box>
       </Flex>
     </Wrapper>
   );

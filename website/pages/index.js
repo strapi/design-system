@@ -14,7 +14,7 @@ const Home = ({ navbarContent }) => {
     <Layout meta={{ title: 'Welcome' }} navigationContent={navbarContent || {}}>
       <Box padding={10} background="neutral0" shadow="filterShadow" hasRadius={true}>
         <Box paddingBottom={6}>
-          <Typography as="h1" variant="alpha" textColor="neutral800">
+          <Typography id="main-content-title" as="h1" variant="alpha" textColor="neutral800">
             Welcome on Strapi Design System!{' '}
             <span role="img" aria-label="waving hand">
               👋

@@ -5,7 +5,7 @@ const components = {
   h1: (props) => {
     return (
       <Box paddingBottom={6}>
-        <Typography as="h1" variant="alpha" textColor="neutral800" {...props} />
+        <Typography id="main-content-title" as="h1" variant="alpha" textColor="neutral800" {...props} />
       </Box>
     );
   },

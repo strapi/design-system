@@ -8,10 +8,8 @@ import { Icon } from '@strapi/design-system/Icon';
 import Discourse from '@strapi/icons/Discourse';
 import Github from '@strapi/icons/Github';
 import Image from 'next/image';
-import { useTheme } from '@strapi/design-system/ThemeProvider';
 
 const Navbar = ({ navigationContent }) => {
-  const theme = useTheme();
   return (
     <SubNav ariaLabel="Main Navbar">
       <Box padding={5}>
@@ -27,11 +25,11 @@ const Navbar = ({ navigationContent }) => {
           return <NavSection title={section.title} pages={section.pages} key={index} />;
         })}
         <Box paddingLeft={4}>
-          <StyledLink theme={theme} href="https://github.com/strapi/design-system" target="_blank" padding={2} size={2}>
+          <StyledLink href="https://github.com/strapi/design-system" target="_blank" padding={2} size={2}>
             <Icon as={Github} height={16} width={16} marginRight={2} />
             Contribute on Github
           </StyledLink>
-          <StyledLink theme={theme} href="#" target="_blank" padding={2} size={2}>
+          <StyledLink href="#" target="_blank" padding={2} size={2}>
             <Icon as={Discourse} height={16} width={16} marginRight={2} />
             DS! Forum
           </StyledLink>
