@@ -2,15 +2,15 @@ import Head from 'components/Head';
 import Navbar from 'components/Navbar';
 import StyledLink from 'components/StyledLink';
 import PropTypes from 'prop-types';
-import { Layout, ContentLayout } from '@strapi/design-system/Layout';
+import { Layout as PageLayout, ContentLayout } from '@strapi/design-system/Layout';
 import { Box } from '@strapi/design-system/Box';
 import { Stack } from '@strapi/design-system/Stack';
 import { Main } from '@strapi/design-system/Main';
 
-const AppLayout = ({ children, meta, navigationContent }) => {
+const Layout = ({ children, meta, navigationContent }) => {
   return (
     <Box background="neutral100">
-      <Layout sideNav={<Navbar navigationContent={navigationContent} />}>
+      <PageLayout sideNav={<Navbar navigationContent={navigationContent} />}>
         <Head meta={meta} />
         <Box padding={4}>
           <ContentLayout>
@@ -38,12 +38,12 @@ const AppLayout = ({ children, meta, navigationContent }) => {
             </Stack>
           </ContentLayout>
         </Box>
-      </Layout>
+      </PageLayout>
     </Box>
   );
 };
 
-AppLayout.propTypes = {
+Layout.propTypes = {
   children: PropTypes.node.isRequired,
   meta: PropTypes.shape({
     title: PropTypes.string,
@@ -63,4 +63,4 @@ AppLayout.propTypes = {
   ),
 };
 
-export default AppLayout;
+export default Layout;
