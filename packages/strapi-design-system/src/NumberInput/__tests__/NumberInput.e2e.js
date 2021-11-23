@@ -17,6 +17,7 @@ describe('NumberInput', () => {
 
     const value = await page.$eval('input', (el) => el.value);
     expect(value).toBe('123.123');
+    //TODO
     // expect(await page.$('text="The value is 123123"')).toBeTruthy();
   });
 
