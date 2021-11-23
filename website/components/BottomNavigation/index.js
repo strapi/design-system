@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import StyledLink from 'components/StyledLink';
 import { Typography } from '@strapi/design-system/Typography';
 import { Flex } from '@strapi/design-system/Flex';
-import { useTheme } from '@strapi/design-system/ThemeProvider';
 import Link from 'next/link';
 
 const Wrapper = styled.div`
@@ -11,9 +10,8 @@ const Wrapper = styled.div`
 `;
 
 const BottomNavigation = ({ next, previous }) => {
-  const theme = useTheme();
   return (
-    <Wrapper theme={theme}>
+    <Wrapper>
       <Flex justifyContent="space-between" paddingTop={8}>
         <div>
           {previous.path && (
@@ -22,7 +20,7 @@ const BottomNavigation = ({ next, previous }) => {
                 Previous
               </Typography>
               <Link href={previous.path} passHref>
-                <StyledLink theme={theme} active={true} padding={0} size={18}>
+                <StyledLink active={true} padding={0} size={4}>
                   {previous.title}
                 </StyledLink>
               </Link>
@@ -36,7 +34,7 @@ const BottomNavigation = ({ next, previous }) => {
                 Next
               </Typography>
               <Link href={next.path} passHref>
-                <StyledLink theme={theme} active={true} padding={0} size={18}>
+                <StyledLink active={true} padding={0} size={4}>
                   {next.title}
                 </StyledLink>
               </Link>

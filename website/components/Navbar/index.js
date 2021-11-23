@@ -33,11 +33,11 @@ const Navbar = ({ navigationContent }) => {
           return <NavSection title={section.title} pages={section.pages} key={index} />;
         })}
         <Box paddingLeft={4}>
-          <StyledLink theme={theme} href="https://github.com/strapi/design-system" target="_blank" padding={8}>
+          <StyledLink theme={theme} href="https://github.com/strapi/design-system" target="_blank" padding={2} size={2}>
             <Icon as={Github} height={16} width={16} marginRight={2} />
             Contribute on Github
           </StyledLink>
-          <StyledLink theme={theme} href="#" target="_blank" padding={8}>
+          <StyledLink theme={theme} href="#" target="_blank" padding={2} size={2}>
             <Icon as={Discourse} height={16} width={16} marginRight={2} />
             DS! Forum
           </StyledLink>

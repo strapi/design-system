@@ -5,10 +5,8 @@ import PropTypes from 'prop-types';
 import { Layout, ContentLayout } from '@strapi/design-system/Layout';
 import { Box } from '@strapi/design-system/Box';
 import { Stack } from '@strapi/design-system/Stack';
-import { useTheme } from '@strapi/design-system/ThemeProvider';
 
 const AppLayout = ({ children, meta, navigationContent }) => {
-  const theme = useTheme();
   return (
     <Box background="neutral100">
       <Layout sideNav={<Navbar navigationContent={navigationContent} />}>
@@ -18,20 +16,20 @@ const AppLayout = ({ children, meta, navigationContent }) => {
             <Stack as="main" size={4}>
               {children}
             </Stack>
-            <Stack as="footer" size={4} horizontal paddingTop={10}>
-              <StyledLink theme={theme} href="https://strapi.io" target="_blank">
+            <Stack as="footer" size={7} horizontal paddingTop={10}>
+              <StyledLink size={2} href="https://strapi.io" target="_blank">
                 © 2021 Strapi
               </StyledLink>
-              <StyledLink theme={theme} href="https://strapi.io/careers" target="_blank">
+              <StyledLink size={2} href="https://strapi.io/careers" target="_blank">
                 Careers
               </StyledLink>
-              <StyledLink theme={theme} href="#" target="_blank">
+              <StyledLink size={2} href="#" target="_blank">
                 Privacy
               </StyledLink>
-              <StyledLink theme={theme} href="#" target="_blank">
+              <StyledLink size={2} href="#" target="_blank">
                 License
               </StyledLink>
-              <StyledLink theme={theme} href="https://strapi.io" target="_blank">
+              <StyledLink size={2} href="https://strapi.io" target="_blank">
                 strapi.io
               </StyledLink>
             </Stack>

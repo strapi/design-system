@@ -5,21 +5,21 @@ const components = {
   h1: (props) => {
     return (
       <Box paddingBottom={6}>
-        <Typography variant="alpha" textColor="neutral800" {...props} />
+        <Typography as="h1" variant="alpha" textColor="neutral800" {...props} />
       </Box>
     );
   },
   h2: (props) => {
     return (
       <Box paddingBottom={4}>
-        <Typography variant="beta" textColor="neutral800" {...props} />
+        <Typography as="h2" variant="beta" textColor="neutral800" {...props} />
       </Box>
     );
   },
   p: (props) => {
     return (
       <Box paddingBottom={8}>
-        <Typography variant="epsilon" textColor="neutral700" {...props} />
+        <Typography as="p" variant="epsilon" textColor="neutral700" {...props} />
       </Box>
     );
   },
