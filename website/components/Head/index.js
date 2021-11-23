@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 const Head = ({ meta }) => {
   return (
     <NextHead>
+      <html lang="en" />
       <title>{meta?.title}</title>
       <meta content={meta?.description} name="description" />
       <meta property="og:type" content={meta?.type} />

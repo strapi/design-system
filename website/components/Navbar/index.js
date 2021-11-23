@@ -24,7 +24,7 @@ const Navbar = ({ navigationContent }) => {
     <SubNav ariaLabel="main nav">
       <Box padding={5}>
         <Link href="/" passHref>
-          <Image src="/logo.svg" width={161} height={25} />
+          <Image src="/logo.svg" width={161} height={25} alt="Strapi Design System" />
         </Link>
       </Box>
       <HorizontalLine theme={theme} />

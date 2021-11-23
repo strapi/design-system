@@ -9,9 +9,9 @@ import ArrowRight from '@strapi/icons/ArrowRight';
 import StyledLink from 'components/StyledLink';
 import PropTypes from 'prop-types';
 
-export default function Home({ navbarContent }) {
+const Home = ({ navbarContent }) => {
   return (
-    <Layout meta={{ title: 'Welcome' }} navigationContent={navbarContent ? navbarContent : {}}>
+    <Layout meta={{ title: 'Welcome' }} navigationContent={navbarContent || {}}>
       <Box padding={10} background="neutral0" shadow="filterShadow" hasRadius={true}>
         <Box paddingBottom={6}>
           <Typography as="h1" variant="alpha" textColor="neutral800">
@@ -26,9 +26,9 @@ export default function Home({ navbarContent }) {
           applications more cohesive.
         </Typography>
 
-        <Grid gap={5} style={{ paddingTop: 40, paddingBottom: 40 }}>
+        <Grid gap={5} paddingTop={8} paddingBottom={8}>
           <GridItem col={4}>
-            <Image src="/principles.svg" width={214} height={131} />
+            <Image src="/principles.svg" width={214} height={131} alt="principles" />
             <Box paddingBottom={4} paddingTop={4}>
               <Typography as="h2" variant="beta" textColor="neutral800">
                 Getting Started
@@ -43,7 +43,7 @@ export default function Home({ navbarContent }) {
             </StyledLink>
           </GridItem>
           <GridItem col={4}>
-            <Image src="/foundations.svg" width={214} height={131} />
+            <Image src="/foundations.svg" width={214} height={131} alt="foundations" />
             <Box paddingBottom={4} paddingTop={4}>
               <Typography as="h2" variant="beta" textColor="neutral800">
                 Foundations
@@ -58,7 +58,7 @@ export default function Home({ navbarContent }) {
             </StyledLink>
           </GridItem>
           <GridItem col={4}>
-            <Image src="/components.svg" width={214} height={131} />
+            <Image src="/components.svg" width={214} height={131} alt="components" />
             <Box paddingBottom={4} paddingTop={4}>
               <Typography as="h2" variant="beta" textColor="neutral800">
                 Components
@@ -81,7 +81,7 @@ export default function Home({ navbarContent }) {
           </Typography>
         </Box>
         <Box paddingBottom={2}>
-          <Typography as="h1" variant="alpha" textColor="neutral800">
+          <Typography as="h3" variant="alpha" textColor="neutral800">
             Design System! v1.0.0
           </Typography>
         </Box>
@@ -96,7 +96,7 @@ export default function Home({ navbarContent }) {
       </Box>
     </Layout>
   );
-}
+};
 
 export const getStaticProps = async () => {
   const navbarContent = await getNavbarContent();
@@ -106,3 +106,5 @@ export const getStaticProps = async () => {
 Home.propTypes = {
   navbarContent: PropTypes.arrayOf(PropTypes.object),
 };
+
+export default Home;
