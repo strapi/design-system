@@ -82,6 +82,33 @@ TODO
   </Story>
 </Canvas>
 
+## Disabled
+
+<Canvas>
+  <Story name="disabled">
+    {() => {
+      const [date, setDate] = useState();
+      return (
+        <div>
+          <DatePicker
+            onChange={setDate}
+            selectedDate={date}
+            label="Date picker"
+            name="datepicker"
+            clearLabel={'Clear the datepicker'}
+            onClear={() => setDate(undefined)}
+            selectedDateLabel={(formattedDate) => `Date picker, current is ${formattedDate}`}
+            disabled
+          />
+          <div style={{ marginLeft: '500px' }}>
+            <button>Button outside picker</button>
+          </div>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
 ## Props
 
 <ArgsTable of={DatePicker} />
