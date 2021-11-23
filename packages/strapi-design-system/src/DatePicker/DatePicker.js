@@ -48,7 +48,7 @@ export const DatePicker = ({
     <DatePickerWrapper bold={visible}>
       <TextInput
         ref={inputRef}
-        onClick={toggleVisibility}
+        onClick={disabled ? undefined : toggleVisibility}
         // Prevent input from changing for now
         onChange={() => {}}
         value={formattedDate}
