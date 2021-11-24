@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import CarretDown from '@strapi/icons/CarretDown';
 import styled from 'styled-components';
@@ -57,58 +57,61 @@ export const NumberInput = React.forwardRef(
       throw new Error('The NumberInput component needs a "label" or an "aria-label" props');
     }
 
-    useEffect(() => {
-      if (value !== undefined) {
-        setInputValue(numberFormaterRef.current.format(value));
-      }
-    }, [value]);
-
     const handleChange = (e) => {
-      if (numberParserRef.current.isValidPartialNumber(e.target.value)) {
-        setInputValue(e.target.value);
+      const nextValue = e.target.value;
+
+      if (!isNaN(nextValue)) {
+        const parsedValue = nextValue === '' ? undefined : numberParserRef.current.parse(nextValue);
+
+        onValueChange(parsedValue);
+        setInputValue(parsedValue);
       }
     };
 
     const increment = (fromKeyBoard) => {
-      const parsedValue = numberParserRef.current.parse(inputValue);
-
-      // If value is changed from keyboard we want to let handleBlur to activate onValueChange
-      // If value is changed when clicking on arrows we want to activate onValueChange immediately
-
-      if (isNaN(parsedValue)) {
-        if (fromKeyBoard) {
-          setInputValue(numberFormaterRef.current.format(step));
-        } else {
-          onValueChange(step);
-        }
-      } else {
-        if (fromKeyBoard) {
-          setInputValue(numberFormaterRef.current.format(parsedValue + step));
-        } else {
-          onValueChange(parsedValue + step);
-        }
+      if (inputValue === '') {
+        onValueChange(step);
+        setInputValue(step);
+        return;
       }
+
+      if (isNaN(inputValue)) {
+        const parsedValue = numberParserRef.current.parse(inputValue);
+
+        const nextValue = parsedValue + step;
+        const formattedValue = numberFormaterRef.current.format(nextValue);
+
+        onValueChange(nextValue);
+        setInputValue(fromKeyBoard ? nextValue : formattedValue);
+
+        return;
+      }
+
+      onValueChange(value + step);
+      setInputValue(value + step);
     };
 
     const decrement = (fromKeyBoard) => {
-      const parsedValue = numberParserRef.current.parse(inputValue);
-
-      // If value is changed from keyboard we want to let handleBlur to activate onValueChange
-      // If value is changed when clicking on arrows we want to activate onValueChange immediately
-
-      if (isNaN(parsedValue)) {
-        if (fromKeyBoard) {
-          setInputValue(numberFormaterRef.current.format(-step));
-        } else {
-          onValueChange(-step);
-        }
-      } else {
-        if (fromKeyBoard) {
-          setInputValue(numberFormaterRef.current.format(parsedValue - step));
-        } else {
-          onValueChange(parsedValue - step);
-        }
+      if (inputValue === '') {
+        onValueChange(-step);
+        setInputValue(-step);
+        return;
       }
+
+      if (isNaN(inputValue)) {
+        const parsedValue = numberParserRef.current.parse(inputValue);
+
+        const nextValue = parsedValue - step;
+        const formattedValue = numberFormaterRef.current.format(nextValue);
+
+        onValueChange(nextValue);
+        setInputValue(fromKeyBoard ? nextValue : formattedValue);
+
+        return;
+      }
+
+      onValueChange(value - step);
+      setInputValue(value - step);
     };
 
     const handleKeyDown = (e) => {
@@ -132,14 +135,15 @@ export const NumberInput = React.forwardRef(
       }
     };
 
-    const handleBlur = () => {
-      const parsedValue = numberParserRef.current.parse(inputValue);
+    const handleFocus = () => {
+      if (value !== undefined && !isNaN(value)) {
+        setInputValue(numberParserRef.current.parse(inputValue));
+      }
+    };
 
-      if (isNaN(parsedValue)) {
-        onValueChange(undefined);
-        setInputValue(INITIAL_VALUE);
-      } else {
-        onValueChange(numberParserRef.current.parse(inputValue));
+    const handleBlur = () => {
+      if (value !== undefined) {
+        setInputValue(numberFormaterRef.current.format(inputValue));
       }
     };
 
@@ -161,7 +165,8 @@ export const NumberInput = React.forwardRef(
             onChange={handleChange}
             onKeyDown={handleKeyDown}
             onBlur={handleBlur}
-            value={inputValue || ''}
+            onFocus={handleFocus}
+            value={inputValue ?? ''}
             size={size}
             endAction={
               <>
