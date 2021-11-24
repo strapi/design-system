@@ -60,11 +60,13 @@ export const NumberInput = React.forwardRef(
     const handleChange = (e) => {
       const nextValue = e.target.value;
 
-      if (!isNaN(nextValue)) {
+      if (numberParserRef.current.isValidPartialNumber(nextValue)) {
         const parsedValue = nextValue === '' ? undefined : numberParserRef.current.parse(nextValue);
 
+        // checking NaN case when only typing a "-" (minus) sign inside the field
+
         onValueChange(parsedValue);
-        setInputValue(parsedValue);
+        setInputValue(e.target.value);
       }
     };
 
@@ -143,7 +145,7 @@ export const NumberInput = React.forwardRef(
 
     const handleBlur = () => {
       if (value !== undefined) {
-        setInputValue(numberFormaterRef.current.format(inputValue));
+        setInputValue(numberFormaterRef.current.format(value));
       }
     };
 
