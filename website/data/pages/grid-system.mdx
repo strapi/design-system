@@ -1,3 +1,42 @@
 ---
 title: Grid system
+description:
 ---
+
+# Grid System
+
+The Grid System is an important part of a design system that brings consistency across experiences and platforms. Good typography rules help present content clearly and efficiently.
+
+## Baseline
+
+The Strapi type stack specifies 14px/0.875rem for the base font size, which produces an 8px x-height. The x-height is halved to produce a 4px baseline. 
+
+![Baseline](/baseline.png)
+
+This baseline convention naturally flows on to the rest of the grid system, which includes icons, components, and layout dimensions. Always try to align objects on the 8px grid, but where necessary use good judgement to fine tune your designs to 4px. The 4px baseline is there to allow more flexibility for line heights and smaller adjustments.
+
+All our “components blocks” flows vertically along this baseline, creating a similar rhythm across all screens. 
+
+## Spacing System
+
+Use multiples of 8px when defining measurements, spacing, and positioning elements.
+
+![Spacing system](/spacing-system.png)
+
+### Best practice <br/> <br/>
+
+*‣* When necessary use 4px to make more fine tuned adjustments. <br/> <br/>
+*‣* Whenever possible, make sure that objects line up, both vertically and horizontally. <br/> <br/>
+*‣* Align your bounding box to the grid, not the baseline of your text. <br/> <br/>
+
+## Responsive grid
+
+A 12 columns responsive grid is applied to the entire interface, except the main and secondary navigation. <br/> <br/>
+We use fixed margin of 56px and fixed Gutters of 20px to ensure consistencies in our alignement. The column width varies depending on screen sizes. <br/>
+
+> *1* - Margin : 56px <br/>
+> *2* - Gutters : 20px <br/>
+> *3* - Columns : 12 <br/>
+
+![Responsive grid](/responsive-grid.png)
+Lorem ipsum and fixed Gutters of 20px to ensure consistencies in our alignement. The column width varies depending on screen sizes.
