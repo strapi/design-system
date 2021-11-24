@@ -156,7 +156,9 @@ export const NumberInput = React.forwardRef(
     };
 
     const handleBlur = () => {
-      if (value !== undefined) {
+      if (value === undefined) {
+        setInputValue(undefined);
+      } else {
         setInputValue(numberFormaterRef.current.format(value));
       }
     };
