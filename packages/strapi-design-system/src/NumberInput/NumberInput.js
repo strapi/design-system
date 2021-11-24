@@ -65,7 +65,12 @@ export const NumberInput = React.forwardRef(
 
         // checking NaN case when only typing a "-" (minus) sign inside the field
 
-        onValueChange(parsedValue);
+        if (parsedValue === undefined) {
+          onValueChange(undefined);
+        } else if (!isNaN(parsedValue)) {
+          onValueChange(parsedValue);
+        }
+
         setInputValue(e.target.value);
       }
     };
@@ -80,7 +85,10 @@ export const NumberInput = React.forwardRef(
       if (isNaN(inputValue)) {
         const parsedValue = numberParserRef.current.parse(inputValue);
 
-        const nextValue = parsedValue + step;
+        // Probably in the minus case
+        const safeValue = isNaN(parsedValue) ? 0 : parsedValue;
+
+        const nextValue = safeValue + step;
         const formattedValue = numberFormaterRef.current.format(nextValue);
 
         onValueChange(nextValue);
@@ -103,7 +111,10 @@ export const NumberInput = React.forwardRef(
       if (isNaN(inputValue)) {
         const parsedValue = numberParserRef.current.parse(inputValue);
 
-        const nextValue = parsedValue - step;
+        // Probably in the minus case
+        const safeValue = isNaN(parsedValue) ? 0 : parsedValue;
+
+        const nextValue = safeValue - step;
         const formattedValue = numberFormaterRef.current.format(nextValue);
 
         onValueChange(nextValue);
