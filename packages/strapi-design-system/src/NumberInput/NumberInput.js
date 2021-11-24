@@ -63,11 +63,12 @@ export const NumberInput = React.forwardRef(
       if (numberParserRef.current.isValidPartialNumber(nextValue)) {
         const parsedValue = nextValue === '' ? undefined : numberParserRef.current.parse(nextValue);
 
-        // checking NaN case when only typing a "-" (minus) sign inside the field
-
         if (parsedValue === undefined) {
           onValueChange(undefined);
-        } else if (!isNaN(parsedValue)) {
+        } else if (isNaN(parsedValue)) {
+          // checking NaN case when only typing a "-" (minus) sign inside the field
+          onValueChange(undefined);
+        } else {
           onValueChange(parsedValue);
         }
 
