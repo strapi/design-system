@@ -12,7 +12,15 @@ import PropTypes from 'prop-types';
 const Home = ({ navbarContent }) => {
   return (
     <Layout meta={{ title: 'Welcome' }} navigationContent={navbarContent || {}}>
-      <Box padding={10} background="neutral0" shadow="filterShadow" hasRadius={true}>
+      <Box
+        padding={10}
+        background="neutral0"
+        shadow="filterShadow"
+        hasRadius={true}
+        style={{
+          maxWidth: '880px',
+        }}
+      >
         <Box paddingBottom={6}>
           <Typography id="main-content-title" as="h1" variant="alpha" textColor="neutral800">
             Welcome on Strapi Design System!{' '}
@@ -22,8 +30,8 @@ const Home = ({ navbarContent }) => {
           </Typography>
         </Box>
         <Typography variant="omega" textColor="neutral700">
-          Design System! provides components and tools to help product teams work more efficiently, and to make Strapi’s
-          applications more cohesive.
+          Strapi Design System provides guidelines and tools to help anyone make Strapi&apos;s contributions more
+          cohesive and to build plugins more efficiently.
         </Typography>
 
         <Grid gap={5} paddingTop={8} paddingBottom={8}>
@@ -67,14 +75,22 @@ const Home = ({ navbarContent }) => {
             <Typography variant="omega" textColor="neutral700">
               Get started with the Principles, the update and everything related to the Design System! accessibility
             </Typography>
-            <StyledLink href="/actions" target="_blank" padding={4} active={true} size={0}>
+            <StyledLink href="/components" target="_blank" padding={4} active={true} size={0}>
               SEE THE COMPONENTS
               <Icon as={ArrowRight} height={10} width={10} marginLeft={1} color="primary600" />
             </StyledLink>
           </GridItem>
         </Grid>
       </Box>
-      <Box padding={8} background="neutral0" shadow="filterShadow" hasRadius={true}>
+      <Box
+        padding={8}
+        background="neutral0"
+        shadow="filterShadow"
+        hasRadius={true}
+        style={{
+          maxWidth: '880px',
+        }}
+      >
         <Box paddingBottom={3}>
           <Typography as="h2" variant="beta" textColor="neutral600">
             What’s new
@@ -82,12 +98,12 @@ const Home = ({ navbarContent }) => {
         </Box>
         <Box paddingBottom={2}>
           <Typography as="h3" variant="alpha" textColor="neutral800">
-            Design System! v1.0.0
+            Strapi Design System v1.0
           </Typography>
         </Box>
         <Typography variant="epsilon" textColor="neutral600">
-          A new look and feel, with an updated color palette, icons, and more, with accessibility features to make sure
-          that the experiences you create work for everyone.
+          A new look and feel, with fresh design tokens coupled with accessibility features to make sure the experiences
+          you create work for everyone.
         </Typography>
         <StyledLink href="#" target="_blank" padding={6} active={true} size={0}>
           SEE ALL NEW UPDATES
