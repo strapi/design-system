@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const MainWrapper = styled.main`
-  outline: none;
+  &:focus-visible {
+    outline: none;
+  }
 `;
 
 export const Main = ({ labelledBy, ...props }) => {
