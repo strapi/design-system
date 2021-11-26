@@ -26,10 +26,10 @@ const Layout = ({ children, meta, navigationContent }) => {
               <StyledLink size={2} href="https://strapi.io/careers" target="_blank">
                 Careers
               </StyledLink>
-              <StyledLink size={2} href="#" target="_blank">
+              <StyledLink size={2} href="https://strapi.io/privacy" target="_blank">
                 Privacy
               </StyledLink>
-              <StyledLink size={2} href="#" target="_blank">
+              <StyledLink size={2} href="https://strapi.io/pricing-self-hosted" target="_blank">
                 License
               </StyledLink>
               <StyledLink size={2} href="https://strapi.io" target="_blank">
