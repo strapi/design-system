@@ -25,14 +25,7 @@ const Navbar = ({ navigationContent }) => {
           return <NavSection title={section.title} pages={section.pages} key={index} />;
         })}
       </SubNavSections>
-      <Box
-        paddingLeft={4}
-        paddingBottom={4}
-        style={{
-          position: 'absolute',
-          bottom: 0,
-        }}
-      >
+      <Box paddingLeft={4} paddingBottom={4} position="absolute" bottom={0}>
         <StyledLink href="https://github.com/strapi/design-system" target="_blank" padding={2} size={2}>
           <Icon as={Github} height={16} width={16} marginRight={2} color="neutral500" />
           Contribute on Github

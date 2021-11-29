@@ -10,15 +10,7 @@ import components from 'components/MarkdownComponents';
 const PostPage = ({ mdxSource, frontMatter, navbarContent, next, previous }) => {
   return (
     <Layout meta={frontMatter} navigationContent={navbarContent || {}}>
-      <Box
-        padding={10}
-        background="neutral0"
-        shadow="filterShadow"
-        hasRadius={true}
-        style={{
-          maxWidth: '880px',
-        }}
-      >
+      <Box padding={10} background="neutral0" shadow="filterShadow" hasRadius={true} maxWidth="880px">
         <MDXRemote {...mdxSource} components={components} />
         <BottomNavigation next={next} previous={previous} />
       </Box>

@@ -82,15 +82,7 @@ const Home = ({ navbarContent }) => {
           </GridItem>
         </Grid>
       </Box>
-      <Box
-        padding={8}
-        background="neutral0"
-        shadow="filterShadow"
-        hasRadius={true}
-        style={{
-          maxWidth: '880px',
-        }}
-      >
+      <Box padding={8} background="neutral0" shadow="filterShadow" hasRadius={true} maxWidth="880px">
         <Box paddingBottom={3}>
           <Typography as="h2" variant="beta" textColor="neutral600">
             What’s new
