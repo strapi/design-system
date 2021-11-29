@@ -5,10 +5,6 @@ export default [
   },
   {
     title: 'foundations',
-    pages: ['typography', 'grid-system', 'radius-&-shadows', 'colors', 'iconography', 'logos'],
-  },
-  {
-    title: 'components',
-    pages: ['actions', 'forms', 'feedback-indicator', 'list-&-tables', 'navigation'],
+    pages: ['typography', 'grid-system', 'radius-&-shadows', 'colors', 'iconography', 'components'],
   },
 ];

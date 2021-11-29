@@ -24,17 +24,17 @@ const Navbar = ({ navigationContent }) => {
         {navigationContent?.map((section, index) => {
           return <NavSection title={section.title} pages={section.pages} key={index} />;
         })}
-        <Box paddingLeft={4}>
-          <StyledLink href="https://github.com/strapi/design-system" target="_blank" padding={2} size={2}>
-            <Icon as={Github} height={16} width={16} marginRight={2} />
-            Contribute on Github
-          </StyledLink>
-          <StyledLink href="#" target="_blank" padding={2} size={2}>
-            <Icon as={Discourse} height={16} width={16} marginRight={2} />
-            DS! Forum
-          </StyledLink>
-        </Box>
       </SubNavSections>
+      <Box paddingLeft={4} paddingBottom={4} position="absolute" bottom={0}>
+        <StyledLink href="https://github.com/strapi/design-system" target="_blank" padding={2} size={2}>
+          <Icon as={Github} height={16} width={16} marginRight={2} color="neutral500" />
+          Contribute on Github
+        </StyledLink>
+        <StyledLink href="#" target="_blank" padding={2} size={2}>
+          <Icon as={Discourse} height={16} width={16} marginRight={2} color="neutral500" />
+          DS Forum
+        </StyledLink>
+      </Box>
     </SubNav>
   );
 };

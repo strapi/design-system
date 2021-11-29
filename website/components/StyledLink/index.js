@@ -6,6 +6,7 @@ const StyledLink = styled.a`
   display: flex;
   align-content: center;
   padding: ${({ theme, padding }) => `${theme.spaces[padding]} 0`};
+  font-weight: ${({ theme, active }) => (active ? theme.fontWeights.bold : theme.fontWeights.regular)};
   text-decoration: none;
 `;
 
