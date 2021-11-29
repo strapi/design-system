@@ -481,8 +481,7 @@ describe('Select', () => {
     await waitFor(() => container.querySelector('[role="listbox"]'));
 
     expect(container).toMatchInlineSnapshot(`
-      <body>
-        .c4 {
+      .c4 {
         position: absolute;
         left: 0;
         right: 0;
@@ -524,6 +523,19 @@ describe('Select', () => {
         line-height: 1.33;
       }
 
+      .c21 {
+        font-weight: 600;
+        color: #4945ff;
+        font-size: 0.875rem;
+        line-height: 1.43;
+      }
+
+      .c23 {
+        color: #32324d;
+        font-size: 0.875rem;
+        line-height: 1.43;
+      }
+
       .c7 {
         padding-right: 16px;
         padding-left: 16px;
@@ -531,6 +543,25 @@ describe('Select', () => {
 
       .c10 {
         padding-left: 12px;
+      }
+
+      .c14 {
+        background: #ffffff;
+        padding: 4px;
+        border-radius: 4px;
+      }
+
+      .c17 {
+        background: #ffffff;
+        padding-top: 8px;
+        padding-right: 16px;
+        padding-bottom: 8px;
+        padding-left: 16px;
+        border-radius: 4px;
+      }
+
+      .c19 {
+        padding-right: 8px;
       }
 
       .c2 {
@@ -563,6 +594,35 @@ describe('Select', () => {
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
+      }
+
+      .c15 {
+        box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
+        position: absolute;
+        z-index: 4;
+        border: 1px solid #eaeaef;
+        background: #ffffff;
+      }
+
+      .c16 {
+        max-height: 15rem;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+
+      .c16::-webkit-scrollbar {
+        -webkit-appearance: none;
+        width: 4px;
+      }
+
+      .c16::-webkit-scrollbar-track {
+        background: #ffffff;
+      }
+
+      .c16::-webkit-scrollbar-thumb {
+        background: #eaeaef;
+        border-radius: 4px;
+        margin-right: 10px;
       }
 
       .c0 {
@@ -650,7 +710,53 @@ describe('Select', () => {
         width: 100%;
       }
 
-      <div>
+      .c20 {
+        border: 1px solid #4945ff;
+        border-radius: 4px;
+        height: 18px;
+        width: 18px;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        background-color: #4945ff;
+      }
+
+      .c20::after {
+        content: '';
+        background: url(test-file-stub) no-repeat no-repeat center center;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+      }
+
+      .c22 {
+        border: 1px solid #c0c0cf;
+        border-radius: 4px;
+        height: 18px;
+        width: 18px;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        background-color: #ffffff;
+      }
+
+      .c18 {
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline-offset: -3px;
+      }
+
+      .c18.is-focused {
+        background: #f0f0ff;
+      }
+
+      .c18:hover {
+        background: #f0f0ff;
+      }
+
+      <body>
+        <div>
           <div
             class="c0"
           >
@@ -731,20 +837,8 @@ describe('Select', () => {
             </p>
           </div>
         </div>
-        .c0 {
-        border: 0;
-        -webkit-clip: rect(0 0 0 0);
-        clip: rect(0 0 0 0);
-        height: 1px;
-        margin: -1px;
-        overflow: hidden;
-        padding: 0;
-        position: absolute;
-        width: 1px;
-      }
-
-      <div
-          class="c0"
+        <div
+          class="c9"
         >
           <p
             aria-live="polite"
@@ -765,182 +859,43 @@ describe('Select', () => {
             role="alert"
           />
         </div>
-        .c9 {
-        font-weight: 600;
-        color: #4945ff;
-        font-size: 0.875rem;
-        line-height: 1.43;
-      }
-
-      .c11 {
-        color: #32324d;
-        font-size: 0.875rem;
-        line-height: 1.43;
-      }
-
-      .c0 {
-        background: #ffffff;
-        padding: 4px;
-        border-radius: 4px;
-      }
-
-      .c4 {
-        background: #ffffff;
-        padding-top: 8px;
-        padding-right: 16px;
-        padding-bottom: 8px;
-        padding-left: 16px;
-        border-radius: 4px;
-      }
-
-      .c7 {
-        padding-right: 8px;
-      }
-
-      .c6 {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-        flex-direction: row;
-        -webkit-align-items: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-      }
-
-      .c1 {
-        box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
-        position: absolute;
-        z-index: 4;
-        border: 1px solid #eaeaef;
-        background: #ffffff;
-      }
-
-      .c2 {
-        max-height: 15rem;
-        overflow-y: auto;
-        overflow-x: hidden;
-      }
-
-      .c2::-webkit-scrollbar {
-        -webkit-appearance: none;
-        width: 4px;
-      }
-
-      .c2::-webkit-scrollbar-track {
-        background: #ffffff;
-      }
-
-      .c2::-webkit-scrollbar-thumb {
-        background: #eaeaef;
-        border-radius: 4px;
-        margin-right: 10px;
-      }
-
-      .c3 {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-        flex-direction: column;
-      }
-
-      .c3 > * {
-        margin-top: 0;
-        margin-bottom: 0;
-      }
-
-      .c3 > * + * {
-        margin-top: 4px;
-      }
-
-      .c8 {
-        border: 1px solid #4945ff;
-        border-radius: 4px;
-        height: 18px;
-        width: 18px;
-        position: relative;
-        z-index: 1;
-        overflow: hidden;
-        background-color: #4945ff;
-      }
-
-      .c8::after {
-        content: '';
-        background: url(test-file-stub) no-repeat no-repeat center center;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-      }
-
-      .c10 {
-        border: 1px solid #c0c0cf;
-        border-radius: 4px;
-        height: 18px;
-        width: 18px;
-        position: relative;
-        z-index: 1;
-        overflow: hidden;
-        background-color: #ffffff;
-      }
-
-      .c5 {
-        width: 100%;
-        border: none;
-        text-align: left;
-        outline-offset: -3px;
-      }
-
-      .c5.is-focused {
-        background: #f0f0ff;
-      }
-
-      .c5:hover {
-        background: #f0f0ff;
-      }
-
-      <div
+        <div
           data-react-portal="true"
         >
           <div
-            class="c0 c1"
+            class="c14 c15"
             style="left: 0px; top: 4px;"
           >
             <div
-              class="c2"
+              class="c16"
             >
               <ul
                 aria-labelledby="select-3-label"
                 aria-multiselectable="true"
-                class="c3"
+                class="c0"
                 role="listbox"
                 tabindex="-1"
               >
                 <li
                   aria-selected="true"
-                  class="c4 c5"
+                  class="c17 c18"
                   data-strapi-value="pizza"
                   id="select-3-option-pizza"
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c2"
                   >
                     <div
                       aria-hidden="true"
-                      class="c7"
+                      class="c19"
                     >
                       <div
-                        class="c8"
+                        class="c20"
                       />
                     </div>
                     <span
-                      class="c9"
+                      class="c21"
                     >
                       Pizza
                     </span>
@@ -948,24 +903,24 @@ describe('Select', () => {
                 </li>
                 <li
                   aria-selected="true"
-                  class="c4 c5"
+                  class="c17 c18"
                   data-strapi-value="hamburger"
                   id="select-3-option-hamburger"
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c2"
                   >
                     <div
                       aria-hidden="true"
-                      class="c7"
+                      class="c19"
                     >
                       <div
-                        class="c8"
+                        class="c20"
                       />
                     </div>
                     <span
-                      class="c9"
+                      class="c21"
                     >
                       Hamburger
                     </span>
@@ -973,24 +928,24 @@ describe('Select', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c4 c5"
+                  class="c17 c18"
                   data-strapi-value="bagel"
                   id="select-3-option-bagel"
                   role="option"
                 >
                   <div
-                    class="c6"
+                    class="c2"
                   >
                     <div
                       aria-hidden="true"
-                      class="c7"
+                      class="c19"
                     >
                       <div
-                        class="c10"
+                        class="c22"
                       />
                     </div>
                     <span
-                      class="c11"
+                      class="c23"
                     >
                       Bagel
                     </span>
