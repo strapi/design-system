@@ -28,8 +28,10 @@ export const NavUser = React.forwardRef(({ src, children, initials, ...props }, 
             <span>{children}</span>
           </VisuallyHidden>
         ) : (
-          <Box paddingLeft={2} as="span">
-            <Typography textColor="neutral600">{children}</Typography>
+          <Box width={`${130 / 16}rem`} paddingLeft={2} as="span">
+            <Typography ellipsis textColor="neutral600">
+              {children}
+            </Typography>
           </Box>
         )}
       </Flex>

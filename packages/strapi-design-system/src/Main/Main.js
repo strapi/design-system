@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const MainWrapper = styled.main`
-  outline: none;
+  // To prevent global outline on focus visible to force an outline when Main is focused
+  &:focus-visible {
+    outline: none;
+  }
 `;
 
 export const Main = ({ labelledBy, ...props }) => {

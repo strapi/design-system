@@ -98,12 +98,12 @@ export const BaseHeaderLayout = React.forwardRef(
         ref={ref}
         paddingLeft={10}
         paddingRight={10}
-        paddingBottom={10}
-        paddingTop={navigationAction ? 6 : 10}
+        paddingBottom={8}
+        paddingTop={navigationAction ? 6 : 8}
         background="neutral100"
         data-strapi-header
       >
-        {navigationAction ? <Box paddingBottom={3}>{navigationAction}</Box> : null}
+        {navigationAction ? <Box paddingBottom={2}>{navigationAction}</Box> : null}
         <Flex justifyContent="space-between">
           <Flex>
             <Typography as="h1" variant="alpha" {...props}>

@@ -48,7 +48,8 @@ export const NumberInput = React.forwardRef(
     },
     ref,
   ) => {
-    const [inputValue, setInputValue] = useState(value || INITIAL_VALUE);
+    // inputValue should ALWAYS be a string. value should ALWAYS stay a number
+    const [inputValue, setInputValue] = useState(value === undefined || value === null ? INITIAL_VALUE : String(value));
     const generatedId = useId('numberinput', id);
     const numberParserRef = useRef(new NumberParser(getDefaultLocale()));
     const numberFormaterRef = useRef(new NumberFormatter(getDefaultLocale()));
@@ -79,7 +80,7 @@ export const NumberInput = React.forwardRef(
     const increment = (fromKeyBoard) => {
       if (inputValue === '') {
         onValueChange(step);
-        setInputValue(step);
+        setInputValue(String(step));
         return;
       }
 
@@ -93,19 +94,19 @@ export const NumberInput = React.forwardRef(
         const formattedValue = numberFormaterRef.current.format(nextValue);
 
         onValueChange(nextValue);
-        setInputValue(fromKeyBoard ? nextValue : formattedValue);
+        setInputValue(fromKeyBoard ? String(nextValue) : formattedValue);
 
         return;
       }
 
       onValueChange(value + step);
-      setInputValue(value + step);
+      setInputValue(String(value + step));
     };
 
     const decrement = (fromKeyBoard) => {
       if (inputValue === '') {
         onValueChange(-step);
-        setInputValue(-step);
+        setInputValue(String(-step));
         return;
       }
 
@@ -119,13 +120,13 @@ export const NumberInput = React.forwardRef(
         const formattedValue = numberFormaterRef.current.format(nextValue);
 
         onValueChange(nextValue);
-        setInputValue(fromKeyBoard ? nextValue : formattedValue);
+        setInputValue(fromKeyBoard ? String(nextValue) : formattedValue);
 
         return;
       }
 
       onValueChange(value - step);
-      setInputValue(value - step);
+      setInputValue(String(value - step));
     };
 
     const handleKeyDown = (e) => {
@@ -150,8 +151,8 @@ export const NumberInput = React.forwardRef(
     };
 
     const handleFocus = () => {
-      if (value !== undefined && !isNaN(value)) {
-        setInputValue(numberParserRef.current.parse(inputValue));
+      if (value !== undefined) {
+        setInputValue(String(numberParserRef.current.parse(inputValue)));
       }
     };
 
