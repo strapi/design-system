@@ -11,6 +11,9 @@ const Head = ({ title, description, type, image }) => {
       <meta property="og:description" content={description} />
       <meta property="og:title" content={title} />
       <meta property="og:image" content={image} />
+      <meta property="og:image:type" content="image/png" />
+      <meta property="og:image:width" content="400" />
+      <meta property="og:image:height" content="200" />
     </NextHead>
   );
 };
