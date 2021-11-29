@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 
 const Home = ({ navbarContent }) => {
   return (
-    <Layout meta={{ title: 'Welcome' }} navigationContent={navbarContent || {}}>
+    <Layout navigationContent={navbarContent || {}}>
       <Box padding={10} background="neutral0" shadow="filterShadow" hasRadius={true} maxWidth="880px">
         <Box paddingBottom={6}>
           <Typography id="main-content-title" as="h1" variant="alpha" textColor="neutral800">
