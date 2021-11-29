@@ -13,7 +13,7 @@ describe('SimpleMenu', () => {
     });
 
     it('triggers axe on the document when the menu is opened', async () => {
-      await page.click('button');
+      await page.click('#root button');
 
       await expect(page).toHaveSelector('[role="menu"]');
 
@@ -24,18 +24,16 @@ describe('SimpleMenu', () => {
         .filter((violation) => violation.id !== 'region')
         .filter((violation) => violation.id !== 'aria-required-parent');
 
-      console.log('realViolations', realViolations);
-
       expect(realViolations.length).toBe(0);
     });
 
     it.each(['Enter', 'Space'])('select the second value of the menu', async (keyPressed) => {
-      await page.focus('button');
+      await page.focus('#root button');
       await page.keyboard.press(keyPressed);
       await page.keyboard.press('ArrowDown');
       await page.keyboard.press(keyPressed);
 
-      const label = await page.textContent('button');
+      const label = await page.textContent('#root button');
       expect(label).toBe('February');
     });
   });
@@ -54,7 +52,7 @@ describe('SimpleMenu', () => {
     });
 
     it('triggers axe on the document when the menu is opened', async () => {
-      await page.click('button');
+      await page.click('#root button');
 
       await expect(page).toHaveSelector('[role="menu"]');
 
@@ -64,8 +62,6 @@ describe('SimpleMenu', () => {
       const realViolations = violations
         .filter((violation) => violation.id !== 'region')
         .filter((violation) => violation.id !== 'aria-required-parent');
-
-      console.log('realViolations', realViolations);
 
       expect(realViolations.length).toBe(0);
     });
