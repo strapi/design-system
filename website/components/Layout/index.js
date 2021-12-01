@@ -43,6 +43,10 @@ const Layout = ({ children, meta, navigationContent }) => {
   );
 };
 
+Layout.defaultProps = {
+  navBarContent: {},
+};
+
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
   meta: PropTypes.shape({
