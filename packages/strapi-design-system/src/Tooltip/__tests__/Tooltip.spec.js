@@ -114,8 +114,20 @@ describe('Tooltip', () => {
     fireEvent.focus(screen.getByText('Show tooltip'));
 
     expect(document.body).toMatchInlineSnapshot(`
-      <body>
-        .c0 {
+      .c1 {
+        background: #212134;
+        padding: 8px;
+        border-radius: 4px;
+      }
+
+      .c3 {
+        font-weight: 600;
+        color: #ffffff;
+        font-size: 0.75rem;
+        line-height: 1.33;
+      }
+
+      .c0 {
         border: 0;
         -webkit-clip: rect(0 0 0 0);
         clip: rect(0 0 0 0);
@@ -127,7 +139,14 @@ describe('Tooltip', () => {
         width: 1px;
       }
 
-      <div>
+      .c2 {
+        position: absolute;
+        z-index: 4;
+        display: revert;
+      }
+
+      <body>
+        <div>
           <span>
             <button
               aria-describedby="tooltip-123"
@@ -159,48 +178,17 @@ describe('Tooltip', () => {
             />
           </div>
         </div>
-        .c0 {
-        background: #212134;
-        padding: 8px;
-        border-radius: 4px;
-      }
-
-      .c3 {
-        font-weight: 600;
-        color: #ffffff;
-        font-size: 0.75rem;
-        line-height: 1.33;
-      }
-
-      .c2 {
-        border: 0;
-        -webkit-clip: rect(0 0 0 0);
-        clip: rect(0 0 0 0);
-        height: 1px;
-        margin: -1px;
-        overflow: hidden;
-        padding: 0;
-        position: absolute;
-        width: 1px;
-      }
-
-      .c1 {
-        position: absolute;
-        z-index: 4;
-        display: revert;
-      }
-
-      <div
+        <div
           data-react-portal="true"
         >
           <div
-            class="c0 c1"
+            class="c1 c2"
             id="tooltip-123"
             role="tooltip"
             style="left: 0px; top: -8px;"
           >
             <div
-              class="c2"
+              class="c0"
               id="description-123"
             >
               Content of the tooltip fefe
@@ -228,8 +216,20 @@ describe('Tooltip', () => {
     fireEvent.focus(screen.getByText('+'));
 
     expect(document.body).toMatchInlineSnapshot(`
-      <body>
-        .c0 {
+      .c1 {
+        background: #212134;
+        padding: 8px;
+        border-radius: 4px;
+      }
+
+      .c3 {
+        font-weight: 600;
+        color: #ffffff;
+        font-size: 0.75rem;
+        line-height: 1.33;
+      }
+
+      .c0 {
         border: 0;
         -webkit-clip: rect(0 0 0 0);
         clip: rect(0 0 0 0);
@@ -241,7 +241,14 @@ describe('Tooltip', () => {
         width: 1px;
       }
 
-      <div>
+      .c2 {
+        position: absolute;
+        z-index: 4;
+        display: revert;
+      }
+
+      <body>
+        <div>
           <span>
             <button
               aria-labelledby="tooltip-123"
@@ -273,48 +280,17 @@ describe('Tooltip', () => {
             />
           </div>
         </div>
-        .c0 {
-        background: #212134;
-        padding: 8px;
-        border-radius: 4px;
-      }
-
-      .c3 {
-        font-weight: 600;
-        color: #ffffff;
-        font-size: 0.75rem;
-        line-height: 1.33;
-      }
-
-      .c2 {
-        border: 0;
-        -webkit-clip: rect(0 0 0 0);
-        clip: rect(0 0 0 0);
-        height: 1px;
-        margin: -1px;
-        overflow: hidden;
-        padding: 0;
-        position: absolute;
-        width: 1px;
-      }
-
-      .c1 {
-        position: absolute;
-        z-index: 4;
-        display: revert;
-      }
-
-      <div
+        <div
           data-react-portal="true"
         >
           <div
-            class="c0 c1"
+            class="c1 c2"
             id="tooltip-123"
             role="tooltip"
             style="left: 0px; top: -8px;"
           >
             <div
-              class="c2"
+              class="c0"
               id="description-123"
             />
             <p
