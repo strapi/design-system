@@ -11,6 +11,7 @@ import { Typography } from '../Typography';
 import { Flex } from '../Flex';
 import { Box } from '../Box';
 import { Button } from '../Button';
+import { DatePicker } from '../DatePicker';
 
 <Meta title="Design System/Components/ModalLayout" component={ModalLayout} />
 
@@ -38,6 +39,7 @@ import { Button } from '@strapi/design-system/Button';
   <Story name="base">
     {() => {
       const [isVisible, setIsVisible] = useState(false);
+      const [date, setDate] = useState();
       return (
         <>
           <Button onClick={() => setIsVisible((prev) => !prev)}>Click to open Modal</Button>
@@ -50,6 +52,15 @@ import { Button } from '@strapi/design-system/Button';
                 </Typography>
               </ModalHeader>
               <ModalBody>
+                <DatePicker
+                  onChange={setDate}
+                  selectedDate={date}
+                  label="Date picker"
+                  name="datepicker"
+                  clearLabel={'Clear the datepicker'}
+                  onClear={() => setDate(undefined)}
+                  selectedDateLabel={(formattedDate) => `Date picker, current is ${formattedDate}`}
+                />
                 {Array(50)
                   .fill(null)
                   .map((_, index) => (
@@ -76,6 +87,7 @@ import { Button } from '@strapi/design-system/Button';
         </>
       );
     }}
+
   </Story>
 </Canvas>
 
