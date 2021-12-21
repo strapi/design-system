@@ -1,6 +1,6 @@
 <!--- MainNav.stories.mdx --->
 
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { ArgsTable } from '@storybook/addon-docs';
 import Write from '@strapi/icons/Write';
@@ -10,7 +10,6 @@ import Information from '@strapi/icons/Information';
 import Puzzle from '@strapi/icons/Puzzle';
 import ShoppingCart from '@strapi/icons/ShoppingCart';
 import Cog from '@strapi/icons/Cog';
-import { MemoryRouter } from 'react-router-dom';
 import { MainNav } from './MainNav';
 import { NavSection } from './NavSection';
 import { NavSections } from './NavSections';
@@ -43,24 +42,15 @@ The Main Navigation is consistenly available and displayed on all the different 
 ## Imports
 
 ```js
-import Write from '@strapi/icons/Write';
-import Layer from '@strapi/icons/ContentTypeBuilderIcon';
-import Landscape from '@strapi/icons/MediaLibrary';
-import Information from '@strapi/icons/Information';
-import Puzzle from '@strapi/icons/PluginsIcons';
-import ShoppingCart from '@strapi/icons/MarketplaceIcon';
-import Cog from '@strapi/icons/Settings';
-import { MemoryRouter } from 'react-router-dom';
-import { MainNav } from '@strapi/design-system/MainNav';
-import { NavSection } from '@strapi/design-system/NavSection';
-import { NavSections } from '@strapi/design-system/NavSections';
-import { NavCondense } from '@strapi/design-system/NavCondense';
-import { NavLink } from '@strapi/design-system/NavLink';
-import { NavUser } from '@strapi/design-system/NavUser';
-import { NavBrand } from '@strapi/design-system/NavBrand';
-import { Box } from '@strapi/design-system/Box';
-import { Divider } from '@strapi/design-system/Divider';
-import strapiImage from './strapi-img.png';
+import {
+  MainNav,
+  NavSection,
+  NavSections,
+  NavCondense,
+  NavBrand,
+  NavUser,
+  NavLink,
+} from '@strapi/design-system/MainNav';
 ```
 
 ## Usage
