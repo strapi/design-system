@@ -6,5 +6,5 @@ export const getYears = () => {
 
   return Array(101)
     .fill(null)
-    .map((_, index) => currentYear - 50 + index);
+    .map((_, index) => currentYear - 125 + index);
 };
