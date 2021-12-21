@@ -36,10 +36,11 @@ export const ModalLayout = ({ onClose, labelledBy, ...props }) => {
   return (
     <Portal>
       <ModalContext.Provider value={onClose}>
-        <ModalWrapper>
+        <ModalWrapper onClick={onClose}>
           <FocusTrap onEscape={onClose}>
             <ModalContent
               aria-labelledby={labelledBy}
+              onClick={(e) => e.stopPropagation()}
               background="neutral0"
               hasRadius
               shadow="popupShadow"
