@@ -1,0 +1,71 @@
+<!--- BaseLink.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
+import ChevronRight from '@strapi/icons/ChevronRight';
+import ArrowLeft from '@strapi/icons/ArrowLeft';
+import { BaseLink } from './BaseLink';
+import { Stack } from '../Stack';
+
+<Meta title="Design System/Components/BaseLink" component={BaseLink} />
+
+# BaseLink
+
+Links are used to send users to another page or an anchor. They are used for external navigation.
+
+**Best practices**
+
+- Use TextButton component if an action needs to be triggered within the admin panel (ex: Opening a modal ).
+- Clicking on a BaseLink most of the time opens a new tab.
+- Links should always be used with an icon. If it is an external link, use the ExternalLink icon accordingly.
+- Links text should be concise and describe their purpose. Users need to know exactly what they are about to do.
+- Use capital letters.
+
+[View source](https://github.com/strapi/design-system/tree/develop/packages/strapi-design-system/src/BaseLink)
+
+## Imports
+
+```js
+import { BaseLink } from '@strapi/design-system/BaseLink';
+```
+
+## Usage
+
+Links are used for external navigation. Moreover, they should be associated with an icon to indicate its external navigation purpose.
+
+### Base
+
+The simplest representation of the BaseLink component.
+
+<Canvas>
+  <Story name="base">
+    <Stack size={5}>
+      <div>
+        <BaseLink target="_blank" href="https://strapi.io/">External link</BaseLink>
+      </div>
+      <div>
+        <BaseLink href="/somewhere-internal" startIcon={<ArrowLeft />}>
+          Internal link
+        </BaseLink>
+      </div>
+      <div>
+        <BaseLink target="_blank" href="https://strapi.io/" disabled>
+          External disabled link
+        </BaseLink>
+      </div>
+      <div>
+        <BaseLink href="/somewhere-internal" disabled startIcon={<ArrowLeft />} endIcon={<ChevronRight />}>
+          Internal disabled link
+        </BaseLink>
+      </div>
+    </Stack>
+  </Story>
+</Canvas>
+
+### Disabled link
+
+Depending on the permissions a user have or the status of an action, a link can be unreachable or unavailable yet.
+
+## Props
+
+<ArgsTable of={BaseLink} />
