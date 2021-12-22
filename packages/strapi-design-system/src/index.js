@@ -4,6 +4,7 @@ export * from './Avatar';
 export * from './Badge';
 export * from './BaseButton';
 export * from './BaseCheckbox';
+export * from './BaseLink';
 export * from './BaseRadio';
 export * from './Box';
 export * from './Breadcrumbs';
