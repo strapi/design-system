@@ -8696,6 +8696,7 @@ exports[`Storyshots Design System/Components/DatePicker base 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  height: 100%;
 }
 
 .c8::-webkit-input-placeholder {
@@ -8925,6 +8926,7 @@ exports[`Storyshots Design System/Components/DatePicker disabled 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  height: 100%;
 }
 
 .c8::-webkit-input-placeholder {
@@ -9157,6 +9159,7 @@ exports[`Storyshots Design System/Components/DatePicker size S 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  height: 100%;
 }
 
 .c8::-webkit-input-placeholder {
@@ -10410,6 +10413,7 @@ exports[`Storyshots Design System/Components/Field base 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  height: 100%;
 }
 
 .c5::-webkit-input-placeholder {
@@ -10571,6 +10575,7 @@ exports[`Storyshots Design System/Components/Field disabled 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  height: 100%;
 }
 
 .c5::-webkit-input-placeholder {
@@ -10772,6 +10777,7 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  height: 100%;
 }
 
 .c10::-webkit-input-placeholder {
@@ -11080,6 +11086,7 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  height: 100%;
 }
 
 .c10::-webkit-input-placeholder {
@@ -11366,6 +11373,7 @@ exports[`Storyshots Design System/Components/Field with description 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  height: 100%;
 }
 
 .c7::-webkit-input-placeholder {
@@ -11539,6 +11547,7 @@ exports[`Storyshots Design System/Components/Field with error 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  height: 100%;
 }
 
 .c5::-webkit-input-placeholder {
@@ -23675,6 +23684,7 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  height: 100%;
 }
 
 .c8::-webkit-input-placeholder {
@@ -24009,6 +24019,7 @@ exports[`Storyshots Design System/Components/NumberInput disabled 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  height: 100%;
 }
 
 .c7::-webkit-input-placeholder {
@@ -24325,6 +24336,7 @@ exports[`Storyshots Design System/Components/NumberInput required 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  height: 100%;
 }
 
 .c9::-webkit-input-placeholder {
@@ -24639,6 +24651,7 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  height: 100%;
 }
 
 .c8::-webkit-input-placeholder {
@@ -24981,6 +24994,7 @@ exports[`Storyshots Design System/Components/NumberInput with initial 0 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  height: 100%;
 }
 
 .c8::-webkit-input-placeholder {
@@ -25298,6 +25312,7 @@ exports[`Storyshots Design System/Components/NumberInput withoutLabel 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  height: 100%;
 }
 
 .c5::-webkit-input-placeholder {
@@ -26275,6 +26290,7 @@ exports[`Storyshots Design System/Components/Searchbar base 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  height: 100%;
 }
 
 .c10::-webkit-input-placeholder {
@@ -26492,6 +26508,7 @@ exports[`Storyshots Design System/Components/Searchbar disabled 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  height: 100%;
 }
 
 .c10::-webkit-input-placeholder {
@@ -26707,6 +26724,7 @@ exports[`Storyshots Design System/Components/Searchbar size S 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  height: 100%;
 }
 
 .c10::-webkit-input-placeholder {
@@ -36578,6 +36596,7 @@ exports[`Storyshots Design System/Components/TextInput base 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  height: 100%;
 }
 
 .c9::-webkit-input-placeholder {
@@ -36807,6 +36826,7 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  height: 100%;
 }
 
 .c9::-webkit-input-placeholder {
@@ -37038,6 +37058,7 @@ exports[`Storyshots Design System/Components/TextInput password 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  height: 100%;
 }
 
 .c9::-webkit-input-placeholder {
@@ -37267,6 +37288,7 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  height: 100%;
 }
 
 .c9::-webkit-input-placeholder {
@@ -37495,6 +37517,7 @@ exports[`Storyshots Design System/Components/TextInput with error 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  height: 100%;
 }
 
 .c9::-webkit-input-placeholder {
@@ -37699,6 +37722,7 @@ exports[`Storyshots Design System/Components/TextInput withoutLabel 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  height: 100%;
 }
 
 .c5::-webkit-input-placeholder {
