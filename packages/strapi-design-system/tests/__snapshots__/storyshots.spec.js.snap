@@ -9051,6 +9051,7 @@ exports[`Storyshots Design System/Components/DatePicker disabled 1`] = `
                 aria-autocomplete="none"
                 aria-disabled="true"
                 aria-invalid="false"
+                autocomplete="off"
                 class="c8"
                 id="datepicker-30"
                 name="datepicker"
@@ -10654,6 +10655,7 @@ exports[`Storyshots Design System/Components/Field disabled 1`] = `
           aria-describedby="field-34-hint"
           aria-disabled="true"
           aria-invalid="false"
+          autocomplete="off"
           class="c5"
           id="field-34"
           name="password"
@@ -24150,6 +24152,7 @@ exports[`Storyshots Design System/Components/NumberInput disabled 1`] = `
             aria-describedby="numberinput-96-hint"
             aria-disabled="true"
             aria-invalid="false"
+            autocomplete="off"
             class="c7"
             id="numberinput-96"
             name="content"
@@ -26645,6 +26648,7 @@ exports[`Storyshots Design System/Components/Searchbar disabled 1`] = `
         <input
           aria-disabled="true"
           aria-invalid="false"
+          autocomplete="off"
           class="c10"
           id="field-106"
           name="searchbar"
@@ -36672,7 +36676,7 @@ exports[`Storyshots Design System/Components/TextInput base 1`] = `
           >
             <label
               class="c4"
-              for="textinput-187"
+              for="textinput-193"
             >
               Content
             </label>
@@ -36681,7 +36685,7 @@ exports[`Storyshots Design System/Components/TextInput base 1`] = `
             >
               <span>
                 <button
-                  aria-describedby="tooltip-188"
+                  aria-describedby="tooltip-194"
                   aria-label="Information about the email"
                   style="padding: 0px; background: transparent;"
                   tabindex="0"
@@ -36707,11 +36711,11 @@ exports[`Storyshots Design System/Components/TextInput base 1`] = `
             class="c7 c8"
           >
             <input
-              aria-describedby="textinput-187-hint"
+              aria-describedby="textinput-193-hint"
               aria-disabled="false"
               aria-invalid="false"
               class="c9"
-              id="textinput-187"
+              id="textinput-193"
               name="content"
               placeholder="This is a content placeholder"
               value=""
@@ -36719,7 +36723,7 @@ exports[`Storyshots Design System/Components/TextInput base 1`] = `
           </div>
           <p
             class="c10"
-            id="textinput-187-hint"
+            id="textinput-193-hint"
           >
             Description line
           </p>
@@ -36904,7 +36908,7 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
           >
             <label
               class="c4"
-              for="textinput-190"
+              for="textinput-196"
             >
               Content
             </label>
@@ -36913,7 +36917,7 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
             >
               <span>
                 <button
-                  aria-describedby="tooltip-191"
+                  aria-describedby="tooltip-197"
                   aria-label="Information about the email"
                   style="padding: 0px; background: transparent;"
                   tabindex="0"
@@ -36940,11 +36944,12 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
             disabled=""
           >
             <input
-              aria-describedby="textinput-190-hint"
+              aria-describedby="textinput-196-hint"
               aria-disabled="true"
               aria-invalid="false"
+              autocomplete="off"
               class="c9"
-              id="textinput-190"
+              id="textinput-196"
               name="content"
               placeholder="This is a content placeholder"
               value="Disabled ontent"
@@ -36952,7 +36957,7 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
           </div>
           <p
             class="c10"
-            id="textinput-190-hint"
+            id="textinput-196-hint"
           >
             Description line
           </p>
@@ -37134,7 +37139,7 @@ exports[`Storyshots Design System/Components/TextInput password 1`] = `
           >
             <label
               class="c4"
-              for="textinput-193"
+              for="textinput-199"
             >
               Password
             </label>
@@ -37143,7 +37148,7 @@ exports[`Storyshots Design System/Components/TextInput password 1`] = `
             >
               <span>
                 <button
-                  aria-describedby="tooltip-194"
+                  aria-describedby="tooltip-200"
                   aria-label="Information about the email"
                   style="padding: 0px; background: transparent;"
                   tabindex="0"
@@ -37169,11 +37174,11 @@ exports[`Storyshots Design System/Components/TextInput password 1`] = `
             class="c7 c8"
           >
             <input
-              aria-describedby="textinput-193-hint"
+              aria-describedby="textinput-199-hint"
               aria-disabled="false"
               aria-invalid="false"
               class="c9"
-              id="textinput-193"
+              id="textinput-199"
               name="password"
               placeholder="This is a password placeholder"
               type="password"
@@ -37182,7 +37187,7 @@ exports[`Storyshots Design System/Components/TextInput password 1`] = `
           </div>
           <p
             class="c10"
-            id="textinput-193-hint"
+            id="textinput-199-hint"
           >
             Description line
           </p>
@@ -37364,7 +37369,7 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
           >
             <label
               class="c4"
-              for="textinput-196"
+              for="textinput-202"
             >
               Content
             </label>
@@ -37373,7 +37378,7 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
             >
               <span>
                 <button
-                  aria-describedby="tooltip-197"
+                  aria-describedby="tooltip-203"
                   aria-label="Information about the email"
                   style="padding: 0px; background: transparent;"
                   tabindex="0"
@@ -37399,11 +37404,11 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
             class="c7 c8"
           >
             <input
-              aria-describedby="textinput-196-hint"
+              aria-describedby="textinput-202-hint"
               aria-disabled="false"
               aria-invalid="false"
               class="c9"
-              id="textinput-196"
+              id="textinput-202"
               name="content"
               placeholder="This is a content placeholder"
               value="size S input"
@@ -37411,7 +37416,7 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
           </div>
           <p
             class="c10"
-            id="textinput-196-hint"
+            id="textinput-202-hint"
           >
             Description line
           </p>
@@ -37593,7 +37598,7 @@ exports[`Storyshots Design System/Components/TextInput with error 1`] = `
           >
             <label
               class="c4"
-              for="textinput-199"
+              for="textinput-205"
             >
               Content
             </label>
@@ -37602,7 +37607,7 @@ exports[`Storyshots Design System/Components/TextInput with error 1`] = `
             >
               <span>
                 <button
-                  aria-describedby="tooltip-200"
+                  aria-describedby="tooltip-206"
                   aria-label="Information about the email"
                   style="padding: 0px; background: transparent;"
                   tabindex="0"
@@ -37628,11 +37633,11 @@ exports[`Storyshots Design System/Components/TextInput with error 1`] = `
             class="c7 c8"
           >
             <input
-              aria-describedby="textinput-199-error"
+              aria-describedby="textinput-205-error"
               aria-disabled="false"
               aria-invalid="true"
               class="c9"
-              id="textinput-199"
+              id="textinput-205"
               name="content"
               placeholder="This is a content placeholder"
               value="content"
@@ -37641,7 +37646,7 @@ exports[`Storyshots Design System/Components/TextInput with error 1`] = `
           <p
             class="c10"
             data-strapi-field-error="true"
-            id="textinput-199-error"
+            id="textinput-205-error"
           >
             Content is too long
           </p>
@@ -37793,12 +37798,12 @@ exports[`Storyshots Design System/Components/TextInput withoutLabel 1`] = `
             class="c3 c4"
           >
             <input
-              aria-describedby="textinput-202-hint"
+              aria-describedby="textinput-208-hint"
               aria-disabled="false"
               aria-invalid="false"
               aria-label="Password"
               class="c5"
-              id="textinput-202"
+              id="textinput-208"
               name="password"
               placeholder="This is a password placeholder"
               type="password"
@@ -37807,7 +37812,7 @@ exports[`Storyshots Design System/Components/TextInput withoutLabel 1`] = `
           </div>
           <p
             class="c6"
-            id="textinput-202-hint"
+            id="textinput-208-hint"
           >
             Description line
           </p>
@@ -38000,7 +38005,7 @@ exports[`Storyshots Design System/Components/Textarea base 1`] = `
           >
             <label
               class="c5"
-              for="textarea-203"
+              for="textarea-187"
             >
               Content
             </label>
@@ -38009,7 +38014,7 @@ exports[`Storyshots Design System/Components/Textarea base 1`] = `
             >
               <span>
                 <button
-                  aria-describedby="tooltip-204"
+                  aria-describedby="tooltip-188"
                   aria-label="Information about the email"
                   style="padding: 0px; background: transparent;"
                   tabindex="0"
@@ -38035,10 +38040,10 @@ exports[`Storyshots Design System/Components/Textarea base 1`] = `
             class="c7"
           >
             <textarea
-              aria-describedby="textarea-203-error"
+              aria-describedby="textarea-187-error"
               aria-invalid="true"
               class="c8"
-              id="textarea-203"
+              id="textarea-187"
               name="content"
               placeholder="This is a content placeholder"
             />
@@ -38046,7 +38051,7 @@ exports[`Storyshots Design System/Components/Textarea base 1`] = `
           <p
             class="c9"
             data-strapi-field-error="true"
-            id="textarea-203-error"
+            id="textarea-187-error"
           >
             Content is too short
           </p>
@@ -38239,7 +38244,7 @@ exports[`Storyshots Design System/Components/Textarea disabled 1`] = `
           >
             <label
               class="c5"
-              for="textarea-206"
+              for="textarea-190"
             >
               Content
             </label>
@@ -38248,7 +38253,7 @@ exports[`Storyshots Design System/Components/Textarea disabled 1`] = `
             >
               <span>
                 <button
-                  aria-describedby="tooltip-207"
+                  aria-describedby="tooltip-191"
                   aria-label="Information about the email"
                   style="padding: 0px; background: transparent;"
                   tabindex="0"
@@ -38275,18 +38280,18 @@ exports[`Storyshots Design System/Components/Textarea disabled 1`] = `
             disabled=""
           >
             <textarea
-              aria-describedby="textarea-206-hint"
+              aria-describedby="textarea-190-hint"
               aria-invalid="false"
               class="c8"
               disabled=""
-              id="textarea-206"
+              id="textarea-190"
               name="content"
               placeholder="This is a content placeholder"
             />
           </div>
           <p
             class="c9"
-            id="textarea-206-hint"
+            id="textarea-190-hint"
           >
             Description line
           </p>
