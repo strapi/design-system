@@ -20,7 +20,7 @@ const Input = styled.input`
   font-size: ${14 / 16}rem;
   display: block;
   width: 100%;
-
+  height:100%;
   ::placeholder {
     color: ${({ theme }) => theme.colors.neutral500};
     opacity: 1;
@@ -56,7 +56,7 @@ export const InputWrapper = styled(Flex)`
       : undefined}
 `;
 
-export const FieldInput = forwardRef(({ endAction, startAction, disabled, onChange, size, ...props }, ref) => {
+export const FieldInput = forwardRef(({ endAction, startAction, disabled, onChange, size, autoComplete, ...props }, ref) => {
   const { id, error, hint, name } = useField();
 
   let ariaDescription;
@@ -92,6 +92,7 @@ export const FieldInput = forwardRef(({ endAction, startAction, disabled, onChan
         hasLeftAction={Boolean(startAction)}
         hasRightAction={Boolean(endAction)}
         onChange={handleChange}
+        autoComplete={disabled ? 'off' : autoComplete}
         {...props}
       />
       {endAction && (
@@ -106,14 +107,16 @@ export const FieldInput = forwardRef(({ endAction, startAction, disabled, onChan
 FieldInput.displayName = 'FieldInput';
 
 FieldInput.defaultProps = {
+  autoComplete: undefined,
   disabled: false,
   endAction: undefined,
   size: 'M',
   startAction: undefined,
-  onChange: () => {},
+  onChange: () => { },
 };
 
 FieldInput.propTypes = {
+  autoComplete: PropTypes.string,
   disabled: PropTypes.bool,
   endAction: PropTypes.element,
   onChange: PropTypes.func,
