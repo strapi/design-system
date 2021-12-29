@@ -14,14 +14,15 @@
     "lint-staged": "lerna run lint-staged --stream --",
     "lint": "lerna run lint --stream",
     "setup": "yarn && yarn bootstrap && yarn build",
-    "setup:example": "yarn --cwd example",
     "specify:pull": "specify pull",
     "specify:sync": "specify sync",
     "storybook": "lerna run storybook --stream",
-    "test:example": "yarn --cwd example test --watchAll=false",
-    "test:e2e:ci": "lerna run test:e2e:ci",
     "test:e2e": "lerna run test:e2e --stream",
+    "test:e2e:ci": "lerna run test:e2e:ci",
+    "test:e2e:watch": "lerna --scope @strapi/design-system exec -- yarn test:e2e:watch",
     "test": "lerna run test --stream",
+    "test:watch": "lerna --scope @strapi/design-system exec -- yarn test:watch",
+    "test:snapshots": "lerna --scope @strapi/design-system exec -- yarn  test -u",
     "release": "lerna version --no-push --no-git-tag-version && yarn setup && git commit -am \"Releasing\" && lerna publish from-package --contents dist"
   },
   "devDependencies": {
