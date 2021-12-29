@@ -19,10 +19,10 @@
     "storybook": "lerna run storybook --stream",
     "test:e2e": "lerna run test:e2e --stream",
     "test:e2e:ci": "lerna run test:e2e:ci",
-    "test:e2e:watch": "yarn --cwd packages/strapi-design-system test:e2e:watch",
+    "test:e2e:watch": "lerna --scope @strapi/design-system exec -- yarn test:e2e:watch",
     "test": "lerna run test --stream",
-    "test:watch": "yarn --cwd packages/strapi-design-system test:watch",
-    "test:snapshots": "yarn --cwd packages/strapi-design-system test -u",
+    "test:watch": "lerna --scope @strapi/design-system exec -- yarn test:watch",
+    "test:snapshots": "lerna --scope @strapi/design-system exec -- yarn  test -u",
     "release": "lerna version --no-push --no-git-tag-version && yarn setup && git commit -am \"Releasing\" && lerna publish from-package --contents dist"
   },
   "devDependencies": {
