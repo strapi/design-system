@@ -1,6 +1,6 @@
 {
   "name": "@strapi/design-system",
-  "version": "0.0.1-alpha.70",
+  "version": "0.0.1-alpha.71",
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
@@ -65,7 +65,9 @@
     "lint-staged": "eslint --fix",
     "storybook": "start-storybook -p 6006",
     "test": "jest -c jest.config.js",
+    "test:watch": "jest -c jest.config.js --watchAll",
     "test:e2e": "jest -c jest.e2e.js",
+    "test:e2e:watch": "jest -c jest.e2e.js --watchAll",
     "test:e2e:debug": "cross-env PWDEBUG=1 jest -c jest.e2e.js",
     "test:e2e:ci": "jest -c jest.e2e.js"
   },
