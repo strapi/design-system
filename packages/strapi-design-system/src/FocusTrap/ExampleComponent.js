@@ -10,7 +10,7 @@ import { Flex } from '../Flex';
 import { FocusTrap } from './FocusTrap';
 
 const TrappedComponent = ({ onClose }) => {
-  const [isNewLastVisible, setIsNewLastVisible] = useState(false);
+  const [isNewLastVisible, setNewLastVisible] = useState(false);
 
   return (
     <FocusTrap onEscape={onClose}>
@@ -35,7 +35,7 @@ const TrappedComponent = ({ onClose }) => {
           </Box>
           <Flex justifyContent="space-between">
             <Button id="second">Second focusable</Button>
-            <Button id="last" onClick={() => setIsNewLastVisible(true)}>
+            <Button id="last" onClick={() => setNewLastVisible(true)}>
               Last focusable (at the beginning)
             </Button>
 

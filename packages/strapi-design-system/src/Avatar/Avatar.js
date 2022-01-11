@@ -36,7 +36,7 @@ const Overlay = styled.div`
 `;
 
 export const Avatar = ({ src, alt, preview }) => {
-  const [isPreviewVisible, setisPreviewVisible] = useState(false);
+  const [isPreviewVisible, setPreviewVisible] = useState(false);
 
   return (
     <span>
@@ -52,8 +52,8 @@ export const Avatar = ({ src, alt, preview }) => {
 
       <AvatarImgWrapper
         hovering={preview && isPreviewVisible}
-        onMouseEnter={() => setisPreviewVisible(true)}
-        onMouseLeave={() => setisPreviewVisible(false)}
+        onMouseEnter={() => setPreviewVisible(true)}
+        onMouseLeave={() => setPreviewVisible(false)}
       >
         {preview && isPreviewVisible ? <Overlay /> : null}
         <AvatarImg src={src} alt={alt} width={`${avatarSize}px`} height={`${avatarSize}px`} />

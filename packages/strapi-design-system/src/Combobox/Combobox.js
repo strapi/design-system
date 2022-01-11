@@ -46,7 +46,7 @@ export const Combobox = ({
   const [activeIndex, setActiveIndex] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [filteredNodes, setFilteredNodes] = useState(nodes);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setOpen] = useState(false);
   const [inputValue, setInputValue] = useState('');
 
   const activeOptionRef = useRef();
@@ -192,7 +192,7 @@ export const Combobox = ({
   };
 
   const updateMenuState = (isOpen, callFocus = true) => {
-    setIsOpen(isOpen);
+    setOpen(isOpen);
     callFocus && inputRef.current.focus();
   };
 
