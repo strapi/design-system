@@ -10,7 +10,7 @@ import { Flex } from '../Flex';
 import { FocusTrap } from './FocusTrap';
 
 const TrappedComponent = ({ onClose }) => {
-  const [newLastVisible, setNewLastVisible] = useState(false);
+  const [isNewLastVisible, setIsNewLastVisible] = useState(false);
 
   return (
     <FocusTrap onEscape={onClose}>
@@ -35,11 +35,11 @@ const TrappedComponent = ({ onClose }) => {
           </Box>
           <Flex justifyContent="space-between">
             <Button id="second">Second focusable</Button>
-            <Button id="last" onClick={() => setNewLastVisible(true)}>
+            <Button id="last" onClick={() => setIsNewLastVisible(true)}>
               Last focusable (at the beginning)
             </Button>
 
-            {newLastVisible && <Button id="real-last">Last focusable (at the end)</Button>}
+            {isNewLastVisible && <Button id="real-last">Last focusable (at the end)</Button>}
           </Flex>
         </Stack>
       </Box>
@@ -48,12 +48,12 @@ const TrappedComponent = ({ onClose }) => {
 };
 
 export const ExampleComponent = () => {
-  const [visible, setVisible] = useState(false);
+  const [isVisible, setVisible] = useState(false);
 
   return (
     <Box background="neutral150" padding={10}>
       <Stack size={2}>
-        {visible && <TrappedComponent onClose={() => setVisible(false)} />}
+        {isVisible && <TrappedComponent onClose={() => setVisible(false)} />}
         <Box background="neutral0" padding={4} hasRadius style={{ width: '600px' }}>
           <Typography variant="beta" as="h2">
             Outside the trap!

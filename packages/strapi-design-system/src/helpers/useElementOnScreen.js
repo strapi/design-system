@@ -2,10 +2,10 @@ import { useRef, useState, useEffect } from 'react';
 
 export const useElementOnScreen = (options) => {
   const containerRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setVisible] = useState(true);
 
   const callback = ([entry]) => {
-    setIsVisible(entry.isIntersecting);
+    setVisible(entry.isIntersecting);
   };
 
   useEffect(() => {

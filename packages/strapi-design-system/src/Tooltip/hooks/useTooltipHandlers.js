@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
 
 export const useTooltipHandlers = (delay) => {
-  const [visible, setVisible] = useState(false);
+  const [isVisible, setVisible] = useState(false);
   const timerRef = useRef();
 
   const clearTimer = () => {
@@ -35,5 +35,5 @@ export const useTooltipHandlers = (delay) => {
     setVisible(false);
   };
 
-  return { visible, onFocus, onBlur, onMouseEnter, onMouseLeave };
+  return { isVisible, onFocus, onBlur, onMouseEnter, onMouseLeave };
 };

@@ -36,11 +36,11 @@ const Overlay = styled.div`
 `;
 
 export const Avatar = ({ src, alt, preview }) => {
-  const [previewVisible, setPreviewVisible] = useState(false);
+  const [isPreviewVisible, setisPreviewVisible] = useState(false);
 
   return (
     <span>
-      {preview && previewVisible ? (
+      {preview && isPreviewVisible ? (
         <PreviewContainer
           aria-hidden
           alt=""
@@ -51,11 +51,11 @@ export const Avatar = ({ src, alt, preview }) => {
       ) : null}
 
       <AvatarImgWrapper
-        hovering={preview && previewVisible}
-        onMouseEnter={() => setPreviewVisible(true)}
-        onMouseLeave={() => setPreviewVisible(false)}
+        hovering={preview && isPreviewVisible}
+        onMouseEnter={() => setisPreviewVisible(true)}
+        onMouseLeave={() => setisPreviewVisible(false)}
       >
-        {preview && previewVisible ? <Overlay /> : null}
+        {preview && isPreviewVisible ? <Overlay /> : null}
         <AvatarImg src={src} alt={alt} width={`${avatarSize}px`} height={`${avatarSize}px`} />
       </AvatarImgWrapper>
     </span>

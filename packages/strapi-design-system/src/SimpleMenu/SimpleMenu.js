@@ -91,7 +91,7 @@ MenuItem.propTypes = {
 export const SimpleMenu = ({ label, children, id, as: asComp, ...props }) => {
   const menuButtonRef = useRef();
   const menuId = useId('simplemenu', id);
-  const [visible, setVisible] = useState(false);
+  const [isVisible, setVisible] = useState(false);
   const [focusedItemIndex, setFocusItem] = useState(0);
   const childrenArray = Children.toArray(children);
   const Component = asComp || Button;
@@ -105,7 +105,7 @@ export const SimpleMenu = ({ label, children, id, as: asComp, ...props }) => {
   }, [label]);
 
   const handleWrapperKeyDown = (e) => {
-    if (visible) {
+    if (isVisible) {
       if (e.key === KeyboardKeys.ESCAPE) {
         e.stopPropagation();
         setVisible(false);
@@ -154,7 +154,7 @@ export const SimpleMenu = ({ label, children, id, as: asComp, ...props }) => {
       <Component
         label={label}
         aria-haspopup
-        aria-expanded={visible}
+        aria-expanded={isVisible}
         aria-controls={menuId}
         onKeyDown={handleKeyDown}
         onMouseDown={handleMenuButtonMouseDown}
@@ -170,7 +170,7 @@ export const SimpleMenu = ({ label, children, id, as: asComp, ...props }) => {
       >
         {label}
       </Component>
-      {visible && (
+      {isVisible && (
         <Popover onBlur={handleBlur} source={menuButtonRef} spacing={4}>
           <Box role="menu" as="ul" padding={1} id={menuId}>
             {childrenClone}

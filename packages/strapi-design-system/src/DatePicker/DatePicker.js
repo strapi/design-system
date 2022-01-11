@@ -24,7 +24,7 @@ export const DatePicker = ({
   ...props
 }) => {
   const generatedId = useId('datepicker', id);
-  const [visible, setVisible] = useState(false);
+  const [isVisible, setVisible] = useState(false);
   const inputRef = useRef(null);
   const datePickerButtonRef = useRef(null);
   const formattedDate = selectedDate ? formatDate(selectedDate) : '';
@@ -48,7 +48,7 @@ export const DatePicker = ({
   };
 
   return (
-    <DatePickerWrapper bold={visible}>
+    <DatePickerWrapper bold={isVisible}>
       <TextInput
         ref={inputRef}
         onClick={toggleVisibility}
@@ -83,7 +83,7 @@ export const DatePicker = ({
         {...props}
       />
 
-      {inputRef.current && inputRef.current.inputWrapperRef && visible && (
+      {inputRef.current && inputRef.current.inputWrapperRef && isVisible && (
         <DatePickerCalendar
           selectedDate={selectedDate}
           initialDate={initialDate}

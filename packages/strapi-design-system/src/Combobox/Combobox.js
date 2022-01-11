@@ -46,7 +46,7 @@ export const Combobox = ({
   const [activeIndex, setActiveIndex] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [filteredNodes, setFilteredNodes] = useState(nodes);
-  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [inputValue, setInputValue] = useState('');
 
   const activeOptionRef = useRef();
@@ -70,7 +70,7 @@ export const Combobox = ({
 
   // Maintain the scroll visibility
   useEffect(() => {
-    if (open && activeOptionRef.current) {
+    if (isOpen && activeOptionRef.current) {
       maintainScrollVisibility(activeOptionRef.current);
     }
   }, [activeIndex]);
@@ -82,7 +82,7 @@ export const Combobox = ({
     }
   }, [value]);
 
-  const activeId = open ? `${generatedId}-${activeIndex}` : '';
+  const activeId = isOpen ? `${generatedId}-${activeIndex}` : '';
 
   const clearCombobox = () => {
     onChange(null);
@@ -99,7 +99,7 @@ export const Combobox = ({
       setInputValue(curValue);
     }
 
-    if (!open) {
+    if (!isOpen) {
       updateMenuState(true, false);
     }
   };
@@ -107,7 +107,7 @@ export const Combobox = ({
   const onInputKeyDown = (event) => {
     const { key } = event;
     const max = creatable && inputValue ? filteredNodes.length : filteredNodes.length - 1;
-    const action = getActionFromKey(key, open);
+    const action = getActionFromKey(key, isOpen);
 
     if (value && !inputValue && key === KeyboardKeys.BACKSPACE) {
       clearCombobox();
@@ -191,8 +191,8 @@ export const Combobox = ({
     }
   };
 
-  const updateMenuState = (open, callFocus = true) => {
-    setOpen(open);
+  const updateMenuState = (isOpen, callFocus = true) => {
+    setIsOpen(isOpen);
     callFocus && inputRef.current.focus();
   };
 
@@ -252,7 +252,7 @@ export const Combobox = ({
               aria-autocomplete="list"
               aria-controls={`${generatedId}-listbox`}
               aria-disabled={disabled}
-              aria-expanded={open}
+              aria-expanded={isOpen}
               aria-haspopup="listbox"
               aria-labelledby={label ? labelId : undefined}
               id={generatedId}
@@ -301,7 +301,7 @@ export const Combobox = ({
         <FieldHint />
         <FieldError />
       </Stack>
-      {open && (
+      {isOpen && (
         <Popover
           id={`${generatedId}-popover`}
           source={containerRef}
