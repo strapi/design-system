@@ -3,7 +3,7 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { ArgsTable } from '@storybook/addon-docs';
 import Plus from '@strapi/icons/Plus';
-import { Illo } from './story-assets/Illo';
+import EmptyDocuments from '@strapi/icons/EmptyDocuments';
 import { EmptyStateLayout } from './EmptyStateLayout';
 import { Button } from '../Button';
 import { Box } from '../Box';
@@ -40,7 +40,7 @@ EmptyStates can be coupled with a button to help redirecting the user to a more 
   <Story name="base">
     <Box padding={8} background="neutral100">
       <EmptyStateLayout
-        icon={<Illo />}
+        icon={<EmptyDocuments width="10rem" />}
         content="You don't have any content yet..."
         action={
           <Button variant="secondary" startIcon={<Plus />}>
