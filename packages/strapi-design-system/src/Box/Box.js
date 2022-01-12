@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import handleResponsiveSpacing from '../helpers/handleResponsiveSpacing';
+import handleResponsiveValues from '../helpers/handleResponsiveValues';
 
 /**
  * Prevents these attributes from being spread on the DOM node
@@ -20,15 +20,15 @@ export const Box = styled.div.withConfig({
   color: ${({ theme, color }) => theme.colors[color]};
 
   // Spaces
-  ${({ theme, padding }) => handleResponsiveSpacing('padding', padding, theme)}
-  ${({ theme, paddingTop }) => handleResponsiveSpacing('padding-top', paddingTop, theme)}
-  ${({ theme, paddingRight }) => handleResponsiveSpacing('padding-right', paddingRight, theme)}
-  ${({ theme, paddingBottom }) => handleResponsiveSpacing('padding-bottom', paddingBottom, theme)}
-  ${({ theme, paddingLeft }) => handleResponsiveSpacing('padding-left', paddingLeft, theme)}
-  ${({ theme, marginLeft }) => handleResponsiveSpacing('margin-left', marginLeft, theme)}
-  ${({ theme, marginRight }) => handleResponsiveSpacing('margin-right', marginRight, theme)}
-  ${({ theme, marginTop }) => handleResponsiveSpacing('margin-top', marginTop, theme)}
-  ${({ theme, marginBottom }) => handleResponsiveSpacing('margin-bottom', marginBottom, theme)}
+  ${({ theme, padding }) => handleResponsiveValues('padding', padding, theme)}
+  ${({ theme, paddingTop }) => handleResponsiveValues('padding-top', paddingTop, theme)}
+  ${({ theme, paddingRight }) => handleResponsiveValues('padding-right', paddingRight, theme)}
+  ${({ theme, paddingBottom }) => handleResponsiveValues('padding-bottom', paddingBottom, theme)}
+  ${({ theme, paddingLeft }) => handleResponsiveValues('padding-left', paddingLeft, theme)}
+  ${({ theme, marginLeft }) => handleResponsiveValues('margin-left', marginLeft, theme)}
+  ${({ theme, marginRight }) => handleResponsiveValues('margin-right', marginRight, theme)}
+  ${({ theme, marginTop }) => handleResponsiveValues('margin-top', marginTop, theme)}
+  ${({ theme, marginBottom }) => handleResponsiveValues('margin-bottom', marginBottom, theme)}
 
   // Responsive hiding
   ${({ theme, hiddenS }) => (hiddenS ? `${theme.mediaQueries.tablet} { display: none; }` : undefined)}
