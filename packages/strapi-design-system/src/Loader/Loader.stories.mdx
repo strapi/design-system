@@ -4,10 +4,7 @@ import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { ArgsTable } from '@storybook/addon-docs';
 import { Loader } from './Loader';
 
-<Meta
-  title="Design System/Components/Loader"
-  component={Loader}
-/>
+<Meta title="Design System/Components/Loader" component={Loader} />
 
 # Loader
 
@@ -26,14 +23,31 @@ Loaders indicate some data is currently loading where content usually takes plac
 import { Loader } from '@strapi/design-system/Loader';
 ```
 
-
 ## Usage
 
 Loaders shows an action has been processed. Moreover, details about what is happening should be provided even if visually hidden.
 
+### Base
+
 <Canvas>
   <Story name="base">
     <Loader>Loading content...</Loader>
+  </Story>
+</Canvas>
+
+### Small
+
+<Canvas>
+  <Story name="small">
+    <Loader small>Loading content...</Loader>
+  </Story>
+</Canvas>
+
+### Color
+
+<Canvas>
+  <Story name="color">
+    <Loader color="danger600">Loading content...</Loader>
   </Story>
 </Canvas>
 
