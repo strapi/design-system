@@ -29,6 +29,10 @@ const CarouselAction = styled.button`
   }
 `;
 
+const TypographyAsterisk = styled(Typography)`
+  line-height: 0;
+`;
+
 export const Carousel = ({
   actions,
   children,
@@ -39,6 +43,7 @@ export const Carousel = ({
   onNext,
   onPrevious,
   previousLabel,
+  required,
   secondaryLabel,
   selectedSlide,
   ...props
@@ -78,6 +83,7 @@ export const Carousel = ({
       <Box paddingBottom={1}>
         <Typography variant="pi" textColor="neutral800" fontWeight="bold">
           {label}
+          {required && <TypographyAsterisk textColor="danger600">*</TypographyAsterisk>}
         </Typography>
       </Box>
       <Box padding={2} borderColor="neutral200" hasRadius background="neutral100">
@@ -132,6 +138,7 @@ Carousel.defaultProps = {
   actions: undefined,
   error: undefined,
   hint: undefined,
+  required: false,
   secondaryLabel: undefined,
 };
 
@@ -145,6 +152,7 @@ Carousel.propTypes = {
   onNext: PropTypes.func.isRequired,
   onPrevious: PropTypes.func.isRequired,
   previousLabel: PropTypes.string.isRequired,
+  required: PropTypes.bool,
   secondaryLabel: PropTypes.string,
   selectedSlide: PropTypes.number.isRequired,
 };

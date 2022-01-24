@@ -18,12 +18,12 @@ const LabelAction = styled(Box)`
   }
 `;
 
-export const ToggleInput = ({ size, error, hint, label, name, labelAction, ...props }) => {
+export const ToggleInput = ({ size, error, hint, label, name, labelAction, required, ...props }) => {
   return (
     <FieldWrapper name={name} hint={hint} error={error}>
       <Stack size={1}>
         <Flex>
-          <FieldLabel>{label}</FieldLabel>
+          <FieldLabel required={required}>{label}</FieldLabel>
           {labelAction && <LabelAction paddingLeft={1}>{labelAction}</LabelAction>}
         </Flex>
         <ToggleCheckbox size={size} name={name} {...props}>
@@ -44,6 +44,7 @@ ToggleInput.defaultProps = {
   label: '',
   labelAction: undefined,
   name: '',
+  required: false,
   size: 'M',
 };
 
@@ -53,5 +54,6 @@ ToggleInput.propTypes = {
   label: PropTypes.string,
   labelAction: PropTypes.node,
   name: PropTypes.string,
+  required: PropTypes.bool,
   size: PropTypes.oneOf(Object.keys(sizes.input)),
 };
