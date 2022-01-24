@@ -39,8 +39,8 @@ export const Carousel = ({
       >
         {children}
       </CarouselInput>
-      <FieldHint hint={hint} />
-      <FieldError error={error} />
+      <FieldHint />
+      <FieldError />
     </Field>
   );
 };
