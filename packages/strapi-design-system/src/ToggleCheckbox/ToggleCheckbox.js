@@ -51,7 +51,7 @@ const Input = styled.input`
 `;
 
 export const ToggleCheckbox = React.forwardRef(
-  ({ size, onLabel, offLabel, children, checked, disabled, onChange, id, ...props }, ref) => {
+  ({ size, onLabel, offLabel, children, checked, disabled, onChange, ...props }, ref) => {
     const labelColor = 'neutral800';
     let offCheckboxLabelColor = checked ? labelColor : 'danger700';
     let onCheckboxLabelColor = checked ? 'primary700' : labelColor;
@@ -75,7 +75,7 @@ export const ToggleCheckbox = React.forwardRef(
       <Label>
         <VisuallyHidden>{children}</VisuallyHidden>
 
-        <ToggleCheckboxWrapper id={id} background="neutral0" hasRadius size={size} disabled={disabled}>
+        <ToggleCheckboxWrapper background="neutral0" hasRadius size={size} disabled={disabled}>
           <OffBox
             background={disabled ? 'neutral150' : offCheckboxBackgroundColor}
             paddingLeft={7}
