@@ -116,9 +116,8 @@ export const ToggleCheckbox = React.forwardRef(
 ToggleCheckbox.displayName = 'ToggleCheckbox';
 
 ToggleCheckbox.defaultProps = {
-  checked: false,
   disabled: false,
-  id: undefined,
+  checked: false,
   onChange: undefined,
   size: 'M',
 };
@@ -127,7 +126,6 @@ ToggleCheckbox.propTypes = {
   checked: PropTypes.bool,
   children: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
-  id: PropTypes.string,
   offLabel: PropTypes.string.isRequired,
   onChange: PropTypes.func,
   onLabel: PropTypes.string.isRequired,
