@@ -1,37 +1,8 @@
-import React, { Children, cloneElement, useRef } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import ChevronRight from '@strapi/icons/ChevronRight';
-import ChevronLeft from '@strapi/icons/ChevronLeft';
-import { Icon } from '../Icon';
-import { Box } from '../Box';
-import { Typography } from '../Typography';
-import { Flex } from '../Flex';
-import { Tooltip } from '../Tooltip';
-import { KeyboardKeys } from '../helpers/keyboardKeys';
-
-const CarouselGrid = styled(Box)`
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  grid-template-areas: 'startAction slides endAction';
-`;
-
-const CarouselSlides = styled(Box)`
-  grid-area: slides;
-`;
-
-const CarouselAction = styled.button`
-  grid-area: ${({ area }) => area};
-
-  &:focus svg path,
-  &:hover svg path {
-    fill: ${({ theme }) => theme.colors.neutral900};
-  }
-`;
-
-const TypographyAsterisk = styled(Typography)`
-  line-height: 0;
-`;
+import { CarouselInput } from './CarouselInput';
+import { Field, FieldLabel, FieldHint, FieldError } from '../Field';
+import { useId } from '../helpers/useId';
 
 export const Carousel = ({
   actions,
@@ -46,91 +17,31 @@ export const Carousel = ({
   required,
   secondaryLabel,
   selectedSlide,
+  id,
   ...props
 }) => {
-  const prevActionRef = useRef(null);
-  const nextActionRef = useRef(null);
-
-  const childrenArray = Children.toArray(children).map((node, index) =>
-    cloneElement(node, { selected: index === selectedSlide }),
-  );
-
-  const handleKeyDown = (e) => {
-    switch (e.key) {
-      case KeyboardKeys.RIGHT: {
-        e.preventDefault();
-        nextActionRef.current.focus();
-        onNext();
-        break;
-      }
-
-      case KeyboardKeys.LEFT: {
-        e.preventDefault();
-        prevActionRef.current.focus();
-        onPrevious();
-        break;
-      }
-
-      default:
-        break;
-    }
-  };
-
-  const hasChildren = childrenArray.length > 1;
+  const generatedId = useId('carouselinput', id);
 
   return (
-    <Box {...props} onKeyDown={handleKeyDown}>
-      <Box paddingBottom={1}>
-        <Typography variant="pi" textColor="neutral800" fontWeight="bold">
-          {label}
-          {required && <TypographyAsterisk textColor="danger600">*</TypographyAsterisk>}
-        </Typography>
-      </Box>
-      <Box padding={2} borderColor="neutral200" hasRadius background="neutral100">
-        <CarouselGrid as="section" aria-roledescription="carousel" aria-label={label} position="relative">
-          {hasChildren && (
-            <CarouselAction
-              onClick={onPrevious}
-              area="startAction"
-              ref={prevActionRef}
-              aria-label={previousLabel}
-              type="button"
-            >
-              <Icon as={ChevronLeft} aria-hidden={true} width="6px" height="10px" color="neutral600" />
-            </CarouselAction>
-          )}
-
-          {hasChildren && (
-            <CarouselAction onClick={onNext} area="endAction" ref={nextActionRef} aria-label={nextLabel} type="button">
-              <Icon as={ChevronRight} aria-hidden={true} width="6px" height="10px" color="neutral600" />
-            </CarouselAction>
-          )}
-
-          <CarouselSlides aria-live="polite" paddingLeft={2} paddingRight={2} width="100%">
-            {childrenArray}
-          </CarouselSlides>
-          {actions}
-        </CarouselGrid>
-        {secondaryLabel && (
-          <Box paddingTop={2} paddingLeft={4} paddingRight={4}>
-            <Tooltip label={secondaryLabel}>
-              <Flex justifyContent="center">
-                <Typography variant="pi" textColor="neutral600" ellipsis>
-                  {secondaryLabel}
-                </Typography>
-              </Flex>
-            </Tooltip>
-          </Box>
-        )}
-      </Box>
-      {hint || error ? (
-        <Box paddingTop={1}>
-          <Typography variant="pi" textColor={error ? 'danger600' : 'neutral600'}>
-            {hint || error}
-          </Typography>
-        </Box>
-      ) : null}
-    </Box>
+    <Field hint={hint} error={error} id={generatedId}>
+      <FieldLabel required={required}>{label}</FieldLabel>
+      <CarouselInput
+        actions={actions}
+        label={label}
+        nextLabel={nextLabel}
+        onNext={onNext}
+        onPrevious={onPrevious}
+        previousLabel={previousLabel}
+        secondaryLabel={secondaryLabel}
+        selectedSlide={selectedSlide}
+        id={generatedId}
+        {...props}
+      >
+        {children}
+      </CarouselInput>
+      <FieldHint hint={hint} />
+      <FieldError error={error} />
+    </Field>
   );
 };
 
@@ -138,6 +49,7 @@ Carousel.defaultProps = {
   actions: undefined,
   error: undefined,
   hint: undefined,
+  id: undefined,
   required: false,
   secondaryLabel: undefined,
 };
@@ -147,6 +59,7 @@ Carousel.propTypes = {
   children: PropTypes.node.isRequired,
   error: PropTypes.string,
   hint: PropTypes.string,
+  id: PropTypes.string,
   label: PropTypes.string.isRequired,
   nextLabel: PropTypes.string.isRequired,
   onNext: PropTypes.func.isRequired,
