@@ -24,7 +24,9 @@ class MyDocument extends Document {
             src="https://www.googletagmanager.com/ns.html?id=GTM-KN9JRWG"
             height="0"
             width="0"
-            style="display:none;visibility:hidden"
+            style={{
+              display: 'none',
+            }}
           />
           <Main />
           <NextScript />
