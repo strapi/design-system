@@ -6,6 +6,8 @@ import ChevronLeft from '@strapi/icons/ChevronLeft';
 import { Icon } from '../Icon';
 import { Box } from '../Box';
 import { Typography } from '../Typography';
+import { Flex } from '../Flex';
+import { Tooltip } from '../Tooltip';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 
 const CarouselGrid = styled(Box)`
@@ -28,16 +30,17 @@ const CarouselAction = styled.button`
 `;
 
 export const Carousel = ({
-  label,
-  children,
-  previousLabel,
-  nextLabel,
-  selectedSlide,
-  onPrevious,
-  onNext,
   actions,
-  hint,
+  children,
   error,
+  hint,
+  label,
+  nextLabel,
+  onNext,
+  onPrevious,
+  previousLabel,
+  secondaryLabel,
+  selectedSlide,
   ...props
 }) => {
   const prevActionRef = useRef(null);
@@ -102,6 +105,17 @@ export const Carousel = ({
           </CarouselSlides>
           {actions}
         </CarouselGrid>
+        {secondaryLabel && (
+          <Box paddingTop={2} paddingLeft={4} paddingRight={4}>
+            <Tooltip label={secondaryLabel}>
+              <Flex justifyContent="center">
+                <Typography variant="pi" textColor="neutral600" ellipsis>
+                  {secondaryLabel}
+                </Typography>
+              </Flex>
+            </Tooltip>
+          </Box>
+        )}
       </Box>
       {hint || error ? (
         <Box paddingTop={1}>
@@ -118,6 +132,7 @@ Carousel.defaultProps = {
   actions: undefined,
   error: undefined,
   hint: undefined,
+  secondaryLabel: undefined,
 };
 
 Carousel.propTypes = {
@@ -130,5 +145,6 @@ Carousel.propTypes = {
   onNext: PropTypes.func.isRequired,
   onPrevious: PropTypes.func.isRequired,
   previousLabel: PropTypes.string.isRequired,
+  secondaryLabel: PropTypes.string,
   selectedSlide: PropTypes.number.isRequired,
 };
