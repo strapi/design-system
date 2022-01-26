@@ -5410,7 +5410,7 @@ exports[`Storyshots Design System/Components/Card without asset action nor timer
 </main>
 `;
 
-exports[`Storyshots Design System/Components/Carousel base 1`] = `
+exports[`Storyshots Design System/Components/CarouselInput base 1`] = `
 .c0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
@@ -5900,7 +5900,7 @@ exports[`Storyshots Design System/Components/Carousel base 1`] = `
 </main>
 `;
 
-exports[`Storyshots Design System/Components/Carousel one slide only 1`] = `
+exports[`Storyshots Design System/Components/CarouselInput one slide only 1`] = `
 .c0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);

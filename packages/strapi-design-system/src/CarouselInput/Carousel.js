@@ -29,7 +29,7 @@ const CarouselAction = styled.button`
   }
 `;
 
-export const CarouselInput = ({
+export const Carousel = ({
   actions,
   children,
   label,
@@ -114,7 +114,7 @@ export const CarouselInput = ({
   );
 };
 
-CarouselInput.defaultProps = {
+Carousel.defaultProps = {
   actions: undefined,
   error: undefined,
   hint: undefined,
@@ -122,7 +122,7 @@ CarouselInput.defaultProps = {
   secondaryLabel: undefined,
 };
 
-CarouselInput.propTypes = {
+Carousel.propTypes = {
   actions: PropTypes.node,
   children: PropTypes.node.isRequired,
   error: PropTypes.string,

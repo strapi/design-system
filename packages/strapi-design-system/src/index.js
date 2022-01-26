@@ -9,7 +9,7 @@ export * from './Box';
 export * from './Breadcrumbs';
 export * from './Button';
 export * from './Card';
-export * from './Carousel';
+export * from './CarouselInput';
 export * from './Checkbox';
 export * from './Combobox';
 export * from './Dialog';

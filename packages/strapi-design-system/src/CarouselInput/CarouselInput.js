@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { CarouselInput } from './CarouselInput';
+import { Carousel } from './Carousel';
 import { Field, FieldLabel, FieldHint, FieldError } from '../Field';
 import { useId } from '../helpers/useId';
 
-export const Carousel = ({
+export const CarouselInput = ({
   actions,
   children,
   error,
@@ -25,7 +25,7 @@ export const Carousel = ({
   return (
     <Field hint={hint} error={error} id={generatedId}>
       <FieldLabel required={required}>{label}</FieldLabel>
-      <CarouselInput
+      <Carousel
         actions={actions}
         label={label}
         nextLabel={nextLabel}
@@ -38,14 +38,14 @@ export const Carousel = ({
         {...props}
       >
         {children}
-      </CarouselInput>
+      </Carousel>
       <FieldHint />
       <FieldError />
     </Field>
   );
 };
 
-Carousel.defaultProps = {
+CarouselInput.defaultProps = {
   actions: undefined,
   error: undefined,
   hint: undefined,
@@ -54,7 +54,7 @@ Carousel.defaultProps = {
   secondaryLabel: undefined,
 };
 
-Carousel.propTypes = {
+CarouselInput.propTypes = {
   actions: PropTypes.node,
   children: PropTypes.node.isRequired,
   error: PropTypes.string,
