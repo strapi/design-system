@@ -4,7 +4,7 @@
   </a>
 </p>
 <p align="center">
-<a style='margin-right:10px' href="https://design-system.strapi.io/">Documentation</a>|<a style='margin-left:10px' href="https://design-system-git-master-strapijs.vercel.app/">Try components</a></p>
+<a style='margin-right:10px' href="https://design-system.strapi.io/">Documentation</a>|<a style='margin-left:10px' href="https://design-system-git-main-strapijs.vercel.app/">Try components</a></p>
 <br />
 
 <p align="center">

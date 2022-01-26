@@ -24,7 +24,7 @@ The core team will review your pull request and will either merge it, request ch
 
 **Before submitting your pull request** make sure the following requirements are fulfilled:
 
-- Fork the repository and create your branch from `master`.
+- Fork the repository and create your branch from `main`.
 - Run `yarn setup` in the repository root.
 - If you’ve fixed a bug or added code that should be tested, add the tests and then link the corresponding issue in either your commit or your PR!
 - Ensure the test suites are passing:
