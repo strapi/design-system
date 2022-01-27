@@ -72,12 +72,12 @@ export const Box = styled.div.withConfig({
   cursor: ${({ cursor }) => cursor};
 
   // Size
-  width: ${({ width, theme }) => theme.sizes[width] || width};
-  max-width: ${({ maxWidth, theme }) => theme.sizes[maxWidth] || maxWidth};
-  min-width: ${({ minWidth, theme }) => theme.sizes[minWidth] || minWidth};
-  height: ${({ height, theme }) => theme.sizes[height] || height};
-  max-height: ${({ maxHeight, theme }) => theme.sizes[maxHeight] || maxHeight};
-  min-height: ${({ minHeight, theme }) => theme.sizes[minHeight] || minHeight};
+  width: ${({ width, theme }) => theme.spaces[width] || width};
+  max-width: ${({ maxWidth, theme }) => theme.spaces[maxWidth] || maxWidth};
+  min-width: ${({ minWidth, theme }) => theme.spaces[minWidth] || minWidth};
+  height: ${({ height, theme }) => theme.spaces[height] || height};
+  max-height: ${({ maxHeight, theme }) => theme.spaces[maxHeight] || maxHeight};
+  min-height: ${({ minHeight, theme }) => theme.spaces[minHeight] || minHeight};
 
   // Animation
   transition: ${({ transition }) => transition};

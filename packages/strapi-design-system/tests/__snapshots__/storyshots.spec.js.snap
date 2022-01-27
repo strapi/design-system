@@ -1183,12 +1183,14 @@ exports[`Storyshots Design System/Components/Badge base 1`] = `
   background: #f6f6f9;
   padding: 4px;
   border-radius: 4px;
+  min-width: 20px;
 }
 
 .c5 {
   background: #f0f0ff;
   padding: 4px;
   border-radius: 4px;
+  min-width: 20px;
 }
 
 .c4 {
@@ -1205,6 +1207,24 @@ exports[`Storyshots Design System/Components/Badge base 1`] = `
   font-size: 0.6875rem;
   line-height: 1.45;
   text-transform: uppercase;
+}
+
+.c3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .c1 {
@@ -1226,10 +1246,6 @@ exports[`Storyshots Design System/Components/Badge base 1`] = `
   margin-top: 8px;
 }
 
-.c3 {
-  display: inline-block;
-}
-
 <main>
   <div
     class="c0"
@@ -1249,6 +1265,28 @@ exports[`Storyshots Design System/Components/Badge base 1`] = `
           class="c4"
         >
           Doc
+        </span>
+      </div>
+    </div>
+    <div>
+      <div
+        class="c2 c3"
+      >
+        <span
+          class="c4"
+        >
+          1
+        </span>
+      </div>
+    </div>
+    <div>
+      <div
+        class="c2 c3"
+      >
+        <span
+          class="c4"
+        >
+          5
         </span>
       </div>
     </div>
@@ -3556,6 +3594,7 @@ exports[`Storyshots Design System/Components/Card base 1`] = `
   background: #f6f6f9;
   padding: 4px;
   border-radius: 4px;
+  min-width: 20px;
 }
 
 .c13 {
@@ -3618,7 +3657,21 @@ exports[`Storyshots Design System/Components/Card base 1`] = `
 }
 
 .c21 {
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .c7 {
@@ -4000,6 +4053,7 @@ exports[`Storyshots Design System/Components/Card keyboard navigable 1`] = `
   background: #f6f6f9;
   padding: 4px;
   border-radius: 4px;
+  min-width: 20px;
 }
 
 .c7 {
@@ -4038,7 +4092,21 @@ exports[`Storyshots Design System/Components/Card keyboard navigable 1`] = `
 }
 
 .c11 {
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .c6 {
@@ -4356,6 +4424,7 @@ exports[`Storyshots Design System/Components/Card with asset icon 1`] = `
   background: #f6f6f9;
   padding: 4px;
   border-radius: 4px;
+  min-width: 20px;
 }
 
 .c10 {
@@ -4432,7 +4501,21 @@ exports[`Storyshots Design System/Components/Card with asset icon 1`] = `
 }
 
 .c18 {
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .c5 {
@@ -4689,6 +4772,7 @@ exports[`Storyshots Design System/Components/Card without asset 1`] = `
   background: #f6f6f9;
   padding: 4px;
   border-radius: 4px;
+  min-width: 20px;
 }
 
 .c7 {
@@ -4727,7 +4811,21 @@ exports[`Storyshots Design System/Components/Card without asset 1`] = `
 }
 
 .c11 {
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .c6 {
@@ -4855,6 +4953,7 @@ exports[`Storyshots Design System/Components/Card without asset action 1`] = `
   background: #f6f6f9;
   padding: 4px;
   border-radius: 4px;
+  min-width: 20px;
 }
 
 .c10 {
@@ -4917,7 +5016,21 @@ exports[`Storyshots Design System/Components/Card without asset action 1`] = `
 }
 
 .c18 {
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .c5 {
@@ -5158,6 +5271,7 @@ exports[`Storyshots Design System/Components/Card without asset action nor timer
   background: #f6f6f9;
   padding: 4px;
   border-radius: 4px;
+  min-width: 20px;
 }
 
 .c11 {
@@ -5214,7 +5328,21 @@ exports[`Storyshots Design System/Components/Card without asset action nor timer
 }
 
 .c15 {
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .c5 {
@@ -14595,6 +14723,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
   background: #eaeaef;
   padding: 4px;
   border-radius: 4px;
+  min-width: 20px;
 }
 
 .c28 {
@@ -14808,6 +14937,24 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
   align-items: center;
 }
 
+.c26 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
 .c51 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -14854,10 +15001,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
   position: relative;
   width: 26px;
   height: 26px;
-}
-
-.c26 {
-  display: inline-block;
 }
 
 .c9 {
@@ -22638,6 +22781,7 @@ exports[`Storyshots Design System/Components/MainNav notifications 1`] = `
   background: #f6f6f9;
   padding: 4px;
   border-radius: 4px;
+  min-width: 20px;
 }
 
 .c27 {
@@ -22734,6 +22878,24 @@ exports[`Storyshots Design System/Components/MainNav notifications 1`] = `
   align-items: center;
 }
 
+.c25 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
 .c29 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -22799,10 +22961,6 @@ exports[`Storyshots Design System/Components/MainNav notifications 1`] = `
 
 .c30 span {
   line-height: 0;
-}
-
-.c25 {
-  display: inline-block;
 }
 
 .c36 path {
@@ -29497,6 +29655,7 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
   background: #eaeaef;
   padding: 4px;
   border-radius: 4px;
+  min-width: 20px;
 }
 
 .c26 {
@@ -29613,6 +29772,24 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
   align-items: center;
 }
 
+.c24 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
 .c15 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -29630,10 +29807,6 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
 
 .c15 > * + * {
   margin-top: 8px;
-}
-
-.c24 {
-  display: inline-block;
 }
 
 .c8 {
