@@ -24,27 +24,29 @@ const TextareaWrapper = styled.div`
   }
 `;
 
-export const Textarea = React.forwardRef(({ name, hint, error, label, children, labelAction, id, ...props }, ref) => {
-  const generatedId = useId('textarea', id);
+export const Textarea = React.forwardRef(
+  ({ name, hint, error, label, children, labelAction, id, required, ...props }, ref) => {
+    const generatedId = useId('textarea', id);
 
-  return (
-    <TextareaWrapper>
-      <Field name={name} hint={hint} error={error} id={generatedId}>
-        <Stack size={1}>
-          {label && (
-            <Flex>
-              <FieldLabel>{label}</FieldLabel>
-              {labelAction && <Box paddingLeft={1}>{labelAction}</Box>}
-            </Flex>
-          )}
-          <TextareaInput ref={ref} as="textarea" value={children} {...props} />
-          <FieldHint />
-          <FieldError />
-        </Stack>
-      </Field>
-    </TextareaWrapper>
-  );
-});
+    return (
+      <TextareaWrapper>
+        <Field name={name} hint={hint} error={error} id={generatedId}>
+          <Stack size={1}>
+            {label && (
+              <Flex>
+                <FieldLabel required={required}>{label}</FieldLabel>
+                {labelAction && <Box paddingLeft={1}>{labelAction}</Box>}
+              </Flex>
+            )}
+            <TextareaInput ref={ref} as="textarea" value={children} {...props} />
+            <FieldHint />
+            <FieldError />
+          </Stack>
+        </Field>
+      </TextareaWrapper>
+    );
+  },
+);
 
 Textarea.displayName = 'Textarea';
 
@@ -56,6 +58,7 @@ Textarea.defaultProps = {
   hint: undefined,
   id: undefined,
   children: '',
+  required: false,
 };
 
 Textarea.propTypes = {
@@ -67,4 +70,5 @@ Textarea.propTypes = {
   label: PropTypes.string,
   labelAction: PropTypes.element,
   name: PropTypes.string.isRequired,
+  required: PropTypes.bool,
 };
