@@ -3757,6 +3757,20 @@ exports[`Storyshots Design System/Components/Badge base 1`] = `
   width: 1px;
 }
 
+.c2 {
+  background: #f6f6f9;
+  padding: 4px;
+  border-radius: 4px;
+  min-width: 20px;
+}
+
+.c5 {
+  background: #f0f0ff;
+  padding: 4px;
+  border-radius: 4px;
+  min-width: 20px;
+}
+
 .c4 {
   color: #666687;
   font-weight: 600;
@@ -3773,16 +3787,22 @@ exports[`Storyshots Design System/Components/Badge base 1`] = `
   text-transform: uppercase;
 }
 
-.c2 {
-  background: #f6f6f9;
-  padding: 4px;
-  border-radius: 4px;
-}
-
-.c5 {
-  background: #f0f0ff;
-  padding: 4px;
-  border-radius: 4px;
+.c3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .c1 {
@@ -3804,10 +3824,6 @@ exports[`Storyshots Design System/Components/Badge base 1`] = `
   margin-top: 8px;
 }
 
-.c3 {
-  display: inline-block;
-}
-
 <main>
   <div
     class="c0"
@@ -3827,6 +3843,28 @@ exports[`Storyshots Design System/Components/Badge base 1`] = `
           class="c4"
         >
           Doc
+        </span>
+      </div>
+    </div>
+    <div>
+      <div
+        class="c2 c3"
+      >
+        <span
+          class="c4"
+        >
+          1
+        </span>
+      </div>
+    </div>
+    <div>
+      <div
+        class="c2 c3"
+      >
+        <span
+          class="c4"
+        >
+          5
         </span>
       </div>
     </div>
@@ -6110,6 +6148,33 @@ exports[`Storyshots Design System/Components/Card base 1`] = `
   width: 1px;
 }
 
+.c1 {
+  background: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
+}
+
+.c11 {
+  background: #32324d;
+  color: #ffffff;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.c14 {
+  padding-top: 8px;
+  padding-right: 12px;
+  padding-bottom: 8px;
+  padding-left: 12px;
+}
+
+.c20 {
+  background: #f6f6f9;
+  padding: 4px;
+  border-radius: 4px;
+  min-width: 20px;
+}
+
 .c13 {
   color: #ffffff;
   font-size: 0.75rem;
@@ -6193,6 +6258,24 @@ exports[`Storyshots Design System/Components/Card base 1`] = `
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
+}
+
+.c21 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .c7 {
@@ -6599,6 +6682,7 @@ exports[`Storyshots Design System/Components/Card keyboard navigable 1`] = `
   background: #f6f6f9;
   padding: 4px;
   border-radius: 4px;
+  min-width: 20px;
 }
 
 .c3 {
@@ -6616,7 +6700,21 @@ exports[`Storyshots Design System/Components/Card keyboard navigable 1`] = `
 }
 
 .c11 {
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .c6 {
@@ -6910,6 +7008,33 @@ exports[`Storyshots Design System/Components/Card with asset icon 1`] = `
   width: 1px;
 }
 
+.c1 {
+  background: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
+}
+
+.c8 {
+  background: #32324d;
+  color: #ffffff;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.c11 {
+  padding-top: 8px;
+  padding-right: 12px;
+  padding-bottom: 8px;
+  padding-left: 12px;
+}
+
+.c17 {
+  background: #f6f6f9;
+  padding: 4px;
+  border-radius: 4px;
+  min-width: 20px;
+}
+
 .c10 {
   color: #ffffff;
   font-size: 0.75rem;
@@ -7010,7 +7135,21 @@ exports[`Storyshots Design System/Components/Card with asset icon 1`] = `
 }
 
 .c18 {
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .c5 {
@@ -7288,6 +7427,7 @@ exports[`Storyshots Design System/Components/Card without asset 1`] = `
   background: #f6f6f9;
   padding: 4px;
   border-radius: 4px;
+  min-width: 20px;
 }
 
 .c3 {
@@ -7305,7 +7445,21 @@ exports[`Storyshots Design System/Components/Card without asset 1`] = `
 }
 
 .c11 {
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .c6 {
@@ -7409,6 +7563,33 @@ exports[`Storyshots Design System/Components/Card without asset action 1`] = `
   width: 1px;
 }
 
+.c1 {
+  background: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
+}
+
+.c8 {
+  background: #32324d;
+  color: #ffffff;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.c11 {
+  padding-top: 8px;
+  padding-right: 12px;
+  padding-bottom: 8px;
+  padding-left: 12px;
+}
+
+.c17 {
+  background: #f6f6f9;
+  padding: 4px;
+  border-radius: 4px;
+  min-width: 20px;
+}
+
 .c10 {
   color: #ffffff;
   font-size: 0.75rem;
@@ -7495,7 +7676,21 @@ exports[`Storyshots Design System/Components/Card without asset action 1`] = `
 }
 
 .c18 {
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .c5 {
@@ -7719,6 +7914,26 @@ exports[`Storyshots Design System/Components/Card without asset action nor timer
   width: 1px;
 }
 
+.c1 {
+  background: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
+}
+
+.c8 {
+  padding-top: 8px;
+  padding-right: 12px;
+  padding-bottom: 8px;
+  padding-left: 12px;
+}
+
+.c14 {
+  background: #f6f6f9;
+  padding: 4px;
+  border-radius: 4px;
+  min-width: 20px;
+}
+
 .c11 {
   font-weight: 600;
   color: #32324d;
@@ -7792,7 +8007,21 @@ exports[`Storyshots Design System/Components/Card without asset action nor timer
 }
 
 .c15 {
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .c5 {
@@ -7988,7 +8217,7 @@ exports[`Storyshots Design System/Components/Card without asset action nor timer
 </main>
 `;
 
-exports[`Storyshots Design System/Components/Carousel base 1`] = `
+exports[`Storyshots Design System/Components/CarouselInput base 1`] = `
 .c0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
@@ -8002,23 +8231,6 @@ exports[`Storyshots Design System/Components/Carousel base 1`] = `
 }
 
 .c2 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c22 {
-  color: #666687;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c1 {
-  padding-bottom: 4px;
-}
-
-.c3 {
   background: #f6f6f9;
   padding: 8px;
   border-radius: 4px;
@@ -8026,54 +8238,50 @@ exports[`Storyshots Design System/Components/Carousel base 1`] = `
   border: 1px solid #dcdce4;
 }
 
-.c4 {
+.c3 {
   position: relative;
 }
 
-.c7 {
+.c6 {
   color: #666687;
   width: 6px;
   height: 10px;
 }
 
-.c10 {
+.c9 {
   padding-right: 8px;
   padding-left: 8px;
   width: 100%;
 }
 
-.c12 {
+.c11 {
   height: 124px;
 }
 
-.c15 {
+.c14 {
   height: 100%;
 }
 
-.c17 {
+.c16 {
   position: absolute;
   bottom: 4px;
   width: 100%;
 }
 
-.c21 {
+.c20 {
   padding-top: 8px;
   padding-right: 16px;
   padding-left: 16px;
 }
 
-.c23 {
-  padding-top: 4px;
-}
-
-.c2 {
+.c1 {
   font-weight: 600;
   color: #32324d;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
-.c22 {
+.c21 {
   color: #666687;
   display: block;
   white-space: nowrap;
@@ -8083,13 +8291,13 @@ exports[`Storyshots Design System/Components/Carousel base 1`] = `
   line-height: 1.33;
 }
 
-.c24 {
+.c22 {
   color: #666687;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
-.c13 {
+.c12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -8107,20 +8315,16 @@ exports[`Storyshots Design System/Components/Carousel base 1`] = `
   align-items: center;
 }
 
-.c18 > * {
+.c17 > * {
   margin-left: 0;
   margin-right: 0;
 }
 
-.c18 > * + * {
+.c17 > * + * {
   margin-left: 4px;
 }
 
-.c8 path {
-  fill: #666687;
-}
-
-.c19 {
+.c18 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -8134,21 +8338,21 @@ exports[`Storyshots Design System/Components/Carousel base 1`] = `
   outline: none;
 }
 
-.c19 svg {
+.c18 svg {
   height: 12px;
   width: 12px;
 }
 
-.c19 svg > g,
-.c19 svg path {
+.c18 svg > g,
+.c18 svg path {
   fill: #ffffff;
 }
 
-.c19[aria-disabled='true'] {
+.c18[aria-disabled='true'] {
   pointer-events: none;
 }
 
-.c19:after {
+.c18:after {
   -webkit-transition-property: all;
   transition-property: all;
   -webkit-transition-duration: 0.2s;
@@ -8163,11 +8367,11 @@ exports[`Storyshots Design System/Components/Carousel base 1`] = `
   border: 2px solid transparent;
 }
 
-.c19:focus-visible {
+.c18:focus-visible {
   outline: none;
 }
 
-.c19:focus-visible:after {
+.c18:focus-visible:after {
   border-radius: 8px;
   content: '';
   position: absolute;
@@ -8178,7 +8382,7 @@ exports[`Storyshots Design System/Components/Carousel base 1`] = `
   border: 2px solid #4945ff;
 }
 
-.c20 {
+.c19 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -8195,65 +8399,69 @@ exports[`Storyshots Design System/Components/Carousel base 1`] = `
   width: 2rem;
 }
 
-.c20 svg > g,
-.c20 svg path {
+.c19 svg > g,
+.c19 svg path {
   fill: #8e8ea9;
 }
 
-.c20:hover svg > g,
-.c20:hover svg path {
+.c19:hover svg > g,
+.c19:hover svg path {
   fill: #666687;
 }
 
-.c20:active svg > g,
-.c20:active svg path {
+.c19:active svg > g,
+.c19:active svg path {
   fill: #a5a5ba;
 }
 
-.c20[aria-disabled='true'] {
+.c19[aria-disabled='true'] {
   background-color: #eaeaef;
 }
 
-.c20[aria-disabled='true'] svg path {
+.c19[aria-disabled='true'] svg path {
   fill: #666687;
 }
 
-.c5 {
+.c7 path {
+  fill: #666687;
+}
+
+.c4 {
   display: grid;
   grid-template-columns: auto 1fr auto;
   grid-template-areas: 'startAction slides endAction';
 }
 
-.c11 {
+.c10 {
   grid-area: slides;
 }
 
-.c6 {
+.c5 {
   grid-area: startAction;
 }
 
-.c6:focus svg path,
-.c6:hover svg path {
+.c5:focus svg path,
+.c5:hover svg path {
   fill: #212134;
 }
 
-.c9 {
+.c8 {
   grid-area: endAction;
 }
 
-.c9:focus svg path,
-.c9:hover svg path {
+.c8:focus svg path,
+.c8:hover svg path {
   fill: #212134;
 }
 
-.c14 {
+.c13 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.c16 {
+.c15 {
   display: none;
 }
 
@@ -8265,244 +8473,241 @@ exports[`Storyshots Design System/Components/Carousel base 1`] = `
       Storybook story
     </h1>
   </div>
-  <div
-    class=""
-    style="width: 242px;"
-  >
-    <div
+  <div>
+    <label
       class="c1"
+      for="carouselinput-3"
     >
-      <span
+      Carousel of numbers (1/3)
+    </label>
+    <div
+      class=""
+      id="carouselinput-3"
+      style="width: 242px;"
+    >
+      <div
         class="c2"
       >
-        Carousel of numbers (1/3)
-      </span>
-    </div>
-    <div
-      class="c3"
-    >
-      <section
-        aria-label="Carousel of numbers (1/3)"
-        aria-roledescription="carousel"
-        class="c4 c5"
-      >
-        <button
-          aria-label="Previous slide"
-          class="c6"
-          type="button"
+        <section
+          aria-label="Carousel of numbers (1/3)"
+          aria-roledescription="carousel"
+          class="c3 c4"
         >
-          <svg
-            aria-hidden="true"
-            class="c7 c8"
-            fill="none"
-            height="10px"
-            viewBox="0 0 10 16"
-            width="6px"
-            xmlns="http://www.w3.org/2000/svg"
+          <button
+            aria-label="Previous slide"
+            class="c5"
+            type="button"
           >
-            <path
-              d="M9.88 14.12L3.773 8 9.88 1.88 8 0 0 8l8 8 1.88-1.88z"
-              fill="#32324D"
-            />
-          </svg>
-        </button>
-        <button
-          aria-label="Next slide"
-          class="c9"
-          type="button"
-        >
-          <svg
-            aria-hidden="true"
-            class="c7 c8"
-            fill="none"
-            height="10px"
-            viewBox="0 0 10 16"
-            width="6px"
-            xmlns="http://www.w3.org/2000/svg"
+            <svg
+              aria-hidden="true"
+              class="c6 c7"
+              fill="none"
+              height="10px"
+              viewBox="0 0 10 16"
+              width="6px"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9.88 14.12L3.773 8 9.88 1.88 8 0 0 8l8 8 1.88-1.88z"
+                fill="#32324D"
+              />
+            </svg>
+          </button>
+          <button
+            aria-label="Next slide"
+            class="c8"
+            type="button"
           >
-            <path
-              d="M.12 1.88L6.227 8 .12 14.12 2 16l8-8-8-8L.12 1.88z"
-              fill="#32324D"
-            />
-          </svg>
-        </button>
-        <div
-          aria-live="polite"
-          class="c10 c11"
-          width="100%"
-        >
+            <svg
+              aria-hidden="true"
+              class="c6 c7"
+              fill="none"
+              height="10px"
+              viewBox="0 0 10 16"
+              width="6px"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M.12 1.88L6.227 8 .12 14.12 2 16l8-8-8-8L.12 1.88z"
+                fill="#32324D"
+              />
+            </svg>
+          </button>
           <div
-            aria-label="1 of 3 slides"
-            aria-roledescription="slide"
-            class="c12 c13 c14"
-            height="124px"
-            role="group"
+            aria-live="polite"
+            class="c9 c10"
+            width="100%"
           >
-            <img
-              alt="First"
-              class="c15"
-              height="100%"
-              src="test-file-stub"
-            />
+            <div
+              aria-label="1 of 3 slides"
+              aria-roledescription="slide"
+              class="c11 c12 c13"
+              height="124px"
+              role="group"
+            >
+              <img
+                alt="First"
+                class="c14"
+                height="100%"
+                src="test-file-stub"
+              />
+            </div>
+            <div
+              aria-label="2 of 3 slides"
+              aria-roledescription="slide"
+              class="c11 c12 c15"
+              height="124px"
+              role="group"
+            >
+              <img
+                alt="second"
+                class="c14"
+                height="100%"
+                src="test-file-stub"
+              />
+            </div>
+            <div
+              aria-label="3 of 3 slides"
+              aria-roledescription="slide"
+              class="c11 c12 c15"
+              height="124px"
+              role="group"
+            >
+              <img
+                alt="third"
+                class="c14"
+                height="100%"
+                src="test-file-stub"
+              />
+            </div>
           </div>
           <div
-            aria-label="2 of 3 slides"
-            aria-roledescription="slide"
-            class="c12 c13 c16"
-            height="124px"
-            role="group"
+            class="c16 c12 c17"
+            width="100%"
           >
-            <img
-              alt="second"
-              class="c15"
-              height="100%"
-              src="test-file-stub"
-            />
-          </div>
-          <div
-            aria-label="3 of 3 slides"
-            aria-roledescription="slide"
-            class="c12 c13 c16"
-            height="124px"
-            role="group"
-          >
-            <img
-              alt="third"
-              class="c15"
-              height="100%"
-              src="test-file-stub"
-            />
-          </div>
-        </div>
-        <div
-          class="c17 c13 c18"
-          width="100%"
-        >
-          <span>
-            <button
-              aria-disabled="false"
-              aria-labelledby="tooltip-15"
-              class="c19 c20"
-              id="edit"
-              tabindex="0"
-              type="button"
-            >
-              <svg
-                fill="none"
-                height="1em"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
+            <span>
+              <button
+                aria-disabled="false"
+                aria-labelledby="tooltip-4"
+                class="c18 c19"
+                id="edit"
+                tabindex="0"
+                type="button"
               >
-                <path
-                  clip-rule="evenodd"
-                  d="M23.605 3.514c.527.528.527 1.36 0 1.887l-2.623 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.119 3.118zM0 24v-4.989l14.2-14.2L19.19 9.8 4.99 24H0z"
-                  fill="#212134"
-                  fill-rule="evenodd"
-                />
-              </svg>
-            </button>
-          </span>
-          <span>
-            <button
-              aria-disabled="false"
-              aria-labelledby="tooltip-17"
-              class="c19 c20"
-              tabindex="0"
-              type="button"
-            >
-              <svg
-                fill="none"
-                height="1em"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M23.605 3.514c.527.528.527 1.36 0 1.887l-2.623 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.119 3.118zM0 24v-4.989l14.2-14.2L19.19 9.8 4.99 24H0z"
+                    fill="#212134"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </button>
+            </span>
+            <span>
+              <button
+                aria-disabled="false"
+                aria-labelledby="tooltip-6"
+                class="c18 c19"
+                tabindex="0"
+                type="button"
               >
-                <path
-                  d="M24 13.604a.3.3 0 01-.3.3h-9.795V23.7a.3.3 0 01-.3.3h-3.21a.3.3 0 01-.3-.3v-9.795H.3a.3.3 0 01-.3-.3v-3.21a.3.3 0 01.3-.3h9.795V.3a.3.3 0 01.3-.3h3.21a.3.3 0 01.3.3v9.795H23.7a.3.3 0 01.3.3v3.21z"
-                  fill="#212134"
-                />
-              </svg>
-            </button>
-          </span>
-          <span>
-            <button
-              aria-disabled="false"
-              aria-labelledby="tooltip-19"
-              class="c19 c20"
-              tabindex="0"
-              type="button"
-            >
-              <svg
-                fill="none"
-                height="1em"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M24 13.604a.3.3 0 01-.3.3h-9.795V23.7a.3.3 0 01-.3.3h-3.21a.3.3 0 01-.3-.3v-9.795H.3a.3.3 0 01-.3-.3v-3.21a.3.3 0 01.3-.3h9.795V.3a.3.3 0 01.3-.3h3.21a.3.3 0 01.3.3v9.795H23.7a.3.3 0 01.3.3v3.21z"
+                    fill="#212134"
+                  />
+                </svg>
+              </button>
+            </span>
+            <span>
+              <button
+                aria-disabled="false"
+                aria-labelledby="tooltip-8"
+                class="c18 c19"
+                tabindex="0"
+                type="button"
               >
-                <path
-                  d="M3.236 6.149a.2.2 0 00-.197.233L6 24h12l2.96-17.618a.2.2 0 00-.196-.233H3.236zM21.8 1.983c.11 0 .2.09.2.2v1.584a.2.2 0 01-.2.2H2.2a.2.2 0 01-.2-.2V2.183c0-.11.09-.2.2-.2h5.511c.9 0 1.631-1.09 1.631-1.983h5.316c0 .894.73 1.983 1.631 1.983H21.8z"
-                  fill="#32324D"
-                />
-              </svg>
-            </button>
-          </span>
-          <span>
-            <button
-              aria-disabled="false"
-              aria-labelledby="tooltip-21"
-              class="c19 c20"
-              tabindex="0"
-              type="button"
-            >
-              <svg
-                fill="none"
-                height="1em"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M3.236 6.149a.2.2 0 00-.197.233L6 24h12l2.96-17.618a.2.2 0 00-.196-.233H3.236zM21.8 1.983c.11 0 .2.09.2.2v1.584a.2.2 0 01-.2.2H2.2a.2.2 0 01-.2-.2V2.183c0-.11.09-.2.2-.2h5.511c.9 0 1.631-1.09 1.631-1.983h5.316c0 .894.73 1.983 1.631 1.983H21.8z"
+                    fill="#32324D"
+                  />
+                </svg>
+              </button>
+            </span>
+            <span>
+              <button
+                aria-disabled="false"
+                aria-labelledby="tooltip-10"
+                class="c18 c19"
+                tabindex="0"
+                type="button"
               >
-                <path
-                  d="M4 21.65V2.35a.2.2 0 01.301-.173l16.406 9.65a.2.2 0 010 .345L4.3 21.822A.2.2 0 014 21.65z"
-                  fill="#212134"
-                />
-              </svg>
-            </button>
-          </span>
-        </div>
-      </section>
-      <div
-        class="c21"
-      >
-        <span>
-          <div
-            aria-labelledby="tooltip-11"
-            class="c13"
-            tabindex="0"
-          >
-            <span
-              class="c22"
-            >
-              /packages/strapi-design-system/src/Carousel/story-assets/first.jpg
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4 21.65V2.35a.2.2 0 01.301-.173l16.406 9.65a.2.2 0 010 .345L4.3 21.822A.2.2 0 014 21.65z"
+                    fill="#212134"
+                  />
+                </svg>
+              </button>
             </span>
           </div>
-        </span>
+        </section>
+        <div
+          class="c20"
+        >
+          <span>
+            <div
+              aria-labelledby="tooltip-12"
+              class="c12"
+              tabindex="0"
+            >
+              <span
+                class="c21"
+              >
+                /packages/strapi-design-system/src/Carousel/story-assets/first.jpg
+              </span>
+            </div>
+          </span>
+        </div>
       </div>
     </div>
-    <div
-      class="c23"
+    <p
+      class="c22"
+      id="carouselinput-3-hint"
     >
-      <span
-        class="c24"
-      >
-        Description line
-      </span>
-    </div>
+      Description line
+    </p>
   </div>
 </main>
 `;
 
-exports[`Storyshots Design System/Components/Carousel one slide only 1`] = `
+exports[`Storyshots Design System/Components/CarouselInput one slide only 1`] = `
 .c0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
@@ -8516,23 +8721,6 @@ exports[`Storyshots Design System/Components/Carousel one slide only 1`] = `
 }
 
 .c2 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c17 {
-  color: #666687;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c1 {
-  padding-bottom: 4px;
-}
-
-.c3 {
   background: #f6f6f9;
   padding: 8px;
   border-radius: 4px;
@@ -8540,35 +8728,44 @@ exports[`Storyshots Design System/Components/Carousel one slide only 1`] = `
   border: 1px solid #dcdce4;
 }
 
-.c4 {
+.c3 {
   position: relative;
 }
 
-.c6 {
+.c5 {
   padding-right: 8px;
   padding-left: 8px;
   width: 100%;
 }
 
-.c8 {
+.c7 {
   height: 124px;
 }
 
-.c11 {
+.c10 {
   height: 100%;
 }
 
-.c12 {
+.c11 {
   position: absolute;
   bottom: 4px;
   width: 100%;
 }
 
-.c16 {
-  padding-top: 4px;
+.c1 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
 }
 
-.c9 {
+.c15 {
+  color: #666687;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -8586,16 +8783,16 @@ exports[`Storyshots Design System/Components/Carousel one slide only 1`] = `
   align-items: center;
 }
 
-.c13 > * {
+.c12 > * {
   margin-left: 0;
   margin-right: 0;
 }
 
-.c13 > * + * {
+.c12 > * + * {
   margin-left: 4px;
 }
 
-.c14 {
+.c13 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -8609,21 +8806,21 @@ exports[`Storyshots Design System/Components/Carousel one slide only 1`] = `
   outline: none;
 }
 
-.c14 svg {
+.c13 svg {
   height: 12px;
   width: 12px;
 }
 
-.c14 svg > g,
-.c14 svg path {
+.c13 svg > g,
+.c13 svg path {
   fill: #ffffff;
 }
 
-.c14[aria-disabled='true'] {
+.c13[aria-disabled='true'] {
   pointer-events: none;
 }
 
-.c14:after {
+.c13:after {
   -webkit-transition-property: all;
   transition-property: all;
   -webkit-transition-duration: 0.2s;
@@ -8638,11 +8835,11 @@ exports[`Storyshots Design System/Components/Carousel one slide only 1`] = `
   border: 2px solid transparent;
 }
 
-.c14:focus-visible {
+.c13:focus-visible {
   outline: none;
 }
 
-.c14:focus-visible:after {
+.c13:focus-visible:after {
   border-radius: 8px;
   content: '';
   position: absolute;
@@ -8653,7 +8850,7 @@ exports[`Storyshots Design System/Components/Carousel one slide only 1`] = `
   border: 2px solid #4945ff;
 }
 
-.c15 {
+.c14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -8670,40 +8867,40 @@ exports[`Storyshots Design System/Components/Carousel one slide only 1`] = `
   width: 2rem;
 }
 
-.c15 svg > g,
-.c15 svg path {
+.c14 svg > g,
+.c14 svg path {
   fill: #8e8ea9;
 }
 
-.c15:hover svg > g,
-.c15:hover svg path {
+.c14:hover svg > g,
+.c14:hover svg path {
   fill: #666687;
 }
 
-.c15:active svg > g,
-.c15:active svg path {
+.c14:active svg > g,
+.c14:active svg path {
   fill: #a5a5ba;
 }
 
-.c15[aria-disabled='true'] {
+.c14[aria-disabled='true'] {
   background-color: #eaeaef;
 }
 
-.c15[aria-disabled='true'] svg path {
+.c14[aria-disabled='true'] svg path {
   fill: #666687;
 }
 
-.c5 {
+.c4 {
   display: grid;
   grid-template-columns: auto 1fr auto;
   grid-template-areas: 'startAction slides endAction';
 }
 
-.c7 {
+.c6 {
   grid-area: slides;
 }
 
-.c10 {
+.c9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -8718,154 +8915,151 @@ exports[`Storyshots Design System/Components/Carousel one slide only 1`] = `
       Storybook story
     </h1>
   </div>
-  <div
-    class=""
-    style="width: 242px;"
-  >
-    <div
+  <div>
+    <label
       class="c1"
+      for="carouselinput-14"
     >
-      <span
+      Carousel of numbers 1/1)
+    </label>
+    <div
+      class=""
+      id="carouselinput-14"
+      style="width: 242px;"
+    >
+      <div
         class="c2"
       >
-        Carousel of numbers 1/1)
-      </span>
-    </div>
-    <div
-      class="c3"
-    >
-      <section
-        aria-label="Carousel of numbers 1/1)"
-        aria-roledescription="carousel"
-        class="c4 c5"
-      >
-        <div
-          aria-live="polite"
-          class="c6 c7"
-          width="100%"
+        <section
+          aria-label="Carousel of numbers 1/1)"
+          aria-roledescription="carousel"
+          class="c3 c4"
         >
           <div
-            aria-label="1 of 1 slides"
-            aria-roledescription="slide"
-            class="c8 c9 c10"
-            height="124px"
-            role="group"
+            aria-live="polite"
+            class="c5 c6"
+            width="100%"
           >
-            <img
-              alt="First"
-              class="c11"
-              height="100%"
-              src="test-file-stub"
-            />
+            <div
+              aria-label="1 of 1 slides"
+              aria-roledescription="slide"
+              class="c7 c8 c9"
+              height="124px"
+              role="group"
+            >
+              <img
+                alt="First"
+                class="c10"
+                height="100%"
+                src="test-file-stub"
+              />
+            </div>
           </div>
-        </div>
-        <div
-          class="c12 c9 c13"
-          width="100%"
-        >
-          <span>
-            <button
-              aria-disabled="false"
-              aria-labelledby="tooltip-13"
-              class="c14 c15"
-              id="edit"
-              tabindex="0"
-              type="button"
-            >
-              <svg
-                fill="none"
-                height="1em"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
+          <div
+            class="c11 c8 c12"
+            width="100%"
+          >
+            <span>
+              <button
+                aria-disabled="false"
+                aria-labelledby="tooltip-15"
+                class="c13 c14"
+                id="edit"
+                tabindex="0"
+                type="button"
               >
-                <path
-                  clip-rule="evenodd"
-                  d="M23.605 3.514c.527.528.527 1.36 0 1.887l-2.623 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.119 3.118zM0 24v-4.989l14.2-14.2L19.19 9.8 4.99 24H0z"
-                  fill="#212134"
-                  fill-rule="evenodd"
-                />
-              </svg>
-            </button>
-          </span>
-          <span>
-            <button
-              aria-disabled="false"
-              aria-labelledby="tooltip-15"
-              class="c14 c15"
-              tabindex="0"
-              type="button"
-            >
-              <svg
-                fill="none"
-                height="1em"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M23.605 3.514c.527.528.527 1.36 0 1.887l-2.623 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.119 3.118zM0 24v-4.989l14.2-14.2L19.19 9.8 4.99 24H0z"
+                    fill="#212134"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </button>
+            </span>
+            <span>
+              <button
+                aria-disabled="false"
+                aria-labelledby="tooltip-17"
+                class="c13 c14"
+                tabindex="0"
+                type="button"
               >
-                <path
-                  d="M24 13.604a.3.3 0 01-.3.3h-9.795V23.7a.3.3 0 01-.3.3h-3.21a.3.3 0 01-.3-.3v-9.795H.3a.3.3 0 01-.3-.3v-3.21a.3.3 0 01.3-.3h9.795V.3a.3.3 0 01.3-.3h3.21a.3.3 0 01.3.3v9.795H23.7a.3.3 0 01.3.3v3.21z"
-                  fill="#212134"
-                />
-              </svg>
-            </button>
-          </span>
-          <span>
-            <button
-              aria-disabled="false"
-              aria-labelledby="tooltip-17"
-              class="c14 c15"
-              tabindex="0"
-              type="button"
-            >
-              <svg
-                fill="none"
-                height="1em"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M24 13.604a.3.3 0 01-.3.3h-9.795V23.7a.3.3 0 01-.3.3h-3.21a.3.3 0 01-.3-.3v-9.795H.3a.3.3 0 01-.3-.3v-3.21a.3.3 0 01.3-.3h9.795V.3a.3.3 0 01.3-.3h3.21a.3.3 0 01.3.3v9.795H23.7a.3.3 0 01.3.3v3.21z"
+                    fill="#212134"
+                  />
+                </svg>
+              </button>
+            </span>
+            <span>
+              <button
+                aria-disabled="false"
+                aria-labelledby="tooltip-19"
+                class="c13 c14"
+                tabindex="0"
+                type="button"
               >
-                <path
-                  d="M3.236 6.149a.2.2 0 00-.197.233L6 24h12l2.96-17.618a.2.2 0 00-.196-.233H3.236zM21.8 1.983c.11 0 .2.09.2.2v1.584a.2.2 0 01-.2.2H2.2a.2.2 0 01-.2-.2V2.183c0-.11.09-.2.2-.2h5.511c.9 0 1.631-1.09 1.631-1.983h5.316c0 .894.73 1.983 1.631 1.983H21.8z"
-                  fill="#32324D"
-                />
-              </svg>
-            </button>
-          </span>
-          <span>
-            <button
-              aria-disabled="false"
-              aria-labelledby="tooltip-19"
-              class="c14 c15"
-              tabindex="0"
-              type="button"
-            >
-              <svg
-                fill="none"
-                height="1em"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M3.236 6.149a.2.2 0 00-.197.233L6 24h12l2.96-17.618a.2.2 0 00-.196-.233H3.236zM21.8 1.983c.11 0 .2.09.2.2v1.584a.2.2 0 01-.2.2H2.2a.2.2 0 01-.2-.2V2.183c0-.11.09-.2.2-.2h5.511c.9 0 1.631-1.09 1.631-1.983h5.316c0 .894.73 1.983 1.631 1.983H21.8z"
+                    fill="#32324D"
+                  />
+                </svg>
+              </button>
+            </span>
+            <span>
+              <button
+                aria-disabled="false"
+                aria-labelledby="tooltip-21"
+                class="c13 c14"
+                tabindex="0"
+                type="button"
               >
-                <path
-                  d="M4 21.65V2.35a.2.2 0 01.301-.173l16.406 9.65a.2.2 0 010 .345L4.3 21.822A.2.2 0 014 21.65z"
-                  fill="#212134"
-                />
-              </svg>
-            </button>
-          </span>
-        </div>
-      </section>
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4 21.65V2.35a.2.2 0 01.301-.173l16.406 9.65a.2.2 0 010 .345L4.3 21.822A.2.2 0 014 21.65z"
+                    fill="#212134"
+                  />
+                </svg>
+              </button>
+            </span>
+          </div>
+        </section>
+      </div>
     </div>
-    <div
-      class="c16"
+    <p
+      class="c15"
+      id="carouselinput-14-hint"
     >
-      <span
-        class="c17"
-      >
-        Description line
-      </span>
-    </div>
+      Description line
+    </p>
   </div>
 </main>
 `;
@@ -9012,7 +9206,7 @@ exports[`Storyshots Design System/Components/Checkbox base 1`] = `
       >
         <input
           class="c4"
-          id="checkbox-21"
+          id="checkbox-23"
           name="default"
           type="checkbox"
         />
@@ -9171,7 +9365,7 @@ exports[`Storyshots Design System/Components/Checkbox disabled 1`] = `
         <input
           class="c4"
           disabled=""
-          id="checkbox-22"
+          id="checkbox-24"
           name="default"
           type="checkbox"
         />
@@ -9333,9 +9527,9 @@ exports[`Storyshots Design System/Components/Checkbox error 1`] = `
         class="c2 c3"
       >
         <input
-          aria-describedby="checkbox-23-error"
+          aria-describedby="checkbox-25-error"
           class="c4"
-          id="checkbox-23"
+          id="checkbox-25"
           name="default"
           type="checkbox"
         />
@@ -9348,7 +9542,7 @@ exports[`Storyshots Design System/Components/Checkbox error 1`] = `
       <p
         class="c6"
         data-strapi-field-error="true"
-        id="checkbox-23-error"
+        id="checkbox-25-error"
       >
         Description line lorem ipsum
       </p>
@@ -9504,9 +9698,9 @@ exports[`Storyshots Design System/Components/Checkbox hint 1`] = `
         class="c2 c3"
       >
         <input
-          aria-describedby="checkbox-24-hint"
+          aria-describedby="checkbox-26-hint"
           class="c4"
-          id="checkbox-24"
+          id="checkbox-26"
           name="default"
           type="checkbox"
         />
@@ -9518,7 +9712,7 @@ exports[`Storyshots Design System/Components/Checkbox hint 1`] = `
       </label>
       <p
         class="c6"
-        id="checkbox-24-hint"
+        id="checkbox-26-hint"
       >
         Description line lorem ipsum
       </p>
@@ -9917,8 +10111,8 @@ exports[`Storyshots Design System/Components/Combobox base 1`] = `
     >
       <label
         class="c2"
-        for="combobox-25"
-        id="combobox-25-label"
+        for="combobox-27"
+        id="combobox-27-label"
       >
         Food
       </label>
@@ -9933,15 +10127,15 @@ exports[`Storyshots Design System/Components/Combobox base 1`] = `
           <input
             aria-activedescendant=""
             aria-autocomplete="list"
-            aria-controls="combobox-25-listbox"
+            aria-controls="combobox-27-listbox"
             aria-disabled="false"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-labelledby="combobox-25-label"
+            aria-labelledby="combobox-27-label"
             autocomplete="off"
             autocorrect="off"
             class="c7"
-            id="combobox-25"
+            id="combobox-27"
             placeholder="Select or enter a value"
             role="combobox"
             spellcheck="off"
@@ -10155,8 +10349,8 @@ exports[`Storyshots Design System/Components/Combobox creatable 1`] = `
     >
       <label
         class="c2"
-        for="combobox-26"
-        id="combobox-26-label"
+        for="combobox-28"
+        id="combobox-28-label"
       >
         Food
       </label>
@@ -10171,15 +10365,15 @@ exports[`Storyshots Design System/Components/Combobox creatable 1`] = `
           <input
             aria-activedescendant=""
             aria-autocomplete="list"
-            aria-controls="combobox-26-listbox"
+            aria-controls="combobox-28-listbox"
             aria-disabled="false"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-labelledby="combobox-26-label"
+            aria-labelledby="combobox-28-label"
             autocomplete="off"
             autocorrect="off"
             class="c7"
-            id="combobox-26"
+            id="combobox-28"
             placeholder="Select or enter a value"
             role="combobox"
             spellcheck="off"
@@ -10390,8 +10584,8 @@ exports[`Storyshots Design System/Components/Combobox disabled 1`] = `
     >
       <label
         class="c2"
-        for="combobox-27"
-        id="combobox-27-label"
+        for="combobox-29"
+        id="combobox-29-label"
       >
         Food
       </label>
@@ -10406,15 +10600,15 @@ exports[`Storyshots Design System/Components/Combobox disabled 1`] = `
           <input
             aria-activedescendant=""
             aria-autocomplete="list"
-            aria-controls="combobox-27-listbox"
+            aria-controls="combobox-29-listbox"
             aria-disabled="true"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-labelledby="combobox-27-label"
+            aria-labelledby="combobox-29-label"
             autocomplete="off"
             autocorrect="off"
             class="c7"
-            id="combobox-27"
+            id="combobox-29"
             placeholder="Select or enter a value"
             role="combobox"
             spellcheck="off"
@@ -10885,8 +11079,8 @@ exports[`Storyshots Design System/Components/Combobox error 1`] = `
     >
       <label
         class="c2"
-        for="combobox-28"
-        id="combobox-28-label"
+        for="combobox-30"
+        id="combobox-30-label"
       >
         Food
       </label>
@@ -10901,15 +11095,15 @@ exports[`Storyshots Design System/Components/Combobox error 1`] = `
           <input
             aria-activedescendant=""
             aria-autocomplete="list"
-            aria-controls="combobox-28-listbox"
+            aria-controls="combobox-30-listbox"
             aria-disabled="false"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-labelledby="combobox-28-label"
+            aria-labelledby="combobox-30-label"
             autocomplete="off"
             autocorrect="off"
             class="c7"
-            id="combobox-28"
+            id="combobox-30"
             placeholder="Select or enter a value"
             role="combobox"
             spellcheck="off"
@@ -10947,7 +11141,7 @@ exports[`Storyshots Design System/Components/Combobox error 1`] = `
       <p
         class="c11"
         data-strapi-field-error="true"
-        id="combobox-28-error"
+        id="combobox-30-error"
       >
         An error occured
       </p>
@@ -11147,8 +11341,8 @@ exports[`Storyshots Design System/Components/Combobox initial-data 1`] = `
     >
       <label
         class="c2"
-        for="combobox-29"
-        id="combobox-29-label"
+        for="combobox-31"
+        id="combobox-31-label"
       >
         Food
       </label>
@@ -11161,7 +11355,7 @@ exports[`Storyshots Design System/Components/Combobox initial-data 1`] = `
         >
           <div
             class="c7"
-            id="combobox-29-selected-value"
+            id="combobox-31-selected-value"
           >
             <span
               class="c8"
@@ -11172,15 +11366,15 @@ exports[`Storyshots Design System/Components/Combobox initial-data 1`] = `
           <input
             aria-activedescendant=""
             aria-autocomplete="list"
-            aria-controls="combobox-29-listbox"
+            aria-controls="combobox-31-listbox"
             aria-disabled="false"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-labelledby="combobox-29-label"
+            aria-labelledby="combobox-31-label"
             autocomplete="off"
             autocorrect="off"
             class="c9"
-            id="combobox-29"
+            id="combobox-31"
             placeholder=""
             role="combobox"
             spellcheck="off"
@@ -11194,7 +11388,7 @@ exports[`Storyshots Design System/Components/Combobox initial-data 1`] = `
           <button
             aria-label="clear"
             class="c10 c11"
-            id="combobox-29-clear"
+            id="combobox-31-clear"
             type="button"
           >
             <svg
@@ -11418,14 +11612,14 @@ exports[`Storyshots Design System/Components/Combobox withoutLabel 1`] = `
           <input
             aria-activedescendant=""
             aria-autocomplete="list"
-            aria-controls="combobox-30-listbox"
+            aria-controls="combobox-32-listbox"
             aria-disabled="false"
             aria-expanded="false"
             aria-haspopup="listbox"
             autocomplete="off"
             autocorrect="off"
             class="c6"
-            id="combobox-30"
+            id="combobox-32"
             placeholder="Select or enter a value"
             role="combobox"
             spellcheck="off"
@@ -11634,7 +11828,7 @@ exports[`Storyshots Design System/Components/DatePicker base 1`] = `
             >
               <label
                 class="c3"
-                for="datepicker-31"
+                for="datepicker-33"
               >
                 Date picker
               </label>
@@ -11673,7 +11867,7 @@ exports[`Storyshots Design System/Components/DatePicker base 1`] = `
                 aria-disabled="false"
                 aria-invalid="false"
                 class="c8"
-                id="datepicker-31"
+                id="datepicker-33"
                 name="datepicker"
                 placeholder="1/1/1970"
                 value=""
@@ -11867,7 +12061,7 @@ exports[`Storyshots Design System/Components/DatePicker disabled 1`] = `
             >
               <label
                 class="c3"
-                for="datepicker-32"
+                for="datepicker-34"
               >
                 Date picker
               </label>
@@ -11908,7 +12102,7 @@ exports[`Storyshots Design System/Components/DatePicker disabled 1`] = `
                 aria-invalid="false"
                 autocomplete="off"
                 class="c8"
-                id="datepicker-32"
+                id="datepicker-34"
                 name="datepicker"
                 placeholder="1/1/1970"
                 value=""
@@ -12098,7 +12292,7 @@ exports[`Storyshots Design System/Components/DatePicker size S 1`] = `
             >
               <label
                 class="c3"
-                for="datepicker-33"
+                for="datepicker-35"
               >
                 Date picker
               </label>
@@ -12137,7 +12331,7 @@ exports[`Storyshots Design System/Components/DatePicker size S 1`] = `
                 aria-disabled="false"
                 aria-invalid="false"
                 class="c8"
-                id="datepicker-33"
+                id="datepicker-35"
                 name="datepicker"
                 placeholder="1/1/1970"
                 value=""
@@ -13334,7 +13528,7 @@ exports[`Storyshots Design System/Components/Field base 1`] = `
     >
       <label
         class="c2"
-        for="field-35"
+        for="field-37"
       >
         Email
       </label>
@@ -13345,7 +13539,7 @@ exports[`Storyshots Design System/Components/Field base 1`] = `
           aria-disabled="false"
           aria-invalid="false"
           class="c5"
-          id="field-35"
+          id="field-37"
           name="email"
           placeholder="Placeholder"
           type="text"
@@ -13498,7 +13692,7 @@ exports[`Storyshots Design System/Components/Field disabled 1`] = `
     >
       <label
         class="c2"
-        for="field-36"
+        for="field-38"
       >
         Password
       </label>
@@ -13507,12 +13701,12 @@ exports[`Storyshots Design System/Components/Field disabled 1`] = `
         disabled=""
       >
         <input
-          aria-describedby="field-36-hint"
+          aria-describedby="field-38-hint"
           aria-disabled="true"
           aria-invalid="false"
           autocomplete="off"
           class="c5"
-          id="field-36"
+          id="field-38"
           name="password"
           placeholder="Placeholder"
           value="Hello world"
@@ -13520,7 +13714,7 @@ exports[`Storyshots Design System/Components/Field disabled 1`] = `
       </div>
       <p
         class="c6"
-        id="field-36-hint"
+        id="field-38-hint"
       >
         Description line
       </p>
@@ -13721,7 +13915,7 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
         >
           <label
             class="c4"
-            for="field-37"
+            for="field-39"
           >
             Password
           </label>
@@ -13730,7 +13924,7 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
           >
             <span>
               <button
-                aria-describedby="tooltip-38"
+                aria-describedby="tooltip-40"
                 aria-label="Information about the email"
                 style="padding: 0px; background: transparent;"
                 tabindex="0"
@@ -13789,11 +13983,11 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
             </button>
           </div>
           <input
-            aria-describedby="field-37-hint"
+            aria-describedby="field-39-hint"
             aria-disabled="false"
             aria-invalid="false"
             class="c10"
-            id="field-37"
+            id="field-39"
             name="password"
             placeholder="example@domain.com"
             value=""
@@ -13828,7 +14022,7 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
         </div>
         <p
           class="c12"
-          id="field-37-hint"
+          id="field-39-hint"
         >
           Description line
         </p>
@@ -14030,7 +14224,7 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
         >
           <label
             class="c4"
-            for="field-40"
+            for="field-42"
           >
             Password
           </label>
@@ -14039,7 +14233,7 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
           >
             <span>
               <button
-                aria-describedby="tooltip-41"
+                aria-describedby="tooltip-43"
                 aria-label="Information about the email"
                 style="padding: 0px; background: transparent;"
                 tabindex="0"
@@ -14098,11 +14292,11 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
             </button>
           </div>
           <input
-            aria-describedby="field-40-hint"
+            aria-describedby="field-42-hint"
             aria-disabled="false"
             aria-invalid="false"
             class="c10"
-            id="field-40"
+            id="field-42"
             name="password"
             placeholder="example@domain.com"
             value=""
@@ -14137,7 +14331,7 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
         </div>
         <p
           class="c12"
-          id="field-40-hint"
+          id="field-42-hint"
         >
           Description line
         </p>
@@ -14295,7 +14489,7 @@ exports[`Storyshots Design System/Components/Field with description 1`] = `
     >
       <label
         class="c2"
-        for="field-43"
+        for="field-45"
         required=""
       >
         Email
@@ -14309,11 +14503,11 @@ exports[`Storyshots Design System/Components/Field with description 1`] = `
         class="c5 c6"
       >
         <input
-          aria-describedby="field-43-hint"
+          aria-describedby="field-45-hint"
           aria-disabled="false"
           aria-invalid="false"
           class="c7"
-          id="field-43"
+          id="field-45"
           name="email"
           placeholder="Placeholder"
           type="text"
@@ -14322,7 +14516,7 @@ exports[`Storyshots Design System/Components/Field with description 1`] = `
       </div>
       <p
         class="c8"
-        id="field-43-hint"
+        id="field-45-hint"
       >
         Description line
       </p>
@@ -14469,7 +14663,7 @@ exports[`Storyshots Design System/Components/Field with error 1`] = `
     >
       <label
         class="c2"
-        for="field-44"
+        for="field-46"
       >
         Password
       </label>
@@ -14477,11 +14671,11 @@ exports[`Storyshots Design System/Components/Field with error 1`] = `
         class="c3 c4"
       >
         <input
-          aria-describedby="field-44-error"
+          aria-describedby="field-46-error"
           aria-disabled="false"
           aria-invalid="true"
           class="c5"
-          id="field-44"
+          id="field-46"
           name="password"
           placeholder="Placeholder"
           type="password"
@@ -14491,7 +14685,7 @@ exports[`Storyshots Design System/Components/Field with error 1`] = `
       <p
         class="c6"
         data-strapi-field-error="true"
-        id="field-44-error"
+        id="field-46-error"
       >
         Password is too short
       </p>
@@ -16641,7 +16835,7 @@ exports[`Storyshots Design System/Components/IconButton base 1`] = `
       <span>
         <button
           aria-disabled="false"
-          aria-labelledby="tooltip-45"
+          aria-labelledby="tooltip-47"
           class="c3 c4"
           tabindex="0"
           type="button"
@@ -16665,7 +16859,7 @@ exports[`Storyshots Design System/Components/IconButton base 1`] = `
       <span>
         <button
           aria-disabled="false"
-          aria-labelledby="tooltip-47"
+          aria-labelledby="tooltip-49"
           class="c3 c4"
           tabindex="0"
           type="button"
@@ -16687,7 +16881,7 @@ exports[`Storyshots Design System/Components/IconButton base 1`] = `
       <span>
         <button
           aria-disabled="false"
-          aria-labelledby="tooltip-49"
+          aria-labelledby="tooltip-51"
           class="c3 c4"
           tabindex="0"
           type="button"
@@ -16709,7 +16903,7 @@ exports[`Storyshots Design System/Components/IconButton base 1`] = `
       <span>
         <button
           aria-disabled="false"
-          aria-labelledby="tooltip-51"
+          aria-labelledby="tooltip-53"
           class="c3 c4"
           tabindex="0"
           type="button"
@@ -16879,7 +17073,7 @@ exports[`Storyshots Design System/Components/IconButton disabled 1`] = `
       <span>
         <button
           aria-disabled="true"
-          aria-labelledby="tooltip-53"
+          aria-labelledby="tooltip-55"
           class="c3 c4"
           tabindex="0"
           type="button"
@@ -16903,7 +17097,7 @@ exports[`Storyshots Design System/Components/IconButton disabled 1`] = `
       <span>
         <button
           aria-disabled="true"
-          aria-labelledby="tooltip-55"
+          aria-labelledby="tooltip-57"
           class="c3 c4"
           tabindex="0"
           type="button"
@@ -16925,7 +17119,7 @@ exports[`Storyshots Design System/Components/IconButton disabled 1`] = `
       <span>
         <button
           aria-disabled="true"
-          aria-labelledby="tooltip-57"
+          aria-labelledby="tooltip-59"
           class="c3 c4"
           tabindex="0"
           type="button"
@@ -16947,7 +17141,7 @@ exports[`Storyshots Design System/Components/IconButton disabled 1`] = `
       <span>
         <button
           aria-disabled="true"
-          aria-labelledby="tooltip-59"
+          aria-labelledby="tooltip-61"
           class="c3 c4"
           tabindex="0"
           type="button"
@@ -17155,7 +17349,7 @@ exports[`Storyshots Design System/Components/IconButton group 1`] = `
       <span>
         <button
           aria-disabled="false"
-          aria-labelledby="tooltip-61"
+          aria-labelledby="tooltip-63"
           class="c4 c5 c6"
           tabindex="0"
           type="button"
@@ -17179,7 +17373,7 @@ exports[`Storyshots Design System/Components/IconButton group 1`] = `
       <span>
         <button
           aria-disabled="false"
-          aria-labelledby="tooltip-63"
+          aria-labelledby="tooltip-65"
           class="c4 c5 c6"
           tabindex="0"
           type="button"
@@ -17201,7 +17395,7 @@ exports[`Storyshots Design System/Components/IconButton group 1`] = `
       <span>
         <button
           aria-disabled="false"
-          aria-labelledby="tooltip-65"
+          aria-labelledby="tooltip-67"
           class="c4 c5 c6"
           tabindex="0"
           type="button"
@@ -17223,7 +17417,7 @@ exports[`Storyshots Design System/Components/IconButton group 1`] = `
       <span>
         <button
           aria-disabled="false"
-          aria-labelledby="tooltip-67"
+          aria-labelledby="tooltip-69"
           class="c4 c5 c6"
           tabindex="0"
           type="button"
@@ -17409,6 +17603,139 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
   padding: 0;
   position: absolute;
   width: 1px;
+}
+
+.c2 {
+  background: #f6f6f9;
+}
+
+.c5 {
+  padding-top: 24px;
+  padding-right: 16px;
+  padding-bottom: 8px;
+  padding-left: 24px;
+}
+
+.c11 {
+  padding-top: 16px;
+}
+
+.c12 {
+  background: #eaeaef;
+}
+
+.c15 {
+  padding-top: 8px;
+  padding-bottom: 16px;
+}
+
+.c17 {
+  padding-top: 8px;
+  padding-right: 16px;
+  padding-bottom: 8px;
+  padding-left: 24px;
+}
+
+.c22 {
+  padding-right: 4px;
+}
+
+.c25 {
+  background: #eaeaef;
+  padding: 4px;
+  border-radius: 4px;
+  min-width: 20px;
+}
+
+.c28 {
+  background: #f6f6f9;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 32px;
+}
+
+.c31 {
+  padding-left: 8px;
+}
+
+.c33 {
+  padding-top: 8px;
+  padding-right: 16px;
+  padding-bottom: 8px;
+  padding-left: 32px;
+}
+
+.c38 {
+  padding-bottom: 56px;
+}
+
+.c40 {
+  background: #f6f6f9;
+  padding-top: 40px;
+  padding-right: 56px;
+  padding-bottom: 40px;
+  padding-left: 56px;
+}
+
+.c42 {
+  padding-left: 16px;
+}
+
+.c44 {
+  padding-right: 8px;
+}
+
+.c49 {
+  padding-right: 56px;
+  padding-left: 56px;
+}
+
+.c50 {
+  padding-bottom: 16px;
+}
+
+.c53 {
+  padding-top: 8px;
+}
+
+.c54 {
+  background: #f0f0ff;
+  color: #4945ff;
+  padding-right: 12px;
+  padding-left: 12px;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #d9d8ff;
+  height: 2rem;
+}
+
+.c61 {
+  background: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
+}
+
+.c64 {
+  padding-right: 24px;
+  padding-left: 24px;
+}
+
+.c76 {
+  padding-left: 4px;
+}
+
+.c77 {
+  background: #f0f0ff;
+  padding: 20px;
+}
+
+.c79 {
+  background: #d9d8ff;
+}
+
+.c81 {
+  padding-left: 12px;
 }
 
 .c8 {
@@ -17663,6 +17990,24 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
   align-items: center;
 }
 
+.c26 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
 .c51 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -17697,6 +18042,18 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
 
 .c16 > * + * {
   margin-top: 8px;
+}
+
+.c75 {
+  border-radius: 50%;
+  display: block;
+  position: relative;
+}
+
+.c74 {
+  position: relative;
+  width: 26px;
+  height: 26px;
 }
 
 .c9 {
@@ -18438,7 +18795,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
             <span>
               <button
                 aria-disabled="false"
-                aria-labelledby="tooltip-70"
+                aria-labelledby="tooltip-72"
                 class="c9 c10"
                 tabindex="0"
                 type="button"
@@ -18482,7 +18839,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   class="c1 c19"
                 >
                   <button
-                    aria-controls="subnav-list-72"
+                    aria-controls="subnav-list-74"
                     aria-expanded="true"
                     class="c1 c20 c21"
                   >
@@ -18527,7 +18884,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                 </div>
               </div>
               <ul
-                id="subnav-list-72"
+                id="subnav-list-74"
               >
                 <li>
                   <a
@@ -18679,7 +19036,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                   class="c1 c19"
                 >
                   <button
-                    aria-controls="subnav-list-73"
+                    aria-controls="subnav-list-75"
                     aria-expanded="true"
                     class="c1 c20 c21"
                   >
@@ -18724,7 +19081,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                 </div>
               </div>
               <ul
-                id="subnav-list-73"
+                id="subnav-list-75"
               >
                 <li>
                   <div
@@ -18734,7 +19091,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                       class="c1 c19"
                     >
                       <button
-                        aria-controls="subnav-list-74"
+                        aria-controls="subnav-list-76"
                         aria-expanded="true"
                         class="c35"
                       >
@@ -18770,7 +19127,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                     </div>
                   </div>
                   <ul
-                    id="subnav-list-74"
+                    id="subnav-list-76"
                   >
                     <li>
                       <a
@@ -20192,7 +20549,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                           <span>
                             <button
                               aria-disabled="false"
-                              aria-labelledby="tooltip-75"
+                              aria-labelledby="tooltip-77"
                               class="c9 c10"
                               tabindex="-1"
                               type="button"
@@ -20219,7 +20576,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                             <span>
                               <button
                                 aria-disabled="false"
-                                aria-labelledby="tooltip-77"
+                                aria-labelledby="tooltip-79"
                                 class="c9 c10"
                                 tabindex="-1"
                                 type="button"
@@ -20363,7 +20720,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                           <span>
                             <button
                               aria-disabled="false"
-                              aria-labelledby="tooltip-79"
+                              aria-labelledby="tooltip-81"
                               class="c9 c10"
                               tabindex="-1"
                               type="button"
@@ -20390,7 +20747,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                             <span>
                               <button
                                 aria-disabled="false"
-                                aria-labelledby="tooltip-81"
+                                aria-labelledby="tooltip-83"
                                 class="c9 c10"
                                 tabindex="-1"
                                 type="button"
@@ -20534,7 +20891,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                           <span>
                             <button
                               aria-disabled="false"
-                              aria-labelledby="tooltip-83"
+                              aria-labelledby="tooltip-85"
                               class="c9 c10"
                               tabindex="-1"
                               type="button"
@@ -20561,7 +20918,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                             <span>
                               <button
                                 aria-disabled="false"
-                                aria-labelledby="tooltip-85"
+                                aria-labelledby="tooltip-87"
                                 class="c9 c10"
                                 tabindex="-1"
                                 type="button"
@@ -20705,7 +21062,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                           <span>
                             <button
                               aria-disabled="false"
-                              aria-labelledby="tooltip-87"
+                              aria-labelledby="tooltip-89"
                               class="c9 c10"
                               tabindex="-1"
                               type="button"
@@ -20732,7 +21089,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                             <span>
                               <button
                                 aria-disabled="false"
-                                aria-labelledby="tooltip-89"
+                                aria-labelledby="tooltip-91"
                                 class="c9 c10"
                                 tabindex="-1"
                                 type="button"
@@ -20876,7 +21233,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                           <span>
                             <button
                               aria-disabled="false"
-                              aria-labelledby="tooltip-91"
+                              aria-labelledby="tooltip-93"
                               class="c9 c10"
                               tabindex="-1"
                               type="button"
@@ -20903,7 +21260,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                             <span>
                               <button
                                 aria-disabled="false"
-                                aria-labelledby="tooltip-93"
+                                aria-labelledby="tooltip-95"
                                 class="c9 c10"
                                 tabindex="-1"
                                 type="button"
@@ -25539,6 +25896,7 @@ exports[`Storyshots Design System/Components/MainNav notifications 1`] = `
   background: #f6f6f9;
   padding: 4px;
   border-radius: 4px;
+  min-width: 20px;
 }
 
 .c27 {
@@ -25583,6 +25941,24 @@ exports[`Storyshots Design System/Components/MainNav notifications 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c25 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -25660,8 +26036,8 @@ exports[`Storyshots Design System/Components/MainNav notifications 1`] = `
   line-height: 0;
 }
 
-.c25 {
-  display: inline-block;
+.c36 path {
+  fill: #666687;
 }
 
 .c12 {
@@ -26655,7 +27031,7 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
         >
           <label
             class="c4"
-            for="numberinput-95"
+            for="numberinput-97"
           >
             Content
           </label>
@@ -26664,7 +27040,7 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
           >
             <span>
               <button
-                aria-describedby="tooltip-96"
+                aria-describedby="tooltip-98"
                 aria-label="Information about the email"
                 style="padding: 0px; background: transparent;"
                 tabindex="0"
@@ -26690,11 +27066,11 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
           class="c6 c7"
         >
           <input
-            aria-describedby="numberinput-95-hint"
+            aria-describedby="numberinput-97-hint"
             aria-disabled="false"
             aria-invalid="false"
             class="c8"
-            id="numberinput-95"
+            id="numberinput-97"
             name="content"
             placeholder="This is a content placeholder"
             type="text"
@@ -26753,7 +27129,7 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
         </div>
         <p
           class="c14"
-          id="numberinput-95-hint"
+          id="numberinput-97-hint"
         >
           Description line
         </p>
@@ -26994,7 +27370,7 @@ exports[`Storyshots Design System/Components/NumberInput disabled 1`] = `
         >
           <label
             class="c4"
-            for="numberinput-98"
+            for="numberinput-100"
           >
             Content
           </label>
@@ -27004,12 +27380,12 @@ exports[`Storyshots Design System/Components/NumberInput disabled 1`] = `
           disabled=""
         >
           <input
-            aria-describedby="numberinput-98-hint"
+            aria-describedby="numberinput-100-hint"
             aria-disabled="true"
             aria-invalid="false"
             autocomplete="off"
             class="c7"
-            id="numberinput-98"
+            id="numberinput-100"
             name="content"
             placeholder="This is a content placeholder"
             type="text"
@@ -27070,7 +27446,7 @@ exports[`Storyshots Design System/Components/NumberInput disabled 1`] = `
         </div>
         <p
           class="c13"
-          id="numberinput-98-hint"
+          id="numberinput-100-hint"
         >
           Description line
         </p>
@@ -27308,7 +27684,7 @@ exports[`Storyshots Design System/Components/NumberInput required 1`] = `
         >
           <label
             class="c4"
-            for="numberinput-99"
+            for="numberinput-101"
             required=""
           >
             Content
@@ -27323,11 +27699,11 @@ exports[`Storyshots Design System/Components/NumberInput required 1`] = `
           class="c7 c8"
         >
           <input
-            aria-describedby="numberinput-99-hint"
+            aria-describedby="numberinput-101-hint"
             aria-disabled="false"
             aria-invalid="false"
             class="c9"
-            id="numberinput-99"
+            id="numberinput-101"
             name="content"
             placeholder="This is a content placeholder"
             type="text"
@@ -27386,7 +27762,7 @@ exports[`Storyshots Design System/Components/NumberInput required 1`] = `
         </div>
         <p
           class="c15"
-          id="numberinput-99-hint"
+          id="numberinput-101-hint"
         >
           Description line
         </p>
@@ -27623,7 +27999,7 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
         >
           <label
             class="c4"
-            for="numberinput-100"
+            for="numberinput-102"
           >
             Content
           </label>
@@ -27632,7 +28008,7 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
           >
             <span>
               <button
-                aria-describedby="tooltip-101"
+                aria-describedby="tooltip-103"
                 aria-label="Information about the email"
                 style="padding: 0px; background: transparent;"
                 tabindex="0"
@@ -27658,11 +28034,11 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
           class="c6 c7"
         >
           <input
-            aria-describedby="numberinput-100-hint"
+            aria-describedby="numberinput-102-hint"
             aria-disabled="false"
             aria-invalid="false"
             class="c8"
-            id="numberinput-100"
+            id="numberinput-102"
             name="content"
             placeholder="This is a content placeholder"
             type="text"
@@ -27721,7 +28097,7 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
         </div>
         <p
           class="c14"
-          id="numberinput-100-hint"
+          id="numberinput-102-hint"
         >
           Description line
         </p>
@@ -27966,7 +28342,7 @@ exports[`Storyshots Design System/Components/NumberInput with initial 0 1`] = `
         >
           <label
             class="c4"
-            for="numberinput-103"
+            for="numberinput-105"
           >
             Content
           </label>
@@ -27975,7 +28351,7 @@ exports[`Storyshots Design System/Components/NumberInput with initial 0 1`] = `
           >
             <span>
               <button
-                aria-describedby="tooltip-104"
+                aria-describedby="tooltip-106"
                 aria-label="Information about the email"
                 style="padding: 0px; background: transparent;"
                 tabindex="0"
@@ -28001,11 +28377,11 @@ exports[`Storyshots Design System/Components/NumberInput with initial 0 1`] = `
           class="c6 c7"
         >
           <input
-            aria-describedby="numberinput-103-hint"
+            aria-describedby="numberinput-105-hint"
             aria-disabled="false"
             aria-invalid="false"
             class="c8"
-            id="numberinput-103"
+            id="numberinput-105"
             name="content"
             placeholder="This is a content placeholder"
             type="text"
@@ -28064,7 +28440,7 @@ exports[`Storyshots Design System/Components/NumberInput with initial 0 1`] = `
         </div>
         <p
           class="c14"
-          id="numberinput-103-hint"
+          id="numberinput-105-hint"
         >
           Description line
         </p>
@@ -28283,12 +28659,12 @@ exports[`Storyshots Design System/Components/NumberInput withoutLabel 1`] = `
           class="c3 c4"
         >
           <input
-            aria-describedby="numberinput-106-hint"
+            aria-describedby="numberinput-108-hint"
             aria-disabled="false"
             aria-invalid="false"
             aria-label="Content"
             class="c5"
-            id="numberinput-106"
+            id="numberinput-108"
             name="content"
             placeholder="This is a content placeholder"
             type="text"
@@ -28347,7 +28723,7 @@ exports[`Storyshots Design System/Components/NumberInput withoutLabel 1`] = `
         </div>
         <p
           class="c11"
-          id="numberinput-106-hint"
+          id="numberinput-108-hint"
         >
           Description line
         </p>
@@ -29251,7 +29627,7 @@ exports[`Storyshots Design System/Components/Searchbar base 1`] = `
         >
           <label
             class="c2"
-            for="field-107"
+            for="field-109"
           >
             Searching for a plugin
           </label>
@@ -29286,7 +29662,7 @@ exports[`Storyshots Design System/Components/Searchbar base 1`] = `
             aria-disabled="false"
             aria-invalid="false"
             class="c10"
-            id="field-107"
+            id="field-109"
             name="searchbar"
             placeholder="e.g: strapi-plugin-abcd"
             value=""
@@ -29468,7 +29844,7 @@ exports[`Storyshots Design System/Components/Searchbar disabled 1`] = `
       >
         <label
           class="c2"
-          for="field-108"
+          for="field-110"
         >
           Searching for a plugin
         </label>
@@ -29505,7 +29881,7 @@ exports[`Storyshots Design System/Components/Searchbar disabled 1`] = `
           aria-invalid="false"
           autocomplete="off"
           class="c10"
-          id="field-108"
+          id="field-110"
           name="searchbar"
           placeholder="e.g: strapi-plugin-abcd"
           value=""
@@ -29686,7 +30062,7 @@ exports[`Storyshots Design System/Components/Searchbar size S 1`] = `
         >
           <label
             class="c2"
-            for="field-109"
+            for="field-111"
           >
             Searching for a plugin
           </label>
@@ -29721,7 +30097,7 @@ exports[`Storyshots Design System/Components/Searchbar size S 1`] = `
             aria-disabled="false"
             aria-invalid="false"
             class="c10"
-            id="field-109"
+            id="field-111"
             name="searchbar"
             placeholder="e.g: strapi-plugin-abcd"
             value=""
@@ -31897,11 +32273,11 @@ exports[`Storyshots Design System/Components/SimpleMenu with-iconbutton 1`] = `
   <div>
     <span>
       <button
-        aria-controls="simplemenu-110"
+        aria-controls="simplemenu-112"
         aria-disabled="false"
         aria-expanded="false"
         aria-haspopup="true"
-        aria-labelledby="tooltip-111"
+        aria-labelledby="tooltip-113"
         class="c1 c2"
         tabindex="0"
         type="button"
@@ -32107,7 +32483,7 @@ exports[`Storyshots Design System/Components/SimpleMenu with-links 1`] = `
   </div>
   <div>
     <button
-      aria-controls="simplemenu-113"
+      aria-controls="simplemenu-115"
       aria-disabled="false"
       aria-expanded="false"
       aria-haspopup="true"
@@ -32397,6 +32773,7 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
   background: #eaeaef;
   padding: 4px;
   border-radius: 4px;
+  min-width: 20px;
 }
 
 .c26 {
@@ -32479,61 +32856,22 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
   align-items: center;
 }
 
-.c32 {
-  background: transparent;
-  border: none;
-  position: relative;
-  outline: none;
-}
-
-.c32[aria-disabled='true'] {
-  pointer-events: none;
-}
-
-.c32[aria-disabled='true'] svg path {
-  fill: #666687;
-}
-
-.c32 svg {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  font-size: 0.625rem;
-}
-
-.c32 svg path {
-  fill: #4945ff;
-}
-
-.c32:after {
-  -webkit-transition-property: all;
-  transition-property: all;
-  -webkit-transition-duration: 0.2s;
-  transition-duration: 0.2s;
-  border-radius: 8px;
-  content: '';
-  position: absolute;
-  top: -4px;
-  bottom: -4px;
-  left: -4px;
-  right: -4px;
-  border: 2px solid transparent;
-}
-
-.c32:focus-visible {
-  outline: none;
-}
-
-.c32:focus-visible:after {
-  border-radius: 8px;
-  content: '';
-  position: absolute;
-  top: -5px;
-  bottom: -5px;
-  left: -5px;
-  right: -5px;
-  border: 2px solid #4945ff;
+.c24 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .c15 {
@@ -32860,7 +33198,7 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
             <span>
               <button
                 aria-disabled="false"
-                aria-labelledby="tooltip-115"
+                aria-labelledby="tooltip-117"
                 class="c8 c9"
                 tabindex="0"
                 type="button"
@@ -32904,7 +33242,7 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                   class="c18"
                 >
                   <button
-                    aria-controls="subnav-list-117"
+                    aria-controls="subnav-list-119"
                     aria-expanded="true"
                     class="c1 c19"
                   >
@@ -32949,7 +33287,7 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                 </div>
               </div>
               <ul
-                id="subnav-list-117"
+                id="subnav-list-119"
               >
                 <li>
                   <a
@@ -33133,7 +33471,7 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                   class="c18"
                 >
                   <button
-                    aria-controls="subnav-list-118"
+                    aria-controls="subnav-list-120"
                     aria-expanded="true"
                     class="c1 c19"
                   >
@@ -33178,7 +33516,7 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                 </div>
               </div>
               <ul
-                id="subnav-list-118"
+                id="subnav-list-120"
               >
                 <li>
                   <div
@@ -33188,7 +33526,7 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                       class="c18"
                     >
                       <button
-                        aria-controls="subnav-list-119"
+                        aria-controls="subnav-list-121"
                         aria-expanded="true"
                         class="c37"
                       >
@@ -33224,7 +33562,7 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                     </div>
                   </div>
                   <ul
-                    id="subnav-list-119"
+                    id="subnav-list-121"
                   >
                     <li>
                       <a
@@ -33518,7 +33856,7 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                 </div>
               </div>
               <ul
-                id="subnav-list-121"
+                id="subnav-list-123"
               >
                 <li>
                   <a
@@ -33617,7 +33955,7 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                 </div>
               </div>
               <ul
-                id="subnav-list-122"
+                id="subnav-list-124"
               >
                 <li>
                   <a
@@ -33766,7 +34104,7 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                   </div>
                 </div>
                 <div
-                  class="c1 sc-dkPtRN c41"
+                  class="c1 sc-gsDKAQ c41"
                 >
                   <svg
                     class="c42"
@@ -33809,7 +34147,7 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                 </div>
               </div>
               <ul
-                id="subnav-list-124"
+                id="subnav-list-126"
               >
                 <li>
                   <div
@@ -33819,7 +34157,7 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                       class="c18"
                     >
                       <button
-                        aria-controls="subnav-list-125"
+                        aria-controls="subnav-list-127"
                         aria-expanded="true"
                         class="c37"
                       >
@@ -33855,7 +34193,7 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                     </div>
                   </div>
                   <ul
-                    id="subnav-list-125"
+                    id="subnav-list-127"
                   >
                     <li>
                       <a
@@ -34026,7 +34364,7 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                 </div>
               </div>
               <ul
-                id="subnav-list-126"
+                id="subnav-list-128"
               >
                 <li>
                   <a
@@ -35056,7 +35394,7 @@ exports[`Storyshots Design System/Components/Table base 1`] = `
                     <span>
                       <button
                         aria-disabled="false"
-                        aria-labelledby="tooltip-127"
+                        aria-labelledby="tooltip-129"
                         class="c19 c20"
                         tabindex="-1"
                         type="button"
@@ -35083,7 +35421,7 @@ exports[`Storyshots Design System/Components/Table base 1`] = `
                       <span>
                         <button
                           aria-disabled="false"
-                          aria-labelledby="tooltip-129"
+                          aria-labelledby="tooltip-131"
                           class="c19 c20"
                           tabindex="-1"
                           type="button"
@@ -35194,7 +35532,7 @@ exports[`Storyshots Design System/Components/Table base 1`] = `
                     <span>
                       <button
                         aria-disabled="false"
-                        aria-labelledby="tooltip-131"
+                        aria-labelledby="tooltip-133"
                         class="c19 c20"
                         tabindex="-1"
                         type="button"
@@ -35221,7 +35559,7 @@ exports[`Storyshots Design System/Components/Table base 1`] = `
                       <span>
                         <button
                           aria-disabled="false"
-                          aria-labelledby="tooltip-133"
+                          aria-labelledby="tooltip-135"
                           class="c19 c20"
                           tabindex="-1"
                           type="button"
@@ -35332,7 +35670,7 @@ exports[`Storyshots Design System/Components/Table base 1`] = `
                     <span>
                       <button
                         aria-disabled="false"
-                        aria-labelledby="tooltip-135"
+                        aria-labelledby="tooltip-137"
                         class="c19 c20"
                         tabindex="-1"
                         type="button"
@@ -35359,7 +35697,7 @@ exports[`Storyshots Design System/Components/Table base 1`] = `
                       <span>
                         <button
                           aria-disabled="false"
-                          aria-labelledby="tooltip-137"
+                          aria-labelledby="tooltip-139"
                           class="c19 c20"
                           tabindex="-1"
                           type="button"
@@ -35470,7 +35808,7 @@ exports[`Storyshots Design System/Components/Table base 1`] = `
                     <span>
                       <button
                         aria-disabled="false"
-                        aria-labelledby="tooltip-139"
+                        aria-labelledby="tooltip-141"
                         class="c19 c20"
                         tabindex="-1"
                         type="button"
@@ -35497,7 +35835,7 @@ exports[`Storyshots Design System/Components/Table base 1`] = `
                       <span>
                         <button
                           aria-disabled="false"
-                          aria-labelledby="tooltip-141"
+                          aria-labelledby="tooltip-143"
                           class="c19 c20"
                           tabindex="-1"
                           type="button"
@@ -35608,7 +35946,7 @@ exports[`Storyshots Design System/Components/Table base 1`] = `
                     <span>
                       <button
                         aria-disabled="false"
-                        aria-labelledby="tooltip-143"
+                        aria-labelledby="tooltip-145"
                         class="c19 c20"
                         tabindex="-1"
                         type="button"
@@ -35635,7 +35973,7 @@ exports[`Storyshots Design System/Components/Table base 1`] = `
                       <span>
                         <button
                           aria-disabled="false"
-                          aria-labelledby="tooltip-145"
+                          aria-labelledby="tooltip-147"
                           class="c19 c20"
                           tabindex="-1"
                           type="button"
@@ -36278,7 +36616,7 @@ exports[`Storyshots Design System/Components/Table base without footer 1`] = `
                     <span>
                       <button
                         aria-disabled="false"
-                        aria-labelledby="tooltip-147"
+                        aria-labelledby="tooltip-149"
                         class="c19 c20"
                         tabindex="-1"
                         type="button"
@@ -36305,7 +36643,7 @@ exports[`Storyshots Design System/Components/Table base without footer 1`] = `
                       <span>
                         <button
                           aria-disabled="false"
-                          aria-labelledby="tooltip-149"
+                          aria-labelledby="tooltip-151"
                           class="c19 c20"
                           tabindex="-1"
                           type="button"
@@ -36416,7 +36754,7 @@ exports[`Storyshots Design System/Components/Table base without footer 1`] = `
                     <span>
                       <button
                         aria-disabled="false"
-                        aria-labelledby="tooltip-151"
+                        aria-labelledby="tooltip-153"
                         class="c19 c20"
                         tabindex="-1"
                         type="button"
@@ -36443,7 +36781,7 @@ exports[`Storyshots Design System/Components/Table base without footer 1`] = `
                       <span>
                         <button
                           aria-disabled="false"
-                          aria-labelledby="tooltip-153"
+                          aria-labelledby="tooltip-155"
                           class="c19 c20"
                           tabindex="-1"
                           type="button"
@@ -36554,7 +36892,7 @@ exports[`Storyshots Design System/Components/Table base without footer 1`] = `
                     <span>
                       <button
                         aria-disabled="false"
-                        aria-labelledby="tooltip-155"
+                        aria-labelledby="tooltip-157"
                         class="c19 c20"
                         tabindex="-1"
                         type="button"
@@ -36581,7 +36919,7 @@ exports[`Storyshots Design System/Components/Table base without footer 1`] = `
                       <span>
                         <button
                           aria-disabled="false"
-                          aria-labelledby="tooltip-157"
+                          aria-labelledby="tooltip-159"
                           class="c19 c20"
                           tabindex="-1"
                           type="button"
@@ -36692,7 +37030,7 @@ exports[`Storyshots Design System/Components/Table base without footer 1`] = `
                     <span>
                       <button
                         aria-disabled="false"
-                        aria-labelledby="tooltip-159"
+                        aria-labelledby="tooltip-161"
                         class="c19 c20"
                         tabindex="-1"
                         type="button"
@@ -36719,7 +37057,7 @@ exports[`Storyshots Design System/Components/Table base without footer 1`] = `
                       <span>
                         <button
                           aria-disabled="false"
-                          aria-labelledby="tooltip-161"
+                          aria-labelledby="tooltip-163"
                           class="c19 c20"
                           tabindex="-1"
                           type="button"
@@ -36830,7 +37168,7 @@ exports[`Storyshots Design System/Components/Table base without footer 1`] = `
                     <span>
                       <button
                         aria-disabled="false"
-                        aria-labelledby="tooltip-163"
+                        aria-labelledby="tooltip-165"
                         class="c19 c20"
                         tabindex="-1"
                         type="button"
@@ -36857,7 +37195,7 @@ exports[`Storyshots Design System/Components/Table base without footer 1`] = `
                       <span>
                         <button
                           aria-disabled="false"
-                          aria-labelledby="tooltip-165"
+                          aria-labelledby="tooltip-167"
                           class="c19 c20"
                           tabindex="-1"
                           type="button"
@@ -37342,7 +37680,7 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
                       <span>
                         <button
                           aria-disabled="false"
-                          aria-labelledby="tooltip-167"
+                          aria-labelledby="tooltip-169"
                           class="c15 c16"
                           tabindex="-1"
                           type="button"
@@ -37549,7 +37887,7 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
                     <span>
                       <button
                         aria-disabled="false"
-                        aria-labelledby="tooltip-169"
+                        aria-labelledby="tooltip-171"
                         class="c15 c16"
                         tabindex="-1"
                         type="button"
@@ -37576,7 +37914,7 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
                       <span>
                         <button
                           aria-disabled="false"
-                          aria-labelledby="tooltip-171"
+                          aria-labelledby="tooltip-173"
                           class="c15 c16"
                           tabindex="-1"
                           type="button"
@@ -37687,7 +38025,7 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
                     <span>
                       <button
                         aria-disabled="false"
-                        aria-labelledby="tooltip-173"
+                        aria-labelledby="tooltip-175"
                         class="c15 c16"
                         tabindex="-1"
                         type="button"
@@ -37714,7 +38052,7 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
                       <span>
                         <button
                           aria-disabled="false"
-                          aria-labelledby="tooltip-175"
+                          aria-labelledby="tooltip-177"
                           class="c15 c16"
                           tabindex="-1"
                           type="button"
@@ -37825,7 +38163,7 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
                     <span>
                       <button
                         aria-disabled="false"
-                        aria-labelledby="tooltip-177"
+                        aria-labelledby="tooltip-179"
                         class="c15 c16"
                         tabindex="-1"
                         type="button"
@@ -37852,7 +38190,7 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
                       <span>
                         <button
                           aria-disabled="false"
-                          aria-labelledby="tooltip-179"
+                          aria-labelledby="tooltip-181"
                           class="c15 c16"
                           tabindex="-1"
                           type="button"
@@ -37963,7 +38301,7 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
                     <span>
                       <button
                         aria-disabled="false"
-                        aria-labelledby="tooltip-181"
+                        aria-labelledby="tooltip-183"
                         class="c15 c16"
                         tabindex="-1"
                         type="button"
@@ -37990,7 +38328,7 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
                       <span>
                         <button
                           aria-disabled="false"
-                          aria-labelledby="tooltip-183"
+                          aria-labelledby="tooltip-185"
                           class="c15 c16"
                           tabindex="-1"
                           type="button"
@@ -38101,7 +38439,7 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
                     <span>
                       <button
                         aria-disabled="false"
-                        aria-labelledby="tooltip-185"
+                        aria-labelledby="tooltip-187"
                         class="c15 c16"
                         tabindex="-1"
                         type="button"
@@ -38128,7 +38466,7 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
                       <span>
                         <button
                           aria-disabled="false"
-                          aria-labelledby="tooltip-187"
+                          aria-labelledby="tooltip-189"
                           class="c15 c16"
                           tabindex="-1"
                           type="button"
@@ -39531,7 +39869,7 @@ exports[`Storyshots Design System/Components/TextInput base 1`] = `
           >
             <label
               class="c4"
-              for="textinput-189"
+              for="textinput-191"
             >
               Content
             </label>
@@ -39540,7 +39878,7 @@ exports[`Storyshots Design System/Components/TextInput base 1`] = `
             >
               <span>
                 <button
-                  aria-describedby="tooltip-190"
+                  aria-describedby="tooltip-192"
                   aria-label="Information about the email"
                   style="padding: 0px; background: transparent;"
                   tabindex="0"
@@ -39566,11 +39904,11 @@ exports[`Storyshots Design System/Components/TextInput base 1`] = `
             class="c7 c8"
           >
             <input
-              aria-describedby="textinput-189-hint"
+              aria-describedby="textinput-191-hint"
               aria-disabled="false"
               aria-invalid="false"
               class="c9"
-              id="textinput-189"
+              id="textinput-191"
               name="content"
               placeholder="This is a content placeholder"
               value=""
@@ -39578,7 +39916,7 @@ exports[`Storyshots Design System/Components/TextInput base 1`] = `
           </div>
           <p
             class="c10"
-            id="textinput-189-hint"
+            id="textinput-191-hint"
           >
             Description line
           </p>
@@ -39763,7 +40101,7 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
           >
             <label
               class="c4"
-              for="textinput-192"
+              for="textinput-194"
             >
               Content
             </label>
@@ -39772,7 +40110,7 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
             >
               <span>
                 <button
-                  aria-describedby="tooltip-193"
+                  aria-describedby="tooltip-195"
                   aria-label="Information about the email"
                   style="padding: 0px; background: transparent;"
                   tabindex="0"
@@ -39799,12 +40137,12 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
             disabled=""
           >
             <input
-              aria-describedby="textinput-192-hint"
+              aria-describedby="textinput-194-hint"
               aria-disabled="true"
               aria-invalid="false"
               autocomplete="off"
               class="c9"
-              id="textinput-192"
+              id="textinput-194"
               name="content"
               placeholder="This is a content placeholder"
               value="Disabled ontent"
@@ -39812,7 +40150,7 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
           </div>
           <p
             class="c10"
-            id="textinput-192-hint"
+            id="textinput-194-hint"
           >
             Description line
           </p>
@@ -39994,7 +40332,7 @@ exports[`Storyshots Design System/Components/TextInput password 1`] = `
           >
             <label
               class="c4"
-              for="textinput-195"
+              for="textinput-197"
             >
               Password
             </label>
@@ -40003,7 +40341,7 @@ exports[`Storyshots Design System/Components/TextInput password 1`] = `
             >
               <span>
                 <button
-                  aria-describedby="tooltip-196"
+                  aria-describedby="tooltip-198"
                   aria-label="Information about the email"
                   style="padding: 0px; background: transparent;"
                   tabindex="0"
@@ -40029,11 +40367,11 @@ exports[`Storyshots Design System/Components/TextInput password 1`] = `
             class="c7 c8"
           >
             <input
-              aria-describedby="textinput-195-hint"
+              aria-describedby="textinput-197-hint"
               aria-disabled="false"
               aria-invalid="false"
               class="c9"
-              id="textinput-195"
+              id="textinput-197"
               name="password"
               placeholder="This is a password placeholder"
               type="password"
@@ -40042,7 +40380,7 @@ exports[`Storyshots Design System/Components/TextInput password 1`] = `
           </div>
           <p
             class="c10"
-            id="textinput-195-hint"
+            id="textinput-197-hint"
           >
             Description line
           </p>
@@ -40224,7 +40562,7 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
           >
             <label
               class="c4"
-              for="textinput-198"
+              for="textinput-200"
             >
               Content
             </label>
@@ -40233,7 +40571,7 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
             >
               <span>
                 <button
-                  aria-describedby="tooltip-199"
+                  aria-describedby="tooltip-201"
                   aria-label="Information about the email"
                   style="padding: 0px; background: transparent;"
                   tabindex="0"
@@ -40259,11 +40597,11 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
             class="c7 c8"
           >
             <input
-              aria-describedby="textinput-198-hint"
+              aria-describedby="textinput-200-hint"
               aria-disabled="false"
               aria-invalid="false"
               class="c9"
-              id="textinput-198"
+              id="textinput-200"
               name="content"
               placeholder="This is a content placeholder"
               value="size S input"
@@ -40271,7 +40609,7 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
           </div>
           <p
             class="c10"
-            id="textinput-198-hint"
+            id="textinput-200-hint"
           >
             Description line
           </p>
@@ -40453,7 +40791,7 @@ exports[`Storyshots Design System/Components/TextInput with error 1`] = `
           >
             <label
               class="c4"
-              for="textinput-201"
+              for="textinput-203"
             >
               Content
             </label>
@@ -40462,7 +40800,7 @@ exports[`Storyshots Design System/Components/TextInput with error 1`] = `
             >
               <span>
                 <button
-                  aria-describedby="tooltip-202"
+                  aria-describedby="tooltip-204"
                   aria-label="Information about the email"
                   style="padding: 0px; background: transparent;"
                   tabindex="0"
@@ -40488,11 +40826,11 @@ exports[`Storyshots Design System/Components/TextInput with error 1`] = `
             class="c7 c8"
           >
             <input
-              aria-describedby="textinput-201-error"
+              aria-describedby="textinput-203-error"
               aria-disabled="false"
               aria-invalid="true"
               class="c9"
-              id="textinput-201"
+              id="textinput-203"
               name="content"
               placeholder="This is a content placeholder"
               value="content"
@@ -40501,7 +40839,7 @@ exports[`Storyshots Design System/Components/TextInput with error 1`] = `
           <p
             class="c10"
             data-strapi-field-error="true"
-            id="textinput-201-error"
+            id="textinput-203-error"
           >
             Content is too long
           </p>
@@ -40653,12 +40991,12 @@ exports[`Storyshots Design System/Components/TextInput withoutLabel 1`] = `
             class="c3 c4"
           >
             <input
-              aria-describedby="textinput-204-hint"
+              aria-describedby="textinput-206-hint"
               aria-disabled="false"
               aria-invalid="false"
               aria-label="Password"
               class="c5"
-              id="textinput-204"
+              id="textinput-206"
               name="password"
               placeholder="This is a password placeholder"
               type="password"
@@ -40667,7 +41005,7 @@ exports[`Storyshots Design System/Components/TextInput withoutLabel 1`] = `
           </div>
           <p
             class="c6"
-            id="textinput-204-hint"
+            id="textinput-206-hint"
           >
             Description line
           </p>
@@ -40860,7 +41198,7 @@ exports[`Storyshots Design System/Components/Textarea base 1`] = `
           >
             <label
               class="c5"
-              for="textarea-205"
+              for="textarea-207"
             >
               Content
             </label>
@@ -40869,7 +41207,7 @@ exports[`Storyshots Design System/Components/Textarea base 1`] = `
             >
               <span>
                 <button
-                  aria-describedby="tooltip-206"
+                  aria-describedby="tooltip-208"
                   aria-label="Information about the email"
                   style="padding: 0px; background: transparent;"
                   tabindex="0"
@@ -40895,10 +41233,10 @@ exports[`Storyshots Design System/Components/Textarea base 1`] = `
             class="c7"
           >
             <textarea
-              aria-describedby="textarea-205-error"
+              aria-describedby="textarea-207-error"
               aria-invalid="true"
               class="c8"
-              id="textarea-205"
+              id="textarea-207"
               name="content"
               placeholder="This is a content placeholder"
             />
@@ -40906,7 +41244,7 @@ exports[`Storyshots Design System/Components/Textarea base 1`] = `
           <p
             class="c9"
             data-strapi-field-error="true"
-            id="textarea-205-error"
+            id="textarea-207-error"
           >
             Content is too short
           </p>
@@ -41099,7 +41437,7 @@ exports[`Storyshots Design System/Components/Textarea disabled 1`] = `
           >
             <label
               class="c5"
-              for="textarea-208"
+              for="textarea-210"
             >
               Content
             </label>
@@ -41108,7 +41446,7 @@ exports[`Storyshots Design System/Components/Textarea disabled 1`] = `
             >
               <span>
                 <button
-                  aria-describedby="tooltip-209"
+                  aria-describedby="tooltip-211"
                   aria-label="Information about the email"
                   style="padding: 0px; background: transparent;"
                   tabindex="0"
@@ -41135,18 +41473,18 @@ exports[`Storyshots Design System/Components/Textarea disabled 1`] = `
             disabled=""
           >
             <textarea
-              aria-describedby="textarea-208-hint"
+              aria-describedby="textarea-210-hint"
               aria-invalid="false"
               class="c8"
               disabled=""
-              id="textarea-208"
+              id="textarea-210"
               name="content"
               placeholder="This is a content placeholder"
             />
           </div>
           <p
             class="c9"
-            id="textarea-208-hint"
+            id="textarea-210-hint"
           >
             Description line
           </p>
@@ -43474,7 +43812,7 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
       >
         <label
           class="c4"
-          for="field-211"
+          for="toggleinput-213"
         >
           Enabled
         </label>
@@ -43483,7 +43821,7 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
         >
           <span>
             <button
-              aria-describedby="tooltip-212"
+              aria-describedby="tooltip-214"
               aria-label="Information about the email"
               style="padding: 0px; background: transparent;"
               tabindex="0"
@@ -43540,6 +43878,7 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
             aria-disabled="false"
             checked=""
             class="c15"
+            id="toggleinput-213"
             name="enable-provider"
             type="checkbox"
           />
@@ -43547,7 +43886,7 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
       </label>
       <p
         class="c16"
-        id="field-211-hint"
+        id="toggleinput-213-hint"
       >
         Enable provider
       </p>
@@ -43710,7 +44049,7 @@ exports[`Storyshots Design System/Components/ToggleInput error 1`] = `
       >
         <label
           class="c4"
-          for="field-214"
+          for="toggleinput-216"
         >
           Label
         </label>
@@ -43749,6 +44088,7 @@ exports[`Storyshots Design System/Components/ToggleInput error 1`] = `
           <input
             aria-disabled="false"
             class="c13"
+            id="toggleinput-216"
             name="enable-provider"
             type="checkbox"
           />
@@ -43757,7 +44097,7 @@ exports[`Storyshots Design System/Components/ToggleInput error 1`] = `
       <p
         class="c14"
         data-strapi-field-error="true"
-        id="field-214-error"
+        id="toggleinput-216-error"
       >
         this field is required
       </p>
@@ -43914,7 +44254,7 @@ exports[`Storyshots Design System/Components/ToggleInput null-value 1`] = `
       >
         <label
           class="c4"
-          for="field-215"
+          for="toggleinput-217"
         >
           Label
         </label>
@@ -43953,6 +44293,7 @@ exports[`Storyshots Design System/Components/ToggleInput null-value 1`] = `
           <input
             aria-disabled="false"
             class="c12"
+            id="toggleinput-217"
             name="enable-provider"
             type="checkbox"
           />
@@ -43960,7 +44301,7 @@ exports[`Storyshots Design System/Components/ToggleInput null-value 1`] = `
       </label>
       <p
         class="c13"
-        id="field-215-hint"
+        id="toggleinput-217-hint"
       >
         Enable provider
       </p>
@@ -44123,7 +44464,7 @@ exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
       >
         <label
           class="c4"
-          for="field-216"
+          for="toggleinput-218"
         >
           Label
         </label>
@@ -44162,6 +44503,7 @@ exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
           <input
             aria-disabled="false"
             class="c13"
+            id="toggleinput-218"
             name="enable-provider"
             type="checkbox"
           />
@@ -44170,7 +44512,7 @@ exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
       <p
         class="c14"
         data-strapi-field-error="true"
-        id="field-216-error"
+        id="toggleinput-218-error"
       >
         this field is required
       </p>
@@ -44206,7 +44548,7 @@ exports[`Storyshots Design System/Components/Tooltip base 1`] = `
     </p>
     <span>
       <span
-        aria-describedby="tooltip-217"
+        aria-describedby="tooltip-219"
         tabindex="0"
       >
         Show tooltip
@@ -44277,7 +44619,7 @@ exports[`Storyshots Design System/Components/Tooltip grid 1`] = `
       >
         <span>
           <button
-            aria-describedby="tooltip-219"
+            aria-describedby="tooltip-221"
             tabindex="0"
           >
             Default tooltip
@@ -44293,7 +44635,7 @@ exports[`Storyshots Design System/Components/Tooltip grid 1`] = `
       >
         <span>
           <button
-            aria-describedby="tooltip-221"
+            aria-describedby="tooltip-223"
             tabindex="0"
           >
             Bottom
@@ -44309,7 +44651,7 @@ exports[`Storyshots Design System/Components/Tooltip grid 1`] = `
       >
         <span>
           <button
-            aria-describedby="tooltip-223"
+            aria-describedby="tooltip-225"
             tabindex="0"
           >
             Right
@@ -44325,7 +44667,7 @@ exports[`Storyshots Design System/Components/Tooltip grid 1`] = `
       >
         <span>
           <button
-            aria-describedby="tooltip-225"
+            aria-describedby="tooltip-227"
             tabindex="0"
           >
             Left
@@ -44361,7 +44703,7 @@ exports[`Storyshots Design System/Components/Tooltip with text inside 1`] = `
   <div>
     <span>
       <span
-        aria-describedby="tooltip-227"
+        aria-describedby="tooltip-229"
         tabindex="0"
       >
         Show tooltip
@@ -44371,7 +44713,7 @@ exports[`Storyshots Design System/Components/Tooltip with text inside 1`] = `
   <div>
     <span>
       <button
-        aria-describedby="tooltip-229"
+        aria-describedby="tooltip-231"
         tabindex="0"
       >
         A longer CTA with longer content

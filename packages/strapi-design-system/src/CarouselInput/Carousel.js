@@ -32,8 +32,6 @@ const CarouselAction = styled.button`
 export const Carousel = ({
   actions,
   children,
-  error,
-  hint,
   label,
   nextLabel,
   onNext,
@@ -75,11 +73,6 @@ export const Carousel = ({
 
   return (
     <Box {...props} onKeyDown={handleKeyDown}>
-      <Box paddingBottom={1}>
-        <Typography variant="pi" textColor="neutral800" fontWeight="bold">
-          {label}
-        </Typography>
-      </Box>
       <Box padding={2} borderColor="neutral200" hasRadius background="neutral100">
         <CarouselGrid as="section" aria-roledescription="carousel" aria-label={label} position="relative">
           {hasChildren && (
@@ -117,13 +110,6 @@ export const Carousel = ({
           </Box>
         )}
       </Box>
-      {hint || error ? (
-        <Box paddingTop={1}>
-          <Typography variant="pi" textColor={error ? 'danger600' : 'neutral600'}>
-            {hint || error}
-          </Typography>
-        </Box>
-      ) : null}
     </Box>
   );
 };
@@ -132,6 +118,7 @@ Carousel.defaultProps = {
   actions: undefined,
   error: undefined,
   hint: undefined,
+  required: false,
   secondaryLabel: undefined,
 };
 
@@ -145,6 +132,7 @@ Carousel.propTypes = {
   onNext: PropTypes.func.isRequired,
   onPrevious: PropTypes.func.isRequired,
   previousLabel: PropTypes.string.isRequired,
+  required: PropTypes.bool,
   secondaryLabel: PropTypes.string,
   selectedSlide: PropTypes.number.isRequired,
 };
