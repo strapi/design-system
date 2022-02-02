@@ -1,10 +1,9 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Box } from '../Box';
 import { Portal } from '../Portal';
 import { useIntersection } from '../helpers/useIntersection';
-import { useResizeObserver } from '../helpers/useResizeObserver';
 
 export const position = (source, popover, fullWidth, centered, spacing = 0) => {
   const rect = source.getBoundingClientRect();
@@ -83,17 +82,24 @@ const PopoverScrollable = styled(Box)`
 
 const PopoverContent = ({ source, children, spacing, fullWidth, onReachEnd, intersectionId, centered, ...props }) => {
   const popoverRef = useRef(null);
+  // const popoverHeight = popoverRef.current?.getBoundingClientRect().height;
   const [{ left, top, width }, setPosition] = useState(
     position(source.current, popoverRef.current, fullWidth, centered, spacing),
   );
 
-  useResizeObserver(source, () =>
-    setPosition(position(source.current, popoverRef.current, fullWidth, centered, spacing)),
-  );
   useIntersection(popoverRef, onReachEnd, {
     selectorToWatch: `#${intersectionId}`,
     skipWhen: !intersectionId || !onReachEnd,
   });
+
+  useEffect(() => {
+    setPosition(position(source.current, popoverRef.current, fullWidth, centered, spacing));
+  }, [children, source.current, popoverRef.current, fullWidth, centered, spacing]);
+
+  // doesn't update the height every time
+  // useEffect(() => {
+  //   setPosition(position(source.current, popoverRef.current, fullWidth, centered, spacing));
+  // }, [popoverHeight]);
 
   const style = {
     left: `${left}px`,
