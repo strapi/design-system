@@ -18525,6 +18525,7 @@ exports[`Storyshots Design System/Components/LightTheme colors 1`] = `
 
 .c2 {
   grid-column: span;
+  max-width: 100%;
 }
 
 @media (max-width:68.75rem) {
@@ -18860,6 +18861,7 @@ exports[`Storyshots Design System/Components/LightTheme shadows 1`] = `
 
 .c3 {
   grid-column: span 3;
+  max-width: 100%;
 }
 
 @media (max-width:68.75rem) {
@@ -41548,6 +41550,7 @@ exports[`Storyshots Design System/Components/Tooltip grid 1`] = `
 
 .c3 {
   grid-column: span 3;
+  max-width: 100%;
 }
 
 @media (max-width:68.75rem) {
@@ -41721,10 +41724,12 @@ exports[`Storyshots Design System/Components/TwoColsLayout base 1`] = `
 
 .c3 {
   grid-column: span 9;
+  max-width: 100%;
 }
 
 .c6 {
   grid-column: span 3;
+  max-width: 100%;
 }
 
 @media (max-width:68.75rem) {
@@ -42862,6 +42867,7 @@ exports[`Storyshots Design System/Technical Components/Grid base 1`] = `
 
 .c2 {
   grid-column: span 1;
+  max-width: 100%;
 }
 
 @media (max-width:68.75rem) {
@@ -42952,6 +42958,7 @@ exports[`Storyshots Design System/Technical Components/Grid base grid 1`] = `
 
 .c2 {
   grid-column: span 1;
+  max-width: 100%;
 }
 
 @media (max-width:68.75rem) {
@@ -43124,18 +43131,22 @@ exports[`Storyshots Design System/Technical Components/Grid complex grid 1`] = `
 
 .c3 {
   grid-column: span 6;
+  max-width: 100%;
 }
 
 .c5 {
   grid-column: span 3;
+  max-width: 100%;
 }
 
 .c6 {
   grid-column: span 8;
+  max-width: 100%;
 }
 
 .c7 {
   grid-column: span 2;
+  max-width: 100%;
 }
 
 @media (max-width:68.75rem) {
