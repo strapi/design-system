@@ -14,7 +14,11 @@ We are using [GitHub Issues](https://github.com/strapi/design-system/issues) to 
 
 ## Non-editable part
 
-The design system follows the Strapi branding. We use [Specify](https://specifyapp.com/) to be able to synchronise the design tokens with the design tools. Some parts of the codebase can not be modified including the light theme and the icons.
+The design system follows the Strapi branding. We use [Specify](https://specifyapp.com/) to be able to synchronise the design tokens with the design tools. Some parts of the codebase **can not be modified** including:
+
+- Icons `packages/strapi-icons/assets/icons/`
+- Colors `packages/strapi-design-system/src/themes/colors.js`
+- Shadows `packages/strapi-design-system/src/themes/shadows.js`
 
 ---
 
@@ -26,7 +30,7 @@ The core team will review your pull request and will either merge it, request ch
 
 - Fork the repository and create your branch from `main`.
 - Run `yarn setup` in the repository root.
-- If you’ve fixed a bug or added code that should be tested, add the tests and then link the corresponding issue in either your commit or your PR!
+- If you’ve fixed a bug or added code that should be tested, add the tests and then link the corresponding issue in either your commit or your PR.
 - Ensure the test suites are passing:
   - `yarn test`
   - `yarn test:e2e` (The storybook app must be running for the e2e tests `yarn storybook`)
@@ -51,12 +55,13 @@ git clone git@github.com:YOUR_USERNAME/design-system.git
 Go to the root of the repository.
 
 ```bash
-cd design-system && yarn setup
+cd design-system
+yarn setup
 ```
 
-#### 4. Start the storybook for component and stories documentation changes
+#### 4. Start storybook for component and stories documentation changes
 
-Start the storybook application to test your changes on the components or components documentation.
+Start the storybook application to test your changes to components or their documentation.
 
 ```bash
 yarn storybook
@@ -71,16 +76,17 @@ cd website
 yarn
 yarn dev
 ```
+
 ## Available commands
 
-- `yarn analyze:bundle` starts webpack bundle analyser in all packages.
-- `yarn setup` installs the dependencies and builds all the packages.
-- `yarn lint` lints the codebase.
-- `yarn storybook` starts storybook app and loads stories in files that end with .stories.mdx.
-- `yarn test` runs the design system packages tests.
-- `yarn test:watch` runs an interactive test watcher for the design system packages.
-- `yarn test:e2e` runs an end-to-end test suite.
-- `yarn test:e2e:watch` runs an interactive end-to-end test watcher for the design system packages.
-- `yarn test:snapshots` generates snapshots.
-- `yarn test:start-app` starts the test application.
-- `yarn generate` generates a new component.
+- `yarn analyze:bundle` Start webpack bundle analyzer in all packages.
+- `yarn setup` Install dependencies and build all the packages.
+- `yarn lint` Lint the codebase.
+- `yarn storybook` Start the storybook app and load stories in files that end with .stories.mdx.
+- `yarn test` Run the design system tests.
+- `yarn test:watch` Run an interactive test watcher.
+- `yarn test:e2e` Run the end-to-end test suite.
+- `yarn test:e2e:watch` Run an interactive end-to-end test watcher.
+- `yarn test:snapshots` Generate snapshots.
+- `yarn test:start-app` Start the test application.
+- `yarn generate` Generate a new component.
