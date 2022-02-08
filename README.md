@@ -20,7 +20,7 @@
   </a>
 </p>
 
-# Welcome! 👋
+# Welcome! 👋👋👋
 
 Strapi Design System provides guidelines and tools to help anyone make Strapi's contributions more cohesive and to build plugins more efficiently.
 
