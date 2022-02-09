@@ -9,7 +9,18 @@
       },
       "parsers": [
         {
-          "name": "kebabcasify",
+          "name": "replace-string",
+          "options": {
+            "keys": ["name"],
+            "regex": {
+              "pattern": "(.*?)\\/",
+              "flags": "g"
+            },
+            "trim": true
+          }
+        },
+        {
+          "name": "pascalcasify",
           "options": {
             "keys": ["name"]
           }
@@ -29,6 +40,27 @@
         "types": ["color"]
       },
       "parsers": [
+        {
+          "name": "filter",
+          "options": {
+            "key": "name",
+            "regex": {
+              "pattern": "Light mode/",
+              "flags": "g"
+            }
+          }
+        },
+        {
+          "name": "replace-string",
+          "options": {
+            "keys": ["name"],
+            "regex": {
+              "pattern": "Light mode/",
+              "flags": "g"
+            },
+            "trim": true
+          }
+        },
         {
           "name": "to-jss",
           "options": {

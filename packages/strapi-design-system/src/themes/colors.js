@@ -12,6 +12,7 @@ export const colorTokenObject = {
     danger700: '#b72b1a',
     neutral0: '#ffffff',
     neutral100: '#f6f6f9',
+    neutral1000: '#181826',
     neutral150: '#eaeaef',
     neutral200: '#dcdce4',
     neutral300: '#c0c0cf',
