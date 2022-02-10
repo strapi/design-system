@@ -5551,7 +5551,7 @@ exports[`Storyshots Design System/Components/CarouselInput base 1`] = `
   width: 1px;
 }
 
-.c2 {
+.c3 {
   background: #f6f6f9;
   padding: 8px;
   border-radius: 4px;
@@ -5559,50 +5559,50 @@ exports[`Storyshots Design System/Components/CarouselInput base 1`] = `
   border: 1px solid #dcdce4;
 }
 
-.c3 {
+.c4 {
   position: relative;
 }
 
-.c6 {
+.c7 {
   color: #666687;
   width: 6px;
   height: 10px;
 }
 
-.c9 {
+.c10 {
   padding-right: 8px;
   padding-left: 8px;
   width: 100%;
 }
 
-.c11 {
+.c12 {
   height: 124px;
 }
 
-.c14 {
+.c15 {
   height: 100%;
 }
 
-.c16 {
+.c17 {
   position: absolute;
   bottom: 4px;
   width: 100%;
 }
 
-.c20 {
+.c21 {
   padding-top: 8px;
   padding-right: 16px;
   padding-left: 16px;
 }
 
-.c1 {
+.c2 {
   font-weight: 600;
   color: #32324d;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
-.c21 {
+.c22 {
   color: #666687;
   display: block;
   white-space: nowrap;
@@ -5612,13 +5612,13 @@ exports[`Storyshots Design System/Components/CarouselInput base 1`] = `
   line-height: 1.33;
 }
 
-.c22 {
+.c23 {
   color: #666687;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
-.c12 {
+.c13 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -5636,16 +5636,35 @@ exports[`Storyshots Design System/Components/CarouselInput base 1`] = `
   align-items: center;
 }
 
-.c17 > * {
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c1 > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.c1 > * + * {
+  margin-top: 4px;
+}
+
+.c18 > * {
   margin-left: 0;
   margin-right: 0;
 }
 
-.c17 > * + * {
+.c18 > * + * {
   margin-left: 4px;
 }
 
-.c18 {
+.c19 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -5659,21 +5678,21 @@ exports[`Storyshots Design System/Components/CarouselInput base 1`] = `
   outline: none;
 }
 
-.c18 svg {
+.c19 svg {
   height: 12px;
   width: 12px;
 }
 
-.c18 svg > g,
-.c18 svg path {
+.c19 svg > g,
+.c19 svg path {
   fill: #ffffff;
 }
 
-.c18[aria-disabled='true'] {
+.c19[aria-disabled='true'] {
   pointer-events: none;
 }
 
-.c18:after {
+.c19:after {
   -webkit-transition-property: all;
   transition-property: all;
   -webkit-transition-duration: 0.2s;
@@ -5688,11 +5707,11 @@ exports[`Storyshots Design System/Components/CarouselInput base 1`] = `
   border: 2px solid transparent;
 }
 
-.c18:focus-visible {
+.c19:focus-visible {
   outline: none;
 }
 
-.c18:focus-visible:after {
+.c19:focus-visible:after {
   border-radius: 8px;
   content: '';
   position: absolute;
@@ -5703,7 +5722,7 @@ exports[`Storyshots Design System/Components/CarouselInput base 1`] = `
   border: 2px solid #4945ff;
 }
 
-.c19 {
+.c20 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -5720,69 +5739,69 @@ exports[`Storyshots Design System/Components/CarouselInput base 1`] = `
   width: 2rem;
 }
 
-.c19 svg > g,
-.c19 svg path {
+.c20 svg > g,
+.c20 svg path {
   fill: #8e8ea9;
 }
 
-.c19:hover svg > g,
-.c19:hover svg path {
+.c20:hover svg > g,
+.c20:hover svg path {
   fill: #666687;
 }
 
-.c19:active svg > g,
-.c19:active svg path {
+.c20:active svg > g,
+.c20:active svg path {
   fill: #a5a5ba;
 }
 
-.c19[aria-disabled='true'] {
+.c20[aria-disabled='true'] {
   background-color: #eaeaef;
 }
 
-.c19[aria-disabled='true'] svg path {
+.c20[aria-disabled='true'] svg path {
   fill: #666687;
 }
 
-.c7 path {
+.c8 path {
   fill: #666687;
 }
 
-.c4 {
+.c5 {
   display: grid;
   grid-template-columns: auto 1fr auto;
   grid-template-areas: 'startAction slides endAction';
 }
 
-.c10 {
+.c11 {
   grid-area: slides;
 }
 
-.c5 {
+.c6 {
   grid-area: startAction;
 }
 
-.c5:focus svg path,
-.c5:hover svg path {
+.c6:focus svg path,
+.c6:hover svg path {
   fill: #212134;
 }
 
-.c8 {
+.c9 {
   grid-area: endAction;
 }
 
-.c8:focus svg path,
-.c8:hover svg path {
+.c9:focus svg path,
+.c9:hover svg path {
   fill: #212134;
 }
 
-.c13 {
+.c14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.c15 {
+.c16 {
   display: none;
 }
 
@@ -5795,235 +5814,239 @@ exports[`Storyshots Design System/Components/CarouselInput base 1`] = `
     </h1>
   </div>
   <div>
-    <label
-      class="c1"
-      for="carouselinput-3"
-    >
-      Carousel of numbers (1/3)
-    </label>
     <div
-      class=""
-      id="carouselinput-3"
-      style="width: 242px;"
+      class="c1"
     >
-      <div
+      <label
         class="c2"
+        for="carouselinput-3"
       >
-        <section
-          aria-label="Carousel of numbers (1/3)"
-          aria-roledescription="carousel"
-          class="c3 c4"
-        >
-          <button
-            aria-label="Previous slide"
-            class="c5"
-            type="button"
-          >
-            <svg
-              aria-hidden="true"
-              class="c6 c7"
-              fill="none"
-              height="10px"
-              viewBox="0 0 10 16"
-              width="6px"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M9.88 14.12L3.773 8 9.88 1.88 8 0 0 8l8 8 1.88-1.88z"
-                fill="#32324D"
-              />
-            </svg>
-          </button>
-          <button
-            aria-label="Next slide"
-            class="c8"
-            type="button"
-          >
-            <svg
-              aria-hidden="true"
-              class="c6 c7"
-              fill="none"
-              height="10px"
-              viewBox="0 0 10 16"
-              width="6px"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M.12 1.88L6.227 8 .12 14.12 2 16l8-8-8-8L.12 1.88z"
-                fill="#32324D"
-              />
-            </svg>
-          </button>
-          <div
-            aria-live="polite"
-            class="c9 c10"
-            width="100%"
-          >
-            <div
-              aria-label="1 of 3 slides"
-              aria-roledescription="slide"
-              class="c11 c12 c13"
-              height="124px"
-              role="group"
-            >
-              <img
-                alt="First"
-                class="c14"
-                height="100%"
-                src="test-file-stub"
-              />
-            </div>
-            <div
-              aria-label="2 of 3 slides"
-              aria-roledescription="slide"
-              class="c11 c12 c15"
-              height="124px"
-              role="group"
-            >
-              <img
-                alt="second"
-                class="c14"
-                height="100%"
-                src="test-file-stub"
-              />
-            </div>
-            <div
-              aria-label="3 of 3 slides"
-              aria-roledescription="slide"
-              class="c11 c12 c15"
-              height="124px"
-              role="group"
-            >
-              <img
-                alt="third"
-                class="c14"
-                height="100%"
-                src="test-file-stub"
-              />
-            </div>
-          </div>
-          <div
-            class="c16 c12 c17"
-            width="100%"
-          >
-            <span>
-              <button
-                aria-disabled="false"
-                aria-labelledby="tooltip-4"
-                class="c18 c19"
-                id="edit"
-                tabindex="0"
-                type="button"
-              >
-                <svg
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 24 24"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    clip-rule="evenodd"
-                    d="M23.605 3.514c.527.528.527 1.36 0 1.887l-2.623 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.119 3.118zM0 24v-4.989l14.2-14.2L19.19 9.8 4.99 24H0z"
-                    fill="#212134"
-                    fill-rule="evenodd"
-                  />
-                </svg>
-              </button>
-            </span>
-            <span>
-              <button
-                aria-disabled="false"
-                aria-labelledby="tooltip-6"
-                class="c18 c19"
-                tabindex="0"
-                type="button"
-              >
-                <svg
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 24 24"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M24 13.604a.3.3 0 01-.3.3h-9.795V23.7a.3.3 0 01-.3.3h-3.21a.3.3 0 01-.3-.3v-9.795H.3a.3.3 0 01-.3-.3v-3.21a.3.3 0 01.3-.3h9.795V.3a.3.3 0 01.3-.3h3.21a.3.3 0 01.3.3v9.795H23.7a.3.3 0 01.3.3v3.21z"
-                    fill="#212134"
-                  />
-                </svg>
-              </button>
-            </span>
-            <span>
-              <button
-                aria-disabled="false"
-                aria-labelledby="tooltip-8"
-                class="c18 c19"
-                tabindex="0"
-                type="button"
-              >
-                <svg
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 24 24"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M3.236 6.149a.2.2 0 00-.197.233L6 24h12l2.96-17.618a.2.2 0 00-.196-.233H3.236zM21.8 1.983c.11 0 .2.09.2.2v1.584a.2.2 0 01-.2.2H2.2a.2.2 0 01-.2-.2V2.183c0-.11.09-.2.2-.2h5.511c.9 0 1.631-1.09 1.631-1.983h5.316c0 .894.73 1.983 1.631 1.983H21.8z"
-                    fill="#32324D"
-                  />
-                </svg>
-              </button>
-            </span>
-            <span>
-              <button
-                aria-disabled="false"
-                aria-labelledby="tooltip-10"
-                class="c18 c19"
-                tabindex="0"
-                type="button"
-              >
-                <svg
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 24 24"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4 21.65V2.35a.2.2 0 01.301-.173l16.406 9.65a.2.2 0 010 .345L4.3 21.822A.2.2 0 014 21.65z"
-                    fill="#212134"
-                  />
-                </svg>
-              </button>
-            </span>
-          </div>
-        </section>
+        Carousel of numbers (1/3)
+      </label>
+      <div
+        class=""
+        id="carouselinput-3"
+        style="width: 242px;"
+      >
         <div
-          class="c20"
+          class="c3"
         >
-          <span>
-            <div
-              aria-labelledby="tooltip-12"
-              class="c12"
-              tabindex="0"
+          <section
+            aria-label="Carousel of numbers (1/3)"
+            aria-roledescription="carousel"
+            class="c4 c5"
+          >
+            <button
+              aria-label="Previous slide"
+              class="c6"
+              type="button"
             >
-              <span
-                class="c21"
+              <svg
+                aria-hidden="true"
+                class="c7 c8"
+                fill="none"
+                height="10px"
+                viewBox="0 0 10 16"
+                width="6px"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                /packages/strapi-design-system/src/Carousel/story-assets/first.jpg
+                <path
+                  d="M9.88 14.12L3.773 8 9.88 1.88 8 0 0 8l8 8 1.88-1.88z"
+                  fill="#32324D"
+                />
+              </svg>
+            </button>
+            <button
+              aria-label="Next slide"
+              class="c9"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="c7 c8"
+                fill="none"
+                height="10px"
+                viewBox="0 0 10 16"
+                width="6px"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M.12 1.88L6.227 8 .12 14.12 2 16l8-8-8-8L.12 1.88z"
+                  fill="#32324D"
+                />
+              </svg>
+            </button>
+            <div
+              aria-live="polite"
+              class="c10 c11"
+              width="100%"
+            >
+              <div
+                aria-label="1 of 3 slides"
+                aria-roledescription="slide"
+                class="c12 c13 c14"
+                height="124px"
+                role="group"
+              >
+                <img
+                  alt="First"
+                  class="c15"
+                  height="100%"
+                  src="test-file-stub"
+                />
+              </div>
+              <div
+                aria-label="2 of 3 slides"
+                aria-roledescription="slide"
+                class="c12 c13 c16"
+                height="124px"
+                role="group"
+              >
+                <img
+                  alt="second"
+                  class="c15"
+                  height="100%"
+                  src="test-file-stub"
+                />
+              </div>
+              <div
+                aria-label="3 of 3 slides"
+                aria-roledescription="slide"
+                class="c12 c13 c16"
+                height="124px"
+                role="group"
+              >
+                <img
+                  alt="third"
+                  class="c15"
+                  height="100%"
+                  src="test-file-stub"
+                />
+              </div>
+            </div>
+            <div
+              class="c17 c13 c18"
+              width="100%"
+            >
+              <span>
+                <button
+                  aria-disabled="false"
+                  aria-labelledby="tooltip-4"
+                  class="c19 c20"
+                  id="edit"
+                  tabindex="0"
+                  type="button"
+                >
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M23.605 3.514c.527.528.527 1.36 0 1.887l-2.623 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.119 3.118zM0 24v-4.989l14.2-14.2L19.19 9.8 4.99 24H0z"
+                      fill="#212134"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </button>
+              </span>
+              <span>
+                <button
+                  aria-disabled="false"
+                  aria-labelledby="tooltip-6"
+                  class="c19 c20"
+                  tabindex="0"
+                  type="button"
+                >
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M24 13.604a.3.3 0 01-.3.3h-9.795V23.7a.3.3 0 01-.3.3h-3.21a.3.3 0 01-.3-.3v-9.795H.3a.3.3 0 01-.3-.3v-3.21a.3.3 0 01.3-.3h9.795V.3a.3.3 0 01.3-.3h3.21a.3.3 0 01.3.3v9.795H23.7a.3.3 0 01.3.3v3.21z"
+                      fill="#212134"
+                    />
+                  </svg>
+                </button>
+              </span>
+              <span>
+                <button
+                  aria-disabled="false"
+                  aria-labelledby="tooltip-8"
+                  class="c19 c20"
+                  tabindex="0"
+                  type="button"
+                >
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M3.236 6.149a.2.2 0 00-.197.233L6 24h12l2.96-17.618a.2.2 0 00-.196-.233H3.236zM21.8 1.983c.11 0 .2.09.2.2v1.584a.2.2 0 01-.2.2H2.2a.2.2 0 01-.2-.2V2.183c0-.11.09-.2.2-.2h5.511c.9 0 1.631-1.09 1.631-1.983h5.316c0 .894.73 1.983 1.631 1.983H21.8z"
+                      fill="#32324D"
+                    />
+                  </svg>
+                </button>
+              </span>
+              <span>
+                <button
+                  aria-disabled="false"
+                  aria-labelledby="tooltip-10"
+                  class="c19 c20"
+                  tabindex="0"
+                  type="button"
+                >
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4 21.65V2.35a.2.2 0 01.301-.173l16.406 9.65a.2.2 0 010 .345L4.3 21.822A.2.2 0 014 21.65z"
+                      fill="#212134"
+                    />
+                  </svg>
+                </button>
               </span>
             </div>
-          </span>
+          </section>
+          <div
+            class="c21"
+          >
+            <span>
+              <div
+                aria-labelledby="tooltip-12"
+                class="c13"
+                tabindex="0"
+              >
+                <span
+                  class="c22"
+                >
+                  /packages/strapi-design-system/src/Carousel/story-assets/first.jpg
+                </span>
+              </div>
+            </span>
+          </div>
         </div>
       </div>
+      <p
+        class="c23"
+        id="carouselinput-3-hint"
+      >
+        Description line
+      </p>
     </div>
-    <p
-      class="c22"
-      id="carouselinput-3-hint"
-    >
-      Description line
-    </p>
   </div>
 </main>
 `;
@@ -6041,7 +6064,7 @@ exports[`Storyshots Design System/Components/CarouselInput one slide only 1`] = 
   width: 1px;
 }
 
-.c2 {
+.c3 {
   background: #f6f6f9;
   padding: 8px;
   border-radius: 4px;
@@ -6049,44 +6072,44 @@ exports[`Storyshots Design System/Components/CarouselInput one slide only 1`] = 
   border: 1px solid #dcdce4;
 }
 
-.c3 {
+.c4 {
   position: relative;
 }
 
-.c5 {
+.c6 {
   padding-right: 8px;
   padding-left: 8px;
   width: 100%;
 }
 
-.c7 {
+.c8 {
   height: 124px;
 }
 
-.c10 {
+.c11 {
   height: 100%;
 }
 
-.c11 {
+.c12 {
   position: absolute;
   bottom: 4px;
   width: 100%;
 }
 
-.c1 {
+.c2 {
   font-weight: 600;
   color: #32324d;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
-.c15 {
+.c16 {
   color: #666687;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
-.c8 {
+.c9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -6104,16 +6127,35 @@ exports[`Storyshots Design System/Components/CarouselInput one slide only 1`] = 
   align-items: center;
 }
 
-.c12 > * {
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c1 > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.c1 > * + * {
+  margin-top: 4px;
+}
+
+.c13 > * {
   margin-left: 0;
   margin-right: 0;
 }
 
-.c12 > * + * {
+.c13 > * + * {
   margin-left: 4px;
 }
 
-.c13 {
+.c14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -6127,21 +6169,21 @@ exports[`Storyshots Design System/Components/CarouselInput one slide only 1`] = 
   outline: none;
 }
 
-.c13 svg {
+.c14 svg {
   height: 12px;
   width: 12px;
 }
 
-.c13 svg > g,
-.c13 svg path {
+.c14 svg > g,
+.c14 svg path {
   fill: #ffffff;
 }
 
-.c13[aria-disabled='true'] {
+.c14[aria-disabled='true'] {
   pointer-events: none;
 }
 
-.c13:after {
+.c14:after {
   -webkit-transition-property: all;
   transition-property: all;
   -webkit-transition-duration: 0.2s;
@@ -6156,11 +6198,11 @@ exports[`Storyshots Design System/Components/CarouselInput one slide only 1`] = 
   border: 2px solid transparent;
 }
 
-.c13:focus-visible {
+.c14:focus-visible {
   outline: none;
 }
 
-.c13:focus-visible:after {
+.c14:focus-visible:after {
   border-radius: 8px;
   content: '';
   position: absolute;
@@ -6171,7 +6213,7 @@ exports[`Storyshots Design System/Components/CarouselInput one slide only 1`] = 
   border: 2px solid #4945ff;
 }
 
-.c14 {
+.c15 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -6188,40 +6230,40 @@ exports[`Storyshots Design System/Components/CarouselInput one slide only 1`] = 
   width: 2rem;
 }
 
-.c14 svg > g,
-.c14 svg path {
+.c15 svg > g,
+.c15 svg path {
   fill: #8e8ea9;
 }
 
-.c14:hover svg > g,
-.c14:hover svg path {
+.c15:hover svg > g,
+.c15:hover svg path {
   fill: #666687;
 }
 
-.c14:active svg > g,
-.c14:active svg path {
+.c15:active svg > g,
+.c15:active svg path {
   fill: #a5a5ba;
 }
 
-.c14[aria-disabled='true'] {
+.c15[aria-disabled='true'] {
   background-color: #eaeaef;
 }
 
-.c14[aria-disabled='true'] svg path {
+.c15[aria-disabled='true'] svg path {
   fill: #666687;
 }
 
-.c4 {
+.c5 {
   display: grid;
   grid-template-columns: auto 1fr auto;
   grid-template-areas: 'startAction slides endAction';
 }
 
-.c6 {
+.c7 {
   grid-area: slides;
 }
 
-.c9 {
+.c10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -6237,150 +6279,154 @@ exports[`Storyshots Design System/Components/CarouselInput one slide only 1`] = 
     </h1>
   </div>
   <div>
-    <label
-      class="c1"
-      for="carouselinput-14"
-    >
-      Carousel of numbers 1/1)
-    </label>
     <div
-      class=""
-      id="carouselinput-14"
-      style="width: 242px;"
+      class="c1"
     >
-      <div
+      <label
         class="c2"
+        for="carouselinput-14"
       >
-        <section
-          aria-label="Carousel of numbers 1/1)"
-          aria-roledescription="carousel"
-          class="c3 c4"
+        Carousel of numbers 1/1)
+      </label>
+      <div
+        class=""
+        id="carouselinput-14"
+        style="width: 242px;"
+      >
+        <div
+          class="c3"
         >
-          <div
-            aria-live="polite"
-            class="c5 c6"
-            width="100%"
+          <section
+            aria-label="Carousel of numbers 1/1)"
+            aria-roledescription="carousel"
+            class="c4 c5"
           >
             <div
-              aria-label="1 of 1 slides"
-              aria-roledescription="slide"
-              class="c7 c8 c9"
-              height="124px"
-              role="group"
+              aria-live="polite"
+              class="c6 c7"
+              width="100%"
             >
-              <img
-                alt="First"
-                class="c10"
-                height="100%"
-                src="test-file-stub"
-              />
+              <div
+                aria-label="1 of 1 slides"
+                aria-roledescription="slide"
+                class="c8 c9 c10"
+                height="124px"
+                role="group"
+              >
+                <img
+                  alt="First"
+                  class="c11"
+                  height="100%"
+                  src="test-file-stub"
+                />
+              </div>
             </div>
-          </div>
-          <div
-            class="c11 c8 c12"
-            width="100%"
-          >
-            <span>
-              <button
-                aria-disabled="false"
-                aria-labelledby="tooltip-15"
-                class="c13 c14"
-                id="edit"
-                tabindex="0"
-                type="button"
-              >
-                <svg
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 24 24"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="c12 c9 c13"
+              width="100%"
+            >
+              <span>
+                <button
+                  aria-disabled="false"
+                  aria-labelledby="tooltip-15"
+                  class="c14 c15"
+                  id="edit"
+                  tabindex="0"
+                  type="button"
                 >
-                  <path
-                    clip-rule="evenodd"
-                    d="M23.605 3.514c.527.528.527 1.36 0 1.887l-2.623 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.119 3.118zM0 24v-4.989l14.2-14.2L19.19 9.8 4.99 24H0z"
-                    fill="#212134"
-                    fill-rule="evenodd"
-                  />
-                </svg>
-              </button>
-            </span>
-            <span>
-              <button
-                aria-disabled="false"
-                aria-labelledby="tooltip-17"
-                class="c13 c14"
-                tabindex="0"
-                type="button"
-              >
-                <svg
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 24 24"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M23.605 3.514c.527.528.527 1.36 0 1.887l-2.623 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.119 3.118zM0 24v-4.989l14.2-14.2L19.19 9.8 4.99 24H0z"
+                      fill="#212134"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </button>
+              </span>
+              <span>
+                <button
+                  aria-disabled="false"
+                  aria-labelledby="tooltip-17"
+                  class="c14 c15"
+                  tabindex="0"
+                  type="button"
                 >
-                  <path
-                    d="M24 13.604a.3.3 0 01-.3.3h-9.795V23.7a.3.3 0 01-.3.3h-3.21a.3.3 0 01-.3-.3v-9.795H.3a.3.3 0 01-.3-.3v-3.21a.3.3 0 01.3-.3h9.795V.3a.3.3 0 01.3-.3h3.21a.3.3 0 01.3.3v9.795H23.7a.3.3 0 01.3.3v3.21z"
-                    fill="#212134"
-                  />
-                </svg>
-              </button>
-            </span>
-            <span>
-              <button
-                aria-disabled="false"
-                aria-labelledby="tooltip-19"
-                class="c13 c14"
-                tabindex="0"
-                type="button"
-              >
-                <svg
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 24 24"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M24 13.604a.3.3 0 01-.3.3h-9.795V23.7a.3.3 0 01-.3.3h-3.21a.3.3 0 01-.3-.3v-9.795H.3a.3.3 0 01-.3-.3v-3.21a.3.3 0 01.3-.3h9.795V.3a.3.3 0 01.3-.3h3.21a.3.3 0 01.3.3v9.795H23.7a.3.3 0 01.3.3v3.21z"
+                      fill="#212134"
+                    />
+                  </svg>
+                </button>
+              </span>
+              <span>
+                <button
+                  aria-disabled="false"
+                  aria-labelledby="tooltip-19"
+                  class="c14 c15"
+                  tabindex="0"
+                  type="button"
                 >
-                  <path
-                    d="M3.236 6.149a.2.2 0 00-.197.233L6 24h12l2.96-17.618a.2.2 0 00-.196-.233H3.236zM21.8 1.983c.11 0 .2.09.2.2v1.584a.2.2 0 01-.2.2H2.2a.2.2 0 01-.2-.2V2.183c0-.11.09-.2.2-.2h5.511c.9 0 1.631-1.09 1.631-1.983h5.316c0 .894.73 1.983 1.631 1.983H21.8z"
-                    fill="#32324D"
-                  />
-                </svg>
-              </button>
-            </span>
-            <span>
-              <button
-                aria-disabled="false"
-                aria-labelledby="tooltip-21"
-                class="c13 c14"
-                tabindex="0"
-                type="button"
-              >
-                <svg
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 24 24"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M3.236 6.149a.2.2 0 00-.197.233L6 24h12l2.96-17.618a.2.2 0 00-.196-.233H3.236zM21.8 1.983c.11 0 .2.09.2.2v1.584a.2.2 0 01-.2.2H2.2a.2.2 0 01-.2-.2V2.183c0-.11.09-.2.2-.2h5.511c.9 0 1.631-1.09 1.631-1.983h5.316c0 .894.73 1.983 1.631 1.983H21.8z"
+                      fill="#32324D"
+                    />
+                  </svg>
+                </button>
+              </span>
+              <span>
+                <button
+                  aria-disabled="false"
+                  aria-labelledby="tooltip-21"
+                  class="c14 c15"
+                  tabindex="0"
+                  type="button"
                 >
-                  <path
-                    d="M4 21.65V2.35a.2.2 0 01.301-.173l16.406 9.65a.2.2 0 010 .345L4.3 21.822A.2.2 0 014 21.65z"
-                    fill="#212134"
-                  />
-                </svg>
-              </button>
-            </span>
-          </div>
-        </section>
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4 21.65V2.35a.2.2 0 01.301-.173l16.406 9.65a.2.2 0 010 .345L4.3 21.822A.2.2 0 014 21.65z"
+                      fill="#212134"
+                    />
+                  </svg>
+                </button>
+              </span>
+            </div>
+          </section>
+        </div>
       </div>
+      <p
+        class="c16"
+        id="carouselinput-14-hint"
+      >
+        Description line
+      </p>
     </div>
-    <p
-      class="c15"
-      id="carouselinput-14-hint"
-    >
-      Description line
-    </p>
   </div>
 </main>
 `;
