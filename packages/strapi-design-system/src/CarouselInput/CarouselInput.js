@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Carousel } from './Carousel';
 import { Field, FieldLabel, FieldHint, FieldError } from '../Field';
+import { Stack } from '../Stack';
 import { useId } from '../helpers/useId';
 
 export const CarouselInput = ({
@@ -24,23 +25,25 @@ export const CarouselInput = ({
 
   return (
     <Field hint={hint} error={error} id={generatedId}>
-      <FieldLabel required={required}>{label}</FieldLabel>
-      <Carousel
-        actions={actions}
-        label={label}
-        nextLabel={nextLabel}
-        onNext={onNext}
-        onPrevious={onPrevious}
-        previousLabel={previousLabel}
-        secondaryLabel={secondaryLabel}
-        selectedSlide={selectedSlide}
-        id={generatedId}
-        {...props}
-      >
-        {children}
-      </Carousel>
-      <FieldHint />
-      <FieldError />
+      <Stack size={1}>
+        <FieldLabel required={required}>{label}</FieldLabel>
+        <Carousel
+          actions={actions}
+          label={label}
+          nextLabel={nextLabel}
+          onNext={onNext}
+          onPrevious={onPrevious}
+          previousLabel={previousLabel}
+          secondaryLabel={secondaryLabel}
+          selectedSlide={selectedSlide}
+          id={generatedId}
+          {...props}
+        >
+          {children}
+        </Carousel>
+        <FieldHint />
+        <FieldError />
+      </Stack>
     </Field>
   );
 };
