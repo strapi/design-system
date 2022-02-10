@@ -10,7 +10,6 @@ import { buttonFocusStyle } from '../themes/utils';
 const LinkWrapper = styled.a`
   display: inline-flex;
   align-items: center;
-  text-transform: uppercase;
   text-decoration: none;
   pointer-events: ${({ disabled }) => (disabled ? 'none' : undefined)};
 
@@ -55,7 +54,7 @@ export const Link = ({ href, to, children, disabled, startIcon, endIcon, ...prop
         </IconWrapper>
       )}
 
-      <Typography variant="sigma" textColor={disabled ? 'neutral600' : 'primary600'}>
+      <Typography variant="pi" textColor={disabled ? 'neutral600' : 'primary600'}>
         {children}
       </Typography>
 

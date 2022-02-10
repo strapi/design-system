@@ -670,10 +670,8 @@ exports[`Storyshots Design System/Components/Alert with action 1`] = `
 
 .c14 {
   color: #4945ff;
-  font-weight: 600;
-  font-size: 0.6875rem;
-  line-height: 1.45;
-  text-transform: uppercase;
+  font-size: 0.75rem;
+  line-height: 1.33;
 }
 
 .c3 {
@@ -784,7 +782,6 @@ exports[`Storyshots Design System/Components/Alert with action 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  text-transform: uppercase;
   -webkit-text-decoration: none;
   text-decoration: none;
   position: relative;
@@ -12066,10 +12063,8 @@ exports[`Storyshots Design System/Components/HeaderLayout base 1`] = `
 
 .c9 {
   color: #4945ff;
-  font-weight: 600;
-  font-size: 0.6875rem;
-  line-height: 1.45;
-  text-transform: uppercase;
+  font-size: 0.75rem;
+  line-height: 1.33;
 }
 
 .c12 {
@@ -12133,7 +12128,6 @@ exports[`Storyshots Design System/Components/HeaderLayout base 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  text-transform: uppercase;
   -webkit-text-decoration: none;
   text-decoration: none;
   position: relative;
@@ -12939,10 +12933,8 @@ exports[`Storyshots Design System/Components/HeaderLayout combined w/ scroll 1`]
 
 .c9 {
   color: #4945ff;
-  font-weight: 600;
-  font-size: 0.6875rem;
-  line-height: 1.45;
-  text-transform: uppercase;
+  font-size: 0.75rem;
+  line-height: 1.33;
 }
 
 .c12 {
@@ -13006,7 +12998,6 @@ exports[`Storyshots Design System/Components/HeaderLayout combined w/ scroll 1`]
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  text-transform: uppercase;
   -webkit-text-decoration: none;
   text-decoration: none;
   position: relative;
@@ -13437,10 +13428,8 @@ exports[`Storyshots Design System/Components/HeaderLayout sticky 1`] = `
 
 .c12 {
   color: #4945ff;
-  font-weight: 600;
-  font-size: 0.6875rem;
-  line-height: 1.45;
-  text-transform: uppercase;
+  font-size: 0.75rem;
+  line-height: 1.33;
 }
 
 .c13 {
@@ -13504,7 +13493,6 @@ exports[`Storyshots Design System/Components/HeaderLayout sticky 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  text-transform: uppercase;
   -webkit-text-decoration: none;
   text-decoration: none;
   position: relative;
@@ -19445,18 +19433,14 @@ exports[`Storyshots Design System/Components/Link base 1`] = `
 
 .c3 {
   color: #4945ff;
-  font-weight: 600;
-  font-size: 0.6875rem;
-  line-height: 1.45;
-  text-transform: uppercase;
+  font-size: 0.75rem;
+  line-height: 1.33;
 }
 
 .c7 {
   color: #666687;
-  font-weight: 600;
-  font-size: 0.6875rem;
-  line-height: 1.45;
-  text-transform: uppercase;
+  font-size: 0.75rem;
+  line-height: 1.33;
 }
 
 .c1 {
@@ -19487,7 +19471,6 @@ exports[`Storyshots Design System/Components/Link base 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  text-transform: uppercase;
   -webkit-text-decoration: none;
   text-decoration: none;
   position: relative;
@@ -19541,7 +19524,6 @@ exports[`Storyshots Design System/Components/Link base 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  text-transform: uppercase;
   -webkit-text-decoration: none;
   text-decoration: none;
   pointer-events: none;
