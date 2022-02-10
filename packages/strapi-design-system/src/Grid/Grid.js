@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { GridContext } from './GridContext';
 import { Box } from '../Box';
-import handleResponsiveSpacing from '../helpers/handleResponsiveSpacing';
+import handleResponsiveValues from '../helpers/handleResponsiveValues';
 
 const GridWrapper = styled(Box)`
   display: grid;
   grid-template-columns: repeat(${({ gridCols }) => gridCols}, 1fr);
-  ${({ theme, gap }) => handleResponsiveSpacing('gap', gap, theme)}
+  ${({ theme, gap }) => handleResponsiveValues('gap', gap, theme)}
 `;
 
 export const Grid = ({ gap, gridCols, ...props }) => {
