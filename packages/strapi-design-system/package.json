@@ -1,6 +1,6 @@
 {
   "name": "@strapi/design-system",
-  "version": "0.0.1-alpha.73",
+  "version": "0.0.1-alpha.74",
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
