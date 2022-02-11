@@ -15823,6 +15823,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
 
 .c56 {
   border-right: 1px solid #d9d8ff;
+  color: inherit;
   padding-right: 8px;
 }
 
@@ -36424,6 +36425,7 @@ exports[`Storyshots Design System/Components/Tag base 1`] = `
 
 .c5 {
   border-right: 1px solid #d9d8ff;
+  color: inherit;
   padding-right: 8px;
 }
 
@@ -36535,6 +36537,7 @@ exports[`Storyshots Design System/Components/Tag disabled 1`] = `
 
 .c5 {
   border-right: 1px solid #c0c0cf;
+  color: inherit;
   padding-right: 8px;
 }
 

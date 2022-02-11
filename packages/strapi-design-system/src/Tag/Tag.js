@@ -18,6 +18,7 @@ const TagWrapper = styled(Box)`
 
 const TagText = styled(Typography)`
   border-right: 1px solid ${({ theme, disabled }) => (disabled ? theme.colors.neutral300 : theme.colors.primary200)};
+  color: inherit;
   padding-right: ${({ theme }) => theme.spaces[2]};
 `;
 
