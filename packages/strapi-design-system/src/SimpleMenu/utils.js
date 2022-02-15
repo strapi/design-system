@@ -6,7 +6,7 @@ export const getOptionStyle = ({ theme }) => `
     &:focus {
         background-color: ${theme.colors.primary100};
     }
-    &:hover {
+    &:not([aria-disabled]):hover {
         background-color: ${theme.colors.primary100};
     }
 `;
