@@ -87,7 +87,7 @@ const PopoverContent = ({ source, children, spacing, fullWidth, onReachEnd, inte
     position(source.current, popoverRef.current, fullWidth, centered, spacing),
   );
 
-  useResizeObserver(source, () =>
+  useResizeObserver([source, popoverRef], () =>
     setPosition(position(source.current, popoverRef.current, fullWidth, centered, spacing)),
   );
   useIntersection(popoverRef, onReachEnd, {

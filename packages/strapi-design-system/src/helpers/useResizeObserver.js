@@ -1,9 +1,13 @@
 import { useEffect } from 'react';
 
-export const useResizeObserver = (source, onResize) => {
+export const useResizeObserver = (sources, onResize) => {
   useEffect(() => {
     const resizeObs = new ResizeObserver(onResize);
-    resizeObs.observe(source.current);
+    if (Array.isArray(sources)) {
+      sources.map((source) => resizeObs.observe(source.current));
+    } else {
+      resizeObs.observe(sources.current);
+    }
 
     return () => {
       resizeObs.disconnect();
