@@ -104,7 +104,16 @@ Avatar.defaultProps = {
 };
 
 Avatar.propTypes = {
+  /**
+   * Alternative text
+   */
   alt: PropTypes.string.isRequired,
+  /**
+   * Image src of the image preview (displayed on `Avatar` hover).
+   */
   preview: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+  /**
+   * Image src of the `Avatar`
+   */
   src: PropTypes.string.isRequired,
 };

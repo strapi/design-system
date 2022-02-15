@@ -40,7 +40,7 @@ const FlexWithSize = styled(Flex)`
 
 export const AccordionToggle = ({ title, description, as, togglePosition, action, ...props }) => {
   const toggleButtonRef = useRef(null);
-  const { toggle, expanded, id, size, variant, disabled } = useAccordion();
+  const { toggle, onToggle, expanded, id, size, variant, disabled } = useAccordion();
 
   // Accessibility identifiers
   const ariaControls = `accordion-content-${id}`;
@@ -57,7 +57,14 @@ export const AccordionToggle = ({ title, description, as, togglePosition, action
 
   const handleToggle = () => {
     if (!disabled) {
-      toggle();
+      if (toggle && !onToggle) {
+        console.warn(
+          'Deprecation warning: Usage of "toggle" prop in Accordion component. This is discouraged and will be removed in upcoming major. Please use "onToggle" instead',
+        );
+        toggle();
+      } else {
+        onToggle();
+      }
     }
   };
 
@@ -195,10 +202,25 @@ AccordionToggle.defaultProps = {
 };
 
 AccordionToggle.propTypes = {
+  /**
+   * Will render a node to the right of the Accordion component
+   */
   action: PropTypes.node,
   as: PropTypes.string,
+  /**
+   * Show the secondary text of the Accordion component
+   */
   description: PropTypes.string,
+  /**
+   * Show the main title of the Accordion component
+   */
   title: PropTypes.string.isRequired,
+  /**
+   * Set the position of the toggle icon button
+   */
   togglePosition: PropTypes.oneOf(['right', 'left']),
+  /**
+   * Color variant
+   */
   variant: PropTypes.oneOf(['primary', 'secondary']),
 };
