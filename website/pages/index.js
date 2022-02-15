@@ -82,7 +82,7 @@ const Home = ({ navbarContent }) => {
         </Box>
         <Box paddingBottom={2}>
           <Typography as="h3" variant="alpha" textColor="neutral800">
-            Strapi Design System v1.0
+            Strapi Design System
           </Typography>
         </Box>
         <Typography variant="epsilon" textColor="neutral600">
