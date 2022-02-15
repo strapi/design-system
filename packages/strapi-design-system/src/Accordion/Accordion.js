@@ -53,11 +53,22 @@ const AccordionWrapper = styled(Box)`
   }
 `;
 
-export const Accordion = ({ children, toggle, expanded, id, size, variant, disabled, error, hasErrorMessage }) => {
+export const Accordion = ({
+  children,
+  toggle,
+  expanded,
+  id,
+  size,
+  variant,
+  disabled,
+  error,
+  hasErrorMessage,
+  onToggle,
+}) => {
   const generatedId = useId('accordion', id);
 
   return (
-    <AccordionContext.Provider value={{ expanded, toggle, id: generatedId, size, variant, disabled }}>
+    <AccordionContext.Provider value={{ expanded, toggle, onToggle, id: generatedId, size, variant, disabled }}>
       <AccordionWrapper
         data-strapi-expanded={expanded}
         disabled={disabled}
@@ -89,16 +100,47 @@ Accordion.defaultProps = {
   toggle: false,
   size: 'M',
   variant: 'primary',
+  onToggle: undefined,
 };
 
 Accordion.propTypes = {
   children: PropTypes.node.isRequired,
+  /**
+   * If `true`, the accordion will be disabled.
+   */
   disabled: PropTypes.bool,
+  /**
+   * If defined, will add a border (borderColor: `danger600`) and display the error message under the component.
+   */
   error: PropTypes.string,
+  /**
+   * If `true`, an expanded accordion will be rendered.
+   */
   expanded: PropTypes.bool,
+  /**
+   * If `false`, the error message won't show.
+   * If the `Accordion` is used under an `AccordionGroup`, this prop will be set to `false` automatically.
+   * The error message of the `AccordionGroup` will be shown under the group instead.
+   */
   hasErrorMessage: PropTypes.bool,
+  /**
+   * The id of the component.
+   */
   id: PropTypes.string,
+  /**
+   * The callback invoked when click on the `Accordion` row.
+   */
+  onToggle: PropTypes.func,
+  /**
+   * Size of the Accordion.
+   */
   size: PropTypes.oneOf(['S', 'M']),
+  /**
+   * DEPRECATED: The callback invoked when click on the `Accordion` row.
+   */
   toggle: PropTypes.func.isRequired,
+  /**
+   * Color variant for Accordion
+   */
   variant: PropTypes.oneOf(['primary', 'secondary']),
 };

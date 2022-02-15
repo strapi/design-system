@@ -54,7 +54,13 @@ import { Accordion, AccordionToggle, AccordionContent, AccordionGroup } from '@s
       return (
         <div>
           <Box padding={8} background="neutral100">
-            <Accordion error='The component contain error(s)' expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-1" size="S">
+            <Accordion
+              error="The component contain error(s)"
+              expanded={expanded}
+              toggle={() => setExpanded((s) => !s)}
+              id="acc-1"
+              size="S"
+            >
               <AccordionToggle title="User informations" />
               <AccordionContent>
                 <Box padding={3}>My name is John Duff</Box>
@@ -113,7 +119,7 @@ import { Accordion, AccordionToggle, AccordionContent, AccordionGroup } from '@s
         <div>
           <Box padding={8} background="neutral0">
             <AccordionGroup
-              error='The components contain error(s)'
+              error="The components contain error(s)"
               footer={
                 <Flex justifyContent="center" height="48px" background="neutral150">
                   <TextButton disabled={true} startIcon={<Plus />}>
@@ -137,7 +143,13 @@ import { Accordion, AccordionToggle, AccordionContent, AccordionGroup } from '@s
                 </Tooltip>
               }
             >
-              <Accordion error='The components contain error(s)' expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-1" size="S">
+              <Accordion
+                error="The components contain error(s)"
+                expanded={expanded}
+                toggle={() => setExpanded((s) => !s)}
+                id="acc-1"
+                size="S"
+              >
                 <AccordionToggle
                   startIcon={<User aria-hidden={true} />}
                   action={
@@ -153,7 +165,13 @@ import { Accordion, AccordionToggle, AccordionContent, AccordionGroup } from '@s
                   <Box padding={3}>My name is John Duff</Box>
                 </AccordionContent>
               </Accordion>
-              <Accordion error='The component contain error(s)' expanded={false} toggle={() => setExpanded((s) => !s)} id="acc-2" size="S">
+              <Accordion
+                error="The component contain error(s)"
+                expanded={false}
+                toggle={() => setExpanded((s) => !s)}
+                id="acc-2"
+                size="S"
+              >
                 <AccordionToggle title="User informations" togglePosition="left" />
                 <AccordionContent>
                   <Box padding={3}>My name is John Duff</Box>
@@ -165,13 +183,12 @@ import { Accordion, AccordionToggle, AccordionContent, AccordionGroup } from '@s
                   <Box padding={3}>My name is Michka</Box>
                 </AccordionContent>
               </Accordion>
-              <Accordion
-                expanded={false}
-                toggle={() => setExpanded((s) => !s)}
-                id="acc-2"
-                size="S"
-              >
-                <AccordionToggle startIcon={<User aria-hidden={true} />} title="User informations" togglePosition="left" />
+              <Accordion expanded={false} toggle={() => setExpanded((s) => !s)} id="acc-2" size="S">
+                <AccordionToggle
+                  startIcon={<User aria-hidden={true} />}
+                  title="User informations"
+                  togglePosition="left"
+                />
                 <AccordionContent>
                   <Box padding={3}>My name is John Duff</Box>
                 </AccordionContent>
@@ -265,6 +282,14 @@ The Accordion component can also be open by default using the parameter `expande
   </Story>
 </Canvas>
 
-## Props
+## Accordion props
 
 <ArgsTable of={Accordion} />
+
+## AccordionGroup props
+
+<ArgsTable of={AccordionGroup} />
+
+## AccordionToggle props
+
+<ArgsTable of={AccordionToggle} />

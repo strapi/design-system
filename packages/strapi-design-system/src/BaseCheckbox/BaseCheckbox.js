@@ -107,9 +107,22 @@ BaseCheckbox.defaultProps = {
 };
 
 BaseCheckbox.propTypes = {
+  /**
+   * If `true`, display the indeterminate state.
+   */
   indeterminate: PropTypes.bool,
+  /**
+   * `Checkbox` input name
+   */
   name: PropTypes.string,
+  /**
+   * The callback invoked when click on the `Checkbox`
+   * `(value: Bool) => {}`
+   */
   onValueChange: PropTypes.func,
+  /**
+   * Set the size of the checkbox
+   */
   size: PropTypes.oneOf(['M', 'L']),
   value: PropTypes.bool,
 };
