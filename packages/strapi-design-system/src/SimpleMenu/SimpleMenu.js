@@ -2,11 +2,11 @@ import React, { useRef, useState, Children, cloneElement, useEffect } from 'reac
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import CarretDown from '@strapi/icons/CarretDown';
-import { NavLink } from 'react-router-dom';
 import { Typography } from '../Typography';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { Button } from '../Button';
+import { BaseLink } from '../BaseLink';
 import { Popover } from '../Popover';
 import { getOptionStyle } from './utils';
 import { useId } from '../helpers/useId';
@@ -20,7 +20,7 @@ const OptionButton = styled.button`
   ${getOptionStyle}
 `;
 
-const OptionLink = styled(NavLink)`
+const OptionLink = styled(BaseLink)`
   text-decoration: none;
   ${getOptionStyle}
 `;
@@ -34,7 +34,7 @@ const IconWrapper = styled.span`
   }
 `;
 
-export const MenuItem = ({ children, onClick, to, isFocused, ...props }) => {
+export const MenuItem = ({ as, children, onClick, isFocused, isLink, ...props }) => {
   const menuItemRef = useRef();
 
   useEffect(() => {
@@ -56,36 +56,33 @@ export const MenuItem = ({ children, onClick, to, isFocused, ...props }) => {
     }
   };
 
-  return (
-    <Flex as="li" justifyContent="center" role="menuitem">
-      {to ? (
-        <OptionLink to={to} {...menuItemProps}>
-          <Box padding={2}>
-            <Typography>{children}</Typography>
-          </Box>
-        </OptionLink>
-      ) : (
-        <OptionButton onKeyDown={handleKeyDown} onMouseDown={onClick} type="button" {...menuItemProps}>
-          <Box padding={2}>
-            <Typography>{children}</Typography>
-          </Box>
-        </OptionButton>
-      )}
-    </Flex>
+  return isLink ? (
+    <OptionLink as={as} {...menuItemProps}>
+      <Box padding={2}>
+        <Typography>{children}</Typography>
+      </Box>
+    </OptionLink>
+  ) : (
+    <OptionButton onKeyDown={handleKeyDown} onMouseDown={onClick} type="button" {...menuItemProps}>
+      <Box padding={2}>
+        <Typography>{children}</Typography>
+      </Box>
+    </OptionButton>
   );
 };
 
 MenuItem.defaultProps = {
   onClick: () => {},
-  to: undefined,
   isFocused: false,
+  isLink: false,
 };
 
 MenuItem.propTypes = {
+  as: PropTypes.elementType,
   children: PropTypes.node.isRequired,
   isFocused: PropTypes.bool,
+  isLink: PropTypes.bool,
   onClick: PropTypes.func,
-  to: PropTypes.string,
 };
 
 export const SimpleMenu = ({ label, children, id, as: asComp, ...props }) => {
@@ -150,16 +147,18 @@ export const SimpleMenu = ({ label, children, id, as: asComp, ...props }) => {
     setVisible((prevVisible) => !prevVisible);
   };
 
-  const childrenClone = childrenArray.map((child, index) =>
-    cloneElement(child, {
-      onClick: () => {
-        child.props.onClick();
-        setVisible(false);
-        menuButtonRef.current.focus();
-      },
-      isFocused: focusedItemIndex === index,
-    }),
-  );
+  const childrenClone = childrenArray.map((child, index) => (
+    <Flex as="li" key={index} justifyContent="center" role="menuitem">
+      {cloneElement(child, {
+        onClick: () => {
+          child.props.onClick();
+          setVisible(false);
+          menuButtonRef.current.focus();
+        },
+        isFocused: focusedItemIndex === index,
+      })}
+    </Flex>
+  ));
 
   return (
     <div onKeyDown={handleWrapperKeyDown}>

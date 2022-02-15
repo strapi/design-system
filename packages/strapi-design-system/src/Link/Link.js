@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import ExternalLink from '@strapi/icons/ExternalLink';
-import { NavLink } from 'react-router-dom';
 import { Typography } from '../Typography';
 import { Box } from '../Box';
 import { buttonFocusStyle } from '../themes/utils';
+import { BaseLink } from '../BaseLink';
 
-const LinkWrapper = styled.a`
+const LinkWrapper = styled(BaseLink)`
   display: inline-flex;
   align-items: center;
   text-decoration: none;
@@ -33,21 +33,9 @@ const IconWrapper = styled(Box)`
   display: flex;
 `;
 
-// TODO: make sure to use the link from the router library chosen
-export const Link = ({ href, to, children, disabled, startIcon, endIcon, ...props }) => {
-  const target = href ? '_blank' : undefined;
-  const rel = href ? 'noreferrer noopener' : undefined;
-
+export const Link = ({ children, href, disabled, startIcon, endIcon, ...props }) => {
   return (
-    <LinkWrapper
-      as={to && !disabled ? NavLink : 'a'}
-      target={target}
-      rel={rel}
-      to={disabled ? undefined : to}
-      href={disabled ? '#' : href}
-      disabled={disabled}
-      {...props}
-    >
+    <LinkWrapper href={href} disabled={disabled} {...props}>
       {startIcon && (
         <IconWrapper as="span" aria-hidden={true} paddingRight={2}>
           {startIcon}
@@ -58,13 +46,13 @@ export const Link = ({ href, to, children, disabled, startIcon, endIcon, ...prop
         {children}
       </Typography>
 
-      {endIcon && !href && (
+      {endIcon && (
         <IconWrapper as="span" aria-hidden={true} paddingLeft={2}>
           {endIcon}
         </IconWrapper>
       )}
 
-      {href && (
+      {href && !endIcon && (
         <IconWrapper as="span" aria-hidden={true} paddingLeft={2}>
           <ExternalLink />
         </IconWrapper>
@@ -76,24 +64,18 @@ export const Link = ({ href, to, children, disabled, startIcon, endIcon, ...prop
 Link.displayName = 'Link';
 
 Link.defaultProps = {
+  as: undefined,
   href: undefined,
-  to: undefined,
   disabled: false,
+  startIcon: undefined,
+  endIcon: undefined,
 };
 
 Link.propTypes = {
+  as: PropTypes.elementType,
   children: PropTypes.node.isRequired,
   disabled: PropTypes.bool,
   endIcon: PropTypes.element,
-  href: (props) => {
-    if (!props.disabled && !props.to && !props.href) {
-      return new Error('href must be defined');
-    }
-  },
+  href: PropTypes.string,
   startIcon: PropTypes.element,
-  to: (props) => {
-    if (!props.disabled && !props.href && !props.to) {
-      return new Error('to must be defined');
-    }
-  },
 };

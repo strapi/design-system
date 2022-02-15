@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { NavLink as RouterLink } from 'react-router-dom';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { Typography } from '../Typography';
 import { useMainNav } from './MainNavContext';
 import { Tooltip } from '../Tooltip';
 import { Badge } from '../Badge';
+import { BaseLink } from '../BaseLink';
 
 const IconBox = styled(Box)`
   svg {
@@ -16,8 +16,7 @@ const IconBox = styled(Box)`
   }
 `;
 
-// TODO: make sure to use the Link component associated with the router we want to use
-const MainNavLinkWrapper = styled(RouterLink)`
+const MainNavLinkWrapper = styled(BaseLink)`
   position: relative;
   text-decoration: none;
   display: block;
@@ -93,43 +92,39 @@ export const NavLink = ({ children, icon, badgeContent, badgeAriaLabel, ...props
 
   if (condensed) {
     return (
-      <li>
+      <MainNavLinkWrapper {...props}>
         <Tooltip position="right" label={children}>
-          <MainNavLinkWrapper {...props}>
-            <MainNavRow as="span">
-              <IconBox aria-hidden paddingRight={0} as="span">
-                {icon}
-              </IconBox>
-              {badgeContent && (
-                <CustomBadge condensed aria-label={badgeAriaLabel}>
-                  {badgeContent}
-                </CustomBadge>
-              )}
-            </MainNavRow>
-          </MainNavLinkWrapper>
+          <MainNavRow as="span" justifyContent="center">
+            <IconBox aria-hidden paddingRight={0} as="span">
+              {icon}
+            </IconBox>
+            {badgeContent && (
+              <CustomBadge condensed aria-label={badgeAriaLabel}>
+                {badgeContent}
+              </CustomBadge>
+            )}
+          </MainNavRow>
         </Tooltip>
-      </li>
+      </MainNavLinkWrapper>
     );
   }
 
   return (
-    <li>
-      <MainNavLinkWrapper {...props}>
-        <MainNavRow as="span" justifyContent="space-between">
-          <Flex>
-            <IconBox aria-hidden paddingRight={3} as="span">
-              {icon}
-            </IconBox>
-            <Typography>{children}</Typography>
-          </Flex>
-          {badgeContent && (
-            <CustomBadge justifyContent="center" aria-label={badgeAriaLabel}>
-              {badgeContent}
-            </CustomBadge>
-          )}
-        </MainNavRow>
-      </MainNavLinkWrapper>
-    </li>
+    <MainNavLinkWrapper {...props}>
+      <MainNavRow as="span" justifyContent="space-between">
+        <Flex>
+          <IconBox aria-hidden paddingRight={3} as="span">
+            {icon}
+          </IconBox>
+          <Typography>{children}</Typography>
+        </Flex>
+        {badgeContent && (
+          <CustomBadge justifyContent="center" aria-label={badgeAriaLabel}>
+            {badgeContent}
+          </CustomBadge>
+        )}
+      </MainNavRow>
+    </MainNavLinkWrapper>
   );
 };
 

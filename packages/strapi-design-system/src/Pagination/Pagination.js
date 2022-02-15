@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Children } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Flex } from '../Flex';
@@ -15,7 +15,11 @@ export const Pagination = ({ children, label, activePage, pageCount }) => {
   return (
     <PaginationContext.Provider value={{ activePage, pageCount }}>
       <PaginationWrapper aria-label={label}>
-        <PaginationList as="ul">{children}</PaginationList>
+        <PaginationList as="ul">
+          {Children.map(children, (child, index) => {
+            return <li key={index}>{child}</li>;
+          })}
+        </PaginationList>
       </PaginationWrapper>
     </PaginationContext.Provider>
   );

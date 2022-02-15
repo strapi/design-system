@@ -1,7 +1,7 @@
 <!--- MainNav.stories.mdx --->
 
 import { useState } from 'react';
-import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { ArgsTable } from '@storybook/addon-docs';
 import Write from '@strapi/icons/Write';
 import Layer from '@strapi/icons/Layer';
@@ -167,6 +167,33 @@ Exception made for core plugins (i.e. Content Manager, Content-types Builder, Me
     }}
   </Story>
 </Canvas>
+
+### Usage with other routing libraries
+
+To use the Strapi design system NavLink/NavBrand component with a routing library (e.g. react-router-dom), you'll need to pass the react-router-dom `NavLink` component to the `as` prop in order to replace the default HTML anchor `<a />`.
+You'll now be able to pass all the react-router-dom `NavLink` props.
+
+```jsx
+import { NavLink } from '@strapi/design-system/NavLink';
+import { NavLink as RouterNavLink } from 'react-router-dom';
+
+<NavLink as={RouterNavLink} to="/home">
+  Home
+</NavLink>;
+```
+
+#### NextJS usage
+
+For NextJS, you'll need to wrap the `NavLink` with the `NextLink` component
+
+```jsx
+import { NavLink } from '@strapi/design-system/NavLink';
+import NextLink from 'next/link';
+
+<NextLink href="/home" passHref>
+  <NavLink>Home</NavLink>
+</NextLink>;
+```
 
 ## Props
 
