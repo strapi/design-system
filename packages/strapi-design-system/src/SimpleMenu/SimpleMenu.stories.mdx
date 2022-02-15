@@ -112,6 +112,39 @@ A menu can allow the user to make actions. It can redirect the user to another p
   </Story>
 </Canvas>
 
+### With Custom Label
+
+<Canvas>
+  <Story
+    name="with-custom-label"
+    parameters={{
+      docs: {
+        source: {
+          code: `
+const Label = <><span>2</span> special items</>;
+return (
+  <SimpleMenu label={Label}>
+    <MenuItem>Home</MenuItem>
+    <MenuItem>Somewhere internal</MenuItem>
+  </SimpleMenu>
+);
+  `,
+        },
+      },
+    }}
+    >
+    {() => {
+      const Label = <><span>2</span> special items</>;
+      return (
+        <SimpleMenu label={Label}>
+          <MenuItem>Home</MenuItem>
+          <MenuItem>Somewhere internal</MenuItem>
+        </SimpleMenu>
+      );
+    }}
+  </Story>
+</Canvas>
+
 ## Accessibility
 
 - When the menu button has focus, `Space` or `Enter` opens or closes the menu.

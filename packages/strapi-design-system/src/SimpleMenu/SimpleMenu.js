@@ -193,5 +193,5 @@ SimpleMenu.propTypes = {
   as: PropTypes.any,
   children: PropTypes.oneOfType([PropTypes.arrayOf(menuItemType), menuItemType]).isRequired,
   id: PropTypes.string,
-  label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.element]).isRequired,
 };
