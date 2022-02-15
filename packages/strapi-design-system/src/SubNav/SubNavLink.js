@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Dot from '@strapi/icons/Dot';
-import { NavLink } from 'react-router-dom';
 import { Box } from '../Box';
 import { Typography } from '../Typography';
 import { Flex } from '../Flex';
@@ -53,29 +52,19 @@ const IconWrapper = styled.div`
 
 export const SubNavLink = ({ children, icon, withBullet, ...props }) => {
   return (
-    <li>
-      <SubNavLinkWrapper
-        as={NavLink}
-        icon={icon}
-        background="neutral100"
-        paddingLeft={7}
-        paddingBottom={2}
-        paddingTop={2}
-        {...props}
-      >
-        <Flex>
-          {icon ? <IconWrapper>{icon}</IconWrapper> : <CustomBullet />}
-          <Box paddingLeft={2}>
-            <Typography as="span">{children}</Typography>
-          </Box>
-        </Flex>
-        {withBullet && (
-          <Box as={Flex} paddingRight={4}>
-            <CustomBullet $active={true} />
-          </Box>
-        )}
-      </SubNavLinkWrapper>
-    </li>
+    <SubNavLinkWrapper icon={icon} background="neutral100" paddingLeft={7} paddingBottom={2} paddingTop={2} {...props}>
+      <Flex>
+        {icon ? <IconWrapper>{icon}</IconWrapper> : <CustomBullet />}
+        <Box paddingLeft={2}>
+          <Typography as="span">{children}</Typography>
+        </Box>
+      </Flex>
+      {withBullet && (
+        <Box as={Flex} paddingRight={4}>
+          <CustomBullet $active={true} />
+        </Box>
+      )}
+    </SubNavLinkWrapper>
   );
 };
 

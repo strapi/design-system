@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
 import { Box } from '../Box';
 import { Typography } from '../Typography';
 import { Flex } from '../Flex';
 import { useMainNav } from './MainNavContext';
 import { VisuallyHidden } from '../VisuallyHidden';
+import { BaseLink } from '../BaseLink';
 
 const BrandIconWrapper = styled.div`
   border-radius: ${({ theme }) => theme.borderRadius};
@@ -18,50 +18,50 @@ const BrandIconWrapper = styled.div`
   }
 `;
 
-const NavLinkWrapper = styled(NavLink)`
+const NavLinkWrapper = styled(BaseLink)`
   text-decoration: unset;
   color: inherit;
 `;
 
-export const NavBrand = ({ workplace, title, icon, to }) => {
+export const NavBrand = ({ workplace, title, icon, ...props }) => {
   const condensed = useMainNav();
 
   if (condensed) {
     return (
-      <Box paddingLeft={3} paddingRight={3} paddingTop={4} paddingBottom={4}>
-        <BrandIconWrapper condensed={true}>
-          <NavLink to={to}>
+      <BaseLink {...props}>
+        <Box paddingLeft={3} paddingRight={3} paddingTop={4} paddingBottom={4}>
+          <BrandIconWrapper condensed={true}>
             {icon}
             <VisuallyHidden>
               <span>{title}</span>
               <span>{workplace}</span>
             </VisuallyHidden>
-          </NavLink>
-        </BrandIconWrapper>
-      </Box>
+          </BrandIconWrapper>
+        </Box>
+      </BaseLink>
     );
   }
 
   return (
-    <Box paddingLeft={3} paddingRight={3} paddingTop={4} paddingBottom={4}>
-      <Flex>
-        <BrandIconWrapper as={NavLink} to={to} aria-hidden tabIndex={-1}>
-          {icon}
-        </BrandIconWrapper>
+    <NavLinkWrapper {...props}>
+      <Box paddingLeft={3} paddingRight={3} paddingTop={4} paddingBottom={4}>
+        <Flex>
+          <BrandIconWrapper aria-hidden tabIndex={-1}>
+            {icon}
+          </BrandIconWrapper>
 
-        <Box paddingLeft={2}>
-          <Typography fontWeight="bold" textColor="neutral800" as="span">
-            <NavLinkWrapper to={to}>
+          <Box paddingLeft={2}>
+            <Typography fontWeight="bold" textColor="neutral800" as="span">
               {title}
               <VisuallyHidden as="span">{workplace}</VisuallyHidden>
-            </NavLinkWrapper>
-          </Typography>
-          <Typography variant="pi" as="p" textColor="neutral600" aria-hidden>
-            {workplace}
-          </Typography>
-        </Box>
-      </Flex>
-    </Box>
+            </Typography>
+            <Typography variant="pi" as="p" textColor="neutral600" aria-hidden>
+              {workplace}
+            </Typography>
+          </Box>
+        </Flex>
+      </Box>
+    </NavLinkWrapper>
   );
 };
 
