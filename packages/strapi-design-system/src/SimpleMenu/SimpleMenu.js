@@ -97,12 +97,24 @@ export const SimpleMenu = ({ label, children, id, as: asComp, ...props }) => {
   const Component = asComp || Button;
 
   useEffect(() => {
-    // Useful to focus the selected item in the list
-    const defaultItemIndexToFocus = childrenArray.findIndex((c) => c.props.children === label);
-    if (defaultItemIndexToFocus !== -1) {
-      setFocusItem(defaultItemIndexToFocus);
+    if (['string', 'number'].includes(typeof label)) {
+      // Useful to focus the selected item in the list
+      const defaultItemIndexToFocus = childrenArray.findIndex((c) => c.props.children === label);
+
+      if (defaultItemIndexToFocus !== -1) {
+        setFocusItem(defaultItemIndexToFocus);
+      }
     }
   }, [label]);
+
+  /* in case `label` is a custom react component, we know it is going to be
+      a child of the menu button.
+  */
+  useEffect(() => {
+    if (React.isValidElement(label) && focusedItemIndex == -1) {
+      menuButtonRef.current.focus();
+    }
+  }, [label, focusedItemIndex]);
 
   const handleWrapperKeyDown = (e) => {
     if (visible) {
