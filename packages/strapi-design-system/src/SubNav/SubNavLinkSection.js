@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Children, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import CarretDown from '@strapi/icons/CarretDown';
@@ -39,7 +39,7 @@ export const SubNavLinkSection = ({ label, children, id }) => {
   };
 
   return (
-    <li>
+    <Box>
       <SubNavLinkSectionWrapper paddingLeft={7} paddingTop={2} paddingBottom={2} paddingRight={4}>
         <Flex justifyContent="space-between">
           <SubNavLinkSectionButton onClick={handleClick} aria-expanded={isOpen} aria-controls={listId}>
@@ -54,8 +54,14 @@ export const SubNavLinkSection = ({ label, children, id }) => {
           </SubNavLinkSectionButton>
         </Flex>
       </SubNavLinkSectionWrapper>
-      {isOpen && <ul id={listId}>{children}</ul>}
-    </li>
+      {isOpen && (
+        <ul id={listId}>
+          {Children.map(children, (child, index) => {
+            return <li key={index}>{child}</li>;
+          })}
+        </ul>
+      )}
+    </Box>
   );
 };
 

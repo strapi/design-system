@@ -1,5 +1,4 @@
 import React from 'react';
-import { MemoryRouter } from 'react-router-dom';
 import { ThemeProvider } from '../src/ThemeProvider';
 import { VisuallyHidden } from '../src/VisuallyHidden';
 import { lightTheme } from '../src/themes/light-theme';
@@ -15,7 +14,6 @@ export const parameters = {
 
 export const decorators = [
   (Story) => (
-    <MemoryRouter>
       <ThemeProvider theme={lightTheme}>
         <main>
           <VisuallyHidden>
@@ -26,6 +24,5 @@ export const decorators = [
           <Story />
         </main>
       </ThemeProvider>
-    </MemoryRouter>
   ),
 ];

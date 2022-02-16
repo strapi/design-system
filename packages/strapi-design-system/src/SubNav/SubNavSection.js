@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Children, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Box } from '../Box';
@@ -30,7 +30,7 @@ export const SubNavSection = ({ collapsable, label, badgeLabel, children, id }) 
   };
 
   return (
-    <li>
+    <Box>
       <SubNavSectionWrapper paddingLeft={6} paddingTop={2} paddingBottom={2} paddingRight={4}>
         <Flex justifyContent="space-between">
           <SubNavSectionLabel
@@ -47,8 +47,14 @@ export const SubNavSection = ({ collapsable, label, badgeLabel, children, id }) 
           )}
         </Flex>
       </SubNavSectionWrapper>
-      {(!collapsable || isOpen) && <ul id={listId}>{children}</ul>}
-    </li>
+      {(!collapsable || isOpen) && (
+        <ul id={listId}>
+          {Children.map(children, (child, index) => {
+            return <li key={index}>{child}</li>;
+          })}
+        </ul>
+      )}
+    </Box>
   );
 };
 

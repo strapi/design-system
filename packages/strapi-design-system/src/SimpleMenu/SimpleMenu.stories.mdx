@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { ArgsTable } from '@storybook/addon-docs';
-import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import CarretDown from '@strapi/icons/CarretDown';
 import { SimpleMenu, MenuItem } from './SimpleMenu';
 import { IconButton } from '../IconButton';
@@ -134,9 +134,13 @@ return (
         },
       },
     }}
-    >
+  >
     {() => {
-      const Label = <><span>2</span> special items</>;
+      const Label = (
+        <>
+          <span>2</span> special items
+        </>
+      );
       return (
         <SimpleMenu label={Label}>
           <MenuItem>Home</MenuItem>
@@ -146,6 +150,37 @@ return (
     }}
   </Story>
 </Canvas>
+
+### with other routing libraries
+
+To use the SimpleMenu/MenuItem components with a routing library (e.g. react-router-dom), you'll need to pass the `NavLink` component to the `as` prop in order to replace the default HTML anchor `<a />`.
+You'll also need to pass the `isLink` props to the `MenuItem` component.
+
+```jsx
+import { SimpleMenu, MenuItem } from '@strapi/design-system/SimpleMenu';
+import { NavLink as RouterNavLink } from 'react-router-dom';
+
+<SimpleMenu label={Label}>
+  <MenuItem as={RouterNavLink} to="/">
+    Home
+  </MenuItem>
+</SimpleMenu>;
+```
+
+#### with NextJS
+
+For NextJS, you'll need to wrap the `NavLink` with the `NextLink` component
+
+```jsx
+import { SimpleMenu, MenuItem } from '@strapi/design-system/SimpleMenu';
+import NextLink from 'next/link';
+
+<SimpleMenu label={Label}>
+  <NextLink href="/home" passHref>
+    <MenuItem>Home</MenuItem>
+  </NextLink>
+</SimpleMenu>;
+```
 
 ## Accessibility
 
