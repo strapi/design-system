@@ -28642,6 +28642,7 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
                 aria-disabled="false"
                 aria-label="Clear the meal"
                 class="c11"
+                type="button"
               >
                 <svg
                   fill="none"
@@ -40014,6 +40015,7 @@ exports[`Storyshots Design System/Components/TimePicker initial-data 1`] = `
                 aria-disabled="false"
                 aria-label="Clear the selected time picker value"
                 class="c14"
+                type="button"
               >
                 <svg
                   fill="none"
