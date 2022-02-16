@@ -202,7 +202,13 @@ export const Select = ({
 
             <Flex>
               {((multi && value && value.length) || (!multi && value)) && onClear && (
-                <IconBox as="button" onClick={handleClear} aria-label={clearLabel} aria-disabled={disabled}>
+                <IconBox
+                  as="button"
+                  type="button"
+                  onClick={handleClear}
+                  aria-label={clearLabel}
+                  aria-disabled={disabled}
+                >
                   <Cross />
                 </IconBox>
               )}
