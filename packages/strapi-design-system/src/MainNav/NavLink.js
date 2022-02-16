@@ -87,12 +87,12 @@ const CustomBadge = styled(Badge)`
   background: ${({ theme }) => theme.colors.primary600};
 `;
 
-export const NavLink = ({ children, icon, badgeContent, badgeAriaLabel, ...props }) => {
+export const NavLink = React.forwardRef(({ children, icon, badgeContent, badgeAriaLabel, ...props }, ref) => {
   const condensed = useMainNav();
 
   if (condensed) {
     return (
-      <MainNavLinkWrapper {...props}>
+      <MainNavLinkWrapper ref={ref} {...props}>
         <Tooltip position="right" label={children}>
           <MainNavRow as="span" justifyContent="center">
             <IconBox aria-hidden paddingRight={0} as="span">
@@ -110,7 +110,7 @@ export const NavLink = ({ children, icon, badgeContent, badgeAriaLabel, ...props
   }
 
   return (
-    <MainNavLinkWrapper {...props}>
+    <MainNavLinkWrapper ref={ref} {...props}>
       <MainNavRow as="span" justifyContent="space-between">
         <Flex>
           <IconBox aria-hidden paddingRight={3} as="span">
@@ -126,7 +126,9 @@ export const NavLink = ({ children, icon, badgeContent, badgeAriaLabel, ...props
       </MainNavRow>
     </MainNavLinkWrapper>
   );
-};
+});
+
+NavLink.displayName = 'NavLink';
 
 NavLink.defaultProps = {
   badgeContent: undefined,

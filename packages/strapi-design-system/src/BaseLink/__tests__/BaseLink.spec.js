@@ -19,6 +19,7 @@ describe('BaseLink', () => {
 
       <a
         class="c0"
+        target="_self"
       />
     `);
   });
