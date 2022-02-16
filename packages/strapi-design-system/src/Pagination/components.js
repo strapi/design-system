@@ -63,46 +63,52 @@ const DotsWrapper = styled(LinkWrapper)`
   color: ${({ theme }) => theme.colors.neutral800};
 `;
 
-export const PreviousLink = ({ children, ...props }) => {
+export const PreviousLink = React.forwardRef(({ children, ...props }, ref) => {
   const { activePage } = usePagination();
 
   const disabled = activePage === 1;
 
   return (
-    <ActionLinkWrapper aria-disabled={disabled} tabIndex={disabled ? -1 : undefined} {...props}>
+    <ActionLinkWrapper ref={ref} aria-disabled={disabled} tabIndex={disabled ? -1 : undefined} {...props}>
       <VisuallyHidden>{children}</VisuallyHidden>
       <ChevronLeft aria-hidden={true} />
     </ActionLinkWrapper>
   );
-};
+});
 
-export const NextLink = ({ children, ...props }) => {
+PreviousLink.displayName = 'PreviousLink';
+
+export const NextLink = React.forwardRef(({ children, ...props }, ref) => {
   const { activePage, pageCount } = usePagination();
 
   const disabled = activePage === pageCount;
 
   return (
-    <ActionLinkWrapper aria-disabled={disabled} tabIndex={disabled ? -1 : undefined} {...props}>
+    <ActionLinkWrapper ref={ref} aria-disabled={disabled} tabIndex={disabled ? -1 : undefined} {...props}>
       <VisuallyHidden>{children}</VisuallyHidden>
       <ChevronRight aria-hidden={true} />
     </ActionLinkWrapper>
   );
-};
+});
 
-export const PageLink = ({ number, children, ...props }) => {
+NextLink.displayName = 'NextLink';
+
+export const PageLink = React.forwardRef(({ number, children, ...props }, ref) => {
   const { activePage } = usePagination();
 
   const isActive = activePage === number;
 
   return (
-    <PageLinkWrapper {...props} active={isActive}>
+    <PageLinkWrapper ref={ref} {...props} active={isActive}>
       <VisuallyHidden>{children}</VisuallyHidden>
       <PaginationText aria-hidden={true} variant="pi" fontWeight={isActive ? 'bold' : null}>
         {number}
       </PaginationText>
     </PageLinkWrapper>
   );
-};
+});
+
+PageLink.displayName = 'PageLink';
 
 export const Dots = ({ children, ...props }) => (
   <DotsWrapper {...props} as="div">

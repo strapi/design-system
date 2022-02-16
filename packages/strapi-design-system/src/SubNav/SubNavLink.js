@@ -5,6 +5,7 @@ import Dot from '@strapi/icons/Dot';
 import { Box } from '../Box';
 import { Typography } from '../Typography';
 import { Flex } from '../Flex';
+import { BaseLink } from '../BaseLink';
 
 const SubNavLinkWrapper = styled(Box)`
   display: flex;
@@ -50,9 +51,18 @@ const IconWrapper = styled.div`
   }
 `;
 
-export const SubNavLink = ({ children, icon, withBullet, ...props }) => {
+export const SubNavLink = React.forwardRef(({ children, icon, withBullet, as, ...props }, ref) => {
   return (
-    <SubNavLinkWrapper icon={icon} background="neutral100" paddingLeft={7} paddingBottom={2} paddingTop={2} {...props}>
+    <SubNavLinkWrapper
+      as={as}
+      icon={icon}
+      background="neutral100"
+      paddingLeft={7}
+      paddingBottom={2}
+      paddingTop={2}
+      ref={ref}
+      {...props}
+    >
       <Flex>
         {icon ? <IconWrapper>{icon}</IconWrapper> : <CustomBullet />}
         <Box paddingLeft={2}>
@@ -66,13 +76,16 @@ export const SubNavLink = ({ children, icon, withBullet, ...props }) => {
       )}
     </SubNavLinkWrapper>
   );
-};
+});
 
+SubNavLink.displayName = 'SubNavLink';
 SubNavLink.defaultProps = {
+  as: BaseLink,
   icon: null,
   withBullet: false,
 };
 SubNavLink.propTypes = {
+  as: PropTypes.elementType,
   children: PropTypes.node,
   icon: PropTypes.element,
   link: PropTypes.element,

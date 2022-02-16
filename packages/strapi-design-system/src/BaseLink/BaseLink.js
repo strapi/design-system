@@ -6,30 +6,33 @@ const A = styled.a`
   cursor: pointer;
 `;
 
-export const BaseLink = ({ href, rel, target, disabled, ...props }) => {
+export const BaseLink = React.forwardRef(({ href, rel, target, disabled, isExternal, ...props }, ref) => {
   return (
     <A
-      target={href ? target : undefined}
-      rel={href ? rel : undefined}
+      ref={ref}
+      target={isExternal ? '_blank' : target}
+      rel={isExternal ? rel : undefined}
       href={disabled ? '#' : href}
       disabled={disabled}
       {...props}
     />
   );
-};
+});
 
 BaseLink.displayName = 'BaseLink';
 
 BaseLink.defaultProps = {
   disabled: false,
   href: undefined,
+  isExternal: false,
   rel: 'noreferrer noopener',
-  target: '_blank',
+  target: '_self',
 };
 
 BaseLink.propTypes = {
   disabled: PropTypes.bool,
   href: PropTypes.string,
+  isExternal: PropTypes.bool,
   rel: PropTypes.string,
   target: PropTypes.string,
 };

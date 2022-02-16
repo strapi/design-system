@@ -23,12 +23,12 @@ const NavLinkWrapper = styled(BaseLink)`
   color: inherit;
 `;
 
-export const NavBrand = ({ workplace, title, icon, ...props }) => {
+export const NavBrand = React.forwardRef(({ workplace, title, icon, ...props }, ref) => {
   const condensed = useMainNav();
 
   if (condensed) {
     return (
-      <BaseLink {...props}>
+      <BaseLink ref={ref} {...props}>
         <Box paddingLeft={3} paddingRight={3} paddingTop={4} paddingBottom={4}>
           <BrandIconWrapper condensed={true}>
             {icon}
@@ -43,7 +43,7 @@ export const NavBrand = ({ workplace, title, icon, ...props }) => {
   }
 
   return (
-    <NavLinkWrapper {...props}>
+    <NavLinkWrapper ref={ref} {...props}>
       <Box paddingLeft={3} paddingRight={3} paddingTop={4} paddingBottom={4}>
         <Flex>
           <BrandIconWrapper aria-hidden tabIndex={-1}>
@@ -63,7 +63,9 @@ export const NavBrand = ({ workplace, title, icon, ...props }) => {
       </Box>
     </NavLinkWrapper>
   );
-};
+});
+
+NavBrand.displayName = 'NavBrand';
 
 NavBrand.defaultProps = {
   to: '/',

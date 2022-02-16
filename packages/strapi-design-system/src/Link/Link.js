@@ -33,9 +33,9 @@ const IconWrapper = styled(Box)`
   display: flex;
 `;
 
-export const Link = ({ children, href, disabled, startIcon, endIcon, ...props }) => {
+export const Link = React.forwardRef(({ children, href, disabled, startIcon, endIcon, ...props }, ref) => {
   return (
-    <LinkWrapper href={href} disabled={disabled} {...props}>
+    <LinkWrapper ref={ref} href={href} disabled={disabled} {...props}>
       {startIcon && (
         <IconWrapper as="span" aria-hidden={true} paddingRight={2}>
           {startIcon}
@@ -59,7 +59,7 @@ export const Link = ({ children, href, disabled, startIcon, endIcon, ...props })
       )}
     </LinkWrapper>
   );
-};
+});
 
 Link.displayName = 'Link';
 

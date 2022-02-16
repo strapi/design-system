@@ -41,7 +41,9 @@ The simplest representation of the Link component.
 <Canvas>
   <Story name="base">
     <Stack size={5}>
-      <Link href="https://strapi.io/">External link</Link>
+      <Link isExternal href="https://strapi.io/">
+        External link
+      </Link>
     </Stack>
   </Story>
 </Canvas>
@@ -53,7 +55,7 @@ Depending on the permissions a user have or the status of an action, a link can 
 <Canvas>
   <Story name="disabled">
     <Stack size={5}>
-      <Link href="https://strapi.io/" disabled>
+      <Link isExternal href="https://strapi.io/" disabled>
         Disabled link
       </Link>
     </Stack>
@@ -68,12 +70,12 @@ Display icons on the left or right side.
   <Story name="icons">
     <Stack size={5}>
       <div>
-        <Link href="https://strapi.io/" startIcon={<Strapi />}>
+        <Link isExternal href="https://strapi.io/" startIcon={<Strapi />}>
           Strapi
         </Link>
       </div>
       <div>
-        <Link href="https://strapi.io/" endIcon={<Strapi />}>
+        <Link isExternal href="https://strapi.io/" endIcon={<Strapi />}>
           Strapi
         </Link>
       </div>
