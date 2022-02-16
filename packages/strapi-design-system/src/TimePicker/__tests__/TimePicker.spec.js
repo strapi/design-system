@@ -359,6 +359,7 @@ describe('TimePicker', () => {
                     aria-disabled="false"
                     aria-label="Clear the selected time picker value"
                     class="c11"
+                    type="button"
                   >
                     <svg
                       fill="none"
