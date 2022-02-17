@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { ArgsTable } from '@storybook/addon-docs';
+import Earth from '@strapi/icons/Earth';
 import Password from '@strapi/icons/Password';
 import Information from '@strapi/icons/Information';
 import { FieldLabel } from './FieldLabel';
@@ -70,6 +71,23 @@ An example of the Field components with an error.
     <Field name="password" error={'Password is too short'}>
       <Stack size={1}>
         <FieldLabel>Password</FieldLabel>
+        <FieldInput type="password" placeholder="Placeholder" value={''} onChange={() => {}} />
+        <FieldHint />
+        <FieldError />
+      </Stack>
+    </Field>
+  </Story>
+</Canvas>
+
+## With label action
+
+An example of the Field components with a label action.
+
+<Canvas>
+  <Story name="with label-action">
+    <Field name="password">
+      <Stack size={1}>
+        <FieldLabel required action={<Earth />}>Password</FieldLabel>
         <FieldInput type="password" placeholder="Placeholder" value={''} onChange={() => {}} />
         <FieldHint />
         <FieldError />
