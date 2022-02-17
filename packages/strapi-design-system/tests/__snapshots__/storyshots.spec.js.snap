@@ -3837,6 +3837,7 @@ exports[`Storyshots Design System/Components/Card base 1`] = `
   padding: 0;
   max-height: 100%;
   max-width: 100%;
+  object-fit: contain;
 }
 
 .c13 {
@@ -5178,6 +5179,7 @@ exports[`Storyshots Design System/Components/Card without asset action 1`] = `
   padding: 0;
   max-height: 100%;
   max-width: 100%;
+  object-fit: contain;
 }
 
 .c9 {
@@ -5517,6 +5519,7 @@ exports[`Storyshots Design System/Components/Card without asset action nor timer
   padding: 0;
   max-height: 100%;
   max-width: 100%;
+  object-fit: contain;
 }
 
 .c9 {
