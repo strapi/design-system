@@ -4,7 +4,6 @@ import { Field, FieldLabel, FieldHint, FieldError } from '../Field';
 import { TextareaInput } from './TextareaInput';
 import { Stack } from '../Stack';
 import { Flex } from '../Flex';
-import { Box } from '../Box';
 import styled from 'styled-components';
 import { useId } from '../helpers/useId';
 
@@ -34,8 +33,9 @@ export const Textarea = React.forwardRef(
           <Stack size={1}>
             {label && (
               <Flex>
-                <FieldLabel required={required}>{label}</FieldLabel>
-                {labelAction && <Box paddingLeft={1}>{labelAction}</Box>}
+                <FieldLabel required={required} action={labelAction}>
+                  {label}
+                </FieldLabel>
               </Flex>
             )}
             <TextareaInput ref={ref} as="textarea" value={children} {...props} />

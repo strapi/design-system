@@ -2,17 +2,8 @@ import React, { useImperativeHandle, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Field, FieldLabel, FieldHint, FieldError, FieldInput } from '../Field';
 import { Stack } from '../Stack';
-import { Flex } from '../Flex';
-import { Box } from '../Box';
 import { sizes } from '../themes/sizes';
-import styled from 'styled-components';
 import { useId } from '../helpers/useId';
-
-const LabelAction = styled(Box)`
-  svg path {
-    fill: ${({ theme }) => theme.colors.neutral500};
-  }
-`;
 
 export const TextInput = React.forwardRef(
   ({ size, startAction, endAction, name, hint, error, label, labelAction, id, required, ...props }, ref) => {
@@ -32,10 +23,9 @@ export const TextInput = React.forwardRef(
         <Field name={name} hint={hint} error={error} id={generatedId}>
           <Stack size={1}>
             {label && (
-              <Flex>
-                <FieldLabel required={required}>{label}</FieldLabel>
-                {labelAction && <LabelAction paddingLeft={1}>{labelAction}</LabelAction>}
-              </Flex>
+              <FieldLabel required={required} action={labelAction}>
+                {label}
+              </FieldLabel>
             )}
             <FieldInput size={size} ref={ref} startAction={startAction} endAction={endAction} {...props} />
             <FieldHint />

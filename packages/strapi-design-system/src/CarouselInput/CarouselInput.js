@@ -11,6 +11,7 @@ export const CarouselInput = ({
   error,
   hint,
   label,
+  labelAction,
   nextLabel,
   onNext,
   onPrevious,
@@ -26,7 +27,11 @@ export const CarouselInput = ({
   return (
     <Field hint={hint} error={error} id={generatedId}>
       <Stack size={1}>
-        <FieldLabel required={required}>{label}</FieldLabel>
+        {label && (
+          <FieldLabel required={required} action={labelAction}>
+            {label}
+          </FieldLabel>
+        )}
         <Carousel
           actions={actions}
           label={label}
@@ -64,6 +69,7 @@ CarouselInput.propTypes = {
   hint: PropTypes.string,
   id: PropTypes.string,
   label: PropTypes.string.isRequired,
+  labelAction: PropTypes.element,
   nextLabel: PropTypes.string.isRequired,
   onNext: PropTypes.func.isRequired,
   onPrevious: PropTypes.func.isRequired,

@@ -26,6 +26,7 @@ const MainRow = styled(Flex)`
 
 export const Select = ({
   label,
+  labelAction,
   id,
   children,
   customizeContent,
@@ -149,7 +150,7 @@ export const Select = ({
     <Field hint={hint} error={error} id={generatedId}>
       <Stack size={label || hint || error ? 1 : 0}>
         {label && (
-          <FieldLabel required={required} as="span" id={labelId}>
+          <FieldLabel required={required} as="span" id={labelId} action={labelAction}>
             {label}
           </FieldLabel>
         )}
@@ -264,6 +265,7 @@ Select.defaultProps = {
   disabled: false,
   id: undefined,
   label: undefined,
+  labelAction: undefined,
   multi: false,
   onChange: () => {},
   onClear: undefined,
@@ -288,6 +290,7 @@ Select.propTypes = {
   hint: PropTypes.string,
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   label: PropTypes.string,
+  labelAction: PropTypes.element,
   multi: PropTypes.bool,
   onChange: PropTypes.func,
   onClear: PropTypes.func,
