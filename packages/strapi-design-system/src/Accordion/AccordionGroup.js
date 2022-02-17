@@ -96,11 +96,11 @@ AccordionGroup.defaultProps = {
 AccordionGroup.propTypes = {
   children: PropTypes.node.isRequired,
   /**
-   * If defined, will show the error message at the bottom of the AccordionGroup and will hide children Accordion error messages (in order to display only one error).
+   * If defined, the component will show the error message at the bottom of the `AccordionGroup` and will hide all Accordion error messages children (in order to display only one error).
    */
   error: PropTypes.string,
   /**
-   * Render a node under the last child. Mainly used for an "Add new accordion" button
+   * Render a node a last child. Mainly used for an "Add new accordion" button
    */
   footer: PropTypes.node,
   /**

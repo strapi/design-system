@@ -110,7 +110,7 @@ Alert.defaultProps = {
 
 Alert.propTypes = {
   /**
-   * Render a React element under the `Alert` body (Mainly used to render a Link).
+   * Render a React element below the body of an `Alert` (Mainly used to render a Link).
    */
   action: PropTypes.element,
   /**
@@ -130,7 +130,7 @@ Alert.propTypes = {
    */
   title: PropTypes.string.isRequired,
   /**
-   * An `as` prop to change the element render, like styled-components.
+   * Changes the element, as which a component will render (similar to styled-components).
    */
   titleAs: PropTypes.string,
   /**
