@@ -110,17 +110,17 @@ Accordion.propTypes = {
    */
   disabled: PropTypes.bool,
   /**
-   * If defined, will add a border (borderColor: `danger600`) and display the error message under the component.
+   * If defined, will add a border (borderColor: `danger600`) and display the error message below the component.
    */
   error: PropTypes.string,
   /**
-   * If `true`, an expanded accordion will be rendered.
+   * If `true`, an expanded Accordion will be rendered.
    */
   expanded: PropTypes.bool,
   /**
    * If `false`, the error message won't show.
-   * If the `Accordion` is used under an `AccordionGroup`, this prop will be set to `false` automatically.
-   * The error message of the `AccordionGroup` will be shown under the group instead.
+   * If the `Accordion` is as child of an `AccordionGroup`, this prop will be set to `false` automatically.
+   * The error message of the `AccordionGroup` will be shown below the group instead of the Accordion itself.
    */
   hasErrorMessage: PropTypes.bool,
   /**
@@ -128,7 +128,7 @@ Accordion.propTypes = {
    */
   id: PropTypes.string,
   /**
-   * The callback invoked when click on the `Accordion` row.
+   * The callback invoked after a click event on the `AccordionToggle`.
    */
   onToggle: PropTypes.func,
   /**

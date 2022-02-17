@@ -26,7 +26,7 @@ BoxProps.defaultProps = {
 
 BoxProps.propTypes = {
   /**
-   * Javascript hover handler
+   * JavaScript hover handler
    */
   _hover: PropTypes.func,
   /**
