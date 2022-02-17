@@ -41,11 +41,13 @@ const ValueBox = styled(Flex).attrs({
  * visually hiding the input without SR-only helps Android SR to provide information with touch and haptic
  */
 const Input = styled.input`
+  height: 100%;
   left: 0;
   opacity: 0;
   position: absolute;
   top: 0;
   z-index: 1;
+  width: 100%;
 `;
 
 export const ToggleCheckbox = React.forwardRef(
@@ -103,7 +105,7 @@ export const ToggleCheckbox = React.forwardRef(
           <Input
             type="checkbox"
             aria-disabled={disabled}
-            onChange={handleChange}
+            onChange={(e) => handleChange(e)}
             ref={ref}
             {...props}
             checked={checked}
@@ -120,6 +122,7 @@ ToggleCheckbox.defaultProps = {
   disabled: false,
   checked: false,
   onChange: undefined,
+  onClear: undefined,
   size: 'M',
 };
 
@@ -129,6 +132,7 @@ ToggleCheckbox.propTypes = {
   disabled: PropTypes.bool,
   offLabel: PropTypes.string.isRequired,
   onChange: PropTypes.func,
+  onClear: PropTypes.func,
   onLabel: PropTypes.string.isRequired,
   size: PropTypes.oneOf(Object.keys(sizes.input)),
 };
