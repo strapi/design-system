@@ -11559,6 +11559,7 @@ exports[`Storyshots Design System/Components/DatePicker base 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c8::-webkit-input-placeholder {
@@ -11582,7 +11583,6 @@ exports[`Storyshots Design System/Components/DatePicker base 1`] = `
 }
 
 .c8[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -11788,6 +11788,7 @@ exports[`Storyshots Design System/Components/DatePicker disabled 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c8::-webkit-input-placeholder {
@@ -11811,7 +11812,6 @@ exports[`Storyshots Design System/Components/DatePicker disabled 1`] = `
 }
 
 .c8[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -12020,6 +12020,7 @@ exports[`Storyshots Design System/Components/DatePicker size S 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c8::-webkit-input-placeholder {
@@ -12043,7 +12044,6 @@ exports[`Storyshots Design System/Components/DatePicker size S 1`] = `
 }
 
 .c8[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -13273,6 +13273,7 @@ exports[`Storyshots Design System/Components/Field base 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c5::-webkit-input-placeholder {
@@ -13296,7 +13297,6 @@ exports[`Storyshots Design System/Components/Field base 1`] = `
 }
 
 .c5[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -13434,6 +13434,7 @@ exports[`Storyshots Design System/Components/Field disabled 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c5::-webkit-input-placeholder {
@@ -13457,7 +13458,6 @@ exports[`Storyshots Design System/Components/Field disabled 1`] = `
 }
 
 .c5[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -13635,6 +13635,7 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c10::-webkit-input-placeholder {
@@ -13658,7 +13659,6 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
 }
 
 .c10[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -13943,6 +13943,7 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c10::-webkit-input-placeholder {
@@ -13966,7 +13967,6 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
 }
 
 .c10[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -14229,6 +14229,7 @@ exports[`Storyshots Design System/Components/Field with description 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c7::-webkit-input-placeholder {
@@ -14252,7 +14253,6 @@ exports[`Storyshots Design System/Components/Field with description 1`] = `
 }
 
 .c7[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -14402,6 +14402,7 @@ exports[`Storyshots Design System/Components/Field with error 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c5::-webkit-input-placeholder {
@@ -14425,7 +14426,6 @@ exports[`Storyshots Design System/Components/Field with error 1`] = `
 }
 
 .c5[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -26864,6 +26864,7 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c8::-webkit-input-placeholder {
@@ -26887,7 +26888,6 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
 }
 
 .c8[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -27198,6 +27198,7 @@ exports[`Storyshots Design System/Components/NumberInput disabled 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c7::-webkit-input-placeholder {
@@ -27221,7 +27222,6 @@ exports[`Storyshots Design System/Components/NumberInput disabled 1`] = `
 }
 
 .c7[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -27514,6 +27514,7 @@ exports[`Storyshots Design System/Components/NumberInput required 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c9::-webkit-input-placeholder {
@@ -27537,7 +27538,6 @@ exports[`Storyshots Design System/Components/NumberInput required 1`] = `
 }
 
 .c9[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -27828,6 +27828,7 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c8::-webkit-input-placeholder {
@@ -27851,7 +27852,6 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
 }
 
 .c8[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -28170,6 +28170,7 @@ exports[`Storyshots Design System/Components/NumberInput with initial 0 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c8::-webkit-input-placeholder {
@@ -28193,7 +28194,6 @@ exports[`Storyshots Design System/Components/NumberInput with initial 0 1`] = `
 }
 
 .c8[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -28487,6 +28487,7 @@ exports[`Storyshots Design System/Components/NumberInput withoutLabel 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c5::-webkit-input-placeholder {
@@ -28510,7 +28511,6 @@ exports[`Storyshots Design System/Components/NumberInput withoutLabel 1`] = `
 }
 
 .c5[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -29473,6 +29473,7 @@ exports[`Storyshots Design System/Components/Searchbar base 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c10::-webkit-input-placeholder {
@@ -29496,7 +29497,6 @@ exports[`Storyshots Design System/Components/Searchbar base 1`] = `
 }
 
 .c10[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -29690,6 +29690,7 @@ exports[`Storyshots Design System/Components/Searchbar disabled 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c10::-webkit-input-placeholder {
@@ -29713,7 +29714,6 @@ exports[`Storyshots Design System/Components/Searchbar disabled 1`] = `
 }
 
 .c10[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -29905,6 +29905,7 @@ exports[`Storyshots Design System/Components/Searchbar size S 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c10::-webkit-input-placeholder {
@@ -29928,7 +29929,6 @@ exports[`Storyshots Design System/Components/Searchbar size S 1`] = `
 }
 
 .c10[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -40086,6 +40086,7 @@ exports[`Storyshots Design System/Components/TextInput base 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c9::-webkit-input-placeholder {
@@ -40109,7 +40110,6 @@ exports[`Storyshots Design System/Components/TextInput base 1`] = `
 }
 
 .c9[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -40315,6 +40315,7 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c9::-webkit-input-placeholder {
@@ -40338,7 +40339,6 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
 }
 
 .c9[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -40546,6 +40546,7 @@ exports[`Storyshots Design System/Components/TextInput password 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c9::-webkit-input-placeholder {
@@ -40569,7 +40570,6 @@ exports[`Storyshots Design System/Components/TextInput password 1`] = `
 }
 
 .c9[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -40775,6 +40775,7 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c9::-webkit-input-placeholder {
@@ -40798,7 +40799,6 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
 }
 
 .c9[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -41003,6 +41003,7 @@ exports[`Storyshots Design System/Components/TextInput with error 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c9::-webkit-input-placeholder {
@@ -41026,7 +41027,6 @@ exports[`Storyshots Design System/Components/TextInput with error 1`] = `
 }
 
 .c9[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -41207,6 +41207,7 @@ exports[`Storyshots Design System/Components/TextInput withoutLabel 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c5::-webkit-input-placeholder {
@@ -41230,7 +41231,6 @@ exports[`Storyshots Design System/Components/TextInput withoutLabel 1`] = `
 }
 
 .c5[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -41398,6 +41398,7 @@ exports[`Storyshots Design System/Components/Textarea base 1`] = `
   border: none;
   color: #32324d;
   resize: none;
+  background: inherit;
 }
 
 .c8::-webkit-input-placeholder {
@@ -41637,6 +41638,7 @@ exports[`Storyshots Design System/Components/Textarea disabled 1`] = `
   border: none;
   color: #666687;
   resize: none;
+  background: inherit;
 }
 
 .c8::-webkit-input-placeholder {
