@@ -1,4 +1,4 @@
-export const colorTokenObject = {
+export const lightColorTokenObject = {
   color: {
     alternative100: '#f6ecfc',
     alternative200: '#e0c1f4',
