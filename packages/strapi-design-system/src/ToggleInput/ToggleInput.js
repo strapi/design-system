@@ -13,12 +13,6 @@ const FieldWrapper = styled(Field)`
   width: fit-content;
 `;
 
-const LabelAction = styled(Box)`
-  svg path {
-    fill: ${({ theme }) => theme.colors.neutral500};
-  }
-`;
-
 const ClearButton = styled(TextButton)`
   align-self: flex-end;
   margin-left: auto;
@@ -44,8 +38,9 @@ export const ToggleInput = ({
     <FieldWrapper name={name} hint={hint} error={error} id={generatedId}>
       <Stack size={1}>
         <Flex>
-          <FieldLabel required={required}>{label}</FieldLabel>
-          {labelAction && <LabelAction paddingLeft={1}>{labelAction}</LabelAction>}
+          <FieldLabel required={required} action={labelAction}>
+            {label}
+          </FieldLabel>
           {clearLabel && onClear && checked !== null && <ClearButton onClick={onClear}>{clearLabel}</ClearButton>}
         </Flex>
         <ToggleCheckbox id={generatedId} size={size} name={name} onClear={onClear} checked={checked} {...props}>

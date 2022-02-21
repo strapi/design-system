@@ -15,13 +15,9 @@ const Label = styled.label`
 
 const ToggleCheckboxWrapper = styled(Box)`
   height: ${getThemeSize('input')};
-  background-color: ${({ theme }) => theme.colors.neutral100};
-  border: 1px solid ${({ theme, disabled }) => (disabled ? theme.colors.neutral300 : theme.colors.neutral200)};
-  display: inline-flex;
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : undefined)};
   // Masks the background of each value
   overflow: hidden;
-  padding: ${({ theme }) => theme.spaces[1]};
 
   ${inputFocusStyle()}
 `;
@@ -30,8 +26,9 @@ const ValueBox = styled(Flex).attrs({
   hasRadius: true,
 })`
   background-color: ${({ theme, disabled, checked }) => (checked && !disabled ? theme.colors.neutral0 : 'transparent')};
-  border: ${({ theme, disabled, checked }) =>
-    checked && checked !== null && !disabled ? `1px solid ${theme.colors.neutral200}` : '0'};
+  border: 1px solid
+    ${({ theme, disabled, checked }) =>
+      checked && checked !== null && !disabled ? theme.colors.neutral200 : theme.colors.neutral100};
   position: relative;
   user-select: none;
   z-index: 2;
@@ -67,7 +64,18 @@ export const ToggleCheckbox = React.forwardRef(
       <Label>
         <VisuallyHidden>{children}</VisuallyHidden>
 
-        <ToggleCheckboxWrapper background="neutral0" hasRadius size={size} disabled={disabled}>
+        <ToggleCheckboxWrapper
+          background="neutral100"
+          hasRadius
+          size={size}
+          disabled={disabled}
+          padding={1}
+          display="inline-flex"
+          backgroundColor="neutral100"
+          borderStyle="solid"
+          borderWidth="1px"
+          borderColor="neutral200"
+        >
           <ValueBox
             paddingLeft={7}
             paddingRight={7}
