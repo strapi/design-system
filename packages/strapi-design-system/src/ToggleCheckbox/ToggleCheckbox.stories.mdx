@@ -29,27 +29,16 @@ import { ToggleCheckbox } from '@strapi/design-system/ToggleCheckbox';
 
 Use a toggle whenever the users need to turn something on or off in a form. A toggle can be disabled.
 
-### Activated Toggle
-
-The activated state is one of the two available states for a Toggle.
-
 <Canvas>
-  <Story name="activated">
-    <ToggleCheckbox onLabel="True" offLabel="False" checked={true} onChange={() => {}}>
-      The field is required?
-    </ToggleCheckbox>
-  </Story>
-</Canvas>
-
-### ToggleCheckbox not activated
-
-The deactivated state is one of the two available states for a Toggle.
-
-<Canvas>
-  <Story name="not activated">
-    <ToggleCheckbox onLabel="True" offLabel="False" checked={false} onChange={() => {}}>
-      The field is required?
-    </ToggleCheckbox>
+  <Story name="base">
+    {() => {
+      const [checked, setChecked] = useState(false);
+      return (
+        <ToggleCheckbox onLabel="True" offLabel="False" checked={checked} onChange={(e) => setChecked(prev => !prev)}>
+          The field is required?
+        </ToggleCheckbox>
+      )
+    }}
   </Story>
 </Canvas>
 
@@ -62,6 +51,24 @@ The deactivated state is one of the two available states for a Toggle.
     <ToggleCheckbox size="S" onLabel="True" offLabel="False" checked={false} onChange={() => {}}>
       The field is required?
     </ToggleCheckbox>
+  </Story>
+</Canvas>
+
+### Null value
+
+<Canvas>
+  <Story name="null-value">
+    {() => {
+      const [checked, setChecked] = useState(null);
+      return (
+        <ToggleCheckbox
+          onLabel="True"
+          offLabel="False"
+          checked={checked}
+          onChange={(e) => setChecked(prev => !prev)}
+        />
+      )
+    }}
   </Story>
 </Canvas>
 
