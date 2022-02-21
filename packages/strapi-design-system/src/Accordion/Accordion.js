@@ -53,11 +53,11 @@ const AccordionWrapper = styled(Box)`
   }
 `;
 
-export const Accordion = ({ children, toggle, expanded, id, size, variant, disabled, error, hasErrorMessage }) => {
+export const Accordion = ({ children, expanded, id, size, variant, disabled, error, hasErrorMessage, onToggle }) => {
   const generatedId = useId('accordion', id);
 
   return (
-    <AccordionContext.Provider value={{ expanded, toggle, id: generatedId, size, variant, disabled }}>
+    <AccordionContext.Provider value={{ expanded, onToggle, id: generatedId, size, variant, disabled }}>
       <AccordionWrapper
         data-strapi-expanded={expanded}
         disabled={disabled}
@@ -89,16 +89,44 @@ Accordion.defaultProps = {
   toggle: false,
   size: 'M',
   variant: 'primary',
+  onToggle: undefined,
 };
 
 Accordion.propTypes = {
   children: PropTypes.node.isRequired,
+  /**
+   * If `true`, the accordion will be disabled.
+   */
   disabled: PropTypes.bool,
+  /**
+   * If defined, will add a border (borderColor: `danger600`) and display the error message below the component.
+   */
   error: PropTypes.string,
+  /**
+   * If `true`, an expanded Accordion will be rendered.
+   */
   expanded: PropTypes.bool,
+  /**
+   * If `false`, the error message won't show.
+   * If the `Accordion` is as child of an `AccordionGroup`, this prop will be set to `false` automatically.
+   * The error message of the `AccordionGroup` will be shown below the group instead of the Accordion itself.
+   */
   hasErrorMessage: PropTypes.bool,
+  /**
+   * The id of the component.
+   */
   id: PropTypes.string,
+  /**
+   * The callback invoked after a click event on the `AccordionToggle`.
+   */
+  onToggle: PropTypes.func,
+  /**
+   * Size of the Accordion.
+   */
   size: PropTypes.oneOf(['S', 'M']),
-  toggle: PropTypes.func.isRequired,
+  /**
+   * Color variant for `Accordion`. The "secondary" variant reverses the background colors.
+   * This is useful when you want to display a list and alternate the colors of the accordions.
+   */
   variant: PropTypes.oneOf(['primary', 'secondary']),
 };
