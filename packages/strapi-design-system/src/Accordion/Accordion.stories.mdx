@@ -57,7 +57,7 @@ import { Accordion, AccordionToggle, AccordionContent, AccordionGroup } from '@s
             <Accordion
               error="The component contain error(s)"
               expanded={expanded}
-              toggle={() => setExpanded((s) => !s)}
+              onToggle={() => setExpanded((s) => !s)}
               id="acc-1"
               size="S"
             >
@@ -68,7 +68,7 @@ import { Accordion, AccordionToggle, AccordionContent, AccordionGroup } from '@s
             </Accordion>
           </Box>
           <Box padding={8} background="neutral0">
-            <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-2" variant="secondary">
+            <Accordion expanded={expanded} onToggle={() => setExpanded((s) => !s)} id="acc-2" variant="secondary">
               <AccordionToggle
                 title="User informations 2"
                 description="The following contains information about the current user 2"
@@ -80,7 +80,7 @@ import { Accordion, AccordionToggle, AccordionContent, AccordionGroup } from '@s
             </Accordion>
           </Box>
           <Box padding={8} background="neutral100">
-            <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-3">
+            <Accordion expanded={expanded} onToggle={() => setExpanded((s) => !s)} id="acc-3">
               <AccordionToggle
                 togglePosition="left"
                 title="User informations 3"
@@ -92,7 +92,7 @@ import { Accordion, AccordionToggle, AccordionContent, AccordionGroup } from '@s
             </Accordion>
           </Box>
           <Box padding={8} background="neutral0">
-            <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-4" variant="secondary">
+            <Accordion expanded={expanded} onToggle={() => setExpanded((s) => !s)} id="acc-4" variant="secondary">
               <AccordionToggle
                 togglePosition="left"
                 title="User informations 4"
@@ -146,7 +146,7 @@ import { Accordion, AccordionToggle, AccordionContent, AccordionGroup } from '@s
               <Accordion
                 error="The components contain error(s)"
                 expanded={expanded}
-                toggle={() => setExpanded((s) => !s)}
+                onToggle={() => setExpanded((s) => !s)}
                 id="acc-1"
                 size="S"
               >
@@ -168,7 +168,7 @@ import { Accordion, AccordionToggle, AccordionContent, AccordionGroup } from '@s
               <Accordion
                 error="The component contain error(s)"
                 expanded={false}
-                toggle={() => setExpanded((s) => !s)}
+                onToggle={() => setExpanded((s) => !s)}
                 id="acc-2"
                 size="S"
               >
@@ -177,13 +177,13 @@ import { Accordion, AccordionToggle, AccordionContent, AccordionGroup } from '@s
                   <Box padding={3}>My name is John Duff</Box>
                 </AccordionContent>
               </Accordion>
-              <Accordion expanded={expanded} toggle={() => setExpanded((s) => !s)} id="acc-3" size="S">
+              <Accordion expanded={expanded} onToggle={() => setExpanded((s) => !s)} id="acc-3" size="S">
                 <AccordionToggle title="User informations" togglePosition="left" />
                 <AccordionContent>
                   <Box padding={3}>My name is Michka</Box>
                 </AccordionContent>
               </Accordion>
-              <Accordion expanded={false} toggle={() => setExpanded((s) => !s)} id="acc-2" size="S">
+              <Accordion expanded={false} onToggle={() => setExpanded((s) => !s)} id="acc-2" size="S">
                 <AccordionToggle
                   startIcon={<User aria-hidden={true} />}
                   title="User informations"
@@ -211,7 +211,7 @@ The accordion component has two main states: collapsed and expanded. By default 
       return (
         <KeyboardNavigable attributeName="data-strapi-accordion-toggle">
           <Box padding={8} background="neutral100">
-            <Accordion expanded={false} toggle={() => {}} id="acc-1">
+            <Accordion expanded={false} onToggle={() => {}} id="acc-1">
               <AccordionToggle
                 title="User informations"
                 description="The following contains information about the current user"
@@ -222,7 +222,7 @@ The accordion component has two main states: collapsed and expanded. By default 
             </Accordion>
           </Box>
           <Box padding={8} background="neutral0">
-            <Accordion expanded={false} toggle={() => {}} id="acc-2">
+            <Accordion expanded={false} onToggle={() => {}} id="acc-2">
               <AccordionToggle
                 variant="secondary"
                 title="User informations 2"
@@ -234,7 +234,7 @@ The accordion component has two main states: collapsed and expanded. By default 
             </Accordion>
           </Box>
           <Box padding={8} background="neutral100">
-            <Accordion expanded={false} toggle={() => {}} id="acc-3">
+            <Accordion expanded={false} onToggle={() => {}} id="acc-3">
               <AccordionToggle
                 togglePosition="left"
                 title="User informations 3"
@@ -246,7 +246,7 @@ The accordion component has two main states: collapsed and expanded. By default 
             </Accordion>
           </Box>
           <Box padding={8} background="neutral0">
-            <Accordion expanded={false} toggle={() => {}} id="acc-4">
+            <Accordion expanded={false} onToggle={() => {}} id="acc-4">
               <AccordionToggle
                 variant="secondary"
                 togglePosition="left"
@@ -270,7 +270,7 @@ The Accordion component can also be open by default using the parameter `expande
 
 <Canvas>
   <Story name="expanded">
-    <Accordion expanded={true} toggle={() => {}} id="acc-1">
+    <Accordion expanded={true} onToggle={() => {}} id="acc-1">
       <AccordionToggle
         title="User informations"
         description="The following contains information about the current user"
