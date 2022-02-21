@@ -40,7 +40,7 @@ const FlexWithSize = styled(Flex)`
 
 export const AccordionToggle = ({ title, description, as, togglePosition, action, ...props }) => {
   const toggleButtonRef = useRef(null);
-  const { toggle, onToggle, expanded, id, size, variant, disabled } = useAccordion();
+  const { onToggle, expanded, id, size, variant, disabled } = useAccordion();
 
   // Accessibility identifiers
   const ariaControls = `accordion-content-${id}`;
@@ -57,14 +57,7 @@ export const AccordionToggle = ({ title, description, as, togglePosition, action
 
   const handleToggle = () => {
     if (!disabled) {
-      if (toggle && !onToggle) {
-        console.warn(
-          'Deprecation warning: Usage of "toggle" prop in Accordion component. This is discouraged and will be removed in upcoming major. Please use "onToggle" instead',
-        );
-        toggle();
-      } else {
-        onToggle();
-      }
+      onToggle();
     }
   };
 
