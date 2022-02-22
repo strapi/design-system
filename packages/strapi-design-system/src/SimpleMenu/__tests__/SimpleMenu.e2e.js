@@ -6,7 +6,7 @@ test.describe.parallel('SimpleMenu', () => {
   test.describe('base', () => {
     test.beforeEach(async ({ page }) => {
       // This is the URL of the Storybook Iframe
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-components-simplemenu--base&viewMode=story');
+      await page.goto('/iframe.html?id=design-system-components-simplemenu--base&viewMode=story');
       await injectAxe(page);
     });
 
@@ -53,9 +53,7 @@ test.describe.parallel('SimpleMenu', () => {
   test.describe('with links', () => {
     test.beforeEach(async ({ page }) => {
       // This is the URL of the Storybook Iframe
-      await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-components-simplemenu--with-links&viewMode=story',
-      );
+      await page.goto('/iframe.html?id=design-system-components-simplemenu--with-links&viewMode=story');
       await injectAxe(page);
     });
 

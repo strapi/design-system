@@ -6,7 +6,7 @@ test.describe.parallel('Tabs', () => {
   test.describe('default variant', () => {
     test.beforeEach(async ({ page }) => {
       // This is the URL of the Storybook Iframe
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-components-tabs--base&viewMode=story');
+      await page.goto('/iframe.html?id=design-system-components-tabs--base&viewMode=story');
       await injectAxe(page);
     });
 
@@ -120,7 +120,7 @@ test.describe.parallel('Tabs', () => {
   test.describe('simple variant', () => {
     test.beforeEach(async ({ page }) => {
       // This is the URL of the Storybook Iframe
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-components-tabs--simple&viewMode=story');
+      await page.goto('/iframe.html?id=design-system-components-tabs--simple&viewMode=story');
       await injectAxe(page);
     });
 
@@ -132,7 +132,7 @@ test.describe.parallel('Tabs', () => {
   test.describe('Disabled tabs', () => {
     test.beforeEach(async ({ page }) => {
       // This is the URL of the Storybook Iframe
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-components-tabs--disabled&viewMode=story');
+      await page.goto('/iframe.html?id=design-system-components-tabs--disabled&viewMode=story');
       await injectAxe(page);
     });
 
@@ -206,7 +206,7 @@ test.describe.parallel('Tabs', () => {
   test.describe('Initial selected tabs', () => {
     test.beforeEach(async ({ page }) => {
       // This is the URL of the Storybook Iframe
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-components-tabs--selected&viewMode=story');
+      await page.goto('/iframe.html?id=design-system-components-tabs--selected&viewMode=story');
       await injectAxe(page);
     });
 

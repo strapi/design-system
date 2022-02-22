@@ -5,9 +5,7 @@ const { test, expect } = require('@playwright/test');
 test.describe.parallel('HeaderLayout', () => {
   test.describe('base', () => {
     test('triggers axe on the document', async ({ page }) => {
-      await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-components-headerlayout--base&viewMode=story',
-      );
+      await page.goto('/iframe.html?id=design-system-components-headerlayout--base&viewMode=story');
       await injectAxe(page);
       await checkA11y(page);
     });
@@ -16,7 +14,7 @@ test.describe.parallel('HeaderLayout', () => {
   test.describe('base without nav action', () => {
     test('triggers axe on the document', async ({ page }) => {
       await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-components-headerlayout--base-without-nav-action&args=&viewMode=story',
+        '/iframe.html?id=design-system-components-headerlayout--base-without-nav-action&args=&viewMode=story',
       );
       await injectAxe(page);
       await checkA11y(page);
@@ -25,9 +23,7 @@ test.describe.parallel('HeaderLayout', () => {
 
   test.describe('sticky', () => {
     test('triggers axe on the document', async ({ page }) => {
-      await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-components-headerlayout--sticky&args=&viewMode=story',
-      );
+      await page.goto('/iframe.html?id=design-system-components-headerlayout--sticky&args=&viewMode=story');
       await injectAxe(page);
       await checkA11y(page);
     });
@@ -35,17 +31,13 @@ test.describe.parallel('HeaderLayout', () => {
 
   test.describe('combined w/ scroll', () => {
     test('triggers axe on the document', async ({ page }) => {
-      await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-components-headerlayout--combined-w-scroll&args=&viewMode=story',
-      );
+      await page.goto('/iframe.html?id=design-system-components-headerlayout--combined-w-scroll&args=&viewMode=story');
       await injectAxe(page);
       await checkA11y(page);
     });
 
     test('displays the sticky header when scrolling down', async ({ page }) => {
-      await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-components-headerlayout--combined-w-scroll&args=&viewMode=story',
-      );
+      await page.goto('/iframe.html?id=design-system-components-headerlayout--combined-w-scroll&args=&viewMode=story');
 
       await expect(page.locator('[data-strapi-header]')).toBeVisible();
 
@@ -58,9 +50,7 @@ test.describe.parallel('HeaderLayout', () => {
     });
 
     test('displays the sticky header when scrolling back up', async ({ page }) => {
-      await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-components-headerlayout--combined-w-scroll&args=&viewMode=story',
-      );
+      await page.goto('/iframe.html?id=design-system-components-headerlayout--combined-w-scroll&args=&viewMode=story');
       await page.evaluate(() => window.scrollTo(0, 400));
       await expect(page.locator('[data-strapi-header-sticky]')).toBeVisible();
 

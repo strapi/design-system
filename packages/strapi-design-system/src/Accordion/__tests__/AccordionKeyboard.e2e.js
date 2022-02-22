@@ -4,9 +4,7 @@ const { test, expect } = require('@playwright/test');
 test.describe.parallel('Accordion Keyboard Navigable', () => {
   test.beforeEach(async ({ page }) => {
     // This is the URL of the Storybook Iframe
-    await page.goto(
-      'http://localhost:6006/iframe.html?id=design-system-components-accordion--keyboard-navigable&viewMode=story',
-    );
+    await page.goto('/iframe.html?id=design-system-components-accordion--keyboard-navigable&viewMode=story');
     await injectAxe(page);
   });
 

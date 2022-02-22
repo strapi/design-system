@@ -5,7 +5,7 @@ const { test, expect } = require('@playwright/test');
 test.describe.parallel('Card', () => {
   test.describe('base', () => {
     test('triggers axe on the document', async ({ page }) => {
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-components-card--base&viewMode=story');
+      await page.goto('/iframe.html?id=design-system-components-card--base&viewMode=story');
       await injectAxe(page);
       await checkA11y(page);
     });
@@ -13,9 +13,7 @@ test.describe.parallel('Card', () => {
 
   test.describe('without asset action', () => {
     test('triggers axe on the document', async ({ page }) => {
-      await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-components-card--without-asset-action&viewMode=story',
-      );
+      await page.goto('/iframe.html?id=design-system-components-card--without-asset-action&viewMode=story');
       await injectAxe(page);
       await checkA11y(page);
     });
@@ -23,9 +21,7 @@ test.describe.parallel('Card', () => {
 
   test.describe('without asset action nor timer', () => {
     test('triggers axe on the document', async ({ page }) => {
-      await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-components-card--without-asset-action-nor-timer&viewMode=story',
-      );
+      await page.goto('/iframe.html?id=design-system-components-card--without-asset-action-nor-timer&viewMode=story');
       await injectAxe(page);
       await checkA11y(page);
     });
@@ -33,9 +29,7 @@ test.describe.parallel('Card', () => {
 
   test.describe('without asset', () => {
     test('triggers axe on the document', async ({ page }) => {
-      await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-components-card--without-asset&viewMode=story',
-      );
+      await page.goto('/iframe.html?id=design-system-components-card--without-asset&viewMode=story');
       await injectAxe(page);
       await checkA11y(page);
     });
@@ -43,9 +37,7 @@ test.describe.parallel('Card', () => {
 
   test.describe('keyboard navigable', () => {
     test.beforeEach(async ({ page }) => {
-      await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-components-card--keyboard-navigable&viewMode=story',
-      );
+      await page.goto('/iframe.html?id=design-system-components-card--keyboard-navigable&viewMode=story');
       await injectAxe(page);
     });
 

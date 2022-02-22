@@ -6,7 +6,7 @@ test.describe.parallel('Popover', () => {
   test.describe('base', () => {
     test.beforeEach(async ({ page }) => {
       // This is the URL of the Storybook Iframe
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-components-popover--base&viewMode=story');
+      await page.goto('/iframe.html?id=design-system-components-popover--base&viewMode=story');
       await injectAxe(page);
     });
 
@@ -18,9 +18,7 @@ test.describe.parallel('Popover', () => {
   test.describe('onReachEnd', () => {
     test.beforeEach(async ({ page }) => {
       // This is the URL of the Storybook Iframe
-      await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-components-popover--on-reach-end&viewMode=story',
-      );
+      await page.goto('/iframe.html?id=design-system-components-popover--on-reach-end&viewMode=story');
     });
 
     test('adds item when reaching the end', async ({ page }) => {
