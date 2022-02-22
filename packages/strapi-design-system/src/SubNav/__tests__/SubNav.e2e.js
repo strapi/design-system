@@ -2,7 +2,7 @@ const { injectAxe, checkA11y } = require('axe-playwright');
 
 const { test } = require('@playwright/test');
 
-test.describe('SubNav', () => {
+test.describe.parallel('SubNav', () => {
   test.beforeEach(async ({ page }) => {
     // This is the URL of the Storybook Iframe
     await page.goto('/iframe.html?id=design-system-components-subnav--base&viewMode=story');

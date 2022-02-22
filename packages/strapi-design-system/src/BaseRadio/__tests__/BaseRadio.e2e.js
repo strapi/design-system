@@ -2,7 +2,7 @@ const { injectAxe, checkA11y } = require('axe-playwright');
 
 const { test, expect } = require('@playwright/test');
 
-test.describe('BaseRadio', () => {
+test.describe.parallel('BaseRadio', () => {
   test.describe('base', () => {
     test.beforeEach(async ({ page }) => {
       // This is the URL of the Storybook Iframe

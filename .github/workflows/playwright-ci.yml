@@ -1,7 +1,7 @@
 name: Playwright tests
 on:
   pull_request:
-    branches: ["main"]
+    branches: ["main", "1.0.0"]
   workflow_dispatch:
 
 jobs:
