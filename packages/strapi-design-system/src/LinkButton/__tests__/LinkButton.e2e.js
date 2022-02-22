@@ -5,7 +5,7 @@ const { test } = require('@playwright/test');
 test.describe.parallel('LinkButton', () => {
   test.describe('base', () => {
     test('triggers axe on the document', async ({ page }) => {
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-components-linkbutton--base&viewMode=story');
+      await page.goto('/iframe.html?id=design-system-components-linkbutton--base&viewMode=story');
       await injectAxe(page);
       await checkA11y(page);
     });
@@ -13,7 +13,7 @@ test.describe.parallel('LinkButton', () => {
 
   test.describe('sizes', () => {
     test('triggers axe on the document', async ({ page }) => {
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-components-linkbutton--sizes&viewMode=story');
+      await page.goto('/iframe.html?id=design-system-components-linkbutton--sizes&viewMode=story');
       await injectAxe(page);
       await checkA11y(page);
     });
@@ -21,9 +21,7 @@ test.describe.parallel('LinkButton', () => {
 
   test.describe('variants', () => {
     test('triggers axe on the document', async ({ page }) => {
-      await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-components-linkbutton--variants&viewMode=story',
-      );
+      await page.goto('/iframe.html?id=design-system-components-linkbutton--variants&viewMode=story');
       await injectAxe(page);
       await checkA11y(page);
     });
@@ -31,7 +29,7 @@ test.describe.parallel('LinkButton', () => {
 
   test.describe('icons', () => {
     test('triggers axe on the document', async ({ page }) => {
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-components-linkbutton--icons&viewMode=story');
+      await page.goto('/iframe.html?id=design-system-components-linkbutton--icons&viewMode=story');
       await injectAxe(page);
       await checkA11y(page);
     });
@@ -39,9 +37,7 @@ test.describe.parallel('LinkButton', () => {
 
   test.describe('disabled', () => {
     test('triggers axe on the document', async ({ page }) => {
-      await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-components-linkbutton--disabled&viewMode=story',
-      );
+      await page.goto('/iframe.html?id=design-system-components-linkbutton--disabled&viewMode=story');
       await injectAxe(page);
       await checkA11y(page);
     });

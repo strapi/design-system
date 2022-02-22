@@ -63,6 +63,7 @@
     "test": "jest -c jest.config.js",
     "test:watch": "jest -c jest.config.js --watchAll",
     "test:e2e": "playwright test",
+    "test:e2e:ci": "cross-env CI=true playwright test",
     "test:e2e:watch": "jest -c jest.e2e.js --watchAll",
     "test:e2e:debug": "cross-env PWDEBUG=1 playwright test"
   },

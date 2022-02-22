@@ -5,7 +5,7 @@ const { test, expect } = require('@playwright/test');
 test.describe.parallel('Dialog', () => {
   test.beforeEach(async ({ page }) => {
     // This is the URL of the Storybook Iframe
-    await page.goto('http://localhost:6006/iframe.html?id=design-system-components-dialog--base&args=&viewMode=story');
+    await page.goto('/iframe.html?id=design-system-components-dialog--base&args=&viewMode=story');
     await injectAxe(page);
   });
 

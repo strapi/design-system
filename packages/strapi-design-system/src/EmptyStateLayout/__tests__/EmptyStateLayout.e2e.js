@@ -5,9 +5,7 @@ const { test } = require('@playwright/test');
 test.describe.parallel('EmptyStateLayout', () => {
   test.describe('base', () => {
     test('triggers axe on the document', async ({ page }) => {
-      await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-components-emptystatelayout--base&viewMode=story',
-      );
+      await page.goto('/iframe.html?id=design-system-components-emptystatelayout--base&viewMode=story');
       await injectAxe(page);
       await checkA11y(page);
     });
@@ -15,9 +13,7 @@ test.describe.parallel('EmptyStateLayout', () => {
 
   test.describe('without action', () => {
     test('triggers axe on the document', async ({ page }) => {
-      await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-components-emptystatelayout--without-action&viewMode=story',
-      );
+      await page.goto('/iframe.html?id=design-system-components-emptystatelayout--without-action&viewMode=story');
       await injectAxe(page);
       await checkA11y(page);
     });

@@ -5,7 +5,7 @@ const { test, expect } = require('@playwright/test');
 test.describe.parallel('Searchbar', () => {
   test.describe('base', () => {
     test.beforeEach(async ({ page }) => {
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-components-searchbar--base&viewMode=story');
+      await page.goto('/iframe.html?id=design-system-components-searchbar--base&viewMode=story');
       await injectAxe(page);
     });
 
@@ -24,9 +24,7 @@ test.describe.parallel('Searchbar', () => {
 
   test.describe('disabled', () => {
     test('triggers axe on the document', async ({ page }) => {
-      await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-components-searchbar--disabled&viewMode=story',
-      );
+      await page.goto('/iframe.html?id=design-system-components-searchbar--disabled&viewMode=story');
       await injectAxe(page);
       await checkA11y(page);
     });

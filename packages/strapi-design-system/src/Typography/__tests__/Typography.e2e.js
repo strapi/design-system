@@ -5,9 +5,7 @@ const { test } = require('@playwright/test');
 test.describe.parallel('Typography', () => {
   test.beforeEach(async ({ page }) => {
     // This is the URL of the Storybook Iframe
-    await page.goto(
-      'http://localhost:6006/iframe.html?id=design-system-technical-components-typography--variants&viewMode=story',
-    );
+    await page.goto('/iframe.html?id=design-system-technical-components-typography--variants&viewMode=story');
     await injectAxe(page);
   });
 

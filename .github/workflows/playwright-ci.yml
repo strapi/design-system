@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
+  e2e:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:

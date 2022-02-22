@@ -5,9 +5,7 @@ const { test, expect } = require('@playwright/test');
 test.describe.parallel('Combobox', () => {
   test.beforeEach(async ({ page }) => {
     // This is the URL of the Storybook Iframe
-    await page.goto(
-      'http://localhost:6006/iframe.html?id=design-system-components-combobox--base&globals=&viewMode=story',
-    );
+    await page.goto('/iframe.html?id=design-system-components-combobox--base&globals=&viewMode=story');
     await injectAxe(page);
   });
 
@@ -72,9 +70,7 @@ test.describe.parallel('Combobox', () => {
 test.describe('Combobox - initial data', () => {
   test.beforeEach(async ({ page }) => {
     // This is the URL of the Storybook Iframe
-    await page.goto(
-      'http://localhost:6006/iframe.html?id=design-system-components-combobox--initial-data&args=&viewMode=story',
-    );
+    await page.goto('/iframe.html?id=design-system-components-combobox--initial-data&args=&viewMode=story');
     await injectAxe(page);
   });
 
@@ -91,9 +87,7 @@ test.describe('Combobox - initial data', () => {
 test.describe('Combobox - creatable', () => {
   test.beforeEach(async ({ page }) => {
     // This is the URL of the Storybook Iframe
-    await page.goto(
-      'http://localhost:6006/iframe.html?id=design-system-components-combobox--creatable&globals=&viewMode=story',
-    );
+    await page.goto('/iframe.html?id=design-system-components-combobox--creatable&globals=&viewMode=story');
     await injectAxe(page);
   });
 
