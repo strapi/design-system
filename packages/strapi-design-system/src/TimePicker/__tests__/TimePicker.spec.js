@@ -46,42 +46,6 @@ describe('TimePicker', () => {
         cursor: not-allowed;
       }
 
-      .c1 {
-        font-weight: 600;
-        color: #32324d;
-        font-size: 0.75rem;
-        line-height: 1.33;
-      }
-
-      .c10 {
-        color: #32324d;
-        display: block;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        font-size: 0.875rem;
-        line-height: 1.43;
-      }
-
-      .c13 {
-        color: #666687;
-        font-size: 0.75rem;
-        line-height: 1.33;
-      }
-
-      .c20 {
-        color: #32324d;
-        font-size: 0.875rem;
-        line-height: 1.43;
-      }
-
-      .c21 {
-        font-weight: 600;
-        color: #4945ff;
-        font-size: 0.875rem;
-        line-height: 1.43;
-      }
-
       .c7 {
         padding-left: 12px;
       }
@@ -136,6 +100,42 @@ describe('TimePicker', () => {
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
+      }
+
+      .c1 {
+        font-weight: 600;
+        color: #32324d;
+        font-size: 0.75rem;
+        line-height: 1.33;
+      }
+
+      .c10 {
+        color: #32324d;
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 0.875rem;
+        line-height: 1.43;
+      }
+
+      .c13 {
+        color: #666687;
+        font-size: 0.75rem;
+        line-height: 1.33;
+      }
+
+      .c20 {
+        color: #32324d;
+        font-size: 0.875rem;
+        line-height: 1.43;
+      }
+
+      .c21 {
+        font-weight: 600;
+        color: #4945ff;
+        font-size: 0.875rem;
+        line-height: 1.43;
       }
 
       .c16 {
@@ -297,7 +297,11 @@ describe('TimePicker', () => {
               for="timepicker-1"
               id="timepicker-1-label"
             >
-              Choose a time
+              <div
+                class="c2"
+              >
+                Choose a time
+              </div>
             </span>
             <div
               class="c2 c3"
