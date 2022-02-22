@@ -1,13 +1,15 @@
-import { injectAxe, checkA11y } from 'axe-playwright';
+const { injectAxe, checkA11y } = require('axe-playwright');
 
-describe('Switch', () => {
-  it('triggers axe on the document for the activated switch', async () => {
+const { test } = require('@playwright/test');
+
+test.describe.parallel('Switch', () => {
+  test('triggers axe on the document for the activated switch', async ({ page }) => {
     await page.goto('http://localhost:6006/iframe.html?id=design-system-components-switch--activated&viewMode=story');
     await injectAxe(page);
     await checkA11y(page);
   });
 
-  it('triggers axe on the document for the not-activated switch', async () => {
+  test('triggers axe on the document for the not-activated switch', async ({ page }) => {
     await page.goto(
       'http://localhost:6006/iframe.html?id=design-system-components-switch--not-activated&viewMode=story',
     );

@@ -1,8 +1,10 @@
-import { injectAxe, checkA11y } from 'axe-playwright';
+const { injectAxe, checkA11y } = require('axe-playwright');
 
-describe('ToggleCheckbox', () => {
-  describe('activated', () => {
-    it('triggers axe on the document', async () => {
+const { test } = require('@playwright/test');
+
+test.describe.parallel('ToggleCheckbox', () => {
+  test.describe('activated', () => {
+    test('triggers axe on the document', async ({ page }) => {
       await page.goto(
         'http://localhost:6006/iframe.html?id=design-system-components-togglecheckbox--activated&viewMode=storyy',
       );
@@ -11,8 +13,8 @@ describe('ToggleCheckbox', () => {
     });
   });
 
-  describe('not activated', () => {
-    it('triggers axe on the document', async () => {
+  test.describe('not activated', () => {
+    test('triggers axe on the document', async ({ page }) => {
       await page.goto(
         'http://localhost:6006/iframe.html?id=design-system-components-togglecheckbox--not-activated&viewMode=story',
       );

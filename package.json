@@ -18,7 +18,7 @@
     "specify:sync": "specify sync",
     "storybook": "lerna run storybook --stream",
     "test:e2e": "lerna run test:e2e --stream",
-    "test:e2e:ci": "lerna run test:e2e:ci",
+    "test:e2e:ci": "lerna run test:e2e",
     "test:e2e:watch": "lerna --scope @strapi/design-system exec -- yarn test:e2e:watch",
     "test": "lerna run test --stream",
     "test:watch": "lerna --scope @strapi/design-system exec -- yarn test:watch",

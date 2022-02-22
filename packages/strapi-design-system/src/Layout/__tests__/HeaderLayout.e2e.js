@@ -1,8 +1,10 @@
-import { injectAxe, checkA11y } from 'axe-playwright';
+const { injectAxe, checkA11y } = require('axe-playwright');
 
-describe('HeaderLayout', () => {
-  describe('base', () => {
-    it('triggers axe on the document', async () => {
+const { test, expect } = require('@playwright/test');
+
+test.describe.parallel('HeaderLayout', () => {
+  test.describe('base', () => {
+    test('triggers axe on the document', async ({ page }) => {
       await page.goto(
         'http://localhost:6006/iframe.html?id=design-system-components-headerlayout--base&viewMode=story',
       );
@@ -11,8 +13,8 @@ describe('HeaderLayout', () => {
     });
   });
 
-  describe('base without nav action', () => {
-    it('triggers axe on the document', async () => {
+  test.describe('base without nav action', () => {
+    test('triggers axe on the document', async ({ page }) => {
       await page.goto(
         'http://localhost:6006/iframe.html?id=design-system-components-headerlayout--base-without-nav-action&args=&viewMode=story',
       );
@@ -21,8 +23,8 @@ describe('HeaderLayout', () => {
     });
   });
 
-  describe('sticky', () => {
-    it('triggers axe on the document', async () => {
+  test.describe('sticky', () => {
+    test('triggers axe on the document', async ({ page }) => {
       await page.goto(
         'http://localhost:6006/iframe.html?id=design-system-components-headerlayout--sticky&args=&viewMode=story',
       );
@@ -31,8 +33,8 @@ describe('HeaderLayout', () => {
     });
   });
 
-  describe('combined w/ scroll', () => {
-    it('triggers axe on the document', async () => {
+  test.describe('combined w/ scroll', () => {
+    test('triggers axe on the document', async ({ page }) => {
       await page.goto(
         'http://localhost:6006/iframe.html?id=design-system-components-headerlayout--combined-w-scroll&args=&viewMode=story',
       );
@@ -40,31 +42,31 @@ describe('HeaderLayout', () => {
       await checkA11y(page);
     });
 
-    it('displays the sticky header when scrolling down', async () => {
+    test('displays the sticky header when scrolling down', async ({ page }) => {
       await page.goto(
         'http://localhost:6006/iframe.html?id=design-system-components-headerlayout--combined-w-scroll&args=&viewMode=story',
       );
 
-      await expect(page).toHaveSelector('[data-strapi-header]');
+      await expect(page.locator('[data-strapi-header]')).toBeVisible();
 
       await page.evaluate(() => window.scrollTo(0, 400));
 
-      await expect(page).toHaveSelector('[data-strapi-header-sticky]');
+      await expect(page.locator('[data-strapi-header-sticky]')).toBeVisible();
 
       const headerLayout = await page.$$('[data-strapi-header]');
       expect(headerLayout.length).toBe(0);
     });
 
-    it('displays the sticky header when scrolling back up', async () => {
+    test('displays the sticky header when scrolling back up', async ({ page }) => {
       await page.goto(
         'http://localhost:6006/iframe.html?id=design-system-components-headerlayout--combined-w-scroll&args=&viewMode=story',
       );
       await page.evaluate(() => window.scrollTo(0, 400));
-      await expect(page).toHaveSelector('[data-strapi-header-sticky]');
+      await expect(page.locator('[data-strapi-header-sticky]')).toBeVisible();
 
       await page.evaluate(() => window.scrollTo(0, 0));
 
-      await expect(page).toHaveSelector('[data-strapi-header]');
+      await expect(page.locator('[data-strapi-header]')).toBeVisible();
 
       const headerLayout = await page.$$('[data-strapi-header-sticky]');
       expect(headerLayout.length).toBe(0);

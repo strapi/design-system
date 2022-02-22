@@ -1,7 +1,9 @@
-import { injectAxe, checkA11y } from 'axe-playwright';
+const { injectAxe, checkA11y } = require('axe-playwright');
 
-describe('Combobox', () => {
-  beforeEach(async () => {
+const { test, expect } = require('@playwright/test');
+
+test.describe.parallel('Combobox', () => {
+  test.beforeEach(async ({ page }) => {
     // This is the URL of the Storybook Iframe
     await page.goto(
       'http://localhost:6006/iframe.html?id=design-system-components-combobox--base&globals=&viewMode=story',
@@ -9,39 +11,39 @@ describe('Combobox', () => {
     await injectAxe(page);
   });
 
-  it('triggers axe on the document', async () => {
+  test('triggers axe on the document', async ({ page }) => {
     await checkA11y(page);
   });
 
-  it('Focus and select a value then close the combobox', async () => {
+  test('Focus and select a value then close the combobox', async ({ page }) => {
     await page.click('input');
-    await expect(page).toHaveSelector('[role="listbox"]', { timeout: 300 });
+    await expect(page.locator('[role="listbox"]')).toBeVisible({ timeout: 300 });
 
     await page.click('text="Tartuffo"');
 
     const selectedValue = await page.textContent('#combobox-1-selected-value');
     await expect(selectedValue).toBe('Tartuffo');
-    await expect(page).not.toHaveSelector('[role="listbox"]', { timeout: 300 });
+    await expect(page.locator('[role="listbox"]')).not.toBeVisible({ timeout: 300 });
   });
 
-  it('Select a value', async () => {
+  test('Select a value', async ({ page }) => {
     await page.click('input');
-    await expect(page).toHaveSelector('[role="listbox"]', { timeout: 300 });
+    await expect(page.locator('[role="listbox"]')).toBeVisible({ timeout: 300 });
 
     await page.click('text="Tartuffo"');
 
     const selectedValue = await page.textContent('#combobox-1-selected-value');
     await expect(selectedValue).toBe('Tartuffo');
-    await expect(page).not.toHaveSelector('[role="listbox"]', { timeout: 300 });
+    await expect(page.locator('[role="listbox"]')).not.toBeVisible({ timeout: 300 });
   });
 
-  it('Displays no results', async () => {
+  test('Displays no results', async ({ page }) => {
     await page.fill('input', 'Apple Pie');
     const content = await page.textContent('text="No results found"');
     await expect(content).toBe('No results found');
   });
 
-  it('Type a value', async () => {
+  test('Type a value', async ({ page }) => {
     await page.fill('input', 'Hamburger');
     let options = await page.$$('[role="option"]');
     expect(options.length).toEqual(1);
@@ -51,7 +53,7 @@ describe('Combobox', () => {
     expect(options.length).toEqual(4);
   });
 
-  it('Select with keyboard', async () => {
+  test('Select with keyboard', async ({ page }) => {
     await page.focus('input');
     await page.keyboard.press('ArrowDown');
     await page.keyboard.press('ArrowDown');
@@ -67,8 +69,8 @@ describe('Combobox', () => {
   });
 });
 
-describe('Combobox - initial data', () => {
-  beforeEach(async () => {
+test.describe('Combobox - initial data', () => {
+  test.beforeEach(async ({ page }) => {
     // This is the URL of the Storybook Iframe
     await page.goto(
       'http://localhost:6006/iframe.html?id=design-system-components-combobox--initial-data&args=&viewMode=story',
@@ -76,18 +78,18 @@ describe('Combobox - initial data', () => {
     await injectAxe(page);
   });
 
-  it('triggers axe on the document', async () => {
+  test('triggers axe on the document', async ({ page }) => {
     await checkA11y(page);
   });
 
-  it('initialize the value', async () => {
+  test('initialize the value', async ({ page }) => {
     const selectedValue = await page.textContent('#combobox-1-selected-value');
     await expect(selectedValue).toBe('Tartuffo');
   });
 });
 
-describe('Combobox - creatable', () => {
-  beforeEach(async () => {
+test.describe('Combobox - creatable', () => {
+  test.beforeEach(async ({ page }) => {
     // This is the URL of the Storybook Iframe
     await page.goto(
       'http://localhost:6006/iframe.html?id=design-system-components-combobox--creatable&globals=&viewMode=story',
@@ -95,11 +97,11 @@ describe('Combobox - creatable', () => {
     await injectAxe(page);
   });
 
-  it('triggers axe on the document', async () => {
+  test('triggers axe on the document', async ({ page }) => {
     await checkA11y(page);
   });
 
-  it('Create a new item', async () => {
+  test('Create a new item', async ({ page }) => {
     await page.fill('input', 'Apple Pie');
     const content = await page.textContent('[role="option"]');
     await expect(content).toBe('Create "Apple Pie"');
