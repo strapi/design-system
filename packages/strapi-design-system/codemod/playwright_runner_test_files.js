@@ -9,14 +9,17 @@ export default function transformer(file, api) {
 
   let result;
 
-  const s = j.importDeclaration([j.importSpecifier(j.identifier('test'))], j.literal('@playwright/test'));
+  const importPlaywright = j.importDeclaration(
+    [j.importSpecifier(j.identifier('test'))],
+    j.literal('@playwright/test'),
+  );
   const imports = root.find(j.ImportDeclaration);
-  const n = imports.length;
+  const importsLength = imports.length;
 
-  if (n) {
-    j(imports.at(n - 1).get()).insertAfter(s);
+  if (importsLength) {
+    j(imports.at(importsLength - 1).get()).insertAfter(importPlaywright);
   } else {
-    root.get().node.program.body.unshift(s);
+    root.get().node.program.body.unshift(importPlaywright);
   }
 
   const newAsyncArrowFunction = (params, body) => {
