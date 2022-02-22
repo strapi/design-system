@@ -1,8 +1,10 @@
-import { injectAxe, checkA11y } from 'axe-playwright';
+const { injectAxe, checkA11y } = require('axe-playwright');
 
-describe('EmptyStateLayout', () => {
-  describe('base', () => {
-    it('triggers axe on the document', async () => {
+const { test } = require('@playwright/test');
+
+test.describe.parallel('EmptyStateLayout', () => {
+  test.describe('base', () => {
+    test('triggers axe on the document', async ({ page }) => {
       await page.goto(
         'http://localhost:6006/iframe.html?id=design-system-components-emptystatelayout--base&viewMode=story',
       );
@@ -11,8 +13,8 @@ describe('EmptyStateLayout', () => {
     });
   });
 
-  describe('without action', () => {
-    it('triggers axe on the document', async () => {
+  test.describe('without action', () => {
+    test('triggers axe on the document', async ({ page }) => {
       await page.goto(
         'http://localhost:6006/iframe.html?id=design-system-components-emptystatelayout--without-action&viewMode=story',
       );

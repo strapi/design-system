@@ -1,18 +1,20 @@
-import { injectAxe, checkA11y } from 'axe-playwright';
+const { injectAxe, checkA11y } = require('axe-playwright');
 
-describe('Tabs', () => {
-  describe('default variant', () => {
-    beforeEach(async () => {
+const { test, expect } = require('@playwright/test');
+
+test.describe.parallel('Tabs', () => {
+  test.describe('default variant', () => {
+    test.beforeEach(async ({ page }) => {
       // This is the URL of the Storybook Iframe
       await page.goto('http://localhost:6006/iframe.html?id=design-system-components-tabs--base&viewMode=story');
       await injectAxe(page);
     });
 
-    it('triggers axe on the document', async () => {
+    test('triggers axe on the document', async ({ page }) => {
       await checkA11y(page);
     });
 
-    it('verifies that only the first panel is visible at the beginning', async () => {
+    test('verifies that only the first panel is visible at the beginning', async ({ page }) => {
       const isFirstPanelVisible = await page.isVisible('text="First panel"');
       expect(isFirstPanelVisible).toBeTruthy();
 
@@ -23,8 +25,8 @@ describe('Tabs', () => {
       expect(isThirdPanelVisible).toBeFalsy();
     });
 
-    describe('Click interactions', () => {
-      it('shows only the first panel when clicking on it', async () => {
+    test.describe('Click interactions', () => {
+      test('shows only the first panel when clicking on it', async ({ page }) => {
         await page.click('text="Second"');
         await page.click('text="First"');
 
@@ -38,7 +40,7 @@ describe('Tabs', () => {
         expect(isThirdPanelVisible).toBeFalsy();
       });
 
-      it('shows only the second panel when clicking on it', async () => {
+      test('shows only the second panel when clicking on it', async ({ page }) => {
         await page.click('text="Second"');
 
         const isFirstPanelVisible = await page.isVisible('text="First panel"');
@@ -51,7 +53,7 @@ describe('Tabs', () => {
         expect(isThirdPanelVisible).toBeFalsy();
       });
 
-      it('shows only the third panel when clicking on it', async () => {
+      test('shows only the third panel when clicking on it', async ({ page }) => {
         await page.click('text="Third"');
 
         const isFirstPanelVisible = await page.isVisible('text="First panel"');
@@ -65,76 +67,76 @@ describe('Tabs', () => {
       });
     });
 
-    describe('Keyboard interactions', () => {
-      it('moves to the next tab when pressing ArrowRight', async () => {
+    test.describe('Keyboard interactions', () => {
+      test('moves to the next tab when pressing ArrowRight', async ({ page }) => {
         await page.waitForSelector('#tabs-0-tab');
 
         await page.focus('#tabs-0-tab');
         await page.keyboard.press('ArrowRight');
-        await expect(page).toHaveFocus('#tabs-1-tab');
+        await expect(page.locator('#tabs-1-tab')).toBeFocused();
 
         await page.keyboard.press('ArrowRight');
-        await expect(page).toHaveFocus('#tabs-2-tab');
+        await expect(page.locator('#tabs-2-tab')).toBeFocused();
 
         await page.keyboard.press('ArrowRight');
-        await expect(page).toHaveFocus('#tabs-0-tab');
+        await expect(page.locator('#tabs-0-tab')).toBeFocused();
       });
 
-      it('moves to the previous tab when pressing ArrowLeft', async () => {
+      test('moves to the previous tab when pressing ArrowLeft', async ({ page }) => {
         await page.waitForSelector('#tabs-0-tab');
 
         await page.focus('#tabs-0-tab');
         await page.keyboard.press('ArrowLeft');
-        await expect(page).toHaveFocus('#tabs-2-tab');
+        await expect(page.locator('#tabs-2-tab')).toBeFocused();
 
         await page.keyboard.press('ArrowLeft');
-        await expect(page).toHaveFocus('#tabs-1-tab');
+        await expect(page.locator('#tabs-1-tab')).toBeFocused();
 
         await page.keyboard.press('ArrowLeft');
-        await expect(page).toHaveFocus('#tabs-0-tab');
+        await expect(page.locator('#tabs-0-tab')).toBeFocused();
       });
 
-      it('moves to the first tab when pressing Home', async () => {
+      test('moves to the first tab when pressing Home', async ({ page }) => {
         await page.waitForSelector('#tabs-0-tab');
 
         await page.focus('#tabs-0-tab');
         await page.keyboard.press('ArrowLeft');
         await page.keyboard.press('Home');
 
-        await expect(page).toHaveFocus('#tabs-0-tab');
+        await expect(page.locator('#tabs-0-tab')).toBeFocused();
       });
 
-      it('moves to the last tab when pressing End', async () => {
+      test('moves to the last tab when pressing End', async ({ page }) => {
         await page.waitForSelector('#tabs-0-tab');
 
         await page.focus('#tabs-0-tab');
         await page.keyboard.press('End');
 
-        await expect(page).toHaveFocus('#tabs-2-tab');
+        await expect(page.locator('#tabs-2-tab')).toBeFocused();
       });
     });
   });
 
-  describe('simple variant', () => {
-    beforeEach(async () => {
+  test.describe('simple variant', () => {
+    test.beforeEach(async ({ page }) => {
       // This is the URL of the Storybook Iframe
       await page.goto('http://localhost:6006/iframe.html?id=design-system-components-tabs--simple&viewMode=story');
       await injectAxe(page);
     });
 
-    it('triggers axe on the document', async () => {
+    test('triggers axe on the document', async ({ page }) => {
       await checkA11y(page);
     });
   });
 
-  describe('Disabled tabs', () => {
-    beforeEach(async () => {
+  test.describe('Disabled tabs', () => {
+    test.beforeEach(async ({ page }) => {
       // This is the URL of the Storybook Iframe
       await page.goto('http://localhost:6006/iframe.html?id=design-system-components-tabs--disabled&viewMode=story');
       await injectAxe(page);
     });
 
-    it('verifies that only the first not visible panel is visible at the beginning', async () => {
+    test('verifies that only the first not visible panel is visible at the beginning', async ({ page }) => {
       const isFirstPanelVisible = await page.isVisible('text="First panel"');
       expect(isFirstPanelVisible).toBeFalsy();
 
@@ -151,64 +153,64 @@ describe('Tabs', () => {
       expect(isFifthPanelVisible).toBeFalsy();
     });
 
-    describe('Keyboard interactions', () => {
-      it('moves to the next tab when pressing ArrowRight', async () => {
+    test.describe('Keyboard interactions', () => {
+      test('moves to the next tab when pressing ArrowRight', async ({ page }) => {
         await page.waitForSelector('#tabs-1-tab');
 
         await page.focus('#tabs-1-tab');
         await page.keyboard.press('ArrowRight');
-        await expect(page).toHaveFocus('#tabs-3-tab');
+        await expect(page.locator('#tabs-3-tab')).toBeFocused();
 
         await page.keyboard.press('ArrowRight');
-        await expect(page).toHaveFocus('#tabs-5-tab');
+        await expect(page.locator('#tabs-5-tab')).toBeFocused();
 
         await page.keyboard.press('ArrowRight');
-        await expect(page).toHaveFocus('#tabs-1-tab');
+        await expect(page.locator('#tabs-1-tab')).toBeFocused();
       });
 
-      it('moves to the previous tab when pressing ArrowLeft', async () => {
+      test('moves to the previous tab when pressing ArrowLeft', async ({ page }) => {
         await page.waitForSelector('#tabs-1-tab');
 
         await page.focus('#tabs-1-tab');
         await page.keyboard.press('ArrowLeft');
-        await expect(page).toHaveFocus('#tabs-5-tab');
+        await expect(page.locator('#tabs-5-tab')).toBeFocused();
 
         await page.keyboard.press('ArrowLeft');
-        await expect(page).toHaveFocus('#tabs-3-tab');
+        await expect(page.locator('#tabs-3-tab')).toBeFocused();
 
         await page.keyboard.press('ArrowLeft');
-        await expect(page).toHaveFocus('#tabs-1-tab');
+        await expect(page.locator('#tabs-1-tab')).toBeFocused();
       });
 
-      it('moves to the first tab when pressing Home', async () => {
+      test('moves to the first tab when pressing Home', async ({ page }) => {
         await page.waitForSelector('#tabs-1-tab');
 
         await page.focus('#tabs-1-tab');
         await page.keyboard.press('ArrowLeft');
         await page.keyboard.press('Home');
 
-        await expect(page).toHaveFocus('#tabs-1-tab');
+        await expect(page.locator('#tabs-1-tab')).toBeFocused();
       });
 
-      it('moves to the last tab when pressing End', async () => {
+      test('moves to the last tab when pressing End', async ({ page }) => {
         await page.waitForSelector('#tabs-1-tab');
 
         await page.focus('#tabs-1-tab');
         await page.keyboard.press('End');
 
-        await expect(page).toHaveFocus('#tabs-5-tab');
+        await expect(page.locator('#tabs-5-tab')).toBeFocused();
       });
     });
   });
 
-  describe('Initial selected tabs', () => {
-    beforeEach(async () => {
+  test.describe('Initial selected tabs', () => {
+    test.beforeEach(async ({ page }) => {
       // This is the URL of the Storybook Iframe
       await page.goto('http://localhost:6006/iframe.html?id=design-system-components-tabs--selected&viewMode=story');
       await injectAxe(page);
     });
 
-    it('verifies that only the first not visible panel is visible at the beginning', async () => {
+    test('verifies that only the first not visible panel is visible at the beginning', async ({ page }) => {
       const isFirstPanelVisible = await page.isVisible('text="First panel"');
       expect(isFirstPanelVisible).toBeFalsy();
 

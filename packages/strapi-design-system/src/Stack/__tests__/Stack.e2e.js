@@ -1,8 +1,10 @@
-import { injectAxe, checkA11y } from 'axe-playwright';
+const { injectAxe, checkA11y } = require('axe-playwright');
 
-describe('Stack', () => {
-  describe('vertical', () => {
-    it('triggers axe on the document', async () => {
+const { test } = require('@playwright/test');
+
+test.describe.parallel('Stack', () => {
+  test.describe('vertical', () => {
+    test('triggers axe on the document', async ({ page }) => {
       await page.goto(
         'http://localhost:6006/iframe.html?id=design-system-technical-components-stack--base&viewMode=story',
       );
@@ -11,8 +13,8 @@ describe('Stack', () => {
     });
   });
 
-  describe('horizontal', () => {
-    it('triggers axe on the document', async () => {
+  test.describe('horizontal', () => {
+    test('triggers axe on the document', async ({ page }) => {
       await page.goto(
         'http://localhost:6006/iframe.html?id=design-system-technical-components-stack--horizontal&viewMode=story',
       );

@@ -1,8 +1,10 @@
-import { injectAxe, checkA11y } from 'axe-playwright';
+const { injectAxe, checkA11y } = require('axe-playwright');
 
-describe('DatePicker', () => {
-  describe('disabled', () => {
-    beforeEach(async () => {
+const { test, expect } = require('@playwright/test');
+
+test.describe.parallel('DatePicker', () => {
+  test.describe('disabled', () => {
+    test.beforeEach(async ({ page }) => {
       // This is the URL of the Storybook Iframe
       await page.goto(
         'http://localhost:6006/iframe.html?id=design-system-components-datepicker--disabled&viewMode=story',
@@ -10,7 +12,7 @@ describe('DatePicker', () => {
       await injectAxe(page);
     });
 
-    it('triggers axe on the document', async () => {
+    test('triggers axe on the document', async ({ page }) => {
       await checkA11y(page);
     });
 
@@ -22,23 +24,23 @@ describe('DatePicker', () => {
     // });
   });
 
-  describe('base', () => {
-    beforeEach(async () => {
+  test.describe.parallel('base', () => {
+    test.beforeEach(async ({ page }) => {
       // This is the URL of the Storybook Iframe
       await page.goto('http://localhost:6006/iframe.html?id=design-system-components-datepicker--base&viewMode=story');
       await injectAxe(page);
     });
 
-    it('triggers axe on the document', async () => {
+    test('triggers axe on the document', async ({ page }) => {
       await checkA11y(page);
     });
 
-    it('triggers axe on the document with the dropdown open', async () => {
+    test('triggers axe on the document with the dropdown open', async ({ page }) => {
       await page.click('input');
       await checkA11y(page);
     });
 
-    it('selects a value and closes the dialog', async () => {
+    test('selects a value and closes the dialog', async ({ page }) => {
       await page.click('input');
       expect(await page.$('[role="dialog"]')).toBeTruthy();
 
@@ -55,7 +57,9 @@ describe('DatePicker', () => {
       expect(await page.$('[role="dialog"]')).toBeFalsy();
     });
 
-    it('clears the input and sends the focus back to the calendar button when pressing the clear button', async () => {
+    test('clears the input and sends the focus back to the calendar button when pressing the clear button', async ({
+      page,
+    }) => {
       await page.click('input');
       expect(await page.$('[role="dialog"]')).toBeTruthy();
 
@@ -68,7 +72,7 @@ describe('DatePicker', () => {
       await page.click('[aria-label="Clear the datepicker"]');
       const value = await page.$eval('input', (el) => el.value);
       expect(value).toBe('');
-      await expect(page).toHaveFocus('[aria-label="Date picker"]');
+      await expect(page.locator('[aria-label="Date picker"]')).toBeFocused();
     });
   });
 });

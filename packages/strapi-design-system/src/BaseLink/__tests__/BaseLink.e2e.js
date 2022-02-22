@@ -1,7 +1,9 @@
-import { injectAxe, checkA11y } from 'axe-playwright';
+const { injectAxe, checkA11y } = require('axe-playwright');
 
-describe('BaseLink', () => {
-  beforeEach(async () => {
+const { test } = require('@playwright/test');
+
+test.describe.parallel('BaseLink', () => {
+  test.beforeEach(async ({ page }) => {
     // This is the URL of the Storybook Iframe
     await page.goto(
       'http://localhost:6006/iframe.html?id=design-system-technical-components-baselink--base&viewMode=story',
@@ -9,7 +11,7 @@ describe('BaseLink', () => {
     await injectAxe(page);
   });
 
-  it('triggers axe on the document', async () => {
+  test('triggers axe on the document', async ({ page }) => {
     await checkA11y(page);
   });
 });
