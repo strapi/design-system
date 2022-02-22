@@ -2,7 +2,7 @@ const { injectAxe, checkA11y } = require('axe-playwright');
 
 const { test } = require('@playwright/test');
 
-test.describe('IconButton', () => {
+test.describe.parallel('IconButton', () => {
   test.describe('base', () => {
     test('triggers axe on the document', async ({ page }) => {
       await page.goto('/iframe.html?id=design-system-components-iconbutton--base&viewMode=story');

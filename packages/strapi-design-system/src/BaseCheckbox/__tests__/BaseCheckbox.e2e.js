@@ -2,7 +2,7 @@ const { injectAxe, checkA11y } = require('axe-playwright');
 
 const { test, expect } = require('@playwright/test');
 
-test.describe('BaseCheckbox', () => {
+test.describe.parallel('BaseCheckbox', () => {
   test.describe('base', () => {
     test('triggers axe on the document', async ({ page }) => {
       // This is the URL of the Storybook Iframe
