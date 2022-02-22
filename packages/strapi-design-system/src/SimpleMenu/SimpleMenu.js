@@ -85,9 +85,10 @@ MenuItem.propTypes = {
   onClick: PropTypes.func,
 };
 
-export const SimpleMenu = ({ label, children, id, as: asComp, ...props }) => {
+export const SimpleMenu = ({ label, children, id, as: asComp, onOpen = () => {}, onClose = () => {}, ...props }) => {
   const menuButtonRef = useRef();
   const menuId = useId('simplemenu', id);
+  const didMount = useRef(false);
   const [visible, setVisible] = useState(false);
   const [focusedItemIndex, setFocusItem] = useState(0);
   const childrenArray = Children.toArray(children);
@@ -103,6 +104,18 @@ export const SimpleMenu = ({ label, children, id, as: asComp, ...props }) => {
       }
     }
   }, [label]);
+
+  useEffect(() => {
+    if (didMount?.current) {
+      if (visible && typeof onOpen === 'function') {
+        onOpen();
+      } else if (typeof onClose === 'function') {
+        onClose();
+      }
+    } else {
+      didMount.current = true;
+    }
+  }, [didMount, visible]);
 
   /* in case `label` is a custom react component, we know it is going to be
       a child of the menu button.
@@ -205,4 +218,6 @@ SimpleMenu.propTypes = {
   children: PropTypes.oneOfType([PropTypes.arrayOf(menuItemType), menuItemType]).isRequired,
   id: PropTypes.string,
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.element]).isRequired,
+  onClose: PropTypes.func,
+  onOpen: PropTypes.func,
 };
