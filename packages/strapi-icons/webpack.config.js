@@ -3,9 +3,9 @@ const fs = require('fs');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-const fileNames = fs
-  .readdirSync(path.resolve(__dirname, 'src'))
-  .map((fileName) => fileName.substr(0, fileName.length - 3));
+const fileNames = Array.from(new Set(fs.readdirSync(path.resolve(__dirname, 'src')))).map((fileName) =>
+  fileName.substr(0, fileName.length - 3),
+);
 
 const entry = fileNames.reduce((acc, curr) => {
   acc[curr] = path.resolve(__dirname, 'src', `${curr}.js`);
