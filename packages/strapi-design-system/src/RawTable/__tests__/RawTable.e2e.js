@@ -1,169 +1,171 @@
-import { injectAxe, checkA11y } from 'axe-playwright';
+const { injectAxe, checkA11y } = require('axe-playwright');
 
-describe('RawTable', () => {
-  describe('Default story', () => {
-    beforeEach(async () => {
+const { test, expect } = require('@playwright/test');
+
+test.describe.parallel('RawTable', () => {
+  test.describe('Default story', () => {
+    test.beforeEach(async ({ page }) => {
       // This is the URL of the Storybook Iframe
-      await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-technical-components-rawtable--base&viewMode=story',
-      );
+      await page.goto('/iframe.html?id=design-system-technical-components-rawtable--base&viewMode=story');
       await injectAxe(page);
     });
 
-    it('triggers axe on the document', async () => {
+    test('triggers axe on the document', async ({ page }) => {
       await checkA11y(page);
     });
 
-    describe('Keyboard interactions', () => {
-      beforeEach(async () => {
+    test.describe('Keyboard interactions', () => {
+      test.beforeEach(async ({ page }) => {
         await page.keyboard.press('Tab');
-        await expect(page).toHaveFocus('[aria-rowindex="1"] > [aria-colindex="1"]');
+        await expect(page.locator('[aria-rowindex="1"] > [aria-colindex="1"]')).toBeFocused();
       });
 
-      it('focus the next element in the row when pressing ArrowDown', async () => {
+      test('focus the next element in the row when pressing ArrowDown', async ({ page }) => {
         await page.keyboard.press('ArrowDown');
         await page.keyboard.press('ArrowDown');
         await page.keyboard.press('ArrowDown');
 
-        await expect(page).toHaveFocus('[aria-rowindex="4"] > [aria-colindex="1"]');
+        await expect(page.locator('[aria-rowindex="4"] > [aria-colindex="1"]')).toBeFocused();
       });
 
-      it('focus the previous element in the row when pressing ArrowUp', async () => {
+      test('focus the previous element in the row when pressing ArrowUp', async ({ page }) => {
         await page.keyboard.press('ArrowDown');
         await page.keyboard.press('ArrowDown');
         await page.keyboard.press('ArrowDown');
         await page.keyboard.press('ArrowUp');
         await page.keyboard.press('ArrowUp');
 
-        await expect(page).toHaveFocus('[aria-rowindex="2"] > [aria-colindex="1"]');
+        await expect(page.locator('[aria-rowindex="2"] > [aria-colindex="1"]')).toBeFocused();
       });
 
-      it('focus the next element in the col when pressing ArrowRight', async () => {
+      test('focus the next element in the col when pressing ArrowRight', async ({ page }) => {
         await page.keyboard.press('ArrowRight');
         await page.keyboard.press('ArrowRight');
         await page.keyboard.press('ArrowRight');
 
-        await expect(page).toHaveFocus('[aria-rowindex="1"] > [aria-colindex="4"]');
+        await expect(page.locator('[aria-rowindex="1"] > [aria-colindex="4"]')).toBeFocused();
       });
 
-      it('focus the previous element in the col when pressing ArrowLeft', async () => {
+      test('focus the previous element in the col when pressing ArrowLeft', async ({ page }) => {
         await page.keyboard.press('ArrowRight');
         await page.keyboard.press('ArrowRight');
         await page.keyboard.press('ArrowLeft');
 
-        await expect(page).toHaveFocus('[aria-rowindex="1"] > [aria-colindex="2"]');
+        await expect(page.locator('[aria-rowindex="1"] > [aria-colindex="2"]')).toBeFocused();
       });
 
-      it('focus the last element on the row when pressing End', async () => {
+      test('focus the last element on the row when pressing End', async ({ page }) => {
         await page.keyboard.press('End');
 
-        await expect(page).toHaveFocus('[aria-rowindex="1"] > [aria-colindex="5"]');
+        await expect(page.locator('[aria-rowindex="1"] > [aria-colindex="5"]')).toBeFocused();
       });
 
-      it('focus the last element on the last row when pressing End AND ctrl', async () => {
+      test('focus the last element on the last row when pressing End AND ctrl', async ({ page }) => {
         await page.keyboard.press('Control+End');
 
-        await expect(page).toHaveFocus('[aria-rowindex="30"] > [aria-colindex="5"]');
+        await expect(page.locator('[aria-rowindex="30"] > [aria-colindex="5"]')).toBeFocused();
       });
 
-      it('focus the first element on the row when pressing Home', async () => {
+      test('focus the first element on the row when pressing Home', async ({ page }) => {
         await page.keyboard.press('End');
         await page.keyboard.press('Home');
 
-        await expect(page).toHaveFocus('[aria-rowindex="1"] > [aria-colindex="1"]');
+        await expect(page.locator('[aria-rowindex="1"] > [aria-colindex="1"]')).toBeFocused();
       });
 
-      it('focus the first element on the first row when pressing Home AND ctrl', async () => {
+      test('focus the first element on the first row when pressing Home AND ctrl', async ({ page }) => {
         await page.keyboard.press('Control+End');
         await page.keyboard.press('Control+Home');
 
-        await expect(page).toHaveFocus('[aria-rowindex="1"] > [aria-colindex="1"]');
+        await expect(page.locator('[aria-rowindex="1"] > [aria-colindex="1"]')).toBeFocused();
       });
 
-      it('focus the first element on the first row when pressing Page', async () => {
+      test('focus the first element on the first row when pressing Page', async ({ page }) => {
         await page.keyboard.press('End');
         await page.keyboard.press('Home');
 
-        await expect(page).toHaveFocus('[aria-rowindex="1"] > [aria-colindex="1"]');
+        await expect(page.locator('[aria-rowindex="1"] > [aria-colindex="1"]')).toBeFocused();
       });
 
-      it('keeps focusing the most left positioned cell when pressing ArrowLeft on it', async () => {
+      test('keeps focusing the most left positioned cell when pressing ArrowLeft on it', async ({ page }) => {
         await page.keyboard.press('ArrowLeft');
 
-        await expect(page).toHaveFocus('[aria-rowindex="1"] > [aria-colindex="1"]');
+        await expect(page.locator('[aria-rowindex="1"] > [aria-colindex="1"]')).toBeFocused();
       });
 
-      it('keeps focusing the most top positioned cell when pressing ArrowTop on it', async () => {
+      test('keeps focusing the most top positioned cell when pressing ArrowTop on it', async ({ page }) => {
         await page.keyboard.press('ArrowUp');
 
-        await expect(page).toHaveFocus('[aria-rowindex="1"] > [aria-colindex="1"]');
+        await expect(page.locator('[aria-rowindex="1"] > [aria-colindex="1"]')).toBeFocused();
       });
 
-      it('keeps focusing the most right positioned cell when pressing ArrowRight on it', async () => {
+      test('keeps focusing the most right positioned cell when pressing ArrowRight on it', async ({ page }) => {
         await page.keyboard.press('End');
         await page.keyboard.press('ArrowRight');
 
-        await expect(page).toHaveFocus('[aria-rowindex="1"] > [aria-colindex="5"]');
+        await expect(page.locator('[aria-rowindex="1"] > [aria-colindex="5"]')).toBeFocused();
       });
 
-      it('keeps focusing the most bottom positioned cell when pressing ArrowDown on it', async () => {
+      test('keeps focusing the most bottom positioned cell when pressing ArrowDown on it', async ({ page }) => {
         await page.keyboard.press('Control+End');
         await page.keyboard.press('ArrowDown');
 
-        await expect(page).toHaveFocus('[aria-rowindex="30"] > [aria-colindex="5"]');
+        await expect(page.locator('[aria-rowindex="30"] > [aria-colindex="5"]')).toBeFocused();
       });
 
-      it('focus the cell 3 rows below when pressing PageDown', async () => {
+      test('focus the cell 3 rows below when pressing PageDown', async ({ page }) => {
         await page.keyboard.press('PageDown');
 
-        await expect(page).toHaveFocus('[aria-rowindex="4"] > [aria-colindex="1"]');
+        await expect(page.locator('[aria-rowindex="4"] > [aria-colindex="1"]')).toBeFocused();
       });
 
-      it('focus the cell 2 rows below when pressing PageDown and that there s only space for jumping 2 rows', async () => {
+      test('focus the cell 2 rows below when pressing PageDown and that there s only space for jumping 2 rows', async ({
+        page,
+      }) => {
         await page.keyboard.press('Control+End');
         await page.keyboard.press('ArrowUp');
         await page.keyboard.press('PageDown');
 
-        await expect(page).toHaveFocus('[aria-rowindex="30"] > [aria-colindex="5"]');
+        await expect(page.locator('[aria-rowindex="30"] > [aria-colindex="5"]')).toBeFocused();
       });
 
-      it('focus the cell 3 rows above when pressing PageUp', async () => {
+      test('focus the cell 3 rows above when pressing PageUp', async ({ page }) => {
         await page.keyboard.press('Control+End');
         await page.keyboard.press('PageUp');
 
-        await expect(page).toHaveFocus('[aria-rowindex="27"] > [aria-colindex="5"]');
+        await expect(page.locator('[aria-rowindex="27"] > [aria-colindex="5"]')).toBeFocused();
       });
 
-      it('focus the cell 2 rows above when pressing PageUp and that there s only space for jumping 2 rows', async () => {
+      test('focus the cell 2 rows above when pressing PageUp and that there s only space for jumping 2 rows', async ({
+        page,
+      }) => {
         await page.keyboard.press('ArrowUp');
         await page.keyboard.press('ArrowUp');
         await page.keyboard.press('PageUp');
 
-        await expect(page).toHaveFocus('[aria-rowindex="1"] > [aria-colindex="1"]');
+        await expect(page.locator('[aria-rowindex="1"] > [aria-colindex="1"]')).toBeFocused();
       });
     });
   });
 
-  describe('Simple story', () => {
-    beforeEach(async () => {
+  test.describe('Simple story', () => {
+    test.beforeEach(async ({ page }) => {
       // This is the URL of the Storybook Iframe
-      await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-technical-components-rawtable--simple&viewMode=story',
-      );
+      await page.goto('/iframe.html?id=design-system-technical-components-rawtable--simple&viewMode=story');
       await injectAxe(page);
     });
 
-    it('triggers axe on the document', async () => {
+    test('triggers axe on the document', async ({ page }) => {
       await checkA11y(page);
     });
 
-    describe('Keyboard interactions', () => {
-      beforeEach(async () => {
+    test.describe('Keyboard interactions', () => {
+      test.beforeEach(async ({ page }) => {
         await page.keyboard.press('Tab');
-        await expect(page).toHaveFocus('[aria-rowindex="1"] > [aria-colindex="1"]');
+        await expect(page.locator('[aria-rowindex="1"] > [aria-colindex="1"]')).toBeFocused();
       });
 
-      it('focus the next element in the row when pressing ArrowDown', async () => {
+      test('focus the next element in the row when pressing ArrowDown', async ({ page }) => {
         await page.keyboard.press('ArrowDown');
         await page.keyboard.press('ArrowDown');
         await page.keyboard.press('ArrowRight');
@@ -180,8 +182,8 @@ describe('RawTable', () => {
 
         expect(tabIndexA).toBe('0');
 
-        await expect(page).not.toHaveFocus('[aria-rowindex="3"] > [aria-colindex="2"]');
-        await expect(page).toHaveFocus('[aria-rowindex="3"] > [aria-colindex="2"] > a');
+        await expect(page.locator('[aria-rowindex="3"] > [aria-colindex="2"]')).not.toBeFocused();
+        await expect(page.locator('[aria-rowindex="3"] > [aria-colindex="2"] > a')).toBeFocused();
       });
     });
   });

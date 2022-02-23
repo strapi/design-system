@@ -1,13 +1,15 @@
-import { injectAxe, checkA11y } from 'axe-playwright';
+const { injectAxe, checkA11y } = require('axe-playwright');
 
-describe('Loader', () => {
-  beforeEach(async () => {
+const { test } = require('@playwright/test');
+
+test.describe.parallel('Loader', () => {
+  test.beforeEach(async ({ page }) => {
     // This is the URL of the Storybook Iframe
-    await page.goto('http://localhost:6006/iframe.html?id=design-system-components-loader--base&viewMode=story');
+    await page.goto('/iframe.html?id=design-system-components-loader--base&viewMode=story');
     await injectAxe(page);
   });
 
-  it('triggers axe on the document', async () => {
+  test('triggers axe on the document', async ({ page }) => {
     await checkA11y(page);
   });
 });

@@ -1,13 +1,14 @@
-import { injectAxe, getViolations } from 'axe-playwright';
+const { injectAxe, getViolations } = require('axe-playwright');
+const { test, expect } = require('@playwright/test');
 
-describe('ModalLayout', () => {
-  beforeEach(async () => {
+test.describe.parallel('ModalLayout', () => {
+  test.beforeEach(async ({ page }) => {
     // This is the URL of the Storybook Iframe
-    await page.goto('http://localhost:6006/iframe.html?id=design-system-components-modallayout--base&viewMode=story');
+    await page.goto('/iframe.html?id=design-system-components-modallayout--base&viewMode=story');
     await injectAxe(page);
   });
 
-  it('triggers axe on the document', async () => {
+  test('triggers axe on the document', async ({ page }) => {
     const violations = await getViolations(page);
 
     // Axe throws an error about landmark for the role dialog

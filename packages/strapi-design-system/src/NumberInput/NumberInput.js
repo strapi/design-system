@@ -6,8 +6,6 @@ import { sizes } from '../themes/sizes';
 import { NumberFormatter, NumberParser } from '@internationalized/number';
 import { Field, FieldLabel, FieldHint, FieldError, FieldInput } from '../Field';
 import { Stack } from '../Stack';
-import { Flex } from '../Flex';
-import { Box } from '../Box';
 import { Icon } from '../Icon';
 import { useId } from '../helpers/useId';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
@@ -168,10 +166,9 @@ export const NumberInput = React.forwardRef(
       <Field name={name} hint={hint} error={error} id={generatedId}>
         <Stack size={1}>
           {label && (
-            <Flex cols="auto auto 1fr" gap={1}>
-              <FieldLabel required={required}>{label}</FieldLabel>
-              {labelAction && <Box paddingLeft={1}>{labelAction}</Box>}
-            </Flex>
+            <FieldLabel required={required} action={labelAction}>
+              {label}
+            </FieldLabel>
           )}
           <FieldInput
             ref={ref}

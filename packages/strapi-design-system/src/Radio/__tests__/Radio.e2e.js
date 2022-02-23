@@ -1,29 +1,55 @@
-import { injectAxe, checkA11y } from 'axe-playwright';
+const { injectAxe, checkA11y } = require('axe-playwright');
 
-describe('Radio', () => {
-  beforeEach(async () => {
+const { test, expect } = require('@playwright/test');
+
+test.describe.parallel('Radio', () => {
+  test.beforeEach(async ({ page }) => {
     // This is the URL of the Storybook Iframe
-    await page.goto('http://localhost:6006/iframe.html?id=design-system-components-radio--base&viewMode=story');
+    await page.goto('/iframe.html?id=design-system-components-radio--base&viewMode=story');
     await injectAxe(page);
   });
 
-  it('triggers axe on the document', async () => {
+  test('triggers axe on the document', async ({ page }) => {
     await checkA11y(page);
   });
 
-  it.each(['ArrowDown', 'ArrowRight'])('moves to the next element when pressing %s', async (keyPressed) => {
+  test('moves to the next element when pressing ArrowDown', async ({ page }) => {
     await page.focus('[value="pizza"]');
-    await page.keyboard.press(keyPressed);
+    await page.keyboard.press('ArrowDown');
 
     const secondBox = await page.$('[value="bagel"]');
-    expect(await secondBox?.isChecked()).toBe(true);
+    if (secondBox) {
+      expect(await secondBox.isChecked()).toBe(true);
+    }
   });
 
-  it.each(['ArrowUp', 'ArrowLeft'])('moves to the previous element when pressing %s', async (keyPressed) => {
+  test('moves to the next element when pressing ArrowRight', async ({ page }) => {
+    await page.focus('[value="pizza"]');
+    await page.keyboard.press('ArrowRight');
+
+    const secondBox = await page.$('[value="bagel"]');
+    if (secondBox) {
+      expect(await secondBox.isChecked()).toBe(true);
+    }
+  });
+
+  test('moves to the previous element when pressing ArrowUp', async ({ page }) => {
     await page.focus('[value="bagel"]');
-    await page.keyboard.press(keyPressed);
+    await page.keyboard.press('ArrowUp');
 
     const pizzaRadio = await page.$('[value="pizza"]');
-    expect(await pizzaRadio?.isChecked()).toBe(true);
+    if (pizzaRadio) {
+      expect(await pizzaRadio.isChecked()).toBe(true);
+    }
+  });
+
+  test('moves to the previous element when pressing ArrowLeft', async ({ page }) => {
+    await page.focus('[value="bagel"]');
+    await page.keyboard.press('ArrowLeft');
+
+    const pizzaRadio = await page.$('[value="pizza"]');
+    if (pizzaRadio) {
+      expect(await pizzaRadio.isChecked()).toBe(true);
+    }
   });
 });

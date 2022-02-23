@@ -1,45 +1,43 @@
-import { injectAxe, checkA11y } from 'axe-playwright';
+const { injectAxe, checkA11y } = require('axe-playwright');
 
-describe('Field', () => {
-  describe('base', () => {
-    it('triggers axe on the document', async () => {
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-components-field--base&viewMode=story');
+const { test } = require('@playwright/test');
+
+test.describe.parallel('Field', () => {
+  test.describe('base', () => {
+    test('triggers axe on the document', async ({ page }) => {
+      await page.goto('/iframe.html?id=design-system-components-field--base&viewMode=story');
       await injectAxe(page);
       await checkA11y(page);
     });
   });
 
-  describe('with description', () => {
-    it('triggers axe on the document', async () => {
-      await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-components-field--with-description&viewMode=story',
-      );
+  test.describe('with description', () => {
+    test('triggers axe on the document', async ({ page }) => {
+      await page.goto('/iframe.html?id=design-system-components-field--with-description&viewMode=story');
       await injectAxe(page);
       await checkA11y(page);
     });
   });
 
-  describe('with error', () => {
-    it('triggers axe on the document', async () => {
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-components-field--with-error&viewMode=story');
+  test.describe('with error', () => {
+    test('triggers axe on the document', async ({ page }) => {
+      await page.goto('/iframe.html?id=design-system-components-field--with-error&viewMode=story');
       await injectAxe(page);
       await checkA11y(page);
     });
   });
 
-  describe('disabled', () => {
-    it('triggers axe on the document', async () => {
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-components-field--disabled&viewMode=story');
+  test.describe('disabled', () => {
+    test('triggers axe on the document', async ({ page }) => {
+      await page.goto('/iframe.html?id=design-system-components-field--disabled&viewMode=story');
       await injectAxe(page);
       await checkA11y(page);
     });
   });
 
-  describe('most complex input', () => {
-    it('triggers axe on the document', async () => {
-      await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-components-field--most-complex-input&viewMode=story',
-      );
+  test.describe('most complex input', () => {
+    test('triggers axe on the document', async ({ page }) => {
+      await page.goto('/iframe.html?id=design-system-components-field--most-complex-input&viewMode=story');
       await injectAxe(page);
       await checkA11y(page);
     });
