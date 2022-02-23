@@ -1,5 +1,5 @@
 import { extendTheme } from '../extendTheme';
-import { lightTheme } from '../light-theme';
+import { lightTheme } from '../lightTheme';
 
 Object.freeze(lightTheme);
 

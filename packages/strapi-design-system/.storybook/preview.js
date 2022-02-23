@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from '../src/ThemeProvider';
 import { VisuallyHidden } from '../src/VisuallyHidden';
-import { lightTheme } from '../src/themes/light-theme';
+import { lightTheme } from '../src/themes/lightTheme';
 
 export const parameters = {
   options: {
