@@ -2,4 +2,5 @@ assets
 src
 yarn.lock
 webpack.config.js
+.eslintrc.js
 .prettierrc.js
