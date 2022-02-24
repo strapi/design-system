@@ -14,7 +14,17 @@ test.describe.parallel('SimpleMenu', () => {
       await checkA11y(page);
     });
 
-    test('triggers axe on the document when the menu is opened', async ({ page }) => {
+    describe('sizes', () => {
+      it('triggers axe on the document', async () => {
+        await page.goto(
+          'http://localhost:6006/iframe.html?id=design-system-components-simplemenu--sizes&viewMode=story',
+        );
+        await injectAxe(page);
+        await checkA11y(page);
+      });
+    });
+
+    it('triggers axe on the document when the menu is opened', async () => {
       await page.click('#root button');
 
       await expect(page.locator('[role="menu"]')).toBeVisible();

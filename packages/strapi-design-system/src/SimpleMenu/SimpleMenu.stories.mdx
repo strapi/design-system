@@ -6,6 +6,7 @@ import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import CarretDown from '@strapi/icons/CarretDown';
 import { SimpleMenu, MenuItem } from './SimpleMenu';
 import { IconButton } from '../IconButton';
+import { Stack } from '../Stack';
 
 <Meta title="Design System/Components/SimpleMenu" component={SimpleMenu} />
 
@@ -111,6 +112,27 @@ A menu can allow the user to make actions. It can redirect the user to another p
       <MenuItem>Home</MenuItem>
       <MenuItem>Somewhere internal</MenuItem>
     </SimpleMenu>
+  </Story>
+</Canvas>
+
+### Sizes
+
+Use the size prop to change the size of the button. You can set the value to `S` or `M` (by default `M` is being used).
+If a custom component is rendered (through the `as` prop), the size is passed through, but needs to be handled in
+that component.
+
+<Canvas>
+  <Story name="sizes">
+    <Stack horizontal size={4}>
+      <SimpleMenu label="Small Menu" size="S" icon={<CarretDown />}>
+        <MenuItem>Home</MenuItem>
+        <MenuItem>Somewhere internal</MenuItem>
+      </SimpleMenu>
+      <SimpleMenu label="Medium Menu" icon={<CarretDown />}>
+        <MenuItem>Home</MenuItem>
+        <MenuItem>Somewhere internal</MenuItem>
+      </SimpleMenu>
+    </Stack>
   </Story>
 </Canvas>
 

@@ -34,6 +34,10 @@ const IconWrapper = styled.span`
   }
 `;
 
+const StyledButtonSmall = styled(Button)`
+  padding: ${({ theme }) => `${theme.spaces[1]} ${theme.spaces[3]}`};
+`;
+
 export const MenuItem = ({ as, children, onClick, isFocused, isLink, ...props }) => {
   const menuItemRef = useRef();
 
@@ -85,14 +89,15 @@ MenuItem.propTypes = {
   onClick: PropTypes.func,
 };
 
-export const SimpleMenu = ({ label, children, id, as: asComp, onOpen = () => {}, onClose = () => {}, ...props }) => {
+export const SimpleMenu = ({ label, children, id, as: asComp, onOpen = () => {}, onClose = () => {}, size = 'M', ...props }) => {
   const menuButtonRef = useRef();
   const menuId = useId('simplemenu', id);
   const didMount = useRef(false);
   const [visible, setVisible] = useState(false);
   const [focusedItemIndex, setFocusItem] = useState(0);
   const childrenArray = Children.toArray(children);
-  const Component = asComp || Button;
+  const DefaultComponent = size === 'S' ? StyledButtonSmall : Button;
+  const Component = asComp || DefaultComponent;
 
   useEffect(() => {
     if (['string', 'number'].includes(typeof label)) {
@@ -185,6 +190,7 @@ export const SimpleMenu = ({ label, children, id, as: asComp, onOpen = () => {},
         ref={menuButtonRef}
         type="button"
         variant="ghost"
+        size={size}
         endIcon={
           <IconWrapper>
             <CarretDown aria-hidden />
@@ -213,6 +219,10 @@ SimpleMenu.displayName = 'SimpleMenu';
 
 const menuItemType = PropTypes.shape({ type: PropTypes.oneOf([MenuItem]) });
 
+SimpleMenu.defaultProps = {
+  size: 'M',
+};
+
 SimpleMenu.propTypes = {
   as: PropTypes.any,
   children: PropTypes.oneOfType([PropTypes.arrayOf(menuItemType), menuItemType]).isRequired,
@@ -220,4 +230,10 @@ SimpleMenu.propTypes = {
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.element]).isRequired,
   onClose: PropTypes.func,
   onOpen: PropTypes.func,
+
+  /**
+   * Size of the trigger button
+   */
+
+  size: Proptypes.oneOf(['S', 'M']),
 };
