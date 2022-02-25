@@ -12,7 +12,7 @@ export const NavSection = ({ label, children, ...props }) => {
 
   if (condensed) {
     return (
-      <Stack size={2}>
+      <Stack spacing={2}>
         <Box paddingTop={1} paddingBottom={1} background="neutral0" hasRadius as="span">
           <Divider />
 
@@ -21,7 +21,7 @@ export const NavSection = ({ label, children, ...props }) => {
           </VisuallyHidden>
         </Box>
 
-        <Stack as="ul" size={2} {...props}>
+        <Stack as="ul" spacing={2} {...props}>
           {Children.map(children, (child, index) => {
             return <li key={index}>{child}</li>;
           })}
@@ -31,14 +31,14 @@ export const NavSection = ({ label, children, ...props }) => {
   }
 
   return (
-    <Stack size={2}>
+    <Stack spacing={2}>
       <Box paddingTop={1} paddingBottom={1} background="neutral0" paddingRight={3} paddingLeft={3} hasRadius as="span">
         <Typography variant="sigma" textColor="neutral600">
           {label}
         </Typography>
       </Box>
 
-      <Stack as="ul" size={2} {...props}>
+      <Stack as="ul" spacing={2} {...props}>
         {Children.map(children, (child, index) => {
           return <li key={index}>{child}</li>;
         })}

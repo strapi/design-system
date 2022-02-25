@@ -23,7 +23,7 @@ const StackV = styled(Box).withConfig({
   }
 
   & > * + * {
-    margin-top: ${({ theme, size }) => theme.spaces[size]};
+    margin-top: ${({ theme, spacing }) => theme.spaces[spacing]};
   }
 `;
 
@@ -36,16 +36,16 @@ const StackH = styled(Flex).withConfig({
   }
 
   & > * + * {
-    margin-left: ${({ theme, size }) => theme.spaces[size]};
+    margin-left: ${({ theme, spacing }) => theme.spaces[spacing]};
   }
 `;
 
-export const Stack = forwardRef(({ horizontal, size, ...props }, ref) => {
+export const Stack = forwardRef(({ horizontal, spacing, ...props }, ref) => {
   if (horizontal) {
-    return <StackH ref={ref} size={size} {...props} />;
+    return <StackH ref={ref} spacing={spacing} {...props} />;
   }
 
-  return <StackV ref={ref} size={size} {...props} />;
+  return <StackV ref={ref} spacing={spacing} {...props} />;
 });
 
 Stack.displayName = 'Stack';
@@ -55,6 +55,13 @@ Stack.defaultProps = {
 };
 
 Stack.propTypes = {
+  /**
+   * If `true`, align the `Stack` item horizontally.
+   */
   horizontal: PropTypes.bool,
-  size: PropTypes.number.isRequired,
+  /**
+   * The space between stack item.
+   * See [theme.spaces](https://design-system-git-main-strapijs.vercel.app/?path=/story/design-system-components-lighttheme--spaces)
+   */
+  spacing: PropTypes.number.isRequired,
 };

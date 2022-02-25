@@ -54,7 +54,7 @@ The default Select.
       const [error, toggleError] = useState();
       const [disabled, toggleDisabled] = useState();
       return (
-        <Stack size={11}>
+        <Stack spacing={11}>
           <h2>Current value is {value}</h2>
           <Select
             id="select1"
@@ -99,7 +99,7 @@ The default Select.
       const [error, toggleError] = useState();
       const [disabled, toggleDisabled] = useState();
       return (
-        <Stack size={11}>
+        <Stack spacing={11}>
           <h2>Current value is {value}</h2>
           <Select
             id="select1"
@@ -144,7 +144,7 @@ In a multi select component, the "0 currently selected" text, can be changed but
       const [error, toggleError] = useState();
       const [disabled, toggleDisabled] = useState();
       return (
-        <Stack size={11}>
+        <Stack spacing={11}>
           <h2>Current value is {values.join(', ')}</h2>
           <Select
             id="select1"
@@ -183,7 +183,7 @@ A multi Select allow users to visually select multiple options from a list. Pref
       const [error, toggleError] = useState();
       const [disabled, toggleDisabled] = useState();
       return (
-        <Stack size={11}>
+        <Stack spacing={11}>
           <h2>Current value is {values.join(', ')}</h2>
           <Select
             id="select1"
@@ -228,7 +228,7 @@ Select should be scaled down if they aimed to be placed in a smaller portions of
     {() => {
       const [values, setValues] = useState([]);
       return (
-        <Stack size={11}>
+        <Stack spacing={11}>
           <Select
             id="select1"
             label="Choose your meal"
@@ -302,7 +302,7 @@ In a multi select component, the "0 currently selected" text, can be changed but
       ];
       const [values, setValues] = useState([]);
       return (
-        <Stack size={11}>
+        <Stack spacing={11}>
           <h2>Current value is {values.join(', ')}</h2>
           <MultiSelectNested
             id="select1"

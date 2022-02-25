@@ -95,7 +95,7 @@ export const AccordionToggle = ({ title, description, as, togglePosition, action
         size={size}
         cursor={disabled ? 'not-allowed' : ''}
       >
-        <Stack horizontal size={3} flex={1}>
+        <Stack horizontal spacing={3} flex={1}>
           {dropdownIcon}
 
           <ToggleButton
@@ -178,7 +178,7 @@ export const AccordionToggle = ({ title, description, as, togglePosition, action
         </>
       </ToggleButton>
 
-      <Stack horizontal size={3}>
+      <Stack horizontal spacing={3}>
         {dropdownIcon}
         {action}
       </Stack>
