@@ -37,7 +37,7 @@ export const ButtonWrapper = styled(BaseButton)`
     align-items: center;
   }
   ${Typography} {
-    color: ${({ theme }) => theme.colors.neutral0};
+    color: ${({ theme }) => theme.colors.buttonNeutral0};
   }
   &[aria-disabled='true'] {
     ${getDisabledStyle}

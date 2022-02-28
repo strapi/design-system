@@ -30,7 +30,7 @@ This is the light colors used for the light mode
     {() => {
       const theme = useTheme();
       /* Excluding warning since they don't have enough contrast on for neutral900 and neutral0 */
-      const colorsKey = Object.keys(theme.colors).filter((color) => !color.includes('warning'));
+      const colorsKey = Object.keys(theme.colors).filter((color) => !color.includes('warning') && !color.includes('button'));
       const colors = [];
       const conditions = ['600', '700', '800', '900', '1000'];
       let ruptureKey;
@@ -81,7 +81,7 @@ This is the dark colors used for the light mode
     {() => {
       const { color } = darkColorTokenObject;
       /* Excluding warning since they don't have enough contrast on for neutral900 and neutral0 */
-      const colorsKey = Object.keys(color).filter((color) => !color.includes('warning'));
+      const colorsKey = Object.keys(color).filter((color) => !color.includes('warning') && !color.includes('button'));
       const colors = [];
       const conditions = ['600', '700', '800', '900', '1000'];
       let ruptureKey;

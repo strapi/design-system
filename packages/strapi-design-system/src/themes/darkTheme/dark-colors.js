@@ -5,6 +5,7 @@ export const darkColorTokenObject = {
     alternative500: '#ac73e6',
     alternative600: '#f6ecfc',
     alternative700: '#e0c1f4',
+    buttonNeutral0: '#ffffff',
     danger100: '#212134',
     danger200: '#4a4a6a',
     danger500: '#ee5e52',
