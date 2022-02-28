@@ -15,7 +15,7 @@ const rotation = keyframes`
 
 const LoaderImg = styled.img`
   animation: ${rotation} 1s infinite linear;
-  ${({ small }) => small && `width: 25px; height: 25px;`}
+  ${({ small, theme }) => small && `width: ${theme.spaces[6]}; height: ${theme.spaces[6]};`}
 `;
 
 export const Loader = forwardRef(({ children, small, ...props }, ref) => {
