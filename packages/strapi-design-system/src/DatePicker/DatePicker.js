@@ -20,6 +20,8 @@ export const DatePicker = ({
   onClear,
   clearLabel,
   disabled,
+  minDate,
+  maxDate,
   id,
   ...props
 }) => {
@@ -28,7 +30,7 @@ export const DatePicker = ({
   const inputRef = useRef(null);
   const datePickerButtonRef = useRef(null);
   const formattedDate = selectedDate ? formatDate(selectedDate) : '';
-  const placeholder = formatDate(new Date(1970, 0, 1));
+  const placeholder = formatDate(new Date());
 
   const toggleVisibility = () => {
     if (disabled) return;
@@ -90,6 +92,8 @@ export const DatePicker = ({
           onChange={handleChange}
           popoverSource={inputRef.current.inputWrapperRef}
           label={label || ariaLabel}
+          minDate={minDate}
+          maxDate={maxDate}
         />
       )}
     </DatePickerWrapper>
@@ -115,6 +119,8 @@ DatePicker.propTypes = {
   id: PropTypes.string,
   initialDate: PropTypes.instanceOf(Date),
   label: PropTypes.string,
+  maxDate: PropTypes.instanceOf(Date),
+  minDate: PropTypes.instanceOf(Date),
   onChange: PropTypes.func.isRequired,
   onClear: PropTypes.func,
   selectedDate: PropTypes.instanceOf(Date),

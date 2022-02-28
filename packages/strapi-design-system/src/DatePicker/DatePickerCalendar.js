@@ -11,12 +11,12 @@ import { DatePickerTd } from './DatePickerTd';
 import { FocusTrap } from '../FocusTrap';
 import { getMonths, getDayOfWeek, generateWeeks, getYears, formatDate } from './utils';
 
-export const DatePickerCalendar = ({ selectedDate, initialDate, popoverSource, onChange, label }) => {
+export const DatePickerCalendar = ({ selectedDate, initialDate, popoverSource, onChange, label, minDate, maxDate }) => {
   const [date, setDate] = useState(initialDate);
   const [weeks, activeRow, activeCol] = generateWeeks(date, selectedDate);
   const { sun, mon, tue, wed, thu, fri, sat } = getDayOfWeek();
   const months = getMonths();
-  const years = getYears();
+  const years = getYears(minDate, maxDate);
 
   useEffect(() => {
     if (selectedDate) {
@@ -104,6 +104,18 @@ DatePickerCalendar.defaultProps = { selectedDate: undefined, initialDate: new Da
 DatePickerCalendar.propTypes = {
   initialDate: PropTypes.instanceOf(Date),
   label: PropTypes.string.isRequired,
+
+  /*
+   * Maximum year, that can be selected through the year select
+   */
+
+  maxDate: PropTypes.instanceOf(Date),
+
+  /*
+   * Minimum year, that can be selected through the year select
+   */
+
+  minDate: PropTypes.instanceOf(Date),
   onChange: PropTypes.func.isRequired,
   popoverSource: PropTypes.shape({ current: PropTypes.instanceOf(Element) }).isRequired,
   selectedDate: PropTypes.instanceOf(Date),
