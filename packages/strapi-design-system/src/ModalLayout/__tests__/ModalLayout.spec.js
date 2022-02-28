@@ -351,7 +351,7 @@ describe('ModalLayout', () => {
         position: fixed;
         z-index: 4;
         inset: 0;
-        background: rgb(220,220,228,0.8);
+        background: #32324d1F;
         padding: 0 40px;
         display: -webkit-box;
         display: -webkit-flex;

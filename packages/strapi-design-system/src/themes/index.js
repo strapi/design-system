@@ -1,3 +1,4 @@
-export * from './light-theme';
+export * from './lightTheme';
+export * from './darkTheme';
 export * from './extendTheme';
 export * from './utils';
