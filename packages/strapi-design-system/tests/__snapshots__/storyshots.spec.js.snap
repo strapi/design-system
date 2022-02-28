@@ -11618,6 +11618,7 @@ exports[`Storyshots Design System/Components/DatePicker base 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c8::-webkit-input-placeholder {
@@ -11641,7 +11642,6 @@ exports[`Storyshots Design System/Components/DatePicker base 1`] = `
 }
 
 .c8[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -11847,6 +11847,7 @@ exports[`Storyshots Design System/Components/DatePicker disabled 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c8::-webkit-input-placeholder {
@@ -11870,7 +11871,6 @@ exports[`Storyshots Design System/Components/DatePicker disabled 1`] = `
 }
 
 .c8[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -12079,6 +12079,7 @@ exports[`Storyshots Design System/Components/DatePicker size S 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c8::-webkit-input-placeholder {
@@ -12102,7 +12103,6 @@ exports[`Storyshots Design System/Components/DatePicker size S 1`] = `
 }
 
 .c8[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -13346,6 +13346,7 @@ exports[`Storyshots Design System/Components/Field base 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c6::-webkit-input-placeholder {
@@ -13369,7 +13370,6 @@ exports[`Storyshots Design System/Components/Field base 1`] = `
 }
 
 .c6[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -13525,6 +13525,7 @@ exports[`Storyshots Design System/Components/Field disabled 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c6::-webkit-input-placeholder {
@@ -13548,7 +13549,6 @@ exports[`Storyshots Design System/Components/Field disabled 1`] = `
 }
 
 .c6[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -13730,6 +13730,7 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c10::-webkit-input-placeholder {
@@ -13753,7 +13754,6 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
 }
 
 .c10[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -14042,6 +14042,7 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c10::-webkit-input-placeholder {
@@ -14065,7 +14066,6 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
 }
 
 .c10[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -14346,6 +14346,7 @@ exports[`Storyshots Design System/Components/Field with description 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c8::-webkit-input-placeholder {
@@ -14369,7 +14370,6 @@ exports[`Storyshots Design System/Components/Field with description 1`] = `
 }
 
 .c8[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -14537,6 +14537,7 @@ exports[`Storyshots Design System/Components/Field with error 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c6::-webkit-input-placeholder {
@@ -14560,7 +14561,6 @@ exports[`Storyshots Design System/Components/Field with error 1`] = `
 }
 
 .c6[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -14739,6 +14739,7 @@ exports[`Storyshots Design System/Components/Field with label-action 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c10::-webkit-input-placeholder {
@@ -14762,7 +14763,6 @@ exports[`Storyshots Design System/Components/Field with label-action 1`] = `
 }
 
 .c10[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -21380,1030 +21380,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
 </main>
 `;
 
-exports[`Storyshots Design System/Components/LightTheme colors 1`] = `
-.c0 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-
-.c3 {
-  padding: 16px;
-}
-
-.c5 {
-  background: #f6ecfc;
-  color: #212134;
-  padding: 12px;
-}
-
-.c6 {
-  background: #e0c1f4;
-  color: #212134;
-  padding: 12px;
-}
-
-.c7 {
-  background: #ac73e6;
-  color: #212134;
-  padding: 12px;
-}
-
-.c8 {
-  background: #9736e8;
-  color: #ffffff;
-  padding: 12px;
-}
-
-.c9 {
-  background: #8312d1;
-  color: #ffffff;
-  padding: 12px;
-}
-
-.c10 {
-  background: #fcecea;
-  color: #212134;
-  padding: 12px;
-}
-
-.c11 {
-  background: #f5c0b8;
-  color: #212134;
-  padding: 12px;
-}
-
-.c12 {
-  background: #ee5e52;
-  color: #212134;
-  padding: 12px;
-}
-
-.c13 {
-  background: #d02b20;
-  color: #ffffff;
-  padding: 12px;
-}
-
-.c14 {
-  background: #b72b1a;
-  color: #ffffff;
-  padding: 12px;
-}
-
-.c15 {
-  background: #ffffff;
-  color: #212134;
-  padding: 12px;
-}
-
-.c16 {
-  background: #f6f6f9;
-  color: #212134;
-  padding: 12px;
-}
-
-.c17 {
-  background: #181826;
-  color: #212134;
-  padding: 12px;
-}
-
-.c18 {
-  background: #eaeaef;
-  color: #212134;
-  padding: 12px;
-}
-
-.c19 {
-  background: #dcdce4;
-  color: #212134;
-  padding: 12px;
-}
-
-.c20 {
-  background: #c0c0cf;
-  color: #212134;
-  padding: 12px;
-}
-
-.c21 {
-  background: #a5a5ba;
-  color: #212134;
-  padding: 12px;
-}
-
-.c22 {
-  background: #8e8ea9;
-  color: #212134;
-  padding: 12px;
-}
-
-.c23 {
-  background: #666687;
-  color: #ffffff;
-  padding: 12px;
-}
-
-.c24 {
-  background: #4a4a6a;
-  color: #ffffff;
-  padding: 12px;
-}
-
-.c25 {
-  background: #32324d;
-  color: #ffffff;
-  padding: 12px;
-}
-
-.c26 {
-  background: #212134;
-  color: #ffffff;
-  padding: 12px;
-}
-
-.c27 {
-  background: #f0f0ff;
-  color: #212134;
-  padding: 12px;
-}
-
-.c28 {
-  background: #d9d8ff;
-  color: #212134;
-  padding: 12px;
-}
-
-.c29 {
-  background: #7b79ff;
-  color: #212134;
-  padding: 12px;
-}
-
-.c30 {
-  background: #4945ff;
-  color: #ffffff;
-  padding: 12px;
-}
-
-.c31 {
-  background: #271fe0;
-  color: #ffffff;
-  padding: 12px;
-}
-
-.c32 {
-  background: #eaf5ff;
-  color: #212134;
-  padding: 12px;
-}
-
-.c33 {
-  background: #b8e1ff;
-  color: #212134;
-  padding: 12px;
-}
-
-.c34 {
-  background: #66b7f1;
-  color: #212134;
-  padding: 12px;
-}
-
-.c35 {
-  background: #0c75af;
-  color: #ffffff;
-  padding: 12px;
-}
-
-.c36 {
-  background: #006096;
-  color: #ffffff;
-  padding: 12px;
-}
-
-.c37 {
-  background: #eafbe7;
-  color: #212134;
-  padding: 12px;
-}
-
-.c38 {
-  background: #c6f0c2;
-  color: #212134;
-  padding: 12px;
-}
-
-.c39 {
-  background: #5cb176;
-  color: #212134;
-  padding: 12px;
-}
-
-.c40 {
-  background: #328048;
-  color: #ffffff;
-  padding: 12px;
-}
-
-.c41 {
-  background: #2f6846;
-  color: #ffffff;
-  padding: 12px;
-}
-
-.c4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c4 > * {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.c4 > * + * {
-  margin-top: 8px;
-}
-
-.c1 {
-  display: grid;
-  grid-template-columns: repeat(12,1fr);
-  gap: 0px;
-}
-
-.c2 {
-  grid-column: span;
-  max-width: 100%;
-}
-
-@media (max-width:68.75rem) {
-  .c2 {
-    grid-column: span;
-  }
-}
-
-@media (max-width:34.375rem) {
-  .c2 {
-    grid-column: span;
-  }
-}
-
-<main>
-  <div
-    class="c0"
-  >
-    <h1>
-      Storybook story
-    </h1>
-  </div>
-  <div
-    class=""
-  >
-    <div
-      class="c1"
-    >
-      <div
-        class="c2"
-      >
-        <div
-          class="c3"
-        >
-          <div
-            class="c4"
-          >
-            <div
-              class="c5"
-            >
-              alternative100
-            </div>
-            <div
-              class="c6"
-            >
-              alternative200
-            </div>
-            <div
-              class="c7"
-            >
-              alternative500
-            </div>
-            <div
-              class="c8"
-            >
-              alternative600
-            </div>
-            <div
-              class="c9"
-            >
-              alternative700
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="c2"
-      >
-        <div
-          class="c3"
-        >
-          <div
-            class="c4"
-          >
-            <div
-              class="c10"
-            >
-              danger100
-            </div>
-            <div
-              class="c11"
-            >
-              danger200
-            </div>
-            <div
-              class="c12"
-            >
-              danger500
-            </div>
-            <div
-              class="c13"
-            >
-              danger600
-            </div>
-            <div
-              class="c14"
-            >
-              danger700
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="c2"
-      >
-        <div
-          class="c3"
-        >
-          <div
-            class="c4"
-          >
-            <div
-              class="c15"
-            >
-              neutral0
-            </div>
-            <div
-              class="c16"
-            >
-              neutral100
-            </div>
-            <div
-              class="c17"
-            >
-              neutral1000
-            </div>
-            <div
-              class="c18"
-            >
-              neutral150
-            </div>
-            <div
-              class="c19"
-            >
-              neutral200
-            </div>
-            <div
-              class="c20"
-            >
-              neutral300
-            </div>
-            <div
-              class="c21"
-            >
-              neutral400
-            </div>
-            <div
-              class="c22"
-            >
-              neutral500
-            </div>
-            <div
-              class="c23"
-            >
-              neutral600
-            </div>
-            <div
-              class="c24"
-            >
-              neutral700
-            </div>
-            <div
-              class="c25"
-            >
-              neutral800
-            </div>
-            <div
-              class="c26"
-            >
-              neutral900
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="c2"
-      >
-        <div
-          class="c3"
-        >
-          <div
-            class="c4"
-          >
-            <div
-              class="c27"
-            >
-              primary100
-            </div>
-            <div
-              class="c28"
-            >
-              primary200
-            </div>
-            <div
-              class="c29"
-            >
-              primary500
-            </div>
-            <div
-              class="c30"
-            >
-              primary600
-            </div>
-            <div
-              class="c31"
-            >
-              primary700
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="c2"
-      >
-        <div
-          class="c3"
-        >
-          <div
-            class="c4"
-          >
-            <div
-              class="c32"
-            >
-              secondary100
-            </div>
-            <div
-              class="c33"
-            >
-              secondary200
-            </div>
-            <div
-              class="c34"
-            >
-              secondary500
-            </div>
-            <div
-              class="c35"
-            >
-              secondary600
-            </div>
-            <div
-              class="c36"
-            >
-              secondary700
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="c2"
-      >
-        <div
-          class="c3"
-        >
-          <div
-            class="c4"
-          >
-            <div
-              class="c37"
-            >
-              success100
-            </div>
-            <div
-              class="c38"
-            >
-              success200
-            </div>
-            <div
-              class="c39"
-            >
-              success500
-            </div>
-            <div
-              class="c40"
-            >
-              success600
-            </div>
-            <div
-              class="c41"
-            >
-              success700
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</main>
-`;
-
-exports[`Storyshots Design System/Components/LightTheme shadows 1`] = `
-.c0 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-
-.c1 {
-  background: #f6f6f9;
-  padding: 40px;
-}
-
-.c4 {
-  background: #ffffff;
-  padding: 40px;
-  box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
-}
-
-.c5 {
-  background: #ffffff;
-  padding: 40px;
-  box-shadow: inset 2px 0px 0px rgb(39,31,224),inset 0px 2px 0px rgb(39,31,224),inset -2px 0px 0px rgb(39,31,224),inset 0px -2px 0px rgb(39,31,224);
-}
-
-.c6 {
-  background: #ffffff;
-  padding: 40px;
-  box-shadow: 0px 0px 6px rgba(76,191,255,0.75);
-}
-
-.c7 {
-  background: #ffffff;
-  padding: 40px;
-  box-shadow: 0px 2px 15px rgba(33,33,52,0.1);
-}
-
-.c2 {
-  display: grid;
-  grid-template-columns: repeat(12,1fr);
-  gap: 16px;
-}
-
-.c3 {
-  grid-column: span 3;
-  max-width: 100%;
-}
-
-@media (max-width:68.75rem) {
-  .c3 {
-    grid-column: span;
-  }
-}
-
-@media (max-width:34.375rem) {
-  .c3 {
-    grid-column: span;
-  }
-}
-
-<main>
-  <div
-    class="c0"
-  >
-    <h1>
-      Storybook story
-    </h1>
-  </div>
-  <div
-    class="c1"
-  >
-    <div
-      class="c2"
-    >
-      <div
-        class="c3"
-      >
-        <div
-          class="c4"
-        >
-          filterShadow
-        </div>
-      </div>
-      <div
-        class="c3"
-      >
-        <div
-          class="c5"
-        >
-          focus
-        </div>
-      </div>
-      <div
-        class="c3"
-      >
-        <div
-          class="c6"
-        >
-          focusShadow
-        </div>
-      </div>
-      <div
-        class="c3"
-      >
-        <div
-          class="c7"
-        >
-          popupShadow
-        </div>
-      </div>
-      <div
-        class="c3"
-      >
-        <div
-          class="c4"
-        >
-          tableShadow
-        </div>
-      </div>
-    </div>
-  </div>
-</main>
-`;
-
-exports[`Storyshots Design System/Components/LightTheme spaces 1`] = `
-.c0 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-
-.c5 {
-  color: #32324d;
-  font-size: 0.875rem;
-  line-height: 1.43;
-}
-
-.c6 {
-  color: #32324d;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c1 {
-  background: #f6f6f9;
-  padding: 40px;
-}
-
-.c4 {
-  padding-left: 8px;
-}
-
-.c3 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c2 > * {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.c2 > * + * {
-  margin-top: 4px;
-}
-
-<main>
-  <div
-    class="c0"
-  >
-    <h1>
-      Storybook story
-    </h1>
-  </div>
-  <div
-    class="c1"
-  >
-    <div
-      class="c2"
-    >
-      <div
-        class="c3"
-      >
-        <div
-          class="c4"
-        >
-          <span
-            class="c5"
-          >
-            0
-          </span>
-           
-          <span
-            class="c6"
-          >
-            (
-            0px
-            )
-          </span>
-        </div>
-      </div>
-      <div
-        class="c3"
-      >
-        <div
-          class="c4"
-        >
-          <span
-            class="c5"
-          >
-            1
-          </span>
-           
-          <span
-            class="c6"
-          >
-            (
-            4px
-            )
-          </span>
-        </div>
-      </div>
-      <div
-        class="c3"
-      >
-        <div
-          class="c4"
-        >
-          <span
-            class="c5"
-          >
-            2
-          </span>
-           
-          <span
-            class="c6"
-          >
-            (
-            8px
-            )
-          </span>
-        </div>
-      </div>
-      <div
-        class="c3"
-      >
-        <div
-          class="c4"
-        >
-          <span
-            class="c5"
-          >
-            3
-          </span>
-           
-          <span
-            class="c6"
-          >
-            (
-            12px
-            )
-          </span>
-        </div>
-      </div>
-      <div
-        class="c3"
-      >
-        <div
-          class="c4"
-        >
-          <span
-            class="c5"
-          >
-            4
-          </span>
-           
-          <span
-            class="c6"
-          >
-            (
-            16px
-            )
-          </span>
-        </div>
-      </div>
-      <div
-        class="c3"
-      >
-        <div
-          class="c4"
-        >
-          <span
-            class="c5"
-          >
-            5
-          </span>
-           
-          <span
-            class="c6"
-          >
-            (
-            20px
-            )
-          </span>
-        </div>
-      </div>
-      <div
-        class="c3"
-      >
-        <div
-          class="c4"
-        >
-          <span
-            class="c5"
-          >
-            6
-          </span>
-           
-          <span
-            class="c6"
-          >
-            (
-            24px
-            )
-          </span>
-        </div>
-      </div>
-      <div
-        class="c3"
-      >
-        <div
-          class="c4"
-        >
-          <span
-            class="c5"
-          >
-            7
-          </span>
-           
-          <span
-            class="c6"
-          >
-            (
-            32px
-            )
-          </span>
-        </div>
-      </div>
-      <div
-        class="c3"
-      >
-        <div
-          class="c4"
-        >
-          <span
-            class="c5"
-          >
-            8
-          </span>
-           
-          <span
-            class="c6"
-          >
-            (
-            40px
-            )
-          </span>
-        </div>
-      </div>
-      <div
-        class="c3"
-      >
-        <div
-          class="c4"
-        >
-          <span
-            class="c5"
-          >
-            9
-          </span>
-           
-          <span
-            class="c6"
-          >
-            (
-            48px
-            )
-          </span>
-        </div>
-      </div>
-      <div
-        class="c3"
-      >
-        <div
-          class="c4"
-        >
-          <span
-            class="c5"
-          >
-            10
-          </span>
-           
-          <span
-            class="c6"
-          >
-            (
-            56px
-            )
-          </span>
-        </div>
-      </div>
-      <div
-        class="c3"
-      >
-        <div
-          class="c4"
-        >
-          <span
-            class="c5"
-          >
-            11
-          </span>
-           
-          <span
-            class="c6"
-          >
-            (
-            64px
-            )
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-</main>
-`;
-
 exports[`Storyshots Design System/Components/Link base 1`] = `
 .c0 {
   border: 0;
@@ -27235,6 +26211,7 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c9::-webkit-input-placeholder {
@@ -27258,7 +26235,6 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
 }
 
 .c9[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -27569,6 +26545,7 @@ exports[`Storyshots Design System/Components/NumberInput disabled 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c7::-webkit-input-placeholder {
@@ -27592,7 +26569,6 @@ exports[`Storyshots Design System/Components/NumberInput disabled 1`] = `
 }
 
 .c7[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -27885,6 +26861,7 @@ exports[`Storyshots Design System/Components/NumberInput required 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c9::-webkit-input-placeholder {
@@ -27908,7 +26885,6 @@ exports[`Storyshots Design System/Components/NumberInput required 1`] = `
 }
 
 .c9[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -28207,6 +27183,7 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c9::-webkit-input-placeholder {
@@ -28230,7 +27207,6 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
 }
 
 .c9[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -28557,6 +27533,7 @@ exports[`Storyshots Design System/Components/NumberInput with initial 0 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c9::-webkit-input-placeholder {
@@ -28580,7 +27557,6 @@ exports[`Storyshots Design System/Components/NumberInput with initial 0 1`] = `
 }
 
 .c9[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -28874,6 +27850,7 @@ exports[`Storyshots Design System/Components/NumberInput withoutLabel 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c5::-webkit-input-placeholder {
@@ -28897,7 +27874,6 @@ exports[`Storyshots Design System/Components/NumberInput withoutLabel 1`] = `
 }
 
 .c5[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -29860,6 +28836,7 @@ exports[`Storyshots Design System/Components/Searchbar base 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c10::-webkit-input-placeholder {
@@ -29883,7 +28860,6 @@ exports[`Storyshots Design System/Components/Searchbar base 1`] = `
 }
 
 .c10[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -30081,6 +29057,7 @@ exports[`Storyshots Design System/Components/Searchbar disabled 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c10::-webkit-input-placeholder {
@@ -30104,7 +29081,6 @@ exports[`Storyshots Design System/Components/Searchbar disabled 1`] = `
 }
 
 .c10[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -30300,6 +29276,7 @@ exports[`Storyshots Design System/Components/Searchbar size S 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c10::-webkit-input-placeholder {
@@ -30323,7 +29300,6 @@ exports[`Storyshots Design System/Components/Searchbar size S 1`] = `
 }
 
 .c10[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -40549,6 +39525,7 @@ exports[`Storyshots Design System/Components/TextInput base 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c9::-webkit-input-placeholder {
@@ -40572,7 +39549,6 @@ exports[`Storyshots Design System/Components/TextInput base 1`] = `
 }
 
 .c9[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -40782,6 +39758,7 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c9::-webkit-input-placeholder {
@@ -40805,7 +39782,6 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
 }
 
 .c9[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -41017,6 +39993,7 @@ exports[`Storyshots Design System/Components/TextInput password 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c9::-webkit-input-placeholder {
@@ -41040,7 +40017,6 @@ exports[`Storyshots Design System/Components/TextInput password 1`] = `
 }
 
 .c9[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -41250,6 +40226,7 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c9::-webkit-input-placeholder {
@@ -41273,7 +40250,6 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
 }
 
 .c9[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -41482,6 +40458,7 @@ exports[`Storyshots Design System/Components/TextInput with error 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c9::-webkit-input-placeholder {
@@ -41505,7 +40482,6 @@ exports[`Storyshots Design System/Components/TextInput with error 1`] = `
 }
 
 .c9[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -41682,6 +40658,7 @@ exports[`Storyshots Design System/Components/TextInput withoutLabel 1`] = `
   font-size: 0.875rem;
   display: block;
   width: 100%;
+  background: inherit;
 }
 
 .c5::-webkit-input-placeholder {
@@ -41705,7 +40682,6 @@ exports[`Storyshots Design System/Components/TextInput withoutLabel 1`] = `
 }
 
 .c5[aria-disabled='true'] {
-  background: inherit;
   color: inherit;
 }
 
@@ -41881,6 +40857,7 @@ exports[`Storyshots Design System/Components/Textarea base 1`] = `
   border: none;
   color: #32324d;
   resize: none;
+  background: inherit;
 }
 
 .c9::-webkit-input-placeholder {
@@ -42132,6 +41109,7 @@ exports[`Storyshots Design System/Components/Textarea disabled 1`] = `
   border: none;
   color: #666687;
   resize: none;
+  background: inherit;
 }
 
 .c9::-webkit-input-placeholder {
@@ -42273,6 +41251,1685 @@ exports[`Storyshots Design System/Components/Textarea disabled 1`] = `
           >
             Description line
           </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+`;
+
+exports[`Storyshots Design System/Components/Theme dark colors 1`] = `
+.c0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.c5 {
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
+.c6 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
+.c3 {
+  padding: 16px;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c4 > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.c4 > * + * {
+  margin-top: 8px;
+}
+
+.c1 {
+  display: grid;
+  grid-template-columns: repeat(12,1fr);
+  gap: 0px;
+}
+
+.c2 {
+  grid-column: span;
+  max-width: 100%;
+}
+
+@media (max-width:68.75rem) {
+  .c2 {
+    grid-column: span;
+  }
+}
+
+@media (max-width:34.375rem) {
+  .c2 {
+    grid-column: span;
+  }
+}
+
+<main>
+  <div
+    class="c0"
+  >
+    <h1>
+      Storybook story
+    </h1>
+  </div>
+  <div
+    class=""
+  >
+    <div
+      class="c1"
+    >
+      <div
+        class="c2"
+      >
+        <div
+          class="c3"
+        >
+          <div
+            class="c4"
+          >
+            <div
+              style="padding: 12px; background: rgb(33, 33, 52);"
+            >
+              <span
+                class="c5"
+              >
+                alternative100
+              </span>
+            </div>
+            <div
+              style="padding: 12px; background: rgb(74, 74, 106);"
+            >
+              <span
+                class="c5"
+              >
+                alternative200
+              </span>
+            </div>
+            <div
+              style="padding: 12px; background: rgb(172, 115, 230);"
+            >
+              <span
+                class="c5"
+              >
+                alternative500
+              </span>
+            </div>
+            <div
+              style="padding: 12px; background: rgb(246, 236, 252);"
+            >
+              <span
+                class="c6"
+              >
+                alternative600
+              </span>
+            </div>
+            <div
+              style="padding: 12px; background: rgb(224, 193, 244);"
+            >
+              <span
+                class="c6"
+              >
+                alternative700
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="c2"
+      >
+        <div
+          class="c3"
+        >
+          <div
+            class="c4"
+          >
+            <div
+              style="padding: 12px; background: rgb(33, 33, 52);"
+            >
+              <span
+                class="c5"
+              >
+                danger100
+              </span>
+            </div>
+            <div
+              style="padding: 12px; background: rgb(74, 74, 106);"
+            >
+              <span
+                class="c5"
+              >
+                danger200
+              </span>
+            </div>
+            <div
+              style="padding: 12px; background: rgb(238, 94, 82);"
+            >
+              <span
+                class="c5"
+              >
+                danger500
+              </span>
+            </div>
+            <div
+              style="padding: 12px; background: rgb(252, 236, 234);"
+            >
+              <span
+                class="c6"
+              >
+                danger600
+              </span>
+            </div>
+            <div
+              style="padding: 12px; background: rgb(245, 192, 184);"
+            >
+              <span
+                class="c6"
+              >
+                danger700
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="c2"
+      >
+        <div
+          class="c3"
+        >
+          <div
+            class="c4"
+          >
+            <div
+              style="padding: 12px; background: rgb(33, 33, 52);"
+            >
+              <span
+                class="c5"
+              >
+                neutral0
+              </span>
+            </div>
+            <div
+              style="padding: 12px; background: rgb(24, 24, 38);"
+            >
+              <span
+                class="c5"
+              >
+                neutral100
+              </span>
+            </div>
+            <div
+              style="padding: 12px; background: rgb(255, 255, 255);"
+            >
+              <span
+                class="c6"
+              >
+                neutral1000
+              </span>
+            </div>
+            <div
+              style="padding: 12px; background: rgb(74, 74, 106);"
+            >
+              <span
+                class="c5"
+              >
+                neutral150
+              </span>
+            </div>
+            <div
+              style="padding: 12px; background: rgb(102, 102, 135);"
+            >
+              <span
+                class="c5"
+              >
+                neutral200
+              </span>
+            </div>
+            <div
+              style="padding: 12px; background: rgb(102, 102, 135);"
+            >
+              <span
+                class="c5"
+              >
+                neutral300
+              </span>
+            </div>
+            <div
+              style="padding: 12px; background: rgb(165, 165, 186);"
+            >
+              <span
+                class="c5"
+              >
+                neutral400
+              </span>
+            </div>
+            <div
+              style="padding: 12px; background: rgb(192, 192, 207);"
+            >
+              <span
+                class="c5"
+              >
+                neutral500
+              </span>
+            </div>
+            <div
+              style="padding: 12px; background: rgb(165, 165, 186);"
+            >
+              <span
+                class="c6"
+              >
+                neutral600
+              </span>
+            </div>
+            <div
+              style="padding: 12px; background: rgb(234, 234, 239);"
+            >
+              <span
+                class="c6"
+              >
+                neutral700
+              </span>
+            </div>
+            <div
+              style="padding: 12px; background: rgb(255, 255, 255);"
+            >
+              <span
+                class="c6"
+              >
+                neutral800
+              </span>
+            </div>
+            <div
+              style="padding: 12px; background: rgb(255, 255, 255);"
+            >
+              <span
+                class="c6"
+              >
+                neutral900
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="c2"
+      >
+        <div
+          class="c3"
+        >
+          <div
+            class="c4"
+          >
+            <div
+              style="padding: 12px; background: rgb(33, 33, 52);"
+            >
+              <span
+                class="c5"
+              >
+                primary100
+              </span>
+            </div>
+            <div
+              style="padding: 12px; background: rgb(74, 74, 106);"
+            >
+              <span
+                class="c5"
+              >
+                primary200
+              </span>
+            </div>
+            <div
+              style="padding: 12px; background: rgb(217, 216, 255);"
+            >
+              <span
+                class="c5"
+              >
+                primary500
+              </span>
+            </div>
+            <div
+              style="padding: 12px; background: rgb(123, 121, 255);"
+            >
+              <span
+                class="c6"
+              >
+                primary600
+              </span>
+            </div>
+            <div
+              style="padding: 12px; background: rgb(123, 121, 255);"
+            >
+              <span
+                class="c6"
+              >
+                primary700
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="c2"
+      >
+        <div
+          class="c3"
+        >
+          <div
+            class="c4"
+          >
+            <div
+              style="padding: 12px; background: rgb(33, 33, 52);"
+            >
+              <span
+                class="c5"
+              >
+                secondary100
+              </span>
+            </div>
+            <div
+              style="padding: 12px; background: rgb(74, 74, 106);"
+            >
+              <span
+                class="c5"
+              >
+                secondary200
+              </span>
+            </div>
+            <div
+              style="padding: 12px; background: rgb(102, 183, 241);"
+            >
+              <span
+                class="c5"
+              >
+                secondary500
+              </span>
+            </div>
+            <div
+              style="padding: 12px; background: rgb(234, 245, 255);"
+            >
+              <span
+                class="c6"
+              >
+                secondary600
+              </span>
+            </div>
+            <div
+              style="padding: 12px; background: rgb(184, 225, 255);"
+            >
+              <span
+                class="c6"
+              >
+                secondary700
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="c2"
+      >
+        <div
+          class="c3"
+        >
+          <div
+            class="c4"
+          >
+            <div
+              style="padding: 12px; background: rgb(33, 33, 52);"
+            >
+              <span
+                class="c5"
+              >
+                success100
+              </span>
+            </div>
+            <div
+              style="padding: 12px; background: rgb(74, 74, 106);"
+            >
+              <span
+                class="c5"
+              >
+                success200
+              </span>
+            </div>
+            <div
+              style="padding: 12px; background: rgb(92, 177, 118);"
+            >
+              <span
+                class="c5"
+              >
+                success500
+              </span>
+            </div>
+            <div
+              style="padding: 12px; background: rgb(198, 240, 194);"
+            >
+              <span
+                class="c6"
+              >
+                success600
+              </span>
+            </div>
+            <div
+              style="padding: 12px; background: rgb(198, 240, 194);"
+            >
+              <span
+                class="c6"
+              >
+                success700
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+`;
+
+exports[`Storyshots Design System/Components/Theme light colors 1`] = `
+.c0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.c6 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
+.c10 {
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
+.c3 {
+  padding: 16px;
+}
+
+.c5 {
+  background: #f6ecfc;
+  color: #212134;
+  padding: 12px;
+}
+
+.c7 {
+  background: #e0c1f4;
+  color: #212134;
+  padding: 12px;
+}
+
+.c8 {
+  background: #ac73e6;
+  color: #212134;
+  padding: 12px;
+}
+
+.c9 {
+  background: #9736e8;
+  color: #ffffff;
+  padding: 12px;
+}
+
+.c11 {
+  background: #8312d1;
+  color: #ffffff;
+  padding: 12px;
+}
+
+.c12 {
+  background: #fcecea;
+  color: #212134;
+  padding: 12px;
+}
+
+.c13 {
+  background: #f5c0b8;
+  color: #212134;
+  padding: 12px;
+}
+
+.c14 {
+  background: #ee5e52;
+  color: #212134;
+  padding: 12px;
+}
+
+.c15 {
+  background: #d02b20;
+  color: #ffffff;
+  padding: 12px;
+}
+
+.c16 {
+  background: #b72b1a;
+  color: #ffffff;
+  padding: 12px;
+}
+
+.c17 {
+  background: #ffffff;
+  color: #212134;
+  padding: 12px;
+}
+
+.c18 {
+  background: #f6f6f9;
+  color: #212134;
+  padding: 12px;
+}
+
+.c19 {
+  background: #181826;
+  color: #ffffff;
+  padding: 12px;
+}
+
+.c20 {
+  background: #eaeaef;
+  color: #212134;
+  padding: 12px;
+}
+
+.c21 {
+  background: #dcdce4;
+  color: #212134;
+  padding: 12px;
+}
+
+.c22 {
+  background: #c0c0cf;
+  color: #212134;
+  padding: 12px;
+}
+
+.c23 {
+  background: #a5a5ba;
+  color: #212134;
+  padding: 12px;
+}
+
+.c24 {
+  background: #8e8ea9;
+  color: #212134;
+  padding: 12px;
+}
+
+.c25 {
+  background: #666687;
+  color: #ffffff;
+  padding: 12px;
+}
+
+.c26 {
+  background: #4a4a6a;
+  color: #ffffff;
+  padding: 12px;
+}
+
+.c27 {
+  background: #32324d;
+  color: #ffffff;
+  padding: 12px;
+}
+
+.c28 {
+  background: #212134;
+  color: #ffffff;
+  padding: 12px;
+}
+
+.c29 {
+  background: #f0f0ff;
+  color: #212134;
+  padding: 12px;
+}
+
+.c30 {
+  background: #d9d8ff;
+  color: #212134;
+  padding: 12px;
+}
+
+.c31 {
+  background: #7b79ff;
+  color: #212134;
+  padding: 12px;
+}
+
+.c32 {
+  background: #4945ff;
+  color: #ffffff;
+  padding: 12px;
+}
+
+.c33 {
+  background: #271fe0;
+  color: #ffffff;
+  padding: 12px;
+}
+
+.c34 {
+  background: #eaf5ff;
+  color: #212134;
+  padding: 12px;
+}
+
+.c35 {
+  background: #b8e1ff;
+  color: #212134;
+  padding: 12px;
+}
+
+.c36 {
+  background: #66b7f1;
+  color: #212134;
+  padding: 12px;
+}
+
+.c37 {
+  background: #0c75af;
+  color: #ffffff;
+  padding: 12px;
+}
+
+.c38 {
+  background: #006096;
+  color: #ffffff;
+  padding: 12px;
+}
+
+.c39 {
+  background: #eafbe7;
+  color: #212134;
+  padding: 12px;
+}
+
+.c40 {
+  background: #c6f0c2;
+  color: #212134;
+  padding: 12px;
+}
+
+.c41 {
+  background: #5cb176;
+  color: #212134;
+  padding: 12px;
+}
+
+.c42 {
+  background: #328048;
+  color: #ffffff;
+  padding: 12px;
+}
+
+.c43 {
+  background: #2f6846;
+  color: #ffffff;
+  padding: 12px;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c4 > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.c4 > * + * {
+  margin-top: 8px;
+}
+
+.c1 {
+  display: grid;
+  grid-template-columns: repeat(12,1fr);
+  gap: 0px;
+}
+
+.c2 {
+  grid-column: span;
+  max-width: 100%;
+}
+
+@media (max-width:68.75rem) {
+  .c2 {
+    grid-column: span;
+  }
+}
+
+@media (max-width:34.375rem) {
+  .c2 {
+    grid-column: span;
+  }
+}
+
+<main>
+  <div
+    class="c0"
+  >
+    <h1>
+      Storybook story
+    </h1>
+  </div>
+  <div
+    class=""
+  >
+    <div
+      class="c1"
+    >
+      <div
+        class="c2"
+      >
+        <div
+          class="c3"
+        >
+          <div
+            class="c4"
+          >
+            <div
+              class="c5"
+            >
+              <span
+                class="c6"
+              >
+                alternative100
+              </span>
+            </div>
+            <div
+              class="c7"
+            >
+              <span
+                class="c6"
+              >
+                alternative200
+              </span>
+            </div>
+            <div
+              class="c8"
+            >
+              <span
+                class="c6"
+              >
+                alternative500
+              </span>
+            </div>
+            <div
+              class="c9"
+            >
+              <span
+                class="c10"
+              >
+                alternative600
+              </span>
+            </div>
+            <div
+              class="c11"
+            >
+              <span
+                class="c10"
+              >
+                alternative700
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="c2"
+      >
+        <div
+          class="c3"
+        >
+          <div
+            class="c4"
+          >
+            <div
+              class="c12"
+            >
+              <span
+                class="c6"
+              >
+                danger100
+              </span>
+            </div>
+            <div
+              class="c13"
+            >
+              <span
+                class="c6"
+              >
+                danger200
+              </span>
+            </div>
+            <div
+              class="c14"
+            >
+              <span
+                class="c6"
+              >
+                danger500
+              </span>
+            </div>
+            <div
+              class="c15"
+            >
+              <span
+                class="c10"
+              >
+                danger600
+              </span>
+            </div>
+            <div
+              class="c16"
+            >
+              <span
+                class="c10"
+              >
+                danger700
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="c2"
+      >
+        <div
+          class="c3"
+        >
+          <div
+            class="c4"
+          >
+            <div
+              class="c17"
+            >
+              <span
+                class="c6"
+              >
+                neutral0
+              </span>
+            </div>
+            <div
+              class="c18"
+            >
+              <span
+                class="c6"
+              >
+                neutral100
+              </span>
+            </div>
+            <div
+              class="c19"
+            >
+              <span
+                class="c10"
+              >
+                neutral1000
+              </span>
+            </div>
+            <div
+              class="c20"
+            >
+              <span
+                class="c6"
+              >
+                neutral150
+              </span>
+            </div>
+            <div
+              class="c21"
+            >
+              <span
+                class="c6"
+              >
+                neutral200
+              </span>
+            </div>
+            <div
+              class="c22"
+            >
+              <span
+                class="c6"
+              >
+                neutral300
+              </span>
+            </div>
+            <div
+              class="c23"
+            >
+              <span
+                class="c6"
+              >
+                neutral400
+              </span>
+            </div>
+            <div
+              class="c24"
+            >
+              <span
+                class="c6"
+              >
+                neutral500
+              </span>
+            </div>
+            <div
+              class="c25"
+            >
+              <span
+                class="c10"
+              >
+                neutral600
+              </span>
+            </div>
+            <div
+              class="c26"
+            >
+              <span
+                class="c10"
+              >
+                neutral700
+              </span>
+            </div>
+            <div
+              class="c27"
+            >
+              <span
+                class="c10"
+              >
+                neutral800
+              </span>
+            </div>
+            <div
+              class="c28"
+            >
+              <span
+                class="c10"
+              >
+                neutral900
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="c2"
+      >
+        <div
+          class="c3"
+        >
+          <div
+            class="c4"
+          >
+            <div
+              class="c29"
+            >
+              <span
+                class="c6"
+              >
+                primary100
+              </span>
+            </div>
+            <div
+              class="c30"
+            >
+              <span
+                class="c6"
+              >
+                primary200
+              </span>
+            </div>
+            <div
+              class="c31"
+            >
+              <span
+                class="c6"
+              >
+                primary500
+              </span>
+            </div>
+            <div
+              class="c32"
+            >
+              <span
+                class="c10"
+              >
+                primary600
+              </span>
+            </div>
+            <div
+              class="c33"
+            >
+              <span
+                class="c10"
+              >
+                primary700
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="c2"
+      >
+        <div
+          class="c3"
+        >
+          <div
+            class="c4"
+          >
+            <div
+              class="c34"
+            >
+              <span
+                class="c6"
+              >
+                secondary100
+              </span>
+            </div>
+            <div
+              class="c35"
+            >
+              <span
+                class="c6"
+              >
+                secondary200
+              </span>
+            </div>
+            <div
+              class="c36"
+            >
+              <span
+                class="c6"
+              >
+                secondary500
+              </span>
+            </div>
+            <div
+              class="c37"
+            >
+              <span
+                class="c10"
+              >
+                secondary600
+              </span>
+            </div>
+            <div
+              class="c38"
+            >
+              <span
+                class="c10"
+              >
+                secondary700
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="c2"
+      >
+        <div
+          class="c3"
+        >
+          <div
+            class="c4"
+          >
+            <div
+              class="c39"
+            >
+              <span
+                class="c6"
+              >
+                success100
+              </span>
+            </div>
+            <div
+              class="c40"
+            >
+              <span
+                class="c6"
+              >
+                success200
+              </span>
+            </div>
+            <div
+              class="c41"
+            >
+              <span
+                class="c6"
+              >
+                success500
+              </span>
+            </div>
+            <div
+              class="c42"
+            >
+              <span
+                class="c10"
+              >
+                success600
+              </span>
+            </div>
+            <div
+              class="c43"
+            >
+              <span
+                class="c10"
+              >
+                success700
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+`;
+
+exports[`Storyshots Design System/Components/Theme shadows 1`] = `
+.c0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.c1 {
+  background: #f6f6f9;
+  padding: 40px;
+}
+
+.c4 {
+  background: #ffffff;
+  padding: 40px;
+  box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
+}
+
+.c5 {
+  background: #ffffff;
+  padding: 40px;
+  box-shadow: inset 2px 0px 0px rgb(39,31,224),inset 0px 2px 0px rgb(39,31,224),inset -2px 0px 0px rgb(39,31,224),inset 0px -2px 0px rgb(39,31,224);
+}
+
+.c6 {
+  background: #ffffff;
+  padding: 40px;
+  box-shadow: 0px 0px 6px rgba(76,191,255,0.75);
+}
+
+.c7 {
+  background: #ffffff;
+  padding: 40px;
+  box-shadow: 0px 2px 15px rgba(33,33,52,0.1);
+}
+
+.c2 {
+  display: grid;
+  grid-template-columns: repeat(12,1fr);
+  gap: 16px;
+}
+
+.c3 {
+  grid-column: span 3;
+  max-width: 100%;
+}
+
+@media (max-width:68.75rem) {
+  .c3 {
+    grid-column: span;
+  }
+}
+
+@media (max-width:34.375rem) {
+  .c3 {
+    grid-column: span;
+  }
+}
+
+<main>
+  <div
+    class="c0"
+  >
+    <h1>
+      Storybook story
+    </h1>
+  </div>
+  <div
+    class="c1"
+  >
+    <div
+      class="c2"
+    >
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          filterShadow
+        </div>
+      </div>
+      <div
+        class="c3"
+      >
+        <div
+          class="c5"
+        >
+          focus
+        </div>
+      </div>
+      <div
+        class="c3"
+      >
+        <div
+          class="c6"
+        >
+          focusShadow
+        </div>
+      </div>
+      <div
+        class="c3"
+      >
+        <div
+          class="c7"
+        >
+          popupShadow
+        </div>
+      </div>
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          tableShadow
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+`;
+
+exports[`Storyshots Design System/Components/Theme spaces 1`] = `
+.c0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.c5 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
+.c6 {
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c1 {
+  background: #f6f6f9;
+  padding: 40px;
+}
+
+.c4 {
+  padding-left: 8px;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c2 > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.c2 > * + * {
+  margin-top: 4px;
+}
+
+<main>
+  <div
+    class="c0"
+  >
+    <h1>
+      Storybook story
+    </h1>
+  </div>
+  <div
+    class="c1"
+  >
+    <div
+      class="c2"
+    >
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <span
+            class="c5"
+          >
+            0
+          </span>
+           
+          <span
+            class="c6"
+          >
+            (
+            0px
+            )
+          </span>
+        </div>
+      </div>
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <span
+            class="c5"
+          >
+            1
+          </span>
+           
+          <span
+            class="c6"
+          >
+            (
+            4px
+            )
+          </span>
+        </div>
+      </div>
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <span
+            class="c5"
+          >
+            2
+          </span>
+           
+          <span
+            class="c6"
+          >
+            (
+            8px
+            )
+          </span>
+        </div>
+      </div>
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <span
+            class="c5"
+          >
+            3
+          </span>
+           
+          <span
+            class="c6"
+          >
+            (
+            12px
+            )
+          </span>
+        </div>
+      </div>
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <span
+            class="c5"
+          >
+            4
+          </span>
+           
+          <span
+            class="c6"
+          >
+            (
+            16px
+            )
+          </span>
+        </div>
+      </div>
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <span
+            class="c5"
+          >
+            5
+          </span>
+           
+          <span
+            class="c6"
+          >
+            (
+            20px
+            )
+          </span>
+        </div>
+      </div>
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <span
+            class="c5"
+          >
+            6
+          </span>
+           
+          <span
+            class="c6"
+          >
+            (
+            24px
+            )
+          </span>
+        </div>
+      </div>
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <span
+            class="c5"
+          >
+            7
+          </span>
+           
+          <span
+            class="c6"
+          >
+            (
+            32px
+            )
+          </span>
+        </div>
+      </div>
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <span
+            class="c5"
+          >
+            8
+          </span>
+           
+          <span
+            class="c6"
+          >
+            (
+            40px
+            )
+          </span>
+        </div>
+      </div>
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <span
+            class="c5"
+          >
+            9
+          </span>
+           
+          <span
+            class="c6"
+          >
+            (
+            48px
+            )
+          </span>
+        </div>
+      </div>
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <span
+            class="c5"
+          >
+            10
+          </span>
+           
+          <span
+            class="c6"
+          >
+            (
+            56px
+            )
+          </span>
+        </div>
+      </div>
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <span
+            class="c5"
+          >
+            11
+          </span>
+           
+          <span
+            class="c6"
+          >
+            (
+            64px
+            )
+          </span>
         </div>
       </div>
     </div>
