@@ -25,6 +25,7 @@ const Textarea = styled.textarea`
   border: none;
   color: ${({ theme, disabled }) => (disabled ? theme.colors.neutral600 : theme.colors.neutral800)};
   resize: none;
+  background: inherit;
 
   ::placeholder {
     color: ${({ theme }) => theme.colors.neutral500};
