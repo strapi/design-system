@@ -2,7 +2,6 @@ const { devices } = require('@playwright/test');
 
 const config = {
   testMatch: '**/__tests__/*.e2e.js',
-  timeout: 10000,
   // Forbid test.only on CI
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */

@@ -67,7 +67,7 @@ test.describe.parallel('Combobox', () => {
   });
 });
 
-test.describe('Combobox - initial data', () => {
+test.describe.parallel('Combobox - initial data', () => {
   test.beforeEach(async ({ page }) => {
     // This is the URL of the Storybook Iframe
     await page.goto('/iframe.html?id=design-system-components-combobox--initial-data&args=&viewMode=story');
@@ -84,7 +84,7 @@ test.describe('Combobox - initial data', () => {
   });
 });
 
-test.describe('Combobox - creatable', () => {
+test.describe.parallel('Combobox - creatable', () => {
   test.beforeEach(async ({ page }) => {
     // This is the URL of the Storybook Iframe
     await page.goto('/iframe.html?id=design-system-components-combobox--creatable&globals=&viewMode=story');
