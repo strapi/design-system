@@ -14,6 +14,7 @@ import { Searchbar, SearchForm } from '../Searchbar';
 import { Icon } from '../Icon';
 import { Tooltip } from '../Tooltip';
 import { darkColorTokenObject } from './darkTheme/dark-colors';
+import { lightColorTokenObject } from './lightTheme/light-colors.js';
 
 <Meta title="Design System/Components/Theme" component={Box} />
 
@@ -28,9 +29,9 @@ This is the light colors used for the light mode
 <Canvas>
   <Story name="light colors">
     {() => {
-      const theme = useTheme();
+      const { color } = lightColorTokenObject;
       /* Excluding warning since they don't have enough contrast on for neutral900 and neutral0 */
-      const colorsKey = Object.keys(theme.colors).filter((color) => !color.includes('warning') && !color.includes('button'));
+      const colorsKey = Object.keys(color).filter((color) => !color.includes('warning') && !color.includes('button'));
       const colors = [];
       const conditions = ['600', '700', '800', '900', '1000'];
       let ruptureKey;
@@ -40,7 +41,7 @@ This is the light colors used for the light mode
           colors.push([]);
           ruptureKey = prefix;
         }
-        colors[colors.length - 1].push(colorKey);
+        colors[colors.length - 1].push({ colorKey, colorValue: color[colorKey]});
       }
       return (
         <Box>
@@ -48,19 +49,15 @@ This is the light colors used for the light mode
             {colors.map((colorGroup, idx) => (
               <GridItem key={`color-group-${idx}`} padding={4}>
                 <Stack size={2}>
-                  {colorGroup.map((color) => (
-                    <Box
-                      key={color}
-                      padding={3}
-                      background={color}
-                      color={conditions.some((v) => color.includes(v)) ? 'neutral0' : 'neutral900'}
+                  {colorGroup.map(({ colorKey, colorValue }) => (
+                    <div 
+                      key={colorKey}
+                      style={{ padding: '12px', background: colorValue }}
                     >
-                      <Typography 
-                        textColor={conditions.some(v => color.includes(v)) ? 'neutral0' : 'neutral800'}
-                      >
-                        {color}
-                      </Typography>
-                    </Box>
+                      <p style={{ color: conditions.some((v) => colorKey.includes(v)) ? 'white' : 'black' }}>
+                        {colorKey}
+                      </p>
+                    </div>
                   ))}
                 </Stack>
               </GridItem>
@@ -104,11 +101,9 @@ This is the dark colors used for the light mode
                       key={colorKey}
                       style={{ padding: '12px', background: colorValue }}
                     >
-                      <Typography 
-                        textColor={conditions.some(v => colorKey.includes(v)) ? 'neutral800' : 'neutral0'}
-                      >
+                      <p style={{ color: conditions.some((v) => colorKey.includes(v)) ? 'black' : 'white' }}>
                         {colorKey}
-                      </Typography>
+                      </p>
                     </div>
                   ))}
                 </Stack>
