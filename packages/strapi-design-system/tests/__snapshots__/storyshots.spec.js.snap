@@ -5732,6 +5732,10 @@ exports[`Storyshots Design System/Components/Button variants 1`] = `
   background: #328048;
 }
 
+.c10 .c6 {
+  color: #ffffff;
+}
+
 .c11 {
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -5795,6 +5799,10 @@ exports[`Storyshots Design System/Components/Button variants 1`] = `
 .c11:active {
   border: 1px solid #d02b20;
   background: #d02b20;
+}
+
+.c11 .c6 {
+  color: #ffffff;
 }
 
 .c12 {
@@ -23528,6 +23536,10 @@ exports[`Storyshots Design System/Components/LinkButton variants 1`] = `
   background: #328048;
 }
 
+.c11 .c7 {
+  color: #ffffff;
+}
+
 .c12 {
   padding: 8px 16px;
   background: #4945ff;
@@ -23594,6 +23606,10 @@ exports[`Storyshots Design System/Components/LinkButton variants 1`] = `
 .c12:active {
   border: 1px solid #d02b20;
   background: #d02b20;
+}
+
+.c12 .c7 {
+  color: #ffffff;
 }
 
 .c13 {
@@ -41536,18 +41552,6 @@ exports[`Storyshots Design System/Components/Theme dark colors 1`] = `
   width: 1px;
 }
 
-.c5 {
-  color: #ffffff;
-  font-size: 0.875rem;
-  line-height: 1.43;
-}
-
-.c6 {
-  color: #32324d;
-  font-size: 0.875rem;
-  line-height: 1.43;
-}
-
 .c3 {
   padding: 16px;
 }
@@ -41620,47 +41624,47 @@ exports[`Storyshots Design System/Components/Theme dark colors 1`] = `
             <div
               style="padding: 12px; background: rgb(33, 33, 52);"
             >
-              <span
-                class="c5"
+              <p
+                style="color: white;"
               >
                 alternative100
-              </span>
+              </p>
             </div>
             <div
               style="padding: 12px; background: rgb(74, 74, 106);"
             >
-              <span
-                class="c5"
+              <p
+                style="color: white;"
               >
                 alternative200
-              </span>
+              </p>
             </div>
             <div
               style="padding: 12px; background: rgb(172, 115, 230);"
             >
-              <span
-                class="c5"
+              <p
+                style="color: white;"
               >
                 alternative500
-              </span>
+              </p>
             </div>
             <div
               style="padding: 12px; background: rgb(246, 236, 252);"
             >
-              <span
-                class="c6"
+              <p
+                style="color: black;"
               >
                 alternative600
-              </span>
+              </p>
             </div>
             <div
               style="padding: 12px; background: rgb(224, 193, 244);"
             >
-              <span
-                class="c6"
+              <p
+                style="color: black;"
               >
                 alternative700
-              </span>
+              </p>
             </div>
           </div>
         </div>
@@ -41677,47 +41681,47 @@ exports[`Storyshots Design System/Components/Theme dark colors 1`] = `
             <div
               style="padding: 12px; background: rgb(33, 33, 52);"
             >
-              <span
-                class="c5"
+              <p
+                style="color: white;"
               >
                 danger100
-              </span>
+              </p>
             </div>
             <div
               style="padding: 12px; background: rgb(74, 74, 106);"
             >
-              <span
-                class="c5"
+              <p
+                style="color: white;"
               >
                 danger200
-              </span>
+              </p>
             </div>
             <div
               style="padding: 12px; background: rgb(238, 94, 82);"
             >
-              <span
-                class="c5"
+              <p
+                style="color: white;"
               >
                 danger500
-              </span>
+              </p>
             </div>
             <div
               style="padding: 12px; background: rgb(252, 236, 234);"
             >
-              <span
-                class="c6"
+              <p
+                style="color: black;"
               >
                 danger600
-              </span>
+              </p>
             </div>
             <div
               style="padding: 12px; background: rgb(245, 192, 184);"
             >
-              <span
-                class="c6"
+              <p
+                style="color: black;"
               >
                 danger700
-              </span>
+              </p>
             </div>
           </div>
         </div>
@@ -41734,110 +41738,110 @@ exports[`Storyshots Design System/Components/Theme dark colors 1`] = `
             <div
               style="padding: 12px; background: rgb(33, 33, 52);"
             >
-              <span
-                class="c5"
+              <p
+                style="color: white;"
               >
                 neutral0
-              </span>
+              </p>
             </div>
             <div
               style="padding: 12px; background: rgb(24, 24, 38);"
             >
-              <span
-                class="c5"
+              <p
+                style="color: white;"
               >
                 neutral100
-              </span>
+              </p>
             </div>
             <div
               style="padding: 12px; background: rgb(255, 255, 255);"
             >
-              <span
-                class="c6"
+              <p
+                style="color: black;"
               >
                 neutral1000
-              </span>
+              </p>
             </div>
             <div
               style="padding: 12px; background: rgb(74, 74, 106);"
             >
-              <span
-                class="c5"
+              <p
+                style="color: white;"
               >
                 neutral150
-              </span>
+              </p>
             </div>
             <div
               style="padding: 12px; background: rgb(102, 102, 135);"
             >
-              <span
-                class="c5"
+              <p
+                style="color: white;"
               >
                 neutral200
-              </span>
+              </p>
             </div>
             <div
               style="padding: 12px; background: rgb(102, 102, 135);"
             >
-              <span
-                class="c5"
+              <p
+                style="color: white;"
               >
                 neutral300
-              </span>
+              </p>
             </div>
             <div
               style="padding: 12px; background: rgb(165, 165, 186);"
             >
-              <span
-                class="c5"
+              <p
+                style="color: white;"
               >
                 neutral400
-              </span>
+              </p>
             </div>
             <div
               style="padding: 12px; background: rgb(192, 192, 207);"
             >
-              <span
-                class="c5"
+              <p
+                style="color: white;"
               >
                 neutral500
-              </span>
+              </p>
             </div>
             <div
               style="padding: 12px; background: rgb(165, 165, 186);"
             >
-              <span
-                class="c6"
+              <p
+                style="color: black;"
               >
                 neutral600
-              </span>
+              </p>
             </div>
             <div
               style="padding: 12px; background: rgb(234, 234, 239);"
             >
-              <span
-                class="c6"
+              <p
+                style="color: black;"
               >
                 neutral700
-              </span>
+              </p>
             </div>
             <div
               style="padding: 12px; background: rgb(255, 255, 255);"
             >
-              <span
-                class="c6"
+              <p
+                style="color: black;"
               >
                 neutral800
-              </span>
+              </p>
             </div>
             <div
               style="padding: 12px; background: rgb(255, 255, 255);"
             >
-              <span
-                class="c6"
+              <p
+                style="color: black;"
               >
                 neutral900
-              </span>
+              </p>
             </div>
           </div>
         </div>
@@ -41854,47 +41858,47 @@ exports[`Storyshots Design System/Components/Theme dark colors 1`] = `
             <div
               style="padding: 12px; background: rgb(33, 33, 52);"
             >
-              <span
-                class="c5"
+              <p
+                style="color: white;"
               >
                 primary100
-              </span>
+              </p>
             </div>
             <div
               style="padding: 12px; background: rgb(74, 74, 106);"
             >
-              <span
-                class="c5"
+              <p
+                style="color: white;"
               >
                 primary200
-              </span>
+              </p>
             </div>
             <div
               style="padding: 12px; background: rgb(217, 216, 255);"
             >
-              <span
-                class="c5"
+              <p
+                style="color: white;"
               >
                 primary500
-              </span>
+              </p>
             </div>
             <div
               style="padding: 12px; background: rgb(123, 121, 255);"
             >
-              <span
-                class="c6"
+              <p
+                style="color: black;"
               >
                 primary600
-              </span>
+              </p>
             </div>
             <div
               style="padding: 12px; background: rgb(123, 121, 255);"
             >
-              <span
-                class="c6"
+              <p
+                style="color: black;"
               >
                 primary700
-              </span>
+              </p>
             </div>
           </div>
         </div>
@@ -41911,47 +41915,47 @@ exports[`Storyshots Design System/Components/Theme dark colors 1`] = `
             <div
               style="padding: 12px; background: rgb(33, 33, 52);"
             >
-              <span
-                class="c5"
+              <p
+                style="color: white;"
               >
                 secondary100
-              </span>
+              </p>
             </div>
             <div
               style="padding: 12px; background: rgb(74, 74, 106);"
             >
-              <span
-                class="c5"
+              <p
+                style="color: white;"
               >
                 secondary200
-              </span>
+              </p>
             </div>
             <div
               style="padding: 12px; background: rgb(102, 183, 241);"
             >
-              <span
-                class="c5"
+              <p
+                style="color: white;"
               >
                 secondary500
-              </span>
+              </p>
             </div>
             <div
               style="padding: 12px; background: rgb(234, 245, 255);"
             >
-              <span
-                class="c6"
+              <p
+                style="color: black;"
               >
                 secondary600
-              </span>
+              </p>
             </div>
             <div
               style="padding: 12px; background: rgb(184, 225, 255);"
             >
-              <span
-                class="c6"
+              <p
+                style="color: black;"
               >
                 secondary700
-              </span>
+              </p>
             </div>
           </div>
         </div>
@@ -41968,47 +41972,47 @@ exports[`Storyshots Design System/Components/Theme dark colors 1`] = `
             <div
               style="padding: 12px; background: rgb(33, 33, 52);"
             >
-              <span
-                class="c5"
+              <p
+                style="color: white;"
               >
                 success100
-              </span>
+              </p>
             </div>
             <div
               style="padding: 12px; background: rgb(74, 74, 106);"
             >
-              <span
-                class="c5"
+              <p
+                style="color: white;"
               >
                 success200
-              </span>
+              </p>
             </div>
             <div
               style="padding: 12px; background: rgb(92, 177, 118);"
             >
-              <span
-                class="c5"
+              <p
+                style="color: white;"
               >
                 success500
-              </span>
+              </p>
             </div>
             <div
               style="padding: 12px; background: rgb(198, 240, 194);"
             >
-              <span
-                class="c6"
+              <p
+                style="color: black;"
               >
                 success600
-              </span>
+              </p>
             </div>
             <div
               style="padding: 12px; background: rgb(198, 240, 194);"
             >
-              <span
-                class="c6"
+              <p
+                style="color: black;"
               >
                 success700
-              </span>
+              </p>
             </div>
           </div>
         </div>
@@ -42031,242 +42035,8 @@ exports[`Storyshots Design System/Components/Theme light colors 1`] = `
   width: 1px;
 }
 
-.c6 {
-  color: #32324d;
-  font-size: 0.875rem;
-  line-height: 1.43;
-}
-
-.c10 {
-  color: #ffffff;
-  font-size: 0.875rem;
-  line-height: 1.43;
-}
-
 .c3 {
   padding: 16px;
-}
-
-.c5 {
-  background: #f6ecfc;
-  color: #212134;
-  padding: 12px;
-}
-
-.c7 {
-  background: #e0c1f4;
-  color: #212134;
-  padding: 12px;
-}
-
-.c8 {
-  background: #ac73e6;
-  color: #212134;
-  padding: 12px;
-}
-
-.c9 {
-  background: #9736e8;
-  color: #ffffff;
-  padding: 12px;
-}
-
-.c11 {
-  background: #8312d1;
-  color: #ffffff;
-  padding: 12px;
-}
-
-.c12 {
-  background: #fcecea;
-  color: #212134;
-  padding: 12px;
-}
-
-.c13 {
-  background: #f5c0b8;
-  color: #212134;
-  padding: 12px;
-}
-
-.c14 {
-  background: #ee5e52;
-  color: #212134;
-  padding: 12px;
-}
-
-.c15 {
-  background: #d02b20;
-  color: #ffffff;
-  padding: 12px;
-}
-
-.c16 {
-  background: #b72b1a;
-  color: #ffffff;
-  padding: 12px;
-}
-
-.c17 {
-  background: #ffffff;
-  color: #212134;
-  padding: 12px;
-}
-
-.c18 {
-  background: #f6f6f9;
-  color: #212134;
-  padding: 12px;
-}
-
-.c19 {
-  background: #181826;
-  color: #ffffff;
-  padding: 12px;
-}
-
-.c20 {
-  background: #eaeaef;
-  color: #212134;
-  padding: 12px;
-}
-
-.c21 {
-  background: #dcdce4;
-  color: #212134;
-  padding: 12px;
-}
-
-.c22 {
-  background: #c0c0cf;
-  color: #212134;
-  padding: 12px;
-}
-
-.c23 {
-  background: #a5a5ba;
-  color: #212134;
-  padding: 12px;
-}
-
-.c24 {
-  background: #8e8ea9;
-  color: #212134;
-  padding: 12px;
-}
-
-.c25 {
-  background: #666687;
-  color: #ffffff;
-  padding: 12px;
-}
-
-.c26 {
-  background: #4a4a6a;
-  color: #ffffff;
-  padding: 12px;
-}
-
-.c27 {
-  background: #32324d;
-  color: #ffffff;
-  padding: 12px;
-}
-
-.c28 {
-  background: #212134;
-  color: #ffffff;
-  padding: 12px;
-}
-
-.c29 {
-  background: #f0f0ff;
-  color: #212134;
-  padding: 12px;
-}
-
-.c30 {
-  background: #d9d8ff;
-  color: #212134;
-  padding: 12px;
-}
-
-.c31 {
-  background: #7b79ff;
-  color: #212134;
-  padding: 12px;
-}
-
-.c32 {
-  background: #4945ff;
-  color: #ffffff;
-  padding: 12px;
-}
-
-.c33 {
-  background: #271fe0;
-  color: #ffffff;
-  padding: 12px;
-}
-
-.c34 {
-  background: #eaf5ff;
-  color: #212134;
-  padding: 12px;
-}
-
-.c35 {
-  background: #b8e1ff;
-  color: #212134;
-  padding: 12px;
-}
-
-.c36 {
-  background: #66b7f1;
-  color: #212134;
-  padding: 12px;
-}
-
-.c37 {
-  background: #0c75af;
-  color: #ffffff;
-  padding: 12px;
-}
-
-.c38 {
-  background: #006096;
-  color: #ffffff;
-  padding: 12px;
-}
-
-.c39 {
-  background: #eafbe7;
-  color: #212134;
-  padding: 12px;
-}
-
-.c40 {
-  background: #c6f0c2;
-  color: #212134;
-  padding: 12px;
-}
-
-.c41 {
-  background: #5cb176;
-  color: #212134;
-  padding: 12px;
-}
-
-.c42 {
-  background: #328048;
-  color: #ffffff;
-  padding: 12px;
-}
-
-.c43 {
-  background: #2f6846;
-  color: #ffffff;
-  padding: 12px;
 }
 
 .c4 {
@@ -42335,49 +42105,49 @@ exports[`Storyshots Design System/Components/Theme light colors 1`] = `
             class="c4"
           >
             <div
-              class="c5"
+              style="padding: 12px; background: rgb(246, 236, 252);"
             >
-              <span
-                class="c6"
+              <p
+                style="color: black;"
               >
                 alternative100
-              </span>
+              </p>
             </div>
             <div
-              class="c7"
+              style="padding: 12px; background: rgb(224, 193, 244);"
             >
-              <span
-                class="c6"
+              <p
+                style="color: black;"
               >
                 alternative200
-              </span>
+              </p>
             </div>
             <div
-              class="c8"
+              style="padding: 12px; background: rgb(172, 115, 230);"
             >
-              <span
-                class="c6"
+              <p
+                style="color: black;"
               >
                 alternative500
-              </span>
+              </p>
             </div>
             <div
-              class="c9"
+              style="padding: 12px; background: rgb(151, 54, 232);"
             >
-              <span
-                class="c10"
+              <p
+                style="color: white;"
               >
                 alternative600
-              </span>
+              </p>
             </div>
             <div
-              class="c11"
+              style="padding: 12px; background: rgb(131, 18, 209);"
             >
-              <span
-                class="c10"
+              <p
+                style="color: white;"
               >
                 alternative700
-              </span>
+              </p>
             </div>
           </div>
         </div>
@@ -42392,49 +42162,49 @@ exports[`Storyshots Design System/Components/Theme light colors 1`] = `
             class="c4"
           >
             <div
-              class="c12"
+              style="padding: 12px; background: rgb(252, 236, 234);"
             >
-              <span
-                class="c6"
+              <p
+                style="color: black;"
               >
                 danger100
-              </span>
+              </p>
             </div>
             <div
-              class="c13"
+              style="padding: 12px; background: rgb(245, 192, 184);"
             >
-              <span
-                class="c6"
+              <p
+                style="color: black;"
               >
                 danger200
-              </span>
+              </p>
             </div>
             <div
-              class="c14"
+              style="padding: 12px; background: rgb(238, 94, 82);"
             >
-              <span
-                class="c6"
+              <p
+                style="color: black;"
               >
                 danger500
-              </span>
+              </p>
             </div>
             <div
-              class="c15"
+              style="padding: 12px; background: rgb(208, 43, 32);"
             >
-              <span
-                class="c10"
+              <p
+                style="color: white;"
               >
                 danger600
-              </span>
+              </p>
             </div>
             <div
-              class="c16"
+              style="padding: 12px; background: rgb(183, 43, 26);"
             >
-              <span
-                class="c10"
+              <p
+                style="color: white;"
               >
                 danger700
-              </span>
+              </p>
             </div>
           </div>
         </div>
@@ -42449,112 +42219,112 @@ exports[`Storyshots Design System/Components/Theme light colors 1`] = `
             class="c4"
           >
             <div
-              class="c17"
+              style="padding: 12px; background: rgb(255, 255, 255);"
             >
-              <span
-                class="c6"
+              <p
+                style="color: black;"
               >
                 neutral0
-              </span>
+              </p>
             </div>
             <div
-              class="c18"
+              style="padding: 12px; background: rgb(246, 246, 249);"
             >
-              <span
-                class="c6"
+              <p
+                style="color: black;"
               >
                 neutral100
-              </span>
+              </p>
             </div>
             <div
-              class="c19"
+              style="padding: 12px; background: rgb(24, 24, 38);"
             >
-              <span
-                class="c10"
+              <p
+                style="color: white;"
               >
                 neutral1000
-              </span>
+              </p>
             </div>
             <div
-              class="c20"
+              style="padding: 12px; background: rgb(234, 234, 239);"
             >
-              <span
-                class="c6"
+              <p
+                style="color: black;"
               >
                 neutral150
-              </span>
+              </p>
             </div>
             <div
-              class="c21"
+              style="padding: 12px; background: rgb(220, 220, 228);"
             >
-              <span
-                class="c6"
+              <p
+                style="color: black;"
               >
                 neutral200
-              </span>
+              </p>
             </div>
             <div
-              class="c22"
+              style="padding: 12px; background: rgb(192, 192, 207);"
             >
-              <span
-                class="c6"
+              <p
+                style="color: black;"
               >
                 neutral300
-              </span>
+              </p>
             </div>
             <div
-              class="c23"
+              style="padding: 12px; background: rgb(165, 165, 186);"
             >
-              <span
-                class="c6"
+              <p
+                style="color: black;"
               >
                 neutral400
-              </span>
+              </p>
             </div>
             <div
-              class="c24"
+              style="padding: 12px; background: rgb(142, 142, 169);"
             >
-              <span
-                class="c6"
+              <p
+                style="color: black;"
               >
                 neutral500
-              </span>
+              </p>
             </div>
             <div
-              class="c25"
+              style="padding: 12px; background: rgb(102, 102, 135);"
             >
-              <span
-                class="c10"
+              <p
+                style="color: white;"
               >
                 neutral600
-              </span>
+              </p>
             </div>
             <div
-              class="c26"
+              style="padding: 12px; background: rgb(74, 74, 106);"
             >
-              <span
-                class="c10"
+              <p
+                style="color: white;"
               >
                 neutral700
-              </span>
+              </p>
             </div>
             <div
-              class="c27"
+              style="padding: 12px; background: rgb(50, 50, 77);"
             >
-              <span
-                class="c10"
+              <p
+                style="color: white;"
               >
                 neutral800
-              </span>
+              </p>
             </div>
             <div
-              class="c28"
+              style="padding: 12px; background: rgb(33, 33, 52);"
             >
-              <span
-                class="c10"
+              <p
+                style="color: white;"
               >
                 neutral900
-              </span>
+              </p>
             </div>
           </div>
         </div>
@@ -42569,49 +42339,49 @@ exports[`Storyshots Design System/Components/Theme light colors 1`] = `
             class="c4"
           >
             <div
-              class="c29"
+              style="padding: 12px; background: rgb(240, 240, 255);"
             >
-              <span
-                class="c6"
+              <p
+                style="color: black;"
               >
                 primary100
-              </span>
+              </p>
             </div>
             <div
-              class="c30"
+              style="padding: 12px; background: rgb(217, 216, 255);"
             >
-              <span
-                class="c6"
+              <p
+                style="color: black;"
               >
                 primary200
-              </span>
+              </p>
             </div>
             <div
-              class="c31"
+              style="padding: 12px; background: rgb(123, 121, 255);"
             >
-              <span
-                class="c6"
+              <p
+                style="color: black;"
               >
                 primary500
-              </span>
+              </p>
             </div>
             <div
-              class="c32"
+              style="padding: 12px; background: rgb(73, 69, 255);"
             >
-              <span
-                class="c10"
+              <p
+                style="color: white;"
               >
                 primary600
-              </span>
+              </p>
             </div>
             <div
-              class="c33"
+              style="padding: 12px; background: rgb(39, 31, 224);"
             >
-              <span
-                class="c10"
+              <p
+                style="color: white;"
               >
                 primary700
-              </span>
+              </p>
             </div>
           </div>
         </div>
@@ -42626,49 +42396,49 @@ exports[`Storyshots Design System/Components/Theme light colors 1`] = `
             class="c4"
           >
             <div
-              class="c34"
+              style="padding: 12px; background: rgb(234, 245, 255);"
             >
-              <span
-                class="c6"
+              <p
+                style="color: black;"
               >
                 secondary100
-              </span>
+              </p>
             </div>
             <div
-              class="c35"
+              style="padding: 12px; background: rgb(184, 225, 255);"
             >
-              <span
-                class="c6"
+              <p
+                style="color: black;"
               >
                 secondary200
-              </span>
+              </p>
             </div>
             <div
-              class="c36"
+              style="padding: 12px; background: rgb(102, 183, 241);"
             >
-              <span
-                class="c6"
+              <p
+                style="color: black;"
               >
                 secondary500
-              </span>
+              </p>
             </div>
             <div
-              class="c37"
+              style="padding: 12px; background: rgb(12, 117, 175);"
             >
-              <span
-                class="c10"
+              <p
+                style="color: white;"
               >
                 secondary600
-              </span>
+              </p>
             </div>
             <div
-              class="c38"
+              style="padding: 12px; background: rgb(0, 96, 150);"
             >
-              <span
-                class="c10"
+              <p
+                style="color: white;"
               >
                 secondary700
-              </span>
+              </p>
             </div>
           </div>
         </div>
@@ -42683,49 +42453,49 @@ exports[`Storyshots Design System/Components/Theme light colors 1`] = `
             class="c4"
           >
             <div
-              class="c39"
+              style="padding: 12px; background: rgb(234, 251, 231);"
             >
-              <span
-                class="c6"
+              <p
+                style="color: black;"
               >
                 success100
-              </span>
+              </p>
             </div>
             <div
-              class="c40"
+              style="padding: 12px; background: rgb(198, 240, 194);"
             >
-              <span
-                class="c6"
+              <p
+                style="color: black;"
               >
                 success200
-              </span>
+              </p>
             </div>
             <div
-              class="c41"
+              style="padding: 12px; background: rgb(92, 177, 118);"
             >
-              <span
-                class="c6"
+              <p
+                style="color: black;"
               >
                 success500
-              </span>
+              </p>
             </div>
             <div
-              class="c42"
+              style="padding: 12px; background: rgb(50, 128, 72);"
             >
-              <span
-                class="c10"
+              <p
+                style="color: white;"
               >
                 success600
-              </span>
+              </p>
             </div>
             <div
-              class="c43"
+              style="padding: 12px; background: rgb(47, 104, 70);"
             >
-              <span
-                class="c10"
+              <p
+                style="color: white;"
               >
                 success700
-              </span>
+              </p>
             </div>
           </div>
         </div>
