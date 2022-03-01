@@ -11741,7 +11741,7 @@ exports[`Storyshots Design System/Components/DatePicker base 1`] = `
                 class="c8"
                 id="datepicker-45"
                 name="datepicker"
-                placeholder="2/28/2022"
+                placeholder="3/1/2022"
                 value=""
               />
             </div>
@@ -11974,7 +11974,7 @@ exports[`Storyshots Design System/Components/DatePicker disabled 1`] = `
                 class="c8"
                 id="datepicker-46"
                 name="datepicker"
-                placeholder="2/28/2022"
+                placeholder="3/1/2022"
                 value=""
               />
             </div>
@@ -12201,7 +12201,7 @@ exports[`Storyshots Design System/Components/DatePicker min/ max date 1`] = `
               class="c8"
               id="datepicker-47"
               name="datepicker"
-              placeholder="2/28/2022"
+              placeholder="3/1/2022"
               value=""
             />
           </div>
@@ -12421,7 +12421,7 @@ exports[`Storyshots Design System/Components/DatePicker size S 1`] = `
                 class="c8"
                 id="datepicker-48"
                 name="datepicker"
-                placeholder="2/28/2022"
+                placeholder="3/1/2022"
                 value=""
               />
             </div>
@@ -44104,7 +44104,7 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
 </main>
 `;
 
-exports[`Storyshots Design System/Components/ToggleCheckbox activated 1`] = `
+exports[`Storyshots Design System/Components/ToggleCheckbox base 1`] = `
 .c0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
@@ -44119,33 +44119,37 @@ exports[`Storyshots Design System/Components/ToggleCheckbox activated 1`] = `
 
 .c7 {
   font-weight: 600;
-  color: #32324d;
+  color: #b72b1a;
+  text-transform: uppercase;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
-.c10 {
+.c9 {
   font-weight: 600;
-  color: #271fe0;
+  color: #666687;
+  text-transform: uppercase;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
 .c2 {
-  background: #ffffff;
+  background: #f6f6f9;
+  padding: 4px;
   border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #dcdce4;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
 }
 
 .c4 {
-  background: #ffffff;
   padding-right: 32px;
   padding-left: 32px;
-}
-
-.c8 {
-  background: #f0f0ff;
-  padding-right: 32px;
-  padding-left: 32px;
+  border-radius: 4px;
 }
 
 .c5 {
@@ -44169,11 +44173,6 @@ exports[`Storyshots Design System/Components/ToggleCheckbox activated 1`] = `
 
 .c3 {
   height: 2.5rem;
-  border: 1px solid #dcdce4;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
   overflow: hidden;
   outline: none;
   box-shadow: 0;
@@ -44188,24 +44187,36 @@ exports[`Storyshots Design System/Components/ToggleCheckbox activated 1`] = `
   box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
-.c9 {
-  text-transform: uppercase;
-  position: relative;
-  z-index: 2;
-}
-
 .c6 {
-  text-transform: uppercase;
-  border-right: 1px solid #dcdce4;
+  background-color: #ffffff;
+  border: 1px solid #dcdce4;
   position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   z-index: 2;
 }
 
-.c11 {
+.c8 {
+  background-color: transparent;
+  border: 1px solid #f6f6f9;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  z-index: 2;
+}
+
+.c10 {
+  height: 100%;
+  left: 0;
+  opacity: 0;
   position: absolute;
+  top: 0;
   z-index: 1;
-  left: 4px;
-  top: 4px;
+  width: 100%;
 }
 
 <main>
@@ -44226,6 +44237,7 @@ exports[`Storyshots Design System/Components/ToggleCheckbox activated 1`] = `
     </div>
     <div
       class="c2 c3"
+      display="inline-flex"
     >
       <div
         aria-hidden="true"
@@ -44234,23 +44246,22 @@ exports[`Storyshots Design System/Components/ToggleCheckbox activated 1`] = `
         <span
           class="c7"
         >
-          Off
+          False
         </span>
       </div>
       <div
         aria-hidden="true"
-        class="c8 c5 c9"
+        class="c4 c5 c8"
       >
         <span
-          class="c10"
+          class="c9"
         >
-          On
+          True
         </span>
       </div>
       <input
         aria-disabled="false"
-        checked=""
-        class="c11"
+        class="c10"
         type="checkbox"
       />
     </div>
@@ -44274,32 +44285,28 @@ exports[`Storyshots Design System/Components/ToggleCheckbox disabled 1`] = `
 .c7 {
   font-weight: 600;
   color: #666687;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c10 {
-  font-weight: 600;
-  color: #4a4a6a;
+  text-transform: uppercase;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
 .c2 {
-  background: #ffffff;
+  background: #f6f6f9;
+  padding: 4px;
   border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #dcdce4;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
 }
 
 .c4 {
-  background: #eaeaef;
   padding-right: 32px;
   padding-left: 32px;
-}
-
-.c8 {
-  background: #dcdce4;
-  padding-right: 32px;
-  padding-left: 32px;
+  border-radius: 4px;
 }
 
 .c5 {
@@ -44323,11 +44330,6 @@ exports[`Storyshots Design System/Components/ToggleCheckbox disabled 1`] = `
 
 .c3 {
   height: 2.5rem;
-  border: 1px solid #c0c0cf;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
   cursor: not-allowed;
   overflow: hidden;
   outline: none;
@@ -44343,24 +44345,25 @@ exports[`Storyshots Design System/Components/ToggleCheckbox disabled 1`] = `
   box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
-.c9 {
-  text-transform: uppercase;
-  position: relative;
-  z-index: 2;
-}
-
 .c6 {
-  text-transform: uppercase;
-  border-right: 1px solid #c0c0cf;
+  background-color: transparent;
+  border: 1px solid #f6f6f9;
   position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   z-index: 2;
 }
 
-.c11 {
+.c8 {
+  height: 100%;
+  left: 0;
+  opacity: 0;
   position: absolute;
+  top: 0;
   z-index: 1;
-  left: 4px;
-  top: 4px;
+  width: 100%;
 }
 
 <main>
@@ -44382,6 +44385,7 @@ exports[`Storyshots Design System/Components/ToggleCheckbox disabled 1`] = `
     <div
       class="c2 c3"
       disabled=""
+      display="inline-flex"
     >
       <div
         aria-hidden="true"
@@ -44391,23 +44395,24 @@ exports[`Storyshots Design System/Components/ToggleCheckbox disabled 1`] = `
         <span
           class="c7"
         >
-          Off
+          False
         </span>
       </div>
       <div
         aria-hidden="true"
-        class="c8 c5 c9"
+        class="c4 c5 c6"
+        disabled=""
       >
         <span
-          class="c10"
+          class="c7"
         >
-          On
+          True
         </span>
       </div>
       <input
         aria-disabled="true"
         checked=""
-        class="c11"
+        class="c8"
         type="checkbox"
       />
     </div>
@@ -44415,7 +44420,7 @@ exports[`Storyshots Design System/Components/ToggleCheckbox disabled 1`] = `
 </main>
 `;
 
-exports[`Storyshots Design System/Components/ToggleCheckbox not activated 1`] = `
+exports[`Storyshots Design System/Components/ToggleCheckbox null-value 1`] = `
 .c0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
@@ -44430,33 +44435,29 @@ exports[`Storyshots Design System/Components/ToggleCheckbox not activated 1`] = 
 
 .c7 {
   font-weight: 600;
-  color: #b72b1a;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c10 {
-  font-weight: 600;
-  color: #32324d;
+  color: #666687;
+  text-transform: uppercase;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
 .c2 {
-  background: #ffffff;
+  background: #f6f6f9;
+  padding: 4px;
   border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #dcdce4;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
 }
 
 .c4 {
-  background: #fcecea;
   padding-right: 32px;
   padding-left: 32px;
-}
-
-.c8 {
-  background: #ffffff;
-  padding-right: 32px;
-  padding-left: 32px;
+  border-radius: 4px;
 }
 
 .c5 {
@@ -44480,11 +44481,6 @@ exports[`Storyshots Design System/Components/ToggleCheckbox not activated 1`] = 
 
 .c3 {
   height: 2.5rem;
-  border: 1px solid #dcdce4;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
   overflow: hidden;
   outline: none;
   box-shadow: 0;
@@ -44499,24 +44495,25 @@ exports[`Storyshots Design System/Components/ToggleCheckbox not activated 1`] = 
   box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
-.c9 {
-  text-transform: uppercase;
-  position: relative;
-  z-index: 2;
-}
-
 .c6 {
-  text-transform: uppercase;
-  border-right: 1px solid #dcdce4;
+  background-color: transparent;
+  border: 1px solid #f6f6f9;
   position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   z-index: 2;
 }
 
-.c11 {
+.c8 {
+  height: 100%;
+  left: 0;
+  opacity: 0;
   position: absolute;
+  top: 0;
   z-index: 1;
-  left: 4px;
-  top: 4px;
+  width: 100%;
 }
 
 <main>
@@ -44532,11 +44529,10 @@ exports[`Storyshots Design System/Components/ToggleCheckbox not activated 1`] = 
   >
     <div
       class="c0"
-    >
-      The field is required?
-    </div>
+    />
     <div
       class="c2 c3"
+      display="inline-flex"
     >
       <div
         aria-hidden="true"
@@ -44545,22 +44541,22 @@ exports[`Storyshots Design System/Components/ToggleCheckbox not activated 1`] = 
         <span
           class="c7"
         >
-          Off
+          False
         </span>
       </div>
       <div
         aria-hidden="true"
-        class="c8 c5 c9"
+        class="c4 c5 c6"
       >
         <span
-          class="c10"
+          class="c7"
         >
-          On
+          True
         </span>
       </div>
       <input
         aria-disabled="false"
-        class="c11"
+        class="c8"
         type="checkbox"
       />
     </div>
@@ -44584,32 +44580,36 @@ exports[`Storyshots Design System/Components/ToggleCheckbox size S 1`] = `
 .c7 {
   font-weight: 600;
   color: #b72b1a;
+  text-transform: uppercase;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
-.c10 {
+.c9 {
   font-weight: 600;
-  color: #32324d;
+  color: #666687;
+  text-transform: uppercase;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
 .c2 {
-  background: #ffffff;
+  background: #f6f6f9;
+  padding: 4px;
   border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #dcdce4;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
 }
 
 .c4 {
-  background: #fcecea;
   padding-right: 32px;
   padding-left: 32px;
-}
-
-.c8 {
-  background: #ffffff;
-  padding-right: 32px;
-  padding-left: 32px;
+  border-radius: 4px;
 }
 
 .c5 {
@@ -44633,11 +44633,6 @@ exports[`Storyshots Design System/Components/ToggleCheckbox size S 1`] = `
 
 .c3 {
   height: 2rem;
-  border: 1px solid #dcdce4;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
   overflow: hidden;
   outline: none;
   box-shadow: 0;
@@ -44652,24 +44647,36 @@ exports[`Storyshots Design System/Components/ToggleCheckbox size S 1`] = `
   box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
-.c9 {
-  text-transform: uppercase;
-  position: relative;
-  z-index: 2;
-}
-
 .c6 {
-  text-transform: uppercase;
-  border-right: 1px solid #dcdce4;
+  background-color: #ffffff;
+  border: 1px solid #dcdce4;
   position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   z-index: 2;
 }
 
-.c11 {
+.c8 {
+  background-color: transparent;
+  border: 1px solid #f6f6f9;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  z-index: 2;
+}
+
+.c10 {
+  height: 100%;
+  left: 0;
+  opacity: 0;
   position: absolute;
+  top: 0;
   z-index: 1;
-  left: 4px;
-  top: 4px;
+  width: 100%;
 }
 
 <main>
@@ -44690,6 +44697,7 @@ exports[`Storyshots Design System/Components/ToggleCheckbox size S 1`] = `
     </div>
     <div
       class="c2 c3"
+      display="inline-flex"
     >
       <div
         aria-hidden="true"
@@ -44698,22 +44706,22 @@ exports[`Storyshots Design System/Components/ToggleCheckbox size S 1`] = `
         <span
           class="c7"
         >
-          Off
+          False
         </span>
       </div>
       <div
         aria-hidden="true"
-        class="c8 c5 c9"
+        class="c4 c5 c8"
       >
         <span
-          class="c10"
+          class="c9"
         >
-          On
+          True
         </span>
       </div>
       <input
         aria-disabled="false"
-        class="c11"
+        class="c10"
         type="checkbox"
       />
     </div>
@@ -44741,9 +44749,18 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
   line-height: 1.33;
 }
 
+.c12 {
+  font-weight: 600;
+  color: #666687;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
 .c14 {
   font-weight: 600;
-  color: #271fe0;
+  color: #4945ff;
+  text-transform: uppercase;
   font-size: 0.75rem;
   line-height: 1.33;
 }
@@ -44759,20 +44776,22 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
 }
 
 .c8 {
-  background: #ffffff;
+  background: #f6f6f9;
+  padding: 4px;
   border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #dcdce4;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
 }
 
 .c10 {
-  background: #ffffff;
   padding-right: 32px;
   padding-left: 32px;
-}
-
-.c12 {
-  background: #f0f0ff;
-  padding-right: 32px;
-  padding-left: 32px;
+  border-radius: 4px;
 }
 
 .c3 {
@@ -44823,11 +44842,6 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
 
 .c9 {
   height: 2.5rem;
-  border: 1px solid #dcdce4;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
   overflow: hidden;
   outline: none;
   box-shadow: 0;
@@ -44842,24 +44856,36 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
   box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
-.c13 {
-  text-transform: uppercase;
+.c11 {
+  background-color: transparent;
+  border: 1px solid #f6f6f9;
   position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   z-index: 2;
 }
 
-.c11 {
-  text-transform: uppercase;
-  border-right: 1px solid #dcdce4;
+.c13 {
+  background-color: #ffffff;
+  border: 1px solid #dcdce4;
   position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   z-index: 2;
 }
 
 .c15 {
+  height: 100%;
+  left: 0;
+  opacity: 0;
   position: absolute;
+  top: 0;
   z-index: 1;
-  left: 4px;
-  top: 4px;
+  width: 100%;
 }
 
 .c1 {
@@ -44932,25 +44958,26 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
         </div>
         <div
           class="c8 c9"
+          display="inline-flex"
         >
           <div
             aria-hidden="true"
             class="c10 c3 c11"
           >
             <span
-              class="c4"
+              class="c12"
             >
-              off
+              False
             </span>
           </div>
           <div
             aria-hidden="true"
-            class="c12 c3 c13"
+            class="c10 c3 c13"
           >
             <span
               class="c14"
             >
-              on
+              True
             </span>
           </div>
           <input
@@ -44997,6 +45024,15 @@ exports[`Storyshots Design System/Components/ToggleInput error 1`] = `
 .c10 {
   font-weight: 600;
   color: #b72b1a;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c12 {
+  font-weight: 600;
+  color: #666687;
+  text-transform: uppercase;
   font-size: 0.75rem;
   line-height: 1.33;
 }
@@ -45008,20 +45044,22 @@ exports[`Storyshots Design System/Components/ToggleInput error 1`] = `
 }
 
 .c6 {
-  background: #ffffff;
+  background: #f6f6f9;
+  padding: 4px;
   border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #dcdce4;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
 }
 
 .c8 {
-  background: #fcecea;
   padding-right: 32px;
   padding-left: 32px;
-}
-
-.c11 {
-  background: #ffffff;
-  padding-right: 32px;
-  padding-left: 32px;
+  border-radius: 4px;
 }
 
 .c3 {
@@ -45064,11 +45102,6 @@ exports[`Storyshots Design System/Components/ToggleInput error 1`] = `
 
 .c7 {
   height: 2.5rem;
-  border: 1px solid #dcdce4;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
   overflow: hidden;
   outline: none;
   box-shadow: 0;
@@ -45083,24 +45116,36 @@ exports[`Storyshots Design System/Components/ToggleInput error 1`] = `
   box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
-.c12 {
-  text-transform: uppercase;
+.c9 {
+  background-color: #ffffff;
+  border: 1px solid #dcdce4;
   position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   z-index: 2;
 }
 
-.c9 {
-  text-transform: uppercase;
-  border-right: 1px solid #dcdce4;
+.c11 {
+  background-color: transparent;
+  border: 1px solid #f6f6f9;
   position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   z-index: 2;
 }
 
 .c13 {
+  height: 100%;
+  left: 0;
+  opacity: 0;
   position: absolute;
+  top: 0;
   z-index: 1;
-  left: 4px;
-  top: 4px;
+  width: 100%;
 }
 
 .c1 {
@@ -45147,6 +45192,7 @@ exports[`Storyshots Design System/Components/ToggleInput error 1`] = `
         </div>
         <div
           class="c6 c7"
+          display="inline-flex"
         >
           <div
             aria-hidden="true"
@@ -45155,17 +45201,17 @@ exports[`Storyshots Design System/Components/ToggleInput error 1`] = `
             <span
               class="c10"
             >
-              off
+              False
             </span>
           </div>
           <div
             aria-hidden="true"
-            class="c11 c3 c12"
+            class="c8 c3 c11"
           >
             <span
-              class="c4"
+              class="c12"
             >
-              on
+              True
             </span>
           </div>
           <input
@@ -45212,25 +45258,34 @@ exports[`Storyshots Design System/Components/ToggleInput null-value 1`] = `
 .c10 {
   font-weight: 600;
   color: #666687;
+  text-transform: uppercase;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
-.c13 {
+.c12 {
   color: #666687;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
 .c6 {
-  background: #ffffff;
+  background: #f6f6f9;
+  padding: 4px;
   border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #dcdce4;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
 }
 
 .c8 {
-  background: #ffffff;
   padding-right: 32px;
   padding-left: 32px;
+  border-radius: 4px;
 }
 
 .c3 {
@@ -45273,11 +45328,6 @@ exports[`Storyshots Design System/Components/ToggleInput null-value 1`] = `
 
 .c7 {
   height: 2.5rem;
-  border: 1px solid #dcdce4;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
   overflow: hidden;
   outline: none;
   box-shadow: 0;
@@ -45292,24 +45342,25 @@ exports[`Storyshots Design System/Components/ToggleInput null-value 1`] = `
   box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
-.c11 {
-  text-transform: uppercase;
-  position: relative;
-  z-index: 2;
-}
-
 .c9 {
-  text-transform: uppercase;
-  border-right: 1px solid #dcdce4;
+  background-color: transparent;
+  border: 1px solid #f6f6f9;
   position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   z-index: 2;
 }
 
-.c12 {
+.c11 {
+  height: 100%;
+  left: 0;
+  opacity: 0;
   position: absolute;
+  top: 0;
   z-index: 1;
-  left: 4px;
-  top: 4px;
+  width: 100%;
 }
 
 .c1 {
@@ -45356,6 +45407,7 @@ exports[`Storyshots Design System/Components/ToggleInput null-value 1`] = `
         </div>
         <div
           class="c6 c7"
+          display="inline-flex"
         >
           <div
             aria-hidden="true"
@@ -45364,22 +45416,22 @@ exports[`Storyshots Design System/Components/ToggleInput null-value 1`] = `
             <span
               class="c10"
             >
-              off
+              False
             </span>
           </div>
           <div
             aria-hidden="true"
-            class="c8 c3 c11"
+            class="c8 c3 c9"
           >
             <span
               class="c10"
             >
-              on
+              True
             </span>
           </div>
           <input
             aria-disabled="false"
-            class="c12"
+            class="c11"
             id="toggleinput-232"
             name="enable-provider"
             type="checkbox"
@@ -45387,7 +45439,7 @@ exports[`Storyshots Design System/Components/ToggleInput null-value 1`] = `
         </div>
       </label>
       <p
-        class="c13"
+        class="c12"
         id="toggleinput-232-hint"
       >
         Enable provider
@@ -45420,6 +45472,15 @@ exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
 .c10 {
   font-weight: 600;
   color: #b72b1a;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c12 {
+  font-weight: 600;
+  color: #666687;
+  text-transform: uppercase;
   font-size: 0.75rem;
   line-height: 1.33;
 }
@@ -45431,20 +45492,22 @@ exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
 }
 
 .c6 {
-  background: #ffffff;
+  background: #f6f6f9;
+  padding: 4px;
   border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #dcdce4;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
 }
 
 .c8 {
-  background: #fcecea;
   padding-right: 32px;
   padding-left: 32px;
-}
-
-.c11 {
-  background: #ffffff;
-  padding-right: 32px;
-  padding-left: 32px;
+  border-radius: 4px;
 }
 
 .c3 {
@@ -45487,11 +45550,6 @@ exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
 
 .c7 {
   height: 2rem;
-  border: 1px solid #dcdce4;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
   overflow: hidden;
   outline: none;
   box-shadow: 0;
@@ -45506,24 +45564,36 @@ exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
   box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
-.c12 {
-  text-transform: uppercase;
+.c9 {
+  background-color: #ffffff;
+  border: 1px solid #dcdce4;
   position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   z-index: 2;
 }
 
-.c9 {
-  text-transform: uppercase;
-  border-right: 1px solid #dcdce4;
+.c11 {
+  background-color: transparent;
+  border: 1px solid #f6f6f9;
   position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   z-index: 2;
 }
 
 .c13 {
+  height: 100%;
+  left: 0;
+  opacity: 0;
   position: absolute;
+  top: 0;
   z-index: 1;
-  left: 4px;
-  top: 4px;
+  width: 100%;
 }
 
 .c1 {
@@ -45570,6 +45640,7 @@ exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
         </div>
         <div
           class="c6 c7"
+          display="inline-flex"
         >
           <div
             aria-hidden="true"
@@ -45578,17 +45649,17 @@ exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
             <span
               class="c10"
             >
-              off
+              False
             </span>
           </div>
           <div
             aria-hidden="true"
-            class="c11 c3 c12"
+            class="c8 c3 c11"
           >
             <span
-              class="c4"
+              class="c12"
             >
-              on
+              True
             </span>
           </div>
           <input
