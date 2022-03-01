@@ -12187,6 +12187,7 @@ exports[`Storyshots Design System/Components/DatePicker min/ max date 1`] = `
       <div>
         <div
           class="c1"
+          spacing="1"
         >
           <label
             class="c2"
