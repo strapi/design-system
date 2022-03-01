@@ -11741,7 +11741,7 @@ exports[`Storyshots Design System/Components/DatePicker base 1`] = `
                 class="c8"
                 id="datepicker-45"
                 name="datepicker"
-                placeholder="3/1/2022"
+                placeholder="1/1/1970"
                 value=""
               />
             </div>
@@ -11974,7 +11974,7 @@ exports[`Storyshots Design System/Components/DatePicker disabled 1`] = `
                 class="c8"
                 id="datepicker-46"
                 name="datepicker"
-                placeholder="3/1/2022"
+                placeholder="1/1/1970"
                 value=""
               />
             </div>
@@ -12201,7 +12201,7 @@ exports[`Storyshots Design System/Components/DatePicker min/ max date 1`] = `
               class="c8"
               id="datepicker-47"
               name="datepicker"
-              placeholder="3/1/2022"
+              placeholder="03/01/1970"
               value=""
             />
           </div>
@@ -12421,7 +12421,7 @@ exports[`Storyshots Design System/Components/DatePicker size S 1`] = `
                 class="c8"
                 id="datepicker-48"
                 name="datepicker"
-                placeholder="3/1/2022"
+                placeholder="1/1/1970"
                 value=""
               />
             </div>

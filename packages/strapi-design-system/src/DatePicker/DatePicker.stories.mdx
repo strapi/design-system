@@ -125,6 +125,7 @@ By passing in `minDate` or `maxDate` it is possible to define the range of years
           name="datepicker"
           clearLabel={'Clear the datepicker'}
           onClear={() => setDate(undefined)}
+          placeholder="03/01/1970"
           selectedDateLabel={(formattedDate) => `Date picker, current is ${formattedDate}`}
           minDate={new Date(2000, 1, 1)}
           maxDate={new Date(2040, 1, 1)}
