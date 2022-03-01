@@ -262,10 +262,6 @@ exports[`Storyshots Design System/Components/Accordion accordion-group 1`] = `
   margin-right: 0;
 }
 
-.c26 > * + * {
-  margin-left: 0px;
-}
-
 .c20 path {
   fill: #666687;
 }
@@ -565,7 +561,6 @@ exports[`Storyshots Design System/Components/Accordion accordion-group 1`] = `
               </div>
               <div
                 class="c2 c4 c26"
-                spacing="0"
               >
                 <span>
                   <button
@@ -11408,10 +11403,6 @@ exports[`Storyshots Design System/Components/Combobox withoutLabel 1`] = `
   margin-bottom: 0;
 }
 
-.c1 > * + * {
-  margin-top: 0px;
-}
-
 .c8 {
   background: transparent;
   border: none;
@@ -11513,7 +11504,6 @@ exports[`Storyshots Design System/Components/Combobox withoutLabel 1`] = `
     />
     <div
       class="c1"
-      spacing="0"
     >
       <div
         class="c2 c3"

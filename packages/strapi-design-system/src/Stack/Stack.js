@@ -40,18 +40,26 @@ const StackH = styled(Flex).withConfig({
   }
 `;
 
-export const Stack = forwardRef(({ horizontal, spacing, ...props }, ref) => {
-  if (horizontal) {
-    return <StackH ref={ref} spacing={spacing} {...props} />;
+export const Stack = forwardRef(({ horizontal, spacing, size, ...props }, ref) => {
+  if (size) {
+    console.warn(
+      'Deprecation warning: Usage of "size" prop in Stack component is deprecated. This is discouraged and will be removed in the next major release. Please use "spacing" instead',
+    );
   }
 
-  return <StackV ref={ref} spacing={spacing} {...props} />;
+  if (horizontal) {
+    return <StackH ref={ref} spacing={spacing || size} {...props} />;
+  }
+
+  return <StackV ref={ref} spacing={spacing || size} {...props} />;
 });
 
 Stack.displayName = 'Stack';
 
 Stack.defaultProps = {
   horizontal: false,
+  size: undefined,
+  spacing: undefined,
 };
 
 Stack.propTypes = {
@@ -60,8 +68,12 @@ Stack.propTypes = {
    */
   horizontal: PropTypes.bool,
   /**
+   * DEPRECATED: The space between stack item.
+   */
+  size: PropTypes.number,
+  /**
    * The space between stack item.
    * See [theme.spaces](https://design-system-git-main-strapijs.vercel.app/?path=/story/design-system-components-lighttheme--spaces)
    */
-  spacing: PropTypes.number.isRequired,
+  spacing: PropTypes.number,
 };
