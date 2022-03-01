@@ -347,6 +347,11 @@ describe('ModalLayout', () => {
         background: #4945ff;
       }
 
+      .c19 svg > g,
+      .c19 svg path {
+        fill: #ffffff;
+      }
+
       .c1 {
         position: fixed;
         z-index: 4;

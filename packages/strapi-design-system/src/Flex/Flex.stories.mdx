@@ -4,6 +4,8 @@ import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { ArgsTable } from '@storybook/addon-docs';
 import { Flex } from './Flex';
 import { FlexProps } from './FlexProps';
+import { Typography } from '../Typography';
+import { Box } from '../Box';
 
 <Meta title="Design System/Technical Components/Flex" component={Flex} />
 
@@ -26,8 +28,12 @@ A Flex Flex
 <Canvas>
   <Story name="base">
     <Flex>
-      <div>Hello</div>
-      <div>World</div>
+      <Box background="primary600" padding={1} hasRadius>
+        <Typography textColor="neutral0">Hello</Typography>
+      </Box>
+      <Box background="success600" padding={1} hasRadius>
+        <Typography textColor="neutral0">World</Typography>
+      </Box>
     </Flex>
   </Story>
 </Canvas>

@@ -13,38 +13,6 @@ exports[`Storyshots Design System/Components/Accordion accordion-group 1`] = `
   width: 1px;
 }
 
-.c6 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c24 {
-  color: #4945ff;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c25 {
-  font-weight: 600;
-  color: #4a4a6a;
-  font-size: 0.875rem;
-  line-height: 1.43;
-}
-
-.c32 {
-  color: #666687;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c34 {
-  color: #d02b20;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
 .c1 {
   background: #ffffff;
   padding: 40px;
@@ -99,6 +67,38 @@ exports[`Storyshots Design System/Components/Accordion accordion-group 1`] = `
 
 .c33 {
   padding-top: 4px;
+}
+
+.c6 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c24 {
+  color: #4945ff;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c25 {
+  font-weight: 600;
+  color: #4a4a6a;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
+.c32 {
+  color: #666687;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c34 {
+  color: #d02b20;
+  font-size: 0.75rem;
+  line-height: 1.33;
 }
 
 .c4 {
@@ -875,38 +875,6 @@ exports[`Storyshots Design System/Components/Accordion base 1`] = `
   width: 1px;
 }
 
-.c13 {
-  color: #4945ff;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c14 {
-  font-weight: 600;
-  color: #4a4a6a;
-  font-size: 0.875rem;
-  line-height: 1.43;
-}
-
-.c21 {
-  color: #d02b20;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c26 {
-  color: #4a4a6a;
-  font-weight: 500;
-  font-size: 1rem;
-  line-height: 1.25;
-}
-
-.c27 {
-  color: #666687;
-  font-size: 0.875rem;
-  line-height: 1.43;
-}
-
 .c1 {
   background: #f6f6f9;
   padding: 40px;
@@ -975,6 +943,38 @@ exports[`Storyshots Design System/Components/Accordion base 1`] = `
   background: #ffffff;
   padding-right: 24px;
   padding-left: 24px;
+}
+
+.c13 {
+  color: #4945ff;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c14 {
+  font-weight: 600;
+  color: #4a4a6a;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
+.c21 {
+  color: #d02b20;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c26 {
+  color: #4a4a6a;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
+.c27 {
+  color: #666687;
+  font-size: 0.875rem;
+  line-height: 1.43;
 }
 
 .c6 {
@@ -1633,25 +1633,6 @@ exports[`Storyshots Design System/Components/Accordion expanded 1`] = `
   width: 1px;
 }
 
-.c11 {
-  color: #4945ff;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c12 {
-  color: #4945ff;
-  font-weight: 500;
-  font-size: 1rem;
-  line-height: 1.25;
-}
-
-.c13 {
-  color: #4945ff;
-  font-size: 0.875rem;
-  line-height: 1.43;
-}
-
 .c1 {
   border-radius: 4px;
 }
@@ -1687,6 +1668,25 @@ exports[`Storyshots Design System/Components/Accordion expanded 1`] = `
 
 .c19 {
   padding: 12px;
+}
+
+.c11 {
+  color: #4945ff;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c12 {
+  color: #4945ff;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
+.c13 {
+  color: #4945ff;
+  font-size: 0.875rem;
+  line-height: 1.43;
 }
 
 .c5 {
@@ -1950,25 +1950,6 @@ exports[`Storyshots Design System/Components/Accordion keyboard navigable 1`] = 
   width: 1px;
 }
 
-.c13 {
-  color: #4945ff;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c14 {
-  color: #4a4a6a;
-  font-weight: 500;
-  font-size: 1rem;
-  line-height: 1.25;
-}
-
-.c15 {
-  color: #666687;
-  font-size: 0.875rem;
-  line-height: 1.43;
-}
-
 .c1 {
   background: #f6f6f9;
   padding: 40px;
@@ -2007,6 +1988,25 @@ exports[`Storyshots Design System/Components/Accordion keyboard navigable 1`] = 
 .c21 {
   background: #ffffff;
   padding: 40px;
+}
+
+.c13 {
+  color: #4945ff;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c14 {
+  color: #4a4a6a;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
+.c15 {
+  color: #666687;
+  font-size: 0.875rem;
+  line-height: 1.43;
 }
 
 .c6 {
@@ -2591,19 +2591,6 @@ exports[`Storyshots Design System/Components/Alert base 1`] = `
   width: 1px;
 }
 
-.c8 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.875rem;
-  line-height: 1.43;
-}
-
-.c10 {
-  color: #32324d;
-  font-size: 0.875rem;
-  line-height: 1.43;
-}
-
 .c1 {
   padding-top: 20px;
   padding-right: 24px;
@@ -2623,6 +2610,19 @@ exports[`Storyshots Design System/Components/Alert base 1`] = `
 .c9 {
   padding-right: 8px;
   padding-bottom: 20px;
+}
+
+.c8 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
+.c10 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
 }
 
 .c3 {
@@ -2807,19 +2807,6 @@ exports[`Storyshots Design System/Components/Alert variants 1`] = `
   width: 1px;
 }
 
-.c9 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.875rem;
-  line-height: 1.43;
-}
-
-.c11 {
-  color: #32324d;
-  font-size: 0.875rem;
-  line-height: 1.43;
-}
-
 .c2 {
   padding-top: 20px;
   padding-right: 24px;
@@ -2839,6 +2826,19 @@ exports[`Storyshots Design System/Components/Alert variants 1`] = `
 .c10 {
   padding-right: 8px;
   padding-bottom: 20px;
+}
+
+.c9 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
+.c11 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
 }
 
 .c4 {
@@ -3208,25 +3208,6 @@ exports[`Storyshots Design System/Components/Alert with action 1`] = `
   width: 1px;
 }
 
-.c8 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.875rem;
-  line-height: 1.43;
-}
-
-.c10 {
-  color: #32324d;
-  font-size: 0.875rem;
-  line-height: 1.43;
-}
-
-.c15 {
-  color: #4945ff;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
 .c1 {
   padding-top: 20px;
   padding-right: 24px;
@@ -3250,6 +3231,25 @@ exports[`Storyshots Design System/Components/Alert with action 1`] = `
 
 .c11 {
   padding-bottom: 20px;
+}
+
+.c8 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
+.c10 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
+.c15 {
+  color: #4945ff;
+  font-size: 0.75rem;
+  line-height: 1.33;
 }
 
 .c3 {
@@ -3680,6 +3680,10 @@ exports[`Storyshots Design System/Components/Avatar initials 1`] = `
   width: 1px;
 }
 
+.c1 {
+  padding: 64px;
+}
+
 .c4 {
   font-weight: 600;
   font-size: 0.6875rem;
@@ -3687,10 +3691,6 @@ exports[`Storyshots Design System/Components/Avatar initials 1`] = `
   text-transform: uppercase;
   font-size: 0.875rem;
   line-height: 1.43;
-}
-
-.c1 {
-  padding: 64px;
 }
 
 .c2 {
@@ -3759,6 +3759,20 @@ exports[`Storyshots Design System/Components/Badge base 1`] = `
   width: 1px;
 }
 
+.c2 {
+  background: #f6f6f9;
+  padding: 4px;
+  border-radius: 4px;
+  min-width: 20px;
+}
+
+.c5 {
+  background: #f0f0ff;
+  padding: 4px;
+  border-radius: 4px;
+  min-width: 20px;
+}
+
 .c4 {
   color: #666687;
   font-weight: 600;
@@ -3773,20 +3787,6 @@ exports[`Storyshots Design System/Components/Badge base 1`] = `
   font-size: 0.6875rem;
   line-height: 1.45;
   text-transform: uppercase;
-}
-
-.c2 {
-  background: #f6f6f9;
-  padding: 4px;
-  border-radius: 4px;
-  min-width: 20px;
-}
-
-.c5 {
-  background: #f0f0ff;
-  padding: 4px;
-  border-radius: 4px;
-  min-width: 20px;
 }
 
 .c3 {
@@ -3909,16 +3909,16 @@ exports[`Storyshots Design System/Components/Breadcrumbs base 1`] = `
   width: 1px;
 }
 
+.c7 {
+  padding-right: 12px;
+  padding-left: 12px;
+}
+
 .c6 {
   font-weight: 600;
   color: #32324d;
   font-size: 0.875rem;
   line-height: 1.43;
-}
-
-.c7 {
-  padding-right: 12px;
-  padding-left: 12px;
 }
 
 .c2 {
@@ -4085,15 +4085,15 @@ exports[`Storyshots Design System/Components/Button base 1`] = `
   width: 1px;
 }
 
+.c2 {
+  padding-bottom: 8px;
+}
+
 .c6 {
   font-weight: 600;
   color: #32324d;
   font-size: 0.75rem;
   line-height: 1.33;
-}
-
-.c2 {
-  padding-bottom: 8px;
 }
 
 .c3 {
@@ -4219,6 +4219,11 @@ exports[`Storyshots Design System/Components/Button base 1`] = `
   background: #4945ff;
 }
 
+.c4 svg > g,
+.c4 svg path {
+  fill: #ffffff;
+}
+
 <main>
   <div
     class="c0"
@@ -4258,19 +4263,19 @@ exports[`Storyshots Design System/Components/Button disabled 1`] = `
   width: 1px;
 }
 
-.c8 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
 .c2 {
   padding-right: 4px;
 }
 
 .c5 {
   padding-right: 8px;
+}
+
+.c8 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
 }
 
 .c3 {
@@ -4400,6 +4405,11 @@ exports[`Storyshots Design System/Components/Button disabled 1`] = `
   background: #4945ff;
 }
 
+.c4 svg > g,
+.c4 svg path {
+  fill: #ffffff;
+}
+
 <main>
   <div
     class="c0"
@@ -4457,13 +4467,6 @@ exports[`Storyshots Design System/Components/Button fullWidth 1`] = `
   width: 1px;
 }
 
-.c8 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
 .c2 {
   padding-right: 4px;
 }
@@ -4474,6 +4477,13 @@ exports[`Storyshots Design System/Components/Button fullWidth 1`] = `
 
 .c9 {
   padding-left: 8px;
+}
+
+.c8 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
 }
 
 .c3 {
@@ -4612,6 +4622,11 @@ exports[`Storyshots Design System/Components/Button fullWidth 1`] = `
   background: #4945ff;
 }
 
+.c4 svg > g,
+.c4 svg path {
+  fill: #ffffff;
+}
+
 <main>
   <div
     class="c0"
@@ -4685,19 +4700,19 @@ exports[`Storyshots Design System/Components/Button icons 1`] = `
   width: 1px;
 }
 
-.c9 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
 .c6 {
   padding-right: 8px;
 }
 
 .c11 {
   padding-left: 8px;
+}
+
+.c9 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
 }
 
 .c2 {
@@ -4853,6 +4868,11 @@ exports[`Storyshots Design System/Components/Button icons 1`] = `
 .c5:active {
   border: 1px solid #4945ff;
   background: #4945ff;
+}
+
+.c5 svg > g,
+.c5 svg path {
+  fill: #ffffff;
 }
 
 .c10 {
@@ -5086,6 +5106,10 @@ exports[`Storyshots Design System/Components/Button sizes 1`] = `
   width: 1px;
 }
 
+.c3 {
+  padding-right: 4px;
+}
+
 .c7 {
   font-weight: 600;
   color: #32324d;
@@ -5098,10 +5122,6 @@ exports[`Storyshots Design System/Components/Button sizes 1`] = `
   color: #32324d;
   font-size: 0.875rem;
   line-height: 1.43;
-}
-
-.c3 {
-  padding-right: 4px;
 }
 
 .c2 {
@@ -5241,6 +5261,11 @@ exports[`Storyshots Design System/Components/Button sizes 1`] = `
   background: #4945ff;
 }
 
+.c5 svg > g,
+.c5 svg path {
+  fill: #ffffff;
+}
+
 .c8 {
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -5304,6 +5329,11 @@ exports[`Storyshots Design System/Components/Button sizes 1`] = `
 .c8:active {
   border: 1px solid #4945ff;
   background: #4945ff;
+}
+
+.c8 svg > g,
+.c8 svg path {
+  fill: #ffffff;
 }
 
 <main>
@@ -5511,6 +5541,11 @@ exports[`Storyshots Design System/Components/Button variants 1`] = `
 .c5:active {
   border: 1px solid #4945ff;
   background: #4945ff;
+}
+
+.c5 svg > g,
+.c5 svg path {
+  fill: #ffffff;
 }
 
 .c8 {
@@ -6158,33 +6193,6 @@ exports[`Storyshots Design System/Components/Card base 1`] = `
   width: 1px;
 }
 
-.c17 {
-  color: #ffffff;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c21 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c22 {
-  color: #666687;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c27 {
-  color: #666687;
-  font-weight: 600;
-  font-size: 0.6875rem;
-  line-height: 1.45;
-  text-transform: uppercase;
-}
-
 .c1 {
   background: #ffffff;
   border-radius: 4px;
@@ -6218,6 +6226,33 @@ exports[`Storyshots Design System/Components/Card base 1`] = `
   padding: 4px;
   border-radius: 4px;
   min-width: 20px;
+}
+
+.c17 {
+  color: #ffffff;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c21 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c22 {
+  color: #666687;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c27 {
+  color: #666687;
+  font-weight: 600;
+  font-size: 0.6875rem;
+  line-height: 1.45;
+  text-transform: uppercase;
 }
 
 .c2 {
@@ -6647,27 +6682,6 @@ exports[`Storyshots Design System/Components/Card keyboard navigable 1`] = `
   width: 1px;
 }
 
-.c7 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c8 {
-  color: #666687;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c13 {
-  color: #666687;
-  font-weight: 600;
-  font-size: 0.6875rem;
-  line-height: 1.45;
-  text-transform: uppercase;
-}
-
 .c1 {
   background: #ffffff;
   border-radius: 4px;
@@ -6695,6 +6709,27 @@ exports[`Storyshots Design System/Components/Card keyboard navigable 1`] = `
   padding: 4px;
   border-radius: 4px;
   min-width: 20px;
+}
+
+.c7 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c8 {
+  color: #666687;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c13 {
+  color: #666687;
+  font-weight: 600;
+  font-size: 0.6875rem;
+  line-height: 1.45;
+  text-transform: uppercase;
 }
 
 .c3 {
@@ -7020,33 +7055,6 @@ exports[`Storyshots Design System/Components/Card with asset icon 1`] = `
   width: 1px;
 }
 
-.c12 {
-  color: #ffffff;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c16 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c17 {
-  color: #666687;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c22 {
-  color: #666687;
-  font-weight: 600;
-  font-size: 0.6875rem;
-  line-height: 1.45;
-  text-transform: uppercase;
-}
-
 .c1 {
   background: #ffffff;
   border-radius: 4px;
@@ -7076,6 +7084,33 @@ exports[`Storyshots Design System/Components/Card with asset icon 1`] = `
   padding: 4px;
   border-radius: 4px;
   min-width: 20px;
+}
+
+.c12 {
+  color: #ffffff;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c16 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c17 {
+  color: #666687;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c22 {
+  color: #666687;
+  font-weight: 600;
+  font-size: 0.6875rem;
+  line-height: 1.45;
+  text-transform: uppercase;
 }
 
 .c2 {
@@ -7379,27 +7414,6 @@ exports[`Storyshots Design System/Components/Card without asset 1`] = `
   width: 1px;
 }
 
-.c7 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c8 {
-  color: #666687;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c13 {
-  color: #666687;
-  font-weight: 600;
-  font-size: 0.6875rem;
-  line-height: 1.45;
-  text-transform: uppercase;
-}
-
 .c1 {
   background: #ffffff;
   border-radius: 4px;
@@ -7427,6 +7441,27 @@ exports[`Storyshots Design System/Components/Card without asset 1`] = `
   padding: 4px;
   border-radius: 4px;
   min-width: 20px;
+}
+
+.c7 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c8 {
+  color: #666687;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c13 {
+  color: #666687;
+  font-weight: 600;
+  font-size: 0.6875rem;
+  line-height: 1.45;
+  text-transform: uppercase;
 }
 
 .c3 {
@@ -7562,33 +7597,6 @@ exports[`Storyshots Design System/Components/Card without asset action 1`] = `
   width: 1px;
 }
 
-.c13 {
-  color: #ffffff;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c17 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c18 {
-  color: #666687;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c23 {
-  color: #666687;
-  font-weight: 600;
-  font-size: 0.6875rem;
-  line-height: 1.45;
-  text-transform: uppercase;
-}
-
 .c1 {
   background: #ffffff;
   border-radius: 4px;
@@ -7618,6 +7626,33 @@ exports[`Storyshots Design System/Components/Card without asset action 1`] = `
   padding: 4px;
   border-radius: 4px;
   min-width: 20px;
+}
+
+.c13 {
+  color: #ffffff;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c17 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c18 {
+  color: #666687;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c23 {
+  color: #666687;
+  font-weight: 600;
+  font-size: 0.6875rem;
+  line-height: 1.45;
+  text-transform: uppercase;
 }
 
 .c2 {
@@ -7915,27 +7950,6 @@ exports[`Storyshots Design System/Components/Card without asset action nor timer
   width: 1px;
 }
 
-.c14 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c15 {
-  color: #666687;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c20 {
-  color: #666687;
-  font-weight: 600;
-  font-size: 0.6875rem;
-  line-height: 1.45;
-  text-transform: uppercase;
-}
-
 .c1 {
   background: #ffffff;
   border-radius: 4px;
@@ -7958,6 +7972,27 @@ exports[`Storyshots Design System/Components/Card without asset action nor timer
   padding: 4px;
   border-radius: 4px;
   min-width: 20px;
+}
+
+.c14 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c15 {
+  color: #666687;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c20 {
+  color: #666687;
+  font-weight: 600;
+  font-size: 0.6875rem;
+  line-height: 1.45;
+  text-transform: uppercase;
 }
 
 .c2 {
@@ -8240,29 +8275,6 @@ exports[`Storyshots Design System/Components/CarouselInput base 1`] = `
   width: 1px;
 }
 
-.c2 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c23 {
-  color: #666687;
-  display: block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c24 {
-  color: #666687;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
 .c4 {
   background: #f6f6f9;
   padding: 8px;
@@ -8305,6 +8317,29 @@ exports[`Storyshots Design System/Components/CarouselInput base 1`] = `
   padding-top: 8px;
   padding-right: 16px;
   padding-left: 16px;
+}
+
+.c2 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c23 {
+  color: #666687;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c24 {
+  color: #666687;
+  font-size: 0.75rem;
+  line-height: 1.33;
 }
 
 .c3 {
@@ -8771,19 +8806,6 @@ exports[`Storyshots Design System/Components/CarouselInput one slide only 1`] = 
   width: 1px;
 }
 
-.c2 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c17 {
-  color: #666687;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
 .c4 {
   background: #f6f6f9;
   padding: 8px;
@@ -8814,6 +8836,19 @@ exports[`Storyshots Design System/Components/CarouselInput one slide only 1`] = 
   position: absolute;
   bottom: 4px;
   width: 100%;
+}
+
+.c2 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c17 {
+  color: #666687;
+  font-size: 0.75rem;
+  line-height: 1.33;
 }
 
 .c3 {
@@ -9169,14 +9204,14 @@ exports[`Storyshots Design System/Components/Checkbox base 1`] = `
   width: 1px;
 }
 
+.c5 {
+  padding-left: 8px;
+}
+
 .c2 {
   color: #32324d;
   font-size: 0.875rem;
   line-height: 1.43;
-}
-
-.c5 {
-  padding-left: 8px;
 }
 
 .c1 {
@@ -9326,14 +9361,14 @@ exports[`Storyshots Design System/Components/Checkbox disabled 1`] = `
   width: 1px;
 }
 
+.c5 {
+  padding-left: 8px;
+}
+
 .c2 {
   color: #32324d;
   font-size: 0.875rem;
   line-height: 1.43;
-}
-
-.c5 {
-  padding-left: 8px;
 }
 
 .c1 {
@@ -9485,6 +9520,10 @@ exports[`Storyshots Design System/Components/Checkbox error 1`] = `
   width: 1px;
 }
 
+.c5 {
+  padding-left: 8px;
+}
+
 .c2 {
   color: #32324d;
   font-size: 0.875rem;
@@ -9495,10 +9534,6 @@ exports[`Storyshots Design System/Components/Checkbox error 1`] = `
   color: #d02b20;
   font-size: 0.75rem;
   line-height: 1.33;
-}
-
-.c5 {
-  padding-left: 8px;
 }
 
 .c1 {
@@ -9656,6 +9691,10 @@ exports[`Storyshots Design System/Components/Checkbox hint 1`] = `
   width: 1px;
 }
 
+.c5 {
+  padding-left: 8px;
+}
+
 .c2 {
   color: #32324d;
   font-size: 0.875rem;
@@ -9666,10 +9705,6 @@ exports[`Storyshots Design System/Components/Checkbox hint 1`] = `
   color: #666687;
   font-size: 0.75rem;
   line-height: 1.33;
-}
-
-.c5 {
-  padding-left: 8px;
 }
 
 .c1 {
@@ -9826,14 +9861,14 @@ exports[`Storyshots Design System/Components/Checkbox indeterminate 1`] = `
   width: 1px;
 }
 
+.c5 {
+  padding-left: 8px;
+}
+
 .c2 {
   color: #32324d;
   font-size: 0.875rem;
   line-height: 1.43;
-}
-
-.c5 {
-  padding-left: 8px;
 }
 
 .c1 {
@@ -10038,15 +10073,15 @@ exports[`Storyshots Design System/Components/Combobox base 1`] = `
   width: 1px;
 }
 
+.c8 {
+  padding-left: 12px;
+}
+
 .c2 {
   font-weight: 600;
   color: #32324d;
   font-size: 0.75rem;
   line-height: 1.33;
-}
-
-.c8 {
-  padding-left: 12px;
 }
 
 .c3 {
@@ -10284,15 +10319,15 @@ exports[`Storyshots Design System/Components/Combobox creatable 1`] = `
   width: 1px;
 }
 
+.c8 {
+  padding-left: 12px;
+}
+
 .c2 {
   font-weight: 600;
   color: #32324d;
   font-size: 0.75rem;
   line-height: 1.33;
-}
-
-.c8 {
-  padding-left: 12px;
 }
 
 .c3 {
@@ -10530,15 +10565,15 @@ exports[`Storyshots Design System/Components/Combobox disabled 1`] = `
   width: 1px;
 }
 
+.c8 {
+  padding-left: 12px;
+}
+
 .c2 {
   font-weight: 600;
   color: #32324d;
   font-size: 0.75rem;
   line-height: 1.33;
-}
-
-.c8 {
-  padding-left: 12px;
 }
 
 .c3 {
@@ -10781,6 +10816,10 @@ exports[`Storyshots Design System/Components/Combobox error 1`] = `
   width: 1px;
 }
 
+.c8 {
+  padding-left: 12px;
+}
+
 .c2 {
   font-weight: 600;
   color: #32324d;
@@ -10792,10 +10831,6 @@ exports[`Storyshots Design System/Components/Combobox error 1`] = `
   color: #d02b20;
   font-size: 0.75rem;
   line-height: 1.33;
-}
-
-.c8 {
-  padding-left: 12px;
 }
 
 .c3 {
@@ -11040,6 +11075,10 @@ exports[`Storyshots Design System/Components/Combobox initial-data 1`] = `
   width: 1px;
 }
 
+.c10 {
+  padding-left: 12px;
+}
+
 .c2 {
   font-weight: 600;
   color: #32324d;
@@ -11051,10 +11090,6 @@ exports[`Storyshots Design System/Components/Combobox initial-data 1`] = `
   color: #32324d;
   font-size: 0.875rem;
   line-height: 1.43;
-}
-
-.c10 {
-  padding-left: 12px;
 }
 
 .c3 {
@@ -11553,16 +11588,16 @@ exports[`Storyshots Design System/Components/DatePicker base 1`] = `
   width: 1px;
 }
 
+.c6 {
+  padding-right: 8px;
+  padding-left: 12px;
+}
+
 .c2 {
   font-weight: 600;
   color: #32324d;
   font-size: 0.75rem;
   line-height: 1.33;
-}
-
-.c6 {
-  padding-right: 8px;
-  padding-left: 12px;
 }
 
 .c3 {
@@ -11749,7 +11784,7 @@ exports[`Storyshots Design System/Components/DatePicker base 1`] = `
                 class="c8"
                 id="datepicker-45"
                 name="datepicker"
-                placeholder="2/28/2022"
+                placeholder="3/1/2022"
                 value=""
               />
             </div>
@@ -11781,16 +11816,16 @@ exports[`Storyshots Design System/Components/DatePicker disabled 1`] = `
   width: 1px;
 }
 
+.c6 {
+  padding-right: 8px;
+  padding-left: 12px;
+}
+
 .c2 {
   font-weight: 600;
   color: #32324d;
   font-size: 0.75rem;
   line-height: 1.33;
-}
-
-.c6 {
-  padding-right: 8px;
-  padding-left: 12px;
 }
 
 .c3 {
@@ -11982,7 +12017,7 @@ exports[`Storyshots Design System/Components/DatePicker disabled 1`] = `
                 class="c8"
                 id="datepicker-46"
                 name="datepicker"
-                placeholder="2/28/2022"
+                placeholder="3/1/2022"
                 value=""
               />
             </div>
@@ -12014,16 +12049,16 @@ exports[`Storyshots Design System/Components/DatePicker min/ max date 1`] = `
   width: 1px;
 }
 
+.c6 {
+  padding-right: 8px;
+  padding-left: 12px;
+}
+
 .c2 {
   font-weight: 600;
   color: #32324d;
   font-size: 0.75rem;
   line-height: 1.33;
-}
-
-.c6 {
-  padding-right: 8px;
-  padding-left: 12px;
 }
 
 .c3 {
@@ -12209,7 +12244,7 @@ exports[`Storyshots Design System/Components/DatePicker min/ max date 1`] = `
               class="c8"
               id="datepicker-47"
               name="datepicker"
-              placeholder="2/28/2022"
+              placeholder="3/1/2022"
               value=""
             />
           </div>
@@ -12233,16 +12268,16 @@ exports[`Storyshots Design System/Components/DatePicker size S 1`] = `
   width: 1px;
 }
 
+.c6 {
+  padding-right: 8px;
+  padding-left: 12px;
+}
+
 .c2 {
   font-weight: 600;
   color: #32324d;
   font-size: 0.75rem;
   line-height: 1.33;
-}
-
-.c6 {
-  padding-right: 8px;
-  padding-left: 12px;
 }
 
 .c3 {
@@ -12429,7 +12464,7 @@ exports[`Storyshots Design System/Components/DatePicker size S 1`] = `
                 class="c8"
                 id="datepicker-48"
                 name="datepicker"
-                placeholder="2/28/2022"
+                placeholder="3/1/2022"
                 value=""
               />
             </div>
@@ -12580,6 +12615,11 @@ exports[`Storyshots Design System/Components/Dialog base 1`] = `
   background: #4945ff;
 }
 
+.c2 svg > g,
+.c2 svg path {
+  fill: #ffffff;
+}
+
 <main>
   <div
     class="c0"
@@ -12704,20 +12744,6 @@ exports[`Storyshots Design System/Components/EmptyStateLayout base 1`] = `
   width: 1px;
 }
 
-.c9 {
-  color: #666687;
-  font-weight: 500;
-  font-size: 1rem;
-  line-height: 1.25;
-}
-
-.c14 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
 .c2 {
   background: #f6f6f9;
   padding: 40px;
@@ -12740,6 +12766,20 @@ exports[`Storyshots Design System/Components/EmptyStateLayout base 1`] = `
 
 .c12 {
   padding-right: 8px;
+}
+
+.c9 {
+  color: #666687;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
+.c14 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
 }
 
 .c10 {
@@ -13032,20 +13072,6 @@ exports[`Storyshots Design System/Components/EmptyStateLayout with large text 1`
   width: 1px;
 }
 
-.c9 {
-  color: #666687;
-  font-weight: 500;
-  font-size: 1rem;
-  line-height: 1.25;
-}
-
-.c14 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
 .c2 {
   background: #f6f6f9;
   padding: 40px;
@@ -13068,6 +13094,20 @@ exports[`Storyshots Design System/Components/EmptyStateLayout with large text 1`
 
 .c12 {
   padding-right: 8px;
+}
+
+.c9 {
+  color: #666687;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
+.c14 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
 }
 
 .c10 {
@@ -13360,13 +13400,6 @@ exports[`Storyshots Design System/Components/EmptyStateLayout without action 1`]
   width: 1px;
 }
 
-.c7 {
-  color: #666687;
-  font-weight: 500;
-  font-size: 1rem;
-  line-height: 1.25;
-}
-
 .c1 {
   background: #f6f6f9;
   padding: 40px;
@@ -13385,6 +13418,13 @@ exports[`Storyshots Design System/Components/EmptyStateLayout without action 1`]
 
 .c6 {
   padding-bottom: 16px;
+}
+
+.c7 {
+  color: #666687;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.25;
 }
 
 .c3 {
@@ -13865,19 +13905,6 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
   width: 1px;
 }
 
-.c4 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c12 {
-  color: #666687;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
 .c1 {
   padding: 40px;
 }
@@ -13886,14 +13913,41 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
   padding-left: 8px;
 }
 
+.c6 {
+  color: #32324d;
+}
+
 .c8 {
+  width: 100%;
+}
+
+.c16 {
   padding-right: 8px;
   padding-left: 12px;
 }
 
-.c11 {
+.c19 {
   padding-right: 12px;
   padding-left: 8px;
+}
+
+.c4 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c12 {
+  color: #4945ff;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c20 {
+  color: #666687;
+  font-size: 0.75rem;
+  line-height: 1.33;
 }
 
 .c3 {
@@ -13910,7 +13964,25 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
   align-items: center;
 }
 
-.c6 {
+.c9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -13947,7 +14019,75 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
   margin-top: 4px;
 }
 
+.c7 path {
+  fill: #32324d;
+}
+
 .c10 {
+  cursor: pointer;
+}
+
+.c11 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
+  outline: none;
+}
+
+.c11 svg path {
+  fill: #4945ff;
+}
+
+.c11 svg {
+  font-size: 0.625rem;
+}
+
+.c11:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
+}
+
+.c11:focus-visible {
+  outline: none;
+}
+
+.c11:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
+}
+
+.c13 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c18 {
   border: none;
   border-radius: 4px;
   padding-left: 0;
@@ -13960,36 +14100,36 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
   background: inherit;
 }
 
-.c10::-webkit-input-placeholder {
+.c18::-webkit-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10::-moz-placeholder {
+.c18::-moz-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10:-ms-input-placeholder {
+.c18:-ms-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10::placeholder {
+.c18::placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10[aria-disabled='true'] {
+.c18[aria-disabled='true'] {
   color: inherit;
 }
 
-.c10:focus {
+.c18:focus {
   outline: none;
   box-shadow: none;
 }
 
-.c7 {
+.c15 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
@@ -14002,12 +14142,12 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
   transition-duration: 0.2s;
 }
 
-.c7:focus-within {
+.c15:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
-.c9 {
+.c17 {
   border: none;
   background: transparent;
   font-size: 1.6rem;
@@ -14063,6 +14203,7 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
               >
                 <svg
                   aria-hidden="true"
+                  class="c6 c7"
                   fill="none"
                   height="1em"
                   viewBox="0 0 24 24"
@@ -14077,22 +14218,50 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
               </button>
             </span>
           </div>
-          <a
-            href="#"
-            style="margin-left: auto;"
+          <div
+            class="c8 c9"
+            width="100%"
           >
-            Details
-          </a>
+            <a
+              class="c10 c11"
+              href="#"
+              rel="noreferrer noopener"
+              target="_blank"
+            >
+              <span
+                class="c12"
+              >
+                Details
+              </span>
+              <span
+                aria-hidden="true"
+                class="c5 c13"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16.235 2.824a1.412 1.412 0 010-2.824h6.353C23.368 0 24 .633 24 1.412v6.353a1.412 1.412 0 01-2.823 0V4.82l-8.179 8.178a1.412 1.412 0 01-1.996-1.996l8.178-8.178h-2.945zm4.942 10.588a1.412 1.412 0 012.823 0v9.176c0 .78-.632 1.412-1.412 1.412H1.412C.632 24 0 23.368 0 22.588V1.412C0 .632.632 0 1.412 0h9.176a1.412 1.412 0 010 2.824H2.824v18.353h18.353v-7.765z"
+                    fill="#32324D"
+                  />
+                </svg>
+              </span>
+            </a>
+          </div>
         </div>
         <div
-          class="c6 c7"
+          class="c14 c15"
         >
           <div
-            class="c8"
+            class="c16"
           >
             <button
               aria-label="Show password"
-              class="c9"
+              class="c17"
               type="button"
             >
               <svg
@@ -14118,18 +14287,18 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
             aria-describedby="field-52-hint"
             aria-disabled="false"
             aria-invalid="false"
-            class="c10"
+            class="c18"
             id="field-52"
             name="password"
             placeholder="example@domain.com"
             value=""
           />
           <div
-            class="c11"
+            class="c19"
           >
             <button
               aria-label="Show password"
-              class="c9"
+              class="c17"
               type="button"
             >
               <svg
@@ -14153,7 +14322,7 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
           </div>
         </div>
         <p
-          class="c12"
+          class="c20"
           id="field-52-hint"
         >
           Description line
@@ -14177,19 +14346,6 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
   width: 1px;
 }
 
-.c4 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c12 {
-  color: #666687;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
 .c1 {
   padding: 40px;
 }
@@ -14198,14 +14354,41 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
   padding-left: 8px;
 }
 
+.c6 {
+  color: #32324d;
+}
+
 .c8 {
+  width: 100%;
+}
+
+.c16 {
   padding-right: 8px;
   padding-left: 12px;
 }
 
-.c11 {
+.c19 {
   padding-right: 12px;
   padding-left: 8px;
+}
+
+.c4 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c12 {
+  color: #4945ff;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c20 {
+  color: #666687;
+  font-size: 0.75rem;
+  line-height: 1.33;
 }
 
 .c3 {
@@ -14222,7 +14405,25 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
   align-items: center;
 }
 
-.c6 {
+.c9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -14259,7 +14460,75 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
   margin-top: 4px;
 }
 
+.c7 path {
+  fill: #32324d;
+}
+
 .c10 {
+  cursor: pointer;
+}
+
+.c11 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
+  outline: none;
+}
+
+.c11 svg path {
+  fill: #4945ff;
+}
+
+.c11 svg {
+  font-size: 0.625rem;
+}
+
+.c11:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
+}
+
+.c11:focus-visible {
+  outline: none;
+}
+
+.c11:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
+}
+
+.c13 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c18 {
   border: none;
   border-radius: 4px;
   padding-left: 0;
@@ -14272,36 +14541,36 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
   background: inherit;
 }
 
-.c10::-webkit-input-placeholder {
+.c18::-webkit-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10::-moz-placeholder {
+.c18::-moz-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10:-ms-input-placeholder {
+.c18:-ms-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10::placeholder {
+.c18::placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c10[aria-disabled='true'] {
+.c18[aria-disabled='true'] {
   color: inherit;
 }
 
-.c10:focus {
+.c18:focus {
   outline: none;
   box-shadow: none;
 }
 
-.c7 {
+.c15 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
@@ -14314,12 +14583,12 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
   transition-duration: 0.2s;
 }
 
-.c7:focus-within {
+.c15:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
-.c9 {
+.c17 {
   border: none;
   background: transparent;
   font-size: 1.6rem;
@@ -14375,6 +14644,7 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
               >
                 <svg
                   aria-hidden="true"
+                  class="c6 c7"
                   fill="none"
                   height="1em"
                   viewBox="0 0 24 24"
@@ -14389,22 +14659,50 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
               </button>
             </span>
           </div>
-          <a
-            href="#"
-            style="margin-left: auto;"
+          <div
+            class="c8 c9"
+            width="100%"
           >
-            Details
-          </a>
+            <a
+              class="c10 c11"
+              href="#"
+              rel="noreferrer noopener"
+              target="_blank"
+            >
+              <span
+                class="c12"
+              >
+                Details
+              </span>
+              <span
+                aria-hidden="true"
+                class="c5 c13"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16.235 2.824a1.412 1.412 0 010-2.824h6.353C23.368 0 24 .633 24 1.412v6.353a1.412 1.412 0 01-2.823 0V4.82l-8.179 8.178a1.412 1.412 0 01-1.996-1.996l8.178-8.178h-2.945zm4.942 10.588a1.412 1.412 0 012.823 0v9.176c0 .78-.632 1.412-1.412 1.412H1.412C.632 24 0 23.368 0 22.588V1.412C0 .632.632 0 1.412 0h9.176a1.412 1.412 0 010 2.824H2.824v18.353h18.353v-7.765z"
+                    fill="#32324D"
+                  />
+                </svg>
+              </span>
+            </a>
+          </div>
         </div>
         <div
-          class="c6 c7"
+          class="c14 c15"
         >
           <div
-            class="c8"
+            class="c16"
           >
             <button
               aria-label="Show password"
-              class="c9"
+              class="c17"
               type="button"
             >
               <svg
@@ -14430,18 +14728,18 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
             aria-describedby="field-55-hint"
             aria-disabled="false"
             aria-invalid="false"
-            class="c10"
+            class="c18"
             id="field-55"
             name="password"
             placeholder="example@domain.com"
             value=""
           />
           <div
-            class="c11"
+            class="c19"
           >
             <button
               aria-label="Show password"
-              class="c9"
+              class="c17"
               type="button"
             >
               <svg
@@ -14465,7 +14763,7 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
           </div>
         </div>
         <p
-          class="c12"
+          class="c20"
           id="field-55-hint"
         >
           Description line
@@ -14876,6 +15174,10 @@ exports[`Storyshots Design System/Components/Field with label-action 1`] = `
   width: 1px;
 }
 
+.c6 {
+  margin-left: 4px;
+}
+
 .c2 {
   font-weight: 600;
   color: #32324d;
@@ -14887,10 +15189,6 @@ exports[`Storyshots Design System/Components/Field with label-action 1`] = `
   color: #d02b20;
   font-size: 0.875rem;
   line-height: 1.43;
-}
-
-.c6 {
-  margin-left: 4px;
 }
 
 .c3 {
@@ -15112,6 +15410,12 @@ exports[`Storyshots Design System/Components/GridLayout base 1`] = `
   box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
 }
 
+.c4 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
 .c2 {
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
@@ -15135,62 +15439,110 @@ exports[`Storyshots Design System/Components/GridLayout base 1`] = `
       <div
         class="c3"
       >
-        hello world
+        <span
+          class="c4"
+        >
+          hello world
+        </span>
       </div>
       <div
         class="c3"
       >
-        hello world
+        <span
+          class="c4"
+        >
+          hello world
+        </span>
       </div>
       <div
         class="c3"
       >
-        hello world
+        <span
+          class="c4"
+        >
+          hello world
+        </span>
       </div>
       <div
         class="c3"
       >
-        hello world
+        <span
+          class="c4"
+        >
+          hello world
+        </span>
       </div>
       <div
         class="c3"
       >
-        hello world
+        <span
+          class="c4"
+        >
+          hello world
+        </span>
       </div>
       <div
         class="c3"
       >
-        hello world
+        <span
+          class="c4"
+        >
+          hello world
+        </span>
       </div>
       <div
         class="c3"
       >
-        hello world
+        <span
+          class="c4"
+        >
+          hello world
+        </span>
       </div>
       <div
         class="c3"
       >
-        hello world
+        <span
+          class="c4"
+        >
+          hello world
+        </span>
       </div>
       <div
         class="c3"
       >
-        hello world
+        <span
+          class="c4"
+        >
+          hello world
+        </span>
       </div>
       <div
         class="c3"
       >
-        hello world
+        <span
+          class="c4"
+        >
+          hello world
+        </span>
       </div>
       <div
         class="c3"
       >
-        hello world
+        <span
+          class="c4"
+        >
+          hello world
+        </span>
       </div>
       <div
         class="c3"
       >
-        hello world
+        <span
+          class="c4"
+        >
+          hello world
+        </span>
       </div>
     </div>
   </div>
@@ -15208,6 +15560,30 @@ exports[`Storyshots Design System/Components/HeaderLayout base 1`] = `
   padding: 0;
   position: absolute;
   width: 1px;
+}
+
+.c2 {
+  background: #f6f6f9;
+}
+
+.c3 {
+  background: #f6f6f9;
+  padding-top: 24px;
+  padding-right: 56px;
+  padding-bottom: 40px;
+  padding-left: 56px;
+}
+
+.c4 {
+  padding-bottom: 8px;
+}
+
+.c7 {
+  padding-right: 8px;
+}
+
+.c14 {
+  padding-left: 16px;
 }
 
 .c10 {
@@ -15234,30 +15610,6 @@ exports[`Storyshots Design System/Components/HeaderLayout base 1`] = `
   color: #666687;
   font-size: 1rem;
   line-height: 1.5;
-}
-
-.c2 {
-  background: #f6f6f9;
-}
-
-.c3 {
-  background: #f6f6f9;
-  padding-top: 24px;
-  padding-right: 56px;
-  padding-bottom: 40px;
-  padding-left: 56px;
-}
-
-.c4 {
-  padding-bottom: 8px;
-}
-
-.c7 {
-  padding-right: 8px;
-}
-
-.c14 {
-  padding-left: 16px;
 }
 
 .c11 {
@@ -15555,6 +15907,11 @@ exports[`Storyshots Design System/Components/HeaderLayout base 1`] = `
   background: #4945ff;
 }
 
+.c19 svg > g,
+.c19 svg path {
+  fill: #ffffff;
+}
+
 <main>
   <div
     class="c0"
@@ -15700,26 +16057,6 @@ exports[`Storyshots Design System/Components/HeaderLayout base without nav actio
   width: 1px;
 }
 
-.c7 {
-  color: #32324d;
-  font-weight: 600;
-  font-size: 2rem;
-  line-height: 1.25;
-}
-
-.c13 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c15 {
-  color: #666687;
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
 .c2 {
   background: #f6f6f9;
 }
@@ -15738,6 +16075,26 @@ exports[`Storyshots Design System/Components/HeaderLayout base without nav actio
 
 .c11 {
   padding-right: 8px;
+}
+
+.c7 {
+  color: #32324d;
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 1.25;
+}
+
+.c13 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c15 {
+  color: #666687;
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 .c4 {
@@ -15971,6 +16328,11 @@ exports[`Storyshots Design System/Components/HeaderLayout base without nav actio
   background: #4945ff;
 }
 
+.c14 svg > g,
+.c14 svg path {
+  fill: #ffffff;
+}
+
 <main>
   <div
     class="c0"
@@ -16084,6 +16446,30 @@ exports[`Storyshots Design System/Components/HeaderLayout combined w/ scroll 1`]
   width: 1px;
 }
 
+.c2 {
+  background: #f6f6f9;
+}
+
+.c3 {
+  background: #f6f6f9;
+  padding-top: 24px;
+  padding-right: 56px;
+  padding-bottom: 40px;
+  padding-left: 56px;
+}
+
+.c4 {
+  padding-bottom: 8px;
+}
+
+.c7 {
+  padding-right: 8px;
+}
+
+.c14 {
+  padding-left: 16px;
+}
+
 .c10 {
   color: #4945ff;
   font-size: 0.75rem;
@@ -16108,30 +16494,6 @@ exports[`Storyshots Design System/Components/HeaderLayout combined w/ scroll 1`]
   color: #666687;
   font-size: 1rem;
   line-height: 1.5;
-}
-
-.c2 {
-  background: #f6f6f9;
-}
-
-.c3 {
-  background: #f6f6f9;
-  padding-top: 24px;
-  padding-right: 56px;
-  padding-bottom: 40px;
-  padding-left: 56px;
-}
-
-.c4 {
-  padding-bottom: 8px;
-}
-
-.c7 {
-  padding-right: 8px;
-}
-
-.c14 {
-  padding-left: 16px;
 }
 
 .c11 {
@@ -16429,6 +16791,11 @@ exports[`Storyshots Design System/Components/HeaderLayout combined w/ scroll 1`]
   background: #4945ff;
 }
 
+.c19 svg > g,
+.c19 svg path {
+  fill: #ffffff;
+}
+
 <main>
   <div
     class="c0"
@@ -16579,32 +16946,6 @@ exports[`Storyshots Design System/Components/HeaderLayout sticky 1`] = `
   width: 1px;
 }
 
-.c13 {
-  color: #4945ff;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c14 {
-  color: #32324d;
-  font-weight: 600;
-  font-size: 1.125rem;
-  line-height: 1.22;
-}
-
-.c15 {
-  color: #666687;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c20 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
 .c2 {
   background: #f6f6f9;
 }
@@ -16631,6 +16972,32 @@ exports[`Storyshots Design System/Components/HeaderLayout sticky 1`] = `
 
 .c21 {
   padding-left: 8px;
+}
+
+.c13 {
+  color: #4945ff;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c14 {
+  color: #32324d;
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.22;
+}
+
+.c15 {
+  color: #666687;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c20 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
 }
 
 .c5 {
@@ -16926,6 +17293,11 @@ exports[`Storyshots Design System/Components/HeaderLayout sticky 1`] = `
 .c22:active {
   border: 1px solid #4945ff;
   background: #4945ff;
+}
+
+.c22 svg > g,
+.c22 svg path {
+  fill: #ffffff;
 }
 
 .c4 {
@@ -18001,76 +18373,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
   width: 1px;
 }
 
-.c8 {
-  color: #32324d;
-  font-weight: 600;
-  font-size: 1.125rem;
-  line-height: 1.22;
-}
-
-.c23 {
-  color: #666687;
-  font-weight: 600;
-  font-size: 0.6875rem;
-  line-height: 1.45;
-  text-transform: uppercase;
-}
-
-.c33 {
-  color: #32324d;
-  font-size: 0.875rem;
-  line-height: 1.43;
-}
-
-.c38 {
-  font-weight: 500;
-  color: #32324d;
-  font-size: 0.875rem;
-  line-height: 1.43;
-}
-
-.c42 {
-  color: #32324d;
-  font-weight: 600;
-  font-size: 2rem;
-  line-height: 1.25;
-}
-
-.c47 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c49 {
-  color: #666687;
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-.c61 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.875rem;
-  line-height: 1.43;
-}
-
-.c73 {
-  color: #32324d;
-  font-weight: 600;
-  font-size: 0.6875rem;
-  line-height: 1.45;
-  text-transform: uppercase;
-}
-
-.c83 {
-  font-weight: 600;
-  color: #4945ff;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
 .c2 {
   background: #f6f6f9;
 }
@@ -18202,6 +18504,76 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
 
 .c82 {
   padding-left: 12px;
+}
+
+.c8 {
+  color: #32324d;
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.22;
+}
+
+.c23 {
+  color: #666687;
+  font-weight: 600;
+  font-size: 0.6875rem;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.c33 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
+.c38 {
+  font-weight: 500;
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
+.c42 {
+  color: #32324d;
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 1.25;
+}
+
+.c47 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c49 {
+  color: #666687;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.c61 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
+.c73 {
+  color: #32324d;
+  font-weight: 600;
+  font-size: 0.6875rem;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.c83 {
+  font-weight: 600;
+  color: #4945ff;
+  font-size: 0.75rem;
+  line-height: 1.33;
 }
 
 .c6 {
@@ -18629,6 +19001,11 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
 .c48:active {
   border: 1px solid #4945ff;
   background: #4945ff;
+}
+
+.c48 svg > g,
+.c48 svg path {
+  fill: #ffffff;
 }
 
 .c60 {
@@ -21620,14 +21997,14 @@ exports[`Storyshots Design System/Components/Link base 1`] = `
   width: 1px;
 }
 
+.c5 {
+  padding-left: 8px;
+}
+
 .c4 {
   color: #4945ff;
   font-size: 0.75rem;
   line-height: 1.33;
-}
-
-.c5 {
-  padding-left: 8px;
 }
 
 .c1 {
@@ -21770,14 +22147,14 @@ exports[`Storyshots Design System/Components/Link disabled 1`] = `
   width: 1px;
 }
 
+.c5 {
+  padding-left: 8px;
+}
+
 .c4 {
   color: #666687;
   font-size: 0.75rem;
   line-height: 1.33;
-}
-
-.c5 {
-  padding-left: 8px;
 }
 
 .c1 {
@@ -21922,18 +22299,18 @@ exports[`Storyshots Design System/Components/Link icons 1`] = `
   width: 1px;
 }
 
-.c6 {
-  color: #4945ff;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
 .c4 {
   padding-right: 8px;
 }
 
 .c7 {
   padding-left: 8px;
+}
+
+.c6 {
+  color: #4945ff;
+  font-size: 0.75rem;
+  line-height: 1.33;
 }
 
 .c1 {
@@ -22144,15 +22521,15 @@ exports[`Storyshots Design System/Components/LinkButton base 1`] = `
   width: 1px;
 }
 
+.c2 {
+  padding-bottom: 8px;
+}
+
 .c7 {
   font-weight: 600;
   color: #32324d;
   font-size: 0.75rem;
   line-height: 1.33;
-}
-
-.c2 {
-  padding-bottom: 8px;
 }
 
 .c4 {
@@ -22285,6 +22662,11 @@ exports[`Storyshots Design System/Components/LinkButton base 1`] = `
   background: #4945ff;
 }
 
+.c5 svg > g,
+.c5 svg path {
+  fill: #ffffff;
+}
+
 <main>
   <div
     class="c0"
@@ -22325,19 +22707,19 @@ exports[`Storyshots Design System/Components/LinkButton disabled 1`] = `
   width: 1px;
 }
 
-.c8 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
 .c2 {
   padding-right: 4px;
 }
 
 .c6 {
   padding-right: 8px;
+}
+
+.c8 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
 }
 
 .c4 {
@@ -22470,6 +22852,11 @@ exports[`Storyshots Design System/Components/LinkButton disabled 1`] = `
   background: #4945ff;
 }
 
+.c5 svg > g,
+.c5 svg path {
+  fill: #ffffff;
+}
+
 <main>
   <div
     class="c0"
@@ -22527,13 +22914,6 @@ exports[`Storyshots Design System/Components/LinkButton icons 1`] = `
   width: 1px;
 }
 
-.c9 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
 .c3 {
   padding-right: 4px;
 }
@@ -22544,6 +22924,13 @@ exports[`Storyshots Design System/Components/LinkButton icons 1`] = `
 
 .c11 {
   padding-left: 8px;
+}
+
+.c9 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
 }
 
 .c2 {
@@ -22688,6 +23075,11 @@ exports[`Storyshots Design System/Components/LinkButton icons 1`] = `
 .c6:active {
   border: 1px solid #4945ff;
   background: #4945ff;
+}
+
+.c6 svg > g,
+.c6 svg path {
+  fill: #ffffff;
 }
 
 .c10 {
@@ -22867,6 +23259,10 @@ exports[`Storyshots Design System/Components/LinkButton sizes 1`] = `
   width: 1px;
 }
 
+.c3 {
+  padding-right: 4px;
+}
+
 .c8 {
   font-weight: 600;
   color: #32324d;
@@ -22879,10 +23275,6 @@ exports[`Storyshots Design System/Components/LinkButton sizes 1`] = `
   color: #32324d;
   font-size: 0.875rem;
   line-height: 1.43;
-}
-
-.c3 {
-  padding-right: 4px;
 }
 
 .c2 {
@@ -23027,6 +23419,11 @@ exports[`Storyshots Design System/Components/LinkButton sizes 1`] = `
 .c6:active {
   border: 1px solid #4945ff;
   background: #4945ff;
+}
+
+.c6 svg > g,
+.c6 svg path {
+  fill: #ffffff;
 }
 
 .c9 {
@@ -23097,6 +23494,11 @@ exports[`Storyshots Design System/Components/LinkButton sizes 1`] = `
   background: #4945ff;
 }
 
+.c9 svg > g,
+.c9 svg path {
+  fill: #ffffff;
+}
+
 <main>
   <div
     class="c0"
@@ -23153,15 +23555,15 @@ exports[`Storyshots Design System/Components/LinkButton variants 1`] = `
   width: 1px;
 }
 
+.c3 {
+  padding-right: 8px;
+}
+
 .c8 {
   font-weight: 600;
   color: #32324d;
   font-size: 0.75rem;
   line-height: 1.33;
-}
-
-.c3 {
-  padding-right: 8px;
 }
 
 .c2 {
@@ -23306,6 +23708,11 @@ exports[`Storyshots Design System/Components/LinkButton variants 1`] = `
 .c6:active {
   border: 1px solid #4945ff;
   background: #4945ff;
+}
+
+.c6 svg > g,
+.c6 svg path {
+  fill: #ffffff;
 }
 
 .c9 {
@@ -24071,6 +24478,11 @@ exports[`Storyshots Design System/Components/LiveRegions alert 1`] = `
   background: #4945ff;
 }
 
+.c4 svg > g,
+.c4 svg path {
+  fill: #ffffff;
+}
+
 <main>
   <div
     class="c0"
@@ -24269,6 +24681,11 @@ exports[`Storyshots Design System/Components/LiveRegions log 1`] = `
 .c4:active {
   border: 1px solid #4945ff;
   background: #4945ff;
+}
+
+.c4 svg > g,
+.c4 svg path {
+  fill: #ffffff;
 }
 
 <main>
@@ -24471,6 +24888,11 @@ exports[`Storyshots Design System/Components/LiveRegions status 1`] = `
   background: #4945ff;
 }
 
+.c4 svg > g,
+.c4 svg path {
+  fill: #ffffff;
+}
+
 <main>
   <div
     class="c0"
@@ -24612,43 +25034,6 @@ exports[`Storyshots Design System/Components/MainNav base 1`] = `
   width: 1px;
 }
 
-.c10 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.875rem;
-  line-height: 1.43;
-}
-
-.c11 {
-  color: #666687;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c21 {
-  color: #32324d;
-  font-size: 0.875rem;
-  line-height: 1.43;
-}
-
-.c24 {
-  color: #666687;
-  font-weight: 600;
-  font-size: 0.6875rem;
-  line-height: 1.45;
-  text-transform: uppercase;
-}
-
-.c30 {
-  color: #666687;
-  display: block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: 0.875rem;
-  line-height: 1.43;
-}
-
 .c1 {
   background: #f6f6f9;
   padding: 56px;
@@ -24702,6 +25087,43 @@ exports[`Storyshots Design System/Components/MainNav base 1`] = `
 
 .c32 {
   color: #666687;
+}
+
+.c10 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
+.c11 {
+  color: #666687;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c21 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
+.c24 {
+  color: #666687;
+  font-weight: 600;
+  font-size: 0.6875rem;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.c30 {
+  color: #666687;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.875rem;
+  line-height: 1.43;
 }
 
 .c6 {
@@ -25373,52 +25795,6 @@ exports[`Storyshots Design System/Components/MainNav notifications 1`] = `
   width: 1px;
 }
 
-.c10 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.875rem;
-  line-height: 1.43;
-}
-
-.c11 {
-  color: #666687;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c21 {
-  color: #32324d;
-  font-size: 0.875rem;
-  line-height: 1.43;
-}
-
-.c24 {
-  color: #666687;
-  font-weight: 600;
-  font-size: 0.6875rem;
-  line-height: 1.45;
-  text-transform: uppercase;
-}
-
-.c32 {
-  font-weight: 600;
-  font-size: 0.6875rem;
-  color: #ffffff;
-  text-transform: uppercase;
-  font-size: 0.875rem;
-  line-height: 1.43;
-}
-
-.c34 {
-  color: #666687;
-  display: block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: 0.875rem;
-  line-height: 1.43;
-}
-
 .c1 {
   background: #f6f6f9;
   padding: 56px;
@@ -25479,6 +25855,52 @@ exports[`Storyshots Design System/Components/MainNav notifications 1`] = `
 
 .c36 {
   color: #666687;
+}
+
+.c10 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
+.c11 {
+  color: #666687;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c21 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
+.c24 {
+  color: #666687;
+  font-weight: 600;
+  font-size: 0.6875rem;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.c32 {
+  font-weight: 600;
+  font-size: 0.6875rem;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
+.c34 {
+  color: #666687;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.875rem;
+  line-height: 1.43;
 }
 
 .c6 {
@@ -26344,6 +26766,11 @@ exports[`Storyshots Design System/Components/ModalLayout base 1`] = `
   background: #4945ff;
 }
 
+.c2 svg > g,
+.c2 svg path {
+  fill: #ffffff;
+}
+
 <main>
   <div
     class="c0"
@@ -26384,19 +26811,6 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
   width: 1px;
 }
 
-.c3 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c15 {
-  color: #666687;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
 .c1 {
   padding: 56px;
 }
@@ -26417,6 +26831,25 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
 .c16 {
   background: #f6f6f9;
   padding: 16px;
+}
+
+.c3 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c15 {
+  color: #666687;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c17 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
 }
 
 .c4 {
@@ -26712,10 +27145,18 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
     <p
       class="c16"
     >
-      The value is undefined
+      <span
+        class="c17"
+      >
+        The value is undefined
+      </span>
     </p>
     <button>
-      Escape
+      <span
+        class="c17"
+      >
+        Escape
+      </span>
     </button>
   </div>
 </main>
@@ -26734,19 +27175,6 @@ exports[`Storyshots Design System/Components/NumberInput disabled 1`] = `
   width: 1px;
 }
 
-.c3 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c13 {
-  color: #666687;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
 .c1 {
   padding: 56px;
 }
@@ -26758,6 +27186,19 @@ exports[`Storyshots Design System/Components/NumberInput disabled 1`] = `
 
 .c10 {
   color: #8e8ea9;
+}
+
+.c3 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c13 {
+  color: #666687;
+  font-size: 0.75rem;
+  line-height: 1.33;
 }
 
 .c4 {
@@ -27041,6 +27482,19 @@ exports[`Storyshots Design System/Components/NumberInput required 1`] = `
   width: 1px;
 }
 
+.c1 {
+  padding: 56px;
+}
+
+.c10 {
+  padding-right: 12px;
+  padding-left: 8px;
+}
+
+.c12 {
+  color: #8e8ea9;
+}
+
 .c3 {
   font-weight: 600;
   color: #32324d;
@@ -27058,19 +27512,6 @@ exports[`Storyshots Design System/Components/NumberInput required 1`] = `
   color: #666687;
   font-size: 0.75rem;
   line-height: 1.33;
-}
-
-.c1 {
-  padding: 56px;
-}
-
-.c10 {
-  padding-right: 12px;
-  padding-left: 8px;
-}
-
-.c12 {
-  color: #8e8ea9;
 }
 
 .c4 {
@@ -27356,19 +27797,6 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
   width: 1px;
 }
 
-.c3 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c15 {
-  color: #666687;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
 .c1 {
   padding: 56px;
 }
@@ -27389,6 +27817,25 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
 .c16 {
   background: #f6f6f9;
   padding: 16px;
+}
+
+.c3 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c15 {
+  color: #666687;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c17 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
 }
 
 .c4 {
@@ -27684,10 +28131,18 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
     <p
       class="c16"
     >
-      The value is undefined
+      <span
+        class="c17"
+      >
+        The value is undefined
+      </span>
     </p>
     <button>
-      Escape
+      <span
+        class="c17"
+      >
+        Escape
+      </span>
     </button>
   </div>
 </main>
@@ -27704,19 +28159,6 @@ exports[`Storyshots Design System/Components/NumberInput with initial 0 1`] = `
   padding: 0;
   position: absolute;
   width: 1px;
-}
-
-.c3 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c15 {
-  color: #666687;
-  font-size: 0.75rem;
-  line-height: 1.33;
 }
 
 .c1 {
@@ -27739,6 +28181,25 @@ exports[`Storyshots Design System/Components/NumberInput with initial 0 1`] = `
 .c16 {
   background: #f6f6f9;
   padding: 16px;
+}
+
+.c3 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c15 {
+  color: #666687;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c17 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
 }
 
 .c4 {
@@ -28034,10 +28495,18 @@ exports[`Storyshots Design System/Components/NumberInput with initial 0 1`] = `
     <p
       class="c16"
     >
-      The value is 0
+      <span
+        class="c17"
+      >
+        The value is 0
+      </span>
     </p>
     <button>
-      Escape
+      <span
+        class="c17"
+      >
+        Escape
+      </span>
     </button>
   </div>
 </main>
@@ -28056,12 +28525,6 @@ exports[`Storyshots Design System/Components/NumberInput withoutLabel 1`] = `
   width: 1px;
 }
 
-.c11 {
-  color: #666687;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
 .c1 {
   padding: 56px;
 }
@@ -28078,6 +28541,18 @@ exports[`Storyshots Design System/Components/NumberInput withoutLabel 1`] = `
 .c12 {
   background: #f6f6f9;
   padding: 16px;
+}
+
+.c11 {
+  color: #666687;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c13 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
 }
 
 .c3 {
@@ -28316,10 +28791,18 @@ exports[`Storyshots Design System/Components/NumberInput withoutLabel 1`] = `
     <p
       class="c12"
     >
-      The value is undefined
+      <span
+        class="c13"
+      >
+        The value is undefined
+      </span>
     </p>
     <button>
-      Escape
+      <span
+        class="c13"
+      >
+        Escape
+      </span>
     </button>
   </div>
 </main>
@@ -28697,6 +29180,12 @@ exports[`Storyshots Design System/Components/Popover base 1`] = `
   padding: 56px;
 }
 
+.c2 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
 <main>
   <div
     class="c0"
@@ -28709,7 +29198,11 @@ exports[`Storyshots Design System/Components/Popover base 1`] = `
     class="c1"
   >
     <button>
-      Open popover
+      <span
+        class="c2"
+      >
+        Open popover
+      </span>
     </button>
   </div>
 </main>
@@ -28728,6 +29221,12 @@ exports[`Storyshots Design System/Components/Popover centered 1`] = `
   width: 1px;
 }
 
+.c1 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
 <main>
   <div
     class="c0"
@@ -28740,7 +29239,11 @@ exports[`Storyshots Design System/Components/Popover centered 1`] = `
     style="margin-left: 200px;"
   >
     <button>
-      Open popover
+      <span
+        class="c1"
+      >
+        Open popover
+      </span>
     </button>
   </div>
 </main>
@@ -28763,6 +29266,12 @@ exports[`Storyshots Design System/Components/Popover onReachEnd 1`] = `
   padding: 56px;
 }
 
+.c2 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
 <main>
   <div
     class="c0"
@@ -28777,7 +29286,11 @@ exports[`Storyshots Design System/Components/Popover onReachEnd 1`] = `
     <button
       id="popover1"
     >
-      Open popover
+      <span
+        class="c2"
+      >
+        Open popover
+      </span>
     </button>
   </div>
 </main>
@@ -28796,6 +29309,12 @@ exports[`Storyshots Design System/Components/Popover overflow-right 1`] = `
   width: 1px;
 }
 
+.c1 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
 <main>
   <div
     class="c0"
@@ -28812,7 +29331,11 @@ exports[`Storyshots Design System/Components/Popover overflow-right 1`] = `
     >
       <div>
         <button>
-          Open popover
+          <span
+            class="c1"
+          >
+            Open popover
+          </span>
         </button>
       </div>
     </div>
@@ -28940,17 +29463,24 @@ exports[`Storyshots Design System/Components/Radio base 1`] = `
   width: 1px;
 }
 
+.c5 {
+  padding-left: 8px;
+}
+
 .c1 {
+  color: #32324d;
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.22;
+}
+
+.c2 {
   color: #32324d;
   font-size: 0.875rem;
   line-height: 1.43;
 }
 
 .c4 {
-  padding-left: 8px;
-}
-
-.c3 {
   margin: 0;
   padding: 0;
   background-color: #ffffff;
@@ -28961,7 +29491,7 @@ exports[`Storyshots Design System/Components/Radio base 1`] = `
   -webkit-appearance: none;
 }
 
-.c3:after {
+.c4:after {
   border-radius: 50%;
   content: '';
   position: relative;
@@ -28973,16 +29503,16 @@ exports[`Storyshots Design System/Components/Radio base 1`] = `
   top: 3px;
 }
 
-.c3:checked:after {
+.c4:checked:after {
   background: #4945ff;
 }
 
-.c3:disabled {
+.c4:disabled {
   border: 1px solid;
   background: #dcdce4;
 }
 
-.c2 {
+.c3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -29002,45 +29532,46 @@ exports[`Storyshots Design System/Components/Radio base 1`] = `
     </h1>
   </div>
   <div>
-    <h2
+    <span
+      class="c1"
       id="trophy-champions"
     >
       Make a choice
-    </h2>
+    </span>
     <div
       aria-labelledby="trophy-champions"
       role="radiogroup"
     >
       <label
-        class="c1 c2"
+        class="c2 c3"
       >
         <input
           aria-checked="false"
-          class="c3"
+          class="c4"
           name="meal"
           tabindex="0"
           type="radio"
           value="pizza"
         />
         <div
-          class="c4"
+          class="c5"
         >
           Pizza
         </div>
       </label>
       <label
-        class="c1 c2"
+        class="c2 c3"
       >
         <input
           aria-checked="false"
-          class="c3"
+          class="c4"
           name="meal"
           tabindex="-1"
           type="radio"
           value="bagel"
         />
         <div
-          class="c4"
+          class="c5"
         >
           Bagel
         </div>
@@ -29063,16 +29594,16 @@ exports[`Storyshots Design System/Components/Searchbar base 1`] = `
   width: 1px;
 }
 
+.c7 {
+  padding-right: 8px;
+  padding-left: 12px;
+}
+
 .c2 {
   font-weight: 600;
   color: #32324d;
   font-size: 0.75rem;
   line-height: 1.33;
-}
-
-.c7 {
-  padding-right: 8px;
-  padding-left: 12px;
 }
 
 .c3 {
@@ -29283,16 +29814,16 @@ exports[`Storyshots Design System/Components/Searchbar disabled 1`] = `
   width: 1px;
 }
 
+.c7 {
+  padding-right: 8px;
+  padding-left: 12px;
+}
+
 .c2 {
   font-weight: 600;
   color: #32324d;
   font-size: 0.75rem;
   line-height: 1.33;
-}
-
-.c7 {
-  padding-right: 8px;
-  padding-left: 12px;
 }
 
 .c3 {
@@ -29503,16 +30034,16 @@ exports[`Storyshots Design System/Components/Searchbar size S 1`] = `
   width: 1px;
 }
 
+.c7 {
+  padding-right: 8px;
+  padding-left: 12px;
+}
+
 .c2 {
   font-weight: 600;
   color: #32324d;
   font-size: 0.75rem;
   line-height: 1.33;
-}
-
-.c7 {
-  padding-right: 8px;
-  padding-left: 12px;
 }
 
 .c3 {
@@ -29723,20 +30254,40 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
   width: 1px;
 }
 
-.c3 {
+.c8 {
+  margin-left: 4px;
+}
+
+.c14 {
+  padding-left: 12px;
+}
+
+.c15 {
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
+.c2 {
+  color: #32324d;
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.22;
+}
+
+.c4 {
   font-weight: 600;
   color: #32324d;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
-.c5 {
+.c6 {
   color: #d02b20;
   font-size: 0.875rem;
   line-height: 1.43;
 }
 
-.c15 {
+.c16 {
   color: #666687;
   display: block;
   white-space: nowrap;
@@ -29746,26 +30297,19 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
   line-height: 1.43;
 }
 
-.c18 {
+.c19 {
   color: #666687;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
-.c7 {
-  margin-left: 4px;
+.c20 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
 }
 
-.c13 {
-  padding-left: 12px;
-}
-
-.c14 {
-  padding-right: 16px;
-  padding-left: 16px;
-}
-
-.c4 {
+.c5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -29779,7 +30323,7 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
   align-items: center;
 }
 
-.c11 {
+.c12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -29816,7 +30360,7 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
   margin-top: 64px;
 }
 
-.c2 {
+.c3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -29826,28 +30370,28 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
   flex-direction: column;
 }
 
-.c2 > * {
+.c3 > * {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-.c2 > * + * {
+.c3 > * + * {
   margin-top: 4px;
 }
 
-.c6 {
+.c7 {
   line-height: 0;
-}
-
-.c8 {
-  line-height: 0;
-}
-
-.c8 svg path {
-  fill: #8e8ea9;
 }
 
 .c9 {
+  line-height: 0;
+}
+
+.c9 svg path {
+  fill: #8e8ea9;
+}
+
+.c10 {
   position: relative;
   border: 1px solid #dcdce4;
   padding-right: 12px;
@@ -29863,28 +30407,28 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
   transition-duration: 0.2s;
 }
 
-.c9:focus-within {
+.c10:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
-.c16 {
+.c17 {
   background: transparent;
   border: none;
   position: relative;
   z-index: 1;
 }
 
-.c16 svg {
+.c17 svg {
   height: 0.6875rem;
   width: 0.6875rem;
 }
 
-.c16 svg path {
+.c17 svg path {
   fill: #666687;
 }
 
-.c17 {
+.c18 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -29893,11 +30437,11 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
   border: none;
 }
 
-.c17 svg {
+.c18 svg {
   width: 0.375rem;
 }
 
-.c10 {
+.c11 {
   position: absolute;
   left: 0;
   right: 0;
@@ -29908,15 +30452,15 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
   border: none;
 }
 
-.c10:focus {
+.c11:focus {
   outline: none;
 }
 
-.c10[aria-disabled='true'] {
+.c11[aria-disabled='true'] {
   cursor: not-allowed;
 }
 
-.c12 {
+.c13 {
   width: 100%;
 }
 
@@ -29931,30 +30475,32 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
   <div
     class="c1"
   >
-    <h2>
+    <span
+      class="c2"
+    >
       Current value is 
-    </h2>
+    </span>
     <div>
       <div
-        class="c2"
+        class="c3"
       >
         <span
-          class="c3"
+          class="c4"
           for="select1"
           id="select1-label"
           required=""
         >
           <div
-            class="c4"
+            class="c5"
           >
             Choose your meal
             <span
-              class="c5 c6"
+              class="c6 c7"
             >
               *
             </span>
             <div
-              class="c7 c4 c8"
+              class="c8 c5 c9"
             >
               <svg
                 fill="none"
@@ -29980,7 +30526,7 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
           </div>
         </span>
         <div
-          class="c4 c9"
+          class="c5 c10"
         >
           <button
             aria-describedby="select1-hint"
@@ -29988,19 +30534,19 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-labelledby="select1-label select1-content"
-            class="c10"
+            class="c11"
             id="select1"
             type="button"
           />
           <div
-            class="c11 c12"
+            class="c12 c13"
           >
             <div
-              class="c4"
+              class="c5"
             >
               <div
                 aria-hidden="true"
-                class="c13"
+                class="c14"
               >
                 <svg
                   fill="none"
@@ -30016,10 +30562,10 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
                 </svg>
               </div>
               <div
-                class="c14"
+                class="c15"
               >
                 <span
-                  class="c15"
+                  class="c16"
                   id="select1-content"
                 >
                   Your example
@@ -30027,11 +30573,11 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
               </div>
             </div>
             <div
-              class="c4"
+              class="c5"
             >
               <button
                 aria-hidden="true"
-                class="c13 c16 c17"
+                class="c14 c17 c18"
                 tabindex="-1"
                 type="button"
               >
@@ -30054,7 +30600,7 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
           </div>
         </div>
         <p
-          class="c18"
+          class="c19"
           id="select1-hint"
         >
           Description line
@@ -30062,10 +30608,18 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
       </div>
     </div>
     <button>
-      Show the error state
+      <span
+        class="c20"
+      >
+        Show the error state
+      </span>
     </button>
     <button>
-      Show the disabled state
+      <span
+        class="c20"
+      >
+        Show the disabled state
+      </span>
     </button>
   </div>
 </main>
@@ -30084,14 +30638,30 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
   width: 1px;
 }
 
-.c3 {
+.c10 {
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
+.c12 {
+  padding-left: 12px;
+}
+
+.c2 {
+  color: #32324d;
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.22;
+}
+
+.c4 {
   font-weight: 600;
   color: #32324d;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
-.c10 {
+.c11 {
   color: #32324d;
   display: block;
   white-space: nowrap;
@@ -30101,22 +30671,19 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
   line-height: 1.43;
 }
 
-.c14 {
+.c15 {
   color: #666687;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
-.c9 {
-  padding-right: 16px;
-  padding-left: 16px;
+.c16 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
 }
 
-.c11 {
-  padding-left: 12px;
-}
-
-.c4 {
+.c5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -30130,7 +30697,7 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
   align-items: center;
 }
 
-.c7 {
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -30167,7 +30734,7 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
   margin-top: 64px;
 }
 
-.c2 {
+.c3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -30177,16 +30744,16 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
   flex-direction: column;
 }
 
-.c2 > * {
+.c3 > * {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-.c2 > * + * {
+.c3 > * + * {
   margin-top: 4px;
 }
 
-.c5 {
+.c6 {
   position: relative;
   border: 1px solid #dcdce4;
   padding-right: 12px;
@@ -30202,28 +30769,28 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
   transition-duration: 0.2s;
 }
 
-.c5:focus-within {
+.c6:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
-.c12 {
+.c13 {
   background: transparent;
   border: none;
   position: relative;
   z-index: 1;
 }
 
-.c12 svg {
+.c13 svg {
   height: 0.6875rem;
   width: 0.6875rem;
 }
 
-.c12 svg path {
+.c13 svg path {
   fill: #666687;
 }
 
-.c13 {
+.c14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -30232,11 +30799,11 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
   border: none;
 }
 
-.c13 svg {
+.c14 svg {
   width: 0.375rem;
 }
 
-.c6 {
+.c7 {
   position: absolute;
   left: 0;
   right: 0;
@@ -30247,15 +30814,15 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
   border: none;
 }
 
-.c6:focus {
+.c7:focus {
   outline: none;
 }
 
-.c6[aria-disabled='true'] {
+.c7[aria-disabled='true'] {
   cursor: not-allowed;
 }
 
-.c8 {
+.c9 {
   width: 100%;
 }
 
@@ -30270,27 +30837,29 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
   <div
     class="c1"
   >
-    <h2>
+    <h2
+      class="c2"
+    >
       Current value is 
       
     </h2>
     <div>
       <div
-        class="c2"
+        class="c3"
       >
         <span
-          class="c3"
+          class="c4"
           for="select1"
           id="select1-label"
         >
           <div
-            class="c4"
+            class="c5"
           >
             Choose your meal
           </div>
         </span>
         <div
-          class="c4 c5"
+          class="c5 c6"
         >
           <button
             aria-describedby="select1-hint"
@@ -30298,21 +30867,21 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-labelledby="select1-label select1-content"
-            class="c6"
+            class="c7"
             id="select1"
             type="button"
           />
           <div
-            class="c7 c8"
+            class="c8 c9"
           >
             <div
-              class="c4"
+              class="c5"
             >
               <div
-                class="c9"
+                class="c10"
               >
                 <span
-                  class="c10"
+                  class="c11"
                   id="select1-content"
                 >
                   0 currently selected
@@ -30323,11 +30892,11 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
               </div>
             </div>
             <div
-              class="c4"
+              class="c5"
             >
               <button
                 aria-hidden="true"
-                class="c11 c12 c13"
+                class="c12 c13 c14"
                 tabindex="-1"
                 type="button"
               >
@@ -30350,7 +30919,7 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
           </div>
         </div>
         <p
-          class="c14"
+          class="c15"
           id="select1-hint"
         >
           Description line
@@ -30358,10 +30927,18 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
       </div>
     </div>
     <button>
-      Show the error state
+      <span
+        class="c16"
+      >
+        Show the error state
+      </span>
     </button>
     <button>
-      Show the disabled state
+      <span
+        class="c16"
+      >
+        Show the disabled state
+      </span>
     </button>
   </div>
 </main>
@@ -30380,14 +30957,30 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
   width: 1px;
 }
 
-.c3 {
+.c10 {
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
+.c12 {
+  padding-left: 12px;
+}
+
+.c2 {
+  color: #32324d;
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.22;
+}
+
+.c4 {
   font-weight: 600;
   color: #32324d;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
-.c10 {
+.c11 {
   color: #32324d;
   display: block;
   white-space: nowrap;
@@ -30397,22 +30990,19 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
   line-height: 1.43;
 }
 
-.c14 {
+.c15 {
   color: #666687;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
-.c9 {
-  padding-right: 16px;
-  padding-left: 16px;
+.c16 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
 }
 
-.c11 {
-  padding-left: 12px;
-}
-
-.c4 {
+.c5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -30426,7 +31016,7 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
   align-items: center;
 }
 
-.c7 {
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -30463,7 +31053,7 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
   margin-top: 64px;
 }
 
-.c2 {
+.c3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -30473,16 +31063,16 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
   flex-direction: column;
 }
 
-.c2 > * {
+.c3 > * {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-.c2 > * + * {
+.c3 > * + * {
   margin-top: 4px;
 }
 
-.c5 {
+.c6 {
   position: relative;
   border: 1px solid #dcdce4;
   padding-right: 12px;
@@ -30498,28 +31088,28 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
   transition-duration: 0.2s;
 }
 
-.c5:focus-within {
+.c6:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
-.c12 {
+.c13 {
   background: transparent;
   border: none;
   position: relative;
   z-index: 1;
 }
 
-.c12 svg {
+.c13 svg {
   height: 0.6875rem;
   width: 0.6875rem;
 }
 
-.c12 svg path {
+.c13 svg path {
   fill: #666687;
 }
 
-.c13 {
+.c14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -30528,11 +31118,11 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
   border: none;
 }
 
-.c13 svg {
+.c14 svg {
   width: 0.375rem;
 }
 
-.c6 {
+.c7 {
   position: absolute;
   left: 0;
   right: 0;
@@ -30543,15 +31133,15 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
   border: none;
 }
 
-.c6:focus {
+.c7:focus {
   outline: none;
 }
 
-.c6[aria-disabled='true'] {
+.c7[aria-disabled='true'] {
   cursor: not-allowed;
 }
 
-.c8 {
+.c9 {
   width: 100%;
 }
 
@@ -30566,27 +31156,29 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
   <div
     class="c1"
   >
-    <h2>
+    <span
+      class="c2"
+    >
       Current value is 
       
-    </h2>
+    </span>
     <div>
       <div
-        class="c2"
+        class="c3"
       >
         <span
-          class="c3"
+          class="c4"
           for="select1"
           id="select1-label"
         >
           <div
-            class="c4"
+            class="c5"
           >
             Choose your meal
           </div>
         </span>
         <div
-          class="c4 c5"
+          class="c5 c6"
         >
           <button
             aria-describedby="select1-hint"
@@ -30594,21 +31186,21 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-labelledby="select1-label select1-content"
-            class="c6"
+            class="c7"
             id="select1"
             type="button"
           />
           <div
-            class="c7 c8"
+            class="c8 c9"
           >
             <div
-              class="c4"
+              class="c5"
             >
               <div
-                class="c9"
+                class="c10"
               >
                 <span
-                  class="c10"
+                  class="c11"
                   id="select1-content"
                 >
                   0 currently selected
@@ -30619,11 +31211,11 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
               </div>
             </div>
             <div
-              class="c4"
+              class="c5"
             >
               <button
                 aria-hidden="true"
-                class="c11 c12 c13"
+                class="c12 c13 c14"
                 tabindex="-1"
                 type="button"
               >
@@ -30646,7 +31238,7 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
           </div>
         </div>
         <p
-          class="c14"
+          class="c15"
           id="select1-hint"
         >
           Description line
@@ -30654,10 +31246,18 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
       </div>
     </div>
     <button>
-      Show the error state
+      <span
+        class="c16"
+      >
+        Show the error state
+      </span>
     </button>
     <button>
-      Show the disabled state
+      <span
+        class="c16"
+      >
+        Show the disabled state
+      </span>
     </button>
   </div>
 </main>
@@ -30676,14 +31276,30 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
   width: 1px;
 }
 
-.c3 {
+.c12 {
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
+.c14 {
+  padding-left: 12px;
+}
+
+.c2 {
+  color: #32324d;
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.22;
+}
+
+.c4 {
   font-weight: 600;
   color: #32324d;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
-.c12 {
+.c13 {
   color: #666687;
   display: block;
   white-space: nowrap;
@@ -30693,22 +31309,19 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
   line-height: 1.43;
 }
 
-.c16 {
+.c17 {
   color: #666687;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
-.c11 {
-  padding-right: 16px;
-  padding-left: 16px;
+.c18 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
 }
 
-.c13 {
-  padding-left: 12px;
-}
-
-.c4 {
+.c5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -30722,7 +31335,7 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
   align-items: center;
 }
 
-.c7 {
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -30740,7 +31353,7 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
   align-items: center;
 }
 
-.c10 {
+.c11 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -30776,7 +31389,7 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
   margin-top: 64px;
 }
 
-.c2 {
+.c3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -30786,16 +31399,16 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
   flex-direction: column;
 }
 
-.c2 > * {
+.c3 > * {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-.c2 > * + * {
+.c3 > * + * {
   margin-top: 4px;
 }
 
-.c5 {
+.c6 {
   position: relative;
   border: 1px solid #dcdce4;
   padding-right: 12px;
@@ -30811,28 +31424,28 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
   transition-duration: 0.2s;
 }
 
-.c5:focus-within {
+.c6:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
-.c14 {
+.c15 {
   background: transparent;
   border: none;
   position: relative;
   z-index: 1;
 }
 
-.c14 svg {
+.c15 svg {
   height: 0.6875rem;
   width: 0.6875rem;
 }
 
-.c14 svg path {
+.c15 svg path {
   fill: #666687;
 }
 
-.c15 {
+.c16 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -30841,11 +31454,11 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
   border: none;
 }
 
-.c15 svg {
+.c16 svg {
   width: 0.375rem;
 }
 
-.c6 {
+.c7 {
   position: absolute;
   left: 0;
   right: 0;
@@ -30856,19 +31469,19 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
   border: none;
 }
 
-.c6:focus {
+.c7:focus {
   outline: none;
 }
 
-.c6[aria-disabled='true'] {
+.c7[aria-disabled='true'] {
   cursor: not-allowed;
 }
 
-.c9 {
+.c10 {
   margin-bottom: 4px;
 }
 
-.c8 {
+.c9 {
   width: 100%;
 }
 
@@ -30883,27 +31496,29 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
   <div
     class="c1"
   >
-    <h2>
+    <span
+      class="c2"
+    >
       Current value is 
       
-    </h2>
+    </span>
     <div>
       <div
-        class="c2"
+        class="c3"
       >
         <span
-          class="c3"
+          class="c4"
           for="select1"
           id="select1-label"
         >
           <div
-            class="c4"
+            class="c5"
           >
             Choose your meal
           </div>
         </span>
         <div
-          class="c4 c5"
+          class="c5 c6"
         >
           <button
             aria-describedby="select1-hint"
@@ -30911,29 +31526,29 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-labelledby="select1-label select1-content"
-            class="c6"
+            class="c7"
             id="select1"
             type="button"
           />
           <div
-            class="c7 c8"
+            class="c8 c9"
           >
             <div
-              class="c4"
+              class="c5"
             >
               <div
-                class="c9"
+                class="c10"
               >
                 <div
-                  class="c10"
+                  class="c11"
                   wrap="wrap"
                 />
               </div>
               <div
-                class="c11"
+                class="c12"
               >
                 <span
-                  class="c12"
+                  class="c13"
                   id="select1-content"
                 >
                   Your example
@@ -30948,11 +31563,11 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
               </div>
             </div>
             <div
-              class="c4"
+              class="c5"
             >
               <button
                 aria-hidden="true"
-                class="c13 c14 c15"
+                class="c14 c15 c16"
                 tabindex="-1"
                 type="button"
               >
@@ -30975,7 +31590,7 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
           </div>
         </div>
         <p
-          class="c16"
+          class="c17"
           id="select1-hint"
         >
           Description line
@@ -30983,10 +31598,18 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
       </div>
     </div>
     <button>
-      Show the error state
+      <span
+        class="c18"
+      >
+        Show the error state
+      </span>
     </button>
     <button>
-      Show the disabled state
+      <span
+        class="c18"
+      >
+        Show the disabled state
+      </span>
     </button>
   </div>
 </main>
@@ -31003,6 +31626,15 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
   padding: 0;
   position: absolute;
   width: 1px;
+}
+
+.c9 {
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
+.c12 {
+  padding-left: 12px;
 }
 
 .c3 {
@@ -31026,15 +31658,6 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
   color: #666687;
   font-size: 0.75rem;
   line-height: 1.33;
-}
-
-.c9 {
-  padding-right: 16px;
-  padding-left: 16px;
-}
-
-.c12 {
-  padding-left: 12px;
 }
 
 .c4 {
@@ -31307,7 +31930,23 @@ exports[`Storyshots Design System/Components/Select withoutLabel 1`] = `
   width: 1px;
 }
 
+.c9 {
+  padding-left: 12px;
+}
+
 .c10 {
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
+.c2 {
+  color: #32324d;
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.22;
+}
+
+.c11 {
   color: #666687;
   display: block;
   white-space: nowrap;
@@ -31317,22 +31956,19 @@ exports[`Storyshots Design System/Components/Select withoutLabel 1`] = `
   line-height: 1.43;
 }
 
-.c13 {
+.c14 {
   color: #666687;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
-.c8 {
-  padding-left: 12px;
+.c15 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
 }
 
-.c9 {
-  padding-right: 16px;
-  padding-left: 16px;
-}
-
-.c3 {
+.c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -31346,7 +31982,7 @@ exports[`Storyshots Design System/Components/Select withoutLabel 1`] = `
   align-items: center;
 }
 
-.c6 {
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -31383,7 +32019,7 @@ exports[`Storyshots Design System/Components/Select withoutLabel 1`] = `
   margin-top: 64px;
 }
 
-.c2 {
+.c3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -31393,16 +32029,16 @@ exports[`Storyshots Design System/Components/Select withoutLabel 1`] = `
   flex-direction: column;
 }
 
-.c2 > * {
+.c3 > * {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-.c2 > * + * {
+.c3 > * + * {
   margin-top: 4px;
 }
 
-.c4 {
+.c5 {
   position: relative;
   border: 1px solid #dcdce4;
   padding-right: 12px;
@@ -31418,28 +32054,28 @@ exports[`Storyshots Design System/Components/Select withoutLabel 1`] = `
   transition-duration: 0.2s;
 }
 
-.c4:focus-within {
+.c5:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
-.c11 {
+.c12 {
   background: transparent;
   border: none;
   position: relative;
   z-index: 1;
 }
 
-.c11 svg {
+.c12 svg {
   height: 0.6875rem;
   width: 0.6875rem;
 }
 
-.c11 svg path {
+.c12 svg path {
   fill: #666687;
 }
 
-.c12 {
+.c13 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -31448,11 +32084,11 @@ exports[`Storyshots Design System/Components/Select withoutLabel 1`] = `
   border: none;
 }
 
-.c12 svg {
+.c13 svg {
   width: 0.375rem;
 }
 
-.c5 {
+.c6 {
   position: absolute;
   left: 0;
   right: 0;
@@ -31463,15 +32099,15 @@ exports[`Storyshots Design System/Components/Select withoutLabel 1`] = `
   border: none;
 }
 
-.c5:focus {
+.c6:focus {
   outline: none;
 }
 
-.c5[aria-disabled='true'] {
+.c6[aria-disabled='true'] {
   cursor: not-allowed;
 }
 
-.c7 {
+.c8 {
   width: 100%;
 }
 
@@ -31486,15 +32122,17 @@ exports[`Storyshots Design System/Components/Select withoutLabel 1`] = `
   <div
     class="c1"
   >
-    <h2>
+    <span
+      class="c2"
+    >
       Current value is 
-    </h2>
+    </span>
     <div>
       <div
-        class="c2"
+        class="c3"
       >
         <div
-          class="c3 c4"
+          class="c4 c5"
         >
           <button
             aria-describedby="select1-hint"
@@ -31503,19 +32141,19 @@ exports[`Storyshots Design System/Components/Select withoutLabel 1`] = `
             aria-haspopup="listbox"
             aria-label="Choose your meal"
             aria-labelledby="select1-label select1-content"
-            class="c5"
+            class="c6"
             id="select1"
             type="button"
           />
           <div
-            class="c6 c7"
+            class="c7 c8"
           >
             <div
-              class="c3"
+              class="c4"
             >
               <div
                 aria-hidden="true"
-                class="c8"
+                class="c9"
               >
                 <svg
                   fill="none"
@@ -31531,10 +32169,10 @@ exports[`Storyshots Design System/Components/Select withoutLabel 1`] = `
                 </svg>
               </div>
               <div
-                class="c9"
+                class="c10"
               >
                 <span
-                  class="c10"
+                  class="c11"
                   id="select1-content"
                 >
                   Your example
@@ -31542,11 +32180,11 @@ exports[`Storyshots Design System/Components/Select withoutLabel 1`] = `
               </div>
             </div>
             <div
-              class="c3"
+              class="c4"
             >
               <button
                 aria-hidden="true"
-                class="c8 c11 c12"
+                class="c9 c12 c13"
                 tabindex="-1"
                 type="button"
               >
@@ -31569,7 +32207,7 @@ exports[`Storyshots Design System/Components/Select withoutLabel 1`] = `
           </div>
         </div>
         <p
-          class="c13"
+          class="c14"
           id="select1-hint"
         >
           Description line
@@ -31577,10 +32215,18 @@ exports[`Storyshots Design System/Components/Select withoutLabel 1`] = `
       </div>
     </div>
     <button>
-      Show the error state
+      <span
+        class="c15"
+      >
+        Show the error state
+      </span>
     </button>
     <button>
-      Show the disabled state
+      <span
+        class="c15"
+      >
+        Show the disabled state
+      </span>
     </button>
   </div>
 </main>
@@ -31599,15 +32245,15 @@ exports[`Storyshots Design System/Components/SimpleMenu base 1`] = `
   width: 1px;
 }
 
+.c6 {
+  padding-left: 8px;
+}
+
 .c4 {
   font-weight: 600;
   color: #32324d;
   font-size: 0.75rem;
   line-height: 1.33;
-}
-
-.c6 {
-  padding-left: 8px;
 }
 
 .c1 {
@@ -31822,15 +32468,15 @@ exports[`Storyshots Design System/Components/SimpleMenu with-custom-label 1`] = 
   width: 1px;
 }
 
+.c6 {
+  padding-left: 8px;
+}
+
 .c4 {
   font-weight: 600;
   color: #32324d;
   font-size: 0.75rem;
   line-height: 1.33;
-}
-
-.c6 {
-  padding-left: 8px;
 }
 
 .c1 {
@@ -32199,15 +32845,15 @@ exports[`Storyshots Design System/Components/SimpleMenu with-links 1`] = `
   width: 1px;
 }
 
+.c6 {
+  padding-left: 8px;
+}
+
 .c4 {
   font-weight: 600;
   color: #32324d;
   font-size: 0.75rem;
   line-height: 1.33;
-}
-
-.c6 {
-  padding-left: 8px;
 }
 
 .c1 {
@@ -32422,19 +33068,6 @@ exports[`Storyshots Design System/Components/Status base 1`] = `
   width: 1px;
 }
 
-.c7 {
-  color: #32324d;
-  font-size: 0.875rem;
-  line-height: 1.43;
-}
-
-.c8 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.875rem;
-  line-height: 1.43;
-}
-
 .c2 {
   background: #eafbe7;
   padding-top: 16px;
@@ -32455,6 +33088,19 @@ exports[`Storyshots Design System/Components/Status base 1`] = `
   border-radius: 4px;
   border-color: #b8e1ff;
   border: 1px solid #b8e1ff;
+}
+
+.c7 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
+.c8 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
 }
 
 .c4 {
@@ -32584,41 +33230,8 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
   width: 1px;
 }
 
-.c7 {
-  color: #32324d;
-  font-weight: 600;
-  font-size: 1.125rem;
-  line-height: 1.22;
-}
-
-.c21 {
-  color: #666687;
-  font-weight: 600;
-  font-size: 0.6875rem;
-  line-height: 1.45;
-  text-transform: uppercase;
-}
-
-.c31 {
-  color: #32324d;
-  font-size: 0.875rem;
-  line-height: 1.43;
-}
-
-.c35 {
-  color: #4945ff;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c40 {
-  font-weight: 500;
-  color: #32324d;
-  font-size: 0.875rem;
-  line-height: 1.43;
-}
-
 .c2 {
+  background: #dcdce4;
   padding: 56px;
 }
 
@@ -32688,6 +33301,40 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
 
 .c42 {
   padding-right: 16px;
+}
+
+.c7 {
+  color: #32324d;
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.22;
+}
+
+.c21 {
+  color: #666687;
+  font-weight: 600;
+  font-size: 0.6875rem;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.c31 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
+.c35 {
+  color: #4945ff;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c40 {
+  font-weight: 500;
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
 }
 
 .c1 {
@@ -33779,7 +34426,7 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                   </div>
                 </div>
                 <div
-                  class="c1 sc-dkPtRN c42"
+                  class="c1 sc-gsDKAQ c42"
                 >
                   <svg
                     class="c43"
@@ -34087,7 +34734,7 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
                   </div>
                 </div>
                 <div
-                  class="c1 sc-dkPtRN c42"
+                  class="c1 sc-gsDKAQ c42"
                 >
                   <svg
                     class="c43"
@@ -34774,27 +35421,6 @@ exports[`Storyshots Design System/Components/Table base 1`] = `
   width: 1px;
 }
 
-.c14 {
-  color: #32324d;
-  font-weight: 600;
-  font-size: 0.6875rem;
-  line-height: 1.45;
-  text-transform: uppercase;
-}
-
-.c16 {
-  color: #32324d;
-  font-size: 0.875rem;
-  line-height: 1.43;
-}
-
-.c29 {
-  font-weight: 600;
-  color: #4945ff;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
 .c1 {
   background: #f6f6f9;
   padding: 40px;
@@ -34830,6 +35456,27 @@ exports[`Storyshots Design System/Components/Table base 1`] = `
 
 .c28 {
   padding-left: 12px;
+}
+
+.c14 {
+  color: #32324d;
+  font-weight: 600;
+  font-size: 0.6875rem;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.c16 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
+.c29 {
+  font-weight: 600;
+  color: #4945ff;
+  font-size: 0.75rem;
+  line-height: 1.33;
 }
 
 .c11 {
@@ -36060,20 +36707,6 @@ exports[`Storyshots Design System/Components/Table base without footer 1`] = `
   width: 1px;
 }
 
-.c14 {
-  color: #32324d;
-  font-weight: 600;
-  font-size: 0.6875rem;
-  line-height: 1.45;
-  text-transform: uppercase;
-}
-
-.c16 {
-  color: #32324d;
-  font-size: 0.875rem;
-  line-height: 1.43;
-}
-
 .c1 {
   background: #f6f6f9;
   padding: 40px;
@@ -36092,6 +36725,20 @@ exports[`Storyshots Design System/Components/Table base without footer 1`] = `
 
 .c21 {
   padding-left: 4px;
+}
+
+.c14 {
+  color: #32324d;
+  font-weight: 600;
+  font-size: 0.6875rem;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.c16 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
 }
 
 .c11 {
@@ -37243,27 +37890,6 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
   width: 1px;
 }
 
-.c14 {
-  color: #32324d;
-  font-weight: 600;
-  font-size: 0.6875rem;
-  line-height: 1.45;
-  text-transform: uppercase;
-}
-
-.c18 {
-  color: #32324d;
-  font-size: 0.875rem;
-  line-height: 1.43;
-}
-
-.c29 {
-  font-weight: 600;
-  color: #4945ff;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
 .c1 {
   background: #f6f6f9;
   padding: 40px;
@@ -37299,6 +37925,27 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
 
 .c28 {
   padding-left: 12px;
+}
+
+.c14 {
+  color: #32324d;
+  font-weight: 600;
+  font-size: 0.6875rem;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.c18 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
+.c29 {
+  font-weight: 600;
+  color: #4945ff;
+  font-size: 0.75rem;
+  line-height: 1.33;
 }
 
 .c11 {
@@ -38553,20 +39200,6 @@ exports[`Storyshots Design System/Components/Tabs base 1`] = `
   width: 1px;
 }
 
-.c9 {
-  font-weight: 600;
-  color: #271fe0;
-  font-size: 0.875rem;
-  line-height: 1.43;
-}
-
-.c12 {
-  font-weight: 600;
-  color: #666687;
-  font-size: 0.875rem;
-  line-height: 1.43;
-}
-
 .c1 {
   background: #f0f0ff;
   padding: 40px;
@@ -38580,6 +39213,26 @@ exports[`Storyshots Design System/Components/Tabs base 1`] = `
 .c10 {
   background: #f6f6f9;
   padding: 12px;
+}
+
+.c13 {
+  background: #ffffff;
+  color: #32324d;
+  padding: 16px;
+}
+
+.c9 {
+  font-weight: 600;
+  color: #271fe0;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
+.c12 {
+  font-weight: 600;
+  color: #666687;
+  font-size: 0.875rem;
+  line-height: 1.43;
 }
 
 .c2 {
@@ -38727,7 +39380,7 @@ exports[`Storyshots Design System/Components/Tabs base 1`] = `
           tabindex="0"
         >
           <div
-            class="c7"
+            class="c13"
           >
             First panel
           </div>
@@ -38751,6 +39404,21 @@ exports[`Storyshots Design System/Components/Tabs disabled 1`] = `
   width: 1px;
 }
 
+.c1 {
+  background: #ffffff;
+  padding: 40px;
+}
+
+.c3 {
+  padding: 16px;
+}
+
+.c8 {
+  background: #ffffff;
+  color: #32324d;
+  padding: 16px;
+}
+
 .c5 {
   color: #4945ff;
   font-weight: 600;
@@ -38765,20 +39433,6 @@ exports[`Storyshots Design System/Components/Tabs disabled 1`] = `
   font-size: 0.6875rem;
   line-height: 1.45;
   text-transform: uppercase;
-}
-
-.c1 {
-  background: #ffffff;
-  padding: 40px;
-}
-
-.c3 {
-  padding: 16px;
-}
-
-.c8 {
-  background: #ffffff;
-  padding: 16px;
 }
 
 .c4 {
@@ -38976,6 +39630,21 @@ exports[`Storyshots Design System/Components/Tabs selected 1`] = `
   width: 1px;
 }
 
+.c1 {
+  background: #ffffff;
+  padding: 40px;
+}
+
+.c3 {
+  padding: 16px;
+}
+
+.c8 {
+  background: #ffffff;
+  color: #32324d;
+  padding: 16px;
+}
+
 .c5 {
   color: #666687;
   font-weight: 600;
@@ -38990,20 +39659,6 @@ exports[`Storyshots Design System/Components/Tabs selected 1`] = `
   font-size: 0.6875rem;
   line-height: 1.45;
   text-transform: uppercase;
-}
-
-.c1 {
-  background: #ffffff;
-  padding: 40px;
-}
-
-.c3 {
-  padding: 16px;
-}
-
-.c8 {
-  background: #ffffff;
-  padding: 16px;
 }
 
 .c4 {
@@ -39125,6 +39780,21 @@ exports[`Storyshots Design System/Components/Tabs simple 1`] = `
   width: 1px;
 }
 
+.c1 {
+  background: #ffffff;
+  padding: 40px;
+}
+
+.c3 {
+  padding: 16px;
+}
+
+.c9 {
+  background: #ffffff;
+  color: #32324d;
+  padding: 16px;
+}
+
 .c5 {
   color: #4945ff;
   font-weight: 600;
@@ -39147,20 +39817,6 @@ exports[`Storyshots Design System/Components/Tabs simple 1`] = `
   font-size: 0.6875rem;
   line-height: 1.45;
   text-transform: uppercase;
-}
-
-.c1 {
-  background: #ffffff;
-  padding: 40px;
-}
-
-.c3 {
-  padding: 16px;
-}
-
-.c9 {
-  background: #ffffff;
-  padding: 16px;
 }
 
 .c4 {
@@ -39282,13 +39938,6 @@ exports[`Storyshots Design System/Components/Tag base 1`] = `
   width: 1px;
 }
 
-.c4 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
 .c1 {
   background: #f0f0ff;
   color: #4945ff;
@@ -39303,6 +39952,13 @@ exports[`Storyshots Design System/Components/Tag base 1`] = `
 
 .c6 {
   padding-left: 8px;
+}
+
+.c4 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
 }
 
 .c3 {
@@ -39394,13 +40050,6 @@ exports[`Storyshots Design System/Components/Tag disabled 1`] = `
   width: 1px;
 }
 
-.c4 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
 .c1 {
   background: #dcdce4;
   color: #4a4a6a;
@@ -39415,6 +40064,13 @@ exports[`Storyshots Design System/Components/Tag disabled 1`] = `
 
 .c6 {
   padding-left: 8px;
+}
+
+.c4 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
 }
 
 .c3 {
@@ -39507,6 +40163,14 @@ exports[`Storyshots Design System/Components/TextButton base 1`] = `
   width: 1px;
 }
 
+.c3 {
+  padding-right: 8px;
+}
+
+.c5 {
+  padding-left: 8px;
+}
+
 .c4 {
   color: #4945ff;
   font-size: 0.75rem;
@@ -39517,14 +40181,6 @@ exports[`Storyshots Design System/Components/TextButton base 1`] = `
   color: #666687;
   font-size: 0.75rem;
   line-height: 1.33;
-}
-
-.c3 {
-  padding-right: 8px;
-}
-
-.c5 {
-  padding-left: 8px;
 }
 
 .c1 {
@@ -39716,6 +40372,14 @@ exports[`Storyshots Design System/Components/TextInput base 1`] = `
   width: 1px;
 }
 
+.c1 {
+  padding: 56px;
+}
+
+.c5 {
+  margin-left: 4px;
+}
+
 .c3 {
   font-weight: 600;
   color: #32324d;
@@ -39727,14 +40391,6 @@ exports[`Storyshots Design System/Components/TextInput base 1`] = `
   color: #666687;
   font-size: 0.75rem;
   line-height: 1.33;
-}
-
-.c1 {
-  padding: 56px;
-}
-
-.c5 {
-  margin-left: 4px;
 }
 
 .c4 {
@@ -39948,6 +40604,14 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
   width: 1px;
 }
 
+.c1 {
+  padding: 56px;
+}
+
+.c5 {
+  margin-left: 4px;
+}
+
 .c3 {
   font-weight: 600;
   color: #32324d;
@@ -39959,14 +40623,6 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
   color: #666687;
   font-size: 0.75rem;
   line-height: 1.33;
-}
-
-.c1 {
-  padding: 56px;
-}
-
-.c5 {
-  margin-left: 4px;
 }
 
 .c4 {
@@ -40184,6 +40840,14 @@ exports[`Storyshots Design System/Components/TextInput password 1`] = `
   width: 1px;
 }
 
+.c1 {
+  padding: 56px;
+}
+
+.c5 {
+  margin-left: 4px;
+}
+
 .c3 {
   font-weight: 600;
   color: #32324d;
@@ -40195,14 +40859,6 @@ exports[`Storyshots Design System/Components/TextInput password 1`] = `
   color: #666687;
   font-size: 0.75rem;
   line-height: 1.33;
-}
-
-.c1 {
-  padding: 56px;
-}
-
-.c5 {
-  margin-left: 4px;
 }
 
 .c4 {
@@ -40417,6 +41073,14 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
   width: 1px;
 }
 
+.c1 {
+  padding: 56px;
+}
+
+.c5 {
+  margin-left: 4px;
+}
+
 .c3 {
   font-weight: 600;
   color: #32324d;
@@ -40428,14 +41092,6 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
   color: #666687;
   font-size: 0.75rem;
   line-height: 1.33;
-}
-
-.c1 {
-  padding: 56px;
-}
-
-.c5 {
-  margin-left: 4px;
 }
 
 .c4 {
@@ -40649,6 +41305,14 @@ exports[`Storyshots Design System/Components/TextInput with error 1`] = `
   width: 1px;
 }
 
+.c1 {
+  padding: 56px;
+}
+
+.c5 {
+  margin-left: 4px;
+}
+
 .c3 {
   font-weight: 600;
   color: #32324d;
@@ -40660,14 +41324,6 @@ exports[`Storyshots Design System/Components/TextInput with error 1`] = `
   color: #d02b20;
   font-size: 0.75rem;
   line-height: 1.33;
-}
-
-.c1 {
-  padding: 56px;
-}
-
-.c5 {
-  margin-left: 4px;
 }
 
 .c4 {
@@ -40882,14 +41538,14 @@ exports[`Storyshots Design System/Components/TextInput withoutLabel 1`] = `
   width: 1px;
 }
 
+.c1 {
+  padding: 56px;
+}
+
 .c6 {
   color: #666687;
   font-size: 0.75rem;
   line-height: 1.33;
-}
-
-.c1 {
-  padding: 56px;
 }
 
 .c3 {
@@ -41047,6 +41703,14 @@ exports[`Storyshots Design System/Components/Textarea base 1`] = `
   width: 1px;
 }
 
+.c1 {
+  padding: 56px;
+}
+
+.c6 {
+  margin-left: 4px;
+}
+
 .c5 {
   font-weight: 600;
   color: #32324d;
@@ -41058,14 +41722,6 @@ exports[`Storyshots Design System/Components/Textarea base 1`] = `
   color: #d02b20;
   font-size: 0.75rem;
   line-height: 1.33;
-}
-
-.c1 {
-  padding: 56px;
-}
-
-.c6 {
-  margin-left: 4px;
 }
 
 .c4 {
@@ -41299,6 +41955,14 @@ exports[`Storyshots Design System/Components/Textarea disabled 1`] = `
   width: 1px;
 }
 
+.c1 {
+  padding: 56px;
+}
+
+.c6 {
+  margin-left: 4px;
+}
+
 .c5 {
   font-weight: 600;
   color: #32324d;
@@ -41310,14 +41974,6 @@ exports[`Storyshots Design System/Components/Textarea disabled 1`] = `
   color: #666687;
   font-size: 0.75rem;
   line-height: 1.33;
-}
-
-.c1 {
-  padding: 56px;
-}
-
-.c6 {
-  margin-left: 4px;
 }
 
 .c4 {
@@ -42647,6 +43303,15 @@ exports[`Storyshots Design System/Components/Theme spaces 1`] = `
   width: 1px;
 }
 
+.c1 {
+  background: #f6f6f9;
+  padding: 40px;
+}
+
+.c4 {
+  padding-left: 8px;
+}
+
 .c5 {
   color: #32324d;
   font-size: 0.875rem;
@@ -42657,15 +43322,6 @@ exports[`Storyshots Design System/Components/Theme spaces 1`] = `
   color: #32324d;
   font-size: 0.75rem;
   line-height: 1.33;
-}
-
-.c1 {
-  background: #f6f6f9;
-  padding: 40px;
-}
-
-.c4 {
-  padding-left: 8px;
 }
 
 .c3 {
@@ -42985,6 +43641,15 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
   width: 1px;
 }
 
+.c8 {
+  padding-left: 12px;
+}
+
+.c10 {
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
 .c2 {
   font-weight: 600;
   color: #32324d;
@@ -43006,15 +43671,6 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
   color: #666687;
   font-size: 0.75rem;
   line-height: 1.33;
-}
-
-.c8 {
-  padding-left: 12px;
-}
-
-.c10 {
-  padding-right: 16px;
-  padding-left: 16px;
 }
 
 .c3 {
@@ -43288,6 +43944,15 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
   width: 1px;
 }
 
+.c8 {
+  padding-left: 12px;
+}
+
+.c10 {
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
 .c2 {
   font-weight: 600;
   color: #32324d;
@@ -43309,15 +43974,6 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
   color: #666687;
   font-size: 0.75rem;
   line-height: 1.33;
-}
-
-.c8 {
-  padding-left: 12px;
-}
-
-.c10 {
-  padding-right: 16px;
-  padding-left: 16px;
 }
 
 .c3 {
@@ -43591,6 +44247,15 @@ exports[`Storyshots Design System/Components/TimePicker disabled 1`] = `
   width: 1px;
 }
 
+.c8 {
+  padding-left: 12px;
+}
+
+.c10 {
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
 .c2 {
   font-weight: 600;
   color: #32324d;
@@ -43612,15 +44277,6 @@ exports[`Storyshots Design System/Components/TimePicker disabled 1`] = `
   color: #666687;
   font-size: 0.75rem;
   line-height: 1.33;
-}
-
-.c8 {
-  padding-left: 12px;
-}
-
-.c10 {
-  padding-right: 16px;
-  padding-left: 16px;
 }
 
 .c3 {
@@ -43899,6 +44555,19 @@ exports[`Storyshots Design System/Components/TimePicker initial-data 1`] = `
   width: 1px;
 }
 
+.c2 {
+  padding-top: 8px;
+}
+
+.c10 {
+  padding-left: 12px;
+}
+
+.c12 {
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
 .c1 {
   color: #32324d;
   font-size: 0.875rem;
@@ -43926,19 +44595,6 @@ exports[`Storyshots Design System/Components/TimePicker initial-data 1`] = `
   color: #666687;
   font-size: 0.75rem;
   line-height: 1.33;
-}
-
-.c2 {
-  padding-top: 8px;
-}
-
-.c10 {
-  padding-left: 12px;
-}
-
-.c12 {
-  padding-right: 16px;
-  padding-left: 16px;
 }
 
 .c5 {
@@ -44241,6 +44897,15 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
   width: 1px;
 }
 
+.c8 {
+  padding-left: 12px;
+}
+
+.c10 {
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
 .c2 {
   font-weight: 600;
   color: #32324d;
@@ -44262,15 +44927,6 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
   color: #666687;
   font-size: 0.75rem;
   line-height: 1.33;
-}
-
-.c8 {
-  padding-left: 12px;
-}
-
-.c10 {
-  padding-right: 16px;
-  padding-left: 16px;
 }
 
 .c3 {
@@ -44544,20 +45200,6 @@ exports[`Storyshots Design System/Components/ToggleCheckbox activated 1`] = `
   width: 1px;
 }
 
-.c7 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c10 {
-  font-weight: 600;
-  color: #271fe0;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
 .c2 {
   background: #ffffff;
   border-radius: 4px;
@@ -44573,6 +45215,20 @@ exports[`Storyshots Design System/Components/ToggleCheckbox activated 1`] = `
   background: #f0f0ff;
   padding-right: 32px;
   padding-left: 32px;
+}
+
+.c7 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c10 {
+  font-weight: 600;
+  color: #271fe0;
+  font-size: 0.75rem;
+  line-height: 1.33;
 }
 
 .c5 {
@@ -44698,20 +45354,6 @@ exports[`Storyshots Design System/Components/ToggleCheckbox disabled 1`] = `
   width: 1px;
 }
 
-.c7 {
-  font-weight: 600;
-  color: #666687;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c10 {
-  font-weight: 600;
-  color: #4a4a6a;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
 .c2 {
   background: #ffffff;
   border-radius: 4px;
@@ -44727,6 +45369,20 @@ exports[`Storyshots Design System/Components/ToggleCheckbox disabled 1`] = `
   background: #dcdce4;
   padding-right: 32px;
   padding-left: 32px;
+}
+
+.c7 {
+  font-weight: 600;
+  color: #666687;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c10 {
+  font-weight: 600;
+  color: #4a4a6a;
+  font-size: 0.75rem;
+  line-height: 1.33;
 }
 
 .c5 {
@@ -44855,20 +45511,6 @@ exports[`Storyshots Design System/Components/ToggleCheckbox not activated 1`] = 
   width: 1px;
 }
 
-.c7 {
-  font-weight: 600;
-  color: #b72b1a;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c10 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
 .c2 {
   background: #ffffff;
   border-radius: 4px;
@@ -44884,6 +45526,20 @@ exports[`Storyshots Design System/Components/ToggleCheckbox not activated 1`] = 
   background: #ffffff;
   padding-right: 32px;
   padding-left: 32px;
+}
+
+.c7 {
+  font-weight: 600;
+  color: #b72b1a;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c10 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
 }
 
 .c5 {
@@ -45008,20 +45664,6 @@ exports[`Storyshots Design System/Components/ToggleCheckbox size S 1`] = `
   width: 1px;
 }
 
-.c7 {
-  font-weight: 600;
-  color: #b72b1a;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c10 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
 .c2 {
   background: #ffffff;
   border-radius: 4px;
@@ -45037,6 +45679,20 @@ exports[`Storyshots Design System/Components/ToggleCheckbox size S 1`] = `
   background: #ffffff;
   padding-right: 32px;
   padding-left: 32px;
+}
+
+.c7 {
+  font-weight: 600;
+  color: #b72b1a;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c10 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
 }
 
 .c5 {
@@ -45161,26 +45817,6 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
   width: 1px;
 }
 
-.c4 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c14 {
-  font-weight: 600;
-  color: #271fe0;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c16 {
-  color: #666687;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
 .c5 {
   margin-left: 4px;
 }
@@ -45200,6 +45836,26 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
   background: #f0f0ff;
   padding-right: 32px;
   padding-left: 32px;
+}
+
+.c4 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c14 {
+  font-weight: 600;
+  color: #271fe0;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c16 {
+  color: #666687;
+  font-size: 0.75rem;
+  line-height: 1.33;
 }
 
 .c3 {
@@ -45414,6 +46070,23 @@ exports[`Storyshots Design System/Components/ToggleInput error 1`] = `
   width: 1px;
 }
 
+.c6 {
+  background: #ffffff;
+  border-radius: 4px;
+}
+
+.c8 {
+  background: #fcecea;
+  padding-right: 32px;
+  padding-left: 32px;
+}
+
+.c11 {
+  background: #ffffff;
+  padding-right: 32px;
+  padding-left: 32px;
+}
+
 .c4 {
   font-weight: 600;
   color: #32324d;
@@ -45432,23 +46105,6 @@ exports[`Storyshots Design System/Components/ToggleInput error 1`] = `
   color: #d02b20;
   font-size: 0.75rem;
   line-height: 1.33;
-}
-
-.c6 {
-  background: #ffffff;
-  border-radius: 4px;
-}
-
-.c8 {
-  background: #fcecea;
-  padding-right: 32px;
-  padding-left: 32px;
-}
-
-.c11 {
-  background: #ffffff;
-  padding-right: 32px;
-  padding-left: 32px;
 }
 
 .c3 {
@@ -45629,6 +46285,17 @@ exports[`Storyshots Design System/Components/ToggleInput null-value 1`] = `
   width: 1px;
 }
 
+.c6 {
+  background: #ffffff;
+  border-radius: 4px;
+}
+
+.c8 {
+  background: #ffffff;
+  padding-right: 32px;
+  padding-left: 32px;
+}
+
 .c4 {
   font-weight: 600;
   color: #32324d;
@@ -45647,17 +46314,6 @@ exports[`Storyshots Design System/Components/ToggleInput null-value 1`] = `
   color: #666687;
   font-size: 0.75rem;
   line-height: 1.33;
-}
-
-.c6 {
-  background: #ffffff;
-  border-radius: 4px;
-}
-
-.c8 {
-  background: #ffffff;
-  padding-right: 32px;
-  padding-left: 32px;
 }
 
 .c3 {
@@ -45837,6 +46493,23 @@ exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
   width: 1px;
 }
 
+.c6 {
+  background: #ffffff;
+  border-radius: 4px;
+}
+
+.c8 {
+  background: #fcecea;
+  padding-right: 32px;
+  padding-left: 32px;
+}
+
+.c11 {
+  background: #ffffff;
+  padding-right: 32px;
+  padding-left: 32px;
+}
+
 .c4 {
   font-weight: 600;
   color: #32324d;
@@ -45855,23 +46528,6 @@ exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
   color: #d02b20;
   font-size: 0.75rem;
   line-height: 1.33;
-}
-
-.c6 {
-  background: #ffffff;
-  border-radius: 4px;
-}
-
-.c8 {
-  background: #fcecea;
-  padding-right: 32px;
-  padding-left: 32px;
-}
-
-.c11 {
-  background: #ffffff;
-  padding-right: 32px;
-  padding-left: 32px;
 }
 
 .c3 {
@@ -46052,6 +46708,12 @@ exports[`Storyshots Design System/Components/Tooltip base 1`] = `
   width: 1px;
 }
 
+.c1 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
 <main>
   <div
     class="c0"
@@ -46061,20 +46723,25 @@ exports[`Storyshots Design System/Components/Tooltip base 1`] = `
     </h1>
   </div>
   <div>
-    <p>
+    <span
+      class="c1"
+    >
       An infinite amount of content to place correctly the tooltip. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
+    </span>
     <span>
       <span
         aria-describedby="tooltip-234"
+        class="c1"
         tabindex="0"
       >
         Show tooltip
       </span>
     </span>
-    <p>
+    <span
+      class="c1"
+    >
       An infinite amount of content to place correctly the tooltip. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
+    </span>
   </div>
 </main>
 `;
@@ -46094,6 +46761,12 @@ exports[`Storyshots Design System/Components/Tooltip grid 1`] = `
 
 .c1 {
   padding: 16px;
+}
+
+.c4 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
 }
 
 .c2 {
@@ -46141,7 +46814,11 @@ exports[`Storyshots Design System/Components/Tooltip grid 1`] = `
             aria-describedby="tooltip-236"
             tabindex="0"
           >
-            Default tooltip
+            <span
+              class="c4"
+            >
+              Default tooltip
+            </span>
           </button>
         </span>
       </div>
@@ -46157,7 +46834,11 @@ exports[`Storyshots Design System/Components/Tooltip grid 1`] = `
             aria-describedby="tooltip-238"
             tabindex="0"
           >
-            Bottom
+            <span
+              class="c4"
+            >
+              Bottom
+            </span>
           </button>
         </span>
       </div>
@@ -46173,7 +46854,11 @@ exports[`Storyshots Design System/Components/Tooltip grid 1`] = `
             aria-describedby="tooltip-240"
             tabindex="0"
           >
-            Right
+            <span
+              class="c4"
+            >
+              Right
+            </span>
           </button>
         </span>
       </div>
@@ -46189,7 +46874,11 @@ exports[`Storyshots Design System/Components/Tooltip grid 1`] = `
             aria-describedby="tooltip-242"
             tabindex="0"
           >
-            Left
+            <span
+              class="c4"
+            >
+              Left
+            </span>
           </button>
         </span>
       </div>
@@ -46211,6 +46900,12 @@ exports[`Storyshots Design System/Components/Tooltip with text inside 1`] = `
   width: 1px;
 }
 
+.c1 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
 <main>
   <div
     class="c0"
@@ -46223,6 +46918,7 @@ exports[`Storyshots Design System/Components/Tooltip with text inside 1`] = `
     <span>
       <span
         aria-describedby="tooltip-244"
+        class="c1"
         tabindex="0"
       >
         Show tooltip
@@ -46235,7 +46931,11 @@ exports[`Storyshots Design System/Components/Tooltip with text inside 1`] = `
         aria-describedby="tooltip-246"
         tabindex="0"
       >
-        A longer CTA with longer content
+        <span
+          class="c1"
+        >
+          A longer CTA with longer content
+        </span>
       </button>
     </span>
   </div>
@@ -46270,6 +46970,12 @@ exports[`Storyshots Design System/Components/TwoColsLayout base 1`] = `
   padding: 16px;
 }
 
+.c6 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
 .c2 {
   display: grid;
   grid-template-columns: repeat(12,1fr);
@@ -46281,7 +46987,7 @@ exports[`Storyshots Design System/Components/TwoColsLayout base 1`] = `
   max-width: 100%;
 }
 
-.c6 {
+.c7 {
   grid-column: span 3;
   max-width: 100%;
 }
@@ -46299,13 +47005,13 @@ exports[`Storyshots Design System/Components/TwoColsLayout base 1`] = `
 }
 
 @media (max-width:68.75rem) {
-  .c6 {
+  .c7 {
     grid-column: span 12;
   }
 }
 
 @media (max-width:34.375rem) {
-  .c6 {
+  .c7 {
     grid-column: span;
   }
 }
@@ -46336,13 +47042,17 @@ exports[`Storyshots Design System/Components/TwoColsLayout base 1`] = `
             <div
               class="c5"
             >
-              Hello world
+              <span
+                class="c6"
+              >
+                Hello world
+              </span>
             </div>
           </div>
         </div>
       </div>
       <div
-        class="c6"
+        class="c7"
       >
         <div
           class=""
@@ -46353,7 +47063,11 @@ exports[`Storyshots Design System/Components/TwoColsLayout base 1`] = `
             <div
               class="c5"
             >
-              Hello world
+              <span
+                class="c6"
+              >
+                Hello world
+              </span>
             </div>
           </div>
         </div>
@@ -46374,6 +47088,12 @@ exports[`Storyshots Design System/Technical Components/BaseButton base 1`] = `
   padding: 0;
   position: absolute;
   width: 1px;
+}
+
+.c2 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
 }
 
 .c1 {
@@ -46447,7 +47167,11 @@ exports[`Storyshots Design System/Technical Components/BaseButton base 1`] = `
     class="c1"
     type="button"
   >
-    button
+    <span
+      class="c2"
+    >
+      button
+    </span>
   </button>
 </main>
 `;
@@ -46815,6 +47539,12 @@ exports[`Storyshots Design System/Technical Components/BaseLink base 1`] = `
   width: 1px;
 }
 
+.c2 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
 .c1 {
   cursor: pointer;
 }
@@ -46833,7 +47563,11 @@ exports[`Storyshots Design System/Technical Components/BaseLink base 1`] = `
     rel="noreferrer noopener"
     target="_blank"
   >
-    Base link
+    <span
+      class="c2"
+    >
+      Base link
+    </span>
   </a>
 </main>
 `;
@@ -46852,6 +47586,13 @@ exports[`Storyshots Design System/Technical Components/BaseRadio base 1`] = `
 }
 
 .c1 {
+  color: #32324d;
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.22;
+}
+
+.c2 {
   margin: 0;
   padding: 0;
   background-color: #ffffff;
@@ -46862,7 +47603,7 @@ exports[`Storyshots Design System/Technical Components/BaseRadio base 1`] = `
   -webkit-appearance: none;
 }
 
-.c1:after {
+.c2:after {
   border-radius: 50%;
   content: '';
   position: relative;
@@ -46874,11 +47615,11 @@ exports[`Storyshots Design System/Technical Components/BaseRadio base 1`] = `
   top: 3px;
 }
 
-.c1:checked:after {
+.c2:checked:after {
   background: #4945ff;
 }
 
-.c1:disabled {
+.c2:disabled {
   border: 1px solid;
   background: #dcdce4;
 }
@@ -46892,11 +47633,12 @@ exports[`Storyshots Design System/Technical Components/BaseRadio base 1`] = `
     </h1>
   </div>
   <div>
-    <h2
+    <span
+      class="c1"
       id="trophy-champions"
     >
       Make a choice
-    </h2>
+    </span>
     <div
       aria-labelledby="trophy-champions"
       role="radiogroup"
@@ -46904,12 +47646,13 @@ exports[`Storyshots Design System/Technical Components/BaseRadio base 1`] = `
       <div>
         <label
           for="pizza"
+          style="color: rgb(50, 50, 77);"
         >
           Pizza
         </label>
         <input
           aria-checked="false"
-          class="c1"
+          class="c2"
           id="pizza"
           name="prefered-meal"
           tabindex="0"
@@ -46920,12 +47663,13 @@ exports[`Storyshots Design System/Technical Components/BaseRadio base 1`] = `
       <div>
         <label
           for="bagel"
+          style="color: rgb(50, 50, 77);"
         >
           Bagel
         </label>
         <input
           aria-checked="false"
-          class="c1"
+          class="c2"
           id="bagel"
           name="prefered-meal"
           tabindex="-1"
@@ -46952,6 +47696,13 @@ exports[`Storyshots Design System/Technical Components/BaseRadio disabled 1`] = 
 }
 
 .c1 {
+  color: #32324d;
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.22;
+}
+
+.c2 {
   margin: 0;
   padding: 0;
   background-color: #ffffff;
@@ -46962,7 +47713,7 @@ exports[`Storyshots Design System/Technical Components/BaseRadio disabled 1`] = 
   -webkit-appearance: none;
 }
 
-.c1:after {
+.c2:after {
   border-radius: 50%;
   content: '';
   position: relative;
@@ -46974,11 +47725,11 @@ exports[`Storyshots Design System/Technical Components/BaseRadio disabled 1`] = 
   top: 3px;
 }
 
-.c1:checked:after {
+.c2:checked:after {
   background: #4945ff;
 }
 
-.c1:disabled {
+.c2:disabled {
   border: 1px solid;
   background: #dcdce4;
 }
@@ -46992,11 +47743,12 @@ exports[`Storyshots Design System/Technical Components/BaseRadio disabled 1`] = 
     </h1>
   </div>
   <div>
-    <h2
+    <span
+      class="c1"
       id="trophy-champions"
     >
       Trophy champion
-    </h2>
+    </span>
     <div
       aria-labelledby="trophy-champions"
       role="radiogroup"
@@ -47004,12 +47756,13 @@ exports[`Storyshots Design System/Technical Components/BaseRadio disabled 1`] = 
       <div>
         <label
           for="first"
+          style="color: rgb(50, 50, 77);"
         >
           Mario
         </label>
         <input
           aria-checked="false"
-          class="c1"
+          class="c2"
           id="first"
           name="prefered-meal"
           tabindex="0"
@@ -47020,12 +47773,13 @@ exports[`Storyshots Design System/Technical Components/BaseRadio disabled 1`] = 
       <div>
         <label
           for="second"
+          style="color: rgb(50, 50, 77);"
         >
           Luigi
         </label>
         <input
           aria-checked="false"
-          class="c1"
+          class="c2"
           disabled=""
           id="second"
           name="prefered-meal"
@@ -47037,12 +47791,13 @@ exports[`Storyshots Design System/Technical Components/BaseRadio disabled 1`] = 
       <div>
         <label
           for="third"
+          style="color: rgb(50, 50, 77);"
         >
           Wario
         </label>
         <input
           aria-checked="false"
-          class="c1"
+          class="c2"
           id="third"
           name="prefered-meal"
           tabindex="-1"
@@ -47070,11 +47825,16 @@ exports[`Storyshots Design System/Technical Components/Box base 1`] = `
 
 .c1 {
   background: #271fe0;
-  color: #ffffff;
   padding: 16px;
   border-color: #d02b20;
   border: 1px solid #d02b20;
   box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
+}
+
+.c2 {
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.43;
 }
 
 <main>
@@ -47088,7 +47848,11 @@ exports[`Storyshots Design System/Technical Components/Box base 1`] = `
   <div
     class="c1"
   >
-    Hello world
+    <span
+      class="c2"
+    >
+      Hello world
+    </span>
   </div>
 </main>
 `;
@@ -47108,12 +47872,17 @@ exports[`Storyshots Design System/Technical Components/Box responsive spaces 1`]
 
 .c1 {
   background: #271fe0;
-  color: #ffffff;
   padding: 64px;
   border-style: dotted;
   border-width: 2px;
   border-color: #d02b20;
   box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
+}
+
+.c2 {
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.43;
 }
 
 @media (max-width:68.75rem) {
@@ -47145,7 +47914,11 @@ exports[`Storyshots Design System/Technical Components/Box responsive spaces 1`]
   <div
     class="c1"
   >
-    Hello world
+    <span
+      class="c2"
+    >
+      Hello world
+    </span>
   </div>
 </main>
 `;
@@ -47161,6 +47934,24 @@ exports[`Storyshots Design System/Technical Components/Flex base 1`] = `
   padding: 0;
   position: absolute;
   width: 1px;
+}
+
+.c2 {
+  background: #4945ff;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.c4 {
+  background: #328048;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.c3 {
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.43;
 }
 
 .c1 {
@@ -47188,11 +47979,23 @@ exports[`Storyshots Design System/Technical Components/Flex base 1`] = `
   <div
     class="c1"
   >
-    <div>
-      Hello
+    <div
+      class="c2"
+    >
+      <span
+        class="c3"
+      >
+        Hello
+      </span>
     </div>
-    <div>
-      World
+    <div
+      class="c4"
+    >
+      <span
+        class="c3"
+      >
+        World
+      </span>
     </div>
   </div>
 </main>
@@ -47211,20 +48014,6 @@ exports[`Storyshots Design System/Technical Components/FocusTrap base 1`] = `
   width: 1px;
 }
 
-.c6 {
-  color: #32324d;
-  font-weight: 600;
-  font-size: 1.125rem;
-  line-height: 1.22;
-}
-
-.c10 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
 .c2 {
   background: #eaeaef;
   padding: 56px;
@@ -47238,6 +48027,20 @@ exports[`Storyshots Design System/Technical Components/FocusTrap base 1`] = `
 
 .c7 {
   padding-top: 8px;
+}
+
+.c6 {
+  color: #32324d;
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.22;
+}
+
+.c10 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
 }
 
 .c3 {
@@ -47382,6 +48185,11 @@ exports[`Storyshots Design System/Technical Components/FocusTrap base 1`] = `
   background: #4945ff;
 }
 
+.c9 svg > g,
+.c9 svg path {
+  fill: #ffffff;
+}
+
 <main>
   <div
     class="c0"
@@ -47444,9 +48252,15 @@ exports[`Storyshots Design System/Technical Components/Grid base 1`] = `
   background: #f0f0ff;
 }
 
-.c4 {
+.c5 {
   background: #f0f0ff;
   color: #271fe0;
+}
+
+.c4 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
 }
 
 .c1 {
@@ -47489,7 +48303,11 @@ exports[`Storyshots Design System/Technical Components/Grid base 1`] = `
       <div
         class="c3"
       >
-        First
+        <span
+          class="c4"
+        >
+          First
+        </span>
       </div>
     </div>
     <div
@@ -47498,7 +48316,11 @@ exports[`Storyshots Design System/Technical Components/Grid base 1`] = `
       <div
         class="c3"
       >
-        Second
+        <span
+          class="c4"
+        >
+          Second
+        </span>
       </div>
     </div>
     <div
@@ -47507,16 +48329,24 @@ exports[`Storyshots Design System/Technical Components/Grid base 1`] = `
       <div
         class="c3"
       >
-        Third
+        <span
+          class="c4"
+        >
+          Third
+        </span>
       </div>
     </div>
     <div
       class="c2"
     >
       <div
-        class="c4"
+        class="c5"
       >
-        Last
+        <span
+          class="c4"
+        >
+          Last
+        </span>
       </div>
     </div>
   </div>
@@ -47540,6 +48370,12 @@ exports[`Storyshots Design System/Technical Components/Grid base grid 1`] = `
   background: #fae7b9;
 }
 
+.c4 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
 .c1 {
   display: grid;
   grid-template-columns: repeat(12,1fr);
@@ -47580,7 +48416,11 @@ exports[`Storyshots Design System/Technical Components/Grid base grid 1`] = `
       <div
         class="c3"
       >
-        1
+        <span
+          class="c4"
+        >
+          1
+        </span>
       </div>
     </div>
     <div
@@ -47589,7 +48429,11 @@ exports[`Storyshots Design System/Technical Components/Grid base grid 1`] = `
       <div
         class="c3"
       >
-        2
+        <span
+          class="c4"
+        >
+          2
+        </span>
       </div>
     </div>
     <div
@@ -47598,7 +48442,11 @@ exports[`Storyshots Design System/Technical Components/Grid base grid 1`] = `
       <div
         class="c3"
       >
-        3
+        <span
+          class="c4"
+        >
+          3
+        </span>
       </div>
     </div>
     <div
@@ -47607,7 +48455,11 @@ exports[`Storyshots Design System/Technical Components/Grid base grid 1`] = `
       <div
         class="c3"
       >
-        4
+        <span
+          class="c4"
+        >
+          4
+        </span>
       </div>
     </div>
     <div
@@ -47616,7 +48468,11 @@ exports[`Storyshots Design System/Technical Components/Grid base grid 1`] = `
       <div
         class="c3"
       >
-        5
+        <span
+          class="c4"
+        >
+          5
+        </span>
       </div>
     </div>
     <div
@@ -47625,7 +48481,11 @@ exports[`Storyshots Design System/Technical Components/Grid base grid 1`] = `
       <div
         class="c3"
       >
-        6
+        <span
+          class="c4"
+        >
+          6
+        </span>
       </div>
     </div>
     <div
@@ -47634,7 +48494,11 @@ exports[`Storyshots Design System/Technical Components/Grid base grid 1`] = `
       <div
         class="c3"
       >
-        7
+        <span
+          class="c4"
+        >
+          7
+        </span>
       </div>
     </div>
     <div
@@ -47643,7 +48507,11 @@ exports[`Storyshots Design System/Technical Components/Grid base grid 1`] = `
       <div
         class="c3"
       >
-        8
+        <span
+          class="c4"
+        >
+          8
+        </span>
       </div>
     </div>
     <div
@@ -47652,7 +48520,11 @@ exports[`Storyshots Design System/Technical Components/Grid base grid 1`] = `
       <div
         class="c3"
       >
-        9
+        <span
+          class="c4"
+        >
+          9
+        </span>
       </div>
     </div>
     <div
@@ -47661,7 +48533,11 @@ exports[`Storyshots Design System/Technical Components/Grid base grid 1`] = `
       <div
         class="c3"
       >
-        10
+        <span
+          class="c4"
+        >
+          10
+        </span>
       </div>
     </div>
     <div
@@ -47670,7 +48546,11 @@ exports[`Storyshots Design System/Technical Components/Grid base grid 1`] = `
       <div
         class="c3"
       >
-        11
+        <span
+          class="c4"
+        >
+          11
+        </span>
       </div>
     </div>
     <div
@@ -47679,7 +48559,11 @@ exports[`Storyshots Design System/Technical Components/Grid base grid 1`] = `
       <div
         class="c3"
       >
-        12
+        <span
+          class="c4"
+        >
+          12
+        </span>
       </div>
     </div>
   </div>
@@ -47708,9 +48592,15 @@ exports[`Storyshots Design System/Technical Components/Grid complex grid 1`] = `
   padding: 4px;
 }
 
-.c8 {
+.c9 {
   background: #f6f6f9;
   padding: 20px;
+}
+
+.c5 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
 }
 
 .c2 {
@@ -47724,17 +48614,17 @@ exports[`Storyshots Design System/Technical Components/Grid complex grid 1`] = `
   max-width: 100%;
 }
 
-.c5 {
+.c6 {
   grid-column: span 3;
   max-width: 100%;
 }
 
-.c6 {
+.c7 {
   grid-column: span 8;
   max-width: 100%;
 }
 
-.c7 {
+.c8 {
   grid-column: span 2;
   max-width: 100%;
 }
@@ -47764,24 +48654,12 @@ exports[`Storyshots Design System/Technical Components/Grid complex grid 1`] = `
 }
 
 @media (max-width:68.75rem) {
-  .c5 {
+  .c6 {
     grid-column: span 6;
   }
 }
 
 @media (max-width:34.375rem) {
-  .c5 {
-    grid-column: span 12;
-  }
-}
-
-@media (max-width:68.75rem) {
-  .c6 {
-    grid-column: span;
-  }
-}
-
-@media (max-width:34.375rem) {
   .c6 {
     grid-column: span 12;
   }
@@ -47795,6 +48673,18 @@ exports[`Storyshots Design System/Technical Components/Grid complex grid 1`] = `
 
 @media (max-width:34.375rem) {
   .c7 {
+    grid-column: span 12;
+  }
+}
+
+@media (max-width:68.75rem) {
+  .c8 {
+    grid-column: span;
+  }
+}
+
+@media (max-width:34.375rem) {
+  .c8 {
     grid-column: span 12;
   }
 }
@@ -47816,7 +48706,11 @@ exports[`Storyshots Design System/Technical Components/Grid complex grid 1`] = `
       <div
         class="c4"
       >
-        Some box 1
+        <span
+          class="c5"
+        >
+          Some box 1
+        </span>
       </div>
     </div>
     <div
@@ -47825,43 +48719,11 @@ exports[`Storyshots Design System/Technical Components/Grid complex grid 1`] = `
       <div
         class="c4"
       >
-        Some box 2
-      </div>
-    </div>
-    <div
-      class="c5"
-    >
-      <div
-        class="c4"
-      >
-        Some box 3
-      </div>
-    </div>
-    <div
-      class="c5"
-    >
-      <div
-        class="c4"
-      >
-        Some box 4
-      </div>
-    </div>
-    <div
-      class="c5"
-    >
-      <div
-        class="c4"
-      >
-        Some box 5
-      </div>
-    </div>
-    <div
-      class="c5"
-    >
-      <div
-        class="c4"
-      >
-        Some box 6
+        <span
+          class="c5"
+        >
+          Some box 2
+        </span>
       </div>
     </div>
     <div
@@ -47870,7 +48732,50 @@ exports[`Storyshots Design System/Technical Components/Grid complex grid 1`] = `
       <div
         class="c4"
       >
-        Some box 7
+        <span
+          class="c5"
+        >
+          Some box 3
+        </span>
+      </div>
+    </div>
+    <div
+      class="c6"
+    >
+      <div
+        class="c4"
+      >
+        <span
+          class="c5"
+        >
+          Some box 4
+        </span>
+      </div>
+    </div>
+    <div
+      class="c6"
+    >
+      <div
+        class="c4"
+      >
+        <span
+          class="c5"
+        >
+          Some box 5
+        </span>
+      </div>
+    </div>
+    <div
+      class="c6"
+    >
+      <div
+        class="c4"
+      >
+        <span
+          class="c5"
+        >
+          Some box 6
+        </span>
       </div>
     </div>
     <div
@@ -47879,16 +48784,37 @@ exports[`Storyshots Design System/Technical Components/Grid complex grid 1`] = `
       <div
         class="c4"
       >
-        Some box 8
+        <span
+          class="c5"
+        >
+          Some box 7
+        </span>
       </div>
     </div>
     <div
-      class="c7"
+      class="c8"
     >
       <div
-        class="c8"
+        class="c4"
       >
-        Some box 9
+        <span
+          class="c5"
+        >
+          Some box 8
+        </span>
+      </div>
+    </div>
+    <div
+      class="c8"
+    >
+      <div
+        class="c9"
+      >
+        <span
+          class="c5"
+        >
+          Some box 9
+        </span>
       </div>
     </div>
   </div>
@@ -47940,10 +48866,12 @@ exports[`Storyshots Design System/Technical Components/RawTable base 1`] = `
 
 .c2 {
   background: #dcdce4;
+  color: #32324d;
   padding: 8px;
 }
 
 .c3 {
+  color: #32324d;
   padding: 8px;
 }
 
@@ -50082,7 +51010,86 @@ exports[`Storyshots Design System/Technical Components/RawTable simple 1`] = `
 
 .c2 {
   background: #dcdce4;
+  color: #32324d;
   padding: 8px;
+}
+
+.c3 {
+  color: #32324d;
+}
+
+.c7 {
+  padding-left: 8px;
+}
+
+.c6 {
+  color: #4945ff;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c4 {
+  cursor: pointer;
+}
+
+.c5 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
+  outline: none;
+}
+
+.c5 svg path {
+  fill: #4945ff;
+}
+
+.c5 svg {
+  font-size: 0.625rem;
+}
+
+.c5:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
+}
+
+.c5:focus-visible {
+  outline: none;
+}
+
+.c5:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
+}
+
+.c8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 <main>
@@ -50169,35 +51176,35 @@ exports[`Storyshots Design System/Technical Components/RawTable simple 1`] = `
         >
           <td
             aria-colindex="1"
-            class=""
+            class="c3"
             tabindex="-1"
           >
             2/1
           </td>
           <td
             aria-colindex="2"
-            class=""
+            class="c3"
             tabindex="-1"
           >
             2/2
           </td>
           <td
             aria-colindex="3"
-            class=""
+            class="c3"
             tabindex="-1"
           >
             2/3
           </td>
           <td
             aria-colindex="4"
-            class=""
+            class="c3"
             tabindex="-1"
           >
             2/4
           </td>
           <td
             aria-colindex="5"
-            class=""
+            class="c3"
             tabindex="-1"
           >
             2/5
@@ -50209,7 +51216,7 @@ exports[`Storyshots Design System/Technical Components/RawTable simple 1`] = `
         >
           <td
             aria-colindex="1"
-            class=""
+            class="c3"
             tabindex="-1"
           >
             3/1
@@ -50219,29 +51226,52 @@ exports[`Storyshots Design System/Technical Components/RawTable simple 1`] = `
             class=""
           >
             <a
+              class="c4 c5"
               href="#"
               tabindex="-1"
+              target="_self"
             >
-              Link to somewhere
+              <span
+                class="c6"
+              >
+                Link to somewhere
+              </span>
+              <span
+                aria-hidden="true"
+                class="c7 c8"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16.235 2.824a1.412 1.412 0 010-2.824h6.353C23.368 0 24 .633 24 1.412v6.353a1.412 1.412 0 01-2.823 0V4.82l-8.179 8.178a1.412 1.412 0 01-1.996-1.996l8.178-8.178h-2.945zm4.942 10.588a1.412 1.412 0 012.823 0v9.176c0 .78-.632 1.412-1.412 1.412H1.412C.632 24 0 23.368 0 22.588V1.412C0 .632.632 0 1.412 0h9.176a1.412 1.412 0 010 2.824H2.824v18.353h18.353v-7.765z"
+                    fill="#32324D"
+                  />
+                </svg>
+              </span>
             </a>
           </td>
           <td
             aria-colindex="3"
-            class=""
+            class="c3"
             tabindex="-1"
           >
             3/3
           </td>
           <td
             aria-colindex="4"
-            class=""
+            class="c3"
             tabindex="-1"
           >
             3/4
           </td>
           <td
             aria-colindex="5"
-            class=""
+            class="c3"
             tabindex="-1"
           >
             3/5
@@ -50273,6 +51303,7 @@ exports[`Storyshots Design System/Technical Components/Stack base 1`] = `
 
 .c3 {
   background: #f0f0ff;
+  color: #32324d;
   padding: 16px;
 }
 
@@ -50345,6 +51376,7 @@ exports[`Storyshots Design System/Technical Components/Stack horizontal 1`] = `
 
 .c4 {
   background: #f0f0ff;
+  color: #32324d;
   padding: 16px;
 }
 
@@ -50412,6 +51444,21 @@ exports[`Storyshots Design System/Technical Components/Typography variants 1`] =
   padding: 0;
   position: absolute;
   width: 1px;
+}
+
+.c2 {
+  background: #eaeaef;
+}
+
+.c4 {
+  padding-top: 8px;
+  padding-left: 16px;
+}
+
+.c14 {
+  padding-top: 8px;
+  padding-left: 16px;
+  width: 200px;
 }
 
 .c1 {
@@ -50490,21 +51537,6 @@ exports[`Storyshots Design System/Technical Components/Typography variants 1`] =
   text-overflow: ellipsis;
   font-size: 0.875rem;
   line-height: 1.43;
-}
-
-.c2 {
-  background: #eaeaef;
-}
-
-.c4 {
-  padding-top: 8px;
-  padding-left: 16px;
-}
-
-.c14 {
-  padding-top: 8px;
-  padding-left: 16px;
-  width: 200px;
 }
 
 .c3 {
