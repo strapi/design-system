@@ -26,7 +26,7 @@ export const CarouselInput = ({
 
   return (
     <Field hint={hint} error={error} id={generatedId}>
-      <Stack size={1}>
+      <Stack spacing={1}>
         {label && (
           <FieldLabel required={required} action={labelAction}>
             {label}

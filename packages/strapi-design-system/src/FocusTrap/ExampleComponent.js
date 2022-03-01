@@ -15,7 +15,7 @@ const TrappedComponent = ({ onClose }) => {
   return (
     <FocusTrap onEscape={onClose}>
       <Box background="neutral0" padding={4} hasRadius style={{ width: '600px' }}>
-        <Stack size={2}>
+        <Stack spacing={2}>
           <Flex justifyContent="space-between">
             <Typography variant="beta" as="h2">
               Hey folks!
@@ -52,7 +52,7 @@ export const ExampleComponent = () => {
 
   return (
     <Box background="neutral150" padding={10}>
-      <Stack size={2}>
+      <Stack spacing={2}>
         {visible && <TrappedComponent onClose={() => setVisible(false)} />}
         <Box background="neutral0" padding={4} hasRadius style={{ width: '600px' }}>
           <Typography variant="beta" as="h2">

@@ -45,7 +45,7 @@ Description...
           <Grid>
             {colors.map((colorGroup, idx) => (
               <GridItem key={`color-group-${idx}`} padding={4}>
-                <Stack size={2}>
+                <Stack spacing={2}>
                   {colorGroup.map((color) => (
                     <Box
                       key={color}
@@ -101,7 +101,7 @@ Description...
       const spaces = Object.keys(theme.spaces);
       return (
         <Box padding={8} background="neutral100">
-          <Stack size={1}>
+          <Stack spacing={1}>
             {spaces.map((space) => (
               <Flex key={`space-${space}`}>
                 <Box paddingLeft={2}>

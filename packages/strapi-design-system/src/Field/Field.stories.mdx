@@ -38,7 +38,7 @@ The simplest representation of the Field components, no description, no error, n
 <Canvas>
   <Story name="base">
     <Field name="email">
-      <Stack size={1}>
+      <Stack spacing={1}>
         <FieldLabel>Email</FieldLabel>
         <FieldInput type="text" placeholder="Placeholder" value={''} onChange={() => {}} />
       </Stack>
@@ -53,7 +53,7 @@ A Field with a description allows to add a small hint of advanced information.
 <Canvas>
   <Story name="with description">
     <Field name="email" hint="Description line">
-      <Stack size={1}>
+      <Stack spacing={1}>
         <FieldLabel required>Email</FieldLabel>
         <FieldInput type="text" placeholder="Placeholder" value={''} onChange={() => {}} />
         <FieldHint />
@@ -69,7 +69,7 @@ An example of the Field components with an error.
 <Canvas>
   <Story name="with error">
     <Field name="password" error={'Password is too short'}>
-      <Stack size={1}>
+      <Stack spacing={1}>
         <FieldLabel>Password</FieldLabel>
         <FieldInput type="password" placeholder="Placeholder" value={''} onChange={() => {}} />
         <FieldHint />
@@ -86,7 +86,7 @@ An example of the Field components with a label action.
 <Canvas>
   <Story name="with label-action">
     <Field name="password">
-      <Stack size={1}>
+      <Stack spacing={1}>
         <FieldLabel required action={<Earth />}>Password</FieldLabel>
         <FieldInput type="password" placeholder="Placeholder" value={''} onChange={() => {}} />
         <FieldHint />
@@ -103,7 +103,7 @@ Depending on the permissions a user have or the status of an action, a Field can
 <Canvas>
   <Story name="disabled">
     <Field name="password" hint="Description line">
-      <Stack size={1}>
+      <Stack spacing={1}>
         <FieldLabel>Password</FieldLabel>
         <FieldInput placeholder="Placeholder" value={'Hello world'} disabled={true} onChange={() => {}} />
         <FieldHint />
@@ -128,7 +128,7 @@ This is the most complex input that can be built with the Field components.
       return (
         <Box padding={8}>
           <Field name="password" hint="Description line" error={email.length > 5 ? 'Email is too short' : undefined}>
-            <Stack size={1}>
+            <Stack spacing={1}>
               <Flex>
                 <FieldLabel>Password</FieldLabel>
                 <Box paddingLeft={2}>
@@ -181,7 +181,7 @@ This is the most complex input that can be built with the Field components.
       return (
         <Box padding={8}>
           <Field name="password" hint="Description line" error={email.length > 5 ? 'Email is too short' : undefined}>
-            <Stack size={1}>
+            <Stack spacing={1}>
               <Flex>
                 <FieldLabel>Password</FieldLabel>
                 <Box paddingLeft={2}>

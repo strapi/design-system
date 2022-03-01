@@ -94,7 +94,7 @@ You can set the value to `default`, `secondary`, `tertiary`, `success`, `danger`
       },
     }}
   >
-    <Stack size={2} horizontal>
+    <Stack spacing={2} horizontal>
       {['default', 'secondary', 'tertiary', 'success', 'danger', 'success-light', 'danger-light', 'ghost'].map(
         (variant) => (
           <Button onClick={(e) => console.log(e)} variant={variant} key={variant}>
@@ -138,7 +138,7 @@ You can add start and end icons to the Button component using the `startIcon` an
       },
     }}
   >
-    <Stack size={2} horizontal>
+    <Stack spacing={2} horizontal>
       <Button startIcon={<Information />}>Information</Button>
       <Button variant="secondary" endIcon={<Write />}>
         Write content

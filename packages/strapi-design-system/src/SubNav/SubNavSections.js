@@ -6,7 +6,7 @@ import { Box } from '../Box';
 export const SubNavSections = ({ children, ...props }) => {
   return (
     <Box paddingTop={2} paddingBottom={4}>
-      <Stack as="ul" size={2} {...props}>
+      <Stack as="ul" spacing={2} {...props}>
         {Children.map(children, (child, index) => {
           return <li key={index}>{child}</li>;
         })}
