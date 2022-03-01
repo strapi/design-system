@@ -22,6 +22,7 @@ export const DatePicker = ({
   disabled,
   minDate,
   maxDate,
+  placeholder,
   id,
   ...props
 }) => {
@@ -30,7 +31,6 @@ export const DatePicker = ({
   const inputRef = useRef(null);
   const datePickerButtonRef = useRef(null);
   const formattedDate = selectedDate ? formatDate(selectedDate) : '';
-  const placeholder = formatDate(new Date());
 
   const toggleVisibility = () => {
     if (disabled) return;
@@ -57,7 +57,7 @@ export const DatePicker = ({
         // Prevent input from changing for now
         onChange={() => {}}
         value={formattedDate}
-        placeholder={placeholder}
+        placeholder={placeholder || formatDate(new Date(1970, 0, 1))}
         size={size}
         startAction={
           <DatePickerButton
@@ -108,6 +108,7 @@ DatePicker.defaultProps = {
   label: undefined,
   initialDate: new Date(),
   onClear: undefined,
+  placeholder: undefined,
   selectedDate: undefined,
   size: 'M',
 };
@@ -123,6 +124,7 @@ DatePicker.propTypes = {
   minDate: PropTypes.instanceOf(Date),
   onChange: PropTypes.func.isRequired,
   onClear: PropTypes.func,
+  placeholder: PropTypes.string,
   selectedDate: PropTypes.instanceOf(Date),
   selectedDateLabel: PropTypes.func.isRequired,
   size: PropTypes.oneOf(Object.keys(sizes.input)),
