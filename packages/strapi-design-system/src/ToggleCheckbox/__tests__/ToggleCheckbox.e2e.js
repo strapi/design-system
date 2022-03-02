@@ -12,17 +12,9 @@ test.describe.parallel('ToggleCheckbox', () => {
       });
     });
 
-    test.describe('activated', () => {
+    test.describe('null value', () => {
       test('triggers axe on the document', async ({ page }) => {
-        await page.goto('/iframe.html?id=design-system-components-togglecheckbox--activated&viewMode=story');
-        await injectAxe(page);
-        await checkA11y(page);
-      });
-    });
-
-    test.describe('not activated', () => {
-      test('triggers axe on the document', async ({ page }) => {
-        await page.goto('/iframe.html?id=design-system-components-togglecheckbox--not-activated&viewMode=story');
+        await page.goto('/iframe.html?id=design-system-components-togglecheckbox--null-value&viewMode=story');
         await injectAxe(page);
         await checkA11y(page);
       });
@@ -46,18 +38,10 @@ test.describe.parallel('ToggleCheckbox', () => {
       });
     });
 
-    test.describe('activated', () => {
-      test('triggers axe on the document', async ({ page }) => {
-        await page.goto('/iframe.html?id=design-system-components-togglecheckbox--activated&viewMode=story&theme=dark');
-        await injectAxe(page);
-        await checkA11y(page);
-      });
-    });
-
-    test.describe('not activated', () => {
+    test.describe('null value', () => {
       test('triggers axe on the document', async ({ page }) => {
         await page.goto(
-          '/iframe.html?id=design-system-components-togglecheckbox--not-activated&viewMode=story&theme=dark',
+          '/iframe.html?id=design-system-components-togglecheckbox--null-value&viewMode=story&theme=dark',
         );
         await injectAxe(page);
         await checkA11y(page);
