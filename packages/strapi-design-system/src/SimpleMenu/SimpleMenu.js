@@ -199,7 +199,6 @@ export const SimpleMenu = ({
         ref={menuButtonRef}
         type="button"
         variant="ghost"
-        size={size}
         endIcon={
           <IconWrapper>
             <CarretDown aria-hidden />
