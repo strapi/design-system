@@ -1,4 +1,4 @@
-import { lightTheme } from './light-theme';
+import { lightTheme } from './lightTheme';
 
 const generateError = (customMessage) => `
 ${customMessage}

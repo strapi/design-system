@@ -17,7 +17,7 @@ const FooterWrapper = styled(Box)`
 export const DialogFooter = ({ startAction, endAction }) => {
   return (
     <FooterWrapper padding={4}>
-      <Stack horizontal size={2}>
+      <Stack horizontal spacing={2}>
         {startAction}
         {endAction}
       </Stack>

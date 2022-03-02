@@ -129,10 +129,25 @@ export const getVariantStyle = ({ theme, variant }) => {
         }
       `;
     }
+    case 'success':
+    case 'danger': {
+      return `
+          border: 1px solid ${theme.colors[`${getVariantColorName(variant)}600`]};
+          background: ${theme.colors[`${getVariantColorName(variant)}600`]};
+          ${Typography} {
+            color: ${theme.colors.neutral0};
+          }
+        `;
+    }
     default: {
       return `
           border: 1px solid ${theme.colors[`${getVariantColorName(variant)}600`]};
           background: ${theme.colors[`${getVariantColorName(variant)}600`]};
+          svg {
+            > g, path {
+              fill: ${theme.colors.buttonNeutral0};
+            }
+          }
         `;
     }
   }

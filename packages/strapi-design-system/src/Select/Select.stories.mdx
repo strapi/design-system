@@ -8,6 +8,7 @@ import Plus from '@strapi/icons/Plus';
 import { Select } from './Select';
 import { Option } from './Option';
 import { Stack } from '../Stack';
+import { Typography } from '../Typography';
 import { MultiSelectNested } from './MultiSelectNested.js';
 
 <Meta title="Design System/Components/Select" component={Select} />
@@ -54,8 +55,8 @@ The default Select.
       const [error, toggleError] = useState();
       const [disabled, toggleDisabled] = useState();
       return (
-        <Stack size={11}>
-          <h2>Current value is {value}</h2>
+        <Stack spacing={11}>
+          <Typography variant="beta">Current value is {value}</Typography>
           <Select
             id="select1"
             label="Choose your meal"
@@ -80,8 +81,12 @@ The default Select.
             <Option value={'hamburger'}>Hamburger</Option>
             <Option value={'bagel'}>Bagel</Option>
           </Select>
-          <button onClick={() => toggleError((s) => (s ? undefined : 'An error occured'))}>Show the error state</button>
-          <button onClick={() => toggleDisabled((s) => !s)}>Show the disabled state</button>
+          <button onClick={() => toggleError((s) => (s ? undefined : 'An error occured'))}>
+            <Typography>Show the error state</Typography>
+          </button>
+          <button onClick={() => toggleDisabled((s) => !s)}>
+            <Typography>Show the disabled state</Typography>
+          </button>
         </Stack>
       );
     }}
@@ -99,8 +104,8 @@ The default Select.
       const [error, toggleError] = useState();
       const [disabled, toggleDisabled] = useState();
       return (
-        <Stack size={11}>
-          <h2>Current value is {value}</h2>
+        <Stack spacing={11}>
+          <Typography variant="beta">Current value is {value}</Typography>
           <Select
             id="select1"
             aria-label="Choose your meal"
@@ -123,8 +128,12 @@ The default Select.
             <Option value={'hamburger'}>Hamburger</Option>
             <Option value={'bagel'}>Bagel</Option>
           </Select>
-          <button onClick={() => toggleError((s) => (s ? undefined : 'An error occured'))}>Show the error state</button>
-          <button onClick={() => toggleDisabled((s) => !s)}>Show the disabled state</button>
+          <button onClick={() => toggleError((s) => (s ? undefined : 'An error occured'))}>
+            <Typography>Show the error state</Typography>
+          </button>
+          <button onClick={() => toggleDisabled((s) => !s)}>
+            <Typography>Show the disabled state</Typography>
+          </button>
         </Stack>
       );
     }}
@@ -144,8 +153,8 @@ In a multi select component, the "0 currently selected" text, can be changed but
       const [error, toggleError] = useState();
       const [disabled, toggleDisabled] = useState();
       return (
-        <Stack size={11}>
-          <h2>Current value is {values.join(', ')}</h2>
+        <Stack spacing={11}>
+          <Typography as="h2" variant="beta">Current value is {values.join(', ')}</Typography>
           <Select
             id="select1"
             label="Choose your meal"
@@ -164,8 +173,12 @@ In a multi select component, the "0 currently selected" text, can be changed but
             <Option value={'hamburger'}>Hamburger</Option>
             <Option value={'bagel'}>Bagel</Option>
           </Select>
-          <button onClick={() => toggleError((s) => (s ? undefined : 'An error occured'))}>Show the error state</button>
-          <button onClick={() => toggleDisabled((s) => !s)}>Show the disabled state</button>
+          <button onClick={() => toggleError((s) => (s ? undefined : 'An error occured'))}>
+            <Typography>Show the error state</Typography>
+          </button>
+          <button onClick={() => toggleDisabled((s) => !s)}>
+            <Typography>Show the disabled state</Typography>
+          </button>
         </Stack>
       );
     }}
@@ -183,8 +196,8 @@ A multi Select allow users to visually select multiple options from a list. Pref
       const [error, toggleError] = useState();
       const [disabled, toggleDisabled] = useState();
       return (
-        <Stack size={11}>
-          <h2>Current value is {values.join(', ')}</h2>
+        <Stack spacing={11}>
+          <Typography variant="beta">Current value is {values.join(', ')}</Typography>
           <Select
             id="select1"
             label="Choose your meal"
@@ -211,8 +224,12 @@ A multi Select allow users to visually select multiple options from a list. Pref
                 </Option>
               ))}
           </Select>
-          <button onClick={() => toggleError((s) => (s ? undefined : 'An error occured'))}>Show the error state</button>
-          <button onClick={() => toggleDisabled((s) => !s)}>Show the disabled state</button>
+          <button onClick={() => toggleError((s) => (s ? undefined : 'An error occured'))}>
+            <Typography>Show the error state</Typography>
+          </button>
+          <button onClick={() => toggleDisabled((s) => !s)}>
+            <Typography>Show the disabled state</Typography>
+          </button>
         </Stack>
       );
     }}
@@ -228,7 +245,7 @@ Select should be scaled down if they aimed to be placed in a smaller portions of
     {() => {
       const [values, setValues] = useState([]);
       return (
-        <Stack size={11}>
+        <Stack spacing={11}>
           <Select
             id="select1"
             label="Choose your meal"
@@ -302,8 +319,8 @@ In a multi select component, the "0 currently selected" text, can be changed but
       ];
       const [values, setValues] = useState([]);
       return (
-        <Stack size={11}>
-          <h2>Current value is {values.join(', ')}</h2>
+        <Stack spacing={11}>
+          <Typography variant="beta">Current value is {values.join(', ')}</Typography>
           <MultiSelectNested
             id="select1"
             label="Choose your meal"
@@ -318,8 +335,12 @@ In a multi select component, the "0 currently selected" text, can be changed but
             value={values}
             options={options}
           />
-          <button onClick={() => toggleError((s) => (s ? undefined : 'An error occured'))}>Show the error state</button>
-          <button onClick={() => toggleDisabled((s) => !s)}>Show the disabled state</button>
+          <button onClick={() => toggleError((s) => (s ? undefined : 'An error occured'))}>
+            <Typography>Show the error state</Typography>
+          </button>
+          <button onClick={() => toggleDisabled((s) => !s)}>
+            <Typography>Show the disabled state</Typography>
+          </button>
         </Stack>
       );
     }}

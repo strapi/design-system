@@ -190,7 +190,7 @@ export const SimpleMenu = ({
   return (
     <div onKeyDown={handleWrapperKeyDown}>
       <Component
-        label={label}
+        label={React.isValidElement(label) ? null : label}
         aria-haspopup
         aria-expanded={visible}
         aria-controls={menuId}

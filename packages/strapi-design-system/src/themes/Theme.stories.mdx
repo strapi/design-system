@@ -13,24 +13,27 @@ import { Stack } from '../Stack';
 import { Searchbar, SearchForm } from '../Searchbar';
 import { Icon } from '../Icon';
 import { Tooltip } from '../Tooltip';
+import { darkColorTokenObject } from './darkTheme/dark-colors';
+import { lightColorTokenObject } from './lightTheme/light-colors.js';
 
-<Meta title="Design System/Components/LightTheme" component={Box} />
+<Meta title="Design System/Components/Theme" component={Box} />
 
-# LightTheme
+# Theme
 
 This is the doc of the `Theme` component
 
-## Colors
+## Light colors
 
-Description...
+This is the light colors used for the light mode
 
 <Canvas>
-  <Story name="colors">
+  <Story name="light colors">
     {() => {
-      const theme = useTheme();
+      const { color } = lightColorTokenObject;
       /* Excluding warning since they don't have enough contrast on for neutral900 and neutral0 */
-      const colorsKey = Object.keys(theme.colors).filter((color) => !color.includes('warning'));
+      const colorsKey = Object.keys(color).filter((color) => !color.includes('warning') && !color.includes('button'));
       const colors = [];
+      const conditions = ['600', '700', '800', '900', '1000'];
       let ruptureKey;
       for (const colorKey of colorsKey) {
         const prefix = colorKey.substr(0, 2);
@@ -38,23 +41,70 @@ Description...
           colors.push([]);
           ruptureKey = prefix;
         }
-        colors[colors.length - 1].push(colorKey);
+        colors[colors.length - 1].push({ colorKey, colorValue: color[colorKey]});
       }
       return (
         <Box>
           <Grid>
             {colors.map((colorGroup, idx) => (
               <GridItem key={`color-group-${idx}`} padding={4}>
-                <Stack size={2}>
-                  {colorGroup.map((color) => (
-                    <Box
-                      key={color}
-                      padding={3}
-                      background={color}
-                      color={['600', '700', '800', '900'].some((v) => color.includes(v)) ? 'neutral0' : 'neutral900'}
+                <Stack spacing={2}>
+                  {colorGroup.map(({ colorKey, colorValue }) => (
+                    <div 
+                      key={colorKey}
+                      style={{ padding: '12px', background: colorValue }}
                     >
-                      {color}
-                    </Box>
+                      <p style={{ color: conditions.some((v) => colorKey.includes(v)) ? 'white' : 'black' }}>
+                        {colorKey}
+                      </p>
+                    </div>
+                  ))}
+                </Stack>
+              </GridItem>
+            ))}
+          </Grid>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Dark colors
+
+This is the dark colors used for the light mode
+
+<Canvas>
+  <Story name="dark colors">
+    {() => {
+      const { color } = darkColorTokenObject;
+      /* Excluding warning since they don't have enough contrast on for neutral900 and neutral0 */
+      const colorsKey = Object.keys(color).filter((color) => !color.includes('warning') && !color.includes('button'));
+      const colors = [];
+      const conditions = ['600', '700', '800', '900', '1000'];
+      let ruptureKey;
+      for (const colorKey of colorsKey) {
+        const prefix = colorKey.substr(0, 2);
+        if (ruptureKey !== prefix) {
+          colors.push([]);
+          ruptureKey = prefix;
+        }
+        colors[colors.length - 1].push({ colorKey, colorValue: color[colorKey]});
+      }
+      return (
+        <Box>
+          <Grid>
+            {colors.map((colorGroup, idx) => (
+              <GridItem key={`color-group-${idx}`} padding={4}>
+                <Stack spacing={2}>
+                  {colorGroup.map(({ colorKey, colorValue }) => (
+                    <div 
+                      key={colorKey}
+                      style={{ padding: '12px', background: colorValue }}
+                    >
+                      <p style={{ color: conditions.some((v) => colorKey.includes(v)) ? 'black' : 'white' }}>
+                        {colorKey}
+                      </p>
+                    </div>
                   ))}
                 </Stack>
               </GridItem>
@@ -101,7 +151,7 @@ Description...
       const spaces = Object.keys(theme.spaces);
       return (
         <Box padding={8} background="neutral100">
-          <Stack size={1}>
+          <Stack spacing={1}>
             {spaces.map((space) => (
               <Flex key={`space-${space}`}>
                 <Box paddingLeft={2}>

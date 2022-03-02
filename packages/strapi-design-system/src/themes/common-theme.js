@@ -1,9 +1,7 @@
-import { colorTokenObject } from './colors';
 import { shadowTokenObject } from './shadows';
 import { sizes } from './sizes';
 
-export const lightTheme = {
-  colors: colorTokenObject.color,
+export const commonTheme = {
   shadows: shadowTokenObject.shadow,
   sizes,
   zIndices: [5, 10, 15, 20], // TBD

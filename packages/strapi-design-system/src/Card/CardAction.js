@@ -4,7 +4,7 @@ import { Stack } from '../Stack';
 
 export const CardAction = styled(Stack).attrs({
   horizontal: true,
-  size: 2,
+  spacing: 2,
 })`
   position: absolute;
   top: ${({ theme }) => theme.spaces[3]};

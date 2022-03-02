@@ -30,7 +30,7 @@ export const Textarea = React.forwardRef(
     return (
       <TextareaWrapper>
         <Field name={name} hint={hint} error={error} id={generatedId}>
-          <Stack size={1}>
+          <Stack spacing={1}>
             {label && (
               <Flex>
                 <FieldLabel required={required} action={labelAction}>

@@ -35,7 +35,7 @@ export const Checkbox = ({ children, disabled, id, hint, error, ...props }) => {
 
   return (
     <Field id={generatedId} hint={hint} error={error}>
-      <Stack size={1}>
+      <Stack spacing={1}>
         <CheckboxLabel as="label" textColor="neutral800" disabled={disabled}>
           <CheckboxTick disabled={disabled} aria-describedby={ariaDescription} {...props} />
           <Box paddingLeft={2}>{children}</Box>
