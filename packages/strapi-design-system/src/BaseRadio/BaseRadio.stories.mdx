@@ -1,9 +1,11 @@
 <!--- Radio.stories.mdx --->
 
 import { useState } from 'react';
-import { Meta, Story, Canvas, Source, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, Source, ArgsTable } from '@storybook/addon-docs';
 import { BaseRadio } from './BaseRadio';
 import { RadioGroup } from './RadioGroup';
+import { Typography } from '../Typography';
+import { useTheme } from '../ThemeProvider';
 
 <Meta title="Design System/Technical Components/BaseRadio" component={BaseRadio} />
 
@@ -22,10 +24,11 @@ The `BaseRadio` component is the basis of the `Radio` component.
 <Canvas>
   <Story name="base">
     {() => {
+      const { colors: { neutral800 } } = useTheme();
       const [selected, setSelected] = useState();
       return (
         <div>
-          <h2 id="trophy-champions">Make a choice</h2>
+          <Typography variant="beta" textColor="neutral800" id="trophy-champions">Make a choice</Typography>
           <RadioGroup
             labelledBy="trophy-champions"
             onChange={(e) => setSelected(e.target.value)}
@@ -33,11 +36,11 @@ The `BaseRadio` component is the basis of the `Radio` component.
             name="prefered-meal"
           >
             <div>
-              <label htmlFor="pizza">Pizza</label>
+              <label style={{ color: neutral800 }} htmlFor="pizza">Pizza</label>
               <BaseRadio value="pizza" id="pizza" />
             </div>
             <div>
-              <label htmlFor="bagel">Bagel</label>
+              <label style={{ color: neutral800 }} htmlFor="bagel">Bagel</label>
               <BaseRadio value="bagel" id="bagel" />
             </div>
           </RadioGroup>
@@ -54,10 +57,11 @@ The BaseButton can be disabled.
 <Canvas>
   <Story name="disabled">
     {() => {
+      const { colors: { neutral800 } } = useTheme();
       const [selected, setSelected] = useState();
       return (
         <div>
-          <h2 id="trophy-champions">Trophy champion</h2>
+          <Typography variant="beta" id="trophy-champions">Trophy champion</Typography>
           <RadioGroup
             labelledBy="trophy-champions"
             onChange={(e) => setSelected(e.target.value)}
@@ -65,15 +69,15 @@ The BaseButton can be disabled.
             name="prefered-meal"
           >
             <div>
-              <label htmlFor="first">Mario</label>
+              <label style={{ color: neutral800 }} htmlFor="first">Mario</label>
               <BaseRadio value="first" id="first" />
             </div>
             <div>
-              <label htmlFor="second">Luigi</label>
+              <label style={{ color: neutral800 }} htmlFor="second">Luigi</label>
               <BaseRadio value="second" id="second" disabled={true} />
             </div>
             <div>
-              <label htmlFor="third">Wario</label>
+              <label style={{ color: neutral800 }} htmlFor="third">Wario</label>
               <BaseRadio value="third" id="third" />
             </div>
           </RadioGroup>

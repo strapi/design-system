@@ -109,12 +109,33 @@ Alert.defaultProps = {
 };
 
 Alert.propTypes = {
+  /**
+   * Render a React element below the body of an `Alert` (Mainly used to render a Link).
+   */
   action: PropTypes.element,
+  /**
+   * The body of the `Alert` (Will be rendered under the `Alert` title).
+   */
   children: PropTypes.string.isRequired,
+  /**
+   * Accessible label for the close icon button.
+   */
   closeLabel: PropTypes.string.isRequired,
+  /**
+   * The callback invoked when click on the close icon button.
+   */
   onClose: PropTypes.func.isRequired,
+  /**
+   * The title of the `Alert`.
+   */
   title: PropTypes.string.isRequired,
+  /**
+   * Changes the element, as which a component will render (similar to styled-components).
+   */
   titleAs: PropTypes.string,
+  /**
+   * `Alert` color variant.
+   */
   variant: PropTypes.oneOf(['danger', 'success', 'default']),
 };
 

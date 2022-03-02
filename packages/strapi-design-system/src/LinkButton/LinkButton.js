@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Typography } from '../Typography';
@@ -7,6 +6,7 @@ import { Box } from '../Box';
 import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from '../Button/utils';
 import { VARIANTS, BUTTON_SIZES } from '../Button/constants';
 import { BaseButtonWrapper } from '../BaseButton';
+import { BaseLink } from '../BaseLink';
 
 const LinkWrapper = styled(BaseButtonWrapper)`
   padding: ${({ theme, size }) => `${size === 'S' ? theme.spaces[2] : '10px'} ${theme.spaces[4]}`};
@@ -18,7 +18,7 @@ const LinkWrapper = styled(BaseButtonWrapper)`
     align-items: center;
   }
   ${Typography} {
-    color: ${({ theme }) => theme.colors.neutral0};
+    color: ${({ theme }) => theme.colors.buttonNeutral0};
   }
   &[aria-disabled='true'] {
     ${getDisabledStyle}
@@ -43,23 +43,9 @@ const LinkWrapper = styled(BaseButtonWrapper)`
 `;
 
 export const LinkButton = React.forwardRef(
-  ({ variant, startIcon, endIcon, disabled, children, size, href, to, ...props }, ref) => {
-    const target = href ? '_blank' : undefined;
-    const rel = href ? 'noreferrer noopener' : undefined;
-
+  ({ variant, startIcon, endIcon, disabled, children, size, as, ...props }, ref) => {
     return (
-      <LinkWrapper
-        ref={ref}
-        aria-disabled={disabled}
-        size={size}
-        variant={variant}
-        target={target}
-        rel={rel}
-        to={disabled ? undefined : to}
-        href={disabled ? '#' : href}
-        {...props}
-        as={to && !disabled ? NavLink : 'a'}
-      >
+      <LinkWrapper ref={ref} aria-disabled={disabled} size={size} variant={variant} {...props} as={as || BaseLink}>
         {startIcon && (
           <Box aria-hidden={true} paddingRight={2}>
             {startIcon}
@@ -87,6 +73,7 @@ export const LinkButton = React.forwardRef(
 LinkButton.displayName = 'LinkButton';
 
 LinkButton.defaultProps = {
+  as: BaseLink,
   disabled: false,
   startIcon: undefined,
   endIcon: undefined,
@@ -97,6 +84,7 @@ LinkButton.defaultProps = {
   to: undefined,
 };
 LinkButton.propTypes = {
+  as: PropTypes.elementType,
   children: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
   endIcon: PropTypes.element,

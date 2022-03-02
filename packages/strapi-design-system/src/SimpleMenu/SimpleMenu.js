@@ -2,11 +2,11 @@ import React, { useRef, useState, Children, cloneElement, useEffect } from 'reac
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import CarretDown from '@strapi/icons/CarretDown';
-import { NavLink } from 'react-router-dom';
 import { Typography } from '../Typography';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { Button } from '../Button';
+import { BaseLink } from '../BaseLink';
 import { Popover } from '../Popover';
 import { getOptionStyle } from './utils';
 import { useId } from '../helpers/useId';
@@ -20,7 +20,7 @@ const OptionButton = styled.button`
   ${getOptionStyle}
 `;
 
-const OptionLink = styled(NavLink)`
+const OptionLink = styled(BaseLink)`
   text-decoration: none;
   ${getOptionStyle}
 `;
@@ -34,7 +34,11 @@ const IconWrapper = styled.span`
   }
 `;
 
-export const MenuItem = ({ children, onClick, to, isFocused, ...props }) => {
+const StyledButtonSmall = styled(Button)`
+  padding: ${({ theme }) => `${theme.spaces[1]} ${theme.spaces[3]}`};
+`;
+
+export const MenuItem = ({ as, children, onClick, isFocused, isLink, ...props }) => {
   const menuItemRef = useRef();
 
   useEffect(() => {
@@ -56,45 +60,53 @@ export const MenuItem = ({ children, onClick, to, isFocused, ...props }) => {
     }
   };
 
-  return (
-    <Flex as="li" justifyContent="center" role="menuitem">
-      {to ? (
-        <OptionLink to={to} {...menuItemProps}>
-          <Box padding={2}>
-            <Typography>{children}</Typography>
-          </Box>
-        </OptionLink>
-      ) : (
-        <OptionButton onKeyDown={handleKeyDown} onMouseDown={onClick} type="button" {...menuItemProps}>
-          <Box padding={2}>
-            <Typography>{children}</Typography>
-          </Box>
-        </OptionButton>
-      )}
-    </Flex>
+  return isLink ? (
+    <OptionLink as={as} {...menuItemProps}>
+      <Box padding={2}>
+        <Typography>{children}</Typography>
+      </Box>
+    </OptionLink>
+  ) : (
+    <OptionButton onKeyDown={handleKeyDown} onMouseDown={onClick} type="button" {...menuItemProps}>
+      <Box padding={2}>
+        <Typography>{children}</Typography>
+      </Box>
+    </OptionButton>
   );
 };
 
 MenuItem.defaultProps = {
   onClick: () => {},
-  to: undefined,
   isFocused: false,
+  isLink: false,
 };
 
 MenuItem.propTypes = {
+  as: PropTypes.elementType,
   children: PropTypes.node.isRequired,
   isFocused: PropTypes.bool,
+  isLink: PropTypes.bool,
   onClick: PropTypes.func,
-  to: PropTypes.string,
 };
 
-export const SimpleMenu = ({ label, children, id, as: asComp, ...props }) => {
+export const SimpleMenu = ({
+  label,
+  children,
+  id,
+  as: asComp,
+  onOpen = () => {},
+  onClose = () => {},
+  size,
+  ...props
+}) => {
   const menuButtonRef = useRef();
   const menuId = useId('simplemenu', id);
+  const didMount = useRef(false);
   const [visible, setVisible] = useState(false);
   const [focusedItemIndex, setFocusItem] = useState(0);
   const childrenArray = Children.toArray(children);
-  const Component = asComp || Button;
+  const DefaultComponent = size === 'S' ? StyledButtonSmall : Button;
+  const Component = asComp || DefaultComponent;
 
   useEffect(() => {
     if (['string', 'number'].includes(typeof label)) {
@@ -106,6 +118,18 @@ export const SimpleMenu = ({ label, children, id, as: asComp, ...props }) => {
       }
     }
   }, [label]);
+
+  useEffect(() => {
+    if (didMount?.current) {
+      if (visible && typeof onOpen === 'function') {
+        onOpen();
+      } else if (typeof onClose === 'function') {
+        onClose();
+      }
+    } else {
+      didMount.current = true;
+    }
+  }, [didMount, visible]);
 
   /* in case `label` is a custom react component, we know it is going to be
       a child of the menu button.
@@ -150,21 +174,23 @@ export const SimpleMenu = ({ label, children, id, as: asComp, ...props }) => {
     setVisible((prevVisible) => !prevVisible);
   };
 
-  const childrenClone = childrenArray.map((child, index) =>
-    cloneElement(child, {
-      onClick: () => {
-        child.props.onClick();
-        setVisible(false);
-        menuButtonRef.current.focus();
-      },
-      isFocused: focusedItemIndex === index,
-    }),
-  );
+  const childrenClone = childrenArray.map((child, index) => (
+    <Flex as="li" key={index} justifyContent="center" role="menuitem">
+      {cloneElement(child, {
+        onClick: () => {
+          child.props.onClick();
+          setVisible(false);
+          menuButtonRef.current.focus();
+        },
+        isFocused: focusedItemIndex === index,
+      })}
+    </Flex>
+  ));
 
   return (
     <div onKeyDown={handleWrapperKeyDown}>
       <Component
-        label={label}
+        label={React.isValidElement(label) ? null : label}
         aria-haspopup
         aria-expanded={visible}
         aria-controls={menuId}
@@ -201,9 +227,23 @@ SimpleMenu.displayName = 'SimpleMenu';
 
 const menuItemType = PropTypes.shape({ type: PropTypes.oneOf([MenuItem]) });
 
+SimpleMenu.defaultProps = {
+  size: 'M',
+};
+
 SimpleMenu.propTypes = {
   as: PropTypes.any,
   children: PropTypes.oneOfType([PropTypes.arrayOf(menuItemType), menuItemType]).isRequired,
   id: PropTypes.string,
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.element]).isRequired,
+  onClose: PropTypes.func,
+  onOpen: PropTypes.func,
+
+  /**
+   * Size of the trigger button.
+   * Note: in case a custom component is passed through the "as"
+   * prop, the size prop is passed along too, but needs to be handled there
+   */
+
+  size: PropTypes.oneOf(['S', 'M']),
 };

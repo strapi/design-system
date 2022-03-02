@@ -1,8 +1,9 @@
 <!--- Field.stories.mdx --->
 
 import { useState } from 'react';
-import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { ArgsTable } from '@storybook/addon-docs';
+import Earth from '@strapi/icons/Earth';
 import Password from '@strapi/icons/Password';
 import Information from '@strapi/icons/Information';
 import { FieldLabel } from './FieldLabel';
@@ -15,6 +16,8 @@ import { Box } from '../Box';
 import { Stack } from '../Stack';
 import { Tooltip } from '../Tooltip';
 import { FieldAction } from './FieldAction';
+import { Link } from '../Link';
+import { Icon } from '../Icon';
 
 <Meta title="Design System/Components/Field" component={Field} />
 
@@ -37,7 +40,7 @@ The simplest representation of the Field components, no description, no error, n
 <Canvas>
   <Story name="base">
     <Field name="email">
-      <Stack size={1}>
+      <Stack spacing={1}>
         <FieldLabel>Email</FieldLabel>
         <FieldInput type="text" placeholder="Placeholder" value={''} onChange={() => {}} />
       </Stack>
@@ -52,7 +55,7 @@ A Field with a description allows to add a small hint of advanced information.
 <Canvas>
   <Story name="with description">
     <Field name="email" hint="Description line">
-      <Stack size={1}>
+      <Stack spacing={1}>
         <FieldLabel required>Email</FieldLabel>
         <FieldInput type="text" placeholder="Placeholder" value={''} onChange={() => {}} />
         <FieldHint />
@@ -68,8 +71,25 @@ An example of the Field components with an error.
 <Canvas>
   <Story name="with error">
     <Field name="password" error={'Password is too short'}>
-      <Stack size={1}>
+      <Stack spacing={1}>
         <FieldLabel>Password</FieldLabel>
+        <FieldInput type="password" placeholder="Placeholder" value={''} onChange={() => {}} />
+        <FieldHint />
+        <FieldError />
+      </Stack>
+    </Field>
+  </Story>
+</Canvas>
+
+## With label action
+
+An example of the Field components with a label action.
+
+<Canvas>
+  <Story name="with label-action">
+    <Field name="password">
+      <Stack spacing={1}>
+        <FieldLabel required action={<Earth />}>Password</FieldLabel>
         <FieldInput type="password" placeholder="Placeholder" value={''} onChange={() => {}} />
         <FieldHint />
         <FieldError />
@@ -85,7 +105,7 @@ Depending on the permissions a user have or the status of an action, a Field can
 <Canvas>
   <Story name="disabled">
     <Field name="password" hint="Description line">
-      <Stack size={1}>
+      <Stack spacing={1}>
         <FieldLabel>Password</FieldLabel>
         <FieldInput placeholder="Placeholder" value={'Hello world'} disabled={true} onChange={() => {}} />
         <FieldHint />
@@ -110,7 +130,7 @@ This is the most complex input that can be built with the Field components.
       return (
         <Box padding={8}>
           <Field name="password" hint="Description line" error={email.length > 5 ? 'Email is too short' : undefined}>
-            <Stack size={1}>
+            <Stack spacing={1}>
               <Flex>
                 <FieldLabel>Password</FieldLabel>
                 <Box paddingLeft={2}>
@@ -119,13 +139,13 @@ This is the most complex input that can be built with the Field components.
                       aria-label="Information about the email"
                       style={{ border: 'none', padding: 0, background: 'transparent' }}
                     >
-                      <Information aria-hidden={true} />
+                      <Icon as={Information} color="neutral800" aria-hidden={true} />
                     </button>
                   </Tooltip>
                 </Box>
-                <a href="#" style={{ marginLeft: 'auto' }}>
-                  Details
-                </a>
+                <Flex width="100%" justifyContent="flex-end">
+                  <Link isExternal href="#">Details</Link>
+                </Flex>
               </Flex>
               <FieldInput
                 placeholder="example@domain.com"
@@ -163,7 +183,7 @@ This is the most complex input that can be built with the Field components.
       return (
         <Box padding={8}>
           <Field name="password" hint="Description line" error={email.length > 5 ? 'Email is too short' : undefined}>
-            <Stack size={1}>
+            <Stack spacing={1}>
               <Flex>
                 <FieldLabel>Password</FieldLabel>
                 <Box paddingLeft={2}>
@@ -172,13 +192,13 @@ This is the most complex input that can be built with the Field components.
                       aria-label="Information about the email"
                       style={{ border: 'none', padding: 0, background: 'transparent' }}
                     >
-                      <Information aria-hidden={true} />
+                      <Icon as={Information} color="neutral800" aria-hidden={true} />
                     </button>
                   </Tooltip>
                 </Box>
-                <a href="#" style={{ marginLeft: 'auto' }}>
-                  Details
-                </a>
+                <Flex width="100%" justifyContent="flex-end">
+                  <Link isExternal href="#">Details</Link>
+                </Flex>
               </Flex>
               <FieldInput
                 placeholder="example@domain.com"

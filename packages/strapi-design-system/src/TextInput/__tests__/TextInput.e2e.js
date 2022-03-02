@@ -1,41 +1,73 @@
-import { injectAxe, checkA11y } from 'axe-playwright';
+const { injectAxe, checkA11y } = require('axe-playwright');
 
-describe('TextInput', () => {
-  describe('base', () => {
-    it('triggers axe on the document', async () => {
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-components-textinput--base&viewMode=story');
-      await injectAxe(page);
-      await checkA11y(page);
+const { test } = require('@playwright/test');
+
+test.describe.parallel('TextInput', () => {
+  test.describe('light mode', () => {
+    test.describe('base', () => {
+      test('triggers axe on the document', async ({ page }) => {
+        await page.goto('/iframe.html?id=design-system-components-textinput--base&viewMode=story');
+        await injectAxe(page);
+        await checkA11y(page);
+      });
+    });
+
+    test.describe('password', () => {
+      test('triggers axe on the document', async ({ page }) => {
+        await page.goto('/iframe.html?id=design-system-components-textinput--password&viewMode=story');
+        await injectAxe(page);
+        await checkA11y(page);
+      });
+    });
+
+    test.describe('disabled', () => {
+      test('triggers axe on the document', async ({ page }) => {
+        await page.goto('/iframe.html?id=design-system-components-textinput--disabled&viewMode=story');
+        await injectAxe(page);
+        await checkA11y(page);
+      });
+    });
+
+    test.describe('with error', () => {
+      test('triggers axe on the document', async ({ page }) => {
+        await page.goto('/iframe.html?id=design-system-components-textinput--with-error&viewMode=story');
+        await injectAxe(page);
+        await checkA11y(page);
+      });
     });
   });
 
-  describe('password', () => {
-    it('triggers axe on the document', async () => {
-      await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-components-textinput--password&viewMode=story',
-      );
-      await injectAxe(page);
-      await checkA11y(page);
+  test.describe('dark mode', () => {
+    test.describe('base', () => {
+      test('triggers axe on the document', async ({ page }) => {
+        await page.goto('/iframe.html?id=design-system-components-textinput--base&viewMode=story&theme=dark');
+        await injectAxe(page);
+        await checkA11y(page);
+      });
     });
-  });
 
-  describe('disabled', () => {
-    it('triggers axe on the document', async () => {
-      await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-components-textinput--disabled&viewMode=story',
-      );
-      await injectAxe(page);
-      await checkA11y(page);
+    test.describe('password', () => {
+      test('triggers axe on the document', async ({ page }) => {
+        await page.goto('/iframe.html?id=design-system-components-textinput--password&viewMode=story&theme=dark');
+        await injectAxe(page);
+        await checkA11y(page);
+      });
     });
-  });
 
-  describe('with error', () => {
-    it('triggers axe on the document', async () => {
-      await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-components-textinput--with-error&viewMode=story',
-      );
-      await injectAxe(page);
-      await checkA11y(page);
+    test.describe('disabled', () => {
+      test('triggers axe on the document', async ({ page }) => {
+        await page.goto('/iframe.html?id=design-system-components-textinput--disabled&viewMode=story&theme=dark');
+        await injectAxe(page);
+        await checkA11y(page);
+      });
+    });
+
+    test.describe('with error', () => {
+      test('triggers axe on the document', async ({ page }) => {
+        await page.goto('/iframe.html?id=design-system-components-textinput--with-error&viewMode=story&theme=dark');
+        await injectAxe(page);
+        await checkA11y(page);
+      });
     });
   });
 });

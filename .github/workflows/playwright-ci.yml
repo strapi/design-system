@@ -1,7 +1,7 @@
 name: Playwright tests
 on:
   pull_request:
-    branches: ["main"]
+    branches: "*"
   workflow_dispatch:
 
 jobs:
@@ -31,6 +31,9 @@ jobs:
 
       - name: Install yarn dependencies
         run: yarn global add http-server && yarn
+
+      - name: Install Playwright
+        run: npx playwright install --with-deps
 
       - name: Link locale packages and install their dependencies
         run: yarn bootstrap

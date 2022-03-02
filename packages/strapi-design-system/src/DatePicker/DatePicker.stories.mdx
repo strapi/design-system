@@ -1,7 +1,7 @@
 <!--- DatePicker.stories.mdx --->
 
 import { useState } from 'react';
-import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { ArgsTable } from '@storybook/addon-docs';
 import { DatePicker } from './DatePicker';
 
@@ -104,6 +104,32 @@ TODO
             <button>Button outside picker</button>
           </div>
         </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Min and Max Dates
+
+By passing in `minDate` or `maxDate` it is possible to define the range of years, the datepicker displays.
+
+<Canvas>
+  <Story name="min/ max date">
+    {() => {
+      const [date, setDate] = useState();
+      return (
+        <DatePicker
+          onChange={setDate}
+          selectedDate={date}
+          label="Date picker"
+          name="datepicker"
+          clearLabel={'Clear the datepicker'}
+          onClear={() => setDate(undefined)}
+          placeholder="03/01/1970"
+          selectedDateLabel={(formattedDate) => `Date picker, current is ${formattedDate}`}
+          minDate={new Date(2000, 1, 1)}
+          maxDate={new Date(2040, 1, 1)}
+        />
       );
     }}
   </Story>

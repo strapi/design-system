@@ -1,6 +1,6 @@
 <!--- Status.stories.mdx --->
 
-import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { ArgsTable } from '@storybook/addon-docs';
 import { Status } from './Status';
 import { Typography } from '../Typography';
@@ -34,7 +34,7 @@ Use a Status sparingly within forms to give an important visual indication. Stat
 
 <Canvas>
   <Story name="base">
-    <Stack size={3}>
+    <Stack spacing={3}>
       <Status variant="success">
         <Typography>
           Hello world <Typography fontWeight="bold">thing happens</Typography>

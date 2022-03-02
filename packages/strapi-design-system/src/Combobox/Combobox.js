@@ -33,6 +33,7 @@ export const Combobox = ({
   loading,
   loadingMessage,
   onCreateOption,
+  onInputChange,
   onLoadMore,
   noOptionsMessage,
   hasMoreItems,
@@ -89,7 +90,11 @@ export const Combobox = ({
     setInputValue('');
   };
 
-  const onInput = () => {
+  const onInput = (event) => {
+    if (onInputChange) {
+      onInputChange(event);
+    }
+
     const curValue = inputRef.current.value;
     setFilteredNodes(filterOptions(nodes, curValue));
     setActiveIndex(0);
@@ -238,7 +243,7 @@ export const Combobox = ({
       <VisuallyHidden aria-live="polite" aria-atomic="false" aria-relevant="additions text">
         {value}
       </VisuallyHidden>
-      <Stack size={label || hint || error ? 1 : 0}>
+      <Stack spacing={label || hint || error ? 1 : 0}>
         {label && <FieldLabel id={labelId}>{label}</FieldLabel>}
         <MainRow ref={containerRef} $disabled={disabled} hasError={error}>
           <InputContainer wrap="wrap">
@@ -368,6 +373,7 @@ Combobox.defaultProps = CreatableCombobox.defaultProps = {
   noOptionsMessage: () => 'No results found',
   onClear: undefined,
   onCreateOption: undefined,
+  onInputChange: undefined,
   onLoadMore: undefined,
   placeholder: 'Select or enter a value',
   value: undefined,
@@ -390,6 +396,7 @@ Combobox.propTypes = {
   onChange: PropTypes.func.isRequired,
   onClear: PropTypes.func,
   onCreateOption: PropTypes.func,
+  onInputChange: PropTypes.func,
   onLoadMore: PropTypes.func,
   placeholder: PropTypes.string,
   value: PropTypes.string,

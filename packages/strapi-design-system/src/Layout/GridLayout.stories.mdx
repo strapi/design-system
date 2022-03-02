@@ -1,8 +1,9 @@
 <!--- GridLayout.stories.mdx --->
 
-import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { GridLayout } from './GridLayout';
 import { Box } from '../Box';
+import { Typography } from '../Typography';
 
 <Meta title="Design System/Components/GridLayout" component={GridLayout} />
 
@@ -26,7 +27,7 @@ import { GridLayout } from '@strapi/design-system/Layout';
           .fill(null)
           .map((_, idx) => (
             <Box padding={4} hasRadius background="neutral0" key={`box-${idx}`} shadow="tableShadow">
-              hello world
+              <Typography>hello world</Typography>
             </Box>
           ))}
       </GridLayout>

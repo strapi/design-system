@@ -1,130 +1,127 @@
-import { injectAxe, checkA11y } from 'axe-playwright';
+const { injectAxe, checkA11y } = require('axe-playwright');
 
-describe('FocusTrap', () => {
-  beforeEach(async () => {
-    // This is the URL of the Storybook Iframe
-    await page.goto(
-      'http://localhost:6006/iframe.html?id=design-system-technical-components-focustrap--base&viewMode=story',
-    );
-    await injectAxe(page);
-  });
+const { test, expect } = require('@playwright/test');
 
-  beforeEach(async () => {
-    await page.focus('#trigger');
-    await page.keyboard.press('Space');
-  });
+test.describe.parallel('FocusTrap', () => {
+  test.describe('light mode', () => {
+    test.beforeEach(async ({ page }) => {
+      // This is the URL of the Storybook Iframe
+      await page.goto('/iframe.html?id=design-system-technical-components-focustrap--base&viewMode=story');
+      await injectAxe(page);
+    });
 
-  it('triggers axe on the document', async () => {
-    await checkA11y(page);
-  });
+    test.beforeEach(async ({ page }) => {
+      await page.focus('#trigger');
+      await page.keyboard.press('Space');
+    });
 
-  it('focuses the first focusable element when opening the focus trap', async () => {
-    await expect(page).toHaveFocus('[aria-label="Close"]');
-  });
+    test('triggers axe on the document', async ({ page }) => {
+      await checkA11y(page);
+    });
 
-  it('restores focus when pressing Escape', async () => {
-    await page.waitForSelector('[aria-label="Close"]');
-    await page.keyboard.press('Escape');
+    test('focuses the first focusable element when opening the focus trap', async ({ page }) => {
+      await expect(page.locator('[aria-label="Close"]')).toBeFocused();
+    });
 
-    await expect(page).toHaveFocus('#trigger');
-  });
+    test('restores focus when pressing Escape', async ({ page }) => {
+      await page.waitForSelector('[aria-label="Close"]');
+      await page.keyboard.press('Escape');
 
-  describe('Pressing Tab in the trap', () => {
-    it.jestPlaywrightSkip(
-      { browsers: ['webkit'] },
-      'traps the focus when pressing Tab for Firefox and Chrome',
-      async () => {
+      await expect(page.locator('#trigger')).toBeFocused();
+    });
+
+    test.describe('Pressing Tab in the trap', () => {
+      test('traps the focus when pressing Tab for Firefox and Chrome', async ({ page, browserName }) => {
+        test.skip(browserName === 'webkit', 'Still working on it');
         await page.keyboard.press('Tab');
-        await expect(page).toHaveFocus('#second');
-
-        await page.keyboard.press('Tab');
-        await expect(page).toHaveFocus('#last');
+        await expect(page.locator('#second')).toBeFocused();
 
         await page.keyboard.press('Tab');
-        await expect(page).toHaveFocus('[aria-label="Close"]');
-      },
-    );
+        await expect(page.locator('#last')).toBeFocused();
 
-    it.jestPlaywrightSkip(
-      { browsers: ['firefox', 'chromium'] },
-      'traps the focus when pressing Tab for Webkit',
-      async () => {
+        await page.keyboard.press('Tab');
+        await expect(page.locator('[aria-label="Close"]')).toBeFocused();
+      });
+
+      test('traps the focus when pressing Tab for Webkit', async ({ page, browserName }) => {
+        test.skip(['firefox', 'chromium'].includes(browserName), 'Still working on it');
         await page.waitForSelector('[aria-label="Close"]');
         await page.keyboard.press('Alt+Tab');
-        await expect(page).toHaveFocus('#second');
+        await expect(page.locator('#second')).toBeFocused();
 
         await page.keyboard.press('Alt+Tab');
-        await expect(page).toHaveFocus('#last');
+        await expect(page.locator('#last')).toBeFocused();
 
         await page.keyboard.press('Alt+Tab');
-        await expect(page).toHaveFocus('[aria-label="Close"]');
-      },
-    );
+        await expect(page.locator('[aria-label="Close"]')).toBeFocused();
+      });
 
-    it.jestPlaywrightSkip(
-      { browsers: ['webkit'] },
-      'traps the focus when dynamically adding an element in the focus tree and pressing Tab for Firefox and Chrome',
-      async () => {
+      test('traps the focus when dynamically adding an element in the focus tree and pressing Tab for Firefox and Chrome', async ({
+        page,
+        browserName,
+      }) => {
+        test.skip(browserName === 'webkit', 'Still working on it');
         await page.keyboard.press('Tab');
-        await expect(page).toHaveFocus('#second');
+        await expect(page.locator('#second')).toBeFocused();
 
         await page.keyboard.press('Tab');
-        await expect(page).toHaveFocus('#last');
+        await expect(page.locator('#last')).toBeFocused();
         await page.click('#last');
 
         await page.keyboard.press('Tab');
-        await expect(page).toHaveFocus('#real-last');
-      },
-    );
+        await expect(page.locator('#real-last')).toBeFocused();
+      });
 
-    it.jestPlaywrightSkip(
-      { browsers: ['firefox', 'chromium'] },
-      'traps the focus when pressing Tab for Webkit',
-      async () => {
+      test('traps the focus when pressing Tab with click for Webkit', async ({ page, browserName }) => {
+        test.skip(['firefox', 'chromium'].includes(browserName), 'Still working on it');
         await page.waitForSelector('[aria-label="Close"]');
         await page.keyboard.press('Alt+Tab');
-        await expect(page).toHaveFocus('#second');
+        await expect(page.locator('#second')).toBeFocused();
 
         await page.keyboard.press('Alt+Tab');
-        await expect(page).toHaveFocus('#last');
+        await expect(page.locator('#last')).toBeFocused();
         await page.click('#last');
 
         await page.keyboard.press('Alt+Tab');
-        await expect(page).toHaveFocus('#real-last');
-      },
-    );
-  });
+        await expect(page.locator('#real-last')).toBeFocused();
+      });
+    });
 
-  describe('Pressing Shift+Tab in the trap', () => {
-    it.jestPlaywrightSkip(
-      { browsers: ['webkit'] },
-      'traps the focus when pressing Tab for Firefox and Chrome',
-      async () => {
+    test.describe('Pressing Shift+Tab in the trap', () => {
+      test('traps the focus when pressing Tab for Firefox and Chrome', async ({ page, browserName }) => {
+        test.skip(browserName === 'webkit', 'Still working on it');
         await page.keyboard.press('Shift+Tab');
-        await expect(page).toHaveFocus('#last');
+        await expect(page.locator('#last')).toBeFocused();
 
         await page.keyboard.press('Shift+Tab');
-        await expect(page).toHaveFocus('#second');
+        await expect(page.locator('#second')).toBeFocused();
 
         await page.keyboard.press('Shift+Tab');
-        await expect(page).toHaveFocus('[aria-label="Close"]');
-      },
-    );
+        await expect(page.locator('[aria-label="Close"]')).toBeFocused();
+      });
 
-    it.jestPlaywrightSkip(
-      { browsers: ['firefox', 'chromium'] },
-      'traps the focus when pressing Tab for Webkit',
-      async () => {
+      test('traps the focus when pressing Tab for Webkit', async ({ page, browserName }) => {
+        test.skip(['firefox', 'chromium'].includes(browserName), 'Still working on it');
         await page.waitForSelector('[aria-label="Close"]');
         await page.keyboard.press('Alt+Shift+Tab');
-        await expect(page).toHaveFocus('#last');
+        await expect(page.locator('#last')).toBeFocused();
 
         await page.keyboard.press('Alt+Shift+Tab');
-        await expect(page).toHaveFocus('#second');
+        await expect(page.locator('#second')).toBeFocused();
 
         await page.keyboard.press('Alt+Shift+Tab');
-        await expect(page).toHaveFocus('[aria-label="Close"]');
-      },
-    );
+        await expect(page.locator('[aria-label="Close"]')).toBeFocused();
+      });
+    });
   });
+
+  // TO FIX DARK MODE - colors contrast issues (caused by button component)
+  // test.describe('dark mode', () => {
+  //   test('triggers axe on the document', async ({ page }) => {
+  //     // This is the URL of the Storybook Iframe
+  //     await page.goto('/iframe.html?id=design-system-technical-components-focustrap--base&viewMode=story&theme=dark');
+  //     await injectAxe(page);
+  //     await checkA11y(page);
+  //   });
+  // });
 });

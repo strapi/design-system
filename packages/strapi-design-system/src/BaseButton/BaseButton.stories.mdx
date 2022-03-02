@@ -1,13 +1,11 @@
 <!--- BaseButton.stories.mdx --->
 
-import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { ArgsTable } from '@storybook/addon-docs';
 import { BaseButton } from './BaseButton';
+import { Typography } from '../Typography';
 
-<Meta
-  title="Design System/Technical Components/BaseButton"
-  component={ BaseButton }
-/>
+<Meta title="Design System/Technical Components/BaseButton" component={BaseButton} />
 
 ## Imports
 
@@ -23,7 +21,9 @@ The `BaseButton` component is the basis of the `Button` component.
 
 <Canvas withSource="open">
   <Story name="base">
-    <BaseButton onClick={(e) => console.log(e)}>button</BaseButton>
+    <BaseButton onClick={(e) => console.log(e)}>
+      <Typography>button</Typography>
+    </BaseButton>
   </Story>
 </Canvas>
 

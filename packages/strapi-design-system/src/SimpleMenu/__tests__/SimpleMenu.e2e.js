@@ -1,69 +1,98 @@
-import { injectAxe, checkA11y, getViolations } from 'axe-playwright';
+const { injectAxe, checkA11y, getViolations } = require('axe-playwright');
 
-describe('SimpleMenu', () => {
-  describe('base', () => {
-    beforeEach(async () => {
-      // This is the URL of the Storybook Iframe
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-components-simplemenu--base&viewMode=story');
-      await injectAxe(page);
+const { test, expect } = require('@playwright/test');
+
+test.describe.parallel('SimpleMenu', () => {
+  test.describe('light mode', () => {
+    test.describe('base', () => {
+      test.beforeEach(async ({ page }) => {
+        // This is the URL of the Storybook Iframe
+        await page.goto('/iframe.html?id=design-system-components-simplemenu--base&viewMode=story');
+        await injectAxe(page);
+      });
+
+      test('triggers axe on the document', async ({ page }) => {
+        await checkA11y(page);
+      });
+
+      test('triggers axe on the document when the menu is opened', async ({ page }) => {
+        await page.click('#root button');
+
+        await expect(page.locator('[role="menu"]')).toBeVisible();
+
+        const violations = await getViolations(page);
+
+        // Axe throws an error because the portal is not wrapped by a region.
+        const realViolations = violations
+          .filter((violation) => violation.id !== 'region')
+          .filter((violation) => violation.id !== 'aria-required-parent');
+
+        expect(realViolations.length).toBe(0);
+      });
+
+      test('select the second value of the menu key=Enter', async ({ page }) => {
+        await page.focus('#root button');
+        await page.keyboard.press('Enter');
+        await page.keyboard.press('ArrowDown');
+        await page.keyboard.press('Enter');
+
+        const label = await page.textContent('#root button');
+        expect(label).toBe('February');
+      });
+
+      test('select the second value of the menu key=Space', async ({ page }) => {
+        await page.focus('#root button');
+        await page.keyboard.press('Space');
+        await page.keyboard.press('ArrowDown');
+        await page.keyboard.press('Space');
+
+        const label = await page.textContent('#root button');
+        expect(label).toBe('February');
+      });
     });
 
-    it('triggers axe on the document', async () => {
-      await checkA11y(page);
-    });
+    test.describe('with links', () => {
+      test.beforeEach(async ({ page }) => {
+        // This is the URL of the Storybook Iframe
+        await page.goto('/iframe.html?id=design-system-components-simplemenu--with-links&viewMode=story');
+        await injectAxe(page);
+      });
 
-    it('triggers axe on the document when the menu is opened', async () => {
-      await page.click('#root button');
+      test('triggers axe on the document', async ({ page }) => {
+        await checkA11y(page);
+      });
 
-      await expect(page).toHaveSelector('[role="menu"]');
+      test('triggers axe on the document when the menu is opened', async ({ page }) => {
+        await page.click('#root button');
 
-      const violations = await getViolations(page);
+        await expect(page.locator('[role="menu"]')).toBeVisible();
 
-      // Axe throws an error because the portal is not wrapped by a region.
-      const realViolations = violations
-        .filter((violation) => violation.id !== 'region')
-        .filter((violation) => violation.id !== 'aria-required-parent');
+        const violations = await getViolations(page);
 
-      expect(realViolations.length).toBe(0);
-    });
+        // Axe throws an error because the portal is not wrapped by a region.
+        const realViolations = violations
+          .filter((violation) => violation.id !== 'region')
+          .filter((violation) => violation.id !== 'aria-required-parent');
 
-    it.each(['Enter', 'Space'])('select the second value of the menu', async (keyPressed) => {
-      await page.focus('#root button');
-      await page.keyboard.press(keyPressed);
-      await page.keyboard.press('ArrowDown');
-      await page.keyboard.press(keyPressed);
-
-      const label = await page.textContent('#root button');
-      expect(label).toBe('February');
+        expect(realViolations.length).toBe(0);
+      });
     });
   });
 
-  describe('with links', () => {
-    beforeEach(async () => {
-      // This is the URL of the Storybook Iframe
-      await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-components-simplemenu--with-links&viewMode=story',
-      );
+  test.describe('sizes', () => {
+    test('triggers axe on the document', async ({ page }) => {
+      await page.goto('http://localhost:6006/iframe.html?id=design-system-components-simplemenu--sizes&viewMode=story');
       await injectAxe(page);
-    });
-
-    it('triggers axe on the document', async () => {
       await checkA11y(page);
     });
+  });
 
-    it('triggers axe on the document when the menu is opened', async () => {
-      await page.click('#root button');
-
-      await expect(page).toHaveSelector('[role="menu"]');
-
-      const violations = await getViolations(page);
-
-      // Axe throws an error because the portal is not wrapped by a region.
-      const realViolations = violations
-        .filter((violation) => violation.id !== 'region')
-        .filter((violation) => violation.id !== 'aria-required-parent');
-
-      expect(realViolations.length).toBe(0);
+  test.describe('with links', () => {
+    test.beforeEach(async ({ page }) => {
+      // This is the URL of the Storybook Iframe
+      await page.goto('/iframe.html?id=design-system-components-simplemenu--base&viewMode=story&theme=dark');
+      await injectAxe(page);
+      await checkA11y(page);
     });
   });
 });

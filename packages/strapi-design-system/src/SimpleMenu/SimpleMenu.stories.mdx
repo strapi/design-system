@@ -2,10 +2,11 @@
 
 import { useState } from 'react';
 import { ArgsTable } from '@storybook/addon-docs';
-import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import CarretDown from '@strapi/icons/CarretDown';
 import { SimpleMenu, MenuItem } from './SimpleMenu';
 import { IconButton } from '../IconButton';
+import { Stack } from '../Stack';
 
 <Meta title="Design System/Components/SimpleMenu" component={SimpleMenu} />
 
@@ -114,6 +115,29 @@ A menu can allow the user to make actions. It can redirect the user to another p
   </Story>
 </Canvas>
 
+### Sizes
+
+Use the size prop to change the size of the button. You can set the value to `S` or `M` (by default `M` is being used).
+If a custom component is rendered (through the `as` prop), the size is passed through, but needs to be handled in
+that component.
+
+Size `S` can be useful if the component is being used in places, where it needs to align on the left (ex: within tables).
+
+<Canvas>
+  <Story name="sizes">
+    <Stack horizontal size={4}>
+      <SimpleMenu label="Small Menu" size="S" icon={<CarretDown />}>
+        <MenuItem>Home</MenuItem>
+        <MenuItem>Somewhere internal</MenuItem>
+      </SimpleMenu>
+      <SimpleMenu label="Medium Menu" icon={<CarretDown />}>
+        <MenuItem>Home</MenuItem>
+        <MenuItem>Somewhere internal</MenuItem>
+      </SimpleMenu>
+    </Stack>
+  </Story>
+</Canvas>
+
 ### With Custom Label
 
 <Canvas>
@@ -134,9 +158,13 @@ return (
         },
       },
     }}
-    >
+  >
     {() => {
-      const Label = <><span>2</span> special items</>;
+      const Label = (
+        <>
+          <span>2</span> special items
+        </>
+      );
       return (
         <SimpleMenu label={Label}>
           <MenuItem>Home</MenuItem>
@@ -146,6 +174,37 @@ return (
     }}
   </Story>
 </Canvas>
+
+### with other routing libraries
+
+To use the SimpleMenu/MenuItem components with a routing library (e.g. react-router-dom), you'll need to pass the `NavLink` component to the `as` prop in order to replace the default HTML anchor `<a />`.
+You'll also need to pass the `isLink` props to the `MenuItem` component.
+
+```jsx
+import { SimpleMenu, MenuItem } from '@strapi/design-system/SimpleMenu';
+import { NavLink as RouterNavLink } from 'react-router-dom';
+
+<SimpleMenu label={Label}>
+  <MenuItem as={RouterNavLink} to="/">
+    Home
+  </MenuItem>
+</SimpleMenu>;
+```
+
+#### with NextJS
+
+For NextJS, you'll need to wrap the `NavLink` with the `NextLink` component
+
+```jsx
+import { SimpleMenu, MenuItem } from '@strapi/design-system/SimpleMenu';
+import NextLink from 'next/link';
+
+<SimpleMenu label={Label}>
+  <NextLink href="/home" passHref>
+    <MenuItem>Home</MenuItem>
+  </NextLink>
+</SimpleMenu>;
+```
 
 ## Accessibility
 

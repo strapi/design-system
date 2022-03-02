@@ -1,6 +1,6 @@
 <!--- Breadcrumbs.stories.mdx --->
 
-import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { ArgsTable } from '@storybook/addon-docs';
 import { Breadcrumbs, Crumb } from './Breadcrumbs';
 import { Stack } from '../Stack';
@@ -33,7 +33,7 @@ Breadcrumbs are visual information only and cannot be navigated. They are mostly
 
 <Canvas>
   <Story name="base">
-    <Stack horizontal size={3}>
+    <Stack horizontal spacing={3}>
       <CollectionType />
       <Breadcrumbs label="Category model, name field">
         <Crumb>Category</Crumb>

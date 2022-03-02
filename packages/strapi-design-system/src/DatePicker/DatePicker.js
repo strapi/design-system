@@ -20,6 +20,9 @@ export const DatePicker = ({
   onClear,
   clearLabel,
   disabled,
+  minDate,
+  maxDate,
+  placeholder,
   id,
   ...props
 }) => {
@@ -28,7 +31,6 @@ export const DatePicker = ({
   const inputRef = useRef(null);
   const datePickerButtonRef = useRef(null);
   const formattedDate = selectedDate ? formatDate(selectedDate) : '';
-  const placeholder = formatDate(new Date(1970, 0, 1));
 
   const toggleVisibility = () => {
     if (disabled) return;
@@ -55,7 +57,7 @@ export const DatePicker = ({
         // Prevent input from changing for now
         onChange={() => {}}
         value={formattedDate}
-        placeholder={placeholder}
+        placeholder={placeholder || formatDate(new Date(1970, 0, 1))}
         size={size}
         startAction={
           <DatePickerButton
@@ -90,6 +92,8 @@ export const DatePicker = ({
           onChange={handleChange}
           popoverSource={inputRef.current.inputWrapperRef}
           label={label || ariaLabel}
+          minDate={minDate}
+          maxDate={maxDate}
         />
       )}
     </DatePickerWrapper>
@@ -104,6 +108,7 @@ DatePicker.defaultProps = {
   label: undefined,
   initialDate: new Date(),
   onClear: undefined,
+  placeholder: undefined,
   selectedDate: undefined,
   size: 'M',
 };
@@ -115,8 +120,11 @@ DatePicker.propTypes = {
   id: PropTypes.string,
   initialDate: PropTypes.instanceOf(Date),
   label: PropTypes.string,
+  maxDate: PropTypes.instanceOf(Date),
+  minDate: PropTypes.instanceOf(Date),
   onChange: PropTypes.func.isRequired,
   onClear: PropTypes.func,
+  placeholder: PropTypes.string,
   selectedDate: PropTypes.instanceOf(Date),
   selectedDateLabel: PropTypes.func.isRequired,
   size: PropTypes.oneOf(Object.keys(sizes.input)),

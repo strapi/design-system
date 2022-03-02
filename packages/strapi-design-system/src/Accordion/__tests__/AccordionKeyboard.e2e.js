@@ -1,70 +1,73 @@
-import { injectAxe, checkA11y } from 'axe-playwright';
+const { injectAxe, checkA11y } = require('axe-playwright');
+const { test, expect } = require('@playwright/test');
 
-describe('Accordion Keyboard Navigable', () => {
-  beforeEach(async () => {
+test.describe.parallel('Accordion Keyboard Navigable', () => {
+  test.beforeEach(async ({ page }) => {
     // This is the URL of the Storybook Iframe
-    await page.goto(
-      'http://localhost:6006/iframe.html?id=design-system-components-accordion--keyboard-navigable&viewMode=story',
-    );
+    await page.goto('/iframe.html?id=design-system-components-accordion--keyboard-navigable&viewMode=story');
     await injectAxe(page);
   });
 
-  it('triggers axe on the document', async () => {
+  test('triggers axe on the document', async ({ page }) => {
     await checkA11y(page);
   });
 
-  it('triggers axe on the document when the accordion is expanded', async () => {
+  test('triggers axe on the document when the accordion is expanded', async ({ page }) => {
     await page.click('[aria-labelledby="accordion-label-acc-1"]');
 
     await checkA11y(page);
   });
 
-  describe('Keyboard interactions', () => {
-    it('focuses the next node when pressing arrow down until reaching the end of the group where it focuses the first accordion', async () => {
+  test.describe('Keyboard interactions', () => {
+    test('focuses the next node when pressing arrow down until reaching the end of the group where it focuses the first accordion', async ({
+      page,
+    }) => {
       await page.focus('[aria-labelledby="accordion-label-acc-1"]');
 
       await page.keyboard.press('ArrowDown');
-      await expect(page).toHaveFocus('[aria-labelledby="accordion-label-acc-2"]');
+      await expect(page.locator('[aria-labelledby="accordion-label-acc-2"]')).toBeFocused();
 
       await page.keyboard.press('ArrowDown');
-      await expect(page).toHaveFocus('[aria-labelledby="accordion-label-acc-3"]');
+      await expect(page.locator('[aria-labelledby="accordion-label-acc-3"]')).toBeFocused();
 
       await page.keyboard.press('ArrowDown');
-      await expect(page).toHaveFocus('[aria-labelledby="accordion-label-acc-4"]');
+      await expect(page.locator('[aria-labelledby="accordion-label-acc-4"]')).toBeFocused();
 
       await page.keyboard.press('ArrowDown');
-      await expect(page).toHaveFocus('[aria-labelledby="accordion-label-acc-1"]');
+      await expect(page.locator('[aria-labelledby="accordion-label-acc-1"]')).toBeFocused();
     });
 
-    it('focuses the previous node when pressing arrow up and reaches the latest accordion when being on the first one', async () => {
+    test('focuses the previous node when pressing arrow up and reaches the latest accordion when being on the first one', async ({
+      page,
+    }) => {
       await page.focus('[aria-labelledby="accordion-label-acc-1"]');
 
       await page.keyboard.press('ArrowUp');
-      await expect(page).toHaveFocus('[aria-labelledby="accordion-label-acc-4"]');
+      await expect(page.locator('[aria-labelledby="accordion-label-acc-4"]')).toBeFocused();
 
       await page.keyboard.press('ArrowUp');
-      await expect(page).toHaveFocus('[aria-labelledby="accordion-label-acc-3"]');
+      await expect(page.locator('[aria-labelledby="accordion-label-acc-3"]')).toBeFocused();
 
       await page.keyboard.press('ArrowUp');
-      await expect(page).toHaveFocus('[aria-labelledby="accordion-label-acc-2"]');
+      await expect(page.locator('[aria-labelledby="accordion-label-acc-2"]')).toBeFocused();
 
       await page.keyboard.press('ArrowUp');
-      await expect(page).toHaveFocus('[aria-labelledby="accordion-label-acc-1"]');
+      await expect(page.locator('[aria-labelledby="accordion-label-acc-1"]')).toBeFocused();
     });
 
-    it('focuses the last element when pressing end', async () => {
+    test('focuses the last element when pressing end', async ({ page }) => {
       await page.focus('[aria-labelledby="accordion-label-acc-1"]');
 
       await page.keyboard.press('End');
-      await expect(page).toHaveFocus('[aria-labelledby="accordion-label-acc-4"]');
+      await expect(page.locator('[aria-labelledby="accordion-label-acc-4"]')).toBeFocused();
     });
 
-    it('focuses the first element when pressing home', async () => {
+    test('focuses the first element when pressing home', async ({ page }) => {
       await page.focus('[aria-labelledby="accordion-label-acc-1"]');
 
       await page.keyboard.press('ArrowUp');
       await page.keyboard.press('Home');
-      await expect(page).toHaveFocus('[aria-labelledby="accordion-label-acc-1"]');
+      await expect(page.locator('[aria-labelledby="accordion-label-acc-1"]')).toBeFocused();
     });
   });
 });

@@ -20,7 +20,7 @@
   </a>
 </p>
 
-# Welcome! 👋
+# Welcome! 👋👋👋
 
 Strapi Design System provides guidelines and tools to help anyone make Strapi's contributions more cohesive and to build plugins more efficiently.
 
@@ -29,11 +29,11 @@ Strapi Design System provides guidelines and tools to help anyone make Strapi's 
 Install Strapi Design System and its peer dependencies:
 
 ```sh
-$ yarn add @strapi/design-system @strapi/icons styled-components react-router-dom
+$ yarn add @strapi/design-system @strapi/icons styled-components
 
 # or
 
-$ npm i @strapi/design-system @strapi/icons styled-components react-router-dom
+$ npm i @strapi/design-system @strapi/icons styled-components
 ```
 
 ## Usage

@@ -1,0 +1,39 @@
+<!--- BaseButton.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { ArgsTable } from '@storybook/addon-docs';
+import Pencil from '@strapi/icons/Pencil';
+import Play from '@strapi/icons/Play';
+import Trash from '@strapi/icons/Trash';
+import Plus from '@strapi/icons/Plus';
+import { Icon } from './Icon';
+import { Stack } from '../Stack';
+
+<Meta title="Design System/Technical Components/Icon" component={Icon} />
+
+## Imports
+
+```js
+import { Icon } from '@strapi/design-system/Icon';
+```
+
+# Icon
+
+The `Icon` component is used to customize Strapi icons.
+
+## Usage
+
+<Canvas withSource="open">
+  <Story name="base">
+    <Stack size={3} horizontal>
+      <Icon width={`${25/16}rem`} height={`${25/16}rem`} color="secondary500" as={Pencil} />
+      <Icon width={`${15/16}rem`} height={`${15/16}rem`} color="alternative500" as={Play} />
+      <Icon width={`${30/16}rem`} height={`${30/16}rem`} color="danger500" as={Trash} />
+      <Icon as={Plus} />
+    </Stack>
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Icon} />

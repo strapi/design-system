@@ -30,6 +30,9 @@ Badge.defaultProps = {
 };
 
 Badge.propTypes = {
+  /**
+   * If `true`, it changes the `backgroundColor` to `primary100` and the `textColor` to `primary600`
+   */
   active: PropTypes.bool,
   backgroundColor: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,

@@ -1,37 +1,48 @@
-import { injectAxe, checkA11y } from 'axe-playwright';
+const { injectAxe, checkA11y } = require('axe-playwright');
 
-describe('Popover', () => {
-  describe('base', () => {
-    beforeEach(async () => {
-      // This is the URL of the Storybook Iframe
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-components-popover--base&viewMode=story');
-      await injectAxe(page);
+const { test, expect } = require('@playwright/test');
+
+test.describe.parallel('Popover', () => {
+  test.describe('light mode', () => {
+    test.describe('base', () => {
+      test.beforeEach(async ({ page }) => {
+        // This is the URL of the Storybook Iframe
+        await page.goto('/iframe.html?id=design-system-components-popover--base&viewMode=story');
+        await injectAxe(page);
+      });
+
+      test('triggers axe on the document', async ({ page }) => {
+        await checkA11y(page);
+      });
     });
 
-    it('triggers axe on the document', async () => {
-      await checkA11y(page);
+    test.describe('onReachEnd', () => {
+      test.beforeEach(async ({ page }) => {
+        // This is the URL of the Storybook Iframe
+        await page.goto('/iframe.html?id=design-system-components-popover--on-reach-end&viewMode=story');
+      });
+
+      test('adds item when reaching the end', async ({ page }) => {
+        await page.focus('#popover1');
+        await page.keyboard.press('Enter');
+        const lis = await page.$$('#on-reach-end li');
+        expect(lis.length).toBe(10);
+
+        await page.focus('#list');
+        await page.keyboard.press('PageDown', { delay: 1000 });
+
+        const lis2 = await page.$$('#on-reach-end li');
+        expect(lis2.length).toBe(15);
+      });
     });
   });
 
-  describe('onReachEnd', () => {
-    beforeEach(async () => {
+  test.describe('dark mode', () => {
+    test('triggers axe on the document', async ({ page }) => {
       // This is the URL of the Storybook Iframe
-      await page.goto(
-        'http://localhost:6006/iframe.html?id=design-system-components-popover--on-reach-end&viewMode=story',
-      );
-    });
-
-    it('adds item when reaching the end', async () => {
-      await page.focus('#popover1');
-      await page.keyboard.press('Enter');
-      const lis = await page.$$('#on-reach-end li');
-      expect(lis.length).toBe(10);
-
-      await page.focus('#list');
-      await page.keyboard.press('PageDown', { delay: 1000 });
-
-      const lis2 = await page.$$('#on-reach-end li');
-      expect(lis2.length).toBe(15);
+      await page.goto('/iframe.html?id=design-system-components-popover--base&viewMode=story&theme=dark');
+      await injectAxe(page);
+      await checkA11y(page);
     });
   });
 });

@@ -1,6 +1,6 @@
 <!--- Stack.stories.mdx --->
 
-import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { ArgsTable } from '@storybook/addon-docs';
 import { Stack } from './Stack';
 import { Box } from '../Box';
@@ -25,14 +25,14 @@ Add vertical spacing between direct child: it allows not to have to deal with `m
 
 <Canvas>
   <Story name="base">
-    <Stack size={4} background="secondary200" padding={3}>
-      <Box background="primary100" padding={4}>
+    <Stack spacing={4} background="secondary200" padding={3}>
+      <Box color="neutral800" background="primary100" padding={4}>
         First
       </Box>
-      <Box background="primary100" padding={4}>
+      <Box color="neutral800" background="primary100" padding={4}>
         Second
       </Box>
-      <Box background="primary100" padding={4}>
+      <Box color="neutral800" background="primary100" padding={4}>
         Third
       </Box>
     </Stack>
@@ -45,14 +45,14 @@ Add vertical spacing between direct child: it allows not to have to deal with `m
 
 <Canvas>
   <Story name="horizontal">
-    <Stack size={4} horizontal background="secondary200" padding={3}>
-      <Box background="primary100" padding={4}>
+    <Stack spacing={4} horizontal background="secondary200" padding={3}>
+      <Box color="neutral800" background="primary100" padding={4}>
         First
       </Box>
-      <Box background="primary100" padding={4}>
+      <Box color="neutral800" background="primary100" padding={4}>
         Second
       </Box>
-      <Box background="primary100" padding={4}>
+      <Box color="neutral800" background="primary100" padding={4}>
         Third
       </Box>
     </Stack>

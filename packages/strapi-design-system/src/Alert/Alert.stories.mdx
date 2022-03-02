@@ -1,7 +1,7 @@
 <!--- Alert.stories.mdx --->
 
 import { useState } from 'react';
-import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { ArgsTable } from '@storybook/addon-docs';
 import { Alert } from './Alert';
 import { Box } from '../Box';
@@ -70,7 +70,7 @@ You can set the value to `default`, `success`, or `danger`.
     }}
   >
     <Box style={{ width: 700 }}>
-      <Stack size={1}>
+      <Stack spacing={1}>
         <Alert onClose={() => {}} closeLabel="Close" title="Title">
           This is the default variant.
         </Alert>
@@ -127,6 +127,7 @@ Alerts can contain an action. Via a Link component, they mostly encourage the us
 ## Accessibility
 
 - Alerts use a combination of icons and colors to show their purpose and level of importance.
+- This is a visual component which does not implement toasted notification nor a live region.
 
 ## Props
 

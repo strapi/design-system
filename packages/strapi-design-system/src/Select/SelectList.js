@@ -83,7 +83,7 @@ export const SelectList = ({ labelledBy, onSelectItem, children, multi, onEscape
   return (
     <Stack
       as="ul"
-      size={1}
+      spacing={1}
       role="listbox"
       aria-labelledby={labelledBy}
       tabIndex={-1}
