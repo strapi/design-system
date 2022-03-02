@@ -77,28 +77,12 @@ test.describe.parallel('SimpleMenu', () => {
         expect(realViolations.length).toBe(0);
       });
     });
-
-    test.describe('with icon button A11y', () => {
-      test('triggers axe on the document', async ({ page }) => {
-        // This is the URL of the Storybook Iframe
-        await page.goto('/iframe.html?id=design-system-components-simplemenu--with-iconbutton&viewMode=story');
-        await injectAxe(page);
-        await checkA11y(page);
-      });
-    });
   });
 
   test.describe('dark mode', () => {
     test('base A11y', async ({ page }) => {
       // This is the URL of the Storybook Iframe
       await page.goto('/iframe.html?id=design-system-components-simplemenu--base&viewMode=story&theme=dark');
-      await injectAxe(page);
-      await checkA11y(page);
-    });
-
-    test('icon button A11y', async ({ page }) => {
-      // This is the URL of the Storybook Iframe
-      await page.goto('/iframe.html?id=design-system-components-simplemenu--with-iconbutton&viewMode=story&theme=dark');
       await injectAxe(page);
       await checkA11y(page);
     });
