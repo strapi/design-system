@@ -7,6 +7,7 @@ import Information from '@strapi/icons/Information';
 import { NumberInput } from './NumberInput';
 import { Box } from '../Box';
 import { Tooltip } from '../Tooltip';
+import { Typography } from '../Typography';
 
 <Meta title="Design System/Components/NumberInput" component={NumberInput} />
 
@@ -62,9 +63,11 @@ NumberInputs are always found in forms. They give users the possibility to add o
             }
           />
           <Box as="p" padding={4} background="neutral100">
-            {`The value is ${content}`}
+            <Typography>{`The value is ${content}`}</Typography>
           </Box>
-          <button>Escape</button>
+          <button>
+            <Typography>Escape</Typography>
+          </button>
         </Box>
       );
     }}
@@ -101,9 +104,11 @@ NumberInputs can be used without a label.
             }
           />
           <Box as="p" padding={4} background="neutral100">
-            {`The value is ${content}`}
+            <Typography>{`The value is ${content}`}</Typography>
           </Box>
-          <button>Escape</button>
+          <button>
+            <Typography>Escape</Typography>
+          </button>
         </Box>
       );
     }}
@@ -141,9 +146,11 @@ NumberInputs are always found in forms. They give users the possibility to add o
             }
           />
           <Box as="p" padding={4} background="neutral100">
-            {`The value is ${content}`}
+            <Typography>{`The value is ${content}`}</Typography>
           </Box>
-          <button>Escape</button>
+          <button>
+            <Typography>Escape</Typography>
+          </button>
         </Box>
       );
     }}
@@ -232,9 +239,11 @@ NumberInputs are always found in forms. They give users the possibility to add o
             }
           />
           <Box as="p" padding={4} background="neutral100">
-            {`The value is ${content}`}
+            <Typography>{`The value is ${content}`}</Typography>
           </Box>
-          <button>Escape</button>
+          <button>
+            <Typography>Escape</Typography>
+          </button>
         </Box>
       );
     }}

@@ -10,8 +10,7 @@ const ModalWrapper = styled.div`
   position: fixed;
   z-index: 4;
   inset: 0;
-  // this is theme.colors.neutral200 with opacity
-  background: rgb(220, 220, 228, 0.8);
+  background: ${({ theme }) => `${theme.colors.neutral800}1F`};
   padding: 0 ${({ theme }) => theme.spaces[8]};
   display: flex;
   align-items: center;

@@ -20,6 +20,7 @@ const Input = styled.input`
   font-size: ${14 / 16}rem;
   display: block;
   width: 100%;
+  background: inherit;
 
   ::placeholder {
     color: ${({ theme }) => theme.colors.neutral500};
@@ -27,7 +28,6 @@ const Input = styled.input`
   }
 
   &[aria-disabled='true'] {
-    background: inherit;
     color: inherit;
   }
 

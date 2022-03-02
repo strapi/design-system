@@ -34,8 +34,8 @@
       ]
     },
     {
-      "name": "Design Tokens / colors",
-      "path": "packages/strapi-design-system/src/themes/colors.js",
+      "name": "Design Tokens / light colors",
+      "path": "packages/strapi-design-system/src/themes/lightTheme/light-colors.js",
       "filter": {
         "types": ["color"]
       },
@@ -71,7 +71,54 @@
               "shadowFormat": "string"
             },
             "formatConfig": {
-              "jssObjectName": "colorTokenObject",
+              "jssObjectName": "lightColorTokenObject",
+              "exportDefault": false,
+              "tabWidth": 2,
+              "singleQuote": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Design Tokens / dark colors",
+      "path": "packages/strapi-design-system/src/themes/darkTheme/dark-colors.js",
+      "filter": {
+        "types": ["color"]
+      },
+      "parsers": [
+        {
+          "name": "filter",
+          "options": {
+            "key": "name",
+            "regex": {
+              "pattern": "Dark mode/",
+              "flags": "g"
+            }
+          }
+        },
+        {
+          "name": "replace-string",
+          "options": {
+            "keys": ["name"],
+            "regex": {
+              "pattern": "Dark mode/",
+              "flags": "g"
+            },
+            "trim": true
+          }
+        },
+        {
+          "name": "to-jss",
+          "options": {
+            "formatName": "camelCase",
+            "formatTokens": {
+              "colorFormat": "hex6",
+              "fontSizeUnit": "px",
+              "shadowFormat": "string"
+            },
+            "formatConfig": {
+              "jssObjectName": "darkColorTokenObject",
               "exportDefault": false,
               "tabWidth": 2,
               "singleQuote": true

@@ -9,6 +9,7 @@ import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { Button } from '../Button';
 import { Stack } from '../Stack';
+import { Typography } from '../Typography';
 
 <Meta title="Design System/Components/Popover" component={Popover} />
 
@@ -36,7 +37,7 @@ The popover can be centered relatively to their triggering element.
       return (
         <div style={{ marginLeft: '200px' }}>
           <button ref={buttonRef} onClick={() => setVisible((s) => !s)}>
-            Open popover
+            <Typography>Open popover</Typography>
           </button>
           {visible && (
             <Popover centered source={buttonRef} spacing={16}>
@@ -44,7 +45,7 @@ The popover can be centered relatively to their triggering element.
                 {Array(15)
                   .fill(null)
                   .map((_, index) => (
-                    <Box key={index} padding={3} as="li">
+                    <Box color="neutral800" key={index} padding={3} as="li">
                       Element {index}
                     </Box>
                   ))}
@@ -67,7 +68,7 @@ The popover can be centered relatively to their triggering element.
       return (
         <Box padding={10}>
           <button ref={buttonRef} onClick={() => setVisible((s) => !s)}>
-            Open popover
+            <Typography>Open popover</Typography>
           </button>
           {visible && (
             <Popover source={buttonRef} spacing={16}>
@@ -75,7 +76,7 @@ The popover can be centered relatively to their triggering element.
                 {Array(15)
                   .fill(null)
                   .map((_, index) => (
-                    <Box key={index} padding={3} as="li">
+                    <Box color="neutral800" key={index} padding={3} as="li">
                       Element {index}
                     </Box>
                   ))}
@@ -101,7 +102,7 @@ You can define an action to be performed when the end of the popover is reached.
       return (
         <Box padding={10}>
           <button id="popover1" ref={buttonRef} onClick={() => setVisible((s) => !s)}>
-            Open popover
+            <Typography>Open popover</Typography>
           </button>
           {visible && (
             <Popover
@@ -113,7 +114,7 @@ You can define an action to be performed when the end of the popover is reached.
             >
               <ul style={{ width: '200px' }} id="list" tabIndex={-1}>
                 {items.map((_, index) => (
-                  <Box key={index} padding={3} as="li" id={`item-${index}`}>
+                  <Box color="neutral800" key={index} padding={3} as="li" id={`item-${index}`}>
                     Element {index}
                   </Box>
                 ))}
@@ -140,7 +141,7 @@ The popover will overflow over other elements.
           <div style={{ position: 'absolute', bottom: 40, right: 20 }}>
             <div>
               <button ref={buttonRef} onClick={() => setVisible((s) => !s)}>
-                Open popover
+                <Typography>Open popover</Typography>
               </button>
               {visible && (
                 <Popover centered source={buttonRef} spacing={16}>
@@ -148,7 +149,7 @@ The popover will overflow over other elements.
                     {Array(15)
                       .fill(null)
                       .map((_, index) => (
-                        <Box key={index} padding={3} as="li">
+                        <Box color="neutral800" key={index} padding={3} as="li">
                           Element {index}
                         </Box>
                       ))}
