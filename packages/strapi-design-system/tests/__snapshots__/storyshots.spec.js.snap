@@ -47002,7 +47002,9 @@ exports[`Storyshots Design System/Components/ToggleCheckbox null-value 1`] = `
     >
       <div
         class="c0"
-      />
+      >
+        The field is required?
+      </div>
       <div
         class="c3 c4"
         display="inline-flex"
