@@ -79,8 +79,16 @@ test.describe.parallel('SimpleMenu', () => {
     });
   });
 
-  test.describe('dark mode', () => {
-    test('base A11y', async ({ page }) => {
+  test.describe('sizes', () => {
+    test('triggers axe on the document', async ({ page }) => {
+      await page.goto('http://localhost:6006/iframe.html?id=design-system-components-simplemenu--sizes&viewMode=story');
+      await injectAxe(page);
+      await checkA11y(page);
+    });
+  });
+
+  test.describe('with links', () => {
+    test.beforeEach(async ({ page }) => {
       // This is the URL of the Storybook Iframe
       await page.goto('/iframe.html?id=design-system-components-simplemenu--base&viewMode=story&theme=dark');
       await injectAxe(page);
