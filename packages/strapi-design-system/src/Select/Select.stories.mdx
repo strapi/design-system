@@ -55,7 +55,7 @@ The default Select.
       const [error, toggleError] = useState();
       const [disabled, toggleDisabled] = useState();
       return (
-        <Stack size={11}>
+        <Stack spacing={11}>
           <Typography variant="beta">Current value is {value}</Typography>
           <Select
             id="select1"
@@ -104,7 +104,7 @@ The default Select.
       const [error, toggleError] = useState();
       const [disabled, toggleDisabled] = useState();
       return (
-        <Stack size={11}>
+        <Stack spacing={11}>
           <Typography variant="beta">Current value is {value}</Typography>
           <Select
             id="select1"
@@ -153,7 +153,7 @@ In a multi select component, the "0 currently selected" text, can be changed but
       const [error, toggleError] = useState();
       const [disabled, toggleDisabled] = useState();
       return (
-        <Stack size={11}>
+        <Stack spacing={11}>
           <Typography as="h2" variant="beta">Current value is {values.join(', ')}</Typography>
           <Select
             id="select1"
@@ -196,7 +196,7 @@ A multi Select allow users to visually select multiple options from a list. Pref
       const [error, toggleError] = useState();
       const [disabled, toggleDisabled] = useState();
       return (
-        <Stack size={11}>
+        <Stack spacing={11}>
           <Typography variant="beta">Current value is {values.join(', ')}</Typography>
           <Select
             id="select1"
@@ -245,7 +245,7 @@ Select should be scaled down if they aimed to be placed in a smaller portions of
     {() => {
       const [values, setValues] = useState([]);
       return (
-        <Stack size={11}>
+        <Stack spacing={11}>
           <Select
             id="select1"
             label="Choose your meal"
@@ -319,7 +319,7 @@ In a multi select component, the "0 currently selected" text, can be changed but
       ];
       const [values, setValues] = useState([]);
       return (
-        <Stack size={11}>
+        <Stack spacing={11}>
           <Typography variant="beta">Current value is {values.join(', ')}</Typography>
           <MultiSelectNested
             id="select1"

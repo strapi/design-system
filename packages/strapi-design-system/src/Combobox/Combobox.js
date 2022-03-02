@@ -243,7 +243,7 @@ export const Combobox = ({
       <VisuallyHidden aria-live="polite" aria-atomic="false" aria-relevant="additions text">
         {value}
       </VisuallyHidden>
-      <Stack size={label || hint || error ? 1 : 0}>
+      <Stack spacing={label || hint || error ? 1 : 0}>
         {label && <FieldLabel id={labelId}>{label}</FieldLabel>}
         <MainRow ref={containerRef} $disabled={disabled} hasError={error}>
           <InputContainer wrap="wrap">

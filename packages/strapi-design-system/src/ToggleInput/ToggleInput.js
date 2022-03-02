@@ -6,24 +6,44 @@ import { useId } from '../helpers/useId';
 import { Field, FieldHint, FieldError, FieldLabel } from '../Field';
 import { Stack } from '../Stack';
 import { Flex } from '../Flex';
+import { TextButton } from '../TextButton';
 import { ToggleCheckbox } from '../ToggleCheckbox';
 
 const FieldWrapper = styled(Field)`
   width: fit-content;
 `;
 
-export const ToggleInput = ({ size, error, hint, label, name, labelAction, required, id, ...props }) => {
+const ClearButton = styled(TextButton)`
+  align-self: flex-end;
+  margin-left: auto;
+`;
+
+export const ToggleInput = ({
+  size,
+  error,
+  hint,
+  label,
+  name,
+  labelAction,
+  required,
+  id,
+  onClear,
+  clearLabel,
+  checked,
+  ...props
+}) => {
   const generatedId = useId('toggleinput', id);
 
   return (
     <FieldWrapper name={name} hint={hint} error={error} id={generatedId}>
-      <Stack size={1}>
+      <Stack spacing={1}>
         <Flex>
           <FieldLabel required={required} action={labelAction}>
             {label}
           </FieldLabel>
+          {clearLabel && onClear && checked !== null && <ClearButton onClick={onClear}>{clearLabel}</ClearButton>}
         </Flex>
-        <ToggleCheckbox id={generatedId} size={size} name={name} {...props}>
+        <ToggleCheckbox id={generatedId} size={size} name={name} onClear={onClear} checked={checked} {...props}>
           {label}
         </ToggleCheckbox>
         <FieldHint />
@@ -36,23 +56,29 @@ export const ToggleInput = ({ size, error, hint, label, name, labelAction, requi
 ToggleInput.displayName = 'ToggleInput';
 
 ToggleInput.defaultProps = {
+  checked: false,
+  clearLabel: undefined,
   error: undefined,
   hint: undefined,
   id: undefined,
   label: '',
   labelAction: undefined,
   name: '',
+  onClear: undefined,
   required: false,
   size: 'M',
 };
 
 ToggleInput.propTypes = {
+  checked: PropTypes.bool,
+  clearLabel: PropTypes.string,
   error: PropTypes.string,
   hint: PropTypes.string,
   id: PropTypes.string,
   label: PropTypes.string,
   labelAction: PropTypes.node,
   name: PropTypes.string,
+  onClear: PropTypes.func,
   required: PropTypes.bool,
   size: PropTypes.oneOf(Object.keys(sizes.input)),
 };

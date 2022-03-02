@@ -148,7 +148,7 @@ export const Select = ({
 
   return (
     <Field hint={hint} error={error} id={generatedId}>
-      <Stack size={label || hint || error ? 1 : 0}>
+      <Stack spacing={label || hint || error ? 1 : 0}>
         {label && (
           <FieldLabel required={required} as="span" id={labelId} action={labelAction}>
             {label}

@@ -53,11 +53,22 @@ const AccordionWrapper = styled(Box)`
   }
 `;
 
-export const Accordion = ({ children, expanded, id, size, variant, disabled, error, hasErrorMessage, onToggle }) => {
+export const Accordion = ({
+  children,
+  expanded,
+  id,
+  size,
+  variant,
+  disabled,
+  error,
+  hasErrorMessage,
+  onToggle,
+  toggle,
+}) => {
   const generatedId = useId('accordion', id);
 
   return (
-    <AccordionContext.Provider value={{ expanded, onToggle, id: generatedId, size, variant, disabled }}>
+    <AccordionContext.Provider value={{ expanded, onToggle, toggle, id: generatedId, size, variant, disabled }}>
       <AccordionWrapper
         data-strapi-expanded={expanded}
         disabled={disabled}
@@ -90,6 +101,7 @@ Accordion.defaultProps = {
   size: 'M',
   variant: 'primary',
   onToggle: undefined,
+  toggle: undefined,
 };
 
 Accordion.propTypes = {
@@ -124,6 +136,10 @@ Accordion.propTypes = {
    * Size of the Accordion.
    */
   size: PropTypes.oneOf(['S', 'M']),
+  /**
+   * DEPRECATED: The callback invoked after a click event on the `AccordionToggle`.
+   */
+  toggle: PropTypes.func,
   /**
    * Color variant for `Accordion`. The "secondary" variant reverses the background colors.
    * This is useful when you want to display a list and alternate the colors of the accordions.

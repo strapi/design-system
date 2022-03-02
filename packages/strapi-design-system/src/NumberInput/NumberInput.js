@@ -164,7 +164,7 @@ export const NumberInput = React.forwardRef(
 
     return (
       <Field name={name} hint={hint} error={error} id={generatedId}>
-        <Stack size={1}>
+        <Stack spacing={1}>
           {label && (
             <FieldLabel required={required} action={labelAction}>
               {label}

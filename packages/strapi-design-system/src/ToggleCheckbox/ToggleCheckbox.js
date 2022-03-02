@@ -15,8 +15,6 @@ const Label = styled.label`
 
 const ToggleCheckboxWrapper = styled(Box)`
   height: ${getThemeSize('input')};
-  border: 1px solid ${({ theme, disabled }) => (disabled ? theme.colors.neutral300 : theme.colors.neutral200)};
-  display: inline-flex;
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : undefined)};
   // Masks the background of each value
   overflow: hidden;
@@ -24,46 +22,37 @@ const ToggleCheckboxWrapper = styled(Box)`
   ${inputFocusStyle()}
 `;
 
-const OnBox = styled(Flex)`
-  text-transform: uppercase;
+const ValueBox = styled(Flex).attrs({
+  hasRadius: true,
+})`
+  background-color: ${({ theme, disabled, checked }) => (checked && !disabled ? theme.colors.neutral0 : 'transparent')};
+  border: 1px solid
+    ${({ theme, disabled, checked }) =>
+      checked && checked !== null && !disabled ? theme.colors.neutral200 : theme.colors.neutral100};
   position: relative;
-  z-index: 2;
-`;
-
-const OffBox = styled(Flex)`
-  text-transform: uppercase;
-  border-right: 1px solid ${({ theme, disabled }) => (disabled ? theme.colors.neutral300 : theme.colors.neutral200)};
-  position: relative;
+  user-select: none;
   z-index: 2;
 `;
 
 /**
- * visually Hiding the input under the wrapper without SR-only
- * helps Android SR to provide information with touch and haptic
+ * visually hiding the input without SR-only helps Android SR to provide information with touch and haptic
  */
 const Input = styled.input`
+  height: 100%;
+  left: 0;
+  opacity: 0;
   position: absolute;
+  top: 0;
   z-index: 1;
-  // These are pixel in order to escape the focus offset set in pixel. It's just a hack to hide
-  // the Input behind the toggle checkbox
-  left: 4px;
-  top: 4px;
+  width: 100%;
 `;
 
 export const ToggleCheckbox = React.forwardRef(
   ({ size, onLabel, offLabel, children, checked, disabled, onChange, ...props }, ref) => {
-    const labelColor = 'neutral800';
-    let offCheckboxLabelColor = checked ? labelColor : 'danger700';
-    let onCheckboxLabelColor = checked ? 'primary700' : labelColor;
-    let offCheckboxBackgroundColor = checked ? 'neutral0' : 'danger100';
-    let onCheckboxBackgroundColor = checked ? 'primary100' : 'neutral0';
+    const labelColor = 'neutral600';
 
-    if (checked === null) {
-      offCheckboxBackgroundColor = 'neutral0';
-      onCheckboxBackgroundColor = 'neutral0';
-      offCheckboxLabelColor = 'neutral600';
-      onCheckboxLabelColor = 'neutral600';
-    }
+    let offCheckboxLabelColor = !checked && checked !== null ? 'danger700' : labelColor;
+    let onCheckboxLabelColor = checked ? 'primary600' : labelColor;
 
     const handleChange = (e) => {
       if (disabled) return;
@@ -75,34 +64,56 @@ export const ToggleCheckbox = React.forwardRef(
       <Label>
         <VisuallyHidden>{children}</VisuallyHidden>
 
-        <ToggleCheckboxWrapper background="neutral0" hasRadius size={size} disabled={disabled}>
-          <OffBox
-            background={disabled ? 'neutral150' : offCheckboxBackgroundColor}
+        <ToggleCheckboxWrapper
+          background="neutral100"
+          hasRadius
+          size={size}
+          disabled={disabled}
+          padding={1}
+          display="inline-flex"
+          backgroundColor="neutral100"
+          borderStyle="solid"
+          borderWidth="1px"
+          borderColor="neutral200"
+        >
+          <ValueBox
             paddingLeft={7}
             paddingRight={7}
             aria-hidden={true}
+            checked={checked === null ? false : !checked}
             disabled={disabled}
           >
-            <Typography variant="pi" fontWeight="bold" textColor={disabled ? 'neutral600' : offCheckboxLabelColor}>
+            <Typography
+              variant="pi"
+              fontWeight="bold"
+              textTransform="uppercase"
+              textColor={disabled ? 'neutral600' : offCheckboxLabelColor}
+            >
               {offLabel}
             </Typography>
-          </OffBox>
+          </ValueBox>
 
-          <OnBox
-            background={disabled ? 'neutral200' : onCheckboxBackgroundColor}
+          <ValueBox
             paddingLeft={7}
             paddingRight={7}
             aria-hidden={true}
+            checked={checked === null ? false : checked}
+            disabled={disabled}
           >
-            <Typography variant="pi" fontWeight="bold" textColor={disabled ? 'neutral700' : onCheckboxLabelColor}>
+            <Typography
+              variant="pi"
+              fontWeight="bold"
+              textTransform="uppercase"
+              textColor={disabled ? 'neutral600' : onCheckboxLabelColor}
+            >
               {onLabel}
             </Typography>
-          </OnBox>
+          </ValueBox>
 
           <Input
             type="checkbox"
             aria-disabled={disabled}
-            onChange={handleChange}
+            onChange={(e) => handleChange(e)}
             ref={ref}
             {...props}
             checked={checked}
@@ -119,6 +130,7 @@ ToggleCheckbox.defaultProps = {
   disabled: false,
   checked: false,
   onChange: undefined,
+  onClear: undefined,
   size: 'M',
 };
 
@@ -128,6 +140,7 @@ ToggleCheckbox.propTypes = {
   disabled: PropTypes.bool,
   offLabel: PropTypes.string.isRequired,
   onChange: PropTypes.func,
+  onClear: PropTypes.func,
   onLabel: PropTypes.string.isRequired,
   size: PropTypes.oneOf(Object.keys(sizes.input)),
 };
