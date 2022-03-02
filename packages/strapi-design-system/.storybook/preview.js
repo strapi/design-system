@@ -27,7 +27,7 @@ export const decorators = [
               {/* Necessary in order to prevent axe core from providing errors on main / heading */}
               <h1>Storybook story</h1>
             </VisuallyHidden>
-            <Box background='neutral100' padding={2}>
+            <Box background={themeQueryURL === "dark" ? 'neutral100' : 'neutral0'} height="100%" padding={2}>
               <Story />
             </Box>
           </main>
