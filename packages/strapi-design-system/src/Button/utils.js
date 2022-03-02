@@ -143,6 +143,11 @@ export const getVariantStyle = ({ theme, variant }) => {
       return `
           border: 1px solid ${theme.colors[`${getVariantColorName(variant)}600`]};
           background: ${theme.colors[`${getVariantColorName(variant)}600`]};
+          svg {
+            > g, path {
+              fill: ${theme.colors.buttonNeutral0};
+            }
+          }
         `;
     }
   }

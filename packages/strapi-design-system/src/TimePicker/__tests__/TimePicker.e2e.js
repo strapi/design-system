@@ -3,13 +3,35 @@ const { injectAxe, checkA11y } = require('axe-playwright');
 const { test } = require('@playwright/test');
 
 test.describe.parallel('TimePicker', () => {
-  test.beforeEach(async ({ page }) => {
-    // This is the URL of the Storybook Iframe
-    await page.goto('/iframe.html?id=design-system-components-timepicker--base&viewMode=story');
-    await injectAxe(page);
+  test.describe('light mode', () => {
+    test('base A11y', async ({ page }) => {
+      // This is the URL of the Storybook Iframe
+      await page.goto('/iframe.html?id=design-system-components-timepicker--base&viewMode=story');
+      await injectAxe(page);
+      await checkA11y(page);
+    });
+
+    test('disabled A11y', async ({ page }) => {
+      // This is the URL of the Storybook Iframe
+      await page.goto('/iframe.html?id=design-system-components-timepicker--disabled&viewMode=story');
+      await injectAxe(page);
+      await checkA11y(page);
+    });
   });
 
-  test('triggers axe on the document', async ({ page }) => {
-    await checkA11y(page);
+  test.describe('dark mode', () => {
+    test('base A11y', async ({ page }) => {
+      // This is the URL of the Storybook Iframe
+      await page.goto('/iframe.html?id=design-system-components-timepicker--base&viewMode=story&theme=dark');
+      await injectAxe(page);
+      await checkA11y(page);
+    });
+
+    test('disabled A11y', async ({ page }) => {
+      // This is the URL of the Storybook Iframe
+      await page.goto('/iframe.html?id=design-system-components-timepicker--disabled&viewMode=story&theme=dark');
+      await injectAxe(page);
+      await checkA11y(page);
+    });
   });
 });

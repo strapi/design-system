@@ -16,6 +16,8 @@ import { Box } from '../Box';
 import { Stack } from '../Stack';
 import { Tooltip } from '../Tooltip';
 import { FieldAction } from './FieldAction';
+import { Link } from '../Link';
+import { Icon } from '../Icon';
 
 <Meta title="Design System/Components/Field" component={Field} />
 
@@ -137,13 +139,13 @@ This is the most complex input that can be built with the Field components.
                       aria-label="Information about the email"
                       style={{ border: 'none', padding: 0, background: 'transparent' }}
                     >
-                      <Information aria-hidden={true} />
+                      <Icon as={Information} color="neutral800" aria-hidden={true} />
                     </button>
                   </Tooltip>
                 </Box>
-                <a href="#" style={{ marginLeft: 'auto' }}>
-                  Details
-                </a>
+                <Flex width="100%" justifyContent="flex-end">
+                  <Link isExternal href="#">Details</Link>
+                </Flex>
               </Flex>
               <FieldInput
                 placeholder="example@domain.com"
@@ -190,13 +192,13 @@ This is the most complex input that can be built with the Field components.
                       aria-label="Information about the email"
                       style={{ border: 'none', padding: 0, background: 'transparent' }}
                     >
-                      <Information aria-hidden={true} />
+                      <Icon as={Information} color="neutral800" aria-hidden={true} />
                     </button>
                   </Tooltip>
                 </Box>
-                <a href="#" style={{ marginLeft: 'auto' }}>
-                  Details
-                </a>
+                <Flex width="100%" justifyContent="flex-end">
+                  <Link isExternal href="#">Details</Link>
+                </Flex>
               </Flex>
               <FieldInput
                 placeholder="example@domain.com"
