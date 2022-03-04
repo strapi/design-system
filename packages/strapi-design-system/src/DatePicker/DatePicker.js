@@ -49,6 +49,10 @@ export const DatePicker = ({
     setVisible(false);
   };
 
+  const handleEscape = () => {
+    setVisible(false);
+  };
+
   return (
     <DatePickerWrapper bold={visible}>
       <TextInput
@@ -90,6 +94,7 @@ export const DatePicker = ({
           selectedDate={selectedDate}
           initialDate={initialDate}
           onChange={handleChange}
+          onEscape={handleEscape}
           popoverSource={inputRef.current.inputWrapperRef}
           label={label || ariaLabel}
           minDate={minDate}
