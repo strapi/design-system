@@ -1,10 +1,11 @@
 import React from 'react';
 import { themes } from '@storybook/theming';
-import { ThemeProvider } from '../src/ThemeProvider';
+import { createCustomTheme } from './utils/createCustomTheme';
+import Theme from './components/Theme';
+import { darkTheme } from '../src/themes/darkTheme';
+import { lightTheme } from '../src/themes/lightTheme';
 import { VisuallyHidden } from '../src/VisuallyHidden';
 import { Box } from '../src/Box';
-import { lightTheme } from '../src/themes/lightTheme';
-// import { darkTheme } from '../src/themes/darkTheme';
 
 export const parameters = {
   options: {
@@ -16,15 +17,15 @@ export const parameters = {
   darkMode: {
     // Override the default dark theme
     current: 'light',
-    dark: { ...themes.dark },
+    dark: createCustomTheme({ theme: darkTheme, asStorybookTheme: false }),
     // Override the default light theme
-    light: { ...themes.normal }
+    light: createCustomTheme({ theme: lightTheme, asStorybookTheme: false }),
   }
 };
 
 export const decorators = [
   (Story) => (
-    <ThemeProvider theme={lightTheme}>
+    <Theme>
       <main>
         <VisuallyHidden>
           {/* Necessary in order to prevent axe core from providing errors on main / heading */}
@@ -34,6 +35,6 @@ export const decorators = [
           <Story />
         </Box>
       </main>
-    </ThemeProvider>
+    </Theme>
   )
 ];
