@@ -12044,6 +12044,12 @@ exports[`Storyshots Design System/Components/DatePicker base 1`] = `
   line-height: 1.33;
 }
 
+.c10 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
 .c4 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -12245,7 +12251,11 @@ exports[`Storyshots Design System/Components/DatePicker base 1`] = `
         style="margin-left: 500px;"
       >
         <button>
-          Button outside picker
+          <span
+            class="c10"
+          >
+            Button outside picker
+          </span>
         </button>
       </div>
     </div>
@@ -12282,6 +12292,12 @@ exports[`Storyshots Design System/Components/DatePicker disabled 1`] = `
   color: #32324d;
   font-size: 0.75rem;
   line-height: 1.33;
+}
+
+.c10 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
 }
 
 .c4 {
@@ -12490,7 +12506,11 @@ exports[`Storyshots Design System/Components/DatePicker disabled 1`] = `
         style="margin-left: 500px;"
       >
         <button>
-          Button outside picker
+          <span
+            class="c10"
+          >
+            Button outside picker
+          </span>
         </button>
       </div>
     </div>
@@ -12760,6 +12780,12 @@ exports[`Storyshots Design System/Components/DatePicker size S 1`] = `
   line-height: 1.33;
 }
 
+.c10 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
 .c4 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -12961,7 +12987,11 @@ exports[`Storyshots Design System/Components/DatePicker size S 1`] = `
         style="margin-left: 500px;"
       >
         <button>
-          Button outside picker
+          <span
+            class="c10"
+          >
+            Button outside picker
+          </span>
         </button>
       </div>
     </div>

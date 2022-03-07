@@ -76,20 +76,19 @@ test.describe.parallel('DatePicker', () => {
     });
   });
 
-  // TO FIX DARK MODE - contrast issues serious
-  // test.describe('dark mode', () => {
-  //   test('base A11y', async ({ page }) => {
-  //     // This is the URL of the Storybook Iframe
-  //     await page.goto('/iframe.html?id=design-system-components-datepicker--base&viewMode=story&theme=dark');
-  //     await injectAxe(page);
-  //     await checkA11y(page);
-  //   });
+  test.describe('dark mode', () => {
+    test('base A11y', async ({ page }) => {
+      // This is the URL of the Storybook Iframe
+      await page.goto('/iframe.html?id=design-system-components-datepicker--base&viewMode=story&theme=dark');
+      await injectAxe(page);
+      await checkA11y(page);
+    });
 
-  //   test('disabled A11y', async ({ page }) => {
-  //     // This is the URL of the Storybook Iframe
-  //     await page.goto('/iframe.html?id=design-system-components-datepicker--disabled&viewMode=story&theme=dark');
-  //     await injectAxe(page);
-  //     await checkA11y(page);
-  //   });
-  // });
+    test('disabled A11y', async ({ page }) => {
+      // This is the URL of the Storybook Iframe
+      await page.goto('/iframe.html?id=design-system-components-datepicker--disabled&viewMode=story&theme=dark');
+      await injectAxe(page);
+      await checkA11y(page);
+    });
+  });
 });
