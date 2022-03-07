@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { ArgsTable } from '@storybook/addon-docs';
 import { DatePicker } from './DatePicker';
+import { Typography } from '../Typography';
 
 <Meta title="Design System/Components/DatePicker" component={DatePicker} />
 
@@ -45,7 +46,9 @@ import { DatePicker } from '@strapi/design-system/DatePicker';
             selectedDateLabel={(formattedDate) => `Date picker, current is ${formattedDate}`}
           />
           <div style={{ marginLeft: '500px' }}>
-            <button>Button outside picker</button>
+            <button>
+              <Typography>Button outside picker</Typography>
+            </button>
           </div>
         </div>
       );
@@ -74,7 +77,9 @@ TODO
             selectedDateLabel={(formattedDate) => `Date picker, current is ${formattedDate}`}
           />
           <div style={{ marginLeft: '500px' }}>
-            <button>Button outside picker</button>
+            <button>
+              <Typography>Button outside picker</Typography>
+            </button>
           </div>
         </div>
       );
@@ -101,7 +106,9 @@ TODO
             disabled
           />
           <div style={{ marginLeft: '500px' }}>
-            <button>Button outside picker</button>
+            <button>
+              <Typography>Button outside picker</Typography>
+            </button>
           </div>
         </div>
       );
