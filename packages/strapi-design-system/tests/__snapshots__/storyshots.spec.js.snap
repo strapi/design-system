@@ -14,7 +14,6 @@ exports[`Storyshots Design System/Components/Accordion accordion-group 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -887,7 +886,6 @@ exports[`Storyshots Design System/Components/Accordion base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -1660,7 +1658,6 @@ exports[`Storyshots Design System/Components/Accordion expanded 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -1989,7 +1986,6 @@ exports[`Storyshots Design System/Components/Accordion keyboard navigable 1`] = 
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -2645,7 +2641,6 @@ exports[`Storyshots Design System/Components/Alert base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -2872,7 +2867,6 @@ exports[`Storyshots Design System/Components/Alert variants 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -3285,7 +3279,6 @@ exports[`Storyshots Design System/Components/Alert with action 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -3606,7 +3599,6 @@ exports[`Storyshots Design System/Components/Avatar base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -3674,7 +3666,6 @@ exports[`Storyshots Design System/Components/Avatar group 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -3790,7 +3781,6 @@ exports[`Storyshots Design System/Components/Avatar initials 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -3880,7 +3870,6 @@ exports[`Storyshots Design System/Components/Badge base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -4042,7 +4031,6 @@ exports[`Storyshots Design System/Components/Breadcrumbs base 1`] = `
 }
 
 .c2 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -4230,7 +4218,6 @@ exports[`Storyshots Design System/Components/Button base 1`] = `
 }
 
 .c2 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -4419,7 +4406,6 @@ exports[`Storyshots Design System/Components/Button disabled 1`] = `
 }
 
 .c2 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -4634,7 +4620,6 @@ exports[`Storyshots Design System/Components/Button fullWidth 1`] = `
 }
 
 .c2 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -4878,7 +4863,6 @@ exports[`Storyshots Design System/Components/Button icons 1`] = `
 }
 
 .c2 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -5296,7 +5280,6 @@ exports[`Storyshots Design System/Components/Button sizes 1`] = `
 }
 
 .c2 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -5591,7 +5574,6 @@ exports[`Storyshots Design System/Components/Button variants 1`] = `
 }
 
 .c2 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -6406,7 +6388,6 @@ exports[`Storyshots Design System/Components/Card base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -6908,7 +6889,6 @@ exports[`Storyshots Design System/Components/Card keyboard navigable 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -7292,7 +7272,6 @@ exports[`Storyshots Design System/Components/Card with asset icon 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -7663,7 +7642,6 @@ exports[`Storyshots Design System/Components/Card without asset 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -7857,7 +7835,6 @@ exports[`Storyshots Design System/Components/Card without asset action 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -8222,7 +8199,6 @@ exports[`Storyshots Design System/Components/Card without asset action nor timer
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -8559,7 +8535,6 @@ exports[`Storyshots Design System/Components/CarouselInput base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -9103,7 +9078,6 @@ exports[`Storyshots Design System/Components/CarouselInput one slide only 1`] = 
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -9514,7 +9488,6 @@ exports[`Storyshots Design System/Components/Checkbox base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -9683,7 +9656,6 @@ exports[`Storyshots Design System/Components/Checkbox disabled 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -9854,7 +9826,6 @@ exports[`Storyshots Design System/Components/Checkbox error 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -10037,7 +10008,6 @@ exports[`Storyshots Design System/Components/Checkbox hint 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -10219,7 +10189,6 @@ exports[`Storyshots Design System/Components/Checkbox indeterminate 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -10445,7 +10414,6 @@ exports[`Storyshots Design System/Components/Combobox base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -10703,7 +10671,6 @@ exports[`Storyshots Design System/Components/Combobox creatable 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -10961,7 +10928,6 @@ exports[`Storyshots Design System/Components/Combobox disabled 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -11224,7 +11190,6 @@ exports[`Storyshots Design System/Components/Combobox error 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -11495,7 +11460,6 @@ exports[`Storyshots Design System/Components/Combobox initial-data 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -11793,7 +11757,6 @@ exports[`Storyshots Design System/Components/Combobox withoutLabel 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -12027,7 +11990,6 @@ exports[`Storyshots Design System/Components/DatePicker base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -12267,7 +12229,6 @@ exports[`Storyshots Design System/Components/DatePicker disabled 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -12512,7 +12473,6 @@ exports[`Storyshots Design System/Components/DatePicker min/ max date 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -12743,7 +12703,6 @@ exports[`Storyshots Design System/Components/DatePicker size S 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -12983,7 +12942,6 @@ exports[`Storyshots Design System/Components/Dialog base 1`] = `
 }
 
 .c2 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -13164,7 +13122,6 @@ exports[`Storyshots Design System/Components/Divider base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -13220,7 +13177,6 @@ exports[`Storyshots Design System/Components/Divider with-default-margin 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -13275,7 +13231,6 @@ exports[`Storyshots Design System/Components/EmptyStateLayout base 1`] = `
 }
 
 .c2 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -13614,7 +13569,6 @@ exports[`Storyshots Design System/Components/EmptyStateLayout with large text 1`
 }
 
 .c2 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -13953,7 +13907,6 @@ exports[`Storyshots Design System/Components/EmptyStateLayout without action 1`]
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -14109,7 +14062,6 @@ exports[`Storyshots Design System/Components/Field base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -14293,7 +14245,6 @@ exports[`Storyshots Design System/Components/Field disabled 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -14493,7 +14444,6 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -14946,7 +14896,6 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -15399,7 +15348,6 @@ exports[`Storyshots Design System/Components/Field with description 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -15612,7 +15560,6 @@ exports[`Storyshots Design System/Components/Field with error 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -15810,7 +15757,6 @@ exports[`Storyshots Design System/Components/Field with label-action 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -16046,7 +15992,6 @@ exports[`Storyshots Design System/Components/GridLayout base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -16221,7 +16166,6 @@ exports[`Storyshots Design System/Components/HeaderLayout base 1`] = `
 }
 
 .c2 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -16727,7 +16671,6 @@ exports[`Storyshots Design System/Components/HeaderLayout base without nav actio
 }
 
 .c2 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -17127,7 +17070,6 @@ exports[`Storyshots Design System/Components/HeaderLayout combined w/ scroll 1`]
 }
 
 .c2 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -17638,7 +17580,6 @@ exports[`Storyshots Design System/Components/HeaderLayout sticky 1`] = `
 }
 
 .c2 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -18173,7 +18114,6 @@ exports[`Storyshots Design System/Components/IconButton base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -18422,7 +18362,6 @@ exports[`Storyshots Design System/Components/IconButton disabled 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -18671,7 +18610,6 @@ exports[`Storyshots Design System/Components/IconButton group 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -18958,7 +18896,6 @@ exports[`Storyshots Design System/Components/IconButton without tooltip 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -19120,7 +19057,6 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
 }
 
 .c2 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -22756,7 +22692,6 @@ exports[`Storyshots Design System/Components/Link base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -22918,7 +22853,6 @@ exports[`Storyshots Design System/Components/Link disabled 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -23082,7 +23016,6 @@ exports[`Storyshots Design System/Components/Link icons 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -23316,7 +23249,6 @@ exports[`Storyshots Design System/Components/LinkButton base 1`] = `
 }
 
 .c2 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -23513,7 +23445,6 @@ exports[`Storyshots Design System/Components/LinkButton disabled 1`] = `
 }
 
 .c2 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -23731,7 +23662,6 @@ exports[`Storyshots Design System/Components/LinkButton icons 1`] = `
 }
 
 .c2 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -24087,7 +24017,6 @@ exports[`Storyshots Design System/Components/LinkButton sizes 1`] = `
 }
 
 .c2 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -24394,7 +24323,6 @@ exports[`Storyshots Design System/Components/LinkButton variants 1`] = `
 }
 
 .c2 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -25179,7 +25107,6 @@ exports[`Storyshots Design System/Components/LiveRegions alert 1`] = `
 }
 
 .c2 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -25396,7 +25323,6 @@ exports[`Storyshots Design System/Components/LiveRegions log 1`] = `
 }
 
 .c2 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -25613,7 +25539,6 @@ exports[`Storyshots Design System/Components/LiveRegions status 1`] = `
 }
 
 .c2 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -25830,7 +25755,6 @@ exports[`Storyshots Design System/Components/Loader base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -25885,7 +25809,6 @@ exports[`Storyshots Design System/Components/Loader small 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -25942,7 +25865,6 @@ exports[`Storyshots Design System/Components/MainNav base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -26719,7 +26641,6 @@ exports[`Storyshots Design System/Components/MainNav notifications 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -27587,7 +27508,6 @@ exports[`Storyshots Design System/Components/ModalLayout base 1`] = `
 }
 
 .c2 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -27773,7 +27693,6 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -28149,7 +28068,6 @@ exports[`Storyshots Design System/Components/NumberInput disabled 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -28468,7 +28386,6 @@ exports[`Storyshots Design System/Components/NumberInput required 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -28795,7 +28712,6 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -29171,7 +29087,6 @@ exports[`Storyshots Design System/Components/NumberInput with initial 0 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -29547,7 +29462,6 @@ exports[`Storyshots Design System/Components/NumberInput withoutLabel 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -29855,7 +29769,6 @@ exports[`Storyshots Design System/Components/Pagination base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -30221,7 +30134,6 @@ exports[`Storyshots Design System/Components/Popover base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -30277,7 +30189,6 @@ exports[`Storyshots Design System/Components/Popover centered 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -30329,7 +30240,6 @@ exports[`Storyshots Design System/Components/Popover onReachEnd 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -30387,7 +30297,6 @@ exports[`Storyshots Design System/Components/Popover overflow-right 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -30445,7 +30354,6 @@ exports[`Storyshots Design System/Components/ProgressBar M 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -30512,7 +30420,6 @@ exports[`Storyshots Design System/Components/ProgressBar S 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -30574,7 +30481,6 @@ exports[`Storyshots Design System/Components/Radio base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -30716,7 +30622,6 @@ exports[`Storyshots Design System/Components/Searchbar base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -30947,7 +30852,6 @@ exports[`Storyshots Design System/Components/Searchbar disabled 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -31178,7 +31082,6 @@ exports[`Storyshots Design System/Components/Searchbar size S 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -31409,7 +31312,6 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -31806,7 +31708,6 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -32138,7 +32039,6 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -32470,7 +32370,6 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -32835,7 +32734,6 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -33150,7 +33048,6 @@ exports[`Storyshots Design System/Components/Select withoutLabel 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -33478,7 +33375,6 @@ exports[`Storyshots Design System/Components/SimpleMenu base 1`] = `
 }
 
 .c2 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -33712,7 +33608,6 @@ exports[`Storyshots Design System/Components/SimpleMenu sizes 1`] = `
 }
 
 .c2 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -34019,7 +33914,6 @@ exports[`Storyshots Design System/Components/SimpleMenu with-custom-label 1`] = 
 }
 
 .c2 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -34255,7 +34149,6 @@ exports[`Storyshots Design System/Components/SimpleMenu with-iconbutton 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -34417,7 +34310,6 @@ exports[`Storyshots Design System/Components/SimpleMenu with-links 1`] = `
 }
 
 .c2 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -34651,7 +34543,6 @@ exports[`Storyshots Design System/Components/Status base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -34825,7 +34716,6 @@ exports[`Storyshots Design System/Components/SubNav base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -36790,7 +36680,6 @@ exports[`Storyshots Design System/Components/Switch activated 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -36921,7 +36810,6 @@ exports[`Storyshots Design System/Components/Switch not-activated 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -37052,7 +36940,6 @@ exports[`Storyshots Design System/Components/Table base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -38349,7 +38236,6 @@ exports[`Storyshots Design System/Components/Table base without footer 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -39543,7 +39429,6 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -40864,7 +40749,6 @@ exports[`Storyshots Design System/Components/Tabs base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -41079,7 +40963,6 @@ exports[`Storyshots Design System/Components/Tabs disabled 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -41316,7 +41199,6 @@ exports[`Storyshots Design System/Components/Tabs selected 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -41477,7 +41359,6 @@ exports[`Storyshots Design System/Components/Tabs simple 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -41646,7 +41527,6 @@ exports[`Storyshots Design System/Components/Tag base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -41769,7 +41649,6 @@ exports[`Storyshots Design System/Components/Tag disabled 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -41893,7 +41772,6 @@ exports[`Storyshots Design System/Components/TextButton base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -42113,7 +41991,6 @@ exports[`Storyshots Design System/Components/TextInput base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -42357,7 +42234,6 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -42605,7 +42481,6 @@ exports[`Storyshots Design System/Components/TextInput password 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -42850,7 +42725,6 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -43094,7 +42968,6 @@ exports[`Storyshots Design System/Components/TextInput with error 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -43339,7 +43212,6 @@ exports[`Storyshots Design System/Components/TextInput withoutLabel 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -43516,7 +43388,6 @@ exports[`Storyshots Design System/Components/Textarea base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -43780,7 +43651,6 @@ exports[`Storyshots Design System/Components/Textarea disabled 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -44045,7 +43915,6 @@ exports[`Storyshots Design System/Components/Theme dark colors 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -44545,7 +44414,6 @@ exports[`Storyshots Design System/Components/Theme light colors 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -45045,7 +44913,6 @@ exports[`Storyshots Design System/Components/Theme shadows 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -45185,7 +45052,6 @@ exports[`Storyshots Design System/Components/Theme spaces 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -45535,7 +45401,6 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -45850,7 +45715,6 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -46165,7 +46029,6 @@ exports[`Storyshots Design System/Components/TimePicker disabled 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -46485,7 +46348,6 @@ exports[`Storyshots Design System/Components/TimePicker initial-data 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -46839,7 +46701,6 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -47154,7 +47015,6 @@ exports[`Storyshots Design System/Components/ToggleCheckbox base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -47330,7 +47190,6 @@ exports[`Storyshots Design System/Components/ToggleCheckbox disabled 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -47492,7 +47351,6 @@ exports[`Storyshots Design System/Components/ToggleCheckbox null-value 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -47649,7 +47507,6 @@ exports[`Storyshots Design System/Components/ToggleCheckbox size S 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -47825,7 +47682,6 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -48109,7 +47965,6 @@ exports[`Storyshots Design System/Components/ToggleInput error 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -48355,7 +48210,6 @@ exports[`Storyshots Design System/Components/ToggleInput null-value 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -48581,7 +48435,6 @@ exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -48827,7 +48680,6 @@ exports[`Storyshots Design System/Components/Tooltip base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -48889,7 +48741,6 @@ exports[`Storyshots Design System/Components/Tooltip grid 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -49041,7 +48892,6 @@ exports[`Storyshots Design System/Components/Tooltip with text inside 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -49107,7 +48957,6 @@ exports[`Storyshots Design System/Components/TwoColsLayout base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -49253,7 +49102,6 @@ exports[`Storyshots Design System/Technical Components/BaseButton base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -49363,7 +49211,6 @@ exports[`Storyshots Design System/Technical Components/BaseCheckbox base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -49472,7 +49319,6 @@ exports[`Storyshots Design System/Technical Components/BaseCheckbox disabled 1`]
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -49597,7 +49443,6 @@ exports[`Storyshots Design System/Technical Components/BaseCheckbox indeterminat
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -49746,7 +49591,6 @@ exports[`Storyshots Design System/Technical Components/BaseLink base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -49803,7 +49647,6 @@ exports[`Storyshots Design System/Technical Components/BaseRadio base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -49924,7 +49767,6 @@ exports[`Storyshots Design System/Technical Components/BaseRadio disabled 1`] = 
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -50063,7 +49905,6 @@ exports[`Storyshots Design System/Technical Components/Box base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -50121,7 +49962,6 @@ exports[`Storyshots Design System/Technical Components/Box responsive spaces 1`]
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -50198,7 +50038,6 @@ exports[`Storyshots Design System/Technical Components/Flex base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -50287,7 +50126,6 @@ exports[`Storyshots Design System/Technical Components/FocusTrap base 1`] = `
 }
 
 .c2 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -50533,7 +50371,6 @@ exports[`Storyshots Design System/Technical Components/Grid base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -50662,7 +50499,6 @@ exports[`Storyshots Design System/Technical Components/Grid base grid 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -50890,7 +50726,6 @@ exports[`Storyshots Design System/Technical Components/Grid complex grid 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -51152,7 +50987,6 @@ exports[`Storyshots Design System/Technical Components/Icon base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -51307,7 +51141,6 @@ exports[`Storyshots Design System/Technical Components/Portal base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -51341,7 +51174,6 @@ exports[`Storyshots Design System/Technical Components/RawTable base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -53496,7 +53328,6 @@ exports[`Storyshots Design System/Technical Components/RawTable simple 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -53801,7 +53632,6 @@ exports[`Storyshots Design System/Technical Components/Stack base 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -53886,7 +53716,6 @@ exports[`Storyshots Design System/Technical Components/Stack horizontal 1`] = `
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
@@ -53975,7 +53804,6 @@ exports[`Storyshots Design System/Technical Components/Typography variants 1`] =
 }
 
 .c1 {
-  background: #ffffff;
   padding: 8px;
   height: 100%;
 }
