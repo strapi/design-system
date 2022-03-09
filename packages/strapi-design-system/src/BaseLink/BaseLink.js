@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 const A = styled.a`
   cursor: pointer;
+  text-decoration: ${({ textDecoration }) => textDecoration || 'underline'};
 `;
 
 export const BaseLink = React.forwardRef(({ href, rel, target, disabled, isExternal, ...props }, ref) => {

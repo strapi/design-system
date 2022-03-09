@@ -1,0 +1,62 @@
+<!--- FolderCard.stories.mdx --->
+
+import { useState } from 'react';
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { ArgsTable } from '@storybook/addon-docs';
+import Pencil from '@strapi/icons/Pencil';
+import { BaseLink } from '../BaseLink';
+import { Flex } from '../Flex';
+import { Stack } from '../Stack';
+import { FolderCard } from './FolderCard';
+import { FolderCardBody } from './FolderCardBody';
+import { FolderCardCheckbox } from './FolderCardCheckbox';
+import { Typography } from '../Typography';
+import { VisuallyHidden } from '../VisuallyHidden';
+
+<Meta title="Design System/Components/FolderCard" component={FolderCard} />
+
+# FolderCard
+
+tbd
+
+## Imports
+
+```js
+import {
+  FolderCard,
+} from '@strapi/design-system/FolderCard';
+```
+
+## Usage
+
+tbd
+
+<Canvas>
+  <Story name="base">
+    {() => {
+        const [checked, setChecked] = useState(false);
+        const href = "https://strapi.io";
+        return (
+            <FolderCard style={{ width: '310px' }} id="card-one" href={href} startAction={<FolderCardCheckbox value={checked} onValueChange={setChecked} />} ariaLabel="Pictures">
+                <FolderCardBody as="h2">
+                    <BaseLink href={href} textDecoration="none">
+                        <Flex direction="column" alignItems="flex-start">
+                            <Typography variant="omega" fontWeight="semiBold">
+                                Pictures
+                                <VisuallyHidden>:</VisuallyHidden>
+                            </Typography>
+                            <Typography variant="pi" textColor="neutral600">
+                                7 folders, 16 assets
+                            </Typography>
+                        </Flex>
+                    </BaseLink>
+                </FolderCardBody>
+            </FolderCard>
+        )
+    }}
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={FolderCard} />
