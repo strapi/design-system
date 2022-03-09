@@ -37,6 +37,7 @@ export * from './Popover';
 export * from './Portal';
 export * from './ProgressBar';
 export * from './Radio';
+export * from './RawLink';
 export * from './RawTable';
 export * from './Flex';
 export * from './Searchbar';

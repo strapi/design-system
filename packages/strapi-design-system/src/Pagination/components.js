@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import ChevronLeft from '@strapi/icons/ChevronLeft';
 import ChevronRight from '@strapi/icons/ChevronRight';
+import { NavLink } from 'react-router-dom';
 import { VisuallyHidden } from '../VisuallyHidden';
 import { usePagination } from './PaginationContext';
 import { Typography } from '../Typography';
 import { buttonFocusStyle } from '../themes/utils';
-import { BaseLink } from '../BaseLink';
 
 const PaginationText = styled(Typography)`
   line-height: revert;
@@ -17,7 +17,7 @@ const transientProps = {
   active: true,
 };
 
-const LinkWrapper = styled(BaseLink).withConfig({
+const LinkWrapper = styled(NavLink).withConfig({
   shouldForwardProp: (prop, defPropValFN) => !transientProps[prop] && defPropValFN(prop),
 })`
   padding: ${({ theme }) => theme.spaces[3]};
@@ -63,50 +63,60 @@ const DotsWrapper = styled(LinkWrapper)`
   color: ${({ theme }) => theme.colors.neutral800};
 `;
 
-export const PreviousLink = React.forwardRef(({ children, ...props }, ref) => {
+export const PreviousLink = ({ children, to, ...props }) => {
   const { activePage } = usePagination();
 
   const disabled = activePage === 1;
 
   return (
-    <ActionLinkWrapper ref={ref} aria-disabled={disabled} tabIndex={disabled ? -1 : undefined} {...props}>
+    <ActionLinkWrapper
+      to={disabled ? '#' : to}
+      aria-disabled={disabled}
+      tabIndex={disabled ? -1 : undefined}
+      {...props}
+    >
       <VisuallyHidden>{children}</VisuallyHidden>
       <ChevronLeft aria-hidden={true} />
     </ActionLinkWrapper>
   );
-});
+};
 
 PreviousLink.displayName = 'PreviousLink';
 
-export const NextLink = React.forwardRef(({ children, ...props }, ref) => {
+export const NextLink = ({ children, to, ...props }) => {
   const { activePage, pageCount } = usePagination();
 
   const disabled = activePage === pageCount;
 
   return (
-    <ActionLinkWrapper ref={ref} aria-disabled={disabled} tabIndex={disabled ? -1 : undefined} {...props}>
+    <ActionLinkWrapper
+      to={disabled ? '#' : to}
+      aria-disabled={disabled}
+      tabIndex={disabled ? -1 : undefined}
+      {...props}
+    >
       <VisuallyHidden>{children}</VisuallyHidden>
       <ChevronRight aria-hidden={true} />
     </ActionLinkWrapper>
   );
-});
+};
 
 NextLink.displayName = 'NextLink';
 
-export const PageLink = React.forwardRef(({ number, children, ...props }, ref) => {
+export const PageLink = ({ number, children, ...props }) => {
   const { activePage } = usePagination();
 
   const isActive = activePage === number;
 
   return (
-    <PageLinkWrapper ref={ref} {...props} active={isActive}>
+    <PageLinkWrapper {...props} active={isActive}>
       <VisuallyHidden>{children}</VisuallyHidden>
       <PaginationText aria-hidden={true} variant="pi" fontWeight={isActive ? 'bold' : null}>
         {number}
       </PaginationText>
     </PageLinkWrapper>
   );
-});
+};
 
 PageLink.displayName = 'PageLink';
 
@@ -126,6 +136,7 @@ PageLink.propTypes = {
 
 const sharedPropTypes = {
   children: PropTypes.node.isRequired,
+  to: PropTypes.string.isRequired,
 };
 
 NextLink.propTypes = sharedPropTypes;

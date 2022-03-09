@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Typography } from '../Typography';
@@ -6,7 +7,6 @@ import { Box } from '../Box';
 import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from '../Button/utils';
 import { VARIANTS, BUTTON_SIZES } from '../Button/constants';
 import { BaseButtonWrapper } from '../BaseButton';
-import { BaseLink } from '../BaseLink';
 
 const LinkWrapper = styled(BaseButtonWrapper)`
   padding: ${({ theme, size }) => `${size === 'S' ? theme.spaces[2] : '10px'} ${theme.spaces[4]}`};
@@ -18,7 +18,7 @@ const LinkWrapper = styled(BaseButtonWrapper)`
     align-items: center;
   }
   ${Typography} {
-    color: ${({ theme }) => theme.colors.buttonNeutral0};
+    color: ${({ theme }) => theme.colors.neutral0};
   }
   &[aria-disabled='true'] {
     ${getDisabledStyle}
@@ -33,7 +33,6 @@ const LinkWrapper = styled(BaseButtonWrapper)`
     ${getActiveStyle}
   }
   ${getVariantStyle}
-
   /**
     Link specific properties
   */
@@ -43,15 +42,28 @@ const LinkWrapper = styled(BaseButtonWrapper)`
 `;
 
 export const LinkButton = React.forwardRef(
-  ({ variant, startIcon, endIcon, disabled, children, size, as, ...props }, ref) => {
+  ({ variant, startIcon, endIcon, disabled, children, size, href, to, ...props }, ref) => {
+    const target = href ? '_blank' : undefined;
+    const rel = href ? 'noreferrer noopener' : undefined;
+
     return (
-      <LinkWrapper ref={ref} aria-disabled={disabled} size={size} variant={variant} {...props} as={as || BaseLink}>
+      <LinkWrapper
+        ref={ref}
+        aria-disabled={disabled}
+        size={size}
+        variant={variant}
+        target={target}
+        rel={rel}
+        to={disabled ? undefined : to}
+        href={disabled ? '#' : href}
+        {...props}
+        as={to && !disabled ? NavLink : 'a'}
+      >
         {startIcon && (
           <Box aria-hidden={true} paddingRight={2}>
             {startIcon}
           </Box>
         )}
-
         {size === 'S' ? (
           <Typography variant="pi" fontWeight="bold">
             {children}
@@ -59,7 +71,6 @@ export const LinkButton = React.forwardRef(
         ) : (
           <Typography fontWeight="bold">{children}</Typography>
         )}
-
         {endIcon && (
           <Box aria-hidden={true} paddingLeft={2}>
             {endIcon}
@@ -69,11 +80,9 @@ export const LinkButton = React.forwardRef(
     );
   },
 );
-
 LinkButton.displayName = 'LinkButton';
 
 LinkButton.defaultProps = {
-  as: BaseLink,
   disabled: false,
   startIcon: undefined,
   endIcon: undefined,
@@ -84,7 +93,6 @@ LinkButton.defaultProps = {
   to: undefined,
 };
 LinkButton.propTypes = {
-  as: PropTypes.elementType,
   children: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
   endIcon: PropTypes.element,
