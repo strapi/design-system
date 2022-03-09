@@ -66,6 +66,7 @@ module.exports = {
     {
       react: 'react',
       'react-dom': 'react-dom',
+      'react-router-dom': 'react-router-dom',
       'styled-components': 'styled-components',
     },
     /^@strapi\/icons/,

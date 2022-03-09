@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { NavLink as RouterLink } from 'react-router-dom';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { Typography } from '../Typography';
 import { useMainNav } from './MainNavContext';
 import { Tooltip } from '../Tooltip';
 import { Badge } from '../Badge';
-import { BaseLink } from '../BaseLink';
 
 const IconBox = styled(Box)`
   svg {
@@ -16,7 +16,7 @@ const IconBox = styled(Box)`
   }
 `;
 
-const MainNavLinkWrapper = styled(BaseLink)`
+const MainNavLinkWrapper = styled(RouterLink)`
   position: relative;
   text-decoration: none;
   display: block;
@@ -87,14 +87,14 @@ const CustomBadge = styled(Badge)`
   background: ${({ theme }) => theme.colors.primary600};
 `;
 
-export const NavLink = React.forwardRef(({ children, icon, badgeContent, badgeAriaLabel, ...props }, ref) => {
+export const NavLink = ({ children, icon, badgeContent, badgeAriaLabel, ...props }) => {
   const condensed = useMainNav();
 
   if (condensed) {
     return (
-      <MainNavLinkWrapper ref={ref} {...props}>
-        <Tooltip position="right" label={children}>
-          <MainNavRow as="span" justifyContent="center">
+      <Tooltip position="right" label={children}>
+        <MainNavLinkWrapper {...props}>
+          <MainNavRow as="span">
             <IconBox aria-hidden paddingRight={0} as="span">
               {icon}
             </IconBox>
@@ -104,13 +104,13 @@ export const NavLink = React.forwardRef(({ children, icon, badgeContent, badgeAr
               </CustomBadge>
             )}
           </MainNavRow>
-        </Tooltip>
-      </MainNavLinkWrapper>
+        </MainNavLinkWrapper>
+      </Tooltip>
     );
   }
 
   return (
-    <MainNavLinkWrapper ref={ref} {...props}>
+    <MainNavLinkWrapper {...props}>
       <MainNavRow as="span" justifyContent="space-between">
         <Flex>
           <IconBox aria-hidden paddingRight={3} as="span">
@@ -126,7 +126,7 @@ export const NavLink = React.forwardRef(({ children, icon, badgeContent, badgeAr
       </MainNavRow>
     </MainNavLinkWrapper>
   );
-});
+};
 
 NavLink.displayName = 'NavLink';
 
