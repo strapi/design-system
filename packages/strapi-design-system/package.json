@@ -1,6 +1,6 @@
 {
   "name": "@strapi/design-system",
-  "version": "1.0.0",
+  "version": "0.0.1-alpha.77",
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
@@ -34,8 +34,8 @@
     "react": "^17.0.1",
     "react-copy-to-clipboard": "^5.0.4",
     "react-dom": "^17.0.1",
-    "storybook-dark-mode": "^1.0.9",
     "react-router-dom": "^5.2.0",
+    "storybook-dark-mode": "^1.0.9",
     "styled-components": "^5.2.1",
     "webpack-bundle-analyzer": "^4.4.0",
     "webpack-cli": "^4.5.0"
