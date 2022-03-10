@@ -2,19 +2,27 @@ const fs = require('fs');
 const path = require('path');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
+const distPath = path.join(__dirname, 'dist');
+const isV2Build = process.env.IS_V2 === 'true';
+const outputPath = isV2Build ? path.join(distPath, 'v2') : distPath;
+
 // Allows to create distinct bundles in the dist folder
 // for people wanting to import only specific components such as
 // import Button from '@strapi/design-system/Button
-const excludedFolders = ['helpers', '.DS_Store'];
-const fileNames = fs.readdirSync(path.resolve(__dirname, 'src'));
+const entryFolder = isV2Build ? path.join(__dirname, 'src', 'v2') : path.join(__dirname, 'src');
+const excludedFolders = isV2Build ? ['helpers', '.DS_Store'] : ['helpers', '.DS_Store', 'v2'];
+const fileNames = fs.readdirSync(path.resolve(entryFolder));
 const entry = fileNames
   .filter((name) => !excludedFolders.includes(name))
+  // .filter((name) => (isV2Build ? true : !name.includes(path.join(__dirname, 'src', 'v2'))))
   .reduce((acc, curr) => {
     if (curr.includes('.js')) {
-      acc[curr.replace('.js', '')] = path.resolve(__dirname, 'src');
+      // acc[curr.replace('.js', '')] = path.resolve(__dirname, 'src');
+      acc[curr.replace('.js', '')] = path.resolve(entryFolder);
     } else {
       // Folder resolution
-      acc[curr] = path.resolve(__dirname, 'src', curr);
+      // acc[curr] = path.resolve(__dirname, 'src', curr);
+      acc[curr] = path.resolve(entryFolder, curr);
     }
 
     return acc;
@@ -33,7 +41,7 @@ module.exports = {
   devtool: process.env.NODE_ENV === 'development' ? 'eval-source-map' : false,
   output: {
     filename: `[name].${process.env.NODE_ENV}.js`,
-    path: path.resolve(__dirname, 'dist'),
+    path: outputPath,
     libraryTarget: 'umd',
     globalObject: 'this',
     library: 'strapiDs',

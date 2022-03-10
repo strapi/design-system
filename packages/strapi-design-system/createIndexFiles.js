@@ -1,8 +1,10 @@
 const fs = require('fs-extra');
 const path = require('path');
 
-const excludedFolders = ['helpers', '.DS_Store'];
-const fileNames = fs.readdirSync(path.resolve(__dirname, 'src'));
+const excludedFolders = process.env.IS_V2 === 'false' ? ['helpers', '.DS_Store'] : ['helpers', '.DS_Store', 'v2'];
+const entryFolder =
+  process.env.IS_V2 === 'true' ? path.resolve(__dirname, 'src', 'v2') : path.resolve(__dirname, 'src');
+const fileNames = fs.readdirSync(entryFolder);
 
 const entries = fileNames.filter((name) => !excludedFolders.includes(name));
 
@@ -19,7 +21,10 @@ const createIndexFile = async (fileName) => {
   `;
 
   try {
-    fs.writeFile(path.resolve(__dirname, 'dist', `${name}.js`), content);
+    const outputPath = process.env.IS_V2
+      ? path.resolve(__dirname, 'dist', 'v2', `${name}.js`)
+      : path.resolve(__dirname, 'dist', `${name}.js`);
+    fs.writeFile(outputPath, content);
   } catch (err) {
     console.log(err);
   }

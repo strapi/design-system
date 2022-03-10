@@ -60,4 +60,5 @@ export * from './ToggleInput';
 export * from './Tooltip';
 export * from './Typography';
 export * from './VisuallyHidden';
+export * from './v2';
 export * from './themes';
