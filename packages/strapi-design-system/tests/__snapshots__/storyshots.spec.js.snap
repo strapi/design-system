@@ -45457,7 +45457,7 @@ exports[`Storyshots Design System/Components/Theme dark colors 1`] = `
                   </p>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(217, 216, 255);"
+                  style="padding: 12px; background: rgb(73, 69, 255);"
                 >
                   <p
                     style="color: white;"
