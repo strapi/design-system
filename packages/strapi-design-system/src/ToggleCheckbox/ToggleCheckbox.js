@@ -130,7 +130,6 @@ ToggleCheckbox.defaultProps = {
   disabled: false,
   checked: false,
   onChange: undefined,
-  onClear: undefined,
   size: 'M',
 };
 
@@ -140,7 +139,6 @@ ToggleCheckbox.propTypes = {
   disabled: PropTypes.bool,
   offLabel: PropTypes.string.isRequired,
   onChange: PropTypes.func,
-  onClear: PropTypes.func,
   onLabel: PropTypes.string.isRequired,
   size: PropTypes.oneOf(Object.keys(sizes.input)),
 };
