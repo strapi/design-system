@@ -7,7 +7,7 @@ test.describe.parallel('SimpleMenu', () => {
     test.describe('base', () => {
       test.beforeEach(async ({ page }) => {
         // This is the URL of the Storybook Iframe
-        await page.goto('/iframe.html?id=design-system-components-simplemenu--base&viewMode=story');
+        await page.goto('/iframe.html?id=design-system-components-v2-simplemenu--base&viewMode=story');
         await injectAxe(page);
       });
 
@@ -54,7 +54,7 @@ test.describe.parallel('SimpleMenu', () => {
     test.describe('with links', () => {
       test.beforeEach(async ({ page }) => {
         // This is the URL of the Storybook Iframe
-        await page.goto('/iframe.html?id=design-system-components-simplemenu--with-links&viewMode=story');
+        await page.goto('/iframe.html?id=design-system-components-v2-simplemenu--with-links&viewMode=story');
         await injectAxe(page);
       });
 
@@ -81,7 +81,9 @@ test.describe.parallel('SimpleMenu', () => {
 
   test.describe('sizes', () => {
     test('triggers axe on the document', async ({ page }) => {
-      await page.goto('http://localhost:6006/iframe.html?id=design-system-components-simplemenu--sizes&viewMode=story');
+      await page.goto(
+        'http://localhost:6006/iframe.html?id=design-system-components-v2-simplemenu--sizes&viewMode=story',
+      );
       await injectAxe(page);
       await checkA11y(page);
     });
@@ -90,7 +92,7 @@ test.describe.parallel('SimpleMenu', () => {
   test.describe('with links', () => {
     test.beforeEach(async ({ page }) => {
       // This is the URL of the Storybook Iframe
-      await page.goto('/iframe.html?id=design-system-components-simplemenu--base&viewMode=story&theme=dark');
+      await page.goto('/iframe.html?id=design-system-components-v2-simplemenu--base&viewMode=story&theme=dark');
       await injectAxe(page);
       await checkA11y(page);
     });

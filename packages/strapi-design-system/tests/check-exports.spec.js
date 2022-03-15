@@ -18,7 +18,7 @@ describe('Check components are all exported correctly (index.js)', () => {
 
     const dirs = await fs.readdir(path.resolve(__dirname, '..', 'src'));
     const components = dirs.filter((file) => {
-      const isComponent = file.charAt(0) === file.charAt(0).toUpperCase();
+      const isComponent = file.charAt(0) === file.charAt(0).toUpperCase() || file === 'v2';
 
       return isComponent;
     });

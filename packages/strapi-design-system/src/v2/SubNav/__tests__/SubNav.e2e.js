@@ -6,7 +6,7 @@ test.describe.parallel('SubNav', () => {
   test.describe('light mode', () => {
     test('triggers axe on the document', async ({ page }) => {
       // This is the URL of the Storybook Iframe
-      await page.goto('/iframe.html?id=design-system-components-subnav--base&viewMode=story');
+      await page.goto('/iframe.html?id=design-system-components-v2-subnav--base&viewMode=story');
       await injectAxe(page);
       await checkA11y(page);
     });
@@ -15,7 +15,7 @@ test.describe.parallel('SubNav', () => {
   test.describe('dark mode', () => {
     test('triggers axe on the document', async ({ page }) => {
       // This is the URL of the Storybook Iframe
-      await page.goto('/iframe.html?id=design-system-components-subnav--base&viewMode=story&theme=dark');
+      await page.goto('/iframe.html?id=design-system-components-v2-subnav--base&viewMode=story&theme=dark');
       await injectAxe(page);
       await checkA11y(page);
     });
