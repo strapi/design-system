@@ -25,7 +25,7 @@ export const darkColorTokenObject = {
     neutral900: '#ffffff',
     primary100: '#212134',
     primary200: '#4a4a6a',
-    primary500: '#d9d8ff',
+    primary500: '#4945ff',
     primary600: '#7b79ff',
     primary700: '#7b79ff',
     secondary100: '#212134',
