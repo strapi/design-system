@@ -12399,8 +12399,10 @@ exports[`Storyshots Design System/Components/DatePicker base 1`] = `
 .c10 {
   border: none;
   border-radius: 4px;
+  padding-bottom: 0.65625rem;
   padding-left: 0;
   padding-right: 16px;
+  padding-top: 0.65625rem;
   color: #32324d;
   font-weight: 400;
   font-size: 0.875rem;
@@ -12442,7 +12444,6 @@ exports[`Storyshots Design System/Components/DatePicker base 1`] = `
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
-  height: 2.5rem;
   outline: none;
   box-shadow: 0;
   -webkit-transition-property: border-color,box-shadow,fill;
@@ -12657,8 +12658,10 @@ exports[`Storyshots Design System/Components/DatePicker disabled 1`] = `
 .c10 {
   border: none;
   border-radius: 4px;
+  padding-bottom: 0.65625rem;
   padding-left: 0;
   padding-right: 16px;
+  padding-top: 0.65625rem;
   cursor: not-allowed;
   color: #32324d;
   font-weight: 400;
@@ -12701,7 +12704,6 @@ exports[`Storyshots Design System/Components/DatePicker disabled 1`] = `
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
-  height: 2.5rem;
   outline: none;
   box-shadow: 0;
   -webkit-transition-property: border-color,box-shadow,fill;
@@ -12914,8 +12916,10 @@ exports[`Storyshots Design System/Components/DatePicker min/ max date 1`] = `
 .c10 {
   border: none;
   border-radius: 4px;
+  padding-bottom: 0.65625rem;
   padding-left: 0;
   padding-right: 16px;
+  padding-top: 0.65625rem;
   color: #32324d;
   font-weight: 400;
   font-size: 0.875rem;
@@ -12957,7 +12961,6 @@ exports[`Storyshots Design System/Components/DatePicker min/ max date 1`] = `
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
-  height: 2.5rem;
   outline: none;
   box-shadow: 0;
   -webkit-transition-property: border-color,box-shadow,fill;
@@ -13159,8 +13162,10 @@ exports[`Storyshots Design System/Components/DatePicker size S 1`] = `
 .c10 {
   border: none;
   border-radius: 4px;
+  padding-bottom: 0.65625rem;
   padding-left: 0;
   padding-right: 16px;
+  padding-top: 0.65625rem;
   color: #32324d;
   font-weight: 400;
   font-size: 0.875rem;
@@ -13202,7 +13207,6 @@ exports[`Storyshots Design System/Components/DatePicker size S 1`] = `
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
-  height: 2rem;
   outline: none;
   box-shadow: 0;
   -webkit-transition-property: border-color,box-shadow,fill;
@@ -14580,8 +14584,10 @@ exports[`Storyshots Design System/Components/Field base 1`] = `
 .c8 {
   border: none;
   border-radius: 4px;
+  padding-bottom: 0.65625rem;
   padding-left: 16px;
   padding-right: 16px;
+  padding-top: 0.65625rem;
   color: #32324d;
   font-weight: 400;
   font-size: 0.875rem;
@@ -14623,7 +14629,6 @@ exports[`Storyshots Design System/Components/Field base 1`] = `
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
-  height: 2.5rem;
   outline: none;
   box-shadow: 0;
   -webkit-transition-property: border-color,box-shadow,fill;
@@ -14778,8 +14783,10 @@ exports[`Storyshots Design System/Components/Field disabled 1`] = `
 .c8 {
   border: none;
   border-radius: 4px;
+  padding-bottom: 0.65625rem;
   padding-left: 16px;
   padding-right: 16px;
+  padding-top: 0.65625rem;
   cursor: not-allowed;
   color: #32324d;
   font-weight: 400;
@@ -14822,7 +14829,6 @@ exports[`Storyshots Design System/Components/Field disabled 1`] = `
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
-  height: 2.5rem;
   outline: none;
   box-shadow: 0;
   -webkit-transition-property: border-color,box-shadow,fill;
@@ -15100,8 +15106,10 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
 .c19 {
   border: none;
   border-radius: 4px;
+  padding-bottom: 0.65625rem;
   padding-left: 0;
   padding-right: 0;
+  padding-top: 0.65625rem;
   color: #32324d;
   font-weight: 400;
   font-size: 0.875rem;
@@ -15143,7 +15151,6 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
-  height: 2.5rem;
   outline: none;
   box-shadow: 0;
   -webkit-transition-property: border-color,box-shadow,fill;
@@ -15557,8 +15564,10 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
 .c19 {
   border: none;
   border-radius: 4px;
+  padding-bottom: 0.65625rem;
   padding-left: 0;
   padding-right: 0;
+  padding-top: 0.65625rem;
   color: #32324d;
   font-weight: 400;
   font-size: 0.875rem;
@@ -15600,7 +15609,6 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
-  height: 2rem;
   outline: none;
   box-shadow: 0;
   -webkit-transition-property: border-color,box-shadow,fill;
@@ -15910,8 +15918,10 @@ exports[`Storyshots Design System/Components/Field with description 1`] = `
 .c10 {
   border: none;
   border-radius: 4px;
+  padding-bottom: 0.65625rem;
   padding-left: 16px;
   padding-right: 16px;
+  padding-top: 0.65625rem;
   color: #32324d;
   font-weight: 400;
   font-size: 0.875rem;
@@ -15953,7 +15963,6 @@ exports[`Storyshots Design System/Components/Field with description 1`] = `
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
-  height: 2.5rem;
   outline: none;
   box-shadow: 0;
   -webkit-transition-property: border-color,box-shadow,fill;
@@ -16121,8 +16130,10 @@ exports[`Storyshots Design System/Components/Field with error 1`] = `
 .c8 {
   border: none;
   border-radius: 4px;
+  padding-bottom: 0.65625rem;
   padding-left: 16px;
   padding-right: 16px;
+  padding-top: 0.65625rem;
   color: #32324d;
   font-weight: 400;
   font-size: 0.875rem;
@@ -16164,7 +16175,6 @@ exports[`Storyshots Design System/Components/Field with error 1`] = `
   border: 1px solid #d02b20;
   border-radius: 4px;
   background: #ffffff;
-  height: 2.5rem;
   outline: none;
   box-shadow: 0;
   -webkit-transition-property: border-color,box-shadow,fill;
@@ -16343,8 +16353,10 @@ exports[`Storyshots Design System/Components/Field with label-action 1`] = `
 .c12 {
   border: none;
   border-radius: 4px;
+  padding-bottom: 0.65625rem;
   padding-left: 16px;
   padding-right: 16px;
+  padding-top: 0.65625rem;
   color: #32324d;
   font-weight: 400;
   font-size: 0.875rem;
@@ -16386,7 +16398,6 @@ exports[`Storyshots Design System/Components/Field with label-action 1`] = `
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
-  height: 2.5rem;
   outline: none;
   box-shadow: 0;
   -webkit-transition-property: border-color,box-shadow,fill;
@@ -27911,8 +27922,10 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
 .c11 {
   border: none;
   border-radius: 4px;
+  padding-bottom: 0.65625rem;
   padding-left: 16px;
   padding-right: 0;
+  padding-top: 0.65625rem;
   color: #32324d;
   font-weight: 400;
   font-size: 0.875rem;
@@ -27954,7 +27967,6 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
-  height: 2.5rem;
   outline: none;
   box-shadow: 0;
   -webkit-transition-property: border-color,box-shadow,fill;
@@ -28272,8 +28284,10 @@ exports[`Storyshots Design System/Components/NumberInput disabled 1`] = `
 .c9 {
   border: none;
   border-radius: 4px;
+  padding-bottom: 0.65625rem;
   padding-left: 16px;
   padding-right: 0;
+  padding-top: 0.65625rem;
   cursor: not-allowed;
   color: #32324d;
   font-weight: 400;
@@ -28316,7 +28330,6 @@ exports[`Storyshots Design System/Components/NumberInput disabled 1`] = `
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
-  height: 2.5rem;
   outline: none;
   box-shadow: 0;
   -webkit-transition-property: border-color,box-shadow,fill;
@@ -28609,8 +28622,10 @@ exports[`Storyshots Design System/Components/NumberInput required 1`] = `
 .c11 {
   border: none;
   border-radius: 4px;
+  padding-bottom: 0.65625rem;
   padding-left: 16px;
   padding-right: 0;
+  padding-top: 0.65625rem;
   color: #32324d;
   font-weight: 400;
   font-size: 0.875rem;
@@ -28652,7 +28667,6 @@ exports[`Storyshots Design System/Components/NumberInput required 1`] = `
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
-  height: 2.5rem;
   outline: none;
   box-shadow: 0;
   -webkit-transition-property: border-color,box-shadow,fill;
@@ -28957,8 +28971,10 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
 .c11 {
   border: none;
   border-radius: 4px;
+  padding-bottom: 0.65625rem;
   padding-left: 16px;
   padding-right: 0;
+  padding-top: 0.65625rem;
   color: #32324d;
   font-weight: 400;
   font-size: 0.875rem;
@@ -29000,7 +29016,6 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
-  height: 2rem;
   outline: none;
   box-shadow: 0;
   -webkit-transition-property: border-color,box-shadow,fill;
@@ -29341,8 +29356,10 @@ exports[`Storyshots Design System/Components/NumberInput with initial 0 1`] = `
 .c11 {
   border: none;
   border-radius: 4px;
+  padding-bottom: 0.65625rem;
   padding-left: 16px;
   padding-right: 0;
+  padding-top: 0.65625rem;
   color: #32324d;
   font-weight: 400;
   font-size: 0.875rem;
@@ -29384,7 +29401,6 @@ exports[`Storyshots Design System/Components/NumberInput with initial 0 1`] = `
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
-  height: 2.5rem;
   outline: none;
   box-shadow: 0;
   -webkit-transition-property: border-color,box-shadow,fill;
@@ -29692,8 +29708,10 @@ exports[`Storyshots Design System/Components/NumberInput withoutLabel 1`] = `
 .c7 {
   border: none;
   border-radius: 4px;
+  padding-bottom: 0.65625rem;
   padding-left: 16px;
   padding-right: 0;
+  padding-top: 0.65625rem;
   color: #32324d;
   font-weight: 400;
   font-size: 0.875rem;
@@ -29735,7 +29753,6 @@ exports[`Storyshots Design System/Components/NumberInput withoutLabel 1`] = `
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
-  height: 2.5rem;
   outline: none;
   box-shadow: 0;
   -webkit-transition-property: border-color,box-shadow,fill;
@@ -30897,8 +30914,10 @@ exports[`Storyshots Design System/Components/Searchbar base 1`] = `
 .c12 {
   border: none;
   border-radius: 4px;
+  padding-bottom: 0.65625rem;
   padding-left: 0;
   padding-right: 16px;
+  padding-top: 0.65625rem;
   color: #32324d;
   font-weight: 400;
   font-size: 0.875rem;
@@ -30940,7 +30959,6 @@ exports[`Storyshots Design System/Components/Searchbar base 1`] = `
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
-  height: 2.5rem;
   outline: none;
   box-shadow: 0;
   -webkit-transition-property: border-color,box-shadow,fill;
@@ -31136,8 +31154,10 @@ exports[`Storyshots Design System/Components/Searchbar disabled 1`] = `
 .c12 {
   border: none;
   border-radius: 4px;
+  padding-bottom: 0.65625rem;
   padding-left: 0;
   padding-right: 16px;
+  padding-top: 0.65625rem;
   cursor: not-allowed;
   color: #32324d;
   font-weight: 400;
@@ -31180,7 +31200,6 @@ exports[`Storyshots Design System/Components/Searchbar disabled 1`] = `
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
-  height: 2.5rem;
   outline: none;
   box-shadow: 0;
   -webkit-transition-property: border-color,box-shadow,fill;
@@ -31375,8 +31394,10 @@ exports[`Storyshots Design System/Components/Searchbar size S 1`] = `
 .c12 {
   border: none;
   border-radius: 4px;
+  padding-bottom: 0.65625rem;
   padding-left: 0;
   padding-right: 16px;
+  padding-top: 0.65625rem;
   color: #32324d;
   font-weight: 400;
   font-size: 0.875rem;
@@ -31418,7 +31439,6 @@ exports[`Storyshots Design System/Components/Searchbar size S 1`] = `
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
-  height: 2rem;
   outline: none;
   box-shadow: 0;
   -webkit-transition-property: border-color,box-shadow,fill;
@@ -42528,8 +42548,10 @@ exports[`Storyshots Design System/Components/TextInput base 1`] = `
 .c11 {
   border: none;
   border-radius: 4px;
+  padding-bottom: 0.65625rem;
   padding-left: 16px;
   padding-right: 16px;
+  padding-top: 0.65625rem;
   color: #32324d;
   font-weight: 400;
   font-size: 0.875rem;
@@ -42571,7 +42593,6 @@ exports[`Storyshots Design System/Components/TextInput base 1`] = `
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
-  height: 2.5rem;
   outline: none;
   box-shadow: 0;
   -webkit-transition-property: border-color,box-shadow,fill;
@@ -42780,8 +42801,10 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
 .c11 {
   border: none;
   border-radius: 4px;
+  padding-bottom: 0.65625rem;
   padding-left: 16px;
   padding-right: 16px;
+  padding-top: 0.65625rem;
   cursor: not-allowed;
   color: #32324d;
   font-weight: 400;
@@ -42824,7 +42847,6 @@ exports[`Storyshots Design System/Components/TextInput disabled 1`] = `
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
-  height: 2.5rem;
   outline: none;
   box-shadow: 0;
   -webkit-transition-property: border-color,box-shadow,fill;
@@ -43036,8 +43058,10 @@ exports[`Storyshots Design System/Components/TextInput password 1`] = `
 .c11 {
   border: none;
   border-radius: 4px;
+  padding-bottom: 0.65625rem;
   padding-left: 16px;
   padding-right: 16px;
+  padding-top: 0.65625rem;
   color: #32324d;
   font-weight: 400;
   font-size: 0.875rem;
@@ -43079,7 +43103,6 @@ exports[`Storyshots Design System/Components/TextInput password 1`] = `
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
-  height: 2.5rem;
   outline: none;
   box-shadow: 0;
   -webkit-transition-property: border-color,box-shadow,fill;
@@ -43289,8 +43312,10 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
 .c11 {
   border: none;
   border-radius: 4px;
+  padding-bottom: 0.65625rem;
   padding-left: 16px;
   padding-right: 16px;
+  padding-top: 0.65625rem;
   color: #32324d;
   font-weight: 400;
   font-size: 0.875rem;
@@ -43332,7 +43357,6 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
-  height: 2rem;
   outline: none;
   box-shadow: 0;
   -webkit-transition-property: border-color,box-shadow,fill;
@@ -43541,8 +43565,10 @@ exports[`Storyshots Design System/Components/TextInput with error 1`] = `
 .c11 {
   border: none;
   border-radius: 4px;
+  padding-bottom: 0.65625rem;
   padding-left: 16px;
   padding-right: 16px;
+  padding-top: 0.65625rem;
   color: #32324d;
   font-weight: 400;
   font-size: 0.875rem;
@@ -43584,7 +43610,6 @@ exports[`Storyshots Design System/Components/TextInput with error 1`] = `
   border: 1px solid #d02b20;
   border-radius: 4px;
   background: #ffffff;
-  height: 2.5rem;
   outline: none;
   box-shadow: 0;
   -webkit-transition-property: border-color,box-shadow,fill;
@@ -43761,8 +43786,10 @@ exports[`Storyshots Design System/Components/TextInput withoutLabel 1`] = `
 .c7 {
   border: none;
   border-radius: 4px;
+  padding-bottom: 0.65625rem;
   padding-left: 16px;
   padding-right: 16px;
+  padding-top: 0.65625rem;
   color: #32324d;
   font-weight: 400;
   font-size: 0.875rem;
@@ -43804,7 +43831,6 @@ exports[`Storyshots Design System/Components/TextInput withoutLabel 1`] = `
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
-  height: 2.5rem;
   outline: none;
   box-shadow: 0;
   -webkit-transition-property: border-color,box-shadow,fill;
