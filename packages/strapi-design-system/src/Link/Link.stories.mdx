@@ -15,7 +15,7 @@ import { Stack } from '../Stack';
   <Story name="base">
     <Stack spacing={5}>
       <div>
-        <Link to="https://strapi.io/">External link</Link>
+        <Link href="https://strapi.io/" isExternal>External link</Link>
       </div>
       <div>
         <Link to="/somewhere-internal" startIcon={<ArrowLeft />}>
@@ -23,7 +23,7 @@ import { Stack } from '../Stack';
         </Link>
       </div>
       <div>
-        <Link to="https://strapi.io/" disabled>
+        <Link isExternal href="http://strapi.io" disabled>
           External disabled link
         </Link>
       </div>
