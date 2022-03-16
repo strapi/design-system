@@ -50569,7 +50569,8 @@ exports[`Storyshots Design System/Components/v2/LinkButton base 1`] = `
           aria-disabled="false"
           class="c5 c6 c7"
           href="https://strapi.io/"
-          target="_self"
+          rel="noreferrer noopener"
+          target="_blank"
         >
           <span
             class="c8 c9"
