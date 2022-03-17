@@ -13162,10 +13162,10 @@ exports[`Storyshots Design System/Components/DatePicker size S 1`] = `
 .c10 {
   border: none;
   border-radius: 4px;
-  padding-bottom: 0.65625rem;
+  padding-bottom: 0.40625rem;
   padding-left: 0;
   padding-right: 16px;
-  padding-top: 0.65625rem;
+  padding-top: 0.40625rem;
   color: #32324d;
   font-weight: 400;
   font-size: 0.875rem;
@@ -15564,10 +15564,10 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
 .c19 {
   border: none;
   border-radius: 4px;
-  padding-bottom: 0.65625rem;
+  padding-bottom: 0.40625rem;
   padding-left: 0;
   padding-right: 0;
-  padding-top: 0.65625rem;
+  padding-top: 0.40625rem;
   color: #32324d;
   font-weight: 400;
   font-size: 0.875rem;
@@ -28971,10 +28971,10 @@ exports[`Storyshots Design System/Components/NumberInput size S 1`] = `
 .c11 {
   border: none;
   border-radius: 4px;
-  padding-bottom: 0.65625rem;
+  padding-bottom: 0.40625rem;
   padding-left: 16px;
   padding-right: 0;
-  padding-top: 0.65625rem;
+  padding-top: 0.40625rem;
   color: #32324d;
   font-weight: 400;
   font-size: 0.875rem;
@@ -31394,10 +31394,10 @@ exports[`Storyshots Design System/Components/Searchbar size S 1`] = `
 .c12 {
   border: none;
   border-radius: 4px;
-  padding-bottom: 0.65625rem;
+  padding-bottom: 0.40625rem;
   padding-left: 0;
   padding-right: 16px;
-  padding-top: 0.65625rem;
+  padding-top: 0.40625rem;
   color: #32324d;
   font-weight: 400;
   font-size: 0.875rem;
@@ -43312,10 +43312,10 @@ exports[`Storyshots Design System/Components/TextInput size S 1`] = `
 .c11 {
   border: none;
   border-radius: 4px;
-  padding-bottom: 0.65625rem;
+  padding-bottom: 0.40625rem;
   padding-left: 16px;
   padding-right: 16px;
-  padding-top: 0.65625rem;
+  padding-top: 0.40625rem;
   color: #32324d;
   font-weight: 400;
   font-size: 0.875rem;
