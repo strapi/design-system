@@ -7,14 +7,19 @@ import { useField } from './FieldContext';
 import { Flex } from '../Flex';
 import { Box } from '../Box';
 
+// padding-[top|bottom] must ensure, the input matches the height of getThemeSize('input')
+const PADDING_Y = {
+  S: 6.5,
+  M: 10.5,
+};
+
 const Input = styled.input`
   border: none;
   border-radius: ${({ theme }) => theme.borderRadius};
-  // The padding-[top|bottom] must ensure, the input matches the height of getThemeSize('input')
-  padding-bottom: ${10.5 / 16}rem;
+  padding-bottom: ${({ size }) => `${PADDING_Y[size] / 16}rem`};
   padding-left: ${({ theme, hasLeftAction }) => (hasLeftAction ? 0 : theme.spaces[4])};
   padding-right: ${({ theme, hasRightAction }) => (hasRightAction ? 0 : theme.spaces[4])};
-  padding-top: ${10.5 / 16}rem;
+  padding-top: ${({ size }) => `${PADDING_Y[size] / 16}rem`};
   cursor: ${(props) => (props['aria-disabled'] ? 'not-allowed' : undefined)};
 
   color: ${({ theme }) => theme.colors.neutral800};
@@ -93,6 +98,7 @@ export const FieldInput = forwardRef(({ endAction, startAction, disabled, onChan
         hasLeftAction={Boolean(startAction)}
         hasRightAction={Boolean(endAction)}
         onChange={handleChange}
+        size={size}
         {...props}
       />
       {endAction && (
