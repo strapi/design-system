@@ -10,7 +10,7 @@ import { AccordionContent } from './AccordionContent';
 import { AccordionGroup } from './AccordionGroup';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
-import { Text } from '../Typography';
+import { Typography } from '../Typography';
 import { IconButton } from '../IconButton';
 import { TextButton } from '../TextButton';
 import { Stack } from '../Stack';
@@ -63,7 +63,9 @@ import { Accordion, AccordionToggle, AccordionContent, AccordionGroup } from '@s
             >
               <AccordionToggle title="User informations" />
               <AccordionContent>
-                <Box padding={3}>My name is John Duff</Box>
+                <Box padding={3}>
+                  <Typography>My name is John Duff</Typography>
+                </Box>
               </AccordionContent>
             </Accordion>
           </Box>
@@ -75,7 +77,9 @@ import { Accordion, AccordionToggle, AccordionContent, AccordionGroup } from '@s
                 action={<IconButton onClick={() => console.log('edit')} label="Edit" icon={<Pencil />} />}
               />
               <AccordionContent>
-                <Box padding={3}>My name is John Duff</Box>
+                <Box padding={3}>
+                  <Typography>My name is John Duff</Typography>
+                </Box>
               </AccordionContent>
             </Accordion>
           </Box>
@@ -87,7 +91,9 @@ import { Accordion, AccordionToggle, AccordionContent, AccordionGroup } from '@s
                 description="The following contains information about the current user 3"
               />
               <AccordionContent>
-                <Box padding={3}>My name is John Duff</Box>
+                <Box padding={3}>
+                  <Typography>My name is John Duff</Typography>
+                </Box>
               </AccordionContent>
             </Accordion>
           </Box>
@@ -99,7 +105,9 @@ import { Accordion, AccordionToggle, AccordionContent, AccordionGroup } from '@s
                 action={<IconButton onClick={() => console.log('edit')} label="Edit" icon={<Pencil />} />}
               />
               <AccordionContent>
-                <Box padding={3}>My name is John Duff</Box>
+                <Box padding={3}>
+                  <Typography>My name is John Duff</Typography>
+                </Box>
               </AccordionContent>
             </Accordion>
           </Box>
@@ -162,7 +170,9 @@ import { Accordion, AccordionToggle, AccordionContent, AccordionGroup } from '@s
                   togglePosition="left"
                 />
                 <AccordionContent>
-                  <Box padding={3}>My name is John Duff</Box>
+                  <Box padding={3}>
+                    <Typography>My name is John Duff</Typography>
+                  </Box>
                 </AccordionContent>
               </Accordion>
               <Accordion
@@ -174,13 +184,17 @@ import { Accordion, AccordionToggle, AccordionContent, AccordionGroup } from '@s
               >
                 <AccordionToggle title="User informations" togglePosition="left" />
                 <AccordionContent>
-                  <Box padding={3}>My name is John Duff</Box>
+                  <Box padding={3}>
+                    <Typography>My name is John Duff</Typography>
+                  </Box>
                 </AccordionContent>
               </Accordion>
               <Accordion expanded={expanded} onToggle={() => setExpanded((s) => !s)} id="acc-3" size="S">
                 <AccordionToggle title="User informations" togglePosition="left" />
                 <AccordionContent>
-                  <Box padding={3}>My name is Michka</Box>
+                  <Box padding={3}>
+                    <Typography>My name is Michka</Typography>
+                  </Box>
                 </AccordionContent>
               </Accordion>
               <Accordion expanded={false} onToggle={() => setExpanded((s) => !s)} id="acc-2" size="S">
@@ -190,7 +204,9 @@ import { Accordion, AccordionToggle, AccordionContent, AccordionGroup } from '@s
                   togglePosition="left"
                 />
                 <AccordionContent>
-                  <Box padding={3}>My name is John Duff</Box>
+                  <Box padding={3}>
+                    <Typography>My name is John Duff</Typography>
+                  </Box>
                 </AccordionContent>
               </Accordion>
             </AccordionGroup>
@@ -217,7 +233,9 @@ The accordion component has two main states: collapsed and expanded. By default 
                 description="The following contains information about the current user"
               />
               <AccordionContent>
-                <Box padding={3}>My name is John Duff</Box>
+                <Box padding={3}>
+                  <Typography>My name is John Duff</Typography>
+                </Box>
               </AccordionContent>
             </Accordion>
           </Box>
@@ -229,7 +247,9 @@ The accordion component has two main states: collapsed and expanded. By default 
                 description="The following contains information about the current user 2"
               />
               <AccordionContent>
-                <Box padding={3}>My name is John Duff</Box>
+                <Box padding={3}>
+                  <Typography>My name is John Duff</Typography>
+                </Box>
               </AccordionContent>
             </Accordion>
           </Box>
@@ -241,7 +261,9 @@ The accordion component has two main states: collapsed and expanded. By default 
                 description="The following contains information about the current user 3"
               />
               <AccordionContent>
-                <Box padding={3}>My name is John Duff</Box>
+                <Box padding={3}>
+                  <Typography>My name is John Duff</Typography>
+                </Box>
               </AccordionContent>
             </Accordion>
           </Box>
@@ -254,7 +276,9 @@ The accordion component has two main states: collapsed and expanded. By default 
                 action={<IconButton onClick={() => console.log('edit')} label="Edit" icon={<Pencil />} />}
               />
               <AccordionContent>
-                <Box padding={3}>My name is John Duff</Box>
+                <Box padding={3}>
+                  <Typography>My name is John Duff</Typography>
+                </Box>
               </AccordionContent>
             </Accordion>
           </Box>
@@ -276,7 +300,9 @@ The Accordion component can also be open by default using the parameter `expande
         description="The following contains information about the current user"
       />
       <AccordionContent>
-        <Box padding={3}>My name is John Duff</Box>
+        <Box padding={3}>
+          <Typography>My name is John Duff</Typography>
+        </Box>
       </AccordionContent>
     </Accordion>
   </Story>
