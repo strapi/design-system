@@ -2,11 +2,11 @@ import React, { useRef, useState, Children, cloneElement, useEffect } from 'reac
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import CarretDown from '@strapi/icons/CarretDown';
+import { NavLink } from 'react-router-dom';
 import { Typography } from '../Typography';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { Button } from '../Button';
-import { BaseLink } from '../BaseLink';
 import { Popover } from '../Popover';
 import { getOptionStyle } from './utils';
 import { useId } from '../helpers/useId';
@@ -20,7 +20,7 @@ const OptionButton = styled.button`
   ${getOptionStyle}
 `;
 
-const OptionLink = styled(BaseLink)`
+const OptionLink = styled(NavLink)`
   text-decoration: none;
   ${getOptionStyle}
 `;
@@ -38,7 +38,7 @@ const StyledButtonSmall = styled(Button)`
   padding: ${({ theme }) => `${theme.spaces[1]} ${theme.spaces[3]}`};
 `;
 
-export const MenuItem = ({ as, children, onClick, isFocused, isLink, ...props }) => {
+export const MenuItem = ({ children, onClick, to, isFocused, ...props }) => {
   const menuItemRef = useRef();
 
   useEffect(() => {
@@ -60,8 +60,8 @@ export const MenuItem = ({ as, children, onClick, isFocused, isLink, ...props })
     }
   };
 
-  return isLink ? (
-    <OptionLink as={as} {...menuItemProps}>
+  return to ? (
+    <OptionLink to={to} {...menuItemProps}>
       <Box padding={2}>
         <Typography>{children}</Typography>
       </Box>
@@ -78,15 +78,15 @@ export const MenuItem = ({ as, children, onClick, isFocused, isLink, ...props })
 MenuItem.defaultProps = {
   onClick: () => {},
   isFocused: false,
-  isLink: false,
+  to: undefined,
 };
 
 MenuItem.propTypes = {
   as: PropTypes.elementType,
   children: PropTypes.node.isRequired,
   isFocused: PropTypes.bool,
-  isLink: PropTypes.bool,
   onClick: PropTypes.func,
+  to: PropTypes.string,
 };
 
 export const SimpleMenu = ({

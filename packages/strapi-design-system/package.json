@@ -9,7 +9,7 @@
     "@babel/preset-env": "^7.13.0",
     "@babel/preset-react": "^7.12.13",
     "@figspec/react": "^0.1.5",
-    "@playwright/test": "^1.19.1",
+    "@playwright/test": "^1.20.0",
     "@storybook/addon-actions": "^6.4.0",
     "@storybook/addon-essentials": "^6.4.0",
     "@storybook/addon-links": "^6.4.0",
@@ -17,7 +17,7 @@
     "@storybook/react": "^6.4.0",
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.5",
-    "axe-playwright": "^1.1.8",
+    "axe-playwright": "^1.1.11",
     "babel-jest": "^26.6.3",
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^3.0.0",
@@ -34,6 +34,7 @@
     "react": "^17.0.1",
     "react-copy-to-clipboard": "^5.0.4",
     "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
     "storybook-dark-mode": "^1.0.9",
     "styled-components": "^5.2.1",
     "webpack-bundle-analyzer": "^4.4.0",
@@ -43,6 +44,7 @@
     "@strapi/icons": "^0.0.1-alpha.73",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
     "styled-components": "^5.2.1"
   },
   "dependencies": {
@@ -53,7 +55,8 @@
   "scripts": {
     "analyze:bundle": "cross-env BUNDLE_ANALYZE=1 webpack",
     "prebuild": "rimraf dist",
-    "build": "yarn build:dev && yarn build:prod && yarn copy:files && yarn create:index-files",
+    "build": "yarn build:files && cross-env IS_V2=true yarn build:files",
+    "build:files": "yarn build:dev && yarn build:prod && yarn copy:files && yarn create:index-files",
     "build:dev": "cross-env NODE_ENV=development webpack-cli",
     "build:prod": "cross-env NODE_ENV=production webpack-cli",
     "copy:files": "node ../../tools/copy-files.js",

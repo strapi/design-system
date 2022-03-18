@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Dot from '@strapi/icons/Dot';
+import { NavLink } from 'react-router-dom';
 import { Box } from '../Box';
 import { Typography } from '../Typography';
 import { Flex } from '../Flex';
-import { BaseLink } from '../BaseLink';
 
 const SubNavLinkWrapper = styled(Box)`
   display: flex;
@@ -51,16 +51,15 @@ const IconWrapper = styled.div`
   }
 `;
 
-export const SubNavLink = React.forwardRef(({ children, icon, withBullet, as, ...props }, ref) => {
+export const SubNavLink = ({ children, icon, withBullet, ...props }) => {
   return (
     <SubNavLinkWrapper
-      as={as}
+      as={NavLink}
       icon={icon}
       background="neutral100"
       paddingLeft={7}
       paddingBottom={2}
       paddingTop={2}
-      ref={ref}
       {...props}
     >
       <Flex>
@@ -76,16 +75,14 @@ export const SubNavLink = React.forwardRef(({ children, icon, withBullet, as, ..
       )}
     </SubNavLinkWrapper>
   );
-});
+};
 
 SubNavLink.displayName = 'SubNavLink';
 SubNavLink.defaultProps = {
-  as: BaseLink,
   icon: null,
   withBullet: false,
 };
 SubNavLink.propTypes = {
-  as: PropTypes.elementType,
   children: PropTypes.node,
   icon: PropTypes.element,
   link: PropTypes.element,

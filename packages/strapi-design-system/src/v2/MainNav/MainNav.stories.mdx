@@ -1,0 +1,200 @@
+<!--- MainNav.stories.mdx --->
+
+import { useState } from 'react';
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { ArgsTable } from '@storybook/addon-docs';
+import Write from '@strapi/icons/Write';
+import Layer from '@strapi/icons/Layer';
+import Landscape from '@strapi/icons/Landscape';
+import Information from '@strapi/icons/Information';
+import Puzzle from '@strapi/icons/Puzzle';
+import ShoppingCart from '@strapi/icons/ShoppingCart';
+import Cog from '@strapi/icons/Cog';
+import { MainNav } from './MainNav';
+import { NavSection } from './NavSection';
+import { NavSections } from './NavSections';
+import { NavCondense } from './NavCondense';
+import { NavLink } from './NavLink';
+import { NavUser } from './NavUser';
+import { NavBrand } from './NavBrand';
+import { Box } from '../../Box';
+import { Stack } from '../../Stack';
+import { Text } from '../../Typography';
+import { Divider } from '../../Divider';
+import { Popover } from '../../Popover';
+import strapiImage from './strapi-img.png';
+
+<Meta title="Design System/Components/v2/MainNav" component={MainNav} />
+
+# MainNav
+
+The Main Navigation is consistenly available and displayed on all the different pages of the admin panel to access the different main sections. Thanks to it the users can easily navigation from a section to another. The Main Navigation can be whether collapsed or extended depending on the user's choice.
+
+**Best practices**
+
+- It is not possible to have more than 2 navigation bars next to each others.
+- Each section has its own icon and is associated with a Tooltip.
+- Do not use icons for headers
+- Use sentence case for section names and all caps for header labels.
+- Logo asset on the top-left of the Main Navigation can be customized.
+  [View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/MainNav)
+
+## Imports
+
+```js
+import {
+  MainNav,
+  NavSection,
+  NavSections,
+  NavCondense,
+  NavBrand,
+  NavUser,
+  NavLink,
+} from '@strapi/design-system/v2/MainNav';
+```
+
+## Usage
+
+The Main Navigation can be whether collapsed or extended depending on the user's choice with the Arrow icon at the bottom.
+
+The user profile can be accessed by clicking on the user name at the bottom of the Main Navigation, as much as the possibility to log out the admin panel.
+
+According to permissions, certain sections of the Main Navigation might not be visible nor accessible by specific users.
+
+## Hierarchy
+
+Related sections are gathered under specific headers within the Main Navigation. These headers are helpful to understand the global product hierarchy.
+
+Exception made for core plugins (i.e. Content Manager, Content-types Builder, Media Library) but a plugin should not take place in the Main Navigation. The Main Navigation remains are concise as possible to quickly reach the most important actions.
+
+### MainNav
+
+<Canvas>
+  <Story name="base">
+    {() => {
+      const [condensed, setCondensed] = useState(false);
+      return (
+        <Box background="neutral100" padding={10} style={{ height: '100vh' }}>
+          <MainNav condensed={condensed}>
+            <NavBrand workplace="Workplace" title="Strapi Dashboard" icon={<img src={strapiImage} alt="" />} />
+            <Divider />
+            <NavSections>
+              <NavLink to="/cm" icon={<Write />} className="active">
+                Content-type-builder
+              </NavLink>
+              <NavSection label="Plugins">
+                <NavLink to="/builder" icon={<Layer />}>
+                  Builder
+                </NavLink>
+                <NavLink to="/content" icon={<Landscape />}>
+                  Media library
+                </NavLink>
+                <NavLink to="/content" icon={<Information />}>
+                  Documentation
+                </NavLink>
+              </NavSection>
+              <NavSection label="General">
+                <NavLink to="/builder" icon={<Puzzle />}>
+                  Plugins
+                </NavLink>
+                <NavLink to="/content" icon={<ShoppingCart />}>
+                  Marketplace
+                </NavLink>
+                <NavLink to="/content" icon={<Cog />}>
+                  Settings
+                </NavLink>
+              </NavSection>
+            </NavSections>
+            <NavUser src="https://avatars.githubusercontent.com/u/3874873?v=4" to="/somewhere-i-belong">
+              John Duff
+            </NavUser>
+            <NavCondense onClick={() => setCondensed((s) => !s)}>
+              {condensed ? 'Expanded the navbar' : 'Collapse the navbar'}
+            </NavCondense>
+          </MainNav>
+        </Box>
+      );
+    }}
+  </Story>
+  <Story name="notifications">
+    {() => {
+      const [condensed, setCondensed] = useState(false);
+      const numberOfNotifications = 2;
+      return (
+        <Box background="neutral100" padding={10} style={{ height: '100vh' }}>
+          <MainNav condensed={condensed}>
+            <NavBrand workplace="Workplace" title="Strapi Dashboard" icon={<img src={strapiImage} alt="" />} />
+            <Divider />
+            <NavSections>
+              <NavLink to="/cm" icon={<Write />} className="active">
+                Content
+              </NavLink>
+              <NavSection label="Plugins">
+                <NavLink to="/builder" icon={<Layer />}>
+                  Builder
+                </NavLink>
+                <NavLink to="/content" icon={<Landscape />}>
+                  Media library
+                </NavLink>
+                <NavLink to="/content" icon={<Information />}>
+                  Documentation
+                </NavLink>
+              </NavSection>
+              <NavSection label="General">
+                <NavLink to="/builder" icon={<Puzzle />}>
+                  Plugins
+                </NavLink>
+                <NavLink to="/content" badgeContent={'new'} icon={<ShoppingCart />} badgeAriaLabel="new content">
+                  Marketplace
+                </NavLink>
+                <NavLink
+                  to="/content"
+                  badgeContent={numberOfNotifications}
+                  icon={<Cog />}
+                  badgeAriaLabel={`${numberOfNotifications} notifications`}
+                >
+                  Settings
+                </NavLink>
+              </NavSection>
+            </NavSections>
+            <NavUser initials="MD">Michka des Ronronscelestes</NavUser>
+            <NavCondense onClick={() => setCondensed((s) => !s)}>
+              {condensed ? 'Expanded the navbar' : 'Collapse the navbar'}
+            </NavCondense>
+          </MainNav>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Usage with other routing libraries
+
+To use the Strapi design system NavLink/NavBrand component with a routing library (e.g. react-router-dom), you'll need to pass the react-router-dom `NavLink` component to the `as` prop in order to replace the default HTML anchor `<a />`.
+You'll now be able to pass all the react-router-dom `NavLink` props.
+
+```jsx
+import { NavLink } from '@strapi/design-system/NavLink';
+import { NavLink as RouterNavLink } from 'react-router-dom';
+
+<NavLink as={RouterNavLink} to="/home">
+  Home
+</NavLink>;
+```
+
+#### NextJS usage
+
+For NextJS, you'll need to wrap the `NavLink` with the `NextLink` component
+
+```jsx
+import { NavLink } from '@strapi/design-system/NavLink';
+import NextLink from 'next/link';
+
+<NextLink href="/home" passHref>
+  <NavLink>Home</NavLink>
+</NextLink>;
+```
+
+## Props
+
+<ArgsTable of={MainNav} />
