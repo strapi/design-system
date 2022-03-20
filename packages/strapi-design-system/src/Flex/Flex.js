@@ -12,11 +12,11 @@ const transientProps = {
 export const Flex = styled(Box).withConfig({
   shouldForwardProp: (prop, defPropValFN) => !transientProps[prop] && defPropValFN(prop),
 })`
+  align-items: ${({ alignItems }) => alignItems};
   display: ${({ inline }) => (inline ? 'inline-flex' : 'flex')};
   flex-direction: ${({ direction }) => direction};
-  justify-content: ${({ justifyContent }) => justifyContent};
-  align-items: ${({ alignItems }) => alignItems};
   flex-wrap: ${({ wrap }) => wrap};
+  justify-content: ${({ justifyContent }) => justifyContent};
 `;
 
 Flex.defaultProps = {
