@@ -18,7 +18,19 @@ FlexProps.propTypes = {
   alignItems: PropTypes.string,
   basis: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   direction: PropTypes.string,
-  gap: PropTypes.number,
+  /**
+   * Supports responsive values
+   */
+  gap: PropTypes.oneOfType([
+    PropTypes.shape({
+      desktop: PropTypes.number,
+      mobile: PropTypes.number,
+      tablet: PropTypes.number,
+    }),
+    PropTypes.number,
+    PropTypes.arrayOf(PropTypes.number),
+    PropTypes.string,
+  ]),
   inline: PropTypes.bool,
   justifyContent: PropTypes.string,
   reverse: PropTypes.bool,
