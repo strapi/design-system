@@ -4,8 +4,8 @@ import { Box } from '../Box';
 import styled from 'styled-components';
 
 const IconWrapper = styled(Box)`
-  width: ${({ theme, width }) => theme.spaces[width]};
-  height: ${({ theme, height }) => theme.spaces[height]};
+  width: ${({ theme, width }) => theme.spaces[width] ? theme.spaces[width] : width};
+  height: ${({ theme, height }) => theme.spaces[height] ? theme.spaces[height] : height};
 
   path {
     fill: ${({ color, theme }) => theme.colors[color]};
@@ -29,6 +29,6 @@ Icon.defaultProps = {
 Icon.propTypes = {
   color: PropTypes.string,
   colors: PropTypes.func,
-  height: PropTypes.number,
-  width: PropTypes.number,
+  height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
