@@ -47827,7 +47827,7 @@ exports[`Storyshots Design System/Components/ToggleCheckbox disabled 1`] = `
 
 .c9 {
   font-weight: 600;
-  color: #666687;
+  color: #8e8ea9;
   text-transform: uppercase;
   font-size: 0.75rem;
   line-height: 1.33;
@@ -47881,6 +47881,17 @@ exports[`Storyshots Design System/Components/ToggleCheckbox disabled 1`] = `
 }
 
 .c10 {
+  background-color: #ffffff;
+  border: 1px solid #dcdce4;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  z-index: 2;
+}
+
+.c11 {
   height: 100%;
   left: 0;
   opacity: 0;
@@ -47921,7 +47932,6 @@ exports[`Storyshots Design System/Components/ToggleCheckbox disabled 1`] = `
           <div
             aria-hidden="true"
             class="c6 c7 c8"
-            disabled=""
           >
             <span
               class="c9"
@@ -47931,8 +47941,7 @@ exports[`Storyshots Design System/Components/ToggleCheckbox disabled 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="c6 c7 c8"
-            disabled=""
+            class="c6 c7 c10"
           >
             <span
               class="c9"
@@ -47943,7 +47952,7 @@ exports[`Storyshots Design System/Components/ToggleCheckbox disabled 1`] = `
           <input
             aria-disabled="true"
             checked=""
-            class="c10"
+            class="c11"
             type="checkbox"
           />
         </div>
