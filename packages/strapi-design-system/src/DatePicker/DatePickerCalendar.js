@@ -26,6 +26,7 @@ export const DatePickerCalendar = ({
   const { sun, mon, tue, wed, thu, fri, sat } = getDayOfWeek();
   const months = getMonths();
   const years = getYears(minDate, maxDate);
+  const currentDate = new Date();
 
   useEffect(() => {
     if (selectedDate) {
@@ -91,6 +92,7 @@ export const DatePickerCalendar = ({
                         outsideMonth={outsideMonth}
                         onSelectDay={() => onChange(date)}
                         isSelected={isSelected}
+                        isCurrent={currentDate.getDate() === date.getDate()}
                       >
                         <span aria-hidden={true}>{date.getDate()}</span>
                         <VisuallyHidden>
