@@ -17,7 +17,6 @@ export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   darkMode: {
     // Override the default dark theme
-    current: 'light',
     dark: createCustomTheme({ theme: darkTheme, asStorybookTheme: false }),
     // Override the default light theme
     light: createCustomTheme({ theme: lightTheme, asStorybookTheme: false }),

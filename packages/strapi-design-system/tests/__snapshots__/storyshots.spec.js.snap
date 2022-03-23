@@ -1741,6 +1741,12 @@ exports[`Storyshots Design System/Components/Accordion expanded 1`] = `
   line-height: 1.43;
 }
 
+.c22 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
 .c7 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1990,7 +1996,11 @@ exports[`Storyshots Design System/Components/Accordion expanded 1`] = `
           <div
             class="c21"
           >
-            My name is John Duff
+            <span
+              class="c22"
+            >
+              My name is John Duff
+            </span>
           </div>
         </div>
       </div>
