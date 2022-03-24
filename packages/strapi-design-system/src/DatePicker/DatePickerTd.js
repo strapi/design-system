@@ -5,7 +5,7 @@ import { RawTd } from '../RawTable';
 import { Typography } from '../Typography';
 
 const DatePickerCellButton = styled.button`
-  border: ${({ theme, isCurrent }) => (isCurrent ? `1px solid ${theme.colors.primary600}` : 'none')};
+  border: ${({ theme, isCurrent }) => (isCurrent ? `1px solid ${theme.colors.neutral300}` : 'none')};
   background: ${({ theme, isSelected }) => (isSelected ? theme.colors.primary100 : theme.colors.neutral0)};
   height: ${32 / 16}rem;
   text-align: center;
