@@ -2,16 +2,24 @@ import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { sizes } from '../themes/sizes';
-import { getThemeSize, inputFocusStyle } from '../themes/utils';
+import { inputFocusStyle } from '../themes/utils';
 import { useField } from './FieldContext';
 import { Flex } from '../Flex';
 import { Box } from '../Box';
 
+// padding-[top|bottom] must ensure, the input matches the height of getThemeSize('input')
+const PADDING_Y = {
+  S: 6.5,
+  M: 10.5,
+};
+
 const Input = styled.input`
   border: none;
   border-radius: ${({ theme }) => theme.borderRadius};
+  padding-bottom: ${({ size }) => `${PADDING_Y[size] / 16}rem`};
   padding-left: ${({ theme, hasLeftAction }) => (hasLeftAction ? 0 : theme.spaces[4])};
   padding-right: ${({ theme, hasRightAction }) => (hasRightAction ? 0 : theme.spaces[4])};
+  padding-top: ${({ size }) => `${PADDING_Y[size] / 16}rem`};
   cursor: ${(props) => (props['aria-disabled'] ? 'not-allowed' : undefined)};
 
   color: ${({ theme }) => theme.colors.neutral800};
@@ -42,8 +50,6 @@ export const InputWrapper = styled(Flex)`
   border: 1px solid ${({ theme, hasError }) => (hasError ? theme.colors.danger600 : theme.colors.neutral200)};
   border-radius: ${({ theme }) => theme.borderRadius};
   background: ${({ theme }) => theme.colors.neutral0};
-  height: ${getThemeSize('input')};
-
   ${inputFocusStyle()}
 
   ${({ theme, disabled }) =>
@@ -92,6 +98,7 @@ export const FieldInput = forwardRef(({ endAction, startAction, disabled, onChan
         hasLeftAction={Boolean(startAction)}
         hasRightAction={Boolean(endAction)}
         onChange={handleChange}
+        size={size}
         {...props}
       />
       {endAction && (
