@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Box } from '../Box';
+import handleResponsiveValues from '../helpers/handleResponsiveValues';
 
 /**
  * Prevents these attributes from being spread on the DOM node
@@ -12,17 +13,19 @@ const transientProps = {
 export const Flex = styled(Box).withConfig({
   shouldForwardProp: (prop, defPropValFN) => !transientProps[prop] && defPropValFN(prop),
 })`
+  align-items: ${({ alignItems }) => alignItems};
   display: ${({ inline }) => (inline ? 'inline-flex' : 'flex')};
   flex-direction: ${({ direction }) => direction};
-  justify-content: ${({ justifyContent }) => justifyContent};
-  align-items: ${({ alignItems }) => alignItems};
   flex-wrap: ${({ wrap }) => wrap};
+  ${({ gap, theme }) => handleResponsiveValues('gap', gap, theme)}};
+  justify-content: ${({ justifyContent }) => justifyContent};
 `;
 
 Flex.defaultProps = {
   alignItems: 'center',
   basis: undefined,
   direction: 'row',
+  gap: undefined,
   inline: false,
   justifyContent: undefined,
   reverse: false,
@@ -33,6 +36,16 @@ Flex.propTypes = {
   alignItems: PropTypes.string,
   basis: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   direction: PropTypes.string,
+  gap: PropTypes.oneOfType([
+    PropTypes.shape({
+      desktop: PropTypes.number,
+      mobile: PropTypes.number,
+      tablet: PropTypes.number,
+    }),
+    PropTypes.number,
+    PropTypes.arrayOf(PropTypes.number),
+    PropTypes.string,
+  ]),
   inline: PropTypes.bool,
   justifyContent: PropTypes.string,
   reverse: PropTypes.bool,
