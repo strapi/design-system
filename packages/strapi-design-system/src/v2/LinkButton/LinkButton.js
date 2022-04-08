@@ -10,8 +10,8 @@ import { BaseLink } from '../../BaseLink';
 
 const LinkWrapper = styled(BaseButtonWrapper)`
   padding: ${({ theme, size }) => `${size === 'S' ? theme.spaces[2] : '10px'} ${theme.spaces[4]}`};
-  background: ${({ theme }) => theme.colors.primary600};
-  border: none;
+  background: ${({ theme }) => theme.colors.buttonPrimary600};
+  border: 1px solid ${({ theme }) => theme.colors.buttonPrimary600};
   border-radius: ${({ theme }) => theme.borderRadius};
   ${Box} {
     display: flex;

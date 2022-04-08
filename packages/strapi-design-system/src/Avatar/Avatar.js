@@ -62,24 +62,7 @@ export const Avatar = ({ src, alt, preview }) => {
   );
 };
 
-const getColor =
-  (colorName) =>
-  ({ theme }) =>
-    theme.colors[colorName];
-
 const InitialsWrapper = styled(Flex)`
-  width: ${avatarSize}px;
-  height: ${avatarSize}px;
-  border-radius: 50%;
-
-  background: linear-gradient(
-    157deg,
-    ${getColor('primary600')} 0%,
-    ${getColor('primary500')} 50%,
-    ${getColor('primary200')} 81%,
-    ${getColor('primary100')} 96%
-  );
-
   span {
     line-height: 0;
   }
@@ -87,8 +70,14 @@ const InitialsWrapper = styled(Flex)`
 
 export const Initials = ({ children }) => {
   return (
-    <InitialsWrapper justifyContent="center">
-      <Typography fontWeight="bold" textColor="neutral0" fontSize={0} textTransform="uppercase">
+    <InitialsWrapper
+      borderRadius="50%"
+      width={`${avatarSize}px`}
+      height={`${avatarSize}px`}
+      background="primary600"
+      justifyContent="center"
+    >
+      <Typography fontWeight="bold" textColor="buttonNeutral0" fontSize={0} textTransform="uppercase">
         {children}
       </Typography>
     </InitialsWrapper>

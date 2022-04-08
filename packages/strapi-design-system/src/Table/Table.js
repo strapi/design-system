@@ -6,6 +6,7 @@ import { Box } from '../Box';
 
 const TableContainer = styled(Box)`
   overflow: hidden;
+  border: 1px solid ${({ theme }) => theme.colors.neutral150};
 `;
 
 const TableWrapper = styled(RawTable)`

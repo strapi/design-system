@@ -71,14 +71,13 @@ test.describe.parallel('HeaderLayout', () => {
     });
   });
 
-  // TO FIX DARK MODE - colors contrast issues (caused by button component)
-  // test.describe('dark mode', () => {
-  //   test.describe('base', () => {
-  //     test('triggers axe on the document', async ({ page }) => {
-  //       await page.goto('/iframe.html?id=design-system-components-headerlayout--base&viewMode=story&theme=dark');
-  //       await injectAxe(page);
-  //       await checkA11y(page);
-  //     });
-  //   });
-  // });
+  test.describe('dark mode', () => {
+    test.describe('base', () => {
+      test('triggers axe on the document', async ({ page }) => {
+        await page.goto('/iframe.html?id=design-system-components-headerlayout--base&viewMode=story&theme=dark');
+        await injectAxe(page);
+        await checkA11y(page);
+      });
+    });
+  });
 });

@@ -135,7 +135,7 @@ describe('ModalLayout', () => {
         align-items: center;
         padding: 8px 16px;
         background: #4945ff;
-        border: none;
+        border: 1px solid #4945ff;
         border: 1px solid #dcdce4;
         background: #ffffff;
       }
@@ -207,7 +207,7 @@ describe('ModalLayout', () => {
         align-items: center;
         padding: 8px 16px;
         background: #4945ff;
-        border: none;
+        border: 1px solid #4945ff;
         border: 1px solid #d9d8ff;
         background: #f0f0ff;
       }
@@ -289,9 +289,7 @@ describe('ModalLayout', () => {
         align-items: center;
         padding: 8px 16px;
         background: #4945ff;
-        border: none;
         border: 1px solid #4945ff;
-        background: #4945ff;
       }
 
       .c19 .c2 {

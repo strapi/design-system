@@ -48,6 +48,13 @@ export const getHoverStyle = ({ theme, variant }) => {
     `;
   }
 
+  if (variant === 'default') {
+    return `
+      border: 1px solid ${theme.colors.buttonPrimary500};
+      background: ${theme.colors.buttonPrimary500};
+    `;
+  }
+
   return `
     border: 1px solid ${theme.colors[`${getVariantColorName(variant)}500`]};
     background: ${theme.colors[`${getVariantColorName(variant)}500`]};
@@ -141,8 +148,6 @@ export const getVariantStyle = ({ theme, variant }) => {
     }
     default: {
       return `
-          border: 1px solid ${theme.colors[`${getVariantColorName(variant)}600`]};
-          background: ${theme.colors[`${getVariantColorName(variant)}600`]};
           svg {
             > g, path {
               fill: ${theme.colors.buttonNeutral0};
