@@ -3688,8 +3688,8 @@ exports[`Storyshots Design System/Components/Avatar base 1`] = `
 
 .c4 {
   position: relative;
-  width: 26px;
-  height: 26px;
+  width: 1.625rem;
+  height: 1.625rem;
 }
 
 <div
@@ -3778,8 +3778,8 @@ exports[`Storyshots Design System/Components/Avatar group 1`] = `
 
 .c6 {
   position: relative;
-  width: 26px;
-  height: 26px;
+  width: 1.625rem;
+  height: 1.625rem;
 }
 
 .c5 > * + * {
@@ -20050,8 +20050,8 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
 
 .c76 {
   position: relative;
-  width: 26px;
-  height: 26px;
+  width: 1.625rem;
+  height: 1.625rem;
 }
 
 .c72 {
@@ -26121,8 +26121,8 @@ exports[`Storyshots Design System/Components/MainNav base 1`] = `
 
 .c28 {
   position: relative;
-  width: 26px;
-  height: 26px;
+  width: 1.625rem;
+  height: 1.625rem;
 }
 
 .c14 {
@@ -37472,8 +37472,8 @@ exports[`Storyshots Design System/Components/Table base 1`] = `
 
 .c19 {
   position: relative;
-  width: 26px;
-  height: 26px;
+  width: 1.625rem;
+  height: 1.625rem;
 }
 
 .c14 {
@@ -38754,8 +38754,8 @@ exports[`Storyshots Design System/Components/Table base without footer 1`] = `
 
 .c19 {
   position: relative;
-  width: 26px;
-  height: 26px;
+  width: 1.625rem;
+  height: 1.625rem;
 }
 
 .c14 {
@@ -39981,8 +39981,8 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
 
 .c21 {
   position: relative;
-  width: 26px;
-  height: 26px;
+  width: 1.625rem;
+  height: 1.625rem;
 }
 
 .c14 {
@@ -52476,8 +52476,8 @@ exports[`Storyshots Design System/Components/v2/MainNav base 1`] = `
 
 .c29 {
   position: relative;
-  width: 26px;
-  height: 26px;
+  width: 1.625rem;
+  height: 1.625rem;
 }
 
 .c5 {

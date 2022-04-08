@@ -13,8 +13,8 @@ const AvatarImg = styled.img`
 
 const AvatarImgWrapper = styled.div`
   position: relative;
-  width: ${avatarSize}px;
-  height: ${avatarSize}px;
+  width: ${avatarSize / 16}rem;
+  height: ${avatarSize / 16}rem;
   z-index: ${({ hovering }) => (hovering ? 1 : undefined)};
 `;
 
@@ -27,10 +27,10 @@ const PreviewContainer = styled.img`
 
 const Overlay = styled.div`
   z-index: 1;
-  border-radius: 50%;
+  border-radius: 30%;
   position: absolute;
-  width: ${avatarSize}px;
-  height: ${avatarSize}px;
+  width: ${avatarSize / 16}rem;
+  height: ${avatarSize / 16}rem;
   background: ${({ theme }) => theme.colors.neutral0};
   opacity: 0.4;
 `;

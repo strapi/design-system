@@ -1,14 +1,25 @@
 import { Typography } from '../Typography';
-import { LIGHT_VARIANTS, VARIANTS } from './constants';
+import {
+  LIGHT_VARIANTS,
+  VARIANTS,
+  SECONDARY,
+  TERTIARY,
+  DEFAULT,
+  GHOST,
+  DANGER,
+  SUCCESS,
+  DANGER_LIGHT,
+  SUCCESS_LIGHT,
+} from './constants';
 
 export const getVariantColorName = (variant) => {
   if (LIGHT_VARIANTS.includes(variant)) {
     return variant.substring(0, variant.lastIndexOf('-'));
   }
-  if (variant === 'tertiary') {
+  if (variant === TERTIARY) {
     return 'neutral';
   }
-  if (['default', 'secondary'].includes(variant) || !VARIANTS.includes(variant)) {
+  if ([DEFAULT, SECONDARY].includes(variant) || !VARIANTS.includes(variant)) {
     return 'primary';
   }
 
@@ -31,24 +42,24 @@ export const getDisabledStyle = ({ theme }) => {
 };
 
 export const getHoverStyle = ({ theme, variant }) => {
-  if ([...LIGHT_VARIANTS, 'secondary'].includes(variant)) {
+  if ([...LIGHT_VARIANTS, SECONDARY].includes(variant)) {
     return `
       background-color: ${theme.colors.neutral0};
     `;
   }
-  if (variant === 'tertiary') {
+  if (variant === TERTIARY) {
     return `
       background-color: ${theme.colors.neutral100};
     `;
   }
 
-  if (variant === 'ghost') {
+  if (variant === GHOST) {
     return `
       background-color: ${theme.colors.neutral100};
     `;
   }
 
-  if (variant === 'default') {
+  if (variant === DEFAULT) {
     return `
       border: 1px solid ${theme.colors.buttonPrimary500};
       background: ${theme.colors.buttonPrimary500};
@@ -62,7 +73,7 @@ export const getHoverStyle = ({ theme, variant }) => {
 };
 
 export const getActiveStyle = ({ theme, variant }) => {
-  if ([...LIGHT_VARIANTS, 'secondary'].includes(variant)) {
+  if ([...LIGHT_VARIANTS, SECONDARY].includes(variant)) {
     return `
       background-color: ${theme.colors.neutral0};
       border: 1px solid ${theme.colors[`${getVariantColorName(variant)}600`]};
@@ -76,7 +87,7 @@ export const getActiveStyle = ({ theme, variant }) => {
       }
     `;
   }
-  if (variant === 'tertiary') {
+  if (variant === TERTIARY) {
     return `
       background-color: ${theme.colors.neutral150};
     `;
@@ -90,9 +101,9 @@ export const getActiveStyle = ({ theme, variant }) => {
 
 export const getVariantStyle = ({ theme, variant }) => {
   switch (variant) {
-    case 'danger-light':
-    case 'success-light':
-    case 'secondary': {
+    case DANGER_LIGHT:
+    case SUCCESS_LIGHT:
+    case SECONDARY: {
       return `
           border: 1px solid ${theme.colors[`${getVariantColorName(variant)}200`]};
           background: ${theme.colors[`${getVariantColorName(variant)}100`]};
@@ -106,7 +117,7 @@ export const getVariantStyle = ({ theme, variant }) => {
           }
         `;
     }
-    case 'tertiary': {
+    case TERTIARY: {
       return `
           border: 1px solid ${theme.colors.neutral200};
           background: ${theme.colors.neutral0};
@@ -120,7 +131,7 @@ export const getVariantStyle = ({ theme, variant }) => {
           }
         `;
     }
-    case 'ghost': {
+    case GHOST: {
       return `
         border: 1px solid transparent;
         background: transparent;
@@ -136,8 +147,8 @@ export const getVariantStyle = ({ theme, variant }) => {
         }
       `;
     }
-    case 'success':
-    case 'danger': {
+    case SUCCESS:
+    case DANGER: {
       return `
           border: 1px solid ${theme.colors[`${getVariantColorName(variant)}600`]};
           background: ${theme.colors[`${getVariantColorName(variant)}600`]};
