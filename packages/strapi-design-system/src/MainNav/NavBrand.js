@@ -9,9 +9,10 @@ import { useMainNav } from './MainNavContext';
 import { VisuallyHidden } from '../VisuallyHidden';
 
 const BrandIconWrapper = styled.div`
-  border-radius: ${({ theme }) => theme.borderRadius};
   svg,
   img {
+    border-radius: ${({ theme }) => theme.borderRadius};
+    object-fit: contain;
     height: ${({ condensed }) => (condensed ? `${40 / 16}rem` : `${32 / 16}rem`)};
     width: ${({ condensed }) => (condensed ? `${40 / 16}rem` : `${32 / 16}rem`)};
   }
