@@ -26231,12 +26231,10 @@ exports[`Storyshots Design System/Components/MainNav base 1`] = `
   border-top: 1px solid #eaeaef;
 }
 
-.c7 {
-  border-radius: 4px;
-}
-
 .c7 svg,
 .c7 img {
+  border-radius: 4px;
+  object-fit: contain;
   height: 2rem;
   width: 2rem;
 }
@@ -27083,12 +27081,10 @@ exports[`Storyshots Design System/Components/MainNav notifications 1`] = `
   border-top: 1px solid #eaeaef;
 }
 
-.c7 {
-  border-radius: 4px;
-}
-
 .c7 svg,
 .c7 img {
+  border-radius: 4px;
+  object-fit: contain;
   height: 2rem;
   width: 2rem;
 }
