@@ -128,12 +128,33 @@
       ]
     },
     {
-      "name": "Design Tokens / shadows",
-      "path": "packages/strapi-design-system/src/themes/shadows.js",
+      "name": "Design Tokens / light shadows",
+      "path": "packages/strapi-design-system/src/themes/lightTheme/light-shadows.js",
       "filter": {
         "types": ["shadow"]
       },
       "parsers": [
+        {
+          "name": "filter",
+          "options": {
+            "key": "name",
+            "regex": {
+              "pattern": "Light mode/",
+              "flags": "g"
+            }
+          }
+        },
+        {
+          "name": "replace-string",
+          "options": {
+            "keys": ["name"],
+            "regex": {
+              "pattern": "Light mode/",
+              "flags": "g"
+            },
+            "trim": true
+          }
+        },
         {
           "name": "to-jss",
           "options": {
@@ -143,7 +164,53 @@
               "shadowFormat": "string"
             },
             "formatConfig": {
-              "jssObjectName": "shadowTokenObject",
+              "jssObjectName": "lightShadowTokenObject",
+              "exportDefault": false,
+              "tabWidth": 2,
+              "singleQuote": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Design Tokens / dark shadows",
+      "path": "packages/strapi-design-system/src/themes/darkTheme/dark-shadows.js",
+      "filter": {
+        "types": ["shadow"]
+      },
+      "parsers": [
+        {
+          "name": "filter",
+          "options": {
+            "key": "name",
+            "regex": {
+              "pattern": "Dark mode/",
+              "flags": "g"
+            }
+          }
+        },
+        {
+          "name": "replace-string",
+          "options": {
+            "keys": ["name"],
+            "regex": {
+              "pattern": "Dark mode/",
+              "flags": "g"
+            },
+            "trim": true
+          }
+        },
+        {
+          "name": "to-jss",
+          "options": {
+            "formatName": "camelCase",
+            "formatTokens": {
+              "colorFormat": "rgb",
+              "shadowFormat": "string"
+            },
+            "formatConfig": {
+              "jssObjectName": "darkShadowTokenObject",
               "exportDefault": false,
               "tabWidth": 2,
               "singleQuote": true

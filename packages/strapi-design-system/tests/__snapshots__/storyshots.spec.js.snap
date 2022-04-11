@@ -3688,8 +3688,8 @@ exports[`Storyshots Design System/Components/Avatar base 1`] = `
 
 .c4 {
   position: relative;
-  width: 26px;
-  height: 26px;
+  width: 1.625rem;
+  height: 1.625rem;
 }
 
 <div
@@ -3778,8 +3778,8 @@ exports[`Storyshots Design System/Components/Avatar group 1`] = `
 
 .c6 {
   position: relative;
-  width: 26px;
-  height: 26px;
+  width: 1.625rem;
+  height: 1.625rem;
 }
 
 .c5 > * + * {
@@ -3880,7 +3880,14 @@ exports[`Storyshots Design System/Components/Avatar initials 1`] = `
   padding: 64px;
 }
 
-.c6 {
+.c4 {
+  background: #4945ff;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+}
+
+.c7 {
   font-weight: 600;
   font-size: 0.6875rem;
   color: #ffffff;
@@ -3889,7 +3896,7 @@ exports[`Storyshots Design System/Components/Avatar initials 1`] = `
   line-height: 1.43;
 }
 
-.c4 {
+.c5 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -3907,14 +3914,7 @@ exports[`Storyshots Design System/Components/Avatar initials 1`] = `
   justify-content: center;
 }
 
-.c5 {
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background: linear-gradient( 157deg, #4945ff 0%, #7b79ff 50%, #d9d8ff 81%, #f0f0ff 96% );
-}
-
-.c5 span {
+.c6 span {
   line-height: 0;
 }
 
@@ -3937,10 +3937,12 @@ exports[`Storyshots Design System/Components/Avatar initials 1`] = `
         class="c3"
       >
         <div
-          class="c4 c5"
+          class="c4 c5 c6"
+          height="26px"
+          width="26px"
         >
           <span
-            class="c6"
+            class="c7"
           >
             MF
           </span>
@@ -4416,9 +4418,7 @@ exports[`Storyshots Design System/Components/Button base 1`] = `
   align-items: center;
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
   border: 1px solid #4945ff;
-  background: #4945ff;
 }
 
 .c6 .c0 {
@@ -4621,9 +4621,7 @@ exports[`Storyshots Design System/Components/Button disabled 1`] = `
   align-items: center;
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
   border: 1px solid #4945ff;
-  background: #4945ff;
 }
 
 .c6 .c0 {
@@ -4848,9 +4846,7 @@ exports[`Storyshots Design System/Components/Button fullWidth 1`] = `
   align-items: center;
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
   border: 1px solid #4945ff;
-  background: #4945ff;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -5124,9 +5120,7 @@ exports[`Storyshots Design System/Components/Button icons 1`] = `
   align-items: center;
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
   border: 1px solid #4945ff;
-  background: #4945ff;
 }
 
 .c7 .c0 {
@@ -5194,7 +5188,7 @@ exports[`Storyshots Design System/Components/Button icons 1`] = `
   align-items: center;
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
+  border: 1px solid #4945ff;
   border: 1px solid #d9d8ff;
   background: #f0f0ff;
 }
@@ -5535,9 +5529,7 @@ exports[`Storyshots Design System/Components/Button sizes 1`] = `
   align-items: center;
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
   border: 1px solid #4945ff;
-  background: #4945ff;
 }
 
 .c7 .c0 {
@@ -5605,9 +5597,7 @@ exports[`Storyshots Design System/Components/Button sizes 1`] = `
   align-items: center;
   padding: 10px 16px;
   background: #4945ff;
-  border: none;
   border: 1px solid #4945ff;
-  background: #4945ff;
 }
 
 .c10 .c0 {
@@ -5836,9 +5826,7 @@ exports[`Storyshots Design System/Components/Button variants 1`] = `
   align-items: center;
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
   border: 1px solid #4945ff;
-  background: #4945ff;
 }
 
 .c7 .c0 {
@@ -5906,7 +5894,7 @@ exports[`Storyshots Design System/Components/Button variants 1`] = `
   align-items: center;
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
+  border: 1px solid #4945ff;
   border: 1px solid #d9d8ff;
   background: #f0f0ff;
 }
@@ -5988,7 +5976,7 @@ exports[`Storyshots Design System/Components/Button variants 1`] = `
   align-items: center;
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
+  border: 1px solid #4945ff;
   border: 1px solid #dcdce4;
   background: #ffffff;
 }
@@ -6060,7 +6048,7 @@ exports[`Storyshots Design System/Components/Button variants 1`] = `
   align-items: center;
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
+  border: 1px solid #4945ff;
   border: 1px solid #328048;
   background: #328048;
 }
@@ -6129,7 +6117,7 @@ exports[`Storyshots Design System/Components/Button variants 1`] = `
   align-items: center;
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
+  border: 1px solid #4945ff;
   border: 1px solid #d02b20;
   background: #d02b20;
 }
@@ -6198,7 +6186,7 @@ exports[`Storyshots Design System/Components/Button variants 1`] = `
   align-items: center;
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
+  border: 1px solid #4945ff;
   border: 1px solid #c6f0c2;
   background: #eafbe7;
 }
@@ -6280,7 +6268,7 @@ exports[`Storyshots Design System/Components/Button variants 1`] = `
   align-items: center;
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
+  border: 1px solid #4945ff;
   border: 1px solid #f5c0b8;
   background: #fcecea;
 }
@@ -6362,7 +6350,7 @@ exports[`Storyshots Design System/Components/Button variants 1`] = `
   align-items: center;
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
+  border: 1px solid #4945ff;
   border: 1px solid transparent;
   background: transparent;
 }
@@ -13431,9 +13419,7 @@ exports[`Storyshots Design System/Components/Dialog base 1`] = `
   align-items: center;
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
   border: 1px solid #4945ff;
-  background: #4945ff;
 }
 
 .c5 .c0 {
@@ -13782,7 +13768,7 @@ exports[`Storyshots Design System/Components/EmptyStateLayout base 1`] = `
   align-items: center;
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
+  border: 1px solid #4945ff;
   border: 1px solid #d9d8ff;
   background: #f0f0ff;
 }
@@ -14129,7 +14115,7 @@ exports[`Storyshots Design System/Components/EmptyStateLayout with large text 1`
   align-items: center;
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
+  border: 1px solid #4945ff;
   border: 1px solid #d9d8ff;
   background: #f0f0ff;
 }
@@ -16919,7 +16905,7 @@ exports[`Storyshots Design System/Components/HeaderLayout base 1`] = `
   align-items: center;
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
+  border: 1px solid #4945ff;
   border: 1px solid #dcdce4;
   background: #ffffff;
 }
@@ -16991,9 +16977,7 @@ exports[`Storyshots Design System/Components/HeaderLayout base 1`] = `
   align-items: center;
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
   border: 1px solid #4945ff;
-  background: #4945ff;
 }
 
 .c20 .c0 {
@@ -17359,7 +17343,7 @@ exports[`Storyshots Design System/Components/HeaderLayout base without nav actio
   align-items: center;
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
+  border: 1px solid #4945ff;
   border: 1px solid #dcdce4;
   background: #ffffff;
 }
@@ -17431,9 +17415,7 @@ exports[`Storyshots Design System/Components/HeaderLayout base without nav actio
   align-items: center;
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
   border: 1px solid #4945ff;
-  background: #4945ff;
 }
 
 .c16 .c0 {
@@ -17837,7 +17819,7 @@ exports[`Storyshots Design System/Components/HeaderLayout combined w/ scroll 1`]
   align-items: center;
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
+  border: 1px solid #4945ff;
   border: 1px solid #dcdce4;
   background: #ffffff;
 }
@@ -17909,9 +17891,7 @@ exports[`Storyshots Design System/Components/HeaderLayout combined w/ scroll 1`]
   align-items: center;
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
   border: 1px solid #4945ff;
-  background: #4945ff;
 }
 
 .c20 .c0 {
@@ -18356,7 +18336,7 @@ exports[`Storyshots Design System/Components/HeaderLayout sticky 1`] = `
   align-items: center;
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
+  border: 1px solid #4945ff;
   border: 1px solid #dcdce4;
   background: #ffffff;
 }
@@ -18428,9 +18408,7 @@ exports[`Storyshots Design System/Components/HeaderLayout sticky 1`] = `
   align-items: center;
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
   border: 1px solid #4945ff;
-  background: #4945ff;
 }
 
 .c23 .c0 {
@@ -20072,8 +20050,8 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
 
 .c76 {
   position: relative;
-  width: 26px;
-  height: 26px;
+  width: 1.625rem;
+  height: 1.625rem;
 }
 
 .c72 {
@@ -20155,7 +20133,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
   align-items: center;
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
+  border: 1px solid #4945ff;
   border: 1px solid #dcdce4;
   background: #ffffff;
 }
@@ -20227,9 +20205,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
   align-items: center;
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
   border: 1px solid #4945ff;
-  background: #4945ff;
 }
 
 .c49 .c0 {
@@ -20297,7 +20273,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
   align-items: center;
   padding: 10px 16px;
   background: #4945ff;
-  border: none;
+  border: 1px solid #4945ff;
   border: 1px solid #dcdce4;
   background: #ffffff;
 }
@@ -20547,6 +20523,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
 
 .c64 {
   overflow: hidden;
+  border: 1px solid #eaeaef;
 }
 
 .c68 {
@@ -23363,10 +23340,8 @@ exports[`Storyshots Design System/Components/LinkButton base 1`] = `
 .c6 {
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
-  border-radius: 4px;
   border: 1px solid #4945ff;
-  background: #4945ff;
+  border-radius: 4px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -23569,10 +23544,8 @@ exports[`Storyshots Design System/Components/LinkButton disabled 1`] = `
 .c6 {
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
-  border-radius: 4px;
   border: 1px solid #4945ff;
-  background: #4945ff;
+  border-radius: 4px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -23808,10 +23781,8 @@ exports[`Storyshots Design System/Components/LinkButton icons 1`] = `
 .c7 {
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
-  border-radius: 4px;
   border: 1px solid #4945ff;
-  background: #4945ff;
+  border-radius: 4px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -23881,7 +23852,7 @@ exports[`Storyshots Design System/Components/LinkButton icons 1`] = `
 .c11 {
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
+  border: 1px solid #4945ff;
   border-radius: 4px;
   border: 1px solid #d9d8ff;
   background: #f0f0ff;
@@ -24169,10 +24140,8 @@ exports[`Storyshots Design System/Components/LinkButton sizes 1`] = `
 .c7 {
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
-  border-radius: 4px;
   border: 1px solid #4945ff;
-  background: #4945ff;
+  border-radius: 4px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -24242,10 +24211,8 @@ exports[`Storyshots Design System/Components/LinkButton sizes 1`] = `
 .c10 {
   padding: 10px 16px;
   background: #4945ff;
-  border: none;
-  border-radius: 4px;
   border: 1px solid #4945ff;
-  background: #4945ff;
+  border-radius: 4px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -24475,10 +24442,8 @@ exports[`Storyshots Design System/Components/LinkButton variants 1`] = `
 .c7 {
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
-  border-radius: 4px;
   border: 1px solid #4945ff;
-  background: #4945ff;
+  border-radius: 4px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -24548,7 +24513,7 @@ exports[`Storyshots Design System/Components/LinkButton variants 1`] = `
 .c10 {
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
+  border: 1px solid #4945ff;
   border-radius: 4px;
   border: 1px solid #d9d8ff;
   background: #f0f0ff;
@@ -24633,7 +24598,7 @@ exports[`Storyshots Design System/Components/LinkButton variants 1`] = `
 .c11 {
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
+  border: 1px solid #4945ff;
   border-radius: 4px;
   border: 1px solid #dcdce4;
   background: #ffffff;
@@ -24708,7 +24673,7 @@ exports[`Storyshots Design System/Components/LinkButton variants 1`] = `
 .c12 {
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
+  border: 1px solid #4945ff;
   border-radius: 4px;
   border: 1px solid #328048;
   background: #328048;
@@ -24780,7 +24745,7 @@ exports[`Storyshots Design System/Components/LinkButton variants 1`] = `
 .c13 {
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
+  border: 1px solid #4945ff;
   border-radius: 4px;
   border: 1px solid #d02b20;
   background: #d02b20;
@@ -24852,7 +24817,7 @@ exports[`Storyshots Design System/Components/LinkButton variants 1`] = `
 .c14 {
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
+  border: 1px solid #4945ff;
   border-radius: 4px;
   border: 1px solid #c6f0c2;
   background: #eafbe7;
@@ -24937,7 +24902,7 @@ exports[`Storyshots Design System/Components/LinkButton variants 1`] = `
 .c15 {
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
+  border: 1px solid #4945ff;
   border-radius: 4px;
   border: 1px solid #f5c0b8;
   background: #fcecea;
@@ -25276,9 +25241,7 @@ exports[`Storyshots Design System/Components/LiveRegions alert 1`] = `
   align-items: center;
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
   border: 1px solid #4945ff;
-  background: #4945ff;
 }
 
 .c6 .c0 {
@@ -25501,9 +25464,7 @@ exports[`Storyshots Design System/Components/LiveRegions log 1`] = `
   align-items: center;
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
   border: 1px solid #4945ff;
-  background: #4945ff;
 }
 
 .c6 .c0 {
@@ -25726,9 +25687,7 @@ exports[`Storyshots Design System/Components/LiveRegions status 1`] = `
   align-items: center;
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
   border: 1px solid #4945ff;
-  background: #4945ff;
 }
 
 .c6 .c0 {
@@ -26162,8 +26121,8 @@ exports[`Storyshots Design System/Components/MainNav base 1`] = `
 
 .c28 {
   position: relative;
-  width: 26px;
-  height: 26px;
+  width: 1.625rem;
+  height: 1.625rem;
 }
 
 .c14 {
@@ -26817,12 +26776,19 @@ exports[`Storyshots Design System/Components/MainNav notifications 1`] = `
   padding-left: 20px;
 }
 
-.c34 {
+.c31 {
+  background: #4945ff;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+}
+
+.c35 {
   padding-left: 8px;
   width: 8.125rem;
 }
 
-.c37 {
+.c38 {
   color: #666687;
 }
 
@@ -26853,7 +26819,7 @@ exports[`Storyshots Design System/Components/MainNav notifications 1`] = `
   text-transform: uppercase;
 }
 
-.c33 {
+.c34 {
   font-weight: 600;
   font-size: 0.6875rem;
   color: #ffffff;
@@ -26862,7 +26828,7 @@ exports[`Storyshots Design System/Components/MainNav notifications 1`] = `
   line-height: 1.43;
 }
 
-.c35 {
+.c36 {
   color: #666687;
   display: block;
   white-space: nowrap;
@@ -26922,7 +26888,7 @@ exports[`Storyshots Design System/Components/MainNav notifications 1`] = `
   justify-content: center;
 }
 
-.c31 {
+.c32 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -26978,18 +26944,11 @@ exports[`Storyshots Design System/Components/MainNav notifications 1`] = `
   margin-top: 8px;
 }
 
-.c38 path {
+.c39 path {
   fill: #666687;
 }
 
-.c32 {
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background: linear-gradient( 157deg, #4945ff 0%, #7b79ff 50%, #d9d8ff 81%, #f0f0ff 96% );
-}
-
-.c32 span {
+.c33 span {
   line-height: 0;
 }
 
@@ -27010,7 +26969,7 @@ exports[`Storyshots Design System/Components/MainNav notifications 1`] = `
   border-right: 1px solid #eaeaef;
 }
 
-.c36 {
+.c37 {
   background: #ffffff;
   border: 1px solid #eaeaef;
   border-radius: 4px;
@@ -27034,7 +26993,7 @@ exports[`Storyshots Design System/Components/MainNav notifications 1`] = `
   height: 1.5625rem;
 }
 
-.c36 svg {
+.c37 svg {
   width: 0.375rem;
   height: 0.5625rem;
 }
@@ -27558,20 +27517,22 @@ exports[`Storyshots Design System/Components/MainNav notifications 1`] = `
               class="c6"
             >
               <div
-                class="c31 c32"
+                class="c31 c32 c33"
+                height="26px"
+                width="26px"
               >
                 <span
-                  class="c9 c33"
+                  class="c9 c34"
                 >
                   MD
                 </span>
               </div>
               <span
-                class="c34"
+                class="c35"
                 width="8.125rem"
               >
                 <span
-                  class="c9 c35"
+                  class="c9 c36"
                 >
                   Michka des Ronronscelestes
                 </span>
@@ -27579,11 +27540,11 @@ exports[`Storyshots Design System/Components/MainNav notifications 1`] = `
             </button>
           </div>
           <button
-            class="c36"
+            class="c37"
           >
             <svg
               aria-hidden="true"
-              class="c37 c38"
+              class="c38 c39"
               fill="none"
               height="1em"
               viewBox="0 0 10 16"
@@ -27703,9 +27664,7 @@ exports[`Storyshots Design System/Components/ModalLayout base 1`] = `
   align-items: center;
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
   border: 1px solid #4945ff;
-  background: #4945ff;
 }
 
 .c5 .c0 {
@@ -33790,7 +33749,7 @@ exports[`Storyshots Design System/Components/SimpleMenu base 1`] = `
   align-items: center;
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
+  border: 1px solid #4945ff;
   border: 1px solid transparent;
   background: transparent;
 }
@@ -34055,7 +34014,7 @@ exports[`Storyshots Design System/Components/SimpleMenu sizes 1`] = `
   align-items: center;
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
+  border: 1px solid #4945ff;
   border: 1px solid transparent;
   background: transparent;
 }
@@ -34347,7 +34306,7 @@ exports[`Storyshots Design System/Components/SimpleMenu with-custom-label 1`] = 
   align-items: center;
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
+  border: 1px solid #4945ff;
   border: 1px solid transparent;
   background: transparent;
 }
@@ -34761,7 +34720,7 @@ exports[`Storyshots Design System/Components/SimpleMenu with-links 1`] = `
   align-items: center;
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
+  border: 1px solid #4945ff;
   border: 1px solid transparent;
   background: transparent;
 }
@@ -37513,8 +37472,8 @@ exports[`Storyshots Design System/Components/Table base 1`] = `
 
 .c19 {
   position: relative;
-  width: 26px;
-  height: 26px;
+  width: 1.625rem;
+  height: 1.625rem;
 }
 
 .c14 {
@@ -37593,6 +37552,7 @@ exports[`Storyshots Design System/Components/Table base 1`] = `
 
 .c5 {
   overflow: hidden;
+  border: 1px solid #eaeaef;
 }
 
 .c9 {
@@ -38794,8 +38754,8 @@ exports[`Storyshots Design System/Components/Table base without footer 1`] = `
 
 .c19 {
   position: relative;
-  width: 26px;
-  height: 26px;
+  width: 1.625rem;
+  height: 1.625rem;
 }
 
 .c14 {
@@ -38868,6 +38828,7 @@ exports[`Storyshots Design System/Components/Table base without footer 1`] = `
 
 .c5 {
   overflow: hidden;
+  border: 1px solid #eaeaef;
 }
 
 .c9 {
@@ -40020,8 +39981,8 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
 
 .c21 {
   position: relative;
-  width: 26px;
-  height: 26px;
+  width: 1.625rem;
+  height: 1.625rem;
 }
 
 .c14 {
@@ -40100,6 +40061,7 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
 
 .c5 {
   overflow: hidden;
+  border: 1px solid #eaeaef;
 }
 
 .c9 {
@@ -44555,7 +44517,7 @@ exports[`Storyshots Design System/Components/Theme dark colors 1`] = `
                 spacing="2"
               >
                 <div
-                  style="padding: 12px; background: rgb(33, 33, 52);"
+                  style="padding: 12px; background: rgb(24, 24, 38);"
                 >
                   <p
                     style="color: white;"
@@ -44582,7 +44544,7 @@ exports[`Storyshots Design System/Components/Theme dark colors 1`] = `
                   </p>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(246, 236, 252);"
+                  style="padding: 12px; background: rgb(172, 115, 230);"
                 >
                   <p
                     style="color: black;"
@@ -44613,7 +44575,7 @@ exports[`Storyshots Design System/Components/Theme dark colors 1`] = `
                 spacing="2"
               >
                 <div
-                  style="padding: 12px; background: rgb(33, 33, 52);"
+                  style="padding: 12px; background: rgb(24, 24, 38);"
                 >
                   <p
                     style="color: white;"
@@ -44640,7 +44602,7 @@ exports[`Storyshots Design System/Components/Theme dark colors 1`] = `
                   </p>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(252, 236, 234);"
+                  style="padding: 12px; background: rgb(238, 94, 82);"
                 >
                   <p
                     style="color: black;"
@@ -44649,7 +44611,7 @@ exports[`Storyshots Design System/Components/Theme dark colors 1`] = `
                   </p>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(245, 192, 184);"
+                  style="padding: 12px; background: rgb(238, 94, 82);"
                 >
                   <p
                     style="color: black;"
@@ -44698,7 +44660,7 @@ exports[`Storyshots Design System/Components/Theme dark colors 1`] = `
                   </p>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(74, 74, 106);"
+                  style="padding: 12px; background: rgb(50, 50, 77);"
                 >
                   <p
                     style="color: white;"
@@ -44707,7 +44669,7 @@ exports[`Storyshots Design System/Components/Theme dark colors 1`] = `
                   </p>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(102, 102, 135);"
+                  style="padding: 12px; background: rgb(74, 74, 106);"
                 >
                   <p
                     style="color: white;"
@@ -44792,7 +44754,7 @@ exports[`Storyshots Design System/Components/Theme dark colors 1`] = `
                 spacing="2"
               >
                 <div
-                  style="padding: 12px; background: rgb(33, 33, 52);"
+                  style="padding: 12px; background: rgb(24, 24, 38);"
                 >
                   <p
                     style="color: white;"
@@ -44850,7 +44812,7 @@ exports[`Storyshots Design System/Components/Theme dark colors 1`] = `
                 spacing="2"
               >
                 <div
-                  style="padding: 12px; background: rgb(33, 33, 52);"
+                  style="padding: 12px; background: rgb(24, 24, 38);"
                 >
                   <p
                     style="color: white;"
@@ -44877,7 +44839,7 @@ exports[`Storyshots Design System/Components/Theme dark colors 1`] = `
                   </p>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(234, 245, 255);"
+                  style="padding: 12px; background: rgb(102, 183, 241);"
                 >
                   <p
                     style="color: black;"
@@ -44908,7 +44870,7 @@ exports[`Storyshots Design System/Components/Theme dark colors 1`] = `
                 spacing="2"
               >
                 <div
-                  style="padding: 12px; background: rgb(33, 33, 52);"
+                  style="padding: 12px; background: rgb(24, 24, 38);"
                 >
                   <p
                     style="color: white;"
@@ -44935,7 +44897,7 @@ exports[`Storyshots Design System/Components/Theme dark colors 1`] = `
                   </p>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(198, 240, 194);"
+                  style="padding: 12px; background: rgb(92, 177, 118);"
                 >
                   <p
                     style="color: black;"
@@ -50524,10 +50486,8 @@ exports[`Storyshots Design System/Components/v2/LinkButton base 1`] = `
 .c7 {
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
-  border-radius: 4px;
   border: 1px solid #4945ff;
-  background: #4945ff;
+  border-radius: 4px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -50734,10 +50694,8 @@ exports[`Storyshots Design System/Components/v2/LinkButton disabled 1`] = `
 .c7 {
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
-  border-radius: 4px;
   border: 1px solid #4945ff;
-  background: #4945ff;
+  border-radius: 4px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -50978,10 +50936,8 @@ exports[`Storyshots Design System/Components/v2/LinkButton icons 1`] = `
 .c8 {
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
-  border-radius: 4px;
   border: 1px solid #4945ff;
-  background: #4945ff;
+  border-radius: 4px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -51051,7 +51007,7 @@ exports[`Storyshots Design System/Components/v2/LinkButton icons 1`] = `
 .c12 {
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
+  border: 1px solid #4945ff;
   border-radius: 4px;
   border: 1px solid #d9d8ff;
   background: #f0f0ff;
@@ -51341,10 +51297,8 @@ exports[`Storyshots Design System/Components/v2/LinkButton sizes 1`] = `
 .c8 {
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
-  border-radius: 4px;
   border: 1px solid #4945ff;
-  background: #4945ff;
+  border-radius: 4px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -51414,10 +51368,8 @@ exports[`Storyshots Design System/Components/v2/LinkButton sizes 1`] = `
 .c11 {
   padding: 10px 16px;
   background: #4945ff;
-  border: none;
-  border-radius: 4px;
   border: 1px solid #4945ff;
-  background: #4945ff;
+  border-radius: 4px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -51649,10 +51601,8 @@ exports[`Storyshots Design System/Components/v2/LinkButton variants 1`] = `
 .c8 {
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
-  border-radius: 4px;
   border: 1px solid #4945ff;
-  background: #4945ff;
+  border-radius: 4px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -51722,7 +51672,7 @@ exports[`Storyshots Design System/Components/v2/LinkButton variants 1`] = `
 .c11 {
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
+  border: 1px solid #4945ff;
   border-radius: 4px;
   border: 1px solid #d9d8ff;
   background: #f0f0ff;
@@ -51807,7 +51757,7 @@ exports[`Storyshots Design System/Components/v2/LinkButton variants 1`] = `
 .c12 {
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
+  border: 1px solid #4945ff;
   border-radius: 4px;
   border: 1px solid #dcdce4;
   background: #ffffff;
@@ -51882,7 +51832,7 @@ exports[`Storyshots Design System/Components/v2/LinkButton variants 1`] = `
 .c13 {
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
+  border: 1px solid #4945ff;
   border-radius: 4px;
   border: 1px solid #328048;
   background: #328048;
@@ -51954,7 +51904,7 @@ exports[`Storyshots Design System/Components/v2/LinkButton variants 1`] = `
 .c14 {
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
+  border: 1px solid #4945ff;
   border-radius: 4px;
   border: 1px solid #d02b20;
   background: #d02b20;
@@ -52026,7 +51976,7 @@ exports[`Storyshots Design System/Components/v2/LinkButton variants 1`] = `
 .c15 {
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
+  border: 1px solid #4945ff;
   border-radius: 4px;
   border: 1px solid #c6f0c2;
   background: #eafbe7;
@@ -52111,7 +52061,7 @@ exports[`Storyshots Design System/Components/v2/LinkButton variants 1`] = `
 .c16 {
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
+  border: 1px solid #4945ff;
   border-radius: 4px;
   border: 1px solid #f5c0b8;
   background: #fcecea;
@@ -52526,8 +52476,8 @@ exports[`Storyshots Design System/Components/v2/MainNav base 1`] = `
 
 .c29 {
   position: relative;
-  width: 26px;
-  height: 26px;
+  width: 1.625rem;
+  height: 1.625rem;
 }
 
 .c5 {
@@ -53190,12 +53140,19 @@ exports[`Storyshots Design System/Components/v2/MainNav notifications 1`] = `
   padding-left: 20px;
 }
 
-.c35 {
+.c32 {
+  background: #4945ff;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+}
+
+.c36 {
   padding-left: 8px;
   width: 8.125rem;
 }
 
-.c38 {
+.c39 {
   color: #666687;
 }
 
@@ -53226,7 +53183,7 @@ exports[`Storyshots Design System/Components/v2/MainNav notifications 1`] = `
   text-transform: uppercase;
 }
 
-.c34 {
+.c35 {
   font-weight: 600;
   font-size: 0.6875rem;
   color: #ffffff;
@@ -53235,7 +53192,7 @@ exports[`Storyshots Design System/Components/v2/MainNav notifications 1`] = `
   line-height: 1.43;
 }
 
-.c36 {
+.c37 {
   color: #666687;
   display: block;
   white-space: nowrap;
@@ -53295,7 +53252,7 @@ exports[`Storyshots Design System/Components/v2/MainNav notifications 1`] = `
   justify-content: center;
 }
 
-.c32 {
+.c33 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -53351,18 +53308,11 @@ exports[`Storyshots Design System/Components/v2/MainNav notifications 1`] = `
   margin-top: 8px;
 }
 
-.c39 path {
+.c40 path {
   fill: #666687;
 }
 
-.c33 {
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background: linear-gradient( 157deg, #4945ff 0%, #7b79ff 50%, #d9d8ff 81%, #f0f0ff 96% );
-}
-
-.c33 span {
+.c34 span {
   line-height: 0;
 }
 
@@ -53387,7 +53337,7 @@ exports[`Storyshots Design System/Components/v2/MainNav notifications 1`] = `
   border-right: 1px solid #eaeaef;
 }
 
-.c37 {
+.c38 {
   background: #ffffff;
   border: 1px solid #eaeaef;
   border-radius: 4px;
@@ -53411,7 +53361,7 @@ exports[`Storyshots Design System/Components/v2/MainNav notifications 1`] = `
   height: 1.5625rem;
 }
 
-.c37 svg {
+.c38 svg {
   width: 0.375rem;
   height: 0.5625rem;
 }
@@ -53940,20 +53890,22 @@ exports[`Storyshots Design System/Components/v2/MainNav notifications 1`] = `
               class="c8"
             >
               <div
-                class="c32 c33"
+                class="c32 c33 c34"
+                height="26px"
+                width="26px"
               >
                 <span
-                  class="c11 c34"
+                  class="c11 c35"
                 >
                   MD
                 </span>
               </div>
               <span
-                class="c35"
+                class="c36"
                 width="8.125rem"
               >
                 <span
-                  class="c11 c36"
+                  class="c11 c37"
                 >
                   Michka des Ronronscelestes
                 </span>
@@ -53961,11 +53913,11 @@ exports[`Storyshots Design System/Components/v2/MainNav notifications 1`] = `
             </button>
           </div>
           <button
-            class="c37"
+            class="c38"
           >
             <svg
               aria-hidden="true"
-              class="c38 c39"
+              class="c39 c40"
               fill="none"
               height="1em"
               viewBox="0 0 10 16"
@@ -54463,7 +54415,7 @@ exports[`Storyshots Design System/Components/v2/SimpleMenu base 1`] = `
   align-items: center;
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
+  border: 1px solid #4945ff;
   border: 1px solid transparent;
   background: transparent;
 }
@@ -54728,7 +54680,7 @@ exports[`Storyshots Design System/Components/v2/SimpleMenu sizes 1`] = `
   align-items: center;
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
+  border: 1px solid #4945ff;
   border: 1px solid transparent;
   background: transparent;
 }
@@ -55020,7 +54972,7 @@ exports[`Storyshots Design System/Components/v2/SimpleMenu with-custom-label 1`]
   align-items: center;
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
+  border: 1px solid #4945ff;
   border: 1px solid transparent;
   background: transparent;
 }
@@ -55434,7 +55386,7 @@ exports[`Storyshots Design System/Components/v2/SimpleMenu with-links 1`] = `
   align-items: center;
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
+  border: 1px solid #4945ff;
   border: 1px solid transparent;
   background: transparent;
 }
@@ -58800,9 +58752,7 @@ exports[`Storyshots Design System/Technical Components/FocusTrap base 1`] = `
   align-items: center;
   padding: 8px 16px;
   background: #4945ff;
-  border: none;
   border: 1px solid #4945ff;
-  background: #4945ff;
 }
 
 .c11 .c0 {

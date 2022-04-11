@@ -13,8 +13,8 @@ const AvatarImg = styled.img`
 
 const AvatarImgWrapper = styled.div`
   position: relative;
-  width: ${avatarSize}px;
-  height: ${avatarSize}px;
+  width: ${avatarSize / 16}rem;
+  height: ${avatarSize / 16}rem;
   z-index: ${({ hovering }) => (hovering ? 1 : undefined)};
 `;
 
@@ -27,10 +27,10 @@ const PreviewContainer = styled.img`
 
 const Overlay = styled.div`
   z-index: 1;
-  border-radius: 50%;
+  border-radius: 30%;
   position: absolute;
-  width: ${avatarSize}px;
-  height: ${avatarSize}px;
+  width: ${avatarSize / 16}rem;
+  height: ${avatarSize / 16}rem;
   background: ${({ theme }) => theme.colors.neutral0};
   opacity: 0.4;
 `;
@@ -62,24 +62,7 @@ export const Avatar = ({ src, alt, preview }) => {
   );
 };
 
-const getColor =
-  (colorName) =>
-  ({ theme }) =>
-    theme.colors[colorName];
-
 const InitialsWrapper = styled(Flex)`
-  width: ${avatarSize}px;
-  height: ${avatarSize}px;
-  border-radius: 50%;
-
-  background: linear-gradient(
-    157deg,
-    ${getColor('primary600')} 0%,
-    ${getColor('primary500')} 50%,
-    ${getColor('primary200')} 81%,
-    ${getColor('primary100')} 96%
-  );
-
   span {
     line-height: 0;
   }
@@ -87,8 +70,14 @@ const InitialsWrapper = styled(Flex)`
 
 export const Initials = ({ children }) => {
   return (
-    <InitialsWrapper justifyContent="center">
-      <Typography fontWeight="bold" textColor="neutral0" fontSize={0} textTransform="uppercase">
+    <InitialsWrapper
+      borderRadius="50%"
+      width={`${avatarSize}px`}
+      height={`${avatarSize}px`}
+      background="primary600"
+      justifyContent="center"
+    >
+      <Typography fontWeight="bold" textColor="buttonNeutral0" fontSize={0} textTransform="uppercase">
         {children}
       </Typography>
     </InitialsWrapper>
