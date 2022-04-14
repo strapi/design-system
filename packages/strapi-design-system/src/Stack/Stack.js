@@ -1,7 +1,6 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Box } from '../Box';
 import { Flex } from '../Flex';
 
 /**
@@ -11,12 +10,9 @@ const transientProps = {
   size: true,
 };
 
-const StackV = styled(Box).withConfig({
+const StackV = styled(Flex).withConfig({
   shouldForwardProp: (prop, defPropValFN) => !transientProps[prop] && defPropValFN(prop),
 })`
-  display: flex;
-  flex-direction: column;
-
   & > * {
     margin-top: 0;
     margin-bottom: 0;
@@ -51,7 +47,7 @@ export const Stack = forwardRef(({ horizontal, spacing, size, ...props }, ref) =
     return <StackH ref={ref} spacing={spacing || size} {...props} />;
   }
 
-  return <StackV ref={ref} spacing={spacing || size} {...props} />;
+  return <StackV direction="column" alignItems="stretch" ref={ref} spacing={spacing || size} {...props} />;
 });
 
 Stack.displayName = 'Stack';
