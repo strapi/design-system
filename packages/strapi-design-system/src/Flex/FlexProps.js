@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const FlexProps = (props) => <div {...props} />;
+const FlexProps = (props) => <div {...props} />;
 
-FlexProps.defaultProps = {
+export const flexDefaultProps = {
   alignItems: 'center',
   basis: undefined,
   direction: 'row',
@@ -13,8 +13,7 @@ FlexProps.defaultProps = {
   reverse: false,
   wrap: undefined,
 };
-
-FlexProps.propTypes = {
+export const flexPropTypes = {
   alignItems: PropTypes.string,
   basis: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   direction: PropTypes.string,
@@ -36,3 +35,6 @@ FlexProps.propTypes = {
   reverse: PropTypes.bool,
   wrap: PropTypes.string,
 };
+
+FlexProps.defaultProps = flexDefaultProps;
+FlexProps.propTypes = flexPropTypes;

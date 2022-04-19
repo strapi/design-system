@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Box } from '../Box';
 import handleResponsiveValues from '../helpers/handleResponsiveValues';
+import { flexDefaultProps, flexPropTypes } from './FlexProps';
 
 /**
  * Prevents these attributes from being spread on the DOM node
@@ -21,33 +21,5 @@ export const Flex = styled(Box).withConfig({
   justify-content: ${({ justifyContent }) => justifyContent};
 `;
 
-Flex.defaultProps = {
-  alignItems: 'center',
-  basis: undefined,
-  direction: 'row',
-  gap: undefined,
-  inline: false,
-  justifyContent: undefined,
-  reverse: false,
-  wrap: undefined,
-};
-
-Flex.propTypes = {
-  alignItems: PropTypes.string,
-  basis: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  direction: PropTypes.string,
-  gap: PropTypes.oneOfType([
-    PropTypes.shape({
-      desktop: PropTypes.number,
-      mobile: PropTypes.number,
-      tablet: PropTypes.number,
-    }),
-    PropTypes.number,
-    PropTypes.arrayOf(PropTypes.number),
-    PropTypes.string,
-  ]),
-  inline: PropTypes.bool,
-  justifyContent: PropTypes.string,
-  reverse: PropTypes.bool,
-  wrap: PropTypes.string,
-};
+Flex.defaultProps = flexDefaultProps;
+Flex.propTypes = flexPropTypes;

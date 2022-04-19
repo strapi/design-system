@@ -4,7 +4,6 @@ import { useRef, useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { ArgsTable } from '@storybook/addon-docs';
 import { Popover } from './Popover';
-import { PopoverContentProps } from './PopoverProps';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { Button } from '../Button';
@@ -166,4 +165,6 @@ The popover will overflow over other elements.
 
 ## props
 
-<ArgsTable of={PopoverContentProps} />
+The Popover component wraps all its children in the (Box)[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base] component, so you can pass all Box props to change its style.
+
+<ArgsTable of={Popover} />

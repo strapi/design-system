@@ -29,7 +29,7 @@ export const position = (source, popover, fullWidth, centered, spacing = 0) => {
     left = rect.left + widthDifference + window.pageXOffset;
   }
 
-  //if popover overflows left or right viewport
+  // if popover overflows left or right viewport
   if (popoverRect.left < 0) {
     left = rect.left + window.pageXOffset;
   } else if (popoverRect.left + popoverRect.width > window.innerWidth) {
@@ -38,7 +38,7 @@ export const position = (source, popover, fullWidth, centered, spacing = 0) => {
 
   const windowSizeAtPosition = window.innerHeight + window.pageYOffset;
 
-  //if popover overflows bottom of viewport
+  // if popover overflows bottom of viewport
   if (top + popoverRect.height + spacing > windowSizeAtPosition) {
     const popoverBorderPadding = 10;
     top = window.pageYOffset + rect.top - popoverRect.height - popoverBorderPadding - spacing;
@@ -119,19 +119,39 @@ export const Popover = (props) => {
   );
 };
 
-PopoverContent.defaultProps = {
+const popoverDefaultProps = {
   fullWidth: false,
   intersectionId: undefined,
   onReachEnd: undefined,
   centered: false,
 };
 
-PopoverContent.propTypes = {
+const popoverProps = {
+  /**
+   * Horizontally center the popover
+   */
   centered: PropTypes.bool,
   children: PropTypes.node.isRequired,
+  /**
+   * Display full width popover
+   */
   fullWidth: PropTypes.bool,
+  /**
+   * Element id to watch for the onReachEnd event
+   */
   intersectionId: PropTypes.string,
+  /**
+   * The callback invoked after a scroll to the bottom of the popover content.
+   */
   onReachEnd: PropTypes.func,
+  /**
+   * A React ref. Used to defined the position of the popover.
+   */
   source: PropTypes.shape({ current: PropTypes.instanceOf(Element) }).isRequired,
   spacing: PropTypes.number,
 };
+
+PopoverContent.propTypes = popoverProps;
+PopoverContent.defaultProps = popoverDefaultProps;
+Popover.propTypes = popoverProps;
+Popover.defaultProps = popoverDefaultProps;
