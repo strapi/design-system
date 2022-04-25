@@ -154,7 +154,9 @@ In a multi select component, the "0 currently selected" text, can be changed but
       const [disabled, toggleDisabled] = useState();
       return (
         <Stack spacing={11}>
-          <Typography as="h2" variant="beta">Current value is {values.join(', ')}</Typography>
+          <Typography as="h2" variant="beta">
+            Current value is {values.join(', ')}
+          </Typography>
           <Select
             id="select1"
             label="Choose your meal"
@@ -350,5 +352,6 @@ In a multi select component, the "0 currently selected" text, can be changed but
 ## Props
 
 The Select component composes Field so you can pass all Field props, and React.InputHTMLAttributes.
+The Option component wraps all its children in the (Box)[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base] component, so you can pass all Box props to change its style.
 
 <ArgsTable of={Select} />

@@ -72,6 +72,12 @@ FocusTrap.defaultProps = {
 };
 
 FocusTrap.propTypes = {
+  /**
+   * A callback called on escape key. Useful to deactivate the focus trap.
+   */
   onEscape: PropTypes.func.isRequired,
+  /**
+   * A boolean value to define whether the focus should be restored or not.
+   */
   restoreFocus: PropTypes.bool,
 };

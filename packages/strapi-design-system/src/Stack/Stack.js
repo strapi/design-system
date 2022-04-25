@@ -69,7 +69,7 @@ Stack.propTypes = {
   size: PropTypes.number,
   /**
    * The space between stack item.
-   * See [theme.spaces](https://design-system-git-main-strapijs.vercel.app/?path=/story/design-system-components-lighttheme--spaces)
+   * See [theme.spaces](https://design-system-git-main-strapijs.vercel.app/?path=/story/design-system-components-theme--spaces)
    */
   spacing: PropTypes.number,
 };
