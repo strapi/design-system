@@ -1,7 +1,6 @@
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { ellipsisStyle, variantStyle, handleColor } from './utils';
-import { TEXT_VARIANTS, OMEGA } from './constants';
+import { typographyDefaultProps, typographyPropTypes } from './TypographyProps';
 
 const transientProps = {
   fontSize: true,
@@ -20,20 +19,5 @@ export const Typography = styled.span.withConfig({
   ${variantStyle}
 `;
 
-Typography.defaultProps = {
-  fontWeight: undefined,
-  fontSize: undefined,
-  lineHeight: undefined,
-  textColor: undefined,
-  textTransform: undefined,
-  variant: OMEGA,
-};
-
-Typography.propTypes = {
-  fontSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  fontWeight: PropTypes.string,
-  lineHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  textColor: PropTypes.string,
-  textTransform: PropTypes.string,
-  variant: PropTypes.oneOf(TEXT_VARIANTS),
-};
+Typography.defaultProps = typographyDefaultProps;
+Typography.propTypes = typographyPropTypes;

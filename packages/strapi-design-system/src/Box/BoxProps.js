@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const BoxProps = (props) => <div {...props} />;
+const BoxProps = (props) => <div {...props} />;
 
-BoxProps.defaultProps = {
+export const boxDefaultProps = {
   background: undefined,
   borderColor: undefined,
   color: undefined,
@@ -23,8 +23,7 @@ BoxProps.defaultProps = {
   flex: undefined,
   _hover: () => undefined,
 };
-
-BoxProps.propTypes = {
+export const boxPropTypes = {
   /**
    * JavaScript hover handler
    */
@@ -95,3 +94,6 @@ BoxProps.propTypes = {
    */
   shrink: PropTypes.oneOfType([PropTypes.string, PropTypes.string]),
 };
+
+BoxProps.defaultProps = boxDefaultProps;
+BoxProps.propTypes = boxPropTypes;
