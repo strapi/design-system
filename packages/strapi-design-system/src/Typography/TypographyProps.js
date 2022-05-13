@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 export const TypographyProps = (props) => <div {...props} />;
 
 TypographyProps.defaultProps = {
+  ellipsis: false,
   fontWeight: undefined,
   fontSize: undefined,
   lineHeight: undefined,
@@ -13,6 +14,7 @@ TypographyProps.defaultProps = {
 };
 
 TypographyProps.propTypes = {
+  ellipsis: PropTypes.bool,
   fontSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   fontWeight: PropTypes.string,
   lineHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),

@@ -21,6 +21,7 @@ export const Typography = styled.span.withConfig({
 `;
 
 Typography.defaultProps = {
+  ellipsis: false,
   fontWeight: undefined,
   fontSize: undefined,
   lineHeight: undefined,
@@ -30,6 +31,7 @@ Typography.defaultProps = {
 };
 
 Typography.propTypes = {
+  ellipsis: PropTypes.bool,
   fontSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   fontWeight: PropTypes.string,
   lineHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
