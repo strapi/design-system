@@ -48,6 +48,7 @@ export const BaseRadio = React.forwardRef(({ value, disabled, ...props }, ref) =
       value={value}
       tabIndex={isSelected ? 0 : -1}
       aria-checked={isSelected}
+      checked={isSelected}
       disabled={disabled}
       size={size}
       onChange={onChange}

@@ -5,10 +5,7 @@ import { ArgsTable } from '@storybook/addon-docs';
 import { Divider } from './Divider';
 import { Box } from '../Box';
 
-<Meta
-  title="Design System/Components/Divider"
-  component={Divider}
-/>
+<Meta title="Design System/Components/Divider" component={Divider} />
 
 # Divider
 
@@ -52,5 +49,7 @@ Use a divider to separate content in forms, PopOvers, tables, ...
 </Canvas>
 
 ## Props
+
+The Divider component wraps all its children in the (Box)[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base] component, so you can pass all Box props to change its style.
 
 <ArgsTable of={Divider} />

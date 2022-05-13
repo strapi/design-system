@@ -23,8 +23,8 @@ describe('Avatar', () => {
 
       .c1 {
         position: relative;
-        width: 26px;
-        height: 26px;
+        width: 1.625rem;
+        height: 1.625rem;
         z-index: 1;
       }
 
@@ -39,10 +39,10 @@ describe('Avatar', () => {
 
       .c2 {
         z-index: 1;
-        border-radius: 50%;
+        border-radius: 30%;
         position: absolute;
-        width: 26px;
-        height: 26px;
+        width: 1.625rem;
+        height: 1.625rem;
         background: #ffffff;
         opacity: 0.4;
       }
@@ -96,8 +96,8 @@ describe('Avatar', () => {
 
       .c1 {
         position: relative;
-        width: 26px;
-        height: 26px;
+        width: 1.625rem;
+        height: 1.625rem;
         z-index: 1;
       }
 
@@ -112,10 +112,10 @@ describe('Avatar', () => {
 
       .c2 {
         z-index: 1;
-        border-radius: 50%;
+        border-radius: 30%;
         position: absolute;
-        width: 26px;
-        height: 26px;
+        width: 1.625rem;
+        height: 1.625rem;
         background: #ffffff;
         opacity: 0.4;
       }

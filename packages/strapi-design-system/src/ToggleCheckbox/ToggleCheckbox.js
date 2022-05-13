@@ -25,10 +25,21 @@ const ToggleCheckboxWrapper = styled(Box)`
 const ValueBox = styled(Flex).attrs({
   hasRadius: true,
 })`
-  background-color: ${({ theme, disabled, checked }) => (checked && !disabled ? theme.colors.neutral0 : 'transparent')};
+  background-color: ${({ theme, checked, disabled }) => {
+    if (checked) {
+      return disabled ? theme.colors.neutral200 : theme.colors.neutral0;
+    }
+
+    return 'transparent';
+  }};
   border: 1px solid
-    ${({ theme, disabled, checked }) =>
-      checked && checked !== null && !disabled ? theme.colors.neutral200 : theme.colors.neutral100};
+    ${({ theme, checked, disabled }) => {
+      if (checked && checked !== null) {
+        return disabled ? theme.colors.neutral300 : theme.colors.neutral200;
+      }
+
+      return disabled ? theme.colors.neutral150 : theme.colors.neutral100;
+    }};
   position: relative;
   user-select: none;
   z-index: 2;
@@ -65,13 +76,12 @@ export const ToggleCheckbox = React.forwardRef(
         <VisuallyHidden>{children}</VisuallyHidden>
 
         <ToggleCheckboxWrapper
-          background="neutral100"
           hasRadius
           size={size}
           disabled={disabled}
           padding={1}
           display="inline-flex"
-          backgroundColor="neutral100"
+          background={disabled ? 'neutral150' : 'neutral100'}
           borderStyle="solid"
           borderWidth="1px"
           borderColor="neutral200"
@@ -87,7 +97,7 @@ export const ToggleCheckbox = React.forwardRef(
               variant="pi"
               fontWeight="bold"
               textTransform="uppercase"
-              textColor={disabled ? 'neutral600' : offCheckboxLabelColor}
+              textColor={disabled ? 'neutral700' : offCheckboxLabelColor}
             >
               {offLabel}
             </Typography>
@@ -104,7 +114,7 @@ export const ToggleCheckbox = React.forwardRef(
               variant="pi"
               fontWeight="bold"
               textTransform="uppercase"
-              textColor={disabled ? 'neutral600' : onCheckboxLabelColor}
+              textColor={disabled ? 'neutral700' : onCheckboxLabelColor}
             >
               {onLabel}
             </Typography>

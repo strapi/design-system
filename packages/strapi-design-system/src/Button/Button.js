@@ -30,8 +30,8 @@ const BoxFullHeight = styled(Box)`
 export const ButtonWrapper = styled(BaseButton)`
   align-items: center;
   padding: ${({ theme, size }) => `${size === 'S' ? theme.spaces[2] : '10px'} ${theme.spaces[4]}`};
-  background: ${({ theme }) => theme.colors.primary600};
-  border: none;
+  background: ${({ theme }) => theme.colors.buttonPrimary600};
+  border: 1px solid ${({ theme }) => theme.colors.buttonPrimary600};
   ${Box} {
     display: flex;
     align-items: center;
