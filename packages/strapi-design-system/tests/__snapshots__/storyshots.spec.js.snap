@@ -62571,6 +62571,75 @@ exports[`Storyshots Design System/Technical Components/Stack horizontal 1`] = `
 </div>
 `;
 
+exports[`Storyshots Design System/Technical Components/Typography ellipsis 1`] = `
+.c1 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.c0 {
+  background: #ffffff;
+  padding: 8px;
+}
+
+.c2 {
+  padding: 8px;
+  height: 100%;
+}
+
+.c3 {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #dcdce4;
+  max-width: 150px;
+}
+
+.c4 {
+  color: #32324d;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
+<div
+  class="c0"
+>
+  <main>
+    <div
+      class="c1"
+    >
+      <h1>
+        Storybook story
+      </h1>
+    </div>
+    <div
+      class="c2"
+      height="100%"
+    >
+      <div
+        class="c3"
+      >
+        <span
+          class="c4"
+        >
+          Loong text, that will be cut off
+        </span>
+      </div>
+    </div>
+  </main>
+</div>
+`;
+
 exports[`Storyshots Design System/Technical Components/Typography variants 1`] = `
 .c1 {
   border: 0;
@@ -62594,82 +62663,78 @@ exports[`Storyshots Design System/Technical Components/Typography variants 1`] =
   height: 100%;
 }
 
-.c4 {
-  background: #eaeaef;
-}
-
-.c6 {
+.c3 {
   padding-top: 8px;
   padding-left: 16px;
 }
 
-.c16 {
+.c14 {
   padding-top: 8px;
   padding-left: 16px;
   width: 200px;
 }
 
-.c3 {
-  color: #32324d;
-  font-weight: 600;
-  font-size: 1.125rem;
-  line-height: 1.22;
-}
-
-.c7 {
+.c4 {
   color: #32324d;
   font-weight: 600;
   font-size: 2rem;
   line-height: 1.25;
 }
 
-.c8 {
+.c5 {
+  color: #32324d;
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.22;
+}
+
+.c6 {
   color: #32324d;
   font-weight: 500;
   font-size: 1rem;
   line-height: 1.25;
 }
 
-.c9 {
+.c7 {
   color: #32324d;
   font-size: 1rem;
   line-height: 1.5;
 }
 
-.c10 {
+.c8 {
   color: #32324d;
   font-size: 0.875rem;
   line-height: 1.43;
 }
 
-.c11 {
+.c9 {
   font-weight: 500;
   color: #32324d;
   font-size: 0.875rem;
   line-height: 1.43;
 }
 
-.c12 {
+.c10 {
   font-weight: 600;
   color: #32324d;
   font-size: 0.875rem;
   line-height: 1.43;
 }
 
-.c13 {
+.c11 {
   color: #32324d;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
-.c14 {
+.c12 {
   font-weight: 600;
   color: #32324d;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
-.c15 {
+.c13 {
   color: #32324d;
   font-weight: 600;
   font-size: 0.6875rem;
@@ -62677,7 +62742,7 @@ exports[`Storyshots Design System/Technical Components/Typography variants 1`] =
   text-transform: uppercase;
 }
 
-.c17 {
+.c15 {
   color: #32324d;
   display: block;
   white-space: nowrap;
@@ -62685,12 +62750,6 @@ exports[`Storyshots Design System/Technical Components/Typography variants 1`] =
   text-overflow: ellipsis;
   font-size: 0.875rem;
   line-height: 1.43;
-}
-
-.c5 {
-  height: 1px;
-  border: none;
-  margin: 0;
 }
 
 <div
@@ -62709,116 +62768,104 @@ exports[`Storyshots Design System/Technical Components/Typography variants 1`] =
       height="100%"
     >
       <div
-        class=""
+        class="c3"
       >
         <span
-          class="c3"
+          class="c4"
         >
-          Variants
+          Alpha - header 1
         </span>
-        <hr
-          class="c4 c5"
-        />
-        <div
+      </div>
+      <div
+        class="c3"
+      >
+        <span
+          class="c5"
+        >
+          Beta - header 2
+        </span>
+      </div>
+      <div
+        class="c3"
+      >
+        <span
           class="c6"
         >
-          <span
-            class="c7"
-          >
-            Alpha - header 1
-          </span>
-        </div>
-        <div
-          class="c6"
+          Delta - header 3
+        </span>
+      </div>
+      <div
+        class="c3"
+      >
+        <span
+          class="c7"
         >
-          <span
-            class="c3"
-          >
-            Beta - header 2
-          </span>
-        </div>
-        <div
-          class="c6"
+          Epsilon - subtitle
+        </span>
+      </div>
+      <div
+        class="c3"
+      >
+        <span
+          class="c8"
         >
-          <span
-            class="c8"
-          >
-            Delta - header 3
-          </span>
-        </div>
-        <div
-          class="c6"
+          Omega - body
+        </span>
+      </div>
+      <div
+        class="c3"
+      >
+        <span
+          class="c9"
         >
-          <span
-            class="c9"
-          >
-            Epsilon - subtitle
-          </span>
-        </div>
-        <div
-          class="c6"
+          Omega semibold - body highlight
+        </span>
+      </div>
+      <div
+        class="c3"
+      >
+        <span
+          class="c10"
         >
-          <span
-            class="c10"
-          >
-            Omega - body
-          </span>
-        </div>
-        <div
-          class="c6"
+          Omega bold - button text
+        </span>
+      </div>
+      <div
+        class="c3"
+      >
+        <span
+          class="c11"
         >
-          <span
-            class="c11"
-          >
-            Omega semibold - body highlight
-          </span>
-        </div>
-        <div
-          class="c6"
+          Pi - small text
+        </span>
+      </div>
+      <div
+        class="c3"
+      >
+        <span
+          class="c12"
         >
-          <span
-            class="c12"
-          >
-            Omega bold - button text
-          </span>
-        </div>
-        <div
-          class="c6"
+          Pi bold - small button text
+        </span>
+      </div>
+      <div
+        class="c3"
+      >
+        <span
+          class="c13"
         >
-          <span
-            class="c13"
-          >
-            Pi - small text
-          </span>
-        </div>
-        <div
-          class="c6"
+          Sigma - table label
+        </span>
+      </div>
+      <div
+        class="c14"
+        width="200px"
+      >
+        <span
+          class="c15"
         >
-          <span
-            class="c14"
-          >
-            Pi bold - small button text
-          </span>
-        </div>
-        <div
-          class="c6"
-        >
-          <span
-            class="c15"
-          >
-            Sigma - table label
-          </span>
-        </div>
-        <div
-          class="c16"
-          width="200px"
-        >
-          <span
-            class="c17"
-          >
-            Ellipsis example - long text - long text
-          </span>
-        </div>
+          Ellipsis example - long text - long text
+        </span>
       </div>
     </div>
   </main>
