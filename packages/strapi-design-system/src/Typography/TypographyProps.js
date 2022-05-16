@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { TEXT_VARIANTS, OMEGA } from './constants';
 
-const TypographyProps = (props) => <div {...props} />;
+export const TypographyProps = (props) => <div {...props} />;
 
 export const typographyDefaultProps = {
   fontWeight: undefined,
