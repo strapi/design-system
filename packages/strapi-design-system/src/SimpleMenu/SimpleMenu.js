@@ -170,7 +170,8 @@ export const SimpleMenu = ({
     }
   };
 
-  const handleMenuButtonMouseDown = () => {
+  const handleMenuButtonMouseDown = (e) => {
+    e.preventDefault();
     setVisible((prevVisible) => !prevVisible);
   };
 

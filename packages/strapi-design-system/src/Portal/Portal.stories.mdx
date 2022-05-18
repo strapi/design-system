@@ -2,6 +2,7 @@
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { Portal } from './Portal';
+import { Typography } from '../Typography';
 
 <Meta title="Design System/Technical Components/Portal" component={Portal} />
 
@@ -24,7 +25,9 @@ Creates a portal using a Declarative API
 <Canvas>
   <Story name="base">
     <Portal>
-      <aside>This is outside the root react app</aside>
+      <aside>
+        <Typography>This is rendered outside the root react app</Typography>
+      </aside>
     </Portal>
   </Story>
 </Canvas>
