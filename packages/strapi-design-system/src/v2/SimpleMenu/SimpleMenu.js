@@ -165,6 +165,7 @@ export const SimpleMenu = ({
   };
 
   const handleBlur = (e) => {
+    e.preventDefault();
     if (!e.currentTarget.contains(e.relatedTarget)) {
       setVisible(false);
     }
