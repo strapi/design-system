@@ -71,6 +71,7 @@ export const Select = ({
   };
 
   const handleMouseDown = (e) => {
+    e.preventDefault();
     if (disabled) return;
     // Check if the right click has been clicked
     // "which" check is for webkit

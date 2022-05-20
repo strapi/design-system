@@ -155,7 +155,8 @@ export const Combobox = ({
     }
   };
 
-  const onInputBlur = () => {
+  const onInputBlur = (e) => {
+    e.preventDefault();
     if (value && !ignoreBlur.current) {
       setInputValue('');
     }
@@ -238,6 +239,11 @@ export const Combobox = ({
     return inputValue && nodeIndex === -1;
   };
 
+  const handleClick = (e) => {
+    e.preventDefault();
+    updateMenuState(e, true);
+  };
+
   return (
     <Field hint={hint} error={error} id={generatedId}>
       <VisuallyHidden aria-live="polite" aria-atomic="false" aria-relevant="additions text">
@@ -262,7 +268,7 @@ export const Combobox = ({
               aria-labelledby={label ? labelId : undefined}
               id={generatedId}
               onBlur={disabled ? undefined : onInputBlur}
-              onClick={disabled ? undefined : () => updateMenuState(true)}
+              onClick={disabled ? undefined : handleClick}
               onInput={disabled ? undefined : onInput}
               onKeyDown={disabled ? undefined : onInputKeyDown}
               placeholder={value ? '' : placeholder}
