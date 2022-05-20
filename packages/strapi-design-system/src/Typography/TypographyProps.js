@@ -5,6 +5,7 @@ import { TEXT_VARIANTS, OMEGA } from './constants';
 export const TypographyProps = (props) => <div {...props} />;
 
 export const typographyDefaultProps = {
+  ellipsis: false,
   fontWeight: undefined,
   fontSize: undefined,
   lineHeight: undefined,
@@ -12,7 +13,9 @@ export const typographyDefaultProps = {
   textTransform: undefined,
   variant: OMEGA,
 };
+
 export const typographyPropTypes = {
+  ellipsis: PropTypes.bool,
   fontSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   fontWeight: PropTypes.string,
   lineHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
