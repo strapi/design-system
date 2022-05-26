@@ -45606,22 +45606,28 @@ exports[`Storyshots Design System/Components/Theme shadows 1`] = `
   box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
 }
 
-.c7 {
+.c8 {
   background: #ffffff;
   padding: 40px;
   box-shadow: inset 2px 0px 0px rgb(39,31,224),inset 0px 2px 0px rgb(39,31,224),inset -2px 0px 0px rgb(39,31,224),inset 0px -2px 0px rgb(39,31,224);
 }
 
-.c8 {
+.c9 {
   background: #ffffff;
   padding: 40px;
   box-shadow: 0px 0px 6px rgba(76,191,255,0.75);
 }
 
-.c9 {
+.c10 {
   background: #ffffff;
   padding: 40px;
   box-shadow: 0px 2px 15px rgba(33,33,52,0.1);
+}
+
+.c7 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
 }
 
 .c4 {
@@ -45674,16 +45680,11 @@ exports[`Storyshots Design System/Components/Theme shadows 1`] = `
             <div
               class="c6"
             >
-              filterShadow
-            </div>
-          </div>
-          <div
-            class="c5"
-          >
-            <div
-              class="c7"
-            >
-              focus
+              <span
+                class="c7"
+              >
+                filterShadow
+              </span>
             </div>
           </div>
           <div
@@ -45692,7 +45693,11 @@ exports[`Storyshots Design System/Components/Theme shadows 1`] = `
             <div
               class="c8"
             >
-              focusShadow
+              <span
+                class="c7"
+              >
+                focus
+              </span>
             </div>
           </div>
           <div
@@ -45701,7 +45706,24 @@ exports[`Storyshots Design System/Components/Theme shadows 1`] = `
             <div
               class="c9"
             >
-              popupShadow
+              <span
+                class="c7"
+              >
+                focusShadow
+              </span>
+            </div>
+          </div>
+          <div
+            class="c5"
+          >
+            <div
+              class="c10"
+            >
+              <span
+                class="c7"
+              >
+                popupShadow
+              </span>
             </div>
           </div>
           <div
@@ -45710,7 +45732,11 @@ exports[`Storyshots Design System/Components/Theme shadows 1`] = `
             <div
               class="c6"
             >
-              tableShadow
+              <span
+                class="c7"
+              >
+                tableShadow
+              </span>
             </div>
           </div>
         </div>

@@ -41,7 +41,7 @@ This is the light colors used for the light mode
           colors.push([]);
           ruptureKey = prefix;
         }
-        colors[colors.length - 1].push({ colorKey, colorValue: color[colorKey]});
+        colors[colors.length - 1].push({ colorKey, colorValue: color[colorKey] });
       }
       return (
         <Box>
@@ -50,10 +50,7 @@ This is the light colors used for the light mode
               <GridItem key={`color-group-${idx}`} padding={4}>
                 <Stack spacing={2}>
                   {colorGroup.map(({ colorKey, colorValue }) => (
-                    <div 
-                      key={colorKey}
-                      style={{ padding: '12px', background: colorValue }}
-                    >
+                    <div key={colorKey} style={{ padding: '12px', background: colorValue }}>
                       <p style={{ color: conditions.some((v) => colorKey.includes(v)) ? 'white' : 'black' }}>
                         {colorKey}
                       </p>
@@ -88,7 +85,7 @@ This is the dark colors used for the light mode
           colors.push([]);
           ruptureKey = prefix;
         }
-        colors[colors.length - 1].push({ colorKey, colorValue: color[colorKey]});
+        colors[colors.length - 1].push({ colorKey, colorValue: color[colorKey] });
       }
       return (
         <Box>
@@ -97,10 +94,7 @@ This is the dark colors used for the light mode
               <GridItem key={`color-group-${idx}`} padding={4}>
                 <Stack spacing={2}>
                   {colorGroup.map(({ colorKey, colorValue }) => (
-                    <div 
-                      key={colorKey}
-                      style={{ padding: '12px', background: colorValue }}
-                    >
+                    <div key={colorKey} style={{ padding: '12px', background: colorValue }}>
                       <p style={{ color: conditions.some((v) => colorKey.includes(v)) ? 'black' : 'white' }}>
                         {colorKey}
                       </p>
@@ -130,7 +124,7 @@ Description...
           <Grid gap={4}>
             {shadows.map((shadow) => (
               <GridItem padding={8} shadow={shadow} background="neutral0" col={3} key={shadow}>
-                {shadow}
+                <Typography>{shadow}</Typography>
               </GridItem>
             ))}
           </Grid>
