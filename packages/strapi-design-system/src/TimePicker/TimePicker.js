@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import Clock from '@strapi/icons/Clock';
 import styled from 'styled-components';
@@ -34,35 +34,26 @@ export const TimePicker = ({
   ...props
 }) => {
   const generatedId = useId('timepicker', id);
-  const hoursCount = 24;
-  const times = [];
-  let min = 0;
-
-  for (let i = 0; i < hoursCount; i++) {
-    min = 0;
-
-    while (min < 60) {
-      times.push(`${i < 10 ? '0' + i : i}:${min < 10 ? '0' + min : min}`);
-      min += step;
-    }
-  }
+  const hours = useMemo(() => Array.from({ length: 24 }, (_, i) => i.toString().padStart(2, '0')), []);
+  const minutes = useMemo(
+    () => Array.from({ length: Math.ceil(60 / step) }, (_, i) => (step * i).toString().padStart(2, '0')),
+    [step],
+  );
 
   // The time picker will select the closest value in the list.
   // This is a temporary fix.
   const getClosestValue = () => {
-    const valueHours = value.split(':')[0];
-    const valueMinutes = value.split(':')[1];
+    const valueHour = value.split(':')[0];
+    const valueMinute = value.split(':')[1];
 
-    const hours = times.reduce((prev, curr) => {
-      const hours = curr.split(':')[0];
-      return Math.abs(hours - valueHours) < Math.abs(prev - valueHours) ? hours : prev;
-    }, times[0].split(':')[0]);
-    const minutes = times.reduce((prev, curr) => {
-      const minutes = curr.split(':')[1];
-      return Math.abs(minutes - valueMinutes) < Math.abs(prev - valueMinutes) ? minutes : prev;
-    }, times[0].split(':')[1]);
+    const hour = hours.reduce((prev, curr) => {
+      return Math.abs(curr - valueHour) < Math.abs(prev - valueHour) ? curr : prev;
+    }, hours[0]);
+    const minute = minutes.reduce((prev, curr) => {
+      return Math.abs(curr - valueMinute) < Math.abs(prev - valueMinute) ? curr : prev;
+    }, minutes[0]);
 
-    return `${hours}:${minutes}`;
+    return { hour, minute };
   };
 
   return (
@@ -74,20 +65,26 @@ export const TimePicker = ({
       onClear={onClear}
       clearLabel={clearLabel}
       error={error}
-      value={value ? getClosestValue() : null}
+      value={value ? getClosestValue() : { hour: null, minute: null }}
       size={size}
-      onChange={onChange}
+      onChange={({ hour, minute }) => onChange(`${hour}:${minute}`)}
       disabled={disabled}
       startIcon={
         <TimeIconWrapper>
           <Clock />
         </TimeIconWrapper>
       }
+      timepicker
       {...props}
     >
-      {times.map((time) => (
-        <Option value={time} key={time}>
-          {time}
+      {hours.map((hour) => (
+        <Option value={hour} key={hour} timepickerValue="hour">
+          {hour}
+        </Option>
+      ))}
+      {minutes.map((minute) => (
+        <Option value={minute} key={minute} timepickerValue="minute">
+          {minute}
         </Option>
       ))}
     </Select>

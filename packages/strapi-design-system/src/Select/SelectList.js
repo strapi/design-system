@@ -6,7 +6,7 @@ import { changeDescendant, getActiveDescendant } from './utils';
 import { useListRef } from './hooks/useListRef';
 import { DownState, UpState } from './constants';
 
-export const SelectList = ({ labelledBy, onSelectItem, children, multi, onEscape, expanded }) => {
+export const SelectList = ({ labelledBy, onSelectItem, children, multi, column, onEscape, expanded }) => {
   const listRef = useListRef(expanded);
 
   const handleKeyDown = (e) => {
@@ -89,8 +89,8 @@ export const SelectList = ({ labelledBy, onSelectItem, children, multi, onEscape
       tabIndex={-1}
       ref={listRef}
       onKeyDown={handleKeyDown}
-      onBlur={onEscape}
       aria-multiselectable={multi}
+      {...(!column && { onBlur: onEscape })}
       // aria-activedescendant, this props is dynamically added in the useListRef
     >
       {children}
@@ -99,12 +99,14 @@ export const SelectList = ({ labelledBy, onSelectItem, children, multi, onEscape
 };
 
 SelectList.defaultProps = {
+  column: false,
   labelledBy: undefined,
   multi: false,
 };
 
 SelectList.propTypes = {
   children: PropTypes.node.isRequired,
+  column: PropTypes.bool,
   expanded: PropTypes.oneOf([UpState.Keyboard, UpState.Mouse, DownState.Keyboard, DownState.Mouse]).isRequired,
   labelledBy: PropTypes.string,
   multi: PropTypes.bool,

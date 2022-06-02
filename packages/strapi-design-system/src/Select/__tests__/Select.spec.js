@@ -515,7 +515,7 @@ describe('Select', () => {
         padding-left: 16px;
       }
 
-      .c11 {
+      .c10 {
         padding-left: 12px;
       }
 
@@ -601,7 +601,7 @@ describe('Select', () => {
         line-height: 1.43;
       }
 
-      .c14 {
+      .c13 {
         color: #666687;
         font-size: 0.75rem;
         line-height: 1.33;
@@ -679,23 +679,23 @@ describe('Select', () => {
         box-shadow: #4945ff 0px 0px 0px 2px;
       }
 
-      .c12 {
+      .c11 {
         background: transparent;
         border: none;
         position: relative;
         z-index: 1;
       }
 
-      .c12 svg {
+      .c11 svg {
         height: 0.6875rem;
         width: 0.6875rem;
       }
 
-      .c12 svg path {
+      .c11 svg path {
         fill: #666687;
       }
 
-      .c13 {
+      .c12 {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -704,11 +704,11 @@ describe('Select', () => {
         border: none;
       }
 
-      .c13 svg {
+      .c12 svg {
         width: 0.375rem;
       }
 
-      .c10 {
+      .c14 {
         border: 0;
         -webkit-clip: rect(0 0 0 0);
         clip: rect(0 0 0 0);
@@ -813,11 +813,6 @@ describe('Select', () => {
                       id="select-3-content"
                     >
                       Hamburger
-                      <span
-                        class="c10"
-                      >
-                        pizza, hamburger
-                      </span>
                     </span>
                   </div>
                 </div>
@@ -826,7 +821,7 @@ describe('Select', () => {
                 >
                   <button
                     aria-hidden="true"
-                    class="c11 c12 c13"
+                    class="c10 c11 c12"
                     tabindex="-1"
                     type="button"
                   >
@@ -849,7 +844,7 @@ describe('Select', () => {
               </div>
             </div>
             <p
-              class="c14"
+              class="c13"
               id="select-3-hint"
             >
               Description line
@@ -857,7 +852,7 @@ describe('Select', () => {
           </div>
         </div>
         <div
-          class="c10"
+          class="c14"
         >
           <p
             aria-live="polite"

@@ -32333,9 +32333,6 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
                       id="select1-content"
                     >
                       0 currently selected
-                      <span
-                        class="c1"
-                      />
                     </span>
                   </div>
                 </div>
@@ -32667,9 +32664,6 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
                       id="select1-content"
                     >
                       0 currently selected
-                      <span
-                        class="c1"
-                      />
                     </span>
                   </div>
                 </div>
@@ -46122,7 +46116,7 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
 }
 
 .c14 {
-  color: #666687;
+  color: #32324d;
   display: block;
   white-space: nowrap;
   overflow: hidden;
@@ -46372,6 +46366,25 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
               <div
                 class="c6"
               >
+                <button
+                  aria-disabled="false"
+                  aria-label="Clear the selected time picker value"
+                  class="c15"
+                  type="button"
+                >
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M24 2.417L21.583 0 12 9.583 2.417 0 0 2.417 9.583 12 0 21.583 2.417 24 12 14.417 21.583 24 24 21.583 14.417 12 24 2.417z"
+                      fill="#212134"
+                    />
+                  </svg>
+                </button>
                 <button
                   aria-hidden="true"
                   class="c11 c15 c16"
@@ -46449,7 +46462,7 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
 }
 
 .c14 {
-  color: #666687;
+  color: #32324d;
   display: block;
   white-space: nowrap;
   overflow: hidden;
@@ -46700,6 +46713,25 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
                 class="c6"
               >
                 <button
+                  aria-disabled="false"
+                  aria-label="Clear the selected time picker value"
+                  class="c15"
+                  type="button"
+                >
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M24 2.417L21.583 0 12 9.583 2.417 0 0 2.417 9.583 12 0 21.583 2.417 24 12 14.417 21.583 24 24 21.583 14.417 12 24 2.417z"
+                      fill="#212134"
+                    />
+                  </svg>
+                </button>
+                <button
                   aria-hidden="true"
                   class="c11 c15 c16"
                   tabindex="-1"
@@ -46776,7 +46808,7 @@ exports[`Storyshots Design System/Components/TimePicker disabled 1`] = `
 }
 
 .c14 {
-  color: #666687;
+  color: #32324d;
   display: block;
   white-space: nowrap;
   overflow: hidden;
@@ -47030,6 +47062,25 @@ exports[`Storyshots Design System/Components/TimePicker disabled 1`] = `
               <div
                 class="c6"
               >
+                <button
+                  aria-disabled="true"
+                  aria-label="Clear the selected time picker value"
+                  class="c15"
+                  type="button"
+                >
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M24 2.417L21.583 0 12 9.583 2.417 0 0 2.417 9.583 12 0 21.583 2.417 24 12 14.417 21.583 24 24 21.583 14.417 12 24 2.417z"
+                      fill="#212134"
+                    />
+                  </svg>
+                </button>
                 <button
                   aria-hidden="true"
                   class="c11 c15 c16"
@@ -47300,7 +47351,7 @@ exports[`Storyshots Design System/Components/TimePicker initial-data 1`] = `
         class="c3"
       >
         Initial value : 
-        13:32:45
+        13:32
       </span>
       <div
         class="c4"
@@ -47474,7 +47525,7 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
 }
 
 .c14 {
-  color: #666687;
+  color: #32324d;
   display: block;
   white-space: nowrap;
   overflow: hidden;
@@ -47724,6 +47775,25 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
               <div
                 class="c6"
               >
+                <button
+                  aria-disabled="false"
+                  aria-label="Clear the selected time picker value"
+                  class="c15"
+                  type="button"
+                >
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M24 2.417L21.583 0 12 9.583 2.417 0 0 2.417 9.583 12 0 21.583 2.417 24 12 14.417 21.583 24 24 21.583 14.417 12 24 2.417z"
+                      fill="#212134"
+                    />
+                  </svg>
+                </button>
                 <button
                   aria-hidden="true"
                   class="c11 c15 c16"

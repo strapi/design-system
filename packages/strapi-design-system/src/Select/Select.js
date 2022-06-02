@@ -1,4 +1,4 @@
-import React, { Children, cloneElement, useRef, useState } from 'react';
+import React, { Children, cloneElement, useEffect, useMemo, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import CarretDown from '@strapi/icons/CarretDown';
 import Cross from '@strapi/icons/Cross';
@@ -18,10 +18,24 @@ import { VisuallyHidden } from '../VisuallyHidden';
 import { DownState } from './constants';
 import { escapeSelector } from '../helpers/escapeSelector';
 import { SelectTags } from './SelectTags';
+import { Grid } from '../Grid';
 import styled from 'styled-components';
 
 const MainRow = styled(Flex)`
   width: 100%;
+`;
+
+const TimepickerGrid = styled(Grid)`
+  min-height: 0;
+
+  > * {
+    min-height: 0;
+    overflow-y: auto;
+
+    &:first-child {
+      border-right: 1px solid ${({ theme }) => theme.colors.neutral150};
+    }
+  }
 `;
 
 export const Select = ({
@@ -30,6 +44,7 @@ export const Select = ({
   id,
   children,
   customizeContent,
+  timepicker,
   placeholder,
   onChange,
   value,
@@ -50,6 +65,7 @@ export const Select = ({
   const [expanded, setExpanded] = useState(undefined);
   const buttonRef = useButtonRef(expanded);
   const containerRef = useRef(null);
+  const [timepickerValues, setTimepickerValues] = useState(value || {});
 
   const labelId = `${generatedId}-label`;
   const contentId = `${generatedId}-content`;
@@ -59,12 +75,25 @@ export const Select = ({
     throw new Error('The "withTags" props can only be used when the "multi" prop is present');
   }
 
-  const handleEscape = () => {
+  if (timepicker && (multi || withTags)) {
+    throw new Error('The "timepicker" prop can only be used when the "multi" and "withTags" props are absent');
+  }
+
+  useEffect(() => {
+    if (!timepicker || !timepickerValues || !timepickerValues.hour || !timepickerValues.minute) return;
+    onChange(timepickerValues);
+  }, [timepickerValues, onChange]);
+
+  const formatTimepickerValue = ({ hour, minute }) => (hour && minute ? `${hour}:${minute}` : placeholder);
+
+  const handleEscape = (event, checkChildren) => {
+    if (checkChildren && event.currentTarget.contains(event.relatedTarget)) return;
     setExpanded(undefined);
   };
 
   const handleClear = () => {
     if (disabled) return;
+    if (timepicker) setTimepickerValues({ hour: null, minute: null });
 
     onClear();
     buttonRef.current.focus();
@@ -101,13 +130,18 @@ export const Select = ({
     );
   };
 
+  const handleSelectTimepickerItem = (v, type) => {
+    setTimepickerValues((p) => ({ ...p, [type]: p[type] === v ? null : v }));
+  };
+
   let selectOptionLabel;
   let tags = [];
 
   const cloneOption = (node, isChild) => {
-    const optionId = `${generatedId}-option-${node.props.value}`;
+    const { timepickerValue: tv, value: val } = node.props;
+    const optionId = `${generatedId}-option-${val}`;
 
-    const selected = multi ? value.includes(node.props.value) : node.props.value === value;
+    const selected = multi ? value.includes(val) : timepicker ? timepickerValues[tv] === val : value === val;
 
     if (selected) {
       if (withTags) {
@@ -119,7 +153,10 @@ export const Select = ({
 
     return cloneElement(node, {
       id: escapeSelector(optionId),
-      onClick: () => handleSelectItem(node.props.value),
+      onClick: () =>
+        timepicker
+          ? handleSelectTimepickerItem(node.props.value, node.props.timepickerValue)
+          : handleSelectItem(node.props.value),
       selected,
       multi,
       isChild,
@@ -146,6 +183,26 @@ export const Select = ({
       return cloneOption(node);
     }
   });
+
+  const timepickerChildren = useMemo(() => {
+    if (!timepicker) return;
+
+    const children = childrenClone.reduce(
+      (prevChildren, newChild) => {
+        const timepickerValue = newChild.props.timepickerValue;
+
+        if (timepickerValue !== 'hour' && timepickerValue !== 'minute')
+          throw new Error('Some timepicker children are not hours nor minutes!');
+
+        prevChildren[timepickerValue].push(newChild);
+
+        return prevChildren;
+      },
+      { hour: [], minute: [] },
+    );
+
+    return children;
+  }, [childrenClone]);
 
   return (
     <Field hint={hint} error={error} id={generatedId}>
@@ -189,14 +246,22 @@ export const Select = ({
                       </Typography>
                     ) : null}
                     <VisuallyHidden as="span" id={contentId}>
-                      {customizeContent ? customizeContent(value) : selectOptionLabel || placeholder}
+                      {customizeContent
+                        ? customizeContent(timepicker ? formatTimepickerValue(value) : value)
+                        : timepicker
+                        ? formatTimepickerValue(value)
+                        : selectOptionLabel || placeholder}
                       {value.join(', ')}
                     </VisuallyHidden>
                   </>
                 ) : (
                   <Typography ellipsis id={contentId} textColor={value ? 'neutral800' : 'neutral600'}>
-                    {customizeContent ? customizeContent(value) : selectOptionLabel || placeholder}
-                    {multi && <VisuallyHidden as="span">{value.join(', ')}</VisuallyHidden>}
+                    {customizeContent
+                      ? customizeContent(timepicker ? formatTimepickerValue(value) : value)
+                      : timepicker
+                      ? formatTimepickerValue(value)
+                      : selectOptionLabel || placeholder}
+                    {/* {multi && <VisuallyHidden as="span">{value.join(', ')}</VisuallyHidden>} */}
                   </Typography>
                 )}
               </Box>
@@ -241,17 +306,39 @@ export const Select = ({
           fullWidth
           intersectionId={`select-list-intersection-${generatedId}`}
           onReachEnd={onReachEnd}
+          {...(timepicker && { style: { overflowY: 'hidden', display: 'flex', flexDirection: 'column' } })}
         >
-          <SelectList
-            selectId={generatedId}
-            labelledBy={label ? labelId : undefined}
-            onEscape={handleEscape}
-            expanded={expanded}
-            onSelectItem={(value, isGroup) => (isGroup ? handleSelectGroupItem(value) : handleSelectItem(value, false))}
-            multi={multi}
-          >
-            {childrenClone}
-          </SelectList>
+          {timepicker ? (
+            <TimepickerGrid gridCols={2} onBlur={(e) => handleEscape(e, true)}>
+              {Object.entries(timepickerChildren).map(([k, v]) => (
+                <SelectList
+                  key={k}
+                  selectId={generatedId}
+                  labelledBy={label ? labelId : undefined}
+                  onEscape={handleEscape}
+                  expanded={expanded}
+                  onSelectItem={(value) => handleSelectTimepickerItem(value, columnLabel)}
+                  multi={false}
+                  column
+                >
+                  {v}
+                </SelectList>
+              ))}
+            </TimepickerGrid>
+          ) : (
+            <SelectList
+              selectId={generatedId}
+              labelledBy={label ? labelId : undefined}
+              onEscape={handleEscape}
+              expanded={expanded}
+              onSelectItem={(value, isGroup) =>
+                isGroup ? handleSelectGroupItem(value) : handleSelectItem(value, false)
+              }
+              multi={multi}
+            >
+              {childrenClone}
+            </SelectList>
+          )}
         </Popover>
       )}
     </Field>
@@ -278,6 +365,7 @@ Select.defaultProps = {
   required: false,
   size: 'M',
   startIcon: undefined,
+  timepicker: false,
   withTags: false,
 };
 
@@ -300,8 +388,10 @@ Select.propTypes = {
   required: PropTypes.bool,
   size: PropTypes.oneOf(Object.keys(sizes.input)),
   startIcon: PropTypes.element,
+  timepicker: PropTypes.bool,
   value: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
+    PropTypes.object,
     PropTypes.string,
     PropTypes.number,
   ]),
