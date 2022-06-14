@@ -147,7 +147,9 @@ const popoverProps = {
   /**
    * A React ref. Used to defined the position of the popover.
    */
-  source: PropTypes.shape({ current: PropTypes.instanceOf(Element) }).isRequired,
+  source: PropTypes.shape({
+    current: (typeof Element === 'undefined' ? PropTypes.any : PropTypes.instanceOf(Element)).isRequired,
+  }).isRequired,
   spacing: PropTypes.number,
 };
 
