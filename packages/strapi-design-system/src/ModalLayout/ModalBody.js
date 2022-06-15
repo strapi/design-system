@@ -8,5 +8,5 @@ const ModalBodyWrapper = styled(Box)`
 `;
 
 export const ModalBody = (props) => {
-  return <ModalBodyWrapper paddingTop={6} paddingBottom={6} paddingLeft={8} paddingRight={8} {...props} />;
+  return <ModalBodyWrapper padding={7} {...props} />;
 };

@@ -64,10 +64,7 @@ describe('ModalLayout', () => {
       }
 
       .c10 {
-        padding-top: 24px;
-        padding-right: 40px;
-        padding-bottom: 24px;
-        padding-left: 40px;
+        padding: 32px;
       }
 
       .c8 {
