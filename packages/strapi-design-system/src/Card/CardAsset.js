@@ -26,6 +26,8 @@ const CardAssetWrapper = styled.div`
   width: 100%;
   background: repeating-conic-gradient(${({ theme }) => theme.colors.neutral100} 0% 25%, transparent 0% 50%) 50% / 20px
     20px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
 `;
 
 export const CardAsset = ({ size, children, ...props }) => {
