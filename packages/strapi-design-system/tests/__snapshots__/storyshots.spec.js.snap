@@ -6563,6 +6563,9 @@ exports[`Storyshots Design System/Components/Card base 1`] = `
 .c3 {
   background: #ffffff;
   border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #eaeaef;
   box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
 }
 
@@ -6885,6 +6888,8 @@ exports[`Storyshots Design System/Components/Card base 1`] = `
   height: 10.25rem;
   width: 100%;
   background: repeating-conic-gradient(#f6f6f9 0% 25%,transparent 0% 50%) 50% / 20px 20px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
 }
 
 .c25 {
@@ -7073,6 +7078,9 @@ exports[`Storyshots Design System/Components/Card keyboard navigable 1`] = `
 .c3 {
   background: #ffffff;
   border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #eaeaef;
   box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
 }
 
@@ -7465,6 +7473,9 @@ exports[`Storyshots Design System/Components/Card with asset icon 1`] = `
 .c3 {
   background: #ffffff;
   border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #eaeaef;
   box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
 }
 
@@ -7677,6 +7688,8 @@ exports[`Storyshots Design System/Components/Card with asset icon 1`] = `
   height: 10.25rem;
   width: 100%;
   background: repeating-conic-gradient(#f6f6f9 0% 25%,transparent 0% 50%) 50% / 20px 20px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
 }
 
 .c20 {
@@ -7844,6 +7857,9 @@ exports[`Storyshots Design System/Components/Card without asset 1`] = `
 .c3 {
   background: #ffffff;
   border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #eaeaef;
   box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
 }
 
@@ -8046,6 +8062,9 @@ exports[`Storyshots Design System/Components/Card without asset action 1`] = `
 .c3 {
   background: #ffffff;
   border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #eaeaef;
   box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
 }
 
@@ -8266,6 +8285,8 @@ exports[`Storyshots Design System/Components/Card without asset action 1`] = `
   height: 10.25rem;
   width: 100%;
   background: repeating-conic-gradient(#f6f6f9 0% 25%,transparent 0% 50%) 50% / 20px 20px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
 }
 
 .c21 {
@@ -8419,6 +8440,9 @@ exports[`Storyshots Design System/Components/Card without asset action nor timer
 .c3 {
   background: #ffffff;
   border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #eaeaef;
   box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
 }
 
@@ -8626,6 +8650,8 @@ exports[`Storyshots Design System/Components/Card without asset action nor timer
   height: 10.25rem;
   width: 100%;
   background: repeating-conic-gradient(#f6f6f9 0% 25%,transparent 0% 50%) 50% / 20px 20px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
 }
 
 .c18 {
