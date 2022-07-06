@@ -162,6 +162,10 @@ export const getVariantStyle = ({ theme, variant }) => {
           background: ${theme.colors[`${getVariantColorName(variant)}600`]};
           border: 1px solid ${theme.colors[`${getVariantColorName(variant)}600`]};
 
+          ${Typography} {
+            color: ${({ theme }) => theme.colors.buttonNeutral0};
+          }
+
           svg {
             > g, path {
               fill: ${theme.colors.buttonNeutral0};
