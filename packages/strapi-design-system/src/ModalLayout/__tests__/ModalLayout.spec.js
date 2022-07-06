@@ -287,6 +287,8 @@ describe('ModalLayout', () => {
         padding: 8px 16px;
         background: #4945ff;
         border: 1px solid #4945ff;
+        background: #4945ff;
+        border: 1px solid #4945ff;
       }
 
       .c19 .c2 {

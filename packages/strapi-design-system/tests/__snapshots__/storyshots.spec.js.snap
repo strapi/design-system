@@ -4427,6 +4427,8 @@ exports[`Storyshots Design System/Components/Button base 1`] = `
   padding: 8px 16px;
   background: #4945ff;
   border: 1px solid #4945ff;
+  background: #4945ff;
+  border: 1px solid #4945ff;
 }
 
 .c6 .c0 {
@@ -4628,6 +4630,8 @@ exports[`Storyshots Design System/Components/Button disabled 1`] = `
   -ms-flex-align: center;
   align-items: center;
   padding: 8px 16px;
+  background: #4945ff;
+  border: 1px solid #4945ff;
   background: #4945ff;
   border: 1px solid #4945ff;
 }
@@ -4853,6 +4857,8 @@ exports[`Storyshots Design System/Components/Button fullWidth 1`] = `
   -ms-flex-align: center;
   align-items: center;
   padding: 8px 16px;
+  background: #4945ff;
+  border: 1px solid #4945ff;
   background: #4945ff;
   border: 1px solid #4945ff;
   display: -webkit-inline-box;
@@ -5127,6 +5133,8 @@ exports[`Storyshots Design System/Components/Button icons 1`] = `
   -ms-flex-align: center;
   align-items: center;
   padding: 8px 16px;
+  background: #4945ff;
+  border: 1px solid #4945ff;
   background: #4945ff;
   border: 1px solid #4945ff;
 }
@@ -5538,6 +5546,8 @@ exports[`Storyshots Design System/Components/Button sizes 1`] = `
   padding: 8px 16px;
   background: #4945ff;
   border: 1px solid #4945ff;
+  background: #4945ff;
+  border: 1px solid #4945ff;
 }
 
 .c7 .c0 {
@@ -5604,6 +5614,8 @@ exports[`Storyshots Design System/Components/Button sizes 1`] = `
   -ms-flex-align: center;
   align-items: center;
   padding: 10px 16px;
+  background: #4945ff;
+  border: 1px solid #4945ff;
   background: #4945ff;
   border: 1px solid #4945ff;
 }
@@ -5833,6 +5845,8 @@ exports[`Storyshots Design System/Components/Button variants 1`] = `
   -ms-flex-align: center;
   align-items: center;
   padding: 8px 16px;
+  background: #4945ff;
+  border: 1px solid #4945ff;
   background: #4945ff;
   border: 1px solid #4945ff;
 }
@@ -13522,6 +13536,8 @@ exports[`Storyshots Design System/Components/Dialog base 1`] = `
   padding: 8px 16px;
   background: #4945ff;
   border: 1px solid #4945ff;
+  background: #4945ff;
+  border: 1px solid #4945ff;
 }
 
 .c5 .c0 {
@@ -17108,6 +17124,8 @@ exports[`Storyshots Design System/Components/HeaderLayout base 1`] = `
   padding: 8px 16px;
   background: #4945ff;
   border: 1px solid #4945ff;
+  background: #4945ff;
+  border: 1px solid #4945ff;
 }
 
 .c20 .c0 {
@@ -17544,6 +17562,8 @@ exports[`Storyshots Design System/Components/HeaderLayout base without nav actio
   -ms-flex-align: center;
   align-items: center;
   padding: 8px 16px;
+  background: #4945ff;
+  border: 1px solid #4945ff;
   background: #4945ff;
   border: 1px solid #4945ff;
 }
@@ -18020,6 +18040,8 @@ exports[`Storyshots Design System/Components/HeaderLayout combined w/ scroll 1`]
   -ms-flex-align: center;
   align-items: center;
   padding: 8px 16px;
+  background: #4945ff;
+  border: 1px solid #4945ff;
   background: #4945ff;
   border: 1px solid #4945ff;
 }
@@ -18537,6 +18559,8 @@ exports[`Storyshots Design System/Components/HeaderLayout sticky 1`] = `
   -ms-flex-align: center;
   align-items: center;
   padding: 8px 16px;
+  background: #4945ff;
+  border: 1px solid #4945ff;
   background: #4945ff;
   border: 1px solid #4945ff;
 }
@@ -20338,6 +20362,8 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
   -ms-flex-align: center;
   align-items: center;
   padding: 8px 16px;
+  background: #4945ff;
+  border: 1px solid #4945ff;
   background: #4945ff;
   border: 1px solid #4945ff;
 }
@@ -23476,6 +23502,8 @@ exports[`Storyshots Design System/Components/LinkButton base 1`] = `
   background: #4945ff;
   border: 1px solid #4945ff;
   border-radius: 4px;
+  background: #4945ff;
+  border: 1px solid #4945ff;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -23680,6 +23708,8 @@ exports[`Storyshots Design System/Components/LinkButton disabled 1`] = `
   background: #4945ff;
   border: 1px solid #4945ff;
   border-radius: 4px;
+  background: #4945ff;
+  border: 1px solid #4945ff;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -23917,6 +23947,8 @@ exports[`Storyshots Design System/Components/LinkButton icons 1`] = `
   background: #4945ff;
   border: 1px solid #4945ff;
   border-radius: 4px;
+  background: #4945ff;
+  border: 1px solid #4945ff;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -24276,6 +24308,8 @@ exports[`Storyshots Design System/Components/LinkButton sizes 1`] = `
   background: #4945ff;
   border: 1px solid #4945ff;
   border-radius: 4px;
+  background: #4945ff;
+  border: 1px solid #4945ff;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -24347,6 +24381,8 @@ exports[`Storyshots Design System/Components/LinkButton sizes 1`] = `
   background: #4945ff;
   border: 1px solid #4945ff;
   border-radius: 4px;
+  background: #4945ff;
+  border: 1px solid #4945ff;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -24578,6 +24614,8 @@ exports[`Storyshots Design System/Components/LinkButton variants 1`] = `
   background: #4945ff;
   border: 1px solid #4945ff;
   border-radius: 4px;
+  background: #4945ff;
+  border: 1px solid #4945ff;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -25380,6 +25418,8 @@ exports[`Storyshots Design System/Components/LiveRegions alert 1`] = `
   padding: 8px 16px;
   background: #4945ff;
   border: 1px solid #4945ff;
+  background: #4945ff;
+  border: 1px solid #4945ff;
 }
 
 .c7 .c0 {
@@ -25607,6 +25647,8 @@ exports[`Storyshots Design System/Components/LiveRegions log 1`] = `
   padding: 8px 16px;
   background: #4945ff;
   border: 1px solid #4945ff;
+  background: #4945ff;
+  border: 1px solid #4945ff;
 }
 
 .c7 .c0 {
@@ -25832,6 +25874,8 @@ exports[`Storyshots Design System/Components/LiveRegions status 1`] = `
   -ms-flex-align: center;
   align-items: center;
   padding: 8px 16px;
+  background: #4945ff;
+  border: 1px solid #4945ff;
   background: #4945ff;
   border: 1px solid #4945ff;
 }
@@ -27793,6 +27837,8 @@ exports[`Storyshots Design System/Components/ModalLayout base 1`] = `
   -ms-flex-align: center;
   align-items: center;
   padding: 8px 16px;
+  background: #4945ff;
+  border: 1px solid #4945ff;
   background: #4945ff;
   border: 1px solid #4945ff;
 }
@@ -50732,6 +50778,8 @@ exports[`Storyshots Design System/Components/v2/LinkButton base 1`] = `
   background: #4945ff;
   border: 1px solid #4945ff;
   border-radius: 4px;
+  background: #4945ff;
+  border: 1px solid #4945ff;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -50940,6 +50988,8 @@ exports[`Storyshots Design System/Components/v2/LinkButton disabled 1`] = `
   background: #4945ff;
   border: 1px solid #4945ff;
   border-radius: 4px;
+  background: #4945ff;
+  border: 1px solid #4945ff;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -51182,6 +51232,8 @@ exports[`Storyshots Design System/Components/v2/LinkButton icons 1`] = `
   background: #4945ff;
   border: 1px solid #4945ff;
   border-radius: 4px;
+  background: #4945ff;
+  border: 1px solid #4945ff;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -51543,6 +51595,8 @@ exports[`Storyshots Design System/Components/v2/LinkButton sizes 1`] = `
   background: #4945ff;
   border: 1px solid #4945ff;
   border-radius: 4px;
+  background: #4945ff;
+  border: 1px solid #4945ff;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -51614,6 +51668,8 @@ exports[`Storyshots Design System/Components/v2/LinkButton sizes 1`] = `
   background: #4945ff;
   border: 1px solid #4945ff;
   border-radius: 4px;
+  background: #4945ff;
+  border: 1px solid #4945ff;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -51847,6 +51903,8 @@ exports[`Storyshots Design System/Components/v2/LinkButton variants 1`] = `
   background: #4945ff;
   border: 1px solid #4945ff;
   border-radius: 4px;
+  background: #4945ff;
+  border: 1px solid #4945ff;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -58991,6 +59049,8 @@ exports[`Storyshots Design System/Technical Components/FocusTrap base 1`] = `
   -ms-flex-align: center;
   align-items: center;
   padding: 8px 16px;
+  background: #4945ff;
+  border: 1px solid #4945ff;
   background: #4945ff;
   border: 1px solid #4945ff;
 }
