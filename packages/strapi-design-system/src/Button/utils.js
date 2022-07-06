@@ -159,6 +159,9 @@ export const getVariantStyle = ({ theme, variant }) => {
     }
     default: {
       return `
+          background: ${theme.colors[`${getVariantColorName(variant)}600`]};
+          border: 1px solid ${theme.colors[`${getVariantColorName(variant)}600`]};
+
           svg {
             > g, path {
               fill: ${theme.colors.buttonNeutral0};
