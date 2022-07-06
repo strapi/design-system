@@ -40,7 +40,7 @@ NumberInputs are always found in forms. They give users the possibility to add o
 <Canvas>
   <Story name="base">
     {() => {
-      const [content, setContent] = useState();
+      const [content, setContent] = useState(3.14159265359);
       return (
         <Box padding={10}>
           <NumberInput
