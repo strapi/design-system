@@ -28197,7 +28197,7 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
                 name="content"
                 placeholder="This is a content placeholder"
                 type="text"
-                value=""
+                value="3.14159265359"
               />
               <div
                 class="c13"
@@ -28264,7 +28264,7 @@ exports[`Storyshots Design System/Components/NumberInput base 1`] = `
           <span
             class="c20"
           >
-            The value is undefined
+            The value is 3.14159265359
           </span>
         </p>
         <button>
