@@ -20,4 +20,13 @@ module.exports = {
     'default-case': 'error',
     'no-unused-vars': ['error', { vars: 'all', args: 'after-used', ignoreRestSiblings: false }],
   },
+  overrides: [
+    {
+      files: '*.mdx',
+      parser: 'eslint-mdx',
+      rules: {
+        'react/react-in-jsx-scope': 'off',
+      },
+    },
+  ],
 };

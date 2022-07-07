@@ -25,9 +25,17 @@ import { TwoColsLayout } from '@strapi/design-system/Layout';
 <Canvas>
   <Story name="base">
     <Box padding={8} background="neutral100">
-      <TwoColsLayout 
-        startCol={<Box padding={4}><Typography>Hello world</Typography></Box>} 
-        endCol={<Box padding={4}><Typography>Hello world</Typography></Box>} 
+      <TwoColsLayout
+        startCol={
+          <Box padding={4}>
+            <Typography>Hello world</Typography>
+          </Box>
+        }
+        endCol={
+          <Box padding={4}>
+            <Typography>Hello world</Typography>
+          </Box>
+        }
       />
     </Box>
   </Story>

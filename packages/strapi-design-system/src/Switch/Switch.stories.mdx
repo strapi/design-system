@@ -1,6 +1,5 @@
 <!--- Switch.stories.mdx --->
 
-import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { ArgsTable } from '@storybook/addon-docs';
 import { Switch } from './Switch';
@@ -12,11 +11,13 @@ import { Switch } from './Switch';
 Switches are used to change between enabled and disabled states. It is a binary choice.
 
 **Best practices**
+
 - Make sure to add state labels when using a Switch component. For inclusion matters, colors are mandatory but not enough to indicate a change of state.
 - The state labels should only have a single word and be clear.
 - A change of state should also be visible by the circle position.
 - One tap should be enough to change the state.
 - When in a form, prefer the usage of a Toggle component.
+
 [View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Switch)
 
 ## Imports
@@ -39,7 +40,6 @@ Activated state is one of two of them available for a Switch.
   </Story>
 </Canvas>
 
-
 ### Deactivated Switch
 
 Deactivated state is one of two of them available for a Switch.
@@ -49,7 +49,6 @@ Deactivated state is one of two of them available for a Switch.
     <Switch label="Activate the microphone" selected={false} onChange={() => setChecked((s) => !s)} visibleLabels />
   </Story>
 </Canvas>
-
 
 ## Props
 
