@@ -63,6 +63,8 @@ const StickyBox = styled(Box)`
 
 export const BaseHeaderLayout = React.forwardRef(
   ({ navigationAction, primaryAction, secondaryAction, subtitle, title, sticky, width, ...props }, ref) => {
+    const isSubtitleString = typeof subtitle === 'string';
+
     if (sticky) {
       return (
         <StickyBox
@@ -81,9 +83,13 @@ export const BaseHeaderLayout = React.forwardRef(
                 <Typography variant="beta" as="h1" {...props}>
                   {title}
                 </Typography>
-                <Typography variant="pi" textColor="neutral600">
-                  {subtitle}
-                </Typography>
+                {isSubtitleString ? (
+                  <Typography variant="pi" textColor="neutral600">
+                    {subtitle}
+                  </Typography>
+                ) : (
+                  subtitle
+                )}
               </Box>
               {secondaryAction ? <Box paddingLeft={4}>{secondaryAction}</Box> : null}
             </Flex>
@@ -113,9 +119,13 @@ export const BaseHeaderLayout = React.forwardRef(
           </Flex>
           {primaryAction}
         </Flex>
-        <Typography variant="epsilon" textColor="neutral600" as="p">
-          {subtitle}
-        </Typography>
+        {isSubtitleString ? (
+          <Typography variant="epsilon" textColor="neutral600" as="p">
+            {subtitle}
+          </Typography>
+        ) : (
+          subtitle
+        )}
       </Box>
     );
   },
@@ -137,7 +147,7 @@ BaseHeaderLayout.propTypes = {
   primaryAction: PropTypes.node,
   secondaryAction: PropTypes.node,
   sticky: PropTypes.bool,
-  subtitle: PropTypes.string,
+  subtitle: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   title: PropTypes.string.isRequired,
   width: PropTypes.number,
 };
@@ -153,6 +163,6 @@ HeaderLayout.propTypes = {
   navigationAction: PropTypes.node,
   primaryAction: PropTypes.node,
   secondaryAction: PropTypes.node,
-  subtitle: PropTypes.string,
+  subtitle: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   title: PropTypes.string.isRequired,
 };
