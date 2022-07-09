@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import CarretDown from '@strapi/icons/CarretDown';
 import styled from 'styled-components';
@@ -51,10 +51,21 @@ export const NumberInput = React.forwardRef(
     const generatedId = useId('numberinput', id);
     const numberParserRef = useRef(new NumberParser(getDefaultLocale()));
     const numberFormaterRef = useRef(new NumberFormatter(getDefaultLocale()));
+    const inputRef = useRef();
 
     if (!label && !props['aria-label']) {
       throw new Error('The NumberInput component needs a "label" or an "aria-label" props');
     }
+
+    useEffect(() => {
+      if (inputRef.current) {
+        setInputValue(value === undefined || value === null ? INITIAL_VALUE : String(value));
+      }
+
+      if (!inputRef.current) {
+        inputRef.current = true;
+      }
+    }, [value]);
 
     const handleChange = (e) => {
       const nextValue = e.target.value;
@@ -149,13 +160,13 @@ export const NumberInput = React.forwardRef(
     };
 
     const handleFocus = () => {
-      if (value !== undefined) {
+      if (value !== undefined && value !== null) {
         setInputValue(String(numberParserRef.current.parse(inputValue)));
       }
     };
 
     const handleBlur = () => {
-      if (value === undefined) {
+      if (value === undefined || value === null) {
         setInputValue(undefined);
       } else {
         setInputValue(numberFormaterRef.current.format(value));
