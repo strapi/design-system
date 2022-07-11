@@ -147,6 +147,7 @@ BaseHeaderLayout.propTypes = {
   primaryAction: PropTypes.node,
   secondaryAction: PropTypes.node,
   sticky: PropTypes.bool,
+  // TODO V2: Remove the string fallback
   subtitle: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   title: PropTypes.string.isRequired,
   width: PropTypes.number,
@@ -163,6 +164,7 @@ HeaderLayout.propTypes = {
   navigationAction: PropTypes.node,
   primaryAction: PropTypes.node,
   secondaryAction: PropTypes.node,
+  // TODO V2: Remove the string fallback
   subtitle: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   title: PropTypes.string.isRequired,
 };
