@@ -69,7 +69,6 @@
     "test:watch": "jest -c jest.config.js --watchAll",
     "test:e2e": "playwright test",
     "test:e2e:ci": "cross-env CI=true playwright test",
-    "test:e2e:watch": "jest -c jest.e2e.js --watchAll",
     "test:e2e:debug": "cross-env PWDEBUG=1 playwright test"
   },
   "gitHead": "bf52e690f743703a47f768ba83ebff55a3a12795"
