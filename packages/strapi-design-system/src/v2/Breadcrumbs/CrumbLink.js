@@ -6,7 +6,7 @@ import { Flex } from '../../Flex';
 import { Box } from '../../Box';
 import { BaseLink } from '../../BaseLink';
 
-export const CrumbWrapper = styled(Flex)`
+const CrumbWrapper = styled(Flex)`
   svg {
     height: 10px;
     width: 10px;
@@ -19,6 +19,12 @@ export const CrumbWrapper = styled(Flex)`
     color: ${({ theme }) => theme.colors.neutral600};
     font-size: ${({ theme }) => theme.fontSizes[1]};
     line-height: ${({ theme }) => theme.lineHeights[3]};
+    padding: ${({ theme }) => theme.spaces[1]};
+    border-radius: ${({ theme }) => theme.borderRadius};
+    :hover {
+      background: ${({ theme }) => theme.colors.neutral200};
+      color: ${({ theme }) => theme.colors.neutral700};
+    }
   }
   :last-of-type ${Box} {
     display: none;
@@ -29,13 +35,13 @@ export const CrumbWrapper = styled(Flex)`
   }
 `;
 
-export const CrumbLink = React.forwardRef(({ children, ...props }, ref) => {
+export const CrumbLink = React.forwardRef(({ children, href, ...props }, ref) => {
   return (
     <CrumbWrapper inline as="li">
-      <BaseLink ref={ref} {...props}>
+      <BaseLink href={href} ref={ref} {...props}>
         {children}
       </BaseLink>
-      <Box paddingLeft={3} paddingRight={3}>
+      <Box paddingLeft={2} paddingRight={2}>
         <ChevronRight />
       </Box>
     </CrumbWrapper>
@@ -43,6 +49,10 @@ export const CrumbLink = React.forwardRef(({ children, ...props }, ref) => {
 });
 
 CrumbLink.displayName = 'CrumbLink';
+CrumbLink.defaultProps = {
+  href: undefined,
+};
 CrumbLink.propTypes = {
   children: PropTypes.string.isRequired,
+  href: PropTypes.string,
 };

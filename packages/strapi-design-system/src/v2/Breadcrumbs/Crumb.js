@@ -6,7 +6,7 @@ import { Box } from '../../Box';
 import { Typography } from '../../Typography';
 import ChevronRight from '@strapi/icons/ChevronRight';
 
-export const CrumbWrapper = styled(Flex)`
+const CrumbWrapper = styled(Flex)`
   svg {
     height: 10px;
     width: 10px;

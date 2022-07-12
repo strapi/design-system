@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Flex } from '../../Flex';
 import { VisuallyHidden } from '../../VisuallyHidden';
+import { Crumb } from './Crumb';
+import { CrumbLink } from './CrumbLink';
 
 export const Breadcrumbs = ({ label, children, ...props }) => {
   return (
@@ -12,8 +14,10 @@ export const Breadcrumbs = ({ label, children, ...props }) => {
   );
 };
 
+const crumbType = PropTypes.shape({ type: PropTypes.oneOf([Crumb, CrumbLink]) });
+
 Breadcrumbs.displayName = 'Breadcrumbs';
 Breadcrumbs.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.oneOfType([PropTypes.arrayOf(crumbType), crumbType]).isRequired,
   label: PropTypes.string.isRequired,
 };
