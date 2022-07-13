@@ -27,18 +27,18 @@ const CrumbWrapper = styled(Flex)`
       fill: ${({ theme }) => theme.colors.neutral500};
     }
   }
-  :last-of-type ${Box} {
-    display: none;
+  ${Box} {
+    display: ${({ isLast }) => (isLast ? 'none' : '')};
   }
-  :last-of-type a {
-    color: ${({ theme }) => theme.colors.neutral800};
-    font-weight: ${({ theme }) => theme.fontWeights.bold};
+  a {
+    color: ${({ theme, isLast }) => (isLast ? theme.colors.neutral800 : theme.colors.neutral600)};
+    font-weight: ${({ theme, isLast }) => (isLast ? theme.fontWeights.bold : theme.fontWeights.regular)};
   }
 `;
 
-export const CrumbLink = React.forwardRef(({ children, href, ...props }, ref) => {
+export const CrumbLink = React.forwardRef(({ children, href, isLast, ...props }, ref) => {
   return (
-    <CrumbWrapper inline as="li">
+    <CrumbWrapper isLast={isLast} inline as="li">
       <BaseLink href={href} ref={ref} {...props}>
         {children}
       </BaseLink>
@@ -52,8 +52,10 @@ export const CrumbLink = React.forwardRef(({ children, href, ...props }, ref) =>
 CrumbLink.displayName = 'CrumbLink';
 CrumbLink.defaultProps = {
   href: undefined,
+  isLast: false,
 };
 CrumbLink.propTypes = {
   children: PropTypes.string.isRequired,
   href: PropTypes.string,
+  isLast: PropTypes.bool,
 };

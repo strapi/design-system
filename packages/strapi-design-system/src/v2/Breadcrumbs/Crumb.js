@@ -14,18 +14,18 @@ const CrumbWrapper = styled(Flex)`
       fill: ${({ theme }) => theme.colors.neutral500};
     }
   }
-  :last-of-type ${Box} {
-    display: none;
+  ${Box} {
+    display: ${({ isLast }) => (isLast ? 'none' : '')};
   }
-  :last-of-type ${Typography} {
-    color: ${({ theme }) => theme.colors.neutral800};
-    font-weight: ${({ theme }) => theme.fontWeights.bold};
+  ${Typography} {
+    color: ${({ theme, isLast }) => (isLast ? theme.colors.neutral800 : theme.colors.neutral600)};
+    font-weight: ${({ theme, isLast }) => (isLast ? theme.fontWeights.bold : theme.fontWeights.regular)};
   }
 `;
 
-export const Crumb = ({ children }) => {
+export const Crumb = ({ children, isLast }) => {
   return (
-    <CrumbWrapper inline as="li">
+    <CrumbWrapper isLast={isLast} inline as="li">
       <Typography variant="pi" textColor="neutral600">
         {children}
       </Typography>
@@ -37,6 +37,10 @@ export const Crumb = ({ children }) => {
 };
 
 Crumb.displayName = 'Crumb';
+Crumb.defaultProps = {
+  isLast: false,
+};
 Crumb.propTypes = {
   children: PropTypes.string.isRequired,
+  isLast: PropTypes.bool,
 };

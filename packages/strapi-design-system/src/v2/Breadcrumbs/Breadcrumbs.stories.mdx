@@ -37,7 +37,7 @@ Breadcrumbs with CrumbLink are a list of link to help navigation.
     <Stack horizontal spacing={3}>
       <Breadcrumbs label="Folder navigatation" as="nav">
         <CrumbLink href="/">Media Library</CrumbLink>
-        <CrumbLink href='/cats'>Cats</CrumbLink>
+        <CrumbLink isLast href='/cats'>Cats</CrumbLink>
       </Breadcrumbs>
     </Stack>
   </Story>
@@ -53,7 +53,7 @@ Breadcrumbs with Crumb are visual information only and cannot be navigated. They
       <CollectionType />
       <Breadcrumbs label="Category model, name field">
         <Crumb>Category</Crumb>
-        <Crumb>Name</Crumb>
+        <Crumb isLast>Name</Crumb>
       </Breadcrumbs>
     </Stack>
   </Story>

@@ -50332,15 +50332,6 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs base 1`] = `
   cursor: pointer;
 }
 
-.c7 svg {
-  height: 0.625rem;
-  width: 0.625rem;
-}
-
-.c7 svg path {
-  fill: #8e8ea9;
-}
-
 .c7 a {
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -50357,11 +50348,50 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs base 1`] = `
   color: #4a4a6a;
 }
 
-.c7:last-of-type .c0 {
+.c7 svg {
+  height: 0.625rem;
+  width: 0.625rem;
+}
+
+.c7 svg path {
+  fill: #8e8ea9;
+}
+
+.c7 a {
+  color: #666687;
+  font-weight: 400;
+}
+
+.c10 a {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: #666687;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.c10 a:hover,
+.c10 a:focus {
+  background-color: #dcdce4;
+  color: #4a4a6a;
+}
+
+.c10 svg {
+  height: 0.625rem;
+  width: 0.625rem;
+}
+
+.c10 svg path {
+  fill: #8e8ea9;
+}
+
+.c10 .c0 {
   display: none;
 }
 
-.c7:last-of-type a {
+.c10 a {
   color: #32324d;
   font-weight: 600;
 }
@@ -50421,7 +50451,7 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs base 1`] = `
               </div>
             </li>
             <li
-              class="c0 c6 c7"
+              class="c0 c6 c10"
             >
               <a
                 class="c8"
@@ -50536,11 +50566,25 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs without-nagivation 1
   fill: #8e8ea9;
 }
 
-.c7:last-of-type .c0 {
+.c7 .c8 {
+  color: #666687;
+  font-weight: 400;
+}
+
+.c11 svg {
+  height: 0.625rem;
+  width: 0.625rem;
+}
+
+.c11 svg path {
+  fill: #8e8ea9;
+}
+
+.c11 .c0 {
   display: none;
 }
 
-.c7:last-of-type .c8 {
+.c11 .c8 {
   color: #32324d;
   font-weight: 600;
 }
@@ -50619,7 +50663,7 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs without-nagivation 1
               </div>
             </li>
             <li
-              class="c0 c6 c7"
+              class="c0 c6 c11"
             >
               <span
                 class="c8 c9"
