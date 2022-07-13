@@ -30,7 +30,7 @@ export const SubNavSection = ({ collapsable, label, badgeLabel, children, id }) 
 
   return (
     <Box>
-      <SubNavSectionWrapper paddingLeft={6} paddingTop={2} paddingBottom={2} paddingRight={4}>
+      <SubNavSectionWrapper paddingLeft={6} paddingTop={0} paddingBottom={0} paddingRight={4} marginBottom={1}>
         <Flex justifyContent="space-between">
           <SubNavSectionLabel
             onClick={handleClick}
