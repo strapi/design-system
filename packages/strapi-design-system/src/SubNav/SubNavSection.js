@@ -8,7 +8,6 @@ import { SubNavSectionLabel } from './SubNavSectionLabel';
 import { useId } from '../helpers/useId';
 
 const SubNavSectionWrapper = styled(Box)`
-  max-height: ${32 / 16}rem;
   svg {
     height: ${4 / 16}rem;
     path {

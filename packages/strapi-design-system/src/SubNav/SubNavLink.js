@@ -58,8 +58,8 @@ export const SubNavLink = ({ children, icon, withBullet, subSectionChild = false
       icon={icon}
       background="neutral100"
       paddingLeft={subSectionChild ? 9 : 7}
-      paddingBottom={1}
-      paddingTop={1}
+      paddingBottom={2}
+      paddingTop={2}
       {...props}
     >
       <Flex>
