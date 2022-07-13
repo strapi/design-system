@@ -16,7 +16,6 @@ const CrumbWrapper = styled(Flex)`
     border-radius: ${({ theme }) => theme.borderRadius};
     :hover,
     :focus {
-      background-color: ${({ theme }) => theme.colors.neutral200};
       color: ${({ theme }) => theme.colors.neutral700};
     }
   }
