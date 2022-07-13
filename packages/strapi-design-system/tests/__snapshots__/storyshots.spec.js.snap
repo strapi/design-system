@@ -4203,8 +4203,8 @@ exports[`Storyshots Design System/Components/Breadcrumbs base 1`] = `
 }
 
 .c7 svg {
-  height: 10px;
-  width: 10px;
+  height: 0.625rem;
+  width: 0.625rem;
 }
 
 .c7 svg path {
@@ -4280,6 +4280,7 @@ exports[`Storyshots Design System/Components/Breadcrumbs base 1`] = `
                 Category
               </span>
               <div
+                aria-hidden="true"
                 class="c0 c10"
               >
                 <svg
@@ -4305,6 +4306,7 @@ exports[`Storyshots Design System/Components/Breadcrumbs base 1`] = `
                 Name
               </span>
               <div
+                aria-hidden="true"
                 class="c0 c10"
               >
                 <svg
@@ -17346,23 +17348,22 @@ exports[`Storyshots Design System/Components/HeaderLayout base with custom subti
   padding-left: 56px;
 }
 
-.c12 {
+.c13 {
   padding-right: 12px;
   padding-left: 12px;
 }
 
-.c8 {
+.c9 {
   color: #32324d;
   font-weight: 600;
   font-size: 2rem;
   line-height: 1.25;
 }
 
-.c11 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.875rem;
-  line-height: 1.43;
+.c12 {
+  color: #666687;
+  font-size: 0.75rem;
+  line-height: 1.33;
 }
 
 .c6 {
@@ -17397,7 +17398,7 @@ exports[`Storyshots Design System/Components/HeaderLayout base with custom subti
   flex-direction: row;
 }
 
-.c9 {
+.c10 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -17411,17 +17412,22 @@ exports[`Storyshots Design System/Components/HeaderLayout base with custom subti
   flex-direction: row;
 }
 
-.c10 svg {
-  height: 10px;
-  width: 10px;
+.c11 svg {
+  height: 0.625rem;
+  width: 0.625rem;
 }
 
-.c10 svg path {
-  fill: #c0c0cf;
+.c11 svg path {
+  fill: #8e8ea9;
 }
 
-.c10:last-of-type .c0 {
+.c11:last-of-type .c0 {
   display: none;
+}
+
+.c11:last-of-type .c8 {
+  color: #32324d;
+  font-weight: 600;
 }
 
 <div
@@ -17453,7 +17459,7 @@ exports[`Storyshots Design System/Components/HeaderLayout base with custom subti
               class="c0 c7"
             >
               <h2
-                class="c8"
+                class="c8 c9"
               >
                 Media Library
               </h2>
@@ -17471,16 +17477,16 @@ exports[`Storyshots Design System/Components/HeaderLayout base with custom subti
               aria-hidden="true"
             >
               <li
-                class="c0 c9 c10"
+                class="c0 c10 c11"
               >
                 <span
-                  class="c11"
-                  color="neutral800"
+                  class="c8 c12"
                 >
                   Animals
                 </span>
                 <div
-                  class="c0 c12"
+                  aria-hidden="true"
+                  class="c0 c13"
                 >
                   <svg
                     fill="none"
@@ -17497,16 +17503,16 @@ exports[`Storyshots Design System/Components/HeaderLayout base with custom subti
                 </div>
               </li>
               <li
-                class="c0 c9 c10"
+                class="c0 c10 c11"
               >
                 <span
-                  class="c11"
-                  color="neutral800"
+                  class="c8 c12"
                 >
                   Cats
                 </span>
                 <div
-                  class="c0 c12"
+                  aria-hidden="true"
+                  class="c0 c13"
                 >
                   <svg
                     fill="none"
@@ -50327,8 +50333,8 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs base 1`] = `
 }
 
 .c7 svg {
-  height: 10px;
-  width: 10px;
+  height: 0.625rem;
+  width: 0.625rem;
 }
 
 .c7 svg path {
@@ -50345,8 +50351,9 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs base 1`] = `
   border-radius: 4px;
 }
 
-.c7 a:hover {
-  background: #dcdce4;
+.c7 a:hover,
+.c7 a:focus {
+  background-color: #dcdce4;
   color: #4a4a6a;
 }
 
@@ -50379,13 +50386,9 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs base 1`] = `
         spacing="3"
       >
         <nav
+          aria-label="Folder navigatation"
           class="c0 c4"
         >
-          <div
-            class="c2"
-          >
-            Folder navigatation
-          </div>
           <ol
             aria-hidden="true"
           >
@@ -50400,6 +50403,7 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs base 1`] = `
                 Media Library
               </a>
               <div
+                aria-hidden="true"
                 class="c0 c9"
               >
                 <svg
@@ -50427,6 +50431,7 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs base 1`] = `
                 Cats
               </a>
               <div
+                aria-hidden="true"
                 class="c0 c9"
               >
                 <svg
@@ -50523,8 +50528,8 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs without-nagivation 1
 }
 
 .c7 svg {
-  height: 10px;
-  width: 10px;
+  height: 0.625rem;
+  width: 0.625rem;
 }
 
 .c7 svg path {
@@ -50581,13 +50586,9 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs without-nagivation 1
           />
         </svg>
         <div
+          aria-label="Category model, name field"
           class="c0 c4"
         >
-          <div
-            class="c2"
-          >
-            Category model, name field
-          </div>
           <ol
             aria-hidden="true"
           >
@@ -50600,6 +50601,7 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs without-nagivation 1
                 Category
               </span>
               <div
+                aria-hidden="true"
                 class="c0 c10"
               >
                 <svg
@@ -50625,6 +50627,7 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs without-nagivation 1
                 Name
               </span>
               <div
+                aria-hidden="true"
                 class="c0 c10"
               >
                 <svg

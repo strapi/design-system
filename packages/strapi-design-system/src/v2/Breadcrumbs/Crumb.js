@@ -8,8 +8,8 @@ import ChevronRight from '@strapi/icons/ChevronRight';
 
 const CrumbWrapper = styled(Flex)`
   svg {
-    height: 10px;
-    width: 10px;
+    height: ${10 / 16}rem;
+    width: ${10 / 16}rem;
     path {
       fill: ${({ theme }) => theme.colors.neutral500};
     }
@@ -29,7 +29,7 @@ export const Crumb = ({ children }) => {
       <Typography variant="pi" textColor="neutral600">
         {children}
       </Typography>
-      <Box paddingLeft={3} paddingRight={3}>
+      <Box aria-hidden paddingLeft={3} paddingRight={3}>
         <ChevronRight />
       </Box>
     </CrumbWrapper>

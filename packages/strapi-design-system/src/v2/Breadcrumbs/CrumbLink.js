@@ -8,8 +8,8 @@ import { BaseLink } from '../../BaseLink';
 
 const CrumbWrapper = styled(Flex)`
   svg {
-    height: 10px;
-    width: 10px;
+    height: ${10 / 16}rem;
+    width: ${10 / 16}rem;
     path {
       fill: ${({ theme }) => theme.colors.neutral500};
     }
@@ -21,8 +21,9 @@ const CrumbWrapper = styled(Flex)`
     line-height: ${({ theme }) => theme.lineHeights[3]};
     padding: ${({ theme }) => theme.spaces[1]};
     border-radius: ${({ theme }) => theme.borderRadius};
-    :hover {
-      background: ${({ theme }) => theme.colors.neutral200};
+    :hover,
+    :focus {
+      background-color: ${({ theme }) => theme.colors.neutral200};
       color: ${({ theme }) => theme.colors.neutral700};
     }
   }
@@ -41,7 +42,7 @@ export const CrumbLink = React.forwardRef(({ children, href, ...props }, ref) =>
       <BaseLink href={href} ref={ref} {...props}>
         {children}
       </BaseLink>
-      <Box paddingLeft={2} paddingRight={2}>
+      <Box aria-hidden paddingLeft={2} paddingRight={2}>
         <ChevronRight />
       </Box>
     </CrumbWrapper>
