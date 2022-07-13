@@ -7,13 +7,6 @@ import { Box } from '../../Box';
 import { BaseLink } from '../../BaseLink';
 
 const CrumbWrapper = styled(Flex)`
-  svg {
-    height: ${10 / 16}rem;
-    width: ${10 / 16}rem;
-    path {
-      fill: ${({ theme }) => theme.colors.neutral500};
-    }
-  }
   a {
     text-decoration: none;
     color: ${({ theme }) => theme.colors.neutral600};
@@ -25,6 +18,13 @@ const CrumbWrapper = styled(Flex)`
     :focus {
       background-color: ${({ theme }) => theme.colors.neutral200};
       color: ${({ theme }) => theme.colors.neutral700};
+    }
+  }
+  svg {
+    height: ${10 / 16}rem;
+    width: ${10 / 16}rem;
+    path {
+      fill: ${({ theme }) => theme.colors.neutral500};
     }
   }
   :last-of-type ${Box} {
