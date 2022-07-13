@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Flex } from '../../Flex';
 import { Box } from '../../Box';
+import { SimpleMenu } from '../SimpleMenu';
 import ChevronRight from '@strapi/icons/ChevronRight';
 
 const CrumbWrapper = styled(Flex)`
@@ -30,5 +31,5 @@ export const CrumbSimpleMenu = ({ children }) => {
 
 CrumbSimpleMenu.displayName = 'CrumbSimpleMenu';
 CrumbSimpleMenu.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.shape({ type: PropTypes.oneOf([SimpleMenu]) }),
 };
