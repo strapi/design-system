@@ -8,6 +8,7 @@ import ChevronRight from '@strapi/icons/ChevronRight';
 
 const CrumbWrapper = styled(Flex)`
   div[aria-hidden='true'] {
+    display: ${({ isLast }) => (isLast ? 'none' : '')};
     svg {
       height: ${10 / 16}rem;
       width: ${10 / 16}rem;
@@ -18,9 +19,9 @@ const CrumbWrapper = styled(Flex)`
   }
 `;
 
-export const CrumbSimpleMenu = ({ children }) => {
+export const CrumbSimpleMenu = ({ children, isLast }) => {
   return (
-    <CrumbWrapper>
+    <CrumbWrapper isLast={isLast}>
       {children}
       <Box aria-hidden paddingLeft={3} paddingRight={3}>
         <ChevronRight />
@@ -30,6 +31,10 @@ export const CrumbSimpleMenu = ({ children }) => {
 };
 
 CrumbSimpleMenu.displayName = 'CrumbSimpleMenu';
+CrumbSimpleMenu.defaultProps = {
+  isLast: false,
+};
 CrumbSimpleMenu.propTypes = {
   children: PropTypes.shape({ type: PropTypes.oneOf([SimpleMenu]) }),
+  isLast: PropTypes.bool,
 };
