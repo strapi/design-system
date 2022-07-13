@@ -144,7 +144,7 @@ export const NumberInput = React.forwardRef(
 
     const handleFocus = () => {
       if (value !== undefined) {
-        setInputValue(String(numberParserRef.current.parse(inputValue)));
+        setInputValue(String(numberParserRef.current.parse(inputValue) || ''));
       }
     };
 
