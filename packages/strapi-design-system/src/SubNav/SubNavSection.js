@@ -2,7 +2,6 @@ import React, { Children, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Box } from '../Box';
-import { Flex } from '../Flex';
 import { Badge } from '../Badge';
 import { SubNavSectionLabel } from './SubNavSectionLabel';
 import { useId } from '../helpers/useId';
@@ -18,6 +17,7 @@ const SubNavSectionWrapper = styled(Box)`
 const SubNavSectionBadge = styled(Badge)`
   display: flex;
   align-items: center;
+  transform: translateY(-50%);
 `;
 
 export const SubNavSection = ({ collapsable, label, badgeLabel, children, id }) => {
@@ -30,8 +30,8 @@ export const SubNavSection = ({ collapsable, label, badgeLabel, children, id }) 
 
   return (
     <Box>
-      <SubNavSectionWrapper paddingLeft={6} paddingTop={0} paddingBottom={0} paddingRight={4} marginBottom={1}>
-        <Flex justifyContent="space-between">
+      <SubNavSectionWrapper paddingLeft={6} paddingTop={1} paddingBottom={1} paddingRight={4} marginBottom={1}>
+        <Box position="relative">
           <SubNavSectionLabel
             onClick={handleClick}
             ariaExpanded={isOpen}
@@ -40,18 +40,24 @@ export const SubNavSection = ({ collapsable, label, badgeLabel, children, id }) 
             label={label}
           />
           {badgeLabel && (
-            <SubNavSectionBadge backgroundColor="neutral150" textColor="neutral600">
+            <SubNavSectionBadge
+              backgroundColor="neutral150"
+              textColor="neutral600"
+              position="absolute"
+              right={0}
+              top="50%"
+            >
               {badgeLabel}
             </SubNavSectionBadge>
           )}
-        </Flex>
+        </Box>
       </SubNavSectionWrapper>
       {(!collapsable || isOpen) && (
-        <ul id={listId}>
+        <ol id={listId}>
           {Children.map(children, (child, index) => {
             return <li key={index}>{child}</li>;
           })}
-        </ul>
+        </ol>
       )}
     </Box>
   );
