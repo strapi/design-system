@@ -5,6 +5,7 @@ import { Box } from '../Box';
 import { Badge } from '../Badge';
 import { SubNavSectionLabel } from './SubNavSectionLabel';
 import { useId } from '../helpers/useId';
+import { Stack } from '../Stack';
 
 const SubNavSectionWrapper = styled(Box)`
   svg {
@@ -13,11 +14,6 @@ const SubNavSectionWrapper = styled(Box)`
       fill: ${({ theme }) => theme.colors.neutral500};
     }
   }
-`;
-const SubNavSectionBadge = styled(Badge)`
-  display: flex;
-  align-items: center;
-  transform: translateY(-50%);
 `;
 
 export const SubNavSection = ({ collapsable, label, badgeLabel, children, id }) => {
@@ -29,9 +25,9 @@ export const SubNavSection = ({ collapsable, label, badgeLabel, children, id }) 
   };
 
   return (
-    <Box>
-      <SubNavSectionWrapper paddingLeft={6} paddingTop={1} paddingBottom={1} paddingRight={4} marginBottom={1}>
-        <Box position="relative">
+    <Stack spacing={1}>
+      <SubNavSectionWrapper paddingLeft={6} paddingTop={1} paddingBottom={1} paddingRight={4}>
+        <Box position="relative" paddingRight={badgeLabel ? 6 : 0}>
           <SubNavSectionLabel
             onClick={handleClick}
             ariaExpanded={isOpen}
@@ -40,15 +36,16 @@ export const SubNavSection = ({ collapsable, label, badgeLabel, children, id }) 
             label={label}
           />
           {badgeLabel && (
-            <SubNavSectionBadge
+            <Badge
               backgroundColor="neutral150"
               textColor="neutral600"
               position="absolute"
               right={0}
               top="50%"
+              transform="translateY(-50%)"
             >
               {badgeLabel}
-            </SubNavSectionBadge>
+            </Badge>
           )}
         </Box>
       </SubNavSectionWrapper>
@@ -59,7 +56,7 @@ export const SubNavSection = ({ collapsable, label, badgeLabel, children, id }) 
           })}
         </ol>
       )}
-    </Box>
+    </Stack>
   );
 };
 
