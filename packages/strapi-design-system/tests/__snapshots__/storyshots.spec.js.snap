@@ -57732,52 +57732,84 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
   padding-bottom: 16px;
 }
 
-.c19 {
+.c20 {
   padding-top: 8px;
   padding-right: 16px;
   padding-bottom: 8px;
   padding-left: 24px;
 }
 
+.c22 {
+  padding-right: 24px;
+  position: relative;
+}
+
 .c23 {
+  text-align: left;
+}
+
+.c25 {
   padding-right: 4px;
 }
 
-.c26 {
+.c28 {
   background: #eaeaef;
   padding: 4px;
   border-radius: 4px;
+  position: absolute;
+  right: 0px;
+  top: 50%;
   min-width: 20px;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
-.c30 {
+.c31 {
   background: #f6f6f9;
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 32px;
 }
 
-.c33 {
+.c34 {
   padding-left: 8px;
 }
 
-.c35 {
+.c36 {
+  padding-bottom: 12px;
   padding-left: 32px;
 }
 
-.c37 {
+.c38 {
   padding-right: 8px;
 }
 
-.c39 {
+.c40 {
   padding-top: 8px;
   padding-right: 16px;
   padding-bottom: 8px;
   padding-left: 32px;
 }
 
-.c45 {
+.c46 {
+  background: #f6f6f9;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 48px;
+}
+
+.c47 {
+  padding-left: 32px;
+}
+
+.c49 {
   padding-right: 16px;
+}
+
+.c51 {
+  padding-right: 0px;
+  position: relative;
 }
 
 .c9 {
@@ -57787,7 +57819,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
   line-height: 1.22;
 }
 
-.c24 {
+.c26 {
   color: #666687;
   font-weight: 600;
   font-size: 0.6875rem;
@@ -57795,19 +57827,19 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
   text-transform: uppercase;
 }
 
-.c34 {
+.c35 {
   color: #32324d;
   font-size: 0.875rem;
   line-height: 1.43;
 }
 
-.c38 {
+.c39 {
   color: #4945ff;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
-.c43 {
+.c45 {
   font-weight: 500;
   color: #32324d;
   font-size: 0.875rem;
@@ -57860,25 +57892,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
   flex-direction: column;
 }
 
-.c21 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-.c27 {
+.c29 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -57896,22 +57910,40 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
   justify-content: center;
 }
 
-.c36 {
+.c42 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c37 {
   background: transparent;
   border: none;
   position: relative;
   outline: none;
 }
 
-.c36[aria-disabled='true'] {
+.c37[aria-disabled='true'] {
   pointer-events: none;
 }
 
-.c36[aria-disabled='true'] svg path {
+.c37[aria-disabled='true'] svg path {
   fill: #666687;
 }
 
-.c36 svg {
+.c37 svg {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -57919,11 +57951,11 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
   font-size: 0.625rem;
 }
 
-.c36 svg path {
+.c37 svg path {
   fill: #4945ff;
 }
 
-.c36:after {
+.c37:after {
   -webkit-transition-property: all;
   transition-property: all;
   -webkit-transition-duration: 0.2s;
@@ -57938,11 +57970,11 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
   border: 2px solid transparent;
 }
 
-.c36:focus-visible {
+.c37:focus-visible {
   outline: none;
 }
 
-.c36:focus-visible:after {
+.c37:focus-visible:after {
   border-radius: 8px;
   content: '';
   position: absolute;
@@ -57960,6 +57992,15 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
 
 .c18 > * + * {
   margin-top: 8px;
+}
+
+.c19 > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.c19 > * + * {
+  margin-top: 4px;
 }
 
 .c10 {
@@ -58060,7 +58101,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
   fill: #666687;
 }
 
-.c29 {
+.c30 {
   cursor: pointer;
 }
 
@@ -58087,13 +58128,13 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
   background-color: #dcdce4;
 }
 
-.c22 {
+.c24 {
   border: none;
   padding: 0;
   background: transparent;
 }
 
-.c25 {
+.c27 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -58107,30 +58148,15 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
   transform: rotateX(0deg);
 }
 
-.c20 {
-  max-height: 2rem;
-}
-
-.c20 svg {
+.c21 svg {
   height: 0.25rem;
 }
 
-.c20 svg path {
+.c21 svg path {
   fill: #8e8ea9;
 }
 
-.c28 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c31 {
+.c32 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -58148,64 +58174,60 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
   color: #32324d;
 }
 
-.c31 svg > * {
+.c32 svg > * {
   fill: #666687;
 }
 
-.c31.active {
+.c32.active {
   background-color: #f0f0ff;
   border-right: 2px solid #4945ff;
 }
 
-.c31.active svg > * {
+.c32.active svg > * {
   fill: #271fe0;
 }
 
-.c31.active .c8 {
+.c32.active .c8 {
   color: #271fe0;
   font-weight: 500;
 }
 
-.c31:focus-visible {
+.c32:focus-visible {
   outline-offset: -2px;
 }
 
-.c32 {
+.c33 {
   width: 0.75rem;
   height: 0.25rem;
 }
 
-.c32 * {
+.c33 * {
   fill: #666687;
 }
 
-.c46 {
+.c50 {
   width: 0.75rem;
   height: 0.25rem;
 }
 
-.c46 * {
+.c50 * {
   fill: #4945ff;
 }
 
-.c44 svg {
+.c48 svg {
   height: 0.75rem;
   width: 0.75rem;
 }
 
-.c40 {
-  max-height: 2rem;
-}
-
-.c40 svg {
+.c41 svg {
   height: 0.25rem;
 }
 
-.c40 svg path {
+.c41 svg path {
   fill: #4a4a6a;
 }
 
-.c41 {
+.c43 {
   border: none;
   padding: 0;
   background: transparent;
@@ -58219,7 +58241,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
   align-items: center;
 }
 
-.c42 {
+.c44 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -58307,36 +58329,37 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
             <div
               class="c16"
             >
-              <ul
+              <ol
                 class="c17 c18"
                 spacing="2"
               >
                 <li>
                   <div
-                    class=""
+                    class="c17 c19"
+                    spacing="1"
                   >
                     <div
-                      class="c19 c20"
+                      class="c20 c21"
                     >
                       <div
-                        class="c21"
+                        class="c22"
                       >
                         <button
                           aria-controls="subnav-list-265"
                           aria-expanded="true"
-                          class="c3 c22"
+                          class="c23 c3 c24"
                         >
                           <div
-                            class="c23"
+                            class="c25"
                           >
                             <span
-                              class="c8 c24"
+                              class="c8 c26"
                             >
                               Collection Type
                             </span>
                           </div>
                           <div
-                            class="c25"
+                            class="c27"
                           >
                             <svg
                               aria-hidden="true"
@@ -58356,22 +58379,23 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                           </div>
                         </button>
                         <div
-                          class="c26 c27 c28"
+                          class="c28 c29"
+                          transform="translateY(-50%)"
                         >
                           <span
-                            class="c8 c24"
+                            class="c8 c26"
                           >
                             4
                           </span>
                         </div>
                       </div>
                     </div>
-                    <ul
+                    <ol
                       id="subnav-list-265"
                     >
                       <li>
                         <a
-                          class="c29 c30 c31"
+                          class="c30 c31 c32"
                           target="_self"
                           to="/address"
                         >
@@ -58379,7 +58403,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                             class="c3"
                           >
                             <svg
-                              class="c32"
+                              class="c33"
                               fill="none"
                               height="1em"
                               viewBox="0 0 4 4"
@@ -58394,10 +58418,10 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                               />
                             </svg>
                             <div
-                              class="c33"
+                              class="c34"
                             >
                               <span
-                                class="c8 c34"
+                                class="c8 c35"
                               >
                                 Addresses
                               </span>
@@ -58407,7 +58431,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                       </li>
                       <li>
                         <a
-                          class="c29 c30 c31"
+                          class="c30 c31 c32"
                           target="_self"
                           to="/category"
                         >
@@ -58415,7 +58439,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                             class="c3"
                           >
                             <svg
-                              class="c32"
+                              class="c33"
                               fill="none"
                               height="1em"
                               viewBox="0 0 4 4"
@@ -58430,10 +58454,10 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                               />
                             </svg>
                             <div
-                              class="c33"
+                              class="c34"
                             >
                               <span
-                                class="c8 c34"
+                                class="c8 c35"
                               >
                                 Categories
                               </span>
@@ -58443,7 +58467,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                       </li>
                       <li>
                         <a
-                          class="c29 c30 c31"
+                          class="c30 c31 c32"
                           target="_self"
                           to="/city"
                         >
@@ -58451,7 +58475,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                             class="c3"
                           >
                             <svg
-                              class="c32"
+                              class="c33"
                               fill="none"
                               height="1em"
                               viewBox="0 0 4 4"
@@ -58466,10 +58490,10 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                               />
                             </svg>
                             <div
-                              class="c33"
+                              class="c34"
                             >
                               <span
-                                class="c8 c34"
+                                class="c8 c35"
                               >
                                 Cities
                               </span>
@@ -58479,7 +58503,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                       </li>
                       <li>
                         <a
-                          class="c29 c30 c31"
+                          class="c30 c31 c32"
                           target="_self"
                           to="/country"
                         >
@@ -58487,7 +58511,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                             class="c3"
                           >
                             <svg
-                              class="c32"
+                              class="c33"
                               fill="none"
                               height="1em"
                               viewBox="0 0 4 4"
@@ -58502,10 +58526,10 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                               />
                             </svg>
                             <div
-                              class="c33"
+                              class="c34"
                             >
                               <span
-                                class="c8 c34"
+                                class="c8 c35"
                               >
                                 Countries
                               </span>
@@ -58513,21 +58537,21 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                           </div>
                         </a>
                       </li>
-                    </ul>
+                    </ol>
                   </div>
                 </li>
                 <li>
                   <div
-                    class="c35"
+                    class="c36"
                   >
                     <button
                       aria-disabled="false"
-                      class="c3 c36"
+                      class="c3 c37"
                       type="button"
                     >
                       <span
                         aria-hidden="true"
-                        class="c37"
+                        class="c38"
                       >
                         <svg
                           fill="none"
@@ -58543,7 +58567,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                         </svg>
                       </span>
                       <span
-                        class="c8 c38"
+                        class="c8 c39"
                       >
                         Click on me
                       </span>
@@ -58552,30 +58576,31 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                 </li>
                 <li>
                   <div
-                    class=""
+                    class="c17 c19"
+                    spacing="1"
                   >
                     <div
-                      class="c19 c20"
+                      class="c20 c21"
                     >
                       <div
-                        class="c21"
+                        class="c22"
                       >
                         <button
                           aria-controls="subnav-list-266"
                           aria-expanded="true"
-                          class="c3 c22"
+                          class="c23 c3 c24"
                         >
                           <div
-                            class="c23"
+                            class="c25"
                           >
                             <span
-                              class="c8 c24"
+                              class="c8 c26"
                             >
                               Single Type
                             </span>
                           </div>
                           <div
-                            class="c25"
+                            class="c27"
                           >
                             <svg
                               aria-hidden="true"
@@ -58595,17 +58620,18 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                           </div>
                         </button>
                         <div
-                          class="c26 c27 c28"
+                          class="c28 c29"
+                          transform="translateY(-50%)"
                         >
                           <span
-                            class="c8 c24"
+                            class="c8 c26"
                           >
                             4
                           </span>
                         </div>
                       </div>
                     </div>
-                    <ul
+                    <ol
                       id="subnav-list-266"
                     >
                       <li>
@@ -58613,18 +58639,18 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                           class=""
                         >
                           <div
-                            class="c39 c40"
+                            class="c40 c41"
                           >
                             <div
-                              class="c21"
+                              class="c42"
                             >
                               <button
                                 aria-controls="subnav-list-267"
                                 aria-expanded="true"
-                                class="c41"
+                                class="c43"
                               >
                                 <div
-                                  class="c42"
+                                  class="c44"
                                 >
                                   <svg
                                     aria-hidden="true"
@@ -58643,10 +58669,10 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                                   </svg>
                                 </div>
                                 <div
-                                  class="c33"
+                                  class="c34"
                                 >
                                   <span
-                                    class="c8 c43"
+                                    class="c8 c45"
                                   >
                                     Default
                                   </span>
@@ -58659,7 +58685,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                           >
                             <li>
                               <a
-                                class="c29 c30 c31"
+                                class="c30 c46 c32"
                                 target="_self"
                                 to="/address"
                               >
@@ -58667,7 +58693,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                                   class="c3"
                                 >
                                   <svg
-                                    class="c32"
+                                    class="c33"
                                     fill="none"
                                     height="1em"
                                     viewBox="0 0 4 4"
@@ -58682,10 +58708,10 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                                     />
                                   </svg>
                                   <div
-                                    class="c33"
+                                    class="c34"
                                   >
                                     <span
-                                      class="c8 c34"
+                                      class="c8 c35"
                                     >
                                       Addresses
                                     </span>
@@ -58695,7 +58721,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                             </li>
                             <li>
                               <a
-                                class="c29 c30 c31"
+                                class="c30 c46 c32"
                                 target="_self"
                                 to="/category"
                               >
@@ -58703,7 +58729,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                                   class="c3"
                                 >
                                   <svg
-                                    class="c32"
+                                    class="c33"
                                     fill="none"
                                     height="1em"
                                     viewBox="0 0 4 4"
@@ -58718,10 +58744,10 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                                     />
                                   </svg>
                                   <div
-                                    class="c33"
+                                    class="c34"
                                   >
                                     <span
-                                      class="c8 c34"
+                                      class="c8 c35"
                                     >
                                       Categories
                                     </span>
@@ -58731,7 +58757,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                             </li>
                             <li>
                               <a
-                                class="c29 c30 c31"
+                                class="c30 c46 c32"
                                 target="_self"
                                 to="/city"
                               >
@@ -58739,7 +58765,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                                   class="c3"
                                 >
                                   <svg
-                                    class="c32"
+                                    class="c33"
                                     fill="none"
                                     height="1em"
                                     viewBox="0 0 4 4"
@@ -58754,10 +58780,10 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                                     />
                                   </svg>
                                   <div
-                                    class="c33"
+                                    class="c34"
                                   >
                                     <span
-                                      class="c8 c34"
+                                      class="c8 c35"
                                     >
                                       Cities
                                     </span>
@@ -58767,7 +58793,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                             </li>
                             <li>
                               <a
-                                class="c29 c30 c31"
+                                class="c30 c46 c32"
                                 target="_self"
                                 to="/country"
                               >
@@ -58775,7 +58801,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                                   class="c3"
                                 >
                                   <svg
-                                    class="c32"
+                                    class="c33"
                                     fill="none"
                                     height="1em"
                                     viewBox="0 0 4 4"
@@ -58790,10 +58816,10 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                                     />
                                   </svg>
                                   <div
-                                    class="c33"
+                                    class="c34"
                                   >
                                     <span
-                                      class="c8 c34"
+                                      class="c8 c35"
                                     >
                                       Countries
                                     </span>
@@ -58804,21 +58830,21 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                           </ul>
                         </div>
                       </li>
-                    </ul>
+                    </ol>
                   </div>
                 </li>
                 <li>
                   <div
-                    class="c35"
+                    class="c47"
                   >
                     <button
                       aria-disabled="false"
-                      class="c3 c36"
+                      class="c3 c37"
                       type="button"
                     >
                       <span
                         aria-hidden="true"
-                        class="c37"
+                        class="c38"
                       >
                         <svg
                           fill="none"
@@ -58834,14 +58860,14 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                         </svg>
                       </span>
                       <span
-                        class="c8 c38"
+                        class="c8 c39"
                       >
                         Click on me
                       </span>
                     </button>
                   </div>
                 </li>
-              </ul>
+              </ol>
             </div>
           </nav>
         </div>
@@ -58876,13 +58902,13 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
             <div
               class="c16"
             >
-              <ul
+              <ol
                 class="c17 c18"
                 spacing="2"
               >
                 <li>
                   <a
-                    class="c29 c30 c31 active"
+                    class="c30 c31 c32 active"
                     target="_self"
                     to="/blabla"
                   >
@@ -58890,7 +58916,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                       class="c3"
                     >
                       <div
-                        class="c44"
+                        class="c48"
                       >
                         <svg
                           fill="none"
@@ -58906,20 +58932,20 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                         </svg>
                       </div>
                       <div
-                        class="c33"
+                        class="c34"
                       >
                         <span
-                          class="c8 c34"
+                          class="c8 c35"
                         >
                           Application
                         </span>
                       </div>
                     </div>
                     <div
-                      class="c3 sc-gsDKAQ c45"
+                      class="c3 sc-gsDKAQ c49"
                     >
                       <svg
-                        class="c46"
+                        class="c50"
                         fill="none"
                         height="1em"
                         viewBox="0 0 4 4"
@@ -58938,22 +58964,23 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                 </li>
                 <li>
                   <div
-                    class=""
+                    class="c17 c19"
+                    spacing="1"
                   >
                     <div
-                      class="c19 c20"
+                      class="c20 c21"
                     >
                       <div
-                        class="c21"
+                        class="c51"
                       >
                         <div
-                          class="c3 c22"
+                          class="c3 c24"
                         >
                           <div
-                            class="c23"
+                            class="c25"
                           >
                             <span
-                              class="c8 c24"
+                              class="c8 c26"
                             >
                               Global Settings
                             </span>
@@ -58961,12 +58988,12 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                         </div>
                       </div>
                     </div>
-                    <ul
+                    <ol
                       id="subnav-list-269"
                     >
                       <li>
                         <a
-                          class="c29 c30 c31"
+                          class="c30 c46 c32"
                           target="_self"
                           to="/address"
                         >
@@ -58974,7 +59001,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                             class="c3"
                           >
                             <div
-                              class="c44"
+                              class="c48"
                             >
                               <svg
                                 fill="none"
@@ -58990,10 +59017,10 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                               </svg>
                             </div>
                             <div
-                              class="c33"
+                              class="c34"
                             >
                               <span
-                                class="c8 c34"
+                                class="c8 c35"
                               >
                                 Addresses
                               </span>
@@ -59004,7 +59031,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                       <li />
                       <li>
                         <a
-                          class="c29 c30 c31"
+                          class="c30 c46 c32"
                           target="_self"
                           to="/city"
                         >
@@ -59012,7 +59039,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                             class="c3"
                           >
                             <div
-                              class="c44"
+                              class="c48"
                             >
                               <svg
                                 fill="none"
@@ -59028,10 +59055,10 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                               </svg>
                             </div>
                             <div
-                              class="c33"
+                              class="c34"
                             >
                               <span
-                                class="c8 c34"
+                                class="c8 c35"
                               >
                                 Cities
                               </span>
@@ -59040,27 +59067,28 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                         </a>
                       </li>
                       <li />
-                    </ul>
+                    </ol>
                   </div>
                 </li>
                 <li>
                   <div
-                    class=""
+                    class="c17 c19"
+                    spacing="1"
                   >
                     <div
-                      class="c19 c20"
+                      class="c20 c21"
                     >
                       <div
-                        class="c21"
+                        class="c51"
                       >
                         <div
-                          class="c3 c22"
+                          class="c3 c24"
                         >
                           <div
-                            class="c23"
+                            class="c25"
                           >
                             <span
-                              class="c8 c24"
+                              class="c8 c26"
                             >
                               Permissions
                             </span>
@@ -59068,12 +59096,12 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                         </div>
                       </div>
                     </div>
-                    <ul
+                    <ol
                       id="subnav-list-270"
                     >
                       <li>
                         <a
-                          class="c29 c30 c31"
+                          class="c30 c31 c32"
                           target="_self"
                           to="/address"
                         >
@@ -59081,7 +59109,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                             class="c3"
                           >
                             <div
-                              class="c44"
+                              class="c48"
                             >
                               <svg
                                 fill="none"
@@ -59097,10 +59125,10 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                               </svg>
                             </div>
                             <div
-                              class="c33"
+                              class="c34"
                             >
                               <span
-                                class="c8 c34"
+                                class="c8 c35"
                               >
                                 Addresses
                               </span>
@@ -59111,7 +59139,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                       <li />
                       <li>
                         <a
-                          class="c29 c30 c31"
+                          class="c30 c31 c32"
                           target="_self"
                           to="/city"
                         >
@@ -59119,7 +59147,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                             class="c3"
                           >
                             <div
-                              class="c44"
+                              class="c48"
                             >
                               <svg
                                 fill="none"
@@ -59135,10 +59163,10 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                               </svg>
                             </div>
                             <div
-                              class="c33"
+                              class="c34"
                             >
                               <span
-                                class="c8 c34"
+                                class="c8 c35"
                               >
                                 Cities
                               </span>
@@ -59147,10 +59175,10 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                         </a>
                       </li>
                       <li />
-                    </ul>
+                    </ol>
                   </div>
                 </li>
-              </ul>
+              </ol>
             </div>
           </nav>
         </div>
@@ -59185,13 +59213,13 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
             <div
               class="c16"
             >
-              <ul
+              <ol
                 class="c17 c18"
                 spacing="2"
               >
                 <li>
                   <a
-                    class="c29 c30 c31"
+                    class="c30 c31 c32"
                     target="_self"
                     to="/blabla"
                   >
@@ -59199,7 +59227,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                       class="c3"
                     >
                       <div
-                        class="c44"
+                        class="c48"
                       >
                         <svg
                           fill="none"
@@ -59215,20 +59243,20 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                         </svg>
                       </div>
                       <div
-                        class="c33"
+                        class="c34"
                       >
                         <span
-                          class="c8 c34"
+                          class="c8 c35"
                         >
                           Application
                         </span>
                       </div>
                     </div>
                     <div
-                      class="c3 sc-gsDKAQ c45"
+                      class="c3 sc-gsDKAQ c49"
                     >
                       <svg
-                        class="c46"
+                        class="c50"
                         fill="none"
                         height="1em"
                         viewBox="0 0 4 4"
@@ -59247,22 +59275,23 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                 </li>
                 <li>
                   <div
-                    class=""
+                    class="c17 c19"
+                    spacing="1"
                   >
                     <div
-                      class="c19 c20"
+                      class="c20 c21"
                     >
                       <div
-                        class="c21"
+                        class="c51"
                       >
                         <div
-                          class="c3 c22"
+                          class="c3 c24"
                         >
                           <div
-                            class="c23"
+                            class="c25"
                           >
                             <span
-                              class="c8 c24"
+                              class="c8 c26"
                             >
                               Global Settings
                             </span>
@@ -59270,7 +59299,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                         </div>
                       </div>
                     </div>
-                    <ul
+                    <ol
                       id="subnav-list-272"
                     >
                       <li>
@@ -59278,18 +59307,18 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                           class=""
                         >
                           <div
-                            class="c39 c40"
+                            class="c40 c41"
                           >
                             <div
-                              class="c21"
+                              class="c42"
                             >
                               <button
                                 aria-controls="subnav-list-273"
                                 aria-expanded="true"
-                                class="c41"
+                                class="c43"
                               >
                                 <div
-                                  class="c42"
+                                  class="c44"
                                 >
                                   <svg
                                     aria-hidden="true"
@@ -59308,10 +59337,10 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                                   </svg>
                                 </div>
                                 <div
-                                  class="c33"
+                                  class="c34"
                                 >
                                   <span
-                                    class="c8 c43"
+                                    class="c8 c45"
                                   >
                                     Sub section
                                   </span>
@@ -59324,7 +59353,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                           >
                             <li>
                               <a
-                                class="c29 c30 c31"
+                                class="c30 c31 c32"
                                 target="_self"
                                 to="/address"
                               >
@@ -59332,7 +59361,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                                   class="c3"
                                 >
                                   <div
-                                    class="c44"
+                                    class="c48"
                                   >
                                     <svg
                                       fill="none"
@@ -59348,10 +59377,10 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                                     </svg>
                                   </div>
                                   <div
-                                    class="c33"
+                                    class="c34"
                                   >
                                     <span
-                                      class="c8 c34"
+                                      class="c8 c35"
                                     >
                                       Addresses
                                     </span>
@@ -59361,7 +59390,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                             </li>
                             <li>
                               <a
-                                class="c29 c30 c31"
+                                class="c30 c31 c32"
                                 target="_self"
                                 to="/category"
                               >
@@ -59369,7 +59398,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                                   class="c3"
                                 >
                                   <svg
-                                    class="c32"
+                                    class="c33"
                                     fill="none"
                                     height="1em"
                                     viewBox="0 0 4 4"
@@ -59384,10 +59413,10 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                                     />
                                   </svg>
                                   <div
-                                    class="c33"
+                                    class="c34"
                                   >
                                     <span
-                                      class="c8 c34"
+                                      class="c8 c35"
                                     >
                                       Categories
                                     </span>
@@ -59397,7 +59426,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                             </li>
                             <li>
                               <a
-                                class="c29 c30 c31"
+                                class="c30 c31 c32"
                                 target="_self"
                                 to="/city"
                               >
@@ -59405,7 +59434,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                                   class="c3"
                                 >
                                   <div
-                                    class="c44"
+                                    class="c48"
                                   >
                                     <svg
                                       fill="none"
@@ -59421,10 +59450,10 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                                     </svg>
                                   </div>
                                   <div
-                                    class="c33"
+                                    class="c34"
                                   >
                                     <span
-                                      class="c8 c34"
+                                      class="c8 c35"
                                     >
                                       Cities
                                     </span>
@@ -59434,7 +59463,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                             </li>
                             <li>
                               <a
-                                class="c29 c30 c31"
+                                class="c30 c31 c32"
                                 target="_self"
                                 to="/country"
                               >
@@ -59442,7 +59471,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                                   class="c3"
                                 >
                                   <svg
-                                    class="c32"
+                                    class="c33"
                                     fill="none"
                                     height="1em"
                                     viewBox="0 0 4 4"
@@ -59457,10 +59486,10 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                                     />
                                   </svg>
                                   <div
-                                    class="c33"
+                                    class="c34"
                                   >
                                     <span
-                                      class="c8 c34"
+                                      class="c8 c35"
                                     >
                                       Countries
                                     </span>
@@ -59471,27 +59500,28 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                           </ul>
                         </div>
                       </li>
-                    </ul>
+                    </ol>
                   </div>
                 </li>
                 <li>
                   <div
-                    class=""
+                    class="c17 c19"
+                    spacing="1"
                   >
                     <div
-                      class="c19 c20"
+                      class="c20 c21"
                     >
                       <div
-                        class="c21"
+                        class="c51"
                       >
                         <div
-                          class="c3 c22"
+                          class="c3 c24"
                         >
                           <div
-                            class="c23"
+                            class="c25"
                           >
                             <span
-                              class="c8 c24"
+                              class="c8 c26"
                             >
                               Permissions
                             </span>
@@ -59499,12 +59529,12 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                         </div>
                       </div>
                     </div>
-                    <ul
+                    <ol
                       id="subnav-list-274"
                     >
                       <li>
                         <a
-                          class="c29 c30 c31"
+                          class="c30 c31 c32"
                           target="_self"
                           to="/address"
                         >
@@ -59512,7 +59542,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                             class="c3"
                           >
                             <div
-                              class="c44"
+                              class="c48"
                             >
                               <svg
                                 fill="none"
@@ -59528,10 +59558,10 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                               </svg>
                             </div>
                             <div
-                              class="c33"
+                              class="c34"
                             >
                               <span
-                                class="c8 c34"
+                                class="c8 c35"
                               >
                                 Addresses
                               </span>
@@ -59541,7 +59571,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                       </li>
                       <li>
                         <a
-                          class="c29 c30 c31"
+                          class="c30 c31 c32"
                           target="_self"
                           to="/category"
                         >
@@ -59549,7 +59579,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                             class="c3"
                           >
                             <svg
-                              class="c32"
+                              class="c33"
                               fill="none"
                               height="1em"
                               viewBox="0 0 4 4"
@@ -59564,10 +59594,10 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                               />
                             </svg>
                             <div
-                              class="c33"
+                              class="c34"
                             >
                               <span
-                                class="c8 c34"
+                                class="c8 c35"
                               >
                                 Categories
                               </span>
@@ -59577,7 +59607,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                       </li>
                       <li>
                         <a
-                          class="c29 c30 c31"
+                          class="c30 c31 c32"
                           target="_self"
                           to="/city"
                         >
@@ -59585,7 +59615,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                             class="c3"
                           >
                             <div
-                              class="c44"
+                              class="c48"
                             >
                               <svg
                                 fill="none"
@@ -59601,10 +59631,10 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                               </svg>
                             </div>
                             <div
-                              class="c33"
+                              class="c34"
                             >
                               <span
-                                class="c8 c34"
+                                class="c8 c35"
                               >
                                 Cities
                               </span>
@@ -59614,7 +59644,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                       </li>
                       <li>
                         <a
-                          class="c29 c30 c31"
+                          class="c30 c31 c32"
                           target="_self"
                           to="/country"
                         >
@@ -59622,7 +59652,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                             class="c3"
                           >
                             <svg
-                              class="c32"
+                              class="c33"
                               fill="none"
                               height="1em"
                               viewBox="0 0 4 4"
@@ -59637,10 +59667,10 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                               />
                             </svg>
                             <div
-                              class="c33"
+                              class="c34"
                             >
                               <span
-                                class="c8 c34"
+                                class="c8 c35"
                               >
                                 Countries
                               </span>
@@ -59648,10 +59678,10 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                           </div>
                         </a>
                       </li>
-                    </ul>
+                    </ol>
                   </div>
                 </li>
-              </ul>
+              </ol>
             </div>
           </nav>
         </div>
