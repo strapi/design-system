@@ -88,6 +88,5 @@ SubNavLink.propTypes = {
   icon: PropTypes.element,
   isSubSectionChild: PropTypes.bool,
   link: PropTypes.element,
-  subSectionChild: PropTypes.bool,
   withBullet: PropTypes.bool,
 };

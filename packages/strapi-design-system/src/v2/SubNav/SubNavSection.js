@@ -2,23 +2,18 @@ import React, { Children, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Box } from '../../Box';
-import { Flex } from '../../Flex';
 import { Badge } from '../../Badge';
+import { Stack } from '../../Stack';
 import { SubNavSectionLabel } from './SubNavSectionLabel';
 import { useId } from '../../helpers/useId';
 
 const SubNavSectionWrapper = styled(Box)`
-  max-height: ${32 / 16}rem;
   svg {
     height: ${4 / 16}rem;
     path {
       fill: ${({ theme }) => theme.colors.neutral500};
     }
   }
-`;
-const SubNavSectionBadge = styled(Badge)`
-  display: flex;
-  align-items: center;
 `;
 
 export const SubNavSection = ({ collapsable, label, badgeLabel, children, id }) => {
@@ -30,9 +25,9 @@ export const SubNavSection = ({ collapsable, label, badgeLabel, children, id }) 
   };
 
   return (
-    <Box>
+    <Stack spacing={1}>
       <SubNavSectionWrapper paddingLeft={6} paddingTop={2} paddingBottom={2} paddingRight={4}>
-        <Flex justifyContent="space-between">
+        <Box position="relative" paddingRight={badgeLabel ? 6 : 0}>
           <SubNavSectionLabel
             onClick={handleClick}
             ariaExpanded={isOpen}
@@ -41,20 +36,27 @@ export const SubNavSection = ({ collapsable, label, badgeLabel, children, id }) 
             label={label}
           />
           {badgeLabel && (
-            <SubNavSectionBadge backgroundColor="neutral150" textColor="neutral600">
+            <Badge
+              backgroundColor="neutral150"
+              textColor="neutral600"
+              position="absolute"
+              right={0}
+              top="50%"
+              transform="translateY(-50%)"
+            >
               {badgeLabel}
-            </SubNavSectionBadge>
+            </Badge>
           )}
-        </Flex>
+        </Box>
       </SubNavSectionWrapper>
       {(!collapsable || isOpen) && (
-        <ul id={listId}>
+        <ol id={listId}>
           {Children.map(children, (child, index) => {
             return <li key={index}>{child}</li>;
           })}
-        </ul>
+        </ol>
       )}
-    </Box>
+    </Stack>
   );
 };
 
