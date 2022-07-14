@@ -112,7 +112,7 @@ import {
                 <SubNavSection label="Single Type" collapsable badgeLabel={links.length.toString()}>
                   <SubNavLinkSection label="Default">
                     {links.map((link) => (
-                      <SubNavLink to={link.to} subSectionChild={true} key={link.id}>
+                      <SubNavLink to={link.to} isSubSectionChild key={link.id}>
                         {link.label}
                       </SubNavLink>
                     ))}
@@ -168,7 +168,7 @@ import {
                         to={link.to}
                         active={link.active}
                         icon={link.icon}
-                        subSectionChild={true}
+                        isSubSectionChild
                         key={link.id}
                       >
                         {link.label}
