@@ -1,8 +1,21 @@
 import PropTypes from 'prop-types';
+import React from 'react';
+import styled from 'styled-components';
 
+import { IconButton } from '../../IconButton';
 import { SimpleMenu } from '../SimpleMenu';
 
-export const CrumbSimpleMenu = ({ children }) => children;
+import CarretDown from '@strapi/icons/CarretDown';
+
+const IconButtonCustom = styled(IconButton)`
+  height: ${({ theme }) => theme.spaces[3]};
+`;
+
+export const CrumbSimpleMenu = ({ children, ...props }) => (
+  <SimpleMenu noBorder as={IconButtonCustom} icon={<CarretDown />} {...props}>
+    {children}
+  </SimpleMenu>
+);
 
 CrumbSimpleMenu.displayName = 'CrumbSimpleMenu';
 

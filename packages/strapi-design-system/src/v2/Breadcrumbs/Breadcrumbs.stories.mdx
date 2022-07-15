@@ -2,16 +2,13 @@
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { ArgsTable } from '@storybook/addon-docs';
-import styled from 'styled-components';
 import { Breadcrumbs } from './Breadcrumbs';
 import { Crumb } from './Crumb';
 import { CrumbLink } from './CrumbLink';
 import { CrumbSimpleMenu } from './CrumbSimpleMenu';
-import { SimpleMenu, MenuItem } from '../SimpleMenu';
-import { IconButton } from '../../IconButton';
+import { MenuItem } from '../SimpleMenu';
 import { Stack } from '../../Stack';
 import CollectionType from '@strapi/icons/CollectionType';
-import CarretDown from '@strapi/icons/CarretDown';
 
 <Meta title="Design System/Components/v2/Breadcrumbs" component={Breadcrumbs} />
 
@@ -55,28 +52,19 @@ Breadcrumbs with CrumbLink are a list of link to help navigation.
 Breadcrumbs with CrumbSimpleMenu displays a list of potential options or actions via a Popover component.
 
 <Canvas>
-  <Story name="with-simple-menu">
-    {() => {
-      const IconButtonCustom = styled(IconButton)`
-        height: ${({ theme }) => theme.spaces[3]};
-      `;
-      return (
-        <Stack horizontal spacing={3}>
-          <Breadcrumbs label="Folder navigatation" as="nav">
-            <CrumbLink href="/">Media Library</CrumbLink>
-            <CrumbSimpleMenu>
-              <SimpleMenu noBorder label="Menu" as={IconButtonCustom} icon={<CarretDown />}>
-                <MenuItem to="/">Home</MenuItem>
-                <MenuItem to="/somewhere">Somewhere internal</MenuItem>
-              </SimpleMenu>
-            </CrumbSimpleMenu>
-            <Crumb>
-              Cats
-            </Crumb>
-          </Breadcrumbs>
-        </Stack>
-      );
-    }}
+  <Story name="with-menu">
+    <Stack horizontal spacing={3}>
+      <Breadcrumbs label="Folder navigatation" as="nav">
+        <CrumbLink href="/">Media Library</CrumbLink>
+        <CrumbSimpleMenu label="Menu">
+          <MenuItem to="/">Home</MenuItem>
+          <MenuItem to="/somewhere">Somewhere internal</MenuItem>
+        </CrumbSimpleMenu>
+        <Crumb>
+          Cats
+        </Crumb>
+      </Breadcrumbs>
+    </Stack>
   </Story>
 </Canvas>
 
