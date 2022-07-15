@@ -50803,7 +50803,7 @@ exports[`Storyshots Design System/Components/TwoColsLayout base 1`] = `
 `;
 
 exports[`Storyshots Design System/Components/v2/Breadcrumbs base 1`] = `
-.c2 {
+.c1 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -50815,22 +50815,35 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs base 1`] = `
   width: 1px;
 }
 
-.c1 {
+.c0 {
   background: #ffffff;
   padding: 8px;
 }
 
-.c3 {
+.c2 {
   padding: 8px;
   height: 100%;
 }
 
-.c10 {
-  padding-right: 8px;
-  padding-left: 8px;
+.c9 {
+  padding-right: 4px;
+  padding-left: 4px;
 }
 
-.c4 {
+.c10 {
+  color: #8e8ea9;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c11 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c3 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -50844,7 +50857,7 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs base 1`] = `
   flex-direction: row;
 }
 
-.c7 {
+.c6 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -50858,120 +50871,70 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs base 1`] = `
   flex-direction: row;
 }
 
-.c5 > * {
+.c4 > * {
   margin-left: 0;
   margin-right: 0;
 }
 
-.c5 > * + * {
+.c4 > * + * {
   margin-left: 12px;
 }
 
-.c9 {
+.c7 {
   cursor: pointer;
 }
 
-.c8 a {
-  -webkit-text-decoration: none;
-  text-decoration: none;
+.c8 {
+  border-radius: 4px;
   color: #666687;
   font-size: 0.75rem;
-  line-height: 1.33;
-  padding: 4px;
-  border-radius: 4px;
+  line-height: 1.43;
+  padding: 4px 8px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
-.c8 a:hover,
-.c8 a:focus {
+.c8:hover,
+.c8:focus {
+  background-color: #f6f6f9;
   color: #4a4a6a;
 }
 
-.c8 svg {
-  height: 0.625rem;
-  width: 0.625rem;
-}
-
-.c8 svg path {
-  fill: #8e8ea9;
-}
-
-.c8 a {
-  color: #666687;
-  font-weight: 400;
-}
-
-.c11 a {
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  color: #666687;
-  font-size: 0.75rem;
-  line-height: 1.33;
-  padding: 4px;
-  border-radius: 4px;
-}
-
-.c11 a:hover,
-.c11 a:focus {
-  color: #4a4a6a;
-}
-
-.c11 svg {
-  height: 0.625rem;
-  width: 0.625rem;
-}
-
-.c11 svg path {
-  fill: #8e8ea9;
-}
-
-.c11 .c0 {
-  display: none;
-}
-
-.c11 a {
-  color: #32324d;
-  font-weight: 600;
-}
-
-.c6 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+.c5:first-child {
+  margin-left: calc(-1*8px);
 }
 
 <div
-  class="c0 c1"
+  class="c0"
 >
   <main>
     <div
-      class="c2"
+      class="c1"
     >
       <h1>
         Storybook story
       </h1>
     </div>
     <div
-      class="c0 c3"
+      class="c2"
       height="100%"
     >
       <div
-        class="c0 c4 c5"
+        class="c3 c4"
         spacing="3"
       >
         <nav
           aria-label="Folder navigatation"
-          class="c0 "
+          class=""
         >
           <ol
-            aria-hidden="true"
-            class="c6"
+            class="c3 c5"
           >
             <li
-              class="c0 c7 c8"
+              class="c6"
             >
               <a
-                class="c9"
+                class="c7 c8"
                 href="/"
                 target="_self"
               >
@@ -50979,48 +50942,27 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs base 1`] = `
               </a>
               <div
                 aria-hidden="true"
-                class="c0 c10"
+                class="c9"
               >
-                <svg
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 10 16"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
+                <span
+                  class="c10"
                 >
-                  <path
-                    d="M0 1.88L6.107 8 0 14.12 1.88 16l8-8-8-8L0 1.88z"
-                    fill="#32324D"
-                  />
-                </svg>
+                  /
+                </span>
               </div>
             </li>
             <li
-              class="c0 c7 c11"
+              class="c6"
             >
-              <a
-                class="c9"
-                href="/cats"
-                target="_self"
-              >
-                Cats
-              </a>
               <div
-                aria-hidden="true"
-                class="c0 c10"
+                class="c9"
               >
-                <svg
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 10 16"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
+                <span
+                  aria-current="true"
+                  class="c11"
                 >
-                  <path
-                    d="M0 1.88L6.107 8 0 14.12 1.88 16l8-8-8-8L0 1.88z"
-                    fill="#32324D"
-                  />
-                </svg>
+                  Cats
+                </span>
               </div>
             </li>
           </ol>
@@ -51031,7 +50973,7 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs base 1`] = `
 </div>
 `;
 
-exports[`Storyshots Design System/Components/v2/Breadcrumbs with-simple-menu 1`] = `
+exports[`Storyshots Design System/Components/v2/Breadcrumbs with-menu 1`] = `
 .c2 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
@@ -51055,13 +50997,25 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs with-simple-menu 1`]
 }
 
 .c10 {
-  padding-right: 8px;
+  padding-right: 4px;
+  padding-left: 4px;
+}
+
+.c17 {
   padding-left: 8px;
 }
 
-.c15 {
-  padding-right: 12px;
-  padding-left: 12px;
+.c12 {
+  color: #8e8ea9;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c16 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
 }
 
 .c4 {
@@ -51101,7 +51055,7 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs with-simple-menu 1`]
   margin-left: 12px;
 }
 
-.c12 {
+.c13 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -51115,21 +51069,21 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs with-simple-menu 1`]
   outline: none;
 }
 
-.c12 svg {
+.c13 svg {
   height: 12px;
   width: 12px;
 }
 
-.c12 svg > g,
-.c12 svg path {
+.c13 svg > g,
+.c13 svg path {
   fill: #ffffff;
 }
 
-.c12[aria-disabled='true'] {
+.c13[aria-disabled='true'] {
   pointer-events: none;
 }
 
-.c12:after {
+.c13:after {
   -webkit-transition-property: all;
   transition-property: all;
   -webkit-transition-duration: 0.2s;
@@ -51144,11 +51098,11 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs with-simple-menu 1`]
   border: 2px solid transparent;
 }
 
-.c12:focus-visible {
+.c13:focus-visible {
   outline: none;
 }
 
-.c12:focus-visible:after {
+.c13:focus-visible:after {
   border-radius: 8px;
   content: '';
   position: absolute;
@@ -51159,7 +51113,23 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs with-simple-menu 1`]
   border: 2px solid #4945ff;
 }
 
-.c13 {
+.c8 {
+  cursor: pointer;
+}
+
+.c14 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 8px 16px;
+  background: #4945ff;
+  border: 1px solid #4945ff;
+  border: 1px solid transparent;
+  background: transparent;
+}
+
+.c14 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -51168,122 +51138,96 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs with-simple-menu 1`]
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  height: 2rem;
-  width: 2rem;
-  border: none;
 }
 
-.c13 svg > g,
-.c13 svg path {
+.c14 .c11 {
+  color: #ffffff;
+}
+
+.c14[aria-disabled='true'] {
+  border: 1px solid #dcdce4;
+  background: #eaeaef;
+}
+
+.c14[aria-disabled='true'] .c11 {
+  color: #666687;
+}
+
+.c14[aria-disabled='true'] svg > g,
+.c14[aria-disabled='true'] svg path {
+  fill: #666687;
+}
+
+.c14[aria-disabled='true']:active {
+  border: 1px solid #dcdce4;
+  background: #eaeaef;
+}
+
+.c14[aria-disabled='true']:active .c11 {
+  color: #666687;
+}
+
+.c14[aria-disabled='true']:active svg > g,
+.c14[aria-disabled='true']:active svg path {
+  fill: #666687;
+}
+
+.c14:hover {
+  background-color: #f6f6f9;
+}
+
+.c14:active {
+  border: 1px solid undefined;
+  background: undefined;
+}
+
+.c14 .c11 {
+  color: #32324d;
+}
+
+.c14 svg > g,
+.c14 svg path {
   fill: #8e8ea9;
-}
-
-.c13:hover svg > g,
-.c13:hover svg path {
-  fill: #666687;
-}
-
-.c13:active svg > g,
-.c13:active svg path {
-  fill: #a5a5ba;
-}
-
-.c13[aria-disabled='true'] {
-  background-color: #eaeaef;
-}
-
-.c13[aria-disabled='true'] svg path {
-  fill: #666687;
 }
 
 .c9 {
-  cursor: pointer;
-}
-
-.c8 a {
-  -webkit-text-decoration: none;
-  text-decoration: none;
+  border-radius: 4px;
   color: #666687;
   font-size: 0.75rem;
-  line-height: 1.33;
-  padding: 4px;
-  border-radius: 4px;
+  line-height: 1.43;
+  padding: 4px 8px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
-.c8 a:hover,
-.c8 a:focus {
+.c9:hover,
+.c9:focus {
+  background-color: #f6f6f9;
   color: #4a4a6a;
 }
 
-.c8 svg {
-  height: 0.625rem;
-  width: 0.625rem;
-}
-
-.c8 svg path {
-  fill: #8e8ea9;
-}
-
-.c8 a {
-  color: #666687;
-  font-weight: 400;
-}
-
-.c16 a {
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  color: #666687;
-  font-size: 0.75rem;
-  line-height: 1.33;
-  padding: 4px;
-  border-radius: 4px;
-}
-
-.c16 a:hover,
-.c16 a:focus {
-  color: #4a4a6a;
-}
-
-.c16 svg {
-  height: 0.625rem;
-  width: 0.625rem;
-}
-
-.c16 svg path {
-  fill: #8e8ea9;
-}
-
-.c16 .c0 {
-  display: none;
-}
-
-.c16 a {
-  color: #32324d;
-  font-weight: 600;
-}
-
-.c11 div[aria-hidden='true'] svg {
-  height: 0.625rem;
-  width: 0.625rem;
-}
-
-.c11 div[aria-hidden='true'] svg path {
-  fill: #8e8ea9;
-}
-
-.c6 {
+.c18 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
-.c14 {
-  height: 12px;
+.c18 svg {
+  height: 4px;
+  width: 6px;
+}
+
+.c15 {
+  padding: 4px 12px;
+}
+
+.c6:first-child {
+  margin-left: calc(-1*8px);
 }
 
 <div
@@ -51310,14 +51254,13 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs with-simple-menu 1`]
           class="c0 "
         >
           <ol
-            aria-hidden="true"
-            class="c6"
+            class="c0 c4 c6"
           >
             <li
-              class="c0 c7 c8"
+              class="c0 c7"
             >
               <a
-                class="c9"
+                class="c8 c9"
                 href="/"
                 target="_self"
               >
@@ -51327,96 +51270,81 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs with-simple-menu 1`]
                 aria-hidden="true"
                 class="c0 c10"
               >
-                <svg
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 10 16"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
+                <span
+                  class="c11 c12"
                 >
-                  <path
-                    d="M0 1.88L6.107 8 0 14.12 1.88 16l8-8-8-8L0 1.88z"
-                    fill="#32324D"
-                  />
-                </svg>
-              </div>
-            </li>
-            <div
-              class="c0 c4 c11"
-            >
-              <div>
-                <span>
-                  <button
-                    aria-controls="simplemenu-250"
-                    aria-disabled="false"
-                    aria-expanded="false"
-                    aria-haspopup="true"
-                    aria-labelledby="tooltip-251"
-                    class="c12 c13 c14"
-                    tabindex="0"
-                    type="button"
-                  >
-                    <svg
-                      fill="none"
-                      height="1em"
-                      viewBox="0 0 14 8"
-                      width="1em"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        clip-rule="evenodd"
-                        d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
-                        fill="#32324D"
-                        fill-rule="evenodd"
-                      />
-                    </svg>
-                  </button>
+                  /
                 </span>
               </div>
-              <div
-                aria-hidden="true"
-                class="c0 c15"
-              >
-                <svg
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 10 16"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M0 1.88L6.107 8 0 14.12 1.88 16l8-8-8-8L0 1.88z"
-                    fill="#32324D"
-                  />
-                </svg>
-              </div>
-            </div>
+            </li>
             <li
-              class="c0 c7 c16"
+              class="c0 c7"
             >
-              <a
-                class="c9"
-                href="/cats"
-                target="_self"
-              >
-                Cats
-              </a>
+              <div>
+                <button
+                  aria-controls="simplemenu-252"
+                  aria-disabled="false"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  aria-label="Some items are not displayed"
+                  class="c13 c14 c15"
+                  label="..."
+                  type="button"
+                >
+                  <span
+                    class="c11 c16"
+                  >
+                    ...
+                  </span>
+                  <div
+                    aria-hidden="true"
+                    class="c0 c17"
+                  >
+                    <span
+                      class="c18"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="none"
+                        height="1em"
+                        viewBox="0 0 14 8"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
+                          fill="#32324D"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </button>
+              </div>
               <div
                 aria-hidden="true"
                 class="c0 c10"
               >
-                <svg
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 10 16"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
+                <span
+                  class="c11 c12"
                 >
-                  <path
-                    d="M0 1.88L6.107 8 0 14.12 1.88 16l8-8-8-8L0 1.88z"
-                    fill="#32324D"
-                  />
-                </svg>
+                  /
+                </span>
+              </div>
+            </li>
+            <li
+              class="c0 c7"
+            >
+              <div
+                class="c0 c10"
+              >
+                <span
+                  aria-current="true"
+                  class="c11 c16"
+                >
+                  Cats
+                </span>
               </div>
             </li>
           </ol>
@@ -51428,7 +51356,7 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs with-simple-menu 1`]
 `;
 
 exports[`Storyshots Design System/Components/v2/Breadcrumbs without-nagivation 1`] = `
-.c2 {
+.c1 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -51440,28 +51368,41 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs without-nagivation 1
   width: 1px;
 }
 
-.c1 {
+.c0 {
   background: #ffffff;
   padding: 8px;
 }
 
-.c3 {
+.c2 {
   padding: 8px;
   height: 100%;
 }
 
-.c11 {
-  padding-right: 12px;
-  padding-left: 12px;
+.c7 {
+  padding-right: 4px;
+  padding-left: 4px;
 }
 
-.c10 {
-  color: #666687;
+.c8 {
+  color: #32324d;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
-.c4 {
+.c9 {
+  color: #8e8ea9;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c10 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c3 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -51475,7 +51416,7 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs without-nagivation 1
   flex-direction: row;
 }
 
-.c7 {
+.c6 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -51489,71 +51430,36 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs without-nagivation 1
   flex-direction: row;
 }
 
-.c5 > * {
+.c4 > * {
   margin-left: 0;
   margin-right: 0;
 }
 
-.c5 > * + * {
+.c4 > * + * {
   margin-left: 12px;
 }
 
-.c8 svg {
-  height: 0.625rem;
-  width: 0.625rem;
-}
-
-.c8 svg path {
-  fill: #8e8ea9;
-}
-
-.c8 .c9 {
-  color: #666687;
-  font-weight: 400;
-}
-
-.c12 svg {
-  height: 0.625rem;
-  width: 0.625rem;
-}
-
-.c12 svg path {
-  fill: #8e8ea9;
-}
-
-.c12 .c0 {
-  display: none;
-}
-
-.c12 .c9 {
-  color: #32324d;
-  font-weight: 600;
-}
-
-.c6 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+.c5:first-child {
+  margin-left: calc(-1*8px);
 }
 
 <div
-  class="c0 c1"
+  class="c0"
 >
   <main>
     <div
-      class="c2"
+      class="c1"
     >
       <h1>
         Storybook story
       </h1>
     </div>
     <div
-      class="c0 c3"
+      class="c2"
       height="100%"
     >
       <div
-        class="c0 c4 c5"
+        class="c3 c4"
         spacing="3"
       >
         <svg
@@ -51579,62 +51485,47 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs without-nagivation 1
         </svg>
         <div
           aria-label="Category model, name field"
-          class="c0 "
+          class=""
         >
           <ol
-            aria-hidden="true"
-            class="c6"
+            class="c3 c5"
           >
             <li
-              class="c0 c7 c8"
+              class="c6"
             >
-              <span
-                class="c9 c10"
+              <div
+                class="c7"
               >
-                Category
-              </span>
+                <span
+                  aria-current="false"
+                  class="c8"
+                >
+                  Category
+                </span>
+              </div>
               <div
                 aria-hidden="true"
-                class="c0 c11"
+                class="c7"
               >
-                <svg
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 10 16"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
+                <span
+                  class="c9"
                 >
-                  <path
-                    d="M0 1.88L6.107 8 0 14.12 1.88 16l8-8-8-8L0 1.88z"
-                    fill="#32324D"
-                  />
-                </svg>
+                  /
+                </span>
               </div>
             </li>
             <li
-              class="c0 c7 c12"
+              class="c6"
             >
-              <span
-                class="c9 c10"
-              >
-                Name
-              </span>
               <div
-                aria-hidden="true"
-                class="c0 c11"
+                class="c7"
               >
-                <svg
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 10 16"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
+                <span
+                  aria-current="true"
+                  class="c10"
                 >
-                  <path
-                    d="M0 1.88L6.107 8 0 14.12 1.88 16l8-8-8-8L0 1.88z"
-                    fill="#32324D"
-                  />
-                </svg>
+                  Name
+                </span>
               </div>
             </li>
           </ol>
