@@ -8,12 +8,13 @@ const StyledLink = styled(BaseLink)`
   border-radius: ${({ theme }) => theme.borderRadius};
   color: ${({ theme }) => theme.colors.neutral600};
   font-size: ${({ theme }) => theme.fontSizes[1]};
-  line-height: ${({ theme }) => theme.lineHeights[3]};
-  padding: ${({ theme }) => theme.spaces[1]};
+  line-height: ${({ theme }) => theme.lineHeights[4]};
+  padding: ${({ theme }) => `${theme.spaces[1]} ${theme.spaces[2]}`};
   text-decoration: none;
 
   :hover,
   :focus {
+    background-color: ${({ theme }) => theme.colors.neutral100};
     color: ${({ theme }) => theme.colors.neutral700};
   }
 `;
