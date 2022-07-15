@@ -56,7 +56,7 @@ Breadcrumbs with CrumbSimpleMenu displays a list of potential options or actions
     <Stack horizontal spacing={3}>
       <Breadcrumbs label="Folder navigatation" as="nav">
         <CrumbLink href="/">Media Library</CrumbLink>
-        <CrumbSimpleMenu label="Menu">
+        <CrumbSimpleMenu label="..." aria-label="Some items are not displayed">
           <MenuItem to="/">Home</MenuItem>
           <MenuItem to="/somewhere">Somewhere internal</MenuItem>
         </CrumbSimpleMenu>
