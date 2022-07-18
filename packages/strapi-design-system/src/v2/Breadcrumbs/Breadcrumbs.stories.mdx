@@ -39,7 +39,7 @@ Breadcrumbs with CrumbLink are a list of link to help navigation.
     <Stack horizontal spacing={3}>
       <Breadcrumbs label="Folder navigatation" as="nav">
         <CrumbLink href="/">Media Library</CrumbLink>
-        <Crumb>
+        <Crumb isCurrent>
           Cats
         </Crumb>
       </Breadcrumbs>
@@ -60,7 +60,7 @@ Breadcrumbs with CrumbSimpleMenu displays a list of potential options or actions
           <MenuItem to="/">Home</MenuItem>
           <MenuItem to="/somewhere">Somewhere internal</MenuItem>
         </CrumbSimpleMenu>
-        <Crumb>
+        <Crumb isCurrent>
           Cats
         </Crumb>
       </Breadcrumbs>
@@ -78,7 +78,7 @@ Breadcrumbs with Crumb are visual information only and cannot be navigated. They
       <CollectionType />
       <Breadcrumbs label="Category model, name field">
         <Crumb>Category</Crumb>
-        <Crumb>Name</Crumb>
+        <Crumb isCurrent>Name</Crumb>
       </Breadcrumbs>
     </Stack>
   </Story>
