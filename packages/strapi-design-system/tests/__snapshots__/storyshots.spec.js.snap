@@ -42,11 +42,14 @@ exports[`Storyshots Design System/Components/Accordion accordion-group 1`] = `
 
 .c14 {
   background: #ffffff;
+  padding-top: 8px;
   padding-right: 16px;
+  padding-bottom: 8px;
   padding-left: 16px;
 }
 
 .c17 {
+  max-width: 100%;
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
@@ -58,6 +61,9 @@ exports[`Storyshots Design System/Components/Accordion accordion-group 1`] = `
   cursor: pointer;
   width: 1.5rem;
   height: 1.5rem;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
   cursor: pointer;
 }
 
@@ -66,16 +72,23 @@ exports[`Storyshots Design System/Components/Accordion accordion-group 1`] = `
   width: 0.5rem;
 }
 
-.c25 {
+.c23 {
+  min-width: 0px;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.c26 {
   padding-right: 8px;
 }
 
-.c33 {
+.c34 {
   background: #eaeaef;
   height: 48px;
 }
 
-.c35 {
+.c37 {
   padding-top: 4px;
 }
 
@@ -86,26 +99,30 @@ exports[`Storyshots Design System/Components/Accordion accordion-group 1`] = `
   line-height: 1.33;
 }
 
-.c26 {
+.c27 {
   color: #4945ff;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
-.c27 {
+.c28 {
   font-weight: 600;
   color: #4a4a6a;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-size: 0.875rem;
   line-height: 1.43;
 }
 
-.c34 {
+.c36 {
   color: #666687;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
-.c36 {
+.c38 {
   color: #d02b20;
   font-size: 0.75rem;
   line-height: 1.33;
@@ -155,6 +172,27 @@ exports[`Storyshots Design System/Components/Accordion accordion-group 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c35 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
@@ -181,42 +219,42 @@ exports[`Storyshots Design System/Components/Accordion accordion-group 1`] = `
   background: #d9d8ff;
 }
 
-.c31 {
+.c32 {
   border: 1px solid #ffffff;
 }
 
-.c31:hover:not([aria-disabled='true']) {
+.c32:hover:not([aria-disabled='true']) {
   border: 1px solid #4945ff;
 }
 
-.c31:hover:not([aria-disabled='true']) .c7 {
+.c32:hover:not([aria-disabled='true']) .c7 {
   color: #4945ff;
 }
 
-.c31:hover:not([aria-disabled='true']) > .c4 {
+.c32:hover:not([aria-disabled='true']) > .c4 {
   background: #f0f0ff;
 }
 
-.c31:hover:not([aria-disabled='true']) [data-strapi-dropdown='true'] {
+.c32:hover:not([aria-disabled='true']) [data-strapi-dropdown='true'] {
   background: #d9d8ff;
 }
 
-.c23 {
+.c24 {
   background: transparent;
   border: none;
   position: relative;
   outline: none;
 }
 
-.c23[aria-disabled='true'] {
+.c24[aria-disabled='true'] {
   pointer-events: none;
 }
 
-.c23[aria-disabled='true'] svg path {
+.c24[aria-disabled='true'] svg path {
   fill: #666687;
 }
 
-.c23 svg {
+.c24 svg {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -224,11 +262,11 @@ exports[`Storyshots Design System/Components/Accordion accordion-group 1`] = `
   font-size: 0.625rem;
 }
 
-.c23 svg path {
+.c24 svg path {
   fill: #4945ff;
 }
 
-.c23:after {
+.c24:after {
   -webkit-transition-property: all;
   transition-property: all;
   -webkit-transition-duration: 0.2s;
@@ -243,11 +281,11 @@ exports[`Storyshots Design System/Components/Accordion accordion-group 1`] = `
   border: 2px solid transparent;
 }
 
-.c23:focus-visible {
+.c24:focus-visible {
   outline: none;
 }
 
-.c23:focus-visible:after {
+.c24:focus-visible:after {
   border-radius: 8px;
   content: '';
   position: absolute;
@@ -267,7 +305,7 @@ exports[`Storyshots Design System/Components/Accordion accordion-group 1`] = `
   margin-left: 12px;
 }
 
-.c28 > * {
+.c29 > * {
   margin-left: 0;
   margin-right: 0;
 }
@@ -276,21 +314,25 @@ exports[`Storyshots Design System/Components/Accordion accordion-group 1`] = `
   fill: #666687;
 }
 
-.c24 {
+.c25 {
   text-align: left;
 }
 
-.c24 svg {
+.c25 > span {
+  max-width: 100%;
+}
+
+.c25 svg {
   width: 0.875rem;
   height: 0.875rem;
 }
 
-.c24 svg path {
+.c25 svg path {
   fill: #8e8ea9;
 }
 
 .c16 {
-  height: 3rem;
+  min-height: 3rem;
   border-radius: 4px;
 }
 
@@ -298,7 +340,7 @@ exports[`Storyshots Design System/Components/Accordion accordion-group 1`] = `
   fill: #4945ff;
 }
 
-.c32 {
+.c33 {
   border-bottom: 1px solid #dcdce4;
   border-right: 1px solid #dcdce4;
   border-left: 1px solid #dcdce4;
@@ -341,7 +383,7 @@ exports[`Storyshots Design System/Components/Accordion accordion-group 1`] = `
   fill: #8e8ea9;
 }
 
-.c29 {
+.c30 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -355,21 +397,21 @@ exports[`Storyshots Design System/Components/Accordion accordion-group 1`] = `
   outline: none;
 }
 
-.c29 svg {
+.c30 svg {
   height: 12px;
   width: 12px;
 }
 
-.c29 svg > g,
-.c29 svg path {
+.c30 svg > g,
+.c30 svg path {
   fill: #ffffff;
 }
 
-.c29[aria-disabled='true'] {
+.c30[aria-disabled='true'] {
   pointer-events: none;
 }
 
-.c29:after {
+.c30:after {
   -webkit-transition-property: all;
   transition-property: all;
   -webkit-transition-duration: 0.2s;
@@ -384,11 +426,11 @@ exports[`Storyshots Design System/Components/Accordion accordion-group 1`] = `
   border: 2px solid transparent;
 }
 
-.c29:focus-visible {
+.c30:focus-visible {
   outline: none;
 }
 
-.c29:focus-visible:after {
+.c30:focus-visible:after {
   border-radius: 8px;
   content: '';
   position: absolute;
@@ -399,7 +441,7 @@ exports[`Storyshots Design System/Components/Accordion accordion-group 1`] = `
   border: 2px solid #4945ff;
 }
 
-.c30 {
+.c31 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -417,26 +459,26 @@ exports[`Storyshots Design System/Components/Accordion accordion-group 1`] = `
   border: none;
 }
 
-.c30 svg > g,
-.c30 svg path {
+.c31 svg > g,
+.c31 svg path {
   fill: #8e8ea9;
 }
 
-.c30:hover svg > g,
-.c30:hover svg path {
+.c31:hover svg > g,
+.c31:hover svg path {
   fill: #666687;
 }
 
-.c30:active svg > g,
-.c30:active svg path {
+.c31:active svg > g,
+.c31:active svg path {
   fill: #a5a5ba;
 }
 
-.c30[aria-disabled='true'] {
+.c31[aria-disabled='true'] {
   background-color: #eaeaef;
 }
 
-.c30[aria-disabled='true'] svg path {
+.c31[aria-disabled='true'] svg path {
   fill: #666687;
 }
 
@@ -542,13 +584,13 @@ exports[`Storyshots Design System/Components/Accordion accordion-group 1`] = `
                       aria-disabled="false"
                       aria-expanded="false"
                       aria-labelledby="accordion-label-acc-1"
-                      class="c4 c17 c6 c23 c24"
+                      class="c4 c23 c6 c24 c25"
                       data-strapi-accordion-toggle="true"
                       type="button"
                     >
                       <span
                         aria-hidden="true"
-                        class="c25"
+                        class="c26"
                       >
                         <svg
                           aria-hidden="true"
@@ -565,66 +607,66 @@ exports[`Storyshots Design System/Components/Accordion accordion-group 1`] = `
                         </svg>
                       </span>
                       <span
-                        class="c7 c26"
+                        class="c7 c27"
                       >
                         <span
-                          class="c7 c27"
+                          class="c7 c28"
                           id="accordion-label-acc-1"
                         >
                           User informations
                         </span>
                       </span>
                     </button>
-                  </div>
-                  <div
-                    class="c4 c6 c28"
-                  >
-                    <span>
-                      <button
-                        aria-disabled="false"
-                        aria-labelledby="tooltip-3"
-                        class="c29 c30"
-                        tabindex="0"
-                        type="button"
-                      >
-                        <svg
-                          fill="none"
-                          height="1em"
-                          viewBox="0 0 24 24"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
+                    <div
+                      class="c4 c6 c29"
+                    >
+                      <span>
+                        <button
+                          aria-disabled="false"
+                          aria-labelledby="tooltip-3"
+                          class="c30 c31"
+                          tabindex="0"
+                          type="button"
                         >
-                          <path
-                            clip-rule="evenodd"
-                            d="M23.604 3.514c.528.528.528 1.36 0 1.887l-2.622 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.118 3.118zM0 24v-4.99l14.2-14.2 4.99 4.99L4.99 24H0z"
-                            fill="#212134"
-                            fill-rule="evenodd"
-                          />
-                        </svg>
-                      </button>
-                    </span>
-                    <span>
-                      <button
-                        aria-disabled="false"
-                        aria-labelledby="tooltip-5"
-                        class="c29 c30"
-                        tabindex="0"
-                        type="button"
-                      >
-                        <svg
-                          fill="none"
-                          height="1em"
-                          viewBox="0 0 24 24"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
+                          <svg
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 24 24"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              clip-rule="evenodd"
+                              d="M23.604 3.514c.528.528.528 1.36 0 1.887l-2.622 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.118 3.118zM0 24v-4.99l14.2-14.2 4.99 4.99L4.99 24H0z"
+                              fill="#212134"
+                              fill-rule="evenodd"
+                            />
+                          </svg>
+                        </button>
+                      </span>
+                      <span>
+                        <button
+                          aria-disabled="false"
+                          aria-labelledby="tooltip-5"
+                          class="c30 c31"
+                          tabindex="0"
+                          type="button"
                         >
-                          <path
-                            d="M3.236 6.149a.2.2 0 00-.197.233L6 24h12l2.96-17.618a.2.2 0 00-.196-.233H3.236zM21.8 1.983c.11 0 .2.09.2.2v1.584a.2.2 0 01-.2.2H2.2a.2.2 0 01-.2-.2V2.183c0-.11.09-.2.2-.2h5.511c.9 0 1.631-1.09 1.631-1.983h5.316c0 .894.73 1.983 1.631 1.983H21.8z"
-                            fill="#32324D"
-                          />
-                        </svg>
-                      </button>
-                    </span>
+                          <svg
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 24 24"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M3.236 6.149a.2.2 0 00-.197.233L6 24h12l2.96-17.618a.2.2 0 00-.196-.233H3.236zM21.8 1.983c.11 0 .2.09.2.2v1.584a.2.2 0 01-.2.2H2.2a.2.2 0 01-.2-.2V2.183c0-.11.09-.2.2-.2h5.511c.9 0 1.631-1.09 1.631-1.983h5.316c0 .894.73 1.983 1.631 1.983H21.8z"
+                              fill="#32324D"
+                            />
+                          </svg>
+                        </button>
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -670,15 +712,15 @@ exports[`Storyshots Design System/Components/Accordion accordion-group 1`] = `
                       aria-disabled="false"
                       aria-expanded="false"
                       aria-labelledby="accordion-label-acc-2"
-                      class="c4 c17 c6 c23 c24"
+                      class="c4 c23 c6 c24 c25"
                       data-strapi-accordion-toggle="true"
                       type="button"
                     >
                       <span
-                        class="c7 c26"
+                        class="c7 c27"
                       >
                         <span
-                          class="c7 c27"
+                          class="c7 c28"
                           id="accordion-label-acc-2"
                         >
                           User informations
@@ -690,7 +732,7 @@ exports[`Storyshots Design System/Components/Accordion accordion-group 1`] = `
               </div>
               <div
                 aria-disabled="false"
-                class="c12 c31"
+                class="c12 c32"
                 data-strapi-expanded="false"
               >
                 <div
@@ -730,15 +772,15 @@ exports[`Storyshots Design System/Components/Accordion accordion-group 1`] = `
                       aria-disabled="false"
                       aria-expanded="false"
                       aria-labelledby="accordion-label-acc-3"
-                      class="c4 c17 c6 c23 c24"
+                      class="c4 c23 c6 c24 c25"
                       data-strapi-accordion-toggle="true"
                       type="button"
                     >
                       <span
-                        class="c7 c26"
+                        class="c7 c27"
                       >
                         <span
-                          class="c7 c27"
+                          class="c7 c28"
                           id="accordion-label-acc-3"
                         >
                           User informations
@@ -750,7 +792,7 @@ exports[`Storyshots Design System/Components/Accordion accordion-group 1`] = `
               </div>
               <div
                 aria-disabled="false"
-                class="c12 c31"
+                class="c12 c32"
                 data-strapi-expanded="false"
               >
                 <div
@@ -790,13 +832,13 @@ exports[`Storyshots Design System/Components/Accordion accordion-group 1`] = `
                       aria-disabled="false"
                       aria-expanded="false"
                       aria-labelledby="accordion-label-acc-2"
-                      class="c4 c17 c6 c23 c24"
+                      class="c4 c23 c6 c24 c25"
                       data-strapi-accordion-toggle="true"
                       type="button"
                     >
                       <span
                         aria-hidden="true"
-                        class="c25"
+                        class="c26"
                       >
                         <svg
                           aria-hidden="true"
@@ -813,10 +855,10 @@ exports[`Storyshots Design System/Components/Accordion accordion-group 1`] = `
                         </svg>
                       </span>
                       <span
-                        class="c7 c26"
+                        class="c7 c27"
                       >
                         <span
-                          class="c7 c27"
+                          class="c7 c28"
                           id="accordion-label-acc-2"
                         >
                           User informations
@@ -828,20 +870,20 @@ exports[`Storyshots Design System/Components/Accordion accordion-group 1`] = `
               </div>
             </div>
             <div
-              class="c32"
+              class="c33"
             >
               <div
-                class="c4 c33 c20"
+                class="c4 c34 c35"
                 height="48px"
               >
                 <button
                   aria-disabled="true"
-                  class="c4 c6 c23"
+                  class="c4 c6 c24"
                   type="button"
                 >
                   <span
                     aria-hidden="true"
-                    class="c25"
+                    class="c26"
                   >
                     <svg
                       fill="none"
@@ -857,7 +899,7 @@ exports[`Storyshots Design System/Components/Accordion accordion-group 1`] = `
                     </svg>
                   </span>
                   <span
-                    class="c7 c34"
+                    class="c7 c36"
                   >
                     Add an entry
                   </span>
@@ -865,10 +907,10 @@ exports[`Storyshots Design System/Components/Accordion accordion-group 1`] = `
               </div>
             </div>
             <div
-              class="c35"
+              class="c37"
             >
               <span
-                class="c7 c36"
+                class="c7 c38"
               >
                 The components contain error(s)
               </span>
@@ -915,92 +957,120 @@ exports[`Storyshots Design System/Components/Accordion base 1`] = `
 
 .c7 {
   background: #ffffff;
+  padding-top: 8px;
   padding-right: 16px;
+  padding-bottom: 8px;
   padding-left: 16px;
 }
 
 .c10 {
+  max-width: 100%;
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
 }
 
-.c18 {
+.c13 {
+  min-width: 0px;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.c19 {
   background: #dcdce4;
   border-radius: 50%;
   cursor: pointer;
   width: 1.5rem;
   height: 1.5rem;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
   cursor: pointer;
 }
 
-.c20 {
+.c21 {
   color: #666687;
   width: 0.5rem;
 }
 
-.c22 {
+.c23 {
   padding-top: 4px;
 }
 
-.c24 {
+.c25 {
   background: #ffffff;
   padding: 40px;
 }
 
-.c26 {
+.c27 {
   background: #f6f6f9;
+  padding-top: 24px;
   padding-right: 24px;
+  padding-bottom: 24px;
   padding-left: 24px;
 }
 
-.c30 {
+.c31 {
   background: #dcdce4;
   border-radius: 50%;
   cursor: pointer;
   width: 2rem;
   height: 2rem;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
   cursor: pointer;
 }
 
-.c31 {
+.c32 {
   color: #666687;
   width: 0.6875rem;
 }
 
-.c35 {
+.c36 {
   background: #ffffff;
+  padding-top: 24px;
   padding-right: 24px;
+  padding-bottom: 24px;
   padding-left: 24px;
 }
 
-.c15 {
+.c17 {
   color: #4945ff;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
-.c16 {
+.c18 {
   font-weight: 600;
   color: #4a4a6a;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-size: 0.875rem;
   line-height: 1.43;
 }
 
-.c23 {
+.c24 {
   color: #d02b20;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
-.c28 {
+.c29 {
   color: #4a4a6a;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-weight: 500;
   font-size: 1rem;
   line-height: 1.25;
 }
 
-.c29 {
+.c30 {
   color: #666687;
   font-size: 0.875rem;
   line-height: 1.43;
@@ -1038,7 +1108,7 @@ exports[`Storyshots Design System/Components/Accordion base 1`] = `
   flex-direction: row;
 }
 
-.c19 {
+.c20 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -1050,6 +1120,9 @@ exports[`Storyshots Design System/Components/Accordion base 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
@@ -1064,7 +1137,7 @@ exports[`Storyshots Design System/Components/Accordion base 1`] = `
   border: 1px solid #4945ff;
 }
 
-.c5:hover:not([aria-disabled='true']) .c14 {
+.c5:hover:not([aria-disabled='true']) .c16 {
   color: #4945ff;
 }
 
@@ -1076,62 +1149,62 @@ exports[`Storyshots Design System/Components/Accordion base 1`] = `
   background: #d9d8ff;
 }
 
-.c25 {
+.c26 {
   border: 1px solid #f6f6f9;
 }
 
-.c25:hover:not([aria-disabled='true']) {
+.c26:hover:not([aria-disabled='true']) {
   border: 1px solid #4945ff;
 }
 
-.c25:hover:not([aria-disabled='true']) .c14 {
+.c26:hover:not([aria-disabled='true']) .c16 {
   color: #4945ff;
 }
 
-.c25:hover:not([aria-disabled='true']) > .c6 {
+.c26:hover:not([aria-disabled='true']) > .c6 {
   background: #f0f0ff;
 }
 
-.c25:hover:not([aria-disabled='true']) [data-strapi-dropdown='true'] {
+.c26:hover:not([aria-disabled='true']) [data-strapi-dropdown='true'] {
   background: #d9d8ff;
 }
 
-.c34 {
+.c35 {
   border: 1px solid #ffffff;
 }
 
-.c34:hover:not([aria-disabled='true']) {
+.c35:hover:not([aria-disabled='true']) {
   border: 1px solid #4945ff;
 }
 
-.c34:hover:not([aria-disabled='true']) .c14 {
+.c35:hover:not([aria-disabled='true']) .c16 {
   color: #4945ff;
 }
 
-.c34:hover:not([aria-disabled='true']) > .c6 {
+.c35:hover:not([aria-disabled='true']) > .c6 {
   background: #f0f0ff;
 }
 
-.c34:hover:not([aria-disabled='true']) [data-strapi-dropdown='true'] {
+.c35:hover:not([aria-disabled='true']) [data-strapi-dropdown='true'] {
   background: #d9d8ff;
 }
 
-.c12 {
+.c14 {
   background: transparent;
   border: none;
   position: relative;
   outline: none;
 }
 
-.c12[aria-disabled='true'] {
+.c14[aria-disabled='true'] {
   pointer-events: none;
 }
 
-.c12[aria-disabled='true'] svg path {
+.c14[aria-disabled='true'] svg path {
   fill: #666687;
 }
 
-.c12 svg {
+.c14 svg {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1139,11 +1212,11 @@ exports[`Storyshots Design System/Components/Accordion base 1`] = `
   font-size: 0.625rem;
 }
 
-.c12 svg path {
+.c14 svg path {
   fill: #4945ff;
 }
 
-.c12:after {
+.c14:after {
   -webkit-transition-property: all;
   transition-property: all;
   -webkit-transition-duration: 0.2s;
@@ -1158,11 +1231,11 @@ exports[`Storyshots Design System/Components/Accordion base 1`] = `
   border: 2px solid transparent;
 }
 
-.c12:focus-visible {
+.c14:focus-visible {
   outline: none;
 }
 
-.c12:focus-visible:after {
+.c14:focus-visible:after {
   border-radius: 8px;
   content: '';
   position: absolute;
@@ -1173,34 +1246,38 @@ exports[`Storyshots Design System/Components/Accordion base 1`] = `
   border: 2px solid #4945ff;
 }
 
-.c17 > * {
+.c12 > * {
   margin-left: 0;
   margin-right: 0;
 }
 
-.c17 > * + * {
+.c12 > * + * {
   margin-left: 12px;
 }
 
-.c21 path {
+.c22 path {
   fill: #666687;
 }
 
-.c13 {
+.c15 {
   text-align: left;
 }
 
-.c13 svg {
+.c15 > span {
+  max-width: 100%;
+}
+
+.c15 svg {
   width: 0.875rem;
   height: 0.875rem;
 }
 
-.c13 svg path {
+.c15 svg path {
   fill: #8e8ea9;
 }
 
 .c9 {
-  height: 3rem;
+  min-height: 3rem;
   border-radius: 4px;
 }
 
@@ -1208,16 +1285,16 @@ exports[`Storyshots Design System/Components/Accordion base 1`] = `
   fill: #4945ff;
 }
 
-.c27 {
-  height: 5.5rem;
+.c28 {
+  min-height: 5.5rem;
   border-radius: 4px;
 }
 
-.c27:hover svg path {
+.c28:hover svg path {
   fill: #4945ff;
 }
 
-.c32 {
+.c33 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1231,21 +1308,21 @@ exports[`Storyshots Design System/Components/Accordion base 1`] = `
   outline: none;
 }
 
-.c32 svg {
+.c33 svg {
   height: 12px;
   width: 12px;
 }
 
-.c32 svg > g,
-.c32 svg path {
+.c33 svg > g,
+.c33 svg path {
   fill: #ffffff;
 }
 
-.c32[aria-disabled='true'] {
+.c33[aria-disabled='true'] {
   pointer-events: none;
 }
 
-.c32:after {
+.c33:after {
   -webkit-transition-property: all;
   transition-property: all;
   -webkit-transition-duration: 0.2s;
@@ -1260,11 +1337,11 @@ exports[`Storyshots Design System/Components/Accordion base 1`] = `
   border: 2px solid transparent;
 }
 
-.c32:focus-visible {
+.c33:focus-visible {
   outline: none;
 }
 
-.c32:focus-visible:after {
+.c33:focus-visible:after {
   border-radius: 8px;
   content: '';
   position: absolute;
@@ -1275,7 +1352,7 @@ exports[`Storyshots Design System/Components/Accordion base 1`] = `
   border: 2px solid #4945ff;
 }
 
-.c33 {
+.c34 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1292,26 +1369,26 @@ exports[`Storyshots Design System/Components/Accordion base 1`] = `
   width: 2rem;
 }
 
-.c33 svg > g,
-.c33 svg path {
+.c34 svg > g,
+.c34 svg path {
   fill: #8e8ea9;
 }
 
-.c33:hover svg > g,
-.c33:hover svg path {
+.c34:hover svg > g,
+.c34:hover svg path {
   fill: #666687;
 }
 
-.c33:active svg > g,
-.c33:active svg path {
+.c34:active svg > g,
+.c34:active svg path {
   fill: #a5a5ba;
 }
 
-.c33[aria-disabled='true'] {
+.c34[aria-disabled='true'] {
   background-color: #eaeaef;
 }
 
-.c33[aria-disabled='true'] svg path {
+.c34[aria-disabled='true'] svg path {
   fill: #666687;
 }
 
@@ -1343,119 +1420,197 @@ exports[`Storyshots Design System/Components/Accordion base 1`] = `
               class="c6 c7 c8 c9"
               cursor=""
             >
-              <button
-                aria-controls="accordion-content-acc-1"
-                aria-disabled="false"
-                aria-expanded="false"
-                aria-labelledby="accordion-label-acc-1"
-                class="c6 c10 c11 c12 c13"
-                data-strapi-accordion-toggle="true"
-                type="button"
-              >
-                <span
-                  class="c14 c15"
-                >
-                  <span
-                    class="c14 c16"
-                    id="accordion-label-acc-1"
-                  >
-                    User informations
-                  </span>
-                </span>
-              </button>
               <div
-                class="c6 c11 c17"
+                class="c6 c10 c11 c12"
                 spacing="3"
               >
-                <span
-                  aria-hidden="true"
-                  class="c6 c18 c19"
-                  cursor="pointer"
-                  data-strapi-dropdown="true"
-                  height="1.5rem"
-                  width="1.5rem"
+                <button
+                  aria-controls="accordion-content-acc-1"
+                  aria-disabled="false"
+                  aria-expanded="false"
+                  aria-labelledby="accordion-label-acc-1"
+                  class="c6 c13 c11 c14 c15"
+                  data-strapi-accordion-toggle="true"
+                  type="button"
                 >
-                  <svg
-                    class="c20 c21"
-                    fill="none"
-                    height="1em"
-                    viewBox="0 0 14 8"
-                    width="0.5rem"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <span
+                    class="c16 c17"
                   >
-                    <path
-                      clip-rule="evenodd"
-                      d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
-                      fill="#32324D"
-                      fill-rule="evenodd"
-                    />
-                  </svg>
-                </span>
+                    <span
+                      class="c16 c18"
+                      id="accordion-label-acc-1"
+                    >
+                      User informations
+                    </span>
+                  </span>
+                </button>
+                <div
+                  class="c6 c11 c12"
+                  spacing="3"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="c6 c19 c20"
+                    cursor="pointer"
+                    data-strapi-dropdown="true"
+                    height="1.5rem"
+                    width="1.5rem"
+                  >
+                    <svg
+                      class="c21 c22"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 14 8"
+                      width="0.5rem"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
+                        fill="#32324D"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                </div>
               </div>
             </div>
           </div>
           <div
-            class="c22"
+            class="c23"
           >
             <span
-              class="c14 c23"
+              class="c16 c24"
             >
               The component contain error(s)
             </span>
           </div>
         </div>
         <div
-          class="c24"
+          class="c25"
         >
           <div
             aria-disabled="false"
-            class="c4 c25"
+            class="c4 c26"
             data-strapi-expanded="false"
           >
             <div
-              class="c6 c26 c8 c27"
+              class="c6 c27 c8 c28"
               cursor=""
             >
-              <button
-                aria-controls="accordion-content-acc-2"
-                aria-disabled="false"
-                aria-expanded="false"
-                aria-labelledby="accordion-label-acc-2"
-                class="c6 c10 c11 c12 c13"
-                data-strapi-accordion-toggle="true"
-                type="button"
+              <div
+                class="c6 c10 c11 c12"
+                spacing="3"
               >
-                <span
-                  class="c14 c15"
+                <button
+                  aria-controls="accordion-content-acc-2"
+                  aria-disabled="false"
+                  aria-expanded="false"
+                  aria-labelledby="accordion-label-acc-2"
+                  class="c6 c13 c11 c14 c15"
+                  data-strapi-accordion-toggle="true"
+                  type="button"
                 >
                   <span
-                    class="c14 c28"
-                    id="accordion-label-acc-2"
+                    class="c16 c17"
                   >
-                    User informations 2
+                    <span
+                      class="c16 c29"
+                      id="accordion-label-acc-2"
+                    >
+                      User informations 2
+                    </span>
+                    <p
+                      class="c16 c30"
+                      id="accordion-desc-acc-2"
+                    >
+                      The following contains information about the current user 2
+                    </p>
                   </span>
-                  <p
-                    class="c14 c29"
-                    id="accordion-desc-acc-2"
+                </button>
+                <div
+                  class="c6 c11 c12"
+                  spacing="3"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="c6 c31 c20"
+                    cursor="pointer"
+                    data-strapi-dropdown="true"
+                    height="2rem"
+                    width="2rem"
                   >
-                    The following contains information about the current user 2
-                  </p>
-                </span>
-              </button>
+                    <svg
+                      class="c32 c22"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 14 8"
+                      width="0.6875rem"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
+                        fill="#32324D"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                  <span>
+                    <button
+                      aria-disabled="false"
+                      aria-labelledby="tooltip-7"
+                      class="c33 c34"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <svg
+                        fill="none"
+                        height="1em"
+                        viewBox="0 0 24 24"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M23.604 3.514c.528.528.528 1.36 0 1.887l-2.622 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.118 3.118zM0 24v-4.99l14.2-14.2 4.99 4.99L4.99 24H0z"
+                          fill="#212134"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                    </button>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="c3"
+        >
+          <div
+            aria-disabled="false"
+            class="c4 c35"
+            data-strapi-expanded="false"
+          >
+            <div
+              class="c6 c36 c8 c28"
+              cursor=""
+            >
               <div
-                class="c6 c11 c17"
+                class="c6 c10 c11 c12"
                 spacing="3"
               >
                 <span
                   aria-hidden="true"
-                  class="c6 c30 c19"
+                  class="c6 c31 c20"
                   cursor="pointer"
                   data-strapi-dropdown="true"
                   height="2rem"
                   width="2rem"
                 >
                   <svg
-                    class="c31 c21"
+                    class="c32 c22"
                     fill="none"
                     height="1em"
                     viewBox="0 0 14 8"
@@ -1470,11 +1625,101 @@ exports[`Storyshots Design System/Components/Accordion base 1`] = `
                     />
                   </svg>
                 </span>
+                <button
+                  aria-controls="accordion-content-acc-3"
+                  aria-disabled="false"
+                  aria-expanded="false"
+                  aria-labelledby="accordion-label-acc-3"
+                  class="c6 c13 c11 c14 c15"
+                  data-strapi-accordion-toggle="true"
+                  type="button"
+                >
+                  <span
+                    class="c16 c17"
+                  >
+                    <span
+                      class="c16 c29"
+                      id="accordion-label-acc-3"
+                    >
+                      User informations 3
+                    </span>
+                    <p
+                      class="c16 c30"
+                      id="accordion-desc-acc-3"
+                    >
+                      The following contains information about the current user 3
+                    </p>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="c25"
+        >
+          <div
+            aria-disabled="false"
+            class="c4 c26"
+            data-strapi-expanded="false"
+          >
+            <div
+              class="c6 c27 c8 c28"
+              cursor=""
+            >
+              <div
+                class="c6 c10 c11 c12"
+                spacing="3"
+              >
+                <span
+                  aria-hidden="true"
+                  class="c6 c31 c20"
+                  cursor="pointer"
+                  data-strapi-dropdown="true"
+                  height="2rem"
+                  width="2rem"
+                >
+                  <svg
+                    class="c32 c22"
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 14 8"
+                    width="0.6875rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
+                      fill="#32324D"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+                <button
+                  aria-controls="accordion-content-acc-4"
+                  aria-disabled="false"
+                  aria-expanded="false"
+                  aria-labelledby="accordion-label-acc-4"
+                  class="c6 c13 c11 c14 c15"
+                  data-strapi-accordion-toggle="true"
+                  type="button"
+                >
+                  <span
+                    class="c16 c17"
+                  >
+                    <span
+                      class="c16 c29"
+                      id="accordion-label-acc-4"
+                    >
+                      User informations 4
+                    </span>
+                  </span>
+                </button>
                 <span>
                   <button
                     aria-disabled="false"
-                    aria-labelledby="tooltip-7"
-                    class="c32 c33"
+                    aria-labelledby="tooltip-9"
+                    class="c33 c34"
                     tabindex="0"
                     type="button"
                   >
@@ -1495,164 +1740,6 @@ exports[`Storyshots Design System/Components/Accordion base 1`] = `
                   </button>
                 </span>
               </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="c3"
-        >
-          <div
-            aria-disabled="false"
-            class="c4 c34"
-            data-strapi-expanded="false"
-          >
-            <div
-              class="c6 c35 c8 c27"
-              cursor=""
-            >
-              <div
-                class="c6 c10 c11 c17"
-                spacing="3"
-              >
-                <span
-                  aria-hidden="true"
-                  class="c6 c30 c19"
-                  cursor="pointer"
-                  data-strapi-dropdown="true"
-                  height="2rem"
-                  width="2rem"
-                >
-                  <svg
-                    class="c31 c21"
-                    fill="none"
-                    height="1em"
-                    viewBox="0 0 14 8"
-                    width="0.6875rem"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
-                      fill="#32324D"
-                      fill-rule="evenodd"
-                    />
-                  </svg>
-                </span>
-                <button
-                  aria-controls="accordion-content-acc-3"
-                  aria-disabled="false"
-                  aria-expanded="false"
-                  aria-labelledby="accordion-label-acc-3"
-                  class="c6 c10 c11 c12 c13"
-                  data-strapi-accordion-toggle="true"
-                  type="button"
-                >
-                  <span
-                    class="c14 c15"
-                  >
-                    <span
-                      class="c14 c28"
-                      id="accordion-label-acc-3"
-                    >
-                      User informations 3
-                    </span>
-                    <p
-                      class="c14 c29"
-                      id="accordion-desc-acc-3"
-                    >
-                      The following contains information about the current user 3
-                    </p>
-                  </span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="c24"
-        >
-          <div
-            aria-disabled="false"
-            class="c4 c25"
-            data-strapi-expanded="false"
-          >
-            <div
-              class="c6 c26 c8 c27"
-              cursor=""
-            >
-              <div
-                class="c6 c10 c11 c17"
-                spacing="3"
-              >
-                <span
-                  aria-hidden="true"
-                  class="c6 c30 c19"
-                  cursor="pointer"
-                  data-strapi-dropdown="true"
-                  height="2rem"
-                  width="2rem"
-                >
-                  <svg
-                    class="c31 c21"
-                    fill="none"
-                    height="1em"
-                    viewBox="0 0 14 8"
-                    width="0.6875rem"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
-                      fill="#32324D"
-                      fill-rule="evenodd"
-                    />
-                  </svg>
-                </span>
-                <button
-                  aria-controls="accordion-content-acc-4"
-                  aria-disabled="false"
-                  aria-expanded="false"
-                  aria-labelledby="accordion-label-acc-4"
-                  class="c6 c10 c11 c12 c13"
-                  data-strapi-accordion-toggle="true"
-                  type="button"
-                >
-                  <span
-                    class="c14 c15"
-                  >
-                    <span
-                      class="c14 c28"
-                      id="accordion-label-acc-4"
-                    >
-                      User informations 4
-                    </span>
-                  </span>
-                </button>
-              </div>
-              <span>
-                <button
-                  aria-disabled="false"
-                  aria-labelledby="tooltip-9"
-                  class="c32 c33"
-                  tabindex="0"
-                  type="button"
-                >
-                  <svg
-                    fill="none"
-                    height="1em"
-                    viewBox="0 0 24 24"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M23.604 3.514c.528.528.528 1.36 0 1.887l-2.622 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.118 3.118zM0 24v-4.99l14.2-14.2 4.99 4.99L4.99 24H0z"
-                      fill="#212134"
-                      fill-rule="evenodd"
-                    />
-                  </svg>
-                </button>
-              </span>
             </div>
           </div>
         </div>
@@ -1691,17 +1778,27 @@ exports[`Storyshots Design System/Components/Accordion expanded 1`] = `
 
 .c6 {
   background: #f0f0ff;
+  padding-top: 24px;
   padding-right: 24px;
+  padding-bottom: 24px;
   padding-left: 24px;
 }
 
 .c9 {
+  max-width: 100%;
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
 }
 
-.c17 {
+.c12 {
+  min-width: 0px;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.c18 {
   background: #d9d8ff;
   border-radius: 50%;
   cursor: pointer;
@@ -1710,38 +1807,45 @@ exports[`Storyshots Design System/Components/Accordion expanded 1`] = `
   -webkit-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
   cursor: pointer;
 }
 
-.c19 {
+.c20 {
   color: #4945ff;
   width: 0.6875rem;
 }
 
-.c21 {
+.c22 {
   padding: 12px;
 }
 
-.c13 {
+.c15 {
   color: #4945ff;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
-.c14 {
+.c16 {
   color: #4945ff;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-weight: 500;
   font-size: 1rem;
   line-height: 1.25;
 }
 
-.c15 {
+.c17 {
   color: #4945ff;
   font-size: 0.875rem;
   line-height: 1.43;
 }
 
-.c22 {
+.c23 {
   color: #32324d;
   font-size: 0.875rem;
   line-height: 1.43;
@@ -1779,7 +1883,7 @@ exports[`Storyshots Design System/Components/Accordion expanded 1`] = `
   flex-direction: row;
 }
 
-.c18 {
+.c19 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -1791,6 +1895,9 @@ exports[`Storyshots Design System/Components/Accordion expanded 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
@@ -1813,22 +1920,22 @@ exports[`Storyshots Design System/Components/Accordion expanded 1`] = `
   background: #d9d8ff;
 }
 
-.c11 {
+.c13 {
   background: transparent;
   border: none;
   position: relative;
   outline: none;
 }
 
-.c11[aria-disabled='true'] {
+.c13[aria-disabled='true'] {
   pointer-events: none;
 }
 
-.c11[aria-disabled='true'] svg path {
+.c13[aria-disabled='true'] svg path {
   fill: #666687;
 }
 
-.c11 svg {
+.c13 svg {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1836,11 +1943,11 @@ exports[`Storyshots Design System/Components/Accordion expanded 1`] = `
   font-size: 0.625rem;
 }
 
-.c11 svg path {
+.c13 svg path {
   fill: #4945ff;
 }
 
-.c11:after {
+.c13:after {
   -webkit-transition-property: all;
   transition-property: all;
   -webkit-transition-duration: 0.2s;
@@ -1855,11 +1962,11 @@ exports[`Storyshots Design System/Components/Accordion expanded 1`] = `
   border: 2px solid transparent;
 }
 
-.c11:focus-visible {
+.c13:focus-visible {
   outline: none;
 }
 
-.c11:focus-visible:after {
+.c13:focus-visible:after {
   border-radius: 8px;
   content: '';
   position: absolute;
@@ -1870,34 +1977,38 @@ exports[`Storyshots Design System/Components/Accordion expanded 1`] = `
   border: 2px solid #4945ff;
 }
 
-.c16 > * {
+.c11 > * {
   margin-left: 0;
   margin-right: 0;
 }
 
-.c16 > * + * {
+.c11 > * + * {
   margin-left: 12px;
 }
 
-.c20 path {
+.c21 path {
   fill: #4945ff;
 }
 
-.c12 {
+.c14 {
   text-align: left;
 }
 
-.c12 svg {
+.c14 > span {
+  max-width: 100%;
+}
+
+.c14 svg {
   width: 0.875rem;
   height: 0.875rem;
 }
 
-.c12 svg path {
+.c14 svg path {
   fill: #4945ff;
 }
 
 .c8 {
-  height: 5.5rem;
+  min-height: 5.5rem;
   border-radius: 4px 4px 0 0;
 }
 
@@ -1929,61 +2040,66 @@ exports[`Storyshots Design System/Components/Accordion expanded 1`] = `
           class="c5 c6 c7 c8"
           cursor=""
         >
-          <button
-            aria-controls="accordion-content-acc-1"
-            aria-disabled="false"
-            aria-expanded="true"
-            aria-labelledby="accordion-label-acc-1"
-            class="c5 c9 c10 c11 c12"
-            data-strapi-accordion-toggle="true"
-            type="button"
-          >
-            <span
-              class="c13"
-            >
-              <span
-                class="c14"
-                id="accordion-label-acc-1"
-              >
-                User informations
-              </span>
-              <p
-                class="c15"
-                id="accordion-desc-acc-1"
-              >
-                The following contains information about the current user
-              </p>
-            </span>
-          </button>
           <div
-            class="c5 c10 c16"
+            class="c5 c9 c10 c11"
             spacing="3"
           >
-            <span
-              aria-hidden="true"
-              class="c5 c17 c18"
-              cursor="pointer"
-              data-strapi-dropdown="true"
-              height="2rem"
-              transform="rotate(180deg)"
-              width="2rem"
+            <button
+              aria-controls="accordion-content-acc-1"
+              aria-disabled="false"
+              aria-expanded="true"
+              aria-labelledby="accordion-label-acc-1"
+              class="c5 c12 c10 c13 c14"
+              data-strapi-accordion-toggle="true"
+              type="button"
             >
-              <svg
-                class="c19 c20"
-                fill="none"
-                height="1em"
-                viewBox="0 0 14 8"
-                width="0.6875rem"
-                xmlns="http://www.w3.org/2000/svg"
+              <span
+                class="c15"
               >
-                <path
-                  clip-rule="evenodd"
-                  d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
-                  fill="#32324D"
-                  fill-rule="evenodd"
-                />
-              </svg>
-            </span>
+                <span
+                  class="c16"
+                  id="accordion-label-acc-1"
+                >
+                  User informations
+                </span>
+                <p
+                  class="c17"
+                  id="accordion-desc-acc-1"
+                >
+                  The following contains information about the current user
+                </p>
+              </span>
+            </button>
+            <div
+              class="c5 c10 c11"
+              spacing="3"
+            >
+              <span
+                aria-hidden="true"
+                class="c5 c18 c19"
+                cursor="pointer"
+                data-strapi-dropdown="true"
+                height="2rem"
+                transform="rotate(180deg)"
+                width="2rem"
+              >
+                <svg
+                  class="c20 c21"
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 14 8"
+                  width="0.6875rem"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
+                    fill="#32324D"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </span>
+            </div>
           </div>
         </div>
         <div
@@ -1994,10 +2110,10 @@ exports[`Storyshots Design System/Components/Accordion expanded 1`] = `
           role="region"
         >
           <div
-            class="c21"
+            class="c22"
           >
             <span
-              class="c22"
+              class="c23"
             >
               My name is John Duff
             </span>
@@ -2043,49 +2159,66 @@ exports[`Storyshots Design System/Components/Accordion keyboard navigable 1`] = 
 
 .c7 {
   background: #ffffff;
+  padding-top: 24px;
   padding-right: 24px;
+  padding-bottom: 24px;
   padding-left: 24px;
 }
 
 .c10 {
+  max-width: 100%;
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
 }
 
-.c19 {
+.c13 {
+  min-width: 0px;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.c20 {
   background: #dcdce4;
   border-radius: 50%;
   cursor: pointer;
   width: 2rem;
   height: 2rem;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
   cursor: pointer;
 }
 
-.c21 {
+.c22 {
   color: #666687;
   width: 0.6875rem;
 }
 
-.c23 {
+.c24 {
   background: #ffffff;
   padding: 40px;
 }
 
-.c15 {
+.c17 {
   color: #4945ff;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
-.c16 {
+.c18 {
   color: #4a4a6a;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-weight: 500;
   font-size: 1rem;
   line-height: 1.25;
 }
 
-.c17 {
+.c19 {
   color: #666687;
   font-size: 0.875rem;
   line-height: 1.43;
@@ -2123,7 +2256,7 @@ exports[`Storyshots Design System/Components/Accordion keyboard navigable 1`] = 
   flex-direction: row;
 }
 
-.c20 {
+.c21 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -2135,6 +2268,9 @@ exports[`Storyshots Design System/Components/Accordion keyboard navigable 1`] = 
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
@@ -2149,7 +2285,7 @@ exports[`Storyshots Design System/Components/Accordion keyboard navigable 1`] = 
   border: 1px solid #4945ff;
 }
 
-.c5:hover:not([aria-disabled='true']) .c14 {
+.c5:hover:not([aria-disabled='true']) .c16 {
   color: #4945ff;
 }
 
@@ -2161,22 +2297,22 @@ exports[`Storyshots Design System/Components/Accordion keyboard navigable 1`] = 
   background: #d9d8ff;
 }
 
-.c12 {
+.c14 {
   background: transparent;
   border: none;
   position: relative;
   outline: none;
 }
 
-.c12[aria-disabled='true'] {
+.c14[aria-disabled='true'] {
   pointer-events: none;
 }
 
-.c12[aria-disabled='true'] svg path {
+.c14[aria-disabled='true'] svg path {
   fill: #666687;
 }
 
-.c12 svg {
+.c14 svg {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2184,11 +2320,11 @@ exports[`Storyshots Design System/Components/Accordion keyboard navigable 1`] = 
   font-size: 0.625rem;
 }
 
-.c12 svg path {
+.c14 svg path {
   fill: #4945ff;
 }
 
-.c12:after {
+.c14:after {
   -webkit-transition-property: all;
   transition-property: all;
   -webkit-transition-duration: 0.2s;
@@ -2203,11 +2339,11 @@ exports[`Storyshots Design System/Components/Accordion keyboard navigable 1`] = 
   border: 2px solid transparent;
 }
 
-.c12:focus-visible {
+.c14:focus-visible {
   outline: none;
 }
 
-.c12:focus-visible:after {
+.c14:focus-visible:after {
   border-radius: 8px;
   content: '';
   position: absolute;
@@ -2218,34 +2354,38 @@ exports[`Storyshots Design System/Components/Accordion keyboard navigable 1`] = 
   border: 2px solid #4945ff;
 }
 
-.c18 > * {
+.c12 > * {
   margin-left: 0;
   margin-right: 0;
 }
 
-.c18 > * + * {
+.c12 > * + * {
   margin-left: 12px;
 }
 
-.c22 path {
+.c23 path {
   fill: #666687;
 }
 
-.c13 {
+.c15 {
   text-align: left;
 }
 
-.c13 svg {
+.c15 > span {
+  max-width: 100%;
+}
+
+.c15 svg {
   width: 0.875rem;
   height: 0.875rem;
 }
 
-.c13 svg path {
+.c15 svg path {
   fill: #8e8ea9;
 }
 
 .c9 {
-  height: 5.5rem;
+  min-height: 5.5rem;
   border-radius: 4px;
 }
 
@@ -2253,7 +2393,7 @@ exports[`Storyshots Design System/Components/Accordion keyboard navigable 1`] = 
   fill: #4945ff;
 }
 
-.c24 {
+.c25 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2267,21 +2407,21 @@ exports[`Storyshots Design System/Components/Accordion keyboard navigable 1`] = 
   outline: none;
 }
 
-.c24 svg {
+.c25 svg {
   height: 12px;
   width: 12px;
 }
 
-.c24 svg > g,
-.c24 svg path {
+.c25 svg > g,
+.c25 svg path {
   fill: #ffffff;
 }
 
-.c24[aria-disabled='true'] {
+.c25[aria-disabled='true'] {
   pointer-events: none;
 }
 
-.c24:after {
+.c25:after {
   -webkit-transition-property: all;
   transition-property: all;
   -webkit-transition-duration: 0.2s;
@@ -2296,11 +2436,11 @@ exports[`Storyshots Design System/Components/Accordion keyboard navigable 1`] = 
   border: 2px solid transparent;
 }
 
-.c24:focus-visible {
+.c25:focus-visible {
   outline: none;
 }
 
-.c24:focus-visible:after {
+.c25:focus-visible:after {
   border-radius: 8px;
   content: '';
   position: absolute;
@@ -2311,7 +2451,7 @@ exports[`Storyshots Design System/Components/Accordion keyboard navigable 1`] = 
   border: 2px solid #4945ff;
 }
 
-.c25 {
+.c26 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2328,26 +2468,26 @@ exports[`Storyshots Design System/Components/Accordion keyboard navigable 1`] = 
   width: 2rem;
 }
 
-.c25 svg > g,
-.c25 svg path {
+.c26 svg > g,
+.c26 svg path {
   fill: #8e8ea9;
 }
 
-.c25:hover svg > g,
-.c25:hover svg path {
+.c26:hover svg > g,
+.c26:hover svg path {
   fill: #666687;
 }
 
-.c25:active svg > g,
-.c25:active svg path {
+.c26:active svg > g,
+.c26:active svg path {
   fill: #a5a5ba;
 }
 
-.c25[aria-disabled='true'] {
+.c26[aria-disabled='true'] {
   background-color: #eaeaef;
 }
 
-.c25[aria-disabled='true'] svg path {
+.c26[aria-disabled='true'] svg path {
   fill: #666687;
 }
 
@@ -2381,66 +2521,71 @@ exports[`Storyshots Design System/Components/Accordion keyboard navigable 1`] = 
               class="c6 c7 c8 c9"
               cursor=""
             >
-              <button
-                aria-controls="accordion-content-acc-1"
-                aria-disabled="false"
-                aria-expanded="false"
-                aria-labelledby="accordion-label-acc-1"
-                class="c6 c10 c11 c12 c13"
-                data-strapi-accordion-toggle="true"
-                type="button"
-              >
-                <span
-                  class="c14 c15"
-                >
-                  <span
-                    class="c14 c16"
-                    id="accordion-label-acc-1"
-                  >
-                    User informations
-                  </span>
-                  <p
-                    class="c14 c17"
-                    id="accordion-desc-acc-1"
-                  >
-                    The following contains information about the current user
-                  </p>
-                </span>
-              </button>
               <div
-                class="c6 c11 c18"
+                class="c6 c10 c11 c12"
                 spacing="3"
               >
-                <span
-                  aria-hidden="true"
-                  class="c6 c19 c20"
-                  cursor="pointer"
-                  data-strapi-dropdown="true"
-                  height="2rem"
-                  width="2rem"
+                <button
+                  aria-controls="accordion-content-acc-1"
+                  aria-disabled="false"
+                  aria-expanded="false"
+                  aria-labelledby="accordion-label-acc-1"
+                  class="c6 c13 c11 c14 c15"
+                  data-strapi-accordion-toggle="true"
+                  type="button"
                 >
-                  <svg
-                    class="c21 c22"
-                    fill="none"
-                    height="1em"
-                    viewBox="0 0 14 8"
-                    width="0.6875rem"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <span
+                    class="c16 c17"
                   >
-                    <path
-                      clip-rule="evenodd"
-                      d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
-                      fill="#32324D"
-                      fill-rule="evenodd"
-                    />
-                  </svg>
-                </span>
+                    <span
+                      class="c16 c18"
+                      id="accordion-label-acc-1"
+                    >
+                      User informations
+                    </span>
+                    <p
+                      class="c16 c19"
+                      id="accordion-desc-acc-1"
+                    >
+                      The following contains information about the current user
+                    </p>
+                  </span>
+                </button>
+                <div
+                  class="c6 c11 c12"
+                  spacing="3"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="c6 c20 c21"
+                    cursor="pointer"
+                    data-strapi-dropdown="true"
+                    height="2rem"
+                    width="2rem"
+                  >
+                    <svg
+                      class="c22 c23"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 14 8"
+                      width="0.6875rem"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
+                        fill="#32324D"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                </div>
               </div>
             </div>
           </div>
         </div>
         <div
-          class="c23"
+          class="c24"
         >
           <div
             aria-disabled="false"
@@ -2451,60 +2596,65 @@ exports[`Storyshots Design System/Components/Accordion keyboard navigable 1`] = 
               class="c6 c7 c8 c9"
               cursor=""
             >
-              <button
-                aria-controls="accordion-content-acc-2"
-                aria-disabled="false"
-                aria-expanded="false"
-                aria-labelledby="accordion-label-acc-2"
-                class="c6 c10 c11 c12 c13"
-                data-strapi-accordion-toggle="true"
-                type="button"
-              >
-                <span
-                  class="c14 c15"
-                >
-                  <span
-                    class="c14 c16"
-                    id="accordion-label-acc-2"
-                  >
-                    User informations 2
-                  </span>
-                  <p
-                    class="c14 c17"
-                    id="accordion-desc-acc-2"
-                  >
-                    The following contains information about the current user 2
-                  </p>
-                </span>
-              </button>
               <div
-                class="c6 c11 c18"
+                class="c6 c10 c11 c12"
                 spacing="3"
               >
-                <span
-                  aria-hidden="true"
-                  class="c6 c19 c20"
-                  cursor="pointer"
-                  data-strapi-dropdown="true"
-                  height="2rem"
-                  width="2rem"
+                <button
+                  aria-controls="accordion-content-acc-2"
+                  aria-disabled="false"
+                  aria-expanded="false"
+                  aria-labelledby="accordion-label-acc-2"
+                  class="c6 c13 c11 c14 c15"
+                  data-strapi-accordion-toggle="true"
+                  type="button"
                 >
-                  <svg
-                    class="c21 c22"
-                    fill="none"
-                    height="1em"
-                    viewBox="0 0 14 8"
-                    width="0.6875rem"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <span
+                    class="c16 c17"
                   >
-                    <path
-                      clip-rule="evenodd"
-                      d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
-                      fill="#32324D"
-                      fill-rule="evenodd"
-                    />
-                  </svg>
-                </span>
+                    <span
+                      class="c16 c18"
+                      id="accordion-label-acc-2"
+                    >
+                      User informations 2
+                    </span>
+                    <p
+                      class="c16 c19"
+                      id="accordion-desc-acc-2"
+                    >
+                      The following contains information about the current user 2
+                    </p>
+                  </span>
+                </button>
+                <div
+                  class="c6 c11 c12"
+                  spacing="3"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="c6 c20 c21"
+                    cursor="pointer"
+                    data-strapi-dropdown="true"
+                    height="2rem"
+                    width="2rem"
+                  >
+                    <svg
+                      class="c22 c23"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 14 8"
+                      width="0.6875rem"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
+                        fill="#32324D"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -2522,19 +2672,19 @@ exports[`Storyshots Design System/Components/Accordion keyboard navigable 1`] = 
               cursor=""
             >
               <div
-                class="c6 c10 c11 c18"
+                class="c6 c10 c11 c12"
                 spacing="3"
               >
                 <span
                   aria-hidden="true"
-                  class="c6 c19 c20"
+                  class="c6 c20 c21"
                   cursor="pointer"
                   data-strapi-dropdown="true"
                   height="2rem"
                   width="2rem"
                 >
                   <svg
-                    class="c21 c22"
+                    class="c22 c23"
                     fill="none"
                     height="1em"
                     viewBox="0 0 14 8"
@@ -2554,21 +2704,21 @@ exports[`Storyshots Design System/Components/Accordion keyboard navigable 1`] = 
                   aria-disabled="false"
                   aria-expanded="false"
                   aria-labelledby="accordion-label-acc-3"
-                  class="c6 c10 c11 c12 c13"
+                  class="c6 c13 c11 c14 c15"
                   data-strapi-accordion-toggle="true"
                   type="button"
                 >
                   <span
-                    class="c14 c15"
+                    class="c16 c17"
                   >
                     <span
-                      class="c14 c16"
+                      class="c16 c18"
                       id="accordion-label-acc-3"
                     >
                       User informations 3
                     </span>
                     <p
-                      class="c14 c17"
+                      class="c16 c19"
                       id="accordion-desc-acc-3"
                     >
                       The following contains information about the current user 3
@@ -2580,7 +2730,7 @@ exports[`Storyshots Design System/Components/Accordion keyboard navigable 1`] = 
           </div>
         </div>
         <div
-          class="c23"
+          class="c24"
         >
           <div
             aria-disabled="false"
@@ -2592,19 +2742,19 @@ exports[`Storyshots Design System/Components/Accordion keyboard navigable 1`] = 
               cursor=""
             >
               <div
-                class="c6 c10 c11 c18"
+                class="c6 c10 c11 c12"
                 spacing="3"
               >
                 <span
                   aria-hidden="true"
-                  class="c6 c19 c20"
+                  class="c6 c20 c21"
                   cursor="pointer"
                   data-strapi-dropdown="true"
                   height="2rem"
                   width="2rem"
                 >
                   <svg
-                    class="c21 c22"
+                    class="c22 c23"
                     fill="none"
                     height="1em"
                     viewBox="0 0 14 8"
@@ -2624,46 +2774,46 @@ exports[`Storyshots Design System/Components/Accordion keyboard navigable 1`] = 
                   aria-disabled="false"
                   aria-expanded="false"
                   aria-labelledby="accordion-label-acc-4"
-                  class="c6 c10 c11 c12 c13"
+                  class="c6 c13 c11 c14 c15"
                   data-strapi-accordion-toggle="true"
                   type="button"
                 >
                   <span
-                    class="c14 c15"
+                    class="c16 c17"
                   >
                     <span
-                      class="c14 c16"
+                      class="c16 c18"
                       id="accordion-label-acc-4"
                     >
                       User informations 4
                     </span>
                   </span>
                 </button>
-              </div>
-              <span>
-                <button
-                  aria-disabled="false"
-                  aria-labelledby="tooltip-11"
-                  class="c24 c25"
-                  tabindex="0"
-                  type="button"
-                >
-                  <svg
-                    fill="none"
-                    height="1em"
-                    viewBox="0 0 24 24"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
+                <span>
+                  <button
+                    aria-disabled="false"
+                    aria-labelledby="tooltip-11"
+                    class="c25 c26"
+                    tabindex="0"
+                    type="button"
                   >
-                    <path
-                      clip-rule="evenodd"
-                      d="M23.604 3.514c.528.528.528 1.36 0 1.887l-2.622 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.118 3.118zM0 24v-4.99l14.2-14.2 4.99 4.99L4.99 24H0z"
-                      fill="#212134"
-                      fill-rule="evenodd"
-                    />
-                  </svg>
-                </button>
-              </span>
+                    <svg
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M23.604 3.514c.528.528.528 1.36 0 1.887l-2.622 2.607-4.99-4.99L18.6.396a1.322 1.322 0 011.887 0l3.118 3.118zM0 24v-4.99l14.2-14.2 4.99 4.99L4.99 24H0z"
+                        fill="#212134"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </button>
+                </span>
+              </div>
             </div>
           </div>
         </div>
