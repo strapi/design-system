@@ -50,11 +50,7 @@ export const NumberInput = React.forwardRef(
     const [inputValue, setInputValue] = useState(value === undefined || value === null ? INITIAL_VALUE : String(value));
     const generatedId = useId('numberinput', id);
     const numberParserRef = useRef(new NumberParser(getDefaultLocale()));
-    const numberFormaterRef = useRef(new NumberFormatter(getDefaultLocale()));
-
-    if (!label && !props['aria-label']) {
-      throw new Error('The NumberInput component needs a "label" or an "aria-label" props');
-    }
+    const numberFormaterRef = useRef(new NumberFormatter(getDefaultLocale(), { maximumSignificantDigits: 21 }));
 
     const handleChange = (e) => {
       const nextValue = e.target.value;
@@ -62,10 +58,8 @@ export const NumberInput = React.forwardRef(
       if (numberParserRef.current.isValidPartialNumber(nextValue)) {
         const parsedValue = nextValue === '' ? undefined : numberParserRef.current.parse(nextValue);
 
-        if (parsedValue === undefined) {
-          onValueChange(undefined);
-        } else if (isNaN(parsedValue)) {
-          // checking NaN case when only typing a "-" (minus) sign inside the field
+        // checking NaN case when only typing a "-" (minus) sign inside the field
+        if (parsedValue === undefined || isNaN(parsedValue)) {
           onValueChange(undefined);
         } else {
           onValueChange(parsedValue);
@@ -76,7 +70,7 @@ export const NumberInput = React.forwardRef(
     };
 
     const increment = (fromKeyBoard) => {
-      if (inputValue === '') {
+      if (inputValue === undefined) {
         onValueChange(step);
         setInputValue(String(step));
         return;
@@ -102,7 +96,7 @@ export const NumberInput = React.forwardRef(
     };
 
     const decrement = (fromKeyBoard) => {
-      if (inputValue === '') {
+      if (inputValue === undefined) {
         onValueChange(-step);
         setInputValue(String(-step));
         return;
@@ -150,7 +144,7 @@ export const NumberInput = React.forwardRef(
 
     const handleFocus = () => {
       if (value !== undefined) {
-        setInputValue(String(numberParserRef.current.parse(inputValue)));
+        setInputValue(String(numberParserRef.current.parse(inputValue) ?? INITIAL_VALUE));
       }
     };
 
