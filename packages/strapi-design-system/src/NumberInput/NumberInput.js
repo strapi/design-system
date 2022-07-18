@@ -70,7 +70,7 @@ export const NumberInput = React.forwardRef(
     };
 
     const increment = (fromKeyBoard) => {
-      if (inputValue === '') {
+      if (inputValue === undefined) {
         onValueChange(step);
         setInputValue(String(step));
         return;
@@ -96,7 +96,7 @@ export const NumberInput = React.forwardRef(
     };
 
     const decrement = (fromKeyBoard) => {
-      if (inputValue === '') {
+      if (inputValue === undefined) {
         onValueChange(-step);
         setInputValue(String(-step));
         return;

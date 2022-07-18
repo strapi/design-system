@@ -125,6 +125,22 @@ test.describe.parallel('NumberInput', () => {
         expect(value).toBe('-1');
         expect(await page.$('text="The value is -1"')).toBeTruthy();
       });
+
+      test('increments the value eventhough the field is empty', async ({ page }) => {
+        await page.fill('input', '');
+        await page.click('[data-testid="ArrowUp"]');
+
+        const value = await page.$eval('input', (el) => el.value);
+        expect(value).toBe('1');
+      });
+
+      test('decrements the value eventhough the field is empty', async ({ page }) => {
+        await page.fill('input', '');
+        await page.click('[data-testid="ArrowDown"]');
+
+        const value = await page.$eval('input', (el) => el.value);
+        expect(value).toBe('-1');
+      });
     });
 
     test.describe('with initial value', () => {
