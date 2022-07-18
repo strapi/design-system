@@ -4304,16 +4304,15 @@ exports[`Storyshots Design System/Components/Breadcrumbs base 1`] = `
   height: 100%;
 }
 
-.c9 {
+.c10 {
   padding-right: 12px;
   padding-left: 12px;
 }
 
-.c8 {
-  font-weight: 600;
-  color: #32324d;
-  font-size: 0.875rem;
-  line-height: 1.43;
+.c9 {
+  color: #666687;
+  font-size: 0.75rem;
+  line-height: 1.33;
 }
 
 .c4 {
@@ -4354,16 +4353,21 @@ exports[`Storyshots Design System/Components/Breadcrumbs base 1`] = `
 }
 
 .c7 svg {
-  height: 10px;
-  width: 10px;
+  height: 0.625rem;
+  width: 0.625rem;
 }
 
 .c7 svg path {
-  fill: #c0c0cf;
+  fill: #8e8ea9;
 }
 
 .c7:last-of-type .c0 {
   display: none;
+}
+
+.c7:last-of-type .c8 {
+  color: #32324d;
+  font-weight: 600;
 }
 
 <div
@@ -4421,13 +4425,13 @@ exports[`Storyshots Design System/Components/Breadcrumbs base 1`] = `
               class="c0 c6 c7"
             >
               <span
-                class="c8"
-                color="neutral800"
+                class="c8 c9"
               >
                 Category
               </span>
               <div
-                class="c0 c9"
+                aria-hidden="true"
+                class="c0 c10"
               >
                 <svg
                   fill="none"
@@ -4447,13 +4451,13 @@ exports[`Storyshots Design System/Components/Breadcrumbs base 1`] = `
               class="c0 c6 c7"
             >
               <span
-                class="c8"
-                color="neutral800"
+                class="c8 c9"
               >
                 Name
               </span>
               <div
-                class="c0 c9"
+                aria-hidden="true"
+                class="c0 c10"
               >
                 <svg
                   fill="none"
@@ -17452,6 +17456,230 @@ exports[`Storyshots Design System/Components/HeaderLayout base 1`] = `
           >
             36 entries found
           </p>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+`;
+
+exports[`Storyshots Design System/Components/HeaderLayout base with custom subtitle 1`] = `
+.c2 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.c1 {
+  background: #ffffff;
+  padding: 8px;
+}
+
+.c3 {
+  padding: 8px;
+  height: 100%;
+}
+
+.c4 {
+  background: #f6f6f9;
+}
+
+.c5 {
+  background: #f6f6f9;
+  padding-top: 40px;
+  padding-right: 56px;
+  padding-bottom: 40px;
+  padding-left: 56px;
+}
+
+.c13 {
+  padding-right: 12px;
+  padding-left: 12px;
+}
+
+.c9 {
+  color: #32324d;
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 1.25;
+}
+
+.c12 {
+  color: #666687;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c6 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c7 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.c10 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.c11 svg {
+  height: 0.625rem;
+  width: 0.625rem;
+}
+
+.c11 svg path {
+  fill: #8e8ea9;
+}
+
+.c11:last-of-type .c0 {
+  display: none;
+}
+
+.c11:last-of-type .c8 {
+  color: #32324d;
+  font-weight: 600;
+}
+
+<div
+  class="c0 c1"
+>
+  <main>
+    <div
+      class="c2"
+    >
+      <h1>
+        Storybook story
+      </h1>
+    </div>
+    <div
+      class="c0 c3"
+      height="100%"
+    >
+      <div
+        class="c0 c4"
+      >
+        <div
+          class="c0 c5"
+          data-strapi-header="true"
+        >
+          <div
+            class="c0 c6"
+          >
+            <div
+              class="c0 c7"
+            >
+              <h2
+                class="c8 c9"
+              >
+                Media Library
+              </h2>
+            </div>
+          </div>
+          <div
+            class="c0 c7"
+          >
+            <div
+              class="c2"
+            >
+              folders
+            </div>
+            <ol
+              aria-hidden="true"
+            >
+              <li
+                class="c0 c10 c11"
+              >
+                <span
+                  class="c8 c12"
+                >
+                  Animals
+                </span>
+                <div
+                  aria-hidden="true"
+                  class="c0 c13"
+                >
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 10 16"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0 1.88L6.107 8 0 14.12 1.88 16l8-8-8-8L0 1.88z"
+                      fill="#32324D"
+                    />
+                  </svg>
+                </div>
+              </li>
+              <li
+                class="c0 c10 c11"
+              >
+                <span
+                  class="c8 c12"
+                >
+                  Cats
+                </span>
+                <div
+                  aria-hidden="true"
+                  class="c0 c13"
+                >
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 10 16"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0 1.88L6.107 8 0 14.12 1.88 16l8-8-8-8L0 1.88z"
+                      fill="#32324D"
+                    />
+                  </svg>
+                </div>
+              </li>
+            </ol>
+          </div>
         </div>
       </div>
     </div>
@@ -50574,6 +50802,740 @@ exports[`Storyshots Design System/Components/TwoColsLayout base 1`] = `
 </div>
 `;
 
+exports[`Storyshots Design System/Components/v2/Breadcrumbs base 1`] = `
+.c1 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.c0 {
+  background: #ffffff;
+  padding: 8px;
+}
+
+.c2 {
+  padding: 8px;
+  height: 100%;
+}
+
+.c9 {
+  padding-right: 4px;
+  padding-left: 4px;
+}
+
+.c10 {
+  color: #8e8ea9;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c11 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c3 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.c6 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.c4 > * {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.c4 > * + * {
+  margin-left: 12px;
+}
+
+.c7 {
+  cursor: pointer;
+}
+
+.c8 {
+  border-radius: 4px;
+  color: #666687;
+  font-size: 0.75rem;
+  line-height: 1.43;
+  padding: 4px 8px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c8:hover,
+.c8:focus {
+  background-color: #f6f6f9;
+  color: #4a4a6a;
+}
+
+.c5:first-child {
+  margin-left: calc(-1*8px);
+}
+
+<div
+  class="c0"
+>
+  <main>
+    <div
+      class="c1"
+    >
+      <h1>
+        Storybook story
+      </h1>
+    </div>
+    <div
+      class="c2"
+      height="100%"
+    >
+      <div
+        class="c3 c4"
+        spacing="3"
+      >
+        <nav
+          aria-label="Folder navigatation"
+          class=""
+        >
+          <ol
+            class="c3 c5"
+          >
+            <li
+              class="c6"
+            >
+              <a
+                class="c7 c8"
+                href="/"
+                target="_self"
+              >
+                Media Library
+              </a>
+              <div
+                aria-hidden="true"
+                class="c9"
+              >
+                <span
+                  class="c10"
+                >
+                  /
+                </span>
+              </div>
+            </li>
+            <li
+              class="c6"
+            >
+              <div
+                class="c9"
+              >
+                <span
+                  aria-current="true"
+                  class="c11"
+                >
+                  Cats
+                </span>
+              </div>
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </main>
+</div>
+`;
+
+exports[`Storyshots Design System/Components/v2/Breadcrumbs with-menu 1`] = `
+.c2 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.c1 {
+  background: #ffffff;
+  padding: 8px;
+}
+
+.c3 {
+  padding: 8px;
+  height: 100%;
+}
+
+.c10 {
+  padding-right: 4px;
+  padding-left: 4px;
+}
+
+.c17 {
+  padding-left: 8px;
+}
+
+.c12 {
+  color: #8e8ea9;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c16 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c4 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.c7 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.c5 > * {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.c5 > * + * {
+  margin-left: 12px;
+}
+
+.c13 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  background: #ffffff;
+  border: 1px solid #dcdce4;
+  position: relative;
+  outline: none;
+}
+
+.c13 svg {
+  height: 12px;
+  width: 12px;
+}
+
+.c13 svg > g,
+.c13 svg path {
+  fill: #ffffff;
+}
+
+.c13[aria-disabled='true'] {
+  pointer-events: none;
+}
+
+.c13:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
+}
+
+.c13:focus-visible {
+  outline: none;
+}
+
+.c13:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
+}
+
+.c8 {
+  cursor: pointer;
+}
+
+.c14 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 8px 16px;
+  background: #4945ff;
+  border: 1px solid #4945ff;
+  border: 1px solid transparent;
+  background: transparent;
+}
+
+.c14 .c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c14 .c11 {
+  color: #ffffff;
+}
+
+.c14[aria-disabled='true'] {
+  border: 1px solid #dcdce4;
+  background: #eaeaef;
+}
+
+.c14[aria-disabled='true'] .c11 {
+  color: #666687;
+}
+
+.c14[aria-disabled='true'] svg > g,
+.c14[aria-disabled='true'] svg path {
+  fill: #666687;
+}
+
+.c14[aria-disabled='true']:active {
+  border: 1px solid #dcdce4;
+  background: #eaeaef;
+}
+
+.c14[aria-disabled='true']:active .c11 {
+  color: #666687;
+}
+
+.c14[aria-disabled='true']:active svg > g,
+.c14[aria-disabled='true']:active svg path {
+  fill: #666687;
+}
+
+.c14:hover {
+  background-color: #f6f6f9;
+}
+
+.c14:active {
+  border: 1px solid undefined;
+  background: undefined;
+}
+
+.c14 .c11 {
+  color: #32324d;
+}
+
+.c14 svg > g,
+.c14 svg path {
+  fill: #8e8ea9;
+}
+
+.c9 {
+  border-radius: 4px;
+  color: #666687;
+  font-size: 0.75rem;
+  line-height: 1.43;
+  padding: 4px 8px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c9:hover,
+.c9:focus {
+  background-color: #f6f6f9;
+  color: #4a4a6a;
+}
+
+.c18 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c18 svg {
+  height: 4px;
+  width: 6px;
+}
+
+.c15 {
+  padding: 4px 12px;
+}
+
+.c6:first-child {
+  margin-left: calc(-1*8px);
+}
+
+<div
+  class="c0 c1"
+>
+  <main>
+    <div
+      class="c2"
+    >
+      <h1>
+        Storybook story
+      </h1>
+    </div>
+    <div
+      class="c0 c3"
+      height="100%"
+    >
+      <div
+        class="c0 c4 c5"
+        spacing="3"
+      >
+        <nav
+          aria-label="Folder navigatation"
+          class="c0 "
+        >
+          <ol
+            class="c0 c4 c6"
+          >
+            <li
+              class="c0 c7"
+            >
+              <a
+                class="c8 c9"
+                href="/"
+                target="_self"
+              >
+                Media Library
+              </a>
+              <div
+                aria-hidden="true"
+                class="c0 c10"
+              >
+                <span
+                  class="c11 c12"
+                >
+                  /
+                </span>
+              </div>
+            </li>
+            <li
+              class="c0 c7"
+            >
+              <div>
+                <button
+                  aria-controls="simplemenu-255"
+                  aria-disabled="false"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  aria-label="Some items are not displayed"
+                  class="c13 c14 c15"
+                  label="..."
+                  type="button"
+                >
+                  <span
+                    class="c11 c16"
+                  >
+                    ...
+                  </span>
+                  <div
+                    aria-hidden="true"
+                    class="c0 c17"
+                  >
+                    <span
+                      class="c18"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="none"
+                        height="1em"
+                        viewBox="0 0 14 8"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
+                          fill="#32324D"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </button>
+              </div>
+              <div
+                aria-hidden="true"
+                class="c0 c10"
+              >
+                <span
+                  class="c11 c12"
+                >
+                  /
+                </span>
+              </div>
+            </li>
+            <li
+              class="c0 c7"
+            >
+              <div
+                class="c0 c10"
+              >
+                <span
+                  aria-current="true"
+                  class="c11 c16"
+                >
+                  Cats
+                </span>
+              </div>
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </main>
+</div>
+`;
+
+exports[`Storyshots Design System/Components/v2/Breadcrumbs without-nagivation 1`] = `
+.c1 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.c0 {
+  background: #ffffff;
+  padding: 8px;
+}
+
+.c2 {
+  padding: 8px;
+  height: 100%;
+}
+
+.c7 {
+  padding-right: 4px;
+  padding-left: 4px;
+}
+
+.c8 {
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c9 {
+  color: #8e8ea9;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c10 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c3 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.c6 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.c4 > * {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.c4 > * + * {
+  margin-left: 12px;
+}
+
+.c5:first-child {
+  margin-left: calc(-1*8px);
+}
+
+<div
+  class="c0"
+>
+  <main>
+    <div
+      class="c1"
+    >
+      <h1>
+        Storybook story
+      </h1>
+    </div>
+    <div
+      class="c2"
+      height="100%"
+    >
+      <div
+        class="c3 c4"
+        spacing="3"
+      >
+        <svg
+          fill="none"
+          height="1em"
+          viewBox="0 0 32 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            fill="#4945FF"
+            height="23"
+            rx="2.5"
+            stroke="#4945FF"
+            width="31"
+            x="0.5"
+            y="0.5"
+          />
+          <path
+            d="M15.328 10.54h1.723c.012-.089.012-.165.012-.253 0-1.676-1.471-2.959-3.41-2.959-2.696 0-4.647 2.22-4.647 5.344 0 2.15 1.383 3.545 3.504 3.545 2.045 0 3.597-1.154 3.967-2.936h-1.752c-.276.826-1.102 1.371-2.063 1.371-1.137 0-1.846-.802-1.846-2.103 0-2.08 1.19-3.65 2.725-3.65 1.037 0 1.746.62 1.787 1.558v.082zM21.053 16l1.488-6.943h2.531l.31-1.512H18.54l-.31 1.512h2.53L19.272 16h1.782z"
+            fill="#fff"
+          />
+        </svg>
+        <div
+          aria-label="Category model, name field"
+          class=""
+        >
+          <ol
+            class="c3 c5"
+          >
+            <li
+              class="c6"
+            >
+              <div
+                class="c7"
+              >
+                <span
+                  aria-current="false"
+                  class="c8"
+                >
+                  Category
+                </span>
+              </div>
+              <div
+                aria-hidden="true"
+                class="c7"
+              >
+                <span
+                  class="c9"
+                >
+                  /
+                </span>
+              </div>
+            </li>
+            <li
+              class="c6"
+            >
+              <div
+                class="c7"
+              >
+                <span
+                  aria-current="true"
+                  class="c10"
+                >
+                  Name
+                </span>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+`;
+
 exports[`Storyshots Design System/Components/v2/Link base 1`] = `
 .c1 {
   border: 0;
@@ -55558,7 +56520,7 @@ exports[`Storyshots Design System/Components/v2/SimpleMenu sizes 1`] = `
       >
         <div>
           <button
-            aria-controls="simplemenu-253"
+            aria-controls="simplemenu-256"
             aria-disabled="false"
             aria-expanded="false"
             aria-haspopup="true"
@@ -55599,7 +56561,7 @@ exports[`Storyshots Design System/Components/v2/SimpleMenu sizes 1`] = `
         </div>
         <div>
           <button
-            aria-controls="simplemenu-254"
+            aria-controls="simplemenu-257"
             aria-disabled="false"
             aria-expanded="false"
             aria-haspopup="true"
@@ -55842,7 +56804,7 @@ exports[`Storyshots Design System/Components/v2/SimpleMenu with-custom-label 1`]
     >
       <div>
         <button
-          aria-controls="simplemenu-255"
+          aria-controls="simplemenu-258"
           aria-disabled="false"
           aria-expanded="false"
           aria-haspopup="true"
@@ -56027,11 +56989,11 @@ exports[`Storyshots Design System/Components/v2/SimpleMenu with-iconbutton 1`] =
       <div>
         <span>
           <button
-            aria-controls="simplemenu-256"
+            aria-controls="simplemenu-259"
             aria-disabled="false"
             aria-expanded="false"
             aria-haspopup="true"
-            aria-labelledby="tooltip-257"
+            aria-labelledby="tooltip-260"
             class="c3 c4"
             tabindex="0"
             type="button"
@@ -56256,7 +57218,7 @@ exports[`Storyshots Design System/Components/v2/SimpleMenu with-links 1`] = `
     >
       <div>
         <button
-          aria-controls="simplemenu-259"
+          aria-controls="simplemenu-262"
           aria-disabled="false"
           aria-expanded="false"
           aria-haspopup="true"
@@ -56890,7 +57852,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                 <span>
                   <button
                     aria-disabled="false"
-                    aria-labelledby="tooltip-261"
+                    aria-labelledby="tooltip-264"
                     class="c10 c11"
                     tabindex="0"
                     type="button"
@@ -56938,7 +57900,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                         class="c21"
                       >
                         <button
-                          aria-controls="subnav-list-263"
+                          aria-controls="subnav-list-266"
                           aria-expanded="true"
                           class="c3 c22"
                         >
@@ -56983,7 +57945,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                       </div>
                     </div>
                     <ul
-                      id="subnav-list-263"
+                      id="subnav-list-266"
                     >
                       <li>
                         <a
@@ -57177,7 +58139,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                         class="c21"
                       >
                         <button
-                          aria-controls="subnav-list-264"
+                          aria-controls="subnav-list-267"
                           aria-expanded="true"
                           class="c3 c22"
                         >
@@ -57222,7 +58184,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                       </div>
                     </div>
                     <ul
-                      id="subnav-list-264"
+                      id="subnav-list-267"
                     >
                       <li>
                         <div
@@ -57235,7 +58197,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                               class="c21"
                             >
                               <button
-                                aria-controls="subnav-list-265"
+                                aria-controls="subnav-list-268"
                                 aria-expanded="true"
                                 class="c41"
                               >
@@ -57271,7 +58233,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                             </div>
                           </div>
                           <ul
-                            id="subnav-list-265"
+                            id="subnav-list-268"
                           >
                             <li>
                               <a
@@ -57578,7 +58540,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                       </div>
                     </div>
                     <ul
-                      id="subnav-list-267"
+                      id="subnav-list-270"
                     >
                       <li>
                         <a
@@ -57685,7 +58647,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                       </div>
                     </div>
                     <ul
-                      id="subnav-list-268"
+                      id="subnav-list-271"
                     >
                       <li>
                         <a
@@ -57887,7 +58849,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                       </div>
                     </div>
                     <ul
-                      id="subnav-list-270"
+                      id="subnav-list-273"
                     >
                       <li>
                         <div
@@ -57900,7 +58862,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                               class="c21"
                             >
                               <button
-                                aria-controls="subnav-list-271"
+                                aria-controls="subnav-list-274"
                                 aria-expanded="true"
                                 class="c41"
                               >
@@ -57936,7 +58898,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                             </div>
                           </div>
                           <ul
-                            id="subnav-list-271"
+                            id="subnav-list-274"
                           >
                             <li>
                               <a
@@ -58116,7 +59078,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                       </div>
                     </div>
                     <ul
-                      id="subnav-list-272"
+                      id="subnav-list-275"
                     >
                       <li>
                         <a
