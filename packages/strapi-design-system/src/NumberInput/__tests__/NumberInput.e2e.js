@@ -63,6 +63,16 @@ test.describe.parallel('NumberInput', () => {
         expect(await page.$('text="The value is 2"')).toBeTruthy();
       });
 
+      test('keeps zero/ a falsy value on blur/ focus', async ({ page }) => {
+        await page.focus('input');
+        await page.fill('input', '0,');
+        await page.keyboard.press('Tab');
+        await page.focus('input');
+
+        const value = await page.$eval('input', (el) => el.value);
+        expect(value).toBe('0');
+      });
+
       test('puts the step value in the input when pressing ArrowDown and that the input contains only the minus sign', async ({
         page,
       }) => {
