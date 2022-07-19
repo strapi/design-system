@@ -68,8 +68,6 @@ export const ToggleCheckbox = React.forwardRef(
     const handleChange = (e) => {
       if (disabled) return;
 
-      console.log(e.target.checked);
-
       onChange(e);
     };
 
