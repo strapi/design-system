@@ -50152,7 +50152,7 @@ exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
 }
 
 .c17 {
-  color: #d02b20;
+  color: #666687;
   font-size: 0.75rem;
   line-height: 1.33;
 }
@@ -50332,10 +50332,9 @@ exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
           </label>
           <p
             class="c17"
-            data-strapi-field-error="true"
-            id="toggleinput-238-error"
+            id="toggleinput-238-hint"
           >
-            this field is required
+            Enable provider
           </p>
         </div>
       </div>
