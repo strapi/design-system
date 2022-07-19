@@ -14,7 +14,7 @@ const StyledLink = styled(BaseLink)`
 
   :hover,
   :focus {
-    background-color: ${({ theme }) => theme.colors.neutral100};
+    background-color: ${({ theme }) => theme.colors.neutral200};
     color: ${({ theme }) => theme.colors.neutral700};
   }
 `;
