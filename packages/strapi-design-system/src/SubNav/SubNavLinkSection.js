@@ -8,7 +8,6 @@ import { Typography } from '../Typography';
 import { useId } from '../helpers/useId';
 
 const SubNavLinkSectionWrapper = styled(Box)`
-  max-height: ${32 / 16}rem;
   svg {
     height: ${4 / 16}rem;
     path {
