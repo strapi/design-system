@@ -119,6 +119,29 @@ import { ToggleInput } from '@strapi/design-system/ToggleInput';
   </Story>
 </Canvas>
 
+### Clear value
+
+<Canvas>
+  <Story name="clear-value">
+    {() => {
+      const [checked, setChecked] = useState(true);
+      return (
+        <ToggleInput
+          hint="Enable provider"
+          label="Label"
+          name="enable-provider"
+          onLabel="True"
+          offLabel="False"
+          checked={checked}
+          onChange={(e) => setChecked(e.target.checked)}
+          clearLabel="clear"
+          onClear={() => setChecked(null)}
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
 ## Props
 
 <ArgsTable of={ToggleInput} />
