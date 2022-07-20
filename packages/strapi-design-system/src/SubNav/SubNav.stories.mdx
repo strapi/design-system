@@ -106,13 +106,13 @@ import {
                     </SubNavLink>
                   ))}
                 </SubNavSection>
-                <Box paddingLeft={7}>
+                <Box paddingLeft={7} paddingBottom={3}>
                   <TextButton startIcon={<Plus />}>Click on me</TextButton>
                 </Box>
                 <SubNavSection label="Single Type" collapsable badgeLabel={links.length.toString()}>
                   <SubNavLinkSection label="Default">
                     {links.map((link) => (
-                      <SubNavLink to={link.to} key={link.id}>
+                      <SubNavLink to={link.to} isSubSectionChild key={link.id}>
                         {link.label}
                       </SubNavLink>
                     ))}
@@ -164,7 +164,13 @@ import {
                 <SubNavSection label="Global Settings">
                   <SubNavLinkSection label="Sub section">
                     {links.map((link) => (
-                      <SubNavLink to={link.to} active={link.active} icon={link.icon} key={link.id}>
+                      <SubNavLink
+                        to={link.to}
+                        active={link.active}
+                        icon={link.icon}
+                        isSubSectionChild
+                        key={link.id}
+                      >
                         {link.label}
                       </SubNavLink>
                     ))}
