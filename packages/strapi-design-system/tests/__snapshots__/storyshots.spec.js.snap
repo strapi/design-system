@@ -50935,7 +50935,7 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs base 1`] = `
 
 .c8:hover,
 .c8:focus {
-  background-color: #f6f6f9;
+  background-color: #dcdce4;
   color: #4a4a6a;
 }
 
@@ -51241,7 +51241,7 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs with-menu 1`] = `
 
 .c9:hover,
 .c9:focus {
-  background-color: #f6f6f9;
+  background-color: #dcdce4;
   color: #4a4a6a;
 }
 
@@ -51263,6 +51263,11 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs with-menu 1`] = `
 
 .c15 {
   padding: 4px 12px;
+}
+
+.c15:hover,
+.c15:focus {
+  background-color: #dcdce4;
 }
 
 .c6:first-child {
