@@ -126,7 +126,7 @@ export const ToggleCheckbox = React.forwardRef(
             onChange={(e) => handleChange(e)}
             ref={ref}
             {...props}
-            checked={checked}
+            checked={checked === null || !checked ? false : true}
           />
         </ToggleCheckboxWrapper>
       </Label>

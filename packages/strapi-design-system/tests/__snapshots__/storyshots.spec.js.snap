@@ -49629,6 +49629,345 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
 </div>
 `;
 
+exports[`Storyshots Design System/Components/ToggleInput clear-value 1`] = `
+.c1 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.c0 {
+  background: #ffffff;
+  padding: 8px;
+}
+
+.c2 {
+  padding: 8px;
+  height: 100%;
+}
+
+.c12 {
+  background: #f6f6f9;
+  padding: 4px;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #dcdce4;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.c14 {
+  padding-right: 32px;
+  padding-left: 32px;
+  border-radius: 4px;
+}
+
+.c7 {
+  font-weight: 600;
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c10 {
+  color: #4945ff;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c16 {
+  font-weight: 600;
+  color: #666687;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c18 {
+  font-weight: 600;
+  color: #4945ff;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c20 {
+  color: #666687;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c4 {
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c6 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.c8 {
+  background: transparent;
+  border: none;
+  position: relative;
+  outline: none;
+}
+
+.c8[aria-disabled='true'] {
+  pointer-events: none;
+}
+
+.c8[aria-disabled='true'] svg path {
+  fill: #666687;
+}
+
+.c8 svg {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.625rem;
+}
+
+.c8 svg path {
+  fill: #4945ff;
+}
+
+.c8:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
+}
+
+.c8:focus-visible {
+  outline: none;
+}
+
+.c8:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
+}
+
+.c5 > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.c5 > * + * {
+  margin-top: 4px;
+}
+
+.c11 {
+  position: relative;
+  display: inline-block;
+}
+
+.c13 {
+  height: 2.5rem;
+  overflow: hidden;
+  outline: none;
+  box-shadow: 0;
+  -webkit-transition-property: border-color,box-shadow,fill;
+  transition-property: border-color,box-shadow,fill;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+}
+
+.c13:focus-within {
+  border: 1px solid #4945ff;
+  box-shadow: #4945ff 0px 0px 0px 2px;
+}
+
+.c15 {
+  background-color: transparent;
+  border: 1px solid #f6f6f9;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  z-index: 2;
+}
+
+.c17 {
+  background-color: #ffffff;
+  border: 1px solid #dcdce4;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  z-index: 2;
+}
+
+.c19 {
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+}
+
+.c3 {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.c9 {
+  -webkit-align-self: flex-end;
+  -ms-flex-item-align: end;
+  align-self: flex-end;
+  margin-left: auto;
+}
+
+<div
+  class="c0"
+>
+  <main>
+    <div
+      class="c1"
+    >
+      <h1>
+        Storybook story
+      </h1>
+    </div>
+    <div
+      class="c2"
+      height="100%"
+    >
+      <div
+        class="c3"
+      >
+        <div
+          class="c4 c5"
+          spacing="1"
+        >
+          <div
+            class="c6"
+          >
+            <label
+              class="c7"
+              for="toggleinput-236"
+            >
+              <div
+                class="c6"
+              >
+                Label
+              </div>
+            </label>
+            <button
+              aria-disabled="false"
+              class="c6 c8 c9"
+              type="button"
+            >
+              <span
+                class="c10"
+              >
+                clear
+              </span>
+            </button>
+          </div>
+          <label
+            class="c11"
+          >
+            <div
+              class="c1"
+            >
+              Label
+            </div>
+            <div
+              class="c12 c13"
+              display="inline-flex"
+            >
+              <div
+                aria-hidden="true"
+                class="c14 c6 c15"
+              >
+                <span
+                  class="c16"
+                >
+                  False
+                </span>
+              </div>
+              <div
+                aria-hidden="true"
+                class="c14 c6 c17"
+              >
+                <span
+                  class="c18"
+                >
+                  True
+                </span>
+              </div>
+              <input
+                aria-disabled="false"
+                checked=""
+                class="c19"
+                id="toggleinput-236"
+                name="enable-provider"
+                type="checkbox"
+              />
+            </div>
+          </label>
+          <p
+            class="c20"
+            id="toggleinput-236-hint"
+          >
+            Enable provider
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+`;
+
 exports[`Storyshots Design System/Components/ToggleInput error 1`] = `
 .c1 {
   border: 0;
@@ -49823,7 +50162,7 @@ exports[`Storyshots Design System/Components/ToggleInput error 1`] = `
           >
             <label
               class="c7"
-              for="toggleinput-236"
+              for="toggleinput-237"
             >
               <div
                 class="c6"
@@ -49867,7 +50206,7 @@ exports[`Storyshots Design System/Components/ToggleInput error 1`] = `
               <input
                 aria-disabled="false"
                 class="c16"
-                id="toggleinput-236"
+                id="toggleinput-237"
                 name="enable-provider"
                 type="checkbox"
               />
@@ -49876,7 +50215,7 @@ exports[`Storyshots Design System/Components/ToggleInput error 1`] = `
           <p
             class="c17"
             data-strapi-field-error="true"
-            id="toggleinput-236-error"
+            id="toggleinput-237-error"
           >
             this field is required
           </p>
@@ -50062,7 +50401,7 @@ exports[`Storyshots Design System/Components/ToggleInput null-value 1`] = `
           >
             <label
               class="c7"
-              for="toggleinput-237"
+              for="toggleinput-238"
             >
               <div
                 class="c6"
@@ -50106,7 +50445,7 @@ exports[`Storyshots Design System/Components/ToggleInput null-value 1`] = `
               <input
                 aria-disabled="false"
                 class="c14"
-                id="toggleinput-237"
+                id="toggleinput-238"
                 name="enable-provider"
                 type="checkbox"
               />
@@ -50114,7 +50453,7 @@ exports[`Storyshots Design System/Components/ToggleInput null-value 1`] = `
           </label>
           <p
             class="c15"
-            id="toggleinput-237-hint"
+            id="toggleinput-238-hint"
           >
             Enable provider
           </p>
@@ -50191,7 +50530,7 @@ exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
 }
 
 .c17 {
-  color: #d02b20;
+  color: #666687;
   font-size: 0.75rem;
   line-height: 1.33;
 }
@@ -50319,7 +50658,7 @@ exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
           >
             <label
               class="c7"
-              for="toggleinput-238"
+              for="toggleinput-239"
             >
               <div
                 class="c6"
@@ -50363,7 +50702,7 @@ exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
               <input
                 aria-disabled="false"
                 class="c16"
-                id="toggleinput-238"
+                id="toggleinput-239"
                 name="enable-provider"
                 type="checkbox"
               />
@@ -50371,10 +50710,9 @@ exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
           </label>
           <p
             class="c17"
-            data-strapi-field-error="true"
-            id="toggleinput-238-error"
+            id="toggleinput-239-hint"
           >
-            this field is required
+            Enable provider
           </p>
         </div>
       </div>
@@ -50435,7 +50773,7 @@ exports[`Storyshots Design System/Components/Tooltip base 1`] = `
         </span>
         <span>
           <span
-            aria-describedby="tooltip-239"
+            aria-describedby="tooltip-240"
             class="c3"
             tabindex="0"
           >
@@ -50535,7 +50873,7 @@ exports[`Storyshots Design System/Components/Tooltip grid 1`] = `
           >
             <span>
               <button
-                aria-describedby="tooltip-241"
+                aria-describedby="tooltip-242"
                 tabindex="0"
               >
                 <span
@@ -50555,7 +50893,7 @@ exports[`Storyshots Design System/Components/Tooltip grid 1`] = `
           >
             <span>
               <button
-                aria-describedby="tooltip-243"
+                aria-describedby="tooltip-244"
                 tabindex="0"
               >
                 <span
@@ -50575,7 +50913,7 @@ exports[`Storyshots Design System/Components/Tooltip grid 1`] = `
           >
             <span>
               <button
-                aria-describedby="tooltip-245"
+                aria-describedby="tooltip-246"
                 tabindex="0"
               >
                 <span
@@ -50595,7 +50933,7 @@ exports[`Storyshots Design System/Components/Tooltip grid 1`] = `
           >
             <span>
               <button
-                aria-describedby="tooltip-247"
+                aria-describedby="tooltip-248"
                 tabindex="0"
               >
                 <span
@@ -50660,7 +50998,7 @@ exports[`Storyshots Design System/Components/Tooltip with text inside 1`] = `
       <div>
         <span>
           <span
-            aria-describedby="tooltip-249"
+            aria-describedby="tooltip-250"
             class="c3"
             tabindex="0"
           >
@@ -50671,7 +51009,7 @@ exports[`Storyshots Design System/Components/Tooltip with text inside 1`] = `
       <div>
         <span>
           <button
-            aria-describedby="tooltip-251"
+            aria-describedby="tooltip-252"
             tabindex="0"
           >
             <span
@@ -51326,7 +51664,7 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs with-menu 1`] = `
             >
               <div>
                 <button
-                  aria-controls="simplemenu-255"
+                  aria-controls="simplemenu-256"
                   aria-disabled="false"
                   aria-expanded="false"
                   aria-haspopup="true"
@@ -56564,7 +56902,7 @@ exports[`Storyshots Design System/Components/v2/SimpleMenu sizes 1`] = `
       >
         <div>
           <button
-            aria-controls="simplemenu-256"
+            aria-controls="simplemenu-257"
             aria-disabled="false"
             aria-expanded="false"
             aria-haspopup="true"
@@ -56605,7 +56943,7 @@ exports[`Storyshots Design System/Components/v2/SimpleMenu sizes 1`] = `
         </div>
         <div>
           <button
-            aria-controls="simplemenu-257"
+            aria-controls="simplemenu-258"
             aria-disabled="false"
             aria-expanded="false"
             aria-haspopup="true"
@@ -56848,7 +57186,7 @@ exports[`Storyshots Design System/Components/v2/SimpleMenu with-custom-label 1`]
     >
       <div>
         <button
-          aria-controls="simplemenu-258"
+          aria-controls="simplemenu-259"
           aria-disabled="false"
           aria-expanded="false"
           aria-haspopup="true"
@@ -57033,11 +57371,11 @@ exports[`Storyshots Design System/Components/v2/SimpleMenu with-iconbutton 1`] =
       <div>
         <span>
           <button
-            aria-controls="simplemenu-259"
+            aria-controls="simplemenu-260"
             aria-disabled="false"
             aria-expanded="false"
             aria-haspopup="true"
-            aria-labelledby="tooltip-260"
+            aria-labelledby="tooltip-261"
             class="c3 c4"
             tabindex="0"
             type="button"
@@ -57262,7 +57600,7 @@ exports[`Storyshots Design System/Components/v2/SimpleMenu with-links 1`] = `
     >
       <div>
         <button
-          aria-controls="simplemenu-262"
+          aria-controls="simplemenu-263"
           aria-disabled="false"
           aria-expanded="false"
           aria-haspopup="true"
@@ -57896,7 +58234,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                 <span>
                   <button
                     aria-disabled="false"
-                    aria-labelledby="tooltip-264"
+                    aria-labelledby="tooltip-265"
                     class="c10 c11"
                     tabindex="0"
                     type="button"
@@ -57944,7 +58282,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                         class="c21"
                       >
                         <button
-                          aria-controls="subnav-list-266"
+                          aria-controls="subnav-list-267"
                           aria-expanded="true"
                           class="c3 c22"
                         >
@@ -57989,7 +58327,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                       </div>
                     </div>
                     <ul
-                      id="subnav-list-266"
+                      id="subnav-list-267"
                     >
                       <li>
                         <a
@@ -58183,7 +58521,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                         class="c21"
                       >
                         <button
-                          aria-controls="subnav-list-267"
+                          aria-controls="subnav-list-268"
                           aria-expanded="true"
                           class="c3 c22"
                         >
@@ -58228,7 +58566,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                       </div>
                     </div>
                     <ul
-                      id="subnav-list-267"
+                      id="subnav-list-268"
                     >
                       <li>
                         <div
@@ -58241,7 +58579,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                               class="c21"
                             >
                               <button
-                                aria-controls="subnav-list-268"
+                                aria-controls="subnav-list-269"
                                 aria-expanded="true"
                                 class="c41"
                               >
@@ -58277,7 +58615,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                             </div>
                           </div>
                           <ul
-                            id="subnav-list-268"
+                            id="subnav-list-269"
                           >
                             <li>
                               <a
@@ -58584,7 +58922,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                       </div>
                     </div>
                     <ul
-                      id="subnav-list-270"
+                      id="subnav-list-271"
                     >
                       <li>
                         <a
@@ -58691,7 +59029,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                       </div>
                     </div>
                     <ul
-                      id="subnav-list-271"
+                      id="subnav-list-272"
                     >
                       <li>
                         <a
@@ -58893,7 +59231,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                       </div>
                     </div>
                     <ul
-                      id="subnav-list-273"
+                      id="subnav-list-274"
                     >
                       <li>
                         <div
@@ -58906,7 +59244,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                               class="c21"
                             >
                               <button
-                                aria-controls="subnav-list-274"
+                                aria-controls="subnav-list-275"
                                 aria-expanded="true"
                                 class="c41"
                               >
@@ -58942,7 +59280,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                             </div>
                           </div>
                           <ul
-                            id="subnav-list-274"
+                            id="subnav-list-275"
                           >
                             <li>
                               <a
@@ -59122,7 +59460,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                       </div>
                     </div>
                     <ul
-                      id="subnav-list-275"
+                      id="subnav-list-276"
                     >
                       <li>
                         <a
