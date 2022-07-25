@@ -51202,18 +51202,25 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs base 1`] = `
   height: 100%;
 }
 
-.c9 {
+.c10 {
   padding-right: 4px;
   padding-left: 4px;
 }
 
-.c10 {
+.c12 {
+  padding-top: 4px;
+  padding-right: 8px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+}
+
+.c11 {
   color: #8e8ea9;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
-.c11 {
+.c13 {
   font-weight: 600;
   color: #32324d;
   font-size: 0.75rem;
@@ -51221,6 +51228,20 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs base 1`] = `
 }
 
 .c3 {
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c5 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -51234,7 +51255,7 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs base 1`] = `
   flex-direction: row;
 }
 
-.c6 {
+.c7 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -51249,19 +51270,23 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs base 1`] = `
 }
 
 .c4 > * {
-  margin-left: 0;
-  margin-right: 0;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .c4 > * + * {
-  margin-left: 12px;
-}
-
-.c7 {
-  cursor: pointer;
+  margin-top: 12px;
 }
 
 .c8 {
+  cursor: pointer;
+}
+
+.c6:first-child {
+  margin-left: calc(-1*8px);
+}
+
+.c9 {
   border-radius: 4px;
   color: #666687;
   font-size: 0.75rem;
@@ -51271,14 +51296,10 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs base 1`] = `
   text-decoration: none;
 }
 
-.c8:hover,
-.c8:focus {
+.c9:hover,
+.c9:focus {
   background-color: #dcdce4;
   color: #4a4a6a;
-}
-
-.c5:first-child {
-  margin-left: calc(-1*8px);
 }
 
 <div
@@ -51305,13 +51326,13 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs base 1`] = `
           class=""
         >
           <ol
-            class="c3 c5"
+            class="c5 c6"
           >
             <li
-              class="c6"
+              class="c7"
             >
               <a
-                class="c7 c8"
+                class="c8 c9"
                 href="/"
                 target="_self"
               >
@@ -51319,24 +51340,24 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs base 1`] = `
               </a>
               <div
                 aria-hidden="true"
-                class="c9"
+                class="c10"
               >
                 <span
-                  class="c10"
+                  class="c11"
                 >
                   /
                 </span>
               </div>
             </li>
             <li
-              class="c6"
+              class="c7"
             >
               <div
-                class="c9"
+                class="c12"
               >
                 <span
                   aria-current="true"
-                  class="c11"
+                  class="c13"
                 >
                   Cats
                 </span>
@@ -51379,6 +51400,13 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs with-menu 1`] = `
 }
 
 .c17 {
+  padding-left: 8px;
+}
+
+.c19 {
+  padding-top: 4px;
+  padding-right: 8px;
+  padding-bottom: 4px;
   padding-left: 8px;
 }
 
@@ -51567,6 +51595,10 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs with-menu 1`] = `
   fill: #8e8ea9;
 }
 
+.c6:first-child {
+  margin-left: calc(-1*8px);
+}
+
 .c9 {
   border-radius: 4px;
   color: #666687;
@@ -51606,10 +51638,6 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs with-menu 1`] = `
 .c15:hover,
 .c15:focus {
   background-color: #dcdce4;
-}
-
-.c6:first-child {
-  margin-left: calc(-1*8px);
 }
 
 <div
@@ -51664,11 +51692,11 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs with-menu 1`] = `
             >
               <div>
                 <button
-                  aria-controls="simplemenu-256"
+                  aria-controls="simplemenu-254"
                   aria-disabled="false"
                   aria-expanded="false"
                   aria-haspopup="true"
-                  aria-label="Some items are not displayed"
+                  aria-label="See more ascendants folders"
                   class="c13 c14 c15"
                   label="..."
                   type="button"
@@ -51719,7 +51747,7 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs with-menu 1`] = `
               class="c0 c7"
             >
               <div
-                class="c0 c10"
+                class="c0 c19"
               >
                 <span
                   aria-current="true"
@@ -51761,6 +51789,13 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs without-nagivation 1
 }
 
 .c7 {
+  padding-top: 4px;
+  padding-right: 8px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+}
+
+.c9 {
   padding-right: 4px;
   padding-left: 4px;
 }
@@ -51771,13 +51806,13 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs without-nagivation 1
   line-height: 1.33;
 }
 
-.c9 {
+.c10 {
   color: #8e8ea9;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
-.c10 {
+.c11 {
   font-weight: 600;
   color: #32324d;
   font-size: 0.75rem;
@@ -51887,10 +51922,10 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs without-nagivation 1
               </div>
               <div
                 aria-hidden="true"
-                class="c7"
+                class="c9"
               >
                 <span
-                  class="c9"
+                  class="c10"
                 >
                   /
                 </span>
@@ -51904,7 +51939,7 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs without-nagivation 1
               >
                 <span
                   aria-current="true"
-                  class="c10"
+                  class="c11"
                 >
                   Name
                 </span>
@@ -56902,7 +56937,7 @@ exports[`Storyshots Design System/Components/v2/SimpleMenu sizes 1`] = `
       >
         <div>
           <button
-            aria-controls="simplemenu-257"
+            aria-controls="simplemenu-255"
             aria-disabled="false"
             aria-expanded="false"
             aria-haspopup="true"
@@ -56943,7 +56978,7 @@ exports[`Storyshots Design System/Components/v2/SimpleMenu sizes 1`] = `
         </div>
         <div>
           <button
-            aria-controls="simplemenu-258"
+            aria-controls="simplemenu-256"
             aria-disabled="false"
             aria-expanded="false"
             aria-haspopup="true"
@@ -57186,7 +57221,7 @@ exports[`Storyshots Design System/Components/v2/SimpleMenu with-custom-label 1`]
     >
       <div>
         <button
-          aria-controls="simplemenu-259"
+          aria-controls="simplemenu-257"
           aria-disabled="false"
           aria-expanded="false"
           aria-haspopup="true"
@@ -57371,11 +57406,11 @@ exports[`Storyshots Design System/Components/v2/SimpleMenu with-iconbutton 1`] =
       <div>
         <span>
           <button
-            aria-controls="simplemenu-260"
+            aria-controls="simplemenu-258"
             aria-disabled="false"
             aria-expanded="false"
             aria-haspopup="true"
-            aria-labelledby="tooltip-261"
+            aria-labelledby="tooltip-259"
             class="c3 c4"
             tabindex="0"
             type="button"
@@ -57600,7 +57635,7 @@ exports[`Storyshots Design System/Components/v2/SimpleMenu with-links 1`] = `
     >
       <div>
         <button
-          aria-controls="simplemenu-263"
+          aria-controls="simplemenu-261"
           aria-disabled="false"
           aria-expanded="false"
           aria-haspopup="true"
@@ -58234,7 +58269,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                 <span>
                   <button
                     aria-disabled="false"
-                    aria-labelledby="tooltip-265"
+                    aria-labelledby="tooltip-263"
                     class="c10 c11"
                     tabindex="0"
                     type="button"
@@ -58282,7 +58317,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                         class="c21"
                       >
                         <button
-                          aria-controls="subnav-list-267"
+                          aria-controls="subnav-list-265"
                           aria-expanded="true"
                           class="c3 c22"
                         >
@@ -58327,7 +58362,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                       </div>
                     </div>
                     <ul
-                      id="subnav-list-267"
+                      id="subnav-list-265"
                     >
                       <li>
                         <a
@@ -58521,7 +58556,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                         class="c21"
                       >
                         <button
-                          aria-controls="subnav-list-268"
+                          aria-controls="subnav-list-266"
                           aria-expanded="true"
                           class="c3 c22"
                         >
@@ -58566,7 +58601,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                       </div>
                     </div>
                     <ul
-                      id="subnav-list-268"
+                      id="subnav-list-266"
                     >
                       <li>
                         <div
@@ -58579,7 +58614,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                               class="c21"
                             >
                               <button
-                                aria-controls="subnav-list-269"
+                                aria-controls="subnav-list-267"
                                 aria-expanded="true"
                                 class="c41"
                               >
@@ -58615,7 +58650,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                             </div>
                           </div>
                           <ul
-                            id="subnav-list-269"
+                            id="subnav-list-267"
                           >
                             <li>
                               <a
@@ -58922,7 +58957,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                       </div>
                     </div>
                     <ul
-                      id="subnav-list-271"
+                      id="subnav-list-269"
                     >
                       <li>
                         <a
@@ -59029,7 +59064,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                       </div>
                     </div>
                     <ul
-                      id="subnav-list-272"
+                      id="subnav-list-270"
                     >
                       <li>
                         <a
@@ -59231,7 +59266,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                       </div>
                     </div>
                     <ul
-                      id="subnav-list-274"
+                      id="subnav-list-272"
                     >
                       <li>
                         <div
@@ -59244,7 +59279,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                               class="c21"
                             >
                               <button
-                                aria-controls="subnav-list-275"
+                                aria-controls="subnav-list-273"
                                 aria-expanded="true"
                                 class="c41"
                               >
@@ -59280,7 +59315,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                             </div>
                           </div>
                           <ul
-                            id="subnav-list-275"
+                            id="subnav-list-273"
                           >
                             <li>
                               <a
@@ -59460,7 +59495,7 @@ exports[`Storyshots Design System/Components/v2/SubNav base 1`] = `
                       </div>
                     </div>
                     <ul
-                      id="subnav-list-276"
+                      id="subnav-list-274"
                     >
                       <li>
                         <a

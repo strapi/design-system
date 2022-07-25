@@ -23,7 +23,14 @@ export const CrumbLink = ({ children, ...props }) => <StyledLink {...props}>{chi
 
 CrumbLink.displayName = 'CrumbLink';
 
+const requiredPropsCheck = (props, propName, componentName) => {
+  if (!props.href && !props.to && !props.onClick) {
+    return new Error(`One of 'href', 'to' or 'onClick' is required by '${componentName}' component.`);
+  }
+};
+
 CrumbLink.propTypes = {
   children: PropTypes.string.isRequired,
-  href: PropTypes.string.isRequired,
+  href: requiredPropsCheck,
+  to: requiredPropsCheck,
 };

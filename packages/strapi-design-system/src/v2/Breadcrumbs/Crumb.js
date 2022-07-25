@@ -5,7 +5,7 @@ import { Box } from '../../Box';
 import { Typography } from '../../Typography';
 
 export const Crumb = ({ children, isCurrent, ...props }) => (
-  <Box paddingLeft={1} paddingRight={1}>
+  <Box paddingLeft={2} paddingRight={2} paddingTop={1} paddingBottom={1}>
     <Typography
       variant="pi"
       textColor="neutral800"

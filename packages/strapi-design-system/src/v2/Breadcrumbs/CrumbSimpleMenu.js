@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Button } from '../../Button';
-import { SimpleMenu } from '../SimpleMenu';
+import { SimpleMenu, MenuItem } from '../SimpleMenu';
 
 import CarretDown from '@strapi/icons/CarretDown';
 
@@ -22,9 +22,11 @@ export const CrumbSimpleMenu = ({ children, ...props }) => (
   </SimpleMenu>
 );
 
+const menuItemType = PropTypes.shape({ type: PropTypes.oneOf([MenuItem]) });
+
 CrumbSimpleMenu.displayName = 'CrumbSimpleMenu';
 
 CrumbSimpleMenu.propTypes = {
   'aria-label': PropTypes.string.isRequired,
-  children: PropTypes.arrayOf(SimpleMenu),
+  children: PropTypes.oneOfType([PropTypes.arrayOf(menuItemType), menuItemType]).isRequired,
 };
