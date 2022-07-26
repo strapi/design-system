@@ -13,16 +13,12 @@ export const DatePicker = ({
   ariaLabel,
   initialDate,
   selectedDate,
-  size,
   onChange,
   label,
   selectedDateLabel,
   onClear,
   clearLabel,
   disabled,
-  minDate,
-  maxDate,
-  placeholder,
   id,
   ...props
 }) => {
@@ -61,8 +57,6 @@ export const DatePicker = ({
         // Prevent input from changing for now
         onChange={() => {}}
         value={formattedDate}
-        placeholder={placeholder || formatDate(new Date(1970, 0, 1))}
-        size={size}
         startAction={
           <DatePickerButton
             ref={datePickerButtonRef}
@@ -97,8 +91,6 @@ export const DatePicker = ({
           onEscape={handleEscape}
           popoverSource={inputRef.current.inputWrapperRef}
           label={label || ariaLabel}
-          minDate={minDate}
-          maxDate={maxDate}
         />
       )}
     </DatePickerWrapper>
