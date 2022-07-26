@@ -32,5 +32,6 @@ const requiredPropsCheck = (props, propName, componentName) => {
 CrumbLink.propTypes = {
   children: PropTypes.string.isRequired,
   href: requiredPropsCheck,
+  onClick: requiredPropsCheck,
   to: requiredPropsCheck,
 };
