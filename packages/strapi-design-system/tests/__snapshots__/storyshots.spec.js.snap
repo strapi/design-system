@@ -3836,6 +3836,7 @@ exports[`Storyshots Design System/Components/Avatar base 1`] = `
 
 .c5 {
   border-radius: 50%;
+  object-fit: cover;
   display: block;
   position: relative;
 }
@@ -3926,6 +3927,7 @@ exports[`Storyshots Design System/Components/Avatar group 1`] = `
 
 .c7 {
   border-radius: 50%;
+  object-fit: cover;
   display: block;
   position: relative;
 }
@@ -20577,6 +20579,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
 
 .c80 {
   border-radius: 50%;
+  object-fit: cover;
   display: block;
   position: relative;
 }
@@ -26639,6 +26642,7 @@ exports[`Storyshots Design System/Components/MainNav base 1`] = `
 
 .c30 {
   border-radius: 50%;
+  object-fit: cover;
   display: block;
   position: relative;
 }
@@ -38395,6 +38399,7 @@ exports[`Storyshots Design System/Components/Table base 1`] = `
 
 .c20 {
   border-radius: 50%;
+  object-fit: cover;
   display: block;
   position: relative;
 }
@@ -39677,6 +39682,7 @@ exports[`Storyshots Design System/Components/Table base without footer 1`] = `
 
 .c20 {
   border-radius: 50%;
+  object-fit: cover;
   display: block;
   position: relative;
 }
@@ -40904,6 +40910,7 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
 
 .c22 {
   border-radius: 50%;
+  object-fit: cover;
   display: block;
   position: relative;
 }
@@ -54588,6 +54595,7 @@ exports[`Storyshots Design System/Components/v2/MainNav base 1`] = `
 
 .c31 {
   border-radius: 50%;
+  object-fit: cover;
   display: block;
   position: relative;
 }
