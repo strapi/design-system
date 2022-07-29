@@ -227,15 +227,13 @@ SimpleMenu.defaultProps = {
 
 SimpleMenu.displayName = 'SimpleMenu';
 
-const menuItemType = PropTypes.shape({ type: PropTypes.oneOf([MenuItem]) });
-
 SimpleMenu.defaultProps = {
   size: 'M',
 };
 
 SimpleMenu.propTypes = {
   as: PropTypes.any,
-  children: PropTypes.oneOfType([PropTypes.arrayOf(menuItemType), menuItemType]).isRequired,
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
   id: PropTypes.string,
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.element]).isRequired,
   onClose: PropTypes.func,
