@@ -23,7 +23,11 @@ export const CrumbLink = ({ children, ...props }) => <StyledLink {...props}>{chi
 
 CrumbLink.displayName = 'CrumbLink';
 
+CrumbLink.defaultProps = {
+  to: undefined,
+};
+
 CrumbLink.propTypes = {
   children: PropTypes.string.isRequired,
-  href: PropTypes.string.isRequired,
+  to: PropTypes.string,
 };

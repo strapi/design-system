@@ -3,9 +3,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { Box } from '../../Box';
-import { Crumb } from './Crumb';
-import { CrumbLink } from './CrumbLink';
-import { CrumbSimpleMenu } from './CrumbSimpleMenu';
 import { Divider } from './Divider';
 import { Flex } from '../../Flex';
 
@@ -38,11 +35,9 @@ export const Breadcrumbs = ({ label, children, ...props }) => {
   );
 };
 
-const crumbType = PropTypes.shape({ type: PropTypes.oneOf([Crumb, CrumbLink, CrumbSimpleMenu]) });
-
 Breadcrumbs.displayName = 'Breadcrumbs';
 
 Breadcrumbs.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.arrayOf(crumbType), crumbType]).isRequired,
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
   label: PropTypes.string.isRequired,
 };

@@ -27,7 +27,8 @@ Breadcrumbs are a list of hierarchical links that inform users about their possi
 ## Imports
 
 ```js
-import { Breadcrumbs } from '@strapi/design-system/Breadcrumbs';
+import { Breadcrumbs, Crumb, CrumbLink, CrumbSimpleMenu } from '@strapi/design-system/v2/Breadcrumbs';
+import { MenuItem } from '@strapi/design-system/v2/SimpleMenu';
 ```
 
 ## Usage
@@ -36,12 +37,10 @@ Breadcrumbs with CrumbLink are a list of link to help navigation.
 
 <Canvas>
   <Story name="base">
-    <Stack horizontal spacing={3}>
+    <Stack spacing={3}>
       <Breadcrumbs label="Folder navigatation" as="nav">
         <CrumbLink href="/">Media Library</CrumbLink>
-        <Crumb isCurrent>
-          Cats
-        </Crumb>
+        <Crumb isCurrent>Cats</Crumb>
       </Breadcrumbs>
     </Stack>
   </Story>
@@ -56,13 +55,11 @@ Breadcrumbs with CrumbSimpleMenu displays a list of potential options or actions
     <Stack horizontal spacing={3}>
       <Breadcrumbs label="Folder navigatation" as="nav">
         <CrumbLink href="/">Media Library</CrumbLink>
-        <CrumbSimpleMenu label="..." aria-label="Some items are not displayed">
+        <CrumbSimpleMenu onOpen={() => {}} aria-label="See more ascendants folders" label="...">
           <MenuItem to="/">Home</MenuItem>
           <MenuItem to="/somewhere">Somewhere internal</MenuItem>
         </CrumbSimpleMenu>
-        <Crumb isCurrent>
-          Cats
-        </Crumb>
+        <Crumb isCurrent>Cats</Crumb>
       </Breadcrumbs>
     </Stack>
   </Story>

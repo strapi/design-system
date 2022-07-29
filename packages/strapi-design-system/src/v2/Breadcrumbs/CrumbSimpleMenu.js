@@ -26,5 +26,5 @@ CrumbSimpleMenu.displayName = 'CrumbSimpleMenu';
 
 CrumbSimpleMenu.propTypes = {
   'aria-label': PropTypes.string.isRequired,
-  children: PropTypes.arrayOf(SimpleMenu),
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
 };
