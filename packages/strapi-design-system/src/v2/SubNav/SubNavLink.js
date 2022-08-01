@@ -51,13 +51,13 @@ const IconWrapper = styled.div`
   }
 `;
 
-export const SubNavLink = React.forwardRef(({ children, icon, withBullet, as, ...props }, ref) => {
+export const SubNavLink = React.forwardRef(({ children, icon, withBullet, as, isSubSectionChild, ...props }, ref) => {
   return (
     <SubNavLinkWrapper
       as={as}
       icon={icon}
       background="neutral100"
-      paddingLeft={7}
+      paddingLeft={isSubSectionChild ? 9 : 7}
       paddingBottom={2}
       paddingTop={2}
       ref={ref}
@@ -82,12 +82,14 @@ SubNavLink.displayName = 'SubNavLink';
 SubNavLink.defaultProps = {
   as: BaseLink,
   icon: null,
+  isSubSectionChild: false,
   withBullet: false,
 };
 SubNavLink.propTypes = {
   as: PropTypes.elementType,
   children: PropTypes.node,
   icon: PropTypes.element,
+  isSubSectionChild: PropTypes.bool,
   link: PropTypes.element,
   withBullet: PropTypes.bool,
 };
