@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import CarretDown from '@strapi/icons/CarretDown';
+import { NumberFormatter, NumberParser } from '@internationalized/number';
 import styled from 'styled-components';
 import { sizes } from '../themes/sizes';
 import { Field, FieldLabel, FieldHint, FieldError, FieldInput } from '../Field';
 import { Stack } from '../Stack';
 import { Icon } from '../Icon';
 import { useId } from '../helpers/useId';
-import { useNumberValue } from './hooks/useNumberValue';
+import { KeyboardKeys } from '../helpers/keyboardKeys';
+import { getDefaultLocale } from '../helpers/getDefaultLocale';
 
 const ArrowButton = styled.button`
   display: flex;
@@ -21,6 +23,8 @@ const ArrowButton = styled.button`
     transform: ${({ reverse }) => (reverse ? 'rotateX(180deg)' : undefined)};
   }
 `;
+
+const INITIAL_VALUE = '';
 
 export const NumberInput = React.forwardRef(
   (
@@ -42,8 +46,92 @@ export const NumberInput = React.forwardRef(
     },
     ref,
   ) => {
-    const { inputValue, increment, decrement, handlers } = useNumberValue({ value, step, disabled, onValueChange });
+    const [inputValue, setInputValue] = useState();
+    const numberParserRef = useRef(new NumberParser(getDefaultLocale()));
+    const numberFormaterRef = useRef(new NumberFormatter(getDefaultLocale(), { maximumSignificantDigits: 21 }));
     const generatedId = useId('numberinput', id);
+
+    const getValueWithDefaults = (originalValue) =>
+      originalValue === undefined || !numberParserRef.current.isValidPartialNumber(String(originalValue))
+        ? INITIAL_VALUE
+        : String(originalValue);
+
+    useEffect(() => {
+      setInputValue(getValueWithDefaults(value));
+    }, [value]);
+
+    const handleChange = (e) => {
+      const nextValue = e.target.value;
+
+      if (numberParserRef.current.isValidPartialNumber(nextValue)) {
+        const parsedValue = nextValue === '' ? undefined : numberParserRef.current.parse(nextValue);
+
+        // checking NaN case when only typing a "-" (minus) sign inside the field
+        if (parsedValue === undefined || isNaN(parsedValue)) {
+          onValueChange(undefined);
+        } else {
+          onValueChange(parsedValue);
+        }
+
+        setInputValue(e.target.value);
+      }
+    };
+
+    const changeValue = (fromKeyBoard, currentStep) => {
+      if (inputValue === INITIAL_VALUE) {
+        onValueChange(currentStep);
+        setInputValue(String(currentStep));
+        return;
+      }
+
+      if (isNaN(inputValue)) {
+        const parsedValue = numberParserRef.current.parse(inputValue);
+
+        // Probably in the minus case
+        const safeValue = isNaN(parsedValue) ? 0 : parsedValue;
+
+        const nextValue = safeValue + currentStep;
+        const formattedValue = numberFormaterRef.current.format(nextValue);
+
+        onValueChange(nextValue);
+        setInputValue(fromKeyBoard ? String(nextValue) : formattedValue);
+
+        return;
+      }
+
+      onValueChange(value + currentStep);
+      setInputValue(String(value + currentStep));
+    };
+
+    const increment = (fromKeyBoard) => changeValue(fromKeyBoard, step);
+    const decrement = (fromKeyBoard) => changeValue(fromKeyBoard, -step);
+
+    const handleKeyDown = (e) => {
+      if (disabled) return;
+
+      switch (e.key) {
+        case KeyboardKeys.DOWN: {
+          e.preventDefault();
+          decrement(true);
+          break;
+        }
+
+        case KeyboardKeys.UP: {
+          e.preventDefault();
+          increment(true);
+          break;
+        }
+
+        default:
+          break;
+      }
+    };
+
+    const handleBlur = () => {
+      if (value !== undefined) {
+        setInputValue(numberFormaterRef.current.format(value));
+      }
+    };
 
     return (
       <Field name={name} hint={hint} error={error} id={generatedId}>
@@ -59,10 +147,9 @@ export const NumberInput = React.forwardRef(
             disabled={disabled}
             type="text"
             inputmode="decimal"
-            onChange={handlers.handleChange}
-            onKeyDown={handlers.handleKeyDown}
-            onBlur={handlers.handleBlur}
-            onFocus={handlers.handleFocus}
+            onChange={handleChange}
+            onKeyDown={handleKeyDown}
+            onBlur={handleBlur}
             value={inputValue ?? ''}
             size={size}
             endAction={

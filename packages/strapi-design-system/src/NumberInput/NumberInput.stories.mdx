@@ -8,6 +8,7 @@ import { NumberInput } from './NumberInput';
 import { Box } from '../Box';
 import { Tooltip } from '../Tooltip';
 import { Typography } from '../Typography';
+import { Button } from '../Button';
 
 <Meta title="Design System/Components/NumberInput" component={NumberInput} />
 
@@ -40,7 +41,7 @@ NumberInputs are always found in forms. They give users the possibility to add o
 <Canvas>
   <Story name="base">
     {() => {
-      const [content, setContent] = useState();
+      const [content, setContent] = useState(3.14159265359);
       return (
         <Box padding={10}>
           <NumberInput
@@ -90,7 +91,7 @@ NumberInputs can be used without a label.
             name="content"
             hint="Description line"
             error={undefined}
-            onValueChange={(value) => setContent(value)}
+            onValueChange={(value) => { console.log('trigger'); setContent(value); }}
             value={content}
             labelAction={
               <Tooltip description="Content of the tooltip">
@@ -244,6 +245,168 @@ NumberInputs are always found in forms. They give users the possibility to add o
           <button>
             <Typography>Escape</Typography>
           </button>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## With initial empty value
+
+<Canvas>
+  <Story name="with initial empty">
+    {() => {
+      const [content, setContent] = useState('');
+      return (
+        <Box padding={10}>
+          <NumberInput
+            placeholder="This is a content placeholder"
+            label="Content"
+            name="content"
+            hint="Description line"
+            error={undefined}
+            onValueChange={(value) => setContent(value)}
+            value={content}
+            labelAction={
+              <Tooltip description="Content of the tooltip">
+                <button
+                  aria-label="Information about the email"
+                  style={{ border: 'none', padding: 0, background: 'transparent' }}
+                >
+                  <Information aria-hidden={true} />
+                </button>
+              </Tooltip>
+            }
+          />
+          <Box as="p" padding={4} background="neutral100">
+            <Typography>{`The value is ${content}`}</Typography>
+          </Box>
+          <button>
+            <Typography>Escape</Typography>
+          </button>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## With initial undefined value
+
+<Canvas>
+  <Story name="with initial undefined">
+    {() => {
+      const [content, setContent] = useState();
+      return (
+        <Box padding={10}>
+          <NumberInput
+            placeholder="This is a content placeholder"
+            label="Content"
+            name="content"
+            hint="Description line"
+            error={undefined}
+            onValueChange={(value) => setContent(value)}
+            value={content}
+            labelAction={
+              <Tooltip description="Content of the tooltip">
+                <button
+                  aria-label="Information about the email"
+                  style={{ border: 'none', padding: 0, background: 'transparent' }}
+                >
+                  <Information aria-hidden={true} />
+                </button>
+              </Tooltip>
+            }
+          />
+          <Box as="p" padding={4} background="neutral100">
+            <Typography>{`The value is ${content}`}</Typography>
+          </Box>
+          <button>
+            <Typography>Escape</Typography>
+          </button>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## With outside props change (to correct value)
+
+<Canvas>
+  <Story name="with outside props change correct">
+    {() => {
+      const [content, setContent] = useState(1);
+      return (
+        <Box padding={10}>
+          <NumberInput
+            placeholder="This is a content placeholder"
+            label="Content"
+            name="content"
+            hint="Description line"
+            error={undefined}
+            onValueChange={(value) => setContent(value)}
+            value={content}
+            labelAction={
+              <Tooltip description="Content of the tooltip">
+                <button
+                  aria-label="Information about the email"
+                  style={{ border: 'none', padding: 0, background: 'transparent' }}
+                >
+                  <Information aria-hidden={true} />
+                </button>
+              </Tooltip>
+            }
+          />
+          <Box as="p" padding={4} background="neutral100">
+            <Typography>{`The value is ${content}`}</Typography>
+          </Box>
+          <button>
+            <Typography>Escape</Typography>
+          </button>
+          <Button onClick={() => setContent(2)}>
+            Change value to 2
+          </Button>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## With outside props change (to incorrect value)
+
+<Canvas>
+  <Story name="with outside props change incorrect">
+    {() => {
+      const [content, setContent] = useState(1);
+      return (
+        <Box padding={10}>
+          <NumberInput
+            placeholder="This is a content placeholder"
+            label="Content"
+            name="content"
+            hint="Description line"
+            error={undefined}
+            onValueChange={(value) => setContent(value)}
+            value={content}
+            labelAction={
+              <Tooltip description="Content of the tooltip">
+                <button
+                  aria-label="Information about the email"
+                  style={{ border: 'none', padding: 0, background: 'transparent' }}
+                >
+                  <Information aria-hidden={true} />
+                </button>
+              </Tooltip>
+            }
+          />
+          <Box as="p" padding={4} background="neutral100">
+            <Typography>{`The value is ${content}`}</Typography>
+          </Box>
+          <button>
+            <Typography>Escape</Typography>
+          </button>
+          <Button onClick={() => setContent('Not valid value')}>
+            Change value to incorrect
+          </Button>
         </Box>
       );
     }}
