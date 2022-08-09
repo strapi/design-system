@@ -17,6 +17,7 @@ describe('Avatar', () => {
     expect(container.firstChild).toMatchInlineSnapshot(`
       .c3 {
         border-radius: 50%;
+        object-fit: cover;
         display: block;
         position: relative;
       }
@@ -30,6 +31,7 @@ describe('Avatar', () => {
 
       .c0 {
         border-radius: 50%;
+        object-fit: cover;
         position: absolute;
         -webkit-transform: translate(-19px,-100%);
         -ms-transform: translate(-19px,-100%);
@@ -90,6 +92,7 @@ describe('Avatar', () => {
     expect(container.firstChild).toMatchInlineSnapshot(`
       .c3 {
         border-radius: 50%;
+        object-fit: cover;
         display: block;
         position: relative;
       }
@@ -103,6 +106,7 @@ describe('Avatar', () => {
 
       .c0 {
         border-radius: 50%;
+        object-fit: cover;
         position: absolute;
         -webkit-transform: translate(-19px,-100%);
         -ms-transform: translate(-19px,-100%);

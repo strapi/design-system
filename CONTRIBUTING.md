@@ -31,10 +31,16 @@ The core team will review your pull request and will either merge it, request ch
 - Fork the repository and create your branch from `main`.
 - Run `yarn setup` in the repository root.
 - If you’ve fixed a bug or added code that should be tested, add the tests and then link the corresponding issue in either your commit or your PR.
-- Ensure the test suites are passing:
+- Ensure all test suites are passing:
   - `yarn test`
-  - `yarn test:e2e` (The storybook app must be running for the e2e tests `yarn storybook`, you may need to install playwright browsers before `npx playwright install`)
+  - `yarn test:e2e`
 - Make sure your code lints (`yarn lint`).
+
+### Setup end-to-end (e2e) tests
+
+1. Install Playwright `npx playwright@1.20.0 install --with-deps`
+2. Install and link any cross-dependencies: `yarn bootstrap`
+3. Run storybook `yarn storybook` and the e2e tests in parallel `yarn test:e2e` 
 
 ## Development Workflow
 

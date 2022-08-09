@@ -1,0 +1,117 @@
+<!--- Breadcrumbs.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { ArgsTable } from '@storybook/addon-docs';
+import { Breadcrumbs } from './Breadcrumbs';
+import { Crumb } from './Crumb';
+import { CrumbLink } from './CrumbLink';
+import { CrumbSimpleMenu } from './CrumbSimpleMenu';
+import { MenuItem } from '../SimpleMenu';
+import { Stack } from '../../Stack';
+import CollectionType from '@strapi/icons/CollectionType';
+
+<Meta title="Design System/Components/v2/Breadcrumbs" component={Breadcrumbs} />
+
+# Breadcrumbs
+
+Breadcrumbs are a list of hierarchical links that inform users about their possible navigation path upwards.
+
+**Best practices**
+
+- Use breadcrumbs whenever a long path to achieve an action is required.
+- Use breadcrumbs in modal's headers.
+- Using breadcrumbs in a page or a form is _not_ a consistent experience.
+
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Breadcrumbs)
+
+## Imports
+
+```js
+import { Breadcrumbs, Crumb, CrumbLink, CrumbSimpleMenu } from '@strapi/design-system/v2/Breadcrumbs';
+import { MenuItem } from '@strapi/design-system/v2/SimpleMenu';
+```
+
+## Usage
+
+Breadcrumbs with CrumbLink are a list of link to help navigation.
+
+<Canvas>
+  <Story name="base">
+    <Stack spacing={3}>
+      <Breadcrumbs label="Folder navigatation" as="nav">
+        <CrumbLink href="/">Media Library</CrumbLink>
+        <Crumb isCurrent>Cats</Crumb>
+      </Breadcrumbs>
+    </Stack>
+  </Story>
+</Canvas>
+
+## Usage
+
+Breadcrumbs with CrumbSimpleMenu displays a list of potential options or actions via a Popover component.
+
+<Canvas>
+  <Story name="with-menu">
+    <Stack horizontal spacing={3}>
+      <Breadcrumbs label="Folder navigatation" as="nav">
+        <CrumbLink href="/">Media Library</CrumbLink>
+        <CrumbSimpleMenu onOpen={() => {}} aria-label="See more ascendants folders" label="...">
+          <MenuItem to="/">Home</MenuItem>
+          <MenuItem to="/somewhere">Somewhere internal</MenuItem>
+        </CrumbSimpleMenu>
+        <Crumb isCurrent>Cats</Crumb>
+      </Breadcrumbs>
+    </Stack>
+  </Story>
+</Canvas>
+
+## Without navigation
+
+Breadcrumbs with Crumb are visual information only and cannot be navigated. They are mostly part of modals' headers.
+
+<Canvas>
+  <Story name="without-nagivation">
+    <Stack horizontal spacing={3}>
+      <CollectionType />
+      <Breadcrumbs label="Category model, name field">
+        <Crumb>Category</Crumb>
+        <Crumb isCurrent>Name</Crumb>
+      </Breadcrumbs>
+    </Stack>
+  </Story>
+</Canvas>
+
+### Usage with other routing libraries
+
+To use the Link component with a routing library (e.g. react-router-dom), you'll need to pass the `NavLink` component to the `as` prop in order to replace the default HTML anchor `<a />`.
+You'll now be able to pass all `NavLink` props.
+
+```jsx
+import { Breadcrumbs, CrumbLink } from '@strapi/design-system/Breadcrumbs';
+import { NavLink } from 'react-router-dom';
+
+<Breadcrumbs label="Folder navigatation" as="nav">
+  <CrumbLink as={NavLink} to="/">
+    Media Library
+  </CrumbLink>
+</Breadcrumbs>;
+```
+
+#### NextJS usage
+
+For NextJS, you'll need to wrap the `CrumbLink` with the `NextLink` component
+
+```jsx
+import { Breadcrumbs, CrumbLink } from '@strapi/design-system/Breadcrumbs';
+import NextLink from 'next/link';
+
+<Breadcrumbs label="Folder navigatation" as="nav">
+  <NextLink href="/home" passHref>
+    <CrumbLink>Media Library</CrumbLink>
+  </NextLink>
+</Breadcrumbs>;
+```
+
+## Props
+
+<ArgsTable of={Breadcrumbs} />

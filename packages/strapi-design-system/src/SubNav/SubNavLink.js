@@ -51,13 +51,13 @@ const IconWrapper = styled.div`
   }
 `;
 
-export const SubNavLink = ({ children, icon, withBullet, ...props }) => {
+export const SubNavLink = ({ children, icon, withBullet, isSubSectionChild, ...props }) => {
   return (
     <SubNavLinkWrapper
       as={NavLink}
       icon={icon}
       background="neutral100"
-      paddingLeft={7}
+      paddingLeft={isSubSectionChild ? 9 : 7}
       paddingBottom={2}
       paddingTop={2}
       {...props}
@@ -80,11 +80,13 @@ export const SubNavLink = ({ children, icon, withBullet, ...props }) => {
 SubNavLink.displayName = 'SubNavLink';
 SubNavLink.defaultProps = {
   icon: null,
+  isSubSectionChild: false,
   withBullet: false,
 };
 SubNavLink.propTypes = {
   children: PropTypes.node,
   icon: PropTypes.element,
+  isSubSectionChild: PropTypes.bool,
   link: PropTypes.element,
   withBullet: PropTypes.bool,
 };
