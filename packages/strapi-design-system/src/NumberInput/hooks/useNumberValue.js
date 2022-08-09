@@ -5,7 +5,7 @@ import { getDefaultLocale } from '../../helpers/getDefaultLocale';
 
 const INITIAL_VALUE = '';
 
-export const useNumberValue = (value, step, onValueChange) => {
+export const useNumberValue = ({ value, step, disabled, onValueChange }) => {
   // inputValue should ALWAYS be a string. value should ALWAYS stay a number
   const [inputValue, setInputValue] = useState();
   const numberParserRef = useRef(new NumberParser(getDefaultLocale()));
@@ -38,7 +38,7 @@ export const useNumberValue = (value, step, onValueChange) => {
   };
 
   const changeValue = (fromKeyBoard, currentStep) => {
-    if (inputValue === undefined) {
+    if (inputValue === INITIAL_VALUE) {
       onValueChange(currentStep);
       setInputValue(String(currentStep));
       return;
@@ -88,10 +88,6 @@ export const useNumberValue = (value, step, onValueChange) => {
   };
 
   const handleFocus = () => {
-    if (value !== undefined) {
-      setInputValue(String(numberParserRef.current.parse(inputValue)));
-    }
-
     if (value !== undefined) {
       setInputValue(String(numberParserRef.current.parse(inputValue) ?? INITIAL_VALUE));
     }

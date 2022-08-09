@@ -42,7 +42,7 @@ export const NumberInput = React.forwardRef(
     },
     ref,
   ) => {
-    const { inputValue, increment, decrement, handlers } = useNumberValue(value, step, onValueChange);
+    const { inputValue, increment, decrement, handlers } = useNumberValue({ value, step, disabled, onValueChange });
     const generatedId = useId('numberinput', id);
 
     return (
