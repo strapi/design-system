@@ -21,16 +21,8 @@ test.describe.parallel('NumberInput', () => {
 
         const value = await page.$eval('input', (el) => el.value);
         expect(value).toBe('123.123');
-      });
-
-      test('fills the input when typing valid float numbers with more than 3 significant digits after the seperator', async ({
-        page,
-      }) => {
-        await page.fill('input', '1.23456789');
-        await page.keyboard.press('Tab');
-
-        const value = await page.$eval('input', (el) => el.value);
-        expect(value).toBe('1.23456789');
+        //TODO
+        // expect(await page.$('text="The value is 123123"')).toBeTruthy();
       });
 
       test('fills the input when typing a valid numeric and a trailing comma', async ({ page }) => {
@@ -54,23 +46,12 @@ test.describe.parallel('NumberInput', () => {
 
       test('puts the step value in the input when pressing ArrowUp and that the input is empty', async ({ page }) => {
         await page.focus('input');
-        await page.fill('input', '1,');
         await page.keyboard.press('ArrowUp');
         await page.keyboard.press('Tab');
 
         const value = await page.$eval('input', (el) => el.value);
-        expect(value).toBe('2');
-        expect(await page.$('text="The value is 2"')).toBeTruthy();
-      });
-
-      test('keeps zero/ a falsy value on blur/ focus', async ({ page }) => {
-        await page.focus('input');
-        await page.fill('input', '0,');
-        await page.keyboard.press('Tab');
-        await page.focus('input');
-
-        const value = await page.$eval('input', (el) => el.value);
-        expect(value).toBe('0');
+        expect(value).toBe('1');
+        expect(await page.$('text="The value is 1"')).toBeTruthy();
       });
 
       test('puts the step value in the input when pressing ArrowDown and that the input contains only the minus sign', async ({
@@ -87,7 +68,6 @@ test.describe.parallel('NumberInput', () => {
 
       test('puts the step value in the input when pressing ArrowDown and that the input is empty', async ({ page }) => {
         await page.focus('input');
-        await page.fill('input', '-');
         await page.keyboard.press('ArrowDown');
         await page.keyboard.press('Tab');
 
@@ -109,7 +89,6 @@ test.describe.parallel('NumberInput', () => {
       });
 
       test('increments the value when clicking on ArrowUp without blur needed', async ({ page }) => {
-        await page.fill('input', '0');
         await page.click('[data-testid="ArrowUp"]');
 
         const value = await page.$eval('input', (el) => el.value);
@@ -118,7 +97,6 @@ test.describe.parallel('NumberInput', () => {
       });
 
       test('decrements the value when clicking on ArrowUp without blur needed', async ({ page }) => {
-        await page.fill('input', '0');
         await page.click('[data-testid="ArrowDown"]');
 
         const value = await page.$eval('input', (el) => el.value);
