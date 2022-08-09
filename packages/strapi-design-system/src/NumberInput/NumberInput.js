@@ -1,15 +1,13 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import CarretDown from '@strapi/icons/CarretDown';
 import styled from 'styled-components';
 import { sizes } from '../themes/sizes';
-import { NumberFormatter, NumberParser } from '@internationalized/number';
 import { Field, FieldLabel, FieldHint, FieldError, FieldInput } from '../Field';
 import { Stack } from '../Stack';
 import { Icon } from '../Icon';
 import { useId } from '../helpers/useId';
-import { KeyboardKeys } from '../helpers/keyboardKeys';
-import { getDefaultLocale } from '../helpers/getDefaultLocale';
+import { useNumberValue } from './hooks/useNumberValue';
 
 const ArrowButton = styled.button`
   display: flex;
@@ -23,8 +21,6 @@ const ArrowButton = styled.button`
     transform: ${({ reverse }) => (reverse ? 'rotateX(180deg)' : undefined)};
   }
 `;
-
-const INITIAL_VALUE = '';
 
 export const NumberInput = React.forwardRef(
   (
@@ -46,132 +42,8 @@ export const NumberInput = React.forwardRef(
     },
     ref,
   ) => {
-    // inputValue should ALWAYS be a string. value should ALWAYS stay a number
-    const [inputValue, setInputValue] = useState(value === undefined || value === null ? INITIAL_VALUE : String(value));
+    const { inputValue, increment, decrement, handlers } = useNumberValue(value, step, onValueChange);
     const generatedId = useId('numberinput', id);
-    const numberParserRef = useRef(new NumberParser(getDefaultLocale()));
-    const numberFormaterRef = useRef(new NumberFormatter(getDefaultLocale()));
-    const inputRef = useRef();
-
-    if (!label && !props['aria-label']) {
-      throw new Error('The NumberInput component needs a "label" or an "aria-label" props');
-    }
-
-    useEffect(() => {
-      if (inputRef.current) {
-        setInputValue(value === undefined || value === null ? INITIAL_VALUE : String(value));
-      }
-
-      if (!inputRef.current) {
-        inputRef.current = true;
-      }
-    }, [value]);
-
-    const handleChange = (e) => {
-      const nextValue = e.target.value;
-
-      if (numberParserRef.current.isValidPartialNumber(nextValue)) {
-        const parsedValue = nextValue === '' ? undefined : numberParserRef.current.parse(nextValue);
-
-        if (parsedValue === undefined) {
-          onValueChange(undefined);
-        } else if (isNaN(parsedValue)) {
-          // checking NaN case when only typing a "-" (minus) sign inside the field
-          onValueChange(undefined);
-        } else {
-          onValueChange(parsedValue);
-        }
-
-        setInputValue(e.target.value);
-      }
-    };
-
-    const increment = (fromKeyBoard) => {
-      if (inputValue === '') {
-        onValueChange(step);
-        setInputValue(String(step));
-        return;
-      }
-
-      if (isNaN(inputValue)) {
-        const parsedValue = numberParserRef.current.parse(inputValue);
-
-        // Probably in the minus case
-        const safeValue = isNaN(parsedValue) ? 0 : parsedValue;
-
-        const nextValue = safeValue + step;
-        const formattedValue = numberFormaterRef.current.format(nextValue);
-
-        onValueChange(nextValue);
-        setInputValue(fromKeyBoard ? String(nextValue) : formattedValue);
-
-        return;
-      }
-
-      onValueChange(value + step);
-      setInputValue(String(value + step));
-    };
-
-    const decrement = (fromKeyBoard) => {
-      if (inputValue === '') {
-        onValueChange(-step);
-        setInputValue(String(-step));
-        return;
-      }
-
-      if (isNaN(inputValue)) {
-        const parsedValue = numberParserRef.current.parse(inputValue);
-
-        // Probably in the minus case
-        const safeValue = isNaN(parsedValue) ? 0 : parsedValue;
-
-        const nextValue = safeValue - step;
-        const formattedValue = numberFormaterRef.current.format(nextValue);
-
-        onValueChange(nextValue);
-        setInputValue(fromKeyBoard ? String(nextValue) : formattedValue);
-
-        return;
-      }
-
-      onValueChange(value - step);
-      setInputValue(String(value - step));
-    };
-
-    const handleKeyDown = (e) => {
-      if (disabled) return;
-
-      switch (e.key) {
-        case KeyboardKeys.DOWN: {
-          e.preventDefault();
-          decrement(true);
-          break;
-        }
-
-        case KeyboardKeys.UP: {
-          e.preventDefault();
-          increment(true);
-          break;
-        }
-
-        default:
-          break;
-      }
-    };
-
-    const handleFocus = () => {
-      if (value !== undefined && value !== null) {
-        setInputValue(String(numberParserRef.current.parse(inputValue)));
-      }
-    };
-
-    const handleBlur = () => {
-      if (value === undefined || value === null) {
-        setInputValue(undefined);
-      } else {
-        setInputValue(numberFormaterRef.current.format(value));
-      }
-    };
 
     return (
       <Field name={name} hint={hint} error={error} id={generatedId}>
@@ -187,10 +59,10 @@ export const NumberInput = React.forwardRef(
             disabled={disabled}
             type="text"
             inputmode="decimal"
-            onChange={handleChange}
-            onKeyDown={handleKeyDown}
-            onBlur={handleBlur}
-            onFocus={handleFocus}
+            onChange={handlers.handleChange}
+            onKeyDown={handlers.handleKeyDown}
+            onBlur={handlers.handleBlur}
+            onFocus={handlers.handleFocus}
             value={inputValue ?? ''}
             size={size}
             endAction={
