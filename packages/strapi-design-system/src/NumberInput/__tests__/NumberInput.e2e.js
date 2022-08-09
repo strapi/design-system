@@ -45,6 +45,7 @@ test.describe.parallel('NumberInput', () => {
       });
 
       test('puts the step value in the input when pressing ArrowUp and that the input is empty', async ({ page }) => {
+        await page.fill('input', '');
         await page.focus('input');
         await page.keyboard.press('ArrowUp');
         await page.keyboard.press('Tab');
@@ -67,6 +68,7 @@ test.describe.parallel('NumberInput', () => {
       });
 
       test('puts the step value in the input when pressing ArrowDown and that the input is empty', async ({ page }) => {
+        await page.fill('input', '');
         await page.focus('input');
         await page.keyboard.press('ArrowDown');
         await page.keyboard.press('Tab');
@@ -89,6 +91,7 @@ test.describe.parallel('NumberInput', () => {
       });
 
       test('increments the value when clicking on ArrowUp without blur needed', async ({ page }) => {
+        await page.fill('input', '');
         await page.click('[data-testid="ArrowUp"]');
 
         const value = await page.$eval('input', (el) => el.value);
@@ -97,6 +100,7 @@ test.describe.parallel('NumberInput', () => {
       });
 
       test('decrements the value when clicking on ArrowUp without blur needed', async ({ page }) => {
+        await page.fill('input', '');
         await page.click('[data-testid="ArrowDown"]');
 
         const value = await page.$eval('input', (el) => el.value);
