@@ -8,7 +8,7 @@ All efforts to contribute are highly appreciated, we recommend you open an issue
 
 This project and everyone participating in it are governed by the [Strapi Code of Conduct](https://github.com/strapi/strapi/blob/master/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please read the [full text](https://github.com/strapi/strapi/blob/master/CODE_OF_CONDUCT.md) so that you can read which actions may or may not be tolerated.
 
-## You found a bugs
+## You found a bug
 
 We are using [GitHub Issues](https://github.com/strapi/design-system/issues) to manage our public bugs. We keep a close eye on this so before filing a new issue, try to make sure the problem does not already exist. You can also use the [codesandbox template](https://codesandbox.io/s/strapi-design-system-r1vdp) to easily show us the bug.
 
