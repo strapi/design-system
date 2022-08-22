@@ -3546,8 +3546,8 @@ exports[`Storyshots Design System/Components/Alert with action 1`] = `
 
 .c16 {
   color: #4945ff;
-  font-size: 0.75rem;
-  line-height: 1.33;
+  font-size: 0.875rem;
+  line-height: 1.43;
 }
 
 .c5 {
@@ -15219,8 +15219,8 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
 
 .c14 {
   color: #4945ff;
-  font-size: 0.75rem;
-  line-height: 1.33;
+  font-size: 0.875rem;
+  line-height: 1.43;
 }
 
 .c22 {
@@ -15681,8 +15681,8 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
 
 .c14 {
   color: #4945ff;
-  font-size: 0.75rem;
-  line-height: 1.33;
+  font-size: 0.875rem;
+  line-height: 1.43;
 }
 
 .c22 {
@@ -17003,8 +17003,8 @@ exports[`Storyshots Design System/Components/HeaderLayout base 1`] = `
 
 .c11 {
   color: #4945ff;
-  font-size: 0.75rem;
-  line-height: 1.33;
+  font-size: 0.875rem;
+  line-height: 1.43;
 }
 
 .c14 {
@@ -18141,8 +18141,8 @@ exports[`Storyshots Design System/Components/HeaderLayout combined w/ scroll 1`]
 
 .c11 {
   color: #4945ff;
-  font-size: 0.75rem;
-  line-height: 1.33;
+  font-size: 0.875rem;
+  line-height: 1.43;
 }
 
 .c14 {
@@ -18658,8 +18658,8 @@ exports[`Storyshots Design System/Components/HeaderLayout sticky 1`] = `
 
 .c14 {
   color: #4945ff;
-  font-size: 0.75rem;
-  line-height: 1.33;
+  font-size: 0.875rem;
+  line-height: 1.43;
 }
 
 .c15 {
@@ -51986,8 +51986,8 @@ exports[`Storyshots Design System/Components/v2/Link base 1`] = `
 
 .c7 {
   color: #4945ff;
-  font-size: 0.75rem;
-  line-height: 1.33;
+  font-size: 0.875rem;
+  line-height: 1.43;
 }
 
 .c3 {
@@ -52160,8 +52160,8 @@ exports[`Storyshots Design System/Components/v2/Link disabled 1`] = `
 
 .c7 {
   color: #666687;
-  font-size: 0.75rem;
-  line-height: 1.33;
+  font-size: 0.875rem;
+  line-height: 1.43;
 }
 
 .c3 {
@@ -52340,8 +52340,8 @@ exports[`Storyshots Design System/Components/v2/Link icons 1`] = `
 
 .c9 {
   color: #4945ff;
-  font-size: 0.75rem;
-  line-height: 1.33;
+  font-size: 0.875rem;
+  line-height: 1.43;
 }
 
 .c3 {
@@ -64117,8 +64117,8 @@ exports[`Storyshots Design System/Technical Components/RawTable simple 1`] = `
 
 .c7 {
   color: #4945ff;
-  font-size: 0.75rem;
-  line-height: 1.33;
+  font-size: 0.875rem;
+  line-height: 1.43;
 }
 
 .c6 {
