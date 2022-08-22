@@ -47,9 +47,7 @@ export const Link = ({ href, to, children, disabled, startIcon, endIcon, ...prop
           {startIcon}
         </IconWrapper>
       )}
-      <Typography variant="pi" textColor={disabled ? 'neutral600' : 'primary600'}>
-        {children}
-      </Typography>
+      <Typography textColor={disabled ? 'neutral600' : 'primary600'}>{children}</Typography>
 
       {endIcon && !href && (
         <IconWrapper as="span" aria-hidden={true} paddingLeft={2}>

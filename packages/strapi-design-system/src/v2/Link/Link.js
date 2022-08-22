@@ -42,9 +42,7 @@ export const Link = React.forwardRef(({ children, href, disabled, startIcon, end
         </IconWrapper>
       )}
 
-      <Typography variant="pi" textColor={disabled ? 'neutral600' : 'primary600'}>
-        {children}
-      </Typography>
+      <Typography textColor={disabled ? 'neutral600' : 'primary600'}>{children}</Typography>
 
       {endIcon && (
         <IconWrapper as="span" aria-hidden={true} paddingLeft={2}>
