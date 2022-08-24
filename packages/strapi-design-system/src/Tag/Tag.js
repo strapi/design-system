@@ -25,18 +25,15 @@ const TagText = styled(Typography)`
 export const Tag = ({ children, icon, disabled, onClick, ...props }) => {
   const handleClick = (e) => {
     if (disabled) return;
-    onClick(e);
+    if (onClick) onClick(e);
   };
 
   return (
     <TagWrapper
-      as="button"
+      display="inline-block"
       background={disabled ? 'neutral200' : 'primary100'}
       color={disabled ? 'neutral700' : 'primary600'}
       paddingLeft={3}
-      paddingRight={3}
-      onClick={handleClick}
-      aria-disabled={disabled}
       borderWidth="1px"
       borderStyle="solid"
       borderColor={disabled ? 'neutral300' : 'primary200'}
@@ -44,13 +41,23 @@ export const Tag = ({ children, icon, disabled, onClick, ...props }) => {
       height={`${32 / 16}rem`}
       {...props}
     >
-      <Flex>
+      <Flex height="100%">
         <TagText disabled={disabled} variant="pi" fontWeight="bold" as="span">
           {children}
         </TagText>
 
-        <Box paddingLeft={2}>
-          <Flex>{icon}</Flex>
+        <Box
+          as="button"
+          aria-disabled={disabled}
+          paddingLeft={2}
+          paddingRight={3}
+          height="100%"
+          onClick={handleClick}
+          cursor={disabled ? 'auto' : 'pointer'}
+        >
+          <Flex height="100%" alignItems="center">
+            {icon}
+          </Flex>
         </Box>
       </Flex>
     </TagWrapper>
