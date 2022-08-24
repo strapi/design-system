@@ -5,7 +5,7 @@ import { Typography } from '../Typography';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
 
-const TagWrapper = styled(Box)`
+const TagIconWrapper = styled(Box)`
   svg {
     height: ${8 / 16}rem;
     width: ${8 / 16}rem;
@@ -29,7 +29,7 @@ export const Tag = ({ children, icon, disabled, onClick, ...props }) => {
   };
 
   return (
-    <TagWrapper
+    <Box
       display="inline-block"
       background={disabled ? 'neutral200' : 'primary100'}
       color={disabled ? 'neutral700' : 'primary600'}
@@ -46,7 +46,7 @@ export const Tag = ({ children, icon, disabled, onClick, ...props }) => {
           {children}
         </TagText>
 
-        <Box
+        <TagIconWrapper
           as="button"
           aria-disabled={disabled}
           paddingLeft={2}
@@ -58,9 +58,9 @@ export const Tag = ({ children, icon, disabled, onClick, ...props }) => {
           <Flex height="100%" alignItems="center">
             {icon}
           </Flex>
-        </Box>
+        </TagIconWrapper>
       </Flex>
-    </TagWrapper>
+    </Box>
   );
 };
 
