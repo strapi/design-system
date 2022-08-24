@@ -55,7 +55,7 @@ Checkbox.defaultProps = {
   hint: undefined,
 };
 Checkbox.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   disabled: PropTypes.bool,
   error: PropTypes.string,
   hint: PropTypes.string,

@@ -28,6 +28,6 @@ CrumbLink.defaultProps = {
 };
 
 CrumbLink.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   to: PropTypes.string,
 };

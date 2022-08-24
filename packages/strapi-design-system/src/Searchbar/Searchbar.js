@@ -94,7 +94,7 @@ Searchbar.defaultProps = {
 };
 
 Searchbar.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   clearLabel: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   onClear: PropTypes.func.isRequired,

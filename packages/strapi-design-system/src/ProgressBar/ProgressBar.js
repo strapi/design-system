@@ -49,7 +49,7 @@ ProgressBar.defaultProps = {
 };
 
 ProgressBar.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   max: PropTypes.number,
   min: PropTypes.number,
   size: PropTypes.oneOf(['S', 'M']),

@@ -39,7 +39,7 @@ export const Crumb = ({ children }) => {
 
 Crumb.displayName = 'Crumb';
 Crumb.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
 };
 const crumbType = PropTypes.shape({ type: PropTypes.oneOf([Crumb]) });
 
