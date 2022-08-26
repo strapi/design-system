@@ -5,7 +5,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 
 const fileNames = fs
   .readdirSync(path.resolve(__dirname, 'src'))
-  .map((fileName) => fileName.substr(0, fileName.length - 3));
+  .map((fileName) => fileName.substring(0, fileName.length - 3));
 
 const entry = fileNames.reduce((acc, curr) => {
   acc[curr] = path.resolve(__dirname, 'src', `${curr}.js`);
