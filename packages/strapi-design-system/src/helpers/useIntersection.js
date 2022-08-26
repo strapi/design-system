@@ -7,11 +7,9 @@ export const useIntersection = (scrollableAreaRef, callback, { selectorToWatch, 
     const options = {
       root: scrollableAreaRef.current,
       rootMargin: '0px',
-      threshold: 1.0,
     };
 
-    // eslint-disable-next-line no-unused-vars
-    const onEnterZone = (entries, _observer) => {
+    const onEnterZone = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           if (scrollableAreaRef.current.scrollHeight > scrollableAreaRef.current.clientHeight) {
