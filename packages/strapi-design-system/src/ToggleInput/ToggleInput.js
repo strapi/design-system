@@ -73,7 +73,7 @@ ToggleInput.propTypes = {
   checked: PropTypes.bool,
   clearLabel: PropTypes.string,
   error: PropTypes.string,
-  hint: PropTypes.string,
+  hint: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
   id: PropTypes.string,
   label: PropTypes.string,
   labelAction: PropTypes.node,
