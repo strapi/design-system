@@ -65,7 +65,7 @@ Tag.defaultProps = {
 };
 
 Tag.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   disabled: PropTypes.bool,
   icon: PropTypes.element.isRequired,
   onClick: PropTypes.func,

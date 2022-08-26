@@ -25,6 +25,6 @@ Crumb.defaultProps = {
 };
 
 Crumb.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   isCurrent: PropTypes.bool,
 };

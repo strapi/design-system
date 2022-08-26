@@ -93,7 +93,7 @@ LinkButton.defaultProps = {
   to: undefined,
 };
 LinkButton.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   disabled: PropTypes.bool,
   endIcon: PropTypes.element,
   href: (props) => {

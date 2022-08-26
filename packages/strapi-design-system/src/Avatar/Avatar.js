@@ -87,7 +87,7 @@ export const Initials = ({ children }) => {
 };
 
 Initials.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 Avatar.defaultProps = {

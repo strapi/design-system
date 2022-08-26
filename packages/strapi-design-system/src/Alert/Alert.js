@@ -116,7 +116,7 @@ Alert.propTypes = {
   /**
    * The body of the `Alert` (Will be rendered under the `Alert` title).
    */
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   /**
    * Accessible label for the close icon button.
    */
