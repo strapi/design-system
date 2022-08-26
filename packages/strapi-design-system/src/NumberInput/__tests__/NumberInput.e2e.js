@@ -33,6 +33,16 @@ test.describe.parallel('NumberInput', () => {
         expect(value).toBe('1.23456789');
       });
 
+      test('keeps a scientific number after blur / focus', async ({ page }) => {
+        await page.fill('input', '0.00000001');
+
+        await page.keyboard.press('Tab');
+        await page.focus('input');
+
+        const value = await page.$eval('input', (el) => el.value);
+        expect(value).toBe('0.00000001');
+      });
+
       test('fills the input when typing a valid numeric and a trailing comma', async ({ page }) => {
         await page.fill('input', '123456,');
         await page.keyboard.press('Tab');
