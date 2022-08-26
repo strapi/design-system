@@ -40,6 +40,7 @@ const externalNodeModules = [];
   externalNodeModules.push(new RegExp(`^${module}(/.+)?$`));
 });
 
+/** @type import('webpack').Configuration */
 module.exports = {
   entry,
   mode: process.env.NODE_ENV,
@@ -51,6 +52,14 @@ module.exports = {
     globalObject: 'this',
     library: 'strapiDs',
     umdNamedDefine: true,
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      maxInitialRequests: 30,
+      maxAsyncRequests: 30,
+      minSize: 20,
+    },
   },
   module: {
     rules: [
