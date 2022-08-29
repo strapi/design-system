@@ -1,6 +1,6 @@
 {
   "name": "@strapi/design-system",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
@@ -42,7 +42,7 @@
     "webpack-cli": "^4.5.0"
   },
   "peerDependencies": {
-    "@strapi/icons": "^1.2.1",
+    "@strapi/icons": "^1.2.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
