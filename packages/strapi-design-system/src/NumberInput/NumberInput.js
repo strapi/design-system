@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import CarretDown from '@strapi/icons/CarretDown';
 import styled from 'styled-components';
@@ -36,6 +36,7 @@ export const NumberInput = React.forwardRef(
       error,
       label,
       labelAction,
+      locale: defaultLocale,
       id,
       onValueChange,
       value,
@@ -49,8 +50,9 @@ export const NumberInput = React.forwardRef(
     // inputValue should ALWAYS be a string. value should ALWAYS stay a number
     const [inputValue, setInputValue] = useState(value === undefined || value === null ? INITIAL_VALUE : String(value));
     const generatedId = useId('numberinput', id);
-    const numberParserRef = useRef(new NumberParser(getDefaultLocale()));
-    const numberFormaterRef = useRef(new NumberFormatter(getDefaultLocale(), { maximumSignificantDigits: 21 }));
+    const locale = useMemo(() => defaultLocale || getDefaultLocale(), [defaultLocale]);
+    const numberParserRef = useRef(new NumberParser(locale));
+    const numberFormaterRef = useRef(new NumberFormatter(locale, { maximumSignificantDigits: 21 }));
 
     const handleChange = (e) => {
       const nextValue = e.target.value;
@@ -242,6 +244,7 @@ NumberInput.propTypes = {
   id: PropTypes.string,
   label: PropTypes.string,
   labelAction: PropTypes.element,
+  locale: PropTypes.string,
   name: PropTypes.string.isRequired,
   onValueChange: PropTypes.func.isRequired,
   required: PropTypes.bool,
