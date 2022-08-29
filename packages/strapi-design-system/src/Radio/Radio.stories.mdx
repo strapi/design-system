@@ -13,6 +13,7 @@ import { Typography } from '../Typography';
 Radio buttons allow users to choose a single value from a range of options.
 
 **Best practices**
+
 - When a user picks an option, the previous one is automatically deselected.
 - Radio buttons should be used when there is at least two options.
 - Label of the Radio button should be concise and straightforward.
@@ -23,6 +24,7 @@ Radio buttons allow users to choose a single value from a range of options.
 - Radio buttons should be used only when it is not obvious enough that a choice is required.
 - Radio buttons should not be used in Table components.
 - Use Switch or Toggle component to make binary choices.
+
 [View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Radio)
 
 ## Imports
@@ -41,7 +43,9 @@ Radio buttons allow users to choose a single value from a range of at least two 
       const [selected, setSelected] = useState();
       return (
         <div>
-          <Typography variant="beta" id="trophy-champions">Make a choice</Typography>
+          <Typography variant="beta" id="trophy-champions">
+            Make a choice
+          </Typography>
           <RadioGroup
             labelledBy="trophy-champions"
             onChange={(e) => setSelected(e.target.value)}
@@ -56,7 +60,6 @@ Radio buttons allow users to choose a single value from a range of at least two 
     }}
   </Story>
 </Canvas>
-
 
 ## Props
 

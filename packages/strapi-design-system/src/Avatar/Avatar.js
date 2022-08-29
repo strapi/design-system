@@ -7,6 +7,7 @@ import { Flex } from '../Flex';
 
 const AvatarImg = styled.img`
   border-radius: 50%;
+  object-fit: cover;
   display: block;
   position: relative;
 `;
@@ -20,6 +21,7 @@ const AvatarImgWrapper = styled.div`
 
 const PreviewContainer = styled.img`
   border-radius: 50%;
+  object-fit: cover;
   position: absolute;
   transform: translate(-${(previewSize - avatarSize) / 2}px, -100%);
   margin-top: -${({ theme }) => theme.spaces[1]};
@@ -85,7 +87,7 @@ export const Initials = ({ children }) => {
 };
 
 Initials.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 Avatar.defaultProps = {

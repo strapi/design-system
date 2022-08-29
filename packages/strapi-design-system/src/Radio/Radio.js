@@ -20,6 +20,6 @@ export const Radio = ({ children, ...props }) => {
 };
 
 Radio.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   value: PropTypes.any.isRequired,
 };

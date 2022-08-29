@@ -138,6 +138,6 @@ NavLink.defaultProps = {
 NavLink.propTypes = {
   badgeAriaLabel: PropTypes.string,
   badgeContent: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   icon: PropTypes.node.isRequired,
 };

@@ -34,10 +34,10 @@ Use a toggle whenever the users need to turn something on or off in a form. A to
     {() => {
       const [checked, setChecked] = useState(false);
       return (
-        <ToggleCheckbox onLabel="True" offLabel="False" checked={checked} onChange={(e) => setChecked(prev => !prev)}>
+        <ToggleCheckbox onLabel="True" offLabel="False" checked={checked} onChange={() => setChecked((prev) => !prev)}>
           The field is required?
         </ToggleCheckbox>
-      )
+      );
     }}
   </Story>
 </Canvas>
@@ -61,15 +61,10 @@ The deactivated state is one of the two available states for a Toggle.
     {() => {
       const [checked, setChecked] = useState(null);
       return (
-        <ToggleCheckbox
-          onLabel="True"
-          offLabel="False"
-          checked={checked}
-          onChange={(e) => setChecked(prev => !prev)}
-        >
+        <ToggleCheckbox onLabel="True" offLabel="False" checked={checked} onChange={() => setChecked((prev) => !prev)}>
           The field is required?
         </ToggleCheckbox>
-      )
+      );
     }}
   </Story>
 </Canvas>

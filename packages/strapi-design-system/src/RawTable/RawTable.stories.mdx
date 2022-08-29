@@ -92,13 +92,6 @@ import { RawTable, RawTh, RawTd, RawTr, RawThead, RawTbody } from '@strapi/desig
     {() => {
       const ROW_COUNT = 30;
       const COL_COUNT = 5;
-      const rows = Array(ROW_COUNT - 1)
-        .fill(null)
-        .map(() =>
-          Array(COL_COUNT)
-            .fill(null)
-            .map((e, x) => x),
-        );
       return (
         <Box shadow="filterShadow" padding={3} hasRadius>
           <RawTable colCount={COL_COUNT} rowCount={ROW_COUNT}>

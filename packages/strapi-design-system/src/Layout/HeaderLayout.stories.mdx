@@ -6,14 +6,13 @@ import { ArgsTable } from '@storybook/addon-docs';
 import ArrowLeft from '@strapi/icons/ArrowLeft';
 import Pencil from '@strapi/icons/Pencil';
 import Plus from '@strapi/icons/Plus';
-import Check from '@strapi/icons/Check';
 import { BaseHeaderLayout, HeaderLayout } from './HeaderLayout';
 import { ModalLayout } from '../ModalLayout';
 import { Link } from '../Link';
+import { Breadcrumbs, Crumb } from '../Breadcrumbs';
 import { Button } from '../Button';
 import { Box } from '../Box';
 import { VisuallyHidden } from '../VisuallyHidden';
-import { Stack } from '../Stack';
 
 <Meta title="Design System/Components/HeaderLayout" component={HeaderLayout} />
 
@@ -64,7 +63,7 @@ Headers are placed at the very top of each page. Descriptions and buttons are op
   </Story>
 </Canvas>
 
-### BaseHeaderLayout without nav action
+### HeaderLayout without nav action
 
 <Canvas>
   <Story name="base without nav action">
@@ -84,7 +83,26 @@ Headers are placed at the very top of each page. Descriptions and buttons are op
   </Story>
 </Canvas>
 
-### BaseHeaderLayout sticky
+### HeaderLayout with custom subtitle
+
+<Canvas>
+  <Story name="base with custom subtitle">
+    <Box background="neutral100">
+      <BaseHeaderLayout
+        title="Media Library"
+        subtitle={
+          <Breadcrumbs label="folders">
+            <Crumb>Animals</Crumb>
+            <Crumb>Cats</Crumb>
+          </Breadcrumbs>
+        }
+        as="h2"
+      />
+    </Box>
+  </Story>
+</Canvas>
+
+### HeaderLayout sticky
 
 <Canvas>
   <Story name="sticky">

@@ -33,6 +33,7 @@ export const flexPropTypes = {
   inline: PropTypes.bool,
   justifyContent: PropTypes.string,
   reverse: PropTypes.bool,
+  shrink: PropTypes.number,
   wrap: PropTypes.string,
 };
 

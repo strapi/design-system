@@ -19,6 +19,7 @@ const ClearButton = styled(TextButton)`
 `;
 
 export const ToggleInput = ({
+  disabled,
   size,
   error,
   hint,
@@ -41,9 +42,11 @@ export const ToggleInput = ({
           <FieldLabel required={required} action={labelAction}>
             {label}
           </FieldLabel>
-          {clearLabel && onClear && checked !== null && <ClearButton onClick={onClear}>{clearLabel}</ClearButton>}
+          {clearLabel && onClear && checked !== null && !disabled && (
+            <ClearButton onClick={onClear}>{clearLabel}</ClearButton>
+          )}
         </Flex>
-        <ToggleCheckbox id={generatedId} size={size} name={name} checked={checked} {...props}>
+        <ToggleCheckbox id={generatedId} size={size} name={name} checked={checked} disabled={disabled} {...props}>
           {label}
         </ToggleCheckbox>
         <FieldHint />
@@ -58,6 +61,7 @@ ToggleInput.displayName = 'ToggleInput';
 ToggleInput.defaultProps = {
   checked: false,
   clearLabel: undefined,
+  disabled: false,
   error: undefined,
   hint: undefined,
   id: undefined,
@@ -72,8 +76,9 @@ ToggleInput.defaultProps = {
 ToggleInput.propTypes = {
   checked: PropTypes.bool,
   clearLabel: PropTypes.string,
+  disabled: PropTypes.bool,
   error: PropTypes.string,
-  hint: PropTypes.string,
+  hint: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
   id: PropTypes.string,
   label: PropTypes.string,
   labelAction: PropTypes.node,

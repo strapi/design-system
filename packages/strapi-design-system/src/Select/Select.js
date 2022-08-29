@@ -288,7 +288,7 @@ Select.propTypes = {
   customizeContent: PropTypes.func,
   disabled: PropTypes.bool,
   error: PropTypes.string,
-  hint: PropTypes.string,
+  hint: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   label: PropTypes.string,
   labelAction: PropTypes.element,

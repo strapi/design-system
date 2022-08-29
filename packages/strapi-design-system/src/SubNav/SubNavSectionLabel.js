@@ -25,6 +25,7 @@ export const SubNavSectionLabel = ({ collapsable, label, onClick, ariaExpanded, 
         onClick={onClick}
         aria-expanded={ariaExpanded}
         aria-controls={ariaControls}
+        textAlign="left"
       >
         <Box paddingRight={1}>
           <Typography variant="sigma" textColor="neutral600">

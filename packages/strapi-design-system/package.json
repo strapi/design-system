@@ -1,6 +1,6 @@
 {
   "name": "@strapi/design-system",
-  "version": "1.1.0",
+  "version": "1.2.1",
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
@@ -24,6 +24,7 @@
     "cross-env": "^7.0.3",
     "eslint": "^7.20.0",
     "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-mdx": "^1.17.0",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-react": "^7.22.0",
     "intl": "^1.2.5",
@@ -41,14 +42,14 @@
     "webpack-cli": "^4.5.0"
   },
   "peerDependencies": {
-    "@strapi/icons": "^0.0.1-alpha.73",
+    "@strapi/icons": "^1.2.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
     "styled-components": "^5.2.1"
   },
   "dependencies": {
-    "@internationalized/number": "^3.0.2",
+    "@internationalized/number": "^3.1.1",
     "compute-scroll-into-view": "^1.0.17",
     "prop-types": "^15.7.2"
   },
@@ -62,14 +63,14 @@
     "copy:files": "node ../../tools/copy-files.js",
     "create:index-files": "node ./createIndexFiles.js",
     "build-storybook": "build-storybook",
-    "lint": "eslint . --ext .js,.jsx --fix",
+    "lint": "eslint . --ext .js,.jsx,.mdx --fix",
     "lint-staged": "eslint --fix",
     "storybook": "start-storybook -p 6006",
     "test": "jest -c jest.config.js",
     "test:watch": "jest -c jest.config.js --watchAll",
     "test:e2e": "playwright test",
     "test:e2e:ci": "cross-env CI=true playwright test",
-    "test:e2e:watch": "jest -c jest.e2e.js --watchAll",
+    "test:e2e:watch": "chokidar '**/__tests__/*.e2e.js' -c 'npm run test:e2e -- --retries=0 {path}'",
     "test:e2e:debug": "cross-env PWDEBUG=1 playwright test"
   },
   "gitHead": "bf52e690f743703a47f768ba83ebff55a3a12795"

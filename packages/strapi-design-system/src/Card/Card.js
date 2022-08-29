@@ -14,6 +14,9 @@ export const Card = ({ id, ...props }) => {
         tabIndex={0}
         hasRadius
         background="neutral0"
+        borderStyle="solid"
+        borderWidth="1px"
+        borderColor="neutral150"
         shadow="tableShadow"
         as="article"
         aria-labelledby={`${generatedId}-title`}

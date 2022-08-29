@@ -66,7 +66,7 @@ CarouselInput.propTypes = {
   actions: PropTypes.node,
   children: PropTypes.node.isRequired,
   error: PropTypes.string,
-  hint: PropTypes.string,
+  hint: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
   id: PropTypes.string,
   label: PropTypes.string.isRequired,
   labelAction: PropTypes.element,

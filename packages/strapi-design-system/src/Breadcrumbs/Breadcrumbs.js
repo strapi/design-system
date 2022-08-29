@@ -9,24 +9,28 @@ import { VisuallyHidden } from '../VisuallyHidden';
 
 const CrumbWrapper = styled(Flex)`
   svg {
-    height: 10px;
-    width: 10px;
-  }
-  svg path {
-    fill: ${({ theme }) => theme.colors.neutral300};
+    height: ${10 / 16}rem;
+    width: ${10 / 16}rem;
+    path {
+      fill: ${({ theme }) => theme.colors.neutral500};
+    }
   }
   :last-of-type ${Box} {
     display: none;
+  }
+  :last-of-type ${Typography} {
+    color: ${({ theme }) => theme.colors.neutral800};
+    font-weight: ${({ theme }) => theme.fontWeights.bold};
   }
 `;
 
 export const Crumb = ({ children }) => {
   return (
     <CrumbWrapper inline as="li">
-      <Typography fontWeight="bold" color="neutral800">
+      <Typography variant="pi" textColor="neutral600">
         {children}
       </Typography>
-      <Box paddingLeft={3} paddingRight={3}>
+      <Box aria-hidden paddingLeft={3} paddingRight={3}>
         <ChevronRight />
       </Box>
     </CrumbWrapper>
@@ -35,7 +39,7 @@ export const Crumb = ({ children }) => {
 
 Crumb.displayName = 'Crumb';
 Crumb.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
 };
 const crumbType = PropTypes.shape({ type: PropTypes.oneOf([Crumb]) });
 

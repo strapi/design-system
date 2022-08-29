@@ -127,6 +127,8 @@ DatePickerCalendar.propTypes = {
   minDate: PropTypes.instanceOf(Date),
   onChange: PropTypes.func.isRequired,
   onEscape: PropTypes.func.isRequired,
-  popoverSource: PropTypes.shape({ current: PropTypes.instanceOf(Element) }).isRequired,
+  popoverSource: PropTypes.shape({
+    current: (typeof Element === 'undefined' ? PropTypes.any : PropTypes.instanceOf(Element)).isRequired,
+  }).isRequired,
   selectedDate: PropTypes.instanceOf(Date),
 };

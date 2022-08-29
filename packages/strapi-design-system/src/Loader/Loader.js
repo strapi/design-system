@@ -34,6 +34,6 @@ Loader.defaultProps = {
 };
 
 Loader.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   small: PropTypes.bool,
 };

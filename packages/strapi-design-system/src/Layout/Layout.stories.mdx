@@ -3,15 +3,11 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { ArgsTable } from '@storybook/addon-docs';
 import Apps from '@strapi/icons/Apps';
-import Key from '@strapi/icons/Key';
 import ExclamationMarkCircle from '@strapi/icons/ExclamationMarkCircle';
-import Information from '@strapi/icons/Information';
 import Plus from '@strapi/icons/Plus';
 import Pencil from '@strapi/icons/Pencil';
-import ArrowLeft from '@strapi/icons/ArrowLeft';
 import Trash from '@strapi/icons/Trash';
 import { SubNav, SubNavHeader, SubNavSection, SubNavSections, SubNavLink, SubNavLinkSection } from '../SubNav';
-import { Link } from '../Link';
 import { Layout } from './Layout';
 import { Box } from '../Box';
 import { Button } from '../Button';
@@ -92,7 +88,7 @@ import { Layout } from '@strapi/design-system/Layout';
                   searchable
                   value={''}
                   onClear={() => {}}
-                  onChange={(e) => {}}
+                  onChange={() => {}}
                   label="Builder"
                   searchLabel="Search..."
                 />
@@ -135,7 +131,7 @@ import { Layout } from '@strapi/design-system/Layout';
                     {Array(20)
                       .fill(null)
                       .map((_, index) => (
-                        <Box paddingTop={2}>
+                        <Box paddingTop={2} key={index}>
                           <Tag key={index} icon={<Plus aria-hidden={true} />}>
                             Hello world {index}
                           </Tag>

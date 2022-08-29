@@ -1,5 +1,6 @@
 <!--- ToggleInput.stories.mdx --->
 
+import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { ArgsTable } from '@storybook/addon-docs';
 import { ToggleInput } from './ToggleInput';
@@ -24,25 +25,30 @@ import { ToggleInput } from '@strapi/design-system/ToggleInput';
 
 <Canvas>
   <Story name="base">
-    <ToggleInput
-      hint="Enable provider"
-      label="Enabled"
-      name="enable-provider"
-      labelAction={
-        <Tooltip description="Content of the tooltip">
-          <button
-            aria-label="Information about the email"
-            style={{ border: 'none', padding: 0, background: 'transparent' }}
-          >
-            <Information aria-hidden={true} />
-          </button>
-        </Tooltip>
-      }
-      onLabel="True"
-      offLabel="False"
-      checked={true}
-      onChange={() => {}}
-    />
+    {() => {
+      const [checked, setChecked] = useState(true);
+      return (
+        <ToggleInput
+          hint="Enable provider"
+          label="Enabled"
+          name="enable-provider"
+          labelAction={
+            <Tooltip description="Content of the tooltip">
+              <button
+                aria-label="Information about the email"
+                style={{ border: 'none', padding: 0, background: 'transparent' }}
+              >
+                <Information aria-hidden={true} />
+              </button>
+            </Tooltip>
+          }
+          onLabel="True"
+          offLabel="False"
+          checked={checked}
+          onChange={(e) => setChecked(e.target.checked)}
+        />
+      );
+    }}
   </Story>
 </Canvas>
 
@@ -50,16 +56,21 @@ import { ToggleInput } from '@strapi/design-system/ToggleInput';
 
 <Canvas>
   <Story name="error">
-    <ToggleInput
-      hint="Enable provider"
-      error="this field is required"
-      label="Label"
-      name="enable-provider"
-      onLabel="True"
-      offLabel="False"
-      checked={false}
-      onChange={() => {}}
-    />
+    {() => {
+      const [checked, setChecked] = useState(false);
+      return (
+        <ToggleInput
+          hint="Enable provider"
+          error="this field is required"
+          label="Label"
+          name="enable-provider"
+          onLabel="True"
+          offLabel="False"
+          checked={checked}
+          onChange={(e) => setChecked(e.target.checked)}
+        />
+      );
+    }}
   </Story>
 </Canvas>
 
@@ -67,17 +78,21 @@ import { ToggleInput } from '@strapi/design-system/ToggleInput';
 
 <Canvas>
   <Story name="size S">
-    <ToggleInput
-      size="S"
-      hint="Enable provider"
-      error="this field is required"
-      label="Label"
-      name="enable-provider"
-      onLabel="True"
-      offLabel="False"
-      checked={false}
-      onChange={() => {}}
-    />
+    {() => {
+      const [checked, setChecked] = useState(false);
+      return (
+        <ToggleInput
+          size="S"
+          hint="Enable provider"
+          label="Label"
+          name="enable-provider"
+          onLabel="True"
+          offLabel="False"
+          checked={checked}
+          onChange={(e) => setChecked(e.target.checked)}
+        />
+      );
+    }}
   </Story>
 </Canvas>
 
@@ -85,15 +100,69 @@ import { ToggleInput } from '@strapi/design-system/ToggleInput';
 
 <Canvas>
   <Story name="null-value">
-    <ToggleInput
-      hint="Enable provider"
-      label="Label"
-      name="enable-provider"
-      onLabel="True"
-      offLabel="False"
-      checked={null}
-      onChange={() => {}}
-    />
+    {() => {
+      const [checked, setChecked] = useState(null);
+      return (
+        <ToggleInput
+          hint="Enable provider"
+          label="Label"
+          name="enable-provider"
+          onLabel="True"
+          offLabel="False"
+          checked={checked}
+          onChange={(e) => setChecked(e.target.checked)}
+          clearLabel="clear"
+          onClear={() => setChecked(null)}
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Clear value
+
+<Canvas>
+  <Story name="clear-value">
+    {() => {
+      const [checked, setChecked] = useState(true);
+      return (
+        <ToggleInput
+          hint="Enable provider"
+          label="Label"
+          name="enable-provider"
+          onLabel="True"
+          offLabel="False"
+          checked={checked}
+          onChange={(e) => setChecked(e.target.checked)}
+          clearLabel="clear"
+          onClear={() => setChecked(null)}
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Disabled
+
+<Canvas>
+  <Story name="disabled">
+    {() => {
+      const [checked, setChecked] = useState(true);
+      return (
+        <ToggleInput
+          disabled
+          hint="Enable provider"
+          label="Label"
+          name="enable-provider"
+          onLabel="True"
+          offLabel="False"
+          checked={checked}
+          onChange={(e) => setChecked(e.target.checked)}
+          clearLabel="clear"
+          onClear={() => setChecked(null)}
+        />
+      );
+    }}
   </Story>
 </Canvas>
 

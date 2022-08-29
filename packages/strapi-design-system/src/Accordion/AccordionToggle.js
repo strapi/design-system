@@ -14,6 +14,11 @@ import { getBackground } from './utils';
 const ToggleButton = styled(TextButton)`
   text-align: left;
 
+  // necessary to make the ellipsis prop work on the title
+  > span {
+    max-width: 100%;
+  }
+
   svg {
     width: ${14 / 16}rem;
     height: ${14 / 16}rem;
@@ -25,7 +30,7 @@ const ToggleButton = styled(TextButton)`
 `;
 
 const FlexWithSize = styled(Flex)`
-  height: ${({ theme, size }) => theme.sizes.accordions[size]};
+  min-height: ${({ theme, size }) => theme.sizes.accordions[size]};
   border-radius: ${({ theme, expanded }) =>
     expanded ? `${theme.borderRadius} ${theme.borderRadius} 0 0` : theme.borderRadius};
 
@@ -48,9 +53,18 @@ export const AccordionToggle = ({ title, description, as, togglePosition, action
   const ariaDescriptionId = `accordion-desc-${id}`;
 
   // Style overrides
-  const boxPadding = size === 'M' ? 6 : 4;
+  const boxPaddingX = size === 'M' ? 6 : 4;
+  const boxPaddingY = size === 'M' ? boxPaddingX : boxPaddingX - 2;
   const boxBackground = getBackground({ expanded, disabled, variant });
   const titleColor = expanded ? 'primary600' : 'neutral700';
+  const titleProps = {
+    as,
+    fontWeight: size === 'S' ? 'bold' : undefined,
+    id: ariaLabelId,
+    textColor: titleColor,
+    ellipsis: true,
+    variant: size === 'M' ? 'delta' : undefined,
+  };
   const descriptionColor = expanded ? 'primary600' : 'neutral600';
   const iconColor = expanded ? 'primary200' : 'neutral200';
   const iconSize = size === 'M' ? `${32 / 16}rem` : `${24 / 16}rem`;
@@ -82,6 +96,7 @@ export const AccordionToggle = ({ title, description, as, togglePosition, action
       background={iconColor}
       cursor={disabled ? 'not-allowed' : 'pointer'}
       onClick={() => toggleButtonRef?.current?.click()}
+      shrink={0}
     >
       <Icon
         as={DropdownIcon}
@@ -91,103 +106,54 @@ export const AccordionToggle = ({ title, description, as, togglePosition, action
     </Flex>
   );
 
-  if (togglePosition === 'left') {
-    return (
-      <FlexWithSize
-        paddingLeft={boxPadding}
-        paddingRight={boxPadding}
-        background={boxBackground}
-        expanded={expanded}
-        justifyContent="space-between"
-        size={size}
-        cursor={disabled ? 'not-allowed' : ''}
-      >
-        <Stack horizontal spacing={3} flex={1}>
-          {dropdownIcon}
-
-          <ToggleButton
-            ref={toggleButtonRef}
-            onClick={handleToggle}
-            aria-disabled={disabled}
-            aria-expanded={expanded}
-            aria-controls={ariaControls}
-            aria-labelledby={ariaLabelId}
-            data-strapi-accordion-toggle={true}
-            expanded={expanded}
-            type="button"
-            flex={1}
-            {...props}
-          >
-            <>
-              {size === 'S' ? (
-                <Typography fontWeight="bold" as={as} id={ariaLabelId} textColor={titleColor}>
-                  {title}
-                </Typography>
-              ) : (
-                <AccordionTypography variant="delta" as={as} id={ariaLabelId} textColor={titleColor}>
-                  {title}
-                </AccordionTypography>
-              )}
-
-              {description && (
-                <Typography as="p" id={ariaDescriptionId} textColor={descriptionColor}>
-                  {description}
-                </Typography>
-              )}
-            </>
-          </ToggleButton>
-        </Stack>
-
-        {action}
-      </FlexWithSize>
-    );
-  }
-
   return (
     <FlexWithSize
-      paddingRight={boxPadding}
-      paddingLeft={boxPadding}
+      paddingBottom={boxPaddingY}
+      paddingLeft={boxPaddingX}
+      paddingRight={boxPaddingX}
+      paddingTop={boxPaddingY}
       background={boxBackground}
       expanded={expanded}
       size={size}
       justifyContent="space-between"
       cursor={disabled ? 'not-allowed' : ''}
     >
-      <ToggleButton
-        ref={toggleButtonRef}
-        onClick={handleToggle}
-        aria-disabled={disabled}
-        aria-expanded={expanded}
-        aria-controls={ariaControls}
-        aria-labelledby={ariaLabelId}
-        data-strapi-accordion-toggle={true}
-        expanded={expanded}
-        type="button"
-        flex={1}
-        {...props}
-      >
-        <>
-          {size === 'S' ? (
-            <Typography fontWeight="bold" as={as} id={ariaLabelId} textColor={titleColor}>
-              {title}
-            </Typography>
-          ) : (
-            <Typography variant="delta" as={as} id={ariaLabelId} textColor={titleColor}>
-              {title}
-            </Typography>
-          )}
+      <Stack horizontal spacing={3} flex={1} maxWidth="100%">
+        {togglePosition === 'left' && dropdownIcon}
 
-          {description && (
-            <Typography as="p" id={ariaDescriptionId} textColor={descriptionColor}>
-              {description}
-            </Typography>
-          )}
-        </>
-      </ToggleButton>
+        <ToggleButton
+          ref={toggleButtonRef}
+          onClick={handleToggle}
+          aria-disabled={disabled}
+          aria-expanded={expanded}
+          aria-controls={ariaControls}
+          aria-labelledby={ariaLabelId}
+          data-strapi-accordion-toggle={true}
+          expanded={expanded}
+          type="button"
+          flex={1}
+          minWidth={0}
+          {...props}
+        >
+          <>
+            <AccordionTypography {...titleProps}>{title}</AccordionTypography>
 
-      <Stack horizontal spacing={3}>
-        {dropdownIcon}
-        {action}
+            {description && (
+              <Typography as="p" id={ariaDescriptionId} textColor={descriptionColor}>
+                {description}
+              </Typography>
+            )}
+          </>
+        </ToggleButton>
+
+        {togglePosition === 'right' && (
+          <Stack horizontal spacing={3}>
+            {dropdownIcon}
+            {action}
+          </Stack>
+        )}
+
+        {togglePosition === 'left' && action}
       </Stack>
     </FlexWithSize>
   );

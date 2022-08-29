@@ -90,6 +90,7 @@ const PopoverContent = ({ source, children, spacing, fullWidth, onReachEnd, inte
   useResizeObserver([source, popoverRef], () =>
     setPosition(position(source.current, popoverRef.current, fullWidth, centered, spacing)),
   );
+
   useIntersection(popoverRef, onReachEnd, {
     selectorToWatch: `#${intersectionId}`,
     skipWhen: !intersectionId || !onReachEnd,
@@ -105,7 +106,7 @@ const PopoverContent = ({ source, children, spacing, fullWidth, onReachEnd, inte
     <PopoverWrapper style={style} hasRadius background="neutral0" padding={1}>
       <PopoverScrollable ref={popoverRef} {...props}>
         {children}
-        {intersectionId && onReachEnd && <div id={intersectionId} />}
+        {intersectionId && onReachEnd && <Box id={intersectionId} width="100%" height="1px" />}
       </PopoverScrollable>
     </PopoverWrapper>
   );
@@ -147,7 +148,9 @@ const popoverProps = {
   /**
    * A React ref. Used to defined the position of the popover.
    */
-  source: PropTypes.shape({ current: PropTypes.instanceOf(Element) }).isRequired,
+  source: PropTypes.shape({
+    current: (typeof Element === 'undefined' ? PropTypes.any : PropTypes.instanceOf(Element)).isRequired,
+  }).isRequired,
   spacing: PropTypes.number,
 };
 

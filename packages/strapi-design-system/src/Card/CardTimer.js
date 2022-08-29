@@ -19,5 +19,5 @@ export const CardTimer = ({ children, ...props }) => (
 );
 
 CardTimer.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
 };

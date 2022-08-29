@@ -28,12 +28,15 @@ export const TreeActions = {
 };
 
 // filter an array of options against an input string
-// returns an array of options that begin with the filter string, case-independent
+// returns an array of options that contains the filter string, case-independent
 export function filterOptions(options = [], filter, exclude = []) {
-  return filter
+  const equalizedTerm = String(filter ?? '').toLowerCase();
+
+  return equalizedTerm
     ? options.filter((option) => {
-        const optionChildren = option.props.children.toString();
-        const matches = optionChildren.toLowerCase().indexOf(filter.toString().toLowerCase()) === 0;
+        const equalizedOptionChildren = option.props.children.toString().toLowerCase();
+        const matches = equalizedOptionChildren.includes(equalizedTerm);
+
         return matches && exclude.indexOf(option) < 0;
       })
     : options;
