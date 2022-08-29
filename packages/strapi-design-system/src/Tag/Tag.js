@@ -14,6 +14,11 @@ const TagIconWrapper = styled(Box)`
   svg path {
     fill: ${({ theme, ...p }) => (p['aria-disabled'] ? theme.colors.neutral600 : theme.colors.primary600)};
   }
+
+  &:hover svg path,
+  &:focus svg path {
+    fill: ${({ theme, ...p }) => (p['aria-disabled'] ? theme.colors.neutral600 : theme.colors.primary500)};
+  }
 `;
 
 const TagText = styled(Typography)`
@@ -22,7 +27,7 @@ const TagText = styled(Typography)`
   padding-right: ${({ theme }) => theme.spaces[2]};
 `;
 
-export const Tag = ({ children, icon, disabled, onClick, ...props }) => {
+export const Tag = ({ children, icon, disabled, onClick, actionLabel, ...props }) => {
   const handleClick = (e) => {
     if (disabled) return;
     if (onClick) onClick(e);
@@ -49,6 +54,7 @@ export const Tag = ({ children, icon, disabled, onClick, ...props }) => {
         <TagIconWrapper
           as="button"
           aria-disabled={disabled}
+          aria-label={actionLabel}
           paddingLeft={2}
           paddingRight={3}
           height="100%"
@@ -72,6 +78,7 @@ Tag.defaultProps = {
 };
 
 Tag.propTypes = {
+  actionLabel: PropTypes.string,
   children: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
   icon: PropTypes.element.isRequired,
