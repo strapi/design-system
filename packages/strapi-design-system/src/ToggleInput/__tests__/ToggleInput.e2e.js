@@ -94,6 +94,16 @@ test.describe.parallel('ToggleInput', () => {
         await page.click('label');
         expect(await page.isChecked('#toggleinput-1')).toBeTruthy();
       });
+
+      test('clear value is not present, if the field is disabled', async ({ page }) => {
+        await page.goto(
+          '/iframe.html?id=design-system-components-toggleinput--disabled&args=&viewMode=story&theme=dark',
+        );
+        await injectAxe(page);
+        await checkA11y(page);
+
+        expect(await page.$$('text=clear')).toHaveLength(0);
+      });
     });
   });
 });
