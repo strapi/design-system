@@ -394,7 +394,7 @@ Combobox.propTypes = {
   disabled: PropTypes.bool,
   error: PropTypes.string,
   hasMoreItems: PropTypes.bool,
-  hint: PropTypes.string,
+  hint: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
   label: PropTypes.string,
   loading: PropTypes.bool,
   loadingMessage: PropTypes.string,
