@@ -5271,6 +5271,7 @@ exports[`Storyshots Design System/Components/Button icons 1`] = `
 .c14 {
   -webkit-animation: gzYjWD 2s infinite linear;
   animation: gzYjWD 2s infinite linear;
+  will-change: transform;
 }
 
 .c9 {
@@ -26355,6 +26356,7 @@ exports[`Storyshots Design System/Components/Loader base 1`] = `
 .c3 {
   -webkit-animation: gzYjWD 1s infinite linear;
   animation: gzYjWD 1s infinite linear;
+  will-change: transform;
 }
 
 <div
@@ -26418,6 +26420,7 @@ exports[`Storyshots Design System/Components/Loader small 1`] = `
 .c3 {
   -webkit-animation: gzYjWD 1s infinite linear;
   animation: gzYjWD 1s infinite linear;
+  will-change: transform;
   width: 24px;
   height: 24px;
 }
@@ -43526,6 +43529,7 @@ exports[`Storyshots Design System/Components/TextButton loading 1`] = `
 .c6 {
   -webkit-animation: gzYjWD 2s infinite linear;
   animation: gzYjWD 2s infinite linear;
+  will-change: transform;
 }
 
 .c4 {

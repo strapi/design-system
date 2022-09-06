@@ -15,6 +15,7 @@ const rotation = keyframes`
 
 const LoaderImg = styled.img`
   animation: ${rotation} 1s infinite linear;
+  will-change: transform;
   ${({ small, theme }) => small && `width: ${theme.spaces[6]}; height: ${theme.spaces[6]};`}
 `;
 
