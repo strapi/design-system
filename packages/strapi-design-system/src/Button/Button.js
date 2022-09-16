@@ -20,6 +20,7 @@ const rotation = keyframes`
 
 const LoadingWrapper = styled.div`
   animation: ${rotation} 2s infinite linear;
+  will-change: transform;
 `;
 
 const BoxFullHeight = styled(Box)`
