@@ -3,7 +3,7 @@
 import { useRef, useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { ArgsTable } from '@storybook/addon-docs';
-import { Popover } from './Popover';
+import * as Popover from './Popover';
 import { Box } from '../Box';
 import { Typography } from '../Typography';
 
@@ -28,27 +28,25 @@ The popover can be centered relatively to their triggering element.
 <Canvas>
   <Story name="centered">
     {() => {
-      const [visible, setVisible] = useState(false);
-      const buttonRef = useRef();
       return (
-        <div style={{ marginLeft: '200px' }}>
-          <button ref={buttonRef} onClick={() => setVisible((s) => !s)}>
-            <Typography>Open popover</Typography>
-          </button>
-          {visible && (
-            <Popover centered source={buttonRef} spacing={16}>
+        <Popover.Root>
+          <div style={{ marginLeft: '200px' }}>
+            <Popover.Trigger asChild={false}>
+              <Typography>Open popover</Typography>
+            </Popover.Trigger>
+            <Popover.Content>
               <ul style={{ width: '200px' }}>
                 {Array(15)
                   .fill(null)
                   .map((_, index) => (
                     <Box color="neutral800" key={index} padding={3} as="li">
-                      Element {index}
+                      Elements {index}
                     </Box>
                   ))}
               </ul>
-            </Popover>
-          )}
-        </div>
+            </Popover.Content>
+          </div>
+        </Popover.Root>
       );
     }}
   </Story>
@@ -57,29 +55,27 @@ The popover can be centered relatively to their triggering element.
 ## Open by default
 
 <Canvas>
-  <Story name="base">
+  <Story name="default opened">
     {() => {
-      const [visible, setVisible] = useState(false);
-      const buttonRef = useRef();
       return (
-        <Box padding={10}>
-          <button ref={buttonRef} onClick={() => setVisible((s) => !s)}>
-            <Typography>Open popover</Typography>
-          </button>
-          {visible && (
-            <Popover source={buttonRef} spacing={16}>
+        <Popover.Root defaultOpen>
+          <div style={{ marginLeft: '200px' }}>
+            <Popover.Trigger asChild={false}>
+              <Typography>Open popover</Typography>
+            </Popover.Trigger>
+            <Popover.Content>
               <ul style={{ width: '200px' }}>
                 {Array(15)
                   .fill(null)
                   .map((_, index) => (
                     <Box color="neutral800" key={index} padding={3} as="li">
-                      Element {index}
+                      Elements {index}
                     </Box>
                   ))}
               </ul>
-            </Popover>
-          )}
-        </Box>
+            </Popover.Content>
+          </div>
+        </Popover.Root>
       );
     }}
   </Story>
@@ -92,22 +88,14 @@ You can define an action to be performed when the end of the popover is reached.
 <Canvas>
   <Story name="onReachEnd">
     {() => {
-      const [visible, setVisible] = useState(false);
       const [items, setItems] = useState(Array(10).fill(null));
-      const buttonRef = useRef();
       return (
-        <Box padding={10}>
-          <button id="popover1" ref={buttonRef} onClick={() => setVisible((s) => !s)}>
-            <Typography>Open popover</Typography>
-          </button>
-          {visible && (
-            <Popover
-              source={buttonRef}
-              spacing={16}
-              id="on-reach-end"
-              intersectionId="test-123"
-              onReachEnd={() => setItems(Array(15).fill(null))}
-            >
+        <Popover.Root>
+          <Box padding={10}>
+            <Popover.Trigger asChild={false}>
+              <Typography>Open popover</Typography>
+            </Popover.Trigger>
+            <Popover.Content spacing={16} intersectionId="test-123" onReachEnd={() => setItems(Array(15).fill(null))}>
               <ul style={{ width: '200px' }} id="list" tabIndex={-1}>
                 {items.map((_, index) => (
                   <Box color="neutral800" key={index} padding={3} as="li" id={`item-${index}`}>
@@ -115,9 +103,9 @@ You can define an action to be performed when the end of the popover is reached.
                   </Box>
                 ))}
               </ul>
-            </Popover>
-          )}
-        </Box>
+            </Popover.Content>
+          </Box>
+        </Popover.Root>
       );
     }}
   </Story>
@@ -130,29 +118,27 @@ The popover will overflow over other elements.
 <Canvas>
   <Story name="overflow-right">
     {() => {
-      const [visible, setVisible] = useState(false);
-      const buttonRef = useRef();
       return (
         <div style={{ height: '20vh' }}>
           <div style={{ position: 'absolute', bottom: 40, right: 20 }}>
-            <div>
-              <button ref={buttonRef} onClick={() => setVisible((s) => !s)}>
-                <Typography>Open popover</Typography>
-              </button>
-              {visible && (
-                <Popover centered source={buttonRef} spacing={16}>
+            <Popover.Root>
+              <div style={{ marginLeft: '200px' }}>
+                <Popover.Trigger asChild={false}>
+                  <Typography>Open popover</Typography>
+                </Popover.Trigger>
+                <Popover.Content>
                   <ul style={{ width: '200px' }}>
                     {Array(15)
                       .fill(null)
                       .map((_, index) => (
                         <Box color="neutral800" key={index} padding={3} as="li">
-                          Element {index}
+                          Elements {index}
                         </Box>
                       ))}
                   </ul>
-                </Popover>
-              )}
-            </div>
+                </Popover.Content>
+              </div>
+            </Popover.Root>
           </div>
         </div>
       );

@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 export const useIntersection = (scrollableAreaRef, callback, { selectorToWatch, skipWhen = false }) => {
   useEffect(() => {
-    if (skipWhen) return;
+    if (skipWhen || !scrollableAreaRef.current) return;
 
     const options = {
       root: scrollableAreaRef.current,
@@ -11,7 +11,7 @@ export const useIntersection = (scrollableAreaRef, callback, { selectorToWatch, 
 
     const onEnterZone = (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && scrollableAreaRef.current) {
           if (scrollableAreaRef.current.scrollHeight > scrollableAreaRef.current.clientHeight) {
             callback(entry);
           }
