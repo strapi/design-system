@@ -75,7 +75,7 @@ const PopoverContent = ({ source, children, spacing, fullWidth, onReachEnd, inte
         left: x,
         top: y,
         position: strategy,
-        width,
+        width: width ? width : undefined,
       }}
       hasRadius
       background="neutral0"
