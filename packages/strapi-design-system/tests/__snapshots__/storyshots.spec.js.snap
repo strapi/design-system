@@ -31193,7 +31193,67 @@ exports[`Storyshots Design System/Components/Pagination base 1`] = `
 </div>
 `;
 
-exports[`Storyshots Design System/Components/Popover base 1`] = `
+exports[`Storyshots Design System/Components/Popover centered 1`] = `
+.c1 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.c0 {
+  background: #ffffff;
+  padding: 8px;
+}
+
+.c2 {
+  padding: 8px;
+  height: 100%;
+}
+
+.c3 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
+<div
+  class="c0"
+>
+  <main>
+    <div
+      class="c1"
+    >
+      <h1>
+        Storybook story
+      </h1>
+    </div>
+    <div
+      class="c2"
+      height="100%"
+    >
+      <div
+        style="margin-left: 200px;"
+      >
+        <button>
+          <span
+            class="c3"
+          >
+            Open popover
+          </span>
+        </button>
+      </div>
+    </div>
+  </main>
+</div>
+`;
+
+exports[`Storyshots Design System/Components/Popover full width 1`] = `
 .c1 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
@@ -31247,66 +31307,6 @@ exports[`Storyshots Design System/Components/Popover base 1`] = `
         <button>
           <span
             class="c4"
-          >
-            Open popover
-          </span>
-        </button>
-      </div>
-    </div>
-  </main>
-</div>
-`;
-
-exports[`Storyshots Design System/Components/Popover centered 1`] = `
-.c1 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-
-.c0 {
-  background: #ffffff;
-  padding: 8px;
-}
-
-.c2 {
-  padding: 8px;
-  height: 100%;
-}
-
-.c3 {
-  color: #32324d;
-  font-size: 0.875rem;
-  line-height: 1.43;
-}
-
-<div
-  class="c0"
->
-  <main>
-    <div
-      class="c1"
-    >
-      <h1>
-        Storybook story
-      </h1>
-    </div>
-    <div
-      class="c2"
-      height="100%"
-    >
-      <div
-        style="margin-left: 200px;"
-      >
-        <button>
-          <span
-            class="c3"
           >
             Open popover
           </span>

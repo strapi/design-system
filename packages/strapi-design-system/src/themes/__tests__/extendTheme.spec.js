@@ -100,7 +100,7 @@ describe('extendTheme', () => {
     });
 
     expect(lightTheme.spaces).toMatchInlineSnapshot(`
-      [
+      Array [
         "0px",
         "4px",
         "8px",
