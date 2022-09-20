@@ -159,7 +159,6 @@ describe('Select', () => {
 
       .c16 {
         box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
-        position: absolute;
         z-index: 4;
         border: 1px solid #eaeaef;
         background: #ffffff;
@@ -393,7 +392,7 @@ describe('Select', () => {
         >
           <div
             class="c15 c16"
-            style="left: 0px; top: 4px;"
+            style="position: fixed; left: 0px; top: 4px;"
           >
             <div
               class="c17"
@@ -622,7 +621,6 @@ describe('Select', () => {
 
       .c16 {
         box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
-        position: absolute;
         z-index: 4;
         border: 1px solid #eaeaef;
         background: #ffffff;
@@ -883,7 +881,7 @@ describe('Select', () => {
         >
           <div
             class="c15 c16"
-            style="left: 0px; top: 4px;"
+            style="position: fixed; left: 0px; top: 4px;"
           >
             <div
               class="c17"
