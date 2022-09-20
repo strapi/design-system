@@ -46371,6 +46371,46 @@ exports[`Storyshots Design System/Components/Theme light colors 1`] = `
                 spacing="2"
               >
                 <div
+                  style="padding: 12px; background: rgb(255, 255, 255);"
+                >
+                  <p
+                    style="color: black;"
+                  >
+                    buttonNeutral0
+                  </p>
+                </div>
+                <div
+                  style="padding: 12px; background: rgb(123, 121, 255);"
+                >
+                  <p
+                    style="color: black;"
+                  >
+                    buttonPrimary500
+                  </p>
+                </div>
+                <div
+                  style="padding: 12px; background: rgb(73, 69, 255);"
+                >
+                  <p
+                    style="color: white;"
+                  >
+                    buttonPrimary600
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="c4"
+          >
+            <div
+              class="c5"
+            >
+              <div
+                class="c6 c7"
+                spacing="2"
+              >
+                <div
                   style="padding: 12px; background: rgb(252, 236, 234);"
                 >
                   <p
