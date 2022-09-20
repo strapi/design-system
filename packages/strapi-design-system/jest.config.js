@@ -1,4 +1,6 @@
+/** @type {import('@jest/types/build/Config').DefaultOptions} */
 module.exports = {
+  testEnvironment: 'jsdom',
   testRegex: ['src/.*\\.spec\\.(jsx|js)$', 'tests/.*\\.spec.js$'],
   setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect', './test-bundler.js'],
   moduleNameMapper: {
