@@ -50,7 +50,7 @@ export const NumberInput = React.forwardRef(
     const [inputValue, setInputValue] = useState(value === undefined || value === null ? INITIAL_VALUE : String(value));
     const generatedId = useId('numberinput', id);
     const numberParserRef = useRef(new NumberParser(getDefaultLocale()));
-    const numberFormaterRef = useRef(new NumberFormatter(getDefaultLocale(), { maximumSignificantDigits: 21 }));
+    const numberFormaterRef = useRef(new NumberFormatter(getDefaultLocale(), { maximumFractionDigits: 20 }));
 
     const handleChange = (e) => {
       const nextValue = e.target.value;
@@ -143,9 +143,7 @@ export const NumberInput = React.forwardRef(
     };
 
     const handleFocus = () => {
-      if (value !== undefined) {
-        setInputValue(String(numberParserRef.current.format(inputValue) ?? INITIAL_VALUE));
-      }
+      setInputValue(inputValue ?? INITIAL_VALUE);
     };
 
     const handleBlur = () => {
