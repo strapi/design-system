@@ -283,6 +283,20 @@ test.describe.parallel.only('RawTable', () => {
 
           await expect(page.locator('[aria-rowindex="2"] > [aria-colindex="5"]')).toBeFocused();
         });
+
+        test('trying to access a cell with no focussable children should do nothing', async ({ page }) => {
+          await page.keyboard.press('Tab');
+
+          await expect(page.locator('[aria-rowindex="1"] > [aria-colindex="1"]')).toBeFocused();
+
+          await page.keyboard.press('Enter');
+
+          await expect(page.locator('[aria-rowindex="1"] > [aria-colindex="1"]')).toBeFocused();
+
+          await page.keyboard.press('ArrowRight');
+
+          await expect(page.locator('[aria-rowindex="1"] > [aria-colindex="2"]')).toBeFocused();
+        });
       });
     });
   });
