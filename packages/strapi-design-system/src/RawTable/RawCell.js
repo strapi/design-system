@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Box } from '../Box';
 import { getFocusableNodes, getFocusableNodesWithKeyboardNav } from '../helpers/getFocusableNodes';
-import { KeyboardKeys } from '../helpers/KeyboardKeys';
+import { KeyboardKeys } from '../helpers/keyboardKeys';
 
 import { useTable } from './RawTableContext';
 
