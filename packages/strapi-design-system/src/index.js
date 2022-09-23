@@ -15,6 +15,7 @@ export * from './Checkbox';
 export * from './Combobox';
 export * from './Dialog';
 export * from './DatePicker';
+export * from './DateTimePicker';
 export * from './Divider';
 export * from './EmptyStateLayout';
 export * from './Field';
