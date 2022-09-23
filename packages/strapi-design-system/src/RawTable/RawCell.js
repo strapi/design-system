@@ -64,29 +64,23 @@ export const RawTd = ({ coords, as, ...props }) => {
       focusableNodes.length > 1
     ) {
       tdRef.current.setAttribute('tabIndex', !isActive && isFocused ? 0 : -1);
+
+      focusableNodes.forEach((node, index) => {
+        node.setAttribute('tabIndex', isActive ? 0 : -1);
+        /**
+         * When a cell is active we want to focus the
+         * first focusable element simulating a focus trap
+         */
+        if (isActive && index === 0) {
+          node.focus();
+        }
+      });
     } else {
       focusableNodes.forEach((node) => {
         node.setAttribute('tabIndex', isFocused ? 0 : -1);
       });
     }
   }, [isActive, isFocused]);
-
-  /**
-   * Handles focus of the element within the rendered cell
-   */
-  useLayoutEffect(() => {
-    const focusableNodes = getFocusableNodes(tdRef.current, true);
-    focusableNodes.forEach((node, index) => {
-      node.setAttribute('tabIndex', isActive ? 0 : -1);
-      /**
-       * When a cell is active we want to focus the
-       * first focusable element simulating a focus trap
-       */
-      if (isActive && index === 0) {
-        node.focus();
-      }
-    });
-  }, [isActive]);
 
   /**
    * This handles the case where you click on a focusable
