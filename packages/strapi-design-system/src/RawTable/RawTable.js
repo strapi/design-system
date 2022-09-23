@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { RawTableContext } from './RawTableContext';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
@@ -12,6 +12,11 @@ export const RawTable = ({ colCount, rowCount, jumpStep, initialCol, initialRow,
    */
   const [rowIndex, setRowIndex] = useState(initialRow);
   const [colIndex, setColIndex] = useState(initialCol);
+
+  const setTableValues = useCallback(({ colIndex, rowIndex }) => {
+    setColIndex(colIndex);
+    setRowIndex(rowIndex);
+  }, []);
 
   useEffect(() => {
     if (mountedRef.current) {
@@ -97,7 +102,7 @@ export const RawTable = ({ colCount, rowCount, jumpStep, initialCol, initialRow,
   };
 
   return (
-    <RawTableContext.Provider value={{ rowIndex, colIndex }}>
+    <RawTableContext.Provider value={{ rowIndex, colIndex, setTableValues }}>
       <table ref={tableRef} aria-rowcount={rowCount} aria-colcount={colCount} onKeyDown={handleKeyDown} {...props} />
     </RawTableContext.Provider>
   );

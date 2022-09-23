@@ -10,7 +10,7 @@ export const RawTh = (props) => <RawTd {...props} as="th" />;
 
 export const RawTd = ({ coords, as, ...props }) => {
   const tdRef = useRef(null);
-  const { rowIndex, colIndex } = useTable();
+  const { rowIndex, colIndex, setTableValues } = useTable();
   const [isActive, setIsActive] = useState(false);
 
   /** @type {import("react").KeyboardEventHandler<HTMLTableCellElement> } */
@@ -53,6 +53,29 @@ export const RawTd = ({ coords, as, ...props }) => {
       }
     });
   }, [isActive]);
+
+  useLayoutEffect(() => {
+    const handleFocusableNodeFocus = () => {
+      setIsActive(true);
+      /**
+       * This function is wrapped in `useCallback` so we can safely
+       * assume that the reference will not change
+       */
+      setTableValues({ rowIndex: coords.row - 1, colIndex: coords.col - 1 });
+    };
+
+    const focusableNodes = getFocusableNodes(tdRef.current, true);
+    focusableNodes.forEach((node) => {
+      node.addEventListener('focus', handleFocusableNodeFocus);
+    });
+
+    return () => {
+      const focusableNodes = getFocusableNodes(tdRef.current, true);
+      focusableNodes.forEach((node) => {
+        node.removeEventListener('focus', handleFocusableNodeFocus);
+      });
+    };
+  }, []);
 
   return <Box as={as ? as : 'td'} ref={tdRef} onKeyDown={handleKeyDown} {...props} />;
 };
