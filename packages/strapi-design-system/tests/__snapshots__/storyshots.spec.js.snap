@@ -22696,7 +22696,7 @@ exports[`Storyshots Design System/Components/Layout base 1`] = `
                               <input
                                 aria-label="Select all entries"
                                 class="c75"
-                                tabindex="-1"
+                                tabindex="0"
                                 type="checkbox"
                               />
                               <span
@@ -38657,7 +38657,7 @@ exports[`Storyshots Design System/Components/Table base 1`] = `
                         <input
                           aria-label="Select all entries"
                           class="c14"
-                          tabindex="-1"
+                          tabindex="0"
                           type="checkbox"
                         />
                         <span
@@ -39905,7 +39905,7 @@ exports[`Storyshots Design System/Components/Table base without footer 1`] = `
                         <input
                           aria-label="Select all entries"
                           class="c14"
-                          tabindex="-1"
+                          tabindex="0"
                           type="checkbox"
                         />
                         <span
@@ -41178,7 +41178,7 @@ exports[`Storyshots Design System/Components/Table with th actions 1`] = `
                         <input
                           aria-label="Select all entries"
                           class="c14"
-                          tabindex="-1"
+                          tabindex="0"
                           type="checkbox"
                         />
                         <span
