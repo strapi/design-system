@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Box } from '../Box';
 import { getFocusableNodes, getFocusableNodesWithKeyboardNav } from '../helpers/getFocusableNodes';
+import { KeyboardKeys } from '../helpers/KeyboardKeys';
 
 import { useTable } from './RawTableContext';
 
@@ -28,12 +29,12 @@ export const RawTd = ({ coords, as, ...props }) => {
       return;
     }
 
-    if (e.key === 'Enter' && !isActive) {
+    if (e.key === KeyboardKeys.ENTER && !isActive) {
       setIsActive(true);
       /**
        * Cells should be "escapeable" with the escape key or enter key
        */
-    } else if ((e.key === 'Escape' || e.key === 'Enter') && isActive) {
+    } else if ((e.key === KeyboardKeys.ESCAPE || e.key === KeyboardKeys.ENTER) && isActive) {
       setIsActive(false);
       tdRef.current.focus();
     } else if (isActive) {
