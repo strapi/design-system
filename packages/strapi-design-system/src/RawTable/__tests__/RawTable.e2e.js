@@ -2,7 +2,7 @@ const { injectAxe, checkA11y } = require('axe-playwright');
 
 const { test, expect } = require('@playwright/test');
 
-test.describe.parallel.only('RawTable', () => {
+test.describe.parallel('RawTable', () => {
   test.describe('light mode', () => {
     test.describe('Default story', () => {
       test.beforeEach(async ({ page }) => {
