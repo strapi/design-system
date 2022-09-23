@@ -2,7 +2,7 @@ import React, { useLayoutEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { Box } from '../Box';
-import { getFocusableNodes } from '../helpers/getFocusableNodes';
+import { getFocusableNodes, getFocusableNodesWithKeyboardNav } from '../helpers/getFocusableNodes';
 
 import { useTable } from './RawTableContext';
 
@@ -15,6 +15,19 @@ export const RawTd = ({ coords, as, ...props }) => {
 
   /** @type {import("react").KeyboardEventHandler<HTMLTableCellElement> } */
   const handleKeyDown = (e) => {
+    const focusableNodes = getFocusableNodes(tdRef.current, true);
+
+    /**
+     * If the cell does not have focusable children or if it has focusable children
+     * without keyboard navigation, we should not run the handler.
+     */
+    if (
+      focusableNodes.length === 0 ||
+      (focusableNodes.length === 1 && getFocusableNodesWithKeyboardNav(focusableNodes).length === 0)
+    ) {
+      return;
+    }
+
     if (e.key === 'Enter' && !isActive) {
       setIsActive(true);
       /**
@@ -22,9 +35,6 @@ export const RawTd = ({ coords, as, ...props }) => {
        */
     } else if ((e.key === 'Escape' || e.key === 'Enter') && isActive) {
       setIsActive(false);
-      /**
-       * Refocus the cell
-       */
       tdRef.current.focus();
     } else if (isActive) {
       /**
@@ -36,10 +46,33 @@ export const RawTd = ({ coords, as, ...props }) => {
 
   const isFocused = rowIndex === coords.row - 1 && colIndex === coords.col - 1;
 
+  /**
+   * Handles tabindex of the rendered cell element
+   */
   useLayoutEffect(() => {
-    tdRef.current.setAttribute('tabIndex', !isActive && isFocused ? 0 : -1);
+    const focusableNodes = getFocusableNodes(tdRef.current, true);
+
+    /**
+     * We should focus the cell if there are no focussable children inside
+     * If there is only one focusable child and it has it's own keyboard navigation
+     * Or if there is more than one focusable child.
+     */
+    if (
+      focusableNodes.length === 0 ||
+      (focusableNodes.length === 1 && getFocusableNodesWithKeyboardNav(focusableNodes).length !== 0) ||
+      focusableNodes.length > 1
+    ) {
+      tdRef.current.setAttribute('tabIndex', !isActive && isFocused ? 0 : -1);
+    } else {
+      focusableNodes.forEach((node) => {
+        node.setAttribute('tabIndex', isFocused ? 0 : -1);
+      });
+    }
   }, [isActive, isFocused]);
 
+  /**
+   * Handles focus of the element within the rendered cell
+   */
   useLayoutEffect(() => {
     const focusableNodes = getFocusableNodes(tdRef.current, true);
     focusableNodes.forEach((node, index) => {
@@ -54,9 +87,21 @@ export const RawTd = ({ coords, as, ...props }) => {
     });
   }, [isActive]);
 
+  /**
+   * This handles the case where you click on a focusable
+   * node that has it's own keyboard nav (e.g. Input)
+   */
   useLayoutEffect(() => {
+    const focusableNodes = getFocusableNodes(tdRef.current, true);
+
     const handleFocusableNodeFocus = () => {
-      setIsActive(true);
+      /**
+       * If there's 1 or more focusable children and at least one has keyboard navigation
+       * the cell should be using the "active" system
+       */
+      if (focusableNodes.length >= 1 && getFocusableNodesWithKeyboardNav(focusableNodes).length !== 0) {
+        setIsActive(true);
+      }
       /**
        * This function is wrapped in `useCallback` so we can safely
        * assume that the reference will not change
@@ -64,7 +109,6 @@ export const RawTd = ({ coords, as, ...props }) => {
       setTableValues({ rowIndex: coords.row - 1, colIndex: coords.col - 1 });
     };
 
-    const focusableNodes = getFocusableNodes(tdRef.current, true);
     focusableNodes.forEach((node) => {
       node.addEventListener('focus', handleFocusableNodeFocus);
     });
