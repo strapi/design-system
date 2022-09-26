@@ -81,6 +81,18 @@ Breadcrumbs with Crumb are visual information only and cannot be navigated. They
   </Story>
 </Canvas>
 
+## Single link
+
+<Canvas>
+  <Story name="single-link">
+    <Stack horizontal spacing={3}>
+      <Breadcrumbs label="Category model">
+        <Crumb>Category</Crumb>
+      </Breadcrumbs>
+    </Stack>
+  </Story>
+</Canvas>
+
 ### Usage with other routing libraries
 
 To use the Link component with a routing library (e.g. react-router-dom), you'll need to pass the `NavLink` component to the `as` prop in order to replace the default HTML anchor `<a />`.

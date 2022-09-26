@@ -51981,6 +51981,131 @@ exports[`Storyshots Design System/Components/v2/Breadcrumbs base 1`] = `
 </div>
 `;
 
+exports[`Storyshots Design System/Components/v2/Breadcrumbs single-link 1`] = `
+.c1 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.c0 {
+  background: #ffffff;
+  padding: 8px;
+}
+
+.c2 {
+  padding: 8px;
+  height: 100%;
+}
+
+.c7 {
+  padding-top: 4px;
+  padding-right: 8px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+}
+
+.c8 {
+  color: #32324d;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c3 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.c6 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.c4 > * {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.c4 > * + * {
+  margin-left: 12px;
+}
+
+.c5:first-child {
+  margin-left: calc(-1*8px);
+}
+
+<div
+  class="c0"
+>
+  <main>
+    <div
+      class="c1"
+    >
+      <h1>
+        Storybook story
+      </h1>
+    </div>
+    <div
+      class="c2"
+      height="100%"
+    >
+      <div
+        class="c3 c4"
+        spacing="3"
+      >
+        <div
+          aria-label="Category model"
+          class=""
+        >
+          <ol
+            class="c3 c5"
+          >
+            <li
+              class="c6"
+            >
+              <div
+                class="c7"
+              >
+                <span
+                  aria-current="false"
+                  class="c8"
+                >
+                  Category
+                </span>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+`;
+
 exports[`Storyshots Design System/Components/v2/Breadcrumbs with-menu 1`] = `
 .c2 {
   border: 0;
