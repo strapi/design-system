@@ -21,12 +21,12 @@ export const Breadcrumbs = ({ label, children, ...props }) => {
     <Box aria-label={label} {...props}>
       <AlignedList as="ol" horizontal>
         {Children.map(children, (child, index) => {
-          const isLast = index + 1 === children.length;
+          const shouldDisplayDivider = children.length > 1 && index + 1 < children.length;
 
           return (
             <Flex inline as="li">
               {child}
-              {!isLast && <Divider />}
+              {shouldDisplayDivider && <Divider />}
             </Flex>
           );
         })}

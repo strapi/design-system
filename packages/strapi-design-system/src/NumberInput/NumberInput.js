@@ -36,6 +36,7 @@ export const NumberInput = React.forwardRef(
       error,
       label,
       labelAction,
+      locale: defaultLocale,
       id,
       onValueChange,
       value,
@@ -49,7 +50,8 @@ export const NumberInput = React.forwardRef(
     // inputValue should ALWAYS be a string. value should ALWAYS stay a number
     const [inputValue, setInputValue] = useState(value === undefined || value === null ? INITIAL_VALUE : String(value));
     const generatedId = useId('numberinput', id);
-    const numberParserRef = useRef(new NumberParser(getDefaultLocale()));
+    const locale = defaultLocale || getDefaultLocale();
+    const numberParserRef = useRef(new NumberParser(locale));
     const numberFormaterRef = useRef(new NumberFormatter(getDefaultLocale(), { maximumFractionDigits: 20 }));
 
     const handleChange = (e) => {
@@ -240,6 +242,7 @@ NumberInput.propTypes = {
   id: PropTypes.string,
   label: PropTypes.string,
   labelAction: PropTypes.element,
+  locale: PropTypes.string,
   name: PropTypes.string.isRequired,
   onValueChange: PropTypes.func.isRequired,
   required: PropTypes.bool,
