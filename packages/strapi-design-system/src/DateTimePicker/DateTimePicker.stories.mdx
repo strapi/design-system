@@ -52,6 +52,7 @@ import { DateTimePicker } from '@strapi/design-system/DateTimePicker';
         <DateTimePicker
           onClear={() => setValue(undefined)}
           value={value}
+          name="datetimepicker"
           onChange={e => setValue(e)}
           label="Date time picker"
           hint="This is a super description"
@@ -69,6 +70,7 @@ import { DateTimePicker } from '@strapi/design-system/DateTimePicker';
       hint="This is a super description"
       error="Very very very very very very very long error"
       label="Error"
+      name="datetimepicker"
     />
   </Story>
 </Canvas>
@@ -78,6 +80,9 @@ import { DateTimePicker } from '@strapi/design-system/DateTimePicker';
 <Canvas>
   <Story name="intial data">
     <DateTimePicker
+      onClear={() => setValue(undefined)}
+      onChange={e => setValue(e)}
+      name="datetimepicker"
       label="Date time picker"
       hint="This is a super description"
       value="2021-10-13T10:00:00.000Z"
