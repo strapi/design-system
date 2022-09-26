@@ -25,7 +25,7 @@ describe('DateTimePicker', () => {
     render(
       <ThemeProvider theme={lightTheme}>
         <DateTimePicker
-          value={new Date('2021-10-13T13:43:00.000Z')}
+          value={new Date('2021-10-13T15:45:00.000Z')}
           step={15}
           onChange={() => {}}
           name="datetimepicker"
@@ -77,7 +77,7 @@ describe('DateTimePicker', () => {
     const { rerender } = render(
       <ThemeProvider theme={lightTheme}>
         <DateTimePicker
-          value={new Date('2021-10-13T13:43:00.000Z')}
+          value={new Date('2021-10-13T15:43:00.000Z')}
           step={15}
           onChange={() => {}}
           name="datetimepicker"

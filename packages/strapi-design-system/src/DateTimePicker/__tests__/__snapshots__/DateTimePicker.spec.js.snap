@@ -411,7 +411,7 @@ exports[`DateTimePicker snapshots the component 1`] = `
                     class="c18"
                     id="timepicker-3-content"
                   >
-                    12:00
+                    10:00
                   </span>
                 </div>
               </div>

@@ -12,4 +12,5 @@ module.exports = {
     '^.+\\.[tj]sx?$': 'babel-jest',
     '^.+\\.mdx?$': '@storybook/addon-docs/jest-transform-mdx',
   },
+  globalSetup: '<rootDir>/global-setup.js',
 };
