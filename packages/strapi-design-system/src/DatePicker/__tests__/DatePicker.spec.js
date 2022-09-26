@@ -15,7 +15,7 @@ describe('DatePicker', () => {
             label="date"
             locale={locale}
             selectedDateLabel={(formattedDate) => `Date picker, current is ${formattedDate}`}
-            selectedDate={new Date('Tue Sep 06 2022 00:00:00 GMT+0100 (British Summer Time)')}
+            selectedDate={new Date('Tue Sep 06 2022')}
           />
         </ThemeProvider>,
       );
