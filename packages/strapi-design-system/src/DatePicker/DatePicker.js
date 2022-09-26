@@ -1,4 +1,4 @@
-import React, { useRef, useState, useMemo } from 'react';
+import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import CalendarIcon from '@strapi/icons/Calendar';
 import Cross from '@strapi/icons/Cross';
@@ -28,7 +28,7 @@ export const DatePicker = ({
   const [visible, setVisible] = useState(false);
   const inputRef = useRef(null);
   const datePickerButtonRef = useRef(null);
-  const locale = useMemo(() => defaultLocale || getDefaultLocale(), [locale]);
+  const locale = defaultLocale || getDefaultLocale();
   const formattedDate = selectedDate ? formatDate(selectedDate, locale) : '';
 
   const toggleVisibility = () => {
