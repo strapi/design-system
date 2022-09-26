@@ -27,6 +27,30 @@ export const RawTd = ({ coords, as, ...props }) => {
       (focusableNodes.length === 1 && getFocusableNodesWithKeyboardNav(focusableNodes).length === 0)
     ) {
       return;
+      /**
+       * This allows cells that **only** have buttons in them to still be
+       * navigable with the keyboard arrow keys (left / right) as if they were grid cells.
+       *
+       * If there are nextNodes (next child node) then we stop the table's keyboard navigation
+       * handlers from happening.
+       */
+    } else if (focusableNodes.length > 1 && !Boolean(focusableNodes.find((node) => node.tagName !== 'BUTTON'))) {
+      e.preventDefault();
+      const focussedButtonIndex = focusableNodes.findIndex((node) => node === document.activeElement);
+      if (e.key === KeyboardKeys.RIGHT) {
+        const nextNode = focusableNodes[focussedButtonIndex + 1];
+        if (nextNode) {
+          e.stopPropagation();
+          nextNode.focus();
+        }
+      } else if (e.key === KeyboardKeys.LEFT) {
+        const nextNode = focusableNodes[focussedButtonIndex - 1];
+        if (nextNode) {
+          e.stopPropagation();
+          nextNode.focus();
+        }
+      }
+      return;
     }
 
     if (e.key === KeyboardKeys.ENTER && !isActive) {
@@ -56,12 +80,13 @@ export const RawTd = ({ coords, as, ...props }) => {
     /**
      * We should focus the cell if there are no focussable children inside
      * If there is only one focusable child and it has it's own keyboard navigation
-     * Or if there is more than one focusable child.
+     * Or if there is more than one focusable child unless those children
+     * are exclusively buttons.
      */
     if (
       focusableNodes.length === 0 ||
       (focusableNodes.length === 1 && getFocusableNodesWithKeyboardNav(focusableNodes).length !== 0) ||
-      focusableNodes.length > 1
+      (focusableNodes.length > 1 && Boolean(focusableNodes.find((node) => node.tagName !== 'BUTTON')))
     ) {
       tdRef.current.setAttribute('tabIndex', !isActive && isFocused ? 0 : -1);
 
@@ -92,9 +117,13 @@ export const RawTd = ({ coords, as, ...props }) => {
     const handleFocusableNodeFocus = () => {
       /**
        * If there's 1 or more focusable children and at least one has keyboard navigation
-       * the cell should be using the "active" system
+       * or the children are exclusively button elements the cell should be using the "active" system
        */
-      if (focusableNodes.length >= 1 && getFocusableNodesWithKeyboardNav(focusableNodes).length !== 0) {
+      if (
+        focusableNodes.length >= 1 &&
+        (getFocusableNodesWithKeyboardNav(focusableNodes).length !== 0 ||
+          !Boolean(focusableNodes.find((node) => node.tagName !== 'BUTTON')))
+      ) {
         setIsActive(true);
       }
       /**
@@ -125,6 +154,7 @@ RawTh.defaultProps = {
 
 RawTh.propTypes = {
   ['aria-colindex']: PropTypes.number.isRequired,
+  children: PropTypes.node,
   /**
    * Position of the cell in the table
    */
@@ -141,6 +171,7 @@ RawTd.defaultProps = {
 RawTd.propTypes = {
   ['aria-colindex']: PropTypes.number.isRequired,
   as: PropTypes.oneOf(['td', 'th']),
+  children: PropTypes.node,
   /**
    * Position of the cell in the table
    */

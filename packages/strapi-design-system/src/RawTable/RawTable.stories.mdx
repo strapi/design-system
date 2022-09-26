@@ -2,16 +2,20 @@
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { ArgsTable } from '@storybook/addon-docs';
+import Pencil from '@strapi/icons/Pencil';
+import Trash from '@strapi/icons/Trash';
 
 import { TextInput } from '../TextInput';
+import { Box } from '../Box';
+import { Flex } from '../Flex';
+import { IconButton } from '../IconButton';
+import { Link } from '../Link';
 
 import { RawTable } from './RawTable';
 import { RawTh, RawTd } from './RawCell';
 import { RawTr } from './RawTr';
 import { RawThead } from './RawThead';
 import { RawTbody } from './RawTbody';
-import { Box } from '../Box';
-import { Link } from '../Link';
 
 <Meta title="Design System/Technical Components/RawTable" component={RawTable} />
 
@@ -197,15 +201,29 @@ import { RawTable, RawTh, RawTd, RawTr, RawThead, RawTbody } from '@strapi/desig
               {rows.map((row, rowIndex) => (
                 <RawTr key={`row-${rowIndex}`}>
                   {row.map((cell, cellIndex) =>
-                    cellIndex !== 3 ? (
+                    cellIndex === 3 ? (
+                      <RawTd>
+                        <TextInput label="name" />
+                      </RawTd>
+                    ) : cellIndex === row.length - 1 ? (
+                      <RawTd>
+                        <Flex>
+                          <IconButton onClick={() => console.log('edit')} label="Edit" noBorder icon={<Pencil />} />
+                          <Box paddingLeft={1}>
+                            <IconButton
+                              onClick={() => console.log('delete')}
+                              label="Delete"
+                              noBorder
+                              icon={<Trash />}
+                            />
+                          </Box>
+                        </Flex>
+                      </RawTd>
+                    ) : (
                       <RawTd key={`cell-${rowIndex}-${cell}`}>
                         <Box color="neutral800" padding={2}>
                           {rowIndex}/{cell}
                         </Box>
-                      </RawTd>
-                    ) : (
-                      <RawTd>
-                        <TextInput label="name" />
                       </RawTd>
                     ),
                   )}

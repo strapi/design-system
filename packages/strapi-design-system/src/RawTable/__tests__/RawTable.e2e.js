@@ -297,6 +297,38 @@ test.describe.parallel('RawTable', () => {
 
           await expect(page.locator('[aria-rowindex="1"] > [aria-colindex="2"]')).toBeFocused();
         });
+
+        test.only('mutliple buttons should not require their cell to be activated', async ({ page }) => {
+          await page.keyboard.press('Tab');
+
+          await expect(page.locator('[aria-rowindex="1"] > [aria-colindex="1"]')).toBeFocused();
+
+          await page.keyboard.press('ArrowDown');
+          await page.keyboard.press('ArrowRight');
+          await page.keyboard.press('ArrowRight');
+          await page.keyboard.press('ArrowRight');
+          await page.keyboard.press('ArrowRight');
+
+          await expect(page.locator('[aria-rowindex="2"] > [aria-colindex="5"] button').nth(0)).toBeFocused();
+
+          await page.keyboard.press('ArrowRight');
+
+          await expect(page.locator('[aria-rowindex="2"] > [aria-colindex="5"] button').nth(1)).toBeFocused();
+
+          await page.keyboard.press('ArrowDown');
+
+          await expect(page.locator('[aria-rowindex="3"] > [aria-colindex="5"] button').nth(0)).toBeFocused();
+
+          await page.keyboard.press('ArrowLeft');
+
+          await expect(page.locator('[aria-rowindex="3"] > [aria-colindex="4"]')).toBeFocused();
+
+          await page.keyboard.press('ArrowRight');
+          await page.keyboard.press('ArrowUp');
+          await page.keyboard.press('ArrowUp');
+
+          await expect(page.locator('[aria-rowindex="1"] > [aria-colindex="5"]')).toBeFocused();
+        });
       });
     });
   });
