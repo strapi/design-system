@@ -58,6 +58,6 @@ Checkbox.propTypes = {
   children: PropTypes.node.isRequired,
   disabled: PropTypes.bool,
   error: PropTypes.string,
-  hint: PropTypes.string,
+  hint: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };

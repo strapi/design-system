@@ -20,25 +20,27 @@ import { KeyboardKeys } from '../helpers/keyboardKeys';
 import { VisuallyHidden } from '../VisuallyHidden';
 
 export const Combobox = ({
+  children: nodes,
   clearLabel,
+  creatable,
   createMessage,
   disabled,
-  hint,
   error,
+  hasMoreItems,
+  hint,
   label,
-  value,
-  onChange,
-  placeholder,
-  creatable,
+  labelAction,
   loading,
   loadingMessage,
+  noOptionsMessage,
+  onChange,
+  onClear,
   onCreateOption,
   onInputChange,
   onLoadMore,
-  noOptionsMessage,
-  hasMoreItems,
-  children: nodes,
-  onClear,
+  placeholder,
+  required,
+  value,
   ...props
 }) => {
   const getInputValueFromNodes = () =>
@@ -250,7 +252,11 @@ export const Combobox = ({
         {value}
       </VisuallyHidden>
       <Stack spacing={label || hint || error ? 1 : 0}>
-        {label && <FieldLabel id={labelId}>{label}</FieldLabel>}
+        {label && (
+          <FieldLabel action={labelAction} required={required} id={labelId}>
+            {label}
+          </FieldLabel>
+        )}
         <MainRow ref={containerRef} $disabled={disabled} hasError={error}>
           <InputContainer wrap="wrap">
             {!inputValue && value && (
@@ -394,8 +400,9 @@ Combobox.propTypes = {
   disabled: PropTypes.bool,
   error: PropTypes.string,
   hasMoreItems: PropTypes.bool,
-  hint: PropTypes.string,
+  hint: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
   label: PropTypes.string,
+  labelAction: PropTypes.element,
   loading: PropTypes.bool,
   loadingMessage: PropTypes.string,
   noOptionsMessage: PropTypes.func,

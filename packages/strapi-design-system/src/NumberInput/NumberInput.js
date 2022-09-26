@@ -1,4 +1,4 @@
-import React, { useState, useRef, useMemo } from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import CarretDown from '@strapi/icons/CarretDown';
 import styled from 'styled-components';
@@ -50,9 +50,9 @@ export const NumberInput = React.forwardRef(
     // inputValue should ALWAYS be a string. value should ALWAYS stay a number
     const [inputValue, setInputValue] = useState(value === undefined || value === null ? INITIAL_VALUE : String(value));
     const generatedId = useId('numberinput', id);
-    const locale = useMemo(() => defaultLocale || getDefaultLocale(), [defaultLocale]);
+    const locale = defaultLocale || getDefaultLocale();
     const numberParserRef = useRef(new NumberParser(locale));
-    const numberFormaterRef = useRef(new NumberFormatter(locale, { maximumSignificantDigits: 21 }));
+    const numberFormaterRef = useRef(new NumberFormatter(getDefaultLocale(), { maximumFractionDigits: 20 }));
 
     const handleChange = (e) => {
       const nextValue = e.target.value;
@@ -145,9 +145,7 @@ export const NumberInput = React.forwardRef(
     };
 
     const handleFocus = () => {
-      if (value !== undefined) {
-        setInputValue(String(numberParserRef.current.format(inputValue) ?? INITIAL_VALUE));
-      }
+      setInputValue(inputValue ?? INITIAL_VALUE);
     };
 
     const handleBlur = () => {
@@ -240,7 +238,7 @@ NumberInput.propTypes = {
   'aria-label': PropTypes.string,
   disabled: PropTypes.bool,
   error: PropTypes.string,
-  hint: PropTypes.string,
+  hint: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
   id: PropTypes.string,
   label: PropTypes.string,
   labelAction: PropTypes.element,
