@@ -4,29 +4,30 @@ import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { ArgsTable } from '@storybook/addon-docs';
 import { DateTimePicker } from './DateTimePicker';
-import { Typography } from '../Typography';
 
-<Meta 
-  title="Design System/Components/DateTimePicker" 
+<Meta
+  title="Design System/Components/DateTimePicker"
   component={DateTimePicker}
   argTypes={{
     label: {
-      control: { 
-        type: 'text'
-      }
+      control: {
+        type: 'text',
+      },
     },
     value: {
       control: {
-        type: 'date'
-      }
-    }
+        type: 'date',
+      },
+    },
   }}
 />
 
 # DateTimePicker
+
 Date Time pickers help users selecting a specific date from a calendar and a specific timeslot from a suggested timetable.
 
 **Best practices**
+
 - When you select a date automatically is selected also a time and viceversa
 - When you clear a date automatically is deleted also the time and viceversa
 
@@ -53,7 +54,7 @@ import { DateTimePicker } from '@strapi/design-system/DateTimePicker';
           onClear={() => setValue(undefined)}
           value={value}
           name="datetimepicker"
-          onChange={e => setValue(e)}
+          onChange={(e) => setValue(e)}
           label="Date time picker"
           hint="This is a super description"
         />
@@ -81,7 +82,7 @@ import { DateTimePicker } from '@strapi/design-system/DateTimePicker';
   <Story name="intial data">
     <DateTimePicker
       onClear={() => setValue(undefined)}
-      onChange={e => setValue(e)}
+      onChange={(e) => setValue(e)}
       name="datetimepicker"
       label="Date time picker"
       hint="This is a super description"

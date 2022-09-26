@@ -164,13 +164,7 @@ import {
                 <SubNavSection label="Global Settings">
                   <SubNavLinkSection label="Sub section">
                     {links.map((link) => (
-                      <SubNavLink
-                        to={link.to}
-                        active={link.active}
-                        icon={link.icon}
-                        isSubSectionChild
-                        key={link.id}
-                      >
+                      <SubNavLink to={link.to} active={link.active} icon={link.icon} isSubSectionChild key={link.id}>
                         {link.label}
                       </SubNavLink>
                     ))}
