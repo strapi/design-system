@@ -142,6 +142,31 @@ By passing in `minDate` or `maxDate` it is possible to define the range of years
   </Story>
 </Canvas>
 
+## Locales
+
+<Canvas>
+  <Story name="locales">
+    {() => {
+      const [date, setDate] = useState();
+      return (
+        <DatePicker
+          onChange={setDate}
+          selectedDate={date}
+          label="Date picker"
+          name="datepicker"
+          clearLabel={'Clear the datepicker'}
+          onClear={() => setDate(undefined)}
+          placeholder="03/01/1970"
+          locale="de"
+          selectedDateLabel={(formattedDate) => `Date picker, current is ${formattedDate}`}
+          minDate={new Date(2000, 1, 1)}
+          maxDate={new Date(2040, 1, 1)}
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
 ## Props
 
 <ArgsTable of={DatePicker} />
