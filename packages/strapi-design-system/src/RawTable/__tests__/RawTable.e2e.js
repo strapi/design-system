@@ -218,7 +218,7 @@ test.describe.parallel('RawTable', () => {
 
           await page.keyboard.press('ArrowRight');
 
-          await expect(page.locator('[aria-rowindex="2"] > [aria-colindex="5"]')).toBeFocused();
+          await expect(page.locator('[aria-rowindex="2"] > [aria-colindex="5"] button').nth(0)).toBeFocused();
         });
 
         test('should ignore the inputs inside the table when tabbing through the page', async ({ page }) => {
@@ -279,9 +279,9 @@ test.describe.parallel('RawTable', () => {
 
           await expect(page.locator('[aria-rowindex="2"] > [aria-colindex="4"]')).toBeFocused();
 
-          await page.keyboard.press('ArrowRight');
+          await page.keyboard.press('ArrowLeft');
 
-          await expect(page.locator('[aria-rowindex="2"] > [aria-colindex="5"]')).toBeFocused();
+          await expect(page.locator('[aria-rowindex="2"] > [aria-colindex="3"]')).toBeFocused();
         });
 
         test('trying to access a cell with no focussable children should do nothing', async ({ page }) => {
