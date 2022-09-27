@@ -298,7 +298,7 @@ test.describe.parallel('RawTable', () => {
           await expect(page.locator('[aria-rowindex="1"] > [aria-colindex="2"]')).toBeFocused();
         });
 
-        test.only('mutliple buttons should not require their cell to be activated', async ({ page }) => {
+        test('mutliple buttons should not require their cell to be activated', async ({ page }) => {
           await page.keyboard.press('Tab');
 
           await expect(page.locator('[aria-rowindex="1"] > [aria-colindex="1"]')).toBeFocused();
