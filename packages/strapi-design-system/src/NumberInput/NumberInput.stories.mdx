@@ -81,7 +81,7 @@ NumberInputs can be used without a label.
 <Canvas>
   <Story name="withoutLabel">
     {() => {
-      const [content, setContent] = useState();
+      const [content, setContent] = useState(0);
       return (
         <Box padding={10}>
           <NumberInput
@@ -283,6 +283,31 @@ NumberInputs are always found in forms. They give users the possibility to add o
           <button>
             <Typography>Escape</Typography>
           </button>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## With locale
+
+<Canvas>
+  <Story name="locale">
+    {() => {
+      const [content, setContent] = useState();
+      return (
+        <Box padding={10}>
+          <NumberInput
+            placeholder="This is a content placeholder"
+            label="Content"
+            name="content"
+            locale="de"
+            onValueChange={(value) => setContent(value)}
+            value={content}
+          />
+          <Box as="p" padding={4} background="neutral100">
+            <Typography>{`The value is ${content}`}</Typography>
+          </Box>
         </Box>
       );
     }}

@@ -8,6 +8,7 @@ import { DatePickerButton, DatePickerWrapper, IconBox } from './components';
 import { DatePickerCalendar } from './DatePickerCalendar';
 import { formatDate } from './utils/formatDate';
 import { useId } from '../helpers/useId';
+import { getDefaultLocale } from '../helpers/getDefaultLocale';
 
 export const DatePicker = ({
   ariaLabel,
@@ -15,6 +16,7 @@ export const DatePicker = ({
   selectedDate,
   onChange,
   label,
+  locale: defaultLocale,
   selectedDateLabel,
   onClear,
   clearLabel,
@@ -26,7 +28,8 @@ export const DatePicker = ({
   const [visible, setVisible] = useState(false);
   const inputRef = useRef(null);
   const datePickerButtonRef = useRef(null);
-  const formattedDate = selectedDate ? formatDate(selectedDate) : '';
+  const locale = defaultLocale || getDefaultLocale();
+  const formattedDate = selectedDate ? formatDate(selectedDate, locale) : '';
 
   const toggleVisibility = () => {
     if (disabled) return;
@@ -117,6 +120,7 @@ DatePicker.propTypes = {
   id: PropTypes.string,
   initialDate: PropTypes.instanceOf(Date),
   label: PropTypes.string,
+  locale: PropTypes.string,
   maxDate: PropTypes.instanceOf(Date),
   minDate: PropTypes.instanceOf(Date),
   onChange: PropTypes.func.isRequired,
