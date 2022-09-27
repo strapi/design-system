@@ -70,7 +70,7 @@ import { DateTimePicker } from '@strapi/design-system/DateTimePicker';
 <Canvas>
   <Story name="error">
     {() => {
-      const [value, setValue] = useState(undefined);
+      const [, setValue] = useState(undefined);
       return (
         <DateTimePicker
           hint="This is a super description"
@@ -91,7 +91,7 @@ import { DateTimePicker } from '@strapi/design-system/DateTimePicker';
 <Canvas>
   <Story name="initial data">
     {() => {
-      const [value, setValue] = useState(undefined);
+      const [value, setValue] = useState(new Date('2021-10-13T10:00:00.000Z'));
       return (
         <DateTimePicker
           label="Date time picker"
@@ -99,7 +99,7 @@ import { DateTimePicker } from '@strapi/design-system/DateTimePicker';
           onChange={(e) => setValue(e)}
           clearLabel="Clear"
           onClear={() => setValue(undefined)}
-          value={new Date("2021-10-13T10:00:00.000Z")}
+          value={value}
           hint="This is a super description"
           selectedDateLabel={() => `Date picker, current is undefined`}
         />
