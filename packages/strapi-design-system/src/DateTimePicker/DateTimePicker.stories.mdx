@@ -48,15 +48,17 @@ import { DateTimePicker } from '@strapi/design-system/DateTimePicker';
 <Canvas>
   <Story name="base">
     {() => {
-      const [value, setValue] = useState();
+      const [value, setValue] = useState(undefined);
       return (
         <DateTimePicker
-          onClear={() => setValue(undefined)}
-          value={value}
+          label="Date time picker"
           name="datetimepicker"
           onChange={(e) => setValue(e)}
-          label="Date time picker"
+          clearLabel="Clear"
+          onClear={() => setValue(undefined)}
+          value={value}
           hint="This is a super description"
+          selectedDateLabel={() => `Date picker, current is undefined`}
         />
       );
     }}
@@ -67,27 +69,42 @@ import { DateTimePicker } from '@strapi/design-system/DateTimePicker';
 
 <Canvas>
   <Story name="error">
-    <DateTimePicker
-      hint="This is a super description"
-      error="Very very very very very very very long error"
-      label="Error"
-      name="datetimepicker"
-    />
+    {() => {
+      const [value, setValue] = useState(undefined);
+      return (
+        <DateTimePicker
+          hint="This is a super description"
+          error="Very very very very very very very long error"
+          label="Error"
+          name="datetimepicker"
+          onChange={(e) => setValue(e)}
+          clearLabel="Clear"
+          onClear={() => setValue(undefined)}
+        />
+      );
+    }}
   </Story>
 </Canvas>
 
 ## Initial data
 
 <Canvas>
-  <Story name="intial data">
-    <DateTimePicker
-      onClear={() => setValue(undefined)}
-      onChange={(e) => setValue(e)}
-      name="datetimepicker"
-      label="Date time picker"
-      hint="This is a super description"
-      value="2021-10-13T10:00:00.000Z"
-    />
+  <Story name="initial data">
+    {() => {
+      const [value, setValue] = useState(undefined);
+      return (
+        <DateTimePicker
+          label="Date time picker"
+          name="datetimepicker"
+          onChange={(e) => setValue(e)}
+          clearLabel="Clear"
+          onClear={() => setValue(undefined)}
+          value={new Date("2021-10-13T10:00:00.000Z")}
+          hint="This is a super description"
+          selectedDateLabel={() => `Date picker, current is undefined`}
+        />
+      );
+    }}
   </Story>
 </Canvas>
 

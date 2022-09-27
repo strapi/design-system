@@ -61,7 +61,7 @@ export const DatePicker = ({
           <DatePickerButton
             ref={datePickerButtonRef}
             onClick={toggleVisibility}
-            aria-label={selectedDate ? selectedDateLabel(formatDate(selectedDate)) : label}
+            aria-label={selectedDate ? selectedDateLabel(formatDate(selectedDate)) : label ? label : ariaLabel}
             type="button"
             aria-disabled={disabled}
           >

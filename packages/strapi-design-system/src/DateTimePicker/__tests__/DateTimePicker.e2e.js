@@ -20,7 +20,7 @@ test.describe.parallel('DateTimePicker', () => {
 
     test('initial data A11y', async ({ page }) => {
       // This is the URL of the Storybook Iframe
-      await page.goto('/iframe.html?id=design-system-components-datetimepicker--intial-data&viewMode=story');
+      await page.goto('/iframe.html?id=design-system-components-datetimepicker--initial-data&viewMode=story');
       await injectAxe(page);
       await checkA11y(page);
     });
@@ -43,7 +43,7 @@ test.describe.parallel('DateTimePicker', () => {
 
     test('initial data A11y', async ({ page }) => {
       // This is the URL of the Storybook Iframe
-      await page.goto('/iframe.html?id=design-system-components-datetimepicker--intial-data&viewMode=story');
+      await page.goto('/iframe.html?id=design-system-components-datetimepicker--initial-data&viewMode=story');
       await injectAxe(page);
       await checkA11y(page);
     });
