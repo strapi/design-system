@@ -17,11 +17,13 @@ const AlignedList = styled(Flex)`
 `;
 
 export const Breadcrumbs = ({ label, children, ...props }) => {
+  const childrenArray = Children.toArray(children);
+
   return (
     <Box aria-label={label} {...props}>
       <AlignedList as="ol" horizontal>
-        {Children.map(children, (child, index) => {
-          const shouldDisplayDivider = children.length > 1 && index + 1 < children.length;
+        {Children.map(childrenArray, (child, index) => {
+          const shouldDisplayDivider = childrenArray.length > 1 && index + 1 < childrenArray.length;
 
           return (
             <Flex inline as="li">
