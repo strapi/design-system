@@ -7,7 +7,7 @@ test.describe.parallel('Popover', () => {
     test.describe('base', () => {
       test.beforeEach(async ({ page }) => {
         // This is the URL of the Storybook Iframe
-        await page.goto('/iframe.html?id=design-system-components-popover--base&viewMode=story');
+        await page.goto('/iframe.html?id=design-system-components-popover--centered&viewMode=story');
         await injectAxe(page);
       });
 
@@ -40,7 +40,7 @@ test.describe.parallel('Popover', () => {
   test.describe('dark mode', () => {
     test('triggers axe on the document', async ({ page }) => {
       // This is the URL of the Storybook Iframe
-      await page.goto('/iframe.html?id=design-system-components-popover--base&viewMode=story&theme=dark');
+      await page.goto('/iframe.html?id=design-system-components-popover--centered&viewMode=story&theme=dark');
       await injectAxe(page);
       await checkA11y(page);
     });
