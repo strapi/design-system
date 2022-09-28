@@ -188,6 +188,149 @@ test.describe.parallel('RawTable', () => {
         });
       });
     });
+
+    test.describe('Aria story', () => {
+      test.beforeEach(async ({ page }) => {
+        // This is the URL of the Storybook Iframe
+        await page.goto('/iframe.html?id=design-system-technical-components-rawtable--aria&viewMode=story');
+        await injectAxe(page);
+      });
+
+      test('triggers axe on the document', async ({ page }) => {
+        await checkA11y(page);
+      });
+
+      test.describe('Keyboard Interaction with inputs in tables', () => {
+        test(`should focus the cell when there's an input within & skip over input when pressing an ArrowKey`, async ({
+          page,
+        }) => {
+          /**
+           * Navigate to Column 4 row 1
+           */
+          await page.keyboard.press('Tab');
+          await expect(page.locator('[aria-rowindex="1"] > [aria-colindex="1"]')).toBeFocused();
+          await page.keyboard.press('ArrowDown');
+          await page.keyboard.press('ArrowRight');
+          await page.keyboard.press('ArrowRight');
+          await page.keyboard.press('ArrowRight');
+
+          await expect(page.locator('[aria-rowindex="2"] > [aria-colindex="4"]')).toBeFocused();
+
+          await page.keyboard.press('ArrowRight');
+
+          await expect(page.locator('[aria-rowindex="2"] > [aria-colindex="5"] button').nth(0)).toBeFocused();
+        });
+
+        test('should ignore the inputs inside the table when tabbing through the page', async ({ page }) => {
+          await page.keyboard.press('Tab');
+          await expect(page.locator('[aria-rowindex="1"] > [aria-colindex="1"]')).toBeFocused();
+
+          await page.keyboard.press('Tab');
+          /**
+           * This is the first input element in the table
+           */
+          await expect(page.locator('[aria-rowindex="2"] > [aria-colindex="4"] input')).not.toBeFocused();
+        });
+
+        test('should access the cells input with Enter, allow arrow keys to be used and allow esaping the cell with Escape', async ({
+          page,
+        }) => {
+          /**
+           * Navigate to Column 4 row 1
+           */
+          await page.keyboard.press('Tab');
+
+          await expect(page.locator('[aria-rowindex="1"] > [aria-colindex="1"]')).toBeFocused();
+
+          await page.keyboard.press('ArrowDown');
+          await page.keyboard.press('ArrowRight');
+          await page.keyboard.press('ArrowRight');
+          await page.keyboard.press('ArrowRight');
+
+          await expect(page.locator('[aria-rowindex="2"] > [aria-colindex="4"]')).toBeFocused();
+
+          await page.keyboard.press('Enter');
+
+          await expect(page.locator('[aria-rowindex="2"] > [aria-colindex="4"] input')).toBeFocused();
+
+          await page.keyboard.insertText('Hello');
+
+          await expect(page.locator('[aria-rowindex="2"] > [aria-colindex="4"] input')).toHaveValue('Hello');
+
+          await page.keyboard.press('ArrowLeft');
+          await page.keyboard.press('ArrowLeft');
+          await page.keyboard.press('Backspace');
+
+          await expect(page.locator('[aria-rowindex="2"] > [aria-colindex="4"] input')).toHaveValue('Helo');
+
+          await page.keyboard.press('Escape');
+
+          await expect(page.locator('[aria-rowindex="2"] > [aria-colindex="4"]')).toBeFocused();
+        });
+
+        test('clicking on an input and then pressing Escape should focus the cell containing the input and then allow navigation from that cell', async ({
+          page,
+        }) => {
+          await page.locator('[aria-rowindex="2"] > [aria-colindex="4"] input').click();
+
+          await expect(page.locator('[aria-rowindex="2"] > [aria-colindex="4"] input')).toBeFocused();
+
+          await page.keyboard.press('Escape');
+
+          await expect(page.locator('[aria-rowindex="2"] > [aria-colindex="4"]')).toBeFocused();
+
+          await page.keyboard.press('ArrowLeft');
+
+          await expect(page.locator('[aria-rowindex="2"] > [aria-colindex="3"]')).toBeFocused();
+        });
+
+        test('trying to access a cell with no focussable children should do nothing', async ({ page }) => {
+          await page.keyboard.press('Tab');
+
+          await expect(page.locator('[aria-rowindex="1"] > [aria-colindex="1"]')).toBeFocused();
+
+          await page.keyboard.press('Enter');
+
+          await expect(page.locator('[aria-rowindex="1"] > [aria-colindex="1"]')).toBeFocused();
+
+          await page.keyboard.press('ArrowRight');
+
+          await expect(page.locator('[aria-rowindex="1"] > [aria-colindex="2"]')).toBeFocused();
+        });
+
+        test('mutliple buttons should not require their cell to be activated', async ({ page }) => {
+          await page.keyboard.press('Tab');
+
+          await expect(page.locator('[aria-rowindex="1"] > [aria-colindex="1"]')).toBeFocused();
+
+          await page.keyboard.press('ArrowDown');
+          await page.keyboard.press('ArrowRight');
+          await page.keyboard.press('ArrowRight');
+          await page.keyboard.press('ArrowRight');
+          await page.keyboard.press('ArrowRight');
+
+          await expect(page.locator('[aria-rowindex="2"] > [aria-colindex="5"] button').nth(0)).toBeFocused();
+
+          await page.keyboard.press('ArrowRight');
+
+          await expect(page.locator('[aria-rowindex="2"] > [aria-colindex="5"] button').nth(1)).toBeFocused();
+
+          await page.keyboard.press('ArrowDown');
+
+          await expect(page.locator('[aria-rowindex="3"] > [aria-colindex="5"] button').nth(0)).toBeFocused();
+
+          await page.keyboard.press('ArrowLeft');
+
+          await expect(page.locator('[aria-rowindex="3"] > [aria-colindex="4"]')).toBeFocused();
+
+          await page.keyboard.press('ArrowRight');
+          await page.keyboard.press('ArrowUp');
+          await page.keyboard.press('ArrowUp');
+
+          await expect(page.locator('[aria-rowindex="1"] > [aria-colindex="5"]')).toBeFocused();
+        });
+      });
+    });
   });
 
   test.describe('dark mode', () => {

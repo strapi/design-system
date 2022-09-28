@@ -2,9 +2,9 @@ import React, { cloneElement, Children } from 'react';
 import PropTypes from 'prop-types';
 import { Box } from '../Box';
 
-export const RawTr = ({ children, focusedColIndex, ...props }) => {
+export const RawTr = ({ children, ...props }) => {
   const childrenClone = Children.toArray(children).map((child, index) =>
-    cloneElement(child, { isFocusable: focusedColIndex === index, 'aria-colindex': index + 1 }),
+    cloneElement(child, { 'aria-colindex': index + 1, coords: { col: index + 1, row: props['aria-rowindex'] } }),
   );
 
   return (
@@ -14,11 +14,7 @@ export const RawTr = ({ children, focusedColIndex, ...props }) => {
   );
 };
 
-RawTr.defaultProps = {
-  focusedColIndex: undefined,
-};
-
 RawTr.propTypes = {
+  ['aria-rowindex']: PropTypes.number.isRequired,
   children: PropTypes.node.isRequired,
-  focusedColIndex: PropTypes.number,
 };

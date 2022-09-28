@@ -1,6 +1,10 @@
 /**
  * Sometimes, we want to retrieve the elements with tabindex=-1, and sometime we don't
  * The includeNegativeTabIndex aims to provide this capability
+ *
+ * @param {HTMLElement} node HTMLElement
+ * @param {boolean} includeNegativeTabIndex boolean
+ * @returns {HTMLElement[]} HTMLElement[]
  */
 export const getFocusableNodes = (node, includeNegativeTabIndex) => {
   const nodes = [
@@ -14,4 +18,18 @@ export const getFocusableNodes = (node, includeNegativeTabIndex) => {
   });
 
   return focusables;
+};
+
+/**
+ * This function filters an array of HTMLElements and returns any of them that have internal keyboard navigation such as input type="text"
+ * @param {HTMLElement[]} nodes HTMLElement[]
+ */
+export const getFocusableNodesWithKeyboardNav = (nodes) => {
+  return nodes.filter((node) => {
+    if (node.tagName === 'INPUT') {
+      return node.type !== 'checkbox' && node.type !== 'radio';
+    }
+
+    return false;
+  });
 };

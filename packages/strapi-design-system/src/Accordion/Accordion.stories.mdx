@@ -3,23 +3,26 @@
 import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { ArgsTable } from '@storybook/addon-docs';
-import { Accordion } from './Accordion';
-import { AccordionToggle } from './AccordionToggle';
-import { KeyboardNavigable } from '../KeyboardNavigable';
-import { AccordionContent } from './AccordionContent';
-import { AccordionGroup } from './AccordionGroup';
-import { Box } from '../Box';
-import { Flex } from '../Flex';
-import { Typography } from '../Typography';
-import { IconButton } from '../IconButton';
-import { TextButton } from '../TextButton';
-import { Stack } from '../Stack';
-import { Tooltip } from '../Tooltip';
 import Pencil from '@strapi/icons/Pencil';
 import Information from '@strapi/icons/Information';
 import Trash from '@strapi/icons/Trash';
 import User from '@strapi/icons/User';
 import Plus from '@strapi/icons/Plus';
+
+import { Accordion } from './Accordion';
+import { AccordionToggle } from './AccordionToggle';
+import { AccordionContent } from './AccordionContent';
+import { AccordionGroup } from './AccordionGroup';
+
+import { KeyboardNavigable } from '../KeyboardNavigable';
+import { Box } from '../Box';
+import { Flex } from '../Flex';
+import { Typography } from '../Typography';
+import { IconButton } from '../IconButton';
+import { TextButton } from '../TextButton';
+import { TextInput } from '../TextInput';
+import { Stack } from '../Stack';
+import { Tooltip } from '../Tooltip';
 
 <Meta title="Design System/Components/Accordion" component={Accordion} />
 
@@ -122,7 +125,10 @@ import { Accordion, AccordionToggle, AccordionContent, AccordionGroup } from '@s
 <Canvas>
   <Story name="accordion-group">
     {() => {
-      const [expanded, setExpanded] = useState(false);
+      const [expandedID, setExpandedID] = useState(null);
+      const handleToggle = (id) => () => {
+        setExpandedID((s) => (s === id ? null : id));
+      };
       return (
         <div>
           <Box padding={8} background="neutral0">
@@ -153,8 +159,8 @@ import { Accordion, AccordionToggle, AccordionContent, AccordionGroup } from '@s
             >
               <Accordion
                 error="The components contain error(s)"
-                expanded={expanded}
-                onToggle={() => setExpanded((s) => !s)}
+                expanded={expandedID === 'acc-1'}
+                onToggle={handleToggle('acc-1')}
                 id="acc-1"
                 size="S"
               >
@@ -171,14 +177,14 @@ import { Accordion, AccordionToggle, AccordionContent, AccordionGroup } from '@s
                 />
                 <AccordionContent>
                   <Box padding={3}>
-                    <Typography>My name is John Duff</Typography>
+                    <TextInput label="Name" />
                   </Box>
                 </AccordionContent>
               </Accordion>
               <Accordion
                 error="The component contain error(s)"
-                expanded={false}
-                onToggle={() => setExpanded((s) => !s)}
+                expanded={expandedID === 'acc-2'}
+                onToggle={handleToggle('acc-2')}
                 id="acc-2"
                 size="S"
               >
@@ -189,7 +195,7 @@ import { Accordion, AccordionToggle, AccordionContent, AccordionGroup } from '@s
                   </Box>
                 </AccordionContent>
               </Accordion>
-              <Accordion expanded={expanded} onToggle={() => setExpanded((s) => !s)} id="acc-3" size="S">
+              <Accordion expanded={expandedID === 'acc-3'} onToggle={handleToggle('acc-3')} id="acc-3" size="S">
                 <AccordionToggle title="User informations" togglePosition="left" />
                 <AccordionContent>
                   <Box padding={3}>
@@ -197,7 +203,7 @@ import { Accordion, AccordionToggle, AccordionContent, AccordionGroup } from '@s
                   </Box>
                 </AccordionContent>
               </Accordion>
-              <Accordion expanded={false} onToggle={() => setExpanded((s) => !s)} id="acc-2" size="S">
+              <Accordion expanded={expandedID === 'acc-4'} onToggle={handleToggle('acc-4')} id="acc-4" size="S">
                 <AccordionToggle
                   startIcon={<User aria-hidden={true} />}
                   title="User informations"
