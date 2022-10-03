@@ -7,7 +7,7 @@ import { Typography } from '../Typography';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { Button } from '../Button';
-import { Popover } from '../Popover';
+import { Popover, POPOVER_PLACEMENTS } from '../Popover';
 import { getOptionStyle } from './utils';
 import { useId } from '../helpers/useId';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
@@ -97,6 +97,7 @@ export const SimpleMenu = ({
   onOpen = () => {},
   onClose = () => {},
   size,
+  popoverPlacement,
   ...props
 }) => {
   const menuButtonRef = useRef();
@@ -211,7 +212,7 @@ export const SimpleMenu = ({
         {label}
       </Component>
       {visible && (
-        <Popover onBlur={handleBlur} source={menuButtonRef} spacing={4}>
+        <Popover onBlur={handleBlur} placement={popoverPlacement} source={menuButtonRef} spacing={4}>
           <Box role="menu" as="ul" padding={1} id={menuId}>
             {childrenClone}
           </Box>
@@ -228,6 +229,7 @@ SimpleMenu.defaultProps = {
 SimpleMenu.displayName = 'SimpleMenu';
 
 SimpleMenu.defaultProps = {
+  popoverPlacement: 'bottom-start',
   size: 'M',
 };
 
@@ -238,6 +240,7 @@ SimpleMenu.propTypes = {
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.element]).isRequired,
   onClose: PropTypes.func,
   onOpen: PropTypes.func,
+  popoverPlacement: PropTypes.oneOf(POPOVER_PLACEMENTS),
 
   /**
    * Size of the trigger button.

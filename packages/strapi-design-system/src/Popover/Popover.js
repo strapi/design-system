@@ -8,6 +8,21 @@ import { Portal } from '../Portal';
 
 import { useIntersection } from '../helpers/useIntersection';
 
+export const POPOVER_PLACEMENTS = [
+  'top',
+  'top-start',
+  'top-end',
+  'right',
+  'right-start',
+  'right-end',
+  'bottom',
+  'bottom-start',
+  'bottom-end',
+  'left',
+  'left-start',
+  'left-end',
+];
+
 const PopoverWrapper = styled(Box)`
   box-shadow: ${({ theme }) => theme.shadows.filterShadow};
   z-index: 4;
@@ -37,12 +52,22 @@ const PopoverScrollable = styled(Box)`
   }
 `;
 
-const PopoverContent = ({ source, children, spacing, fullWidth, onReachEnd, intersectionId, centered, ...props }) => {
+const PopoverContent = ({
+  source,
+  children,
+  spacing,
+  fullWidth,
+  placement,
+  onReachEnd,
+  intersectionId,
+  centered,
+  ...props
+}) => {
   const popoverRef = React.useRef(null);
   const [width, setWidth] = React.useState(undefined);
   const { x, y, reference, floating, strategy } = useFloating({
     strategy: 'fixed',
-    placement: centered ? 'bottom' : 'bottom-start',
+    placement: centered ? 'bottom' : placement,
     middleware: [
       offset({
         mainAxis: spacing,
@@ -102,6 +127,7 @@ const popoverDefaultProps = {
   intersectionId: undefined,
   onReachEnd: undefined,
   centered: false,
+  placement: 'bottom-start',
 };
 
 const popoverProps = {
@@ -122,6 +148,10 @@ const popoverProps = {
    * The callback invoked after a scroll to the bottom of the popover content.
    */
   onReachEnd: PropTypes.func,
+  /**
+   * The popover position
+   */
+  placement: PropTypes.oneOf(POPOVER_PLACEMENTS),
   /**
    * A React ref. Used to defined the position of the popover.
    */
