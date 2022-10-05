@@ -1,10 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+
 import { Box } from '../Box';
 import { FocusTrap } from '../FocusTrap';
 import { Portal } from '../Portal';
 import { ModalContext } from './ModalContext';
+import { DismissableLayer } from '../DismissableLayer';
+
+import useLockScroll from '../helpers/useLockScroll';
 
 const ModalWrapper = styled.div`
   position: fixed;
@@ -22,31 +26,25 @@ const ModalContent = styled(Box)`
 `;
 
 export const ModalLayout = ({ onClose, labelledBy, ...props }) => {
-  //FIX ME (find a way to do it globally)
-  useEffect(() => {
-    const body = document.body;
-    body.classList.add('lock-body-scroll');
-
-    return () => {
-      body.classList.remove('lock-body-scroll');
-    };
-  }, []);
+  useLockScroll();
 
   return (
     <Portal>
       <ModalContext.Provider value={onClose}>
-        <ModalWrapper onClick={onClose}>
-          <FocusTrap onEscape={onClose}>
-            <ModalContent
-              aria-labelledby={labelledBy}
-              onClick={(e) => e.stopPropagation()}
-              background="neutral0"
-              hasRadius
-              shadow="popupShadow"
-              role="dialog"
-              aria-modal={true}
-              {...props}
-            />
+        <ModalWrapper>
+          <FocusTrap>
+            <DismissableLayer onEscapeKeyDown={onClose} onPointerDownOutside={onClose}>
+              <ModalContent
+                aria-labelledby={labelledBy}
+                onClick={(e) => e.stopPropagation()}
+                background="neutral0"
+                hasRadius
+                shadow="popupShadow"
+                role="dialog"
+                aria-modal={true}
+                {...props}
+              />
+            </DismissableLayer>
           </FocusTrap>
         </ModalWrapper>
       </ModalContext.Provider>
