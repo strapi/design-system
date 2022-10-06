@@ -135,7 +135,7 @@ FieldInput.propTypes = {
   disabled: PropTypes.bool,
   endAction: PropTypes.element,
   onChange: PropTypes.func,
+  showErrorBorder: PropTypes.bool,
   size: PropTypes.oneOf(Object.keys(sizes.input)),
   startAction: PropTypes.element,
-  showErrorBorder: PropTypes.bool,
 };

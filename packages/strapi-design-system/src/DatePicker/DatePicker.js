@@ -118,7 +118,6 @@ DatePicker.propTypes = {
   ariaLabel: PropTypes.string,
   clearLabel: PropTypes.string,
   disabled: PropTypes.bool,
-  showErrorBorder: PropTypes.bool,
   id: PropTypes.string,
   initialDate: PropTypes.instanceOf(Date),
   label: PropTypes.string,
@@ -130,5 +129,6 @@ DatePicker.propTypes = {
   placeholder: PropTypes.string,
   selectedDate: PropTypes.instanceOf(Date),
   selectedDateLabel: PropTypes.func.isRequired,
+  showErrorBorder: PropTypes.bool,
   size: PropTypes.oneOf(Object.keys(sizes.input)),
 };

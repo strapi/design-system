@@ -295,7 +295,6 @@ Select.propTypes = {
   customizeContent: PropTypes.func,
   disabled: PropTypes.bool,
   error: PropTypes.string,
-  showErrorBorder: PropTypes.bool,
   hint: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   label: PropTypes.string,
@@ -306,6 +305,7 @@ Select.propTypes = {
   onReachEnd: PropTypes.func,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
+  showErrorBorder: PropTypes.bool,
   size: PropTypes.oneOf(Object.keys(sizes.input)),
   startIcon: PropTypes.element,
   value: PropTypes.oneOfType([

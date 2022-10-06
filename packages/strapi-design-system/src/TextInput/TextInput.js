@@ -73,7 +73,7 @@ TextInput.propTypes = {
   labelAction: PropTypes.element,
   name: PropTypes.string.isRequired,
   required: PropTypes.bool,
+  showErrorBorder: PropTypes.bool,
   size: PropTypes.oneOf(Object.keys(sizes.input)),
   startAction: PropTypes.element,
-  showErrorBorder: PropTypes.bool,
 };

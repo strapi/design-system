@@ -112,13 +112,13 @@ TimePicker.defaultProps = {
 TimePicker.propTypes = {
   clearLabel: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
-  showErrorBorder: PropTypes.bool,
   error: PropTypes.string,
   hint: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   label: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   onClear: PropTypes.func,
+  showErrorBorder: PropTypes.bool,
   size: PropTypes.oneOf(Object.keys(sizes.input)),
   step: PropTypes.number,
   value: PropTypes.oneOfType([
