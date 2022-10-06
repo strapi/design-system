@@ -154,7 +154,6 @@ describe('TimePicker', () => {
 
       .c17 {
         box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
-        position: absolute;
         z-index: 4;
         border: 1px solid #eaeaef;
         background: #ffffff;
@@ -442,7 +441,7 @@ describe('TimePicker', () => {
         >
           <div
             class="c16 c17"
-            style="left: 0px; top: 4px;"
+            style="position: fixed; left: 0px; top: 4px;"
           >
             <div
               class="c18"

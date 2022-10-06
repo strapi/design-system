@@ -1,7 +1,7 @@
-import { useEffect } from 'react';
+import { useLayoutEffect } from 'react';
 
 export const useResizeObserver = (sources, onResize) => {
-  useEffect(() => {
+  useLayoutEffect(() => {
     const resizeObs = new ResizeObserver(onResize);
     if (Array.isArray(sources)) {
       sources.map((source) => {

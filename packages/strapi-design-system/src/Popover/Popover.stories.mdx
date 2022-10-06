@@ -42,7 +42,7 @@ The popover can be centered relatively to their triggering element.
                   .fill(null)
                   .map((_, index) => (
                     <Box color="neutral800" key={index} padding={3} as="li">
-                      Element {index}
+                      Element{index}
                     </Box>
                   ))}
               </ul>
@@ -54,10 +54,10 @@ The popover can be centered relatively to their triggering element.
   </Story>
 </Canvas>
 
-## Open by default
+## Full Width
 
 <Canvas>
-  <Story name="base">
+  <Story name="full width">
     {() => {
       const [visible, setVisible] = useState(false);
       const buttonRef = useRef();
@@ -67,7 +67,7 @@ The popover can be centered relatively to their triggering element.
             <Typography>Open popover</Typography>
           </button>
           {visible && (
-            <Popover source={buttonRef} spacing={16}>
+            <Popover source={buttonRef} fullWidth spacing={16}>
               <ul style={{ width: '200px' }}>
                 {Array(15)
                   .fill(null)

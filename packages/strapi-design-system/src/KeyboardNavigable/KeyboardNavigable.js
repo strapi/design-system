@@ -26,12 +26,10 @@ export const KeyboardNavigable = ({ tagName, attributeName, ...props }) => {
     switch (e.key) {
       case KeyboardKeys.RIGHT:
       case KeyboardKeys.DOWN: {
-        e.preventDefault();
-
-        const focused = document.activeElement;
-
         if (isValidFocusedElement()) {
           e.preventDefault();
+
+          const focused = document.activeElement;
 
           const allElements = [...queryElement(e.currentTarget)];
           const focusedIndex = allElements.findIndex((node) => node === focused);
@@ -44,13 +42,10 @@ export const KeyboardNavigable = ({ tagName, attributeName, ...props }) => {
 
       case KeyboardKeys.LEFT:
       case KeyboardKeys.UP: {
-        e.preventDefault();
-
-        const focused = document.activeElement;
-
         if (isValidFocusedElement()) {
           e.preventDefault();
 
+          const focused = document.activeElement;
           const allElements = [...queryElement(e.currentTarget)];
           const focusedIndex = allElements.findIndex((node) => node === focused);
 
