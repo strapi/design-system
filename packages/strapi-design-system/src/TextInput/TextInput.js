@@ -6,7 +6,10 @@ import { sizes } from '../themes/sizes';
 import { useId } from '../helpers/useId';
 
 export const TextInput = React.forwardRef(
-  ({ size, startAction, endAction, name, hint, error, label, labelAction, id, required, ...props }, ref) => {
+  (
+    { size, startAction, endAction, name, hint, error, label, labelAction, id, required, showErrorBorder, ...props },
+    ref,
+  ) => {
     const generatedId = useId('textinput', id);
     const inputWrapperRef = useRef(null);
 
@@ -27,7 +30,14 @@ export const TextInput = React.forwardRef(
                 {label}
               </FieldLabel>
             )}
-            <FieldInput size={size} ref={ref} startAction={startAction} endAction={endAction} {...props} />
+            <FieldInput
+              size={size}
+              ref={ref}
+              startAction={startAction}
+              showErrorBorder={showErrorBorder}
+              endAction={endAction}
+              {...props}
+            />
             <FieldHint />
             <FieldError />
           </Stack>
@@ -50,6 +60,7 @@ TextInput.defaultProps = {
   size: 'M',
   endAction: undefined,
   required: false,
+  showErrorBorder: false,
 };
 
 TextInput.propTypes = {
@@ -64,4 +75,5 @@ TextInput.propTypes = {
   required: PropTypes.bool,
   size: PropTypes.oneOf(Object.keys(sizes.input)),
   startAction: PropTypes.element,
+  showErrorBorder: PropTypes.bool,
 };

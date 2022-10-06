@@ -103,6 +103,7 @@ export const DatePicker = ({
 DatePicker.defaultProps = {
   ariaLabel: undefined,
   clearLabel: undefined,
+  showErrorBorder: false,
   disabled: false,
   id: undefined,
   label: undefined,
@@ -117,6 +118,7 @@ DatePicker.propTypes = {
   ariaLabel: PropTypes.string,
   clearLabel: PropTypes.string,
   disabled: PropTypes.bool,
+  showErrorBorder: PropTypes.bool,
   id: PropTypes.string,
   initialDate: PropTypes.instanceOf(Date),
   label: PropTypes.string,

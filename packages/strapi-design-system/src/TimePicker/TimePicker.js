@@ -21,6 +21,7 @@ const TimeIconWrapper = styled.div`
 
 export const TimePicker = ({
   disabled,
+  showErrorBorder,
   error,
   hint,
   id,
@@ -74,6 +75,7 @@ export const TimePicker = ({
       onClear={onClear}
       clearLabel={clearLabel}
       error={error}
+      showErrorBorder={showErrorBorder}
       value={value ? getClosestValue() : null}
       size={size}
       onChange={onChange}
@@ -96,6 +98,7 @@ export const TimePicker = ({
 
 TimePicker.defaultProps = {
   disabled: false,
+  showErrorBorder: false,
   error: undefined,
   hint: undefined,
   id: undefined,
@@ -109,6 +112,7 @@ TimePicker.defaultProps = {
 TimePicker.propTypes = {
   clearLabel: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
+  showErrorBorder: PropTypes.bool,
   error: PropTypes.string,
   hint: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),

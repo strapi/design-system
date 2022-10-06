@@ -13847,28 +13847,28 @@ exports[`Storyshots Design System/Components/DateTimePicker base 1`] = `
   height: 100%;
 }
 
-.c11 {
+.c10 {
   padding-right: 8px;
   padding-left: 12px;
 }
 
-.c18 {
+.c17 {
   padding-left: 12px;
 }
 
-.c20 {
+.c19 {
   padding-right: 16px;
   padding-left: 16px;
 }
 
-.c7 {
+.c6 {
   font-weight: 600;
   color: #32324d;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
-.c21 {
+.c20 {
   color: #666687;
   display: block;
   white-space: nowrap;
@@ -13878,13 +13878,13 @@ exports[`Storyshots Design System/Components/DateTimePicker base 1`] = `
   line-height: 1.43;
 }
 
-.c24 {
+.c23 {
   color: #666687;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
-.c4 {
+.c3 {
   -webkit-align-items: stretch;
   -webkit-box-align: stretch;
   -ms-flex-align: stretch;
@@ -13898,7 +13898,7 @@ exports[`Storyshots Design System/Components/DateTimePicker base 1`] = `
   flex-direction: column;
 }
 
-.c6 {
+.c5 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -13912,7 +13912,7 @@ exports[`Storyshots Design System/Components/DateTimePicker base 1`] = `
   flex-direction: row;
 }
 
-.c9 {
+.c8 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -13930,30 +13930,30 @@ exports[`Storyshots Design System/Components/DateTimePicker base 1`] = `
   justify-content: space-between;
 }
 
-.c5 > * {
+.c4 > * {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-.c5 > * + * {
+.c4 > * + * {
   margin-top: 4px;
 }
 
-.c14 > * {
+.c13 > * {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-.c8 > * {
+.c7 > * {
   margin-left: 0;
   margin-right: 0;
 }
 
-.c8 > * + * {
+.c7 > * + * {
   margin-left: 8px;
 }
 
-.c13 {
+.c12 {
   border: none;
   border-radius: 4px;
   padding-bottom: 0.65625rem;
@@ -13968,36 +13968,36 @@ exports[`Storyshots Design System/Components/DateTimePicker base 1`] = `
   background: inherit;
 }
 
-.c13::-webkit-input-placeholder {
+.c12::-webkit-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c13::-moz-placeholder {
+.c12::-moz-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c13:-ms-input-placeholder {
+.c12:-ms-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c13::placeholder {
+.c12::placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c13[aria-disabled='true'] {
+.c12[aria-disabled='true'] {
   color: inherit;
 }
 
-.c13:focus {
+.c12:focus {
   outline: none;
   box-shadow: none;
 }
 
-.c10 {
+.c9 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
@@ -14009,12 +14009,12 @@ exports[`Storyshots Design System/Components/DateTimePicker base 1`] = `
   transition-duration: 0.2s;
 }
 
-.c10:focus-within {
+.c9:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
-.c15 {
+.c14 {
   position: relative;
   border: 1px solid #dcdce4;
   padding-right: 12px;
@@ -14030,28 +14030,28 @@ exports[`Storyshots Design System/Components/DateTimePicker base 1`] = `
   transition-duration: 0.2s;
 }
 
-.c15:focus-within {
+.c14:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
-.c22 {
+.c21 {
   background: transparent;
   border: none;
   position: relative;
   z-index: 1;
 }
 
-.c22 svg {
+.c21 svg {
   height: 0.6875rem;
   width: 0.6875rem;
 }
 
-.c22 svg path {
+.c21 svg path {
   fill: #666687;
 }
 
-.c23 {
+.c22 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -14060,21 +14060,21 @@ exports[`Storyshots Design System/Components/DateTimePicker base 1`] = `
   border: none;
 }
 
-.c23 svg {
+.c22 svg {
   width: 0.375rem;
 }
 
-.c12 {
+.c11 {
   border: none;
   background: transparent;
   border-radius: 4px;
 }
 
-.c12 svg path {
+.c11 svg path {
   fill: #8e8ea9;
 }
 
-.c16 {
+.c15 {
   position: absolute;
   left: 0;
   right: 0;
@@ -14085,19 +14085,19 @@ exports[`Storyshots Design System/Components/DateTimePicker base 1`] = `
   border: none;
 }
 
-.c16:focus {
+.c15:focus {
   outline: none;
 }
 
-.c16[aria-disabled='true'] {
+.c15[aria-disabled='true'] {
   cursor: not-allowed;
 }
 
-.c17 {
+.c16 {
   width: 100%;
 }
 
-.c19 {
+.c18 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -14108,17 +14108,13 @@ exports[`Storyshots Design System/Components/DateTimePicker base 1`] = `
   align-items: center;
 }
 
-.c19 svg {
+.c18 svg {
   height: 1rem;
   width: 1rem;
 }
 
-.c19 svg path {
+.c18 svg path {
   fill: #8e8ea9;
-}
-
-.c3 > div > div p[data-strapi-field-error='true'] {
-  display: none;
 }
 
 <div
@@ -14138,30 +14134,29 @@ exports[`Storyshots Design System/Components/DateTimePicker base 1`] = `
     >
       <div
         aria-labelledby="datetime-label"
-        class="c3"
         role="group"
       >
         <div
-          class="c4 c5"
+          class="c3 c4"
           spacing="1"
         >
           <div
-            class="c6"
+            class="c5"
           >
             <label
-              class="c7"
+              class="c6"
               for="field-50"
               id="datetime-label"
             >
               <div
-                class="c6"
+                class="c5"
               >
                 Date time picker
               </div>
             </label>
           </div>
           <div
-            class="c6 c8"
+            class="c5 c7"
             spacing="2"
           >
             <div
@@ -14170,19 +14165,19 @@ exports[`Storyshots Design System/Components/DateTimePicker base 1`] = `
               <div>
                 <div>
                   <div
-                    class="c4 c5"
+                    class="c3 c4"
                     spacing="1"
                   >
                     <div
-                      class="c9 c10"
+                      class="c8 c9"
                     >
                       <div
-                        class="c11"
+                        class="c10"
                       >
                         <button
                           aria-disabled="false"
                           aria-label="Date time picker"
-                          class="c12"
+                          class="c11"
                           type="button"
                         >
                           <svg
@@ -14207,7 +14202,7 @@ exports[`Storyshots Design System/Components/DateTimePicker base 1`] = `
                         aria-disabled="false"
                         aria-invalid="false"
                         aria-label="Date time picker"
-                        class="c13"
+                        class="c12"
                         data-testid="datetimepicker-date"
                         id="datepicker-51"
                         name="datetimepicker"
@@ -14220,10 +14215,10 @@ exports[`Storyshots Design System/Components/DateTimePicker base 1`] = `
             </div>
             <div>
               <div
-                class="c4 c14"
+                class="c3 c13"
               >
                 <div
-                  class="c6 c15"
+                  class="c5 c14"
                 >
                   <button
                     aria-disabled="false"
@@ -14231,23 +14226,23 @@ exports[`Storyshots Design System/Components/DateTimePicker base 1`] = `
                     aria-haspopup="listbox"
                     aria-label="Date time picker"
                     aria-labelledby="timepicker-52-label timepicker-52-content"
-                    class="c16"
+                    class="c15"
                     data-testid="datetimepicker-time"
                     id="timepicker-52"
                     type="button"
                   />
                   <div
-                    class="c9 c17"
+                    class="c8 c16"
                   >
                     <div
-                      class="c6"
+                      class="c5"
                     >
                       <div
                         aria-hidden="true"
-                        class="c18"
+                        class="c17"
                       >
                         <div
-                          class="c19"
+                          class="c18"
                         >
                           <svg
                             fill="none"
@@ -14266,10 +14261,10 @@ exports[`Storyshots Design System/Components/DateTimePicker base 1`] = `
                         </div>
                       </div>
                       <div
-                        class="c20"
+                        class="c19"
                       >
                         <span
-                          class="c21"
+                          class="c20"
                           id="timepicker-52-content"
                         >
                           --:--
@@ -14277,11 +14272,11 @@ exports[`Storyshots Design System/Components/DateTimePicker base 1`] = `
                       </div>
                     </div>
                     <div
-                      class="c6"
+                      class="c5"
                     >
                       <button
                         aria-hidden="true"
-                        class="c18 c22 c23"
+                        class="c17 c21 c22"
                         tabindex="-1"
                         type="button"
                       >
@@ -14307,7 +14302,7 @@ exports[`Storyshots Design System/Components/DateTimePicker base 1`] = `
             </div>
           </div>
           <p
-            class="c24"
+            class="c23"
             id="field-50-hint"
           >
             This is a super description
@@ -14342,34 +14337,28 @@ exports[`Storyshots Design System/Components/DateTimePicker error 1`] = `
   height: 100%;
 }
 
-.c11 {
+.c10 {
   padding-right: 8px;
   padding-left: 12px;
 }
 
-.c18 {
+.c17 {
   padding-left: 12px;
 }
 
-.c20 {
+.c19 {
   padding-right: 16px;
   padding-left: 16px;
 }
 
-.c7 {
+.c6 {
   font-weight: 600;
   color: #32324d;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
-.c14 {
-  color: #d02b20;
-  font-size: 0.75rem;
-  line-height: 1.33;
-}
-
-.c21 {
+.c20 {
   color: #666687;
   display: block;
   white-space: nowrap;
@@ -14379,7 +14368,13 @@ exports[`Storyshots Design System/Components/DateTimePicker error 1`] = `
   line-height: 1.43;
 }
 
-.c4 {
+.c23 {
+  color: #d02b20;
+  font-size: 0.75rem;
+  line-height: 1.33;
+}
+
+.c3 {
   -webkit-align-items: stretch;
   -webkit-box-align: stretch;
   -ms-flex-align: stretch;
@@ -14393,7 +14388,7 @@ exports[`Storyshots Design System/Components/DateTimePicker error 1`] = `
   flex-direction: column;
 }
 
-.c6 {
+.c5 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -14407,7 +14402,7 @@ exports[`Storyshots Design System/Components/DateTimePicker error 1`] = `
   flex-direction: row;
 }
 
-.c9 {
+.c8 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -14425,25 +14420,30 @@ exports[`Storyshots Design System/Components/DateTimePicker error 1`] = `
   justify-content: space-between;
 }
 
-.c5 > * {
+.c4 > * {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-.c5 > * + * {
+.c4 > * + * {
   margin-top: 4px;
 }
 
-.c8 > * {
+.c13 > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.c7 > * {
   margin-left: 0;
   margin-right: 0;
 }
 
-.c8 > * + * {
+.c7 > * + * {
   margin-left: 8px;
 }
 
-.c13 {
+.c12 {
   border: none;
   border-radius: 4px;
   padding-bottom: 0.65625rem;
@@ -14458,36 +14458,36 @@ exports[`Storyshots Design System/Components/DateTimePicker error 1`] = `
   background: inherit;
 }
 
-.c13::-webkit-input-placeholder {
+.c12::-webkit-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c13::-moz-placeholder {
+.c12::-moz-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c13:-ms-input-placeholder {
+.c12:-ms-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c13::placeholder {
+.c12::placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c13[aria-disabled='true'] {
+.c12[aria-disabled='true'] {
   color: inherit;
 }
 
-.c13:focus {
+.c12:focus {
   outline: none;
   box-shadow: none;
 }
 
-.c10 {
+.c9 {
   border: 1px solid #d02b20;
   border-radius: 4px;
   background: #ffffff;
@@ -14499,12 +14499,12 @@ exports[`Storyshots Design System/Components/DateTimePicker error 1`] = `
   transition-duration: 0.2s;
 }
 
-.c10:focus-within {
-  border: 1px solid #d02b20;
-  box-shadow: #d02b20 0px 0px 0px 2px;
+.c9:focus-within {
+  border: 1px solid #4945ff;
+  box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
-.c15 {
+.c14 {
   position: relative;
   border: 1px solid #d02b20;
   padding-right: 12px;
@@ -14520,28 +14520,28 @@ exports[`Storyshots Design System/Components/DateTimePicker error 1`] = `
   transition-duration: 0.2s;
 }
 
-.c15:focus-within {
+.c14:focus-within {
   border: 1px solid #d02b20;
   box-shadow: #d02b20 0px 0px 0px 2px;
 }
 
-.c22 {
+.c21 {
   background: transparent;
   border: none;
   position: relative;
   z-index: 1;
 }
 
-.c22 svg {
+.c21 svg {
   height: 0.6875rem;
   width: 0.6875rem;
 }
 
-.c22 svg path {
+.c21 svg path {
   fill: #666687;
 }
 
-.c23 {
+.c22 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -14550,21 +14550,21 @@ exports[`Storyshots Design System/Components/DateTimePicker error 1`] = `
   border: none;
 }
 
-.c23 svg {
+.c22 svg {
   width: 0.375rem;
 }
 
-.c12 {
+.c11 {
   border: none;
   background: transparent;
   border-radius: 4px;
 }
 
-.c12 svg path {
+.c11 svg path {
   fill: #8e8ea9;
 }
 
-.c16 {
+.c15 {
   position: absolute;
   left: 0;
   right: 0;
@@ -14575,19 +14575,19 @@ exports[`Storyshots Design System/Components/DateTimePicker error 1`] = `
   border: none;
 }
 
-.c16:focus {
+.c15:focus {
   outline: none;
 }
 
-.c16[aria-disabled='true'] {
+.c15[aria-disabled='true'] {
   cursor: not-allowed;
 }
 
-.c17 {
+.c16 {
   width: 100%;
 }
 
-.c19 {
+.c18 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -14598,17 +14598,13 @@ exports[`Storyshots Design System/Components/DateTimePicker error 1`] = `
   align-items: center;
 }
 
-.c19 svg {
+.c18 svg {
   height: 1rem;
   width: 1rem;
 }
 
-.c19 svg path {
+.c18 svg path {
   fill: #8e8ea9;
-}
-
-.c3 > div > div p[data-strapi-field-error='true'] {
-  display: none;
 }
 
 <div
@@ -14628,30 +14624,29 @@ exports[`Storyshots Design System/Components/DateTimePicker error 1`] = `
     >
       <div
         aria-labelledby="datetime-label"
-        class="c3"
         role="group"
       >
         <div
-          class="c4 c5"
+          class="c3 c4"
           spacing="1"
         >
           <div
-            class="c6"
+            class="c5"
           >
             <label
-              class="c7"
+              class="c6"
               for="field-56"
               id="datetime-label"
             >
               <div
-                class="c6"
+                class="c5"
               >
                 Error
               </div>
             </label>
           </div>
           <div
-            class="c6 c8"
+            class="c5 c7"
             spacing="2"
           >
             <div
@@ -14660,19 +14655,19 @@ exports[`Storyshots Design System/Components/DateTimePicker error 1`] = `
               <div>
                 <div>
                   <div
-                    class="c4 c5"
+                    class="c3 c4"
                     spacing="1"
                   >
                     <div
-                      class="c9 c10"
+                      class="c8 c9"
                     >
                       <div
-                        class="c11"
+                        class="c10"
                       >
                         <button
                           aria-disabled="false"
                           aria-label="Error"
-                          class="c12"
+                          class="c11"
                           type="button"
                         >
                           <svg
@@ -14694,60 +14689,50 @@ exports[`Storyshots Design System/Components/DateTimePicker error 1`] = `
                       </div>
                       <input
                         aria-autocomplete="none"
-                        aria-describedby="datepicker-57-error"
                         aria-disabled="false"
-                        aria-invalid="true"
+                        aria-invalid="false"
                         aria-label="Error"
-                        class="c13"
+                        class="c12"
                         data-testid="datetimepicker-date"
                         id="datepicker-57"
                         name="datetimepicker"
                         value=""
                       />
                     </div>
-                    <p
-                      class="c14"
-                      data-strapi-field-error="true"
-                      id="datepicker-57-error"
-                    >
-                      Very very very very very very very long error
-                    </p>
                   </div>
                 </div>
               </div>
             </div>
             <div>
               <div
-                class="c4 c5"
-                spacing="1"
+                class="c3 c13"
               >
                 <div
-                  class="c6 c15"
+                  class="c5 c14"
                 >
                   <button
-                    aria-describedby="timepicker-58-error"
                     aria-disabled="false"
                     aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-label="Error"
                     aria-labelledby="timepicker-58-label timepicker-58-content"
-                    class="c16"
+                    class="c15"
                     data-testid="datetimepicker-time"
                     id="timepicker-58"
                     type="button"
                   />
                   <div
-                    class="c9 c17"
+                    class="c8 c16"
                   >
                     <div
-                      class="c6"
+                      class="c5"
                     >
                       <div
                         aria-hidden="true"
-                        class="c18"
+                        class="c17"
                       >
                         <div
-                          class="c19"
+                          class="c18"
                         >
                           <svg
                             fill="none"
@@ -14766,10 +14751,10 @@ exports[`Storyshots Design System/Components/DateTimePicker error 1`] = `
                         </div>
                       </div>
                       <div
-                        class="c20"
+                        class="c19"
                       >
                         <span
-                          class="c21"
+                          class="c20"
                           id="timepicker-58-content"
                         >
                           --:--
@@ -14777,11 +14762,11 @@ exports[`Storyshots Design System/Components/DateTimePicker error 1`] = `
                       </div>
                     </div>
                     <div
-                      class="c6"
+                      class="c5"
                     >
                       <button
                         aria-hidden="true"
-                        class="c18 c22 c23"
+                        class="c17 c21 c22"
                         tabindex="-1"
                         type="button"
                       >
@@ -14803,18 +14788,11 @@ exports[`Storyshots Design System/Components/DateTimePicker error 1`] = `
                     </div>
                   </div>
                 </div>
-                <p
-                  class="c14"
-                  data-strapi-field-error="true"
-                  id="timepicker-58-error"
-                >
-                  Very very very very very very very long error
-                </p>
               </div>
             </div>
           </div>
           <p
-            class="c14"
+            class="c23"
             data-strapi-field-error="true"
             id="field-56-error"
           >
@@ -14850,33 +14828,33 @@ exports[`Storyshots Design System/Components/DateTimePicker initial data 1`] = `
   height: 100%;
 }
 
-.c11 {
+.c10 {
   padding-right: 8px;
   padding-left: 12px;
 }
 
-.c14 {
+.c13 {
   padding-right: 12px;
   padding-left: 8px;
 }
 
-.c20 {
+.c19 {
   padding-left: 12px;
 }
 
-.c22 {
+.c21 {
   padding-right: 16px;
   padding-left: 16px;
 }
 
-.c7 {
+.c6 {
   font-weight: 600;
   color: #32324d;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
-.c23 {
+.c22 {
   color: #32324d;
   display: block;
   white-space: nowrap;
@@ -14886,13 +14864,13 @@ exports[`Storyshots Design System/Components/DateTimePicker initial data 1`] = `
   line-height: 1.43;
 }
 
-.c26 {
+.c25 {
   color: #666687;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
-.c4 {
+.c3 {
   -webkit-align-items: stretch;
   -webkit-box-align: stretch;
   -ms-flex-align: stretch;
@@ -14906,7 +14884,7 @@ exports[`Storyshots Design System/Components/DateTimePicker initial data 1`] = `
   flex-direction: column;
 }
 
-.c6 {
+.c5 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -14920,7 +14898,7 @@ exports[`Storyshots Design System/Components/DateTimePicker initial data 1`] = `
   flex-direction: row;
 }
 
-.c9 {
+.c8 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -14938,30 +14916,30 @@ exports[`Storyshots Design System/Components/DateTimePicker initial data 1`] = `
   justify-content: space-between;
 }
 
-.c5 > * {
+.c4 > * {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-.c5 > * + * {
+.c4 > * + * {
   margin-top: 4px;
 }
 
-.c16 > * {
+.c15 > * {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-.c8 > * {
+.c7 > * {
   margin-left: 0;
   margin-right: 0;
 }
 
-.c8 > * + * {
+.c7 > * + * {
   margin-left: 8px;
 }
 
-.c13 {
+.c12 {
   border: none;
   border-radius: 4px;
   padding-bottom: 0.65625rem;
@@ -14976,36 +14954,36 @@ exports[`Storyshots Design System/Components/DateTimePicker initial data 1`] = `
   background: inherit;
 }
 
-.c13::-webkit-input-placeholder {
+.c12::-webkit-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c13::-moz-placeholder {
+.c12::-moz-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c13:-ms-input-placeholder {
+.c12:-ms-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c13::placeholder {
+.c12::placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c13[aria-disabled='true'] {
+.c12[aria-disabled='true'] {
   color: inherit;
 }
 
-.c13:focus {
+.c12:focus {
   outline: none;
   box-shadow: none;
 }
 
-.c10 {
+.c9 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
@@ -15017,12 +14995,12 @@ exports[`Storyshots Design System/Components/DateTimePicker initial data 1`] = `
   transition-duration: 0.2s;
 }
 
-.c10:focus-within {
+.c9:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
-.c17 {
+.c16 {
   position: relative;
   border: 1px solid #dcdce4;
   padding-right: 12px;
@@ -15038,28 +15016,28 @@ exports[`Storyshots Design System/Components/DateTimePicker initial data 1`] = `
   transition-duration: 0.2s;
 }
 
-.c17:focus-within {
+.c16:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
-.c24 {
+.c23 {
   background: transparent;
   border: none;
   position: relative;
   z-index: 1;
 }
 
-.c24 svg {
+.c23 svg {
   height: 0.6875rem;
   width: 0.6875rem;
 }
 
-.c24 svg path {
+.c23 svg path {
   fill: #666687;
 }
 
-.c25 {
+.c24 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -15068,37 +15046,37 @@ exports[`Storyshots Design System/Components/DateTimePicker initial data 1`] = `
   border: none;
 }
 
-.c25 svg {
+.c24 svg {
   width: 0.375rem;
 }
 
-.c12 {
+.c11 {
   border: none;
   background: transparent;
   border-radius: 4px;
 }
 
-.c12 svg path {
+.c11 svg path {
   fill: #8e8ea9;
 }
 
-.c15 {
+.c14 {
   background: transparent;
   border: none;
   position: relative;
   z-index: 1;
 }
 
-.c15 svg {
+.c14 svg {
   height: 0.6875rem;
   width: 0.6875rem;
 }
 
-.c15 svg path {
+.c14 svg path {
   fill: #666687;
 }
 
-.c18 {
+.c17 {
   position: absolute;
   left: 0;
   right: 0;
@@ -15109,19 +15087,19 @@ exports[`Storyshots Design System/Components/DateTimePicker initial data 1`] = `
   border: none;
 }
 
-.c18:focus {
+.c17:focus {
   outline: none;
 }
 
-.c18[aria-disabled='true'] {
+.c17[aria-disabled='true'] {
   cursor: not-allowed;
 }
 
-.c19 {
+.c18 {
   width: 100%;
 }
 
-.c21 {
+.c20 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -15132,17 +15110,13 @@ exports[`Storyshots Design System/Components/DateTimePicker initial data 1`] = `
   align-items: center;
 }
 
-.c21 svg {
+.c20 svg {
   height: 1rem;
   width: 1rem;
 }
 
-.c21 svg path {
+.c20 svg path {
   fill: #8e8ea9;
-}
-
-.c3 > div > div p[data-strapi-field-error='true'] {
-  display: none;
 }
 
 <div
@@ -15162,30 +15136,29 @@ exports[`Storyshots Design System/Components/DateTimePicker initial data 1`] = `
     >
       <div
         aria-labelledby="datetime-label"
-        class="c3"
         role="group"
       >
         <div
-          class="c4 c5"
+          class="c3 c4"
           spacing="1"
         >
           <div
-            class="c6"
+            class="c5"
           >
             <label
-              class="c7"
+              class="c6"
               for="field-62"
               id="datetime-label"
             >
               <div
-                class="c6"
+                class="c5"
               >
                 Date time picker
               </div>
             </label>
           </div>
           <div
-            class="c6 c8"
+            class="c5 c7"
             spacing="2"
           >
             <div
@@ -15194,19 +15167,19 @@ exports[`Storyshots Design System/Components/DateTimePicker initial data 1`] = `
               <div>
                 <div>
                   <div
-                    class="c4 c5"
+                    class="c3 c4"
                     spacing="1"
                   >
                     <div
-                      class="c9 c10"
+                      class="c8 c9"
                     >
                       <div
-                        class="c11"
+                        class="c10"
                       >
                         <button
                           aria-disabled="false"
                           aria-label="Date picker, current is undefined"
-                          class="c12"
+                          class="c11"
                           type="button"
                         >
                           <svg
@@ -15231,19 +15204,19 @@ exports[`Storyshots Design System/Components/DateTimePicker initial data 1`] = `
                         aria-disabled="false"
                         aria-invalid="false"
                         aria-label="Date time picker"
-                        class="c13"
+                        class="c12"
                         data-testid="datetimepicker-date"
                         id="datepicker-63"
                         name="datetimepicker"
                         value="10/13/2021"
                       />
                       <div
-                        class="c14"
+                        class="c13"
                       >
                         <button
                           aria-disabled="false"
                           aria-label="Clear"
-                          class="c15"
+                          class="c14"
                         >
                           <svg
                             fill="none"
@@ -15266,10 +15239,10 @@ exports[`Storyshots Design System/Components/DateTimePicker initial data 1`] = `
             </div>
             <div>
               <div
-                class="c4 c16"
+                class="c3 c15"
               >
                 <div
-                  class="c6 c17"
+                  class="c5 c16"
                 >
                   <button
                     aria-disabled="false"
@@ -15277,23 +15250,23 @@ exports[`Storyshots Design System/Components/DateTimePicker initial data 1`] = `
                     aria-haspopup="listbox"
                     aria-label="Date time picker"
                     aria-labelledby="timepicker-64-label timepicker-64-content"
-                    class="c18"
+                    class="c17"
                     data-testid="datetimepicker-time"
                     id="timepicker-64"
                     type="button"
                   />
                   <div
-                    class="c9 c19"
+                    class="c8 c18"
                   >
                     <div
-                      class="c6"
+                      class="c5"
                     >
                       <div
                         aria-hidden="true"
-                        class="c20"
+                        class="c19"
                       >
                         <div
-                          class="c21"
+                          class="c20"
                         >
                           <svg
                             fill="none"
@@ -15312,10 +15285,10 @@ exports[`Storyshots Design System/Components/DateTimePicker initial data 1`] = `
                         </div>
                       </div>
                       <div
-                        class="c22"
+                        class="c21"
                       >
                         <span
-                          class="c23"
+                          class="c22"
                           id="timepicker-64-content"
                         >
                           12:00
@@ -15323,12 +15296,12 @@ exports[`Storyshots Design System/Components/DateTimePicker initial data 1`] = `
                       </div>
                     </div>
                     <div
-                      class="c6"
+                      class="c5"
                     >
                       <button
                         aria-disabled="false"
                         aria-label="Clear"
-                        class="c24"
+                        class="c23"
                         type="button"
                       >
                         <svg
@@ -15346,7 +15319,7 @@ exports[`Storyshots Design System/Components/DateTimePicker initial data 1`] = `
                       </button>
                       <button
                         aria-hidden="true"
-                        class="c20 c24 c25"
+                        class="c19 c23 c24"
                         tabindex="-1"
                         type="button"
                       >
@@ -15372,7 +15345,7 @@ exports[`Storyshots Design System/Components/DateTimePicker initial data 1`] = `
             </div>
           </div>
           <p
-            class="c26"
+            class="c25"
             id="field-62-hint"
           >
             This is a super description

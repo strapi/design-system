@@ -9,16 +9,6 @@ import { Flex } from '../Flex';
 import { Box } from '../Box';
 import { parseDate } from './parseDate';
 
-const CustomField = styled(Field)`
-  > div {
-    > div {
-      p[data-strapi-field-error='true'] {
-        display: none;
-      }
-    }
-  }
-`;
-
 const LabelAction = styled(Box)`
   svg path {
     fill: ${({ theme }) => theme.colors.neutral500};
@@ -121,7 +111,7 @@ export const DateTimePicker = ({
   }, [value]);
 
   return (
-    <CustomField name={name} role="group" aria-labelledby="datetime-label" hint={hint} error={error}>
+    <Field name={name} role="group" aria-labelledby="datetime-label" hint={hint} error={error}>
       <Stack spacing={1}>
         {label && (
           <Flex>
@@ -136,7 +126,7 @@ export const DateTimePicker = ({
             data-testid="datetimepicker-date"
             name={name}
             ariaLabel={label || ariaLabel}
-            error={error}
+            showErrorBorder={!!error}
             selectedDate={dateValue}
             selectedDateLabel={(formattedDate) => `Date picker, current is ${formattedDate}`}
             onChange={handleDateChange}
@@ -150,7 +140,7 @@ export const DateTimePicker = ({
             data-testid="datetimepicker-time"
             size={size}
             aria-label={label || ariaLabel}
-            error={error}
+            showErrorBorder={!!error}
             value={timeValue}
             onChange={handleTimeChange}
             onClear={onClear && handleTimeClear}
@@ -162,7 +152,7 @@ export const DateTimePicker = ({
         <FieldHint />
         <FieldError id="datetimepicker" />
       </Stack>
-    </CustomField>
+    </Field>
   );
 };
 

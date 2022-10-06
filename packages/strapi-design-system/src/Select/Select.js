@@ -36,6 +36,7 @@ export const Select = ({
   hint,
   error,
   disabled,
+  showErrorBorder,
   clearLabel,
   onClear,
   onReachEnd,
@@ -156,7 +157,12 @@ export const Select = ({
           </FieldLabel>
         )}
 
-        <SelectButtonWrapper size={size} hasError={Boolean(error)} disabled={disabled} ref={containerRef}>
+        <SelectButtonWrapper
+          size={size}
+          hasError={Boolean(error) || showErrorBorder}
+          disabled={disabled}
+          ref={containerRef}
+        >
           <SelectButton
             ref={buttonRef}
             labelledBy={`${labelId} ${contentId}`}
@@ -264,6 +270,7 @@ Select.defaultProps = {
   clearLabel: 'Clear',
   customizeContent: undefined,
   disabled: false,
+  showErrorBorder: false,
   id: undefined,
   label: undefined,
   labelAction: undefined,
@@ -288,6 +295,7 @@ Select.propTypes = {
   customizeContent: PropTypes.func,
   disabled: PropTypes.bool,
   error: PropTypes.string,
+  showErrorBorder: PropTypes.bool,
   hint: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   label: PropTypes.string,
