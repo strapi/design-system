@@ -12,18 +12,34 @@ const LinkWrapper = styled.a`
   align-items: center;
   text-decoration: none;
   pointer-events: ${({ disabled }) => (disabled ? 'none' : undefined)};
+
+  ${Typography} {
+    transition: color 150ms ease-out;
+  }
+
   svg path {
     fill: ${({ disabled, theme }) => (disabled ? theme.colors.neutral600 : theme.colors.primary600)};
   }
+
   svg {
     font-size: ${10 / 16}rem;
   }
-  &:hover,
-  &:active {
-    color: ${({ theme }) => theme.colors.primary800};
+
+  &:hover {
+    ${Typography} {
+      color: ${({ theme }) => theme.colors.primary500};
+    }
   }
+
+  &:active {
+    ${Typography} {
+      color: ${({ theme }) => theme.colors.primary700};
+    }
+  }
+
   ${buttonFocusStyle};
 `;
+
 const IconWrapper = styled(Box)`
   display: flex;
 `;
