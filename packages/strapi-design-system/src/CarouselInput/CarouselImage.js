@@ -24,6 +24,6 @@ CarouselImage.defaultProps = {
 };
 
 CarouselImage.propTypes = {
-  src: PropTypes.string,
   alt: PropTypes.string,
+  src: PropTypes.string,
 };
