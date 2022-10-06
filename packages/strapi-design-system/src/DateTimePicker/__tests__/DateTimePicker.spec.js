@@ -35,7 +35,7 @@ describe('DateTimePicker', () => {
       </ThemeProvider>,
     );
 
-    expect(screen.getByText('17:45')).toBeInTheDocument();
+    expect(screen.getByText('15:45')).toBeInTheDocument();
     const datepicker = screen.getByTestId('datetimepicker-date');
 
     expect(datepicker.value).toBe('10/13/2021');
