@@ -12,29 +12,28 @@ const LinkWrapper = styled.a`
   align-items: center;
   text-decoration: none;
   pointer-events: ${({ disabled }) => (disabled ? 'none' : undefined)};
-
-  ${Typography} {
-    transition: color 150ms ease-out;
-  }
+  color: ${({ disabled, theme }) => (disabled ? theme.colors.neutral600 : theme.colors.primary600)};
 
   svg path {
-    fill: ${({ disabled, theme }) => (disabled ? theme.colors.neutral600 : theme.colors.primary600)};
+    transition: fill 150ms ease-out;
+    fill: currentColor;
   }
 
   svg {
     font-size: ${10 / 16}rem;
   }
 
+  ${Typography} {
+    transition: color 150ms ease-out;
+    color: currentColor;
+  }
+
   &:hover {
-    ${Typography} {
-      color: ${({ theme }) => theme.colors.primary500};
-    }
+    color: ${({ theme }) => theme.colors.primary500};
   }
 
   &:active {
-    ${Typography} {
-      color: ${({ theme }) => theme.colors.primary700};
-    }
+    color: ${({ theme }) => theme.colors.primary700};
   }
 
   ${buttonFocusStyle};
@@ -63,7 +62,7 @@ export const Link = ({ href, to, children, disabled, startIcon, endIcon, ...prop
           {startIcon}
         </IconWrapper>
       )}
-      <Typography textColor={disabled ? 'neutral600' : 'primary600'}>{children}</Typography>
+      <Typography>{children}</Typography>
 
       {endIcon && !href && (
         <IconWrapper as="span" aria-hidden={true} paddingLeft={2}>
