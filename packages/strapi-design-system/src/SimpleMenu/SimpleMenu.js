@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import CarretDown from '@strapi/icons/CarretDown';
 import { NavLink } from 'react-router-dom';
+import { Link } from '../Link';
 import { Typography } from '../Typography';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
@@ -25,6 +26,11 @@ const OptionLink = styled(NavLink)`
   ${getOptionStyle}
 `;
 
+const OptionExternalLink = styled.div`
+  text-decoration: none;
+  ${getOptionStyle}
+`;
+
 const IconWrapper = styled.span`
   display: flex;
   align-items: center;
@@ -38,7 +44,7 @@ const StyledButtonSmall = styled(Button)`
   padding: ${({ theme }) => `${theme.spaces[1]} ${theme.spaces[3]}`};
 `;
 
-export const MenuItem = ({ children, onClick, to, isFocused, ...props }) => {
+export const MenuItem = ({ children, onClick, to, isFocused, href, isExternal, ...props }) => {
   const menuItemRef = useRef();
 
   useEffect(() => {
@@ -60,30 +66,47 @@ export const MenuItem = ({ children, onClick, to, isFocused, ...props }) => {
     }
   };
 
-  return to ? (
-    <OptionLink to={to} {...menuItemProps}>
-      <Box padding={2}>
-        <Typography>{children}</Typography>
-      </Box>
-    </OptionLink>
-  ) : (
-    <OptionButton onKeyDown={handleKeyDown} onMouseDown={onClick} type="button" {...menuItemProps}>
-      <Box padding={2}>
-        <Typography>{children}</Typography>
-      </Box>
-    </OptionButton>
-  );
+  if (to)
+    return (
+      <OptionLink to={to} {...menuItemProps}>
+        <Box padding={2}>
+          <Typography>{children}</Typography>
+        </Box>
+      </OptionLink>
+    );
+  else if (href && isExternal)
+    return (
+      <OptionExternalLink {...menuItemProps}>
+        <Box padding={2}>
+          <Link href={href} isExternal={isExternal}>
+            <Typography>{children}</Typography>
+          </Link>
+        </Box>
+      </OptionExternalLink>
+    );
+  else
+    return (
+      <OptionButton onKeyDown={handleKeyDown} onMouseDown={onClick} type="button" {...menuItemProps}>
+        <Box padding={2}>
+          <Typography>{children}</Typography>
+        </Box>
+      </OptionButton>
+    );
 };
 
 MenuItem.defaultProps = {
   onClick: () => {},
   isFocused: false,
   to: undefined,
+  href: undefined,
+  isExternal: false,
 };
 
 MenuItem.propTypes = {
   as: PropTypes.elementType,
   children: PropTypes.node.isRequired,
+  href: PropTypes.string,
+  isExternal: PropTypes.bool,
   isFocused: PropTypes.bool,
   onClick: PropTypes.func,
   to: PropTypes.string,
