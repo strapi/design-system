@@ -3522,30 +3522,24 @@ exports[`Storyshots Design System/Components/Alert with action 1`] = `
   padding-bottom: 8px;
 }
 
-.c11 {
+.c12 {
   padding-right: 8px;
   padding-bottom: 8px;
 }
 
-.c13 {
+.c14 {
   padding-bottom: 20px;
 }
 
-.c10 {
+.c11 {
   font-weight: 600;
   color: #32324d;
   font-size: 0.875rem;
   line-height: 1.43;
 }
 
-.c12 {
+.c13 {
   color: #32324d;
-  font-size: 0.875rem;
-  line-height: 1.43;
-}
-
-.c16 {
-  color: #4945ff;
   font-size: 0.875rem;
   line-height: 1.43;
 }
@@ -3637,19 +3631,19 @@ exports[`Storyshots Design System/Components/Alert with action 1`] = `
   fill: #271fe0;
 }
 
-.c14 {
+.c15 {
   padding-top: 1px;
 }
 
-.c14 a > span {
+.c15 a > span {
   color: #271fe0;
 }
 
-.c14 a > span svg path {
+.c15 a > span svg path {
   fill: #271fe0;
 }
 
-.c15 {
+.c16 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -3660,19 +3654,36 @@ exports[`Storyshots Design System/Components/Alert with action 1`] = `
   align-items: center;
   -webkit-text-decoration: none;
   text-decoration: none;
+  color: #4945ff;
   position: relative;
   outline: none;
 }
 
-.c15 svg path {
-  fill: #4945ff;
+.c16 svg path {
+  -webkit-transition: fill 150ms ease-out;
+  transition: fill 150ms ease-out;
+  fill: currentColor;
 }
 
-.c15 svg {
+.c16 svg {
   font-size: 0.625rem;
 }
 
-.c15:after {
+.c16 .c10 {
+  -webkit-transition: color 150ms ease-out;
+  transition: color 150ms ease-out;
+  color: currentColor;
+}
+
+.c16:hover {
+  color: #7b79ff;
+}
+
+.c16:active {
+  color: #271fe0;
+}
+
+.c16:after {
   -webkit-transition-property: all;
   transition-property: all;
   -webkit-transition-duration: 0.2s;
@@ -3687,11 +3698,11 @@ exports[`Storyshots Design System/Components/Alert with action 1`] = `
   border: 2px solid transparent;
 }
 
-.c15:focus-visible {
+.c16:focus-visible {
   outline: none;
 }
 
-.c15:focus-visible:after {
+.c16:focus-visible:after {
   border-radius: 8px;
   content: '';
   position: absolute;
@@ -3752,29 +3763,29 @@ exports[`Storyshots Design System/Components/Alert with action 1`] = `
                 class="c9"
               >
                 <p
-                  class="c10"
+                  class="c10 c11"
                 >
                   This is the title of the alert
                 </p>
               </div>
               <div
-                class="c11"
+                class="c12"
               >
                 <p
-                  class="c12"
+                  class="c10 c13"
                 >
                   Alert with title and longer description, lorem ipsum dolor sit amet constrectum adipisicng lorem ipsum dolor sit amet consrectumis adipisingus.
                 </p>
               </div>
               <div
-                class="c13 c14"
+                class="c14 c15"
               >
                 <a
-                  class="c15"
+                  class="c16"
                   href="/somewhere"
                 >
                   <span
-                    class="c16"
+                    class="c10 c13"
                   >
                     See more
                   </span>
@@ -16966,42 +16977,42 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
   padding: 40px;
 }
 
-.c8 {
+.c9 {
   padding-left: 8px;
 }
 
-.c9 {
+.c10 {
   color: #32324d;
 }
 
-.c11 {
+.c12 {
   width: 100%;
 }
 
-.c18 {
+.c19 {
   padding-right: 8px;
   padding-left: 12px;
 }
 
-.c21 {
+.c22 {
   padding-right: 12px;
   padding-left: 8px;
 }
 
-.c7 {
+.c8 {
   font-weight: 600;
   color: #32324d;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
-.c14 {
-  color: #4945ff;
+.c15 {
+  color: #32324d;
   font-size: 0.875rem;
   line-height: 1.43;
 }
 
-.c22 {
+.c23 {
   color: #666687;
   font-size: 0.75rem;
   line-height: 1.33;
@@ -17035,7 +17046,7 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
   flex-direction: row;
 }
 
-.c12 {
+.c13 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -17053,7 +17064,7 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
   justify-content: flex-end;
 }
 
-.c16 {
+.c17 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -17080,11 +17091,11 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
   margin-top: 4px;
 }
 
-.c10 path {
+.c11 path {
   fill: #32324d;
 }
 
-.c20 {
+.c21 {
   border: none;
   border-radius: 4px;
   padding-bottom: 0.65625rem;
@@ -17099,36 +17110,36 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
   background: inherit;
 }
 
-.c20::-webkit-input-placeholder {
+.c21::-webkit-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c20::-moz-placeholder {
+.c21::-moz-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c20:-ms-input-placeholder {
+.c21:-ms-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c20::placeholder {
+.c21::placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c20[aria-disabled='true'] {
+.c21[aria-disabled='true'] {
   color: inherit;
 }
 
-.c20:focus {
+.c21:focus {
   outline: none;
   box-shadow: none;
 }
 
-.c17 {
+.c18 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
@@ -17140,12 +17151,12 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
   transition-duration: 0.2s;
 }
 
-.c17:focus-within {
+.c18:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
-.c19 {
+.c20 {
   border: none;
   background: transparent;
   font-size: 1.6rem;
@@ -17161,7 +17172,7 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
   align-items: center;
 }
 
-.c13 {
+.c14 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -17172,19 +17183,36 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
   align-items: center;
   -webkit-text-decoration: none;
   text-decoration: none;
+  color: #4945ff;
   position: relative;
   outline: none;
 }
 
-.c13 svg path {
-  fill: #4945ff;
+.c14 svg path {
+  -webkit-transition: fill 150ms ease-out;
+  transition: fill 150ms ease-out;
+  fill: currentColor;
 }
 
-.c13 svg {
+.c14 svg {
   font-size: 0.625rem;
 }
 
-.c13:after {
+.c14 .c7 {
+  -webkit-transition: color 150ms ease-out;
+  transition: color 150ms ease-out;
+  color: currentColor;
+}
+
+.c14:hover {
+  color: #7b79ff;
+}
+
+.c14:active {
+  color: #271fe0;
+}
+
+.c14:after {
   -webkit-transition-property: all;
   transition-property: all;
   -webkit-transition-duration: 0.2s;
@@ -17199,11 +17227,11 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
   border: 2px solid transparent;
 }
 
-.c13:focus-visible {
+.c14:focus-visible {
   outline: none;
 }
 
-.c13:focus-visible:after {
+.c14:focus-visible:after {
   border-radius: 8px;
   content: '';
   position: absolute;
@@ -17214,7 +17242,7 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
   border: 2px solid #4945ff;
 }
 
-.c15 {
+.c16 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -17248,8 +17276,8 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
               class="c6"
             >
               <label
-                class="c7"
-                for="field-71"
+                class="c7 c8"
+                for="field-53"
               >
                 <div
                   class="c6"
@@ -17258,7 +17286,7 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
                 </div>
               </label>
               <div
-                class="c8"
+                class="c9"
               >
                 <span>
                   <button
@@ -17269,7 +17297,7 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class="c9 c10"
+                      class="c10 c11"
                       fill="none"
                       height="1em"
                       viewBox="0 0 24 24"
@@ -17285,23 +17313,23 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
                 </span>
               </div>
               <div
-                class="c11 c12"
+                class="c12 c13"
                 width="100%"
               >
                 <a
-                  class="c13"
+                  class="c14"
                   href="#"
                   rel="noreferrer noopener"
                   target="_blank"
                 >
                   <span
-                    class="c14"
+                    class="c7 c15"
                   >
                     Details
                   </span>
                   <span
                     aria-hidden="true"
-                    class="c8 c15"
+                    class="c9 c16"
                   >
                     <svg
                       fill="none"
@@ -17320,14 +17348,14 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
               </div>
             </div>
             <div
-              class="c16 c17"
+              class="c17 c18"
             >
               <div
-                class="c18"
+                class="c19"
               >
                 <button
                   aria-label="Show password"
-                  class="c19"
+                  class="c20"
                   type="button"
                 >
                   <svg
@@ -17353,18 +17381,18 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
                 aria-describedby="field-71-hint"
                 aria-disabled="false"
                 aria-invalid="false"
-                class="c20"
-                id="field-71"
+                class="c21"
+                id="field-53"
                 name="password"
                 placeholder="example@domain.com"
                 value=""
               />
               <div
-                class="c21"
+                class="c22"
               >
                 <button
                   aria-label="Show password"
-                  class="c19"
+                  class="c20"
                   type="button"
                 >
                   <svg
@@ -17388,8 +17416,8 @@ exports[`Storyshots Design System/Components/Field most complex input 1`] = `
               </div>
             </div>
             <p
-              class="c22"
-              id="field-71-hint"
+              class="c7 c23"
+              id="field-53-hint"
             >
               Description line
             </p>
@@ -17428,42 +17456,42 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
   padding: 40px;
 }
 
-.c8 {
+.c9 {
   padding-left: 8px;
 }
 
-.c9 {
+.c10 {
   color: #32324d;
 }
 
-.c11 {
+.c12 {
   width: 100%;
 }
 
-.c18 {
+.c19 {
   padding-right: 8px;
   padding-left: 12px;
 }
 
-.c21 {
+.c22 {
   padding-right: 12px;
   padding-left: 8px;
 }
 
-.c7 {
+.c8 {
   font-weight: 600;
   color: #32324d;
   font-size: 0.75rem;
   line-height: 1.33;
 }
 
-.c14 {
-  color: #4945ff;
+.c15 {
+  color: #32324d;
   font-size: 0.875rem;
   line-height: 1.43;
 }
 
-.c22 {
+.c23 {
   color: #666687;
   font-size: 0.75rem;
   line-height: 1.33;
@@ -17497,7 +17525,7 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
   flex-direction: row;
 }
 
-.c12 {
+.c13 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -17515,7 +17543,7 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
   justify-content: flex-end;
 }
 
-.c16 {
+.c17 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -17542,11 +17570,11 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
   margin-top: 4px;
 }
 
-.c10 path {
+.c11 path {
   fill: #32324d;
 }
 
-.c20 {
+.c21 {
   border: none;
   border-radius: 4px;
   padding-bottom: 0.40625rem;
@@ -17561,36 +17589,36 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
   background: inherit;
 }
 
-.c20::-webkit-input-placeholder {
+.c21::-webkit-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c20::-moz-placeholder {
+.c21::-moz-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c20:-ms-input-placeholder {
+.c21:-ms-input-placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c20::placeholder {
+.c21::placeholder {
   color: #8e8ea9;
   opacity: 1;
 }
 
-.c20[aria-disabled='true'] {
+.c21[aria-disabled='true'] {
   color: inherit;
 }
 
-.c20:focus {
+.c21:focus {
   outline: none;
   box-shadow: none;
 }
 
-.c17 {
+.c18 {
   border: 1px solid #dcdce4;
   border-radius: 4px;
   background: #ffffff;
@@ -17602,12 +17630,12 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
   transition-duration: 0.2s;
 }
 
-.c17:focus-within {
+.c18:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
-.c19 {
+.c20 {
   border: none;
   background: transparent;
   font-size: 1.6rem;
@@ -17623,7 +17651,7 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
   align-items: center;
 }
 
-.c13 {
+.c14 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -17634,19 +17662,36 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
   align-items: center;
   -webkit-text-decoration: none;
   text-decoration: none;
+  color: #4945ff;
   position: relative;
   outline: none;
 }
 
-.c13 svg path {
-  fill: #4945ff;
+.c14 svg path {
+  -webkit-transition: fill 150ms ease-out;
+  transition: fill 150ms ease-out;
+  fill: currentColor;
 }
 
-.c13 svg {
+.c14 svg {
   font-size: 0.625rem;
 }
 
-.c13:after {
+.c14 .c7 {
+  -webkit-transition: color 150ms ease-out;
+  transition: color 150ms ease-out;
+  color: currentColor;
+}
+
+.c14:hover {
+  color: #7b79ff;
+}
+
+.c14:active {
+  color: #271fe0;
+}
+
+.c14:after {
   -webkit-transition-property: all;
   transition-property: all;
   -webkit-transition-duration: 0.2s;
@@ -17661,11 +17706,11 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
   border: 2px solid transparent;
 }
 
-.c13:focus-visible {
+.c14:focus-visible {
   outline: none;
 }
 
-.c13:focus-visible:after {
+.c14:focus-visible:after {
   border-radius: 8px;
   content: '';
   position: absolute;
@@ -17676,7 +17721,7 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
   border: 2px solid #4945ff;
 }
 
-.c15 {
+.c16 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -17710,8 +17755,8 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
               class="c6"
             >
               <label
-                class="c7"
-                for="field-74"
+                class="c7 c8"
+                for="field-56"
               >
                 <div
                   class="c6"
@@ -17720,7 +17765,7 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
                 </div>
               </label>
               <div
-                class="c8"
+                class="c9"
               >
                 <span>
                   <button
@@ -17731,7 +17776,7 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
                   >
                     <svg
                       aria-hidden="true"
-                      class="c9 c10"
+                      class="c10 c11"
                       fill="none"
                       height="1em"
                       viewBox="0 0 24 24"
@@ -17747,23 +17792,23 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
                 </span>
               </div>
               <div
-                class="c11 c12"
+                class="c12 c13"
                 width="100%"
               >
                 <a
-                  class="c13"
+                  class="c14"
                   href="#"
                   rel="noreferrer noopener"
                   target="_blank"
                 >
                   <span
-                    class="c14"
+                    class="c7 c15"
                   >
                     Details
                   </span>
                   <span
                     aria-hidden="true"
-                    class="c8 c15"
+                    class="c9 c16"
                   >
                     <svg
                       fill="none"
@@ -17782,14 +17827,14 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
               </div>
             </div>
             <div
-              class="c16 c17"
+              class="c17 c18"
             >
               <div
-                class="c18"
+                class="c19"
               >
                 <button
                   aria-label="Show password"
-                  class="c19"
+                  class="c20"
                   type="button"
                 >
                   <svg
@@ -17815,18 +17860,18 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
                 aria-describedby="field-74-hint"
                 aria-disabled="false"
                 aria-invalid="false"
-                class="c20"
-                id="field-74"
+                class="c21"
+                id="field-56"
                 name="password"
                 placeholder="example@domain.com"
                 value=""
               />
               <div
-                class="c21"
+                class="c22"
               >
                 <button
                   aria-label="Show password"
-                  class="c19"
+                  class="c20"
                   type="button"
                 >
                   <svg
@@ -17850,8 +17895,8 @@ exports[`Storyshots Design System/Components/Field most complex s size input 1`]
               </div>
             </div>
             <p
-              class="c22"
-              id="field-74-hint"
+              class="c7 c23"
+              id="field-56-hint"
             >
               Description line
             </p>
@@ -18780,7 +18825,7 @@ exports[`Storyshots Design System/Components/HeaderLayout base 1`] = `
 }
 
 .c11 {
-  color: #4945ff;
+  color: #32324d;
   font-size: 0.875rem;
   line-height: 1.43;
 }
@@ -18906,16 +18951,33 @@ exports[`Storyshots Design System/Components/HeaderLayout base 1`] = `
   align-items: center;
   -webkit-text-decoration: none;
   text-decoration: none;
+  color: #4945ff;
   position: relative;
   outline: none;
 }
 
 .c7 svg path {
-  fill: #4945ff;
+  -webkit-transition: fill 150ms ease-out;
+  transition: fill 150ms ease-out;
+  fill: currentColor;
 }
 
 .c7 svg {
   font-size: 0.625rem;
+}
+
+.c7 .c10 {
+  -webkit-transition: color 150ms ease-out;
+  transition: color 150ms ease-out;
+  color: currentColor;
+}
+
+.c7:hover {
+  color: #7b79ff;
+}
+
+.c7:active {
+  color: #271fe0;
 }
 
 .c7:after {
@@ -19918,7 +19980,7 @@ exports[`Storyshots Design System/Components/HeaderLayout combined w/ scroll 1`]
 }
 
 .c11 {
-  color: #4945ff;
+  color: #32324d;
   font-size: 0.875rem;
   line-height: 1.43;
 }
@@ -20044,16 +20106,33 @@ exports[`Storyshots Design System/Components/HeaderLayout combined w/ scroll 1`]
   align-items: center;
   -webkit-text-decoration: none;
   text-decoration: none;
+  color: #4945ff;
   position: relative;
   outline: none;
 }
 
 .c7 svg path {
-  fill: #4945ff;
+  -webkit-transition: fill 150ms ease-out;
+  transition: fill 150ms ease-out;
+  fill: currentColor;
 }
 
 .c7 svg {
   font-size: 0.625rem;
+}
+
+.c7 .c10 {
+  -webkit-transition: color 150ms ease-out;
+  transition: color 150ms ease-out;
+  color: currentColor;
+}
+
+.c7:hover {
+  color: #7b79ff;
+}
+
+.c7:active {
+  color: #271fe0;
 }
 
 .c7:after {
@@ -20435,7 +20514,7 @@ exports[`Storyshots Design System/Components/HeaderLayout sticky 1`] = `
 }
 
 .c14 {
-  color: #4945ff;
+  color: #32324d;
   font-size: 0.875rem;
   line-height: 1.43;
 }
@@ -20561,16 +20640,33 @@ exports[`Storyshots Design System/Components/HeaderLayout sticky 1`] = `
   align-items: center;
   -webkit-text-decoration: none;
   text-decoration: none;
+  color: #4945ff;
   position: relative;
   outline: none;
 }
 
 .c10 svg path {
-  fill: #4945ff;
+  -webkit-transition: fill 150ms ease-out;
+  transition: fill 150ms ease-out;
+  fill: currentColor;
 }
 
 .c10 svg {
   font-size: 0.625rem;
+}
+
+.c10 .c13 {
+  -webkit-transition: color 150ms ease-out;
+  transition: color 150ms ease-out;
+  color: currentColor;
+}
+
+.c10:hover {
+  color: #7b79ff;
+}
+
+.c10:active {
+  color: #271fe0;
 }
 
 .c10:after {
@@ -71340,12 +71436,12 @@ exports[`Storyshots Design System/Technical Components/RawTable simple 1`] = `
   color: #32324d;
 }
 
-.c8 {
+.c9 {
   padding-left: 8px;
 }
 
-.c7 {
-  color: #4945ff;
+.c8 {
+  color: #32324d;
   font-size: 0.875rem;
   line-height: 1.43;
 }
@@ -71361,16 +71457,33 @@ exports[`Storyshots Design System/Technical Components/RawTable simple 1`] = `
   align-items: center;
   -webkit-text-decoration: none;
   text-decoration: none;
+  color: #4945ff;
   position: relative;
   outline: none;
 }
 
 .c6 svg path {
-  fill: #4945ff;
+  -webkit-transition: fill 150ms ease-out;
+  transition: fill 150ms ease-out;
+  fill: currentColor;
 }
 
 .c6 svg {
   font-size: 0.625rem;
+}
+
+.c6 .c7 {
+  -webkit-transition: color 150ms ease-out;
+  transition: color 150ms ease-out;
+  color: currentColor;
+}
+
+.c6:hover {
+  color: #7b79ff;
+}
+
+.c6:active {
+  color: #271fe0;
 }
 
 .c6:after {
@@ -71403,7 +71516,7 @@ exports[`Storyshots Design System/Technical Components/RawTable simple 1`] = `
   border: 2px solid #4945ff;
 }
 
-.c9 {
+.c10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -71558,13 +71671,13 @@ exports[`Storyshots Design System/Technical Components/RawTable simple 1`] = `
                   target="_blank"
                 >
                   <span
-                    class="c7"
+                    class="c7 c8"
                   >
                     Link to somewhere
                   </span>
                   <span
                     aria-hidden="true"
-                    class="c8 c9"
+                    class="c9 c10"
                   >
                     <svg
                       fill="none"
