@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import handleResponsiveValues from '../helpers/handleResponsiveValues';
-import { ellipsisStyle, handleColor } from '../Typography/utils';
 import { boxPropTypes, boxDefaultProps } from './BoxProps';
 
 /**
@@ -10,20 +9,7 @@ const transientProps = {
   color: true,
 };
 
-// ImageBase has been added here to check if Box is used as "img" tag
-// If so, to handle alt text overflow following properties has been added
-const ImageBase = styled.div`
-  ${({ as, theme, color }) => {
-    if (as === 'img')
-      return `
-    width: stretch;
-    ${ellipsisStyle({ ellipsis: true })}
-    color: ${handleColor({ theme, textColor: color })};
-    `;
-  }};
-`;
-
-export const Box = styled(ImageBase).withConfig({
+export const Box = styled.div.withConfig({
   shouldForwardProp: (prop, defPropValFN) => !transientProps[prop] && defPropValFN(prop),
 })`
   // Font
