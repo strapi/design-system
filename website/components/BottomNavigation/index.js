@@ -46,7 +46,7 @@ const BottomNavigation = ({ next, previous }) => {
     </Wrapper>
   );
 };
-//comment
+
 BottomNavigation.propTypes = {
   next: PropTypes.shape({
     title: PropTypes.string,
