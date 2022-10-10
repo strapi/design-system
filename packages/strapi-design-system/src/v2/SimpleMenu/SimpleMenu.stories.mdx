@@ -117,6 +117,9 @@ A menu can allow the user to make actions. It can redirect the user to another p
     <SimpleMenu label="Menu" as={IconButton} icon={<CarretDown />}>
       <MenuItem>Home</MenuItem>
       <MenuItem>Somewhere internal</MenuItem>
+      <MenuItem href="https://strapi.io/" isExternal>
+        Somewhere External
+      </MenuItem>
     </SimpleMenu>
   </Story>
 </Canvas>
