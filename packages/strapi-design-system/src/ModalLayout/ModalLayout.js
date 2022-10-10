@@ -6,7 +6,7 @@ import { Box } from '../Box';
 import { FocusTrap } from '../FocusTrap';
 import { Portal } from '../Portal';
 import { ModalContext } from './ModalContext';
-import { DismissableLayer } from '../DismissableLayer';
+import { DismissibleLayer } from '../DismissibleLayer';
 
 import useLockScroll from '../helpers/useLockScroll';
 
@@ -33,7 +33,7 @@ export const ModalLayout = ({ onClose, labelledBy, ...props }) => {
       <ModalContext.Provider value={onClose}>
         <ModalWrapper>
           <FocusTrap>
-            <DismissableLayer onEscapeKeyDown={onClose} onPointerDownOutside={onClose}>
+            <DismissibleLayer onEscapeKeyDown={onClose} onPointerDownOutside={onClose}>
               <ModalContent
                 aria-labelledby={labelledBy}
                 onClick={(e) => e.stopPropagation()}
@@ -44,7 +44,7 @@ export const ModalLayout = ({ onClose, labelledBy, ...props }) => {
                 aria-modal={true}
                 {...props}
               />
-            </DismissableLayer>
+            </DismissibleLayer>
           </FocusTrap>
         </ModalWrapper>
       </ModalContext.Provider>

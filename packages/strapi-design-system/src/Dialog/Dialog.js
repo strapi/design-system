@@ -7,7 +7,7 @@ import { FocusTrap } from '../FocusTrap';
 import { Portal } from '../Portal';
 import { Flex } from '../Flex';
 import { Typography } from '../Typography';
-import { DismissableLayer } from '../DismissableLayer';
+import { DismissibleLayer } from '../DismissibleLayer';
 
 import { setOpacity } from '../helpers/setOpacity';
 import useLockScroll from '../helpers/useLockScroll';
@@ -47,7 +47,7 @@ export const Dialog = ({ onClose, title, as, isOpen, id, ...props }) => {
     <Portal>
       <DialogWrapper>
         <FocusTrap>
-          <DismissableLayer onEscapeKeyDown={onClose} onPointerDownOutside={onClose}>
+          <DismissibleLayer onEscapeKeyDown={onClose} onPointerDownOutside={onClose}>
             <DialogContainer
               aria-labelledby={labelledBy}
               aria-modal={true}
@@ -63,7 +63,7 @@ export const Dialog = ({ onClose, title, as, isOpen, id, ...props }) => {
               </DialogHeader>
               <Box {...props} />
             </DialogContainer>
-          </DismissableLayer>
+          </DismissibleLayer>
         </FocusTrap>
       </DialogWrapper>
     </Portal>
