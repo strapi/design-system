@@ -1,14 +1,14 @@
-import * as React from 'react';
+import React, { useEffect, useRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
 
-export const DismissableLayer = ({ children, className, onEscapeKeyDown, onPointerDownOutside }) => {
-  const layerRef = React.useRef(null);
+export const DismissibleLayer = ({ children, className, onEscapeKeyDown, onPointerDownOutside }) => {
+  const layerRef = useRef(null);
   const onEscapeKeyDownHandler = useCallbackRef(onEscapeKeyDown);
   const onPointerDownOutsideHandler = useCallbackRef(onPointerDownOutside);
 
-  React.useEffect(() => {
+  useEffect(() => {
     /**
-     * @type {import('react').KeyboardEventHandler<Document>}
+     * @type {(event: KeyboardEvent) => void}
      */
     const handleKeyDown = (event) => {
       if (event.key === 'Escape') {
@@ -21,9 +21,9 @@ export const DismissableLayer = ({ children, className, onEscapeKeyDown, onPoint
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [onEscapeKeyDownHandler]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     /**
-     * @type {import('react').PointerEventHandler<Document>}
+     * @type {(event: PointerEvent) => void}
      */
     const handlePointerDownOutside = (event) => {
       if (layerRef.current && !layerRef.current.contains(event.target)) {
@@ -43,7 +43,7 @@ export const DismissableLayer = ({ children, className, onEscapeKeyDown, onPoint
   );
 };
 
-DismissableLayer.propTypes = {
+DismissibleLayer.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   onEscapeKeyDown: PropTypes.func,
@@ -57,14 +57,14 @@ DismissableLayer.propTypes = {
  * Stolen from @radix-ui/react-use-callback-ref
  */
 function useCallbackRef(callback) {
-  const callbackRef = React.useRef(callback);
+  const callbackRef = useRef(callback);
 
-  React.useEffect(() => {
+  useEffect(() => {
     callbackRef.current = callback;
   });
 
   // https://github.com/facebook/react/issues/19240
-  return React.useMemo(
+  return useMemo(
     () =>
       (...args) =>
         callbackRef.current?.(...args),
