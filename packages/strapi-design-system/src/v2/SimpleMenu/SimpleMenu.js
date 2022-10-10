@@ -6,11 +6,12 @@ import { Typography } from '../../Typography';
 import { Box } from '../../Box';
 import { Flex } from '../../Flex';
 import { Button } from '../../Button';
-import { BaseLink } from '../../BaseLink';
 import { Popover, POPOVER_PLACEMENTS } from '../../Popover';
 import { getOptionStyle } from './utils';
 import { useId } from '../../helpers/useId';
 import { KeyboardKeys } from '../../helpers/keyboardKeys';
+import { Link } from '../../Link';
+import { NavLink } from 'react-router-dom';
 
 const OptionButton = styled.button`
   border: none;
@@ -20,7 +21,12 @@ const OptionButton = styled.button`
   ${getOptionStyle}
 `;
 
-const OptionLink = styled(BaseLink)`
+const OptionLink = styled(NavLink)`
+  text-decoration: none;
+  ${getOptionStyle}
+`;
+
+const OptionExternalLink = styled.div`
   text-decoration: none;
   ${getOptionStyle}
 `;
@@ -38,7 +44,7 @@ const StyledButtonSmall = styled(Button)`
   padding: ${({ theme }) => `${theme.spaces[1]} ${theme.spaces[3]}`};
 `;
 
-export const MenuItem = ({ as, children, onClick, isFocused, isLink, ...props }) => {
+export const MenuItem = ({ children, onClick, isFocused, to, href, isExternal, ...props }) => {
   const menuItemRef = useRef();
 
   useEffect(() => {
@@ -60,33 +66,50 @@ export const MenuItem = ({ as, children, onClick, isFocused, isLink, ...props })
     }
   };
 
-  return isLink ? (
-    <OptionLink as={as} {...menuItemProps}>
-      <Box padding={2}>
-        <Typography>{children}</Typography>
-      </Box>
-    </OptionLink>
-  ) : (
-    <OptionButton onKeyDown={handleKeyDown} onMouseDown={onClick} type="button" {...menuItemProps}>
-      <Box padding={2}>
-        <Typography>{children}</Typography>
-      </Box>
-    </OptionButton>
-  );
+  if (to)
+    return (
+      <OptionLink to={to} {...menuItemProps}>
+        <Box padding={2}>
+          <Typography>{children}</Typography>
+        </Box>
+      </OptionLink>
+    );
+  else if (href && isExternal)
+    return (
+      <OptionExternalLink {...menuItemProps}>
+        <Box padding={2}>
+          <Link href={href} isExternal={isExternal}>
+            <Typography>{children}</Typography>
+          </Link>
+        </Box>
+      </OptionExternalLink>
+    );
+  else
+    return (
+      <OptionButton onKeyDown={handleKeyDown} onMouseDown={onClick} type="button" {...menuItemProps}>
+        <Box padding={2}>
+          <Typography>{children}</Typography>
+        </Box>
+      </OptionButton>
+    );
 };
 
 MenuItem.defaultProps = {
   onClick: () => {},
   isFocused: false,
-  isLink: false,
+  to: undefined,
+  href: undefined,
+  isExternal: false,
 };
 
 MenuItem.propTypes = {
   as: PropTypes.elementType,
   children: PropTypes.node.isRequired,
+  href: PropTypes.string,
+  isExternal: PropTypes.bool,
   isFocused: PropTypes.bool,
-  isLink: PropTypes.bool,
   onClick: PropTypes.func,
+  to: PropTypes.string,
 };
 
 export const SimpleMenu = ({
