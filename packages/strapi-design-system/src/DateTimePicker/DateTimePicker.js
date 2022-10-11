@@ -1,19 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { Stack } from '../Stack';
 import { DatePicker } from '../DatePicker';
 import { TimePicker } from '../TimePicker';
 import { Field, FieldHint, FieldLabel, FieldError } from '../Field';
 import { Flex } from '../Flex';
-import { Box } from '../Box';
 import { parseDate } from './parseDate';
-
-const LabelAction = styled(Box)`
-  svg path {
-    fill: ${({ theme }) => theme.colors.neutral500};
-  }
-`;
 
 export const DateTimePicker = ({
   ariaLabel,
@@ -115,10 +107,9 @@ export const DateTimePicker = ({
       <Stack spacing={1}>
         {label && (
           <Flex>
-            <FieldLabel required={required} id="datetime-label">
+            <FieldLabel required={required} action={labelAction} id="datetime-label">
               {label}
             </FieldLabel>
-            {labelAction && <LabelAction paddingLeft={1}>{labelAction}</LabelAction>}
           </Flex>
         )}
         <Stack horizontal spacing={2}>
