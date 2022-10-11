@@ -11,6 +11,7 @@ import { Flex } from '../Flex';
 const Label = styled.label`
   position: relative;
   display: inline-block;
+  z-index: 0;
 `;
 
 const ToggleCheckboxWrapper = styled(Box)`
