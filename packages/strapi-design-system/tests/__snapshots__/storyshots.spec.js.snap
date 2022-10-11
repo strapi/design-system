@@ -49721,6 +49721,7 @@ exports[`Storyshots Design System/Components/ToggleCheckbox base 1`] = `
 .c3 {
   position: relative;
   display: inline-block;
+  z-index: 0;
 }
 
 .c5 {
@@ -49897,6 +49898,7 @@ exports[`Storyshots Design System/Components/ToggleCheckbox disabled 1`] = `
 .c3 {
   position: relative;
   display: inline-block;
+  z-index: 0;
 }
 
 .c5 {
@@ -50078,6 +50080,7 @@ exports[`Storyshots Design System/Components/ToggleCheckbox null-value 1`] = `
 .c3 {
   position: relative;
   display: inline-block;
+  z-index: 0;
 }
 
 .c5 {
@@ -50251,6 +50254,7 @@ exports[`Storyshots Design System/Components/ToggleCheckbox size S 1`] = `
 .c3 {
   position: relative;
   display: inline-block;
+  z-index: 0;
 }
 
 .c5 {
@@ -50483,6 +50487,7 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
 .c10 {
   position: relative;
   display: inline-block;
+  z-index: 0;
 }
 
 .c12 {
@@ -50830,6 +50835,7 @@ exports[`Storyshots Design System/Components/ToggleInput clear-value 1`] = `
 .c11 {
   position: relative;
   display: inline-block;
+  z-index: 0;
 }
 
 .c13 {
@@ -51098,6 +51104,7 @@ exports[`Storyshots Design System/Components/ToggleInput disabled 1`] = `
 .c8 {
   position: relative;
   display: inline-block;
+  z-index: 0;
 }
 
 .c10 {
@@ -51360,6 +51367,7 @@ exports[`Storyshots Design System/Components/ToggleInput error 1`] = `
 .c8 {
   position: relative;
   display: inline-block;
+  z-index: 0;
 }
 
 .c10 {
@@ -51610,6 +51618,7 @@ exports[`Storyshots Design System/Components/ToggleInput null-value 1`] = `
 .c8 {
   position: relative;
   display: inline-block;
+  z-index: 0;
 }
 
 .c10 {
@@ -51856,6 +51865,7 @@ exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
 .c8 {
   position: relative;
   display: inline-block;
+  z-index: 0;
 }
 
 .c10 {
