@@ -103,7 +103,6 @@ export const DatePicker = ({
 DatePicker.defaultProps = {
   ariaLabel: undefined,
   clearLabel: undefined,
-  showErrorBorder: false,
   disabled: false,
   id: undefined,
   label: undefined,
@@ -129,6 +128,5 @@ DatePicker.propTypes = {
   placeholder: PropTypes.string,
   selectedDate: PropTypes.instanceOf(Date),
   selectedDateLabel: PropTypes.func.isRequired,
-  showErrorBorder: PropTypes.bool,
   size: PropTypes.oneOf(Object.keys(sizes.input)),
 };
