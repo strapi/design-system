@@ -50668,9 +50668,7 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
 }
 
 .c3 {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+  max-width: 320px;
 }
 
 <div
@@ -51047,9 +51045,7 @@ exports[`Storyshots Design System/Components/ToggleInput clear-value 1`] = `
 }
 
 .c3 {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+  max-width: 320px;
 }
 
 .c9 {
@@ -51348,9 +51344,7 @@ exports[`Storyshots Design System/Components/ToggleInput disabled 1`] = `
 }
 
 .c3 {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+  max-width: 320px;
 }
 
 <div
@@ -51641,9 +51635,7 @@ exports[`Storyshots Design System/Components/ToggleInput error 1`] = `
 }
 
 .c3 {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+  max-width: 320px;
 }
 
 <div
@@ -51907,9 +51899,7 @@ exports[`Storyshots Design System/Components/ToggleInput null-value 1`] = `
 }
 
 .c3 {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+  max-width: 320px;
 }
 
 <div
@@ -52196,9 +52186,7 @@ exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
 }
 
 .c3 {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+  max-width: 320px;
 }
 
 <div
