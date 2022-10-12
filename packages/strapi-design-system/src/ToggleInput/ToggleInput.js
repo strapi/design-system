@@ -10,7 +10,7 @@ import { TextButton } from '../TextButton';
 import { ToggleCheckbox } from '../ToggleCheckbox';
 
 const FieldWrapper = styled(Field)`
-  width: fit-content;
+  max-width: 320px;
 `;
 
 const ClearButton = styled(TextButton)`
