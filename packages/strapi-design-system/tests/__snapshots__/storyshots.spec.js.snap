@@ -49730,8 +49730,10 @@ exports[`Storyshots Design System/Components/ToggleCheckbox base 1`] = `
 }
 
 .c5 {
-  height: 2.5rem;
   overflow: hidden;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   outline: none;
   box-shadow: 0;
   -webkit-transition-property: border-color,box-shadow,fill;
@@ -49757,6 +49759,8 @@ exports[`Storyshots Design System/Components/ToggleCheckbox base 1`] = `
   -webkit-flex: 1 1 50%;
   -ms-flex: 1 1 50%;
   flex: 1 1 50%;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
 .c10 {
@@ -49771,6 +49775,8 @@ exports[`Storyshots Design System/Components/ToggleCheckbox base 1`] = `
   -webkit-flex: 1 1 50%;
   -ms-flex: 1 1 50%;
   flex: 1 1 50%;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
 .c12 {
@@ -49926,9 +49932,11 @@ exports[`Storyshots Design System/Components/ToggleCheckbox disabled 1`] = `
 }
 
 .c5 {
-  height: 2.5rem;
   cursor: not-allowed;
   overflow: hidden;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   outline: none;
   box-shadow: 0;
   -webkit-transition-property: border-color,box-shadow,fill;
@@ -49954,6 +49962,8 @@ exports[`Storyshots Design System/Components/ToggleCheckbox disabled 1`] = `
   -webkit-flex: 1 1 50%;
   -ms-flex: 1 1 50%;
   flex: 1 1 50%;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
 .c10 {
@@ -49968,6 +49978,8 @@ exports[`Storyshots Design System/Components/ToggleCheckbox disabled 1`] = `
   -webkit-flex: 1 1 50%;
   -ms-flex: 1 1 50%;
   flex: 1 1 50%;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
 .c11 {
@@ -50119,8 +50131,10 @@ exports[`Storyshots Design System/Components/ToggleCheckbox null-value 1`] = `
 }
 
 .c5 {
-  height: 2.5rem;
   overflow: hidden;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   outline: none;
   box-shadow: 0;
   -webkit-transition-property: border-color,box-shadow,fill;
@@ -50146,6 +50160,8 @@ exports[`Storyshots Design System/Components/ToggleCheckbox null-value 1`] = `
   -webkit-flex: 1 1 50%;
   -ms-flex: 1 1 50%;
   flex: 1 1 50%;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
 .c10 {
@@ -50301,8 +50317,10 @@ exports[`Storyshots Design System/Components/ToggleCheckbox size S 1`] = `
 }
 
 .c5 {
-  height: 2rem;
   overflow: hidden;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   outline: none;
   box-shadow: 0;
   -webkit-transition-property: border-color,box-shadow,fill;
@@ -50328,6 +50346,8 @@ exports[`Storyshots Design System/Components/ToggleCheckbox size S 1`] = `
   -webkit-flex: 1 1 50%;
   -ms-flex: 1 1 50%;
   flex: 1 1 50%;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
 .c10 {
@@ -50342,6 +50362,8 @@ exports[`Storyshots Design System/Components/ToggleCheckbox size S 1`] = `
   -webkit-flex: 1 1 50%;
   -ms-flex: 1 1 50%;
   flex: 1 1 50%;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
 .c12 {
@@ -50559,8 +50581,10 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
 }
 
 .c12 {
-  height: 2.5rem;
   overflow: hidden;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   outline: none;
   box-shadow: 0;
   -webkit-transition-property: border-color,box-shadow,fill;
@@ -50586,6 +50610,8 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
   -webkit-flex: 1 1 50%;
   -ms-flex: 1 1 50%;
   flex: 1 1 50%;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
 .c17 {
@@ -50600,6 +50626,8 @@ exports[`Storyshots Design System/Components/ToggleInput base 1`] = `
   -webkit-flex: 1 1 50%;
   -ms-flex: 1 1 50%;
   flex: 1 1 50%;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
 .c19 {
@@ -50932,8 +50960,10 @@ exports[`Storyshots Design System/Components/ToggleInput clear-value 1`] = `
 }
 
 .c13 {
-  height: 2.5rem;
   overflow: hidden;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   outline: none;
   box-shadow: 0;
   -webkit-transition-property: border-color,box-shadow,fill;
@@ -50959,6 +50989,8 @@ exports[`Storyshots Design System/Components/ToggleInput clear-value 1`] = `
   -webkit-flex: 1 1 50%;
   -ms-flex: 1 1 50%;
   flex: 1 1 50%;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
 .c18 {
@@ -50973,6 +51005,8 @@ exports[`Storyshots Design System/Components/ToggleInput clear-value 1`] = `
   -webkit-flex: 1 1 50%;
   -ms-flex: 1 1 50%;
   flex: 1 1 50%;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
 .c20 {
@@ -51226,9 +51260,11 @@ exports[`Storyshots Design System/Components/ToggleInput disabled 1`] = `
 }
 
 .c10 {
-  height: 2.5rem;
   cursor: not-allowed;
   overflow: hidden;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   outline: none;
   box-shadow: 0;
   -webkit-transition-property: border-color,box-shadow,fill;
@@ -51254,6 +51290,8 @@ exports[`Storyshots Design System/Components/ToggleInput disabled 1`] = `
   -webkit-flex: 1 1 50%;
   -ms-flex: 1 1 50%;
   flex: 1 1 50%;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
 .c15 {
@@ -51268,6 +51306,8 @@ exports[`Storyshots Design System/Components/ToggleInput disabled 1`] = `
   -webkit-flex: 1 1 50%;
   -ms-flex: 1 1 50%;
   flex: 1 1 50%;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
 .c16 {
@@ -51514,8 +51554,10 @@ exports[`Storyshots Design System/Components/ToggleInput error 1`] = `
 }
 
 .c10 {
-  height: 2.5rem;
   overflow: hidden;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   outline: none;
   box-shadow: 0;
   -webkit-transition-property: border-color,box-shadow,fill;
@@ -51541,6 +51583,8 @@ exports[`Storyshots Design System/Components/ToggleInput error 1`] = `
   -webkit-flex: 1 1 50%;
   -ms-flex: 1 1 50%;
   flex: 1 1 50%;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
 .c15 {
@@ -51555,6 +51599,8 @@ exports[`Storyshots Design System/Components/ToggleInput error 1`] = `
   -webkit-flex: 1 1 50%;
   -ms-flex: 1 1 50%;
   flex: 1 1 50%;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
 .c17 {
@@ -51790,8 +51836,10 @@ exports[`Storyshots Design System/Components/ToggleInput null-value 1`] = `
 }
 
 .c10 {
-  height: 2.5rem;
   overflow: hidden;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   outline: none;
   box-shadow: 0;
   -webkit-transition-property: border-color,box-shadow,fill;
@@ -51817,6 +51865,8 @@ exports[`Storyshots Design System/Components/ToggleInput null-value 1`] = `
   -webkit-flex: 1 1 50%;
   -ms-flex: 1 1 50%;
   flex: 1 1 50%;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
 .c15 {
@@ -52059,8 +52109,10 @@ exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
 }
 
 .c10 {
-  height: 2rem;
   overflow: hidden;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   outline: none;
   box-shadow: 0;
   -webkit-transition-property: border-color,box-shadow,fill;
@@ -52086,6 +52138,8 @@ exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
   -webkit-flex: 1 1 50%;
   -ms-flex: 1 1 50%;
   flex: 1 1 50%;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
 .c15 {
@@ -52100,6 +52154,8 @@ exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
   -webkit-flex: 1 1 50%;
   -ms-flex: 1 1 50%;
   flex: 1 1 50%;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
 .c17 {
