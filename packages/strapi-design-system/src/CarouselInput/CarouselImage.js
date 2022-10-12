@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Box } from '../Box';
 import styled from 'styled-components';
@@ -19,13 +19,22 @@ const StyledImage = styled(Box)`
   `};
 `;
 
-export const CarouselImage = (props) => (
-  <Tooltip description={props.alt ?? ''}>
-    <ImageBase>
-      <StyledImage as="img" {...props} />
-    </ImageBase>
-  </Tooltip>
-);
+export const CarouselImage = (props) => {
+  const [isError, setIsError] = useState(false);
+
+  const handleImageError = () => setIsError(true);
+
+  if (isError)
+    return (
+      <Tooltip description={props.alt ?? ''}>
+        <ImageBase>
+          <StyledImage as="img" {...props} onError={handleImageError} />
+        </ImageBase>
+      </Tooltip>
+    );
+
+  return <StyledImage as="img" {...props} onError={handleImageError} />;
+};
 
 CarouselImage.defaultProps = {
   src: undefined,
