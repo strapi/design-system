@@ -34,9 +34,18 @@ Use a toggle whenever the users need to turn something on or off in a form. A to
     {() => {
       const [checked, setChecked] = useState(false);
       return (
-        <ToggleCheckbox onLabel="True" offLabel="False" checked={checked} onChange={() => setChecked((prev) => !prev)}>
-          The field is required?
-        </ToggleCheckbox>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12,1fr)', gridGap: '16px' }}>
+          <div style={{ gridColumn: '1 / 3' }}>
+            <ToggleCheckbox
+              onLabel="True"
+              offLabel="False"
+              checked={checked}
+              onChange={() => setChecked((prev) => !prev)}
+            >
+              The field is required?
+            </ToggleCheckbox>
+          </div>
+        </div>
       );
     }}
   </Story>

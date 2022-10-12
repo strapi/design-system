@@ -12,6 +12,7 @@ const Label = styled.label`
   position: relative;
   display: inline-block;
   z-index: 0;
+  width: 100%;
 `;
 
 const ToggleCheckboxWrapper = styled(Box)`
@@ -44,6 +45,7 @@ const ValueBox = styled(Flex).attrs({
   position: relative;
   user-select: none;
   z-index: 2;
+  flex: 1 1 50%;
 `;
 
 /**
@@ -81,15 +83,17 @@ export const ToggleCheckbox = React.forwardRef(
           size={size}
           disabled={disabled}
           padding={1}
-          display="inline-flex"
+          display="flex"
           background={disabled ? 'neutral150' : 'neutral100'}
           borderStyle="solid"
           borderWidth="1px"
           borderColor="neutral200"
         >
           <ValueBox
-            paddingLeft={7}
-            paddingRight={7}
+            paddingLeft={3}
+            paddingRight={3}
+            justifyContent="center"
+            alignItems="center"
             aria-hidden={true}
             checked={checked === null ? false : !checked}
             disabled={disabled}
@@ -105,8 +109,10 @@ export const ToggleCheckbox = React.forwardRef(
           </ValueBox>
 
           <ValueBox
-            paddingLeft={7}
-            paddingRight={7}
+            paddingLeft={3}
+            paddingRight={3}
+            justifyContent="center"
+            alignItems="center"
             aria-hidden={true}
             checked={checked === null ? false : checked}
             disabled={disabled}
