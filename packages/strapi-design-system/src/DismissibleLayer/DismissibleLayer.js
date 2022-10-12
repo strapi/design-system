@@ -44,10 +44,10 @@ export const DismissibleLayer = ({ children, className, onEscapeKeyDown, onPoint
 };
 
 DismissibleLayer.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
   className: PropTypes.string,
-  onEscapeKeyDown: PropTypes.func,
-  onPointerDownOutside: PropTypes.func,
+  onEscapeKeyDown: PropTypes.func.isRequired,
+  onPointerDownOutside: PropTypes.func.isRequired,
 };
 
 /**
