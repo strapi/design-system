@@ -51,8 +51,8 @@ const ValueBox = styled(Flex).attrs({
     the values are in a row to be 40px. But defining a height on the label
     would break the input when it wraps.
   */
-  padding-top: 6px;
-  padding-bottom: 6px;
+  padding-top: ${({ size }) => `${size === 'S' ? '2px' : '6px'}`};
+  padding-bottom: ${({ size }) => `${size === 'S' ? '2px' : '6px'}`};
 `;
 
 /**
@@ -87,7 +87,6 @@ export const ToggleCheckbox = React.forwardRef(
 
         <ToggleCheckboxWrapper
           hasRadius
-          size={size}
           disabled={disabled}
           padding={1}
           display="flex"
@@ -97,6 +96,7 @@ export const ToggleCheckbox = React.forwardRef(
           borderColor="neutral200"
         >
           <ValueBox
+            size={size}
             paddingLeft={3}
             paddingRight={3}
             justifyContent="center"
@@ -116,6 +116,7 @@ export const ToggleCheckbox = React.forwardRef(
           </ValueBox>
 
           <ValueBox
+            size={size}
             paddingLeft={3}
             paddingRight={3}
             justifyContent="center"
