@@ -14511,8 +14511,8 @@ exports[`Storyshots Design System/Components/DateTimePicker error 1`] = `
 }
 
 .c9:focus-within {
-  border: 1px solid #4945ff;
-  box-shadow: #4945ff 0px 0px 0px 2px;
+  border: 1px solid #d02b20;
+  box-shadow: #d02b20 0px 0px 0px 2px;
 }
 
 .c14 {
@@ -14700,8 +14700,9 @@ exports[`Storyshots Design System/Components/DateTimePicker error 1`] = `
                       </div>
                       <input
                         aria-autocomplete="none"
+                        aria-describedby="datepicker-57-error"
                         aria-disabled="false"
-                        aria-invalid="false"
+                        aria-invalid="true"
                         aria-label="Error"
                         class="c12"
                         data-testid="datetimepicker-date"

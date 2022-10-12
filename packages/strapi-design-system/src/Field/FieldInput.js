@@ -47,9 +47,7 @@ const Input = styled.input`
 `;
 
 export const InputWrapper = styled(Flex)`
-  border: 1px solid
-    ${({ theme, hasError, showErrorBorder }) =>
-      hasError || showErrorBorder ? theme.colors.danger600 : theme.colors.neutral200};
+  border: 1px solid ${({ theme, hasError }) => (hasError ? theme.colors.danger600 : theme.colors.neutral200)};
   border-radius: ${({ theme }) => theme.borderRadius};
   background: ${({ theme }) => theme.colors.neutral0};
   ${inputFocusStyle()}
@@ -64,61 +62,53 @@ export const InputWrapper = styled(Flex)`
       : undefined}
 `;
 
-export const FieldInput = forwardRef(
-  ({ endAction, startAction, disabled, onChange, size, showErrorBorder, ...props }, ref) => {
-    const { id, error, hint, name } = useField();
+export const FieldInput = forwardRef(({ endAction, startAction, disabled, onChange, size, ...props }, ref) => {
+  const { id, error, hint, name } = useField();
 
-    let ariaDescription;
+  let ariaDescription;
 
-    if (error) {
-      ariaDescription = `${id}-error`;
-    } else if (hint) {
-      ariaDescription = `${id}-hint`;
+  if (error) {
+    ariaDescription = `${id}-error`;
+  } else if (hint) {
+    ariaDescription = `${id}-hint`;
+  }
+
+  const hasError = Boolean(error);
+
+  const handleChange = (e) => {
+    if (!disabled) {
+      onChange(e);
     }
+  };
 
-    const hasError = Boolean(error);
-
-    const handleChange = (e) => {
-      if (!disabled) {
-        onChange(e);
-      }
-    };
-
-    return (
-      <InputWrapper
+  return (
+    <InputWrapper size={size} justifyContent="space-between" hasError={hasError} disabled={disabled}>
+      {startAction && (
+        <Box paddingLeft={3} paddingRight={2}>
+          {startAction}
+        </Box>
+      )}
+      <Input
+        id={id}
+        name={name}
+        ref={ref}
+        aria-describedby={ariaDescription}
+        aria-invalid={hasError}
+        aria-disabled={disabled}
+        hasLeftAction={Boolean(startAction)}
+        hasRightAction={Boolean(endAction)}
+        onChange={handleChange}
         size={size}
-        justifyContent="space-between"
-        showErrorBorder={showErrorBorder}
-        hasError={hasError}
-        disabled={disabled}
-      >
-        {startAction && (
-          <Box paddingLeft={3} paddingRight={2}>
-            {startAction}
-          </Box>
-        )}
-        <Input
-          id={id}
-          name={name}
-          ref={ref}
-          aria-describedby={ariaDescription}
-          aria-invalid={hasError}
-          aria-disabled={disabled}
-          hasLeftAction={Boolean(startAction)}
-          hasRightAction={Boolean(endAction)}
-          onChange={handleChange}
-          size={size}
-          {...props}
-        />
-        {endAction && (
-          <Box paddingLeft={2} paddingRight={3}>
-            {endAction}
-          </Box>
-        )}
-      </InputWrapper>
-    );
-  },
-);
+        {...props}
+      />
+      {endAction && (
+        <Box paddingLeft={2} paddingRight={3}>
+          {endAction}
+        </Box>
+      )}
+    </InputWrapper>
+  );
+});
 
 FieldInput.displayName = 'FieldInput';
 
@@ -128,14 +118,12 @@ FieldInput.defaultProps = {
   size: 'M',
   startAction: undefined,
   onChange: () => {},
-  showErrorBorder: false,
 };
 
 FieldInput.propTypes = {
   disabled: PropTypes.bool,
   endAction: PropTypes.element,
   onChange: PropTypes.func,
-  showErrorBorder: PropTypes.bool,
   size: PropTypes.oneOf(Object.keys(sizes.input)),
   startAction: PropTypes.element,
 };

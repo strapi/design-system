@@ -117,7 +117,7 @@ export const DateTimePicker = ({
             data-testid="datetimepicker-date"
             name={name}
             ariaLabel={label || ariaLabel}
-            showErrorBorder={!!error}
+            error={typeof error === 'string'}
             selectedDate={dateValue}
             selectedDateLabel={(formattedDate) => `Date picker, current is ${formattedDate}`}
             onChange={handleDateChange}
@@ -131,7 +131,7 @@ export const DateTimePicker = ({
             data-testid="datetimepicker-time"
             size={size}
             aria-label={label || ariaLabel}
-            showErrorBorder={!!error}
+            error={typeof error === 'string'}
             value={timeValue}
             onChange={handleTimeChange}
             onClear={onClear && handleTimeClear}

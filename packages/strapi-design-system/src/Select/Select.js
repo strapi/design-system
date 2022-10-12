@@ -36,7 +36,6 @@ export const Select = ({
   hint,
   error,
   disabled,
-  showErrorBorder,
   clearLabel,
   onClear,
   onReachEnd,
@@ -54,7 +53,8 @@ export const Select = ({
 
   const labelId = `${generatedId}-label`;
   const contentId = `${generatedId}-content`;
-  const ariaDescribedBy = error ? `${generatedId}-error` : hint ? `${generatedId}-hint` : undefined;
+  const ariaDescribedBy =
+    error && typeof error === 'string' ? `${generatedId}-error` : hint ? `${generatedId}-hint` : undefined;
 
   if (withTags && !multi) {
     throw new Error('The "withTags" props can only be used when the "multi" prop is present');
@@ -150,19 +150,14 @@ export const Select = ({
 
   return (
     <Field hint={hint} error={error} id={generatedId}>
-      <Stack spacing={label || hint || error ? 1 : 0}>
+      <Stack spacing={label || hint || typeof error === 'string' ? 1 : 0}>
         {label && (
           <FieldLabel required={required} as="span" id={labelId} action={labelAction}>
             {label}
           </FieldLabel>
         )}
 
-        <SelectButtonWrapper
-          size={size}
-          hasError={Boolean(error) || showErrorBorder}
-          disabled={disabled}
-          ref={containerRef}
-        >
+        <SelectButtonWrapper size={size} hasError={Boolean(error)} disabled={disabled} ref={containerRef}>
           <SelectButton
             ref={buttonRef}
             labelledBy={`${labelId} ${contentId}`}
@@ -270,7 +265,6 @@ Select.defaultProps = {
   clearLabel: 'Clear',
   customizeContent: undefined,
   disabled: false,
-  showErrorBorder: false,
   id: undefined,
   label: undefined,
   labelAction: undefined,
@@ -294,7 +288,7 @@ Select.propTypes = {
   clearLabel: PropTypes.string,
   customizeContent: PropTypes.func,
   disabled: PropTypes.bool,
-  error: PropTypes.string,
+  error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   hint: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   label: PropTypes.string,
@@ -305,7 +299,6 @@ Select.propTypes = {
   onReachEnd: PropTypes.func,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
-  showErrorBorder: PropTypes.bool,
   size: PropTypes.oneOf(Object.keys(sizes.input)),
   startIcon: PropTypes.element,
   value: PropTypes.oneOfType([
