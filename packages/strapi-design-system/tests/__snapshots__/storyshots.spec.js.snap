@@ -50373,8 +50373,8 @@ exports[`Storyshots Design System/Components/ToggleCheckbox size S 1`] = `
   -webkit-flex: 1 1 50%;
   -ms-flex: 1 1 50%;
   flex: 1 1 50%;
-  padding-top: 6px;
-  padding-bottom: 6px;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
 
 .c10 {
@@ -50389,8 +50389,8 @@ exports[`Storyshots Design System/Components/ToggleCheckbox size S 1`] = `
   -webkit-flex: 1 1 50%;
   -ms-flex: 1 1 50%;
   flex: 1 1 50%;
-  padding-top: 6px;
-  padding-bottom: 6px;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
 
 .c12 {
@@ -52155,8 +52155,8 @@ exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
   -webkit-flex: 1 1 50%;
   -ms-flex: 1 1 50%;
   flex: 1 1 50%;
-  padding-top: 6px;
-  padding-bottom: 6px;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
 
 .c15 {
@@ -52171,8 +52171,8 @@ exports[`Storyshots Design System/Components/ToggleInput size S 1`] = `
   -webkit-flex: 1 1 50%;
   -ms-flex: 1 1 50%;
   flex: 1 1 50%;
-  padding-top: 6px;
-  padding-bottom: 6px;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
 
 .c17 {
