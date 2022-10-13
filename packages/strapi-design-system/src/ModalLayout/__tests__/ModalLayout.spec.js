@@ -462,7 +462,9 @@ describe('ModalLayout', () => {
         max-height: 60vh;
       }
 
-      <body>
+      <body
+        class="lock-body-scroll"
+      >
         <div>
           <div
             class="c0"

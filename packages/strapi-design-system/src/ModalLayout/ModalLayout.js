@@ -26,7 +26,7 @@ const ModalContent = styled(Box)`
 `;
 
 export const ModalLayout = ({ onClose, labelledBy, ...props }) => {
-  useLockScroll();
+  useLockScroll(true);
 
   return (
     <Portal>
