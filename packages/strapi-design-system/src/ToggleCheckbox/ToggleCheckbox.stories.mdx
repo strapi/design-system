@@ -3,6 +3,9 @@
 import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { ArgsTable } from '@storybook/addon-docs';
+
+import { Grid, GridItem } from '../Grid';
+
 import { ToggleCheckbox } from './ToggleCheckbox';
 
 <Meta title="Design System/Components/ToggleCheckbox" component={ToggleCheckbox} />
@@ -34,9 +37,18 @@ Use a toggle whenever the users need to turn something on or off in a form. A to
     {() => {
       const [checked, setChecked] = useState(false);
       return (
-        <ToggleCheckbox onLabel="True" offLabel="False" checked={checked} onChange={() => setChecked((prev) => !prev)}>
-          The field is required?
-        </ToggleCheckbox>
+        <Grid gap={3} gridCols={12}>
+          <GridItem col={3}>
+            <ToggleCheckbox
+              onLabel="True"
+              offLabel="False"
+              checked={checked}
+              onChange={() => setChecked((prev) => !prev)}
+            >
+              The field is required?
+            </ToggleCheckbox>
+          </GridItem>
+        </Grid>
       );
     }}
   </Story>

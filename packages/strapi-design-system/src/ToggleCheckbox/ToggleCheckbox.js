@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { sizes } from '../themes/sizes';
-import { getThemeSize, inputFocusStyle } from '../themes/utils';
+import { inputFocusStyle } from '../themes/utils';
 import { Typography } from '../Typography';
 import { VisuallyHidden } from '../VisuallyHidden';
 import { Box } from '../Box';
@@ -12,13 +12,14 @@ const Label = styled.label`
   position: relative;
   display: inline-block;
   z-index: 0;
+  width: 100%;
 `;
 
 const ToggleCheckboxWrapper = styled(Box)`
-  height: ${getThemeSize('input')};
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : undefined)};
   // Masks the background of each value
   overflow: hidden;
+  flex-wrap: wrap;
 
   ${inputFocusStyle()}
 `;
@@ -44,6 +45,14 @@ const ValueBox = styled(Flex).attrs({
   position: relative;
   user-select: none;
   z-index: 2;
+  flex: 1 1 50%;
+  /**
+    We declare the defined value because we want the height of the input when 
+    the values are in a row to be 40px. But defining a height on the label
+    would break the input when it wraps.
+  */
+  padding-top: ${({ size }) => `${size === 'S' ? '2px' : '6px'}`};
+  padding-bottom: ${({ size }) => `${size === 'S' ? '2px' : '6px'}`};
 `;
 
 /**
@@ -78,18 +87,20 @@ export const ToggleCheckbox = React.forwardRef(
 
         <ToggleCheckboxWrapper
           hasRadius
-          size={size}
           disabled={disabled}
           padding={1}
-          display="inline-flex"
+          display="flex"
           background={disabled ? 'neutral150' : 'neutral100'}
           borderStyle="solid"
           borderWidth="1px"
           borderColor="neutral200"
         >
           <ValueBox
-            paddingLeft={7}
-            paddingRight={7}
+            size={size}
+            paddingLeft={3}
+            paddingRight={3}
+            justifyContent="center"
+            alignItems="center"
             aria-hidden={true}
             checked={checked === null ? false : !checked}
             disabled={disabled}
@@ -105,8 +116,11 @@ export const ToggleCheckbox = React.forwardRef(
           </ValueBox>
 
           <ValueBox
-            paddingLeft={7}
-            paddingRight={7}
+            size={size}
+            paddingLeft={3}
+            paddingRight={3}
+            justifyContent="center"
+            alignItems="center"
             aria-hidden={true}
             checked={checked === null ? false : checked}
             disabled={disabled}
