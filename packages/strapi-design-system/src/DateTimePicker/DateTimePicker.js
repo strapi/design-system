@@ -33,33 +33,29 @@ export const DateTimePicker = ({
   const handleDateChange = (e) => {
     setDateValue(e);
 
+    let dateToSet;
+
     if (timeValue) {
-      const dateToSet = new Date(e);
+      dateToSet = new Date(e);
       dateToSet.setHours(timeValue.split(':')[0]);
       dateToSet.setMinutes(timeValue.split(':')[1]);
-
-      if (onChange) {
-        onChange(dateToSet);
-      }
     } else {
-      const dateToSet = new Date(e);
+      dateToSet = new Date(e);
       setTimeValue(`${dateToSet.getHours()}:${dateToSet.getMinutes()}:${dateToSet.getSeconds()}`);
-
-      if (onChange) {
-        onChange(dateToSet);
-      }
+    }
+    if (onChange) {
+      onChange(dateToSet);
     }
   };
 
   const handleTimeChange = (e) => {
     setTimeValue(e);
 
-    const dateToSet = new Date(dateValue);
+    const dateToSet = dateValue ? new Date(dateValue) : new Date();
     dateToSet.setHours(e.split(':')[0]);
     dateToSet.setMinutes(e.split(':')[1]);
-
     if (!dateValue) {
-      setDateValue(new Date());
+      setDateValue(dateToSet);
     }
 
     if (onChange) {
@@ -90,13 +86,13 @@ export const DateTimePicker = ({
   };
 
   useEffect(() => {
-    if (value) {
+    if (value && +value !== +dateValue) {
       const parsedData = parseDate(value);
       setDateValue(parsedData);
       setTimeValue(
         parsedData ? `${parsedData.getHours()}:${parsedData.getMinutes()}:${parsedData.getSeconds()}` : null,
       );
-    } else {
+    } else if (!value) {
       setDateValue(undefined);
       setTimeValue(undefined);
     }
