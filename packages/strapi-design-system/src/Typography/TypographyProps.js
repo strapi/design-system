@@ -10,6 +10,7 @@ export const typographyDefaultProps = {
   fontSize: undefined,
   lineHeight: undefined,
   textColor: undefined,
+  textAlign: undefined,
   textTransform: undefined,
   variant: OMEGA,
 };
@@ -19,6 +20,7 @@ export const typographyPropTypes = {
   fontSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   fontWeight: PropTypes.string,
   lineHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  textAlign: PropTypes.string,
   textColor: PropTypes.string,
   textTransform: PropTypes.string,
   variant: PropTypes.oneOf(TEXT_VARIANTS),
