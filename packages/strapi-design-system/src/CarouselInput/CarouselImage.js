@@ -3,35 +3,27 @@ import PropTypes from 'prop-types';
 import { Box } from '../Box';
 import styled from 'styled-components';
 import { Tooltip } from '../Tooltip';
-import { ellipsisStyle, handleColor } from '../Typography/utils';
-
-// ImageBase is needed since tooltip requires box level element to work upon
-// Also img component can not be directly worked with tooltip otherwise it will span the whole window
-const ImageBase = styled(Box)`
-  display: grid;
-`;
+import { ellipsisStyle } from '../Typography/utils';
 
 const StyledImage = styled(Box)`
-  ${({ theme, color }) => `
-  width: stretch;
+  height: 100%;
   ${ellipsisStyle({ ellipsis: true })}
-  color: ${handleColor({ theme, textColor: color })};
-  `};
 `;
 
 export const CarouselImage = (props) => {
   const [isError, setIsError] = useState(false);
 
-  const handleImageError = () => setIsError(true);
+  const handleImageError = () => {
+    setIsError(true);
+  };
 
-  if (isError)
+  if (isError) {
     return (
       <Tooltip description={props.alt ?? ''}>
-        <ImageBase>
-          <StyledImage as="img" {...props} onError={handleImageError} />
-        </ImageBase>
+        <StyledImage as="img" {...props} />
       </Tooltip>
     );
+  }
 
   return <StyledImage as="img" {...props} onError={handleImageError} />;
 };
