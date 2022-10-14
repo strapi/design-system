@@ -93,7 +93,7 @@ export const Carousel = ({
             </CarouselAction>
           )}
 
-          <CarouselSlides aria-live="polite" paddingLeft={2} paddingRight={2} width="100%">
+          <CarouselSlides aria-live="polite" paddingLeft={2} paddingRight={2} width="100%" overflow="hidden">
             {childrenArray}
           </CarouselSlides>
           {actions}
