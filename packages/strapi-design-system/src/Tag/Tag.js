@@ -52,7 +52,7 @@ export const Tag = ({ children, icon, disabled, onClick, actionLabel, ...props }
         </TagText>
 
         <TagIconWrapper
-          as="button"
+          as={onClick ? 'button' : 'span'}
           aria-disabled={disabled}
           aria-label={actionLabel}
           paddingLeft={2}
