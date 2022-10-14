@@ -8,7 +8,7 @@ describe('SimpleMenu', () => {
   it('display the menu on click on the menu button', async () => {
     render(
       <ThemeProvider theme={lightTheme}>
-        <SimpleMenu label="January">
+        <SimpleMenu label="Menu">
           <MenuItem onClick={() => {}}>January</MenuItem>
           <MenuItem onClick={() => {}}>February</MenuItem>
           <MenuItem href="https://strapi.io" isExternal>
@@ -18,7 +18,7 @@ describe('SimpleMenu', () => {
       </ThemeProvider>,
     );
 
-    const button = await waitFor(() => screen.getByText('January'));
+    const button = await waitFor(() => screen.getByText('Menu'));
     fireEvent.mouseDown(button);
 
     await waitFor(() => {
@@ -31,7 +31,7 @@ describe('SimpleMenu', () => {
 
     render(
       <ThemeProvider theme={lightTheme}>
-        <SimpleMenu label="January">
+        <SimpleMenu label="Menu">
           <MenuItem onClick={onClickSpy}>January</MenuItem>
           <MenuItem onClick={onClickSpy}>February</MenuItem>
           <MenuItem href="https://strapi.io" isExternal>
@@ -41,7 +41,7 @@ describe('SimpleMenu', () => {
       </ThemeProvider>,
     );
 
-    const button = await waitFor(() => screen.getByText('January'));
+    const button = await waitFor(() => screen.getByText('Menu'));
     fireEvent.mouseDown(button);
 
     const menuItemButton = await waitFor(() => screen.getByText('February'));

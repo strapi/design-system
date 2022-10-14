@@ -58,7 +58,7 @@ export const MenuItem = ({ as, children, onClick, isFocused, to, href, isExterna
 
   const menuItemProps = {
     tabIndex: isFocused ? 0 : -1,
-    ref: menuItemRef,
+    ref: href && isExternal ? undefined : menuItemRef,
     role: 'menuitem',
     ...props,
   };
