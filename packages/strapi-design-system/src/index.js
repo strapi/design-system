@@ -14,6 +14,7 @@ export * from './CarouselInput';
 export * from './Checkbox';
 export * from './Combobox';
 export * from './Dialog';
+export * from './DismissibleLayer';
 export * from './DatePicker';
 export * from './DateTimePicker';
 export * from './Divider';

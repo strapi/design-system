@@ -112,6 +112,34 @@ A CarouselInput is mostly used in forms. Thanks to their navigational arrows the
       );
     }}
   </Story>
+  <Story name="broken-asset">
+    {() => {
+      return (
+        <CarouselInput
+          label={`Carousel of numbers 1/1)`}
+          selectedSlide={0}
+          previousLabel="Previous slide"
+          nextLabel="Next slide"
+          onNext={() => {}}
+          onPrevious={() => {}}
+          hint="Description line"
+          actions={
+            <CarouselActions>
+              <IconButton onClick={() => console.log('edit')} label="Edit" id="edit" icon={<Pencil />} />
+              <IconButton onClick={() => console.log('Create')} label="Create" icon={<Plus />} />
+              <IconButton onClick={() => console.log('Delete')} label="Delete" icon={<Trash />} />
+              <IconButton onClick={() => console.log('Publish')} label="Publish" icon={<Play />} />
+            </CarouselActions>
+          }
+          style={{ width: '242px' }}
+        >
+          <CarouselSlide label="1 of 1 slides">
+            <CarouselImage src={'asdf'} alt="my image" />
+          </CarouselSlide>
+        </CarouselInput>
+      );
+    }}
+  </Story>
 </Canvas>
 
 ## Props
