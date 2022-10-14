@@ -26,8 +26,12 @@ const OptionLink = styled(NavLink)`
   ${getOptionStyle}
 `;
 
-const OptionExternalLink = styled.div`
+const OptionExternalLink = styled(Link)`
   text-decoration: none;
+  color: currentColor;
+  :hover {
+    color: currentColor;
+  }
   ${getOptionStyle}
 `;
 
@@ -76,11 +80,9 @@ export const MenuItem = ({ children, onClick, to, isFocused, href, isExternal, .
     );
   else if (href && isExternal)
     return (
-      <OptionExternalLink {...menuItemProps}>
+      <OptionExternalLink href={href} isExternal={isExternal} {...menuItemProps}>
         <Box padding={2}>
-          <Link href={href} isExternal={isExternal}>
-            <Typography>{children}</Typography>
-          </Link>
+          <Typography>{children}</Typography>
         </Box>
       </OptionExternalLink>
     );

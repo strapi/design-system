@@ -7,6 +7,7 @@ import CarretDown from '@strapi/icons/CarretDown';
 import { SimpleMenu, MenuItem } from './SimpleMenu';
 import { IconButton } from '../../IconButton';
 import { Stack } from '../../Stack';
+import { NavLink } from 'react-router-dom';
 
 <Meta title="Design System/Components/v2/SimpleMenu" component={SimpleMenu} />
 
@@ -83,10 +84,10 @@ return (
         source: {
           code: `
 <SimpleMenu label="Menu">
-  <MenuItem to="/">
+  <MenuItem to="/" as={NavLink}>
     Home
   </MenuItem>
-  <MenuItem to="/somewhere">
+  <MenuItem to="/somewhere" as={NavLink}>
     Somewhere internal
   </MenuItem>
   <MenuItem href="https://strapi.io/" isExternal>
@@ -99,8 +100,12 @@ return (
     }}
   >
     <SimpleMenu label="Menu">
-      <MenuItem to="/">Home</MenuItem>
-      <MenuItem to="/somewhere">Somewhere internal</MenuItem>
+      <MenuItem to="/" as={NavLink}>
+        Home
+      </MenuItem>
+      <MenuItem to="/somewhere" as={NavLink}>
+        Somewhere internal
+      </MenuItem>
       <MenuItem href="https://strapi.io/" isExternal>
         Somewhere External
       </MenuItem>
@@ -115,8 +120,12 @@ A menu can allow the user to make actions. It can redirect the user to another p
 <Canvas>
   <Story name="with-iconbutton">
     <SimpleMenu label="Menu" as={IconButton} icon={<CarretDown />}>
-      <MenuItem>Home</MenuItem>
-      <MenuItem>Somewhere internal</MenuItem>
+      <MenuItem to="/" as={NavLink}>
+        Home
+      </MenuItem>
+      <MenuItem to="/somewhere" as={NavLink}>
+        Somewhere internal
+      </MenuItem>
       <MenuItem href="https://strapi.io/" isExternal>
         Somewhere External
       </MenuItem>

@@ -10,8 +10,7 @@ import { Popover, POPOVER_PLACEMENTS } from '../../Popover';
 import { getOptionStyle } from './utils';
 import { useId } from '../../helpers/useId';
 import { KeyboardKeys } from '../../helpers/keyboardKeys';
-import { Link } from '../../Link';
-import { NavLink } from 'react-router-dom';
+import { Link } from '../Link';
 
 const OptionButton = styled.button`
   border: none;
@@ -21,13 +20,17 @@ const OptionButton = styled.button`
   ${getOptionStyle}
 `;
 
-const OptionLink = styled(NavLink)`
+const OptionLink = styled(Link)`
   text-decoration: none;
   ${getOptionStyle}
 `;
 
-const OptionExternalLink = styled.div`
+const OptionExternalLink = styled(Link)`
   text-decoration: none;
+  color: currentColor;
+  :hover {
+    color: currentColor;
+  }
   ${getOptionStyle}
 `;
 
@@ -44,7 +47,7 @@ const StyledButtonSmall = styled(Button)`
   padding: ${({ theme }) => `${theme.spaces[1]} ${theme.spaces[3]}`};
 `;
 
-export const MenuItem = ({ children, onClick, isFocused, to, href, isExternal, ...props }) => {
+export const MenuItem = ({ as, children, onClick, isFocused, to, href, isExternal, ...props }) => {
   const menuItemRef = useRef();
 
   useEffect(() => {
@@ -68,7 +71,7 @@ export const MenuItem = ({ children, onClick, isFocused, to, href, isExternal, .
 
   if (to)
     return (
-      <OptionLink to={to} {...menuItemProps}>
+      <OptionLink as={as} to={to} {...menuItemProps}>
         <Box padding={2}>
           <Typography>{children}</Typography>
         </Box>
@@ -76,11 +79,9 @@ export const MenuItem = ({ children, onClick, isFocused, to, href, isExternal, .
     );
   else if (href && isExternal)
     return (
-      <OptionExternalLink {...menuItemProps}>
+      <OptionExternalLink href={href} isExternal={isExternal} {...menuItemProps}>
         <Box padding={2}>
-          <Link href={href} isExternal={isExternal}>
-            <Typography>{children}</Typography>
-          </Link>
+          <Typography>{children}</Typography>
         </Box>
       </OptionExternalLink>
     );
