@@ -43,7 +43,7 @@ const IconWrapper = styled(Box)`
   display: flex;
 `;
 
-export const Link = ({ href, to, children, disabled, startIcon, endIcon, ...props }) => {
+export const Link = ({ href, to, children, disabled, startIcon, endIcon, isExternal, ...props }) => {
   const target = href ? '_blank' : undefined;
   const rel = href ? 'noreferrer noopener' : undefined;
 
@@ -70,7 +70,7 @@ export const Link = ({ href, to, children, disabled, startIcon, endIcon, ...prop
         </IconWrapper>
       )}
 
-      {href && (
+      {href && isExternal && (
         <IconWrapper as="span" aria-hidden={true} paddingLeft={2}>
           <ExternalLink />
         </IconWrapper>
@@ -83,6 +83,7 @@ Link.displayName = 'Link';
 
 Link.defaultProps = {
   href: undefined,
+  isExternal: false,
   to: undefined,
   disabled: false,
 };
@@ -96,6 +97,7 @@ Link.propTypes = {
       return new Error('href must be defined');
     }
   },
+  isExternal: PropTypes.bool,
   startIcon: PropTypes.element,
   to: (props) => {
     if (!props.disabled && !props.href && !props.to) {
