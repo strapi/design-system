@@ -71,7 +71,7 @@ export const DatePickerCalendar = ({
           </Box>
           <RawTable colCount={7} rowCount={weeks.length + 1} initialCol={activeCol} initialRow={activeRow} role="grid">
             <RawThead>
-              <RawTr>
+              <RawTr aria-rowindex={1}>
                 <DatePickerTh>{sun}</DatePickerTh>
                 <DatePickerTh>{mon}</DatePickerTh>
                 <DatePickerTh>{tue}</DatePickerTh>
