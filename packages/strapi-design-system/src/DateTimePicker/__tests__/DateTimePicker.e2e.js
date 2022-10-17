@@ -95,7 +95,7 @@ test.describe.parallel('DateTimePicker', () => {
       const datePickerValue = page.locator('[name="datetimepicker"]');
       expect(await datePickerValue.inputValue()).toBe('10/13/2021');
     });
-    test('clear the date and see if also the date will be cleared when are both already initialized', async ({
+    test('clear the date and see if also the time will be cleared when are both already initialized', async ({
       page,
       browserName,
     }) => {
@@ -112,6 +112,26 @@ test.describe.parallel('DateTimePicker', () => {
         '[aria-labelledby="datetime-label"] > div > div:nth-child(2) > div:nth-child(2) > div > div > div:nth-child(2) span',
       );
       expect(await timePickerValue.innerText()).toBe('--:--');
+    });
+    test('clear the time and see if the date remains the same when are both already initialized', async ({
+      page,
+      browserName,
+    }) => {
+      test.skip(browserName === 'webkit', 'Still working on it');
+      await page.focus('[aria-labelledby="datetime-label"] > div > div:nth-child(2) > div');
+
+      await page.keyboard.press('Tab');
+      await page.keyboard.press('Tab');
+      await page.keyboard.press('Tab');
+      await page.keyboard.press('Tab');
+      await page.keyboard.press('Tab');
+      await page.keyboard.press('Enter');
+      const datePickerValue = page.locator('[name="datetimepicker"]');
+      expect(await datePickerValue.inputValue()).toBe('10/13/2021');
+      const timePickerValue = page.locator(
+        '[aria-labelledby="datetime-label"] > div > div:nth-child(2) > div:nth-child(2) > div > div > div:nth-child(2) span',
+      );
+      expect(await timePickerValue.innerText()).toBe('00:00');
     });
   });
 });
