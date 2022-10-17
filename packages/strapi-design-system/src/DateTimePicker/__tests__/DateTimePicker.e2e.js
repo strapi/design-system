@@ -76,5 +76,24 @@ test.describe.parallel('DateTimePicker', () => {
       const timePickerValue = page.locator('span:has-text("12:00")');
       expect(await timePickerValue.innerText()).toBe('12:00');
     });
+    test('change the time and see if also the date will be changed when are both already initialized', async ({
+      page,
+      browserName,
+    }) => {
+      test.skip(browserName === 'webkit', 'Still working on it');
+      await page.focus('[aria-labelledby="datetime-label"] > div > div:nth-child(2) > div');
+
+      await page.keyboard.press('Tab');
+      await page.keyboard.press('Tab');
+      await page.keyboard.press('Tab');
+      await page.keyboard.press('Tab');
+      await page.keyboard.press('Enter');
+      await page.keyboard.press('ArrowDown');
+      await page.keyboard.press('ArrowDown');
+      await page.keyboard.press('ArrowDown');
+      await page.keyboard.press('Enter'); // to select the time
+      const timePickerValue = page.locator('[name="datetimepicker"]');
+      expect(await timePickerValue.inputValue()).toBe('10/13/2021');
+    });
   });
 });
