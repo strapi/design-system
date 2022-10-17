@@ -6,6 +6,7 @@ import { TimePicker } from '../TimePicker';
 import { Field, FieldHint, FieldLabel, FieldError } from '../Field';
 import { Flex } from '../Flex';
 import { parseDate } from './parseDate';
+import { dateTimePickerDefaultProps, dateTimePickerPropTypes } from './DateTimePickerProps';
 
 export const DateTimePicker = ({
   ariaLabel,
@@ -142,6 +143,10 @@ export const DateTimePicker = ({
     </Field>
   );
 };
+
+DateTimePicker.defaultProps = dateTimePickerDefaultProps;
+
+DateTimePicker.propTypes = dateTimePickerPropTypes;
 
 DateTimePicker.defaultProps = {
   ariaLabel: undefined,
