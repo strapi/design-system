@@ -14308,7 +14308,7 @@ exports[`Storyshots Design System/Components/DateTimePicker base 1`] = `
   padding-left: 16px;
 }
 
-.c6 {
+.c5 {
   font-weight: 600;
   color: #32324d;
   font-size: 0.75rem;
@@ -14345,7 +14345,7 @@ exports[`Storyshots Design System/Components/DateTimePicker base 1`] = `
   flex-direction: column;
 }
 
-.c5 {
+.c6 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -14587,23 +14587,19 @@ exports[`Storyshots Design System/Components/DateTimePicker base 1`] = `
           class="c3 c4"
           spacing="1"
         >
-          <div
+          <label
             class="c5"
+            for="field-60"
+            id="datetime-label-59"
           >
-            <label
+            <div
               class="c6"
-              for="field-60"
-              id="datetime-label-59"
             >
-              <div
-                class="c5"
-              >
-                Date time picker
-              </div>
-            </label>
-          </div>
+              Date time picker
+            </div>
+          </label>
           <div
-            class="c5 c7"
+            class="c6 c7"
             spacing="2"
           >
             <div
@@ -14665,7 +14661,7 @@ exports[`Storyshots Design System/Components/DateTimePicker base 1`] = `
                 class="c3 c13"
               >
                 <div
-                  class="c5 c14"
+                  class="c6 c14"
                 >
                   <button
                     aria-disabled="false"
@@ -14682,7 +14678,7 @@ exports[`Storyshots Design System/Components/DateTimePicker base 1`] = `
                     class="c8 c16"
                   >
                     <div
-                      class="c5"
+                      class="c6"
                     >
                       <div
                         aria-hidden="true"
@@ -14719,7 +14715,7 @@ exports[`Storyshots Design System/Components/DateTimePicker base 1`] = `
                       </div>
                     </div>
                     <div
-                      class="c5"
+                      class="c6"
                     >
                       <button
                         aria-hidden="true"
@@ -14798,7 +14794,7 @@ exports[`Storyshots Design System/Components/DateTimePicker error 1`] = `
   padding-left: 16px;
 }
 
-.c6 {
+.c5 {
   font-weight: 600;
   color: #32324d;
   font-size: 0.75rem;
@@ -14835,7 +14831,7 @@ exports[`Storyshots Design System/Components/DateTimePicker error 1`] = `
   flex-direction: column;
 }
 
-.c5 {
+.c6 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -15077,23 +15073,19 @@ exports[`Storyshots Design System/Components/DateTimePicker error 1`] = `
           class="c3 c4"
           spacing="1"
         >
-          <div
+          <label
             class="c5"
+            for="field-68"
+            id="datetime-label-67"
           >
-            <label
+            <div
               class="c6"
-              for="field-68"
-              id="datetime-label-67"
             >
-              <div
-                class="c5"
-              >
-                Error
-              </div>
-            </label>
-          </div>
+              Error
+            </div>
+          </label>
           <div
-            class="c5 c7"
+            class="c6 c7"
             spacing="2"
           >
             <div
@@ -15156,7 +15148,7 @@ exports[`Storyshots Design System/Components/DateTimePicker error 1`] = `
                 class="c3 c13"
               >
                 <div
-                  class="c5 c14"
+                  class="c6 c14"
                 >
                   <button
                     aria-disabled="false"
@@ -15173,7 +15165,7 @@ exports[`Storyshots Design System/Components/DateTimePicker error 1`] = `
                     class="c8 c16"
                   >
                     <div
-                      class="c5"
+                      class="c6"
                     >
                       <div
                         aria-hidden="true"
@@ -15210,7 +15202,7 @@ exports[`Storyshots Design System/Components/DateTimePicker error 1`] = `
                       </div>
                     </div>
                     <div
-                      class="c5"
+                      class="c6"
                     >
                       <button
                         aria-hidden="true"
@@ -15295,7 +15287,7 @@ exports[`Storyshots Design System/Components/DateTimePicker initial data 1`] = `
   padding-left: 16px;
 }
 
-.c6 {
+.c5 {
   font-weight: 600;
   color: #32324d;
   font-size: 0.75rem;
@@ -15332,7 +15324,7 @@ exports[`Storyshots Design System/Components/DateTimePicker initial data 1`] = `
   flex-direction: column;
 }
 
-.c5 {
+.c6 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -15590,23 +15582,19 @@ exports[`Storyshots Design System/Components/DateTimePicker initial data 1`] = `
           class="c3 c4"
           spacing="1"
         >
-          <div
+          <label
             class="c5"
+            for="field-76"
+            id="datetime-label-75"
           >
-            <label
+            <div
               class="c6"
-              for="field-76"
-              id="datetime-label-75"
             >
-              <div
-                class="c5"
-              >
-                Date time picker
-              </div>
-            </label>
-          </div>
+              Date time picker
+            </div>
+          </label>
           <div
-            class="c5 c7"
+            class="c6 c7"
             spacing="2"
           >
             <div
@@ -15690,7 +15678,7 @@ exports[`Storyshots Design System/Components/DateTimePicker initial data 1`] = `
                 class="c3 c15"
               >
                 <div
-                  class="c5 c16"
+                  class="c6 c16"
                 >
                   <button
                     aria-disabled="false"
@@ -15707,7 +15695,7 @@ exports[`Storyshots Design System/Components/DateTimePicker initial data 1`] = `
                     class="c8 c18"
                   >
                     <div
-                      class="c5"
+                      class="c6"
                     >
                       <div
                         aria-hidden="true"
@@ -15744,7 +15732,7 @@ exports[`Storyshots Design System/Components/DateTimePicker initial data 1`] = `
                       </div>
                     </div>
                     <div
-                      class="c5"
+                      class="c6"
                     >
                       <button
                         aria-disabled="false"

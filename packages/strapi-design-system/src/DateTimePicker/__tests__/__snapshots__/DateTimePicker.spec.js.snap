@@ -29,7 +29,7 @@ exports[`DateTimePicker snapshots the component 1`] = `
   flex-direction: column;
 }
 
-.c2 {
+.c3 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -84,7 +84,7 @@ exports[`DateTimePicker snapshots the component 1`] = `
   margin-left: 8px;
 }
 
-.c3 {
+.c2 {
   font-weight: 600;
   color: #32324d;
   font-size: 0.75rem;
@@ -279,23 +279,19 @@ exports[`DateTimePicker snapshots the component 1`] = `
     class="c0 c1"
     spacing="1"
   >
-    <div
+    <label
       class="c2"
+      for="field-2"
+      id="datetime-label-1"
     >
-      <label
+      <div
         class="c3"
-        for="field-2"
-        id="datetime-label-1"
       >
-        <div
-          class="c2"
-        >
-          Date time picker
-        </div>
-      </label>
-    </div>
+        Date time picker
+      </div>
+    </label>
     <div
-      class="c2 c4"
+      class="c3 c4"
       spacing="2"
     >
       <div
@@ -357,7 +353,7 @@ exports[`DateTimePicker snapshots the component 1`] = `
           class="c0 c10"
         >
           <div
-            class="c2 c11"
+            class="c3 c11"
           >
             <button
               aria-disabled="false"
@@ -374,7 +370,7 @@ exports[`DateTimePicker snapshots the component 1`] = `
               class="c5 c13"
             >
               <div
-                class="c2"
+                class="c3"
               >
                 <div
                   aria-hidden="true"
@@ -411,7 +407,7 @@ exports[`DateTimePicker snapshots the component 1`] = `
                 </div>
               </div>
               <div
-                class="c2"
+                class="c3"
               >
                 <button
                   aria-hidden="true"

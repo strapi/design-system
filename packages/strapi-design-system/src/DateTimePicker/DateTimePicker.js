@@ -3,7 +3,6 @@ import { Stack } from '../Stack';
 import { DatePicker } from '../DatePicker';
 import { TimePicker } from '../TimePicker';
 import { Field, FieldHint, FieldLabel, FieldError } from '../Field';
-import { Flex } from '../Flex';
 import { useId } from '../helpers/useId';
 import { parseDate } from './parseDate';
 import { dateTimePickerDefaultProps, dateTimePickerPropTypes } from './DateTimePickerProps';
@@ -105,11 +104,9 @@ export const DateTimePicker = ({
     <Field name={name} role="group" aria-labelledby={generatedId} hint={hint} error={error}>
       <Stack spacing={1}>
         {label && (
-          <Flex>
-            <FieldLabel required={required} action={labelAction} id={generatedId}>
-              {label}
-            </FieldLabel>
-          </Flex>
+          <FieldLabel required={required} action={labelAction} id={generatedId}>
+            {label}
+          </FieldLabel>
         )}
         <Stack horizontal spacing={2}>
           <DatePicker
