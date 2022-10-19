@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import { Stack } from '../Stack';
 import { DatePicker } from '../DatePicker';
 import { TimePicker } from '../TimePicker';
@@ -147,35 +146,3 @@ export const DateTimePicker = ({
 DateTimePicker.defaultProps = dateTimePickerDefaultProps;
 
 DateTimePicker.propTypes = dateTimePickerPropTypes;
-
-DateTimePicker.defaultProps = {
-  ariaLabel: undefined,
-  clearLabel: 'clear',
-  disabled: false,
-  error: undefined,
-  hint: undefined,
-  label: undefined,
-  labelAction: undefined,
-  onClear: undefined,
-  required: false,
-  size: 'M',
-  step: 1,
-  value: undefined,
-};
-
-DateTimePicker.propTypes = {
-  ariaLabel: PropTypes.string,
-  clearLabel: PropTypes.string,
-  disabled: PropTypes.bool,
-  error: PropTypes.string,
-  hint: PropTypes.string,
-  label: PropTypes.string,
-  labelAction: PropTypes.element,
-  name: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  onClear: PropTypes.func,
-  required: PropTypes.bool,
-  size: PropTypes.oneOf(['S', 'M']),
-  step: PropTypes.number,
-  value: PropTypes.instanceOf(Date),
-};
