@@ -4,6 +4,7 @@ import { DatePicker } from '../DatePicker';
 import { TimePicker } from '../TimePicker';
 import { Field, FieldHint, FieldLabel, FieldError } from '../Field';
 import { Flex } from '../Flex';
+import { useId } from '../helpers/useId';
 import { parseDate } from './parseDate';
 import { dateTimePickerDefaultProps, dateTimePickerPropTypes } from './DateTimePickerProps';
 
@@ -98,12 +99,14 @@ export const DateTimePicker = ({
     }
   }, [value]);
 
+  const generatedId = useId('datetime-label', props?.id);
+
   return (
-    <Field name={name} role="group" aria-labelledby="datetime-label" hint={hint} error={error}>
+    <Field name={name} role="group" aria-labelledby={generatedId} hint={hint} error={error}>
       <Stack spacing={1}>
         {label && (
           <Flex>
-            <FieldLabel required={required} action={labelAction} id="datetime-label">
+            <FieldLabel required={required} action={labelAction} id={generatedId}>
               {label}
             </FieldLabel>
           </Flex>

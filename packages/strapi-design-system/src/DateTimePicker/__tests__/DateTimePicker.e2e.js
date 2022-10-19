@@ -14,7 +14,7 @@ test.describe.parallel('DateTimePicker', () => {
       browserName,
     }) => {
       test.skip(browserName === 'webkit', 'Still working on it');
-      await page.focus('[aria-labelledby="datetime-label"] > div > div:nth-child(2) > div > div');
+      await page.focus('[aria-labelledby^="datetime-label"] > div > div:nth-child(2) > div > div');
 
       await page.keyboard.press('Tab');
       await page.keyboard.press('Enter');
@@ -34,7 +34,7 @@ test.describe.parallel('DateTimePicker', () => {
       browserName,
     }) => {
       test.skip(browserName === 'webkit', 'Still working on it');
-      await page.focus('[aria-labelledby="datetime-label"] > div > div:nth-child(2) > div');
+      await page.focus('[aria-labelledby^="datetime-label"] > div > div:nth-child(2) > div');
 
       await page.keyboard.press('Tab');
       await page.keyboard.press('Tab');
@@ -61,7 +61,7 @@ test.describe.parallel('DateTimePicker', () => {
       browserName,
     }) => {
       test.skip(browserName === 'webkit', 'Still working on it');
-      await page.focus('[aria-labelledby="datetime-label"] > div > div:nth-child(2) > div > div');
+      await page.focus('[aria-labelledby^="datetime-label"] > div > div:nth-child(2) > div > div');
 
       await page.keyboard.press('Tab');
       await page.keyboard.press('Enter');
@@ -81,7 +81,7 @@ test.describe.parallel('DateTimePicker', () => {
       browserName,
     }) => {
       test.skip(browserName === 'webkit', 'Still working on it');
-      await page.focus('[aria-labelledby="datetime-label"] > div > div:nth-child(2) > div');
+      await page.focus('[aria-labelledby^="datetime-label"] > div > div:nth-child(2) > div');
 
       await page.keyboard.press('Tab');
       await page.keyboard.press('Tab');
@@ -100,7 +100,7 @@ test.describe.parallel('DateTimePicker', () => {
       browserName,
     }) => {
       test.skip(browserName === 'webkit', 'Still working on it');
-      await page.focus('[aria-labelledby="datetime-label"] > div > div:nth-child(2) > div');
+      await page.focus('[aria-labelledby^="datetime-label"] > div > div:nth-child(2) > div');
 
       await page.keyboard.press('Tab');
       await page.keyboard.press('Tab');
@@ -109,7 +109,7 @@ test.describe.parallel('DateTimePicker', () => {
       const datePickerValue = page.locator('[name="datetimepicker"]');
       expect(await datePickerValue.inputValue()).toBe('');
       const timePickerValue = page.locator(
-        '[aria-labelledby="datetime-label"] > div > div:nth-child(2) > div:nth-child(2) > div > div > div:nth-child(2) span',
+        '[aria-labelledby^="datetime-label"] > div > div:nth-child(2) > div:nth-child(2) > div > div > div:nth-child(2) span',
       );
       expect(await timePickerValue.innerText()).toBe('--:--');
     });
@@ -118,7 +118,7 @@ test.describe.parallel('DateTimePicker', () => {
       browserName,
     }) => {
       test.skip(browserName === 'webkit', 'Still working on it');
-      await page.focus('[aria-labelledby="datetime-label"] > div > div:nth-child(2) > div');
+      await page.focus('[aria-labelledby^="datetime-label"] > div > div:nth-child(2) > div');
 
       await page.keyboard.press('Tab');
       await page.keyboard.press('Tab');
@@ -129,7 +129,7 @@ test.describe.parallel('DateTimePicker', () => {
       const datePickerValue = page.locator('[name="datetimepicker"]');
       expect(await datePickerValue.inputValue()).toBe('10/13/2021');
       const timePickerValue = page.locator(
-        '[aria-labelledby="datetime-label"] > div > div:nth-child(2) > div:nth-child(2) > div > div > div:nth-child(2) span',
+        '[aria-labelledby^="datetime-label"] > div > div:nth-child(2) > div:nth-child(2) > div > div > div:nth-child(2) span',
       );
       expect(await timePickerValue.innerText()).toBe('00:00');
     });
