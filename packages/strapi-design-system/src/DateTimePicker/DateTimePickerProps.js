@@ -19,11 +19,11 @@ export const dateTimePickerDefaultProps = {
 };
 export const dateTimePickerPropTypes = {
   /**
-   * Aria Label
+   * Aria Label used by the DatePicker and the TimePicker inside the DateTimePicker component
    */
   ariaLabel: PropTypes.string,
   /**
-   * Clear Label
+   * Clear Label used for the X button inside both, the TimePicker and the DatePicker
    */
   clearLabel: PropTypes.string,
   /**
@@ -31,15 +31,15 @@ export const dateTimePickerPropTypes = {
    */
   disabled: PropTypes.bool,
   /**
-   * Error message or boolean
+   * Error message or boolean, if it is a boolean we will hide the error message for the DatePicker and the TimePicker and show just the one that we have defined in the DateTimePicker
    */
   error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   /**
-   * Hint text
+   * Hint text used inside the Field wrapper component
    */
   hint: PropTypes.string,
   /**
-   * Label
+   * Label used to describe the the DateTimePicker component
    */
   label: PropTypes.string,
   /**
@@ -51,7 +51,7 @@ export const dateTimePickerPropTypes = {
    */
   name: PropTypes.string.isRequired,
   /**
-   * onChange function
+   * onChange function, passed from a parent component, it takes the actual date value and it is used inside the different handlers related to the change event for the DatePicker and the TimePicker and also the clear event for the TimePicker
    */
   onChange: PropTypes.func.isRequired,
   /**
@@ -67,11 +67,11 @@ export const dateTimePickerPropTypes = {
    */
   size: PropTypes.oneOf(['S', 'M']),
   /**
-   * Step value
+   * Step value used inside the TimePicker to show the different options for it
    */
   step: PropTypes.number,
   /**
-   * Value wich is a Date value
+   * Value. The Date passed as value
    */
   value: PropTypes.instanceOf(Date),
 };
