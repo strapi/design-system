@@ -153,7 +153,7 @@ export const Select = ({
 
   return (
     <Field hint={hint} error={error} id={generatedId}>
-      <Stack spacing={label || hint || typeof error === 'string' ? 1 : 0}>
+      <Stack spacing={label || hint || hasStringError ? 1 : 0}>
         {label && (
           <FieldLabel required={required} as="span" id={labelId} action={labelAction}>
             {label}
