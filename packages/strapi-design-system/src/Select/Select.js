@@ -53,8 +53,11 @@ export const Select = ({
 
   const labelId = `${generatedId}-label`;
   const contentId = `${generatedId}-content`;
-  const ariaDescribedBy =
-    error && typeof error === 'string' ? `${generatedId}-error` : hint ? `${generatedId}-hint` : undefined;
+  const hasStringError = typeof error === 'string';
+  const errorMessageId = hasStringError ? `${generatedId}-error` : undefined;
+  const hintMessageId = hint ? `${generatedId}-hint` : undefined;
+
+  const ariaDescribedBy = errorMessageId || hintMessageId;
 
   if (withTags && !multi) {
     throw new Error('The "withTags" props can only be used when the "multi" prop is present');
