@@ -30,7 +30,6 @@ test.describe.parallel('DateTimePicker', () => {
       expect(await datePickerValue.inputValue()).toBe(today);
     });
   });
-  /*
   test.describe('with initial data', () => {
     test.beforeEach(async ({ page }) => {
       // This is the URL of the Storybook Iframe
@@ -41,41 +40,25 @@ test.describe.parallel('DateTimePicker', () => {
       browserName,
     }) => {
       test.skip(browserName === 'webkit', 'Still working on it');
-      await page.focus('[aria-labelledby^="datetime-label"] > div > div:nth-child(2) > div > div');
-
-      await page.keyboard.press('Tab');
-      await page.keyboard.press('Enter');
-      await page.keyboard.press('ArrowDown');
-      await page.keyboard.press('Tab');
-      await page.keyboard.press('Tab'); // move to the Su column
-      await page.keyboard.press('ArrowDown');
-      await page.keyboard.press('ArrowDown');
-      await page.keyboard.press('ArrowDown'); // move to the third Sunday of the month
-      await page.keyboard.press('Enter'); // to select the date
+      await page.click('[aria-labelledby^="datetime-label"] > div > div:nth-child(2) > div > div');
+      await page.click('tr[aria-rowindex="4"] td[aria-colindex="4"]');
       // check if the time is selected with 12:00
-      const timePickerValue = page.locator('span:has-text("12:00")');
+      const timePickerValue = page.locator('button[data-testid="datetimepicker-time"] + div span');
       expect(await timePickerValue.innerText()).toBe('12:00');
     });
+
     test('change the time and see if also the date will be changed when are both already initialized', async ({
       page,
       browserName,
     }) => {
       test.skip(browserName === 'webkit', 'Still working on it');
-      await page.focus('[aria-labelledby^="datetime-label"] > div > div:nth-child(2) > div');
-
-      await page.keyboard.press('Tab');
-      await page.keyboard.press('Tab');
-      await page.keyboard.press('Tab');
-      await page.keyboard.press('Tab');
-      await page.keyboard.press('Enter');
-      await page.keyboard.press('ArrowDown');
-      await page.keyboard.press('ArrowDown');
-      await page.keyboard.press('ArrowDown');
-      await page.keyboard.press('Enter'); // to select the time
+      await page.click('button[data-testid="datetimepicker-time"]');
+      await page.click('div[data-react-portal="true"] li[data-strapi-value="08:03"]');
       const datePickerValue = page.locator('[name="datetimepicker"]');
       expect(await datePickerValue.inputValue()).toBe('10/13/2021');
     });
-    test('clear the date and see if also the time will be cleared when are both already initialized', async ({
+
+    test.only('clear the date and see if also the time will be cleared when are both already initialized', async ({
       page,
       browserName,
     }) => {
@@ -93,6 +76,7 @@ test.describe.parallel('DateTimePicker', () => {
       );
       expect(await timePickerValue.innerText()).toBe('--:--');
     });
+    /*
     test('clear the time and see if the date remains the same when are both already initialized', async ({
       page,
       browserName,
@@ -113,6 +97,6 @@ test.describe.parallel('DateTimePicker', () => {
       );
       expect(await timePickerValue.innerText()).toBe('00:00');
     });
+    */
   });
-  */
 });

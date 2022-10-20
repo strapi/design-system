@@ -3,7 +3,7 @@
 export const parseDate = (date) => {
   const timestamp = Date.parse(date);
 
-  if (Number.isNaN(timestamp) === false) {
+  if (!Number.isNaN(timestamp)) {
     return new Date(timestamp);
   }
 
