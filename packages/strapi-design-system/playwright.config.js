@@ -12,6 +12,7 @@ const config = {
     contextOptions: {
       locale: 'en-US',
     },
+    locale: 'en-US',
     actionTimeout: 0,
   },
   projects: [
