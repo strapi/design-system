@@ -214,6 +214,7 @@ export const Select = ({
                   onClick={handleClear}
                   aria-label={clearLabel}
                   aria-disabled={disabled}
+                  title={clearLabel}
                 >
                   <Cross />
                 </IconBox>
@@ -227,6 +228,7 @@ export const Select = ({
                 onMouseDown={handleMouseDown}
                 tabIndex={-1}
                 disabled={disabled}
+                title="Carret Down Button"
               >
                 <CarretDown />
               </CaretBox>

@@ -51,7 +51,8 @@ import { DateTimePicker } from '@strapi/design-system/DateTimePicker';
       const [value, setValue] = useState(undefined);
       return (
         <DateTimePicker
-          label="Date time picker"
+          label={'Date time picker'}
+          disabled={false}
           name="datetimepicker"
           onChange={(e) => setValue(e)}
           clearLabel="Clear"
