@@ -14721,6 +14721,7 @@ exports[`Storyshots Design System/Components/DateTimePicker base 1`] = `
                         aria-hidden="true"
                         class="c17 c21 c22"
                         tabindex="-1"
+                        title="Carret Down Button"
                         type="button"
                       >
                         <svg
@@ -15208,6 +15209,7 @@ exports[`Storyshots Design System/Components/DateTimePicker error 1`] = `
                         aria-hidden="true"
                         class="c17 c21 c22"
                         tabindex="-1"
+                        title="Carret Down Button"
                         type="button"
                       >
                         <svg
@@ -15738,6 +15740,7 @@ exports[`Storyshots Design System/Components/DateTimePicker initial data 1`] = `
                         aria-disabled="false"
                         aria-label="Clear"
                         class="c23"
+                        title="Clear"
                         type="button"
                       >
                         <svg
@@ -15757,6 +15760,7 @@ exports[`Storyshots Design System/Components/DateTimePicker initial data 1`] = `
                         aria-hidden="true"
                         class="c19 c23 c24"
                         tabindex="-1"
+                        title="Carret Down Button"
                         type="button"
                       >
                         <svg
@@ -35447,6 +35451,7 @@ exports[`Storyshots Design System/Components/Select base 1`] = `
                     aria-hidden="true"
                     class="c17 c20 c21"
                     tabindex="-1"
+                    title="Carret Down Button"
                     type="button"
                   >
                     <svg
@@ -35781,6 +35786,7 @@ exports[`Storyshots Design System/Components/Select multi 1`] = `
                     aria-hidden="true"
                     class="c15 c16 c17"
                     tabindex="-1"
+                    title="Carret Down Button"
                     type="button"
                   >
                     <svg
@@ -36115,6 +36121,7 @@ exports[`Storyshots Design System/Components/Select multi-nested 1`] = `
                     aria-hidden="true"
                     class="c15 c16 c17"
                     tabindex="-1"
+                    title="Carret Down Button"
                     type="button"
                   >
                     <svg
@@ -36482,6 +36489,7 @@ exports[`Storyshots Design System/Components/Select multi-withTags 1`] = `
                     aria-hidden="true"
                     class="c17 c18 c19"
                     tabindex="-1"
+                    title="Carret Down Button"
                     type="button"
                   >
                     <svg
@@ -36794,6 +36802,7 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
                     aria-disabled="false"
                     aria-label="Clear the meal"
                     class="c14"
+                    title="Clear the meal"
                     type="button"
                   >
                     <svg
@@ -36813,6 +36822,7 @@ exports[`Storyshots Design System/Components/Select size-S 1`] = `
                     aria-hidden="true"
                     class="c15 c14 c16"
                     tabindex="-1"
+                    title="Carret Down Button"
                     type="button"
                   >
                     <svg
@@ -37129,6 +37139,7 @@ exports[`Storyshots Design System/Components/Select withoutLabel 1`] = `
                     aria-hidden="true"
                     class="c12 c15 c16"
                     tabindex="-1"
+                    title="Carret Down Button"
                     type="button"
                   >
                     <svg
@@ -50219,6 +50230,7 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
                   aria-hidden="true"
                   class="c11 c15 c16"
                   tabindex="-1"
+                  title="Carret Down Button"
                   type="button"
                 >
                   <svg
@@ -50546,6 +50558,7 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
                   aria-hidden="true"
                   class="c11 c15 c16"
                   tabindex="-1"
+                  title="Carret Down Button"
                   type="button"
                 >
                   <svg
@@ -50878,6 +50891,7 @@ exports[`Storyshots Design System/Components/TimePicker disabled 1`] = `
                   class="c11 c15 c16"
                   disabled=""
                   tabindex="-1"
+                  title="Carret Down Button"
                   type="button"
                 >
                   <svg
@@ -51224,6 +51238,7 @@ exports[`Storyshots Design System/Components/TimePicker initial-data 1`] = `
                     aria-disabled="false"
                     aria-label="Clear the selected time picker value"
                     class="c17"
+                    title="Clear the selected time picker value"
                     type="button"
                   >
                     <svg
@@ -51243,6 +51258,7 @@ exports[`Storyshots Design System/Components/TimePicker initial-data 1`] = `
                     aria-hidden="true"
                     class="c13 c17 c18"
                     tabindex="-1"
+                    title="Carret Down Button"
                     type="button"
                   >
                     <svg
@@ -51571,6 +51587,7 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
                   aria-hidden="true"
                   class="c11 c15 c16"
                   tabindex="-1"
+                  title="Carret Down Button"
                   type="button"
                 >
                   <svg

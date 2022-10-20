@@ -367,6 +367,7 @@ describe('TimePicker', () => {
                     aria-disabled="false"
                     aria-label="Clear the selected time picker value"
                     class="c12"
+                    title="Clear the selected time picker value"
                     type="button"
                   >
                     <svg
@@ -386,6 +387,7 @@ describe('TimePicker', () => {
                     aria-hidden="true"
                     class="c8 c12 c13"
                     tabindex="-1"
+                    title="Carret Down Button"
                     type="button"
                   >
                     <svg

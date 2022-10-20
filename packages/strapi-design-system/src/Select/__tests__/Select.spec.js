@@ -337,6 +337,7 @@ describe('Select', () => {
                     aria-hidden="true"
                     class="c8 c11 c12"
                     tabindex="-1"
+                    title="Carret Down Button"
                     type="button"
                   >
                     <svg
@@ -826,6 +827,7 @@ describe('Select', () => {
                     aria-hidden="true"
                     class="c11 c12 c13"
                     tabindex="-1"
+                    title="Carret Down Button"
                     type="button"
                   >
                     <svg
