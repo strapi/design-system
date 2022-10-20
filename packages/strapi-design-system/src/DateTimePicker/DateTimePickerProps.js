@@ -23,7 +23,7 @@ export const dateTimePickerPropTypes = {
    */
   ariaLabel: PropTypes.string,
   /**
-   * Clear Label used for the X button inside both, the TimePicker and the DatePicker
+   * Clear label used to define the `aria-label` of the clear buttons.
    */
   clearLabel: PropTypes.string,
   /**
@@ -31,15 +31,15 @@ export const dateTimePickerPropTypes = {
    */
   disabled: PropTypes.bool,
   /**
-   * Error message or boolean, if it is a boolean we will hide the error message for the DatePicker and the TimePicker and show just the one that we have defined in the DateTimePicker
+   * Error is the message shown under the DateTimePicker when something goes wrong.
    */
   error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   /**
-   * Hint text used inside the Field wrapper component
+   * This text is used to describe the DateTimePicker component.
    */
   hint: PropTypes.string,
   /**
-   * Label used to describe the the DateTimePicker component
+   * Label used to describe the DateTimePicker component
    */
   label: PropTypes.string,
   /**
@@ -63,7 +63,7 @@ export const dateTimePickerPropTypes = {
    */
   required: PropTypes.bool,
   /**
-   * Size of the Field (possible values S anf M)
+   * Size of the Field (possible values S and M)
    */
   size: PropTypes.oneOf(['S', 'M']),
   /**
