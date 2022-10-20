@@ -79,7 +79,6 @@ test.describe.parallel('DateTimePicker', () => {
       );
       expect(await timePickerValue.innerText()).toBe('--:--');
     });
-    /*
     test('clear the time and see if the date remains the same when are both already initialized', async ({
       page,
       browserName,
@@ -100,6 +99,5 @@ test.describe.parallel('DateTimePicker', () => {
       );
       expect(await timePickerValue.innerText()).toBe('00:00');
     });
-    */
   });
 });
