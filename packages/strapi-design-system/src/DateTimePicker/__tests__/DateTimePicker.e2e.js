@@ -17,7 +17,7 @@ test.describe.parallel('DateTimePicker', () => {
       const timePickerValue = page.locator('button[data-testid="datetimepicker-time"] + div span');
       expect(await timePickerValue.innerText()).toBe('00:00');
     });
-    test.only('change the time and see if also the date will be changed when both are empty', async ({
+    test('change the time and see if also the date will be changed when both are empty', async ({
       page,
       browserName,
     }) => {
