@@ -14,31 +14,21 @@ test.describe.parallel('DateTimePicker', () => {
       await page.click('[aria-labelledby^="datetime-label"] > div > div:nth-child(2) > div > div');
       await page.click('tr[aria-rowindex="4"] td[aria-colindex="4"]');
       // check if the time is selected with 00:00
-      const timePickerValue = page.locator('span:has-text("00:00")');
+      const timePickerValue = page.locator('button[data-testid="datetimepicker-time"] + div span');
       expect(await timePickerValue.innerText()).toBe('00:00');
     });
-    /*
-    test('change the time and see if also the date will be changed when both are empty', async ({
+    test.only('change the time and see if also the date will be changed when both are empty', async ({
       page,
       browserName,
     }) => {
       test.skip(browserName === 'webkit', 'Still working on it');
-      await page.focus('[aria-labelledby^="datetime-label"] > div > div:nth-child(2) > div');
-
-      await page.keyboard.press('Tab');
-      await page.keyboard.press('Tab');
-      await page.keyboard.press('Tab');
-      await page.keyboard.press('Enter');
-      await page.keyboard.press('ArrowDown');
-      await page.keyboard.press('ArrowDown');
-      await page.keyboard.press('ArrowDown');
-      await page.keyboard.press('Enter'); // to select the time
+      await page.click('button[data-testid="datetimepicker-time"]');
+      await page.click('div[data-react-portal="true"] li[data-strapi-value="00:03"]');
       // check if the date is selected with the current date
       const today = new Date().toLocaleDateString('en-US');
       const datePickerValue = page.locator('[name="datetimepicker"]');
       expect(await datePickerValue.inputValue()).toBe(today);
     });
-    */
   });
   /*
   test.describe('with initial data', () => {
