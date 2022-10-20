@@ -40,11 +40,14 @@ test.describe.parallel('DateTimePicker', () => {
       browserName,
     }) => {
       test.skip(browserName === 'webkit', 'Still working on it');
+      const timePickerInitialValue = await page
+        .locator('button[data-testid="datetimepicker-time"] + div span')
+        .innerText();
       await page.click('[aria-labelledby^="datetime-label"] > div > div:nth-child(2) > div > div');
       await page.click('tr[aria-rowindex="4"] td[aria-colindex="4"]');
       // check if the time is selected with 12:00
       const timePickerValue = page.locator('button[data-testid="datetimepicker-time"] + div span');
-      expect(await timePickerValue.innerText()).toBe('12:00');
+      expect(await timePickerValue.innerText()).toBe(timePickerInitialValue);
     });
 
     test('change the time and see if also the date will be changed when are both already initialized', async ({
