@@ -99,6 +99,7 @@ export const DateTimePicker = ({
   }, [value]);
 
   const generatedId = useId('datetime-label', props?.id);
+  const generatedFieldErrorId = useId('datetimepicker');
 
   return (
     <Field name={name} role="group" aria-labelledby={generatedId} hint={hint} error={error}>
@@ -137,7 +138,7 @@ export const DateTimePicker = ({
           />
         </Stack>
         <FieldHint />
-        <FieldError id="datetimepicker" />
+        <FieldError id={generatedFieldErrorId} />
       </Stack>
     </Field>
   );
