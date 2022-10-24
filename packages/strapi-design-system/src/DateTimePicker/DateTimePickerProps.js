@@ -13,6 +13,7 @@ export const dateTimePickerDefaultProps = {
   labelAction: undefined,
   onClear: undefined,
   required: false,
+  selectButtonTitle: 'select',
   size: 'M',
   step: 1,
   value: undefined,
@@ -62,6 +63,10 @@ export const dateTimePickerPropTypes = {
    * Required field boolean
    */
   required: PropTypes.bool,
+  /**
+   * Text used to define the title of the button to open the select options (inside the TimePicker)
+   */
+  selectButtonTitle: PropTypes.string,
   /**
    * Size of the Field (possible values S and M)
    */

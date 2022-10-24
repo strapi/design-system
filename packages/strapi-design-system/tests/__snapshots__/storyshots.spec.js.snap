@@ -14721,7 +14721,7 @@ exports[`Storyshots Design System/Components/DateTimePicker base 1`] = `
                         aria-hidden="true"
                         class="c17 c21 c22"
                         tabindex="-1"
-                        title="Carret Down Button"
+                        title="select"
                         type="button"
                       >
                         <svg
@@ -15209,7 +15209,7 @@ exports[`Storyshots Design System/Components/DateTimePicker error 1`] = `
                         aria-hidden="true"
                         class="c17 c21 c22"
                         tabindex="-1"
-                        title="Carret Down Button"
+                        title="select"
                         type="button"
                       >
                         <svg
@@ -15760,7 +15760,7 @@ exports[`Storyshots Design System/Components/DateTimePicker initial data 1`] = `
                         aria-hidden="true"
                         class="c19 c23 c24"
                         tabindex="-1"
-                        title="Carret Down Button"
+                        title="select"
                         type="button"
                       >
                         <svg
@@ -50230,7 +50230,7 @@ exports[`Storyshots Design System/Components/TimePicker 30-mns-step 1`] = `
                   aria-hidden="true"
                   class="c11 c15 c16"
                   tabindex="-1"
-                  title="Carret Down Button"
+                  title="Select time button"
                   type="button"
                 >
                   <svg
@@ -50558,7 +50558,7 @@ exports[`Storyshots Design System/Components/TimePicker base 1`] = `
                   aria-hidden="true"
                   class="c11 c15 c16"
                   tabindex="-1"
-                  title="Carret Down Button"
+                  title="Select time button"
                   type="button"
                 >
                   <svg
@@ -50891,7 +50891,7 @@ exports[`Storyshots Design System/Components/TimePicker disabled 1`] = `
                   class="c11 c15 c16"
                   disabled=""
                   tabindex="-1"
-                  title="Carret Down Button"
+                  title="Select time button"
                   type="button"
                 >
                   <svg
@@ -51258,7 +51258,7 @@ exports[`Storyshots Design System/Components/TimePicker initial-data 1`] = `
                     aria-hidden="true"
                     class="c13 c17 c18"
                     tabindex="-1"
-                    title="Carret Down Button"
+                    title="Select time button"
                     type="button"
                   >
                     <svg
@@ -51587,7 +51587,7 @@ exports[`Storyshots Design System/Components/TimePicker size S 1`] = `
                   aria-hidden="true"
                   class="c11 c15 c16"
                   tabindex="-1"
-                  title="Carret Down Button"
+                  title="Select time button"
                   type="button"
                 >
                   <svg

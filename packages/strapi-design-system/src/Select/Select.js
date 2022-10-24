@@ -41,6 +41,7 @@ export const Select = ({
   onReachEnd,
   multi,
   required,
+  selectButtonTitle,
   size,
   startIcon,
   withTags,
@@ -228,7 +229,7 @@ export const Select = ({
                 onMouseDown={handleMouseDown}
                 tabIndex={-1}
                 disabled={disabled}
-                title="Carret Down Button"
+                title={selectButtonTitle}
               >
                 <CarretDown />
               </CaretBox>
@@ -282,6 +283,7 @@ Select.defaultProps = {
   error: undefined,
   placeholder: 'Select...',
   required: false,
+  selectButtonTitle: 'Carret Down Button',
   size: 'M',
   startIcon: undefined,
   withTags: false,
@@ -304,6 +306,7 @@ Select.propTypes = {
   onReachEnd: PropTypes.func,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
+  selectButtonTitle: PropTypes.string,
   size: PropTypes.oneOf(Object.keys(sizes.input)),
   startIcon: PropTypes.element,
   value: PropTypes.oneOfType([

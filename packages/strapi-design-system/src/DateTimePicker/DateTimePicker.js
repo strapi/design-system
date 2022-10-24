@@ -19,6 +19,7 @@ export const DateTimePicker = ({
   onClear,
   name,
   required,
+  selectButtonTitle,
   size,
   step,
   value,
@@ -133,6 +134,7 @@ export const DateTimePicker = ({
             onChange={handleTimeChange}
             onClear={onClear && handleTimeClear}
             clearLabel={clearLabel}
+            selectButtonTitle={selectButtonTitle}
             disabled={disabled}
             step={step}
           />

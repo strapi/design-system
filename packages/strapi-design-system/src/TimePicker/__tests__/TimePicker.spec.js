@@ -17,6 +17,7 @@ describe('TimePicker', () => {
           onChange={() => {}}
           value={'11:32:45'}
           clearLabel={'Clear the selected time picker value'}
+          selectButtonTitle={'Select time button'}
         />
       </ThemeProvider>,
       { container: document.body },
@@ -387,7 +388,7 @@ describe('TimePicker', () => {
                     aria-hidden="true"
                     class="c8 c12 c13"
                     tabindex="-1"
-                    title="Carret Down Button"
+                    title="Select time button"
                     type="button"
                   >
                     <svg

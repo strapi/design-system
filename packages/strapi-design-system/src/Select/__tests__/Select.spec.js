@@ -18,6 +18,7 @@ describe('Select', () => {
           onChange={() => {}}
           disabled={false}
           startIcon={<span>An icon</span>}
+          selectButtonTitle="Carret Down Button"
         >
           <Option value={'pizza'}>Pizza</Option>
           <Option value={'hamburger'}>Hamburger</Option>
@@ -476,6 +477,7 @@ describe('Select', () => {
           value={['pizza', 'hamburger']}
           onChange={() => {}}
           disabled={false}
+          selectButtonTitle="Carret Down Button"
           multi
         >
           <Option value={'pizza'}>Pizza</Option>
@@ -1004,6 +1006,7 @@ describe('Select', () => {
               onChange={() => {}}
               disabled={false}
               withTags
+              selectButtonTitle="Carret Down Button"
             >
               <Option value={'pizza'}>Pizza</Option>
               <Option value={'hamburger'}>Hamburger</Option>
