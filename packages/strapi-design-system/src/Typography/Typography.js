@@ -14,6 +14,7 @@ export const Typography = styled.span.withConfig({
   font-size: ${({ theme, fontSize }) => theme.fontSizes[fontSize]};
   line-height: ${({ theme, lineHeight }) => theme.lineHeights[lineHeight]};
   color: ${handleColor};
+  text-align: ${({ textAlign }) => textAlign};
   text-transform: ${({ textTransform }) => textTransform};
   ${ellipsisStyle}
   ${variantStyle}
