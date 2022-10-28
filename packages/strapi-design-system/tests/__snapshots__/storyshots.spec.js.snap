@@ -47202,6 +47202,26 @@ exports[`Storyshots Design System/Components/Theme dark colors 1`] = `
   padding: 16px;
 }
 
+.c8 {
+  padding-top: 24px;
+  padding-left: 24px;
+  border-radius: 4px;
+  border-color: #dcdce4;
+  border: 1px solid #dcdce4;
+  box-shadow: 0px 2px 15px rgba(33,33,52,0.1);
+}
+
+.c10 {
+  background: #ffffff;
+  padding: 4px;
+}
+
+.c11 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
 .c6 {
   -webkit-align-items: stretch;
   -webkit-box-align: stretch;
@@ -47234,6 +47254,86 @@ exports[`Storyshots Design System/Components/Theme dark colors 1`] = `
 .c4 {
   grid-column: span;
   max-width: 100%;
+}
+
+.c9 {
+  background: #181826;
+}
+
+.c12 {
+  background: #4a4a6a;
+}
+
+.c13 {
+  background: #ac73e6;
+}
+
+.c14 {
+  background: #e0c1f4;
+}
+
+.c15 {
+  background: #ffffff;
+}
+
+.c16 {
+  background: #7b79ff;
+}
+
+.c17 {
+  background: #4945ff;
+}
+
+.c18 {
+  background: #ee5e52;
+}
+
+.c19 {
+  background: #212134;
+}
+
+.c20 {
+  background: #32324d;
+}
+
+.c21 {
+  background: #666687;
+}
+
+.c22 {
+  background: #a5a5ba;
+}
+
+.c23 {
+  background: #c0c0cf;
+}
+
+.c24 {
+  background: #eaeaef;
+}
+
+.c25 {
+  background: #66b7f1;
+}
+
+.c26 {
+  background: #b8e1ff;
+}
+
+.c27 {
+  background: #5cb176;
+}
+
+.c28 {
+  background: #c6f0c2;
+}
+
+.c29 {
+  background: #f29d41;
+}
+
+.c30 {
+  background: #fae7b9;
 }
 
 @media (max-width:68.75rem) {
@@ -47280,107 +47380,69 @@ exports[`Storyshots Design System/Components/Theme dark colors 1`] = `
                 spacing="2"
               >
                 <div
-                  style="padding: 12px; background: rgb(24, 24, 38);"
+                  class="c8 c9"
                 >
-                  <p
-                    style="color: white;"
+                  <div
+                    class="c10"
                   >
-                    alternative100
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      alternative100
+                    </span>
+                  </div>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(74, 74, 106);"
+                  class="c8 c12"
                 >
-                  <p
-                    style="color: white;"
+                  <div
+                    class="c10"
                   >
-                    alternative200
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      alternative200
+                    </span>
+                  </div>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(172, 115, 230);"
+                  class="c8 c13"
                 >
-                  <p
-                    style="color: white;"
+                  <div
+                    class="c10"
                   >
-                    alternative500
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      alternative500
+                    </span>
+                  </div>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(172, 115, 230);"
+                  class="c8 c13"
                 >
-                  <p
-                    style="color: black;"
+                  <div
+                    class="c10"
                   >
-                    alternative600
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      alternative600
+                    </span>
+                  </div>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(224, 193, 244);"
+                  class="c8 c14"
                 >
-                  <p
-                    style="color: black;"
+                  <div
+                    class="c10"
                   >
-                    alternative700
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="c4"
-          >
-            <div
-              class="c5"
-            >
-              <div
-                class="c6 c7"
-                spacing="2"
-              >
-                <div
-                  style="padding: 12px; background: rgb(24, 24, 38);"
-                >
-                  <p
-                    style="color: white;"
-                  >
-                    danger100
-                  </p>
-                </div>
-                <div
-                  style="padding: 12px; background: rgb(74, 74, 106);"
-                >
-                  <p
-                    style="color: white;"
-                  >
-                    danger200
-                  </p>
-                </div>
-                <div
-                  style="padding: 12px; background: rgb(238, 94, 82);"
-                >
-                  <p
-                    style="color: white;"
-                  >
-                    danger500
-                  </p>
-                </div>
-                <div
-                  style="padding: 12px; background: rgb(238, 94, 82);"
-                >
-                  <p
-                    style="color: black;"
-                  >
-                    danger600
-                  </p>
-                </div>
-                <div
-                  style="padding: 12px; background: rgb(238, 94, 82);"
-                >
-                  <p
-                    style="color: black;"
-                  >
-                    danger700
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      alternative700
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -47396,112 +47458,43 @@ exports[`Storyshots Design System/Components/Theme dark colors 1`] = `
                 spacing="2"
               >
                 <div
-                  style="padding: 12px; background: rgb(33, 33, 52);"
+                  class="c8 c15"
                 >
-                  <p
-                    style="color: white;"
+                  <div
+                    class="c10"
                   >
-                    neutral0
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      buttonNeutral0
+                    </span>
+                  </div>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(24, 24, 38);"
+                  class="c8 c16"
                 >
-                  <p
-                    style="color: white;"
+                  <div
+                    class="c10"
                   >
-                    neutral100
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      buttonPrimary500
+                    </span>
+                  </div>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(255, 255, 255);"
+                  class="c8 c17"
                 >
-                  <p
-                    style="color: black;"
+                  <div
+                    class="c10"
                   >
-                    neutral1000
-                  </p>
-                </div>
-                <div
-                  style="padding: 12px; background: rgb(50, 50, 77);"
-                >
-                  <p
-                    style="color: white;"
-                  >
-                    neutral150
-                  </p>
-                </div>
-                <div
-                  style="padding: 12px; background: rgb(74, 74, 106);"
-                >
-                  <p
-                    style="color: white;"
-                  >
-                    neutral200
-                  </p>
-                </div>
-                <div
-                  style="padding: 12px; background: rgb(102, 102, 135);"
-                >
-                  <p
-                    style="color: white;"
-                  >
-                    neutral300
-                  </p>
-                </div>
-                <div
-                  style="padding: 12px; background: rgb(165, 165, 186);"
-                >
-                  <p
-                    style="color: white;"
-                  >
-                    neutral400
-                  </p>
-                </div>
-                <div
-                  style="padding: 12px; background: rgb(192, 192, 207);"
-                >
-                  <p
-                    style="color: white;"
-                  >
-                    neutral500
-                  </p>
-                </div>
-                <div
-                  style="padding: 12px; background: rgb(165, 165, 186);"
-                >
-                  <p
-                    style="color: black;"
-                  >
-                    neutral600
-                  </p>
-                </div>
-                <div
-                  style="padding: 12px; background: rgb(234, 234, 239);"
-                >
-                  <p
-                    style="color: black;"
-                  >
-                    neutral700
-                  </p>
-                </div>
-                <div
-                  style="padding: 12px; background: rgb(255, 255, 255);"
-                >
-                  <p
-                    style="color: black;"
-                  >
-                    neutral800
-                  </p>
-                </div>
-                <div
-                  style="padding: 12px; background: rgb(255, 255, 255);"
-                >
-                  <p
-                    style="color: black;"
-                  >
-                    neutral900
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      buttonPrimary600
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -47517,107 +47510,69 @@ exports[`Storyshots Design System/Components/Theme dark colors 1`] = `
                 spacing="2"
               >
                 <div
-                  style="padding: 12px; background: rgb(24, 24, 38);"
+                  class="c8 c9"
                 >
-                  <p
-                    style="color: white;"
+                  <div
+                    class="c10"
                   >
-                    primary100
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      danger100
+                    </span>
+                  </div>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(74, 74, 106);"
+                  class="c8 c12"
                 >
-                  <p
-                    style="color: white;"
+                  <div
+                    class="c10"
                   >
-                    primary200
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      danger200
+                    </span>
+                  </div>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(73, 69, 255);"
+                  class="c8 c18"
                 >
-                  <p
-                    style="color: white;"
+                  <div
+                    class="c10"
                   >
-                    primary500
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      danger500
+                    </span>
+                  </div>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(123, 121, 255);"
+                  class="c8 c18"
                 >
-                  <p
-                    style="color: black;"
+                  <div
+                    class="c10"
                   >
-                    primary600
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      danger600
+                    </span>
+                  </div>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(123, 121, 255);"
+                  class="c8 c18"
                 >
-                  <p
-                    style="color: black;"
+                  <div
+                    class="c10"
                   >
-                    primary700
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="c4"
-          >
-            <div
-              class="c5"
-            >
-              <div
-                class="c6 c7"
-                spacing="2"
-              >
-                <div
-                  style="padding: 12px; background: rgb(24, 24, 38);"
-                >
-                  <p
-                    style="color: white;"
-                  >
-                    secondary100
-                  </p>
-                </div>
-                <div
-                  style="padding: 12px; background: rgb(74, 74, 106);"
-                >
-                  <p
-                    style="color: white;"
-                  >
-                    secondary200
-                  </p>
-                </div>
-                <div
-                  style="padding: 12px; background: rgb(102, 183, 241);"
-                >
-                  <p
-                    style="color: white;"
-                  >
-                    secondary500
-                  </p>
-                </div>
-                <div
-                  style="padding: 12px; background: rgb(102, 183, 241);"
-                >
-                  <p
-                    style="color: black;"
-                  >
-                    secondary600
-                  </p>
-                </div>
-                <div
-                  style="padding: 12px; background: rgb(184, 225, 255);"
-                >
-                  <p
-                    style="color: black;"
-                  >
-                    secondary700
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      danger700
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -47633,49 +47588,472 @@ exports[`Storyshots Design System/Components/Theme dark colors 1`] = `
                 spacing="2"
               >
                 <div
-                  style="padding: 12px; background: rgb(24, 24, 38);"
+                  class="c8 c19"
                 >
-                  <p
-                    style="color: white;"
+                  <div
+                    class="c10"
                   >
-                    success100
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      neutral0
+                    </span>
+                  </div>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(74, 74, 106);"
+                  class="c8 c9"
                 >
-                  <p
-                    style="color: white;"
+                  <div
+                    class="c10"
                   >
-                    success200
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      neutral100
+                    </span>
+                  </div>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(92, 177, 118);"
+                  class="c8 c15"
                 >
-                  <p
-                    style="color: white;"
+                  <div
+                    class="c10"
                   >
-                    success500
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      neutral1000
+                    </span>
+                  </div>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(92, 177, 118);"
+                  class="c8 c20"
                 >
-                  <p
-                    style="color: black;"
+                  <div
+                    class="c10"
                   >
-                    success600
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      neutral150
+                    </span>
+                  </div>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(198, 240, 194);"
+                  class="c8 c12"
                 >
-                  <p
-                    style="color: black;"
+                  <div
+                    class="c10"
                   >
-                    success700
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      neutral200
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="c8 c21"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      neutral300
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="c8 c22"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      neutral400
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="c8 c23"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      neutral500
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="c8 c22"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      neutral600
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="c8 c24"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      neutral700
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="c8 c15"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      neutral800
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="c8 c15"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      neutral900
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="c4"
+          >
+            <div
+              class="c5"
+            >
+              <div
+                class="c6 c7"
+                spacing="2"
+              >
+                <div
+                  class="c8 c9"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      primary100
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="c8 c12"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      primary200
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="c8 c17"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      primary500
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="c8 c16"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      primary600
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="c8 c16"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      primary700
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="c4"
+          >
+            <div
+              class="c5"
+            >
+              <div
+                class="c6 c7"
+                spacing="2"
+              >
+                <div
+                  class="c8 c9"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      secondary100
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="c8 c12"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      secondary200
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="c8 c25"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      secondary500
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="c8 c25"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      secondary600
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="c8 c26"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      secondary700
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="c4"
+          >
+            <div
+              class="c5"
+            >
+              <div
+                class="c6 c7"
+                spacing="2"
+              >
+                <div
+                  class="c8 c9"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      success100
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="c8 c12"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      success200
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="c8 c27"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      success500
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="c8 c27"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      success600
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="c8 c28"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      success700
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="c4"
+          >
+            <div
+              class="c5"
+            >
+              <div
+                class="c6 c7"
+                spacing="2"
+              >
+                <div
+                  class="c8 c9"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      warning100
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="c8 c12"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      warning200
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="c8 c29"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      warning500
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="c8 c29"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      warning600
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="c8 c30"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      warning700
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -47714,6 +48092,26 @@ exports[`Storyshots Design System/Components/Theme light colors 1`] = `
   padding: 16px;
 }
 
+.c8 {
+  padding-top: 24px;
+  padding-left: 24px;
+  border-radius: 4px;
+  border-color: #dcdce4;
+  border: 1px solid #dcdce4;
+  box-shadow: 0px 2px 15px rgba(33,33,52,0.1);
+}
+
+.c10 {
+  background: #ffffff;
+  padding: 4px;
+}
+
+.c11 {
+  color: #32324d;
+  font-size: 0.875rem;
+  line-height: 1.43;
+}
+
 .c6 {
   -webkit-align-items: stretch;
   -webkit-box-align: stretch;
@@ -47746,6 +48144,174 @@ exports[`Storyshots Design System/Components/Theme light colors 1`] = `
 .c4 {
   grid-column: span;
   max-width: 100%;
+}
+
+.c9 {
+  background: #f6ecfc;
+}
+
+.c12 {
+  background: #e0c1f4;
+}
+
+.c13 {
+  background: #ac73e6;
+}
+
+.c14 {
+  background: #9736e8;
+}
+
+.c15 {
+  background: #8312d1;
+}
+
+.c16 {
+  background: #ffffff;
+}
+
+.c17 {
+  background: #7b79ff;
+}
+
+.c18 {
+  background: #4945ff;
+}
+
+.c19 {
+  background: #fcecea;
+}
+
+.c20 {
+  background: #f5c0b8;
+}
+
+.c21 {
+  background: #ee5e52;
+}
+
+.c22 {
+  background: #d02b20;
+}
+
+.c23 {
+  background: #b72b1a;
+}
+
+.c24 {
+  background: #f6f6f9;
+}
+
+.c25 {
+  background: #181826;
+}
+
+.c26 {
+  background: #eaeaef;
+}
+
+.c27 {
+  background: #dcdce4;
+}
+
+.c28 {
+  background: #c0c0cf;
+}
+
+.c29 {
+  background: #a5a5ba;
+}
+
+.c30 {
+  background: #8e8ea9;
+}
+
+.c31 {
+  background: #666687;
+}
+
+.c32 {
+  background: #4a4a6a;
+}
+
+.c33 {
+  background: #32324d;
+}
+
+.c34 {
+  background: #212134;
+}
+
+.c35 {
+  background: #f0f0ff;
+}
+
+.c36 {
+  background: #d9d8ff;
+}
+
+.c37 {
+  background: #271fe0;
+}
+
+.c38 {
+  background: #eaf5ff;
+}
+
+.c39 {
+  background: #b8e1ff;
+}
+
+.c40 {
+  background: #66b7f1;
+}
+
+.c41 {
+  background: #0c75af;
+}
+
+.c42 {
+  background: #006096;
+}
+
+.c43 {
+  background: #eafbe7;
+}
+
+.c44 {
+  background: #c6f0c2;
+}
+
+.c45 {
+  background: #5cb176;
+}
+
+.c46 {
+  background: #328048;
+}
+
+.c47 {
+  background: #2f6846;
+}
+
+.c48 {
+  background: #fdf4dc;
+}
+
+.c49 {
+  background: #fae7b9;
+}
+
+.c50 {
+  background: #f29d41;
+}
+
+.c51 {
+  background: #d9822f;
+}
+
+.c52 {
+  background: #be5d01;
 }
 
 @media (max-width:68.75rem) {
@@ -47792,89 +48358,69 @@ exports[`Storyshots Design System/Components/Theme light colors 1`] = `
                 spacing="2"
               >
                 <div
-                  style="padding: 12px; background: rgb(246, 236, 252);"
+                  class="c8 c9"
                 >
-                  <p
-                    style="color: black;"
+                  <div
+                    class="c10"
                   >
-                    alternative100
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      alternative100
+                    </span>
+                  </div>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(224, 193, 244);"
+                  class="c8 c12"
                 >
-                  <p
-                    style="color: black;"
+                  <div
+                    class="c10"
                   >
-                    alternative200
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      alternative200
+                    </span>
+                  </div>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(172, 115, 230);"
+                  class="c8 c13"
                 >
-                  <p
-                    style="color: black;"
+                  <div
+                    class="c10"
                   >
-                    alternative500
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      alternative500
+                    </span>
+                  </div>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(151, 54, 232);"
+                  class="c8 c14"
                 >
-                  <p
-                    style="color: white;"
+                  <div
+                    class="c10"
                   >
-                    alternative600
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      alternative600
+                    </span>
+                  </div>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(131, 18, 209);"
+                  class="c8 c15"
                 >
-                  <p
-                    style="color: white;"
+                  <div
+                    class="c10"
                   >
-                    alternative700
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="c4"
-          >
-            <div
-              class="c5"
-            >
-              <div
-                class="c6 c7"
-                spacing="2"
-              >
-                <div
-                  style="padding: 12px; background: rgb(255, 255, 255);"
-                >
-                  <p
-                    style="color: black;"
-                  >
-                    buttonNeutral0
-                  </p>
-                </div>
-                <div
-                  style="padding: 12px; background: rgb(123, 121, 255);"
-                >
-                  <p
-                    style="color: black;"
-                  >
-                    buttonPrimary500
-                  </p>
-                </div>
-                <div
-                  style="padding: 12px; background: rgb(73, 69, 255);"
-                >
-                  <p
-                    style="color: white;"
-                  >
-                    buttonPrimary600
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      alternative700
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -47890,49 +48436,43 @@ exports[`Storyshots Design System/Components/Theme light colors 1`] = `
                 spacing="2"
               >
                 <div
-                  style="padding: 12px; background: rgb(252, 236, 234);"
+                  class="c8 c16"
                 >
-                  <p
-                    style="color: black;"
+                  <div
+                    class="c10"
                   >
-                    danger100
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      buttonNeutral0
+                    </span>
+                  </div>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(245, 192, 184);"
+                  class="c8 c17"
                 >
-                  <p
-                    style="color: black;"
+                  <div
+                    class="c10"
                   >
-                    danger200
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      buttonPrimary500
+                    </span>
+                  </div>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(238, 94, 82);"
+                  class="c8 c18"
                 >
-                  <p
-                    style="color: black;"
+                  <div
+                    class="c10"
                   >
-                    danger500
-                  </p>
-                </div>
-                <div
-                  style="padding: 12px; background: rgb(208, 43, 32);"
-                >
-                  <p
-                    style="color: white;"
-                  >
-                    danger600
-                  </p>
-                </div>
-                <div
-                  style="padding: 12px; background: rgb(183, 43, 26);"
-                >
-                  <p
-                    style="color: white;"
-                  >
-                    danger700
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      buttonPrimary600
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -47948,112 +48488,69 @@ exports[`Storyshots Design System/Components/Theme light colors 1`] = `
                 spacing="2"
               >
                 <div
-                  style="padding: 12px; background: rgb(255, 255, 255);"
+                  class="c8 c19"
                 >
-                  <p
-                    style="color: black;"
+                  <div
+                    class="c10"
                   >
-                    neutral0
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      danger100
+                    </span>
+                  </div>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(246, 246, 249);"
+                  class="c8 c20"
                 >
-                  <p
-                    style="color: black;"
+                  <div
+                    class="c10"
                   >
-                    neutral100
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      danger200
+                    </span>
+                  </div>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(24, 24, 38);"
+                  class="c8 c21"
                 >
-                  <p
-                    style="color: white;"
+                  <div
+                    class="c10"
                   >
-                    neutral1000
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      danger500
+                    </span>
+                  </div>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(234, 234, 239);"
+                  class="c8 c22"
                 >
-                  <p
-                    style="color: black;"
+                  <div
+                    class="c10"
                   >
-                    neutral150
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      danger600
+                    </span>
+                  </div>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(220, 220, 228);"
+                  class="c8 c23"
                 >
-                  <p
-                    style="color: black;"
+                  <div
+                    class="c10"
                   >
-                    neutral200
-                  </p>
-                </div>
-                <div
-                  style="padding: 12px; background: rgb(192, 192, 207);"
-                >
-                  <p
-                    style="color: black;"
-                  >
-                    neutral300
-                  </p>
-                </div>
-                <div
-                  style="padding: 12px; background: rgb(165, 165, 186);"
-                >
-                  <p
-                    style="color: black;"
-                  >
-                    neutral400
-                  </p>
-                </div>
-                <div
-                  style="padding: 12px; background: rgb(142, 142, 169);"
-                >
-                  <p
-                    style="color: black;"
-                  >
-                    neutral500
-                  </p>
-                </div>
-                <div
-                  style="padding: 12px; background: rgb(102, 102, 135);"
-                >
-                  <p
-                    style="color: white;"
-                  >
-                    neutral600
-                  </p>
-                </div>
-                <div
-                  style="padding: 12px; background: rgb(74, 74, 106);"
-                >
-                  <p
-                    style="color: white;"
-                  >
-                    neutral700
-                  </p>
-                </div>
-                <div
-                  style="padding: 12px; background: rgb(50, 50, 77);"
-                >
-                  <p
-                    style="color: white;"
-                  >
-                    neutral800
-                  </p>
-                </div>
-                <div
-                  style="padding: 12px; background: rgb(33, 33, 52);"
-                >
-                  <p
-                    style="color: white;"
-                  >
-                    neutral900
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      danger700
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -48069,49 +48566,160 @@ exports[`Storyshots Design System/Components/Theme light colors 1`] = `
                 spacing="2"
               >
                 <div
-                  style="padding: 12px; background: rgb(240, 240, 255);"
+                  class="c8 c16"
                 >
-                  <p
-                    style="color: black;"
+                  <div
+                    class="c10"
                   >
-                    primary100
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      neutral0
+                    </span>
+                  </div>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(217, 216, 255);"
+                  class="c8 c24"
                 >
-                  <p
-                    style="color: black;"
+                  <div
+                    class="c10"
                   >
-                    primary200
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      neutral100
+                    </span>
+                  </div>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(123, 121, 255);"
+                  class="c8 c25"
                 >
-                  <p
-                    style="color: black;"
+                  <div
+                    class="c10"
                   >
-                    primary500
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      neutral1000
+                    </span>
+                  </div>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(73, 69, 255);"
+                  class="c8 c26"
                 >
-                  <p
-                    style="color: white;"
+                  <div
+                    class="c10"
                   >
-                    primary600
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      neutral150
+                    </span>
+                  </div>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(39, 31, 224);"
+                  class="c8 c27"
                 >
-                  <p
-                    style="color: white;"
+                  <div
+                    class="c10"
                   >
-                    primary700
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      neutral200
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="c8 c28"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      neutral300
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="c8 c29"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      neutral400
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="c8 c30"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      neutral500
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="c8 c31"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      neutral600
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="c8 c32"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      neutral700
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="c8 c33"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      neutral800
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="c8 c34"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      neutral900
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -48127,49 +48735,69 @@ exports[`Storyshots Design System/Components/Theme light colors 1`] = `
                 spacing="2"
               >
                 <div
-                  style="padding: 12px; background: rgb(234, 245, 255);"
+                  class="c8 c35"
                 >
-                  <p
-                    style="color: black;"
+                  <div
+                    class="c10"
                   >
-                    secondary100
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      primary100
+                    </span>
+                  </div>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(184, 225, 255);"
+                  class="c8 c36"
                 >
-                  <p
-                    style="color: black;"
+                  <div
+                    class="c10"
                   >
-                    secondary200
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      primary200
+                    </span>
+                  </div>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(102, 183, 241);"
+                  class="c8 c17"
                 >
-                  <p
-                    style="color: black;"
+                  <div
+                    class="c10"
                   >
-                    secondary500
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      primary500
+                    </span>
+                  </div>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(12, 117, 175);"
+                  class="c8 c18"
                 >
-                  <p
-                    style="color: white;"
+                  <div
+                    class="c10"
                   >
-                    secondary600
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      primary600
+                    </span>
+                  </div>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(0, 96, 150);"
+                  class="c8 c37"
                 >
-                  <p
-                    style="color: white;"
+                  <div
+                    class="c10"
                   >
-                    secondary700
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      primary700
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -48185,49 +48813,225 @@ exports[`Storyshots Design System/Components/Theme light colors 1`] = `
                 spacing="2"
               >
                 <div
-                  style="padding: 12px; background: rgb(234, 251, 231);"
+                  class="c8 c38"
                 >
-                  <p
-                    style="color: black;"
+                  <div
+                    class="c10"
                   >
-                    success100
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      secondary100
+                    </span>
+                  </div>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(198, 240, 194);"
+                  class="c8 c39"
                 >
-                  <p
-                    style="color: black;"
+                  <div
+                    class="c10"
                   >
-                    success200
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      secondary200
+                    </span>
+                  </div>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(92, 177, 118);"
+                  class="c8 c40"
                 >
-                  <p
-                    style="color: black;"
+                  <div
+                    class="c10"
                   >
-                    success500
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      secondary500
+                    </span>
+                  </div>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(50, 128, 72);"
+                  class="c8 c41"
                 >
-                  <p
-                    style="color: white;"
+                  <div
+                    class="c10"
                   >
-                    success600
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      secondary600
+                    </span>
+                  </div>
                 </div>
                 <div
-                  style="padding: 12px; background: rgb(47, 104, 70);"
+                  class="c8 c42"
                 >
-                  <p
-                    style="color: white;"
+                  <div
+                    class="c10"
                   >
-                    success700
-                  </p>
+                    <span
+                      class="c11"
+                    >
+                      secondary700
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="c4"
+          >
+            <div
+              class="c5"
+            >
+              <div
+                class="c6 c7"
+                spacing="2"
+              >
+                <div
+                  class="c8 c43"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      success100
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="c8 c44"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      success200
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="c8 c45"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      success500
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="c8 c46"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      success600
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="c8 c47"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      success700
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="c4"
+          >
+            <div
+              class="c5"
+            >
+              <div
+                class="c6 c7"
+                spacing="2"
+              >
+                <div
+                  class="c8 c48"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      warning100
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="c8 c49"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      warning200
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="c8 c50"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      warning500
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="c8 c51"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      warning600
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="c8 c52"
+                >
+                  <div
+                    class="c10"
+                  >
+                    <span
+                      class="c11"
+                    >
+                      warning700
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
