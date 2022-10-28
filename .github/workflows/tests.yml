@@ -2,18 +2,20 @@ name: Tests
 on:
   pull_request:
     branches: "*"
+    paths-ignore:
+      - 'website/**'
   workflow_dispatch:
 
 jobs:
   lint:
     name: "Lint"
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: "14"
-          cache: "yarn"
+          node-version: 18
+          cache: yarn
       - uses: ./.github/actions/install-modules
       - name: Link locale packages and install their dependencies
         run: yarn bootstrap
@@ -22,12 +24,12 @@ jobs:
   unit_tests:
     name: "unit tests"
     needs: [lint]
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: "14"
+          node-version: 18
           cache: yarn
       - uses: ./.github/actions/install-modules
 
@@ -42,15 +44,15 @@ jobs:
   e2e_tests:
     name: "e2e tests (browser: ${{ matrix.browser }})"
     needs: [lint]
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         browser: [chromium, webkit, firefox]
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: "14"
+          node-version: 18
           cache: yarn
       - uses: ./.github/actions/install-modules
         with:
