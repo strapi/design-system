@@ -36,6 +36,7 @@
     "react-copy-to-clipboard": "^5.0.4",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
+    "resize-observer-polyfill": "^1.5.1",
     "storybook-dark-mode": "^1.0.9",
     "styled-components": "^5.3.6",
     "webpack-bundle-analyzer": "^4.4.0",

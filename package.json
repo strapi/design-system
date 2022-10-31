@@ -34,7 +34,6 @@
     "lerna": "^4.0.0",
     "lint-staged": ">=10",
     "plop": "^2.7.4",
-    "resize-observer-polyfill": "^1.5.1",
     "rimraf": "^3.0.2",
     "url-loader": "^4.1.1"
   },
