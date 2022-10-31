@@ -193,16 +193,12 @@ Icons are used to emphasize actions and specific menus in the admin panel. We ca
               {iconsArray.map((icon) => {
                 const RealIcon = Icons[icon];
                 return (
-                  <GridItem padding={2} col={2} key={icon} background={'neutral0'}>
+                  <GridItem padding={2} col={2} key={icon} background='neutral0'>
                     <Box>
                       <Icon
                         aria-hidden={true}
-                        colors={(theme) => ({
-                          rect: {
-                            fill: theme.colors.danger600,
-                          },
-                        })}
                         as={RealIcon}
+                        color="false"
                         fontSize={5}
                       />
                     </Box>
