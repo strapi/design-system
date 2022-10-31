@@ -7,7 +7,7 @@ on:
 jobs:
   lint:
     name: "Lint"
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -22,7 +22,7 @@ jobs:
   unit_tests:
     name: "unit tests"
     needs: [lint]
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -42,7 +42,7 @@ jobs:
   e2e_tests:
     name: "e2e tests (browser: ${{ matrix.browser }})"
     needs: [lint]
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         browser: [chromium, webkit, firefox]
