@@ -8,6 +8,7 @@ module.exports = {
     '^@strapi/icons/(.*)': '<rootDir>/../strapi-icons/dist/$1',
     '^@strapi/icons': '<rootDir>/../strapi-icons/dist/index.js',
   },
+  testEnvironment: 'jsdom',
   transform: {
     '^.+\\.[tj]sx?$': 'babel-jest',
     '^.+\\.mdx?$': '@storybook/addon-docs/jest-transform-mdx',
