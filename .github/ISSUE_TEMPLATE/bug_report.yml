@@ -12,7 +12,7 @@ body:
       label: What version of strapi-design-system are you using?
       placeholder: |
         - Npm version
-        - NodeJS version:
+        - Node.js version:
         - Strapi Design System version:
         - Browser:
     validations:
