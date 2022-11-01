@@ -3,9 +3,7 @@ name: Bundle-size
 on:
   pull_request:
     paths:
-      - '**/strapi-design-system/**.js'
-      - '**/strapi-icon/**.js'
-      - '**/yarn.lock'
+      - '*'
 
 jobs:
   size:
