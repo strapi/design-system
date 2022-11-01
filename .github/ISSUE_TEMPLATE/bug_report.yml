@@ -20,7 +20,7 @@ body:
   - type: textarea
     attributes:
       label: "What's Wrong?"
-      description: A concise description of what you expected to happen please provide screenshots
+      description: A concise description of what you expected to happen (please provide screenshots).
     validations:
       required: true
   - type: textarea
