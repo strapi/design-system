@@ -1,5 +1,5 @@
-const { injectAxe, checkA11y } = require('axe-playwright');
-const { test, expect } = require('@playwright/test');
+import { injectAxe, checkA11y } from 'axe-playwright';
+import { test, expect } from '@playwright/test';
 
 test.describe.parallel('Accordion Keyboard Navigable', () => {
   test.beforeEach(async ({ page }) => {
