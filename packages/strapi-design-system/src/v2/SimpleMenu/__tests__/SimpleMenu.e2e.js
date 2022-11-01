@@ -1,6 +1,6 @@
-const { injectAxe, checkA11y, getViolations } = require('axe-playwright');
+import { injectAxe, checkA11y, getViolations } from 'axe-playwright';
 
-const { test, expect } = require('@playwright/test');
+import { test, expect } from '@playwright/test';
 
 test.describe.parallel('SimpleMenu', () => {
   test.describe('light mode', () => {

@@ -3,20 +3,24 @@
   "version": "1.2.5",
   "main": "index.js",
   "license": "MIT",
+  "dependencies": {
+    "@floating-ui/react-dom": "^1.0.0",
+    "@internationalized/number": "^3.1.1",
+    "compute-scroll-into-view": "^1.0.17",
+    "prop-types": "^15.7.2"
+  },
   "devDependencies": {
     "@babel/core": "^7.13.10",
     "@babel/plugin-transform-runtime": "^7.13.2",
     "@babel/preset-env": "^7.13.0",
     "@babel/preset-react": "^7.12.13",
     "@figspec/react": "^0.1.5",
-    "@playwright/test": "1.20.0",
     "@storybook/addon-actions": "^6.5.13",
     "@storybook/addon-essentials": "^6.5.13",
     "@storybook/addon-links": "^6.5.13",
     "@storybook/react": "^6.5.13",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^11.2.5",
-    "axe-playwright": "^1.1.11",
     "babel-jest": "^29.2.2",
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^3.0.0",
@@ -47,13 +51,6 @@
     "react-router-dom": "^5.2.0",
     "styled-components": "^5.2.1"
   },
-  "dependencies": {
-    "@floating-ui/react-dom": "^1.0.0",
-    "@internationalized/number": "^3.1.1",
-    "compute-scroll-into-view": "^1.0.17",
-    "jest-environment-jsdom": "^29.2.2",
-    "prop-types": "^15.7.2"
-  },
   "scripts": {
     "analyze:bundle": "cross-env BUNDLE_ANALYZE=1 webpack",
     "prebuild": "rimraf dist",
@@ -68,11 +65,7 @@
     "lint-staged": "eslint --fix",
     "storybook": "start-storybook -p 6006",
     "test": "jest -c jest.config.js",
-    "test:watch": "jest -c jest.config.js --watchAll",
-    "test:e2e": "playwright test",
-    "test:e2e:ci": "cross-env CI=true playwright test",
-    "test:e2e:watch": "chokidar '**/__tests__/*.e2e.js' -c 'npm run test:e2e -- --retries=0 {path}'",
-    "test:e2e:debug": "cross-env PWDEBUG=1 playwright test"
+    "test:watch": "jest -c jest.config.js --watchAll"
   },
   "gitHead": "bf52e690f743703a47f768ba83ebff55a3a12795"
 }

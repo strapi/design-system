@@ -1,5 +1,5 @@
-const { injectAxe, getViolations } = require('axe-playwright');
-const { test, expect } = require('@playwright/test');
+import { injectAxe, getViolations } from 'axe-playwright';
+import { test, expect } from '@playwright/test';
 
 test.describe.parallel('ModalLayout', () => {
   test.beforeEach(async ({ page }) => {
