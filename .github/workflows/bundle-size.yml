@@ -1,0 +1,24 @@
+name: Bundle-size
+
+on:
+  pull_request:
+    paths:
+      - '**/strapi-design-system/**.js'
+      - '**/strapi-icon/**.js'
+      - '**/yarn.lock'
+
+jobs:
+  size:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 18
+          cache: yarn
+
+      - uses: preactjs/compressed-size-action@v2
+        with:
+          pattern: '**/dist/**/*.{js,svg}'
