@@ -19,7 +19,7 @@ const StatusWrapper = styled(Box)`
   }
 `;
 
-export const Status = ({ variant, children, ...props }) => {
+export const Status = ({ variant, showBullet, children, ...props }) => {
   const backgroundColor = `${variant}100`;
   const borderColor = `${variant}200`;
   const bulletColor = `${variant}600`;
@@ -37,19 +37,34 @@ export const Status = ({ variant, children, ...props }) => {
       paddingRight={5}
       {...props}
     >
-      <Flex>
-        <Bullet backgroundColor={bulletColor} />
-        {children}
-      </Flex>
+      {showBullet ? (
+        <Flex>
+          <Bullet backgroundColor={bulletColor} />
+          {children}
+        </Flex>
+      ) : (
+        children
+      )}
     </StatusWrapper>
   );
 };
 
 Status.defaultProps = {
+  showBullet: true,
   variant: 'primary',
 };
 
 Status.propTypes = {
   children: PropTypes.node.isRequired,
+
+  /**
+   * If `false`, the preceeding bullet of the status won't be displayed.
+   * This prop and the bullet will be removed in the next major version.
+   */
+  showBullet: PropTypes.bool, // TODO V2: remove prop and bullet
+
+  /**
+   * Color variation
+   */
   variant: PropTypes.oneOf(['alternative', 'danger', 'neutral', 'primary', 'secondary', 'success', 'warning']),
 };
