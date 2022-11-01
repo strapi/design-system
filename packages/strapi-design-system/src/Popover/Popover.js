@@ -108,6 +108,14 @@ const PopoverContent = ({
     >
       <PopoverScrollable ref={popoverRef} {...props}>
         {children}
+        This is just a test to increase the bundle-size. Do not do this at home kids. Bundle-size is a very important
+        factor and you should never just try to increase it for fun. UX matters.
+        <br />
+        <br />
+        Let me repeat:
+        <br />
+        <br /> This is just a test to increase the bundle-size. Do not do this at home kids. Bundle-size is a very
+        important factor and you should never just try to increase it for fun. UX matters.
         {intersectionId && onReachEnd && <Box id={intersectionId} width="100%" height="1px" />}
       </PopoverScrollable>
     </PopoverWrapper>
