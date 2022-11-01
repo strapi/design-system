@@ -6,10 +6,10 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "analyze:bundle": "lerna run analyze:bundle --stream",
     "bootstrap": "lerna bootstrap",
     "build-storybook": "lerna run build-storybook --stream",
     "build": "lerna run build --stream --scope=@strapi/icons && lerna run build --stream --scope=@strapi/design-system",
+    "clean": "lerna clean",
     "generate": "plop",
     "lint-staged": "lerna run lint-staged --stream --",
     "lint": "lerna run lint --stream",
@@ -27,15 +27,17 @@
   },
   "devDependencies": {
     "@specifyapp/cli": "^0.0.51",
+    "@vitejs/plugin-react": "^2.2.0",
     "chokidar-cli": "^3.0.0",
+    "cross-env": "^7.0.3",
     "fs-extra": "^10.0.0",
     "husky": "=4",
-    "jest-styled-components": "^7.1.1",
     "lerna": "^4.0.0",
     "lint-staged": ">=10",
     "plop": "^2.7.4",
     "rimraf": "^3.0.2",
-    "url-loader": "^4.1.1"
+    "tiny-glob": "^0.2.9",
+    "vite": "^3.2.2"
   },
   "husky": {
     "hooks": {

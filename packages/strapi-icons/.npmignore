@@ -1,5 +1,4 @@
 assets
 src
 yarn.lock
-webpack.config.js
-.prettierrc.js
+vite.config.js
