@@ -16,7 +16,7 @@
     "@babel/preset-react": "^7.12.13",
     "@figspec/react": "^0.1.5",
     "@juggle/resize-observer": "^3.4.0",
-    "@playwright/test": "1.20.0",
+    "@playwright/test": "1.27.1",
     "@storybook/addon-actions": "^6.5.13",
     "@storybook/addon-essentials": "^6.5.13",
     "@storybook/addon-links": "^6.5.13",
@@ -47,7 +47,8 @@
     "storybook-dark-mode": "^1.1.2",
     "styled-components": "^5.3.6",
     "webpack-bundle-analyzer": "^4.4.0",
-    "webpack-cli": "^4.5.0"
+    "webpack-cli": "^4.5.0",
+    "url-loader": "^4.1.1"
   },
   "peerDependencies": {
     "@strapi/icons": "^1.2.4",
@@ -70,7 +71,11 @@
     "lint-staged": "eslint --fix",
     "storybook": "start-storybook -p 6006",
     "test": "jest -c jest.config.js",
-    "test:watch": "jest -c jest.config.js --watchAll"
+    "test:watch": "jest -c jest.config.js --watchAll",
+    "test:e2e": "playwright test",
+    "test:e2e:ci": "cross-env CI=true playwright test",
+    "test:e2e:watch": "chokidar '**/__tests__/*.e2e.js' -c 'npm run test:e2e -- --retries=0 {path}'",
+    "test:e2e:debug": "cross-env PWDEBUG=1 playwright test"
   },
   "gitHead": "bf52e690f743703a47f768ba83ebff55a3a12795"
 }

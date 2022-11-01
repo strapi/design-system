@@ -10,7 +10,6 @@
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^3.0.0",
     "cross-env": "^7.0.3",
-    "jest-styled-components": "^7.1.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "webpack": "^4.46.0",
@@ -26,8 +25,5 @@
     "build": "rimraf dist src && yarn generate:icons && webpack &&  node ../../tools/copy-files.js",
     "generate:icons": "svgr --icon -d ./src ./assets/icons"
   },
-  "gitHead": "bf52e690f743703a47f768ba83ebff55a3a12795",
-  "dependencies": {
-    "rimraf": "^3.0.2"
-  }
+  "gitHead": "bf52e690f743703a47f768ba83ebff55a3a12795"
 }
