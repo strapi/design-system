@@ -1,5 +1,5 @@
 import IntlPolyfill from 'intl';
-import ResizeObserver from '@juggle/resize-observer';
+import { ResizeObserver } from '@juggle/resize-observer';
 
 import 'intl/locale-data/jsonp/en';
 import 'jest-styled-components';
