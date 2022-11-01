@@ -1,9 +1,6 @@
 name: Bundle-size
 
-on:
-  pull_request:
-    paths:
-      - '*'
+on: [pull_request]
 
 jobs:
   size:
