@@ -17,11 +17,11 @@
     "specify:pull": "specify pull",
     "specify:sync": "specify sync",
     "storybook": "lerna run storybook --stream",
+    "test": "lerna run test --stream",
+    "test:watch": "lerna --scope @strapi/design-system exec -- yarn test:watch",
     "test:e2e": "lerna run test:e2e --stream",
     "test:e2e:ci": "lerna run test:e2e:ci",
     "test:e2e:watch": "lerna --scope @strapi/design-system exec -- yarn test:e2e:watch",
-    "test": "lerna run test --stream",
-    "test:watch": "lerna --scope @strapi/design-system exec -- yarn test:watch",
     "test:snapshots": "lerna --scope @strapi/design-system exec -- yarn  test -u",
     "release": "lerna version --no-push --no-git-tag-version && yarn setup && git commit -am \"Releasing\" && lerna publish from-package --contents dist"
   },
@@ -30,12 +30,10 @@
     "chokidar-cli": "^3.0.0",
     "fs-extra": "^10.0.0",
     "husky": "=4",
-    "jest-styled-components": "^7.0.4",
     "lerna": "^4.0.0",
     "lint-staged": ">=10",
     "plop": "^2.7.4",
-    "rimraf": "^3.0.2",
-    "url-loader": "^4.1.1"
+    "rimraf": "^3.0.2"
   },
   "husky": {
     "hooks": {

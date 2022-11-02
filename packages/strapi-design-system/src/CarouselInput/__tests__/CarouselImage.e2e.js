@@ -1,4 +1,4 @@
-const { test, expect } = require('@playwright/test');
+import { test, expect } from '@playwright/test';
 
 test.describe.parallel('CarouselImage', () => {
   test('a tooltip should appear with the alt text if the src fails to load', async ({ page }) => {
