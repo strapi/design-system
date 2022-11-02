@@ -4,7 +4,6 @@ import react from '@vitejs/plugin-react';
 import glob from 'tiny-glob';
 
 export default glob('./src/**/!(*.spec|*.e2e).{js,svg}').then(async (paths) => {
-  console.log(paths, resolve(__dirname, './src/index.js'));
   return defineConfig({
     esbuild: {
       loader: 'jsx',
