@@ -95,6 +95,31 @@ IconButtons can be used within another component is a Group shape.
   </Story>
 </Canvas>
 
+### Icons as Children & aria-label
+
+IconButtons can take Icons as their children and can be fully accessible without a tooltip.
+
+<Canvas>
+  <Story name="children">
+    <Box padding={7}>
+      <Flex>
+        <IconButton onClick={() => console.log('edit')} aria-label="Edit">
+          <Pencil />
+        </IconButton>
+        <IconButton onClick={() => console.log('Create')} aria-label="Create">
+          <Plus />
+        </IconButton>
+        <IconButton onClick={() => console.log('Delete')} aria-label="Delete">
+          <Trash />
+        </IconButton>
+        <IconButton onClick={() => console.log('Publish')} aria-label="Publish">
+          <Play />
+        </IconButton>
+      </Flex>
+    </Box>
+  </Story>
+</Canvas>
+
 ## Props
 
 <ArgsTable of={IconButton} />
