@@ -29,7 +29,9 @@ test.describe.parallel('Popover', () => {
         expect(lis.length).toBe(10);
 
         await page.focus('#list');
-        await page.keyboard.press('PageDown', { delay: 2000 });
+        await page.keyboard.press('PageDown', { delay: 50 });
+        await page.keyboard.press('PageDown', { delay: 50 });
+        await page.keyboard.press('PageDown', { delay: 50 });
 
         const lis2 = await page.$$('#on-reach-end li');
         expect(lis2.length).toBe(15);
