@@ -26,7 +26,8 @@
       "files": "*.mdx",
       "parser": "eslint-mdx",
       "rules": {
-        "react/react-in-jsx-scope": "off"
+        "react/react-in-jsx-scope": "off",
+        "no-console": 0
       }
     }
   ]
