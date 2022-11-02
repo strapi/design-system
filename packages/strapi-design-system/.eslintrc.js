@@ -19,6 +19,10 @@ module.exports = {
     'react/sort-prop-types': 1,
     'default-case': 'error',
     'no-unused-vars': ['error', { vars: 'all', args: 'after-used', ignoreRestSiblings: false }],
+    'no-undef': 'error',
+  },
+  globals: {
+    module: true,
   },
   overrides: [
     {
