@@ -19,11 +19,14 @@ const StatusWrapper = styled(Box)`
   }
 `;
 
-export const Status = ({ variant, showBullet, children, ...props }) => {
+export const Status = ({ variant, showBullet, size, children, ...props }) => {
   const backgroundColor = `${variant}100`;
   const borderColor = `${variant}200`;
   const bulletColor = `${variant}600`;
   const textColor = `${variant}600`;
+
+  const paddingX = size === 'S' ? 2 : 5;
+  const paddingY = size === 'S' ? 1 : 4;
 
   return (
     <StatusWrapper
@@ -31,10 +34,10 @@ export const Status = ({ variant, showBullet, children, ...props }) => {
       textColor={textColor}
       background={backgroundColor}
       hasRadius
-      paddingTop={4}
-      paddingBottom={4}
-      paddingLeft={5}
-      paddingRight={5}
+      paddingTop={paddingY}
+      paddingBottom={paddingY}
+      paddingLeft={paddingX}
+      paddingRight={paddingX}
       {...props}
     >
       {showBullet ? (
@@ -51,6 +54,7 @@ export const Status = ({ variant, showBullet, children, ...props }) => {
 
 Status.defaultProps = {
   showBullet: true,
+  size: 'M',
   variant: 'primary',
 };
 
@@ -62,6 +66,8 @@ Status.propTypes = {
    * This prop and the bullet will be removed in the next major version.
    */
   showBullet: PropTypes.bool, // TODO V2: remove prop and bullet
+
+  size: PropTypes.oneOf(['S', 'M']),
 
   /**
    * Color variation
