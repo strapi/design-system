@@ -10,7 +10,7 @@ const config = {
     baseURL: 'http://localhost:6006',
     headless: true,
     contextOptions: {
-      locale: 'en-US',
+      locale: 'en-US', // set the locale
     },
     actionTimeout: 0,
   },
