@@ -2,6 +2,7 @@
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { ArgsTable } from '@storybook/addon-docs';
+import { useState } from 'react';
 
 import Pencil from '@strapi/icons/Pencil';
 import Play from '@strapi/icons/Play';
@@ -42,7 +43,7 @@ Icon Buttons are used to perform actions within a page, a table or another objec
 <Canvas>
   <Story name="base">
     {() => {
-      const [currentAction, setCurrentAction] = React.useState('None Selected');
+      const [currentAction, setCurrentAction] = useState('None Selected');
       return (
         <Box padding={7}>
           <Box paddingBottom={3}>
@@ -67,7 +68,7 @@ Depending on the status of an action or the permissions, an IconButton can be un
 <Canvas>
   <Story name="disabled">
     {() => {
-      const [currentAction, setCurrentAction] = React.useState('None Selected');
+      const [currentAction, setCurrentAction] = useState('None Selected');
       return (
         <Box padding={7}>
           <Box paddingBottom={3}>
@@ -121,7 +122,7 @@ IconButtons can take Icons as their children and can be fully accessible without
 <Canvas>
   <Story name="children">
     {() => {
-      const [currentAction, setCurrentAction] = React.useState('None Selected');
+      const [currentAction, setCurrentAction] = useState('None Selected');
       return (
         <Box padding={7}>
           <Box paddingBottom={3}>

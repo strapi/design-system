@@ -1,5 +1,6 @@
 <!--- Switch.stories.mdx --->
 
+import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { ArgsTable } from '@storybook/addon-docs';
 import { Switch } from './Switch';
@@ -37,7 +38,7 @@ Activated state is one of two of them available for a Switch.
 <Canvas>
   <Story name="activated">
     {() => {
-      const [activated, setActivated] = React.useState(true);
+      const [activated, setActivated] = useState(true);
       return (
         <Switch
           label="Activate the microphone"
@@ -57,7 +58,7 @@ Deactivated state is one of two of them available for a Switch.
 <Canvas>
   <Story name="not-activated">
     {() => {
-      const [activated, setActivated] = React.useState(false);
+      const [activated, setActivated] = useState(false);
       return (
         <Switch
           label="Activate the microphone"
