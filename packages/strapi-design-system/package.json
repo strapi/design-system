@@ -1,6 +1,6 @@
 {
   "name": "@strapi/design-system",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
@@ -46,12 +46,12 @@
     "react-router-dom": "^5.2.0",
     "storybook-dark-mode": "^1.1.2",
     "styled-components": "^5.3.6",
+    "url-loader": "^4.1.1",
     "webpack-bundle-analyzer": "^4.4.0",
-    "webpack-cli": "^4.5.0",
-    "url-loader": "^4.1.1"
+    "webpack-cli": "^4.5.0"
   },
   "peerDependencies": {
-    "@strapi/icons": "^1.2.4",
+    "@strapi/icons": "^1.2.6",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
