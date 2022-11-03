@@ -1,4 +1,4 @@
-const { test, expect } = require('@playwright/test');
+import { test, expect } from '@playwright/test';
 
 test.describe.parallel('DateTimePicker', () => {
   test.describe('without initial data', () => {
