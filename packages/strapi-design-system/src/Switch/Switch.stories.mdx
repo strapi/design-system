@@ -36,7 +36,17 @@ Activated state is one of two of them available for a Switch.
 
 <Canvas>
   <Story name="activated">
-    <Switch label="Activate the microphone" selected={true} onChange={(e) => console.log(e)} visibleLabels />
+    {() => {
+      const [activated, setActivated] = React.useState(true);
+      return (
+        <Switch
+          label="Activate the microphone"
+          selected={activated}
+          onChange={() => setActivated((s) => !s)}
+          visibleLabels
+        />
+      );
+    }}
   </Story>
 </Canvas>
 
@@ -46,7 +56,17 @@ Deactivated state is one of two of them available for a Switch.
 
 <Canvas>
   <Story name="not-activated">
-    <Switch label="Activate the microphone" selected={false} onChange={(e) => console.log(e)} visibleLabels />
+    {() => {
+      const [activated, setActivated] = React.useState(false);
+      return (
+        <Switch
+          label="Activate the microphone"
+          selected={activated}
+          onChange={() => setActivated((s) => !s)}
+          visibleLabels
+        />
+      );
+    }}
   </Story>
 </Canvas>
 

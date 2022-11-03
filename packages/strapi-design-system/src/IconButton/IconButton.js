@@ -144,18 +144,32 @@ IconButton.defaultProps = {
 /**
  * @type {(otherProps: string[]) => (props: Record<string, unknown>, propName: string) => Error | undefined}
  */
-const throwPropErrorIfNoneAreDefined = (otherProps) => (props, propName) => {
+const throwPropErrorIfNoneAreDefined = (otherProps, propType) => (props, propName) => {
   if (!props[propName] && otherProps.every((otherProp) => !props[otherProp])) {
     return new Error(`One of the following props is required: ${propName}, ${otherProps.join(', ')}`);
   }
+
+  PropTypes.checkPropTypes({ [propName]: PropTypes[propType] }, props, 'prop', 'IconButton');
 };
 
 IconButton.propTypes = {
-  ['aria-label']: throwPropErrorIfNoneAreDefined(['label']),
-  children: throwPropErrorIfNoneAreDefined(['icon']),
+  /**
+   * `PropTypes.string` – must be defined if `label` is not defined.
+   */
+  ['aria-label']: throwPropErrorIfNoneAreDefined(['label'], 'string'),
+  /**
+   * `PropTypes.node` – must be defined if `icon` is not defined.
+   */
+  children: throwPropErrorIfNoneAreDefined(['icon'], 'node'),
   disabled: PropTypes.bool,
-  icon: throwPropErrorIfNoneAreDefined(['children']),
-  label: throwPropErrorIfNoneAreDefined(['aria-label']),
+  /**
+   * `PropTypes.node` – must be defined if `children` is not defined.
+   */
+  icon: throwPropErrorIfNoneAreDefined(['children'], 'node'),
+  /**
+   * `PropTypes.string` – must be defined if `aria-label` is not defined.
+   */
+  label: throwPropErrorIfNoneAreDefined(['aria-label'], 'string'),
   noBorder: PropTypes.bool,
   onClick: PropTypes.func,
 };
