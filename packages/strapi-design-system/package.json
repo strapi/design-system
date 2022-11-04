@@ -10,7 +10,10 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
-    "./*": "./dist/*"
+    "./*": {
+      "import": "./dist/*.js",
+      "require": "./dist/*.cjs"
+    }
   },
   "sideEffects": false,
   "dependencies": {
