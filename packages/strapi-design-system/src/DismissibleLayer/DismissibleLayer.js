@@ -26,7 +26,21 @@ export const DismissibleLayer = ({ children, className, onEscapeKeyDown, onPoint
      * @type {(event: PointerEvent) => void}
      */
     const handlePointerDownOutside = (event) => {
-      if (layerRef.current && !layerRef.current.contains(event.target)) {
+      /**
+       * Because certain elements that live inside modals e.g. Selects
+       * render their dropdowns in portals the `layerRef.current.contains(event.target)` fails.
+       *
+       * Therefore we check the closest portal of the DimissibleLayer (which we're trying to close)
+       * and the event that _may_ prematurely close the layer and see if they are equal.
+       */
+      const dismissibleLayersReactPortal = layerRef.current.closest('[data-react-portal]');
+      const eventsReactPortal = event.target.closest('[data-react-portal]');
+
+      if (
+        layerRef.current &&
+        !layerRef.current.contains(event.target) &&
+        dismissibleLayersReactPortal === eventsReactPortal
+      ) {
         onPointerDownOutsideHandler();
       }
     };
