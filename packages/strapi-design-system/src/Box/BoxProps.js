@@ -21,6 +21,7 @@ export const boxDefaultProps = {
   grow: undefined,
   basis: undefined,
   flex: undefined,
+  gap: undefined,
   _hover: () => undefined,
 };
 export const boxPropTypes = {
@@ -49,6 +50,10 @@ export const boxPropTypes = {
    * Flex
    */
   flex: PropTypes.oneOfType([PropTypes.string, PropTypes.string]),
+  /**
+   * Flex/Grid gap
+   */
+  gap: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /**
    * Flex grow
    */

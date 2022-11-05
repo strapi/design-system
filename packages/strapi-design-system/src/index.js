@@ -43,6 +43,7 @@ export * from './Flex';
 export * from './Searchbar';
 export * from './Select';
 export * from './SimpleMenu';
+export * from './SimpleNav';
 export * from './Stack';
 export * from './Status';
 export * from './SubNav';

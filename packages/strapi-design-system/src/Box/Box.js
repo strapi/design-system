@@ -6,15 +6,16 @@ import { boxPropTypes, boxDefaultProps } from './BoxProps';
  * Prevents these attributes from being spread on the DOM node
  */
 const transientProps = {
+  background: true,
   color: true,
+  cursor: true,
+  display: true,
+  width: true,
 };
 
 export const Box = styled.div.withConfig({
   shouldForwardProp: (prop, defPropValFN) => !transientProps[prop] && defPropValFN(prop),
 })`
-  // Font
-  font-size: ${({ fontSize, theme }) => theme.fontSizes[fontSize] || fontSize};
-
   // Colors
   background: ${({ theme, background }) => theme.colors[background]};
   color: ${({ theme, color }) => theme.colors[color]};
@@ -33,7 +34,6 @@ export const Box = styled.div.withConfig({
   // Responsive hiding
   ${({ theme, hiddenS }) => (hiddenS ? `${theme.mediaQueries.tablet} { display: none; }` : undefined)}
   ${({ theme, hiddenXS }) => (hiddenXS ? `${theme.mediaQueries.mobile} { display: none; }` : undefined)}
-  
 
   // Borders
   border-radius: ${({ theme, hasRadius, borderRadius }) => (hasRadius ? theme.borderRadius : borderRadius)};
@@ -69,7 +69,6 @@ export const Box = styled.div.withConfig({
   bottom: ${({ bottom, theme }) => theme.spaces[bottom] || bottom};
   z-index: ${({ zIndex }) => zIndex};
   overflow: ${({ overflow }) => overflow};
-  cursor: ${({ cursor }) => cursor};
 
   // Size
   width: ${({ width, theme }) => theme.spaces[width] || width};
@@ -89,9 +88,12 @@ export const Box = styled.div.withConfig({
   flex-grow: ${({ grow }) => grow};
   flex-basis: ${({ basis }) => basis};
   flex: ${({ flex }) => flex};
+  gap: ${({ gap, theme }) => theme.spaces[gap] || gap};
 
   // Text
+  font-size: ${({ fontSize, theme }) => theme.fontSizes[fontSize] || fontSize};
   text-align: ${({ textAlign }) => textAlign};
+  text-decoration: ${({ textDecoration }) => textDecoration};
   text-transform: ${({ textTransform }) => textTransform};
   line-height: ${({ lineHeight }) => lineHeight};
 

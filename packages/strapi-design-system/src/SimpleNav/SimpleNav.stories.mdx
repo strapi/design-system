@@ -1,0 +1,132 @@
+<!--- Nav.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { ArgsTable } from '@storybook/addon-docs';
+import IconAlien from '@strapi/icons/Alien';
+import IconArrowRight from '@strapi/icons/ArrowRight';
+import IconChevronRight from '@strapi/icons/ChevronRight';
+import IconExclamationMarkCircle from '@strapi/icons/ExclamationMarkCircle';
+import { NavLink } from 'react-router-dom';
+import { SimpleNav } from './SimpleNav';
+import { SimpleNavItem } from './SimpleNavItem';
+import { Box } from '../Box';
+import { Flex } from '../Flex';
+import { Typography } from '../Typography';
+
+<Meta title="Design System/Components/SimpleNav" component={SimpleNav} />
+
+# SimpleNav
+
+A list of simple-navigable components, mostly to be used as side nav.
+
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/SimpleNav)
+
+## Imports
+
+```js
+import { SimpleNav, SimpleNavItem } from '@strapi/design-system/SimpleNav';
+```
+
+### Base
+
+<Canvas>
+  <Story name="base">
+    <SimpleNav aria-label="Secondary navigation">
+      <SimpleNavItem href="#">Item #1</SimpleNavItem>
+      <SimpleNavItem as={NavLink} to="/?path=/docs/design-system-components-v2-simplenav--base">
+        Item #2 - active by route
+      </SimpleNavItem>
+      <SimpleNavItem href="#" isActive>
+        Item #3 - &quot;isActive&quot;
+      </SimpleNavItem>
+      <SimpleNavItem href="#" withError>
+        Item #4 - &quot;withError&quot;
+      </SimpleNavItem>
+      <SimpleNavItem href="#" withError endIcon={<IconExclamationMarkCircle />}>
+        Item #5 - &quot;withError&quot; and &quot;endIcon&quot;
+      </SimpleNavItem>
+      <SimpleNavItem href="#" isActive withError>
+        Item #6 - &quot;withError&quot; and &quot;isActive&quot;
+      </SimpleNavItem>
+      <SimpleNavItem
+        as={NavLink}
+        to="/?path=/docs/design-system-components-v2-simplenav--base"
+        endIcon={<IconExclamationMarkCircle />}
+        withError
+      >
+        Item #7 - &quot;withError&quot;, active by route and &quot;endIcon&quot;
+      </SimpleNavItem>
+    </SimpleNav>
+  </Story>
+</Canvas>
+
+### Usage of icons
+
+Regarding `startIcon` and `endIcon` props, the `SimpleNavItem` component works similar as [Button](https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-button--icons) component.
+
+<Canvas>
+  <Story name="icons">
+    <SimpleNav aria-label="Tertiary navigation">
+      <Flex as="section" direction="row" gap={2}>
+        <Box as="article" id="startIcon" flex="1">
+          <Typography as="h2" variant="delta">
+            &quot;startIcon&quot;
+          </Typography>
+          <Box marginTop={2}>
+            <SimpleNav>
+              <SimpleNavItem href="#" startIcon={<IconAlien />} isActive>
+                &quot;startIcon&quot; example #1
+              </SimpleNavItem>
+              <SimpleNavItem href="#" startIcon={<IconExclamationMarkCircle />}>
+                &quot;startIcon&quot; example #2
+              </SimpleNavItem>
+            </SimpleNav>
+          </Box>
+        </Box>
+        <Box as="article" id="endIcon" flex="1">
+          <Typography as="h2" variant="delta">
+            &quot;endIcon&quot;
+          </Typography>
+          <Box marginTop={2}>
+            <SimpleNav>
+              <SimpleNavItem href="#" endIcon={<IconChevronRight />}>
+                &quot;endIcon&quot; example #1
+              </SimpleNavItem>
+              <SimpleNavItem href="#" endIcon={<IconArrowRight />} withError>
+                &quot;endIcon&quot; example #2
+              </SimpleNavItem>
+            </SimpleNav>
+          </Box>
+        </Box>
+      </Flex>
+    </SimpleNav>
+  </Story>
+</Canvas>
+
+### Usage with other routing libraries
+
+To use the Strapi design system SimpleNavItem component with a routing library (e.g. react-router-dom), you'll need to pass the react-router-dom `NavLink` component to the `as` prop in order to replace the default HTML anchor `<a>`.
+You'll now be able to pass all `NavLink` props.
+
+```jsx
+import { SimpleNav, SimpleNavItem } from '@strapi/design-system/SimpleNav';
+import { NavLink } from 'react-router-dom';
+
+<SimpleNav>
+  <SimpleNavItem as={NavLink} to="/home">
+    Home
+  </SimpleNavItem>
+</SimpleNav>;
+```
+
+## `SimpleNav` Props
+
+The `SimpleNav` component wraps all its children in the [Flex](https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-flex--base) component, which it's derivated from [Box](https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base) component, so you can pass all Flex and Box props to change `SimpleNav` styles.
+
+<ArgsTable of={SimpleNav} />
+
+## `SimpleNavItem` Props
+
+The `SimpleNavItem` component wraps all its children in the [Box](https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base) component, so you can pass all Box props to change its style.
+
+<ArgsTable of={SimpleNavItem} />
