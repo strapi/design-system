@@ -10,11 +10,11 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
-    "./*": {
-      "import": "./dist/*.js",
-      "require": "./dist/*.cjs"
-    }
+    "./*": "./dist/*"
   },
+  "files": [
+    "dist"
+  ],
   "sideEffects": false,
   "dependencies": {
     "@floating-ui/react-dom": "^1.0.0",

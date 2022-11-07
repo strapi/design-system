@@ -10,11 +10,11 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
-    "./*": {
-      "import": "./dist/*.js",
-      "require": "./dist/*.cjs"
-    }
+    "./*": "./dist/*"
   },
+  "files": [
+    "dist"
+  ],
   "sideEffects": false,
   "devDependencies": {
     "@svgr/cli": "^5.5.0",
