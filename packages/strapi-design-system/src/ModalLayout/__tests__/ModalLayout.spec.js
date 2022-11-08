@@ -506,12 +506,18 @@ describe('ModalLayout', () => {
                       Modal Title
                       <button
                         aria-disabled="false"
-                        aria-label="Close the modal"
                         class="c8 c9"
                         type="button"
                       >
+                        <span
+                          class="c0"
+                        >
+                          Close the modal
+                        </span>
                         <svg
+                          aria-hidden="true"
                           fill="none"
+                          focusable="false"
                           height="1em"
                           viewBox="0 0 24 24"
                           width="1em"

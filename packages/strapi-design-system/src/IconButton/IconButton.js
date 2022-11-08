@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Tooltip } from '../Tooltip';
 import { BaseButton } from '../BaseButton';
 import { Flex } from '../Flex';
+import { VisuallyHidden } from '../VisuallyHidden';
 
 const IconButtonWrapper = styled(BaseButton)`
   display: flex;
@@ -94,29 +95,42 @@ export const IconButtonGroup = styled(Flex)`
   }
 `;
 
-export const IconButton = React.forwardRef(({ label, noBorder, icon, disabled, onClick, ...props }, ref) => {
-  const handleClick = (e) => {
-    if (!disabled && onClick) {
-      onClick(e);
+export const IconButton = React.forwardRef(
+  ({ label, noBorder, children, icon, disabled, onClick, ['aria-label']: ariaLabel, ...restProps }, ref) => {
+    /**
+     * @type {React.MouseEventHandler<HTMLButtonElement>}
+     */
+    const handleClick = (e) => {
+      if (!disabled && onClick) {
+        onClick(e);
+      }
+    };
+
+    if (!label) {
+      return (
+        <IconButtonWrapper {...restProps} ref={ref} noBorder={noBorder} onClick={handleClick} aria-disabled={disabled}>
+          <VisuallyHidden as="span">{ariaLabel}</VisuallyHidden>
+          {cloneElement(children ?? icon, {
+            'aria-hidden': true,
+            focusable: false, // See: https://allyjs.io/tutorials/focusing-in-svg.html#making-svg-elements-focusable
+          })}
+        </IconButtonWrapper>
+      );
     }
-  };
 
-  if (!label) {
     return (
-      <IconButtonWrapper {...props} ref={ref} noBorder={noBorder} onClick={handleClick} aria-disabled={disabled}>
-        {icon}
-      </IconButtonWrapper>
+      <Tooltip label={label}>
+        <IconButtonWrapper {...restProps} ref={ref} noBorder={noBorder} onClick={handleClick} aria-disabled={disabled}>
+          <VisuallyHidden as="span">{label}</VisuallyHidden>
+          {cloneElement(children ?? icon, {
+            'aria-hidden': true,
+            focusable: false, // See: https://allyjs.io/tutorials/focusing-in-svg.html#making-svg-elements-focusable
+          })}
+        </IconButtonWrapper>
+      </Tooltip>
     );
-  }
-
-  return (
-    <Tooltip label={label}>
-      <IconButtonWrapper {...props} ref={ref} noBorder={noBorder} onClick={handleClick} aria-disabled={disabled}>
-        {icon}
-      </IconButtonWrapper>
-    </Tooltip>
-  );
-});
+  },
+);
 
 IconButton.displayName = 'IconButton';
 
@@ -126,10 +140,36 @@ IconButton.defaultProps = {
   disabled: false,
   onClick: undefined,
 };
+
+/**
+ * @type {(otherProps: string[]) => (props: Record<string, unknown>, propName: string) => Error | undefined}
+ */
+const throwPropErrorIfNoneAreDefined = (otherProps, propType) => (props, propName) => {
+  if (!props[propName] && otherProps.every((otherProp) => !props[otherProp])) {
+    return new Error(`One of the following props is required: ${propName}, ${otherProps.join(', ')}`);
+  }
+
+  PropTypes.checkPropTypes({ [propName]: PropTypes[propType] }, props, 'prop', 'IconButton');
+};
+
 IconButton.propTypes = {
+  /**
+   * `PropTypes.string` – must be defined if `label` is not defined.
+   */
+  ['aria-label']: throwPropErrorIfNoneAreDefined(['label'], 'string'),
+  /**
+   * `PropTypes.node` – must be defined if `icon` is not defined.
+   */
+  children: throwPropErrorIfNoneAreDefined(['icon'], 'node'),
   disabled: PropTypes.bool,
-  icon: PropTypes.element.isRequired,
-  label: PropTypes.string,
+  /**
+   * `PropTypes.node` – must be defined if `children` is not defined.
+   */
+  icon: throwPropErrorIfNoneAreDefined(['children'], 'node'),
+  /**
+   * `PropTypes.string` – must be defined if `aria-label` is not defined.
+   */
+  label: throwPropErrorIfNoneAreDefined(['aria-label'], 'string'),
   noBorder: PropTypes.bool,
   onClick: PropTypes.func,
 };

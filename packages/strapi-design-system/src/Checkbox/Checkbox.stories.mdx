@@ -55,7 +55,7 @@ import { Checkbox } from '@strapi/design-system/Checkbox';
     }}
   >
     {() => {
-      const [checkedItems, setCheckedItems] = React.useState([true, false]);
+      const [checkedItems, setCheckedItems] = useState([true, false]);
       const allChecked = checkedItems.every(Boolean);
       const isIndeterminate = checkedItems.some(Boolean) && !allChecked;
       return (

@@ -2,13 +2,17 @@
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { ArgsTable } from '@storybook/addon-docs';
+import { useState } from 'react';
+
 import Pencil from '@strapi/icons/Pencil';
 import Play from '@strapi/icons/Play';
 import Trash from '@strapi/icons/Trash';
 import Plus from '@strapi/icons/Plus';
+
 import { IconButton, IconButtonGroup } from './IconButton';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
+import { Typography } from '../Typography';
 
 <Meta title="Design System/Components/IconButton" component={IconButton} />
 
@@ -38,14 +42,22 @@ Icon Buttons are used to perform actions within a page, a table or another objec
 
 <Canvas>
   <Story name="base">
-    <Box padding={7}>
-      <Flex>
-        <IconButton onClick={() => console.log('edit')} label="Edit" icon={<Pencil />} />
-        <IconButton onClick={() => console.log('Create')} label="Create" icon={<Plus />} />
-        <IconButton onClick={() => console.log('Delete')} label="Delete" icon={<Trash />} />
-        <IconButton onClick={() => console.log('Publish')} label="Publish" icon={<Play />} />
-      </Flex>
-    </Box>
+    {() => {
+      const [currentAction, setCurrentAction] = useState('None Selected');
+      return (
+        <Box padding={7}>
+          <Box paddingBottom={3}>
+            <Typography>{currentAction}</Typography>
+          </Box>
+          <Flex>
+            <IconButton onClick={() => setCurrentAction('edit')} label="Edit" icon={<Pencil />} />
+            <IconButton onClick={() => setCurrentAction('Create')} label="Create" icon={<Plus />} />
+            <IconButton onClick={() => setCurrentAction('Delete')} label="Delete" icon={<Trash />} />
+            <IconButton onClick={() => setCurrentAction('Publish')} label="Publish" icon={<Play />} />
+          </Flex>
+        </Box>
+      );
+    }}
   </Story>
 </Canvas>
 
@@ -55,14 +67,22 @@ Depending on the status of an action or the permissions, an IconButton can be un
 
 <Canvas>
   <Story name="disabled">
-    <Box padding={7}>
-      <Flex>
-        <IconButton disabled onClick={() => console.log('edit')} label="Edit" icon={<Pencil />} />
-        <IconButton disabled onClick={() => console.log('Create')} label="Create" icon={<Plus />} />
-        <IconButton disabled onClick={() => console.log('Delete')} label="Delete" icon={<Trash />} />
-        <IconButton disabled onClick={() => console.log('Publish')} label="Publish" icon={<Play />} />
-      </Flex>
-    </Box>
+    {() => {
+      const [currentAction, setCurrentAction] = useState('None Selected');
+      return (
+        <Box padding={7}>
+          <Box paddingBottom={3}>
+            <Typography>{currentAction}</Typography>
+          </Box>
+          <Flex>
+            <IconButton disabled onClick={() => setCurrentAction('edit')} label="Edit" icon={<Pencil />} />
+            <IconButton disabled onClick={() => setCurrentAction('Create')} label="Create" icon={<Plus />} />
+            <IconButton disabled onClick={() => setCurrentAction('Delete')} label="Delete" icon={<Trash />} />
+            <IconButton disabled onClick={() => setCurrentAction('Publish')} label="Publish" icon={<Play />} />
+          </Flex>
+        </Box>
+      );
+    }}
   </Story>
 </Canvas>
 
@@ -92,6 +112,39 @@ IconButtons can be used within another component is a Group shape.
         <IconButton onClick={() => console.log('Publish')} label="Publish" icon={<Play />} />
       </IconButtonGroup>
     </Box>
+  </Story>
+</Canvas>
+
+### Icons as Children & aria-label
+
+IconButtons can take Icons as their children and can be fully accessible without a tooltip.
+
+<Canvas>
+  <Story name="children">
+    {() => {
+      const [currentAction, setCurrentAction] = useState('None Selected');
+      return (
+        <Box padding={7}>
+          <Box paddingBottom={3}>
+            <Typography>{currentAction}</Typography>
+          </Box>
+          <Flex>
+            <IconButton onClick={() => setCurrentAction('Edit')} aria-label={'Edit'}>
+              <Pencil />
+            </IconButton>
+            <IconButton onClick={() => setCurrentAction('Create')} aria-label="Create">
+              <Plus />
+            </IconButton>
+            <IconButton onClick={() => setCurrentAction('Delete')} aria-label="Delete">
+              <Trash />
+            </IconButton>
+            <IconButton onClick={() => setCurrentAction('Publish')} aria-label="Publish">
+              <Play />
+            </IconButton>
+          </Flex>
+        </Box>
+      );
+    }}
   </Story>
 </Canvas>
 

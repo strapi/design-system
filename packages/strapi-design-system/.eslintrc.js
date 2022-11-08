@@ -1,4 +1,9 @@
 module.exports = {
+  env: {
+    jest: true,
+    browser: true,
+    node: true,
+  },
   parserOptions: {
     ecmaVersion: 2020, // Allows for the parsing of modern ECMAScript features
     sourceType: 'module', // Allows for the use of imports
@@ -19,6 +24,7 @@ module.exports = {
     'react/sort-prop-types': 1,
     'default-case': 'error',
     'no-unused-vars': ['error', { vars: 'all', args: 'after-used', ignoreRestSiblings: false }],
+    'no-undef': 'error',
   },
   overrides: [
     {
