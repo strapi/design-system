@@ -8,11 +8,14 @@ import Pencil from '@strapi/icons/Pencil';
 import Play from '@strapi/icons/Play';
 import Trash from '@strapi/icons/Trash';
 import Plus from '@strapi/icons/Plus';
+import More from '@strapi/icons/More';
 
+import {Button} from '../Button';
 import { IconButton, IconButtonGroup } from './IconButton';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { Typography } from '../Typography';
+import { Stack } from '../Stack';
 
 <Meta title="Design System/Components/IconButton" component={IconButton} />
 
@@ -56,6 +59,20 @@ Icon Buttons are used to perform actions within a page, a table or another objec
             <IconButton onClick={() => setCurrentAction('Publish')} label="Publish" icon={<Play />} />
           </Flex>
         </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="blabla">
+    {() => {
+      return (
+        <Stack spacing={1} horizontal>
+          <IconButton onClick={() => {}} label="..." icon={<More />} />
+          <Button variant="default" disabled>Save as draft</Button>
+          <Button variant="default" disabled>Save & Publish</Button>
+        </Stack>
       );
     }}
   </Story>
