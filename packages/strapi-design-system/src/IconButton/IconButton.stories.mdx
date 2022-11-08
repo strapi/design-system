@@ -8,7 +8,7 @@ import Pencil from '@strapi/icons/Pencil';
 import Play from '@strapi/icons/Play';
 import Trash from '@strapi/icons/Trash';
 import Plus from '@strapi/icons/Plus';
-import More from '@strapi/icons/More';
+import Ellipsis from '@strapi/icons/Ellipsis';
 
 import {Button} from '../Button';
 import { IconButton, IconButtonGroup } from './IconButton';
@@ -69,7 +69,7 @@ Icon Buttons are used to perform actions within a page, a table or another objec
     {() => {
       return (
         <Stack spacing={1} horizontal>
-          <IconButton onClick={() => {}} label="..." icon={<More />} />
+          <IconButton onClick={() => {}} label="..." icon={<Ellipsis />} />
           <Button variant="default" disabled>Save as draft</Button>
           <Button variant="default" disabled>Save & Publish</Button>
         </Stack>
