@@ -46,7 +46,15 @@ export const ToggleInput = ({
             <ClearButton onClick={onClear}>{clearLabel}</ClearButton>
           )}
         </Flex>
-        <ToggleCheckbox id={generatedId} size={size} name={name} checked={checked} disabled={disabled} {...props}>
+        <ToggleCheckbox
+          id={generatedId}
+          required={required}
+          size={size}
+          name={name}
+          checked={checked}
+          disabled={disabled}
+          {...props}
+        >
           {label}
         </ToggleCheckbox>
         <FieldHint />

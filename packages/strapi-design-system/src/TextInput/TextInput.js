@@ -27,7 +27,14 @@ export const TextInput = React.forwardRef(
                 {label}
               </FieldLabel>
             )}
-            <FieldInput size={size} ref={ref} startAction={startAction} endAction={endAction} {...props} />
+            <FieldInput
+              size={size}
+              ref={ref}
+              required={required}
+              startAction={startAction}
+              endAction={endAction}
+              {...props}
+            />
             <FieldHint />
             <FieldError />
           </Stack>

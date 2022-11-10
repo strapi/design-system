@@ -52,7 +52,7 @@ import { ToggleInput } from '@strapi/design-system/ToggleInput';
   </Story>
 </Canvas>
 
-### Error handling
+### Error state
 
 <Canvas>
   <Story name="error">
@@ -68,6 +68,28 @@ import { ToggleInput } from '@strapi/design-system/ToggleInput';
           offLabel="False"
           checked={checked}
           onChange={(e) => setChecked(e.target.checked)}
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Required state
+
+<Canvas>
+  <Story name="required">
+    {() => {
+      const [checked, setChecked] = useState(false);
+      return (
+        <ToggleInput
+          hint="Enable provider"
+          label="Label"
+          name="enable-provider"
+          onLabel="True"
+          offLabel="False"
+          checked={checked}
+          onChange={(e) => setChecked(e.target.checked)}
+          required
         />
       );
     }}

@@ -38,7 +38,7 @@ export const Textarea = React.forwardRef(
                 </FieldLabel>
               </Flex>
             )}
-            <TextareaInput ref={ref} as="textarea" value={children} {...props} />
+            <TextareaInput ref={ref} as="textarea" required={required} value={children} {...props} />
             <FieldHint />
             <FieldError />
           </Stack>

@@ -21,15 +21,7 @@ export const FieldLabel = ({ children, required, action, ...props }) => {
   const { id } = useField();
 
   return (
-    <Typography
-      variant="pi"
-      textColor="neutral800"
-      htmlFor={id}
-      fontWeight="bold"
-      as="label"
-      required={required}
-      {...props}
-    >
+    <Typography variant="pi" textColor="neutral800" htmlFor={id} fontWeight="bold" as="label" {...props}>
       <Flex alignItems="center">
         {children}
         {required && <TypographyAsterisk textColor="danger600">*</TypographyAsterisk>}

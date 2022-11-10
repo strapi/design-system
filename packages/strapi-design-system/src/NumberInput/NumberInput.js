@@ -175,6 +175,7 @@ export const NumberInput = React.forwardRef(
             onBlur={handleBlur}
             onFocus={handleFocus}
             value={inputValue ?? ''}
+            required={required}
             size={size}
             endAction={
               <>
