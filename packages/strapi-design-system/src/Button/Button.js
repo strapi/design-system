@@ -31,17 +31,7 @@ export const ButtonWrapper = styled(BaseButton)`
   align-items: center;
   background-color: ${({ theme }) => theme.colors.buttonPrimary600};
   border: 1px solid ${({ theme }) => theme.colors.buttonPrimary600};
-  height: ${({ size }) => {
-    let height = 32;
-
-    if (size === 'M') {
-      height = 36;
-    } else if (size === 'L') {
-      height = 40;
-    }
-
-    return `${height / 16}rem`;
-  }};
+  height: ${({ theme, size }) => theme.sizes.button[size]};
   padding-left: ${({ theme }) => theme.spaces[4]};
   padding-right: ${({ theme }) => theme.spaces[4]};
 
@@ -135,6 +125,7 @@ Button.defaultProps = {
   startIcon: undefined,
   variant: 'default',
 };
+
 Button.propTypes = {
   children: PropTypes.node.isRequired,
   disabled: PropTypes.bool,
