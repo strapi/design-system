@@ -44,6 +44,7 @@ describe('ModalLayout', () => {
 
       .c17 {
         font-weight: 600;
+        line-height: 1.14;
         color: #32324d;
         font-size: 0.75rem;
         line-height: 1.33;
@@ -130,9 +131,11 @@ describe('ModalLayout', () => {
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
-        padding: 8px 16px;
-        background: #4945ff;
+        background-color: #4945ff;
         border: 1px solid #4945ff;
+        height: 2rem;
+        padding-left: 16px;
+        padding-right: 16px;
         border: 1px solid #dcdce4;
         background: #ffffff;
       }
@@ -200,9 +203,11 @@ describe('ModalLayout', () => {
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
-        padding: 8px 16px;
-        background: #4945ff;
+        background-color: #4945ff;
         border: 1px solid #4945ff;
+        height: 2rem;
+        padding-left: 16px;
+        padding-right: 16px;
         border: 1px solid #d9d8ff;
         background: #f0f0ff;
       }
@@ -280,9 +285,11 @@ describe('ModalLayout', () => {
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
-        padding: 8px 16px;
-        background: #4945ff;
+        background-color: #4945ff;
         border: 1px solid #4945ff;
+        height: 2rem;
+        padding-left: 16px;
+        padding-right: 16px;
       }
 
       .c19 .c2 {

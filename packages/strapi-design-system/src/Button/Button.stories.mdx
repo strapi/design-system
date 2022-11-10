@@ -7,7 +7,6 @@ import Plus from '@strapi/icons/Plus';
 import Write from '@strapi/icons/Write';
 import { Button } from './Button';
 import { Box } from '../Box';
-import { Flex } from '../Flex';
 import { Stack } from '../Stack';
 
 <Meta title="Design System/Components/Button" component={Button} />
@@ -38,9 +37,7 @@ The most common button component used in the interface (primary action). It can 
 
 <Canvas withSource="open">
   <Story name="base" parameters={{ docs: { source: { code: '<Button>Default button</Button>' } } }}>
-    <Box paddingBottom={2}>
-      <Button variant="default">Default</Button>
-    </Box>
+    <Button variant="default">Default</Button>
   </Story>
 </Canvas>
 
@@ -64,12 +61,11 @@ Use the size prop to change the size of the button. You can set the value to `S`
       },
     }}
   >
-    <Flex>
-      <Box paddingRight={1}>
-        <Button size="S">Small</Button>
-      </Box>
+    <Stack spacing={1} horizontal>
+      <Button size="S">Small</Button>
+      <Button size="M">Medium</Button>
       <Button size="L">Large</Button>
-    </Flex>
+    </Stack>
   </Story>
 </Canvas>
 

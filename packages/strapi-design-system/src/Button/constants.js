@@ -9,4 +9,4 @@ export const GHOST = 'ghost';
 
 export const LIGHT_VARIANTS = [SUCCESS_LIGHT, DANGER_LIGHT];
 export const VARIANTS = [DEFAULT, TERTIARY, SECONDARY, DANGER, SUCCESS, GHOST, ...LIGHT_VARIANTS];
-export const BUTTON_SIZES = ['S', 'L'];
+export const BUTTON_SIZES = ['S', 'M', 'L'];
