@@ -117,39 +117,39 @@ describe('TimePicker', () => {
       }
 
       .c2 {
-        font-weight: 600;
-        color: #32324d;
         font-size: 0.75rem;
         line-height: 1.33;
+        font-weight: 600;
+        color: #32324d;
       }
 
       .c11 {
-        color: #32324d;
+        font-size: 0.875rem;
+        line-height: 1.43;
         display: block;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        font-size: 0.875rem;
-        line-height: 1.43;
+        color: #32324d;
       }
 
       .c14 {
-        color: #666687;
         font-size: 0.75rem;
         line-height: 1.33;
+        color: #666687;
       }
 
       .c21 {
-        color: #32324d;
         font-size: 0.875rem;
         line-height: 1.43;
+        color: #32324d;
       }
 
       .c22 {
-        font-weight: 600;
-        color: #4945ff;
         font-size: 0.875rem;
         line-height: 1.43;
+        font-weight: 600;
+        color: #4945ff;
       }
 
       .c17 {
