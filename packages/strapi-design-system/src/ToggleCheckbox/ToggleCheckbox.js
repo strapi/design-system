@@ -6,6 +6,7 @@ import { inputFocusStyle } from '../themes/utils';
 import { Typography } from '../Typography';
 import { VisuallyHidden } from '../VisuallyHidden';
 import { Box } from '../Box';
+import { useField } from '../Field';
 import { Flex } from '../Flex';
 
 const Label = styled.label`
@@ -70,6 +71,8 @@ const Input = styled.input`
 
 export const ToggleCheckbox = React.forwardRef(
   ({ size, onLabel, offLabel, children, checked, disabled, onChange, ...props }, ref) => {
+    const { name, required } = useField();
+
     const labelColor = 'neutral600';
 
     let offCheckboxLabelColor = !checked && checked !== null ? 'danger700' : labelColor;
@@ -139,7 +142,9 @@ export const ToggleCheckbox = React.forwardRef(
             type="checkbox"
             aria-disabled={disabled}
             onChange={(e) => handleChange(e)}
+            name={name}
             ref={ref}
+            required={required}
             {...props}
             checked={checked === null || !checked ? false : true}
           />

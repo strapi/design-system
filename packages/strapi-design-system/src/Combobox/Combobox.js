@@ -247,13 +247,13 @@ export const Combobox = ({
   };
 
   return (
-    <Field hint={hint} error={error} id={generatedId}>
+    <Field hint={hint} error={error} id={generatedId} required={required}>
       <VisuallyHidden aria-live="polite" aria-atomic="false" aria-relevant="additions text">
         {value}
       </VisuallyHidden>
       <Stack spacing={label || hint || error ? 1 : 0}>
         {label && (
-          <FieldLabel action={labelAction} required={required} id={labelId}>
+          <FieldLabel action={labelAction} id={labelId}>
             {label}
           </FieldLabel>
         )}
@@ -282,8 +282,8 @@ export const Combobox = ({
               placeholder={value ? '' : placeholder}
               readOnly={disabled}
               ref={inputRef}
-              role="combobox"
               required={required}
+              role="combobox"
               spellCheck="off"
               type="text"
               value={inputValue}

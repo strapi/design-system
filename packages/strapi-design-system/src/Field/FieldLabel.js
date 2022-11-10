@@ -17,8 +17,8 @@ const Action = styled(Flex)`
   }
 `;
 
-export const FieldLabel = ({ children, required, action, ...props }) => {
-  const { id } = useField();
+export const FieldLabel = ({ children, action, ...props }) => {
+  const { id, required } = useField();
 
   return (
     <Typography variant="pi" textColor="neutral800" htmlFor={id} fontWeight="bold" as="label" {...props}>
@@ -32,11 +32,9 @@ export const FieldLabel = ({ children, required, action, ...props }) => {
 };
 
 FieldLabel.defaultProps = {
-  required: false,
   action: undefined,
 };
 FieldLabel.propTypes = {
   action: PropTypes.element,
   children: PropTypes.node.isRequired,
-  required: PropTypes.bool,
 };

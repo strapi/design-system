@@ -157,13 +157,9 @@ export const NumberInput = React.forwardRef(
     };
 
     return (
-      <Field name={name} hint={hint} error={error} id={generatedId}>
+      <Field name={name} hint={hint} error={error} id={generatedId} required={required}>
         <Stack spacing={1}>
-          {label && (
-            <FieldLabel required={required} action={labelAction}>
-              {label}
-            </FieldLabel>
-          )}
+          {label && <FieldLabel action={labelAction}>{label}</FieldLabel>}
           <FieldInput
             ref={ref}
             startAction={startAction}
@@ -175,7 +171,6 @@ export const NumberInput = React.forwardRef(
             onBlur={handleBlur}
             onFocus={handleFocus}
             value={inputValue ?? ''}
-            required={required}
             size={size}
             endAction={
               <>
