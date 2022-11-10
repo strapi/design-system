@@ -23,7 +23,7 @@
     "test:e2e:ci": "lerna run test:e2e:ci",
     "test:e2e:watch": "lerna --scope @strapi/design-system exec -- yarn test:e2e:watch",
     "test:snapshots": "lerna --scope @strapi/design-system exec -- yarn  test -u",
-    "release": "lerna version --no-push --no-git-tag-version && yarn setup && git commit -am \"Releasing\" && lerna publish from-package"
+    "release": "lerna version --no-push --no-git-tag-version && yarn setup && git commit -am \"Releasing\" && lerna publish from-package  --contents dist"
   },
   "devDependencies": {
     "@specifyapp/cli": "^0.0.51",
