@@ -2,10 +2,10 @@
 
 exports[`Typography textAlign 1`] = `
 .c0 {
-  color: #32324d;
-  text-align: center;
   font-size: 0.875rem;
   line-height: 1.43;
+  color: #32324d;
+  text-align: center;
 }
 
 .c1 {
@@ -53,10 +53,10 @@ exports[`Typography textAlign 1`] = `
 
 exports[`Typography textTransform 1`] = `
 .c0 {
-  color: #32324d;
-  text-transform: uppercase;
   font-size: 0.875rem;
   line-height: 1.43;
+  color: #32324d;
+  text-transform: uppercase;
 }
 
 .c1 {
