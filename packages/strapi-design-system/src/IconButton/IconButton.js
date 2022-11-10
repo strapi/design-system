@@ -110,7 +110,7 @@ export const IconButton = React.forwardRef(
       return (
         <IconButtonWrapper {...restProps} ref={ref} noBorder={noBorder} onClick={handleClick} aria-disabled={disabled}>
           <VisuallyHidden as="span">{ariaLabel}</VisuallyHidden>
-          {cloneElement(children ?? icon, {
+          {cloneElement(icon ? icon : children, {
             'aria-hidden': true,
             focusable: false, // See: https://allyjs.io/tutorials/focusing-in-svg.html#making-svg-elements-focusable
           })}
@@ -122,7 +122,7 @@ export const IconButton = React.forwardRef(
       <Tooltip label={label}>
         <IconButtonWrapper {...restProps} ref={ref} noBorder={noBorder} onClick={handleClick} aria-disabled={disabled}>
           <VisuallyHidden as="span">{label}</VisuallyHidden>
-          {cloneElement(children ?? icon, {
+          {cloneElement(icon ? icon : children, {
             'aria-hidden': true,
             focusable: false, // See: https://allyjs.io/tutorials/focusing-in-svg.html#making-svg-elements-focusable
           })}
