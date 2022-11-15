@@ -33,21 +33,39 @@ Badges are used to give a quick and short scannable information to the users. Th
 <Canvas>
   <Story name="base">
     <Stack spacing={2}>
-      <div>
-        <Badge>Doc</Badge>
-      </div>
-      <div>
-        <Badge>1</Badge>
-      </div>
-      <div>
-        <Badge>5</Badge>
-      </div>
-      <div>
-        <Badge>Video</Badge>
-      </div>
-      <div>
-        <Badge active>Image</Badge>
-      </div>
+      <Stack horizontal spacing={1}>
+        <Badge>Badge</Badge>
+      </Stack>
+    </Stack>
+  </Story>
+</Canvas>
+
+## Active
+
+Badges can be displayed as active:
+
+<Canvas>
+  <Story name="active">
+    <Stack spacing={2}>
+      <Stack horizontal spacing={1}>
+        <Badge size="S" active>Small Badge</Badge>
+        <Badge size="M" active>Medium Badge</Badge>
+      </Stack>
+    </Stack>
+  </Story>
+</Canvas>
+
+## Size
+
+Badges can be displayed in two sizes: S and M:
+
+<Canvas>
+  <Story name="size">
+    <Stack spacing={2}>
+      <Stack horizontal spacing={1}>
+        <Badge size="S">Small Badge</Badge>
+        <Badge size="M">Medium Badge</Badge>
+      </Stack>
     </Stack>
   </Story>
 </Canvas>

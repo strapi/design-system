@@ -6,20 +6,23 @@ import { Flex } from '../Flex';
 import { Typography } from '../Typography';
 
 const Base = styled(Flex)`
-  border-radius: 2px;
-  height: ${16 / 16}rem;
+  border-radius: ${({ theme, size }) => (size === 'S' ? '2px' : theme.borderRadius)};
+  height: ${({ size, theme }) => theme.sizes.badge[size]};
 `;
 
-export const Badge = ({ active, textColor, backgroundColor, children, minWidth, ...props }) => {
+export const Badge = ({ active, size, textColor, backgroundColor, children, minWidth, ...props }) => {
+  const paddingX = size === 'S' ? 1 : 2;
+
   return (
     <Base
       inline
       alignItem="center"
       justifyContent="center"
       minWidth={minWidth}
-      paddingLeft={1}
-      paddingRight={1}
+      paddingLeft={paddingX}
+      paddingRight={paddingX}
       background={active ? 'primary200' : backgroundColor}
+      size={size}
       {...props}
     >
       <Typography variant="sigma" textColor={active ? 'primary600' : textColor}>
@@ -33,6 +36,7 @@ Badge.defaultProps = {
   active: false,
   backgroundColor: 'neutral150',
   minWidth: 5,
+  size: 'M',
   textColor: 'neutral600',
 };
 
@@ -44,5 +48,6 @@ Badge.propTypes = {
   backgroundColor: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
   minWidth: PropTypes.number,
+  size: PropTypes.oneOf(['S', 'M']),
   textColor: PropTypes.string,
 };
