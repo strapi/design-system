@@ -24,7 +24,6 @@ import { useCallbackRef } from '@radix-ui/react-use-callback-ref';
 function useControllableState({ prop, defaultProp, onChange = () => {} }) {
   const [uncontrolledProp, setUncontrolledProp] = useUncontrolledState({ defaultProp, onChange });
   const isControlled = prop !== undefined;
-  console.log('is prop a function', typeof prop === 'function');
   const propValue = typeof prop === 'function' ? prop(uncontrolledProp) : prop;
   const value = isControlled ? propValue : uncontrolledProp;
   const handleChange = useCallbackRef(onChange);

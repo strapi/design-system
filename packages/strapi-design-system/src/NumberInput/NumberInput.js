@@ -62,19 +62,33 @@ export const NumberInput = React.forwardRef(
       prop: (currentInputValue) => {
         const stringifiedValue = String(value);
 
+        /**
+         * This basically accounts for when someone wants to:
+         * 1. clear the input
+         * 2. use a minus value
+         * 3. use a decimal value
+         *
+         * And always give it a string
+         */
         return isNaN(stringifiedValue) || (stringifiedValue !== currentInputValue && currentInputValue !== '')
           ? currentInputValue
           : stringifiedValue;
       },
       defaultProp: INITIAL_VALUE,
       onChange: (value) => {
+        /**
+         * always return a number.
+         */
         const parsedValue = numberParserRef.current.parse(value);
         onValueChange(isNaN(parsedValue) ? undefined : parsedValue);
       },
     });
 
+    /**
+     * Value will either be a number or a string,
+     * if the former then it'll be converted to a string.
+     */
     const formatNumberAndSetInput = (value) => {
-      console.log(String(value));
       setInputValue(String(value));
     };
 
@@ -128,6 +142,10 @@ export const NumberInput = React.forwardRef(
       }
     };
 
+    /**
+     * Only format on blur as vanity because otherwise it breaks when a user
+     * wants to include a minus or decimal value.
+     */
     const handleBlur = () => {
       if (inputValue) {
         formatNumberAndSetInput(numberFormaterRef.current.format(inputValue));
