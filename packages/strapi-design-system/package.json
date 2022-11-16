@@ -6,6 +6,7 @@
   "dependencies": {
     "@floating-ui/react-dom": "^1.0.0",
     "@internationalized/number": "^3.1.1",
+    "@radix-ui/react-use-controllable-state": "^1.0.0",
     "compute-scroll-into-view": "^1.0.17",
     "prop-types": "^15.7.2"
   },
