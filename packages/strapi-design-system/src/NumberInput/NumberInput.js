@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import CarretDown from '@strapi/icons/CarretDown';
 import { NumberFormatter, NumberParser } from '@internationalized/number';
-import { useControllableState } from '@radix-ui/react-use-controllable-state';
 
 import { Field, FieldLabel, FieldHint, FieldError, FieldInput } from '../Field';
 import { Stack } from '../Stack';
@@ -14,6 +13,8 @@ import { sizes } from '../themes/sizes';
 import { useId } from '../helpers/useId';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 import { getDefaultLocale } from '../helpers/getDefaultLocale';
+
+import { useControllableState } from '../hooks/useControllableState';
 
 const ArrowButton = styled.button`
   display: flex;
@@ -58,7 +59,13 @@ export const NumberInput = React.forwardRef(
     const numberFormaterRef = useRef(new NumberFormatter(locale, { maximumFractionDigits: 20 }));
 
     const [inputValue, setInputValue] = useControllableState({
-      prop: inputValue !== '-' ? (isNaN(String(value)) ? '' : String(value)) : inputValue,
+      prop: (currentInputValue) => {
+        const stringifiedValue = String(value);
+
+        return isNaN(stringifiedValue) || (stringifiedValue !== currentInputValue && currentInputValue !== '')
+          ? currentInputValue
+          : stringifiedValue;
+      },
       defaultProp: INITIAL_VALUE,
       onChange: (value) => {
         const parsedValue = numberParserRef.current.parse(value);
@@ -67,6 +74,7 @@ export const NumberInput = React.forwardRef(
     });
 
     const formatNumberAndSetInput = (value) => {
+      console.log(String(value));
       setInputValue(String(value));
     };
 
@@ -120,6 +128,12 @@ export const NumberInput = React.forwardRef(
       }
     };
 
+    const handleBlur = () => {
+      if (inputValue) {
+        formatNumberAndSetInput(numberFormaterRef.current.format(inputValue));
+      }
+    };
+
     return (
       <Field name={name} hint={hint} error={error} id={generatedId}>
         <Stack spacing={1}>
@@ -136,7 +150,8 @@ export const NumberInput = React.forwardRef(
             inputmode="decimal"
             onChange={handelInputChange}
             onKeyDown={handleKeyDown}
-            value={inputValue !== '' && inputValue !== '-' ? numberFormaterRef.current.format(inputValue) : inputValue}
+            onBlur={handleBlur}
+            value={inputValue}
             size={size}
             endAction={
               <>
