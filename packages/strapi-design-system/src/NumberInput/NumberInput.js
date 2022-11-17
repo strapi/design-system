@@ -108,7 +108,10 @@ export const NumberInput = React.forwardRef(
       }
 
       const parsedValue = numberParserRef.current.parse(inputValue);
-      formatNumberAndSetInput(parsedValue + step);
+
+      const newValue = isNaN(parsedValue) ? step : parsedValue + step;
+
+      formatNumberAndSetInput(newValue);
     };
 
     const decrement = () => {
@@ -118,7 +121,10 @@ export const NumberInput = React.forwardRef(
       }
 
       const parsedValue = numberParserRef.current.parse(inputValue);
-      formatNumberAndSetInput(parsedValue - step);
+
+      const newValue = isNaN(parsedValue) ? -step : parsedValue - step;
+
+      formatNumberAndSetInput(newValue);
     };
 
     const handleKeyDown = (e) => {
@@ -148,7 +154,9 @@ export const NumberInput = React.forwardRef(
      */
     const handleBlur = () => {
       if (inputValue) {
-        formatNumberAndSetInput(numberFormaterRef.current.format(inputValue));
+        const parsedValue = numberParserRef.current.parse(inputValue);
+        const formattedValue = isNaN(parsedValue) ? '' : numberFormaterRef.current.format(parsedValue);
+        formatNumberAndSetInput(formattedValue);
       }
     };
 
