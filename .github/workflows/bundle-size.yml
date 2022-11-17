@@ -1,6 +1,6 @@
 name: Bundle-size
 
-on: 
+on:
   pull_request:
     branches:
       - main
@@ -15,7 +15,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 14
-          cache: yarn
+          cache: ""
 
       - uses: ./.github/actions/install-modules
 
@@ -27,4 +27,4 @@ jobs:
 
       - uses: preactjs/compressed-size-action@v2
         with:
-          pattern: '**/dist/**/*.{cjs,js,svg}'
+          pattern: "**/dist/**/*.{cjs,js,svg}"
