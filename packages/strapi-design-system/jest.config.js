@@ -11,5 +11,4 @@ export default {
     '^.+\\.[tj]sx?$': ['@swc/jest', { jsc: { parser: { jsx: true, dynamicImport: true } } }],
     '^.+\\.mdx?$': '@storybook/addon-docs/jest-transform-mdx',
   },
-  globalSetup: '<rootDir>/global-setup.js',
 };

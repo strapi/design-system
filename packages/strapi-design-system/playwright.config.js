@@ -10,7 +10,7 @@ export default {
     baseURL: 'http://localhost:6006',
     headless: true,
     contextOptions: {
-      locale: 'en-US', // set the locale
+      locale: 'en-US',
     },
     actionTimeout: 0,
   },

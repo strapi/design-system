@@ -71,7 +71,6 @@ The default Select.
             onChange={setValue}
             disabled={disabled}
             startIcon={<Plus />}
-            selectButtonTitle="Carret Down Button"
           >
             <Option
               value={'pizza'}
@@ -119,7 +118,6 @@ The default Select.
             onChange={setValue}
             disabled={disabled}
             startIcon={<Plus />}
-            selectButtonTitle="Carret Down Button"
           >
             <Option
               value={'pizza'}
@@ -166,7 +164,6 @@ In a multi select component, the "0 currently selected" text, can be changed but
             onClear={() => setValues([])}
             hint="Description line"
             clearLabel="Clear the meal"
-            selectButtonTitle="Carret Down Button"
             error={error}
             value={values}
             onChange={setValues}
@@ -215,7 +212,6 @@ A multi Select allow users to visually select multiple options from a list. Pref
             onChange={setValues}
             disabled={disabled}
             customizeContent={(values) => `${values.length} currently selected`}
-            selectButtonTitle="Carret Down Button"
             multi
             withTags
           >
@@ -265,7 +261,6 @@ Select should be scaled down if they aimed to be placed in a smaller portions of
             onChange={setValues}
             disabled={false}
             customizeContent={(values) => `${values.length} currently selected`}
-            selectButtonTitle="Carret Down Button"
           >
             <Option value={'pizza'}>Pizza</Option>
             <Option value={'hamburger'}>Hamburger</Option>
