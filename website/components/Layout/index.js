@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import { Layout as PageLayout, ContentLayout } from '@strapi/design-system/Layout';
 import { Box } from '@strapi/design-system/Box';
 import { Stack } from '@strapi/design-system/Stack';
-import { Main } from '@strapi/design-system/Main';
 
 const Layout = ({ children, meta, navigationContent }) => {
   return (
@@ -14,14 +13,12 @@ const Layout = ({ children, meta, navigationContent }) => {
         <Head {...meta} />
         <Box padding={4}>
           <ContentLayout>
-            <Main>
-              <Stack as="main" size={4}>
-                {children}
-              </Stack>
-            </Main>
+            <Stack as="main" size={4}>
+              {children}
+            </Stack>
             <Stack as="footer" size={7} horizontal paddingTop={10}>
               <StyledLink size={2} href="https://strapi.io" target="_blank">
-                © 2021 Strapi
+                {`© ${new Date().getFullYear()} Strapi`}
               </StyledLink>
               <StyledLink size={2} href="https://strapi.io/careers" target="_blank">
                 Careers

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import Layout from 'components/Layout';
 import { getNavbarContent } from 'lib/mdx';
 import { Typography } from '@strapi/design-system/Typography';
@@ -37,9 +38,9 @@ const Home = ({ navbarContent }) => {
             <Typography variant="omega" textColor="neutral700">
               Get started with principles, learn more about accessibility and get the latest updates.
             </Typography>
-            <StyledLink href="/principles" target="_blank" padding={4} active={true} size={0}>
+            <StyledLink as={Link} href="/principles" padding={4} active={true} size={0}>
               GET STARTED
-              <Icon as={ArrowRight} height={10} width={10} marginLeft={1} color="primary600" />
+              <Icon as={ArrowRight} height={3} width={3} marginLeft={1} color="primary600" />
             </StyledLink>
           </GridItem>
           <GridItem col={4}>
@@ -52,9 +53,9 @@ const Home = ({ navbarContent }) => {
             <Typography variant="omega" textColor="neutral700">
               Discover the foundations of the Design System: typography, colors, grid system and much more.
             </Typography>
-            <StyledLink href="/typography" target="_blank" padding={4} active={true} size={0}>
+            <StyledLink as={Link} href="/typography" padding={4} active={true} size={0}>
               LEARN MORE
-              <Icon as={ArrowRight} height={10} width={10} marginLeft={1} color="primary600" />
+              <Icon as={ArrowRight} height={3} width={3} marginLeft={1} color="primary600" />
             </StyledLink>
           </GridItem>
           <GridItem col={4}>
@@ -67,9 +68,9 @@ const Home = ({ navbarContent }) => {
             <Typography variant="omega" textColor="neutral700">
               Have a look at our Components - universal building bricks that fit almost any use case.
             </Typography>
-            <StyledLink href="/components" target="_blank" padding={4} active={true} size={0}>
+            <StyledLink as={Link} href="/components" padding={4} active={true} size={0}>
               ACCESS THE COMPONENTS
-              <Icon as={ArrowRight} height={10} width={10} marginLeft={1} color="primary600" />
+              <Icon as={ArrowRight} height={3} width={3} marginLeft={1} color="primary600" />
             </StyledLink>
           </GridItem>
         </Grid>
@@ -89,9 +90,9 @@ const Home = ({ navbarContent }) => {
           A new look and feel, with fresh design tokens coupled with accessibility features to make sure the experiences
           you create work for everyone.
         </Typography>
-        <StyledLink href="/whats-new " target="_blank" padding={6} active={true} size={0}>
+        <StyledLink as={Link} href="/whats-new" padding={6} active={true} size={0}>
           SEE ALL NEW UPDATES
-          <Icon as={ArrowRight} height={10} width={10} marginLeft={1} color="primary600" />
+          <Icon as={ArrowRight} height={3} width={3} marginLeft={1} color="primary600" />
         </StyledLink>
       </Box>
     </Layout>
