@@ -2,43 +2,37 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const ProgressBarSmall = styled.div`
-  background: ${({ theme }) => theme.colors.neutral600};
-  border-radius: ${({ theme }) => theme.borderRadius};
-  position: relative;
+import { Box } from '../Box';
 
-  width: 78px;
-  height: ${({ theme }) => theme.spaces[1]};
-
+const ProgressbarBase = styled(Box)`
   &:before {
+    background-color: ${({ theme }) => theme.colors.neutral0};
+    border-radius: ${({ theme }) => theme.borderRadius};
+    bottom: 0;
     content: '';
     position: absolute;
     top: 0;
-    bottom: 0;
-    border-radius: ${({ theme }) => theme.borderRadius};
     width: ${({ value }) => `${value}%`};
-    background: ${({ theme }) => theme.colors.neutral150};
   }
-`;
-
-const ProgressBarMedium = styled(ProgressBarSmall)`
-  width: 102px;
-  height: ${({ theme }) => theme.spaces[2]};
 `;
 
 export const ProgressBar = ({ min, max, value, children, size, ...props }) => {
-  const sharedProps = {
-    role: 'progressbar',
-    'aria-valuenow': value,
-    'aria-valuemin': min,
-    'aria-valuemax': max,
-  };
-
-  if (size === 'M') {
-    return <ProgressBarMedium {...sharedProps} value={value} aria-label={children} {...props} />;
-  }
-
-  return <ProgressBarSmall {...sharedProps} value={value} aria-label={children} {...props} />;
+  return (
+    <ProgressbarBase
+      background="neutral600"
+      hasRadius
+      aria-label={children}
+      aria-valuemax={max}
+      aria-valuemin={min}
+      aria-valuenow={value}
+      height={size === 'S' ? 1 : 2}
+      position="relative"
+      role="progressbar"
+      value={value}
+      width={size === 'S' ? '78px' : '102px'}
+      {...props}
+    />
+  );
 };
 
 ProgressBar.defaultProps = {

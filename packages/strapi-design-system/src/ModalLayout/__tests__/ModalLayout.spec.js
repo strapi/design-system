@@ -43,10 +43,11 @@ describe('ModalLayout', () => {
       }
 
       .c17 {
-        font-weight: 600;
-        color: #32324d;
         font-size: 0.75rem;
         line-height: 1.33;
+        font-weight: 600;
+        line-height: 1.14;
+        color: #32324d;
       }
 
       .c3 {
@@ -130,9 +131,11 @@ describe('ModalLayout', () => {
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
-        padding: 8px 16px;
-        background: #4945ff;
+        background-color: #4945ff;
         border: 1px solid #4945ff;
+        height: 2rem;
+        padding-left: 16px;
+        padding-right: 16px;
         border: 1px solid #dcdce4;
         background: #ffffff;
       }
@@ -200,9 +203,11 @@ describe('ModalLayout', () => {
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
-        padding: 8px 16px;
-        background: #4945ff;
+        background-color: #4945ff;
         border: 1px solid #4945ff;
+        height: 2rem;
+        padding-left: 16px;
+        padding-right: 16px;
         border: 1px solid #d9d8ff;
         background: #f0f0ff;
       }
@@ -280,9 +285,11 @@ describe('ModalLayout', () => {
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
-        padding: 8px 16px;
-        background: #4945ff;
+        background-color: #4945ff;
         border: 1px solid #4945ff;
+        height: 2rem;
+        padding-left: 16px;
+        padding-right: 16px;
       }
 
       .c19 .c2 {
@@ -506,12 +513,18 @@ describe('ModalLayout', () => {
                       Modal Title
                       <button
                         aria-disabled="false"
-                        aria-label="Close the modal"
                         class="c8 c9"
                         type="button"
                       >
+                        <span
+                          class="c0"
+                        >
+                          Close the modal
+                        </span>
                         <svg
+                          aria-hidden="true"
                           fill="none"
+                          focusable="false"
                           height="1em"
                           viewBox="0 0 24 24"
                           width="1em"

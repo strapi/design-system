@@ -7,4 +7,9 @@ export const sizes = {
     S: `${48 / 16}rem`,
     M: `${88 / 16}rem`,
   },
+  button: {
+    S: `${32 / 16}rem`,
+    M: `${36 / 16}rem`,
+    L: `${40 / 16}rem`,
+  },
 };
