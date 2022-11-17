@@ -13,10 +13,8 @@ const Navbar = ({ navigationContent }) => {
   return (
     <SubNav ariaLabel="Main Navbar">
       <Box padding={5}>
-        <Link href="/" passHref>
-          <a href="/">
-            <Image src="/logo.svg" width={161} height={25} alt="Strapi Design System" />
-          </a>
+        <Link href="/">
+          <Image src="/logo.svg" width={161} height={25} alt="Strapi Design System" />
         </Link>
       </Box>
       <Box background="neutral200" marginLeft={6} width="1.5rem" height="1px" />
