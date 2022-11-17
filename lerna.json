@@ -1,5 +1,7 @@
 {
-  "packages": ["packages/*"],
-  "version": "0.0.0-vite-bundler.0",
+  "packages": [
+    "packages/*"
+  ],
+  "version": "1.3.0",
   "npmClient": "yarn"
 }
