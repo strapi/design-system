@@ -123,39 +123,39 @@ describe('Select', () => {
       }
 
       .c2 {
-        font-weight: 600;
-        color: #32324d;
         font-size: 0.75rem;
         line-height: 1.33;
+        font-weight: 600;
+        color: #32324d;
       }
 
       .c10 {
-        color: #32324d;
+        font-size: 0.875rem;
+        line-height: 1.43;
         display: block;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        font-size: 0.875rem;
-        line-height: 1.43;
+        color: #32324d;
       }
 
       .c13 {
-        color: #666687;
         font-size: 0.75rem;
         line-height: 1.33;
+        color: #666687;
       }
 
       .c20 {
-        font-weight: 600;
-        color: #4945ff;
         font-size: 0.875rem;
         line-height: 1.43;
+        font-weight: 600;
+        color: #4945ff;
       }
 
       .c21 {
-        color: #32324d;
         font-size: 0.875rem;
         line-height: 1.43;
+        color: #32324d;
       }
 
       .c16 {
@@ -587,39 +587,39 @@ describe('Select', () => {
       }
 
       .c2 {
-        font-weight: 600;
-        color: #32324d;
         font-size: 0.75rem;
         line-height: 1.33;
+        font-weight: 600;
+        color: #32324d;
       }
 
       .c9 {
-        color: #32324d;
+        font-size: 0.875rem;
+        line-height: 1.43;
         display: block;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        font-size: 0.875rem;
-        line-height: 1.43;
+        color: #32324d;
       }
 
       .c14 {
-        color: #666687;
         font-size: 0.75rem;
         line-height: 1.33;
+        color: #666687;
       }
 
       .c22 {
-        font-weight: 600;
-        color: #4945ff;
         font-size: 0.875rem;
         line-height: 1.43;
+        font-weight: 600;
+        color: #4945ff;
       }
 
       .c24 {
-        color: #32324d;
         font-size: 0.875rem;
         line-height: 1.43;
+        color: #32324d;
       }
 
       .c16 {

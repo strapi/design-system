@@ -5,7 +5,7 @@ import React from 'react';
 
 const CustomLink = React.forwardRef((props, ref) => {
   return (
-    <SubNavLink as="a" {...props} innerRef={ref}>
+    <SubNavLink as={Link} {...props} innerRef={ref}>
       {props.children}
     </SubNavLink>
   );
@@ -22,9 +22,9 @@ const NavSection = ({ title, pages }) => {
     <SubNavSection label={title} collapsable>
       {pages.map((page) => {
         return (
-          <Link href={page.link} key={page.link} passHref>
-            <CustomLink>{page.name}</CustomLink>
-          </Link>
+          <CustomLink href={page.link} key={page.link}>
+            {page.name}
+          </CustomLink>
         );
       })}
     </SubNavSection>

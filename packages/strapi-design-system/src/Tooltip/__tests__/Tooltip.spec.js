@@ -26,10 +26,10 @@ describe('Tooltip', () => {
       }
 
       .c3 {
-        font-weight: 600;
-        color: #ffffff;
         font-size: 0.75rem;
         line-height: 1.33;
+        font-weight: 600;
+        color: #ffffff;
       }
 
       .c0 {
@@ -121,10 +121,10 @@ describe('Tooltip', () => {
       }
 
       .c3 {
-        font-weight: 600;
-        color: #ffffff;
         font-size: 0.75rem;
         line-height: 1.33;
+        font-weight: 600;
+        color: #ffffff;
       }
 
       .c0 {
@@ -223,10 +223,10 @@ describe('Tooltip', () => {
       }
 
       .c3 {
-        font-weight: 600;
-        color: #ffffff;
         font-size: 0.75rem;
         line-height: 1.33;
+        font-weight: 600;
+        color: #ffffff;
       }
 
       .c0 {

@@ -1,5 +1,6 @@
 import { useLayoutEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
+import PropTypes from 'prop-types';
 
 export const Portal = ({ children }) => {
   const rootRef = useRef(null);
@@ -22,4 +23,8 @@ export const Portal = ({ children }) => {
   }
 
   return createPortal(children, rootRef.current);
+};
+
+Portal.propTypes = {
+  children: PropTypes.node.isRequired,
 };

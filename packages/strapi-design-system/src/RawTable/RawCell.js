@@ -18,6 +18,8 @@ export const RawTd = ({ coords, as, ...props }) => {
   const handleKeyDown = (e) => {
     const focusableNodes = getFocusableNodes(tdRef.current, true);
 
+    console.log(focusableNodes.find((node) => node.tagName !== 'BUTTON'));
+
     /**
      * If the cell does not have focusable children or if it has focusable children
      * without keyboard navigation, we should not run the handler.
