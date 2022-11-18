@@ -25,7 +25,7 @@
   "devDependencies": {
     "@figspec/react": "^0.1.5",
     "@juggle/resize-observer": "^3.4.0",
-    "@playwright/test": "1.27.1",
+    "@playwright/test": "1.28.0",
     "@storybook/addon-actions": "^6.5.13",
     "@storybook/addon-essentials": "^6.5.13",
     "@storybook/addon-links": "^6.5.13",
