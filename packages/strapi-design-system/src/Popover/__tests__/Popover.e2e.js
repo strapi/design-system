@@ -25,16 +25,17 @@ test.describe.parallel('Popover', () => {
       test('adds item when reaching the end', async ({ page }) => {
         await page.focus('#popover1');
         await page.keyboard.press('Enter');
-        const lis = await page.$$('#on-reach-end li');
-        expect(lis.length).toBe(10);
+        const lis = page.locator('#on-reach-end li');
+        await expect(lis).toHaveCount(10);
 
         await page.focus('#list');
         await page.keyboard.press('PageDown', { delay: 50 });
         await page.keyboard.press('PageDown', { delay: 50 });
         await page.keyboard.press('PageDown', { delay: 50 });
 
-        const lis2 = await page.$$('#on-reach-end li');
-        expect(lis2.length).toBe(15);
+        const lis2 = page.locator('#on-reach-end li');
+
+        await expect(lis2).toHaveCount(15);
       });
     });
   });
