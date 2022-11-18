@@ -5,20 +5,20 @@ on:
   workflow_dispatch:
 
 jobs:
-  lint:
-    name: "Lint"
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: "14"
-          cache: "yarn"
-      - uses: ./.github/actions/install-modules
-      - name: Link locale packages and install their dependencies
-        run: yarn bootstrap
-      - name: Run lint
-        run: yarn lint
+  # lint:
+  #   name: "Lint"
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: actions/setup-node@v2
+  #       with:
+  #         node-version: "14"
+  #         cache: "yarn"
+  #     - uses: ./.github/actions/install-modules
+  #     - name: Link locale packages and install their dependencies
+  #       run: yarn bootstrap
+  #     - name: Run lint
+  #       run: yarn lint
   unit_tests:
     name: "unit tests"
     needs: [lint]
