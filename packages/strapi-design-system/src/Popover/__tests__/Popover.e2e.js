@@ -29,9 +29,7 @@ test.describe.parallel('Popover', () => {
         await expect(lis).toHaveCount(10);
 
         await page.focus('#list');
-        await page.keyboard.press('PageDown', { delay: 50 });
-        await page.keyboard.press('PageDown', { delay: 50 });
-        await page.keyboard.press('PageDown', { delay: 50 });
+        await page.keyboard.press('PageDown', { delay: 1000 });
 
         const lis2 = page.locator('#on-reach-end li');
 
