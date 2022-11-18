@@ -23,10 +23,12 @@ test.describe.parallel('Popover', () => {
       });
 
       test('adds item when reaching the end', async ({ page }) => {
-        await page.focus('#popover1');
-        await page.keyboard.press('Enter');
+        await page.locator('#popover1').press('Enter');
         const lis = page.locator('#on-reach-end li');
+
         await expect(lis).toHaveCount(10);
+
+        console.log(lis.innerHTML());
 
         await page.focus('#list');
         await page.keyboard.press('PageDown', { delay: 1000 });
