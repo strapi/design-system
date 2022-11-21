@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, useState } from 'react';
+import React, { useCallback, useLayoutEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { Box } from '../Box';
@@ -107,31 +107,32 @@ export const RawTd = ({ coords, as, ...props }) => {
     }
   }, [isActive, isFocused]);
 
+  const handleFocusableNodeFocus = useCallback(() => {
+    const focusableNodes = getFocusableNodes(tdRef.current, true);
+    /**
+     * If there's 1 or more focusable children and at least one has keyboard navigation
+     * or the children are exclusively button elements the cell should be using the "active" system
+     */
+    if (
+      focusableNodes.length >= 1 &&
+      (getFocusableNodesWithKeyboardNav(focusableNodes).length !== 0 ||
+        !Boolean(focusableNodes.find((node) => node.tagName !== 'BUTTON')))
+    ) {
+      setIsActive(true);
+    }
+    /**
+     * This function is wrapped in `useCallback` so we can safely
+     * assume that the reference will not change
+     */
+    setTableValues({ rowIndex: coords.row - 1, colIndex: coords.col - 1 });
+  }, [coords]);
+
   /**
    * This handles the case where you click on a focusable
    * node that has it's own keyboard nav (e.g. Input)
    */
   useLayoutEffect(() => {
     const focusableNodes = getFocusableNodes(tdRef.current, true);
-
-    const handleFocusableNodeFocus = () => {
-      /**
-       * If there's 1 or more focusable children and at least one has keyboard navigation
-       * or the children are exclusively button elements the cell should be using the "active" system
-       */
-      if (
-        focusableNodes.length >= 1 &&
-        (getFocusableNodesWithKeyboardNav(focusableNodes).length !== 0 ||
-          !Boolean(focusableNodes.find((node) => node.tagName !== 'BUTTON')))
-      ) {
-        setIsActive(true);
-      }
-      /**
-       * This function is wrapped in `useCallback` so we can safely
-       * assume that the reference will not change
-       */
-      setTableValues({ rowIndex: coords.row - 1, colIndex: coords.col - 1 });
-    };
 
     focusableNodes.forEach((node) => {
       node.addEventListener('focus', handleFocusableNodeFocus);
@@ -143,7 +144,7 @@ export const RawTd = ({ coords, as, ...props }) => {
         node.removeEventListener('focus', handleFocusableNodeFocus);
       });
     };
-  }, []);
+  }, [handleFocusableNodeFocus]);
 
   return <Box as={as ? as : 'td'} ref={tdRef} onKeyDown={handleKeyDown} {...props} />;
 };
