@@ -111,7 +111,7 @@ export const NumberInput = React.forwardRef(
 
       const newValue = isNaN(parsedValue) ? step : parsedValue + step;
 
-      formatNumberAndSetInput(newValue);
+      formatNumberAndSetInput(numberFormaterRef.current.format(newValue));
     };
 
     const decrement = () => {
@@ -124,7 +124,7 @@ export const NumberInput = React.forwardRef(
 
       const newValue = isNaN(parsedValue) ? -step : parsedValue - step;
 
-      formatNumberAndSetInput(newValue);
+      formatNumberAndSetInput(numberFormaterRef.current.format(newValue));
     };
 
     const handleKeyDown = (e) => {
