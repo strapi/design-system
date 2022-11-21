@@ -34,7 +34,7 @@ export const RawTd = ({ coords, as, ...props }) => {
        * If there are nextNodes (next child node) then we stop the table's keyboard navigation
        * handlers from happening.
        */
-    } else if (focusableNodes.length > 1 && !Boolean(focusableNodes.find((node) => node.tagName !== 'BUTTON'))) {
+    } else if (focusableNodes.length > 1 && !focusableNodes.find((node) => node.tagName !== 'BUTTON')) {
       e.preventDefault();
       const focussedButtonIndex = focusableNodes.findIndex((node) => node === document.activeElement);
       if (e.key === KeyboardKeys.RIGHT) {
@@ -53,12 +53,22 @@ export const RawTd = ({ coords, as, ...props }) => {
       return;
     }
 
-    if (e.key === KeyboardKeys.ENTER && !isActive) {
+    const isEnterKey = e.key === KeyboardKeys.ENTER;
+
+    if (isEnterKey && !isActive) {
       setIsActive(true);
       /**
        * Cells should be "escapeable" with the escape key or enter key
        */
-    } else if ((e.key === KeyboardKeys.ESCAPE || e.key === KeyboardKeys.ENTER) && isActive) {
+    } else if ((e.key === KeyboardKeys.ESCAPE || isEnterKey) && isActive) {
+      /**
+       * It's expected behaviour that the cell can't be escaped with `enter` if
+       * the element that is focussed is an anchor tag.
+       */
+      if (isEnterKey && document.activeElement.tagName === 'A') {
+        return;
+      }
+
       setIsActive(false);
       tdRef.current.focus();
     } else if (isActive) {
