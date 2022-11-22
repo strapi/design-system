@@ -11,7 +11,7 @@ export default glob('./src/**/!(*.spec|*.e2e).{js,svg}').then(async (paths) => {
       exclude: [],
     },
     build: {
-      target: 'es2020',
+      target: 'es2015',
       lib: {
         entry: {},
         formats: ['cjs', 'es'],

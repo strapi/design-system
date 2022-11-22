@@ -9,6 +9,7 @@ export default defineConfig({
     exclude: [],
   },
   build: {
+    target: 'es2015',
     lib: {
       entry: resolve(__dirname, './src/index.js'),
       formats: ['cjs', 'es'],
