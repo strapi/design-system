@@ -15,7 +15,6 @@
   "files": [
     "dist"
   ],
-  "sideEffects": false,
   "dependencies": {
     "@floating-ui/react-dom": "^1.0.0",
     "@internationalized/number": "^3.1.1",
