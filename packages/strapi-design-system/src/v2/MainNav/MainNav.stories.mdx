@@ -39,15 +39,7 @@ The Main Navigation is consistenly available and displayed on all the different 
 ## Imports
 
 ```js
-import {
-  MainNav,
-  NavSection,
-  NavSections,
-  NavCondense,
-  NavBrand,
-  NavUser,
-  NavLink,
-} from '@strapi/design-system/v2/MainNav';
+import { MainNav, NavSection, NavSections, NavCondense, NavBrand, NavUser, NavLink } from '@strapi/design-system/v2';
 ```
 
 ## Usage
@@ -171,7 +163,7 @@ To use the Strapi design system NavLink/NavBrand component with a routing librar
 You'll now be able to pass all the react-router-dom `NavLink` props.
 
 ```jsx
-import { NavLink } from '@strapi/design-system/NavLink';
+import { NavLink } from '@strapi/design-system';
 import { NavLink as RouterNavLink } from 'react-router-dom';
 
 <NavLink as={RouterNavLink} to="/home">
@@ -184,7 +176,7 @@ import { NavLink as RouterNavLink } from 'react-router-dom';
 For NextJS, you'll need to wrap the `NavLink` with the `NextLink` component
 
 ```jsx
-import { NavLink } from '@strapi/design-system/NavLink';
+import { NavLink } from '@strapi/design-system';
 import NextLink from 'next/link';
 
 <NextLink href="/home" passHref>

@@ -6,7 +6,7 @@ ${customMessage}
 The following is an example:
 
 
-import { lightTheme, extendTheme } from '@strapi/design-system/themes';
+import { lightTheme, extendTheme } from '@strapi/design-system';
 
 const myCustomTheme = extendTheme(lightTheme, {
     ${Object.keys(lightTheme)

@@ -23,7 +23,7 @@ Badges are used to give a quick visual indication to the users.
 ## Imports
 
 ```js
-import { Badge } from '@strapi/design-system/Badge';
+import { Badge } from '@strapi/design-system';
 ```
 
 ## Usage
@@ -48,8 +48,12 @@ Badges can be displayed as active:
   <Story name="active">
     <Stack spacing={2}>
       <Stack horizontal spacing={1}>
-        <Badge size="S" active>Small Badge</Badge>
-        <Badge size="M" active>Medium Badge</Badge>
+        <Badge size="S" active>
+          Small Badge
+        </Badge>
+        <Badge size="M" active>
+          Medium Badge
+        </Badge>
       </Stack>
     </Stack>
   </Story>

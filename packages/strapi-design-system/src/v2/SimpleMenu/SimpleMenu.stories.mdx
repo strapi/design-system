@@ -25,7 +25,7 @@ A menu displays a list of potential options or actions via a Popover component. 
 ## Imports
 
 ```js
-import { SimpleMenu, MenuItem } from '@strapi/design-system/v2/SimpleMenu';
+import { SimpleMenu, MenuItem } from '@strapi/design-system/v2';
 ```
 
 ## Usage
@@ -181,7 +181,7 @@ To use the SimpleMenu/MenuItem components with a routing library (e.g. react-rou
 You'll also need to pass the `isLink` props to the `MenuItem` component.
 
 ```jsx
-import { SimpleMenu, MenuItem } from '@strapi/design-system/SimpleMenu';
+import { SimpleMenu, MenuItem } from '@strapi/design-system';
 import { NavLink as RouterNavLink } from 'react-router-dom';
 
 <SimpleMenu label={Label}>
@@ -196,7 +196,7 @@ import { NavLink as RouterNavLink } from 'react-router-dom';
 For NextJS, you'll need to wrap the `NavLink` with the `NextLink` component
 
 ```jsx
-import { SimpleMenu, MenuItem } from '@strapi/design-system/SimpleMenu';
+import { SimpleMenu, MenuItem } from '@strapi/design-system';
 import NextLink from 'next/link';
 
 <SimpleMenu label={Label}>

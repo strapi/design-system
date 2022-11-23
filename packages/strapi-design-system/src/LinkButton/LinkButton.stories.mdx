@@ -30,7 +30,7 @@ Best practices
 ## Imports
 
 ```js
-import { LinkButton } from '@strapi/design-system/LinkButton';
+import { LinkButton } from '@strapi/design-system';
 ```
 
 ## Usage
@@ -127,7 +127,7 @@ To use the LinkButton component with a routing library (e.g. react-router-dom), 
 You'll now be able to pass all `NavLink` props.
 
 ```jsx
-import { LinkButton } from '@strapi/design-system/LinkButton';
+import { LinkButton } from '@strapi/design-system';
 import { NavLink } from 'react-router-dom';
 
 <LinkButton as={NavLink} to="/home">
@@ -140,7 +140,7 @@ import { NavLink } from 'react-router-dom';
 For NextJS, you'll need to wrap the `LinkButton` with the `NextLink` component
 
 ```jsx
-import { LinkButton } from '@strapi/design-system/LinkButton';
+import { LinkButton } from '@strapi/design-system';
 import NextLink from 'next/link';
 
 <NextLink href="/home" passHref>

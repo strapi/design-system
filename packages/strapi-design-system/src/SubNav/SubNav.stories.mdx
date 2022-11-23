@@ -52,7 +52,7 @@ import {
   SubNavSections,
   SubNavLink,
   SubNavLinkSection,
-} from '@strapi/design-system/SubNav';
+} from '@strapi/design-system';
 ```
 
 ## Usage
@@ -192,7 +192,7 @@ To use the Strapi design system SubNavLink component with a routing library (e.g
 You'll now be able to pass all `NavLink` props.
 
 ```jsx
-import { SubNavLink } from '@strapi/design-system/SubNavLink';
+import { SubNavLink } from '@strapi/design-system';
 import { NavLink } from 'react-router-dom';
 
 <SubNavLink as={NavLink} to="/home">
@@ -205,7 +205,7 @@ import { NavLink } from 'react-router-dom';
 For NextJS, you'll need to wrap the `NavLink` with the `NextLink` component
 
 ```jsx
-import { SubNavLink } from '@strapi/design-system/SubNavLink';
+import { SubNavLink } from '@strapi/design-system';
 import NextLink from 'next/link';
 
 <NextLink href="/home" passHref>

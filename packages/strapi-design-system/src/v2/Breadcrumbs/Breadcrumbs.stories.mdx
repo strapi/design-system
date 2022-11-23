@@ -27,8 +27,7 @@ Breadcrumbs are a list of hierarchical links that inform users about their possi
 ## Imports
 
 ```js
-import { Breadcrumbs, Crumb, CrumbLink, CrumbSimpleMenu } from '@strapi/design-system/v2/Breadcrumbs';
-import { MenuItem } from '@strapi/design-system/v2/SimpleMenu';
+import { Breadcrumbs, Crumb, CrumbLink, CrumbSimpleMenu, MenuItem } from '@strapi/design-system/v2';
 ```
 
 ## Usage
@@ -99,7 +98,7 @@ To use the Link component with a routing library (e.g. react-router-dom), you'll
 You'll now be able to pass all `NavLink` props.
 
 ```jsx
-import { Breadcrumbs, CrumbLink } from '@strapi/design-system/Breadcrumbs';
+import { Breadcrumbs, CrumbLink } from '@strapi/design-system';
 import { NavLink } from 'react-router-dom';
 
 <Breadcrumbs label="Folder navigatation" as="nav">
@@ -114,7 +113,7 @@ import { NavLink } from 'react-router-dom';
 For NextJS, you'll need to wrap the `CrumbLink` with the `NextLink` component
 
 ```jsx
-import { Breadcrumbs, CrumbLink } from '@strapi/design-system/Breadcrumbs';
+import { Breadcrumbs, CrumbLink } from '@strapi/design-system';
 import NextLink from 'next/link';
 
 <Breadcrumbs label="Folder navigatation" as="nav">
