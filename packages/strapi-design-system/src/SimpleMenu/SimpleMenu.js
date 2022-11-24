@@ -259,6 +259,7 @@ SimpleMenu.defaultProps = {
   id: undefined,
   onOpen: undefined,
   onClose: undefined,
+  onReachEnd: undefined,
   popoverPlacement: 'bottom-start',
   size: 'M',
 };
