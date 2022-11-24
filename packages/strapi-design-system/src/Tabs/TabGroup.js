@@ -32,7 +32,7 @@ TabGroup.displayName = 'TabGroup';
 TabGroup.defaultProps = {
   id: undefined,
   initialSelectedTabIndex: undefined,
-  onTabChange: () => {},
+  onTabChange() {},
   variant: undefined,
 };
 

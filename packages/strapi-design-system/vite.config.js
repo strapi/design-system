@@ -15,7 +15,7 @@ export default glob('./src/**/!(*.spec|*.e2e).{js,svg}').then(async (paths) => {
       lib: {
         entry: {},
         formats: ['cjs', 'es'],
-        fileName: (format) => {
+        fileName(format) {
           return `[name].${format === 'es' ? 'js' : format}`;
         },
       },

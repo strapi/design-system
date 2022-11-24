@@ -9,7 +9,8 @@ import { Tag } from './Tag';
 
 # Tag
 
-Tags are used to give a quick information about a performed action. Tags can be added or removed from a page or another component. They are also used as a filter.
+Tags are used to give a quick information about a performed action. Tags can be added or removed from a page or another
+component. They are also used as a filter.
 
 **Best practices**
 
@@ -27,14 +28,15 @@ import { Tag } from '@strapi/design-system';
 
 ## Usage
 
-Tags are related to a performed action. They should be very close by the action's trigger. Moreover, a tag can be added or removed from that place. They cannot exist on their own.
+Tags are related to a performed action. They should be very close by the action's trigger. Moreover, a tag can be added
+or removed from that place. They cannot exist on their own.
 
 <Canvas>
   <Story name="base">
-    <Tag icon={<Information aria-hidden={true} />}>Hello world</Tag>
+    <Tag icon={<Information aria-hidden />}>Hello world</Tag>
   </Story>
   <Story name="disabled">
-    <Tag icon={<Information aria-hidden={true} />} disabled>
+    <Tag icon={<Information aria-hidden />} disabled>
       Hello world
     </Tag>
   </Story>
@@ -42,6 +44,8 @@ Tags are related to a performed action. They should be very close by the action'
 
 ## Props
 
-The Tag component wraps all its children in the (Box)[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base] component, so you can pass all Box props to change its style.
+The Tag component wraps all its children in the
+(Box)[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base]
+component, so you can pass all Box props to change its style.
 
 <ArgsTable of={Tag} />

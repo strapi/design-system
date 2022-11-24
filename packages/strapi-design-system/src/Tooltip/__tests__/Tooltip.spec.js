@@ -13,7 +13,7 @@ describe('Tooltip', () => {
     render(
       <ThemeProvider theme={lightTheme}>
         <Tooltip description="Content of the tooltip fefe">
-          <button>Show tooltip</button>
+          <button type="button">Show tooltip</button>
         </Tooltip>
       </ThemeProvider>,
     );
@@ -106,7 +106,7 @@ describe('Tooltip', () => {
     render(
       <ThemeProvider theme={lightTheme}>
         <Tooltip description="Content of the tooltip fefe">
-          <button>Show tooltip</button>
+          <button type="button">Show tooltip</button>
         </Tooltip>
       </ThemeProvider>,
     );
@@ -208,7 +208,7 @@ describe('Tooltip', () => {
     render(
       <ThemeProvider theme={lightTheme}>
         <Tooltip label="Content of the tooltip fefe">
-          <button>+</button>
+          <button type="button">+</button>
         </Tooltip>
       </ThemeProvider>,
     );

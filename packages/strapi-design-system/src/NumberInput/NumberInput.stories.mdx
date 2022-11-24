@@ -41,6 +41,7 @@ NumberInputs are always found in forms. They give users the possibility to add o
   <Story name="base">
     {() => {
       const [content, setContent] = useState(3.14159265359);
+
       return (
         <Box padding={10}>
           <NumberInput
@@ -57,7 +58,7 @@ NumberInputs are always found in forms. They give users the possibility to add o
                   aria-label="Information about the email"
                   style={{ border: 'none', padding: 0, background: 'transparent' }}
                 >
-                  <Information aria-hidden={true} />
+                  <Information aria-hidden />
                 </button>
               </Tooltip>
             }
@@ -71,6 +72,7 @@ NumberInputs are always found in forms. They give users the possibility to add o
         </Box>
       );
     }}
+
   </Story>
 </Canvas>
 
@@ -82,6 +84,7 @@ NumberInputs can be used without a label.
   <Story name="withoutLabel">
     {() => {
       const [content, setContent] = useState(0);
+
       return (
         <Box padding={10}>
           <NumberInput
@@ -98,7 +101,7 @@ NumberInputs can be used without a label.
                   aria-label="Information about the email"
                   style={{ border: 'none', padding: 0, background: 'transparent' }}
                 >
-                  <Information aria-hidden={true} />
+                  <Information aria-hidden />
                 </button>
               </Tooltip>
             }
@@ -112,6 +115,7 @@ NumberInputs can be used without a label.
         </Box>
       );
     }}
+
   </Story>
 </Canvas>
 
@@ -123,6 +127,7 @@ NumberInputs are always found in forms. They give users the possibility to add o
   <Story name="size S">
     {() => {
       const [content, setContent] = useState();
+
       return (
         <Box padding={10}>
           <NumberInput
@@ -140,7 +145,7 @@ NumberInputs are always found in forms. They give users the possibility to add o
                   aria-label="Information about the email"
                   style={{ border: 'none', padding: 0, background: 'transparent' }}
                 >
-                  <Information aria-hidden={true} />
+                  <Information aria-hidden />
                 </button>
               </Tooltip>
             }
@@ -154,6 +159,7 @@ NumberInputs are always found in forms. They give users the possibility to add o
         </Box>
       );
     }}
+
   </Story>
 </Canvas>
 
@@ -165,6 +171,7 @@ NumberInputs required field.
   <Story name="required">
     {() => {
       const [content, setContent] = useState();
+
       return (
         <Box padding={10}>
           <NumberInput
@@ -175,11 +182,12 @@ NumberInputs required field.
             error={undefined}
             onValueChange={(value) => setContent(value)}
             value={content}
-            required={true}
+            required
           />
         </Box>
       );
     }}
+
   </Story>
 </Canvas>
 
@@ -191,6 +199,7 @@ NumberInputs disabled field.
   <Story name="disabled">
     {() => {
       const [content, setContent] = useState();
+
       return (
         <Box padding={10}>
           <NumberInput
@@ -201,11 +210,12 @@ NumberInputs disabled field.
             error={undefined}
             onValueChange={(value) => setContent(value)}
             value={content}
-            disabled={true}
+            disabled
           />
         </Box>
       );
     }}
+
   </Story>
 </Canvas>
 
@@ -217,6 +227,7 @@ NumberInputs are always found in forms. They give users the possibility to add o
   <Story name="with initial 0">
     {() => {
       const [content, setContent] = useState(0);
+
       return (
         <Box padding={10}>
           <NumberInput
@@ -233,7 +244,7 @@ NumberInputs are always found in forms. They give users the possibility to add o
                   aria-label="Information about the email"
                   style={{ border: 'none', padding: 0, background: 'transparent' }}
                 >
-                  <Information aria-hidden={true} />
+                  <Information aria-hidden />
                 </button>
               </Tooltip>
             }
@@ -247,6 +258,7 @@ NumberInputs are always found in forms. They give users the possibility to add o
         </Box>
       );
     }}
+
   </Story>
 </Canvas>
 
@@ -256,6 +268,7 @@ NumberInputs are always found in forms. They give users the possibility to add o
   <Story name="with initial empty">
     {() => {
       const [content, setContent] = useState('');
+
       return (
         <Box padding={10}>
           <NumberInput
@@ -272,7 +285,7 @@ NumberInputs are always found in forms. They give users the possibility to add o
                   aria-label="Information about the email"
                   style={{ border: 'none', padding: 0, background: 'transparent' }}
                 >
-                  <Information aria-hidden={true} />
+                  <Information aria-hidden />
                 </button>
               </Tooltip>
             }
@@ -286,6 +299,7 @@ NumberInputs are always found in forms. They give users the possibility to add o
         </Box>
       );
     }}
+
   </Story>
 </Canvas>
 
@@ -295,6 +309,7 @@ NumberInputs are always found in forms. They give users the possibility to add o
   <Story name="locale">
     {() => {
       const [content, setContent] = useState();
+
       return (
         <Box padding={10}>
           <NumberInput
@@ -311,6 +326,7 @@ NumberInputs are always found in forms. They give users the possibility to add o
         </Box>
       );
     }}
+
   </Story>
 </Canvas>
 

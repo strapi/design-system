@@ -27,13 +27,16 @@ import { DatePicker } from '@strapi/design-system';
 
 ## Usage
 
-- A Date picker is used to select an unique date. It is not possible to select a date range. It is not possible to write a date from the keyboard.
-- When the Date picker is activated, it selects today's date. However, a Date picker can have a null value via the Clear feature.
+- A Date picker is used to select an unique date. It is not possible to select a date range. It is not possible to write
+  a date from the keyboard.
+- When the Date picker is activated, it selects today's date. However, a Date picker can have a null value via the Clear
+  feature.
 
 <Canvas>
   <Story name="base">
     {() => {
       const [date, setDate] = useState();
+
       return (
         <div>
           <DatePicker
@@ -41,7 +44,7 @@ import { DatePicker } from '@strapi/design-system';
             selectedDate={date}
             label="Date picker"
             name="datepicker"
-            clearLabel={'Clear the datepicker'}
+            clearLabel="Clear the datepicker"
             onClear={() => setDate(undefined)}
             selectedDateLabel={(formattedDate) => `Date picker, current is ${formattedDate}`}
           />
@@ -53,6 +56,7 @@ import { DatePicker } from '@strapi/design-system';
         </div>
       );
     }}
+
   </Story>
 </Canvas>
 
@@ -64,6 +68,7 @@ TODO
   <Story name="size S">
     {() => {
       const [date, setDate] = useState();
+
       return (
         <div>
           <DatePicker
@@ -72,7 +77,7 @@ TODO
             label="Date picker"
             name="datepicker"
             size="S"
-            clearLabel={'Clear the datepicker'}
+            clearLabel="Clear the datepicker"
             onClear={() => setDate(undefined)}
             selectedDateLabel={(formattedDate) => `Date picker, current is ${formattedDate}`}
           />
@@ -84,6 +89,7 @@ TODO
         </div>
       );
     }}
+
   </Story>
 </Canvas>
 
@@ -93,6 +99,7 @@ TODO
   <Story name="disabled">
     {() => {
       const [date, setDate] = useState();
+
       return (
         <div>
           <DatePicker
@@ -100,7 +107,7 @@ TODO
             selectedDate={date}
             label="Date picker"
             name="datepicker"
-            clearLabel={'Clear the datepicker'}
+            clearLabel="Clear the datepicker"
             onClear={() => setDate(undefined)}
             selectedDateLabel={(formattedDate) => `Date picker, current is ${formattedDate}`}
             disabled
@@ -113,6 +120,7 @@ TODO
         </div>
       );
     }}
+
   </Story>
 </Canvas>
 
@@ -124,13 +132,14 @@ By passing in `minDate` or `maxDate` it is possible to define the range of years
   <Story name="min/ max date">
     {() => {
       const [date, setDate] = useState();
+
       return (
         <DatePicker
           onChange={setDate}
           selectedDate={date}
           label="Date picker"
           name="datepicker"
-          clearLabel={'Clear the datepicker'}
+          clearLabel="Clear the datepicker"
           onClear={() => setDate(undefined)}
           placeholder="03/01/1970"
           selectedDateLabel={(formattedDate) => `Date picker, current is ${formattedDate}`}
@@ -139,6 +148,7 @@ By passing in `minDate` or `maxDate` it is possible to define the range of years
         />
       );
     }}
+
   </Story>
 </Canvas>
 
@@ -148,13 +158,14 @@ By passing in `minDate` or `maxDate` it is possible to define the range of years
   <Story name="locales">
     {() => {
       const [date, setDate] = useState();
+
       return (
         <DatePicker
           onChange={setDate}
           selectedDate={date}
           label="Date picker"
           name="datepicker"
-          clearLabel={'Clear the datepicker'}
+          clearLabel="Clear the datepicker"
           onClear={() => setDate(undefined)}
           placeholder="03/01/1970"
           locale="de"
@@ -164,6 +175,7 @@ By passing in `minDate` or `maxDate` it is possible to define the range of years
         />
       );
     }}
+
   </Story>
 </Canvas>
 

@@ -2,6 +2,7 @@ import React, { Children, cloneElement, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import CarretDown from '@strapi/icons/CarretDown';
 import Cross from '@strapi/icons/Cross';
+import styled from 'styled-components';
 import { sizes } from '../themes/sizes';
 import { SelectButton } from './SelectButton';
 import { Field, FieldHint, FieldLabel, FieldError } from '../Field';
@@ -18,7 +19,6 @@ import { VisuallyHidden } from '../VisuallyHidden';
 import { DownState } from './constants';
 import { escapeSelector } from '../helpers/escapeSelector';
 import { SelectTags } from './SelectTags';
-import styled from 'styled-components';
 
 const MainRow = styled(Flex)`
   width: 100%;
@@ -53,7 +53,14 @@ export const Select = ({
 
   const labelId = `${generatedId}-label`;
   const contentId = `${generatedId}-content`;
-  const ariaDescribedBy = error ? `${generatedId}-error` : hint ? `${generatedId}-hint` : undefined;
+
+  let ariaDescribedBy;
+
+  if (error) {
+    ariaDescribedBy = `${generatedId}-error`;
+  } else if (hint) {
+    ariaDescribedBy = `${generatedId}-hint`;
+  }
 
   if (withTags && !multi) {
     throw new Error('The "withTags" props can only be used when the "multi" prop is present');
@@ -72,7 +79,9 @@ export const Select = ({
 
   const handleMouseDown = (e) => {
     e.preventDefault();
+
     if (disabled) return;
+
     // Check if the right click has been clicked
     // "which" check is for webkit
     if (e.nativeEvent.which === 3 || e.nativeEvent.button === 2) {
@@ -87,6 +96,7 @@ export const Select = ({
       onChange(value.includes(newValue) ? value.filter((x) => x !== newValue) : [...value, newValue]);
     } else {
       onChange(newValue);
+
       if (closeMenu) setExpanded(undefined);
     }
   };
@@ -94,8 +104,8 @@ export const Select = ({
   const handleSelectGroupItem = (newValue) => {
     onChange(
       value.includes(newValue[0])
-        ? value.filter(function (e) {
-            return this.indexOf(e) < 0;
+        ? value.filter((value, _, arr) => {
+            return arr.indexOf(value) < 0;
           }, newValue)
         : [...value, ...newValue],
     );
@@ -142,9 +152,9 @@ export const Select = ({
         children: Children.toArray(node.props.children).map((node) => cloneOption(node, true)),
         value: node.props.label,
       });
-    } else {
-      return cloneOption(node);
     }
+
+    return cloneOption(node);
   });
 
   return (
@@ -173,7 +183,7 @@ export const Select = ({
           <MainRow justifyContent="space-between">
             <Flex>
               {startIcon && (
-                <Box paddingLeft={3} aria-hidden={true}>
+                <Box paddingLeft={3} aria-hidden>
                   {startIcon}
                 </Box>
               )}
@@ -184,7 +194,7 @@ export const Select = ({
                 {withTags ? (
                   <>
                     {!value || value.length === 0 ? (
-                      <Typography ellipsis id={contentId} textColor={'neutral600'}>
+                      <Typography ellipsis id={contentId} textColor="neutral600">
                         {placeholder}
                       </Typography>
                     ) : null}
@@ -268,7 +278,7 @@ Select.defaultProps = {
   label: undefined,
   labelAction: undefined,
   multi: false,
-  onChange: () => {},
+  onChange() {},
   onClear: undefined,
   onReachEnd: undefined,
   value: undefined,

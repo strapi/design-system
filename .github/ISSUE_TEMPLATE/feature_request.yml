@@ -1,7 +1,7 @@
 name: 🚀 Feature Request
 description: Submit a request for a new feature
-title: "[feat]: "
-labels: ["issue: enhancement"]
+title: '[feat]: '
+labels: ['issue: enhancement']
 body:
   - type: markdown
     attributes:

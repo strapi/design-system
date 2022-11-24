@@ -11,7 +11,8 @@ import { Typography } from '../Typography';
 
 # TimePicker
 
-Time pickers help users selecting a specific timeslot from a suggested timetable. They can be associated to a Date picker component.
+Time pickers help users selecting a specific timeslot from a suggested timetable. They can be associated to a Date
+picker component.
 
 **Best practices**
 
@@ -31,26 +32,29 @@ import { TimePicker } from '@strapi/design-system';
 
 ## Usage
 
-Use the Time picker component whenever a specific time needs to be scheduled or indicated. It is only possible to select one single timeslot.
+Use the Time picker component whenever a specific time needs to be scheduled or indicated. It is only possible to select
+one single timeslot.
 
 <Canvas>
   <Story name="base">
     {() => {
       const [value, setValue] = useState();
+
       return (
         <TimePicker
-          label={'Choose a time'}
+          label="Choose a time"
           disabled={false}
           error={undefined}
-          hint={'Description line'}
-          id={'tp-1'}
+          hint="Description line"
+          id="tp-1"
           onClear={() => setValue(undefined)}
           onChange={setValue}
           value={value}
-          clearLabel={'Clear the selected time picker value'}
+          clearLabel="Clear the selected time picker value"
         />
       );
     }}
+
   </Story>
 </Canvas>
 
@@ -62,21 +66,23 @@ The unit of the Time Picker can be modified by changing the `step` parameter.
   <Story name="30-mns-step">
     {() => {
       const [value, setValue] = useState();
+
       return (
         <TimePicker
           step={30}
-          label={'Choose a time'}
+          label="Choose a time"
           disabled={false}
           error={undefined}
-          hint={'Description line'}
-          id={'tp-1'}
+          hint="Description line"
+          id="tp-1"
           onClear={() => setValue(undefined)}
           onChange={setValue}
           value={value}
-          clearLabel={'Clear the selected time picker value'}
+          clearLabel="Clear the selected time picker value"
         />
       );
     }}
+
   </Story>
 </Canvas>
 
@@ -88,26 +94,28 @@ TODO
   <Story name="initial-data">
     {() => {
       const [value, setValue] = useState('13:32:45');
+
       return (
         <>
           <Typography>Initial value : {value}</Typography>
           <Box paddingTop={2}>
             <TimePicker
               step={1}
-              label={'Choose a time'}
+              label="Choose a time"
               disabled={false}
               error={undefined}
-              hint={'Description line'}
-              id={'tp-1'}
+              hint="Description line"
+              id="tp-1"
               onClear={() => setValue(undefined)}
               onChange={setValue}
               value={value}
-              clearLabel={'Clear the selected time picker value'}
+              clearLabel="Clear the selected time picker value"
             />
           </Box>
         </>
       );
     }}
+
   </Story>
 </Canvas>
 
@@ -119,22 +127,24 @@ TODO
   <Story name="size S">
     {() => {
       const [value, setValue] = useState();
+
       return (
         <TimePicker
           step={30}
-          label={'Choose a time'}
+          label="Choose a time"
           disabled={false}
           error={undefined}
-          hint={'Description line'}
-          id={'tp-1'}
+          hint="Description line"
+          id="tp-1"
           size="S"
           onClear={() => setValue(undefined)}
           onChange={setValue}
           value={value}
-          clearLabel={'Clear the selected time picker value'}
+          clearLabel="Clear the selected time picker value"
         />
       );
     }}
+
   </Story>
 </Canvas>
 
@@ -144,20 +154,22 @@ TODO
   <Story name="disabled">
     {() => {
       const [value, setValue] = useState();
+
       return (
         <TimePicker
-          label={'Choose a time'}
+          label="Choose a time"
           disabled
           error={undefined}
-          hint={'Description line'}
-          id={'tp-1'}
+          hint="Description line"
+          id="tp-1"
           onClear={() => setValue(undefined)}
           onChange={setValue}
           value={value}
-          clearLabel={'Clear the selected time picker value'}
+          clearLabel="Clear the selected time picker value"
         />
       );
     }}
+
   </Story>
 </Canvas>
 

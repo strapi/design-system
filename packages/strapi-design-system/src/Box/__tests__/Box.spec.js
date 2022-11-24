@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { render, screen } from '@testing-library/react';
+import { ThemeProvider } from 'styled-components';
 import { Box } from '../Box';
 import { lightTheme } from '../../themes';
-import { ThemeProvider } from 'styled-components';
 
 describe('Box', () => {
   it.each(['color', 'background'])('retrieves the theme value corresponding to the %s props', (colorProp) => {

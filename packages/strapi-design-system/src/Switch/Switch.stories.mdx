@@ -13,7 +13,8 @@ Switches are used to change between enabled and disabled states. It is a binary 
 
 **Best practices**
 
-- Make sure to add state labels when using a Switch component. For inclusion matters, colors are mandatory but not enough to indicate a change of state.
+- Make sure to add state labels when using a Switch component. For inclusion matters, colors are mandatory but not
+  enough to indicate a change of state.
 - The state labels should only have a single word and be clear.
 - A change of state should also be visible by the circle position.
 - One tap should be enough to change the state.
@@ -29,7 +30,8 @@ import { Switch } from '@strapi/design-system';
 
 ## Usage
 
-Use a switch whenever the users need to turn something on or off in a small area or content section. A switch can be disabled.
+Use a switch whenever the users need to turn something on or off in a small area or content section. A switch can be
+disabled.
 
 ### Activated Switch
 
@@ -39,6 +41,7 @@ Activated state is one of two of them available for a Switch.
   <Story name="activated">
     {() => {
       const [activated, setActivated] = useState(true);
+
       return (
         <Switch
           label="Activate the microphone"
@@ -48,6 +51,7 @@ Activated state is one of two of them available for a Switch.
         />
       );
     }}
+
   </Story>
 </Canvas>
 
@@ -59,6 +63,7 @@ Deactivated state is one of two of them available for a Switch.
   <Story name="not-activated">
     {() => {
       const [activated, setActivated] = useState(false);
+
       return (
         <Switch
           label="Activate the microphone"
@@ -68,6 +73,7 @@ Deactivated state is one of two of them available for a Switch.
         />
       );
     }}
+
   </Story>
 </Canvas>
 

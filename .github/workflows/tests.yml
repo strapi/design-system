@@ -1,33 +1,35 @@
 name: Tests
 on:
   pull_request:
-    branches: "*"
+    branches: '*'
   workflow_dispatch:
 
 jobs:
   lint:
-    name: "Lint"
+    name: 'Lint'
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: "14"
-          cache: "yarn"
+          node-version: '14'
+          cache: 'yarn'
       - uses: ./.github/actions/install-modules
       - name: Link locale packages and install their dependencies
         run: yarn bootstrap
       - name: Run lint
         run: yarn lint
+      - name: Run prettier
+        run: yarn prettier:check
   unit_tests:
-    name: "unit tests"
+    name: 'unit tests'
     needs: [lint]
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: "14"
+          node-version: '14'
           cache: yarn
       - uses: ./.github/actions/install-modules
 
@@ -40,7 +42,7 @@ jobs:
       - name: Unit / Integration tests
         run: yarn test
   e2e_tests:
-    name: "e2e tests (browser: ${{ matrix.browser }})"
+    name: 'e2e tests (browser: ${{ matrix.browser }})'
     needs: [lint]
     runs-on: macos-latest
     strategy:
@@ -50,7 +52,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: "14"
+          node-version: '14'
           cache: yarn
       - uses: ./.github/actions/install-modules
         with:

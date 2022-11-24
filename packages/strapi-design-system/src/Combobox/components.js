@@ -1,6 +1,6 @@
+import styled from 'styled-components';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
-import styled from 'styled-components';
 import { inputFocusStyle } from '../themes/utils';
 
 export const MainRow = styled(Flex)`

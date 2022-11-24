@@ -80,13 +80,13 @@ const PopoverContent = ({
 
   React.useLayoutEffect(() => {
     reference(source.current);
-  }, [source]);
+  }, [source, reference]);
 
   React.useLayoutEffect(() => {
     if (fullWidth) {
       setWidth(source.current.offsetWidth);
     }
-  }, [fullWidth]);
+  }, [fullWidth, source]);
 
   useIntersection(popoverRef, onReachEnd, {
     selectorToWatch: `#${intersectionId}`,
@@ -100,7 +100,7 @@ const PopoverContent = ({
         left: x,
         top: y,
         position: strategy,
-        width: width ? width : undefined,
+        width: width || undefined,
       }}
       hasRadius
       background="neutral0"
@@ -128,6 +128,7 @@ const popoverDefaultProps = {
   onReachEnd: undefined,
   centered: false,
   placement: 'bottom-start',
+  spacing: 0,
 };
 
 const popoverProps = {

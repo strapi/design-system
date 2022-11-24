@@ -71,7 +71,7 @@ export const PreviousLink = React.forwardRef(({ children, ...props }, ref) => {
   return (
     <ActionLinkWrapper ref={ref} aria-disabled={disabled} tabIndex={disabled ? -1 : undefined} {...props}>
       <VisuallyHidden>{children}</VisuallyHidden>
-      <ChevronLeft aria-hidden={true} />
+      <ChevronLeft aria-hidden />
     </ActionLinkWrapper>
   );
 });
@@ -86,7 +86,7 @@ export const NextLink = React.forwardRef(({ children, ...props }, ref) => {
   return (
     <ActionLinkWrapper ref={ref} aria-disabled={disabled} tabIndex={disabled ? -1 : undefined} {...props}>
       <VisuallyHidden>{children}</VisuallyHidden>
-      <ChevronRight aria-hidden={true} />
+      <ChevronRight aria-hidden />
     </ActionLinkWrapper>
   );
 });
@@ -101,7 +101,7 @@ export const PageLink = React.forwardRef(({ number, children, ...props }, ref) =
   return (
     <PageLinkWrapper ref={ref} {...props} active={isActive}>
       <VisuallyHidden>{children}</VisuallyHidden>
-      <PaginationText aria-hidden={true} variant="pi" fontWeight={isActive ? 'bold' : null}>
+      <PaginationText aria-hidden variant="pi" fontWeight={isActive ? 'bold' : null}>
         {number}
       </PaginationText>
     </PageLinkWrapper>
@@ -113,7 +113,7 @@ PageLink.displayName = 'PageLink';
 export const Dots = ({ children, ...props }) => (
   <DotsWrapper {...props} as="div">
     <VisuallyHidden>{children}</VisuallyHidden>
-    <PaginationText aria-hidden={true} variant="pi">
+    <PaginationText aria-hidden variant="pi">
       …
     </PaginationText>
   </DotsWrapper>

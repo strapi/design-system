@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { ArgsTable } from '@storybook/addon-docs';
+import ExclamationMarkCircle from '@strapi/icons/ExclamationMarkCircle';
+import Trash from '@strapi/icons/Trash';
 import { Typography } from '../Typography';
 import { Stack } from '../Stack';
 import { Flex } from '../Flex';
@@ -10,8 +12,6 @@ import { Button } from '../Button';
 import { Dialog } from './Dialog';
 import { DialogBody } from './DialogBody';
 import { DialogFooter } from './DialogFooter';
-import ExclamationMarkCircle from '@strapi/icons/ExclamationMarkCircle';
-import Trash from '@strapi/icons/Trash';
 
 <Meta title="Design System/Components/Dialog" component={Dialog} />
 
@@ -33,6 +33,7 @@ import { Dialog, DialogBody, DialogFooter } from '@strapi/design-system';
   <Story name="base">
     {() => {
       const [isVisible, setIsVisible] = useState(false);
+
       return (
         <>
           <Button onClick={() => setIsVisible(true)}>Click me</Button>
@@ -60,12 +61,15 @@ import { Dialog, DialogBody, DialogFooter } from '@strapi/design-system';
         </>
       );
     }}
+
   </Story>
 </Canvas>
 
 ## Props
 
-The Dialog component wraps all its children in the (Box)[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base] component, so you can pass all Box props to change its style.
+The Dialog component wraps all its children in the
+(Box)[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base]
+component, so you can pass all Box props to change its style.
 
 <ArgsTable of={Dialog} />
 

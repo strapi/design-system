@@ -29,8 +29,8 @@ export const TreeActions = {
 
 // filter an array of options against an input string
 // returns an array of options that contains the filter string, case-independent
-export function filterOptions(options = [], filter, exclude = []) {
-  const equalizedTerm = String(filter ?? '').toLowerCase();
+export function filterOptions(options = [], filter = '', exclude = []) {
+  const equalizedTerm = String(filter).toLowerCase();
 
   return equalizedTerm
     ? options.filter((option) => {
@@ -43,6 +43,7 @@ export function filterOptions(options = [], filter, exclude = []) {
 }
 
 // return combobox action from key press
+// eslint-disable-next-line consistent-return
 export function getActionFromKey(key, menuOpen) {
   // handle opening when closed
   if (!menuOpen && key === KeyboardKeys.DOWN) {
@@ -51,17 +52,23 @@ export function getActionFromKey(key, menuOpen) {
   // handle keys when open
   if (key === KeyboardKeys.DOWN) {
     return MenuActions.Next;
-  } else if (key === KeyboardKeys.UP) {
+  }
+  if (key === KeyboardKeys.UP) {
     return MenuActions.Previous;
-  } else if (key === KeyboardKeys.HOME) {
+  }
+  if (key === KeyboardKeys.HOME) {
     return MenuActions.First;
-  } else if (key === KeyboardKeys.END) {
+  }
+  if (key === KeyboardKeys.END) {
     return MenuActions.Last;
-  } else if (key === KeyboardKeys.ESCAPE) {
+  }
+  if (key === KeyboardKeys.ESCAPE) {
     return MenuActions.Close;
-  } else if (key === KeyboardKeys.ENTER) {
+  }
+  if (key === KeyboardKeys.ENTER) {
     return MenuActions.CloseSelect;
-  } else if (key === KeyboardKeys.BACKSPACE || key === KeyboardKeys.CLEAR || key.length === 1) {
+  }
+  if (key === KeyboardKeys.BACKSPACE || key === KeyboardKeys.CLEAR || key.length === 1) {
     return MenuActions.Type;
   }
 }

@@ -32,12 +32,14 @@ import { Checkbox } from '@strapi/design-system';
   <Story name="base" parameters={{ docs: { source: { code: '<Checkbox>Label</Checkbox>' } } }}>
     {() => {
       const [val, setValue] = useState(false);
+
       return (
         <Checkbox name="default" onValueChange={(value) => setValue(value)} value={val}>
           Label
         </Checkbox>
       );
     }}
+
   </Story>
 </Canvas>
 
@@ -58,6 +60,7 @@ import { Checkbox } from '@strapi/design-system';
       const [checkedItems, setCheckedItems] = useState([true, false]);
       const allChecked = checkedItems.every(Boolean);
       const isIndeterminate = checkedItems.some(Boolean) && !allChecked;
+
       return (
         <ul>
           <li>
@@ -98,6 +101,7 @@ import { Checkbox } from '@strapi/design-system';
         </ul>
       );
     }}
+
   </Story>
 </Canvas>
 
@@ -115,18 +119,21 @@ Unchecked state is used to show that an option has been selected.
 
 ### Disabled
 
-Checkboxes can possibily not be available to selection yet. This state can be related to a lack of permission or a need to pursue another action first.
+Checkboxes can possibily not be available to selection yet. This state can be related to a lack of permission or a need
+to pursue another action first.
 
 <Canvas withSource="open">
   <Story name="disabled" parameters={{ docs: { source: { code: '<Checkbox disabled>Label</Checkbox>' } } }}>
     {() => {
       const [val, setValue] = useState(false);
+
       return (
         <Checkbox disabled name="default" onValueChange={(value) => setValue(value)} value={val}>
           Label
         </Checkbox>
       );
     }}
+
   </Story>
 </Canvas>
 
@@ -141,6 +148,7 @@ Use hint state to give more information about the purpose of a checkbox.
   >
     {() => {
       const [val, setValue] = useState(false);
+
       return (
         <Checkbox
           hint="Description line lorem ipsum"
@@ -152,6 +160,7 @@ Use hint state to give more information about the purpose of a checkbox.
         </Checkbox>
       );
     }}
+
   </Story>
 </Canvas>
 
@@ -166,6 +175,7 @@ Display an error message.
   >
     {() => {
       const [val, setValue] = useState(false);
+
       return (
         <Checkbox
           error="Description line lorem ipsum"
@@ -177,6 +187,7 @@ Display an error message.
         </Checkbox>
       );
     }}
+
   </Story>
 </Canvas>
 

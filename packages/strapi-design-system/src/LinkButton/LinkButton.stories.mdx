@@ -12,10 +12,12 @@ import { Flex } from '../Flex';
 
 # LinkButton
 
-LinkButtons are a way to perform actions that links to a different page component that will stay within one page. They help interact with its content via a single click. According to their style, specific labels and icons, they help understand the most important actions to take.
+LinkButtons are a way to perform actions that links to a different page component that will stay within one page. They
+help interact with its content via a single click. According to their style, specific labels and icons, they help
+understand the most important actions to take.
 
-The difference with the `Button` component will be that the action of the LinkButton redirects to a different page.
-The difference with the `Link` is the style.
+The difference with the `Button` component will be that the action of the LinkButton redirects to a different page. The
+difference with the `Link` is the style.
 
 Best practices
 
@@ -51,7 +53,8 @@ Use the `to` parameter to redirect using the router's routes, `href` parameter f
 
 ### LinkButton sizes
 
-Main actions usually use a L LinkButton (top of a screen, footer of a modal, ...). For subsidiary action, a S LinkButton suits more (filters, configure the view, ...).
+Main actions usually use a L LinkButton (top of a screen, footer of a modal, ...). For subsidiary action, a S LinkButton
+suits more (filters, configure the view, ...).
 
 Use the size prop to change the size of the button. You can set the value to S or L.
 
@@ -72,7 +75,8 @@ Use the size prop to change the size of the button. You can set the value to S o
 
 ### LinkButton variants
 
-Use the variant prop to change the visual style of the LinkButton. You can set the value to default, secondary, tertiary, success, danger, success-light, or danger-light.
+Use the variant prop to change the visual style of the LinkButton. You can set the value to default, secondary,
+tertiary, success, danger, success-light, or danger-light.
 
 <Canvas>
   <Story name="variants">
@@ -90,7 +94,8 @@ Use the variant prop to change the visual style of the LinkButton. You can set t
 
 ### LinkButton with icon
 
-A LinkButton can be associated with an icon to give more impact. You can add start and end icons to the Button component using the startIcon and endIcon props respectively.
+A LinkButton can be associated with an icon to give more impact. You can add start and end icons to the Button component
+using the startIcon and endIcon props respectively.
 
 <Canvas>
   <Story name="icons">
@@ -123,8 +128,9 @@ For all actions that cannot be performed yet, you can use the disabled state.
 
 ### Usage with other routing libraries
 
-To use the LinkButton component with a routing library (e.g. react-router-dom), you'll need to pass the `NavLink` component to the `as` prop in order to replace the default HTML anchor `<a />`.
-You'll now be able to pass all `NavLink` props.
+To use the LinkButton component with a routing library (e.g. react-router-dom), you'll need to pass the `NavLink`
+component to the `as` prop in order to replace the default HTML anchor `<a />`. You'll now be able to pass all `NavLink`
+props.
 
 ```jsx
 import { LinkButton } from '@strapi/design-system';

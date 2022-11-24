@@ -1,7 +1,7 @@
 name: 🤔 Request for Comments / Question
 description: Submit an RFC or question
-title: "[RFC]: "
-labels: ["issue: discussion"]
+title: '[RFC]: '
+labels: ['issue: discussion']
 body:
   - type: markdown
     attributes:

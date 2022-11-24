@@ -83,13 +83,13 @@ export const Carousel = ({
               aria-label={previousLabel}
               type="button"
             >
-              <Icon as={ChevronLeft} aria-hidden={true} width="6px" height="10px" color="neutral600" />
+              <Icon as={ChevronLeft} aria-hidden width="6px" height="10px" color="neutral600" />
             </CarouselAction>
           )}
 
           {hasChildren && (
             <CarouselAction onClick={onNext} area="endAction" ref={nextActionRef} aria-label={nextLabel} type="button">
-              <Icon as={ChevronRight} aria-hidden={true} width="6px" height="10px" color="neutral600" />
+              <Icon as={ChevronRight} aria-hidden width="6px" height="10px" color="neutral600" />
             </CarouselAction>
           )}
 

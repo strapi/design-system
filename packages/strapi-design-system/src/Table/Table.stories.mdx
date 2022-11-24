@@ -24,7 +24,8 @@ import { TFooter } from './TFooter';
 
 # Table
 
-Tables are used to gather and display similar types of data together. They are composed of a header, rows, and columns. Several type of data can be included within tables such as: plain text, Select, Avatars, Icon Buttons, ...
+Tables are used to gather and display similar types of data together. They are composed of a header, rows, and columns.
+Several type of data can be included within tables such as: plain text, Select, Avatars, Icon Buttons, ...
 
 **Best practices**
 
@@ -47,7 +48,8 @@ import { Table, Thead, Tbody, Tr, Td, Th } from '@strapi/design-system';
 
 ## Usage
 
-Tables are used to gather and display similar types of data together. In the Content section, a reorganization of the columns is possible. Moreover, Columns can be sorted.
+Tables are used to gather and display similar types of data together. In the Content section, a reorganization of the
+columns is possible. Moreover, Columns can be sorted.
 
 ### Default Table
 
@@ -68,6 +70,7 @@ The default Table.
       for (let i = 0; i < 5; i++) {
         entries.push({ ...entry, id: i });
       }
+
       return (
         <Box padding={8} background="neutral100">
           <Table
@@ -123,7 +126,7 @@ The default Table.
                   </Td>
                   <Td>
                     <Flex>
-                      <a href="https://www.google.com" target="_blank">
+                      <a href="https://www.google.com" target="_blank" rel="noreferrer">
                         G
                       </a>
                       <IconButton onClick={() => console.log('edit')} label="Edit" noBorder icon={<Pencil />} />
@@ -139,6 +142,7 @@ The default Table.
         </Box>
       );
     }}
+
   </Story>
 </Canvas>
 
@@ -161,6 +165,7 @@ The default Table.
       for (let i = 0; i < 5; i++) {
         entries.push({ ...entry, id: i });
       }
+
       return (
         <Box padding={8} background="neutral100">
           <Table colCount={COL_COUNT} rowCount={ROW_COUNT}>
@@ -225,6 +230,7 @@ The default Table.
         </Box>
       );
     }}
+
   </Story>
 </Canvas>
 
@@ -247,6 +253,7 @@ Table with actions.
       for (let i = 0; i < 5; i++) {
         entries.push({ ...entry, id: i });
       }
+
       return (
         <Box padding={8} background="neutral100">
           <Table
@@ -315,12 +322,15 @@ Table with actions.
         </Box>
       );
     }}
+
   </Story>
 </Canvas>
 
 ## Table Props
 
-The Table component wraps all its children in the (Box)[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base] component, so you can pass all Box props to change its style.
+The Table component wraps all its children in the
+(Box)[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base]
+component, so you can pass all Box props to change its style.
 
 <ArgsTable of={Table} />
 

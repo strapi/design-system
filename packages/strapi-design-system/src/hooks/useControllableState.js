@@ -33,6 +33,7 @@ function useControllableState({ prop, defaultProp, onChange = () => {} }) {
       if (isControlled) {
         const setter = nextValue;
         const value = typeof nextValue === 'function' ? setter(propValue) : nextValue;
+
         if (value !== propValue) {
           handleChange(value);
           setUncontrolledProp(nextValue);

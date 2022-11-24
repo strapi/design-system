@@ -47,6 +47,7 @@ test.describe.parallel('BaseCheckbox', () => {
         await page.keyboard.press(' ');
 
         const secondBox = await page.$('#child2');
+
         if (secondBox) {
           expect(await secondBox.isChecked()).toBe(true);
         }
@@ -59,6 +60,7 @@ test.describe.parallel('BaseCheckbox', () => {
         await page.keyboard.press(' ');
 
         const secondBox = await page.$('#parent');
+
         if (secondBox) {
           expect(await secondBox.isChecked()).toBe(true);
         }

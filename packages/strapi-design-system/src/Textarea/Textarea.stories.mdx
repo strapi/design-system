@@ -38,6 +38,7 @@ import { Textarea } from '@strapi/design-system';
   <Story name="base">
     {() => {
       const [content, setContent] = useState('');
+
       return (
         <Box padding={10}>
           <Textarea
@@ -53,7 +54,7 @@ import { Textarea } from '@strapi/design-system';
                   aria-label="Information about the email"
                   style={{ border: 'none', padding: 0, background: 'transparent' }}
                 >
-                  <Information aria-hidden={true} />
+                  <Information aria-hidden />
                 </button>
               </Tooltip>
             }
@@ -63,6 +64,7 @@ import { Textarea } from '@strapi/design-system';
         </Box>
       );
     }}
+
   </Story>
 </Canvas>
 
@@ -72,6 +74,7 @@ import { Textarea } from '@strapi/design-system';
   <Story name="disabled">
     {() => {
       const [content, setContent] = useState('');
+
       return (
         <Box padding={10}>
           <Textarea
@@ -87,7 +90,7 @@ import { Textarea } from '@strapi/design-system';
                   aria-label="Information about the email"
                   style={{ border: 'none', padding: 0, background: 'transparent' }}
                 >
-                  <Information aria-hidden={true} />
+                  <Information aria-hidden />
                 </button>
               </Tooltip>
             }
@@ -97,6 +100,7 @@ import { Textarea } from '@strapi/design-system';
         </Box>
       );
     }}
+
   </Story>
 </Canvas>
 

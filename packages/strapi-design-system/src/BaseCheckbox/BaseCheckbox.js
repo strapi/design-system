@@ -106,7 +106,7 @@ BaseCheckbox.displayName = 'BaseCheckbox';
 BaseCheckbox.defaultProps = {
   indeterminate: false,
   name: null,
-  onValueChange: () => {},
+  onValueChange() {},
   size: 'M',
   value: false,
 };

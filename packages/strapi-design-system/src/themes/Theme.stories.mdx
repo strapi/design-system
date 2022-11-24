@@ -14,7 +14,7 @@ import { Searchbar, SearchForm } from '../Searchbar';
 import { Icon } from '../Icon';
 import { Tooltip } from '../Tooltip';
 import { darkColorTokenObject } from './darkTheme/dark-colors';
-import { lightColorTokenObject } from './lightTheme/light-colors.js';
+import { lightColorTokenObject } from './lightTheme/light-colors';
 import { ColorButton } from './ColorButton';
 
 <Meta title="Design System/Components/Theme" component={Box} />
@@ -35,28 +35,31 @@ This is the light colors used for the light mode
       let ruptureKey;
       for (const colorKey of Object.keys(color)) {
         const prefix = colorKey.substr(0, 2);
+
         if (ruptureKey !== prefix) {
           colors.push([]);
           ruptureKey = prefix;
         }
         colors[colors.length - 1].push({ colorKey, colorValue: color[colorKey] });
       }
-      return (
-        <Box>
-          <Grid>
-            {colors.map((colorGroup, idx) => (
-              <GridItem key={`color-group-${idx}`} padding={4}>
-                <Stack spacing={2}>
-                  {colorGroup.map(({ colorKey, colorValue }) => (
-                    <ColorButton key={colorKey} colorKey={colorKey} color={colorValue} />
-                  ))}
-                </Stack>
-              </GridItem>
-            ))}
-          </Grid>
-        </Box>
-      );
-    }}
+
+return (
+
+<Box>
+  <Grid>
+    {colors.map((colorGroup, idx) => (
+      <GridItem key={`color-group-${idx}`} padding={4}>
+        <Stack spacing={2}>
+          {colorGroup.map(({ colorKey, colorValue }) => (
+            <ColorButton key={colorKey} colorKey={colorKey} color={colorValue} />
+          ))}
+        </Stack>
+      </GridItem>
+    ))}
+  </Grid>
+</Box>
+); }}
+
   </Story>
 </Canvas>
 
@@ -72,28 +75,31 @@ This is the dark colors used for the dark mode
       let ruptureKey;
       for (const colorKey of Object.keys(color)) {
         const prefix = colorKey.substr(0, 2);
+
         if (ruptureKey !== prefix) {
           colors.push([]);
           ruptureKey = prefix;
         }
         colors[colors.length - 1].push({ colorKey, colorValue: color[colorKey] });
       }
-      return (
-        <Box>
-          <Grid>
-            {colors.map((colorGroup, idx) => (
-              <GridItem key={`color-group-${idx}`} padding={4}>
-                <Stack spacing={2}>
-                  {colorGroup.map(({ colorKey, colorValue }) => (
-                    <ColorButton key={colorKey} colorKey={colorKey} color={colorValue} />
-                  ))}
-                </Stack>
-              </GridItem>
-            ))}
-          </Grid>
-        </Box>
-      );
-    }}
+
+return (
+
+<Box>
+  <Grid>
+    {colors.map((colorGroup, idx) => (
+      <GridItem key={`color-group-${idx}`} padding={4}>
+        <Stack spacing={2}>
+          {colorGroup.map(({ colorKey, colorValue }) => (
+            <ColorButton key={colorKey} colorKey={colorKey} color={colorValue} />
+          ))}
+        </Stack>
+      </GridItem>
+    ))}
+  </Grid>
+</Box>
+); }}
+
   </Story>
 </Canvas>
 
@@ -110,6 +116,7 @@ We have 3 types of shadows: Table, Popup, Filter. We use the drop shadows on dif
     {() => {
       const theme = useTheme();
       const shadows = Object.keys(theme.shadows);
+
       return (
         <Box padding={8} background="neutral100">
           <Grid gap={4}>
@@ -122,18 +129,21 @@ We have 3 types of shadows: Table, Popup, Filter. We use the drop shadows on dif
         </Box>
       );
     }}
+
   </Story>
 </Canvas>
 
 ## Spaces
 
-A spacing system helps the content to follow a logical order and increase readability. It is based on multiples of 4px when it comes to defining measurements, spacing, and positioning elements.
+A spacing system helps the content to follow a logical order and increase readability. It is based on multiples of 4px
+when it comes to defining measurements, spacing, and positioning elements.
 
 <Canvas>
   <Story name="spaces">
     {() => {
       const theme = useTheme();
       const spaces = Object.keys(theme.spaces);
+
       return (
         <Box padding={8} background="neutral100">
           <Stack spacing={1}>
@@ -148,12 +158,14 @@ A spacing system helps the content to follow a logical order and increase readab
         </Box>
       );
     }}
+
   </Story>
 </Canvas>
 
 ## Icons
 
-Icons are used to emphasize actions and specific menus in the admin panel. We can find different type of icons: Navigation, Action, Notification, and illustrations.
+Icons are used to emphasize actions and specific menus in the admin panel. We can find different type of icons:
+Navigation, Action, Notification, and illustrations.
 
 <Canvas>
   <Story
@@ -169,9 +181,11 @@ Icons are used to emphasize actions and specific menus in the admin panel. We ca
           if (!value) {
             return true;
           }
+
           return icon.toLowerCase().includes(value.toLowerCase());
         })
         .sort();
+
       return (
         <Box>
           <Box paddingBottom={8}>
@@ -192,11 +206,12 @@ Icons are used to emphasize actions and specific menus in the admin panel. We ca
             <Grid gap={2}>
               {iconsArray.map((icon) => {
                 const RealIcon = Icons[icon];
+
                 return (
-                  <GridItem padding={2} col={2} key={icon} background={'neutral0'}>
+                  <GridItem padding={2} col={2} key={icon} background="neutral0">
                     <Box>
                       <Icon
-                        aria-hidden={true}
+                        aria-hidden
                         colors={(theme) => ({
                           rect: {
                             fill: theme.colors.danger600,
@@ -223,5 +238,6 @@ Icons are used to emphasize actions and specific menus in the admin panel. We ca
         </Box>
       );
     }}
+
   </Story>
 </Canvas>

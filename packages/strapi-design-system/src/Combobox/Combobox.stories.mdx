@@ -23,6 +23,7 @@ This is the doc of the `Combobox` component
   <Story name="base">
     {() => {
       const [value, setValue] = useState('');
+
       return (
         <Combobox label="Food" value={value} onChange={setValue}>
           <ComboboxOption value="hamburger">Hamburger</ComboboxOption>
@@ -32,6 +33,7 @@ This is the doc of the `Combobox` component
         </Combobox>
       );
     }}
+
   </Story>
 </Canvas>
 
@@ -43,6 +45,7 @@ This is the doc of the `Combobox` component
   <Story name="disabled">
     {() => {
       const [value, setValue] = useState('');
+
       return (
         <Combobox label="Food" disabled value={value} onChange={setValue}>
           <ComboboxOption value="hamburger">Hamburger</ComboboxOption>
@@ -52,6 +55,7 @@ This is the doc of the `Combobox` component
         </Combobox>
       );
     }}
+
   </Story>
 </Canvas>
 
@@ -63,6 +67,7 @@ This is the doc of the `Combobox` component
   <Story name="withoutLabel">
     {() => {
       const [value, setValue] = useState('');
+
       return (
         <Combobox aria-label="Food" value={value} onChange={setValue}>
           <ComboboxOption value="hamburger">Hamburger</ComboboxOption>
@@ -72,6 +77,7 @@ This is the doc of the `Combobox` component
         </Combobox>
       );
     }}
+
   </Story>
 </Canvas>
 
@@ -83,6 +89,7 @@ This is the doc of the `Combobox` component
   <Story name="error">
     {() => {
       const [value, setValue] = useState('');
+
       return (
         <Combobox label="Food" value={value} error="An error occured" onChange={setValue}>
           <ComboboxOption value="hamburger">Hamburger</ComboboxOption>
@@ -92,6 +99,7 @@ This is the doc of the `Combobox` component
         </Combobox>
       );
     }}
+
   </Story>
 </Canvas>
 
@@ -103,6 +111,7 @@ This is the doc of the `Combobox` component
   <Story name="initial-data">
     {() => {
       const [value, setValue] = useState('tartuffo');
+
       return (
         <Combobox label="Food" value={value} onChange={setValue}>
           <ComboboxOption value="hamburger">Hamburger</ComboboxOption>
@@ -112,6 +121,7 @@ This is the doc of the `Combobox` component
         </Combobox>
       );
     }}
+
   </Story>
 </Canvas>
 
@@ -173,6 +183,7 @@ This is the doc of the `Combobox` component
         setOptions((opt) => [...opt, { name: value, value }]);
         setValue(value);
       };
+
       return (
         <CreatableCombobox label="Food" value={value} onChange={setValue} onCreateOption={onCreateOption}>
           {options.map(({ name, value }) => (
@@ -183,6 +194,7 @@ This is the doc of the `Combobox` component
         </CreatableCombobox>
       );
     }}
+
   </Story>
 </Canvas>
 

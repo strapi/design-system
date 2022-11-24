@@ -17,6 +17,7 @@ export const Pagination = ({ children, label, activePage, pageCount }) => {
       <PaginationWrapper aria-label={label}>
         <PaginationList as="ul">
           {Children.map(children, (child, index) => {
+            // eslint-disable-next-line react/no-array-index-key
             return <li key={index}>{child}</li>;
           })}
         </PaginationList>

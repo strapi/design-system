@@ -22,7 +22,8 @@
 
 # Welcome! 👋👋👋
 
-Strapi Design System provides guidelines and tools to help anyone make Strapi's contributions more cohesive and to build plugins more efficiently.
+Strapi Design System provides guidelines and tools to help anyone make Strapi's contributions more cohesive and to build
+plugins more efficiently.
 
 ## Installation
 
@@ -41,7 +42,7 @@ $ npm i react react-dom @strapi/design-system @strapi/icons styled-components re
 Wrap your application with the `ThemeProvider` and pass the default `lightTheme` provided by `@strapi/design-system`.
 
 ```jsx
-import { ThemeProvider, lightTheme } from "@strapi/design-system";
+import { ThemeProvider, lightTheme } from '@strapi/design-system';
 
 function App({ children }) {
   return <ThemeProvider theme={lightTheme}>{children}</ThemeProvider>;

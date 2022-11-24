@@ -25,7 +25,9 @@ import strapiImage from './strapi-img.png';
 
 # MainNav
 
-The Main Navigation is consistenly available and displayed on all the different pages of the admin panel to access the different main sections. Thanks to it the users can easily navigation from a section to another. The Main Navigation can be whether collapsed or extended depending on the user's choice.
+The Main Navigation is consistenly available and displayed on all the different pages of the admin panel to access the
+different main sections. Thanks to it the users can easily navigation from a section to another. The Main Navigation can
+be whether collapsed or extended depending on the user's choice.
 
 **Best practices**
 
@@ -44,17 +46,22 @@ import { MainNav, NavSection, NavSections, NavCondense, NavBrand, NavUser, NavLi
 
 ## Usage
 
-The Main Navigation can be whether collapsed or extended depending on the user's choice with the Arrow icon at the bottom.
+The Main Navigation can be whether collapsed or extended depending on the user's choice with the Arrow icon at the
+bottom.
 
-The user profile can be accessed by clicking on the user name at the bottom of the Main Navigation, as much as the possibility to log out the admin panel.
+The user profile can be accessed by clicking on the user name at the bottom of the Main Navigation, as much as the
+possibility to log out the admin panel.
 
 According to permissions, certain sections of the Main Navigation might not be visible nor accessible by specific users.
 
 ## Hierarchy
 
-Related sections are gathered under specific headers within the Main Navigation. These headers are helpful to understand the global product hierarchy.
+Related sections are gathered under specific headers within the Main Navigation. These headers are helpful to understand
+the global product hierarchy.
 
-Exception made for core plugins (i.e. Content Manager, Content-types Builder, Media Library) but a plugin should not take place in the Main Navigation. The Main Navigation remains are concise as possible to quickly reach the most important actions.
+Exception made for core plugins (i.e. Content Manager, Content-types Builder, Media Library) but a plugin should not
+take place in the Main Navigation. The Main Navigation remains are concise as possible to quickly reach the most
+important actions.
 
 ### MainNav
 
@@ -62,6 +69,7 @@ Exception made for core plugins (i.e. Content Manager, Content-types Builder, Me
   <Story name="base">
     {() => {
       const [condensed, setCondensed] = useState(false);
+
       return (
         <Box background="neutral100" padding={10} style={{ height: '100vh' }}>
           <MainNav condensed={condensed}>
@@ -104,11 +112,13 @@ Exception made for core plugins (i.e. Content Manager, Content-types Builder, Me
         </Box>
       );
     }}
+
   </Story>
   <Story name="notifications">
     {() => {
       const [condensed, setCondensed] = useState(false);
       const numberOfNotifications = 2;
+
       return (
         <Box background="neutral100" padding={10} style={{ height: '100vh' }}>
           <MainNav condensed={condensed}>
@@ -133,7 +143,7 @@ Exception made for core plugins (i.e. Content Manager, Content-types Builder, Me
                 <NavLink to="/builder" icon={<Puzzle />}>
                   Plugins
                 </NavLink>
-                <NavLink to="/content" badgeContent={'new'} icon={<ShoppingCart />} badgeAriaLabel="new content">
+                <NavLink to="/content" badgeContent="new" icon={<ShoppingCart />} badgeAriaLabel="new content">
                   Marketplace
                 </NavLink>
                 <NavLink
@@ -154,12 +164,14 @@ Exception made for core plugins (i.e. Content Manager, Content-types Builder, Me
         </Box>
       );
     }}
+
   </Story>
 </Canvas>
 
 ### Usage with other routing libraries
 
-To use the Strapi design system NavLink/NavBrand component with a routing library (e.g. react-router-dom), you'll need to pass the react-router-dom `NavLink` component to the `as` prop in order to replace the default HTML anchor `<a />`.
+To use the Strapi design system NavLink/NavBrand component with a routing library (e.g. react-router-dom), you'll need
+to pass the react-router-dom `NavLink` component to the `as` prop in order to replace the default HTML anchor `<a />`.
 You'll now be able to pass all the react-router-dom `NavLink` props.
 
 ```jsx

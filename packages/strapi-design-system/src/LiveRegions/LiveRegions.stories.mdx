@@ -27,6 +27,7 @@ import { LiveRegions } from '@strapi/design-system';
   <Story name="log">
     {() => {
       const [visible, setVisible] = useState(true);
+
       return (
         <Stack spacing={3}>
           <Button onClick={() => setVisible((isVisible) => !isVisible)}>
@@ -36,6 +37,7 @@ import { LiveRegions } from '@strapi/design-system';
         </Stack>
       );
     }}
+
   </Story>
 </Canvas>
 
@@ -45,6 +47,7 @@ import { LiveRegions } from '@strapi/design-system';
   <Story name="alert">
     {() => {
       const [visible, setVisible] = useState(true);
+
       return (
         <Stack spacing={3}>
           <Button onClick={() => setVisible((isVisible) => !isVisible)}>
@@ -54,6 +57,7 @@ import { LiveRegions } from '@strapi/design-system';
         </Stack>
       );
     }}
+
   </Story>
 </Canvas>
 
@@ -63,6 +67,7 @@ import { LiveRegions } from '@strapi/design-system';
   <Story name="status">
     {() => {
       const [visible, setVisible] = useState(true);
+
       return (
         <Stack spacing={3}>
           <Button onClick={() => setVisible((isVisible) => !isVisible)}>
@@ -72,5 +77,6 @@ import { LiveRegions } from '@strapi/design-system';
         </Stack>
       );
     }}
+
   </Story>
 </Canvas>

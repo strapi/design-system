@@ -12,7 +12,8 @@ import { ToggleCheckbox } from './ToggleCheckbox';
 
 # ToggleCheckbox
 
-Toggles are used to switch between two different states. They are mostly used to switch between "On" and "Off" states. It is a binary choice.
+Toggles are used to switch between two different states. They are mostly used to switch between "On" and "Off" states.
+It is a binary choice.
 
 **Best practices**
 
@@ -36,6 +37,7 @@ Use a toggle whenever the users need to turn something on or off in a form. A to
   <Story name="base">
     {() => {
       const [checked, setChecked] = useState(false);
+
       return (
         <Grid gap={3} gridCols={12}>
           <GridItem col={3}>
@@ -51,6 +53,7 @@ Use a toggle whenever the users need to turn something on or off in a form. A to
         </Grid>
       );
     }}
+
   </Story>
 </Canvas>
 
@@ -72,12 +75,14 @@ The deactivated state is one of the two available states for a Toggle.
   <Story name="null-value">
     {() => {
       const [checked, setChecked] = useState(null);
+
       return (
         <ToggleCheckbox onLabel="True" offLabel="False" checked={checked} onChange={() => setChecked((prev) => !prev)}>
           The field is required?
         </ToggleCheckbox>
       );
     }}
+
   </Story>
 </Canvas>
 
@@ -85,7 +90,7 @@ The deactivated state is one of the two available states for a Toggle.
 
 <Canvas>
   <Story name="disabled">
-    <ToggleCheckbox disabled onLabel="True" offLabel="False" checked={true} onChange={() => {}}>
+    <ToggleCheckbox disabled onLabel="True" offLabel="False" checked onChange={() => {}}>
       The field is required?
     </ToggleCheckbox>
   </Story>

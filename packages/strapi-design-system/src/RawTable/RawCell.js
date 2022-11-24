@@ -34,22 +34,27 @@ export const RawTd = ({ coords, as, ...props }) => {
        * If there are nextNodes (next child node) then we stop the table's keyboard navigation
        * handlers from happening.
        */
-    } else if (focusableNodes.length > 1 && !focusableNodes.find((node) => node.tagName !== 'BUTTON')) {
+    }
+    if (focusableNodes.length > 1 && !focusableNodes.find((node) => node.tagName !== 'BUTTON')) {
       e.preventDefault();
       const focussedButtonIndex = focusableNodes.findIndex((node) => node === document.activeElement);
+
       if (e.key === KeyboardKeys.RIGHT) {
         const nextNode = focusableNodes[focussedButtonIndex + 1];
+
         if (nextNode) {
           e.stopPropagation();
           nextNode.focus();
         }
       } else if (e.key === KeyboardKeys.LEFT) {
         const nextNode = focusableNodes[focussedButtonIndex - 1];
+
         if (nextNode) {
           e.stopPropagation();
           nextNode.focus();
         }
       }
+
       return;
     }
 
@@ -102,6 +107,7 @@ export const RawTd = ({ coords, as, ...props }) => {
 
       focusableNodes.forEach((node, index) => {
         node.setAttribute('tabIndex', isActive ? 0 : -1);
+
         /**
          * When a cell is active we want to focus the
          * first focusable element simulating a focus trap
@@ -119,6 +125,7 @@ export const RawTd = ({ coords, as, ...props }) => {
 
   const handleFocusableNodeFocus = useCallback(() => {
     const focusableNodes = getFocusableNodes(tdRef.current, true);
+
     /**
      * If there's 1 or more focusable children and at least one has keyboard navigation
      * or the children are exclusively button elements the cell should be using the "active" system
@@ -126,7 +133,7 @@ export const RawTd = ({ coords, as, ...props }) => {
     if (
       focusableNodes.length >= 1 &&
       (getFocusableNodesWithKeyboardNav(focusableNodes).length !== 0 ||
-        !Boolean(focusableNodes.find((node) => node.tagName !== 'BUTTON')))
+        !focusableNodes.find((node) => node.tagName !== 'BUTTON'))
     ) {
       setIsActive(true);
     }
@@ -135,36 +142,38 @@ export const RawTd = ({ coords, as, ...props }) => {
      * assume that the reference will not change
      */
     setTableValues({ rowIndex: coords.row - 1, colIndex: coords.col - 1 });
-  }, [coords]);
+  }, [coords, setTableValues]);
 
   /**
    * This handles the case where you click on a focusable
    * node that has it's own keyboard nav (e.g. Input)
    */
   useLayoutEffect(() => {
-    const focusableNodes = getFocusableNodes(tdRef.current, true);
+    const cell = tdRef.current;
+    const focusableNodes = getFocusableNodes(cell, true);
 
     focusableNodes.forEach((node) => {
       node.addEventListener('focus', handleFocusableNodeFocus);
     });
 
     return () => {
-      const focusableNodes = getFocusableNodes(tdRef.current, true);
+      const focusableNodes = getFocusableNodes(cell, true);
       focusableNodes.forEach((node) => {
         node.removeEventListener('focus', handleFocusableNodeFocus);
       });
     };
   }, [handleFocusableNodeFocus]);
 
-  return <Box as={as ? as : 'td'} ref={tdRef} onKeyDown={handleKeyDown} {...props} />;
+  return <Box role="gridcell" as={as} ref={tdRef} onKeyDown={handleKeyDown} {...props} />;
 };
 
 RawTh.defaultProps = {
+  children: undefined,
   coords: {},
 };
 
 RawTh.propTypes = {
-  ['aria-colindex']: PropTypes.number.isRequired,
+  'aria-colindex': PropTypes.number.isRequired,
   children: PropTypes.node,
   /**
    * Position of the cell in the table
@@ -176,11 +185,13 @@ RawTh.propTypes = {
 };
 
 RawTd.defaultProps = {
+  as: 'td',
+  children: undefined,
   coords: {},
 };
 
 RawTd.propTypes = {
-  ['aria-colindex']: PropTypes.number.isRequired,
+  'aria-colindex': PropTypes.number.isRequired,
   as: PropTypes.oneOf(['td', 'th']),
   children: PropTypes.node,
   /**

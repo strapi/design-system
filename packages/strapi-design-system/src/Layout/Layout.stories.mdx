@@ -79,6 +79,7 @@ import { Layout } from '@strapi/design-system';
       for (let i = 0; i < 5; i++) {
         entries.push({ ...entry, id: i });
       }
+
       return (
         <Box background="neutral100">
           <Layout
@@ -86,7 +87,7 @@ import { Layout } from '@strapi/design-system';
               <SubNav ariaLabel="Builder sub nav">
                 <SubNavHeader
                   searchable
-                  value={''}
+                  value=""
                   onClear={() => {}}
                   onChange={() => {}}
                   label="Builder"
@@ -132,7 +133,7 @@ import { Layout } from '@strapi/design-system';
                       .fill(null)
                       .map((_, index) => (
                         <Box paddingTop={2} key={index}>
-                          <Tag key={index} icon={<Plus aria-hidden={true} />}>
+                          <Tag key={index} icon={<Plus aria-hidden />}>
                             Hello world {index}
                           </Tag>
                         </Box>
@@ -232,6 +233,7 @@ import { Layout } from '@strapi/design-system';
         </Box>
       );
     }}
+
   </Story>
 </Canvas>
 

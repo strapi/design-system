@@ -45,6 +45,7 @@ import { RawTable, RawTh, RawTd, RawTr, RawThead, RawTbody } from '@strapi/desig
             .fill(null)
             .map((e, x) => x),
         );
+
       return (
         <Box shadow="filterShadow" padding={3} hasRadius>
           <RawTable colCount={COL_COUNT} rowCount={ROW_COUNT}>
@@ -94,11 +95,13 @@ import { RawTable, RawTh, RawTd, RawTr, RawThead, RawTbody } from '@strapi/desig
         </Box>
       );
     }}
+
   </Story>
   <Story name="simple">
     {() => {
       const ROW_COUNT = 30;
       const COL_COUNT = 5;
+
       return (
         <Box shadow="filterShadow" padding={3} hasRadius>
           <RawTable colCount={COL_COUNT} rowCount={ROW_COUNT}>
@@ -153,6 +156,7 @@ import { RawTable, RawTh, RawTd, RawTr, RawThead, RawTbody } from '@strapi/desig
         </Box>
       );
     }}
+
   </Story>
   <Story name="aria">
     {() => {
@@ -165,6 +169,7 @@ import { RawTable, RawTh, RawTd, RawTr, RawThead, RawTbody } from '@strapi/desig
             .fill(null)
             .map((e, x) => x),
         );
+
       return (
         <Box shadow="filterShadow" padding={3} hasRadius>
           <RawTable colCount={COL_COUNT} rowCount={ROW_COUNT}>
@@ -234,6 +239,7 @@ import { RawTable, RawTh, RawTd, RawTr, RawThead, RawTbody } from '@strapi/desig
         </Box>
       );
     }}
+
   </Story>
 </Canvas>
 

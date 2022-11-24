@@ -59,7 +59,7 @@ export const NumberInput = React.forwardRef(
     const numberFormaterRef = useRef(new NumberFormatter(locale, { maximumFractionDigits: 20 }));
 
     const [inputValue, setInputValue] = useControllableState({
-      prop: (currentInputValue) => {
+      prop(currentInputValue) {
         const stringifiedValue = String(value);
 
         /**
@@ -70,17 +70,17 @@ export const NumberInput = React.forwardRef(
          *
          * And always give it a string
          */
-        return isNaN(stringifiedValue) || (stringifiedValue !== currentInputValue && currentInputValue !== '')
+        return Number.isNaN(stringifiedValue) || (stringifiedValue !== currentInputValue && currentInputValue !== '')
           ? currentInputValue
           : stringifiedValue;
       },
       defaultProp: INITIAL_VALUE,
-      onChange: (value) => {
+      onChange(value) {
         /**
          * always return a number.
          */
         const parsedValue = numberParserRef.current.parse(value);
-        onValueChange(isNaN(parsedValue) ? undefined : parsedValue);
+        onValueChange(Number.isNaN(parsedValue) ? undefined : parsedValue);
       },
     });
 
@@ -104,12 +104,13 @@ export const NumberInput = React.forwardRef(
     const increment = () => {
       if (!inputValue) {
         formatNumberAndSetInput(step);
+
         return;
       }
 
       const parsedValue = numberParserRef.current.parse(inputValue);
 
-      const newValue = isNaN(parsedValue) ? step : parsedValue + step;
+      const newValue = Number.isNaN(parsedValue) ? step : parsedValue + step;
 
       formatNumberAndSetInput(numberFormaterRef.current.format(newValue));
     };
@@ -117,12 +118,13 @@ export const NumberInput = React.forwardRef(
     const decrement = () => {
       if (!inputValue) {
         formatNumberAndSetInput(-step);
+
         return;
       }
 
       const parsedValue = numberParserRef.current.parse(inputValue);
 
-      const newValue = isNaN(parsedValue) ? -step : parsedValue - step;
+      const newValue = Number.isNaN(parsedValue) ? -step : parsedValue - step;
 
       formatNumberAndSetInput(numberFormaterRef.current.format(newValue));
     };
@@ -155,7 +157,7 @@ export const NumberInput = React.forwardRef(
     const handleBlur = () => {
       if (inputValue) {
         const parsedValue = numberParserRef.current.parse(inputValue);
-        const formattedValue = isNaN(parsedValue) ? '' : numberFormaterRef.current.format(parsedValue);
+        const formattedValue = Number.isNaN(parsedValue) ? '' : numberFormaterRef.current.format(parsedValue);
         formatNumberAndSetInput(formattedValue);
       }
     };
@@ -224,6 +226,7 @@ NumberInput.defaultProps = {
   id: undefined,
   label: undefined,
   labelAction: undefined,
+  locale: undefined,
   required: false,
   size: 'M',
   startAction: undefined,

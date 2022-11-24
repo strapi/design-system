@@ -30,6 +30,7 @@ The popover can be centered relatively to their triggering element.
     {() => {
       const [visible, setVisible] = useState(false);
       const buttonRef = useRef();
+
       return (
         <div style={{ marginLeft: '200px' }}>
           <button ref={buttonRef} onClick={() => setVisible((s) => !s)}>
@@ -51,6 +52,7 @@ The popover can be centered relatively to their triggering element.
         </div>
       );
     }}
+
   </Story>
 </Canvas>
 
@@ -61,6 +63,7 @@ The popover can be centered relatively to their triggering element.
     {() => {
       const [visible, setVisible] = useState(false);
       const buttonRef = useRef();
+
       return (
         <Box padding={10}>
           <button ref={buttonRef} onClick={() => setVisible((s) => !s)}>
@@ -82,6 +85,7 @@ The popover can be centered relatively to their triggering element.
         </Box>
       );
     }}
+
   </Story>
 </Canvas>
 
@@ -95,6 +99,7 @@ You can define an action to be performed when the end of the popover is reached.
       const [visible, setVisible] = useState(false);
       const [items, setItems] = useState(Array(10).fill(null));
       const buttonRef = useRef();
+
       return (
         <Box padding={10}>
           <button id="popover1" ref={buttonRef} onClick={() => setVisible((s) => !s)}>
@@ -120,6 +125,7 @@ You can define an action to be performed when the end of the popover is reached.
         </Box>
       );
     }}
+
   </Story>
 </Canvas>
 
@@ -132,6 +138,7 @@ The popover will overflow over other elements.
     {() => {
       const [visible, setVisible] = useState(false);
       const buttonRef = useRef();
+
       return (
         <div style={{ height: '20vh' }}>
           <div style={{ position: 'absolute', bottom: 40, right: 20 }}>
@@ -157,11 +164,14 @@ The popover will overflow over other elements.
         </div>
       );
     }}
+
   </Story>
 </Canvas>
 
 ## props
 
-The Popover component wraps all its children in the (Box)[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base] component, so you can pass all Box props to change its style.
+The Popover component wraps all its children in the
+(Box)[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base]
+component, so you can pass all Box props to change its style.
 
 <ArgsTable of={Popover} />

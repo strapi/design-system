@@ -33,6 +33,7 @@ import { ModalLayout, ModalBody, ModalHeader, ModalFooter } from '@strapi/design
     {() => {
       const [isVisible, setIsVisible] = useState(false);
       const [date, setDate] = useState();
+
       return (
         <>
           <Button onClick={() => setIsVisible((prev) => !prev)}>Click to open Modal</Button>
@@ -50,7 +51,7 @@ import { ModalLayout, ModalBody, ModalHeader, ModalFooter } from '@strapi/design
                   selectedDate={date}
                   label="Date picker"
                   name="datepicker"
-                  clearLabel={'Clear the datepicker'}
+                  clearLabel="Clear the datepicker"
                   onClear={() => setDate(undefined)}
                   selectedDateLabel={(formattedDate) => `Date picker, current is ${formattedDate}`}
                 />
@@ -80,6 +81,7 @@ import { ModalLayout, ModalBody, ModalHeader, ModalFooter } from '@strapi/design
         </>
       );
     }}
+
   </Story>
 </Canvas>
 
@@ -87,7 +89,9 @@ import { ModalLayout, ModalBody, ModalHeader, ModalFooter } from '@strapi/design
 
 ### ModalLayout props
 
-The ModalLayout component wraps all its children in the (Box)[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base] component, so you can pass all Box props to change its style.
+The ModalLayout component wraps all its children in the
+(Box)[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base]
+component, so you can pass all Box props to change its style.
 
 <ArgsTable of={ModalLayout} />
 

@@ -101,7 +101,7 @@ export const ToggleCheckbox = React.forwardRef(
             paddingRight={3}
             justifyContent="center"
             alignItems="center"
-            aria-hidden={true}
+            aria-hidden
             checked={checked === null ? false : !checked}
             disabled={disabled}
           >
@@ -121,7 +121,7 @@ export const ToggleCheckbox = React.forwardRef(
             paddingRight={3}
             justifyContent="center"
             alignItems="center"
-            aria-hidden={true}
+            aria-hidden
             checked={checked === null ? false : checked}
             disabled={disabled}
           >
@@ -141,7 +141,7 @@ export const ToggleCheckbox = React.forwardRef(
             onChange={(e) => handleChange(e)}
             ref={ref}
             {...props}
-            checked={checked === null || !checked ? false : true}
+            checked={!(checked === null || !checked)}
           />
         </ToggleCheckboxWrapper>
       </Label>

@@ -20,7 +20,9 @@ import { TextButton } from '../../TextButton';
 
 # SubNav
 
-The Sub Navigation is available and displayed on predefined sections of the admin panel to access advanced options (i.e. Content Manager, Content-types Builder and Settings). Thanks to it the users can easily navigation from an entry or a page to another. The Sub Navigation cannot be collapsed.
+The Sub Navigation is available and displayed on predefined sections of the admin panel to access advanced options (i.e.
+Content Manager, Content-types Builder and Settings). Thanks to it the users can easily navigation from an entry or a
+page to another. The Sub Navigation cannot be collapsed.
 
 **Best practices**
 
@@ -32,13 +34,15 @@ The Sub Navigation is available and displayed on predefined sections of the admi
 
 ## Usage
 
-The Sub Navigation cannot be collapsed. A notification system can appear in the Sub Navigation, especially in the Settings section for the Application page.
+The Sub Navigation cannot be collapsed. A notification system can appear in the Sub Navigation, especially in the
+Settings section for the Application page.
 
 A Text Button component can be found at the bottom of a pages gathering in the Sub Navigation.
 
 ## Hierarchy
 
-Related pages are gathered under specific headers within the Sub Navigation. These headers are helpful to understand the section hierarchy. Moreover, each page gets its very own icon to make it distinctive.
+Related pages are gathered under specific headers within the Sub Navigation. These headers are helpful to understand the
+section hierarchy. Moreover, each page gets its very own icon to make it distinctive.
 
 [View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/v2/SubNav)
 
@@ -86,6 +90,7 @@ import {
           to: '/country',
         },
       ];
+
       return (
         <Flex>
           <Box padding={10} style={{ height: '100vh' }} background="neutral200">
@@ -183,13 +188,15 @@ import {
         </Flex>
       );
     }}
+
   </Story>
 </Canvas>
 
 ### Usage with other routing libraries
 
-To use the Strapi design system SubNavLink component with a routing library (e.g. react-router-dom), you'll need to pass the react-router-dom `NavLink` component to the `as` prop in order to replace the default HTML anchor `<a />`.
-You'll now be able to pass all `NavLink` props.
+To use the Strapi design system SubNavLink component with a routing library (e.g. react-router-dom), you'll need to pass
+the react-router-dom `NavLink` component to the `as` prop in order to replace the default HTML anchor `<a />`. You'll
+now be able to pass all `NavLink` props.
 
 ```jsx
 import { SubNavLink } from '@strapi/design-system';

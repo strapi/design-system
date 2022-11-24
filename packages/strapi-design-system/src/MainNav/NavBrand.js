@@ -29,7 +29,7 @@ export const NavBrand = ({ workplace, title, icon, to }) => {
   if (condensed) {
     return (
       <Box paddingLeft={3} paddingRight={3} paddingTop={4} paddingBottom={4}>
-        <BrandIconWrapper condensed={true}>
+        <BrandIconWrapper condensed>
           <NavLink to={to}>
             {icon}
             <VisuallyHidden>

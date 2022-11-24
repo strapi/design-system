@@ -68,7 +68,7 @@ export const DatePicker = ({
             type="button"
             aria-disabled={disabled}
           >
-            <CalendarIcon aria-hidden={true} />
+            <CalendarIcon aria-hidden />
           </DatePickerButton>
         }
         endAction={
@@ -106,6 +106,7 @@ DatePicker.defaultProps = {
   disabled: false,
   id: undefined,
   label: undefined,
+  locale: undefined,
   initialDate: new Date(),
   onClear: undefined,
   placeholder: undefined,
@@ -121,8 +122,6 @@ DatePicker.propTypes = {
   initialDate: PropTypes.instanceOf(Date),
   label: PropTypes.string,
   locale: PropTypes.string,
-  maxDate: PropTypes.instanceOf(Date),
-  minDate: PropTypes.instanceOf(Date),
   onChange: PropTypes.func.isRequired,
   onClear: PropTypes.func,
   placeholder: PropTypes.string,

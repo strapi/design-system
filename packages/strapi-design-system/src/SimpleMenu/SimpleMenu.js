@@ -1,8 +1,11 @@
 import React, { useRef, useState, Children, cloneElement, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import CarretDown from '@strapi/icons/CarretDown';
 import { NavLink } from 'react-router-dom';
+import { useCallbackRef } from '@radix-ui/react-use-callback-ref';
+
+import CarretDown from '@strapi/icons/CarretDown';
+
 import { Typography } from '../Typography';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
@@ -76,7 +79,8 @@ export const MenuItem = ({ children, onClick, to, isFocused, ...props }) => {
 };
 
 MenuItem.defaultProps = {
-  onClick: () => {},
+  as: undefined,
+  onClick() {},
   isFocused: false,
   to: undefined,
 };
@@ -118,25 +122,29 @@ export const SimpleMenu = ({
         setFocusItem(defaultItemIndexToFocus);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [label]);
+
+  const handleOpen = useCallbackRef(onOpen);
+  const handleClose = useCallbackRef(onClose);
 
   useEffect(() => {
     if (didMount?.current) {
-      if (visible && typeof onOpen === 'function') {
-        onOpen();
-      } else if (typeof onClose === 'function') {
-        onClose();
+      if (visible) {
+        handleOpen();
+      } else {
+        handleClose();
       }
     } else {
       didMount.current = true;
     }
-  }, [didMount, visible]);
+  }, [didMount, handleClose, handleOpen, visible]);
 
   /* in case `label` is a custom react component, we know it is going to be
       a child of the menu button.
   */
   useEffect(() => {
-    if (React.isValidElement(label) && focusedItemIndex == -1) {
+    if (React.isValidElement(label) && focusedItemIndex === -1) {
       menuButtonRef.current.focus();
     }
   }, [label, focusedItemIndex]);
@@ -167,6 +175,7 @@ export const SimpleMenu = ({
 
   const handleBlur = (e) => {
     e.preventDefault();
+
     if (!e.currentTarget.contains(e.relatedTarget)) {
       setVisible(false);
     }
@@ -178,9 +187,10 @@ export const SimpleMenu = ({
   };
 
   const childrenClone = childrenArray.map((child, index) => (
+    // eslint-disable-next-line react/no-array-index-key
     <Flex as="li" key={index} justifyContent="center" role="menuitem">
       {cloneElement(child, {
-        onClick: () => {
+        onClick() {
           child.props.onClick();
           setVisible(false);
           menuButtonRef.current.focus();
@@ -191,6 +201,8 @@ export const SimpleMenu = ({
   ));
 
   return (
+    // TODO: review why we need to eslint it and how to solve this issue.
+    // eslint-disable-next-line jsx-a11y/no-static-element-interactions
     <div onKeyDown={handleWrapperKeyDown}>
       <Component
         label={React.isValidElement(label) ? null : label}
@@ -229,6 +241,9 @@ SimpleMenu.defaultProps = {
 SimpleMenu.displayName = 'SimpleMenu';
 
 SimpleMenu.defaultProps = {
+  id: undefined,
+  onOpen: undefined,
+  onClose: undefined,
   popoverPlacement: 'bottom-start',
   size: 'M',
 };
