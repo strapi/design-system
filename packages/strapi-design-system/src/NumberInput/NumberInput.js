@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -70,17 +71,17 @@ export const NumberInput = React.forwardRef(
          *
          * And always give it a string
          */
-        return Number.isNaN(stringifiedValue) || (stringifiedValue !== currentInputValue && currentInputValue !== '')
+        return isNaN(stringifiedValue) || (stringifiedValue !== currentInputValue && currentInputValue !== '')
           ? currentInputValue
           : stringifiedValue;
       },
       defaultProp: INITIAL_VALUE,
       onChange(value) {
         /**
-         * always return a number.
+         * always return a
          */
         const parsedValue = numberParserRef.current.parse(value);
-        onValueChange(Number.isNaN(parsedValue) ? undefined : parsedValue);
+        onValueChange(isNaN(parsedValue) ? undefined : parsedValue);
       },
     });
 
@@ -110,7 +111,7 @@ export const NumberInput = React.forwardRef(
 
       const parsedValue = numberParserRef.current.parse(inputValue);
 
-      const newValue = Number.isNaN(parsedValue) ? step : parsedValue + step;
+      const newValue = isNaN(parsedValue) ? step : parsedValue + step;
 
       formatNumberAndSetInput(numberFormaterRef.current.format(newValue));
     };
@@ -124,7 +125,7 @@ export const NumberInput = React.forwardRef(
 
       const parsedValue = numberParserRef.current.parse(inputValue);
 
-      const newValue = Number.isNaN(parsedValue) ? -step : parsedValue - step;
+      const newValue = isNaN(parsedValue) ? -step : parsedValue - step;
 
       formatNumberAndSetInput(numberFormaterRef.current.format(newValue));
     };
@@ -157,7 +158,7 @@ export const NumberInput = React.forwardRef(
     const handleBlur = () => {
       if (inputValue) {
         const parsedValue = numberParserRef.current.parse(inputValue);
-        const formattedValue = Number.isNaN(parsedValue) ? '' : numberFormaterRef.current.format(parsedValue);
+        const formattedValue = isNaN(parsedValue) ? '' : numberFormaterRef.current.format(parsedValue);
         formatNumberAndSetInput(formattedValue);
       }
     };

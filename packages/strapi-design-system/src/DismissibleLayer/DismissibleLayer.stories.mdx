@@ -30,22 +30,19 @@ import { DismissibleLayer } from '@strapi/design-system';
       const [isVisible, setIsVisible] = useState(false);
       useEffect(() => {
         let timeout = null;
-
         if (!isVisible) {
           timeout = setTimeout(() => setIsVisible(true), 1000);
         }
-
-return () => clearTimeout(timeout); }, [isVisible]);
-
-return isVisible ? (
-
-<DismissibleLayer onEscapeKeyDown={() => setIsVisible(false)} onPointerDownOutside={() => setIsVisible(false)}>
-  <Typography style={{ backgroundColor: '#ccc', padding: '20px', display: 'block' }}>
-    press escape or click outside to dismiss
-  </Typography>
-</DismissibleLayer>
-) : null; }}
-
+        return () => clearTimeout(timeout); 
+      }, [isVisible]);
+      return isVisible ? (
+        <DismissibleLayer onEscapeKeyDown={() => setIsVisible(false)} onPointerDownOutside={() => setIsVisible(false)}>
+          <Typography style={{ backgroundColor: '#ccc', padding: '20px', display: 'block' }}>
+            press escape or click outside to dismiss
+          </Typography>
+        </DismissibleLayer>
+      ) : null; 
+    }}
   </Story>
 </Canvas>
 

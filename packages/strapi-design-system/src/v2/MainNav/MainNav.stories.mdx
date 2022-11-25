@@ -69,7 +69,6 @@ important actions.
   <Story name="base">
     {() => {
       const [condensed, setCondensed] = useState(false);
-
       return (
         <Box background="neutral100" padding={10} style={{ height: '100vh' }}>
           <MainNav condensed={condensed}>
@@ -112,13 +111,11 @@ important actions.
         </Box>
       );
     }}
-
   </Story>
   <Story name="notifications">
     {() => {
       const [condensed, setCondensed] = useState(false);
       const numberOfNotifications = 2;
-
       return (
         <Box background="neutral100" padding={10} style={{ height: '100vh' }}>
           <MainNav condensed={condensed}>
@@ -164,7 +161,6 @@ important actions.
         </Box>
       );
     }}
-
   </Story>
 </Canvas>
 

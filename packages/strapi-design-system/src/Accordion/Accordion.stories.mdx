@@ -55,7 +55,6 @@ import { Accordion, AccordionToggle, AccordionContent, AccordionGroup } from '@s
   <Story name="base">
     {() => {
       const [expanded, setExpanded] = useState(false);
-
       return (
         <div>
           <Box padding={8} background="neutral100">
@@ -119,7 +118,6 @@ import { Accordion, AccordionToggle, AccordionContent, AccordionGroup } from '@s
         </div>
       );
     }}
-
   </Story>
 </Canvas>
 
@@ -132,7 +130,6 @@ import { Accordion, AccordionToggle, AccordionContent, AccordionGroup } from '@s
       const handleToggle = (id) => () => {
         setExpandedID((s) => (s === id ? null : id));
       };
-
       return (
         <div>
           <Box padding={8} background="neutral0">
@@ -220,7 +217,6 @@ import { Accordion, AccordionToggle, AccordionContent, AccordionGroup } from '@s
         </div>
       );
     }}
-
   </Story>
 </Canvas>
 

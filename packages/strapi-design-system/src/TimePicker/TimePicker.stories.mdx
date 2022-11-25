@@ -39,7 +39,6 @@ one single timeslot.
   <Story name="base">
     {() => {
       const [value, setValue] = useState();
-
       return (
         <TimePicker
           label="Choose a time"
@@ -54,7 +53,6 @@ one single timeslot.
         />
       );
     }}
-
   </Story>
 </Canvas>
 
@@ -66,7 +64,6 @@ The unit of the Time Picker can be modified by changing the `step` parameter.
   <Story name="30-mns-step">
     {() => {
       const [value, setValue] = useState();
-
       return (
         <TimePicker
           step={30}
@@ -82,7 +79,6 @@ The unit of the Time Picker can be modified by changing the `step` parameter.
         />
       );
     }}
-
   </Story>
 </Canvas>
 
@@ -94,7 +90,6 @@ TODO
   <Story name="initial-data">
     {() => {
       const [value, setValue] = useState('13:32:45');
-
       return (
         <>
           <Typography>Initial value : {value}</Typography>
@@ -115,7 +110,6 @@ TODO
         </>
       );
     }}
-
   </Story>
 </Canvas>
 
@@ -127,7 +121,6 @@ TODO
   <Story name="size S">
     {() => {
       const [value, setValue] = useState();
-
       return (
         <TimePicker
           step={30}
@@ -144,7 +137,6 @@ TODO
         />
       );
     }}
-
   </Story>
 </Canvas>
 
@@ -154,7 +146,6 @@ TODO
   <Story name="disabled">
     {() => {
       const [value, setValue] = useState();
-
       return (
         <TimePicker
           label="Choose a time"
@@ -169,7 +160,6 @@ TODO
         />
       );
     }}
-
   </Story>
 </Canvas>
 

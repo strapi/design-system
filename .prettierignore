@@ -5,3 +5,5 @@ packages/strapi-icons/src
 # for now
 website
 templates
+
+**/*.mdx

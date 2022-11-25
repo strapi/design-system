@@ -62,7 +62,6 @@ return (
   >
     {() => {
       const [val, setValue] = useState('January');
-
       return (
         <SimpleMenu id="label" label={val}>
           <MenuItem id="menuItem-January" onClick={() => setValue('January')}>
@@ -74,7 +73,6 @@ return (
         </SimpleMenu>
       );
     }}
-
   </Story>
 </Canvas>
 
@@ -171,7 +169,6 @@ return (
           <span>2</span> special items
         </>
       );
-
       return (
         <SimpleMenu label={Label}>
           <MenuItem>Home</MenuItem>
@@ -179,7 +176,6 @@ return (
         </SimpleMenu>
       );
     }}
-
   </Story>
 </Canvas>
 

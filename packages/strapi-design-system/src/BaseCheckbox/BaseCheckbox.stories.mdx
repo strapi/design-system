@@ -22,7 +22,6 @@ The `BaseCheckbox` component is the basis of the `Checkbox` component.
   <Story name="base">
     {() => {
       const [val, setValue] = useState(false);
-
       return (
         <BaseCheckbox
           aria-label="Simple checkbox"
@@ -32,7 +31,6 @@ The `BaseCheckbox` component is the basis of the `Checkbox` component.
         />
       );
     }}
-
   </Story>
 </Canvas>
 
@@ -46,7 +44,6 @@ The `BaseCheckbox` can have an indeterminate state.
       const [checkedItems, setCheckedItems] = useState([true, false]);
       const allChecked = checkedItems.every(Boolean);
       const isIndeterminate = checkedItems.some(Boolean) && !allChecked;
-
       return (
         <ul>
           <li>
@@ -84,7 +81,6 @@ The `BaseCheckbox` can have an indeterminate state.
         </ul>
       );
     }}
-
   </Story>
 </Canvas>
 

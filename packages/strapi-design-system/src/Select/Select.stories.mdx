@@ -57,7 +57,6 @@ The default Select.
       const [value, setValue] = useState();
       const [error, toggleError] = useState();
       const [disabled, toggleDisabled] = useState();
-
       return (
         <Stack spacing={11}>
           <Typography variant="beta">Current value is {value}</Typography>
@@ -94,7 +93,6 @@ The default Select.
         </Stack>
       );
     }}
-
   </Story>
 </Canvas>
 
@@ -108,7 +106,6 @@ The default Select.
       const [value, setValue] = useState();
       const [error, toggleError] = useState();
       const [disabled, toggleDisabled] = useState();
-
       return (
         <Stack spacing={11}>
           <Typography variant="beta">Current value is {value}</Typography>
@@ -143,7 +140,6 @@ The default Select.
         </Stack>
       );
     }}
-
   </Story>
 </Canvas>
 
@@ -159,7 +155,6 @@ In a multi select component, the "0 currently selected" text, can be changed but
       const [values, setValues] = useState([]);
       const [error, toggleError] = useState();
       const [disabled, toggleDisabled] = useState();
-
       return (
         <Stack spacing={11}>
           <Typography as="h2" variant="beta">
@@ -192,7 +187,6 @@ In a multi select component, the "0 currently selected" text, can be changed but
         </Stack>
       );
     }}
-
   </Story>
 </Canvas>
 
@@ -207,7 +201,6 @@ the selected values need to be visible in the input.
       const [values, setValues] = useState([]);
       const [error, toggleError] = useState();
       const [disabled, toggleDisabled] = useState();
-
       return (
         <Stack spacing={11}>
           <Typography variant="beta">Current value is {values.join(', ')}</Typography>
@@ -246,7 +239,6 @@ the selected values need to be visible in the input.
         </Stack>
       );
     }}
-
   </Story>
 </Canvas>
 
@@ -258,7 +250,6 @@ Select should be scaled down if they aimed to be placed in a smaller portions of
   <Story name="size-S">
     {() => {
       const [values, setValues] = useState([]);
-
       return (
         <Stack spacing={11}>
           <Select
@@ -282,7 +273,6 @@ Select should be scaled down if they aimed to be placed in a smaller portions of
         </Stack>
       );
     }}
-
   </Story>
 </Canvas>
 
@@ -334,7 +324,6 @@ In a multi select component, the "0 currently selected" text, can be changed but
         },
       ];
       const [values, setValues] = useState([]);
-
       return (
         <Stack spacing={11}>
           <Typography variant="beta">Current value is {values.join(', ')}</Typography>
@@ -361,7 +350,6 @@ In a multi select component, the "0 currently selected" text, can be changed but
         </Stack>
       );
     }}
-
   </Story>
 </Canvas>
 

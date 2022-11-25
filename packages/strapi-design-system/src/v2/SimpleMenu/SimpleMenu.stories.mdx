@@ -44,25 +44,24 @@ By passing `aria-disabled` hover styles on `MenuItem`s can be disabled.
       docs: {
         source: {
           code: `
-const [val, setValue] = useState('January');\n
-return (
-  <SimpleMenu id="label" label={val}>
-    <MenuItem id="menuItem-January" onClick={() => setValue('January')}>
-      January
-    </MenuItem>
-    <MenuItem id="menuItem-February" onClick={() => setValue('February')}>
-      February
-    </MenuItem>
-  </SimpleMenu>
-);
-  `,
+            const [val, setValue] = useState('January');\n
+            return (
+              <SimpleMenu id="label" label={val}>
+                <MenuItem id="menuItem-January" onClick={() => setValue('January')}>
+                  January
+                </MenuItem>
+                <MenuItem id="menuItem-February" onClick={() => setValue('February')}>
+                  February
+                </MenuItem>
+              </SimpleMenu>
+            );
+          `,
         },
       },
     }}
   >
     {() => {
       const [val, setValue] = useState('January');
-
       return (
         <SimpleMenu id="label" label={val}>
           <MenuItem id="menuItem-January" onClick={() => setValue('January')}>
@@ -74,7 +73,6 @@ return (
         </SimpleMenu>
       );
     }}
-
   </Story>
 </Canvas>
 
@@ -87,15 +85,15 @@ return (
       docs: {
         source: {
           code: `
-<SimpleMenu label="Menu">
-  <MenuItem to="/">
-    Home
-  </MenuItem>
-  <MenuItem to="/somewhere">
-    Somewhere internal
-  </MenuItem>
-</SimpleMenu>
-  `,
+          <SimpleMenu label="Menu">
+            <MenuItem to="/">
+              Home
+            </MenuItem>
+            <MenuItem to="/somewhere">
+              Somewhere internal
+            </MenuItem>
+          </SimpleMenu>
+          `,
         },
       },
     }}
@@ -171,7 +169,6 @@ return (
           <span>2</span> special items
         </>
       );
-
       return (
         <SimpleMenu label={Label}>
           <MenuItem>Home</MenuItem>
@@ -179,7 +176,6 @@ return (
         </SimpleMenu>
       );
     }}
-
   </Story>
 </Canvas>
 

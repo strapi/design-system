@@ -33,7 +33,6 @@ import { ModalLayout, ModalBody, ModalHeader, ModalFooter } from '@strapi/design
     {() => {
       const [isVisible, setIsVisible] = useState(false);
       const [date, setDate] = useState();
-
       return (
         <>
           <Button onClick={() => setIsVisible((prev) => !prev)}>Click to open Modal</Button>
@@ -81,7 +80,6 @@ import { ModalLayout, ModalBody, ModalHeader, ModalFooter } from '@strapi/design
         </>
       );
     }}
-
   </Story>
 </Canvas>
 
