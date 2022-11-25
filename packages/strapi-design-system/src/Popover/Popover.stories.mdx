@@ -30,7 +30,6 @@ The popover can be centered relatively to their triggering element.
     {() => {
       const [visible, setVisible] = useState(false);
       const buttonRef = useRef();
-
       return (
         <div style={{ marginLeft: '200px' }}>
           <button ref={buttonRef} onClick={() => setVisible((s) => !s)}>
