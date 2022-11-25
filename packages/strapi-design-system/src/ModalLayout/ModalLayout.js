@@ -41,7 +41,7 @@ export const ModalLayout = ({ onClose, labelledBy, ...props }) => {
                 hasRadius
                 shadow="popupShadow"
                 role="dialog"
-                aria-modal={true}
+                aria-modal
                 {...props}
               />
             </DismissibleLayer>

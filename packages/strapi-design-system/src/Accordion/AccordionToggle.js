@@ -89,7 +89,7 @@ export const AccordionToggle = ({ title, description, as, togglePosition, action
       height={iconSize}
       width={iconSize}
       transform={expanded ? `rotate(180deg)` : undefined}
-      data-strapi-dropdown={true}
+      data-strapi-dropdown
       disabled={disabled}
       aria-hidden
       as="span"
@@ -128,7 +128,7 @@ export const AccordionToggle = ({ title, description, as, togglePosition, action
           aria-expanded={expanded}
           aria-controls={ariaControls}
           aria-labelledby={ariaLabelId}
-          data-strapi-accordion-toggle={true}
+          data-strapi-accordion-toggle
           expanded={expanded}
           type="button"
           flex={1}

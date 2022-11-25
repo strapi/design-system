@@ -70,7 +70,7 @@ export const SubNavLink = ({ children, icon, withBullet, isSubSectionChild, ...p
       </Flex>
       {withBullet && (
         <Box as={Flex} paddingRight={4}>
-          <CustomBullet $active={true} />
+          <CustomBullet $active />
         </Box>
       )}
     </SubNavLinkWrapper>
@@ -84,9 +84,8 @@ SubNavLink.defaultProps = {
   withBullet: false,
 };
 SubNavLink.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
   icon: PropTypes.element,
   isSubSectionChild: PropTypes.bool,
-  link: PropTypes.element,
   withBullet: PropTypes.bool,
 };

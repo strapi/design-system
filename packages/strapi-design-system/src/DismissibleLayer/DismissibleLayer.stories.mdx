@@ -11,14 +11,15 @@ import { DismissibleLayer } from './DismissibleLayer';
 
 # DismissibleLayer
 
-`DismissibleLayer` is a internal utility component wrapping the logic for a layer that can dismissed. It's typically used within a `Modal` or a `Popover` & in conjunction with `FocusTrap`.
+`DismissibleLayer` is a internal utility component wrapping the logic for a layer that can dismissed. It's typically
+used within a `Modal` or a `Popover` & in conjunction with `FocusTrap`.
 
 [View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/DismissibleLayer)
 
 ## Imports
 
 ```js
-import { DismissibleLayer } from '@strapi/design-system/DismissibleLayer';
+import { DismissibleLayer } from '@strapi/design-system';
 ```
 
 ## Usage
@@ -32,7 +33,7 @@ import { DismissibleLayer } from '@strapi/design-system/DismissibleLayer';
         if (!isVisible) {
           timeout = setTimeout(() => setIsVisible(true), 1000);
         }
-        return () => clearTimeout(timeout);
+        return () => clearTimeout(timeout); 
       }, [isVisible]);
       return isVisible ? (
         <DismissibleLayer onEscapeKeyDown={() => setIsVisible(false)} onPointerDownOutside={() => setIsVisible(false)}>
@@ -40,7 +41,7 @@ import { DismissibleLayer } from '@strapi/design-system/DismissibleLayer';
             press escape or click outside to dismiss
           </Typography>
         </DismissibleLayer>
-      ) : null;
+      ) : null; 
     }}
   </Story>
 </Canvas>

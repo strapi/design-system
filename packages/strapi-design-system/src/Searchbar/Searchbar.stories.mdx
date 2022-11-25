@@ -25,7 +25,7 @@ SearchBars are used to search and navigate through specific content.
 ## Imports
 
 ```js
-import { Searchbar, SearchForm } from '@strapi/design-system/Searchbar';
+import { Searchbar, SearchForm } from '@strapi/design-system';
 ```
 
 ## Usage
@@ -101,7 +101,7 @@ Depending on the status of an action or the permissions, a SearchBar can be disa
           onChange={(e) => setValue(e.target.value)}
           clearLabel="Clearing the plugin search"
           placeholder="e.g: strapi-plugin-abcd"
-          disabled={true}
+          disabled
         >
           Searching for a plugin
         </Searchbar>

@@ -50,7 +50,7 @@ import {
   CardBadge,
   CardTitle,
   CardSubtitle,
-} from '@strapi/design-system/Card';
+} from '@strapi/design-system';
 ```
 
 ## Usage
@@ -61,7 +61,7 @@ Cards are used to gather a set of related information.
   <Story name="base">
     <Card style={{ width: '240px' }} id="first">
       <CardHeader>
-        <CardCheckbox value={true} />
+        <CardCheckbox value />
         <CardAction position="end">
           <IconButton label="Edit the thing" icon={<Pencil />} />
         </CardAction>
@@ -87,7 +87,7 @@ Cards can be used without actions by removing the `CardAction` block.
   <Story name="without asset action">
     <Card style={{ width: '240px' }} id="second">
       <CardHeader>
-        <CardCheckbox value={true} />
+        <CardCheckbox value />
         <CardAsset src={firstImgPath} />
         <CardTimer>05:39</CardTimer>
       </CardHeader>
@@ -110,7 +110,7 @@ The image asset can be replaced by an icon.
   <Story name="with asset icon">
     <Card style={{ width: '240px' }} id="second">
       <CardHeader>
-        <CardCheckbox value={true} />
+        <CardCheckbox value />
         <CardAsset>
           <Pencil aria-label="Just a picture" />
         </CardAsset>
@@ -135,7 +135,7 @@ The `CardTimer` can be removed as well as the `CardAction` block.
   <Story name="without asset action nor timer">
     <Card style={{ width: '240px' }} id="third">
       <CardHeader>
-        <CardCheckbox value={true} />
+        <CardCheckbox value />
         <CardAsset src={firstImgPath} />
       </CardHeader>
       <CardBody>
@@ -197,6 +197,8 @@ You wrap the Card in a `KeyboardNavigable` block to ensure it can be scanned usi
 
 ## Props
 
-The Card, CardBody, CardHeader, and CardContent components wraps all their children in the (Box)[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base] component, so you can pass all Box props to change their style.
+The Card, CardBody, CardHeader, and CardContent components wraps all their children in the
+(Box)[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base]
+component, so you can pass all Box props to change their style.
 
 <ArgsTable of={Card} />

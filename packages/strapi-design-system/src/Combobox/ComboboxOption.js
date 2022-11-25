@@ -12,7 +12,7 @@ export const ComboboxOption = forwardRef(({ isSelected, children, ...props }, re
       paddingTop={2}
       paddingBottom={2}
       role="option"
-      background={'neutral0'}
+      background="neutral0"
       isSelected={isSelected}
       ref={ref}
       {...props}

@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -59,7 +60,7 @@ export const NumberInput = React.forwardRef(
     const numberFormaterRef = useRef(new NumberFormatter(locale, { maximumFractionDigits: 20 }));
 
     const [inputValue, setInputValue] = useControllableState({
-      prop: (currentInputValue) => {
+      prop(currentInputValue) {
         const stringifiedValue = String(value);
 
         /**
@@ -75,9 +76,9 @@ export const NumberInput = React.forwardRef(
           : stringifiedValue;
       },
       defaultProp: INITIAL_VALUE,
-      onChange: (value) => {
+      onChange(value) {
         /**
-         * always return a number.
+         * always return a
          */
         const parsedValue = numberParserRef.current.parse(value);
         onValueChange(isNaN(parsedValue) ? undefined : parsedValue);
@@ -104,6 +105,7 @@ export const NumberInput = React.forwardRef(
     const increment = () => {
       if (!inputValue) {
         formatNumberAndSetInput(step);
+
         return;
       }
 
@@ -117,6 +119,7 @@ export const NumberInput = React.forwardRef(
     const decrement = () => {
       if (!inputValue) {
         formatNumberAndSetInput(-step);
+
         return;
       }
 
@@ -224,6 +227,7 @@ NumberInput.defaultProps = {
   id: undefined,
   label: undefined,
   labelAction: undefined,
+  locale: undefined,
   required: false,
   size: 'M',
   startAction: undefined,

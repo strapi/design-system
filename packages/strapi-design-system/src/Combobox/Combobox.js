@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef, useLayoutEffect, Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
-import { useId } from '../helpers/useId';
 import CarretDown from '@strapi/icons/CarretDown';
 import Cross from '@strapi/icons/Cross';
+import { useId } from '../helpers/useId';
 import { getActionFromKey, getUpdatedIndex, maintainScrollVisibility, MenuActions, filterOptions } from './utils';
 
 import { Flex } from '../Flex';
@@ -76,12 +76,11 @@ export const Combobox = ({
     if (open && activeOptionRef.current) {
       maintainScrollVisibility(activeOptionRef.current);
     }
-  }, [activeIndex]);
+  }, [activeIndex, open]);
 
   useLayoutEffect(() => {
     if (firstUpdate.current) {
       firstUpdate.current = false;
-      return;
     }
   }, [value]);
 
@@ -123,48 +122,67 @@ export const Combobox = ({
     switch (action) {
       case MenuActions.Next: {
         if (activeIndex === max) {
-          return onOptionChange(0);
+          onOptionChange(0);
+
+          break;
         }
 
-        return onOptionChange(getUpdatedIndex(activeIndex, max, action));
+        onOptionChange(getUpdatedIndex(activeIndex, max, action));
+
+        break;
       }
       case MenuActions.Previous: {
         if (activeIndex === 0) {
-          return onOptionChange(max);
+          onOptionChange(max);
+
+          break;
         }
 
-        return onOptionChange(getUpdatedIndex(activeIndex, max, action));
+        onOptionChange(getUpdatedIndex(activeIndex, max, action));
+
+        break;
       }
       case MenuActions.Last:
       case MenuActions.First: {
         if (activeIndex === max) {
-          return onOptionChange(0);
+          onOptionChange(0);
+
+          break;
         }
 
-        return onOptionChange(getUpdatedIndex(activeIndex, max, action));
+        onOptionChange(getUpdatedIndex(activeIndex, max, action));
+
+        break;
       }
       case MenuActions.CloseSelect:
         event.preventDefault();
         onOptionSelect(activeIndex);
-        return;
+
+        break;
       case MenuActions.Close:
         event.preventDefault();
-        return updateMenuState(false);
+
+        updateMenuState(false);
+
+        break;
       case MenuActions.Open:
-        return updateMenuState(true);
+        updateMenuState(true);
+
+        break;
       default:
-        return;
     }
   };
 
   const onInputBlur = (e) => {
     e.preventDefault();
+
     if (value && !ignoreBlur.current) {
       setInputValue('');
     }
 
     if (ignoreBlur.current) {
       ignoreBlur.current = false;
+
       return;
     }
 
@@ -190,7 +208,10 @@ export const Combobox = ({
 
     if (selected) {
       onChange(selected.props.value);
-      return updateMenuState(false);
+
+      updateMenuState(false);
+
+      return;
     }
 
     if (creatable) {
@@ -201,7 +222,10 @@ export const Combobox = ({
 
   const updateMenuState = (open, callFocus = true) => {
     setOpen(open);
-    callFocus && inputRef.current.focus();
+
+    if (callFocus) {
+      inputRef.current.focus();
+    }
   };
 
   const filteredNodesClone = Children.toArray(filteredNodes).map((node, i) => {
@@ -209,10 +233,10 @@ export const Combobox = ({
 
     return cloneElement(node, {
       id: `${generatedId}-${i}`,
-      'aria-selected': selectedIndex === i ? true : false,
+      'aria-selected': selectedIndex === i,
       'aria-posinset': i + 1,
       'aria-setsize': Children.toArray(filteredNodes).length,
-      ref: (r) => {
+      ref(r) {
         if (isActive) activeOptionRef.current = r;
       },
       onClick: () => onOptionClick(i),
@@ -238,6 +262,7 @@ export const Combobox = ({
 
   const hasOption = () => {
     const nodeIndex = filteredNodes.findIndex((node) => node.props?.children === inputValue);
+
     return inputValue && nodeIndex === -1;
   };
 
@@ -351,7 +376,7 @@ export const Combobox = ({
                 )}
               </>
             )}
-            {!Boolean(filteredNodes.length) && !creatable && !loading && (
+            {!filteredNodes.length && !creatable && !loading && (
               <Box paddingLeft={4} paddingRight={4} paddingTop={2} paddingBottom={2} ref={activeOptionRef}>
                 <Typography textColor="neutral800">{noOptionsMessage(inputValue)}</Typography>
               </Box>
@@ -370,7 +395,7 @@ export const Combobox = ({
 
 export const CreatableCombobox = (props) => <Combobox {...props} creatable />;
 
-Combobox.defaultProps = CreatableCombobox.defaultProps = {
+Combobox.defaultProps = {
   'aria-label': undefined,
   clearLabel: 'clear',
   creatable: false,
@@ -390,6 +415,8 @@ Combobox.defaultProps = CreatableCombobox.defaultProps = {
   placeholder: 'Select or enter a value',
   value: undefined,
 };
+
+CreatableCombobox.defaultProps = Combobox.defaultProps;
 
 Combobox.propTypes = {
   'aria-label': PropTypes.string,

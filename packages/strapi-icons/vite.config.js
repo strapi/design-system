@@ -13,7 +13,7 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, './src/index.js'),
       formats: ['cjs', 'es'],
-      fileName: (format) => {
+      fileName(format) {
         return `[name].${format === 'es' ? 'js' : format}`;
       },
     },

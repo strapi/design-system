@@ -1,8 +1,11 @@
 import { useEffect, useRef } from 'react';
+import { useCallbackRef } from '@radix-ui/react-use-callback-ref';
 
 export const useTabsFocus = (selectedTabIndex, onTabChange) => {
   const tabsRef = useRef(null);
   const mountedRef = useRef(null);
+
+  const handleTabChange = useCallbackRef(onTabChange);
 
   useEffect(() => {
     if (!tabsRef.current) return;
@@ -15,14 +18,14 @@ export const useTabsFocus = (selectedTabIndex, onTabChange) => {
 
       if (nextFocusEl) {
         nextFocusEl.focus();
-        onTabChange(selectedTabIndex);
+        handleTabChange(selectedTabIndex);
       }
     }
 
     if (!mountedRef.current) {
       mountedRef.current = true;
     }
-  }, [selectedTabIndex]);
+  }, [selectedTabIndex, handleTabChange]);
 
   return tabsRef;
 };

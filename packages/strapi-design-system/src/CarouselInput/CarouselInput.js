@@ -58,6 +58,7 @@ CarouselInput.defaultProps = {
   error: undefined,
   hint: undefined,
   id: undefined,
+  labelAction: undefined,
   required: false,
   secondaryLabel: undefined,
 };

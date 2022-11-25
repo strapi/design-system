@@ -20,7 +20,7 @@ const BottomNavigation = ({ next, previous }) => {
               <Typography variant="epsilon" textColor="neutral700">
                 Previous
               </Typography>
-              <StyledLink href={previous.path} as={Link} active={true} padding={0} size={4}>
+              <StyledLink href={previous.path} as={Link} active padding={0} size={4}>
                 {previous.title}
               </StyledLink>
             </>
@@ -32,7 +32,7 @@ const BottomNavigation = ({ next, previous }) => {
               <Typography variant="epsilon" textColor="neutral700">
                 Next
               </Typography>
-              <StyledLink href={next.path} as={Link} active={true} padding={0} size={4}>
+              <StyledLink href={next.path} as={Link} active padding={0} size={4}>
                 {next.title}
               </StyledLink>
             </>

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Flex } from '../Flex';
 import styled from 'styled-components';
+import { Flex } from '../Flex';
 
 const CarouselSlideWrapper = styled(Flex)`
   display: ${({ selected }) => (selected ? 'flex' : 'none')};

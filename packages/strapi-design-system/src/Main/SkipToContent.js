@@ -18,7 +18,7 @@ const AnchorBox = styled(Box)`
 
 export const SkipToContent = ({ children }) => {
   return (
-    <AnchorBox as={'a'} href="#main-content" background="primary600" color="neutral0" padding={3} hasRadius>
+    <AnchorBox as="a" href="#main-content" background="primary600" color="neutral0" padding={3} hasRadius>
       {children}
     </AnchorBox>
   );

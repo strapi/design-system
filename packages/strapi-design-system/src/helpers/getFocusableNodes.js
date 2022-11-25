@@ -12,6 +12,7 @@ export const getFocusableNodes = (node, includeNegativeTabIndex) => {
   ];
   const focusables = nodes.filter((node) => {
     if (node.hasAttribute('disabled')) return false;
+
     if (includeNegativeTabIndex) return true;
 
     return node.getAttribute('tabindex') !== '-1';

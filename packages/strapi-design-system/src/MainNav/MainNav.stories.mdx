@@ -25,7 +25,9 @@ import strapiImage from './strapi-img.png';
 
 # MainNav
 
-The Main Navigation is consistenly available and displayed on all the different pages of the admin panel to access the different main sections. Thanks to it the users can easily navigation from a section to another. The Main Navigation can be whether collapsed or extended depending on the user's choice.
+The Main Navigation is consistenly available and displayed on all the different pages of the admin panel to access the
+different main sections. Thanks to it the users can easily navigation from a section to another. The Main Navigation can
+be whether collapsed or extended depending on the user's choice.
 
 **Best practices**
 
@@ -39,30 +41,27 @@ The Main Navigation is consistenly available and displayed on all the different 
 ## Imports
 
 ```js
-import {
-  MainNav,
-  NavSection,
-  NavSections,
-  NavCondense,
-  NavBrand,
-  NavUser,
-  NavLink,
-} from '@strapi/design-system/MainNav';
+import { MainNav, NavSection, NavSections, NavCondense, NavBrand, NavUser, NavLink } from '@strapi/design-system';
 ```
 
 ## Usage
 
-The Main Navigation can be whether collapsed or extended depending on the user's choice with the Arrow icon at the bottom.
+The Main Navigation can be whether collapsed or extended depending on the user's choice with the Arrow icon at the
+bottom.
 
-The user profile can be accessed by clicking on the user name at the bottom of the Main Navigation, as much as the possibility to log out the admin panel.
+The user profile can be accessed by clicking on the user name at the bottom of the Main Navigation, as much as the
+possibility to log out the admin panel.
 
 According to permissions, certain sections of the Main Navigation might not be visible nor accessible by specific users.
 
 ## Hierarchy
 
-Related sections are gathered under specific headers within the Main Navigation. These headers are helpful to understand the global product hierarchy.
+Related sections are gathered under specific headers within the Main Navigation. These headers are helpful to understand
+the global product hierarchy.
 
-Exception made for core plugins (i.e. Content Manager, Content-types Builder, Media Library) but a plugin should not take place in the Main Navigation. The Main Navigation remains are concise as possible to quickly reach the most important actions.
+Exception made for core plugins (i.e. Content Manager, Content-types Builder, Media Library) but a plugin should not
+take place in the Main Navigation. The Main Navigation remains are concise as possible to quickly reach the most
+important actions.
 
 ### MainNav
 
@@ -141,7 +140,7 @@ Exception made for core plugins (i.e. Content Manager, Content-types Builder, Me
                 <NavLink to="/builder" icon={<Puzzle />}>
                   Plugins
                 </NavLink>
-                <NavLink to="/content" badgeContent={'new'} icon={<ShoppingCart />} badgeAriaLabel="new content">
+                <NavLink to="/content" badgeContent="new" icon={<ShoppingCart />} badgeAriaLabel="new content">
                   Marketplace
                 </NavLink>
                 <NavLink
@@ -167,11 +166,12 @@ Exception made for core plugins (i.e. Content Manager, Content-types Builder, Me
 
 ### Usage with other routing libraries
 
-To use the Strapi design system NavLink/NavBrand component with a routing library (e.g. react-router-dom), you'll need to pass the react-router-dom `NavLink` component to the `as` prop in order to replace the default HTML anchor `<a />`.
+To use the Strapi design system NavLink/NavBrand component with a routing library (e.g. react-router-dom), you'll need
+to pass the react-router-dom `NavLink` component to the `as` prop in order to replace the default HTML anchor `<a />`.
 You'll now be able to pass all the react-router-dom `NavLink` props.
 
 ```jsx
-import { NavLink } from '@strapi/design-system/NavLink';
+import { NavLink } from '@strapi/design-system';
 import { NavLink as RouterNavLink } from 'react-router-dom';
 
 <NavLink as={RouterNavLink} to="/home">
@@ -184,7 +184,7 @@ import { NavLink as RouterNavLink } from 'react-router-dom';
 For NextJS, you'll need to wrap the `NavLink` with the `NextLink` component
 
 ```jsx
-import { NavLink } from '@strapi/design-system/NavLink';
+import { NavLink } from '@strapi/design-system';
 import NextLink from 'next/link';
 
 <NextLink href="/home" passHref>

@@ -83,7 +83,8 @@ export const DatePickerCalendar = ({
             </RawThead>
             <RawTbody>
               {weeks.map((week, index) => (
-                <RawTr key={`week-${index}`}>
+                // eslint-disable-next-line react/no-array-index-key
+                <RawTr key={index}>
                   {week.map(({ date, outsideMonth, isSelected }) => {
                     return (
                       <DatePickerTd
@@ -92,7 +93,7 @@ export const DatePickerCalendar = ({
                         onSelectDay={() => onChange(date)}
                         isSelected={isSelected}
                       >
-                        <span aria-hidden={true}>{date.getDate()}</span>
+                        <span aria-hidden>{date.getDate()}</span>
                         <VisuallyHidden>
                           <span>{formatDate(date)}</span>
                         </VisuallyHidden>
@@ -109,7 +110,13 @@ export const DatePickerCalendar = ({
   );
 };
 
-DatePickerCalendar.defaultProps = { selectedDate: undefined, initialDate: new Date() };
+DatePickerCalendar.defaultProps = {
+  selectedDate: undefined,
+  initialDate: new Date(),
+  minDate: undefined,
+  maxDate: undefined,
+};
+
 DatePickerCalendar.propTypes = {
   initialDate: PropTypes.instanceOf(Date),
   label: PropTypes.string.isRequired,

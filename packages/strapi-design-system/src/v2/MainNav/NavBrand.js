@@ -30,7 +30,7 @@ export const NavBrand = React.forwardRef(({ workplace, title, icon, ...props }, 
     return (
       <BaseLink ref={ref} {...props}>
         <Box paddingLeft={3} paddingRight={3} paddingTop={4} paddingBottom={4}>
-          <BrandIconWrapper condensed={true}>
+          <BrandIconWrapper condensed>
             {icon}
             <VisuallyHidden>
               <span>{title}</span>

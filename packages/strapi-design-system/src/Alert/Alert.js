@@ -72,7 +72,7 @@ export const Alert = ({ title, children, variant, onClose, closeLabel, titleAs, 
     <AlertWrapper hasRadius paddingLeft={5} paddingRight={6} paddingTop={5} variant={variant} {...props}>
       <Flex alignItems="flex-start">
         <AlertIconWrapper paddingRight={3} variant={variant}>
-          <AlertIcon variant={variant} aria-hidden={true} />
+          <AlertIcon variant={variant} aria-hidden />
         </AlertIconWrapper>
         <AlertBody role={variant === 'danger' ? 'alert' : 'status'}>
           <Box paddingBottom={2} paddingRight={1}>
@@ -95,7 +95,7 @@ export const Alert = ({ title, children, variant, onClose, closeLabel, titleAs, 
         </AlertBody>
 
         <CloseButton onClick={onClose} aria-label={closeLabel}>
-          <Cross aria-hidden={true} />
+          <Cross aria-hidden />
         </CloseButton>
       </Flex>
     </AlertWrapper>
@@ -140,5 +140,5 @@ Alert.propTypes = {
 };
 
 AlertIcon.propTypes = {
-  variant: Alert.propTypes.variant,
+  variant: Alert.propTypes.variant.isRequired,
 };

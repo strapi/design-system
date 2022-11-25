@@ -14,14 +14,14 @@ describe('Select', () => {
           placeholder="Your example"
           hint="Description line"
           clearLabel="Clear the meal"
-          value={'pizza'}
+          value="pizza"
           onChange={() => {}}
           disabled={false}
           startIcon={<span>An icon</span>}
         >
-          <Option value={'pizza'}>Pizza</Option>
-          <Option value={'hamburger'}>Hamburger</Option>
-          <Option value={'bagel'}>Bagel</Option>
+          <Option value="pizza">Pizza</Option>
+          <Option value="hamburger">Hamburger</Option>
+          <Option value="bagel">Bagel</Option>
         </Select>
       </ThemeProvider>,
       { container: document.body },
@@ -477,9 +477,9 @@ describe('Select', () => {
           disabled={false}
           multi
         >
-          <Option value={'pizza'}>Pizza</Option>
-          <Option value={'hamburger'}>Hamburger</Option>
-          <Option value={'bagel'}>Bagel</Option>
+          <Option value="pizza">Pizza</Option>
+          <Option value="hamburger">Hamburger</Option>
+          <Option value="bagel">Bagel</Option>
         </Select>
       </ThemeProvider>,
       { container: document.body },
@@ -1003,9 +1003,9 @@ describe('Select', () => {
               disabled={false}
               withTags
             >
-              <Option value={'pizza'}>Pizza</Option>
-              <Option value={'hamburger'}>Hamburger</Option>
-              <Option value={'bagel'}>Bagel</Option>
+              <Option value="pizza">Pizza</Option>
+              <Option value="hamburger">Hamburger</Option>
+              <Option value="bagel">Bagel</Option>
             </Select>
           </ThemeProvider>,
         ),

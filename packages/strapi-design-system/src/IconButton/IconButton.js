@@ -96,7 +96,7 @@ export const IconButtonGroup = styled(Flex)`
 `;
 
 export const IconButton = React.forwardRef(
-  ({ label, noBorder, children, icon, disabled, onClick, ['aria-label']: ariaLabel, ...restProps }, ref) => {
+  ({ label, noBorder, children, icon, disabled, onClick, 'aria-label': ariaLabel, ...restProps }, ref) => {
     /**
      * @type {React.MouseEventHandler<HTMLButtonElement>}
      */
@@ -110,7 +110,7 @@ export const IconButton = React.forwardRef(
       return (
         <IconButtonWrapper {...restProps} ref={ref} noBorder={noBorder} onClick={handleClick} aria-disabled={disabled}>
           <VisuallyHidden as="span">{ariaLabel}</VisuallyHidden>
-          {cloneElement(icon ? icon : children, {
+          {cloneElement(icon || children, {
             'aria-hidden': true,
             focusable: false, // See: https://allyjs.io/tutorials/focusing-in-svg.html#making-svg-elements-focusable
           })}
@@ -122,7 +122,7 @@ export const IconButton = React.forwardRef(
       <Tooltip label={label}>
         <IconButtonWrapper {...restProps} ref={ref} noBorder={noBorder} onClick={handleClick} aria-disabled={disabled}>
           <VisuallyHidden as="span">{label}</VisuallyHidden>
-          {cloneElement(icon ? icon : children, {
+          {cloneElement(icon || children, {
             'aria-hidden': true,
             focusable: false, // See: https://allyjs.io/tutorials/focusing-in-svg.html#making-svg-elements-focusable
           })}
@@ -135,9 +135,12 @@ export const IconButton = React.forwardRef(
 IconButton.displayName = 'IconButton';
 
 IconButton.defaultProps = {
+  'aria-label': undefined,
+  children: undefined,
+  disabled: false,
+  icon: undefined,
   label: undefined,
   noBorder: false,
-  disabled: false,
   onClick: undefined,
 };
 
@@ -149,14 +152,14 @@ const throwPropErrorIfNoneAreDefined = (otherProps, propType) => (props, propNam
     return new Error(`One of the following props is required: ${propName}, ${otherProps.join(', ')}`);
   }
 
-  PropTypes.checkPropTypes({ [propName]: PropTypes[propType] }, props, 'prop', 'IconButton');
+  return PropTypes.checkPropTypes({ [propName]: PropTypes[propType] }, props, 'prop', 'IconButton');
 };
 
 IconButton.propTypes = {
   /**
    * `PropTypes.string` – must be defined if `label` is not defined.
    */
-  ['aria-label']: throwPropErrorIfNoneAreDefined(['label'], 'string'),
+  'aria-label': throwPropErrorIfNoneAreDefined(['label'], 'string'),
   /**
    * `PropTypes.node` – must be defined if `icon` is not defined.
    */
