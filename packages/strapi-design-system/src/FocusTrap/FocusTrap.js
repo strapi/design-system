@@ -75,6 +75,7 @@ export const FocusTrap = ({ onEscape, restoreFocus, ...props }) => {
 };
 
 FocusTrap.defaultProps = {
+  onEscape: undefined,
   restoreFocus: true,
 };
 
@@ -82,7 +83,7 @@ FocusTrap.propTypes = {
   /**
    * A callback called on escape key. Useful to deactivate the focus trap.
    */
-  onEscape: PropTypes.func.isRequired,
+  onEscape: PropTypes.func,
   /**
    * A boolean value to define whether the focus should be restored or not.
    */

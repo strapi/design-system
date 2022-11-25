@@ -56,6 +56,7 @@ describe('Tooltip', () => {
             <button
               aria-describedby="tooltip-123"
               tabindex="0"
+              type="button"
             >
               Show tooltip
             </button>
@@ -151,6 +152,7 @@ describe('Tooltip', () => {
             <button
               aria-describedby="tooltip-123"
               tabindex="0"
+              type="button"
             >
               Show tooltip
             </button>
@@ -253,6 +255,7 @@ describe('Tooltip', () => {
             <button
               aria-labelledby="tooltip-123"
               tabindex="0"
+              type="button"
             >
               +
             </button>

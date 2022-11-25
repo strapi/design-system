@@ -29,8 +29,8 @@ export const TreeActions = {
 
 // filter an array of options against an input string
 // returns an array of options that contains the filter string, case-independent
-export function filterOptions(options = [], filter = '', exclude = []) {
-  const equalizedTerm = String(filter).toLowerCase();
+export function filterOptions(options = [], filter = null, exclude = []) {
+  const equalizedTerm = String(filter ?? '').toLowerCase();
 
   return equalizedTerm
     ? options.filter((option) => {
