@@ -43,7 +43,7 @@ jobs:
         run: yarn test
   e2e_tests:
     name: 'e2e tests (browser: ${{ matrix.browser }})'
-    needs: [lint]
+    needs: [lint, unit_tests]
     runs-on: macos-latest
     strategy:
       matrix:
