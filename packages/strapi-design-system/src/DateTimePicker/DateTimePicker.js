@@ -55,6 +55,7 @@ export const DateTimePicker = ({
     const dateToSet = dateValue ? new Date(dateValue) : new Date();
     dateToSet.setHours(e.split(':')[0]);
     dateToSet.setMinutes(e.split(':')[1]);
+
     if (!dateValue) {
       setDateValue(dateToSet);
     }
@@ -87,7 +88,7 @@ export const DateTimePicker = ({
   };
 
   useEffect(() => {
-    if (value && +value !== +dateValue) {
+    if (value) {
       const parsedData = parseDate(value);
       setDateValue(parsedData);
       setTimeValue(

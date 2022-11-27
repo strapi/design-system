@@ -15,8 +15,8 @@ beforeAll(() => {
   global.ResizeObserver = ResizeObserver;
 
   global.IntersectionObserver = () => ({
-    observe: () => {},
-    disconnect: () => {},
+    observe() {},
+    disconnect() {},
   });
 
   global.matchMedia = () => ({

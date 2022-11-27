@@ -10,7 +10,7 @@ import components from 'components/MarkdownComponents';
 const PostPage = ({ mdxSource, frontMatter, navbarContent, next, previous }) => {
   return (
     <Layout meta={frontMatter} navigationContent={navbarContent}>
-      <Box padding={10} background="neutral0" shadow="filterShadow" hasRadius={true} maxWidth="880px">
+      <Box padding={10} background="neutral0" shadow="filterShadow" hasRadius maxWidth="880px">
         <MDXRemote {...mdxSource} components={components} />
         <BottomNavigation next={next} previous={previous} />
       </Box>
@@ -33,6 +33,7 @@ export const getStaticProps = async ({ params }) => {
     if (page.link === currentPageLink) {
       const nextPage = pages[index + 1];
       const previousPage = pages[index - 1];
+
       if (nextPage) {
         next.title = nextPage.name;
         next.path = nextPage.link;
@@ -43,9 +44,10 @@ export const getStaticProps = async ({ params }) => {
       }
     }
   });
+
   return {
     props: {
-      mdxSource: mdxSource,
+      mdxSource,
       frontMatter: data,
       navbarContent,
       next,
@@ -61,6 +63,7 @@ export const getStaticPaths = async () => {
     .map((path) => path.replace(/\.mdx?$/, ''))
     // Map the path into the static paths object required by Next.js
     .map((slug) => ({ params: { slug } }));
+
   return {
     paths,
     fallback: false,

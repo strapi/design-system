@@ -11,7 +11,8 @@ import { Typography } from '../Typography';
 
 # TimePicker
 
-Time pickers help users selecting a specific timeslot from a suggested timetable. They can be associated to a Date picker component.
+Time pickers help users selecting a specific timeslot from a suggested timetable. They can be associated to a Date
+picker component.
 
 **Best practices**
 
@@ -26,12 +27,13 @@ Time pickers help users selecting a specific timeslot from a suggested timetable
 ## Imports
 
 ```js
-import { TimePicker } from '@strapi/design-system/TimePicker';
+import { TimePicker } from '@strapi/design-system';
 ```
 
 ## Usage
 
-Use the Time picker component whenever a specific time needs to be scheduled or indicated. It is only possible to select one single timeslot.
+Use the Time picker component whenever a specific time needs to be scheduled or indicated. It is only possible to select
+one single timeslot.
 
 <Canvas>
   <Story name="base">
@@ -39,11 +41,11 @@ Use the Time picker component whenever a specific time needs to be scheduled or 
       const [value, setValue] = useState();
       return (
         <TimePicker
-          label={'Choose a time'}
+          label="Choose a time"
           disabled={false}
           error={undefined}
-          hint={'Description line'}
-          id={'tp-1'}
+          hint="Description line"
+          id="tp-1"
           onClear={() => setValue(undefined)}
           onChange={setValue}
           value={value}
@@ -66,11 +68,11 @@ The unit of the Time Picker can be modified by changing the `step` parameter.
       return (
         <TimePicker
           step={30}
-          label={'Choose a time'}
+          label="Choose a time"
           disabled={false}
           error={undefined}
-          hint={'Description line'}
-          id={'tp-1'}
+          hint="Description line"
+          id="tp-1"
           onClear={() => setValue(undefined)}
           onChange={setValue}
           value={value}
@@ -96,11 +98,11 @@ TODO
           <Box paddingTop={2}>
             <TimePicker
               step={1}
-              label={'Choose a time'}
+              label="Choose a time"
               disabled={false}
               error={undefined}
-              hint={'Description line'}
-              id={'tp-1'}
+              hint="Description line"
+              id="tp-1"
               onClear={() => setValue(undefined)}
               onChange={setValue}
               value={value}
@@ -125,11 +127,11 @@ TODO
       return (
         <TimePicker
           step={30}
-          label={'Choose a time'}
+          label="Choose a time"
           disabled={false}
           error={undefined}
-          hint={'Description line'}
-          id={'tp-1'}
+          hint="Description line"
+          id="tp-1"
           size="S"
           onClear={() => setValue(undefined)}
           onChange={setValue}
@@ -150,11 +152,11 @@ TODO
       const [value, setValue] = useState();
       return (
         <TimePicker
-          label={'Choose a time'}
+          label="Choose a time"
           disabled
           error={undefined}
-          hint={'Description line'}
-          id={'tp-1'}
+          hint="Description line"
+          id="tp-1"
           onClear={() => setValue(undefined)}
           onChange={setValue}
           value={value}

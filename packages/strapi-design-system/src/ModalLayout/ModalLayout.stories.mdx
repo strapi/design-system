@@ -23,7 +23,7 @@ The `ModalLayout` can be used to create a custom modal.
 ## Imports
 
 ```js
-import { ModalLayout, ModalBody, ModalHeader, ModalFooter } from '@strapi/design-system/ModalLayout';
+import { ModalLayout, ModalBody, ModalHeader, ModalFooter } from '@strapi/design-system';
 ```
 
 ## Usage
@@ -50,7 +50,7 @@ import { ModalLayout, ModalBody, ModalHeader, ModalFooter } from '@strapi/design
                   selectedDate={date}
                   label="Date picker"
                   name="datepicker"
-                  clearLabel={'Clear the datepicker'}
+                  clearLabel="Clear the datepicker"
                   onClear={() => setDate(undefined)}
                   selectedDateLabel={(formattedDate) => `Date picker, current is ${formattedDate}`}
                 />
@@ -87,7 +87,9 @@ import { ModalLayout, ModalBody, ModalHeader, ModalFooter } from '@strapi/design
 
 ### ModalLayout props
 
-The ModalLayout component wraps all its children in the (Box)[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base] component, so you can pass all Box props to change its style.
+The ModalLayout component wraps all its children in the
+(Box)[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base]
+component, so you can pass all Box props to change its style.
 
 <ArgsTable of={ModalLayout} />
 

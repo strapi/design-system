@@ -34,7 +34,7 @@ This is the doc of the `Layout` component
 ## Imports
 
 ```js
-import { Layout } from '@strapi/design-system/Layout';
+import { Layout } from '@strapi/design-system';
 ```
 
 ## Usage
@@ -86,7 +86,7 @@ import { Layout } from '@strapi/design-system/Layout';
               <SubNav ariaLabel="Builder sub nav">
                 <SubNavHeader
                   searchable
-                  value={''}
+                  value=""
                   onClear={() => {}}
                   onChange={() => {}}
                   label="Builder"
@@ -132,7 +132,7 @@ import { Layout } from '@strapi/design-system/Layout';
                       .fill(null)
                       .map((_, index) => (
                         <Box paddingTop={2} key={index}>
-                          <Tag key={index} icon={<Plus aria-hidden={true} />}>
+                          <Tag key={index} icon={<Plus aria-hidden />}>
                             Hello world {index}
                           </Tag>
                         </Box>

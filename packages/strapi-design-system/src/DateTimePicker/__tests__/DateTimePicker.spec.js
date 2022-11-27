@@ -11,7 +11,7 @@ const setupComponent = (props) => (
 );
 
 const sharedProps = {
-  onChange: () => {},
+  onChange() {},
   name: 'datetimepicker',
   label: 'Date time picker',
   hint: 'This is a super description',

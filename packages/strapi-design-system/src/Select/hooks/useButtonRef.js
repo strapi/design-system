@@ -16,6 +16,7 @@ export const useButtonRef = (expanded) => {
 
   useEffect(() => {
     if (!mountedRef.current) return;
+
     if (expanded) return;
 
     if (previousState.current === DownState.Keyboard || previousState.current === UpState.Keyboard) {

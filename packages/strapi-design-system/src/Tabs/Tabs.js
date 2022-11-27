@@ -106,6 +106,8 @@ export const Tabs = ({ children, ...props }) => {
 
   if (variant === 'simple') {
     return (
+      // TODO: This needs to be reviewed how to handle correctly since it's supposed to have focus.
+      // eslint-disable-next-line jsx-a11y/interactive-supports-focus
       <div ref={tabsRef} role="tablist" aria-label={label} onKeyDown={handleKeyDown} {...props}>
         {childrenArray}
       </div>

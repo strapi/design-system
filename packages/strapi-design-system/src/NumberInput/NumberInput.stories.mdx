@@ -30,7 +30,7 @@ NumberInputs are inputs that allow users to add or edit numbers. They support se
 ## Imports
 
 ```js
-import { NumberInput } from '@strapi/design-system/NumberInput';
+import { NumberInput } from '@strapi/design-system';
 ```
 
 ## Usage
@@ -57,7 +57,7 @@ NumberInputs are always found in forms. They give users the possibility to add o
                   aria-label="Information about the email"
                   style={{ border: 'none', padding: 0, background: 'transparent' }}
                 >
-                  <Information aria-hidden={true} />
+                  <Information aria-hidden />
                 </button>
               </Tooltip>
             }
@@ -98,7 +98,7 @@ NumberInputs can be used without a label.
                   aria-label="Information about the email"
                   style={{ border: 'none', padding: 0, background: 'transparent' }}
                 >
-                  <Information aria-hidden={true} />
+                  <Information aria-hidden />
                 </button>
               </Tooltip>
             }
@@ -140,7 +140,7 @@ NumberInputs are always found in forms. They give users the possibility to add o
                   aria-label="Information about the email"
                   style={{ border: 'none', padding: 0, background: 'transparent' }}
                 >
-                  <Information aria-hidden={true} />
+                  <Information aria-hidden />
                 </button>
               </Tooltip>
             }
@@ -175,7 +175,7 @@ NumberInputs required field.
             error={undefined}
             onValueChange={(value) => setContent(value)}
             value={content}
-            required={true}
+            required
           />
         </Box>
       );
@@ -201,7 +201,7 @@ NumberInputs disabled field.
             error={undefined}
             onValueChange={(value) => setContent(value)}
             value={content}
-            disabled={true}
+            disabled
           />
         </Box>
       );
@@ -233,7 +233,7 @@ NumberInputs are always found in forms. They give users the possibility to add o
                   aria-label="Information about the email"
                   style={{ border: 'none', padding: 0, background: 'transparent' }}
                 >
-                  <Information aria-hidden={true} />
+                  <Information aria-hidden />
                 </button>
               </Tooltip>
             }
@@ -272,7 +272,7 @@ NumberInputs are always found in forms. They give users the possibility to add o
                   aria-label="Information about the email"
                   style={{ border: 'none', padding: 0, background: 'transparent' }}
                 >
-                  <Information aria-hidden={true} />
+                  <Information aria-hidden />
                 </button>
               </Tooltip>
             }

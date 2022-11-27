@@ -6,13 +6,15 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "analyze:bundle": "lerna run analyze:bundle --stream",
     "bootstrap": "lerna bootstrap",
     "build-storybook": "lerna run build-storybook --stream",
     "build": "lerna run build --stream --scope=@strapi/icons && lerna run build --stream --scope=@strapi/design-system",
+    "clean": "lerna clean",
     "generate": "plop",
-    "lint-staged": "lerna run lint-staged --stream --",
-    "lint": "lerna run lint --stream",
+    "lint": "eslint . --ext .js,.jsx --fix",
+    "lint-staged": "eslint . --ext .js,.jsx --fix",
+    "prettier:check": "prettier --check .",
+    "prettier:write": "prettier --write .",
     "setup": "yarn && yarn bootstrap && yarn build",
     "specify:pull": "specify pull",
     "specify:sync": "specify sync",
@@ -23,17 +25,26 @@
     "test:e2e:ci": "lerna run test:e2e:ci",
     "test:e2e:watch": "lerna --scope @strapi/design-system exec -- yarn test:e2e:watch",
     "test:snapshots": "lerna --scope @strapi/design-system exec -- yarn  test -u",
-    "release": "lerna version --no-push --no-git-tag-version && yarn setup && git commit -am \"Releasing\" && lerna publish from-package --contents dist"
+    "release": "lerna version --no-push --no-git-tag-version && yarn setup && git commit -am \"Releasing\" && lerna publish from-package"
   },
   "devDependencies": {
+    "@babel/preset-react": "^7.18.6",
     "@specifyapp/cli": "^0.0.51",
+    "@strapi/eslint-config": "^0.1.2",
+    "@vitejs/plugin-react": "^2.2.0",
     "chokidar-cli": "^3.0.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.28.0",
+    "eslint-plugin-mdx": "^1.17.0",
     "fs-extra": "^10.0.0",
     "husky": "=4",
     "lerna": "^4.0.0",
     "lint-staged": ">=10",
     "plop": "^2.7.4",
-    "rimraf": "^3.0.2"
+    "prettier": "^2.8.0",
+    "rimraf": "^3.0.2",
+    "tiny-glob": "^0.2.9",
+    "vite": "^3.2.2"
   },
   "husky": {
     "hooks": {

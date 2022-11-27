@@ -1,7 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+
+import { Box } from '../Box';
 import { getCheckboxSize } from './utils';
+
 import checkmarkIcon from './assets/checkmark.svg';
 import checkmarkIconDisabled from './assets/checkmark-black.svg';
 
@@ -84,15 +87,17 @@ export const BaseCheckbox = ({ indeterminate, size, name, value, onValueChange, 
   };
 
   return (
-    <CheckboxInput
-      size={size}
-      checked={value}
-      onChange={handleValueChange}
-      type="checkbox"
-      ref={checkboxRef}
-      name={name}
-      {...inputProps}
-    />
+    <Box>
+      <CheckboxInput
+        size={size}
+        checked={value}
+        onChange={handleValueChange}
+        type="checkbox"
+        ref={checkboxRef}
+        name={name}
+        {...inputProps}
+      />
+    </Box>
   );
 };
 
@@ -101,7 +106,7 @@ BaseCheckbox.displayName = 'BaseCheckbox';
 BaseCheckbox.defaultProps = {
   indeterminate: false,
   name: null,
-  onValueChange: () => {},
+  onValueChange() {},
   size: 'M',
   value: false,
 };

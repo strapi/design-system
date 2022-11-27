@@ -25,7 +25,7 @@ Status are used to give an important visual indication to the users on a page le
 ## Imports
 
 ```js
-import { Status } from '@strapi/design-system/Status';
+import { Status } from '@strapi/design-system';
 ```
 
 ## Usage
@@ -49,20 +49,25 @@ Use a Status sparingly within forms to give an important visual indication. Stat
   </Story>
 </Canvas>
 
-
 ### Size
 
 <Canvas>
   <Story name="size S">
     <Stack spacing={3}>
       <Status variant="success" size="S" showBullet={false}>
-        <Typography fontWeight="bold" textColor="success700">Published</Typography>
+        <Typography fontWeight="bold" textColor="success700">
+          Published
+        </Typography>
       </Status>
       <Status variant="secondary" size="S" showBullet={false}>
-        <Typography fontWeight="bold" textColor="secondary700">Draft</Typography>
+        <Typography fontWeight="bold" textColor="secondary700">
+          Draft
+        </Typography>
       </Status>
       <Status variant="alternative" size="S" showBullet={false}>
-        <Typography fontWeight="bold" textColor="alternative700">Updated</Typography>
+        <Typography fontWeight="bold" textColor="alternative700">
+          Updated
+        </Typography>
       </Status>
     </Stack>
   </Story>
@@ -70,6 +75,8 @@ Use a Status sparingly within forms to give an important visual indication. Stat
 
 ## Props
 
-The Status component wraps all its children in the (Box)[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base] component, so you can pass all Box props to change its style.
+The Status component wraps all its children in the
+(Box)[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base]
+component, so you can pass all Box props to change its style.
 
 <ArgsTable of={Status} />

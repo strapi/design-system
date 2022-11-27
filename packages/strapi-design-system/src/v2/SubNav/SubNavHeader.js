@@ -31,7 +31,7 @@ export const SubNavHeader = ({ as, label, searchLabel, searchable, onChange, val
     if (previousSearchOpenValue && !isSearchOpen && searchButtonRef.current) {
       searchButtonRef.current.focus();
     }
-  }, [isSearchOpen]);
+  }, [isSearchOpen, previousSearchOpenValue]);
 
   const toggleSearch = () => {
     setSearchOpen((isOpen) => !isOpen);
@@ -101,9 +101,9 @@ export const SubNavHeader = ({ as, label, searchLabel, searchable, onChange, val
 SubNavHeader.defaultProps = {
   as: 'h2',
   searchable: false,
-  onChange: () => {},
-  onClear: () => {},
-  onSubmit: () => {},
+  onChange() {},
+  onClear() {},
+  onSubmit() {},
   value: '',
   searchLabel: '',
   id: undefined,

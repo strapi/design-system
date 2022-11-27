@@ -117,7 +117,7 @@ FieldInput.defaultProps = {
   endAction: undefined,
   size: 'M',
   startAction: undefined,
-  onChange: () => {},
+  onChange() {},
 };
 
 FieldInput.propTypes = {

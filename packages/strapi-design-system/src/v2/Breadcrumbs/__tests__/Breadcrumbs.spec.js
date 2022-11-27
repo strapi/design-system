@@ -9,7 +9,7 @@ describe('Breadcrumb', () => {
   it('should render only one crumb without any separator', async () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
-        <Breadcrumbs>
+        <Breadcrumbs label="test">
           <Crumb>First</Crumb>
           {undefined && <Crumb>Second</Crumb>}
         </Breadcrumbs>
@@ -28,7 +28,7 @@ describe('Breadcrumb', () => {
   it('should render two crumbs with only one separator', async () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
-        <Breadcrumbs>
+        <Breadcrumbs label="test">
           <Crumb>First</Crumb>
           <Crumb>Second</Crumb>
         </Breadcrumbs>

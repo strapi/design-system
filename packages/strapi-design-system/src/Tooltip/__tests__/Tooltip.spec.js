@@ -13,7 +13,7 @@ describe('Tooltip', () => {
     render(
       <ThemeProvider theme={lightTheme}>
         <Tooltip description="Content of the tooltip fefe">
-          <button>Show tooltip</button>
+          <button type="button">Show tooltip</button>
         </Tooltip>
       </ThemeProvider>,
     );
@@ -26,10 +26,10 @@ describe('Tooltip', () => {
       }
 
       .c3 {
-        font-weight: 600;
-        color: #ffffff;
         font-size: 0.75rem;
         line-height: 1.33;
+        font-weight: 600;
+        color: #ffffff;
       }
 
       .c0 {
@@ -56,6 +56,7 @@ describe('Tooltip', () => {
             <button
               aria-describedby="tooltip-123"
               tabindex="0"
+              type="button"
             >
               Show tooltip
             </button>
@@ -106,7 +107,7 @@ describe('Tooltip', () => {
     render(
       <ThemeProvider theme={lightTheme}>
         <Tooltip description="Content of the tooltip fefe">
-          <button>Show tooltip</button>
+          <button type="button">Show tooltip</button>
         </Tooltip>
       </ThemeProvider>,
     );
@@ -121,10 +122,10 @@ describe('Tooltip', () => {
       }
 
       .c3 {
-        font-weight: 600;
-        color: #ffffff;
         font-size: 0.75rem;
         line-height: 1.33;
+        font-weight: 600;
+        color: #ffffff;
       }
 
       .c0 {
@@ -151,6 +152,7 @@ describe('Tooltip', () => {
             <button
               aria-describedby="tooltip-123"
               tabindex="0"
+              type="button"
             >
               Show tooltip
             </button>
@@ -208,7 +210,7 @@ describe('Tooltip', () => {
     render(
       <ThemeProvider theme={lightTheme}>
         <Tooltip label="Content of the tooltip fefe">
-          <button>+</button>
+          <button type="button">+</button>
         </Tooltip>
       </ThemeProvider>,
     );
@@ -223,10 +225,10 @@ describe('Tooltip', () => {
       }
 
       .c3 {
-        font-weight: 600;
-        color: #ffffff;
         font-size: 0.75rem;
         line-height: 1.33;
+        font-weight: 600;
+        color: #ffffff;
       }
 
       .c0 {
@@ -253,6 +255,7 @@ describe('Tooltip', () => {
             <button
               aria-labelledby="tooltip-123"
               tabindex="0"
+              type="button"
             >
               +
             </button>

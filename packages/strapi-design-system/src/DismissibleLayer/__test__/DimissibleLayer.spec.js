@@ -5,8 +5,9 @@ import { DismissibleLayer } from '../DismissibleLayer';
 describe('DismissibleLayer', () => {
   it('should fire onEscapeKeyDown when the ESCAPE key is pressed', () => {
     const onEscapeKeyDownMock = jest.fn();
+    const onPointerDownOutsideMock = jest.fn();
     render(
-      <DismissibleLayer onEscapeKeyDown={onEscapeKeyDownMock}>
+      <DismissibleLayer onEscapeKeyDown={onEscapeKeyDownMock} onPointerDownOutside={onPointerDownOutsideMock}>
         <h1>hello world</h1>
       </DismissibleLayer>,
     );
@@ -18,12 +19,13 @@ describe('DismissibleLayer', () => {
 
   it('should fire onPointerDownOutside when the user clicks outside the DismissibleLayer', () => {
     const onPointerDownOutsideMock = jest.fn();
+    const onEscapeKeyDownMock = jest.fn();
     render(
       <>
-        <DismissibleLayer onPointerDownOutside={onPointerDownOutsideMock}>
+        <DismissibleLayer onPointerDownOutside={onPointerDownOutsideMock} onEscapeKeyDown={onEscapeKeyDownMock}>
           <h1>hello world</h1>
         </DismissibleLayer>
-        <button>Click me</button>
+        <button type="button">Click me</button>
       </>,
     );
 

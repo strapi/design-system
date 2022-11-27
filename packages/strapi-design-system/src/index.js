@@ -1,3 +1,6 @@
+/* eslint-disable import/export */
+// TODO: the import error will be fixed in a different PR
+
 export * from './Accordion';
 export * from './Alert';
 export * from './Avatar';

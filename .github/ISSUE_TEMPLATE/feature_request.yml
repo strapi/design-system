@@ -1,0 +1,22 @@
+name: 🚀 Feature Request
+description: Submit a request for a new feature
+title: '[feat]: '
+labels: ['issue: enhancement']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for contributing a feature request!
+  - type: textarea
+    attributes:
+      label: A clear and concise description of what the feature is
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Why should this feature be included?
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Please provide an example for how this would work

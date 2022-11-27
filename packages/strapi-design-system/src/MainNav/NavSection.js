@@ -23,6 +23,7 @@ export const NavSection = ({ label, children, ...props }) => {
 
         <Stack as="ul" spacing={2} {...props}>
           {Children.map(children, (child, index) => {
+            // eslint-disable-next-line react/no-array-index-key
             return <li key={index}>{child}</li>;
           })}
         </Stack>
@@ -40,6 +41,7 @@ export const NavSection = ({ label, children, ...props }) => {
 
       <Stack as="ul" spacing={2} {...props}>
         {Children.map(children, (child, index) => {
+          // eslint-disable-next-line react/no-array-index-key
           return <li key={index}>{child}</li>;
         })}
       </Stack>

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box } from '../Box';
 import styled from 'styled-components';
+import { Box } from '../Box';
 
 const IconWrapper = styled(Box)`
   path {

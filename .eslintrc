@@ -1,0 +1,42 @@
+{
+  "parser": "@babel/eslint-parser",
+  "extends": ["@strapi/eslint-config/front"],
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "jest": true,
+    "mocha": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "requireConfigFile": false,
+    "babelOptions": {
+      "presets": ["@babel/preset-react"]
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "react/jsx-no-constructed-context-values": "warn",
+    "react/jsx-no-useless-fragment": "warn",
+    "react/no-unstable-nested-components": "warn",
+    "no-unused-vars": ["error", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }],
+    "no-console": ["error", { "allow": ["warn", "error"] }]
+  },
+  "overrides": [
+    {
+      "files": "*.mdx",
+      "parser": "eslint-mdx",
+      "rules": {
+        "react/react-in-jsx-scope": "off",
+        "no-console": 0,
+        "react/jsx-filename-extension": "off",
+        "import/no-duplicates": "off"
+      }
+    }
+  ]
+}

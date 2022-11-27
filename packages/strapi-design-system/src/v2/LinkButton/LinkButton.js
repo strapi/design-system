@@ -47,7 +47,7 @@ export const LinkButton = React.forwardRef(
     return (
       <LinkWrapper ref={ref} aria-disabled={disabled} size={size} variant={variant} {...props} as={as || BaseLink}>
         {startIcon && (
-          <Box aria-hidden={true} paddingRight={2}>
+          <Box aria-hidden paddingRight={2}>
             {startIcon}
           </Box>
         )}
@@ -61,7 +61,7 @@ export const LinkButton = React.forwardRef(
         )}
 
         {endIcon && (
-          <Box aria-hidden={true} paddingLeft={2}>
+          <Box aria-hidden paddingLeft={2}>
             {endIcon}
           </Box>
         )}
@@ -88,18 +88,24 @@ LinkButton.propTypes = {
   children: PropTypes.node.isRequired,
   disabled: PropTypes.bool,
   endIcon: PropTypes.element,
-  href: (props) => {
+  href(props) {
     if (!props.disabled && !props.to && !props.href) {
       return new Error('href must be defined');
     }
+
+    // eslint-disable-next-line consistent-return
+    return undefined;
   },
   onClick: PropTypes.func,
   size: PropTypes.oneOf(BUTTON_SIZES),
   startIcon: PropTypes.element,
-  to: (props) => {
+  to(props) {
     if (!props.disabled && !props.href && !props.to) {
       return new Error('to must be defined');
     }
+
+    // eslint-disable-next-line consistent-return
+    return undefined;
   },
   variant: PropTypes.oneOf(VARIANTS),
 };

@@ -78,7 +78,7 @@ export const Option = ({ selected, indeterminate, children, value, multi, isChil
       ref={optionRef}
       role="option"
       aria-selected={selected}
-      background={'neutral0'}
+      background="neutral0"
       data-strapi-value={value}
       {...props}
     >
