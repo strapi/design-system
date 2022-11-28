@@ -68,6 +68,7 @@
     "build-storybook": "build-storybook",
     "storybook": "start-storybook -p 6006",
     "test": "jest -c jest.config.js",
+    "test:ts": "tsc --noEmit",
     "test:watch": "jest -c jest.config.js --watchAll",
     "test:e2e": "playwright test",
     "test:e2e:ci": "cross-env CI=true playwright test",

@@ -1,4 +1,6 @@
-export const darkShadowTokenObject = {
+import { ThemeShadows } from 'styled-components';
+
+export const darkShadowTokenObject: { shadow: ThemeShadows } = {
   shadow: {
     filterShadow: '1px 1px 10px rgba(3, 3, 5, 0.35)',
     focus:

@@ -17,7 +17,7 @@
     "jsx": "react-jsx",
     "types": ["vite/client", "jest", "@testing-library/jest-dom"]
   },
-  "include": ["src"],
+  "include": ["src", "styled.d.ts"],
   "references": [
     {
       "path": "./tsconfig.node.json"
