@@ -1,4 +1,6 @@
-export const sizes = {
+import { ThemeSizes } from 'styled-components';
+
+export const sizes: ThemeSizes = {
   input: {
     S: `${32 / 16}rem`,
     M: `${40 / 16}rem`,

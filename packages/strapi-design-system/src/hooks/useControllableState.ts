@@ -8,23 +8,25 @@ import { useCallbackRef } from '@radix-ui/react-use-callback-ref';
  */
 
 /**
- * @typedef UseControllableStateParams
- * @template T
- * @type {{ prop?: T | undefined;  defaultProp?: T | undefined; onChange?: (state: T) => void; }}
- */
-/**
- * @typedef SetStateFn
- * @template T
- * @type {(prevState: T) => T}
- */
-
-/**
  * @type {<T>(params: UseControllableStateParams<T>) => [T, (nextState: T | SetStateFn<T>) => void]}
  */
-function useControllableState({ prop, defaultProp, onChange = () => {} }) {
+
+export interface UseControllableStateParams<TProp> {
+  prop?: TProp | undefined;
+  defaultProp?: TProp | undefined;
+  onChange?: (state?: TProp) => void;
+}
+
+type SetStateFn<TState> = (prevState: TState) => TState;
+
+function useControllableState<TProp>({
+  prop,
+  defaultProp,
+  onChange = () => {},
+}: UseControllableStateParams<TProp>): [TProp | undefined, (nextState: TProp | SetStateFn<TProp>) => void] {
   const [uncontrolledProp, setUncontrolledProp] = useUncontrolledState({ defaultProp, onChange });
   const isControlled = prop !== undefined;
-  const propValue = typeof prop === 'function' ? prop(uncontrolledProp) : prop;
+  const propValue: TProp | undefined = typeof prop === 'function' ? prop(uncontrolledProp) : prop;
   const value = isControlled ? propValue : uncontrolledProp;
   const handleChange = useCallbackRef(onChange);
 
@@ -48,10 +50,7 @@ function useControllableState({ prop, defaultProp, onChange = () => {} }) {
   return [value, setValue];
 }
 
-/**
- * @type {<T>(params: Omit<UseControllableStateParams<T>, 'prop'>) => [T, (nextState: T | SetStateFn<T>) => void]}
- */
-function useUncontrolledState({ defaultProp, onChange }) {
+function useUncontrolledState<TProp>({ defaultProp, onChange }: Omit<UseControllableStateParams<TProp>, 'prop'>) {
   const uncontrolledState = React.useState(defaultProp);
   const [value] = uncontrolledState;
   const prevValueRef = React.useRef(value);

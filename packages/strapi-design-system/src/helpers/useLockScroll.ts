@@ -1,6 +1,9 @@
+/**
+ * TODO: This should be moved to the `hooks` folder
+ */
 import { useEffect } from 'react';
 
-const useLockScroll = (lockScroll) => {
+const useLockScroll = (lockScroll: boolean) => {
   useEffect(() => {
     if (lockScroll) {
       document.body.classList.add('lock-body-scroll');

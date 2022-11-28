@@ -10,7 +10,7 @@ describe('extendTheme', () => {
     try {
       extendTheme(null, null);
     } catch (e) {
-      error = e.message;
+      error = (e as Error).message;
     }
 
     expect(error).toMatchInlineSnapshot(`
@@ -44,7 +44,7 @@ describe('extendTheme', () => {
     try {
       extendTheme(lightTheme, null);
     } catch (e) {
-      error = e.message;
+      error = (e as Error).message;
     }
 
     expect(error).toMatchInlineSnapshot(`

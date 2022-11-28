@@ -25,7 +25,9 @@ export const getDefaultLocale = () => {
     return navigator.language;
   }
 
+  // @ts-expect-error this is not in the TS definition but is in the spec
   if (navigator.userLanguage) {
+    // @ts-expect-error this is not in the TS definition but is in the spec
     return navigator.userLanguage;
   }
 

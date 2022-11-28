@@ -1,10 +1,13 @@
+/**
+ * TODO: This should be moved to the `hooks` folder
+ */
 import { useRef, useState, useEffect } from 'react';
 
-export const useElementOnScreen = (options) => {
-  const containerRef = useRef(null);
+export const useElementOnScreen = (options?: IntersectionObserverInit) => {
+  const containerRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(true);
 
-  const callback = ([entry]) => {
+  const callback: IntersectionObserverCallback = ([entry]) => {
     setIsVisible(entry.isIntersecting);
   };
 
