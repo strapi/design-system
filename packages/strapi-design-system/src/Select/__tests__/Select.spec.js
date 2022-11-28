@@ -18,6 +18,7 @@ describe('Select', () => {
           onChange={() => {}}
           disabled={false}
           startIcon={<span>An icon</span>}
+          selectButtonTitle="Carret Down Button"
         >
           <Option value="pizza">Pizza</Option>
           <Option value="hamburger">Hamburger</Option>
@@ -337,6 +338,7 @@ describe('Select', () => {
                     aria-hidden="true"
                     class="c8 c11 c12"
                     tabindex="-1"
+                    title="Carret Down Button"
                     type="button"
                   >
                     <svg
@@ -475,6 +477,7 @@ describe('Select', () => {
           value={['pizza', 'hamburger']}
           onChange={() => {}}
           disabled={false}
+          selectButtonTitle="Carret Down Button"
           multi
         >
           <Option value="pizza">Pizza</Option>
@@ -826,6 +829,7 @@ describe('Select', () => {
                     aria-hidden="true"
                     class="c11 c12 c13"
                     tabindex="-1"
+                    title="Carret Down Button"
                     type="button"
                   >
                     <svg
@@ -1002,6 +1006,7 @@ describe('Select', () => {
               onChange={() => {}}
               disabled={false}
               withTags
+              selectButtonTitle="Carret Down Button"
             >
               <Option value="pizza">Pizza</Option>
               <Option value="hamburger">Hamburger</Option>

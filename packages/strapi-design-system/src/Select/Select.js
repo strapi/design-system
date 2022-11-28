@@ -41,6 +41,7 @@ export const Select = ({
   onReachEnd,
   multi,
   required,
+  selectButtonTitle,
   size,
   startIcon,
   withTags,
@@ -53,10 +54,11 @@ export const Select = ({
 
   const labelId = `${generatedId}-label`;
   const contentId = `${generatedId}-content`;
+  const hasStringError = typeof error === 'string';
 
   let ariaDescribedBy;
 
-  if (error) {
+  if (hasStringError) {
     ariaDescribedBy = `${generatedId}-error`;
   } else if (hint) {
     ariaDescribedBy = `${generatedId}-hint`;
@@ -159,7 +161,7 @@ export const Select = ({
 
   return (
     <Field hint={hint} error={error} id={generatedId}>
-      <Stack spacing={label || hint || error ? 1 : 0}>
+      <Stack spacing={label || hint || hasStringError ? 1 : 0}>
         {label && (
           <FieldLabel required={required} as="span" id={labelId} action={labelAction}>
             {label}
@@ -220,6 +222,7 @@ export const Select = ({
                   onClick={handleClear}
                   aria-label={clearLabel}
                   aria-disabled={disabled}
+                  title={clearLabel}
                 >
                   <Cross />
                 </IconBox>
@@ -233,6 +236,7 @@ export const Select = ({
                 onMouseDown={handleMouseDown}
                 tabIndex={-1}
                 disabled={disabled}
+                title={selectButtonTitle}
               >
                 <CarretDown />
               </CaretBox>
@@ -286,6 +290,7 @@ Select.defaultProps = {
   error: undefined,
   placeholder: 'Select...',
   required: false,
+  selectButtonTitle: 'Carret Down Button',
   size: 'M',
   startIcon: undefined,
   withTags: false,
@@ -297,7 +302,7 @@ Select.propTypes = {
   clearLabel: PropTypes.string,
   customizeContent: PropTypes.func,
   disabled: PropTypes.bool,
-  error: PropTypes.string,
+  error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   hint: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   label: PropTypes.string,
@@ -308,6 +313,7 @@ Select.propTypes = {
   onReachEnd: PropTypes.func,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
+  selectButtonTitle: PropTypes.string,
   size: PropTypes.oneOf(Object.keys(sizes.input)),
   startIcon: PropTypes.element,
   value: PropTypes.oneOfType([
