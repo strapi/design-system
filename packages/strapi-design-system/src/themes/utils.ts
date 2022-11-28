@@ -1,10 +1,13 @@
-export const getThemeSize = (type) => {
-  return ({ theme, size }) => theme.sizes[type][size];
+import { DefaultTheme, ThemeSizes } from 'styled-components';
+
+export const getThemeSize = <TType extends keyof ThemeSizes>(type: TType) => {
+  return ({ theme, size }: { theme: DefaultTheme; size: keyof DefaultTheme['sizes'][TType] }) =>
+    theme.sizes[type][size];
 };
 
 export const inputFocusStyle =
   (rootElement = '&') =>
-  ({ theme, hasError }) =>
+  ({ theme, hasError }: { theme: DefaultTheme; hasError: boolean }) =>
     `
       outline: none;
       box-shadow: 0;
@@ -17,7 +20,7 @@ export const inputFocusStyle =
       }
     `;
 
-export const buttonFocusStyle = ({ theme }) => `
+export const buttonFocusStyle = ({ theme }: { theme: DefaultTheme }) => `
   position: relative;
   outline: none;
   
