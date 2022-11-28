@@ -25,7 +25,9 @@
     "react/jsx-no-useless-fragment": "warn",
     "react/no-unstable-nested-components": "warn",
     "no-unused-vars": ["error", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }],
-    "no-console": ["error", { "allow": ["warn", "error"] }]
+    "no-console": ["error", { "allow": ["warn", "error"] }],
+    // TODO: revert this after TS migration
+    "import/extensions": "off"
   },
   "overrides": [
     {
