@@ -10,7 +10,7 @@ export const RadioGroup = ({ children, labelledBy, onChange, value, size, name, 
     if (!value) {
       setTabIndexOnFirstItem(radioGroupRef.current, `[name="${name}"]`);
     }
-  }, [value]);
+  }, [value, name]);
 
   return (
     <RadioContext.Provider value={{ onChange, selected: value, name, size }}>

@@ -46,7 +46,7 @@ const crumbType = PropTypes.shape({ type: PropTypes.oneOf([Crumb]) });
 export const Breadcrumbs = ({ children, label, ...props }) => (
   <Flex {...props}>
     <VisuallyHidden>{label}</VisuallyHidden>
-    <ol aria-hidden={true}>{children}</ol>
+    <ol aria-hidden>{children}</ol>
   </Flex>
 );
 

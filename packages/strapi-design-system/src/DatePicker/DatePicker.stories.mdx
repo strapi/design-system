@@ -22,13 +22,15 @@ Date pickers help users selecting a specific date from a calendar. They can be a
 ## Imports
 
 ```js
-import { DatePicker } from '@strapi/design-system/DatePicker';
+import { DatePicker } from '@strapi/design-system';
 ```
 
 ## Usage
 
-- A Date picker is used to select an unique date. It is not possible to select a date range. It is not possible to write a date from the keyboard.
-- When the Date picker is activated, it selects today's date. However, a Date picker can have a null value via the Clear feature.
+- A Date picker is used to select an unique date. It is not possible to select a date range. It is not possible to write
+  a date from the keyboard.
+- When the Date picker is activated, it selects today's date. However, a Date picker can have a null value via the Clear
+  feature.
 
 <Canvas>
   <Story name="base">
@@ -41,7 +43,7 @@ import { DatePicker } from '@strapi/design-system/DatePicker';
             selectedDate={date}
             label="Date picker"
             name="datepicker"
-            clearLabel={'Clear the datepicker'}
+            clearLabel="Clear the datepicker"
             onClear={() => setDate(undefined)}
             selectedDateLabel={(formattedDate) => `Date picker, current is ${formattedDate}`}
           />
@@ -72,7 +74,7 @@ TODO
             label="Date picker"
             name="datepicker"
             size="S"
-            clearLabel={'Clear the datepicker'}
+            clearLabel="Clear the datepicker"
             onClear={() => setDate(undefined)}
             selectedDateLabel={(formattedDate) => `Date picker, current is ${formattedDate}`}
           />
@@ -100,7 +102,7 @@ TODO
             selectedDate={date}
             label="Date picker"
             name="datepicker"
-            clearLabel={'Clear the datepicker'}
+            clearLabel="Clear the datepicker"
             onClear={() => setDate(undefined)}
             selectedDateLabel={(formattedDate) => `Date picker, current is ${formattedDate}`}
             disabled
@@ -130,7 +132,7 @@ By passing in `minDate` or `maxDate` it is possible to define the range of years
           selectedDate={date}
           label="Date picker"
           name="datepicker"
-          clearLabel={'Clear the datepicker'}
+          clearLabel="Clear the datepicker"
           onClear={() => setDate(undefined)}
           placeholder="03/01/1970"
           selectedDateLabel={(formattedDate) => `Date picker, current is ${formattedDate}`}
@@ -154,7 +156,7 @@ By passing in `minDate` or `maxDate` it is possible to define the range of years
           selectedDate={date}
           label="Date picker"
           name="datepicker"
-          clearLabel={'Clear the datepicker'}
+          clearLabel="Clear the datepicker"
           onClear={() => setDate(undefined)}
           placeholder="03/01/1970"
           locale="de"

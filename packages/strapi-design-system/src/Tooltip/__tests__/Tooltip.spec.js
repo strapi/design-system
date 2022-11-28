@@ -13,7 +13,7 @@ describe('Tooltip', () => {
     render(
       <ThemeProvider theme={lightTheme}>
         <Tooltip description="Content of the tooltip fefe">
-          <button>Show tooltip</button>
+          <button type="button">Show tooltip</button>
         </Tooltip>
       </ThemeProvider>,
     );
@@ -56,6 +56,7 @@ describe('Tooltip', () => {
             <button
               aria-describedby="tooltip-123"
               tabindex="0"
+              type="button"
             >
               Show tooltip
             </button>
@@ -106,7 +107,7 @@ describe('Tooltip', () => {
     render(
       <ThemeProvider theme={lightTheme}>
         <Tooltip description="Content of the tooltip fefe">
-          <button>Show tooltip</button>
+          <button type="button">Show tooltip</button>
         </Tooltip>
       </ThemeProvider>,
     );
@@ -151,6 +152,7 @@ describe('Tooltip', () => {
             <button
               aria-describedby="tooltip-123"
               tabindex="0"
+              type="button"
             >
               Show tooltip
             </button>
@@ -208,7 +210,7 @@ describe('Tooltip', () => {
     render(
       <ThemeProvider theme={lightTheme}>
         <Tooltip label="Content of the tooltip fefe">
-          <button>+</button>
+          <button type="button">+</button>
         </Tooltip>
       </ThemeProvider>,
     );
@@ -253,6 +255,7 @@ describe('Tooltip', () => {
             <button
               aria-labelledby="tooltip-123"
               tabindex="0"
+              type="button"
             >
               +
             </button>

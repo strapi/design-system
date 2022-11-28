@@ -2,9 +2,9 @@
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { ArgsTable } from '@storybook/addon-docs';
+import Strapi from '@strapi/icons/Strapi';
 import { Link } from './Link';
 import { Stack } from '../../Stack';
-import Strapi from '@strapi/icons/Strapi';
 
 <Meta title="Design System/Components/v2/Link" component={Link} />
 
@@ -25,12 +25,13 @@ Links are used to send users to another page or an anchor. They are used for ext
 ## Imports
 
 ```js
-import { Link } from '@strapi/design-system/v2/Link';
+import { Link } from '@strapi/design-system/v2';
 ```
 
 ## Usage
 
-Links are used for external navigation. Moreover, they should be associated with an icon to indicate its external navigation purpose.
+Links are used for external navigation. Moreover, they should be associated with an icon to indicate its external
+navigation purpose.
 
 ### Base
 
@@ -83,11 +84,11 @@ Display icons on the left or right side.
 
 ### Usage with other routing libraries
 
-To use the Link component with a routing library (e.g. react-router-dom), you'll need to pass the `NavLink` component to the `as` prop in order to replace the default HTML anchor `<a />`.
-You'll now be able to pass all `NavLink` props.
+To use the Link component with a routing library (e.g. react-router-dom), you'll need to pass the `NavLink` component to
+the `as` prop in order to replace the default HTML anchor `<a />`. You'll now be able to pass all `NavLink` props.
 
 ```jsx
-import { Link } from '@strapi/design-system/Link';
+import { Link } from '@strapi/design-system';
 import { NavLink } from 'react-router-dom';
 
 <Link as={NavLink} to="/home">
@@ -100,7 +101,7 @@ import { NavLink } from 'react-router-dom';
 For NextJS, you'll need to wrap the `Link` with the `NextLink` component
 
 ```jsx
-import { Link } from '@strapi/design-system/Link';
+import { Link } from '@strapi/design-system';
 import NextLink from 'next/link';
 
 <NextLink href="/home" passHref>

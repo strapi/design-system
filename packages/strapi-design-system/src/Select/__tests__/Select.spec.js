@@ -14,15 +14,15 @@ describe('Select', () => {
           placeholder="Your example"
           hint="Description line"
           clearLabel="Clear the meal"
-          value={'pizza'}
+          value="pizza"
           onChange={() => {}}
           disabled={false}
           startIcon={<span>An icon</span>}
           selectButtonTitle="Carret Down Button"
         >
-          <Option value={'pizza'}>Pizza</Option>
-          <Option value={'hamburger'}>Hamburger</Option>
-          <Option value={'bagel'}>Bagel</Option>
+          <Option value="pizza">Pizza</Option>
+          <Option value="hamburger">Hamburger</Option>
+          <Option value="bagel">Bagel</Option>
         </Select>
       </ThemeProvider>,
       { container: document.body },
@@ -480,9 +480,9 @@ describe('Select', () => {
           selectButtonTitle="Carret Down Button"
           multi
         >
-          <Option value={'pizza'}>Pizza</Option>
-          <Option value={'hamburger'}>Hamburger</Option>
-          <Option value={'bagel'}>Bagel</Option>
+          <Option value="pizza">Pizza</Option>
+          <Option value="hamburger">Hamburger</Option>
+          <Option value="bagel">Bagel</Option>
         </Select>
       </ThemeProvider>,
       { container: document.body },
@@ -1008,9 +1008,9 @@ describe('Select', () => {
               withTags
               selectButtonTitle="Carret Down Button"
             >
-              <Option value={'pizza'}>Pizza</Option>
-              <Option value={'hamburger'}>Hamburger</Option>
-              <Option value={'bagel'}>Bagel</Option>
+              <Option value="pizza">Pizza</Option>
+              <Option value="hamburger">Hamburger</Option>
+              <Option value="bagel">Bagel</Option>
             </Select>
           </ThemeProvider>,
         ),

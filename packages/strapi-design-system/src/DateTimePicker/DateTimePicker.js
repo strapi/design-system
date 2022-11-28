@@ -55,6 +55,7 @@ export const DateTimePicker = ({
     const dateToSet = dateValue ? new Date(dateValue) : new Date();
     dateToSet.setHours(e.split(':')[0]);
     dateToSet.setMinutes(e.split(':')[1]);
+
     if (!dateValue) {
       setDateValue(dateToSet);
     }
@@ -97,7 +98,7 @@ export const DateTimePicker = ({
       setDateValue(undefined);
       setTimeValue(undefined);
     }
-  }, [value]);
+  }, [value, dateValue]);
 
   const generatedId = useId('datetime-label', props?.id);
   const generatedFieldErrorId = useId('datetimepicker');

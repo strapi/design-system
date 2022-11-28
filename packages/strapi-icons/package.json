@@ -5,6 +5,7 @@
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
+  "sideEffects": false,
   "exports": {
     ".": {
       "import": "./dist/index.js",
@@ -15,7 +16,6 @@
   "files": [
     "dist"
   ],
-  "sideEffects": false,
   "devDependencies": {
     "@svgr/cli": "^5.5.0",
     "prettier": "^2.7.1",

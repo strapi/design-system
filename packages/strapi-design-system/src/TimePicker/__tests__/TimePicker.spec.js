@@ -9,15 +9,15 @@ describe('TimePicker', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
         <TimePicker
-          label={'Choose a time'}
+          label="Choose a time"
           disabled={false}
           error={undefined}
-          hint={'Description line'}
+          hint="Description line"
           onClear={() => {}}
           onChange={() => {}}
-          value={'11:32:45'}
-          clearLabel={'Clear the selected time picker value'}
-          selectButtonTitle={'Select time button'}
+          value="11:32:45"
+          clearLabel="Clear the selected time picker value"
+          selectButtonTitle="Select time button"
         />
       </ThemeProvider>,
       { container: document.body },

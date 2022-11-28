@@ -12,21 +12,24 @@ import { Typography } from '../Typography';
 
 A grid system helps the content to follow a logical order and increase readability.
 
-**Baseline**
-The Strapi type stack specifies 14px/0.875rem for the base font size, which produces an 8px x-height. The x-height is halved to produce a 4px baseline.
-This baseline convention naturally flows on to the rest of the grid system, which includes icons, components, and layout dimensions. Always try to align objects on the 8px grid, but where necessary use good judgement to fine tune your designs to 4px. The 4px baseline is there to allow more flexibility for line heights and smaller adjustments.
+**Baseline** The Strapi type stack specifies 14px/0.875rem for the base font size, which produces an 8px x-height. The
+x-height is halved to produce a 4px baseline. This baseline convention naturally flows on to the rest of the grid
+system, which includes icons, components, and layout dimensions. Always try to align objects on the 8px grid, but where
+necessary use good judgement to fine tune your designs to 4px. The 4px baseline is there to allow more flexibility for
+line heights and smaller adjustments.
 
 [View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Grid)
 
 ## Imports
 
 ```js
-import { Grid, GridItem } from '@strapi/design-system/Grid';
+import { Grid, GridItem } from '@strapi/design-system';
 ```
 
 ## Usage
 
-The component allows to create a Grid on the screen using the CSS grid feature. This component extends the `<Box />` one and can receive the same props.
+The component allows to create a Grid on the screen using the CSS grid feature. This component extends the `<Box />` one
+and can receive the same props.
 
 <Canvas>
   <Story name="base">
@@ -67,7 +70,7 @@ A more complex one
 
 <Canvas>
   <Story name="complex grid">
-    <Grid gap={{ desktop: 5, tablet: 2, mobile: 1 }} background={'primary200'}>
+    <Grid gap={{ desktop: 5, tablet: 2, mobile: 1 }} background="primary200">
       <GridItem background="neutral100" padding={1} col={6} s={12}>
         <Typography>Some box 1</Typography>
       </GridItem>
@@ -101,7 +104,9 @@ A more complex one
 
 ## Props
 
-The Grid and GridItem components wraps all their children in the (Box)[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base] component, so you can pass all Box props to change their style.
+The Grid and GridItem components wraps all their children in the
+(Box)[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base]
+component, so you can pass all Box props to change their style.
 
 ### Grid Props
 

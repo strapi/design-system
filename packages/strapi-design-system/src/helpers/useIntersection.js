@@ -1,6 +1,9 @@
 import { useEffect } from 'react';
+import { useCallbackRef } from '@radix-ui/react-use-callback-ref';
 
 export const useIntersection = (scrollableAreaRef, callback, { selectorToWatch, skipWhen = false }) => {
+  const handleIntersection = useCallbackRef(callback);
+
   useEffect(() => {
     if (skipWhen) return;
 
@@ -13,7 +16,7 @@ export const useIntersection = (scrollableAreaRef, callback, { selectorToWatch, 
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           if (scrollableAreaRef.current.scrollHeight > scrollableAreaRef.current.clientHeight) {
-            callback(entry);
+            handleIntersection(entry);
           }
         }
       });
@@ -24,8 +27,9 @@ export const useIntersection = (scrollableAreaRef, callback, { selectorToWatch, 
 
     observer.observe(target);
 
+    // eslint-disable-next-line consistent-return
     return () => {
       observer.disconnect();
     };
-  }, [skipWhen, callback, selectorToWatch]);
+  }, [skipWhen, handleIntersection, selectorToWatch, scrollableAreaRef]);
 };

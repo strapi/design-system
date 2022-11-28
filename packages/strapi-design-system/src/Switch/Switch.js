@@ -69,7 +69,7 @@ export const Switch = React.forwardRef(
           </SwitchContent>
 
           {visibleLabels && (
-            <Box as="span" aria-hidden={true} paddingLeft={2} color={selected ? 'success600' : 'danger600'}>
+            <Box as="span" aria-hidden paddingLeft={2} color={selected ? 'success600' : 'danger600'}>
               {selected ? onLabel : offLabel}
             </Box>
           )}

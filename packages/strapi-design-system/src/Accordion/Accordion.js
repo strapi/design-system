@@ -101,7 +101,6 @@ Accordion.defaultProps = {
   size: 'M',
   variant: 'primary',
   onToggle: undefined,
-  toggle: undefined,
 };
 
 Accordion.propTypes = {

@@ -43,7 +43,7 @@ export const TimePicker = ({
     min = 0;
 
     while (min < 60) {
-      times.push(`${i < 10 ? '0' + i : i}:${min < 10 ? '0' + min : min}`);
+      times.push(`${i < 10 ? `0${i}` : i}:${min < 10 ? `0${min}` : min}`);
       min += step;
     }
   }
@@ -56,10 +56,12 @@ export const TimePicker = ({
 
     const hours = times.reduce((prev, curr) => {
       const hours = curr.split(':')[0];
+
       return Math.abs(hours - valueHours) < Math.abs(prev - valueHours) ? hours : prev;
     }, times[0].split(':')[0]);
     const minutes = times.reduce((prev, curr) => {
       const minutes = curr.split(':')[1];
+
       return Math.abs(minutes - valueMinutes) < Math.abs(prev - valueMinutes) ? minutes : prev;
     }, times[0].split(':')[1]);
 
@@ -104,6 +106,7 @@ TimePicker.defaultProps = {
   label: undefined,
   onClear: undefined,
   size: 'M',
+  selectButtonTitle: '',
   step: 15,
   value: undefined,
 };

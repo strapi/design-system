@@ -56,6 +56,7 @@ export const SubNavLinkSection = ({ label, children, id }) => {
       {isOpen && (
         <ul id={listId}>
           {Children.map(children, (child, index) => {
+            // eslint-disable-next-line react/no-array-index-key
             return <li key={index}>{child}</li>;
           })}
         </ul>
@@ -65,6 +66,7 @@ export const SubNavLinkSection = ({ label, children, id }) => {
 };
 
 SubNavLinkSection.defaultProps = {
+  children: undefined,
   id: undefined,
 };
 

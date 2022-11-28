@@ -66,7 +66,7 @@ export const Searchbar = forwardRef(({ name, size, children, value, onClear, cle
           value={value}
           startAction={
             <SearchIconWrapper>
-              <Search aria-hidden={true} />
+              <Search aria-hidden />
             </SearchIconWrapper>
           }
           size={size}

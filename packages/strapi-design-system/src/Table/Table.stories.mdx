@@ -24,7 +24,8 @@ import { TFooter } from './TFooter';
 
 # Table
 
-Tables are used to gather and display similar types of data together. They are composed of a header, rows, and columns. Several type of data can be included within tables such as: plain text, Select, Avatars, Icon Buttons, ...
+Tables are used to gather and display similar types of data together. They are composed of a header, rows, and columns.
+Several type of data can be included within tables such as: plain text, Select, Avatars, Icon Buttons, ...
 
 **Best practices**
 
@@ -42,12 +43,13 @@ Tables are used to gather and display similar types of data together. They are c
 ## Imports
 
 ```js
-import { Table, Thead, Tbody, Tr, Td, Th } from '@strapi/design-system/Table';
+import { Table, Thead, Tbody, Tr, Td, Th } from '@strapi/design-system';
 ```
 
 ## Usage
 
-Tables are used to gather and display similar types of data together. In the Content section, a reorganization of the columns is possible. Moreover, Columns can be sorted.
+Tables are used to gather and display similar types of data together. In the Content section, a reorganization of the
+columns is possible. Moreover, Columns can be sorted.
 
 ### Default Table
 
@@ -123,6 +125,9 @@ The default Table.
                   </Td>
                   <Td>
                     <Flex>
+                      <a href="https://www.google.com" target="_blank" rel="noreferrer">
+                        G
+                      </a>
                       <IconButton onClick={() => console.log('edit')} label="Edit" noBorder icon={<Pencil />} />
                       <Box paddingLeft={1}>
                         <IconButton onClick={() => console.log('delete')} label="Delete" noBorder icon={<Trash />} />
@@ -317,7 +322,9 @@ Table with actions.
 
 ## Table Props
 
-The Table component wraps all its children in the (Box)[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base] component, so you can pass all Box props to change its style.
+The Table component wraps all its children in the
+(Box)[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base]
+component, so you can pass all Box props to change its style.
 
 <ArgsTable of={Table} />
 

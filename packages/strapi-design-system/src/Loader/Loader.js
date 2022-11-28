@@ -23,7 +23,7 @@ export const Loader = forwardRef(({ children, small, ...props }, ref) => {
   return (
     <div role="alert" aria-live="assertive" ref={ref} {...props}>
       <VisuallyHidden>{children}</VisuallyHidden>
-      <LoaderImg src={loaderSvg} aria-hidden={true} small={small} />
+      <LoaderImg src={loaderSvg} aria-hidden small={small} />
     </div>
   );
 });

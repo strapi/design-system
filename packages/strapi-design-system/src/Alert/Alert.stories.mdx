@@ -11,13 +11,15 @@ import { Link } from '../Link';
 
 # Alert
 
-Alerts are messages displayed over the content, at the top of the screen to give information to users. They have multiple purposes and provide context.
+Alerts are messages displayed over the content, at the top of the screen to give information to users. They have
+multiple purposes and provide context.
 
 **Best practices**
 
 - The alert should be relevant to the page.
 - Address a single piece of information or required action.
-- Content of the alert should be concise and straightforward. Provide additional information on how to resolve the issue if needed.
+- Content of the alert should be concise and straightforward. Provide additional information on how to resolve the issue
+  if needed.
 - Alerts should be used thoughtfully and occasionally not to overwhelmed the users.
 - Should not be used for marketing purposes.
 
@@ -26,12 +28,13 @@ Alerts are messages displayed over the content, at the top of the screen to give
 ## Imports
 
 ```js
-import { Alert } from '@strapi/design-system/Alert';
+import { Alert } from '@strapi/design-system';
 ```
 
 ## Usage
 
-The most common button component used in the interface. Alerts have a title, a description, and two sizes. This default one is aimed to give a small piece of text.
+The most common button component used in the interface. Alerts have a title, a description, and two sizes. This default
+one is aimed to give a small piece of text.
 
 <Canvas withSource="open">
   <Story
@@ -54,8 +57,8 @@ The most common button component used in the interface. Alerts have a title, a d
 
 ### Alert variants
 
-Use the variant prop to change the visual style of the Button.
-You can set the value to `default`, `success`, or `danger`.
+Use the variant prop to change the visual style of the Button. You can set the value to `default`, `success`, or
+`danger`.
 
 <Canvas withSource="open">
   <Story
@@ -92,7 +95,8 @@ You can set the value to `default`, `success`, or `danger`.
 
 ### Alert with action
 
-Alerts can contain an action. Via a Link component, they mostly encourage the user to be redirected to another page with more information. The wording of the action should be clear and concise.
+Alerts can contain an action. Via a Link component, they mostly encourage the user to be redirected to another page with
+more information. The wording of the action should be clear and concise.
 
 <Canvas withSource="open">
   <Story
@@ -130,6 +134,8 @@ Alerts can contain an action. Via a Link component, they mostly encourage the us
 
 ## Props
 
-The Alert component wraps all its children in the (Box)[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base] component, so you can pass all Box props to change its style.
+The Alert component wraps all its children in the
+(Box)[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base]
+component, so you can pass all Box props to change its style.
 
 <ArgsTable of={Alert} />

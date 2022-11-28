@@ -56,6 +56,7 @@ export const SubNavLinkSection = ({ label, children, id }) => {
       {isOpen && (
         <ul id={listId}>
           {Children.map(children, (child, index) => {
+            // eslint-disable-next-line react/no-array-index-key
             return <li key={index}>{child}</li>;
           })}
         </ul>
@@ -69,7 +70,7 @@ SubNavLinkSection.defaultProps = {
 };
 
 SubNavLinkSection.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
   id: PropTypes.string,
   label: PropTypes.string.isRequired,
 };

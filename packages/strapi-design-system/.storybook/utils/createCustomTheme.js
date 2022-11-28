@@ -1,10 +1,6 @@
 import { create } from '@storybook/theming/create';
 
-export const createCustomTheme = ({
-  theme,
-  options = {},
-  asStorybookTheme = true,
-}) => {
+export const createCustomTheme = ({ theme, options = {}, asStorybookTheme = true }) => {
   const themeValue = {
     // UI
     appBg: theme.colors.neutral100,
@@ -23,4 +19,4 @@ export const createCustomTheme = ({
   };
 
   return asStorybookTheme ? create(themeValue) : themeValue;
-}
+};

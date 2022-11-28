@@ -28,7 +28,8 @@ import { Tooltip } from '../Tooltip';
 
 # Accordion
 
-Accordions are collapsable blocks that vertically hide a stack of content. Clicking on the block reveals the associated content.
+Accordions are collapsable blocks that vertically hide a stack of content. Clicking on the block reveals the associated
+content.
 
 **Best practices**
 
@@ -45,7 +46,7 @@ Accordions are collapsable blocks that vertically hide a stack of content. Click
 ## Imports
 
 ```js
-import { Accordion, AccordionToggle, AccordionContent, AccordionGroup } from '@strapi/design-system/Accordion';
+import { Accordion, AccordionToggle, AccordionContent, AccordionGroup } from '@strapi/design-system';
 ```
 
 ## Usage
@@ -136,7 +137,7 @@ import { Accordion, AccordionToggle, AccordionContent, AccordionGroup } from '@s
               error="The components contain error(s)"
               footer={
                 <Flex justifyContent="center" height="48px" background="neutral150">
-                  <TextButton disabled={true} startIcon={<Plus />}>
+                  <TextButton disabled startIcon={<Plus />}>
                     Add an entry
                   </TextButton>
                 </Flex>
@@ -152,7 +153,7 @@ import { Accordion, AccordionToggle, AccordionContent, AccordionGroup } from '@s
                       background: 'transparent',
                     }}
                   >
-                    <Information aria-hidden={true} />
+                    <Information aria-hidden />
                   </button>
                 </Tooltip>
               }
@@ -165,7 +166,7 @@ import { Accordion, AccordionToggle, AccordionContent, AccordionGroup } from '@s
                 size="S"
               >
                 <AccordionToggle
-                  startIcon={<User aria-hidden={true} />}
+                  startIcon={<User aria-hidden />}
                   action={
                     <Stack horizontal spacing={0}>
                       <IconButton noBorder onClick={() => console.log('edit')} label="Edit" icon={<Pencil />} />
@@ -204,11 +205,7 @@ import { Accordion, AccordionToggle, AccordionContent, AccordionGroup } from '@s
                 </AccordionContent>
               </Accordion>
               <Accordion expanded={expandedID === 'acc-4'} onToggle={handleToggle('acc-4')} id="acc-4" size="S">
-                <AccordionToggle
-                  startIcon={<User aria-hidden={true} />}
-                  title="User informations"
-                  togglePosition="left"
-                />
+                <AccordionToggle startIcon={<User aria-hidden />} title="User informations" togglePosition="left" />
                 <AccordionContent>
                   <Box padding={3}>
                     <Typography>My name is John Duff</Typography>
@@ -225,7 +222,8 @@ import { Accordion, AccordionToggle, AccordionContent, AccordionGroup } from '@s
 
 ## Accordion keyboard navigable
 
-The accordion component has two main states: collapsed and expanded. By default it has a collapsed state. If Call-to-actions are required, use them on the right side and use chevron icon on the left one.
+The accordion component has two main states: collapsed and expanded. By default it has a collapsed state. If
+Call-to-actions are required, use them on the right side and use chevron icon on the left one.
 
 <Canvas>
   <Story name="keyboard navigable">
@@ -300,7 +298,7 @@ The Accordion component can also be open by default using the parameter `expande
 
 <Canvas>
   <Story name="expanded">
-    <Accordion expanded={true} onToggle={() => {}} id="acc-1">
+    <Accordion expanded onToggle={() => {}} id="acc-1">
       <AccordionToggle
         title="User informations"
         description="The following contains information about the current user"

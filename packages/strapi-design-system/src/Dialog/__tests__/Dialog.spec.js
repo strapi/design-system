@@ -11,7 +11,7 @@ describe('Dialog', () => {
   it('should render Dialog with props', () => {
     const { getByText } = render(
       <ThemeProvider theme={lightTheme}>
-        <Dialog isOpen={true} onClose={jest.fn()} title="Confirmation" labelledBy="confirmation">
+        <Dialog isOpen onClose={jest.fn()} title="Confirmation" labelledBy="confirmation">
           <DialogBody>are you sure you want to delete this?</DialogBody>
           <DialogFooter
             startAction={<Button variant="tertiary">Cancel</Button>}

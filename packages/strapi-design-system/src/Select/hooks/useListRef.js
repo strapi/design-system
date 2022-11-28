@@ -11,6 +11,7 @@ export const useListRef = (expanded) => {
 
   useEffect(() => {
     if (!listRef.current) return;
+
     const lastSelected = listRef.current.querySelector('[aria-selected="true"]');
     const options = listRef.current.querySelectorAll('[role="option"]');
 
@@ -29,6 +30,8 @@ export const useListRef = (expanded) => {
         changeDescendant(listRef.current, nextOption);
       }
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return listRef;

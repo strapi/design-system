@@ -11,6 +11,7 @@ export async function getFiles() {
 export async function getFileBySlug(slug) {
   const source = fs.readFileSync(path.join(root, 'data', 'pages', `${slug}.mdx`), 'utf8');
   const { content, data } = matter(source);
+
   return {
     content,
     data,
@@ -28,6 +29,7 @@ export async function getNavbarContent() {
       });
     }),
   );
+
   return navContent;
 }
 
@@ -35,6 +37,7 @@ async function createPagesArray(pages) {
   return await Promise.all(
     pages.map((pageFileName) => {
       const result = createPageObject(pageFileName);
+
       return result;
     }),
   );
@@ -43,6 +46,7 @@ async function createPagesArray(pages) {
 async function createPageObject(pageName) {
   const pagePath = `/${pageName}`;
   const { data } = await getFileBySlug(pageName);
+
   return {
     name: data.title,
     link: pagePath,

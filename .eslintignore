@@ -1,0 +1,6 @@
+.next
+node_modules
+dist
+packages/strapi-icons/src
+# for now
+website
