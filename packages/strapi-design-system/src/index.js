@@ -1,6 +1,3 @@
-/* eslint-disable import/export */
-// TODO: the import error will be fixed in a different PR
-
 export * from './Accordion';
 export * from './Alert';
 export * from './Avatar';
@@ -8,7 +5,7 @@ export * from './Badge';
 export * from './BaseButton';
 export * from './BaseCheckbox';
 export * from './BaseLink';
-export * from './BaseRadio';
+export { BaseRadio } from './BaseRadio';
 export * from './Box';
 export * from './Breadcrumbs';
 export * from './Button';
@@ -63,5 +60,4 @@ export * from './ToggleInput';
 export * from './Tooltip';
 export * from './Typography';
 export * from './VisuallyHidden';
-export * from './v2';
 export * from './themes';
