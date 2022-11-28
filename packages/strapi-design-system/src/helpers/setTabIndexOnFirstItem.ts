@@ -1,4 +1,4 @@
-export const setTabIndexOnFirstItem = (node, selector) => {
+export const setTabIndexOnFirstItem = (node: HTMLElement, selector: string) => {
   const list = node.querySelectorAll(selector);
 
   if (list && list.length > 0) {
