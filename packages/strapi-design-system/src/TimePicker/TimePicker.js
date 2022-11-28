@@ -106,7 +106,7 @@ TimePicker.defaultProps = {
   label: undefined,
   onClear: undefined,
   size: 'M',
-  selectButtonTitle: '',
+  selectButtonTitle: undefined,
   step: 15,
   value: undefined,
 };
