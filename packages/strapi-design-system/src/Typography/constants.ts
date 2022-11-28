@@ -6,4 +6,4 @@ export const OMEGA = 'omega';
 export const PI = 'pi';
 export const SIGMA = 'sigma';
 
-export const TEXT_VARIANTS = [ALPHA, BETA, DELTA, EPSILON, OMEGA, PI, SIGMA];
+export const TEXT_VARIANTS = [ALPHA, BETA, DELTA, EPSILON, OMEGA, PI, SIGMA] as const;
