@@ -1,10 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import ChevronRight from '@strapi/icons/ChevronRight';
+import { ChevronRight } from '@strapi/icons';
+
 import { Typography } from '../Typography';
 import { Box } from '../Box';
-import { Flex } from '../Flex';
+import { Flex, FlexProps } from '../Flex';
 import { VisuallyHidden } from '../VisuallyHidden';
 
 const CrumbWrapper = styled(Flex)`
@@ -24,7 +23,11 @@ const CrumbWrapper = styled(Flex)`
   }
 `;
 
-export const Crumb = ({ children }) => {
+export interface CrumbProps {
+  children: React.ReactNode;
+}
+
+export const Crumb = ({ children }: CrumbProps) => {
   return (
     <CrumbWrapper inline as="li">
       <Typography variant="pi" textColor="neutral600">
@@ -38,12 +41,13 @@ export const Crumb = ({ children }) => {
 };
 
 Crumb.displayName = 'Crumb';
-Crumb.propTypes = {
-  children: PropTypes.node.isRequired,
-};
-const crumbType = PropTypes.shape({ type: PropTypes.oneOf([Crumb]) });
 
-export const Breadcrumbs = ({ children, label, ...props }) => (
+export interface BreadcrumbsProps extends FlexProps {
+  children: React.ReactNode;
+  label: string;
+}
+
+export const Breadcrumbs = ({ children, label, ...props }: BreadcrumbsProps) => (
   <Flex {...props}>
     <VisuallyHidden>{label}</VisuallyHidden>
     <ol aria-hidden>{children}</ol>
@@ -51,8 +55,3 @@ export const Breadcrumbs = ({ children, label, ...props }) => (
 );
 
 Breadcrumbs.displayName = 'Breadcrumbs';
-
-Breadcrumbs.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.arrayOf(crumbType), crumbType]).isRequired,
-  label: PropTypes.string.isRequired,
-};
