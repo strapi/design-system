@@ -44,7 +44,7 @@ export * from './Flex';
 export * from './Searchbar';
 export * from './Select';
 export * from './SimpleMenu';
-export * from './Stack';
+export * from './Stack/index.ts';
 export * from './Status';
 export * from './SubNav';
 export * from './Switch';
