@@ -5,7 +5,7 @@ const A = styled.a`
   cursor: pointer;
 `;
 
-export interface BaseLinkProps {
+export interface BaseLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   disabled?: boolean;
   href?: string;
   isExternal?: boolean;

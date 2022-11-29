@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
+
 import { RadioContext } from './context';
 import { getRadioSize, getSelectedRadioSize, getSelectedRadioPosition } from './utils';
 
@@ -31,39 +31,37 @@ const RadioInput = styled.input`
   }
 
   &:disabled {
-    border: 1px solid ${({ theme }) => theme.colors.carbon300};
+    border: 1px solid ${({ theme }) => theme.colors.neutral300};
     background: ${({ theme }) => theme.colors.neutral200};
   }
 `;
 
-export const BaseRadio = React.forwardRef(({ value, disabled, ...props }, ref) => {
-  const { onChange, selected, name, size } = useContext(RadioContext);
-  const isSelected = selected === value;
+export interface BaseRadioProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  disabled?: boolean;
+  value: string;
+}
 
-  return (
-    <RadioInput
-      ref={ref}
-      type="radio"
-      name={name}
-      value={value}
-      tabIndex={isSelected ? 0 : -1}
-      aria-checked={isSelected}
-      checked={isSelected}
-      disabled={disabled}
-      size={size}
-      onChange={onChange}
-      {...props}
-    />
-  );
-});
+export const BaseRadio = React.forwardRef<HTMLInputElement, BaseRadioProps>(
+  ({ value, disabled = false, ...props }, ref) => {
+    const { onChange, selected, name, size } = useContext(RadioContext);
+    const isSelected = selected === value;
+
+    return (
+      <RadioInput
+        ref={ref}
+        type="radio"
+        name={name}
+        value={value}
+        tabIndex={isSelected ? 0 : -1}
+        aria-checked={isSelected}
+        checked={isSelected}
+        disabled={disabled}
+        size={size}
+        onChange={onChange}
+        {...props}
+      />
+    );
+  },
+);
 
 BaseRadio.displayName = 'Radio';
-
-BaseRadio.defaultProps = {
-  disabled: false,
-};
-
-BaseRadio.propTypes = {
-  disabled: PropTypes.bool,
-  value: PropTypes.string.isRequired,
-};
