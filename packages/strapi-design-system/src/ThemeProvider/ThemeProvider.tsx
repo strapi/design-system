@@ -1,6 +1,6 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
-import { ThemeProvider as StyledThemeProvider, createGlobalStyle } from 'styled-components';
+import { ThemeProvider as StyledThemeProvider, createGlobalStyle, DefaultTheme } from 'styled-components';
+
 import { LiveRegions } from '../LiveRegions/LiveRegions';
 
 const GlobalStyle = createGlobalStyle`
@@ -177,17 +177,19 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-export const ThemeProvider = ({ children, theme }) => {
+interface ThemeProviderProps {
+  children: React.ReactNode;
+  theme: DefaultTheme;
+}
+
+export const ThemeProvider = ({ children, theme }: ThemeProviderProps) => {
   return (
     <StyledThemeProvider theme={theme}>
-      <GlobalStyle />
-      {children}
-      <LiveRegions />
+      <>
+        <GlobalStyle />
+        {children}
+        <LiveRegions />
+      </>
     </StyledThemeProvider>
   );
-};
-
-ThemeProvider.propTypes = {
-  children: PropTypes.node.isRequired,
-  theme: PropTypes.object.isRequired,
 };
