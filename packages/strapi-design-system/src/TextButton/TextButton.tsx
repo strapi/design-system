@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react';
+import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { Loader } from '@strapi/icons';
 
@@ -44,14 +44,13 @@ const TextButtonWrapper = styled(Flex)`
   ${buttonFocusStyle}
 `;
 
-export type TextButtonProps = FlexProps &
-  React.ButtonHTMLAttributes<HTMLButtonElement> & {
-    disabled?: boolean;
-    endIcon?: React.ReactNode;
-    loading?: boolean;
-    onClick?: React.MouseEventHandler<HTMLButtonElement>;
-    startIcon?: React.ReactNode;
-  };
+export interface TextButtonProps extends FlexProps<HTMLButtonElement> {
+  disabled?: boolean;
+  endIcon?: React.ReactNode;
+  loading?: boolean;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  startIcon?: React.ReactNode;
+}
 
 export const TextButton = React.forwardRef<HTMLButtonElement, TextButtonProps>(
   ({ children, startIcon, endIcon, onClick, disabled = false, loading = false, ...props }, ref) => {
