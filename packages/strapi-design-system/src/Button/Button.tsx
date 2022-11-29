@@ -1,13 +1,13 @@
 import React from 'react';
-
-import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
-import Loader from '@strapi/icons/Loader';
+import { Loader } from '@strapi/icons';
+
 import { Typography } from '../Typography';
 import { Box } from '../Box';
+import { BaseButton, BaseButtonProps } from '../BaseButton';
+
 import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from './utils';
-import { VARIANTS, BUTTON_SIZES } from './constants';
-import { BaseButton } from '../BaseButton';
+import { BUTTON_SIZES, Variant, ButtonSizes, DEFAULT } from './constants';
 
 const rotation = keyframes`
   from {
@@ -27,7 +27,9 @@ const BoxFullHeight = styled(Box)`
   height: 100%;
 `;
 
-export const ButtonWrapper = styled(BaseButton)`
+type ButtonWrapperProps = Required<Pick<ButtonProps, 'size' | 'fullWidth' | 'variant'>>;
+
+export const ButtonWrapper = styled(BaseButton)<ButtonWrapperProps>`
   align-items: center;
   background-color: ${({ theme }) => theme.colors.buttonPrimary600};
   border: 1px solid ${({ theme }) => theme.colors.buttonPrimary600};
@@ -66,11 +68,35 @@ export const ButtonWrapper = styled(BaseButton)`
   `}
 `;
 
-export const Button = React.forwardRef(
-  ({ variant, startIcon, endIcon, disabled, children, onClick, size, loading, fullWidth, ...props }, ref) => {
+export interface ButtonProps extends BaseButtonProps {
+  endIcon?: React.ReactNode;
+  fullWidth?: boolean;
+  loading?: boolean;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  size?: ButtonSizes;
+  startIcon?: React.ReactNode;
+  variant?: Variant;
+}
+
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    {
+      variant = DEFAULT,
+      startIcon,
+      endIcon,
+      disabled = false,
+      children,
+      onClick,
+      size = BUTTON_SIZES[0],
+      loading = false,
+      fullWidth = false,
+      ...props
+    },
+    ref,
+  ) => {
     const isDisabled = disabled || loading;
 
-    const handleClick = (e) => {
+    const handleClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
       if (!isDisabled && onClick) {
         onClick(e);
       }
@@ -114,26 +140,3 @@ export const Button = React.forwardRef(
 );
 
 Button.displayName = 'Button';
-
-Button.defaultProps = {
-  disabled: false,
-  endIcon: undefined,
-  fullWidth: false,
-  loading: false,
-  onClick: undefined,
-  size: 'S',
-  startIcon: undefined,
-  variant: 'default',
-};
-
-Button.propTypes = {
-  children: PropTypes.node.isRequired,
-  disabled: PropTypes.bool,
-  endIcon: PropTypes.element,
-  fullWidth: PropTypes.bool,
-  loading: PropTypes.bool,
-  onClick: PropTypes.func,
-  size: PropTypes.oneOf(BUTTON_SIZES),
-  startIcon: PropTypes.element,
-  variant: PropTypes.oneOf(VARIANTS),
-};

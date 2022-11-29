@@ -1,3 +1,4 @@
+import { DefaultTheme } from 'styled-components';
 import { Typography } from '../Typography';
 import {
   LIGHT_VARIANTS,
@@ -10,23 +11,23 @@ import {
   SUCCESS,
   DANGER_LIGHT,
   SUCCESS_LIGHT,
+  Variant,
 } from './constants';
 
-export const getVariantColorName = (variant) => {
-  if (LIGHT_VARIANTS.includes(variant)) {
-    return variant.substring(0, variant.lastIndexOf('-'));
-  }
-  if (variant === TERTIARY) {
+export const getVariantColorName = (variant: Variant): 'success' | 'danger' | 'neutral' | 'primary' => {
+  if (variant === SUCCESS_LIGHT || variant === DANGER_LIGHT) {
+    return `${variant.substring(0, variant.lastIndexOf('-'))}600` as 'success' | 'danger';
+  } else if (variant === TERTIARY) {
     return 'neutral';
-  }
-  if ([DEFAULT, SECONDARY].includes(variant) || !VARIANTS.includes(variant)) {
+  } else if (variant === DEFAULT || variant === SECONDARY || VARIANTS.every((vari) => vari !== variant)) {
     return 'primary';
   }
 
-  return variant;
+  // @ts-expect-error ghost is a variant, but ghostXXX is not any color...
+  return `${variant}`;
 };
 
-export const getDisabledStyle = ({ theme }) => {
+export const getDisabledStyle = ({ theme }: { theme: DefaultTheme }) => {
   return `
     border: 1px solid ${theme.colors.neutral200};
     background: ${theme.colors.neutral150};
@@ -41,7 +42,7 @@ export const getDisabledStyle = ({ theme }) => {
   `;
 };
 
-export const getHoverStyle = ({ theme, variant }) => {
+export const getHoverStyle = ({ theme, variant }: { theme: DefaultTheme; variant: Variant }) => {
   if ([...LIGHT_VARIANTS, SECONDARY].includes(variant)) {
     return `
       background-color: ${theme.colors.neutral0};
@@ -72,7 +73,7 @@ export const getHoverStyle = ({ theme, variant }) => {
   `;
 };
 
-export const getActiveStyle = ({ theme, variant }) => {
+export const getActiveStyle = ({ theme, variant }: { theme: DefaultTheme; variant: Variant }) => {
   if ([...LIGHT_VARIANTS, SECONDARY].includes(variant)) {
     return `
       background-color: ${theme.colors.neutral0};
@@ -99,7 +100,7 @@ export const getActiveStyle = ({ theme, variant }) => {
   `;
 };
 
-export const getVariantStyle = ({ theme, variant }) => {
+export const getVariantStyle = ({ theme, variant }: { theme: DefaultTheme; variant: Variant }) => {
   switch (variant) {
     case DANGER_LIGHT:
     case SUCCESS_LIGHT:

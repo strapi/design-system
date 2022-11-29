@@ -110,6 +110,8 @@ export interface BoxProps
   borderRadius?: PickType<CSSProperties, 'borderRadius'>;
   borderStyle?: PickType<CSSProperties, 'borderStyle'>;
   borderWidth?: PickType<CSSProperties, 'borderWidth'>;
+
+  children?: React.ReactNode;
 }
 
 /**
