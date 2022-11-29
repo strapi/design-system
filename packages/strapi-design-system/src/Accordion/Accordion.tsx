@@ -1,13 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { DefaultTheme } from 'styled-components';
+
 import { Typography } from '../Typography';
-import { AccordionContext } from './AccordionContext';
 import { useId } from '../helpers/useId';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
 
-const getBorder = ({ theme, expanded, variant, disabled, error }) => {
+import { AccordionContext } from './AccordionContext';
+
+interface GetBorderParams extends AccordionWrapperProps {
+  theme: DefaultTheme;
+}
+
+const getBorder = ({ theme, expanded, variant, disabled, error }: GetBorderParams) => {
   if (error) {
     return `1px solid ${theme.colors.danger600} !important`;
   }
@@ -29,7 +33,9 @@ const getBorder = ({ theme, expanded, variant, disabled, error }) => {
 
 export const AccordionTypography = styled(Typography)``;
 
-const AccordionWrapper = styled(Box)`
+type AccordionWrapperProps = Pick<AccordionProps, 'expanded' | 'disabled' | 'variant' | 'error'>;
+
+const AccordionWrapper = styled(Box)<AccordionWrapperProps>`
   border: ${getBorder};
 
   &:hover:not([aria-disabled='true']) {
@@ -53,18 +59,65 @@ const AccordionWrapper = styled(Box)`
   }
 `;
 
+export type AccordionSize = 'S' | 'M';
+export type AccordionVariant = 'primary' | 'secondary';
+
+export interface AccordionProps {
+  children: React.ReactNode;
+  /**
+   * If `true`, the accordion will be disabled.
+   */
+  disabled?: boolean;
+  /**
+   * If defined, will add a border (borderColor: `danger600`) and display the error message below the component.
+   */
+  error?: string;
+  /**
+   * If `true`, an expanded Accordion will be rendered.
+   */
+  expanded?: boolean;
+  /**
+   * If `false`, the error message won't show.
+   * If the `Accordion` is as child of an `AccordionGroup`, this prop will be set to `false` automatically.
+   * The error message of the `AccordionGroup` will be shown below the group instead of the Accordion itself.
+   */
+  hasErrorMessage?: boolean;
+  /**
+   * The id of the component.
+   */
+  id?: string;
+  /**
+   * The callback invoked after a click event on the `AccordionToggle`.
+   */
+  onToggle?: () => void;
+  /**
+   * @deprecated use `onToggle` instead
+   * The callback invoked after a click event on the `AccordionToggle`.
+   */
+  toggle?: () => void;
+  /**
+   * Size of the Accordion.
+   */
+  size?: AccordionSize;
+  /**
+   * Color variant for `Accordion`. The "secondary" variant reverses the background colors.
+   * This is useful when you want to display a list and alternate the colors of the accordions.
+   */
+  variant?: AccordionVariant;
+}
+
 export const Accordion = ({
   children,
-  expanded,
-  id,
-  size,
-  variant,
-  disabled,
+  disabled = false,
   error,
-  hasErrorMessage,
+  expanded = false,
+  hasErrorMessage = true,
+  id,
   onToggle,
   toggle,
-}) => {
+  size = 'M',
+  variant = 'primary',
+}: AccordionProps) => {
   const generatedId = useId('accordion', id);
 
   return (
@@ -89,59 +142,4 @@ export const Accordion = ({
       )}
     </AccordionContext.Provider>
   );
-};
-
-Accordion.defaultProps = {
-  disabled: false,
-  error: undefined,
-  expanded: false,
-  hasErrorMessage: true,
-  id: undefined,
-  toggle: undefined,
-  size: 'M',
-  variant: 'primary',
-  onToggle: undefined,
-};
-
-Accordion.propTypes = {
-  children: PropTypes.node.isRequired,
-  /**
-   * If `true`, the accordion will be disabled.
-   */
-  disabled: PropTypes.bool,
-  /**
-   * If defined, will add a border (borderColor: `danger600`) and display the error message below the component.
-   */
-  error: PropTypes.string,
-  /**
-   * If `true`, an expanded Accordion will be rendered.
-   */
-  expanded: PropTypes.bool,
-  /**
-   * If `false`, the error message won't show.
-   * If the `Accordion` is as child of an `AccordionGroup`, this prop will be set to `false` automatically.
-   * The error message of the `AccordionGroup` will be shown below the group instead of the Accordion itself.
-   */
-  hasErrorMessage: PropTypes.bool,
-  /**
-   * The id of the component.
-   */
-  id: PropTypes.string,
-  /**
-   * The callback invoked after a click event on the `AccordionToggle`.
-   */
-  onToggle: PropTypes.func,
-  /**
-   * Size of the Accordion.
-   */
-  size: PropTypes.oneOf(['S', 'M']),
-  /**
-   * DEPRECATED: The callback invoked after a click event on the `AccordionToggle`.
-   */
-  toggle: PropTypes.func,
-  /**
-   * Color variant for `Accordion`. The "secondary" variant reverses the background colors.
-   * This is useful when you want to display a list and alternate the colors of the accordions.
-   */
-  variant: PropTypes.oneOf(['primary', 'secondary']),
 };

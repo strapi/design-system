@@ -1,17 +1,18 @@
-import React, { useRef } from 'react';
-import PropTypes from 'prop-types';
-import DropdownIcon from '@strapi/icons/CarretDown';
+import React from 'react';
+import { CarretDown as DropdownIcon } from '@strapi/icons';
 import styled from 'styled-components';
+
 import { TextButton } from '../TextButton';
 import { Typography } from '../Typography';
-import { AccordionTypography } from './Accordion';
-import { useAccordion } from './AccordionContext';
 import { Flex } from '../Flex';
 import { Stack } from '../Stack';
 import { Icon } from '../Icon';
+
+import { AccordionSize, AccordionTypography } from './Accordion';
+import { useAccordion } from './AccordionContext';
 import { getBackground } from './utils';
 
-const ToggleButton = styled(TextButton)`
+const ToggleButton = styled(TextButton)<{ expanded: boolean }>`
   text-align: left;
 
   // necessary to make the ellipsis prop work on the title
@@ -29,7 +30,7 @@ const ToggleButton = styled(TextButton)`
   }
 `;
 
-const FlexWithSize = styled(Flex)`
+const FlexWithSize = styled(Flex)<{ expanded: boolean; size: AccordionSize }>`
   min-height: ${({ theme, size }) => theme.sizes.accordions[size]};
   border-radius: ${({ theme, expanded }) =>
     expanded ? `${theme.borderRadius} ${theme.borderRadius} 0 0` : theme.borderRadius};
@@ -43,8 +44,34 @@ const FlexWithSize = styled(Flex)`
   }
 `;
 
-export const AccordionToggle = ({ title, description, as, togglePosition, action, ...props }) => {
-  const toggleButtonRef = useRef(null);
+interface AccordionToggleProps {
+  /**
+   * Will render a node to the right of the Accordion component
+   */
+  action?: React.ReactNode;
+  as?: string | React.ComponentType<any>;
+  /**
+   * Show the secondary text of the Accordion component
+   */
+  description?: string;
+  /**
+   * Show the main title of the Accordion component
+   */
+  title: string;
+  /**
+   * Set the position of the toggle icon button
+   */
+  togglePosition?: 'right' | 'left';
+}
+
+export const AccordionToggle = ({
+  title,
+  description,
+  as = 'span',
+  togglePosition = 'right',
+  action,
+  ...props
+}: AccordionToggleProps) => {
   const { onToggle, toggle, expanded, id, size, variant, disabled } = useAccordion();
 
   // Accessibility identifiers
@@ -76,7 +103,7 @@ export const AccordionToggle = ({ title, description, as, togglePosition, action
           'Deprecation warning: Usage of "toggle" prop in Accordion component is deprecated. This is discouraged and will be removed in the next major release. Please use "onToggle" instead',
         );
         toggle();
-      } else {
+      } else if (onToggle) {
         onToggle();
       }
     }
@@ -90,12 +117,11 @@ export const AccordionToggle = ({ title, description, as, togglePosition, action
       width={iconSize}
       transform={expanded ? `rotate(180deg)` : undefined}
       data-strapi-dropdown
-      disabled={disabled}
       aria-hidden
       as="span"
       background={iconColor}
       cursor={disabled ? 'not-allowed' : 'pointer'}
-      onClick={() => toggleButtonRef?.current?.click()}
+      onClick={handleToggle}
       shrink={0}
     >
       <Icon
@@ -122,7 +148,6 @@ export const AccordionToggle = ({ title, description, as, togglePosition, action
         {togglePosition === 'left' && dropdownIcon}
 
         <ToggleButton
-          ref={toggleButtonRef}
           onClick={handleToggle}
           aria-disabled={disabled}
           aria-expanded={expanded}
@@ -157,36 +182,4 @@ export const AccordionToggle = ({ title, description, as, togglePosition, action
       </Stack>
     </FlexWithSize>
   );
-};
-
-AccordionToggle.defaultProps = {
-  action: undefined,
-  as: 'span',
-  description: undefined,
-  variant: 'primary',
-  togglePosition: 'right',
-};
-
-AccordionToggle.propTypes = {
-  /**
-   * Will render a node to the right of the Accordion component
-   */
-  action: PropTypes.node,
-  as: PropTypes.string,
-  /**
-   * Show the secondary text of the Accordion component
-   */
-  description: PropTypes.string,
-  /**
-   * Show the main title of the Accordion component
-   */
-  title: PropTypes.string.isRequired,
-  /**
-   * Set the position of the toggle icon button
-   */
-  togglePosition: PropTypes.oneOf(['right', 'left']),
-  /**
-   * Color variant
-   */
-  variant: PropTypes.oneOf(['primary', 'secondary']),
 };
