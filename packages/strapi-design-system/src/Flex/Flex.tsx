@@ -13,7 +13,7 @@ const transientProps: Partial<Record<keyof FlexProps, boolean>> = {
   direction: true,
 };
 
-interface FlexProps extends BoxProps {
+export interface FlexProps extends BoxProps {
   alignItems?: PickType<CSSProperties, 'alignItems'>;
   direction?: PickType<CSSProperties, 'flexDirection'>;
   gap?: keyof DefaultTheme['spaces'] | Array<keyof DefaultTheme['spaces']>;

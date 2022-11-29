@@ -1,5 +1,6 @@
 import { HTMLAttributes } from 'react';
 import styled, { CSSProperties, DefaultTheme } from 'styled-components';
+// import { ComponentType } from 'styled-components/node_modules/@types/react';
 
 import handleResponsiveValues from '../helpers/handleResponsiveValues';
 import { extractStyleFromTheme } from '../helpers/theme';
@@ -117,6 +118,9 @@ export type BoxProps<TElement extends HTMLElement = HTMLDivElement> = Pick<
     borderWidth?: PickType<CSSProperties, 'borderWidth'>;
 
     children?: React.ReactNode;
+
+    as?: string | React.ComponentType<any>;
+    forwardedAs?: string | React.ComponentType<any>;
   };
 
 /**
