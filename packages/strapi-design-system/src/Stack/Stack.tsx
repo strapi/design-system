@@ -37,7 +37,7 @@ const StackH = styled(Flex).withConfig<Omit<StackProps, 'size' | 'horizontal'>>(
   }
 `;
 
-interface StackProps extends FlexProps {
+export interface StackProps extends FlexProps {
   /**
    * If `true`, align the `Stack` item horizontally.
    */

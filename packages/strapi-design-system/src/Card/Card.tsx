@@ -1,10 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Box } from '../Box';
-import { CardContext } from './CardContext';
+import { Box, BoxProps } from '../Box';
+
 import { useId } from '../helpers/useId';
 
-export const Card = ({ id, ...props }) => {
+import { CardContext } from './CardContext';
+
+export interface CardProps extends BoxProps {
+  id?: string;
+}
+
+export const Card = ({ id, ...props }: CardProps) => {
   const generatedId = useId('card', id);
 
   return (
@@ -24,12 +28,4 @@ export const Card = ({ id, ...props }) => {
       />
     </CardContext.Provider>
   );
-};
-
-Card.defaultProps = {
-  id: undefined,
-};
-
-Card.propTypes = {
-  id: PropTypes.string,
 };
