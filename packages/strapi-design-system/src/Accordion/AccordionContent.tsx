@@ -1,9 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { useAccordion } from './AccordionContext';
-import { Box } from '../Box';
+import { Box, BoxProps } from '../Box';
 
-export const AccordionContent = ({ children, ...props }) => {
+import { useAccordion } from './AccordionContext';
+
+export type AccordionContentProps = BoxProps;
+
+export const AccordionContent = ({ children, ...props }: AccordionContentProps) => {
   const { expanded, id } = useAccordion();
 
   if (!expanded) {
@@ -19,8 +20,4 @@ export const AccordionContent = ({ children, ...props }) => {
       {children}
     </Box>
   );
-};
-
-AccordionContent.propTypes = {
-  children: PropTypes.node.isRequired,
 };
