@@ -1,11 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import { Button } from '../Button';
+
 import { useNotifyAT } from './useNotifyAT';
 
 // This component exist to demonstrate the unmounting effect of the hook
 // in a condition, in the storybook
-export const StoryComponent = ({ notifyType }) => {
+export const StoryComponent = ({ notifyType }: { notifyType?: 'log' | 'alert' }) => {
   const { notifyAlert, notifyStatus, notifyLog } = useNotifyAT();
 
   const handleClick = () => {
@@ -19,8 +18,4 @@ export const StoryComponent = ({ notifyType }) => {
   };
 
   return <Button onClick={handleClick}>Toggle {notifyType}</Button>;
-};
-
-StoryComponent.propTypes = {
-  notifyType: PropTypes.string.isRequired,
 };

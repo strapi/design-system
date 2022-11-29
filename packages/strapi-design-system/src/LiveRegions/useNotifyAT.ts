@@ -2,24 +2,24 @@ import { useEffect } from 'react';
 
 import { LiveRegionIds } from './constants';
 
-const notifyLog = (message) => {
-  const logEl = document.querySelector(`#${LiveRegionIds.Log}`);
+const notifyLog = (message: string) => {
+  const logEl = document.querySelector(`#${LiveRegionIds.Log}`) as HTMLElement;
 
   if (logEl) {
     logEl.innerText = message;
   }
 };
 
-const notifyStatus = (message) => {
-  const statusEl = document.querySelector(`#${LiveRegionIds.Status}`);
+const notifyStatus = (message: string) => {
+  const statusEl = document.querySelector(`#${LiveRegionIds.Status}`) as HTMLElement;
 
   if (statusEl) {
     statusEl.innerText = message;
   }
 };
 
-const notifyAlert = (message) => {
-  const alertEl = document.querySelector(`#${LiveRegionIds.Alert}`);
+const notifyAlert = (message: string) => {
+  const alertEl = document.querySelector(`#${LiveRegionIds.Alert}`) as HTMLElement;
 
   if (alertEl) {
     alertEl.innerText = message;
