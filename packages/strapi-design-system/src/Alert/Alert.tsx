@@ -1,15 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Information from '@strapi/icons/Information';
-import CheckCircle from '@strapi/icons/CheckCircle';
-import ExclamationMarkCircle from '@strapi/icons/ExclamationMarkCircle';
-import Cross from '@strapi/icons/Cross';
-import { Box } from '../Box';
+import { Information, CheckCircle, ExclamationMarkCircle, Cross } from '@strapi/icons';
+
+import { Box, BoxProps } from '../Box';
 import { Typography } from '../Typography';
 import { Flex } from '../Flex';
-import { handleBackgroundColor, handleBorderColor, handleIconColor } from './utils';
 import { buttonFocusStyle } from '../themes/utils';
+
+import { handleBackgroundColor, handleBorderColor, handleIconColor } from './utils';
 
 const AlertBody = styled(Box)`
   flex: 1;
@@ -42,7 +39,11 @@ const AlertIconWrapper = styled(Box)`
   }
 `;
 
-const AlertIcon = ({ variant, ...props }) => {
+interface AlertIconProps extends React.SVGProps<SVGSVGElement> {
+  variant: AlertVariant;
+}
+
+const AlertIcon = ({ variant, ...props }: AlertIconProps) => {
   if (variant === 'success') {
     return <CheckCircle {...props} />;
   }
@@ -67,7 +68,49 @@ const ActionBox = styled(Box)`
   }
 `;
 
-export const Alert = ({ title, children, variant, onClose, closeLabel, titleAs, action, ...props }) => {
+export type AlertVariant = 'success' | 'danger' | 'default';
+
+export interface AlertProps extends BoxProps {
+  /**
+   * Render a React element below the body of an `Alert` (Mainly used to render a Link).
+   */
+  action?: React.ReactNode;
+  /**
+   * The body of the `Alert` (Will be rendered under the `Alert` title).
+   */
+  children: React.ReactNode;
+  /**
+   * Accessible label for the close icon button.
+   */
+  closeLabel: string;
+  /**
+   * The callback invoked when click on the close icon button.
+   */
+  onClose: () => void;
+  /**
+   * The title of the `Alert`.
+   */
+  title: string;
+  /**
+   * Changes the element, as which a component will render (similar to styled-components).
+   */
+  titleAs?: string | React.ComponentType<any>;
+  /**
+   * `Alert` color variant.
+   */
+  variant?: AlertVariant;
+}
+
+export const Alert = ({
+  title,
+  children,
+  variant = 'default',
+  onClose,
+  closeLabel,
+  titleAs = 'p',
+  action,
+  ...props
+}: AlertProps) => {
   return (
     <AlertWrapper hasRadius paddingLeft={5} paddingRight={6} paddingTop={5} variant={variant} {...props}>
       <Flex alignItems="flex-start">
@@ -100,45 +143,4 @@ export const Alert = ({ title, children, variant, onClose, closeLabel, titleAs, 
       </Flex>
     </AlertWrapper>
   );
-};
-
-Alert.defaultProps = {
-  action: undefined,
-  variant: 'default',
-  titleAs: 'p',
-};
-
-Alert.propTypes = {
-  /**
-   * Render a React element below the body of an `Alert` (Mainly used to render a Link).
-   */
-  action: PropTypes.element,
-  /**
-   * The body of the `Alert` (Will be rendered under the `Alert` title).
-   */
-  children: PropTypes.node.isRequired,
-  /**
-   * Accessible label for the close icon button.
-   */
-  closeLabel: PropTypes.string.isRequired,
-  /**
-   * The callback invoked when click on the close icon button.
-   */
-  onClose: PropTypes.func.isRequired,
-  /**
-   * The title of the `Alert`.
-   */
-  title: PropTypes.string.isRequired,
-  /**
-   * Changes the element, as which a component will render (similar to styled-components).
-   */
-  titleAs: PropTypes.string,
-  /**
-   * `Alert` color variant.
-   */
-  variant: PropTypes.oneOf(['danger', 'success', 'default']),
-};
-
-AlertIcon.propTypes = {
-  variant: Alert.propTypes.variant.isRequired,
 };
