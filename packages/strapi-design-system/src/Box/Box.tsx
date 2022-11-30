@@ -1,3 +1,4 @@
+import { HTMLAttributes } from 'react';
 import styled, { CSSProperties, DefaultTheme } from 'styled-components';
 
 import handleResponsiveValues from '../helpers/handleResponsiveValues';
@@ -7,112 +8,116 @@ import { PickType } from '../types/utils';
 
 type SpaceProps = keyof DefaultTheme['spaces'] | Array<keyof DefaultTheme['spaces']>;
 
-export interface BoxProps
-  extends Pick<
-    CSSProperties,
-    | 'pointerEvents'
-    | 'display'
-    | 'position'
-    | 'zIndex'
-    | 'overflow'
-    | 'cursor'
-    | 'transition'
-    | 'transform'
-    | 'animation'
-    | 'textAlign'
-    | 'textTransform'
-    | 'lineHeight'
-  > {
-  /**
-   * JavaScript hover handler
-   */
-  _hover?: (theme: DefaultTheme) => string;
-  /**
-   * Background color
-   */
-  background?: keyof DefaultTheme['colors'];
-  /**
-   * Flex basis
-   */
-  basis?: PickType<CSSProperties, 'flexBasis'>;
-  /**
-   * Border color
-   */
-  borderColor?: keyof DefaultTheme['colors'];
-  /**
-   * Text color
-   */
-  color?: keyof DefaultTheme['colors'];
-  /**
-   * Flex
-   */
-  flex?: PickType<CSSProperties, 'flex'>;
-  fontSize?: keyof DefaultTheme['fontSizes'] | PickType<CSSProperties, 'fontSize'>;
-  /**
-   * Flex grow
-   */
-  grow?: PickType<CSSProperties, 'flexGrow'>;
-  /**
-   * If `true`, will add a border radius to the `Box`
-   */
-  hasRadius?: boolean;
-  /**
-   * Responsive hiding. If `true`, will the `Box` for tablet size screens.
-   */
-  hiddenS?: boolean;
-  /**
-   * Responsive hiding. If `true`, will the `Box` for mobile size screens.
-   */
-  hiddenXS?: boolean;
-  /**
-   * Padding. Supports responsive values
-   */
-  padding?: SpaceProps;
-  /**
-   * Padding bottom. Supports responsive values
-   */
-  paddingBottom?: SpaceProps;
-  /**
-   * Padding left. Supports responsive values
-   */
-  paddingLeft?: SpaceProps;
-  /**
-   * Padding right. Supports responsive values
-   */
-  paddingRight?: SpaceProps;
-  /**
-   * Padding top. Supports responsive values
-   */
-  paddingTop?: SpaceProps;
-  marginLeft?: SpaceProps;
-  marginBottom?: SpaceProps;
-  marginRight?: SpaceProps;
-  marginTop?: SpaceProps;
-  /**
-   * Shadow name (see `theme.shadows`)
-   */
-  shadow?: keyof DefaultTheme['shadows'];
-  /**
-   * Flex shrink
-   */
-  shrink?: PickType<CSSProperties, 'flexShrink'>;
+type DefaultThemeOrCSSProp<T extends keyof DefaultTheme, K extends keyof CSSProperties> =
+  | keyof DefaultTheme[T]
+  | CSSProperties[K];
 
-  width?: keyof DefaultTheme['spaces'] | PickType<CSSProperties, 'width'>;
-  minWidth?: keyof DefaultTheme['spaces'] | PickType<CSSProperties, 'width'>;
-  maxWidth?: keyof DefaultTheme['spaces'] | PickType<CSSProperties, 'width'>;
-  height?: keyof DefaultTheme['spaces'] | PickType<CSSProperties, 'width'>;
-  minHeight?: keyof DefaultTheme['spaces'] | PickType<CSSProperties, 'width'>;
-  maxHeight?: keyof DefaultTheme['spaces'] | PickType<CSSProperties, 'width'>;
-  top?: keyof DefaultTheme['spaces'] | PickType<CSSProperties, 'width'>;
-  left?: keyof DefaultTheme['spaces'] | PickType<CSSProperties, 'width'>;
-  bottom?: keyof DefaultTheme['spaces'] | PickType<CSSProperties, 'width'>;
-  right?: keyof DefaultTheme['spaces'] | PickType<CSSProperties, 'width'>;
-  borderRadius?: PickType<CSSProperties, 'borderRadius'>;
-  borderStyle?: PickType<CSSProperties, 'borderStyle'>;
-  borderWidth?: PickType<CSSProperties, 'borderWidth'>;
+export type BoxProps<TElement extends HTMLElement = HTMLDivElement> = Pick<
+  CSSProperties,
+  | 'pointerEvents'
+  | 'display'
+  | 'position'
+  | 'zIndex'
+  | 'overflow'
+  | 'cursor'
+  | 'transition'
+  | 'transform'
+  | 'animation'
+  | 'textAlign'
+  | 'textTransform'
+  | 'lineHeight'
+> &
+  HTMLAttributes<TElement> & {
+    /**
+     * JavaScript hover handler
+     */
+    _hover?: (theme: DefaultTheme) => string;
+    /**
+     * Background color
+     */
+    background?: keyof DefaultTheme['colors'];
+    /**
+     * Flex basis
+     */
+    basis?: PickType<CSSProperties, 'flexBasis'>;
+    /**
+     * Border color
+     */
+    borderColor?: keyof DefaultTheme['colors'];
+    /**
+     * Text color
+     */
+    color?: keyof DefaultTheme['colors'];
+    /**
+     * Flex
+     */
+    flex?: PickType<CSSProperties, 'flex'>;
+    fontSize?: DefaultThemeOrCSSProp<'fontSizes', 'fontSize'>;
+    /**
+     * Flex grow
+     */
+    grow?: PickType<CSSProperties, 'flexGrow'>;
+    /**
+     * If `true`, will add a border radius to the `Box`
+     */
+    hasRadius?: boolean;
+    /**
+     * Responsive hiding. If `true`, will the `Box` for tablet size screens.
+     */
+    hiddenS?: boolean;
+    /**
+     * Responsive hiding. If `true`, will the `Box` for mobile size screens.
+     */
+    hiddenXS?: boolean;
+    /**
+     * Padding. Supports responsive values
+     */
+    padding?: SpaceProps;
+    /**
+     * Padding bottom. Supports responsive values
+     */
+    paddingBottom?: SpaceProps;
+    /**
+     * Padding left. Supports responsive values
+     */
+    paddingLeft?: SpaceProps;
+    /**
+     * Padding right. Supports responsive values
+     */
+    paddingRight?: SpaceProps;
+    /**
+     * Padding top. Supports responsive values
+     */
+    paddingTop?: SpaceProps;
+    marginLeft?: SpaceProps;
+    marginBottom?: SpaceProps;
+    marginRight?: SpaceProps;
+    marginTop?: SpaceProps;
+    /**
+     * Shadow name (see `theme.shadows`)
+     */
+    shadow?: keyof DefaultTheme['shadows'];
+    /**
+     * Flex shrink
+     */
+    shrink?: PickType<CSSProperties, 'flexShrink'>;
 
-  children?: React.ReactNode;
-}
+    width?: DefaultThemeOrCSSProp<'spaces', 'width'>;
+    minWidth?: DefaultThemeOrCSSProp<'spaces', 'minWidth'>;
+    maxWidth?: DefaultThemeOrCSSProp<'spaces', 'maxWidth'>;
+    height?: DefaultThemeOrCSSProp<'spaces', 'height'>;
+    minHeight?: DefaultThemeOrCSSProp<'spaces', 'minHeight'>;
+    maxHeight?: DefaultThemeOrCSSProp<'spaces', 'maxHeight'>;
+    top?: DefaultThemeOrCSSProp<'spaces', 'top'>;
+    left?: DefaultThemeOrCSSProp<'spaces', 'left'>;
+    bottom?: DefaultThemeOrCSSProp<'spaces', 'bottom'>;
+    right?: DefaultThemeOrCSSProp<'spaces', 'right'>;
+    borderRadius?: PickType<CSSProperties, 'borderRadius'>;
+    borderStyle?: PickType<CSSProperties, 'borderStyle'>;
+    borderWidth?: PickType<CSSProperties, 'borderWidth'>;
+
+    children?: React.ReactNode;
+  };
 
 /**
  * Prevents these attributes from being spread on the DOM node
