@@ -29,11 +29,10 @@ export const BaseButtonWrapper = styled.button`
 
 export interface BaseButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
-  disabled?: boolean;
 }
 
 export const BaseButton = React.forwardRef<HTMLButtonElement, BaseButtonProps>(
-  ({ disabled = false, children, ...props }, ref) => {
+  ({ disabled, children, ...props }, ref) => {
     return (
       <BaseButtonWrapper ref={ref} aria-disabled={disabled} type="button" disabled={disabled} {...props}>
         {children}

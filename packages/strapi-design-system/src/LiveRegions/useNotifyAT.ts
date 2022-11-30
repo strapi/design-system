@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { LiveRegionIds } from './constants';
 
 const notifyLog = (message: string) => {
-  const logEl = document.querySelector(`#${LiveRegionIds.Log}`) as HTMLElement;
+  const logEl = document.querySelector<HTMLElement>(`#${LiveRegionIds.Log}`);
 
   if (logEl) {
     logEl.innerText = message;
@@ -11,7 +11,7 @@ const notifyLog = (message: string) => {
 };
 
 const notifyStatus = (message: string) => {
-  const statusEl = document.querySelector(`#${LiveRegionIds.Status}`) as HTMLElement;
+  const statusEl = document.querySelector<HTMLElement>(`#${LiveRegionIds.Status}`);
 
   if (statusEl) {
     statusEl.innerText = message;
@@ -19,7 +19,7 @@ const notifyStatus = (message: string) => {
 };
 
 const notifyAlert = (message: string) => {
-  const alertEl = document.querySelector(`#${LiveRegionIds.Alert}`) as HTMLElement;
+  const alertEl = document.querySelector<HTMLElement>(`#${LiveRegionIds.Alert}`);
 
   if (alertEl) {
     alertEl.innerText = message;
