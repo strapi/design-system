@@ -72,7 +72,6 @@ This is the dark colors used for the dark mode
       let ruptureKey;
       for (const colorKey of Object.keys(color)) {
         const prefix = colorKey.substr(0, 2);
-
         if (ruptureKey !== prefix) {
           colors.push([]);
           ruptureKey = prefix;
@@ -171,7 +170,6 @@ Navigation, Action, Notification, and illustrations.
           if (!value) {
             return true;
           }
-
           return icon.toLowerCase().includes(value.toLowerCase());
         })
         .sort();
