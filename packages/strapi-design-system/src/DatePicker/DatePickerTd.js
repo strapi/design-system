@@ -25,7 +25,13 @@ const DatePickerCellButton = styled.button`
 `;
 
 export const DatePickerTd = ({ children, outsideMonth, onSelectDay, isSelected, ...props }) => {
-  const textColor = isSelected ? 'primary600' : outsideMonth ? 'neutral600' : 'neutral900';
+  let textColor = 'neutral900';
+
+  if (isSelected) {
+    textColor = 'primary600';
+  } else if (outsideMonth) {
+    textColor = 'neutral600';
+  }
 
   return (
     <RawTd {...props}>

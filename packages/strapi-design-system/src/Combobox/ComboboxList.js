@@ -8,7 +8,7 @@ export const ComboboxList = ({ options, activeOptionRef }) => {
     if (activeOptionRef.current) {
       maintainScrollVisibility(activeOptionRef.current);
     }
-  }, []);
+  }, [activeOptionRef]);
 
   return options;
 };

@@ -59,7 +59,7 @@ export const TextButton = React.forwardRef(
         {...props}
       >
         {(startIcon || loading) && (
-          <Box as="span" paddingRight={2} aria-hidden={true}>
+          <Box as="span" paddingRight={2} aria-hidden>
             {loading ? (
               <LoadingWrapper>
                 <Loader />
@@ -73,7 +73,7 @@ export const TextButton = React.forwardRef(
           {children}
         </Typography>
         {endIcon && (
-          <Box as="span" paddingLeft={2} aria-hidden={true}>
+          <Box as="span" paddingLeft={2} aria-hidden>
             {endIcon}
           </Box>
         )}

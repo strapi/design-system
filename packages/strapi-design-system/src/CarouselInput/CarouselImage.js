@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Box } from '../Box';
 import styled from 'styled-components';
+import { Box } from '../Box';
 import { Tooltip } from '../Tooltip';
 import { ellipsisStyle } from '../Typography/utils';
 

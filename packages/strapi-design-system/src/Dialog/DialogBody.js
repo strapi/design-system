@@ -30,6 +30,10 @@ export const DialogBody = ({ children, icon }) => {
 
 DialogBody.displayName = 'DialogBody';
 
+DialogBody.defaultProps = {
+  icon: undefined,
+};
+
 DialogBody.propTypes = {
   children: PropTypes.node.isRequired,
   icon: PropTypes.node,

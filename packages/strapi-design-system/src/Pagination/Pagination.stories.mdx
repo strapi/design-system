@@ -16,7 +16,7 @@ The Pagination component is used to navigate multipage content.
 ## Imports
 
 ```js
-import { Dots, NextLink, PageLink, Pagination, PreviousLink } from '@strapi/design-system/Pagination';
+import { Dots, NextLink, PageLink, Pagination, PreviousLink } from '@strapi/design-system';
 ```
 
 ## Usage
@@ -45,11 +45,12 @@ import { Dots, NextLink, PageLink, Pagination, PreviousLink } from '@strapi/desi
 
 ### Usage with routing libraries
 
-To use the PreviousLink/PageLink/NextLink component with a routing library (e.g. react-router-dom), you'll need to pass the `NavLink` component to the `as` prop in order to replace the default HTML anchor `<a />`.
-You'll now be able to pass all `NavLink` props.
+To use the PreviousLink/PageLink/NextLink component with a routing library (e.g. react-router-dom), you'll need to pass
+the `NavLink` component to the `as` prop in order to replace the default HTML anchor `<a />`. You'll now be able to pass
+all `NavLink` props.
 
 ```jsx
-import { PreviousLink, PageLink, NextLink } from '@strapi/design-system/Pagination';
+import { PreviousLink, PageLink, NextLink } from '@strapi/design-system';
 import { NavLink } from 'react-router-dom';
 
 <Pagination>
@@ -73,7 +74,7 @@ import { NavLink } from 'react-router-dom';
 For NextJS, you'll need to wrap the `Link` with the `NextLink` component
 
 ```jsx
-import { PreviousLink, PageLink, NextLink } from '@strapi/design-system/Pagination';
+import { PreviousLink, PageLink, NextLink } from '@strapi/design-system';
 import NextLink from 'next/link';
 
 <Pagination>

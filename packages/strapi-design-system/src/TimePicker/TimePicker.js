@@ -29,6 +29,7 @@ export const TimePicker = ({
   value,
   clearLabel,
   label,
+  selectButtonTitle,
   step,
   size,
   ...props
@@ -42,7 +43,7 @@ export const TimePicker = ({
     min = 0;
 
     while (min < 60) {
-      times.push(`${i < 10 ? '0' + i : i}:${min < 10 ? '0' + min : min}`);
+      times.push(`${i < 10 ? `0${i}` : i}:${min < 10 ? `0${min}` : min}`);
       min += step;
     }
   }
@@ -55,10 +56,12 @@ export const TimePicker = ({
 
     const hours = times.reduce((prev, curr) => {
       const hours = curr.split(':')[0];
+
       return Math.abs(hours - valueHours) < Math.abs(prev - valueHours) ? hours : prev;
     }, times[0].split(':')[0]);
     const minutes = times.reduce((prev, curr) => {
       const minutes = curr.split(':')[1];
+
       return Math.abs(minutes - valueMinutes) < Math.abs(prev - valueMinutes) ? minutes : prev;
     }, times[0].split(':')[1]);
 
@@ -78,6 +81,7 @@ export const TimePicker = ({
       size={size}
       onChange={onChange}
       disabled={disabled}
+      selectButtonTitle={selectButtonTitle}
       startIcon={
         <TimeIconWrapper>
           <Clock />
@@ -102,6 +106,7 @@ TimePicker.defaultProps = {
   label: undefined,
   onClear: undefined,
   size: 'M',
+  selectButtonTitle: undefined,
   step: 15,
   value: undefined,
 };
@@ -109,12 +114,13 @@ TimePicker.defaultProps = {
 TimePicker.propTypes = {
   clearLabel: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
-  error: PropTypes.string,
+  error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   hint: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   label: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   onClear: PropTypes.func,
+  selectButtonTitle: PropTypes.string,
   size: PropTypes.oneOf(Object.keys(sizes.input)),
   step: PropTypes.number,
   value: PropTypes.oneOfType([

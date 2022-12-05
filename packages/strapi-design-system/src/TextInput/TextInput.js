@@ -51,7 +51,7 @@ TextInput.defaultProps = {
 TextInput.propTypes = {
   'aria-label': PropTypes.string,
   endAction: PropTypes.element,
-  error: PropTypes.string,
+  error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   hint: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
   id: PropTypes.string,
   label: PropTypes.string,

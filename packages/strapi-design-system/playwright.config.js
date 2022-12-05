@@ -1,6 +1,6 @@
-const { devices } = require('@playwright/test');
+import { devices } from '@playwright/test';
 
-const config = {
+export default {
   testMatch: '**/__tests__/*.e2e.js',
   // Forbid test.only on CI
   forbidOnly: !!process.env.CI,
@@ -10,7 +10,7 @@ const config = {
     baseURL: 'http://localhost:6006',
     headless: true,
     contextOptions: {
-      locale: 'en-US',
+      locale: 'en-US', // set the locale
     },
     actionTimeout: 0,
   },
@@ -35,5 +35,3 @@ const config = {
     },
   ],
 };
-
-module.exports = config;

@@ -29,7 +29,7 @@ TextAreas are inputs that allow users to add or edit text. They support long tex
 ## Imports
 
 ```js
-import { Textarea } from '@strapi/design-system/Textarea';
+import { Textarea } from '@strapi/design-system';
 ```
 ## Usage
 
@@ -93,7 +93,7 @@ In addition of plain text, `Textarea` can also include a placeholder and a descr
                   aria-label="Information about the email"
                   style={{ border: 'none', padding: 0, background: 'transparent' }}
                 >
-                  <Information aria-hidden={true} />
+                  <Information aria-hidden />
                 </button>
               </Tooltip>
             }
@@ -129,7 +129,7 @@ Depending on the permissions a user have or the status of an action, a `Textarea
                   aria-label="Information about the email"
                   style={{ border: 'none', padding: 0, background: 'transparent' }}
                 >
-                  <Information aria-hidden={true} />
+                  <Information aria-hidden />
                 </button>
               </Tooltip>
             }

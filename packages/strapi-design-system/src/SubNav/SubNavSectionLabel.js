@@ -56,7 +56,7 @@ SubNavSectionLabel.defaultProps = {
   ariaControls: null,
   ariaExpanded: null,
   collapsable: false,
-  onClick: () => {},
+  onClick() {},
 };
 SubNavSectionLabel.propTypes = {
   ariaControls: PropTypes.string,

@@ -23,7 +23,7 @@ Checkboxes allow users to choose one or multiple values from a range of options.
 ## Imports
 
 ```js
-import { Checkbox } from '@strapi/design-system/Checkbox';
+import { Checkbox } from '@strapi/design-system';
 ```
 
 ## Usage
@@ -115,7 +115,8 @@ Unchecked state is used to show that an option has been selected.
 
 ### Disabled
 
-Checkboxes can possibily not be available to selection yet. This state can be related to a lack of permission or a need to pursue another action first.
+Checkboxes can possibily not be available to selection yet. This state can be related to a lack of permission or a need
+to pursue another action first.
 
 <Canvas withSource="open">
   <Story name="disabled" parameters={{ docs: { source: { code: '<Checkbox disabled>Label</Checkbox>' } } }}>

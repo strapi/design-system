@@ -71,7 +71,7 @@ export const SubNavLink = React.forwardRef(({ children, icon, withBullet, as, is
       </Flex>
       {withBullet && (
         <Box as={Flex} paddingRight={4}>
-          <CustomBullet $active={true} />
+          <CustomBullet $active />
         </Box>
       )}
     </SubNavLinkWrapper>
@@ -87,9 +87,8 @@ SubNavLink.defaultProps = {
 };
 SubNavLink.propTypes = {
   as: PropTypes.elementType,
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
   icon: PropTypes.element,
   isSubSectionChild: PropTypes.bool,
-  link: PropTypes.element,
   withBullet: PropTypes.bool,
 };

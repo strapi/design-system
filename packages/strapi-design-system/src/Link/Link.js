@@ -58,20 +58,20 @@ export const Link = ({ href, to, children, disabled, startIcon, endIcon, ...prop
       {...props}
     >
       {startIcon && (
-        <IconWrapper as="span" aria-hidden={true} paddingRight={2}>
+        <IconWrapper as="span" aria-hidden paddingRight={2}>
           {startIcon}
         </IconWrapper>
       )}
       <Typography>{children}</Typography>
 
       {endIcon && !href && (
-        <IconWrapper as="span" aria-hidden={true} paddingLeft={2}>
+        <IconWrapper as="span" aria-hidden paddingLeft={2}>
           {endIcon}
         </IconWrapper>
       )}
 
       {href && (
-        <IconWrapper as="span" aria-hidden={true} paddingLeft={2}>
+        <IconWrapper as="span" aria-hidden paddingLeft={2}>
           <ExternalLink />
         </IconWrapper>
       )}
@@ -82,24 +82,32 @@ export const Link = ({ href, to, children, disabled, startIcon, endIcon, ...prop
 Link.displayName = 'Link';
 
 Link.defaultProps = {
+  endIcon: undefined,
   href: undefined,
   to: undefined,
   disabled: false,
+  startIcon: undefined,
 };
 
 Link.propTypes = {
   children: PropTypes.node.isRequired,
   disabled: PropTypes.bool,
   endIcon: PropTypes.element,
-  href: (props) => {
+  href(props) {
     if (!props.disabled && !props.to && !props.href) {
       return new Error('href must be defined');
     }
+
+    // eslint-disable-next-line consistent-return
+    return undefined;
   },
   startIcon: PropTypes.element,
-  to: (props) => {
+  to(props) {
     if (!props.disabled && !props.href && !props.to) {
       return new Error('to must be defined');
     }
+
+    // eslint-disable-next-line consistent-return
+    return undefined;
   },
 };

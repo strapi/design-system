@@ -9,14 +9,15 @@ describe('TimePicker', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
         <TimePicker
-          label={'Choose a time'}
+          label="Choose a time"
           disabled={false}
           error={undefined}
-          hint={'Description line'}
+          hint="Description line"
           onClear={() => {}}
           onChange={() => {}}
-          value={'11:32:45'}
-          clearLabel={'Clear the selected time picker value'}
+          value="11:32:45"
+          clearLabel="Clear the selected time picker value"
+          selectButtonTitle="Select time button"
         />
       </ThemeProvider>,
       { container: document.body },
@@ -367,6 +368,7 @@ describe('TimePicker', () => {
                     aria-disabled="false"
                     aria-label="Clear the selected time picker value"
                     class="c12"
+                    title="Clear the selected time picker value"
                     type="button"
                   >
                     <svg
@@ -386,6 +388,7 @@ describe('TimePicker', () => {
                     aria-hidden="true"
                     class="c8 c12 c13"
                     tabindex="-1"
+                    title="Select time button"
                     type="button"
                   >
                     <svg

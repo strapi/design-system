@@ -52,6 +52,7 @@ export const SubNavSection = ({ collapsable, label, badgeLabel, children, id }) 
       {(!collapsable || isOpen) && (
         <ol id={listId}>
           {Children.map(children, (child, index) => {
+            // eslint-disable-next-line react/no-array-index-key
             return <li key={index}>{child}</li>;
           })}
         </ol>
@@ -62,6 +63,7 @@ export const SubNavSection = ({ collapsable, label, badgeLabel, children, id }) 
 
 SubNavSection.defaultProps = {
   badgeLabel: null,
+  children: undefined,
   collapsable: false,
   id: undefined,
 };

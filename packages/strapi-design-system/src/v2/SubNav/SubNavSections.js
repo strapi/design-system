@@ -1,3 +1,5 @@
+/* eslint-disable react/no-array-index-key */
+
 import React, { Children } from 'react';
 import PropTypes from 'prop-types';
 import { Stack } from '../../Stack';

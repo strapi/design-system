@@ -8,6 +8,7 @@ export const SubNavSections = ({ children, ...props }) => {
     <Box paddingTop={2} paddingBottom={4}>
       <Stack as="ol" spacing={2} {...props}>
         {Children.map(children, (child, index) => {
+          // eslint-disable-next-line react/no-array-index-key
           return <li key={index}>{child}</li>;
         })}
       </Stack>

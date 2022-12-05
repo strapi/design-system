@@ -15,7 +15,7 @@ export const useTooltipLayout = (visible, position) => {
       tooltip.style.left = `${tooltipPosition.left}px`;
       tooltip.style.top = `${tooltipPosition.top}px`;
     }
-  }, [visible]);
+  }, [position, visible]);
 
   return { tooltipWrapperRef, toggleSourceRef };
 };

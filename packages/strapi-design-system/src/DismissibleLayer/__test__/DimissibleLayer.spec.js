@@ -25,7 +25,7 @@ describe('DismissibleLayer', () => {
         <DismissibleLayer onPointerDownOutside={onPointerDownOutsideMock} onEscapeKeyDown={onEscapeKeyDownMock}>
           <h1>hello world</h1>
         </DismissibleLayer>
-        <button>Click me</button>
+        <button type="button">Click me</button>
       </>,
     );
 

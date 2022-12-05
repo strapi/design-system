@@ -1,0 +1,114 @@
+<!--- DateTimePicker.stories.mdx --->
+
+import { useState } from 'react';
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { ArgsTable } from '@storybook/addon-docs';
+import { DateTimePicker } from './DateTimePicker';
+
+<Meta
+  title="Design System/Components/DateTimePicker"
+  component={DateTimePicker}
+  argTypes={{
+    label: {
+      control: {
+        type: 'text',
+      },
+    },
+    value: {
+      control: {
+        type: 'date',
+      },
+    },
+  }}
+/>
+
+# DateTimePicker
+
+Date Time pickers help users selecting a specific date from a calendar and a specific timeslot from a suggested timetable.
+
+**Best practices**
+
+- When you select a date automatically is selected also a time and viceversa (time and date)
+- When you clear a date automatically is deleted also the time and viceversa
+
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/DateTimePicker)
+
+## Imports
+
+```js
+import { DateTimePicker } from '@strapi/design-system/DateTimePicker';
+```
+
+## Usage
+
+- A Date Time picker is used to select an unique date. It is not possible to select a date range. It is not possible to write a date from the keyboard.
+- When the Date picker is activated, it selects today's date. However, a Date picker can have a null value via the Clear feature.
+- Use the Time picker component whenever a specific time needs to be scheduled or indicated. It is only possible to select one single timeslot.
+
+<Canvas>
+  <Story name="base">
+    {() => {
+      const [value, setValue] = useState(undefined);
+      return (
+        <DateTimePicker
+          label={'Date time picker'}
+          disabled={false}
+          name="datetimepicker"
+          onChange={(e) => setValue(e)}
+          clearLabel="Clear"
+          onClear={() => setValue(undefined)}
+          value={value}
+          hint="This is a super description"
+          selectedDateLabel={() => `Date picker, current is undefined`}
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Error
+
+<Canvas>
+  <Story name="error">
+    {() => {
+      const [, setValue] = useState(undefined);
+      return (
+        <DateTimePicker
+          hint="This is a super description"
+          error="Very very very very very very very long error"
+          label="Error"
+          name="datetimepicker"
+          onChange={(e) => setValue(e)}
+          clearLabel="Clear"
+          onClear={() => setValue(undefined)}
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Initial data
+
+<Canvas>
+  <Story name="initial data">
+    {() => {
+      const [value, setValue] = useState(new Date('2021-10-13T10:00:00.000Z'));
+      return (
+        <DateTimePicker
+          label="Date time picker"
+          name="datetimepicker"
+          onChange={(e) => setValue(e)}
+          clearLabel="Clear"
+          onClear={() => setValue(undefined)}
+          value={value}
+          hint="This is a super description"
+          selectedDateLabel={() => `Date picker, current is undefined`}
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={DateTimePicker} />

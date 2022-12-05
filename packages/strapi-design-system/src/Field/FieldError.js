@@ -5,7 +5,7 @@ import { Typography } from '../Typography';
 export const FieldError = () => {
   const { id, error } = useField();
 
-  if (!error) {
+  if (!error || typeof error !== 'string') {
     return null;
   }
 

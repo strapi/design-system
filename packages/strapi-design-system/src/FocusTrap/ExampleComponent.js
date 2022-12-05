@@ -20,8 +20,13 @@ const TrappedComponent = ({ onClose }) => {
             <Typography variant="beta" as="h2">
               Hey folks!
             </Typography>
-            <button style={{ border: 'none', background: 'transparent' }} onClick={onClose} aria-label="Close">
-              <Cross aria-hidden={true} />
+            <button
+              type="button"
+              style={{ border: 'none', background: 'transparent' }}
+              onClick={onClose}
+              aria-label="Close"
+            >
+              <Cross aria-hidden />
             </button>
           </Flex>
           <Box paddingTop={2} paddingBottom={2}>

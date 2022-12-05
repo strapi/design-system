@@ -20,6 +20,7 @@ test.describe.parallel('BaseRadio', () => {
         await page.keyboard.press('ArrowDown');
 
         const secondBox = await page.$('#bagel');
+
         if (secondBox) {
           expect(await secondBox.isChecked()).toBe(true);
         }
@@ -30,6 +31,7 @@ test.describe.parallel('BaseRadio', () => {
         await page.keyboard.press('ArrowRight');
 
         const secondBox = await page.$('#bagel');
+
         if (secondBox) {
           expect(await secondBox.isChecked()).toBe(true);
         }
@@ -40,6 +42,7 @@ test.describe.parallel('BaseRadio', () => {
         await page.keyboard.press('ArrowUp');
 
         const pizzaRadio = await page.$('#pizza');
+
         if (pizzaRadio) {
           expect(await pizzaRadio.isChecked()).toBe(true);
         }
@@ -50,6 +53,7 @@ test.describe.parallel('BaseRadio', () => {
         await page.keyboard.press('ArrowLeft');
 
         const pizzaRadio = await page.$('#pizza');
+
         if (pizzaRadio) {
           expect(await pizzaRadio.isChecked()).toBe(true);
         }

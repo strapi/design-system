@@ -27,7 +27,7 @@ describe('LiveRegions', () => {
 
       React.useEffect(() => {
         notifyLog('A log message');
-      }, []);
+      }, [notifyLog]);
 
       return null;
     };
@@ -86,7 +86,7 @@ describe('LiveRegions', () => {
 
       React.useEffect(() => {
         notifyStatus('A status message');
-      }, []);
+      }, [notifyStatus]);
 
       return null;
     };
@@ -145,7 +145,7 @@ describe('LiveRegions', () => {
 
       React.useEffect(() => {
         notifyAlert('An alert message');
-      }, []);
+      }, [notifyAlert]);
 
       return null;
     };

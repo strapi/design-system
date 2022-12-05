@@ -76,7 +76,7 @@ export const PreviousLink = ({ children, to, ...props }) => {
       {...props}
     >
       <VisuallyHidden>{children}</VisuallyHidden>
-      <ChevronLeft aria-hidden={true} />
+      <ChevronLeft aria-hidden />
     </ActionLinkWrapper>
   );
 };
@@ -96,7 +96,7 @@ export const NextLink = ({ children, to, ...props }) => {
       {...props}
     >
       <VisuallyHidden>{children}</VisuallyHidden>
-      <ChevronRight aria-hidden={true} />
+      <ChevronRight aria-hidden />
     </ActionLinkWrapper>
   );
 };
@@ -111,7 +111,7 @@ export const PageLink = ({ number, children, ...props }) => {
   return (
     <PageLinkWrapper {...props} active={isActive}>
       <VisuallyHidden>{children}</VisuallyHidden>
-      <PaginationText aria-hidden={true} variant="pi" fontWeight={isActive ? 'bold' : null}>
+      <PaginationText aria-hidden variant="pi" fontWeight={isActive ? 'bold' : null}>
         {number}
       </PaginationText>
     </PageLinkWrapper>
@@ -123,7 +123,7 @@ PageLink.displayName = 'PageLink';
 export const Dots = ({ children, ...props }) => (
   <DotsWrapper {...props} as="div">
     <VisuallyHidden>{children}</VisuallyHidden>
-    <PaginationText aria-hidden={true} variant="pi">
+    <PaginationText aria-hidden variant="pi">
       …
     </PaginationText>
   </DotsWrapper>

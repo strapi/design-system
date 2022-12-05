@@ -1,7 +1,7 @@
 name: 🐛 Bug Report
 description: Create a report to help us improve Strapi Design System.
-title: "[bug]: "
-labels: ["issue: bug"]
+title: '[bug]: '
+labels: ['issue: bug']
 body:
   - type: markdown
     attributes:

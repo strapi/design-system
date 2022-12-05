@@ -37,7 +37,7 @@ export const Link = React.forwardRef(({ children, href, disabled, startIcon, end
   return (
     <LinkWrapper ref={ref} href={href} disabled={disabled} {...props}>
       {startIcon && (
-        <IconWrapper as="span" aria-hidden={true} paddingRight={2}>
+        <IconWrapper as="span" aria-hidden paddingRight={2}>
           {startIcon}
         </IconWrapper>
       )}
@@ -45,13 +45,13 @@ export const Link = React.forwardRef(({ children, href, disabled, startIcon, end
       <Typography textColor={disabled ? 'neutral600' : 'primary600'}>{children}</Typography>
 
       {endIcon && (
-        <IconWrapper as="span" aria-hidden={true} paddingLeft={2}>
+        <IconWrapper as="span" aria-hidden paddingLeft={2}>
           {endIcon}
         </IconWrapper>
       )}
 
       {href && !endIcon && (
-        <IconWrapper as="span" aria-hidden={true} paddingLeft={2}>
+        <IconWrapper as="span" aria-hidden paddingLeft={2}>
           <ExternalLink />
         </IconWrapper>
       )}

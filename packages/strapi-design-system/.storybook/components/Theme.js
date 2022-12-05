@@ -13,16 +13,18 @@ const Theme = ({ children }) => {
   const [isDark, setIsDark] = useState(themeQueryURL || isDarkAddon);
 
   useEffect(() => {
-    if(!themeQueryURL && isDarkAddon !== isDark) {
+    if (!themeQueryURL && isDarkAddon !== isDark) {
       setIsDark(isDarkAddon);
     }
   }, [isDarkAddon, isDark]);
 
   return (
     <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
-      <Box padding={2} background='neutral0'>{children}</Box>
+      <Box padding={2} background="neutral0">
+        {children}
+      </Box>
     </ThemeProvider>
-  )
+  );
 };
 
 export default Theme;

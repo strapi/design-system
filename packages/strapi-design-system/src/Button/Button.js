@@ -88,7 +88,7 @@ export const Button = React.forwardRef(
         {...props}
       >
         {(startIcon || loading) && (
-          <BoxFullHeight aria-hidden={true} paddingRight={2}>
+          <BoxFullHeight aria-hidden paddingRight={2}>
             {loading ? (
               <LoadingWrapper>
                 <Loader />
@@ -104,7 +104,7 @@ export const Button = React.forwardRef(
         </Typography>
 
         {endIcon && (
-          <Box aria-hidden={true} paddingLeft={2}>
+          <Box aria-hidden paddingLeft={2}>
             {endIcon}
           </Box>
         )}

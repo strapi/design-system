@@ -50,7 +50,7 @@ export const Dialog = ({ onClose, title, as, isOpen, id, ...props }) => {
           <DismissibleLayer onEscapeKeyDown={onClose} onPointerDownOutside={onClose}>
             <DialogContainer
               aria-labelledby={labelledBy}
-              aria-modal={true}
+              aria-modal
               background="neutral0"
               hasRadius
               shadow="popupShadow"

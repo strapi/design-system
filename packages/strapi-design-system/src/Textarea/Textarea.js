@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { Field, FieldLabel, FieldHint, FieldError } from '../Field';
 import { TextareaInput } from './TextareaInput';
 import { Stack } from '../Stack';
 import { Flex } from '../Flex';
-import styled from 'styled-components';
 import { useId } from '../helpers/useId';
 
 const TextareaWrapper = styled.div`

@@ -30,7 +30,7 @@ Fields are inputs that allow users to add or edit text. They support several tex
 ## Imports
 
 ```js
-import { Field, FieldLabel, FieldHint, FieldError, FieldInput, FieldAction } from '@strapi/design-system/Field';
+import { Field, FieldLabel, FieldHint, FieldError, FieldInput, FieldAction } from '@strapi/design-system';
 ```
 
 ## Base
@@ -42,7 +42,7 @@ The simplest representation of the Field components, no description, no error, n
     <Field name="email">
       <Stack spacing={1}>
         <FieldLabel>Email</FieldLabel>
-        <FieldInput type="text" placeholder="Placeholder" value={''} onChange={() => {}} />
+        <FieldInput type="text" placeholder="Placeholder" value="" onChange={() => {}} />
       </Stack>
     </Field>
   </Story>
@@ -57,7 +57,7 @@ A Field with a description allows to add a small hint of advanced information.
     <Field name="email" hint="Description line">
       <Stack spacing={1}>
         <FieldLabel required>Email</FieldLabel>
-        <FieldInput type="text" placeholder="Placeholder" value={''} onChange={() => {}} />
+        <FieldInput type="text" placeholder="Placeholder" value="" onChange={() => {}} />
         <FieldHint />
       </Stack>
     </Field>
@@ -70,10 +70,10 @@ An example of the Field components with an error.
 
 <Canvas>
   <Story name="with error">
-    <Field name="password" error={'Password is too short'}>
+    <Field name="password" error="Password is too short">
       <Stack spacing={1}>
         <FieldLabel>Password</FieldLabel>
-        <FieldInput type="password" placeholder="Placeholder" value={''} onChange={() => {}} />
+        <FieldInput type="password" placeholder="Placeholder" value="" onChange={() => {}} />
         <FieldHint />
         <FieldError />
       </Stack>
@@ -92,7 +92,7 @@ An example of the Field components with a label action.
         <FieldLabel required action={<Earth />}>
           Password
         </FieldLabel>
-        <FieldInput type="password" placeholder="Placeholder" value={''} onChange={() => {}} />
+        <FieldInput type="password" placeholder="Placeholder" value="" onChange={() => {}} />
         <FieldHint />
         <FieldError />
       </Stack>
@@ -109,7 +109,7 @@ Depending on the permissions a user have or the status of an action, a Field can
     <Field name="password" hint="Description line">
       <Stack spacing={1}>
         <FieldLabel>Password</FieldLabel>
-        <FieldInput placeholder="Placeholder" value={'Hello world'} disabled={true} onChange={() => {}} />
+        <FieldInput placeholder="Placeholder" value="Hello world" disabled onChange={() => {}} />
         <FieldHint />
         <FieldError />
       </Stack>
@@ -119,7 +119,8 @@ Depending on the permissions a user have or the status of an action, a Field can
 
 ## Password with description and error
 
-Password fields are specific. They offer the possibility to have unreadable content. By clicking on the eye icon on the right side, it is possible to actually read the password.
+Password fields are specific. They offer the possibility to have unreadable content. By clicking on the eye icon on the
+right side, it is possible to actually read the password.
 
 ## Most complex input
 
@@ -141,7 +142,7 @@ This is the most complex input that can be built with the Field components.
                       aria-label="Information about the email"
                       style={{ border: 'none', padding: 0, background: 'transparent' }}
                     >
-                      <Icon as={Information} color="neutral800" aria-hidden={true} />
+                      <Icon as={Information} color="neutral800" aria-hidden />
                     </button>
                   </Tooltip>
                 </Box>
@@ -196,7 +197,7 @@ This is the most complex input that can be built with the Field components.
                       aria-label="Information about the email"
                       style={{ border: 'none', padding: 0, background: 'transparent' }}
                     >
-                      <Icon as={Information} color="neutral800" aria-hidden={true} />
+                      <Icon as={Information} color="neutral800" aria-hidden />
                     </button>
                   </Tooltip>
                 </Box>
