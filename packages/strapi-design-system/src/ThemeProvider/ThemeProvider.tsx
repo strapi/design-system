@@ -185,11 +185,9 @@ interface ThemeProviderProps {
 export const ThemeProvider = ({ children, theme }: ThemeProviderProps) => {
   return (
     <StyledThemeProvider theme={theme}>
-      <>
-        <GlobalStyle />
-        {children}
-        <LiveRegions />
-      </>
+      <GlobalStyle />
+      {children}
+      <LiveRegions />
     </StyledThemeProvider>
   );
 };
