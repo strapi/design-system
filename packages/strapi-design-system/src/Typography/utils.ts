@@ -1,6 +1,7 @@
-import { ALPHA, BETA, DELTA, EPSILON, OMEGA, PI, SIGMA } from './constants';
+import { DefaultTheme } from 'styled-components';
+import { ALPHA, BETA, DELTA, EPSILON, OMEGA, PI, SIGMA, TEXT_VARIANTS } from './constants';
 
-export const ellipsisStyle = ({ ellipsis }) =>
+export const ellipsisStyle = ({ ellipsis = false }: { ellipsis?: boolean }) =>
   ellipsis &&
   `
     display: block;
@@ -9,7 +10,13 @@ export const ellipsisStyle = ({ ellipsis }) =>
     text-overflow: ellipsis;
   `;
 
-export const variantStyle = ({ variant, theme }) => {
+export const variantStyle = ({
+  variant = OMEGA,
+  theme,
+}: {
+  variant?: typeof TEXT_VARIANTS[number];
+  theme: DefaultTheme;
+}) => {
   switch (variant) {
     case ALPHA: {
       return `
@@ -66,4 +73,5 @@ export const variantStyle = ({ variant, theme }) => {
   }
 };
 
-export const handleColor = ({ theme, textColor }) => theme.colors[textColor || 'neutral800'];
+export const handleColor = ({ theme, textColor }: { theme: DefaultTheme; textColor?: keyof DefaultTheme['colors'] }) =>
+  theme.colors[textColor || 'neutral800'];

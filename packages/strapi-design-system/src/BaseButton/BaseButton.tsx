@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
+
 import { buttonFocusStyle } from '../themes/utils';
 
 export const BaseButtonWrapper = styled.button`
@@ -27,20 +27,18 @@ export const BaseButtonWrapper = styled.button`
   ${buttonFocusStyle}
 `;
 
-export const BaseButton = React.forwardRef(({ disabled, children, ...props }, ref) => {
-  return (
-    <BaseButtonWrapper ref={ref} aria-disabled={disabled} type="button" disabled={disabled} {...props}>
-      {children}
-    </BaseButtonWrapper>
-  );
-});
+export interface BaseButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  children: React.ReactNode;
+}
+
+export const BaseButton = React.forwardRef<HTMLButtonElement, BaseButtonProps>(
+  ({ disabled, children, ...props }, ref) => {
+    return (
+      <BaseButtonWrapper ref={ref} aria-disabled={disabled} type="button" disabled={disabled} {...props}>
+        {children}
+      </BaseButtonWrapper>
+    );
+  },
+);
 
 BaseButton.displayName = 'BaseButton';
-
-BaseButton.defaultProps = {
-  disabled: false,
-};
-BaseButton.propTypes = {
-  children: PropTypes.node.isRequired,
-  disabled: PropTypes.bool,
-};

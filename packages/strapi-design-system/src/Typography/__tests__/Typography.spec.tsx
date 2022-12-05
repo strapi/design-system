@@ -1,10 +1,10 @@
-import * as React from 'react';
 import { render } from '@testing-library/react';
-import { Typography } from '../Typography';
+
+import { Typography, TypographyProps } from '../Typography';
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
 
-const setup = (props) =>
+const setup = (props: TypographyProps) =>
   render(
     <ThemeProvider theme={lightTheme}>
       <Typography {...props} />
