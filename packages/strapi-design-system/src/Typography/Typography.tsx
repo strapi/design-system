@@ -2,7 +2,7 @@ import styled, { CSSProperties, DefaultTheme } from 'styled-components';
 
 import { ellipsisStyle, variantStyle, handleColor } from './utils';
 import { TEXT_VARIANTS } from './constants';
-import { PickType } from '../types/utils';
+
 import { extractStyleFromTheme } from '../helpers/theme';
 
 const transientProps: Partial<Record<keyof TypographyProps, boolean>> = {
@@ -16,9 +16,9 @@ export interface TypographyProps {
   fontSize?: keyof DefaultTheme['fontSizes'];
   fontWeight?: keyof DefaultTheme['fontWeights'];
   lineHeight?: keyof DefaultTheme['lineHeights'];
-  textAlign?: PickType<CSSProperties, 'textAlign'>;
+  textAlign?: CSSProperties['textAlign'];
   textColor?: keyof DefaultTheme['colors'];
-  textTransform?: PickType<CSSProperties, 'textTransform'>;
+  textTransform?: CSSProperties['textTransform'];
   variant?: typeof TEXT_VARIANTS[number];
 }
 
