@@ -60,7 +60,7 @@ export const TextareaInput = forwardRef(({ disabled, ...props }, ref) => {
         aria-invalid={hasError}
         disabled={disabled}
         hasError={hasError}
-        required={required}
+        aria-required={required}
         {...props}
       />
     </TextareaWrapper>

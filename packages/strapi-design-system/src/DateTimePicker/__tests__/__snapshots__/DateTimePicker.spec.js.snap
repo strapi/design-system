@@ -337,6 +337,7 @@ exports[`DateTimePicker snapshots the component 1`] = `
                   aria-disabled="false"
                   aria-invalid="false"
                   aria-label="Date time picker"
+                  aria-required="false"
                   class="c9"
                   data-testid="datetimepicker-date"
                   id="datepicker-4"

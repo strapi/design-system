@@ -144,7 +144,7 @@ export const ToggleCheckbox = React.forwardRef(
             onChange={(e) => handleChange(e)}
             name={name}
             ref={ref}
-            required={required}
+            aria-required={required}
             {...props}
             checked={!(checked === null || !checked)}
           />

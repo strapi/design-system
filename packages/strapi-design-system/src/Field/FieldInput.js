@@ -98,7 +98,7 @@ export const FieldInput = forwardRef(({ endAction, startAction, disabled, onChan
         hasLeftAction={Boolean(startAction)}
         hasRightAction={Boolean(endAction)}
         onChange={handleChange}
-        required={required}
+        aria-required={required}
         size={size}
         {...props}
       />
