@@ -36,11 +36,11 @@ import { TextInput } from '@strapi/design-system';
 
 ## Usage
 
-`TextInput` are always found in forms. They give users the possibility to add or edit text.
+`TextInput` allow users to edit text.
 
 ### TextInput Base
 
-In addition of plain text, `TextInput` can also include a placeholder and a description line.
+`TextInput` can include a placeholder and a description line.
 
 <Canvas>
   <Story name="base">
@@ -75,7 +75,7 @@ In addition of plain text, `TextInput` can also include a placeholder and a desc
 
 ### Disabled TextInput
 
-Depending on the permissions a user have or the status of an action, a `TextInput` can be unreachable or unavailable yet.
+`TextInput` can receive a disabled prop.
 
 <Canvas>
   <Story name="disabled">
@@ -135,8 +135,7 @@ Depending on the permissions a user have or the status of an action, a `TextInpu
 
 ### TextInput with error
 
-TextInputs can display error. The error message is customizable and replaced the description line below the writing
-area.
+TextInputs can display an error. The error message is customizable and replaces the description line below the input.
 
 <Canvas>
   <Story name="with error">

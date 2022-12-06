@@ -17,8 +17,15 @@ const Action = styled(Flex)`
   }
 `;
 
-export const FieldLabel = ({ children, action, ...props }) => {
-  const { id, required } = useField();
+export const FieldLabel = ({ children, action, required: requiredDeprecatedProp, ...props }) => {
+  const { id, required: requiredField } = useField();
+  const required = requiredField || requiredDeprecatedProp;
+
+  if (requiredDeprecatedProp) {
+    console.warn(
+      'Deprecation warning: Usage of "required" prop in FieldLabel component is deprecated. This is discouraged and will be removed in the next major release. Please use the Field component to share the required prop.',
+    );
+  }
 
   return (
     <Typography variant="pi" textColor="neutral800" htmlFor={id} fontWeight="bold" as="label" {...props}>
@@ -33,8 +40,11 @@ export const FieldLabel = ({ children, action, ...props }) => {
 
 FieldLabel.defaultProps = {
   action: undefined,
+  required: false,
 };
+
 FieldLabel.propTypes = {
   action: PropTypes.element,
   children: PropTypes.node.isRequired,
+  required: PropTypes.bool,
 };
