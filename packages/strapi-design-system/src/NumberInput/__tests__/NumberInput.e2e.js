@@ -153,19 +153,6 @@ test.describe.parallel('NumberInput', () => {
       });
     });
 
-    test.describe('with initial value', () => {
-      test.beforeEach(async ({ page }) => {
-        // This is the URL of the Storybook Iframe
-        await page.goto('/iframe.html?id=design-system-components-numberinput--with-initial-0&viewMode=story');
-        await injectAxe(page);
-      });
-
-      test('shows an initial value of 0', async ({ page }) => {
-        const value = await page.$eval('input', (el) => el.value);
-        expect(value).toBe('0');
-      });
-    });
-
     test.describe('disabled', () => {
       test('disabled A11y', async ({ page }) => {
         // This is the URL of the Storybook Iframe
