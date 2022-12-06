@@ -21,7 +21,7 @@ export const FieldLabel = ({ children, action, required: requiredDeprecatedProp,
   const { id, required: requiredField } = useField();
   const required = requiredField || requiredDeprecatedProp;
 
-  if (requiredDeprecatedProp) {
+  if (requiredDeprecatedProp !== undefined) {
     console.warn(
       'Deprecation warning: Usage of "required" prop in FieldLabel component is deprecated. This is discouraged and will be removed in the next major release. Please use the Field component to share the required prop.',
     );
@@ -40,7 +40,7 @@ export const FieldLabel = ({ children, action, required: requiredDeprecatedProp,
 
 FieldLabel.defaultProps = {
   action: undefined,
-  required: false,
+  required: undefined,
 };
 
 FieldLabel.propTypes = {
