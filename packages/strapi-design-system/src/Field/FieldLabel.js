@@ -46,5 +46,8 @@ FieldLabel.defaultProps = {
 FieldLabel.propTypes = {
   action: PropTypes.element,
   children: PropTypes.node.isRequired,
+  /**
+   * DEPRECATED: "required" should be given to Field component to share the value across components
+   */
   required: PropTypes.bool,
 };
