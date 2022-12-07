@@ -160,10 +160,10 @@ export const Select = ({
   });
 
   return (
-    <Field hint={hint} error={error} id={generatedId}>
+    <Field hint={hint} error={error} id={generatedId} required={required}>
       <Stack spacing={label || hint || hasStringError ? 1 : 0}>
         {label && (
-          <FieldLabel required={required} as="span" id={labelId} action={labelAction}>
+          <FieldLabel as="span" action={labelAction}>
             {label}
           </FieldLabel>
         )}

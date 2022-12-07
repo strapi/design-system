@@ -153,40 +153,55 @@ test.describe.parallel('NumberInput', () => {
       });
     });
 
-    test.describe('with initial value', () => {
-      test.beforeEach(async ({ page }) => {
-        // This is the URL of the Storybook Iframe
-        await page.goto('/iframe.html?id=design-system-components-numberinput--with-initial-0&viewMode=story');
-        await injectAxe(page);
-      });
-
-      test('shows an initial value of 0', async ({ page }) => {
-        const value = await page.$eval('input', (el) => el.value);
-        expect(value).toBe('0');
-      });
-    });
-
     test.describe('disabled', () => {
-      test('disabled A11ly', async ({ page }) => {
+      test('disabled A11y', async ({ page }) => {
         // This is the URL of the Storybook Iframe
         await page.goto('/iframe.html?id=design-system-components-numberinput--disabled&viewMode=story');
         await injectAxe(page);
         await checkA11y(page);
       });
     });
+
+    test('error A11y', async ({ page }) => {
+      // This is the URL of the Storybook Iframe
+      await page.goto('/iframe.html?id=design-system-components-numberinput--error&viewMode=story');
+      await injectAxe(page);
+      await checkA11y(page);
+    });
+
+    test('required A11y', async ({ page }) => {
+      // This is the URL of the Storybook Iframe
+      await page.goto('/iframe.html?id=design-system-components-numberinput--required&viewMode=story');
+      await injectAxe(page);
+      await checkA11y(page);
+    });
   });
 
   test.describe('dark mode', () => {
-    test('base A11ly', async ({ page }) => {
+    test('base A11y', async ({ page }) => {
       // This is the URL of the Storybook Iframe
       await page.goto('/iframe.html?id=design-system-components-numberinput--base&viewMode=story&theme=dark');
       await injectAxe(page);
       await checkA11y(page);
     });
 
-    test('disabled A11ly', async ({ page }) => {
+    test('disabled A11y', async ({ page }) => {
       // This is the URL of the Storybook Iframe
       await page.goto('/iframe.html?id=design-system-components-numberinput--disabled&viewMode=story&theme=dark');
+      await injectAxe(page);
+      await checkA11y(page);
+    });
+
+    test('error A11y', async ({ page }) => {
+      // This is the URL of the Storybook Iframe
+      await page.goto('/iframe.html?id=design-system-components-numberinput--error&viewMode=story&theme=dark');
+      await injectAxe(page);
+      await checkA11y(page);
+    });
+
+    test('required A11y', async ({ page }) => {
+      // This is the URL of the Storybook Iframe
+      await page.goto('/iframe.html?id=design-system-components-numberinput--required&viewMode=story&theme=dark');
       await injectAxe(page);
       await checkA11y(page);
     });

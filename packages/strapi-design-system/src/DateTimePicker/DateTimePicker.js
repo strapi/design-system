@@ -104,13 +104,17 @@ export const DateTimePicker = ({
   const generatedFieldErrorId = useId('datetimepicker');
 
   return (
-    <Field name={name} role="group" aria-labelledby={generatedId} hint={hint} error={error}>
+    <Field
+      name={name}
+      role="group"
+      id={generatedId}
+      aria-labelledby={generatedId}
+      hint={hint}
+      error={error}
+      required={required}
+    >
       <Stack spacing={1}>
-        {label && (
-          <FieldLabel required={required} action={labelAction} id={generatedId}>
-            {label}
-          </FieldLabel>
-        )}
+        {label && <FieldLabel action={labelAction}>{label}</FieldLabel>}
         <Stack horizontal spacing={2}>
           <DatePicker
             data-testid="datetimepicker-date"
@@ -120,6 +124,7 @@ export const DateTimePicker = ({
             selectedDate={dateValue}
             selectedDateLabel={(formattedDate) => `Date picker, current is ${formattedDate}`}
             onChange={handleDateChange}
+            required={required}
             size={size}
             onClear={onClear && handleDateClear}
             clearLabel={clearLabel}
@@ -135,6 +140,7 @@ export const DateTimePicker = ({
             onChange={handleTimeChange}
             onClear={onClear && handleTimeClear}
             clearLabel={clearLabel}
+            required={required}
             selectButtonTitle={selectButtonTitle}
             disabled={disabled}
             step={step}

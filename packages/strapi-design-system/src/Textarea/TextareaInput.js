@@ -38,7 +38,7 @@ const Textarea = styled.textarea`
 `;
 
 export const TextareaInput = forwardRef(({ disabled, ...props }, ref) => {
-  const { id, error, hint, name } = useField();
+  const { id, error, hint, name, required } = useField();
 
   let ariaDescription;
 
@@ -60,6 +60,7 @@ export const TextareaInput = forwardRef(({ disabled, ...props }, ref) => {
         aria-invalid={hasError}
         disabled={disabled}
         hasError={hasError}
+        aria-required={required}
         {...props}
       />
     </TextareaWrapper>

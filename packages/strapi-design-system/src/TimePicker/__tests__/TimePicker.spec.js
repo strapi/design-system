@@ -300,7 +300,6 @@ describe('TimePicker', () => {
             <span
               class="c2"
               for="timepicker-1"
-              id="timepicker-1-label"
             >
               <div
                 class="c3"

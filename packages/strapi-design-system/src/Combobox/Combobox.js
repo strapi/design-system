@@ -272,16 +272,12 @@ export const Combobox = ({
   };
 
   return (
-    <Field hint={hint} error={error} id={generatedId}>
+    <Field hint={hint} error={error} id={generatedId} required={required}>
       <VisuallyHidden aria-live="polite" aria-atomic="false" aria-relevant="additions text">
         {value}
       </VisuallyHidden>
       <Stack spacing={label || hint || error ? 1 : 0}>
-        {label && (
-          <FieldLabel action={labelAction} required={required} id={labelId}>
-            {label}
-          </FieldLabel>
-        )}
+        {label && <FieldLabel action={labelAction}>{label}</FieldLabel>}
         <MainRow ref={containerRef} $disabled={disabled} hasError={error}>
           <InputContainer wrap="wrap">
             {!inputValue && value && (
@@ -297,6 +293,8 @@ export const Combobox = ({
               aria-expanded={open}
               aria-haspopup="listbox"
               aria-labelledby={label ? labelId : undefined}
+              autoComplete="off"
+              autoCorrect="off"
               id={generatedId}
               onBlur={disabled ? undefined : onInputBlur}
               onClick={disabled ? undefined : handleClick}
@@ -305,9 +303,8 @@ export const Combobox = ({
               placeholder={value ? '' : placeholder}
               readOnly={disabled}
               ref={inputRef}
+              required={required}
               role="combobox"
-              autoComplete="off"
-              autoCorrect="off"
               spellCheck="off"
               type="text"
               value={inputValue}
