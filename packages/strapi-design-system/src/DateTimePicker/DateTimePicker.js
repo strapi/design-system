@@ -104,13 +104,17 @@ export const DateTimePicker = ({
   const generatedFieldErrorId = useId('datetimepicker');
 
   return (
-    <Field name={name} role="group" aria-labelledby={generatedId} hint={hint} error={error} required={required}>
+    <Field
+      name={name}
+      role="group"
+      id={generatedId}
+      aria-labelledby={generatedId}
+      hint={hint}
+      error={error}
+      required={required}
+    >
       <Stack spacing={1}>
-        {label && (
-          <FieldLabel action={labelAction} id={generatedId}>
-            {label}
-          </FieldLabel>
-        )}
+        {label && <FieldLabel action={labelAction}>{label}</FieldLabel>}
         <Stack horizontal spacing={2}>
           <DatePicker
             data-testid="datetimepicker-date"

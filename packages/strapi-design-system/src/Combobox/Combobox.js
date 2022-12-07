@@ -277,11 +277,7 @@ export const Combobox = ({
         {value}
       </VisuallyHidden>
       <Stack spacing={label || hint || error ? 1 : 0}>
-        {label && (
-          <FieldLabel action={labelAction} id={labelId}>
-            {label}
-          </FieldLabel>
-        )}
+        {label && <FieldLabel action={labelAction}>{label}</FieldLabel>}
         <MainRow ref={containerRef} $disabled={disabled} hasError={error}>
           <InputContainer wrap="wrap">
             {!inputValue && value && (
