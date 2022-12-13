@@ -1,6 +1,6 @@
-const { injectAxe, checkA11y } = require('axe-playwright');
+import { injectAxe, checkA11y } from 'axe-playwright';
 
-const { test, expect } = require('@playwright/test');
+import { test, expect } from '@playwright/test';
 
 test.describe.parallel('Combobox', () => {
   test.describe('light mode', () => {
@@ -106,6 +106,27 @@ test.describe.parallel('Combobox', () => {
       const selectedValue = await page.textContent('#combobox-1-selected-value');
       await expect(selectedValue).toBe('Apple Pie');
     });
+
+    test('disabled A11y', async ({ page }) => {
+      // This is the URL of the Storybook Iframe
+      await page.goto('/iframe.html?id=design-system-components-combobox--disabled&globals=&viewMode=story');
+      await injectAxe(page);
+      await checkA11y(page);
+    });
+
+    test('error A11y', async ({ page }) => {
+      // This is the URL of the Storybook Iframe
+      await page.goto('/iframe.html?id=design-system-components-combobox--error&globals=&viewMode=story');
+      await injectAxe(page);
+      await checkA11y(page);
+    });
+
+    test('required A11y', async ({ page }) => {
+      // This is the URL of the Storybook Iframe
+      await page.goto('/iframe.html?id=design-system-components-combobox--required&globals=&viewMode=story');
+      await injectAxe(page);
+      await checkA11y(page);
+    });
   });
 
   test.describe('dark mode', () => {
@@ -126,6 +147,13 @@ test.describe.parallel('Combobox', () => {
     test('error A11y', async ({ page }) => {
       // This is the URL of the Storybook Iframe
       await page.goto('/iframe.html?id=design-system-components-combobox--error&globals=&viewMode=story&theme=dark');
+      await injectAxe(page);
+      await checkA11y(page);
+    });
+
+    test('required A11y', async ({ page }) => {
+      // This is the URL of the Storybook Iframe
+      await page.goto('/iframe.html?id=design-system-components-combobox--required&globals=&viewMode=story&theme=dark');
       await injectAxe(page);
       await checkA11y(page);
     });

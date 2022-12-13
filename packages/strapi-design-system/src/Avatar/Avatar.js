@@ -91,6 +91,7 @@ Initials.propTypes = {
 };
 
 Avatar.defaultProps = {
+  alt: undefined,
   preview: undefined,
 };
 
@@ -98,7 +99,7 @@ Avatar.propTypes = {
   /**
    * Alternative text
    */
-  alt: PropTypes.string.isRequired,
+  alt: PropTypes.string,
   /**
    * Image src of the image preview (displayed on `Avatar` hover).
    */

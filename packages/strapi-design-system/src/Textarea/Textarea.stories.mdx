@@ -29,10 +29,15 @@ TextAreas are inputs that allow users to add or edit text. They support long tex
 ## Imports
 
 ```js
-import { Textarea } from '@strapi/design-system/Textarea';
+import { Textarea } from '@strapi/design-system';
 ```
-
 ## Usage
+
+`Textarea` can be found in forms. It allows user to enter a sizeable amount of free-form text.
+
+### Textarea base
+
+In addition of plain text, `Textarea` can also include a placeholder and a description line.
 
 <Canvas>
   <Story name="base">
@@ -45,7 +50,6 @@ import { Textarea } from '@strapi/design-system/Textarea';
             label="Content"
             name="content"
             hint="Description line"
-            error={content.length < 5 ? 'Content is too short' : undefined}
             onChange={(e) => setContent(e.target.value)}
             labelAction={
               <Tooltip description="Content of the tooltip" position="right">
@@ -66,7 +70,45 @@ import { Textarea } from '@strapi/design-system/Textarea';
   </Story>
 </Canvas>
 
-## Disabled state
+### Error state
+
+`Textarea` can display an error. The error message is customizable and replaces the description line below the input.
+
+<Canvas>
+  <Story name="error">
+    {() => {
+      const [content, setContent] = useState('');
+      return (
+        <Box padding={10}>
+          <Textarea
+            placeholder="This is a content placeholder"
+            label="Content"
+            name="content"
+            hint="Description line"
+            error={content.length < 5 ? 'Content is too short' : undefined}
+            onChange={(e) => setContent(e.target.value)}
+            labelAction={
+              <Tooltip description="Content of the tooltip" position="right">
+                <button
+                  aria-label="Information about the email"
+                  style={{ border: 'none', padding: 0, background: 'transparent' }}
+                >
+                  <Information aria-hidden />
+                </button>
+              </Tooltip>
+            }
+          >
+            {content}
+          </Textarea>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Disabled state
+
+Depending on the permissions a user have or the status of an action, a `Textarea` can be unreachable or unavailable yet.
 
 <Canvas>
   <Story name="disabled">
@@ -80,6 +122,42 @@ import { Textarea } from '@strapi/design-system/Textarea';
             name="content"
             hint="Description line"
             disabled
+            onChange={(e) => setContent(e.target.value)}
+            labelAction={
+              <Tooltip description="Content of the tooltip" position="right">
+                <button
+                  aria-label="Information about the email"
+                  style={{ border: 'none', padding: 0, background: 'transparent' }}
+                >
+                  <Information aria-hidden />
+                </button>
+              </Tooltip>
+            }
+          >
+            {content}
+          </Textarea>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Required state
+
+`Textarea` can be required. The required state will appear with a red asterisk beside the label.
+
+<Canvas>
+  <Story name="required">
+    {() => {
+      const [content, setContent] = useState('');
+      return (
+        <Box padding={10}>
+          <Textarea
+            placeholder="This is a content placeholder"
+            label="Content"
+            name="content"
+            hint="Description line"
+            required
             onChange={(e) => setContent(e.target.value)}
             labelAction={
               <Tooltip description="Content of the tooltip" position="right">

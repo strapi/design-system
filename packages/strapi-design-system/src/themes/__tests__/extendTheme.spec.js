@@ -20,7 +20,7 @@ describe('extendTheme', () => {
       The following is an example:
 
 
-      import { lightTheme, extendTheme } from '@strapi/design-system/themes';
+      import { lightTheme, extendTheme } from '@strapi/design-system';
 
       const myCustomTheme = extendTheme(lightTheme, {
           colors: /* put the overrides for the colors key */,
@@ -54,7 +54,7 @@ describe('extendTheme', () => {
       The following is an example:
 
 
-      import { lightTheme, extendTheme } from '@strapi/design-system/themes';
+      import { lightTheme, extendTheme } from '@strapi/design-system';
 
       const myCustomTheme = extendTheme(lightTheme, {
           colors: /* put the overrides for the colors key */,
@@ -100,7 +100,7 @@ describe('extendTheme', () => {
     });
 
     expect(lightTheme.spaces).toMatchInlineSnapshot(`
-      Array [
+      [
         "0px",
         "4px",
         "8px",

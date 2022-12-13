@@ -1,6 +1,6 @@
-const { injectAxe, checkA11y } = require('axe-playwright');
+import { injectAxe, checkA11y } from 'axe-playwright';
 
-const { test } = require('@playwright/test');
+import { test } from '@playwright/test';
 
 test.describe.parallel('GridLayout', () => {
   test.describe('light mode', () => {

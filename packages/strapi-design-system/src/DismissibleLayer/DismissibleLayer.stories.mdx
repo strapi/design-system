@@ -1,0 +1,51 @@
+<!--- Dismissable.stories.mdx --->
+
+import { useState, useEffect } from 'react';
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { ArgsTable } from '@storybook/addon-docs';
+
+import { Typography } from '../Typography';
+import { DismissibleLayer } from './DismissibleLayer';
+
+<Meta title="Design System/Technical Components/DismissibleLayer" component={DismissibleLayer} />
+
+# DismissibleLayer
+
+`DismissibleLayer` is a internal utility component wrapping the logic for a layer that can dismissed. It's typically
+used within a `Modal` or a `Popover` & in conjunction with `FocusTrap`.
+
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/DismissibleLayer)
+
+## Imports
+
+```js
+import { DismissibleLayer } from '@strapi/design-system';
+```
+
+## Usage
+
+<Canvas>
+  <Story name="base">
+    {() => {
+      const [isVisible, setIsVisible] = useState(false);
+      useEffect(() => {
+        let timeout = null;
+        if (!isVisible) {
+          timeout = setTimeout(() => setIsVisible(true), 1000);
+        }
+        return () => clearTimeout(timeout); 
+      }, [isVisible]);
+      return isVisible ? (
+        <DismissibleLayer onEscapeKeyDown={() => setIsVisible(false)} onPointerDownOutside={() => setIsVisible(false)}>
+          <Typography style={{ backgroundColor: '#ccc', padding: '20px', display: 'block' }}>
+            press escape or click outside to dismiss
+          </Typography>
+        </DismissibleLayer>
+      ) : null; 
+    }}
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={DismissibleLayer} />

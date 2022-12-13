@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { RawTable } from '../RawTable/RawTable';
 import styled from 'styled-components';
+import { RawTable } from '../RawTable/RawTable';
 import { Box } from '../Box';
 
 const TableContainer = styled(Box)`
@@ -55,15 +55,19 @@ export const Table = ({ colCount, rowCount, footer, ...props }) => {
     const maxScrollLeft = e.target.scrollWidth - e.target.clientWidth;
 
     if (e.target.scrollLeft === 0) {
-      return setOverflowing('right');
+      setOverflowing('right');
+
+      return;
     }
 
     if (e.target.scrollLeft === maxScrollLeft) {
-      return setOverflowing('left');
+      setOverflowing('left');
+
+      return;
     }
 
     if (e.target.scrollLeft > 0) {
-      return setOverflowing('both');
+      setOverflowing('both');
     }
   };
 

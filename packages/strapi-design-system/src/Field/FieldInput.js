@@ -63,7 +63,7 @@ export const InputWrapper = styled(Flex)`
 `;
 
 export const FieldInput = forwardRef(({ endAction, startAction, disabled, onChange, size, ...props }, ref) => {
-  const { id, error, hint, name } = useField();
+  const { id, error, hint, name, required } = useField();
 
   let ariaDescription;
 
@@ -98,6 +98,7 @@ export const FieldInput = forwardRef(({ endAction, startAction, disabled, onChan
         hasLeftAction={Boolean(startAction)}
         hasRightAction={Boolean(endAction)}
         onChange={handleChange}
+        aria-required={required}
         size={size}
         {...props}
       />
@@ -117,7 +118,7 @@ FieldInput.defaultProps = {
   endAction: undefined,
   size: 'M',
   startAction: undefined,
-  onChange: () => {},
+  onChange() {},
 };
 
 FieldInput.propTypes = {

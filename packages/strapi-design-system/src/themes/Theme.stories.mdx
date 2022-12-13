@@ -14,7 +14,8 @@ import { Searchbar, SearchForm } from '../Searchbar';
 import { Icon } from '../Icon';
 import { Tooltip } from '../Tooltip';
 import { darkColorTokenObject } from './darkTheme/dark-colors';
-import { lightColorTokenObject } from './lightTheme/light-colors.js';
+import { lightColorTokenObject } from './lightTheme/light-colors';
+import { ColorButton } from './ColorButton';
 
 <Meta title="Design System/Components/Theme" component={Box} />
 
@@ -30,12 +31,9 @@ This is the light colors used for the light mode
   <Story name="light colors">
     {() => {
       const { color } = lightColorTokenObject;
-      /* Excluding warning since they don't have enough contrast on for neutral900 and neutral0 */
-      const colorsKey = Object.keys(color).filter((color) => !color.includes('warning'));
       const colors = [];
-      const conditions = ['600', '700', '800', '900', '1000'];
       let ruptureKey;
-      for (const colorKey of colorsKey) {
+      for (const colorKey of Object.keys(color)) {
         const prefix = colorKey.substr(0, 2);
         if (ruptureKey !== prefix) {
           colors.push([]);
@@ -43,26 +41,22 @@ This is the light colors used for the light mode
         }
         colors[colors.length - 1].push({ colorKey, colorValue: color[colorKey] });
       }
-      return (
-        <Box>
-          <Grid>
-            {colors.map((colorGroup, idx) => (
-              <GridItem key={`color-group-${idx}`} padding={4}>
-                <Stack spacing={2}>
-                  {colorGroup.map(({ colorKey, colorValue }) => (
-                    <div key={colorKey} style={{ padding: '12px', background: colorValue }}>
-                      <p style={{ color: conditions.some((v) => colorKey.includes(v)) ? 'white' : 'black' }}>
-                        {colorKey}
-                      </p>
-                    </div>
-                  ))}
-                </Stack>
-              </GridItem>
-            ))}
-          </Grid>
-        </Box>
-      );
-    }}
+        return (
+          <Box>
+            <Grid>
+              {colors.map((colorGroup, idx) => (
+                <GridItem key={`color-group-${idx}`} padding={4}>
+                  <Stack spacing={2}>
+                    {colorGroup.map(({ colorKey, colorValue }) => (
+                      <ColorButton key={colorKey} colorKey={colorKey} color={colorValue} />
+                    ))}
+                  </Stack>
+                </GridItem>
+              ))}
+            </Grid>
+          </Box>
+        ); 
+      }}
   </Story>
 </Canvas>
 
@@ -74,12 +68,9 @@ This is the dark colors used for the dark mode
   <Story name="dark colors">
     {() => {
       const { color } = darkColorTokenObject;
-      /* Excluding warning since they don't have enough contrast on for neutral900 and neutral0 */
-      const colorsKey = Object.keys(color).filter((color) => !color.includes('warning') && !color.includes('button'));
       const colors = [];
-      const conditions = ['600', '700', '800', '900', '1000'];
       let ruptureKey;
-      for (const colorKey of colorsKey) {
+      for (const colorKey of Object.keys(color)) {
         const prefix = colorKey.substr(0, 2);
         if (ruptureKey !== prefix) {
           colors.push([]);
@@ -87,26 +78,21 @@ This is the dark colors used for the dark mode
         }
         colors[colors.length - 1].push({ colorKey, colorValue: color[colorKey] });
       }
-      return (
-        <Box>
-          <Grid>
-            {colors.map((colorGroup, idx) => (
-              <GridItem key={`color-group-${idx}`} padding={4}>
-                <Stack spacing={2}>
-                  {colorGroup.map(({ colorKey, colorValue }) => (
-                    <div key={colorKey} style={{ padding: '12px', background: colorValue }}>
-                      <p style={{ color: conditions.some((v) => colorKey.includes(v)) ? 'black' : 'white' }}>
-                        {colorKey}
-                      </p>
-                    </div>
-                  ))}
-                </Stack>
-              </GridItem>
-            ))}
-          </Grid>
-        </Box>
-      );
-    }}
+return (
+<Box>
+  <Grid>
+    {colors.map((colorGroup, idx) => (
+      <GridItem key={`color-group-${idx}`} padding={4}>
+        <Stack spacing={2}>
+          {colorGroup.map(({ colorKey, colorValue }) => (
+            <ColorButton key={colorKey} colorKey={colorKey} color={colorValue} />
+          ))}
+        </Stack>
+      </GridItem>
+    ))}
+  </Grid>
+</Box>
+); }}
   </Story>
 </Canvas>
 
@@ -140,7 +126,8 @@ We have 3 types of shadows: Table, Popup, Filter. We use the drop shadows on dif
 
 ## Spaces
 
-A spacing system helps the content to follow a logical order and increase readability. It is based on multiples of 4px when it comes to defining measurements, spacing, and positioning elements.
+A spacing system helps the content to follow a logical order and increase readability. It is based on multiples of 4px
+when it comes to defining measurements, spacing, and positioning elements.
 
 <Canvas>
   <Story name="spaces">
@@ -166,7 +153,8 @@ A spacing system helps the content to follow a logical order and increase readab
 
 ## Icons
 
-Icons are used to emphasize actions and specific menus in the admin panel. We can find different type of icons: Navigation, Action, Notification, and illustrations.
+Icons are used to emphasize actions and specific menus in the admin panel. We can find different type of icons:
+Navigation, Action, Notification, and illustrations.
 
 <Canvas>
   <Story
@@ -206,10 +194,10 @@ Icons are used to emphasize actions and specific menus in the admin panel. We ca
               {iconsArray.map((icon) => {
                 const RealIcon = Icons[icon];
                 return (
-                  <GridItem padding={2} col={2} key={icon} background={'neutral0'}>
+                  <GridItem padding={2} col={2} key={icon} background="neutral0">
                     <Box>
                       <Icon
-                        aria-hidden={true}
+                        aria-hidden
                         colors={(theme) => ({
                           rect: {
                             fill: theme.colors.danger600,

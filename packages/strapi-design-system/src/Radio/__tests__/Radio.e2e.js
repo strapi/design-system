@@ -1,6 +1,6 @@
-const { injectAxe, checkA11y } = require('axe-playwright');
+import { injectAxe, checkA11y } from 'axe-playwright';
 
-const { test, expect } = require('@playwright/test');
+import { test, expect } from '@playwright/test';
 
 test.describe.parallel('Radio', () => {
   test.describe('light mode', () => {
@@ -19,6 +19,7 @@ test.describe.parallel('Radio', () => {
       await page.keyboard.press('ArrowDown');
 
       const secondBox = await page.$('[value="bagel"]');
+
       if (secondBox) {
         expect(await secondBox.isChecked()).toBe(true);
       }
@@ -29,6 +30,7 @@ test.describe.parallel('Radio', () => {
       await page.keyboard.press('ArrowRight');
 
       const secondBox = await page.$('[value="bagel"]');
+
       if (secondBox) {
         expect(await secondBox.isChecked()).toBe(true);
       }
@@ -39,6 +41,7 @@ test.describe.parallel('Radio', () => {
       await page.keyboard.press('ArrowUp');
 
       const pizzaRadio = await page.$('[value="pizza"]');
+
       if (pizzaRadio) {
         expect(await pizzaRadio.isChecked()).toBe(true);
       }
@@ -49,6 +52,7 @@ test.describe.parallel('Radio', () => {
       await page.keyboard.press('ArrowLeft');
 
       const pizzaRadio = await page.$('[value="pizza"]');
+
       if (pizzaRadio) {
         expect(await pizzaRadio.isChecked()).toBe(true);
       }

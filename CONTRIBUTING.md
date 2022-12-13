@@ -1,20 +1,29 @@
 # Contribute to Strapi Design System
 
-The Strapi Design System is an open-source project administered by [the Strapi team](https://strapi.io/company). We appreciate your interest and efforts to contribute to the Design System.
+The Strapi Design System is an open-source project administered by [the Strapi team](https://strapi.io/company). We
+appreciate your interest and efforts to contribute to the Design System.
 
-All efforts to contribute are highly appreciated, we recommend you open an issue prior to spending a lot of time making a pull request that may not align with the project roadmap.
+All efforts to contribute are highly appreciated, we recommend you open an issue prior to spending a lot of time making
+a pull request that may not align with the project roadmap.
 
 ## Code of Conduct
 
-This project and everyone participating in it are governed by the [Strapi Code of Conduct](https://github.com/strapi/strapi/blob/master/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please read the [full text](https://github.com/strapi/strapi/blob/master/CODE_OF_CONDUCT.md) so that you can read which actions may or may not be tolerated.
+This project and everyone participating in it are governed by the
+[Strapi Code of Conduct](https://github.com/strapi/strapi/blob/master/CODE_OF_CONDUCT.md). By participating, you are
+expected to uphold this code. Please read the
+[full text](https://github.com/strapi/strapi/blob/master/CODE_OF_CONDUCT.md) so that you can read which actions may or
+may not be tolerated.
 
 ## You found a bug
 
-We are using [GitHub Issues](https://github.com/strapi/design-system/issues) to manage our public bugs. We keep a close eye on this so before filing a new issue, try to make sure the problem does not already exist. You can also use the [codesandbox template](https://codesandbox.io/s/strapi-design-system-r1vdp) to easily show us the bug.
+We are using [GitHub Issues](https://github.com/strapi/design-system/issues) to manage our public bugs. We keep a close
+eye on this so before filing a new issue, try to make sure the problem does not already exist. You can also use the
+[codesandbox template](https://codesandbox.io/s/strapi-design-system-r1vdp) to easily show us the bug.
 
 ## Non-editable part
 
-The design system follows the Strapi branding. We use [Specify](https://specifyapp.com/) to be able to synchronise the design tokens with the design tools. Some parts of the codebase **can not be modified** including:
+The design system follows the Strapi branding. We use [Specify](https://specifyapp.com/) to be able to synchronise the
+design tokens with the design tools. Some parts of the codebase **can not be modified** including:
 
 - Icons `packages/strapi-icons/assets/icons/`
 - Colors `packages/strapi-design-system/src/themes/colors.js`
@@ -30,7 +39,8 @@ The core team will review your pull request and will either merge it, request ch
 
 - Fork the repository and create your branch from `main`.
 - Run `yarn setup` in the repository root.
-- If you’ve fixed a bug or added code that should be tested, add the tests and then link the corresponding issue in either your commit or your PR.
+- If you’ve fixed a bug or added code that should be tested, add the tests and then link the corresponding issue in
+  either your commit or your PR.
 - Ensure all test suites are passing:
   - `yarn test`
   - `yarn test:e2e`
@@ -38,9 +48,9 @@ The core team will review your pull request and will either merge it, request ch
 
 ### Setup end-to-end (e2e) tests
 
-1. Install Playwright `npx playwright@1.20.0 install --with-deps`
+1. Install Playwright `npx playwright@1.27.1 install --with-deps`
 2. Install and link any cross-dependencies: `yarn bootstrap`
-3. Run storybook `yarn storybook` and the e2e tests in parallel `yarn test:e2e` 
+3. Run storybook `yarn storybook` and the e2e tests in parallel `yarn test:e2e`
 
 ## Development Workflow
 

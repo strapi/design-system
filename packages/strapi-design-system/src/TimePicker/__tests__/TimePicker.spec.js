@@ -9,14 +9,15 @@ describe('TimePicker', () => {
     const { container } = render(
       <ThemeProvider theme={lightTheme}>
         <TimePicker
-          label={'Choose a time'}
+          label="Choose a time"
           disabled={false}
           error={undefined}
-          hint={'Description line'}
+          hint="Description line"
           onClear={() => {}}
           onChange={() => {}}
-          value={'11:32:45'}
-          clearLabel={'Clear the selected time picker value'}
+          value="11:32:45"
+          clearLabel="Clear the selected time picker value"
+          selectButtonTitle="Select time button"
         />
       </ThemeProvider>,
       { container: document.body },
@@ -117,39 +118,39 @@ describe('TimePicker', () => {
       }
 
       .c2 {
-        font-weight: 600;
-        color: #32324d;
         font-size: 0.75rem;
         line-height: 1.33;
+        font-weight: 600;
+        color: #32324d;
       }
 
       .c11 {
-        color: #32324d;
+        font-size: 0.875rem;
+        line-height: 1.43;
         display: block;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        font-size: 0.875rem;
-        line-height: 1.43;
+        color: #32324d;
       }
 
       .c14 {
-        color: #666687;
         font-size: 0.75rem;
         line-height: 1.33;
+        color: #666687;
       }
 
       .c21 {
-        color: #32324d;
         font-size: 0.875rem;
         line-height: 1.43;
+        color: #32324d;
       }
 
       .c22 {
-        font-weight: 600;
-        color: #4945ff;
         font-size: 0.875rem;
         line-height: 1.43;
+        font-weight: 600;
+        color: #4945ff;
       }
 
       .c17 {
@@ -299,7 +300,6 @@ describe('TimePicker', () => {
             <span
               class="c2"
               for="timepicker-1"
-              id="timepicker-1-label"
             >
               <div
                 class="c3"
@@ -367,6 +367,7 @@ describe('TimePicker', () => {
                     aria-disabled="false"
                     aria-label="Clear the selected time picker value"
                     class="c12"
+                    title="Clear the selected time picker value"
                     type="button"
                   >
                     <svg
@@ -386,6 +387,7 @@ describe('TimePicker', () => {
                     aria-hidden="true"
                     class="c8 c12 c13"
                     tabindex="-1"
+                    title="Select time button"
                     type="button"
                   >
                     <svg

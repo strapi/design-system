@@ -1,41 +1,53 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
 import { Flex } from '../Flex';
 import { Typography } from '../Typography';
 
-export const Badge = ({ active, textColor, backgroundColor, children, minWidth, ...props }) => {
+const Base = styled(Flex)`
+  border-radius: ${({ theme, size }) => (size === 'S' ? '2px' : theme.borderRadius)};
+  height: ${({ size, theme }) => theme.sizes.badge[size]};
+`;
+
+export const Badge = ({ active, size, textColor, backgroundColor, children, minWidth, ...props }) => {
+  const paddingX = size === 'S' ? 1 : 2;
+
   return (
-    <Flex
+    <Base
       inline
       alignItem="center"
       justifyContent="center"
       minWidth={minWidth}
-      padding={1}
-      background={active ? 'primary100' : backgroundColor}
-      hasRadius
+      paddingLeft={paddingX}
+      paddingRight={paddingX}
+      background={active ? 'primary200' : backgroundColor}
+      size={size}
       {...props}
     >
       <Typography variant="sigma" textColor={active ? 'primary600' : textColor}>
         {children}
       </Typography>
-    </Flex>
+    </Base>
   );
 };
 
 Badge.defaultProps = {
   active: false,
-  backgroundColor: 'neutral100',
+  backgroundColor: 'neutral150',
   minWidth: 5,
+  size: 'M',
   textColor: 'neutral600',
 };
 
 Badge.propTypes = {
   /**
-   * If `true`, it changes the `backgroundColor` to `primary100` and the `textColor` to `primary600`
+   * If `true`, it changes the `backgroundColor` to `primary200` and the `textColor` to `primary600`
    */
   active: PropTypes.bool,
   backgroundColor: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
   minWidth: PropTypes.number,
+  size: PropTypes.oneOf(['S', 'M']),
   textColor: PropTypes.string,
 };

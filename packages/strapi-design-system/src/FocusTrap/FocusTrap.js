@@ -10,13 +10,17 @@ export const FocusTrap = ({ onEscape, restoreFocus, ...props }) => {
    * Restore the focus to the previously focused element (often, it's the CTA that opened the trap)
    */
   useEffect(() => {
-    if (restoreFocus) {
-      const currentFocus = document.activeElement;
+    let currentFocus = null;
 
-      return () => {
-        currentFocus.focus();
-      };
+    if (restoreFocus) {
+      currentFocus = document.activeElement;
     }
+
+    return () => {
+      if (currentFocus) {
+        currentFocus.focus();
+      }
+    };
   }, [restoreFocus]);
 
   /**
@@ -39,8 +43,10 @@ export const FocusTrap = ({ onEscape, restoreFocus, ...props }) => {
   }, []);
 
   const handleKeyDown = (e) => {
-    if (e.key === KeyboardKeys.ESCAPE) {
-      return onEscape();
+    if (e.key === KeyboardKeys.ESCAPE && onEscape) {
+      onEscape();
+
+      return;
     }
 
     if (e.key !== KeyboardKeys.TAB) return;
@@ -64,10 +70,12 @@ export const FocusTrap = ({ onEscape, restoreFocus, ...props }) => {
     }
   };
 
+  // eslint-disable-next-line jsx-a11y/no-static-element-interactions
   return <div ref={trappedRef} onKeyDown={handleKeyDown} {...props} />;
 };
 
 FocusTrap.defaultProps = {
+  onEscape: undefined,
   restoreFocus: true,
 };
 
@@ -75,7 +83,7 @@ FocusTrap.propTypes = {
   /**
    * A callback called on escape key. Useful to deactivate the focus trap.
    */
-  onEscape: PropTypes.func.isRequired,
+  onEscape: PropTypes.func,
   /**
    * A boolean value to define whether the focus should be restored or not.
    */

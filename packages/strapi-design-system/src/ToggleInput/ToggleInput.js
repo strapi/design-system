@@ -10,7 +10,7 @@ import { TextButton } from '../TextButton';
 import { ToggleCheckbox } from '../ToggleCheckbox';
 
 const FieldWrapper = styled(Field)`
-  width: fit-content;
+  max-width: 320px;
 `;
 
 const ClearButton = styled(TextButton)`
@@ -36,17 +36,15 @@ export const ToggleInput = ({
   const generatedId = useId('toggleinput', id);
 
   return (
-    <FieldWrapper name={name} hint={hint} error={error} id={generatedId}>
+    <FieldWrapper name={name} hint={hint} error={error} id={generatedId} required={required}>
       <Stack spacing={1}>
         <Flex>
-          <FieldLabel required={required} action={labelAction}>
-            {label}
-          </FieldLabel>
+          <FieldLabel action={labelAction}>{label}</FieldLabel>
           {clearLabel && onClear && checked !== null && !disabled && (
             <ClearButton onClick={onClear}>{clearLabel}</ClearButton>
           )}
         </Flex>
-        <ToggleCheckbox id={generatedId} size={size} name={name} checked={checked} disabled={disabled} {...props}>
+        <ToggleCheckbox id={generatedId} size={size} checked={checked} disabled={disabled} {...props}>
           {label}
         </ToggleCheckbox>
         <FieldHint />

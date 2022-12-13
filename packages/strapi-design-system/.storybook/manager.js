@@ -6,7 +6,7 @@ addons.setConfig({
   theme: createCustomTheme({
     theme: lightTheme,
     options: {
-      base: 'light'
+      base: 'light',
     },
-  })
+  }),
 });

@@ -43,10 +43,11 @@ describe('ModalLayout', () => {
       }
 
       .c17 {
-        font-weight: 600;
-        color: #32324d;
         font-size: 0.75rem;
         line-height: 1.33;
+        font-weight: 600;
+        line-height: 1.14;
+        color: #32324d;
       }
 
       .c3 {
@@ -130,9 +131,11 @@ describe('ModalLayout', () => {
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
-        padding: 8px 16px;
-        background: #4945ff;
+        background-color: #4945ff;
         border: 1px solid #4945ff;
+        height: 2rem;
+        padding-left: 16px;
+        padding-right: 16px;
         border: 1px solid #dcdce4;
         background: #ffffff;
       }
@@ -161,8 +164,7 @@ describe('ModalLayout', () => {
         color: #666687;
       }
 
-      .c15[aria-disabled='true'] svg > g,
-      .c15[aria-disabled='true'] svg path {
+      .c15[aria-disabled='true'] svg > g,.c15[aria-disabled='true'] svg path {
         fill: #666687;
       }
 
@@ -175,8 +177,7 @@ describe('ModalLayout', () => {
         color: #666687;
       }
 
-      .c15[aria-disabled='true']:active svg > g,
-      .c15[aria-disabled='true']:active svg path {
+      .c15[aria-disabled='true']:active svg > g,.c15[aria-disabled='true']:active svg path {
         fill: #666687;
       }
 
@@ -202,9 +203,11 @@ describe('ModalLayout', () => {
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
-        padding: 8px 16px;
-        background: #4945ff;
+        background-color: #4945ff;
         border: 1px solid #4945ff;
+        height: 2rem;
+        padding-left: 16px;
+        padding-right: 16px;
         border: 1px solid #d9d8ff;
         background: #f0f0ff;
       }
@@ -233,8 +236,7 @@ describe('ModalLayout', () => {
         color: #666687;
       }
 
-      .c18[aria-disabled='true'] svg > g,
-      .c18[aria-disabled='true'] svg path {
+      .c18[aria-disabled='true'] svg > g,.c18[aria-disabled='true'] svg path {
         fill: #666687;
       }
 
@@ -247,8 +249,7 @@ describe('ModalLayout', () => {
         color: #666687;
       }
 
-      .c18[aria-disabled='true']:active svg > g,
-      .c18[aria-disabled='true']:active svg path {
+      .c18[aria-disabled='true']:active svg > g,.c18[aria-disabled='true']:active svg path {
         fill: #666687;
       }
 
@@ -284,9 +285,11 @@ describe('ModalLayout', () => {
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
-        padding: 8px 16px;
-        background: #4945ff;
+        background-color: #4945ff;
         border: 1px solid #4945ff;
+        height: 2rem;
+        padding-left: 16px;
+        padding-right: 16px;
       }
 
       .c19 .c2 {
@@ -313,8 +316,7 @@ describe('ModalLayout', () => {
         color: #666687;
       }
 
-      .c19[aria-disabled='true'] svg > g,
-      .c19[aria-disabled='true'] svg path {
+      .c19[aria-disabled='true'] svg > g,.c19[aria-disabled='true'] svg path {
         fill: #666687;
       }
 
@@ -327,8 +329,7 @@ describe('ModalLayout', () => {
         color: #666687;
       }
 
-      .c19[aria-disabled='true']:active svg > g,
-      .c19[aria-disabled='true']:active svg path {
+      .c19[aria-disabled='true']:active svg > g,.c19[aria-disabled='true']:active svg path {
         fill: #666687;
       }
 
@@ -496,91 +497,99 @@ describe('ModalLayout', () => {
             class="c1"
           >
             <div>
-              <div
-                aria-labelledby="title"
-                aria-modal="true"
-                class="c2 c3 c4"
-                role="dialog"
-              >
+              <div>
                 <div
-                  class="c2 c5 c6"
+                  aria-labelledby="title"
+                  aria-modal="true"
+                  class="c2 c3 c4"
+                  role="dialog"
                 >
                   <div
-                    class="c2 c7"
-                  >
-                    Modal Title
-                    <button
-                      aria-disabled="false"
-                      aria-label="Close the modal"
-                      class="c8 c9"
-                      type="button"
-                    >
-                      <svg
-                        fill="none"
-                        height="1em"
-                        viewBox="0 0 24 24"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M24 2.417L21.583 0 12 9.583 2.417 0 0 2.417 9.583 12 0 21.583 2.417 24 12 14.417 21.583 24 24 21.583 14.417 12 24 2.417z"
-                          fill="#212134"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-                <div
-                  class="c2 c10 c11"
-                >
-                  Hello World
-                </div>
-                <div
-                  class="c2 c5 c12"
-                >
-                  <div
-                    class="c2 c7"
+                    class="c2 c5 c6"
                   >
                     <div
-                      class="c2 c13 c14"
+                      class="c2 c7"
                     >
+                      Modal Title
                       <button
                         aria-disabled="false"
-                        class="c8 c15"
+                        class="c8 c9"
                         type="button"
                       >
                         <span
-                          class="c16 c17"
+                          class="c0"
                         >
-                          Cancel
+                          Close the modal
                         </span>
+                        <svg
+                          aria-hidden="true"
+                          fill="none"
+                          focusable="false"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M24 2.417L21.583 0 12 9.583 2.417 0 0 2.417 9.583 12 0 21.583 2.417 24 12 14.417 21.583 24 24 21.583 14.417 12 24 2.417z"
+                            fill="#212134"
+                          />
+                        </svg>
                       </button>
                     </div>
+                  </div>
+                  <div
+                    class="c2 c10 c11"
+                  >
+                    Hello World
+                  </div>
+                  <div
+                    class="c2 c5 c12"
+                  >
                     <div
-                      class="c2 c13 c14"
+                      class="c2 c7"
                     >
-                      <button
-                        aria-disabled="false"
-                        class="c8 c18"
-                        type="button"
+                      <div
+                        class="c2 c13 c14"
                       >
-                        <span
-                          class="c16 c17"
+                        <button
+                          aria-disabled="false"
+                          class="c8 c15"
+                          type="button"
                         >
-                          Add new stuff
-                        </span>
-                      </button>
-                      <button
-                        aria-disabled="false"
-                        class="c8 c19"
-                        type="button"
+                          <span
+                            class="c16 c17"
+                          >
+                            Cancel
+                          </span>
+                        </button>
+                      </div>
+                      <div
+                        class="c2 c13 c14"
                       >
-                        <span
-                          class="c16 c17"
+                        <button
+                          aria-disabled="false"
+                          class="c8 c18"
+                          type="button"
                         >
-                          Finish
-                        </span>
-                      </button>
+                          <span
+                            class="c16 c17"
+                          >
+                            Add new stuff
+                          </span>
+                        </button>
+                        <button
+                          aria-disabled="false"
+                          class="c8 c19"
+                          type="button"
+                        >
+                          <span
+                            class="c16 c17"
+                          >
+                            Finish
+                          </span>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -6,7 +6,7 @@ ${customMessage}
 The following is an example:
 
 
-import { lightTheme, extendTheme } from '@strapi/design-system/themes';
+import { lightTheme, extendTheme } from '@strapi/design-system';
 
 const myCustomTheme = extendTheme(lightTheme, {
     ${Object.keys(lightTheme)
@@ -25,6 +25,7 @@ const mergeDeep = (target, overrides) => {
   if (isObject(target) && isObject(overrides)) {
     Object.keys(overrides).forEach((key) => {
       if (isObject(overrides[key])) {
+        // eslint-disable-next-line no-prototype-builtins
         if (target.hasOwnProperty(key)) {
           output[key] = mergeDeep(target[key], overrides[key]);
         } else {

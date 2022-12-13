@@ -1,5 +1,6 @@
 <!--- Switch.stories.mdx --->
 
+import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { ArgsTable } from '@storybook/addon-docs';
 import { Switch } from './Switch';
@@ -12,7 +13,8 @@ Switches are used to change between enabled and disabled states. It is a binary 
 
 **Best practices**
 
-- Make sure to add state labels when using a Switch component. For inclusion matters, colors are mandatory but not enough to indicate a change of state.
+- Make sure to add state labels when using a Switch component. For inclusion matters, colors are mandatory but not
+  enough to indicate a change of state.
 - The state labels should only have a single word and be clear.
 - A change of state should also be visible by the circle position.
 - One tap should be enough to change the state.
@@ -23,12 +25,13 @@ Switches are used to change between enabled and disabled states. It is a binary 
 ## Imports
 
 ```js
-import { Switch } from '@strapi/design-system/Switch';
+import { Switch } from '@strapi/design-system';
 ```
 
 ## Usage
 
-Use a switch whenever the users need to turn something on or off in a small area or content section. A switch can be disabled.
+Use a switch whenever the users need to turn something on or off in a small area or content section. A switch can be
+disabled.
 
 ### Activated Switch
 
@@ -36,7 +39,17 @@ Activated state is one of two of them available for a Switch.
 
 <Canvas>
   <Story name="activated">
-    <Switch label="Activate the microphone" selected={true} onChange={() => setChecked((s) => !s)} visibleLabels />
+    {() => {
+      const [activated, setActivated] = useState(true);
+      return (
+        <Switch
+          label="Activate the microphone"
+          selected={activated}
+          onChange={() => setActivated((s) => !s)}
+          visibleLabels
+        />
+      );
+    }}
   </Story>
 </Canvas>
 
@@ -46,7 +59,17 @@ Deactivated state is one of two of them available for a Switch.
 
 <Canvas>
   <Story name="not-activated">
-    <Switch label="Activate the microphone" selected={false} onChange={() => setChecked((s) => !s)} visibleLabels />
+    {() => {
+      const [activated, setActivated] = useState(false);
+      return (
+        <Switch
+          label="Activate the microphone"
+          selected={activated}
+          onChange={() => setActivated((s) => !s)}
+          visibleLabels
+        />
+      );
+    }}
   </Story>
 </Canvas>
 

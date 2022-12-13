@@ -1,13 +1,16 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
+
 import { Box } from '../Box';
 import { FocusTrap } from '../FocusTrap';
-import { setOpacity } from '../helpers/setOpacity';
-import useLockScroll from '../helpers/useLockScroll';
 import { Portal } from '../Portal';
 import { Flex } from '../Flex';
 import { Typography } from '../Typography';
+import { DismissibleLayer } from '../DismissibleLayer';
+
+import { setOpacity } from '../helpers/setOpacity';
+import useLockScroll from '../helpers/useLockScroll';
 import { useId } from '../helpers/useId';
 
 const DialogWrapper = styled.div`
@@ -43,22 +46,24 @@ export const Dialog = ({ onClose, title, as, isOpen, id, ...props }) => {
   return (
     <Portal>
       <DialogWrapper>
-        <FocusTrap onEscape={onClose}>
-          <DialogContainer
-            aria-labelledby={labelledBy}
-            aria-modal={true}
-            background="neutral0"
-            hasRadius
-            shadow="popupShadow"
-            role="dialog"
-          >
-            <DialogHeader padding={6} justifyContent="center">
-              <Typography variant="beta" as={as || 'h2'} id={labelledBy}>
-                {title}
-              </Typography>
-            </DialogHeader>
-            <Box {...props} />
-          </DialogContainer>
+        <FocusTrap>
+          <DismissibleLayer onEscapeKeyDown={onClose} onPointerDownOutside={onClose}>
+            <DialogContainer
+              aria-labelledby={labelledBy}
+              aria-modal
+              background="neutral0"
+              hasRadius
+              shadow="popupShadow"
+              role="dialog"
+            >
+              <DialogHeader padding={6} justifyContent="center">
+                <Typography variant="beta" as={as || 'h2'} id={labelledBy}>
+                  {title}
+                </Typography>
+              </DialogHeader>
+              <Box {...props} />
+            </DialogContainer>
+          </DismissibleLayer>
         </FocusTrap>
       </DialogWrapper>
     </Portal>

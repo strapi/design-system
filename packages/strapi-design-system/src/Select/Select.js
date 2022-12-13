@@ -2,6 +2,7 @@ import React, { Children, cloneElement, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import CarretDown from '@strapi/icons/CarretDown';
 import Cross from '@strapi/icons/Cross';
+import styled from 'styled-components';
 import { sizes } from '../themes/sizes';
 import { SelectButton } from './SelectButton';
 import { Field, FieldHint, FieldLabel, FieldError } from '../Field';
@@ -18,7 +19,6 @@ import { VisuallyHidden } from '../VisuallyHidden';
 import { DownState } from './constants';
 import { escapeSelector } from '../helpers/escapeSelector';
 import { SelectTags } from './SelectTags';
-import styled from 'styled-components';
 
 const MainRow = styled(Flex)`
   width: 100%;
@@ -41,6 +41,7 @@ export const Select = ({
   onReachEnd,
   multi,
   required,
+  selectButtonTitle,
   size,
   startIcon,
   withTags,
@@ -53,7 +54,15 @@ export const Select = ({
 
   const labelId = `${generatedId}-label`;
   const contentId = `${generatedId}-content`;
-  const ariaDescribedBy = error ? `${generatedId}-error` : hint ? `${generatedId}-hint` : undefined;
+  const hasStringError = typeof error === 'string';
+
+  let ariaDescribedBy;
+
+  if (hasStringError) {
+    ariaDescribedBy = `${generatedId}-error`;
+  } else if (hint) {
+    ariaDescribedBy = `${generatedId}-hint`;
+  }
 
   if (withTags && !multi) {
     throw new Error('The "withTags" props can only be used when the "multi" prop is present');
@@ -72,7 +81,9 @@ export const Select = ({
 
   const handleMouseDown = (e) => {
     e.preventDefault();
+
     if (disabled) return;
+
     // Check if the right click has been clicked
     // "which" check is for webkit
     if (e.nativeEvent.which === 3 || e.nativeEvent.button === 2) {
@@ -87,6 +98,7 @@ export const Select = ({
       onChange(value.includes(newValue) ? value.filter((x) => x !== newValue) : [...value, newValue]);
     } else {
       onChange(newValue);
+
       if (closeMenu) setExpanded(undefined);
     }
   };
@@ -94,8 +106,8 @@ export const Select = ({
   const handleSelectGroupItem = (newValue) => {
     onChange(
       value.includes(newValue[0])
-        ? value.filter(function (e) {
-            return this.indexOf(e) < 0;
+        ? value.filter((value, _, arr) => {
+            return arr.indexOf(value) < 0;
           }, newValue)
         : [...value, ...newValue],
     );
@@ -142,16 +154,16 @@ export const Select = ({
         children: Children.toArray(node.props.children).map((node) => cloneOption(node, true)),
         value: node.props.label,
       });
-    } else {
-      return cloneOption(node);
     }
+
+    return cloneOption(node);
   });
 
   return (
-    <Field hint={hint} error={error} id={generatedId}>
-      <Stack spacing={label || hint || error ? 1 : 0}>
+    <Field hint={hint} error={error} id={generatedId} required={required}>
+      <Stack spacing={label || hint || hasStringError ? 1 : 0}>
         {label && (
-          <FieldLabel required={required} as="span" id={labelId} action={labelAction}>
+          <FieldLabel as="span" action={labelAction}>
             {label}
           </FieldLabel>
         )}
@@ -173,7 +185,7 @@ export const Select = ({
           <MainRow justifyContent="space-between">
             <Flex>
               {startIcon && (
-                <Box paddingLeft={3} aria-hidden={true}>
+                <Box paddingLeft={3} aria-hidden>
                   {startIcon}
                 </Box>
               )}
@@ -184,7 +196,7 @@ export const Select = ({
                 {withTags ? (
                   <>
                     {!value || value.length === 0 ? (
-                      <Typography ellipsis id={contentId} textColor={'neutral600'}>
+                      <Typography ellipsis id={contentId} textColor="neutral600">
                         {placeholder}
                       </Typography>
                     ) : null}
@@ -210,6 +222,7 @@ export const Select = ({
                   onClick={handleClear}
                   aria-label={clearLabel}
                   aria-disabled={disabled}
+                  title={clearLabel}
                 >
                   <Cross />
                 </IconBox>
@@ -223,6 +236,7 @@ export const Select = ({
                 onMouseDown={handleMouseDown}
                 tabIndex={-1}
                 disabled={disabled}
+                title={selectButtonTitle}
               >
                 <CarretDown />
               </CaretBox>
@@ -268,7 +282,7 @@ Select.defaultProps = {
   label: undefined,
   labelAction: undefined,
   multi: false,
-  onChange: () => {},
+  onChange() {},
   onClear: undefined,
   onReachEnd: undefined,
   value: undefined,
@@ -276,6 +290,7 @@ Select.defaultProps = {
   error: undefined,
   placeholder: 'Select...',
   required: false,
+  selectButtonTitle: 'Carret Down Button',
   size: 'M',
   startIcon: undefined,
   withTags: false,
@@ -287,7 +302,7 @@ Select.propTypes = {
   clearLabel: PropTypes.string,
   customizeContent: PropTypes.func,
   disabled: PropTypes.bool,
-  error: PropTypes.string,
+  error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   hint: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   label: PropTypes.string,
@@ -298,6 +313,7 @@ Select.propTypes = {
   onReachEnd: PropTypes.func,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
+  selectButtonTitle: PropTypes.string,
   size: PropTypes.oneOf(Object.keys(sizes.input)),
   startIcon: PropTypes.element,
   value: PropTypes.oneOfType([

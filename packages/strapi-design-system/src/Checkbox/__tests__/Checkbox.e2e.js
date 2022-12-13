@@ -1,6 +1,6 @@
-const { injectAxe, checkA11y } = require('axe-playwright');
+import { injectAxe, checkA11y } from 'axe-playwright';
 
-const { test, expect } = require('@playwright/test');
+import { test, expect } from '@playwright/test';
 
 test.describe.parallel('Checkbox', () => {
   test.describe('light mode', () => {
@@ -33,6 +33,7 @@ test.describe.parallel('Checkbox', () => {
         await page.keyboard.press(' ');
 
         const secondBox = await page.$('#child2');
+
         if (secondBox) {
           expect(await secondBox.isChecked()).toBe(true);
         }
@@ -45,6 +46,7 @@ test.describe.parallel('Checkbox', () => {
         await page.keyboard.press(' ');
 
         const secondBox = await page.$('#parent');
+
         if (secondBox) {
           expect(await secondBox.isChecked()).toBe(true);
         }

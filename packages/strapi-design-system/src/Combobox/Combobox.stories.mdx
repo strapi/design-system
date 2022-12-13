@@ -14,10 +14,16 @@ import { ComboboxOption } from './ComboboxOption';
 ## Imports
 
 ```js
-import { Combobox } from '@strapi/design-system/Combobox';
+import { Combobox } from '@strapi/design-system';
 ```
 
-This is the doc of the `Combobox` component
+## Usage
+
+This `Combobox` can be found in forms. They give users to search and choose a value from given options.
+
+### Base 
+
+In addition `Combobox` can also include a placeholder and a description line.
 
 <Canvas>
   <Story name="base">
@@ -35,9 +41,9 @@ This is the doc of the `Combobox` component
   </Story>
 </Canvas>
 
-## Disabled
+### Disabled
 
-This is the doc of the `Combobox` component
+Depending on the permissions a user have or the status of an action, a `Combobox` can be unreachable or unavailable yet.
 
 <Canvas>
   <Story name="disabled">
@@ -55,9 +61,9 @@ This is the doc of the `Combobox` component
   </Story>
 </Canvas>
 
-## Without label
+### Without label
 
-This is the doc of the `Combobox` component
+`Combobox` can be used without a label. 
 
 <Canvas>
   <Story name="withoutLabel">
@@ -75,9 +81,9 @@ This is the doc of the `Combobox` component
   </Story>
 </Canvas>
 
-## Error
+### Error
 
-This is the doc of the `Combobox` component
+`Combobox` can display an error. The error message is customizable and replaces the description line below the input.
 
 <Canvas>
   <Story name="error">
@@ -95,7 +101,27 @@ This is the doc of the `Combobox` component
   </Story>
 </Canvas>
 
-## Initial data
+### Required
+
+`Combobox` can be required. The required state will appear with a red asterisk beside the label.
+
+<Canvas>
+  <Story name="required">
+    {() => {
+      const [value, setValue] = useState('');
+      return (
+        <Combobox label="Food" value={value} required onChange={setValue}>
+          <ComboboxOption value="hamburger">Hamburger</ComboboxOption>
+          <ComboboxOption value="bagel">Bagel</ComboboxOption>
+          <ComboboxOption value="tartuffo">Tartuffo</ComboboxOption>
+          <ComboboxOption value="carbonara">Carbonara</ComboboxOption>
+        </Combobox>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Initial data
 
 This is the doc of the `Combobox` component
 
@@ -115,9 +141,9 @@ This is the doc of the `Combobox` component
   </Story>
 </Canvas>
 
-## Creatable
+### Creatable
 
-This is the doc of the `Combobox` component
+The creatable mode of `Combobox` allows the creation of a new options.
 
 <Canvas>
   <Story name="creatable">

@@ -9,7 +9,7 @@ import { BaseCheckbox } from './BaseCheckbox';
 ## Imports
 
 ```js
-import { BaseCheckbox } from '@strapi/design-system/BaseCheckbox';
+import { BaseCheckbox } from '@strapi/design-system';
 ```
 
 # BaseCheckbox
@@ -41,7 +41,7 @@ The `BaseCheckbox` can have an indeterminate state.
 <Canvas>
   <Story name="indeterminate">
     {() => {
-      const [checkedItems, setCheckedItems] = React.useState([true, false]);
+      const [checkedItems, setCheckedItems] = useState([true, false]);
       const allChecked = checkedItems.every(Boolean);
       const isIndeterminate = checkedItems.some(Boolean) && !allChecked;
       return (
@@ -95,7 +95,7 @@ The `BaseCheckbox` can be disabled.
         <>
           <BaseCheckbox name="disabled-unchecked" disabled aria-label="First checkbox" />
           <BaseCheckbox name="disabled-indeterminate" disabled indeterminate aria-label="Second checkbox" />
-          <BaseCheckbox name="disabled-checked" disabled value={true} aria-label="Last checkbox" />
+          <BaseCheckbox name="disabled-checked" disabled value aria-label="Last checkbox" />
         </>
       );
     }}

@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { Field, FieldLabel, FieldHint, FieldError } from '../Field';
 import { TextareaInput } from './TextareaInput';
 import { Stack } from '../Stack';
 import { Flex } from '../Flex';
-import styled from 'styled-components';
 import { useId } from '../helpers/useId';
 
 const TextareaWrapper = styled.div`
@@ -29,13 +29,11 @@ export const Textarea = React.forwardRef(
 
     return (
       <TextareaWrapper>
-        <Field name={name} hint={hint} error={error} id={generatedId}>
+        <Field name={name} hint={hint} error={error} id={generatedId} required={required}>
           <Stack spacing={1}>
             {label && (
               <Flex>
-                <FieldLabel required={required} action={labelAction}>
-                  {label}
-                </FieldLabel>
+                <FieldLabel action={labelAction}>{label}</FieldLabel>
               </Flex>
             )}
             <TextareaInput ref={ref} as="textarea" value={children} {...props} />

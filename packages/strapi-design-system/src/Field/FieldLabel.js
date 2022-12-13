@@ -17,19 +17,18 @@ const Action = styled(Flex)`
   }
 `;
 
-export const FieldLabel = ({ children, required, action, ...props }) => {
-  const { id } = useField();
+export const FieldLabel = ({ children, action, required: requiredDeprecatedProp, ...props }) => {
+  const { id, required: requiredField } = useField();
+  const required = requiredField || requiredDeprecatedProp;
+
+  if (requiredDeprecatedProp !== undefined) {
+    console.warn(
+      'Deprecation warning: Usage of "required" prop in FieldLabel component is deprecated. This is discouraged and will be removed in the next major release. Please use the Field component to share the required prop.',
+    );
+  }
 
   return (
-    <Typography
-      variant="pi"
-      textColor="neutral800"
-      htmlFor={id}
-      fontWeight="bold"
-      as="label"
-      required={required}
-      {...props}
-    >
+    <Typography variant="pi" textColor="neutral800" htmlFor={id} fontWeight="bold" as="label" {...props}>
       <Flex alignItems="center">
         {children}
         {required && <TypographyAsterisk textColor="danger600">*</TypographyAsterisk>}
@@ -40,11 +39,15 @@ export const FieldLabel = ({ children, required, action, ...props }) => {
 };
 
 FieldLabel.defaultProps = {
-  required: false,
   action: undefined,
+  required: undefined,
 };
+
 FieldLabel.propTypes = {
   action: PropTypes.element,
   children: PropTypes.node.isRequired,
+  /**
+   * DEPRECATED: "required" should be given to Field component to share the value across components
+   */
   required: PropTypes.bool,
 };

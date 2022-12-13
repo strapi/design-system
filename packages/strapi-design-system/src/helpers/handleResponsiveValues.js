@@ -1,5 +1,7 @@
+/* eslint-disable consistent-return */
 const handleResponsiveValues = (property, value, theme) => {
   let transformedArray = value;
+
   if (!Array.isArray(value) && typeof value === 'object') {
     transformedArray = [value?.desktop, value?.tablet, value?.mobile];
   }
@@ -28,6 +30,7 @@ const handleResponsiveValues = (property, value, theme) => {
 
   // Fallback to the passed transformedArray when necessary
   const realValue = theme.spaces[transformedArray] || transformedArray;
+
   return `${property}: ${realValue};`;
 };
 

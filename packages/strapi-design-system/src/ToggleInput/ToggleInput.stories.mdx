@@ -3,9 +3,9 @@
 import { useState } from 'react';
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { ArgsTable } from '@storybook/addon-docs';
+import Information from '@strapi/icons/Information';
 import { ToggleInput } from './ToggleInput';
 import { Tooltip } from '../Tooltip';
-import Information from '@strapi/icons/Information';
 
 <Meta title="Design System/Components/ToggleInput" component={ToggleInput} />
 
@@ -18,7 +18,7 @@ This is the doc of the `ToggleInput` component
 ## Imports
 
 ```js
-import { ToggleInput } from '@strapi/design-system/ToggleInput';
+import { ToggleInput } from '@strapi/design-system';
 ```
 
 ## Usage
@@ -38,7 +38,7 @@ import { ToggleInput } from '@strapi/design-system/ToggleInput';
                 aria-label="Information about the email"
                 style={{ border: 'none', padding: 0, background: 'transparent' }}
               >
-                <Information aria-hidden={true} />
+                <Information aria-hidden />
               </button>
             </Tooltip>
           }
@@ -52,7 +52,7 @@ import { ToggleInput } from '@strapi/design-system/ToggleInput';
   </Story>
 </Canvas>
 
-### Error handling
+### Error state
 
 <Canvas>
   <Story name="error">
@@ -68,6 +68,28 @@ import { ToggleInput } from '@strapi/design-system/ToggleInput';
           offLabel="False"
           checked={checked}
           onChange={(e) => setChecked(e.target.checked)}
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Required state
+
+<Canvas>
+  <Story name="required">
+    {() => {
+      const [checked, setChecked] = useState(false);
+      return (
+        <ToggleInput
+          hint="Enable provider"
+          label="Label"
+          name="enable-provider"
+          onLabel="True"
+          offLabel="False"
+          checked={checked}
+          onChange={(e) => setChecked(e.target.checked)}
+          required
         />
       );
     }}

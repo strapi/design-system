@@ -20,13 +20,9 @@ export const TextInput = React.forwardRef(
 
     return (
       <div ref={inputWrapperRef}>
-        <Field name={name} hint={hint} error={error} id={generatedId}>
+        <Field name={name} hint={hint} error={error} id={generatedId} required={required}>
           <Stack spacing={1}>
-            {label && (
-              <FieldLabel required={required} action={labelAction}>
-                {label}
-              </FieldLabel>
-            )}
+            {label && <FieldLabel action={labelAction}>{label}</FieldLabel>}
             <FieldInput size={size} ref={ref} startAction={startAction} endAction={endAction} {...props} />
             <FieldHint />
             <FieldError />
@@ -55,7 +51,7 @@ TextInput.defaultProps = {
 TextInput.propTypes = {
   'aria-label': PropTypes.string,
   endAction: PropTypes.element,
-  error: PropTypes.string,
+  error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   hint: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
   id: PropTypes.string,
   label: PropTypes.string,

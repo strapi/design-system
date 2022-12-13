@@ -30,12 +30,14 @@ NumberInputs are inputs that allow users to add or edit numbers. They support se
 ## Imports
 
 ```js
-import { NumberInput } from '@strapi/design-system/NumberInput';
+import { NumberInput } from '@strapi/design-system';
 ```
 
 ## Usage
 
-NumberInputs are always found in forms. They give users the possibility to add or edit numbers.
+`NumberInput` allows users to edit numbers.
+
+### Base 
 
 <Canvas>
   <Story name="base">
@@ -57,7 +59,7 @@ NumberInputs are always found in forms. They give users the possibility to add o
                   aria-label="Information about the email"
                   style={{ border: 'none', padding: 0, background: 'transparent' }}
                 >
-                  <Information aria-hidden={true} />
+                  <Information aria-hidden />
                 </button>
               </Tooltip>
             }
@@ -74,9 +76,9 @@ NumberInputs are always found in forms. They give users the possibility to add o
   </Story>
 </Canvas>
 
-## Without label
+### Without label
 
-NumberInputs can be used without a label.
+`NumberInput` can be used without a label.
 
 <Canvas>
   <Story name="withoutLabel">
@@ -98,7 +100,7 @@ NumberInputs can be used without a label.
                   aria-label="Information about the email"
                   style={{ border: 'none', padding: 0, background: 'transparent' }}
                 >
-                  <Information aria-hidden={true} />
+                  <Information aria-hidden />
                 </button>
               </Tooltip>
             }
@@ -115,9 +117,9 @@ NumberInputs can be used without a label.
   </Story>
 </Canvas>
 
-## Size S
+### Size S
 
-NumberInputs are always found in forms. They give users the possibility to add or edit numbers.
+`NumberInput` can be displayed in a smaller size.
 
 <Canvas>
   <Story name="size S">
@@ -140,7 +142,7 @@ NumberInputs are always found in forms. They give users the possibility to add o
                   aria-label="Information about the email"
                   style={{ border: 'none', padding: 0, background: 'transparent' }}
                 >
-                  <Information aria-hidden={true} />
+                  <Information aria-hidden />
                 </button>
               </Tooltip>
             }
@@ -157,9 +159,9 @@ NumberInputs are always found in forms. They give users the possibility to add o
   </Story>
 </Canvas>
 
-## Required
+### Required
 
-NumberInputs required field.
+`NumberInput` required field.
 
 <Canvas>
   <Story name="required">
@@ -175,7 +177,7 @@ NumberInputs required field.
             error={undefined}
             onValueChange={(value) => setContent(value)}
             value={content}
-            required={true}
+            required
           />
         </Box>
       );
@@ -183,9 +185,9 @@ NumberInputs required field.
   </Story>
 </Canvas>
 
-## Disabled
+### Disabled
 
-NumberInputs disabled field.
+`NumberInput` disabled field.
 
 <Canvas>
   <Story name="disabled">
@@ -201,7 +203,7 @@ NumberInputs disabled field.
             error={undefined}
             onValueChange={(value) => setContent(value)}
             value={content}
-            disabled={true}
+            disabled
           />
         </Box>
       );
@@ -209,14 +211,14 @@ NumberInputs disabled field.
   </Story>
 </Canvas>
 
-## With initial 0
+### Error
 
-NumberInputs are always found in forms. They give users the possibility to add or edit numbers.
+`NumberInput` can display an error. The error message is customizable and replaces the description line below the input.
 
 <Canvas>
-  <Story name="with initial 0">
+  <Story name="error">
     {() => {
-      const [content, setContent] = useState(0);
+      const [content, setContent] = useState();
       return (
         <Box padding={10}>
           <NumberInput
@@ -224,33 +226,17 @@ NumberInputs are always found in forms. They give users the possibility to add o
             label="Content"
             name="content"
             hint="Description line"
-            error={undefined}
             onValueChange={(value) => setContent(value)}
             value={content}
-            labelAction={
-              <Tooltip description="Content of the tooltip">
-                <button
-                  aria-label="Information about the email"
-                  style={{ border: 'none', padding: 0, background: 'transparent' }}
-                >
-                  <Information aria-hidden={true} />
-                </button>
-              </Tooltip>
-            }
+            error="Wrong value"
           />
-          <Box as="p" padding={4} background="neutral100">
-            <Typography>{`The value is ${content}`}</Typography>
-          </Box>
-          <button>
-            <Typography>Escape</Typography>
-          </button>
         </Box>
       );
     }}
   </Story>
 </Canvas>
 
-## With initial empty value
+### With initial empty value
 
 <Canvas>
   <Story name="with initial empty">
@@ -272,7 +258,7 @@ NumberInputs are always found in forms. They give users the possibility to add o
                   aria-label="Information about the email"
                   style={{ border: 'none', padding: 0, background: 'transparent' }}
                 >
-                  <Information aria-hidden={true} />
+                  <Information aria-hidden />
                 </button>
               </Tooltip>
             }
@@ -289,7 +275,7 @@ NumberInputs are always found in forms. They give users the possibility to add o
   </Story>
 </Canvas>
 
-## With locale
+### With locale
 
 <Canvas>
   <Story name="locale">

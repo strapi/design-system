@@ -15,6 +15,6 @@ export const RawTr = ({ children, ...props }) => {
 };
 
 RawTr.propTypes = {
-  ['aria-rowindex']: PropTypes.number.isRequired,
+  'aria-rowindex': PropTypes.number.isRequired,
   children: PropTypes.node.isRequired,
 };

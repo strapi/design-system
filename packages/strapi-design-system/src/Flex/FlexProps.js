@@ -11,8 +11,10 @@ export const flexDefaultProps = {
   inline: false,
   justifyContent: undefined,
   reverse: false,
+  shrink: undefined,
   wrap: undefined,
 };
+
 export const flexPropTypes = {
   alignItems: PropTypes.string,
   basis: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),

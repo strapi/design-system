@@ -1,6 +1,6 @@
-const { injectAxe, checkA11y } = require('axe-playwright');
+import { injectAxe, checkA11y } from 'axe-playwright';
 
-const { test, expect } = require('@playwright/test');
+import { test, expect } from '@playwright/test';
 
 test.describe.parallel('DatePicker', () => {
   test.describe('light mode', () => {
@@ -74,6 +74,20 @@ test.describe.parallel('DatePicker', () => {
         await expect(page.locator('[aria-label="Date picker"]')).toBeFocused();
       });
     });
+
+    test('error A11y', async ({ page }) => {
+      // This is the URL of the Storybook Iframe
+      await page.goto('/iframe.html?id=design-system-components-datepicker--error&viewMode=story');
+      await injectAxe(page);
+      await checkA11y(page);
+    });
+
+    test('required A11y', async ({ page }) => {
+      // This is the URL of the Storybook Iframe
+      await page.goto('/iframe.html?id=design-system-components-datepicker--required&viewMode=story');
+      await injectAxe(page);
+      await checkA11y(page);
+    });
   });
 
   test.describe('dark mode', () => {
@@ -87,6 +101,20 @@ test.describe.parallel('DatePicker', () => {
     test('disabled A11y', async ({ page }) => {
       // This is the URL of the Storybook Iframe
       await page.goto('/iframe.html?id=design-system-components-datepicker--disabled&viewMode=story&theme=dark');
+      await injectAxe(page);
+      await checkA11y(page);
+    });
+
+    test('error A11y', async ({ page }) => {
+      // This is the URL of the Storybook Iframe
+      await page.goto('/iframe.html?id=design-system-components-datepicker--error&viewMode=story&theme=dark');
+      await injectAxe(page);
+      await checkA11y(page);
+    });
+
+    test('required A11y', async ({ page }) => {
+      // This is the URL of the Storybook Iframe
+      await page.goto('/iframe.html?id=design-system-components-datepicker--required&viewMode=story&theme=dark');
       await injectAxe(page);
       await checkA11y(page);
     });

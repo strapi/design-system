@@ -31,16 +31,16 @@ TextInputs are inputs that allow users to add or edit text. They support several
 ## Imports
 
 ```js
-import { TextInput } from '@strapi/design-system/TextInput';
+import { TextInput } from '@strapi/design-system';
 ```
 
 ## Usage
 
-TextInputs are always found in forms. They give users the possibility to add or edit text.
+`TextInput` allow users to edit text.
 
 ### TextInput Base
 
-In addition of plain text, TextInputs can also include a placeholder and a description line.
+`TextInput` can include a placeholder and a description line.
 
 <Canvas>
   <Story name="base">
@@ -62,7 +62,7 @@ In addition of plain text, TextInputs can also include a placeholder and a descr
                   aria-label="Information about the email"
                   style={{ border: 'none', padding: 0, background: 'transparent' }}
                 >
-                  <Information aria-hidden={true} />
+                  <Information aria-hidden />
                 </button>
               </Tooltip>
             }
@@ -75,7 +75,7 @@ In addition of plain text, TextInputs can also include a placeholder and a descr
 
 ### Disabled TextInput
 
-Depending on the permissions a user have or the status of an action, a TextInput can be unreachable or unavailable yet.
+`TextInput` can receive a disabled prop.
 
 <Canvas>
   <Story name="disabled">
@@ -86,7 +86,7 @@ Depending on the permissions a user have or the status of an action, a TextInput
         name="content"
         hint="Description line"
         onChange={() => {}}
-        value={'Disabled ontent'}
+        value="Disabled ontent"
         disabled
         labelAction={
           <Tooltip description="Content of the tooltip">
@@ -94,7 +94,7 @@ Depending on the permissions a user have or the status of an action, a TextInput
               aria-label="Information about the email"
               style={{ border: 'none', padding: 0, background: 'transparent' }}
             >
-              <Information aria-hidden={true} />
+              <Information aria-hidden />
             </button>
           </Tooltip>
         }
@@ -105,7 +105,7 @@ Depending on the permissions a user have or the status of an action, a TextInput
 
 ### TextInput size S
 
-TODO
+`TextInput` can be displayed with a smaller size.
 
 <Canvas>
   <Story name="size S">
@@ -116,7 +116,7 @@ TODO
         name="content"
         hint="Description line"
         onChange={() => {}}
-        value={'size S input'}
+        value="size S input"
         size="S"
         labelAction={
           <Tooltip description="Content of the tooltip">
@@ -124,7 +124,7 @@ TODO
               aria-label="Information about the email"
               style={{ border: 'none', padding: 0, background: 'transparent' }}
             >
-              <Information aria-hidden={true} />
+              <Information aria-hidden />
             </button>
           </Tooltip>
         }
@@ -135,7 +135,7 @@ TODO
 
 ### TextInput with error
 
-TextInputs can display error. The error message is customizable and replaced the description line below the writing area.
+TextInputs can display an error. The error message is customizable and replaces the description line below the input.
 
 <Canvas>
   <Story name="with error">
@@ -145,9 +145,9 @@ TextInputs can display error. The error message is customizable and replaced the
         label="Content"
         name="content"
         hint="Description line"
-        error={'Content is too long'}
+        error="Content is too long"
         onChange={() => {}}
-        value={'content'}
+        value="content"
         labelAction={
           <Tooltip description="Content of the tooltip">
             <button
@@ -163,9 +163,40 @@ TextInputs can display error. The error message is customizable and replaced the
   </Story>
 </Canvas>
 
+### TextInput required
+
+TextInputs can be required. The required state will appear with a red asterisk beside the label.
+
+<Canvas>
+  <Story name="required">
+    <Box padding={10}>
+      <TextInput
+        placeholder="This is a content placeholder"
+        label="Content"
+        name="content"
+        hint="Description line"
+        onChange={() => {}}
+        value="content"
+        required
+        labelAction={
+          <Tooltip description="Content of the tooltip">
+            <button
+              aria-label="Information about the email"
+              style={{ border: 'none', padding: 0, background: 'transparent' }}
+            >
+              <Information aria-hidden />
+            </button>
+          </Tooltip>
+        }
+      />
+    </Box>
+  </Story>
+</Canvas>
+
 ### Password TextInput
 
-Password TextInputs are specific. They offer the possibility to have unreadable content. By clicking on the eye icon on the right side, it is possible to actually read the password.
+Password TextInputs are specific. They offer the possibility to have unreadable content. By clicking on the eye icon on
+the right side, it is possible to actually read the password.
 
 <Canvas>
   <Story name="password">
@@ -177,14 +208,14 @@ Password TextInputs are specific. They offer the possibility to have unreadable 
         name="password"
         hint="Description line"
         onChange={() => {}}
-        value={'content'}
+        value="content"
         labelAction={
           <Tooltip description="Content of the tooltip">
             <button
               aria-label="Information about the email"
               style={{ border: 'none', padding: 0, background: 'transparent' }}
             >
-              <Information aria-hidden={true} />
+              <Information aria-hidden />
             </button>
           </Tooltip>
         }
@@ -195,7 +226,7 @@ Password TextInputs are specific. They offer the possibility to have unreadable 
 
 ### TextInput without label
 
-TextInputs can be used without a label.
+`TextInput` can be used without a label.
 
 <Canvas>
   <Story name="withoutLabel">
@@ -207,14 +238,14 @@ TextInputs can be used without a label.
         name="password"
         hint="Description line"
         onChange={() => {}}
-        value={'content'}
+        value="content"
         labelAction={
           <Tooltip description="Content of the tooltip">
             <button
               aria-label="Information about the email"
               style={{ border: 'none', padding: 0, background: 'transparent' }}
             >
-              <Information aria-hidden={true} />
+              <Information aria-hidden />
             </button>
           </Tooltip>
         }

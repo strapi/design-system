@@ -13,12 +13,14 @@ import { NavLink } from 'react-router-dom';
 
 # SimpleMenu
 
-A menu displays a list of potential options or actions via a Popover component. A menu is used to give choices to the users in small spaces. However, a single option or action should be taken via a menu.
+A menu displays a list of potential options or actions via a Popover component. A menu is used to give choices to the
+users in small spaces. However, a single option or action should be taken via a menu.
 
 **Best practices**
 
 - Use menu for small spaces. When there is more space, use Select component.
-- Use menu if you want the user to make a single choice. When you need your user to select one or several options, use Select component.
+- Use menu if you want the user to make a single choice. When you need your user to select one or several options, use
+  Select component.
 - Try to have a sort logic in the popover of the menu.
 
 [View source](https://github.com/strapi/design-system-experiments/tree/main/packages/strapi-design-system/src/v2/SimpleMenu)
@@ -26,12 +28,13 @@ A menu displays a list of potential options or actions via a Popover component. 
 ## Imports
 
 ```js
-import { SimpleMenu, MenuItem } from '@strapi/design-system/v2/SimpleMenu';
+import { SimpleMenu, MenuItem } from '@strapi/design-system/v2';
 ```
 
 ## Usage
 
-The label of the menu can be replaced by the option selected. For instance, in a Date picker component, the menu label will be replaced by the active month.
+The label of the menu can be replaced by the option selected. For instance, in a Date picker component, the menu label
+will be replaced by the active month.
 
 By passing `aria-disabled` hover styles on `MenuItem`s can be disabled.
 
@@ -42,18 +45,18 @@ By passing `aria-disabled` hover styles on `MenuItem`s can be disabled.
       docs: {
         source: {
           code: `
-const [val, setValue] = useState('January');\n
-return (
-  <SimpleMenu id="label" label={val}>
-    <MenuItem id="menuItem-January" onClick={() => setValue('January')}>
-      January
-    </MenuItem>
-    <MenuItem id="menuItem-February" onClick={() => setValue('February')}>
-      February
-    </MenuItem>
-  </SimpleMenu>
-);
-  `,
+            const [val, setValue] = useState('January');\n
+            return (
+              <SimpleMenu id="label" label={val}>
+                <MenuItem id="menuItem-January" onClick={() => setValue('January')}>
+                  January
+                </MenuItem>
+                <MenuItem id="menuItem-February" onClick={() => setValue('February')}>
+                  February
+                </MenuItem>
+              </SimpleMenu>
+            );
+          `,
         },
       },
     }}
@@ -83,18 +86,15 @@ return (
       docs: {
         source: {
           code: `
-<SimpleMenu label="Menu">
-  <MenuItem to="/" as={NavLink}>
-    Home
-  </MenuItem>
-  <MenuItem to="/somewhere" as={NavLink}>
-    Somewhere internal
-  </MenuItem>
-  <MenuItem href="https://strapi.io/" isExternal>
-    Somewhere External
-  </MenuItem>
-</SimpleMenu>
-  `,
+          <SimpleMenu label="Menu">
+            <MenuItem to="/">
+              Home
+            </MenuItem>
+            <MenuItem to="/somewhere">
+              Somewhere internal
+            </MenuItem>
+          </SimpleMenu>
+          `,
         },
       },
     }}
@@ -136,14 +136,15 @@ A menu can allow the user to make actions. It can redirect the user to another p
 ### Sizes
 
 Use the size prop to change the size of the button. You can set the value to `S` or `M` (by default `M` is being used).
-If a custom component is rendered (through the `as` prop), the size is passed through, but needs to be handled in
-that component.
+If a custom component is rendered (through the `as` prop), the size is passed through, but needs to be handled in that
+component.
 
-Size `S` can be useful if the component is being used in places, where it needs to align on the left (ex: within tables).
+Size `S` can be useful if the component is being used in places, where it needs to align on the left (ex: within
+tables).
 
 <Canvas>
   <Story name="sizes">
-    <Stack horizontal size={4}>
+    <Stack horizontal spacing={4}>
       <SimpleMenu label="Small Menu" size="S" icon={<CarretDown />}>
         <MenuItem>Home</MenuItem>
         <MenuItem>Somewhere internal</MenuItem>
@@ -195,11 +196,12 @@ return (
 
 ### with other routing libraries
 
-To use the SimpleMenu/MenuItem components with a routing library (e.g. react-router-dom), you'll need to pass the `NavLink` component to the `as` prop in order to replace the default HTML anchor `<a />`.
-You'll also need to pass the `isLink` props to the `MenuItem` component.
+To use the SimpleMenu/MenuItem components with a routing library (e.g. react-router-dom), you'll need to pass the
+`NavLink` component to the `as` prop in order to replace the default HTML anchor `<a />`. You'll also need to pass the
+`isLink` props to the `MenuItem` component.
 
 ```jsx
-import { SimpleMenu, MenuItem } from '@strapi/design-system/SimpleMenu';
+import { SimpleMenu, MenuItem } from '@strapi/design-system';
 import { NavLink as RouterNavLink } from 'react-router-dom';
 
 <SimpleMenu label={Label}>
@@ -214,7 +216,7 @@ import { NavLink as RouterNavLink } from 'react-router-dom';
 For NextJS, you'll need to wrap the `NavLink` with the `NextLink` component
 
 ```jsx
-import { SimpleMenu, MenuItem } from '@strapi/design-system/SimpleMenu';
+import { SimpleMenu, MenuItem } from '@strapi/design-system';
 import NextLink from 'next/link';
 
 <SimpleMenu label={Label}>

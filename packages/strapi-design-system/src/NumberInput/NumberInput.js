@@ -1,15 +1,21 @@
-import React, { useState, useRef } from 'react';
+/* eslint-disable no-restricted-globals */
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
-import CarretDown from '@strapi/icons/CarretDown';
 import styled from 'styled-components';
-import { sizes } from '../themes/sizes';
+import CarretDown from '@strapi/icons/CarretDown';
 import { NumberFormatter, NumberParser } from '@internationalized/number';
+
 import { Field, FieldLabel, FieldHint, FieldError, FieldInput } from '../Field';
 import { Stack } from '../Stack';
 import { Icon } from '../Icon';
+
+import { sizes } from '../themes/sizes';
+
 import { useId } from '../helpers/useId';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 import { getDefaultLocale } from '../helpers/getDefaultLocale';
+
+import { useControllableState } from '../hooks/useControllableState';
 
 const ArrowButton = styled.button`
   display: flex;
@@ -47,80 +53,81 @@ export const NumberInput = React.forwardRef(
     },
     ref,
   ) => {
-    // inputValue should ALWAYS be a string. value should ALWAYS stay a number
-    const [inputValue, setInputValue] = useState(value === undefined || value === null ? INITIAL_VALUE : String(value));
     const generatedId = useId('numberinput', id);
+
     const locale = defaultLocale || getDefaultLocale();
-    const numberParserRef = useRef(new NumberParser(locale));
-    const numberFormaterRef = useRef(new NumberFormatter(getDefaultLocale(), { maximumFractionDigits: 20 }));
+    const numberParserRef = useRef(new NumberParser(locale, { style: 'decimal' }));
+    const numberFormaterRef = useRef(new NumberFormatter(locale, { maximumFractionDigits: 20 }));
 
-    const handleChange = (e) => {
-      const nextValue = e.target.value;
+    const [inputValue, setInputValue] = useControllableState({
+      prop(currentInputValue) {
+        const stringifiedValue = String(value);
 
-      if (numberParserRef.current.isValidPartialNumber(nextValue)) {
-        const parsedValue = nextValue === '' ? undefined : numberParserRef.current.parse(nextValue);
+        /**
+         * This basically accounts for when someone wants to:
+         * 1. clear the input
+         * 2. use a minus value
+         * 3. use a decimal value
+         *
+         * And always give it a string
+         */
+        return isNaN(stringifiedValue) || (stringifiedValue !== currentInputValue && currentInputValue !== '')
+          ? currentInputValue
+          : stringifiedValue;
+      },
+      defaultProp: INITIAL_VALUE,
+      onChange(value) {
+        /**
+         * always return a
+         */
+        const parsedValue = numberParserRef.current.parse(value);
+        onValueChange(isNaN(parsedValue) ? undefined : parsedValue);
+      },
+    });
 
-        // checking NaN case when only typing a "-" (minus) sign inside the field
-        if (parsedValue === undefined || isNaN(parsedValue)) {
-          onValueChange(undefined);
-        } else {
-          onValueChange(parsedValue);
-        }
+    /**
+     * Value will either be a number or a string,
+     * if the former then it'll be converted to a string.
+     */
+    const formatNumberAndSetInput = (value) => {
+      setInputValue(String(value));
+    };
 
-        setInputValue(e.target.value);
+    /**
+     * @type {React.ChangeEventHandler<HTMLInputElement>}
+     */
+    const handelInputChange = ({ target: { value } }) => {
+      if (numberParserRef.current.isValidPartialNumber(value)) {
+        formatNumberAndSetInput(value);
       }
     };
 
-    const increment = (fromKeyBoard) => {
-      if (inputValue === undefined) {
-        onValueChange(step);
-        setInputValue(String(step));
-        return;
-      }
-
-      if (isNaN(inputValue)) {
-        const parsedValue = numberParserRef.current.parse(inputValue);
-
-        // Probably in the minus case
-        const safeValue = isNaN(parsedValue) ? 0 : parsedValue;
-
-        const nextValue = safeValue + step;
-        const formattedValue = numberFormaterRef.current.format(nextValue);
-
-        onValueChange(nextValue);
-        setInputValue(fromKeyBoard ? String(nextValue) : formattedValue);
+    const increment = () => {
+      if (!inputValue) {
+        formatNumberAndSetInput(step);
 
         return;
       }
 
-      onValueChange(value + step);
-      setInputValue(String(value + step));
+      const parsedValue = numberParserRef.current.parse(inputValue);
+
+      const newValue = isNaN(parsedValue) ? step : parsedValue + step;
+
+      formatNumberAndSetInput(numberFormaterRef.current.format(newValue));
     };
 
-    const decrement = (fromKeyBoard) => {
-      if (inputValue === undefined) {
-        onValueChange(-step);
-        setInputValue(String(-step));
-        return;
-      }
-
-      if (isNaN(inputValue)) {
-        const parsedValue = numberParserRef.current.parse(inputValue);
-
-        // Probably in the minus case
-        const safeValue = isNaN(parsedValue) ? 0 : parsedValue;
-
-        const nextValue = safeValue - step;
-        const formattedValue = numberFormaterRef.current.format(nextValue);
-
-        onValueChange(nextValue);
-        setInputValue(fromKeyBoard ? String(nextValue) : formattedValue);
+    const decrement = () => {
+      if (!inputValue) {
+        formatNumberAndSetInput(-step);
 
         return;
       }
 
-      onValueChange(value - step);
-      setInputValue(String(value - step));
+      const parsedValue = numberParserRef.current.parse(inputValue);
+
+      const newValue = isNaN(parsedValue) ? -step : parsedValue - step;
+
+      formatNumberAndSetInput(numberFormaterRef.current.format(newValue));
     };
 
     const handleKeyDown = (e) => {
@@ -129,13 +136,13 @@ export const NumberInput = React.forwardRef(
       switch (e.key) {
         case KeyboardKeys.DOWN: {
           e.preventDefault();
-          decrement(true);
+          decrement();
           break;
         }
 
         case KeyboardKeys.UP: {
           e.preventDefault();
-          increment(true);
+          increment();
           break;
         }
 
@@ -144,37 +151,32 @@ export const NumberInput = React.forwardRef(
       }
     };
 
-    const handleFocus = () => {
-      setInputValue(inputValue ?? INITIAL_VALUE);
-    };
-
+    /**
+     * Only format on blur as vanity because otherwise it breaks when a user
+     * wants to include a minus or decimal value.
+     */
     const handleBlur = () => {
-      if (value === undefined) {
-        setInputValue(undefined);
-      } else {
-        setInputValue(numberFormaterRef.current.format(value));
+      if (inputValue) {
+        const parsedValue = numberParserRef.current.parse(inputValue);
+        const formattedValue = isNaN(parsedValue) ? '' : numberFormaterRef.current.format(parsedValue);
+        formatNumberAndSetInput(formattedValue);
       }
     };
 
     return (
-      <Field name={name} hint={hint} error={error} id={generatedId}>
+      <Field name={name} hint={hint} error={error} id={generatedId} required={required}>
         <Stack spacing={1}>
-          {label && (
-            <FieldLabel required={required} action={labelAction}>
-              {label}
-            </FieldLabel>
-          )}
+          {label && <FieldLabel action={labelAction}>{label}</FieldLabel>}
           <FieldInput
             ref={ref}
             startAction={startAction}
             disabled={disabled}
             type="text"
             inputmode="decimal"
-            onChange={handleChange}
+            onChange={handelInputChange}
             onKeyDown={handleKeyDown}
             onBlur={handleBlur}
-            onFocus={handleFocus}
-            value={inputValue ?? ''}
+            value={inputValue}
             size={size}
             endAction={
               <>
@@ -182,10 +184,7 @@ export const NumberInput = React.forwardRef(
                   disabled={disabled}
                   aria-hidden
                   reverse
-                  onClick={() => {
-                    // increment needs an argument, so we can't remove the parenthesis
-                    increment();
-                  }}
+                  onClick={increment}
                   tabIndex={-1}
                   type="button"
                   data-testid="ArrowUp"
@@ -195,10 +194,7 @@ export const NumberInput = React.forwardRef(
                 <ArrowButton
                   disabled={disabled}
                   aria-hidden
-                  onClick={() => {
-                    // decrement needs an argument, so we can't remove the parenthesis
-                    decrement();
-                  }}
+                  onClick={decrement}
                   tabIndex={-1}
                   type="button"
                   data-testid="ArrowDown"
@@ -227,6 +223,7 @@ NumberInput.defaultProps = {
   id: undefined,
   label: undefined,
   labelAction: undefined,
+  locale: undefined,
   required: false,
   size: 'M',
   startAction: undefined,

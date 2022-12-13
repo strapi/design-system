@@ -129,7 +129,7 @@ describe('Popover', () => {
       return (
         <ThemeProvider theme={lightTheme}>
           <div>
-            <button ref={divRef} onClick={() => setIsVisible((s) => !s)}>
+            <button type="button" ref={divRef} onClick={() => setIsVisible((s) => !s)}>
               Source
             </button>
             {isVisible && (

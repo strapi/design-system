@@ -46,6 +46,7 @@ export const Box = styled.div.withConfig({
       return `1px solid ${theme.colors[borderColor]}`;
     }
 
+    // eslint-disable-next-line consistent-return
     return undefined;
   }};
 

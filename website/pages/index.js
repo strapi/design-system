@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import Layout from 'components/Layout';
 import { getNavbarContent } from 'lib/mdx';
 import { Typography } from '@strapi/design-system/Typography';
@@ -12,7 +13,7 @@ import PropTypes from 'prop-types';
 const Home = ({ navbarContent }) => {
   return (
     <Layout navigationContent={navbarContent}>
-      <Box padding={10} background="neutral0" shadow="filterShadow" hasRadius={true} maxWidth="880px">
+      <Box padding={10} background="neutral0" shadow="filterShadow" hasRadius maxWidth="880px">
         <Box paddingBottom={6}>
           <Typography id="main-content-title" as="h1" variant="alpha" textColor="neutral800">
             Welcome on Strapi Design System!{' '}
@@ -37,9 +38,9 @@ const Home = ({ navbarContent }) => {
             <Typography variant="omega" textColor="neutral700">
               Get started with principles, learn more about accessibility and get the latest updates.
             </Typography>
-            <StyledLink href="/principles" target="_blank" padding={4} active={true} size={0}>
+            <StyledLink as={Link} href="/principles" padding={4} active size={0}>
               GET STARTED
-              <Icon as={ArrowRight} height={10} width={10} marginLeft={1} color="primary600" />
+              <Icon as={ArrowRight} height={3} width={3} marginLeft={1} color="primary600" />
             </StyledLink>
           </GridItem>
           <GridItem col={4}>
@@ -52,9 +53,9 @@ const Home = ({ navbarContent }) => {
             <Typography variant="omega" textColor="neutral700">
               Discover the foundations of the Design System: typography, colors, grid system and much more.
             </Typography>
-            <StyledLink href="/typography" target="_blank" padding={4} active={true} size={0}>
+            <StyledLink as={Link} href="/typography" padding={4} active size={0}>
               LEARN MORE
-              <Icon as={ArrowRight} height={10} width={10} marginLeft={1} color="primary600" />
+              <Icon as={ArrowRight} height={3} width={3} marginLeft={1} color="primary600" />
             </StyledLink>
           </GridItem>
           <GridItem col={4}>
@@ -67,14 +68,14 @@ const Home = ({ navbarContent }) => {
             <Typography variant="omega" textColor="neutral700">
               Have a look at our Components - universal building bricks that fit almost any use case.
             </Typography>
-            <StyledLink href="/components" target="_blank" padding={4} active={true} size={0}>
+            <StyledLink as={Link} href="/components" padding={4} active size={0}>
               ACCESS THE COMPONENTS
-              <Icon as={ArrowRight} height={10} width={10} marginLeft={1} color="primary600" />
+              <Icon as={ArrowRight} height={3} width={3} marginLeft={1} color="primary600" />
             </StyledLink>
           </GridItem>
         </Grid>
       </Box>
-      <Box padding={8} background="neutral0" shadow="filterShadow" hasRadius={true} maxWidth="880px">
+      <Box padding={8} background="neutral0" shadow="filterShadow" hasRadius maxWidth="880px">
         <Box paddingBottom={3}>
           <Typography as="h2" variant="beta" textColor="neutral600">
             What’s new
@@ -89,9 +90,9 @@ const Home = ({ navbarContent }) => {
           A new look and feel, with fresh design tokens coupled with accessibility features to make sure the experiences
           you create work for everyone.
         </Typography>
-        <StyledLink href="/whats-new " target="_blank" padding={6} active={true} size={0}>
+        <StyledLink as={Link} href="/whats-new" padding={6} active size={0}>
           SEE ALL NEW UPDATES
-          <Icon as={ArrowRight} height={10} width={10} marginLeft={1} color="primary600" />
+          <Icon as={ArrowRight} height={3} width={3} marginLeft={1} color="primary600" />
         </StyledLink>
       </Box>
     </Layout>
@@ -100,6 +101,7 @@ const Home = ({ navbarContent }) => {
 
 export const getStaticProps = async () => {
   const navbarContent = await getNavbarContent();
+
   return { props: { navbarContent } };
 };
 

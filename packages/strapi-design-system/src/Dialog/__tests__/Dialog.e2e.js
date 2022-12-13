@@ -1,6 +1,6 @@
-const { injectAxe, getViolations } = require('axe-playwright');
+import { injectAxe, getViolations } from 'axe-playwright';
 
-const { test, expect } = require('@playwright/test');
+import { test, expect } from '@playwright/test';
 
 test.describe.parallel('Dialog', () => {
   test.beforeEach(async ({ page }) => {

@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { Box } from '../Box';
 import { Divider } from '../Divider';
 import { Typography } from '../Typography';
 import { Flex } from '../Flex';
-import styled from 'styled-components';
 
 const IconBox = styled(Box)`
   height: ${24 / 16}rem;

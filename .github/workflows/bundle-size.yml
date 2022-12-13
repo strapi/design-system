@@ -1,0 +1,30 @@
+name: Bundle-size
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  size:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          cache: yarn
+
+      - uses: ./.github/actions/install-modules
+
+      - name: Link locale packages and install their dependencies
+        run: yarn bootstrap
+
+      - name: Build packages
+        run: yarn build
+
+      - uses: preactjs/compressed-size-action@v2
+        with:
+          pattern: '**/dist/**/*.{cjs,js,svg}'

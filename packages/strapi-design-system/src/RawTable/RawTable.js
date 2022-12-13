@@ -60,6 +60,7 @@ export const RawTable = ({ colCount, rowCount, jumpStep, initialCol, initialRow,
 
       case KeyboardKeys.HOME: {
         e.preventDefault();
+
         if (e.ctrlKey) {
           setRowIndex(0);
         }
@@ -71,6 +72,7 @@ export const RawTable = ({ colCount, rowCount, jumpStep, initialCol, initialRow,
 
       case KeyboardKeys.END: {
         e.preventDefault();
+
         if (e.ctrlKey) {
           setRowIndex(rowCount - 1);
         }
@@ -103,7 +105,14 @@ export const RawTable = ({ colCount, rowCount, jumpStep, initialCol, initialRow,
 
   return (
     <RawTableContext.Provider value={{ rowIndex, colIndex, setTableValues }}>
-      <table ref={tableRef} aria-rowcount={rowCount} aria-colcount={colCount} onKeyDown={handleKeyDown} {...props} />
+      <table
+        role="grid"
+        ref={tableRef}
+        aria-rowcount={rowCount}
+        aria-colcount={colCount}
+        onKeyDown={handleKeyDown}
+        {...props}
+      />
     </RawTableContext.Provider>
   );
 };

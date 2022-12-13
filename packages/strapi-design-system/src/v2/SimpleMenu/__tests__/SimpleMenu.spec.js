@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import { SimpleMenu, MenuItem } from '../../SimpleMenu';
+import { SimpleMenu, MenuItem } from '..';
 import { ThemeProvider } from '../../../ThemeProvider';
 import { lightTheme } from '../../../themes';
 

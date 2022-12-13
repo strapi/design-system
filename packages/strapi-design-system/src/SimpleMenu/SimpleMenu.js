@@ -1,8 +1,10 @@
 import React, { useRef, useState, Children, cloneElement, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import CarretDown from '@strapi/icons/CarretDown';
 import { NavLink } from 'react-router-dom';
+import { useCallbackRef } from '@radix-ui/react-use-callback-ref';
+
+import CarretDown from '@strapi/icons/CarretDown';
 import { Link } from '../Link';
 import { Typography } from '../Typography';
 import { Box } from '../Box';
@@ -78,7 +80,8 @@ export const MenuItem = ({ children, onClick, to, isFocused, href, isExternal, .
         </Box>
       </OptionLink>
     );
-  else if (href && isExternal)
+
+  if (href && isExternal)
     return (
       <OptionExternalLink href={href} isExternal={isExternal} {...menuItemProps}>
         <Box padding={2}>
@@ -86,18 +89,19 @@ export const MenuItem = ({ children, onClick, to, isFocused, href, isExternal, .
         </Box>
       </OptionExternalLink>
     );
-  else
-    return (
-      <OptionButton onKeyDown={handleKeyDown} onMouseDown={onClick} type="button" {...menuItemProps}>
-        <Box padding={2}>
-          <Typography>{children}</Typography>
-        </Box>
-      </OptionButton>
-    );
+
+  return (
+    <OptionButton onKeyDown={handleKeyDown} onMouseDown={onClick} type="button" {...menuItemProps}>
+      <Box padding={2}>
+        <Typography>{children}</Typography>
+      </Box>
+    </OptionButton>
+  );
 };
 
 MenuItem.defaultProps = {
-  onClick: () => {},
+  as: undefined,
+  onClick() {},
   isFocused: false,
   to: undefined,
   href: undefined,
@@ -123,6 +127,7 @@ export const SimpleMenu = ({
   onClose = () => {},
   size,
   popoverPlacement,
+  onReachEnd,
   ...props
 }) => {
   const menuButtonRef = useRef();
@@ -133,6 +138,7 @@ export const SimpleMenu = ({
   const childrenArray = Children.toArray(children);
   const DefaultComponent = size === 'S' ? StyledButtonSmall : Button;
   const Component = asComp || DefaultComponent;
+  const shouldHandleReachEnd = !!onReachEnd && typeof onReachEnd === 'function';
 
   useEffect(() => {
     if (['string', 'number'].includes(typeof label)) {
@@ -143,25 +149,29 @@ export const SimpleMenu = ({
         setFocusItem(defaultItemIndexToFocus);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [label]);
+
+  const handleOpen = useCallbackRef(onOpen);
+  const handleClose = useCallbackRef(onClose);
 
   useEffect(() => {
     if (didMount?.current) {
-      if (visible && typeof onOpen === 'function') {
-        onOpen();
-      } else if (typeof onClose === 'function') {
-        onClose();
+      if (visible) {
+        handleOpen();
+      } else {
+        handleClose();
       }
     } else {
       didMount.current = true;
     }
-  }, [didMount, visible]);
+  }, [didMount, handleClose, handleOpen, visible]);
 
   /* in case `label` is a custom react component, we know it is going to be
       a child of the menu button.
   */
   useEffect(() => {
-    if (React.isValidElement(label) && focusedItemIndex == -1) {
+    if (React.isValidElement(label) && focusedItemIndex === -1) {
       menuButtonRef.current.focus();
     }
   }, [label, focusedItemIndex]);
@@ -192,6 +202,7 @@ export const SimpleMenu = ({
 
   const handleBlur = (e) => {
     e.preventDefault();
+
     if (!e.currentTarget.contains(e.relatedTarget)) {
       setVisible(false);
     }
@@ -202,10 +213,17 @@ export const SimpleMenu = ({
     setVisible((prevVisible) => !prevVisible);
   };
 
+  const handleReachEnd = () => {
+    if (shouldHandleReachEnd) {
+      onReachEnd();
+    }
+  };
+
   const childrenClone = childrenArray.map((child, index) => (
+    // eslint-disable-next-line react/no-array-index-key
     <Flex as="li" key={index} justifyContent="center" role="menuitem">
       {cloneElement(child, {
-        onClick: () => {
+        onClick() {
           child.props.onClick();
           setVisible(false);
           menuButtonRef.current.focus();
@@ -216,6 +234,8 @@ export const SimpleMenu = ({
   ));
 
   return (
+    // TODO: review why we need to eslint it and how to solve this issue.
+    // eslint-disable-next-line jsx-a11y/no-static-element-interactions
     <div onKeyDown={handleWrapperKeyDown}>
       <Component
         label={React.isValidElement(label) ? null : label}
@@ -237,7 +257,14 @@ export const SimpleMenu = ({
         {label}
       </Component>
       {visible && (
-        <Popover onBlur={handleBlur} placement={popoverPlacement} source={menuButtonRef} spacing={4}>
+        <Popover
+          onBlur={handleBlur}
+          placement={popoverPlacement}
+          source={menuButtonRef}
+          onReachEnd={handleReachEnd}
+          intersectionId={shouldHandleReachEnd ? `popover-${menuId}` : undefined}
+          spacing={4}
+        >
           <Box role="menu" as="ul" padding={1} id={menuId}>
             {childrenClone}
           </Box>
@@ -254,6 +281,10 @@ SimpleMenu.defaultProps = {
 SimpleMenu.displayName = 'SimpleMenu';
 
 SimpleMenu.defaultProps = {
+  id: undefined,
+  onOpen: undefined,
+  onClose: undefined,
+  onReachEnd: undefined,
   popoverPlacement: 'bottom-start',
   size: 'M',
 };
@@ -265,8 +296,11 @@ SimpleMenu.propTypes = {
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.element]).isRequired,
   onClose: PropTypes.func,
   onOpen: PropTypes.func,
+  /**
+   * Callback function to be called when the popover reaches the end of the scrollable content
+   */
+  onReachEnd: PropTypes.func,
   popoverPlacement: PropTypes.oneOf(POPOVER_PLACEMENTS),
-
   /**
    * Size of the trigger button.
    * Note: in case a custom component is passed through the "as"
