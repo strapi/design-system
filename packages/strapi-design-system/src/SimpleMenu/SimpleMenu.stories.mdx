@@ -78,6 +78,10 @@ return (
 
 ### With links
 
+To use `MenuItem` as an internal link you can use the `to` prop, 
+it will render a `NavLink` react-router-dom component.
+If you need to use a different routing library, it is advised to use `v2/SimpleMenu` component [found here](http://localhost:6006/?path=/docs/design-system-components-v2-simplemenu--base#with-other-routing-libraries).
+
 <Canvas>
   <Story
     name="with-links"
@@ -111,9 +115,9 @@ return (
   </Story>
 </Canvas>
 
-A menu can allow the user to make actions. It can redirect the user to another page or another part of the product.
-
 ### With IconButton
+
+A menu can allow the user to make actions. It can redirect the user to another page or another part of the product.
 
 <Canvas>
   <Story name="with-iconbutton">
@@ -187,38 +191,6 @@ return (
     }}
   </Story>
 </Canvas>
-
-### with other routing libraries
-
-To use the SimpleMenu/MenuItem components with a routing library (e.g. react-router-dom), you'll need to pass the
-`NavLink` component to the `as` prop in order to replace the default HTML anchor `<a />`. You'll also need to pass the
-`isLink` props to the `MenuItem` component.
-
-```jsx
-import { SimpleMenu, MenuItem } from '@strapi/design-system';
-import { NavLink as RouterNavLink } from 'react-router-dom';
-
-<SimpleMenu label={Label}>
-  <MenuItem as={RouterNavLink} to="/">
-    Home
-  </MenuItem>
-</SimpleMenu>;
-```
-
-#### with NextJS
-
-For NextJS, you'll need to wrap the `NavLink` with the `NextLink` component
-
-```jsx
-import { SimpleMenu, MenuItem } from '@strapi/design-system';
-import NextLink from 'next/link';
-
-<SimpleMenu label={Label}>
-  <NextLink href="/home" passHref>
-    <MenuItem>Home</MenuItem>
-  </NextLink>
-</SimpleMenu>;
-```
 
 ## Accessibility
 

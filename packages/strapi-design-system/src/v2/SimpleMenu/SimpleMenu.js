@@ -5,15 +5,16 @@ import { useCallbackRef } from '@radix-ui/react-use-callback-ref';
 
 import CarretDown from '@strapi/icons/CarretDown';
 
+import { Link } from '../Link';
 import { Typography } from '../../Typography';
 import { Box } from '../../Box';
 import { Flex } from '../../Flex';
 import { Button } from '../../Button';
+import { BaseLink } from '../../BaseLink';
 import { Popover, POPOVER_PLACEMENTS } from '../../Popover';
 import { getOptionStyle } from './utils';
 import { useId } from '../../helpers/useId';
 import { KeyboardKeys } from '../../helpers/keyboardKeys';
-import { Link } from '../Link';
 
 const OptionButton = styled.button`
   border: none;
@@ -23,16 +24,23 @@ const OptionButton = styled.button`
   ${getOptionStyle}
 `;
 
-const OptionLink = styled(Link)`
+const OptionLink = styled(BaseLink)`
   text-decoration: none;
   ${getOptionStyle}
 `;
 
 const OptionExternalLink = styled(Link)`
-  text-decoration: none;
-  color: currentColor;
-  :hover {
-    color: currentColor;
+  &:focus-visible {
+    /* Removes Link focus-visible after properties and reset to global outline */
+    outline: 2px solid ${({ theme }) => theme.colors.primary600};
+    outline-offset: 2px;
+    &:after {
+      content: none;
+    }
+  }
+  /* Removes Link svg color */
+  svg path {
+    fill: currentColor;
   }
   ${getOptionStyle}
 `;
@@ -50,7 +58,7 @@ const StyledButtonSmall = styled(Button)`
   padding: ${({ theme }) => `${theme.spaces[1]} ${theme.spaces[3]}`};
 `;
 
-export const MenuItem = ({ as, children, onClick, isFocused, to, href, isExternal, ...props }) => {
+export const MenuItem = ({ as, children, onClick, isFocused, isLink, isExternal, ...props }) => {
   const menuItemRef = useRef();
 
   useEffect(() => {
@@ -61,7 +69,7 @@ export const MenuItem = ({ as, children, onClick, isFocused, to, href, isExterna
 
   const menuItemProps = {
     tabIndex: isFocused ? 0 : -1,
-    ref: href && isExternal ? undefined : menuItemRef,
+    ref: menuItemRef,
     role: 'menuitem',
     ...props,
   };
@@ -72,23 +80,25 @@ export const MenuItem = ({ as, children, onClick, isFocused, to, href, isExterna
     }
   };
 
-  if (to)
+  if (isLink) {
     return (
-      <OptionLink as={as} to={to} {...menuItemProps}>
+      <OptionLink as={as} {...menuItemProps}>
         <Box padding={2}>
           <Typography>{children}</Typography>
         </Box>
       </OptionLink>
     );
+  }
 
-  if (href && isExternal)
+  if (isExternal) {
     return (
-      <OptionExternalLink href={href} isExternal={isExternal} {...menuItemProps}>
+      <OptionExternalLink isExternal {...menuItemProps}>
         <Box padding={2}>
           <Typography>{children}</Typography>
         </Box>
       </OptionExternalLink>
     );
+  }
 
   return (
     <OptionButton onKeyDown={handleKeyDown} onMouseDown={onClick} type="button" {...menuItemProps}>
@@ -102,20 +112,18 @@ export const MenuItem = ({ as, children, onClick, isFocused, to, href, isExterna
 MenuItem.defaultProps = {
   as: undefined,
   onClick() {},
-  isFocused: false,
-  to: undefined,
-  href: undefined,
   isExternal: false,
+  isFocused: false,
+  isLink: false,
 };
 
 MenuItem.propTypes = {
   as: PropTypes.elementType,
   children: PropTypes.node.isRequired,
-  href: PropTypes.string,
   isExternal: PropTypes.bool,
   isFocused: PropTypes.bool,
+  isLink: PropTypes.bool,
   onClick: PropTypes.func,
-  to: PropTypes.string,
 };
 
 export const SimpleMenu = ({

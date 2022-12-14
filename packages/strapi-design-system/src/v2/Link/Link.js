@@ -33,9 +33,9 @@ const IconWrapper = styled(Box)`
   display: flex;
 `;
 
-export const Link = React.forwardRef(({ children, href, disabled, startIcon, endIcon, isExternal, ...props }, ref) => {
+export const Link = React.forwardRef(({ children, href, disabled, startIcon, endIcon, ...props }, ref) => {
   return (
-    <LinkWrapper ref={ref} href={href} disabled={disabled} isExternal={isExternal} {...props}>
+    <LinkWrapper ref={ref} href={href} disabled={disabled} {...props}>
       {startIcon && (
         <IconWrapper as="span" aria-hidden paddingRight={2}>
           {startIcon}
@@ -50,7 +50,7 @@ export const Link = React.forwardRef(({ children, href, disabled, startIcon, end
         </IconWrapper>
       )}
 
-      {href && isExternal && !endIcon && (
+      {href && !endIcon && (
         <IconWrapper as="span" aria-hidden paddingLeft={2}>
           <ExternalLink />
         </IconWrapper>
@@ -64,7 +64,6 @@ Link.displayName = 'Link';
 Link.defaultProps = {
   as: undefined,
   href: undefined,
-  isExternal: false,
   disabled: false,
   startIcon: undefined,
   endIcon: undefined,
@@ -76,6 +75,5 @@ Link.propTypes = {
   disabled: PropTypes.bool,
   endIcon: PropTypes.element,
   href: PropTypes.string,
-  isExternal: PropTypes.bool,
   startIcon: PropTypes.element,
 };

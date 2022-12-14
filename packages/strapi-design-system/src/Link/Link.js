@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import ExternalLink from '@strapi/icons/ExternalLink';
@@ -43,7 +43,7 @@ const IconWrapper = styled(Box)`
   display: flex;
 `;
 
-export const Link = ({ href, to, children, disabled, startIcon, endIcon, isExternal, ...props }) => {
+export const Link = forwardRef(({ href, to, children, disabled, startIcon, endIcon, ...props }, ref) => {
   const target = href ? '_blank' : undefined;
   const rel = href ? 'noreferrer noopener' : undefined;
 
@@ -55,6 +55,7 @@ export const Link = ({ href, to, children, disabled, startIcon, endIcon, isExter
       to={disabled ? undefined : to}
       href={disabled ? '#' : href}
       disabled={disabled}
+      ref={ref}
       {...props}
     >
       {startIcon && (
@@ -62,6 +63,7 @@ export const Link = ({ href, to, children, disabled, startIcon, endIcon, isExter
           {startIcon}
         </IconWrapper>
       )}
+
       <Typography>{children}</Typography>
 
       {endIcon && !href && (
@@ -70,21 +72,20 @@ export const Link = ({ href, to, children, disabled, startIcon, endIcon, isExter
         </IconWrapper>
       )}
 
-      {href && isExternal && (
+      {href && (
         <IconWrapper as="span" aria-hidden paddingLeft={2}>
           <ExternalLink />
         </IconWrapper>
       )}
     </LinkWrapper>
   );
-};
+});
 
 Link.displayName = 'Link';
 
 Link.defaultProps = {
   endIcon: undefined,
   href: undefined,
-  isExternal: false,
   to: undefined,
   disabled: false,
   startIcon: undefined,
@@ -102,7 +103,7 @@ Link.propTypes = {
     // eslint-disable-next-line consistent-return
     return undefined;
   },
-  isExternal: PropTypes.bool,
+
   startIcon: PropTypes.element,
   to(props) {
     if (!props.disabled && !props.href && !props.to) {
