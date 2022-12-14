@@ -1,6 +1,5 @@
 import { HTMLAttributes } from 'react';
 import styled, { CSSProperties, DefaultTheme } from 'styled-components';
-// import { ComponentType } from 'styled-components/node_modules/@types/react';
 
 import handleResponsiveValues from '../helpers/handleResponsiveValues';
 import { extractStyleFromTheme } from '../helpers/theme';
