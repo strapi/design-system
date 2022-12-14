@@ -1,0 +1,63 @@
+<!--- JsonInput.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { ArgsTable } from '@storybook/addon-docs';
+import { JsonInput } from './JsonInput';
+import { Box } from '../Box';
+
+<Meta title="Design System/Components/JsonInput" component={JsonInput} />
+
+# JsonInput
+
+JSON Input takes a JSON Schema and shows your data in clear editable view.
+
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/JsonInput)
+
+## Imports
+
+```js
+import { JsonInput } from '@strapi/design-system';
+```
+
+## Usage
+
+<Canvas withSource="open">
+  <Story
+    name="base"
+    parameters={{
+      docs: { 
+        source: {
+          code: '<JsonInput value={[{"a":3,"b":4}, {"a":5,"b":6}]}/>',
+        },
+      },
+    }}
+  >
+    <Box style={{ height: 200 }}>
+      <JsonInput value={[{"a":3,"b":4}, {"a":5,"b":6}]}/>
+    </Box>
+  </Story>
+</Canvas>
+
+## Editable
+
+<Canvas>
+  <Story
+    name="editable"
+    parameters={{
+      docs: { 
+        source: {
+          code: '<JsonInput value={[{"a":3,"b":4}, {"a":5,"b":6}]} editable/>',
+        },
+      },
+    }}
+  >
+    <Box style={{ height: 200 }}>
+      <JsonInput value={[{"a":3,"b":4}, {"a":5,"b":6}]} editable/>
+    </Box>
+  </Story>
+</Canvas>
+
+
+## Props
+
+<ArgsTable of={JsonInput} />
