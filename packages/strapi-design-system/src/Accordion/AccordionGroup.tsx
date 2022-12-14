@@ -1,4 +1,4 @@
-import { Children, cloneElement, ReactElement } from 'react';
+import { Children, cloneElement, ReactElement, ReactNode } from 'react';
 import styled from 'styled-components';
 
 import { Box } from '../Box';
@@ -13,7 +13,7 @@ const AccordionFooter = styled(Box)`
   border-radius: 0 0 ${({ theme }) => theme.borderRadius} ${({ theme }) => theme.borderRadius};
 `;
 
-const EnhancedGroup = styled(Box)<{ footer: boolean }>`
+const EnhancedGroup = styled(Box)<{ footer: ReactNode }>`
   & > * {
     & > * {
       border-radius: unset;
@@ -81,7 +81,7 @@ export const AccordionGroup = ({ children, footer, label, labelAction, error }: 
           {labelAction && <LabelAction paddingLeft={1}>{labelAction}</LabelAction>}
         </Flex>
       )}
-      <EnhancedGroup hasFooter={Boolean(footer)}>{childrenArray}</EnhancedGroup>
+      <EnhancedGroup footer={footer}>{childrenArray}</EnhancedGroup>
       {footer && <AccordionFooter>{footer}</AccordionFooter>}
       {error && (
         <Box paddingTop={1}>
