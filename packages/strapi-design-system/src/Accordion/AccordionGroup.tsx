@@ -81,7 +81,7 @@ export const AccordionGroup = ({ children, footer, label, labelAction, error }: 
           {labelAction && <LabelAction paddingLeft={1}>{labelAction}</LabelAction>}
         </Flex>
       )}
-      <EnhancedGroup footer={Boolean(footer)}>{childrenArray}</EnhancedGroup>
+      <EnhancedGroup footer={footer}>{childrenArray}</EnhancedGroup>
       {footer && <AccordionFooter>{footer}</AccordionFooter>}
       {error && (
         <Box paddingTop={1}>
