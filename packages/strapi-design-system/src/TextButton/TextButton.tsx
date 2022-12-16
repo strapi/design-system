@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { Loader } from '@strapi/icons';
 

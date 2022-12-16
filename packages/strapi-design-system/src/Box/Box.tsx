@@ -5,8 +5,6 @@ import styled, { CSSProperties, DefaultTheme } from 'styled-components';
 import handleResponsiveValues from '../helpers/handleResponsiveValues';
 import { extractStyleFromTheme } from '../helpers/theme';
 
-import { PickType } from '../types/utils';
-
 type SpaceProps = keyof DefaultTheme['spaces'] | Array<keyof DefaultTheme['spaces']>;
 
 type DefaultThemeOrCSSProp<T extends keyof DefaultTheme, K extends keyof CSSProperties> =
@@ -40,7 +38,7 @@ export type BoxProps<TElement extends HTMLElement = HTMLDivElement> = Pick<
     /**
      * Flex basis
      */
-    basis?: PickType<CSSProperties, 'flexBasis'>;
+    basis?: CSSProperties['flexBasis'];
     /**
      * Border color
      */
@@ -52,12 +50,12 @@ export type BoxProps<TElement extends HTMLElement = HTMLDivElement> = Pick<
     /**
      * Flex
      */
-    flex?: PickType<CSSProperties, 'flex'>;
+    flex?: CSSProperties['flex'];
     fontSize?: DefaultThemeOrCSSProp<'fontSizes', 'fontSize'>;
     /**
      * Flex grow
      */
-    grow?: PickType<CSSProperties, 'flexGrow'>;
+    grow?: CSSProperties['flexGrow'];
     /**
      * If `true`, will add a border radius to the `Box`
      */
@@ -101,7 +99,7 @@ export type BoxProps<TElement extends HTMLElement = HTMLDivElement> = Pick<
     /**
      * Flex shrink
      */
-    shrink?: PickType<CSSProperties, 'flexShrink'>;
+    shrink?: CSSProperties['flexShrink'];
 
     width?: DefaultThemeOrCSSProp<'spaces', 'width'>;
     minWidth?: DefaultThemeOrCSSProp<'spaces', 'minWidth'>;
@@ -113,9 +111,9 @@ export type BoxProps<TElement extends HTMLElement = HTMLDivElement> = Pick<
     left?: DefaultThemeOrCSSProp<'spaces', 'left'>;
     bottom?: DefaultThemeOrCSSProp<'spaces', 'bottom'>;
     right?: DefaultThemeOrCSSProp<'spaces', 'right'>;
-    borderRadius?: PickType<CSSProperties, 'borderRadius'>;
-    borderStyle?: PickType<CSSProperties, 'borderStyle'>;
-    borderWidth?: PickType<CSSProperties, 'borderWidth'>;
+    borderRadius?: CSSProperties['borderRadius'];
+    borderStyle?: CSSProperties['borderStyle'];
+    borderWidth?: CSSProperties['borderWidth'];
 
     children?: React.ReactNode;
 

@@ -4,8 +4,6 @@ import { Box, BoxProps } from '../Box';
 
 import handleResponsiveValues from '../helpers/handleResponsiveValues';
 
-import { PickType } from '../types/utils';
-
 /**
  * Prevents these attributes from being spread on the DOM node
  */
@@ -14,12 +12,15 @@ const transientProps: Partial<Record<keyof FlexProps, boolean>> = {
 };
 
 export interface FlexProps<TElement extends HTMLElement = HTMLDivElement> extends BoxProps<TElement> {
-  alignItems?: PickType<CSSProperties, 'alignItems'>;
-  direction?: PickType<CSSProperties, 'flexDirection'>;
+  alignItems?: CSSProperties['alignItems'];
+  direction?: CSSProperties['flexDirection'];
+  /**
+   * Supports responsive values
+   */
   gap?: keyof DefaultTheme['spaces'] | Array<keyof DefaultTheme['spaces']>;
   inline?: boolean;
-  justifyContent?: PickType<CSSProperties, 'justifyContent'>;
-  wrap?: PickType<CSSProperties, 'flexWrap'>;
+  justifyContent?: CSSProperties['justifyContent'];
+  wrap?: CSSProperties['flexWrap'];
 }
 
 export const Flex = styled(Box).withConfig<FlexProps>({
