@@ -115,6 +115,9 @@ export type BoxProps<TElement extends HTMLElement = HTMLDivElement> = Pick<
     borderWidth?: CSSProperties['borderWidth'];
 
     children?: React.ReactNode;
+
+    as?: string | React.ComponentType<any>;
+    forwardedAs?: string | React.ComponentType<any>;
   };
 
 /**

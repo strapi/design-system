@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { HTMLAttributes } from 'react';
 import styled, { keyframes } from 'styled-components';
-import Loader from '@strapi/icons/Loader';
+import { Loader } from '@strapi/icons';
+
 import { Box } from '../Box';
 import { Typography } from '../Typography';
-import { Flex } from '../Flex';
+import { Flex, FlexProps } from '../Flex';
 import { buttonFocusStyle } from '../themes/utils';
 
 const rotation = keyframes`
@@ -44,8 +44,17 @@ const TextButtonWrapper = styled(Flex)`
   ${buttonFocusStyle}
 `;
 
-export const TextButton = React.forwardRef(
-  ({ children, startIcon, endIcon, onClick, disabled, loading, ...props }, ref) => {
+export type TextButtonProps = FlexProps &
+  React.ButtonHTMLAttributes<HTMLButtonElement> & {
+    disabled?: boolean;
+    endIcon?: React.ReactNode;
+    loading?: boolean;
+    onClick?: React.MouseEventHandler<HTMLButtonElement>;
+    startIcon?: React.ReactNode;
+  };
+
+export const TextButton = React.forwardRef<HTMLButtonElement, TextButtonProps>(
+  ({ children, startIcon, endIcon, onClick, disabled = false, loading = false, ...props }, ref) => {
     const handleClick = onClick && !disabled ? onClick : undefined;
     const isDisabled = disabled || loading;
 
@@ -83,20 +92,3 @@ export const TextButton = React.forwardRef(
 );
 
 TextButton.displayName = 'TextButton';
-
-TextButton.defaultProps = {
-  disabled: false,
-  startIcon: undefined,
-  endIcon: undefined,
-  loading: false,
-  onClick: undefined,
-};
-
-TextButton.propTypes = {
-  children: PropTypes.node.isRequired,
-  disabled: PropTypes.bool,
-  endIcon: PropTypes.element,
-  loading: PropTypes.bool,
-  onClick: PropTypes.func,
-  startIcon: PropTypes.element,
-};

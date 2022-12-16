@@ -1,11 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Box } from '../Box';
+import { KeyboardEvent } from 'react';
+import { Box, BoxProps } from '../Box';
+
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 
-export const KeyboardNavigable = ({ tagName, attributeName, ...props }) => {
+export interface KeyboardNavigableProps extends BoxProps {
+  tagName?: string;
+  attributeName?: string;
+}
+
+export const KeyboardNavigable = ({ tagName, attributeName = '', ...props }: KeyboardNavigableProps) => {
   const isValidFocusedElement = () => {
     const focused = document.activeElement;
+
+    if (!focused) {
+      return false;
+    }
 
     if (tagName) {
       return focused.tagName.toLowerCase() === tagName;
@@ -14,7 +23,7 @@ export const KeyboardNavigable = ({ tagName, attributeName, ...props }) => {
     return focused.hasAttribute(attributeName);
   };
 
-  const queryElement = (parentEl) => {
+  const queryElement = (parentEl: HTMLElement) => {
     if (tagName) {
       return parentEl.querySelectorAll(tagName);
     }
@@ -22,7 +31,7 @@ export const KeyboardNavigable = ({ tagName, attributeName, ...props }) => {
     return parentEl.querySelectorAll(`[${attributeName}]`);
   };
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
     switch (e.key) {
       case KeyboardKeys.RIGHT:
       case KeyboardKeys.DOWN: {
@@ -31,7 +40,7 @@ export const KeyboardNavigable = ({ tagName, attributeName, ...props }) => {
 
           const focused = document.activeElement;
 
-          const allElements = [...queryElement(e.currentTarget)];
+          const allElements = [...queryElement(e.currentTarget)] as HTMLElement[];
           const focusedIndex = allElements.findIndex((node) => node === focused);
 
           const nextIndex = focusedIndex + 1 < allElements.length ? focusedIndex + 1 : 0;
@@ -46,7 +55,7 @@ export const KeyboardNavigable = ({ tagName, attributeName, ...props }) => {
           e.preventDefault();
 
           const focused = document.activeElement;
-          const allElements = [...queryElement(e.currentTarget)];
+          const allElements = [...queryElement(e.currentTarget)] as HTMLElement[];
           const focusedIndex = allElements.findIndex((node) => node === focused);
 
           const nextIndex = focusedIndex - 1 > -1 ? focusedIndex - 1 : allElements.length - 1;
@@ -60,7 +69,9 @@ export const KeyboardNavigable = ({ tagName, attributeName, ...props }) => {
           e.preventDefault();
 
           const allElements = queryElement(e.currentTarget);
-          allElements.item(0).focus();
+          const focusElement = allElements.item(0) as HTMLElement;
+
+          focusElement.focus();
         }
 
         break;
@@ -71,7 +82,9 @@ export const KeyboardNavigable = ({ tagName, attributeName, ...props }) => {
           e.preventDefault();
 
           const allElements = queryElement(e.currentTarget);
-          allElements.item(allElements.length - 1).focus();
+          const focusElement = allElements.item(allElements.length - 1) as HTMLElement;
+
+          focusElement.focus();
         }
 
         break;
@@ -83,14 +96,4 @@ export const KeyboardNavigable = ({ tagName, attributeName, ...props }) => {
   };
 
   return <Box onKeyDown={handleKeyDown} {...props} />;
-};
-
-KeyboardNavigable.defaultProps = {
-  attributeName: undefined,
-  tagName: undefined,
-};
-
-KeyboardNavigable.propTypes = {
-  attributeName: PropTypes.string,
-  tagName: PropTypes.string,
 };

@@ -1,6 +1,6 @@
-import React, { Children, cloneElement } from 'react';
-import PropTypes from 'prop-types';
+import { Children, cloneElement, ReactElement, ReactNode } from 'react';
 import styled from 'styled-components';
+
 import { Box } from '../Box';
 import { Typography } from '../Typography';
 import { Flex } from '../Flex';
@@ -13,7 +13,7 @@ const AccordionFooter = styled(Box)`
   border-radius: 0 0 ${({ theme }) => theme.borderRadius} ${({ theme }) => theme.borderRadius};
 `;
 
-const EnhancedGroup = styled(Box)`
+const EnhancedGroup = styled(Box)<{ footer: ReactNode }>`
   & > * {
     & > * {
       border-radius: unset;
@@ -58,9 +58,17 @@ const LabelAction = styled(Box)`
   }
 `;
 
-export const AccordionGroup = ({ children, footer, label, labelAction, error }) => {
+export interface AccordionGroup {
+  children: React.ReactNode;
+  error?: string;
+  footer?: React.ReactNode;
+  label?: string;
+  labelAction?: React.ReactNode;
+}
+
+export const AccordionGroup = ({ children, footer, label, labelAction, error }: AccordionGroup) => {
   const childrenArray = Children.toArray(children).map((child) => {
-    return cloneElement(child, { hasErrorMessage: false });
+    return cloneElement(child as ReactElement, { hasErrorMessage: false });
   });
 
   return (
@@ -84,31 +92,4 @@ export const AccordionGroup = ({ children, footer, label, labelAction, error }) 
       )}
     </KeyboardNavigable>
   );
-};
-
-AccordionGroup.defaultProps = {
-  footer: null,
-  error: undefined,
-  label: null,
-  labelAction: undefined,
-};
-
-AccordionGroup.propTypes = {
-  children: PropTypes.node.isRequired,
-  /**
-   * If defined, the component will show the error message at the bottom of the `AccordionGroup` and will hide all Accordion error messages children (in order to display only one error).
-   */
-  error: PropTypes.string,
-  /**
-   * Render a node a last child. Mainly used for an "Add new accordion" button
-   */
-  footer: PropTypes.node,
-  /**
-   * The label of the AccordionGroup
-   */
-  label: PropTypes.string,
-  /**
-   * Will render a node to the right of the label
-   */
-  labelAction: PropTypes.node,
 };
