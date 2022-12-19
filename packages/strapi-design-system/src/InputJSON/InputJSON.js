@@ -12,7 +12,7 @@ const WAIT = 500;
 
 const StyledBox = styled(Box)`
   border-radius: ${({ theme }) => theme.borderRadius};
-  outline: 2px solid ${({ theme, error }) => (error ? theme.colors.danger600 : 'transparent')};
+  outline: 1px solid ${({ theme, error }) => (error ? theme.colors.danger600 : 'transparent')};
 `;
 
 export const InputJSON = ({ id, label, value, error, theme, onChange, editable }) => {
