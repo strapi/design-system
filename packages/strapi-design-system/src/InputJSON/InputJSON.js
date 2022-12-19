@@ -1,12 +1,21 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { Field, FieldLabel, FieldError } from '../Field';
+import { Box } from '../Box';
+import { Stack } from '../Stack';
 import { addMarks, filterMarks, lineHighlightMark } from './decorationExtension';
 import jsonlint from './utils/jsonLint';
 import { JsonComponent } from './JsonComponent';
 
 const WAIT = 500;
 
-export const JsonInput = ({ id, value: jsonObject, theme, onChange, editable, onError }) => {
+const StyledBox = styled(Box)`
+  border-radius: ${({ theme }) => theme.borderRadius};
+  border: 2px solid ${({ theme, error }) => (error ? theme.colors.danger600 : 'transparent')};
+`;
+
+export const InputJSON = ({ id, label, value: jsonObject, error, theme, onChange, editable }) => {
   const editorState = useRef(null);
   const editorView = useRef(null);
   const timerRef = useRef();
@@ -42,13 +51,10 @@ export const JsonInput = ({ id, value: jsonObject, theme, onChange, editable, on
       onChange(formattedData);
     } catch (error) {
       markSelection(error);
-
-      // callback to update error in parent, Error: This doesn't match the JSON format
-      onError();
     }
   };
 
-  const handleValidateJson = (value) => {
+  const handleValidateJSON = (value) => {
     if (timerRef.current) {
       clearTimeout(timerRef.current);
     }
@@ -63,7 +69,7 @@ export const JsonInput = ({ id, value: jsonObject, theme, onChange, editable, on
     editorView.current = view;
     editorState.current = state;
     clearErrorHighlight();
-    handleValidateJson(currentValue);
+    handleValidateJSON(currentValue);
   };
 
   const onCreateEditor = (view, state) => {
@@ -72,31 +78,41 @@ export const JsonInput = ({ id, value: jsonObject, theme, onChange, editable, on
   };
 
   return (
-    <JsonComponent
-      id={id}
-      value={value}
-      theme={theme}
-      editable={editable}
-      onChange={handleChange}
-      onCreateEditor={onCreateEditor}
-    />
+    <Field error={error}>
+      <Stack spacing={1}>
+        {label && <FieldLabel>{label}</FieldLabel>}
+        <StyledBox error={error}>
+          <JsonComponent
+            id={id}
+            value={value}
+            theme={theme}
+            editable={editable}
+            onChange={handleChange}
+            onCreateEditor={onCreateEditor}
+          />
+        </StyledBox>
+        <FieldError />
+      </Stack>
+    </Field>
   );
 };
 
-JsonInput.defaultProps = {
+InputJSON.defaultProps = {
   id: undefined,
+  label: undefined,
   value: {},
+  error: undefined,
   theme: 'dark',
   editable: false,
   onChange() {},
-  onError() {},
 };
 
-JsonInput.propTypes = {
-  onChange: PropTypes.func,
-  onError: PropTypes.func,
+InputJSON.propTypes = {
+  id: PropTypes.string,
+  label: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  error: PropTypes.string,
   theme: PropTypes.oneOf(['dark', 'light']),
   editable: PropTypes.bool,
-  id: PropTypes.string,
+  onChange: PropTypes.func,
 };

@@ -1,0 +1,76 @@
+<!--- InputJSON.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { ArgsTable } from '@storybook/addon-docs';
+import { InputJSON } from './InputJSON';
+import { Box } from '../Box';
+
+<Meta title="Design System/Components/InputJSON" component={InputJSON} />
+
+# InputJSON
+
+Input JSON takes a JSON Schema and shows your data in clear editable view.
+
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/InputJSON)
+
+## Imports
+
+```js
+import { InputJSON } from '@strapi/design-system';
+```
+
+## Usage
+
+<Canvas withSource="open">
+  <Story
+    name="base"
+    parameters={{
+      docs: { 
+        source: {
+          code: '<InputJSON value={[{"a":3,"b":4}, {"a":5,"b":6}]}/>',
+        },
+      },
+    }}
+  >
+      <InputJSON value={[{"a":3,"b":4}, {"a":5,"b":6}]}/>
+  </Story>
+</Canvas>
+
+## Editable
+
+<Canvas>
+  <Story
+    name="editable"
+    parameters={{
+      docs: { 
+        source: {
+          code: '<InputJSON value={[{"a":3,"b":4}, {"a":5,"b":6}]} label="Json" editable/>',
+        },
+      },
+    }}
+  >
+      <InputJSON value={[{"a":3,"b":4}, {"a":5,"b":6}]} label="Json" editable/>
+  </Story>
+</Canvas>
+
+## With error
+
+<Canvas>
+  <Story
+    name="withError"
+    parameters={{
+      docs: { 
+        source: {
+          code: '<InputJSON value={[{"a":3,"b":4}, {"a":5,"b":6}]} error="This does not match the JSON format`/>',
+        },
+      },
+    }}
+  >
+      <InputJSON value={[{"a":3,"b":4}, {"a":5,"b":6}]} error="This does not match the JSON format"/>
+  </Story>
+</Canvas>
+
+
+## Props
+
+<ArgsTable of={InputJSON} />
