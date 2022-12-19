@@ -5,7 +5,7 @@ import { Field, FieldLabel, FieldError } from '../Field';
 import { Box } from '../Box';
 import { Stack } from '../Stack';
 import { addMarks, filterMarks, lineHighlightMark } from './decorationExtension';
-import jsonlint from './utils/jsonLint';
+import * as jsonlint from './utils/jsonLint';
 import { JsonComponent } from './JsonComponent';
 
 const WAIT = 500;

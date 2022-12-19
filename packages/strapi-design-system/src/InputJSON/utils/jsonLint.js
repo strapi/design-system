@@ -439,7 +439,7 @@ var jsonlint = (function () {
       return true;
     },
   };
-  /* Jison generated lexer */
+  /* Json generated lexer */
   var lexer = (function () {
     var lexer = {
       EOF: 1,
