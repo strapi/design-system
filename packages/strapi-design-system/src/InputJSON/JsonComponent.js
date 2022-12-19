@@ -13,9 +13,11 @@ const CodeMirror = styled(BaseCodeMirror)`
 
   & > .cm-editor {
     height: 100%;
+    border-radius: ${4 / 16}rem; // TODO: check why theme is not supporting for this component
 
     & > .cm-scroller {
       overflow: auto;
+      border-radius: ${4 / 16}rem;
     }
   }
 `;
