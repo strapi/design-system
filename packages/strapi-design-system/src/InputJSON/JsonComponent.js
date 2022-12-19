@@ -13,6 +13,7 @@ const CodeMirror = styled(BaseCodeMirror)`
 
   & > .cm-editor {
     height: 100%;
+
     & > .cm-scroller {
       overflow: auto;
     }

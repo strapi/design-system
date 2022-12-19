@@ -6,7 +6,7 @@ const addMarks = StateEffect.define();
 const filterMarks = StateEffect.define();
 
 const lineHighlightMark = Decoration.mark({
-  attributes: { style: 'background-color: yellow; color: black !important;' },
+  attributes: { style: 'background-color: yellow; color: black' },
 });
 
 const markField = StateField.define({
