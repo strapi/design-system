@@ -25,10 +25,7 @@ document.createRange = () => {
 const onChange = jest.fn();
 const onError = jest.fn();
 
-const JSON_DATA = [
-  { a: 3, b: 4 },
-  { a: 5, b: 6 },
-];
+const JSON_DATA = '[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6\n   }\n]';
 
 const Component = (props) => (
   <ThemeProvider theme={lightTheme}>
@@ -41,19 +38,28 @@ describe('InputJSON', () => {
     window.IntersectionObserver = mockIntersectionObserver;
   });
 
-  it('should display provided json schema', () => {
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+
+  afterEach(() => {
+    jest.useRealTimers();
+  });
+
+  it('should display provided json schema formatted', () => {
     const { container } = render(<Component value={JSON_DATA} onChange={onChange} onError={onError} />);
 
     const readonlyJsonInput = container.querySelector('div[contenteditable="false"]');
-    expect(readonlyJsonInput.textContent).toBe('[  {    "a": 3,    "b": 4  },  {    "a": 5,    "b": 6  }]');
+    expect(readonlyJsonInput.textContent).toBe(`[   {      "a":3,      "b":4   },   {      "a":5,      "b":6   }]`);
   });
 
   it('should not call on change callback with invalid json schema input', async () => {
     const { container } = render(<Component value={JSON_DATA} onChange={onChange} onError={onError} editable />);
     const jsonInput = container.querySelector('div[contenteditable="true"]');
     fireEvent.input(jsonInput, {
-      target: { textContent: `[  {    "a": 3,    "b": 4  },  {    "a": 5,    "b": 6,  }]` },
+      target: { textContent: '[   {      "a":3,      "b":4   },   {      "a":5,      "b":"b,  }]' },
     });
+    jest.runOnlyPendingTimers();
 
     await waitFor(() => {
       expect(onChange).not.toHaveBeenCalled();
@@ -64,11 +70,17 @@ describe('InputJSON', () => {
     const { container } = render(<Component value={JSON_DATA} onChange={onChange} onError={onError} editable />);
     const jsonInput = container.querySelector('div[contenteditable="true"]');
     fireEvent.input(jsonInput, {
-      target: { textContent: `[  {    "a": 3,    "b": 4  },  {    "a": 5,    "b": 6,    "c": 4  }]` },
+      target: {
+        textContent: '[   {      "a":3,      "b":4   },   {      "a":5,      "b":6,      "c":7   }]',
+      },
     });
+    jest.runOnlyPendingTimers();
 
     await waitFor(() => {
-      expect(onChange).toHaveBeenCalled();
+      expect(onChange).toHaveBeenCalledWith([
+        { a: 3, b: 4 },
+        { a: 5, b: 6, c: 7 },
+      ]);
     });
   });
 });

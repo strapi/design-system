@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Field, FieldLabel, FieldError } from '../Field';
@@ -15,17 +15,16 @@ const StyledBox = styled(Box)`
   border: 2px solid ${({ theme, error }) => (error ? theme.colors.danger600 : 'transparent')};
 `;
 
-export const InputJSON = ({ id, label, value: jsonObject, error, theme, onChange, editable }) => {
+export const InputJSON = ({ id, label, value, error, theme, onChange, editable }) => {
   const editorState = useRef(null);
   const editorView = useRef(null);
   const timerRef = useRef();
-  const value = JSON.stringify(jsonObject, null, 2);
 
   const getContentAtLine = (line) => {
     return editorState.current?.doc?.line(line);
   };
 
-  const markSelection = ({ message }) => {
+  const markSelection = useCallback(({ message }) => {
     let line = parseInt(message.split(':')[0].split('line ')[1], 10);
     const { text, to: lineEnd } = getContentAtLine(line);
     const lineStart = lineEnd - text.trimStart().length;
@@ -34,7 +33,7 @@ export const InputJSON = ({ id, label, value: jsonObject, error, theme, onChange
       editorView.current.dispatch({
         effects: addMarks.of([lineHighlightMark.range(lineStart, lineEnd)]),
       });
-  };
+  }, []);
 
   const clearErrorHighlight = () => {
     const docEnd = editorState.current?.doc?.length || 0;
@@ -43,39 +42,49 @@ export const InputJSON = ({ id, label, value: jsonObject, error, theme, onChange
     });
   };
 
-  const validateJSON = (value) => {
-    try {
-      const formattedData = jsonlint.parse(value);
+  const validateJSON = useCallback(
+    ({ value, isOnChangeCallback }) => {
+      try {
+        const formattedData = jsonlint.parse(value);
 
-      // callback to update json in parent
-      onChange(formattedData);
-    } catch (error) {
-      markSelection(error);
-    }
-  };
+        // callback to update json in parent
+        if (isOnChangeCallback) onChange(formattedData);
+      } catch (error) {
+        markSelection(error);
+      }
+    },
+    [markSelection, onChange],
+  );
 
-  const handleValidateJSON = (value) => {
-    if (timerRef.current) {
-      clearTimeout(timerRef.current);
-    }
+  const handleValidateJSON = useCallback(
+    ({ value, isOnChangeCallback }) => {
+      if (timerRef.current) {
+        clearTimeout(timerRef.current);
+      }
 
-    if (value) {
-      timerRef.current = setTimeout(() => validateJSON(value), WAIT);
-    }
-  };
+      if (value) {
+        timerRef.current = setTimeout(() => validateJSON({ value, isOnChangeCallback }), WAIT);
+      }
+    },
+    [validateJSON],
+  );
 
   const handleChange = (currentValue, viewUpdate) => {
     const { view, state } = viewUpdate;
     editorView.current = view;
     editorState.current = state;
     clearErrorHighlight();
-    handleValidateJSON(currentValue);
+    handleValidateJSON({ value: currentValue, isOnChangeCallback: true });
   };
 
   const onCreateEditor = (view, state) => {
     editorView.current = view;
     editorState.current = state;
   };
+
+  useEffect(() => {
+    handleValidateJSON({ value, isOnChangeCallback: false });
+  }, [value, handleValidateJSON]);
 
   return (
     <Field error={error}>
@@ -100,7 +109,7 @@ export const InputJSON = ({ id, label, value: jsonObject, error, theme, onChange
 InputJSON.defaultProps = {
   id: undefined,
   label: undefined,
-  value: {},
+  value: '',
   error: undefined,
   theme: 'dark',
   editable: false,
@@ -110,7 +119,7 @@ InputJSON.defaultProps = {
 InputJSON.propTypes = {
   id: PropTypes.string,
   label: PropTypes.string,
-  value: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  value: PropTypes.string,
   error: PropTypes.string,
   theme: PropTypes.oneOf(['dark', 'light']),
   editable: PropTypes.bool,

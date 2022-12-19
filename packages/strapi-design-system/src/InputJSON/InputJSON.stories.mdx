@@ -27,12 +27,12 @@ import { InputJSON } from '@strapi/design-system';
     parameters={{
       docs: { 
         source: {
-          code: '<InputJSON value={[{"a":3,"b":4}, {"a":5,"b":6}]}/>',
+          code: `<InputJSON value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6\n   }\n]'} />`,
         },
       },
     }}
   >
-      <InputJSON value={[{"a":3,"b":4}, {"a":5,"b":6}]}/>
+      <InputJSON value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6\n   }\n]'} />
   </Story>
 </Canvas>
 
@@ -44,12 +44,12 @@ import { InputJSON } from '@strapi/design-system';
     parameters={{
       docs: { 
         source: {
-          code: '<InputJSON value={[{"a":3,"b":4}, {"a":5,"b":6}]} label="Json" editable/>',
+          code: `<InputJSON value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6\n   }\n]'} label="Json" editable/>`,
         },
       },
     }}
   >
-      <InputJSON value={[{"a":3,"b":4}, {"a":5,"b":6}]} label="Json" editable/>
+      <InputJSON value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6\n   }\n]'} label="Json" editable/>
   </Story>
 </Canvas>
 
@@ -61,15 +61,14 @@ import { InputJSON } from '@strapi/design-system';
     parameters={{
       docs: { 
         source: {
-          code: '<InputJSON value={[{"a":3,"b":4}, {"a":5,"b":6}]} error="This does not match the JSON format`/>',
+          code: `<InputJSON value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6,\n   }\n]'} error="This does not match the JSON format"/>`,
         },
       },
     }}
   >
-      <InputJSON value={[{"a":3,"b":4}, {"a":5,"b":6}]} error="This does not match the JSON format"/>
+     <InputJSON value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6,\n   }\n]'} error="This does not match the JSON format"/>
   </Story>
 </Canvas>
-
 
 ## Props
 
