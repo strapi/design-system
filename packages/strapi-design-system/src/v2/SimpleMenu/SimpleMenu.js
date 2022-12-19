@@ -5,6 +5,7 @@ import { useCallbackRef } from '@radix-ui/react-use-callback-ref';
 
 import CarretDown from '@strapi/icons/CarretDown';
 
+import { Link } from '../Link';
 import { Typography } from '../../Typography';
 import { Box } from '../../Box';
 import { Flex } from '../../Flex';
@@ -28,6 +29,22 @@ const OptionLink = styled(BaseLink)`
   ${getOptionStyle}
 `;
 
+const OptionExternalLink = styled(Link)`
+  &:focus-visible {
+    /* Removes Link focus-visible after properties and reset to global outline */
+    outline: 2px solid ${({ theme }) => theme.colors.primary600};
+    outline-offset: 2px;
+    &:after {
+      content: none;
+    }
+  }
+  /* Removes Link svg color */
+  svg path {
+    fill: currentColor;
+  }
+  ${getOptionStyle}
+`;
+
 const IconWrapper = styled.span`
   display: flex;
   align-items: center;
@@ -41,7 +58,7 @@ const StyledButtonSmall = styled(Button)`
   padding: ${({ theme }) => `${theme.spaces[1]} ${theme.spaces[3]}`};
 `;
 
-export const MenuItem = ({ as, children, onClick, isFocused, isLink, ...props }) => {
+export const MenuItem = ({ as, children, onClick, isFocused, isLink, isExternal, ...props }) => {
   const menuItemRef = useRef();
 
   useEffect(() => {
@@ -63,13 +80,27 @@ export const MenuItem = ({ as, children, onClick, isFocused, isLink, ...props })
     }
   };
 
-  return isLink ? (
-    <OptionLink as={as} {...menuItemProps}>
-      <Box padding={2}>
-        <Typography>{children}</Typography>
-      </Box>
-    </OptionLink>
-  ) : (
+  if (isLink) {
+    return (
+      <OptionLink as={as} {...menuItemProps}>
+        <Box padding={2}>
+          <Typography>{children}</Typography>
+        </Box>
+      </OptionLink>
+    );
+  }
+
+  if (isExternal) {
+    return (
+      <OptionExternalLink isExternal {...menuItemProps}>
+        <Box padding={2}>
+          <Typography>{children}</Typography>
+        </Box>
+      </OptionExternalLink>
+    );
+  }
+
+  return (
     <OptionButton onKeyDown={handleKeyDown} onMouseDown={onClick} type="button" {...menuItemProps}>
       <Box padding={2}>
         <Typography>{children}</Typography>
@@ -81,6 +112,7 @@ export const MenuItem = ({ as, children, onClick, isFocused, isLink, ...props })
 MenuItem.defaultProps = {
   as: undefined,
   onClick() {},
+  isExternal: false,
   isFocused: false,
   isLink: false,
 };
@@ -88,6 +120,7 @@ MenuItem.defaultProps = {
 MenuItem.propTypes = {
   as: PropTypes.elementType,
   children: PropTypes.node.isRequired,
+  isExternal: PropTypes.bool,
   isFocused: PropTypes.bool,
   isLink: PropTypes.bool,
   onClick: PropTypes.func,
