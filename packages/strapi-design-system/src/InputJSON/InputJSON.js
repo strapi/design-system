@@ -24,20 +24,29 @@ export const InputJSON = ({ id, label, value, error, theme, onChange, editable }
     return editorState.current?.doc?.line(line);
   };
 
+  /**
+   * markSelection highlights the error message by extracting line number from error message thrown by jsonlint.parse()
+   * Error message format ex: "`Parse error on line 8:\n...:5,      "b":6,   }]\n---------------------^\nExpecting 'STRING', got '}'`"
+   */
   const markSelection = useCallback(({ message }) => {
-    let line = parseInt(message.split(':')[0].split('line ')[1], 10);
-    const { text, to: lineEnd } = getContentAtLine(line);
-    const lineStart = lineEnd - text.trimStart().length;
+    const errorMessageWithLineNumber = message.split(':')[0];
+    const errorLine = errorMessageWithLineNumber.split('line ')[1];
+    const line = parseInt(errorLine, 10) || 0;
 
-    if (lineEnd > lineStart)
-      editorView.current.dispatch({
-        effects: addMarks.of([lineHighlightMark.range(lineStart, lineEnd)]),
-      });
+    if (line) {
+      const { text, to: lineEnd } = getContentAtLine(line);
+      const lineStart = lineEnd - text.trimStart().length;
+
+      if (lineEnd > lineStart)
+        editorView.current?.dispatch({
+          effects: addMarks.of([lineHighlightMark.range(lineStart, lineEnd)]),
+        });
+    }
   }, []);
 
   const clearErrorHighlight = () => {
     const docEnd = editorState.current?.doc?.length || 0;
-    editorView.current.dispatch({
+    editorView.current?.dispatch({
       effects: filterMarks.of((from, to) => to <= 0 || from >= docEnd),
     });
   };
@@ -56,6 +65,11 @@ export const InputJSON = ({ id, label, value, error, theme, onChange, editable }
     [markSelection, onChange],
   );
 
+  /**
+   * handleValidateJSON is to avoid validating value for each and every input change.
+   * Also on load, if there is a wrong json string, we need validate it and highlight in the editor,
+   * we have createEditor callback which gets fired after useEffect, delay helps to get the editor state.
+   */
   const handleValidateJSON = useCallback(
     ({ value, isOnChangeCallback }) => {
       if (timerRef.current) {
