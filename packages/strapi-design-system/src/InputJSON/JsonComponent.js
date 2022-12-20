@@ -13,7 +13,7 @@ const CodeMirror = styled(BaseCodeMirror)`
 
   & > .cm-editor {
     height: 100%;
-    border-radius: ${4 / 16}rem; // TODO: check why theme is not supporting for this component
+    border-radius: ${4 / 16}rem; // className prop is not supported in codemirror for themes to work here
 
     & > .cm-scroller {
       overflow: auto;
