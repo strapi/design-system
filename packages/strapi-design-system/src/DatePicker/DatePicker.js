@@ -12,6 +12,7 @@ import { getDefaultLocale } from '../helpers/getDefaultLocale';
 
 export const DatePicker = ({
   ariaLabel,
+  parentFieldId,
   initialDate,
   selectedDate,
   onChange,
@@ -24,7 +25,10 @@ export const DatePicker = ({
   id,
   ...props
 }) => {
-  const generatedId = useId('datepicker', id);
+  const internalGeneratedId = useId('datepicker', id);
+  // when used in a DateTimePicker, we want DatePicker input to use DateTimePicker id
+  // it allows accessibility feature as focusing the input when clicking on the label
+  const generatedId = parentFieldId ?? internalGeneratedId;
   const [visible, setVisible] = useState(false);
   const inputRef = useRef(null);
   const datePickerButtonRef = useRef(null);
@@ -109,6 +113,7 @@ DatePicker.defaultProps = {
   locale: undefined,
   initialDate: new Date(),
   onClear: undefined,
+  parentFieldId: undefined,
   placeholder: undefined,
   selectedDate: undefined,
   size: 'M',
@@ -124,6 +129,7 @@ DatePicker.propTypes = {
   locale: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   onClear: PropTypes.func,
+  parentFieldId: PropTypes.string,
   placeholder: PropTypes.string,
   selectedDate: PropTypes.instanceOf(Date),
   selectedDateLabel: PropTypes.func.isRequired,

@@ -339,7 +339,7 @@ exports[`DateTimePicker snapshots the component 1`] = `
                   aria-required="false"
                   class="c9"
                   data-testid="datetimepicker-date"
-                  id="datepicker-3"
+                  id="datetime-label-1"
                   name="datetimepicker"
                   value="10/13/2021"
                 />
@@ -360,7 +360,7 @@ exports[`DateTimePicker snapshots the component 1`] = `
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-label="Date time picker"
-              aria-labelledby="timepicker-4-label timepicker-4-content"
+              aria-labelledby="timepicker-4 timepicker-4-label timepicker-4-content"
               class="c12"
               data-testid="datetimepicker-time"
               id="timepicker-4"

@@ -118,6 +118,8 @@ export const DateTimePicker = ({
         <Stack horizontal spacing={2}>
           <DatePicker
             data-testid="datetimepicker-date"
+            // DateTimePicker sharing its Field id to DatePicker component
+            parentFieldId={generatedId}
             name={name}
             ariaLabel={label || ariaLabel}
             error={typeof error === 'string'}
