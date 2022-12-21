@@ -57,8 +57,8 @@ one is aimed to give a small piece of text.
 
 ### Alert variants
 
-Use the variant prop to change the visual style of the Button. You can set the value to `default`, `success`, or
-`danger`.
+Use the variant prop to change the visual style of the Button. You can set the value to `default`, `success`,
+`danger` or `warning`.
 
 <Canvas withSource="open">
   <Story
@@ -82,6 +82,9 @@ Use the variant prop to change the visual style of the Button. You can set the v
         <Alert onClose={() => {}} closeLabel="Close" title="Title" variant="danger">
           This is the danger variant.
         </Alert>
+        <Alert onClose={() => {}} closeLabel="Close" title="Title" variant="warning">
+          This is the warning variant.
+        </Alert>
       </Stack>
     </Box>
   </Story>
@@ -92,6 +95,8 @@ Use the variant prop to change the visual style of the Button. You can set the v
 | Default/Information | Use a default alert for an informational purpose. Examples: Latest update, a specific mode, ...                       |
 | Success             | Use a success alert to indicate a successful action. Examples: Content has been saved, the locale has been added, ... |
 | Danger              | Examples: Content has been saved, the locale has been added, ...                                                      |
+| Warning              | Examples: A condition has occured that the user needs to be warned about, ...                                                      |
+
 
 ### Alert with action
 

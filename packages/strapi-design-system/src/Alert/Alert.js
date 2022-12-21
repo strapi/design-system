@@ -47,7 +47,7 @@ const AlertIcon = ({ variant, ...props }) => {
     return <CheckCircle {...props} />;
   }
 
-  if (variant === 'danger') {
+  if (variant === 'danger' || variant === 'warning') {
     return <ExclamationMarkCircle {...props} />;
   }
 
@@ -136,7 +136,7 @@ Alert.propTypes = {
   /**
    * `Alert` color variant.
    */
-  variant: PropTypes.oneOf(['danger', 'success', 'default']),
+  variant: PropTypes.oneOf(['danger', 'success', 'default', 'warning']),
 };
 
 AlertIcon.propTypes = {
