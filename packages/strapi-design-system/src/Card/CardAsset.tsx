@@ -1,6 +1,6 @@
-import React from 'react';
+import { ImgHTMLAttributes } from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
+
 import { Flex } from '../Flex';
 
 const CardAssetImg = styled.img`
@@ -19,7 +19,7 @@ const CardAssetSizes = {
   M: 164,
 };
 
-const CardAssetWrapper = styled.div`
+const CardAssetWrapper = styled.div<{ size: CardAssetSizes }>`
   display: flex;
   justify-content: center;
   height: ${({ size }) => CardAssetSizes[size] / 16}rem;
@@ -30,20 +30,17 @@ const CardAssetWrapper = styled.div`
   border-top-right-radius: ${({ theme }) => theme.borderRadius};
 `;
 
-export const CardAsset = ({ size, children, ...props }) => {
+export type CardAssetSizes = 'S' | 'M';
+
+export interface CardAssetProps extends ImgHTMLAttributes<HTMLImageElement> {
+  size?: CardAssetSizes;
+  children?: React.ReactNode;
+}
+
+export const CardAsset = ({ size = 'M', children, ...props }: CardAssetProps) => {
   return (
     <CardAssetWrapper size={size}>
       {children ? <Flex>{children}</Flex> : <CardAssetImg {...props} aria-hidden />}
     </CardAssetWrapper>
   );
-};
-
-CardAsset.defaultProps = {
-  children: undefined,
-  size: 'M',
-};
-
-CardAsset.propTypes = {
-  children: PropTypes.node,
-  size: PropTypes.oneOf(['S', 'M']),
 };

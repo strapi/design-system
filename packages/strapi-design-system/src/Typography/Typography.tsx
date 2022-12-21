@@ -11,6 +11,8 @@ const transientProps: Partial<Record<keyof TypographyProps, boolean>> = {
 };
 
 export interface TypographyProps {
+  as?: string | React.ComponentType<any>;
+  forwardedAs?: string | React.ComponentType<any>;
   children?: React.ReactNode;
   ellipsis?: boolean;
   fontSize?: keyof DefaultTheme['fontSizes'];

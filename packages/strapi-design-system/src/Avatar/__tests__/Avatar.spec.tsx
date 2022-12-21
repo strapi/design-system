@@ -12,7 +12,7 @@ describe('Avatar', () => {
       </ThemeProvider>,
     );
 
-    fireEvent.mouseEnter(container.querySelector('img'));
+    fireEvent.mouseEnter(container.querySelector('img')!);
 
     expect(container.firstChild).toMatchInlineSnapshot(`
       .c3 {
@@ -87,7 +87,7 @@ describe('Avatar', () => {
       </ThemeProvider>,
     );
 
-    fireEvent.mouseEnter(container.querySelector('img'));
+    fireEvent.mouseEnter(container.querySelector('img')!);
 
     expect(container.firstChild).toMatchInlineSnapshot(`
       .c3 {

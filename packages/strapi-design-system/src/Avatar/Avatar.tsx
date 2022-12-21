@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import { avatarSize, previewSize } from './constants';
+
 import { Typography } from '../Typography';
 import { Flex } from '../Flex';
+
+import { avatarSize, previewSize } from './constants';
 
 const AvatarImg = styled.img`
   border-radius: 50%;
@@ -12,7 +13,7 @@ const AvatarImg = styled.img`
   position: relative;
 `;
 
-const AvatarImgWrapper = styled.div`
+const AvatarImgWrapper = styled.div<{ hovering: boolean }>`
   position: relative;
   width: ${avatarSize / 16}rem;
   height: ${avatarSize / 16}rem;
@@ -37,7 +38,22 @@ const Overlay = styled.div`
   opacity: 0.4;
 `;
 
-export const Avatar = ({ src, alt, preview }) => {
+export interface AvatarProps {
+  /**
+   * Alternative text
+   */
+  alt?: string;
+  /**
+   * Image src of the image preview (displayed on `Avatar` hover).
+   */
+  preview?: boolean | string;
+  /**
+   * Image src of the `Avatar`
+   */
+  src: string;
+}
+
+export const Avatar = ({ src, alt, preview }: AvatarProps) => {
   const [previewVisible, setPreviewVisible] = useState(false);
 
   return (
@@ -53,7 +69,7 @@ export const Avatar = ({ src, alt, preview }) => {
       ) : null}
 
       <AvatarImgWrapper
-        hovering={preview && previewVisible}
+        hovering={Boolean(preview && previewVisible)}
         onMouseEnter={() => setPreviewVisible(true)}
         onMouseLeave={() => setPreviewVisible(false)}
       >
@@ -70,7 +86,11 @@ const InitialsWrapper = styled(Flex)`
   }
 `;
 
-export const Initials = ({ children }) => {
+export interface InitialsProps {
+  children: React.ReactNode;
+}
+
+export const Initials = ({ children }: InitialsProps) => {
   return (
     <InitialsWrapper
       borderRadius="50%"
@@ -84,28 +104,4 @@ export const Initials = ({ children }) => {
       </Typography>
     </InitialsWrapper>
   );
-};
-
-Initials.propTypes = {
-  children: PropTypes.node.isRequired,
-};
-
-Avatar.defaultProps = {
-  alt: undefined,
-  preview: undefined,
-};
-
-Avatar.propTypes = {
-  /**
-   * Alternative text
-   */
-  alt: PropTypes.string,
-  /**
-   * Image src of the image preview (displayed on `Avatar` hover).
-   */
-  preview: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-  /**
-   * Image src of the `Avatar`
-   */
-  src: PropTypes.string.isRequired,
 };

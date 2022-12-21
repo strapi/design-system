@@ -1,7 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Box } from '../Box';
+
+import { Box, BoxProps } from '../Box';
 import { Typography } from '../Typography';
 
 const CardTimerWrapper = styled(Box)`
@@ -10,14 +9,14 @@ const CardTimerWrapper = styled(Box)`
   right: ${({ theme }) => theme.spaces[1]};
 `;
 
-export const CardTimer = ({ children, ...props }) => (
+export interface CardTimerProps extends BoxProps {
+  children: React.ReactNode;
+}
+
+export const CardTimer = ({ children, ...props }: CardTimerProps) => (
   <CardTimerWrapper padding={1} background="neutral800" color="neutral0" as="time" hasRadius {...props}>
     <Typography variant="pi" textColor="neutral0">
       {children}
     </Typography>
   </CardTimerWrapper>
 );
-
-CardTimer.propTypes = {
-  children: PropTypes.node.isRequired,
-};

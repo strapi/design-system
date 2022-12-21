@@ -1,5 +1,4 @@
-import React, { useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
+import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
 import { Box } from '../Box';
@@ -8,10 +7,16 @@ import { getCheckboxSize } from './utils';
 import checkmarkIcon from './assets/checkmark.svg';
 import checkmarkIconDisabled from './assets/checkmark-black.svg';
 
+export type BaseCheckboxSize = 'S' | 'M';
+
+export interface CheckboxInputProps {
+  size: BaseCheckboxSize;
+}
+
 const CheckboxInput = styled.input`
-  margin: 0;
   height: ${getCheckboxSize};
   min-width: ${getCheckboxSize};
+  margin: 0;
   border-radius: ${({ theme }) => theme.borderRadius};
   border: 1px solid ${({ theme }) => theme.colors.neutral300};
   -webkit-appearance: none;
@@ -71,8 +76,36 @@ const CheckboxInput = styled.input`
   }
 `;
 
-export const BaseCheckbox = ({ indeterminate, size, name, value, onValueChange, ...inputProps }) => {
-  const checkboxRef = useRef();
+export interface BaseCheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'value'> {
+  /**
+   * If `true`, display the indeterminate state.
+   */
+  indeterminate?: boolean;
+  /**
+   * `Checkbox` input name
+   */
+  name?: string;
+  /**
+   * The callback invoked when click on the `Checkbox`
+   * `(value: Bool) => {}`
+   */
+  onValueChange?: (isChecked: boolean) => void;
+  /**
+   * Set the size of the checkbox
+   */
+  size?: BaseCheckboxSize;
+  value?: boolean;
+}
+
+export const BaseCheckbox = ({
+  indeterminate = false,
+  size = 'M',
+  name,
+  value = false,
+  onValueChange,
+  ...inputProps
+}: BaseCheckboxProps) => {
+  const checkboxRef = useRef<HTMLInputElement>(null!);
 
   useEffect(() => {
     if (checkboxRef.current && indeterminate) {
@@ -83,7 +116,9 @@ export const BaseCheckbox = ({ indeterminate, size, name, value, onValueChange, 
   }, [indeterminate]);
 
   const handleValueChange = () => {
-    onValueChange(!value);
+    if (onValueChange) {
+      onValueChange(!value);
+    }
   };
 
   return (
@@ -102,32 +137,3 @@ export const BaseCheckbox = ({ indeterminate, size, name, value, onValueChange, 
 };
 
 BaseCheckbox.displayName = 'BaseCheckbox';
-
-BaseCheckbox.defaultProps = {
-  indeterminate: false,
-  name: null,
-  onValueChange() {},
-  size: 'M',
-  value: false,
-};
-
-BaseCheckbox.propTypes = {
-  /**
-   * If `true`, display the indeterminate state.
-   */
-  indeterminate: PropTypes.bool,
-  /**
-   * `Checkbox` input name
-   */
-  name: PropTypes.string,
-  /**
-   * The callback invoked when click on the `Checkbox`
-   * `(value: Bool) => {}`
-   */
-  onValueChange: PropTypes.func,
-  /**
-   * Set the size of the checkbox
-   */
-  size: PropTypes.oneOf(['M', 'L']),
-  value: PropTypes.bool,
-};

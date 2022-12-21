@@ -1,6 +1,6 @@
-import React from 'react';
 import styled from 'styled-components';
-import { Badge } from '../Badge';
+
+import { Badge, BadgeProps } from '../Badge';
 
 const CardBadgeWrapper = styled.div`
   margin-left: auto;
@@ -11,7 +11,9 @@ const BadgePosition = styled(Badge)`
   margin-left: ${({ theme }) => theme.spaces[1]};
 `;
 
-export const CardBadge = (props) => (
+export type CardBadgeProps = BadgeProps;
+
+export const CardBadge = (props: CardBadgeProps) => (
   <CardBadgeWrapper>
     <BadgePosition {...props} />
   </CardBadgeWrapper>

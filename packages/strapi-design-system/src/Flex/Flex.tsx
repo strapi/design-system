@@ -11,7 +11,7 @@ const transientProps: Partial<Record<keyof FlexProps, boolean>> = {
   direction: true,
 };
 
-export interface FlexProps extends BoxProps {
+export interface FlexProps<TElement extends HTMLElement = HTMLDivElement> extends BoxProps<TElement> {
   alignItems?: CSSProperties['alignItems'];
   direction?: CSSProperties['flexDirection'];
   /**
