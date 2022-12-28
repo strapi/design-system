@@ -74,7 +74,7 @@ export const Avatar = ({ src, alt, preview, type, mime }) => {
             height={`${previewSize / 16}rem`}
             as="figure"
           >
-            <video muted src={src} crossOrigin="anonymous">
+            <video muted src={preview === true ? src : preview} crossOrigin="anonymous">
               <source type={mime} />
             </video>
           </VideoPreviewWrapper>
@@ -175,6 +175,7 @@ Avatar.propTypes = {
   mime: throwPropErrorRequiredIf({ type: 'video' }, 'string'),
   /**
    * Image src of the image preview (displayed on `Avatar` hover).
+   * if preview is a boolean, src will be used as preview
    */
   preview: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   /**
