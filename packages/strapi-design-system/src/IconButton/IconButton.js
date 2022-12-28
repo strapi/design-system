@@ -5,6 +5,7 @@ import { Tooltip } from '../Tooltip';
 import { BaseButton } from '../BaseButton';
 import { Flex } from '../Flex';
 import { VisuallyHidden } from '../VisuallyHidden';
+import { throwPropErrorIfNoneAreDefined } from '../helpers/throwPropError';
 
 const IconButtonWrapper = styled(BaseButton)`
   display: flex;
@@ -142,17 +143,6 @@ IconButton.defaultProps = {
   label: undefined,
   noBorder: false,
   onClick: undefined,
-};
-
-/**
- * @type {(otherProps: string[]) => (props: Record<string, unknown>, propName: string) => Error | undefined}
- */
-const throwPropErrorIfNoneAreDefined = (otherProps, propType) => (props, propName) => {
-  if (!props[propName] && otherProps.every((otherProp) => !props[otherProp])) {
-    return new Error(`One of the following props is required: ${propName}, ${otherProps.join(', ')}`);
-  }
-
-  return PropTypes.checkPropTypes({ [propName]: PropTypes[propType] }, props, 'prop', 'IconButton');
 };
 
 IconButton.propTypes = {

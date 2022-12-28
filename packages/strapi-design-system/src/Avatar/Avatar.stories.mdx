@@ -57,11 +57,27 @@ The avatar has a feature to display a preview of its thumbnail.
 <Canvas>
   <Story name="initials">
     <Box padding={11}>
-      <Initials>MF</Initials>
+      <Initials>mf</Initials>
+      <Initials background="secondary100" textColor="secondary600">pdf</Initials>
     </Box>
   </Story>
 </Canvas>
 
+### Video
+
+```jsx
+import { Avatar } from '@strapi/design-system';
+
+<Avatar 
+  src="/my-sleepy-cat-video.mp4" 
+  mime="video/mp4"
+  alt="sleepy cat" 
+  type="video" 
+  preview
+/>
+```
+
 ## Props
 
 <ArgsTable of={Avatar} />
+<ArgsTable of={Initials} />
