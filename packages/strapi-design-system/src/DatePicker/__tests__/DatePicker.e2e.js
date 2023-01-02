@@ -142,11 +142,7 @@ test.describe.parallel('DatePicker', () => {
 
       const value = await page.$eval('input', (el) => el.value);
 
-      if (yearElement) {
-        expect(value).toBe('1/14/1999');
-      } else {
-        expect(value).not.toBe('1/14/1999');
-      }
+      expect(value).not.toBe('1/14/1999');
       expect(await page.$('[role="dialog"]')).toBeFalsy();
     });
     test('selects a value bigger than the maximum value is not possible', async ({ page }) => {
@@ -168,11 +164,7 @@ test.describe.parallel('DatePicker', () => {
 
       const value = await page.$eval('input', (el) => el.value);
 
-      if (yearElement) {
-        expect(value).toBe('1/1/2041');
-      } else {
-        expect(value).not.toBe('1/1/2041');
-      }
+      expect(value).not.toBe('1/1/2041');
 
       expect(await page.$('[role="dialog"]')).toBeFalsy();
     });
