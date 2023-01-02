@@ -22,6 +22,8 @@ export const DatePicker = ({
   clearLabel,
   disabled,
   id,
+  minDate,
+  maxDate,
   ...props
 }) => {
   const generatedId = useId('datepicker', id);
@@ -94,6 +96,8 @@ export const DatePicker = ({
           onEscape={handleEscape}
           popoverSource={inputRef.current.inputWrapperRef}
           label={label || ariaLabel}
+          minDate={minDate}
+          maxDate={maxDate}
         />
       )}
     </DatePickerWrapper>
@@ -108,6 +112,8 @@ DatePicker.defaultProps = {
   label: undefined,
   locale: undefined,
   initialDate: new Date(),
+  minDate: undefined,
+  maxDate: undefined,
   onClear: undefined,
   placeholder: undefined,
   selectedDate: undefined,
@@ -122,6 +128,8 @@ DatePicker.propTypes = {
   initialDate: PropTypes.instanceOf(Date),
   label: PropTypes.string,
   locale: PropTypes.string,
+  maxDate: PropTypes.instanceOf(Date),
+  minDate: PropTypes.instanceOf(Date),
   onChange: PropTypes.func.isRequired,
   onClear: PropTypes.func,
   placeholder: PropTypes.string,
