@@ -19,34 +19,20 @@ describe('Tooltip', () => {
     );
 
     expect(document.body).toMatchInlineSnapshot(`
-      .c2 {
+      .c1 {
         background: #212134;
         padding: 8px;
         border-radius: 4px;
       }
 
-      .c0 {
-        -webkit-align-items: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-        flex-direction: row;
-      }
-
-      .c4 {
+      .c3 {
         font-size: 0.75rem;
         line-height: 1.33;
         font-weight: 600;
         color: #ffffff;
       }
 
-      .c1 {
+      .c0 {
         border: 0;
         -webkit-clip: rect(0 0 0 0);
         clip: rect(0 0 0 0);
@@ -58,7 +44,7 @@ describe('Tooltip', () => {
         width: 1px;
       }
 
-      .c3 {
+      .c2 {
         position: absolute;
         z-index: 4;
         display: none;
@@ -66,9 +52,7 @@ describe('Tooltip', () => {
 
       <body>
         <div>
-          <div
-            class="c0"
-          >
+          <span>
             <button
               aria-describedby="tooltip-123"
               tabindex="0"
@@ -76,9 +60,9 @@ describe('Tooltip', () => {
             >
               Show tooltip
             </button>
-          </div>
+          </span>
           <div
-            class="c1"
+            class="c0"
           >
             <p
               aria-live="polite"
@@ -104,12 +88,12 @@ describe('Tooltip', () => {
           data-react-portal="true"
         >
           <div
-            class="c2 c3"
+            class="c1 c2"
             id="tooltip-123"
             role="tooltip"
           >
             <p
-              class="c4"
+              class="c3"
             >
               Content of the tooltip fefe
             </p>
@@ -131,34 +115,20 @@ describe('Tooltip', () => {
     fireEvent.focus(screen.getByText('Show tooltip'));
 
     expect(document.body).toMatchInlineSnapshot(`
-      .c2 {
+      .c1 {
         background: #212134;
         padding: 8px;
         border-radius: 4px;
       }
 
-      .c0 {
-        -webkit-align-items: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-        flex-direction: row;
-      }
-
-      .c4 {
+      .c3 {
         font-size: 0.75rem;
         line-height: 1.33;
         font-weight: 600;
         color: #ffffff;
       }
 
-      .c1 {
+      .c0 {
         border: 0;
         -webkit-clip: rect(0 0 0 0);
         clip: rect(0 0 0 0);
@@ -170,7 +140,7 @@ describe('Tooltip', () => {
         width: 1px;
       }
 
-      .c3 {
+      .c2 {
         position: absolute;
         z-index: 4;
         display: revert;
@@ -178,9 +148,7 @@ describe('Tooltip', () => {
 
       <body>
         <div>
-          <div
-            class="c0"
-          >
+          <span>
             <button
               aria-describedby="tooltip-123"
               tabindex="0"
@@ -188,9 +156,9 @@ describe('Tooltip', () => {
             >
               Show tooltip
             </button>
-          </div>
+          </span>
           <div
-            class="c1"
+            class="c0"
           >
             <p
               aria-live="polite"
@@ -216,19 +184,19 @@ describe('Tooltip', () => {
           data-react-portal="true"
         >
           <div
-            class="c2 c3"
+            class="c1 c2"
             id="tooltip-123"
             role="tooltip"
             style="left: 0px; top: -8px;"
           >
             <div
-              class="c1"
+              class="c0"
               id="description-123"
             >
               Content of the tooltip fefe
             </div>
             <p
-              class="c4"
+              class="c3"
             >
               Content of the tooltip fefe
             </p>
@@ -250,34 +218,20 @@ describe('Tooltip', () => {
     fireEvent.focus(screen.getByText('+'));
 
     expect(document.body).toMatchInlineSnapshot(`
-      .c2 {
+      .c1 {
         background: #212134;
         padding: 8px;
         border-radius: 4px;
       }
 
-      .c0 {
-        -webkit-align-items: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-        flex-direction: row;
-      }
-
-      .c4 {
+      .c3 {
         font-size: 0.75rem;
         line-height: 1.33;
         font-weight: 600;
         color: #ffffff;
       }
 
-      .c1 {
+      .c0 {
         border: 0;
         -webkit-clip: rect(0 0 0 0);
         clip: rect(0 0 0 0);
@@ -289,7 +243,7 @@ describe('Tooltip', () => {
         width: 1px;
       }
 
-      .c3 {
+      .c2 {
         position: absolute;
         z-index: 4;
         display: revert;
@@ -297,9 +251,7 @@ describe('Tooltip', () => {
 
       <body>
         <div>
-          <div
-            class="c0"
-          >
+          <span>
             <button
               aria-labelledby="tooltip-123"
               tabindex="0"
@@ -307,9 +259,9 @@ describe('Tooltip', () => {
             >
               +
             </button>
-          </div>
+          </span>
           <div
-            class="c1"
+            class="c0"
           >
             <p
               aria-live="polite"
@@ -335,17 +287,17 @@ describe('Tooltip', () => {
           data-react-portal="true"
         >
           <div
-            class="c2 c3"
+            class="c1 c2"
             id="tooltip-123"
             role="tooltip"
             style="left: 0px; top: -8px;"
           >
             <div
-              class="c1"
+              class="c0"
               id="description-123"
             />
             <p
-              class="c4"
+              class="c3"
             >
               Content of the tooltip fefe
             </p>
