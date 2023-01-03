@@ -16,6 +16,7 @@ import { Tbody } from './Tbody';
 import { Tr } from './Tr';
 import { Td, Th } from './Cell';
 import { Typography } from '../Typography';
+import { Tooltip } from '../Tooltip';
 import { Avatar } from '../Avatar';
 import { IconButton } from '../IconButton';
 import { TFooter } from './TFooter';
@@ -83,10 +84,12 @@ The default Table.
                   <BaseCheckbox aria-label="Select all entries" />
                 </Th>
                 <Th>
-                  <Typography variant="sigma">ID</Typography>
+                  <Typography variant="sigma">previous</Typography> 
                 </Th>
                 <Th>
-                  <Typography variant="sigma">Cover</Typography>
+                  <Tooltip label="cover">
+                    <Typography variant="sigma">Cover</Typography>
+                  </Tooltip>
                 </Th>
                 <Th>
                   <Typography variant="sigma">Description</Typography>

@@ -29,7 +29,7 @@ export const Th = ({ children, action, ...props }) => {
     <CellWrapper as={RawTh} {...props}>
       <Flex>
         {children}
-        <ActionWrapper>{action}</ActionWrapper>
+        {action && <ActionWrapper>{action}</ActionWrapper>}
       </Flex>
     </CellWrapper>
   );
