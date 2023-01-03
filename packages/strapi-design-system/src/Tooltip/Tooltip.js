@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Box } from '../Box';
-import { Flex } from '../Flex';
 import { Typography } from '../Typography';
 import { Portal } from '../Portal';
 import { useTooltipHandlers } from './hooks/useTooltipHandlers';
@@ -50,7 +49,7 @@ export const Tooltip = ({ children, label, description, delay, position, id, ...
         </TooltipWrapper>
       </Portal>
 
-      <Flex ref={toggleSourceRef}>{childrenClone}</Flex>
+      <span ref={toggleSourceRef}>{childrenClone}</span>
     </>
   );
 };
