@@ -119,4 +119,54 @@ test.describe.parallel('DatePicker', () => {
       await checkA11y(page);
     });
   });
+  test.describe('max and min date', () => {
+    test.beforeEach(async ({ page }) => {
+      // This is the URL of the Storybook Iframe
+      await page.goto('/iframe.html?id=design-system-components-datepicker--min-max-date&viewMode=story');
+    });
+    test('selects a value less than the minumum value is not possible', async ({ page }) => {
+      await page.click('input');
+      expect(await page.$('[role="dialog"]')).toBeTruthy();
+
+      await page.click(':nth-match(button[aria-haspopup], 1)');
+      await page.click('text="January"');
+
+      await page.click(':nth-match(button[aria-haspopup], 2)');
+      const yearElement = await page.$('text="2041"');
+
+      await page.click('text="14"');
+
+      if (yearElement) {
+        await page.evaluate('text="1999"');
+      }
+
+      const value = await page.$eval('input', (el) => el.value);
+
+      expect(value).not.toBe('1/14/1999');
+      expect(await page.$('[role="dialog"]')).toBeFalsy();
+    });
+    test('selects a value bigger than the maximum value is not possible', async ({ page }) => {
+      await page.click('input');
+      expect(await page.$('[role="dialog"]')).toBeTruthy();
+
+      await page.click(':nth-match(button[aria-haspopup], 1)');
+      await page.click('text="January"');
+
+      await page.click(':nth-match(button[aria-haspopup], 2)');
+
+      const yearElement = await page.$('text="2041"');
+
+      await page.click('text="1"');
+
+      if (yearElement) {
+        await page.evaluate('text="2040"');
+      }
+
+      const value = await page.$eval('input', (el) => el.value);
+
+      expect(value).not.toBe('1/1/2041');
+
+      expect(await page.$('[role="dialog"]')).toBeFalsy();
+    });
+  });
 });
