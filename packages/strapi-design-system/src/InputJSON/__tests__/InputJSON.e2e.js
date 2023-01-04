@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe.parallel('JsonComponent', () => {
   test.describe('base', () => {
-    test('verifies if default readonly json loaded', async ({ page }) => {
+    test('verifies if disabled json loaded', async ({ page }) => {
       await page.goto('/iframe.html?id=design-system-components-inputjson--base&viewMode=story');
 
       const readonlyJsonInput = await page.waitForSelector('div[contenteditable="false"]');
@@ -47,6 +47,7 @@ test.describe.parallel('JsonComponent', () => {
       await page.getByRole('textbox').fill('Peter');
       const errorElement = await page.waitForSelector('div[contenteditable="true"] div span');
       const errorStyle = await errorElement.getAttribute('style');
+
       expect(errorStyle).toBe('background-color: yellow; color: black');
     });
   });

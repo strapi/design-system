@@ -38,16 +38,8 @@ describe('InputJSON', () => {
     window.IntersectionObserver = mockIntersectionObserver;
   });
 
-  beforeEach(() => {
-    jest.useFakeTimers();
-  });
-
-  afterEach(() => {
-    jest.useRealTimers();
-  });
-
   it('should display provided json schema formatted', () => {
-    const { container } = render(<Component value={JSON_DATA} onChange={onChange} onError={onError} />);
+    const { container } = render(<Component value={JSON_DATA} onChange={onChange} disabled onError={onError} />);
 
     const readonlyJsonInput = container.querySelector('div[contenteditable="false"]');
     expect(readonlyJsonInput.textContent).toBe(`[   {      "a":3,      "b":4   },   {      "a":5,      "b":6   }]`);
@@ -59,7 +51,6 @@ describe('InputJSON', () => {
     fireEvent.input(jsonInput, {
       target: { textContent: '[   {      "a":3,      "b":4   },   {      "a":5,      "b":"b,  }]' },
     });
-    jest.runOnlyPendingTimers();
 
     await waitFor(() => {
       expect(onChange).not.toHaveBeenCalled();
@@ -74,7 +65,6 @@ describe('InputJSON', () => {
         textContent: '[   {      "a":3,      "b":4   },   {      "a":5,      "b":6,      "c":7   }]',
       },
     });
-    jest.runOnlyPendingTimers();
 
     await waitFor(() => {
       expect(onChange).toHaveBeenCalledWith([
