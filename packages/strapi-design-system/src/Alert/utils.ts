@@ -1,4 +1,12 @@
-export const handleBackgroundColor = ({ theme, variant }) => {
+import { DefaultTheme } from 'styled-components';
+import type { AlertVariant } from './Alert';
+
+interface StyledProps {
+  theme: DefaultTheme;
+  variant: AlertVariant;
+}
+
+export const handleBackgroundColor = ({ theme, variant }: StyledProps) => {
   if (variant === 'danger') {
     return theme.colors.danger100;
   }
@@ -10,7 +18,7 @@ export const handleBackgroundColor = ({ theme, variant }) => {
   return theme.colors.primary100;
 };
 
-export const handleBorderColor = ({ theme, variant }) => {
+export const handleBorderColor = ({ theme, variant }: StyledProps) => {
   if (variant === 'danger') {
     return theme.colors.danger200;
   }
@@ -22,7 +30,7 @@ export const handleBorderColor = ({ theme, variant }) => {
   return theme.colors.primary200;
 };
 
-export const handleIconColor = ({ theme, variant }) => {
+export const handleIconColor = ({ theme, variant }: StyledProps) => {
   if (variant === 'danger') {
     return theme.colors.danger700;
   }
