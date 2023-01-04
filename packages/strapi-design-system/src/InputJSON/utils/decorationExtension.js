@@ -19,12 +19,12 @@ const markField = StateField.define({
     // Move the decorations to account for document changes
     value = value.map(transaction.changes);
     transaction.effects.forEach((effect) => {
-      if (effect.is(addMarks))
+      if (effect.is(addMarks)) {
         value = value.update({
           add: effect.value,
           sort: true,
         });
-      else if (effect.is(filterMarks)) {
+      } else if (effect.is(filterMarks)) {
         value = value.update({ filter: effect.value });
       }
     });

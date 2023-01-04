@@ -43,7 +43,7 @@ JSON input allows users to add, edit or view json data in a dedicated editor.The
       },
     }}
   >
-      <InputJSON value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6\n   }\n]'} />
+      <InputJSON disabled value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6\n   }\n]'} />
   </Story>
 </Canvas>
 
@@ -62,7 +62,7 @@ JSON input can be defined as read-only or can allow you to interact and edit the
       },
     }}
   >
-      <InputJSON value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6\n   }\n]'} label="Json" editable hint="Description Text" />
+      <InputJSON value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6\n   }\n]'} label="Json" hint="Description Text" />
   </Story>
 </Canvas>
 
@@ -81,7 +81,7 @@ JSON input can display an error. The error message is customizable and replaces 
       },
     }}
   >
-     <InputJSON value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6,\n   }\n]'} error="This does not match the JSON format" />
+     <InputJSON disabled value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6,\n   }\n]'} error="This does not match the JSON format" />
   </Story>
 </Canvas>
 

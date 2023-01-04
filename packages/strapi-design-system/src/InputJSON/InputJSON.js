@@ -1,22 +1,19 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { debounce } from 'tiny-throttle';
+import { jsonParseLinter } from '@codemirror/lang-json';
+
 import { Field, FieldLabel, FieldError, FieldHint } from '../Field';
 import { Box } from '../Box';
 import { Stack } from '../Stack';
-import { addMarks, filterMarks, lineHighlightMark } from './decorationExtension';
-import * as jsonlint from './utils/jsonLint';
+import { addMarks, filterMarks, lineHighlightMark } from './utils/decorationExtension';
 import { JsonComponent } from './JsonComponent';
 
-const WAIT = 500;
-
 const StyledBox = styled(Box)`
-  border-radius: ${({ theme }) => theme.borderRadius};
   outline: 1px solid ${({ theme, error }) => (error ? theme.colors.danger600 : 'transparent')};
 `;
 
-export const InputJSON = ({ id, label, value, error, hint, required, theme, onChange, editable }) => {
+export const InputJSON = ({ id, label, value, error, hint, required, theme, onChange, disabled, labelAction }) => {
   const editorState = useRef(null);
   const editorView = useRef(null);
 
@@ -25,22 +22,18 @@ export const InputJSON = ({ id, label, value, error, hint, required, theme, onCh
   };
 
   /**
-   * markSelection: highlights the error message by extracting line number from error message thrown by jsonlint.parse()
-   * Error message format ex: "`Parse error on line 8:\n...:5, "b":6, }]\n---------------------^\nExpecting 'STRING', got '}'`"
+   * @description
+   * Determines the line to highlight when validateJSON finds an error via jsonParseLinter()
+   * @param {number} lineNumber Code editor line number
    */
-  const markSelection = ({ message }) => {
-    const errorMessageWithLineNumber = message.split(':')[0];
-    const errorLine = errorMessageWithLineNumber.split('line ')[1];
-    const line = parseInt(errorLine, 10) || 0;
+  const highglightErrorAtLine = (lineNumber) => {
+    const { text, to: lineEnd } = getContentAtLine(lineNumber);
+    const lineStart = lineEnd - text.trimStart().length;
 
-    if (line) {
-      const { text, to: lineEnd } = getContentAtLine(line);
-      const lineStart = lineEnd - text.trimStart().length;
-
-      if (lineEnd > lineStart)
-        editorView.current?.dispatch({
-          effects: addMarks.of([lineHighlightMark.range(lineStart, lineEnd)]),
-        });
+    if (lineEnd > lineStart) {
+      editorView.current?.dispatch({
+        effects: addMarks.of([lineHighlightMark.range(lineStart, lineEnd)]),
+      });
     }
   };
 
@@ -51,60 +44,59 @@ export const InputJSON = ({ id, label, value, error, hint, required, theme, onCh
     });
   };
 
-  const validateJSON = (value) => {
-    try {
-      return jsonlint.parse(value);
-    } catch (error) {
-      markSelection(error);
-    }
-
-    return null;
-  };
-
-  const validateJSONOnChange = async (currentValue, viewUpdate) => {
+  /**
+   * @description
+   * Checks code editor for valid json input and then handles any errors
+   * @param {object} viewUpdate
+   * @property {object} viewUpdate.view Code editor view https://codemirror.net/docs/ref/#view.EditorView
+   * @property {object} viewUpdate.state Code editor state https://codemirror.net/docs/ref/#state.EditorState
+   * @returns {boolean} true if valid json, false if invalid json
+   */
+  const validateJSON = (viewUpdate) => {
     const { view, state } = viewUpdate;
     editorView.current = view;
     editorState.current = state;
-    clearErrorHighlight();
-    const parsedJson = await validateJSON(currentValue);
 
-    // onChange callback to update parsed json in parent
-    if (parsedJson) onChange(parsedJson);
+    const lintJson = jsonParseLinter();
+    const lintErrors = lintJson(view);
+
+    if (lintErrors.length) {
+      highglightErrorAtLine(state.doc.lineAt(lintErrors[0].from).number);
+
+      return false;
+    }
+
+    clearErrorHighlight();
+
+    return true;
   };
 
-  /**
-   * debounceValidateJSON: to debounce onchange validating json.
-   */
-  const debounceValidateJSON = debounce(validateJSONOnChange, WAIT);
+  const handleChange = (currentValue, viewUpdate) => {
+    const isValidJSON = validateJSON(viewUpdate);
+
+    if (isValidJSON) {
+      // Callback to update JSON in the parent component
+      onChange(JSON.parse(currentValue));
+    }
+  };
 
   const onCreateEditor = (view, state) => {
+    validateJSON({ view, state });
     editorView.current = view;
     editorState.current = state;
   };
-
-  /**
-   * debounceValidateJSONOnLoad: On load, if there is a wrong json string, we need to validate it and highlight in the editor,
-   * but createEditor callback which gets fired after useEffect, so delay helps to get the editor state here.
-   */
-  const debounceValidateJSONOnLoad = debounce(validateJSON, WAIT);
-
-  useEffect(() => {
-    debounceValidateJSONOnLoad(value);
-  }, [value, debounceValidateJSONOnLoad]);
 
   return (
     <Field error={error} hint={hint} required={required}>
       <Stack spacing={1}>
-        {label && <FieldLabel>{label}</FieldLabel>}
-        <StyledBox error={error}>
+        {label && <FieldLabel action={labelAction}>{label}</FieldLabel>}
+        <StyledBox hasRadius error={error}>
           <JsonComponent
             id={id}
             value={value}
             theme={theme}
-            editable={editable}
-            onChange={(currentValue, viewUpdate) => {
-              debounceValidateJSON(currentValue, viewUpdate);
-            }}
+            editable={!disabled}
+            onChange={handleChange}
             onCreateEditor={onCreateEditor}
           />
         </StyledBox>
@@ -118,23 +110,25 @@ export const InputJSON = ({ id, label, value, error, hint, required, theme, onCh
 InputJSON.defaultProps = {
   id: undefined,
   label: undefined,
+  labelAction: undefined,
   value: '',
   error: undefined,
   hint: undefined,
   required: false,
   theme: 'dark',
-  editable: false,
+  disabled: false,
   onChange() {},
 };
 
 InputJSON.propTypes = {
   id: PropTypes.string,
   label: PropTypes.string,
+  labelAction: PropTypes.element,
   value: PropTypes.string,
   error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   hint: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
   required: PropTypes.bool,
   theme: PropTypes.oneOf(['dark', 'light']),
-  editable: PropTypes.bool,
+  disabled: PropTypes.bool,
   onChange: PropTypes.func,
 };
