@@ -86,9 +86,9 @@ export const JsonInput = ({ id, label, value, error, hint, required, theme, onCh
   };
 
   const onCreateEditor = (view, state) => {
-    validateJson({ view, state });
     editorView.current = view;
     editorState.current = state;
+    validateJson({ view, state });
   };
 
   return (
