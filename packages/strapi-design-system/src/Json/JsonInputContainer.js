@@ -12,6 +12,27 @@ const CodeMirrorContainer = styled(Box)`
   font-size: ${({ theme }) => theme.fontSizes[2]};
   line-height: ${({ theme }) => theme.lineHeights[2]};
 
+  .cm-editor {
+    /* 
+      Hard coded since the color is the same between themes,
+      theme.colors.neutral800 changes between themes 
+    */
+    background-color: #32324d;
+  }
+
+  .cm-gutters,
+  .cm-activeLineGutter {
+    /* 
+      Hard coded since the color is the same between themes,
+      theme.colors.neutral700 changes between themes 
+    */
+    background-color: #4a4a6a;
+  }
+
+  .cm-editor.cm-focused {
+    outline: none;
+  }
+
   & > .cm-editor {
     height: 100%;
     border-radius: ${({ theme }) => theme.borderRadius};
@@ -20,10 +41,6 @@ const CodeMirrorContainer = styled(Box)`
       overflow: auto;
       border-radius: ${({ theme }) => theme.borderRadius};
     }
-  }
-
-  .ͼ1.cm-editor.cm-focused {
-    outline: none;
   }
 `;
 
