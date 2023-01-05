@@ -2,7 +2,7 @@ import * as React from 'react';
 import { render, fireEvent, waitFor } from '@testing-library/react';
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
-import { InputJSON } from '../InputJSON';
+import { JsonInput } from '../JsonInput';
 
 const mockIntersectionObserver = jest.fn();
 mockIntersectionObserver.mockReturnValue({
@@ -29,11 +29,11 @@ const JSON_DATA = '[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,
 
 const Component = (props) => (
   <ThemeProvider theme={lightTheme}>
-    <InputJSON {...props} />
+    <JsonInput {...props} />
   </ThemeProvider>
 );
 
-describe('InputJSON', () => {
+describe('JsonInput', () => {
   beforeAll(() => {
     window.IntersectionObserver = mockIntersectionObserver;
   });

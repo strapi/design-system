@@ -1,13 +1,13 @@
-<!--- InputJSON.stories.mdx --->
+<!--- JsonInput.stories.mdx --->
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { ArgsTable } from '@storybook/addon-docs';
-import { InputJSON } from './InputJSON';
+import { JsonInput } from './JsonInput';
 import { Box } from '../Box';
 
-<Meta title="Design System/Components/InputJSON" component={InputJSON} />
+<Meta title="Design System/Components/JsonInput" component={JsonInput} />
 
-# InputJSON
+# JsonInput
 
 JSON input allows users to view, add or edit json data in a dedicated editor.
 
@@ -20,12 +20,12 @@ JSON input allows users to view, add or edit json data in a dedicated editor.
 - The error message will replace the description line. The two of them cannot be on top of each other.
 - The error message can be customized, make sure to write actionable information within it to help resolve an issue.
 
-[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/InputJSON)
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/JsonInput)
 
 ## Imports
 
 ```js
-import { InputJSON } from '@strapi/design-system';
+import { JsonInput } from '@strapi/design-system';
 ```
 
 ## Usage
@@ -38,12 +38,12 @@ JSON input allows users to add, edit or view json data in a dedicated editor.The
     parameters={{
       docs: { 
         source: {
-          code: `<InputJSON value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6\n   }\n]'} />`,
+          code: `<JsonInput value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6\n   }\n]'} />`,
         },
       },
     }}
   >
-      <InputJSON disabled value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6\n   }\n]'} />
+      <JsonInput disabled value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6\n   }\n]'} />
   </Story>
 </Canvas>
 
@@ -57,12 +57,12 @@ JSON input can be defined as read-only or can allow you to interact and edit the
     parameters={{
       docs: { 
         source: {
-          code: `<InputJSON value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6\n   }\n]'} label="Json" editable hint="Description Text" />`,
+          code: `<JsonInput value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6\n   }\n]'} label="Json" editable hint="Description Text" />`,
         },
       },
     }}
   >
-      <InputJSON value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6\n   }\n]'} label="Json" hint="Description Text" />
+      <JsonInput value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6\n   }\n]'} label="Json" hint="Description Text" />
   </Story>
 </Canvas>
 
@@ -76,15 +76,15 @@ JSON input can display an error. The error message is customizable and replaces 
     parameters={{
       docs: { 
         source: {
-          code: `<InputJSON value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6,\n   }\n]'} error="This does not match the JSON format"/>`,
+          code: `<JsonInput value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6,\n   }\n]'} error="This does not match the JSON format"/>`,
         },
       },
     }}
   >
-     <InputJSON disabled value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6,\n   }\n]'} error="This does not match the JSON format" />
+     <JsonInput disabled value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6,\n   }\n]'} error="This does not match the JSON format" />
   </Story>
 </Canvas>
 
 ## Props
 
-<ArgsTable of={InputJSON} />
+<ArgsTable of={JsonInput} />

@@ -27,7 +27,7 @@ const CodeMirrorContainer = styled(Box)`
   }
 `;
 
-export const JsonComponent = ({ id, value, theme, onChange, onCreateEditor, editable }) => {
+export const JsonInputContainer = ({ id, value, theme, onChange, onCreateEditor, editable }) => {
   const editor = useRef();
   const { setContainer } = useCodeMirror({
     theme,
@@ -60,7 +60,7 @@ export const JsonComponent = ({ id, value, theme, onChange, onCreateEditor, edit
   return <CodeMirrorContainer id={id} ref={editor} />;
 };
 
-JsonComponent.defaultProps = {
+JsonInputContainer.defaultProps = {
   id: undefined,
   editable: false,
   value: '',
@@ -68,7 +68,7 @@ JsonComponent.defaultProps = {
   onCreateEditor() {},
 };
 
-JsonComponent.propTypes = {
+JsonInputContainer.propTypes = {
   theme: PropTypes.string.isRequired,
   id: PropTypes.string,
   value: PropTypes.string,

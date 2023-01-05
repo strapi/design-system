@@ -4,7 +4,7 @@ import { test, expect } from '@playwright/test';
 test.describe.parallel('JsonComponent', () => {
   test.describe('base', () => {
     test('verifies if disabled json loaded', async ({ page }) => {
-      await page.goto('/iframe.html?id=design-system-components-inputjson--base&viewMode=story');
+      await page.goto('/iframe.html?id=design-system-components-jsoninput--base&viewMode=story');
 
       const readonlyJsonInput = await page.waitForSelector('div[contenteditable="false"]');
       expect(readonlyJsonInput).toBeDefined();
@@ -15,7 +15,7 @@ test.describe.parallel('JsonComponent', () => {
     /*
     test.describe('light mode', () => {
       test.skip('verifies A11y on base story', async ({ page }) => {
-        await page.goto('/iframe.html?id=design-system-components-inputjson--base&viewMode=story');
+        await page.goto('/iframe.html?id=design-system-components-jsoninput--base&viewMode=story');
         await injectAxe(page);
         await checkA11y(page);
       });
@@ -23,7 +23,7 @@ test.describe.parallel('JsonComponent', () => {
 
     test.describe('dark mode', () => {
       test.skip('verifies A11y on base story', async ({ page }) => {
-        await page.goto('/iframe.html?id=design-system-components-inputjson--base&viewMode=story&theme=dark');
+        await page.goto('/iframe.html?id=design-system-components-jsoninput--base&viewMode=story&theme=dark');
         await injectAxe(page);
         await checkA11y(page);
       });
@@ -32,7 +32,7 @@ test.describe.parallel('JsonComponent', () => {
 
   test.describe('editor', () => {
     test('verifies if editable json loaded with label', async ({ page }) => {
-      await page.goto('/iframe.html?id=design-system-components-inputjson--editable&viewMode=story');
+      await page.goto('/iframe.html?id=design-system-components-jsoninput--editable&viewMode=story');
 
       const editableJsonInput = await page.waitForSelector('div[contenteditable="true"]');
       expect(editableJsonInput).toBeDefined();
@@ -42,7 +42,7 @@ test.describe.parallel('JsonComponent', () => {
     });
 
     test('On wrong input json highlight the wrong json schema', async ({ page }) => {
-      await page.goto('/iframe.html?id=design-system-components-inputjson--editable&viewMode=story');
+      await page.goto('/iframe.html?id=design-system-components-jsoninput--editable&viewMode=story');
 
       await page.getByRole('textbox').fill('Peter');
       const errorElement = await page.waitForSelector('div[contenteditable="true"] div span');
@@ -54,7 +54,7 @@ test.describe.parallel('JsonComponent', () => {
 
   test.describe('with error', () => {
     test('verifies if error is displayed', async ({ page }) => {
-      await page.goto('/iframe.html?id=design-system-components-inputjson--with-error&viewMode=story');
+      await page.goto('/iframe.html?id=design-system-components-jsoninput--with-error&viewMode=story');
 
       const errorMessage = page.getByText('This does not match the JSON format');
       expect(errorMessage).toBeDefined();
