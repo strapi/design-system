@@ -77,12 +77,9 @@ export const JsonInput = ({ id, label, value, error, hint, required, theme, onCh
   };
 
   const handleChange = (currentValue, viewUpdate) => {
-    const isValidJSON = validateJson(viewUpdate);
-
-    if (isValidJSON) {
-      // Callback to update JSON in the parent component
-      onChange(JSON.parse(currentValue));
-    }
+    validateJson(viewUpdate);
+    // Call the parent's onChange handler
+    onChange(currentValue);
   };
 
   const onCreateEditor = (view, state) => {
