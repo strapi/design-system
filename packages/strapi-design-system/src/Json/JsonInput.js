@@ -1,19 +1,27 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { jsonParseLinter } from '@codemirror/lang-json';
+import { jsonParseLinter, json } from '@codemirror/lang-json';
+import { useCodeMirror } from '@uiw/react-codemirror';
 
 import { Field, FieldLabel, FieldError, FieldHint } from '../Field';
-import { Box } from '../Box';
 import { Stack } from '../Stack';
-import { addMarks, filterMarks, lineHighlightMark } from './utils/decorationExtension';
-import { JsonInputContainer } from './JsonInputContainer';
+import { CodeMirrorContainer } from './CodeMirrorContainer';
+import { markField, addMarks, filterMarks, lineHighlightMark } from './utils/decorationExtension';
 
-const StyledBox = styled(Box)`
-  outline: 1px solid ${({ theme, error }) => (error ? theme.colors.danger600 : 'transparent')};
-`;
-
-export const JsonInput = ({ id, label, value, error, hint, required, theme, onChange, disabled, labelAction }) => {
+export const JsonInput = ({
+  id,
+  label,
+  value,
+  error,
+  hint,
+  required,
+  theme,
+  onChange,
+  disabled,
+  labelAction,
+  ...boxProps
+}) => {
+  const editor = useRef();
   const editorState = useRef(null);
   const editorView = useRef(null);
 
@@ -81,20 +89,48 @@ export const JsonInput = ({ id, label, value, error, hint, required, theme, onCh
     validateJson({ view, state });
   };
 
+  const { setContainer } = useCodeMirror({
+    theme,
+    value,
+    onChange,
+    onCreateEditor,
+    editable: !disabled,
+    container: editor.current,
+    extensions: [json(), markField],
+    basicSetup: {
+      lineNumbers: true,
+      bracketMatching: true,
+      closeBrackets: true,
+      indentOnInput: true,
+      syntaxHighlighting: true,
+      highlightSelectionMatches: true,
+      tabSize: 2,
+      defaultCharacterWidth: 5,
+    },
+  });
+
+  useEffect(() => {
+    const currentEditor = editor.current;
+
+    if (currentEditor) {
+      setContainer(editor.current);
+    }
+  }, [setContainer]);
+
   return (
     <Field error={error} hint={hint} required={required}>
       <Stack spacing={1}>
         {label && <FieldLabel action={labelAction}>{label}</FieldLabel>}
-        <StyledBox hasRadius error={error}>
-          <JsonInputContainer
-            id={id}
-            value={value}
-            theme={theme}
-            editable={!disabled}
-            onChange={handleChange}
-            onCreateEditor={onCreateEditor}
-          />
-        </StyledBox>
+        <CodeMirrorContainer
+          id={id}
+          ref={editor}
+          value={value}
+          error={error}
+          editable={!disabled}
+          onChange={handleChange}
+          onCreateEditor={onCreateEditor}
+          {...boxProps}
+        />
         <FieldError />
         <FieldHint />
       </Stack>
