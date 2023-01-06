@@ -26,7 +26,9 @@
     "test:e2e:ci": "lerna run test:e2e:ci",
     "test:e2e:watch": "lerna --scope @strapi/design-system exec -- yarn test:e2e:watch",
     "test:snapshots": "lerna --scope @strapi/design-system exec -- yarn  test -u",
-    "release": "lerna version --no-push --no-git-tag-version && yarn setup && git commit -am \"Releasing\" && lerna publish from-package"
+    "release": "yarn vers && yarn setup && git commit -am \"Releasing\" && yarn pub",
+    "pub": "lerna publish from-package",
+    "vers": "lerna version --no-push --no-git-tag-version"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.18.6",
