@@ -2,16 +2,17 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 
 import { RadioContext } from './context';
+import { RadioGroupSize } from './RadioGroup';
 import { getRadioSize, getSelectedRadioSize, getSelectedRadioPosition } from './utils';
 
-const RadioInput = styled.input`
+const RadioInput = styled.input<{ size: RadioGroupSize | number }>`
   margin: 0;
   padding: 0;
   background-color: ${({ theme }) => theme.colors.neutral0};
   border: 1px solid ${({ theme }) => theme.colors.primary600};
   border-radius: 50%;
-  height: ${getRadioSize};
-  width: ${getRadioSize};
+  height: ${({ size }) => (typeof size === 'number' ? size : getRadioSize(size))};
+  width: ${({ size }) => (typeof size === 'number' ? size : getRadioSize(size))};
   -webkit-appearance: none;
 
   &:after {
@@ -20,8 +21,8 @@ const RadioInput = styled.input`
     position: relative;
     z-index: 1;
     display: block;
-    height: ${getSelectedRadioSize};
-    width: ${getSelectedRadioSize};
+    height: ${({ size }) => (typeof size === 'number' ? size : getSelectedRadioSize(size))};
+    width: ${({ size }) => (typeof size === 'number' ? size : getSelectedRadioSize(size))};
     left: ${getSelectedRadioPosition};
     top: ${getSelectedRadioPosition};
   }
@@ -56,6 +57,7 @@ export const BaseRadio = React.forwardRef<HTMLInputElement, BaseRadioProps>(
         aria-checked={isSelected}
         checked={isSelected}
         disabled={disabled}
+        // @ts-expect-error size is a html prop already.
         size={size}
         onChange={onChange}
         {...props}

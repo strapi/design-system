@@ -1,6 +1,7 @@
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import typescript from '@rollup/plugin-typescript';
 import glob from 'tiny-glob';
 
 export default glob('./src/**/!(*.spec|*.e2e).{js,svg,ts,tsx}').then(async (paths) => {
@@ -28,6 +29,7 @@ export default glob('./src/**/!(*.spec|*.e2e).{js,svg,ts,tsx}').then(async (path
           dir: 'dist',
           preserveModules: true,
         },
+        plugins: [typescript()],
       },
     },
     plugins: [react()],

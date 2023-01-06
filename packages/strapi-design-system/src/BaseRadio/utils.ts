@@ -1,4 +1,6 @@
-export const getRadioSize = ({ size }) => {
+import { RadioGroupSize } from './RadioGroup';
+
+export const getRadioSize = (size: RadioGroupSize) => {
   if (size === 'M') {
     return '18px';
   }
@@ -6,7 +8,7 @@ export const getRadioSize = ({ size }) => {
   return '20px';
 };
 
-export const getSelectedRadioSize = ({ size }) => {
+export const getSelectedRadioSize = (size: RadioGroupSize) => {
   if (size === 'M') {
     return '10px';
   }

@@ -5,7 +5,7 @@
     "moduleResolution": "node",
     "useDefineForClassFields": true,
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "allowJs": false,
+    "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
@@ -14,10 +14,13 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
+    "declaration": true,
+    "outDir": "dist",
     "jsx": "react-jsx",
     "types": ["vite/client", "jest", "@testing-library/jest-dom"]
   },
   "include": ["src", "styled.d.ts"],
+  "exclude": ["**/*.spec.*", "**/*.stories.*", "**/*.e2e.*"],
   "references": [
     {
       "path": "./tsconfig.node.json"
