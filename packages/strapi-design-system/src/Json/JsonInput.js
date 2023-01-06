@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { jsonParseLinter } from '@codemirror/lang-json';
@@ -14,7 +14,6 @@ const StyledBox = styled(Box)`
 `;
 
 export const JsonInput = ({ id, label, value, error, hint, required, theme, onChange, disabled, labelAction }) => {
-  const [errorMessage, setErrorMessage] = useState(error);
   const editorState = useRef(null);
   const editorView = useRef(null);
 
@@ -66,18 +65,12 @@ export const JsonInput = ({ id, label, value, error, hint, required, theme, onCh
 
     if (lintErrors.length) {
       highglightErrorAtLine(state.doc.lineAt(lintErrors[0].from).number);
-      setErrorMessage(lintErrors[0].message);
-
-      return false;
     }
-
-    setErrorMessage(null);
-
-    return true;
   };
 
   const handleChange = (currentValue, viewUpdate) => {
     validateJson(viewUpdate);
+
     // Call the parent's onChange handler
     onChange(currentValue);
   };
@@ -89,10 +82,10 @@ export const JsonInput = ({ id, label, value, error, hint, required, theme, onCh
   };
 
   return (
-    <Field error={errorMessage} hint={hint} required={required}>
+    <Field error={error} hint={hint} required={required}>
       <Stack spacing={1}>
         {label && <FieldLabel action={labelAction}>{label}</FieldLabel>}
-        <StyledBox hasRadius error={errorMessage}>
+        <StyledBox hasRadius error={error}>
           <JsonInputContainer
             id={id}
             value={value}
