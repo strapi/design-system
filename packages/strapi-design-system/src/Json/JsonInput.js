@@ -5,7 +5,7 @@ import { useCodeMirror } from '@uiw/react-codemirror';
 
 import { Field, FieldLabel, FieldError, FieldHint } from '../Field';
 import { Stack } from '../Stack';
-import { CodeMirrorContainer } from './CodeMirrorContainer';
+import { JsonInputContainer } from './JsonInputContainer';
 import { markField, addMarks, filterMarks, lineHighlightMark } from './utils/decorationExtension';
 
 export const JsonInput = ({
@@ -92,8 +92,8 @@ export const JsonInput = ({
   const { setContainer } = useCodeMirror({
     theme,
     value,
-    onChange,
     onCreateEditor,
+    onChange: handleChange,
     editable: !disabled,
     container: editor.current,
     extensions: [json(), markField],
@@ -121,16 +121,7 @@ export const JsonInput = ({
     <Field error={error} hint={hint} required={required}>
       <Stack spacing={1}>
         {label && <FieldLabel action={labelAction}>{label}</FieldLabel>}
-        <CodeMirrorContainer
-          id={id}
-          ref={editor}
-          value={value}
-          error={error}
-          editable={!disabled}
-          onChange={handleChange}
-          onCreateEditor={onCreateEditor}
-          {...boxProps}
-        />
+        <JsonInputContainer id={id} ref={editor} error={error} {...boxProps} />
         <FieldError />
         <FieldHint />
       </Stack>

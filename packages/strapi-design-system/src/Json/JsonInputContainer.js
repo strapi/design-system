@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { Box } from '../Box';
 
-export const CodeMirrorContainer = styled(Box)`
-  height: 100%;
-  width: 100%;
+export const JsonInputContainer = styled(Box)`
+  // Ensures the editor fills its container
+  display: flex;
   font-size: ${({ theme }) => theme.fontSizes[2]};
   line-height: ${({ theme }) => theme.lineHeights[2]};
 
@@ -12,6 +12,7 @@ export const CodeMirrorContainer = styled(Box)`
       Hard coded since the color is the same between themes,
       theme.colors.neutral800 changes between themes 
     */
+    width: 100%;
     background-color: #32324d;
     outline: 1px solid ${({ theme, error }) => (error ? theme.colors.danger600 : 'transparent')};
   }
@@ -31,7 +32,6 @@ export const CodeMirrorContainer = styled(Box)`
   }
 
   & > .cm-editor {
-    height: 100%;
     border-radius: ${({ theme }) => theme.borderRadius};
 
     & > .cm-scroller {
