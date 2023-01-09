@@ -30,7 +30,6 @@
   },
   "devDependencies": {
     "@babel/preset-react": "^7.18.6",
-    "@specifyapp/cli": "^0.0.51",
     "@strapi/eslint-config": "^0.1.2",
     "@vitejs/plugin-react": "^2.2.0",
     "chokidar-cli": "^3.0.0",
