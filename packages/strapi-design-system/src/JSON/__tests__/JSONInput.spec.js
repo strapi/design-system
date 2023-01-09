@@ -38,26 +38,14 @@ describe('JSONInput', () => {
     window.IntersectionObserver = mockIntersectionObserver;
   });
 
-  it('should display provided JSON schema formatted', () => {
+  it('Should display provided JSON schema formatted', () => {
     const { container } = render(<Component value={JSON_DATA} onChange={onChange} disabled onError={onError} />);
 
     const readonlyJSONInput = container.querySelector('div[contenteditable="false"]');
     expect(readonlyJSONInput.textContent).toBe(`[   {      "a":3,      "b":4   },   {      "a":5,      "b":6   }]`);
   });
 
-  it('should not call on change callback with invalid JSON schema input', async () => {
-    const { container } = render(<Component value={JSON_DATA} onChange={onChange} onError={onError} editable />);
-    const JSONInput = container.querySelector('div[contenteditable="true"]');
-    fireEvent.input(JSONInput, {
-      target: { textContent: '[   {      "a":3,      "b":4   },   {      "a":5,      "b":"b,  }]' },
-    });
-
-    await waitFor(() => {
-      expect(onChange).not.toHaveBeenCalled();
-    });
-  });
-
-  it('should call on change callback with valid JSON schema input', async () => {
+  it("Should call parent's onChange callback with JSON string", async () => {
     const { container } = render(<Component value={JSON_DATA} onChange={onChange} onError={onError} editable />);
     const JSONInput = container.querySelector('div[contenteditable="true"]');
     fireEvent.input(JSONInput, {
@@ -67,10 +55,9 @@ describe('JSONInput', () => {
     });
 
     await waitFor(() => {
-      expect(onChange).toHaveBeenCalledWith([
-        { a: 3, b: 4 },
-        { a: 5, b: 6, c: 7 },
-      ]);
+      expect(onChange).toHaveBeenCalledWith(
+        '[   {      "a":3,      "b":4   },   {      "a":5,      "b":6,      "c":7   }]',
+      );
     });
   });
 });

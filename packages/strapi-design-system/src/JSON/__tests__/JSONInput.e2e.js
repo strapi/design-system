@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe.parallel('JSONComponent', () => {
   test.describe('base', () => {
-    test('verifies if disabled JSON loaded', async ({ page }) => {
+    test('Loads disabled JSON', async ({ page }) => {
       await page.goto('/iframe.html?id=design-system-components-jsoninput--base&viewMode=story');
 
       const readonlyJSONInput = await page.waitForSelector('div[contenteditable="false"]');
@@ -30,8 +30,8 @@ test.describe.parallel('JSONComponent', () => {
     }); */
   });
 
-  test.describe('editor', () => {
-    test('verifies if editable JSON loaded with label', async ({ page }) => {
+  test.describe('editable', () => {
+    test('Loads JSON with label: JSON', async ({ page }) => {
       await page.goto('/iframe.html?id=design-system-components-jsoninput--editable&viewMode=story');
 
       const editableJSONInput = await page.waitForSelector('div[contenteditable="true"]');
@@ -41,7 +41,7 @@ test.describe.parallel('JSONComponent', () => {
       expect(label).toBeDefined();
     });
 
-    test('On wrong input JSON highlight the wrong JSON schema', async ({ page }) => {
+    test('Highlights incorrect JSON syntax', async ({ page }) => {
       await page.goto('/iframe.html?id=design-system-components-jsoninput--editable&viewMode=story');
 
       await page.getByRole('textbox').fill('Peter');
@@ -53,7 +53,14 @@ test.describe.parallel('JSONComponent', () => {
   });
 
   test.describe('with error', () => {
-    test('verifies if error is displayed', async ({ page }) => {
+    test('Loads disabled JSON', async ({ page }) => {
+      await page.goto('/iframe.html?id=design-system-components-jsoninput--with-error&viewMode=story');
+
+      const readonlyJSONInput = await page.waitForSelector('div[contenteditable="false"]');
+      expect(readonlyJSONInput).toBeDefined();
+    });
+
+    test('Displays an error message', async ({ page }) => {
       await page.goto('/iframe.html?id=design-system-components-jsoninput--with-error&viewMode=story');
 
       const errorMessage = page.getByText('This does not match the JSON format');
