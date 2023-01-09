@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Box } from '../Box';
 
-export const JsonInputContainer = styled(Box)`
+export const JSONInputContainer = styled(Box)`
   // Ensures the editor fills its container
   display: flex;
   font-size: ${({ theme }) => theme.fontSizes[2]};
