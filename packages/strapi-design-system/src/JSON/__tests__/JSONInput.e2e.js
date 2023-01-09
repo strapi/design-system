@@ -1,13 +1,13 @@
 import { test, expect } from '@playwright/test';
 // import { injectAxe, checkA11y } from 'axe-playwright';
 
-test.describe.parallel('JsonComponent', () => {
+test.describe.parallel('JSONComponent', () => {
   test.describe('base', () => {
-    test('verifies if disabled json loaded', async ({ page }) => {
+    test('verifies if disabled JSON loaded', async ({ page }) => {
       await page.goto('/iframe.html?id=design-system-components-jsoninput--base&viewMode=story');
 
-      const readonlyJsonInput = await page.waitForSelector('div[contenteditable="false"]');
-      expect(readonlyJsonInput).toBeDefined();
+      const readonlyJSONInput = await page.waitForSelector('div[contenteditable="false"]');
+      expect(readonlyJSONInput).toBeDefined();
     });
 
     // TODO: Skipping tests for now as its throwing violations for inner codemirror component, 'aria-input-field-name',  'color-contrast'.
@@ -31,17 +31,17 @@ test.describe.parallel('JsonComponent', () => {
   });
 
   test.describe('editor', () => {
-    test('verifies if editable json loaded with label', async ({ page }) => {
+    test('verifies if editable JSON loaded with label', async ({ page }) => {
       await page.goto('/iframe.html?id=design-system-components-jsoninput--editable&viewMode=story');
 
-      const editableJsonInput = await page.waitForSelector('div[contenteditable="true"]');
-      expect(editableJsonInput).toBeDefined();
+      const editableJSONInput = await page.waitForSelector('div[contenteditable="true"]');
+      expect(editableJSONInput).toBeDefined();
 
-      const label = page.getByText('json');
+      const label = page.getByText('JSON');
       expect(label).toBeDefined();
     });
 
-    test('On wrong input json highlight the wrong json schema', async ({ page }) => {
+    test('On wrong input JSON highlight the wrong JSON schema', async ({ page }) => {
       await page.goto('/iframe.html?id=design-system-components-jsoninput--editable&viewMode=story');
 
       await page.getByRole('textbox').fill('Peter');

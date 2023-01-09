@@ -2,7 +2,7 @@ import * as React from 'react';
 import { render, fireEvent, waitFor } from '@testing-library/react';
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
-import { JsonInput } from '../JsonInput';
+import { JSONInput } from '../JSONInput';
 
 const mockIntersectionObserver = jest.fn();
 mockIntersectionObserver.mockReturnValue({
@@ -29,26 +29,26 @@ const JSON_DATA = '[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,
 
 const Component = (props) => (
   <ThemeProvider theme={lightTheme}>
-    <JsonInput {...props} />
+    <JSONInput {...props} />
   </ThemeProvider>
 );
 
-describe('JsonInput', () => {
+describe('JSONInput', () => {
   beforeAll(() => {
     window.IntersectionObserver = mockIntersectionObserver;
   });
 
-  it('should display provided json schema formatted', () => {
+  it('should display provided JSON schema formatted', () => {
     const { container } = render(<Component value={JSON_DATA} onChange={onChange} disabled onError={onError} />);
 
-    const readonlyJsonInput = container.querySelector('div[contenteditable="false"]');
-    expect(readonlyJsonInput.textContent).toBe(`[   {      "a":3,      "b":4   },   {      "a":5,      "b":6   }]`);
+    const readonlyJSONInput = container.querySelector('div[contenteditable="false"]');
+    expect(readonlyJSONInput.textContent).toBe(`[   {      "a":3,      "b":4   },   {      "a":5,      "b":6   }]`);
   });
 
-  it('should not call on change callback with invalid json schema input', async () => {
+  it('should not call on change callback with invalid JSON schema input', async () => {
     const { container } = render(<Component value={JSON_DATA} onChange={onChange} onError={onError} editable />);
-    const jsonInput = container.querySelector('div[contenteditable="true"]');
-    fireEvent.input(jsonInput, {
+    const JSONInput = container.querySelector('div[contenteditable="true"]');
+    fireEvent.input(JSONInput, {
       target: { textContent: '[   {      "a":3,      "b":4   },   {      "a":5,      "b":"b,  }]' },
     });
 
@@ -57,10 +57,10 @@ describe('JsonInput', () => {
     });
   });
 
-  it('should call on change callback with valid json schema input', async () => {
+  it('should call on change callback with valid JSON schema input', async () => {
     const { container } = render(<Component value={JSON_DATA} onChange={onChange} onError={onError} editable />);
-    const jsonInput = container.querySelector('div[contenteditable="true"]');
-    fireEvent.input(jsonInput, {
+    const JSONInput = container.querySelector('div[contenteditable="true"]');
+    fireEvent.input(JSONInput, {
       target: {
         textContent: '[   {      "a":3,      "b":4   },   {      "a":5,      "b":6,      "c":7   }]',
       },

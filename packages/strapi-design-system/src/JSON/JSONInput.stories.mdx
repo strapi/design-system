@@ -1,15 +1,15 @@
-<!--- JsonInput.stories.mdx --->
+<!--- JSONInput.stories.mdx --->
 
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { ArgsTable } from '@storybook/addon-docs';
-import { JsonInput } from './JsonInput';
+import { JSONInput } from './JSONInput';
 import { Box } from '../Box';
 
-<Meta title="Design System/Components/JsonInput" component={JsonInput} />
+<Meta title="Design System/Components/JSONInput" component={JSONInput} />
 
-# JsonInput
+# JSONInput
 
-JSON input allows users to view, add or edit json data in a dedicated editor.
+JSON input allows users to view, add or edit JSON data in a dedicated editor.
 
 **Best practices**
 
@@ -20,17 +20,17 @@ JSON input allows users to view, add or edit json data in a dedicated editor.
 - The error message will replace the description line. The two of them cannot be on top of each other.
 - The error message can be customized, make sure to write actionable information within it to help resolve an issue.
 
-[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/JsonInput)
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/JSONInput)
 
 ## Imports
 
 ```js
-import { JsonInput } from '@strapi/design-system';
+import { JSONInput } from '@strapi/design-system';
 ```
 
 ## Usage
 
-JSON input allows users to add, edit or view json data in a dedicated editor.They can be coupled with a description line to give more hints about their purpose. JSON inputs can also be used to display raw data.
+JSON input allows users to add, edit or view JSON data in a dedicated editor.They can be coupled with a description line to give more hints about their purpose. JSON inputs can also be used to display raw data.
 
 <Canvas withSource="open">
   <Story
@@ -38,12 +38,12 @@ JSON input allows users to add, edit or view json data in a dedicated editor.The
     parameters={{
       docs: {
         source: {
-          code: `<JsonInput value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6\n   }\n]'} />`,
+          code: `<JSONInput value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6\n   }\n]'} />`,
         },
       },
     }}
   >
-    <JsonInput disabled value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6\n   }\n]'} />
+    <JSONInput disabled value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6\n   }\n]'} />
   </Story>
 </Canvas>
 
@@ -57,14 +57,14 @@ JSON input can be defined as read-only or can allow you to interact and edit the
     parameters={{
       docs: {
         source: {
-          code: `<JsonInput value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6\n   }\n]'} label="Json" editable hint="Description Text" />`,
+          code: `<JSONInput value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6\n   }\n]'} label="JSON" editable hint="Description Text" />`,
         },
       },
     }}
   >
-    <JsonInput
+    <JSONInput
       value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6\n   }\n]'}
-      label="Json"
+      label="JSON"
       hint="Description Text"
     />
   </Story>
@@ -80,12 +80,12 @@ JSON input can display an error. The error message is customizable and replaces 
     parameters={{
       docs: {
         source: {
-          code: `<JsonInput value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6,\n   }\n]'} error="This does not match the JSON format"/>`,
+          code: `<JSONInput value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6,\n   }\n]'} error="This does not match the JSON format"/>`,
         },
       },
     }}
   >
-    <JsonInput
+    <JSONInput
       value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6,\n   }\n]'}
       error="This does not match the JSON format"
     />
@@ -94,4 +94,4 @@ JSON input can display an error. The error message is customizable and replaces 
 
 ## Props
 
-<ArgsTable of={JsonInput} />
+<ArgsTable of={JSONInput} />
