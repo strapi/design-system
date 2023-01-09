@@ -9,7 +9,6 @@ import { JSONInputContainer } from './JSONInputContainer';
 import { markField, addMarks, filterMarks, lineHighlightMark } from './utils/decorationExtension';
 
 export const JSONInput = ({
-  id,
   label,
   value,
   error,
@@ -120,7 +119,7 @@ export const JSONInput = ({
     <Field error={error} hint={hint} required={required}>
       <Stack spacing={1}>
         {label && <FieldLabel action={labelAction}>{label}</FieldLabel>}
-        <JSONInputContainer id={id} ref={editor} error={error} {...boxProps} />
+        <JSONInputContainer ref={editor} error={error} {...boxProps} />
         <FieldError />
         <FieldHint />
       </Stack>
@@ -129,7 +128,6 @@ export const JSONInput = ({
 };
 
 JSONInput.defaultProps = {
-  id: undefined,
   label: undefined,
   labelAction: undefined,
   value: '',
@@ -142,7 +140,6 @@ JSONInput.defaultProps = {
 };
 
 JSONInput.propTypes = {
-  id: PropTypes.string,
   label: PropTypes.string,
   labelAction: PropTypes.element,
   value: PropTypes.string,
