@@ -70,24 +70,37 @@ const InitialsWrapper = styled(Flex)`
   }
 `;
 
-export const Initials = ({ children }) => {
+export const Initials = ({ children, background, textColor }) => {
   return (
     <InitialsWrapper
+      background={background}
       borderRadius="50%"
       width={`${avatarSize}px`}
       height={`${avatarSize}px`}
-      background="primary600"
       justifyContent="center"
     >
-      <Typography fontWeight="bold" textColor="buttonNeutral0" fontSize={0} textTransform="uppercase">
+      <Typography fontSize={0} fontWeight="bold" textColor={textColor} textTransform="uppercase">
         {children}
       </Typography>
     </InitialsWrapper>
   );
 };
 
+Initials.defaultProps = {
+  background: 'primary600',
+  textColor: 'buttonNeutral0',
+};
+
 Initials.propTypes = {
+  /**
+   * Initials background, default is primary600
+   */
+  background: PropTypes.string,
   children: PropTypes.node.isRequired,
+  /**
+   * Initials textColor, default is buttonNeutral0
+   */
+  textColor: PropTypes.string,
 };
 
 Avatar.defaultProps = {
