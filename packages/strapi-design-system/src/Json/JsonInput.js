@@ -58,7 +58,6 @@ export const JsonInput = ({
    * @param {object} viewUpdate
    * @property {object} viewUpdate.view Code editor view https://codemirror.net/docs/ref/#view.EditorView
    * @property {object} viewUpdate.state Code editor state https://codemirror.net/docs/ref/#state.EditorState
-   * @returns {boolean} true if valid json, false if invalid json
    */
   const validateJson = (viewUpdate) => {
     const { view, state } = viewUpdate;
