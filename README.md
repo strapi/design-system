@@ -73,7 +73,7 @@ If you want to analyze the admin bundle and the impact each library has on the o
 
 First, run `yarn build` in `strapi-design-system/packages/strapi-design-system` to generate the bundle.
 
-In your copy of Strapi you can link the design system using either a [relative path](#relative-path) or [yarn link](#yarn-link).
+In your copy of Strapi, you can link the design system using either a [relative path](#relative-path) or [yarn link](#yarn-link).
 
 ### Relative path
 
