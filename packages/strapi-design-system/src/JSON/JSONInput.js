@@ -119,7 +119,7 @@ export const JSONInput = ({
     <Field error={error} hint={hint} required={required}>
       <Stack spacing={1}>
         {label && <FieldLabel action={labelAction}>{label}</FieldLabel>}
-        <JSONInputContainer ref={editor} error={error} {...boxProps} />
+        <JSONInputContainer ref={editor} hasError={error} hasRadius alignItems="stretch" fontSize={2} {...boxProps} />
         <FieldError />
         <FieldHint />
       </Stack>

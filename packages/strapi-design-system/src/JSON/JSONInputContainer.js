@@ -1,11 +1,10 @@
 import styled from 'styled-components';
-import { Box } from '../Box';
+import { inputFocusStyle } from '../themes/utils';
+import { Flex } from '../Flex';
 
-export const JSONInputContainer = styled(Box)`
-  // Ensures the editor fills its container
-  display: flex;
-  font-size: ${({ theme }) => theme.fontSizes[2]};
+export const JSONInputContainer = styled(Flex)`
   line-height: ${({ theme }) => theme.lineHeights[2]};
+  ${inputFocusStyle()}
 
   .cm-editor {
     /* 
@@ -14,7 +13,6 @@ export const JSONInputContainer = styled(Box)`
     */
     width: 100%;
     background-color: #32324d;
-    outline: 1px solid ${({ theme, error }) => (error ? theme.colors.danger600 : 'transparent')};
   }
 
   .cm-gutters,
@@ -28,7 +26,6 @@ export const JSONInputContainer = styled(Box)`
 
   .cm-editor.cm-focused {
     outline: none;
-    box-shadow: ${({ theme, error }) => (error ? `${theme.colors.danger600} 0px 0px 0px 2px;` : 'none')};
   }
 
   & > .cm-editor {
