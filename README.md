@@ -69,7 +69,7 @@ $ git reset --hard
 
 ## Connecting to Strapi
 
-If you want to analyze the admin bundle and the impact each library has on the over all application you can link this repo to your copy of [@strapi/strapi](https://github.com/strapi/strapi).
+If you want to analyze the admin bundle and the impact each library has on the overall application, you can link this repo to your copy of [@strapi/strapi](https://github.com/strapi/strapi).
 
 First, run `yarn build` in `strapi-design-system/packages/strapi-design-system` to generate the bundle.
 
