@@ -67,7 +67,7 @@ If you encounter problems doing so, run the following command and retry the prev
 $ git reset --hard
 ```
 
-## Connecting to Strapi
+## Linking the design-system in your application
 
 If you want to analyze the admin bundle and the impact each library has on the overall application, you can link this repo to your copy of [@strapi/strapi](https://github.com/strapi/strapi).
 
