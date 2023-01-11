@@ -121,7 +121,6 @@ export const JSONInput = ({
       <Stack spacing={1}>
         {label && <FieldLabel action={labelAction}>{label}</FieldLabel>}
         <JSONInputContainer
-          id="test"
           ref={editor}
           hasError={hasError}
           borderColor={hasError ? 'danger600' : 'neutral200'}
