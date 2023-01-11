@@ -8,18 +8,7 @@ import { Stack } from '../Stack';
 import { JSONInputContainer } from './JSONInputContainer';
 import { markField, addMarks, filterMarks, lineHighlightMark } from './utils/decorationExtension';
 
-export const JSONInput = ({
-  label,
-  value,
-  error,
-  hint,
-  required,
-  theme,
-  onChange,
-  disabled,
-  labelAction,
-  ...boxProps
-}) => {
+export const JSONInput = ({ label, value, error, hint, required, onChange, disabled, labelAction, ...boxProps }) => {
   const editor = useRef();
   const editorState = useRef(null);
   const editorView = useRef(null);
@@ -89,9 +78,9 @@ export const JSONInput = ({
   };
 
   const { setContainer } = useCodeMirror({
-    theme,
     value,
     onCreateEditor,
+    theme: 'dark',
     onChange: handleChange,
     editable: !disabled,
     container: editor.current,
@@ -142,7 +131,6 @@ JSONInput.defaultProps = {
   error: undefined,
   hint: undefined,
   required: false,
-  theme: 'dark',
   disabled: false,
   onChange() {},
 };
@@ -154,7 +142,6 @@ JSONInput.propTypes = {
   error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   hint: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
   required: PropTypes.bool,
-  theme: PropTypes.oneOf(['dark', 'light']),
   disabled: PropTypes.bool,
   onChange: PropTypes.func,
 };
