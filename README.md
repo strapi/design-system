@@ -67,17 +67,21 @@ If you encounter problems doing so, run the following command and retry the prev
 $ git reset --hard
 ```
 
-## Linking the design-system in your application
+## Linking the design system
 
-If you want to analyze the admin bundle and the impact each library has on the overall application, you can link this repo to your copy of [@strapi/strapi](https://github.com/strapi/strapi).
+### Application or Plugin
 
 First, run `yarn build` in `strapi-design-system/packages/strapi-design-system` to generate the bundle.
 
-In your copy of Strapi, you can link the design system using either a [relative path](#relative-path) or [yarn link](#yarn-link).
+You can link the design system using either a [relative path](#relative-path) or [yarn link](#yarn-link).
+
+### Strapi monorepo
+
+To link the design system to the Strapi monorepo follow the steps outlined in the [contributor documentation](https://contributor.strapi.io/)
 
 ### Relative path
 
-Replace the version number in both `strapi/packages/core/admin/package.json` and `strapi/packages/core/helper-plugin/package.json` with the relative path to your copy of the design system:
+Replace the version number with the relative path to your copy of the design system:
 
 ```
 "@strapi/design-system": "link:../../../../strapi-design-system/packages/strapi-design-system"
@@ -85,10 +89,12 @@ Replace the version number in both `strapi/packages/core/admin/package.json` and
 
 ### Yarn link
 
-Alternatively, you can use [`yarn link`](https://classic.yarnpkg.com/lang/en/docs/cli/link/) by first running `yarn link` in `strapi-design-system/packages/design-system` and then `yarn link @strapi/design-system` in both `strapi/packages/core/admin` and `strapi/packages/core/helper-plugin`. With this approach, no changes need to be made to the `package.json`
+[`yarn link`](https://classic.yarnpkg.com/lang/en/docs/cli/link/) allows you to link the design system without any changes to the `package.json`. First run `yarn link` in `strapi-design-system/packages/design-system` and then `yarn link @strapi/design-system` in your Strapi project.
 
-Once the link is setup, run the following command from the root of `@strapi/strapi`
+### Development
+
+Once the link is setup, reinstall dependencies before rebuilding the admin and starting the server
 
 ```
-yarn lerna clean && yarn setup
+yarn install -f && yarn build && yarn develop
 ```
