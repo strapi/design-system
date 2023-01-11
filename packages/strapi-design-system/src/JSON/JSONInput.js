@@ -123,10 +123,9 @@ export const JSONInput = ({
         <JSONInputContainer
           ref={editor}
           hasError={hasError}
-          borderColor={hasError ? 'danger600' : 'neutral200'}
-          hasRadius
           alignItems="stretch"
           fontSize={2}
+          hasRadius
           {...boxProps}
         />
         <FieldError />
