@@ -4,6 +4,7 @@ import { Flex } from '../Flex';
 
 export const JSONInputContainer = styled(Flex)`
   line-height: ${({ theme }) => theme.lineHeights[2]};
+  // inputFocusStyle will receive hasError prop
   ${inputFocusStyle()}
 
   .cm-editor {
@@ -24,11 +25,8 @@ export const JSONInputContainer = styled(Flex)`
     background-color: #4a4a6a;
   }
 
-  .cm-editor.cm-focused {
-    outline: none;
-  }
-
   & > .cm-editor {
+    outline: none;
     border-radius: ${({ theme }) => theme.borderRadius};
 
     & > .cm-scroller {

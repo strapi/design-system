@@ -23,6 +23,7 @@ export const JSONInput = ({
   const editor = useRef();
   const editorState = useRef(null);
   const editorView = useRef(null);
+  const hasError = Boolean(error);
 
   const getContentAtLine = (line) => {
     return editorState.current?.doc?.line(line);
@@ -30,7 +31,7 @@ export const JSONInput = ({
 
   /**
    * @description
-   * Determines the line to highlight when validateJSON finds an error via jsonParseLinter()
+   * Determines the line to highlight when lintJSON finds an error via jsonParseLinter()
    * @param {number} lineNumber Code editor line number
    */
   const highglightErrorAtLine = (lineNumber) => {
@@ -53,12 +54,12 @@ export const JSONInput = ({
 
   /**
    * @description
-   * Checks code editor for valid json input and then handles any errors
+   * Checks code editor for valid json input and then highlights any errors
    * @param {object} viewUpdate
    * @property {object} viewUpdate.view Code editor view https://codemirror.net/docs/ref/#view.EditorView
    * @property {object} viewUpdate.state Code editor state https://codemirror.net/docs/ref/#state.EditorState
    */
-  const validateJSON = (viewUpdate) => {
+  const lintJSON = (viewUpdate) => {
     const { view, state } = viewUpdate;
     editorView.current = view;
     editorState.current = state;
@@ -66,8 +67,8 @@ export const JSONInput = ({
     clearErrorHighlight();
 
     // Function calls json.parse and returns error message + position
-    const lintJSON = jsonParseLinter();
-    const lintErrors = lintJSON(view);
+    const lintJSONForErrrors = jsonParseLinter();
+    const lintErrors = lintJSONForErrrors(view);
 
     if (lintErrors.length) {
       highglightErrorAtLine(state.doc.lineAt(lintErrors[0].from).number);
@@ -75,7 +76,7 @@ export const JSONInput = ({
   };
 
   const handleChange = (currentValue, viewUpdate) => {
-    validateJSON(viewUpdate);
+    lintJSON(viewUpdate);
 
     // Call the parent's onChange handler
     onChange(currentValue);
@@ -84,7 +85,7 @@ export const JSONInput = ({
   const onCreateEditor = (view, state) => {
     editorView.current = view;
     editorState.current = state;
-    validateJSON({ view, state });
+    lintJSON({ view, state });
   };
 
   const { setContainer } = useCodeMirror({
@@ -111,15 +112,24 @@ export const JSONInput = ({
     const currentEditor = editor.current;
 
     if (currentEditor) {
-      setContainer(editor.current);
+      setContainer(currentEditor);
     }
-  }, [setContainer]);
+  }, [setContainer, hasError]);
 
   return (
     <Field error={error} hint={hint} required={required}>
       <Stack spacing={1}>
         {label && <FieldLabel action={labelAction}>{label}</FieldLabel>}
-        <JSONInputContainer ref={editor} hasError={error} hasRadius alignItems="stretch" fontSize={2} {...boxProps} />
+        <JSONInputContainer
+          id="test"
+          ref={editor}
+          hasError={hasError}
+          borderColor={hasError ? 'danger600' : 'neutral200'}
+          hasRadius
+          alignItems="stretch"
+          fontSize={2}
+          {...boxProps}
+        />
         <FieldError />
         <FieldHint />
       </Stack>
