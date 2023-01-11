@@ -16,10 +16,6 @@ export const JSONInputContainer = styled(Flex)`
     border: 1px solid ${({ theme, hasError }) => (hasError ? theme.colors.danger600 : theme.colors.neutral200)};
     // inputFocusStyle will receive hasError prop
     ${inputFocusStyle()}
-
-    .cm-scroller {
-      overflow: auto;
-    }
   }
 
   .cm-editor,
