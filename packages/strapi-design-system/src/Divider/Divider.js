@@ -6,6 +6,8 @@ import { Box } from '../Box';
 const DividerWrapper = styled(Box)`
   height: 1px;
   border: none;
+  /* If contained in a Flex parent we want to prevent the Divider to shink */
+  flex-shrink: 0;
   ${({ unsetMargin }) => (unsetMargin ? 'margin: 0;' : '')}
 `;
 
