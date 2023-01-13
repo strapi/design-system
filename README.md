@@ -69,6 +69,8 @@ $ git reset --hard
 
 ## Linking the design system
 
+If you want to analyze the admin bundle and the impact each library has on the over all application, link this repo to your copy of the strapi monorepo or your own strapi application or plugin
+
 ### Application or Plugin
 
 First, run `yarn build` in `strapi-design-system/packages/strapi-design-system` to generate the bundle.
@@ -77,7 +79,7 @@ You can link the design system using either a [relative path](#relative-path) or
 
 ### Strapi monorepo
 
-To link the design system to the Strapi monorepo follow the steps outlined in the [contributor documentation](https://contributor.strapi.io/)
+To link the design system to the Strapi monorepo follow the steps outlined in the [contributor documentation](https://contributor.strapi.io//core/admin/link-strapi-design-system)
 
 ### Relative path
 
