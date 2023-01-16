@@ -7,7 +7,6 @@ import { TextInput } from '../TextInput';
 import { DatePickerButton, DatePickerWrapper, IconBox } from './components';
 import { DatePickerCalendar } from './DatePickerCalendar';
 import { formatDate } from './utils/formatDate';
-import { useId } from '../helpers/useId';
 import { getDefaultLocale } from '../helpers/getDefaultLocale';
 
 export const DatePicker = ({
@@ -26,7 +25,6 @@ export const DatePicker = ({
   maxDate,
   ...props
 }) => {
-  const generatedId = useId('datepicker', id);
   const [visible, setVisible] = useState(false);
   const inputRef = useRef(null);
   const datePickerButtonRef = useRef(null);
@@ -84,7 +82,7 @@ export const DatePicker = ({
         label={label}
         aria-label={ariaLabel}
         disabled={disabled}
-        id={generatedId}
+        id={id}
         {...props}
       />
 
@@ -115,6 +113,7 @@ DatePicker.defaultProps = {
   minDate: undefined,
   maxDate: undefined,
   onClear: undefined,
+  parentFieldId: undefined,
   placeholder: undefined,
   selectedDate: undefined,
   size: 'M',
@@ -132,6 +131,7 @@ DatePicker.propTypes = {
   minDate: PropTypes.instanceOf(Date),
   onChange: PropTypes.func.isRequired,
   onClear: PropTypes.func,
+  parentFieldId: PropTypes.string,
   placeholder: PropTypes.string,
   selectedDate: PropTypes.instanceOf(Date),
   selectedDateLabel: PropTypes.func.isRequired,
