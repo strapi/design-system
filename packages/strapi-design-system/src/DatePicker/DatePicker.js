@@ -7,12 +7,10 @@ import { TextInput } from '../TextInput';
 import { DatePickerButton, DatePickerWrapper, IconBox } from './components';
 import { DatePickerCalendar } from './DatePickerCalendar';
 import { formatDate } from './utils/formatDate';
-import { useId } from '../helpers/useId';
 import { getDefaultLocale } from '../helpers/getDefaultLocale';
 
 export const DatePicker = ({
   ariaLabel,
-  parentFieldId,
   initialDate,
   selectedDate,
   onChange,
@@ -25,10 +23,6 @@ export const DatePicker = ({
   id,
   ...props
 }) => {
-  const internalGeneratedId = useId('datepicker', id);
-  // when used in a DateTimePicker, we want DatePicker input to use DateTimePicker id
-  // it allows accessibility feature as focusing the input when clicking on the label
-  const generatedId = parentFieldId ?? internalGeneratedId;
   const [visible, setVisible] = useState(false);
   const inputRef = useRef(null);
   const datePickerButtonRef = useRef(null);
@@ -86,7 +80,7 @@ export const DatePicker = ({
         label={label}
         aria-label={ariaLabel}
         disabled={disabled}
-        id={generatedId}
+        id={id}
         {...props}
       />
 

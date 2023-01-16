@@ -119,7 +119,7 @@ export const DateTimePicker = ({
           <DatePicker
             data-testid="datetimepicker-date"
             // DateTimePicker sharing its Field id to DatePicker component
-            parentFieldId={generatedId}
+            id={generatedId}
             name={name}
             ariaLabel={label || ariaLabel}
             error={typeof error === 'string'}
