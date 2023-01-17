@@ -5,8 +5,7 @@ import { Stack } from '../Stack';
 import { Box } from '../Box';
 
 const BoxGrow = styled(Box)`
-  flex: 1 1 auto;
-  max-height: 100%;
+  flex-grow: 1;
   overflow-y: scroll;
 `;
 
