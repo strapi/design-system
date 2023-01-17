@@ -66,6 +66,7 @@ const CustomBadge = styled(Badge)`
     condensed &&
     `
 	  position: absolute;
+    // Values based on visual aspect 
     top: -${theme.spaces[3]};
     right:  -${theme.spaces[1]};
   `}
