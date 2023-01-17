@@ -9,10 +9,6 @@ import { useMainNav } from './MainNavContext';
 import { VisuallyHidden } from '../../VisuallyHidden';
 
 const NavUserBox = styled(Box)`
-  text-decoration: none;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
   border-top: 1px solid ${({ theme }) => theme.colors.neutral150};
 `;
 
