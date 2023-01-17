@@ -10,9 +10,6 @@ const MainNavWrapper = styled(Flex)`
   position: sticky;
   top: 0;
   height: 100vh;
-  overflow-y: auto;
-  /* That doesn't work, overflow-y auto still hides the condensed toggle button when on condensed state */
-  overflow-x: visible;
   z-index: 2;
   border-right: 1px solid ${({ theme }) => theme.colors.neutral150};
 `;

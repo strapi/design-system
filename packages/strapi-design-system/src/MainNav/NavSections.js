@@ -5,7 +5,9 @@ import { Stack } from '../Stack';
 import { Box } from '../Box';
 
 const BoxGrow = styled(Box)`
-  flex-grow: 1;
+  flex: 1 1 auto;
+  max-height: 100%;
+  overflow-y: scroll;
 `;
 
 export const NavSections = ({ children, ...props }) => {
