@@ -62,13 +62,13 @@ const MainNavRow = styled(Flex)`
 `;
 
 const CustomBadge = styled(Badge)`
-  ${({ condensed }) =>
+  ${({ theme, condensed }) =>
     condensed &&
     `
 	  position: absolute;
-    transform: translate(35%, -50%);
-    top: 0;
-    right: 0;
+    // Values based on visual aspect 
+    top: -${theme.spaces[3]};
+    right:  -${theme.spaces[1]};
   `}
 
   ${Typography} {

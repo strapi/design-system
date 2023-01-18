@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Grid } from '../Grid';
+import { Flex } from '../Flex';
 import { MainNavContext } from './MainNavContext';
 
-const MainNavWrapper = styled(Grid)`
+const MainNavWrapper = styled(Flex)`
   width: ${({ condensed }) => (condensed ? 'max-content' : `${224 / 16}rem`)};
   background: ${({ theme }) => theme.colors.neutral0};
   position: sticky;
@@ -17,7 +17,7 @@ const MainNavWrapper = styled(Grid)`
 export const MainNav = ({ condensed, ...props }) => {
   return (
     <MainNavContext.Provider value={condensed}>
-      <MainNavWrapper as="nav" condensed={condensed} {...props} />
+      <MainNavWrapper alignItems="normal" direction="column" as="nav" condensed={condensed} {...props} />
     </MainNavContext.Provider>
   );
 };

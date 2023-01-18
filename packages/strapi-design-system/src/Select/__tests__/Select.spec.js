@@ -282,7 +282,7 @@ describe('Select', () => {
             class="c0 c1"
             spacing="1"
           >
-            <span
+            <label
               class="c2"
               for="select-1"
             >
@@ -291,7 +291,7 @@ describe('Select', () => {
               >
                 Choose your meal
               </div>
-            </span>
+            </label>
             <div
               class="c3 c4"
             >
@@ -300,7 +300,7 @@ describe('Select', () => {
                 aria-disabled="false"
                 aria-expanded="true"
                 aria-haspopup="listbox"
-                aria-labelledby="select-1-label select-1-content"
+                aria-labelledby="select-1 select-1-label select-1-content"
                 class="c5"
                 id="select-1"
                 type="button"
@@ -775,7 +775,7 @@ describe('Select', () => {
             class="c0 c1"
             spacing="1"
           >
-            <span
+            <label
               class="c2"
               for="select-3"
             >
@@ -784,7 +784,7 @@ describe('Select', () => {
               >
                 Choose your meal
               </div>
-            </span>
+            </label>
             <div
               class="c3 c4"
             >
@@ -793,7 +793,7 @@ describe('Select', () => {
                 aria-disabled="false"
                 aria-expanded="true"
                 aria-haspopup="listbox"
-                aria-labelledby="select-3-label select-3-content"
+                aria-labelledby="select-3 select-3-label select-3-content"
                 class="c5"
                 id="select-3"
                 type="button"
