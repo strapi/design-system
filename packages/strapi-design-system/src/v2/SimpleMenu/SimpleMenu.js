@@ -135,6 +135,7 @@ export const SimpleMenu = ({
   onClose = () => {},
   size,
   popoverPlacement,
+  onReachEnd,
   ...props
 }) => {
   const menuButtonRef = useRef();
@@ -145,6 +146,7 @@ export const SimpleMenu = ({
   const childrenArray = Children.toArray(children);
   const DefaultComponent = size === 'S' ? StyledButtonSmall : Button;
   const Component = asComp || DefaultComponent;
+  const shouldHandleReachEnd = !!onReachEnd && typeof onReachEnd === 'function';
 
   useEffect(() => {
     if (['string', 'number'].includes(typeof label)) {
@@ -220,6 +222,12 @@ export const SimpleMenu = ({
     setVisible((prevVisible) => !prevVisible);
   };
 
+  const handleReachEnd = () => {
+    if (shouldHandleReachEnd) {
+      onReachEnd();
+    }
+  };
+
   const childrenClone = childrenArray.map((child, index) => (
     // eslint-disable-next-line react/no-array-index-key
     <Flex as="li" key={index} justifyContent="center" role="menuitem">
@@ -258,7 +266,14 @@ export const SimpleMenu = ({
         {label}
       </Component>
       {visible && (
-        <Popover onBlur={handleBlur} placement={popoverPlacement} source={menuButtonRef} spacing={4}>
+        <Popover
+          onBlur={handleBlur}
+          placement={popoverPlacement}
+          source={menuButtonRef}
+          onReachEnd={handleReachEnd}
+          intersectionId={shouldHandleReachEnd ? `popover-${menuId}` : undefined}
+          spacing={4}
+        >
           <Box role="menu" as="ul" padding={1} id={menuId}>
             {childrenClone}
           </Box>
@@ -278,6 +293,7 @@ SimpleMenu.defaultProps = {
   id: undefined,
   onClose() {},
   onOpen() {},
+  onReachEnd: undefined,
   popoverPlacement: 'bottom-start',
   size: 'M',
 };
@@ -289,6 +305,10 @@ SimpleMenu.propTypes = {
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.element]).isRequired,
   onClose: PropTypes.func,
   onOpen: PropTypes.func,
+  /**
+   * Callback function to be called when the popover reaches the end of the scrollable content
+   */
+  onReachEnd: PropTypes.func,
   popoverPlacement: PropTypes.oneOf(POPOVER_PLACEMENTS),
 
   /**
