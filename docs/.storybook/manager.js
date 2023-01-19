@@ -1,5 +1,5 @@
 import { addons } from '@storybook/addons';
-import { lightTheme } from '../src/themes/lightTheme';
+import { lightTheme } from '@strapi/design-system';
 import { createCustomTheme } from './utils/createCustomTheme';
 
 addons.setConfig({

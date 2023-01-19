@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDarkMode } from 'storybook-dark-mode';
 import { parse } from 'qs';
-import { ThemeProvider } from '../../src/ThemeProvider';
-import { Box } from '../../src/Box';
-import { lightTheme } from '../../src/themes/lightTheme';
-import { darkTheme } from '../../src/themes/darkTheme';
+import { ThemeProvider, Box, lightTheme, darkTheme } from '@strapi/design-system';
 
 const themeQueryURL = parse(document.location.search).theme;
 

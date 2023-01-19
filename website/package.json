@@ -1,5 +1,5 @@
 {
-  "name": "website",
+  "name": "@strapi/design-system-website",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,8 +10,8 @@
     "lint-staged": "eslint --fix"
   },
   "dependencies": {
-    "@strapi/design-system": "1.2.8",
-    "@strapi/icons": "1.2.8",
+    "@strapi/design-system": "*",
+    "@strapi/icons": "*",
     "gray-matter": "^4.0.3",
     "next": "^13.0.3",
     "next-mdx-remote": "^3.0.8",

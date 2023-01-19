@@ -1,12 +1,10 @@
 import React from 'react';
-import { themes } from '@storybook/theming';
+import { MemoryRouter } from 'react-router-dom';
+
+import { VisuallyHidden, Box, darkTheme, lightTheme } from '@strapi/design-system';
+
 import { createCustomTheme } from './utils/createCustomTheme';
 import Theme from './components/Theme';
-import { darkTheme } from '../src/themes/darkTheme';
-import { lightTheme } from '../src/themes/lightTheme';
-import { MemoryRouter } from 'react-router-dom';
-import { VisuallyHidden } from '../src/VisuallyHidden';
-import { Box } from '../src/Box';
 
 export const parameters = {
   options: {
