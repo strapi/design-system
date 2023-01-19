@@ -20,11 +20,13 @@ import { DownState } from './constants';
 import { escapeSelector } from '../helpers/escapeSelector';
 import { SelectTags } from './SelectTags';
 
+import { SingleSelect } from './SingleSelect';
+
 const MainRow = styled(Flex)`
   width: 100%;
 `;
 
-export const Select = ({
+const SelectWithTags = ({
   label,
   labelAction,
   id,
@@ -268,6 +270,9 @@ export const Select = ({
   );
 };
 
+export const Select = ({ withTags, ...restProps }) =>
+  withTags ? <SelectWithTags withTags {...restProps} /> : <SingleSelect {...restProps} />;
+
 Select.defaultProps = {
   'aria-label': undefined,
   children: [],
@@ -319,3 +324,7 @@ Select.propTypes = {
   ]),
   withTags: PropTypes.bool,
 };
+
+SelectWithTags.defaultProps = Select.defaultProps;
+
+SelectWithTags.propTypes = Select.propTypes;
