@@ -6,7 +6,7 @@ import { Box } from '../../Box';
 
 const BoxGrow = styled(Box)`
   flex-grow: 1;
-  overflow-y: scroll;
+  overflow-y: auto;
 `;
 
 export const NavSections = ({ children, ...props }) => {
