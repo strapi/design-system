@@ -6,8 +6,8 @@ import { inputFocusStyle } from '../themes/utils';
 export const MainRow = styled(Flex)`
   position: relative;
   border: 1px solid ${({ theme, hasError }) => (hasError ? theme.colors.danger600 : theme.colors.neutral200)};
-  padding-right: ${({ theme }) => theme.spaces[3]};
   padding-left: ${({ theme }) => theme.spaces[3]};
+  padding-right: ${({ theme }) => theme.spaces[1]};
   border-radius: ${({ theme }) => theme.borderRadius};
   background: ${({ theme }) => theme.colors.neutral0};
 
@@ -22,33 +22,24 @@ export const MainRow = styled(Flex)`
   ${inputFocusStyle()}
 `;
 
-export const ValueContainer = styled.div`
-  padding: 1px 2px;
-  grid-area: 1 / 1 / 2 / 3;
-`;
-
-export const InputContainer = styled(Flex)`
-  display: grid;
-  flex: 1 1 0%;
-  position: relative;
-`;
-
 export const Input = styled.input`
-  display: inline-grid;
-  grid-area: 1 / 1 / 2 / 3;
-  grid-template-columns: 0px min-content;
   background: transparent;
-  min-height: ${40 / 16}rem;
   border: none;
-  flex: 1;
+  outline: none;
+  display: block;
+  padding: 0;
+  width: 100%;
+  min-width: auto;
+  min-height: ${({ theme, size = 'M' }) => theme.sizes.input[size]};
   font-size: ${14 / 16}rem;
   color: ${({ theme }) => theme.colors.neutral800};
-  outline: none;
+
   &:focus-visible {
     outline: none;
     box-shadow: none;
     outline-offset: 0;
   }
+
   &[aria-disabled='true'] {
     background: inherit;
     color: inherit;

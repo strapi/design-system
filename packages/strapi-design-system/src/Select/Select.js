@@ -1,6 +1,6 @@
 import React, { Children, cloneElement, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import CarretDown from '@strapi/icons/CarretDown';
+import CaretDown from '@strapi/icons/CarretDown';
 import Cross from '@strapi/icons/Cross';
 import styled from 'styled-components';
 import { sizes } from '../themes/sizes';
@@ -219,13 +219,13 @@ export const Select = ({
                   aria-label={clearLabel}
                   aria-disabled={disabled}
                   title={clearLabel}
+                  inputSize={size}
                 >
                   <Cross />
                 </IconBox>
               )}
 
               <CaretBox
-                paddingLeft={3}
                 aria-hidden
                 as="button"
                 type="button"
@@ -233,8 +233,9 @@ export const Select = ({
                 tabIndex={-1}
                 disabled={disabled}
                 title={selectButtonTitle}
+                inputSize={size}
               >
-                <CarretDown />
+                <CaretDown />
               </CaretBox>
             </Flex>
           </MainRow>

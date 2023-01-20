@@ -1,9 +1,10 @@
 import React, { useEffect, useState, useRef, useLayoutEffect, Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
-import CarretDown from '@strapi/icons/CarretDown';
+import CaretDown from '@strapi/icons/CarretDown';
 import Cross from '@strapi/icons/Cross';
 import { useId } from '../helpers/useId';
 import { getActionFromKey, getUpdatedIndex, maintainScrollVisibility, MenuActions, filterOptions } from './utils';
+import { sizes } from '../themes/sizes';
 
 import { Flex } from '../Flex';
 import { CaretBox, IconBox } from '../Select/components';
@@ -11,7 +12,7 @@ import { Popover } from '../Popover';
 import { Box } from '../Box';
 import { Typography } from '../Typography';
 import { Loader } from '../Loader/Loader';
-import { Input, MainRow, ValueContainer, InputContainer } from './components';
+import { Input, MainRow } from './components';
 import { ComboboxOption } from './ComboboxOption';
 import { ComboboxList } from './ComboboxList';
 import { Field, FieldError, FieldHint, FieldLabel } from '../Field';
@@ -41,6 +42,7 @@ export const Combobox = ({
   placeholder,
   required,
   value,
+  size,
   ...props
 }) => {
   const getInputValueFromNodes = () =>
@@ -278,12 +280,21 @@ export const Combobox = ({
       </VisuallyHidden>
       <Stack spacing={label || hint || error ? 1 : 0}>
         {label && <FieldLabel action={labelAction}>{label}</FieldLabel>}
-        <MainRow ref={containerRef} $disabled={disabled} hasError={error}>
-          <InputContainer wrap="wrap">
+        <MainRow ref={containerRef} $disabled={disabled} hasError={error} alignItems="stretch">
+          <Flex position="relative" flex="1 auto">
             {!inputValue && value && (
-              <ValueContainer id={`${generatedId}-selected-value`}>
+              <Flex
+                id={`${generatedId}-selected-value`}
+                position="absolute"
+                top={0}
+                right={0}
+                bottom={0}
+                left={0}
+                alignItems="center"
+                justifyContent="start"
+              >
                 <Typography>{getInputValueFromNodes()}</Typography>
-              </ValueContainer>
+              </Flex>
             )}
             <Input
               aria-activedescendant={activeId}
@@ -308,32 +319,34 @@ export const Combobox = ({
               spellCheck="off"
               type="text"
               value={inputValue}
+              size={size}
             />
-          </InputContainer>
+          </Flex>
           <Flex>
             {(value || inputValue) && (
               <IconBox
-                id={`${generatedId}-clear`}
                 aria-label={clearLabel}
-                disabled={disabled}
-                paddingLeft={3}
                 as="button"
-                onClick={handleClear}
                 type="button"
+                inputSize={size}
+                disabled={disabled}
+                onClick={handleClear}
+                id={`${generatedId}-clear`}
               >
                 <Cross />
               </IconBox>
             )}
             <CaretBox
-              disabled={disabled}
-              paddingLeft={3}
               aria-hidden
               as="button"
-              onClick={handleCaretClick}
-              tabIndex={-1}
               type="button"
+              inputSize={size}
+              disabled={disabled}
+              onClick={handleCaretClick}
+              id={`${generatedId}-caret`}
+              tabIndex={-1}
             >
-              <CarretDown />
+              <CaretDown />
             </CaretBox>
           </Flex>
         </MainRow>
@@ -411,6 +424,7 @@ Combobox.defaultProps = {
   onLoadMore: undefined,
   placeholder: 'Select or enter a value',
   value: undefined,
+  size: 'M',
 };
 
 CreatableCombobox.defaultProps = Combobox.defaultProps;
@@ -437,6 +451,7 @@ Combobox.propTypes = {
   onLoadMore: PropTypes.func,
   placeholder: PropTypes.string,
   value: PropTypes.string,
+  size: PropTypes.oneOf(Object.keys(sizes.input)),
 };
 
 CreatableCombobox.propTypes = {

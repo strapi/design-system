@@ -81,6 +81,33 @@ Depending on the permissions a user have or the status of an action, a `Combobox
   </Story>
 </Canvas>
 
+### Combobox size S
+
+`Combobox` can be displayed with a smaller size.
+
+<Canvas>
+  <Story name="size S">
+    {() => {
+      const [value, setValue] = useState('');
+      return (
+        <Combobox
+          size="S"
+          label="Food"
+          value={value}
+          onChange={setValue}
+          placeholder="This is a content placeholder"
+          hint="Description line"
+        >
+          <ComboboxOption value="hamburger">Hamburger</ComboboxOption>
+          <ComboboxOption value="bagel">Bagel</ComboboxOption>
+          <ComboboxOption value="tartuffo">Tartuffo</ComboboxOption>
+          <ComboboxOption value="carbonara">Carbonara</ComboboxOption>
+        </Combobox>
+      );
+    }}
+  </Story>
+</Canvas>
+
 ### Error
 
 `Combobox` can display an error. The error message is customizable and replaces the description line below the input.
