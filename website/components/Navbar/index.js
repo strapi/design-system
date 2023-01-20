@@ -1,13 +1,11 @@
+import Link from 'next/link';
+import Image from 'next/image';
+import PropTypes from 'prop-types';
+import { Discourse, Github } from '@strapi/icons';
+import { SubNav, SubNavSections, Box, Icon } from '@strapi/design-system';
+
 import NavSection from 'components/NavSection';
 import StyledLink from 'components/StyledLink';
-import Link from 'next/link';
-import PropTypes from 'prop-types';
-import { SubNav, SubNavSections } from '@strapi/design-system/SubNav';
-import { Box } from '@strapi/design-system/Box';
-import { Icon } from '@strapi/design-system/Icon';
-import Discourse from '@strapi/icons/Discourse';
-import Github from '@strapi/icons/Github';
-import Image from 'next/image';
 
 const Navbar = ({ navigationContent }) => {
   return (

@@ -22,7 +22,7 @@
   },
   "peerDependencies": {},
   "scripts": {
-    "build-storybook": "build-storybook",
+    "build": "build-storybook",
     "develop": "start-storybook -p 6006"
   }
 }

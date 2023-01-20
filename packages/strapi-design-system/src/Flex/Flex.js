@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
@@ -13,7 +13,7 @@ const transientProps = {
   direction: true,
 };
 
-export const Flex = (props) => <FlexImpl {...props} />;
+export const Flex = React.forwardRef((props, ref) => <FlexImpl ref={ref} {...props} />);
 
 const FlexImpl = styled(Box).withConfig({
   shouldForwardProp: (prop, defPropValFN) => !transientProps[prop] && defPropValFN(prop),

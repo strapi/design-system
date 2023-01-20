@@ -11,7 +11,7 @@ const transientProps = {
   color: true,
 };
 
-export const Box = (props) => <BoxImpl {...props} />;
+export const Box = React.forwardRef((props, ref) => <BoxImpl ref={ref} {...props} />);
 
 const BoxImpl = styled.div.withConfig({
   shouldForwardProp: (prop, defPropValFN) => !transientProps[prop] && defPropValFN(prop),

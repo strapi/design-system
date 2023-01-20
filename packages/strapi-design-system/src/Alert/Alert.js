@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Information from '@strapi/icons/Information';
-import CheckCircle from '@strapi/icons/CheckCircle';
-import ExclamationMarkCircle from '@strapi/icons/ExclamationMarkCircle';
-import Cross from '@strapi/icons/Cross';
+import { Information, CheckCircle, ExclamationMarkCircle, Cross } from '@strapi/icons';
+
 import { Box } from '../Box';
 import { Typography } from '../Typography';
 import { Flex } from '../Flex';

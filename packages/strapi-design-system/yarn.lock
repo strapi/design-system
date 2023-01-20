@@ -957,11 +957,6 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@strapi/icons@^1.5.0":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@strapi/icons/-/icons-1.5.0.tgz#44548bbc8d68753ba7782e69042096ddf24a7da9"
-  integrity sha512-eKTwNMW1kJxSjzXgLp616chbxNFz5f/rsd9VuWOaLzqn3Eg0B4DcflmpGGPLE+YJ65MxWvYUlYrJIluqrbYgsA==
-
 "@swc/core-android-arm-eabi@1.3.11":
   version "1.3.11"
   resolved "https://registry.yarnpkg.com/@swc/core-android-arm-eabi/-/core-android-arm-eabi-1.3.11.tgz#a0a3f0231922f5e6c1cc7248dd38b379e8074d7d"

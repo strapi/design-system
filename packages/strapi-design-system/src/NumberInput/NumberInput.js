@@ -2,7 +2,7 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import CarretDown from '@strapi/icons/CarretDown';
+import { CarretDown } from '@strapi/icons';
 import { NumberFormatter, NumberParser } from '@internationalized/number';
 
 import { Field, FieldLabel, FieldHint, FieldError, FieldInput } from '../Field';

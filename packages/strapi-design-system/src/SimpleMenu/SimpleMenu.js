@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { useCallbackRef } from '@radix-ui/react-use-callback-ref';
-import CarretDown from '@strapi/icons/CarretDown';
+import { CarretDown } from '@strapi/icons';
 
 import { Typography } from '../Typography';
 import { Link } from '../Link';

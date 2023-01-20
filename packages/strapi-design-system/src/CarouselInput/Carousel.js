@@ -1,8 +1,8 @@
 import React, { Children, cloneElement, useRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import ChevronRight from '@strapi/icons/ChevronRight';
-import ChevronLeft from '@strapi/icons/ChevronLeft';
+import { ChevronRight, ChevronLeft } from '@strapi/icons';
+
 import { Icon } from '../Icon';
 import { Box } from '../Box';
 import { Typography } from '../Typography';
