@@ -38,7 +38,6 @@
     "jest-environment-jsdom": "^29.2.2",
     "jest-styled-components": "^7.1.1",
     "react": "^17.0.1",
-    "react-copy-to-clipboard": "^5.0.4",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
     "styled-components": "^5.2.1"
@@ -51,7 +50,7 @@
     "styled-components": "^5.2.1"
   },
   "scripts": {
-    "dev": "vite",
+    "develop": "vite build --watch",
     "prebuild": "rimraf dist",
     "build": "yarn build:prod",
     "build:prod": "vite build",

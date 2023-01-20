@@ -1,11 +1,9 @@
 <!--- Card.stories.mdx --->
 
-import { Meta, Story, Canvas } from '@storybook/addon-docs';
-import { ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+
 import { Pencil } from '@strapi/icons';
 import { Box, Card, CardContent, CardAsset, CardBadge, CardTitle, CardSubtitle, CardBody, CardHeader, CardAction, CardCheckbox, CardTimer, IconButton, KeyboardNavigable } from '@strapi/design-system';
-// Story assets
-import firstImgPath from './story-assets/first.jpg';
 
 <Meta title="Design System/Components/Card" component={Card} />
 
@@ -53,7 +51,7 @@ Cards are used to gather a set of related information.
         <CardAction position="end">
           <IconButton label="Edit the thing" icon={<Pencil />} />
         </CardAction>
-        <CardAsset src={firstImgPath} />
+        <CardAsset src={'/first.jpg'} />
         <CardTimer>05:39</CardTimer>
       </CardHeader>
       <CardBody>
@@ -76,7 +74,7 @@ Cards can be used without actions by removing the `CardAction` block.
     <Card style={{ width: '240px' }} id="second">
       <CardHeader>
         <CardCheckbox value />
-        <CardAsset src={firstImgPath} />
+        <CardAsset src={'/first.jpg'} />
         <CardTimer>05:39</CardTimer>
       </CardHeader>
       <CardBody>
@@ -124,7 +122,7 @@ The `CardTimer` can be removed as well as the `CardAction` block.
     <Card style={{ width: '240px' }} id="third">
       <CardHeader>
         <CardCheckbox value />
-        <CardAsset src={firstImgPath} />
+        <CardAsset src={'/first.jpg'} />
       </CardHeader>
       <CardBody>
         <CardContent>

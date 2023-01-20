@@ -1,12 +1,10 @@
 <!--- CarouselInput.stories.mdx --->
 
-import { Meta, Story, Canvas } from '@storybook/addon-docs';
-import { ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+
 import { useState } from 'react';
 import { Pencil, Play, Trash, Plus } from '@strapi/icons';
 import { CarouselInput, CarouselSlide, CarouselImage, CarouselActions, IconButton } from '@strapi/design-system';
-
-import firstPathImg from './story-assets/first.jpg';
 
 <Meta title="Design System/Components/CarouselInput" component={CarouselInput} />
 
@@ -67,13 +65,13 @@ to another. It has an infinite loop. A set of actions is possible via Icon Butto
           style={{ width: '242px' }}
         >
           <CarouselSlide label="1 of 3 slides">
-            <CarouselImage src={firstPathImg} alt="First" />
+            <CarouselImage src={'/first.jpg'} alt="First" />
           </CarouselSlide>
           <CarouselSlide label="2 of 3 slides">
-            <CarouselImage src={firstPathImg} alt="second" />
+            <CarouselImage src={'/first.jpg'} alt="second" />
           </CarouselSlide>
           <CarouselSlide label="3 of 3 slides">
-            <CarouselImage src={firstPathImg} alt="third" />
+            <CarouselImage src={'/first.jpg'} alt="third" />
           </CarouselSlide>
         </CarouselInput>
       );
@@ -101,7 +99,7 @@ to another. It has an infinite loop. A set of actions is possible via Icon Butto
           style={{ width: '242px' }}
         >
           <CarouselSlide label="1 of 1 slides">
-            <CarouselImage src={firstPathImg} alt="First" />
+            <CarouselImage src={'/first.jpg'} alt="First" />
           </CarouselSlide>
         </CarouselInput>
       );

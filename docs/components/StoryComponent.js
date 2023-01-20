@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button } from '../Button';
-import { useNotifyAT } from './useNotifyAT';
+import { Button, useNotifyAT } from '@strapi/design-system';
 
 // This component exist to demonstrate the unmounting effect of the hook
 // in a condition, in the storybook

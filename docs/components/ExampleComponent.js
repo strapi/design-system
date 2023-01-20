@@ -1,13 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
-import Cross from '@strapi/icons/Cross';
-import { Box } from '../Box';
-import { Stack } from '../Stack';
-import { Typography } from '../Typography';
-import { Button } from '../Button';
-import { Flex } from '../Flex';
-
-import { FocusTrap } from './FocusTrap';
+import { Cross } from '@strapi/icons';
+import { Box, Stack, Typography, Button, Flex, FocusTrap } from '@strapi/design-system';
 
 const TrappedComponent = ({ onClose }) => {
   const [newLastVisible, setNewLastVisible] = useState(false);

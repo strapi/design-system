@@ -1,12 +1,10 @@
 <!--- MainNav.stories.mdx --->
 
 import { useState } from 'react';
-import { Meta, Story, Canvas } from '@storybook/addon-docs';
-import { ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+
 import { Write, Layer, Landscape, Information, Puzzle, ShoppingCart, Cog } from '@strapi/icons';
 import { MainNav, NavSection, NavSections, NavCondense, NavLink, NavFooter, NavUser, NavBrand, Box, Divider } from '@strapi/design-system';
-
-import strapiImage from './strapi-img.png';
 
 <Meta title="Design System/Components/MainNav" component={MainNav} />
 
@@ -59,7 +57,7 @@ important actions.
       return (
         <Box background="neutral100" height="100vh" paddingLeft={10}>
           <MainNav condensed={condensed}>
-            <NavBrand workplace="Workplace" title="Strapi Dashboard" icon={<img src={strapiImage} alt="" />} />
+            <NavBrand workplace="Workplace" title="Strapi Dashboard" icon={<img src={'/strapi-img.png'} alt="" />} />
             <Divider />
             <NavSections>
               <NavLink to="/cm" icon={<Write />} className="active">

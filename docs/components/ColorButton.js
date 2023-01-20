@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Box } from '../Box';
-import { Typography } from '../Typography';
+import { Box, Typography } from '@strapi/design-system';
 
 const StyledBox = styled(Box)`
   background: ${({ color }) => color};
