@@ -1,0 +1,73 @@
+<!--- LiveRegions.stories.mdx --->
+
+import { useState } from 'react';
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { LiveRegions, StoryComponent, Stack, Button } from '@strapi/design-system';
+
+<Meta title="Design System/Components/LiveRegions" component={LiveRegions} />
+
+# LiveRegions
+
+This is the doc of the `LiveRegions` component.
+
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/LiveRegions)
+
+## Imports
+
+```js
+import { LiveRegions } from '@strapi/design-system';
+```
+
+## useNotifyAT log
+
+<Canvas>
+  <Story name="log">
+    {() => {
+      const [visible, setVisible] = useState(true);
+      return (
+        <Stack spacing={3}>
+          <Button onClick={() => setVisible((isVisible) => !isVisible)}>
+            {visible ? 'Hide button' : 'Show button'}
+          </Button>
+          {visible ? <StoryComponent notifyType="log" /> : null}
+        </Stack>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## useNotifyAT error
+
+<Canvas>
+  <Story name="alert">
+    {() => {
+      const [visible, setVisible] = useState(true);
+      return (
+        <Stack spacing={3}>
+          <Button onClick={() => setVisible((isVisible) => !isVisible)}>
+            {visible ? 'Hide button' : 'Show button'}
+          </Button>
+          {visible ? <StoryComponent notifyType="alert" /> : null}
+        </Stack>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## useNotifyAT status
+
+<Canvas>
+  <Story name="status">
+    {() => {
+      const [visible, setVisible] = useState(true);
+      return (
+        <Stack spacing={3}>
+          <Button onClick={() => setVisible((isVisible) => !isVisible)}>
+            {visible ? 'Hide button' : 'Show button'}
+          </Button>
+          {visible ? <StoryComponent notifyType="status" /> : null}
+        </Stack>
+      );
+    }}
+  </Story>
+</Canvas>

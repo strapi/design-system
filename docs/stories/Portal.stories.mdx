@@ -1,0 +1,32 @@
+<!--- Portal.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { Portal, Typography } from '@strapi/design-system';
+
+<Meta title="Design System/Technical Components/Portal" component={Portal} />
+
+# Portal
+
+This is the doc of the `Portal` component
+
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Portal)
+
+## Imports
+
+```js
+import { Portal } from '@strapi/design-system';
+```
+
+## Usage
+
+Creates a portal using a Declarative API
+
+<Canvas>
+  <Story name="base">
+    <Portal>
+      <aside>
+        <Typography>This is rendered outside the root react app</Typography>
+      </aside>
+    </Portal>
+  </Story>
+</Canvas>

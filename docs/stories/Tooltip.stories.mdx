@@ -1,0 +1,126 @@
+<!--- Tooltip.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { ArgsTable } from '@storybook/addon-docs';
+import { Tooltip, Grid, GridItem, Typography } from '@strapi/design-system';
+
+<Meta title="Design System/Components/Tooltip" component={Tooltip} />
+
+# Tooltip
+
+Tooltips are floating labels that display additional information upon hover of an element.
+
+**Best practices**
+
+- The tooltip should remain as long as the mouse is not moved.
+- The tooltip should provide additional useful details.
+- The tooltip should not be used to provide critical or urgent information.
+- Tooltip shouldn't be longer or wider than 400px.
+- Tooltips should be used sparingly.
+  [View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Tooltip)
+
+## Imports
+
+```js
+import { Tooltip } from '@strapi/design-system';
+```
+
+## Usage
+
+Tooltips are used to show the full version of truncated text or is a way to display further information about an
+element. The tooltip will appear on top of adjacent text.
+
+<Canvas withSource="open">
+  <Story name="base">
+    <div>
+      <Typography>
+        An infinite amount of content to place correctly the tooltip. Lorem ipsum dolor sit amet, consectetur adipiscing
+        elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+        sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </Typography>
+      <Tooltip description="Content of the tooltip">
+        <Typography>Show tooltip</Typography>
+      </Tooltip>
+      <Typography>
+        An infinite amount of content to place correctly the tooltip. Lorem ipsum dolor sit amet, consectetur adipiscing
+        elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+        sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </Typography>
+    </div>
+  </Story>
+</Canvas>
+
+### Tooltip with smaller text or longer description
+
+Tootips work with longer texts as well.
+
+<Canvas withSource="open">
+  <Story name="with text inside">
+    <div>
+      <Tooltip description="Smaller">
+        <Typography>Show tooltip</Typography>
+      </Tooltip>
+    </div>
+    <div>
+      <Tooltip
+        description="Excepteur sint occaecat cupidatat non proident, sunt
+        in culpa qui officia deserunt mollit anim id est laborum."
+      >
+        <button>
+          <Typography>A longer CTA with longer content</Typography>
+        </button>
+      </Tooltip>
+    </div>
+  </Story>
+</Canvas>
+
+### Alternative positioning
+
+You can change the position of the tooltip by changing the `position` parameter. The default position is `top`.
+
+<Canvas withSource="open">
+  <Story name="grid">
+    <Grid gap={4} padding={4}>
+      <GridItem col={3}>
+        <Tooltip description="Tootips are neat.">
+          <button>
+            <Typography>Default tooltip</Typography>
+          </button>
+        </Tooltip>
+      </GridItem>
+      <GridItem col={3}>
+        <Tooltip description="Tootips are neat." position="bottom">
+          <button>
+            <Typography>Bottom</Typography>
+          </button>
+        </Tooltip>
+      </GridItem>
+      <GridItem col={3}>
+        <Tooltip description="Tootips are neat." position="right">
+          <button>
+            <Typography>Right</Typography>
+          </button>
+        </Tooltip>
+      </GridItem>
+      <GridItem col={3}>
+        <Tooltip description="Tootips are neat." position="left">
+          <button>
+            <Typography>Left</Typography>
+          </button>
+        </Tooltip>
+      </GridItem>
+    </Grid>
+  </Story>
+</Canvas>
+
+## Props
+
+The Tooltip component wraps all its children in the
+(Box)[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base]
+component, so you can pass all Box props to change its style.
+
+<ArgsTable of={Tooltip} />

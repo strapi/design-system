@@ -1,0 +1,151 @@
+<!--- IconButton.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { ArgsTable } from '@storybook/addon-docs';
+import { useState } from 'react';
+
+import { Pencil, Play, Trash, Plus } from '@strapi/icons';
+import { IconButton, IconButtonGroup, Box, Flex, Typography } from '@strapi/design-system';
+
+<Meta title="Design System/Components/IconButton" component={IconButton} />
+
+# IconButton
+
+Icon Buttons are a way to perform actions within a page, a table or another object. They help interact with its content
+via a single click in small page portion. According to their minimal style, they help understand the most important
+actions to take.
+
+**Best practices**
+
+- Icon Buttons do not have labels.
+- A Tooltip should be displayed at hover.
+- Icon Buttons can be used within a group form whenever the action are related.
+- Icon Buttons can be displayed next to each others whenever the actions are distinct.
+- In Table component, avoid using a border.
+- The icon chosen to represent the action should be perfectly explicit.
+  [View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/IconButton)
+
+## Imports
+
+```js
+import { IconButton, IconButtonGroup } from '@strapi/design-system';
+```
+
+## Usage
+
+Icon Buttons are used to perform actions within a page, a table or another object. They have the advantage of being
+minimal and by so, efficient in small areas. Icon Buttons should be associated with Tooltips.
+
+<Canvas>
+  <Story name="base">
+    {() => {
+      const [currentAction, setCurrentAction] = useState('None Selected');
+      return (
+        <Box padding={7}>
+          <Box paddingBottom={3}>
+            <Typography>{currentAction}</Typography>
+          </Box>
+          <Flex>
+            <IconButton onClick={() => setCurrentAction('edit')} label="Edit" icon={<Pencil />} />
+            <IconButton onClick={() => setCurrentAction('Create')} label="Create" icon={<Plus />} />
+            <IconButton onClick={() => setCurrentAction('Delete')} label="Delete" icon={<Trash />} />
+            <IconButton onClick={() => setCurrentAction('Publish')} label="Publish" icon={<Play />} />
+          </Flex>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### IconButton Disabled
+
+Depending on the status of an action or the permissions, an IconButton can be unaccessible or unreachable yet.
+
+<Canvas>
+  <Story name="disabled">
+    {() => {
+      const [currentAction, setCurrentAction] = useState('None Selected');
+      return (
+        <Box padding={7}>
+          <Box paddingBottom={3}>
+            <Typography>{currentAction}</Typography>
+          </Box>
+          <Flex>
+            <IconButton disabled onClick={() => setCurrentAction('edit')} label="Edit" icon={<Pencil />} />
+            <IconButton disabled onClick={() => setCurrentAction('Create')} label="Create" icon={<Plus />} />
+            <IconButton disabled onClick={() => setCurrentAction('Delete')} label="Delete" icon={<Trash />} />
+            <IconButton disabled onClick={() => setCurrentAction('Publish')} label="Publish" icon={<Play />} />
+          </Flex>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### IconButton Disabled
+
+An Icon button without the tooltip. It can be interesting to rely on this component to avoid showing a tooltip when
+focusing the modals close button. **However, when not using a label, the developer should add an explicit aria-label to
+the button.**
+
+<Canvas>
+  <Story name="without tooltip">
+    <Box padding={7}>
+      <IconButton onClick={() => console.log('edit')} aria-label="Edit" icon={<Pencil />} />
+    </Box>
+  </Story>
+</Canvas>
+
+### IconButtonGroup
+
+IconButtons can be used within another component is a Group shape.
+
+<Canvas>
+  <Story name="group">
+    <Box padding={7}>
+      <IconButtonGroup>
+        <IconButton onClick={() => console.log('edit')} label="Edit" icon={<Pencil />} />
+        <IconButton onClick={() => console.log('Create')} label="Create" icon={<Plus />} />
+        <IconButton onClick={() => console.log('Delete')} label="Delete" icon={<Trash />} />
+        <IconButton onClick={() => console.log('Publish')} label="Publish" icon={<Play />} />
+      </IconButtonGroup>
+    </Box>
+  </Story>
+</Canvas>
+
+### Icons as Children & aria-label
+
+IconButtons can take Icons as their children and can be fully accessible without a tooltip.
+
+<Canvas>
+  <Story name="children">
+    {() => {
+      const [currentAction, setCurrentAction] = useState('None Selected');
+      return (
+        <Box padding={7}>
+          <Box paddingBottom={3}>
+            <Typography>{currentAction}</Typography>
+          </Box>
+          <Flex>
+            <IconButton onClick={() => setCurrentAction('Edit')} aria-label="Edit">
+              <Pencil />
+            </IconButton>
+            <IconButton onClick={() => setCurrentAction('Create')} aria-label="Create">
+              <Plus />
+            </IconButton>
+            <IconButton onClick={() => setCurrentAction('Delete')} aria-label="Delete">
+              <Trash />
+            </IconButton>
+            <IconButton onClick={() => setCurrentAction('Publish')} aria-label="Publish">
+              <Play />
+            </IconButton>
+          </Flex>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={IconButton} />

@@ -1,0 +1,302 @@
+<!--- NumberInput.stories.mdx --->
+
+import { useState } from 'react';
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { ArgsTable } from '@storybook/addon-docs';
+import { Information } from '@strapi/icons';
+import { NumberInput, Box, Tooltip, Typography } from '@strapi/design-system';
+
+<Meta title="Design System/Components/NumberInput" component={NumberInput} />
+
+# NumberInput
+
+NumberInputs are inputs that allow users to add or edit numbers. They support several number formats.
+
+**Best practices**
+
+- Icons are always on the right side within the input (writing area) itself, never on the left side.
+- Labels should be clear and concise. A few words only and without punctuation.
+- Use description line as a help to give more details about the required action.
+- Make sure to use the placeholder feature whenever clarification are helpful on how to use the input.
+- Make sure to use to define the input as required whenever it is absolutely mandatory.
+- The error message will replace the description line. The two of them cannot be on top of each other.
+- The error message can be customized, make sure to write actionable information within it to help resolve an issue.
+
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/NumberInput)
+
+## Imports
+
+```js
+import { NumberInput } from '@strapi/design-system';
+```
+
+## Usage
+
+`NumberInput` allows users to edit numbers.
+
+### Base 
+
+<Canvas>
+  <Story name="base">
+    {() => {
+      const [content, setContent] = useState(3.14159265359);
+      return (
+        <Box padding={10}>
+          <NumberInput
+            placeholder="This is a content placeholder"
+            label="Content"
+            name="content"
+            hint="Description line"
+            error={undefined}
+            onValueChange={(value) => setContent(value)}
+            value={content}
+            labelAction={
+              <Tooltip description="Content of the tooltip">
+                <button
+                  aria-label="Information about the email"
+                  style={{ border: 'none', padding: 0, background: 'transparent' }}
+                >
+                  <Information aria-hidden />
+                </button>
+              </Tooltip>
+            }
+          />
+          <Box as="p" padding={4} background="neutral100">
+            <Typography>{`The value is ${content}`}</Typography>
+          </Box>
+          <button>
+            <Typography>Escape</Typography>
+          </button>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Without label
+
+`NumberInput` can be used without a label.
+
+<Canvas>
+  <Story name="withoutLabel">
+    {() => {
+      const [content, setContent] = useState(0);
+      return (
+        <Box padding={10}>
+          <NumberInput
+            placeholder="This is a content placeholder"
+            aria-label="Content"
+            name="content"
+            hint="Description line"
+            error={undefined}
+            onValueChange={(value) => setContent(value)}
+            value={content}
+            labelAction={
+              <Tooltip description="Content of the tooltip">
+                <button
+                  aria-label="Information about the email"
+                  style={{ border: 'none', padding: 0, background: 'transparent' }}
+                >
+                  <Information aria-hidden />
+                </button>
+              </Tooltip>
+            }
+          />
+          <Box as="p" padding={4} background="neutral100">
+            <Typography>{`The value is ${content}`}</Typography>
+          </Box>
+          <button>
+            <Typography>Escape</Typography>
+          </button>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Size S
+
+`NumberInput` can be displayed in a smaller size.
+
+<Canvas>
+  <Story name="size S">
+    {() => {
+      const [content, setContent] = useState();
+      return (
+        <Box padding={10}>
+          <NumberInput
+            placeholder="This is a content placeholder"
+            label="Content"
+            name="content"
+            hint="Description line"
+            error={undefined}
+            onValueChange={(value) => setContent(value)}
+            value={content}
+            size="S"
+            labelAction={
+              <Tooltip description="Content of the tooltip">
+                <button
+                  aria-label="Information about the email"
+                  style={{ border: 'none', padding: 0, background: 'transparent' }}
+                >
+                  <Information aria-hidden />
+                </button>
+              </Tooltip>
+            }
+          />
+          <Box as="p" padding={4} background="neutral100">
+            <Typography>{`The value is ${content}`}</Typography>
+          </Box>
+          <button>
+            <Typography>Escape</Typography>
+          </button>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Required
+
+`NumberInput` required field.
+
+<Canvas>
+  <Story name="required">
+    {() => {
+      const [content, setContent] = useState();
+      return (
+        <Box padding={10}>
+          <NumberInput
+            placeholder="This is a content placeholder"
+            label="Content"
+            name="content"
+            hint="Description line"
+            error={undefined}
+            onValueChange={(value) => setContent(value)}
+            value={content}
+            required
+          />
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Disabled
+
+`NumberInput` disabled field.
+
+<Canvas>
+  <Story name="disabled">
+    {() => {
+      const [content, setContent] = useState();
+      return (
+        <Box padding={10}>
+          <NumberInput
+            placeholder="This is a content placeholder"
+            label="Content"
+            name="content"
+            hint="Description line"
+            error={undefined}
+            onValueChange={(value) => setContent(value)}
+            value={content}
+            disabled
+          />
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Error
+
+`NumberInput` can display an error. The error message is customizable and replaces the description line below the input.
+
+<Canvas>
+  <Story name="error">
+    {() => {
+      const [content, setContent] = useState();
+      return (
+        <Box padding={10}>
+          <NumberInput
+            placeholder="This is a content placeholder"
+            label="Content"
+            name="content"
+            hint="Description line"
+            onValueChange={(value) => setContent(value)}
+            value={content}
+            error="Wrong value"
+          />
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### With initial empty value
+
+<Canvas>
+  <Story name="with initial empty">
+    {() => {
+      const [content, setContent] = useState('');
+      return (
+        <Box padding={10}>
+          <NumberInput
+            placeholder="This is a content placeholder"
+            label="Content"
+            name="content"
+            hint="Description line"
+            error={undefined}
+            onValueChange={(value) => setContent(value)}
+            value={content}
+            labelAction={
+              <Tooltip description="Content of the tooltip">
+                <button
+                  aria-label="Information about the email"
+                  style={{ border: 'none', padding: 0, background: 'transparent' }}
+                >
+                  <Information aria-hidden />
+                </button>
+              </Tooltip>
+            }
+          />
+          <Box as="p" padding={4} background="neutral100">
+            <Typography>{`The value is ${content}`}</Typography>
+          </Box>
+          <button>
+            <Typography>Escape</Typography>
+          </button>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### With locale
+
+<Canvas>
+  <Story name="locale">
+    {() => {
+      const [content, setContent] = useState();
+      return (
+        <Box padding={10}>
+          <NumberInput
+            placeholder="This is a content placeholder"
+            label="Content"
+            name="content"
+            locale="de"
+            onValueChange={(value) => setContent(value)}
+            value={content}
+          />
+          <Box as="p" padding={4} background="neutral100">
+            <Typography>{`The value is ${content}`}</Typography>
+          </Box>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={NumberInput} />

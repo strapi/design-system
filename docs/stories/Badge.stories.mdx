@@ -1,0 +1,79 @@
+<!--- Badge.stories.mdx --->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { ArgsTable } from '@storybook/addon-docs';
+import { Badge, Stack } from '@strapi/design-system';
+
+<Meta title="Design System/Components/Badge" component={Badge} />
+
+# Badge
+
+Badges are used to give a quick visual indication to the users.
+
+**Best practices**
+
+- Badge component should be filled only with numbers or a single word max.
+- Use them next to a label or a description.
+- Use the active state only with a label.
+- Use Tag component if the information given needs to be related to a performed action.
+
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Badge)
+
+## Imports
+
+```js
+import { Badge } from '@strapi/design-system';
+```
+
+## Usage
+
+Badges are used to give a quick and short scannable information to the users. They are mostly filled with numbers or a
+single word.
+
+<Canvas>
+  <Story name="base">
+    <Stack spacing={2}>
+      <Stack horizontal spacing={1}>
+        <Badge>Badge</Badge>
+      </Stack>
+    </Stack>
+  </Story>
+</Canvas>
+
+## Active
+
+Badges can be displayed as active:
+
+<Canvas>
+  <Story name="active">
+    <Stack spacing={2}>
+      <Stack horizontal spacing={1}>
+        <Badge size="S" active>
+          Small Badge
+        </Badge>
+        <Badge size="M" active>
+          Medium Badge
+        </Badge>
+      </Stack>
+    </Stack>
+  </Story>
+</Canvas>
+
+## Size
+
+Badges can be displayed in two sizes: S and M:
+
+<Canvas>
+  <Story name="size">
+    <Stack spacing={2}>
+      <Stack horizontal spacing={1}>
+        <Badge size="S">Small Badge</Badge>
+        <Badge size="M">Medium Badge</Badge>
+      </Stack>
+    </Stack>
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Badge} />
