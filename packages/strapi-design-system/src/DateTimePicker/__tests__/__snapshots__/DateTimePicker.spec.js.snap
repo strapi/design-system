@@ -16,10 +16,10 @@ exports[`DateTimePicker snapshots the component 1`] = `
 }
 
 .c0 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -411,7 +411,7 @@ exports[`DateTimePicker snapshots the component 1`] = `
               >
                 <button
                   aria-hidden="true"
-                  class="c18 c19"
+                  class="c14 c18 c19"
                   tabindex="-1"
                   title="select"
                   type="button"

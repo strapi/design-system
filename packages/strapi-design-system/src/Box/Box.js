@@ -1,4 +1,3 @@
-import * as React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
@@ -11,9 +10,7 @@ const transientProps = {
   color: true,
 };
 
-export const Box = React.forwardRef((props, ref) => <BoxImpl ref={ref} {...props} />);
-
-const BoxImpl = styled.div.withConfig({
+export const Box = styled.div.withConfig({
   shouldForwardProp: (prop, defPropValFN) => !transientProps[prop] && defPropValFN(prop),
 })`
   // Font

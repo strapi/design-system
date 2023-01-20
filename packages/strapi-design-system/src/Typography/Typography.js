@@ -10,9 +10,7 @@ const transientProps = {
   fontWeight: true,
 };
 
-export const Typography = React.forwardRef((props, ref) => <TypographyImpl ref={ref} {...props} />);
-
-const TypographyImpl = styled.span.withConfig({
+export const Typography = styled.span.withConfig({
   shouldForwardProp: (prop, defPropValFN) => !transientProps[prop] && defPropValFN(prop),
 })`
   ${variantStyle}

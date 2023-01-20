@@ -13,9 +13,7 @@ const transientProps = {
   direction: true,
 };
 
-export const Flex = React.forwardRef((props, ref) => <FlexImpl ref={ref} {...props} />);
-
-const FlexImpl = styled(Box).withConfig({
+export const Flex = styled(Box).withConfig({
   shouldForwardProp: (prop, defPropValFN) => !transientProps[prop] && defPropValFN(prop),
 })`
   align-items: ${({ alignItems }) => alignItems};
