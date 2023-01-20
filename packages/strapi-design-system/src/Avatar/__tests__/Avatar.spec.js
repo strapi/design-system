@@ -24,8 +24,8 @@ describe('Avatar', () => {
 
       .c1 {
         position: relative;
-        width: 1.625rem;
-        height: 1.625rem;
+        width: 2rem;
+        height: 2rem;
         z-index: 1;
       }
 
@@ -33,9 +33,9 @@ describe('Avatar', () => {
         border-radius: 50%;
         object-fit: cover;
         position: absolute;
-        -webkit-transform: translate(-19px,-100%);
-        -ms-transform: translate(-19px,-100%);
-        transform: translate(-19px,-100%);
+        -webkit-transform: translate(-16px,-100%);
+        -ms-transform: translate(-16px,-100%);
+        transform: translate(-16px,-100%);
         margin-top: -4px;
       }
 
@@ -43,8 +43,8 @@ describe('Avatar', () => {
         z-index: 1;
         border-radius: 30%;
         position: absolute;
-        width: 1.625rem;
-        height: 1.625rem;
+        width: 2rem;
+        height: 2rem;
         background: #ffffff;
         opacity: 0.4;
       }
@@ -67,9 +67,9 @@ describe('Avatar', () => {
           <img
             alt="marvin frachet"
             class="c3"
-            height="26px"
+            height="32px"
             src="https://avatars.githubusercontent.com/u/3874873?v=4"
-            width="26px"
+            width="32px"
           />
         </div>
       </span>
@@ -99,8 +99,8 @@ describe('Avatar', () => {
 
       .c1 {
         position: relative;
-        width: 1.625rem;
-        height: 1.625rem;
+        width: 2rem;
+        height: 2rem;
         z-index: 1;
       }
 
@@ -108,9 +108,9 @@ describe('Avatar', () => {
         border-radius: 50%;
         object-fit: cover;
         position: absolute;
-        -webkit-transform: translate(-19px,-100%);
-        -ms-transform: translate(-19px,-100%);
-        transform: translate(-19px,-100%);
+        -webkit-transform: translate(-16px,-100%);
+        -ms-transform: translate(-16px,-100%);
+        transform: translate(-16px,-100%);
         margin-top: -4px;
       }
 
@@ -118,8 +118,8 @@ describe('Avatar', () => {
         z-index: 1;
         border-radius: 30%;
         position: absolute;
-        width: 1.625rem;
-        height: 1.625rem;
+        width: 2rem;
+        height: 2rem;
         background: #ffffff;
         opacity: 0.4;
       }
@@ -142,9 +142,9 @@ describe('Avatar', () => {
           <img
             alt="marvin frachet"
             class="c3"
-            height="26px"
+            height="32px"
             src="https://avatars.githubusercontent.com/u/3874873?v=4"
-            width="26px"
+            width="32px"
           />
         </div>
       </span>
