@@ -1,0 +1,46 @@
+<!--- Breadcrumbs.stories.mdx --->
+
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+
+import { CollectionType } from '@strapi/icons';
+import { Breadcrumbs, Crumb, Stack } from '@strapi/design-system';
+
+<Meta title="Design System/Components/Breadcrumbs" component={Breadcrumbs} />
+
+# Breadcrumbs
+
+Breadcrumbs are a visual information that inform users of their navigation.
+
+**Best practices**
+
+- Use breadcrumbs whenever a long path to achieve an action is required.
+- Use breadcrumbs in modal's headers.
+- Using breadcrumbs in a page or a form is _not_ a consistent experience.
+
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Breadcrumbs)
+
+## Imports
+
+```js
+import { Breadcrumbs, Crumb } from '@strapi/design-system';
+```
+
+## Usage
+
+Breadcrumbs are visual information only and cannot be navigated. They are mostly part of modals' headers.
+
+<Canvas>
+  <Story name="base">
+    <Stack horizontal spacing={3}>
+      <CollectionType />
+      <Breadcrumbs label="Category model, name field">
+        <Crumb>Category</Crumb>
+        <Crumb>Name</Crumb>
+      </Breadcrumbs>
+    </Stack>
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Breadcrumbs} />

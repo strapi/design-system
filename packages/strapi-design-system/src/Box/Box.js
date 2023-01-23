@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+
 import handleResponsiveValues from '../helpers/handleResponsiveValues';
-import { boxPropTypes, boxDefaultProps } from './BoxProps';
 
 /**
  * Prevents these attributes from being spread on the DOM node
@@ -100,6 +101,95 @@ export const Box = styled.div.withConfig({
   cursor: ${({ cursor }) => cursor};
 `;
 
-Box.defaultProps = boxDefaultProps;
+Box.defaultProps = {
+  background: undefined,
+  borderColor: undefined,
+  color: undefined,
+  hiddenS: false,
+  hiddenXS: false,
+  padding: undefined,
+  paddingTop: undefined,
+  paddingRight: undefined,
+  paddingBottom: undefined,
+  paddingLeft: undefined,
+  hasRadius: false,
+  shadow: undefined,
+  children: null,
+  shrink: undefined,
+  grow: undefined,
+  basis: undefined,
+  flex: undefined,
+  _hover: () => undefined,
+};
 
-Box.propTypes = boxPropTypes;
+Box.propTypes = {
+  /**
+   * JavaScript hover handler
+   */
+  _hover: PropTypes.func,
+  /**
+   * Background color
+   */
+  background: PropTypes.string,
+  /**
+   * Flex basis
+   */
+  basis: PropTypes.oneOfType([PropTypes.string, PropTypes.string]),
+  /**
+   * Border color
+   */
+  borderColor: PropTypes.string,
+  children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
+  /**
+   * Text color
+   */
+  color: PropTypes.string,
+  /**
+   * Flex
+   */
+  flex: PropTypes.oneOfType([PropTypes.string, PropTypes.string]),
+  /**
+   * Flex grow
+   */
+  grow: PropTypes.oneOfType([PropTypes.string, PropTypes.string]),
+  /**
+   * If `true`, will add a border radius to the `Box`
+   */
+  hasRadius: PropTypes.bool,
+  /**
+   * Responsive hiding. If `true`, will the `Box` for tablet size screens.
+   */
+  hiddenS: PropTypes.bool,
+  /**
+   * Responsive hiding. If `true`, will the `Box` for mobile size screens.
+   */
+  hiddenXS: PropTypes.bool,
+  /**
+   * Padding. Supports responsive values
+   */
+  padding: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
+  /**
+   * Padding bottom. Supports responsive values
+   */
+  paddingBottom: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
+  /**
+   * Padding left. Supports responsive values
+   */
+  paddingLeft: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
+  /**
+   * Padding right. Supports responsive values
+   */
+  paddingRight: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
+  /**
+   * Padding top. Supports responsive values
+   */
+  paddingTop: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
+  /**
+   * Shadow name (see `theme.shadows`)
+   */
+  shadow: PropTypes.string,
+  /**
+   * Flex shrink
+   */
+  shrink: PropTypes.oneOfType([PropTypes.string, PropTypes.string]),
+};

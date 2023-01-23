@@ -8,7 +8,8 @@
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "build-storybook": "lerna run build-storybook --stream",
-    "build": "lerna run build --stream --scope=@strapi/icons && lerna run build --stream --scope=@strapi/design-system",
+    "develop": "lerna run develop --parallel",
+    "build": "lerna run build --stream",
     "clean": "lerna clean",
     "generate": "plop",
     "lint": "eslint . --ext .js,.jsx --fix",

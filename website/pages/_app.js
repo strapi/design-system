@@ -1,7 +1,5 @@
-import { ThemeProvider } from '@strapi/design-system/ThemeProvider';
-import { lightTheme } from '@strapi/design-system/themes';
+import { ThemeProvider, lightTheme, SkipToContent } from '@strapi/design-system';
 import PropTypes from 'prop-types';
-import { SkipToContent } from '@strapi/design-system/Main';
 
 const App = ({ Component, pageProps }) => {
   return (

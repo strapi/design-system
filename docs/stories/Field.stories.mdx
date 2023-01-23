@@ -1,0 +1,225 @@
+<!--- Field.stories.mdx --->
+
+import { useState } from 'react';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+
+import { Earth, Password, Information }  from '@strapi/icons';
+import { FieldLabel, FieldHint, FieldError, FieldInput, Field, Flex, Box, Stack, Tooltip, FieldAction, Link, Icon } from '@strapi/design-system';
+
+<Meta title="Design System/Components/Field" component={Field} />
+
+# Field
+
+Fields are inputs that allow users to add or edit text. They support several text formats including numbers.
+
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Field)
+
+## Imports
+
+```js
+import { Field, FieldLabel, FieldHint, FieldError, FieldInput, FieldAction } from '@strapi/design-system';
+```
+
+## Base
+
+The simplest representation of the Field components, no description, no error, no noise.
+
+<Canvas>
+  <Story name="base">
+    <Field name="email">
+      <Stack spacing={1}>
+        <FieldLabel>Email</FieldLabel>
+        <FieldInput type="text" placeholder="Placeholder" value="" onChange={() => {}} />
+      </Stack>
+    </Field>
+  </Story>
+</Canvas>
+
+## With description
+
+A Field with a description allows to add a small hint of advanced information.
+
+<Canvas>
+  <Story name="with description">
+    <Field name="email" hint="Description line">
+      <Stack spacing={1}>
+        <FieldLabel required>Email</FieldLabel>
+        <FieldInput type="text" placeholder="Placeholder" value="" onChange={() => {}} />
+        <FieldHint />
+      </Stack>
+    </Field>
+  </Story>
+</Canvas>
+
+## With error
+
+An example of the Field components with an error.
+
+<Canvas>
+  <Story name="with error">
+    <Field name="password" error="Password is too short">
+      <Stack spacing={1}>
+        <FieldLabel>Password</FieldLabel>
+        <FieldInput type="password" placeholder="Placeholder" value="" onChange={() => {}} />
+        <FieldHint />
+        <FieldError />
+      </Stack>
+    </Field>
+  </Story>
+</Canvas>
+
+## With label action
+
+An example of the Field components with a label action.
+
+<Canvas>
+  <Story name="with label-action">
+    <Field name="password">
+      <Stack spacing={1}>
+        <FieldLabel required action={<Earth />}>
+          Password
+        </FieldLabel>
+        <FieldInput type="password" placeholder="Placeholder" value="" onChange={() => {}} />
+        <FieldHint />
+        <FieldError />
+      </Stack>
+    </Field>
+  </Story>
+</Canvas>
+
+## Disabled field
+
+Depending on the permissions a user have or the status of an action, a Field can be unreachable or unavailable yet.
+
+<Canvas>
+  <Story name="disabled">
+    <Field name="password" hint="Description line">
+      <Stack spacing={1}>
+        <FieldLabel>Password</FieldLabel>
+        <FieldInput placeholder="Placeholder" value="Hello world" disabled onChange={() => {}} />
+        <FieldHint />
+        <FieldError />
+      </Stack>
+    </Field>
+  </Story>
+</Canvas>
+
+## Password with description and error
+
+Password fields are specific. They offer the possibility to have unreadable content. By clicking on the eye icon on the
+right side, it is possible to actually read the password.
+
+## Most complex input
+
+This is the most complex input that can be built with the Field components.
+
+<Canvas>
+  <Story name="most complex input">
+    {() => {
+      const [email, setEmail] = useState('');
+      return (
+        <Box padding={8}>
+          <Field name="password" hint="Description line" error={email.length > 5 ? 'Email is too short' : undefined}>
+            <Stack spacing={1}>
+              <Flex>
+                <FieldLabel>Password</FieldLabel>
+                <Box paddingLeft={2}>
+                  <Tooltip description="Content of the tooltip">
+                    <button
+                      aria-label="Information about the email"
+                      style={{ border: 'none', padding: 0, background: 'transparent' }}
+                    >
+                      <Icon as={Information} color="neutral800" aria-hidden />
+                    </button>
+                  </Tooltip>
+                </Box>
+                <Flex width="100%" justifyContent="flex-end">
+                  <Link isExternal href="#">
+                    Details
+                  </Link>
+                </Flex>
+              </Flex>
+              <FieldInput
+                placeholder="example@domain.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                startAction={
+                  <FieldAction label="Show password">
+                    <Password />
+                  </FieldAction>
+                }
+                endAction={
+                  <FieldAction label="Show password">
+                    <Password />
+                  </FieldAction>
+                }
+              />
+              <FieldHint />
+              <FieldError />
+            </Stack>
+          </Field>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Most complex S size input
+
+This is the most complex input that can be built with the Field components.
+
+<Canvas>
+  <Story name="most complex s size input">
+    {() => {
+      const [email, setEmail] = useState('');
+      return (
+        <Box padding={8}>
+          <Field name="password" hint="Description line" error={email.length > 5 ? 'Email is too short' : undefined}>
+            <Stack spacing={1}>
+              <Flex>
+                <FieldLabel>Password</FieldLabel>
+                <Box paddingLeft={2}>
+                  <Tooltip description="Content of the tooltip">
+                    <button
+                      aria-label="Information about the email"
+                      style={{ border: 'none', padding: 0, background: 'transparent' }}
+                    >
+                      <Icon as={Information} color="neutral800" aria-hidden />
+                    </button>
+                  </Tooltip>
+                </Box>
+                <Flex width="100%" justifyContent="flex-end">
+                  <Link isExternal href="#">
+                    Details
+                  </Link>
+                </Flex>
+              </Flex>
+              <FieldInput
+                placeholder="example@domain.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                size="S"
+                startAction={
+                  <FieldAction label="Show password">
+                    <Password />
+                  </FieldAction>
+                }
+                endAction={
+                  <FieldAction label="Show password">
+                    <Password />
+                  </FieldAction>
+                }
+              />
+              <FieldHint />
+              <FieldError />
+            </Stack>
+          </Field>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Field} />

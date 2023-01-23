@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Clock from '@strapi/icons/Clock';
+import { Clock } from '@strapi/icons';
 import styled from 'styled-components';
+
 import { sizes } from '../themes/sizes';
 import { Select, Option } from '../Select';
 import { useId } from '../helpers/useId';
