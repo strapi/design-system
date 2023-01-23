@@ -11,8 +11,6 @@ const SelectTagsWrapper = styled.div`
 `;
 
 const SelectTag = styled(Tag)`
-  position: relative;
-  z-index: 1;
   margin-left: ${({ theme }) => theme.spaces[1]};
   margin-top: ${({ theme }) => theme.spaces[1]};
 `;
@@ -23,11 +21,13 @@ export const SelectTags = ({ tags, onRemoveTag, disabled }) => {
       <Flex wrap="wrap">
         {tags.map((tag) => (
           <SelectTag
-            icon={<Cross />}
             disabled={disabled}
-            onClick={() => onRemoveTag(tag.value)}
-            tabIndex={-1}
             key={`tag-${tag.value}`}
+            icon={<Cross />}
+            onClick={() => onRemoveTag(tag.value)}
+            position="relative"
+            tabIndex={-1}
+            zIndex={1}
           >
             {tag.label}
           </SelectTag>
