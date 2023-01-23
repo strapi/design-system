@@ -3,9 +3,9 @@ import { render } from '@testing-library/react';
 import { useId } from '../useId';
 
 describe('useId', () => {
-  it('snapshots with a generated id and a prefix', () => {
+  it('snapshots with a generated id', () => {
     const TestCompo = () => {
-      const id = useId('my-prefix', undefined);
+      const id = useId();
 
       return <div id={id} />;
     };
@@ -14,7 +14,7 @@ describe('useId', () => {
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
-          id="my-prefix-1"
+          id="1"
         />
       </div>
     `);
@@ -22,7 +22,7 @@ describe('useId', () => {
 
   it('snapshots with a predefined ID', () => {
     const TestCompo = () => {
-      const id = useId('my-prefix', 'my-custom-id');
+      const id = useId('my-custom-id');
 
       return <div id={id} />;
     };

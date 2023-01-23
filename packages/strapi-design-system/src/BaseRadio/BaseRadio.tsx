@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
+import { useId } from '../helpers/useId';
 
 import { RadioContext } from './context';
 import { RadioGroupSize } from './RadioGroup';
@@ -44,6 +45,7 @@ export interface BaseRadioProps extends React.InputHTMLAttributes<HTMLInputEleme
 
 export const BaseRadio = React.forwardRef<HTMLInputElement, BaseRadioProps>(
   ({ value, disabled = false, ...props }, ref) => {
+    const generatedId = useId();
     const { onChange, selected, name, size } = useContext(RadioContext);
     const isSelected = selected === value;
 
@@ -57,6 +59,7 @@ export const BaseRadio = React.forwardRef<HTMLInputElement, BaseRadioProps>(
         aria-checked={isSelected}
         checked={isSelected}
         disabled={disabled}
+        id={generatedId}
         // @ts-expect-error size is a html prop already.
         size={size}
         onChange={onChange}

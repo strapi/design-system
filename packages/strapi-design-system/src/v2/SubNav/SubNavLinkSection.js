@@ -32,7 +32,7 @@ const DropDownIconWrapper = styled.div`
 
 export const SubNavLinkSection = ({ label, children, id }) => {
   const [isOpen, setOpenLinks] = useState(true);
-  const listId = useId('subnav-list', id);
+  const listId = useId(id);
 
   const handleClick = () => {
     setOpenLinks((prev) => !prev);

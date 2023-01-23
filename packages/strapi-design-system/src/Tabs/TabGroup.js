@@ -4,7 +4,7 @@ import { TabsContext } from './TabsContext';
 import { useId } from '../helpers/useId';
 
 export const TabGroup = forwardRef(({ id, initialSelectedTabIndex, label, onTabChange, variant, ...props }, ref) => {
-  const tabsId = useId('tabgroup', id);
+  const tabsId = useId(id);
   const Tabs = Children.toArray(props.children).find((node) => node.type.displayName === 'Tabs');
   let firstSelectedTab = initialSelectedTabIndex || 0;
 

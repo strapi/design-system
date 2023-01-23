@@ -53,7 +53,7 @@ export const NumberInput = React.forwardRef(
     },
     ref,
   ) => {
-    const generatedId = useId('numberinput', id);
+    const generatedId = useId(id);
 
     const locale = defaultLocale || getDefaultLocale();
     const numberParserRef = useRef(new NumberParser(locale, { style: 'decimal' }));

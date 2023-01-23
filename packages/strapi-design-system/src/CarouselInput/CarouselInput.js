@@ -22,7 +22,7 @@ export const CarouselInput = ({
   id,
   ...props
 }) => {
-  const generatedId = useId('carouselinput', id);
+  const generatedId = useId(id);
 
   return (
     <Field hint={hint} error={error} id={generatedId} required={required}>

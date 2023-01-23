@@ -284,7 +284,7 @@ describe('Select', () => {
           >
             <label
               class="c2"
-              for="select-1"
+              for="1"
             >
               <div
                 class="c3"
@@ -296,13 +296,13 @@ describe('Select', () => {
               class="c3 c4"
             >
               <button
-                aria-describedby="select-1-hint"
+                aria-describedby="1-hint"
                 aria-disabled="false"
                 aria-expanded="true"
                 aria-haspopup="listbox"
-                aria-labelledby="select-1 select-1-label select-1-content"
+                aria-labelledby="1 1-label 1-content"
                 class="c5"
-                id="select-1"
+                id="1"
                 type="button"
               />
               <div
@@ -324,7 +324,7 @@ describe('Select', () => {
                   >
                     <span
                       class="c10"
-                      id="select-1-content"
+                      id="1-content"
                     >
                       Pizza
                     </span>
@@ -360,7 +360,7 @@ describe('Select', () => {
             </div>
             <p
               class="c13"
-              id="select-1-hint"
+              id="1-hint"
             >
               Description line
             </p>
@@ -399,7 +399,7 @@ describe('Select', () => {
               class="c17"
             >
               <ul
-                aria-labelledby="select-1-label"
+                aria-labelledby="1-label"
                 aria-multiselectable="false"
                 class="c0 c1"
                 role="listbox"
@@ -410,7 +410,7 @@ describe('Select', () => {
                   aria-selected="true"
                   class="c18 c19"
                   data-strapi-value="pizza"
-                  id="select-1-option-pizza"
+                  id="1-option-pizza"
                   role="option"
                 >
                   <div
@@ -427,7 +427,7 @@ describe('Select', () => {
                   aria-selected="false"
                   class="c18 c19"
                   data-strapi-value="hamburger"
-                  id="select-1-option-hamburger"
+                  id="1-option-hamburger"
                   role="option"
                 >
                   <div
@@ -444,7 +444,7 @@ describe('Select', () => {
                   aria-selected="false"
                   class="c18 c19"
                   data-strapi-value="bagel"
-                  id="select-1-option-bagel"
+                  id="1-option-bagel"
                   role="option"
                 >
                   <div
@@ -777,7 +777,7 @@ describe('Select', () => {
           >
             <label
               class="c2"
-              for="select-3"
+              for="3"
             >
               <div
                 class="c3"
@@ -789,13 +789,13 @@ describe('Select', () => {
               class="c3 c4"
             >
               <button
-                aria-describedby="select-3-hint"
+                aria-describedby="3-hint"
                 aria-disabled="false"
                 aria-expanded="true"
                 aria-haspopup="listbox"
-                aria-labelledby="select-3 select-3-label select-3-content"
+                aria-labelledby="3 3-label 3-content"
                 class="c5"
-                id="select-3"
+                id="3"
                 type="button"
               />
               <div
@@ -809,7 +809,7 @@ describe('Select', () => {
                   >
                     <span
                       class="c9"
-                      id="select-3-content"
+                      id="3-content"
                     >
                       Hamburger
                       <span
@@ -850,7 +850,7 @@ describe('Select', () => {
             </div>
             <p
               class="c14"
-              id="select-3-hint"
+              id="3-hint"
             >
               Description line
             </p>
@@ -889,7 +889,7 @@ describe('Select', () => {
               class="c17"
             >
               <ul
-                aria-labelledby="select-3-label"
+                aria-labelledby="3-label"
                 aria-multiselectable="true"
                 class="c0 c1"
                 role="listbox"
@@ -900,7 +900,7 @@ describe('Select', () => {
                   aria-selected="true"
                   class="c18 c19"
                   data-strapi-value="pizza"
-                  id="select-3-option-pizza"
+                  id="3-option-pizza"
                   role="option"
                 >
                   <div
@@ -925,7 +925,7 @@ describe('Select', () => {
                   aria-selected="true"
                   class="c18 c19"
                   data-strapi-value="hamburger"
-                  id="select-3-option-hamburger"
+                  id="3-option-hamburger"
                   role="option"
                 >
                   <div
@@ -950,7 +950,7 @@ describe('Select', () => {
                   aria-selected="false"
                   class="c18 c19"
                   data-strapi-value="bagel"
-                  id="select-3-option-bagel"
+                  id="3-option-bagel"
                   role="option"
                 >
                   <div
