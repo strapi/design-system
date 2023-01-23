@@ -14,8 +14,6 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "declaration": true,
-    "outDir": "dist",
     "jsx": "react-jsx",
     "types": ["vite/client", "jest", "@testing-library/jest-dom"]
   },

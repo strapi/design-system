@@ -64,7 +64,7 @@
   "scripts": {
     "dev": "vite",
     "prebuild": "rimraf dist",
-    "build": "yarn build:prod && yarn generate:types",
+    "build": "yarn build:prod",
     "build:prod": "vite build",
     "build-storybook": "build-storybook",
     "generate:types": "tsc --noEmit false --emitDeclarationOnly --declarationDir dist",
