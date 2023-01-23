@@ -2,5 +2,6 @@
 node_modules
 dist
 packages/strapi-icons/src
+storybook-static
 # for now
 website
