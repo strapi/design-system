@@ -10,8 +10,8 @@
     "lint-staged": "eslint --fix"
   },
   "dependencies": {
-    "@strapi/design-system": "^1.5.0",
-    "@strapi/icons": "^1.5.0",
+    "@strapi/design-system": "1.2.8",
+    "@strapi/icons": "1.2.8",
     "gray-matter": "^4.0.3",
     "next": "^13.0.3",
     "next-mdx-remote": "^3.0.8",
