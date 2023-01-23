@@ -18,6 +18,7 @@ describe('BaseLink', () => {
       }
 
       <a
+        aria-disabled="false"
         class="c0"
         target="_self"
       />

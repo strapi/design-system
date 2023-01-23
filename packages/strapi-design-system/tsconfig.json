@@ -18,7 +18,6 @@
     "types": ["vite/client", "jest", "@testing-library/jest-dom"]
   },
   "include": ["src", "styled.d.ts"],
-  "exclude": ["**/*.spec.*", "**/*.stories.*", "**/*.e2e.*"],
   "references": [
     {
       "path": "./tsconfig.node.json"
