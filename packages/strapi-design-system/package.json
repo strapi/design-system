@@ -33,11 +33,7 @@
     "@storybook/addon-essentials": "^6.5.13",
     "@storybook/addon-links": "^6.5.13",
     "@storybook/react": "^6.5.13",
-<<<<<<< HEAD
     "@strapi/icons": "^1.5.0",
-=======
-    "@strapi/icons": "^0.0.0-jsoninput.0",
->>>>>>> 3b3ca110 (experimental – jsoninput.0)
     "@swc/core": "^1.3.11",
     "@swc/jest": "^0.2.23",
     "@testing-library/jest-dom": "5.16.5",
