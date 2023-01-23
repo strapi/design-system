@@ -25,13 +25,9 @@ export const CarouselInput = ({
   const generatedId = useId('carouselinput', id);
 
   return (
-    <Field hint={hint} error={error} id={generatedId}>
+    <Field hint={hint} error={error} id={generatedId} required={required}>
       <Stack spacing={1}>
-        {label && (
-          <FieldLabel required={required} action={labelAction}>
-            {label}
-          </FieldLabel>
-        )}
+        {label && <FieldLabel action={labelAction}>{label}</FieldLabel>}
         <Carousel
           actions={actions}
           label={label}

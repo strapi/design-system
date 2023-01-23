@@ -48,7 +48,7 @@ const AlertIcon = ({ variant, ...props }: AlertIconProps) => {
     return <CheckCircle {...props} />;
   }
 
-  if (variant === 'danger') {
+  if (variant === 'danger' || variant === 'warning') {
     return <ExclamationMarkCircle {...props} />;
   }
 
@@ -68,7 +68,7 @@ const ActionBox = styled(Box)`
   }
 `;
 
-export type AlertVariant = 'success' | 'danger' | 'default';
+export type AlertVariant = 'success' | 'danger' | 'default' | 'warning';
 
 export interface AlertProps extends BoxProps {
   /**

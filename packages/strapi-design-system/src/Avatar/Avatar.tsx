@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
-import { Typography } from '../Typography';
-import { Flex } from '../Flex';
+import { Typography, TypographyProps } from '../Typography';
+import { Flex, FlexProps } from '../Flex';
 
 import { avatarSize, previewSize } from './constants';
 
@@ -86,20 +86,21 @@ const InitialsWrapper = styled(Flex)`
   }
 `;
 
-export interface InitialsProps {
-  children: React.ReactNode;
-}
+export type InitialsProps = Pick<FlexProps, 'background'> &
+  Pick<TypographyProps, 'textColor'> & {
+    children: React.ReactNode;
+  };
 
-export const Initials = ({ children }: InitialsProps) => {
+export const Initials = ({ children, background = 'primary600', textColor = 'buttonNeutral0' }: InitialsProps) => {
   return (
     <InitialsWrapper
+      background={background}
       borderRadius="50%"
       width={`${avatarSize}px`}
       height={`${avatarSize}px`}
-      background="primary600"
       justifyContent="center"
     >
-      <Typography fontWeight="bold" textColor="buttonNeutral0" fontSize={0} textTransform="uppercase">
+      <Typography fontSize={0} fontWeight="bold" textColor={textColor} textTransform="uppercase">
         {children}
       </Typography>
     </InitialsWrapper>

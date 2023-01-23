@@ -5,6 +5,7 @@ import { useCallbackRef } from '@radix-ui/react-use-callback-ref';
 
 import CarretDown from '@strapi/icons/CarretDown';
 
+import { Link } from '../Link';
 import { Typography } from '../../Typography';
 import { Box } from '../../Box';
 import { Flex } from '../../Flex';
@@ -28,6 +29,22 @@ const OptionLink = styled(BaseLink)`
   ${getOptionStyle}
 `;
 
+const OptionExternalLink = styled(Link)`
+  &:focus-visible {
+    /* Removes Link focus-visible after properties and reset to global outline */
+    outline: 2px solid ${({ theme }) => theme.colors.primary600};
+    outline-offset: 2px;
+    &:after {
+      content: none;
+    }
+  }
+  /* Removes Link svg color */
+  svg path {
+    fill: currentColor;
+  }
+  ${getOptionStyle}
+`;
+
 const IconWrapper = styled.span`
   display: flex;
   align-items: center;
@@ -41,7 +58,7 @@ const StyledButtonSmall = styled(Button)`
   padding: ${({ theme }) => `${theme.spaces[1]} ${theme.spaces[3]}`};
 `;
 
-export const MenuItem = ({ as, children, onClick, isFocused, isLink, ...props }) => {
+export const MenuItem = ({ as, children, onClick, isFocused, isLink, isExternal, ...props }) => {
   const menuItemRef = useRef();
 
   useEffect(() => {
@@ -63,13 +80,27 @@ export const MenuItem = ({ as, children, onClick, isFocused, isLink, ...props })
     }
   };
 
-  return isLink ? (
-    <OptionLink as={as} {...menuItemProps}>
-      <Box padding={2}>
-        <Typography>{children}</Typography>
-      </Box>
-    </OptionLink>
-  ) : (
+  if (isLink) {
+    return (
+      <OptionLink as={as} {...menuItemProps}>
+        <Box padding={2}>
+          <Typography>{children}</Typography>
+        </Box>
+      </OptionLink>
+    );
+  }
+
+  if (isExternal) {
+    return (
+      <OptionExternalLink isExternal {...menuItemProps}>
+        <Box padding={2}>
+          <Typography>{children}</Typography>
+        </Box>
+      </OptionExternalLink>
+    );
+  }
+
+  return (
     <OptionButton onKeyDown={handleKeyDown} onMouseDown={onClick} type="button" {...menuItemProps}>
       <Box padding={2}>
         <Typography>{children}</Typography>
@@ -81,6 +112,7 @@ export const MenuItem = ({ as, children, onClick, isFocused, isLink, ...props })
 MenuItem.defaultProps = {
   as: undefined,
   onClick() {},
+  isExternal: false,
   isFocused: false,
   isLink: false,
 };
@@ -88,6 +120,7 @@ MenuItem.defaultProps = {
 MenuItem.propTypes = {
   as: PropTypes.elementType,
   children: PropTypes.node.isRequired,
+  isExternal: PropTypes.bool,
   isFocused: PropTypes.bool,
   isLink: PropTypes.bool,
   onClick: PropTypes.func,
@@ -102,6 +135,7 @@ export const SimpleMenu = ({
   onClose = () => {},
   size,
   popoverPlacement,
+  onReachEnd,
   ...props
 }) => {
   const menuButtonRef = useRef();
@@ -112,6 +146,7 @@ export const SimpleMenu = ({
   const childrenArray = Children.toArray(children);
   const DefaultComponent = size === 'S' ? StyledButtonSmall : Button;
   const Component = asComp || DefaultComponent;
+  const shouldHandleReachEnd = !!onReachEnd && typeof onReachEnd === 'function';
 
   useEffect(() => {
     if (['string', 'number'].includes(typeof label)) {
@@ -187,6 +222,12 @@ export const SimpleMenu = ({
     setVisible((prevVisible) => !prevVisible);
   };
 
+  const handleReachEnd = () => {
+    if (shouldHandleReachEnd) {
+      onReachEnd();
+    }
+  };
+
   const childrenClone = childrenArray.map((child, index) => (
     // eslint-disable-next-line react/no-array-index-key
     <Flex as="li" key={index} justifyContent="center" role="menuitem">
@@ -225,7 +266,14 @@ export const SimpleMenu = ({
         {label}
       </Component>
       {visible && (
-        <Popover onBlur={handleBlur} placement={popoverPlacement} source={menuButtonRef} spacing={4}>
+        <Popover
+          onBlur={handleBlur}
+          placement={popoverPlacement}
+          source={menuButtonRef}
+          onReachEnd={handleReachEnd}
+          intersectionId={shouldHandleReachEnd ? `popover-${menuId}` : undefined}
+          spacing={4}
+        >
           <Box role="menu" as="ul" padding={1} id={menuId}>
             {childrenClone}
           </Box>
@@ -245,6 +293,7 @@ SimpleMenu.defaultProps = {
   id: undefined,
   onClose() {},
   onOpen() {},
+  onReachEnd: undefined,
   popoverPlacement: 'bottom-start',
   size: 'M',
 };
@@ -256,6 +305,10 @@ SimpleMenu.propTypes = {
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.element]).isRequired,
   onClose: PropTypes.func,
   onOpen: PropTypes.func,
+  /**
+   * Callback function to be called when the popover reaches the end of the scrollable content
+   */
+  onReachEnd: PropTypes.func,
   popoverPlacement: PropTypes.oneOf(POPOVER_PLACEMENTS),
 
   /**

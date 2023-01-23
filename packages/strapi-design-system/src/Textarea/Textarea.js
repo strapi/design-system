@@ -29,13 +29,11 @@ export const Textarea = React.forwardRef(
 
     return (
       <TextareaWrapper>
-        <Field name={name} hint={hint} error={error} id={generatedId}>
+        <Field name={name} hint={hint} error={error} id={generatedId} required={required}>
           <Stack spacing={1}>
             {label && (
               <Flex>
-                <FieldLabel required={required} action={labelAction}>
-                  {label}
-                </FieldLabel>
+                <FieldLabel action={labelAction}>{label}</FieldLabel>
               </Flex>
             )}
             <TextareaInput ref={ref} as="textarea" value={children} {...props} />

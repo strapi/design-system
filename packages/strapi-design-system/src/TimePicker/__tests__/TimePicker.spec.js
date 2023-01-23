@@ -297,17 +297,16 @@ describe('TimePicker', () => {
             class="c0 c1"
             spacing="1"
           >
-            <span
+            <label
               class="c2"
               for="timepicker-1"
-              id="timepicker-1-label"
             >
               <div
                 class="c3"
               >
                 Choose a time
               </div>
-            </span>
+            </label>
             <div
               class="c3 c4"
             >
@@ -316,7 +315,7 @@ describe('TimePicker', () => {
                 aria-disabled="false"
                 aria-expanded="true"
                 aria-haspopup="listbox"
-                aria-labelledby="timepicker-1-label timepicker-1-content"
+                aria-labelledby="timepicker-1 timepicker-1-label timepicker-1-content"
                 class="c5"
                 id="timepicker-1"
                 type="button"

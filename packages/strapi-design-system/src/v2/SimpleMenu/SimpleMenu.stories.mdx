@@ -85,22 +85,32 @@ By passing `aria-disabled` hover styles on `MenuItem`s can be disabled.
       docs: {
         source: {
           code: `
-          <SimpleMenu label="Menu">
-            <MenuItem to="/">
-              Home
-            </MenuItem>
-            <MenuItem to="/somewhere">
-              Somewhere internal
-            </MenuItem>
-          </SimpleMenu>
+<SimpleMenu label="Menu">
+  <MenuItem to="/">
+    Home
+  </MenuItem>
+  <MenuItem to="/somewhere" as={NavLink} isLink>
+    Somewhere internal
+  </MenuItem>
+  <MenuItem href="https://strapi.io/" isExternal>
+    Somewhere External
+  </MenuItem>
+</SimpleMenu>
           `,
         },
       },
     }}
   >
     <SimpleMenu label="Menu">
-      <MenuItem to="/">Home</MenuItem>
-      <MenuItem to="/somewhere">Somewhere internal</MenuItem>
+      <MenuItem to="/">
+        Home
+      </MenuItem>
+      <MenuItem to="/somewhere">
+        Somewhere internal
+      </MenuItem>
+      <MenuItem href="https://strapi.io/" isExternal>
+        Somewhere External
+      </MenuItem>
     </SimpleMenu>
   </Story>
 </Canvas>
@@ -112,8 +122,15 @@ A menu can allow the user to make actions. It can redirect the user to another p
 <Canvas>
   <Story name="with-iconbutton">
     <SimpleMenu label="Menu" as={IconButton} icon={<CarretDown />}>
-      <MenuItem>Home</MenuItem>
-      <MenuItem>Somewhere internal</MenuItem>
+      <MenuItem to="/">
+        Home
+      </MenuItem>
+      <MenuItem to="/somewhere">
+        Somewhere internal
+      </MenuItem>
+      <MenuItem href="https://strapi.io/" isExternal>
+        Somewhere External
+      </MenuItem>
     </SimpleMenu>
   </Story>
 </Canvas>
@@ -187,10 +204,10 @@ To use the SimpleMenu/MenuItem components with a routing library (e.g. react-rou
 
 ```jsx
 import { SimpleMenu, MenuItem } from '@strapi/design-system';
-import { NavLink as RouterNavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 <SimpleMenu label={Label}>
-  <MenuItem as={RouterNavLink} to="/">
+  <MenuItem as={NavLink} to="/">
     Home
   </MenuItem>
 </SimpleMenu>;
@@ -198,7 +215,7 @@ import { NavLink as RouterNavLink } from 'react-router-dom';
 
 #### with NextJS
 
-For NextJS, you'll need to wrap the `NavLink` with the `NextLink` component
+For NextJS, you'll need to wrap the `MenuItem` with the `NextLink` component
 
 ```jsx
 import { SimpleMenu, MenuItem } from '@strapi/design-system';

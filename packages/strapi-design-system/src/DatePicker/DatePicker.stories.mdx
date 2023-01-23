@@ -58,9 +58,9 @@ import { DatePicker } from '@strapi/design-system';
   </Story>
 </Canvas>
 
-## Size S
+### Size S
 
-TODO
+`DatePicker` can be displayed with a smaller size.
 
 <Canvas>
   <Story name="size S">
@@ -89,7 +89,9 @@ TODO
   </Story>
 </Canvas>
 
-## Disabled
+### Disabled
+
+Depending on the permissions a user have or the status of an action, a `DatePicker` can be disabled.
 
 <Canvas>
   <Story name="disabled">
@@ -118,9 +120,71 @@ TODO
   </Story>
 </Canvas>
 
-## Min and Max Dates
+### Error
 
-By passing in `minDate` or `maxDate` it is possible to define the range of years, the datepicker displays.
+`DatePicker` can display an error. The error message is customizable and replaces the description line below input.
+
+<Canvas>
+  <Story name="error">
+    {() => {
+      const [date, setDate] = useState();
+      return (
+        <div>
+          <DatePicker
+            onChange={setDate}
+            selectedDate={date}
+            label="Date picker"
+            name="datepicker"
+            clearLabel={'Clear the datepicker'}
+            onClear={() => setDate(undefined)}
+            selectedDateLabel={(formattedDate) => `Date picker, current is ${formattedDate}`}
+            error="Unavailable date"
+          />
+          <div style={{ marginLeft: '500px' }}>
+            <button>
+              <Typography>Button outside picker</Typography>
+            </button>
+          </div>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Required
+
+`DatePicker` can be required. The required state will appear with a red asterisk beside the label.
+
+<Canvas>
+  <Story name="required">
+    {() => {
+      const [date, setDate] = useState();
+      return (
+        <div>
+          <DatePicker
+            onChange={setDate}
+            selectedDate={date}
+            label="Date picker"
+            name="datepicker"
+            clearLabel={'Clear the datepicker'}
+            onClear={() => setDate(undefined)}
+            selectedDateLabel={(formattedDate) => `Date picker, current is ${formattedDate}`}
+            required
+          />
+          <div style={{ marginLeft: '500px' }}>
+            <button>
+              <Typography>Button outside picker</Typography>
+            </button>
+          </div>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Min and Max Dates
+
+By passing in `minDate` or `maxDate` it is possible to define the range of years, the `DatePicker` displays.
 
 <Canvas>
   <Story name="min/ max date">
@@ -144,7 +208,9 @@ By passing in `minDate` or `maxDate` it is possible to define the range of years
   </Story>
 </Canvas>
 
-## Locales
+### Locales
+
+`DatePicker` can format a date depending on a specific locale.
 
 <Canvas>
   <Story name="locales">

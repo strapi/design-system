@@ -4,7 +4,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe.parallel('ToggleInput', () => {
   test.describe('light mode', () => {
-    test.describe('base', () => {
+    test.describe('base A11y', () => {
       test('triggers axe on the document', async ({ page }) => {
         await page.goto('/iframe.html?id=design-system-components-toggleinput--base&args=&viewMode=story');
         await injectAxe(page);
@@ -12,7 +12,7 @@ test.describe.parallel('ToggleInput', () => {
       });
     });
 
-    test.describe('input error', () => {
+    test.describe('error A11y', () => {
       test('triggers axe on the document', async ({ page }) => {
         await page.goto('/iframe.html?id=design-system-components-toggleinput--error&args=&viewMode=story');
         await injectAxe(page);
@@ -20,7 +20,15 @@ test.describe.parallel('ToggleInput', () => {
       });
     });
 
-    test.describe('null value', () => {
+    test.describe('required A11y', () => {
+      test('triggers axe on the document', async ({ page }) => {
+        await page.goto('/iframe.html?id=design-system-components-toggleinput--required&args=&viewMode=story');
+        await injectAxe(page);
+        await checkA11y(page);
+      });
+    });
+
+    test.describe('null value A11y', () => {
       test('triggers axe on the document', async ({ page }) => {
         await page.goto('/iframe.html?id=design-system-components-toggleinput--null-value&args=&viewMode=story');
         await injectAxe(page);
@@ -30,7 +38,7 @@ test.describe.parallel('ToggleInput', () => {
   });
 
   test.describe('dark mode', () => {
-    test.describe('base', () => {
+    test.describe('base A11y', () => {
       test('triggers axe on the document', async ({ page }) => {
         await page.goto('/iframe.html?id=design-system-components-toggleinput--base&args=&viewMode=story&theme=dark');
         await injectAxe(page);
@@ -38,7 +46,7 @@ test.describe.parallel('ToggleInput', () => {
       });
     });
 
-    test.describe('input error', () => {
+    test.describe('error A11y', () => {
       test('triggers axe on the document', async ({ page }) => {
         await page.goto('/iframe.html?id=design-system-components-toggleinput--error&args=&viewMode=story&theme=dark');
         await injectAxe(page);
@@ -46,7 +54,17 @@ test.describe.parallel('ToggleInput', () => {
       });
     });
 
-    test.describe('null value', () => {
+    test.describe('required A11y', () => {
+      test('triggers axe on the document', async ({ page }) => {
+        await page.goto(
+          '/iframe.html?id=design-system-components-toggleinput--required&args=&viewMode=story&theme=dark',
+        );
+        await injectAxe(page);
+        await checkA11y(page);
+      });
+    });
+
+    test.describe('null value A11y', () => {
       test('triggers axe on the document', async ({ page }) => {
         await page.goto(
           '/iframe.html?id=design-system-components-toggleinput--null-value&args=&viewMode=story&theme=dark',

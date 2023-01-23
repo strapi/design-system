@@ -20,13 +20,9 @@ export const TextInput = React.forwardRef(
 
     return (
       <div ref={inputWrapperRef}>
-        <Field name={name} hint={hint} error={error} id={generatedId}>
+        <Field name={name} hint={hint} error={error} id={generatedId} required={required}>
           <Stack spacing={1}>
-            {label && (
-              <FieldLabel required={required} action={labelAction}>
-                {label}
-              </FieldLabel>
-            )}
+            {label && <FieldLabel action={labelAction}>{label}</FieldLabel>}
             <FieldInput size={size} ref={ref} startAction={startAction} endAction={endAction} {...props} />
             <FieldHint />
             <FieldError />

@@ -29,6 +29,7 @@ export const TimePicker = ({
   value,
   clearLabel,
   label,
+  required,
   selectButtonTitle,
   step,
   size,
@@ -81,6 +82,7 @@ export const TimePicker = ({
       size={size}
       onChange={onChange}
       disabled={disabled}
+      required={required}
       selectButtonTitle={selectButtonTitle}
       startIcon={
         <TimeIconWrapper>
@@ -105,6 +107,7 @@ TimePicker.defaultProps = {
   id: undefined,
   label: undefined,
   onClear: undefined,
+  required: false,
   size: 'M',
   selectButtonTitle: undefined,
   step: 15,
@@ -120,6 +123,7 @@ TimePicker.propTypes = {
   label: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   onClear: PropTypes.func,
+  required: PropTypes.bool,
   selectButtonTitle: PropTypes.string,
   size: PropTypes.oneOf(Object.keys(sizes.input)),
   step: PropTypes.number,

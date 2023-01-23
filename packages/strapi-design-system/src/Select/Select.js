@@ -160,18 +160,14 @@ export const Select = ({
   });
 
   return (
-    <Field hint={hint} error={error} id={generatedId}>
+    <Field hint={hint} error={error} id={generatedId} required={required}>
       <Stack spacing={label || hint || hasStringError ? 1 : 0}>
-        {label && (
-          <FieldLabel required={required} as="span" id={labelId} action={labelAction}>
-            {label}
-          </FieldLabel>
-        )}
+        {label && <FieldLabel action={labelAction}>{label}</FieldLabel>}
 
         <SelectButtonWrapper size={size} hasError={Boolean(error)} disabled={disabled} ref={containerRef}>
           <SelectButton
             ref={buttonRef}
-            labelledBy={`${labelId} ${contentId}`}
+            labelledBy={`${generatedId} ${labelId} ${contentId}`}
             aria-describedby={ariaDescribedBy}
             expanded={Boolean(expanded)}
             onTrigger={setExpanded}

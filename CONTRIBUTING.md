@@ -20,15 +20,6 @@ We are using [GitHub Issues](https://github.com/strapi/design-system/issues) to 
 eye on this so before filing a new issue, try to make sure the problem does not already exist. You can also use the
 [codesandbox template](https://codesandbox.io/s/strapi-design-system-r1vdp) to easily show us the bug.
 
-## Non-editable part
-
-The design system follows the Strapi branding. We use [Specify](https://specifyapp.com/) to be able to synchronise the
-design tokens with the design tools. Some parts of the codebase **can not be modified** including:
-
-- Icons `packages/strapi-icons/assets/icons/`
-- Colors `packages/strapi-design-system/src/themes/colors.js`
-- Shadows `packages/strapi-design-system/src/themes/shadows.js`
-
 ---
 
 ## Before Submitting a Pull Request
