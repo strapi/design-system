@@ -1,8 +1,8 @@
 import React from 'react';
-
 import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
-import Loader from '@strapi/icons/Loader';
+import { Loader } from '@strapi/icons';
+
 import { Typography } from '../Typography';
 import { Box } from '../Box';
 import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from './utils';

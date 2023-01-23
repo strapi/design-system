@@ -1,5 +1,5 @@
 {
-  "name": "website",
+  "name": "@strapi/design-system-website",
   "version": "0.1.0",
   "private": true,
   "scripts": {

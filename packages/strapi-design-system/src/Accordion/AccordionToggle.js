@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
-import DropdownIcon from '@strapi/icons/CarretDown';
+import { CarretDown } from '@strapi/icons';
 import styled from 'styled-components';
 import { TextButton } from '../TextButton';
 import { Typography } from '../Typography';
@@ -99,7 +99,7 @@ export const AccordionToggle = ({ title, description, as, togglePosition, action
       shrink={0}
     >
       <Icon
-        as={DropdownIcon}
+        as={CarretDown}
         width={size === 'M' ? `${11 / 16}rem` : `${8 / 16}rem`}
         color={expanded ? 'primary600' : 'neutral600'}
       />

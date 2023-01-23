@@ -1,8 +1,9 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import ExternalLink from '@strapi/icons/ExternalLink';
+import { ExternalLink } from '@strapi/icons';
 import { NavLink } from 'react-router-dom';
+
 import { Typography } from '../Typography';
 import { Box } from '../Box';
 import { buttonFocusStyle } from '../themes/utils';

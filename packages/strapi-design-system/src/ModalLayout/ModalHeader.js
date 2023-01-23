@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import Cross from '@strapi/icons/Cross';
+import { Cross } from '@strapi/icons';
+
 import { Flex } from '../Flex';
 import { Box } from '../Box';
 import { IconButton } from '../IconButton';
