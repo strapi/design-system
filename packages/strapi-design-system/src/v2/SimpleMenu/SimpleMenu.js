@@ -2,8 +2,7 @@ import React, { useRef, useState, Children, cloneElement, useEffect } from 'reac
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { useCallbackRef } from '@radix-ui/react-use-callback-ref';
-
-import CarretDown from '@strapi/icons/CarretDown';
+import { CarretDown } from '@strapi/icons';
 
 import { Link } from '../Link';
 import { Typography } from '../../Typography';

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef, useLayoutEffect, Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
-import CarretDown from '@strapi/icons/CarretDown';
-import Cross from '@strapi/icons/Cross';
+import { CarretDown, Cross } from '@strapi/icons';
+
 import { useId } from '../helpers/useId';
 import { getActionFromKey, getUpdatedIndex, maintainScrollVisibility, MenuActions, filterOptions } from './utils';
 

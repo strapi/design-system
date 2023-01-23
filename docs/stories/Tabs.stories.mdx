@@ -1,0 +1,209 @@
+<!--- Tabs.stories.mdx --->
+
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+
+import { Tabs, Tab, TabGroup, TabPanel, TabPanels, Box } from '@strapi/design-system';
+
+<Meta title="Design System/Components/Tabs" component={Tabs} />
+
+# Tabs
+
+Tabs are a set of related views within a same page. They help classify better the different levels of information for a
+same topic.
+
+**Best practices**
+
+- Tabs label should be concise. One word or two maximum is preferable.
+- Tabs navigation should follow a logical order: from Tab 1 to Tab 2 and then to Tab 3.
+- Avoid using more than 5 tabs to keep it easily scannable and readable.
+  [View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Tabs)
+
+## Imports
+
+```js
+import { Tabs, Tab, TabGroup, TabPanels, TabPanel } from '@strapi/design-system';
+```
+
+## Usage
+
+Tabs allow to classify related content in different views within a same page.
+
+### Default Tabs
+
+Default Tabs mostly used in forms.
+
+<Canvas>
+  <Story name="base">
+    <Box padding={8} background="primary100">
+      <TabGroup label="Some stuff for the label" id="tabs" onTabChange={(selected) => console.log(selected)}>
+        <Tabs>
+          <Tab>First</Tab>
+          <Tab>Second</Tab>
+          <Tab>Third</Tab>
+        </Tabs>
+        <TabPanels>
+          <TabPanel>
+            <Box color="neutral800" padding={4} background="neutral0">
+              First panel
+            </Box>
+          </TabPanel>
+          <TabPanel>
+            <Box color="neutral800" padding={4} background="neutral0">
+              Second panel
+            </Box>
+          </TabPanel>
+          <TabPanel>
+            <Box color="neutral800" padding={4} background="neutral0">
+              Third panel
+            </Box>
+          </TabPanel>
+        </TabPanels>
+      </TabGroup>
+    </Box>
+  </Story>
+</Canvas>
+
+### Simple Tabs
+
+Simple Tabs are used in modals.
+
+<Canvas>
+  <Story name="simple">
+    <Box padding={8} background="neutral0">
+      <TabGroup label="Some stuff for the label" id="tabs" variant="simple">
+        <Tabs>
+          <Tab>First</Tab>
+          <Tab hasError>Second</Tab>
+          <Tab>Third</Tab>
+        </Tabs>
+        <TabPanels>
+          <TabPanel>
+            <Box color="neutral800" padding={4} background="neutral0">
+              First panel
+            </Box>
+          </TabPanel>
+          <TabPanel>
+            <Box color="neutral800" padding={4} background="neutral0">
+              Second panel
+            </Box>
+          </TabPanel>
+          <TabPanel>
+            <Box color="neutral800" padding={4} background="neutral0">
+              Third panel
+            </Box>
+          </TabPanel>
+        </TabPanels>
+      </TabGroup>
+    </Box>
+  </Story>
+</Canvas>
+
+### Disabled Tabs
+
+Disabled Tabs are used in modals.
+
+<Canvas>
+  <Story name="disabled">
+    <Box padding={8} background="neutral0">
+      <TabGroup label="Some stuff for the label" id="tabs" variant="simple">
+        <Tabs>
+          <Tab disabled>First</Tab>
+          <Tab>Second</Tab>
+          <Tab disabled>Third</Tab>
+          <Tab>Fourth</Tab>
+          <Tab disabled>Fifth</Tab>
+          <Tab>Sixth</Tab>
+          <Tab disabled>Seventh</Tab>
+        </Tabs>
+        <TabPanels>
+          <TabPanel>
+            <Box color="neutral800" padding={4} background="neutral0">
+              First panel
+            </Box>
+          </TabPanel>
+          <TabPanel>
+            <Box color="neutral800" padding={4} background="neutral0">
+              Second panel
+            </Box>
+          </TabPanel>
+          <TabPanel>
+            <Box color="neutral800" padding={4} background="neutral0">
+              Third panel
+            </Box>
+          </TabPanel>
+          <TabPanel>
+            <Box color="neutral800" padding={4} background="neutral0">
+              Fourth panel
+            </Box>
+          </TabPanel>
+          <TabPanel>
+            <Box color="neutral800" padding={4} background="neutral0">
+              Fifth panel
+            </Box>
+          </TabPanel>
+          <TabPanel>
+            <Box color="neutral800" padding={4} background="neutral0">
+              Sixth panel
+            </Box>
+          </TabPanel>
+          <TabPanel>
+            <Box color="neutral800" padding={4} background="neutral0">
+              Seventh panel
+            </Box>
+          </TabPanel>
+        </TabPanels>
+      </TabGroup>
+    </Box>
+  </Story>
+</Canvas>
+
+### Selected Tab
+
+Chose which tab is selected
+
+<Canvas>
+  <Story name="selected">
+    <Box padding={8} background="neutral0">
+      <TabGroup label="Some stuff for the label" id="tabs" variant="simple" initialSelectedTabIndex={1}>
+        <Tabs>
+          <Tab>First</Tab>
+          <Tab>Second</Tab>
+          <Tab>Third</Tab>
+        </Tabs>
+        <TabPanels>
+          <TabPanel>
+            <Box color="neutral800" padding={4} background="neutral0">
+              First panel
+            </Box>
+          </TabPanel>
+          <TabPanel>
+            <Box color="neutral800" padding={4} background="neutral0">
+              Second panel
+            </Box>
+          </TabPanel>
+          <TabPanel>
+            <Box color="neutral800" padding={4} background="neutral0">
+              Third panel
+            </Box>
+          </TabPanel>
+        </TabPanels>
+      </TabGroup>
+    </Box>
+  </Story>
+</Canvas>
+
+## TabGroup Props
+
+<ArgsTable of={TabGroup} />
+
+## Tabs Props
+
+<ArgsTable of={Tabs} />
+
+## Tab Props
+
+<ArgsTable of={Tab} />
+
+## TabPanel Props
+
+<ArgsTable of={TabPanel} />

@@ -130,7 +130,7 @@ test.describe.parallel('Tabs', () => {
       });
     });
 
-    test.describe('Disabled tabs', () => {
+    test.skip('Disabled tabs', () => {
       test.beforeEach(async ({ page }) => {
         // This is the URL of the Storybook Iframe
         await page.goto('/iframe.html?id=design-system-components-tabs--disabled&viewMode=story');

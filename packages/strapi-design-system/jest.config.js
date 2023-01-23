@@ -21,7 +21,6 @@ export default {
         },
       },
     ],
-    '^.+\\.mdx?$': '@storybook/addon-docs/jest-transform-mdx',
   },
   globalSetup: '<rootDir>/global-setup.js',
 };
