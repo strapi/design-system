@@ -24,6 +24,7 @@ export * from './FocusTrap';
 export * from './Grid';
 export * from './Icon';
 export * from './IconButton';
+export * from './JSONInput';
 export * from './KeyboardNavigable';
 export * from './Layout';
 export * from './Link';
