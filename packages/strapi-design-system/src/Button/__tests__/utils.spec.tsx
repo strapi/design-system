@@ -8,8 +8,8 @@ describe('utils', () => {
     });
 
     it('should return the right color name for light variants', () => {
-      expect(getVariantColorName('success-light')).toEqual('success600');
-      expect(getVariantColorName('danger-light')).toEqual('danger600');
+      expect(getVariantColorName('success-light')).toEqual('success');
+      expect(getVariantColorName('danger-light')).toEqual('danger');
     });
 
     it('should return primary by default', () => {
