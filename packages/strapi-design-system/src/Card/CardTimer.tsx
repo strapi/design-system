@@ -1,22 +1,25 @@
-import styled from 'styled-components';
-
+import * as React from 'react';
 import { Box, BoxProps } from '../Box';
 import { Typography } from '../Typography';
-
-const CardTimerWrapper = styled(Box)`
-  position: absolute;
-  bottom: ${({ theme }) => theme.spaces[1]};
-  right: ${({ theme }) => theme.spaces[1]};
-`;
 
 export interface CardTimerProps extends BoxProps {
   children: React.ReactNode;
 }
 
 export const CardTimer = ({ children, ...props }: CardTimerProps) => (
-  <CardTimerWrapper padding={1} background="neutral800" color="neutral0" as="time" hasRadius {...props}>
+  <Box
+    as="time"
+    background="neutral800"
+    bottom={1}
+    right={1}
+    color="neutral0"
+    hasRadius
+    position="absolute"
+    padding={1}
+    {...props}
+  >
     <Typography variant="pi" textColor="neutral0">
       {children}
     </Typography>
-  </CardTimerWrapper>
+  </Box>
 );

@@ -6,16 +6,12 @@ import { Typography } from '../Typography';
 import { Flex } from '../Flex';
 import checkmarkIcon from '../BaseCheckbox/assets/checkmark.svg';
 
-const CheckMark = styled.div`
+const CheckMark = styled(Box)`
   border: 1px solid
     ${({ theme, selected, indeterminate }) =>
       selected || indeterminate ? theme.colors.primary600 : theme.colors.neutral300};
-  border-radius: ${({ theme }) => theme.borderRadius};
   height: 18px;
   width: 18px;
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
   background-color: ${({ theme, selected, indeterminate }) =>
     selected || indeterminate ? theme.colors.primary600 : theme.colors.neutral0};
 
@@ -91,7 +87,14 @@ export const Option = ({ selected, indeterminate, children, value, multi, isChil
 
         {multi && (
           <Box paddingRight={2} aria-hidden>
-            <CheckMark selected={selected} indeterminate={indeterminate} />
+            <CheckMark
+              hasRadius
+              overflow="hidden"
+              position="relative"
+              indeterminate={indeterminate}
+              selected={selected}
+              zIndex={1}
+            />
           </Box>
         )}
         <Typography textColor={selected ? 'primary600' : 'neutral800'} fontWeight={selected ? 'bold' : null}>
