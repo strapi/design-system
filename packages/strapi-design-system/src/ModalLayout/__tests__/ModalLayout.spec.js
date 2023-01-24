@@ -170,7 +170,8 @@ describe('ModalLayout', () => {
         color: #666687;
       }
 
-      .c17[aria-disabled='true'] svg > g,.c17[aria-disabled='true'] svg path {
+      .c17[aria-disabled='true'] svg > g,
+      .c17[aria-disabled='true'] svg path {
         fill: #666687;
       }
 
@@ -183,7 +184,8 @@ describe('ModalLayout', () => {
         color: #666687;
       }
 
-      .c17[aria-disabled='true']:active svg > g,.c17[aria-disabled='true']:active svg path {
+      .c17[aria-disabled='true']:active svg > g,
+      .c17[aria-disabled='true']:active svg path {
         fill: #666687;
       }
 
@@ -242,7 +244,8 @@ describe('ModalLayout', () => {
         color: #666687;
       }
 
-      .c20[aria-disabled='true'] svg > g,.c20[aria-disabled='true'] svg path {
+      .c20[aria-disabled='true'] svg > g,
+      .c20[aria-disabled='true'] svg path {
         fill: #666687;
       }
 
@@ -255,7 +258,8 @@ describe('ModalLayout', () => {
         color: #666687;
       }
 
-      .c20[aria-disabled='true']:active svg > g,.c20[aria-disabled='true']:active svg path {
+      .c20[aria-disabled='true']:active svg > g,
+      .c20[aria-disabled='true']:active svg path {
         fill: #666687;
       }
 
@@ -322,7 +326,8 @@ describe('ModalLayout', () => {
         color: #666687;
       }
 
-      .c21[aria-disabled='true'] svg > g,.c21[aria-disabled='true'] svg path {
+      .c21[aria-disabled='true'] svg > g,
+      .c21[aria-disabled='true'] svg path {
         fill: #666687;
       }
 
@@ -335,7 +340,8 @@ describe('ModalLayout', () => {
         color: #666687;
       }
 
-      .c21[aria-disabled='true']:active svg > g,.c21[aria-disabled='true']:active svg path {
+      .c21[aria-disabled='true']:active svg > g,
+      .c21[aria-disabled='true']:active svg path {
         fill: #666687;
       }
 
