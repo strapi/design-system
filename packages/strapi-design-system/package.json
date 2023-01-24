@@ -1,6 +1,6 @@
 {
   "name": "@strapi/design-system",
-  "version": "1.5.0",
+  "version": "1.6.0-alpha.0",
   "license": "MIT",
   "type": "module",
   "sideEffects": false,
@@ -29,7 +29,7 @@
   "devDependencies": {
     "@juggle/resize-observer": "^3.4.0",
     "@playwright/test": "1.27.1",
-    "@strapi/icons": "^1.5.0",
+    "@strapi/icons": "^1.6.0-alpha.0",
     "@swc/core": "^1.3.11",
     "@swc/jest": "^0.2.23",
     "@testing-library/jest-dom": "5.16.5",
@@ -74,5 +74,5 @@
     "@types/react": "17.0.2",
     "@types/react-dom": "17.0.2"
   },
-  "gitHead": "bf52e690f743703a47f768ba83ebff55a3a12795"
+  "gitHead": "c74900b0ee3525510d266dc83c9743cb24dafced"
 }
