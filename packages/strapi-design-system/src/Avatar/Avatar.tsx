@@ -70,8 +70,8 @@ export const Avatar = ({ src, alt, preview }: AvatarProps) => {
             background="neutral0"
             borderRadius="50%"
             position="absolute"
-            width={`${avatarSize / 16}px`}
-            height={`${avatarSize / 16}px`}
+            width={`${avatarSize}px`}
+            height={`${avatarSize}px`}
             zIndex={1}
           />
         ) : null}

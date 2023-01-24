@@ -27,8 +27,8 @@ describe('Avatar', () => {
         border-radius: 50%;
         position: absolute;
         z-index: 1;
-        width: 2px;
-        height: 2px;
+        width: 32px;
+        height: 32px;
       }
 
       .c4 {
@@ -68,8 +68,8 @@ describe('Avatar', () => {
         >
           <div
             class="c2 c3"
-            height="2px"
-            width="2px"
+            height="32px"
+            width="32px"
           />
           <img
             alt="marvin frachet"
@@ -109,8 +109,8 @@ describe('Avatar', () => {
         border-radius: 50%;
         position: absolute;
         z-index: 1;
-        width: 2px;
-        height: 2px;
+        width: 32px;
+        height: 32px;
       }
 
       .c4 {
@@ -150,8 +150,8 @@ describe('Avatar', () => {
         >
           <div
             class="c2 c3"
-            height="2px"
-            width="2px"
+            height="32px"
+            width="32px"
           />
           <img
             alt="marvin frachet"
