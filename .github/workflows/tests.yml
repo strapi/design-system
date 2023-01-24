@@ -2,9 +2,31 @@ name: Tests
 on:
   pull_request:
     branches: '*'
-  workflow_dispatch:
 
 jobs:
+  typecheck:
+    name: 'Typecheck'
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+          cache: 'yarn'
+      - uses: actions/cache@v3
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-${{ matrix.node }}-${{ hashFiles('**/yarn.lock') }}
+      - run: yarn install --frozen-lockfile
+
+      - name: Link locale packages and install their dependencies
+        run: yarn bootstrap
+
+      - name: Build
+        run: yarn build
+
+      - name: Run TSC
+        run: yarn test:ts
   lint:
     name: 'Lint'
     runs-on: macos-latest
@@ -12,9 +34,14 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: '18'
           cache: 'yarn'
-      - uses: ./.github/actions/install-modules
+      - uses: actions/cache@v3
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-${{ matrix.node }}-${{ hashFiles('**/yarn.lock') }}
+
+      - run: yarn install --frozen-lockfile
       - name: Link locale packages and install their dependencies
         run: yarn bootstrap
       - name: Run lint
@@ -23,15 +50,20 @@ jobs:
         run: yarn prettier:check
   unit_tests:
     name: 'unit tests'
-    needs: [lint]
+    needs: [lint, typecheck]
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: '18'
           cache: yarn
-      - uses: ./.github/actions/install-modules
+      - uses: actions/cache@v3
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-${{ matrix.node }}-${{ hashFiles('**/yarn.lock') }}
+
+      - run: yarn install --frozen-lockfile
 
       - name: Link locale packages and install their dependencies
         run: yarn bootstrap
@@ -43,7 +75,7 @@ jobs:
         run: yarn test
   e2e_tests:
     name: 'e2e tests (browser: ${{ matrix.browser }})'
-    needs: [lint, unit_tests]
+    needs: [lint, typecheck, unit_tests]
     runs-on: macos-latest
     strategy:
       matrix:
@@ -52,7 +84,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: '18'
           cache: yarn
       - uses: ./.github/actions/install-modules
         with:

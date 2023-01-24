@@ -1,0 +1,20 @@
+import { getVariantColorName } from '../utils';
+
+describe('utils', () => {
+  describe('getVariantsColorName', () => {
+    it('should return primary for the default and secondary', () => {
+      expect(getVariantColorName('default')).toEqual('primary');
+      expect(getVariantColorName('secondary')).toEqual('primary');
+    });
+
+    it('should return the right color name for light variants', () => {
+      expect(getVariantColorName('success-light')).toEqual('success600');
+      expect(getVariantColorName('danger-light')).toEqual('danger600');
+    });
+
+    it('should return primary by default', () => {
+      // @ts-expect-error we want this.
+      expect(getVariantColorName('unknown')).toEqual('primary');
+    });
+  });
+});

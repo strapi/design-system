@@ -46,7 +46,6 @@ describe('ModalLayout', () => {
         font-size: 0.75rem;
         line-height: 1.33;
         font-weight: 600;
-        line-height: 1.14;
         color: #32324d;
       }
 
