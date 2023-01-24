@@ -13,21 +13,26 @@
     },
     "./*": "./dist/*"
   },
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "devDependencies": {
     "@svgr/cli": "^5.5.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "@types/react": "17",
+    "@types/react-dom": "17.0.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "peerDependencies": {
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "scripts": {
-    "build": "rimraf dist src && yarn generate:icons && vite build",
-    "generate:icons": "svgr --icon -d ./src ./assets/icons"
+    "clean-build": "rimraf dist src",
+    "build": "yarn clean-build && yarn generate:icons && vite build && yarn generate:types",
+    "generate:icons": "svgr --typescript --icon -d ./src ./assets/icons",
+    "generate:types": "tsc --noEmit false --emitDeclarationOnly --declarationDir dist"
   },
   "gitHead": "bf52e690f743703a47f768ba83ebff55a3a12795"
 }

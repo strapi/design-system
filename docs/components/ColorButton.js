@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { Box, Typography } from '@strapi/design-system';
 
 const StyledBox = styled(Box)`
