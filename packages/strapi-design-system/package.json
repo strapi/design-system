@@ -18,9 +18,11 @@
     "dist"
   ],
   "dependencies": {
+    "@codemirror/lang-json": "^6.0.1",
     "@floating-ui/react-dom": "^1.0.0",
     "@internationalized/number": "^3.1.1",
     "@radix-ui/react-use-callback-ref": "^1.0.0",
+    "@uiw/react-codemirror": "4.8.1",
     "compute-scroll-into-view": "^1.0.17",
     "prop-types": "^15.7.2"
   },
