@@ -5,6 +5,10 @@
   "repository": "git@github.com:strapi/design-system.git",
   "license": "MIT",
   "private": true,
+  "workspaces": [
+    "packages/*",
+    "docs"
+  ],
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "build-storybook": "lerna run build-storybook --stream",
