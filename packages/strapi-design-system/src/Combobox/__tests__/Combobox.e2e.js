@@ -20,7 +20,7 @@ test.describe.parallel('Combobox', () => {
 
       await page.click('text="Tartuffo"');
 
-      const selectedValue = await page.textContent('#combobox-1-selected-value');
+      const selectedValue = await page.textContent("[id*='-selected-value']");
       await expect(selectedValue).toBe('Tartuffo');
       await expect(page.locator('[role="listbox"]')).not.toBeVisible({ timeout: 300 });
     });
@@ -31,7 +31,7 @@ test.describe.parallel('Combobox', () => {
 
       await page.click('text="Tartuffo"');
 
-      const selectedValue = await page.textContent('#combobox-1-selected-value');
+      const selectedValue = await page.textContent("[id*='-selected-value']");
       await expect(selectedValue).toBe('Tartuffo');
       await expect(page.locator('[role="listbox"]')).not.toBeVisible({ timeout: 300 });
     });
@@ -59,11 +59,11 @@ test.describe.parallel('Combobox', () => {
       await page.keyboard.press('ArrowDown');
 
       const ariaDescendantValue = await page.getAttribute('input', 'aria-activedescendant');
-      expect(ariaDescendantValue).toBe('combobox-1-2');
+      expect(ariaDescendantValue).toBe('1-2');
 
       await page.keyboard.press('Enter');
 
-      const selectedValue = await page.textContent('#combobox-1-selected-value');
+      const selectedValue = await page.textContent("[id*='-selected-value']");
       await expect(selectedValue).toBe('Tartuffo');
     });
   });
@@ -80,7 +80,7 @@ test.describe.parallel('Combobox', () => {
     });
 
     test('initialize the value', async ({ page }) => {
-      const selectedValue = await page.textContent('#combobox-1-selected-value');
+      const selectedValue = await page.textContent("[id*='-selected-value']");
       await expect(selectedValue).toBe('Tartuffo');
     });
   });
@@ -103,7 +103,7 @@ test.describe.parallel('Combobox', () => {
 
       await page.click('[role="option"]');
 
-      const selectedValue = await page.textContent('#combobox-1-selected-value');
+      const selectedValue = await page.textContent("[id*='-selected-value']");
       await expect(selectedValue).toBe('Apple Pie');
     });
 
