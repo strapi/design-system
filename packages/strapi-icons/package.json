@@ -1,6 +1,6 @@
 {
   "name": "@strapi/icons",
-  "version": "1.5.0",
+  "version": "1.6.1",
   "license": "MIT",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -34,5 +34,5 @@
     "generate:icons": "svgr --typescript --icon -d ./src ./assets/icons",
     "generate:types": "tsc --noEmit false --emitDeclarationOnly --declarationDir dist"
   },
-  "gitHead": "bf52e690f743703a47f768ba83ebff55a3a12795"
+  "gitHead": "c74900b0ee3525510d266dc83c9743cb24dafced"
 }

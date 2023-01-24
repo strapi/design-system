@@ -16,7 +16,7 @@ import {
 
 export const getVariantColorName = (variant: Variant): 'success' | 'danger' | 'neutral' | 'primary' => {
   if (variant === SUCCESS_LIGHT || variant === DANGER_LIGHT) {
-    return `${variant.substring(0, variant.lastIndexOf('-'))}600` as 'success' | 'danger';
+    return `${variant.substring(0, variant.lastIndexOf('-'))}` as 'success' | 'danger';
   } else if (variant === TERTIARY) {
     return 'neutral';
   } else if (variant === DEFAULT || variant === SECONDARY || VARIANTS.every((vari) => vari !== variant)) {
