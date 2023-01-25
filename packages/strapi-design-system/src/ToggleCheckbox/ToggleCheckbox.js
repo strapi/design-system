@@ -71,7 +71,7 @@ const Input = styled.input`
 
 export const ToggleCheckbox = React.forwardRef(
   ({ size, onLabel, offLabel, children, checked, disabled, onChange, ...props }, ref) => {
-    const { name, required } = useField();
+    const { error, hint, id, name, required } = useField();
 
     const labelColor = 'neutral600';
 
@@ -83,6 +83,16 @@ export const ToggleCheckbox = React.forwardRef(
 
       onChange(e);
     };
+
+    // Ensuring we pass the right aria-describedby attribute to the Input component as
+    // ToggleCheckbox is not using FieldInput which would allow us to pass on the error or hint with aria-describedby
+    let ariaDescription;
+
+    if (error) {
+      ariaDescription = `${id}-error`;
+    } else if (hint) {
+      ariaDescription = `${id}-hint`;
+    }
 
     return (
       <Label>
@@ -141,6 +151,7 @@ export const ToggleCheckbox = React.forwardRef(
           <Input
             type="checkbox"
             aria-disabled={disabled}
+            aria-describedby={ariaDescription}
             onChange={(e) => handleChange(e)}
             name={name}
             ref={ref}

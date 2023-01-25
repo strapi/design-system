@@ -123,6 +123,7 @@ export const DateTimePicker = ({
             name={name}
             ariaLabel={label || ariaLabel}
             error={typeof error === 'string'}
+            hint={typeof hint === 'string'}
             selectedDate={dateValue}
             selectedDateLabel={(formattedDate) => `Date picker, current is ${formattedDate}`}
             onChange={handleDateChange}
@@ -138,6 +139,7 @@ export const DateTimePicker = ({
             size={size}
             aria-label={label || ariaLabel}
             error={typeof error === 'string'}
+            hint={typeof hint === 'string'}
             value={timeValue}
             onChange={handleTimeChange}
             onClear={onClear && handleTimeClear}
