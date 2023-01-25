@@ -126,6 +126,8 @@ export const SingleSelect = ({
     skipWhen: !internalIsOpen,
   });
 
+  console.log(passedValue);
+
   const value = typeof passedValue !== 'undefined' ? passedValue.toString() : internalValue;
 
   return (
@@ -208,6 +210,7 @@ const Trigger = styled(RadixSelect.Trigger)<TriggerProps>`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: ${({ theme }) => theme.spaces[4]};
 
   [aria-disabled='true'] {
     color: ${(props) => props.theme.colors.neutral600};
