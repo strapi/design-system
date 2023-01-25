@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import * as RadixSelect from '@radix-ui/react-select';
 
@@ -7,9 +6,30 @@ import { Box } from '../Box';
 import { Typography } from '../Typography';
 import checkmarkIcon from '../BaseCheckbox/assets/checkmark.svg';
 
-export const Option = ({ selected, indeterminate, children, value, multi, isChild, startIcon }) => {
-  return (
-    <SelectItem data-strapi-value={value} $isChild={isChild} value={value}>
+interface OptionProps {
+  children: string | number;
+  indeterminate?: boolean;
+  isChild?: boolean;
+  multi?: boolean;
+  selected?: boolean;
+  startIcon?: React.ReactNode;
+  value: string | number;
+}
+
+export const Option = ({ selected, indeterminate, children, value, multi, isChild, startIcon }: OptionProps) => {
+  return multi ? (
+    <OptionBox
+      as="li"
+      hasRadius
+      paddingLeft={isChild ? 7 : 4}
+      paddingRight={4}
+      paddingTop={2}
+      paddingBottom={2}
+      role="option"
+      aria-selected={selected}
+      background="neutral0"
+      data-strapi-value={value}
+    >
       {startIcon && (
         <Box as="span" paddingRight={2} aria-hidden>
           {startIcon}
@@ -17,10 +37,21 @@ export const Option = ({ selected, indeterminate, children, value, multi, isChil
       )}
       {multi && (
         <Box as="span" paddingRight={2} aria-hidden>
-          <CheckMark selected={selected} indeterminate={indeterminate} />
+          <CheckMark $selected={selected} indeterminate={indeterminate} />
         </Box>
       )}
-      <Typography textColor={selected ? 'primary600' : 'neutral800'} fontWeight={selected ? 'bold' : null}>
+      <Typography textColor={selected ? 'primary600' : 'neutral800'} fontWeight={selected ? 'bold' : undefined}>
+        <RadixSelect.ItemText>{children}</RadixSelect.ItemText>
+      </Typography>
+    </OptionBox>
+  ) : (
+    <SelectItem data-strapi-value={value} $isChild={isChild} value={value.toString()}>
+      {startIcon && (
+        <Box as="span" paddingRight={2} aria-hidden>
+          {startIcon}
+        </Box>
+      )}
+      <Typography textColor={selected ? 'primary600' : 'neutral800'} fontWeight={selected ? 'bold' : undefined}>
         <RadixSelect.ItemText>{children}</RadixSelect.ItemText>
       </Typography>
     </SelectItem>
@@ -35,19 +66,23 @@ Option.defaultProps = {
   indeterminate: false,
 };
 
-Option.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  indeterminate: PropTypes.bool,
-  isChild: PropTypes.bool,
-  multi: PropTypes.bool,
-  selected: PropTypes.bool,
-  startIcon: PropTypes.node,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-};
-
 Option.displayName = 'Option';
 
-const SelectItem = styled(RadixSelect.Item)`
+const OptionBox = styled(Box)`
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline-offset: -3px;
+  &.is-focused {
+    background: ${({ theme }) => theme.colors.primary100};
+  }
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.primary100};
+  }
+`;
+
+const SelectItem = styled(RadixSelect.Item)<{ $isChild?: boolean }>`
   width: 100%;
   border: none;
   text-align: left;
@@ -68,18 +103,23 @@ const SelectItem = styled(RadixSelect.Item)`
   }
 `;
 
-const CheckMark = styled.span`
+interface CheckMarkProps {
+  $selected?: boolean;
+  indeterminate?: boolean;
+}
+
+const CheckMark = styled.span<CheckMarkProps>`
   border: 1px solid
-    ${({ theme, selected, indeterminate }) =>
-      selected || indeterminate ? theme.colors.primary600 : theme.colors.neutral300};
+    ${({ theme, $selected, indeterminate }) =>
+      $selected || indeterminate ? theme.colors.primary600 : theme.colors.neutral300};
   border-radius: ${({ theme }) => theme.borderRadius};
   height: 18px;
   width: 18px;
   position: relative;
   z-index: 1;
   overflow: hidden;
-  background-color: ${({ theme, selected, indeterminate }) =>
-    selected || indeterminate ? theme.colors.primary600 : theme.colors.neutral0};
+  background-color: ${({ theme, $selected, indeterminate }) =>
+    $selected || indeterminate ? theme.colors.primary600 : theme.colors.neutral0};
 
   ${({ theme, indeterminate }) =>
     indeterminate &&
@@ -98,8 +138,8 @@ const CheckMark = styled.span`
       }
     `}
 
-  ${({ selected }) =>
-    selected &&
+  ${({ $selected }) =>
+    $selected &&
     css`
       &::after {
         content: '';

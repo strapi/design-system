@@ -4,8 +4,8 @@
 import { useRef } from 'react';
 import { genId } from './genId';
 
-export const useId = (prefix: string, initialId?: string) => {
-  const idRef = useRef(initialId || `${prefix}-${genId()}`);
+export const useId = (prefix: string, initialId?: string | number) => {
+  const idRef = useRef(initialId?.toString() || `${prefix}-${genId()}`);
 
   return idRef.current;
 };

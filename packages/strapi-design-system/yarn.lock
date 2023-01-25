@@ -1020,6 +1020,11 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
+"@strapi/icons@^1.6.1":
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/@strapi/icons/-/icons-1.6.1.tgz#39dfaaf75e44e0e94bd38ff04df8b9294ef1dd52"
+  integrity sha512-CcbJl1CrLNNu8dwwdzwUYQp8Q6htBBbi65MrfHf4wuKrAWyNthTYTvnyqh4Px67hhZ7V1SAN2WyLy2UzjC/0bQ==
+
 "@swc/core-darwin-arm64@1.3.27":
   version "1.3.27"
   resolved "https://registry.yarnpkg.com/@swc/core-darwin-arm64/-/core-darwin-arm64-1.3.27.tgz#247b275d505c2462ce08cca4e322becbca8e428a"
