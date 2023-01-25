@@ -126,8 +126,6 @@ export const SingleSelect = ({
     skipWhen: !internalIsOpen,
   });
 
-  console.log(passedValue);
-
   const value = typeof passedValue !== 'undefined' ? passedValue.toString() : internalValue;
 
   return (
