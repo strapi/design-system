@@ -295,7 +295,6 @@ describe('TimePicker', () => {
         <div>
           <div
             class="c0 c1"
-            spacing="1"
           >
             <label
               class="c2"
@@ -453,7 +452,6 @@ describe('TimePicker', () => {
                 aria-multiselectable="false"
                 class="c0 c1"
                 role="listbox"
-                spacing="1"
                 tabindex="-1"
               >
                 <li
