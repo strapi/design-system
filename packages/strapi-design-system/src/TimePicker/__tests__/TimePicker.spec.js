@@ -283,7 +283,6 @@ describe('TimePicker', () => {
         >
           <div
             class="c0 c1"
-            spacing="1"
           >
             <label
               class="c2"
