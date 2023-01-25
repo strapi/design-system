@@ -53,12 +53,7 @@ export const HeaderLayout = (props) => {
 HeaderLayout.displayName = 'HeaderLayout';
 
 const StickyBox = styled(Box)`
-  position: fixed;
-  top: 0;
-  right: 0;
   width: ${(props) => props.width}px;
-  z-index: 4;
-  box-shadow: ${({ theme }) => theme.shadows.tableShadow};
 `;
 
 export const BaseHeaderLayout = React.forwardRef(
@@ -72,8 +67,13 @@ export const BaseHeaderLayout = React.forwardRef(
           paddingRight={6}
           paddingTop={3}
           paddingBottom={3}
+          position="fixed"
+          top={0}
+          right={0}
           background="neutral0"
+          shadow="tableShadow"
           width={width}
+          zIndex={4}
           data-strapi-header-sticky
         >
           <Flex justifyContent="space-between">

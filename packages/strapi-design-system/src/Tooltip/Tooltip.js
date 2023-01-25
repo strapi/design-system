@@ -10,7 +10,6 @@ import { useId } from '../helpers/useId';
 import { VisuallyHidden } from '../VisuallyHidden';
 
 const TooltipWrapper = styled(Box)`
-  position: absolute;
   /* z-index exist because of its position inside Modals */
   z-index: 4;
   display: ${({ visible }) => (visible ? 'revert' : 'none')};
@@ -40,6 +39,7 @@ export const Tooltip = ({ children, label, description, delay, position, id, ...
           role="tooltip"
           ref={tooltipWrapperRef}
           visible={visible}
+          position="absolute"
           {...props}
         >
           {visible && <VisuallyHidden id={descriptionId}>{description}</VisuallyHidden>}

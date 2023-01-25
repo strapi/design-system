@@ -5,10 +5,14 @@
   "repository": "git@github.com:strapi/design-system.git",
   "license": "MIT",
   "private": true,
+  "workspaces": [
+    "packages/*",
+    "docs"
+  ],
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "build-storybook": "lerna run build-storybook --stream",
-    "develop": "lerna run develop --parallel",
+    "develop": "lerna run develop --parallel --ignore @strapi/design-system-docs",
     "build": "lerna run build --stream",
     "clean": "lerna clean",
     "generate": "plop",
@@ -19,7 +23,7 @@
     "setup": "yarn && yarn bootstrap && yarn build",
     "specify:pull": "specify pull",
     "specify:sync": "specify sync",
-    "storybook": "lerna run storybook --stream",
+    "storybook": "lerna run develop --stream --scope @strapi/design-system-docs",
     "test": "lerna run test --stream",
     "test:ts": "lerna run test:ts --stream",
     "test:watch": "lerna --scope @strapi/design-system exec -- yarn test:watch",
@@ -59,5 +63,9 @@
   },
   "lint-staged": {
     "*.{js,jsx}": "yarn lint-staged"
+  },
+  "resolutions": {
+    "@types/react": "17.0.2",
+    "@types/react-dom": "17.0.2"
   }
 }

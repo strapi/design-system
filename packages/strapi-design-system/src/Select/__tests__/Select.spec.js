@@ -539,6 +539,13 @@ describe('Select', () => {
         padding-right: 8px;
       }
 
+      .c21 {
+        border-radius: 4px;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+      }
+
       .c0 {
         -webkit-align-items: stretch;
         -webkit-box-align: stretch;
@@ -608,14 +615,14 @@ describe('Select', () => {
         color: #666687;
       }
 
-      .c22 {
+      .c23 {
         font-size: 0.875rem;
         line-height: 1.43;
         font-weight: 600;
         color: #4945ff;
       }
 
-      .c24 {
+      .c25 {
         font-size: 0.875rem;
         line-height: 1.43;
         color: #32324d;
@@ -724,18 +731,14 @@ describe('Select', () => {
         width: 100%;
       }
 
-      .c21 {
+      .c22 {
         border: 1px solid #4945ff;
-        border-radius: 4px;
         height: 18px;
         width: 18px;
-        position: relative;
-        z-index: 1;
-        overflow: hidden;
         background-color: #4945ff;
       }
 
-      .c21::after {
+      .c22::after {
         content: '';
         background: url(test-file-stub) no-repeat no-repeat center center;
         width: 100%;
@@ -743,14 +746,10 @@ describe('Select', () => {
         position: absolute;
       }
 
-      .c23 {
+      .c24 {
         border: 1px solid #c0c0cf;
-        border-radius: 4px;
         height: 18px;
         width: 18px;
-        position: relative;
-        z-index: 1;
-        overflow: hidden;
         background-color: #ffffff;
       }
 
@@ -911,11 +910,12 @@ describe('Select', () => {
                       class="c20"
                     >
                       <div
-                        class="c21"
+                        class="c21 c22"
+                        overflow="hidden"
                       />
                     </div>
                     <span
-                      class="c22"
+                      class="c23"
                     >
                       Pizza
                     </span>
@@ -936,11 +936,12 @@ describe('Select', () => {
                       class="c20"
                     >
                       <div
-                        class="c21"
+                        class="c21 c22"
+                        overflow="hidden"
                       />
                     </div>
                     <span
-                      class="c22"
+                      class="c23"
                     >
                       Hamburger
                     </span>
@@ -961,11 +962,12 @@ describe('Select', () => {
                       class="c20"
                     >
                       <div
-                        class="c23"
+                        class="c21 c24"
+                        overflow="hidden"
                       />
                     </div>
                     <span
-                      class="c24"
+                      class="c25"
                     >
                       Bagel
                     </span>

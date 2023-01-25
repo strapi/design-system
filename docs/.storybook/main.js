@@ -9,14 +9,6 @@ module.exports = {
   },
   webpackFinal: (config) => {
     /**
-     * These are required to ensure we're using the correct version
-     * in storybook so `NavLink` doesn't break for example.
-     */
-    config.resolve.alias['react-router'] = path.resolve(__dirname, '../node_modules/react-router');
-    config.resolve.alias['react-router-dom'] = path.resolve(__dirname, '../node_modules/react-router-dom');
-    config.resolve.alias['styled-components'] = path.resolve(__dirname, '../node_modules/styled-components');
-
-    /**
      * This is used to avoid webpack import errors where
      * the origin is strict EcmaScript Module.
      *

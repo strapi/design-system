@@ -42,20 +42,27 @@ describe('ModalLayout', () => {
         width: 1px;
       }
 
-      .c17 {
+      .c19 {
         font-size: 0.75rem;
         line-height: 1.33;
         font-weight: 600;
         color: #32324d;
       }
 
-      .c3 {
+      .c2 {
+        padding-right: 40px;
+        padding-left: 40px;
+        position: fixed;
+        z-index: 4;
+      }
+
+      .c5 {
         background: #ffffff;
         border-radius: 4px;
         box-shadow: 0px 2px 15px rgba(33,33,52,0.1);
       }
 
-      .c5 {
+      .c7 {
         background: #f6f6f9;
         padding-top: 16px;
         padding-right: 20px;
@@ -63,11 +70,11 @@ describe('ModalLayout', () => {
         padding-left: 20px;
       }
 
-      .c10 {
+      .c12 {
         padding: 32px;
       }
 
-      .c8 {
+      .c10 {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -81,21 +88,21 @@ describe('ModalLayout', () => {
         outline: none;
       }
 
-      .c8 svg {
+      .c10 svg {
         height: 12px;
         width: 12px;
       }
 
-      .c8 svg > g,
-      .c8 svg path {
+      .c10 svg > g,
+      .c10 svg path {
         fill: #ffffff;
       }
 
-      .c8[aria-disabled='true'] {
+      .c10[aria-disabled='true'] {
         pointer-events: none;
       }
 
-      .c8:after {
+      .c10:after {
         -webkit-transition-property: all;
         transition-property: all;
         -webkit-transition-duration: 0.2s;
@@ -110,11 +117,11 @@ describe('ModalLayout', () => {
         border: 2px solid transparent;
       }
 
-      .c8:focus-visible {
+      .c10:focus-visible {
         outline: none;
       }
 
-      .c8:focus-visible:after {
+      .c10:focus-visible:after {
         border-radius: 8px;
         content: '';
         position: absolute;
@@ -125,7 +132,7 @@ describe('ModalLayout', () => {
         border: 2px solid #4945ff;
       }
 
-      .c15 {
+      .c17 {
         -webkit-align-items: center;
         -webkit-box-align: center;
         -ms-flex-align: center;
@@ -139,7 +146,7 @@ describe('ModalLayout', () => {
         background: #ffffff;
       }
 
-      .c15 .c2 {
+      .c17 .c1 {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -150,56 +157,56 @@ describe('ModalLayout', () => {
         align-items: center;
       }
 
-      .c15 .c16 {
+      .c17 .c18 {
         color: #ffffff;
       }
 
-      .c15[aria-disabled='true'] {
+      .c17[aria-disabled='true'] {
         border: 1px solid #dcdce4;
         background: #eaeaef;
       }
 
-      .c15[aria-disabled='true'] .c16 {
+      .c17[aria-disabled='true'] .c18 {
         color: #666687;
       }
 
-      .c15[aria-disabled='true'] svg > g,
-      .c15[aria-disabled='true'] svg path {
+      .c17[aria-disabled='true'] svg > g,
+      .c17[aria-disabled='true'] svg path {
         fill: #666687;
       }
 
-      .c15[aria-disabled='true']:active {
+      .c17[aria-disabled='true']:active {
         border: 1px solid #dcdce4;
         background: #eaeaef;
       }
 
-      .c15[aria-disabled='true']:active .c16 {
+      .c17[aria-disabled='true']:active .c18 {
         color: #666687;
       }
 
-      .c15[aria-disabled='true']:active svg > g,
-      .c15[aria-disabled='true']:active svg path {
+      .c17[aria-disabled='true']:active svg > g,
+      .c17[aria-disabled='true']:active svg path {
         fill: #666687;
       }
 
-      .c15:hover {
+      .c17:hover {
         background-color: #f6f6f9;
       }
 
-      .c15:active {
+      .c17:active {
         background-color: #eaeaef;
       }
 
-      .c15 .c16 {
+      .c17 .c18 {
         color: #32324d;
       }
 
-      .c15 svg > g,
-      .c15 svg path {
+      .c17 svg > g,
+      .c17 svg path {
         fill: #32324d;
       }
 
-      .c18 {
+      .c20 {
         -webkit-align-items: center;
         -webkit-box-align: center;
         -ms-flex-align: center;
@@ -213,7 +220,7 @@ describe('ModalLayout', () => {
         background: #f0f0ff;
       }
 
-      .c18 .c2 {
+      .c20 .c1 {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -224,66 +231,66 @@ describe('ModalLayout', () => {
         align-items: center;
       }
 
-      .c18 .c16 {
+      .c20 .c18 {
         color: #ffffff;
       }
 
-      .c18[aria-disabled='true'] {
+      .c20[aria-disabled='true'] {
         border: 1px solid #dcdce4;
         background: #eaeaef;
       }
 
-      .c18[aria-disabled='true'] .c16 {
+      .c20[aria-disabled='true'] .c18 {
         color: #666687;
       }
 
-      .c18[aria-disabled='true'] svg > g,
-      .c18[aria-disabled='true'] svg path {
+      .c20[aria-disabled='true'] svg > g,
+      .c20[aria-disabled='true'] svg path {
         fill: #666687;
       }
 
-      .c18[aria-disabled='true']:active {
+      .c20[aria-disabled='true']:active {
         border: 1px solid #dcdce4;
         background: #eaeaef;
       }
 
-      .c18[aria-disabled='true']:active .c16 {
+      .c20[aria-disabled='true']:active .c18 {
         color: #666687;
       }
 
-      .c18[aria-disabled='true']:active svg > g,
-      .c18[aria-disabled='true']:active svg path {
+      .c20[aria-disabled='true']:active svg > g,
+      .c20[aria-disabled='true']:active svg path {
         fill: #666687;
       }
 
-      .c18:hover {
+      .c20:hover {
         background-color: #ffffff;
       }
 
-      .c18:active {
+      .c20:active {
         background-color: #ffffff;
         border: 1px solid #4945ff;
       }
 
-      .c18:active .c16 {
+      .c20:active .c18 {
         color: #4945ff;
       }
 
-      .c18:active svg > g,
-      .c18:active svg path {
+      .c20:active svg > g,
+      .c20:active svg path {
         fill: #4945ff;
       }
 
-      .c18 .c16 {
+      .c20 .c18 {
         color: #271fe0;
       }
 
-      .c18 svg > g,
-      .c18 svg path {
+      .c20 svg > g,
+      .c20 svg path {
         fill: #271fe0;
       }
 
-      .c19 {
+      .c21 {
         -webkit-align-items: center;
         -webkit-box-align: center;
         -ms-flex-align: center;
@@ -295,7 +302,7 @@ describe('ModalLayout', () => {
         padding-right: 16px;
       }
 
-      .c19 .c2 {
+      .c21 .c1 {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -306,78 +313,72 @@ describe('ModalLayout', () => {
         align-items: center;
       }
 
-      .c19 .c16 {
+      .c21 .c18 {
         color: #ffffff;
       }
 
-      .c19[aria-disabled='true'] {
+      .c21[aria-disabled='true'] {
         border: 1px solid #dcdce4;
         background: #eaeaef;
       }
 
-      .c19[aria-disabled='true'] .c16 {
+      .c21[aria-disabled='true'] .c18 {
         color: #666687;
       }
 
-      .c19[aria-disabled='true'] svg > g,
-      .c19[aria-disabled='true'] svg path {
+      .c21[aria-disabled='true'] svg > g,
+      .c21[aria-disabled='true'] svg path {
         fill: #666687;
       }
 
-      .c19[aria-disabled='true']:active {
+      .c21[aria-disabled='true']:active {
         border: 1px solid #dcdce4;
         background: #eaeaef;
       }
 
-      .c19[aria-disabled='true']:active .c16 {
+      .c21[aria-disabled='true']:active .c18 {
         color: #666687;
       }
 
-      .c19[aria-disabled='true']:active svg > g,
-      .c19[aria-disabled='true']:active svg path {
+      .c21[aria-disabled='true']:active svg > g,
+      .c21[aria-disabled='true']:active svg path {
         fill: #666687;
       }
 
-      .c19:hover {
+      .c21:hover {
         border: 1px solid #7b79ff;
         background: #7b79ff;
       }
 
-      .c19:active {
+      .c21:active {
         border: 1px solid #4945ff;
         background: #4945ff;
       }
 
-      .c19 svg > g,
-      .c19 svg path {
+      .c21 svg > g,
+      .c21 svg path {
         fill: #ffffff;
       }
 
-      .c1 {
-        position: fixed;
-        z-index: 4;
-        inset: 0;
-        background: #32324d1F;
-        padding: 0 40px;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
+      .c3 {
         -webkit-align-items: center;
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
         -webkit-box-pack: center;
         -webkit-justify-content: center;
         -ms-flex-pack: center;
         justify-content: center;
       }
 
-      .c4 {
-        width: 51.875rem;
-      }
-
-      .c7 {
+      .c9 {
         -webkit-align-items: center;
         -webkit-box-align: center;
         -ms-flex-align: center;
@@ -395,7 +396,7 @@ describe('ModalLayout', () => {
         justify-content: space-between;
       }
 
-      .c13 {
+      .c15 {
         -webkit-align-items: center;
         -webkit-box-align: center;
         -ms-flex-align: center;
@@ -409,7 +410,16 @@ describe('ModalLayout', () => {
         flex-direction: row;
       }
 
-      .c9 {
+      .c4 {
+        inset: 0;
+        background: #32324d1F;
+      }
+
+      .c6 {
+        width: 51.875rem;
+      }
+
+      .c11 {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -426,44 +436,44 @@ describe('ModalLayout', () => {
         width: 2rem;
       }
 
-      .c9 svg > g,
-      .c9 svg path {
+      .c11 svg > g,
+      .c11 svg path {
         fill: #8e8ea9;
       }
 
-      .c9:hover svg > g,
-      .c9:hover svg path {
+      .c11:hover svg > g,
+      .c11:hover svg path {
         fill: #666687;
       }
 
-      .c9:active svg > g,
-      .c9:active svg path {
+      .c11:active svg > g,
+      .c11:active svg path {
         fill: #a5a5ba;
       }
 
-      .c9[aria-disabled='true'] {
+      .c11[aria-disabled='true'] {
         background-color: #eaeaef;
       }
 
-      .c9[aria-disabled='true'] svg path {
+      .c11[aria-disabled='true'] svg path {
         fill: #666687;
       }
 
-      .c6 {
+      .c8 {
         border-radius: 4px 4px 0 0;
         border-bottom: 1px solid #eaeaef;
       }
 
-      .c12 {
+      .c14 {
         border-radius: 0 0 4px 4px;
         border-top: 1px solid #eaeaef;
       }
 
-      .c14 > * + * {
+      .c16 > * + * {
         margin-left: 8px;
       }
 
-      .c11 {
+      .c13 {
         overflow: auto;
         max-height: 60vh;
       }
@@ -499,26 +509,26 @@ describe('ModalLayout', () => {
           data-react-portal="true"
         >
           <div
-            class="c1"
+            class="c1 c2 c3 c4"
           >
             <div>
               <div>
                 <div
                   aria-labelledby="title"
                   aria-modal="true"
-                  class="c2 c3 c4"
+                  class="c1 c5 c6"
                   role="dialog"
                 >
                   <div
-                    class="c2 c5 c6"
+                    class="c1 c7 c8"
                   >
                     <div
-                      class="c2 c7"
+                      class="c1 c9"
                     >
                       Modal Title
                       <button
                         aria-disabled="false"
-                        class="c8 c9"
+                        class="c10 c11"
                         type="button"
                       >
                         <span
@@ -544,52 +554,52 @@ describe('ModalLayout', () => {
                     </div>
                   </div>
                   <div
-                    class="c2 c10 c11"
+                    class="c1 c12 c13"
                   >
                     Hello World
                   </div>
                   <div
-                    class="c2 c5 c12"
+                    class="c1 c7 c14"
                   >
                     <div
-                      class="c2 c7"
+                      class="c1 c9"
                     >
                       <div
-                        class="c2 c13 c14"
+                        class="c1 c15 c16"
                       >
                         <button
                           aria-disabled="false"
-                          class="c8 c15"
+                          class="c10 c17"
                           type="button"
                         >
                           <span
-                            class="c16 c17"
+                            class="c18 c19"
                           >
                             Cancel
                           </span>
                         </button>
                       </div>
                       <div
-                        class="c2 c13 c14"
+                        class="c1 c15 c16"
                       >
                         <button
                           aria-disabled="false"
-                          class="c8 c18"
+                          class="c10 c20"
                           type="button"
                         >
                           <span
-                            class="c16 c17"
+                            class="c18 c19"
                           >
                             Add new stuff
                           </span>
                         </button>
                         <button
                           aria-disabled="false"
-                          class="c8 c19"
+                          class="c10 c21"
                           type="button"
                         >
                           <span
-                            class="c16 c17"
+                            class="c18 c19"
                           >
                             Finish
                           </span>
