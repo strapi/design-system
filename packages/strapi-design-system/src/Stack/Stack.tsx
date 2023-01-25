@@ -9,6 +9,7 @@ import { extractStyleFromTheme } from '../helpers/theme';
  */
 const transientProps: Partial<Record<keyof StackProps, boolean>> = {
   size: true,
+  spacing: true,
 };
 
 const StackV = styled(Flex).withConfig<Omit<StackProps, 'size' | 'horizontal'>>({
