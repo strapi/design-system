@@ -11,9 +11,9 @@ import { Typography } from '../Typography';
 
 import { useId } from '../helpers/useId';
 
+import { useIntersection } from '../hooks/useIntersection';
+
 import { getThemeSize, inputFocusStyle } from '../themes/utils';
-import { VisuallyHidden } from '../VisuallyHidden';
-import { useIntersection } from '../helpers/useIntersection';
 
 interface SingleSelectProps {
   children: React.ReactNode;
@@ -69,18 +69,28 @@ export const SingleSelect = ({
   size = 'M',
   value: passedValue,
 }: SingleSelectProps) => {
-  const viewportRef = React.useRef<HTMLDivElement>(null!);
+  /**
+   * Used for the intersection observer
+   */
+  const viewportRef = React.useRef<HTMLDivElement>(null);
 
+  /**
+   * These values are drawn out from the internals of the Radix component
+   * We can then use them to react to visual changes for the component
+   */
   const [internalValue, setInternalValue] = React.useState('');
   const [internalIsOpen, setInternalIsOpen] = React.useState(false);
+
   const generatedId = useId('select', id);
 
   const hintId = `${generatedId}-hint`;
   const errorId = `${generatedId}-error`;
 
-  const hasStringError = typeof error === 'string';
-
   const handleValueChange: Pick<RadixSelect.SelectProps, 'onValueChange'>['onValueChange'] = (value) => {
+    /**
+     * If it's being externally managed then we shouldn't
+     * both setting our copy of the internal value.
+     */
     if (onChange) {
       const shouldBeNumber = typeof passedValue === 'number';
       onChange(shouldBeNumber ? Number(value) : value);
@@ -99,8 +109,6 @@ export const SingleSelect = ({
     setInternalIsOpen(open);
   };
 
-  const value = typeof passedValue !== 'undefined' ? passedValue.toString() : internalValue;
-
   const intersectionId = `intersection-${generatedId}`;
 
   const handleReachEnd = (entry: IntersectionObserverEntry) => {
@@ -111,18 +119,25 @@ export const SingleSelect = ({
 
   useIntersection(viewportRef, handleReachEnd, {
     selectorToWatch: `#${intersectionId}`,
+    /**
+     * We need to know when the select is open because only then will viewportRef
+     * not be null. Because it uses a portal that (sensibly) is not mounted 24/7.
+     */
     skipWhen: !internalIsOpen,
   });
 
+  const value = typeof passedValue !== 'undefined' ? passedValue.toString() : internalValue;
+
   return (
     <Field hint={hint} error={error} id={generatedId} required={required}>
-      <Stack spacing={label || hint || hasStringError ? 1 : 0}>
+      <Stack spacing={label || hint || typeof error === 'string' ? 1 : 0}>
         <FieldLabel action={labelAction}>{label}</FieldLabel>
         <RadixSelect.Root
           onOpenChange={handleOpenChange}
           disabled={disabled}
           required={required}
           onValueChange={handleValueChange}
+          value={value}
         >
           <Trigger
             aria-labelledby={`${generatedId} ${hintId} ${errorId}`}
@@ -133,7 +148,7 @@ export const SingleSelect = ({
             <Flex as="span" gap={4}>
               {/* TODO: make this composable in v2 – <Select.Icon /> */}
               {startIcon && (
-                <Box as="span" paddingLeft={3} aria-hidden>
+                <Box as="span" aria-hidden>
                   {startIcon}
                 </Box>
               )}
@@ -185,6 +200,7 @@ const Trigger = styled(RadixSelect.Trigger)<TriggerProps>`
   position: relative;
   border: 1px solid ${({ theme, $hasError }) => ($hasError ? theme.colors.danger600 : theme.colors.neutral200)};
   padding-right: ${({ theme }) => theme.spaces[3]};
+  padding-left: ${({ theme }) => theme.spaces[3]};
   border-radius: ${({ theme }) => theme.borderRadius};
   background: ${({ theme }) => theme.colors.neutral0};
   overflow: hidden;
@@ -235,5 +251,59 @@ const IconBox = styled(Box)`
 
   svg path {
     fill: ${({ theme }) => theme.colors.neutral600};
+  }
+`;
+
+/***
+ *
+ * Option
+ *
+ */
+
+export interface SingleSelectOptionProps {
+  children: string | number;
+  isChild?: boolean;
+  selected?: boolean;
+  startIcon?: React.ReactNode;
+  value: string | number;
+}
+
+export const SingleSelectOption = ({
+  children,
+  isChild = false,
+  selected = false,
+  startIcon,
+  value,
+}: SingleSelectOptionProps) => (
+  <SelectItem data-strapi-value={value} $isChild={isChild} value={value.toString()}>
+    {startIcon && (
+      <Box as="span" paddingRight={2} aria-hidden>
+        {startIcon}
+      </Box>
+    )}
+    <Typography textColor={selected ? 'primary600' : 'neutral800'} fontWeight={selected ? 'bold' : undefined}>
+      <RadixSelect.ItemText>{children}</RadixSelect.ItemText>
+    </Typography>
+  </SelectItem>
+);
+
+const SelectItem = styled(RadixSelect.Item)<{ $isChild?: boolean }>`
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline-offset: -3px;
+  border-radius: ${(props) => props.theme.borderRadius};
+  padding: ${(props) => `${props.theme.spaces[2]} ${props.theme.spaces[4]}`};
+  padding-left: ${({ $isChild, theme }) => ($isChild ? theme.spaces[7] : theme.spaces[4])};
+  background-color: ${({ theme }) => theme.colors.neutral0};
+  display: flex;
+  align-items: center;
+
+  &:focus-within {
+    background-color: ${({ theme }) => theme.colors.primary100};
+  }
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.primary100};
   }
 `;

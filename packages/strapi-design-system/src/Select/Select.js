@@ -270,8 +270,12 @@ const SelectWithTags = ({
   );
 };
 
-export const Select = ({ withTags, ...restProps }) =>
-  withTags ? <SelectWithTags withTags {...restProps} /> : <SingleSelect {...restProps} />;
+export const Select = ({ withTags, multi, ...restProps }) =>
+  withTags || multi ? (
+    <SelectWithTags multi={multi} withTags={withTags} {...restProps} />
+  ) : (
+    <SingleSelect {...restProps} />
+  );
 
 Select.defaultProps = {
   'aria-label': undefined,
