@@ -62,7 +62,9 @@ The default Select.
             required
             placeholder="Your example"
             hint="Description line"
-            onClear={() => setValue(undefined)}
+            onClear={() => {
+              setValue(undefined)
+            }}
             clearLabel="Clear the meal"
             error={error}
             value={value}

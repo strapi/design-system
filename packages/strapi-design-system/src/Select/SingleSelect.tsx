@@ -74,6 +74,8 @@ export const SingleSelect = ({
    */
   const viewportRef = React.useRef<HTMLDivElement>(null);
 
+  const clearRef = React.useRef(null);
+
   /**
    * These values are drawn out from the internals of the Radix component
    * We can then use them to react to visual changes for the component
@@ -107,6 +109,20 @@ export const SingleSelect = ({
 
   const handleOpenChange: Pick<RadixSelect.SelectProps, 'onOpenChange'>['onOpenChange'] = (open) => {
     setInternalIsOpen(open);
+  };
+
+  /**
+   * We need to do this so the clear button can actually be
+   * used as opposed to the trigger swallowing the event.
+   *
+   * I'm not proud of it, but people are asking for it so maybe
+   * we can remove this in the future – https://github.com/radix-ui/primitives/issues/1569
+   */
+  const handleTriggerPointerDown: React.PointerEventHandler<HTMLButtonElement> = (e) => {
+    // @ts-ignore
+    if (clearRef.current && clearRef.current === e.target.closest('div')) {
+      e.preventDefault();
+    }
   };
 
   const intersectionId = `intersection-${generatedId}`;
@@ -144,6 +160,7 @@ export const SingleSelect = ({
             aria-disabled={disabled}
             $hasError={Boolean(error)}
             $size={size}
+            onPointerDown={handleTriggerPointerDown}
           >
             <Flex as="span" gap={4}>
               {/* TODO: make this composable in v2 – <Select.Icon /> */}
@@ -162,10 +179,12 @@ export const SingleSelect = ({
               {value && onClear ? (
                 <IconBox
                   role="button"
+                  tabIndex={1}
                   onClick={handleClearClick}
                   aria-disabled={disabled}
                   aria-label={clearLabel}
                   title={clearLabel}
+                  ref={clearRef}
                 >
                   <Cross />
                 </IconBox>
