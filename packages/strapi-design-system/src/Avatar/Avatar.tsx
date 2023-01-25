@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { Typography, TypographyProps } from '../Typography';
 import { Flex, FlexProps } from '../Flex';
+import { Box } from '../Box';
 
 import { avatarSize, previewSize } from './constants';
 
@@ -13,13 +14,6 @@ const AvatarImg = styled.img`
   position: relative;
 `;
 
-const AvatarImgWrapper = styled.div<{ hovering: boolean }>`
-  position: relative;
-  width: ${avatarSize / 16}rem;
-  height: ${avatarSize / 16}rem;
-  z-index: ${({ hovering }) => (hovering ? 1 : undefined)};
-`;
-
 const PreviewContainer = styled.img`
   border-radius: 50%;
   object-fit: cover;
@@ -28,13 +22,7 @@ const PreviewContainer = styled.img`
   margin-top: -${({ theme }) => theme.spaces[1]};
 `;
 
-const Overlay = styled.div`
-  z-index: 1;
-  border-radius: 30%;
-  position: absolute;
-  width: ${avatarSize / 16}rem;
-  height: ${avatarSize / 16}rem;
-  background: ${({ theme }) => theme.colors.neutral0};
+const Overlay = styled(Box)`
   opacity: 0.4;
 `;
 
@@ -55,27 +43,40 @@ export interface AvatarProps {
 
 export const Avatar = ({ src, alt, preview }: AvatarProps) => {
   const [previewVisible, setPreviewVisible] = useState(false);
+  const isHovering = Boolean(preview && previewVisible);
 
   return (
     <span>
-      {preview && previewVisible ? (
+      {isHovering ? (
         <PreviewContainer
           aria-hidden
           alt=""
           width={`${previewSize}px`}
           height={`${previewSize}px`}
-          src={preview === true ? src : preview}
+          src={preview === true ? src : typeof preview === 'string' ? preview : ''}
         />
       ) : null}
 
-      <AvatarImgWrapper
-        hovering={Boolean(preview && previewVisible)}
+      <Box
+        zIndex={isHovering ? 1 : undefined}
+        position="relative"
         onMouseEnter={() => setPreviewVisible(true)}
         onMouseLeave={() => setPreviewVisible(false)}
+        width={`${avatarSize}px`}
+        height={`${avatarSize}px`}
       >
-        {preview && previewVisible ? <Overlay /> : null}
+        {isHovering ? (
+          <Overlay
+            background="neutral0"
+            borderRadius="50%"
+            position="absolute"
+            width={`${avatarSize}px`}
+            height={`${avatarSize}px`}
+            zIndex={1}
+          />
+        ) : null}
         <AvatarImg src={src} alt={alt} width={`${avatarSize}px`} height={`${avatarSize}px`} />
-      </AvatarImgWrapper>
+      </Box>
     </span>
   );
 };

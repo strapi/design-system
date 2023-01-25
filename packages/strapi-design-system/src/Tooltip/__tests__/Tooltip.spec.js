@@ -19,6 +19,7 @@ describe('Tooltip', () => {
         background: #212134;
         padding: 8px;
         border-radius: 4px;
+        position: absolute;
       }
 
       .c3 {
@@ -41,7 +42,6 @@ describe('Tooltip', () => {
       }
 
       .c2 {
-        position: absolute;
         z-index: 4;
         display: none;
       }
@@ -115,6 +115,7 @@ describe('Tooltip', () => {
         background: #212134;
         padding: 8px;
         border-radius: 4px;
+        position: absolute;
       }
 
       .c3 {
@@ -137,7 +138,6 @@ describe('Tooltip', () => {
       }
 
       .c2 {
-        position: absolute;
         z-index: 4;
         display: revert;
       }
@@ -218,6 +218,7 @@ describe('Tooltip', () => {
         background: #212134;
         padding: 8px;
         border-radius: 4px;
+        position: absolute;
       }
 
       .c3 {
@@ -240,7 +241,6 @@ describe('Tooltip', () => {
       }
 
       .c2 {
-        position: absolute;
         z-index: 4;
         display: revert;
       }

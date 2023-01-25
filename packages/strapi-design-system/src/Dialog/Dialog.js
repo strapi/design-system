@@ -13,12 +13,9 @@ import { setOpacity } from '../helpers/setOpacity';
 import useLockScroll from '../helpers/useLockScroll';
 import { useId } from '../helpers/useId';
 
-const DialogWrapper = styled.div`
-  position: fixed;
-  z-index: 4;
+const DialogWrapper = styled(Box)`
   inset: 0;
   background: ${({ theme }) => setOpacity(theme.colors.neutral800, 0.2)};
-  padding: 0 ${({ theme }) => theme.spaces[8]};
 `;
 
 const DialogContainer = styled(Box)`
@@ -45,7 +42,7 @@ export const Dialog = ({ onClose, title, as, isOpen, id, ...props }) => {
 
   return (
     <Portal>
-      <DialogWrapper>
+      <DialogWrapper padding={8} position="fixed" zIndex={4}>
         <FocusTrap>
           <DismissibleLayer onEscapeKeyDown={onClose} onPointerDownOutside={onClose}>
             <DialogContainer

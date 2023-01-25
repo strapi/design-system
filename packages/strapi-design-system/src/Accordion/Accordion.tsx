@@ -91,6 +91,10 @@ export interface AccordionProps {
    */
   onToggle?: () => void;
   /**
+   * Shadow name (see `theme.shadows`)
+   */
+  shadow?: keyof DefaultTheme['shadows'];
+  /**
    * @deprecated use `onToggle` instead
    * The callback invoked after a click event on the `AccordionToggle`.
    */
@@ -117,6 +121,7 @@ export const Accordion = ({
   toggle,
   size = 'M',
   variant = 'primary',
+  shadow,
 }: AccordionProps) => {
   const generatedId = useId(id);
 
@@ -130,6 +135,7 @@ export const Accordion = ({
         hasRadius
         variant={variant}
         error={error}
+        shadow={shadow}
       >
         {children}
       </AccordionWrapper>

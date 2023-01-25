@@ -15,18 +15,27 @@ describe('Avatar', () => {
     fireEvent.mouseEnter(container.querySelector('img')!);
 
     expect(container.firstChild).toMatchInlineSnapshot(`
-      .c3 {
+      .c1 {
+        position: relative;
+        z-index: 1;
+        width: 32px;
+        height: 32px;
+      }
+
+      .c2 {
+        background: #ffffff;
+        border-radius: 50%;
+        position: absolute;
+        z-index: 1;
+        width: 32px;
+        height: 32px;
+      }
+
+      .c4 {
         border-radius: 50%;
         object-fit: cover;
         display: block;
         position: relative;
-      }
-
-      .c1 {
-        position: relative;
-        width: 2rem;
-        height: 2rem;
-        z-index: 1;
       }
 
       .c0 {
@@ -39,13 +48,7 @@ describe('Avatar', () => {
         margin-top: -4px;
       }
 
-      .c2 {
-        z-index: 1;
-        border-radius: 30%;
-        position: absolute;
-        width: 2rem;
-        height: 2rem;
-        background: #ffffff;
+      .c3 {
         opacity: 0.4;
       }
 
@@ -60,13 +63,17 @@ describe('Avatar', () => {
         />
         <div
           class="c1"
+          height="32px"
+          width="32px"
         >
           <div
-            class="c2"
+            class="c2 c3"
+            height="32px"
+            width="32px"
           />
           <img
             alt="marvin frachet"
-            class="c3"
+            class="c4"
             height="32px"
             src="https://avatars.githubusercontent.com/u/3874873?v=4"
             width="32px"
@@ -90,18 +97,27 @@ describe('Avatar', () => {
     fireEvent.mouseEnter(container.querySelector('img')!);
 
     expect(container.firstChild).toMatchInlineSnapshot(`
-      .c3 {
+      .c1 {
+        position: relative;
+        z-index: 1;
+        width: 32px;
+        height: 32px;
+      }
+
+      .c2 {
+        background: #ffffff;
+        border-radius: 50%;
+        position: absolute;
+        z-index: 1;
+        width: 32px;
+        height: 32px;
+      }
+
+      .c4 {
         border-radius: 50%;
         object-fit: cover;
         display: block;
         position: relative;
-      }
-
-      .c1 {
-        position: relative;
-        width: 2rem;
-        height: 2rem;
-        z-index: 1;
       }
 
       .c0 {
@@ -114,13 +130,7 @@ describe('Avatar', () => {
         margin-top: -4px;
       }
 
-      .c2 {
-        z-index: 1;
-        border-radius: 30%;
-        position: absolute;
-        width: 2rem;
-        height: 2rem;
-        background: #ffffff;
+      .c3 {
         opacity: 0.4;
       }
 
@@ -135,13 +145,17 @@ describe('Avatar', () => {
         />
         <div
           class="c1"
+          height="32px"
+          width="32px"
         >
           <div
-            class="c2"
+            class="c2 c3"
+            height="32px"
+            width="32px"
           />
           <img
             alt="marvin frachet"
-            class="c3"
+            class="c4"
             height="32px"
             src="https://avatars.githubusercontent.com/u/3874873?v=4"
             width="32px"
