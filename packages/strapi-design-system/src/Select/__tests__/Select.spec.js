@@ -280,7 +280,6 @@ describe('Select', () => {
         <div>
           <div
             class="c0 c1"
-            spacing="1"
           >
             <label
               class="c2"
@@ -403,7 +402,6 @@ describe('Select', () => {
                 aria-multiselectable="false"
                 class="c0 c1"
                 role="listbox"
-                spacing="1"
                 tabindex="-1"
               >
                 <li
@@ -772,7 +770,6 @@ describe('Select', () => {
         <div>
           <div
             class="c0 c1"
-            spacing="1"
           >
             <label
               class="c2"
@@ -892,7 +889,6 @@ describe('Select', () => {
                 aria-multiselectable="true"
                 class="c0 c1"
                 role="listbox"
-                spacing="1"
                 tabindex="-1"
               >
                 <li
