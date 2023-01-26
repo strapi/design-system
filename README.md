@@ -69,21 +69,19 @@ $ git reset --hard
 
 ## Linking the design system
 
-If you want to analyze the admin bundle and the impact each library has on the over all application, link this repo to your copy of the strapi monorepo or your own strapi application or plugin
+### Strapi monorepo
 
-### Application or Plugin
+To link the design system to the Strapi monorepo follow the steps outlined in the [contributor documentation](https://contributor.strapi.io/core/admin/link-strapi-design-system)
+
+### React application
 
 First, run `yarn build` in `strapi-design-system/packages/strapi-design-system` to generate the bundle.
 
 You can link the design system using either a [relative path](#relative-path) or [yarn link](#yarn-link).
 
-### Strapi monorepo
-
-To link the design system to the Strapi monorepo follow the steps outlined in the [contributor documentation](https://contributor.strapi.io/core/admin/link-strapi-design-system)
-
 ### Relative path
 
-Replace the version number with the relative path to your copy of the design system:
+In the package.json of your React application replace the version number with the relative path to your copy of the design system:
 
 ```
 "@strapi/design-system": "link:../../../../strapi-design-system/packages/strapi-design-system"
@@ -91,12 +89,8 @@ Replace the version number with the relative path to your copy of the design sys
 
 ### Yarn link
 
-[`yarn link`](https://classic.yarnpkg.com/lang/en/docs/cli/link/) allows you to link the design system without any changes to the `package.json`. First run `yarn link` in `strapi-design-system/packages/design-system` and then `yarn link @strapi/design-system` in your Strapi project.
+[`yarn link`](https://classic.yarnpkg.com/lang/en/docs/cli/link/) allows you to link the design system without any changes to the `package.json`. First run `yarn link` in `strapi-design-system/packages/design-system` and then `yarn link @strapi/design-system` in your React application.
 
 ### Development
 
-Once the link is setup, reinstall dependencies before rebuilding the admin and starting the server
-
-```
-yarn install -f && yarn build && yarn develop
-```
+Once the link is setup, reinstall dependencies and restart your server
