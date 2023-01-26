@@ -23,7 +23,7 @@ const CheckboxTick = (props) => {
 };
 
 export const Checkbox = ({ children, disabled, id, hint, error, ...props }) => {
-  const generatedId = useId('checkbox', id);
+  const generatedId = useId(id);
 
   let ariaDescription;
 

@@ -18,7 +18,7 @@ const SubNavSectionWrapper = styled(Box)`
 
 export const SubNavSection = ({ collapsable, label, badgeLabel, children, id }) => {
   const [isOpen, setOpenLinks] = useState(true);
-  const listId = useId('subnav-list', id);
+  const listId = useId(id);
 
   const handleClick = () => {
     setOpenLinks((prev) => !prev);

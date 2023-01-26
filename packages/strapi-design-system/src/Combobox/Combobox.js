@@ -28,6 +28,7 @@ export const Combobox = ({
   error,
   hasMoreItems,
   hint,
+  id,
   label,
   labelAction,
   loading,
@@ -59,7 +60,7 @@ export const Combobox = ({
   const listboxRef = useRef();
   const firstUpdate = useRef(true);
 
-  const generatedId = useId('combobox');
+  const generatedId = useId(id);
   const labelId = `${generatedId}-label`;
 
   if (!label && !props['aria-label']) {
@@ -411,6 +412,7 @@ Combobox.defaultProps = {
   error: undefined,
   hasMoreItems: false,
   hint: undefined,
+  id: undefined,
   label: undefined,
   loading: false,
   loadingMessage: 'Loading content...',
@@ -434,6 +436,7 @@ Combobox.propTypes = {
   disabled: PropTypes.bool,
   error: PropTypes.string,
   hasMoreItems: PropTypes.bool,
+  id: PropTypes.string,
   hint: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
   label: PropTypes.string,
   labelAction: PropTypes.element,

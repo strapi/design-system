@@ -7,7 +7,7 @@ import { useId } from '../helpers/useId';
 
 export const TextInput = React.forwardRef(
   ({ size, startAction, endAction, name, hint, error, label, labelAction, id, required, ...props }, ref) => {
-    const generatedId = useId('textinput', id);
+    const generatedId = useId(id);
     const inputWrapperRef = useRef(null);
 
     if (!label && !props['aria-label']) {

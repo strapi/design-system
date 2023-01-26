@@ -25,7 +25,7 @@ const TextareaWrapper = styled.div`
 
 export const Textarea = React.forwardRef(
   ({ name, hint, error, label, children, labelAction, id, required, ...props }, ref) => {
-    const generatedId = useId('textarea', id);
+    const generatedId = useId(id);
 
     return (
       <TextareaWrapper>

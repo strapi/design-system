@@ -4,10 +4,6 @@ import { Tooltip } from '../Tooltip';
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
 
-jest.mock('../../helpers/genId', () => ({
-  genId: () => 123,
-}));
-
 describe('Tooltip', () => {
   it('snapshots document.body when the tooltip is not visible but exists in the DOM', () => {
     render(
@@ -54,7 +50,7 @@ describe('Tooltip', () => {
         <div>
           <span>
             <button
-              aria-describedby="tooltip-123"
+              aria-describedby="0"
               tabindex="0"
               type="button"
             >
@@ -89,7 +85,7 @@ describe('Tooltip', () => {
         >
           <div
             class="c1 c2"
-            id="tooltip-123"
+            id="0"
             role="tooltip"
           >
             <p
@@ -150,7 +146,7 @@ describe('Tooltip', () => {
         <div>
           <span>
             <button
-              aria-describedby="tooltip-123"
+              aria-describedby="2"
               tabindex="0"
               type="button"
             >
@@ -185,13 +181,13 @@ describe('Tooltip', () => {
         >
           <div
             class="c1 c2"
-            id="tooltip-123"
+            id="2"
             role="tooltip"
             style="left: 0px; top: -8px;"
           >
             <div
               class="c0"
-              id="description-123"
+              id="3"
             >
               Content of the tooltip fefe
             </div>
@@ -253,7 +249,7 @@ describe('Tooltip', () => {
         <div>
           <span>
             <button
-              aria-labelledby="tooltip-123"
+              aria-labelledby="4"
               tabindex="0"
               type="button"
             >
@@ -288,13 +284,13 @@ describe('Tooltip', () => {
         >
           <div
             class="c1 c2"
-            id="tooltip-123"
+            id="4"
             role="tooltip"
             style="left: 0px; top: -8px;"
           >
             <div
               class="c0"
-              id="description-123"
+              id="5"
             />
             <p
               class="c3"

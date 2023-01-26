@@ -36,7 +36,7 @@ export const TimePicker = ({
   size,
   ...props
 }) => {
-  const generatedId = useId('timepicker', id);
+  const generatedId = useId(id);
   const hoursCount = 24;
   const times = [];
   let min = 0;

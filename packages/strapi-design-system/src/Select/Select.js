@@ -49,7 +49,7 @@ const SelectWithTags = ({
   withTags,
   ...props
 }) => {
-  const generatedId = useId('select', id);
+  const generatedId = useId(id);
   const [expanded, setExpanded] = useState(undefined);
   const buttonRef = useButtonRef(expanded);
   const containerRef = useRef(null);

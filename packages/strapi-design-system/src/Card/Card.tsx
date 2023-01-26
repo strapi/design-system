@@ -9,7 +9,7 @@ export interface CardProps extends BoxProps {
 }
 
 export const Card = ({ id, ...props }: CardProps) => {
-  const generatedId = useId('card', id);
+  const generatedId = useId(id);
 
   return (
     <CardContext.Provider value={{ id: generatedId }}>
