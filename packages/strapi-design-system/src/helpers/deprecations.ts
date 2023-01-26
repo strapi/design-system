@@ -5,7 +5,7 @@ export const once = <TFunc extends (...args: any) => any>(fn: TFunc) => {
   let called = false;
 
   if (typeof func != 'function') {
-    throw new TypeError(`${prefix}once requires a function parameter`);
+    throw new TypeError(`${prefix} once requires a function parameter`);
   }
 
   return (...args: any) => {

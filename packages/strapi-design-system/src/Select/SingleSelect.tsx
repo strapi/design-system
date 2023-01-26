@@ -32,7 +32,7 @@ export interface SingleSelectProps {
   label: string;
   labelAction?: React.ReactElement;
   onChange?: (value: string | number) => void;
-  onClear?: React.MouseEventHandler<HTMLDivElement>;
+  onClear?: (e: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLButtonElement>) => void;
   onReachEnd?: (entry: IntersectionObserverEntry) => void;
   placeholder?: string;
   required?: boolean;
@@ -48,6 +48,12 @@ export interface SingleSelectProps {
   startIcon?: React.ReactElement;
   value?: string | number;
 }
+
+/**
+ * INTERNAL FOR RADIX – required to override the default behaviour of the component
+ * to allow clearing.
+ */
+const OPEN_KEYS = [' ', 'Enter', 'ArrowUp', 'ArrowDown'];
 
 export const SingleSelect = ({
   children,
@@ -102,7 +108,7 @@ export const SingleSelect = ({
   };
 
   const handleClearClick: React.MouseEventHandler<HTMLDivElement> = (e) => {
-    if (onClear) {
+    if (onClear && !disabled) {
       onClear(e);
     }
   };
@@ -122,6 +128,25 @@ export const SingleSelect = ({
     // @ts-ignore
     if (clearRef.current && clearRef.current === e.target.closest('div')) {
       e.preventDefault();
+    }
+  };
+
+  const handleTriggerKeyDown: React.KeyboardEventHandler<HTMLButtonElement> = (e) => {
+    /**
+     * If the key pressed is one of the OPEN_KEYS and the clear button is the button we've tried to hit
+     * and the trigger is not disabled and there is an onClear handler then we should prevent the default
+     * and fire our onClear handler.
+     */
+    if (
+      OPEN_KEYS.includes(e.key) &&
+      clearRef.current &&
+      // @ts-ignore
+      clearRef.current === e.target.closest('div') &&
+      !disabled &&
+      onClear
+    ) {
+      e.preventDefault();
+      onClear(e);
     }
   };
 
@@ -156,11 +181,13 @@ export const SingleSelect = ({
           value={value}
         >
           <Trigger
-            aria-labelledby={`${generatedId} ${hintId} ${errorId}`}
+            id={generatedId}
+            aria-labelledby={`${hintId} ${errorId}`}
             aria-disabled={disabled}
             $hasError={Boolean(error)}
             $size={size}
             onPointerDown={handleTriggerPointerDown}
+            onKeyDown={handleTriggerKeyDown}
           >
             <Flex as="span" gap={4}>
               {/* TODO: make this composable in v2 – <Select.Icon /> */}
@@ -179,7 +206,7 @@ export const SingleSelect = ({
               {value && onClear ? (
                 <IconBox
                   role="button"
-                  tabIndex={1}
+                  tabIndex={0}
                   onClick={handleClearClick}
                   aria-disabled={disabled}
                   aria-label={clearLabel}
@@ -196,10 +223,10 @@ export const SingleSelect = ({
           </Trigger>
           <RadixSelect.Portal>
             <Content position="popper" sideOffset={4}>
-              <RadixSelect.Viewport ref={viewportRef}>
+              <Viewport ref={viewportRef}>
                 {children}
                 <Box id={intersectionId} width="100%" height="1px" />
-              </RadixSelect.Viewport>
+              </Viewport>
             </Content>
           </RadixSelect.Portal>
         </RadixSelect.Root>
@@ -229,7 +256,7 @@ const Trigger = styled(RadixSelect.Trigger)<TriggerProps>`
   justify-content: space-between;
   gap: ${({ theme }) => theme.spaces[4]};
 
-  [aria-disabled='true'] {
+  &[aria-disabled='true'] {
     color: ${(props) => props.theme.colors.neutral600};
     background: ${(props) => props.theme.colors.neutral150};
   }
@@ -252,10 +279,13 @@ const Content = styled(RadixSelect.Content)`
   box-shadow: ${({ theme }) => theme.shadows.filterShadow};
   border: 1px solid ${({ theme }) => theme.colors.neutral150};
   border-radius: ${({ theme }) => theme.borderRadius};
-  padding: ${({ theme }) => theme.spaces[1]};
   width: var(--radix-select-trigger-width);
   /* This is from the design-system figma file. */
   max-height: 15rem;
+`;
+
+const Viewport = styled(RadixSelect.Viewport)`
+  padding: ${({ theme }) => theme.spaces[1]};
 `;
 
 const IconBox = styled(Box)`
