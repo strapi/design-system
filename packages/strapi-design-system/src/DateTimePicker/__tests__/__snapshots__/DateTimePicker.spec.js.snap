@@ -224,7 +224,7 @@ exports[`DateTimePicker snapshots the component 1`] = `
   transition-duration: 0.2s;
 }
 
-.c11 [aria-disabled='true'] {
+.c11[aria-disabled='true'] {
   color: #666687;
   background: #eaeaef;
 }
@@ -359,11 +359,12 @@ exports[`DateTimePicker snapshots the component 1`] = `
             aria-controls="radix-0"
             aria-disabled="false"
             aria-expanded="false"
-            aria-labelledby="4 4-hint 4-error"
+            aria-labelledby="4-hint 4-error"
             aria-required="false"
             class="c11"
             data-state="closed"
             dir="ltr"
+            id="4"
             role="combobox"
             type="button"
           >

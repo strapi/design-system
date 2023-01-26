@@ -32,7 +32,7 @@ describe('TimePicker', () => {
     await waitFor(() => screen.getByText('00:00'));
 
     expect(container).toMatchInlineSnapshot(`
-      .c17 {
+      .c18 {
         width: 100%;
         height: 1px;
       }
@@ -118,7 +118,7 @@ describe('TimePicker', () => {
         color: #666687;
       }
 
-      .c16 {
+      .c17 {
         font-size: 0.875rem;
         line-height: 1.43;
         color: #32324d;
@@ -175,7 +175,7 @@ describe('TimePicker', () => {
         transition-duration: 0.2s;
       }
 
-      .c5 [aria-disabled='true'] {
+      .c5[aria-disabled='true'] {
         color: #666687;
         background: #eaeaef;
       }
@@ -198,9 +198,12 @@ describe('TimePicker', () => {
         box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
         border: 1px solid #eaeaef;
         border-radius: 4px;
-        padding: 4px;
         width: var(--radix-select-trigger-width);
         max-height: 15rem;
+      }
+
+      .c15 {
+        padding: 4px;
       }
 
       .c10 {
@@ -217,7 +220,7 @@ describe('TimePicker', () => {
         fill: #666687;
       }
 
-      .c15 {
+      .c16 {
         width: 100%;
         border: none;
         text-align: left;
@@ -236,15 +239,15 @@ describe('TimePicker', () => {
         align-items: center;
       }
 
-      .c15:focus-within {
+      .c16:focus-within {
         background-color: #f0f0ff;
       }
 
-      .c15:hover {
+      .c16:hover {
         background-color: #f0f0ff;
       }
 
-      .c15[data-state='checked'] .c2 {
+      .c16[data-state='checked'] .c2 {
         font-weight: bold;
         color: #4945ff;
       }
@@ -301,11 +304,12 @@ describe('TimePicker', () => {
               aria-controls="radix-0"
               aria-disabled="false"
               aria-expanded="true"
-              aria-labelledby="2 2-hint 2-error"
+              aria-labelledby="2-hint 2-error"
               aria-required="false"
               class="c5"
               data-state="open"
               dir="ltr"
+              id="2"
               role="combobox"
               type="button"
             >
@@ -354,7 +358,7 @@ describe('TimePicker', () => {
                   aria-label="Clear the selected time picker value"
                   class="c10"
                   role="button"
-                  tabindex="1"
+                  tabindex="0"
                   title="Clear the selected time picker value"
                 >
                   <svg
@@ -441,6 +445,7 @@ describe('TimePicker', () => {
               [data-radix-select-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-select-viewport]::-webkit-scrollbar{display:none}
             </style>
             <div
+              class="c15"
               data-radix-select-viewport=""
               role="presentation"
               style="position: relative; flex: 1; overflow: auto;"
@@ -448,14 +453,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-97"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-97"
@@ -467,14 +472,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-98"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-98"
@@ -486,14 +491,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-99"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-99"
@@ -505,14 +510,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-100"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-100"
@@ -524,14 +529,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-101"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-101"
@@ -543,14 +548,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-102"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-102"
@@ -562,14 +567,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-103"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-103"
@@ -581,14 +586,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-104"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-104"
@@ -600,14 +605,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-105"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-105"
@@ -619,14 +624,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-106"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-106"
@@ -638,14 +643,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-107"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-107"
@@ -657,14 +662,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-108"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-108"
@@ -676,14 +681,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-109"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-109"
@@ -695,14 +700,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-110"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-110"
@@ -714,14 +719,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-111"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-111"
@@ -733,14 +738,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-112"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-112"
@@ -752,14 +757,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-113"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-113"
@@ -771,14 +776,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-114"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-114"
@@ -790,14 +795,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-115"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-115"
@@ -809,14 +814,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-116"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-116"
@@ -828,14 +833,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-117"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-117"
@@ -847,14 +852,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-118"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-118"
@@ -866,14 +871,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-119"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-119"
@@ -885,14 +890,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-120"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-120"
@@ -904,14 +909,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-121"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-121"
@@ -923,14 +928,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-122"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-122"
@@ -942,14 +947,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-123"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-123"
@@ -961,14 +966,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-124"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-124"
@@ -980,14 +985,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-125"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-125"
@@ -999,14 +1004,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-126"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-126"
@@ -1018,14 +1023,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-127"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-127"
@@ -1037,14 +1042,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-128"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-128"
@@ -1056,14 +1061,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-129"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-129"
@@ -1075,14 +1080,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-130"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-130"
@@ -1094,14 +1099,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-131"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-131"
@@ -1113,14 +1118,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-132"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-132"
@@ -1132,14 +1137,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-133"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-133"
@@ -1151,14 +1156,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-134"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-134"
@@ -1170,14 +1175,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-135"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-135"
@@ -1189,14 +1194,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-136"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-136"
@@ -1208,14 +1213,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-137"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-137"
@@ -1227,14 +1232,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-138"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-138"
@@ -1246,14 +1251,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-139"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-139"
@@ -1265,14 +1270,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-140"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-140"
@@ -1284,14 +1289,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-141"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-141"
@@ -1303,14 +1308,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-142"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-142"
@@ -1322,7 +1327,7 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-143"
                 aria-selected="true"
-                class="c15"
+                class="c16"
                 data-highlighted=""
                 data-radix-collection-item=""
                 data-state="checked"
@@ -1330,7 +1335,7 @@ describe('TimePicker', () => {
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-143"
@@ -1342,14 +1347,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-144"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-144"
@@ -1361,14 +1366,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-145"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-145"
@@ -1380,14 +1385,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-146"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-146"
@@ -1399,14 +1404,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-147"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-147"
@@ -1418,14 +1423,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-148"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-148"
@@ -1437,14 +1442,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-149"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-149"
@@ -1456,14 +1461,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-150"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-150"
@@ -1475,14 +1480,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-151"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-151"
@@ -1494,14 +1499,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-152"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-152"
@@ -1513,14 +1518,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-153"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-153"
@@ -1532,14 +1537,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-154"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-154"
@@ -1551,14 +1556,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-155"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-155"
@@ -1570,14 +1575,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-156"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-156"
@@ -1589,14 +1594,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-157"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-157"
@@ -1608,14 +1613,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-158"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-158"
@@ -1627,14 +1632,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-159"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-159"
@@ -1646,14 +1651,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-160"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-160"
@@ -1665,14 +1670,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-161"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-161"
@@ -1684,14 +1689,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-162"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-162"
@@ -1703,14 +1708,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-163"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-163"
@@ -1722,14 +1727,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-164"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-164"
@@ -1741,14 +1746,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-165"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-165"
@@ -1760,14 +1765,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-166"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-166"
@@ -1779,14 +1784,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-167"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-167"
@@ -1798,14 +1803,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-168"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-168"
@@ -1817,14 +1822,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-169"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-169"
@@ -1836,14 +1841,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-170"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-170"
@@ -1855,14 +1860,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-171"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-171"
@@ -1874,14 +1879,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-172"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-172"
@@ -1893,14 +1898,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-173"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-173"
@@ -1912,14 +1917,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-174"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-174"
@@ -1931,14 +1936,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-175"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-175"
@@ -1950,14 +1955,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-176"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-176"
@@ -1969,14 +1974,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-177"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-177"
@@ -1988,14 +1993,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-178"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-178"
@@ -2007,14 +2012,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-179"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-179"
@@ -2026,14 +2031,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-180"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-180"
@@ -2045,14 +2050,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-181"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-181"
@@ -2064,14 +2069,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-182"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-182"
@@ -2083,14 +2088,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-183"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-183"
@@ -2102,14 +2107,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-184"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-184"
@@ -2121,14 +2126,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-185"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-185"
@@ -2140,14 +2145,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-186"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-186"
@@ -2159,14 +2164,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-187"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-187"
@@ -2178,14 +2183,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-188"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-188"
@@ -2197,14 +2202,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-189"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-189"
@@ -2216,14 +2221,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-190"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-190"
@@ -2235,14 +2240,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-191"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-191"
@@ -2254,14 +2259,14 @@ describe('TimePicker', () => {
               <div
                 aria-labelledby="radix-192"
                 aria-selected="false"
-                class="c15"
+                class="c16"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c16"
+                  class="c2 c17"
                 >
                   <span
                     id="radix-192"
@@ -2271,7 +2276,7 @@ describe('TimePicker', () => {
                 </span>
               </div>
               <div
-                class="c17"
+                class="c18"
                 height="1px"
                 id="intersection-2"
                 width="100%"

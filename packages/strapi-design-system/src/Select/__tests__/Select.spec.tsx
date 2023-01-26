@@ -37,7 +37,7 @@ describe('Select', () => {
     await waitFor(() => screen.getByRole('listbox'));
 
     expect(container).toMatchInlineSnapshot(`
-      .c15 {
+      .c16 {
         width: 100%;
         height: 1px;
       }
@@ -123,7 +123,7 @@ describe('Select', () => {
         color: #666687;
       }
 
-      .c14 {
+      .c15 {
         font-size: 0.875rem;
         line-height: 1.43;
         color: #32324d;
@@ -180,7 +180,7 @@ describe('Select', () => {
         transition-duration: 0.2s;
       }
 
-      .c5 [aria-disabled='true'] {
+      .c5[aria-disabled='true'] {
         color: #666687;
         background: #eaeaef;
       }
@@ -203,12 +203,15 @@ describe('Select', () => {
         box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
         border: 1px solid #eaeaef;
         border-radius: 4px;
-        padding: 4px;
         width: var(--radix-select-trigger-width);
         max-height: 15rem;
       }
 
       .c13 {
+        padding: 4px;
+      }
+
+      .c14 {
         width: 100%;
         border: none;
         text-align: left;
@@ -227,15 +230,15 @@ describe('Select', () => {
         align-items: center;
       }
 
-      .c13:focus-within {
+      .c14:focus-within {
         background-color: #f0f0ff;
       }
 
-      .c13:hover {
+      .c14:hover {
         background-color: #f0f0ff;
       }
 
-      .c13[data-state='checked'] .c2 {
+      .c14[data-state='checked'] .c2 {
         font-weight: bold;
         color: #4945ff;
       }
@@ -272,11 +275,12 @@ describe('Select', () => {
               aria-controls="radix-0"
               aria-disabled="false"
               aria-expanded="true"
-              aria-labelledby="1 1-hint 1-error"
+              aria-labelledby="1-hint 1-error"
               aria-required="false"
               class="c5"
               data-state="open"
               dir="ltr"
+              id="1"
               role="combobox"
               type="button"
             >
@@ -376,6 +380,7 @@ describe('Select', () => {
               [data-radix-select-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-select-viewport]::-webkit-scrollbar{display:none}
             </style>
             <div
+              class="c13"
               data-radix-select-viewport=""
               role="presentation"
               style="position: relative; flex: 1; overflow: auto;"
@@ -383,7 +388,7 @@ describe('Select', () => {
               <div
                 aria-labelledby="radix-4"
                 aria-selected="true"
-                class="c13"
+                class="c14"
                 data-highlighted=""
                 data-radix-collection-item=""
                 data-state="checked"
@@ -391,7 +396,7 @@ describe('Select', () => {
                 tabindex="-1"
               >
                 <span
-                  class="c2 c14"
+                  class="c2 c15"
                 >
                   <span
                     id="radix-4"
@@ -403,14 +408,14 @@ describe('Select', () => {
               <div
                 aria-labelledby="radix-5"
                 aria-selected="false"
-                class="c13"
+                class="c14"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c14"
+                  class="c2 c15"
                 >
                   <span
                     id="radix-5"
@@ -422,14 +427,14 @@ describe('Select', () => {
               <div
                 aria-labelledby="radix-6"
                 aria-selected="false"
-                class="c13"
+                class="c14"
                 data-radix-collection-item=""
                 data-state="unchecked"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c2 c14"
+                  class="c2 c15"
                 >
                   <span
                     id="radix-6"
@@ -439,7 +444,7 @@ describe('Select', () => {
                 </span>
               </div>
               <div
-                class="c15"
+                class="c16"
                 height="1px"
                 id="intersection-1"
                 width="100%"
