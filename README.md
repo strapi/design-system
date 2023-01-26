@@ -79,7 +79,7 @@ You can link the design system using either a [relative path](#relative-path) or
 
 ### Strapi monorepo
 
-To link the design system to the Strapi monorepo follow the steps outlined in the [contributor documentation](https://contributor.strapi.io//core/admin/link-strapi-design-system)
+To link the design system to the Strapi monorepo follow the steps outlined in the [contributor documentation](https://contributor.strapi.io/core/admin/link-strapi-design-system)
 
 ### Relative path
 
