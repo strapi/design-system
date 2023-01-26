@@ -1,0 +1,322 @@
+<!--- Table.stories.mdx --->
+
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+
+import { Pencil, Trash, CarretDown, Plus } from '@strapi/icons';
+import { Box, Flex, VisuallyHidden, BaseCheckbox, Table, Thead, Tbody, Tr, Td, Th, Typography, Avatar, IconButton, TFooter } from '@strapi/design-system';
+
+<Meta title="Design System/Components/Table" component={Table} />
+
+# Table
+
+Tables are used to gather and display similar types of data together. They are composed of a header, rows, and columns.
+Several type of data can be included within tables such as: plain text, Select, Avatars, Icon Buttons, ...
+
+**Best practices**
+
+- If there are any, Icon Buttons should be placed at the very right of a row.
+- Tables should be placed in a page’s main content area.
+- Column titles use a all caps style.
+- Narrowing a column of data is not possible.
+- Some columns can be sorted by clicking on their label.
+- If content is truncated, a tooltip should be available at hover to display the full text.
+- Checkboxes (i.e. a bulk action) are optional.
+- If the Table is empty, make sure to use the EmptyStateLayout component to fill it.
+- Tables can be associated with a Search bar and/or a filter button.
+  [View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Table)
+
+## Imports
+
+```js
+import { Table, Thead, Tbody, Tr, Td, Th } from '@strapi/design-system';
+```
+
+## Usage
+
+Tables are used to gather and display similar types of data together. In the Content section, a reorganization of the
+columns is possible. Moreover, Columns can be sorted.
+
+### Default Table
+
+The default Table.
+
+<Canvas>
+  <Story name="base">
+    {() => {
+      const ROW_COUNT = 6;
+      const COL_COUNT = 10;
+      const entry = {
+        cover: 'https://avatars.githubusercontent.com/u/3874873?v=4',
+        description: 'Chez Léon is a human sized Parisian',
+        category: 'French cuisine',
+        contact: 'Leon Lafrite',
+      };
+      const entries = [];
+      for (let i = 0; i < 5; i++) {
+        entries.push({ ...entry, id: i });
+      }
+      return (
+        <Box padding={8} background="neutral100">
+          <Table
+            colCount={COL_COUNT}
+            rowCount={ROW_COUNT}
+            footer={<TFooter icon={<Plus />}>Add another field to this collection type</TFooter>}
+          >
+            <Thead>
+              <Tr>
+                <Th>
+                  <BaseCheckbox aria-label="Select all entries" />
+                </Th>
+                <Th>
+                  <Typography variant="sigma">ID</Typography>
+                </Th>
+                <Th>
+                  <Typography variant="sigma">Cover</Typography>
+                </Th>
+                <Th>
+                  <Typography variant="sigma">Description</Typography>
+                </Th>
+                <Th>
+                  <Typography variant="sigma">Categories</Typography>
+                </Th>
+                <Th>
+                  <Typography variant="sigma">Contact</Typography>
+                </Th>
+                <Th>
+                  <VisuallyHidden>Actions</VisuallyHidden>
+                </Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              {entries.map((entry) => (
+                <Tr key={entry.id}>
+                  <Td>
+                    <BaseCheckbox aria-label={`Select ${entry.contact}`} />
+                  </Td>
+                  <Td>
+                    <Typography textColor="neutral800">{entry.id}</Typography>
+                  </Td>
+                  <Td>
+                    <Avatar src={entry.cover} alt={entry.contact} />
+                  </Td>
+                  <Td>
+                    <Typography textColor="neutral800">{entry.description}</Typography>
+                  </Td>
+                  <Td>
+                    <Typography textColor="neutral800">{entry.category}</Typography>
+                  </Td>
+                  <Td>
+                    <Typography textColor="neutral800">{entry.contact}</Typography>
+                  </Td>
+                  <Td>
+                    <Flex>
+                      <a href="https://www.google.com" target="_blank" rel="noreferrer">
+                        G
+                      </a>
+                      <IconButton onClick={() => console.log('edit')} label="Edit" noBorder icon={<Pencil />} />
+                      <Box paddingLeft={1}>
+                        <IconButton onClick={() => console.log('delete')} label="Delete" noBorder icon={<Trash />} />
+                      </Box>
+                    </Flex>
+                  </Td>
+                </Tr>
+              ))}
+            </Tbody>
+          </Table>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Default Table without footer
+
+The default Table.
+
+<Canvas>
+  <Story name="base without footer">
+    {() => {
+      const ROW_COUNT = 6;
+      const COL_COUNT = 10;
+      const entry = {
+        cover: 'https://avatars.githubusercontent.com/u/3874873?v=4',
+        description: 'Chez Léon is a human sized Parisian',
+        category: 'French cuisine',
+        contact: 'Leon Lafrite',
+      };
+      const entries = [];
+      for (let i = 0; i < 5; i++) {
+        entries.push({ ...entry, id: i });
+      }
+      return (
+        <Box padding={8} background="neutral100">
+          <Table colCount={COL_COUNT} rowCount={ROW_COUNT}>
+            <Thead>
+              <Tr>
+                <Th>
+                  <BaseCheckbox aria-label="Select all entries" />
+                </Th>
+                <Th>
+                  <Typography variant="sigma">ID</Typography>
+                </Th>
+                <Th>
+                  <Typography variant="sigma">Cover</Typography>
+                </Th>
+                <Th>
+                  <Typography variant="sigma">Description</Typography>
+                </Th>
+                <Th>
+                  <Typography variant="sigma">Categories</Typography>
+                </Th>
+                <Th>
+                  <Typography variant="sigma">Contact</Typography>
+                </Th>
+                <Th>
+                  <VisuallyHidden>Actions</VisuallyHidden>
+                </Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              {entries.map((entry) => (
+                <Tr key={entry.id}>
+                  <Td>
+                    <BaseCheckbox aria-label={`Select ${entry.contact}`} />
+                  </Td>
+                  <Td>
+                    <Typography textColor="neutral800">{entry.id}</Typography>
+                  </Td>
+                  <Td>
+                    <Avatar src={entry.cover} alt={entry.contact} />
+                  </Td>
+                  <Td>
+                    <Typography textColor="neutral800">{entry.description}</Typography>
+                  </Td>
+                  <Td>
+                    <Typography textColor="neutral800">{entry.category}</Typography>
+                  </Td>
+                  <Td>
+                    <Typography textColor="neutral800">{entry.contact}</Typography>
+                  </Td>
+                  <Td>
+                    <Flex>
+                      <IconButton onClick={() => console.log('edit')} label="Edit" noBorder icon={<Pencil />} />
+                      <Box paddingLeft={1}>
+                        <IconButton onClick={() => console.log('delete')} label="Delete" noBorder icon={<Trash />} />
+                      </Box>
+                    </Flex>
+                  </Td>
+                </Tr>
+              ))}
+            </Tbody>
+          </Table>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Table with actions
+
+Table with actions.
+
+<Canvas>
+  <Story name="with th actions">
+    {() => {
+      const ROW_COUNT = 6;
+      const COL_COUNT = 10;
+      const entry = {
+        cover: 'https://avatars.githubusercontent.com/u/3874873?v=4',
+        description: 'Chez Léon is a human sized Parisian',
+        category: 'French cuisine',
+        contact: 'Leon Lafrite',
+      };
+      const entries = [];
+      for (let i = 0; i < 5; i++) {
+        entries.push({ ...entry, id: i });
+      }
+      return (
+        <Box padding={8} background="neutral100">
+          <Table
+            colCount={COL_COUNT}
+            rowCount={ROW_COUNT}
+            footer={<TFooter icon={<Plus />}>Add another field to this collection type</TFooter>}
+          >
+            <Thead>
+              <Tr>
+                <Th>
+                  <BaseCheckbox aria-label="Select all entries" />
+                </Th>
+                <Th action={<IconButton label="Sort on ID" icon={<CarretDown />} noBorder />}>
+                  <Typography variant="sigma">ID</Typography>
+                </Th>
+                <Th>
+                  <Typography variant="sigma">Cover</Typography>
+                </Th>
+                <Th>
+                  <Typography variant="sigma">Description</Typography>
+                </Th>
+                <Th>
+                  <Typography variant="sigma">Categories</Typography>
+                </Th>
+                <Th>
+                  <Typography variant="sigma">Contact</Typography>
+                </Th>
+                <Th>
+                  <VisuallyHidden>Actions</VisuallyHidden>
+                </Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              {entries.map((entry) => (
+                <Tr key={entry.id}>
+                  <Td>
+                    <BaseCheckbox aria-label={`Select ${entry.contact}`} />
+                  </Td>
+                  <Td>
+                    <Typography textColor="neutral800">{entry.id}</Typography>
+                  </Td>
+                  <Td>
+                    <Avatar src={entry.cover} alt={entry.contact} />
+                  </Td>
+                  <Td>
+                    <Typography textColor="neutral800">{entry.description}</Typography>
+                  </Td>
+                  <Td>
+                    <Typography textColor="neutral800">{entry.category}</Typography>
+                  </Td>
+                  <Td>
+                    <Typography textColor="neutral800">{entry.contact}</Typography>
+                  </Td>
+                  <Td>
+                    <Flex>
+                      <IconButton onClick={() => console.log('edit')} label="Edit" noBorder icon={<Pencil />} />
+                      <Box paddingLeft={1}>
+                        <IconButton onClick={() => console.log('delete')} label="Delete" noBorder icon={<Trash />} />
+                      </Box>
+                    </Flex>
+                  </Td>
+                </Tr>
+              ))}
+            </Tbody>
+          </Table>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Table Props
+
+The Table component wraps all its children in the
+(Box)[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base]
+component, so you can pass all Box props to change its style.
+
+<ArgsTable of={Table} />
+
+## Th Props
+
+<ArgsTable of={Th} />
+
+## TFooter Props
+
+<ArgsTable of={TFooter} />

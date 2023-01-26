@@ -1,8 +1,8 @@
 import React, { Children, cloneElement, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import CarretDown from '@strapi/icons/CarretDown';
-import Cross from '@strapi/icons/Cross';
 import styled from 'styled-components';
+import { CarretDown, Cross } from '@strapi/icons';
+
 import { sizes } from '../themes/sizes';
 import { SelectButton } from './SelectButton';
 import { Field, FieldHint, FieldLabel, FieldError } from '../Field';
@@ -162,16 +162,12 @@ export const Select = ({
   return (
     <Field hint={hint} error={error} id={generatedId} required={required}>
       <Stack spacing={label || hint || hasStringError ? 1 : 0}>
-        {label && (
-          <FieldLabel as="span" action={labelAction}>
-            {label}
-          </FieldLabel>
-        )}
+        {label && <FieldLabel action={labelAction}>{label}</FieldLabel>}
 
         <SelectButtonWrapper size={size} hasError={Boolean(error)} disabled={disabled} ref={containerRef}>
           <SelectButton
             ref={buttonRef}
-            labelledBy={`${labelId} ${contentId}`}
+            labelledBy={`${generatedId} ${labelId} ${contentId}`}
             aria-describedby={ariaDescribedBy}
             expanded={Boolean(expanded)}
             onTrigger={setExpanded}

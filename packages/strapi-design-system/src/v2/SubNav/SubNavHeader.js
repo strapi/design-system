@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Search from '@strapi/icons/Search';
+import { Search } from '@strapi/icons';
+
 import { Flex } from '../../Flex';
 import { Typography } from '../../Typography';
 import { IconButton } from '../../IconButton';

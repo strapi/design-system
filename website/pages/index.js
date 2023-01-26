@@ -1,14 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
+import { Typography, Box, Grid, GridItem, Icon } from '@strapi/design-system';
+import { ArrowRight } from '@strapi/icons';
+
+import StyledLink from 'components/StyledLink';
 import Layout from 'components/Layout';
 import { getNavbarContent } from 'lib/mdx';
-import { Typography } from '@strapi/design-system/Typography';
-import { Box } from '@strapi/design-system/Box';
-import { Grid, GridItem } from '@strapi/design-system/Grid';
-import { Icon } from '@strapi/design-system/Icon';
-import ArrowRight from '@strapi/icons/ArrowRight';
-import StyledLink from 'components/StyledLink';
-import PropTypes from 'prop-types';
 
 const Home = ({ navbarContent }) => {
   return (

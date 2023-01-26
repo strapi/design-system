@@ -1,0 +1,27 @@
+{
+  "name": "@strapi/design-system-docs",
+  "version": "1.6.1",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@storybook/addon-actions": "^6.5.15",
+    "@storybook/addon-essentials": "^6.5.15",
+    "@storybook/addon-links": "^6.5.15",
+    "@storybook/builder-webpack5": "^6.5.15",
+    "@storybook/manager-webpack5": "^6.5.15",
+    "@storybook/react": "^6.5.15",
+    "@strapi/design-system": "^1.6.1",
+    "@strapi/icons": "^1.6.1",
+    "qs": "^6.11.0",
+    "react": "17",
+    "react-copy-to-clipboard": "^5.1.0",
+    "react-dom": "17",
+    "react-router-dom": "5.3.4",
+    "storybook-dark-mode": "^2.0.5",
+    "styled-components": "^5.3.6"
+  },
+  "scripts": {
+    "build": "build-storybook",
+    "develop": "start-storybook -p 6006"
+  }
+}

@@ -1,0 +1,229 @@
+<!--- SubNav.stories.mdx --->
+
+import { useState } from 'react';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+
+import { Apps, Plus, ExclamationMarkCircle } from '@strapi/icons';
+import { SubNav, SubNavHeader, SubNavSection, SubNavSections, SubNavLink, SubNavLinkSection, Box, Flex, TextButton } from '@strapi/design-system';
+
+<Meta title="Design System/Components/SubNav" component={SubNav} />
+
+# SubNav
+
+The Sub Navigation is available and displayed on predefined sections of the admin panel to access advanced options (i.e.
+Content Manager, Content-types Builder and Settings). Thanks to it the users can easily navigation from an entry or a
+page to another. The Sub Navigation cannot be collapsed.
+
+**Best practices**
+
+- It is not possible to have more than 2 navigation bars next to each others.
+- Each page has its own icon taken from the iconography library.
+- Do not use icons for headers.
+- Use sentence case for page names and all caps for header labels.
+- Each plugin should have its own new category and its own header.
+
+## Usage
+
+The Sub Navigation cannot be collapsed. A notification system can appear in the Sub Navigation, especially in the
+Settings section for the Application page.
+
+A Text Button component can be found at the bottom of a pages gathering in the Sub Navigation.
+
+## Hierarchy
+
+Related pages are gathered under specific headers within the Sub Navigation. These headers are helpful to understand the
+section hierarchy. Moreover, each page gets its very own icon to make it distinctive.
+
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/SubNav)
+
+## Imports
+
+```js
+import {
+  SubNav,
+  SubNavHeader,
+  SubNavSection,
+  SubNavSections,
+  SubNavLink,
+  SubNavLinkSection,
+} from '@strapi/design-system';
+```
+
+## Usage
+
+<Canvas>
+  <Story name="base">
+    {() => {
+      const [search, setSearch] = useState('');
+      const links = [
+        {
+          id: 1,
+          label: 'Addresses',
+          icon: <ExclamationMarkCircle />,
+          to: '/address',
+        },
+        {
+          id: 2,
+          label: 'Categories',
+          to: '/category',
+        },
+        {
+          id: 3,
+          label: 'Cities',
+          icon: <Apps />,
+          to: '/city',
+          active: true,
+        },
+        {
+          id: 4,
+          label: 'Countries',
+          to: '/country',
+        },
+      ];
+      return (
+        <Flex>
+          <Box padding={10} style={{ height: '100vh' }} background="neutral200">
+            <SubNav ariaLabel="Builder sub nav">
+              <SubNavHeader
+                searchable
+                value={search}
+                onClear={() => setSearch('')}
+                onChange={(e) => setSearch(e.target.value)}
+                label="Content-Type Builder"
+                searchLabel="Search..."
+              />
+              <SubNavSections>
+                <SubNavSection label="Collection Type" collapsable badgeLabel={links.length.toString()}>
+                  {links.map((link) => (
+                    <SubNavLink to={link.to} active={link.active} key={link.id}>
+                      {link.label}
+                    </SubNavLink>
+                  ))}
+                </SubNavSection>
+                <Box paddingLeft={7} paddingBottom={3}>
+                  <TextButton startIcon={<Plus />}>Click on me</TextButton>
+                </Box>
+                <SubNavSection label="Single Type" collapsable badgeLabel={links.length.toString()}>
+                  <SubNavLinkSection label="Default">
+                    {links.map((link) => (
+                      <SubNavLink to={link.to} isSubSectionChild key={link.id}>
+                        {link.label}
+                      </SubNavLink>
+                    ))}
+                  </SubNavLinkSection>
+                </SubNavSection>
+                <Box paddingLeft={7}>
+                  <TextButton startIcon={<Plus />}>Click on me</TextButton>
+                </Box>
+              </SubNavSections>
+            </SubNav>
+          </Box>
+          <Box padding={10} style={{ height: '100vh' }} background="neutral200">
+            <SubNav ariaLabel="Settings sub nav">
+              <SubNavHeader label="Settings" />
+              <SubNavSections>
+                <SubNavLink to="/blabla" withBullet icon={<Apps />} className="active">
+                  Application
+                </SubNavLink>
+                <SubNavSection label="Global Settings">
+                  {links.map(
+                    (link) =>
+                      link.icon && (
+                        <SubNavLink to={link.to} active={link.active} icon={link.icon} key={link.id}>
+                          {link.label}
+                        </SubNavLink>
+                      ),
+                  )}
+                </SubNavSection>
+                <SubNavSection label="Permissions">
+                  {links.map(
+                    (link) =>
+                      link.icon && (
+                        <SubNavLink to={link.to} icon={link.icon} key={link.id}>
+                          {link.label}
+                        </SubNavLink>
+                      ),
+                  )}
+                </SubNavSection>
+              </SubNavSections>
+            </SubNav>
+          </Box>
+          <Box padding={10} style={{ height: '100vh' }} background="neutral200">
+            <SubNav ariaLabel="Mixed sub nav">
+              <SubNavHeader label="Mixed" />
+              <SubNavSections>
+                <SubNavLink to="/blabla" withBullet icon={<Apps />}>
+                  Application
+                </SubNavLink>
+                <SubNavSection label="Global Settings">
+                  <SubNavLinkSection label="Sub section">
+                    {links.map((link) => (
+                      <SubNavLink to={link.to} active={link.active} icon={link.icon} isSubSectionChild key={link.id}>
+                        {link.label}
+                      </SubNavLink>
+                    ))}
+                  </SubNavLinkSection>
+                </SubNavSection>
+                <SubNavSection label="Permissions">
+                  {links.map((link) => (
+                    <SubNavLink to={link.to} icon={link.icon} key={link.id}>
+                      {link.label}
+                    </SubNavLink>
+                  ))}
+                </SubNavSection>
+              </SubNavSections>
+            </SubNav>
+          </Box>
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Usage with other routing libraries
+
+To use the Strapi design system SubNavLink component with a routing library (e.g. react-router-dom), you'll need to pass
+the react-router-dom `NavLink` component to the `as` prop in order to replace the default HTML anchor `<a />`. You'll
+now be able to pass all `NavLink` props.
+
+```jsx
+import { SubNavLink } from '@strapi/design-system';
+import { NavLink } from 'react-router-dom';
+
+<SubNavLink as={NavLink} to="/home">
+  Home
+</SubNavLink>;
+```
+
+#### (⚠️ Only for Strapi Design System v1.0.0) NextJS usage
+
+For NextJS, you'll need to wrap the `NavLink` with the `NextLink` component
+
+```jsx
+import { SubNavLink } from '@strapi/design-system';
+import NextLink from 'next/link';
+
+<NextLink href="/home" passHref>
+  <SubNavLink>Home</SubNavLink>
+</NextLink>;
+```
+
+## SubNav Props
+
+<ArgsTable of={SubNav} />
+
+## SubNavHeader Props
+
+<ArgsTable of={SubNavHeader} />
+
+## SubNavSection Props
+
+<ArgsTable of={SubNavSection} />
+
+## SubNavLinkSection Props
+
+<ArgsTable of={SubNavLinkSection} />
+
+## SubNavLink Props
+
+<ArgsTable of={SubNavLink} />

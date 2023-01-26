@@ -1,0 +1,31 @@
+<!--- BaseButton.stories.mdx --->
+
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+
+import { BaseButton, Typography } from '@strapi/design-system';
+
+<Meta title="Design System/Technical Components/BaseButton" component={BaseButton} />
+
+## Imports
+
+```js
+import { BaseButton } from '@strapi/design-system';
+```
+
+# BaseButton
+
+The `BaseButton` component is the basis of the `Button` component.
+
+## Usage
+
+<Canvas withSource="open">
+  <Story name="base">
+    <BaseButton onClick={(e) => console.log(e)}>
+      <Typography>button</Typography>
+    </BaseButton>
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={BaseButton} />

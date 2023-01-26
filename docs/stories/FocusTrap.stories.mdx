@@ -1,0 +1,34 @@
+<!--- FocusTrap.stories.mdx --->
+
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+
+import { FocusTrap } from '@strapi/design-system';
+
+import { ExampleComponent } from '../components/ExampleComponent'
+
+<Meta title="Design System/Technical Components/FocusTrap" component={FocusTrap} />
+
+# FocusTrap
+
+The FocusTrap restricts keyboard navigation to a certain zone of the screen. For instance, it can be used in a modal to
+limit tab navigation to a specific context.
+
+## Imports
+
+```js
+import FocusTrap from '@strapi/parts/FocusTrap';
+```
+
+## Usage
+
+To use it, wrap your code into a `<FocusTrap onEscape={onClose}>` block.
+
+<Canvas>
+  <Story name="base">
+    <ExampleComponent />
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={FocusTrap} />

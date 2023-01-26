@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Dot from '@strapi/icons/Dot';
+import { Dot } from '@strapi/icons';
+
 import { Box } from '../../Box';
 import { Typography } from '../../Typography';
 import { Flex } from '../../Flex';
