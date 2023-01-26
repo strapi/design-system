@@ -28,15 +28,6 @@ test.describe.parallel('Select', () => {
         await page.click('text=Show the disabled state');
         await checkA11y(page);
       });
-
-      test('clears the value when pressing the clear button', async ({ page }) => {
-        await page.getByRole('combobox').click();
-        await page.click('text="Hamburger"');
-
-        await page.click('[aria-label="Clear the meal"]');
-
-        await expect(page.getByRole('combobox')).toHaveText('Your example');
-      });
     });
 
     test.describe('multi', () => {

@@ -10,6 +10,8 @@ import checkmarkIcon from '../BaseCheckbox/assets/checkmark.svg';
 interface OptionProps extends SingleSelectOptionProps {
   indeterminate?: boolean;
   multi?: boolean;
+  isChild?: boolean;
+  selected?: boolean;
 }
 
 export const Option = ({

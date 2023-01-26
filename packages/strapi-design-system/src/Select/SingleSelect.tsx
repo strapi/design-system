@@ -15,7 +15,7 @@ import { useIntersection } from '../hooks/useIntersection';
 
 import { getThemeSize, inputFocusStyle } from '../themes/utils';
 
-interface SingleSelectProps {
+export interface SingleSelectProps {
   children: React.ReactNode;
   /**
    * @default "Clear"
@@ -102,6 +102,7 @@ export const SingleSelect = ({
   };
 
   const handleClearClick: React.MouseEventHandler<HTMLDivElement> = (e) => {
+    console.log('calling clear');
     if (onClear) {
       onClear(e);
     }
@@ -121,6 +122,7 @@ export const SingleSelect = ({
   const handleTriggerPointerDown: React.PointerEventHandler<HTMLButtonElement> = (e) => {
     // @ts-ignore
     if (clearRef.current && clearRef.current === e.target.closest('div')) {
+      console.log('preventing default');
       e.preventDefault();
     }
   };
@@ -282,39 +284,31 @@ const IconBox = styled(Box)`
 
 export interface SingleSelectOptionProps {
   children: string | number;
-  isChild?: boolean;
-  selected?: boolean;
   startIcon?: React.ReactNode;
   value: string | number;
 }
 
-export const SingleSelectOption = ({
-  children,
-  isChild = false,
-  selected = false,
-  startIcon,
-  value,
-}: SingleSelectOptionProps) => (
-  <SelectItem data-strapi-value={value} $isChild={isChild} value={value.toString()}>
+export const SingleSelectOption = ({ children, startIcon, value }: SingleSelectOptionProps) => (
+  <SelectItem data-strapi-value={value} value={value.toString()}>
     {startIcon && (
       <Box as="span" paddingRight={2} aria-hidden>
         {startIcon}
       </Box>
     )}
-    <Typography textColor={selected ? 'primary600' : 'neutral800'} fontWeight={selected ? 'bold' : undefined}>
+    <Typography textColor={'neutral800'}>
       <RadixSelect.ItemText>{children}</RadixSelect.ItemText>
     </Typography>
   </SelectItem>
 );
 
-const SelectItem = styled(RadixSelect.Item)<{ $isChild?: boolean }>`
+const SelectItem = styled(RadixSelect.Item)`
   width: 100%;
   border: none;
   text-align: left;
   outline-offset: -3px;
   border-radius: ${(props) => props.theme.borderRadius};
   padding: ${(props) => `${props.theme.spaces[2]} ${props.theme.spaces[4]}`};
-  padding-left: ${({ $isChild, theme }) => ($isChild ? theme.spaces[7] : theme.spaces[4])};
+  padding-left: ${({ theme }) => theme.spaces[4]};
   background-color: ${({ theme }) => theme.colors.neutral0};
   display: flex;
   align-items: center;
@@ -325,5 +319,12 @@ const SelectItem = styled(RadixSelect.Item)<{ $isChild?: boolean }>`
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.primary100};
+  }
+
+  &[data-state='checked'] {
+    ${Typography} {
+      font-weight: bold;
+      color: ${({ theme }) => theme.colors.primary600};
+    }
   }
 `;
