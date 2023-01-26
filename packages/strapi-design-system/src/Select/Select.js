@@ -58,7 +58,7 @@ export const Select = ({
 
   let ariaDescribedBy;
 
-  if (hasStringError) {
+  if (error) {
     ariaDescribedBy = `${generatedId}-error`;
   } else if (hint) {
     ariaDescribedBy = `${generatedId}-hint`;

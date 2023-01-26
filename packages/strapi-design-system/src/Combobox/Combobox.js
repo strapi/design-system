@@ -272,6 +272,16 @@ export const Combobox = ({
     updateMenuState(e, true);
   };
 
+  // Ensuring we pass the right aria-describedby attribute to the Input component as
+  // Combobox is not using FieldInput which would allow us to pass on the error or hint with aria-describedby
+  let ariaDescription;
+
+  if (error) {
+    ariaDescription = `${generatedId}-error`;
+  } else if (hint) {
+    ariaDescription = `${generatedId}-hint`;
+  }
+
   return (
     <Field hint={hint} error={error} id={generatedId} required={required}>
       <VisuallyHidden aria-live="polite" aria-atomic="false" aria-relevant="additions text">
@@ -293,7 +303,7 @@ export const Combobox = ({
               aria-disabled={disabled}
               aria-expanded={open}
               aria-haspopup="listbox"
-              aria-labelledby={label ? labelId : undefined}
+              aria-describedby={ariaDescription}
               autoComplete="off"
               autoCorrect="off"
               id={generatedId}
