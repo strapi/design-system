@@ -344,7 +344,6 @@ exports[`DateTimePicker snapshots the component 1`] = `
       <div>
         <div
           class="c0 c1"
-          spacing="1"
         >
           <div
             class="c3 c10"
