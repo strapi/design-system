@@ -102,7 +102,6 @@ export const SingleSelect = ({
   };
 
   const handleClearClick: React.MouseEventHandler<HTMLDivElement> = (e) => {
-    console.log('calling clear');
     if (onClear) {
       onClear(e);
     }
@@ -122,7 +121,6 @@ export const SingleSelect = ({
   const handleTriggerPointerDown: React.PointerEventHandler<HTMLButtonElement> = (e) => {
     // @ts-ignore
     if (clearRef.current && clearRef.current === e.target.closest('div')) {
-      console.log('preventing default');
       e.preventDefault();
     }
   };
@@ -148,7 +146,7 @@ export const SingleSelect = ({
 
   return (
     <Field hint={hint} error={error} id={generatedId} required={required}>
-      <Stack spacing={label || hint || typeof error === 'string' ? 1 : 0}>
+      <Stack spacing={1}>
         <FieldLabel action={labelAction}>{label}</FieldLabel>
         <RadixSelect.Root
           onOpenChange={handleOpenChange}
@@ -241,7 +239,7 @@ const Trigger = styled(RadixSelect.Trigger)<TriggerProps>`
 
 const DownIcon = styled(RadixSelect.Icon)`
   & > svg {
-    width: 6px;
+    width: ${6 / 16}rem;
 
     & > path {
       fill: ${({ theme }) => theme.colors.neutral600};
@@ -250,21 +248,19 @@ const DownIcon = styled(RadixSelect.Icon)`
 `;
 
 const Content = styled(RadixSelect.Content)`
-  z-index: 4;
   background: ${({ theme }) => theme.colors.neutral0};
   box-shadow: ${({ theme }) => theme.shadows.filterShadow};
   border: 1px solid ${({ theme }) => theme.colors.neutral150};
   border-radius: ${({ theme }) => theme.borderRadius};
   padding: ${({ theme }) => theme.spaces[1]};
   width: var(--radix-select-trigger-width);
+  /* This is from the design-system figma file. */
   max-height: 15rem;
 `;
 
 const IconBox = styled(Box)`
   background: transparent;
   border: none;
-  position: relative;
-  z-index: 1;
 
   svg {
     height: ${11 / 16}rem;
@@ -289,7 +285,7 @@ export interface SingleSelectOptionProps {
 }
 
 export const SingleSelectOption = ({ children, startIcon, value }: SingleSelectOptionProps) => (
-  <SelectItem data-strapi-value={value} value={value.toString()}>
+  <SelectItem textValue={children.toString()} value={value.toString()}>
     {startIcon && (
       <Box as="span" paddingRight={2} aria-hidden>
         {startIcon}

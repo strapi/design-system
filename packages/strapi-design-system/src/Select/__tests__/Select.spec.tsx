@@ -37,7 +37,7 @@ describe('Select', () => {
     await waitFor(() => screen.getByRole('listbox'));
 
     expect(container).toMatchInlineSnapshot(`
-      .c14 {
+      .c15 {
         width: 100%;
         height: 1px;
       }
@@ -56,7 +56,7 @@ describe('Select', () => {
         flex-direction: column;
       }
 
-      .c3 {
+      .c4 {
         -webkit-align-items: center;
         -webkit-box-align: center;
         -ms-flex-align: center;
@@ -70,7 +70,7 @@ describe('Select', () => {
         flex-direction: row;
       }
 
-      .c5 {
+      .c6 {
         -webkit-align-items: center;
         -webkit-box-align: center;
         -ms-flex-align: center;
@@ -85,7 +85,7 @@ describe('Select', () => {
         gap: 16px;
       }
 
-      .c7 {
+      .c8 {
         -webkit-align-items: center;
         -webkit-box-align: center;
         -ms-flex-align: center;
@@ -100,14 +100,14 @@ describe('Select', () => {
         gap: 12px;
       }
 
-      .c2 {
+      .c3 {
         font-size: 0.75rem;
         line-height: 1.33;
         font-weight: 600;
         color: #32324d;
       }
 
-      .c6 {
+      .c7 {
         font-size: 0.875rem;
         line-height: 1.43;
         display: block;
@@ -117,13 +117,13 @@ describe('Select', () => {
         color: #32324d;
       }
 
-      .c9 {
+      .c10 {
         font-size: 0.75rem;
         line-height: 1.33;
         color: #666687;
       }
 
-      .c13 {
+      .c14 {
         font-size: 0.875rem;
         line-height: 1.43;
         color: #32324d;
@@ -138,7 +138,7 @@ describe('Select', () => {
         margin-top: 4px;
       }
 
-      .c10 {
+      .c11 {
         border: 0;
         -webkit-clip: rect(0 0 0 0);
         clip: rect(0 0 0 0);
@@ -150,7 +150,7 @@ describe('Select', () => {
         width: 1px;
       }
 
-      .c4 {
+      .c5 {
         position: relative;
         border: 1px solid #dcdce4;
         padding-right: 12px;
@@ -180,26 +180,25 @@ describe('Select', () => {
         transition-duration: 0.2s;
       }
 
-      .c4 [aria-disabled='true'] {
+      .c5 [aria-disabled='true'] {
         color: #666687;
         background: #eaeaef;
       }
 
-      .c4:focus-within {
+      .c5:focus-within {
         border: 1px solid #4945ff;
         box-shadow: #4945ff 0px 0px 0px 2px;
       }
 
-      .c8 > svg {
-        width: 6px;
+      .c9 > svg {
+        width: 0.375rem;
       }
 
-      .c8 > svg > path {
+      .c9 > svg > path {
         fill: #666687;
       }
 
-      .c11 {
-        z-index: 4;
+      .c12 {
         background: #ffffff;
         box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
         border: 1px solid #eaeaef;
@@ -209,7 +208,7 @@ describe('Select', () => {
         max-height: 15rem;
       }
 
-      .c12 {
+      .c13 {
         width: 100%;
         border: none;
         text-align: left;
@@ -228,12 +227,17 @@ describe('Select', () => {
         align-items: center;
       }
 
-      .c12:focus-within {
+      .c13:focus-within {
         background-color: #f0f0ff;
       }
 
-      .c12:hover {
+      .c13:hover {
         background-color: #f0f0ff;
+      }
+
+      .c13[data-state='checked'] .c2 {
+        font-weight: bold;
+        color: #4945ff;
       }
 
       <body
@@ -254,11 +258,11 @@ describe('Select', () => {
             class="c0 c1"
           >
             <label
-              class="c2"
+              class="c2 c3"
               for="select-1"
             >
               <div
-                class="c3"
+                class="c4"
               >
                 Choose your meal
               </div>
@@ -270,14 +274,14 @@ describe('Select', () => {
               aria-expanded="true"
               aria-labelledby="select-1 select-1-hint select-1-error"
               aria-required="false"
-              class="c4"
+              class="c5"
               data-state="open"
               dir="ltr"
               role="combobox"
               type="button"
             >
               <span
-                class="c5"
+                class="c6"
               >
                 <span
                   aria-hidden="true"
@@ -288,7 +292,7 @@ describe('Select', () => {
                   </span>
                 </span>
                 <span
-                  class="c6"
+                  class="c2 c7"
                 >
                   <span
                     aria-label="pizza"
@@ -299,11 +303,11 @@ describe('Select', () => {
                 </span>
               </span>
               <span
-                class="c7"
+                class="c8"
               >
                 <span
                   aria-hidden="true"
-                  class="c8"
+                  class="c9"
                 >
                   <svg
                     fill="none"
@@ -323,7 +327,7 @@ describe('Select', () => {
               </span>
             </button>
             <p
-              class="c9"
+              class="c2 c10"
               id="select-1-hint"
             >
               Description line
@@ -331,7 +335,7 @@ describe('Select', () => {
           </div>
         </div>
         <div
-          class="c10"
+          class="c11"
         >
           <p
             aria-live="polite"
@@ -355,10 +359,10 @@ describe('Select', () => {
         <div
           data-radix-popper-content-wrapper=""
           dir="ltr"
-          style="position: fixed; left: 0px; top: 0px; transform: translate3d(0px, 4px, 0); min-width: max-content; z-index: 4; --radix-popper-anchor-width: 0px; --radix-popper-anchor-height: 0px; --radix-popper-available-width: -10px; --radix-popper-available-height: -14px; --radix-popper-transform-origin: 0% 0px;"
+          style="position: fixed; left: 0px; top: 0px; transform: translate3d(0px, 4px, 0); min-width: max-content; --radix-popper-anchor-width: 0px; --radix-popper-anchor-height: 0px; --radix-popper-available-width: -10px; --radix-popper-available-height: -14px; --radix-popper-transform-origin: 0% 0px;"
         >
           <div
-            class="c11"
+            class="c12"
             data-align="start"
             data-side="bottom"
             data-state="open"
@@ -379,16 +383,15 @@ describe('Select', () => {
               <div
                 aria-labelledby="radix-4"
                 aria-selected="true"
-                class="c12"
+                class="c13"
                 data-highlighted=""
                 data-radix-collection-item=""
                 data-state="checked"
-                data-strapi-value="pizza"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c13"
+                  class="c2 c14"
                 >
                   <span
                     id="radix-4"
@@ -400,15 +403,14 @@ describe('Select', () => {
               <div
                 aria-labelledby="radix-5"
                 aria-selected="false"
-                class="c12"
+                class="c13"
                 data-radix-collection-item=""
                 data-state="unchecked"
-                data-strapi-value="hamburger"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c13"
+                  class="c2 c14"
                 >
                   <span
                     id="radix-5"
@@ -420,15 +422,14 @@ describe('Select', () => {
               <div
                 aria-labelledby="radix-6"
                 aria-selected="false"
-                class="c12"
+                class="c13"
                 data-radix-collection-item=""
                 data-state="unchecked"
-                data-strapi-value="bagel"
                 role="option"
                 tabindex="-1"
               >
                 <span
-                  class="c13"
+                  class="c2 c14"
                 >
                   <span
                     id="radix-6"
@@ -438,7 +439,7 @@ describe('Select', () => {
                 </span>
               </div>
               <div
-                class="c14"
+                class="c15"
                 height="1px"
                 id="intersection-select-1"
                 width="100%"
