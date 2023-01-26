@@ -6,17 +6,19 @@ test.describe.parallel('DateTimePicker', () => {
       // This is the URL of the Storybook Iframe
       await page.goto('/iframe.html?id=design-system-components-datetimepicker--base&viewMode=story');
     });
+
     test('change the date and see if also the time will be changed when both are empty', async ({
       page,
       browserName,
     }) => {
       test.skip(browserName === 'webkit', 'Still working on it');
-      await page.click('[aria-labelledby^="datetime-label"] > div > div:nth-child(2) > div > div');
+      await page.click('[data-testid="datetimepicker-date"]');
       await page.click('tr[aria-rowindex="4"] td[aria-colindex="4"]');
       // check if the time is selected with 00:00
       const timePickerValue = page.locator('button[data-testid="datetimepicker-time"] + div span');
       expect(await timePickerValue.innerText()).toBe('00:00');
     });
+
     test('change the time and see if also the date will be changed when both are empty', async ({
       page,
       browserName,
@@ -30,11 +32,13 @@ test.describe.parallel('DateTimePicker', () => {
       expect(await datePickerValue.inputValue()).toBe(today);
     });
   });
+
   test.describe('with initial data', () => {
     test.beforeEach(async ({ page }) => {
       // This is the URL of the Storybook Iframe
       await page.goto('/iframe.html?id=design-system-components-datetimepicker--initial-data&viewMode=story');
     });
+
     test('change the date and see if also the time will be changed when are both already initialized', async ({
       page,
       browserName,
@@ -43,9 +47,9 @@ test.describe.parallel('DateTimePicker', () => {
       const timePickerInitialValue = await page
         .locator('button[data-testid="datetimepicker-time"] + div span')
         .innerText();
-      await page.click('[aria-labelledby^="datetime-label"] > div > div:nth-child(2) > div > div');
+      await page.click('[data-testid="datetimepicker-date"]');
       await page.click('tr[aria-rowindex="4"] td[aria-colindex="4"]');
-      // check if the time is selected with 12:00
+      // // check if the time is selected with 12:00
       const timePickerValue = page.locator('button[data-testid="datetimepicker-time"] + div span');
       expect(await timePickerValue.innerText()).toBe(timePickerInitialValue);
     });
@@ -66,37 +70,31 @@ test.describe.parallel('DateTimePicker', () => {
       browserName,
     }) => {
       test.skip(browserName === 'webkit', 'Still working on it');
-      await page.focus('[aria-labelledby^="datetime-label"] > div > div:nth-child(2) > div');
+      await page.focus('[data-testid="datetimepicker-date"]');
 
       await page.keyboard.press('Tab');
-      await page.keyboard.press('Tab');
-      await page.keyboard.press('Tab');
       await page.keyboard.press('Enter');
+
       const datePickerValue = page.locator('[name="datetimepicker"]');
       expect(await datePickerValue.inputValue()).toBe('');
-      const timePickerValue = page.locator(
-        '[aria-labelledby^="datetime-label"] > div > div:nth-child(2) > div:nth-child(2) > div > div > div:nth-child(2) span',
-      );
+      const timePickerValue = page.locator('[id*="-content"]');
       expect(await timePickerValue.innerText()).toBe('--:--');
     });
+
     test('clear the time and see if the date remains the same when are both already initialized', async ({
       page,
       browserName,
     }) => {
       test.skip(browserName === 'webkit', 'Still working on it');
-      await page.focus('[aria-labelledby^="datetime-label"] > div > div:nth-child(2) > div');
+      await page.focus('[data-testid="datetimepicker-date"]');
 
-      await page.keyboard.press('Tab');
-      await page.keyboard.press('Tab');
       await page.keyboard.press('Tab');
       await page.keyboard.press('Tab');
       await page.keyboard.press('Tab');
       await page.keyboard.press('Enter');
       const datePickerValue = page.locator('[name="datetimepicker"]');
       expect(await datePickerValue.inputValue()).toBe('10/13/2021');
-      const timePickerValue = page.locator(
-        '[aria-labelledby^="datetime-label"] > div > div:nth-child(2) > div:nth-child(2) > div > div > div:nth-child(2) span',
-      );
+      const timePickerValue = page.locator('[id*="-content"]');
       expect(await timePickerValue.innerText()).toBe('00:00');
     });
   });

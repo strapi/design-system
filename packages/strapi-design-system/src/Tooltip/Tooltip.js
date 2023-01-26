@@ -16,8 +16,8 @@ const TooltipWrapper = styled(Box)`
 `;
 
 export const Tooltip = ({ children, label, description, delay, position, id, ...props }) => {
-  const tooltipId = useId('tooltip', id);
-  const descriptionId = useId('description');
+  const tooltipId = useId(id);
+  const descriptionId = useId();
   const { visible, ...tooltipHandlers } = useTooltipHandlers(delay);
   const { tooltipWrapperRef, toggleSourceRef } = useTooltipLayout(visible, position);
 

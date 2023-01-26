@@ -80,11 +80,11 @@ test.describe.parallel('ToggleInput', () => {
         await injectAxe(page);
         await checkA11y(page);
 
-        expect(await page.isChecked('#toggleinput-1')).toBeTruthy();
+        expect(await page.isChecked('[name="enable-provider"]')).toBeTruthy();
         await page.click('label');
-        expect(await page.isChecked('#toggleinput-1')).toBeFalsy();
+        expect(await page.isChecked('[name="enable-provider"]')).toBeFalsy();
         await page.click('label');
-        expect(await page.isChecked('#toggleinput-1')).toBeTruthy();
+        expect(await page.isChecked('[name="enable-provider"]')).toBeTruthy();
       });
 
       test('change value from null', async ({ page }) => {
@@ -94,9 +94,9 @@ test.describe.parallel('ToggleInput', () => {
         await injectAxe(page);
         await checkA11y(page);
 
-        expect(await page.isChecked('#toggleinput-1')).toBeFalsy();
+        expect(await page.isChecked('[name="enable-provider"]')).toBeFalsy();
         await page.click('label');
-        expect(await page.isChecked('#toggleinput-1')).toBeTruthy();
+        expect(await page.isChecked('[name="enable-provider"]')).toBeTruthy();
       });
 
       test('change value to true after clearing truthy value', async ({ page }) => {
@@ -106,11 +106,11 @@ test.describe.parallel('ToggleInput', () => {
         await injectAxe(page);
         await checkA11y(page);
 
-        expect(await page.isChecked('#toggleinput-1')).toBeTruthy();
+        expect(await page.isChecked('[name="enable-provider"]')).toBeTruthy();
         await page.click('button >> text=clear');
-        expect(await page.isChecked('#toggleinput-1')).toBeFalsy();
+        expect(await page.isChecked('[name="enable-provider"]')).toBeFalsy();
         await page.click('label');
-        expect(await page.isChecked('#toggleinput-1')).toBeTruthy();
+        expect(await page.isChecked('[name="enable-provider"]')).toBeTruthy();
       });
 
       test('clear value is not present, if the field is disabled', async ({ page }) => {
