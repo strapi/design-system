@@ -288,7 +288,7 @@ describe('TimePicker', () => {
           >
             <label
               class="c2 c3"
-              for="timepicker-1"
+              for="2"
             >
               <div
                 class="c4"
@@ -301,7 +301,7 @@ describe('TimePicker', () => {
               aria-controls="radix-0"
               aria-disabled="false"
               aria-expanded="true"
-              aria-labelledby="timepicker-1 timepicker-1-hint timepicker-1-error"
+              aria-labelledby="2 2-hint 2-error"
               aria-required="false"
               class="c5"
               data-state="open"
@@ -393,7 +393,7 @@ describe('TimePicker', () => {
             </button>
             <p
               class="c2 c12"
-              id="timepicker-1-hint"
+              id="2-hint"
             >
               Description line
             </p>
@@ -2273,7 +2273,7 @@ describe('TimePicker', () => {
               <div
                 class="c17"
                 height="1px"
-                id="intersection-timepicker-1"
+                id="intersection-2"
                 width="100%"
               />
             </div>

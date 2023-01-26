@@ -259,7 +259,7 @@ describe('Select', () => {
           >
             <label
               class="c2 c3"
-              for="select-1"
+              for="1"
             >
               <div
                 class="c4"
@@ -272,7 +272,7 @@ describe('Select', () => {
               aria-controls="radix-0"
               aria-disabled="false"
               aria-expanded="true"
-              aria-labelledby="select-1 select-1-hint select-1-error"
+              aria-labelledby="1 1-hint 1-error"
               aria-required="false"
               class="c5"
               data-state="open"
@@ -328,7 +328,7 @@ describe('Select', () => {
             </button>
             <p
               class="c2 c10"
-              id="select-1-hint"
+              id="1-hint"
             >
               Description line
             </p>
@@ -441,7 +441,7 @@ describe('Select', () => {
               <div
                 class="c15"
                 height="1px"
-                id="intersection-select-1"
+                id="intersection-1"
                 width="100%"
               />
             </div>

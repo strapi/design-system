@@ -268,7 +268,7 @@ exports[`DateTimePicker snapshots the component 1`] = `
 }
 
 <div
-  aria-labelledby="datetime-label-1"
+  aria-labelledby="6"
   role="group"
 >
   <div
@@ -276,7 +276,7 @@ exports[`DateTimePicker snapshots the component 1`] = `
   >
     <label
       class="c2 c3"
-      for="datetime-label-1"
+      for="6"
     >
       <div
         class="c4"
@@ -326,14 +326,14 @@ exports[`DateTimePicker snapshots the component 1`] = `
                 </div>
                 <input
                   aria-autocomplete="none"
-                  aria-describedby="datetime-label-1-hint"
+                  aria-describedby="6-hint"
                   aria-disabled="false"
                   aria-invalid="false"
                   aria-label="Date time picker"
                   aria-required="false"
                   class="c10"
                   data-testid="datetimepicker-date"
-                  id="datetime-label-1"
+                  id="6"
                   name="datetimepicker"
                   value="10/13/2021"
                 />
@@ -348,7 +348,7 @@ exports[`DateTimePicker snapshots the component 1`] = `
         >
           <label
             class="c2 c3"
-            for="timepicker-3"
+            for="4"
           >
             <div
               class="c4"
@@ -359,7 +359,7 @@ exports[`DateTimePicker snapshots the component 1`] = `
             aria-controls="radix-0"
             aria-disabled="false"
             aria-expanded="false"
-            aria-labelledby="timepicker-3 timepicker-3-hint timepicker-3-error"
+            aria-labelledby="4 4-hint 4-error"
             aria-required="false"
             class="c11"
             data-state="closed"
@@ -433,7 +433,7 @@ exports[`DateTimePicker snapshots the component 1`] = `
     </div>
     <p
       class="c2 c17"
-      id="datetime-label-1-hint"
+      id="6-hint"
     >
       This is a super description
     </p>

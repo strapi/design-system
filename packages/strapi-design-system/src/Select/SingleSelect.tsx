@@ -83,7 +83,7 @@ export const SingleSelect = ({
   const [internalValue, setInternalValue] = React.useState('');
   const [internalIsOpen, setInternalIsOpen] = React.useState(false);
 
-  const generatedId = useId('select', id);
+  const generatedId = useId(id);
 
   const hintId = `${generatedId}-hint`;
   const errorId = `${generatedId}-error`;
