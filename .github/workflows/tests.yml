@@ -1,7 +1,12 @@
 name: Tests
 on:
+  push:
+    paths:
+      - 'packages/**'
+      - '!docs/**'
+      - '!website/**'
   pull_request:
-    branches: '*'
+    types: [opened, reopened]
 
 jobs:
   typecheck:
