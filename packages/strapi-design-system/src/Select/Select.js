@@ -20,11 +20,13 @@ import { sizes } from '../themes/sizes';
 import { Typography } from '../Typography';
 import { VisuallyHidden } from '../VisuallyHidden';
 
+import { SingleSelect } from './SingleSelect';
+
 const MainRow = styled(Flex)`
   width: 100%;
 `;
 
-export const Select = ({
+const SelectWithTags = ({
   label,
   labelAction,
   id,
@@ -270,6 +272,13 @@ export const Select = ({
   );
 };
 
+export const Select = ({ withTags, multi, ...restProps }) =>
+  withTags || multi ? (
+    <SelectWithTags multi={multi} withTags={withTags} {...restProps} />
+  ) : (
+    <SingleSelect {...restProps} />
+  );
+
 Select.defaultProps = {
   'aria-label': undefined,
   children: [],
@@ -321,3 +330,7 @@ Select.propTypes = {
   ]),
   withTags: PropTypes.bool,
 };
+
+SelectWithTags.defaultProps = Select.defaultProps;
+
+SelectWithTags.propTypes = Select.propTypes;

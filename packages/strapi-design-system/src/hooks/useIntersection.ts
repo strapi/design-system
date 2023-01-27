@@ -1,3 +1,6 @@
+/**
+ * TODO: This should be moved to the `hooks` folder
+ */
 import { MutableRefObject, useEffect } from 'react';
 
 import { useCallbackRef } from '@radix-ui/react-use-callback-ref';
