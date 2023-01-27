@@ -1,7 +1,7 @@
 # Strapi Primitives
 
-[![Version](https://img.shields.io/npm/v/@strapi/primitives?style=flat&colorA=4945ff&colorB=4945ff)](https://www.npmjs.com/package/@strapi/primitives)
-[![Downloads](https://img.shields.io/npm/dt/@strapi/primitives.svg?style=flat&colorA=4945ff&colorB=4945ff)](https://www.npmjs.com/package/@strapi/primitives)
+[![Version](https://img.shields.io/npm/v/@strapi/ui-primitives?style=flat&colorA=4945ff&colorB=4945ff)](https://www.npmjs.com/package/@strapi/ui-primitives)
+[![Downloads](https://img.shields.io/npm/dt/@strapi/ui-primitives.svg?style=flat&colorA=4945ff&colorB=4945ff)](https://www.npmjs.com/package/@strapi/ui-primitives)
 [![Discord Shield](https://img.shields.io/discord/811989166782021633?style=flat&colorA=4945ff&colorB=4945ff&label=discord&logo=discord&logoColor=f0f0ff)](https://discord.gg/strapi)
 
 <b>A UI component library for building accessibile design systems & web apps.</b>
@@ -11,7 +11,7 @@ While typically we use [radix-ui primitives](https://github.com/radix-ui/primiti
 ## Installation
 
 ```shell
-yarn add @strapi/primitives
+yarn add @strapi/ui-primitives
 ```
 
 ## Component Documentation
@@ -29,7 +29,7 @@ This directory shows a basic usage of the component, however for more details cl
 #### Basic Usage
 
 ```jsx
-import { Combobox } from '@strapi/primitives';
+import { Combobox } from '@strapi/ui-primitives';
 
 () => {
   return (
@@ -47,6 +47,8 @@ import { Combobox } from '@strapi/primitives';
                 <Check />
               </Combobox.ItemIndicator>
             </Combobox.Item>
+            <Combobox.NoValueFound>No value found</Combobox.NoValueFound>
+            <Combobox.CreateItem>Create a new value</Combobox.CreateItem>
           </Combobox.Viewport>
         </Combobox.Content>
       </Combobox.Portal>

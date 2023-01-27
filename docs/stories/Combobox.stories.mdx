@@ -27,9 +27,9 @@ In addition `Combobox` can also include a placeholder and a description line.
     {() => {
       const [value, setValue] = useState('');
       return (
-        <Combobox label="Food" value={value} onChange={setValue}>
-          <ComboboxOption value="hamburger">Hamburger</ComboboxOption>
-          <ComboboxOption value="bagel">Bagel</ComboboxOption>
+        <Combobox label="Food" value={value} onChange={setValue} onClear={() => setValue('')}>
+          <ComboboxOption value="hamburger">Apple</ComboboxOption>
+          <ComboboxOption value="bagel">Avocado</ComboboxOption>
           <ComboboxOption value="tartuffo">Tartuffo</ComboboxOption>
           <ComboboxOption value="carbonara">Carbonara</ComboboxOption>
         </Combobox>
@@ -47,7 +47,7 @@ Depending on the permissions a user have or the status of an action, a `Combobox
     {() => {
       const [value, setValue] = useState('');
       return (
-        <Combobox label="Food" disabled value={value} onChange={setValue}>
+        <Combobox label="Food" disabled value={value} onChange={setValue} onClear={() => setValue('')}>
           <ComboboxOption value="hamburger">Hamburger</ComboboxOption>
           <ComboboxOption value="bagel">Bagel</ComboboxOption>
           <ComboboxOption value="tartuffo">Tartuffo</ComboboxOption>
@@ -58,16 +58,16 @@ Depending on the permissions a user have or the status of an action, a `Combobox
   </Story>
 </Canvas>
 
-### Without label
+### Loading
 
-`Combobox` can be used without a label.
+`Combobox` can be also be used in conjunction with async data sources.
 
 <Canvas>
-  <Story name="withoutLabel">
+  <Story name="loading">
     {() => {
       const [value, setValue] = useState('');
       return (
-        <Combobox aria-label="Food" value={value} onChange={setValue}>
+        <Combobox loading value={value} onChange={setValue} onClear={() => setValue('')}>
           <ComboboxOption value="hamburger">Hamburger</ComboboxOption>
           <ComboboxOption value="bagel">Bagel</ComboboxOption>
           <ComboboxOption value="tartuffo">Tartuffo</ComboboxOption>

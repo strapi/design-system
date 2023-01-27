@@ -183,6 +183,7 @@ export const SingleSelect = ({
         >
           <Trigger
             id={generatedId}
+            aria-label={label}
             aria-describedby={`${hintId} ${errorId}`}
             aria-disabled={disabled}
             $hasError={Boolean(error)}
@@ -199,9 +200,7 @@ export const SingleSelect = ({
                 </Box>
               )}
               <Typography ellipsis textColor={value ? 'neutral800' : 'neutral600'}>
-                <RadixSelect.Value aria-label={value}>
-                  {value ? customizeContent(value) : placeholder}
-                </RadixSelect.Value>
+                <RadixSelect.Value>{value ? customizeContent(value) : placeholder}</RadixSelect.Value>
               </Typography>
             </Flex>
             <Flex as="span" gap={3}>

@@ -210,6 +210,7 @@ describe('Select', () => {
               aria-describedby="1-hint 1-error"
               aria-disabled="false"
               aria-expanded="false"
+              aria-label="Choose your meal"
               aria-required="false"
               class="c5"
               data-state="closed"
@@ -233,7 +234,6 @@ describe('Select', () => {
                   class="c2 c7"
                 >
                   <span
-                    aria-label="pizza"
                     style="pointer-events: none;"
                   >
                     pizza
