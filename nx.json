@@ -3,7 +3,7 @@
     "default": {
       "runner": "nx/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "test", "test:ts", "test:e2e"]
+        "cacheableOperations": []
       }
     }
   },
