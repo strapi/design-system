@@ -180,7 +180,11 @@ describe('TimePicker', () => {
         background: #eaeaef;
       }
 
-      .c5:focus-within {
+      .c5:focus-visible {
+        outline: none;
+      }
+
+      .c5:focus-visible {
         border: 1px solid #4945ff;
         box-shadow: #4945ff 0px 0px 0px 2px;
       }
@@ -209,6 +213,7 @@ describe('TimePicker', () => {
       .c10 {
         background: transparent;
         border: none;
+        border-radius: 4px;
       }
 
       .c10 svg {
@@ -239,7 +244,8 @@ describe('TimePicker', () => {
         align-items: center;
       }
 
-      .c16:focus-within {
+      .c16:focus-visible {
+        outline: none;
         background-color: #f0f0ff;
       }
 

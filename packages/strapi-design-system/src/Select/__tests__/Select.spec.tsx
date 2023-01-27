@@ -185,7 +185,11 @@ describe('Select', () => {
         background: #eaeaef;
       }
 
-      .c5:focus-within {
+      .c5:focus-visible {
+        outline: none;
+      }
+
+      .c5:focus-visible {
         border: 1px solid #4945ff;
         box-shadow: #4945ff 0px 0px 0px 2px;
       }
@@ -230,7 +234,8 @@ describe('Select', () => {
         align-items: center;
       }
 
-      .c14:focus-within {
+      .c14:focus-visible {
+        outline: none;
         background-color: #f0f0ff;
       }
 
