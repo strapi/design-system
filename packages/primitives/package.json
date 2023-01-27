@@ -1,0 +1,28 @@
+{
+  "name": "@strapi/primitives",
+  "version": "1.6.1",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "develop": "vite build --watch",
+    "prebuild": "rimraf dist",
+    "build": "yarn build:prod && yarn generate:types",
+    "build:prod": "vite build",
+    "generate:types": "tsc --noEmit false --emitDeclarationOnly --declarationDir dist",
+    "test": "jest -c jest.config.js",
+    "test:ts": "tsc --noEmit",
+    "test:watch": "jest -c jest.config.js --watchAll"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}

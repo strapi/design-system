@@ -10,5 +10,5 @@ const __dirname = dirname(__filename);
 export default {
   ...jestBaseConfig,
   roots: [__dirname],
-  displayName: '@strapi/design-system',
+  displayName: '@strapi/primitives',
 };

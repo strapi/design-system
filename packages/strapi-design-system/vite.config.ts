@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react';
 import glob from 'tiny-glob';
 import { defineConfig } from 'vite';
 
-export default glob('./src/**/!(*.spec|*.e2e).{js,svg,ts,tsx}').then(async (paths) => {
+export default glob('./src/**/!(*.spec|*.e2e|*.test).{js,svg,ts,tsx}').then(async (paths) => {
   return defineConfig({
     esbuild: {
       loader: 'jsx',
