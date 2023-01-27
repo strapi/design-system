@@ -57,8 +57,7 @@
     "styled-components": "^5.2.1"
   },
   "scripts": {
-    "develop": "vite build --watch",
-    "prebuild": "rimraf dist",
+    "develop": "vite build",
     "build": "yarn build:prod",
     "build:prod": "vite build",
     "generate:types": "tsc --noEmit false --emitDeclarationOnly --declarationDir dist",

@@ -104,9 +104,6 @@ jobs:
       - name: Build
         run: yarn build
 
-      - name: Build storybook
-        run: yarn build-storybook
-
       - name: Start storybook
         working-directory: ./docs/storybook-static
         run: http-server -p 6006 &
