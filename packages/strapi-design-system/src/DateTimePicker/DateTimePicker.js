@@ -29,7 +29,9 @@ export const DateTimePicker = ({
   const initialDate = parseDate(value);
   const [dateValue, setDateValue] = useState(initialDate);
   const [timeValue, setTimeValue] = useState(
-    initialDate ? `${initialDate.getHours()}:${initialDate.getMinutes()}:${initialDate.getSeconds()}` : null,
+    typeof initialDate !== 'undefined'
+      ? `${initialDate.getHours()}:${initialDate.getMinutes()}:${initialDate.getSeconds()}`
+      : initialDate,
   );
 
   const handleDateChange = (e) => {
