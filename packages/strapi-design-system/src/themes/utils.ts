@@ -1,4 +1,4 @@
-import { DefaultTheme, ThemeSizes } from 'styled-components';
+import { css, DefaultTheme, ThemeSizes } from 'styled-components';
 
 export const getThemeSize = <TType extends keyof ThemeSizes>(type: TType) => {
   return ({ theme, size }: { theme: DefaultTheme; size: keyof DefaultTheme['sizes'][TType] }) =>
@@ -6,24 +6,24 @@ export const getThemeSize = <TType extends keyof ThemeSizes>(type: TType) => {
 };
 
 export const inputFocusStyle =
-  (rootElement = '&') =>
+  (rootElement = '&', within = true) =>
   ({ theme, hasError }: { theme: DefaultTheme; hasError: boolean }) =>
-    `
+    css`
       outline: none;
       box-shadow: 0;
       transition-property: border-color, box-shadow, fill;
       transition-duration: 0.2s;
 
-      ${rootElement}:focus-within {
+      ${rootElement}:focus-${within ? 'within' : 'visible'} {
         border: 1px solid ${hasError ? theme.colors.danger600 : theme.colors.primary600};
         box-shadow: ${hasError ? theme.colors.danger600 : theme.colors.primary600} 0px 0px 0px 2px;
       }
     `;
 
-export const buttonFocusStyle = ({ theme }: { theme: DefaultTheme }) => `
+export const buttonFocusStyle = ({ theme }: { theme: DefaultTheme }) => css`
   position: relative;
   outline: none;
-  
+
   &:after {
     transition-property: all;
     transition-duration: 0.2s;

@@ -79,6 +79,7 @@ export const SingleSelect = ({
    * Used for the intersection observer
    */
   const viewportRef = React.useRef<HTMLDivElement>(null);
+  const triggerRef = React.useRef<HTMLButtonElement>(null!);
 
   const clearRef = React.useRef(null);
 
@@ -110,6 +111,7 @@ export const SingleSelect = ({
   const handleClearClick: React.MouseEventHandler<HTMLDivElement> = (e) => {
     if (onClear && !disabled) {
       onClear(e);
+      triggerRef.current.focus();
     }
   };
 
@@ -147,6 +149,7 @@ export const SingleSelect = ({
     ) {
       e.preventDefault();
       onClear(e);
+      triggerRef.current.focus();
     }
   };
 
@@ -188,6 +191,7 @@ export const SingleSelect = ({
             $size={size}
             onPointerDown={handleTriggerPointerDown}
             onKeyDown={handleTriggerKeyDown}
+            ref={triggerRef}
           >
             <Flex as="span" gap={4}>
               {/* TODO: make this composable in v2 – <Select.Icon /> */}
@@ -261,7 +265,12 @@ const Trigger = styled(RadixSelect.Trigger)<TriggerProps>`
     background: ${(props) => props.theme.colors.neutral150};
   }
 
-  ${({ theme, $hasError }) => inputFocusStyle()({ theme, hasError: $hasError })};
+  /* Required to ensure the below inputFocusStyles are adhered too */
+  &:focus-visible {
+    outline: none;
+  }
+
+  ${({ theme, $hasError }) => inputFocusStyle('&', false)({ theme, hasError: $hasError })};
 `;
 
 const DownIcon = styled(RadixSelect.Icon)`
@@ -291,6 +300,7 @@ const Viewport = styled(RadixSelect.Viewport)`
 const IconBox = styled(Box)`
   background: transparent;
   border: none;
+  border-radius: ${({ theme }) => theme.borderRadius};
 
   svg {
     height: ${11 / 16}rem;
@@ -339,7 +349,8 @@ const SelectItem = styled(RadixSelect.Item)`
   display: flex;
   align-items: center;
 
-  &:focus-within {
+  &:focus-visible {
+    outline: none;
     background-color: ${({ theme }) => theme.colors.primary100};
   }
 
