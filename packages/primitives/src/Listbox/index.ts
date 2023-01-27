@@ -1,3 +1,3 @@
 export const Listbox = () => {
-    return true
-}
+  return true;
+};

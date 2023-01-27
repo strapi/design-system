@@ -5,12 +5,8 @@ import { isObject, mergeDeep } from '../helpers/objects';
 
 const generateError = (customMessage: string) => `
 ${customMessage}
-
 The following is an example:
-
-
 import { lightTheme, extendTheme } from '@strapi/design-system';
-
 const myCustomTheme = extendTheme(lightTheme, {
     ${Object.keys(lightTheme)
       .map((key) => `${key}: /* put the overrides for the ${key} key */,`)
