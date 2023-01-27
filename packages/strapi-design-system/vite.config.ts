@@ -6,7 +6,7 @@ import glob from 'tiny-glob';
 import { defineConfig } from 'vite';
 
 export default defineConfig(async () => {
-  const paths = await glob('./src/**/!(*.spec|*.e2e).{js,svg,ts,tsx}');
+  const paths = await glob('./src/**/!(*.spec|*.e2e|*.test).{js,svg,ts,tsx}');
 
   return {
     esbuild: {
