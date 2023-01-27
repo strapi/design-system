@@ -19,6 +19,7 @@
     "jsx": "react-jsx",
     "types": ["vite/client"]
   },
+  "exclude": ["**/*.test.tsx", "**/*.test.ts"],
   "include": ["src"],
   "references": [
     {
