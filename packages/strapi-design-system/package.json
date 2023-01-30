@@ -60,7 +60,6 @@
   },
   "scripts": {
     "develop": "vite build --watch",
-    "prebuild": "rimraf dist",
     "build": "yarn build:prod",
     "build:prod": "vite build",
     "generate:types": "tsc --noEmit false --emitDeclarationOnly --declarationDir dist",
