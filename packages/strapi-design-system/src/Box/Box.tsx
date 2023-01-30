@@ -33,7 +33,7 @@ export type BoxProps<TElement extends HTMLElement = HTMLDivElement> = Pick<
     /**
      * Background color
      */
-    background?: keyof DefaultTheme['colors'];
+    background?: DefaultThemeOrCSSProp<'colors', 'background'>;
     /**
      * Flex basis
      */
@@ -134,7 +134,7 @@ export const Box = styled.div.withConfig<BoxProps>({
   font-size: ${({ fontSize, theme }) => extractStyleFromTheme(theme.fontSizes, fontSize, fontSize)};
 
   // Colors
-  background: ${({ theme, background }) => extractStyleFromTheme(theme.colors, background, undefined)};
+  background: ${({ theme, background }) => extractStyleFromTheme(theme.colors, background, background)};
   color: ${({ theme, color }) => extractStyleFromTheme(theme.colors, color, undefined)};
 
   // Spaces

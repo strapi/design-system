@@ -62,13 +62,14 @@ The default Select.
             required
             placeholder="Your example"
             hint="Description line"
-            onClear={() => setValue(undefined)}
+            onClear={() => {
+              setValue(undefined)
+            }}
             clearLabel="Clear the meal"
             error={error}
             value={value}
             onChange={setValue}
             disabled={disabled}
-            startIcon={<Plus />}
             selectButtonTitle="Carret Down Button"
           >
             <Option
@@ -172,9 +173,9 @@ In a multi select component, the "0 currently selected" text, can be changed but
             customizeContent={(values) => `${values.length} currently selected`}
             multi
           >
-            <Option value="pizza">Pizza</Option>
-            <Option value="hamburger">Hamburger</Option>
-            <Option value="bagel">Bagel</Option>
+            <Option multi value="pizza">Pizza</Option>
+            <Option multi value="hamburger">Hamburger</Option>
+            <Option multi value="bagel">Bagel</Option>
           </Select>
           <button onClick={() => toggleError((s) => (s ? undefined : 'An error occured'))}>
             <Typography>Show the error state</Typography>
@@ -218,13 +219,13 @@ the selected values need to be visible in the input.
             multi
             withTags
           >
-            <Option value="pizza">Pizza</Option>
-            <Option value="hamburger">Hamburger</Option>
-            <Option value="bagel">Bagel</Option>
+            <Option multi value="pizza">Pizza</Option>
+            <Option multi value="hamburger">Hamburger</Option>
+            <Option multi value="bagel">Bagel</Option>
             {Array(20)
               .fill(null)
               .map((_, i) => (
-                <Option key={i} value={`${i}`}>
+                <Option multi key={i} value={`${i}`}>
                   Another option
                 </Option>
               ))}
