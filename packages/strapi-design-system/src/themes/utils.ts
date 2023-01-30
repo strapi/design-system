@@ -6,7 +6,7 @@ export const getThemeSize = <TType extends keyof ThemeSizes>(type: TType) => {
 };
 
 export const inputFocusStyle =
-  (rootElement = '&', within = true) =>
+  (rootElement = '&') =>
   ({ theme, hasError }: { theme: DefaultTheme; hasError: boolean }) =>
     css`
       outline: none;
@@ -14,7 +14,7 @@ export const inputFocusStyle =
       transition-property: border-color, box-shadow, fill;
       transition-duration: 0.2s;
 
-      ${rootElement}:focus-${within ? 'within' : 'visible'} {
+      ${rootElement}:focus-within {
         border: 1px solid ${hasError ? theme.colors.danger600 : theme.colors.primary600};
         box-shadow: ${hasError ? theme.colors.danger600 : theme.colors.primary600} 0px 0px 0px 2px;
       }

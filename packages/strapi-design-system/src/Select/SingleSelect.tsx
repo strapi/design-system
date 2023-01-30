@@ -209,6 +209,8 @@ export const SingleSelect = ({
             <Flex as="span" gap={3}>
               {value && onClear ? (
                 <IconBox
+                  hasRadius
+                  background="transparent"
                   role="button"
                   tabIndex={0}
                   onClick={handleClearClick}
@@ -241,6 +243,19 @@ export const SingleSelect = ({
   );
 };
 
+const IconBox = styled(Box)`
+  border: none;
+
+  svg {
+    height: ${11 / 16}rem;
+    width: ${11 / 16}rem;
+  }
+
+  svg path {
+    fill: ${({ theme }) => theme.colors.neutral600};
+  }
+`;
+
 interface TriggerProps {
   $hasError: boolean;
   $size: Required<Pick<SingleSelectProps, 'size'>>['size'];
@@ -270,7 +285,7 @@ const Trigger = styled(RadixSelect.Trigger)<TriggerProps>`
     outline: none;
   }
 
-  ${({ theme, $hasError }) => inputFocusStyle('&', false)({ theme, hasError: $hasError })};
+  ${({ theme, $hasError }) => inputFocusStyle()({ theme, hasError: $hasError })};
 `;
 
 const DownIcon = styled(RadixSelect.Icon)`
@@ -295,21 +310,6 @@ const Content = styled(RadixSelect.Content)`
 
 const Viewport = styled(RadixSelect.Viewport)`
   padding: ${({ theme }) => theme.spaces[1]};
-`;
-
-const IconBox = styled(Box)`
-  background: transparent;
-  border: none;
-  border-radius: ${({ theme }) => theme.borderRadius};
-
-  svg {
-    height: ${11 / 16}rem;
-    width: ${11 / 16}rem;
-  }
-
-  svg path {
-    fill: ${({ theme }) => theme.colors.neutral600};
-  }
 `;
 
 /***
