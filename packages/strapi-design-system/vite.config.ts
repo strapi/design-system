@@ -12,6 +12,7 @@ export default glob('./src/**/!(*.spec|*.e2e|*.test).{js,svg,ts,tsx}').then(asyn
       exclude: [],
     },
     build: {
+      emptyOutDir: false,
       target: 'esnext',
       lib: {
         entry: {},
