@@ -1,12 +1,14 @@
 name: Tests
 on:
   push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, reopened]
     paths:
       - 'packages/**'
       - '!docs/**'
       - '!website/**'
-  pull_request:
-    types: [opened, reopened]
 
 jobs:
   typecheck:
@@ -103,9 +105,6 @@ jobs:
 
       - name: Build
         run: yarn build
-
-      - name: Build storybook
-        run: yarn build-storybook
 
       - name: Start storybook
         working-directory: ./docs/storybook-static
