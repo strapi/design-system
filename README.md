@@ -84,7 +84,7 @@ You can link the design system using either a [relative path](#relative-path) or
 In the package.json of your React application replace the version number with the relative path to your copy of the design system:
 
 ```
-"@strapi/design-system": "link:../../../../strapi-design-system/packages/strapi-design-system"
+"@strapi/design-system": "link: <relative-path>/strapi-design-system/packages/strapi-design-system"
 ```
 
 ### Yarn link
