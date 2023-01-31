@@ -45,7 +45,6 @@
     "husky": "=4",
     "lerna": "^6.4.1",
     "lint-staged": ">=10",
-    "plop": "^2.7.4",
     "prettier": "^2.8.0",
     "rimraf": "^3.0.2",
     "tiny-glob": "^0.2.9",
