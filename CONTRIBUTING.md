@@ -97,3 +97,31 @@ yarn dev
 - `yarn test:snapshots` Generate snapshots.
 - `yarn test:start-app` Start the test application.
 - `yarn generate` Generate a new component.
+
+## Linking the design system
+
+### Strapi monorepo
+
+To link the design system to the Strapi monorepo follow the steps outlined in the [contributor documentation](https://contributor.strapi.io/core/admin/link-strapi-design-system)
+
+### React application
+
+First, run `yarn build` in `strapi-design-system/packages/strapi-design-system` to generate the bundle.
+
+You can link the design system using either a [relative path](#relative-path) or [yarn link](#yarn-link).
+
+### Relative path
+
+In the package.json of your React application replace the version number with the relative path to your copy of the design system:
+
+```
+"@strapi/design-system": "link: <relative-path>/strapi-design-system/packages/strapi-design-system"
+```
+
+### Yarn link
+
+[`yarn link`](https://classic.yarnpkg.com/lang/en/docs/cli/link/) allows you to link the design system without any changes to the `package.json`. First run `yarn link` in `strapi-design-system/packages/design-system` and then `yarn link @strapi/design-system` in your React application.
+
+### Development
+
+Once the link is setup, reinstall dependencies and restart your server
