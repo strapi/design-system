@@ -100,8 +100,7 @@ export const DateTimePicker = ({
     }
   }, [value, dateValue]);
 
-  const generatedId = useId('datetime-label', props?.id);
-  const generatedFieldErrorId = useId('datetimepicker');
+  const generatedId = useId(props?.id);
 
   return (
     <Field
@@ -151,7 +150,7 @@ export const DateTimePicker = ({
           />
         </Stack>
         <FieldHint />
-        <FieldError id={generatedFieldErrorId} />
+        <FieldError />
       </Stack>
     </Field>
   );

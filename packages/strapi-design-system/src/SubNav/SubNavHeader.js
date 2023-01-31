@@ -22,7 +22,7 @@ const CustomDivider = styled(Divider)`
 export const SubNavHeader = ({ as, label, searchLabel, searchable, onChange, value, onClear, onSubmit, id }) => {
   const [isSearchOpen, setSearchOpen] = useState(false);
   const previousSearchOpenValue = usePrevious(isSearchOpen);
-  const clearButtonId = useId('subnav-searchbar-clear', id);
+  const clearButtonId = useId(id);
   const searchRef = useRef();
   const searchButtonRef = useRef();
 

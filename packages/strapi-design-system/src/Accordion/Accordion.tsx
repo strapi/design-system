@@ -123,7 +123,7 @@ export const Accordion = ({
   variant = 'primary',
   shadow,
 }: AccordionProps) => {
-  const generatedId = useId('accordion', id);
+  const generatedId = useId(id);
 
   return (
     <AccordionContext.Provider value={{ expanded, onToggle, toggle, id: generatedId, size, variant, disabled }}>

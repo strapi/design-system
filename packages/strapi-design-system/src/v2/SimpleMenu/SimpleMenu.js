@@ -138,7 +138,7 @@ export const SimpleMenu = ({
   ...props
 }) => {
   const menuButtonRef = useRef();
-  const menuId = useId('simplemenu', id);
+  const menuId = useId(id);
   const didMount = useRef(false);
   const [visible, setVisible] = useState(false);
   const [focusedItemIndex, setFocusItem] = useState(0);

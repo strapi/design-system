@@ -1,0 +1,20 @@
+{
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "nx/tasks-runners/default",
+      "options": {
+        "cacheableOperations": []
+      }
+    }
+  },
+  "targetDefaults": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": [
+        "{projectRoot}/packages/strapi-icons/dist/**",
+        "{projectRoot}/packages/strapi-design-system/dist/**",
+        "{projectRoot}/docs/storybook-static"
+      ]
+    }
+  }
+}

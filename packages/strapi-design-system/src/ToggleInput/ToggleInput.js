@@ -33,7 +33,7 @@ export const ToggleInput = ({
   checked,
   ...props
 }) => {
-  const generatedId = useId('toggleinput', id);
+  const generatedId = useId(id);
 
   return (
     <FieldWrapper name={name} hint={hint} error={error} id={generatedId} required={required}>

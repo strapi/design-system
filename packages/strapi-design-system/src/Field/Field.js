@@ -4,7 +4,7 @@ import { FieldContext } from './FieldContext';
 import { useId } from '../helpers/useId';
 
 export const Field = ({ children, name, error, hint, id, required, ...props }) => {
-  const generatedId = useId('field', id);
+  const generatedId = useId(id);
 
   return (
     <div {...props}>

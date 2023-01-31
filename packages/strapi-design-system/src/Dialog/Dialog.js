@@ -30,7 +30,7 @@ const DialogHeader = styled(Flex)`
 `;
 
 export const Dialog = ({ onClose, title, as, isOpen, id, ...props }) => {
-  const generatedId = useId('dialog', id);
+  const generatedId = useId(id);
 
   useLockScroll(isOpen);
 
