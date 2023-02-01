@@ -1,0 +1,141 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+
+import { Combobox } from '@strapi/primitives';
+import { Check } from '@strapi/icons';
+
+<Meta title="Design System/Primitives/Combobox" component={Combobox.Root} />
+
+# Combobox
+
+Displays a list of options for the user to pick from—triggered by an input or button. <br />
+Alternatively, can be typed into to filter the list of options and set an option assuming a match.
+
+## Usage
+
+```ts
+import { Combobox } from '@strapi/primitives'
+```
+
+### Single Item
+
+<Canvas>
+    <Story name="Basic Usage">
+        <Combobox.Root>
+            <Combobox.Trigger>
+                <Combobox.TextInput placeholder="Pick me" />
+                <Combobox.Icon />
+            </Combobox.Trigger>
+            <Combobox.Portal>
+                <Combobox.Content>
+                    <Combobox.Viewport>
+                        <Combobox.Item value="1">
+                            <Combobox.ItemText>Option 1</Combobox.ItemText>
+                            <Combobox.ItemIndicator><Check /></Combobox.ItemIndicator>
+                        </Combobox.Item>
+                        <Combobox.Item value="2">
+                            <Combobox.ItemText>Option 2</Combobox.ItemText>
+                            <Combobox.ItemIndicator><Check /></Combobox.ItemIndicator>
+                        </Combobox.Item>
+                        <Combobox.Item value="3">
+                            <Combobox.ItemText>Option 3</Combobox.ItemText>
+                            <Combobox.ItemIndicator><Check /></Combobox.ItemIndicator>
+                        </Combobox.Item>
+                        <Combobox.Item value="4">
+                            <Combobox.ItemText>Option 4</Combobox.ItemText>
+                            <Combobox.ItemIndicator><Check /></Combobox.ItemIndicator>
+                        </Combobox.Item>
+                    </Combobox.Viewport>
+                </Combobox.Content>
+            </Combobox.Portal>
+        </Combobox.Root>
+    </Story>
+</Canvas>
+
+
+## Anatomy
+
+The `Combobox` primitive is composed of the following components:
+
+- `Combobox.Root`
+- `Combobox.Trigger`
+- `Combobox.TextInput`
+- `Combobox.Icon`
+- `Combobox.Portal`
+- `Combobox.Content`
+- `Combobox.Viewport`
+- `Combobox.Item`
+- `Combobox.ItemText`
+- `Combobox.ItemIndicator`
+
+and is combined in the following way:
+
+```tsx
+() => {
+    return (
+        <Combobox.Root>
+            <Combobox.Trigger>
+                <Combobox.TextInput placeholder="Pick me" />
+                <Combobox.Icon />
+            </Combobox.Trigger>
+            <Combobox.Portal>
+                <Combobox.Content>
+                    <Combobox.Viewport>
+                        <Combobox.Item value="1">
+                            <Combobox.ItemText>Option 1</Combobox.ItemText>
+                            <Combobox.ItemIndicator><Check /></Combobox.ItemIndicator>
+                        </Combobox.Item>
+                    </Combobox.Viewport>
+                </Combobox.Content>
+            </Combobox.Portal>
+        </Combobox.Root>
+    )
+}
+```
+
+## API Reference
+
+### Root
+
+<ArgsTable of={Combobox.Root} />
+
+### Trigger
+
+<ArgsTable of={Combobox.Trigger} />
+
+### TextInput
+
+<ArgsTable of={Combobox.TextInput} />
+
+### Icon
+
+<ArgsTable of={Combobox.Icon} />
+
+### Portal
+
+<ArgsTable of={Combobox.Portal} />
+
+### Content
+
+<ArgsTable of={Combobox.Content} />
+
+### Viewport
+
+<ArgsTable of={Combobox.Viewport} />
+
+### Item
+
+<ArgsTable of={Combobox.Item} />
+
+### ItemText
+
+<ArgsTable of={Combobox.ItemText} />
+
+### ItemIndicator
+
+<ArgsTable of={Combobox.ItemIndicator} />
+
+## Accessibility
+
+Adheres to the [Combobox WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/)
+
+See the W3C [Combobox with Autocomplete](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-both) example for more information.

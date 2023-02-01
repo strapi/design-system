@@ -1,6 +1,7 @@
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import dts from 'vite-plugin-dts';
 
 export default defineConfig({
   build: {
@@ -18,9 +19,8 @@ export default defineConfig({
       external: (id) => !id.startsWith('.') && !id.startsWith('/'),
       output: {
         dir: 'dist',
-        preserveModules: true,
       },
     },
   },
-  plugins: [react()],
+  plugins: [dts(), react()],
 });
