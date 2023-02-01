@@ -57,24 +57,19 @@ Please follow the instructions below:
 git clone git@github.com:YOUR_USERNAME/design-system.git
 ```
 
-#### 3. Install the dependencies
+#### 3. Install the dependencies and start Storybook
 
 Go to the root of the repository.
 
 ```bash
 cd design-system
 yarn setup
+yarn develop
 ```
 
-#### 4. Start storybook for component and stories documentation changes
+Storybook will be running on `localhost:6006` for you to test your changes to components or their documentation.
 
-Start the storybook application to test your changes to components or their documentation.
-
-```bash
-yarn storybook
-```
-
-#### 5. Start the website for documentation changes
+#### 4. Start the website for documentation changes
 
 Start the DS website to test your changes on the documentation library.
 
@@ -89,13 +84,12 @@ yarn dev
 - `yarn analyze:bundle` Start webpack bundle analyzer in all packages.
 - `yarn setup` Install dependencies and build all the packages.
 - `yarn lint` Lint the codebase.
-- `yarn storybook` Start the storybook app and load stories in files that end with .stories.mdx.
 - `yarn test` Run the design system tests.
+- `yarn test:ts`: Run the TypeScript tests.
 - `yarn test:watch` Run an interactive test watcher.
 - `yarn test:e2e` Run the end-to-end test suite.
 - `yarn test:e2e:watch` Run an interactive end-to-end test watcher.
 - `yarn test:snapshots` Generate snapshots.
-- `yarn test:start-app` Start the test application.
 - `yarn generate` Generate a new component.
 
 ## Linking the design system
