@@ -57,7 +57,7 @@ Please follow the instructions below:
 git clone git@github.com:YOUR_USERNAME/design-system.git
 ```
 
-#### 3. Install the dependencies
+#### 3. Install the dependencies and start Storybook
 
 Go to the root of the repository.
 
@@ -67,16 +67,9 @@ yarn setup
 yarn develop
 ```
 
-#### 4. Start storybook for component and stories documentation changes
+Storybook will be running on `localhost:6006` for you to test your changes to components or their documentation.
 
-Start the storybook application to test your changes to components or their documentation.
-
-```bash
-cd docs
-yarn develop
-```
-
-#### 5. Start the website for documentation changes
+#### 4. Start the website for documentation changes
 
 Start the DS website to test your changes on the documentation library.
 
