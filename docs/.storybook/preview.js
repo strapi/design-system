@@ -9,7 +9,7 @@ import Theme from './components/Theme';
 export const parameters = {
   options: {
     storySort: {
-      order: ['Design System', ['Subatomic', 'Atoms', 'Molecules', 'Organisms', 'Layouts']],
+      order: ['Design System', ['Primitives', 'Technical Components', 'Components']],
     },
   },
   actions: { argTypesRegex: '^on[A-Z].*' },
