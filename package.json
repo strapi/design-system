@@ -14,7 +14,6 @@
     "develop": "lerna run develop --stream",
     "build": "lerna run build",
     "clean": "lerna clean",
-    "generate": "plop",
     "lint": "eslint . --ext .js,.jsx --fix",
     "lint-staged": "eslint . --ext .js,.jsx --fix",
     "prettier:check": "prettier --check .",
