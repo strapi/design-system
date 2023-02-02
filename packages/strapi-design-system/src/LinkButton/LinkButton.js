@@ -2,49 +2,41 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+
 import { Typography } from '../Typography';
-import { Box } from '../Box';
+import { Flex } from '../Flex';
 import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from '../Button/utils';
 import { VARIANTS, BUTTON_SIZES } from '../Button/constants';
 import { BaseButtonWrapper } from '../BaseButton';
 
 const LinkWrapper = styled(BaseButtonWrapper)`
-  padding: ${({ theme, size }) => `${size === 'S' ? theme.spaces[2] : '10px'} ${theme.spaces[4]}`};
-  background: ${({ theme }) => theme.colors.buttonPrimary600};
-  border: 1px solid ${({ theme }) => theme.colors.buttonPrimary600};
-  border-radius: ${({ theme }) => theme.borderRadius};
-  ${Box} {
-    display: flex;
-    align-items: center;
-  }
-  ${Typography} {
-    color: ${({ theme }) => theme.colors.buttonNeutral0};
-  }
+  text-decoration: none;
+
   &[aria-disabled='true'] {
     ${getDisabledStyle}
     &:active {
       ${getDisabledStyle}
     }
   }
+
   &:hover {
     ${getHoverStyle}
   }
+
   &:active {
     ${getActiveStyle}
   }
+
   ${getVariantStyle}
-  /**
-    Link specific properties
-  */
-  display: inline-flex;
-  text-decoration: none;
-  pointer-events: ${({ disabled }) => (disabled ? 'none' : undefined)};
 `;
 
 export const LinkButton = React.forwardRef(
   ({ variant, startIcon, endIcon, disabled, children, size, href, to, ...props }, ref) => {
     const target = href ? '_blank' : undefined;
     const rel = href ? 'noreferrer noopener' : undefined;
+
+    const paddingX = size === 'S' ? 2 : '10px';
+    const paddingY = 4;
 
     return (
       <LinkWrapper
@@ -58,24 +50,24 @@ export const LinkButton = React.forwardRef(
         href={disabled ? '#' : href}
         {...props}
         as={to && !disabled ? NavLink : 'a'}
+        background="buttonPrimary600"
+        border="buttonPrimary600"
+        display="inline-flex"
+        hasRadius
+        gap={2}
+        paddingBottom={paddingX}
+        paddingLeft={paddingY}
+        paddingRight={paddingY}
+        paddingTop={paddingX}
+        pointerEvents={disabled ? 'none' : undefined}
       >
-        {startIcon && (
-          <Box aria-hidden paddingRight={2}>
-            {startIcon}
-          </Box>
-        )}
-        {size === 'S' ? (
-          <Typography variant="pi" fontWeight="bold">
-            {children}
-          </Typography>
-        ) : (
-          <Typography fontWeight="bold">{children}</Typography>
-        )}
-        {endIcon && (
-          <Box aria-hidden paddingLeft={2}>
-            {endIcon}
-          </Box>
-        )}
+        {startIcon && <Flex aria-hidden>{startIcon}</Flex>}
+
+        <Typography variant={size === 'S' ? 'pi' : undefined} fontWeight="bold" textColor="buttonNeutral0">
+          {children}
+        </Typography>
+
+        {endIcon && <Flex aria-hidden>{endIcon}</Flex>}
       </LinkWrapper>
     );
   },
