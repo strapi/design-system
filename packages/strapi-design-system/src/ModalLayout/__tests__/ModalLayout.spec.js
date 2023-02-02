@@ -42,7 +42,7 @@ describe('ModalLayout', () => {
         width: 1px;
       }
 
-      .c19 {
+      .c20 {
         font-size: 0.75rem;
         line-height: 1.33;
         font-weight: 600;
@@ -70,294 +70,17 @@ describe('ModalLayout', () => {
         padding-left: 20px;
       }
 
-      .c12 {
-        padding: 32px;
-      }
-
       .c10 {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        cursor: pointer;
+        background: #ffffff;
         padding: 8px;
         border-radius: 4px;
-        background: #ffffff;
+        border-color: #dcdce4;
         border: 1px solid #dcdce4;
-        position: relative;
-        outline: none;
+        cursor: pointer;
       }
 
-      .c10 svg {
-        height: 12px;
-        width: 12px;
-      }
-
-      .c10 svg > g,
-      .c10 svg path {
-        fill: #ffffff;
-      }
-
-      .c10[aria-disabled='true'] {
-        pointer-events: none;
-      }
-
-      .c10:after {
-        -webkit-transition-property: all;
-        transition-property: all;
-        -webkit-transition-duration: 0.2s;
-        transition-duration: 0.2s;
-        border-radius: 8px;
-        content: '';
-        position: absolute;
-        top: -4px;
-        bottom: -4px;
-        left: -4px;
-        right: -4px;
-        border: 2px solid transparent;
-      }
-
-      .c10:focus-visible {
-        outline: none;
-      }
-
-      .c10:focus-visible:after {
-        border-radius: 8px;
-        content: '';
-        position: absolute;
-        top: -5px;
-        bottom: -5px;
-        left: -5px;
-        right: -5px;
-        border: 2px solid #4945ff;
-      }
-
-      .c17 {
-        -webkit-align-items: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        background-color: #4945ff;
-        border: 1px solid #4945ff;
-        height: 2rem;
-        padding-left: 16px;
-        padding-right: 16px;
-        border: 1px solid #dcdce4;
-        background: #ffffff;
-      }
-
-      .c17 .c1 {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-align-items: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-      }
-
-      .c17 .c18 {
-        color: #ffffff;
-      }
-
-      .c17[aria-disabled='true'] {
-        border: 1px solid #dcdce4;
-        background: #eaeaef;
-      }
-
-      .c17[aria-disabled='true'] .c18 {
-        color: #666687;
-      }
-
-      .c17[aria-disabled='true'] svg > g,
-      .c17[aria-disabled='true'] svg path {
-        fill: #666687;
-      }
-
-      .c17[aria-disabled='true']:active {
-        border: 1px solid #dcdce4;
-        background: #eaeaef;
-      }
-
-      .c17[aria-disabled='true']:active .c18 {
-        color: #666687;
-      }
-
-      .c17[aria-disabled='true']:active svg > g,
-      .c17[aria-disabled='true']:active svg path {
-        fill: #666687;
-      }
-
-      .c17:hover {
-        background-color: #f6f6f9;
-      }
-
-      .c17:active {
-        background-color: #eaeaef;
-      }
-
-      .c17 .c18 {
-        color: #32324d;
-      }
-
-      .c17 svg > g,
-      .c17 svg path {
-        fill: #32324d;
-      }
-
-      .c20 {
-        -webkit-align-items: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        background-color: #4945ff;
-        border: 1px solid #4945ff;
-        height: 2rem;
-        padding-left: 16px;
-        padding-right: 16px;
-        border: 1px solid #d9d8ff;
-        background: #f0f0ff;
-      }
-
-      .c20 .c1 {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-align-items: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-      }
-
-      .c20 .c18 {
-        color: #ffffff;
-      }
-
-      .c20[aria-disabled='true'] {
-        border: 1px solid #dcdce4;
-        background: #eaeaef;
-      }
-
-      .c20[aria-disabled='true'] .c18 {
-        color: #666687;
-      }
-
-      .c20[aria-disabled='true'] svg > g,
-      .c20[aria-disabled='true'] svg path {
-        fill: #666687;
-      }
-
-      .c20[aria-disabled='true']:active {
-        border: 1px solid #dcdce4;
-        background: #eaeaef;
-      }
-
-      .c20[aria-disabled='true']:active .c18 {
-        color: #666687;
-      }
-
-      .c20[aria-disabled='true']:active svg > g,
-      .c20[aria-disabled='true']:active svg path {
-        fill: #666687;
-      }
-
-      .c20:hover {
-        background-color: #ffffff;
-      }
-
-      .c20:active {
-        background-color: #ffffff;
-        border: 1px solid #4945ff;
-      }
-
-      .c20:active .c18 {
-        color: #4945ff;
-      }
-
-      .c20:active svg > g,
-      .c20:active svg path {
-        fill: #4945ff;
-      }
-
-      .c20 .c18 {
-        color: #271fe0;
-      }
-
-      .c20 svg > g,
-      .c20 svg path {
-        fill: #271fe0;
-      }
-
-      .c21 {
-        -webkit-align-items: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        background-color: #4945ff;
-        border: 1px solid #4945ff;
-        height: 2rem;
-        padding-left: 16px;
-        padding-right: 16px;
-      }
-
-      .c21 .c1 {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-align-items: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-      }
-
-      .c21 .c18 {
-        color: #ffffff;
-      }
-
-      .c21[aria-disabled='true'] {
-        border: 1px solid #dcdce4;
-        background: #eaeaef;
-      }
-
-      .c21[aria-disabled='true'] .c18 {
-        color: #666687;
-      }
-
-      .c21[aria-disabled='true'] svg > g,
-      .c21[aria-disabled='true'] svg path {
-        fill: #666687;
-      }
-
-      .c21[aria-disabled='true']:active {
-        border: 1px solid #dcdce4;
-        background: #eaeaef;
-      }
-
-      .c21[aria-disabled='true']:active .c18 {
-        color: #666687;
-      }
-
-      .c21[aria-disabled='true']:active svg > g,
-      .c21[aria-disabled='true']:active svg path {
-        fill: #666687;
-      }
-
-      .c21:hover {
-        border: 1px solid #7b79ff;
-        background: #7b79ff;
-      }
-
-      .c21:active {
-        border: 1px solid #4945ff;
-        background: #4945ff;
-      }
-
-      .c21 svg > g,
-      .c21 svg path {
-        fill: #ffffff;
+      .c14 {
+        padding: 32px;
       }
 
       .c3 {
@@ -396,7 +119,7 @@ describe('ModalLayout', () => {
         justify-content: space-between;
       }
 
-      .c15 {
+      .c11 {
         -webkit-align-items: center;
         -webkit-box-align: center;
         -ms-flex-align: center;
@@ -410,6 +133,283 @@ describe('ModalLayout', () => {
         flex-direction: row;
       }
 
+      .c12 {
+        position: relative;
+        outline: none;
+      }
+
+      .c12 svg {
+        height: 12px;
+        width: 12px;
+      }
+
+      .c12 svg > g,
+      .c12 svg path {
+        fill: #ffffff;
+      }
+
+      .c12[aria-disabled='true'] {
+        pointer-events: none;
+      }
+
+      .c12:after {
+        -webkit-transition-property: all;
+        transition-property: all;
+        -webkit-transition-duration: 0.2s;
+        transition-duration: 0.2s;
+        border-radius: 8px;
+        content: '';
+        position: absolute;
+        top: -4px;
+        bottom: -4px;
+        left: -4px;
+        right: -4px;
+        border: 2px solid transparent;
+      }
+
+      .c12:focus-visible {
+        outline: none;
+      }
+
+      .c12:focus-visible:after {
+        border-radius: 8px;
+        content: '';
+        position: absolute;
+        top: -5px;
+        bottom: -5px;
+        left: -5px;
+        right: -5px;
+        border: 2px solid #4945ff;
+      }
+
+      .c18 {
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        background-color: #4945ff;
+        border: 1px solid #4945ff;
+        height: 2rem;
+        padding-left: 16px;
+        padding-right: 16px;
+        border: 1px solid #dcdce4;
+        background: #ffffff;
+      }
+
+      .c18 .c1 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+
+      .c18 .c19 {
+        color: #ffffff;
+      }
+
+      .c18[aria-disabled='true'] {
+        border: 1px solid #dcdce4;
+        background: #eaeaef;
+      }
+
+      .c18[aria-disabled='true'] .c19 {
+        color: #666687;
+      }
+
+      .c18[aria-disabled='true'] svg > g,
+      .c18[aria-disabled='true'] svg path {
+        fill: #666687;
+      }
+
+      .c18[aria-disabled='true']:active {
+        border: 1px solid #dcdce4;
+        background: #eaeaef;
+      }
+
+      .c18[aria-disabled='true']:active .c19 {
+        color: #666687;
+      }
+
+      .c18[aria-disabled='true']:active svg > g,
+      .c18[aria-disabled='true']:active svg path {
+        fill: #666687;
+      }
+
+      .c18:hover {
+        background-color: #f6f6f9;
+      }
+
+      .c18:active {
+        background-color: #eaeaef;
+      }
+
+      .c18 .c19 {
+        color: #32324d;
+      }
+
+      .c18 svg > g,
+      .c18 svg path {
+        fill: #32324d;
+      }
+
+      .c21 {
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        background-color: #4945ff;
+        border: 1px solid #4945ff;
+        height: 2rem;
+        padding-left: 16px;
+        padding-right: 16px;
+        border: 1px solid #d9d8ff;
+        background: #f0f0ff;
+      }
+
+      .c21 .c1 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+
+      .c21 .c19 {
+        color: #ffffff;
+      }
+
+      .c21[aria-disabled='true'] {
+        border: 1px solid #dcdce4;
+        background: #eaeaef;
+      }
+
+      .c21[aria-disabled='true'] .c19 {
+        color: #666687;
+      }
+
+      .c21[aria-disabled='true'] svg > g,
+      .c21[aria-disabled='true'] svg path {
+        fill: #666687;
+      }
+
+      .c21[aria-disabled='true']:active {
+        border: 1px solid #dcdce4;
+        background: #eaeaef;
+      }
+
+      .c21[aria-disabled='true']:active .c19 {
+        color: #666687;
+      }
+
+      .c21[aria-disabled='true']:active svg > g,
+      .c21[aria-disabled='true']:active svg path {
+        fill: #666687;
+      }
+
+      .c21:hover {
+        background-color: #ffffff;
+      }
+
+      .c21:active {
+        background-color: #ffffff;
+        border: 1px solid #4945ff;
+      }
+
+      .c21:active .c19 {
+        color: #4945ff;
+      }
+
+      .c21:active svg > g,
+      .c21:active svg path {
+        fill: #4945ff;
+      }
+
+      .c21 .c19 {
+        color: #271fe0;
+      }
+
+      .c21 svg > g,
+      .c21 svg path {
+        fill: #271fe0;
+      }
+
+      .c22 {
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        background-color: #4945ff;
+        border: 1px solid #4945ff;
+        height: 2rem;
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .c22 .c1 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+
+      .c22 .c19 {
+        color: #ffffff;
+      }
+
+      .c22[aria-disabled='true'] {
+        border: 1px solid #dcdce4;
+        background: #eaeaef;
+      }
+
+      .c22[aria-disabled='true'] .c19 {
+        color: #666687;
+      }
+
+      .c22[aria-disabled='true'] svg > g,
+      .c22[aria-disabled='true'] svg path {
+        fill: #666687;
+      }
+
+      .c22[aria-disabled='true']:active {
+        border: 1px solid #dcdce4;
+        background: #eaeaef;
+      }
+
+      .c22[aria-disabled='true']:active .c19 {
+        color: #666687;
+      }
+
+      .c22[aria-disabled='true']:active svg > g,
+      .c22[aria-disabled='true']:active svg path {
+        fill: #666687;
+      }
+
+      .c22:hover {
+        border: 1px solid #7b79ff;
+        background: #7b79ff;
+      }
+
+      .c22:active {
+        border: 1px solid #4945ff;
+        background: #4945ff;
+      }
+
+      .c22 svg > g,
+      .c22 svg path {
+        fill: #ffffff;
+      }
+
       .c4 {
         inset: 0;
         background: #32324d1F;
@@ -419,7 +419,7 @@ describe('ModalLayout', () => {
         width: 51.875rem;
       }
 
-      .c11 {
+      .c13 {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -436,26 +436,26 @@ describe('ModalLayout', () => {
         width: 2rem;
       }
 
-      .c11 svg > g,
-      .c11 svg path {
+      .c13 svg > g,
+      .c13 svg path {
         fill: #8e8ea9;
       }
 
-      .c11:hover svg > g,
-      .c11:hover svg path {
+      .c13:hover svg > g,
+      .c13:hover svg path {
         fill: #666687;
       }
 
-      .c11:active svg > g,
-      .c11:active svg path {
+      .c13:active svg > g,
+      .c13:active svg path {
         fill: #a5a5ba;
       }
 
-      .c11[aria-disabled='true'] {
+      .c13[aria-disabled='true'] {
         background-color: #eaeaef;
       }
 
-      .c11[aria-disabled='true'] svg path {
+      .c13[aria-disabled='true'] svg path {
         fill: #666687;
       }
 
@@ -464,16 +464,16 @@ describe('ModalLayout', () => {
         border-bottom: 1px solid #eaeaef;
       }
 
-      .c14 {
+      .c16 {
         border-radius: 0 0 4px 4px;
         border-top: 1px solid #eaeaef;
       }
 
-      .c16 > * + * {
+      .c17 > * + * {
         margin-left: 8px;
       }
 
-      .c13 {
+      .c15 {
         overflow: auto;
         max-height: 60vh;
       }
@@ -528,7 +528,8 @@ describe('ModalLayout', () => {
                       Modal Title
                       <button
                         aria-disabled="false"
-                        class="c10 c11"
+                        class="c1 c10 c11 c12 c13"
+                        cursor="pointer"
                         type="button"
                       >
                         <span
@@ -554,52 +555,55 @@ describe('ModalLayout', () => {
                     </div>
                   </div>
                   <div
-                    class="c1 c12 c13"
+                    class="c1 c14 c15"
                   >
                     Hello World
                   </div>
                   <div
-                    class="c1 c7 c14"
+                    class="c1 c7 c16"
                   >
                     <div
                       class="c1 c9"
                     >
                       <div
-                        class="c1 c15 c16"
+                        class="c1 c11 c17"
                       >
                         <button
                           aria-disabled="false"
-                          class="c10 c17"
+                          class="c1 c10 c11 c12 c18"
+                          cursor="pointer"
                           type="button"
                         >
                           <span
-                            class="c18 c19"
+                            class="c19 c20"
                           >
                             Cancel
                           </span>
                         </button>
                       </div>
                       <div
-                        class="c1 c15 c16"
+                        class="c1 c11 c17"
                       >
                         <button
                           aria-disabled="false"
-                          class="c10 c20"
+                          class="c1 c10 c11 c12 c21"
+                          cursor="pointer"
                           type="button"
                         >
                           <span
-                            class="c18 c19"
+                            class="c19 c20"
                           >
                             Add new stuff
                           </span>
                         </button>
                         <button
                           aria-disabled="false"
-                          class="c10 c21"
+                          class="c1 c10 c11 c12 c22"
+                          cursor="pointer"
                           type="button"
                         >
                           <span
-                            class="c18 c19"
+                            class="c19 c20"
                           >
                             Finish
                           </span>
