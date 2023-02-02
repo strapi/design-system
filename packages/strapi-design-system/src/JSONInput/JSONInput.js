@@ -99,8 +99,8 @@ export const JSONInput = ({ label, value, error, hint, required, onChange, disab
 
   const focusInput = () => {
     if (!disabled) {
-      // Focus the element with focus styles (JSONInputContainer > .cm-editor > .cm-scroller)
-      editor.current.children[0].children[1].focus();
+      // Focus the content editable element nested in the JSONInputContainer ref
+      editor.current.children[0].children[1].children[1].focus();
     }
   };
 
