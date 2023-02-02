@@ -1,24 +1,20 @@
 import React, { cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+
 import { Tooltip } from '../Tooltip';
 import { BaseButton } from '../BaseButton';
 import { Flex } from '../Flex';
 import { VisuallyHidden } from '../VisuallyHidden';
 
 const IconButtonWrapper = styled(BaseButton)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: ${32 / 16}rem;
-  width: ${32 / 16}rem;
-
   svg {
     > g,
     path {
       fill: ${({ theme }) => theme.colors.neutral500};
     }
   }
+
   &:hover {
     svg {
       > g,
@@ -27,6 +23,7 @@ const IconButtonWrapper = styled(BaseButton)`
       }
     }
   }
+
   &:active {
     svg {
       > g,
@@ -35,14 +32,13 @@ const IconButtonWrapper = styled(BaseButton)`
       }
     }
   }
+
   &[aria-disabled='true'] {
-    background-color: ${({ theme }) => theme.colors.neutral150};
-    svg {
-      path {
-        fill: ${({ theme }) => theme.colors.neutral600};
-      }
+    svg path {
+      fill: ${({ theme }) => theme.colors.neutral600};
     }
   }
+
   ${({ noBorder }) => (noBorder ? `border: none;` : undefined)}
 `;
 
@@ -106,29 +102,28 @@ export const IconButton = React.forwardRef(
       }
     };
 
-    if (!label) {
-      return (
-        <IconButtonWrapper {...restProps} ref={ref} noBorder={noBorder} onClick={handleClick} aria-disabled={disabled}>
-          <VisuallyHidden as="span">{ariaLabel}</VisuallyHidden>
-          {cloneElement(icon || children, {
-            'aria-hidden': true,
-            focusable: false, // See: https://allyjs.io/tutorials/focusing-in-svg.html#making-svg-elements-focusable
-          })}
-        </IconButtonWrapper>
-      );
-    }
+    const Component = (
+      <IconButtonWrapper
+        noBorder={noBorder}
+        aria-disabled={disabled}
+        background={disabled ? 'neutral150' : undefined}
+        justifyContent="center"
+        height={`${32 / 16}rem`}
+        width={`${32 / 16}rem`}
+        {...restProps}
+        ref={ref}
+        onClick={handleClick}
+      >
+        <VisuallyHidden as="span">{label ?? ariaLabel}</VisuallyHidden>
 
-    return (
-      <Tooltip label={label}>
-        <IconButtonWrapper {...restProps} ref={ref} noBorder={noBorder} onClick={handleClick} aria-disabled={disabled}>
-          <VisuallyHidden as="span">{label}</VisuallyHidden>
-          {cloneElement(icon || children, {
-            'aria-hidden': true,
-            focusable: false, // See: https://allyjs.io/tutorials/focusing-in-svg.html#making-svg-elements-focusable
-          })}
-        </IconButtonWrapper>
-      </Tooltip>
+        {cloneElement(icon || children, {
+          'aria-hidden': true,
+          focusable: false, // See: https://allyjs.io/tutorials/focusing-in-svg.html#making-svg-elements-focusable
+        })}
+      </IconButtonWrapper>
     );
+
+    return label ? <Tooltip label={label}>{Component}</Tooltip> : Component;
   },
 );
 

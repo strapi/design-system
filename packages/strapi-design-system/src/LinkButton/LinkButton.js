@@ -51,10 +51,10 @@ export const LinkButton = React.forwardRef(
         {...props}
         as={to && !disabled ? NavLink : 'a'}
         background="buttonPrimary600"
-        border="buttonPrimary600"
-        display="inline-flex"
+        borderColor="buttonPrimary600"
         hasRadius
         gap={2}
+        inline
         paddingBottom={paddingX}
         paddingLeft={paddingY}
         paddingRight={paddingY}
