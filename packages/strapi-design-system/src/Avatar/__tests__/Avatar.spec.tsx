@@ -63,13 +63,9 @@ describe('Avatar', () => {
         />
         <div
           class="c1"
-          height="32px"
-          width="32px"
         >
           <div
             class="c2 c3"
-            height="32px"
-            width="32px"
           />
           <img
             alt="marvin frachet"
@@ -145,13 +141,9 @@ describe('Avatar', () => {
         />
         <div
           class="c1"
-          height="32px"
-          width="32px"
         >
           <div
             class="c2 c3"
-            height="32px"
-            width="32px"
           />
           <img
             alt="marvin frachet"
