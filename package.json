@@ -15,8 +15,8 @@
     "build": "lerna run build",
     "clean": "lerna clean",
     "generate": "plop",
-    "lint": "eslint . --ext .js,.jsx --fix",
-    "lint-staged": "eslint . --ext .js,.jsx --fix",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "lint-staged": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write .",
     "setup": "yarn && yarn bootstrap && yarn build",
@@ -58,7 +58,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx}": "yarn lint-staged"
+    "*.{js,jsx,ts,tsx}": "yarn lint-staged"
   },
   "resolutions": {
     "@types/react": "17.0.2",
