@@ -24,9 +24,11 @@ describe('Box', () => {
     },
   );
 
-  it.each(['color', 'cursor'])('does not render color or cursor props as HTML attributes', (prop) => {
-    const { container } = setup({ [prop]: 'something' });
-    expect(container).not.toHaveAttribute('color');
-    expect(container.children[0]).not.toHaveAttribute('color');
-  });
+  it.each(['color', 'cursor', 'height', 'width'])(
+    'does not render color or cursor props as HTML attributes',
+    (prop) => {
+      const { container } = setup({ [prop]: 'something' });
+      expect(container.children[0]).not.toHaveAttribute(prop);
+    },
+  );
 });
