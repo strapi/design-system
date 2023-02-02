@@ -28,7 +28,7 @@ The core team will review your pull request and will either merge it, request ch
 
 **Before submitting your pull request** make sure the following requirements are fulfilled:
 
-- Fork the repository and create your branch from `main`.
+- Fork the repository and create your branch from the current `release` branch or `main` depending on if you need code in the release branch already.
 - Run `yarn setup` in the repository root.
 - If you’ve fixed a bug or added code that should be tested, add the tests and then link the corresponding issue in
   either your commit or your PR.
@@ -47,17 +47,17 @@ The core team will review your pull request and will either merge it, request ch
 
 Please follow the instructions below:
 
-#### 1. Fork the [repository](https://github.com/strapi/design-system)
+### 1. Fork the [repository](https://github.com/strapi/design-system)
 
 [Go to the repository](https://github.com/strapi/design-system) and fork it to your own GitHub account.
 
-#### 2. Clone from your repository
+### 2. Clone from your repository
 
 ```bash
 git clone git@github.com:YOUR_USERNAME/design-system.git
 ```
 
-#### 3. Install the dependencies and start Storybook
+### 3. Install the dependencies and start Storybook
 
 Go to the root of the repository.
 
@@ -69,7 +69,7 @@ yarn develop
 
 Storybook will be running on `localhost:6006` for you to test your changes to components or their documentation.
 
-#### 4. Start the website for documentation changes
+### 4. Start the website for documentation changes
 
 Start the DS website to test your changes on the documentation library.
 
@@ -78,6 +78,13 @@ cd website
 yarn
 yarn dev
 ```
+
+### 5. Submitting a PR
+
+PRs should typically be aimed at a specific release branch (there should be one made, if not make one off `main` that correlates to the milestone you're aiming for).
+Some circumstances will exist where this is not preferrable, e.g. updating the `workflow` files – this needs to be aimed at main to take any effect.
+
+IF you submit a PR at `main` and it is merged, it is expected that you should update the existing release branches with `main`.
 
 ## Available commands
 
