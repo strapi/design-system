@@ -97,6 +97,13 @@ export const JSONInput = ({ label, value, error, hint, required, onChange, disab
     },
   });
 
+  const focusInput = () => {
+    if (!disabled) {
+      // Focus the content editable element nested in the JSONInputContainer ref
+      editor.current.children[0].children[1].children[1].focus();
+    }
+  };
+
   useEffect(() => {
     const currentEditor = editor.current;
 
@@ -108,7 +115,11 @@ export const JSONInput = ({ label, value, error, hint, required, onChange, disab
   return (
     <Field error={error} hint={hint} required={required}>
       <Stack spacing={1}>
-        {label && <FieldLabel action={labelAction}>{label}</FieldLabel>}
+        {label && (
+          <FieldLabel onClick={focusInput} action={labelAction}>
+            {label}
+          </FieldLabel>
+        )}
         <JSONInputContainer
           ref={editor}
           hasError={hasError}
