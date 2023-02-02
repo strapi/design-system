@@ -90,7 +90,6 @@ yarn dev
 - `yarn test:e2e` Run the end-to-end test suite.
 - `yarn test:e2e:watch` Run an interactive end-to-end test watcher.
 - `yarn test:snapshots` Generate snapshots.
-- `yarn generate` Generate a new component.
 
 ## Linking the design system
 
