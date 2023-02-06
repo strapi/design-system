@@ -94,7 +94,7 @@ export interface ScrollingProps extends BoxProps<HTMLDivElement> {
   onReachEnd?: (entry: IntersectionObserverEntry) => void;
 }
 
-const Scrolling = ({ children, intersectionId, onReachEnd, ...props }: ScrollingProps) => {
+export const Scrolling = ({ children, intersectionId, onReachEnd, ...props }: ScrollingProps) => {
   const popoverRef = React.useRef<HTMLDivElement>(null!);
 
   useIntersection(popoverRef, onReachEnd ?? (() => {}), {
