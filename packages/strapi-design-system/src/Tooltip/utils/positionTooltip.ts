@@ -1,6 +1,8 @@
+export type TooltipPosition = 'top' | 'bottom' | 'left' | 'right';
+
 const SPACE_BETWEEN = 8;
 
-const positionBottom = (tooltipRect, toggleSourceRect) => {
+const positionBottom = (tooltipRect: DOMRect, toggleSourceRect: DOMRect) => {
   const widthDifference = (tooltipRect.width - toggleSourceRect.width) / 2;
   const left = toggleSourceRect.left - widthDifference;
   const top = toggleSourceRect.top + toggleSourceRect.height + SPACE_BETWEEN + window.pageYOffset;
@@ -11,7 +13,7 @@ const positionBottom = (tooltipRect, toggleSourceRect) => {
   };
 };
 
-const positionRight = (tooltipRect, toggleSourceRect) => {
+const positionRight = (tooltipRect: DOMRect, toggleSourceRect: DOMRect) => {
   const heightDifference = (tooltipRect.height - toggleSourceRect.height) / 2;
   const left = toggleSourceRect.left + toggleSourceRect.width + SPACE_BETWEEN;
   const top = toggleSourceRect.top - heightDifference + window.pageYOffset;
@@ -19,7 +21,7 @@ const positionRight = (tooltipRect, toggleSourceRect) => {
   return { left, top };
 };
 
-const positionLeft = (tooltipRect, toggleSourceRect) => {
+const positionLeft = (tooltipRect: DOMRect, toggleSourceRect: DOMRect) => {
   const heightDifference = (tooltipRect.height - toggleSourceRect.height) / 2;
   const left = toggleSourceRect.left - tooltipRect.width - SPACE_BETWEEN;
   const top = toggleSourceRect.top - heightDifference + window.pageYOffset;
@@ -27,7 +29,7 @@ const positionLeft = (tooltipRect, toggleSourceRect) => {
   return { left, top };
 };
 
-const positionTop = (tooltipRect, toggleSourceRect) => {
+const positionTop = (tooltipRect: DOMRect, toggleSourceRect: DOMRect) => {
   const widthDifference = (tooltipRect.width - toggleSourceRect.width) / 2;
   let left = toggleSourceRect.left - widthDifference;
   let top = toggleSourceRect.top - tooltipRect.height - SPACE_BETWEEN + window.pageYOffset;
@@ -63,7 +65,11 @@ const positionTop = (tooltipRect, toggleSourceRect) => {
   };
 };
 
-export const positionTooltip = (tooltipNode, toggleSourceNode, position) => {
+export const positionTooltip = (
+  tooltipNode: HTMLDivElement,
+  toggleSourceNode: HTMLSpanElement,
+  position?: TooltipPosition,
+) => {
   const tooltipRect = tooltipNode.getBoundingClientRect();
   const toggleSourceRect = toggleSourceNode.getBoundingClientRect();
 
