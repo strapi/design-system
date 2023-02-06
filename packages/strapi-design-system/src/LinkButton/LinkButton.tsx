@@ -1,14 +1,15 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import * as React from 'react';
+import { NavLink, NavLinkProps } from 'react-router-dom';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
+
 import { Typography } from '../Typography';
 import { Box } from '../Box';
-import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from '../Button/utils';
-import { VARIANTS, BUTTON_SIZES } from '../Button/constants';
 import { BaseButtonWrapper } from '../BaseButton';
 
-const LinkWrapper = styled(BaseButtonWrapper)`
+import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from '../Button/utils';
+import { VARIANTS, BUTTON_SIZES } from '../Button/constants';
+
+const LinkWrapper = styled(BaseButtonWrapper)<Required<Pick<LinkButtonProps, 'size' | 'variant'>>>`
   padding: ${({ theme, size }) => `${size === 'S' ? theme.spaces[2] : '10px'} ${theme.spaces[4]}`};
   background: ${({ theme }) => theme.colors.buttonPrimary600};
   border: 1px solid ${({ theme }) => theme.colors.buttonPrimary600};
@@ -41,8 +42,28 @@ const LinkWrapper = styled(BaseButtonWrapper)`
   pointer-events: ${({ disabled }) => (disabled ? 'none' : undefined)};
 `;
 
-export const LinkButton = React.forwardRef(
-  ({ variant, startIcon, endIcon, disabled, children, size, href, to, ...props }, ref) => {
+interface SharedLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+  disabled?: boolean;
+  endIcon?: React.ReactNode;
+  size?: typeof BUTTON_SIZES[number];
+  startIcon?: React.ReactNode;
+  variant?: typeof VARIANTS[number];
+}
+
+interface ToLinkProps extends SharedLinkProps {
+  to: NavLinkProps['to'];
+  href: never;
+}
+
+interface HrefLinkProps extends SharedLinkProps {
+  href: string;
+  to: never;
+}
+
+type LinkButtonProps = ToLinkProps | HrefLinkProps;
+
+export const LinkButton = React.forwardRef<HTMLAnchorElement, LinkButtonProps>(
+  ({ variant = 'default', startIcon, endIcon, disabled = false, children, size = 'S', href, to, ...props }, ref) => {
     const target = href ? '_blank' : undefined;
     const rel = href ? 'noreferrer noopener' : undefined;
 
@@ -80,40 +101,3 @@ export const LinkButton = React.forwardRef(
     );
   },
 );
-LinkButton.displayName = 'LinkButton';
-
-LinkButton.defaultProps = {
-  disabled: false,
-  startIcon: undefined,
-  endIcon: undefined,
-  size: 'S',
-  variant: 'default',
-  onClick: undefined,
-  href: undefined,
-  to: undefined,
-};
-LinkButton.propTypes = {
-  children: PropTypes.node.isRequired,
-  disabled: PropTypes.bool,
-  endIcon: PropTypes.element,
-  href(props) {
-    if (!props.disabled && !props.to && !props.href) {
-      return new Error('href must be defined');
-    }
-
-    // eslint-disable-next-line consistent-return
-    return undefined;
-  },
-  onClick: PropTypes.func,
-  size: PropTypes.oneOf(BUTTON_SIZES),
-  startIcon: PropTypes.element,
-  to(props) {
-    if (!props.disabled && !props.href && !props.to) {
-      return new Error('to must be defined');
-    }
-
-    // eslint-disable-next-line consistent-return
-    return undefined;
-  },
-  variant: PropTypes.oneOf(VARIANTS),
-};
