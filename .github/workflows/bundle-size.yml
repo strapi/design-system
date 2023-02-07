@@ -1,9 +1,7 @@
 name: Bundle-size
 
 on:
-  pull_request:
-    branches:
-      - main
+  pull_request: {}
 
 jobs:
   size:
