@@ -1,6 +1,7 @@
 import { DefaultTheme } from 'styled-components';
+import { cloneDeep, assignWith, merge } from 'lodash';
 
-import { isObject, mergeDeep } from '../helpers/objects';
+import { isObject } from '../helpers/objects';
 
 import { lightTheme } from './lightTheme';
 
@@ -36,5 +37,22 @@ export const extendTheme = (theme: DefaultTheme | null, overrides: object | null
     throw new Error(error);
   }
 
-  return mergeDeep(theme ?? {}, overrides ?? {});
+  function customizer(objValue, srcValue) {
+    if (Array.isArray(objValue)) {
+      return srcValue;
+    }
+
+    if (isObject(objValue) && isObject(srcValue)) {
+      return merge(objValue, srcValue);
+    }
+
+    return undefined;
+  }
+
+  const masterTheme = cloneDeep(theme ?? {});
+  const masterOverrides = cloneDeep(overrides ?? {});
+
+  assignWith(masterTheme, masterOverrides, customizer);
+
+  return masterTheme;
 };
