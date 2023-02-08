@@ -1,8 +1,8 @@
 import React, { useRef, useEffect } from 'react';
 import { jsonParseLinter, json } from '@codemirror/lang-json';
-import { useCodeMirror, ReactCodeMirrorRef } from '@uiw/react-codemirror';
-import { EditorView } from '@codemirror/view';
-import { EditorState, Line } from '@codemirror/state';
+import { useCodeMirror, ReactCodeMirrorRef, ReactCodeMirrorProps } from '@uiw/react-codemirror';
+import { ViewUpdate } from '@codemirror/view';
+import { Line } from '@codemirror/state';
 
 import { Field, FieldLabel, FieldError, FieldHint } from '../Field';
 import { Stack } from '../Stack';
@@ -10,7 +10,7 @@ import { JSONInputContainer } from './JSONInputContainer';
 import { markField, addMarks, filterMarks, lineHighlightMark } from './utils/decorationExtension';
 import { FlexProps } from '../Flex';
 
-export interface JSONInputProps extends Omit<FlexProps, 'onChange'> {
+interface JSONInputProps extends Omit<FlexProps, 'onChange'> {
   label?: string;
   value?: string;
   error?: string | boolean;
@@ -40,7 +40,7 @@ export const JSONInput = ({
   /**
    * Determines the line to highlight when lintJSON finds an error via jsonParseLinter()
    */
-  const highglightErrorAtLine = (lineNumber) => {
+  const highglightErrorAtLine = (lineNumber: number) => {
     const { text, to: lineEnd } = editorState.current?.doc?.line(lineNumber) as Line;
     const lineStart = lineEnd - text.trimStart().length;
 
@@ -60,7 +60,7 @@ export const JSONInput = ({
   /**
    * Checks code editor for valid json input and then highlights any errors
    */
-  const lintJSON = ({ state, view }: { state: EditorState; view: EditorView }) => {
+  const lintJSON = ({ state, view }: Pick<ViewUpdate, 'state' | 'view'>) => {
     editorView.current = view;
     editorState.current = state;
 
@@ -74,32 +74,43 @@ export const JSONInput = ({
     }
   };
 
-  const handleChange = (currentValue, viewUpdate) => {
+  const onCodeMirrorChange: ReactCodeMirrorProps['onChange'] = (currentValue, viewUpdate) => {
     lintJSON(viewUpdate);
     // Call the parent's onChange handler
     onChange(currentValue);
   };
 
-  const onCreateEditor = (view, state) => {
+  const onCreateEditor: ReactCodeMirrorProps['onCreateEditor'] = (view, state) => {
     editorView.current = view;
     editorState.current = state;
+    // Lint the JSON in case the initial value is invalid
     lintJSON({ view, state });
   };
 
   const { setContainer } = useCodeMirror({
     value,
+    onCreateEditor,
+    basicSetup: {
+      lineNumbers: true,
+      bracketMatching: true,
+      closeBrackets: true,
+      indentOnInput: true,
+      syntaxHighlighting: true,
+      highlightSelectionMatches: true,
+      tabSize: 2,
+    },
     container: editor.current,
-    theme: 'dark',
-    onChange: handleChange,
     editable: !disabled,
     extensions: [json(), markField],
-    onCreateEditor,
+    onChange: onCodeMirrorChange,
+    theme: 'dark',
   });
 
   const focusInput = () => {
     if (!disabled) {
       // Focus the content editable element nested in the JSONInputContainer ref
-      editor.current.children[0].children[1].children[1].focus();
+      const contentEditable = editor.current?.children[0].children[1].children[1] as HTMLElement;
+      contentEditable.focus();
     }
   };
 
