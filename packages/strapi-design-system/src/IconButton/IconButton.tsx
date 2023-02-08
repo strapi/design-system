@@ -44,7 +44,7 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
     { label, noBorder = false, children, icon, disabled = false, onClick, 'aria-label': ariaLabel, ...restProps },
     ref,
   ) => {
-    const handleClick = (e) => {
+    const handleClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
       if (!disabled && onClick) {
         onClick(e);
       }
