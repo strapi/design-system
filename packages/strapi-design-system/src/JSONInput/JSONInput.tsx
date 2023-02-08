@@ -80,6 +80,12 @@ export const JSONInput = ({
     onChange(currentValue);
   };
 
+  const onCreateEditor = (view, state) => {
+    editorView.current = view;
+    editorState.current = state;
+    lintJSON({ view, state });
+  };
+
   const { setContainer } = useCodeMirror({
     value,
     container: editor.current,
@@ -87,7 +93,7 @@ export const JSONInput = ({
     onChange: handleChange,
     editable: !disabled,
     extensions: [json(), markField],
-    basicSetup: true,
+    onCreateEditor,
   });
 
   const focusInput = () => {
