@@ -6,7 +6,7 @@ export default defineConfig({
   build: {
     target: 'esnext',
     lib: {
-      entry: resolve(__dirname, './src/index.tsx'),
+      entry: resolve(__dirname, './src/index.ts'),
       formats: ['cjs', 'es'],
       fileName(format) {
         return `[name].${format === 'es' ? 'js' : format}`;
