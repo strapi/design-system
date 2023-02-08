@@ -1,12 +1,15 @@
-import { useLayoutEffect, useRef, useState } from 'react';
+import * as React from 'react';
 import { createPortal } from 'react-dom';
-import PropTypes from 'prop-types';
 
-export const Portal = ({ children }) => {
-  const rootRef = useRef(null);
-  const [mounted, setMounted] = useState(false);
+export interface PortalProps {
+  children: React.ReactNode;
+}
 
-  useLayoutEffect(() => {
+export const Portal = ({ children }: PortalProps) => {
+  const rootRef = React.useRef<HTMLDivElement>(null!);
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useLayoutEffect(() => {
     rootRef.current = document.createElement('div');
     rootRef.current.setAttribute('data-react-portal', 'true');
     document.body.appendChild(rootRef.current);
@@ -23,8 +26,4 @@ export const Portal = ({ children }) => {
   }
 
   return createPortal(children, rootRef.current);
-};
-
-Portal.propTypes = {
-  children: PropTypes.node.isRequired,
 };

@@ -125,6 +125,9 @@ export type BoxProps<TElement extends HTMLElement = HTMLDivElement> = Pick<
  */
 const transientProps: Partial<Record<keyof BoxProps, boolean>> = {
   color: true,
+  cursor: true,
+  height: true,
+  width: true,
 };
 
 export const Box = styled.div.withConfig<BoxProps>({

@@ -1,7 +1,8 @@
-import React, { forwardRef } from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import styled, { keyframes } from 'styled-components';
+
 import { VisuallyHidden } from '../VisuallyHidden';
+
 import loaderSvg from './assets/loader.svg';
 
 const rotation = keyframes`
@@ -13,13 +14,17 @@ const rotation = keyframes`
   }
 `;
 
-const LoaderImg = styled.img`
+const LoaderImg = styled.img<Required<Pick<LoaderProps, 'small'>>>`
   animation: ${rotation} 1s infinite linear;
   will-change: transform;
   ${({ small, theme }) => small && `width: ${theme.spaces[6]}; height: ${theme.spaces[6]};`}
 `;
 
-export const Loader = forwardRef(({ children, small, ...props }, ref) => {
+interface LoaderProps extends React.HTMLAttributes<HTMLDivElement> {
+  small?: boolean;
+}
+
+export const Loader = React.forwardRef<HTMLDivElement, LoaderProps>(({ children, small = false, ...props }, ref) => {
   return (
     <div role="alert" aria-live="assertive" ref={ref} {...props}>
       <VisuallyHidden>{children}</VisuallyHidden>
@@ -27,14 +32,3 @@ export const Loader = forwardRef(({ children, small, ...props }, ref) => {
     </div>
   );
 });
-
-Loader.displayName = 'Loader';
-
-Loader.defaultProps = {
-  small: false,
-};
-
-Loader.propTypes = {
-  children: PropTypes.node.isRequired,
-  small: PropTypes.bool,
-};

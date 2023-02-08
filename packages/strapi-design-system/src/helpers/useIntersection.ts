@@ -5,7 +5,7 @@ import { MutableRefObject, useEffect } from 'react';
 import { useCallbackRef } from '@radix-ui/react-use-callback-ref';
 
 interface UseIntersectionOptions {
-  selectorToWatch: keyof HTMLElementTagNameMap;
+  selectorToWatch: string;
   skipWhen?: boolean;
 }
 
