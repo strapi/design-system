@@ -24,9 +24,7 @@ const LoadingWrapper = styled.div`
   will-change: transform;
 `;
 
-type ButtonWrapperProps = Required<Pick<ButtonProps, 'size' | 'fullWidth' | 'variant'>>;
-
-export const ButtonWrapper = styled(BaseButton)<ButtonWrapperProps>`
+export const ButtonWrapper = styled(BaseButton)<Required<Pick<ButtonProps, 'height' | 'size' | 'variant'>>>`
   height: ${({ theme, size }) => theme.sizes.button[size]};
 
   &[aria-disabled='true'] {
