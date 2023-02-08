@@ -9,7 +9,7 @@ import { BaseButtonWrapper } from '../BaseButton';
 import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from '../Button/utils';
 import { VARIANTS, BUTTON_SIZES } from '../Button/constants';
 
-const LinkWrapper = styled(BaseButtonWrapper)<Required<Pick<LinkButtonProps, 'size' | 'variant'>>>`
+const LinkWrapper = styled(BaseButtonWrapper)<Required<Pick<LinkButtonProps, 'variant'>>>`
   &[aria-disabled='true'] {
     ${getDisabledStyle}
     &:active {
