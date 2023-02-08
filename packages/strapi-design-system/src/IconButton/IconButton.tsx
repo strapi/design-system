@@ -2,11 +2,11 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 import { Tooltip } from '../Tooltip';
-import { BaseButton } from '../BaseButton';
+import { BaseButton, BaseButtonProps } from '../BaseButton';
 import { Flex } from '../Flex';
 import { VisuallyHidden } from '../VisuallyHidden';
 
-interface SharedIconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface SharedIconButtonProps extends BaseButtonProps {
   disabled?: boolean;
   noBorder?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
