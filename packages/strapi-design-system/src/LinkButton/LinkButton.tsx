@@ -77,7 +77,7 @@ export const LinkButton = React.forwardRef<HTMLAnchorElement, LinkButtonProps>(
         as={to && !disabled ? NavLink : 'a'}
       >
         {startIcon && <Flex aria-hidden>{startIcon}</Flex>}
-        
+
         <Typography variant={size === 'S' ? 'pi' : undefined} fontWeight="bold" textColor="buttonNeutral0">
           {children}
         </Typography>

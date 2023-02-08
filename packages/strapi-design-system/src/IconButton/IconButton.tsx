@@ -71,7 +71,13 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
       </IconButtonWrapper>
     );
 
-    return label ? <Tooltip label={label}><Component /></Tooltip> : <Component />;
+    return label ? (
+      <Tooltip label={label}>
+        <Component />
+      </Tooltip>
+    ) : (
+      <Component />
+    );
   },
 );
 
