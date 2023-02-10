@@ -1,16 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
 import { Typography } from '../../Typography';
 import { Flex } from '../../Flex';
 import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from '../../Button/utils';
 import { VARIANTS, BUTTON_SIZES } from '../../Button/constants';
-import { BaseButtonWrapper } from '../../BaseButton';
-import { BaseLink } from '../../BaseLink';
+import { BaseButtonWrapper, BaseButtonProps } from '../../BaseButton';
+import { BaseLink, BaseLinkProps } from '../../BaseLink';
+
+interface SharedLinkProps extends BaseLinkProps {
+  disabled?: boolean;
+  endIcon?: React.ReactNode;
+  size?: typeof BUTTON_SIZES[number];
+  startIcon?: React.ReactNode;
+  variant?: typeof VARIANTS[number];
+}
+
+type LinkButtonProps = SharedLinkProps & BaseButtonProps;
 
 const LinkWrapper = styled(BaseButtonWrapper)`
-  padding: ${({ theme, size }) => `${size === 'S' ? theme.spaces[2] : '10px'} ${theme.spaces[4]}`};
   text-decoration: none;
 
   &[aria-disabled='true'] {
@@ -31,8 +39,11 @@ const LinkWrapper = styled(BaseButtonWrapper)`
   ${getVariantStyle}
 `;
 
-export const LinkButton = React.forwardRef(
-  ({ variant, startIcon, endIcon, disabled, children, size, as, ...props }, ref) => {
+export const LinkButton = React.forwardRef<HTMLAnchorElement, LinkButtonProps>(
+  (
+    { variant = 'default', startIcon, endIcon, disabled = false, children, size = 'S', as = BaseLink, ...props },
+    ref,
+  ) => {
     const paddingX = size === 'S' ? 2 : '10px';
     const paddingY = 4;
 
@@ -68,41 +79,3 @@ export const LinkButton = React.forwardRef(
 );
 
 LinkButton.displayName = 'LinkButton';
-
-LinkButton.defaultProps = {
-  as: BaseLink,
-  disabled: false,
-  startIcon: undefined,
-  endIcon: undefined,
-  size: 'S',
-  variant: 'default',
-  onClick: undefined,
-  href: undefined,
-  to: undefined,
-};
-LinkButton.propTypes = {
-  as: PropTypes.elementType,
-  children: PropTypes.node.isRequired,
-  disabled: PropTypes.bool,
-  endIcon: PropTypes.element,
-  href(props) {
-    if (!props.disabled && !props.to && !props.href) {
-      return new Error('href must be defined');
-    }
-
-    // eslint-disable-next-line consistent-return
-    return undefined;
-  },
-  onClick: PropTypes.func,
-  size: PropTypes.oneOf(BUTTON_SIZES),
-  startIcon: PropTypes.element,
-  to(props) {
-    if (!props.disabled && !props.href && !props.to) {
-      return new Error('to must be defined');
-    }
-
-    // eslint-disable-next-line consistent-return
-    return undefined;
-  },
-  variant: PropTypes.oneOf(VARIANTS),
-};
