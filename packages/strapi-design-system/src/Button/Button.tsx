@@ -4,6 +4,7 @@ import { Loader } from '@strapi/icons';
 
 import { Typography } from '../Typography';
 import { Box } from '../Box';
+import { Flex } from '../Flex';
 import { BaseButton, BaseButtonProps } from '../BaseButton';
 
 import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from './utils';
@@ -23,49 +24,26 @@ const LoadingWrapper = styled.div`
   will-change: transform;
 `;
 
-const BoxFullHeight = styled(Box)`
-  height: 100%;
-`;
-
-type ButtonWrapperProps = Required<Pick<ButtonProps, 'size' | 'fullWidth' | 'variant'>>;
-
-export const ButtonWrapper = styled(BaseButton)<ButtonWrapperProps>`
-  align-items: center;
-  background-color: ${({ theme }) => theme.colors.buttonPrimary600};
-  border: 1px solid ${({ theme }) => theme.colors.buttonPrimary600};
+export const ButtonWrapper = styled(BaseButton)<Required<Pick<ButtonProps, 'size' | 'variant'>>>`
   height: ${({ theme, size }) => theme.sizes.button[size]};
-  padding-left: ${({ theme }) => theme.spaces[4]};
-  padding-right: ${({ theme }) => theme.spaces[4]};
-
-  ${Box} {
-    display: flex;
-    align-items: center;
-  }
-
-  ${Typography} {
-    color: ${({ theme }) => theme.colors.buttonNeutral0};
-  }
 
   &[aria-disabled='true'] {
     ${getDisabledStyle}
+
     &:active {
       ${getDisabledStyle}
     }
   }
+
   &:hover {
     ${getHoverStyle}
   }
+
   &:active {
     ${getActiveStyle}
   }
+
   ${getVariantStyle}
-  ${({ fullWidth }) =>
-    fullWidth &&
-    `
-    display: inline-flex;
-    justify-content: center;
-    width: 100%;
-  `}
 `;
 
 export interface ButtonProps extends BaseButtonProps {
@@ -111,10 +89,19 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         variant={variant}
         onClick={handleClick}
         fullWidth={fullWidth}
+        alignItems="center"
+        background="buttonPrimary600"
+        borderColor="buttonPrimary600"
+        gap={2}
+        inline={fullWidth}
+        justifyContent={fullWidth ? 'center' : undefined}
+        paddingLeft={4}
+        paddingRight={4}
+        width={fullWidth ? '100%' : undefined}
         {...props}
       >
         {(startIcon || loading) && (
-          <BoxFullHeight aria-hidden paddingRight={2}>
+          <Box aria-hidden>
             {loading ? (
               <LoadingWrapper>
                 <Loader />
@@ -122,18 +109,19 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             ) : (
               startIcon
             )}
-          </BoxFullHeight>
+          </Box>
         )}
 
-        <Typography variant={size === 'S' ? 'pi' : undefined} fontWeight="bold" lineHeight={0}>
+        <Typography
+          variant={size === 'S' ? 'pi' : undefined}
+          fontWeight="bold"
+          lineHeight={0}
+          textColor="buttonNeutral0"
+        >
           {children}
         </Typography>
 
-        {endIcon && (
-          <Box aria-hidden paddingLeft={2}>
-            {endIcon}
-          </Box>
-        )}
+        {endIcon && <Flex aria-hidden>{endIcon}</Flex>}
       </ButtonWrapper>
     );
   },

@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+
 import { Typography } from '../../Typography';
-import { Box } from '../../Box';
+import { Flex } from '../../Flex';
 import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from '../../Button/utils';
 import { VARIANTS, BUTTON_SIZES } from '../../Button/constants';
 import { BaseButtonWrapper } from '../../BaseButton';
@@ -10,61 +11,57 @@ import { BaseLink } from '../../BaseLink';
 
 const LinkWrapper = styled(BaseButtonWrapper)`
   padding: ${({ theme, size }) => `${size === 'S' ? theme.spaces[2] : '10px'} ${theme.spaces[4]}`};
-  background: ${({ theme }) => theme.colors.buttonPrimary600};
-  border: 1px solid ${({ theme }) => theme.colors.buttonPrimary600};
-  border-radius: ${({ theme }) => theme.borderRadius};
-  ${Box} {
-    display: flex;
-    align-items: center;
-  }
-  ${Typography} {
-    color: ${({ theme }) => theme.colors.buttonNeutral0};
-  }
+  text-decoration: none;
+
   &[aria-disabled='true'] {
     ${getDisabledStyle}
     &:active {
       ${getDisabledStyle}
     }
   }
+
   &:hover {
     ${getHoverStyle}
   }
+
   &:active {
     ${getActiveStyle}
   }
-  ${getVariantStyle}
 
-  /**
-    Link specific properties
-  */
-  display: inline-flex;
-  text-decoration: none;
-  pointer-events: ${({ disabled }) => (disabled ? 'none' : undefined)};
+  ${getVariantStyle}
 `;
 
 export const LinkButton = React.forwardRef(
   ({ variant, startIcon, endIcon, disabled, children, size, as, ...props }, ref) => {
+    const paddingX = size === 'S' ? 2 : '10px';
+    const paddingY = 4;
+
     return (
-      <LinkWrapper ref={ref} aria-disabled={disabled} size={size} variant={variant} {...props} as={as || BaseLink}>
-        {startIcon && (
-          <Box aria-hidden paddingRight={2}>
-            {startIcon}
-          </Box>
-        )}
+      <LinkWrapper
+        ref={ref}
+        aria-disabled={disabled}
+        size={size}
+        variant={variant}
+        background="buttonPrimary600"
+        borderColor="buttonPrimary600"
+        hasRadius
+        gap={2}
+        inline
+        paddingBottom={paddingX}
+        paddingLeft={paddingY}
+        paddingRight={paddingY}
+        paddingTop={paddingX}
+        pointerEvents={disabled ? 'none' : undefined}
+        {...props}
+        as={as || BaseLink}
+      >
+        {startIcon && <Flex aria-hidden>{startIcon}</Flex>}
 
-        {size === 'S' ? (
-          <Typography variant="pi" fontWeight="bold">
-            {children}
-          </Typography>
-        ) : (
-          <Typography fontWeight="bold">{children}</Typography>
-        )}
+        <Typography variant={size === 'S' ? 'pi' : undefined} fontWeight="bold" textColor="buttonNeutral0">
+          {children}
+        </Typography>
 
-        {endIcon && (
-          <Box aria-hidden paddingLeft={2}>
-            {endIcon}
-          </Box>
-        )}
+        {endIcon && <Flex aria-hidden>{endIcon}</Flex>}
       </LinkWrapper>
     );
   },

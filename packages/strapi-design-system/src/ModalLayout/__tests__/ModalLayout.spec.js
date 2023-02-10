@@ -42,27 +42,27 @@ describe('ModalLayout', () => {
         width: 1px;
       }
 
-      .c19 {
+      .c21 {
         font-size: 0.75rem;
         line-height: 1.33;
         font-weight: 600;
-        color: #32324d;
+        color: #ffffff;
       }
 
-      .c2 {
+      .c1 {
         padding-right: 40px;
         padding-left: 40px;
         position: fixed;
         z-index: 4;
       }
 
-      .c5 {
+      .c4 {
         background: #ffffff;
         border-radius: 4px;
         box-shadow: 0px 2px 15px rgba(33,33,52,0.1);
       }
 
-      .c7 {
+      .c6 {
         background: #f6f6f9;
         padding-top: 16px;
         padding-right: 20px;
@@ -70,20 +70,97 @@ describe('ModalLayout', () => {
         padding-left: 20px;
       }
 
+      .c9 {
+        padding: 8px;
+        border-radius: 4px;
+        border-color: #dcdce4;
+        border: 1px solid #dcdce4;
+        width: 2rem;
+        height: 2rem;
+        cursor: pointer;
+      }
+
       .c12 {
         padding: 32px;
       }
 
-      .c10 {
+      .c17 {
+        background: #4945ff;
+        padding: 8px;
+        padding-right: 16px;
+        padding-left: 16px;
+        border-radius: 4px;
+        border-color: #4945ff;
+        border: 1px solid #4945ff;
+        cursor: pointer;
+      }
+
+      .c2 {
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
         display: flex;
-        cursor: pointer;
-        padding: 8px;
-        border-radius: 4px;
-        background: #ffffff;
-        border: 1px solid #dcdce4;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+      }
+
+      .c8 {
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+      }
+
+      .c15 {
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+      }
+
+      .c18 {
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        gap: 8px;
+      }
+
+      .c10 {
         position: relative;
         outline: none;
       }
@@ -132,308 +209,172 @@ describe('ModalLayout', () => {
         border: 2px solid #4945ff;
       }
 
-      .c17 {
-        -webkit-align-items: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        background-color: #4945ff;
-        border: 1px solid #4945ff;
+      .c19 {
         height: 2rem;
-        padding-left: 16px;
-        padding-right: 16px;
         border: 1px solid #dcdce4;
         background: #ffffff;
       }
 
-      .c17 .c1 {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-align-items: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-      }
-
-      .c17 .c18 {
-        color: #ffffff;
-      }
-
-      .c17[aria-disabled='true'] {
+      .c19[aria-disabled='true'] {
         border: 1px solid #dcdce4;
         background: #eaeaef;
       }
 
-      .c17[aria-disabled='true'] .c18 {
+      .c19[aria-disabled='true'] .c20 {
         color: #666687;
       }
 
-      .c17[aria-disabled='true'] svg > g,
-      .c17[aria-disabled='true'] svg path {
+      .c19[aria-disabled='true'] svg > g,
+      .c19[aria-disabled='true'] svg path {
         fill: #666687;
       }
 
-      .c17[aria-disabled='true']:active {
+      .c19[aria-disabled='true']:active {
         border: 1px solid #dcdce4;
         background: #eaeaef;
       }
 
-      .c17[aria-disabled='true']:active .c18 {
+      .c19[aria-disabled='true']:active .c20 {
         color: #666687;
       }
 
-      .c17[aria-disabled='true']:active svg > g,
-      .c17[aria-disabled='true']:active svg path {
+      .c19[aria-disabled='true']:active svg > g,
+      .c19[aria-disabled='true']:active svg path {
         fill: #666687;
       }
 
-      .c17:hover {
+      .c19:hover {
         background-color: #f6f6f9;
       }
 
-      .c17:active {
+      .c19:active {
         background-color: #eaeaef;
       }
 
-      .c17 .c18 {
+      .c19 .c20 {
         color: #32324d;
       }
 
-      .c17 svg > g,
-      .c17 svg path {
+      .c19 svg > g,
+      .c19 svg path {
         fill: #32324d;
       }
 
-      .c20 {
-        -webkit-align-items: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        background-color: #4945ff;
-        border: 1px solid #4945ff;
+      .c22 {
         height: 2rem;
-        padding-left: 16px;
-        padding-right: 16px;
         border: 1px solid #d9d8ff;
         background: #f0f0ff;
       }
 
-      .c20 .c1 {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-align-items: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-      }
-
-      .c20 .c18 {
-        color: #ffffff;
-      }
-
-      .c20[aria-disabled='true'] {
+      .c22[aria-disabled='true'] {
         border: 1px solid #dcdce4;
         background: #eaeaef;
       }
 
-      .c20[aria-disabled='true'] .c18 {
+      .c22[aria-disabled='true'] .c20 {
         color: #666687;
       }
 
-      .c20[aria-disabled='true'] svg > g,
-      .c20[aria-disabled='true'] svg path {
+      .c22[aria-disabled='true'] svg > g,
+      .c22[aria-disabled='true'] svg path {
         fill: #666687;
       }
 
-      .c20[aria-disabled='true']:active {
+      .c22[aria-disabled='true']:active {
         border: 1px solid #dcdce4;
         background: #eaeaef;
       }
 
-      .c20[aria-disabled='true']:active .c18 {
+      .c22[aria-disabled='true']:active .c20 {
         color: #666687;
       }
 
-      .c20[aria-disabled='true']:active svg > g,
-      .c20[aria-disabled='true']:active svg path {
+      .c22[aria-disabled='true']:active svg > g,
+      .c22[aria-disabled='true']:active svg path {
         fill: #666687;
       }
 
-      .c20:hover {
+      .c22:hover {
         background-color: #ffffff;
       }
 
-      .c20:active {
+      .c22:active {
         background-color: #ffffff;
         border: 1px solid #4945ff;
       }
 
-      .c20:active .c18 {
+      .c22:active .c20 {
         color: #4945ff;
       }
 
-      .c20:active svg > g,
-      .c20:active svg path {
+      .c22:active svg > g,
+      .c22:active svg path {
         fill: #4945ff;
       }
 
-      .c20 .c18 {
+      .c22 .c20 {
         color: #271fe0;
       }
 
-      .c20 svg > g,
-      .c20 svg path {
+      .c22 svg > g,
+      .c22 svg path {
         fill: #271fe0;
       }
 
-      .c21 {
-        -webkit-align-items: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        background-color: #4945ff;
-        border: 1px solid #4945ff;
+      .c23 {
         height: 2rem;
-        padding-left: 16px;
-        padding-right: 16px;
       }
 
-      .c21 .c1 {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-align-items: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-      }
-
-      .c21 .c18 {
-        color: #ffffff;
-      }
-
-      .c21[aria-disabled='true'] {
+      .c23[aria-disabled='true'] {
         border: 1px solid #dcdce4;
         background: #eaeaef;
       }
 
-      .c21[aria-disabled='true'] .c18 {
+      .c23[aria-disabled='true'] .c20 {
         color: #666687;
       }
 
-      .c21[aria-disabled='true'] svg > g,
-      .c21[aria-disabled='true'] svg path {
+      .c23[aria-disabled='true'] svg > g,
+      .c23[aria-disabled='true'] svg path {
         fill: #666687;
       }
 
-      .c21[aria-disabled='true']:active {
+      .c23[aria-disabled='true']:active {
         border: 1px solid #dcdce4;
         background: #eaeaef;
       }
 
-      .c21[aria-disabled='true']:active .c18 {
+      .c23[aria-disabled='true']:active .c20 {
         color: #666687;
       }
 
-      .c21[aria-disabled='true']:active svg > g,
-      .c21[aria-disabled='true']:active svg path {
+      .c23[aria-disabled='true']:active svg > g,
+      .c23[aria-disabled='true']:active svg path {
         fill: #666687;
       }
 
-      .c21:hover {
+      .c23:hover {
         border: 1px solid #7b79ff;
         background: #7b79ff;
       }
 
-      .c21:active {
+      .c23:active {
         border: 1px solid #4945ff;
         background: #4945ff;
       }
 
-      .c21 svg > g,
-      .c21 svg path {
+      .c23 svg > g,
+      .c23 svg path {
         fill: #ffffff;
       }
 
       .c3 {
-        -webkit-align-items: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-        flex-direction: row;
-        -webkit-box-pack: center;
-        -webkit-justify-content: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-      }
-
-      .c9 {
-        -webkit-align-items: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-        flex-direction: row;
-        -webkit-box-pack: justify;
-        -webkit-justify-content: space-between;
-        -ms-flex-pack: justify;
-        justify-content: space-between;
-      }
-
-      .c15 {
-        -webkit-align-items: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-        flex-direction: row;
-      }
-
-      .c4 {
         inset: 0;
         background: #32324d1F;
       }
 
-      .c6 {
+      .c5 {
         width: 51.875rem;
-      }
-
-      .c11 {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-align-items: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        -webkit-box-pack: center;
-        -webkit-justify-content: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-        height: 2rem;
-        width: 2rem;
       }
 
       .c11 svg > g,
@@ -451,15 +392,11 @@ describe('ModalLayout', () => {
         fill: #a5a5ba;
       }
 
-      .c11[aria-disabled='true'] {
-        background-color: #eaeaef;
-      }
-
       .c11[aria-disabled='true'] svg path {
         fill: #666687;
       }
 
-      .c8 {
+      .c7 {
         border-radius: 4px 4px 0 0;
         border-bottom: 1px solid #eaeaef;
       }
@@ -509,26 +446,26 @@ describe('ModalLayout', () => {
           data-react-portal="true"
         >
           <div
-            class="c1 c2 c3 c4"
+            class="c1 c2 c3"
           >
             <div>
               <div>
                 <div
                   aria-labelledby="title"
                   aria-modal="true"
-                  class="c1 c5 c6"
+                  class="c4 c5"
                   role="dialog"
                 >
                   <div
-                    class="c1 c7 c8"
+                    class="c6 c7"
                   >
                     <div
-                      class="c1 c9"
+                      class="c8"
                     >
                       Modal Title
                       <button
                         aria-disabled="false"
-                        class="c10 c11"
+                        class="c9 c2 c10 c11"
                         type="button"
                       >
                         <span
@@ -554,52 +491,52 @@ describe('ModalLayout', () => {
                     </div>
                   </div>
                   <div
-                    class="c1 c12 c13"
+                    class="c12 c13"
                   >
                     Hello World
                   </div>
                   <div
-                    class="c1 c7 c14"
+                    class="c6 c14"
                   >
                     <div
-                      class="c1 c9"
+                      class="c8"
                     >
                       <div
-                        class="c1 c15 c16"
+                        class="c15 c16"
                       >
                         <button
                           aria-disabled="false"
-                          class="c10 c17"
+                          class="c17 c18 c10 c19"
                           type="button"
                         >
                           <span
-                            class="c18 c19"
+                            class="c20 c21"
                           >
                             Cancel
                           </span>
                         </button>
                       </div>
                       <div
-                        class="c1 c15 c16"
+                        class="c15 c16"
                       >
                         <button
                           aria-disabled="false"
-                          class="c10 c20"
+                          class="c17 c18 c10 c22"
                           type="button"
                         >
                           <span
-                            class="c18 c19"
+                            class="c20 c21"
                           >
                             Add new stuff
                           </span>
                         </button>
                         <button
                           aria-disabled="false"
-                          class="c10 c21"
+                          class="c17 c18 c10 c23"
                           type="button"
                         >
                           <span
-                            class="c18 c19"
+                            class="c20 c21"
                           >
                             Finish
                           </span>

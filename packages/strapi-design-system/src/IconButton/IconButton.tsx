@@ -2,11 +2,11 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 import { Tooltip } from '../Tooltip';
-import { BaseButton } from '../BaseButton';
+import { BaseButton, BaseButtonProps } from '../BaseButton';
 import { Flex } from '../Flex';
 import { VisuallyHidden } from '../VisuallyHidden';
 
-interface SharedIconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface SharedIconButtonProps extends BaseButtonProps {
   disabled?: boolean;
   noBorder?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
@@ -44,54 +44,51 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
     { label, noBorder = false, children, icon, disabled = false, onClick, 'aria-label': ariaLabel, ...restProps },
     ref,
   ) => {
-    /**
-     * @type {React.MouseEventHandler<HTMLButtonElement>}
-     */
     const handleClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
       if (!disabled && onClick) {
         onClick(e);
       }
     };
 
-    if (!label) {
-      return (
-        <IconButtonWrapper {...restProps} ref={ref} noBorder={noBorder} onClick={handleClick} aria-disabled={disabled}>
-          <VisuallyHidden as="span">{ariaLabel}</VisuallyHidden>
-          {React.cloneElement((icon || children) as React.ReactElement, {
-            'aria-hidden': true,
-            focusable: false, // See: https://allyjs.io/tutorials/focusing-in-svg.html#making-svg-elements-focusable
-          })}
-        </IconButtonWrapper>
-      );
-    }
+    const Component = () => (
+      <IconButtonWrapper
+        aria-disabled={disabled}
+        background={disabled ? 'neutral150' : undefined}
+        borderWidth={noBorder ? 0 : undefined}
+        justifyContent="center"
+        height={`${32 / 16}rem`}
+        width={`${32 / 16}rem`}
+        {...restProps}
+        ref={ref}
+        onClick={handleClick}
+      >
+        <VisuallyHidden as="span">{label ?? ariaLabel}</VisuallyHidden>
 
-    return (
+        {React.cloneElement((icon || children) as React.ReactElement, {
+          'aria-hidden': true,
+          focusable: false, // See: https://allyjs.io/tutorials/focusing-in-svg.html#making-svg-elements-focusable
+        })}
+      </IconButtonWrapper>
+    );
+
+    return label ? (
       <Tooltip label={label}>
-        <IconButtonWrapper {...restProps} ref={ref} noBorder={noBorder} onClick={handleClick} aria-disabled={disabled}>
-          <VisuallyHidden as="span">{label}</VisuallyHidden>
-          {React.cloneElement((icon || children) as React.ReactElement, {
-            'aria-hidden': true,
-            focusable: false, // See: https://allyjs.io/tutorials/focusing-in-svg.html#making-svg-elements-focusable
-          })}
-        </IconButtonWrapper>
+        <Component />
       </Tooltip>
+    ) : (
+      <Component />
     );
   },
 );
 
-const IconButtonWrapper = styled(BaseButton)<Required<Pick<SharedIconButtonProps, 'noBorder'>>>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: ${32 / 16}rem;
-  width: ${32 / 16}rem;
-
+const IconButtonWrapper = styled(BaseButton)`
   svg {
     > g,
     path {
       fill: ${({ theme }) => theme.colors.neutral500};
     }
   }
+
   &:hover {
     svg {
       > g,
@@ -100,6 +97,7 @@ const IconButtonWrapper = styled(BaseButton)<Required<Pick<SharedIconButtonProps
       }
     }
   }
+
   &:active {
     svg {
       > g,
@@ -108,15 +106,14 @@ const IconButtonWrapper = styled(BaseButton)<Required<Pick<SharedIconButtonProps
       }
     }
   }
+
   &[aria-disabled='true'] {
-    background-color: ${({ theme }) => theme.colors.neutral150};
     svg {
       path {
         fill: ${({ theme }) => theme.colors.neutral600};
       }
     }
   }
-  ${({ noBorder }) => (noBorder ? `border: none;` : undefined)}
 `;
 
 export const IconButtonGroup = styled(Flex)`
