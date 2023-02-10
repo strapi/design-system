@@ -3,12 +3,11 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    types: [opened, reopened]
-    paths:
-      - 'packages/**'
-      - '!docs/**'
-      - '!website/**'
+  pull_request: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref_name }}
+  cancel-in-progress: true
 
 jobs:
   typecheck:

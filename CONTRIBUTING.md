@@ -28,7 +28,7 @@ The core team will review your pull request and will either merge it, request ch
 
 **Before submitting your pull request** make sure the following requirements are fulfilled:
 
-- Fork the repository and create your branch from `main`.
+- Fork the repository and create your branch from the current `release` branch or `main` depending on if you need code in the release branch already.
 - Run `yarn setup` in the repository root.
 - If you’ve fixed a bug or added code that should be tested, add the tests and then link the corresponding issue in
   either your commit or your PR.
@@ -47,34 +47,29 @@ The core team will review your pull request and will either merge it, request ch
 
 Please follow the instructions below:
 
-#### 1. Fork the [repository](https://github.com/strapi/design-system)
+### 1. Fork the [repository](https://github.com/strapi/design-system)
 
 [Go to the repository](https://github.com/strapi/design-system) and fork it to your own GitHub account.
 
-#### 2. Clone from your repository
+### 2. Clone from your repository
 
 ```bash
 git clone git@github.com:YOUR_USERNAME/design-system.git
 ```
 
-#### 3. Install the dependencies
+### 3. Install the dependencies and start Storybook
 
 Go to the root of the repository.
 
 ```bash
 cd design-system
 yarn setup
+yarn develop
 ```
 
-#### 4. Start storybook for component and stories documentation changes
+Storybook will be running on `localhost:6006` for you to test your changes to components or their documentation.
 
-Start the storybook application to test your changes to components or their documentation.
-
-```bash
-yarn storybook
-```
-
-#### 5. Start the website for documentation changes
+### 4. Start the website for documentation changes
 
 Start the DS website to test your changes on the documentation library.
 
@@ -84,16 +79,49 @@ yarn
 yarn dev
 ```
 
+### 5. Submitting a PR
+
+PRs should typically be aimed at a specific release branch (there should be one made, if not make one off `main` that correlates to the milestone you're aiming for).
+Some circumstances will exist where this is not preferrable, e.g. updating the `workflow` files – this needs to be aimed at main to take any effect.
+
+IF you submit a PR at `main` and it is merged, it is expected that you should update the existing release branches with `main`.
+
 ## Available commands
 
 - `yarn analyze:bundle` Start webpack bundle analyzer in all packages.
 - `yarn setup` Install dependencies and build all the packages.
 - `yarn lint` Lint the codebase.
-- `yarn storybook` Start the storybook app and load stories in files that end with .stories.mdx.
 - `yarn test` Run the design system tests.
+- `yarn test:ts`: Run the TypeScript tests.
 - `yarn test:watch` Run an interactive test watcher.
 - `yarn test:e2e` Run the end-to-end test suite.
 - `yarn test:e2e:watch` Run an interactive end-to-end test watcher.
 - `yarn test:snapshots` Generate snapshots.
-- `yarn test:start-app` Start the test application.
-- `yarn generate` Generate a new component.
+
+## Linking the design system
+
+### Strapi monorepo
+
+To link the design system to the Strapi monorepo follow the steps outlined in the [contributor documentation](https://contributor.strapi.io/core/admin/link-strapi-design-system)
+
+### React application
+
+First, run `yarn build` in `strapi-design-system/packages/strapi-design-system` to generate the bundle.
+
+You can link the design system using either a [relative path](#relative-path) or [yarn link](#yarn-link).
+
+### Relative path
+
+In the package.json of your React application replace the version number with the relative path to your copy of the design system:
+
+```
+"@strapi/design-system": "link: <relative-path>/strapi-design-system/packages/strapi-design-system"
+```
+
+### Yarn link
+
+[`yarn link`](https://classic.yarnpkg.com/lang/en/docs/cli/link/) allows you to link the design system without any changes to the `package.json`. First run `yarn link` in `strapi-design-system/packages/design-system` and then `yarn link @strapi/design-system` in your React application.
+
+### Development
+
+Once the link is setup, reinstall dependencies and restart your server

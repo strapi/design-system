@@ -119,7 +119,7 @@ TimePicker.propTypes = {
   clearLabel: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
   error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-  hint: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
+  hint: PropTypes.oneOfType([PropTypes.string, PropTypes.bool, PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   label: PropTypes.string,
   onChange: PropTypes.func.isRequired,

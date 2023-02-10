@@ -7,7 +7,7 @@ import { lightTheme } from '../../themes';
 describe('Popover', () => {
   it('snapshots the component', () => {
     const Component = () => {
-      const divRef = React.useRef(null);
+      const divRef = React.useRef<HTMLDivElement>(null!);
       const [visible] = React.useState(true);
 
       return (
@@ -123,7 +123,7 @@ describe('Popover', () => {
 
   it('should render the popover when visible is true', () => {
     const Component = () => {
-      const divRef = React.useRef(null);
+      const divRef = React.useRef<HTMLButtonElement>(null!);
       const [isVisible, setIsVisible] = React.useState(false);
 
       return (
