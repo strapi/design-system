@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import { Typography } from '../Typography';
 import { Flex } from '../Flex';
-import { BaseButtonWrapper } from '../BaseButton';
+import { BaseButtonWrapper, BaseButtonProps } from '../BaseButton';
 
 import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from '../Button/utils';
 import { VARIANTS, BUTTON_SIZES } from '../Button/constants';
@@ -25,7 +25,7 @@ const LinkWrapper = styled(BaseButtonWrapper)<Required<Pick<LinkButtonProps, 'va
   ${getVariantStyle}
 `;
 
-interface SharedLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+interface SharedLinkProps extends BaseButtonProps {
   disabled?: boolean;
   endIcon?: React.ReactNode;
   size?: typeof BUTTON_SIZES[number];
