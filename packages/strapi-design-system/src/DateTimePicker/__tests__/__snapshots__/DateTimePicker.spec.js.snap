@@ -233,7 +233,7 @@ exports[`DateTimePicker snapshots the component 1`] = `
   outline: none;
 }
 
-.c11:focus-visible {
+.c11:focus-within {
   border: 1px solid #4945ff;
   box-shadow: #4945ff 0px 0px 0px 2px;
 }

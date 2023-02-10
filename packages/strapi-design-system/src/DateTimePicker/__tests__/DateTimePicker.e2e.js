@@ -10,8 +10,10 @@ test.describe.parallel('DateTimePicker', () => {
     test('when a date is entered the time picker is automatically filled in with 00:00 assuming it is empty', async ({
       page,
     }) => {
+      const currentMonth = new Date().toLocaleString('en-US', { month: 'numeric' });
+      const currentYear = new Date().toLocaleString('en-US', { year: 'numeric' });
       await page.getByLabel('Date time picker').click();
-      await page.getByRole('button', { name: '1/18/2023' }).click();
+      await page.getByRole('button', { name: `${currentMonth}/18/${currentYear}` }).click();
 
       // check if the time is selected with 00:00
       const timePickerValue = await page.getByRole('combobox').allTextContents();

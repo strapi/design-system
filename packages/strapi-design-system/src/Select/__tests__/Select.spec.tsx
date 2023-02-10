@@ -189,7 +189,7 @@ describe('Select', () => {
         outline: none;
       }
 
-      .c5:focus-visible {
+      .c5:focus-within {
         border: 1px solid #4945ff;
         box-shadow: #4945ff 0px 0px 0px 2px;
       }
@@ -450,9 +450,7 @@ describe('Select', () => {
               </div>
               <div
                 class="c16"
-                height="1px"
                 id="intersection-1"
-                width="100%"
               />
             </div>
           </div>
