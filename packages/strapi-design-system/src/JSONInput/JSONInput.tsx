@@ -25,9 +25,9 @@ export const JSONInput = ({
   value,
   error,
   hint,
-  required,
-  disabled,
   labelAction,
+  required = false,
+  disabled = false,
   onChange = () => null,
   ...boxProps
 }: JSONInputProps) => {
@@ -99,6 +99,11 @@ export const JSONInput = ({
   const { setContainer } = useCodeMirror({
     value,
     onCreateEditor,
+    container: editor.current,
+    editable: !disabled,
+    extensions: [json(), markField],
+    onChange: onCodeMirrorChange,
+    theme: 'dark',
     basicSetup: {
       lineNumbers: true,
       bracketMatching: true,
@@ -108,11 +113,6 @@ export const JSONInput = ({
       highlightSelectionMatches: true,
       tabSize: 2,
     },
-    container: editor.current,
-    editable: !disabled,
-    extensions: [json(), markField],
-    onChange: onCodeMirrorChange,
-    theme: 'dark',
   });
 
   const focusInput = () => {
