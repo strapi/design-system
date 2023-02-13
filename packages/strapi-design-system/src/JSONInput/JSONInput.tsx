@@ -2,7 +2,6 @@ import React, { useRef, useEffect } from 'react';
 import { jsonParseLinter, json } from '@codemirror/lang-json';
 import { useCodeMirror, ReactCodeMirrorRef, ReactCodeMirrorProps } from '@uiw/react-codemirror';
 import { ViewUpdate } from '@codemirror/view';
-import { Line } from '@codemirror/state';
 
 import { Field, FieldLabel, FieldError, FieldHint } from '../Field';
 import { Stack } from '../Stack';
@@ -41,21 +40,31 @@ export const JSONInput = ({
    * Determines the line to highlight when lintJSON finds an error via jsonParseLinter()
    */
   const highglightErrorAtLine = (lineNumber: number) => {
-    const { text, to: lineEnd } = editorState.current?.doc?.line(lineNumber) as Line;
-    const lineStart = lineEnd - text.trimStart().length;
+    const doc = editorState.current?.doc;
 
-    if (lineEnd > lineStart) {
-      editorView.current?.dispatch({
-        effects: addMarks.of([lineHighlightMark.range(lineStart, lineEnd)]),
-      });
+    if (doc) {
+      const { text, to: lineEnd } = doc.line(lineNumber);
+
+      const lineStart = lineEnd - text.trimStart().length;
+
+      if (lineEnd > lineStart) {
+        editorView.current?.dispatch({
+          effects: addMarks.of([lineHighlightMark.range(lineStart, lineEnd)]),
+        });
+      }
     }
   };
 
   const clearErrorHighlight = () => {
-    const docEnd = editorState.current?.doc?.length || 0;
-    editorView.current?.dispatch({
-      effects: filterMarks.of((from, to) => to <= 0 || from >= docEnd),
-    });
+    const doc = editorState.current?.doc;
+
+    if (doc) {
+      const docEnd = doc.length || 0;
+
+      editorView.current?.dispatch({
+        effects: filterMarks.of((from, to) => to <= 0 || from >= docEnd),
+      });
+    }
   };
   /**
    * Checks code editor for valid json input and then highlights any errors
@@ -109,8 +118,8 @@ export const JSONInput = ({
   const focusInput = () => {
     if (!disabled) {
       // Focus the content editable element nested in the JSONInputContainer ref
-      const contentEditable = editor.current?.children[0].children[1].children[1] as HTMLElement;
-      contentEditable.focus();
+      const contentEditable = editor.current?.children[0].children[1].children[1] as HTMLElement | null;
+      contentEditable?.focus();
     }
   };
 
