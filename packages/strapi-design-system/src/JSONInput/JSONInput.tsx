@@ -22,10 +22,10 @@ interface JSONInputProps extends Omit<FlexProps, 'onChange'> {
 
 export const JSONInput = ({
   label,
-  value,
   error,
   hint,
   labelAction,
+  value = '',
   required = false,
   disabled = false,
   onChange = () => null,
