@@ -14,7 +14,7 @@ export const variantStyle = ({
   variant = OMEGA,
   theme,
 }: {
-  variant?: typeof TEXT_VARIANTS[number];
+  variant?: (typeof TEXT_VARIANTS)[number];
   theme: DefaultTheme;
 }) => {
   switch (variant) {

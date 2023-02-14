@@ -1,60 +1,79 @@
 import React, { useRef, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { jsonParseLinter, json } from '@codemirror/lang-json';
-import { useCodeMirror } from '@uiw/react-codemirror';
+import { useCodeMirror, ReactCodeMirrorRef, ReactCodeMirrorProps } from '@uiw/react-codemirror';
+import { ViewUpdate } from '@codemirror/view';
 
 import { Field, FieldLabel, FieldError, FieldHint } from '../Field';
 import { Stack } from '../Stack';
 import { JSONInputContainer } from './JSONInputContainer';
 import { markField, addMarks, filterMarks, lineHighlightMark } from './utils/decorationExtension';
+import { FlexProps } from '../Flex';
 
-export const JSONInput = ({ label, value, error, hint, required, onChange, disabled, labelAction, ...boxProps }) => {
-  const editor = useRef();
-  const editorState = useRef(null);
-  const editorView = useRef(null);
+interface JSONInputProps extends Omit<FlexProps, 'onChange'> {
+  label?: string;
+  value?: string;
+  error?: string | boolean;
+  hint?: string | React.ReactNode | React.ReactNode[];
+  required?: boolean;
+  disabled?: boolean;
+  labelAction?: React.ReactNode;
+  onChange?: (value: string) => void;
+}
+
+export const JSONInput = ({
+  label,
+  error,
+  hint,
+  labelAction,
+  value = '',
+  required = false,
+  disabled = false,
+  onChange = () => null,
+  ...boxProps
+}: JSONInputProps) => {
+  const editor = useRef<ReactCodeMirrorRef['editor']>();
+  const editorState = useRef<ReactCodeMirrorRef['state']>();
+  const editorView = useRef<ReactCodeMirrorRef['view']>();
   const hasError = Boolean(error);
 
-  const getContentAtLine = (line) => {
-    return editorState.current?.doc?.line(line);
-  };
-
   /**
-   * @description
    * Determines the line to highlight when lintJSON finds an error via jsonParseLinter()
-   * @param {number} lineNumber Code editor line number
    */
-  const highglightErrorAtLine = (lineNumber) => {
-    const { text, to: lineEnd } = getContentAtLine(lineNumber);
-    const lineStart = lineEnd - text.trimStart().length;
+  const highglightErrorAtLine = (lineNumber: number) => {
+    const doc = editorState.current?.doc;
 
-    if (lineEnd > lineStart) {
-      editorView.current?.dispatch({
-        effects: addMarks.of([lineHighlightMark.range(lineStart, lineEnd)]),
-      });
+    if (doc) {
+      const { text, to: lineEnd } = doc.line(lineNumber);
+
+      const lineStart = lineEnd - text.trimStart().length;
+
+      if (lineEnd > lineStart) {
+        editorView.current?.dispatch({
+          effects: addMarks.of([lineHighlightMark.range(lineStart, lineEnd)]),
+        });
+      }
     }
   };
 
   const clearErrorHighlight = () => {
-    const docEnd = editorState.current?.doc?.length || 0;
-    editorView.current?.dispatch({
-      effects: filterMarks.of((from, to) => to <= 0 || from >= docEnd),
-    });
-  };
+    const doc = editorState.current?.doc;
 
+    if (doc) {
+      const docEnd = doc.length || 0;
+
+      editorView.current?.dispatch({
+        effects: filterMarks.of((from, to) => to <= 0 || from >= docEnd),
+      });
+    }
+  };
   /**
-   * @description
    * Checks code editor for valid json input and then highlights any errors
-   * @param {object} viewUpdate
-   * @property {object} viewUpdate.view Code editor view https://codemirror.net/docs/ref/#view.EditorView
-   * @property {object} viewUpdate.state Code editor state https://codemirror.net/docs/ref/#state.EditorState
    */
-  const lintJSON = (viewUpdate) => {
-    const { view, state } = viewUpdate;
+  const lintJSON = ({ state, view }: Pick<ViewUpdate, 'state' | 'view'>) => {
     editorView.current = view;
     editorState.current = state;
 
     clearErrorHighlight();
-
     // Function calls json.parse and returns error message + position
     const lintJSONForErrrors = jsonParseLinter();
     const lintErrors = lintJSONForErrrors(view);
@@ -64,27 +83,27 @@ export const JSONInput = ({ label, value, error, hint, required, onChange, disab
     }
   };
 
-  const handleChange = (currentValue, viewUpdate) => {
+  const onCodeMirrorChange: ReactCodeMirrorProps['onChange'] = (currentValue, viewUpdate) => {
     lintJSON(viewUpdate);
-
     // Call the parent's onChange handler
     onChange(currentValue);
   };
 
-  const onCreateEditor = (view, state) => {
+  const onCreateEditor: ReactCodeMirrorProps['onCreateEditor'] = (view, state) => {
     editorView.current = view;
     editorState.current = state;
+    // Lint the JSON in case the initial value is invalid
     lintJSON({ view, state });
   };
 
   const { setContainer } = useCodeMirror({
     value,
     onCreateEditor,
-    theme: 'dark',
-    onChange: handleChange,
-    editable: !disabled,
     container: editor.current,
+    editable: !disabled,
     extensions: [json(), markField],
+    onChange: onCodeMirrorChange,
+    theme: 'dark',
     basicSetup: {
       lineNumbers: true,
       bracketMatching: true,
@@ -93,14 +112,14 @@ export const JSONInput = ({ label, value, error, hint, required, onChange, disab
       syntaxHighlighting: true,
       highlightSelectionMatches: true,
       tabSize: 2,
-      defaultCharacterWidth: 5,
     },
   });
 
   const focusInput = () => {
     if (!disabled) {
       // Focus the content editable element nested in the JSONInputContainer ref
-      editor.current.children[0].children[1].children[1].focus();
+      const contentEditable = editor.current?.children[0].children[1].children[1] as HTMLElement | null;
+      contentEditable?.focus();
     }
   };
 
@@ -110,7 +129,7 @@ export const JSONInput = ({ label, value, error, hint, required, onChange, disab
     if (currentEditor) {
       setContainer(currentEditor);
     }
-  }, [setContainer, hasError]);
+  }, [setContainer]);
 
   return (
     <Field error={error} hint={hint} required={required}>
@@ -133,26 +152,4 @@ export const JSONInput = ({ label, value, error, hint, required, onChange, disab
       </Stack>
     </Field>
   );
-};
-
-JSONInput.defaultProps = {
-  label: undefined,
-  labelAction: undefined,
-  value: '',
-  error: undefined,
-  hint: undefined,
-  required: false,
-  disabled: false,
-  onChange() {},
-};
-
-JSONInput.propTypes = {
-  label: PropTypes.string,
-  labelAction: PropTypes.element,
-  value: PropTypes.string,
-  error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-  hint: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
-  required: PropTypes.bool,
-  disabled: PropTypes.bool,
-  onChange: PropTypes.func,
 };

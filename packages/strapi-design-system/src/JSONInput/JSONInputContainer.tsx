@@ -6,10 +6,10 @@ export const JSONInputContainer = styled(Flex)`
   line-height: ${({ theme }) => theme.lineHeights[2]};
 
   .cm-editor {
-    /* 
-      Hard coded since the color is the same between themes,
-      theme.colors.neutral800 changes between themes 
-    */
+    /** 
+     * Hard coded since the color is the same between themes,
+     * theme.colors.neutral800 changes between themes 
+     */
     background-color: #32324d;
     width: 100%;
     outline: none;
@@ -28,10 +28,10 @@ export const JSONInputContainer = styled(Flex)`
 
   .cm-gutters,
   .cm-activeLineGutter {
-    /* 
-      Hard coded since the color is the same between themes,
-      theme.colors.neutral700 changes between themes 
-    */
+    /** 
+     * Hard coded since the color is the same between themes,
+     * theme.colors.neutral700 changes between themes 
+     */
     background-color: #4a4a6a;
   }
 `;

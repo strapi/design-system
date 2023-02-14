@@ -22,7 +22,7 @@ export interface TypographyProps {
   textColor?: keyof DefaultTheme['colors'];
   textDecoration?: CSSProperties['textDecoration'];
   textTransform?: CSSProperties['textTransform'];
-  variant?: typeof TEXT_VARIANTS[number];
+  variant?: (typeof TEXT_VARIANTS)[number];
 }
 
 export const Typography = styled.span.withConfig<TypographyProps>({

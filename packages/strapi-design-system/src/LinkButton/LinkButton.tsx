@@ -28,9 +28,9 @@ const LinkWrapper = styled(BaseButtonWrapper)<Required<Pick<LinkButtonProps, 'va
 interface SharedLinkProps extends BaseButtonProps {
   disabled?: boolean;
   endIcon?: React.ReactNode;
-  size?: typeof BUTTON_SIZES[number];
+  size?: (typeof BUTTON_SIZES)[number];
   startIcon?: React.ReactNode;
-  variant?: typeof VARIANTS[number];
+  variant?: (typeof VARIANTS)[number];
 }
 
 interface ToLinkProps extends SharedLinkProps {
