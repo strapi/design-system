@@ -37,7 +37,7 @@ type ComboboxContextValue = {
   locale: string;
   onOpenChange(open: boolean): void;
   onTriggerChange(node: ComboboxTriggerElement | null): void;
-  onValueChange(value: string): void;
+  onValueChange(value: string | undefined): void;
   open: boolean;
   required: boolean;
   trigger: ComboboxTriggerElement | null;
@@ -281,7 +281,7 @@ const ComboxboxInput = React.forwardRef<HTMLInputElement, InputProps>((props, fo
         context.onTextValueChange(event.currentTarget.value);
         context.onSearchValueChange(event.currentTarget.value);
       })}
-      onBlur={composeEventHandlers(inputProps.onBlur, () => {
+      onBlur={composeEventHandlers(inputProps.onBlur, (event) => {
         const [activeItem] = getItems().filter((item) => item.textValue === context.textValue);
         const [previousItem] = getItems().filter((item) => item.value === context.value);
 
@@ -295,9 +295,10 @@ const ComboxboxInput = React.forwardRef<HTMLInputElement, InputProps>((props, fo
          */
         if (activeItem) {
           context.onValueChange(activeItem.value);
-        } else if (previousItem) {
+        } else if (previousItem && event.currentTarget.value !== '') {
           context.onTextValueChange(previousItem.textValue);
         } else {
+          context.onValueChange(undefined);
           context.onTextValueChange('');
         }
 
@@ -669,10 +670,10 @@ export const ComboboxItem = React.forwardRef<ComboboxItemElement, ItemProps>((pr
      * This effect is designed to run when the value prop is
      * controlled and we need to update the text value accordingly.
      */
-    if (context.textValue !== textValue && isSelected && !context.searchValue) {
+    if (isSelected && context.textValue === undefined && textValue !== '') {
       context.onTextValueChange(textValue);
     }
-  }, [textValue, isSelected, context.textValue, context.searchValue]);
+  }, [textValue, isSelected, context.textValue]);
 
   if (context.searchValue && !contains(textValue, context.searchValue)) {
     return null;

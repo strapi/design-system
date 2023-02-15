@@ -248,6 +248,42 @@ describe('Combobox', () => {
 
       expect(onValueChange).toHaveBeenCalledWith('1');
     });
+
+    it('should not revert to the related items textValue based on the set value if the field is emptied', async () => {
+      const user = userEvent.setup({ document });
+
+      const onValueChange = jest.fn();
+
+      const { getByRole } = render({ onValueChange });
+
+      await user.click(getByRole('combobox'));
+
+      /**
+       * see note above
+       */
+      getByRole('combobox').focus();
+
+      await user.type(getByRole('combobox'), 'Option 1');
+
+      await user.tab();
+
+      expect(onValueChange).toHaveBeenNthCalledWith(1, '1');
+
+      await user.click(getByRole('combobox'));
+
+      /**
+       * see note above
+       */
+      getByRole('combobox').focus();
+
+      await user.clear(getByRole('combobox'));
+
+      await user.tab();
+
+      expect(getByRole('combobox')).toHaveValue('');
+
+      expect(onValueChange).toHaveBeenNthCalledWith(2, undefined);
+    });
   });
 
   describe('Listbox', () => {
@@ -383,7 +419,7 @@ describe('Combobox', () => {
 
       expect(onValueChange).toHaveBeenCalledWith('2');
 
-      expect(getByRole('combobox')).toHaveValue('Option 1');
+      expect(getByRole('combobox')).toHaveValue('Option 2');
     });
 
     it('should allow the textValue to be controlled and call onTextValueChange when the textValue prop changes', async () => {
