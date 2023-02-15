@@ -22,7 +22,7 @@ import { Combobox } from '@strapi/primitives'
     <Story name="Basic Usage">
         <Combobox.Root>
             <Combobox.Trigger>
-                <Combobox.Input placeholder="Pick me" />
+                <Combobox.TextInput placeholder="Pick me" />
                 <Combobox.Icon />
             </Combobox.Trigger>
             <Combobox.Portal>
@@ -58,6 +58,8 @@ The `Combobox` primitive is composed of the following components:
 
 - `Combobox.Root`
 - `Combobox.Trigger`
+- `Combobox.TextInput`
+- `Combobox.Icon`
 - `Combobox.Portal`
 - `Combobox.Content`
 - `Combobox.Viewport`
@@ -72,7 +74,7 @@ and is combined in the following way:
     return (
         <Combobox.Root>
             <Combobox.Trigger>
-                <Combobox.Input placeholder="Pick me" />
+                <Combobox.TextInput placeholder="Pick me" />
                 <Combobox.Icon />
             </Combobox.Trigger>
             <Combobox.Portal>
@@ -99,6 +101,14 @@ and is combined in the following way:
 ### Trigger
 
 <ArgsTable of={Combobox.Trigger} />
+
+### TextInput
+
+<ArgsTable of={Combobox.TextInput} />
+
+### Icon
+
+<ArgsTable of={Combobox.Icon} />
 
 ### Portal
 

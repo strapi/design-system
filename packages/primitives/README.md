@@ -35,7 +35,7 @@ import { Combobox } from '@strapi/primitives';
   return (
     <Combobox.Root>
       <Combobox.Trigger>
-        <Combobox.Input placeholder="Pick me" />
+        <Combobox.TextInput placeholder="Pick me" />
         <Combobox.Icon />
       </Combobox.Trigger>
       <Combobox.Portal>

@@ -17,7 +17,7 @@ interface ComponentProps extends Combobox.RootProps {
 const Component = ({ options = defaultOptions, ...restProps }: ComponentProps) => (
   <Combobox.Root {...restProps}>
     <Combobox.Trigger>
-      <Combobox.Input placeholder={'combobox test'} />
+      <Combobox.TextInput placeholder={'combobox test'} />
       <Combobox.Icon />
     </Combobox.Trigger>
     <Combobox.Portal>

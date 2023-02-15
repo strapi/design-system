@@ -198,11 +198,9 @@ const ComboboxTrigger = React.forwardRef<ComboboxTriggerElement, TriggerProps>((
 
 const INPUT_NAME = 'ComboboxInput';
 
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
+interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
 
-const ComboxboxInput = React.forwardRef<HTMLInputElement, InputProps>((props, forwardedRef) => {
-  const { ...inputProps } = props;
-
+const ComboxboxTextInput = React.forwardRef<HTMLInputElement, TextInputProps>((props, forwardedRef) => {
   const context = useComboboxContext(INPUT_NAME);
   const getItems = useCollection(undefined);
 
@@ -228,10 +226,10 @@ const ComboxboxInput = React.forwardRef<HTMLInputElement, InputProps>((props, fo
       data-disabled={isDisabled ? '' : undefined}
       data-placeholder={context.textValue === undefined ? '' : undefined}
       value={context.textValue ?? ''}
-      {...inputProps}
+      {...props}
       ref={composedRefs}
       // Enable compatibility with native label or custom `Label` "click" for Safari:
-      onClick={composeEventHandlers(inputProps.onClick, (event) => {
+      onClick={composeEventHandlers(props.onClick, (event) => {
         // Whilst browsers generally have no issue focusing the trigger when clicking
         // on a label, Safari seems to struggle with the fact that there's no `onClick`.
         // We force `focus` in this case. Note: this doesn't create any other side-effect
@@ -239,7 +237,7 @@ const ComboxboxInput = React.forwardRef<HTMLInputElement, InputProps>((props, fo
         // this only runs for a label "click"
         event.currentTarget.focus();
       })}
-      onPointerDown={composeEventHandlers(inputProps.onPointerDown, (event) => {
+      onPointerDown={composeEventHandlers(props.onPointerDown, (event) => {
         // only call handler if it's the left button (mousedown gets triggered by all mouse buttons)
         // but not when the control key is pressed (avoiding MacOS right click)
         if (event.button === 0 && event.ctrlKey === false) {
@@ -248,7 +246,7 @@ const ComboxboxInput = React.forwardRef<HTMLInputElement, InputProps>((props, fo
           event.preventDefault();
         }
       })}
-      onKeyDown={composeEventHandlers(inputProps.onKeyDown, (event) => {
+      onKeyDown={composeEventHandlers(props.onKeyDown, (event) => {
         if (['ArrowUp', 'ArrowDown', 'Home', 'End'].includes(event.key)) {
           /**
            * Put it in a set timeout because we need a single tick to make sure the
@@ -277,11 +275,11 @@ const ComboxboxInput = React.forwardRef<HTMLInputElement, InputProps>((props, fo
           handleOpen();
         }
       })}
-      onChange={composeEventHandlers(inputProps.onChange, (event) => {
+      onChange={composeEventHandlers(props.onChange, (event) => {
         context.onTextValueChange(event.currentTarget.value);
         context.onSearchValueChange(event.currentTarget.value);
       })}
-      onBlur={composeEventHandlers(inputProps.onBlur, (event) => {
+      onBlur={composeEventHandlers(props.onBlur, (event) => {
         const [activeItem] = getItems().filter((item) => item.textValue === context.textValue);
         const [previousItem] = getItems().filter((item) => item.value === context.value);
 
@@ -740,7 +738,7 @@ const ComboboxItemIndicator = React.forwardRef<HTMLSpanElement, ItemIndicatorPro
 
 const Root = Combobox;
 const Trigger = ComboboxTrigger;
-const Input = ComboxboxInput;
+const TextInput = ComboxboxTextInput;
 const Icon = ComboboxIcon;
 const Portal = ComboboxPortal;
 const Content = ComboboxContent;
@@ -749,12 +747,12 @@ const Item = ComboboxItem;
 const ItemText = ComboboxItemText;
 const ItemIndicator = ComboboxItemIndicator;
 
-export { Root, Trigger, Input, Icon, Portal, Content, Viewport, Item, ItemText, ItemIndicator };
+export { Root, Trigger, TextInput, Icon, Portal, Content, Viewport, Item, ItemText, ItemIndicator };
 
 export type {
   RootProps,
   TriggerProps,
-  InputProps,
+  TextInputProps,
   IconProps,
   PortalProps,
   ContentProps,
