@@ -6,9 +6,13 @@ import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 import { CarretDown } from '@strapi/icons';
 import { SimpleMenu, MenuItem, IconButton, Stack } from '@strapi/design-system';
 
+import { DeprecationNotice } from '../components/DeprecationNotice';
+
 <Meta title="Design System/Components/SimpleMenu" component={SimpleMenu} />
 
 # SimpleMenu
+
+<DeprecationNotice href="/?path=/docs/design-system-components-v2-simplemenu--base">the V2 version</DeprecationNotice>
 
 A menu displays a list of potential options or actions via a Popover component. A menu is used to give choices to the
 users in small spaces. However, a single option or action should be taken via a menu.
