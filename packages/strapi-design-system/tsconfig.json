@@ -4,7 +4,11 @@
     "module": "ESNext",
     "moduleResolution": "node",
     "useDefineForClassFields": true,
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
     "noImplicitAny": false,
     "skipLibCheck": true,
     "esModuleInterop": false,
@@ -15,9 +19,20 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "types": ["vite/client", "jest", "@testing-library/jest-dom"]
+    "types": [
+      "vite/client",
+      "jest",
+      "@testing-library/jest-dom"
+    ],
+    "outDir": "./dist",
+    "declarationMap": true,
+    "sourceMap": true,
+    "declaration": true,
   },
-  "include": ["src", "styled.d.ts"],
+  "include": [
+    "src",
+    "styled.d.ts"
+  ],
   "references": [
     {
       "path": "./tsconfig.node.json"
