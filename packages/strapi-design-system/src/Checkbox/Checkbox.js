@@ -1,11 +1,13 @@
 import React from 'react';
-import styled from 'styled-components';
+
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
 import { BaseCheckbox } from '../BaseCheckbox';
-import { Stack } from '../Stack';
-import { Field, FieldHint, FieldError, useField } from '../Field';
 import { Box } from '../Box';
+import { Field, FieldHint, FieldError, useField } from '../Field';
 import { useId } from '../helpers/useId';
+import { Stack } from '../Stack';
 import { Typography } from '../Typography';
 
 const CheckboxLabel = styled(Typography)`

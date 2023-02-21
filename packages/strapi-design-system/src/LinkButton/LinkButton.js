@@ -1,12 +1,14 @@
 import React from 'react';
+
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import { Typography } from '../Typography';
-import { Box } from '../Box';
-import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from '../Button/utils';
-import { VARIANTS, BUTTON_SIZES } from '../Button/constants';
+
 import { BaseButtonWrapper } from '../BaseButton';
+import { Box } from '../Box';
+import { VARIANTS, BUTTON_SIZES } from '../Button/constants';
+import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from '../Button/utils';
+import { Typography } from '../Typography';
 
 const LinkWrapper = styled(BaseButtonWrapper)`
   padding: ${({ theme, size }) => `${size === 'S' ? theme.spaces[2] : '10px'} ${theme.spaces[4]}`};

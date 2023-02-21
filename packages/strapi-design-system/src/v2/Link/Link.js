@@ -1,12 +1,13 @@
 import React from 'react';
+
+import { ExternalLink } from '@strapi/icons';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { ExternalLink } from '@strapi/icons';
 
-import { Typography } from '../../Typography';
+import { BaseLink } from '../../BaseLink';
 import { Box } from '../../Box';
 import { buttonFocusStyle } from '../../themes/utils';
-import { BaseLink } from '../../BaseLink';
+import { Typography } from '../../Typography';
 
 const LinkWrapper = styled(BaseLink)`
   display: inline-flex;

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Stack } from '../Stack';
 
 export const CarouselActions = (props) => (

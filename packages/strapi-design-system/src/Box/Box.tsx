@@ -1,4 +1,5 @@
-import { HTMLAttributes } from 'react';
+import * as React from 'react';
+
 import styled, { CSSProperties, DefaultTheme } from 'styled-components';
 
 import handleResponsiveValues from '../helpers/handleResponsiveValues';
@@ -25,7 +26,7 @@ export type BoxProps<TElement extends HTMLElement = HTMLDivElement> = Pick<
   | 'textTransform'
   | 'lineHeight'
 > &
-  HTMLAttributes<TElement> & {
+  React.HTMLAttributes<TElement> & {
     /**
      * JavaScript hover handler
      */

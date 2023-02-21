@@ -1,5 +1,7 @@
 import * as React from 'react';
+
 import { render, fireEvent, waitFor } from '@testing-library/react';
+
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
 import { JSONInput } from '../JSONInput';

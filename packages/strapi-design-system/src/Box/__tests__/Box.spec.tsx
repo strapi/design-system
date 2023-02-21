@@ -1,7 +1,8 @@
 import { render } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
-import { Box } from '../Box';
+
 import { lightTheme } from '../../themes';
+import { Box } from '../Box';
 
 const setup = (props = {}) =>
   render(

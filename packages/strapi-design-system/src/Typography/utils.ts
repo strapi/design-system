@@ -1,4 +1,5 @@
 import { DefaultTheme } from 'styled-components';
+
 import { ALPHA, BETA, DELTA, EPSILON, OMEGA, PI, SIGMA, TEXT_VARIANTS } from './constants';
 
 export const ellipsisStyle = ({ ellipsis = false }: { ellipsis?: boolean }) =>
@@ -14,7 +15,7 @@ export const variantStyle = ({
   variant = OMEGA,
   theme,
 }: {
-  variant?: typeof TEXT_VARIANTS[number];
+  variant?: (typeof TEXT_VARIANTS)[number];
   theme: DefaultTheme;
 }) => {
   switch (variant) {

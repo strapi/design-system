@@ -1,8 +1,10 @@
 import React, { Children } from 'react';
+
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Stack } from '../../Stack';
+
 import { Box } from '../../Box';
+import { Stack } from '../../Stack';
 
 const BoxGrow = styled(Box)`
   flex-grow: 1;

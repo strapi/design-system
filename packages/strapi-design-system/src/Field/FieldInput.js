@@ -1,11 +1,13 @@
 import React, { forwardRef } from 'react';
-import styled from 'styled-components';
+
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
+import { Box } from '../Box';
+import { Flex } from '../Flex';
 import { sizes } from '../themes/sizes';
 import { inputFocusStyle } from '../themes/utils';
 import { useField } from './FieldContext';
-import { Flex } from '../Flex';
-import { Box } from '../Box';
 
 // padding-[top|bottom] must ensure, the input matches the height of getThemeSize('input')
 const PADDING_Y = {

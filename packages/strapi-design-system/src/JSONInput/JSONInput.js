@@ -1,7 +1,8 @@
 import React, { useRef, useEffect } from 'react';
-import PropTypes from 'prop-types';
+
 import { jsonParseLinter, json } from '@codemirror/lang-json';
 import { useCodeMirror } from '@uiw/react-codemirror';
+import PropTypes from 'prop-types';
 
 import { Field, FieldLabel, FieldError, FieldHint } from '../Field';
 import { Stack } from '../Stack';

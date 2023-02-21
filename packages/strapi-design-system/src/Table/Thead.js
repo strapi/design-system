@@ -1,5 +1,7 @@
 import React from 'react';
+
 import styled from 'styled-components';
+
 import { RawThead } from '../RawTable/RawThead';
 
 const TheadWrapper = styled(RawThead)`

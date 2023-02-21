@@ -1,13 +1,13 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+
 import { Loader } from '@strapi/icons';
+import styled, { keyframes } from 'styled-components';
 
-import { Typography } from '../Typography';
-import { Box } from '../Box';
 import { BaseButton, BaseButtonProps } from '../BaseButton';
-
-import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from './utils';
+import { Box } from '../Box';
+import { Typography } from '../Typography';
 import { BUTTON_SIZES, Variant, ButtonSizes, DEFAULT } from './constants';
+import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from './utils';
 
 const rotation = keyframes`
   from {

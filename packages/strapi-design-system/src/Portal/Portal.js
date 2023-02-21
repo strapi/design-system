@@ -1,6 +1,7 @@
 import { useLayoutEffect, useRef, useState } from 'react';
-import { createPortal } from 'react-dom';
+
 import PropTypes from 'prop-types';
+import { createPortal } from 'react-dom';
 
 export const Portal = ({ children }) => {
   const rootRef = useRef(null);

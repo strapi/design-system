@@ -1,5 +1,7 @@
 import React from 'react';
+
 import PropTypes from 'prop-types';
+
 import { OptGroup } from './OptGroup';
 import { Option } from './Option';
 import { Select } from './Select';

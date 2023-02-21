@@ -1,13 +1,14 @@
 import React, { forwardRef, useRef } from 'react';
+
+import { Search, Cross } from '@strapi/icons';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Search, Cross } from '@strapi/icons';
 
-import { sizes } from '../themes/sizes';
 import { Field, FieldLabel, FieldAction, FieldInput, InputWrapper } from '../Field';
-import { VisuallyHidden } from '../VisuallyHidden';
-import { inputFocusStyle } from '../themes/utils';
 import { Flex } from '../Flex';
+import { sizes } from '../themes/sizes';
+import { inputFocusStyle } from '../themes/utils';
+import { VisuallyHidden } from '../VisuallyHidden';
 
 const CloseIconWrapper = styled(Flex)`
   font-size: 0.5rem;

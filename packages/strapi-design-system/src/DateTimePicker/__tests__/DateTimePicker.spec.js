@@ -1,8 +1,10 @@
 import * as React from 'react';
+
 import { render, screen } from '@testing-library/react';
-import { DateTimePicker } from '../DateTimePicker';
+
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
+import { DateTimePicker } from '../DateTimePicker';
 
 const setupComponent = (props) => (
   <ThemeProvider theme={lightTheme}>

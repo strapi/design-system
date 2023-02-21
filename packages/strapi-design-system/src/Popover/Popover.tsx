@@ -1,11 +1,11 @@
 import * as React from 'react';
-import styled from 'styled-components';
+
 import { useFloating, flip, shift, offset, autoUpdate, Placement } from '@floating-ui/react-dom';
+import styled from 'styled-components';
 
 import { Box, BoxProps } from '../Box';
-import { Portal } from '../Portal';
-
 import { useIntersection } from '../helpers/useIntersection';
+import { Portal } from '../Portal';
 
 export const POPOVER_PLACEMENTS = [
   'top',

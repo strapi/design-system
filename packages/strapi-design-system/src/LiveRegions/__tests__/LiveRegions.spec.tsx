@@ -1,5 +1,7 @@
 import * as React from 'react';
+
 import { render } from '@testing-library/react';
+
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
 import { useNotifyAT } from '../useNotifyAT';

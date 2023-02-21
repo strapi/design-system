@@ -1,12 +1,13 @@
 import React from 'react';
+
+import { Dot } from '@strapi/icons';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import { Dot } from '@strapi/icons';
 
 import { Box } from '../Box';
-import { Typography } from '../Typography';
 import { Flex } from '../Flex';
+import { Typography } from '../Typography';
 
 const SubNavLinkWrapper = styled(Box)`
   display: flex;

@@ -1,5 +1,7 @@
 import React, { Children, cloneElement } from 'react';
+
 import PropTypes from 'prop-types';
+
 import { useTabs } from './TabsContext';
 
 export const TabPanels = ({ children, ...props }) => {

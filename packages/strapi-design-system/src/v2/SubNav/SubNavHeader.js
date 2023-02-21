@@ -1,17 +1,18 @@
 import React, { useState, useRef, useEffect } from 'react';
+
+import { Search } from '@strapi/icons';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Search } from '@strapi/icons';
 
-import { Flex } from '../../Flex';
-import { Typography } from '../../Typography';
-import { IconButton } from '../../IconButton';
 import { Box } from '../../Box';
 import { Divider } from '../../Divider';
-import { Searchbar, SearchForm } from '../../Searchbar';
+import { Flex } from '../../Flex';
+import { KeyboardKeys } from '../../helpers/keyboardKeys';
 import { useId } from '../../helpers/useId';
 import { usePrevious } from '../../helpers/usePrevious';
-import { KeyboardKeys } from '../../helpers/keyboardKeys';
+import { IconButton } from '../../IconButton';
+import { Searchbar, SearchForm } from '../../Searchbar';
+import { Typography } from '../../Typography';
 
 const CustomDivider = styled(Divider)`
   width: ${24 / 16}rem;

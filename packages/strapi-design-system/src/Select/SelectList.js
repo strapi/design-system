@@ -1,10 +1,12 @@
 import React from 'react';
+
 import PropTypes from 'prop-types';
+
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 import { Stack } from '../Stack';
-import { changeDescendant, getActiveDescendant } from './utils';
-import { useListRef } from './hooks/useListRef';
 import { DownState, UpState } from './constants';
+import { useListRef } from './hooks/useListRef';
+import { changeDescendant, getActiveDescendant } from './utils';
 
 export const SelectList = ({ labelledBy, onSelectItem, children, multi, onEscape, expanded }) => {
   const listRef = useListRef(expanded);

@@ -1,10 +1,10 @@
 import * as React from 'react';
+
 import { render, screen } from '@testing-library/react';
 
-import { DatePicker } from '../DatePicker';
-
-import { lightTheme } from '../../themes';
 import { ThemeProvider } from '../../ThemeProvider';
+import { lightTheme } from '../../themes';
+import { DatePicker } from '../DatePicker';
 
 describe('DatePicker', () => {
   describe('Locale prop', () => {

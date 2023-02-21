@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+
 import { DownState, UpState } from '../constants';
 
 export const useButtonRef = (expanded) => {

@@ -1,7 +1,6 @@
 import { DefaultTheme } from 'styled-components';
 
 import { isObject, mergeDeep } from '../helpers/objects';
-
 import { lightTheme } from './lightTheme';
 
 const generateError = (customMessage: string) => `

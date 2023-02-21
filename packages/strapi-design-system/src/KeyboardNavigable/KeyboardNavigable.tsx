@@ -1,6 +1,6 @@
 import { KeyboardEvent } from 'react';
-import { Box, BoxProps } from '../Box';
 
+import { Box, BoxProps } from '../Box';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 
 export interface KeyboardNavigableProps extends BoxProps {

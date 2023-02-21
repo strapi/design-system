@@ -1,5 +1,7 @@
 import React, { cloneElement, Children } from 'react';
+
 import PropTypes from 'prop-types';
+
 import { Box } from '../Box';
 
 export const RawTr = ({ children, ...props }) => {

@@ -1,6 +1,8 @@
 import React, { forwardRef } from 'react';
+
 import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
+
 import { VisuallyHidden } from '../VisuallyHidden';
 import loaderSvg from './assets/loader.svg';
 

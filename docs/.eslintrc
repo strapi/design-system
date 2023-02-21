@@ -1,0 +1,29 @@
+{
+  "root": true,
+  "extends": ["plugin:react/recommended", "prettier"],
+  "plugins": ["prettier"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "no-console": 0
+  },
+  "overrides": [
+    {
+      "files": ["*.mdx"],
+      "settings": {
+        "mdx/code-blocks": true
+      },
+      "extends": ["plugin:mdx/recommended"]
+    }
+  ]
+}

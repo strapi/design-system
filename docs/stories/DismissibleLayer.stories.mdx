@@ -1,9 +1,7 @@
-<!--- Dismissable.stories.mdx --->
-
 import { useState, useEffect } from 'react';
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 
-import { Typography, DismissableLayer } from '@strapi/design-system';
+import { Typography, DismissibleLayer } from '@strapi/design-system';
 
 <Meta title="Design System/Technical Components/DismissibleLayer" component={DismissibleLayer} />
 
@@ -31,7 +29,7 @@ import { DismissibleLayer } from '@strapi/design-system';
         if (!isVisible) {
           timeout = setTimeout(() => setIsVisible(true), 1000);
         }
-        return () => clearTimeout(timeout); 
+        return () => clearTimeout(timeout);
       }, [isVisible]);
       return isVisible ? (
         <DismissibleLayer onEscapeKeyDown={() => setIsVisible(false)} onPointerDownOutside={() => setIsVisible(false)}>
@@ -39,7 +37,7 @@ import { DismissibleLayer } from '@strapi/design-system';
             press escape or click outside to dismiss
           </Typography>
         </DismissibleLayer>
-      ) : null; 
+      ) : null;
     }}
   </Story>
 </Canvas>

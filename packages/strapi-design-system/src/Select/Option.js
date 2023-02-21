@@ -1,10 +1,12 @@
 import React, { useRef } from 'react';
+
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Box } from '../Box';
-import { Typography } from '../Typography';
-import { Flex } from '../Flex';
+
 import checkmarkIcon from '../BaseCheckbox/assets/checkmark.svg';
+import { Box } from '../Box';
+import { Flex } from '../Flex';
+import { Typography } from '../Typography';
 
 const CheckMark = styled(Box)`
   border: 1px solid

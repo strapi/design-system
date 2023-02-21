@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { VisuallyHidden } from '../VisuallyHidden';
 import { LiveRegionIds } from './constants';
 

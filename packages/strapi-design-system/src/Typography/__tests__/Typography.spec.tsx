@@ -1,8 +1,8 @@
 import { render } from '@testing-library/react';
 
-import { Typography, TypographyProps } from '../Typography';
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
+import { Typography, TypographyProps } from '../Typography';
 
 const setup = (props: TypographyProps) =>
   render(

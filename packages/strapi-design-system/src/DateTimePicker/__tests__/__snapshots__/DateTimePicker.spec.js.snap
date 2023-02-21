@@ -61,24 +61,6 @@ exports[`DateTimePicker snapshots the component 1`] = `
   justify-content: space-between;
 }
 
-.c1 > * {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.c1 > * + * {
-  margin-top: 4px;
-}
-
-.c4 > * {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.c4 > * + * {
-  margin-left: 8px;
-}
-
 .c2 {
   font-size: 0.75rem;
   line-height: 1.33;
@@ -163,6 +145,24 @@ exports[`DateTimePicker snapshots the component 1`] = `
   box-shadow: #4945ff 0px 0px 0px 2px;
 }
 
+.c1 > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.c1 > * + * {
+  margin-top: 4px;
+}
+
+.c4 > * {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.c4 > * + * {
+  margin-left: 8px;
+}
+
 .c8 {
   border: none;
   background: transparent;
@@ -171,25 +171,6 @@ exports[`DateTimePicker snapshots the component 1`] = `
 
 .c8 svg path {
   fill: #8e8ea9;
-}
-
-.c11 {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  width: 100%;
-  background: transparent;
-  border: none;
-}
-
-.c11:focus {
-  outline: none;
-}
-
-.c11[aria-disabled='true'] {
-  cursor: not-allowed;
 }
 
 .c10 {
@@ -240,6 +221,25 @@ exports[`DateTimePicker snapshots the component 1`] = `
 
 .c18 svg {
   width: 0.375rem;
+}
+
+.c11 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  width: 100%;
+  background: transparent;
+  border: none;
+}
+
+.c11:focus {
+  outline: none;
+}
+
+.c11[aria-disabled='true'] {
+  cursor: not-allowed;
 }
 
 .c12 {

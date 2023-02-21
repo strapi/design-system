@@ -1,8 +1,10 @@
 import * as React from 'react';
+
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import { SimpleMenu, MenuItem } from '../SimpleMenu';
+
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
+import { SimpleMenu, MenuItem } from '../SimpleMenu';
 
 describe('SimpleMenu', () => {
   it('display the menu on click on the menu button', async () => {

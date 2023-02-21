@@ -1,9 +1,11 @@
 import React, { useImperativeHandle, useRef } from 'react';
+
 import PropTypes from 'prop-types';
+
 import { Field, FieldLabel, FieldHint, FieldError, FieldInput } from '../Field';
+import { useId } from '../helpers/useId';
 import { Stack } from '../Stack';
 import { sizes } from '../themes/sizes';
-import { useId } from '../helpers/useId';
 
 export const TextInput = React.forwardRef(
   ({ size, startAction, endAction, name, hint, error, label, labelAction, id, required, ...props }, ref) => {

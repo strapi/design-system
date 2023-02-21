@@ -1,7 +1,7 @@
-.next
-node_modules
-dist
+**/.next/**
+**/node_modules/**
+**/dist/**
+**/storybook-static/**
 packages/strapi-icons/src
-storybook-static
 # for now
 website

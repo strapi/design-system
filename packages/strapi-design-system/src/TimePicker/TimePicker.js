@@ -1,11 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
 import { Clock } from '@strapi/icons';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { sizes } from '../themes/sizes';
-import { Select, Option } from '../Select';
 import { useId } from '../helpers/useId';
+import { Select, Option } from '../Select';
+import { sizes } from '../themes/sizes';
 
 const TimeIconWrapper = styled.div`
   display: flex;

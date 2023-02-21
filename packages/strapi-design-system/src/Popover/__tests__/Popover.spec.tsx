@@ -1,8 +1,10 @@
 import * as React from 'react';
+
 import { render, screen, fireEvent } from '@testing-library/react';
-import { Popover } from '../Popover';
+
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
+import { Popover } from '../Popover';
 
 describe('Popover', () => {
   it('snapshots the component', () => {
@@ -27,6 +29,18 @@ describe('Popover', () => {
     const { container } = render(<Component />, { container: document.body });
 
     expect(container).toMatchInlineSnapshot(`
+      .c0 {
+        border: 0;
+        -webkit-clip: rect(0 0 0 0);
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+      }
+
       .c1 {
         background: #ffffff;
         padding: 4px;
@@ -59,18 +73,6 @@ describe('Popover', () => {
         background: #eaeaef;
         border-radius: 4px;
         margin-right: 10px;
-      }
-
-      .c0 {
-        border: 0;
-        -webkit-clip: rect(0 0 0 0);
-        clip: rect(0 0 0 0);
-        height: 1px;
-        margin: -1px;
-        overflow: hidden;
-        padding: 0;
-        position: absolute;
-        width: 1px;
       }
 
       <body>

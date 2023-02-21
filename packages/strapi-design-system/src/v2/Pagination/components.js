@@ -1,13 +1,14 @@
 import React from 'react';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import { ChevronLeft, ChevronRight } from '@strapi/icons';
 
+import { ChevronLeft, ChevronRight } from '@strapi/icons';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
+import { BaseLink } from '../../BaseLink';
+import { buttonFocusStyle } from '../../themes/utils';
+import { Typography } from '../../Typography';
 import { VisuallyHidden } from '../../VisuallyHidden';
 import { usePagination } from './PaginationContext';
-import { Typography } from '../../Typography';
-import { buttonFocusStyle } from '../../themes/utils';
-import { BaseLink } from '../../BaseLink';
 
 const PaginationText = styled(Typography)`
   line-height: revert;

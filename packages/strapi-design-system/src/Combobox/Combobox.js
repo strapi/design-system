@@ -1,22 +1,22 @@
 import React, { useEffect, useState, useRef, useLayoutEffect, Children, cloneElement } from 'react';
-import PropTypes from 'prop-types';
+
 import { CarretDown, Cross } from '@strapi/icons';
+import PropTypes from 'prop-types';
 
-import { useId } from '../helpers/useId';
-import { getActionFromKey, getUpdatedIndex, maintainScrollVisibility, MenuActions, filterOptions } from './utils';
-
-import { Flex } from '../Flex';
-import { CaretBox, IconBox } from '../Select/components';
-import { Popover } from '../Popover';
 import { Box } from '../Box';
-import { Typography } from '../Typography';
-import { Loader } from '../Loader/Loader';
-import { Input, MainRow, ValueContainer, InputContainer } from './components';
-import { ComboboxOption } from './ComboboxOption';
 import { Field, FieldError, FieldHint, FieldLabel } from '../Field';
-import { Stack } from '../Stack';
+import { Flex } from '../Flex';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
+import { useId } from '../helpers/useId';
+import { Loader } from '../Loader/Loader';
+import { Popover } from '../Popover';
+import { CaretBox, IconBox } from '../Select/components';
+import { Stack } from '../Stack';
+import { Typography } from '../Typography';
 import { VisuallyHidden } from '../VisuallyHidden';
+import { ComboboxOption } from './ComboboxOption';
+import { Input, MainRow, ValueContainer, InputContainer } from './components';
+import { getActionFromKey, getUpdatedIndex, maintainScrollVisibility, MenuActions, filterOptions } from './utils';
 
 export const Combobox = ({
   children: nodes,

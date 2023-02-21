@@ -1,6 +1,8 @@
-import React, { Children } from 'react';
-import styled from 'styled-components';
+import * as React from 'react';
+
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
 import { Flex } from '../Flex';
 import { PaginationContext } from './PaginationContext';
 
@@ -12,11 +14,13 @@ const PaginationList = styled(Flex)`
 `;
 
 export const Pagination = ({ children, label, activePage, pageCount }) => {
+  const context = React.useMemo(() => ({ activePage, pageCount }), [activePage, pageCount]);
+
   return (
-    <PaginationContext.Provider value={{ activePage, pageCount }}>
+    <PaginationContext.Provider value={context}>
       <PaginationWrapper aria-label={label}>
         <PaginationList as="ul">
-          {Children.map(children, (child, index) => {
+          {React.Children.map(children, (child, index) => {
             // eslint-disable-next-line react/no-array-index-key
             return <li key={index}>{child}</li>;
           })}

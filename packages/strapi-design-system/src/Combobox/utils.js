@@ -1,4 +1,5 @@
 import computeScrollIntoView from 'compute-scroll-into-view';
+
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 
 export const MenuActions = {
