@@ -13,5 +13,5 @@ export const useId = (initialId?: string | number | undefined): string => {
     if (!initialId) setId((reactId) => reactId ?? String(count++));
   }, [initialId]);
 
-  return initialId?.toString() ?? (id ? id : '');
+  return initialId?.toString() ?? (id || '');
 };

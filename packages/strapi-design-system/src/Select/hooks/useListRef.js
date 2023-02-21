@@ -1,4 +1,5 @@
 import { useRef, useEffect } from 'react';
+
 import { DownState, UpState } from '../constants';
 import { changeDescendant } from '../utils';
 

@@ -14,8 +14,7 @@
     "develop": "lerna run develop --stream",
     "build": "lerna run build",
     "clean": "lerna clean",
-    "lint": "eslint . --ext .js,.jsx --fix",
-    "lint-staged": "eslint . --ext .js,.jsx --fix",
+    "lint": "lerna run lint",
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write .",
     "setup": "yarn && yarn bootstrap && yarn build",
@@ -35,11 +34,12 @@
     "@rollup/plugin-typescript": "^10.0.1",
     "@strapi/eslint-config": "^0.1.2",
     "@tsconfig/node16": "^1.0.3",
+    "@typescript-eslint/eslint-plugin": "^5.53.0",
+    "@typescript-eslint/parser": "^5.53.0",
     "@vitejs/plugin-react": "^2.2.0",
     "chokidar-cli": "^3.0.0",
     "cross-env": "^7.0.3",
     "eslint": "^8.28.0",
-    "eslint-plugin-mdx": "^1.17.0",
     "fs-extra": "^10.0.0",
     "husky": "=4",
     "lerna": "^6.4.1",
@@ -56,7 +56,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx}": "yarn lint-staged"
+    "*.{js,jsx,tsx,ts}": "yarn lint"
   },
   "resolutions": {
     "@types/react": "17.0.2",

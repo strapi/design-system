@@ -1,23 +1,24 @@
 import React, { Children, cloneElement, useRef, useState } from 'react';
+
+import { CarretDown, Cross } from '@strapi/icons';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { CarretDown, Cross } from '@strapi/icons';
 
-import { sizes } from '../themes/sizes';
-import { SelectButton } from './SelectButton';
+import { Box } from '../Box';
 import { Field, FieldHint, FieldLabel, FieldError } from '../Field';
+import { Flex } from '../Flex';
+import { escapeSelector } from '../helpers/escapeSelector';
+import { useId } from '../helpers/useId';
 import { Popover } from '../Popover';
 import { Stack } from '../Stack';
+import { sizes } from '../themes/sizes';
 import { Typography } from '../Typography';
-import { Flex } from '../Flex';
-import { Box } from '../Box';
-import { useId } from '../helpers/useId';
-import { SelectList } from './SelectList';
-import { SelectButtonWrapper, IconBox, CaretBox } from './components';
-import { useButtonRef } from './hooks/useButtonRef';
 import { VisuallyHidden } from '../VisuallyHidden';
+import { SelectButtonWrapper, IconBox, CaretBox } from './components';
 import { DownState } from './constants';
-import { escapeSelector } from '../helpers/escapeSelector';
+import { useButtonRef } from './hooks/useButtonRef';
+import { SelectButton } from './SelectButton';
+import { SelectList } from './SelectList';
 import { SelectTags } from './SelectTags';
 
 const MainRow = styled(Flex)`

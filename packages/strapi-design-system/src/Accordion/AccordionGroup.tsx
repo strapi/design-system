@@ -1,10 +1,11 @@
-import { Children, cloneElement, ReactElement, ReactNode } from 'react';
+import * as React from 'react';
+
 import styled from 'styled-components';
 
 import { Box } from '../Box';
-import { Typography } from '../Typography';
 import { Flex } from '../Flex';
 import { KeyboardNavigable } from '../KeyboardNavigable';
+import { Typography } from '../Typography';
 
 const AccordionFooter = styled(Box)`
   border-bottom: 1px solid ${({ theme }) => theme.colors.neutral200};
@@ -13,7 +14,7 @@ const AccordionFooter = styled(Box)`
   border-radius: 0 0 ${({ theme }) => theme.borderRadius} ${({ theme }) => theme.borderRadius};
 `;
 
-const EnhancedGroup = styled(Box)<{ footer: ReactNode }>`
+const EnhancedGroup = styled(Box)<{ footer: React.ReactNode }>`
   & > * {
     & > * {
       border-radius: unset;
@@ -58,7 +59,7 @@ const LabelAction = styled(Box)`
   }
 `;
 
-export interface AccordionGroup {
+export interface AccordionGroupProps {
   children: React.ReactNode;
   error?: string;
   footer?: React.ReactNode;
@@ -66,9 +67,9 @@ export interface AccordionGroup {
   labelAction?: React.ReactNode;
 }
 
-export const AccordionGroup = ({ children, footer, label, labelAction, error }: AccordionGroup) => {
-  const childrenArray = Children.toArray(children).map((child) => {
-    return cloneElement(child as ReactElement, { hasErrorMessage: false });
+export const AccordionGroup = ({ children, footer, label, labelAction, error }: AccordionGroupProps) => {
+  const childrenArray = React.Children.toArray(children).map((child) => {
+    return React.cloneElement(child as React.ReactElement, { hasErrorMessage: false });
   });
 
   return (

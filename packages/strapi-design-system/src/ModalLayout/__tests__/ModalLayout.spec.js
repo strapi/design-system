@@ -1,8 +1,10 @@
 import * as React from 'react';
+
 import { render } from '@testing-library/react';
+
+import { Button } from '../../Button';
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
-import { Button } from '../../Button';
 import { ModalLayout, ModalHeader, ModalBody, ModalFooter } from '../index';
 
 describe('ModalLayout', () => {
@@ -30,50 +32,6 @@ describe('ModalLayout', () => {
     );
 
     expect(document.body).toMatchInlineSnapshot(`
-      .c0 {
-        border: 0;
-        -webkit-clip: rect(0 0 0 0);
-        clip: rect(0 0 0 0);
-        height: 1px;
-        margin: -1px;
-        overflow: hidden;
-        padding: 0;
-        position: absolute;
-        width: 1px;
-      }
-
-      .c19 {
-        font-size: 0.75rem;
-        line-height: 1.33;
-        font-weight: 600;
-        color: #32324d;
-      }
-
-      .c2 {
-        padding-right: 40px;
-        padding-left: 40px;
-        position: fixed;
-        z-index: 4;
-      }
-
-      .c5 {
-        background: #ffffff;
-        border-radius: 4px;
-        box-shadow: 0px 2px 15px rgba(33,33,52,0.1);
-      }
-
-      .c7 {
-        background: #f6f6f9;
-        padding-top: 16px;
-        padding-right: 20px;
-        padding-bottom: 16px;
-        padding-left: 20px;
-      }
-
-      .c12 {
-        padding: 32px;
-      }
-
       .c10 {
         display: -webkit-box;
         display: -webkit-flex;
@@ -130,6 +88,38 @@ describe('ModalLayout', () => {
         left: -5px;
         right: -5px;
         border: 2px solid #4945ff;
+      }
+
+      .c2 {
+        padding-right: 40px;
+        padding-left: 40px;
+        position: fixed;
+        z-index: 4;
+      }
+
+      .c5 {
+        background: #ffffff;
+        border-radius: 4px;
+        box-shadow: 0px 2px 15px rgba(33,33,52,0.1);
+      }
+
+      .c7 {
+        background: #f6f6f9;
+        padding-top: 16px;
+        padding-right: 20px;
+        padding-bottom: 16px;
+        padding-left: 20px;
+      }
+
+      .c12 {
+        padding: 32px;
+      }
+
+      .c19 {
+        font-size: 0.75rem;
+        line-height: 1.33;
+        font-weight: 600;
+        color: #32324d;
       }
 
       .c17 {
@@ -358,6 +348,18 @@ describe('ModalLayout', () => {
       .c21 svg > g,
       .c21 svg path {
         fill: #ffffff;
+      }
+
+      .c0 {
+        border: 0;
+        -webkit-clip: rect(0 0 0 0);
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
       }
 
       .c3 {

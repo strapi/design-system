@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Stack } from '../Stack';
+
 import { DatePicker } from '../DatePicker';
-import { TimePicker } from '../TimePicker';
 import { Field, FieldHint, FieldLabel, FieldError } from '../Field';
 import { useId } from '../helpers/useId';
-import { parseDate } from './parseDate';
+import { Stack } from '../Stack';
+import { TimePicker } from '../TimePicker';
 import { dateTimePickerDefaultProps, dateTimePickerPropTypes } from './DateTimePickerProps';
+import { parseDate } from './parseDate';
 
 export const DateTimePicker = ({
   ariaLabel,

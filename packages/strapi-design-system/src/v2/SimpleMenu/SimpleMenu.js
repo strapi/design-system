@@ -1,19 +1,20 @@
 import React, { useRef, useState, Children, cloneElement, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
+
 import { useCallbackRef } from '@radix-ui/react-use-callback-ref';
 import { CarretDown } from '@strapi/icons';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-import { Link } from '../Link';
-import { Typography } from '../../Typography';
-import { Box } from '../../Box';
-import { Flex } from '../../Flex';
-import { Button } from '../../Button';
 import { BaseLink } from '../../BaseLink';
-import { Popover, POPOVER_PLACEMENTS } from '../../Popover';
-import { getOptionStyle } from './utils';
-import { useId } from '../../helpers/useId';
+import { Box } from '../../Box';
+import { Button } from '../../Button';
+import { Flex } from '../../Flex';
 import { KeyboardKeys } from '../../helpers/keyboardKeys';
+import { useId } from '../../helpers/useId';
+import { Popover, POPOVER_PLACEMENTS } from '../../Popover';
+import { Typography } from '../../Typography';
+import { Link } from '../Link';
+import { getOptionStyle } from './utils';
 
 const OptionButton = styled.button`
   border: none;

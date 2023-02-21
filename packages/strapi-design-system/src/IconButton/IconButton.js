@@ -1,9 +1,11 @@
 import React, { cloneElement } from 'react';
+
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Tooltip } from '../Tooltip';
+
 import { BaseButton } from '../BaseButton';
 import { Flex } from '../Flex';
+import { Tooltip } from '../Tooltip';
 import { VisuallyHidden } from '../VisuallyHidden';
 
 const IconButtonWrapper = styled(BaseButton)`

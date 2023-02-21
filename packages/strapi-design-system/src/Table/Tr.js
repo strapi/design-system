@@ -1,5 +1,7 @@
 import React from 'react';
+
 import styled from 'styled-components';
+
 import { RawTr } from '../RawTable/RawTr';
 
 const TrWrapper = styled(RawTr)`

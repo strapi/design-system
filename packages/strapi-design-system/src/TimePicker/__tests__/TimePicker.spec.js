@@ -1,8 +1,10 @@
 import * as React from 'react';
+
 import { render, fireEvent, screen, waitFor } from '@testing-library/react';
-import { TimePicker } from '../TimePicker';
+
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
+import { TimePicker } from '../TimePicker';
 
 describe('TimePicker', () => {
   it('snapshots the component by default', async () => {
@@ -28,23 +30,16 @@ describe('TimePicker', () => {
     await waitFor(() => screen.getByText('00:00'));
 
     expect(container).toMatchInlineSnapshot(`
-      .c5 {
+      .c15 {
+        border: 0;
+        -webkit-clip: rect(0 0 0 0);
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
         position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        top: 0;
-        width: 100%;
-        background: transparent;
-        border: none;
-      }
-
-      .c5:focus {
-        outline: none;
-      }
-
-      .c5[aria-disabled='true'] {
-        cursor: not-allowed;
+        width: 1px;
       }
 
       .c8 {
@@ -240,16 +235,23 @@ describe('TimePicker', () => {
         width: 0.375rem;
       }
 
-      .c15 {
-        border: 0;
-        -webkit-clip: rect(0 0 0 0);
-        clip: rect(0 0 0 0);
-        height: 1px;
-        margin: -1px;
-        overflow: hidden;
-        padding: 0;
+      .c5 {
         position: absolute;
-        width: 1px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        width: 100%;
+        background: transparent;
+        border: none;
+      }
+
+      .c5:focus {
+        outline: none;
+      }
+
+      .c5[aria-disabled='true'] {
+        cursor: not-allowed;
       }
 
       .c7 {

@@ -1,10 +1,11 @@
+import * as React from 'react';
+
 import styled, { DefaultTheme } from 'styled-components';
 
-import { Typography } from '../Typography';
-import { useId } from '../helpers/useId';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
-
+import { useId } from '../helpers/useId';
+import { Typography } from '../Typography';
 import { AccordionContext } from './AccordionContext';
 
 interface GetBorderParams extends AccordionWrapperProps {
@@ -125,8 +126,13 @@ export const Accordion = ({
 }: AccordionProps) => {
   const generatedId = useId(id);
 
+  const context = React.useMemo(
+    () => ({ expanded, onToggle, toggle, id: generatedId, size, variant, disabled }),
+    [disabled, expanded, generatedId, onToggle, size, toggle, variant],
+  );
+
   return (
-    <AccordionContext.Provider value={{ expanded, onToggle, toggle, id: generatedId, size, variant, disabled }}>
+    <AccordionContext.Provider value={context}>
       <AccordionWrapper
         data-strapi-expanded={expanded}
         disabled={disabled}

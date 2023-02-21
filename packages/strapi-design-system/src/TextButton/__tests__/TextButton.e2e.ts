@@ -1,6 +1,5 @@
-import { injectAxe, checkA11y } from 'axe-playwright';
-
 import { test } from '@playwright/test';
+import { injectAxe, checkA11y } from 'axe-playwright';
 
 test.describe.parallel('TextButton', () => {
   test.describe('light mode', () => {

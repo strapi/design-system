@@ -1,12 +1,13 @@
 import React, { Children, useState } from 'react';
+
+import { CarretDown } from '@strapi/icons';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { CarretDown } from '@strapi/icons';
 
 import { Box } from '../Box';
 import { Flex } from '../Flex';
-import { Typography } from '../Typography';
 import { useId } from '../helpers/useId';
+import { Typography } from '../Typography';
 
 const SubNavLinkSectionWrapper = styled(Box)`
   svg {

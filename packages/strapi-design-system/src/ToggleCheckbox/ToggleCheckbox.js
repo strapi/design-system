@@ -1,13 +1,15 @@
 import React from 'react';
+
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+
+import { Box } from '../Box';
+import { useField } from '../Field';
+import { Flex } from '../Flex';
 import { sizes } from '../themes/sizes';
 import { inputFocusStyle } from '../themes/utils';
 import { Typography } from '../Typography';
 import { VisuallyHidden } from '../VisuallyHidden';
-import { Box } from '../Box';
-import { useField } from '../Field';
-import { Flex } from '../Flex';
 
 const Label = styled.label`
   position: relative;

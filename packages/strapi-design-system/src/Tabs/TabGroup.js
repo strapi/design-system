@@ -1,31 +1,38 @@
-import React, { forwardRef, Children, useState, useImperativeHandle } from 'react';
+import * as React from 'react';
+
 import PropTypes from 'prop-types';
-import { TabsContext } from './TabsContext';
+
 import { useId } from '../helpers/useId';
+import { TabsContext } from './TabsContext';
 
-export const TabGroup = forwardRef(({ id, initialSelectedTabIndex, label, onTabChange, variant, ...props }, ref) => {
-  const tabsId = useId(id);
-  const Tabs = Children.toArray(props.children).find((node) => node.type.displayName === 'Tabs');
-  let firstSelectedTab = initialSelectedTabIndex || 0;
+export const TabGroup = React.forwardRef(
+  ({ id, initialSelectedTabIndex, label, onTabChange, variant, ...props }, ref) => {
+    const tabsId = useId(id);
+    const Tabs = React.Children.toArray(props.children).find((node) => node.type.displayName === 'Tabs');
+    let firstSelectedTab = initialSelectedTabIndex || 0;
 
-  if (Tabs && initialSelectedTabIndex === undefined) {
-    firstSelectedTab = Tabs.props.children.findIndex((node) => !node.props.disabled);
-  }
+    if (Tabs && initialSelectedTabIndex === undefined) {
+      firstSelectedTab = Tabs.props.children.findIndex((node) => !node.props.disabled);
+    }
 
-  const [selectedTabIndex, setSelectedTabIndex] = useState(firstSelectedTab === -1 ? 0 : firstSelectedTab);
+    const [selectedTabIndex, setSelectedTabIndex] = React.useState(firstSelectedTab === -1 ? 0 : firstSelectedTab);
 
-  useImperativeHandle(ref, () => ({
-    _handlers: { setSelectedTabIndex },
-  }));
+    React.useImperativeHandle(ref, () => ({
+      _handlers: { setSelectedTabIndex },
+    }));
 
-  return (
-    <TabsContext.Provider
-      value={{ id: tabsId, selectedTabIndex, selectTabIndex: setSelectedTabIndex, label, variant, onTabChange }}
-    >
-      <div {...props} />
-    </TabsContext.Provider>
-  );
-});
+    const context = React.useMemo(
+      () => ({ id: tabsId, selectedTabIndex, selectTabIndex: setSelectedTabIndex, label, variant, onTabChange }),
+      [label, onTabChange, selectedTabIndex, tabsId, variant],
+    );
+
+    return (
+      <TabsContext.Provider value={context}>
+        <div {...props} />
+      </TabsContext.Provider>
+    );
+  },
+);
 
 TabGroup.displayName = 'TabGroup';
 

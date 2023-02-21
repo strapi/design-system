@@ -1,10 +1,11 @@
 import React from 'react';
+
+import { Cross } from '@strapi/icons';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Cross } from '@strapi/icons';
 
-import { Tag } from '../Tag';
 import { Flex } from '../Flex';
+import { Tag } from '../Tag';
 
 const SelectTagsWrapper = styled.div`
   margin-bottom: ${({ theme }) => theme.spaces[1]};

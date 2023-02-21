@@ -1,9 +1,10 @@
 import * as React from 'react';
+
 import { render, waitFor } from '@testing-library/react';
 
-import { Status } from '../Status';
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
+import { Status } from '../Status';
 
 describe('Status', () => {
   it('it displays its children', async () => {

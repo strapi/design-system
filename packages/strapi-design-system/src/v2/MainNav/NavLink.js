@@ -1,13 +1,15 @@
 import React from 'react';
-import styled from 'styled-components';
+
 import PropTypes from 'prop-types';
-import { Box } from '../../Box';
-import { Flex } from '../../Flex';
-import { Typography } from '../../Typography';
-import { useMainNav } from './MainNavContext';
-import { Tooltip } from '../../Tooltip';
+import styled from 'styled-components';
+
 import { Badge } from '../../Badge';
 import { BaseLink } from '../../BaseLink';
+import { Box } from '../../Box';
+import { Flex } from '../../Flex';
+import { Tooltip } from '../../Tooltip';
+import { Typography } from '../../Typography';
+import { useMainNav } from './MainNavContext';
 
 const IconBox = styled(Box)`
   svg {

@@ -1,13 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Typography textAlign 1`] = `
-.c0 {
-  font-size: 0.875rem;
-  line-height: 1.43;
-  color: #32324d;
-  text-align: center;
-}
-
 .c1 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
@@ -18,6 +11,13 @@ exports[`Typography textAlign 1`] = `
   padding: 0;
   position: absolute;
   width: 1px;
+}
+
+.c0 {
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #32324d;
+  text-align: center;
 }
 
 <div>
@@ -52,13 +52,6 @@ exports[`Typography textAlign 1`] = `
 `;
 
 exports[`Typography textTransform 1`] = `
-.c0 {
-  font-size: 0.875rem;
-  line-height: 1.43;
-  color: #32324d;
-  text-transform: uppercase;
-}
-
 .c1 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
@@ -69,6 +62,13 @@ exports[`Typography textTransform 1`] = `
   padding: 0;
   position: absolute;
   width: 1px;
+}
+
+.c0 {
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #32324d;
+  text-transform: uppercase;
 }
 
 <div>

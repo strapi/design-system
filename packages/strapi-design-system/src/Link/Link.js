@@ -1,12 +1,13 @@
 import React, { forwardRef } from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { ExternalLink } from '@strapi/icons';
-import { NavLink } from 'react-router-dom';
 
-import { Typography } from '../Typography';
+import { ExternalLink } from '@strapi/icons';
+import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
+
 import { Box } from '../Box';
 import { buttonFocusStyle } from '../themes/utils';
+import { Typography } from '../Typography';
 
 const LinkWrapper = styled.a`
   display: inline-flex;

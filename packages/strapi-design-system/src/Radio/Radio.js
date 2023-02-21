@@ -1,9 +1,11 @@
 import React from 'react';
+
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+
 import { BaseRadio } from '../BaseRadio/BaseRadio';
-import { Typography } from '../Typography';
 import { Box } from '../Box';
+import { Typography } from '../Typography';
 
 const TextLabel = styled(Typography)`
   display: flex;

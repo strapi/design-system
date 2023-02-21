@@ -1,9 +1,11 @@
-import React from 'react';
-import styled from 'styled-components';
+import * as React from 'react';
+
 import PropTypes from 'prop-types';
-import { GridContext } from './GridContext';
+import styled from 'styled-components';
+
 import { Box } from '../Box';
 import handleResponsiveValues from '../helpers/handleResponsiveValues';
+import { GridContext } from './GridContext';
 
 const GridWrapper = styled(Box)`
   display: grid;
@@ -12,8 +14,10 @@ const GridWrapper = styled(Box)`
 `;
 
 export const Grid = ({ gap, gridCols, ...props }) => {
+  const context = React.useMemo(() => ({ gap, gridCols }), [gap, gridCols]);
+
   return (
-    <GridContext.Provider value={{ gap, gridCols }}>
+    <GridContext.Provider value={context}>
       <GridWrapper gap={gap} gridCols={gridCols} {...props} />
     </GridContext.Provider>
   );

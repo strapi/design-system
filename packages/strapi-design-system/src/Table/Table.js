@@ -1,8 +1,10 @@
 import React, { useRef, useState, useEffect } from 'react';
+
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { RawTable } from '../RawTable/RawTable';
+
 import { Box } from '../Box';
+import { RawTable } from '../RawTable/RawTable';
 
 const TableContainer = styled(Box)`
   overflow: hidden;

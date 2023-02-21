@@ -1,8 +1,10 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
+
 import PropTypes from 'prop-types';
-import { RawTableContext } from './RawTableContext';
+
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 import { focusFocusable } from './focusFocusable';
+import { RawTableContext } from './RawTableContext';
 
 export const RawTable = ({ colCount, rowCount, jumpStep, initialCol, initialRow, ...props }) => {
   const tableRef = useRef(null);
@@ -103,8 +105,10 @@ export const RawTable = ({ colCount, rowCount, jumpStep, initialCol, initialRow,
     }
   };
 
+  const context = React.useMemo(() => ({ rowIndex, colIndex, setTableValues }), [colIndex, rowIndex, setTableValues]);
+
   return (
-    <RawTableContext.Provider value={{ rowIndex, colIndex, setTableValues }}>
+    <RawTableContext.Provider value={context}>
       <table
         role="grid"
         ref={tableRef}

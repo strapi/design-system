@@ -1,4 +1,5 @@
 import { MutableRefObject, useLayoutEffect } from 'react';
+
 import { useCallbackRef } from '@radix-ui/react-use-callback-ref';
 
 export const useResizeObserver = (

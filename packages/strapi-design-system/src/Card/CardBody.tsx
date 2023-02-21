@@ -1,5 +1,5 @@
-import { Flex, FlexProps } from '../Flex';
 import { Box } from '../Box';
+import { Flex, FlexProps } from '../Flex';
 
 export type CardBodyProps = FlexProps;
 

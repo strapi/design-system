@@ -1,12 +1,12 @@
-import { ChangeEventHandler, useLayoutEffect, useRef } from 'react';
+import { HTMLAttributes, ChangeEventHandler, useLayoutEffect, useRef, ReactNode, useMemo } from 'react';
 
-import { RadioContext } from './context';
 import { setTabIndexOnFirstItem } from '../helpers/setTabIndexOnFirstItem';
+import { RadioContext } from './context';
 
 export type RadioGroupSize = 'M' | 'L';
 
-interface RadioGroupProps extends React.HTMLAttributes<HTMLDivElement> {
-  children: React.ReactNode;
+interface RadioGroupProps extends HTMLAttributes<HTMLDivElement> {
+  children: ReactNode;
   labelledBy: string;
   name: string;
   onChange: ChangeEventHandler<HTMLInputElement>;
@@ -31,8 +31,10 @@ export const RadioGroup = ({
     }
   }, [value, name]);
 
+  const context = useMemo(() => ({ onChange, selected: value, name, size }), [name, onChange, size, value]);
+
   return (
-    <RadioContext.Provider value={{ onChange, selected: value, name, size }}>
+    <RadioContext.Provider value={context}>
       <div ref={radioGroupRef} role="radiogroup" aria-labelledby={labelledBy} {...props}>
         {children}
       </div>

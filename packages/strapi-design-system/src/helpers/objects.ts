@@ -40,13 +40,17 @@ export function isObject(item: any): boolean {
 export function mergeDeep(target: Record<string, any>, ...sources: Record<string, any>[]): Record<string, any> {
   if (!sources.length) return target;
   const source: Record<string, any> | Array<any> | undefined = sources.shift();
-  if (source == undefined) return target;
+
+  if (source === undefined) return target;
   const bothAreObj = isObject(target) && isObject(source);
   const bothAreArr = isArray(target) && isArray(source);
+
   if (bothAreObj || bothAreArr) {
+    // eslint-disable-next-line no-restricted-syntax
     for (const key of Object.keys(source)) {
       const isObj = isObject(source[key]);
       const isArr = isArray(source[key]);
+
       if (isObj || isArr) {
         if (!target[key]) Object.assign(target, { [key]: isObj ? {} : [] });
         mergeDeep(target[key], source[key]);
@@ -57,5 +61,6 @@ export function mergeDeep(target: Record<string, any>, ...sources: Record<string
       }
     }
   }
+
   return mergeDeep(target, ...sources);
 }

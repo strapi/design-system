@@ -1,13 +1,15 @@
 import React from 'react';
+
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+
 import { Box } from '../Box';
-import { Typography } from '../Typography';
+import { useId } from '../helpers/useId';
 import { Portal } from '../Portal';
+import { Typography } from '../Typography';
+import { VisuallyHidden } from '../VisuallyHidden';
 import { useTooltipHandlers } from './hooks/useTooltipHandlers';
 import { useTooltipLayout } from './hooks/useTooltipLayout';
-import { useId } from '../helpers/useId';
-import { VisuallyHidden } from '../VisuallyHidden';
 
 const TooltipWrapper = styled(Box)`
   /* z-index exist because of its position inside Modals */

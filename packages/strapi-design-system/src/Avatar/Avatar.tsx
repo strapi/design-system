@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import * as React from 'react';
+
 import styled from 'styled-components';
 
-import { Typography, TypographyProps } from '../Typography';
-import { Flex, FlexProps } from '../Flex';
 import { Box } from '../Box';
-
+import { Flex, FlexProps } from '../Flex';
+import { Typography, TypographyProps } from '../Typography';
 import { avatarSize, previewSize } from './constants';
 
 const AvatarImg = styled.img`
@@ -42,7 +42,7 @@ export interface AvatarProps {
 }
 
 export const Avatar = ({ src, alt, preview }: AvatarProps) => {
-  const [previewVisible, setPreviewVisible] = useState(false);
+  const [previewVisible, setPreviewVisible] = React.useState(false);
   const isHovering = Boolean(preview && previewVisible);
 
   return (
@@ -53,6 +53,7 @@ export const Avatar = ({ src, alt, preview }: AvatarProps) => {
           alt=""
           width={`${previewSize}px`}
           height={`${previewSize}px`}
+          // eslint-disable-next-line no-nested-ternary
           src={preview === true ? src : typeof preview === 'string' ? preview : ''}
         />
       ) : null}

@@ -1,5 +1,6 @@
 import { createContext } from 'react';
 import type { ChangeEventHandler } from 'react';
+
 import type { RadioGroupSize } from './RadioGroup';
 
 export interface RadioContextValue {

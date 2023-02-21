@@ -1,8 +1,8 @@
 import { DefaultTheme } from 'styled-components';
 
+import { commonTheme } from '../common-theme';
 import { darkColorTokenObject } from './dark-colors';
 import { darkShadowTokenObject } from './dark-shadows';
-import { commonTheme } from '../common-theme';
 
 export const darkTheme: DefaultTheme = {
   colors: darkColorTokenObject.color,
