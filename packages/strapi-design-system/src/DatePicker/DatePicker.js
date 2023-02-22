@@ -3,12 +3,12 @@ import React, { useRef, useState } from 'react';
 import { Calendar as CalendarIcon, Cross } from '@strapi/icons';
 import PropTypes from 'prop-types';
 
-import { getDefaultLocale } from '../helpers/getDefaultLocale';
-import { TextInput } from '../TextInput';
-import { sizes } from '../themes/sizes';
 import { DatePickerButton, DatePickerWrapper, IconBox } from './components';
 import { DatePickerCalendar } from './DatePickerCalendar';
 import { formatDate } from './utils/formatDate';
+import { getDefaultLocale } from '../helpers/getDefaultLocale';
+import { TextInput } from '../TextInput';
+import { sizes } from '../themes/sizes';
 
 export const DatePicker = ({
   ariaLabel,

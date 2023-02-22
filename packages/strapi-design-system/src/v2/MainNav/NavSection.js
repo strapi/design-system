@@ -2,12 +2,12 @@ import React, { Children } from 'react';
 
 import PropTypes from 'prop-types';
 
+import { useMainNav } from './MainNavContext';
 import { Box } from '../../Box';
 import { Divider } from '../../Divider';
 import { Stack } from '../../Stack';
 import { Typography } from '../../Typography';
 import { VisuallyHidden } from '../../VisuallyHidden';
-import { useMainNav } from './MainNavContext';
 
 export const NavSection = ({ label, children, ...props }) => {
   const condensed = useMainNav();

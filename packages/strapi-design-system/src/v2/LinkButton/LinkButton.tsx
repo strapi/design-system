@@ -1,19 +1,20 @@
 import React from 'react';
+
 import styled from 'styled-components';
 
-import { Typography } from '../../Typography';
-import { Flex } from '../../Flex';
-import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from '../../Button/utils';
-import { VARIANTS, BUTTON_SIZES } from '../../Button/constants';
 import { BaseButtonWrapper, BaseButtonProps } from '../../BaseButton';
 import { BaseLink, BaseLinkProps } from '../../BaseLink';
+import { VARIANTS, BUTTON_SIZES } from '../../Button/constants';
+import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from '../../Button/utils';
+import { Flex } from '../../Flex';
+import { Typography } from '../../Typography';
 
 interface SharedLinkProps extends BaseLinkProps {
   disabled?: boolean;
   endIcon?: React.ReactNode;
-  size?: typeof BUTTON_SIZES[number];
+  size?: (typeof BUTTON_SIZES)[number];
   startIcon?: React.ReactNode;
-  variant?: typeof VARIANTS[number];
+  variant?: (typeof VARIANTS)[number];
 }
 
 type LinkButtonProps = SharedLinkProps & BaseButtonProps;

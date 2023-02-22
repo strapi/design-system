@@ -1,4 +1,5 @@
 import { useRef, useLayoutEffect } from 'react';
+
 import { positionTooltip, TooltipPosition } from '../utils/positionTooltip';
 
 export const useTooltipLayout = (visible: boolean, position: TooltipPosition) => {

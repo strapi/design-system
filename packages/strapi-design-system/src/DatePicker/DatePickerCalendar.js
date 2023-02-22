@@ -2,16 +2,16 @@ import React, { useEffect, useState } from 'react';
 
 import PropTypes from 'prop-types';
 
+import { DatePickerPopover } from './components';
+import { DatePickerTd } from './DatePickerTd';
+import { DatePickerTh } from './DatePickerTh';
+import { getMonths, getDayOfWeek, generateWeeks, getYears, formatDate } from './utils';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { FocusTrap } from '../FocusTrap';
 import { RawTable, RawThead, RawTbody, RawTr } from '../RawTable';
 import { SimpleMenu, MenuItem } from '../SimpleMenu';
 import { VisuallyHidden } from '../VisuallyHidden';
-import { DatePickerPopover } from './components';
-import { DatePickerTd } from './DatePickerTd';
-import { DatePickerTh } from './DatePickerTh';
-import { getMonths, getDayOfWeek, generateWeeks, getYears, formatDate } from './utils';
 
 export const DatePickerCalendar = ({
   selectedDate,

@@ -2,9 +2,9 @@ import * as React from 'react';
 
 import styled, { CSSProperties, DefaultTheme } from 'styled-components';
 
-import { extractStyleFromTheme } from '../helpers/theme';
 import { TEXT_VARIANTS } from './constants';
 import { ellipsisStyle, variantStyle, handleColor } from './utils';
+import { extractStyleFromTheme } from '../helpers/theme';
 
 const transientProps: Partial<Record<keyof TypographyProps, boolean>> = {
   fontSize: true,

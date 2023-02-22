@@ -1,13 +1,13 @@
 import * as React from 'react';
+
 import { NavLink, NavLinkProps } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { Typography } from '../Typography';
-import { Flex } from '../Flex';
 import { BaseButtonWrapper, BaseButtonProps } from '../BaseButton';
-
-import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from '../Button/utils';
 import { VARIANTS, BUTTON_SIZES } from '../Button/constants';
+import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from '../Button/utils';
+import { Flex } from '../Flex';
+import { Typography } from '../Typography';
 
 const LinkWrapper = styled(BaseButtonWrapper)<Required<Pick<LinkButtonProps, 'variant'>>>`
   &[aria-disabled='true'] {

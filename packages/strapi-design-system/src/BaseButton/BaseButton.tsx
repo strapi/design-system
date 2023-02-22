@@ -3,7 +3,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Flex, FlexProps } from '../Flex';
-
 import { buttonFocusStyle } from '../themes/utils';
 
 export const BaseButtonWrapper = styled(Flex)`

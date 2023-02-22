@@ -1,7 +1,7 @@
 import { HTMLAttributes, ChangeEventHandler, useLayoutEffect, useRef, ReactNode, useMemo } from 'react';
 
-import { setTabIndexOnFirstItem } from '../helpers/setTabIndexOnFirstItem';
 import { RadioContext } from './context';
+import { setTabIndexOnFirstItem } from '../helpers/setTabIndexOnFirstItem';
 
 export type RadioGroupSize = 'M' | 'L';
 

@@ -4,9 +4,9 @@ import { ChevronRight, ChevronLeft } from '@strapi/icons';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import { useMainNav } from './MainNavContext';
 import { Icon } from '../Icon';
 import { VisuallyHidden } from '../VisuallyHidden';
-import { useMainNav } from './MainNavContext';
 
 const NavCondenseWrapper = styled.button`
   background: ${({ theme }) => theme.colors.neutral0};

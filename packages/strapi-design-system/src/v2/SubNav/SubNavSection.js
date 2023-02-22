@@ -3,11 +3,11 @@ import React, { Children, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import { SubNavSectionLabel } from './SubNavSectionLabel';
 import { Badge } from '../../Badge';
 import { Box } from '../../Box';
 import { useId } from '../../helpers/useId';
 import { Stack } from '../../Stack';
-import { SubNavSectionLabel } from './SubNavSectionLabel';
 
 const SubNavSectionWrapper = styled(Box)`
   svg {

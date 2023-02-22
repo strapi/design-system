@@ -1,7 +1,8 @@
 import { render, fireEvent, screen } from '@testing-library/react';
-import { Tooltip } from '../Tooltip';
+
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
+import { Tooltip } from '../Tooltip';
 
 describe('Tooltip', () => {
   it('snapshots document.body when the tooltip is not visible but exists in the DOM', () => {

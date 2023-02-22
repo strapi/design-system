@@ -1,7 +1,7 @@
 import { DefaultTheme } from 'styled-components';
 
-import { isObject, mergeDeep } from '../helpers/objects';
 import { lightTheme } from './lightTheme';
+import { isObject, mergeDeep } from '../helpers/objects';
 
 const generateError = (customMessage: string) => `
 ${customMessage}

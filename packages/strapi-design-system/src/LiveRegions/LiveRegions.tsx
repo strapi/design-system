@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { VisuallyHidden } from '../VisuallyHidden';
 import { LiveRegionIds } from './constants';
+import { VisuallyHidden } from '../VisuallyHidden';
 
 export const LiveRegions = () => {
   return (

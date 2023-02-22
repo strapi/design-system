@@ -1,11 +1,12 @@
 import * as React from 'react';
-import styled from 'styled-components';
+
 import { ExternalLink } from '@strapi/icons';
 import { NavLink, NavLinkProps } from 'react-router-dom';
+import styled from 'styled-components';
 
-import { Typography } from '../Typography';
 import { Box } from '../Box';
 import { buttonFocusStyle } from '../themes/utils';
+import { Typography } from '../Typography';
 
 const LinkWrapper = styled.a<{ disabled: boolean }>`
   display: inline-flex;

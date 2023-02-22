@@ -1,9 +1,10 @@
 import * as React from 'react';
+
 import styled from 'styled-components';
 
-import { Tooltip } from '../Tooltip';
 import { BaseButton, BaseButtonProps } from '../BaseButton';
 import { Flex } from '../Flex';
+import { Tooltip } from '../Tooltip';
 import { VisuallyHidden } from '../VisuallyHidden';
 
 interface SharedIconButtonProps extends BaseButtonProps {
@@ -50,7 +51,7 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
       }
     };
 
-    const Component = () => (
+    const component = (
       <IconButtonWrapper
         aria-disabled={disabled}
         background={disabled ? 'neutral150' : undefined}
@@ -71,13 +72,7 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
       </IconButtonWrapper>
     );
 
-    return label ? (
-      <Tooltip label={label}>
-        <Component />
-      </Tooltip>
-    ) : (
-      <Component />
-    );
+    return label ? <Tooltip label={label}>{component}</Tooltip> : component;
   },
 );
 

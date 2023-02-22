@@ -3,11 +3,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import { TextareaInput } from './TextareaInput';
 import { Field, FieldLabel, FieldHint, FieldError } from '../Field';
 import { Flex } from '../Flex';
 import { useId } from '../helpers/useId';
 import { Stack } from '../Stack';
-import { TextareaInput } from './TextareaInput';
 
 const TextareaWrapper = styled.div`
   & textarea {

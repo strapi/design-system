@@ -3,9 +3,9 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import { GridContext } from './GridContext';
 import { Box } from '../Box';
 import handleResponsiveValues from '../helpers/handleResponsiveValues';
-import { GridContext } from './GridContext';
 
 const GridWrapper = styled(Box)`
   display: grid;

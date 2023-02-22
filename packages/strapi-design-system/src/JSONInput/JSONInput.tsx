@@ -4,11 +4,11 @@ import { jsonParseLinter, json } from '@codemirror/lang-json';
 import { ViewUpdate } from '@codemirror/view';
 import { useCodeMirror, ReactCodeMirrorRef, ReactCodeMirrorProps } from '@uiw/react-codemirror';
 
+import { JSONInputContainer } from './JSONInputContainer';
+import { markField, addMarks, filterMarks, lineHighlightMark } from './utils/decorationExtension';
 import { Field, FieldLabel, FieldError, FieldHint } from '../Field';
 import { FlexProps } from '../Flex';
 import { Stack } from '../Stack';
-import { JSONInputContainer } from './JSONInputContainer';
-import { markField, addMarks, filterMarks, lineHighlightMark } from './utils/decorationExtension';
 
 interface JSONInputProps extends Omit<FlexProps, 'onChange'> {
   label?: string;

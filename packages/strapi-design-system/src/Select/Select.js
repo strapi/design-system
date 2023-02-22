@@ -4,6 +4,12 @@ import { CarretDown, Cross } from '@strapi/icons';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import { SelectButtonWrapper, IconBox, CaretBox } from './components';
+import { DownState } from './constants';
+import { useButtonRef } from './hooks/useButtonRef';
+import { SelectButton } from './SelectButton';
+import { SelectList } from './SelectList';
+import { SelectTags } from './SelectTags';
 import { Box } from '../Box';
 import { Field, FieldHint, FieldLabel, FieldError } from '../Field';
 import { Flex } from '../Flex';
@@ -14,12 +20,6 @@ import { Stack } from '../Stack';
 import { sizes } from '../themes/sizes';
 import { Typography } from '../Typography';
 import { VisuallyHidden } from '../VisuallyHidden';
-import { SelectButtonWrapper, IconBox, CaretBox } from './components';
-import { DownState } from './constants';
-import { useButtonRef } from './hooks/useButtonRef';
-import { SelectButton } from './SelectButton';
-import { SelectList } from './SelectList';
-import { SelectTags } from './SelectTags';
 
 const MainRow = styled(Flex)`
   width: 100%;

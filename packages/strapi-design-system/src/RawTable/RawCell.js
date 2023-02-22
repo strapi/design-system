@@ -2,10 +2,10 @@ import React, { useCallback, useLayoutEffect, useRef, useState } from 'react';
 
 import PropTypes from 'prop-types';
 
+import { useTable } from './RawTableContext';
 import { Box } from '../Box';
 import { getFocusableNodes, getFocusableNodesWithKeyboardNav } from '../helpers/getFocusableNodes';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
-import { useTable } from './RawTableContext';
 
 export const RawTh = (props) => <RawTd {...props} as="th" />;
 

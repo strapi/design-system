@@ -1,5 +1,5 @@
-import { Typography, TypographyProps } from '../Typography';
 import { useCard } from './CardContext';
+import { Typography, TypographyProps } from '../Typography';
 
 export type CardTitleProps = TypographyProps;
 

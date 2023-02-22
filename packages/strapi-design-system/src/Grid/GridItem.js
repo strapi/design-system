@@ -3,8 +3,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { Box } from '../Box';
 import { useGrid } from './GridContext';
+import { Box } from '../Box';
 
 const GridItemWrapper = styled.div`
   grid-column: span ${({ col }) => col};

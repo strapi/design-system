@@ -3,12 +3,12 @@ import React from 'react';
 import { Loader } from '@strapi/icons';
 import styled, { keyframes } from 'styled-components';
 
+import { BUTTON_SIZES, Variant, ButtonSizes, DEFAULT } from './constants';
+import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from './utils';
 import { BaseButton, BaseButtonProps } from '../BaseButton';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { Typography } from '../Typography';
-import { BUTTON_SIZES, Variant, ButtonSizes, DEFAULT } from './constants';
-import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from './utils';
 
 const rotation = keyframes`
   from {

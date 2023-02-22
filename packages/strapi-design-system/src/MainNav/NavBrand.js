@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
+import { useMainNav } from './MainNavContext';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { Typography } from '../Typography';
 import { VisuallyHidden } from '../VisuallyHidden';
-import { useMainNav } from './MainNavContext';
 
 const BrandIconWrapper = styled.div`
   svg,
