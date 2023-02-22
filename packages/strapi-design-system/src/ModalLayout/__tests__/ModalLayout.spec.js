@@ -32,16 +32,11 @@ describe('ModalLayout', () => {
     );
 
     expect(document.body).toMatchInlineSnapshot(`
-      .c0 {
-        border: 0;
-        -webkit-clip: rect(0 0 0 0);
-        clip: rect(0 0 0 0);
-        height: 1px;
-        margin: -1px;
-        overflow: hidden;
-        padding: 0;
-        position: absolute;
-        width: 1px;
+      .c21 {
+        font-size: 0.75rem;
+        line-height: 1.33;
+        font-weight: 600;
+        color: #ffffff;
       }
 
       .c1 {
@@ -204,13 +199,6 @@ describe('ModalLayout', () => {
         border: 2px solid #4945ff;
       }
 
-      .c21 {
-        font-size: 0.75rem;
-        line-height: 1.33;
-        font-weight: 600;
-        color: #ffffff;
-      }
-
       .c19 {
         height: 2rem;
         border: 1px solid #dcdce4;
@@ -370,6 +358,18 @@ describe('ModalLayout', () => {
         fill: #ffffff;
       }
 
+      .c0 {
+        border: 0;
+        -webkit-clip: rect(0 0 0 0);
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+      }
+
       .c3 {
         inset: 0;
         background: #32324d1F;
@@ -479,13 +479,13 @@ describe('ModalLayout', () => {
                           aria-hidden="true"
                           fill="none"
                           focusable="false"
-                          height="1em"
+                          height="1rem"
                           viewBox="0 0 24 24"
-                          width="1em"
+                          width="1rem"
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            d="M24 2.417L21.583 0 12 9.583 2.417 0 0 2.417 9.583 12 0 21.583 2.417 24 12 14.417 21.583 24 24 21.583 14.417 12 24 2.417z"
+                            d="M24 2.417 21.583 0 12 9.583 2.417 0 0 2.417 9.583 12 0 21.583 2.417 24 12 14.417 21.583 24 24 21.583 14.417 12 24 2.417Z"
                             fill="#212134"
                           />
                         </svg>

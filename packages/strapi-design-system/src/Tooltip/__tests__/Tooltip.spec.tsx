@@ -15,6 +15,18 @@ describe('Tooltip', () => {
     );
 
     expect(document.body).toMatchInlineSnapshot(`
+      .c0 {
+        border: 0;
+        -webkit-clip: rect(0 0 0 0);
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+      }
+
       .c1 {
         background: #212134;
         padding: 8px;
@@ -27,18 +39,6 @@ describe('Tooltip', () => {
         line-height: 1.33;
         font-weight: 600;
         color: #ffffff;
-      }
-
-      .c0 {
-        border: 0;
-        -webkit-clip: rect(0 0 0 0);
-        clip: rect(0 0 0 0);
-        height: 1px;
-        margin: -1px;
-        overflow: hidden;
-        padding: 0;
-        position: absolute;
-        width: 1px;
       }
 
       .c2 {
@@ -111,6 +111,18 @@ describe('Tooltip', () => {
     fireEvent.focus(screen.getByText('Show tooltip'));
 
     expect(document.body).toMatchInlineSnapshot(`
+      .c0 {
+        border: 0;
+        -webkit-clip: rect(0 0 0 0);
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+      }
+
       .c1 {
         background: #212134;
         padding: 8px;
@@ -123,18 +135,6 @@ describe('Tooltip', () => {
         line-height: 1.33;
         font-weight: 600;
         color: #ffffff;
-      }
-
-      .c0 {
-        border: 0;
-        -webkit-clip: rect(0 0 0 0);
-        clip: rect(0 0 0 0);
-        height: 1px;
-        margin: -1px;
-        overflow: hidden;
-        padding: 0;
-        position: absolute;
-        width: 1px;
       }
 
       .c2 {
@@ -214,6 +214,18 @@ describe('Tooltip', () => {
     fireEvent.focus(screen.getByText('+'));
 
     expect(document.body).toMatchInlineSnapshot(`
+      .c0 {
+        border: 0;
+        -webkit-clip: rect(0 0 0 0);
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+      }
+
       .c1 {
         background: #212134;
         padding: 8px;
@@ -226,18 +238,6 @@ describe('Tooltip', () => {
         line-height: 1.33;
         font-weight: 600;
         color: #ffffff;
-      }
-
-      .c0 {
-        border: 0;
-        -webkit-clip: rect(0 0 0 0);
-        clip: rect(0 0 0 0);
-        height: 1px;
-        margin: -1px;
-        overflow: hidden;
-        padding: 0;
-        position: absolute;
-        width: 1px;
       }
 
       .c2 {

@@ -112,79 +112,6 @@ describe('TimePicker', () => {
         justify-content: space-between;
       }
 
-      .c2 {
-        font-size: 0.75rem;
-        line-height: 1.33;
-        font-weight: 600;
-        color: #32324d;
-      }
-
-      .c11 {
-        font-size: 0.875rem;
-        line-height: 1.43;
-        display: block;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        color: #32324d;
-      }
-
-      .c14 {
-        font-size: 0.75rem;
-        line-height: 1.33;
-        color: #666687;
-      }
-
-      .c21 {
-        font-size: 0.875rem;
-        line-height: 1.43;
-        color: #32324d;
-      }
-
-      .c22 {
-        font-size: 0.875rem;
-        line-height: 1.43;
-        font-weight: 600;
-        color: #4945ff;
-      }
-
-      .c17 {
-        box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
-        z-index: 4;
-        border: 1px solid #eaeaef;
-        background: #ffffff;
-      }
-
-      .c18 {
-        max-height: 15rem;
-        overflow-y: auto;
-        overflow-x: hidden;
-      }
-
-      .c18::-webkit-scrollbar {
-        -webkit-appearance: none;
-        width: 4px;
-      }
-
-      .c18::-webkit-scrollbar-track {
-        background: #ffffff;
-      }
-
-      .c18::-webkit-scrollbar-thumb {
-        background: #eaeaef;
-        border-radius: 4px;
-        margin-right: 10px;
-      }
-
-      .c1 > * {
-        margin-top: 0;
-        margin-bottom: 0;
-      }
-
-      .c1 > * + * {
-        margin-top: 4px;
-      }
-
       .c4 {
         position: relative;
         border: 1px solid #dcdce4;
@@ -252,6 +179,79 @@ describe('TimePicker', () => {
 
       .c5[aria-disabled='true'] {
         cursor: not-allowed;
+      }
+
+      .c1 > * {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+
+      .c1 > * + * {
+        margin-top: 4px;
+      }
+
+      .c2 {
+        font-size: 0.75rem;
+        line-height: 1.33;
+        font-weight: 600;
+        color: #32324d;
+      }
+
+      .c11 {
+        font-size: 0.875rem;
+        line-height: 1.43;
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: #32324d;
+      }
+
+      .c14 {
+        font-size: 0.75rem;
+        line-height: 1.33;
+        color: #666687;
+      }
+
+      .c21 {
+        font-size: 0.875rem;
+        line-height: 1.43;
+        color: #32324d;
+      }
+
+      .c22 {
+        font-size: 0.875rem;
+        line-height: 1.43;
+        font-weight: 600;
+        color: #4945ff;
+      }
+
+      .c17 {
+        box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
+        z-index: 4;
+        border: 1px solid #eaeaef;
+        background: #ffffff;
+      }
+
+      .c18 {
+        max-height: 15rem;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+
+      .c18::-webkit-scrollbar {
+        -webkit-appearance: none;
+        width: 4px;
+      }
+
+      .c18::-webkit-scrollbar-track {
+        background: #ffffff;
+      }
+
+      .c18::-webkit-scrollbar-thumb {
+        background: #eaeaef;
+        border-radius: 4px;
+        margin-right: 10px;
       }
 
       .c7 {
@@ -336,14 +336,14 @@ describe('TimePicker', () => {
                     >
                       <svg
                         fill="none"
-                        height="1em"
+                        height="1rem"
                         viewBox="0 0 24 24"
-                        width="1em"
+                        width="1rem"
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
                           clip-rule="evenodd"
-                          d="M0 12C0 5.37 5.364 0 11.994 0S24 5.37 24 12s-5.376 12-12.006 12S0 18.63 0 12zm2.4 0c0 5.304 4.296 9.6 9.6 9.6 5.304 0 9.6-4.296 9.6-9.6 0-5.304-4.296-9.6-9.6-9.6A9.597 9.597 0 002.4 12zm8.4-6h1.8v6.3l5.4 3.204-.906 1.476L10.8 13.2V6z"
+                          d="M0 12C0 5.37 5.364 0 11.994 0S24 5.37 24 12s-5.376 12-12.006 12S0 18.63 0 12Zm2.4 0c0 5.304 4.296 9.6 9.6 9.6 5.304 0 9.6-4.296 9.6-9.6 0-5.304-4.296-9.6-9.6-9.6A9.597 9.597 0 0 0 2.4 12Zm8.4-6h1.8v6.3l5.4 3.204-.906 1.476L10.8 13.2V6Z"
                           fill="#212134"
                           fill-rule="evenodd"
                         />
@@ -373,13 +373,13 @@ describe('TimePicker', () => {
                   >
                     <svg
                       fill="none"
-                      height="1em"
+                      height="1rem"
                       viewBox="0 0 24 24"
-                      width="1em"
+                      width="1rem"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="M24 2.417L21.583 0 12 9.583 2.417 0 0 2.417 9.583 12 0 21.583 2.417 24 12 14.417 21.583 24 24 21.583 14.417 12 24 2.417z"
+                        d="M24 2.417 21.583 0 12 9.583 2.417 0 0 2.417 9.583 12 0 21.583 2.417 24 12 14.417 21.583 24 24 21.583 14.417 12 24 2.417Z"
                         fill="#212134"
                       />
                     </svg>
@@ -393,14 +393,14 @@ describe('TimePicker', () => {
                   >
                     <svg
                       fill="none"
-                      height="1em"
+                      height="1rem"
                       viewBox="0 0 14 8"
-                      width="1em"
+                      width="1rem"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
                         clip-rule="evenodd"
-                        d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
+                        d="M14 .889a.86.86 0 0 1-.26.625L7.615 7.736A.834.834 0 0 1 7 8a.834.834 0 0 1-.615-.264L.26 1.514A.861.861 0 0 1 0 .889c0-.24.087-.45.26-.625A.834.834 0 0 1 .875 0h12.25c.237 0 .442.088.615.264a.86.86 0 0 1 .26.625Z"
                         fill="#32324D"
                         fill-rule="evenodd"
                       />
