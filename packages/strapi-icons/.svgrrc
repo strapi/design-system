@@ -1,0 +1,6 @@
+# https://react-svgr.com/docs/options/
+
+dimensions: true     # keep viewBox
+icon: "1rem"         # instead of 1em
+outDir: './src'
+typescript: true

@@ -5,6 +5,7 @@ import { CarretDown } from '@strapi/icons';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import { getOptionStyle } from './utils';
 import { BaseLink } from '../../BaseLink';
 import { Box } from '../../Box';
 import { Button } from '../../Button';
@@ -14,7 +15,6 @@ import { useId } from '../../helpers/useId';
 import { Popover, POPOVER_PLACEMENTS } from '../../Popover';
 import { Typography } from '../../Typography';
 import { Link } from '../Link';
-import { getOptionStyle } from './utils';
 
 const OptionButton = styled.button`
   border: none;

@@ -1,6 +1,5 @@
 import { DefaultTheme } from 'styled-components';
 
-import { Typography } from '../Typography';
 import {
   LIGHT_VARIANTS,
   VARIANTS,
@@ -14,6 +13,7 @@ import {
   SUCCESS_LIGHT,
   Variant,
 } from './constants';
+import { Typography } from '../Typography';
 
 export const getVariantColorName = (variant: Variant): 'success' | 'danger' | 'neutral' | 'primary' => {
   if (variant === SUCCESS_LIGHT || variant === DANGER_LIGHT) {

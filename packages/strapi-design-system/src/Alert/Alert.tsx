@@ -3,11 +3,11 @@ import * as React from 'react';
 import { Information, CheckCircle, ExclamationMarkCircle, Cross } from '@strapi/icons';
 import styled from 'styled-components';
 
+import { handleBackgroundColor, handleBorderColor, handleIconColor } from './utils';
 import { Box, BoxProps } from '../Box';
 import { Flex } from '../Flex';
 import { buttonFocusStyle } from '../themes/utils';
 import { Typography } from '../Typography';
-import { handleBackgroundColor, handleBorderColor, handleIconColor } from './utils';
 
 const AlertBody = styled(Box)`
   flex: 1;

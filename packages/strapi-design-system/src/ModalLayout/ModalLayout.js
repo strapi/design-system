@@ -3,13 +3,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import { ModalContext } from './ModalContext';
 import { Box } from '../Box';
 import { DismissibleLayer } from '../DismissibleLayer';
 import { Flex } from '../Flex';
 import { FocusTrap } from '../FocusTrap';
 import useLockScroll from '../helpers/useLockScroll';
 import { Portal } from '../Portal';
-import { ModalContext } from './ModalContext';
 
 const ModalWrapper = styled(Flex)`
   inset: 0;

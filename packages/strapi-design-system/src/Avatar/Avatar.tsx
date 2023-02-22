@@ -2,10 +2,10 @@ import * as React from 'react';
 
 import styled from 'styled-components';
 
+import { avatarSize, previewSize } from './constants';
 import { Box } from '../Box';
 import { Flex, FlexProps } from '../Flex';
 import { Typography, TypographyProps } from '../Typography';
-import { avatarSize, previewSize } from './constants';
 
 const AvatarImg = styled.img`
   border-radius: 50%;

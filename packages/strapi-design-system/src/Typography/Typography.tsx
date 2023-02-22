@@ -2,9 +2,9 @@ import * as React from 'react';
 
 import styled, { CSSProperties, DefaultTheme } from 'styled-components';
 
-import { extractStyleFromTheme } from '../helpers/theme';
 import { TEXT_VARIANTS } from './constants';
 import { ellipsisStyle, variantStyle, handleColor } from './utils';
+import { extractStyleFromTheme } from '../helpers/theme';
 
 const transientProps: Partial<Record<keyof TypographyProps, boolean>> = {
   fontSize: true,
@@ -21,6 +21,7 @@ export interface TypographyProps {
   lineHeight?: keyof DefaultTheme['lineHeights'];
   textAlign?: CSSProperties['textAlign'];
   textColor?: keyof DefaultTheme['colors'];
+  textDecoration?: CSSProperties['textDecoration'];
   textTransform?: CSSProperties['textTransform'];
   variant?: (typeof TEXT_VARIANTS)[number];
 }
@@ -38,5 +39,6 @@ export const Typography = styled.span.withConfig<TypographyProps>({
   line-height: ${({ theme, lineHeight }) => extractStyleFromTheme(theme.lineHeights, lineHeight, undefined)};
   color: ${handleColor};
   text-align: ${({ textAlign }) => textAlign};
+  text-decoration: ${({ textDecoration }) => textDecoration};
   text-transform: ${({ textTransform }) => textTransform};
 `;

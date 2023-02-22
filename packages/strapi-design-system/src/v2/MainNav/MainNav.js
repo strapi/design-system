@@ -3,8 +3,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { Flex } from '../../Flex';
 import { MainNavContext } from './MainNavContext';
+import { Flex } from '../../Flex';
 
 const MainNavWrapper = styled(Flex)`
   width: ${({ condensed }) => (condensed ? 'max-content' : `${224 / 16}rem`)};

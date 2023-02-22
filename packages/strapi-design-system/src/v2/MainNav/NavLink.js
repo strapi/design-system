@@ -3,13 +3,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import { useMainNav } from './MainNavContext';
 import { Badge } from '../../Badge';
 import { BaseLink } from '../../BaseLink';
 import { Box } from '../../Box';
 import { Flex } from '../../Flex';
 import { Tooltip } from '../../Tooltip';
 import { Typography } from '../../Typography';
-import { useMainNav } from './MainNavContext';
 
 const IconBox = styled(Box)`
   svg {

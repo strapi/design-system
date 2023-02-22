@@ -2,10 +2,10 @@ import * as React from 'react';
 
 import styled from 'styled-components';
 
-import { Box } from '../Box';
 import checkmarkIconDisabled from './assets/checkmark-black.svg';
 import checkmarkIcon from './assets/checkmark.svg';
 import { getCheckboxSize } from './utils';
+import { Box } from '../Box';
 
 export type BaseCheckboxSize = 'S' | 'M';
 

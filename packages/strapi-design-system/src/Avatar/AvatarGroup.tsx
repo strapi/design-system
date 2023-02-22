@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import { Flex } from '../Flex';
 import { avatarSize } from './constants';
+import { Flex } from '../Flex';
 
 export const AvatarGroup = styled(Flex)`
   & > * + * {

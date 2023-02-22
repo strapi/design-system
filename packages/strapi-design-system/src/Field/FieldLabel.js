@@ -3,9 +3,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import { useField } from './FieldContext';
 import { Flex } from '../Flex';
 import { Typography } from '../Typography';
-import { useField } from './FieldContext';
 
 const TypographyAsterisk = styled(Typography)`
   line-height: 0;

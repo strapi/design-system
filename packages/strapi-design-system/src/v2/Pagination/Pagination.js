@@ -3,8 +3,8 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { Flex } from '../../Flex';
 import { PaginationContext } from './PaginationContext';
+import { Flex } from '../../Flex';
 
 const PaginationWrapper = styled.nav``;
 const PaginationList = styled(Flex)`

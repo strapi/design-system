@@ -3,6 +3,9 @@ import React, { useEffect, useState, useRef, useLayoutEffect, Children, cloneEle
 import { CarretDown, Cross } from '@strapi/icons';
 import PropTypes from 'prop-types';
 
+import { ComboboxOption } from './ComboboxOption';
+import { Input, MainRow, ValueContainer, InputContainer } from './components';
+import { getActionFromKey, getUpdatedIndex, maintainScrollVisibility, MenuActions, filterOptions } from './utils';
 import { Box } from '../Box';
 import { Field, FieldError, FieldHint, FieldLabel } from '../Field';
 import { Flex } from '../Flex';
@@ -14,9 +17,6 @@ import { CaretBox, IconBox } from '../Select/components';
 import { Stack } from '../Stack';
 import { Typography } from '../Typography';
 import { VisuallyHidden } from '../VisuallyHidden';
-import { ComboboxOption } from './ComboboxOption';
-import { Input, MainRow, ValueContainer, InputContainer } from './components';
-import { getActionFromKey, getUpdatedIndex, maintainScrollVisibility, MenuActions, filterOptions } from './utils';
 
 export const Combobox = ({
   children: nodes,

@@ -2,8 +2,8 @@ import React, { forwardRef } from 'react';
 
 import PropTypes from 'prop-types';
 
-import { Typography } from '../Typography';
 import { OptionBox } from './components';
+import { Typography } from '../Typography';
 
 export const ComboboxOption = forwardRef(({ isSelected, children, ...props }, ref) => {
   return (

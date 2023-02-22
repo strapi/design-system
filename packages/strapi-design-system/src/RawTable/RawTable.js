@@ -2,9 +2,9 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 import PropTypes from 'prop-types';
 
-import { KeyboardKeys } from '../helpers/keyboardKeys';
 import { focusFocusable } from './focusFocusable';
 import { RawTableContext } from './RawTableContext';
+import { KeyboardKeys } from '../helpers/keyboardKeys';
 
 export const RawTable = ({ colCount, rowCount, jumpStep, initialCol, initialRow, ...props }) => {
   const tableRef = useRef(null);

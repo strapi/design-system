@@ -168,43 +168,6 @@ describe('Select', () => {
         background: #f0f0ff;
       }
 
-      .c16 {
-        box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
-        z-index: 4;
-        border: 1px solid #eaeaef;
-        background: #ffffff;
-      }
-
-      .c17 {
-        max-height: 15rem;
-        overflow-y: auto;
-        overflow-x: hidden;
-      }
-
-      .c17::-webkit-scrollbar {
-        -webkit-appearance: none;
-        width: 4px;
-      }
-
-      .c17::-webkit-scrollbar-track {
-        background: #ffffff;
-      }
-
-      .c17::-webkit-scrollbar-thumb {
-        background: #eaeaef;
-        border-radius: 4px;
-        margin-right: 10px;
-      }
-
-      .c1 > * {
-        margin-top: 0;
-        margin-bottom: 0;
-      }
-
-      .c1 > * + * {
-        margin-top: 4px;
-      }
-
       .c4 {
         position: relative;
         border: 1px solid #dcdce4;
@@ -272,6 +235,43 @@ describe('Select', () => {
 
       .c5[aria-disabled='true'] {
         cursor: not-allowed;
+      }
+
+      .c1 > * {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+
+      .c1 > * + * {
+        margin-top: 4px;
+      }
+
+      .c16 {
+        box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
+        z-index: 4;
+        border: 1px solid #eaeaef;
+        background: #ffffff;
+      }
+
+      .c17 {
+        max-height: 15rem;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+
+      .c17::-webkit-scrollbar {
+        -webkit-appearance: none;
+        width: 4px;
+      }
+
+      .c17::-webkit-scrollbar-track {
+        background: #ffffff;
+      }
+
+      .c17::-webkit-scrollbar-thumb {
+        background: #eaeaef;
+        border-radius: 4px;
+        margin-right: 10px;
       }
 
       .c7 {
@@ -343,14 +343,14 @@ describe('Select', () => {
                   >
                     <svg
                       fill="none"
-                      height="1em"
+                      height="1rem"
                       viewBox="0 0 14 8"
-                      width="1em"
+                      width="1rem"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
                         clip-rule="evenodd"
-                        d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
+                        d="M14 .889a.86.86 0 0 1-.26.625L7.615 7.736A.834.834 0 0 1 7 8a.834.834 0 0 1-.615-.264L.26 1.514A.861.861 0 0 1 0 .889c0-.24.087-.45.26-.625A.834.834 0 0 1 .875 0h12.25c.237 0 .442.088.615.264a.86.86 0 0 1 .26.625Z"
                         fill="#32324D"
                         fill-rule="evenodd"
                       />
@@ -658,43 +658,6 @@ describe('Select', () => {
         background: #f0f0ff;
       }
 
-      .c16 {
-        box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
-        z-index: 4;
-        border: 1px solid #eaeaef;
-        background: #ffffff;
-      }
-
-      .c17 {
-        max-height: 15rem;
-        overflow-y: auto;
-        overflow-x: hidden;
-      }
-
-      .c17::-webkit-scrollbar {
-        -webkit-appearance: none;
-        width: 4px;
-      }
-
-      .c17::-webkit-scrollbar-track {
-        background: #ffffff;
-      }
-
-      .c17::-webkit-scrollbar-thumb {
-        background: #eaeaef;
-        border-radius: 4px;
-        margin-right: 10px;
-      }
-
-      .c1 > * {
-        margin-top: 0;
-        margin-bottom: 0;
-      }
-
-      .c1 > * + * {
-        margin-top: 4px;
-      }
-
       .c4 {
         position: relative;
         border: 1px solid #dcdce4;
@@ -764,6 +727,43 @@ describe('Select', () => {
         cursor: not-allowed;
       }
 
+      .c1 > * {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+
+      .c1 > * + * {
+        margin-top: 4px;
+      }
+
+      .c16 {
+        box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
+        z-index: 4;
+        border: 1px solid #eaeaef;
+        background: #ffffff;
+      }
+
+      .c17 {
+        max-height: 15rem;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+
+      .c17::-webkit-scrollbar {
+        -webkit-appearance: none;
+        width: 4px;
+      }
+
+      .c17::-webkit-scrollbar-track {
+        background: #ffffff;
+      }
+
+      .c17::-webkit-scrollbar-thumb {
+        background: #eaeaef;
+        border-radius: 4px;
+        margin-right: 10px;
+      }
+
       .c7 {
         width: 100%;
       }
@@ -830,14 +830,14 @@ describe('Select', () => {
                   >
                     <svg
                       fill="none"
-                      height="1em"
+                      height="1rem"
                       viewBox="0 0 14 8"
-                      width="1em"
+                      width="1rem"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
                         clip-rule="evenodd"
-                        d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
+                        d="M14 .889a.86.86 0 0 1-.26.625L7.615 7.736A.834.834 0 0 1 7 8a.834.834 0 0 1-.615-.264L.26 1.514A.861.861 0 0 1 0 .889c0-.24.087-.45.26-.625A.834.834 0 0 1 .875 0h12.25c.237 0 .442.088.615.264a.86.86 0 0 1 .26.625Z"
                         fill="#32324D"
                         fill-rule="evenodd"
                       />

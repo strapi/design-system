@@ -2,25 +2,20 @@ import React from 'react';
 
 import styled from 'styled-components';
 
+import { Flex, FlexProps } from '../Flex';
 import { buttonFocusStyle } from '../themes/utils';
 
-export const BaseButtonWrapper = styled.button`
-  display: flex;
-  cursor: pointer;
-  padding: ${({ theme }) => theme.spaces[2]};
-  border-radius: ${({ theme }) => theme.borderRadius};
-  background: ${({ theme }) => theme.colors.neutral0};
-  border: 1px solid ${({ theme }) => theme.colors.neutral200};
+export const BaseButtonWrapper = styled(Flex)`
   svg {
     height: ${({ theme }) => theme.spaces[3]};
     width: ${({ theme }) => theme.spaces[3]};
-  }
-  svg {
+
     > g,
     path {
       fill: ${({ theme }) => theme.colors.neutral0};
     }
   }
+
   &[aria-disabled='true'] {
     pointer-events: none;
   }
@@ -28,14 +23,26 @@ export const BaseButtonWrapper = styled.button`
   ${buttonFocusStyle}
 `;
 
-export interface BaseButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  children: React.ReactNode;
+export interface BaseButtonProps<TElement extends HTMLElement = HTMLButtonElement> extends FlexProps<TElement> {
+  disabled?: boolean;
 }
 
 export const BaseButton = React.forwardRef<HTMLButtonElement, BaseButtonProps>(
   ({ disabled, children, ...props }, ref) => {
     return (
-      <BaseButtonWrapper ref={ref} aria-disabled={disabled} type="button" disabled={disabled} {...props}>
+      <BaseButtonWrapper
+        ref={ref}
+        aria-disabled={disabled}
+        as="button"
+        type="button"
+        disabled={disabled}
+        padding={2}
+        hasRadius
+        background="neutral0"
+        borderColor="neutral200"
+        cursor="pointer"
+        {...props}
+      >
         {children}
       </BaseButtonWrapper>
     );

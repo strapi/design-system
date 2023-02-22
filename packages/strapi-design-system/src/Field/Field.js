@@ -2,8 +2,8 @@ import * as React from 'react';
 
 import PropTypes from 'prop-types';
 
-import { useId } from '../helpers/useId';
 import { FieldContext } from './FieldContext';
+import { useId } from '../helpers/useId';
 
 export const Field = ({ children, name, error, hint, id, required, ...props }) => {
   const generatedId = useId(id);

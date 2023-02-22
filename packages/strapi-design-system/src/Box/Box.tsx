@@ -164,7 +164,7 @@ export const Box = styled.div.withConfig<BoxProps>({
   border-color: ${({ borderColor, theme }) => extractStyleFromTheme(theme.colors, borderColor, undefined)};
   border: ${({ theme, borderColor, borderStyle, borderWidth }) => {
     // This condition prevents borderColor from override the border-color attribute when not passing borderStyle nor borderWidth
-    if (borderColor && !borderStyle && !borderWidth) {
+    if (borderColor && !borderStyle && typeof borderWidth === 'undefined') {
       return `1px solid ${theme.colors[borderColor]}`;
     }
 

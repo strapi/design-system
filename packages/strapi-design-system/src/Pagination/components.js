@@ -5,10 +5,10 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
+import { usePagination } from './PaginationContext';
 import { buttonFocusStyle } from '../themes/utils';
 import { Typography } from '../Typography';
 import { VisuallyHidden } from '../VisuallyHidden';
-import { usePagination } from './PaginationContext';
 
 const PaginationText = styled(Typography)`
   line-height: revert;
