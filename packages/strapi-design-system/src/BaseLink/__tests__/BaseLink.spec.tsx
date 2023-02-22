@@ -1,8 +1,10 @@
 import * as React from 'react';
+
 import { render } from '@testing-library/react';
-import { BaseLink } from '../BaseLink';
+
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
+import { BaseLink } from '../BaseLink';
 
 describe('BaseLink', () => {
   it('snapshots the component', () => {

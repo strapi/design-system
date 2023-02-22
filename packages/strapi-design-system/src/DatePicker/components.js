@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+
+import { Box } from '../Box';
 import { InputWrapper } from '../Field/FieldInput';
 import { Popover } from '../Popover';
-import { Box } from '../Box';
 
 export const DatePickerPopover = styled(Popover)`
   max-height: ${3 * 6}rem;

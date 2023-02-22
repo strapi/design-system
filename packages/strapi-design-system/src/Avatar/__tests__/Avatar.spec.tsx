@@ -1,8 +1,10 @@
 import * as React from 'react';
+
 import { render, fireEvent } from '@testing-library/react';
-import { Avatar } from '../Avatar';
+
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
+import { Avatar } from '../Avatar';
 
 describe('Avatar', () => {
   it('snapshots the component with preview (boolean)', () => {

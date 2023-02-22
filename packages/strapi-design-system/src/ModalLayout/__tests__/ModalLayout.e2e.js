@@ -1,5 +1,5 @@
-import { injectAxe, getViolations } from 'axe-playwright';
 import { test, expect } from '@playwright/test';
+import { injectAxe, getViolations } from 'axe-playwright';
 
 test.describe.parallel('ModalLayout', () => {
   test.beforeEach(async ({ page }) => {

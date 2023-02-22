@@ -1,7 +1,9 @@
 import React, { Children } from 'react';
+
 import PropTypes from 'prop-types';
-import { Stack } from '../Stack';
+
 import { Box } from '../Box';
+import { Stack } from '../Stack';
 
 export const SubNavSections = ({ children, ...props }) => {
   return (

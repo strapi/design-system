@@ -1,11 +1,13 @@
 import React, { Children, cloneElement } from 'react';
+
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { useTabs } from './TabsContext';
-import { Typography } from '../Typography';
+
 import { KeyboardKeys } from '../helpers/keyboardKeys';
-import { useTabsFocus } from './useTabsFocus';
+import { Typography } from '../Typography';
 import { DefaultTabsRow, DefaultTabButton, DefaultTabBox, SimpleTabBox } from './components';
+import { useTabs } from './TabsContext';
+import { useTabsFocus } from './useTabsFocus';
 
 const TabButton = styled.button`
   &[aria-disabled='true'] {

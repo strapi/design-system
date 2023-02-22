@@ -4,8 +4,5 @@ dist
 packages/strapi-icons/src
 # for now
 website
-templates
-
-**/*.mdx
 
 storybook-static

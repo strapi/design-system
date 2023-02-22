@@ -1,7 +1,6 @@
 import styled, { CSSProperties, DefaultTheme } from 'styled-components';
 
 import { Box, BoxProps } from '../Box';
-
 import handleResponsiveValues from '../helpers/handleResponsiveValues';
 
 /**

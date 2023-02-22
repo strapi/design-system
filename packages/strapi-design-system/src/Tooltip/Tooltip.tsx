@@ -1,13 +1,12 @@
 import * as React from 'react';
+
 import styled from 'styled-components';
 
 import { Box, BoxProps } from '../Box';
-import { Typography } from '../Typography';
-import { Portal } from '../Portal';
-import { VisuallyHidden } from '../VisuallyHidden';
-
 import { useId } from '../helpers/useId';
-
+import { Portal } from '../Portal';
+import { Typography } from '../Typography';
+import { VisuallyHidden } from '../VisuallyHidden';
 import { useTooltipHandlers } from './hooks/useTooltipHandlers';
 import { useTooltipLayout } from './hooks/useTooltipLayout';
 import { TooltipPosition } from './utils/positionTooltip';

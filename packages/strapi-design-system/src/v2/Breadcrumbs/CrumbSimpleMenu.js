@@ -1,7 +1,8 @@
-import PropTypes from 'prop-types';
 import React from 'react';
-import styled from 'styled-components';
+
 import { CarretDown } from '@strapi/icons';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 import { Button } from '../../Button';
 import { SimpleMenu } from '../SimpleMenu';

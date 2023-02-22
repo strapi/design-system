@@ -1,5 +1,4 @@
 import { Box, BoxProps } from '../Box';
-
 import { useAccordion } from './AccordionContext';
 
 export type AccordionContentProps = BoxProps;

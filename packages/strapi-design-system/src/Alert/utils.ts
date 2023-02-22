@@ -1,4 +1,5 @@
 import { DefaultTheme } from 'styled-components';
+
 import type { AlertVariant } from './Alert';
 
 interface StyledProps {

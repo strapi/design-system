@@ -1,10 +1,11 @@
 import React from 'react';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import { Cross } from '@strapi/icons';
 
-import { Flex } from '../Flex';
+import { Cross } from '@strapi/icons';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
 import { Box } from '../Box';
+import { Flex } from '../Flex';
 import { IconButton } from '../IconButton';
 import { useModal } from './ModalContext';
 

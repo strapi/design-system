@@ -1,14 +1,16 @@
-<!--- SimpleMenu.stories.mdx --->
-
 import { useState } from 'react';
 
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 import { CarretDown } from '@strapi/icons';
 import { SimpleMenu, MenuItem, IconButton, Stack } from '@strapi/design-system';
 
+import { DeprecationNotice } from '../components/DeprecationNotice';
+
 <Meta title="Design System/Components/SimpleMenu" component={SimpleMenu} />
 
 # SimpleMenu
+
+<DeprecationNotice href="/?path=/docs/design-system-components-v2-simplemenu--base">the V2 version</DeprecationNotice>
 
 A menu displays a list of potential options or actions via a Popover component. A menu is used to give choices to the
 users in small spaces. However, a single option or action should be taken via a menu.
@@ -76,7 +78,7 @@ return (
 
 ### With links
 
-To use `MenuItem` as an internal link you can use the `to` prop, 
+To use `MenuItem` as an internal link you can use the `to` prop,
 it will render a `NavLink` react-router-dom component.
 If you need to use a different routing library, it is advised to use `v2/SimpleMenu` component [found here](http://localhost:6006/?path=/docs/design-system-components-v2-simplemenu--base#with-other-routing-libraries).
 

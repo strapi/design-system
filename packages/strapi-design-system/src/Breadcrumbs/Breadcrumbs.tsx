@@ -1,9 +1,11 @@
-import styled from 'styled-components';
-import { ChevronRight } from '@strapi/icons';
+import * as React from 'react';
 
-import { Typography } from '../Typography';
+import { ChevronRight } from '@strapi/icons';
+import styled from 'styled-components';
+
 import { Box } from '../Box';
 import { Flex, FlexProps } from '../Flex';
+import { Typography } from '../Typography';
 import { VisuallyHidden } from '../VisuallyHidden';
 
 const CrumbWrapper = styled(Flex)`

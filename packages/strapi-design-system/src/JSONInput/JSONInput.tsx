@@ -1,13 +1,14 @@
 import React, { useRef, useEffect } from 'react';
+
 import { jsonParseLinter, json } from '@codemirror/lang-json';
-import { useCodeMirror, ReactCodeMirrorRef, ReactCodeMirrorProps } from '@uiw/react-codemirror';
 import { ViewUpdate } from '@codemirror/view';
+import { useCodeMirror, ReactCodeMirrorRef, ReactCodeMirrorProps } from '@uiw/react-codemirror';
 
 import { Field, FieldLabel, FieldError, FieldHint } from '../Field';
+import { FlexProps } from '../Flex';
 import { Stack } from '../Stack';
 import { JSONInputContainer } from './JSONInputContainer';
 import { markField, addMarks, filterMarks, lineHighlightMark } from './utils/decorationExtension';
-import { FlexProps } from '../Flex';
 
 interface JSONInputProps extends Omit<FlexProps, 'onChange'> {
   label?: string;

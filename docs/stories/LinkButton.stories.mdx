@@ -1,13 +1,15 @@
-<!--- LinkButton.stories.mdx --->
-
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 
 import { Information, Write } from '@strapi/icons';
 import { LinkButton, Box, Flex } from '@strapi/design-system';
 
+import { DeprecationNotice } from '../components/DeprecationNotice';
+
 <Meta title="Design System/Components/LinkButton" component={LinkButton} />
 
 # LinkButton
+
+<DeprecationNotice href="/?path=/docs/design-system-components-v2-linkbutton--base">the V2 version</DeprecationNotice>
 
 LinkButtons are a way to perform actions that links to a different page component that will stay within one page. They
 help interact with its content via a single click. According to their style, specific labels and icons, they help

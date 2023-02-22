@@ -1,4 +1,5 @@
-import { ImgHTMLAttributes } from 'react';
+import * as React from 'react';
+
 import styled from 'styled-components';
 
 import { Flex } from '../Flex';
@@ -14,7 +15,7 @@ const CardAssetImg = styled.img`
   object-fit: contain;
 `;
 
-const CardAssetSizes = {
+const sizes = {
   S: 88,
   M: 164,
 };
@@ -22,7 +23,7 @@ const CardAssetSizes = {
 const CardAssetWrapper = styled.div<{ size: CardAssetSizes }>`
   display: flex;
   justify-content: center;
-  height: ${({ size }) => CardAssetSizes[size] / 16}rem;
+  height: ${({ size }) => sizes[size] / 16}rem;
   width: 100%;
   background: repeating-conic-gradient(${({ theme }) => theme.colors.neutral100} 0% 25%, transparent 0% 50%) 50% / 20px
     20px;
@@ -32,7 +33,7 @@ const CardAssetWrapper = styled.div<{ size: CardAssetSizes }>`
 
 export type CardAssetSizes = 'S' | 'M';
 
-export interface CardAssetProps extends ImgHTMLAttributes<HTMLImageElement> {
+export interface CardAssetProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   size?: CardAssetSizes;
   children?: React.ReactNode;
 }

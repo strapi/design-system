@@ -1,21 +1,19 @@
 /* eslint-disable no-restricted-globals */
 import React, { useRef } from 'react';
+
+import { NumberFormatter, NumberParser } from '@internationalized/number';
+import { CarretDown } from '@strapi/icons';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { CarretDown } from '@strapi/icons';
-import { NumberFormatter, NumberParser } from '@internationalized/number';
 
 import { Field, FieldLabel, FieldHint, FieldError, FieldInput } from '../Field';
-import { Stack } from '../Stack';
-import { Icon } from '../Icon';
-
-import { sizes } from '../themes/sizes';
-
-import { useId } from '../helpers/useId';
-import { KeyboardKeys } from '../helpers/keyboardKeys';
 import { getDefaultLocale } from '../helpers/getDefaultLocale';
-
+import { KeyboardKeys } from '../helpers/keyboardKeys';
+import { useId } from '../helpers/useId';
 import { useControllableState } from '../hooks/useControllableState';
+import { Icon } from '../Icon';
+import { Stack } from '../Stack';
+import { sizes } from '../themes/sizes';
 
 const ArrowButton = styled.button`
   display: flex;

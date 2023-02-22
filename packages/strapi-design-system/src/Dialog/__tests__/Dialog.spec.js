@@ -1,11 +1,13 @@
 import * as React from 'react';
+
 import { render } from '@testing-library/react';
+
+import { Button } from '../../Button/Button';
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
 import { Dialog } from '../Dialog';
 import { DialogBody } from '../DialogBody';
 import { DialogFooter } from '../DialogFooter';
-import { Button } from '../../Button/Button';
 
 describe('Dialog', () => {
   it('should render Dialog with props', () => {

@@ -1,11 +1,12 @@
-import styled from 'styled-components';
+import * as React from 'react';
+
 import { Information, CheckCircle, ExclamationMarkCircle, Cross } from '@strapi/icons';
+import styled from 'styled-components';
 
 import { Box, BoxProps } from '../Box';
-import { Typography } from '../Typography';
 import { Flex } from '../Flex';
 import { buttonFocusStyle } from '../themes/utils';
-
+import { Typography } from '../Typography';
 import { handleBackgroundColor, handleBorderColor, handleIconColor } from './utils';
 
 const AlertBody = styled(Box)`

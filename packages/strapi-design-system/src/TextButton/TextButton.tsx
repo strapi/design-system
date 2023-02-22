@@ -1,11 +1,12 @@
-import React, { ButtonHTMLAttributes, HTMLAttributes } from 'react';
-import styled, { keyframes } from 'styled-components';
+import * as React from 'react';
+
 import { Loader } from '@strapi/icons';
+import styled, { keyframes } from 'styled-components';
 
 import { Box } from '../Box';
-import { Typography } from '../Typography';
 import { Flex, FlexProps } from '../Flex';
 import { buttonFocusStyle } from '../themes/utils';
+import { Typography } from '../Typography';
 
 const rotation = keyframes`
   from {
@@ -45,7 +46,7 @@ const TextButtonWrapper = styled(Flex)`
 `;
 
 export type TextButtonProps = FlexProps<HTMLButtonElement> &
-  ButtonHTMLAttributes<HTMLButtonElement> & {
+  React.ButtonHTMLAttributes<HTMLButtonElement> & {
     disabled?: boolean;
     endIcon?: React.ReactNode;
     loading?: boolean;

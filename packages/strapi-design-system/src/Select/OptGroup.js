@@ -1,5 +1,7 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+
+import PropTypes from 'prop-types';
+
 import { Option } from './Option';
 
 export const OptGroup = ({ children, label, ...props }) => {

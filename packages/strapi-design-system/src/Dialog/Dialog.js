@@ -1,17 +1,17 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { Box } from '../Box';
-import { FocusTrap } from '../FocusTrap';
-import { Portal } from '../Portal';
-import { Flex } from '../Flex';
-import { Typography } from '../Typography';
 import { DismissibleLayer } from '../DismissibleLayer';
-
+import { Flex } from '../Flex';
+import { FocusTrap } from '../FocusTrap';
 import { setOpacity } from '../helpers/setOpacity';
-import useLockScroll from '../helpers/useLockScroll';
 import { useId } from '../helpers/useId';
+import useLockScroll from '../helpers/useLockScroll';
+import { Portal } from '../Portal';
+import { Typography } from '../Typography';
 
 const DialogWrapper = styled(Box)`
   inset: 0;

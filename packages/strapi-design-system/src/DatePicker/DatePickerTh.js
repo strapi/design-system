@@ -1,10 +1,12 @@
 import React from 'react';
+
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+
+import { Flex } from '../Flex';
 import { RawTh } from '../RawTable';
 import { Typography } from '../Typography';
 import { VisuallyHidden } from '../VisuallyHidden';
-import { Flex } from '../Flex';
 
 const DatePickerThWrapper = styled(RawTh)`
   // Trick to prevent the outline from overflowing because of the general outline-offset

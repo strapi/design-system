@@ -1,11 +1,11 @@
-import { useEffect, useRef } from 'react';
+import * as React from 'react';
+
 import styled from 'styled-components';
 
 import { Box } from '../Box';
-import { getCheckboxSize } from './utils';
-
-import checkmarkIcon from './assets/checkmark.svg';
 import checkmarkIconDisabled from './assets/checkmark-black.svg';
+import checkmarkIcon from './assets/checkmark.svg';
+import { getCheckboxSize } from './utils';
 
 export type BaseCheckboxSize = 'S' | 'M';
 
@@ -105,9 +105,9 @@ export const BaseCheckbox = ({
   onValueChange,
   ...inputProps
 }: BaseCheckboxProps) => {
-  const checkboxRef = useRef<HTMLInputElement>(null!);
+  const checkboxRef = React.useRef<HTMLInputElement>(null!);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (checkboxRef.current && indeterminate) {
       checkboxRef.current.indeterminate = indeterminate;
     } else {

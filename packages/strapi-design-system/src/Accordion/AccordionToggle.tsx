@@ -1,13 +1,13 @@
 import * as React from 'react';
+
 import { CarretDown } from '@strapi/icons';
 import styled from 'styled-components';
 
+import { Flex } from '../Flex';
+import { Icon } from '../Icon';
+import { Stack } from '../Stack';
 import { TextButton } from '../TextButton';
 import { Typography } from '../Typography';
-import { Flex } from '../Flex';
-import { Stack } from '../Stack';
-import { Icon } from '../Icon';
-
 import { AccordionSize, AccordionTypography } from './Accordion';
 import { useAccordion } from './AccordionContext';
 import { getBackground } from './utils';

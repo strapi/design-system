@@ -1,8 +1,9 @@
 import { resolve } from 'path';
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+
 import typescript from '@rollup/plugin-typescript';
+import react from '@vitejs/plugin-react';
 import glob from 'tiny-glob';
+import { defineConfig } from 'vite';
 
 export default glob('./src/**/!(*.spec|*.e2e).{js,svg,ts,tsx}').then(async (paths) => {
   return defineConfig({

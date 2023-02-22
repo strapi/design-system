@@ -1,6 +1,8 @@
 import React, { forwardRef } from 'react';
-import styled from 'styled-components';
+
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
 import { useField } from '../Field';
 import { inputFocusStyle } from '../themes/utils';
 

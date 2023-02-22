@@ -1,12 +1,14 @@
 import React from 'react';
+
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Box } from '../../Box';
-import { Typography } from '../../Typography';
-import { Flex } from '../../Flex';
-import { useMainNav } from './MainNavContext';
-import { VisuallyHidden } from '../../VisuallyHidden';
+
 import { BaseLink } from '../../BaseLink';
+import { Box } from '../../Box';
+import { Flex } from '../../Flex';
+import { Typography } from '../../Typography';
+import { VisuallyHidden } from '../../VisuallyHidden';
+import { useMainNav } from './MainNavContext';
 
 const BrandIconWrapper = styled.div`
   border-radius: ${({ theme }) => theme.borderRadius};

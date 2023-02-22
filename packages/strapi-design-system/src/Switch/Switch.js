@@ -1,8 +1,10 @@
 import React from 'react';
+
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Flex } from '../Flex';
+
 import { Box } from '../Box';
+import { Flex } from '../Flex';
 
 const SwitchContent = styled.div`
   background: ${({ theme }) => theme.colors.danger500};

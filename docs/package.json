@@ -20,8 +20,12 @@
     "storybook-dark-mode": "^2.0.5",
     "styled-components": "^5.3.6"
   },
+  "devDependencies": {
+    "eslint-plugin-mdx": "^1.17.0"
+  },
   "scripts": {
     "build": "build-storybook",
-    "develop": "start-storybook -p 6006"
+    "develop": "start-storybook -p 6006",
+    "lint": "eslint --ext .mdx ."
   }
 }

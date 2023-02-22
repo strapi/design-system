@@ -1,4 +1,5 @@
 import { DefaultTheme } from 'styled-components';
+
 import { Typography } from '../Typography';
 import {
   LIGHT_VARIANTS,
@@ -17,9 +18,11 @@ import {
 export const getVariantColorName = (variant: Variant): 'success' | 'danger' | 'neutral' | 'primary' => {
   if (variant === SUCCESS_LIGHT || variant === DANGER_LIGHT) {
     return `${variant.substring(0, variant.lastIndexOf('-'))}` as 'success' | 'danger';
-  } else if (variant === TERTIARY) {
+  }
+  if (variant === TERTIARY) {
     return 'neutral';
-  } else if (variant === DEFAULT || variant === SECONDARY || VARIANTS.every((vari) => vari !== variant)) {
+  }
+  if (variant === DEFAULT || variant === SECONDARY || VARIANTS.every((vari) => vari !== variant)) {
     return 'primary';
   }
 

@@ -1,4 +1,5 @@
 import { DefaultTheme } from 'styled-components';
+
 import { ALPHA, BETA, DELTA, EPSILON, OMEGA, PI, SIGMA, TEXT_VARIANTS } from './constants';
 
 export const ellipsisStyle = ({ ellipsis = false }: { ellipsis?: boolean }) =>

@@ -1,5 +1,7 @@
 import React, { forwardRef } from 'react';
+
 import PropTypes from 'prop-types';
+
 import { Typography } from '../Typography';
 import { OptionBox } from './components';
 

@@ -1,14 +1,15 @@
 import React, { Children, cloneElement, useRef } from 'react';
+
+import { ChevronRight, ChevronLeft } from '@strapi/icons';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { ChevronRight, ChevronLeft } from '@strapi/icons';
 
-import { Icon } from '../Icon';
 import { Box } from '../Box';
-import { Typography } from '../Typography';
 import { Flex } from '../Flex';
-import { Tooltip } from '../Tooltip';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
+import { Icon } from '../Icon';
+import { Tooltip } from '../Tooltip';
+import { Typography } from '../Typography';
 
 const CarouselGrid = styled(Box)`
   display: grid;

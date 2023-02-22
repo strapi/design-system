@@ -1,12 +1,14 @@
 import React from 'react';
-import styled from 'styled-components';
+
 import PropTypes from 'prop-types';
-import { sizes } from '../themes/sizes';
-import { useId } from '../helpers/useId';
+import styled from 'styled-components';
+
 import { Field, FieldHint, FieldError, FieldLabel } from '../Field';
-import { Stack } from '../Stack';
 import { Flex } from '../Flex';
+import { useId } from '../helpers/useId';
+import { Stack } from '../Stack';
 import { TextButton } from '../TextButton';
+import { sizes } from '../themes/sizes';
 import { ToggleCheckbox } from '../ToggleCheckbox';
 
 const FieldWrapper = styled(Field)`

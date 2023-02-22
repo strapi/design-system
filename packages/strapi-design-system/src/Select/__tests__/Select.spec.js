@@ -1,9 +1,11 @@
 import * as React from 'react';
+
 import { fireEvent, screen, render, waitFor } from '@testing-library/react';
-import { Select } from '../Select';
-import { Option } from '../Option';
+
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
+import { Option } from '../Option';
+import { Select } from '../Select';
 
 describe('Select', () => {
   it('opens the listbox when clicking on the input', async () => {
@@ -33,23 +35,16 @@ describe('Select', () => {
     await waitFor(() => container.querySelector('[role="listbox"]'));
 
     expect(container).toMatchInlineSnapshot(`
-      .c5 {
+      .c14 {
+        border: 0;
+        -webkit-clip: rect(0 0 0 0);
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
         position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        top: 0;
-        width: 100%;
-        background: transparent;
-        border: none;
-      }
-
-      .c5:focus {
-        outline: none;
-      }
-
-      .c5[aria-disabled='true'] {
-        cursor: not-allowed;
+        width: 1px;
       }
 
       .c8 {
@@ -158,6 +153,21 @@ describe('Select', () => {
         color: #32324d;
       }
 
+      .c19 {
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline-offset: -3px;
+      }
+
+      .c19.is-focused {
+        background: #f0f0ff;
+      }
+
+      .c19:hover {
+        background: #f0f0ff;
+      }
+
       .c16 {
         box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
         z-index: 4;
@@ -245,35 +255,27 @@ describe('Select', () => {
         width: 0.375rem;
       }
 
-      .c14 {
-        border: 0;
-        -webkit-clip: rect(0 0 0 0);
-        clip: rect(0 0 0 0);
-        height: 1px;
-        margin: -1px;
-        overflow: hidden;
-        padding: 0;
+      .c5 {
         position: absolute;
-        width: 1px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        width: 100%;
+        background: transparent;
+        border: none;
+      }
+
+      .c5:focus {
+        outline: none;
+      }
+
+      .c5[aria-disabled='true'] {
+        cursor: not-allowed;
       }
 
       .c7 {
         width: 100%;
-      }
-
-      .c19 {
-        width: 100%;
-        border: none;
-        text-align: left;
-        outline-offset: -3px;
-      }
-
-      .c19.is-focused {
-        background: #f0f0ff;
-      }
-
-      .c19:hover {
-        background: #f0f0ff;
       }
 
       <body>
@@ -490,23 +492,16 @@ describe('Select', () => {
     await waitFor(() => expect(container.querySelector('[role="listbox"]')).toBeInTheDocument());
 
     expect(container).toMatchInlineSnapshot(`
-      .c5 {
+      .c10 {
+        border: 0;
+        -webkit-clip: rect(0 0 0 0);
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
         position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        top: 0;
-        width: 100%;
-        background: transparent;
-        border: none;
-      }
-
-      .c5:focus {
-        outline: none;
-      }
-
-      .c5[aria-disabled='true'] {
-        cursor: not-allowed;
+        width: 1px;
       }
 
       .c8 {
@@ -626,6 +621,43 @@ describe('Select', () => {
         color: #32324d;
       }
 
+      .c22 {
+        border: 1px solid #4945ff;
+        height: 18px;
+        width: 18px;
+        background-color: #4945ff;
+      }
+
+      .c22::after {
+        content: '';
+        background: url(test-file-stub) no-repeat no-repeat center center;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+      }
+
+      .c24 {
+        border: 1px solid #c0c0cf;
+        height: 18px;
+        width: 18px;
+        background-color: #ffffff;
+      }
+
+      .c19 {
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline-offset: -3px;
+      }
+
+      .c19.is-focused {
+        background: #f0f0ff;
+      }
+
+      .c19:hover {
+        background: #f0f0ff;
+      }
+
       .c16 {
         box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
         z-index: 4;
@@ -713,57 +745,27 @@ describe('Select', () => {
         width: 0.375rem;
       }
 
-      .c10 {
-        border: 0;
-        -webkit-clip: rect(0 0 0 0);
-        clip: rect(0 0 0 0);
-        height: 1px;
-        margin: -1px;
-        overflow: hidden;
-        padding: 0;
+      .c5 {
         position: absolute;
-        width: 1px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        width: 100%;
+        background: transparent;
+        border: none;
+      }
+
+      .c5:focus {
+        outline: none;
+      }
+
+      .c5[aria-disabled='true'] {
+        cursor: not-allowed;
       }
 
       .c7 {
         width: 100%;
-      }
-
-      .c22 {
-        border: 1px solid #4945ff;
-        height: 18px;
-        width: 18px;
-        background-color: #4945ff;
-      }
-
-      .c22::after {
-        content: '';
-        background: url(test-file-stub) no-repeat no-repeat center center;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-      }
-
-      .c24 {
-        border: 1px solid #c0c0cf;
-        height: 18px;
-        width: 18px;
-        background-color: #ffffff;
-      }
-
-      .c19 {
-        width: 100%;
-        border: none;
-        text-align: left;
-        outline-offset: -3px;
-      }
-
-      .c19.is-focused {
-        background: #f0f0ff;
-      }
-
-      .c19:hover {
-        background: #f0f0ff;
       }
 
       <body>

@@ -1,7 +1,8 @@
 import React from 'react';
+
+import { ChevronRight, ChevronLeft } from '@strapi/icons';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { ChevronRight, ChevronLeft } from '@strapi/icons';
 
 import { Icon } from '../../Icon';
 import { VisuallyHidden } from '../../VisuallyHidden';

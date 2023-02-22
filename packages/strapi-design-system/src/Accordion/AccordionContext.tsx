@@ -1,4 +1,5 @@
 import { createContext, useContext } from 'react';
+
 import type { AccordionSize, AccordionVariant } from './Accordion';
 
 export interface AccordionContextValue {

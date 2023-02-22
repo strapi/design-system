@@ -1,13 +1,15 @@
 import React from 'react';
-import styled from 'styled-components';
+
 import PropTypes from 'prop-types';
 import { NavLink as RouterLink } from 'react-router-dom';
+import styled from 'styled-components';
+
+import { Badge } from '../Badge';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
+import { Tooltip } from '../Tooltip';
 import { Typography } from '../Typography';
 import { useMainNav } from './MainNavContext';
-import { Tooltip } from '../Tooltip';
-import { Badge } from '../Badge';
 
 const IconBox = styled(Box)`
   svg {

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import { inputFocusStyle } from '../themes/utils';
+
 import { Flex } from '../Flex';
+import { inputFocusStyle } from '../themes/utils';
 
 export const JSONInputContainer = styled(Flex)`
   line-height: ${({ theme }) => theme.lineHeights[2]};

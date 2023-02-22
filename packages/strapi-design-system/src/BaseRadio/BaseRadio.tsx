@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
-import styled from 'styled-components';
-import { useId } from '../helpers/useId';
 
+import styled from 'styled-components';
+
+import { useId } from '../helpers/useId';
 import { RadioContext } from './context';
 import { RadioGroupSize } from './RadioGroup';
 import { getRadioSize, getSelectedRadioSize, getSelectedRadioPosition } from './utils';

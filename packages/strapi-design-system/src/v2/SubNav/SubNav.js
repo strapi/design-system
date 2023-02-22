@@ -1,6 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
+
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
 import { Grid } from '../../Grid';
 
 export const subNavWidth = `${232 / 16}rem`;

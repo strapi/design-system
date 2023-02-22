@@ -1,9 +1,11 @@
 import React from 'react';
+
 import PropTypes from 'prop-types';
-import { Carousel } from './Carousel';
+
 import { Field, FieldLabel, FieldHint, FieldError } from '../Field';
-import { Stack } from '../Stack';
 import { useId } from '../helpers/useId';
+import { Stack } from '../Stack';
+import { Carousel } from './Carousel';
 
 export const CarouselInput = ({
   actions,

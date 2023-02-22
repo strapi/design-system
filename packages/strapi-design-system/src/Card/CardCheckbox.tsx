@@ -1,5 +1,4 @@
 import { BaseCheckbox, BaseCheckboxProps } from '../BaseCheckbox';
-
 import { CardAction } from './CardAction';
 import { useCard } from './CardContext';
 
