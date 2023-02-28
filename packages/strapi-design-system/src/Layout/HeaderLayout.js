@@ -58,6 +58,10 @@ const StickyBox = styled(Box)`
   width: ${(props) => props.width}px;
 `;
 
+const TitleFlex = styled(Flex)`
+  min-width: 0;
+`;
+
 export const BaseHeaderLayout = React.forwardRef(
   ({ navigationAction, primaryAction, secondaryAction, subtitle, title, sticky, width, ...props }, ref) => {
     const isSubtitleString = typeof subtitle === 'string';
@@ -101,6 +105,8 @@ export const BaseHeaderLayout = React.forwardRef(
       );
     }
 
+    const FlexElement = props?.ellipsis ? TitleFlex : Flex;
+
     return (
       <Box
         ref={ref}
@@ -113,12 +119,12 @@ export const BaseHeaderLayout = React.forwardRef(
       >
         {navigationAction ? <Box paddingBottom={2}>{navigationAction}</Box> : null}
         <Flex justifyContent="space-between">
-          <Flex>
+          <FlexElement>
             <Typography as="h1" variant="alpha" {...props}>
               {title}
             </Typography>
             {secondaryAction ? <Box paddingLeft={4}>{secondaryAction}</Box> : null}
-          </Flex>
+          </FlexElement>
           {primaryAction}
         </Flex>
         {isSubtitleString ? (
