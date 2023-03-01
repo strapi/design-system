@@ -1,11 +1,10 @@
 import styled, { css } from 'styled-components';
 
-import { Box } from '../Box';
-import { Typography } from '../Typography';
-import { Flex } from '../Flex';
 import { SingleSelectOption, SingleSelectOptionProps } from './SingleSelect';
-
 import checkmarkIcon from '../BaseCheckbox/assets/checkmark.svg';
+import { Box } from '../Box';
+import { Flex } from '../Flex';
+import { Typography } from '../Typography';
 
 interface OptionProps extends SingleSelectOptionProps {
   indeterminate?: boolean;
@@ -63,16 +62,6 @@ export const Option = ({
     <SingleSelectOption {...{ children, value, selected, isChild, startIcon }} />
   );
 };
-
-Option.defaultProps = {
-  isChild: false,
-  multi: false,
-  selected: false,
-  startIcon: undefined,
-  indeterminate: false,
-};
-
-Option.displayName = 'Option';
 
 interface CheckMarkProps {
   selected?: boolean;

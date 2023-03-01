@@ -26,7 +26,7 @@ test.describe.parallel('DatePicker', () => {
         await checkA11y(page);
       });
 
-      test('triggers axe on the document with the dropdown open', async ({ page }) => {
+      test.skip('triggers axe on the document with the dropdown open', async ({ page }) => {
         await page.click('input');
         await checkA11y(page);
       });

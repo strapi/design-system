@@ -18,7 +18,7 @@
     "dist"
   ],
   "devDependencies": {
-    "@svgr/cli": "^5.5.0"
+    "@svgr/cli": "6.5.1"
   },
   "peerDependencies": {
     "react": "^17.0.2",

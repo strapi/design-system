@@ -1,10 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { injectAxe, checkA11y } from 'axe-playwright';
 
-// FIXME
-// const getListDescendant = async () =>
-//   page.$eval('[role="listbox"]', (node) => node.getAttribute('aria-activedescendant'));
-
 test.describe.parallel('Select', () => {
   test.describe('light mode', () => {
     test.describe('simple', () => {
@@ -62,38 +58,6 @@ test.describe.parallel('Select', () => {
         await page.click('[aria-label="Clear the meal"]');
         await expect(page.locator('#select1-content')).toHaveText('0 currently selected');
       });
-
-      // FIXME
-      // describe('keyboard interactions', () => {
-      //   it('selects multiple values', async () => {
-      //     await page.focus('#select1');
-      //     await page.keyboard.press('ArrowDown');
-      //     await page.keyboard.press('Enter');
-      //     await page.keyboard.press('ArrowDown');
-      //     await page.keyboard.press('Enter');
-
-      //     await expect(page.locator('h2')).toHaveText('Current value is pizza, hamburger');
-      //     await expect(page.locator('#select1-content')).toHaveText('2 currently selected');
-      //   });
-
-      //   it('focuses the previously (first) selected item when one is selected and the user reopens the popover', async () => {
-      //     await page.focus('#select1');
-      //     await page.keyboard.press('ArrowDown');
-      //     await page.keyboard.press('ArrowDown');
-      //     await page.keyboard.press('Enter');
-      //     await page.keyboard.press('ArrowDown');
-      //     await page.keyboard.press('Enter');
-
-      //     await page.keyboard.press('Escape');
-      //     await page.keyboard.press('Enter');
-
-      //     // FIXME: The timeout is quite buggy.
-      //     await expect(page.locator('[role="listbox"]')).toBeVisible({ timeout: 1000 });
-
-      //     const ariaDescendant = await getListDescendant();
-      //     await expect(ariaDescendant).toBe('select1-option-hamburger');
-      //   });
-      // });
     });
   });
 
