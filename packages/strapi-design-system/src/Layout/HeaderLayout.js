@@ -101,12 +101,6 @@ export const BaseHeaderLayout = React.forwardRef(
       );
     }
 
-    let flexProps = {};
-
-    if (props?.ellipsis) {
-      flexProps.minWidth = 0;
-    }
-
     return (
       <Box
         ref={ref}
@@ -119,7 +113,7 @@ export const BaseHeaderLayout = React.forwardRef(
       >
         {navigationAction ? <Box paddingBottom={2}>{navigationAction}</Box> : null}
         <Flex justifyContent="space-between">
-          <Flex {...flexProps}>
+          <Flex minWidth={0}>
             <Typography as="h1" variant="alpha" {...props}>
               {title}
             </Typography>
