@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import { once, prefix } from '../deprecations';
+import { once, PREFIX } from '../deprecations';
 
 describe('once', () => {
   it('should fire the callback once no matter how many times we call the returned function', () => {
@@ -38,6 +38,6 @@ describe('once', () => {
   it('should throw an error if you try to call the returned function of once without passing once a function', () => {
     expect(() => {
       once('not a function' as any);
-    }).toThrowError(`${prefix} once requires a function parameter`);
+    }).toThrowError(`${PREFIX} once requires a function parameter`);
   });
 });

@@ -1,19 +1,17 @@
 import * as React from 'react';
+
 import * as RadixSelect from '@radix-ui/react-select';
 import { CarretDown, Cross } from '@strapi/icons';
 import styled from 'styled-components';
 
-import { Field, FieldError, FieldHint, FieldLabel } from '../Field';
-import { Stack } from '../Stack';
 import { Box } from '../Box';
+import { Field, FieldError, FieldHint, FieldLabel } from '../Field';
 import { Flex } from '../Flex';
-import { Typography } from '../Typography';
-
-import { useId } from '../helpers/useId';
-
+import { useId } from '../hooks/useId';
 import { useIntersection } from '../hooks/useIntersection';
-
+import { Stack } from '../Stack';
 import { getThemeSize, inputFocusStyle } from '../themes/utils';
+import { Typography } from '../Typography';
 
 export interface SingleSelectProps {
   children: React.ReactNode;
@@ -70,7 +68,7 @@ export const SingleSelect = ({
   onReachEnd,
   placeholder,
   required,
-  selectButtonTitle,
+  selectButtonTitle: _deprecatedSelectButtonTitle,
   startIcon,
   size = 'M',
   value: passedValue,
@@ -185,7 +183,8 @@ export const SingleSelect = ({
         >
           <Trigger
             id={generatedId}
-            aria-labelledby={`${hintId} ${errorId}`}
+            aria-label={label}
+            aria-describedby={`${hintId} ${errorId}`}
             aria-disabled={disabled}
             $hasError={Boolean(error)}
             $size={size}
@@ -201,9 +200,7 @@ export const SingleSelect = ({
                 </Box>
               )}
               <Typography ellipsis textColor={value ? 'neutral800' : 'neutral600'}>
-                <RadixSelect.Value aria-label={value}>
-                  {value ? customizeContent(value) : placeholder}
-                </RadixSelect.Value>
+                <RadixSelect.Value>{value ? customizeContent(value) : placeholder}</RadixSelect.Value>
               </Typography>
             </Flex>
             <Flex as="span" gap={3}>
@@ -312,7 +309,7 @@ const Viewport = styled(RadixSelect.Viewport)`
   padding: ${({ theme }) => theme.spaces[1]};
 `;
 
-/***
+/** *
  *
  * Option
  *
@@ -331,7 +328,7 @@ export const SingleSelectOption = ({ children, startIcon, value }: SingleSelectO
         {startIcon}
       </Box>
     )}
-    <Typography textColor={'neutral800'}>
+    <Typography textColor="neutral800">
       <RadixSelect.ItemText>{children}</RadixSelect.ItemText>
     </Typography>
   </SelectItem>

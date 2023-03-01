@@ -1,7 +1,7 @@
 import { devices } from '@playwright/test';
 
 export default {
-  testMatch: '**/__tests__/*.e2e.js',
+  testMatch: '**/__tests__/*.e2e.{j,t}s',
   // Forbid test.only on CI
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */

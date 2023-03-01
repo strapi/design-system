@@ -1,25 +1,30 @@
+/* eslint-disable react/jsx-pascal-case */
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import { RemoveScroll } from 'react-remove-scroll';
-import { hideOthers } from 'aria-hidden';
 
 import { composeEventHandlers } from '@radix-ui/primitive';
-import { createCollection } from '@radix-ui/react-collection';
-import { composeRefs, useComposedRefs } from '@radix-ui/react-compose-refs';
+import { useComposedRefs } from '@radix-ui/react-compose-refs';
 import { createContext } from '@radix-ui/react-context';
 import { DismissableLayer } from '@radix-ui/react-dismissable-layer';
 import { useId } from '@radix-ui/react-id';
 import * as PopperPrimitive from '@radix-ui/react-popper';
 import { Portal as PortalPrimitive } from '@radix-ui/react-portal';
 import { Primitive } from '@radix-ui/react-primitive';
-import { useControllableState } from '@radix-ui/react-use-controllable-state';
-
 import type { ComponentPropsWithoutRef } from '@radix-ui/react-primitive';
+import { useControllableState } from '@radix-ui/react-use-controllable-state';
+import { hideOthers } from 'aria-hidden';
+import * as ReactDOM from 'react-dom';
+import { RemoveScroll } from 'react-remove-scroll';
 
 import { useFilter } from '../../hooks/useFilter';
+import { usePrev } from '../../hooks/usePrev';
+import { createCollection } from '../Collection';
 
 const OPEN_KEYS = [' ', 'Enter', 'ArrowUp', 'ArrowDown'];
-const SELECTION_KEYS = [' ', 'Enter'];
+const SELECTION_KEYS = ['Enter'];
+
+const isPrintableCharacter = (str: string): boolean => {
+  return Boolean(str.length === 1 && str.match(/\S| /));
+};
 
 /* -------------------------------------------------------------------------------------------------
  * Combobox
@@ -27,33 +32,56 @@ const SELECTION_KEYS = [' ', 'Enter'];
 
 const COMBOBOX_NAME = 'Combobox';
 
-const [Collection, useCollection] = createCollection<ComboboxItemElement, ItemData>(COMBOBOX_NAME);
+const [Collection, useCollection] = createCollection<ComboboxItemElement, CollectionData>(COMBOBOX_NAME);
 
-type ItemData = { value: string; disabled: boolean; textValue: string };
+type CollectionData = OptionData | CreateData;
+
+interface Data {
+  value: string;
+  disabled: boolean;
+  textValue: string;
+}
+
+interface OptionData extends Data {
+  type: 'option';
+}
+
+interface CreateData extends Data {
+  type: 'create';
+}
 
 type ComboboxContextValue = {
+  allowCustomValue: boolean;
+  autocomplete: 'none' | 'list' | 'both';
   contentId: string;
   disabled?: boolean;
   locale: string;
   onOpenChange(open: boolean): void;
-  onTriggerChange(node: ComboboxTriggerElement | null): void;
+  onTriggerChange(node: ComboboxInputElement | null): void;
   onValueChange(value: string | undefined): void;
   open: boolean;
   required: boolean;
-  trigger: ComboboxTriggerElement | null;
+  trigger: ComboboxInputElement | null;
   value?: string;
-  focusFirst: (candidates: Array<HTMLElement | null>) => void;
+  focusFirst: (
+    candidates: Array<HTMLDivElement | null>,
+    items: Array<CollectionData & { ref: React.RefObject<HTMLDivElement> }>,
+  ) => void;
   textValue?: string;
   onTextValueChange(textValue: string): void;
   onViewportChange(node: ComboboxViewportElement | null): void;
-  onSearchValueChange(searchValue: string): void;
-  searchValue: string;
   onContentChange(node: ComboboxContentImplElement | null): void;
+  visuallyFocussedItem: HTMLDivElement | null;
+  filterValue: string | undefined;
+  onFilterValueChange: (value: string | undefined) => void;
+  onVisuallyFocussedItemChange: (item: HTMLDivElement | null) => void;
 };
 
 const [ComboboxProvider, useComboboxContext] = createContext<ComboboxContextValue>(COMBOBOX_NAME);
 
 interface RootProps {
+  allowCustomValue?: boolean;
+  autocomplete?: 'none' | 'list' | 'both';
   children?: React.ReactNode;
   defaultOpen?: boolean;
   defaultValue?: string;
@@ -67,6 +95,9 @@ interface RootProps {
   open?: boolean;
   required?: boolean;
   value?: string;
+  defaultFilterValue?: string;
+  filterValue?: string;
+  onFilterValueChange?(value: string): void;
 }
 
 /**
@@ -80,6 +111,8 @@ const ComboboxProviders = ({ children }: { children: React.ReactNode }) => (
 
 const Combobox: React.FC<RootProps> = (props) => {
   const {
+    allowCustomValue = false,
+    autocomplete = 'none',
     children,
     open: openProp,
     defaultOpen,
@@ -93,14 +126,15 @@ const Combobox: React.FC<RootProps> = (props) => {
     onTextValueChange,
     textValue: textValueProp,
     defaultTextValue,
+    filterValue: filterValueProp,
+    defaultFilterValue,
+    onFilterValueChange,
   } = props;
 
-  const [trigger, setTrigger] = React.useState<ComboboxTriggerElement | null>(null);
+  const [trigger, setTrigger] = React.useState<ComboboxInputElement | null>(null);
   const [viewport, setViewport] = React.useState<ComboboxViewportElement | null>(null);
   const [content, setContent] = React.useState<ComboboxContentImplElement | null>(null);
-  const [searchValue, setSearchValue] = React.useState('');
-
-  const getItems = useCollection(undefined);
+  const [visuallyFocussedItem, setVisuallyFocussedItem] = React.useState<HTMLDivElement | null>(null);
 
   /**
    * Lets state either be handled externally or internally.
@@ -120,28 +154,53 @@ const Combobox: React.FC<RootProps> = (props) => {
     defaultProp: defaultTextValue,
     onChange: onTextValueChange,
   });
+  const [filterValue, setFilterValue] = useControllableState({
+    prop: filterValueProp,
+    defaultProp: defaultFilterValue,
+    onChange: onFilterValueChange,
+  });
 
   const id = useId();
 
-  const focusFirst = React.useCallback(
-    (candidates: Array<HTMLElement | null>) => {
-      const [firstItem, ...restItems] = getItems().map((item) => item.ref.current);
+  const focusFirst: ComboboxContextValue['focusFirst'] = React.useCallback(
+    (candidates, items) => {
+      const allItems = items.map((item) => item.ref.current);
+      const [firstItem, ...restItems] = allItems;
       const [lastItem] = restItems.slice(-1);
 
-      const PREVIOUSLY_FOCUSED_ELEMENT = document.activeElement;
+      const PREVIOUSLY_FOCUSED_ELEMENT = visuallyFocussedItem;
+      // eslint-disable-next-line no-restricted-syntax
       for (const candidate of candidates) {
         // if focus is already where we want to go, we don't want to keep going through the candidates
         if (candidate === PREVIOUSLY_FOCUSED_ELEMENT) return;
         candidate?.scrollIntoView({ block: 'nearest' });
+
         // viewport might have padding so scroll to its edges when focusing first/last items.
         if (candidate === firstItem && viewport) viewport.scrollTop = 0;
+
         if (candidate === lastItem && viewport) viewport.scrollTop = viewport.scrollHeight;
-        candidate?.focus();
-        if (document.activeElement !== PREVIOUSLY_FOCUSED_ELEMENT) return;
+
+        setVisuallyFocussedItem(candidate);
+
+        if (autocomplete === 'both') {
+          const item = items.find((item) => item.ref.current === candidate);
+
+          if (item) {
+            setTextValue(item.textValue);
+          }
+        }
+
+        if (candidate !== PREVIOUSLY_FOCUSED_ELEMENT) return;
       }
     },
-    [getItems, viewport],
+    [autocomplete, setTextValue, viewport, visuallyFocussedItem],
   );
+
+  React.useEffect(() => {
+    if (autocomplete !== 'both') {
+      setVisuallyFocussedItem(null);
+    }
+  }, [textValue, autocomplete]);
 
   // aria-hide everything except the content (better supported equivalent to setting aria-modal)
   React.useEffect(() => {
@@ -151,6 +210,8 @@ const Combobox: React.FC<RootProps> = (props) => {
   return (
     <ComboboxProviders>
       <ComboboxProvider
+        allowCustomValue={allowCustomValue}
+        autocomplete={autocomplete}
         required={required}
         trigger={trigger}
         onTriggerChange={setTrigger}
@@ -165,9 +226,11 @@ const Combobox: React.FC<RootProps> = (props) => {
         textValue={textValue}
         onTextValueChange={setTextValue}
         onViewportChange={setViewport}
-        onSearchValueChange={setSearchValue}
-        searchValue={searchValue}
         onContentChange={setContent}
+        visuallyFocussedItem={visuallyFocussedItem}
+        filterValue={filterValue}
+        onFilterValueChange={setFilterValue}
+        onVisuallyFocussedItemChange={setVisuallyFocussedItem}
       >
         {children}
       </ComboboxProvider>
@@ -179,15 +242,18 @@ const Combobox: React.FC<RootProps> = (props) => {
  * ComboboxTrigger
  * -----------------------------------------------------------------------------------------------*/
 
-type ComboboxTriggerElement = React.ElementRef<'input'>;
 type TriggerProps = PrimitiveDivProps;
+
+const TRIGGER_NAME = 'ComboboxTrigger';
+type ComboboxTriggerElement = React.ElementRef<'div'>;
 
 const ComboboxTrigger = React.forwardRef<ComboboxTriggerElement, TriggerProps>((props, forwardedRef) => {
   const { ...triggerProps } = props;
+  const context = useComboboxContext(TRIGGER_NAME);
 
   return (
     <PopperPrimitive.Anchor asChild>
-      <div ref={forwardedRef} {...triggerProps} />
+      <div ref={forwardedRef} data-disabled={context.disabled ? '' : undefined} {...triggerProps} />
     </PopperPrimitive.Anchor>
   );
 });
@@ -199,19 +265,53 @@ const ComboboxTrigger = React.forwardRef<ComboboxTriggerElement, TriggerProps>((
 const INPUT_NAME = 'ComboboxInput';
 
 interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
+type ComboboxInputElement = React.ElementRef<'input'>;
 
-const ComboxboxTextInput = React.forwardRef<HTMLInputElement, TextInputProps>((props, forwardedRef) => {
+const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps>((props, forwardedRef) => {
   const context = useComboboxContext(INPUT_NAME);
-  const getItems = useCollection(undefined);
+  const inputRef = React.useRef<HTMLInputElement>(null!);
+  const { getItems } = useCollection(undefined);
+
+  const { startsWith } = useFilter(context.locale, { sensitivity: 'base' });
 
   const isDisabled = context.disabled;
-  const composedRefs = useComposedRefs(forwardedRef, context.onTriggerChange);
+  const composedRefs = useComposedRefs(inputRef, forwardedRef, context.onTriggerChange);
 
   const handleOpen = () => {
     if (!isDisabled) {
       context.onOpenChange(true);
     }
   };
+
+  const previousFilter = usePrev(context.filterValue);
+
+  /**
+   * If you suddenly get a match it pushes you right to the end.
+   */
+  React.useLayoutEffect(() => {
+    setTimeout(() => {
+      if (
+        context.textValue === '' ||
+        context.textValue === undefined ||
+        context.filterValue === '' ||
+        context.filterValue === undefined
+      )
+        return;
+
+      const firstItem = getItems().find(
+        (item) => item.type === 'option' && startsWith(item.textValue, context.textValue!),
+      );
+
+      const characterChangedAtIndex = findChangedIndex(previousFilter ?? '', context.filterValue);
+
+      /**
+       * If there's a match, we want to select the text after the match.
+       */
+      if (firstItem && !context.visuallyFocussedItem && characterChangedAtIndex === context.filterValue.length) {
+        inputRef.current.setSelectionRange(context.filterValue.length, context.textValue.length);
+      }
+    });
+  }, [context.textValue, context.filterValue, startsWith, context.visuallyFocussedItem, getItems, previousFilter]);
 
   return (
     <input
@@ -220,8 +320,10 @@ const ComboxboxTextInput = React.forwardRef<HTMLInputElement, TextInputProps>((p
       aria-controls={context.contentId}
       aria-expanded={context.open}
       aria-required={context.required}
-      aria-autocomplete="both"
+      aria-autocomplete={context.autocomplete}
       data-state={context.open ? 'open' : 'closed'}
+      aria-disabled={isDisabled}
+      aria-activedescendant={context.visuallyFocussedItem?.id}
       disabled={isDisabled}
       data-disabled={isDisabled ? '' : undefined}
       data-placeholder={context.textValue === undefined ? '' : undefined}
@@ -242,16 +344,14 @@ const ComboxboxTextInput = React.forwardRef<HTMLInputElement, TextInputProps>((p
         // but not when the control key is pressed (avoiding MacOS right click)
         if (event.button === 0 && event.ctrlKey === false) {
           handleOpen();
-          // prevent trigger from stealing focus from the active item after opening.
-          event.preventDefault();
+          /**
+           * Firefox had issues focussing the input correctly.
+           */
+          event.currentTarget.focus();
         }
       })}
       onKeyDown={composeEventHandlers(props.onKeyDown, (event) => {
         if (['ArrowUp', 'ArrowDown', 'Home', 'End'].includes(event.key)) {
-          /**
-           * Put it in a set timeout because we need a single tick to make sure the
-           * menu is open and the items are rendered.
-           */
           setTimeout(() => {
             const items = getItems().filter((item) => !item.disabled);
             let candidateNodes = items.map((item) => item.ref.current!);
@@ -260,28 +360,107 @@ const ComboxboxTextInput = React.forwardRef<HTMLInputElement, TextInputProps>((p
               candidateNodes = candidateNodes.slice().reverse();
             }
             if (['ArrowUp', 'ArrowDown'].includes(event.key)) {
-              const currentElement = event.target as ComboboxItemElement;
-              const currentIndex = candidateNodes.indexOf(currentElement);
+              const currentElement = context.visuallyFocussedItem ?? (event.target as ComboboxItemElement);
+              let currentIndex = candidateNodes.indexOf(currentElement);
+
+              /**
+               * This lets us go around the items in one big loop.
+               */
+              if (currentIndex === candidateNodes.length - 1) {
+                currentIndex = -1;
+              }
               candidateNodes = candidateNodes.slice(currentIndex + 1);
             }
+            if (['ArrowDown'].includes(event.key) && context.autocomplete === 'both' && candidateNodes.length > 1) {
+              const [firstItem, ...restItems] = candidateNodes;
+              const firstItemText = getItems().find((item) => item.ref.current === firstItem)!.textValue;
 
-            context.focusFirst(candidateNodes);
+              if (context.textValue === firstItemText) {
+                candidateNodes = restItems;
+              }
+            }
+            context.focusFirst(candidateNodes, getItems());
           });
-
           event.preventDefault();
-        }
+        } else if (['Escape'].includes(event.key)) {
+          if (context.open) {
+            context.onOpenChange(false);
+          } else {
+            context.onValueChange(undefined);
+            context.onTextValueChange('');
+          }
+          event.preventDefault();
+        } else if (SELECTION_KEYS.includes(event.key)) {
+          if (context.visuallyFocussedItem) {
+            const focussedItem = getItems().find((item) => item.ref.current === context.visuallyFocussedItem);
 
-        if (!context.open) {
-          handleOpen();
+            if (focussedItem) {
+              context.onValueChange(focussedItem.value);
+              context.onTextValueChange(focussedItem.textValue);
+
+              if (context.autocomplete === 'both') {
+                context.onFilterValueChange(focussedItem.textValue);
+              }
+
+              focussedItem.ref.current?.click();
+            }
+          }
+
+          context.onOpenChange(false);
+          event.preventDefault();
+        } else {
+          context.onVisuallyFocussedItemChange(null);
         }
       })}
       onChange={composeEventHandlers(props.onChange, (event) => {
         context.onTextValueChange(event.currentTarget.value);
-        context.onSearchValueChange(event.currentTarget.value);
+
+        if (context.autocomplete === 'both') {
+          context.onFilterValueChange(event.currentTarget.value);
+        }
+      })}
+      onKeyUp={composeEventHandlers(props.onKeyUp, (event) => {
+        if (
+          !context.open &&
+          (isPrintableCharacter(event.key) || ['ArrowUp', 'ArrowDown', 'Home', 'End', 'Backspace'].includes(event.key))
+        ) {
+          handleOpen();
+        }
+
+        if (context.autocomplete === 'both' && isPrintableCharacter(event.key) && context.filterValue !== undefined) {
+          const value = context.filterValue;
+          const firstItem = getItems().find((item) => startsWith(item.textValue, value));
+
+          if (firstItem) {
+            context.onTextValueChange(firstItem.textValue);
+          }
+        }
       })}
       onBlur={composeEventHandlers(props.onBlur, (event) => {
-        const [activeItem] = getItems().filter((item) => item.textValue === context.textValue);
-        const [previousItem] = getItems().filter((item) => item.value === context.value);
+        context.onVisuallyFocussedItemChange(null);
+
+        const [activeItem] = getItems().filter(
+          (item) => item.textValue === context.textValue && item.type === 'option',
+        );
+
+        /**
+         * If we allow custom values and there's an active item (which means
+         * we've typed a value that matches an item), we want to update the
+         * value to that item's value.
+         */
+        if (context.allowCustomValue) {
+          if (activeItem) {
+            context.onValueChange(activeItem.value);
+
+            if (context.autocomplete === 'both') {
+              context.onFilterValueChange(activeItem.textValue);
+            }
+          }
+
+          return;
+        }
+
+        const [previousItem] = getItems().filter((item) => item.value === context.value && item.type === 'option');
 
         /**
          * If we've succesfully typed a value that matches an item, we want to
@@ -295,12 +474,14 @@ const ComboxboxTextInput = React.forwardRef<HTMLInputElement, TextInputProps>((p
           context.onValueChange(activeItem.value);
         } else if (previousItem && event.currentTarget.value !== '') {
           context.onTextValueChange(previousItem.textValue);
+
+          if (context.autocomplete === 'both') {
+            context.onFilterValueChange(previousItem.textValue);
+          }
         } else {
           context.onValueChange(undefined);
           context.onTextValueChange('');
         }
-
-        context.onSearchValueChange('');
       })}
     />
   );
@@ -332,8 +513,14 @@ const ComboboxIcon = React.forwardRef<ComboboxIconElement, IconProps>((props, fo
   };
 
   return (
-    <button
+    <Primitive.button
       aria-hidden
+      type="button"
+      aria-disabled={isDisabled}
+      aria-controls={context.contentId}
+      aria-expanded={context.open}
+      disabled={isDisabled}
+      data-disabled={isDisabled ? '' : undefined}
       {...iconProps}
       tabIndex={-1}
       ref={forwardedRef} // Enable compatibility with native label or custom `Label` "click" for Safari:
@@ -362,7 +549,7 @@ const ComboboxIcon = React.forwardRef<ComboboxIconElement, IconProps>((props, fo
       })}
     >
       {children || '▼'}
-    </button>
+    </Primitive.button>
   );
 });
 
@@ -403,6 +590,7 @@ const ComboboxContent = React.forwardRef<ComboboxContentElement, ContentProps>((
 
   if (!context.open) {
     const frag = fragment as Element | undefined;
+
     return frag
       ? ReactDOM.createPortal(
           <Collection.Slot scope={undefined}>
@@ -438,8 +626,6 @@ interface ComboboxContentImplProps extends Omit<ComboboxPopperPositionProps, key
    * Can be prevented.
    */
   onPointerDownOutside?: DismissableLayerProps['onPointerDownOutside'];
-
-  position?: 'item-aligned' | 'popper';
 }
 
 /**
@@ -448,7 +634,7 @@ interface ComboboxContentImplProps extends Omit<ComboboxPopperPositionProps, key
  */
 const ComboboxContentImpl = React.forwardRef<ComboboxContentImplElement, ComboboxContentImplProps>(
   (props, forwardedRef) => {
-    const { position = 'item-aligned', onEscapeKeyDown, onPointerDownOutside, ...contentProps } = props;
+    const { onEscapeKeyDown, onPointerDownOutside, ...contentProps } = props;
     const context = useComboboxContext(CONTENT_NAME);
     const composedRefs = useComposedRefs(forwardedRef, (node) => context.onContentChange(node));
 
@@ -456,12 +642,11 @@ const ComboboxContentImpl = React.forwardRef<ComboboxContentImplElement, Combobo
     // and close on `pointerup` outside.
     const { onOpenChange } = context;
 
-    const getItems = useCollection(undefined);
-
     React.useEffect(() => {
       const close = () => onOpenChange(false);
       window.addEventListener('blur', close);
       window.addEventListener('resize', close);
+
       return () => {
         window.removeEventListener('blur', close);
         window.removeEventListener('resize', close);
@@ -497,28 +682,6 @@ const ComboboxContentImpl = React.forwardRef<ComboboxContentImplElement, Combobo
               outline: 'none',
               ...contentProps.style,
             }}
-            onKeyDown={composeEventHandlers(contentProps.onKeyDown, (event) => {
-              // Combobox should not be navigated using tab key so we prevent it
-              if (event.key === 'Tab') event.preventDefault();
-
-              if (['ArrowUp', 'ArrowDown', 'Home', 'End'].includes(event.key)) {
-                const items = getItems().filter((item) => !item.disabled);
-                let candidateNodes = items.map((item) => item.ref.current!);
-
-                if (['ArrowUp', 'End'].includes(event.key)) {
-                  candidateNodes = candidateNodes.slice().reverse();
-                }
-                if (['ArrowUp', 'ArrowDown'].includes(event.key)) {
-                  const currentElement = event.target as ComboboxItemElement;
-                  const currentIndex = candidateNodes.indexOf(currentElement);
-                  candidateNodes = candidateNodes.slice(currentIndex + 1);
-                }
-
-                setTimeout(() => context.focusFirst(candidateNodes));
-
-                event.preventDefault();
-              }
-            })}
           />
         </DismissableLayer>
       </RemoveScroll>
@@ -575,10 +738,12 @@ interface ViewportProps extends PrimitiveDivProps {}
 const ComboboxViewport = React.forwardRef<ComboboxViewportElement, ViewportProps>((props, forwardedRef) => {
   const comboboxContext = useComboboxContext(VIEWPORT_NAME);
   const composedRefs = useComposedRefs(forwardedRef, comboboxContext.onViewportChange);
+
   return (
     <>
       {/* Hide scrollbars cross-browser and enable momentum scroll for touch devices */}
       <style
+        // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{
           __html: `[data-radix-combobox-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-combobox-viewport]::-webkit-scrollbar{display:none}`,
         }}
@@ -624,7 +789,7 @@ const [ComboboxItemProvider, useComboboxItemContext] = createContext<ComboboxIte
 
 type ComboboxItemElement = React.ElementRef<typeof Primitive.div>;
 
-interface ItemProps extends React.OptionHTMLAttributes<HTMLDivElement> {
+interface ItemProps extends PrimitiveDivProps {
   value: string;
   disabled?: boolean;
   textValue?: string;
@@ -632,30 +797,43 @@ interface ItemProps extends React.OptionHTMLAttributes<HTMLDivElement> {
 
 export const ComboboxItem = React.forwardRef<ComboboxItemElement, ItemProps>((props, forwardedRef) => {
   const { value, disabled = false, textValue: textValueProp, ...restProps } = props;
+  const itemRef = React.useRef<HTMLDivElement>(null);
 
-  const context = useComboboxContext(ITEM_NAME);
+  const composedRefs = useComposedRefs(forwardedRef, itemRef);
+
+  const { getItems } = useCollection(undefined);
+  const {
+    onTextValueChange,
+    textValue: contextTextValue,
+    visuallyFocussedItem,
+    ...context
+  } = useComboboxContext(ITEM_NAME);
 
   const textId = useId();
 
   const [textValue, setTextValue] = React.useState(textValueProp ?? '');
-  const [isFocused, setIsFocused] = React.useState(false);
 
-  const itemRef = React.useRef(null!);
-
-  const composedRefs = composeRefs(forwardedRef, itemRef);
+  const isFocused = React.useMemo(() => {
+    return visuallyFocussedItem === getItems().find((item) => item.ref.current === itemRef.current)?.ref.current;
+  }, [getItems, visuallyFocussedItem]);
 
   const isSelected = context.value === value;
 
   const handleSelect = () => {
     if (!disabled) {
       context.onValueChange(value);
-      context.onTextValueChange(textValue);
+      onTextValueChange(textValue);
       context.onOpenChange(false);
+
+      if (context.autocomplete === 'both') {
+        context.onFilterValueChange(textValue);
+      }
+
       context.trigger?.focus({ preventScroll: true });
     }
   };
 
-  const { contains } = useFilter(context.locale, { sensitivity: 'base' });
+  const { startsWith } = useFilter(context.locale, { sensitivity: 'base' });
 
   const handleTextValueChange = React.useCallback((node: HTMLSpanElement | null) => {
     setTextValue((prevTextValue) => {
@@ -668,18 +846,29 @@ export const ComboboxItem = React.forwardRef<ComboboxItemElement, ItemProps>((pr
      * This effect is designed to run when the value prop is
      * controlled and we need to update the text value accordingly.
      */
-    if (isSelected && context.textValue === undefined && textValue !== '') {
-      context.onTextValueChange(textValue);
+    if (isSelected && contextTextValue === undefined && textValue !== '') {
+      onTextValueChange(textValue);
     }
-  }, [textValue, isSelected, context.textValue]);
+  }, [textValue, isSelected, contextTextValue, onTextValueChange]);
 
-  if (context.searchValue && !contains(textValue, context.searchValue)) {
+  const id = useId();
+
+  if (context.autocomplete === 'list' && textValue && contextTextValue && !startsWith(textValue, contextTextValue)) {
+    return null;
+  }
+
+  if (
+    context.autocomplete === 'both' &&
+    textValue &&
+    context.filterValue &&
+    !startsWith(textValue, context.filterValue)
+  ) {
     return null;
   }
 
   return (
     <ComboboxItemProvider textId={textId} onTextValueChange={handleTextValueChange} isSelected={isSelected}>
-      <Collection.ItemSlot scope={undefined} value={value} textValue={textValue} disabled={disabled}>
+      <Collection.ItemSlot scope={undefined} value={value} textValue={textValue} disabled={disabled} type="option">
         <Primitive.div
           role="option"
           aria-labelledby={textId}
@@ -691,15 +880,9 @@ export const ComboboxItem = React.forwardRef<ComboboxItemElement, ItemProps>((pr
           data-disabled={disabled ? '' : undefined}
           tabIndex={disabled ? undefined : -1}
           {...restProps}
+          id={id}
           ref={composedRefs}
-          onFocus={composeEventHandlers(restProps.onFocus, () => setIsFocused(true))}
-          onBlur={composeEventHandlers(restProps.onBlur, () => setIsFocused(false))}
           onPointerUp={composeEventHandlers(restProps.onPointerUp, handleSelect)}
-          onKeyDown={composeEventHandlers(restProps.onKeyDown, (event) => {
-            if (SELECTION_KEYS.includes(event.key)) handleSelect();
-            // prevent page scroll if using the space key to select an item
-            if (event.key === ' ') event.preventDefault();
-          })}
         />
       </Collection.ItemSlot>
     </ComboboxItemProvider>
@@ -712,15 +895,16 @@ export const ComboboxItem = React.forwardRef<ComboboxItemElement, ItemProps>((pr
 
 const ITEM_TEXT_NAME = 'ComboboxItemText';
 
-type ItemTextProps = React.HTMLAttributes<HTMLSpanElement>;
+type PrimitiveSpanProps = ComponentPropsWithoutRef<typeof Primitive.span>;
+type ItemTextProps = PrimitiveSpanProps;
 
 const ComboboxItemText = React.forwardRef<HTMLSpanElement, ItemTextProps>((props, forwardedRef) => {
   // We ignore `className` and `style` as this part shouldn't be styled.
-  const { className, style, ...itemTextProps } = props;
+  const { className: _unusedClassName, style: _unusedStyle, ...itemTextProps } = props;
   const itemContext = useComboboxItemContext(ITEM_TEXT_NAME);
   const composedRefs = useComposedRefs(forwardedRef, itemContext.onTextValueChange);
 
-  return <span id={itemContext.textId} {...itemTextProps} ref={composedRefs} />;
+  return <Primitive.span id={itemContext.textId} {...itemTextProps} ref={composedRefs} />;
 });
 
 /* -------------------------------------------------------------------------------------------------
@@ -728,12 +912,123 @@ const ComboboxItemText = React.forwardRef<HTMLSpanElement, ItemTextProps>((props
  * -----------------------------------------------------------------------------------------------*/
 
 const ITEM_INDICATOR_NAME = 'ComboboxItemIndicator';
-
-interface ItemIndicatorProps extends React.HTMLAttributes<HTMLSpanElement> {}
+interface ItemIndicatorProps extends PrimitiveSpanProps {}
 
 const ComboboxItemIndicator = React.forwardRef<HTMLSpanElement, ItemIndicatorProps>((props, forwardedRef) => {
   const { isSelected } = useComboboxItemContext(ITEM_INDICATOR_NAME);
-  return isSelected ? <span aria-hidden {...props} ref={forwardedRef} /> : null;
+
+  return isSelected ? <Primitive.span aria-hidden {...props} ref={forwardedRef} /> : null;
+});
+
+/* -------------------------------------------------------------------------------------------------
+ * ComboboxNoValueFound
+ * -----------------------------------------------------------------------------------------------*/
+
+const NO_VALUE_FOUND_NAME = 'ComboboxNoValueFound';
+
+interface NoValueFoundProps extends PrimitiveDivProps {}
+
+const ComboboxNoValueFound = React.forwardRef<HTMLDivElement, NoValueFoundProps>((props, ref) => {
+  const { textValue = '', locale } = useComboboxContext(NO_VALUE_FOUND_NAME);
+  const [items, setItems] = React.useState<CollectionData[]>([]);
+  const { subscribe } = useCollection(undefined);
+
+  const { startsWith } = useFilter(locale, { sensitivity: 'base' });
+
+  /**
+   * We need to use a subscription here so we know *exactly*
+   * what items are in the collection whenever they update
+   */
+  React.useEffect(() => {
+    const unsub = subscribe((state) => {
+      setItems(state);
+    });
+
+    return () => {
+      unsub();
+    };
+  }, [subscribe]);
+
+  if (items.some((item) => startsWith(item.textValue, textValue))) {
+    return null;
+  }
+
+  return <Primitive.div {...props} ref={ref} />;
+});
+
+/* -------------------------------------------------------------------------------------------------
+ * ComboboxCreateItem
+ * -----------------------------------------------------------------------------------------------*/
+
+interface CreateItemProps extends PrimitiveDivProps {
+  disabled?: boolean;
+}
+
+const ComboboxCreateItem = React.forwardRef<ComboboxItemElement, CreateItemProps>((props, ref) => {
+  const { disabled = false, ...restProps } = props;
+  const context = useComboboxContext(NO_VALUE_FOUND_NAME);
+  const { textValue, visuallyFocussedItem } = context;
+  const { getItems, subscribe } = useCollection(undefined);
+  const itemRef = React.useRef<HTMLDivElement>(null);
+  const [show, setShow] = React.useState(false);
+
+  const composedRefs = useComposedRefs(ref, itemRef);
+
+  const isFocused = React.useMemo(() => {
+    return visuallyFocussedItem === getItems().find((item) => item.ref.current === itemRef.current)?.ref.current;
+  }, [getItems, visuallyFocussedItem]);
+
+  const id = useId();
+
+  const handleSelect = () => {
+    if (!disabled && textValue) {
+      context.onValueChange(textValue);
+      context.onTextValueChange(textValue);
+      context.onOpenChange(false);
+
+      if (context.autocomplete === 'both') {
+        context.onFilterValueChange(textValue);
+      }
+
+      context.trigger?.focus({ preventScroll: true });
+    }
+  };
+
+  React.useLayoutEffect(() => {
+    const unsub = subscribe((state) => {
+      setShow(!state.some((item) => item.textValue === textValue && item.type !== 'create'));
+    });
+
+    return () => {
+      unsub();
+    };
+  }, [textValue, subscribe]);
+
+  if (!textValue || !show) {
+    return null;
+  }
+
+  return (
+    <Collection.ItemSlot
+      scope={undefined}
+      value={textValue ?? ''}
+      textValue={textValue ?? ''}
+      disabled={disabled}
+      type="create"
+    >
+      <Primitive.div
+        role="option"
+        tabIndex={disabled ? undefined : -1}
+        aria-disabled={disabled || undefined}
+        data-disabled={disabled ? '' : undefined}
+        data-highlighted={isFocused ? '' : undefined}
+        {...restProps}
+        id={id}
+        ref={composedRefs}
+        onPointerUp={composeEventHandlers(restProps.onPointerUp, handleSelect)}
+      />
+    </Collection.ItemSlot>
+  );
 });
 
 const Root = Combobox;
@@ -746,8 +1041,23 @@ const Viewport = ComboboxViewport;
 const Item = ComboboxItem;
 const ItemText = ComboboxItemText;
 const ItemIndicator = ComboboxItemIndicator;
+const NoValueFound = ComboboxNoValueFound;
+const CreateItem = ComboboxCreateItem;
 
-export { Root, Trigger, TextInput, Icon, Portal, Content, Viewport, Item, ItemText, ItemIndicator };
+export {
+  Root,
+  Trigger,
+  TextInput,
+  Icon,
+  Portal,
+  Content,
+  Viewport,
+  Item,
+  ItemText,
+  ItemIndicator,
+  NoValueFound,
+  CreateItem,
+};
 
 export type {
   RootProps,
@@ -760,4 +1070,21 @@ export type {
   ItemProps,
   ItemTextProps,
   ItemIndicatorProps,
+  NoValueFoundProps,
+  CreateItemProps,
 };
+
+/**
+ * Given two strings find the exact index of the character that changed
+ */
+function findChangedIndex(a: string, b: string) {
+  const length = Math.min(a.length, b.length);
+
+  for (let i = 0; i < length; i++) {
+    if (a[i] !== b[i]) {
+      return i;
+    }
+  }
+
+  return length;
+}

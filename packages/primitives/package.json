@@ -1,6 +1,6 @@
 {
-  "name": "@strapi/primitives",
-  "version": "1.6.1",
+  "name": "@strapi/ui-primitives",
+  "version": "1.6.3",
   "license": "MIT",
   "type": "module",
   "sideEffects": false,
@@ -15,13 +15,14 @@
     "prebuild": "rimraf dist",
     "build": "yarn build:prod",
     "build:prod": "vite build",
+    "lint": "eslint . --ext .js,.jsx,.tsx,.ts",
+    "format": "yarn lint --fix",
     "test": "jest -c jest.config.js",
     "test:ts": "tsc --noEmit",
     "test:watch": "jest -c jest.config.js --watchAll"
   },
   "dependencies": {
     "@radix-ui/primitive": "^1.0.0",
-    "@radix-ui/react-collection": "^1.0.1",
     "@radix-ui/react-compose-refs": "^1.0.0",
     "@radix-ui/react-context": "^1.0.0",
     "@radix-ui/react-dismissable-layer": "^1.0.2",
@@ -29,6 +30,7 @@
     "@radix-ui/react-popper": "^1.1.0",
     "@radix-ui/react-portal": "^1.0.1",
     "@radix-ui/react-primitive": "^1.0.1",
+    "@radix-ui/react-slot": "^1.0.1",
     "@radix-ui/react-use-controllable-state": "^1.0.0",
     "aria-hidden": "^1.2.2",
     "react-remove-scroll": "^2.5.5"

@@ -32,6 +32,7 @@ export function useFilter(locale: string, options?: Intl.CollatorOptions): Filte
       // Normalize both strings so we can slice safely
       string = string.normalize('NFC');
       substring = substring.normalize('NFC');
+
       return collator.compare(string.slice(0, substring.length), substring) === 0;
     },
     endsWith(string, substring) {
@@ -41,6 +42,7 @@ export function useFilter(locale: string, options?: Intl.CollatorOptions): Filte
 
       string = string.normalize('NFC');
       substring = substring.normalize('NFC');
+
       return collator.compare(string.slice(-substring.length), substring) === 0;
     },
     contains(string, substring) {
@@ -55,6 +57,7 @@ export function useFilter(locale: string, options?: Intl.CollatorOptions): Filte
       let sliceLen = substring.length;
       for (; scan + sliceLen <= string.length; scan++) {
         let slice = string.slice(scan, scan + sliceLen);
+
         if (collator.compare(substring, slice) === 0) {
           return true;
         }

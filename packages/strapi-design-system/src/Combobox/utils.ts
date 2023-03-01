@@ -1,7 +1,13 @@
+import { ReactElement } from 'react';
+
 import computeScrollIntoView from 'compute-scroll-into-view';
 
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 
+/**
+ * @deprecated
+ * This object is no longer used and will be removed in v2.
+ */
 export const MenuActions = {
   Close: 'Close',
   CloseSelect: 'CloseSelect',
@@ -17,6 +23,10 @@ export const MenuActions = {
   Type: 'Type',
 };
 
+/**
+ * @deprecated
+ * This object is no longer used and will be removed in v2.
+ */
 export const TreeActions = {
   Close: 'Close',
   First: 'First',
@@ -28,13 +38,22 @@ export const TreeActions = {
   UpLevel: 'UpLevel',
 };
 
+/**
+ * @deprecated
+ * This function is no longer used and will be removed in v2.
+ */
 // filter an array of options against an input string
 // returns an array of options that contains the filter string, case-independent
-export function filterOptions(options = [], filter = null, exclude = []) {
+export function filterOptions(
+  options: ReactElement[] = [],
+  filter: string | number | null = null,
+  exclude: ReactElement[] = [],
+) {
   const equalizedTerm = String(filter ?? '').toLowerCase();
 
   return equalizedTerm
     ? options.filter((option) => {
+        // @ts-ignore this will be removed in v2 and isn't used so ignore it.
         const equalizedOptionChildren = option.props.children.toString().toLowerCase();
         const matches = equalizedOptionChildren.includes(equalizedTerm);
 
@@ -43,9 +62,12 @@ export function filterOptions(options = [], filter = null, exclude = []) {
     : options;
 }
 
+/**
+ * @deprecated
+ * This function is no longer used and will be removed in v2.
+ */
 // return combobox action from key press
-// eslint-disable-next-line consistent-return
-export function getActionFromKey(key, menuOpen) {
+export function getActionFromKey(key: string, menuOpen: boolean) {
   // handle opening when closed
   if (!menuOpen && key === KeyboardKeys.DOWN) {
     return MenuActions.Open;
@@ -74,8 +96,12 @@ export function getActionFromKey(key, menuOpen) {
   }
 }
 
+/**
+ * @deprecated
+ * This function is no longer used and will be removed in v2.
+ */
 // get updated option index
-export function getUpdatedIndex(current, max, action) {
+export function getUpdatedIndex(current: number, max: number, action: string) {
   switch (action) {
     case MenuActions.First:
       return 0;
@@ -90,8 +116,12 @@ export function getUpdatedIndex(current, max, action) {
   }
 }
 
+/**
+ * @deprecated
+ * This function is no longer used and will be removed in v2.
+ */
 // ensure given child element is within the parent's visible scroll area
-export function maintainScrollVisibility(activeElement) {
+export function maintainScrollVisibility(activeElement: HTMLElement) {
   const actions = computeScrollIntoView(activeElement, {
     scrollMode: 'if-needed',
     block: 'nearest',

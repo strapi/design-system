@@ -1,10 +1,15 @@
 import styled from 'styled-components';
 
-import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { inputFocusStyle } from '../themes/utils';
 
-export const MainRow = styled(Flex)`
+export { OptionBox } from './Combobox';
+
+/**
+ * @deprecated
+ * This component is no longer used and will be removed in v2.
+ */
+export const MainRow = styled(Flex)<{ $disabled: boolean; hasError: boolean }>`
   position: relative;
   border: 1px solid ${({ theme, hasError }) => (hasError ? theme.colors.danger600 : theme.colors.neutral200)};
   padding-right: ${({ theme }) => theme.spaces[3]};
@@ -23,17 +28,29 @@ export const MainRow = styled(Flex)`
   ${inputFocusStyle()}
 `;
 
+/**
+ * @deprecated
+ * This component is no longer used and will be removed in v2.
+ */
 export const ValueContainer = styled.div`
   padding: 1px 2px;
   grid-area: 1 / 1 / 2 / 3;
 `;
 
+/**
+ * @deprecated
+ * This component is no longer used and will be removed in v2.
+ */
 export const InputContainer = styled(Flex)`
   display: grid;
   flex: 1 1 0%;
   position: relative;
 `;
 
+/**
+ * @deprecated
+ * This component is no longer used and will be removed in v2.
+ */
 export const Input = styled.input`
   display: inline-grid;
   grid-area: 1 / 1 / 2 / 3;
@@ -45,26 +62,16 @@ export const Input = styled.input`
   font-size: ${14 / 16}rem;
   color: ${({ theme }) => theme.colors.neutral800};
   outline: none;
+
   &:focus-visible {
     outline: none;
     box-shadow: none;
     outline-offset: 0;
   }
+
   &[aria-disabled='true'] {
     background: inherit;
     color: inherit;
     cursor: not-allowed;
-  }
-`;
-
-export const OptionBox = styled(Box)`
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline-offset: -3px;
-  ${({ isSelected, theme }) => isSelected && `background: ${theme.colors.primary100};`}
-
-  &:hover {
-    background: ${({ theme }) => theme.colors.primary100};
   }
 `;
