@@ -13,44 +13,51 @@ Alternatively, can be typed into to filter the list of options and set an option
 ## Usage
 
 ```ts
-import { Combobox } from '@strapi/primitives'
+import { Combobox } from '@strapi/primitives';
 ```
 
 ### Single Item
 
 <Canvas>
-    <Story name="Basic Usage">
-        <Combobox.Root>
-            <Combobox.Trigger>
-                <Combobox.TextInput placeholder="Pick me" />
-                <Combobox.Icon />
-            </Combobox.Trigger>
-            <Combobox.Portal>
-                <Combobox.Content>
-                    <Combobox.Viewport>
-                        <Combobox.Item value="1">
-                            <Combobox.ItemText>Option 1</Combobox.ItemText>
-                            <Combobox.ItemIndicator><Check /></Combobox.ItemIndicator>
-                        </Combobox.Item>
-                        <Combobox.Item value="2">
-                            <Combobox.ItemText>Option 2</Combobox.ItemText>
-                            <Combobox.ItemIndicator><Check /></Combobox.ItemIndicator>
-                        </Combobox.Item>
-                        <Combobox.Item value="3">
-                            <Combobox.ItemText>Option 3</Combobox.ItemText>
-                            <Combobox.ItemIndicator><Check /></Combobox.ItemIndicator>
-                        </Combobox.Item>
-                        <Combobox.Item value="4">
-                            <Combobox.ItemText>Option 4</Combobox.ItemText>
-                            <Combobox.ItemIndicator><Check /></Combobox.ItemIndicator>
-                        </Combobox.Item>
-                    </Combobox.Viewport>
-                </Combobox.Content>
-            </Combobox.Portal>
-        </Combobox.Root>
-    </Story>
+  <Story name="Basic Usage">
+    <Combobox.Root>
+      <Combobox.Trigger>
+        <Combobox.TextInput placeholder="Pick me" />
+        <Combobox.Icon />
+      </Combobox.Trigger>
+      <Combobox.Portal>
+        <Combobox.Content>
+          <Combobox.Viewport>
+            <Combobox.Item value="1">
+              <Combobox.ItemText>Option 1</Combobox.ItemText>
+              <Combobox.ItemIndicator>
+                <Check />
+              </Combobox.ItemIndicator>
+            </Combobox.Item>
+            <Combobox.Item value="2">
+              <Combobox.ItemText>Option 2</Combobox.ItemText>
+              <Combobox.ItemIndicator>
+                <Check />
+              </Combobox.ItemIndicator>
+            </Combobox.Item>
+            <Combobox.Item value="3">
+              <Combobox.ItemText>Option 3</Combobox.ItemText>
+              <Combobox.ItemIndicator>
+                <Check />
+              </Combobox.ItemIndicator>
+            </Combobox.Item>
+            <Combobox.Item value="4">
+              <Combobox.ItemText>Option 4</Combobox.ItemText>
+              <Combobox.ItemIndicator>
+                <Check />
+              </Combobox.ItemIndicator>
+            </Combobox.Item>
+          </Combobox.Viewport>
+        </Combobox.Content>
+      </Combobox.Portal>
+    </Combobox.Root>
+  </Story>
 </Canvas>
-
 
 ## Anatomy
 
@@ -71,25 +78,27 @@ and is combined in the following way:
 
 ```tsx
 () => {
-    return (
-        <Combobox.Root>
-            <Combobox.Trigger>
-                <Combobox.TextInput placeholder="Pick me" />
-                <Combobox.Icon />
-            </Combobox.Trigger>
-            <Combobox.Portal>
-                <Combobox.Content>
-                    <Combobox.Viewport>
-                        <Combobox.Item value="1">
-                            <Combobox.ItemText>Option 1</Combobox.ItemText>
-                            <Combobox.ItemIndicator><Check /></Combobox.ItemIndicator>
-                        </Combobox.Item>
-                    </Combobox.Viewport>
-                </Combobox.Content>
-            </Combobox.Portal>
-        </Combobox.Root>
-    )
-}
+  return (
+    <Combobox.Root>
+      <Combobox.Trigger>
+        <Combobox.TextInput placeholder="Pick me" />
+        <Combobox.Icon />
+      </Combobox.Trigger>
+      <Combobox.Portal>
+        <Combobox.Content>
+          <Combobox.Viewport>
+            <Combobox.Item value="1">
+              <Combobox.ItemText>Option 1</Combobox.ItemText>
+              <Combobox.ItemIndicator>
+                <Check />
+              </Combobox.ItemIndicator>
+            </Combobox.Item>
+          </Combobox.Viewport>
+        </Combobox.Content>
+      </Combobox.Portal>
+    </Combobox.Root>
+  );
+};
 ```
 
 ## API Reference

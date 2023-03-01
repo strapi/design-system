@@ -1,7 +1,8 @@
 import * as React from 'react';
+
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { TimePicker } from '../TimePicker';
+
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
 import { TimePicker } from '../TimePicker';
@@ -33,6 +34,18 @@ describe('TimePicker', () => {
     await waitFor(() => screen.getByText('00:00'));
 
     expect(container).toMatchInlineSnapshot(`
+      .c14 {
+        border: 0;
+        -webkit-clip: rect(0 0 0 0);
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+      }
+
       .c10 {
         background: transparent;
         border-radius: 4px;
@@ -101,6 +114,15 @@ describe('TimePicker', () => {
         gap: 12px;
       }
 
+      .c1 > * {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+
+      .c1 > * + * {
+        margin-top: 4px;
+      }
+
       .c3 {
         font-size: 0.75rem;
         line-height: 1.33;
@@ -128,27 +150,6 @@ describe('TimePicker', () => {
         font-size: 0.875rem;
         line-height: 1.43;
         color: #32324d;
-      }
-
-      .c1 > * {
-        margin-top: 0;
-        margin-bottom: 0;
-      }
-
-      .c1 > * + * {
-        margin-top: 4px;
-      }
-
-      .c14 {
-        border: 0;
-        -webkit-clip: rect(0 0 0 0);
-        clip: rect(0 0 0 0);
-        height: 1px;
-        margin: -1px;
-        overflow: hidden;
-        padding: 0;
-        position: absolute;
-        width: 1px;
       }
 
       .c11 {
@@ -342,7 +343,7 @@ describe('TimePicker', () => {
                     >
                       <path
                         clip-rule="evenodd"
-                        d="M0 12C0 5.37 5.364 0 11.994 0S24 5.37 24 12s-5.376 12-12.006 12S0 18.63 0 12zm2.4 0c0 5.304 4.296 9.6 9.6 9.6 5.304 0 9.6-4.296 9.6-9.6 0-5.304-4.296-9.6-9.6-9.6A9.597 9.597 0 002.4 12zm8.4-6h1.8v6.3l5.4 3.204-.906 1.476L10.8 13.2V6z"
+                        d="M0 12C0 5.37 5.364 0 11.994 0S24 5.37 24 12s-5.376 12-12.006 12S0 18.63 0 12Zm2.4 0c0 5.304 4.296 9.6 9.6 9.6 5.304 0 9.6-4.296 9.6-9.6 0-5.304-4.296-9.6-9.6-9.6A9.597 9.597 0 0 0 2.4 12Zm8.4-6h1.8v6.3l5.4 3.204-.906 1.476L10.8 13.2V6Z"
                         fill="#212134"
                         fill-rule="evenodd"
                       />
@@ -373,13 +374,13 @@ describe('TimePicker', () => {
                 >
                   <svg
                     fill="none"
-                    height="1em"
+                    height="1rem"
                     viewBox="0 0 24 24"
-                    width="1em"
+                    width="1rem"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M24 2.417L21.583 0 12 9.583 2.417 0 0 2.417 9.583 12 0 21.583 2.417 24 12 14.417 21.583 24 24 21.583 14.417 12 24 2.417z"
+                      d="M24 2.417 21.583 0 12 9.583 2.417 0 0 2.417 9.583 12 0 21.583 2.417 24 12 14.417 21.583 24 24 21.583 14.417 12 24 2.417Z"
                       fill="#212134"
                     />
                   </svg>
@@ -390,14 +391,14 @@ describe('TimePicker', () => {
                 >
                   <svg
                     fill="none"
-                    height="1em"
+                    height="1rem"
                     viewBox="0 0 14 8"
-                    width="1em"
+                    width="1rem"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
                       clip-rule="evenodd"
-                      d="M14 .889a.86.86 0 01-.26.625L7.615 7.736A.834.834 0 017 8a.834.834 0 01-.615-.264L.26 1.514A.861.861 0 010 .889c0-.24.087-.45.26-.625A.834.834 0 01.875 0h12.25c.237 0 .442.088.615.264a.86.86 0 01.26.625z"
+                      d="M14 .889a.86.86 0 0 1-.26.625L7.615 7.736A.834.834 0 0 1 7 8a.834.834 0 0 1-.615-.264L.26 1.514A.861.861 0 0 1 0 .889c0-.24.087-.45.26-.625A.834.834 0 0 1 .875 0h12.25c.237 0 .442.088.615.264a.86.86 0 0 1 .26.625Z"
                       fill="#32324D"
                       fill-rule="evenodd"
                     />

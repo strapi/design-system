@@ -3,7 +3,6 @@ import userEvent from '@testing-library/user-event';
 
 import { ThemeProvider } from '../../ThemeProvider';
 import { darkTheme } from '../../themes';
-
 import * as Select from '../SingleSelect';
 
 interface RenderProps extends Partial<Omit<Select.SingleSelectProps, 'children'>> {
@@ -185,7 +184,7 @@ describe('SingleSelect', () => {
     it('should render the customizeContent when provided', () => {
       renderComponent({
         value: 'Option 1',
-        customizeContent: (value) => 'Custom Content',
+        customizeContent: () => 'Custom Content',
       });
 
       expect(screen.getByText('Custom Content')).toBeInTheDocument();

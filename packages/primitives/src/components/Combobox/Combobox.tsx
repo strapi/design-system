@@ -1,7 +1,5 @@
+/* eslint-disable react/jsx-pascal-case */
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import { RemoveScroll } from 'react-remove-scroll';
-import { hideOthers } from 'aria-hidden';
 
 import { composeEventHandlers } from '@radix-ui/primitive';
 import { createCollection } from '@radix-ui/react-collection';
@@ -12,9 +10,11 @@ import { useId } from '@radix-ui/react-id';
 import * as PopperPrimitive from '@radix-ui/react-popper';
 import { Portal as PortalPrimitive } from '@radix-ui/react-portal';
 import { Primitive } from '@radix-ui/react-primitive';
-import { useControllableState } from '@radix-ui/react-use-controllable-state';
-
 import type { ComponentPropsWithoutRef } from '@radix-ui/react-primitive';
+import { useControllableState } from '@radix-ui/react-use-controllable-state';
+import { hideOthers } from 'aria-hidden';
+import * as ReactDOM from 'react-dom';
+import { RemoveScroll } from 'react-remove-scroll';
 
 import { useFilter } from '../../hooks/useFilter';
 
@@ -129,14 +129,18 @@ const Combobox: React.FC<RootProps> = (props) => {
       const [lastItem] = restItems.slice(-1);
 
       const PREVIOUSLY_FOCUSED_ELEMENT = document.activeElement;
+      // eslint-disable-next-line no-restricted-syntax
       for (const candidate of candidates) {
         // if focus is already where we want to go, we don't want to keep going through the candidates
         if (candidate === PREVIOUSLY_FOCUSED_ELEMENT) return;
         candidate?.scrollIntoView({ block: 'nearest' });
+
         // viewport might have padding so scroll to its edges when focusing first/last items.
         if (candidate === firstItem && viewport) viewport.scrollTop = 0;
+
         if (candidate === lastItem && viewport) viewport.scrollTop = viewport.scrollHeight;
         candidate?.focus();
+
         if (document.activeElement !== PREVIOUSLY_FOCUSED_ELEMENT) return;
       }
     },
@@ -334,6 +338,7 @@ const ComboboxIcon = React.forwardRef<ComboboxIconElement, IconProps>((props, fo
   return (
     <button
       aria-hidden
+      type="button"
       {...iconProps}
       tabIndex={-1}
       ref={forwardedRef} // Enable compatibility with native label or custom `Label` "click" for Safari:
@@ -403,6 +408,7 @@ const ComboboxContent = React.forwardRef<ComboboxContentElement, ContentProps>((
 
   if (!context.open) {
     const frag = fragment as Element | undefined;
+
     return frag
       ? ReactDOM.createPortal(
           <Collection.Slot scope={undefined}>
@@ -438,8 +444,6 @@ interface ComboboxContentImplProps extends Omit<ComboboxPopperPositionProps, key
    * Can be prevented.
    */
   onPointerDownOutside?: DismissableLayerProps['onPointerDownOutside'];
-
-  position?: 'item-aligned' | 'popper';
 }
 
 /**
@@ -448,7 +452,7 @@ interface ComboboxContentImplProps extends Omit<ComboboxPopperPositionProps, key
  */
 const ComboboxContentImpl = React.forwardRef<ComboboxContentImplElement, ComboboxContentImplProps>(
   (props, forwardedRef) => {
-    const { position = 'item-aligned', onEscapeKeyDown, onPointerDownOutside, ...contentProps } = props;
+    const { onEscapeKeyDown, onPointerDownOutside, ...contentProps } = props;
     const context = useComboboxContext(CONTENT_NAME);
     const composedRefs = useComposedRefs(forwardedRef, (node) => context.onContentChange(node));
 
@@ -462,6 +466,7 @@ const ComboboxContentImpl = React.forwardRef<ComboboxContentImplElement, Combobo
       const close = () => onOpenChange(false);
       window.addEventListener('blur', close);
       window.addEventListener('resize', close);
+
       return () => {
         window.removeEventListener('blur', close);
         window.removeEventListener('resize', close);
@@ -575,10 +580,12 @@ interface ViewportProps extends PrimitiveDivProps {}
 const ComboboxViewport = React.forwardRef<ComboboxViewportElement, ViewportProps>((props, forwardedRef) => {
   const comboboxContext = useComboboxContext(VIEWPORT_NAME);
   const composedRefs = useComposedRefs(forwardedRef, comboboxContext.onViewportChange);
+
   return (
     <>
       {/* Hide scrollbars cross-browser and enable momentum scroll for touch devices */}
       <style
+        // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{
           __html: `[data-radix-combobox-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-combobox-viewport]::-webkit-scrollbar{display:none}`,
         }}
@@ -633,7 +640,7 @@ interface ItemProps extends React.OptionHTMLAttributes<HTMLDivElement> {
 export const ComboboxItem = React.forwardRef<ComboboxItemElement, ItemProps>((props, forwardedRef) => {
   const { value, disabled = false, textValue: textValueProp, ...restProps } = props;
 
-  const context = useComboboxContext(ITEM_NAME);
+  const { onTextValueChange, textValue: contextTextValue, ...context } = useComboboxContext(ITEM_NAME);
 
   const textId = useId();
 
@@ -649,7 +656,7 @@ export const ComboboxItem = React.forwardRef<ComboboxItemElement, ItemProps>((pr
   const handleSelect = () => {
     if (!disabled) {
       context.onValueChange(value);
-      context.onTextValueChange(textValue);
+      onTextValueChange(textValue);
       context.onOpenChange(false);
       context.trigger?.focus({ preventScroll: true });
     }
@@ -668,10 +675,10 @@ export const ComboboxItem = React.forwardRef<ComboboxItemElement, ItemProps>((pr
      * This effect is designed to run when the value prop is
      * controlled and we need to update the text value accordingly.
      */
-    if (isSelected && context.textValue === undefined && textValue !== '') {
-      context.onTextValueChange(textValue);
+    if (isSelected && contextTextValue === undefined && textValue !== '') {
+      onTextValueChange(textValue);
     }
-  }, [textValue, isSelected, context.textValue]);
+  }, [textValue, isSelected, contextTextValue, onTextValueChange]);
 
   if (context.searchValue && !contains(textValue, context.searchValue)) {
     return null;
@@ -697,6 +704,7 @@ export const ComboboxItem = React.forwardRef<ComboboxItemElement, ItemProps>((pr
           onPointerUp={composeEventHandlers(restProps.onPointerUp, handleSelect)}
           onKeyDown={composeEventHandlers(restProps.onKeyDown, (event) => {
             if (SELECTION_KEYS.includes(event.key)) handleSelect();
+
             // prevent page scroll if using the space key to select an item
             if (event.key === ' ') event.preventDefault();
           })}
@@ -716,7 +724,7 @@ type ItemTextProps = React.HTMLAttributes<HTMLSpanElement>;
 
 const ComboboxItemText = React.forwardRef<HTMLSpanElement, ItemTextProps>((props, forwardedRef) => {
   // We ignore `className` and `style` as this part shouldn't be styled.
-  const { className, style, ...itemTextProps } = props;
+  const { className: _unusedClassName, style: _unusedStyle, ...itemTextProps } = props;
   const itemContext = useComboboxItemContext(ITEM_TEXT_NAME);
   const composedRefs = useComposedRefs(forwardedRef, itemContext.onTextValueChange);
 
@@ -733,6 +741,7 @@ interface ItemIndicatorProps extends React.HTMLAttributes<HTMLSpanElement> {}
 
 const ComboboxItemIndicator = React.forwardRef<HTMLSpanElement, ItemIndicatorProps>((props, forwardedRef) => {
   const { isSelected } = useComboboxItemContext(ITEM_INDICATOR_NAME);
+
   return isSelected ? <span aria-hidden {...props} ref={forwardedRef} /> : null;
 });
 

@@ -1,5 +1,5 @@
-import { useIntersection as actualUseIntersection } from '../hooks/useIntersection';
 import { once, prefix } from './deprecations';
+import { useIntersection as actualUseIntersection } from '../hooks/useIntersection';
 
 const warnDeprecated = once(console.warn);
 

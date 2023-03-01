@@ -1,6 +1,7 @@
 import * as React from 'react';
+
+import { render as renderRTL } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { queryByRole, render as renderRTL } from '@testing-library/react';
 
 import { Combobox } from '../index';
 
@@ -17,7 +18,7 @@ interface ComponentProps extends Combobox.RootProps {
 const Component = ({ options = defaultOptions, ...restProps }: ComponentProps) => (
   <Combobox.Root {...restProps}>
     <Combobox.Trigger>
-      <Combobox.TextInput placeholder={'combobox test'} />
+      <Combobox.TextInput placeholder="combobox test" />
       <Combobox.Icon />
     </Combobox.Trigger>
     <Combobox.Portal>
@@ -26,7 +27,7 @@ const Component = ({ options = defaultOptions, ...restProps }: ComponentProps) =
           {options.map(({ label, ...restProps }) => (
             <Combobox.Item key={label} {...restProps}>
               <Combobox.ItemText>{label}</Combobox.ItemText>
-              <Combobox.ItemIndicator>{'check'}</Combobox.ItemIndicator>
+              <Combobox.ItemIndicator>check</Combobox.ItemIndicator>
             </Combobox.Item>
           ))}
         </Combobox.Viewport>
@@ -391,7 +392,7 @@ describe('Combobox', () => {
     it('should show an ItemIndicator when an item is selected', async () => {
       const user = userEvent.setup();
 
-      const { getByRole, getByText, debug } = render();
+      const { getByRole, getByText } = render();
 
       await user.click(getByRole('combobox'));
 

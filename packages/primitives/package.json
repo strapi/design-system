@@ -15,6 +15,8 @@
     "prebuild": "rimraf dist",
     "build": "yarn build:prod",
     "build:prod": "vite build",
+    "lint": "eslint . --ext .js,.jsx,.tsx,.ts",
+    "format": "yarn lint --fix",
     "test": "jest -c jest.config.js",
     "test:ts": "tsc --noEmit",
     "test:watch": "jest -c jest.config.js --watchAll"
