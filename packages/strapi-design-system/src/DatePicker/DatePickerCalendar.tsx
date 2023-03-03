@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from 'react';
-
-import PropTypes from 'prop-types';
+import { useEffect, useState } from 'react';
 
 import { DatePickerPopover } from './components';
 import { DatePickerTd } from './DatePickerTd';
@@ -8,21 +6,43 @@ import { DatePickerTh } from './DatePickerTh';
 import { getMonths, getDayOfWeek, generateWeeks, getYears, formatDate } from './utils';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
-import { FocusTrap } from '../FocusTrap';
+import { FocusTrap, FocusTrapProps } from '../FocusTrap';
 import { RawTable, RawThead, RawTbody, RawTr } from '../RawTable';
+/**
+ * TODO: this is a V1 component that uses `react-router-dom` internally, is there a way to make this work without it?
+ */
 import { SimpleMenu, MenuItem } from '../SimpleMenu';
 import { VisuallyHidden } from '../VisuallyHidden';
 
+interface DatePickerCalendarProps extends Required<Pick<FocusTrapProps, 'onEscape'>> {
+  /**
+   * @default Now
+   */
+  initialDate?: Date;
+  label: string;
+  /*
+   * Minimum year, that can be selected through the year select
+   */
+  minDate?: Date;
+  /*
+   * Maximum year, that can be selected through the year select
+   */
+  maxDate?: Date;
+  onChange: (date: Date) => void;
+  popoverSource: React.MutableRefObject<HTMLElement>;
+  selectedDate?: Date;
+}
+
 export const DatePickerCalendar = ({
   selectedDate,
-  initialDate,
+  initialDate = new Date(),
   popoverSource,
   onChange,
   label,
   minDate,
   maxDate,
   onEscape,
-}) => {
+}: DatePickerCalendarProps) => {
   const [date, setDate] = useState(initialDate);
   const [weeks, activeRow, activeCol] = generateWeeks(date, selectedDate);
   const { sun, mon, tue, wed, thu, fri, sat } = getDayOfWeek();
@@ -35,13 +55,13 @@ export const DatePickerCalendar = ({
     }
   }, [selectedDate]);
 
-  const handleMonthChange = (month) => {
+  const handleMonthChange = (month: string) => {
     const updatedDate = new Date(date);
     updatedDate.setMonth(months.indexOf(month));
     setDate(updatedDate);
   };
 
-  const handleYearChange = (year) => {
+  const handleYearChange = (year: number) => {
     const updatedDate = new Date(date);
     updatedDate.setFullYear(year);
     setDate(updatedDate);
@@ -110,34 +130,4 @@ export const DatePickerCalendar = ({
       </FocusTrap>
     </DatePickerPopover>
   );
-};
-
-DatePickerCalendar.defaultProps = {
-  selectedDate: undefined,
-  initialDate: new Date(),
-  minDate: undefined,
-  maxDate: undefined,
-};
-
-DatePickerCalendar.propTypes = {
-  initialDate: PropTypes.instanceOf(Date),
-  label: PropTypes.string.isRequired,
-
-  /*
-   * Maximum year, that can be selected through the year select
-   */
-
-  maxDate: PropTypes.instanceOf(Date),
-
-  /*
-   * Minimum year, that can be selected through the year select
-   */
-
-  minDate: PropTypes.instanceOf(Date),
-  onChange: PropTypes.func.isRequired,
-  onEscape: PropTypes.func.isRequired,
-  popoverSource: PropTypes.shape({
-    current: (typeof Element === 'undefined' ? PropTypes.any : PropTypes.instanceOf(Element)).isRequired,
-  }).isRequired,
-  selectedDate: PropTypes.instanceOf(Date),
 };

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { Box } from '../Box';
 import { InputWrapper } from '../Field/FieldInput';
@@ -20,13 +20,15 @@ export const DatePickerButton = styled.button`
   }
 `;
 
-export const DatePickerWrapper = styled.div`
+export const DatePickerWrapper = styled.div<{ bold?: boolean }>`
   ${({ bold, theme }) =>
     bold
-      ? `& ${InputWrapper} {
-  border: 1px solid ${theme.colors.primary600};
-}`
-      : undefined}
+      ? css`
+          & ${InputWrapper} {
+            border: 1px solid ${theme.colors.primary600};
+          }
+        `
+      : ''}
 `;
 
 export const IconBox = styled(Box)`

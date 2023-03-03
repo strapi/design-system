@@ -16,6 +16,9 @@ export const TextInput = React.forwardRef(
       throw new Error('The TextInput component needs a "label" or an "aria-label" props');
     }
 
+    /**
+     * TODO: is this _actually_ necessary?
+     */
     useImperativeHandle(ref, () => ({
       inputWrapperRef,
     }));

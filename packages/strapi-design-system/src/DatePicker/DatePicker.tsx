@@ -1,18 +1,38 @@
 import React, { useRef, useState } from 'react';
 
 import { Calendar as CalendarIcon, Cross } from '@strapi/icons';
-import PropTypes from 'prop-types';
+import { ThemeSizes } from 'styled-components';
 
 import { DatePickerButton, DatePickerWrapper, IconBox } from './components';
 import { DatePickerCalendar } from './DatePickerCalendar';
 import { formatDate } from './utils/formatDate';
 import { getDefaultLocale } from '../helpers/getDefaultLocale';
 import { TextInput } from '../TextInput';
-import { sizes } from '../themes/sizes';
+
+/**
+ * TODO: this needs to extend InputProps
+ */
+export interface DatePickerProps {
+  ariaLabel?: string;
+  clearLabel?: string;
+  disabled?: boolean;
+  id?: string;
+  initialDate?: Date;
+  label?: string;
+  locale?: string;
+  maxDate?: Date;
+  minDate?: Date;
+  onChange: (date: Date) => void;
+  onClear?: () => void;
+  placeholder?: string;
+  selectedDate?: Date;
+  selectedDateLabel: (date: string) => string;
+  size?: ThemeSizes['input'];
+}
 
 export const DatePicker = ({
   ariaLabel,
-  initialDate,
+  initialDate = new Date(),
   selectedDate,
   onChange,
   label,
@@ -20,15 +40,16 @@ export const DatePicker = ({
   selectedDateLabel,
   onClear,
   clearLabel,
-  disabled,
+  disabled = false,
   id,
   minDate,
   maxDate,
+  size = 'M',
   ...props
 }) => {
   const [visible, setVisible] = useState(false);
-  const inputRef = useRef(null);
-  const datePickerButtonRef = useRef(null);
+  const inputRef = useRef<{ inputWrapperRef: React.MutableRefObject<HTMLDivElement> }>(null!);
+  const datePickerButtonRef = useRef<HTMLButtonElement>(null!);
   const locale = defaultLocale || getDefaultLocale();
   const formattedDate = selectedDate ? formatDate(selectedDate, locale) : '';
 
@@ -84,6 +105,7 @@ export const DatePicker = ({
         aria-label={ariaLabel}
         disabled={disabled}
         id={id}
+        size={size}
         {...props}
       />
 
@@ -101,38 +123,4 @@ export const DatePicker = ({
       )}
     </DatePickerWrapper>
   );
-};
-
-DatePicker.defaultProps = {
-  ariaLabel: undefined,
-  clearLabel: undefined,
-  disabled: false,
-  id: undefined,
-  label: undefined,
-  locale: undefined,
-  initialDate: new Date(),
-  minDate: undefined,
-  maxDate: undefined,
-  onClear: undefined,
-  placeholder: undefined,
-  selectedDate: undefined,
-  size: 'M',
-};
-
-DatePicker.propTypes = {
-  ariaLabel: PropTypes.string,
-  clearLabel: PropTypes.string,
-  disabled: PropTypes.bool,
-  id: PropTypes.string,
-  initialDate: PropTypes.instanceOf(Date),
-  label: PropTypes.string,
-  locale: PropTypes.string,
-  maxDate: PropTypes.instanceOf(Date),
-  minDate: PropTypes.instanceOf(Date),
-  onChange: PropTypes.func.isRequired,
-  onClear: PropTypes.func,
-  placeholder: PropTypes.string,
-  selectedDate: PropTypes.instanceOf(Date),
-  selectedDateLabel: PropTypes.func.isRequired,
-  size: PropTypes.oneOf(Object.keys(sizes.input)),
 };

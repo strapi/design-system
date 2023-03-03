@@ -6,10 +6,10 @@ import { getFocusableNodes, getFocusableNodesWithKeyboardNav } from '../helpers/
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 
 export interface RawTdProps extends BoxProps<HTMLTableCellElement> {
-  'aria-colindex': number;
+  'aria-colindex'?: number;
   as?: 'td' | 'th';
   children: ReactNode;
-  coords: {
+  coords?: {
     col: number;
     row: number;
   };
@@ -19,7 +19,7 @@ export type RawThProps = Omit<RawTdProps, 'as'>;
 
 export const RawTh = (props: RawThProps) => <RawTd {...props} as="th" />;
 
-export const RawTd = ({ coords, as = 'td', ...props }: RawTdProps) => {
+export const RawTd = ({ coords = { col: 0, row: 0 }, as = 'td', ...props }: RawTdProps) => {
   const tdRef = useRef<HTMLTableCellElement>(null!);
   const { rowIndex, colIndex, setTableValues } = useTable();
   const [isActive, setIsActive] = useState(false);

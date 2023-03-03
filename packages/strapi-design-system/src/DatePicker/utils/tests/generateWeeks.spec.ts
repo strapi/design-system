@@ -1,11 +1,11 @@
 import { generateWeeks } from '../generateWeeks';
 
-const makeDate = (day, month, year = 2021, outsideMonth = undefined) => {
+const makeDate = (day: number, month: number, year = 2021, outsideMonth: boolean = false) => {
   if (outsideMonth) {
     return { date: new Date(year, month, day), outsideMonth };
   }
 
-  return { date: new Date(year, month, day) };
+  return { date: new Date(year, month, day), outsideMonth };
 };
 
 describe('generate weeks', () => {

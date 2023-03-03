@@ -3,7 +3,7 @@ import { cloneElement, Children, isValidElement, ReactElement } from 'react';
 import { Box, BoxProps } from '../Box';
 
 interface RawTrProps extends BoxProps<HTMLTableRowElement> {
-  'aria-rowindex': number;
+  'aria-rowindex'?: number;
 }
 
 export const RawTr = ({ children, ...props }: RawTrProps) => {
