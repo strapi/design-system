@@ -1,4 +1,4 @@
-import { once, prefix } from './deprecations';
+import { once, PREFIX } from './deprecations';
 import actualUseLockScroll from '../hooks/useLockScroll';
 
 const warnDeprecated = once(console.warn);
@@ -8,7 +8,7 @@ const warnDeprecated = once(console.warn);
  */
 const useLockScroll: typeof actualUseLockScroll = (...args) => {
   warnDeprecated(
-    `${prefix} useLockScroll has moved. Please import it from "@strapi/design-system/hooks/useLockScroll"`,
+    `${PREFIX} useLockScroll has moved. Please import it from "@strapi/design-system/hooks/useLockScroll"`,
   );
 
   return actualUseLockScroll(...args);
