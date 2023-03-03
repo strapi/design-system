@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { SubNavSectionLabel } from './SubNavSectionLabel';
 import { Badge } from '../Badge';
 import { Box } from '../Box';
-import { useId } from '../helpers/useId';
+import { useId } from '../hooks/useId';
 import { Stack } from '../Stack';
 
 const SubNavSectionWrapper = styled(Box)`

@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 import { Box } from '../../Box';
 import { Flex } from '../../Flex';
-import { useId } from '../../helpers/useId';
+import { useId } from '../../hooks/useId';
 import { Typography } from '../../Typography';
 
 const SubNavLinkSectionWrapper = styled(Box)`

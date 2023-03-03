@@ -6,7 +6,7 @@ import { useTooltipHandlers } from './hooks/useTooltipHandlers';
 import { useTooltipLayout } from './hooks/useTooltipLayout';
 import { TooltipPosition } from './utils/positionTooltip';
 import { Box, BoxProps } from '../Box';
-import { useId } from '../helpers/useId';
+import { useId } from '../hooks/useId';
 import { Portal } from '../Portal';
 import { Typography } from '../Typography';
 import { VisuallyHidden } from '../VisuallyHidden';

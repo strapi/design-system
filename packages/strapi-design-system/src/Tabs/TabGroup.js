@@ -3,7 +3,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 
 import { TabsContext } from './TabsContext';
-import { useId } from '../helpers/useId';
+import { useId } from '../hooks/useId';
 
 export const TabGroup = React.forwardRef(
   ({ id, initialSelectedTabIndex, label, onTabChange, variant, ...props }, ref) => {

@@ -4,7 +4,7 @@ import { Clock } from '@strapi/icons';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { useId } from '../helpers/useId';
+import { useId } from '../hooks/useId';
 import { Select, Option } from '../Select';
 import { sizes } from '../themes/sizes';
 

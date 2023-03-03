@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { RadioContext } from './context';
 import { RadioGroupSize } from './RadioGroup';
 import { getRadioSize, getSelectedRadioSize, getSelectedRadioPosition } from './utils';
-import { useId } from '../helpers/useId';
+import { useId } from '../hooks/useId';
 
 const RadioInput = styled.input<{ size: RadioGroupSize | number }>`
   margin: 0;

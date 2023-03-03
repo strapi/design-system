@@ -14,6 +14,7 @@
     "develop": "lerna run develop --stream",
     "build": "lerna run build",
     "clean": "lerna clean",
+    "format": "lerna run format",
     "lint": "lerna run lint",
     "lint-staged": "lerna run lint -- ",
     "prettier:check": "prettier --check .",

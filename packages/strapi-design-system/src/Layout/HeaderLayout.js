@@ -5,8 +5,8 @@ import styled from 'styled-components';
 
 import { Box } from '../Box';
 import { Flex } from '../Flex';
-import { useElementOnScreen } from '../helpers/useElementOnScreen';
-import { useResizeObserver } from '../helpers/useResizeObserver';
+import { useElementOnScreen } from '../hooks/useElementOnScreen';
+import { useResizeObserver } from '../hooks/useResizeObserver';
 import { Typography } from '../Typography';
 
 const useHeaderSize = () => {

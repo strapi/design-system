@@ -5,7 +5,7 @@ import styled, { DefaultTheme } from 'styled-components';
 import { AccordionContext } from './AccordionContext';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
-import { useId } from '../helpers/useId';
+import { useId } from '../hooks/useId';
 import { Typography } from '../Typography';
 
 interface GetBorderParams extends AccordionWrapperProps {

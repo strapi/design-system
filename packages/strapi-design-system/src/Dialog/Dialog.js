@@ -8,8 +8,8 @@ import { DismissibleLayer } from '../DismissibleLayer';
 import { Flex } from '../Flex';
 import { FocusTrap } from '../FocusTrap';
 import { setOpacity } from '../helpers/setOpacity';
-import { useId } from '../helpers/useId';
-import useLockScroll from '../helpers/useLockScroll';
+import { useId } from '../hooks/useId';
+import useLockScroll from '../hooks/useLockScroll';
 import { Portal } from '../Portal';
 import { Typography } from '../Typography';
 
