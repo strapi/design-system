@@ -14,7 +14,7 @@ import { Box } from '../Box';
 import { Field, FieldHint, FieldLabel, FieldError } from '../Field';
 import { Flex } from '../Flex';
 import { escapeSelector } from '../helpers/escapeSelector';
-import { useId } from '../helpers/useId';
+import { useId } from '../hooks/useId';
 import { Popover } from '../Popover';
 import { Stack } from '../Stack';
 import { sizes } from '../themes/sizes';

@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { BaseCheckbox } from '../BaseCheckbox';
 import { Box } from '../Box';
 import { Field, FieldHint, FieldError, useField } from '../Field';
-import { useId } from '../helpers/useId';
+import { useId } from '../hooks/useId';
 import { Stack } from '../Stack';
 import { Typography } from '../Typography';
 

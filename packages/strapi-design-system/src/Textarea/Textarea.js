@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { TextareaInput } from './TextareaInput';
 import { Field, FieldLabel, FieldHint, FieldError } from '../Field';
 import { Flex } from '../Flex';
-import { useId } from '../helpers/useId';
+import { useId } from '../hooks/useId';
 import { Stack } from '../Stack';
 
 const TextareaWrapper = styled.div`

@@ -3,7 +3,7 @@ import React, { useImperativeHandle, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import { Field, FieldLabel, FieldHint, FieldError, FieldInput } from '../Field';
-import { useId } from '../helpers/useId';
+import { useId } from '../hooks/useId';
 import { Stack } from '../Stack';
 import { sizes } from '../themes/sizes';
 

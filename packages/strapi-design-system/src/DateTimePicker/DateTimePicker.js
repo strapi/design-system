@@ -4,7 +4,7 @@ import { dateTimePickerDefaultProps, dateTimePickerPropTypes } from './DateTimeP
 import { parseDate } from './parseDate';
 import { DatePicker } from '../DatePicker';
 import { Field, FieldHint, FieldLabel, FieldError } from '../Field';
-import { useId } from '../helpers/useId';
+import { useId } from '../hooks/useId';
 import { Stack } from '../Stack';
 import { TimePicker } from '../TimePicker';
 

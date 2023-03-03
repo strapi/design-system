@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import { Carousel } from './Carousel';
 import { Field, FieldLabel, FieldHint, FieldError } from '../Field';
-import { useId } from '../helpers/useId';
+import { useId } from '../hooks/useId';
 import { Stack } from '../Stack';
 
 export const CarouselInput = ({

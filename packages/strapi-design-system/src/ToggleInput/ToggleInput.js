@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import { Field, FieldHint, FieldError, FieldLabel } from '../Field';
 import { Flex } from '../Flex';
-import { useId } from '../helpers/useId';
+import { useId } from '../hooks/useId';
 import { Stack } from '../Stack';
 import { TextButton } from '../TextButton';
 import { sizes } from '../themes/sizes';

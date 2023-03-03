@@ -10,7 +10,7 @@ import { Box } from '../Box';
 import { Field, FieldError, FieldHint, FieldLabel } from '../Field';
 import { Flex } from '../Flex';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
-import { useId } from '../helpers/useId';
+import { useId } from '../hooks/useId';
 import { Loader } from '../Loader/Loader';
 import { Popover } from '../Popover';
 import { CaretBox, IconBox } from '../Select/components';

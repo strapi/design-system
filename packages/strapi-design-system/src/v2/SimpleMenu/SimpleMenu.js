@@ -11,7 +11,7 @@ import { Box } from '../../Box';
 import { Button } from '../../Button';
 import { Flex } from '../../Flex';
 import { KeyboardKeys } from '../../helpers/keyboardKeys';
-import { useId } from '../../helpers/useId';
+import { useId } from '../../hooks/useId';
 import { Popover, POPOVER_PLACEMENTS } from '../../Popover';
 import { Typography } from '../../Typography';
 import { Link } from '../Link';

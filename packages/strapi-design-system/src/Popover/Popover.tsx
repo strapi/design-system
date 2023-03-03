@@ -4,7 +4,7 @@ import { useFloating, flip, shift, offset, autoUpdate, Placement } from '@floati
 import styled from 'styled-components';
 
 import { Box, BoxProps } from '../Box';
-import { useIntersection } from '../helpers/useIntersection';
+import { useIntersection } from '../hooks/useIntersection';
 import { Portal } from '../Portal';
 
 export const POPOVER_PLACEMENTS = [

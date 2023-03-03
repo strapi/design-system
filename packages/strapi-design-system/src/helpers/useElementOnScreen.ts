@@ -1,30 +1,15 @@
+import { once, prefix } from './deprecations';
+import { useElementOnScreen as actualUseElementOnScreen } from '../hooks/useElementOnScreen';
+
+const warnDeprecated = once(console.warn);
+
 /**
- * TODO: This should be moved to the `hooks` folder
+ * @deprecated useElementOnScreen has moved. Please import it from "@strapi/design-system/hooks/useElementOnScreen"
  */
-import { useRef, useState, useEffect } from 'react';
+export const useElementOnScreen: typeof actualUseElementOnScreen = (...args) => {
+  warnDeprecated(
+    `${prefix} useElementOnScreen has moved. Please import it from "@strapi/design-system/hooks/useElementOnScreen"`,
+  );
 
-export const useElementOnScreen = (options?: IntersectionObserverInit) => {
-  const containerRef = useRef<HTMLElement>(null);
-  const [isVisible, setIsVisible] = useState(true);
-
-  const callback: IntersectionObserverCallback = ([entry]) => {
-    setIsVisible(entry.isIntersecting);
-  };
-
-  useEffect(() => {
-    const containerEl = containerRef.current;
-    const observer = new IntersectionObserver(callback, options);
-
-    if (containerEl) {
-      observer.observe(containerRef.current);
-    }
-
-    return () => {
-      if (containerEl) {
-        observer.disconnect();
-      }
-    };
-  }, [containerRef, options]);
-
-  return [containerRef, isVisible];
+  return actualUseElementOnScreen(...args);
 };
