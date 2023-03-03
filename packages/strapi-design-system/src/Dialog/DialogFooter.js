@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { Box } from '../Box';
-import { Stack } from '../Stack';
+import { Flex } from '../Flex';
 
 const FooterWrapper = styled(Box)`
   border-top: 1px solid ${({ theme }) => theme.colors.neutral150};
@@ -19,10 +19,10 @@ const FooterWrapper = styled(Box)`
 export const DialogFooter = ({ startAction, endAction }) => {
   return (
     <FooterWrapper padding={4}>
-      <Stack horizontal spacing={2}>
+      <Flex gap={2}>
         {startAction}
         {endAction}
-      </Stack>
+      </Flex>
     </FooterWrapper>
   );
 };

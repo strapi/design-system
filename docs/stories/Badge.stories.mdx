@@ -1,6 +1,6 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 
-import { Badge, Stack } from '@strapi/design-system';
+import { Badge, Flex } from '@strapi/design-system';
 
 <Meta title="Design System/Components/Badge" component={Badge} />
 
@@ -30,11 +30,11 @@ single word.
 
 <Canvas>
   <Story name="base">
-    <Stack spacing={2}>
-      <Stack horizontal spacing={1}>
+    <Flex direction="column" alignItems="center" gap={2}>
+      <Flex gap={1}>
         <Badge>Badge</Badge>
-      </Stack>
-    </Stack>
+      </Flex>
+    </Flex>
   </Story>
 </Canvas>
 
@@ -44,16 +44,16 @@ Badges can be displayed as active:
 
 <Canvas>
   <Story name="active">
-    <Stack spacing={2}>
-      <Stack horizontal spacing={1}>
+    <Flex direction="column" alignItems="center" gap={2}>
+      <Flex gap={1}>
         <Badge size="S" active>
           Small Badge
         </Badge>
         <Badge size="M" active>
           Medium Badge
         </Badge>
-      </Stack>
-    </Stack>
+      </Flex>
+    </Flex>
   </Story>
 </Canvas>
 
@@ -63,12 +63,12 @@ Badges can be displayed in two sizes: S and M:
 
 <Canvas>
   <Story name="size">
-    <Stack spacing={2}>
-      <Stack horizontal spacing={1}>
+    <Flex direction="column" alignItems="center" gap={2}>
+      <Flex gap={1}>
         <Badge size="S">Small Badge</Badge>
         <Badge size="M">Medium Badge</Badge>
-      </Stack>
-    </Stack>
+      </Flex>
+    </Flex>
   </Story>
 </Canvas>
 

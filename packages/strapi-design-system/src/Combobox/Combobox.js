@@ -14,7 +14,6 @@ import { useId } from '../hooks/useId';
 import { Loader } from '../Loader/Loader';
 import { Popover } from '../Popover';
 import { CaretBox, IconBox } from '../Select/components';
-import { Stack } from '../Stack';
 import { Typography } from '../Typography';
 import { VisuallyHidden } from '../VisuallyHidden';
 
@@ -286,7 +285,7 @@ export const Combobox = ({
       <VisuallyHidden aria-live="polite" aria-atomic="false" aria-relevant="additions text">
         {value}
       </VisuallyHidden>
-      <Stack spacing={label || hint || error ? 1 : 0}>
+      <Flex direction="column" alignItems="stretch" gap={label || hint || error ? 1 : 0}>
         {label && <FieldLabel action={labelAction}>{label}</FieldLabel>}
         <MainRow ref={containerRef} $disabled={disabled} hasError={error}>
           <InputContainer wrap="wrap">
@@ -349,7 +348,7 @@ export const Combobox = ({
         </MainRow>
         <FieldHint />
         <FieldError />
-      </Stack>
+      </Flex>
       {open && (
         <Popover
           id={`${generatedId}-popover`}

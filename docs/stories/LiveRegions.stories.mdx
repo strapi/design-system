@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { LiveRegions, Stack, Button } from '@strapi/design-system';
+import { LiveRegions, Flex, Button } from '@strapi/design-system';
 
 import { StoryComponent } from '../components/StoryComponent';
 
@@ -25,12 +25,12 @@ import { LiveRegions } from '@strapi/design-system';
     {() => {
       const [visible, setVisible] = useState(true);
       return (
-        <Stack spacing={3}>
+        <Flex direction="column" alignItems="center" gap={3}>
           <Button onClick={() => setVisible((isVisible) => !isVisible)}>
             {visible ? 'Hide button' : 'Show button'}
           </Button>
           {visible ? <StoryComponent notifyType="log" /> : null}
-        </Stack>
+        </Flex>
       );
     }}
   </Story>
@@ -43,12 +43,12 @@ import { LiveRegions } from '@strapi/design-system';
     {() => {
       const [visible, setVisible] = useState(true);
       return (
-        <Stack spacing={3}>
+        <Flex direction="column" alignItems="center" gap={3}>
           <Button onClick={() => setVisible((isVisible) => !isVisible)}>
             {visible ? 'Hide button' : 'Show button'}
           </Button>
           {visible ? <StoryComponent notifyType="alert" /> : null}
-        </Stack>
+        </Flex>
       );
     }}
   </Story>
@@ -61,12 +61,12 @@ import { LiveRegions } from '@strapi/design-system';
     {() => {
       const [visible, setVisible] = useState(true);
       return (
-        <Stack spacing={3}>
+        <Flex direction="column" alignItems="center" gap={3}>
           <Button onClick={() => setVisible((isVisible) => !isVisible)}>
             {visible ? 'Hide button' : 'Show button'}
           </Button>
           {visible ? <StoryComponent notifyType="status" /> : null}
-        </Stack>
+        </Flex>
       );
     }}
   </Story>

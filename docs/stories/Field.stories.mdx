@@ -10,7 +10,6 @@ import {
   Field,
   Flex,
   Box,
-  Stack,
   Tooltip,
   FieldAction,
   Link,
@@ -38,10 +37,10 @@ The simplest representation of the Field components, no description, no error, n
 <Canvas>
   <Story name="base">
     <Field name="email">
-      <Stack spacing={1}>
+      <Flex direction="column" alignItems="center" gap={1}>
         <FieldLabel>Email</FieldLabel>
         <FieldInput type="text" placeholder="Placeholder" value="" onChange={() => {}} />
-      </Stack>
+      </Flex>
     </Field>
   </Story>
 </Canvas>
@@ -53,11 +52,11 @@ A Field with a description allows to add a small hint of advanced information.
 <Canvas>
   <Story name="with description">
     <Field name="email" hint="Description line">
-      <Stack spacing={1}>
+      <Flex direction="column" alignItems="center" gap={1}>
         <FieldLabel required>Email</FieldLabel>
         <FieldInput type="text" placeholder="Placeholder" value="" onChange={() => {}} />
         <FieldHint />
-      </Stack>
+      </Flex>
     </Field>
   </Story>
 </Canvas>
@@ -69,12 +68,12 @@ An example of the Field components with an error.
 <Canvas>
   <Story name="with error">
     <Field name="password" error="Password is too short">
-      <Stack spacing={1}>
+      <Flex direction="column" alignItems="center" gap={1}>
         <FieldLabel>Password</FieldLabel>
         <FieldInput type="password" placeholder="Placeholder" value="" onChange={() => {}} />
         <FieldHint />
         <FieldError />
-      </Stack>
+      </Flex>
     </Field>
   </Story>
 </Canvas>
@@ -86,14 +85,14 @@ An example of the Field components with a label action.
 <Canvas>
   <Story name="with label-action">
     <Field name="password">
-      <Stack spacing={1}>
+      <Flex direction="column" alignItems="center" gap={1}>
         <FieldLabel required action={<Earth />}>
           Password
         </FieldLabel>
         <FieldInput type="password" placeholder="Placeholder" value="" onChange={() => {}} />
         <FieldHint />
         <FieldError />
-      </Stack>
+      </Flex>
     </Field>
   </Story>
 </Canvas>
@@ -105,12 +104,12 @@ Depending on the permissions a user have or the status of an action, a Field can
 <Canvas>
   <Story name="disabled">
     <Field name="password" hint="Description line">
-      <Stack spacing={1}>
+      <Flex direction="column" alignItems="center" gap={1}>
         <FieldLabel>Password</FieldLabel>
         <FieldInput placeholder="Placeholder" value="Hello world" disabled onChange={() => {}} />
         <FieldHint />
         <FieldError />
-      </Stack>
+      </Flex>
     </Field>
   </Story>
 </Canvas>
@@ -131,7 +130,7 @@ This is the most complex input that can be built with the Field components.
       return (
         <Box padding={8}>
           <Field name="password" hint="Description line" error={email.length > 5 ? 'Email is too short' : undefined}>
-            <Stack spacing={1}>
+            <Flex direction="column" alignItems="center" gap={1}>
               <Flex>
                 <FieldLabel>Password</FieldLabel>
                 <Box paddingLeft={2}>
@@ -167,7 +166,7 @@ This is the most complex input that can be built with the Field components.
               />
               <FieldHint />
               <FieldError />
-            </Stack>
+            </Flex>
           </Field>
         </Box>
       );
@@ -186,7 +185,7 @@ This is the most complex input that can be built with the Field components.
       return (
         <Box padding={8}>
           <Field name="password" hint="Description line" error={email.length > 5 ? 'Email is too short' : undefined}>
-            <Stack spacing={1}>
+            <Flex direction="column" alignItems="center" gap={1}>
               <Flex>
                 <FieldLabel>Password</FieldLabel>
                 <Box paddingLeft={2}>
@@ -223,7 +222,7 @@ This is the most complex input that can be built with the Field components.
               />
               <FieldHint />
               <FieldError />
-            </Stack>
+            </Flex>
           </Field>
         </Box>
       );

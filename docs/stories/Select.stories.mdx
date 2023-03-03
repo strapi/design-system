@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 
 import { Earth, Plus } from '@strapi/icons';
-import { Select, Option, Stack, Typography, MultiSelectNested } from '@strapi/design-system';
+import { Select, Option, Flex, Typography, MultiSelectNested } from '@strapi/design-system';
 
 <Meta title="Design System/Components/Select" component={Select} />
 
@@ -51,7 +51,7 @@ The default Select.
       const [error, toggleError] = useState();
       const [disabled, toggleDisabled] = useState();
       return (
-        <Stack spacing={11}>
+        <Flex direction="column" alignItems="center" gap={11}>
           <Typography variant="beta">Current value is {value}</Typography>
           <Select
             id="select1"
@@ -84,7 +84,7 @@ The default Select.
           <button onClick={() => toggleDisabled((s) => !s)}>
             <Typography>Show the disabled state</Typography>
           </button>
-        </Stack>
+        </Flex>
       );
     }}
   </Story>
@@ -101,7 +101,7 @@ The default Select.
       const [error, toggleError] = useState();
       const [disabled, toggleDisabled] = useState();
       return (
-        <Stack spacing={11}>
+        <Flex direction="column" alignItems="center" gap={11}>
           <Typography variant="beta">Current value is {value}</Typography>
           <Select
             id="select1"
@@ -132,7 +132,7 @@ The default Select.
           <button onClick={() => toggleDisabled((s) => !s)}>
             <Typography>Show the disabled state</Typography>
           </button>
-        </Stack>
+        </Flex>
       );
     }}
   </Story>
@@ -151,7 +151,7 @@ In a multi select component, the "0 currently selected" text, can be changed but
       const [error, toggleError] = useState();
       const [disabled, toggleDisabled] = useState();
       return (
-        <Stack spacing={11}>
+        <Flex direction="column" alignItems="center" gap={11}>
           <Typography as="h2" variant="beta">
             Current value is {values.join(', ')}
           </Typography>
@@ -180,7 +180,7 @@ In a multi select component, the "0 currently selected" text, can be changed but
           <button onClick={() => toggleDisabled((s) => !s)}>
             <Typography>Show the disabled state</Typography>
           </button>
-        </Stack>
+        </Flex>
       );
     }}
   </Story>
@@ -198,7 +198,7 @@ the selected values need to be visible in the input.
       const [error, toggleError] = useState();
       const [disabled, toggleDisabled] = useState();
       return (
-        <Stack spacing={11}>
+        <Flex direction="column" alignItems="center" gap={11}>
           <Typography variant="beta">Current value is {values.join(', ')}</Typography>
           <Select
             id="select1"
@@ -233,7 +233,7 @@ the selected values need to be visible in the input.
           <button onClick={() => toggleDisabled((s) => !s)}>
             <Typography>Show the disabled state</Typography>
           </button>
-        </Stack>
+        </Flex>
       );
     }}
   </Story>
@@ -248,7 +248,7 @@ Select should be scaled down if they aimed to be placed in a smaller portions of
     {() => {
       const [values, setValues] = useState([]);
       return (
-        <Stack spacing={11}>
+        <Flex direction="column" alignItems="center" gap={11}>
           <Select
             id="select1"
             label="Choose your meal"
@@ -268,7 +268,7 @@ Select should be scaled down if they aimed to be placed in a smaller portions of
             <Option value="hamburger">Hamburger</Option>
             <Option value="bagel">Bagel</Option>
           </Select>
-        </Stack>
+        </Flex>
       );
     }}
   </Story>
@@ -323,7 +323,7 @@ In a multi select component, the "0 currently selected" text, can be changed but
       ];
       const [values, setValues] = useState([]);
       return (
-        <Stack spacing={11}>
+        <Flex direction="column" alignItems="center" gap={11}>
           <Typography variant="beta">Current value is {values.join(', ')}</Typography>
           <MultiSelectNested
             id="select1"
@@ -345,7 +345,7 @@ In a multi select component, the "0 currently selected" text, can be changed but
           <button onClick={() => toggleDisabled((s) => !s)}>
             <Typography>Show the disabled state</Typography>
           </button>
-        </Stack>
+        </Flex>
       );
     }}
   </Story>

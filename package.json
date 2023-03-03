@@ -58,7 +58,8 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx,tsx,ts}": "yarn lint-staged && yarn prettier:check"
+    "*.{js,jsx,tsx,ts}": "yarn lint-staged",
+    "*": "yarn prettier:check"
   },
   "resolutions": {
     "@types/react": "17.0.2",

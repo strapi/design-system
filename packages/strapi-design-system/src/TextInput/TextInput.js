@@ -3,8 +3,8 @@ import React, { useImperativeHandle, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import { Field, FieldLabel, FieldHint, FieldError, FieldInput } from '../Field';
+import { Flex } from '../Flex';
 import { useId } from '../hooks/useId';
-import { Stack } from '../Stack';
 import { sizes } from '../themes/sizes';
 
 export const TextInput = React.forwardRef(
@@ -23,12 +23,12 @@ export const TextInput = React.forwardRef(
     return (
       <div ref={inputWrapperRef}>
         <Field name={name} hint={hint} error={error} id={generatedId} required={required}>
-          <Stack spacing={1}>
+          <Flex direction="column" alignItems="stretch" gap={1}>
             {label && <FieldLabel action={labelAction}>{label}</FieldLabel>}
             <FieldInput size={size} ref={ref} startAction={startAction} endAction={endAction} {...props} />
             <FieldHint />
             <FieldError />
-          </Stack>
+          </Flex>
         </Field>
       </div>
     );

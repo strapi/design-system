@@ -7,7 +7,6 @@ import { TextareaInput } from './TextareaInput';
 import { Field, FieldLabel, FieldHint, FieldError } from '../Field';
 import { Flex } from '../Flex';
 import { useId } from '../hooks/useId';
-import { Stack } from '../Stack';
 
 const TextareaWrapper = styled.div`
   & textarea {
@@ -32,7 +31,7 @@ export const Textarea = React.forwardRef(
     return (
       <TextareaWrapper>
         <Field name={name} hint={hint} error={error} id={generatedId} required={required}>
-          <Stack spacing={1}>
+          <Flex direction="column" alignItems="stretch" gap={1}>
             {label && (
               <Flex>
                 <FieldLabel action={labelAction}>{label}</FieldLabel>
@@ -41,7 +40,7 @@ export const Textarea = React.forwardRef(
             <TextareaInput ref={ref} as="textarea" value={children} {...props} />
             <FieldHint />
             <FieldError />
-          </Stack>
+          </Flex>
         </Field>
       </TextareaWrapper>
     );

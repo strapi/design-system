@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import { Cross } from '@strapi/icons';
-import { Box, Stack, Typography, Button, Flex, FocusTrap } from '@strapi/design-system';
+import { Box, Typography, Button, Flex, FocusTrap } from '@strapi/design-system';
 
 const TrappedComponent = ({ onClose }) => {
   const [newLastVisible, setNewLastVisible] = useState(false);
@@ -9,7 +9,7 @@ const TrappedComponent = ({ onClose }) => {
   return (
     <FocusTrap onEscape={onClose}>
       <Box background="neutral0" padding={4} hasRadius style={{ width: '600px' }}>
-        <Stack spacing={2}>
+        <Flex direction="column" alignItems="center" gap={2}>
           <Flex justifyContent="space-between">
             <Typography variant="beta" as="h2">
               Hey folks!
@@ -40,7 +40,7 @@ const TrappedComponent = ({ onClose }) => {
 
             {newLastVisible && <Button id="real-last">Last focusable (at the end)</Button>}
           </Flex>
-        </Stack>
+        </Flex>
       </Box>
     </FocusTrap>
   );
@@ -51,7 +51,7 @@ export const ExampleComponent = () => {
 
   return (
     <Box background="neutral150" padding={10}>
-      <Stack spacing={2}>
+      <Flex direction="column" alignItems="center" gap={2}>
         {visible && <TrappedComponent onClose={() => setVisible(false)} />}
         <Box background="neutral0" padding={4} hasRadius style={{ width: '600px' }}>
           <Typography variant="beta" as="h2">
@@ -64,7 +64,7 @@ export const ExampleComponent = () => {
             </Button>
           </Box>
         </Box>
-      </Stack>
+      </Flex>
     </Box>
   );
 };

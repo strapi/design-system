@@ -7,8 +7,7 @@ import { useCodeMirror, ReactCodeMirrorRef, ReactCodeMirrorProps } from '@uiw/re
 import { JSONInputContainer } from './JSONInputContainer';
 import { markField, addMarks, filterMarks, lineHighlightMark } from './utils/decorationExtension';
 import { Field, FieldLabel, FieldError, FieldHint } from '../Field';
-import { FlexProps } from '../Flex';
-import { Stack } from '../Stack';
+import { Flex, FlexProps } from '../Flex';
 
 interface JSONInputProps extends Omit<FlexProps, 'onChange'> {
   label?: string;
@@ -134,7 +133,7 @@ export const JSONInput = ({
 
   return (
     <Field error={error} hint={hint} required={required}>
-      <Stack spacing={1}>
+      <Flex direction="column" alignItems="stretch" gap={1}>
         {label && (
           <FieldLabel onClick={focusInput} action={labelAction}>
             {label}
@@ -150,7 +149,7 @@ export const JSONInput = ({
         />
         <FieldError />
         <FieldHint />
-      </Stack>
+      </Flex>
     </Field>
   );
 };
