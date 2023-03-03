@@ -1,6 +1,12 @@
 import { createContext, useContext } from 'react';
 
-export const RawTableContext = createContext({
+export interface RawTableContextValue {
+  rowIndex: number;
+  colIndex: number;
+  setTableValues: ({ rowIndex, colIndex }: { rowIndex: number; colIndex: number }) => void;
+}
+
+export const RawTableContext = createContext<RawTableContextValue>({
   rowIndex: 0,
   colIndex: 0,
   setTableValues() {
