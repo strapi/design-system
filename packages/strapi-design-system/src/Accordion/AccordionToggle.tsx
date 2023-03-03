@@ -8,7 +8,6 @@ import { useAccordion } from './AccordionContext';
 import { getBackground } from './utils';
 import { Flex } from '../Flex';
 import { Icon } from '../Icon';
-import { Stack } from '../Stack';
 import { TextButton } from '../TextButton';
 import { Typography } from '../Typography';
 
@@ -144,7 +143,7 @@ export const AccordionToggle = ({
       justifyContent="space-between"
       cursor={disabled ? 'not-allowed' : ''}
     >
-      <Stack horizontal spacing={3} flex={1} maxWidth="100%">
+      <Flex gap={3} flex={1} maxWidth="100%">
         {togglePosition === 'left' && dropdownIcon}
 
         <ToggleButton
@@ -172,14 +171,14 @@ export const AccordionToggle = ({
         </ToggleButton>
 
         {togglePosition === 'right' && (
-          <Stack horizontal spacing={3}>
+          <Flex gap={3}>
             {dropdownIcon}
             {action}
-          </Stack>
+          </Flex>
         )}
 
         {togglePosition === 'left' && action}
-      </Stack>
+      </Flex>
     </FlexWithSize>
   );
 };

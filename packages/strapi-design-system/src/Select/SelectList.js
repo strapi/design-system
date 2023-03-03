@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 import { DownState, UpState } from './constants';
 import { useListRef } from './hooks/useListRef';
 import { changeDescendant, getActiveDescendant } from './utils';
+import { Flex } from '../Flex';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
-import { Stack } from '../Stack';
 
 export const SelectList = ({ labelledBy, onSelectItem, children, multi, onEscape, expanded }) => {
   const listRef = useListRef(expanded);
@@ -85,9 +85,11 @@ export const SelectList = ({ labelledBy, onSelectItem, children, multi, onEscape
   };
 
   return (
-    <Stack
+    <Flex
       as="ul"
-      spacing={1}
+      gap={1}
+      direction="column"
+      alignItems="stretch"
       role="listbox"
       aria-labelledby={labelledBy}
       tabIndex={-1}
@@ -98,7 +100,7 @@ export const SelectList = ({ labelledBy, onSelectItem, children, multi, onEscape
       // aria-activedescendant, this props is dynamically added in the useListRef
     >
       {children}
-    </Stack>
+    </Flex>
   );
 };
 

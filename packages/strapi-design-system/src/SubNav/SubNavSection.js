@@ -6,8 +6,8 @@ import styled from 'styled-components';
 import { SubNavSectionLabel } from './SubNavSectionLabel';
 import { Badge } from '../Badge';
 import { Box } from '../Box';
+import { Flex } from '../Flex';
 import { useId } from '../hooks/useId';
-import { Stack } from '../Stack';
 
 const SubNavSectionWrapper = styled(Box)`
   svg {
@@ -27,7 +27,7 @@ export const SubNavSection = ({ collapsable, label, badgeLabel, children, id }) 
   };
 
   return (
-    <Stack spacing={1}>
+    <Flex direction="column" alignItems="stretch" gap={1}>
       <SubNavSectionWrapper paddingLeft={6} paddingTop={1} paddingBottom={1} paddingRight={4}>
         <Box position="relative" paddingRight={badgeLabel ? 6 : 0}>
           <SubNavSectionLabel
@@ -59,7 +59,7 @@ export const SubNavSection = ({ collapsable, label, badgeLabel, children, id }) 
           })}
         </ol>
       )}
-    </Stack>
+    </Flex>
   );
 };
 

@@ -4,7 +4,7 @@ import StyledLink from 'components/StyledLink';
 import PropTypes from 'prop-types';
 import { Layout as PageLayout, ContentLayout } from '@strapi/design-system/Layout';
 import { Box } from '@strapi/design-system/Box';
-import { Stack } from '@strapi/design-system/Stack';
+import { Flex } from '@strapi/design-system/Flex';
 import { Main } from '@strapi/design-system/Main';
 
 const Layout = ({ children, meta, navigationContent }) => {
@@ -15,10 +15,10 @@ const Layout = ({ children, meta, navigationContent }) => {
         <Box padding={4}>
           <ContentLayout>
             <Main>
-              <Stack as="article" size={4}>
+              <Flex direction="column" alignItems="stretch" as="article" gap={4}>
                 {children}
-              </Stack>
-              <Stack as="footer" size={7} horizontal paddingTop={10}>
+              </Flex>
+              <Flex as="footer" gap={7} paddingTop={10}>
                 <StyledLink size={2} href="https://strapi.io" target="_blank">
                   {`© ${new Date().getFullYear()} Strapi`}
                 </StyledLink>
@@ -34,7 +34,7 @@ const Layout = ({ children, meta, navigationContent }) => {
                 <StyledLink size={2} href="https://strapi.io" target="_blank">
                   strapi.io
                 </StyledLink>
-              </Stack>
+              </Flex>
             </Main>
           </ContentLayout>
         </Box>

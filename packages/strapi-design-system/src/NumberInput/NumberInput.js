@@ -7,12 +7,12 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { Field, FieldLabel, FieldHint, FieldError, FieldInput } from '../Field';
+import { Flex } from '../Flex';
 import { getDefaultLocale } from '../helpers/getDefaultLocale';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 import { useControllableState } from '../hooks/useControllableState';
 import { useId } from '../hooks/useId';
 import { Icon } from '../Icon';
-import { Stack } from '../Stack';
 import { sizes } from '../themes/sizes';
 
 const ArrowButton = styled.button`
@@ -163,7 +163,7 @@ export const NumberInput = React.forwardRef(
 
     return (
       <Field name={name} hint={hint} error={error} id={generatedId} required={required}>
-        <Stack spacing={1}>
+        <Flex direction="column" alignItems="stretch" gap={1}>
           {label && <FieldLabel action={labelAction}>{label}</FieldLabel>}
           <FieldInput
             ref={ref}
@@ -205,7 +205,7 @@ export const NumberInput = React.forwardRef(
           />
           <FieldHint />
           <FieldError />
-        </Stack>
+        </Flex>
       </Field>
     );
   },

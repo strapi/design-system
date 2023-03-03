@@ -9,7 +9,6 @@ import {
   Grid,
   GridItem,
   useTheme,
-  Stack,
   Searchbar,
   SearchForm,
   Icon,
@@ -48,11 +47,11 @@ This is the light colors used for the light mode
           <Grid>
             {colors.map((colorGroup, idx) => (
               <GridItem key={`color-group-${idx}`} padding={4}>
-                <Stack spacing={2}>
+                <Flex direction="column" alignItems="stretch" gap={2}>
                   {colorGroup.map(({ colorKey, colorValue }) => (
                     <ColorButton key={colorKey} colorKey={colorKey} color={colorValue} />
                   ))}
-                </Stack>
+                </Flex>
               </GridItem>
             ))}
           </Grid>
@@ -84,11 +83,11 @@ This is the dark colors used for the dark mode
           <Grid>
             {colors.map((colorGroup, idx) => (
               <GridItem key={`color-group-${idx}`} padding={4}>
-                <Stack spacing={2}>
+                <Flex direction="column" alignItems="stretch" gap={2}>
                   {colorGroup.map(({ colorKey, colorValue }) => (
                     <ColorButton key={colorKey} colorKey={colorKey} color={colorValue} />
                   ))}
-                </Stack>
+                </Flex>
               </GridItem>
             ))}
           </Grid>
@@ -138,7 +137,7 @@ when it comes to defining measurements, spacing, and positioning elements.
       const spaces = Object.keys(theme.spaces);
       return (
         <Box padding={8} background="neutral100">
-          <Stack spacing={1}>
+          <Flex direction="column" alignItems="stretch" gap={1}>
             {spaces.map((space) => (
               <Flex key={`space-${space}`}>
                 <Box paddingLeft={2}>
@@ -146,7 +145,7 @@ when it comes to defining measurements, spacing, and positioning elements.
                 </Box>
               </Flex>
             ))}
-          </Stack>
+          </Flex>
         </Box>
       );
     }}

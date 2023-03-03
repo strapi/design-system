@@ -4,22 +4,28 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { Box } from '../../Box';
-import { Stack } from '../../Stack';
+import { Flex } from '../../Flex';
 
 const BoxGrow = styled(Box)`
   flex-grow: 1;
   overflow-y: auto;
 `;
 
-export const NavSections = ({ children, ...props }) => {
+export const NavSections = ({ children, spacing = 4, horizontal = false, ...props }) => {
   return (
     <BoxGrow paddingLeft={3} paddingRight={2} paddingTop={3} paddingBottom={8}>
-      <Stack as="ul" spacing={4} {...props}>
+      <Flex
+        as="ul"
+        gap={spacing}
+        direction={horizontal ? 'row' : 'column'}
+        alignItems={horizontal ? 'center' : 'stretch'}
+        {...props}
+      >
         {Children.map(children, (child, index) => {
           // eslint-disable-next-line react/no-array-index-key
           return <li key={index}>{child}</li>;
         })}
-      </Stack>
+      </Flex>
     </BoxGrow>
   );
 };

@@ -4,8 +4,8 @@ import { dateTimePickerDefaultProps, dateTimePickerPropTypes } from './DateTimeP
 import { parseDate } from './parseDate';
 import { DatePicker } from '../DatePicker';
 import { Field, FieldHint, FieldLabel, FieldError } from '../Field';
+import { Flex } from '../Flex';
 import { useId } from '../hooks/useId';
-import { Stack } from '../Stack';
 import { TimePicker } from '../TimePicker';
 
 export const DateTimePicker = ({
@@ -113,9 +113,9 @@ export const DateTimePicker = ({
       error={error}
       required={required}
     >
-      <Stack spacing={1}>
+      <Flex direction="column" alignItems="stretch" gap={1}>
         {label && <FieldLabel action={labelAction}>{label}</FieldLabel>}
-        <Stack horizontal spacing={2}>
+        <Flex gap={2}>
           <DatePicker
             data-testid="datetimepicker-date"
             // DateTimePicker sharing its Field id to DatePicker component
@@ -149,10 +149,10 @@ export const DateTimePicker = ({
             disabled={disabled}
             step={step}
           />
-        </Stack>
+        </Flex>
         <FieldHint />
         <FieldError />
-      </Stack>
+      </Flex>
     </Field>
   );
 };
