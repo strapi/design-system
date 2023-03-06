@@ -35,6 +35,7 @@
     "@babel/preset-react": "^7.18.6",
     "@rollup/plugin-typescript": "^10.0.1",
     "@strapi/eslint-config": "^0.1.2",
+    "@testing-library/user-event": "^14.4.3",
     "@tsconfig/node16": "^1.0.3",
     "@typescript-eslint/eslint-plugin": "^5.53.0",
     "@typescript-eslint/parser": "^5.53.0",
@@ -58,8 +59,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx,tsx,ts}": "yarn lint-staged",
-    "*": "yarn prettier:check"
+    "*.{js,jsx,tsx,ts}": "yarn lint-staged"
   },
   "resolutions": {
     "@types/react": "17.0.2",

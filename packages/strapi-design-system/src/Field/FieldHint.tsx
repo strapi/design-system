@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { useField } from './FieldContext';
 import { Typography } from '../Typography';
 

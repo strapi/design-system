@@ -17,7 +17,8 @@ test.describe.parallel('Searchbar', () => {
         await page.fill('input', 'Hello world');
         expect(await page.locator('input').evaluate((el) => el.value)).toBe('Hello world');
 
-        await page.click('[aria-label="Clearing the plugin search"]');
+        await page.getByRole('button', { name: 'Clearing the plugin search' }).click();
+
         expect(await page.locator('input').evaluate((el) => el.value)).toBe('');
       });
     });

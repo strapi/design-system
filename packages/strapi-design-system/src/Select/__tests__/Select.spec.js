@@ -271,7 +271,9 @@ describe('Select', () => {
       }
 
       <body>
-        <div>
+        <div
+          class=""
+        >
           <div
             class="c0"
           >
@@ -753,7 +755,9 @@ describe('Select', () => {
       }
 
       <body>
-        <div>
+        <div
+          class=""
+        >
           <div
             class="c0"
           >

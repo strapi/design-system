@@ -266,6 +266,7 @@ exports[`DateTimePicker snapshots the component 1`] = `
 
 <div
   aria-labelledby="6"
+  class=""
   role="group"
 >
   <div
@@ -288,7 +289,9 @@ exports[`DateTimePicker snapshots the component 1`] = `
         class=""
       >
         <div>
-          <div>
+          <div
+            class=""
+          >
             <div
               class="c0"
             >
@@ -339,7 +342,9 @@ exports[`DateTimePicker snapshots the component 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        class=""
+      >
         <div
           class="c0"
         >
