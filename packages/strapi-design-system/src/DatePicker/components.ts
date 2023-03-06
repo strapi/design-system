@@ -9,6 +9,9 @@ export const DatePickerPopover = styled(Popover)`
   overflow: hidden;
 `;
 
+/**
+ * @deprecated This component will be removed in the next major version
+ */
 export const DatePickerButton = styled.button`
   border: none;
   background: transparent;

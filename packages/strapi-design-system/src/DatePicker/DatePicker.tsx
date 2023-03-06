@@ -1,47 +1,54 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
 import { Calendar as CalendarIcon, Cross } from '@strapi/icons';
 
-import { DatePickerButton, DatePickerWrapper, IconBox } from './components';
-import { DatePickerCalendar } from './DatePickerCalendar';
+import { DatePickerWrapper, IconBox } from './components';
+import { DatePickerCalendar, DatePickerCalendarProps } from './DatePickerCalendar';
 import { formatDate } from './utils/formatDate';
 import { getDefaultLocale } from '../helpers/getDefaultLocale';
 import { TextInput, TextInputProps } from '../TextInput';
 
-export interface DatePickerProps extends Omit<TextInputProps, 'onChange'> {
+/**
+ * TODO: this can be refactored into two pieces – DatePickerInput and DatePicker.
+ * The former is litterally just the input and would play nicer with the props of
+ * DateTimePicker which doesn't want it to render it's own label (understandable).
+ */
+export interface DatePickerProps
+  extends Omit<TextInputProps, 'onChange'>,
+    Pick<DatePickerCalendarProps, 'onChange' | 'maxDate' | 'minDate' | 'selectedDate' | 'initialDate' | 'locale'> {
   ariaLabel?: string;
   clearLabel?: string;
-  initialDate?: Date;
-  locale?: string;
-  maxDate?: Date;
-  minDate?: Date;
-  onChange: (date: Date) => void;
   onClear?: () => void;
-  placeholder?: string;
-  selectedDate?: Date;
-  selectedDateLabel: (date: string) => string;
+  /**
+   * @deprecated This is no longer used.
+   */
+  selectedDateLabel?: (date: string) => string;
 }
 
 export const DatePicker = ({
+  /**
+   * DatePicker props
+   */
   ariaLabel,
-  initialDate = new Date(),
-  selectedDate,
-  onChange,
-  label,
-  locale: defaultLocale,
-  selectedDateLabel,
   onClear,
-  clearLabel,
-  disabled = false,
-  id,
-  minDate,
+  clearLabel = 'Clear',
+  /**
+   * DatePickerCalendar props
+   */
+  initialDate,
+  locale: defaultLocale,
   maxDate,
-  size,
+  minDate,
+  onChange,
+  selectedDate,
+  /**
+   * TextInput props
+   */
+  disabled = false,
   ...props
-}) => {
+}: DatePickerProps) => {
   const [visible, setVisible] = useState(false);
   const inputRef = useRef<{ inputWrapperRef: React.MutableRefObject<HTMLDivElement> }>(null!);
-  const datePickerButtonRef = useRef<HTMLButtonElement>(null!);
   const locale = defaultLocale || getDefaultLocale();
   const formattedDate = selectedDate ? formatDate(selectedDate, locale) : '';
 
@@ -53,12 +60,19 @@ export const DatePicker = ({
   const handleClear = () => {
     if (disabled) return;
 
-    onClear();
-    datePickerButtonRef.current.focus();
+    if (onClear) {
+      onClear();
+      /**
+       * TODO: refactor this so we can just target the input...?
+       */
+      inputRef.current.inputWrapperRef.current.focus();
+    }
   };
 
-  const handleChange = (date) => {
-    onChange(date);
+  const handleChange = (date: Date) => {
+    if (onChange) {
+      onChange(date);
+    }
     setVisible(false);
   };
 
@@ -74,17 +88,7 @@ export const DatePicker = ({
         // Prevent input from changing for now
         onChange={() => {}}
         value={formattedDate}
-        startAction={
-          <DatePickerButton
-            ref={datePickerButtonRef}
-            onClick={toggleVisibility}
-            aria-label={selectedDate ? selectedDateLabel(formatDate(selectedDate, locale)) : label || ariaLabel}
-            type="button"
-            aria-disabled={disabled}
-          >
-            <CalendarIcon aria-hidden />
-          </DatePickerButton>
-        }
+        startAction={<CalendarIcon aria-hidden />}
         endAction={
           onClear && formattedDate ? (
             <IconBox as="button" onClick={handleClear} aria-label={clearLabel} aria-disabled={disabled}>
@@ -93,11 +97,8 @@ export const DatePicker = ({
           ) : undefined
         }
         aria-autocomplete="none"
-        label={label}
         aria-label={ariaLabel}
         disabled={disabled}
-        id={id}
-        size={size}
         {...props}
       />
 
@@ -107,8 +108,8 @@ export const DatePicker = ({
           initialDate={initialDate}
           onChange={handleChange}
           onEscape={handleEscape}
+          locale={locale}
           popoverSource={inputRef.current.inputWrapperRef}
-          label={label || ariaLabel}
           minDate={minDate}
           maxDate={maxDate}
         />
