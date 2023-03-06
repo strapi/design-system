@@ -1,4 +1,4 @@
-import { cloneElement, Children, isValidElement, TableHTMLAttributes, ReactNode } from 'react';
+import { cloneElement, Children, isValidElement, TableHTMLAttributes, ReactNode, ReactElement } from 'react';
 
 export interface RawTheadProps extends TableHTMLAttributes<HTMLTableSectionElement> {
   children: ReactNode;
@@ -10,7 +10,7 @@ export const RawThead = ({ children, ...props }: RawTheadProps) => {
    */
   const childrenClone = Children.toArray(children).map((child) => {
     if (isValidElement(child)) {
-      return cloneElement(child, { 'aria-rowindex': 1 });
+      return cloneElement(child as ReactElement, { 'aria-rowindex': 1 });
     }
 
     return child;
