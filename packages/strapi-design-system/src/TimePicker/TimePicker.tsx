@@ -3,6 +3,7 @@ import * as React from 'react';
 import { Clock } from '@strapi/icons';
 import styled, { ThemeSizes } from 'styled-components';
 
+import { FieldProps } from '../Field';
 import { Flex } from '../Flex';
 import { useId } from '../hooks/useId';
 import { Select, Option } from '../Select';
@@ -12,9 +13,10 @@ import { Select, Option } from '../Select';
  */
 export interface TimePickerProps
   extends Omit<
-    React.ButtonHTMLAttributes<HTMLButtonElement>,
-    'value' | 'onChange' | 'id' | 'disabled' | 'size' | 'required'
-  > {
+      React.ButtonHTMLAttributes<HTMLButtonElement>,
+      'value' | 'onChange' | 'id' | 'disabled' | 'size' | 'required'
+    >,
+    Pick<FieldProps, 'id' | 'name' | 'required' | 'hint' | 'error'> {
   /**
    * @default 'Clear'
    */
@@ -23,19 +25,9 @@ export interface TimePickerProps
    * @default false
    */
   disabled?: boolean;
-  error?: string | boolean;
-  /**
-   * TODO: this should be checked against the types for Field
-   */
-  hint?: string | boolean | React.ReactNode | React.ReactNode[];
-  id?: string;
   label: string;
   onChange: (value: string) => void;
   onClear?: () => void;
-  /**
-   * @default false
-   */
-  required?: boolean;
   selectButtonTitle?: string;
   /**
    * @default 'M'
@@ -45,25 +37,10 @@ export interface TimePickerProps
    * @default 15
    */
   step?: number;
-  value: string;
+  value?: string;
 }
 
-export const TimePicker = ({
-  disabled = false,
-  error,
-  hint,
-  id,
-  onClear,
-  onChange,
-  value,
-  clearLabel = 'Clear',
-  label,
-  required = false,
-  selectButtonTitle,
-  step = 15,
-  size = 'M',
-  ...props
-}: TimePickerProps) => {
+export const TimePicker = ({ id, value, step = 15, ...props }: TimePickerProps) => {
   const generatedId = useId(id);
   const hoursCount = 24;
   const times: string[] = [];
@@ -82,7 +59,7 @@ export const TimePicker = ({
   // This is a temporary fix.
   // This whole thing needs refactoring – it's nonsensical.
   const getClosestValue = () => {
-    const [valueHours, valueMinutes] = value.split(':') as [string, string];
+    const [valueHours, valueMinutes] = value?.split(':') ?? [];
 
     const hours = times.reduce((prev, curr) => {
       const [h] = curr.split(':');
@@ -104,18 +81,8 @@ export const TimePicker = ({
   return (
     <Select
       id={generatedId}
-      label={label}
       placeholder="--:--"
-      hint={hint}
-      onClear={onClear}
-      clearLabel={clearLabel}
-      error={error}
       value={value ? getClosestValue() : null}
-      size={size}
-      onChange={onChange}
-      disabled={disabled}
-      required={required}
-      selectButtonTitle={selectButtonTitle}
       startIcon={
         <TimeIconWrapper>
           <Clock />
