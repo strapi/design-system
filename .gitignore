@@ -10,3 +10,4 @@ storybook-static
 test-results
 playwright-report
 packages/strapi-icons/src
+coverage

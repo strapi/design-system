@@ -265,23 +265,12 @@ describe('TimePicker', () => {
         background: #f0f0ff;
       }
 
-      .c8 {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-align-items: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-      }
-
-      .c8 svg {
+      .c8 > svg {
         height: 1rem;
         width: 1rem;
       }
 
-      .c8 svg path {
+      .c8 > svg path {
         fill: #8e8ea9;
       }
 
@@ -326,7 +315,7 @@ describe('TimePicker', () => {
                     class="c7"
                   >
                     <div
-                      class="c8"
+                      class="c2 c8"
                     >
                       <svg
                         fill="none"

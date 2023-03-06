@@ -244,23 +244,12 @@ exports[`DateTimePicker snapshots the component 1`] = `
   width: 100%;
 }
 
-.c13 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c13 svg {
+.c13 > svg {
   height: 1rem;
   width: 1rem;
 }
 
-.c13 svg path {
+.c13 > svg path {
   fill: #8e8ea9;
 }
 
@@ -374,7 +363,7 @@ exports[`DateTimePicker snapshots the component 1`] = `
                   class="c12"
                 >
                   <div
-                    class="c13"
+                    class="c2 c13"
                   >
                     <svg
                       fill="none"

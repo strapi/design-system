@@ -1,24 +1,17 @@
 import React, { useRef, useState } from 'react';
 
 import { Calendar as CalendarIcon, Cross } from '@strapi/icons';
-import { ThemeSizes } from 'styled-components';
 
 import { DatePickerButton, DatePickerWrapper, IconBox } from './components';
 import { DatePickerCalendar } from './DatePickerCalendar';
 import { formatDate } from './utils/formatDate';
 import { getDefaultLocale } from '../helpers/getDefaultLocale';
-import { TextInput } from '../TextInput';
+import { TextInput, TextInputProps } from '../TextInput';
 
-/**
- * TODO: this needs to extend InputProps
- */
-export interface DatePickerProps {
+export interface DatePickerProps extends Omit<TextInputProps, 'onChange'> {
   ariaLabel?: string;
   clearLabel?: string;
-  disabled?: boolean;
-  id?: string;
   initialDate?: Date;
-  label?: string;
   locale?: string;
   maxDate?: Date;
   minDate?: Date;
@@ -27,7 +20,6 @@ export interface DatePickerProps {
   placeholder?: string;
   selectedDate?: Date;
   selectedDateLabel: (date: string) => string;
-  size?: ThemeSizes['input'];
 }
 
 export const DatePicker = ({
@@ -44,7 +36,7 @@ export const DatePicker = ({
   id,
   minDate,
   maxDate,
-  size = 'M',
+  size,
   ...props
 }) => {
   const [visible, setVisible] = useState(false);
