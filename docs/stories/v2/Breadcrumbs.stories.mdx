@@ -1,7 +1,7 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 
 import { CollectionType } from '@strapi/icons';
-import { Stack } from '@strapi/design-system';
+import { Flex } from '@strapi/design-system';
 import { Breadcrumbs, Crumb, CrumbLink, CrumbSimpleMenu, MenuItem } from '@strapi/design-system/v2';
 
 <Meta title="Design System/Components/v2/Breadcrumbs" component={Breadcrumbs} />
@@ -30,12 +30,12 @@ Breadcrumbs with CrumbLink are a list of link to help navigation.
 
 <Canvas>
   <Story name="base">
-    <Stack spacing={3}>
+    <Flex direction="column" alignItems="stretch" gap={3}>
       <Breadcrumbs label="Folder navigatation" as="nav">
         <CrumbLink href="/">Media Library</CrumbLink>
         <Crumb isCurrent>Cats</Crumb>
       </Breadcrumbs>
-    </Stack>
+    </Flex>
   </Story>
 </Canvas>
 
@@ -45,7 +45,7 @@ Breadcrumbs with CrumbSimpleMenu displays a list of potential options or actions
 
 <Canvas>
   <Story name="with-menu">
-    <Stack horizontal spacing={3}>
+    <Flex gap={3}>
       <Breadcrumbs label="Folder navigatation" as="nav">
         <CrumbLink href="/">Media Library</CrumbLink>
         <CrumbSimpleMenu onOpen={() => {}} aria-label="See more ascendants folders" label="...">
@@ -54,7 +54,7 @@ Breadcrumbs with CrumbSimpleMenu displays a list of potential options or actions
         </CrumbSimpleMenu>
         <Crumb isCurrent>Cats</Crumb>
       </Breadcrumbs>
-    </Stack>
+    </Flex>
   </Story>
 </Canvas>
 
@@ -64,13 +64,13 @@ Breadcrumbs with Crumb are visual information only and cannot be navigated. They
 
 <Canvas>
   <Story name="without-nagivation">
-    <Stack horizontal spacing={3}>
+    <Flex gap={3}>
       <CollectionType />
       <Breadcrumbs label="Category model, name field">
         <Crumb>Category</Crumb>
         <Crumb isCurrent>Name</Crumb>
       </Breadcrumbs>
-    </Stack>
+    </Flex>
   </Story>
 </Canvas>
 
@@ -78,11 +78,11 @@ Breadcrumbs with Crumb are visual information only and cannot be navigated. They
 
 <Canvas>
   <Story name="single-link">
-    <Stack horizontal spacing={3}>
+    <Flex gap={3}>
       <Breadcrumbs label="Category model">
         <Crumb>Category</Crumb>
       </Breadcrumbs>
-    </Stack>
+    </Flex>
   </Story>
 </Canvas>
 

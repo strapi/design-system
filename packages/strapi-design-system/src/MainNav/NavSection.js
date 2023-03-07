@@ -5,16 +5,16 @@ import PropTypes from 'prop-types';
 import { useMainNav } from './MainNavContext';
 import { Box } from '../Box';
 import { Divider } from '../Divider';
-import { Stack } from '../Stack';
+import { Flex } from '../Flex';
 import { Typography } from '../Typography';
 import { VisuallyHidden } from '../VisuallyHidden';
 
-export const NavSection = ({ label, children, ...props }) => {
+export const NavSection = ({ label, children, spacing = 2, horizontal = false, ...props }) => {
   const condensed = useMainNav();
 
   if (condensed) {
     return (
-      <Stack spacing={2}>
+      <Flex direction="column" alignItems="stretch" gap={2}>
         <Box paddingTop={1} paddingBottom={1} background="neutral0" hasRadius as="span">
           <Divider />
 
@@ -23,31 +23,43 @@ export const NavSection = ({ label, children, ...props }) => {
           </VisuallyHidden>
         </Box>
 
-        <Stack as="ul" spacing={2} {...props}>
+        <Flex
+          as="ul"
+          gap={spacing}
+          direction={horizontal ? 'row' : 'column'}
+          alignItems={horizontal ? 'center' : 'stretch'}
+          {...props}
+        >
           {Children.map(children, (child, index) => {
             // eslint-disable-next-line react/no-array-index-key
             return <li key={index}>{child}</li>;
           })}
-        </Stack>
-      </Stack>
+        </Flex>
+      </Flex>
     );
   }
 
   return (
-    <Stack spacing={2}>
+    <Flex direction="column" alignItems="stretch" gap={2}>
       <Box paddingTop={1} paddingBottom={1} background="neutral0" paddingRight={3} paddingLeft={3} hasRadius as="span">
         <Typography variant="sigma" textColor="neutral600">
           {label}
         </Typography>
       </Box>
 
-      <Stack as="ul" spacing={2} {...props}>
+      <Flex
+        as="ul"
+        gap={spacing}
+        direction={horizontal ? 'row' : 'column'}
+        alignItems={horizontal ? 'center' : 'stretch'}
+        {...props}
+      >
         {Children.map(children, (child, index) => {
           // eslint-disable-next-line react/no-array-index-key
           return <li key={index}>{child}</li>;
         })}
-      </Stack>
-    </Stack>
+      </Flex>
+    </Flex>
   );
 };
 

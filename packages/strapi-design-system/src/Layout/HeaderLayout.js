@@ -5,8 +5,8 @@ import styled from 'styled-components';
 
 import { Box } from '../Box';
 import { Flex } from '../Flex';
-import { useElementOnScreen } from '../helpers/useElementOnScreen';
-import { useResizeObserver } from '../helpers/useResizeObserver';
+import { useElementOnScreen } from '../hooks/useElementOnScreen';
+import { useResizeObserver } from '../hooks/useResizeObserver';
 import { Typography } from '../Typography';
 
 const useHeaderSize = () => {
@@ -113,7 +113,7 @@ export const BaseHeaderLayout = React.forwardRef(
       >
         {navigationAction ? <Box paddingBottom={2}>{navigationAction}</Box> : null}
         <Flex justifyContent="space-between">
-          <Flex>
+          <Flex minWidth={0}>
             <Typography as="h1" variant="alpha" {...props}>
               {title}
             </Typography>

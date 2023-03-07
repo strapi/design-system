@@ -14,9 +14,8 @@ import { Box } from '../Box';
 import { Field, FieldHint, FieldLabel, FieldError } from '../Field';
 import { Flex } from '../Flex';
 import { escapeSelector } from '../helpers/escapeSelector';
-import { useId } from '../helpers/useId';
+import { useId } from '../hooks/useId';
 import { Popover } from '../Popover';
-import { Stack } from '../Stack';
 import { sizes } from '../themes/sizes';
 import { Typography } from '../Typography';
 import { VisuallyHidden } from '../VisuallyHidden';
@@ -162,7 +161,7 @@ export const Select = ({
 
   return (
     <Field hint={hint} error={error} id={generatedId} required={required}>
-      <Stack spacing={label || hint || hasStringError ? 1 : 0}>
+      <Flex direction="column" alignItems="stretch" gap={label || hint || hasStringError ? 1 : 0}>
         {label && <FieldLabel action={labelAction}>{label}</FieldLabel>}
 
         <SelectButtonWrapper size={size} hasError={Boolean(error)} disabled={disabled} ref={containerRef}>
@@ -243,7 +242,7 @@ export const Select = ({
 
         <FieldHint />
         <FieldError />
-      </Stack>
+      </Flex>
 
       {expanded && (
         <Popover

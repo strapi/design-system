@@ -6,8 +6,8 @@ import styled from 'styled-components';
 import { BaseCheckbox } from '../BaseCheckbox';
 import { Box } from '../Box';
 import { Field, FieldHint, FieldError, useField } from '../Field';
-import { useId } from '../helpers/useId';
-import { Stack } from '../Stack';
+import { Flex } from '../Flex';
+import { useId } from '../hooks/useId';
 import { Typography } from '../Typography';
 
 const CheckboxLabel = styled(Typography)`
@@ -37,7 +37,7 @@ export const Checkbox = ({ children, disabled, id, hint, error, ...props }) => {
 
   return (
     <Field id={generatedId} hint={hint} error={error}>
-      <Stack spacing={1}>
+      <Flex direction="column" alignItems="stretch" gap={1}>
         <CheckboxLabel as="label" textColor="neutral800" disabled={disabled}>
           <CheckboxTick disabled={disabled} aria-describedby={ariaDescription} {...props} />
           <Box paddingLeft={2}>{children}</Box>
@@ -45,7 +45,7 @@ export const Checkbox = ({ children, disabled, id, hint, error, ...props }) => {
 
         <FieldHint />
         <FieldError />
-      </Stack>
+      </Flex>
     </Field>
   );
 };

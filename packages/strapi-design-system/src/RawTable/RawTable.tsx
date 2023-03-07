@@ -1,12 +1,18 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-
-import PropTypes from 'prop-types';
+import { TableHTMLAttributes, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import { focusFocusable } from './focusFocusable';
 import { RawTableContext } from './RawTableContext';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 
-export const RawTable = ({ colCount, rowCount, jumpStep, initialCol, initialRow, ...props }) => {
+export interface RawTableProps extends TableHTMLAttributes<HTMLTableElement> {
+  colCount: number;
+  initialCol?: number;
+  initialRow?: number;
+  jumpStep?: number;
+  rowCount: number;
+}
+
+export const RawTable = ({ colCount, rowCount, jumpStep = 3, initialCol = 0, initialRow = 0, ...props }) => {
   const tableRef = useRef(null);
   const mountedRef = useRef(false);
   /**
@@ -105,7 +111,7 @@ export const RawTable = ({ colCount, rowCount, jumpStep, initialCol, initialRow,
     }
   };
 
-  const context = React.useMemo(() => ({ rowIndex, colIndex, setTableValues }), [colIndex, rowIndex, setTableValues]);
+  const context = useMemo(() => ({ rowIndex, colIndex, setTableValues }), [colIndex, rowIndex, setTableValues]);
 
   return (
     <RawTableContext.Provider value={context}>
@@ -119,18 +125,4 @@ export const RawTable = ({ colCount, rowCount, jumpStep, initialCol, initialRow,
       />
     </RawTableContext.Provider>
   );
-};
-
-RawTable.defaultProps = {
-  jumpStep: 3,
-  initialCol: 0,
-  initialRow: 0,
-};
-
-RawTable.propTypes = {
-  colCount: PropTypes.number.isRequired,
-  initialCol: PropTypes.number,
-  initialRow: PropTypes.number,
-  jumpStep: PropTypes.number,
-  rowCount: PropTypes.number.isRequired,
 };

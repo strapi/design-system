@@ -1,21 +1,30 @@
-import React, { useCallback, useLayoutEffect, useRef, useState } from 'react';
-
-import PropTypes from 'prop-types';
+import { useCallback, useLayoutEffect, useRef, useState, KeyboardEventHandler, ReactNode } from 'react';
 
 import { useTable } from './RawTableContext';
-import { Box } from '../Box';
+import { Box, BoxProps } from '../Box';
 import { getFocusableNodes, getFocusableNodesWithKeyboardNav } from '../helpers/getFocusableNodes';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 
-export const RawTh = (props) => <RawTd {...props} as="th" />;
+export interface RawTdProps extends BoxProps<HTMLTableCellElement> {
+  'aria-colindex': number;
+  as?: 'td' | 'th';
+  children: ReactNode;
+  coords: {
+    col: number;
+    row: number;
+  };
+}
 
-export const RawTd = ({ coords, as, ...props }) => {
-  const tdRef = useRef(null);
+export type RawThProps = Omit<RawTdProps, 'as'>;
+
+export const RawTh = (props: RawThProps) => <RawTd {...props} as="th" />;
+
+export const RawTd = ({ coords, as = 'td', ...props }: RawTdProps) => {
+  const tdRef = useRef<HTMLTableCellElement>(null!);
   const { rowIndex, colIndex, setTableValues } = useTable();
   const [isActive, setIsActive] = useState(false);
 
-  /** @type {import("react").KeyboardEventHandler<HTMLTableCellElement> } */
-  const handleKeyDown = (e) => {
+  const handleKeyDown: KeyboardEventHandler<HTMLTableCellElement> = (e) => {
     const focusableNodes = getFocusableNodes(tdRef.current, true);
 
     /**
@@ -70,7 +79,7 @@ export const RawTd = ({ coords, as, ...props }) => {
        * It's expected behaviour that the cell can't be escaped with `enter` if
        * the element that is focussed is an anchor tag.
        */
-      if (isEnterKey && document.activeElement.tagName === 'A') {
+      if (isEnterKey && document.activeElement?.tagName === 'A') {
         return;
       }
 
@@ -103,10 +112,10 @@ export const RawTd = ({ coords, as, ...props }) => {
       (focusableNodes.length === 1 && getFocusableNodesWithKeyboardNav(focusableNodes).length !== 0) ||
       (focusableNodes.length > 1 && Boolean(focusableNodes.find((node) => node.tagName !== 'BUTTON')))
     ) {
-      tdRef.current.setAttribute('tabIndex', !isActive && isFocused ? 0 : -1);
+      tdRef.current.setAttribute('tabIndex', !isActive && isFocused ? '0' : '-1');
 
       focusableNodes.forEach((node, index) => {
-        node.setAttribute('tabIndex', isActive ? 0 : -1);
+        node.setAttribute('tabIndex', isActive ? '0' : '-1');
 
         /**
          * When a cell is active we want to focus the
@@ -118,7 +127,7 @@ export const RawTd = ({ coords, as, ...props }) => {
       });
     } else {
       focusableNodes.forEach((node) => {
-        node.setAttribute('tabIndex', isFocused ? 0 : -1);
+        node.setAttribute('tabIndex', isFocused ? '0' : '-1');
       });
     }
   }, [isActive, isFocused]);
@@ -165,40 +174,4 @@ export const RawTd = ({ coords, as, ...props }) => {
   }, [handleFocusableNodeFocus]);
 
   return <Box role="gridcell" as={as} ref={tdRef} onKeyDown={handleKeyDown} {...props} />;
-};
-
-RawTh.defaultProps = {
-  children: undefined,
-  coords: {},
-};
-
-RawTh.propTypes = {
-  'aria-colindex': PropTypes.number.isRequired,
-  children: PropTypes.node,
-  /**
-   * Position of the cell in the table
-   */
-  coords: PropTypes.shape({
-    col: PropTypes.number,
-    row: PropTypes.number,
-  }),
-};
-
-RawTd.defaultProps = {
-  as: 'td',
-  children: undefined,
-  coords: {},
-};
-
-RawTd.propTypes = {
-  'aria-colindex': PropTypes.number.isRequired,
-  as: PropTypes.oneOf(['td', 'th']),
-  children: PropTypes.node,
-  /**
-   * Position of the cell in the table
-   */
-  coords: PropTypes.shape({
-    col: PropTypes.number,
-    row: PropTypes.number,
-  }),
 };

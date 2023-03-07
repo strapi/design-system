@@ -5,8 +5,7 @@ import styled from 'styled-components';
 
 import { Field, FieldHint, FieldError, FieldLabel } from '../Field';
 import { Flex } from '../Flex';
-import { useId } from '../helpers/useId';
-import { Stack } from '../Stack';
+import { useId } from '../hooks/useId';
 import { TextButton } from '../TextButton';
 import { sizes } from '../themes/sizes';
 import { ToggleCheckbox } from '../ToggleCheckbox';
@@ -39,7 +38,7 @@ export const ToggleInput = ({
 
   return (
     <FieldWrapper name={name} hint={hint} error={error} id={generatedId} required={required}>
-      <Stack spacing={1}>
+      <Flex direction="column" alignItems="stretch" gap={1}>
         <Flex>
           <FieldLabel action={labelAction}>{label}</FieldLabel>
           {clearLabel && onClear && checked !== null && !disabled && (
@@ -51,7 +50,7 @@ export const ToggleInput = ({
         </ToggleCheckbox>
         <FieldHint />
         <FieldError />
-      </Stack>
+      </Flex>
     </FieldWrapper>
   );
 };

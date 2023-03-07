@@ -1,28 +1,15 @@
-import { MutableRefObject, useLayoutEffect } from 'react';
+import { once, PREFIX } from './deprecations';
+import { useResizeObserver as actualUseResizeObserver } from '../hooks/useResizeObserver';
 
-import { useCallbackRef } from '@radix-ui/react-use-callback-ref';
+const warnDeprecated = once(console.warn);
 
-export const useResizeObserver = (
-  sources: MutableRefObject<HTMLElement> | MutableRefObject<HTMLElement>[],
-  onResize: ResizeObserverCallback,
-) => {
-  const handleResize = useCallbackRef(onResize);
+/**
+ * @deprecated useResizeObserver has moved. Please import it from "@strapi/design-system/hooks/useResizeObserver"
+ */
+export const useResizeObserver: typeof actualUseResizeObserver = (...args) => {
+  warnDeprecated(
+    `${PREFIX} useResizeObserver has moved. Please import it from "@strapi/design-system/hooks/useResizeObserver"`,
+  );
 
-  useLayoutEffect(() => {
-    const resizeObs = new ResizeObserver(handleResize);
-
-    if (Array.isArray(sources)) {
-      sources.forEach((source) => {
-        if (source.current) {
-          resizeObs.observe(source.current);
-        }
-      });
-    } else if (sources.current) {
-      resizeObs.observe(sources.current);
-    }
-
-    return () => {
-      resizeObs.disconnect();
-    };
-  }, [sources, handleResize]);
+  return actualUseResizeObserver(...args);
 };

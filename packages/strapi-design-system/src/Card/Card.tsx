@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 
 import { CardContext } from './CardContext';
 import { Box, BoxProps } from '../Box';
-import { useId } from '../helpers/useId';
+import { useId } from '../hooks/useId';
 
 export interface CardProps extends BoxProps {
   id?: string;

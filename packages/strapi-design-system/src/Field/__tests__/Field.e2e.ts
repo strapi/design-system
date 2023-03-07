@@ -27,17 +27,9 @@ test.describe.parallel('Field', () => {
       });
     });
 
-    test.describe('disabled', () => {
+    test.describe('adding actions', () => {
       test('triggers axe on the document', async ({ page }) => {
-        await page.goto('/iframe.html?id=design-system-components-field--disabled&viewMode=story');
-        await injectAxe(page);
-        await checkA11y(page);
-      });
-    });
-
-    test.describe('most complex input', () => {
-      test('triggers axe on the document', async ({ page }) => {
-        await page.goto('/iframe.html?id=design-system-components-field--most-complex-input&viewMode=story');
+        await page.goto('/iframe.html?id=design-system-components-field--adding-actions&viewMode=story');
         await injectAxe(page);
         await checkA11y(page);
       });
@@ -46,13 +38,7 @@ test.describe.parallel('Field', () => {
 
   test.describe('dark mode', () => {
     test('complex input A11y', async ({ page }) => {
-      await page.goto('/iframe.html?id=design-system-components-field--most-complex-input&viewMode=story&theme=dark');
-      await injectAxe(page);
-      await checkA11y(page);
-    });
-
-    test('disabled A11y', async ({ page }) => {
-      await page.goto('/iframe.html?id=design-system-components-field--disabled&viewMode=story&theme=dark');
+      await page.goto('/iframe.html?id=design-system-components-field--adding-actions&viewMode=story');
       await injectAxe(page);
       await checkA11y(page);
     });

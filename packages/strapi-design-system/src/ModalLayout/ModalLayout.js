@@ -8,7 +8,7 @@ import { Box } from '../Box';
 import { DismissibleLayer } from '../DismissibleLayer';
 import { Flex } from '../Flex';
 import { FocusTrap } from '../FocusTrap';
-import useLockScroll from '../helpers/useLockScroll';
+import useLockScroll from '../hooks/useLockScroll';
 import { Portal } from '../Portal';
 
 const ModalWrapper = styled(Flex)`

@@ -1,13 +1,13 @@
+import { once, PREFIX } from './deprecations';
+import { usePrevious as actualUsePrevious } from '../hooks/usePrevious';
+
+const warnDeprecated = once(console.warn);
+
 /**
- * TODO: This should be moved to the `hooks` folder
+ * @deprecated usePrevious has moved. Please import it from "@strapi/design-system/hooks/usePrevious"
  */
-import { useRef, useEffect } from 'react';
+export const usePrevious: typeof actualUsePrevious = (...args) => {
+  warnDeprecated(`${PREFIX} usePrevious has moved. Please import it from "@strapi/design-system/hooks/usePrevious"`);
 
-export const usePrevious = <TValue>(value: TValue): TValue | undefined => {
-  const ref = useRef<TValue>();
-  useEffect(() => {
-    ref.current = value;
-  });
-
-  return ref.current;
+  return actualUsePrevious(...args);
 };

@@ -15,7 +15,6 @@ import {
   IconButton,
   TextButton,
   TextInput,
-  Stack,
   Tooltip,
 } from '@strapi/design-system';
 
@@ -163,10 +162,10 @@ import { Accordion, AccordionToggle, AccordionContent, AccordionGroup } from '@s
                 <AccordionToggle
                   startIcon={<User aria-hidden />}
                   action={
-                    <Stack horizontal spacing={0}>
+                    <Flex horizontal gap={0}>
                       <IconButton noBorder onClick={() => console.log('edit')} label="Edit" icon={<Pencil />} />
                       <IconButton noBorder onClick={() => console.log('delete')} label="Delete" icon={<Trash />} />
-                    </Stack>
+                    </Flex>
                   }
                   title="User informations"
                   togglePosition="left"

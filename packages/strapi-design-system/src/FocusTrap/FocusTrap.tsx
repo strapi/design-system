@@ -1,21 +1,30 @@
-import React, { useEffect, useRef } from 'react';
-
-import PropTypes from 'prop-types';
+import { HTMLAttributes, KeyboardEventHandler, useEffect, useRef } from 'react';
 
 import { getFocusableNodes } from '../helpers/getFocusableNodes';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 
-export const FocusTrap = ({ onEscape, restoreFocus, ...props }) => {
-  const trappedRef = useRef(null);
+export interface FocusTrapProps extends HTMLAttributes<HTMLDivElement> {
+  /**
+   * A callback called on escape key. Useful to deactivate the focus trap.
+   */
+  onEscape?: () => void;
+  /**
+   * A boolean value to define whether the focus should be restored or not.
+   */
+  restoreFocus?: boolean;
+}
+
+export const FocusTrap = ({ onEscape, restoreFocus = true, ...props }: FocusTrapProps) => {
+  const trappedRef = useRef<HTMLDivElement>(null!);
 
   /**
    * Restore the focus to the previously focused element (often, it's the CTA that opened the trap)
    */
   useEffect(() => {
-    let currentFocus = null;
+    let currentFocus: HTMLElement | null = null;
 
     if (restoreFocus) {
-      currentFocus = document.activeElement;
+      currentFocus = document.activeElement as HTMLElement;
     }
 
     return () => {
@@ -44,7 +53,7 @@ export const FocusTrap = ({ onEscape, restoreFocus, ...props }) => {
     }
   }, []);
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown: KeyboardEventHandler<HTMLDivElement> = (e) => {
     if (e.key === KeyboardKeys.ESCAPE && onEscape) {
       onEscape();
 
@@ -74,20 +83,4 @@ export const FocusTrap = ({ onEscape, restoreFocus, ...props }) => {
 
   // eslint-disable-next-line jsx-a11y/no-static-element-interactions
   return <div ref={trappedRef} onKeyDown={handleKeyDown} {...props} />;
-};
-
-FocusTrap.defaultProps = {
-  onEscape: undefined,
-  restoreFocus: true,
-};
-
-FocusTrap.propTypes = {
-  /**
-   * A callback called on escape key. Useful to deactivate the focus trap.
-   */
-  onEscape: PropTypes.func,
-  /**
-   * A boolean value to define whether the focus should be restored or not.
-   */
-  restoreFocus: PropTypes.bool,
 };

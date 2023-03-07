@@ -30,7 +30,7 @@ describe('TimePicker', () => {
     await waitFor(() => screen.getByText('00:00'));
 
     expect(container).toMatchInlineSnapshot(`
-      .c15 {
+      .c14 {
         border: 0;
         -webkit-clip: rect(0 0 0 0);
         clip: rect(0 0 0 0);
@@ -42,22 +42,22 @@ describe('TimePicker', () => {
         width: 1px;
       }
 
-      .c8 {
+      .c7 {
         padding-left: 12px;
       }
 
-      .c10 {
+      .c9 {
         padding-right: 16px;
         padding-left: 16px;
       }
 
-      .c16 {
+      .c15 {
         background: #ffffff;
         padding: 4px;
         border-radius: 4px;
       }
 
-      .c19 {
+      .c18 {
         background: #ffffff;
         padding-top: 8px;
         padding-right: 16px;
@@ -78,9 +78,10 @@ describe('TimePicker', () => {
         -webkit-flex-direction: column;
         -ms-flex-direction: column;
         flex-direction: column;
+        gap: 4px;
       }
 
-      .c3 {
+      .c2 {
         -webkit-align-items: center;
         -webkit-box-align: center;
         -ms-flex-align: center;
@@ -94,7 +95,7 @@ describe('TimePicker', () => {
         flex-direction: row;
       }
 
-      .c6 {
+      .c5 {
         -webkit-align-items: center;
         -webkit-box-align: center;
         -ms-flex-align: center;
@@ -112,7 +113,7 @@ describe('TimePicker', () => {
         justify-content: space-between;
       }
 
-      .c4 {
+      .c3 {
         position: relative;
         border: 1px solid #dcdce4;
         padding-right: 12px;
@@ -128,28 +129,28 @@ describe('TimePicker', () => {
         transition-duration: 0.2s;
       }
 
-      .c4:focus-within {
+      .c3:focus-within {
         border: 1px solid #4945ff;
         box-shadow: #4945ff 0px 0px 0px 2px;
       }
 
-      .c12 {
+      .c11 {
         background: transparent;
         border: none;
         position: relative;
         z-index: 1;
       }
 
-      .c12 svg {
+      .c11 svg {
         height: 0.6875rem;
         width: 0.6875rem;
       }
 
-      .c12 svg path {
+      .c11 svg path {
         fill: #666687;
       }
 
-      .c13 {
+      .c12 {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -158,11 +159,11 @@ describe('TimePicker', () => {
         border: none;
       }
 
-      .c13 svg {
+      .c12 svg {
         width: 0.375rem;
       }
 
-      .c5 {
+      .c4 {
         position: absolute;
         left: 0;
         right: 0;
@@ -173,31 +174,22 @@ describe('TimePicker', () => {
         border: none;
       }
 
-      .c5:focus {
+      .c4:focus {
         outline: none;
       }
 
-      .c5[aria-disabled='true'] {
+      .c4[aria-disabled='true'] {
         cursor: not-allowed;
       }
 
-      .c1 > * {
-        margin-top: 0;
-        margin-bottom: 0;
-      }
-
-      .c1 > * + * {
-        margin-top: 4px;
-      }
-
-      .c2 {
+      .c1 {
         font-size: 0.75rem;
         line-height: 1.33;
         font-weight: 600;
         color: #32324d;
       }
 
-      .c11 {
+      .c10 {
         font-size: 0.875rem;
         line-height: 1.43;
         display: block;
@@ -207,73 +199,73 @@ describe('TimePicker', () => {
         color: #32324d;
       }
 
-      .c14 {
+      .c13 {
         font-size: 0.75rem;
         line-height: 1.33;
         color: #666687;
       }
 
-      .c21 {
+      .c20 {
         font-size: 0.875rem;
         line-height: 1.43;
         color: #32324d;
       }
 
-      .c22 {
+      .c21 {
         font-size: 0.875rem;
         line-height: 1.43;
         font-weight: 600;
         color: #4945ff;
       }
 
-      .c17 {
+      .c16 {
         box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
         z-index: 4;
         border: 1px solid #eaeaef;
         background: #ffffff;
       }
 
-      .c18 {
+      .c17 {
         max-height: 15rem;
         overflow-y: auto;
         overflow-x: hidden;
       }
 
-      .c18::-webkit-scrollbar {
+      .c17::-webkit-scrollbar {
         -webkit-appearance: none;
         width: 4px;
       }
 
-      .c18::-webkit-scrollbar-track {
+      .c17::-webkit-scrollbar-track {
         background: #ffffff;
       }
 
-      .c18::-webkit-scrollbar-thumb {
+      .c17::-webkit-scrollbar-thumb {
         background: #eaeaef;
         border-radius: 4px;
         margin-right: 10px;
       }
 
-      .c7 {
+      .c6 {
         width: 100%;
       }
 
-      .c20 {
+      .c19 {
         width: 100%;
         border: none;
         text-align: left;
         outline-offset: -3px;
       }
 
-      .c20.is-focused {
+      .c19.is-focused {
         background: #f0f0ff;
       }
 
-      .c20:hover {
+      .c19:hover {
         background: #f0f0ff;
       }
 
-      .c9 {
+      .c8 {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -284,32 +276,34 @@ describe('TimePicker', () => {
         align-items: center;
       }
 
-      .c9 svg {
+      .c8 svg {
         height: 1rem;
         width: 1rem;
       }
 
-      .c9 svg path {
+      .c8 svg path {
         fill: #8e8ea9;
       }
 
       <body>
-        <div>
+        <div
+          class=""
+        >
           <div
-            class="c0 c1"
+            class="c0"
           >
             <label
-              class="c2"
+              class="c1"
               for="2"
             >
               <div
-                class="c3"
+                class="c2"
               >
                 Choose a time
               </div>
             </label>
             <div
-              class="c3 c4"
+              class="c2 c3"
             >
               <button
                 aria-describedby="2-hint"
@@ -317,22 +311,22 @@ describe('TimePicker', () => {
                 aria-expanded="true"
                 aria-haspopup="listbox"
                 aria-labelledby="2 2-label 2-content"
-                class="c5"
+                class="c4"
                 id="2"
                 type="button"
               />
               <div
-                class="c6 c7"
+                class="c5 c6"
               >
                 <div
-                  class="c3"
+                  class="c2"
                 >
                   <div
                     aria-hidden="true"
-                    class="c8"
+                    class="c7"
                   >
                     <div
-                      class="c9"
+                      class="c8"
                     >
                       <svg
                         fill="none"
@@ -351,10 +345,10 @@ describe('TimePicker', () => {
                     </div>
                   </div>
                   <div
-                    class="c10"
+                    class="c9"
                   >
                     <span
-                      class="c11"
+                      class="c10"
                       id="2-content"
                     >
                       11:30
@@ -362,12 +356,12 @@ describe('TimePicker', () => {
                   </div>
                 </div>
                 <div
-                  class="c3"
+                  class="c2"
                 >
                   <button
                     aria-disabled="false"
                     aria-label="Clear the selected time picker value"
-                    class="c12"
+                    class="c11"
                     title="Clear the selected time picker value"
                     type="button"
                   >
@@ -386,7 +380,7 @@ describe('TimePicker', () => {
                   </button>
                   <button
                     aria-hidden="true"
-                    class="c8 c12 c13"
+                    class="c7 c11 c12"
                     tabindex="-1"
                     title="Select time button"
                     type="button"
@@ -410,7 +404,7 @@ describe('TimePicker', () => {
               </div>
             </div>
             <p
-              class="c14"
+              class="c13"
               id="2-hint"
             >
               Description line
@@ -418,7 +412,7 @@ describe('TimePicker', () => {
           </div>
         </div>
         <div
-          class="c15"
+          class="c14"
         >
           <p
             aria-live="polite"
@@ -443,31 +437,31 @@ describe('TimePicker', () => {
           data-react-portal="true"
         >
           <div
-            class="c16 c17"
+            class="c15 c16"
             style="position: fixed; left: 0px; top: 4px;"
           >
             <div
-              class="c18"
+              class="c17"
             >
               <ul
                 aria-labelledby="2-label"
                 aria-multiselectable="false"
-                class="c0 c1"
+                class="c0"
                 role="listbox"
                 tabindex="-1"
               >
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="00:00"
                   id="2-option-00-00"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       00:00
                     </span>
@@ -475,16 +469,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="00:15"
                   id="2-option-00-15"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       00:15
                     </span>
@@ -492,16 +486,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="00:30"
                   id="2-option-00-30"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       00:30
                     </span>
@@ -509,16 +503,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="00:45"
                   id="2-option-00-45"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       00:45
                     </span>
@@ -526,16 +520,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="01:00"
                   id="2-option-01-00"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       01:00
                     </span>
@@ -543,16 +537,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="01:15"
                   id="2-option-01-15"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       01:15
                     </span>
@@ -560,16 +554,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="01:30"
                   id="2-option-01-30"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       01:30
                     </span>
@@ -577,16 +571,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="01:45"
                   id="2-option-01-45"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       01:45
                     </span>
@@ -594,16 +588,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="02:00"
                   id="2-option-02-00"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       02:00
                     </span>
@@ -611,16 +605,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="02:15"
                   id="2-option-02-15"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       02:15
                     </span>
@@ -628,16 +622,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="02:30"
                   id="2-option-02-30"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       02:30
                     </span>
@@ -645,16 +639,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="02:45"
                   id="2-option-02-45"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       02:45
                     </span>
@@ -662,16 +656,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="03:00"
                   id="2-option-03-00"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       03:00
                     </span>
@@ -679,16 +673,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="03:15"
                   id="2-option-03-15"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       03:15
                     </span>
@@ -696,16 +690,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="03:30"
                   id="2-option-03-30"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       03:30
                     </span>
@@ -713,16 +707,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="03:45"
                   id="2-option-03-45"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       03:45
                     </span>
@@ -730,16 +724,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="04:00"
                   id="2-option-04-00"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       04:00
                     </span>
@@ -747,16 +741,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="04:15"
                   id="2-option-04-15"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       04:15
                     </span>
@@ -764,16 +758,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="04:30"
                   id="2-option-04-30"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       04:30
                     </span>
@@ -781,16 +775,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="04:45"
                   id="2-option-04-45"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       04:45
                     </span>
@@ -798,16 +792,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="05:00"
                   id="2-option-05-00"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       05:00
                     </span>
@@ -815,16 +809,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="05:15"
                   id="2-option-05-15"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       05:15
                     </span>
@@ -832,16 +826,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="05:30"
                   id="2-option-05-30"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       05:30
                     </span>
@@ -849,16 +843,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="05:45"
                   id="2-option-05-45"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       05:45
                     </span>
@@ -866,16 +860,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="06:00"
                   id="2-option-06-00"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       06:00
                     </span>
@@ -883,16 +877,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="06:15"
                   id="2-option-06-15"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       06:15
                     </span>
@@ -900,16 +894,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="06:30"
                   id="2-option-06-30"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       06:30
                     </span>
@@ -917,16 +911,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="06:45"
                   id="2-option-06-45"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       06:45
                     </span>
@@ -934,16 +928,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="07:00"
                   id="2-option-07-00"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       07:00
                     </span>
@@ -951,16 +945,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="07:15"
                   id="2-option-07-15"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       07:15
                     </span>
@@ -968,16 +962,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="07:30"
                   id="2-option-07-30"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       07:30
                     </span>
@@ -985,16 +979,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="07:45"
                   id="2-option-07-45"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       07:45
                     </span>
@@ -1002,16 +996,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="08:00"
                   id="2-option-08-00"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       08:00
                     </span>
@@ -1019,16 +1013,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="08:15"
                   id="2-option-08-15"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       08:15
                     </span>
@@ -1036,16 +1030,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="08:30"
                   id="2-option-08-30"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       08:30
                     </span>
@@ -1053,16 +1047,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="08:45"
                   id="2-option-08-45"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       08:45
                     </span>
@@ -1070,16 +1064,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="09:00"
                   id="2-option-09-00"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       09:00
                     </span>
@@ -1087,16 +1081,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="09:15"
                   id="2-option-09-15"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       09:15
                     </span>
@@ -1104,16 +1098,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="09:30"
                   id="2-option-09-30"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       09:30
                     </span>
@@ -1121,16 +1115,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="09:45"
                   id="2-option-09-45"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       09:45
                     </span>
@@ -1138,16 +1132,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="10:00"
                   id="2-option-10-00"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       10:00
                     </span>
@@ -1155,16 +1149,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="10:15"
                   id="2-option-10-15"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       10:15
                     </span>
@@ -1172,16 +1166,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="10:30"
                   id="2-option-10-30"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       10:30
                     </span>
@@ -1189,16 +1183,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="10:45"
                   id="2-option-10-45"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       10:45
                     </span>
@@ -1206,16 +1200,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="11:00"
                   id="2-option-11-00"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       11:00
                     </span>
@@ -1223,16 +1217,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="11:15"
                   id="2-option-11-15"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       11:15
                     </span>
@@ -1240,16 +1234,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="true"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="11:30"
                   id="2-option-11-30"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c22"
+                      class="c21"
                     >
                       11:30
                     </span>
@@ -1257,16 +1251,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="11:45"
                   id="2-option-11-45"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       11:45
                     </span>
@@ -1274,16 +1268,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="12:00"
                   id="2-option-12-00"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       12:00
                     </span>
@@ -1291,16 +1285,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="12:15"
                   id="2-option-12-15"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       12:15
                     </span>
@@ -1308,16 +1302,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="12:30"
                   id="2-option-12-30"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       12:30
                     </span>
@@ -1325,16 +1319,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="12:45"
                   id="2-option-12-45"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       12:45
                     </span>
@@ -1342,16 +1336,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="13:00"
                   id="2-option-13-00"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       13:00
                     </span>
@@ -1359,16 +1353,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="13:15"
                   id="2-option-13-15"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       13:15
                     </span>
@@ -1376,16 +1370,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="13:30"
                   id="2-option-13-30"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       13:30
                     </span>
@@ -1393,16 +1387,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="13:45"
                   id="2-option-13-45"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       13:45
                     </span>
@@ -1410,16 +1404,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="14:00"
                   id="2-option-14-00"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       14:00
                     </span>
@@ -1427,16 +1421,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="14:15"
                   id="2-option-14-15"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       14:15
                     </span>
@@ -1444,16 +1438,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="14:30"
                   id="2-option-14-30"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       14:30
                     </span>
@@ -1461,16 +1455,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="14:45"
                   id="2-option-14-45"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       14:45
                     </span>
@@ -1478,16 +1472,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="15:00"
                   id="2-option-15-00"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       15:00
                     </span>
@@ -1495,16 +1489,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="15:15"
                   id="2-option-15-15"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       15:15
                     </span>
@@ -1512,16 +1506,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="15:30"
                   id="2-option-15-30"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       15:30
                     </span>
@@ -1529,16 +1523,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="15:45"
                   id="2-option-15-45"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       15:45
                     </span>
@@ -1546,16 +1540,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="16:00"
                   id="2-option-16-00"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       16:00
                     </span>
@@ -1563,16 +1557,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="16:15"
                   id="2-option-16-15"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       16:15
                     </span>
@@ -1580,16 +1574,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="16:30"
                   id="2-option-16-30"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       16:30
                     </span>
@@ -1597,16 +1591,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="16:45"
                   id="2-option-16-45"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       16:45
                     </span>
@@ -1614,16 +1608,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="17:00"
                   id="2-option-17-00"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       17:00
                     </span>
@@ -1631,16 +1625,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="17:15"
                   id="2-option-17-15"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       17:15
                     </span>
@@ -1648,16 +1642,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="17:30"
                   id="2-option-17-30"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       17:30
                     </span>
@@ -1665,16 +1659,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="17:45"
                   id="2-option-17-45"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       17:45
                     </span>
@@ -1682,16 +1676,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="18:00"
                   id="2-option-18-00"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       18:00
                     </span>
@@ -1699,16 +1693,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="18:15"
                   id="2-option-18-15"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       18:15
                     </span>
@@ -1716,16 +1710,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="18:30"
                   id="2-option-18-30"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       18:30
                     </span>
@@ -1733,16 +1727,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="18:45"
                   id="2-option-18-45"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       18:45
                     </span>
@@ -1750,16 +1744,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="19:00"
                   id="2-option-19-00"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       19:00
                     </span>
@@ -1767,16 +1761,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="19:15"
                   id="2-option-19-15"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       19:15
                     </span>
@@ -1784,16 +1778,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="19:30"
                   id="2-option-19-30"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       19:30
                     </span>
@@ -1801,16 +1795,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="19:45"
                   id="2-option-19-45"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       19:45
                     </span>
@@ -1818,16 +1812,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="20:00"
                   id="2-option-20-00"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       20:00
                     </span>
@@ -1835,16 +1829,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="20:15"
                   id="2-option-20-15"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       20:15
                     </span>
@@ -1852,16 +1846,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="20:30"
                   id="2-option-20-30"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       20:30
                     </span>
@@ -1869,16 +1863,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="20:45"
                   id="2-option-20-45"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       20:45
                     </span>
@@ -1886,16 +1880,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="21:00"
                   id="2-option-21-00"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       21:00
                     </span>
@@ -1903,16 +1897,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="21:15"
                   id="2-option-21-15"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       21:15
                     </span>
@@ -1920,16 +1914,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="21:30"
                   id="2-option-21-30"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       21:30
                     </span>
@@ -1937,16 +1931,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="21:45"
                   id="2-option-21-45"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       21:45
                     </span>
@@ -1954,16 +1948,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="22:00"
                   id="2-option-22-00"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       22:00
                     </span>
@@ -1971,16 +1965,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="22:15"
                   id="2-option-22-15"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       22:15
                     </span>
@@ -1988,16 +1982,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="22:30"
                   id="2-option-22-30"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       22:30
                     </span>
@@ -2005,16 +1999,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="22:45"
                   id="2-option-22-45"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       22:45
                     </span>
@@ -2022,16 +2016,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="23:00"
                   id="2-option-23-00"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       23:00
                     </span>
@@ -2039,16 +2033,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="23:15"
                   id="2-option-23-15"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       23:15
                     </span>
@@ -2056,16 +2050,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="23:30"
                   id="2-option-23-30"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       23:30
                     </span>
@@ -2073,16 +2067,16 @@ describe('TimePicker', () => {
                 </li>
                 <li
                   aria-selected="false"
-                  class="c19 c20"
+                  class="c18 c19"
                   data-strapi-value="23:45"
                   id="2-option-23-45"
                   role="option"
                 >
                   <div
-                    class="c3"
+                    class="c2"
                   >
                     <span
-                      class="c21"
+                      class="c20"
                     >
                       23:45
                     </span>

@@ -1,18 +1,17 @@
+import { once, PREFIX } from './deprecations';
+import actualUseLockScroll from '../hooks/useLockScroll';
+
+const warnDeprecated = once(console.warn);
+
 /**
- * TODO: This should be moved to the `hooks` folder
+ * @deprecated useLockScroll has moved. Please import it from "@strapi/design-system/hooks/useLockScroll"
  */
-import { useEffect } from 'react';
+const useLockScroll: typeof actualUseLockScroll = (...args) => {
+  warnDeprecated(
+    `${PREFIX} useLockScroll has moved. Please import it from "@strapi/design-system/hooks/useLockScroll"`,
+  );
 
-const useLockScroll = (lockScroll: boolean) => {
-  useEffect(() => {
-    if (lockScroll) {
-      document.body.classList.add('lock-body-scroll');
-    }
-
-    return () => {
-      document.body.classList.remove('lock-body-scroll');
-    };
-  }, [lockScroll]);
+  return actualUseLockScroll(...args);
 };
 
 export default useLockScroll;

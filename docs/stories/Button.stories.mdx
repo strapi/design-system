@@ -1,7 +1,7 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 
 import { Information, Plus, Write } from '@strapi/icons';
-import { Button, Box, Stack } from '@strapi/design-system';
+import { Button, Box, Flex } from '@strapi/design-system';
 
 <Meta title="Design System/Components/Button" component={Button} />
 
@@ -57,11 +57,11 @@ Use the size prop to change the size of the button. You can set the value to `S`
       },
     }}
   >
-    <Stack spacing={1} horizontal>
+    <Flex gap={1}>
       <Button size="S">Small</Button>
       <Button size="M">Medium</Button>
       <Button size="L">Large</Button>
-    </Stack>
+    </Flex>
   </Story>
 </Canvas>
 
@@ -86,7 +86,7 @@ Use the variant prop to change the visual style of the Button. You can set the v
       },
     }}
   >
-    <Stack spacing={2} horizontal>
+    <Flex gap={2}>
       {['default', 'secondary', 'tertiary', 'success', 'danger', 'success-light', 'danger-light', 'ghost'].map(
         (variant) => (
           <Button onClick={(e) => console.log(e)} variant={variant} key={variant}>
@@ -94,7 +94,7 @@ Use the variant prop to change the visual style of the Button. You can set the v
           </Button>
         ),
       )}
-    </Stack>
+    </Flex>
   </Story>
 </Canvas>
 
@@ -130,7 +130,7 @@ You can add start and end icons to the Button component using the `startIcon` an
       },
     }}
   >
-    <Stack spacing={2} horizontal>
+    <Flex gap={2}>
       <Button startIcon={<Information />}>Information</Button>
       <Button variant="secondary" endIcon={<Write />}>
         Write content
@@ -139,7 +139,7 @@ You can add start and end icons to the Button component using the `startIcon` an
         With a loader
       </Button>
       <Button startIcon={<Plus />}>Woops</Button>
-    </Stack>
+    </Flex>
   </Story>
 </Canvas>
 

@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 
 import { Carousel } from './Carousel';
 import { Field, FieldLabel, FieldHint, FieldError } from '../Field';
-import { useId } from '../helpers/useId';
-import { Stack } from '../Stack';
+import { Flex } from '../Flex';
+import { useId } from '../hooks/useId';
 
 export const CarouselInput = ({
   actions,
@@ -28,7 +28,7 @@ export const CarouselInput = ({
 
   return (
     <Field hint={hint} error={error} id={generatedId} required={required}>
-      <Stack spacing={1}>
+      <Flex direction="column" alignItems="stretch" gap={1}>
         {label && <FieldLabel action={labelAction}>{label}</FieldLabel>}
         <Carousel
           actions={actions}
@@ -46,7 +46,7 @@ export const CarouselInput = ({
         </Carousel>
         <FieldHint />
         <FieldError />
-      </Stack>
+      </Flex>
     </Field>
   );
 };

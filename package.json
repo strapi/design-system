@@ -14,6 +14,7 @@
     "develop": "lerna run develop --stream",
     "build": "lerna run build",
     "clean": "lerna clean",
+    "format": "lerna run format",
     "lint": "lerna run lint",
     "lint-staged": "lerna run lint -- ",
     "prettier:check": "prettier --check .",
@@ -28,12 +29,13 @@
     "test:snapshots": "lerna --scope @strapi/design-system exec -- yarn test -u",
     "release": "yarn vers && yarn setup && git commit -am \"Releasing\" && yarn pub",
     "pub": "lerna publish from-package",
-    "vers": "lerna version --no-push --no-git-tag-version"
+    "vers": "lerna version --no-push --no-git-tag-version --no-private"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.18.6",
     "@rollup/plugin-typescript": "^10.0.1",
     "@strapi/eslint-config": "^0.1.2",
+    "@testing-library/user-event": "^14.4.3",
     "@tsconfig/node16": "^1.0.3",
     "@typescript-eslint/eslint-plugin": "^5.53.0",
     "@typescript-eslint/parser": "^5.53.0",
@@ -57,7 +59,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx,tsx,ts}": "yarn lint-staged && yarn prettier:check"
+    "*.{js,jsx,tsx,ts}": "yarn lint-staged"
   },
   "resolutions": {
     "@types/react": "17.0.2",
