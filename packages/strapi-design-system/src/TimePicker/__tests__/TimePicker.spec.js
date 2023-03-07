@@ -286,7 +286,9 @@ describe('TimePicker', () => {
       }
 
       <body>
-        <div>
+        <div
+          class=""
+        >
           <div
             class="c0"
           >

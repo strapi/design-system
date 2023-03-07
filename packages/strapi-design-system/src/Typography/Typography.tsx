@@ -11,7 +11,8 @@ const transientProps: Partial<Record<keyof TypographyProps, boolean>> = {
   fontWeight: true,
 };
 
-export interface TypographyProps {
+export interface TypographyProps<TElement extends HTMLElement = HTMLSpanElement>
+  extends React.HTMLAttributes<TElement> {
   as?: string | React.ComponentType<any>;
   forwardedAs?: string | React.ComponentType<any>;
   children?: React.ReactNode;

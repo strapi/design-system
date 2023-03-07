@@ -1,11 +1,18 @@
-const path = require('path');
-
 module.exports = {
   stories: ['../stories/**/*.stories.mdx', '../stories/**/*.stories.@(js|jsx)'],
   addons: ['@storybook/addon-links', '@storybook/addon-essentials', 'storybook-dark-mode'],
   staticDirs: ['../public'],
   core: {
     builder: 'webpack5',
+  },
+  typescript: {
+    reactDocgen: 'react-docgen-typescript',
+    reactDocgenTypescriptOptions: {
+      compilerOptions: {
+        allowSyntheticDefaultImports: false,
+        esModuleInterop: false,
+      },
+    },
   },
   webpackFinal: (config) => {
     /**
