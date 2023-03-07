@@ -1,6 +1,6 @@
 {
   "name": "@strapi/design-system-docs",
-  "version": "1.6.4",
+  "version": "1.6.5",
   "license": "MIT",
   "private": true,
   "dependencies": {
@@ -10,8 +10,8 @@
     "@storybook/builder-webpack5": "^6.5.15",
     "@storybook/manager-webpack5": "^6.5.15",
     "@storybook/react": "^6.5.15",
-    "@strapi/design-system": "^1.6.4",
-    "@strapi/icons": "^1.6.4",
+    "@strapi/design-system": "^1.6.5",
+    "@strapi/icons": "^1.6.5",
     "qs": "^6.11.0",
     "react": "17",
     "react-copy-to-clipboard": "^5.1.0",

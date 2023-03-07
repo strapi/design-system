@@ -29,7 +29,7 @@
     "test:snapshots": "lerna --scope @strapi/design-system exec -- yarn test -u",
     "release": "yarn vers && yarn setup && git commit -am \"Releasing\" && yarn pub",
     "pub": "lerna publish from-package",
-    "vers": "lerna version --no-push --no-git-tag-version"
+    "vers": "lerna version --no-push --no-git-tag-version --no-private"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.18.6",
