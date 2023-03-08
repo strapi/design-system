@@ -56,6 +56,9 @@ export const DatePickerCalendarContent = ({
   maxDate,
 }: DatePickerCalendarContentProps) => {
   const [date, setDate] = useState(initialDate);
+  /**
+   * TODO: this is really slow and we could optimize it better.
+   */
   const [weeks, activeRow, activeCol] = generateWeeks(date, selectedDate);
   const { sun, mon, tue, wed, thu, fri, sat } = getDayOfWeek();
   const months = getMonths();

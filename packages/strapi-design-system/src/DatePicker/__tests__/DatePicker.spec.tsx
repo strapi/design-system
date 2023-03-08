@@ -50,11 +50,11 @@ describe('DatePicker', () => {
   it('should show the onClear button if there is a value and when pressed call the onClear callback', async () => {
     const user = userEvent.setup();
     const onClear = jest.fn();
-    const { getByRole, getByLabelText } = render({ onClear, selectedDate: new Date('Mon Sep 04 2021') });
+    const { getByRole } = render({ onClear, selectedDate: new Date('Mon Sep 04 2021') });
 
     expect(getByRole('button', { name: 'Clear' })).toBeInTheDocument();
 
-    await user.click(getByLabelText('Clear'));
+    await user.click(getByRole('button', { name: 'Clear' }));
 
     expect(onClear).toHaveBeenCalled();
 
@@ -77,7 +77,7 @@ describe('DatePicker', () => {
     it('should not clear the input if the input is disabled', async () => {
       const user = userEvent.setup();
       const onClear = jest.fn();
-      const { getByRole, getByLabelText } = render({
+      const { getByRole } = render({
         onClear,
         selectedDate: new Date('Mon Sep 04 2021'),
         disabled: true,
@@ -85,7 +85,7 @@ describe('DatePicker', () => {
 
       expect(getByRole('button', { name: 'Clear' })).toBeInTheDocument();
 
-      await user.click(getByLabelText('Clear'));
+      await user.click(getByRole('button', { name: 'Clear' }));
 
       expect(onClear).not.toHaveBeenCalled();
     });

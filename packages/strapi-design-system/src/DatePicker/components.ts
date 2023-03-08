@@ -34,6 +34,9 @@ export const DatePickerWrapper = styled.div<{ bold?: boolean }>`
       : ''}
 `;
 
+/**
+ * @deprecated This component will be removed in the next major version
+ */
 export const IconBox = styled(Box)`
   background: transparent;
   border: none;

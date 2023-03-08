@@ -21,7 +21,7 @@ const StyledSelectButton = styled.button`
     outline: none;
   }
 
-  &[aria-disabled='true'] {
+  &[data-disabled] {
     cursor: not-allowed;
   }
 `;
@@ -53,11 +53,13 @@ export const SelectButton = forwardRef(({ labelledBy, expanded, onTrigger, disab
   return (
     <StyledSelectButton
       ref={ref}
+      role="combobox"
       aria-labelledby={labelledBy}
       aria-haspopup="listbox"
       aria-expanded={expanded}
       onKeyDown={handleKeyDown}
-      aria-disabled={disabled}
+      disabled={disabled}
+      data-disabled={disabled ? '' : undefined}
       type="button"
       {...props}
     />

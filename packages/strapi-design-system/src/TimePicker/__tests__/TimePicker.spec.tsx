@@ -43,7 +43,7 @@ describe('TimePicker', () => {
       const user = userEvent.setup();
       const { getAllByRole, getByRole } = render();
 
-      await user.click(getByRole('button'));
+      await user.click(getByRole('combobox'));
 
       expect(getAllByRole('option')).toHaveLength(96);
     });
@@ -52,7 +52,7 @@ describe('TimePicker', () => {
       const user = userEvent.setup();
       const { getAllByRole, getByRole } = render({ step: 30 });
 
-      await user.click(getByRole('button'));
+      await user.click(getByRole('combobox'));
 
       /**
        * 24 hours * (60 minutes / 30 minutes(steps))

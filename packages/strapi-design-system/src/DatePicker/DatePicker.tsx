@@ -1,10 +1,12 @@
 import { useRef, useState } from 'react';
 
 import { Calendar as CalendarIcon, Cross } from '@strapi/icons';
+import styled from 'styled-components';
 
-import { DatePickerWrapper, IconBox } from './components';
+import { DatePickerWrapper } from './components';
 import { DatePickerCalendar, DatePickerCalendarProps } from './DatePickerCalendar';
 import { formatDate } from './utils/formatDate';
+import { FieldAction } from '../Field';
 import { getDefaultLocale } from '../helpers/getDefaultLocale';
 import { TextInput, TextInputProps } from '../TextInput';
 
@@ -91,14 +93,15 @@ export const DatePicker = ({
         startAction={<CalendarIcon aria-hidden />}
         endAction={
           onClear && formattedDate ? (
-            <IconBox as="button" onClick={handleClear} aria-label={clearLabel} aria-disabled={disabled}>
-              <Cross />
-            </IconBox>
+            <FieldAction label={clearLabel} onClick={handleClear} aria-disabled={disabled || undefined}>
+              <StyledCross />
+            </FieldAction>
           ) : undefined
         }
         aria-autocomplete="none"
         aria-label={ariaLabel}
         disabled={disabled}
+        type="text"
         {...props}
       />
 
@@ -117,3 +120,12 @@ export const DatePicker = ({
     </DatePickerWrapper>
   );
 };
+
+const StyledCross = styled(Cross)`
+  height: ${11 / 16}rem;
+  width: ${11 / 16}rem;
+
+  path {
+    fill: ${({ theme }) => theme.colors.neutral600};
+  }
+`;
