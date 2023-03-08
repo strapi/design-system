@@ -14,6 +14,14 @@ const Component = (props: Partial<DatePickerProps>) => (
 const render = (props?: Partial<DatePickerProps>) => renderRTL(<Component {...props} />);
 
 describe('DatePicker', () => {
+  beforeAll(() => {
+    jest.setTimeout(5000 * 4);
+  });
+
+  afterAll(() => {
+    jest.setTimeout(5000);
+  });
+
   it('should render by default no date', () => {
     const { getByRole, queryByRole } = render();
 

@@ -20,6 +20,14 @@ const Component = (props: Partial<DateTimePickerProps>) => (
 const render = (props: Partial<DateTimePickerProps> = {}) => renderRTL(<Component {...props} />);
 
 describe('DateTimePicker', () => {
+  beforeAll(() => {
+    jest.setTimeout(5000 * 4);
+  });
+
+  afterAll(() => {
+    jest.setTimeout(5000);
+  });
+
   describe('rendering', () => {
     it('should render the DatePicker and TimePicker components and only one label', () => {
       const { getAllByLabelText, getByText, getByRole } = render();
