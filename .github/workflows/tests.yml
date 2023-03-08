@@ -14,6 +14,10 @@ jobs:
     name: 'Typecheck'
     runs-on: macos-latest
     steps:
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.11.0
+        with:
+          access_token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
@@ -29,7 +33,7 @@ jobs:
         run: yarn bootstrap
 
       - name: Build
-        run: yarn build
+        run: yarn build --ignore=@strapi/design-system-docs
 
       - name: Run TSC
         run: yarn test:ts
@@ -75,7 +79,7 @@ jobs:
         run: yarn bootstrap
 
       - name: Build
-        run: yarn build
+        run: yarn build --ignore=@strapi/design-system-docs
 
       - name: Unit / Integration tests
         run: yarn test
