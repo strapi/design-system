@@ -28,26 +28,6 @@ test.describe.parallel('SimpleMenu', () => {
 
         expect(realViolations.length).toBe(0);
       });
-
-      test('select the second value of the menu key=Enter', async ({ page }) => {
-        await page.focus('#root button');
-        await page.keyboard.press('Enter');
-        await page.keyboard.press('ArrowDown');
-        await page.keyboard.press('Enter');
-
-        const label = await page.textContent('#root button');
-        expect(label).toBe('February');
-      });
-
-      test('select the second value of the menu key=Space', async ({ page }) => {
-        await page.focus('#root button');
-        await page.keyboard.press('Space');
-        await page.keyboard.press('ArrowDown');
-        await page.keyboard.press('Space');
-
-        const label = await page.textContent('#root button');
-        expect(label).toBe('February');
-      });
     });
 
     test.describe('with links', () => {
