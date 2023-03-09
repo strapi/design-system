@@ -48,6 +48,13 @@ describe('Field', () => {
       expect(getByRole('textbox')).toHaveAttribute('aria-describedby', expect.stringContaining('hint'));
     });
 
+    it('should render a ReactNode hint if passed', () => {
+      const { getByText, getByRole } = render({ hint: <>field hint</> });
+
+      expect(getByText('field hint')).toBeInTheDocument();
+      expect(getByRole('textbox')).toHaveAttribute('aria-describedby', expect.stringContaining('hint'));
+    });
+
     it('should render the error if passed and if the hint is passed, it should not render that', () => {
       const { getByRole, getByText, queryByText, rerender } = render({ error: 'field error' });
 
@@ -56,6 +63,21 @@ describe('Field', () => {
       expect(getByRole('textbox')).toHaveAttribute('aria-invalid', 'true');
 
       rerender(<Component error="field error" hint="field hint" />);
+
+      expect(queryByText('field hint')).not.toBeInTheDocument();
+      expect(getByText('field error')).toBeInTheDocument();
+      expect(getByRole('textbox')).toHaveAttribute('aria-describedby', expect.stringContaining('error'));
+      expect(getByRole('textbox')).toHaveAttribute('aria-invalid', 'true');
+    });
+
+    it('should render the error if passed and if the ReactNode hint is passed, it should not render that', () => {
+      const { getByRole, getByText, queryByText, rerender } = render({ error: 'field error' });
+
+      expect(getByText('field error')).toBeInTheDocument();
+      expect(getByRole('textbox')).toHaveAttribute('aria-describedby', expect.stringContaining('error'));
+      expect(getByRole('textbox')).toHaveAttribute('aria-invalid', 'true');
+
+      rerender(<Component error="field error" hint={<>field hint</>} />);
 
       expect(queryByText('field hint')).not.toBeInTheDocument();
       expect(getByText('field error')).toBeInTheDocument();
