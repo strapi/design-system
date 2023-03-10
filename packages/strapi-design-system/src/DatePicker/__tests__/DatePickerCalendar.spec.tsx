@@ -13,15 +13,15 @@ const Component = (props: Partial<DatePickerCalendarContentProps>) => (
 
 const render = (props?: Partial<DatePickerCalendarContentProps>) => renderRTL(<Component {...props} />);
 
+beforeAll(() => {
+  jest.setTimeout(5000 * 4);
+});
+
+afterAll(() => {
+  jest.setTimeout(5000);
+});
+
 describe('DatePickerCalendar', () => {
-  beforeAll(() => {
-    jest.setTimeout(5000 * 4);
-  });
-
-  afterAll(() => {
-    jest.setTimeout(5000);
-  });
-
   it('should render the month passed in the initialDate by default', () => {
     const { getByRole, getByText, getAllByRole } = render({ initialDate: new Date('Mon Sep 04 2021') });
 
