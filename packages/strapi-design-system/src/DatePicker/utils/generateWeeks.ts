@@ -8,7 +8,13 @@ const CELL_COUNT = 7 * 6;
  * It then resolves the offset days and return the position of the "selectedDate" (if there's one)
  * The output is: [weeks, activeRow, activeCol] where "weeks" is the matrix and "activeRow" and "activeCol" the coordinate of the select cell
  */
-export const generateWeeks = (date, selectedDate) => {
+interface ICurrentDate {
+  date: Date;
+  outsideMonth?: boolean;
+  isSelected?: boolean;
+}
+
+export const generateWeeks = (date: Date, selectedDate?: Date) => {
   const firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
   const daysInCurrentMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
   const daysInPreviousMonth = new Date(date.getFullYear(), date.getMonth(), 0).getDate();
@@ -16,11 +22,11 @@ export const generateWeeks = (date, selectedDate) => {
   const preOffset = firstDayOfMonth.getDay();
   const daysInMonthWithOffset = daysInCurrentMonth + preOffset;
 
-  const weeks = [];
+  const weeks: ICurrentDate[][] = [];
   let activeRow = 0;
   let activeCol = 0;
   let currentWeekIndex = 0;
-  let currentDate;
+  let currentDate: ICurrentDate;
 
   for (let i = 0; i < CELL_COUNT; i++) {
     if (i > 6 && i % 7 === 0) {
@@ -54,5 +60,5 @@ export const generateWeeks = (date, selectedDate) => {
     weeks[currentWeekIndex].push(currentDate);
   }
 
-  return [weeks, activeRow, activeCol];
+  return [weeks, activeRow, activeCol] as const;
 };

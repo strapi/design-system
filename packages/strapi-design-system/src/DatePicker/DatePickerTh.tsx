@@ -1,10 +1,7 @@
-import React from 'react';
-
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { Flex } from '../Flex';
-import { RawTh } from '../RawTable';
+import { RawTh, RawThProps } from '../RawTable';
 import { Typography } from '../Typography';
 import { VisuallyHidden } from '../VisuallyHidden';
 
@@ -20,7 +17,11 @@ const DatePickerThRow = styled(Flex)`
   width: ${32 / 16}rem;
 `;
 
-export const DatePickerTh = ({ children, ...props }) => {
+export interface DatePickerThProps extends Omit<RawThProps, 'children'> {
+  children: string;
+}
+
+export const DatePickerTh = ({ children, ...props }: DatePickerThProps) => {
   return (
     <DatePickerThWrapper {...props}>
       <DatePickerThRow justifyContent="center">
@@ -34,8 +35,4 @@ export const DatePickerTh = ({ children, ...props }) => {
       </DatePickerThRow>
     </DatePickerThWrapper>
   );
-};
-
-DatePickerTh.propTypes = {
-  children: PropTypes.string.isRequired,
 };

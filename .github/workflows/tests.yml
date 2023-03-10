@@ -29,7 +29,7 @@ jobs:
         run: yarn bootstrap
 
       - name: Build
-        run: yarn build
+        run: yarn build --ignore=@strapi/design-system-docs
 
       - name: Run TSC
         run: yarn test:ts
@@ -75,7 +75,7 @@ jobs:
         run: yarn bootstrap
 
       - name: Build
-        run: yarn build
+        run: yarn build --ignore=@strapi/design-system-docs
 
       - name: Unit / Integration tests
         run: yarn test
