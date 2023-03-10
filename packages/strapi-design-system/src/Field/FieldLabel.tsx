@@ -46,6 +46,13 @@ export const FieldLabel = forwardRef<HTMLLabelElement, FieldLabelProps>(
   },
 );
 
+/**
+ * NOTE!
+ * This is a concious decision to not use the Box component here.
+ * Partially because it must be a span to correctly be picked up,
+ * but also because we don't need to add DOM nesting here when it's
+ * easier to just add a new class.
+ */
 const TypographyFlex = styled(Typography)`
   display: flex;
   align-items: center;
