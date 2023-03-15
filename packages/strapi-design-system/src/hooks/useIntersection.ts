@@ -8,14 +8,14 @@ interface UseIntersectionOptions {
 }
 
 export const useIntersection = (
-  scrollableAreaRef: MutableRefObject<HTMLElement>,
+  scrollableAreaRef: MutableRefObject<HTMLElement | null>,
   callback: (entry: IntersectionObserverEntry) => void,
   { selectorToWatch, skipWhen = false }: UseIntersectionOptions,
 ) => {
   const handleIntersection = useCallbackRef(callback);
 
   useEffect(() => {
-    if (skipWhen) return;
+    if (skipWhen || !scrollableAreaRef.current) return;
 
     const options = {
       root: scrollableAreaRef.current,
@@ -24,7 +24,7 @@ export const useIntersection = (
 
     const onEnterZone: IntersectionObserverCallback = (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && scrollableAreaRef.current) {
           if (scrollableAreaRef.current.scrollHeight > scrollableAreaRef.current.clientHeight) {
             handleIntersection(entry);
           }
