@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 
 import styled from 'styled-components';
 
@@ -25,6 +25,7 @@ export const BaseButtonWrapper = styled(Flex)`
 
 export interface BaseButtonProps<TElement extends HTMLElement = HTMLButtonElement> extends FlexProps<TElement> {
   disabled?: boolean;
+  type?: ButtonHTMLAttributes<HTMLButtonElement>['type'];
 }
 
 export const BaseButton = React.forwardRef<HTMLButtonElement, BaseButtonProps>(
