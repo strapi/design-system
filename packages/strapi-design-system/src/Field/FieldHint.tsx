@@ -4,7 +4,7 @@ import { Typography } from '../Typography';
 export const FieldHint = () => {
   const { id, hint, error } = useField();
 
-  if (!hint || typeof hint !== 'string' || error) {
+  if (!hint || error) {
     return null;
   }
 
