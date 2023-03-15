@@ -66,10 +66,11 @@ export const TextButton = React.forwardRef<HTMLButtonElement, TextButtonProps>(
         onClick={handleClick}
         as="button"
         type="button"
+        gap={2}
         {...props}
       >
         {(startIcon || loading) && (
-          <Box as="span" paddingRight={2} aria-hidden>
+          <Box as="span" aria-hidden>
             {loading ? (
               <LoadingWrapper>
                 <Loader />
@@ -79,11 +80,13 @@ export const TextButton = React.forwardRef<HTMLButtonElement, TextButtonProps>(
             )}
           </Box>
         )}
+
         <Typography variant="pi" textColor={isDisabled ? 'neutral600' : 'primary600'}>
           {children}
         </Typography>
+
         {endIcon && (
-          <Box as="span" paddingLeft={2} aria-hidden>
+          <Box as="span" aria-hidden>
             {endIcon}
           </Box>
         )}
