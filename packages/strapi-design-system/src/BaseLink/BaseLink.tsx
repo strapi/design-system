@@ -1,12 +1,6 @@
 import React from 'react';
 
-import styled from 'styled-components';
-
 import { Box, BoxProps } from '../Box';
-
-const A = styled(Box)`
-  cursor: pointer;
-`;
 
 export interface BaseLinkProps extends BoxProps<HTMLAnchorElement> {
   disabled?: boolean;
@@ -19,13 +13,14 @@ export interface BaseLinkProps extends BoxProps<HTMLAnchorElement> {
 export const BaseLink = React.forwardRef<HTMLAnchorElement, BaseLinkProps>(
   ({ href, rel = 'noreferrer noopener', target = '_self', disabled = false, isExternal = false, ...props }, ref) => {
     return (
-      <A
+      <Box
         as="a"
         ref={ref}
         target={isExternal ? '_blank' : target}
         rel={isExternal ? rel : undefined}
         href={disabled ? '#' : href}
         aria-disabled={disabled}
+        cursor="pointer"
         {...props}
       />
     );
