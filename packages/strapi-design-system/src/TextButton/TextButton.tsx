@@ -3,7 +3,6 @@ import * as React from 'react';
 import { Loader } from '@strapi/icons';
 import styled, { keyframes } from 'styled-components';
 
-import { Box } from '../Box';
 import { Flex, FlexProps } from '../Flex';
 import { buttonFocusStyle } from '../themes/utils';
 import { Typography } from '../Typography';
@@ -23,7 +22,6 @@ const LoadingWrapper = styled.div`
 `;
 
 const TextButtonWrapper = styled(Flex)`
-  background: transparent;
   border: none;
 
   &[aria-disabled='true'] {
@@ -31,11 +29,6 @@ const TextButtonWrapper = styled(Flex)`
     svg path {
       fill: ${({ theme }) => theme.colors.neutral600};
     }
-  }
-
-  svg {
-    display: flex;
-    font-size: ${10 / 16}rem;
   }
 
   svg path {
@@ -66,27 +59,23 @@ export const TextButton = React.forwardRef<HTMLButtonElement, TextButtonProps>(
         onClick={handleClick}
         as="button"
         type="button"
+        background="transparent"
+        gap={2}
         {...props}
       >
-        {(startIcon || loading) && (
-          <Box as="span" paddingRight={2} aria-hidden>
-            {loading ? (
-              <LoadingWrapper>
-                <Loader />
-              </LoadingWrapper>
-            ) : (
-              startIcon
-            )}
-          </Box>
+        {loading ? (
+          <LoadingWrapper aria-hidden>
+            <Loader />
+          </LoadingWrapper>
+        ) : (
+          startIcon
         )}
+
         <Typography variant="pi" textColor={isDisabled ? 'neutral600' : 'primary600'}>
           {children}
         </Typography>
-        {endIcon && (
-          <Box as="span" paddingLeft={2} aria-hidden>
-            {endIcon}
-          </Box>
-        )}
+
+        {endIcon}
       </TextButtonWrapper>
     );
   },

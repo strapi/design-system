@@ -42,7 +42,18 @@ type IconButtonProps = ChildrenWithLabel | ChildrenWithAriaLabel | IconWithLabel
 
 export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
   (
-    { label, noBorder = false, children, icon, disabled = false, onClick, 'aria-label': ariaLabel, ...restProps },
+    {
+      label,
+      background,
+      borderWidth,
+      noBorder = false,
+      children,
+      icon,
+      disabled = false,
+      onClick,
+      'aria-label': ariaLabel,
+      ...restProps
+    },
     ref,
   ) => {
     const handleClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
@@ -54,8 +65,8 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
     const component = (
       <IconButtonWrapper
         aria-disabled={disabled}
-        background={disabled ? 'neutral150' : undefined}
-        borderWidth={noBorder ? 0 : undefined}
+        background={disabled ? 'neutral150' : background}
+        borderWidth={noBorder ? 0 : borderWidth}
         justifyContent="center"
         height={`${32 / 16}rem`}
         width={`${32 / 16}rem`}

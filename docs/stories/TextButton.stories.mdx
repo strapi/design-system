@@ -1,7 +1,7 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 
 import { ArrowLeft, ArrowRight } from '@strapi/icons';
-import { TextButton } from '@strapi/design-system';
+import { Icon, TextButton } from '@strapi/design-system';
 
 <Meta title="Design System/Components/TextButton" component={TextButton} />
 
@@ -33,7 +33,17 @@ Depending on the permissions a user have or the status of an action, a TextButto
 <Canvas>
   <Story name="base">
     <div>
-      <TextButton endIcon={<ArrowRight />} startIcon={<ArrowLeft />}>
+      <TextButton>Click on me</TextButton>
+    </div>
+  </Story>
+</Canvas>
+
+## Icons
+
+<Canvas>
+  <Story name="icons">
+    <div>
+      <TextButton endIcon={<Icon as={ArrowRight} />} startIcon={<Icon as={ArrowLeft} />}>
         Click on me
       </TextButton>
     </div>
@@ -45,7 +55,7 @@ Depending on the permissions a user have or the status of an action, a TextButto
 <Canvas>
   <Story name="disabled">
     <div>
-      <TextButton disabled startIcon={<ArrowLeft />} endIcon={<ArrowRight />}>
+      <TextButton disabled startIcon={<Icon as={ArrowLeft} />}>
         Disabled TextButton
       </TextButton>
     </div>
@@ -57,7 +67,7 @@ Depending on the permissions a user have or the status of an action, a TextButto
 <Canvas>
   <Story name="loading">
     <div>
-      <TextButton loading startIcon={<ArrowLeft />} endIcon={<ArrowRight />}>
+      <TextButton loading startIcon={<Icon as={ArrowLeft} />}>
         Loading
       </TextButton>
     </div>

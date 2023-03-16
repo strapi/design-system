@@ -28,7 +28,7 @@ export interface BaseButtonProps<TElement extends HTMLElement = HTMLButtonElemen
 }
 
 export const BaseButton = React.forwardRef<HTMLButtonElement, BaseButtonProps>(
-  ({ disabled, children, ...props }, ref) => {
+  ({ disabled, children, background = 'neutral0', ...props }, ref) => {
     return (
       <BaseButtonWrapper
         ref={ref}
@@ -38,7 +38,7 @@ export const BaseButton = React.forwardRef<HTMLButtonElement, BaseButtonProps>(
         disabled={disabled}
         padding={2}
         hasRadius
-        background="neutral0"
+        background={background}
         borderColor="neutral200"
         cursor="pointer"
         {...props}

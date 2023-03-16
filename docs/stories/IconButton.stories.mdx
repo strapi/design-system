@@ -43,7 +43,7 @@ minimal and by so, efficient in small areas. Icon Buttons should be associated w
           <Box paddingBottom={3}>
             <Typography>{currentAction}</Typography>
           </Box>
-          <Flex>
+          <Flex background="neutral100" gap={1} padding={2}>
             <IconButton onClick={() => setCurrentAction('edit')} label="Edit" icon={<Pencil />} />
             <IconButton onClick={() => setCurrentAction('Create')} label="Create" icon={<Plus />} />
             <IconButton onClick={() => setCurrentAction('Delete')} label="Delete" icon={<Trash />} />
@@ -68,7 +68,7 @@ Depending on the status of an action or the permissions, an IconButton can be un
           <Box paddingBottom={3}>
             <Typography>{currentAction}</Typography>
           </Box>
-          <Flex>
+          <Flex background="neutral100" gap={1} padding={2}>
             <IconButton disabled onClick={() => setCurrentAction('edit')} label="Edit" icon={<Pencil />} />
             <IconButton disabled onClick={() => setCurrentAction('Create')} label="Create" icon={<Plus />} />
             <IconButton disabled onClick={() => setCurrentAction('Delete')} label="Delete" icon={<Trash />} />
@@ -89,7 +89,9 @@ the button.**
 <Canvas>
   <Story name="without tooltip">
     <Box padding={7}>
-      <IconButton onClick={() => console.log('edit')} aria-label="Edit" icon={<Pencil />} />
+      <Flex background="neutral100" gap={1} padding={2}>
+        <IconButton onClick={() => console.log('edit')} aria-label="Edit" icon={<Pencil />} />
+      </Flex>
     </Box>
   </Story>
 </Canvas>
@@ -101,12 +103,14 @@ IconButtons can be used within another component is a Group shape.
 <Canvas>
   <Story name="group">
     <Box padding={7}>
-      <IconButtonGroup>
-        <IconButton onClick={() => console.log('edit')} label="Edit" icon={<Pencil />} />
-        <IconButton onClick={() => console.log('Create')} label="Create" icon={<Plus />} />
-        <IconButton onClick={() => console.log('Delete')} label="Delete" icon={<Trash />} />
-        <IconButton onClick={() => console.log('Publish')} label="Publish" icon={<Play />} />
-      </IconButtonGroup>
+      <Flex background="neutral100" gap={1} padding={2}>
+        <IconButtonGroup>
+          <IconButton onClick={() => console.log('edit')} label="Edit" icon={<Pencil />} />
+          <IconButton onClick={() => console.log('Create')} label="Create" icon={<Plus />} />
+          <IconButton onClick={() => console.log('Delete')} label="Delete" icon={<Trash />} />
+          <IconButton onClick={() => console.log('Publish')} label="Publish" icon={<Play />} />
+        </IconButtonGroup>
+      </Flex>
     </Box>
   </Story>
 </Canvas>
@@ -124,7 +128,7 @@ IconButtons can take Icons as their children and can be fully accessible without
           <Box paddingBottom={3}>
             <Typography>{currentAction}</Typography>
           </Box>
-          <Flex>
+          <Flex background="neutral100" gap={1} padding={2}>
             <IconButton onClick={() => setCurrentAction('Edit')} aria-label="Edit">
               <Pencil />
             </IconButton>
