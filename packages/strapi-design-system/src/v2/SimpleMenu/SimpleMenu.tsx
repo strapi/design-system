@@ -11,7 +11,7 @@ import { useIntersection } from '../../hooks/useIntersection';
 interface SimpleMenuProps
   extends Omit<Menu.TriggerProps, 'children'>,
     Pick<Menu.ContentProps, 'popoverPlacement' | 'intersectionId'> {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   id?: string;
   label?: React.ReactNode;
   onOpen?: () => void;
@@ -22,15 +22,7 @@ interface SimpleMenuProps
   onReachEnd?: (entry: IntersectionObserverEntry) => void;
 }
 
-const SimpleMenu = ({
-  children,
-  id,
-  onOpen = () => {},
-  onClose = () => {},
-  popoverPlacement,
-  onReachEnd,
-  ...props
-}: SimpleMenuProps) => {
+const SimpleMenu = ({ children, id, onOpen, onClose, popoverPlacement, onReachEnd, ...props }: SimpleMenuProps) => {
   /**
    * Used for the intersection observer
    */
@@ -45,9 +37,9 @@ const SimpleMenu = ({
   };
 
   const handleOpenChange = (isOpen: boolean) => {
-    if (isOpen) {
+    if (isOpen && typeof onOpen === 'function') {
       onOpen();
-    } else {
+    } else if (!isOpen && typeof onClose === 'function') {
       onClose();
     }
 

@@ -6,7 +6,7 @@ import { Flex, FlexProps } from '../Flex';
 import { buttonFocusStyle } from '../themes/utils';
 
 export const BaseButtonWrapper = styled(Flex)`
-  svg {
+  > svg {
     height: ${({ theme }) => theme.spaces[3]};
     width: ${({ theme }) => theme.spaces[3]};
 

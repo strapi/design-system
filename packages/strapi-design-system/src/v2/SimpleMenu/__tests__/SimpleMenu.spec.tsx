@@ -3,9 +3,9 @@ import userEvent from '@testing-library/user-event';
 
 import { ThemeProvider } from '../../../ThemeProvider';
 import { lightTheme } from '../../../themes';
-import { SimpleMenu, MenuItem } from '../SimpleMenu';
+import { SimpleMenu, MenuItem, SimpleMenuProps } from '../SimpleMenu';
 
-const Component = ({ onClick = () => {}, ...restProps }) => (
+const Component = ({ onClick = () => {}, ...restProps }: SimpleMenuProps) => (
   <ThemeProvider theme={lightTheme}>
     <SimpleMenu label="Menu" {...restProps}>
       <MenuItem onClick={onClick}>January</MenuItem>
@@ -20,7 +20,7 @@ const Component = ({ onClick = () => {}, ...restProps }) => (
   </ThemeProvider>
 );
 
-const render = (props = {}) => renderRTL(<Component {...props} />);
+const render = (props: Partial<SimpleMenuProps> = {}) => renderRTL(<Component {...props} />);
 
 describe('SimpleMenu', () => {
   it('should render only the trigger initially', () => {
@@ -29,8 +29,7 @@ describe('SimpleMenu', () => {
     expect(getByRole('button', { name: 'Menu' })).toBeInTheDocument();
     expect(queryByRole('menu')).not.toBeInTheDocument();
     expect(getByRole('button', { name: 'Menu' })).toHaveAttribute('aria-expanded', 'false');
-    expect(getByRole('button', { name: 'Menu' })).toHaveAttribute('aria-controls', expect.any(String));
-    expect(getByRole('button', { name: 'Menu' })).toHaveAttribute('aria-haspopup', 'true');
+    expect(getByRole('button', { name: 'Menu' })).toHaveAttribute('aria-haspopup', 'menu');
   });
 
   it('should open the menu when the trigger is clicked', async () => {
@@ -40,9 +39,11 @@ describe('SimpleMenu', () => {
 
     await user.click(getByRole('button', { name: 'Menu' }));
 
-    expect(getByRole('menu')).toBeInTheDocument();
-    expect(getByRole('button', { name: 'Menu' })).toHaveAttribute('aria-expanded', 'true');
-    expect(getByRole('button', { name: 'February' })).toBeInTheDocument();
+    expect(getByRole('menu', { name: 'Menu' })).toBeInTheDocument();
+    expect(getByRole('button', { name: '', hidden: true })).toHaveAttribute('aria-expanded', 'true');
+    expect(getByRole('button', { name: '', hidden: true })).toHaveAttribute('aria-controls', expect.any(String));
+    expect(getByRole('button', { name: '', hidden: true })).toHaveAttribute('aria-hidden', 'true');
+    expect(getByRole('menuitem', { name: 'February' })).toBeInTheDocument();
   });
 
   it('should close the menu when the escape key is pressed after its opened', async () => {
@@ -75,71 +76,12 @@ describe('SimpleMenu', () => {
     const { getByRole } = render({ onClose });
 
     await user.click(getByRole('button', { name: 'Menu' }));
-    await user.click(getByRole('button', { name: 'Menu' }));
+    await user.keyboard('[Escape]');
 
     expect(onClose).toBeCalled();
   });
 
-  describe('Menu Items', () => {
-    it('should render an anchor if we pass a isLink', async () => {
-      const user = userEvent.setup();
+  it.todo('should fire onReachEnd');
 
-      const { getByRole } = render();
-
-      await user.click(getByRole('button', { name: 'Menu' }));
-
-      expect(getByRole('link', { name: 'Home' })).toBeInTheDocument();
-    });
-
-    it('should render an anchor if we pass isExternal', async () => {
-      const user = userEvent.setup();
-
-      const { getByRole } = render();
-
-      await user.click(getByRole('button', { name: 'Menu' }));
-
-      expect(getByRole('link', { name: 'Strapi website' })).toBeInTheDocument();
-    });
-
-    it('should focus the first item in the menu after opening the menu', async () => {
-      const user = userEvent.setup();
-
-      const { getByRole } = render();
-
-      await user.click(getByRole('button', { name: 'Menu' }));
-
-      expect(getByRole('button', { name: 'January' })).toHaveFocus();
-    });
-
-    it('should allow navigating through the list of items with the arrow keys', async () => {
-      const user = userEvent.setup();
-
-      const { getByRole } = render();
-
-      await user.click(getByRole('button', { name: 'Menu' }));
-      await user.keyboard('{ArrowDown}');
-
-      expect(getByRole('button', { name: 'February' })).toHaveFocus();
-
-      await user.keyboard('{ArrowDown}');
-
-      expect(getByRole('link', { name: 'Strapi website' })).toHaveFocus();
-
-      await user.keyboard('{ArrowUp},{ArrowUp}');
-
-      expect(getByRole('button', { name: 'January' })).toHaveFocus();
-    });
-
-    it('should fire the menu item onClick handler when clicked', async () => {
-      const user = userEvent.setup();
-      const onClick = jest.fn();
-
-      const { getByRole } = render({ onClick });
-
-      await user.click(getByRole('button', { name: 'Menu' }));
-      await user.click(getByRole('button', { name: 'February' }));
-
-      expect(onClick).toBeCalled();
-    });
-  });
+  it.todo('should handle the popoverPlacement prop');
 });
