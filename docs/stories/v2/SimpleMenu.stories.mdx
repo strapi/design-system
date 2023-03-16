@@ -100,7 +100,31 @@ const MyMenu = () => {
 };
 ```
 
-### Nested Menus
+### Nested Menus & Labels
+
+In some circumstances you'll want to create a more complex menu, this could be to section items with a label or to
+add a submenu. Both of these are possible with the `Menu` component collection, note we do not export the submenu or
+label feature separately like we do `SimpleMenu` and `MenuItem`, however the two work together perfectly.
+
+<Canvas>
+  <Story name="nested menu">
+    <SimpleMenu label="Actions">
+      <Menu.SubRoot>
+        <Menu.SubTrigger>Add new component above</Menu.SubTrigger>
+        <Menu.SubContent>
+          <Menu.Label>Category 1</Menu.Label>
+          <MenuItem onSelect={() => console.log('adding component 1')}>Component 1</MenuItem>
+          <MenuItem onSelect={() => console.log('adding component 2')}>Component 2</MenuItem>
+          <Menu.Label>Category 2</Menu.Label>
+          <MenuItem onSelect={() => console.log('adding component 3')}>Component 3</MenuItem>
+        </Menu.SubContent>
+      </Menu.SubRoot>
+      <MenuItem color="danger600" onSelect={() => console.log('delete')}>
+        Delete component
+      </MenuItem>
+    </SimpleMenu>
+  </Story>
+</Canvas>
 
 ## Props
 
@@ -162,3 +186,19 @@ const MyMenu = () => {
 ### Item
 
 <ArgsTable of={Menu.Item} />
+
+### Label
+
+<ArgsTable of={Menu.Label} />
+
+### SubRoot
+
+<ArgsTable of={Menu.SubRoot} />
+
+### SubTrigger
+
+<ArgsTable of={Menu.SubTrigger} />
+
+### SubContent
+
+<ArgsTable of={Menu.SubContent} />
