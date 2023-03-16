@@ -13,7 +13,7 @@
     "bootstrap": "lerna bootstrap",
     "develop": "lerna run develop --stream",
     "build": "lerna run build",
-    "clean": "lerna clean",
+    "clean": "lerna run clean && rm -rf node_modules",
     "format": "lerna run format",
     "lint": "lerna run lint",
     "lint-staged": "lerna run lint -- ",
