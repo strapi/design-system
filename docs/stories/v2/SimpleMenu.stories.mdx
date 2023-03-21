@@ -1,231 +1,204 @@
 import { useState } from 'react';
 
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { CarretDown } from '@strapi/icons';
+import { CarretDown, Bell } from '@strapi/icons';
 import { IconButton, Flex } from '@strapi/design-system';
-import { SimpleMenu, MenuItem } from '@strapi/design-system/v2';
+import { SimpleMenu, MenuItem, Menu } from '@strapi/design-system/v2';
+import { Link } from 'react-router-dom';
 
 <Meta title="Design System/Components/v2/SimpleMenu" component={SimpleMenu} />
 
 # SimpleMenu
 
-A menu displays a list of potential options or actions via a Popover component. A menu is used to give choices to the
-users in small spaces. However, a single option or action should be taken via a menu.
-
-**Best practices**
-
-- Use menu for small spaces. When there is more space, use Select component.
-- Use menu if you want the user to make a single choice. When you need your user to select one or several options, use
-  Select component.
-- Try to have a sort logic in the popover of the menu.
+Displays a menu to the user – typically a list of actions or functions which is triggered
+by a `button`. This menu is built on top of the [RadixUI Dropdown Menu](https://www.radix-ui.com/docs/primitives/components/dropdown-menu)
+component. This component exports an easy to use `SimpleMenu` component but if you need
+more fine-grained control you can use it's styled primitives countpart `Menu`.
 
 [View source](https://github.com/strapi/design-system-experiments/tree/main/packages/strapi-design-system/src/v2/SimpleMenu)
 
-## Imports
+## Usage
 
 ```js
 import { SimpleMenu, MenuItem } from '@strapi/design-system/v2';
 ```
 
-## Usage
-
-The label of the menu can be replaced by the option selected. For instance, in a Date picker component, the menu label
-will be replaced by the active month.
-
-By passing `aria-disabled` hover styles on `MenuItem`s can be disabled.
+### Basic Usage
 
 <Canvas>
-  <Story
-    name="base"
-    parameters={{
-      docs: {
-        source: {
-          code: `
-            const [val, setValue] = useState('January');\n
-            return (
-              <SimpleMenu id="label" label={val}>
-                <MenuItem id="menuItem-January" onClick={() => setValue('January')}>
-                  January
-                </MenuItem>
-                <MenuItem id="menuItem-February" onClick={() => setValue('February')}>
-                  February
-                </MenuItem>
-              </SimpleMenu>
-            );
-          `,
-        },
-      },
-    }}
-  >
-    {() => {
-      const [val, setValue] = useState('January');
-      return (
-        <SimpleMenu id="label" label={val}>
-          <MenuItem id="menuItem-January" onClick={() => setValue('January')}>
-            January
-          </MenuItem>
-          <MenuItem id="menuItem-February" onClick={() => setValue('February')}>
-            February
-          </MenuItem>
-        </SimpleMenu>
-      );
-    }}
-  </Story>
-</Canvas>
-
-### With links
-
-<Canvas>
-  <Story
-    name="with-links"
-    parameters={{
-      docs: {
-        source: {
-          code: `
-<SimpleMenu label="Menu">
-  <MenuItem to="/">
-    Home
-  </MenuItem>
-  <MenuItem to="/somewhere" as={NavLink} isLink>
-    Somewhere internal
-  </MenuItem>
-  <MenuItem href="https://strapi.io/" isExternal>
-    Somewhere External
-  </MenuItem>
-</SimpleMenu>
-          `,
-        },
-      },
-    }}
-  >
-    <SimpleMenu label="Menu">
-      <MenuItem to="/">Home</MenuItem>
-      <MenuItem to="/somewhere">Somewhere internal</MenuItem>
-      <MenuItem href="https://strapi.io/" isExternal>
-        Somewhere External
+  <Story name="base">
+    <SimpleMenu label="Actions">
+      <MenuItem onSelect={() => console.log('opening')}>Open</MenuItem>
+      <MenuItem disabled onSelect={() => console.log('cloning')}>
+        Clone
+      </MenuItem>
+      <MenuItem onSelect={() => console.log('editing')}>Edit</MenuItem>
+      <MenuItem color="danger600" onSelect={() => console.log('delete')}>
+        Delete
       </MenuItem>
     </SimpleMenu>
   </Story>
 </Canvas>
 
-A menu can allow the user to make actions. It can redirect the user to another page or another part of the product.
+### With Icon
 
-### With IconButton
+In situatuions where you'd rather have an icon e.g. a notification system you can use
+the `as` prop to pass a custom component. In the following example, we supply the `IconButton`
+component. However, for accessibility you should still pass a label.
 
 <Canvas>
-  <Story name="with-iconbutton">
-    <SimpleMenu label="Menu" as={IconButton} icon={<CarretDown />}>
-      <MenuItem to="/">Home</MenuItem>
-      <MenuItem to="/somewhere">Somewhere internal</MenuItem>
+  <Story name="with icons">
+    <SimpleMenu aria-label="Notifications" as={IconButton} icon={<Bell />}>
+      <MenuItem onSelect={() => console.log('view notification')}>Your review has been requested!</MenuItem>
+      <MenuItem onSelect={() => console.log('view notification')}>There was an error with your billing.</MenuItem>
+    </SimpleMenu>
+  </Story>
+</Canvas>
+
+### Using Links & Routing Libraries
+
+By default you can define links in your menu by providing either the `isLink` or `isExternal` prop, the former infers
+an internal link so specific defaults may be different to what you expect.
+
+<Canvas>
+  <Story name="with links">
+    <SimpleMenu label="Navigation">
+      <MenuItem href="/" isLink>
+        Home
+      </MenuItem>
+      <MenuItem href="/accounts" isLink>
+        Accounts
+      </MenuItem>
       <MenuItem href="https://strapi.io/" isExternal>
-        Somewhere External
+        Billing Provider
       </MenuItem>
     </SimpleMenu>
   </Story>
 </Canvas>
 
-### Sizes
-
-Use the size prop to change the size of the button. You can set the value to `S` or `M` (by default `M` is being used).
-If a custom component is rendered (through the `as` prop), the size is passed through, but needs to be handled in that
-component.
-
-Size `S` can be useful if the component is being used in places, where it needs to align on the left (ex: within
-tables).
-
-<Canvas>
-  <Story name="sizes">
-    <Flex gap={4}>
-      <SimpleMenu label="Small Menu" size="S" icon={<CarretDown />}>
-        <MenuItem>Home</MenuItem>
-        <MenuItem>Somewhere internal</MenuItem>
-      </SimpleMenu>
-      <SimpleMenu label="Medium Menu" icon={<CarretDown />}>
-        <MenuItem>Home</MenuItem>
-        <MenuItem>Somewhere internal</MenuItem>
-      </SimpleMenu>
-    </Flex>
-  </Story>
-</Canvas>
-
-### With Custom Label
-
-<Canvas>
-  <Story
-    name="with-custom-label"
-    parameters={{
-      docs: {
-        source: {
-          code: `
-const Label = <><span>2</span> special items</>;
-return (
-  <SimpleMenu label={Label}>
-    <MenuItem>Home</MenuItem>
-    <MenuItem>Somewhere internal</MenuItem>
-  </SimpleMenu>
-);
-  `,
-        },
-      },
-    }}
-  >
-    {() => {
-      const Label = (
-        <>
-          <span>2</span> special items
-        </>
-      );
-      return (
-        <SimpleMenu label={Label}>
-          <MenuItem>Home</MenuItem>
-          <MenuItem>Somewhere internal</MenuItem>
-        </SimpleMenu>
-      );
-    }}
-  </Story>
-</Canvas>
-
-### with other routing libraries
-
-To use the SimpleMenu/MenuItem components with a routing library (e.g. react-router-dom), you'll need to pass the
-`NavLink` component to the `as` prop in order to replace the default HTML anchor `<a />`. You'll also need to pass the
-`isLink` props to the `MenuItem` component.
+If you're using a framework e.g. `react-router-dom` or `nextjs` you'll probably want to use their `Link` component as
+a base. This is completely possible by using the `as` prop:
 
 ```jsx
 import { SimpleMenu, MenuItem } from '@strapi/design-system';
-import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom'; // or import { Link } from 'next/link'
 
-<SimpleMenu label={Label}>
-  <MenuItem as={NavLink} to="/">
-    Home
-  </MenuItem>
-</SimpleMenu>;
+const MyMenu = () => {
+  return (
+    <SimpleMenu label="Navigation">
+      <MenuItem as={NavLink} to="/" isLink>
+        Home
+      </MenuItem>
+      <MenuItem as={NavLink} to="/accounts" isLink>
+        Accounts
+      </MenuItem>
+      <MenuItem href="https://strapi.io/" isExternal>
+        Billing Provider
+      </MenuItem>
+    </SimpleMenu>
+  );
+};
 ```
 
-#### with NextJS
+### Nested Menus & Labels
 
-For NextJS, you'll need to wrap the `MenuItem` with the `NextLink` component
+In some circumstances you'll want to create a more complex menu, this could be to section items with a label or to
+add a submenu. Both of these are possible with the `Menu` component collection, note we do not export the submenu or
+label feature separately like we do `SimpleMenu` and `MenuItem`, however the two work together perfectly.
 
-```jsx
-import { SimpleMenu, MenuItem } from '@strapi/design-system';
-import NextLink from 'next/link';
+<Canvas>
+  <Story name="nested menu">
+    <SimpleMenu label="Actions">
+      <Menu.SubRoot>
+        <Menu.SubTrigger>Add new component above</Menu.SubTrigger>
+        <Menu.SubContent>
+          <Menu.Label>Category 1</Menu.Label>
+          <MenuItem onSelect={() => console.log('adding component 1')}>Component 1</MenuItem>
+          <MenuItem onSelect={() => console.log('adding component 2')}>Component 2</MenuItem>
+          <Menu.Label>Category 2</Menu.Label>
+          <MenuItem onSelect={() => console.log('adding component 3')}>Component 3</MenuItem>
+        </Menu.SubContent>
+      </Menu.SubRoot>
+      <MenuItem color="danger600" onSelect={() => console.log('delete')}>
+        Delete component
+      </MenuItem>
+    </SimpleMenu>
+  </Story>
+</Canvas>
 
-<SimpleMenu label={Label}>
-  <NextLink href="/home" passHref>
-    <MenuItem>Home</MenuItem>
-  </NextLink>
-</SimpleMenu>;
-```
+## Props
 
-## Accessibility
-
-- When the menu button has focus, `Space` or `Enter` opens or closes the menu.
-- When the menu is open, the navigation between menu items can be done with the `ArrowDown` or `ArrowUp`
-
-## SimpleMenu props
+## SimpleMenu
 
 <ArgsTable of={SimpleMenu} />
 
-## MenuItem props
+## MenuItem
 
 <ArgsTable of={MenuItem} />
+
+---
+
+# Menu
+
+In certain situations the `SimpleMenu` can be too restrictive, particularly if you want to customise the content
+container. For this, we recommend using `Menu`, it's a collection of components that can be composed in your own way.
+
+## Usage
+
+### Basic Usage
+
+```jsx
+import { Menu } from '@strapi/design-system/v2';
+
+const MyMenu = () => {
+  return (
+    <Menu.Root>
+      <Menu.Trigger>Actions</Menu.Trigger>
+      <Menu.Content>
+        <Menu.Item onSelect={() => console.log('opening')}>Open</MenuItem>
+        <Menu.Item disabled onSelect={() => console.log('cloning')}>
+          Clone
+        </Menu.Item>
+        <Menu.Item onSelect={() => console.log('editing')}>Edit</MenuItem>
+        <Menu.Item color="danger600" onSelect={() => console.log('delete')}>
+          Delete
+        </Menu.Item>
+      </Menu.Content>
+    </Menu.Root>
+  );
+};
+```
+
+## Props
+
+### Root
+
+<ArgsTable of={Menu.Root} />
+
+### Trigger
+
+<ArgsTable of={Menu.Trigger} />
+
+### Content
+
+<ArgsTable of={Menu.Content} />
+
+### Item
+
+<ArgsTable of={Menu.Item} />
+
+### Label
+
+<ArgsTable of={Menu.Label} />
+
+### SubRoot
+
+<ArgsTable of={Menu.SubRoot} />
+
+### SubTrigger
+
+<ArgsTable of={Menu.SubTrigger} />
+
+### SubContent
+
+<ArgsTable of={Menu.SubContent} />
