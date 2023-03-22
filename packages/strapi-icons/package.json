@@ -13,9 +13,10 @@
     },
     "./*": "./dist/*"
   },
-  "types": "./dist/index.d.ts",
+  "types": "./types/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "types"
   ],
   "devDependencies": {
     "@svgr/cli": "6.5.1",
@@ -33,7 +34,7 @@
     "build:prod": "vite build",
     "clean": "rm -rf src dist node_modules",
     "generate:icons": "svgr -- ./assets/icons",
-    "generate:types": "tsc --noEmit false --emitDeclarationOnly --declarationDir dist"
+    "generate:types": "tsc --noEmit false --emitDeclarationOnly --declaration --declarationDir ./types"
   },
   "gitHead": "c74900b0ee3525510d266dc83c9743cb24dafced"
 }

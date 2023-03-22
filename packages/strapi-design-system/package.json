@@ -6,7 +6,7 @@
   "sideEffects": false,
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "types": "./types/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/index.js",
@@ -60,10 +60,10 @@
   },
   "scripts": {
     "develop": "vite build --watch",
-    "build": "yarn build:prod",
+    "build": "yarn build:prod && yarn generate:types",
     "build:prod": "vite build",
     "clean": "rm -rf dist node_modules",
-    "generate:types": "tsc --noEmit false --emitDeclarationOnly --declarationDir dist",
+    "generate:types": "tsc --noEmit false --emitDeclarationOnly --declaration --declarationDir types",
     "lint": "eslint . --ext .js,.jsx,.tsx,.ts",
     "format": "yarn lint --fix",
     "test": "jest -c jest.config.js",

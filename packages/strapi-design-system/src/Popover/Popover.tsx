@@ -29,7 +29,7 @@ const PopoverWrapper = styled(Box)`
   background: ${({ theme }) => theme.colors.neutral0};
 `;
 
-interface ContentProps extends BoxProps<HTMLDivElement> {
+export interface ContentProps extends BoxProps<HTMLDivElement> {
   source: React.MutableRefObject<HTMLElement>;
   placement?: Placement;
   fullWidth?: boolean;
