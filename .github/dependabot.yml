@@ -1,0 +1,31 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: daily
+    versioning-strategy: increase
+    ignore:
+      - dependency-name: 'react'
+        update-types:
+          - 'version-update:semver-major'
+      - dependency-name: 'react-dom'
+        update-types:
+          - 'version-update:semver-major'
+      - dependency-name: 'react-router-dom'
+        update-types:
+          - 'version-update:semver-major'
+      - dependency-name: 'styled-components'
+        update-types:
+          - 'version-update:semver-major'
+
+    labels:
+      - 'source: dependencies'
+      - 'pr: chore'
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: daily
+    labels:
+      - 'source: dependencies'
+      - 'pr: chore'
