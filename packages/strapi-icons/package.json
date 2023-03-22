@@ -32,7 +32,7 @@
   "scripts": {
     "build": "yarn generate:icons && yarn build:prod && yarn generate:types",
     "build:prod": "vite build",
-    "clean": "rm -rf src dist node_modules",
+    "clean": "rm -rf src dist node_modules types",
     "generate:icons": "svgr -- ./assets/icons",
     "generate:types": "tsc --noEmit false --emitDeclarationOnly --declaration --declarationDir ./types"
   },

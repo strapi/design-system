@@ -62,7 +62,7 @@
     "develop": "vite build --watch",
     "build": "yarn build:prod && yarn generate:types",
     "build:prod": "vite build",
-    "clean": "rm -rf dist node_modules",
+    "clean": "rm -rf dist node_modules types",
     "generate:types": "tsc --noEmit false --emitDeclarationOnly --declaration --declarationDir types",
     "lint": "eslint . --ext .js,.jsx,.tsx,.ts",
     "format": "yarn lint --fix",
