@@ -35,7 +35,7 @@ describe('SingleSelect', () => {
       const user = userEvent.setup();
       renderComponent();
 
-      await user.click(screen.getByRole('combobox'));
+      await user.click(screen.getByRole('combobox', { name: 'Pick Options' }));
 
       expect(screen.getByRole('listbox')).toBeInTheDocument();
     });

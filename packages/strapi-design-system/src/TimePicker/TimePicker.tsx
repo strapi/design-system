@@ -1,38 +1,13 @@
-import * as React from 'react';
-
 import { Clock } from '@strapi/icons';
-import styled, { ThemeSizes } from 'styled-components';
+import styled from 'styled-components';
 
-import { FieldProps } from '../Field';
 import { Flex } from '../Flex';
 import { useId } from '../hooks/useId';
-import { Select, Option } from '../Select';
+import { Option } from '../Select';
+import { SingleSelect, SingleSelectProps } from '../Select/SingleSelect';
 
-/**
- * TODO: this should extends SelectProps
- */
-export interface TimePickerProps
-  extends Omit<
-      React.ButtonHTMLAttributes<HTMLButtonElement>,
-      'value' | 'onChange' | 'id' | 'disabled' | 'size' | 'required'
-    >,
-    Pick<FieldProps, 'id' | 'name' | 'required' | 'hint' | 'error'> {
-  /**
-   * @default 'Clear'
-   */
-  clearLabel?: string;
-  /**
-   * @default false
-   */
-  disabled?: boolean;
-  label: string;
+export interface TimePickerProps extends Omit<SingleSelectProps, 'children' | 'onChange' | 'value'> {
   onChange: (value: string) => void;
-  onClear?: () => void;
-  selectButtonTitle?: string;
-  /**
-   * @default 'M'
-   */
-  size?: keyof ThemeSizes['input'];
   /**
    * @default 15
    */
@@ -40,7 +15,7 @@ export interface TimePickerProps
   value?: string;
 }
 
-export const TimePicker = ({ id, value, step = 15, ...props }: TimePickerProps) => {
+export const TimePicker = ({ id, value, step = 15, onChange, ...props }: TimePickerProps) => {
   const generatedId = useId(id);
   const hoursCount = 24;
   const times: string[] = [];
@@ -78,16 +53,23 @@ export const TimePicker = ({ id, value, step = 15, ...props }: TimePickerProps) 
     return `${hours}:${minutes}`;
   };
 
+  const handleChange = (value: string | number) => {
+    if (onChange) {
+      onChange(value.toString());
+    }
+  };
+
   return (
-    <Select
+    <SingleSelect
       id={generatedId}
       placeholder="--:--"
-      value={value ? getClosestValue() : null}
+      value={value ? getClosestValue() : undefined}
       startIcon={
-        <TimeIconWrapper>
+        <TimeIconWrapper as="span">
           <Clock />
         </TimeIconWrapper>
       }
+      onChange={handleChange}
       {...props}
     >
       {times.map((time) => (
@@ -95,7 +77,7 @@ export const TimePicker = ({ id, value, step = 15, ...props }: TimePickerProps) 
           {time}
         </Option>
       ))}
-    </Select>
+    </SingleSelect>
   );
 };
 

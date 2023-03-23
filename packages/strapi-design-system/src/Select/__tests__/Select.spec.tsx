@@ -30,12 +30,12 @@ describe('Select', () => {
       { container: document.body },
     );
 
-    fireEvent.mouseDown(screen.getByRole('combobox', { name: /pizza/i }));
+    fireEvent.mouseDown(screen.getByRole('combobox', { name: 'Choose your meal' }));
 
     await waitFor(() => container.querySelector('[role="listbox"]'));
 
     expect(container).toMatchInlineSnapshot(`
-      .c14 {
+      .c11 {
         border: 0;
         -webkit-clip: rect(0 0 0 0);
         clip: rect(0 0 0 0);
@@ -45,30 +45,6 @@ describe('Select', () => {
         padding: 0;
         position: absolute;
         width: 1px;
-      }
-
-      .c8 {
-        padding-left: 12px;
-      }
-
-      .c9 {
-        padding-right: 16px;
-        padding-left: 16px;
-      }
-
-      .c15 {
-        background: #ffffff;
-        padding: 4px;
-        border-radius: 4px;
-      }
-
-      .c18 {
-        background: #ffffff;
-        padding-top: 8px;
-        padding-right: 16px;
-        padding-bottom: 8px;
-        padding-left: 16px;
-        border-radius: 4px;
       }
 
       .c0 {
@@ -83,21 +59,6 @@ describe('Select', () => {
         -webkit-flex-direction: column;
         -ms-flex-direction: column;
         flex-direction: column;
-        gap: 4px;
-      }
-
-      .c3 {
-        -webkit-align-items: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-        flex-direction: row;
       }
 
       .c6 {
@@ -112,20 +73,32 @@ describe('Select', () => {
         -webkit-flex-direction: row;
         -ms-flex-direction: row;
         flex-direction: row;
-        -webkit-box-pack: justify;
-        -webkit-justify-content: space-between;
-        -ms-flex-pack: justify;
-        justify-content: space-between;
+        gap: 16px;
       }
 
-      .c1 {
+      .c8 {
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        gap: 12px;
+      }
+
+      .c3 {
         font-size: 0.75rem;
         line-height: 1.33;
         font-weight: 600;
         color: #32324d;
       }
 
-      .c10 {
+      .c7 {
         font-size: 0.875rem;
         line-height: 1.43;
         display: block;
@@ -135,110 +108,13 @@ describe('Select', () => {
         color: #32324d;
       }
 
-      .c13 {
+      .c10 {
         font-size: 0.75rem;
         line-height: 1.33;
         color: #666687;
       }
 
-      .c20 {
-        font-size: 0.875rem;
-        line-height: 1.43;
-        font-weight: 600;
-        color: #4945ff;
-      }
-
-      .c21 {
-        font-size: 0.875rem;
-        line-height: 1.43;
-        color: #32324d;
-      }
-
-      .c19 {
-        width: 100%;
-        border: none;
-        text-align: left;
-        outline-offset: -3px;
-      }
-
-      .c19.is-focused {
-        background: #f0f0ff;
-      }
-
-      .c19:hover {
-        background: #f0f0ff;
-      }
-
       .c4 {
-        position: relative;
-        border: 1px solid #dcdce4;
-        padding-right: 12px;
-        border-radius: 4px;
-        background: #ffffff;
-        overflow: hidden;
-        min-height: 2.5rem;
-        outline: none;
-        box-shadow: 0;
-        -webkit-transition-property: border-color,box-shadow,fill;
-        transition-property: border-color,box-shadow,fill;
-        -webkit-transition-duration: 0.2s;
-        transition-duration: 0.2s;
-      }
-
-      .c4:focus-within {
-        border: 1px solid #4945ff;
-        box-shadow: #4945ff 0px 0px 0px 2px;
-      }
-
-      .c11 {
-        background: transparent;
-        border: none;
-        position: relative;
-        z-index: 1;
-      }
-
-      .c11 svg {
-        height: 0.6875rem;
-        width: 0.6875rem;
-      }
-
-      .c11 svg path {
-        fill: #666687;
-      }
-
-      .c12 {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        background: none;
-        border: none;
-      }
-
-      .c12 svg {
-        width: 0.375rem;
-      }
-
-      .c5 {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        top: 0;
-        width: 100%;
-        background: transparent;
-        border: none;
-      }
-
-      .c5:focus {
-        outline: none;
-      }
-
-      .c5[data-disabled] {
-        cursor: not-allowed;
-      }
-
-      .c2 {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -249,36 +125,70 @@ describe('Select', () => {
         align-items: center;
       }
 
-      .c16 {
-        box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
-        z-index: 4;
-        border: 1px solid #eaeaef;
-        background: #ffffff;
+      .c1 > * {
+        margin-top: 0;
+        margin-bottom: 0;
       }
 
-      .c17 {
-        max-height: 15rem;
-        overflow-y: auto;
-        overflow-x: hidden;
+      .c1 > * + * {
+        margin-top: 4px;
       }
 
-      .c17::-webkit-scrollbar {
-        -webkit-appearance: none;
-        width: 4px;
-      }
-
-      .c17::-webkit-scrollbar-track {
-        background: #ffffff;
-      }
-
-      .c17::-webkit-scrollbar-thumb {
-        background: #eaeaef;
+      .c5 {
+        position: relative;
+        border: 1px solid #dcdce4;
+        padding-right: 12px;
+        padding-left: 12px;
         border-radius: 4px;
-        margin-right: 10px;
+        background: #ffffff;
+        overflow: hidden;
+        min-height: 2.5rem;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        gap: 16px;
+        outline: none;
+        box-shadow: 0;
+        -webkit-transition-property: border-color,box-shadow,fill;
+        transition-property: border-color,box-shadow,fill;
+        -webkit-transition-duration: 0.2s;
+        transition-duration: 0.2s;
       }
 
-      .c7 {
-        width: 100%;
+      .c5[aria-disabled='true'] {
+        color: #666687;
+        background: #eaeaef;
+      }
+
+      .c5:focus-visible {
+        outline: none;
+      }
+
+      .c5:focus-within {
+        border: 1px solid #4945ff;
+        box-shadow: #4945ff 0px 0px 0px 2px;
+      }
+
+      .c9 > svg {
+        width: 0.375rem;
+      }
+
+      .c9 > svg > path {
+        fill: #666687;
+      }
+
+      .c12[data-state='checked'] .c2 {
+        font-weight: bold;
+        color: #4945ff;
       }
 
       <body>
@@ -286,84 +196,76 @@ describe('Select', () => {
           class=""
         >
           <div
-            class="c0"
+            class="c0 c1"
           >
             <label
-              class="c1 c2"
+              class="c2 c3 c4"
               for="1"
             >
               Choose your meal
             </label>
-            <div
-              class="c3 c4"
+            <button
+              aria-autocomplete="none"
+              aria-controls="radix-0"
+              aria-describedby="1-hint 1-error"
+              aria-disabled="false"
+              aria-expanded="false"
+              aria-required="false"
+              class="c5"
+              data-state="closed"
+              dir="ltr"
+              id="1"
+              role="combobox"
+              type="button"
             >
-              <button
-                aria-describedby="1-hint"
-                aria-expanded="true"
-                aria-haspopup="listbox"
-                aria-labelledby="1 1-label 1-content"
-                aria-required="false"
-                class="c5"
-                id="1"
-                role="combobox"
-                type="button"
-                value="pizza"
-              />
-              <div
-                class="c6 c7"
+              <span
+                class="c6"
               >
-                <div
-                  class="c3"
+                <span
+                  aria-hidden="true"
+                  class=""
                 >
-                  <div
-                    aria-hidden="true"
-                    class="c8"
-                  >
-                    <span>
-                      An icon
-                    </span>
-                  </div>
-                  <div
-                    class="c9"
-                  >
-                    <span
-                      class="c10"
-                      id="1-content"
-                    >
-                      Pizza
-                    </span>
-                  </div>
-                </div>
-                <div
-                  class="c3"
+                  <span>
+                    An icon
+                  </span>
+                </span>
+                <span
+                  class="c2 c7"
                 >
-                  <button
-                    aria-hidden="true"
-                    class="c8 c11 c12"
-                    tabindex="-1"
-                    title="Carret Down Button"
-                    type="button"
+                  <span
+                    aria-label="pizza"
+                    style="pointer-events: none;"
                   >
-                    <svg
-                      fill="none"
-                      height="1rem"
-                      viewBox="0 0 14 8"
-                      width="1rem"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        clip-rule="evenodd"
-                        d="M14 .889a.86.86 0 0 1-.26.625L7.615 7.736A.834.834 0 0 1 7 8a.834.834 0 0 1-.615-.264L.26 1.514A.861.861 0 0 1 0 .889c0-.24.087-.45.26-.625A.834.834 0 0 1 .875 0h12.25c.237 0 .442.088.615.264a.86.86 0 0 1 .26.625Z"
-                        fill="#32324D"
-                        fill-rule="evenodd"
-                      />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
+                    pizza
+                  </span>
+                </span>
+              </span>
+              <span
+                class="c8"
+              >
+                <span
+                  aria-hidden="true"
+                  class="c9"
+                >
+                  <svg
+                    fill="none"
+                    height="1rem"
+                    viewBox="0 0 14 8"
+                    width="1rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M14 .889a.86.86 0 0 1-.26.625L7.615 7.736A.834.834 0 0 1 7 8a.834.834 0 0 1-.615-.264L.26 1.514A.861.861 0 0 1 0 .889c0-.24.087-.45.26-.625A.834.834 0 0 1 .875 0h12.25c.237 0 .442.088.615.264a.86.86 0 0 1 .26.625Z"
+                      fill="#32324D"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </button>
             <p
-              class="c13"
+              class="c2 c10"
               id="1-hint"
             >
               Description line
@@ -371,7 +273,7 @@ describe('Select', () => {
           </div>
         </div>
         <div
-          class="c14"
+          class="c11"
         >
           <p
             aria-live="polite"
@@ -391,78 +293,6 @@ describe('Select', () => {
             id="live-region-alert"
             role="alert"
           />
-        </div>
-        <div
-          data-react-portal="true"
-        >
-          <div
-            class="c15 c16"
-            style="position: fixed; left: 0px; top: 4px;"
-          >
-            <div
-              class="c17"
-            >
-              <ul
-                aria-labelledby="1-label"
-                aria-multiselectable="false"
-                class="c0"
-                role="listbox"
-                tabindex="-1"
-              >
-                <li
-                  aria-selected="true"
-                  class="c18 c19"
-                  data-strapi-value="pizza"
-                  id="1-option-pizza"
-                  role="option"
-                >
-                  <div
-                    class="c3"
-                  >
-                    <span
-                      class="c20"
-                    >
-                      Pizza
-                    </span>
-                  </div>
-                </li>
-                <li
-                  aria-selected="false"
-                  class="c18 c19"
-                  data-strapi-value="hamburger"
-                  id="1-option-hamburger"
-                  role="option"
-                >
-                  <div
-                    class="c3"
-                  >
-                    <span
-                      class="c21"
-                    >
-                      Hamburger
-                    </span>
-                  </div>
-                </li>
-                <li
-                  aria-selected="false"
-                  class="c18 c19"
-                  data-strapi-value="bagel"
-                  id="1-option-bagel"
-                  role="option"
-                >
-                  <div
-                    class="c3"
-                  >
-                    <span
-                      class="c21"
-                    >
-                      Bagel
-                    </span>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
         </div>
       </body>
     `);
@@ -625,6 +455,17 @@ describe('Select', () => {
         color: #32324d;
       }
 
+      .c2 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+
       .c22 {
         border: 1px solid #4945ff;
         height: 18px;
@@ -729,17 +570,6 @@ describe('Select', () => {
 
       .c5[data-disabled] {
         cursor: not-allowed;
-      }
-
-      .c2 {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-align-items: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
       }
 
       .c16 {

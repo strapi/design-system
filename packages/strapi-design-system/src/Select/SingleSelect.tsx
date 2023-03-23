@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import { Box } from '../Box';
 import { Field, FieldError, FieldHint, FieldLabel } from '../Field';
 import { Flex } from '../Flex';
-import { useId } from '../helpers/useId';
+import { useId } from '../hooks/useId';
 import { useIntersection } from '../hooks/useIntersection';
 import { Stack } from '../Stack';
 import { getThemeSize, inputFocusStyle } from '../themes/utils';
@@ -183,7 +183,7 @@ export const SingleSelect = ({
         >
           <Trigger
             id={generatedId}
-            aria-labelledby={`${hintId} ${errorId}`}
+            aria-describedby={`${hintId} ${errorId}`}
             aria-disabled={disabled}
             $hasError={Boolean(error)}
             $size={size}
