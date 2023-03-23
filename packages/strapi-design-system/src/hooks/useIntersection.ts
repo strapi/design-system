@@ -27,11 +27,8 @@ export const useIntersection = (
 
     const onEnterZone: IntersectionObserverCallback = (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          if (
-            scrollableAreaRef.current &&
-            scrollableAreaRef.current.scrollHeight > scrollableAreaRef.current.clientHeight
-          ) {
+        if (entry.isIntersecting && scrollableAreaRef.current) {
+          if (scrollableAreaRef.current.scrollHeight > scrollableAreaRef.current.clientHeight) {
             handleIntersection(entry);
           }
         }

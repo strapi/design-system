@@ -29,16 +29,34 @@ export const FieldLabel = forwardRef<HTMLLabelElement, FieldLabelProps>(
     }
 
     return (
-      <Typography ref={ref} variant="pi" textColor="neutral800" htmlFor={id} fontWeight="bold" as="label" {...props}>
-        <Flex alignItems="center">
-          {children}
-          {required && <TypographyAsterisk textColor="danger600">*</TypographyAsterisk>}
-          {action && <Action marginLeft={1}>{action}</Action>}
-        </Flex>
-      </Typography>
+      <TypographyFlex
+        ref={ref}
+        variant="pi"
+        textColor="neutral800"
+        htmlFor={id}
+        fontWeight="bold"
+        as="label"
+        {...props}
+      >
+        {children}
+        {required && <TypographyAsterisk textColor="danger600">*</TypographyAsterisk>}
+        {action && <Action marginLeft={1}>{action}</Action>}
+      </TypographyFlex>
     );
   },
 );
+
+/**
+ * NOTE!
+ * This is a concious decision to not use the Box component here.
+ * Partially because it must be a span to correctly be picked up,
+ * but also because we don't need to add DOM nesting here when it's
+ * easier to just add a new class.
+ */
+const TypographyFlex = styled(Typography)`
+  display: flex;
+  align-items: center;
+`;
 
 const TypographyAsterisk = styled(Typography)`
   line-height: 0;

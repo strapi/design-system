@@ -61,6 +61,7 @@ describe('ModalLayout', () => {
       }
 
       .c9 {
+        background: #ffffff;
         padding: 8px;
         border-radius: 4px;
         border-color: #dcdce4;
@@ -155,13 +156,13 @@ describe('ModalLayout', () => {
         outline: none;
       }
 
-      .c10 svg {
+      .c10 > svg {
         height: 12px;
         width: 12px;
       }
 
-      .c10 svg > g,
-      .c10 svg path {
+      .c10 > svg > g,
+      .c10 > svg path {
         fill: #ffffff;
       }
 

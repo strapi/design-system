@@ -1,6 +1,6 @@
 {
   "name": "@strapi/icons",
-  "version": "1.6.5",
+  "version": "1.6.6",
   "license": "MIT",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -27,6 +27,7 @@
   "scripts": {
     "build": "yarn generate:icons && yarn build:prod && yarn generate:types",
     "build:prod": "vite build",
+    "clean": "rm -rf src dist node_modules",
     "generate:icons": "svgr -- ./assets/icons",
     "generate:types": "tsc --noEmit false --emitDeclarationOnly --declarationDir dist"
   },

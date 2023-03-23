@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 
 import styled from 'styled-components';
 
@@ -6,7 +6,7 @@ import { Flex, FlexProps } from '../Flex';
 import { buttonFocusStyle } from '../themes/utils';
 
 export const BaseButtonWrapper = styled(Flex)`
-  svg {
+  > svg {
     height: ${({ theme }) => theme.spaces[3]};
     width: ${({ theme }) => theme.spaces[3]};
 
@@ -25,10 +25,11 @@ export const BaseButtonWrapper = styled(Flex)`
 
 export interface BaseButtonProps<TElement extends HTMLElement = HTMLButtonElement> extends FlexProps<TElement> {
   disabled?: boolean;
+  type?: ButtonHTMLAttributes<HTMLButtonElement>['type'];
 }
 
 export const BaseButton = React.forwardRef<HTMLButtonElement, BaseButtonProps>(
-  ({ disabled, children, ...props }, ref) => {
+  ({ disabled, children, background = 'neutral0', ...props }, ref) => {
     return (
       <BaseButtonWrapper
         ref={ref}
@@ -38,7 +39,7 @@ export const BaseButton = React.forwardRef<HTMLButtonElement, BaseButtonProps>(
         disabled={disabled}
         padding={2}
         hasRadius
-        background="neutral0"
+        background={background}
         borderColor="neutral200"
         cursor="pointer"
         {...props}

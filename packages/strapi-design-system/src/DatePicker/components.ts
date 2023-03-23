@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { Box } from '../Box';
 import { InputWrapper } from '../Field/FieldInput';
@@ -9,6 +9,9 @@ export const DatePickerPopover = styled(Popover)`
   overflow: hidden;
 `;
 
+/**
+ * @deprecated This component will be removed in the next major version
+ */
 export const DatePickerButton = styled.button`
   border: none;
   background: transparent;
@@ -20,15 +23,20 @@ export const DatePickerButton = styled.button`
   }
 `;
 
-export const DatePickerWrapper = styled.div`
+export const DatePickerWrapper = styled.div<{ bold?: boolean }>`
   ${({ bold, theme }) =>
     bold
-      ? `& ${InputWrapper} {
-  border: 1px solid ${theme.colors.primary600};
-}`
-      : undefined}
+      ? css`
+          & ${InputWrapper} {
+            border: 1px solid ${theme.colors.primary600};
+          }
+        `
+      : ''}
 `;
 
+/**
+ * @deprecated This component will be removed in the next major version
+ */
 export const IconBox = styled(Box)`
   background: transparent;
   border: none;

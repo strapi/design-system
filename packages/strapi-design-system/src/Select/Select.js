@@ -170,12 +170,14 @@ const SelectWithTags = ({
             ref={buttonRef}
             labelledBy={`${generatedId} ${labelId} ${contentId}`}
             aria-describedby={ariaDescribedBy}
+            aria-required={required}
             expanded={Boolean(expanded)}
             onTrigger={setExpanded}
             id={generatedId}
             hasError={Boolean(error)}
             disabled={disabled}
             onMouseDown={handleMouseDown}
+            value={multi ? value.join(',') : value}
             {...props}
           />
 
