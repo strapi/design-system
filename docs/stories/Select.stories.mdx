@@ -259,22 +259,21 @@ Select should be scaled down if they aimed to be placed in a smaller portions of
 <Canvas>
   <Story name="size-S">
     {() => {
-      const [values, setValues] = useState([]);
+      const [value, setValue] = useState();
       return (
         <Flex direction="column" alignItems="center" gap={11}>
           <Select
             id="select1"
             label="Choose your meal"
             placeholder="Your example"
-            onClear={() => setValues([])}
+            onClear={() => setValue(undefined)}
             hint="Description line"
             clearLabel="Clear the meal"
             error={undefined}
             size="S"
-            value={values}
-            onChange={setValues}
+            value={value}
+            onChange={setValue}
             disabled={false}
-            customizeContent={(values) => `${values.length} currently selected`}
             selectButtonTitle="Carret Down Button"
           >
             <Option value="pizza">Pizza</Option>
@@ -300,38 +299,15 @@ In a multi select component, the "0 currently selected" text, can be changed but
       const [disabled, toggleDisabled] = useState();
       const options = [
         {
-          label: 'Pizza',
+          label: 'Group 1',
           children: [
-            {
-              label: 'Peperroni',
-              value: 'peperroni',
-            },
-            {
-              label: 'Marguerita',
-              value: 'marguerita',
-            },
+            { value: 'Option 1', label: 'Option 1' },
+            { value: 'Option 2', label: 'Option 2' },
           ],
         },
         {
-          label: 'Hamburger',
-          value: 'hamburger',
-        },
-        {
-          label: 'Bagel',
-          value: 'bagel',
-        },
-        {
-          label: 'Pasta',
-          children: [
-            {
-              label: 'Tartuffo',
-              value: 'tartuffo',
-            },
-            {
-              label: 'Carbonara',
-              value: 'carbonara',
-            },
-          ],
+          value: 'Option 3',
+          label: 'Option 3',
         },
       ];
       const [values, setValues] = useState([]);

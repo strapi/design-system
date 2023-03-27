@@ -3,9 +3,9 @@ import userEvent from '@testing-library/user-event';
 
 import { ThemeProvider } from '../../ThemeProvider';
 import { darkTheme } from '../../themes';
-import * as Select from '../SingleSelect';
+import { SingleOption, SingleSelect, SingleSelectProps } from '../SingleSelect';
 
-interface RenderProps extends Partial<Omit<Select.SingleSelectProps, 'children'>> {
+interface RenderProps extends Partial<Omit<SingleSelectProps, 'children'>> {
   options?: Array<{ value: string; label: string }>;
 }
 
@@ -17,19 +17,19 @@ const defaultOpts = [
 
 const Component = ({ options = defaultOpts, ...restProps }: RenderProps) => (
   <ThemeProvider theme={darkTheme}>
-    <Select.SingleSelect label="Pick Options" {...restProps}>
+    <SingleSelect label="Pick Options" placeholder="Your option" {...restProps}>
       {options.map((opt) => (
-        <Select.SingleSelectOption key={opt.label} value={opt.value}>
+        <SingleOption key={opt.label} value={opt.value}>
           {opt.label}
-        </Select.SingleSelectOption>
+        </SingleOption>
       ))}
-    </Select.SingleSelect>
+    </SingleSelect>
   </ThemeProvider>
 );
 
 const renderComponent = (props: RenderProps = {}) => render(<Component {...props} />);
 
-describe('SingleSelect', () => {
+describe('Select', () => {
   describe('Interactions', () => {
     it('should open the list when the trigger is clicked', async () => {
       const user = userEvent.setup();
@@ -160,10 +160,7 @@ describe('SingleSelect', () => {
       expect(screen.getByLabelText('Clear')).toBeInTheDocument();
     });
 
-    /**
-     * TODO: This test is skipped because of an issue with the event being prevented by not calling the original...
-     */
-    it.skip('should call onClear when clicked', async () => {
+    it('should call onClear when clicked', async () => {
       const onClear = jest.fn();
       const user = userEvent.setup();
       renderComponent({ onClear });
@@ -176,7 +173,7 @@ describe('SingleSelect', () => {
 
       await user.click(screen.getByLabelText('Clear'));
 
-      await waitFor(() => expect(screen.getByText('Option 1')).not.toBeInTheDocument());
+      await waitFor(() => expect(screen.queryByText('Option 1')).not.toBeInTheDocument());
 
       expect(onClear).toHaveBeenCalled();
     });

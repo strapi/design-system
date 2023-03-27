@@ -22,6 +22,7 @@
     "test:watch": "jest -c jest.config.js --watchAll"
   },
   "dependencies": {
+    "@radix-ui/number": "^1.0.0",
     "@radix-ui/primitive": "^1.0.0",
     "@radix-ui/react-compose-refs": "^1.0.0",
     "@radix-ui/react-context": "^1.0.0",
@@ -32,6 +33,8 @@
     "@radix-ui/react-primitive": "^1.0.1",
     "@radix-ui/react-slot": "^1.0.1",
     "@radix-ui/react-use-controllable-state": "^1.0.0",
+    "@radix-ui/react-use-previous": "^1.0.0",
+    "@radix-ui/react-visually-hidden": "^1.0.2",
     "aria-hidden": "^1.2.2",
     "react-remove-scroll": "^2.5.5"
   },
