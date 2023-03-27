@@ -26,7 +26,7 @@ describe('DateTimePicker', () => {
 
       expect(getByText('datetime picker')).toBeInTheDocument();
       expect(getByRole('textbox', { name: 'datetime picker' })).toHaveValue('');
-      expect(getByRole('combobox')).toHaveValue('');
+      expect(getByRole('combobox')).toHaveTextContent('--:--');
 
       const id = getByText('datetime picker').getAttribute('for');
       expect(getByRole('textbox', { name: 'datetime picker' })).toHaveAttribute('id', id);
@@ -206,7 +206,7 @@ describe('DateTimePicker', () => {
       const { getByRole } = render({ disabled: true });
 
       expect(getByRole('textbox', { name: 'datetime picker' })).toBeDisabled();
-      expect(getByRole('combobox')).toBeDisabled();
+      expect(getByRole('combobox')).toHaveAttribute('aria-disabled', 'true');
     });
 
     it('should pass the step prop to the TimePicker component', async () => {

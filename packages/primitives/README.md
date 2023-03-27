@@ -20,6 +20,7 @@ This directory shows a basic usage of the component, however for more details cl
 
 <ul>
     <li><a href="#combobox">Combobox</a></li>
+    <li><a href="#select">Select</a></li>
 </ul>
 
 ### Combobox
@@ -53,6 +54,39 @@ import { Combobox } from '@strapi/ui-primitives';
         </Combobox.Content>
       </Combobox.Portal>
     </Combobox.Root>
+  );
+};
+```
+
+### Select
+
+[![](https://img.shields.io/badge/-storybook-%234945ff)](https://design-system-git-main-strapijs.vercel.app/?path=/story/design-system-primitives-select--basic-usage)
+
+#### Basic Usage
+
+```jsx
+import { Select } from '@strapi/ui-primitives';
+
+() => {
+  return (
+    <Select.Root>
+      <Select.Trigger>
+        <Select.Value placeholder="Pick me" />
+        <Select.Icon />
+      </Select.Trigger>
+      <Select.Portal>
+        <Select.Content>
+          <Select.Viewport>
+            <Select.Item value="1">
+              <Select.ItemText>Option 1</Select.ItemText>
+              <Select.ItemIndicator>
+                <Check />
+              </Select.ItemIndicator>
+            </Select.Item>
+          </Select.Viewport>
+        </Select.Content>
+      </Select.Portal>
+    </Select.Root>
   );
 };
 ```
