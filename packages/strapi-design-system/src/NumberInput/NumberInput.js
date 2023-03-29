@@ -71,7 +71,7 @@ export const NumberInput = React.forwardRef(
          */
         return isNaN(stringifiedValue) || (stringifiedValue !== currentInputValue && currentInputValue !== '')
           ? currentInputValue
-          : stringifiedValue;
+          : numberFormaterRef.current.format(value);
       },
       defaultProp: INITIAL_VALUE,
       onChange(value) {
