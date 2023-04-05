@@ -1,6 +1,6 @@
 {
   "name": "@strapi/design-system-website",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -18,7 +18,8 @@
     "prop-types": "^15.7.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.3",
+    "tinycolor2": "^1.6.0"
   },
   "devDependencies": {
     "eslint": "^8.2.0",

@@ -235,13 +235,6 @@
   dependencies:
     regenerator-runtime "^0.13.10"
 
-"@babel/runtime@^7.13.10":
-  version "7.20.13"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.20.13.tgz#7055ab8a7cff2b8f6058bf6ae45ff84ad2aded4b"
-  integrity sha512-gt3PKXs0DBoL9xCvOIIZ2NEqAGZqHjAnmVbfQtB620V0uReIQutpel14KcneZuer7UioY8ALKZ7iocavvzTNFA==
-  dependencies:
-    regenerator-runtime "^0.13.11"
-
 "@babel/runtime@^7.7.6":
   version "7.17.2"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.17.2.tgz#66f68591605e59da47523c631416b18508779941"
@@ -562,33 +555,25 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@radix-ui/react-use-callback-ref@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@radix-ui/react-use-callback-ref/-/react-use-callback-ref-1.0.0.tgz#9e7b8b6b4946fe3cbe8f748c82a2cce54e7b6a90"
-  integrity sha512-GZtyzoHz95Rhs6S63D2t/eqvdFCm7I+yHMLVQheKM7nBD8mbZIt+ct1jz4536MDnaOGKIxynJ8eHTkVGVVkoTg==
-  dependencies:
-    "@babel/runtime" "^7.13.10"
-
 "@rushstack/eslint-patch@^1.1.3":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@rushstack/eslint-patch/-/eslint-patch-1.2.0.tgz#8be36a1f66f3265389e90b5f9c9962146758f728"
   integrity sha512-sXo/qW2/pAcmT43VoRKOJbDOfV3cYpq3szSVfIThQXNt+E4DfKj361vaAt3c88U5tPUxzEswam7GW48PJqtKAg==
 
-"@strapi/design-system@^1.5.0":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@strapi/design-system/-/design-system-1.5.0.tgz#5836ca459aa3e379f7493d5acdffe135646d97de"
-  integrity sha512-J08MZNmV+Jq7MfBS6G1WopCSgjgnlHnrU9YvwlHa4U37MrBhb+aAX+oF0IVlpvPCH82EMfrTMhphltTJP6gRSA==
+"@strapi/design-system@1.2.8":
+  version "1.2.8"
+  resolved "https://registry.yarnpkg.com/@strapi/design-system/-/design-system-1.2.8.tgz#a542aeee4a46330d4e84341fb796bef682a73dff"
+  integrity sha512-twfSfWeHEj0t+nEje61P9OPS9M1X+NSDudqjdsiYvNZO9H7tLio3nANjlxuuQDAfcJW3oSBJWdj99Z0OW/7kFQ==
   dependencies:
     "@floating-ui/react-dom" "^1.0.0"
     "@internationalized/number" "^3.1.1"
-    "@radix-ui/react-use-callback-ref" "^1.0.0"
     compute-scroll-into-view "^1.0.17"
     prop-types "^15.7.2"
 
-"@strapi/icons@^1.5.0":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@strapi/icons/-/icons-1.5.0.tgz#44548bbc8d68753ba7782e69042096ddf24a7da9"
-  integrity sha512-eKTwNMW1kJxSjzXgLp616chbxNFz5f/rsd9VuWOaLzqn3Eg0B4DcflmpGGPLE+YJ65MxWvYUlYrJIluqrbYgsA==
+"@strapi/icons@1.2.8":
+  version "1.2.8"
+  resolved "https://registry.yarnpkg.com/@strapi/icons/-/icons-1.2.8.tgz#e657c925f91c0caafd3381078d2a2a06d75aee24"
+  integrity sha512-QDfygQi19W+i1ROCAcPZxAzHorsrwK+TV89bGezW+n4hZbXpr02R94neQHCk/TNNiaRU91gKXAcAREkGdc+Kzw==
 
 "@swc/helpers@0.4.14", "@swc/helpers@^0.4.14":
   version "0.4.14"
@@ -2378,11 +2363,6 @@ regenerator-runtime@^0.13.10, regenerator-runtime@^0.13.4:
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.10.tgz#ed07b19616bcbec5da6274ebc75ae95634bfc2ee"
   integrity sha512-KepLsg4dU12hryUO7bp/axHAKvwGOCV0sGloQtpagJ12ai+ojVDqkeGSiRX1zlq+kjIMZ1t7gpze+26QqtdGqw==
 
-regenerator-runtime@^0.13.11:
-  version "0.13.11"
-  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.11.tgz#f6dca3e7ceec20590d07ada785636a90cdca17f9"
-  integrity sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==
-
 regexp.prototype.flags@^1.4.3:
   version "1.4.3"
   resolved "https://registry.yarnpkg.com/regexp.prototype.flags/-/regexp.prototype.flags-1.4.3.tgz#87cab30f80f66660181a3bb7bf5981a872b367ac"
@@ -2709,6 +2689,11 @@ text-table@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==
+
+tinycolor2@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/tinycolor2/-/tinycolor2-1.6.0.tgz#f98007460169b0263b97072c5ae92484ce02d09e"
+  integrity sha512-XPaBkWQJdsf3pLKJV9p4qN/S+fm2Oj8AIPo1BTUhg5oxkvm9+SVEGFdhyOz7tTdUTfvxMiAs4sp6/eZO2Ew+pw==
 
 to-fast-properties@^2.0.0:
   version "2.0.0"
