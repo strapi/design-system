@@ -10,7 +10,10 @@ export const ColorSummary = (props) => (
         const colorKey = `${colorNameLower}${colorShade}`;
 
         return (
-          <Box key={`StrapiDSColorPalette${colorName}Sample`}>
+          <Box
+            key={`StrapiDSColorPalette${colorName}Sample`}
+            aria-label={`Visual sample for color ${colorName} ${colorShade}`}
+          >
             <Tooltip description={`${colorName} ${colorShade}`}>
               <Box background={colorKey} borderRadius="50%" width="42px" height="42px" style={{ margin: '0 auto' }} />
             </Tooltip>
