@@ -26,7 +26,7 @@ const ColorCardInfoContrast = ({ backgroundColor = '', isLighter = false, isSmal
   return (
     <Box textAlign="center">
       <Box
-        as="dd"
+        as="dt"
         aria-label={`${isSmall ? 'Small' : 'Large'} font and ${isLighter ? 'lighter' : 'darker'} text.`}
         paddingBottom={2}
         style={{ color: textColor, fontSize: isSmall ? '12px' : '16px' }}
