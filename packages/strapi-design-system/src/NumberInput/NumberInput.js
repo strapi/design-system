@@ -1,17 +1,16 @@
 /* eslint-disable no-restricted-globals */
-import React, { useRef } from 'react';
+import React from 'react';
 
-import { NumberFormatter, NumberParser } from '@internationalized/number';
 import { CarretDown } from '@strapi/icons';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { Field, FieldLabel, FieldHint, FieldError, FieldInput } from '../Field';
 import { Flex } from '../Flex';
-import { getDefaultLocale } from '../helpers/getDefaultLocale';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 import { useControllableState } from '../hooks/useControllableState';
 import { useId } from '../hooks/useId';
+import { useInternationalizedNumber } from '../hooks/useInternationalizedNumber';
 import { Icon } from '../Icon';
 import { sizes } from '../themes/sizes';
 
@@ -53,9 +52,10 @@ export const NumberInput = React.forwardRef(
   ) => {
     const generatedId = useId(id);
 
-    const locale = defaultLocale || getDefaultLocale();
-    const numberParserRef = useRef(new NumberParser(locale, { style: 'decimal' }));
-    const numberFormaterRef = useRef(new NumberFormatter(locale, { maximumFractionDigits: 20 }));
+    const { parser, formatter } = useInternationalizedNumber(defaultLocale, {
+      parserParams: { style: 'decimal' },
+      formatParams: { maximumFractionDigits: 20 },
+    });
 
     const [inputValue, setInputValue] = useControllableState({
       prop(currentInputValue) {
@@ -78,7 +78,7 @@ export const NumberInput = React.forwardRef(
         /**
          * always return a
          */
-        const parsedValue = numberParserRef.current.parse(value);
+        const parsedValue = parser.parse(value);
         onValueChange(isNaN(parsedValue) ? undefined : parsedValue);
       },
     });
@@ -95,7 +95,7 @@ export const NumberInput = React.forwardRef(
      * @type {React.ChangeEventHandler<HTMLInputElement>}
      */
     const handelInputChange = ({ target: { value } }) => {
-      if (numberParserRef.current.isValidPartialNumber(value)) {
+      if (parser.isValidPartialNumber(value)) {
         formatNumberAndSetInput(value);
       }
     };
@@ -107,11 +107,11 @@ export const NumberInput = React.forwardRef(
         return;
       }
 
-      const parsedValue = numberParserRef.current.parse(inputValue);
+      const parsedValue = parser.parse(inputValue);
 
       const newValue = isNaN(parsedValue) ? step : parsedValue + step;
 
-      formatNumberAndSetInput(numberFormaterRef.current.format(newValue));
+      formatNumberAndSetInput(formatter.format(newValue));
     };
 
     const decrement = () => {
@@ -121,11 +121,11 @@ export const NumberInput = React.forwardRef(
         return;
       }
 
-      const parsedValue = numberParserRef.current.parse(inputValue);
+      const parsedValue = parser.parse(inputValue);
 
       const newValue = isNaN(parsedValue) ? -step : parsedValue - step;
 
-      formatNumberAndSetInput(numberFormaterRef.current.format(newValue));
+      formatNumberAndSetInput(formatter.format(newValue));
     };
 
     const handleKeyDown = (e) => {
@@ -155,8 +155,8 @@ export const NumberInput = React.forwardRef(
      */
     const handleBlur = () => {
       if (inputValue) {
-        const parsedValue = numberParserRef.current.parse(inputValue);
-        const formattedValue = isNaN(parsedValue) ? '' : numberFormaterRef.current.format(parsedValue);
+        const parsedValue = parser.parse(inputValue);
+        const formattedValue = isNaN(parsedValue) ? '' : formatter.format(parsedValue);
         formatNumberAndSetInput(formattedValue);
       }
     };
