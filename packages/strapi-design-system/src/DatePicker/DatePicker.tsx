@@ -7,7 +7,6 @@ import { DatePickerWrapper } from './components';
 import { DatePickerCalendar, DatePickerCalendarProps } from './DatePickerCalendar';
 import { formatDate } from './utils/formatDate';
 import { FieldAction } from '../Field';
-import { Flex } from '../Flex';
 import { getDefaultLocale } from '../helpers/getDefaultLocale';
 import { TextInput, TextInputProps } from '../TextInput';
 
@@ -91,11 +90,7 @@ export const DatePicker = ({
         // Prevent input from changing for now
         onChange={() => {}}
         value={formattedDate}
-        startAction={
-          <CalendarIconWrapper>
-            <CalendarIcon aria-hidden />
-          </CalendarIconWrapper>
-        }
+        startAction={<StyledCalendarIcon aria-hidden />}
         endAction={
           onClear && formattedDate ? (
             <FieldAction label={clearLabel} onClick={handleClear} aria-disabled={disabled || undefined}>
@@ -135,13 +130,8 @@ const StyledCross = styled(Cross)`
   }
 `;
 
-const CalendarIconWrapper = styled(Flex)`
-  & > svg {
-    height: 1rem;
-    width: 1rem;
-  }
-
-  & > svg path {
+const StyledCalendarIcon = styled(CalendarIcon)`
+  & > path {
     fill: ${({ theme }) => theme.colors.neutral500};
   }
 `;
