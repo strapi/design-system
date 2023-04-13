@@ -1,6 +1,6 @@
 import tinycolor2 from 'tinycolor2';
 import PropTypes from 'prop-types';
-import { lightTheme, Box, Flex, Grid, GridItem, Typography } from '@strapi/design-system';
+import { lightTheme, Box, Flex, Grid, Typography } from '@strapi/design-system';
 import { COLOR_CARD_NAMES, COLOR_SHADES_REVERSE } from './color';
 import { H2 } from './Typography';
 
@@ -24,7 +24,7 @@ const ColorCardInfoContrast = ({ backgroundColor = '', isLighter = false, isSmal
   const textColor = isLighter ? '#FFF' : '#000';
 
   return (
-    <Box textAlign="center">
+    <Flex alignItems="stretch" direction="column" flex={1} textAlign="center">
       <Box
         as="dt"
         aria-label={`${isSmall ? 'Small' : 'Large'} font and ${isLighter ? 'lighter' : 'darker'} text.`}
@@ -46,7 +46,7 @@ const ColorCardInfoContrast = ({ backgroundColor = '', isLighter = false, isSmal
           ? 'PASS'
           : 'FAIL'}
       </Box>
-    </Box>
+    </Flex>
   );
 };
 
@@ -71,51 +71,34 @@ const ColorCard = ({ colorKey = '', colorName, colorShade }) => {
   return (
     <Box as="article" background="neutral100" borderRadius="8px" tabIndex="0" aria-label={`${colorName} ${colorShade}`}>
       <Flex
-        alignItems="stretch"
-        direction="column"
-        justifyContent="end"
+        as="dl"
+        alignItems="end"
+        direction="row"
         background={colorKey}
         borderRadius="8px 8px 0 0"
         padding={4}
         minHeight="104px"
+        aria-label={`Contrast accessibility checks for ${colorName} ${colorShade}`}
+        gap={2}
       >
-        <Grid
-          as="dl"
-          aria-label={`Contrast accessibility checks for ${colorName} ${colorShade}`}
-          gap={2}
-          gridCols={4}
-          style={{ alignItems: 'end' }}
-        >
-          <GridItem>
-            <ColorCardInfoContrast backgroundColor={colorHex} />
-          </GridItem>
-          <GridItem>
-            <ColorCardInfoContrast backgroundColor={colorHex} isSmall />
-          </GridItem>
-          <GridItem>
-            <ColorCardInfoContrast backgroundColor={colorHex} isLighter />
-          </GridItem>
-          <GridItem>
-            <ColorCardInfoContrast backgroundColor={colorHex} isLighter isSmall />
-          </GridItem>
-        </Grid>
+        <ColorCardInfoContrast backgroundColor={colorHex} />
+        <ColorCardInfoContrast backgroundColor={colorHex} isSmall />
+        <ColorCardInfoContrast backgroundColor={colorHex} isLighter />
+        <ColorCardInfoContrast backgroundColor={colorHex} isLighter isSmall />
       </Flex>
-      <Box padding={4} minHeight="104px">
-        <Grid as="dl" aria-label={`Table properties for ${colorName} ${colorShade}`} gap={2} gridCols={2}>
-          <GridItem>
-            <ColorCardInfoCel label="Name" content={`${colorName} ${colorShade}`} />
-          </GridItem>
-          <GridItem>
-            <ColorCardInfoCel label="Key" content={colorKey} />
-          </GridItem>
-          <GridItem>
-            <ColorCardInfoCel label="RGB" content={colorRGB} />
-          </GridItem>
-          <GridItem>
-            <ColorCardInfoCel label="Hexa" content={colorHex} />
-          </GridItem>
-        </Grid>
-      </Box>
+      <Grid
+        as="dl"
+        aria-label={`Table properties for ${colorName} ${colorShade}`}
+        gap={2}
+        gridCols={2}
+        padding={4}
+        minHeight="104px"
+      >
+        <ColorCardInfoCel label="Name" content={`${colorName} ${colorShade}`} />
+        <ColorCardInfoCel label="Key" content={colorKey} />
+        <ColorCardInfoCel label="RGB" content={colorRGB} />
+        <ColorCardInfoCel label="Hexa" content={colorHex} />
+      </Grid>
     </Box>
   );
 };
@@ -137,13 +120,12 @@ export const ColorShades = () => {
             <H2>{colorName} colors</H2>
             <Grid gap={6} gridCols={3}>
               {COLOR_SHADES_REVERSE.map((colorShade) => (
-                <GridItem key={`StrapiDSColorPalette${colorName}${colorShade}`}>
-                  <ColorCard
-                    colorKey={`${colorNameLower}${colorShade}`}
-                    colorName={colorName}
-                    colorShade={colorShade}
-                  />
-                </GridItem>
+                <ColorCard
+                  key={`StrapiDSColorPalette${colorName}${colorShade}`}
+                  colorKey={`${colorNameLower}${colorShade}`}
+                  colorName={colorName}
+                  colorShade={colorShade}
+                />
               ))}
             </Grid>
           </Box>
