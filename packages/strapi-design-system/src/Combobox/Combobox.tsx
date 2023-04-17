@@ -150,7 +150,7 @@ export const Combobox = ({
       <Flex direction="column" alignItems="stretch" gap={1}>
         <FieldLabel action={labelAction}>{label}</FieldLabel>
         <ComboboxPrimitive.Root
-          autocomplete="both"
+          autocomplete={creatable ? 'list' : 'both'}
           onOpenChange={handleOpenChange}
           onTextValueChange={handleTextValueChange}
           textValue={internalTextValue}
@@ -197,7 +197,11 @@ export const Combobox = ({
               <Viewport ref={viewportRef}>
                 {children}
                 {creatable ? (
-                  <ComboboxPrimitive.CreateItem onPointerUp={handleCreateItemClick} asChild>
+                  <ComboboxPrimitive.CreateItem
+                    onPointerUp={handleCreateItemClick}
+                    onClick={handleCreateItemClick}
+                    asChild
+                  >
                     <OptionBox>
                       <Typography>{createMessage(internalTextValue ?? '')}</Typography>
                     </OptionBox>

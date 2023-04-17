@@ -16,6 +16,7 @@ import * as ReactDOM from 'react-dom';
 import { RemoveScroll } from 'react-remove-scroll';
 
 import { useFilter } from '../../hooks/useFilter';
+import { usePrev } from '../../hooks/usePrev';
 import { createCollection } from '../Collection';
 
 const OPEN_KEYS = [' ', 'Enter', 'ArrowUp', 'ArrowDown'];
@@ -56,11 +57,11 @@ type ComboboxContextValue = {
   disabled?: boolean;
   locale: string;
   onOpenChange(open: boolean): void;
-  onTriggerChange(node: ComboboxTriggerElement | null): void;
+  onTriggerChange(node: ComboboxInputElement | null): void;
   onValueChange(value: string | undefined): void;
   open: boolean;
   required: boolean;
-  trigger: ComboboxTriggerElement | null;
+  trigger: ComboboxInputElement | null;
   value?: string;
   focusFirst: (
     candidates: Array<HTMLDivElement | null>,
@@ -130,7 +131,7 @@ const Combobox: React.FC<RootProps> = (props) => {
     onFilterValueChange,
   } = props;
 
-  const [trigger, setTrigger] = React.useState<ComboboxTriggerElement | null>(null);
+  const [trigger, setTrigger] = React.useState<ComboboxInputElement | null>(null);
   const [viewport, setViewport] = React.useState<ComboboxViewportElement | null>(null);
   const [content, setContent] = React.useState<ComboboxContentImplElement | null>(null);
   const [visuallyFocussedItem, setVisuallyFocussedItem] = React.useState<HTMLDivElement | null>(null);
@@ -241,10 +242,10 @@ const Combobox: React.FC<RootProps> = (props) => {
  * ComboboxTrigger
  * -----------------------------------------------------------------------------------------------*/
 
-type ComboboxTriggerElement = React.ElementRef<'input'>;
 type TriggerProps = PrimitiveDivProps;
 
 const TRIGGER_NAME = 'ComboboxTrigger';
+type ComboboxTriggerElement = React.ElementRef<'div'>;
 
 const ComboboxTrigger = React.forwardRef<ComboboxTriggerElement, TriggerProps>((props, forwardedRef) => {
   const { ...triggerProps } = props;
@@ -264,8 +265,9 @@ const ComboboxTrigger = React.forwardRef<ComboboxTriggerElement, TriggerProps>((
 const INPUT_NAME = 'ComboboxInput';
 
 interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
+type ComboboxInputElement = React.ElementRef<'input'>;
 
-const ComboxboxTextInput = React.forwardRef<HTMLInputElement, TextInputProps>((props, forwardedRef) => {
+const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps>((props, forwardedRef) => {
   const context = useComboboxContext(INPUT_NAME);
   const inputRef = React.useRef<HTMLInputElement>(null!);
   const { getItems } = useCollection(undefined);
@@ -281,19 +283,35 @@ const ComboxboxTextInput = React.forwardRef<HTMLInputElement, TextInputProps>((p
     }
   };
 
-  React.useLayoutEffect(() => {
-    if (
-      context.textValue === '' ||
-      context.textValue === undefined ||
-      context.filterValue === '' ||
-      context.filterValue === undefined
-    )
-      return;
+  const previousFilter = usePrev(context.filterValue);
 
-    if (startsWith(context.textValue, context.filterValue) && !context.visuallyFocussedItem) {
-      inputRef.current.setSelectionRange(context.filterValue.length, context.textValue.length);
-    }
-  }, [context.textValue, context.filterValue, startsWith, context.visuallyFocussedItem]);
+  /**
+   * If you suddenly get a match it pushes you right to the end.
+   */
+  React.useLayoutEffect(() => {
+    setTimeout(() => {
+      if (
+        context.textValue === '' ||
+        context.textValue === undefined ||
+        context.filterValue === '' ||
+        context.filterValue === undefined
+      )
+        return;
+
+      const firstItem = getItems().find(
+        (item) => item.type === 'option' && startsWith(item.textValue, context.textValue!),
+      );
+
+      const characterChangedAtIndex = findChangedIndex(previousFilter ?? '', context.filterValue);
+
+      /**
+       * If there's a match, we want to select the text after the match.
+       */
+      if (firstItem && !context.visuallyFocussedItem && characterChangedAtIndex === context.filterValue.length) {
+        inputRef.current.setSelectionRange(context.filterValue.length, context.textValue.length);
+      }
+    });
+  }, [context.textValue, context.filterValue, startsWith, context.visuallyFocussedItem, getItems, previousFilter]);
 
   return (
     <input
@@ -364,8 +382,7 @@ const ComboxboxTextInput = React.forwardRef<HTMLInputElement, TextInputProps>((p
             context.focusFirst(candidateNodes, getItems());
           });
           event.preventDefault();
-        }
-        if (['Escape'].includes(event.key)) {
+        } else if (['Escape'].includes(event.key)) {
           if (context.open) {
             context.onOpenChange(false);
           } else {
@@ -373,10 +390,7 @@ const ComboxboxTextInput = React.forwardRef<HTMLInputElement, TextInputProps>((p
             context.onTextValueChange('');
           }
           event.preventDefault();
-
-          return;
-        }
-        if (SELECTION_KEYS.includes(event.key)) {
+        } else if (SELECTION_KEYS.includes(event.key)) {
           if (context.visuallyFocussedItem) {
             const focussedItem = getItems().find((item) => item.ref.current === context.visuallyFocussedItem);
 
@@ -394,6 +408,8 @@ const ComboxboxTextInput = React.forwardRef<HTMLInputElement, TextInputProps>((p
 
           context.onOpenChange(false);
           event.preventDefault();
+        } else {
+          context.onVisuallyFocussedItemChange(null);
         }
       })}
       onChange={composeEventHandlers(props.onChange, (event) => {
@@ -1057,3 +1073,18 @@ export type {
   NoValueFoundProps,
   CreateItemProps,
 };
+
+/**
+ * Given two strings find the exact index of the character that changed
+ */
+function findChangedIndex(a: string, b: string) {
+  const length = Math.min(a.length, b.length);
+
+  for (let i = 0; i < length; i++) {
+    if (a[i] !== b[i]) {
+      return i;
+    }
+  }
+
+  return length;
+}

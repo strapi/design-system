@@ -176,7 +176,6 @@ describe('Combobox', () => {
       expect(queryByRole('option', { name: /Create/ })).not.toBeInTheDocument();
 
       await user.type(getByRole('combobox'), 'Hamb');
-      await user.keyboard('{Backspace}');
 
       expect(queryByRole('option', { name: 'Create "Hamb"' })).toBeInTheDocument();
 
@@ -194,9 +193,8 @@ describe('Combobox', () => {
       await user.click(getByRole('combobox'));
 
       await user.type(getByRole('combobox'), 'hamb');
-      await user.keyboard('{Backspace}');
 
-      expect(getByRole('option', { name: 'Create "Hamb"' })).toBeInTheDocument();
+      expect(getByRole('option', { name: 'Create "hamb"' })).toBeInTheDocument();
     });
 
     it('should handle a custom createMessage function passed', async () => {
@@ -211,7 +209,7 @@ describe('Combobox', () => {
       await user.type(getByRole('combobox'), 'hamb');
       await user.keyboard('{Backspace}');
 
-      expect(getByRole('option', { name: 'Create Hamb as an option' })).toBeInTheDocument();
+      expect(getByRole('option', { name: 'Create ham as an option' })).toBeInTheDocument();
     });
 
     it('should fire onCreateOption callback when the button is pressed', async () => {
@@ -226,16 +224,12 @@ describe('Combobox', () => {
 
       await user.type(getByRole('combobox'), 'hamb');
 
-      expect(getByRole('combobox')).toHaveValue('Hamburger');
+      expect(getByRole('combobox')).toHaveValue('hamb');
 
-      await user.keyboard('{Backspace}');
-
-      expect(getByRole('combobox')).toHaveValue('Hamb');
-
-      await user.click(getByRole('option', { name: 'Create "Hamb"' }));
+      await user.click(getByRole('option', { name: 'Create "hamb"' }));
 
       expect(onCreateOption).toHaveBeenCalledTimes(1);
-      expect(onCreateOption).toHaveBeenCalledWith('Hamb');
+      expect(onCreateOption).toHaveBeenCalledWith('hamb');
     });
   });
 });
