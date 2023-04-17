@@ -40,11 +40,11 @@ const ColorCardInfoContrast = ({ backgroundColor = '', isLighter = false, isSmal
         color="neutral0"
         padding="4px 2px"
         textAlign="center"
-        style={{ fontSize: '12px' }}
+        style={{ fontSize: '12px', textTransform: 'uppercase' }}
       >
         {tinycolor2.isReadable(textColor, backgroundColor, { level: 'AAA', size: isSmall ? 'small' : 'large' })
-          ? 'PASS'
-          : 'FAIL'}
+          ? 'Pass'
+          : 'Fail'}
       </Box>
     </Flex>
   );
@@ -111,21 +111,22 @@ ColorCard.propTypes = {
 
 export const ColorShades = () => {
   return (
-    <Flex alignItems="stretch" direction="column" gap={11} paddingBottom={11}>
+    <Flex alignItems="stretch" direction="column" gap={8} paddingBottom={8}>
       {COLOR_CARD_NAMES.map((colorName) => {
         const colorNameLower = colorName.toLowerCase();
 
         return (
-          <Box key={`StrapiDSColorPalette${colorName}`}>
+          <Box key={`StrapiDSColorPalette${colorName}`} id={colorNameLower} paddingTop={4} paddingBottom={4}>
             <H2>{colorName} colors</H2>
-            <Grid gap={6} gridCols={3}>
+            <Grid as="ol" gap={6} gridCols={3}>
               {COLOR_SHADES_REVERSE.map((colorShade) => (
-                <ColorCard
-                  key={`StrapiDSColorPalette${colorName}${colorShade}`}
-                  colorKey={`${colorNameLower}${colorShade}`}
-                  colorName={colorName}
-                  colorShade={colorShade}
-                />
+                <li key={`StrapiDSColorPalette${colorName}${colorShade}`}>
+                  <ColorCard
+                    colorKey={`${colorNameLower}${colorShade}`}
+                    colorName={colorName}
+                    colorShade={colorShade}
+                  />
+                </li>
               ))}
             </Grid>
           </Box>
