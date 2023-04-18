@@ -7,6 +7,7 @@ import styled from 'styled-components';
 
 import { Field, FieldLabel, FieldHint, FieldError, FieldInput } from '../Field';
 import { Flex } from '../Flex';
+import { getDefaultLocale } from '../helpers/getDefaultLocale';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 import { useControllableState } from '../hooks/useControllableState';
 import { useId } from '../hooks/useId';
@@ -52,7 +53,9 @@ export const NumberInput = React.forwardRef(
   ) => {
     const generatedId = useId(id);
 
-    const { parser, formatter } = useInternationalizedNumber(defaultLocale, {
+    const locale = defaultLocale || getDefaultLocale();
+
+    const { parser, formatter } = useInternationalizedNumber(locale, {
       parserParams: { style: 'decimal' },
       formatParams: { maximumFractionDigits: 20 },
     });
