@@ -24,7 +24,6 @@ export const POPOVER_PLACEMENTS = [
 
 const PopoverWrapper = styled(Box)`
   box-shadow: ${({ theme }) => theme.shadows.filterShadow};
-  z-index: 4;
   border: 1px solid ${({ theme }) => theme.colors.neutral150};
   background: ${({ theme }) => theme.colors.neutral0};
 `;
