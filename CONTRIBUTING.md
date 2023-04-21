@@ -109,7 +109,7 @@ To link the design system to the Strapi monorepo follow the steps outlined in th
 In your local copy of the design system run `yarn build` to generate the bundle.
 
 In your application, link your local copy of the design system with [`yarn link`](https://yarnpkg.com/cli/link#gatsby-focus-wrapper):
- 
+
 ```
 yarn link -r ../<relative-path-to-strapi-design-system>
 ```
