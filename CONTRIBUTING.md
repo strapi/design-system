@@ -106,22 +106,18 @@ To link the design system to the Strapi monorepo follow the steps outlined in th
 
 ### React application
 
-First, run `yarn build` in `strapi-design-system/packages/strapi-design-system` to generate the bundle.
+In your local copy of the design system run `yarn build` to generate the bundle.
 
-You can link the design system using either a [relative path](#relative-path) or [yarn link](#yarn-link).
-
-### Relative path
-
-In the package.json of your React application replace the version number with the relative path to your copy of the design system:
+In your application, link your local copy of the design system with [`yarn link`](https://yarnpkg.com/cli/link#gatsby-focus-wrapper):
 
 ```
-"@strapi/design-system": "link: <relative-path>/strapi-design-system/packages/strapi-design-system"
+yarn link -r ../<relative-path-to-strapi-design-system>
 ```
 
-### Yarn link
+Your application should now be using your local copy of the design system.
 
-[`yarn link`](https://classic.yarnpkg.com/lang/en/docs/cli/link/) allows you to link the design system without any changes to the `package.json`. First run `yarn link` in `strapi-design-system/packages/design-system` and then `yarn link @strapi/design-system` in your React application.
+To revert back to the released version of the design system use [`yarn unlink`](https://yarnpkg.com/cli/unlink#usage):
 
-### Development
-
-Once the link is setup, reinstall dependencies and restart your server
+```
+yarn unlink ../<relative-path-to-strapi-design-system>
+```
