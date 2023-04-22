@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { Flex } from '../Flex';
 import { useId } from '../hooks/useId';
-import { SingleSelect, SingleOption, SingleSelectProps } from '../Select/SingleSelect';
+import { SingleSelect, SingleSelectOption, SingleSelectProps } from '../Select/SingleSelect';
 
 export interface TimePickerProps extends Omit<SingleSelectProps, 'children' | 'onChange' | 'value'> {
   onChange: (value: string) => void;
@@ -72,9 +72,9 @@ export const TimePicker = ({ id, value, step = 15, onChange, ...props }: TimePic
       {...props}
     >
       {times.map((time) => (
-        <SingleOption value={time} key={time}>
+        <SingleSelectOption value={time} key={time}>
           {time}
-        </SingleOption>
+        </SingleSelectOption>
       ))}
     </SingleSelect>
   );

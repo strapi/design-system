@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 
 import { ThemeProvider } from '../../ThemeProvider';
 import { darkTheme } from '../../themes';
-import { SingleOption, SingleSelect, SingleSelectProps } from '../SingleSelect';
+import { SingleSelectOption, SingleSelect, SingleSelectProps } from '../SingleSelect';
 
 interface RenderProps extends Partial<Omit<SingleSelectProps, 'children'>> {
   options?: Array<{ value: string; label: string }>;
@@ -19,9 +19,9 @@ const Component = ({ options = defaultOpts, ...restProps }: RenderProps) => (
   <ThemeProvider theme={darkTheme}>
     <SingleSelect label="Pick Options" placeholder="Your option" {...restProps}>
       {options.map((opt) => (
-        <SingleOption key={opt.label} value={opt.value}>
+        <SingleSelectOption key={opt.label} value={opt.value}>
           {opt.label}
-        </SingleOption>
+        </SingleSelectOption>
       ))}
     </SingleSelect>
   </ThemeProvider>

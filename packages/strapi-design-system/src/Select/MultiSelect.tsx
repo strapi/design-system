@@ -313,21 +313,3 @@ export const MultiSelectGroup = React.forwardRef<HTMLDivElement, MultiSelectGrou
     );
   },
 );
-
-// interface SelectTagsProps {
-//   disabled?: boolean;
-//   onRemoveTag: (value: string) => void;
-//   tags: Array<{ label: string; value: string }>;
-// }
-
-// const SelectTags = ({ tags, onRemoveTag, disabled }: SelectTagsProps) => {
-//   return (
-//     <Flex wrap="wrap" gap={1}>
-//       {tags.map((tag) => (
-//         <Tag key={tag.value} disabled={disabled} icon={<Cross />} onClick={() => onRemoveTag(tag.value)}>
-//           {tag.label}
-//         </Tag>
-//       ))}
-//     </Flex>
-//   );
-// };

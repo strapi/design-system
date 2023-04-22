@@ -166,15 +166,15 @@ export const SingleSelect = ({
 };
 
 /* -------------------------------------------------------------------------------------------------
- * SingleOption
+ * SingleSelectOption
  * -----------------------------------------------------------------------------------------------*/
 
-export interface SingleOptionProps extends Omit<SelectParts.ItemProps, 'value'> {
+export interface SingleSelectOptionProps extends Omit<SelectParts.ItemProps, 'value'> {
   startIcon?: React.ReactNode;
   value: string | number;
 }
 
-export const SingleOption = React.forwardRef<HTMLDivElement, SingleOptionProps>(
+export const SingleSelectOption = React.forwardRef<HTMLDivElement, SingleSelectOptionProps>(
   ({ value, startIcon, children, ...restProps }, ref) => {
     return (
       <SelectParts.Item ref={ref} value={value.toString()} {...restProps}>

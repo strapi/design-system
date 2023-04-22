@@ -12,6 +12,10 @@ While typically we use [radix-ui primitives](https://github.com/radix-ui/primiti
 
 ```shell
 yarn add @strapi/ui-primitives
+
+# or
+
+npm i @strapi/ui-primitives
 ```
 
 ## Component Documentation
