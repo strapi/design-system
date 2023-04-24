@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import * as React from 'react';
 
 import { Cross } from '@strapi/icons';
@@ -38,7 +39,7 @@ export type MultiSelectProps = Omit<SelectParts.MultiSelectProps, 'value' | 'mul
 export const MultiSelect = ({
   children,
   clearLabel = 'Clear',
-  customizeContent = (value) => value?.join(',') ?? '',
+  customizeContent,
   disabled,
   error,
   hint,
@@ -168,8 +169,13 @@ export const MultiSelect = ({
             paddingLeft={withTags && value?.length ? 1 : 3}
           >
             <SelectParts.Value placeholder={placeholder} textColor={value?.length ? 'neutral800' : 'neutral600'}>
-              {/* eslint-disable-next-line no-nested-ternary */}
-              {value?.length ? (withTags ? renderTags : customizeContent(value)) : null}
+              {value?.length
+                ? withTags
+                  ? renderTags
+                  : customizeContent
+                  ? customizeContent(value)
+                  : undefined
+                : undefined}
             </SelectParts.Value>
           </SelectParts.Trigger>
           <SelectParts.Portal>

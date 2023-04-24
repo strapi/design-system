@@ -134,8 +134,8 @@ const Select: React.FC<SelectProps> = (props: ScopedProps<SelectProps>) => {
     defaultValue,
     onValueChange,
     dir,
-    name,
-    autoComplete,
+    // name,
+    // autoComplete,
     disabled,
     required,
     multi = false,
@@ -170,17 +170,16 @@ const Select: React.FC<SelectProps> = (props: ScopedProps<SelectProps>) => {
   const triggerPointerDownPosRef = React.useRef<{ x: number; y: number } | null>(null);
 
   // We set this to true by default so that events bubble to forms without JS (SSR)
-  const isFormControl = trigger ? Boolean(trigger.closest('form')) : true;
-  const [nativeOptionsSet, setNativeOptionsSet] = React.useState(new Set<NativeOption>());
+  const [_nativeOptionsSet, setNativeOptionsSet] = React.useState(new Set<NativeOption>());
 
   // The native `select` only associates the correct default value if the corresponding
   // `option` is rendered as a child **at the same time** as itself.
   // Because it might take a few renders for our items to gather the information to build
   // the native `option`(s), we generate a key on the `select` to make sure React re-builds it
   // each time the options change.
-  const nativeSelectKey = Array.from(nativeOptionsSet)
-    .map((option) => option.props.value)
-    .join(';');
+  // const nativeSelectKey = Array.from(nativeOptionsSet)
+  //   .map((option) => option.props.value)
+  //   .join(';');
 
   return (
     <PopperPrimitive.Root {...popperScope}>
@@ -221,8 +220,7 @@ const Select: React.FC<SelectProps> = (props: ScopedProps<SelectProps>) => {
             {children}
           </SelectNativeOptionsProvider>
         </Collection.Provider>
-
-        {isFormControl ? (
+        {/* {isFormControl ? (
           <BubbleSelect
             key={nativeSelectKey}
             aria-hidden
@@ -238,7 +236,7 @@ const Select: React.FC<SelectProps> = (props: ScopedProps<SelectProps>) => {
             {value === undefined ? <option value="" /> : null}
             {Array.from(nativeOptionsSet)}
           </BubbleSelect>
-        ) : null}
+        ) : null} */}
       </SelectProvider>
     </PopperPrimitive.Root>
   );

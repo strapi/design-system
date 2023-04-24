@@ -32,7 +32,7 @@ export type SingleSelectProps = Omit<SelectParts.SingleSelectProps, 'value'> &
 export const SingleSelect = ({
   children,
   clearLabel = 'Clear',
-  customizeContent = (value) => value?.toString() ?? '',
+  customizeContent,
   disabled,
   error,
   hint,
@@ -146,7 +146,7 @@ export const SingleSelect = ({
             onClear={value && onClear ? handleOnClear : undefined}
           >
             <SelectParts.Value placeholder={placeholder} textColor={value ? 'neutral800' : 'neutral600'}>
-              {value ? customizeContent(value) : null}
+              {value && customizeContent ? customizeContent(value) : undefined}
             </SelectParts.Value>
           </SelectParts.Trigger>
           <SelectParts.Portal>
