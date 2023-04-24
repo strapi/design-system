@@ -1395,7 +1395,7 @@
   resolved "https://registry.yarnpkg.com/@hutson/parse-repository-url/-/parse-repository-url-3.0.2.tgz#98c23c950a3d9b6c8f0daed06da6c3af06981340"
   integrity sha512-H9XAx3hc0BQHY6l+IFSWHDySypcXsvsuLhgYLUGywmJ5pswRVQJUHpOsobnLYp2ZUaUlKiKDrgWWhosOwAEM8Q==
 
-"@internationalized/number@^3.1.1", "@internationalized/number@^3.2.0":
+"@internationalized/number@^3.2.0":
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/@internationalized/number/-/number-3.2.0.tgz#dffb661cacd61a87b814c47b7d5240a286249066"
   integrity sha512-GUXkhXSX1Ee2RURnzl+47uvbOxnlMnvP9Er+QePTjDjOPWuunmLKlEkYkEcLiiJp7y4l9QxGDLOlVr8m69LS5w==
@@ -4151,19 +4151,6 @@
     regenerator-runtime "^0.13.7"
     resolve-from "^5.0.0"
 
-"@strapi/design-system@^1.6.5":
-  version "1.6.6"
-  resolved "https://registry.yarnpkg.com/@strapi/design-system/-/design-system-1.6.6.tgz#42eef982bcd0499e4dbce4a8feadedbed2491e1f"
-  integrity sha512-CIOCQDJukv2VFEAF5N4wZ2sddRWuJIjN663yuE0nVTAO7dbxZepDkgA4QLk/tgWQmt9vWt4VUFK2REW7tfHUcg==
-  dependencies:
-    "@codemirror/lang-json" "^6.0.1"
-    "@floating-ui/react-dom" "^1.0.0"
-    "@internationalized/number" "^3.1.1"
-    "@radix-ui/react-use-callback-ref" "^1.0.0"
-    "@uiw/react-codemirror" "^4.19.7"
-    compute-scroll-into-view "^1.0.17"
-    prop-types "^15.7.2"
-
 "@strapi/eslint-config@^0.1.2":
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/@strapi/eslint-config/-/eslint-config-0.1.2.tgz#e8327169eccce78b5f9e1589cb243c0f84343caf"
@@ -4185,32 +4172,6 @@
     eslint-plugin-react-hooks "^4.3.0"
   optionalDependencies:
     typescript "^4.6.2"
-
-"@strapi/icons@^1.6.5":
-  version "1.6.6"
-  resolved "https://registry.yarnpkg.com/@strapi/icons/-/icons-1.6.6.tgz#e5259cdb6fc2425e926dfb0afc6e7c72748f1bab"
-  integrity sha512-DxPX2WycDzoDmfi4KU7jQ7aDGTC//Sb67LxTjX2WsNeRgZrl0KxA9h2p8ZeGDD/UEw1GjPAq/x1jYAPn7/j3mQ==
-
-"@strapi/ui-primitives@^1.6.1":
-  version "1.7.0-alpha.0"
-  resolved "https://registry.yarnpkg.com/@strapi/ui-primitives/-/ui-primitives-1.7.0-alpha.0.tgz#f273883a17264db58c1c9004673f8fb637bfff76"
-  integrity sha512-YGtgpbpbKzRxti3bwpYtHlmshYm75TkQCJJK0raEadgObFPzQq/lo3LMjPcOqCZkpmdykLzP5gnuisNtAG6acg==
-  dependencies:
-    "@radix-ui/number" "^1.0.0"
-    "@radix-ui/primitive" "^1.0.0"
-    "@radix-ui/react-compose-refs" "^1.0.0"
-    "@radix-ui/react-context" "^1.0.0"
-    "@radix-ui/react-dismissable-layer" "^1.0.2"
-    "@radix-ui/react-id" "^1.0.0"
-    "@radix-ui/react-popper" "^1.1.0"
-    "@radix-ui/react-portal" "^1.0.1"
-    "@radix-ui/react-primitive" "^1.0.1"
-    "@radix-ui/react-slot" "^1.0.1"
-    "@radix-ui/react-use-controllable-state" "^1.0.0"
-    "@radix-ui/react-use-previous" "^1.0.0"
-    "@radix-ui/react-visually-hidden" "^1.0.2"
-    aria-hidden "^1.2.2"
-    react-remove-scroll "^2.5.5"
 
 "@svgr/babel-plugin-add-jsx-attribute@^6.5.1":
   version "6.5.1"
