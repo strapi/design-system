@@ -12,6 +12,7 @@
     "@storybook/react": "^6.5.15",
     "@strapi/design-system": "^1.6.5",
     "@strapi/icons": "^1.6.5",
+    "@strapi/ui-primitives": "^1.6.1",
     "qs": "^6.11.0",
     "react": "17",
     "react-copy-to-clipboard": "^5.1.0",

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 import { Combobox, CreatableCombobox, ComboboxOption } from '@strapi/design-system';
 
@@ -6,141 +6,96 @@ import { Combobox, CreatableCombobox, ComboboxOption } from '@strapi/design-syst
 
 # Combobox
 
+An input field designed to not only offer users the ability to type the value they want,
+but also display a panel of suggestions which filter & autocomplete as the user types for a
+more fluid experience. This shouldn't be confused with the [`Select`](/docs/design-system-components-select--basic)
+component!
+
 [View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Combobox)
-
-## Imports
-
-```js
-import { Combobox } from '@strapi/design-system';
-```
 
 ## Usage
 
-This `Combobox` can be found in forms. They give users to search and choose a value from given options.
+```js
+import { Combobox, ComboboxOption, CreatableCombobox } from '@strapi/design-system';
+```
 
-### Base
+### Basic Usage
 
-In addition `Combobox` can also include a placeholder and a description line.
+By default, the combobox uses both inline and list autocomplete, that is where as the user types suggestions
+(based on the order of the options) are shown in the input field whilst the list gradually gets filtered.
 
 <Canvas>
-  <Story name="base">
+  <Story name="basic">
     {() => {
       const [value, setValue] = useState('');
       return (
-        <Combobox label="Food" value={value} onChange={setValue}>
-          <ComboboxOption value="hamburger">Hamburger</ComboboxOption>
-          <ComboboxOption value="bagel">Bagel</ComboboxOption>
-          <ComboboxOption value="tartuffo">Tartuffo</ComboboxOption>
-          <ComboboxOption value="carbonara">Carbonara</ComboboxOption>
+        <Combobox
+          placeholder="My favourite fruit is..."
+          label="Fruits"
+          value={value}
+          onChange={setValue}
+          onClear={() => setValue('')}
+        >
+          <ComboboxOption value="apple">Apple</ComboboxOption>
+          <ComboboxOption value="avocado">Avocado</ComboboxOption>
+          <ComboboxOption value="banana">Banana</ComboboxOption>
+          <ComboboxOption value="kiwi">Kiwi</ComboboxOption>
+          <ComboboxOption value="mango">Mango</ComboboxOption>
+          <ComboboxOption value="orange">Orange</ComboboxOption>
+          <ComboboxOption value="strawberry">Strawberry</ComboboxOption>
         </Combobox>
       );
     }}
   </Story>
 </Canvas>
 
-### Disabled
+### Async data
 
-Depending on the permissions a user have or the status of an action, a `Combobox` can be unreachable or unavailable yet.
+In some situations it might not be optimal to load all the data at once. In this case,
+you can use the `loading` prop to load more data when the user scrolls to the bottom of the list.
+
+NOTE! You also need to supply an `onLoadMore` callback as well as defining if `hasMoreItems`
+is true to show the spinner. In future iterations, we plan to omit the `hasMoreItems` prop.
 
 <Canvas>
-  <Story name="disabled">
+  <Story name="loading">
     {() => {
-      const [value, setValue] = useState('');
+      const [isLoading, setIsLoading] = useState(false);
+      const handleLoadMore = () => setIsLoading(true);
+      useEffect(() => {
+        if (isLoading) {
+          const timeout = setTimeout(() => {
+            setIsLoading(false);
+          }, 2000);
+          return () => clearTimeout(timeout);
+        }
+      }, [isLoading]);
       return (
-        <Combobox label="Food" disabled value={value} onChange={setValue}>
-          <ComboboxOption value="hamburger">Hamburger</ComboboxOption>
-          <ComboboxOption value="bagel">Bagel</ComboboxOption>
-          <ComboboxOption value="tartuffo">Tartuffo</ComboboxOption>
-          <ComboboxOption value="carbonara">Carbonara</ComboboxOption>
+        <Combobox
+          label="Async Fruits"
+          placeholder="My favourite fruit is..."
+          loading={isLoading}
+          onLoadMore={handleLoadMore}
+          hasMoreItems
+        >
+          <ComboboxOption value="apple">Apple</ComboboxOption>
+          <ComboboxOption value="avocado">Avocado</ComboboxOption>
+          <ComboboxOption value="banana">Banana</ComboboxOption>
+          <ComboboxOption value="kiwi">Kiwi</ComboboxOption>
+          <ComboboxOption value="mango">Mango</ComboboxOption>
+          <ComboboxOption value="orange">Orange</ComboboxOption>
+          <ComboboxOption value="strawberry">Strawberry</ComboboxOption>
         </Combobox>
       );
     }}
   </Story>
 </Canvas>
 
-### Without label
+### Creating new options
 
-`Combobox` can be used without a label.
-
-<Canvas>
-  <Story name="withoutLabel">
-    {() => {
-      const [value, setValue] = useState('');
-      return (
-        <Combobox aria-label="Food" value={value} onChange={setValue}>
-          <ComboboxOption value="hamburger">Hamburger</ComboboxOption>
-          <ComboboxOption value="bagel">Bagel</ComboboxOption>
-          <ComboboxOption value="tartuffo">Tartuffo</ComboboxOption>
-          <ComboboxOption value="carbonara">Carbonara</ComboboxOption>
-        </Combobox>
-      );
-    }}
-  </Story>
-</Canvas>
-
-### Error
-
-`Combobox` can display an error. The error message is customizable and replaces the description line below the input.
-
-<Canvas>
-  <Story name="error">
-    {() => {
-      const [value, setValue] = useState('');
-      return (
-        <Combobox label="Food" value={value} error="An error occured" onChange={setValue}>
-          <ComboboxOption value="hamburger">Hamburger</ComboboxOption>
-          <ComboboxOption value="bagel">Bagel</ComboboxOption>
-          <ComboboxOption value="tartuffo">Tartuffo</ComboboxOption>
-          <ComboboxOption value="carbonara">Carbonara</ComboboxOption>
-        </Combobox>
-      );
-    }}
-  </Story>
-</Canvas>
-
-### Required
-
-`Combobox` can be required. The required state will appear with a red asterisk beside the label.
-
-<Canvas>
-  <Story name="required">
-    {() => {
-      const [value, setValue] = useState('');
-      return (
-        <Combobox label="Food" value={value} required onChange={setValue}>
-          <ComboboxOption value="hamburger">Hamburger</ComboboxOption>
-          <ComboboxOption value="bagel">Bagel</ComboboxOption>
-          <ComboboxOption value="tartuffo">Tartuffo</ComboboxOption>
-          <ComboboxOption value="carbonara">Carbonara</ComboboxOption>
-        </Combobox>
-      );
-    }}
-  </Story>
-</Canvas>
-
-### Initial data
-
-This is the doc of the `Combobox` component
-
-<Canvas>
-  <Story name="initial-data">
-    {() => {
-      const [value, setValue] = useState('tartuffo');
-      return (
-        <Combobox label="Food" value={value} onChange={setValue}>
-          <ComboboxOption value="hamburger">Hamburger</ComboboxOption>
-          <ComboboxOption value="bagel">Bagel</ComboboxOption>
-          <ComboboxOption value="tartuffo">Tartuffo</ComboboxOption>
-          <ComboboxOption value="carbonara">Carbonara</ComboboxOption>
-        </Combobox>
-      );
-    }}
-  </Story>
-</Canvas>
-
-### Creatable
-
-The creatable mode of `Combobox` allows the creation of a new options.
+If you want to allow users to create new options, you can use the `CreatableCombobox` component. This is
+just a wrapper around the `Combobox` component that pre-flags the `creatable` prop as `true`. You should
+still pass an `onCreateOption` callback to handle the creation of the new option.
 
 <Canvas>
   <Story name="creatable">
@@ -148,48 +103,32 @@ The creatable mode of `Combobox` allows the creation of a new options.
       const [value, setValue] = useState('');
       const [options, setOptions] = useState([
         {
-          name: 'Hamburger',
-          value: 'hamburger',
+          name: 'Apple',
+          value: 'apple',
         },
         {
-          name: 'Hambu',
-          value: 'hambu',
+          name: 'Avocado',
+          value: 'avocado',
         },
         {
-          name: 'Ham',
-          value: 'ham',
+          name: 'Banana',
+          value: 'banana',
         },
         {
-          name: 'Sandwich',
-          value: 'sandwich',
+          name: 'Kiwi',
+          value: 'kiwi',
         },
         {
-          name: 'Peperroni',
-          value: 'peperroni',
+          name: 'Mango',
+          value: 'mango',
         },
         {
-          name: 'Asparagus',
-          value: 'asparagus',
+          name: 'Orange',
+          value: 'orange',
         },
         {
-          name: 'Lettuce',
-          value: 'lettuce',
-        },
-        {
-          name: 'Tomato',
-          value: 'tomato',
-        },
-        {
-          name: 'Bagel',
-          value: 'bagel',
-        },
-        {
-          name: 'Tartuffo',
-          value: 'tartuffo',
-        },
-        {
-          name: 'Carbonara',
-          value: 'carbonara',
+          name: 'Strawberry',
+          value: 'strawberry',
         },
       ]);
       const onCreateOption = (value) => {
@@ -197,7 +136,13 @@ The creatable mode of `Combobox` allows the creation of a new options.
         setValue(value);
       };
       return (
-        <CreatableCombobox label="Food" value={value} onChange={setValue} onCreateOption={onCreateOption}>
+        <CreatableCombobox
+          label="Fruits"
+          placeholder="My favourite fruit is..."
+          value={value}
+          onChange={setValue}
+          onCreateOption={onCreateOption}
+        >
           {options.map(({ name, value }) => (
             <ComboboxOption key={value} value={value}>
               {name}
@@ -211,4 +156,14 @@ The creatable mode of `Combobox` allows the creation of a new options.
 
 ## Props
 
+### Combobox
+
 <ArgsTable of={Combobox} />
+
+### ComboboxOption
+
+<ArgsTable of={ComboboxOption} />
+
+### CreatableCombobox
+
+<ArgsTable of={CreatableCombobox} />

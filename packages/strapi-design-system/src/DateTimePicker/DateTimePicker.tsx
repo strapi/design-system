@@ -14,7 +14,7 @@ import { TimePicker, TimePickerProps } from '../TimePicker';
 
 export interface DateTimePickerProps
   extends Omit<DatePickerProps, 'value' | 'step' | 'onChange'>,
-    Pick<TimePickerProps, 'step'> {
+    Pick<TimePickerProps, 'step' | 'selectButtonTitle'> {
   /**
    * Aria Label used by the DatePicker and the TimePicker inside the DateTimePicker component
    */
@@ -28,11 +28,6 @@ export interface DateTimePickerProps
    */
   labelAction?: ReactNode;
   onChange?: (date: Date | undefined) => void;
-  /**
-   * Text used to define the title of the button to open the select options (inside the TimePicker)
-   * @default 'select'
-   */
-  selectButtonTitle?: string;
   /**
    * Value. The Date passed as value
    */
