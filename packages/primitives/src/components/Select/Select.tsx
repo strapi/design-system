@@ -448,9 +448,13 @@ const SelectValue = React.forwardRef<SelectValueElement, SelectValueProps>(
       }
     }
 
+    /**
+     * Wrap the renderValue in it's own span so react knows to re-render this.
+     * Otherwise it will render the incorrect thing on clear – nothing.
+     */
     return (
       <Primitive.span {...valueProps} ref={composedRefs}>
-        {renderValue}
+        {renderValue ? <span>{renderValue}</span> : null}
       </Primitive.span>
     );
   },
