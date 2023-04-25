@@ -48,7 +48,7 @@ const SimpleMenu = ({ children, id, onOpen, onClose, popoverPlacement, onReachEn
 
   const generatedId = useId(id);
 
-  const intersectionId = `intersection-${generatedId}`;
+  const intersectionId = `intersection-${CSS.escape(generatedId)}`;
 
   useIntersection(contentRef, handleReachEnd, {
     selectorToWatch: `#${intersectionId}`,

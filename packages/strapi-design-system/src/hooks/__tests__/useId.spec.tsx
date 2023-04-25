@@ -14,7 +14,7 @@ describe('useId', () => {
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
-          id="0"
+          id=":r0:"
         />
       </div>
     `);

@@ -98,14 +98,14 @@ export const Scrolling = ({ children, intersectionId, onReachEnd, ...props }: Sc
   const popoverRef = React.useRef<HTMLDivElement>(null!);
 
   useIntersection(popoverRef, onReachEnd ?? (() => {}), {
-    selectorToWatch: `#${intersectionId}`,
+    selectorToWatch: `#${CSS.escape(intersectionId ?? '')}`,
     skipWhen: !intersectionId || !onReachEnd,
   });
 
   return (
     <PopoverScrollable ref={popoverRef} {...props}>
       {children}
-      {intersectionId && onReachEnd && <Box id={intersectionId} width="100%" height="1px" />}
+      {intersectionId && onReachEnd && <Box id={CSS.escape(intersectionId)} width="100%" height="1px" />}
     </PopoverScrollable>
   );
 };

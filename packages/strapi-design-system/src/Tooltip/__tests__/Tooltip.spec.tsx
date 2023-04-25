@@ -50,7 +50,7 @@ describe('Tooltip', () => {
         <div>
           <span>
             <button
-              aria-describedby="0"
+              aria-describedby=":r0:"
               tabindex="0"
               type="button"
             >
@@ -85,7 +85,7 @@ describe('Tooltip', () => {
         >
           <div
             class="c1 c2"
-            id="0"
+            id=":r0:"
             role="tooltip"
           >
             <p
@@ -146,7 +146,7 @@ describe('Tooltip', () => {
         <div>
           <span>
             <button
-              aria-describedby="2"
+              aria-describedby=":r2:"
               tabindex="0"
               type="button"
             >
@@ -181,13 +181,13 @@ describe('Tooltip', () => {
         >
           <div
             class="c1 c2"
-            id="2"
+            id=":r2:"
             role="tooltip"
             style="left: 0px; top: -8px;"
           >
             <div
               class="c0"
-              id="3"
+              id=":r3:"
             >
               Content of the tooltip fefe
             </div>
@@ -249,7 +249,7 @@ describe('Tooltip', () => {
         <div>
           <span>
             <button
-              aria-labelledby="4"
+              aria-labelledby=":r4:"
               tabindex="0"
               type="button"
             >
@@ -284,13 +284,13 @@ describe('Tooltip', () => {
         >
           <div
             class="c1 c2"
-            id="4"
+            id=":r4:"
             role="tooltip"
             style="left: 0px; top: -8px;"
           >
             <div
               class="c0"
-              id="5"
+              id=":r5:"
             />
             <p
               class="c3"
