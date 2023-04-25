@@ -2,76 +2,40 @@ import { test } from '@playwright/test';
 import { injectAxe, checkA11y } from 'axe-playwright';
 
 test.describe.parallel('Combobox', () => {
-  test.describe('light mode', () => {
-    test.beforeEach(async ({ page }) => {
-      // This is the URL of the Storybook Iframe
-      await page.goto('/iframe.html?id=design-system-components-combobox--base&globals=&viewMode=story');
+  test.describe.parallel('light mode', () => {
+    test('triggers axe on the basic document', async ({ page }) => {
+      await page.goto('/iframe.html?id=design-system-components-combobox--basic&globals=&viewMode=story');
       await injectAxe(page);
-    });
-
-    test('triggers axe on the document', async ({ page }) => {
       await checkA11y(page);
     });
-  });
-
-  test.describe.parallel('Combobox - creatable', () => {
-    test.beforeEach(async ({ page }) => {
-      // This is the URL of the Storybook Iframe
+    test('triggers axe on the loading document', async ({ page }) => {
+      await page.goto('/iframe.html?id=design-system-components-combobox--loading&globals=&viewMode=story');
+      await injectAxe(page);
+      await checkA11y(page);
+    });
+    test('triggers axe on the creatable document', async ({ page }) => {
       await page.goto('/iframe.html?id=design-system-components-combobox--creatable&globals=&viewMode=story');
       await injectAxe(page);
-    });
-
-    test('triggers axe on the document', async ({ page }) => {
-      await checkA11y(page);
-    });
-
-    test('disabled A11y', async ({ page }) => {
-      // This is the URL of the Storybook Iframe
-      await page.goto('/iframe.html?id=design-system-components-combobox--disabled&globals=&viewMode=story');
-      await injectAxe(page);
-      await checkA11y(page);
-    });
-
-    test('error A11y', async ({ page }) => {
-      // This is the URL of the Storybook Iframe
-      await page.goto('/iframe.html?id=design-system-components-combobox--error&globals=&viewMode=story');
-      await injectAxe(page);
-      await checkA11y(page);
-    });
-
-    test('required A11y', async ({ page }) => {
-      // This is the URL of the Storybook Iframe
-      await page.goto('/iframe.html?id=design-system-components-combobox--required&globals=&viewMode=story');
-      await injectAxe(page);
       await checkA11y(page);
     });
   });
 
-  test.describe('dark mode', () => {
+  test.describe.parallel('dark mode', () => {
     test('base A11y', async ({ page }) => {
       // This is the URL of the Storybook Iframe
-      await page.goto('/iframe.html?id=design-system-components-combobox--base&globals=&viewMode=story&theme=dark');
+      await page.goto('/iframe.html?id=design-system-components-combobox--basic&globals=&viewMode=story&theme=dark');
       await injectAxe(page);
       await checkA11y(page);
     });
-
-    test('disabled A11y', async ({ page }) => {
-      // This is the URL of the Storybook Iframe
-      await page.goto('/iframe.html?id=design-system-components-combobox--disabled&globals=&viewMode=story&theme=dark');
+    test('triggers axe on the loading document', async ({ page }) => {
+      await page.goto('/iframe.html?id=design-system-components-combobox--loading&globals=&viewMode=story&theme=dark');
       await injectAxe(page);
       await checkA11y(page);
     });
-
-    test('error A11y', async ({ page }) => {
-      // This is the URL of the Storybook Iframe
-      await page.goto('/iframe.html?id=design-system-components-combobox--error&globals=&viewMode=story&theme=dark');
-      await injectAxe(page);
-      await checkA11y(page);
-    });
-
-    test('required A11y', async ({ page }) => {
-      // This is the URL of the Storybook Iframe
-      await page.goto('/iframe.html?id=design-system-components-combobox--required&globals=&viewMode=story&theme=dark');
+    test('triggers axe on the creatable document', async ({ page }) => {
+      await page.goto(
+        '/iframe.html?id=design-system-components-combobox--creatable&globals=&viewMode=story&theme=dark',
+      );
       await injectAxe(page);
       await checkA11y(page);
     });
