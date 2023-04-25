@@ -26,7 +26,7 @@
   },
   "scripts": {
     "build": "build-storybook",
-    "clean": "rm -rf storybook-static node_modules",
+    "clean": "rimraf storybook-static node_modules",
     "develop": "start-storybook -p 6006",
     "lint": "eslint --ext .mdx ."
   }

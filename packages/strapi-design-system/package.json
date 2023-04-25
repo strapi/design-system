@@ -25,7 +25,7 @@
     "@radix-ui/react-use-callback-ref": "^1.0.0",
     "@strapi/ui-primitives": "^1.7.0",
     "@uiw/react-codemirror": "^4.19.16",
-    "compute-scroll-into-view": "^1.0.17",
+    "compute-scroll-into-view": "^3.0.3",
     "prop-types": "^15.8.1"
   },
   "devDependencies": {
@@ -49,7 +49,7 @@
     "develop": "vite build --watch",
     "build": "yarn build:prod",
     "build:prod": "vite build",
-    "clean": "rm -rf dist node_modules",
+    "clean": "rimraf dist node_modules",
     "generate:types": "tsc --noEmit false --emitDeclarationOnly --declarationDir dist",
     "lint": "eslint . --ext .js,.jsx,.tsx,.ts",
     "format": "yarn lint --fix",
