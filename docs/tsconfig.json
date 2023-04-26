@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "outDir": "dist",
+    "declaration": true,
+    "jsx": "react-jsx",
+    "types": ["vite/client"]
+  },
+  "include": ["stories", ".storybook", "components"],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
+}

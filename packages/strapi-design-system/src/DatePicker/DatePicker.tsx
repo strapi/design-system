@@ -90,7 +90,7 @@ export const DatePicker = ({
         // Prevent input from changing for now
         onChange={() => {}}
         value={formattedDate}
-        startAction={<CalendarIcon aria-hidden />}
+        startAction={<StyledCalendarIcon aria-hidden />}
         endAction={
           onClear && formattedDate ? (
             <FieldAction label={clearLabel} onClick={handleClear} aria-disabled={disabled || undefined}>
@@ -127,5 +127,11 @@ const StyledCross = styled(Cross)`
 
   path {
     fill: ${({ theme }) => theme.colors.neutral600};
+  }
+`;
+
+const StyledCalendarIcon = styled(CalendarIcon)`
+  & > path {
+    fill: ${({ theme }) => theme.colors.neutral500};
   }
 `;

@@ -88,7 +88,7 @@ describe('extendTheme', () => {
     expect(lightTheme.colors.primary100).toMatchInlineSnapshot(`"#f0f0ff"`);
   });
 
-  it('overrides a spacing value color', () => {
+  it('overrides a existing values', () => {
     const myTheme = extendTheme(lightTheme, {
       spaces: [1, 2, 3],
     });

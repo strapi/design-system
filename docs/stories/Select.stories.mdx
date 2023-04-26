@@ -2,350 +2,231 @@ import { useState } from 'react';
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 
 import { Earth, Plus } from '@strapi/icons';
-import { Select, Option, Flex, Typography, MultiSelectNested } from '@strapi/design-system';
+import {
+  Flex,
+  Typography,
+  Button,
+  MultiSelectNested,
+  SingleSelect,
+  SingleSelectOption,
+  MultiSelect,
+  MultiSelectOption,
+  //
+  Select,
+  Option,
+  OptGroup,
+} from '@strapi/design-system';
 
-<Meta title="Design System/Components/Select" component={Select} />
+<Meta title="Design System/Components/Select" />
 
 # Select
 
-Selects are fields that displays to users a list of options via a PopOver component. They allow users to make a single
-or multiple selections from this list. The selected option(s) of a Select need(s) to be stored whether it's single or a
-multi. Selects are part of forms.
+Select components are used for collecting user provided information from a list of options. They can
+be configured to allow single or multiple selections.
 
 [View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Select)
 
-**Best practices**
-
-- A select is part of a form.
-- Prefer the usage of Menu component if the user needs to make a single choice.
-- Try to have a sort logic in the popover of the menu.
-- In a multi select component, the "0 currently selected" text, can be changed but it will never have a placeholder
-  style.
-- Use sentence case into a Select and straight-to-the-point sentences.
-- An option should be written on a single line.
-
-## Imports
-
-```js
-import { Select, Option } from '@strapi/design-system';
-```
-
-or
-
-```js
-import { MultiSelectNested } from '@strapi/design-system';
-```
-
 ## Usage
 
-A Select allow users to make a selection from a list.
+```js
+import {
+  SingleSelect,
+  SingleSelectOption,
+  MultiSelect,
+  MultiSelectOption,
+  MultiSelectNested,
+  /**
+   * These imports are still valid, but will be removed in the
+   * next major iteration
+   */
+  Select,
+  Option,
+  OptGroup,
+} from '@strapi/design-system';
+```
 
-### Default Select
+### Basic usage
 
-The default Select.
+The most common usage would be the `SingleSelect` which allows a user to only select one option from a list.
+The list has built in typeahead meaning pressing the letter `K` will highlight the word "Kiwi" in the example below.
 
 <Canvas>
-  <Story name="base">
+  <Story name="basic">
     {() => {
       const [value, setValue] = useState();
       const [error, toggleError] = useState();
       const [disabled, toggleDisabled] = useState();
       return (
         <Flex direction="column" alignItems="center" gap={11}>
-          <Typography variant="beta">Current value is {value}</Typography>
-          <Select
-            id="select1"
-            label="Choose your meal"
-            labelAction={<Earth />}
+          <SingleSelect
+            label="Fruits"
             required
-            placeholder="Your example"
-            hint="Description line"
-            onClear={() => setValue(undefined)}
-            clearLabel="Clear the meal"
+            placeholder="My favourite fruit is..."
+            hint="Fruits are not vegetables"
+            onClear={() => {
+              setValue(undefined);
+            }}
             error={error}
             value={value}
             onChange={setValue}
             disabled={disabled}
-            startIcon={<Plus />}
-            selectButtonTitle="Carret Down Button"
           >
-            <Option
-              value="pizza"
-              startIcon={<div style={{ height: '6px', borderRadius: '50%', width: '6px', background: 'red' }} />}
+            <SingleSelectOption value="apple">Apple</SingleSelectOption>
+            <SingleSelectOption value="avocado">Avocado</SingleSelectOption>
+            <SingleSelectOption value="banana">Banana</SingleSelectOption>
+            <SingleSelectOption value="kiwi">Kiwi</SingleSelectOption>
+            <SingleSelectOption value="mango">Mango</SingleSelectOption>
+            <SingleSelectOption value="orange">Orange</SingleSelectOption>
+            <SingleSelectOption value="strawberry">Strawberry</SingleSelectOption>
+          </SingleSelect>
+          <Flex gap={2}>
+            <Button
+              variant="danger-light"
+              onClick={() => toggleError((s) => (s ? undefined : 'Oh no, the fruits have gone mouldy!'))}
             >
-              Pizza
-            </Option>
-            <Option value="hamburger">Hamburger</Option>
-            <Option value="bagel">Bagel</Option>
-          </Select>
-          <button onClick={() => toggleError((s) => (s ? undefined : 'An error occured'))}>
-            <Typography>Show the error state</Typography>
-          </button>
-          <button onClick={() => toggleDisabled((s) => !s)}>
-            <Typography>Show the disabled state</Typography>
-          </button>
+              {`${error ? 'Hide' : 'Show'} the error state`}
+            </Button>
+            <Button variant="tertiary" onClick={() => toggleDisabled((s) => !s)}>
+              {`${disabled ? 'Hide' : 'Show'} the disabled state`}
+            </Button>
+          </Flex>
         </Flex>
       );
     }}
   </Story>
 </Canvas>
 
-### Without label
+### Multiple select
 
-The default Select.
+It's possible to select multiple options by using the `MultiSelect` component instead of the `SingleSelect`.
+As such, you should should look to use the `MultiSelectOption` as it's visually distinct from the `SingleSelectOption`.
 
-<Canvas>
-  <Story name="withoutLabel">
-    {() => {
-      const [value, setValue] = useState();
-      const [error, toggleError] = useState();
-      const [disabled, toggleDisabled] = useState();
-      return (
-        <Flex direction="column" alignItems="center" gap={11}>
-          <Typography variant="beta">Current value is {value}</Typography>
-          <Select
-            id="select1"
-            aria-label="Choose your meal"
-            placeholder="Your example"
-            hint="Description line"
-            onClear={() => setValue(undefined)}
-            clearLabel="Clear the meal"
-            error={error}
-            value={value}
-            onChange={setValue}
-            disabled={disabled}
-            startIcon={<Plus />}
-            selectButtonTitle="Carret Down Button"
-          >
-            <Option
-              value="pizza"
-              startIcon={<div style={{ height: '6px', borderRadius: '50%', width: '6px', background: 'red' }} />}
-            >
-              Pizza
-            </Option>
-            <Option value="hamburger">Hamburger</Option>
-            <Option value="bagel">Bagel</Option>
-          </Select>
-          <button onClick={() => toggleError((s) => (s ? undefined : 'An error occured'))}>
-            <Typography>Show the error state</Typography>
-          </button>
-          <button onClick={() => toggleDisabled((s) => !s)}>
-            <Typography>Show the disabled state</Typography>
-          </button>
-        </Flex>
-      );
-    }}
-  </Story>
-</Canvas>
+By default, no transformations are made to the rendered value, but you can edit this by passing a `customizeContent` prop,
+which will be called with the selected values and should return a string e.g:
 
-### Select multi
-
-A multi Select allow users to make multiple selections from a list.
-
-In a multi select component, the "0 currently selected" text, can be changed but it will never have a placeholder style.
+```js
+const customizeContent = (values: string[]) => `${values.length} are currently selected`;
+```
 
 <Canvas>
-  <Story name="multi">
-    {() => {
-      const [values, setValues] = useState([]);
-      const [error, toggleError] = useState();
-      const [disabled, toggleDisabled] = useState();
-      return (
-        <Flex direction="column" alignItems="center" gap={11}>
-          <Typography as="h2" variant="beta">
-            Current value is {values.join(', ')}
-          </Typography>
-          <Select
-            id="select1"
-            label="Choose your meal"
-            placeholder="Your example"
-            onClear={() => setValues([])}
-            hint="Description line"
-            clearLabel="Clear the meal"
-            selectButtonTitle="Carret Down Button"
-            error={error}
-            value={values}
-            onChange={setValues}
-            disabled={disabled}
-            customizeContent={(values) => `${values.length} currently selected`}
-            multi
-          >
-            <Option value="pizza">Pizza</Option>
-            <Option value="hamburger">Hamburger</Option>
-            <Option value="bagel">Bagel</Option>
-          </Select>
-          <button onClick={() => toggleError((s) => (s ? undefined : 'An error occured'))}>
-            <Typography>Show the error state</Typography>
-          </button>
-          <button onClick={() => toggleDisabled((s) => !s)}>
-            <Typography>Show the disabled state</Typography>
-          </button>
-        </Flex>
-      );
-    }}
-  </Story>
-</Canvas>
-
-### Select multi with tags
-
-A multi Select allow users to visually select multiple options from a list. Prefer using a Select with multi tags when
-the selected values need to be visible in the input.
-
-<Canvas>
-  <Story name="multi-withTags">
-    {() => {
-      const [values, setValues] = useState([]);
-      const [error, toggleError] = useState();
-      const [disabled, toggleDisabled] = useState();
-      return (
-        <Flex direction="column" alignItems="center" gap={11}>
-          <Typography variant="beta">Current value is {values.join(', ')}</Typography>
-          <Select
-            id="select1"
-            label="Choose your meal"
-            placeholder="Your example"
-            onClear={() => setValues([])}
-            hint="Description line"
-            clearLabel="Clear the meal"
-            error={error}
-            value={values}
-            onChange={setValues}
-            disabled={disabled}
-            customizeContent={(values) => `${values.length} currently selected`}
-            selectButtonTitle="Carret Down Button"
-            multi
-            withTags
-          >
-            <Option value="pizza">Pizza</Option>
-            <Option value="hamburger">Hamburger</Option>
-            <Option value="bagel">Bagel</Option>
-            {Array(20)
-              .fill(null)
-              .map((_, i) => (
-                <Option key={i} value={`${i}`}>
-                  Another option
-                </Option>
-              ))}
-          </Select>
-          <button onClick={() => toggleError((s) => (s ? undefined : 'An error occured'))}>
-            <Typography>Show the error state</Typography>
-          </button>
-          <button onClick={() => toggleDisabled((s) => !s)}>
-            <Typography>Show the disabled state</Typography>
-          </button>
-        </Flex>
-      );
-    }}
-  </Story>
-</Canvas>
-
-### Select size S
-
-Select should be scaled down if they aimed to be placed in a smaller portions of a page.
-
-<Canvas>
-  <Story name="size-S">
+  <Story name="multiple">
     {() => {
       const [values, setValues] = useState([]);
       return (
-        <Flex direction="column" alignItems="center" gap={11}>
-          <Select
-            id="select1"
-            label="Choose your meal"
-            placeholder="Your example"
-            onClear={() => setValues([])}
-            hint="Description line"
-            clearLabel="Clear the meal"
-            error={undefined}
-            size="S"
-            value={values}
-            onChange={setValues}
-            disabled={false}
-            customizeContent={(values) => `${values.length} currently selected`}
-            selectButtonTitle="Carret Down Button"
-          >
-            <Option value="pizza">Pizza</Option>
-            <Option value="hamburger">Hamburger</Option>
-            <Option value="bagel">Bagel</Option>
-          </Select>
-        </Flex>
+        <MultiSelect
+          label="Fruits"
+          required
+          placeholder="My favourite fruit is..."
+          onClear={() => {
+            setValue(undefined);
+          }}
+          value={values}
+          onChange={setValues}
+        >
+          <MultiSelectOption value="apple">Apple</MultiSelectOption>
+          <MultiSelectOption value="avocado">Avocado</MultiSelectOption>
+          <MultiSelectOption value="banana">Banana</MultiSelectOption>
+          <MultiSelectOption value="kiwi">Kiwi</MultiSelectOption>
+          <MultiSelectOption value="mango">Mango</MultiSelectOption>
+          <MultiSelectOption value="orange">Orange</MultiSelectOption>
+          <MultiSelectOption value="strawberry">Strawberry</MultiSelectOption>
+        </MultiSelect>
       );
     }}
   </Story>
 </Canvas>
 
-### Select multi nested
+### Multiple select with tags
 
-A multi nested Select allow users to make multiple selections from a list.
-
-In a multi select component, the "0 currently selected" text, can be changed but it will never have a placeholder style.
+Instead of passing a `customizeContent` prop, you can pass the `withTags` prop which will render the selected values as tags instead.
 
 <Canvas>
-  <Story name="multi-nested">
+  <Story name="multiple with tags">
     {() => {
-      const [error, toggleError] = useState();
-      const [disabled, toggleDisabled] = useState();
+      const [values, setValues] = useState([]);
+      return (
+        <MultiSelect
+          label="Fruits"
+          required
+          placeholder="My favourite fruit is..."
+          onClear={() => {
+            setValue(undefined);
+          }}
+          value={values}
+          onChange={setValues}
+          withTags
+        >
+          <MultiSelectOption value="apple">Apple</MultiSelectOption>
+          <MultiSelectOption value="avocado">Avocado</MultiSelectOption>
+          <MultiSelectOption value="banana">Banana</MultiSelectOption>
+          <MultiSelectOption value="kiwi">Kiwi</MultiSelectOption>
+          <MultiSelectOption value="mango">Mango</MultiSelectOption>
+          <MultiSelectOption value="orange">Orange</MultiSelectOption>
+          <MultiSelectOption value="strawberry">Strawberry</MultiSelectOption>
+        </MultiSelect>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Nested multiple select
+
+<Canvas>
+  <Story name="multiple nested select">
+    {() => {
       const options = [
         {
-          label: 'Pizza',
+          label: 'Banana',
+          value: 'banana',
+        },
+        {
+          label: 'Green fruits',
           children: [
             {
-              label: 'Peperroni',
-              value: 'peperroni',
+              label: 'Apple',
+              value: 'apple',
             },
             {
-              label: 'Marguerita',
-              value: 'marguerita',
+              label: 'Avocado',
+              value: 'avocado',
+            },
+            {
+              label: 'Kiwi',
+              value: 'kiwi',
             },
           ],
         },
         {
-          label: 'Hamburger',
-          value: 'hamburger',
-        },
-        {
-          label: 'Bagel',
-          value: 'bagel',
-        },
-        {
-          label: 'Pasta',
+          label: 'Orange fruits',
           children: [
             {
-              label: 'Tartuffo',
-              value: 'tartuffo',
+              label: 'Mango',
+              value: 'mango',
             },
             {
-              label: 'Carbonara',
-              value: 'carbonara',
+              label: 'Orange',
+              value: 'orange',
             },
           ],
+        },
+        {
+          label: 'Strawberry',
+          value: 'strawberry',
         },
       ];
       const [values, setValues] = useState([]);
       return (
-        <Flex direction="column" alignItems="center" gap={11}>
-          <Typography variant="beta">Current value is {values.join(', ')}</Typography>
-          <MultiSelectNested
-            id="select1"
-            label="Choose your meal"
-            placeholder="Your example"
-            onClear={() => setValues([])}
-            hint="Description line"
-            clearLabel="Clear the meal"
-            error={error}
-            disabled={disabled}
-            customizeContent={(values) => `${values.length} currently selected`}
-            onChange={setValues}
-            value={values}
-            options={options}
-          />
-          <button onClick={() => toggleError((s) => (s ? undefined : 'An error occured'))}>
-            <Typography>Show the error state</Typography>
-          </button>
-          <button onClick={() => toggleDisabled((s) => !s)}>
-            <Typography>Show the disabled state</Typography>
-          </button>
-        </Flex>
+        <MultiSelectNested
+          label="Fruits"
+          required
+          placeholder="My favourite fruit is..."
+          onClear={() => {
+            setValue(undefined);
+          }}
+          value={values}
+          onChange={setValues}
+          options={options}
+        />
       );
     }}
   </Story>
@@ -353,9 +234,34 @@ In a multi select component, the "0 currently selected" text, can be changed but
 
 ## Props
 
-The Select component composes Field so you can pass all Field props, and React.InputHTMLAttributes. The Option component
-wraps all its children in the
-(Box)[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base]
-component, so you can pass all Box props to change its style.
+### SingleSelect
+
+<ArgsTable of={SingleSelect} />
+
+### SingleSelectOption
+
+<ArgsTable of={SingleSelectOption} />
+
+### MultiSelect
+
+<ArgsTable of={MultiSelect} />
+
+### MultiSelectOption
+
+<ArgsTable of={MultiSelectOption} />
+
+### MultiSelectNested
+
+<ArgsTable of={MultiSelectNested} />
+
+### Select
 
 <ArgsTable of={Select} />
+
+### Option
+
+<ArgsTable of={Option} />
+
+### OptGroup
+
+<ArgsTable of={OptGroup} />

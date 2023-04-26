@@ -5,6 +5,7 @@
   "plugins": ["@typescript-eslint", "prettier"],
   "rules": {
     "consistent-return": "off",
+    "no-redeclare": "off",
     "react/jsx-no-constructed-context-values": "error",
     "react/jsx-no-useless-fragment": "error",
     "react/no-unstable-nested-components": "error",
