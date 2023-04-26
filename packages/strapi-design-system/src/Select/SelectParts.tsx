@@ -58,6 +58,7 @@ const SelectTrigger = React.forwardRef<HTMLDivElement, TriggerProps>(
           paddingLeft={3}
           paddingRight={3}
           gap={4}
+          cursor="default"
           {...restProps}
         >
           <Flex as="span" gap={4}>
@@ -206,6 +207,7 @@ const itemStyles = css`
   align-items: center;
   gap: ${({ theme }) => theme.spaces[2]};
   white-space: nowrap;
+  user-select: none;
 
   &:focus-visible {
     outline: none;

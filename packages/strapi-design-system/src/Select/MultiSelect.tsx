@@ -310,9 +310,7 @@ export const MultiSelectGroup = React.forwardRef<HTMLDivElement, MultiSelectGrou
               />
             )}
           </SelectParts.ItemIndicator>
-          <Typography textColor="neutral800">
-            <SelectParts.ItemText>{label}</SelectParts.ItemText>
-          </Typography>
+          <Typography textColor="neutral800">{label}</Typography>
         </SelectParts.Item>
         {children}
       </SelectParts.Group>

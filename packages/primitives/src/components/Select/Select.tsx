@@ -653,6 +653,7 @@ const SelectContentImpl = React.forwardRef<SelectContentImplElement, SelectConte
           if (candidate === firstItem && viewport) viewport.scrollTop = 0;
 
           if (candidate === lastItem && viewport) viewport.scrollTop = viewport.scrollHeight;
+
           candidate?.focus();
 
           if (document.activeElement !== PREVIOUSLY_FOCUSED_ELEMENT) return;
@@ -811,6 +812,11 @@ const SelectContentImpl = React.forwardRef<SelectContentImplElement, SelectConte
             }}
             onUnmountAutoFocus={composeEventHandlers(onCloseAutoFocus, (event) => {
               context.trigger?.focus({ preventScroll: true });
+              /**
+               * In firefox there's a some kind of selection happening after
+               * unmounting all of this, so we make sure we clear that.
+               */
+              document.getSelection()?.empty();
               event.preventDefault();
             })}
           >

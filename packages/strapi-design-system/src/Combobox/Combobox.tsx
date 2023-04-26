@@ -352,6 +352,7 @@ export const OptionBox = styled.div<{ $hasHover?: boolean }>`
   padding: ${({ theme }) => theme.spaces[2]} ${({ theme }) => theme.spaces[4]};
   background-color: ${({ theme }) => theme.colors.neutral0};
   border-radius: ${({ theme }) => theme.borderRadius};
+  user-select: none;
 
   &[data-selected] {
     background-color: ${({ theme }) => theme.colors.primary100};
