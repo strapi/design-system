@@ -207,7 +207,7 @@ const itemStyles = css`
   align-items: center;
   gap: ${({ theme }) => theme.spaces[2]};
   white-space: nowrap;
-  cursor: default;
+  user-select: none;
 
   &:focus-visible {
     outline: none;
