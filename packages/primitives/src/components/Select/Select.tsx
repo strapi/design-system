@@ -454,7 +454,7 @@ const SelectValue = React.forwardRef<SelectValueElement, SelectValueProps>(
      */
     return (
       <Primitive.span {...valueProps} ref={composedRefs}>
-        {renderValue ? renderValue : null}
+        {renderValue || null}
       </Primitive.span>
     );
   },
