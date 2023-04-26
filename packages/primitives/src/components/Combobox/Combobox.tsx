@@ -436,53 +436,6 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
           }
         }
       })}
-      onBlur={composeEventHandlers(props.onBlur, (event) => {
-        context.onVisuallyFocussedItemChange(null);
-
-        const [activeItem] = getItems().filter(
-          (item) => item.textValue === context.textValue && item.type === 'option',
-        );
-
-        /**
-         * If we allow custom values and there's an active item (which means
-         * we've typed a value that matches an item), we want to update the
-         * value to that item's value.
-         */
-        if (context.allowCustomValue) {
-          if (activeItem) {
-            context.onValueChange(activeItem.value);
-
-            if (context.autocomplete === 'both') {
-              context.onFilterValueChange(activeItem.textValue);
-            }
-          }
-
-          return;
-        }
-
-        const [previousItem] = getItems().filter((item) => item.value === context.value && item.type === 'option');
-
-        /**
-         * If we've succesfully typed a value that matches an item, we want to
-         * update the value to that item's value. Otherwise, we want to update
-         * the value to the previous value.
-         *
-         * If theres no previous value and we've typed a value that doesn't match
-         * an item, we want to clear the value.
-         */
-        if (activeItem) {
-          context.onValueChange(activeItem.value);
-        } else if (previousItem && event.currentTarget.value !== '') {
-          context.onTextValueChange(previousItem.textValue);
-
-          if (context.autocomplete === 'both') {
-            context.onFilterValueChange(previousItem.textValue);
-          }
-        } else {
-          context.onValueChange(undefined);
-          context.onTextValueChange('');
-        }
-      })}
     />
   );
 });
@@ -642,6 +595,8 @@ const ComboboxContentImpl = React.forwardRef<ComboboxContentImplElement, Combobo
     // and close on `pointerup` outside.
     const { onOpenChange } = context;
 
+    const { getItems } = useCollection(undefined);
+
     React.useEffect(() => {
       const close = () => onOpenChange(false);
       window.addEventListener('blur', close);
@@ -665,6 +620,52 @@ const ComboboxContentImpl = React.forwardRef<ComboboxContentImplElement, Combobo
           onDismiss={() => {
             context.onOpenChange(false);
             context.trigger?.focus({ preventScroll: true });
+
+            context.onVisuallyFocussedItemChange(null);
+
+            const [activeItem] = getItems().filter(
+              (item) => item.textValue === context.textValue && item.type === 'option',
+            );
+
+            /**
+             * If we allow custom values and there's an active item (which means
+             * we've typed a value that matches an item), we want to update the
+             * value to that item's value.
+             */
+            if (context.allowCustomValue) {
+              if (activeItem) {
+                context.onValueChange(activeItem.value);
+
+                if (context.autocomplete === 'both') {
+                  context.onFilterValueChange(activeItem.textValue);
+                }
+              }
+
+              return;
+            }
+
+            const [previousItem] = getItems().filter((item) => item.value === context.value && item.type === 'option');
+
+            /**
+             * If we've succesfully typed a value that matches an item, we want to
+             * update the value to that item's value. Otherwise, we want to update
+             * the value to the previous value.
+             *
+             * If theres no previous value and we've typed a value that doesn't match
+             * an item, we want to clear the value.
+             */
+            if (activeItem) {
+              context.onValueChange(activeItem.value);
+            } else if (previousItem && context.textValue !== '') {
+              context.onTextValueChange(previousItem.textValue);
+
+              if (context.autocomplete === 'both') {
+                context.onFilterValueChange(previousItem.textValue);
+              }
+            } else {
+              context.onValueChange(undefined);
+              context.onTextValueChange('');
+            }
           }}
         >
           <ComboboxPopperPosition

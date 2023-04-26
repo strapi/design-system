@@ -429,7 +429,7 @@ const SelectValue = React.forwardRef<SelectValueElement, SelectValueProps>(
     let renderValue = children;
 
     if ((context.value === undefined || context.value.length === 0) && placeholder !== undefined) {
-      renderValue = placeholder;
+      renderValue = <span>{placeholder}</span>;
     } else if (typeof children === 'function') {
       if (Array.isArray(context.value)) {
         const childrenArray = context.value.map((value) => {
@@ -454,7 +454,7 @@ const SelectValue = React.forwardRef<SelectValueElement, SelectValueProps>(
      */
     return (
       <Primitive.span {...valueProps} ref={composedRefs}>
-        {renderValue ? <span>{renderValue}</span> : null}
+        {renderValue || null}
       </Primitive.span>
     );
   },
@@ -653,6 +653,7 @@ const SelectContentImpl = React.forwardRef<SelectContentImplElement, SelectConte
           if (candidate === firstItem && viewport) viewport.scrollTop = 0;
 
           if (candidate === lastItem && viewport) viewport.scrollTop = viewport.scrollHeight;
+
           candidate?.focus();
 
           if (document.activeElement !== PREVIOUSLY_FOCUSED_ELEMENT) return;
@@ -811,6 +812,11 @@ const SelectContentImpl = React.forwardRef<SelectContentImplElement, SelectConte
             }}
             onUnmountAutoFocus={composeEventHandlers(onCloseAutoFocus, (event) => {
               context.trigger?.focus({ preventScroll: true });
+              /**
+               * In firefox there's a some kind of selection happening after
+               * unmounting all of this, so we make sure we clear that.
+               */
+              document.getSelection()?.empty();
               event.preventDefault();
             })}
           >
