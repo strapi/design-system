@@ -18,7 +18,7 @@ plugins more efficiently.
 
 ## Installation
 
-Install Strapi Design System and itdesign-system dependencies:
+Install Strapi Design System and its peer dependencies:
 
 ```sh
 $ yarn add react react-dom @strapi/design-system @strapi/icons styled-components react-router-dom
