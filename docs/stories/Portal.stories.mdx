@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 import { Portal, Typography } from '@strapi/design-system';
 
@@ -5,26 +6,41 @@ import { Portal, Typography } from '@strapi/design-system';
 
 # Portal
 
-This is the doc of the `Portal` component
+A declarative wrap around [`ReactDOM.createPortal`](https://react.dev/reference/react-dom/createPortal) that
+allows you to render content outside of the root react app.
 
 [View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Portal)
 
-## Imports
+## Usage
 
 ```js
 import { Portal } from '@strapi/design-system';
 ```
 
-## Usage
+### Basic Usage
 
-Creates a portal using a Declarative API
+By default we mount the portal to the `globalThis.document.body`, however you can supply your
+own `container` prop if that suits your needs better. In this story we only use a container to ensure
+it still renders in the `iframe`. Typically though, just using the default is fine.
 
 <Canvas>
   <Story name="base">
-    <Portal>
-      <aside>
-        <Typography>This is rendered outside the root react app</Typography>
-      </aside>
-    </Portal>
+    {() => {
+      const [container, setContainer] = useState(undefined);
+      return (
+        <>
+          <div ref={setContainer} />
+          <Portal container={container}>
+            <aside>
+              <Typography>This is rendered outside the root react app</Typography>
+            </aside>
+          </Portal>
+        </>
+      );
+    }}
   </Story>
 </Canvas>
+
+## Props
+
+<ArgsTable of={Portal} />

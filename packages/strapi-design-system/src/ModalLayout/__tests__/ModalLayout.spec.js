@@ -446,7 +446,7 @@ describe('ModalLayout', () => {
           </div>
         </div>
         <div
-          data-react-portal="true"
+          class=""
         >
           <div
             class="c1 c2 c3"

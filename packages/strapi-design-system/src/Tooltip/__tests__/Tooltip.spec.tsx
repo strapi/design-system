@@ -81,7 +81,7 @@ describe('Tooltip', () => {
           </div>
         </div>
         <div
-          data-react-portal="true"
+          class=""
         >
           <div
             class="c1 c2"
@@ -177,7 +177,7 @@ describe('Tooltip', () => {
           </div>
         </div>
         <div
-          data-react-portal="true"
+          class=""
         >
           <div
             class="c1 c2"
@@ -280,7 +280,7 @@ describe('Tooltip', () => {
           </div>
         </div>
         <div
-          data-react-portal="true"
+          class=""
         >
           <div
             class="c1 c2"
