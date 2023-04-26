@@ -429,7 +429,7 @@ const SelectValue = React.forwardRef<SelectValueElement, SelectValueProps>(
     let renderValue = children;
 
     if ((context.value === undefined || context.value.length === 0) && placeholder !== undefined) {
-      renderValue = placeholder;
+      renderValue = <span>{placeholder}</span>;
     } else if (typeof children === 'function') {
       if (Array.isArray(context.value)) {
         const childrenArray = context.value.map((value) => {
@@ -454,7 +454,7 @@ const SelectValue = React.forwardRef<SelectValueElement, SelectValueProps>(
      */
     return (
       <Primitive.span {...valueProps} ref={composedRefs}>
-        {renderValue ? <span>{renderValue}</span> : null}
+        {renderValue ? renderValue : null}
       </Primitive.span>
     );
   },
