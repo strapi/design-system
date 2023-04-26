@@ -3,6 +3,7 @@ import * as React from 'react';
 import { useFloating, flip, shift, offset, autoUpdate, Placement } from '@floating-ui/react-dom';
 import styled from 'styled-components';
 
+import useClickAway from './useClickAway';
 import { Box, BoxProps } from '../Box';
 import { useIntersection } from '../hooks/useIntersection';
 import { Portal } from '../Portal';
@@ -47,7 +48,7 @@ export const Content = ({
   ...props
 }: ContentProps) => {
   const [width, setWidth] = React.useState<number | undefined>(undefined);
-  const { x, y, reference, floating, strategy } = useFloating({
+  const { x, y, reference, floating, strategy, refs } = useFloating({
     strategy: 'fixed',
     placement: centered ? 'bottom' : placement,
     middleware: [
@@ -69,6 +70,12 @@ export const Content = ({
       setWidth(source.current.offsetWidth);
     }
   }, [fullWidth, source]);
+
+  useClickAway(refs.floating, (event: Event) => {
+    if (!source.current.contains(event.target as any)) {
+      source.current.click();
+    }
+  });
 
   return (
     <PopoverWrapper
