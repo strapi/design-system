@@ -4,6 +4,7 @@ import { useResizeObserver as actualUseResizeObserver } from '../hooks/useResize
 const warnDeprecated = once(console.warn);
 
 /**
+ * @preserve
  * @deprecated useResizeObserver has moved. Please import it from "@strapi/design-system/hooks/useResizeObserver"
  */
 export const useResizeObserver: typeof actualUseResizeObserver = (...args) => {

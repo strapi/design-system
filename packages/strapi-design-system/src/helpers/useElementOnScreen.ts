@@ -4,6 +4,7 @@ import { useElementOnScreen as actualUseElementOnScreen } from '../hooks/useElem
 const warnDeprecated = once(console.warn);
 
 /**
+ * @preserve
  * @deprecated useElementOnScreen has moved. Please import it from "@strapi/design-system/hooks/useElementOnScreen"
  */
 export const useElementOnScreen: typeof actualUseElementOnScreen = (...args) => {

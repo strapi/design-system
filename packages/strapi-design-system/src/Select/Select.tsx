@@ -6,6 +6,7 @@ export type SelectProps =
   | (MultiSelectProps & { multi: true });
 
 /**
+ * @preserve
  * @deprecated You should import the specific type of select you want to render
  *
  * e.g. `import { MultiSelect } from '@strapi/design-system';`

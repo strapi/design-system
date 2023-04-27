@@ -24,6 +24,7 @@ export interface SelectListProps {
 }
 
 /**
+ * @preserve
  * @deprecated This component will be removed in the next major release.
  * If you need a custom listbox I would recommend opening a new issue.
  */
