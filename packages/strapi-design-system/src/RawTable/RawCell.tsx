@@ -8,7 +8,7 @@ import { KeyboardKeys } from '../helpers/keyboardKeys';
 export interface RawTdProps extends BoxProps<'td'> {
   'aria-colindex'?: number;
   as?: 'td' | 'th';
-  children: ReactNode;
+  children?: ReactNode;
   coords?: {
     col: number;
     row: number;
