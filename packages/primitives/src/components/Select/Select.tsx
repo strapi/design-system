@@ -426,7 +426,7 @@ const SelectValue = React.forwardRef<SelectValueElement, SelectValueProps>(
       }
     }, [context.value, getItems, valuedItems]);
 
-    let renderValue = children;
+    let renderValue: React.ReactNode;
 
     if ((context.value === undefined || context.value.length === 0) && placeholder !== undefined) {
       renderValue = <span>{placeholder}</span>;
@@ -446,6 +446,8 @@ const SelectValue = React.forwardRef<SelectValueElement, SelectValueProps>(
       } else {
         renderValue = children(context.value);
       }
+    } else {
+      renderValue = children;
     }
 
     /**
@@ -1482,7 +1484,7 @@ interface SelectItemIndicatorProps extends Omit<PrimitiveSpanProps, 'children'> 
 
 const SelectItemIndicator = React.forwardRef<SelectItemIndicatorElement, SelectItemIndicatorProps>(
   (props: ScopedProps<SelectItemIndicatorProps>, forwardedRef) => {
-    const { __scopeSelect, ...itemIndicatorProps } = props;
+    const { __scopeSelect, children, ...itemIndicatorProps } = props;
     const itemContext = useSelectItemContext(ITEM_INDICATOR_NAME, __scopeSelect);
 
     /**
@@ -1494,10 +1496,10 @@ const SelectItemIndicator = React.forwardRef<SelectItemIndicatorElement, SelectI
      * to how isSelected is passed. So for "group parents", they can be correctly styled.
      */
 
-    if (typeof props.children === 'function') {
+    if (typeof children === 'function') {
       return (
         <Primitive.span aria-hidden {...itemIndicatorProps} ref={forwardedRef}>
-          {props.children({
+          {children({
             isSelected: itemContext.isSelected,
             isIntermediate: itemContext.isIntermediate,
           })}
@@ -1505,7 +1507,11 @@ const SelectItemIndicator = React.forwardRef<SelectItemIndicatorElement, SelectI
       );
     }
 
-    return itemContext.isSelected ? <Primitive.span aria-hidden {...itemIndicatorProps} ref={forwardedRef} /> : null;
+    return itemContext.isSelected ? (
+      <Primitive.span aria-hidden {...itemIndicatorProps} ref={forwardedRef}>
+        {children}
+      </Primitive.span>
+    ) : null;
   },
 );
 

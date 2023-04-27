@@ -41,8 +41,8 @@
   },
   "peerDependencies": {
     "@strapi/icons": "^1.5.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0",
     "react-router-dom": "^5.2.0",
     "styled-components": "^5.2.1"
   },
@@ -61,10 +61,6 @@
     "test:e2e:ci": "cross-env CI=true playwright test",
     "test:e2e:watch": "chokidar '**/__tests__/*.e2e.js' -c 'npm run test:e2e -- --retries=0 {path}'",
     "test:e2e:debug": "cross-env PWDEBUG=1 playwright test"
-  },
-  "resolutions": {
-    "@types/react": "17.0.2",
-    "@types/react-dom": "17.0.2"
   },
   "gitHead": "c74900b0ee3525510d266dc83c9743cb24dafced"
 }

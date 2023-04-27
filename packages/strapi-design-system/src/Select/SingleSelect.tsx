@@ -100,7 +100,7 @@ export const SingleSelect = ({
   };
 
   const viewportRef = React.useRef<HTMLDivElement>(null);
-  const intersectionId = `intersection-${generatedId}`;
+  const intersectionId = `intersection-${CSS.escape(generatedId)}`;
 
   const handleReachEnd = (entry: IntersectionObserverEntry) => {
     if (onReachEnd) {

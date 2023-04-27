@@ -145,7 +145,9 @@ const DownIcon = styled(Select.Icon)`
  * SelectValue
  * -----------------------------------------------------------------------------------------------*/
 
-interface ValueProps extends TypographyProps {
+interface ValueProps
+  extends Omit<TypographyProps, 'children' | 'placeholder'>,
+    Pick<Select.SelectValueProps, 'placeholder' | 'children'> {
   asChild?: boolean;
 }
 
