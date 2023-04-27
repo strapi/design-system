@@ -7,19 +7,11 @@ import { DatePicker, DatePickerProps } from '../DatePicker';
 
 const Component = (props: Partial<DatePickerProps>) => (
   <ThemeProvider theme={lightTheme}>
-    <DatePicker label="date picker" {...props} />
+    <DatePicker label="date picker" minDate={new Date('Mon Sep 04 2000')} {...props} />
   </ThemeProvider>
 );
 
 const render = (props?: Partial<DatePickerProps>) => renderRTL(<Component {...props} />);
-
-beforeAll(() => {
-  jest.setTimeout(5000 * 4);
-});
-
-afterAll(() => {
-  jest.setTimeout(5000);
-});
 
 describe('DatePicker', () => {
   it('should render by default no date', () => {
@@ -48,7 +40,7 @@ describe('DatePicker', () => {
 
     expect(getByRole('dialog')).toBeInTheDocument();
 
-    await user.click(getByRole('button', { name: '9/1/2021' }));
+    await user.click(getByRole('button', { name: 'Wednesday, September 1, 2021' }));
 
     expect(onChange).toHaveBeenCalledWith(new Date('Mon Sep 01 2021'));
 

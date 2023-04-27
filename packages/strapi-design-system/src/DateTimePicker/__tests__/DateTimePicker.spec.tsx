@@ -1,7 +1,6 @@
 import { render as renderRTL } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { formatDate } from '../../DatePicker/utils';
 import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
 import { DateTimePicker, DateTimePickerProps } from '../DateTimePicker';
@@ -13,7 +12,13 @@ import { DateTimePicker, DateTimePickerProps } from '../DateTimePicker';
 
 const Component = (props: Partial<DateTimePickerProps>) => (
   <ThemeProvider theme={lightTheme}>
-    <DateTimePicker initialDate={new Date('12/01/2023')} step={15} label="datetime picker" {...props} />
+    <DateTimePicker
+      minDate={new Date('Mon Sep 04 2000')}
+      initialDate={new Date('12/01/2023')}
+      step={15}
+      label="datetime picker"
+      {...props}
+    />
   </ThemeProvider>
 );
 
@@ -266,3 +271,9 @@ describe('DateTimePicker', () => {
     );
   });
 });
+
+const formatDate = (date: number | Date, locale?: string): string => {
+  const langFormatter = new Intl.DateTimeFormat(locale);
+
+  return langFormatter.format(date);
+};
