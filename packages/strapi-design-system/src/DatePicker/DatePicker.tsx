@@ -1,12 +1,10 @@
 import { useRef, useState } from 'react';
 
 import { Calendar as CalendarIcon, Cross } from '@strapi/icons';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { DatePickerWrapper } from './components';
 import { DatePickerCalendar, DatePickerCalendarProps } from './DatePickerCalendar';
-import { formatDate } from './utils/formatDate';
-import { FieldAction } from '../Field';
+import { FieldAction, InputWrapper } from '../Field';
 import { getDefaultLocale } from '../helpers/getDefaultLocale';
 import { TextInput, TextInputProps } from '../TextInput';
 
@@ -111,7 +109,7 @@ export const DatePicker = ({
           selectedDate={selectedDate}
           initialDate={initialDate}
           onChange={handleChange}
-          onEscape={handleEscape}
+          onDismiss={handleEscape}
           locale={locale}
           popoverSource={inputRef.current.inputWrapperRef}
           minDate={minDate}
@@ -121,6 +119,23 @@ export const DatePicker = ({
     </DatePickerWrapper>
   );
 };
+
+const formatDate = (date: number | Date, locale?: string): string => {
+  const langFormatter = new Intl.DateTimeFormat(locale);
+
+  return langFormatter.format(date);
+};
+
+const DatePickerWrapper = styled.div<{ bold?: boolean }>`
+  ${({ bold, theme }) =>
+    bold
+      ? css`
+          & ${InputWrapper} {
+            border: 1px solid ${theme.colors.primary600};
+          }
+        `
+      : ''}
+`;
 
 const StyledCross = styled(Cross)`
   height: ${11 / 16}rem;
