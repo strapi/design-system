@@ -15,7 +15,7 @@
     "prebuild": "rimraf dist",
     "build": "yarn build:prod",
     "build:prod": "vite build",
-    "clean": "rm -rf dist node_modules",
+    "clean": "rimraf dist node_modules",
     "lint": "eslint . --ext .js,.jsx,.tsx,.ts",
     "format": "yarn lint --fix",
     "test": "jest -c jest.config.js",
@@ -44,6 +44,6 @@
     "react-dom": "^17.0.1"
   },
   "devDependencies": {
-    "vite-plugin-dts": "^1.7.3"
+    "vite-plugin-dts": "^2.3.0"
   }
 }
