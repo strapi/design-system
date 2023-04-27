@@ -23,10 +23,7 @@ jobs:
         with:
           path: '**/node_modules'
           key: ${{ runner.os }}-${{ matrix.node }}-${{ hashFiles('**/yarn.lock') }}
-      - run: yarn install --frozen-lockfile
-
-      - name: Link locale packages and install their dependencies
-        run: yarn bootstrap
+      - run: yarn install
 
       - name: Build
         run: yarn build --ignore=@strapi/design-system-docs
@@ -47,11 +44,11 @@ jobs:
           path: '**/node_modules'
           key: ${{ runner.os }}-${{ matrix.node }}-${{ hashFiles('**/yarn.lock') }}
 
-      - run: yarn install --frozen-lockfile
-      - name: Link locale packages and install their dependencies
-        run: yarn bootstrap
+      - run: yarn install
+
       - name: Run lint
         run: yarn lint
+
       - name: Run prettier
         run: yarn prettier:check
   unit_tests:
@@ -69,10 +66,7 @@ jobs:
           path: '**/node_modules'
           key: ${{ runner.os }}-${{ matrix.node }}-${{ hashFiles('**/yarn.lock') }}
 
-      - run: yarn install --frozen-lockfile
-
-      - name: Link locale packages and install their dependencies
-        run: yarn bootstrap
+      - run: yarn install
 
       - name: Build
         run: yarn build --ignore=@strapi/design-system-docs
@@ -88,26 +82,23 @@ jobs:
         browser: [chromium, webkit, firefox]
     steps:
       - uses: actions/checkout@v3
+
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
           cache: yarn
-      - uses: ./.github/actions/install-modules
-        with:
-          globalPackages: http-server
+
+      - run: yarn install
 
       - name: Install Playwright
-        run: npx playwright@1.27.1 install --with-deps
-
-      - name: Link locale packages and install their dependencies
-        run: yarn bootstrap
+        run: npx playwright@1.33.0 install
 
       - name: Build
         run: yarn build
 
       - name: Start storybook
         working-directory: ./docs/storybook-static
-        run: http-server -p 6006 &
+        run: yarn add -D http-server && yarn http-server -p 6006 &
 
       - name: Run the tests
-        run: yarn test:e2e:ci -- -- --project=${{ matrix.browser }}
+        run: yarn test:e2e:ci -- --project=${{ matrix.browser }}

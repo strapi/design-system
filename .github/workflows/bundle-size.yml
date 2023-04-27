@@ -20,10 +20,7 @@ jobs:
           path: '**/node_modules'
           key: ${{ runner.os }}-${{ matrix.node }}-${{ hashFiles('**/yarn.lock') }}
 
-      - run: yarn install --frozen-lockfile
-
-      - name: Link locale packages and install their dependencies
-        run: yarn bootstrap
+      - run: yarn install
 
       - name: Build packages
         run: yarn build

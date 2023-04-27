@@ -40,7 +40,7 @@ The core team will review your pull request and will either merge it, request ch
 ### Setup end-to-end (e2e) tests
 
 1. Install Playwright `npx playwright@1.27.1 install --with-deps`
-2. Install and link any cross-dependencies: `yarn bootstrap`
+2. Install dependencies: `yarn install`
 3. Run storybook `yarn storybook` and the e2e tests in parallel `yarn test:e2e`
 
 ## Development Workflow
