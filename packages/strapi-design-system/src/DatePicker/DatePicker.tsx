@@ -101,6 +101,7 @@ export const DatePicker = ({
         aria-label={ariaLabel}
         disabled={disabled}
         type="text"
+        placeholder="--/--/--"
         {...props}
       />
 
