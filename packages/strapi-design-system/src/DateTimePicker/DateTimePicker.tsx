@@ -5,16 +5,17 @@
  */
 import { ReactNode } from 'react';
 
-import { DatePicker, DatePickerProps } from '../DatePicker';
-import { Field, FieldHint, FieldLabel, FieldError } from '../Field';
+import { DatePickerInput, DatePickerInputProps } from '../DatePicker/DatePicker';
+import { Field, FieldHint, FieldLabel, FieldError, FieldProps } from '../Field';
 import { Flex } from '../Flex';
 import { useControllableState } from '../hooks/useControllableState';
 import { useId } from '../hooks/useId';
 import { TimePicker, TimePickerProps } from '../TimePicker';
 
 export interface DateTimePickerProps
-  extends Omit<DatePickerProps, 'value' | 'step' | 'onChange'>,
-    Pick<TimePickerProps, 'step' | 'selectButtonTitle'> {
+  extends Omit<DatePickerInputProps, 'value' | 'step' | 'onChange' | 'error'>,
+    Pick<TimePickerProps, 'step' | 'selectButtonTitle'>,
+    Pick<FieldProps, 'name' | 'hint' | 'error'> {
   /**
    * Aria Label used by the DatePicker and the TimePicker inside the DateTimePicker component
    */
@@ -62,8 +63,8 @@ export const DateTimePicker = ({
     ? `${dateValue.getHours()}:${dateValue.getMinutes()}:${dateValue.getSeconds()}`
     : undefined;
 
-  const handleDateChange = (date: Date) => {
-    if (timeValue) {
+  const handleDateChange = (date: Date | undefined) => {
+    if (timeValue && date) {
       const [hours, minutes] = timeValue.split(':');
       date.setHours(parseInt(hours, 10));
       date.setMinutes(parseInt(minutes, 10));
@@ -81,11 +82,11 @@ export const DateTimePicker = ({
     setDateValue(dateToSet);
   };
 
-  const handleDateClear = () => {
+  const handleDateClear: DatePickerInputProps['onClear'] = (e) => {
     setDateValue(undefined);
 
     if (onClear) {
-      onClear();
+      onClear(e);
     }
   };
 
@@ -115,14 +116,11 @@ export const DateTimePicker = ({
       <Flex direction="column" alignItems="stretch" gap={1}>
         <FieldLabel action={labelAction}>{label}</FieldLabel>
         <Flex gap={2}>
-          {/* @ts-expect-error label should be required here and we should refactor DatePicker */}
-          <DatePicker
+          <DatePickerInput
             ariaLabel={label || ariaLabel}
             selectedDate={dateValue}
-            selectedDateLabel={(formattedDate) => `Date picker, current is ${formattedDate}`}
             onChange={handleDateChange}
             error={typeof error === 'string'}
-            hint={typeof hint === 'string'}
             required={required}
             size={size}
             onClear={handleDateClear}

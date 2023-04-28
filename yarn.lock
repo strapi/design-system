@@ -5133,6 +5133,7 @@ __metadata:
     compute-scroll-into-view: ^3.0.3
     cross-env: ^7.0.3
     prop-types: ^15.8.1
+    react-remove-scroll: ^2.5.5
     react-router-dom: ^5.3.4
     styled-components: ^5.3.10
   peerDependencies:
