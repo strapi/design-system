@@ -4,6 +4,7 @@ import { useIntersection as actualUseIntersection } from '../hooks/useIntersecti
 const warnDeprecated = once(console.warn);
 
 /**
+ * @preserve
  * @deprecated useId has moved. Please import it from "@strapi/design-system/hooks/useId"
  */
 export const useIntersection: typeof actualUseIntersection = (...args) => {

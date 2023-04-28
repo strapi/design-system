@@ -28,6 +28,7 @@ export type MultiSelectProps = Omit<SelectParts.MultiSelectProps, 'value' | 'mul
     onChange?: (value: string[]) => void;
     onReachEnd?: (entry: IntersectionObserverEntry) => void;
     /**
+     * @preserve
      * @deprecated This prop is no longer required and will be removed in v2 of the DS.
      * It has no effect on the component.
      */

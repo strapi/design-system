@@ -96,6 +96,7 @@ export interface AccordionProps {
    */
   shadow?: keyof DefaultTheme['shadows'];
   /**
+   * @preserve
    * @deprecated use `onToggle` instead
    * The callback invoked after a click event on the `AccordionToggle`.
    */

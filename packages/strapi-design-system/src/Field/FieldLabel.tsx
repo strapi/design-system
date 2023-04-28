@@ -10,6 +10,7 @@ import { Typography, TypographyProps } from '../Typography';
 export interface FieldLabelProps extends TypographyProps<HTMLLabelElement> {
   action?: ReactNode;
   /**
+   * @preserve
    * @deprecated "required" should be given to Field component to share the value across components
    */
   required?: boolean;

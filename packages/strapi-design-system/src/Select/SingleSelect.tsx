@@ -22,6 +22,7 @@ export type SingleSelectProps = Omit<SelectParts.SingleSelectProps, 'value'> &
     onChange?: (value: string | number) => void;
     onReachEnd?: (entry: IntersectionObserverEntry) => void;
     /**
+     * @preserve
      * @deprecated This prop is no longer required and will be removed in v2 of the DS.
      * It has no effect on the component.
      */
