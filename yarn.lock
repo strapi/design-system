@@ -5090,9 +5090,9 @@ __metadata:
     "@storybook/builder-webpack5": ^6.5.16
     "@storybook/manager-webpack5": ^6.5.15
     "@storybook/react": ^6.5.15
-    "@strapi/design-system": ^1.7.0-alpha.2
-    "@strapi/icons": ^1.7.0-alpha.2
-    "@strapi/ui-primitives": ^1.7.0-alpha.2
+    "@strapi/design-system": ^1.7.0
+    "@strapi/icons": ^1.7.0
+    "@strapi/ui-primitives": ^1.7.0
     eslint-plugin-mdx: ^1.17.1
     qs: ^6.11.1
     react: 18.2.0
@@ -5104,7 +5104,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@strapi/design-system@^1.7.0-alpha.2, @strapi/design-system@workspace:packages/strapi-design-system":
+"@strapi/design-system@^1.7.0, @strapi/design-system@workspace:packages/strapi-design-system":
   version: 0.0.0-use.local
   resolution: "@strapi/design-system@workspace:packages/strapi-design-system"
   dependencies:
@@ -5115,8 +5115,8 @@ __metadata:
     "@radix-ui/react-dismissable-layer": ^1.0.3
     "@radix-ui/react-dropdown-menu": ^2.0.4
     "@radix-ui/react-use-callback-ref": ^1.0.0
-    "@strapi/icons": ^1.7.0
-    "@strapi/ui-primitives": ^1.7.0
+    "@strapi/icons": ^1.7.1
+    "@strapi/ui-primitives": ^1.7.1
     "@types/react-router-dom": ^5.3.3
     "@types/styled-components": ^5.1.26
     "@uiw/react-codemirror": ^4.19.16
@@ -5161,7 +5161,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@strapi/icons@^1.7.0, @strapi/icons@^1.7.0-alpha.2, @strapi/icons@workspace:packages/strapi-icons":
+"@strapi/icons@^1.7.0, @strapi/icons@^1.7.1, @strapi/icons@workspace:packages/strapi-icons":
   version: 0.0.0-use.local
   resolution: "@strapi/icons@workspace:packages/strapi-icons"
   dependencies:
@@ -5172,7 +5172,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@strapi/ui-primitives@^1.7.0, @strapi/ui-primitives@^1.7.0-alpha.2, @strapi/ui-primitives@workspace:packages/primitives":
+"@strapi/ui-primitives@^1.7.0, @strapi/ui-primitives@^1.7.1, @strapi/ui-primitives@workspace:packages/primitives":
   version: 0.0.0-use.local
   resolution: "@strapi/ui-primitives@workspace:packages/primitives"
   dependencies:
