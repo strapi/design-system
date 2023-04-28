@@ -1,81 +1,66 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 
-import { DateTimePicker } from '@strapi/design-system';
+import { DateTimePicker, Flex, Button } from '@strapi/design-system';
 
-<Meta
-  title="Design System/Components/DateTimePicker"
-  component={DateTimePicker}
-  argTypes={{
-    label: {
-      control: {
-        type: 'text',
-      },
-    },
-    value: {
-      control: {
-        type: 'date',
-      },
-    },
-  }}
-/>
+<Meta title="Design System/Components/DateTimePicker" component={DateTimePicker} />
 
 # DateTimePicker
 
-Date Time pickers help users selecting a specific date from a calendar and a specific timeslot from a suggested timetable.
-
-**Best practices**
-
-- When you select a date automatically is selected also a time and viceversa (time and date)
-- When you clear a date automatically is deleted also the time and viceversa
+Date time pickers are a fieldset containing the DatePicker and the TimePicker. Because they're primarily controlled by a date value,
+the time picker cannot be "empty" whilst a date is selected, instead it's default is `00:00`. This is similar to how you can't select
+a time without a date (which defaults to today). If you don't want either of them, look at using their respective components instead.
 
 [View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/DateTimePicker)
 
-## Imports
+## Usage
 
 ```js
 import { DateTimePicker } from '@strapi/design-system/DateTimePicker';
 ```
 
-## Usage
-
-- A Date Time picker is used to select an unique date. It is not possible to select a date range. It is not possible to write a date from the keyboard.
-- When the Date picker is activated, it selects today's date. However, a Date picker can have a null value via the Clear feature.
-- Use the Time picker component whenever a specific time needs to be scheduled or indicated. It is only possible to select one single timeslot.
+### Basic Usage
 
 <Canvas>
   <Story name="base">
     {() => {
-      const [value, setValue] = useState(undefined);
+      const [error, toggleError] = useState();
+      const [disabled, toggleDisabled] = useState();
       return (
-        <DateTimePicker
-          label={'Date time picker'}
-          disabled={false}
-          name="datetimepicker"
-          clearLabel="Clear"
-          step={15}
-          hint="This is a super description"
-          selectedDateLabel={() => `Date picker, current is undefined`}
-        />
+        <Flex direction="column" alignItems="stretch" gap={11}>
+          <DateTimePicker label="Publish at" locale="en-GB" error={error} disabled={disabled} />
+          <Flex gap={2} justifyContent="center">
+            <Button
+              variant="danger-light"
+              onClick={() => toggleError((s) => (s ? undefined : "That's not a birthday!"))}
+            >
+              {`${error ? 'Hide' : 'Show'} the error state`}
+            </Button>
+            <Button variant="tertiary" onClick={() => toggleDisabled((s) => !s)}>
+              {`${disabled ? 'Hide' : 'Show'} the disabled state`}
+            </Button>
+          </Flex>
+        </Flex>
       );
     }}
   </Story>
 </Canvas>
 
-## Error
+### Controlled
+
+The DateTimePicker can be a controlled component by passing a `value` prop and an `onChange` callback, this also
+enables you to have the ability to "clear" the inputs.
 
 <Canvas>
-  <Story name="error">
+  <Story name="controlled">
     {() => {
-      const [, setValue] = useState(undefined);
+      const [value, setValue] = useState();
       return (
         <DateTimePicker
-          hint="This is a super description"
-          error="Very very very very very very very long error"
-          label="Error"
-          name="datetimepicker"
-          onChange={(e) => setValue(e)}
-          clearLabel="Clear"
+          label="Publish at"
+          locale="en-GB"
+          value={value}
+          onChange={setValue}
           onClear={() => setValue(undefined)}
         />
       );
@@ -85,22 +70,12 @@ import { DateTimePicker } from '@strapi/design-system/DateTimePicker';
 
 ## Initial data
 
+Most times it's preferrable to set the initial date/time for this component. Similar to the `DatePicker` this component expects a `Date` value.
+
 <Canvas>
   <Story name="initial data">
     {() => {
-      const [value, setValue] = useState(new Date('2021-10-13T10:00:00.000Z'));
-      return (
-        <DateTimePicker
-          label="Date time picker"
-          name="datetimepicker"
-          onChange={(e) => setValue(e)}
-          clearLabel="Clear"
-          onClear={() => setValue(undefined)}
-          value={value}
-          hint="This is a super description"
-          selectedDateLabel={() => `Date picker, current is undefined`}
-        />
-      );
+      return <DateTimePicker label="Publish at" initialDate={new Date('1994-12-18T15:00:00.000Z')} />;
     }}
   </Story>
 </Canvas>

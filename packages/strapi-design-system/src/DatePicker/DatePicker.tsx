@@ -11,10 +11,11 @@ import {
   toCalendarDate,
   CalendarDate,
   endOfMonth,
-  parseDate,
   minDate as minDateFn,
   maxDate as maxDateFn,
 } from '@internationalized/date';
+import { useFocusGuards } from '@radix-ui/react-focus-guards';
+import { FocusScope } from '@radix-ui/react-focus-scope';
 import { Calendar, Cross } from '@strapi/icons';
 import { composeEventHandlers } from '@strapi/ui-primitives';
 import { createPortal } from 'react-dom';
@@ -87,8 +88,10 @@ interface DatePickerInputProps
     Pick<Partial<DatePickerContextValue>, 'disabled' | 'locale'>,
     Pick<TextInputProps, 'placeholder'>,
     Pick<CalendarProps, 'monthSelectLabel' | 'yearSelectLabel'>,
-    Pick<TriggerProps, 'size'> {
+    Pick<TriggerProps, 'size'>,
+    Omit<TextInputProps, 'size' | 'onChange' | 'value' | 'id' | 'ref'> {
   calendarLabel?: string;
+  className?: string;
   /*
    * Minimum year, that can be selected through the year select
    */
@@ -119,173 +122,211 @@ interface DatePickerInputProps
   clearLabel?: string;
 }
 
-const DatePickerInput = ({
-  /**
-   * DatePickerCalendar props
-   */
-  calendarLabel,
-  initialDate,
-  locale: defaultLocale,
-  maxDate,
-  minDate,
-  monthSelectLabel = 'Month',
-  onChange,
-  selectedDate,
-  yearSelectLabel = 'Year',
-  /**
-   * Combobox props
-   */
-  error,
-  id,
-  disabled = false,
-  placeholder,
-  required = false,
-  onClear,
-  clearLabel = 'Clear',
-  size,
-  /**
-   * @preserve
-   * @deprecated This is no longer used.
-   */
-  ariaLabel: _ariaLabel,
-  /**
-   * @preserve
-   * @deprecated This is no longer used.
-   */
-  selectedDateLabel: _selectedDateLabel,
-}: DatePickerInputProps) => {
-  const [open, setOpen] = React.useState(false);
-  const [trigger, setTrigger] = React.useState<DatePickerTriggerElement | null>(null);
-  const [textInput, setTextInput] = React.useState<DatePickerTextInputElement | null>(null);
-  const [content, setContent] = React.useState<DatePickerContentElement | null>(null);
-  const [textValue, setTextValue] = React.useState<string | undefined>();
-
-  const [value, setValue] = useControllableState<CalendarDate | undefined>({
-    defaultProp: initialDate ? convertUTCDateToCalendarDate(initialDate) : undefined,
-    prop: selectedDate ? convertUTCDateToCalendarDate(selectedDate) : selectedDate,
-    onChange(date) {
-      if (onChange) {
-        onChange(date?.toDate('UTC'));
-      }
+const DatePickerInput = React.forwardRef<DatePickerTextInputElement, DatePickerInputProps>(
+  (
+    {
+      /**
+       * DatePickerCalendar props
+       */
+      calendarLabel,
+      className,
+      initialDate,
+      locale: defaultLocale,
+      maxDate,
+      minDate,
+      monthSelectLabel = 'Month',
+      onChange,
+      selectedDate,
+      yearSelectLabel = 'Year',
+      /**
+       * Combobox props
+       */
+      error,
+      id,
+      disabled = false,
+      placeholder,
+      required = false,
+      onClear,
+      clearLabel = 'Clear',
+      size,
+      /**
+       * @preserve
+       * @deprecated This is no longer used.
+       */
+      ariaLabel: _ariaLabel,
+      /**
+       * @preserve
+       * @deprecated This is no longer used.
+       */
+      selectedDateLabel: _selectedDateLabel,
+      ...restProps
     },
-  });
-
-  const [actualMinDate, actualMaxDate] = React.useMemo(() => {
-    const now = initialDate ? convertUTCDateToCalendarDate(initialDate) : today('UTC');
-    const actualMinDate = minDate
-      ? convertUTCDateToCalendarDate(minDate)
-      : now.set({ day: 1, month: 1, year: now.year - DEFAULT_PAST_RANGE });
-
-    let actualMaxDate = maxDate
-      ? convertUTCDateToCalendarDate(maxDate)
-      : now.set({ day: 31, month: 12, year: now.year + DEFAULT_FUTURE_RANGE });
-
-    if (actualMaxDate.compare(actualMinDate) < 0) {
-      actualMaxDate = actualMinDate.set({ day: 31, month: 12, year: actualMinDate.year + DEFAULT_FUTURE_RANGE });
-    }
-
-    return [actualMinDate, actualMaxDate];
-  }, [minDate, maxDate, initialDate]);
-
-  /**
-   * Setting the initial calendar state based on priority.
-   */
-  const [calendarDate, setCalendarDate] = React.useState<CalendarDate>(
-    makeInitialCalendarDate({
-      currentValue: value,
-      minDate: actualMinDate,
-      maxDate: actualMaxDate,
-    }),
-  );
-
-  React.useEffect(() => {
-    if (selectedDate) {
-      setCalendarDate(convertUTCDateToCalendarDate(selectedDate));
-    }
-  }, [selectedDate]);
-
-  const designContext = useDesignSystem('DatePicker');
-
-  const locale = defaultLocale ?? designContext.locale;
-
-  const contentId = useId();
-
-  const clearRef = React.useRef(null);
-
-  const handleClearClick: React.MouseEventHandler<HTMLButtonElement> & React.MouseEventHandler<HTMLDivElement> = (
-    e: React.MouseEvent<HTMLButtonElement> | React.MouseEvent<HTMLDivElement>,
+    ref,
   ) => {
-    if (onClear && !disabled) {
-      setTextValue('');
-      onClear(e);
-      textInput?.focus();
-    }
-  };
+    const designContext = useDesignSystem('DatePicker');
 
-  const formatter = useDateFormatter(locale, {
-    dateStyle: 'short',
-  });
+    const locale = defaultLocale ?? designContext.locale;
 
-  const separator = React.useMemo(() => {
-    const parts = formatter.formatToParts(new Date());
-    const { value: separator } = parts.find((part) => part.type === 'literal')!;
+    const formatter = useDateFormatter(locale, {
+      dateStyle: 'short',
+    });
 
-    return separator;
-  }, [formatter]);
+    const separator = React.useMemo(() => {
+      const parts = formatter.formatToParts(new Date());
+      const { value: separator } = parts.find((part) => part.type === 'literal')!;
 
-  const hintId = `${id}-hint`;
-  const errorId = `${id}-error`;
+      return separator;
+    }, [formatter]);
 
-  return (
-    <DatePickerProvider
-      calendarDate={calendarDate}
-      content={content}
-      contentId={contentId}
-      disabled={disabled}
-      locale={locale}
-      minDate={actualMinDate}
-      maxDate={actualMaxDate}
-      open={open}
-      onCalendarDateChange={setCalendarDate}
-      onContentChange={setContent}
-      onOpenChange={setOpen}
-      onTextInputChange={setTextInput}
-      onTextValueChange={setTextValue}
-      onTriggerChange={setTrigger}
-      onValueChange={setValue}
-      required={required}
-      separator={separator}
-      textInput={textInput}
-      textValue={textValue}
-      timeZone="UTC"
-      trigger={trigger}
-      value={value}
-    >
-      <DatePickerTrigger size={size} hasError={Boolean(error)}>
-        <StyledCalendarIcon aria-hidden />
-        <DatePickerTextInput placeholder={placeholder} aria-describedby={`${hintId} ${errorId}`} id={id} />
-        {textValue && onClear ? (
-          <IconBox
-            as="button"
-            hasRadius
-            background="transparent"
-            type="button"
-            onClick={handleClearClick}
-            aria-disabled={disabled}
-            aria-label={clearLabel}
-            title={clearLabel}
-            ref={clearRef}
-          >
-            <Cross />
-          </IconBox>
-        ) : null}
-      </DatePickerTrigger>
-      <DatePickerContent label={calendarLabel}>
-        <DatePickerCalendar monthSelectLabel={monthSelectLabel} yearSelectLabel={yearSelectLabel} />
-      </DatePickerContent>
-    </DatePickerProvider>
-  );
-};
+    const [open, setOpen] = React.useState(false);
+    const [trigger, setTrigger] = React.useState<DatePickerTriggerElement | null>(null);
+    const [textInput, setTextInput] = React.useState<DatePickerTextInputElement | null>(null);
+    const [content, setContent] = React.useState<DatePickerContentElement | null>(null);
+    const [textValue, setTextValue] = React.useState<string | undefined>();
+
+    const [value, setValue] = useControllableState<CalendarDate | undefined>({
+      defaultProp: initialDate ? convertUTCDateToCalendarDate(initialDate) : undefined,
+      prop: selectedDate ? convertUTCDateToCalendarDate(selectedDate) : selectedDate,
+      onChange(date) {
+        if (onChange) {
+          onChange(date?.toDate('UTC'));
+        }
+      },
+    });
+
+    const [actualMinDate, actualMaxDate] = React.useMemo(() => {
+      const now = initialDate ? convertUTCDateToCalendarDate(initialDate) : today('UTC');
+      const actualMinDate = minDate
+        ? convertUTCDateToCalendarDate(minDate)
+        : now.set({ day: 1, month: 1, year: now.year - DEFAULT_PAST_RANGE });
+
+      let actualMaxDate = maxDate
+        ? convertUTCDateToCalendarDate(maxDate)
+        : now.set({ day: 31, month: 12, year: now.year + DEFAULT_FUTURE_RANGE });
+
+      if (actualMaxDate.compare(actualMinDate) < 0) {
+        actualMaxDate = actualMinDate.set({ day: 31, month: 12, year: actualMinDate.year + DEFAULT_FUTURE_RANGE });
+      }
+
+      return [actualMinDate, actualMaxDate];
+    }, [minDate, maxDate, initialDate]);
+
+    /**
+     * Setting the initial calendar state based on priority.
+     */
+    const [calendarDate, setCalendarDate] = React.useState<CalendarDate>(
+      makeInitialCalendarDate({
+        currentValue: value,
+        minDate: actualMinDate,
+        maxDate: actualMaxDate,
+      }),
+    );
+
+    const contentId = useId();
+
+    const clearRef = React.useRef(null);
+
+    const handleClearClick: React.MouseEventHandler<HTMLButtonElement> & React.MouseEventHandler<HTMLDivElement> = (
+      e: React.MouseEvent<HTMLButtonElement> | React.MouseEvent<HTMLDivElement>,
+    ) => {
+      if (onClear && !disabled) {
+        setTextValue('');
+        setValue(undefined);
+
+        onClear(e);
+        textInput?.focus();
+      }
+    };
+
+    const handleOpenChange = React.useCallback(
+      (nextOpen: boolean) => {
+        if (nextOpen && value) {
+          setCalendarDate(value);
+        }
+
+        setOpen(nextOpen);
+      },
+      [value],
+    );
+
+    React.useLayoutEffect(() => {
+      if (selectedDate) {
+        const date = convertUTCDateToCalendarDate(selectedDate);
+        setTextValue(date.toString().split('-').reverse().join(separator));
+      } else {
+        setTextValue('');
+      }
+    }, [separator, selectedDate]);
+
+    React.useLayoutEffect(() => {
+      if (initialDate && textValue === undefined) {
+        const date = convertUTCDateToCalendarDate(initialDate);
+        setTextValue(date.toString().split('-').reverse().join(separator));
+      }
+    }, [separator, initialDate, textValue]);
+
+    const hintId = `${id}-hint`;
+    const errorId = `${id}-error`;
+
+    return (
+      <DatePickerProvider
+        calendarDate={calendarDate}
+        content={content}
+        contentId={contentId}
+        disabled={disabled}
+        locale={locale}
+        minDate={actualMinDate}
+        maxDate={actualMaxDate}
+        open={open}
+        onCalendarDateChange={setCalendarDate}
+        onContentChange={setContent}
+        onOpenChange={handleOpenChange}
+        onTextInputChange={setTextInput}
+        onTextValueChange={setTextValue}
+        onTriggerChange={setTrigger}
+        onValueChange={setValue}
+        required={required}
+        separator={separator}
+        textInput={textInput}
+        textValue={textValue}
+        timeZone="UTC"
+        trigger={trigger}
+        value={value}
+      >
+        <DatePickerTrigger className={className} size={size} hasError={Boolean(error)}>
+          <StyledCalendarIcon aria-hidden />
+          <DatePickerTextInput
+            ref={ref}
+            placeholder={placeholder}
+            aria-describedby={`${hintId} ${errorId}`}
+            id={id}
+            {...restProps}
+          />
+          {textValue && onClear ? (
+            <IconBox
+              as="button"
+              hasRadius
+              background="transparent"
+              type="button"
+              onClick={handleClearClick}
+              aria-disabled={disabled}
+              aria-label={clearLabel}
+              title={clearLabel}
+              ref={clearRef}
+            >
+              <Cross />
+            </IconBox>
+          ) : null}
+        </DatePickerTrigger>
+        <Portal>
+          <DatePickerContent label={calendarLabel}>
+            <DatePickerCalendar monthSelectLabel={monthSelectLabel} yearSelectLabel={yearSelectLabel} />
+          </DatePickerContent>
+        </Portal>
+      </DatePickerProvider>
+    );
+  },
+);
 
 const isPrintableCharacter = (str: string): boolean => {
   return Boolean(str.match(/^[^a-zA-Z]*$/));
@@ -346,37 +387,75 @@ const DatePickerTrigger = React.forwardRef<DatePickerTriggerElement, TriggerProp
     };
 
     return (
-      <TriggerElement
-        ref={composedRefs}
-        $hasError={hasError}
-        $size={size}
-        {...restProps}
-        paddingLeft={3}
-        paddingRight={3}
-        hasRadius
-        gap={3}
-        overflow="hidden"
-        background={context.disabled ? 'neutral150' : 'neutral0'}
-        onClick={composeEventHandlers(restProps.onClick, () => {
-          // Whilst browsers generally have no issue focusing the trigger when clicking
-          // on a label, Safari seems to struggle with the fact that there's no `onClick`.
-          // We force `focus` in this case. Note: this doesn't create any other side-effect
-          // because we are preventing default in `onPointerDown` so effectively
-          // this only runs for a label "click"
-          context.textInput?.focus();
-        })}
-        onPointerDown={composeEventHandlers(restProps.onPointerDown, (event) => {
-          // only call handler if it's the left button (mousedown gets triggered by all mouse buttons)
-          // but not when the control key is pressed (avoiding MacOS right click)
-          if (event.button === 0 && event.ctrlKey === false) {
-            handleOpenChange();
-            /**
-             * Firefox had issues focussing the input correctly.
-             */
+      <FocusScope
+        asChild
+        // we make sure we're not trapping once it's been closed
+        // (closed !== unmounted when animating out)
+        trapped={context.open}
+        onMountAutoFocus={(event) => {
+          // we prevent open autofocus because we manually focus the selected item
+          event.preventDefault();
+        }}
+        onUnmountAutoFocus={(event) => {
+          context.trigger?.focus({ preventScroll: true });
+          /**
+           * In firefox there's a some kind of selection happening after
+           * unmounting all of this, so we make sure we clear that.
+           */
+          document.getSelection()?.empty();
+          event.preventDefault();
+        }}
+      >
+        <TriggerElement
+          ref={composedRefs}
+          $hasError={hasError}
+          $size={size}
+          {...restProps}
+          paddingLeft={3}
+          paddingRight={3}
+          hasRadius
+          gap={3}
+          overflow="hidden"
+          background={context.disabled ? 'neutral150' : 'neutral0'}
+          onClick={composeEventHandlers(restProps.onClick, () => {
+            // Whilst browsers generally have no issue focusing the trigger when clicking
+            // on a label, Safari seems to struggle with the fact that there's no `onClick`.
+            // We force `focus` in this case. Note: this doesn't create any other side-effect
+            // because we are preventing default in `onPointerDown` so effectively
+            // this only runs for a label "click"
             context.textInput?.focus();
-          }
-        })}
-      />
+          })}
+          onPointerDown={composeEventHandlers(restProps.onPointerDown, (event) => {
+            // prevent implicit pointer capture
+            // https://www.w3.org/TR/pointerevents3/#implicit-pointer-capture
+            const target = event.target as HTMLElement;
+
+            if (target.hasPointerCapture(event.pointerId)) {
+              target.releasePointerCapture(event.pointerId);
+            }
+
+            /**
+             * This has been added to allow events inside the trigger to be easily fired
+             * e.g. the clear button or removing a tag
+             */
+            const buttonTarg = target.closest('button') ?? target.closest('div');
+
+            if (buttonTarg !== event.currentTarget) {
+              return;
+            }
+
+            // only call handler if it's the left button (mousedown gets triggered by all mouse buttons)
+            // but not when the control key is pressed (avoiding MacOS right click)
+            if (event.button === 0 && event.ctrlKey === false) {
+              handleOpenChange();
+              /**
+               * Firefox had issues focussing the input correctly.
+               */
+              context.textInput?.focus();
+            }
+          })}
+        />
+      </FocusScope>
     );
   },
 );
@@ -432,7 +511,7 @@ const DatePickerTextInput = React.forwardRef<DatePickerTextInputElement, TextInp
   ({ placeholder, ...props }, forwardedRef) => {
     const context = useDatePickerContext(DATE_PICKER_TEXT_INPUT_NAME);
 
-    const { onTextValueChange, textValue, value, onTextInputChange, onOpenChange, disabled, separator } = context;
+    const { onTextValueChange, textValue, onTextInputChange, onOpenChange, disabled, separator } = context;
 
     const composedRefs = useComposedRefs(forwardedRef, (node) => onTextInputChange(node));
 
@@ -441,12 +520,6 @@ const DatePickerTextInput = React.forwardRef<DatePickerTextInputElement, TextInp
         onOpenChange(true);
       }
     };
-
-    React.useLayoutEffect(() => {
-      if (typeof textValue === 'undefined' && value) {
-        onTextValueChange(value.toString().split('-').reverse().join(separator));
-      }
-    }, [onTextValueChange, separator, textValue, value]);
 
     return (
       <Input
@@ -468,35 +541,14 @@ const DatePickerTextInput = React.forwardRef<DatePickerTextInputElement, TextInp
         {...props}
         value={textValue ?? ''}
         onBlur={composeEventHandlers(props.onBlur, () => {
-          /**
-           * Update the value on blur if it's a valid date, otherwise
-           * set it back to the previous value if there is one.
-           */
-          try {
-            if (!context.textValue) {
-              context.onValueChange(undefined);
+          if (!context.textValue) {
+            context.onValueChange(undefined);
 
-              return;
-            }
-
-            const [day, month, year] = context.textValue.split(separator);
-            const dateValue = parseDate(`${year}-${month}-${day}`);
-
-            if (
-              (context.minDate && dateValue.compare(context.minDate) < 0) ||
-              (context.maxDate && dateValue.compare(context.maxDate) > 0)
-            ) {
-              throw new Error('Invalid date specified by range');
-            }
-
-            context.onValueChange(dateValue);
-          } catch (err) {
-            if (context.value) {
-              context.onTextValueChange(context.value.toString().split('-').reverse().join(separator));
-            } else {
-              context.onTextValueChange('');
-            }
+            return;
           }
+
+          context.onTextValueChange(context.calendarDate.toString().split('-').reverse().join(separator));
+          context.onValueChange(context.calendarDate);
         })}
         onChange={composeEventHandlers(props.onChange, (event) => {
           if (isPrintableCharacter(event.target.value)) {
@@ -653,7 +705,35 @@ const Input = styled.input`
 
 const CONTENT_NAME = 'DatePickerContent';
 
-interface ContentProps
+interface ContentProps extends ContentImplProps {}
+
+type DatePickerContentElement = DatePickerContentImplElement;
+
+const DatePickerContent = React.forwardRef<DatePickerContentElement, ContentProps>((props, forwardedRef) => {
+  const [fragment, setFragment] = React.useState<DocumentFragment>();
+  const context = useDatePickerContext(CONTENT_NAME);
+
+  // setting the fragment in `useLayoutEffect` as `DocumentFragment` doesn't exist on the server
+  React.useLayoutEffect(() => {
+    setFragment(new DocumentFragment());
+  }, []);
+
+  if (!context.open) {
+    const frag = fragment as Element | undefined;
+
+    return frag ? createPortal(<div>{props.children}</div>, frag) : null;
+  }
+
+  return <DatePickerContentImpl {...props} ref={forwardedRef} />;
+});
+
+/* -------------------------------------------------------------------------------------------------
+ *  DatePickerContentImpl
+ * -----------------------------------------------------------------------------------------------*/
+
+const CONTENT_IMPL_NAME = 'DatePickerContent';
+
+interface ContentImplProps
   extends Omit<PopoverPrimitives.ContentProps, 'source' | 'spacing'>,
     Pick<DismissibleLayerProps, 'onEscapeKeyDown' | 'onPointerDownOutside'> {
   /**
@@ -662,53 +742,31 @@ interface ContentProps
   label?: string;
 }
 
-type DatePickerContentElement = HTMLDivElement;
+type DatePickerContentImplElement = HTMLDivElement;
 
-const DatePickerContent = React.forwardRef<DatePickerContentElement, ContentProps>((props, forwardedRef) => {
-  const { onPointerDownOutside, onEscapeKeyDown, label = 'Choose date', ...restProps } = props;
-  const { onOpenChange, onCalendarDateChange, minDate, maxDate, value, ...context } =
-    useDatePickerContext(CONTENT_NAME);
-  const [fragment, setFragment] = React.useState<DocumentFragment>();
+const DatePickerContentImpl = React.forwardRef<DatePickerContentImplElement, ContentImplProps>(
+  (props, forwardedRef) => {
+    const { onPointerDownOutside, onEscapeKeyDown, label = 'Choose date', ...restProps } = props;
+    const { onOpenChange, ...context } = useDatePickerContext(CONTENT_IMPL_NAME);
 
-  // setting the fragment in `useLayoutEffect` as `DocumentFragment` doesn't exist on the server
-  React.useLayoutEffect(() => {
-    setFragment(new DocumentFragment());
-  }, []);
+    React.useEffect(() => {
+      const close = () => {
+        onOpenChange(false);
+      };
+      window.addEventListener('blur', close);
+      window.addEventListener('resize', close);
 
-  const handleDismiss = React.useCallback(() => {
-    onCalendarDateChange(
-      makeInitialCalendarDate({
-        currentValue: value,
-        minDate,
-        maxDate,
-      }),
-    );
-  }, [maxDate, minDate, onCalendarDateChange, value]);
+      return () => {
+        window.removeEventListener('blur', close);
+        window.removeEventListener('resize', close);
+      };
+    }, [onOpenChange]);
 
-  React.useEffect(() => {
-    const close = () => {
-      handleDismiss();
-      onOpenChange(false);
-    };
-    window.addEventListener('blur', close);
-    window.addEventListener('resize', close);
+    const composedRefs = useComposedRefs(forwardedRef, (node) => context.onContentChange(node));
 
-    return () => {
-      window.removeEventListener('blur', close);
-      window.removeEventListener('resize', close);
-    };
-  }, [handleDismiss, onOpenChange]);
+    useFocusGuards();
 
-  const composedRefs = useComposedRefs(forwardedRef, (node) => context.onContentChange(node));
-
-  if (!context.open) {
-    const frag = fragment as Element | undefined;
-
-    return frag ? createPortal(<div>{props.children}</div>, frag) : null;
-  }
-
-  return (
-    <Portal>
+    return (
       <RemoveScroll allowPinchZoom>
         <DismissibleLayer
           onEscapeKeyDown={onEscapeKeyDown}
@@ -716,7 +774,6 @@ const DatePickerContent = React.forwardRef<DatePickerContentElement, ContentProp
           onFocusOutside={(event) => event.preventDefault()}
           onDismiss={() => {
             onOpenChange(false);
-            handleDismiss();
             context.textInput?.focus({ preventScroll: true });
           }}
         >
@@ -734,9 +791,9 @@ const DatePickerContent = React.forwardRef<DatePickerContentElement, ContentProp
           />
         </DismissibleLayer>
       </RemoveScroll>
-    </Portal>
-  );
-});
+    );
+  },
+);
 
 /* -------------------------------------------------------------------------------------------------
  *  DatePickerCalendar
@@ -979,8 +1036,16 @@ interface CalendarCellProps extends BoxProps<'td'> {
 
 const DatePickerCalendarCell = React.forwardRef<DatePickerCalendarCellElement, CalendarCellProps>(
   ({ date, startDate, ...props }, forwardedRef) => {
-    const { timeZone, locale, calendarDate, onValueChange, onOpenChange, onTextValueChange, separator } =
-      useDatePickerContext(DATE_PICKER_CALEDNAR_CELL_NAME);
+    const {
+      timeZone,
+      locale,
+      calendarDate,
+      onValueChange,
+      onOpenChange,
+      onTextValueChange,
+      separator,
+      onCalendarDateChange,
+    } = useDatePickerContext(DATE_PICKER_CALEDNAR_CELL_NAME);
 
     const isSelected = isSameDay(calendarDate, date);
 
@@ -1028,6 +1093,7 @@ const DatePickerCalendarCell = React.forwardRef<DatePickerCalendarCellElement, C
         cursor="pointer"
         onPointerDown={composeEventHandlers(props.onPointerDown, (event) => {
           event.preventDefault();
+          onCalendarDateChange(date);
           onValueChange(date);
           onTextValueChange(date.toString().split('-').reverse().join(separator));
           onOpenChange(false);

@@ -2,35 +2,32 @@ import { render as renderRTL } from '@test/utils';
 
 import { DateTimePicker, DateTimePickerProps } from '../DateTimePicker';
 
-/**
- * NOTE!
- * The tests have their dates formatted in US MM/DD/YYYY.
- */
-
 const Component = (props: Partial<DateTimePickerProps>) => (
-  <DateTimePicker
-    minDate={new Date('Mon Sep 04 2000')}
-    initialDate={new Date('12/01/2023')}
-    step={15}
-    label="datetime picker"
-    {...props}
-  />
+  <DateTimePicker label="datetime picker" locale="en-GB" {...props} />
 );
 
 const render = (props: Partial<DateTimePickerProps> = {}) => renderRTL(<Component {...props} />);
 
-describe.skip('DateTimePicker', () => {
+describe('DateTimePicker', () => {
   describe('rendering', () => {
     it('should render the DatePicker and TimePicker components and only one label', () => {
       const { getByText, getByRole } = render();
 
       expect(getByText('datetime picker')).toBeInTheDocument();
-      expect(getByRole('textbox', { name: 'datetime picker' })).toHaveValue('');
-      expect(getByRole('combobox')).toHaveTextContent('--:--');
+      expect(getByRole('combobox', { name: 'Choose date' })).toHaveValue('');
+      expect(getByRole('combobox', { name: 'Choose time' })).toHaveValue('');
 
       const id = getByText('datetime picker').getAttribute('for');
-      expect(getByRole('textbox', { name: 'datetime picker' })).toHaveAttribute('id', id);
-      expect(getByRole('combobox')).toHaveAttribute('id', id);
+      expect(getByRole('combobox', { name: 'Choose date' })).toHaveAttribute(
+        'aria-describedby',
+        `${id}-hint ${id}-error`,
+      );
+      expect(getByRole('combobox', { name: 'Choose date' })).not.toHaveAttribute('id', id);
+      expect(getByRole('combobox', { name: 'Choose time' })).toHaveAttribute(
+        'aria-describedby',
+        `${id}-hint ${id}-error`,
+      );
+      expect(getByRole('combobox', { name: 'Choose time' })).not.toHaveAttribute('id', id);
     });
 
     it('should handle a hints being passed to the component where its only rendered once', () => {
@@ -38,8 +35,14 @@ describe.skip('DateTimePicker', () => {
 
       expect(getByText('hint')).toBeInTheDocument();
       const id = getByText('hint').getAttribute('id')!;
-      expect(getByRole('textbox', { name: 'datetime picker' })).toHaveAttribute('aria-describedby', id);
-      expect(getByRole('combobox')).toHaveAttribute('aria-describedby', expect.stringContaining(id));
+      expect(getByRole('combobox', { name: 'Choose date' })).toHaveAttribute(
+        'aria-describedby',
+        expect.stringContaining(id),
+      );
+      expect(getByRole('combobox', { name: 'Choose time' })).toHaveAttribute(
+        'aria-describedby',
+        expect.stringContaining(id),
+      );
     });
 
     it("should handle an error being passed to the component where it's only rendered once", () => {
@@ -47,8 +50,14 @@ describe.skip('DateTimePicker', () => {
 
       expect(getByText('error')).toBeInTheDocument();
       const id = getByText('error').getAttribute('id')!;
-      expect(getByRole('textbox', { name: 'datetime picker' })).toHaveAttribute('aria-describedby', id);
-      expect(getByRole('combobox')).toHaveAttribute('aria-describedby', expect.stringContaining(id));
+      expect(getByRole('combobox', { name: 'Choose date' })).toHaveAttribute(
+        'aria-describedby',
+        expect.stringContaining(id),
+      );
+      expect(getByRole('combobox', { name: 'Choose time' })).toHaveAttribute(
+        'aria-describedby',
+        expect.stringContaining(id),
+      );
     });
   });
 
@@ -58,7 +67,7 @@ describe.skip('DateTimePicker', () => {
 
       expect(queryByRole('dialog')).not.toBeInTheDocument();
 
-      await user.click(getByRole('textbox', { name: 'datetime picker' }));
+      await user.click(getByRole('combobox', { name: 'Choose date' }));
 
       expect(getByRole('dialog')).toBeInTheDocument();
     });
@@ -68,119 +77,99 @@ describe.skip('DateTimePicker', () => {
 
       expect(queryByRole('listbox')).not.toBeInTheDocument();
 
-      await user.click(getByRole('combobox'));
+      await user.click(getByRole('combobox', { name: 'Choose time' }));
 
       expect(getByRole('listbox')).toBeInTheDocument();
     });
 
-    it(
-      'should fill the TimePicker with 00:00 when a date is picked and the TimePicker is empty',
-      async () => {
-        const { getByRole, user } = render();
+    it('should fill the TimePicker with 00:00 when a date is picked and the TimePicker is empty', async () => {
+      const { getByRole, user } = render({ initialDate: new Date('12/01/2023') });
 
-        await user.click(getByRole('textbox', { name: 'datetime picker' }));
-        await user.click(getByRole('button', { name: /15/ }));
+      await user.click(getByRole('combobox', { name: 'Choose date' }));
+      await user.click(getByRole('gridcell', { name: /15/ }));
 
-        expect(getByRole('textbox', { name: 'datetime picker' })).toHaveValue('12/15/2023');
-        expect(getByRole('combobox')).toHaveTextContent('00:00');
-      },
-      5000 * 4,
-    );
+      expect(getByRole('combobox', { name: 'Choose date' })).toHaveValue('15/12/2023');
+      expect(getByRole('combobox', { name: 'Choose time' })).toHaveValue('00:00');
+    });
 
     it('should fill the DatePicker with the current date when a time is picked and the DatePicker is empty', async () => {
       const { getByRole, user } = render();
 
-      await user.click(getByRole('combobox'));
+      await user.click(getByRole('combobox', { name: 'Choose time' }));
       await user.click(getByRole('option', { name: /12:00/ }));
 
       const today = formatDate(new Date());
 
-      expect(getByRole('textbox', { name: 'datetime picker' })).toHaveValue(today);
-      expect(getByRole('combobox')).toHaveTextContent('12:00');
+      expect(getByRole('combobox', { name: 'Choose date' })).toHaveValue(today);
+      expect(getByRole('combobox', { name: 'Choose time' })).toHaveValue('12:00');
     });
 
-    it(
-      'should not change the value of the DatePicker when a time is picked and the DatePicker is not empty',
-      async () => {
-        const { getByRole, user } = render();
+    it('should not change the value of the DatePicker when a time is picked and the DatePicker is not empty', async () => {
+      const { getByRole, user } = render({ initialDate: new Date('12/01/2023') });
 
-        await user.click(getByRole('textbox', { name: 'datetime picker' }));
-        await user.click(getByRole('button', { name: /15/ }));
+      await user.click(getByRole('combobox', { name: 'Choose date' }));
+      await user.click(getByRole('gridcell', { name: 'Friday, 15 December 2023' }));
 
-        expect(getByRole('textbox', { name: 'datetime picker' })).toHaveValue('12/15/2023');
+      expect(getByRole('combobox', { name: 'Choose date' })).toHaveValue('15/12/2023');
 
-        await user.click(getByRole('combobox'));
-        await user.click(getByRole('option', { name: /12:15/ }));
+      await user.click(getByRole('combobox', { name: 'Choose time' }));
+      await user.click(getByRole('option', { name: /12:15/ }));
 
-        expect(getByRole('textbox', { name: 'datetime picker' })).toHaveValue('12/15/2023');
-        expect(getByRole('combobox')).toHaveTextContent('12:15');
-      },
-      5000 * 4,
-    );
+      expect(getByRole('combobox', { name: 'Choose date' })).toHaveValue('15/12/2023');
+      expect(getByRole('combobox', { name: 'Choose time' })).toHaveValue('12:15');
+    });
 
-    it(
-      'should not change the value of the TimePicker when a date is picked and the TimePicker is not empty',
-      async () => {
-        const { getByRole, user } = render();
+    it('should not change the value of the TimePicker when a date is picked and the TimePicker is not empty', async () => {
+      const { getByRole, user } = render();
 
-        await user.click(getByRole('combobox'));
-        await user.click(getByRole('option', { name: /12:00/ }));
+      await user.click(getByRole('combobox', { name: 'Choose time' }));
+      await user.click(getByRole('option', { name: /12:00/ }));
 
-        expect(getByRole('combobox')).toHaveTextContent('12:00');
+      expect(getByRole('combobox', { name: 'Choose time' })).toHaveValue('12:00');
 
-        await user.click(getByRole('textbox', { name: 'datetime picker' }));
-        await user.click(getByRole('button', { name: /15/ }));
+      await user.click(getByRole('combobox', { name: 'Choose date' }));
+      await user.click(getByRole('gridcell', { name: /15/ }));
 
-        const month = new Date().getMonth() + 1;
-        const year = new Date().getFullYear();
+      const today = formatDate(new Date().setDate(15));
 
-        expect(getByRole('textbox', { name: 'datetime picker' })).toHaveValue(`${month}/15/${year}`);
-        expect(getByRole('combobox')).toHaveTextContent('12:00');
-      },
-      5000 * 4,
-    );
+      expect(getByRole('combobox', { name: 'Choose date' })).toHaveValue(today);
+      expect(getByRole('combobox', { name: 'Choose time' })).toHaveValue('12:00');
+    });
 
-    it(
-      'should clear the value of the DatePicker when clicking on the clear button and clear the TimePicker',
-      async () => {
-        const onClear = jest.fn();
-        const { getByRole, user } = render({ onClear });
+    it('should clear the value of the DatePicker when clicking on the clear button and clear the TimePicker', async () => {
+      const onClear = jest.fn();
+      const { getByRole, user } = render({ onClear, initialDate: new Date('12/01/2023') });
 
-        await user.click(getByRole('textbox', { name: 'datetime picker' }));
-        await user.click(getByRole('button', { name: /15/ }));
+      await user.click(getByRole('combobox', { name: 'Choose date' }));
+      await user.click(getByRole('gridcell', { name: /15/ }));
 
-        expect(getByRole('textbox', { name: 'datetime picker' })).toHaveValue('12/15/2023');
-        expect(getByRole('combobox')).toHaveTextContent('00:00');
+      expect(getByRole('combobox', { name: 'Choose date' })).toHaveValue('15/12/2023');
+      expect(getByRole('combobox', { name: 'Choose time' })).toHaveValue('00:00');
 
-        await user.click(getByRole('button', { name: 'clear date' }));
+      await user.click(getByRole('button', { name: 'clear date' }));
 
-        expect(getByRole('textbox', { name: 'datetime picker' })).toHaveValue('');
-        expect(getByRole('combobox')).toHaveTextContent('--:--');
+      expect(getByRole('combobox', { name: 'Choose date' })).toHaveValue('');
+      expect(getByRole('combobox', { name: 'Choose time' })).toHaveValue('');
 
-        expect(onClear).toHaveBeenCalled();
-      },
-      5000 * 4,
-    );
+      expect(onClear).toHaveBeenCalled();
+    });
 
-    /**
-     * TODO: This test is skipped because of an issue with the event being prevented by not calling the original...
-     */
-    it.skip('should reset the value of the TimePicker to 00:00 when clicking on the clear button but not clear the DatePicker and not call onClear', async () => {
+    it('should reset the value of the TimePicker to 00:00 when clicking on the clear button but not clear the DatePicker and not call onClear', async () => {
       const onClear = jest.fn();
       const { getByRole, user } = render({ onClear });
 
-      await user.click(getByRole('combobox'));
+      await user.click(getByRole('combobox', { name: 'Choose time' }));
       await user.click(getByRole('option', { name: /12:00/ }));
 
       const today = formatDate(new Date());
 
-      expect(getByRole('textbox', { name: 'datetime picker' })).toHaveValue(today);
-      expect(getByRole('combobox')).toHaveTextContent('12:00');
+      expect(getByRole('combobox', { name: 'Choose date' })).toHaveValue(today);
+      expect(getByRole('combobox', { name: 'Choose time' })).toHaveValue('12:00');
 
       await user.click(getByRole('button', { name: 'clear time' }));
 
-      expect(getByRole('combobox')).toHaveTextContent('00:00');
-      expect(getByRole('textbox', { name: 'datetime picker' })).toHaveValue(today);
+      expect(getByRole('combobox', { name: 'Choose time' })).toHaveValue('00:00');
+      expect(getByRole('combobox', { name: 'Choose date' })).toHaveValue(today);
 
       expect(onClear).not.toHaveBeenCalled();
     });
@@ -190,21 +179,21 @@ describe.skip('DateTimePicker', () => {
     it('should handle the required prop correctly', () => {
       const { getByRole } = render({ required: true });
 
-      expect(getByRole('textbox', { name: 'datetime picker' })).toBeRequired();
-      expect(getByRole('combobox')).toBeRequired();
+      expect(getByRole('combobox', { name: 'Choose date' })).toBeRequired();
+      expect(getByRole('combobox', { name: 'Choose time' })).toBeRequired();
     });
 
     it('should handle the disabled prop correctly', () => {
       const { getByRole } = render({ disabled: true });
 
-      expect(getByRole('textbox', { name: 'datetime picker' })).toBeDisabled();
-      expect(getByRole('combobox')).toHaveAttribute('aria-disabled', 'true');
+      expect(getByRole('combobox', { name: 'Choose date' })).toBeDisabled();
+      expect(getByRole('combobox', { name: 'Choose time' })).toHaveAttribute('aria-disabled', 'true');
     });
 
     it('should pass the step prop to the TimePicker component', async () => {
       const { getByRole, getAllByRole, user } = render({ step: 30 });
 
-      await user.click(getByRole('combobox'));
+      await user.click(getByRole('combobox', { name: 'Choose time' }));
 
       /**
        * 24 hours * (60 mins / 30mins to get steps of 30 = 2)
@@ -215,49 +204,45 @@ describe.skip('DateTimePicker', () => {
     it('should render the value prop including updates to said prop', () => {
       const { getByRole, rerender } = render({ value: new Date('12/15/2023 12:00') });
 
-      expect(getByRole('textbox', { name: 'datetime picker' })).toHaveValue('12/15/2023');
-      expect(getByRole('combobox')).toHaveTextContent('12:00');
+      expect(getByRole('combobox', { name: 'Choose date' })).toHaveValue('15/12/2023');
+      expect(getByRole('combobox', { name: 'Choose time' })).toHaveValue('12:00');
 
       rerender(<Component value={new Date('12/20/2023 12:30')} />);
 
-      expect(getByRole('textbox', { name: 'datetime picker' })).toHaveValue('12/20/2023');
-      expect(getByRole('combobox')).toHaveTextContent('12:30');
+      expect(getByRole('combobox', { name: 'Choose date' })).toHaveValue('20/12/2023');
+      expect(getByRole('combobox', { name: 'Choose time' })).toHaveValue('12:30');
     });
 
     it('should render the value prop even when the value is empty', () => {
       const { getByRole, rerender } = render({ value: new Date('12/15/2023 12:00') });
 
-      expect(getByRole('textbox', { name: 'datetime picker' })).toHaveValue('12/15/2023');
-      expect(getByRole('combobox')).toHaveTextContent('12:00');
+      expect(getByRole('combobox', { name: 'Choose date' })).toHaveValue('15/12/2023');
+      expect(getByRole('combobox', { name: 'Choose time' })).toHaveValue('12:00');
 
       rerender(<Component value={undefined} />);
 
-      expect(getByRole('textbox', { name: 'datetime picker' })).toHaveValue('');
-      expect(getByRole('combobox')).toHaveTextContent('--:--');
+      expect(getByRole('combobox', { name: 'Choose date' })).toHaveValue('');
+      expect(getByRole('combobox', { name: 'Choose time' })).toHaveValue('');
     });
 
-    it(
-      'should call onChange when the value is updated even if the component is not controlled',
-      async () => {
-        const onChange = jest.fn();
-        const { getByRole, user } = render({ onChange });
+    it('should call onChange when the value is updated even if the component is not controlled', async () => {
+      const onChange = jest.fn();
+      const { getByRole, user } = render({ onChange, initialDate: new Date('12/01/2023') });
 
-        await user.click(getByRole('textbox', { name: 'datetime picker' }));
-        await user.click(getByRole('button', { name: /15/ }));
+      await user.click(getByRole('combobox', { name: 'Choose date' }));
+      await user.click(getByRole('gridcell', { name: /15/ }));
 
-        expect(onChange).toHaveBeenNthCalledWith(1, new Date('12/15/2023'));
+      expect(onChange).toHaveBeenNthCalledWith(1, new Date('12/15/2023'));
 
-        await user.click(getByRole('combobox'));
-        await user.click(getByRole('option', { name: /12:00/ }));
+      await user.click(getByRole('combobox', { name: 'Choose time' }));
+      await user.click(getByRole('option', { name: /12:00/ }));
 
-        expect(onChange).toHaveBeenNthCalledWith(2, new Date('12/15/2023 12:00'));
-      },
-      5000 * 4,
-    );
+      expect(onChange).toHaveBeenNthCalledWith(2, new Date('12/15/2023 12:00'));
+    });
   });
 });
 
-const formatDate = (date: number | Date, locale?: string): string => {
+const formatDate = (date: number | Date, locale = 'en-GB'): string => {
   const langFormatter = new Intl.DateTimeFormat(locale);
 
   return langFormatter.format(date);

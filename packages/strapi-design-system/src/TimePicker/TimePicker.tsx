@@ -7,15 +7,34 @@ import { ComboboxInput, ComboboxInputProps, Option } from '../Combobox/Combobox'
 import { useDesignSystem } from '../DesignSystemProvider';
 import { Field, FieldError, FieldHint, FieldLabel, FieldProps } from '../Field';
 import { Flex } from '../Flex';
+import { useControllableState } from '../hooks/useControllableState';
 import { useDateFormatter } from '../hooks/useDateFormatter';
 import { useId } from '../hooks/useId';
+
+const isNotAlphabeticalCharacter = (str: string): boolean => {
+  return Boolean(str.match(/^[^a-zA-Z]*$/));
+};
 
 /* -------------------------------------------------------------------------------------------------
  * TimePickerInput
  * -----------------------------------------------------------------------------------------------*/
 
 export interface TimePickerInputProps
-  extends Omit<ComboboxInputProps, 'children' | 'autocomplete' | 'startIcon' | 'placeholder' | 'allowCustomValue'> {
+  extends Omit<
+    ComboboxInputProps,
+    | 'children'
+    | 'autocomplete'
+    | 'startIcon'
+    | 'placeholder'
+    | 'allowCustomValue'
+    | 'onFilterValueChange'
+    | 'filterValue'
+    | 'value'
+    | 'defaultValue'
+    | 'defaultTextValue'
+    | 'textValue'
+    | 'onTextValueChange'
+  > {
   /**
    * @default 15
    */
@@ -29,6 +48,8 @@ export interface TimePickerInputProps
    * @deprecated This is no longer used.
    */
   selectButtonTitle?: string;
+  value?: string;
+  defaultValue?: string;
 }
 
 export const TimePickerInput = ({
@@ -44,15 +65,33 @@ export const TimePickerInput = ({
    * @deprecated This is no longer used.
    */
   selectButtonTitle: _selectButtonTitle,
+  value: valueProp,
+  defaultValue,
+  onChange,
   ...restProps
 }: TimePickerInputProps) => {
   const context = useDesignSystem('TimePicker');
   const generatedId = useId(id);
 
+  const [textValue, setTextValue] = React.useState<string | undefined>('');
+
+  const [value, setValue] = useControllableState({
+    prop: valueProp,
+    defaultProp: defaultValue,
+    onChange,
+  });
+
   const formatter = useDateFormatter(context.locale, {
     hour: '2-digit',
     minute: '2-digit',
   });
+
+  const separator = React.useMemo(() => {
+    const parts = formatter.formatToParts(new Date());
+    const { value: separator } = parts.find((part) => part.type === 'literal')!;
+
+    return separator;
+  }, [formatter]);
 
   const timeOptions = React.useMemo(() => {
     const stepCount = 60 / step;
@@ -62,14 +101,65 @@ export const TimePickerInput = ({
     );
   }, [step, formatter]);
 
+  const handleTextValueChange = (string?: string) => {
+    if (!string || isNotAlphabeticalCharacter(string)) {
+      setTextValue(string);
+    }
+  };
+
+  const handleBlur: React.FocusEventHandler<HTMLInputElement> = (event) => {
+    const [hours, minutes] = event.target.value.split(separator);
+
+    if (!hours && !minutes) return;
+
+    const newValue = formatter.format(new Date(0, 0, 0, Number(hours ?? '0'), Number(minutes ?? '0')));
+
+    setTextValue(newValue);
+    setValue(newValue);
+  };
+
+  const handleChange = (changedValue?: string) => {
+    if (typeof changedValue !== 'undefined') {
+      const [hours, minutes] = changedValue.split(separator);
+
+      if (!hours && !minutes) return;
+
+      const newValue = formatter.format(new Date(0, 0, 0, Number(hours ?? '0'), Number(minutes ?? '0')));
+
+      setValue(newValue);
+    } else {
+      setValue(changedValue);
+    }
+  };
+
+  /**
+   * Because we allow values that aren't necessarily in the list & we control the text value, we need to
+   * update the text value when the value changes to keep the two in sync.
+   */
+  React.useEffect(() => {
+    const actualValue = typeof valueProp === 'undefined' ? '' : valueProp;
+
+    if (isNotAlphabeticalCharacter(actualValue)) {
+      setTextValue(actualValue);
+    }
+  }, [valueProp, setTextValue]);
+
   return (
     <ComboboxInput
       {...restProps}
+      value={value}
+      onChange={handleChange}
+      isPrintableCharacter={isNotAlphabeticalCharacter}
       allowCustomValue
-      placeholder="--:--"
+      placeholder={`--${separator}--`}
       autocomplete="none"
       startIcon={<StyledClock />}
       id={generatedId}
+      inputMode="numeric"
+      pattern={`\\d{2}${separator}\\d{2}`}
+      textValue={textValue}
+      onTextValueChange={handleTextValueChange}
+      onBlur={handleBlur}
     >
       {timeOptions.map((time) => (
         <Option key={time} value={time}>

@@ -20,30 +20,20 @@ import { DatePicker } from '@strapi/design-system';
 
 ### Basic Usage
 
-By default, the DatePicker is localised to the user's browser locale & the calendar's initial date is set to `today`.
-It's also possible to not use this as a controlled input, but important to remember that `onChange` recieves a date,
-whilst the input will have a `string` value.
+By default, the DatePicker is uncontrolled & localised to the user's browser locale whilst the calendar's initial date is set to `today`.
 
 <Canvas>
   <Story name="base">
     {() => {
-      const [date, setDate] = useState();
       const [error, toggleError] = useState();
       const [disabled, toggleDisabled] = useState();
       return (
-        <Flex direction="column" alignItems="center" gap={11}>
-          <DatePicker
-            onChange={setDate}
-            selectedDate={date}
-            label="Your birthday"
-            onClear={() => setDate(undefined)}
-            error={error}
-            disabled={disabled}
-          />
-          <Flex gap={2}>
+        <Flex direction="column" alignItems="stretch" gap={11}>
+          <DatePicker initialDate={new Date('Sep 04 2021')} label="Your birthday" error={error} disabled={disabled} />
+          <Flex gap={2} justifyContent="center">
             <Button
               variant="danger-light"
-              onClick={() => toggleError((s) => (s ? undefined : 'Oh no, the fruits have gone mouldy!'))}
+              onClick={() => toggleError((s) => (s ? undefined : "That's not a birthday!"))}
             >
               {`${error ? 'Hide' : 'Show'} the error state`}
             </Button>
@@ -52,6 +42,22 @@ whilst the input will have a `string` value.
             </Button>
           </Flex>
         </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Controlled
+
+The DatePicker can be a controlled component by passing a `value` prop and an `onChange` callback, this also
+enables you to have the ability to "clear" the input.
+
+<Canvas>
+  <Story name="controlled">
+    {() => {
+      const [date, setDate] = useState(new Date('1990-01-01'));
+      return (
+        <DatePicker onChange={setDate} selectedDate={date} label="Your birthday" onClear={() => setDate(undefined)} />
       );
     }}
   </Story>
@@ -69,7 +75,7 @@ min/max date props and `today` is outside of the date range it automatically set
       return (
         <DatePicker
           onChange={setDate}
-          selectedDate={date}
+          value={date}
           label="Favourite day of 2022"
           minDate={new Date('2022-01-01')}
           maxDate={new Date('2022-12-31')}
@@ -91,7 +97,7 @@ If you want to enforce a locale, you can pass it as a prop. This will override t
       return (
         <DatePicker
           onChange={setDate}
-          selectedDate={date}
+          value={date}
           label="German date picker"
           locale="de-DE"
           onClear={() => setDate(undefined)}
@@ -110,11 +116,13 @@ As with most inputs, we offer the ability to change the `size`.
     {() => {
       const [size, setSize] = useState('S');
       return (
-        <Flex direction="column" alignItems="center" gap={11}>
+        <Flex direction="column" alignItems="stretch" gap={11}>
           <DatePicker required size={size} label={size === 'S' ? 'Small date picker' : 'Medium date picker'} />
-          <Button variant="primary" onClick={() => setSize((s) => (s === 'S' ? 'M' : 'S'))}>
-            {size === 'S' ? `Show medium size` : `Show small size`}
-          </Button>
+          <Flex justifyContent="center">
+            <Button variant="primary" onClick={() => setSize((s) => (s === 'S' ? 'M' : 'S'))}>
+              {size === 'S' ? `Show medium size` : `Show small size`}
+            </Button>
+          </Flex>
         </Flex>
       );
     }}

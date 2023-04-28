@@ -19,30 +19,20 @@ import { TimePicker } from '@strapi/design-system';
 
 ### Basic Usage
 
+By default, the TimePicker is uncontrolled & has "steps" of 15 minute intervals.
+
 <Canvas>
   <Story name="base">
     {() => {
-      const [value, setValue] = useState();
       const [error, toggleError] = useState();
       const [disabled, toggleDisabled] = useState();
-      const handleChange = (value) => {
-        console.log(value);
-        setValue(value);
-      };
       return (
-        <Flex direction="column" alignItems="center" gap={11}>
-          <TimePicker
-            label="Lunchtime"
-            onClear={() => setValue(undefined)}
-            onChange={handleChange}
-            value={value}
-            error={error}
-            disabled={disabled}
-          />
-          <Flex gap={2}>
+        <Flex direction="column" alignItems="stretch" gap={11}>
+          <TimePicker label="Lunchtime" error={error} disabled={disabled} />
+          <Flex gap={2} justifyContent="center">
             <Button
               variant="danger-light"
-              onClick={() => toggleError((s) => (s ? undefined : 'Oh no, the fruits have gone mouldy!'))}
+              onClick={() => toggleError((s) => (s ? undefined : "That's not a lunchtime!"))}
             >
               {`${error ? 'Hide' : 'Show'} the error state`}
             </Button>
@@ -52,6 +42,17 @@ import { TimePicker } from '@strapi/design-system';
           </Flex>
         </Flex>
       );
+    }}
+  </Story>
+</Canvas>
+
+### Controlled
+
+<Canvas>
+  <Story name="controlled">
+    {() => {
+      const [value, setValue] = useState();
+      return <TimePicker label="Lunchtime" onClear={() => setValue(undefined)} onChange={setValue} value={value} />;
     }}
   </Story>
 </Canvas>
@@ -78,11 +79,13 @@ As with most inputs, we offer the ability to change the `size`.
     {() => {
       const [size, setSize] = useState('S');
       return (
-        <Flex direction="column" alignItems="center" gap={11}>
+        <Flex direction="column" alignItems="stretch" gap={11}>
           <TimePicker required size={size} label={size === 'S' ? 'Small date picker' : 'Medium date picker'} />
-          <Button variant="primary" onClick={() => setSize((s) => (s === 'S' ? 'M' : 'S'))}>
-            {size === 'S' ? `Show medium size` : `Show small size`}
-          </Button>
+          <Flex justifyContent="center">
+            <Button variant="primary" onClick={() => setSize((s) => (s === 'S' ? 'M' : 'S'))}>
+              {size === 'S' ? `Show medium size` : `Show small size`}
+            </Button>
+          </Flex>
         </Flex>
       );
     }}

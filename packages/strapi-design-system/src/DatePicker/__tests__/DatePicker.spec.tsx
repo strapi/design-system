@@ -1,10 +1,11 @@
-import { render as renderRTL } from '@test/utils';
+import { RenderOptions, render as renderRTL } from '@test/utils';
 
 import { DatePicker, DatePickerProps } from '../DatePicker';
 
 const Component = (props: Partial<DatePickerProps>) => <DatePicker locale="en-EN" label="date picker" {...props} />;
 
-const render = (props?: Partial<DatePickerProps>) => renderRTL(<Component {...props} />);
+const render = (props?: Partial<DatePickerProps>, renderOptions?: RenderOptions) =>
+  renderRTL(<Component {...props} />, { renderOptions });
 
 describe('DatePicker', () => {
   describe('Input', () => {
@@ -55,26 +56,111 @@ describe('DatePicker', () => {
       // expect(getByRole('textbox', { name: 'date picker' })).toHaveFocus();
     });
 
-    it('should update the input text value when a selectedDate is passed and a calendar date is pressed', async () => {
-      const { getByRole, user } = render({ selectedDate: new Date('Sep 04 2021') });
+    it('should call onChange when a selectedDate is passed and a calendar date is pressed', async () => {
+      const onChange = jest.fn();
+      const { getByRole, user } = render({ selectedDate: new Date('Sep 04 2021'), onChange });
+
+      await user.click(getByRole('combobox', { name: 'date picker' }));
+
+      await user.click(getByRole('gridcell', { name: 'Wednesday, September 8, 2021' }));
+
+      expect(onChange).toHaveBeenCalledWith(new Date('Sep 08 2021'));
+    });
+
+    it('should call onChange when we blur the input after typing a date', async () => {
+      const onChange = jest.fn();
+
+      const { getByRole, user } = render(
+        { onChange },
+        {
+          wrapper({ children }) {
+            return (
+              <div>
+                {children}
+                <button type="button">testing</button>
+              </div>
+            );
+          },
+        },
+      );
+
+      await user.type(getByRole('combobox', { name: 'date picker' }), '01/09/2021');
+
+      await user.keyboard('[Escape]');
+
+      await user.tab();
+
+      expect(onChange).toHaveBeenCalledWith(new Date('Sep 01 2021'));
+    });
+
+    it('should call onChange when we blur the input after typing a partial date', async () => {
+      const onChange = jest.fn();
+
+      const { getByRole, user } = render(
+        { onChange, initialDate: new Date('Sep 04 2021') },
+        {
+          wrapper({ children }) {
+            return (
+              <div>
+                {children}
+                <button type="button">testing</button>
+              </div>
+            );
+          },
+        },
+      );
+
+      await user.clear(getByRole('combobox', { name: 'date picker' }));
+
+      await user.type(getByRole('combobox', { name: 'date picker' }), '14');
+
+      await user.keyboard('[Escape]');
+
+      await user.tab();
+
+      expect(onChange).toHaveBeenCalledWith(new Date('Sep 14 2021'));
+    });
+
+    it('should call onChange with the max date of the month when we blur the input after typing an incorrect partial date', async () => {
+      const onChange = jest.fn();
+
+      const { getByRole, user } = render(
+        { onChange, initialDate: new Date('Sep 04 2021') },
+        {
+          wrapper({ children }) {
+            return (
+              <div>
+                {children}
+                <button type="button">testing</button>
+              </div>
+            );
+          },
+        },
+      );
+
+      await user.clear(getByRole('combobox', { name: 'date picker' }));
+
+      await user.type(getByRole('combobox', { name: 'date picker' }), '99');
+
+      await user.keyboard('[Escape]');
+
+      await user.tab();
+
+      expect(onChange).toHaveBeenCalledWith(new Date('Sep 30 2021'));
+    });
+
+    it('should allow me to control the input value regardless of if a value is present', async () => {
+      const { getByRole, user } = render({ initialDate: new Date('Sep 04 2021') });
 
       await user.click(getByRole('combobox', { name: 'date picker' }));
 
       await user.click(getByRole('gridcell', { name: 'Wednesday, September 8, 2021' }));
 
       expect(getByRole('combobox', { name: 'date picker' })).toHaveValue('08/09/2021');
-    });
 
-    it('should call onChange when we blur the input after typing a date', async () => {
-      const onChange = jest.fn();
+      await user.clear(getByRole('combobox', { name: 'date picker' }));
 
-      const { getByRole, user } = render({ onChange });
-
-      await user.type(getByRole('combobox', { name: 'date picker' }), '01/09/2021');
-
-      await user.tab();
-
-      expect(onChange).toHaveBeenCalledWith(new Date('Sep 01 2021'));
+      expect(getByRole('combobox', { name: 'date picker' })).toHaveValue('');
     });
   });
 
@@ -153,7 +239,11 @@ describe('DatePicker', () => {
 
       expect(getAllByRole('gridcell')[8]).toHaveTextContent('6');
 
+      await user.keyboard('[Escape]');
+
       rerender(<Component selectedDate={new Date('Oct 04 2021')} />);
+
+      await user.click(getByRole('combobox', { name: 'date picker' }));
 
       expect(getByRole('combobox', { name: 'Month' })).toHaveTextContent('October');
       expect(getAllByRole('gridcell')[8]).toHaveTextContent('4');

@@ -27,7 +27,7 @@ import { createCollection } from '../Collection';
 const OPEN_KEYS = [' ', 'Enter', 'ArrowUp', 'ArrowDown'];
 const SELECTION_KEYS = ['Enter'];
 
-const isPrintableCharacter = (str: string): boolean => {
+const defaultIsPrintableCharacter = (str: string): boolean => {
   return Boolean(str.length === 1 && str.match(/\S| /));
 };
 
@@ -80,6 +80,7 @@ type ComboboxContextValue = {
   filterValue: string | undefined;
   onFilterValueChange: (value: string | undefined) => void;
   onVisuallyFocussedItemChange: (item: HTMLDivElement | null) => void;
+  isPrintableCharacter: (str: string) => boolean;
 };
 
 const [ComboboxProvider, useComboboxContext] = createContext<ComboboxContextValue>(COMBOBOX_NAME);
@@ -103,6 +104,7 @@ interface RootProps {
   defaultFilterValue?: string;
   filterValue?: string;
   onFilterValueChange?(value: string): void;
+  isPrintableCharacter?: (str: string) => boolean;
 }
 
 /**
@@ -134,6 +136,7 @@ const Combobox: React.FC<RootProps> = (props) => {
     filterValue: filterValueProp,
     defaultFilterValue,
     onFilterValueChange,
+    isPrintableCharacter = defaultIsPrintableCharacter,
   } = props;
 
   const [trigger, setTrigger] = React.useState<ComboboxInputElement | null>(null);
@@ -236,6 +239,7 @@ const Combobox: React.FC<RootProps> = (props) => {
         filterValue={filterValue}
         onFilterValueChange={setFilterValue}
         onVisuallyFocussedItemChange={setVisuallyFocussedItem}
+        isPrintableCharacter={isPrintableCharacter}
       >
         {children}
       </ComboboxProvider>
@@ -493,13 +497,18 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
       onKeyUp={composeEventHandlers(props.onKeyUp, (event) => {
         if (
           !context.open &&
-          (isPrintableCharacter(event.key) || ['ArrowUp', 'ArrowDown', 'Home', 'End', 'Backspace'].includes(event.key))
+          (context.isPrintableCharacter(event.key) ||
+            ['ArrowUp', 'ArrowDown', 'Home', 'End', 'Backspace'].includes(event.key))
         ) {
           handleOpen();
         }
 
         setTimeout(() => {
-          if (context.autocomplete === 'both' && isPrintableCharacter(event.key) && context.filterValue !== undefined) {
+          if (
+            context.autocomplete === 'both' &&
+            context.isPrintableCharacter(event.key) &&
+            context.filterValue !== undefined
+          ) {
             const value = context.filterValue;
             const firstItem = getItems().find((item) => startsWith(item.textValue, value));
 
@@ -509,7 +518,7 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
           }
         });
 
-        if (context.autocomplete === 'none' && isPrintableCharacter(event.key)) {
+        if (context.autocomplete === 'none' && context.isPrintableCharacter(event.key)) {
           const value = context.textValue ?? '';
 
           const nextItem = getItems().find((item) => startsWith(item.textValue, value));
