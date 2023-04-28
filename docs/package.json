@@ -13,20 +13,20 @@
     "@strapi/design-system": "^1.7.0-alpha.2",
     "@strapi/icons": "^1.7.0-alpha.2",
     "@strapi/ui-primitives": "^1.7.0-alpha.2",
-    "qs": "^6.11.0",
-    "react": "17",
+    "qs": "^6.11.1",
+    "react": "18.2.0",
     "react-copy-to-clipboard": "^5.1.0",
-    "react-dom": "17",
+    "react-dom": "18.2.0",
     "react-router-dom": "5.3.4",
     "storybook-dark-mode": "^2.1.1",
-    "styled-components": "^5.3.6"
+    "styled-components": "^5.3.10"
   },
   "devDependencies": {
-    "eslint-plugin-mdx": "^1.17.0"
+    "eslint-plugin-mdx": "^1.17.1"
   },
   "scripts": {
     "build": "build-storybook",
-    "clean": "rm -rf storybook-static node_modules",
+    "clean": "rimraf storybook-static node_modules",
     "develop": "start-storybook -p 6006",
     "lint": "eslint --ext .mdx ."
   }

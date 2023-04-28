@@ -1,10 +1,26 @@
 import { test, expect } from '@playwright/test';
 import { injectAxe, checkA11y } from 'axe-playwright';
 
+/**
+ * @note
+ * There appears to be an issue with pressing `Tab` on webkit but
+ * also pressing `Alt+Tab` on firefox. Basically it thinks it's
+ * pressed the key, but it hasn't causing the input to not blur.
+ *
+ * Therefore because the "typical" behaviour would be to press
+ * `Tab` we check if we're on Safari and use `Alt+Tab`.
+ */
+
 test.describe.parallel('NumberInput', () => {
   test.describe('light mode', () => {
     test.describe('base', () => {
-      test.beforeEach(async ({ page }) => {
+      let TAB_KEY = 'Tab';
+
+      test.beforeEach(async ({ page, browserName }) => {
+        if (browserName === 'webkit') {
+          TAB_KEY = 'Alt+Tab';
+        }
+
         // This is the URL of the Storybook Iframe
         await page.goto('/iframe.html?id=design-system-components-numberinput--base&viewMode=story');
         await injectAxe(page);
@@ -16,7 +32,7 @@ test.describe.parallel('NumberInput', () => {
 
       test('fills the input when typing valid numeric numbers', async ({ page }) => {
         await page.fill('input', '123.123');
-        await page.keyboard.press('Tab');
+        await page.keyboard.press(TAB_KEY);
 
         const value = await page.$eval('input', (el) => el.value);
         expect(value).toBe('123.123');
@@ -26,7 +42,7 @@ test.describe.parallel('NumberInput', () => {
         page,
       }) => {
         await page.fill('input', '1.23456789');
-        await page.keyboard.press('Tab');
+        await page.keyboard.press(TAB_KEY);
 
         const value = await page.$eval('input', (el) => el.value);
         expect(value).toBe('1.23456789');
@@ -35,7 +51,7 @@ test.describe.parallel('NumberInput', () => {
       test('keeps a scientific number after blur / focus', async ({ page }) => {
         await page.fill('input', '0.00000001');
 
-        await page.keyboard.press('Tab');
+        await page.keyboard.press(TAB_KEY);
         await page.focus('input');
 
         const value = await page.$eval('input', (el) => el.value);
@@ -44,7 +60,7 @@ test.describe.parallel('NumberInput', () => {
 
       test('fills the input when typing a valid numeric and a trailing comma', async ({ page }) => {
         await page.fill('input', '123456,');
-        await page.keyboard.press('Tab');
+        await page.keyboard.press(TAB_KEY);
 
         const value = await page.$eval('input', (el) => el.value);
         expect(value).toBe('123,456');
@@ -54,7 +70,7 @@ test.describe.parallel('NumberInput', () => {
       test('erases the value in the input when pressing backspace', async ({ page }) => {
         await page.fill('input', '-1');
         await page.keyboard.press('Backspace');
-        await page.keyboard.press('Tab');
+        await page.keyboard.press(TAB_KEY);
 
         const value = await page.$eval('input', (el) => el.value);
         expect(value).toBe('');
@@ -65,7 +81,7 @@ test.describe.parallel('NumberInput', () => {
         await page.focus('input');
         await page.fill('input', '1,');
         await page.keyboard.press('ArrowUp');
-        await page.keyboard.press('Tab');
+        await page.keyboard.press(TAB_KEY);
 
         const value = await page.$eval('input', (el) => el.value);
         expect(value).toBe('2');
@@ -75,7 +91,7 @@ test.describe.parallel('NumberInput', () => {
       test('keeps zero/ a falsy value on blur/ focus', async ({ page }) => {
         await page.focus('input');
         await page.fill('input', '0,');
-        await page.keyboard.press('Tab');
+        await page.keyboard.press(TAB_KEY);
         await page.focus('input');
 
         const value = await page.$eval('input', (el) => el.value);
@@ -87,7 +103,7 @@ test.describe.parallel('NumberInput', () => {
       }) => {
         await page.fill('input', '-');
         await page.keyboard.press('ArrowDown');
-        await page.keyboard.press('Tab');
+        await page.keyboard.press(TAB_KEY);
 
         const value = await page.$eval('input', (el) => el.value);
         expect(value).toBe('-1');
@@ -98,7 +114,7 @@ test.describe.parallel('NumberInput', () => {
         await page.focus('input');
         await page.fill('input', '-');
         await page.keyboard.press('ArrowDown');
-        await page.keyboard.press('Tab');
+        await page.keyboard.press(TAB_KEY);
 
         const value = await page.$eval('input', (el) => el.value);
         expect(value).toBe('-1');
@@ -110,7 +126,7 @@ test.describe.parallel('NumberInput', () => {
       }) => {
         await page.fill('input', '-');
         await page.keyboard.press('ArrowUp');
-        await page.keyboard.press('Tab');
+        await page.keyboard.press(TAB_KEY);
 
         const value = await page.$eval('input', (el) => el.value);
         expect(value).toBe('1');

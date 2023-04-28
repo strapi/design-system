@@ -2,29 +2,16 @@ import * as React from 'react';
 
 import { createPortal } from 'react-dom';
 
-export interface PortalProps {
-  children: React.ReactNode;
+import { Box, BoxProps } from '../Box';
+
+export interface PortalProps extends BoxProps<HTMLDivElement> {
+  container?: HTMLElement | null;
 }
 
-export const Portal = ({ children }: PortalProps) => {
-  const rootRef = React.useRef<HTMLDivElement>(null!);
-  const [mounted, setMounted] = React.useState(false);
+export const Portal = React.forwardRef<HTMLDivElement, PortalProps>(
+  ({ container = globalThis?.document?.body, ...portalProps }, forwardedRef) => {
+    return container ? createPortal(<Box ref={forwardedRef} {...portalProps} />, container) : null;
+  },
+);
 
-  React.useLayoutEffect(() => {
-    rootRef.current = document.createElement('div');
-    rootRef.current.setAttribute('data-react-portal', 'true');
-    document.body.appendChild(rootRef.current);
-
-    setMounted(true);
-
-    return () => {
-      rootRef.current?.remove();
-    };
-  }, []);
-
-  if (!mounted || !rootRef.current) {
-    return null;
-  }
-
-  return createPortal(children, rootRef.current);
-};
+Portal.displayName = 'Portal';

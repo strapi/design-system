@@ -28,6 +28,7 @@ export type MultiSelectProps = Omit<SelectParts.MultiSelectProps, 'value' | 'mul
     onChange?: (value: string[]) => void;
     onReachEnd?: (entry: IntersectionObserverEntry) => void;
     /**
+     * @preserve
      * @deprecated This prop is no longer required and will be removed in v2 of the DS.
      * It has no effect on the component.
      */
@@ -113,7 +114,7 @@ export const MultiSelect = ({
     triggerRef.current.focus();
   };
 
-  const intersectionId = `intersection-${generatedId}`;
+  const intersectionId = `intersection-${CSS.escape(generatedId)}`;
 
   const handleReachEnd = (entry: IntersectionObserverEntry) => {
     if (onReachEnd) {
@@ -132,12 +133,16 @@ export const MultiSelect = ({
 
   const value = typeof passedValue !== 'undefined' ? passedValue : internalValue;
 
-  const renderTags = ({ value, textValue }: { value: string; textValue?: string }) => {
-    return (
-      <Tag tabIndex={-1} key={value} disabled={disabled} icon={<Cross />} onClick={handleTagClick(value)}>
-        {textValue}
-      </Tag>
-    );
+  const renderTags: SelectParts.ValueRenderFn = (arg?: { value?: string; textValue?: string } | string) => {
+    if (arg && typeof arg === 'object' && arg.value) {
+      return (
+        <Tag tabIndex={-1} key={arg.value} disabled={disabled} icon={<Cross />} onClick={handleTagClick(arg.value)}>
+          {arg.textValue}
+        </Tag>
+      );
+    }
+
+    return null;
   };
 
   return (

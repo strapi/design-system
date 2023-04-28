@@ -29,7 +29,7 @@ describe('Popover', () => {
     const { container } = render(<Component />, { container: document.body });
 
     expect(container).toMatchInlineSnapshot(`
-      .c0 {
+      .c3 {
         border: 0;
         -webkit-clip: rect(0 0 0 0);
         clip: rect(0 0 0 0);
@@ -41,48 +41,64 @@ describe('Popover', () => {
         width: 1px;
       }
 
-      .c1 {
+      .c0 {
         background: #ffffff;
         padding: 4px;
         border-radius: 4px;
       }
 
-      .c2 {
+      .c1 {
         box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
         z-index: 5;
         border: 1px solid #eaeaef;
         background: #ffffff;
       }
 
-      .c3 {
+      .c2 {
         max-height: 15rem;
         overflow-y: auto;
         overflow-x: hidden;
       }
 
-      .c3::-webkit-scrollbar {
+      .c2::-webkit-scrollbar {
         -webkit-appearance: none;
         width: 4px;
       }
 
-      .c3::-webkit-scrollbar-track {
+      .c2::-webkit-scrollbar-track {
         background: #ffffff;
       }
 
-      .c3::-webkit-scrollbar-thumb {
+      .c2::-webkit-scrollbar-thumb {
         background: #eaeaef;
         border-radius: 4px;
         margin-right: 10px;
       }
 
       <body>
+        <div
+          class=""
+        >
+          <div
+            class="c0 c1"
+            style="position: fixed;"
+          >
+            <div
+              class="c2"
+            >
+              <div>
+                Hello world
+              </div>
+            </div>
+          </div>
+        </div>
         <div>
           <div>
             Source
           </div>
         </div>
         <div
-          class="c0"
+          class="c3"
         >
           <p
             aria-live="polite"
@@ -102,22 +118,6 @@ describe('Popover', () => {
             id="live-region-alert"
             role="alert"
           />
-        </div>
-        <div
-          data-react-portal="true"
-        >
-          <div
-            class="c1 c2"
-            style="position: fixed;"
-          >
-            <div
-              class="c3"
-            >
-              <div>
-                Hello world
-              </div>
-            </div>
-          </div>
         </div>
       </body>
     `);

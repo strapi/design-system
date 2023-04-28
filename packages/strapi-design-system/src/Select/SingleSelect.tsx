@@ -22,6 +22,7 @@ export type SingleSelectProps = Omit<SelectParts.SingleSelectProps, 'value'> &
     onChange?: (value: string | number) => void;
     onReachEnd?: (entry: IntersectionObserverEntry) => void;
     /**
+     * @preserve
      * @deprecated This prop is no longer required and will be removed in v2 of the DS.
      * It has no effect on the component.
      */
@@ -100,7 +101,7 @@ export const SingleSelect = ({
   };
 
   const viewportRef = React.useRef<HTMLDivElement>(null);
-  const intersectionId = `intersection-${generatedId}`;
+  const intersectionId = `intersection-${CSS.escape(generatedId)}`;
 
   const handleReachEnd = (entry: IntersectionObserverEntry) => {
     if (onReachEnd) {

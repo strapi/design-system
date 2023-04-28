@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import computeScrollIntoView from 'compute-scroll-into-view';
+import { compute } from 'compute-scroll-into-view';
 
 import { Flex } from '../Flex';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
@@ -24,6 +24,7 @@ export interface SelectListProps {
 }
 
 /**
+ * @preserve
  * @deprecated This component will be removed in the next major release.
  * If you need a custom listbox I would recommend opening a new issue.
  */
@@ -136,7 +137,7 @@ const changeDescendant = (list, option) => {
   options.forEach((opt) => opt.classList.remove('is-focused'));
   option.classList.add('is-focused');
 
-  const actions = computeScrollIntoView(option, {
+  const actions = compute(option, {
     scrollMode: 'if-needed',
     block: 'nearest',
     inline: 'nearest',

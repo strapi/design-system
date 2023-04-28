@@ -3,6 +3,7 @@ interface ComboboxListProps {
 }
 
 /**
+ * @preserve
  * @deprecated
  * This component was deprecated in 1.6.2. It will be removed in the next major release 2.0.0.
  */

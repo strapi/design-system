@@ -22,6 +22,7 @@ export interface DatePickerProps
   clearLabel?: string;
   onClear?: () => void;
   /**
+   * @preserve
    * @deprecated This is no longer used.
    */
   selectedDateLabel?: (date: string) => string;

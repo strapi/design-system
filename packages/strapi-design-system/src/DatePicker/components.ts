@@ -10,6 +10,7 @@ export const DatePickerPopover = styled(Popover)`
 `;
 
 /**
+ * @preserve
  * @deprecated This component will be removed in the next major version
  */
 export const DatePickerButton = styled.button`
@@ -35,6 +36,7 @@ export const DatePickerWrapper = styled.div<{ bold?: boolean }>`
 `;
 
 /**
+ * @preserve
  * @deprecated This component will be removed in the next major version
  */
 export const IconBox = styled(Box)`

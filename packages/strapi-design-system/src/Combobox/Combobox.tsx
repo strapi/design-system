@@ -119,7 +119,7 @@ export const Combobox = ({
     }
   };
 
-  const intersectionId = `intersection-${generatedId}`;
+  const intersectionId = `intersection-${CSS.escape(generatedId)}`;
 
   const handleReachEnd = (entry: IntersectionObserverEntry) => {
     if (onLoadMore && hasMoreItems && !loading) {

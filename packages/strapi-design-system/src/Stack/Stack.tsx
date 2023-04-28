@@ -45,6 +45,7 @@ export interface StackProps extends FlexProps {
    */
   horizontal?: boolean;
   /**
+   * @preserve
    * @deprecated use `spacing` instead
    * The space between stack item.
    */

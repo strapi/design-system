@@ -33,6 +33,10 @@ export const useIntersection = (
     };
 
     const observer = new IntersectionObserver(onEnterZone, options);
+    /**
+     * @note We need to escape the selector because we use `React.useId` to generate our ids an
+     * they contain `:` which is not a valid selector because it's part of the CSS spec
+     */
     const target = scrollableAreaRef.current.querySelector(selectorToWatch);
 
     if (target) {
