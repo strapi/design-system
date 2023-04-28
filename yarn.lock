@@ -5104,31 +5104,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@strapi/design-system@npm:^1.7.0":
-  version: 1.7.1
-  resolution: "@strapi/design-system@npm:1.7.1"
-  dependencies:
-    "@codemirror/lang-json": ^6.0.1
-    "@floating-ui/react-dom": ^1.3.0
-    "@internationalized/number": ^3.2.0
-    "@radix-ui/react-dismissable-layer": ^1.0.3
-    "@radix-ui/react-dropdown-menu": ^2.0.4
-    "@radix-ui/react-use-callback-ref": ^1.0.0
-    "@strapi/ui-primitives": ^1.7.1
-    "@uiw/react-codemirror": ^4.19.16
-    compute-scroll-into-view: ^3.0.3
-    prop-types: ^15.8.1
-  peerDependencies:
-    "@strapi/icons": ^1.5.0
-    react: ^17.0.0 || ^18.0.0
-    react-dom: ^17.0.0 || ^18.0.0
-    react-router-dom: ^5.2.0
-    styled-components: ^5.2.1
-  checksum: f67f1593b8d8a4252fc8f36c52dc57a8c6ff285647da143e23cc040154c974f8951e6588b19db83aef920e0811ef0a32590513e6a9c008f51164781f7df688b0
-  languageName: node
-  linkType: hard
-
-"@strapi/design-system@workspace:packages/strapi-design-system":
+"@strapi/design-system@^1.7.0, @strapi/design-system@workspace:packages/strapi-design-system":
   version: 0.0.0-use.local
   resolution: "@strapi/design-system@workspace:packages/strapi-design-system"
   dependencies:
@@ -5139,8 +5115,8 @@ __metadata:
     "@radix-ui/react-dismissable-layer": ^1.0.3
     "@radix-ui/react-dropdown-menu": ^2.0.4
     "@radix-ui/react-use-callback-ref": ^1.0.0
-    "@strapi/icons": ^1.7.2-alpha.0
-    "@strapi/ui-primitives": ^1.7.2-alpha.0
+    "@strapi/icons": ^1.7.2
+    "@strapi/ui-primitives": ^1.7.2
     "@types/react-router-dom": ^5.3.3
     "@types/styled-components": ^5.1.26
     "@uiw/react-codemirror": ^4.19.16
@@ -5185,7 +5161,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@strapi/icons@^1.7.2-alpha.0, @strapi/icons@workspace:packages/strapi-icons":
+"@strapi/icons@^1.7.0, @strapi/icons@^1.7.2, @strapi/icons@workspace:packages/strapi-icons":
   version: 0.0.0-use.local
   resolution: "@strapi/icons@workspace:packages/strapi-icons"
   dependencies:
@@ -5196,17 +5172,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@strapi/icons@npm:^1.7.0":
-  version: 1.7.1
-  resolution: "@strapi/icons@npm:1.7.1"
-  peerDependencies:
-    react: ^17.0.0 || ^18.0.0
-    react-dom: ^17.0.0 || ^18.0.0
-  checksum: 7d68d344a59bcf1282f8e17a7b728668249d8428a58ba7fd8042661938f2d4448fd469a4b836c257cafd6369c0ae9bf907e72d701c1cced1ede5b3ca47f3026c
-  languageName: node
-  linkType: hard
-
-"@strapi/ui-primitives@^1.7.2-alpha.0, @strapi/ui-primitives@workspace:packages/primitives":
+"@strapi/ui-primitives@^1.7.0, @strapi/ui-primitives@^1.7.2, @strapi/ui-primitives@workspace:packages/primitives":
   version: 0.0.0-use.local
   resolution: "@strapi/ui-primitives@workspace:packages/primitives"
   dependencies:
@@ -5231,32 +5197,6 @@ __metadata:
     react-dom: ^17.0.0 || ^18.0.0
   languageName: unknown
   linkType: soft
-
-"@strapi/ui-primitives@npm:^1.7.0, @strapi/ui-primitives@npm:^1.7.1":
-  version: 1.7.1
-  resolution: "@strapi/ui-primitives@npm:1.7.1"
-  dependencies:
-    "@radix-ui/number": ^1.0.0
-    "@radix-ui/primitive": ^1.0.0
-    "@radix-ui/react-compose-refs": ^1.0.0
-    "@radix-ui/react-context": ^1.0.0
-    "@radix-ui/react-dismissable-layer": ^1.0.3
-    "@radix-ui/react-id": ^1.0.0
-    "@radix-ui/react-popper": ^1.1.1
-    "@radix-ui/react-portal": ^1.0.2
-    "@radix-ui/react-primitive": ^1.0.2
-    "@radix-ui/react-slot": ^1.0.1
-    "@radix-ui/react-use-controllable-state": ^1.0.0
-    "@radix-ui/react-use-previous": ^1.0.0
-    "@radix-ui/react-visually-hidden": ^1.0.2
-    aria-hidden: ^1.2.3
-    react-remove-scroll: ^2.5.5
-  peerDependencies:
-    react: ^17.0.0 || ^18.0.0
-    react-dom: ^17.0.0 || ^18.0.0
-  checksum: 3204d1341d65b8ae8e9759c50f172f4f17b27df03b79dd7d934225ea8b26c9be35490e3759f3da25644ddde30d5bf6310e5fe93cca8bdd899ec5439591e4f32c
-  languageName: node
-  linkType: hard
 
 "@svgr/babel-plugin-add-jsx-attribute@npm:^7.0.0":
   version: 7.0.0
