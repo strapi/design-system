@@ -4,6 +4,7 @@ import { useFloating, flip, shift, offset, autoUpdate, Placement } from '@floati
 import styled from 'styled-components';
 
 import { Box, BoxProps } from '../Box';
+import { useComposedRefs } from '../hooks/useComposeRefs';
 import { useIntersection } from '../hooks/useIntersection';
 import { Portal } from '../Portal';
 
@@ -29,7 +30,7 @@ const PopoverWrapper = styled(Box)`
   background: ${({ theme }) => theme.colors.neutral0};
 `;
 
-interface ContentProps extends BoxProps<HTMLDivElement> {
+export interface ContentProps extends BoxProps<HTMLDivElement> {
   source: React.MutableRefObject<HTMLElement>;
   placement?: Placement;
   fullWidth?: boolean;
@@ -37,57 +38,56 @@ interface ContentProps extends BoxProps<HTMLDivElement> {
   spacing?: number;
 }
 
-export const Content = ({
-  source,
-  children,
-  spacing = 0,
-  fullWidth = false,
-  placement = 'bottom-start',
-  centered = false,
-  ...props
-}: ContentProps) => {
-  const [width, setWidth] = React.useState<number | undefined>(undefined);
-  const { x, y, reference, floating, strategy } = useFloating({
-    strategy: 'fixed',
-    placement: centered ? 'bottom' : placement,
-    middleware: [
-      offset({
-        mainAxis: spacing,
-      }),
-      shift(),
-      flip(),
-    ],
-    whileElementsMounted: autoUpdate,
-  });
+export const Content = React.forwardRef<HTMLDivElement, ContentProps>(
+  (
+    { source, children, spacing = 0, fullWidth = false, placement = 'bottom-start', centered = false, ...props },
+    forwardedRef,
+  ) => {
+    const [width, setWidth] = React.useState<number | undefined>(undefined);
+    const { x, y, reference, floating, strategy } = useFloating({
+      strategy: 'fixed',
+      placement: centered ? 'bottom' : placement,
+      middleware: [
+        offset({
+          mainAxis: spacing,
+        }),
+        shift(),
+        flip(),
+      ],
+      whileElementsMounted: autoUpdate,
+    });
 
-  React.useLayoutEffect(() => {
-    reference(source.current);
-  }, [source, reference]);
+    React.useLayoutEffect(() => {
+      reference(source.current);
+    }, [source, reference]);
 
-  React.useLayoutEffect(() => {
-    if (fullWidth) {
-      setWidth(source.current.offsetWidth);
-    }
-  }, [fullWidth, source]);
+    React.useLayoutEffect(() => {
+      if (fullWidth) {
+        setWidth(source.current.offsetWidth);
+      }
+    }, [fullWidth, source]);
 
-  return (
-    <PopoverWrapper
-      ref={floating}
-      style={{
-        left: x,
-        top: y,
-        position: strategy,
-        width: width || undefined,
-      }}
-      hasRadius
-      background="neutral0"
-      padding={1}
-      {...props}
-    >
-      {children}
-    </PopoverWrapper>
-  );
-};
+    const composedRefs = useComposedRefs(forwardedRef, floating);
+
+    return (
+      <PopoverWrapper
+        ref={composedRefs}
+        style={{
+          left: x,
+          top: y,
+          position: strategy,
+          width: width || undefined,
+        }}
+        hasRadius
+        background="neutral0"
+        padding={1}
+        {...props}
+      >
+        {children}
+      </PopoverWrapper>
+    );
+  },
+);
 
 export interface ScrollingProps extends BoxProps<HTMLDivElement> {
   intersectionId?: string;

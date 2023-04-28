@@ -1,7 +1,7 @@
 import React, { useRef, useState, Children, cloneElement, useEffect } from 'react';
 
-import { useCallbackRef } from '@radix-ui/react-use-callback-ref';
 import { CarretDown } from '@strapi/icons';
+import { useCallbackRef } from '@strapi/ui-primitives';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { useCallbackRef } from '@radix-ui/react-use-callback-ref';
+import { useCallbackRef } from '@strapi/ui-primitives';
 
 /**
  * this is basically stolen from RadixUI but tweaked to allow the following:
