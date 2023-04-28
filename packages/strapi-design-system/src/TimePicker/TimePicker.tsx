@@ -1,77 +1,82 @@
+import * as React from 'react';
+
 import { Clock } from '@strapi/icons';
 import styled from 'styled-components';
 
+import { ComboboxInput, ComboboxInputProps, Option } from '../Combobox/Combobox';
+import { useDesignSystem } from '../DesignSystemProvider';
+import { Field, FieldError, FieldHint, FieldLabel, FieldProps } from '../Field';
+import { Flex } from '../Flex';
+import { useDateFormatter } from '../hooks/useDateFormatter';
 import { useId } from '../hooks/useId';
-import { SingleSelect, SingleSelectOption, SingleSelectProps } from '../Select/SingleSelect';
 
-export interface TimePickerProps extends Omit<SingleSelectProps, 'children' | 'onChange' | 'value'> {
-  onChange: (value: string) => void;
+/* -------------------------------------------------------------------------------------------------
+ * TimePickerInput
+ * -----------------------------------------------------------------------------------------------*/
+
+export interface TimePickerInputProps
+  extends Omit<ComboboxInputProps, 'children' | 'autocomplete' | 'startIcon' | 'placeholder' | 'allowCustomValue'> {
   /**
    * @default 15
    */
   step?: number;
-  value?: string;
+  /**
+   * @deprecated This is no longer used.
+   */
+  ariaLabel?: string;
+  /**
+   * @preserve
+   * @deprecated This is no longer used.
+   */
+  selectButtonTitle?: string;
 }
 
-export const TimePicker = ({ id, value, step = 15, onChange, ...props }: TimePickerProps) => {
+export const TimePickerInput = ({
+  id,
+  step = 15,
+  /**
+   * @preserve
+   * @deprecated This is no longer used.
+   */
+  ariaLabel: _ariaLabel,
+  /**
+   * @preserve
+   * @deprecated This is no longer used.
+   */
+  selectButtonTitle: _selectButtonTitle,
+  ...restProps
+}: TimePickerInputProps) => {
+  const context = useDesignSystem('TimePicker');
   const generatedId = useId(id);
-  const hoursCount = 24;
-  const times: string[] = [];
-  let min = 0;
 
-  for (let i = 0; i < hoursCount; i++) {
-    min = 0;
+  const formatter = useDateFormatter(context.locale, {
+    hour: '2-digit',
+    minute: '2-digit',
+  });
 
-    while (min < 60) {
-      times.push(`${i < 10 ? `0${i}` : i}:${min < 10 ? `0${min}` : min}`);
-      min += step;
-    }
-  }
+  const timeOptions = React.useMemo(() => {
+    const stepCount = 60 / step;
 
-  // The time picker will select the closest value in the list.
-  // This is a temporary fix.
-  // This whole thing needs refactoring – it's nonsensical.
-  const getClosestValue = () => {
-    const [valueHours, valueMinutes] = value?.split(':') ?? [];
-
-    const hours = times.reduce((prev, curr) => {
-      const [h] = curr.split(':');
-
-      // @ts-expect-error this is gonna be refactored in an upcoming initiative
-      return Math.abs(h - valueHours) < Math.abs(prev - valueHours) ? h : prev;
-    }, times[0].split(':')[0]);
-
-    const minutes = times.reduce((prev, curr) => {
-      const minutes = curr.split(':')[1];
-
-      // @ts-expect-error this is gonna be refactored in an upcoming initiative
-      return Math.abs(minutes - valueMinutes) < Math.abs(prev - valueMinutes) ? minutes : prev;
-    }, times[0].split(':')[1]);
-
-    return `${hours}:${minutes}`;
-  };
-
-  const handleChange = (value: string | number | string[]) => {
-    if (onChange) {
-      onChange(value.toString());
-    }
-  };
+    return [...Array(24).keys()].flatMap((hour) =>
+      [...Array(stepCount).keys()].map((minuteStep) => formatter.format(new Date(0, 0, 0, hour, minuteStep * step))),
+    );
+  }, [step, formatter]);
 
   return (
-    <SingleSelect
-      id={generatedId}
+    <ComboboxInput
+      {...restProps}
+      allowCustomValue
       placeholder="--:--"
-      value={value ? getClosestValue() : undefined}
+      autocomplete="none"
       startIcon={<StyledClock />}
-      onChange={handleChange}
-      {...props}
+      id={generatedId}
     >
-      {times.map((time) => (
-        <SingleSelectOption value={time} key={time}>
+      {timeOptions.map((time) => (
+        <Option key={time} value={time}>
           {time}
-        </SingleSelectOption>
+        </Option>
       ))}
-    </SingleSelect>
+    </ComboboxInput>
   );
 };
 
@@ -83,3 +88,27 @@ const StyledClock = styled(Clock)`
     fill: ${({ theme }) => theme.colors.neutral500};
   }
 `;
+
+/* -------------------------------------------------------------------------------------------------
+ * TimePicker
+ * -----------------------------------------------------------------------------------------------*/
+
+export interface TimePickerProps extends TimePickerInputProps, Pick<FieldProps, 'hint'> {
+  label: string;
+  labelAction?: React.ReactNode;
+}
+
+export const TimePicker = ({ label, error, hint, id, required, labelAction, ...restProps }: TimePickerProps) => {
+  const generatedId = useId(id);
+
+  return (
+    <Field hint={hint} error={error} id={generatedId} required={required}>
+      <Flex direction="column" alignItems="stretch" gap={1}>
+        <FieldLabel action={labelAction}>{label}</FieldLabel>
+        <TimePickerInput id={generatedId} error={error} required={required} {...restProps} />
+        <FieldHint />
+        <FieldError />
+      </Flex>
+    </Field>
+  );
+};

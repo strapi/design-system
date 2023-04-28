@@ -157,7 +157,7 @@ const Combobox: React.FC<RootProps> = (props) => {
   });
   const [textValue, setTextValue] = useControllableState({
     prop: textValueProp,
-    defaultProp: defaultTextValue,
+    defaultProp: allowCustomValue && !defaultTextValue ? valueProp : defaultTextValue,
     onChange: onTextValueChange,
   });
   const [filterValue, setFilterValue] = useControllableState({
@@ -510,6 +510,19 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
             }
           }
         });
+
+        if (context.autocomplete === 'none' && isPrintableCharacter(event.key)) {
+          const value = context.textValue ?? '';
+
+          const nextItem = getItems().find((item) => startsWith(item.textValue, value));
+
+          if (nextItem) {
+            setTimeout(() => {
+              context.onVisuallyFocussedItemChange(nextItem.ref.current);
+              nextItem.ref.current?.scrollIntoView();
+            });
+          }
+        }
       })}
       onBlur={composeEventHandlers(props.onBlur, () => {
         context.onVisuallyFocussedItemChange(null);
@@ -518,18 +531,25 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
           (item) => item.textValue === context.textValue && item.type === 'option',
         );
 
+        if (activeItem) {
+          context.onValueChange(activeItem.value);
+
+          if (context.autocomplete === 'both') {
+            context.onFilterValueChange(activeItem.textValue);
+          }
+
+          return;
+        }
+
         /**
-         * If we allow custom values and there's an active item (which means
-         * we've typed a value that matches an item), we want to update the
-         * value to that item's value.
+         * If we allow custom values and we didn't find an active item
+         * we just want to set it to the text value.
          */
         if (context.allowCustomValue) {
-          if (activeItem) {
-            context.onValueChange(activeItem.value);
+          context.onValueChange(context.textValue);
 
-            if (context.autocomplete === 'both') {
-              context.onFilterValueChange(activeItem.textValue);
-            }
+          if (context.autocomplete === 'both') {
+            context.onFilterValueChange(context.textValue);
           }
 
           return;
@@ -546,9 +566,7 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
          * an item, we want to clear the value.
          */
 
-        if (activeItem) {
-          context.onValueChange(activeItem.value);
-        } else if (previousItem && context.textValue !== '') {
+        if (previousItem && context.textValue !== '') {
           context.onTextValueChange(previousItem.textValue);
 
           if (context.autocomplete === 'both') {

@@ -324,7 +324,8 @@ describe('Combobox', () => {
     });
 
     it('should not control the value strictly if `allowCustomValue` is true', async () => {
-      const { getByRole, user } = render({ allowCustomValue: true });
+      const onValueChangeMock = jest.fn();
+      const { getByRole, user } = render({ allowCustomValue: true, onValueChange: onValueChangeMock });
 
       await user.click(getByRole('combobox'));
 
@@ -338,6 +339,11 @@ describe('Combobox', () => {
       await user.tab();
 
       expect(getByRole('combobox')).toHaveValue('apples');
+
+      /**
+       * window blur events aren't called...
+       */
+      // expect(onValueChangeMock).toHaveBeenCalledWith('apples');
     });
   });
 
