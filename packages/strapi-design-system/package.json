@@ -28,7 +28,8 @@
     "@strapi/ui-primitives": "^1.7.2",
     "@uiw/react-codemirror": "^4.19.16",
     "compute-scroll-into-view": "^3.0.3",
-    "prop-types": "^15.8.1"
+    "prop-types": "^15.8.1",
+    "react-remove-scroll": "^2.5.5"
   },
   "devDependencies": {
     "@playwright/test": "1.33.0",

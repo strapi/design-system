@@ -1,6 +1,6 @@
 import { MutableRefObject, useEffect } from 'react';
 
-import { useCallbackRef } from '@radix-ui/react-use-callback-ref';
+import { useCallbackRef } from '@strapi/ui-primitives';
 
 interface UseIntersectionOptions {
   selectorToWatch: string;
