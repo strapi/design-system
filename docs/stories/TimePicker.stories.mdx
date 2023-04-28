@@ -1,163 +1,89 @@
 import { useState } from 'react';
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { TimePicker, Box, Typography } from '@strapi/design-system';
+import { TimePicker, Box, Typography, Flex, Button } from '@strapi/design-system';
 
 <Meta title="Design System/Components/TimePicker" component={TimePicker} />
 
 # TimePicker
 
-Time pickers help users selecting a specific timeslot from a suggested timetable. They can be associated to a Date
-picker component.
+A `TimePicker` is used to select a specific time. The input is modelled around the `Combobox` ARIA pattern with a `listbox`
+option menu that can be navigated with your keyboard. The returned value is a `string` _not_ a `Date`.
 
-**Best practices**
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/TimePicker)
 
-- It is not possible to write a timeslot from the keyboard.
-- It is not possible to change the time format.
-- The PopOver closes after selecting a timeslot.
-- A Time picker can used simultaneously with a Date picker in a form.
-- One single format of time is currently available, which is a 24-hour one.
-- The Time picker is built on top on a Field component.
-  [View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/TimePicker)
-
-## Imports
+## Usage
 
 ```js
 import { TimePicker } from '@strapi/design-system';
 ```
 
-## Usage
-
-Use the Time picker component whenever a specific time needs to be scheduled or indicated. It is only possible to select
-one single timeslot.
+### Basic Usage
 
 <Canvas>
   <Story name="base">
     {() => {
       const [value, setValue] = useState();
+      const [error, toggleError] = useState();
+      const [disabled, toggleDisabled] = useState();
+      const handleChange = (value) => {
+        console.log(value);
+        setValue(value);
+      };
       return (
-        <TimePicker
-          label="Choose a time"
-          disabled={false}
-          error={undefined}
-          hint="Description line"
-          id="tp-1"
-          onClear={() => setValue(undefined)}
-          onChange={setValue}
-          value={value}
-          clearLabel={'Clear the selected time picker value'}
-          selectButtonTitle={'Select time button'}
-        />
+        <Flex direction="column" alignItems="center" gap={11}>
+          <TimePicker
+            label="Lunchtime"
+            onClear={() => setValue(undefined)}
+            onChange={handleChange}
+            value={value}
+            error={error}
+            disabled={disabled}
+          />
+          <Flex gap={2}>
+            <Button
+              variant="danger-light"
+              onClick={() => toggleError((s) => (s ? undefined : 'Oh no, the fruits have gone mouldy!'))}
+            >
+              {`${error ? 'Hide' : 'Show'} the error state`}
+            </Button>
+            <Button variant="tertiary" onClick={() => toggleDisabled((s) => !s)}>
+              {`${disabled ? 'Hide' : 'Show'} the disabled state`}
+            </Button>
+          </Flex>
+        </Flex>
       );
     }}
   </Story>
 </Canvas>
 
-### TimePicker 30 mns steps
+### Changing the option steps
 
-The unit of the Time Picker can be modified by changing the `step` parameter.
+The pre-determined list of options for the Time Picker can be modified by changing the `step` parameter.
 
 <Canvas>
-  <Story name="30-mns-step">
+  <Story name="steps">
     {() => {
       const [value, setValue] = useState();
-      return (
-        <TimePicker
-          step={30}
-          label="Choose a time"
-          disabled={false}
-          error={undefined}
-          hint="Description line"
-          id="tp-1"
-          onClear={() => setValue(undefined)}
-          onChange={setValue}
-          value={value}
-          clearLabel={'Clear the selected time picker value'}
-          selectButtonTitle={'Select time button'}
-        />
-      );
+      return <TimePicker step={60} label="Lunch hour" onChange={setValue} value={value} />;
     }}
   </Story>
 </Canvas>
 
-### Initial data
+### Input size
 
-TODO
-
-<Canvas>
-  <Story name="initial-data">
-    {() => {
-      const [value, setValue] = useState('13:32:45');
-      return (
-        <>
-          <Typography>Initial value : {value}</Typography>
-          <Box paddingTop={2}>
-            <TimePicker
-              step={1}
-              label="Choose a time"
-              disabled={false}
-              error={undefined}
-              hint="Description line"
-              id="tp-1"
-              onClear={() => setValue(undefined)}
-              onChange={setValue}
-              value={value}
-              clearLabel={'Clear the selected time picker value'}
-              selectButtonTitle={'Select time button'}
-            />
-          </Box>
-        </>
-      );
-    }}
-  </Story>
-</Canvas>
-
-### Size S
-
-TODO
+As with most inputs, we offer the ability to change the `size`.
 
 <Canvas>
-  <Story name="size S">
+  <Story name="sizing">
     {() => {
-      const [value, setValue] = useState();
+      const [size, setSize] = useState('S');
       return (
-        <TimePicker
-          step={30}
-          label="Choose a time"
-          disabled={false}
-          error={undefined}
-          hint="Description line"
-          id="tp-1"
-          size="S"
-          onClear={() => setValue(undefined)}
-          onChange={setValue}
-          value={value}
-          clearLabel={'Clear the selected time picker value'}
-          selectButtonTitle={'Select time button'}
-        />
-      );
-    }}
-  </Story>
-</Canvas>
-
-### Disabled
-
-<Canvas>
-  <Story name="disabled">
-    {() => {
-      const [value, setValue] = useState();
-      return (
-        <TimePicker
-          label="Choose a time"
-          disabled
-          error={undefined}
-          hint="Description line"
-          id="tp-1"
-          onClear={() => setValue(undefined)}
-          onChange={setValue}
-          value={value}
-          clearLabel={'Clear the selected time picker value'}
-          selectButtonTitle={'Select time button'}
-        />
+        <Flex direction="column" alignItems="center" gap={11}>
+          <TimePicker required size={size} label={size === 'S' ? 'Small date picker' : 'Medium date picker'} />
+          <Button variant="primary" onClick={() => setSize((s) => (s === 'S' ? 'M' : 'S'))}>
+            {size === 'S' ? `Show medium size` : `Show small size`}
+          </Button>
+        </Flex>
       );
     }}
   </Story>

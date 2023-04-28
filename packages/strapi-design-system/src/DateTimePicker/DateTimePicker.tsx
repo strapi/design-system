@@ -1,8 +1,3 @@
-/**
- * TODO: refactor this to only use the Inputs and not the whole DatePicker and TimePicker
- * this way the underlying Field components aren't complaining and the inputs _should_
- * not require error and hint being passed.
- */
 import { ReactNode } from 'react';
 
 import { DatePickerInput, DatePickerInputProps } from '../DatePicker/DatePicker';
@@ -10,7 +5,7 @@ import { Field, FieldHint, FieldLabel, FieldError, FieldProps } from '../Field';
 import { Flex } from '../Flex';
 import { useControllableState } from '../hooks/useControllableState';
 import { useId } from '../hooks/useId';
-import { TimePicker, TimePickerProps } from '../TimePicker';
+import { TimePickerInput, TimePickerProps } from '../TimePicker';
 
 export interface DateTimePickerProps
   extends Omit<DatePickerInputProps, 'value' | 'step' | 'onChange' | 'error'>,
@@ -48,7 +43,11 @@ export const DateTimePicker = ({
   onClear,
   name,
   required = false,
-  selectButtonTitle = 'select',
+  /**
+   * @preserve
+   * @deprecated This is no longer used.
+   */
+  selectButtonTitle: _selectButtonTitle,
   size = 'M',
   step = 1,
   value,
@@ -129,12 +128,10 @@ export const DateTimePicker = ({
             id={generatedId}
             {...props}
           />
-          {/* @ts-expect-error label should be required here and we should refactor TimePicker */}
-          <TimePicker
+          <TimePickerInput
             size={size}
             aria-label={label || ariaLabel}
             error={typeof error === 'string'}
-            hint={typeof hint === 'string'}
             value={timeValue}
             onChange={handleTimeChange}
             /**
@@ -144,7 +141,6 @@ export const DateTimePicker = ({
             onClear={timeValue !== undefined && timeValue !== '0:0:0' ? handleTimeClear : undefined}
             clearLabel={`${clearLabel} time`}
             required={required}
-            selectButtonTitle={selectButtonTitle}
             disabled={disabled}
             step={step}
             id={generatedId}
