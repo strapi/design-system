@@ -4,7 +4,9 @@ import { DatePicker, DatePickerProps } from '../DatePicker';
 
 const Component = (props: Partial<DatePickerProps>) => <DatePicker locale="en-EN" label="date picker" {...props} />;
 
-const render = (props?: Partial<DatePickerProps>) => renderRTL(<Component {...props} />);
+const render = (props?: Partial<DatePickerProps>) => ({
+  ...renderRTL(<Component {...props} />),
+});
 
 describe('DatePicker', () => {
   describe('Input', () => {
