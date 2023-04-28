@@ -32,6 +32,7 @@ export default defineConfig(async () => {
         output: {
           dir: 'dist',
           preserveModules: true,
+          interop: 'auto',
         },
         plugins: [typescript()],
       },
