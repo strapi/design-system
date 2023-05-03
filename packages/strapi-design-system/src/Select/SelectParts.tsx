@@ -62,7 +62,7 @@ const SelectTrigger = React.forwardRef<HTMLSpanElement, TriggerProps>(
           width="100%"
           {...restProps}
         >
-          <Flex flex="1" as="span" gap={4}>
+          <Flex flex="1" as="span" gap={3}>
             {/* TODO: make this composable in v2 – <Select.Icon /> */}
             {startIcon && (
               <Box as="span" aria-hidden>
