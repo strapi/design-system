@@ -19,6 +19,7 @@ export interface ComboboxProps {
   clearLabel?: string;
   creatable?: boolean;
   createMessage?: (inputValue: string) => string;
+  defaultTextValue?: string;
   disabled?: boolean;
   error?: string;
   hasMoreItems?: boolean;
@@ -36,7 +37,7 @@ export interface ComboboxProps {
   onLoadMore?: (entry: IntersectionObserverEntry) => void;
   placeholder?: string;
   required?: boolean;
-  defaultTextValue?: string;
+  startIcon?: React.ReactNode;
   textValue?: string;
   value?: string;
 }
@@ -46,6 +47,7 @@ export const Combobox = ({
   clearLabel = 'clear',
   creatable = false,
   createMessage = (value) => `Create "${value}"`,
+  defaultTextValue,
   disabled = false,
   error,
   hasMoreItems = false,
@@ -63,7 +65,7 @@ export const Combobox = ({
   onLoadMore,
   placeholder = 'Select or enter a value',
   required = false,
-  defaultTextValue,
+  startIcon,
   textValue,
   value,
 }: ComboboxProps) => {
@@ -163,14 +165,21 @@ export const Combobox = ({
           onFilterValueChange={handleFilterValueChange}
         >
           <Trigger $hasError={Boolean(error)}>
-            <TextInput
-              placeholder={placeholder}
-              id={generatedId}
-              aria-invalid={Boolean(error)}
-              aria-labelledby={`${hintId} ${errorId}`}
-              onChange={handleInputChange}
-              ref={triggerRef}
-            />
+            <Flex flex="1" as="span" gap={3}>
+              {startIcon ? (
+                <Box as="span" aria-hidden>
+                  {startIcon}
+                </Box>
+              ) : null}
+              <TextInput
+                placeholder={placeholder}
+                id={generatedId}
+                aria-invalid={Boolean(error)}
+                aria-labelledby={`${hintId} ${errorId}`}
+                onChange={handleInputChange}
+                ref={triggerRef}
+              />
+            </Flex>
             <Flex as="span" gap={3}>
               {internalTextValue && onClear ? (
                 <IconBox
