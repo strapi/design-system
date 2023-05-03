@@ -26,13 +26,14 @@ The popover can be centered relatively to their triggering element.
     {() => {
       const [visible, setVisible] = useState(false);
       const buttonRef = useRef();
+      const handleClose = () => setVisible(false);
       return (
         <div style={{ marginLeft: '200px' }}>
           <button ref={buttonRef} onClick={() => setVisible((s) => !s)}>
             <Typography>Open popover</Typography>
           </button>
           {visible && (
-            <Popover centered source={buttonRef} spacing={16}>
+            <Popover centered source={buttonRef} spacing={16} onClose={handleClose}>
               <ul style={{ width: '200px' }}>
                 {Array(15)
                   .fill(null)
@@ -57,13 +58,14 @@ The popover can be centered relatively to their triggering element.
     {() => {
       const [visible, setVisible] = useState(false);
       const buttonRef = useRef();
+      const handleClose = () => setVisible(false);
       return (
         <Box padding={10}>
           <button ref={buttonRef} onClick={() => setVisible((s) => !s)}>
             <Typography>Open popover</Typography>
           </button>
           {visible && (
-            <Popover source={buttonRef} fullWidth spacing={16}>
+            <Popover source={buttonRef} fullWidth spacing={16} onClose={handleClose}>
               <ul style={{ width: '200px' }}>
                 {Array(15)
                   .fill(null)
@@ -91,6 +93,7 @@ You can define an action to be performed when the end of the popover is reached.
       const [visible, setVisible] = useState(false);
       const [items, setItems] = useState(Array(10).fill(null));
       const buttonRef = useRef();
+      const handleClose = () => setVisible(false);
       return (
         <Box padding={10}>
           <button id="popover1" ref={buttonRef} onClick={() => setVisible((s) => !s)}>
@@ -103,6 +106,7 @@ You can define an action to be performed when the end of the popover is reached.
               id="on-reach-end"
               intersectionId="test-123"
               onReachEnd={() => setItems(Array(15).fill(null))}
+              onClose={handleClose}
             >
               <ul style={{ width: '200px' }} id="list" tabIndex={-1}>
                 {items.map((_, index) => (
@@ -128,6 +132,7 @@ The popover will overflow over other elements.
     {() => {
       const [visible, setVisible] = useState(false);
       const buttonRef = useRef();
+      const handleClose = () => setVisible(false);
       return (
         <div style={{ height: '20vh' }}>
           <div style={{ position: 'absolute', bottom: 40, right: 20 }}>
@@ -136,7 +141,7 @@ The popover will overflow over other elements.
                 <Typography>Open popover</Typography>
               </button>
               {visible && (
-                <Popover centered source={buttonRef} spacing={16}>
+                <Popover centered source={buttonRef} spacing={16} onClose={handleClose}>
                   <ul style={{ width: '200px' }}>
                     {Array(15)
                       .fill(null)

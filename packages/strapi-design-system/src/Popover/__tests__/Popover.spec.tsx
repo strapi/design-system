@@ -152,4 +152,43 @@ describe('Popover', () => {
 
     expect(screen.getByText('Hello world')).toBeVisible();
   });
+
+  it('should close the popover when clicked outside', () => {
+    const onClose = jest.fn();
+
+    const Component = () => {
+      const sourceRef = React.useRef<HTMLButtonElement>(null!);
+      const [isVisible, setIsVisible] = React.useState(false);
+
+      return (
+        <ThemeProvider theme={lightTheme}>
+          <div>
+            <button type="button" ref={sourceRef} onClick={() => setIsVisible((s) => !s)}>
+              Source
+            </button>
+            {isVisible && (
+              <Popover source={sourceRef} onClose={onClose}>
+                <div>Hello world</div>
+              </Popover>
+            )}
+          </div>
+        </ThemeProvider>
+      );
+    };
+
+    render(<Component />, { container: document.body });
+
+    const outsideElement = document.createElement('div');
+    document.body.appendChild(outsideElement);
+
+    fireEvent.click(screen.getByText('Source'));
+    expect(screen.getByText('Hello world')).toBeVisible();
+    expect(onClose).toHaveBeenCalledTimes(0);
+
+    fireEvent.click(outsideElement);
+
+    expect(onClose).toHaveBeenCalledTimes(1);
+    expect(onClose).toHaveBeenCalledWith('clickOutSide');
+    document.body.removeChild(outsideElement);
+  });
 });

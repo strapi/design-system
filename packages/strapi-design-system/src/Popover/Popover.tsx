@@ -137,11 +137,44 @@ const PopoverScrollable = styled(Box)`
   }
 `;
 
-type PopoverProps = ScrollingProps & Pick<ContentProps, 'source' | 'spacing' | 'fullWidth' | 'placement' | 'centered'>;
+type PopverCloseReasons = 'clickOutSide';
 
-export const Popover = ({ children, source, spacing, fullWidth, placement, centered, ...restProps }: PopoverProps) => {
+type PopoverProps = ScrollingProps &
+  Pick<ContentProps, 'source' | 'spacing' | 'fullWidth' | 'placement' | 'centered'> & {
+    onClose?: (reason: PopverCloseReasons) => void;
+  };
+
+export const Popover = ({
+  children,
+  source,
+  spacing,
+  fullWidth,
+  placement,
+  centered,
+  onClose,
+  ...restProps
+}: PopoverProps) => {
+  const containerRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    if (!onClose) {
+      return;
+    }
+    const handleOutsideClick = (e: MouseEvent) => {
+      const targetNode = e.target as Node;
+
+      if (!containerRef.current?.contains(targetNode) && !source.current.contains(targetNode)) {
+        onClose('clickOutSide');
+      }
+    };
+
+    window.addEventListener('click', handleOutsideClick);
+
+    return () => window.removeEventListener('click', handleOutsideClick);
+  }, [onClose, source]);
+
   return (
-    <Portal>
+    <Portal ref={containerRef}>
       <Content source={source} spacing={spacing} fullWidth={fullWidth} placement={placement} centered={centered}>
         <Scrolling {...restProps}>{children}</Scrolling>
       </Content>
