@@ -1,6 +1,16 @@
-import { create } from '@storybook/theming/create';
+import { create, ThemeVars } from '@storybook/theming';
 
-export const createCustomTheme = ({ theme, options = {}, asStorybookTheme = true }) => {
+export const createCustomTheme = <TStorybookTheme extends boolean = true>({
+  theme,
+  options = {
+    base: 'light',
+  },
+  asStorybookTheme,
+}: {
+  theme: any;
+  options?: ThemeVars;
+  asStorybookTheme?: TStorybookTheme;
+}): TStorybookTheme extends true ? ThemeVars : object => {
   const themeValue = {
     // UI
     appBg: theme.colors.neutral100,

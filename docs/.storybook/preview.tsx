@@ -1,10 +1,19 @@
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
-
 import { VisuallyHidden, Box, darkTheme, lightTheme } from '@strapi/design-system';
 
 import { createCustomTheme } from './utils/createCustomTheme';
 import Theme from './components/Theme';
+
+const dark = createCustomTheme({
+  theme: darkTheme,
+  options: {
+    base: 'dark',
+  },
+  asStorybookTheme: false,
+});
+
+const light = createCustomTheme({ theme: lightTheme, asStorybookTheme: false });
 
 export const parameters = {
   options: {
@@ -15,9 +24,9 @@ export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   darkMode: {
     // Override the default dark theme
-    dark: createCustomTheme({ theme: darkTheme, asStorybookTheme: false }),
+    dark,
     // Override the default light theme
-    light: createCustomTheme({ theme: lightTheme, asStorybookTheme: false }),
+    light,
   },
 };
 

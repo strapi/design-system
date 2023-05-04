@@ -17,7 +17,7 @@ const Theme = ({ children }) => {
 
   return (
     <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
-      <Box padding={2} background="neutral0">
+      <Box flex="1 0 100%" padding={2} background="neutral0">
         {children}
       </Box>
     </ThemeProvider>

@@ -19,10 +19,5 @@
     "jsx": "react-jsx",
     "types": ["vite/client"]
   },
-  "include": ["stories", ".storybook", "components"],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    }
-  ]
+  "include": ["stories", ".storybook", "components"]
 }
