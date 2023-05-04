@@ -46,6 +46,8 @@ jobs:
 
       - run: yarn install
 
+      - run: yarn build --ignore=@strapi/design-system-docs
+
       - name: Run lint
         run: yarn lint
 
@@ -91,14 +93,10 @@ jobs:
       - run: yarn install
 
       - name: Install Playwright
-        run: npx playwright@1.35.1 install
+        run: npx playwright@1.37.0 install
 
       - name: Build
         run: yarn build
-
-      - name: Start storybook
-        working-directory: ./docs/storybook-static
-        run: yarn add -D http-server && yarn http-server -p 6006 &
 
       - name: Run the tests
         run: yarn test:e2e:ci -- --project=${{ matrix.browser }}

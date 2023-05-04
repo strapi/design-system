@@ -1,12 +1,11 @@
 import { test, expect } from '@playwright/test';
-import { injectAxe, checkA11y } from 'axe-playwright';
+import { navigateToStory } from '@test/e2e';
+import { checkA11y } from 'axe-playwright';
 
 test.describe.parallel('FocusTrap', () => {
   test.describe('light mode', () => {
     test.beforeEach(async ({ page }) => {
-      // This is the URL of the Storybook Iframe
-      await page.goto('/iframe.html?id=design-system-technical-components-focustrap--base&viewMode=story');
-      await injectAxe(page);
+      await navigateToStory(page, 'design-system-technical-components-focustrap--base');
     });
 
     test.beforeEach(async ({ page }) => {
@@ -116,9 +115,7 @@ test.describe.parallel('FocusTrap', () => {
 
   test.describe('dark mode', () => {
     test('triggers axe on the document', async ({ page }) => {
-      // This is the URL of the Storybook Iframe
-      await page.goto('/iframe.html?id=design-system-technical-components-focustrap--base&viewMode=story&theme=dark');
-      await injectAxe(page);
+      await navigateToStory(page, 'design-system-technical-components-focustrap--base', { isDarkMode: true });
       await checkA11y(page);
     });
   });

@@ -1,0 +1,30 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
+import { BaseRadio } from '@strapi/design-system';
+
+import * as BaseRadioStories from './BaseRadio.stories';
+
+<Meta of={BaseRadioStories} />
+
+## Imports
+
+```js
+import { BaseRadio } from '@strapi/design-system';
+```
+
+# BaseRadio
+
+The `BaseRadio` component is the basis of the `Radio` component.
+
+## Usage
+
+<Canvas of={BaseRadioStories.Base} />
+
+## Disabled
+
+The BaseButton can be disabled.
+
+<Canvas of={BaseRadioStories.Disabled} />
+
+## Props
+
+<ArgsTable of={BaseRadio} />

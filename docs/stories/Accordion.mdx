@@ -1,0 +1,62 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
+import { Accordion, AccordionGroup, AccordionToggle } from '@strapi/design-system';
+
+import * as AccordionStories from './Accordion.stories';
+
+<Meta of={AccordionStories} />
+
+# Accordion
+
+Accordions are collapsable blocks that vertically hide a stack of content. Clicking on the block reveals the associated
+content.
+
+**Best practices**
+
+- Use accordion when you need big and/or related chunks of content to be organized in a same place.
+- Use accordion for lower priority information.
+- Use to shorten pages and increase readability.
+- The chevron icon pointing down indicates a collapsed state and pointing up indicates an expanded state.
+- Hover and active states should be used anytime it's possible.
+- Content should not scroll within an accordion.
+- Use chevron icon on the left side if call-to-actions are available on the right side.
+
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Accordion)
+
+## Imports
+
+```js
+import { Accordion, AccordionToggle, AccordionContent, AccordionGroup } from '@strapi/design-system';
+```
+
+## Usage
+
+<Canvas of={AccordionStories.Base} />
+
+## AccordionGroup
+
+<Canvas of={AccordionStories.Group} />
+
+## Accordion keyboard navigable
+
+The accordion component has two main states: collapsed and expanded. By default it has a collapsed state. If
+Call-to-actions are required, use them on the right side and use chevron icon on the left one.
+
+<Canvas of={AccordionStories.Keyboard} />
+
+## Accordion expanded
+
+The Accordion component can also be open by default using the parameter `expanded={true}`.
+
+<Canvas of={AccordionStories.Expanded} />
+
+## Accordion props
+
+<ArgsTable of={Accordion} />
+
+## AccordionGroup props
+
+<ArgsTable of={AccordionGroup} />
+
+## AccordionToggle props
+
+<ArgsTable of={AccordionToggle} />

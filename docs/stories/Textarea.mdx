@@ -1,0 +1,60 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
+import { Textarea } from '@strapi/design-system';
+
+import * as TextareaStories from './Textarea.stories';
+
+<Meta of={TextareaStories} />
+
+# Textarea
+
+TextAreas are inputs that allow users to add or edit text. They support long text formats.
+
+**Best practices**
+
+- Icons are always on the right side within the input (writing area) itself, never on the left side.
+- Labels should be clear and concise. A few words only and without punctuation.
+- Use description line as a help to give more details about the required action.
+- Make sure to use the placeholder feature whenever clarification are helpful on how to use the input.
+- Make sure to use to define the input as required whenever it is absolutely mandatory.
+- The error message will replace the description line. The two of them cannot be on top of each other.
+- The error message can be customized, make sure to write actionable information within it to help resolve an issue.
+
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Textarea)
+
+## Imports
+
+```js
+import { Textarea } from '@strapi/design-system';
+```
+
+## Usage
+
+`Textarea` can be found in forms. It allows user to enter a sizeable amount of free-form text.
+
+### Textarea base
+
+In addition of plain text, `Textarea` can also include a placeholder and a description line.
+
+<Canvas of={TextareaStories.Base} />
+
+### Error state
+
+`Textarea` can display an error. The error message is customizable and replaces the description line below the input.
+
+<Canvas of={TextareaStories.Error} />
+
+### Disabled state
+
+Depending on the permissions a user have or the status of an action, a `Textarea` can be unreachable or unavailable yet.
+
+<Canvas of={TextareaStories.Disabled} />
+
+### Required state
+
+`Textarea` can be required. The required state will appear with a red asterisk beside the label.
+
+<Canvas of={TextareaStories.Required} />
+
+## Props
+
+<ArgsTable of={Textarea} />

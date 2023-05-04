@@ -1,0 +1,72 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
+import { FieldLabel, FieldHint, FieldError, FieldInput, FieldAction, Field } from '@strapi/design-system';
+
+import * as FieldStories from './Field.stories';
+
+<Meta of={FieldStories} />
+
+# Field
+
+Fields are commonly text based inputs that allow users to add or edit text. If you use the `FieldInput`
+component you can use the `type` prop to change the input type. The component in design is composable,
+so you can arrange and style the pieces as you wish to fit your use case.
+
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Field)
+
+## Usage
+
+```js
+import { Field, FieldLabel, FieldHint, FieldError, FieldInput, FieldAction } from '@strapi/design-system';
+```
+
+### Basic Usage
+
+In it's most basic form, the Field component is composed of a label and an input wrapped in the Field component.
+
+<Canvas of={FieldStories.Base} />
+
+### Adding a hint
+
+Some fields are better with a hint for the user. This can be done by passing `hint` to the Field component and
+then rendering the `FieldHint` component. `hint` can be of type `string | ReactNode`.
+
+<Canvas of={FieldStories.WithDescription} />
+
+## Handling errors
+
+If you want to use custom UI for your field validations you can pass the error to the Field component either as a `string | boolean`.
+You'll notice how the hint no longer renders. This is by design.
+
+<Canvas of={FieldStories.WithError} />
+
+### Adding actions to the field
+
+In certain cases e.g. passwords, you may want to add actions inside the field input.
+
+<Canvas of={FieldStories.AddingActions} />
+
+## Props
+
+### Field
+
+<ArgsTable of={Field} />
+
+### FieldLabel
+
+<ArgsTable of={FieldLabel} />
+
+### FieldInput
+
+<ArgsTable of={FieldInput} />
+
+### FieldAction
+
+<ArgsTable of={FieldAction} />
+
+### FieldHint
+
+<ArgsTable of={FieldHint} />
+
+### FieldError
+
+<ArgsTable of={FieldError} />

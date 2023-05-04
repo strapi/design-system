@@ -1,0 +1,75 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
+import { Combobox, CreatableCombobox, ComboboxOption } from '@strapi/design-system';
+
+import * as ComboboxStories from './Combobox.stories';
+
+<Meta of={ComboboxStories} />
+
+# Combobox
+
+An input field designed to not only offer users the ability to type the value they want,
+but also display a panel of suggestions which filter & autocomplete as the user types for a
+more fluid experience. This shouldn't be confused with the [`Select`](/docs/design-system-components-select--basic)
+component!
+
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Combobox)
+
+## Usage
+
+```js
+import { Combobox, ComboboxOption, CreatableCombobox } from '@strapi/design-system';
+```
+
+### Basic Usage
+
+By default, the combobox is uncontrolled & uses both inline and list autocomplete, that is where as the user types suggestions
+(based on the order of the options) are shown in the input field whilst the list gradually gets filtered.
+
+<Canvas of={ComboboxStories.Basic} />
+
+### Controlled
+
+The combobox can be a controlled component by passing a `value` prop and an `onChange` callback, this also
+enables you to have the ability to "clear" the input.
+
+<Canvas of={ComboboxStories.Controlled} />
+
+### Async data
+
+In some situations it might not be optimal to load all the data at once. In this case,
+you can use the `loading` prop to load more data when the user scrolls to the bottom of the list.
+
+NOTE! You also need to supply an `onLoadMore` callback as well as defining if `hasMoreItems`
+is true to show the spinner. In future iterations, we plan to omit the `hasMoreItems` prop.
+
+<Canvas of={ComboboxStories.Loading} />
+
+### Creating new options
+
+If you want to allow users to create new options, you can use the `CreatableCombobox` component. This is
+just a wrapper around the `Combobox` component that pre-flags the `creatable` prop as `true`. You should
+still pass an `onCreateOption` callback to handle the creation of the new option.
+
+<Canvas of={ComboboxStories.Creatable} />
+
+### Autocomplete settings
+
+By default, the combobox uses both inline and list autocomplete, however you can change this behaviour
+to only be `list` or `none`. If you set the autocomplete mode to `none`, the first matching option will
+be visually focussed
+
+<Canvas of={ComboboxStories.Autocomplete} />
+
+## Props
+
+### Combobox
+
+<ArgsTable of={Combobox} />
+
+### ComboboxOption
+
+<ArgsTable of={ComboboxOption} />
+
+### CreatableCombobox
+
+<ArgsTable of={CreatableCombobox} />

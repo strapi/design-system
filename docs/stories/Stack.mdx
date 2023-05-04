@@ -1,0 +1,38 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
+import { Stack } from '@strapi/design-system';
+
+import { DeprecationNotice } from '../components/DeprecationNotice';
+
+import * as StackStories from './Stack.stories';
+
+<Meta of={StackStories} />
+
+# Stack
+
+<DeprecationNotice href="/?path=/docs/design-system-technical-components-flex--base">Flex</DeprecationNotice>
+
+## Imports
+
+```js
+import { Stack } from '@strapi/design-system';
+```
+
+## Usage
+
+Add vertical spacing between direct child: it allows not to have to deal with `margin-top` and `margin-bottom` anymore.
+
+<Canvas of={StackStories.Base} />
+
+### Stack
+
+Add vertical spacing between direct child: it allows not to have to deal with `margin-top` and `margin-bottom` anymore.
+
+<Canvas of={StackStories.Horizontal} />
+
+## Props
+
+The Stack component wraps all its children in the
+(Box)\[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base]
+component, so you can pass all Box props to change its style.
+
+<ArgsTable of={Stack} />

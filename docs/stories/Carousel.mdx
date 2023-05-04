@@ -1,0 +1,46 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
+import { CarouselInput } from '@strapi/design-system';
+
+import * as CarouselStories from './Carousel.stories';
+
+<Meta of={CarouselStories} />
+
+# CarouselInput
+
+Carousels are slideshow components for navigating through a set of assets.
+
+**Best practices**
+
+- Carousels should be mostly used in forms.
+- Carousels can also be used to display only one asset.
+- The end of a CarouselInput label should indicate the amount of included assets.
+- A set of actions is possible via Icon Buttons within a CarouselInput.
+- Carousels should at least give the possibility to remove an asset from it.
+- Carousels don't have any caption but can have a description line.
+
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/CarouselInput)
+
+## Imports
+
+```js
+import { CarouselInput, CarouselSlide, CarouselImage, CarouselActions } from '@strapi/design-system';
+```
+
+## Usage
+
+A CarouselInput is mostly used in forms. Thanks to their navigational arrows they allow to easily switch from an asset
+to another. It has an infinite loop. A set of actions is possible via Icon Buttons within a CarouselInput.
+
+<Canvas of={CarouselStories.Base} />
+
+<Canvas of={CarouselStories.OneSlideOnly} />
+
+<Canvas of={CarouselStories.BrokenAsset} />
+
+## Props
+
+The CarouselInput component wraps all its children in the
+(Box)\[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base]
+component, so you can pass all Box props to change its style.
+
+<ArgsTable of={CarouselInput} />

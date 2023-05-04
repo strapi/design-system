@@ -1,0 +1,53 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
+import { Grid, GridItem } from '@strapi/design-system';
+
+import * as GridStories from './Grid.stories';
+
+<Meta of={GridStories} />
+
+# Grid
+
+A grid system helps the content to follow a logical order and increase readability.
+
+**Baseline** The Strapi type stack specifies 14px/0.875rem for the base font size, which produces an 8px x-height. The
+x-height is halved to produce a 4px baseline. This baseline convention naturally flows on to the rest of the grid
+system, which includes icons, components, and layout dimensions. Always try to align objects on the 8px grid, but where
+necessary use good judgement to fine tune your designs to 4px. The 4px baseline is there to allow more flexibility for
+line heights and smaller adjustments.
+
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Grid)
+
+## Imports
+
+```js
+import { Grid, GridItem } from '@strapi/design-system';
+```
+
+## Usage
+
+The component allows to create a Grid on the screen using the CSS grid feature. This component extends the `<Box />` one
+and can receive the same props.
+
+<Canvas of={GridStories.Base} />
+
+The following is a representation of the 12 columns Grid presented in the documentation.
+
+<Canvas of={GridStories.BaseGrid} />
+
+A more complex one
+
+<Canvas of={GridStories.ComplexGrid} />
+
+## Props
+
+The Grid and GridItem components wraps all their children in the
+(Box)\[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base]
+component, so you can pass all Box props to change their style.
+
+### Grid Props
+
+<ArgsTable of={Grid} />
+
+### GridItem Props
+
+<ArgsTable of={GridItem} />

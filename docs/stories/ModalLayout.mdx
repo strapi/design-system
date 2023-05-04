@@ -1,0 +1,44 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
+import { ModalLayout, ModalHeader, ModalFooter, ModalBody } from '@strapi/design-system';
+
+import * as ModalLayoutStories from './ModalLayout.stories';
+
+<Meta of={ModalLayoutStories} />
+
+# ModalLayout
+
+The `ModalLayout` can be used to create a custom modal.
+
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/ModalLayout)
+
+## Imports
+
+```js
+import { ModalLayout, ModalBody, ModalHeader, ModalFooter } from '@strapi/design-system';
+```
+
+## Usage
+
+<Canvas of={ModalLayoutStories.Base} />
+
+## Props
+
+### ModalLayout props
+
+The ModalLayout component wraps all its children in the
+(Box)\[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base]
+component, so you can pass all Box props to change its style.
+
+<ArgsTable of={ModalLayout} />
+
+### ModalHeader props
+
+<ArgsTable of={ModalHeader} />
+
+### ModalFooter props
+
+<ArgsTable of={ModalFooter} />
+
+### ModalBody props
+
+<ArgsTable of={ModalBody} />

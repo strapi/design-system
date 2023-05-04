@@ -1,12 +1,11 @@
 import { test } from '@playwright/test';
-import { injectAxe, checkA11y } from 'axe-playwright';
+import { navigateToStory } from '@test/e2e';
+import { checkA11y } from 'axe-playwright';
 
 test.describe.parallel('Accordion', () => {
   test.describe('light theme', () => {
     test.beforeEach(async ({ page }) => {
-      // This is the URL of the Storybook Iframe
-      await page.goto('/iframe.html?id=design-system-components-accordion--base&viewMode=story');
-      await injectAxe(page);
+      await navigateToStory(page, 'design-system-components-accordion--base');
     });
 
     test('triggers axe on the document', async ({ page }) => {
@@ -23,8 +22,7 @@ test.describe.parallel('Accordion', () => {
   test.describe('dark theme', () => {
     test('triggers axe on the document', async ({ page }) => {
       // This is the URL of the Storybook Iframe
-      await page.goto('/iframe.html?id=design-system-components-accordion--base&viewMode=story&theme=dark');
-      await injectAxe(page);
+      await navigateToStory(page, 'design-system-components-accordion--base', { isDarkMode: true });
       await checkA11y(page);
     });
   });

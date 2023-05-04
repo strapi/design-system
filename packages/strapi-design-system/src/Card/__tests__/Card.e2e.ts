@@ -1,44 +1,40 @@
 import { test, expect } from '@playwright/test';
-import { injectAxe, checkA11y } from 'axe-playwright';
+import { navigateToStory } from '@test/e2e';
+import { checkA11y } from 'axe-playwright';
 
 test.describe.parallel('Card', () => {
   test.describe('light mode', () => {
     test.describe('base', () => {
       test('triggers axe on the document', async ({ page }) => {
-        await page.goto('/iframe.html?id=design-system-components-card--base&viewMode=story');
-        await injectAxe(page);
+        await navigateToStory(page, 'design-system-components-card--base');
         await checkA11y(page);
       });
     });
 
     test.describe('without asset action', () => {
       test('triggers axe on the document', async ({ page }) => {
-        await page.goto('/iframe.html?id=design-system-components-card--without-asset-action&viewMode=story');
-        await injectAxe(page);
+        await navigateToStory(page, 'design-system-components-card--without-asset-action');
         await checkA11y(page);
       });
     });
 
     test.describe('without asset action nor timer', () => {
       test('triggers axe on the document', async ({ page }) => {
-        await page.goto('/iframe.html?id=design-system-components-card--without-asset-action-nor-timer&viewMode=story');
-        await injectAxe(page);
+        await navigateToStory(page, 'design-system-components-card--without-asset-action-nor-timer');
         await checkA11y(page);
       });
     });
 
     test.describe('without asset', () => {
       test('triggers axe on the document', async ({ page }) => {
-        await page.goto('/iframe.html?id=design-system-components-card--without-asset&viewMode=story');
-        await injectAxe(page);
+        await navigateToStory(page, 'design-system-components-card--without-asset');
         await checkA11y(page);
       });
     });
 
     test.describe('keyboard navigable', () => {
       test.beforeEach(async ({ page }) => {
-        await page.goto('/iframe.html?id=design-system-components-card--keyboard-navigable&viewMode=story');
-        await injectAxe(page);
+        await navigateToStory(page, 'design-system-components-card--keyboard');
       });
 
       test('check a11y', async ({ page }) => {
@@ -126,36 +122,30 @@ test.describe.parallel('Card', () => {
   test.describe('dark mode', () => {
     test.describe('base', () => {
       test('triggers axe on the document', async ({ page }) => {
-        await page.goto('/iframe.html?id=design-system-components-card--base&viewMode=story&theme=dark');
-        await injectAxe(page);
+        await navigateToStory(page, 'design-system-components-card--base', { isDarkMode: true });
         await checkA11y(page);
       });
     });
 
     test.describe('without asset action', () => {
       test('triggers axe on the document', async ({ page }) => {
-        await page.goto(
-          '/iframe.html?id=design-system-components-card--without-asset-action&viewMode=story&theme=dark',
-        );
-        await injectAxe(page);
+        await navigateToStory(page, 'design-system-components-card--without-asset-action', { isDarkMode: true });
         await checkA11y(page);
       });
     });
 
     test.describe('without asset action nor timer', () => {
       test('triggers axe on the document', async ({ page }) => {
-        await page.goto(
-          '/iframe.html?id=design-system-components-card--without-asset-action-nor-timer&viewMode=story&theme=dark',
-        );
-        await injectAxe(page);
+        await navigateToStory(page, 'design-system-components-card--without-asset-action-nor-timer', {
+          isDarkMode: true,
+        });
         await checkA11y(page);
       });
     });
 
     test.describe('without asset', () => {
       test('triggers axe on the document', async ({ page }) => {
-        await page.goto('/iframe.html?id=design-system-components-card--without-asset&viewMode=story&theme=dark');
-        await injectAxe(page);
+        await navigateToStory(page, 'design-system-components-card--without-asset', { isDarkMode: true });
         await checkA11y(page);
       });
     });

@@ -1,44 +1,40 @@
 import { test } from '@playwright/test';
-import { injectAxe, checkA11y } from 'axe-playwright';
+import { navigateToStory } from '@test/e2e';
+import { checkA11y } from 'axe-playwright';
 
 test.describe.parallel('TextInput', () => {
   test.describe('light mode', () => {
     test.describe('base A11y', () => {
       test('triggers axe on the document', async ({ page }) => {
-        await page.goto('/iframe.html?id=design-system-components-textinput--base&viewMode=story');
-        await injectAxe(page);
+        await navigateToStory(page, 'design-system-components-textinput--base');
         await checkA11y(page);
       });
     });
 
     test.describe('password A11y', () => {
       test('triggers axe on the document', async ({ page }) => {
-        await page.goto('/iframe.html?id=design-system-components-textinput--password&viewMode=story');
-        await injectAxe(page);
+        await navigateToStory(page, 'design-system-components-textinput--password');
         await checkA11y(page);
       });
     });
 
     test.describe('disabled A11y', () => {
       test('triggers axe on the document', async ({ page }) => {
-        await page.goto('/iframe.html?id=design-system-components-textinput--disabled&viewMode=story');
-        await injectAxe(page);
+        await navigateToStory(page, 'design-system-components-textinput--disabled');
         await checkA11y(page);
       });
     });
 
     test.describe('error A11y', () => {
       test('triggers axe on the document', async ({ page }) => {
-        await page.goto('/iframe.html?id=design-system-components-textinput--with-error&viewMode=story');
-        await injectAxe(page);
+        await navigateToStory(page, 'design-system-components-textinput--with-error');
         await checkA11y(page);
       });
     });
 
     test.describe('required A11y', () => {
       test('triggers axe on the document', async ({ page }) => {
-        await page.goto('/iframe.html?id=design-system-components-textinput--required&viewMode=story');
-        await injectAxe(page);
+        await navigateToStory(page, 'design-system-components-textinput--required');
         await checkA11y(page);
       });
     });
@@ -47,40 +43,35 @@ test.describe.parallel('TextInput', () => {
   test.describe('dark mode', () => {
     test.describe('base A11y', () => {
       test('triggers axe on the document', async ({ page }) => {
-        await page.goto('/iframe.html?id=design-system-components-textinput--base&viewMode=story&theme=dark');
-        await injectAxe(page);
+        await navigateToStory(page, 'design-system-components-textinput--base', { isDarkMode: true });
         await checkA11y(page);
       });
     });
 
     test.describe('password A11y', () => {
       test('triggers axe on the document', async ({ page }) => {
-        await page.goto('/iframe.html?id=design-system-components-textinput--password&viewMode=story&theme=dark');
-        await injectAxe(page);
+        await navigateToStory(page, 'design-system-components-textinput--password', { isDarkMode: true });
         await checkA11y(page);
       });
     });
 
     test.describe('disabled A11y', () => {
       test('triggers axe on the document', async ({ page }) => {
-        await page.goto('/iframe.html?id=design-system-components-textinput--disabled&viewMode=story&theme=dark');
-        await injectAxe(page);
+        await navigateToStory(page, 'design-system-components-textinput--disabled', { isDarkMode: true });
         await checkA11y(page);
       });
     });
 
     test.describe('error A11y', () => {
       test('triggers axe on the document', async ({ page }) => {
-        await page.goto('/iframe.html?id=design-system-components-textinput--with-error&viewMode=story&theme=dark');
-        await injectAxe(page);
+        await navigateToStory(page, 'design-system-components-textinput--with-error', { isDarkMode: true });
         await checkA11y(page);
       });
     });
 
     test.describe('required A11y', () => {
       test('triggers axe on the document', async ({ page }) => {
-        await page.goto('/iframe.html?id=design-system-components-textinput--required&viewMode=story&theme=dark');
-        await injectAxe(page);
+        await navigateToStory(page, 'design-system-components-textinput--required', { isDarkMode: true });
         await checkA11y(page);
       });
     });

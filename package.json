@@ -31,7 +31,6 @@
     "vers": "lerna version --no-push --no-git-tag-version --no-private --force-publish"
   },
   "devDependencies": {
-    "@babel/preset-react": "^7.22.5",
     "@juggle/resize-observer": "^3.4.0",
     "@rollup/plugin-typescript": "^11.1.2",
     "@strapi/eslint-config": "^0.2.0",

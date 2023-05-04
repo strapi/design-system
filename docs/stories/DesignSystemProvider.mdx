@@ -1,0 +1,47 @@
+import { Meta, ArgsTable } from '@storybook/blocks';
+import { DesignSystemProvider } from '@strapi/design-system';
+
+<Meta title="DesignSystemProvider" />
+
+# DesignSystemProvider
+
+The root provider for your DesignSystem components. An abstraction around `styled-component`'s `ThemeProvider`
+that also includes `GlobalStyles` as well as an unique provider supplying values to components.
+
+## Usage
+
+```tsx
+import { DesignSystemProvider } from '@strapi/design-system';
+```
+
+### Provider
+
+Both locale & theme are optional, their default values are `en-GB` & `lightTheme` respectively also as seen below.
+
+```tsx
+import { DesignSystemProvider, lightTheme } from '@strapi/design-system';
+
+const MyApp = () => (
+  <DesignSystemProvider locale="en-GB" theme={lightTheme}>
+    <App />
+  </DesignSystemProvider>
+);
+```
+
+### Accessing the Context
+
+```tsx
+import { useDesignSystem } from '@strapi/design-system';
+
+const MyLocale = () => {
+  const { locale } = useDesignSystem();
+
+  return <p>{locale}</p>;
+};
+```
+
+## API Reference
+
+### DesignSystemProvider
+
+<ArgsTable of={DesignSystemProvider} />

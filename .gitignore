@@ -111,7 +111,7 @@ storybook-static
 # Visual Studio Code
 ############################
 
-.vscode/
+.vscode/*
 !.vscode/settings.json
 front-workspace.code-workspace
 .yarnrc

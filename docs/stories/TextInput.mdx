@@ -1,0 +1,81 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
+import { TextInput } from '@strapi/design-system';
+
+import * as TextInputStories from './TextInput.stories';
+
+<Meta of={TextInputStories} />
+
+# TextInput
+
+TextInputs are inputs that allow users to add or edit text. They support several text formats including numbers.
+
+**Best practices**
+
+- Icons are always on the right side within the input (writing area) itself, never on the left side.
+- Labels should be clear and concise. A few words only and without punctuation.
+- Use description line as a help to give more details about the required action.
+- Unless users need a lot of space to write their content, the input should take 1 column space instead of two.
+- Make sure to use the placeholder feature whenever clarification are helpful on how to use the input.
+- Make sure to use to define the input as required whenever it is absolutely mandatory.
+- If a single line is not enough for the amount of text required, use TextArea component.
+- The error message will replace the description line. The two of them cannot be on top of each other.
+- The error message can be customized, make sure to write actionable information within it to help resolve an issue.
+
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/TextInput)
+
+## Imports
+
+```js
+import { TextInput } from '@strapi/design-system';
+```
+
+## Usage
+
+`TextInput` allow users to edit text.
+
+### TextInput Base
+
+`TextInput` can include a placeholder and a description line.
+
+<Canvas of={TextInputStories.Base} />
+
+### Disabled TextInput
+
+`TextInput` can receive a disabled prop.
+
+<Canvas of={TextInputStories.Disabled} />
+
+### TextInput size S
+
+`TextInput` can be displayed with a smaller size.
+
+<Canvas of={TextInputStories.SizeS} />
+
+### TextInput with error
+
+TextInputs can display an error. The error message is customizable and replaces the description line below the input.
+
+<Canvas of={TextInputStories.WithError} />
+
+### TextInput required
+
+TextInputs can be required. The required state will appear with a red asterisk beside the label.
+
+<Canvas of={TextInputStories.Required} />
+
+### Password TextInput
+
+Password TextInputs are specific. They offer the possibility to have unreadable content. By clicking on the eye icon on
+the right side, it is possible to actually read the password.
+
+<Canvas of={TextInputStories.Password} />
+
+### TextInput without label
+
+`TextInput` can be used without a label.
+
+<Canvas of={TextInputStories.WithoutLabel} />
+
+## Props
+
+<ArgsTable of={TextInput} />

@@ -1,0 +1,29 @@
+import { Meta, Canvas } from '@storybook/blocks';
+
+import * as LiveRegionsStories from './LiveRegions.stories';
+
+<Meta of={LiveRegionsStories} />
+
+# LiveRegions
+
+This is the doc of the `LiveRegions` component.
+
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/LiveRegions)
+
+## Imports
+
+```js
+import { LiveRegions } from '@strapi/design-system';
+```
+
+## useNotifyAT log
+
+<Canvas of={LiveRegionsStories.Log} />
+
+## useNotifyAT error
+
+<Canvas of={LiveRegionsStories.Alert} />
+
+## useNotifyAT status
+
+<Canvas of={LiveRegionsStories.Status} />

@@ -1,0 +1,85 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
+import { Table, Thead, Tbody, Tr, Td, Th, TFooter } from '@strapi/design-system';
+
+import * as TableStories from './Table.stories';
+
+<Meta of={TableStories} />
+
+# Table
+
+Tables are used to gather and display similar types of data together. They are composed of a header, rows, and columns.
+Several type of data can be included within tables such as: plain text, Select, Avatars, Icon Buttons, ...
+
+**Best practices**
+
+- If there are any, Icon Buttons should be placed at the very right of a row.
+- Tables should be placed in a page’s main content area.
+- Column titles use a all caps style.
+- Narrowing a column of data is not possible.
+- Some columns can be sorted by clicking on their label.
+- If content is truncated, a tooltip should be available at hover to display the full text.
+- Checkboxes (i.e. a bulk action) are optional.
+- If the Table is empty, make sure to use the EmptyStateLayout component to fill it.
+- Tables can be associated with a Search bar and/or a filter button.
+  [View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Table)
+
+## Imports
+
+```js
+import { Table, Thead, Tbody, Tr, Td, Th } from '@strapi/design-system';
+```
+
+## Usage
+
+Tables are used to gather and display similar types of data together. In the Content section, a reorganization of the
+columns is possible. Moreover, Columns can be sorted.
+
+### Default Table
+
+The default Table.
+
+<Canvas of={TableStories.Base} />
+
+### Default Table without footer
+
+The default Table.
+
+<Canvas of={TableStories.BaseWithoutFooter} />
+
+### Table with actions
+
+Table with actions.
+
+<Canvas of={TableStories.WithThActions} />
+
+## Table Props
+
+The Table component wraps all its children in the
+(Box)\[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base]
+component, so you can pass all Box props to change its style.
+
+<ArgsTable of={Table} />
+
+## Thead Props
+
+<ArgsTable of={Thead} />
+
+## Tr Props
+
+<ArgsTable of={Tr} />
+
+## Th Props
+
+<ArgsTable of={Th} />
+
+## Tbody Props
+
+<ArgsTable of={Tbody} />
+
+## Td Props
+
+<ArgsTable of={Td} />
+
+## TFooter Props
+
+<ArgsTable of={TFooter} />

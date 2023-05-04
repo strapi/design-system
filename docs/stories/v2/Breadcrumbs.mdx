@@ -1,0 +1,81 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
+import { Breadcrumbs } from '@strapi/design-system/v2';
+
+import * as BreadcrumbsStories from './Breadcrumbs.stories';
+
+<Meta of={BreadcrumbsStories} />
+
+# Breadcrumbs
+
+Breadcrumbs are a list of hierarchical links that inform users about their possible navigation path upwards.
+
+**Best practices**
+
+- Use breadcrumbs whenever a long path to achieve an action is required.
+- Use breadcrumbs in modal's headers.
+- Using breadcrumbs in a page or a form is _not_ a consistent experience.
+
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Breadcrumbs)
+
+## Imports
+
+```js
+import { Breadcrumbs, Crumb, CrumbLink, CrumbSimpleMenu, MenuItem } from '@strapi/design-system/v2';
+```
+
+## Usage
+
+Breadcrumbs with CrumbLink are a list of link to help navigation.
+
+<Canvas of={BreadcrumbsStories.Base} />
+
+## Usage
+
+Breadcrumbs with CrumbSimpleMenu displays a list of potential options or actions via a Popover component.
+
+<Canvas of={BreadcrumbsStories.WithMenu} />
+
+## Without navigation
+
+Breadcrumbs with Crumb are visual information only and cannot be navigated. They are mostly part of modals' headers.
+
+<Canvas of={BreadcrumbsStories.WithoutNagivation} />
+
+## Single link
+
+<Canvas of={BreadcrumbsStories.SingleLink} />
+
+### Usage with other routing libraries
+
+To use the Link component with a routing library (e.g. react-router-dom), you'll need to pass the `NavLink` component to
+the `as` prop in order to replace the default HTML anchor `<a />`. You'll now be able to pass all `NavLink` props.
+
+```jsx
+import { Breadcrumbs, CrumbLink } from '@strapi/design-system';
+import { NavLink } from 'react-router-dom';
+
+<Breadcrumbs label="Folder navigatation" as="nav">
+  <CrumbLink as={NavLink} to="/">
+    Media Library
+  </CrumbLink>
+</Breadcrumbs>;
+```
+
+#### NextJS usage
+
+For NextJS, you'll need to wrap the `CrumbLink` with the `NextLink` component
+
+```jsx
+import { Breadcrumbs, CrumbLink } from '@strapi/design-system';
+import NextLink from 'next/link';
+
+<Breadcrumbs label="Folder navigatation" as="nav">
+  <NextLink href="/home" passHref>
+    <CrumbLink>Media Library</CrumbLink>
+  </NextLink>
+</Breadcrumbs>;
+```
+
+## Props
+
+<ArgsTable of={Breadcrumbs} />

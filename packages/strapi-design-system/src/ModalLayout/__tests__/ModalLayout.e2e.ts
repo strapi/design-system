@@ -1,11 +1,10 @@
 import { test, expect } from '@playwright/test';
-import { injectAxe, getViolations } from 'axe-playwright';
+import { navigateToStory } from '@test/e2e';
+import { getViolations } from 'axe-playwright';
 
 test.describe.parallel('ModalLayout', () => {
   test.beforeEach(async ({ page }) => {
-    // This is the URL of the Storybook Iframe
-    await page.goto('/iframe.html?id=design-system-components-modallayout--base&viewMode=story');
-    await injectAxe(page);
+    await navigateToStory(page, 'design-system-components-modallayout--base');
   });
 
   test('triggers axe on the document', async ({ page }) => {

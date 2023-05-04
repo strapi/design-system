@@ -1,10 +1,10 @@
 import { test } from '@playwright/test';
-import { injectAxe, checkA11y } from 'axe-playwright';
+import { navigateToStory } from '@test/e2e';
+import { checkA11y } from 'axe-playwright';
 
 test.describe.parallel('DatePicker', () => {
   test('light mode accessibility', async ({ page }) => {
-    await page.goto('/iframe.html?id=design-system-components-datepicker--base&viewMode=story');
-    await injectAxe(page);
+    await navigateToStory(page, 'design-system-components-datepicker--base');
     await checkA11y(page);
 
     await page.click('input');
@@ -23,8 +23,7 @@ test.describe.parallel('DatePicker', () => {
   });
 
   test('dark mode accessibility', async ({ page }) => {
-    await page.goto('/iframe.html?id=design-system-components-datepicker--base&viewMode=story&theme=dark');
-    await injectAxe(page);
+    await navigateToStory(page, 'design-system-components-datepicker--base', { isDarkMode: true });
     await checkA11y(page);
 
     await page.click('input');

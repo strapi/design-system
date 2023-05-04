@@ -1,12 +1,12 @@
 import { test, expect } from '@playwright/test';
-import { injectAxe, checkA11y } from 'axe-playwright';
+import { navigateToStory } from '@test/e2e';
+import { checkA11y } from 'axe-playwright';
 
 test.describe.parallel('Searchbar', () => {
   test.describe('light mode', () => {
     test.describe('base', () => {
       test.beforeEach(async ({ page }) => {
-        await page.goto('/iframe.html?id=design-system-components-searchbar--base&viewMode=story');
-        await injectAxe(page);
+        await navigateToStory(page, 'design-system-components-searchbar--base');
       });
 
       test('triggers axe on the document', async ({ page }) => {
@@ -25,8 +25,7 @@ test.describe.parallel('Searchbar', () => {
 
     test.describe('disabled', () => {
       test('triggers axe on the document', async ({ page }) => {
-        await page.goto('/iframe.html?id=design-system-components-searchbar--disabled&viewMode=story');
-        await injectAxe(page);
+        await navigateToStory(page, 'design-system-components-searchbar--disabled');
         await checkA11y(page);
       });
     });
@@ -35,16 +34,14 @@ test.describe.parallel('Searchbar', () => {
   test.describe('dark mode', () => {
     test.describe('base', () => {
       test('triggers axe on the document', async ({ page }) => {
-        await page.goto('/iframe.html?id=design-system-components-searchbar--base&viewMode=story&theme=dark');
-        await injectAxe(page);
+        await navigateToStory(page, 'design-system-components-searchbar--base', { isDarkMode: true });
         await checkA11y(page);
       });
     });
 
     test.describe('disabled', () => {
       test('triggers axe on the document', async ({ page }) => {
-        await page.goto('/iframe.html?id=design-system-components-searchbar--disabled&viewMode=story&theme=dark');
-        await injectAxe(page);
+        await navigateToStory(page, 'design-system-components-searchbar--disabled', { isDarkMode: true });
         await checkA11y(page);
       });
     });

@@ -1,13 +1,12 @@
 import { test, expect } from '@playwright/test';
-import { injectAxe, checkA11y } from 'axe-playwright';
+import { navigateToStory } from '@test/e2e';
+import { checkA11y } from 'axe-playwright';
 
 test.describe.parallel('Popover', () => {
   test.describe('light mode', () => {
     test.describe('base', () => {
       test.beforeEach(async ({ page }) => {
-        // This is the URL of the Storybook Iframe
-        await page.goto('/iframe.html?id=design-system-components-popover--centered&viewMode=story');
-        await injectAxe(page);
+        await navigateToStory(page, 'design-system-components-popover--centered');
       });
 
       test('triggers axe on the document', async ({ page }) => {
@@ -17,8 +16,7 @@ test.describe.parallel('Popover', () => {
 
     test.describe('onReachEnd', () => {
       test.beforeEach(async ({ page }) => {
-        // This is the URL of the Storybook Iframe
-        await page.goto('/iframe.html?id=design-system-components-popover--on-reach-end&viewMode=story');
+        await navigateToStory(page, 'design-system-components-popover--on-reach-end');
       });
 
       test('adds item when reaching the end', async ({ page }) => {
@@ -38,9 +36,7 @@ test.describe.parallel('Popover', () => {
 
   test.describe('dark mode', () => {
     test('triggers axe on the document', async ({ page }) => {
-      // This is the URL of the Storybook Iframe
-      await page.goto('/iframe.html?id=design-system-components-popover--centered&viewMode=story&theme=dark');
-      await injectAxe(page);
+      await navigateToStory(page, 'design-system-components-popover--centered', { isDarkMode: true });
       await checkA11y(page);
     });
   });

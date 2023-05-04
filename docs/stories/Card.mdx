@@ -1,0 +1,82 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
+import { Card } from '@strapi/design-system';
+
+import * as CardStories from './Card.stories';
+
+<Meta of={CardStories} />
+
+# Card
+
+Cards are used to gather a set of information that needs to stand out from the rest of the page.
+
+**Best practices**
+
+- Content within the Card is mostly optional. Pick up what is needed.
+- Content can be added to the Card. Keep in mind that spacings are important in a Card component.
+- Main text is truncated at the end of the first line.
+- Prioritize content within the Card so users know exactly what are the main information.
+- If Call-to-Actions are used, they should be placed at the bottom of the Card.
+
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Card)
+
+## Imports
+
+```js
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardCheckbox,
+  CardAction,
+  CardAsset,
+  CardTimer,
+  CardContent,
+  CardBadge,
+  CardTitle,
+  CardSubtitle,
+} from '@strapi/design-system';
+```
+
+## Usage
+
+Cards are used to gather a set of related information.
+
+<Canvas of={CardStories.Base} />
+
+## Card without asset action
+
+Cards can be used without actions by removing the `CardAction` block.
+
+<Canvas of={CardStories.WithoutAssetAction} />
+
+## Card with asset icon
+
+The image asset can be replaced by an icon.
+
+<Canvas of={CardStories.WithAssetIcon} />
+
+## Card without asset action nor timer
+
+The `CardTimer` can be removed as well as the `CardAction` block.
+
+<Canvas of={CardStories.WithoutAssetActionNorTimer} />
+
+## Card without asset
+
+If no `CardHeader` is present, the card will display a version with the body only.
+
+<Canvas of={CardStories.WithoutAsset} />
+
+## Card keyboard navigable
+
+You wrap the Card in a `KeyboardNavigable` block to ensure it can be scanned using the keyboard.
+
+<Canvas of={CardStories.Keyboard} />
+
+## Props
+
+The Card, CardBody, CardHeader, and CardContent components wraps all their children in the
+(Box)\[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base]
+component, so you can pass all Box props to change their style.
+
+<ArgsTable of={Card} />

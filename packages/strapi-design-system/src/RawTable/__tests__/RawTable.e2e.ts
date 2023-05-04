@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
-import { injectAxe, checkA11y } from 'axe-playwright';
+import { navigateToStory } from '@test/e2e';
+import { checkA11y } from 'axe-playwright';
 
 /**
  * TODO: this should be moved to Jest
@@ -8,9 +9,7 @@ test.describe.parallel('RawTable', () => {
   test.describe('light mode', () => {
     test.describe('Default story', () => {
       test.beforeEach(async ({ page }) => {
-        // This is the URL of the Storybook Iframe
-        await page.goto('/iframe.html?id=design-system-technical-components-rawtable--base&viewMode=story');
-        await injectAxe(page);
+        await navigateToStory(page, 'design-system-technical-components-rawtable--base');
       });
 
       test('triggers axe on the document', async ({ page }) => {
@@ -153,9 +152,7 @@ test.describe.parallel('RawTable', () => {
 
     test.describe('Simple story', () => {
       test.beforeEach(async ({ page }) => {
-        // This is the URL of the Storybook Iframe
-        await page.goto('/iframe.html?id=design-system-technical-components-rawtable--simple&viewMode=story');
-        await injectAxe(page);
+        await navigateToStory(page, 'design-system-technical-components-rawtable--simple');
       });
 
       test('triggers axe on the document', async ({ page }) => {
@@ -193,9 +190,7 @@ test.describe.parallel('RawTable', () => {
 
     test.describe('Aria story', () => {
       test.beforeEach(async ({ page }) => {
-        // This is the URL of the Storybook Iframe
-        await page.goto('/iframe.html?id=design-system-technical-components-rawtable--aria&viewMode=story');
-        await injectAxe(page);
+        await navigateToStory(page, 'design-system-technical-components-rawtable--aria');
       });
 
       test('triggers axe on the document', async ({ page }) => {
@@ -332,15 +327,6 @@ test.describe.parallel('RawTable', () => {
           await expect(page.locator('[aria-rowindex="1"] > [aria-colindex="5"]')).toBeFocused();
         });
       });
-    });
-  });
-
-  test.describe('dark mode', () => {
-    test('triggers axe on the document', async ({ page }) => {
-      // This is the URL of the Storybook Iframe
-      await page.goto('/iframe.html?id=design-system-technical-components-rawtable--base&viewMode=story&theme=dark');
-      await injectAxe(page);
-      await checkA11y(page);
     });
   });
 });

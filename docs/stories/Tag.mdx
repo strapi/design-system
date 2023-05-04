@@ -1,0 +1,42 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
+import { Tag } from '@strapi/design-system';
+
+import * as TagStories from './Tag.stories';
+
+<Meta of={TagStories} />
+
+# Tag
+
+Tags are used to give a quick information about a performed action. Tags can be added or removed from a page or another
+component. They are also used as a filter.
+
+**Best practices**
+
+- Tags text should be concise and easily scannable.
+- Tags text should be explicit and indicate its purpose.
+- Tags should be very close to or within the performed action.
+- Use Badge component if the information given is not related to a performed action.
+  [View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Tag)
+
+## Imports
+
+```js
+import { Tag } from '@strapi/design-system';
+```
+
+## Usage
+
+Tags are related to a performed action. They should be very close by the action's trigger. Moreover, a tag can be added
+or removed from that place. They cannot exist on their own.
+
+<Canvas of={TagStories.Base} />
+
+<Canvas of={TagStories.Disabled} />
+
+## Props
+
+The Tag component wraps all its children in the
+(Box)\[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base]
+component, so you can pass all Box props to change its style.
+
+<ArgsTable of={Tag} />
