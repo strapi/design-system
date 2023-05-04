@@ -20,6 +20,8 @@ export interface ComboboxProps {
   creatable?: boolean;
   createMessage?: (inputValue: string) => string;
   defaultTextValue?: string;
+  defaultOpen?: boolean;
+  open?: boolean;
   disabled?: boolean;
   error?: string;
   hasMoreItems?: boolean;
@@ -35,6 +37,7 @@ export interface ComboboxProps {
   onCreateOption?: (inputValue: string) => void;
   onInputChange?: React.ChangeEventHandler<HTMLInputElement>;
   onLoadMore?: (entry: IntersectionObserverEntry) => void;
+  onOpenChange?: (open?: boolean) => void;
   placeholder?: string;
   required?: boolean;
   startIcon?: React.ReactNode;
@@ -48,6 +51,9 @@ export const Combobox = ({
   creatable = false,
   createMessage = (value) => `Create "${value}"`,
   defaultTextValue,
+  defaultOpen = false,
+  open,
+  onOpenChange,
   disabled = false,
   error,
   hasMoreItems = false,
@@ -69,7 +75,11 @@ export const Combobox = ({
   textValue,
   value,
 }: ComboboxProps) => {
-  const [internalIsOpen, setInternalIsOpen] = React.useState(false);
+  const [internalIsOpen, setInternalIsOpen] = useControllableState({
+    prop: open,
+    defaultProp: defaultOpen,
+    onChange: onOpenChange,
+  });
   const [internalTextValue, setInternalTextValue] = useControllableState({
     prop: textValue,
     defaultProp: defaultTextValue,
