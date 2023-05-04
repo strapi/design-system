@@ -33,7 +33,7 @@ export type MultiSelectProps = Omit<SelectParts.MultiSelectProps, 'value' | 'mul
      * It has no effect on the component.
      */
     selectButtonTitle?: string;
-    value?: string[];
+    value?: string[] | null;
     withTags?: boolean;
   };
 
@@ -131,7 +131,7 @@ export const MultiSelect = ({
     skipWhen: !internalIsOpen,
   });
 
-  const value = typeof passedValue !== 'undefined' ? passedValue : internalValue;
+  const value = typeof passedValue !== 'undefined' && passedValue !== null ? passedValue : internalValue;
 
   const renderTags: SelectParts.ValueRenderFn = (arg?: { value?: string; textValue?: string } | string) => {
     if (arg && typeof arg === 'object' && arg.value) {

@@ -27,7 +27,7 @@ export type SingleSelectProps = Omit<SelectParts.SingleSelectProps, 'value'> &
      * It has no effect on the component.
      */
     selectButtonTitle?: string;
-    value?: string | number;
+    value?: string | number | null;
   };
 
 export const SingleSelect = ({
@@ -118,7 +118,8 @@ export const SingleSelect = ({
     skipWhen: !internalIsOpen,
   });
 
-  const value = (typeof passedValue !== 'undefined' ? passedValue.toString() : internalValue) ?? '';
+  const value =
+    (typeof passedValue !== 'undefined' && passedValue !== null ? passedValue.toString() : internalValue) ?? '';
 
   return (
     <Field hint={hint} error={error} id={generatedId} required={required}>
