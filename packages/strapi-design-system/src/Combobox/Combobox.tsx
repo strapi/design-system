@@ -42,7 +42,7 @@ export interface ComboboxProps {
   required?: boolean;
   startIcon?: React.ReactNode;
   textValue?: string;
-  value?: string;
+  value?: string | null;
 }
 
 export const Combobox = ({
@@ -169,7 +169,7 @@ export const Combobox = ({
           allowCustomValue
           disabled={disabled}
           required={required}
-          value={value}
+          value={value === null ? undefined : value}
           onValueChange={handleChange}
           filterValue={internalFilterValue}
           onFilterValueChange={handleFilterValueChange}
