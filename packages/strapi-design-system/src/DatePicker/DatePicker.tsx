@@ -1,4 +1,3 @@
-/* eslint-disable no-nested-ternary */
 /* eslint-disable react/no-unused-prop-types */
 import * as React from 'react';
 
@@ -13,6 +12,8 @@ import {
   CalendarDate,
   endOfMonth,
   parseDate,
+  minDate as minDateFn,
+  maxDate as maxDateFn,
 } from '@internationalized/date';
 import { Calendar, Cross } from '@strapi/icons';
 import { composeEventHandlers } from '@strapi/ui-primitives';
@@ -37,6 +38,9 @@ import { SingleSelectInput, SingleSelectOption } from '../Select/SingleSelect';
 import { getThemeSize, inputFocusStyle } from '../themes';
 import { Typography } from '../Typography';
 
+const DEFAULT_PAST_RANGE = 200;
+const DEFAULT_FUTURE_RANGE = 15;
+
 /* -------------------------------------------------------------------------------------------------
  * DatePickerInput
  * -----------------------------------------------------------------------------------------------*/
@@ -45,17 +49,16 @@ interface DatePickerContextValue {
   calendarDate: CalendarDate;
   content: DatePickerContentElement | null;
   contentId: string;
-  defaultValue?: Date;
   disabled: boolean;
   locale: string;
   /*
    * Minimum year, that can be selected through the year select
    */
-  minDate?: CalendarDate;
+  minDate: CalendarDate;
   /*
    * Maximum year, that can be selected through the year select
    */
-  maxDate?: CalendarDate;
+  maxDate: CalendarDate;
   open: boolean;
   onCalendarDateChange: (date: CalendarDate) => void;
   onContentChange: (content: DatePickerContentElement | null) => void;
@@ -167,14 +170,32 @@ const DatePickerInput = ({
     },
   });
 
-  const [calendarDate, setCalendarDate] = React.useState<CalendarDate>(
-    selectedDate
-      ? convertUTCDateToCalendarDate(selectedDate)
-      : initialDate
-      ? convertUTCDateToCalendarDate(initialDate)
-      : minDate
+  const [actualMinDate, actualMaxDate] = React.useMemo(() => {
+    const now = initialDate ? convertUTCDateToCalendarDate(initialDate) : today('UTC');
+    const actualMinDate = minDate
       ? convertUTCDateToCalendarDate(minDate)
-      : today('UTC'),
+      : now.set({ day: 1, month: 1, year: now.year - DEFAULT_PAST_RANGE });
+
+    let actualMaxDate = maxDate
+      ? convertUTCDateToCalendarDate(maxDate)
+      : now.set({ day: 31, month: 12, year: now.year + DEFAULT_FUTURE_RANGE });
+
+    if (actualMaxDate.compare(actualMinDate) < 0) {
+      actualMaxDate = actualMinDate.set({ day: 31, month: 12, year: actualMinDate.year + DEFAULT_FUTURE_RANGE });
+    }
+
+    return [actualMinDate, actualMaxDate];
+  }, [minDate, maxDate, initialDate]);
+
+  /**
+   * Setting the initial calendar state based on priority.
+   */
+  const [calendarDate, setCalendarDate] = React.useState<CalendarDate>(
+    makeInitialCalendarDate({
+      currentValue: value,
+      minDate: actualMinDate,
+      maxDate: actualMaxDate,
+    }),
   );
 
   React.useEffect(() => {
@@ -215,14 +236,13 @@ const DatePickerInput = ({
 
   return (
     <DatePickerProvider
-      calendarDate={calendarDate!}
+      calendarDate={calendarDate}
       content={content}
       contentId={contentId}
       disabled={disabled}
-      defaultValue={initialDate}
       locale={locale}
-      minDate={minDate ? convertUTCDateToCalendarDate(minDate) : undefined}
-      maxDate={maxDate ? convertUTCDateToCalendarDate(maxDate) : undefined}
+      minDate={actualMinDate}
+      maxDate={actualMaxDate}
       open={open}
       onCalendarDateChange={setCalendarDate}
       onContentChange={setContent}
@@ -267,6 +287,32 @@ const DatePickerInput = ({
 
 const isPrintableCharacter = (str: string): boolean => {
   return Boolean(str.match(/^[^a-zA-Z]*$/));
+};
+
+const makeInitialCalendarDate: (args: {
+  currentValue?: CalendarDate;
+  minDate: CalendarDate;
+  maxDate: CalendarDate;
+}) => CalendarDate = ({ currentValue, minDate, maxDate }) => {
+  const now = today('UTC');
+
+  if (currentValue) {
+    return currentValue;
+  }
+
+  if (minDateFn(minDate, now) === minDate && maxDateFn(maxDate, now) === maxDate) {
+    return now;
+  }
+
+  if (minDateFn(minDate, now) === now) {
+    return minDate;
+  }
+
+  if (maxDateFn(maxDate, now) === now) {
+    return maxDate;
+  }
+
+  return now;
 };
 
 /* -------------------------------------------------------------------------------------------------
@@ -452,6 +498,52 @@ const DatePickerTextInput = React.forwardRef<DatePickerTextInputElement, TextInp
         })}
         onChange={composeEventHandlers(props.onChange, (event) => {
           if (isPrintableCharacter(event.target.value)) {
+            const [day, month, year] = event.target.value.split(separator);
+
+            const currentYear = context.calendarDate.year;
+
+            /**
+             * If a user types 2 for the year then the year should be the current year with the last number as what they typed.
+             * This applies for if they've typed two numbers but not three or four numbers.
+             */
+            let newYear = context.calendarDate.year;
+
+            if (year) {
+              /**
+               * ensure the year is _at least_ 2 digits long so if the year
+               * is 2023 and you type 9 the year becomes 2009 instead of 2029,
+               * this is much similar to how other DatePickers work and makes more sense.
+               */
+              let normalizedYear = year.length === 1 ? `0${year}` : year;
+
+              /**
+               * The year we set to _must_ be 4 digits long.
+               */
+              newYear =
+                year.length < 3
+                  ? Number(`${currentYear}`.slice(0, 4 - normalizedYear.length) + normalizedYear)
+                  : Number(normalizedYear);
+            }
+
+            /**
+             * If you type a value like `94` and that's above the maxDate e.g. 2040 then
+             * we assume you would have meant 1994 and correct the date. Again, this is
+             * similar to how other DatePickers work.
+             *
+             * Note we only do this if the typed value is less than 3 digits long.
+             */
+            if (year && year.length < 3 && newYear > context.maxDate.year) {
+              newYear -= 100;
+            }
+
+            const newDate = context.calendarDate.set({
+              day: day ? Number(day) : undefined,
+              month: month ? Number(month) : undefined,
+              year: newYear,
+            });
+
+            context.onCalendarDateChange(constrainValue(newDate, context.minDate, context.maxDate));
+
             context.onTextValueChange(event.target.value);
           }
         })}
@@ -524,6 +616,18 @@ const DatePickerTextInput = React.forwardRef<DatePickerTextInputElement, TextInp
   },
 );
 
+function constrainValue(date: CalendarDate, minValue: CalendarDate, maxValue: CalendarDate) {
+  if (minValue) {
+    date = maxDateFn(date, minValue);
+  }
+
+  if (maxValue) {
+    date = minDateFn(date, maxValue);
+  }
+
+  return date;
+}
+
 const Input = styled.input`
   width: 100%;
   font-size: ${14 / 16}rem;
@@ -560,7 +664,8 @@ type DatePickerContentElement = HTMLDivElement;
 
 const DatePickerContent = React.forwardRef<DatePickerContentElement, ContentProps>((props, forwardedRef) => {
   const { onPointerDownOutside, onEscapeKeyDown, label = 'Choose date', ...restProps } = props;
-  const { onOpenChange, ...context } = useDatePickerContext(CONTENT_NAME);
+  const { onOpenChange, onCalendarDateChange, minDate, maxDate, value, ...context } =
+    useDatePickerContext(CONTENT_NAME);
   const [fragment, setFragment] = React.useState<DocumentFragment>();
 
   // setting the fragment in `useLayoutEffect` as `DocumentFragment` doesn't exist on the server
@@ -568,8 +673,19 @@ const DatePickerContent = React.forwardRef<DatePickerContentElement, ContentProp
     setFragment(new DocumentFragment());
   }, []);
 
+  const handleDismiss = React.useCallback(() => {
+    onCalendarDateChange(
+      makeInitialCalendarDate({
+        currentValue: value,
+        minDate,
+        maxDate,
+      }),
+    );
+  }, [maxDate, minDate, onCalendarDateChange, value]);
+
   React.useEffect(() => {
     const close = () => {
+      handleDismiss();
       onOpenChange(false);
     };
     window.addEventListener('blur', close);
@@ -579,7 +695,7 @@ const DatePickerContent = React.forwardRef<DatePickerContentElement, ContentProp
       window.removeEventListener('blur', close);
       window.removeEventListener('resize', close);
     };
-  }, [onOpenChange]);
+  }, [handleDismiss, onOpenChange]);
 
   const composedRefs = useComposedRefs(forwardedRef, (node) => context.onContentChange(node));
 
@@ -598,6 +714,7 @@ const DatePickerContent = React.forwardRef<DatePickerContentElement, ContentProp
           onFocusOutside={(event) => event.preventDefault()}
           onDismiss={() => {
             onOpenChange(false);
+            handleDismiss();
             context.textInput?.focus({ preventScroll: true });
           }}
         >
@@ -625,9 +742,6 @@ const DatePickerContent = React.forwardRef<DatePickerContentElement, ContentProp
 
 const DATE_PICKER_CALENDAR_NAME = 'DatePickerCalendar';
 
-const DEFAULT_PAST_RANGE = 200;
-const DEFAULT_FUTURE_RANGE = 15;
-
 interface CalendarProps extends FlexProps<HTMLDivElement> {
   monthSelectLabel?: string;
   yearSelectLabel?: string;
@@ -635,28 +749,24 @@ interface CalendarProps extends FlexProps<HTMLDivElement> {
 
 const DatePickerCalendar = React.forwardRef<HTMLDivElement, CalendarProps>(
   ({ monthSelectLabel, yearSelectLabel, ...restProps }, ref) => {
-    const {
-      locale,
-      timeZone,
-      minDate,
-      maxDate,
-      defaultValue = new Date(),
-      calendarDate,
-      onCalendarDateChange,
-    } = useDatePickerContext(DATE_PICKER_CALENDAR_NAME);
+    const { locale, timeZone, minDate, maxDate, calendarDate, onCalendarDateChange } =
+      useDatePickerContext(DATE_PICKER_CALENDAR_NAME);
     const startDate = startOfMonth(calendarDate);
 
     const years: string[] = React.useMemo(() => {
-      const minYear = minDate ? minDate.year : defaultValue.getFullYear() - DEFAULT_PAST_RANGE;
-      const maxYear = maxDate ? maxDate.year : defaultValue.getFullYear() + DEFAULT_FUTURE_RANGE;
+      const minYear = minDate.year;
+      const maxYear = maxDate.year;
 
       return [...Array(maxYear - minYear + 1).keys()].map((y) => (minYear + y).toString());
-    }, [minDate, defaultValue, maxDate]);
+    }, [minDate, maxDate]);
 
     const monthFormatter = useDateFormatter(locale, { month: 'long' });
     const months: string[] = React.useMemo(
-      () => [...Array(12).keys()].map((m) => monthFormatter.format(new Date(Date.UTC(2023, m)))),
-      [monthFormatter],
+      () =>
+        [...Array(calendarDate.calendar.getMonthsInYear(calendarDate)).keys()].map((m) =>
+          monthFormatter.format(calendarDate.set({ month: m + 1 }).toDate(timeZone)),
+        ),
+      [calendarDate, monthFormatter, timeZone],
     );
 
     const dayFormatter = useDateFormatter(locale, { weekday: 'short' });
