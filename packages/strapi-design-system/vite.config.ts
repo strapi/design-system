@@ -1,4 +1,4 @@
-import { resolve } from 'path';
+import { parse, resolve } from 'path';
 
 import typescript from '@rollup/plugin-typescript';
 import react from '@vitejs/plugin-react';
@@ -28,7 +28,11 @@ export default defineConfig(async () => {
         input: [resolve(__dirname, './src/index.ts'), ...paths.map((path) => `./${path}`)],
         // make sure to externalize deps that shouldn't be bundled
         // into your library
-        external: (id) => !id.startsWith('.') && !id.startsWith('/'),
+        external(id) {
+          const { root, dir } = parse(id);
+
+          return root === '' && !dir.startsWith('.');
+        },
         output: {
           dir: 'dist',
           preserveModules: true,

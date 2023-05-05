@@ -1,4 +1,4 @@
-import { resolve } from 'path';
+import { parse, resolve } from 'path';
 
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
@@ -17,7 +17,11 @@ export default defineConfig({
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
       // into your library
-      external: (id) => !id.startsWith('.') && !id.startsWith('/'),
+      external(id) {
+        const { root, dir } = parse(id);
+
+        return root === '' && !dir.startsWith('.');
+      },
       output: {
         dir: 'dist',
       },
