@@ -1,6 +1,6 @@
 module.exports = {
   rootDir: __dirname,
-  testMatch: ['/**/__tests__/**/?(*.)+(spec|test).[jt]s?(x)'],
+  testMatch: ['**/__tests__/**/?(*.)+(spec|test).[jt]s?(x)'],
   moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx'],
   globalSetup: '<rootDir>/test/global-setup.js',
   setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect', '<rootDir>/test/env-setup.js'],
