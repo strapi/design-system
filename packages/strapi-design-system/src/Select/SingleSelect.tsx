@@ -4,6 +4,7 @@ import * as SelectParts from './SelectParts';
 import { Box } from '../Box';
 import { Field, FieldError, FieldHint, FieldLabel } from '../Field';
 import { Flex } from '../Flex';
+import { stripReactIdOfColon } from '../helpers/strings';
 import { useId } from '../hooks/useId';
 import { useIntersection } from '../hooks/useIntersection';
 import { Typography } from '../Typography';
@@ -101,7 +102,8 @@ export const SingleSelect = ({
   };
 
   const viewportRef = React.useRef<HTMLDivElement>(null);
-  const intersectionId = `intersection-${CSS.escape(generatedId)}`;
+  const generatedIntersectionId = useId();
+  const intersectionId = `intersection-${stripReactIdOfColon(generatedIntersectionId)}`;
 
   const handleReachEnd = (entry: IntersectionObserverEntry) => {
     if (onReachEnd) {
