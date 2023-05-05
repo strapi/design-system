@@ -404,6 +404,21 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
 
               focussedItem.ref.current?.click();
             }
+          } else {
+            const matchedItem = getItems().find(
+              (item) => item.type === 'option' && !item.disabled && item.textValue === context.textValue,
+            );
+
+            if (matchedItem) {
+              context.onValueChange(matchedItem.value);
+              context.onTextValueChange(matchedItem.textValue);
+
+              if (context.autocomplete === 'both') {
+                context.onFilterValueChange(matchedItem.textValue);
+              }
+
+              matchedItem.ref.current?.click();
+            }
           }
 
           context.onOpenChange(false);
