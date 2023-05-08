@@ -5,7 +5,7 @@
   "private": true,
   "dependencies": {
     "@storybook/addon-actions": "^6.5.15",
-    "@storybook/addon-essentials": "^6.5.15",
+    "@storybook/addon-essentials": "^7.0.9",
     "@storybook/addon-links": "^6.5.15",
     "@storybook/builder-webpack5": "^6.5.16",
     "@storybook/manager-webpack5": "^6.5.15",
