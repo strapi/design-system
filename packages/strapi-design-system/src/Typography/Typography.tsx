@@ -11,6 +11,10 @@ const transientProps: Partial<Record<keyof TypographyProps, boolean>> = {
   fontWeight: true,
 };
 
+type DefaultThemeOrCSSProp<T extends keyof DefaultTheme, K extends keyof CSSProperties> =
+  | keyof DefaultTheme[T]
+  | CSSProperties[K];
+
 export interface TypographyProps<TElement extends HTMLElement = HTMLSpanElement>
   extends React.HTMLAttributes<TElement> {
   as?: string | React.ComponentType<any>;
@@ -19,7 +23,7 @@ export interface TypographyProps<TElement extends HTMLElement = HTMLSpanElement>
   ellipsis?: boolean;
   fontSize?: keyof DefaultTheme['fontSizes'];
   fontWeight?: keyof DefaultTheme['fontWeights'];
-  lineHeight?: keyof DefaultTheme['lineHeights'];
+  lineHeight?: DefaultThemeOrCSSProp<'lineHeights', 'lineHeight'>;
   textAlign?: CSSProperties['textAlign'];
   textColor?: keyof DefaultTheme['colors'];
   textDecoration?: CSSProperties['textDecoration'];
@@ -37,7 +41,7 @@ export const Typography = styled.span.withConfig<TypographyProps>({
   // overwrite a variant attribute
   font-weight: ${({ theme, fontWeight }) => extractStyleFromTheme(theme.fontWeights, fontWeight, undefined)};
   font-size: ${({ theme, fontSize }) => extractStyleFromTheme(theme.fontSizes, fontSize, undefined)};
-  line-height: ${({ theme, lineHeight }) => extractStyleFromTheme(theme.lineHeights, lineHeight, undefined)};
+  line-height: ${({ theme, lineHeight }) => extractStyleFromTheme(theme.lineHeights, lineHeight, lineHeight)};
   color: ${handleColor};
   text-align: ${({ textAlign }) => textAlign};
   text-decoration: ${({ textDecoration }) => textDecoration};
