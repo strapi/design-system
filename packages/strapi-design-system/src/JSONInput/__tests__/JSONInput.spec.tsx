@@ -1,9 +1,7 @@
 import * as React from 'react';
 
-import { render, fireEvent, waitFor } from '@testing-library/react';
+import { render, fireEvent, waitFor } from '@test/utils';
 
-import { ThemeProvider } from '../../ThemeProvider';
-import { lightTheme } from '../../themes';
 import { JSONInput } from '../JSONInput';
 
 const mockIntersectionObserver = jest.fn();
@@ -30,11 +28,7 @@ const onError = jest.fn();
 
 const JSON_DATA = '[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6\n   }\n]';
 
-const Component = (props) => (
-  <ThemeProvider theme={lightTheme}>
-    <JSONInput {...props} />
-  </ThemeProvider>
-);
+const Component = (props) => <JSONInput {...props} />;
 
 describe('JSONInput', () => {
   beforeAll(() => {
