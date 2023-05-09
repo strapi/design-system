@@ -289,7 +289,7 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
    * If you suddenly get a match it pushes you right to the end.
    */
   React.useLayoutEffect(() => {
-    setTimeout(() => {
+    const timeout = setTimeout(() => {
       if (
         context.textValue === '' ||
         context.textValue === undefined ||
@@ -311,6 +311,8 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
         inputRef.current.setSelectionRange(context.filterValue.length, context.textValue.length);
       }
     });
+
+    return () => clearTimeout(timeout);
   }, [context.textValue, context.filterValue, startsWith, context.visuallyFocussedItem, getItems, previousFilter]);
 
   return (
@@ -404,6 +406,21 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
 
               focussedItem.ref.current?.click();
             }
+          } else {
+            const matchedItem = getItems().find(
+              (item) => item.type === 'option' && !item.disabled && item.textValue === context.textValue,
+            );
+
+            if (matchedItem) {
+              context.onValueChange(matchedItem.value);
+              context.onTextValueChange(matchedItem.textValue);
+
+              if (context.autocomplete === 'both') {
+                context.onFilterValueChange(matchedItem.textValue);
+              }
+
+              matchedItem.ref.current?.click();
+            }
           }
 
           context.onOpenChange(false);
@@ -427,14 +444,16 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
           handleOpen();
         }
 
-        if (context.autocomplete === 'both' && isPrintableCharacter(event.key) && context.filterValue !== undefined) {
-          const value = context.filterValue;
-          const firstItem = getItems().find((item) => startsWith(item.textValue, value));
+        setTimeout(() => {
+          if (context.autocomplete === 'both' && isPrintableCharacter(event.key) && context.filterValue !== undefined) {
+            const value = context.filterValue;
+            const firstItem = getItems().find((item) => startsWith(item.textValue, value));
 
-          if (firstItem) {
-            context.onTextValueChange(firstItem.textValue);
+            if (firstItem) {
+              context.onTextValueChange(firstItem.textValue);
+            }
           }
-        }
+        });
       })}
     />
   );

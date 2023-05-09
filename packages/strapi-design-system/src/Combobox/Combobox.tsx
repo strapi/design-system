@@ -19,11 +19,13 @@ export interface ComboboxProps {
   clearLabel?: string;
   creatable?: boolean;
   createMessage?: (inputValue: string) => string;
+  defaultFilterValue?: string;
   defaultTextValue?: string;
   defaultOpen?: boolean;
   open?: boolean;
   disabled?: boolean;
   error?: string;
+  filterValue?: string;
   hasMoreItems?: boolean;
   hint?: string;
   id?: string;
@@ -35,9 +37,11 @@ export interface ComboboxProps {
   onChange?: (value: string) => void;
   onClear?: (event: React.MouseEvent<HTMLButtonElement> | React.MouseEvent<HTMLDivElement>) => void;
   onCreateOption?: (inputValue: string) => void;
+  onFilterValueChange?: (filterValue?: string) => void;
   onInputChange?: React.ChangeEventHandler<HTMLInputElement>;
   onLoadMore?: (entry: IntersectionObserverEntry) => void;
   onOpenChange?: (open?: boolean) => void;
+  onTextValueChange?: (textValue?: string) => void;
   placeholder?: string;
   required?: boolean;
   startIcon?: React.ReactNode;
@@ -50,12 +54,14 @@ export const Combobox = ({
   clearLabel = 'clear',
   creatable = false,
   createMessage = (value) => `Create "${value}"`,
+  defaultFilterValue,
   defaultTextValue,
   defaultOpen = false,
   open,
   onOpenChange,
   disabled = false,
   error,
+  filterValue,
   hasMoreItems = false,
   hint,
   id,
@@ -67,7 +73,9 @@ export const Combobox = ({
   onChange,
   onClear,
   onCreateOption,
+  onFilterValueChange,
   onInputChange,
+  onTextValueChange,
   onLoadMore,
   placeholder = 'Select or enter a value',
   required = false,
@@ -83,8 +91,13 @@ export const Combobox = ({
   const [internalTextValue, setInternalTextValue] = useControllableState({
     prop: textValue,
     defaultProp: defaultTextValue,
+    onChange: onTextValueChange,
   });
-  const [internalFilterValue, setInternalFilterValue] = React.useState<string | undefined>('');
+  const [internalFilterValue, setInternalFilterValue] = useControllableState({
+    prop: filterValue,
+    defaultProp: defaultFilterValue,
+    onChange: onFilterValueChange,
+  });
 
   /**
    * Used for the intersection observer
@@ -163,6 +176,7 @@ export const Combobox = ({
         <FieldLabel action={labelAction}>{label}</FieldLabel>
         <ComboboxPrimitive.Root
           autocomplete={creatable ? 'list' : 'both'}
+          open={internalIsOpen}
           onOpenChange={handleOpenChange}
           onTextValueChange={handleTextValueChange}
           textValue={internalTextValue}
