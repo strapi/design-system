@@ -1,19 +1,23 @@
 import * as React from 'react';
 
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { GridContext } from './GridContext';
-import { Box } from '../Box';
+import { Box, BoxProps } from '../Box';
 import handleResponsiveValues from '../helpers/handleResponsiveValues';
 
-const GridWrapper = styled(Box)`
+export interface GridProps extends BoxProps<HTMLDivElement> {
+  gridCols: number;
+  gap: number | number[];
+}
+
+const GridWrapper = styled(Box)<GridProps>`
   display: grid;
   grid-template-columns: repeat(${({ gridCols }) => gridCols}, 1fr);
   ${({ theme, gap }) => handleResponsiveValues('gap', gap, theme)}
 `;
 
-export const Grid = ({ gap, gridCols, ...props }) => {
+export const Grid: React.FC<GridProps> = ({ gap = 0, gridCols = 12, ...props }) => {
   const context = React.useMemo(() => ({ gap, gridCols }), [gap, gridCols]);
 
   return (
@@ -21,14 +25,4 @@ export const Grid = ({ gap, gridCols, ...props }) => {
       <GridWrapper gap={gap} gridCols={gridCols} {...props} />
     </GridContext.Provider>
   );
-};
-
-Grid.defaultProps = {
-  gap: 0,
-  gridCols: 12,
-};
-
-Grid.propTypes = {
-  gap: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
-  gridCols: PropTypes.number,
 };
