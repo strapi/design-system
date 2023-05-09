@@ -16,6 +16,10 @@
  */
 const DEFAULT_LOCALE = 'en-EN';
 
+/**
+ * @preserve
+ * @deprecated This will be removed in v2.0.0, you can access the locale from `useDesignSystem` instead.
+ */
 export const getDefaultLocale = () => {
   if (typeof navigator === 'undefined') {
     return DEFAULT_LOCALE;
@@ -23,12 +27,6 @@ export const getDefaultLocale = () => {
 
   if (navigator.language) {
     return navigator.language;
-  }
-
-  // @ts-expect-error this is not in the TS definition but is in the spec
-  if (navigator.userLanguage) {
-    // @ts-expect-error this is not in the TS definition but is in the spec
-    return navigator.userLanguage;
   }
 
   return DEFAULT_LOCALE;

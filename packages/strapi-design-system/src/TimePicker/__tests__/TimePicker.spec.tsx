@@ -1,20 +1,13 @@
 import { useState } from 'react';
 
-import { render as renderRTL } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { render as renderRTL } from '@test/utils';
 
-import { ThemeProvider } from '../../ThemeProvider';
-import { lightTheme } from '../../themes';
 import { TimePicker, TimePickerProps } from '../TimePicker';
 
 const Component = (props: Partial<TimePickerProps>) => {
   const [value, setValue] = useState<string>();
 
-  return (
-    <ThemeProvider theme={lightTheme}>
-      <TimePicker label="timepicker" value={value} onChange={setValue} {...props} />
-    </ThemeProvider>
-  );
+  return <TimePicker label="timepicker" value={value} onChange={setValue} {...props} />;
 };
 
 const render = (props?: Partial<TimePickerProps>) => renderRTL(<Component {...props} />);
@@ -40,8 +33,7 @@ describe('TimePicker', () => {
 
   describe('step prop', () => {
     it('should render 96 options for time by default', async () => {
-      const user = userEvent.setup();
-      const { getAllByRole, getByRole } = render();
+      const { getAllByRole, getByRole, user } = render();
 
       await user.click(getByRole('combobox'));
 
@@ -49,8 +41,7 @@ describe('TimePicker', () => {
     });
 
     it('should handle a different step count being passed', async () => {
-      const user = userEvent.setup();
-      const { getAllByRole, getByRole } = render({ step: 30 });
+      const { getAllByRole, getByRole, user } = render({ step: 30 });
 
       await user.click(getByRole('combobox'));
 

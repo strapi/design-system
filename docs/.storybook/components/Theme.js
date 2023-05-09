@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDarkMode } from 'storybook-dark-mode';
 import { parse } from 'qs';
-import { ThemeProvider, Box, lightTheme, darkTheme } from '@strapi/design-system';
+import { DesignSystemProvider, Box, lightTheme, darkTheme } from '@strapi/design-system';
 
 const themeQueryURL = parse(document.location.search).theme;
 
@@ -16,11 +16,11 @@ const Theme = ({ children }) => {
   }, [isDarkAddon, isDark]);
 
   return (
-    <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
+    <DesignSystemProvider locale="en-GB" theme={isDark ? darkTheme : lightTheme}>
       <Box padding={2} background="neutral0">
         {children}
       </Box>
-    </ThemeProvider>
+    </DesignSystemProvider>
   );
 };
 

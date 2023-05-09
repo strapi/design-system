@@ -1,17 +1,13 @@
-import { render, fireEvent, screen } from '@testing-library/react';
+import { render, fireEvent, screen } from '@test/utils';
 
-import { ThemeProvider } from '../../ThemeProvider';
-import { lightTheme } from '../../themes';
 import { Tooltip } from '../Tooltip';
 
 describe('Tooltip', () => {
   it('snapshots document.body when the tooltip is not visible but exists in the DOM', () => {
     render(
-      <ThemeProvider theme={lightTheme}>
-        <Tooltip description="Content of the tooltip fefe">
-          <button type="button">Show tooltip</button>
-        </Tooltip>
-      </ThemeProvider>,
+      <Tooltip description="Content of the tooltip fefe">
+        <button type="button">Show tooltip</button>
+      </Tooltip>,
     );
 
     expect(document.body).toMatchInlineSnapshot(`
@@ -101,11 +97,9 @@ describe('Tooltip', () => {
 
   it('snapshots document.body when the button is focused (aria-describedby exists)', () => {
     render(
-      <ThemeProvider theme={lightTheme}>
-        <Tooltip description="Content of the tooltip fefe">
-          <button type="button">Show tooltip</button>
-        </Tooltip>
-      </ThemeProvider>,
+      <Tooltip description="Content of the tooltip fefe">
+        <button type="button">Show tooltip</button>
+      </Tooltip>,
     );
 
     fireEvent.focus(screen.getByText('Show tooltip'));
@@ -204,11 +198,9 @@ describe('Tooltip', () => {
 
   it('snapshots document.body with a label', () => {
     render(
-      <ThemeProvider theme={lightTheme}>
-        <Tooltip label="Content of the tooltip fefe">
-          <button type="button">+</button>
-        </Tooltip>
-      </ThemeProvider>,
+      <Tooltip label="Content of the tooltip fefe">
+        <button type="button">+</button>
+      </Tooltip>,
     );
 
     fireEvent.focus(screen.getByText('+'));

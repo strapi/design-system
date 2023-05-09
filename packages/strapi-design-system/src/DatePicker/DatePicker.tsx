@@ -22,12 +22,12 @@ import { RemoveScroll } from 'react-remove-scroll';
 import styled, { ThemeColors } from 'styled-components';
 
 import { Box, BoxProps } from '../Box';
+import { useDesignSystem } from '../DesignSystemProvider';
 import { DismissibleLayer, DismissibleLayerProps } from '../DismissibleLayer';
 import * as Field from '../Field';
 import { FieldProps } from '../Field';
 import { Flex, FlexProps } from '../Flex';
 import { createContext } from '../helpers/context';
-import { getDefaultLocale } from '../helpers/getDefaultLocale';
 import { useComposedRefs } from '../hooks/useComposeRefs';
 import { useControllableState } from '../hooks/useControllableState';
 import { useDateFormatter } from '../hooks/useDateFormatter';
@@ -204,7 +204,9 @@ const DatePickerInput = ({
     }
   }, [selectedDate]);
 
-  const locale = defaultLocale ?? getDefaultLocale();
+  const designContext = useDesignSystem('DatePicker');
+
+  const locale = defaultLocale ?? designContext.locale;
 
   const contentId = useId();
 

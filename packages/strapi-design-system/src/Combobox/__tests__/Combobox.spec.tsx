@@ -1,8 +1,5 @@
-import { render as renderRTL } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { render as renderRTL } from '@test/utils';
 
-import { ThemeProvider } from '../../ThemeProvider';
-import { lightTheme } from '../../themes';
 import { Combobox, Option, ComboboxProps } from '../Combobox';
 
 type ComponentProps = Omit<ComboboxProps, 'children'> & { options?: typeof defaultOptions };
@@ -15,13 +12,11 @@ const defaultOptions = [
 ];
 
 const Component = ({ options = defaultOptions, ...restProps }: ComponentProps) => (
-  <ThemeProvider theme={lightTheme}>
-    <Combobox label="Food" {...restProps}>
-      {options.map((opt) => (
-        <Option key={opt.value} {...opt} />
-      ))}
-    </Combobox>
-  </ThemeProvider>
+  <Combobox label="Food" {...restProps}>
+    {options.map((opt) => (
+      <Option key={opt.value} {...opt} />
+    ))}
+  </Combobox>
 );
 
 const render = (props?: ComponentProps) => renderRTL(<Component {...props} />);
@@ -42,9 +37,8 @@ describe('Combobox', () => {
 
   describe('callbacks', () => {
     it('should fire onChange only when the value is changed not when the input does', async () => {
-      const user = userEvent.setup();
       const onChange = jest.fn();
-      const { getByRole } = render({ onChange });
+      const { getByRole, user } = render({ onChange });
 
       await user.click(getByRole('combobox'));
 
@@ -59,9 +53,8 @@ describe('Combobox', () => {
     });
 
     it('should call onInputChange as the input changes', async () => {
-      const user = userEvent.setup();
       const onInputChange = jest.fn();
-      const { getByRole } = render({ onInputChange });
+      const { getByRole, user } = render({ onInputChange });
 
       await user.click(getByRole('combobox'));
 
@@ -89,8 +82,7 @@ describe('Combobox', () => {
     });
 
     it('should handle the loading prop correctly', async () => {
-      const user = userEvent.setup();
-      const { getByRole, queryByText } = render({ loading: true });
+      const { getByRole, queryByText, user } = render({ loading: true });
 
       expect(queryByText('Loading content...')).not.toBeInTheDocument();
 
@@ -106,8 +98,7 @@ describe('Combobox', () => {
     });
 
     it('should handle noOptionsMessage prop correctly', async () => {
-      const user = userEvent.setup();
-      const { getByRole, queryAllByRole, getByText } = render({
+      const { getByRole, queryAllByRole, getByText, user } = render({
         noOptionsMessage: (value) => `${value} is not an option`,
       });
 
@@ -122,8 +113,7 @@ describe('Combobox', () => {
 
   describe('clear props', () => {
     it('should only show the clear button if the user has started typing an onClear is passed', async () => {
-      const user = userEvent.setup();
-      const { getByRole, queryByRole } = render({
+      const { getByRole, queryByRole, user } = render({
         onClear: jest.fn(),
       });
 
@@ -137,8 +127,7 @@ describe('Combobox', () => {
     });
 
     it('should handle a custom label being passed', async () => {
-      const user = userEvent.setup();
-      const { getByRole } = render({
+      const { getByRole, user } = render({
         onClear: jest.fn(),
         clearLabel: 'Clear the field',
       });
@@ -151,9 +140,8 @@ describe('Combobox', () => {
     });
 
     it('should clear the field when the clear button is pressed', async () => {
-      const user = userEvent.setup();
       const onClear = jest.fn();
-      const { getByRole } = render({
+      const { getByRole, user } = render({
         onClear,
       });
 
@@ -170,8 +158,7 @@ describe('Combobox', () => {
 
   describe('createable props', () => {
     it('should show the creatable button only if the prop is true & when an option is typed that does not exist', async () => {
-      const user = userEvent.setup();
-      const { getByRole, queryByRole } = render({
+      const { getByRole, queryByRole, user } = render({
         creatable: true,
       });
 
@@ -189,8 +176,7 @@ describe('Combobox', () => {
     });
 
     it('should show the creatable button even if there are no options to begin with when we have typed something', async () => {
-      const user = userEvent.setup();
-      const { getByRole, queryByRole } = render({
+      const { getByRole, queryByRole, user } = render({
         creatable: true,
         options: [],
       });
@@ -205,8 +191,7 @@ describe('Combobox', () => {
     });
 
     it("should by default show the 'Create {value}' label", async () => {
-      const user = userEvent.setup();
-      const { getByRole } = render({
+      const { getByRole, user } = render({
         creatable: true,
       });
 
@@ -218,8 +203,7 @@ describe('Combobox', () => {
     });
 
     it('should handle a custom createMessage function passed', async () => {
-      const user = userEvent.setup();
-      const { getByRole } = render({
+      const { getByRole, user } = render({
         creatable: true,
         createMessage: (value) => `Create ${value} as an option`,
       });
@@ -233,9 +217,8 @@ describe('Combobox', () => {
     });
 
     it('should fire onCreateOption callback when the button is pressed', async () => {
-      const user = userEvent.setup();
       const onCreateOption = jest.fn();
-      const { getByRole } = render({
+      const { getByRole, user } = render({
         creatable: true,
         onCreateOption,
       });

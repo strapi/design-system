@@ -1,10 +1,10 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 
-import { Flex, Typography, ThemeProvider, lightTheme } from '@strapi/design-system';
+import { Flex, Typography, DesignSystemProvider, lightTheme } from '@strapi/design-system';
 
 export const DeprecationNotice = ({ children, href }) => (
-  <ThemeProvider theme={lightTheme}>
+  <DesignSystemProvider theme={lightTheme}>
     <Flex padding={5} background="danger200" justifyContent="center" marginTop={4} marginBottom={4}>
       <Typography fontSize={4} fontWeight="bold" as="p">
         ⛔️
@@ -18,7 +18,7 @@ export const DeprecationNotice = ({ children, href }) => (
         ⛔️
       </Typography>
     </Flex>
-  </ThemeProvider>
+  </DesignSystemProvider>
 );
 
 DeprecationNotice.propTypes = {

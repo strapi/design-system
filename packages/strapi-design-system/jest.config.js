@@ -9,6 +9,10 @@ const __dirname = dirname(__filename);
 
 export default {
   ...jestBaseConfig,
+  moduleNameMapper: {
+    ...jestBaseConfig.moduleNameMapper,
+    '^@test/(.*)$': '<rootDir>/packages/strapi-design-system/test/$1',
+  },
   roots: [__dirname],
   displayName: '@strapi/design-system',
 };
