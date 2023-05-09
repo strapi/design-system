@@ -1,32 +1,28 @@
-import { render } from '@testing-library/react';
+import { render } from '@test/utils';
 
 import { Button } from '../../Button';
-import { ThemeProvider } from '../../ThemeProvider';
-import { lightTheme } from '../../themes';
 import { ModalLayout, ModalHeader, ModalBody, ModalFooter } from '../index';
 
 describe('ModalLayout', () => {
   it('should render component and match snapshot', () => {
     render(
-      <ThemeProvider theme={lightTheme}>
-        <ModalLayout onClose={() => jest.fn()} labelledBy="title">
-          <ModalHeader>Modal Title</ModalHeader>
-          <ModalBody>Hello World</ModalBody>
-          <ModalFooter
-            startActions={
-              <Button onClick={() => jest.fn} variant="tertiary">
-                Cancel
-              </Button>
-            }
-            endActions={
-              <>
-                <Button variant="secondary">Add new stuff</Button>
-                <Button onClick={() => jest.fn()}>Finish</Button>
-              </>
-            }
-          />
-        </ModalLayout>
-      </ThemeProvider>,
+      <ModalLayout onClose={() => jest.fn()} labelledBy="title">
+        <ModalHeader>Modal Title</ModalHeader>
+        <ModalBody>Hello World</ModalBody>
+        <ModalFooter
+          startActions={
+            <Button onClick={() => jest.fn} variant="tertiary">
+              Cancel
+            </Button>
+          }
+          endActions={
+            <>
+              <Button variant="secondary">Add new stuff</Button>
+              <Button onClick={() => jest.fn()}>Finish</Button>
+            </>
+          }
+        />
+      </ModalLayout>,
     );
 
     expect(document.body).toMatchInlineSnapshot(`
@@ -343,18 +339,6 @@ describe('ModalLayout', () => {
       .c20 svg > g,
       .c20 svg path {
         fill: #ffffff;
-      }
-
-      .c0 {
-        border: 0;
-        -webkit-clip: rect(0 0 0 0);
-        clip: rect(0 0 0 0);
-        height: 1px;
-        margin: -1px;
-        overflow: hidden;
-        padding: 0;
-        position: absolute;
-        width: 1px;
       }
 
       .c3 {

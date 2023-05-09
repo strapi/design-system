@@ -1,8 +1,5 @@
-import { render as renderRTL } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { render as renderRTL } from '@test/utils';
 
-import { ThemeProvider } from '../../../ThemeProvider';
-import { lightTheme } from '../../../themes';
 import { Menu } from '../SimpleMenu';
 
 interface ComponentProps {
@@ -11,29 +8,27 @@ interface ComponentProps {
 }
 
 const Component = ({ onAction1Select, onSubmenuAction1Select }: ComponentProps) => (
-  <ThemeProvider theme={lightTheme}>
-    <Menu.Root>
-      <Menu.Trigger>Actions</Menu.Trigger>
-      <Menu.Content>
-        <Menu.Item onSelect={onAction1Select}>Action 1</Menu.Item>
-        <Menu.Item isLink href="/home">
-          Action 2
-        </Menu.Item>
-        <Menu.Item isExternal href="https://google.com">
-          Action 3
-        </Menu.Item>
-        <Menu.SubRoot>
-          <Menu.SubTrigger>Subactions</Menu.SubTrigger>
-          <Menu.SubContent>
-            <Menu.Label>Submenu Actions</Menu.Label>
-            <Menu.Item onSelect={onSubmenuAction1Select}>Subaction 1</Menu.Item>
-            <Menu.Item>Subaction 2</Menu.Item>
-            <Menu.Item>Subaction 3</Menu.Item>
-          </Menu.SubContent>
-        </Menu.SubRoot>
-      </Menu.Content>
-    </Menu.Root>
-  </ThemeProvider>
+  <Menu.Root>
+    <Menu.Trigger>Actions</Menu.Trigger>
+    <Menu.Content>
+      <Menu.Item onSelect={onAction1Select}>Action 1</Menu.Item>
+      <Menu.Item isLink href="/home">
+        Action 2
+      </Menu.Item>
+      <Menu.Item isExternal href="https://google.com">
+        Action 3
+      </Menu.Item>
+      <Menu.SubRoot>
+        <Menu.SubTrigger>Subactions</Menu.SubTrigger>
+        <Menu.SubContent>
+          <Menu.Label>Submenu Actions</Menu.Label>
+          <Menu.Item onSelect={onSubmenuAction1Select}>Subaction 1</Menu.Item>
+          <Menu.Item>Subaction 2</Menu.Item>
+          <Menu.Item>Subaction 3</Menu.Item>
+        </Menu.SubContent>
+      </Menu.SubRoot>
+    </Menu.Content>
+  </Menu.Root>
 );
 
 const render = (props: ComponentProps = {}) => renderRTL(<Component {...props} />);
@@ -49,9 +44,7 @@ describe('Menu', () => {
   });
 
   it('should open the menu when the trigger is clicked', async () => {
-    const user = userEvent.setup();
-
-    const { getByRole } = render();
+    const { getByRole, user } = render();
 
     await user.click(getByRole('button', { name: 'Actions' }));
 
@@ -63,9 +56,7 @@ describe('Menu', () => {
   });
 
   it('should close the menu when the escape key is pressed after its opened', async () => {
-    const user = userEvent.setup();
-
-    const { getByRole, queryByRole } = render();
+    const { getByRole, queryByRole, user } = render();
 
     await user.click(getByRole('button', { name: 'Actions' }));
     await user.keyboard('{Escape}');
@@ -76,9 +67,7 @@ describe('Menu', () => {
 
   describe('Menu Items', () => {
     it('should render an anchor if we pass a isLink', async () => {
-      const user = userEvent.setup();
-
-      const { getByRole } = render();
+      const { getByRole, user } = render();
 
       await user.click(getByRole('button', { name: 'Actions' }));
 
@@ -87,9 +76,7 @@ describe('Menu', () => {
     });
 
     it('should render an anchor if we pass isExternal', async () => {
-      const user = userEvent.setup();
-
-      const { getByRole } = render();
+      const { getByRole, user } = render();
 
       await user.click(getByRole('button', { name: 'Actions' }));
 
@@ -98,9 +85,7 @@ describe('Menu', () => {
     });
 
     it('should allow navigating through the list of items with the arrow keys', async () => {
-      const user = userEvent.setup();
-
-      const { getByRole } = render();
+      const { getByRole, user } = render();
 
       await user.click(getByRole('button', { name: 'Actions' }));
       await user.keyboard('{ArrowDown}');
@@ -121,10 +106,9 @@ describe('Menu', () => {
     });
 
     it('should fire the menu item onClick handler when clicked', async () => {
-      const user = userEvent.setup();
       const onAction1Select = jest.fn();
 
-      const { getByRole } = render({ onAction1Select });
+      const { getByRole, user } = render({ onAction1Select });
 
       await user.click(getByRole('button', { name: 'Actions' }));
       await user.click(getByRole('menuitem', { name: 'Action 1' }));
@@ -134,10 +118,9 @@ describe('Menu', () => {
 
     ['Enter', 'Space'].forEach((key) => {
       it(`should fire the menu item onSelect handler when ${key} is pressed`, async () => {
-        const user = userEvent.setup();
         const onAction1Select = jest.fn();
 
-        const { getByRole } = render({ onAction1Select });
+        const { getByRole, user } = render({ onAction1Select });
 
         await user.click(getByRole('button', { name: 'Actions' }));
 
@@ -151,9 +134,7 @@ describe('Menu', () => {
 
   describe('Submenus', () => {
     it('should open the submenu when the submenu trigger is clicked', async () => {
-      const user = userEvent.setup();
-
-      const { getByRole, getByText } = render();
+      const { getByRole, getByText, user } = render();
 
       await user.click(getByRole('button', { name: 'Actions' }));
       await user.click(getByRole('menuitem', { name: 'Subactions' }));
@@ -169,10 +150,9 @@ describe('Menu', () => {
      * This test fails and i'm not sure why...
      */
     it.skip('should fire the onSelect of a submenu item when clicked', async () => {
-      const user = userEvent.setup();
       const onSubmenuAction1Select = jest.fn();
 
-      const { getByRole } = render({ onSubmenuAction1Select });
+      const { getByRole, user } = render({ onSubmenuAction1Select });
 
       await user.click(getByRole('button', { name: 'Actions' }));
       await user.click(getByRole('menuitem', { name: 'Subactions' }));
@@ -184,10 +164,9 @@ describe('Menu', () => {
 
     ['Enter', 'Space'].forEach((key) => {
       it(`should fire the onSelect of a submenu item when ${key} is pressed`, async () => {
-        const user = userEvent.setup();
         const onSubmenuAction1Select = jest.fn();
 
-        const { getByRole } = render({ onSubmenuAction1Select });
+        const { getByRole, user } = render({ onSubmenuAction1Select });
 
         await user.click(getByRole('button', { name: 'Actions' }));
 

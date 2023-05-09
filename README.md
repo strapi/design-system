@@ -30,13 +30,17 @@ $ npm i react react-dom @strapi/design-system @strapi/icons styled-components re
 
 ## Getting Started
 
-Wrap your application with the `ThemeProvider` and pass the default `lightTheme` or `darkTheme` provided by `@strapi/design-system`.
+Wrap your application with the `DesignSystemProvider`. You can additionally pass a theme and/or locale, although you don't have to as we have default values for both.
 
 ```jsx
-import { ThemeProvider, lightTheme } from '@strapi/design-system';
+import { DesignSystemProvider, lightTheme } from '@strapi/design-system';
 
 function MyApp({ children }) {
-  return <ThemeProvider theme={lightTheme}>{children}</ThemeProvider>;
+  return (
+    <DesignSystemProvider locale="en-GB" theme={lightTheme}>
+      {children}
+    </DesignSystemProvider>
+  );
 }
 
 export default App;
