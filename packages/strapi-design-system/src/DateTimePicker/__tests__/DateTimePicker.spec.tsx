@@ -1,8 +1,5 @@
-import { render as renderRTL } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { render as renderRTL } from '@test/utils';
 
-import { ThemeProvider } from '../../ThemeProvider';
-import { lightTheme } from '../../themes';
 import { DateTimePicker, DateTimePickerProps } from '../DateTimePicker';
 
 /**
@@ -11,15 +8,13 @@ import { DateTimePicker, DateTimePickerProps } from '../DateTimePicker';
  */
 
 const Component = (props: Partial<DateTimePickerProps>) => (
-  <ThemeProvider theme={lightTheme}>
-    <DateTimePicker
-      minDate={new Date('Mon Sep 04 2000')}
-      initialDate={new Date('12/01/2023')}
-      step={15}
-      label="datetime picker"
-      {...props}
-    />
-  </ThemeProvider>
+  <DateTimePicker
+    minDate={new Date('Mon Sep 04 2000')}
+    initialDate={new Date('12/01/2023')}
+    step={15}
+    label="datetime picker"
+    {...props}
+  />
 );
 
 const render = (props: Partial<DateTimePickerProps> = {}) => renderRTL(<Component {...props} />);
@@ -59,8 +54,7 @@ describe.skip('DateTimePicker', () => {
 
   describe('interactions', () => {
     it('should open the calendar when clicking on the DatePicker', async () => {
-      const user = userEvent.setup();
-      const { queryByRole, getByRole } = render();
+      const { queryByRole, getByRole, user } = render();
 
       expect(queryByRole('dialog')).not.toBeInTheDocument();
 
@@ -70,8 +64,7 @@ describe.skip('DateTimePicker', () => {
     });
 
     it('should open the menu when clicking on the TimePicker', async () => {
-      const user = userEvent.setup();
-      const { queryByRole, getByRole } = render();
+      const { queryByRole, getByRole, user } = render();
 
       expect(queryByRole('listbox')).not.toBeInTheDocument();
 
@@ -83,8 +76,7 @@ describe.skip('DateTimePicker', () => {
     it(
       'should fill the TimePicker with 00:00 when a date is picked and the TimePicker is empty',
       async () => {
-        const user = userEvent.setup();
-        const { getByRole } = render();
+        const { getByRole, user } = render();
 
         await user.click(getByRole('textbox', { name: 'datetime picker' }));
         await user.click(getByRole('button', { name: /15/ }));
@@ -96,8 +88,7 @@ describe.skip('DateTimePicker', () => {
     );
 
     it('should fill the DatePicker with the current date when a time is picked and the DatePicker is empty', async () => {
-      const user = userEvent.setup();
-      const { getByRole } = render();
+      const { getByRole, user } = render();
 
       await user.click(getByRole('combobox'));
       await user.click(getByRole('option', { name: /12:00/ }));
@@ -111,8 +102,7 @@ describe.skip('DateTimePicker', () => {
     it(
       'should not change the value of the DatePicker when a time is picked and the DatePicker is not empty',
       async () => {
-        const user = userEvent.setup();
-        const { getByRole } = render();
+        const { getByRole, user } = render();
 
         await user.click(getByRole('textbox', { name: 'datetime picker' }));
         await user.click(getByRole('button', { name: /15/ }));
@@ -131,8 +121,7 @@ describe.skip('DateTimePicker', () => {
     it(
       'should not change the value of the TimePicker when a date is picked and the TimePicker is not empty',
       async () => {
-        const user = userEvent.setup();
-        const { getByRole } = render();
+        const { getByRole, user } = render();
 
         await user.click(getByRole('combobox'));
         await user.click(getByRole('option', { name: /12:00/ }));
@@ -154,9 +143,8 @@ describe.skip('DateTimePicker', () => {
     it(
       'should clear the value of the DatePicker when clicking on the clear button and clear the TimePicker',
       async () => {
-        const user = userEvent.setup();
         const onClear = jest.fn();
-        const { getByRole } = render({ onClear });
+        const { getByRole, user } = render({ onClear });
 
         await user.click(getByRole('textbox', { name: 'datetime picker' }));
         await user.click(getByRole('button', { name: /15/ }));
@@ -178,9 +166,8 @@ describe.skip('DateTimePicker', () => {
      * TODO: This test is skipped because of an issue with the event being prevented by not calling the original...
      */
     it.skip('should reset the value of the TimePicker to 00:00 when clicking on the clear button but not clear the DatePicker and not call onClear', async () => {
-      const user = userEvent.setup();
       const onClear = jest.fn();
-      const { getByRole } = render({ onClear });
+      const { getByRole, user } = render({ onClear });
 
       await user.click(getByRole('combobox'));
       await user.click(getByRole('option', { name: /12:00/ }));
@@ -215,8 +202,7 @@ describe.skip('DateTimePicker', () => {
     });
 
     it('should pass the step prop to the TimePicker component', async () => {
-      const user = userEvent.setup();
-      const { getByRole, getAllByRole } = render({ step: 30 });
+      const { getByRole, getAllByRole, user } = render({ step: 30 });
 
       await user.click(getByRole('combobox'));
 
@@ -253,9 +239,8 @@ describe.skip('DateTimePicker', () => {
     it(
       'should call onChange when the value is updated even if the component is not controlled',
       async () => {
-        const user = userEvent.setup();
         const onChange = jest.fn();
-        const { getByRole } = render({ onChange });
+        const { getByRole, user } = render({ onChange });
 
         await user.click(getByRole('textbox', { name: 'datetime picker' }));
         await user.click(getByRole('button', { name: /15/ }));

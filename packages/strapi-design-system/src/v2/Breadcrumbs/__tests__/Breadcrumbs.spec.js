@@ -1,21 +1,17 @@
 import * as React from 'react';
 
-import { render } from '@testing-library/react';
+import { render } from '@test/utils';
 
-import { ThemeProvider } from '../../../ThemeProvider';
-import { lightTheme } from '../../../themes';
 import { Breadcrumbs } from '../Breadcrumbs';
 import { Crumb } from '../Crumb';
 
 describe('Breadcrumb', () => {
   it('should render only one crumb without any separator', async () => {
     const { container } = render(
-      <ThemeProvider theme={lightTheme}>
-        <Breadcrumbs label="test">
-          <Crumb>First</Crumb>
-          {undefined && <Crumb>Second</Crumb>}
-        </Breadcrumbs>
-      </ThemeProvider>,
+      <Breadcrumbs label="test">
+        <Crumb>First</Crumb>
+        {undefined && <Crumb>Second</Crumb>}
+      </Breadcrumbs>,
     );
 
     const crumbList = container.querySelectorAll('li');
@@ -29,12 +25,10 @@ describe('Breadcrumb', () => {
 
   it('should render two crumbs with only one separator', async () => {
     const { container } = render(
-      <ThemeProvider theme={lightTheme}>
-        <Breadcrumbs label="test">
-          <Crumb>First</Crumb>
-          <Crumb>Second</Crumb>
-        </Breadcrumbs>
-      </ThemeProvider>,
+      <Breadcrumbs label="test">
+        <Crumb>First</Crumb>
+        <Crumb>Second</Crumb>
+      </Breadcrumbs>,
     );
 
     const crumbList = container.querySelectorAll('li');

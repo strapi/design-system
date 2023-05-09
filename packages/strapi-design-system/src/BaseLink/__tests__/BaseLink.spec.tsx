@@ -1,18 +1,10 @@
-import * as React from 'react';
+import { render } from '@test/utils';
 
-import { render } from '@testing-library/react';
-
-import { ThemeProvider } from '../../ThemeProvider';
-import { lightTheme } from '../../themes';
 import { BaseLink } from '../BaseLink';
 
 describe('BaseLink', () => {
   it('snapshots the component', () => {
-    const { container } = render(
-      <ThemeProvider theme={lightTheme}>
-        <BaseLink />
-      </ThemeProvider>,
-    );
+    const { container } = render(<BaseLink />);
 
     expect(container.firstChild).toMatchInlineSnapshot(`
       .c0 {
