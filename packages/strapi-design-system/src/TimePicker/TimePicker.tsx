@@ -1,7 +1,6 @@
 import { Clock } from '@strapi/icons';
 import styled from 'styled-components';
 
-import { Flex } from '../Flex';
 import { useId } from '../hooks/useId';
 import { SingleSelect, SingleSelectOption, SingleSelectProps } from '../Select/SingleSelect';
 
@@ -63,11 +62,7 @@ export const TimePicker = ({ id, value, step = 15, onChange, ...props }: TimePic
       id={generatedId}
       placeholder="--:--"
       value={value ? getClosestValue() : undefined}
-      startIcon={
-        <TimeIconWrapper as="span">
-          <Clock />
-        </TimeIconWrapper>
-      }
+      startIcon={<StyledClock />}
       onChange={handleChange}
       {...props}
     >
@@ -80,13 +75,11 @@ export const TimePicker = ({ id, value, step = 15, onChange, ...props }: TimePic
   );
 };
 
-const TimeIconWrapper = styled(Flex)`
-  & > svg {
-    height: 1rem;
-    width: 1rem;
-  }
+const StyledClock = styled(Clock)`
+  height: 1rem;
+  width: 1rem;
 
-  & > svg path {
+  & > path {
     fill: ${({ theme }) => theme.colors.neutral500};
   }
 `;

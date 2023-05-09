@@ -1,9 +1,7 @@
 import * as React from 'react';
 
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent } from '@test/utils';
 
-import { ThemeProvider } from '../../ThemeProvider';
-import { lightTheme } from '../../themes';
 import { Popover } from '../Popover';
 
 describe('Popover', () => {
@@ -13,20 +11,18 @@ describe('Popover', () => {
       const [visible] = React.useState(true);
 
       return (
-        <ThemeProvider theme={lightTheme}>
-          <div>
-            <div ref={divRef}>Source</div>
-            {visible && (
-              <Popover source={divRef}>
-                <div>Hello world</div>
-              </Popover>
-            )}
-          </div>
-        </ThemeProvider>
+        <div>
+          <div ref={divRef}>Source</div>
+          {visible && (
+            <Popover source={divRef}>
+              <div>Hello world</div>
+            </Popover>
+          )}
+        </div>
       );
     };
 
-    const { container } = render(<Component />, { container: document.body });
+    const { container } = render(<Component />, { renderOptions: { container: document.body } });
 
     expect(container).toMatchInlineSnapshot(`
       .c3 {
@@ -129,22 +125,20 @@ describe('Popover', () => {
       const [isVisible, setIsVisible] = React.useState(false);
 
       return (
-        <ThemeProvider theme={lightTheme}>
-          <div>
-            <button type="button" ref={divRef} onClick={() => setIsVisible((s) => !s)}>
-              Source
-            </button>
-            {isVisible && (
-              <Popover source={divRef}>
-                <div>Hello world</div>
-              </Popover>
-            )}
-          </div>
-        </ThemeProvider>
+        <div>
+          <button type="button" ref={divRef} onClick={() => setIsVisible((s) => !s)}>
+            Source
+          </button>
+          {isVisible && (
+            <Popover source={divRef}>
+              <div>Hello world</div>
+            </Popover>
+          )}
+        </div>
       );
     };
 
-    render(<Component />, { container: document.body });
+    render(<Component />, { renderOptions: { container: document.body } });
 
     expect(() => screen.getByText('Hello world')).toThrow();
 

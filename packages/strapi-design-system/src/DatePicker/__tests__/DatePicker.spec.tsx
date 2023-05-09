@@ -1,20 +1,10 @@
-import { render as renderRTL } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { render as renderRTL } from '@test/utils';
 
-import { ThemeProvider } from '../../ThemeProvider';
-import { lightTheme } from '../../themes';
 import { DatePicker, DatePickerProps } from '../DatePicker';
 
-const Component = (props: Partial<DatePickerProps>) => (
-  <ThemeProvider theme={lightTheme}>
-    <DatePicker label="date picker" {...props} />
-  </ThemeProvider>
-);
+const Component = (props: Partial<DatePickerProps>) => <DatePicker locale="en-EN" label="date picker" {...props} />;
 
-const render = (props?: Partial<DatePickerProps>) => ({
-  user: userEvent.setup(),
-  ...renderRTL(<Component {...props} />),
-});
+const render = (props?: Partial<DatePickerProps>) => renderRTL(<Component {...props} />);
 
 describe('DatePicker', () => {
   describe('Input', () => {

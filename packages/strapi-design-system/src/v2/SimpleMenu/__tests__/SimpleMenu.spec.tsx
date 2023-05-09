@@ -1,23 +1,18 @@
-import { render as renderRTL } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { render as renderRTL } from '@test/utils';
 
-import { ThemeProvider } from '../../../ThemeProvider';
-import { lightTheme } from '../../../themes';
 import { SimpleMenu, MenuItem, SimpleMenuProps } from '../SimpleMenu';
 
 const Component = ({ onClick = () => {}, ...restProps }: SimpleMenuProps) => (
-  <ThemeProvider theme={lightTheme}>
-    <SimpleMenu label="Menu" {...restProps}>
-      <MenuItem onClick={onClick}>January</MenuItem>
-      <MenuItem onClick={onClick}>February</MenuItem>
-      <MenuItem href="https://strapi.io" isExternal>
-        Strapi website
-      </MenuItem>
-      <MenuItem href="/" isLink>
-        Home
-      </MenuItem>
-    </SimpleMenu>
-  </ThemeProvider>
+  <SimpleMenu label="Menu" {...restProps}>
+    <MenuItem onClick={onClick}>January</MenuItem>
+    <MenuItem onClick={onClick}>February</MenuItem>
+    <MenuItem href="https://strapi.io" isExternal>
+      Strapi website
+    </MenuItem>
+    <MenuItem href="/" isLink>
+      Home
+    </MenuItem>
+  </SimpleMenu>
 );
 
 const render = (props: Partial<SimpleMenuProps> = {}) => renderRTL(<Component {...props} />);
@@ -33,9 +28,7 @@ describe('SimpleMenu', () => {
   });
 
   it('should open the menu when the trigger is clicked', async () => {
-    const user = userEvent.setup();
-
-    const { getByRole } = render();
+    const { getByRole, user } = render();
 
     await user.click(getByRole('button', { name: 'Menu' }));
 
@@ -47,9 +40,7 @@ describe('SimpleMenu', () => {
   });
 
   it('should close the menu when the escape key is pressed after its opened', async () => {
-    const user = userEvent.setup();
-
-    const { getByRole, queryByRole } = render();
+    const { getByRole, queryByRole, user } = render();
 
     await user.click(getByRole('button', { name: 'Menu' }));
     await user.keyboard('{Escape}');
@@ -59,10 +50,9 @@ describe('SimpleMenu', () => {
   });
 
   it('should call onOpen when the menu is opened', async () => {
-    const user = userEvent.setup();
     const onOpen = jest.fn();
 
-    const { getByRole } = render({ onOpen });
+    const { getByRole, user } = render({ onOpen });
 
     await user.click(getByRole('button', { name: 'Menu' }));
 
@@ -70,10 +60,9 @@ describe('SimpleMenu', () => {
   });
 
   it('should call onClose when the menu is closed', async () => {
-    const user = userEvent.setup();
     const onClose = jest.fn();
 
-    const { getByRole } = render({ onClose });
+    const { getByRole, user } = render({ onClose });
 
     await user.click(getByRole('button', { name: 'Menu' }));
     await user.keyboard('[Escape]');

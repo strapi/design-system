@@ -16,6 +16,7 @@ export * from './Card';
 export * from './CarouselInput';
 export * from './Checkbox';
 export * from './Combobox';
+export * from './DesignSystemProvider';
 export * from './Dialog';
 export * from './DismissibleLayer';
 export * from './DatePicker';

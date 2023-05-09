@@ -1,18 +1,12 @@
 import * as React from 'react';
 
-import { render, waitFor } from '@testing-library/react';
+import { render, waitFor } from '@test/utils';
 
-import { ThemeProvider } from '../../ThemeProvider';
-import { lightTheme } from '../../themes';
 import { Status } from '../Status';
 
 describe('Status', () => {
   it('it displays its children', async () => {
-    const { getByText } = render(
-      <ThemeProvider theme={lightTheme}>
-        <Status>My status</Status>
-      </ThemeProvider>,
-    );
+    const { getByText } = render(<Status>My status</Status>);
 
     await waitFor(() => {
       expect(getByText('My status')).toBeInTheDocument();
@@ -20,11 +14,7 @@ describe('Status', () => {
   });
 
   it('it displays a preceeding bullet by default', async () => {
-    const { queryByText } = render(
-      <ThemeProvider theme={lightTheme}>
-        <Status>My status</Status>
-      </ThemeProvider>,
-    );
+    const { queryByText } = render(<Status>My status</Status>);
 
     const textNode = queryByText('My status');
 
@@ -34,11 +24,7 @@ describe('Status', () => {
   });
 
   it('it is possible to disable the preceeding bullet', async () => {
-    const { queryByText } = render(
-      <ThemeProvider theme={lightTheme}>
-        <Status showBullet={false}>My status</Status>
-      </ThemeProvider>,
-    );
+    const { queryByText } = render(<Status showBullet={false}>My status</Status>);
 
     const textNode = queryByText('My status');
 

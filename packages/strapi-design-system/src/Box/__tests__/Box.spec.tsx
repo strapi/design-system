@@ -1,15 +1,8 @@
-import { render } from '@testing-library/react';
-import { ThemeProvider } from 'styled-components';
+import { render } from '@test/utils';
 
-import { lightTheme } from '../../themes';
 import { Box } from '../Box';
 
-const setup = (props = {}) =>
-  render(
-    <ThemeProvider theme={lightTheme}>
-      <Box {...props} />
-    </ThemeProvider>,
-  );
+const setup = (props = {}) => render(<Box {...props} />);
 
 describe('Box', () => {
   it.each(['color', 'background'])('retrieves the theme value corresponding to the %s props', (colorProp) => {
