@@ -1,15 +1,13 @@
-import React from 'react';
-
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { Box } from '../Box';
 
+export interface SkipToContentProps {
+  children?: React.ReactNode;
+}
+
 const AnchorBox = styled(Box)`
   text-decoration: none;
-  z-index: 9999;
-  left: -100%;
-  top: -100%;
 
   &:focus {
     left: ${({ theme }) => theme.spaces[3]};
@@ -17,22 +15,21 @@ const AnchorBox = styled(Box)`
   }
 `;
 
-export const SkipToContent = ({ children }) => {
+export const SkipToContent = ({ children }: SkipToContentProps) => {
   return (
     <AnchorBox
       as="a"
       href="#main-content"
       background="primary600"
       color="neutral0"
+      left="-100%"
       padding={3}
       position="absolute"
+      top="-100%"
       hasRadius
+      zIndex={9999}
     >
       {children}
     </AnchorBox>
   );
-};
-
-SkipToContent.propTypes = {
-  children: PropTypes.node.isRequired,
 };
