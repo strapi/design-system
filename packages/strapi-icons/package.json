@@ -1,6 +1,6 @@
 {
   "name": "@strapi/icons",
-  "version": "1.7.4-alpha.0",
+  "version": "1.7.4",
   "license": "MIT",
   "type": "module",
   "main": "./dist/index.cjs",
