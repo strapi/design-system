@@ -5,6 +5,7 @@ import { NavLink, NavLinkProps } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { usePagination } from './PaginationContext';
+import { Box, BoxProps } from '../Box';
 import { buttonFocusStyle } from '../themes/utils';
 import { Typography } from '../Typography';
 import { VisuallyHidden } from '../VisuallyHidden';
@@ -17,6 +18,8 @@ interface PaginationLinkProps extends NavLinkProps {
 interface PaginationPageLinkProps extends PaginationLinkProps {
   number: number;
 }
+
+interface DotsProps extends BoxProps {}
 
 const transientProps = {
   active: true,
@@ -63,10 +66,6 @@ const ActionLinkWrapper = styled(LinkWrapper)<PaginationLinkProps>`
   pointer-events: none;
     `
       : undefined}
-`;
-
-const DotsWrapper = styled(LinkWrapper)`
-  color: ${({ theme }) => theme.colors.neutral800};
 `;
 
 export const PreviousLink = ({ children, to, ...props }: PaginationLinkProps) => {
@@ -126,11 +125,11 @@ export const PageLink = ({ number, children, ...props }: PaginationPageLinkProps
 
 PageLink.displayName = 'PageLink';
 
-export const Dots = ({ children, ...props }: PaginationLinkProps) => (
-  <DotsWrapper {...props}>
+export const Dots = ({ children, ...props }: DotsProps) => (
+  <Box {...props}>
     <VisuallyHidden>{children}</VisuallyHidden>
-    <Typography aria-hidden lineHeight="revert" variant="pi">
+    <Typography aria-hidden lineHeight="revert" textColor="neutral800" variant="pi">
       …
     </Typography>
-  </DotsWrapper>
+  </Box>
 );
