@@ -43,6 +43,7 @@ export interface NumberInputProps
   onValueChange: (value: number | undefined) => void;
   locale?: string;
   value?: number;
+  step?: number;
 }
 
 const INITIAL_VALUE = '';
@@ -123,7 +124,7 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
 
       const parsedValue = numberParserRef.current.parse(inputValue);
 
-      const newValue = isNaN(parsedValue) ? Number(step) : parsedValue + Number(step);
+      const newValue = isNaN(parsedValue) ? step : parsedValue + step;
 
       formatNumberAndSetInput(numberFormaterRef.current.format(newValue));
     };
@@ -137,7 +138,7 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
 
       const parsedValue = numberParserRef.current.parse(inputValue);
 
-      const newValue = isNaN(parsedValue) ? -step : parsedValue - Number(step);
+      const newValue = isNaN(parsedValue) ? -step : parsedValue - step;
 
       formatNumberAndSetInput(numberFormaterRef.current.format(newValue));
     };
