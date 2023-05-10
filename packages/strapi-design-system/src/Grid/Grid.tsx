@@ -6,12 +6,12 @@ import { GridContext } from './GridContext';
 import { Box, BoxProps } from '../Box';
 import handleResponsiveValues from '../helpers/handleResponsiveValues';
 
-export interface GridProps extends BoxProps<HTMLDivElement> {
-  gridCols: number;
-  gap: number | number[];
+export interface GridProps extends BoxProps {
+  gridCols?: number;
+  gap?: number | number[];
 }
 
-const GridWrapper = styled(Box)<GridProps>`
+const GridWrapper = styled(Box)<Required<Pick<GridProps, 'gridCols' | 'gap'>>>`
   display: grid;
   grid-template-columns: repeat(${({ gridCols }) => gridCols}, 1fr);
   ${({ theme, gap }) => handleResponsiveValues('gap', gap, theme)}
