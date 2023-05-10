@@ -1,14 +1,31 @@
 import * as React from 'react';
 
-import PropTypes from 'prop-types';
-
 import { TabsContext } from './TabsContext';
 import { useId } from '../hooks/useId';
 
+interface TabGroupProps {
+  children: React.ReactNode;
+  label: string;
+  id?: string;
+  initialSelectedTabIndex?: number;
+  onTabChange?: (index: number) => void;
+  variant?: 'simple';
+}
+
 export const TabGroup = React.forwardRef(
-  ({ id, initialSelectedTabIndex, label, onTabChange, variant, ...props }, ref) => {
+  ({ id, initialSelectedTabIndex, label, onTabChange = () => {}, variant, ...props }: TabGroupProps, ref) => {
     const tabsId = useId(id);
-    const Tabs = React.Children.toArray(props.children).find((node) => node.type.displayName === 'Tabs');
+
+    const Tabs = React.Children.toArray(props.children).find((child) => {
+      if (React.isValidElement(child)) {
+        const componentType = child.type as React.ComponentType<any>;
+
+        return componentType.displayName === 'Tabs';
+      }
+
+      return false;
+    }) as React.ReactElement | undefined;
+
     let firstSelectedTab = initialSelectedTabIndex || 0;
 
     if (Tabs && initialSelectedTabIndex === undefined) {
@@ -35,19 +52,3 @@ export const TabGroup = React.forwardRef(
 );
 
 TabGroup.displayName = 'TabGroup';
-
-TabGroup.defaultProps = {
-  id: undefined,
-  initialSelectedTabIndex: undefined,
-  onTabChange() {},
-  variant: undefined,
-};
-
-TabGroup.propTypes = {
-  children: PropTypes.node.isRequired,
-  id: PropTypes.string,
-  initialSelectedTabIndex: PropTypes.number,
-  label: PropTypes.string.isRequired,
-  onTabChange: PropTypes.func,
-  variant: PropTypes.oneOf(['simple']),
-};

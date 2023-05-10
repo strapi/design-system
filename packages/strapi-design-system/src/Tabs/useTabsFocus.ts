@@ -3,8 +3,8 @@ import { useEffect, useRef } from 'react';
 import { useCallbackRef } from '@strapi/ui-primitives';
 
 export const useTabsFocus = (selectedTabIndex, onTabChange) => {
-  const tabsRef = useRef(null);
-  const mountedRef = useRef(null);
+  const tabsRef = useRef<HTMLDivElement>(null);
+  const mountedRef = useRef(false);
 
   const handleTabChange = useCallbackRef(onTabChange);
 
@@ -15,7 +15,7 @@ export const useTabsFocus = (selectedTabIndex, onTabChange) => {
     // It could break the navigating flow of the users if the focus was supposed to be
     // on another element
     if (mountedRef.current) {
-      const nextFocusEl = tabsRef.current.querySelector('[tabindex="0"]');
+      const nextFocusEl = tabsRef.current.querySelector<HTMLButtonElement>('[tabindex="0"]');
 
       if (nextFocusEl) {
         nextFocusEl.focus();
