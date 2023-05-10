@@ -4,6 +4,8 @@ import { useFloating, flip, shift, offset, autoUpdate, Placement } from '@floati
 import styled from 'styled-components';
 
 import { Box, BoxProps } from '../Box';
+import { stripReactIdOfColon } from '../helpers/strings';
+import { useId } from '../hooks/useId';
 import { useIntersection } from '../hooks/useIntersection';
 import { Portal } from '../Portal';
 
@@ -97,15 +99,18 @@ export interface ScrollingProps extends BoxProps<HTMLDivElement> {
 export const Scrolling = ({ children, intersectionId, onReachEnd, ...props }: ScrollingProps) => {
   const popoverRef = React.useRef<HTMLDivElement>(null!);
 
+  const generatedIntersectionId = useId();
   useIntersection(popoverRef, onReachEnd ?? (() => {}), {
-    selectorToWatch: `#${CSS.escape(intersectionId ?? '')}`,
+    selectorToWatch: `#${stripReactIdOfColon(generatedIntersectionId)}`,
     skipWhen: !intersectionId || !onReachEnd,
   });
 
   return (
     <PopoverScrollable ref={popoverRef} {...props}>
       {children}
-      {intersectionId && onReachEnd && <Box id={CSS.escape(intersectionId)} width="100%" height="1px" />}
+      {intersectionId && onReachEnd && (
+        <Box id={stripReactIdOfColon(generatedIntersectionId)} width="100%" height="1px" />
+      )}
     </PopoverScrollable>
   );
 };

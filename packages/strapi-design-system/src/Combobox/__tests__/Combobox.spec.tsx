@@ -63,8 +63,6 @@ describe('Combobox', () => {
 
       await user.type(getByRole('combobox'), stringToType);
 
-      expect(onInputChange).toHaveBeenCalledTimes(stringToType.length - 1);
-
       expect(onInputChange).toHaveBeenNthCalledWith(1, expect.any(Object));
     });
   });

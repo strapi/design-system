@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 
 import * as Menu from './Menu';
+import { stripReactIdOfColon } from '../../helpers/strings';
 import { useId } from '../../hooks/useId';
 import { useIntersection } from '../../hooks/useIntersection';
 
@@ -12,7 +13,6 @@ interface SimpleMenuProps
   extends Omit<Menu.TriggerProps, 'children'>,
     Pick<Menu.ContentProps, 'popoverPlacement' | 'intersectionId'> {
   children?: React.ReactNode;
-  id?: string;
   label?: React.ReactNode;
   onOpen?: () => void;
   onClose?: () => void;
@@ -22,7 +22,7 @@ interface SimpleMenuProps
   onReachEnd?: (entry: IntersectionObserverEntry) => void;
 }
 
-const SimpleMenu = ({ children, id, onOpen, onClose, popoverPlacement, onReachEnd, ...props }: SimpleMenuProps) => {
+const SimpleMenu = ({ children, onOpen, onClose, popoverPlacement, onReachEnd, ...props }: SimpleMenuProps) => {
   /**
    * Used for the intersection observer
    */
@@ -46,9 +46,8 @@ const SimpleMenu = ({ children, id, onOpen, onClose, popoverPlacement, onReachEn
     setInternalIsOpen(isOpen);
   };
 
-  const generatedId = useId(id);
-
-  const intersectionId = `intersection-${CSS.escape(generatedId)}`;
+  const generatedId = useId();
+  const intersectionId = `intersection-${stripReactIdOfColon(generatedId)}`;
 
   useIntersection(contentRef, handleReachEnd, {
     selectorToWatch: `#${intersectionId}`,

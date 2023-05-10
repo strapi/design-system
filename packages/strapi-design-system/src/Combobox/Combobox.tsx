@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import { Box } from '../Box';
 import { Field, FieldError, FieldHint, FieldLabel } from '../Field';
 import { Flex } from '../Flex';
+import { stripReactIdOfColon } from '../helpers/strings';
 import { useControllableState } from '../hooks/useControllableState';
 import { useId } from '../hooks/useId';
 import { useIntersection } from '../hooks/useIntersection';
@@ -19,9 +20,13 @@ export interface ComboboxProps {
   clearLabel?: string;
   creatable?: boolean;
   createMessage?: (inputValue: string) => string;
+  defaultFilterValue?: string;
   defaultTextValue?: string;
+  defaultOpen?: boolean;
+  open?: boolean;
   disabled?: boolean;
   error?: string;
+  filterValue?: string;
   hasMoreItems?: boolean;
   hint?: string;
   id?: string;
@@ -33,13 +38,16 @@ export interface ComboboxProps {
   onChange?: (value: string) => void;
   onClear?: (event: React.MouseEvent<HTMLButtonElement> | React.MouseEvent<HTMLDivElement>) => void;
   onCreateOption?: (inputValue: string) => void;
+  onFilterValueChange?: (filterValue?: string) => void;
   onInputChange?: React.ChangeEventHandler<HTMLInputElement>;
   onLoadMore?: (entry: IntersectionObserverEntry) => void;
+  onOpenChange?: (open?: boolean) => void;
+  onTextValueChange?: (textValue?: string) => void;
   placeholder?: string;
   required?: boolean;
   startIcon?: React.ReactNode;
   textValue?: string;
-  value?: string;
+  value?: string | null;
 }
 
 export const Combobox = ({
@@ -47,9 +55,14 @@ export const Combobox = ({
   clearLabel = 'clear',
   creatable = false,
   createMessage = (value) => `Create "${value}"`,
+  defaultFilterValue,
   defaultTextValue,
+  defaultOpen = false,
+  open,
+  onOpenChange,
   disabled = false,
   error,
+  filterValue,
   hasMoreItems = false,
   hint,
   id,
@@ -61,7 +74,9 @@ export const Combobox = ({
   onChange,
   onClear,
   onCreateOption,
+  onFilterValueChange,
   onInputChange,
+  onTextValueChange,
   onLoadMore,
   placeholder = 'Select or enter a value',
   required = false,
@@ -69,12 +84,21 @@ export const Combobox = ({
   textValue,
   value,
 }: ComboboxProps) => {
-  const [internalIsOpen, setInternalIsOpen] = React.useState(false);
+  const [internalIsOpen, setInternalIsOpen] = useControllableState({
+    prop: open,
+    defaultProp: defaultOpen,
+    onChange: onOpenChange,
+  });
   const [internalTextValue, setInternalTextValue] = useControllableState({
     prop: textValue,
     defaultProp: defaultTextValue,
+    onChange: onTextValueChange,
   });
-  const [internalFilterValue, setInternalFilterValue] = React.useState<string | undefined>('');
+  const [internalFilterValue, setInternalFilterValue] = useControllableState({
+    prop: filterValue,
+    defaultProp: defaultFilterValue,
+    onChange: onFilterValueChange,
+  });
 
   /**
    * Used for the intersection observer
@@ -121,7 +145,8 @@ export const Combobox = ({
     }
   };
 
-  const intersectionId = `intersection-${CSS.escape(generatedId)}`;
+  const generatedIntersectionId = useId();
+  const intersectionId = `intersection-${stripReactIdOfColon(generatedIntersectionId)}`;
 
   const handleReachEnd = (entry: IntersectionObserverEntry) => {
     if (onLoadMore && hasMoreItems && !loading) {
@@ -153,13 +178,14 @@ export const Combobox = ({
         <FieldLabel action={labelAction}>{label}</FieldLabel>
         <ComboboxPrimitive.Root
           autocomplete={creatable ? 'list' : 'both'}
+          open={internalIsOpen}
           onOpenChange={handleOpenChange}
           onTextValueChange={handleTextValueChange}
           textValue={internalTextValue}
           allowCustomValue
           disabled={disabled}
           required={required}
-          value={value}
+          value={value === null ? undefined : value}
           onValueChange={handleChange}
           filterValue={internalFilterValue}
           onFilterValueChange={handleFilterValueChange}

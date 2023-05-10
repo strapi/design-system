@@ -9,6 +9,7 @@ import checkmarkIcon from '../BaseCheckbox/assets/checkmark.svg';
 import { Box } from '../Box';
 import { Field, FieldError, FieldHint, FieldLabel } from '../Field';
 import { Flex } from '../Flex';
+import { stripReactIdOfColon } from '../helpers/strings';
 import { useId } from '../hooks/useId';
 import { useIntersection } from '../hooks/useIntersection';
 import { Tag } from '../Tag';
@@ -33,7 +34,7 @@ export type MultiSelectProps = Omit<SelectParts.MultiSelectProps, 'value' | 'mul
      * It has no effect on the component.
      */
     selectButtonTitle?: string;
-    value?: string[];
+    value?: string[] | null;
     withTags?: boolean;
   };
 
@@ -114,7 +115,8 @@ export const MultiSelect = ({
     triggerRef.current.focus();
   };
 
-  const intersectionId = `intersection-${CSS.escape(generatedId)}`;
+  const generatedIntersectionId = useId();
+  const intersectionId = `intersection-${stripReactIdOfColon(generatedIntersectionId)}`;
 
   const handleReachEnd = (entry: IntersectionObserverEntry) => {
     if (onReachEnd) {
@@ -131,7 +133,7 @@ export const MultiSelect = ({
     skipWhen: !internalIsOpen,
   });
 
-  const value = typeof passedValue !== 'undefined' ? passedValue : internalValue;
+  const value = typeof passedValue !== 'undefined' && passedValue !== null ? passedValue : internalValue;
 
   const renderTags: SelectParts.ValueRenderFn = (arg?: { value?: string; textValue?: string } | string) => {
     if (arg && typeof arg === 'object' && arg.value) {
