@@ -3,19 +3,26 @@ import React, { useRef } from 'react';
 
 import { NumberFormatter, NumberParser } from '@internationalized/number';
 import { CarretDown } from '@strapi/icons';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { Field, FieldLabel, FieldHint, FieldError, FieldInput } from '../Field';
+import {
+  Field,
+  FieldLabel,
+  FieldHint,
+  FieldError,
+  FieldInput,
+  FieldInputProps,
+  FieldProps,
+  FieldLabelProps,
+} from '../Field';
 import { Flex } from '../Flex';
 import { getDefaultLocale } from '../helpers/getDefaultLocale';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 import { useControllableState } from '../hooks/useControllableState';
 import { useId } from '../hooks/useId';
 import { Icon } from '../Icon';
-import { sizes } from '../themes/sizes';
 
-const ArrowButton = styled.button`
+const ArrowButton = styled.button<{ reverse?: boolean }>`
   display: flex;
   height: 1rem;
   align-items: ${({ reverse }) => (reverse ? 'flex-end' : 'flex-start')};
@@ -28,12 +35,22 @@ const ArrowButton = styled.button`
   }
 `;
 
+export interface NumberInputProps
+  extends Omit<FieldInputProps, 'id' | 'name' | 'onChange' | 'value'>,
+    Pick<FieldProps, 'hint' | 'error' | 'id' | 'name'> {
+  label?: string;
+  labelAction?: FieldLabelProps['action'];
+  onValueChange: (value: number | undefined) => void;
+  locale?: string;
+  value?: number;
+}
+
 const INITIAL_VALUE = '';
 
-export const NumberInput = React.forwardRef(
+export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
   (
     {
-      size,
+      size = 'M',
       startAction,
       name,
       hint,
@@ -44,9 +61,9 @@ export const NumberInput = React.forwardRef(
       id,
       onValueChange,
       value,
-      step,
-      required,
-      disabled,
+      step = 1,
+      required = false,
+      disabled = false,
       ...props
     },
     ref,
@@ -69,16 +86,16 @@ export const NumberInput = React.forwardRef(
          *
          * And always give it a string
          */
-        return isNaN(stringifiedValue) || (stringifiedValue !== currentInputValue && currentInputValue !== '')
+        return isNaN(Number(stringifiedValue)) || (stringifiedValue !== currentInputValue && currentInputValue !== '')
           ? currentInputValue
-          : numberFormaterRef.current.format(value);
+          : numberFormaterRef.current.format(Number(value));
       },
       defaultProp: INITIAL_VALUE,
       onChange(value) {
         /**
          * always return a
          */
-        const parsedValue = numberParserRef.current.parse(value);
+        const parsedValue = numberParserRef.current.parse(value ?? '');
         onValueChange(isNaN(parsedValue) ? undefined : parsedValue);
       },
     });
@@ -87,14 +104,11 @@ export const NumberInput = React.forwardRef(
      * Value will either be a number or a string,
      * if the former then it'll be converted to a string.
      */
-    const formatNumberAndSetInput = (value) => {
+    const formatNumberAndSetInput = (value: string | number | undefined) => {
       setInputValue(String(value));
     };
 
-    /**
-     * @type {React.ChangeEventHandler<HTMLInputElement>}
-     */
-    const handelInputChange = ({ target: { value } }) => {
+    const handelInputChange: React.ChangeEventHandler<HTMLInputElement> = ({ target: { value } }) => {
       if (numberParserRef.current.isValidPartialNumber(value)) {
         formatNumberAndSetInput(value);
       }
@@ -109,7 +123,7 @@ export const NumberInput = React.forwardRef(
 
       const parsedValue = numberParserRef.current.parse(inputValue);
 
-      const newValue = isNaN(parsedValue) ? step : parsedValue + step;
+      const newValue = isNaN(parsedValue) ? Number(step) : parsedValue + Number(step);
 
       formatNumberAndSetInput(numberFormaterRef.current.format(newValue));
     };
@@ -123,7 +137,7 @@ export const NumberInput = React.forwardRef(
 
       const parsedValue = numberParserRef.current.parse(inputValue);
 
-      const newValue = isNaN(parsedValue) ? -step : parsedValue - step;
+      const newValue = isNaN(parsedValue) ? -step : parsedValue - Number(step);
 
       formatNumberAndSetInput(numberFormaterRef.current.format(newValue));
     };
@@ -170,7 +184,7 @@ export const NumberInput = React.forwardRef(
             startAction={startAction}
             disabled={disabled}
             type="text"
-            inputmode="decimal"
+            inputMode="decimal"
             onChange={handelInputChange}
             onKeyDown={handleKeyDown}
             onBlur={handleBlur}
@@ -210,39 +224,3 @@ export const NumberInput = React.forwardRef(
     );
   },
 );
-
-NumberInput.displayName = 'NumberInput';
-
-NumberInput.defaultProps = {
-  'aria-label': undefined,
-  disabled: false,
-  error: undefined,
-  hint: undefined,
-  id: undefined,
-  label: undefined,
-  labelAction: undefined,
-  locale: undefined,
-  required: false,
-  size: 'M',
-  startAction: undefined,
-  step: 1,
-  value: undefined,
-};
-
-NumberInput.propTypes = {
-  'aria-label': PropTypes.string,
-  disabled: PropTypes.bool,
-  error: PropTypes.string,
-  hint: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
-  id: PropTypes.string,
-  label: PropTypes.string,
-  labelAction: PropTypes.element,
-  locale: PropTypes.string,
-  name: PropTypes.string.isRequired,
-  onValueChange: PropTypes.func.isRequired,
-  required: PropTypes.bool,
-  size: PropTypes.oneOf(Object.keys(sizes.input)),
-  startAction: PropTypes.element,
-  step: PropTypes.number,
-  value: PropTypes.number,
-};
