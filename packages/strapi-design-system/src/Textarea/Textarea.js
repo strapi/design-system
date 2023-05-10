@@ -1,48 +1,27 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 
 import { TextareaInput } from './TextareaInput';
 import { Field, FieldLabel, FieldHint, FieldError } from '../Field';
 import { Flex } from '../Flex';
 import { useId } from '../hooks/useId';
 
-const TextareaWrapper = styled.div`
-  & textarea {
-    // TODO: remove when we'll have fonts in the theme
-    height: ${80 / 16}rem;
-    line-height: ${20 / 16}rem;
-  }
-
-  & textarea::placeholder {
-    font-weight: 400;
-    font-size: ${14 / 16}rem;
-    line-height: 1.43;
-    color: ${({ theme }) => theme.colors.neutral500};
-    opacity: 1;
-  }
-`;
-
 export const Textarea = React.forwardRef(
   ({ name, hint, error, label, children, labelAction, id, required, ...props }, ref) => {
     const generatedId = useId(id);
 
     return (
-      <TextareaWrapper>
-        <Field name={name} hint={hint} error={error} id={generatedId} required={required}>
-          <Flex direction="column" alignItems="stretch" gap={1}>
-            {label && (
-              <Flex>
-                <FieldLabel action={labelAction}>{label}</FieldLabel>
-              </Flex>
-            )}
-            <TextareaInput ref={ref} as="textarea" value={children} {...props} />
-            <FieldHint />
-            <FieldError />
-          </Flex>
-        </Field>
-      </TextareaWrapper>
+      <Field name={name} hint={hint} error={error} id={generatedId} required={required}>
+        <Flex direction="column" alignItems="stretch" gap={1}>
+          {label && <FieldLabel action={labelAction}>{label}</FieldLabel>}
+
+          <TextareaInput ref={ref} value={children} {...props} />
+
+          <FieldHint />
+          <FieldError />
+        </Flex>
+      </Field>
     );
   },
 );
