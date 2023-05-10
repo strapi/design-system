@@ -1,6 +1,5 @@
 import React from 'react';
 
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { Field, FieldHint, FieldError, FieldLabel } from '../Field';
@@ -19,21 +18,36 @@ const ClearButton = styled(TextButton)`
   margin-left: auto;
 `;
 
+interface ToggleInputProps {
+  checked?: boolean;
+  clearLabel?: string;
+  disabled?: boolean;
+  error?: string;
+  hint?: string;
+  id?: string;
+  label?: string;
+  labelAction?: React.ReactNode;
+  name?: string;
+  onClear?: () => void;
+  required?: boolean;
+  size?: keyof typeof sizes.input;
+}
+
 export const ToggleInput = ({
-  disabled,
-  size,
+  disabled = false,
+  size = 'M',
   error,
   hint,
   label,
-  name,
+  name = '',
   labelAction,
-  required,
+  required = false,
   id,
   onClear,
   clearLabel,
-  checked,
+  checked = false,
   ...props
-}) => {
+}: ToggleInputProps) => {
   const generatedId = useId(id);
 
   return (
@@ -56,33 +70,3 @@ export const ToggleInput = ({
 };
 
 ToggleInput.displayName = 'ToggleInput';
-
-ToggleInput.defaultProps = {
-  checked: false,
-  clearLabel: undefined,
-  disabled: false,
-  error: undefined,
-  hint: undefined,
-  id: undefined,
-  label: '',
-  labelAction: undefined,
-  name: '',
-  onClear: undefined,
-  required: false,
-  size: 'M',
-};
-
-ToggleInput.propTypes = {
-  checked: PropTypes.bool,
-  clearLabel: PropTypes.string,
-  disabled: PropTypes.bool,
-  error: PropTypes.string,
-  hint: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
-  id: PropTypes.string,
-  label: PropTypes.string,
-  labelAction: PropTypes.node,
-  name: PropTypes.string,
-  onClear: PropTypes.func,
-  required: PropTypes.bool,
-  size: PropTypes.oneOf(Object.keys(sizes.input)),
-};
