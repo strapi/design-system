@@ -3,33 +3,21 @@ import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import { Box } from '../Box';
 import { useField } from '../Field';
 import { inputFocusStyle } from '../themes/utils';
 
-const TextareaWrapper = styled.div`
-  border: 1px solid ${({ theme, hasError }) => (hasError ? theme.colors.danger600 : theme.colors.neutral200)};
-  border-radius: ${({ theme }) => theme.borderRadius};
-
-  padding-left: ${({ theme, hasLeftAction }) => (hasLeftAction ? 0 : theme.spaces[4])};
-  padding-right: ${({ theme, hasRightAction }) => (hasRightAction ? 0 : theme.spaces[4])};
-  padding-top: ${({ theme }) => `${theme.spaces[3]}`};
-  padding-bottom: ${({ theme }) => `${theme.spaces[3]}`};
-
-  background: ${({ theme, disabled }) => (disabled ? theme.colors.neutral150 : theme.colors.neutral0)};
+const Wrapper = styled(Box)`
   ${inputFocusStyle()}
 `;
 
-const Textarea = styled.textarea`
-  display: block;
-  width: 100%;
-  font-weight: 400;
-  font-size: ${14 / 16}rem;
+const Textarea = styled(Box)`
   border: none;
-  color: ${({ theme, disabled }) => (disabled ? theme.colors.neutral600 : theme.colors.neutral800)};
   resize: none;
-  background: inherit;
 
   ::placeholder {
+    color: ${({ theme }) => theme.colors.neutral500};
+    font-size: ${({ theme }) => theme.fontSizes[2]};
     color: ${({ theme }) => theme.colors.neutral500};
     opacity: 1;
   }
@@ -40,7 +28,7 @@ const Textarea = styled.textarea`
 `;
 
 export const TextareaInput = forwardRef(({ disabled, ...props }, ref) => {
-  const { id, error, hint, name, required } = useField();
+  const { id, error, hint, required } = useField();
 
   let ariaDescription;
 
@@ -53,19 +41,26 @@ export const TextareaInput = forwardRef(({ disabled, ...props }, ref) => {
   const hasError = Boolean(error);
 
   return (
-    <TextareaWrapper hasError={hasError} disabled={disabled}>
+    <Wrapper borderColor={hasError ? 'danger600' : 'neutral200'} hasRadius>
       <Textarea
-        id={id}
-        name={name}
-        ref={ref}
         aria-describedby={ariaDescription}
         aria-invalid={hasError}
-        disabled={disabled}
-        hasError={hasError}
         aria-required={required}
+        as="textarea"
+        background={disabled ? 'neutral150' : 'neutral0'}
+        color={disabled ? 'neutral600' : 'neutral800'}
+        fontSize={2}
+        hasRadius
+        height={`${105 / 16}rem`}
+        id={id}
+        ref={ref}
+        disabled={disabled}
+        lineHeights={4}
+        padding={4}
+        width="100%"
         {...props}
       />
-    </TextareaWrapper>
+    </Wrapper>
   );
 });
 
