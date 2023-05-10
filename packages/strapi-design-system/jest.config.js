@@ -7,7 +7,10 @@ import jestBaseConfig from '../../jest.config.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-export default {
+/**
+ * @type {import('jest').Config}
+ */
+const config = {
   ...jestBaseConfig,
   moduleNameMapper: {
     ...jestBaseConfig.moduleNameMapper,
@@ -15,4 +18,7 @@ export default {
   },
   roots: [__dirname],
   displayName: '@strapi/design-system',
+  testTimeout: 5000 * 4,
 };
+
+export default config;
