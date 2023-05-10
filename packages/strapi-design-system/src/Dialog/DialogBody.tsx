@@ -1,6 +1,5 @@
 import React from 'react';
 
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { Box } from '../Box';
@@ -17,7 +16,12 @@ const IconContainer = styled(Box)`
   }
 `;
 
-export const DialogBody = ({ children, icon }) => {
+export interface DialogBodyProps {
+  children: React.ReactNode;
+  icon?: React.ReactNode;
+}
+
+export const DialogBody = ({ children, icon }: DialogBodyProps): JSX.Element => {
   return (
     <Box paddingTop={8} paddingBottom={8} paddingLeft={6} paddingRight={6}>
       {icon && (
@@ -28,15 +32,4 @@ export const DialogBody = ({ children, icon }) => {
       {children}
     </Box>
   );
-};
-
-DialogBody.displayName = 'DialogBody';
-
-DialogBody.defaultProps = {
-  icon: undefined,
-};
-
-DialogBody.propTypes = {
-  children: PropTypes.node.isRequired,
-  icon: PropTypes.node,
 };

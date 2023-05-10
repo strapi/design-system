@@ -1,9 +1,8 @@
 import React from 'react';
 
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { Box } from '../Box';
+import { Box, BoxProps } from '../Box';
 import { DismissibleLayer } from '../DismissibleLayer';
 import { Flex } from '../Flex';
 import { FocusTrap } from '../FocusTrap';
@@ -29,7 +28,14 @@ const DialogHeader = styled(Flex)`
   border-bottom: 1px solid ${({ theme }) => theme.colors.neutral150};
 `;
 
-export const Dialog = ({ onClose, title, as, isOpen, id, ...props }) => {
+export interface DialogProps extends Omit<BoxProps, 'id'> {
+  onClose: () => void;
+  title: string;
+  isOpen: boolean;
+  id?: string | number | undefined;
+}
+
+export const Dialog = ({ onClose, title, as = 'h2', isOpen, id, ...props }: DialogProps): JSX.Element | null => {
   const generatedId = useId(id);
 
   useLockScroll(isOpen);
@@ -54,7 +60,7 @@ export const Dialog = ({ onClose, title, as, isOpen, id, ...props }) => {
               role="dialog"
             >
               <DialogHeader padding={6} justifyContent="center">
-                <Typography variant="beta" as={as || 'h2'} id={labelledBy}>
+                <Typography variant="beta" as={as} id={labelledBy}>
                   {title}
                 </Typography>
               </DialogHeader>
@@ -65,19 +71,4 @@ export const Dialog = ({ onClose, title, as, isOpen, id, ...props }) => {
       </DialogWrapper>
     </Portal>
   );
-};
-
-Dialog.displayName = 'Dialog';
-
-Dialog.defaultProps = {
-  as: 'h2',
-  id: undefined,
-};
-
-Dialog.propTypes = {
-  as: PropTypes.string,
-  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  isOpen: PropTypes.bool.isRequired,
-  onClose: PropTypes.func.isRequired,
-  title: PropTypes.string.isRequired,
 };
