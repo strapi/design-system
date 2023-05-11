@@ -15,11 +15,11 @@ test.describe.parallel('Searchbar', () => {
 
       test('brings back the focus to the input when clearing it', async ({ page }) => {
         await page.fill('input', 'Hello world');
-        expect(await page.locator('input').evaluate((el) => el.value)).toBe('Hello world');
+        expect(await page.locator('input').evaluate<string, HTMLInputElement>((el) => el.value)).toBe('Hello world');
 
         await page.getByRole('button', { name: 'Clearing the plugin search' }).click();
 
-        expect(await page.locator('input').evaluate((el) => el.value)).toBe('');
+        expect(await page.locator('input').evaluate<string, HTMLInputElement>((el) => el.value)).toBe('');
       });
     });
 
