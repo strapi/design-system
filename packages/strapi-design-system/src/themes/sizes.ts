@@ -19,3 +19,5 @@ export const sizes: ThemeSizes = {
     L: `${40 / 16}rem`,
   },
 };
+
+export type InputSizes = 'S' | 'M';
