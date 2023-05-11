@@ -16,22 +16,7 @@ export const TabGroup = React.forwardRef(
   ({ id, initialSelectedTabIndex, label, onTabChange = () => {}, variant, ...props }: TabGroupProps, ref) => {
     const tabsId = useId(id);
 
-    const Tabs = React.Children.toArray(props.children).find((child) => {
-      if (React.isValidElement(child)) {
-        const componentType = child.type as React.ComponentType<any>;
-
-        return componentType.displayName === 'Tabs';
-      }
-
-      return false;
-    }) as React.ReactElement | undefined;
-
     let firstSelectedTab = initialSelectedTabIndex || 0;
-
-    if (Tabs && initialSelectedTabIndex === undefined) {
-      firstSelectedTab = Tabs.props.children.findIndex((node) => !node.props.disabled);
-    }
-
     const [selectedTabIndex, setSelectedTabIndex] = React.useState(firstSelectedTab === -1 ? 0 : firstSelectedTab);
 
     React.useImperativeHandle(ref, () => ({
