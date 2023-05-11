@@ -483,10 +483,8 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
           const nextItem = getItems().find((item) => startsWith(item.textValue, value));
 
           if (nextItem) {
-            setTimeout(() => {
-              context.onVisuallyFocussedItemChange(nextItem.ref.current);
-              nextItem.ref.current?.scrollIntoView();
-            });
+            context.onVisuallyFocussedItemChange(nextItem.ref.current);
+            nextItem.ref.current?.scrollIntoView();
           }
         }
       })}
