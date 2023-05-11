@@ -28,11 +28,10 @@ const DialogHeader = styled(Flex)`
   border-bottom: 1px solid ${({ theme }) => theme.colors.neutral150};
 `;
 
-export interface DialogProps extends Omit<BoxProps, 'id'> {
+export interface DialogProps extends BoxProps {
   onClose: () => void;
   title: string;
   isOpen: boolean;
-  id?: string | number | undefined;
 }
 
 export const Dialog = ({ onClose, title, as = 'h2', isOpen, id, ...props }: DialogProps): JSX.Element | null => {
