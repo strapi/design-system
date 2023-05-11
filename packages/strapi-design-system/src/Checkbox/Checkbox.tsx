@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import styled from 'styled-components';
 
-import { BaseCheckbox } from '../BaseCheckbox';
+import { BaseCheckbox, BaseCheckboxProps } from '../BaseCheckbox';
 import { Box } from '../Box';
 import { Field, FieldHint, FieldError, useField } from '../Field';
 import { Flex } from '../Flex';
@@ -17,18 +17,17 @@ const CheckboxLabel = styled(Typography)<{ disabled: boolean }>`
   }
 `;
 
-const CheckboxTick = (props) => {
+const CheckboxTick = (props: BaseCheckboxProps) => {
   const { id } = useField();
 
   return <BaseCheckbox id={id} {...props} />;
 };
 
-interface CheckboxProps {
+interface CheckboxProps extends BaseCheckboxProps {
   children: React.ReactNode;
   disabled?: boolean;
-  error?: string;
   hint?: string | React.ReactNode | React.ReactNode[];
-  id?: string | number;
+  error?: string;
 }
 
 export const Checkbox = ({ children, disabled = false, id, hint, error, ...props }: CheckboxProps) => {
