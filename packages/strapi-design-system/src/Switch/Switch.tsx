@@ -1,12 +1,15 @@
 import React from 'react';
 
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { Box } from '../Box';
 import { Flex } from '../Flex';
 
-const SwitchContent = styled.div`
+interface SwitchButtonProps {
+  visibleLabels?: boolean;
+}
+
+const SwitchContent = styled.div<SwitchButtonProps>`
   background: ${({ theme }) => theme.colors.danger500};
   border: none;
   border-radius: 16px;
@@ -37,7 +40,7 @@ const SwitchContent = styled.div`
   }
 `;
 
-const SwitchButton = styled.button`
+const SwitchButton = styled.button<SwitchButtonProps>`
   background: transparent;
   padding: 0;
   border: none;
@@ -51,8 +54,18 @@ const SwitchButton = styled.button`
   }
 `;
 
-export const Switch = React.forwardRef(
-  ({ label, onChange, onLabel, offLabel, selected, visibleLabels, ...props }, ref) => {
+export interface SwitchProps
+  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'onChange'>,
+    SwitchButtonProps {
+  label: string;
+  onChange: React.MouseEventHandler<HTMLButtonElement>;
+  onLabel?: string;
+  offLabel?: string;
+  selected?: boolean;
+}
+
+export const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>(
+  ({ label, onChange, onLabel = 'On', offLabel = 'Off', selected, visibleLabels = false, ...props }, ref) => {
     return (
       <SwitchButton
         ref={ref}
@@ -80,20 +93,3 @@ export const Switch = React.forwardRef(
     );
   },
 );
-
-Switch.defaultProps = {
-  onLabel: 'On',
-  offLabel: 'Off',
-  visibleLabels: false,
-};
-
-Switch.propTypes = {
-  label: PropTypes.string.isRequired,
-  offLabel: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
-  onLabel: PropTypes.string,
-  selected: PropTypes.bool.isRequired,
-  visibleLabels: PropTypes.bool,
-};
-
-Switch.displayName = 'Switch';
