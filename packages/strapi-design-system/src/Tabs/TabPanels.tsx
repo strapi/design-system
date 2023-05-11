@@ -2,7 +2,7 @@ import React, { Children, cloneElement } from 'react';
 
 import { useTabs } from './TabsContext';
 
-interface TabPanelsProps {
+interface TabPanelsProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
 }
 
@@ -16,7 +16,7 @@ export const TabPanels = ({ children, ...props }: TabPanelsProps) => {
   return <div {...props}>{childrenArray}</div>;
 };
 
-interface TabPanelProps {
+interface TabPanelProps extends React.HTMLAttributes<HTMLDivElement> {
   id?: string;
 }
 

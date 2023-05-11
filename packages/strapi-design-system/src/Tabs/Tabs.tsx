@@ -1,12 +1,42 @@
-import React, { Children, cloneElement } from 'react';
+import React, { Children, cloneElement, useEffect, useRef } from 'react';
 
+import { useCallbackRef } from '@strapi/ui-primitives';
 import styled from 'styled-components';
 
 import { DefaultTabsRow, DefaultTabButton, DefaultTabBox, SimpleTabBox } from './components';
 import { useTabs } from './TabsContext';
-import { useTabsFocus } from './useTabsFocus';
+import type { FlexProps } from '../Flex';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 import { Typography } from '../Typography';
+
+const useTabsFocus = (selectedTabIndex, onTabChange) => {
+  const tabsRef = useRef<HTMLDivElement>(null);
+  const mountedRef = useRef(false);
+
+  const handleTabChange = useCallbackRef(onTabChange);
+
+  useEffect(() => {
+    if (!tabsRef.current) return;
+
+    // We don't' want to send the focus to the tab when it mounts
+    // It could break the navigating flow of the users if the focus was supposed to be
+    // on another element
+    if (mountedRef.current) {
+      const nextFocusEl = tabsRef.current.querySelector<HTMLButtonElement>('[tabindex="0"]');
+
+      if (nextFocusEl) {
+        nextFocusEl.focus();
+        handleTabChange(selectedTabIndex);
+      }
+    }
+
+    if (!mountedRef.current) {
+      mountedRef.current = true;
+    }
+  }, [selectedTabIndex, handleTabChange]);
+
+  return tabsRef;
+};
 
 const TabButton = styled.button`
   &[aria-disabled='true'] {
@@ -14,7 +44,7 @@ const TabButton = styled.button`
   }
 `;
 
-interface TabsProps {
+interface TabsProps extends FlexProps {
   children: React.ReactNode;
 }
 
@@ -133,7 +163,7 @@ export const Tabs = ({ children, ...props }: TabsProps) => {
   );
 };
 
-interface TabProps {
+interface TabProps extends React.HTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   disabled?: boolean;
   hasError?: boolean;
@@ -207,13 +237,7 @@ export const Tab = ({
     console.warn('The "hasError" prop is only available for the "simple" variant.');
   }
 
-  const showRightBorder = () => {
-    if (selectedTabIndex) {
-      return selectedTabIndex - 1 === index;
-    }
-
-    return false;
-  };
+  const showRightBorder = selectedTabIndex && selectedTabIndex - 1 === index;
 
   return (
     <DefaultTabButton
@@ -225,7 +249,7 @@ export const Tab = ({
       aria-selected={selected}
       onClick={handleClick}
       aria-disabled={disabled}
-      showRightBorder={showRightBorder()}
+      showRightBorder={Boolean(showRightBorder)}
       {...props}
     >
       <DefaultTabBox padding={selected ? 4 : 3} background={selected ? 'neutral0' : 'neutral100'} selected={selected}>

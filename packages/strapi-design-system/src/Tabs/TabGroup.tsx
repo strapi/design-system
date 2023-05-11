@@ -1,15 +1,12 @@
 import * as React from 'react';
 
-import { TabsContext } from './TabsContext';
+import { TabsContext, type TabsContextState } from './TabsContext';
 import { useId } from '../hooks/useId';
 
-interface TabGroupProps {
+interface TabGroupProps extends Omit<TabsContextState, 'id'>, React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
-  label: string;
   id?: string;
   initialSelectedTabIndex?: number;
-  onTabChange?: (index: number) => void;
-  variant?: 'simple';
 }
 
 export const TabGroup = React.forwardRef(
