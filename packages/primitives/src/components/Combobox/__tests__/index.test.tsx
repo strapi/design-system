@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { render as renderRTL } from '@testing-library/react';
+import { RenderOptions, render as renderRTL } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { Combobox } from '../index';
@@ -39,9 +39,9 @@ const Component = ({ options = defaultOptions, hideCreatable = false, ...restPro
   </Combobox.Root>
 );
 
-const render = (props?: ComponentProps) => ({
+const render = (props?: ComponentProps, renderOptions?: RenderOptions) => ({
   user: userEvent.setup({ document }),
-  ...renderRTL(<Component {...props} />),
+  ...renderRTL(<Component {...props} />, renderOptions),
 });
 
 /**
@@ -195,13 +195,22 @@ describe('Combobox', () => {
       expect(queryByText('Option 3')).toBeInTheDocument();
     });
 
-    /**
-     * Window blur events are not being fired
-     */
-    it.skip('should revert to the related items textValue based on the set value if an unaccepted textValue is left onBlur', async () => {
+    it('should revert to the related items textValue based on the set value if an unaccepted textValue is left onBlur', async () => {
       const onValueChange = jest.fn();
 
-      const { getByRole, user } = render({ onValueChange });
+      const { getByRole, queryByRole, user } = render(
+        { onValueChange },
+        {
+          wrapper({ children }) {
+            return (
+              <div>
+                {children}
+                <button type="button">testing</button>
+              </div>
+            );
+          },
+        },
+      );
 
       await user.click(getByRole('combobox'));
 
@@ -212,6 +221,10 @@ describe('Combobox', () => {
 
       await user.type(getByRole('combobox'), 'apples');
 
+      await user.keyboard('[Escape]');
+
+      expect(queryByRole('listbox')).not.toBeInTheDocument();
+
       await user.tab();
 
       expect(getByRole('combobox')).toHaveValue('');
@@ -219,13 +232,22 @@ describe('Combobox', () => {
       expect(onValueChange).not.toHaveBeenCalled();
     });
 
-    /**
-     * Window blur events are not being fired
-     */
-    it.skip("should set the value to the textValue's item's value assuming an allowed textValue is left onBlur", async () => {
+    it("should set the value to the textValue's item's value assuming an allowed textValue is left onBlur", async () => {
       const onValueChange = jest.fn();
 
-      const { getByRole, user } = render({ onValueChange });
+      const { getByRole, queryByRole, user } = render(
+        { onValueChange },
+        {
+          wrapper({ children }) {
+            return (
+              <div>
+                {children}
+                <button type="button">testing</button>
+              </div>
+            );
+          },
+        },
+      );
 
       await user.click(getByRole('combobox'));
 
@@ -235,6 +257,10 @@ describe('Combobox', () => {
       getByRole('combobox').focus();
 
       await user.type(getByRole('combobox'), 'Option 1');
+
+      await user.keyboard('[Escape]');
+
+      expect(queryByRole('listbox')).not.toBeInTheDocument();
 
       await user.tab();
 
@@ -243,13 +269,22 @@ describe('Combobox', () => {
       expect(onValueChange).toHaveBeenCalledWith('1');
     });
 
-    /**
-     * Window blur events are not being fired
-     */
-    it.skip('should not revert to the related items textValue based on the set value if the field is emptied', async () => {
+    it('should not revert to the related items textValue based on the set value if the field is emptied', async () => {
       const onValueChange = jest.fn();
 
-      const { getByRole, user } = render({ onValueChange });
+      const { getByRole, queryByRole, user } = render(
+        { onValueChange },
+        {
+          wrapper({ children }) {
+            return (
+              <div>
+                {children}
+                <button type="button">testing</button>
+              </div>
+            );
+          },
+        },
+      );
 
       await user.click(getByRole('combobox'));
 
@@ -259,6 +294,10 @@ describe('Combobox', () => {
       getByRole('combobox').focus();
 
       await user.type(getByRole('combobox'), 'Option 1');
+
+      await user.keyboard('[Escape]');
+
+      expect(queryByRole('listbox')).not.toBeInTheDocument();
 
       await user.tab();
 
@@ -272,6 +311,10 @@ describe('Combobox', () => {
       getByRole('combobox').focus();
 
       await user.clear(getByRole('combobox'));
+
+      await user.keyboard('[Escape]');
+
+      expect(queryByRole('listbox')).not.toBeInTheDocument();
 
       await user.tab();
 

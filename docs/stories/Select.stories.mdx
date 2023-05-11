@@ -118,7 +118,7 @@ const customizeContent = (values: string[]) => `${values.length} are currently s
           required
           placeholder="My favourite fruit is..."
           onClear={() => {
-            setValue(undefined);
+            setValues(undefined);
           }}
           value={values}
           onChange={setValues}
@@ -150,7 +150,7 @@ Instead of passing a `customizeContent` prop, you can pass the `withTags` prop w
           required
           placeholder="My favourite fruit is..."
           onClear={() => {
-            setValue(undefined);
+            setValues(undefined);
           }}
           value={values}
           onChange={setValues}
@@ -221,7 +221,7 @@ Instead of passing a `customizeContent` prop, you can pass the `withTags` prop w
           required
           placeholder="My favourite fruit is..."
           onClear={() => {
-            setValue(undefined);
+            setValues(undefined);
           }}
           value={values}
           onChange={setValues}
