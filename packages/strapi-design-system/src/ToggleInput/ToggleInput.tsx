@@ -2,11 +2,12 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { Field, FieldHint, FieldError, FieldLabel } from '../Field';
+import { Field, FieldHint, FieldError, FieldLabel, type FieldProps } from '../Field';
 import { Flex } from '../Flex';
 import { useId } from '../hooks/useId';
 import { TextButton } from '../TextButton';
-import { sizes } from '../themes/sizes';
+import type { InputSizes } from '../themes/sizes';
+import type { ToggleCheckboxProps } from '../ToggleCheckbox';
 import { ToggleCheckbox } from '../ToggleCheckbox';
 
 const FieldWrapper = styled(Field)`
@@ -18,19 +19,14 @@ const ClearButton = styled(TextButton)`
   margin-left: auto;
 `;
 
-interface ToggleInputProps {
-  checked?: boolean;
+interface ToggleInputProps
+  extends ToggleCheckboxProps,
+    Pick<FieldProps, 'error' | 'hint' | 'name' | 'required' | 'id'> {
   clearLabel?: string;
-  disabled?: boolean;
-  error?: string;
-  hint?: string;
-  id?: string;
-  label?: string;
+  label: string;
   labelAction?: React.ReactNode;
-  name?: string;
   onClear?: () => void;
-  required?: boolean;
-  size?: keyof typeof sizes.input;
+  size?: InputSizes;
 }
 
 export const ToggleInput = ({
@@ -39,7 +35,7 @@ export const ToggleInput = ({
   error,
   hint,
   label,
-  name = '',
+  name,
   labelAction,
   required = false,
   id,

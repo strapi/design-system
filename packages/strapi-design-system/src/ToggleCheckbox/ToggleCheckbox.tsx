@@ -1,12 +1,11 @@
 import React from 'react';
 
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { type DefaultTheme } from 'styled-components';
 
 import { Box } from '../Box';
 import { useField } from '../Field';
 import { Flex } from '../Flex';
-import { sizes } from '../themes/sizes';
+import type { InputSizes } from '../themes/sizes';
 import { inputFocusStyle } from '../themes/utils';
 import { Typography } from '../Typography';
 import { VisuallyHidden } from '../VisuallyHidden';
@@ -18,7 +17,17 @@ const Label = styled.label`
   width: 100%;
 `;
 
-const ToggleCheckboxWrapper = styled(Box)`
+export interface ToggleCheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'children'> {
+  children: string;
+  offLabel: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onLabel: string;
+  size?: InputSizes;
+}
+
+type ValueBoxProps = Pick<ToggleCheckboxProps, 'checked' | 'disabled' | 'size'>;
+
+const ToggleCheckboxWrapper = styled(Box)<{ disabled: boolean; hasError: boolean }>`
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : undefined)};
   // Masks the background of each value
   overflow: hidden;
@@ -27,9 +36,9 @@ const ToggleCheckboxWrapper = styled(Box)`
   ${inputFocusStyle()}
 `;
 
-const ValueBox = styled(Flex).attrs({
+const ValueBox = styled(Flex).attrs<{ hasRadius: boolean }>({
   hasRadius: true,
-})`
+})<ValueBoxProps>`
   background-color: ${({ theme, checked, disabled }) => {
     if (checked) {
       return disabled ? theme.colors.neutral200 : theme.colors.neutral0;
@@ -71,19 +80,21 @@ const Input = styled.input`
   width: 100%;
 `;
 
-export const ToggleCheckbox = React.forwardRef(
-  ({ size, onLabel, offLabel, children, checked, disabled, onChange, ...props }, ref) => {
+export const ToggleCheckbox = React.forwardRef<HTMLInputElement, ToggleCheckboxProps>(
+  ({ size = 'M', onLabel, offLabel, children, checked = false, disabled = false, onChange, ...props }, ref) => {
     const { error, hint, id, name, required } = useField();
 
     const labelColor = 'neutral600';
 
-    let offCheckboxLabelColor = !checked && checked !== null ? 'danger700' : labelColor;
-    let onCheckboxLabelColor = checked ? 'primary600' : labelColor;
+    let offCheckboxLabelColor: keyof DefaultTheme['colors'] = !checked && checked !== null ? 'danger700' : labelColor;
+    let onCheckboxLabelColor: keyof DefaultTheme['colors'] = checked ? 'primary600' : labelColor;
 
     const handleChange = (e) => {
       if (disabled) return;
 
-      onChange(e);
+      if (onChange) {
+        onChange(e);
+      }
     };
 
     // Ensuring we pass the right aria-describedby attribute to the Input component as
@@ -109,6 +120,7 @@ export const ToggleCheckbox = React.forwardRef(
           borderStyle="solid"
           borderWidth="1px"
           borderColor="neutral200"
+          hasError={!!error}
         >
           <ValueBox
             size={size}
@@ -168,20 +180,3 @@ export const ToggleCheckbox = React.forwardRef(
 );
 
 ToggleCheckbox.displayName = 'ToggleCheckbox';
-
-ToggleCheckbox.defaultProps = {
-  disabled: false,
-  checked: false,
-  onChange: undefined,
-  size: 'M',
-};
-
-ToggleCheckbox.propTypes = {
-  checked: PropTypes.bool,
-  children: PropTypes.string.isRequired,
-  disabled: PropTypes.bool,
-  offLabel: PropTypes.string.isRequired,
-  onChange: PropTypes.func,
-  onLabel: PropTypes.string.isRequired,
-  size: PropTypes.oneOf(Object.keys(sizes.input)),
-};
