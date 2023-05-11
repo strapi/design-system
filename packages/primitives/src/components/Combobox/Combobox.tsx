@@ -1025,10 +1025,14 @@ const ComboboxCreateItem = React.forwardRef<ComboboxItemElement, CreateItemProps
       setShow(!state.some((item) => item.textValue === textValue && item.type !== 'create'));
     });
 
+    if (getItems().length === 0) {
+      setShow(true);
+    }
+
     return () => {
       unsub();
     };
-  }, [textValue, subscribe]);
+  }, [textValue, subscribe, getItems]);
 
   if (!textValue || !show) {
     return null;
