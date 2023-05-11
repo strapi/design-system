@@ -29,6 +29,7 @@ describe('Status', () => {
     const textNode = queryByText('My status');
 
     await waitFor(() => {
+      // @ts-expect-error TODO: refactor these tests
       expect(textNode.querySelector('div')).toBeInTheDocument();
     });
   });
@@ -43,6 +44,7 @@ describe('Status', () => {
     const textNode = queryByText('My status');
 
     await waitFor(() => {
+      // @ts-expect-error TODO: refactor these tests
       expect(textNode.innerHTML).toBe('My status');
     });
   });
