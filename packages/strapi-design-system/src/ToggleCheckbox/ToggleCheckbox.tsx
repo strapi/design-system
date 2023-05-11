@@ -120,7 +120,7 @@ export const ToggleCheckbox = React.forwardRef<HTMLInputElement, ToggleCheckboxP
           borderStyle="solid"
           borderWidth="1px"
           borderColor="neutral200"
-          hasError={!!error}
+          hasError={Boolean(error)}
         >
           <ValueBox
             size={size}
