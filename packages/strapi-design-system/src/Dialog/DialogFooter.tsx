@@ -20,7 +20,7 @@ export interface DialogFooterProps {
   endAction?: React.ReactNode;
 }
 
-export const DialogFooter = ({ startAction, endAction }: DialogFooterProps): JSX.Element => {
+export const DialogFooter = ({ startAction, endAction }: DialogFooterProps) => {
   return (
     <FooterWrapper padding={4}>
       <Flex gap={2}>

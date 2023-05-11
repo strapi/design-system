@@ -21,7 +21,7 @@ export interface DialogBodyProps {
   icon?: React.ReactNode;
 }
 
-export const DialogBody = ({ children, icon }: DialogBodyProps): JSX.Element => {
+export const DialogBody = ({ children, icon }: DialogBodyProps) => {
   return (
     <Box paddingTop={8} paddingBottom={8} paddingLeft={6} paddingRight={6}>
       {icon && (

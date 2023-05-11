@@ -34,7 +34,7 @@ export interface DialogProps extends BoxProps {
   isOpen: boolean;
 }
 
-export const Dialog = ({ onClose, title, as = 'h2', isOpen, id, ...props }: DialogProps): JSX.Element | null => {
+export const Dialog = ({ onClose, title, as = 'h2', isOpen, id, ...props }: DialogProps) => {
   const generatedId = useId(id);
 
   useLockScroll(isOpen);
