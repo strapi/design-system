@@ -4,21 +4,20 @@ import { Search, Cross } from '@strapi/icons';
 import styled from 'styled-components';
 
 import { Field, FieldLabel, FieldAction, FieldInput, InputWrapper, FieldInputProps, FieldProps } from '../Field';
-import { Flex } from '../Flex';
+import { composeRefs } from '../hooks/useComposeRefs';
 import { inputFocusStyle } from '../themes/utils';
 import { VisuallyHidden } from '../VisuallyHidden';
 
-const CloseIconWrapper = styled(Flex)`
+const CloseIcon = styled(Cross)`
   font-size: 0.5rem;
-  svg path {
+  path {
     fill: ${({ theme }) => theme.colors.neutral400};
   }
 `;
 
-const SearchIconWrapper = styled(Flex)`
+const SearchIcon = styled(Search)`
   font-size: 0.8rem;
-
-  svg path {
+  path {
     fill: ${({ theme }) => theme.colors.neutral800};
   }
 `;
@@ -28,8 +27,8 @@ const SearchbarWrapper = styled.div`
   box-shadow: ${({ theme }) => theme.shadows.filterShadow};
 
   &:focus-within {
-    ${SearchIconWrapper} {
-      svg path {
+    ${SearchIcon} {
+      path {
         fill: ${({ theme }) => theme.colors.primary600};
       }
     }
@@ -59,7 +58,7 @@ export const Searchbar = forwardRef<HTMLInputElement, SearchbarProps>(
       inputRef?.current?.focus?.();
     };
 
-    const actualRef = ref || inputRef;
+    const actualRef = composeRefs(ref, inputRef);
 
     return (
       <SearchbarWrapper>
@@ -71,18 +70,12 @@ export const Searchbar = forwardRef<HTMLInputElement, SearchbarProps>(
           <FieldInput
             ref={actualRef}
             value={value}
-            startAction={
-              <SearchIconWrapper>
-                <Search aria-hidden />
-              </SearchIconWrapper>
-            }
+            startAction={<SearchIcon aria-hidden />}
             size={size}
             endAction={
               isCompleting ? (
                 <FieldAction label={clearLabel} onClick={handleClear}>
-                  <CloseIconWrapper>
-                    <Cross />
-                  </CloseIconWrapper>
+                  <CloseIcon />
                 </FieldAction>
               ) : undefined
             }
