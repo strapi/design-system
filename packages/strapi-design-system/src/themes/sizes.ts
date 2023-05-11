@@ -20,4 +20,4 @@ export const sizes: ThemeSizes = {
   },
 };
 
-export type InputSizes = 'S' | 'M';
+export type InputSizes = keyof ThemeSizes['input'];
