@@ -1,26 +1,24 @@
-import React from 'react';
-
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { ModalContext } from './ModalContext';
-import { Box } from '../Box';
+import { Box, BoxProps } from '../Box';
 import { DismissibleLayer } from '../DismissibleLayer';
 import { Flex } from '../Flex';
 import { FocusTrap } from '../FocusTrap';
 import useLockScroll from '../hooks/useLockScroll';
 import { Portal } from '../Portal';
 
+export interface ModalLayoutProps extends BoxProps {
+  labelledBy: string;
+  onClose: () => void;
+}
+
 const ModalWrapper = styled(Flex)`
-  inset: 0;
   background: ${({ theme }) => `${theme.colors.neutral800}1F`};
+  inset: 0;
 `;
 
-const ModalContent = styled(Box)`
-  width: ${830 / 16}rem;
-`;
-
-export const ModalLayout = ({ onClose, labelledBy, ...props }) => {
+export const ModalLayout = ({ onClose, labelledBy, ...props }: ModalLayoutProps) => {
   useLockScroll(true);
 
   return (
@@ -29,14 +27,15 @@ export const ModalLayout = ({ onClose, labelledBy, ...props }) => {
         <ModalWrapper justifyContent="center" paddingLeft={8} paddingRight={8} position="fixed" zIndex={4}>
           <FocusTrap>
             <DismissibleLayer onEscapeKeyDown={onClose} onPointerDownOutside={onClose}>
-              <ModalContent
+              <Box
                 aria-labelledby={labelledBy}
+                aria-modal
                 onClick={(e) => e.stopPropagation()}
                 background="neutral0"
                 hasRadius
-                shadow="popupShadow"
                 role="dialog"
-                aria-modal
+                shadow="popupShadow"
+                width={`${830 / 16}rem`}
                 {...props}
               />
             </DismissibleLayer>
@@ -45,9 +44,4 @@ export const ModalLayout = ({ onClose, labelledBy, ...props }) => {
       </ModalContext.Provider>
     </Portal>
   );
-};
-
-ModalLayout.propTypes = {
-  labelledBy: PropTypes.string.isRequired,
-  onClose: PropTypes.func.isRequired,
 };
