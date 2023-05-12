@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 
-import { CalendarDateTime, parseAbsoluteToLocal, toCalendarDateTime } from '@internationalized/date';
+import { CalendarDateTime, parseAbsoluteToLocal, toCalendarDateTime, getLocalTimeZone } from '@internationalized/date';
 import styled from 'styled-components';
 
 import { DatePickerInput, DatePickerInputProps } from '../DatePicker/DatePicker';
@@ -42,8 +42,6 @@ export interface DateTimePickerProps
   value?: Date | null;
 }
 
-const TIME_ZONE = 'UTC';
-
 export const DateTimePicker = ({
   /**
    * @preserve
@@ -78,10 +76,10 @@ export const DateTimePicker = ({
 
   const [dateValue, setDateValue] = useControllableState<CalendarDateTime | undefined>({
     defaultProp: initialDate ? convertUTCDateToCalendarDateTime(initialDate) : undefined,
-    prop: value ? convertUTCDateToCalendarDateTime(value) : value ?? undefined,
+    prop: value ? convertUTCDateToCalendarDateTime(value, false) : value ?? undefined,
     onChange(date) {
       if (onChange) {
-        onChange(date?.toDate('UTC'));
+        onChange(date?.toDate(getLocalTimeZone()));
       }
     },
   });
@@ -93,17 +91,14 @@ export const DateTimePicker = ({
     minute: '2-digit',
   });
 
-  console.log(dateValue?.hour);
-
   const [timeTextValue, setTimeTextValue] = React.useState<string | undefined>('');
-  const timeValue = dateValue ? timeFormatter.format(dateValue.toDate(TIME_ZONE)) : '';
+  const timeValue = dateValue ? timeFormatter.format(dateValue.toDate(getLocalTimeZone())) : '';
 
-  if (timeTextValue !== timeValue) {
-    setTimeTextValue(timeValue);
-  }
+  React.useEffect(() => {
+    setTimeTextValue((s) => (s === timeValue ? s : timeValue));
+  }, [timeValue]);
 
   const handleDateChange = (date: Date | undefined) => {
-    console.log(date);
     let newDate = date ? convertUTCDateToCalendarDateTime(date) : undefined;
 
     /**
@@ -144,9 +139,7 @@ export const DateTimePicker = ({
   };
 
   const handleTimeClear = () => {
-    const newDate = dateValue
-      ? dateValue.set({ hour: 0, minute: 0 })
-      : convertUTCDateToCalendarDateTime(new Date()).set({ hour: 0, minute: 0 });
+    const newDate = dateValue ? dateValue.set({ hour: 0, minute: 0 }) : convertUTCDateToCalendarDateTime(new Date());
 
     setDateValue(newDate);
     setTimeTextValue('');
@@ -188,7 +181,7 @@ export const DateTimePicker = ({
           </VisuallyHidden>
           <DatePicker
             {...props}
-            selectedDate={dateValue?.toDate(TIME_ZONE)}
+            selectedDate={dateValue?.toDate(getLocalTimeZone())}
             onChange={handleDateChange}
             error={typeof error === 'string'}
             required={required}
@@ -226,11 +219,13 @@ export const DateTimePicker = ({
   );
 };
 
-export const convertUTCDateToCalendarDateTime = (date: Date): CalendarDateTime => {
+export const convertUTCDateToCalendarDateTime = (date: Date, resetTime = true): CalendarDateTime => {
   const utcDateString = date.toISOString();
-  const zonedDateTime = parseAbsoluteToLocal(utcDateString);
+  let zonedDateTime = parseAbsoluteToLocal(utcDateString);
 
-  console.log(zonedDateTime);
+  if (resetTime) {
+    zonedDateTime = zonedDateTime.set({ hour: 0, minute: 0 });
+  }
 
   /**
    * ZonedDateTime can't have weeks added,
