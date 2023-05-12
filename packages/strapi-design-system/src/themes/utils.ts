@@ -7,7 +7,7 @@ export const getThemeSize = <TType extends keyof ThemeSizes>(type: TType) => {
 
 export const inputFocusStyle =
   (rootElement = '&') =>
-  ({ theme, hasError }: { theme: DefaultTheme; hasError: boolean }) =>
+  ({ theme, hasError = false }: { theme: DefaultTheme; hasError?: boolean }) =>
     css`
       outline: none;
       box-shadow: 0;
