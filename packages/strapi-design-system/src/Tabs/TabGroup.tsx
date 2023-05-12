@@ -9,28 +9,30 @@ export interface TabGroupProps extends Omit<TabsContextState, 'id'>, React.HTMLA
   initialSelectedTabIndex?: number;
 }
 
-export const TabGroup = React.forwardRef(
-  ({ id, initialSelectedTabIndex, label, onTabChange = () => {}, variant, ...props }: TabGroupProps, ref) => {
-    const tabsId = useId(id);
+export type SetSelectedTabIndexHandler = (tabIndex: number) => void;
 
-    let firstSelectedTab = initialSelectedTabIndex || 0;
-    const [selectedTabIndex, setSelectedTabIndex] = React.useState(firstSelectedTab === -1 ? 0 : firstSelectedTab);
+export const TabGroup = React.forwardRef<
+  { _handlers: { setSelectedTabIndex: SetSelectedTabIndexHandler } },
+  TabGroupProps
+>(({ id, initialSelectedTabIndex = 0, label, onTabChange = () => {}, variant, ...props }, ref) => {
+  const tabsId = useId(id);
 
-    React.useImperativeHandle(ref, () => ({
-      _handlers: { setSelectedTabIndex },
-    }));
+  const [selectedTabIndex, setSelectedTabIndex] = React.useState(initialSelectedTabIndex);
 
-    const context = React.useMemo(
-      () => ({ id: tabsId, selectedTabIndex, selectTabIndex: setSelectedTabIndex, label, variant, onTabChange }),
-      [label, onTabChange, selectedTabIndex, tabsId, variant],
-    );
+  React.useImperativeHandle(ref, () => ({
+    _handlers: { setSelectedTabIndex },
+  }));
 
-    return (
-      <TabsContext.Provider value={context}>
-        <div {...props} />
-      </TabsContext.Provider>
-    );
-  },
-);
+  const context = React.useMemo(
+    () => ({ id: tabsId, selectedTabIndex, selectTabIndex: setSelectedTabIndex, label, variant, onTabChange }),
+    [label, onTabChange, selectedTabIndex, tabsId, variant],
+  );
+
+  return (
+    <TabsContext.Provider value={context}>
+      <div {...props} />
+    </TabsContext.Provider>
+  );
+});
 
 TabGroup.displayName = 'TabGroup';
