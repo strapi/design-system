@@ -4,7 +4,7 @@ import { Box } from '../Box';
 import { Flex } from '../Flex';
 
 /** Simple variant */
-export const SimpleTabBox = styled(Box)`
+export const SimpleTabBox = styled(Box)<{ selected?: boolean; hasError?: boolean }>`
   border-bottom: 2px solid
     ${({ theme, selected, hasError }) => {
       if (selected) {
@@ -20,11 +20,11 @@ export const SimpleTabBox = styled(Box)`
 `;
 
 /** Default variant */
-export const DefaultTabBox = styled(Box)`
+export const DefaultTabBox = styled(Box)<{ selected?: boolean }>`
   border-bottom: 1px solid ${({ theme, selected }) => (selected ? theme.colors.neutral0 : theme.colors.neutral150)};
 `;
 
-export const DefaultTabButton = styled.button`
+export const DefaultTabButton = styled.button<{ selected?: boolean; showRightBorder?: boolean }>`
   border: none;
   background: transparent;
   padding: 0;

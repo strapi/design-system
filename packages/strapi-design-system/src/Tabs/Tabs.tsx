@@ -1,13 +1,42 @@
-import React, { Children, cloneElement } from 'react';
+import React, { Children, cloneElement, useEffect, useRef } from 'react';
 
-import PropTypes from 'prop-types';
+import { useCallbackRef } from '@strapi/ui-primitives';
 import styled from 'styled-components';
 
 import { DefaultTabsRow, DefaultTabButton, DefaultTabBox, SimpleTabBox } from './components';
 import { useTabs } from './TabsContext';
-import { useTabsFocus } from './useTabsFocus';
+import type { FlexProps } from '../Flex';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 import { Typography } from '../Typography';
+
+const useTabsFocus = (selectedTabIndex, onTabChange) => {
+  const tabsRef = useRef<HTMLDivElement>(null);
+  const mountedRef = useRef(false);
+
+  const handleTabChange = useCallbackRef(onTabChange);
+
+  useEffect(() => {
+    if (!tabsRef.current) return;
+
+    // We don't' want to send the focus to the tab when it mounts
+    // It could break the navigating flow of the users if the focus was supposed to be
+    // on another element
+    if (mountedRef.current) {
+      const nextFocusEl = tabsRef.current.querySelector<HTMLButtonElement>('[tabindex="0"]');
+
+      if (nextFocusEl) {
+        nextFocusEl.focus();
+        handleTabChange(selectedTabIndex);
+      }
+    }
+
+    if (!mountedRef.current) {
+      mountedRef.current = true;
+    }
+  }, [selectedTabIndex, handleTabChange]);
+
+  return tabsRef;
+};
 
 const TabButton = styled.button`
   &[aria-disabled='true'] {
@@ -15,12 +44,16 @@ const TabButton = styled.button`
   }
 `;
 
-export const Tabs = ({ children, ...props }) => {
+export interface TabsProps extends FlexProps {
+  children: React.ReactNode;
+}
+
+export const Tabs = ({ children, ...props }: TabsProps) => {
   const { id, selectedTabIndex, selectTabIndex, label, variant, onTabChange } = useTabs();
   const tabsRef = useTabsFocus(selectedTabIndex, onTabChange);
 
   const childrenArray = Children.toArray(children).map((node, index) =>
-    cloneElement(node, {
+    cloneElement(node as React.ReactElement, {
       id: `${id}-${index}`,
       index,
       selectedTabIndex,
@@ -130,11 +163,28 @@ export const Tabs = ({ children, ...props }) => {
   );
 };
 
-Tabs.propTypes = {
-  children: PropTypes.node.isRequired,
-};
+export interface TabProps extends React.HTMLAttributes<HTMLButtonElement> {
+  children: React.ReactNode;
+  disabled?: boolean;
+  hasError?: boolean;
+  id?: string;
+  index?: number;
+  onTabClick?: () => void;
+  selectedTabIndex?: number;
+  variant?: 'simple';
+}
 
-export const Tab = ({ disabled, id, children, variant, hasError, index, selectedTabIndex, onTabClick, ...props }) => {
+export const Tab = ({
+  disabled = false,
+  id,
+  children,
+  variant,
+  hasError = false,
+  index,
+  selectedTabIndex,
+  onTabClick,
+  ...props
+}: TabProps) => {
   const tabId = `${id}-tab`;
   const tabPanelId = `${id}-tabpanel`;
   const selected = index === selectedTabIndex;
@@ -144,7 +194,9 @@ export const Tab = ({ disabled, id, children, variant, hasError, index, selected
       return;
     }
 
-    onTabClick();
+    if (onTabClick) {
+      onTabClick();
+    }
   };
 
   if (variant === 'simple') {
@@ -185,7 +237,7 @@ export const Tab = ({ disabled, id, children, variant, hasError, index, selected
     console.warn('The "hasError" prop is only available for the "simple" variant.');
   }
 
-  const showRightBorder = selectedTabIndex - 1 === index;
+  const showRightBorder = selectedTabIndex && selectedTabIndex - 1 === index;
 
   return (
     <DefaultTabButton
@@ -197,7 +249,7 @@ export const Tab = ({ disabled, id, children, variant, hasError, index, selected
       aria-selected={selected}
       onClick={handleClick}
       aria-disabled={disabled}
-      showRightBorder={showRightBorder}
+      showRightBorder={Boolean(showRightBorder)}
       {...props}
     >
       <DefaultTabBox padding={selected ? 4 : 3} background={selected ? 'neutral0' : 'neutral100'} selected={selected}>
@@ -207,25 +259,4 @@ export const Tab = ({ disabled, id, children, variant, hasError, index, selected
       </DefaultTabBox>
     </DefaultTabButton>
   );
-};
-
-Tab.defaultProps = {
-  disabled: false,
-  hasError: false,
-  id: undefined,
-  index: undefined,
-  onTabClick: undefined,
-  selectedTabIndex: undefined,
-  variant: undefined,
-};
-
-Tab.propTypes = {
-  children: PropTypes.node.isRequired,
-  disabled: PropTypes.bool,
-  hasError: PropTypes.bool,
-  id: PropTypes.string,
-  index: PropTypes.number,
-  onTabClick: PropTypes.func,
-  selectedTabIndex: PropTypes.number,
-  variant: PropTypes.oneOf(['simple']),
 };
