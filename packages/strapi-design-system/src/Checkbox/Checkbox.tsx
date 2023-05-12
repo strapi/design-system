@@ -4,12 +4,13 @@ import styled from 'styled-components';
 
 import { BaseCheckbox, BaseCheckboxProps } from '../BaseCheckbox';
 import { Box } from '../Box';
-import { Field, FieldHint, FieldError, useField } from '../Field';
+import { Field, FieldHint, FieldError, useField, FieldProps } from '../Field';
 import { Flex } from '../Flex';
 import { useId } from '../hooks/useId';
 import { Typography } from '../Typography';
 
-const CheckboxLabel = styled(Typography)<{ disabled: boolean }>`
+
+const CheckboxLabel = styled(Typography)<Pick<CheckboxProps, 'disabled'>>`
   display: flex;
   align-items: flex-start;
   * {
@@ -23,11 +24,9 @@ const CheckboxTick = (props: BaseCheckboxProps) => {
   return <BaseCheckbox id={id} {...props} />;
 };
 
-interface CheckboxProps extends BaseCheckboxProps {
+interface CheckboxProps extends BaseCheckboxProps, Pick<FieldProps, 'hint' | 'error'> {
   children: React.ReactNode;
   disabled?: boolean;
-  hint?: string | React.ReactNode | React.ReactNode[];
-  error?: string;
 }
 
 export const Checkbox = ({ children, disabled = false, id, hint, error, ...props }: CheckboxProps) => {
