@@ -19,6 +19,7 @@ document.createRange = () => {
   range.getClientRects = jest.fn(() => ({
     item: () => null,
     length: 0,
+    [Symbol.iterator]: () => [][Symbol.iterator](),
   }));
 
   return range;
@@ -44,13 +45,15 @@ describe('JSONInput', () => {
     const { container } = render(<Component value={JSON_DATA} onChange={onChange} disabled onError={onError} />);
 
     const readonlyJSONInput = container.querySelector('div[contenteditable="false"]');
-    expect(readonlyJSONInput.textContent).toBe(`[   {      "a":3,      "b":4   },   {      "a":5,      "b":6   }]`);
+    expect(readonlyJSONInput).not.toBeNull();
+    expect(readonlyJSONInput!.textContent).toBe(`[   {      "a":3,      "b":4   },   {      "a":5,      "b":6   }]`);
   });
 
   it("Should call parent's onChange callback with JSON string", async () => {
     const { container } = render(<Component value={JSON_DATA} onChange={onChange} onError={onError} editable />);
     const JSONInput = container.querySelector('div[contenteditable="true"]');
-    fireEvent.input(JSONInput, {
+    expect(JSONInput).not.toBeNull();
+    fireEvent.input(JSONInput!, {
       target: {
         textContent: '[   {      "a":3,      "b":4   },   {      "a":5,      "b":6,      "c":7   }]',
       },
