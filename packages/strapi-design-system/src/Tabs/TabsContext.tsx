@@ -3,18 +3,19 @@ import { createContext, useContext } from 'react';
 export interface TabsContextState {
   id: string;
   selectedTabIndex: number;
-  selectTabIndex: (index: number) => void;
   label: string;
   variant?: 'simple';
   onTabChange?: (index: number) => void;
+  selectTabIndex: (index: number) => void;
 }
 
 export const TabsContext = createContext<TabsContextState>({
   id: '',
   label: '',
   selectedTabIndex: 0,
-  selectTabIndex() {},
-  onTabChange() {},
+  selectTabIndex() {
+    throw new Error('TabsContext.selectTabIndex is not implemented.');
+  },
 });
 
 export const useTabs = () => useContext(TabsContext);

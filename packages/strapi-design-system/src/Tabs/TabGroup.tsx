@@ -14,7 +14,7 @@ export type SetSelectedTabIndexHandler = (tabIndex: number) => void;
 export const TabGroup = React.forwardRef<
   { _handlers: { setSelectedTabIndex: SetSelectedTabIndexHandler } },
   TabGroupProps
->(({ id, initialSelectedTabIndex = 0, label, onTabChange = () => {}, variant, ...props }, ref) => {
+>(({ id, initialSelectedTabIndex = 0, label, onTabChange, variant, ...props }, ref) => {
   const tabsId = useId(id);
 
   const [selectedTabIndex, setSelectedTabIndex] = React.useState(initialSelectedTabIndex);
