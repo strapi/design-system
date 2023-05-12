@@ -19,7 +19,7 @@ const ClearButton = styled(TextButton)`
   margin-left: auto;
 `;
 
-interface ToggleInputProps
+export interface ToggleInputProps
   extends ToggleCheckboxProps,
     Pick<FieldProps, 'error' | 'hint' | 'name' | 'required' | 'id'> {
   clearLabel?: string;
