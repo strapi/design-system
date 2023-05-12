@@ -1,8 +1,11 @@
 import { useRef, useState, useEffect } from 'react';
 
-export const useElementOnScreen = (options?: IntersectionObserverInit) => {
-  const containerRef = useRef<HTMLElement>(null);
-  const [isVisible, setIsVisible] = useState(true);
+export const useElementOnScreen = <TElement extends HTMLElement = HTMLElement>(
+  options?: IntersectionObserverInit,
+): [containerRef: React.RefObject<TElement>, isVisible: boolean] => {
+  const containerRef = useRef<TElement>(null);
+
+  const [isVisible, setIsVisible] = useState<boolean>(true);
 
   const callback: IntersectionObserverCallback = ([entry]) => {
     setIsVisible(entry.isIntersecting);
