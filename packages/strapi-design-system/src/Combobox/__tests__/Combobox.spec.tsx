@@ -11,7 +11,7 @@ const defaultOptions = [
   { value: 'carbonara', children: 'Carbonara' },
 ];
 
-const Component = ({ options = defaultOptions, ...restProps }: ComponentProps) => (
+const Component = ({ options = defaultOptions, ...restProps }: Partial<ComponentProps>) => (
   <Combobox label="Food" {...restProps}>
     {options.map((opt) => (
       <Option key={opt.value} {...opt} />
@@ -19,7 +19,7 @@ const Component = ({ options = defaultOptions, ...restProps }: ComponentProps) =
   </Combobox>
 );
 
-const render = (props?: ComponentProps) => renderRTL(<Component {...props} />);
+const render = (props?: Partial<ComponentProps>) => renderRTL(<Component {...props} />);
 
 describe('Combobox', () => {
   it('should display my label & labelAction', () => {
