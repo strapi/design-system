@@ -79,15 +79,17 @@ describe('Popover', () => {
         <div
           class=""
         >
-          <div
-            class="c0 c1"
-            style="position: fixed;"
-          >
+          <div>
             <div
-              class="c2"
+              class="c0 c1"
+              style="position: fixed;"
             >
-              <div>
-                Hello world
+              <div
+                class="c2"
+              >
+                <div>
+                  Hello world
+                </div>
               </div>
             </div>
           </div>
@@ -163,7 +165,7 @@ describe('Popover', () => {
       return (
         <ThemeProvider theme={lightTheme}>
           <div>
-            <button type="button" ref={sourceRef} onClick={() => setIsVisible((s) => !s)}>
+            <button type="button" ref={sourceRef} onClick={() => setIsVisible(true)}>
               Source
             </button>
             {isVisible && (
@@ -171,24 +173,25 @@ describe('Popover', () => {
                 <div>Hello world</div>
               </Popover>
             )}
+
+            <div>Outside Element</div>
           </div>
         </ThemeProvider>
       );
     };
 
-    render(<Component />, { container: document.body });
+    render(<Component />);
 
-    const outsideElement = document.createElement('div');
-    document.body.appendChild(outsideElement);
+    const outsideElement = screen.getByText('Outside Element');
 
     fireEvent.click(screen.getByText('Source'));
     expect(screen.getByText('Hello world')).toBeVisible();
     expect(onClose).toHaveBeenCalledTimes(0);
 
-    fireEvent.click(outsideElement);
+    fireEvent.keyDown(document, { key: 'Escape' });
+    expect(onClose).toHaveBeenCalledWith('onEscapeKeyDown');
 
-    expect(onClose).toHaveBeenCalledTimes(1);
-    expect(onClose).toHaveBeenCalledWith('clickOutSide');
-    document.body.removeChild(outsideElement);
+    fireEvent.focus(outsideElement);
+    expect(onClose).toHaveBeenCalledWith('onFocusOutside');
   });
 });

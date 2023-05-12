@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { useFloating, flip, shift, offset, autoUpdate, Placement } from '@floating-ui/react-dom';
+import { DismissableLayer } from '@radix-ui/react-dismissable-layer';
 import styled from 'styled-components';
 
 import { Box, BoxProps } from '../Box';
@@ -137,11 +138,10 @@ const PopoverScrollable = styled(Box)`
   }
 `;
 
-type PopverCloseReasons = 'clickOutSide';
-
 type PopoverProps = ScrollingProps &
   Pick<ContentProps, 'source' | 'spacing' | 'fullWidth' | 'placement' | 'centered'> & {
-    onClose?: (reason: PopverCloseReasons) => void;
+    /* Handles toggling visibility, when internal Popover close events are triggered. */
+    onClose?: (reason: 'onEscapeKeyDown' | 'onPointerDownOutside' | 'onFocusOutside') => void;
   };
 
 export const Popover = ({
@@ -154,30 +154,29 @@ export const Popover = ({
   onClose,
   ...restProps
 }: PopoverProps) => {
-  const containerRef = React.useRef<HTMLDivElement>(null);
-
-  React.useEffect(() => {
-    if (!onClose) {
-      return;
-    }
-    const handleOutsideClick = (e: MouseEvent) => {
-      const targetNode = e.target as Node;
-
-      if (!containerRef.current?.contains(targetNode) && !source.current.contains(targetNode)) {
-        onClose('clickOutSide');
-      }
-    };
-
-    window.addEventListener('click', handleOutsideClick);
-
-    return () => window.removeEventListener('click', handleOutsideClick);
-  }, [onClose, source]);
-
   return (
-    <Portal ref={containerRef}>
-      <Content source={source} spacing={spacing} fullWidth={fullWidth} placement={placement} centered={centered}>
-        <Scrolling {...restProps}>{children}</Scrolling>
-      </Content>
+    <Portal>
+      <DismissableLayer
+        onEscapeKeyDown={(e) => {
+          e.preventDefault();
+          onClose?.('onEscapeKeyDown');
+        }}
+        onPointerDownOutside={(e) => {
+          e.preventDefault();
+
+          if (!source.current.contains(e.target as Node)) {
+            onClose?.('onPointerDownOutside');
+          }
+        }}
+        onFocusOutside={(e) => {
+          e.preventDefault();
+          onClose?.('onFocusOutside');
+        }}
+      >
+        <Content source={source} spacing={spacing} fullWidth={fullWidth} placement={placement} centered={centered}>
+          <Scrolling {...restProps}>{children}</Scrolling>
+        </Content>
+      </DismissableLayer>
     </Portal>
   );
 };
