@@ -9,7 +9,6 @@ import { Flex } from '../Flex';
 import { useId } from '../hooks/useId';
 import { Typography } from '../Typography';
 
-
 const CheckboxLabel = styled(Typography)<Pick<CheckboxProps, 'disabled'>>`
   display: flex;
   align-items: flex-start;
