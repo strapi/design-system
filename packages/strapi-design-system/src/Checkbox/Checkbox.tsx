@@ -1,16 +1,15 @@
-import React from 'react';
+import * as React from 'react';
 
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { BaseCheckbox } from '../BaseCheckbox';
+import { BaseCheckbox, BaseCheckboxProps } from '../BaseCheckbox';
 import { Box } from '../Box';
-import { Field, FieldHint, FieldError, useField } from '../Field';
+import { Field, FieldHint, FieldError, useField, FieldProps } from '../Field';
 import { Flex } from '../Flex';
 import { useId } from '../hooks/useId';
 import { Typography } from '../Typography';
 
-const CheckboxLabel = styled(Typography)`
+const CheckboxLabel = styled(Typography)<Pick<CheckboxProps, 'disabled'>>`
   display: flex;
   align-items: flex-start;
   * {
@@ -18,16 +17,21 @@ const CheckboxLabel = styled(Typography)`
   }
 `;
 
-const CheckboxTick = (props) => {
+const CheckboxTick = (props: BaseCheckboxProps) => {
   const { id } = useField();
 
   return <BaseCheckbox id={id} {...props} />;
 };
 
-export const Checkbox = ({ children, disabled, id, hint, error, ...props }) => {
+interface CheckboxProps extends BaseCheckboxProps, Pick<FieldProps, 'hint' | 'error'> {
+  children: React.ReactNode;
+  disabled?: boolean;
+}
+
+export const Checkbox = ({ children, disabled = false, id, hint, error, ...props }: CheckboxProps) => {
   const generatedId = useId(id);
 
-  let ariaDescription;
+  let ariaDescription: string | undefined;
 
   if (error) {
     ariaDescription = `${generatedId}-error`;
@@ -48,18 +52,4 @@ export const Checkbox = ({ children, disabled, id, hint, error, ...props }) => {
       </Flex>
     </Field>
   );
-};
-
-Checkbox.defaultProps = {
-  disabled: false,
-  id: undefined,
-  error: undefined,
-  hint: undefined,
-};
-Checkbox.propTypes = {
-  children: PropTypes.node.isRequired,
-  disabled: PropTypes.bool,
-  error: PropTypes.string,
-  hint: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
-  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
