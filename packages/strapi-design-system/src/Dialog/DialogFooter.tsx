@@ -1,6 +1,5 @@
 import React from 'react';
 
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { Box } from '../Box';
@@ -16,7 +15,12 @@ const FooterWrapper = styled(Box)`
   }
 `;
 
-export const DialogFooter = ({ startAction, endAction }) => {
+export interface DialogFooterProps {
+  startAction?: React.ReactNode;
+  endAction?: React.ReactNode;
+}
+
+export const DialogFooter = ({ startAction, endAction }: DialogFooterProps) => {
   return (
     <FooterWrapper padding={4}>
       <Flex gap={2}>
@@ -25,16 +29,4 @@ export const DialogFooter = ({ startAction, endAction }) => {
       </Flex>
     </FooterWrapper>
   );
-};
-
-DialogFooter.displayName = 'DialogFooter';
-
-DialogFooter.defaultProps = {
-  endAction: undefined,
-  startAction: undefined,
-};
-
-DialogFooter.propTypes = {
-  endAction: PropTypes.node,
-  startAction: PropTypes.node,
 };
