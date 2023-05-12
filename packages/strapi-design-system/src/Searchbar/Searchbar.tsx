@@ -50,12 +50,12 @@ export interface SearchbarProps extends Omit<FieldInputProps, 'id' | 'name'>, Pi
 
 export const Searchbar = forwardRef<HTMLInputElement, SearchbarProps>(
   ({ name, size = 'M', children, value = '', onClear, clearLabel, ...props }, ref) => {
-    const inputRef = useRef<HTMLInputElement>(null);
+    const inputRef = useRef<HTMLInputElement>(null!);
     const isCompleting = value.length > 0;
 
     const handleClear = (e) => {
       onClear(e);
-      inputRef?.current?.focus?.();
+      inputRef.current.focus();
     };
 
     const actualRef = composeRefs(ref, inputRef);
