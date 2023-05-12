@@ -1,34 +1,28 @@
 import React, { Children, cloneElement } from 'react';
 
-import PropTypes from 'prop-types';
-
 import { useTabs } from './TabsContext';
 
-export const TabPanels = ({ children, ...props }) => {
+export interface TabPanelsProps extends React.HTMLAttributes<HTMLDivElement> {
+  children: React.ReactNode;
+}
+
+export const TabPanels = ({ children, ...props }: TabPanelsProps) => {
   const { id, selectedTabIndex } = useTabs();
 
   const childrenArray = Children.toArray(children)
-    .map((node, index) => cloneElement(node, { id: `${id}-${index}` }))
+    .map((node, index) => cloneElement(node as React.ReactElement, { id: `${id}-${index}` }))
     .filter((_, index) => index === selectedTabIndex);
 
   return <div {...props}>{childrenArray}</div>;
 };
 
-TabPanels.propTypes = {
-  children: PropTypes.node.isRequired,
-};
+export interface TabPanelProps extends React.HTMLAttributes<HTMLDivElement> {
+  id?: string;
+}
 
-export const TabPanel = ({ id, ...props }) => {
+export const TabPanel = ({ id, ...props }: TabPanelProps) => {
   const tabId = `${id}-tab`;
   const tabPanelId = `${id}-tabpanel`;
 
   return <div id={tabPanelId} role="tabpanel" tabIndex={0} aria-labelledby={tabId} {...props} />;
-};
-
-TabPanel.defaultProps = {
-  id: undefined,
-};
-
-TabPanel.propTypes = {
-  id: PropTypes.string,
 };
