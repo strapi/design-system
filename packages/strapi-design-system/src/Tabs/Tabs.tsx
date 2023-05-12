@@ -44,7 +44,7 @@ const TabButton = styled.button`
   }
 `;
 
-interface TabsProps extends FlexProps {
+export interface TabsProps extends FlexProps {
   children: React.ReactNode;
 }
 
@@ -163,7 +163,7 @@ export const Tabs = ({ children, ...props }: TabsProps) => {
   );
 };
 
-interface TabProps extends React.HTMLAttributes<HTMLButtonElement> {
+export interface TabProps extends React.HTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   disabled?: boolean;
   hasError?: boolean;
