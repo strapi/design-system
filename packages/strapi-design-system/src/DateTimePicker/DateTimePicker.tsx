@@ -75,7 +75,7 @@ export const DateTimePicker = ({
   const datePickerRef = React.useRef<HTMLInputElement>(null!);
 
   const [dateValue, setDateValue] = useControllableState<CalendarDateTime | undefined>({
-    defaultProp: initialDate ? convertUTCDateToCalendarDateTime(initialDate) : undefined,
+    defaultProp: initialDate ? convertUTCDateToCalendarDateTime(initialDate, false) : undefined,
     prop: value ? convertUTCDateToCalendarDateTime(value, false) : value ?? undefined,
     onChange(date) {
       if (onChange) {
