@@ -235,26 +235,7 @@ const Combobox: React.FC<RootProps> = (props) => {
         onFilterValueChange={setFilterValue}
         onVisuallyFocussedItemChange={setVisuallyFocussedItem}
       >
-        <FocusScope
-          // we make sure we're not trapping once it's been closed
-          // (closed !== unmounted when animating out)
-          trapped={open}
-          onMountAutoFocus={(event) => {
-            // we prevent open autofocus because we manually focus the selected item
-            event.preventDefault();
-          }}
-          onUnmountAutoFocus={(event) => {
-            trigger?.focus({ preventScroll: true });
-            /**
-             * In firefox there's a some kind of selection happening after
-             * unmounting all of this, so we make sure we clear that.
-             */
-            document.getSelection()?.empty();
-            event.preventDefault();
-          }}
-        >
-          {children}
-        </FocusScope>
+        {children}
       </ComboboxProvider>
     </ComboboxProviders>
   );
@@ -275,7 +256,27 @@ const ComboboxTrigger = React.forwardRef<ComboboxTriggerElement, TriggerProps>((
 
   return (
     <PopperPrimitive.Anchor asChild>
-      <div ref={forwardedRef} data-disabled={context.disabled ? '' : undefined} {...triggerProps} />
+      <FocusScope
+        asChild
+        // we make sure we're not trapping once it's been closed
+        // (closed !== unmounted when animating out)
+        trapped={context.open}
+        onMountAutoFocus={(event) => {
+          // we prevent open autofocus because we manually focus the selected item
+          event.preventDefault();
+        }}
+        onUnmountAutoFocus={(event) => {
+          context.trigger?.focus({ preventScroll: true });
+          /**
+           * In firefox there's a some kind of selection happening after
+           * unmounting all of this, so we make sure we clear that.
+           */
+          document.getSelection()?.empty();
+          event.preventDefault();
+        }}
+      >
+        <div ref={forwardedRef} data-disabled={context.disabled ? '' : undefined} {...triggerProps} />
+      </FocusScope>
     </PopperPrimitive.Anchor>
   );
 });

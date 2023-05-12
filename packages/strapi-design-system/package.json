@@ -24,6 +24,8 @@
     "@internationalized/number": "^3.2.0",
     "@radix-ui/react-dismissable-layer": "^1.0.3",
     "@radix-ui/react-dropdown-menu": "^2.0.4",
+    "@radix-ui/react-focus-guards": "1.0.0",
+    "@radix-ui/react-focus-scope": "1.0.2",
     "@strapi/ui-primitives": "^1.7.5",
     "@uiw/react-codemirror": "^4.19.16",
     "compute-scroll-into-view": "^3.0.3",

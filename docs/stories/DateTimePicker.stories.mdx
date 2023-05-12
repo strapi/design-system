@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 
 import { DateTimePicker } from '@strapi/design-system';
@@ -46,7 +46,6 @@ import { DateTimePicker } from '@strapi/design-system/DateTimePicker';
 <Canvas>
   <Story name="base">
     {() => {
-      const [value, setValue] = useState(undefined);
       return (
         <DateTimePicker
           label={'Date time picker'}

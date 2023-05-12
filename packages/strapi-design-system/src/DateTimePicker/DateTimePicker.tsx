@@ -1,22 +1,34 @@
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
+
+import { CalendarDateTime, parseAbsoluteToLocal, toCalendarDateTime } from '@internationalized/date';
+import styled from 'styled-components';
 
 import { DatePickerInput, DatePickerInputProps } from '../DatePicker/DatePicker';
+import { useDesignSystem } from '../DesignSystemProvider';
 import { Field, FieldHint, FieldLabel, FieldError, FieldProps } from '../Field';
 import { Flex } from '../Flex';
 import { useControllableState } from '../hooks/useControllableState';
+import { useDateFormatter } from '../hooks/useDateFormatter';
 import { useId } from '../hooks/useId';
 import { TimePickerInput, TimePickerProps } from '../TimePicker';
+import { VisuallyHidden } from '../VisuallyHidden';
 
 export interface DateTimePickerProps
-  extends Omit<DatePickerInputProps, 'value' | 'step' | 'onChange' | 'error'>,
+  extends Omit<DatePickerInputProps, 'step' | 'onChange' | 'error' | 'selectedDate'>,
     Pick<TimePickerProps, 'step' | 'selectButtonTitle'>,
     Pick<FieldProps, 'name' | 'hint' | 'error'> {
   /**
-   * Aria Label used by the DatePicker and the TimePicker inside the DateTimePicker component
+   * Label for the DatePicker field
+   * @default "Date"
    */
-  ariaLabel?: string;
+  dateLabel?: string;
   /**
-   * Label used to describe the DateTimePicker component
+   * Label for the TimePicker field
+   * @default "Time"
+   */
+  timeLabel?: string;
+  /**
+   * Label used to describe the DateTimePicker fieldset
    */
   label: string;
   /**
@@ -27,12 +39,20 @@ export interface DateTimePickerProps
   /**
    * Value. The Date passed as value
    */
-  value?: Date;
+  value?: Date | null;
 }
 
+const TIME_ZONE = 'UTC';
+
 export const DateTimePicker = ({
-  ariaLabel,
+  /**
+   * @preserve
+   * @deprecated This is no longer used.
+   */
+  ariaLabel: _ariaLabel,
   clearLabel = 'clear',
+  dateLabel = 'Choose date',
+  timeLabel = 'Choose time',
   disabled = false,
   error,
   hint,
@@ -51,38 +71,69 @@ export const DateTimePicker = ({
   size = 'M',
   step = 1,
   value,
+  initialDate,
   ...props
 }: DateTimePickerProps) => {
-  const initialDate = parseDate(value);
-  const [dateValue, setDateValue] = useControllableState<Date | undefined>({
-    prop: initialDate,
-    onChange,
+  const datePickerRef = React.useRef<HTMLInputElement>(null!);
+
+  const [dateValue, setDateValue] = useControllableState<CalendarDateTime | undefined>({
+    defaultProp: initialDate ? convertUTCDateToCalendarDateTime(initialDate) : undefined,
+    prop: value ? convertUTCDateToCalendarDateTime(value) : value ?? undefined,
+    onChange(date) {
+      if (onChange) {
+        onChange(date?.toDate('UTC'));
+      }
+    },
   });
-  const timeValue = dateValue
-    ? `${dateValue.getHours()}:${dateValue.getMinutes()}:${dateValue.getSeconds()}`
-    : undefined;
+
+  const context = useDesignSystem('DateTimePicker');
+
+  const timeFormatter = useDateFormatter(context.locale, {
+    hour: '2-digit',
+    minute: '2-digit',
+  });
+
+  const [timeTextValue, setTimeTextValue] = React.useState<string | undefined>('');
+  const timeValue = dateValue ? timeFormatter.format(dateValue.toDate(TIME_ZONE)) : '';
+
+  if (timeTextValue !== timeValue) {
+    setTimeTextValue(timeValue);
+  }
 
   const handleDateChange = (date: Date | undefined) => {
-    if (timeValue && date) {
-      const [hours, minutes] = timeValue.split(':');
-      date.setHours(parseInt(hours, 10));
-      date.setMinutes(parseInt(minutes, 10));
+    let newDate = date ? convertUTCDateToCalendarDateTime(date) : undefined;
+
+    /**
+     * If the date hasn't changed, don't do anything.
+     */
+    if (newDate && dateValue && newDate.compare(dateValue) === 0) {
+      return;
     }
 
-    setDateValue(date);
+    if (timeValue && newDate) {
+      const [hours, minutes] = timeValue.split(':');
+      newDate = newDate.set({ hour: parseInt(hours, 10), minute: parseInt(minutes, 10) });
+    }
+
+    setDateValue(newDate);
   };
 
-  const handleTimeChange = (time: string) => {
-    const dateToSet = dateValue ? new Date(dateValue) : new Date();
+  const handleTimeChange = (time?: string) => {
+    if (!time) {
+      return;
+    }
+
     const [hours, minutes] = time.split(':');
-    dateToSet.setHours(parseInt(hours, 10));
-    dateToSet.setMinutes(parseInt(minutes, 10));
+    const dateToSet = dateValue
+      ? dateValue.set({ hour: parseInt(hours, 10), minute: parseInt(minutes, 10) })
+      : convertUTCDateToCalendarDateTime(new Date()).set({ hour: parseInt(hours, 10), minute: parseInt(minutes, 10) });
 
     setDateValue(dateToSet);
   };
 
   const handleDateClear: DatePickerInputProps['onClear'] = (e) => {
     setDateValue(undefined);
+    setTimeTextValue('');
 
     if (onClear) {
       onClear(e);
@@ -90,34 +141,51 @@ export const DateTimePicker = ({
   };
 
   const handleTimeClear = () => {
-    /**
-     * Don't ask, i guess its a TS overload thing...
-     */
-    let dateToSet = dateValue ? new Date(dateValue) : new Date();
-    dateToSet.setHours(0);
-    dateToSet.setMinutes(0);
+    const newDate = dateValue
+      ? dateValue.set({ hour: 0, minute: 0 })
+      : convertUTCDateToCalendarDateTime(new Date()).set({ hour: 0, minute: 0 });
 
-    setDateValue(dateToSet);
+    setDateValue(newDate);
+    setTimeTextValue('');
   };
 
   const generatedId = useId(id);
 
+  const timeId = useId();
+  const dateId = useId();
+
   return (
     <Field
       name={name}
-      role="group"
+      as="fieldset"
       id={generatedId}
       aria-labelledby={generatedId}
       hint={hint}
       error={error}
       required={required}
     >
-      <Flex direction="column" alignItems="stretch" gap={1}>
-        <FieldLabel action={labelAction}>{label}</FieldLabel>
-        <Flex gap={2}>
-          <DatePickerInput
-            ariaLabel={label || ariaLabel}
-            selectedDate={dateValue}
+      <Flex as="span" direction="column" alignItems="stretch" gap={1}>
+        <FieldLabel
+          onClick={() => {
+            /**
+             * We're using fieldsets and legends and because they're not directly associated with the input
+             * we want to manually focus the input because the labels for these inputs are visually hidden.
+             */
+            datePickerRef.current.focus();
+          }}
+          as="legend"
+          id={generatedId}
+          action={labelAction}
+        >
+          {label}
+        </FieldLabel>
+        <Flex flex="1" gap={1}>
+          <VisuallyHidden as="label" htmlFor={dateId}>
+            {dateLabel}
+          </VisuallyHidden>
+          <DatePicker
+            {...props}
+            selectedDate={dateValue?.toDate(TIME_ZONE)}
             onChange={handleDateChange}
             error={typeof error === 'string'}
             required={required}
@@ -125,25 +193,27 @@ export const DateTimePicker = ({
             onClear={handleDateClear}
             clearLabel={`${clearLabel} date`}
             disabled={disabled}
-            id={generatedId}
-            {...props}
+            id={dateId}
+            ref={datePickerRef}
+            aria-describedby={`${generatedId}-hint ${generatedId}-error`}
           />
-          <TimePickerInput
+          <VisuallyHidden as="label" htmlFor={timeId}>
+            {timeLabel}
+          </VisuallyHidden>
+          <TimePicker
             size={size}
-            aria-label={label || ariaLabel}
             error={typeof error === 'string'}
             value={timeValue}
             onChange={handleTimeChange}
-            /**
-             * In reality the time picker is only cleared when there is no date otherwise it's just 00:00
-             * and we should show that for accurate UX and therefore you cannot clear it when it's 00:00.
-             */
-            onClear={timeValue !== undefined && timeValue !== '0:0:0' ? handleTimeClear : undefined}
+            onClear={timeValue !== undefined && timeValue !== '00:00' ? handleTimeClear : undefined}
             clearLabel={`${clearLabel} time`}
             required={required}
             disabled={disabled}
             step={step}
-            id={generatedId}
+            id={timeId}
+            aria-describedby={`${generatedId}-hint ${generatedId}-error`}
+            textValue={timeTextValue}
+            onTextValueChange={setTimeTextValue}
           />
         </Flex>
         <FieldHint />
@@ -153,12 +223,21 @@ export const DateTimePicker = ({
   );
 };
 
-const parseDate = (date) => {
-  const timestamp = Date.parse(date);
+export const convertUTCDateToCalendarDateTime = (date: Date): CalendarDateTime => {
+  const utcDateString = date.toISOString();
+  const zonedDateTime = parseAbsoluteToLocal(utcDateString);
 
-  if (!Number.isNaN(timestamp)) {
-    return new Date(timestamp);
-  }
-
-  return undefined;
+  /**
+   * ZonedDateTime can't have weeks added,
+   * see – https://github.com/adobe/react-spectrum/issues/3667
+   */
+  return toCalendarDateTime(zonedDateTime);
 };
+
+const DatePicker = styled(DatePickerInput)`
+  flex: 1 0 70%;
+`;
+
+const TimePicker = styled(TimePickerInput)`
+  flex: 1 0 30%;
+`;
