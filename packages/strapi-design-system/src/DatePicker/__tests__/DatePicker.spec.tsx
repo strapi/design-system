@@ -1,10 +1,11 @@
-import { render as renderRTL } from '@test/utils';
+import { RenderOptions, render as renderRTL } from '@test/utils';
 
 import { DatePicker, DatePickerProps } from '../DatePicker';
 
 const Component = (props: Partial<DatePickerProps>) => <DatePicker locale="en-EN" label="date picker" {...props} />;
 
-const render = (props?: Partial<DatePickerProps>) => renderRTL(<Component {...props} />);
+const render = (props?: Partial<DatePickerProps>, renderOptions?: RenderOptions) =>
+  renderRTL(<Component {...props} />, { renderOptions });
 
 describe('DatePicker', () => {
   describe('Input', () => {
@@ -68,9 +69,23 @@ describe('DatePicker', () => {
     it('should call onChange when we blur the input after typing a date', async () => {
       const onChange = jest.fn();
 
-      const { getByRole, user } = render({ onChange });
+      const { getByRole, user } = render(
+        { onChange },
+        {
+          wrapper({ children }) {
+            return (
+              <div>
+                {children}
+                <button type="button">testing</button>
+              </div>
+            );
+          },
+        },
+      );
 
       await user.type(getByRole('combobox', { name: 'date picker' }), '01/09/2021');
+
+      await user.keyboard('[Escape]');
 
       await user.tab();
 

@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/jsx-pascal-case */
 import * as React from 'react';
 
@@ -254,6 +256,12 @@ const ComboboxTrigger = React.forwardRef<ComboboxTriggerElement, TriggerProps>((
   const { ...triggerProps } = props;
   const context = useComboboxContext(TRIGGER_NAME);
 
+  const handleOpen = () => {
+    if (!context.disabled) {
+      context.onOpenChange(true);
+    }
+  };
+
   return (
     <PopperPrimitive.Anchor asChild>
       <FocusScope
@@ -275,7 +283,48 @@ const ComboboxTrigger = React.forwardRef<ComboboxTriggerElement, TriggerProps>((
           event.preventDefault();
         }}
       >
-        <div ref={forwardedRef} data-disabled={context.disabled ? '' : undefined} {...triggerProps} />
+        <div
+          ref={forwardedRef}
+          data-disabled={context.disabled ? '' : undefined}
+          {...triggerProps} // Enable compatibility with native label or custom `Label` "click" for Safari:
+          onClick={composeEventHandlers(triggerProps.onClick, () => {
+            // Whilst browsers generally have no issue focusing the trigger when clicking
+            // on a label, Safari seems to struggle with the fact that there's no `onClick`.
+            // We force `focus` in this case. Note: this doesn't create any other side-effect
+            // because we are preventing default in `onPointerDown` so effectively
+            // this only runs for a label "click"
+            context.trigger?.focus();
+          })}
+          onPointerDown={composeEventHandlers(triggerProps.onPointerDown, (event) => {
+            // prevent implicit pointer capture
+            // https://www.w3.org/TR/pointerevents3/#implicit-pointer-capture
+            const target = event.target as HTMLElement;
+
+            if (target.hasPointerCapture(event.pointerId)) {
+              target.releasePointerCapture(event.pointerId);
+            }
+
+            /**
+             * This has been added to allow events inside the trigger to be easily fired
+             * e.g. the clear button or removing a tag
+             */
+            const buttonTarg = target.closest('button') ?? target.closest('div');
+
+            if (buttonTarg !== event.currentTarget) {
+              return;
+            }
+
+            // only call handler if it's the left button (mousedown gets triggered by all mouse buttons)
+            // but not when the control key is pressed (avoiding MacOS right click)
+            if (event.button === 0 && event.ctrlKey === false) {
+              handleOpen();
+              /**
+               * Firefox had issues focussing the input correctly.
+               */
+              context.trigger?.focus();
+            }
+          })}
+        />
       </FocusScope>
     </PopperPrimitive.Anchor>
   );
@@ -355,26 +404,6 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
       value={context.textValue ?? ''}
       {...props}
       ref={composedRefs}
-      // Enable compatibility with native label or custom `Label` "click" for Safari:
-      onClick={composeEventHandlers(props.onClick, (event) => {
-        // Whilst browsers generally have no issue focusing the trigger when clicking
-        // on a label, Safari seems to struggle with the fact that there's no `onClick`.
-        // We force `focus` in this case. Note: this doesn't create any other side-effect
-        // because we are preventing default in `onPointerDown` so effectively
-        // this only runs for a label "click"
-        event.currentTarget.focus();
-      })}
-      onPointerDown={composeEventHandlers(props.onPointerDown, (event) => {
-        // only call handler if it's the left button (mousedown gets triggered by all mouse buttons)
-        // but not when the control key is pressed (avoiding MacOS right click)
-        if (event.button === 0 && event.ctrlKey === false) {
-          handleOpen();
-          /**
-           * Firefox had issues focussing the input correctly.
-           */
-          event.currentTarget.focus();
-        }
-      })}
       onKeyDown={composeEventHandlers(props.onKeyDown, (event) => {
         if (['ArrowUp', 'ArrowDown', 'Home', 'End'].includes(event.key)) {
           setTimeout(() => {

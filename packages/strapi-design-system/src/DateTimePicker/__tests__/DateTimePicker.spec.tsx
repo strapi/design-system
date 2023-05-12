@@ -154,10 +154,7 @@ describe('DateTimePicker', () => {
       expect(onClear).toHaveBeenCalled();
     });
 
-    /**
-     * TODO: This test is skipped because of an issue with the event being prevented by not calling the original...
-     */
-    it.skip('should reset the value of the TimePicker to 00:00 when clicking on the clear button but not clear the DatePicker and not call onClear', async () => {
+    it('should reset the value of the TimePicker to 00:00 when clicking on the clear button but not clear the DatePicker and not call onClear', async () => {
       const onClear = jest.fn();
       const { getByRole, user } = render({ onClear });
 
@@ -216,7 +213,7 @@ describe('DateTimePicker', () => {
       expect(getByRole('combobox', { name: 'Choose time' })).toHaveValue('12:30');
     });
 
-    it.only('should render the value prop even when the value is empty', () => {
+    it('should render the value prop even when the value is empty', () => {
       const { getByRole, rerender } = render({ value: new Date('12/15/2023 12:00') });
 
       expect(getByRole('combobox', { name: 'Choose date' })).toHaveValue('15/12/2023');

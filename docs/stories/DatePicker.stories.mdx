@@ -27,7 +27,7 @@ whilst the input will have a `string` value.
 <Canvas>
   <Story name="base">
     {() => {
-      const [date, setDate] = useState();
+      const [date, setDate] = useState(new Date('12/15/2023 12:00'));
       const [error, toggleError] = useState();
       const [disabled, toggleDisabled] = useState();
       return (

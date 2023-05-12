@@ -69,7 +69,7 @@ export const DateTimePicker = ({
    */
   selectButtonTitle: _selectButtonTitle,
   size = 'M',
-  step = 1,
+  step,
   value,
   initialDate,
   ...props
@@ -93,6 +93,8 @@ export const DateTimePicker = ({
     minute: '2-digit',
   });
 
+  console.log(dateValue?.hour);
+
   const [timeTextValue, setTimeTextValue] = React.useState<string | undefined>('');
   const timeValue = dateValue ? timeFormatter.format(dateValue.toDate(TIME_ZONE)) : '';
 
@@ -101,6 +103,7 @@ export const DateTimePicker = ({
   }
 
   const handleDateChange = (date: Date | undefined) => {
+    console.log(date);
     let newDate = date ? convertUTCDateToCalendarDateTime(date) : undefined;
 
     /**
@@ -190,7 +193,7 @@ export const DateTimePicker = ({
             error={typeof error === 'string'}
             required={required}
             size={size}
-            onClear={handleDateClear}
+            onClear={onClear ? handleDateClear : undefined}
             clearLabel={`${clearLabel} date`}
             disabled={disabled}
             id={dateId}
@@ -205,7 +208,7 @@ export const DateTimePicker = ({
             error={typeof error === 'string'}
             value={timeValue}
             onChange={handleTimeChange}
-            onClear={timeValue !== undefined && timeValue !== '00:00' ? handleTimeClear : undefined}
+            onClear={onClear && timeValue !== undefined && timeValue !== '00:00' ? handleTimeClear : undefined}
             clearLabel={`${clearLabel} time`}
             required={required}
             disabled={disabled}
@@ -226,6 +229,8 @@ export const DateTimePicker = ({
 export const convertUTCDateToCalendarDateTime = (date: Date): CalendarDateTime => {
   const utcDateString = date.toISOString();
   const zonedDateTime = parseAbsoluteToLocal(utcDateString);
+
+  console.log(zonedDateTime);
 
   /**
    * ZonedDateTime can't have weeks added,

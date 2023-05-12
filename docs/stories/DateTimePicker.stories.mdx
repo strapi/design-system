@@ -46,15 +46,14 @@ import { DateTimePicker } from '@strapi/design-system/DateTimePicker';
 <Canvas>
   <Story name="base">
     {() => {
+      const [value, setValue] = useState(undefined);
       return (
         <DateTimePicker
           label={'Date time picker'}
-          disabled={false}
-          name="datetimepicker"
-          clearLabel="Clear"
-          step={15}
-          hint="This is a super description"
-          selectedDateLabel={() => `Date picker, current is undefined`}
+          locale="en-GB"
+          value={value}
+          onChange={setValue}
+          onClear={() => setValue(undefined)}
         />
       );
     }}
