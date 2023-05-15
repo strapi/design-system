@@ -2,10 +2,8 @@ import * as React from 'react';
 
 import styled, { CSSProperties, DefaultTheme } from 'styled-components';
 
-import handleResponsiveValues from '../helpers/handleResponsiveValues';
+import handleResponsiveValues, { ResponsiveValue } from '../helpers/handleResponsiveValues';
 import { extractStyleFromTheme } from '../helpers/theme';
-
-type SpaceProps = keyof DefaultTheme['spaces'] | Array<keyof DefaultTheme['spaces']>;
 
 type DefaultThemeOrCSSProp<T extends keyof DefaultTheme, K extends keyof CSSProperties> =
   | keyof DefaultTheme[T]
@@ -71,27 +69,27 @@ export type BoxProps<TElement extends HTMLElement = HTMLDivElement> = Pick<
     /**
      * Padding. Supports responsive values
      */
-    padding?: SpaceProps;
+    padding?: ResponsiveValue;
     /**
      * Padding bottom. Supports responsive values
      */
-    paddingBottom?: SpaceProps;
+    paddingBottom?: ResponsiveValue;
     /**
      * Padding left. Supports responsive values
      */
-    paddingLeft?: SpaceProps;
+    paddingLeft?: ResponsiveValue;
     /**
      * Padding right. Supports responsive values
      */
-    paddingRight?: SpaceProps;
+    paddingRight?: ResponsiveValue;
     /**
      * Padding top. Supports responsive values
      */
-    paddingTop?: SpaceProps;
-    marginLeft?: SpaceProps;
-    marginBottom?: SpaceProps;
-    marginRight?: SpaceProps;
-    marginTop?: SpaceProps;
+    paddingTop?: ResponsiveValue;
+    marginLeft?: ResponsiveValue;
+    marginBottom?: ResponsiveValue;
+    marginRight?: ResponsiveValue;
+    marginTop?: ResponsiveValue;
     /**
      * Shadow name (see `theme.shadows`)
      */
