@@ -250,6 +250,22 @@ const DatePickerInput = React.forwardRef<DatePickerTextInputElement, DatePickerI
       [value],
     );
 
+    React.useLayoutEffect(() => {
+      if (selectedDate) {
+        const date = convertUTCDateToCalendarDate(selectedDate);
+        setTextValue(date.toString().split('-').reverse().join(separator));
+      } else {
+        setTextValue('');
+      }
+    }, [separator, selectedDate]);
+
+    React.useLayoutEffect(() => {
+      if (initialDate && textValue === undefined) {
+        const date = convertUTCDateToCalendarDate(initialDate);
+        setTextValue(date.toString().split('-').reverse().join(separator));
+      }
+    }, [separator, initialDate, textValue]);
+
     const hintId = `${id}-hint`;
     const errorId = `${id}-error`;
 
@@ -505,14 +521,6 @@ const DatePickerTextInput = React.forwardRef<DatePickerTextInputElement, TextInp
         onOpenChange(true);
       }
     };
-
-    React.useLayoutEffect(() => {
-      if (value) {
-        onTextValueChange(value.toString().split('-').reverse().join(separator));
-      } else {
-        onTextValueChange('');
-      }
-    }, [onTextValueChange, separator, value]);
 
     return (
       <Input

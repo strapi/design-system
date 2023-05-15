@@ -92,6 +92,20 @@ describe('DatePicker', () => {
 
       expect(onChange).toHaveBeenCalledWith(new Date('Sep 01 2021'));
     });
+
+    it('should allow me to control the input value regardless of if a value is present', async () => {
+      const { getByRole, user } = render({ initialDate: new Date('Sep 04 2021') });
+
+      await user.click(getByRole('combobox', { name: 'date picker' }));
+
+      await user.click(getByRole('gridcell', { name: 'Wednesday, September 8, 2021' }));
+
+      expect(getByRole('combobox', { name: 'date picker' })).toHaveValue('08/09/2021');
+
+      await user.clear(getByRole('combobox', { name: 'date picker' }));
+
+      expect(getByRole('combobox', { name: 'date picker' })).toHaveValue('');
+    });
   });
 
   describe('Calendar', () => {
