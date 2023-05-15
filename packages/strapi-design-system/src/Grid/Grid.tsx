@@ -4,11 +4,11 @@ import styled from 'styled-components';
 
 import { GridContext } from './GridContext';
 import { Box, BoxProps } from '../Box';
-import handleResponsiveValues from '../helpers/handleResponsiveValues';
+import handleResponsiveValues, { ResponsiveValue } from '../helpers/handleResponsiveValues';
 
 export interface GridProps extends BoxProps {
   gridCols?: number;
-  gap?: number | number[];
+  gap?: ResponsiveValue;
 }
 
 const GridWrapper = styled(Box)<Required<Pick<GridProps, 'gridCols' | 'gap'>>>`

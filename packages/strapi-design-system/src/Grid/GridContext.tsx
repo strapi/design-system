@@ -1,7 +1,9 @@
 import { createContext, useContext } from 'react';
 
+import type { ResponsiveValue } from '../helpers/handleResponsiveValues';
+
 export interface GridContextValue {
-  gap: number | number[];
+  gap: ResponsiveValue;
   gridCols: number;
 }
 

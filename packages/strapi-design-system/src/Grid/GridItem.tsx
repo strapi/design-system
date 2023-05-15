@@ -4,12 +4,13 @@ import styled from 'styled-components';
 
 import { useGrid } from './GridContext';
 import { Box, BoxProps } from '../Box';
+import type { ResponsiveValue } from '../helpers/handleResponsiveValues';
 
 export interface GridItemProps extends BoxProps<HTMLDivElement> {
   col: number;
   s: number;
   xs: number;
-  gap: number | number[];
+  gap: ResponsiveValue;
   gridCols: number;
 }
 
