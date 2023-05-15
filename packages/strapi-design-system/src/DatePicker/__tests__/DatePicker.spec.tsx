@@ -56,14 +56,15 @@ describe('DatePicker', () => {
       // expect(getByRole('textbox', { name: 'date picker' })).toHaveFocus();
     });
 
-    it('should update the input text value when a selectedDate is passed and a calendar date is pressed', async () => {
-      const { getByRole, user } = render({ selectedDate: new Date('Sep 04 2021') });
+    it('should call onChange when a selectedDate is passed and a calendar date is pressed', async () => {
+      const onChange = jest.fn();
+      const { getByRole, user } = render({ selectedDate: new Date('Sep 04 2021'), onChange });
 
       await user.click(getByRole('combobox', { name: 'date picker' }));
 
       await user.click(getByRole('gridcell', { name: 'Wednesday, September 8, 2021' }));
 
-      expect(getByRole('combobox', { name: 'date picker' })).toHaveValue('08/09/2021');
+      expect(onChange).toHaveBeenCalledWith(new Date('Sep 08 2021'));
     });
 
     it('should call onChange when we blur the input after typing a date', async () => {
@@ -168,7 +169,11 @@ describe('DatePicker', () => {
 
       expect(getAllByRole('gridcell')[8]).toHaveTextContent('6');
 
+      await user.keyboard('[Escape]');
+
       rerender(<Component selectedDate={new Date('Oct 04 2021')} />);
+
+      await user.click(getByRole('combobox', { name: 'date picker' }));
 
       expect(getByRole('combobox', { name: 'Month' })).toHaveTextContent('October');
       expect(getAllByRole('gridcell')[8]).toHaveTextContent('4');

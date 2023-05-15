@@ -55,8 +55,10 @@ enables you to have the ability to "clear" the input.
 <Canvas>
   <Story name="controlled">
     {() => {
-      const [date, setDate] = useState();
-      return <DatePicker onChange={setDate} value={date} label="Your birthday" onClear={() => setDate(undefined)} />;
+      const [date, setDate] = useState(new Date('1990-01-01'));
+      return (
+        <DatePicker onChange={setDate} selectedDate={date} label="Your birthday" onClear={() => setDate(undefined)} />
+      );
     }}
   </Story>
 </Canvas>

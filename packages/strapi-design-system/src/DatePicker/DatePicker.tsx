@@ -239,6 +239,17 @@ const DatePickerInput = React.forwardRef<DatePickerTextInputElement, DatePickerI
       }
     };
 
+    const handleOpenChange = React.useCallback(
+      (nextOpen: boolean) => {
+        if (nextOpen && value) {
+          setCalendarDate(value);
+        }
+
+        setOpen(nextOpen);
+      },
+      [value],
+    );
+
     const hintId = `${id}-hint`;
     const errorId = `${id}-error`;
 
@@ -254,7 +265,7 @@ const DatePickerInput = React.forwardRef<DatePickerTextInputElement, DatePickerI
         open={open}
         onCalendarDateChange={setCalendarDate}
         onContentChange={setContent}
-        onOpenChange={setOpen}
+        onOpenChange={handleOpenChange}
         onTextInputChange={setTextInput}
         onTextValueChange={setTextValue}
         onTriggerChange={setTrigger}
@@ -728,17 +739,6 @@ const DatePickerContent = React.forwardRef<DatePickerContentElement, ContentProp
   React.useLayoutEffect(() => {
     setFragment(new DocumentFragment());
   }, []);
-
-  React.useLayoutEffect(() => {
-    /**
-     * If there's a value and the calendar has just opened we want to ensure the calendar
-     * reflects the date's value e.g. if we've changed the calendar view and then closed the
-     * calendar we want to ensure the calendar view is reset to the value's date.
-     */
-    if (context.open && context.value && context.calendarDate.compare(context.value) !== 0) {
-      context.onCalendarDateChange(context.value);
-    }
-  }, [context.open, context.calendarDate, context.value, context]);
 
   if (!context.open) {
     const frag = fragment as Element | undefined;
