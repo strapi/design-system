@@ -27,7 +27,7 @@ const GridItemWrapper = styled.div<GridItemProps>`
   }
 `;
 
-export const GridItem: React.FC<GridItemProps> = ({ col, xs, s, ...props }) => {
+export const GridItem = ({ col, xs, s, ...props }: GridItemProps) => {
   const { gap, gridCols } = useGrid();
 
   return (
