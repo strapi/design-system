@@ -38,14 +38,11 @@ const TextButtonWrapper = styled(Flex)`
   ${buttonFocusStyle}
 `;
 
-export type TextButtonProps = FlexProps<HTMLButtonElement> &
-  React.ButtonHTMLAttributes<HTMLButtonElement> & {
-    disabled?: boolean;
-    endIcon?: React.ReactNode;
-    loading?: boolean;
-    onClick?: React.MouseEventHandler<HTMLButtonElement>;
-    startIcon?: React.ReactNode;
-  };
+export interface TextButtonProps extends FlexProps<'button'> {
+  endIcon?: React.ReactNode;
+  loading?: boolean;
+  startIcon?: React.ReactNode;
+}
 
 export const TextButton = React.forwardRef<HTMLButtonElement, TextButtonProps>(
   ({ children, startIcon, endIcon, onClick, disabled = false, loading = false, ...props }, ref) => {

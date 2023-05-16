@@ -49,7 +49,7 @@ const MenuTrigger = forwardRef<HTMLButtonElement, TriggerProps>(({ size, ...prop
  * MenuContent
  * -----------------------------------------------------------------------------------------------*/
 
-interface ContentProps extends FlexProps<HTMLDivElement> {
+interface ContentProps extends FlexProps<'div'> {
   intersectionId?: string;
   popoverPlacement?: (typeof POPOVER_PLACEMENTS)[number];
 }
@@ -122,7 +122,7 @@ type ItemInternalLinkProps<TComponent extends React.ComponentType = typeof BaseL
     isExternal?: false;
   };
 
-interface ItemButtonProps extends ItemSharedProps, Omit<BoxProps<HTMLButtonElement>, 'onSelect'> {
+interface ItemButtonProps extends ItemSharedProps, Omit<BoxProps<'button'>, 'onSelect'> {
   as?: never;
   isLink?: false;
   isExternal?: false;
@@ -229,9 +229,7 @@ const MenuSubRoot = DropdownMenu.Sub;
  * MenuSubTrigger
  * -----------------------------------------------------------------------------------------------*/
 
-interface SubTriggerProps extends BoxProps<HTMLButtonElement> {
-  disabled?: boolean;
-}
+interface SubTriggerProps extends BoxProps<'button'> {}
 
 const MenuSubTrigger = forwardRef<HTMLButtonElement, SubTriggerProps>(({ disabled = false, ...props }, ref) => {
   return (
@@ -269,7 +267,7 @@ const TriggerArrow = styled(ChevronRight)`
  * MenuSubContent
  * -----------------------------------------------------------------------------------------------*/
 
-interface SubContentProps extends FlexProps<HTMLDivElement> {}
+interface SubContentProps extends FlexProps<'div'> {}
 
 const MenuSubContent = forwardRef<HTMLDivElement, SubContentProps>((props, ref) => {
   return (

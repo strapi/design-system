@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes } from 'react';
+import * as React from 'react';
 
 import styled from 'styled-components';
 
@@ -23,10 +23,7 @@ export const BaseButtonWrapper = styled(Flex)`
   ${buttonFocusStyle}
 `;
 
-export interface BaseButtonProps<TElement extends HTMLElement = HTMLButtonElement> extends FlexProps<TElement> {
-  disabled?: boolean;
-  type?: ButtonHTMLAttributes<HTMLButtonElement>['type'];
-}
+export type BaseButtonProps<TElement extends keyof JSX.IntrinsicElements = 'button'> = FlexProps<TElement>;
 
 export const BaseButton = React.forwardRef<HTMLButtonElement, BaseButtonProps>(
   ({ disabled, children, background = 'neutral0', ...props }, ref) => {
