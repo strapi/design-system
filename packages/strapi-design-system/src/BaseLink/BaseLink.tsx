@@ -2,13 +2,10 @@ import React from 'react';
 
 import { Box, BoxProps } from '../Box';
 
-export interface BaseLinkProps extends BoxProps<HTMLAnchorElement> {
+export type BaseLinkProps = BoxProps<'a'> & {
   disabled?: boolean;
-  href?: string;
   isExternal?: boolean;
-  rel?: string;
-  target?: string;
-}
+};
 
 export const BaseLink = React.forwardRef<HTMLAnchorElement, BaseLinkProps>(
   ({ href, rel = 'noreferrer noopener', target = '_self', disabled = false, isExternal = false, ...props }, ref) => {

@@ -17,7 +17,7 @@ const TooltipWrapper = styled(Box)<{ visible: boolean }>`
   display: ${({ visible }) => (visible ? 'revert' : 'none')};
 `;
 
-export interface TooltipProps extends Omit<BoxProps<HTMLDivElement>, 'position'> {
+export interface TooltipProps extends Omit<BoxProps<'div'>, 'position'> {
   description?: string;
   delay?: number;
   id?: string;

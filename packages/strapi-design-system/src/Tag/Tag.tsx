@@ -5,8 +5,7 @@ import styled from 'styled-components';
 import { Flex, FlexProps } from '../Flex';
 import { Typography } from '../Typography';
 
-export interface TagProps extends FlexProps<HTMLButtonElement> {
-  disabled?: boolean;
+export interface TagProps extends FlexProps<'button'> {
   icon: React.ReactNode;
 }
 

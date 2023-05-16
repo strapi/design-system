@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { Box, BoxProps } from '../Box';
 
-export interface MainProps extends BoxProps<HTMLElement> {
+export interface MainProps extends BoxProps<'main'> {
   labelledBy: string;
 }
 
