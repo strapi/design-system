@@ -17,7 +17,7 @@ const GridWrapper = styled(Box)<Required<Pick<GridProps, 'gridCols' | 'gap'>>>`
   ${({ theme, gap }) => handleResponsiveValues('gap', gap, theme)}
 `;
 
-export const Grid: React.FC<GridProps> = ({ gap = '0', gridCols = 12, ...props }) => {
+export const Grid = ({ gap = '0', gridCols = 12, ...props }: GridProps) => {
   const context = React.useMemo(
     () => ({ gap, gridCols }),
     [gap, gridCols],
