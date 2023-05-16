@@ -12,7 +12,6 @@ import { Tooltip } from '../Tooltip';
 import { Typography } from '../Typography';
 
 const CarouselGrid = styled(Box)`
-  display: grid;
   grid-template-columns: auto 1fr auto;
   grid-template-areas: 'startAction slides endAction';
 `;
@@ -21,7 +20,7 @@ const CarouselSlides = styled(Box)`
   grid-area: slides;
 `;
 
-const CarouselAction = styled.button`
+const CarouselAction = styled(Box)`
   grid-area: ${({ area }) => area};
 
   &:focus svg path,
@@ -70,28 +69,39 @@ export const Carousel = ({
     }
   };
 
-  const hasChildren = childrenArray.length > 1;
-
   return (
     <Box {...props} onKeyDown={handleKeyDown}>
       <Box padding={2} borderColor="neutral200" hasRadius background="neutral100">
-        <CarouselGrid as="section" aria-roledescription="carousel" aria-label={label} position="relative">
-          {hasChildren && (
-            <CarouselAction
-              onClick={onPrevious}
-              area="startAction"
-              ref={prevActionRef}
-              aria-label={previousLabel}
-              type="button"
-            >
-              <Icon as={ChevronLeft} aria-hidden width="6px" height="10px" color="neutral600" />
-            </CarouselAction>
-          )}
+        <CarouselGrid
+          as="section"
+          aria-roledescription="carousel"
+          aria-label={label}
+          display="grid"
+          position="relative"
+        >
+          {childrenArray.length > 1 && (
+            <>
+              <CarouselAction
+                as="button"
+                onClick={onPrevious}
+                area="startAction"
+                ref={prevActionRef}
+                aria-label={previousLabel}
+                type="button"
+              >
+                <Icon as={ChevronLeft} aria-hidden width="6px" height="10px" color="neutral600" />
+              </CarouselAction>
 
-          {hasChildren && (
-            <CarouselAction onClick={onNext} area="endAction" ref={nextActionRef} aria-label={nextLabel} type="button">
-              <Icon as={ChevronRight} aria-hidden width="6px" height="10px" color="neutral600" />
-            </CarouselAction>
+              <CarouselAction
+                onClick={onNext}
+                area="endAction"
+                ref={nextActionRef}
+                aria-label={nextLabel}
+                type="button"
+              >
+                <Icon as={ChevronRight} aria-hidden width="6px" height="10px" color="neutral600" />
+              </CarouselAction>
+            </>
           )}
 
           <CarouselSlides aria-live="polite" paddingLeft={2} paddingRight={2} width="100%" overflow="hidden">
@@ -99,6 +109,7 @@ export const Carousel = ({
           </CarouselSlides>
           {actions}
         </CarouselGrid>
+
         {secondaryLabel && (
           <Box paddingTop={2} paddingLeft={4} paddingRight={4}>
             <Tooltip label={secondaryLabel}>
