@@ -36,9 +36,8 @@ const PopoverWrapper = styled(Box)`
   border: 1px solid ${({ theme }) => theme.colors.neutral150};
   background: ${({ theme }) => theme.colors.neutral0};
 `;
-
 interface ContentProps
-  extends BoxProps<HTMLDivElement>,
+  extends BoxProps<'div'>,
     Pick<DismissibleLayerProps, 'onEscapeKeyDown' | 'onPointerDownOutside' | 'onDismiss'> {
   source: React.MutableRefObject<HTMLElement>;
   placement?: Placement;
@@ -155,7 +154,7 @@ export const Content = ({
   );
 };
 
-export interface ScrollingProps extends BoxProps<HTMLDivElement> {
+export interface ScrollingProps extends BoxProps<'div'> {
   intersectionId?: string;
   onReachEnd?: (entry: IntersectionObserverEntry) => void;
 }
