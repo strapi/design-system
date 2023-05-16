@@ -18,7 +18,7 @@ const GridWrapper = styled(Box)<Required<Pick<GridProps, 'gridCols' | 'gap'>>>`
 `;
 
 export const Grid: React.FC<GridProps> = ({ gap = '0', gridCols = 12, ...props }) => {
-  const context = React.useMemo<Required<Pick<GridProps, 'gridCols' | 'gap'>>>(
+  const context = React.useMemo(
     () => ({ gap, gridCols }),
     [gap, gridCols],
   );
