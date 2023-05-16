@@ -341,7 +341,7 @@ type ComboboxInputElement = React.ElementRef<'input'>;
 
 const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps>((props, forwardedRef) => {
   const context = useComboboxContext(INPUT_NAME);
-  const inputRef = React.useRef<HTMLInputElement>(null!);
+  const inputRef = React.useRef<HTMLInputElement>(null);
   const { getItems } = useCollection(undefined);
 
   const { startsWith } = useFilter(context.locale, { sensitivity: 'base' });
@@ -380,7 +380,7 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
        * If there's a match, we want to select the text after the match.
        */
       if (firstItem && !context.visuallyFocussedItem && characterChangedAtIndex === context.filterValue.length) {
-        inputRef.current.setSelectionRange(context.filterValue.length, context.textValue.length);
+        inputRef.current?.setSelectionRange(context.filterValue.length, context.textValue.length);
       }
     });
 
@@ -397,7 +397,7 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
         event.preventDefault();
       }}
       onUnmountAutoFocus={(event) => {
-        inputRef.current.focus({ preventScroll: true });
+        inputRef.current?.focus({ preventScroll: true });
         /**
          * In firefox there's a some kind of selection happening after
          * unmounting all of this, so we make sure we clear that.
