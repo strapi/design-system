@@ -1,17 +1,21 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { Box } from '../Box';
+import { Box, BoxProps } from '../Box';
 import { Tooltip } from '../Tooltip';
 import { ellipsisStyle } from '../Typography/utils';
+
+export interface CarouselImageProps extends BoxProps<'img'> {
+  alt: string;
+  src: string;
+}
 
 const StyledImage = styled(Box)`
   ${ellipsisStyle({ ellipsis: true })}
 `;
 
-export const CarouselImage = (props) => {
+export const CarouselImage = (props: CarouselImageProps) => {
   const [isError, setIsError] = useState(false);
 
   const handleImageError = () => {
@@ -27,14 +31,4 @@ export const CarouselImage = (props) => {
   }
 
   return <StyledImage as="img" height="100%" {...props} onError={handleImageError} />;
-};
-
-CarouselImage.defaultProps = {
-  src: undefined,
-  alt: undefined,
-};
-
-CarouselImage.propTypes = {
-  alt: PropTypes.string,
-  src: PropTypes.string,
 };

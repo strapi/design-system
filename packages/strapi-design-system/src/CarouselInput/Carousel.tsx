@@ -1,26 +1,37 @@
-import React, { Children, cloneElement, useRef } from 'react';
+import * as React from 'react';
 
 import { ChevronRight, ChevronLeft } from '@strapi/icons';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { Box } from '../Box';
+import { Box, BoxProps } from '../Box';
 import { Flex } from '../Flex';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 import { Icon } from '../Icon';
 import { Tooltip } from '../Tooltip';
 import { Typography } from '../Typography';
 
+export interface CarouselProps extends BoxProps {
+  actions?: React.ReactNode;
+  children: React.ReactNode;
+  label: string;
+  nextLabel: string;
+  onNext: () => void;
+  onPrevious: () => void;
+  previousLabel: string;
+  secondaryLabel?: string;
+  selectedSlide: number;
+}
+
 const CarouselGrid = styled(Box)`
   grid-template-columns: auto 1fr auto;
   grid-template-areas: 'startAction slides endAction';
 `;
 
-const CarouselSlides = styled(Box)`
+const CarouselSlides = styled(Flex)`
   grid-area: slides;
 `;
 
-const CarouselAction = styled(Box)`
+const CarouselAction = styled(Box)<{ area: string }>`
   grid-area: ${({ area }) => area};
 
   &:focus svg path,
@@ -40,26 +51,35 @@ export const Carousel = ({
   secondaryLabel,
   selectedSlide,
   ...props
-}) => {
-  const prevActionRef = useRef(null);
-  const nextActionRef = useRef(null);
+}: CarouselProps) => {
+  const prevActionRef = React.useRef<HTMLButtonElement>(null);
+  const nextActionRef = React.useRef<HTMLButtonElement>(null);
 
-  const childrenArray = Children.toArray(children).map((node, index) =>
-    cloneElement(node, { selected: index === selectedSlide }),
+  const childrenArray = React.Children.map(children, (node, index) =>
+    React.cloneElement(node as React.ReactElement, { selected: index === selectedSlide }),
   );
 
-  const handleKeyDown = (e) => {
-    switch (e.key) {
+  const handleKeyDown = (event) => {
+    switch (event.key) {
       case KeyboardKeys.RIGHT: {
-        e.preventDefault();
-        nextActionRef.current.focus();
+        event.preventDefault();
+
+        if (nextActionRef?.current) {
+          nextActionRef.current.focus();
+        }
+
         onNext();
+
         break;
       }
 
       case KeyboardKeys.LEFT: {
-        e.preventDefault();
-        prevActionRef.current.focus();
+        event.preventDefault();
+
+        if (prevActionRef?.current) {
+          prevActionRef.current.focus();
+        }
+
         onPrevious();
         break;
       }
@@ -79,7 +99,7 @@ export const Carousel = ({
           display="grid"
           position="relative"
         >
-          {childrenArray.length > 1 && (
+          {childrenArray && childrenArray.length > 1 && (
             <>
               <CarouselAction
                 as="button"
@@ -93,6 +113,7 @@ export const Carousel = ({
               </CarouselAction>
 
               <CarouselAction
+                as="button"
                 onClick={onNext}
                 area="endAction"
                 ref={nextActionRef}
@@ -124,27 +145,4 @@ export const Carousel = ({
       </Box>
     </Box>
   );
-};
-
-Carousel.defaultProps = {
-  actions: undefined,
-  error: undefined,
-  hint: undefined,
-  required: false,
-  secondaryLabel: undefined,
-};
-
-Carousel.propTypes = {
-  actions: PropTypes.node,
-  children: PropTypes.node.isRequired,
-  error: PropTypes.string,
-  hint: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
-  label: PropTypes.string.isRequired,
-  nextLabel: PropTypes.string.isRequired,
-  onNext: PropTypes.func.isRequired,
-  onPrevious: PropTypes.func.isRequired,
-  previousLabel: PropTypes.string.isRequired,
-  required: PropTypes.bool,
-  secondaryLabel: PropTypes.string,
-  selectedSlide: PropTypes.number.isRequired,
 };
