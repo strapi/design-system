@@ -1,16 +1,12 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 
 import { Flex } from '../Flex';
 
-const CarouselSlideWrapper = styled(Flex)`
-  display: ${({ selected }) => (selected ? 'flex' : 'none')};
-`;
-
 export const CarouselSlide = ({ label, children, selected, ...props }) => (
-  <CarouselSlideWrapper
+  <Flex
+    display={selected ? 'flex' : 'none'}
     selected={selected}
     role="group"
     aria-roledescription="slide"
@@ -20,7 +16,7 @@ export const CarouselSlide = ({ label, children, selected, ...props }) => (
     {...props}
   >
     {children}
-  </CarouselSlideWrapper>
+  </Flex>
 );
 
 CarouselSlide.defaultProps = {

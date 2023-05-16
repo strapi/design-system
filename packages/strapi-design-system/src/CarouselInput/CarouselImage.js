@@ -8,7 +8,6 @@ import { Tooltip } from '../Tooltip';
 import { ellipsisStyle } from '../Typography/utils';
 
 const StyledImage = styled(Box)`
-  height: 100%;
   ${ellipsisStyle({ ellipsis: true })}
 `;
 
@@ -22,12 +21,12 @@ export const CarouselImage = (props) => {
   if (isError) {
     return (
       <Tooltip description={props.alt ?? ''}>
-        <StyledImage as="img" {...props} />
+        <StyledImage as="img" height="100%" {...props} />
       </Tooltip>
     );
   }
 
-  return <StyledImage as="img" {...props} onError={handleImageError} />;
+  return <StyledImage as="img" height="100%" {...props} onError={handleImageError} />;
 };
 
 CarouselImage.defaultProps = {
