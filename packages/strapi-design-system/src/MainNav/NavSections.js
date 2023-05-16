@@ -7,15 +7,14 @@ import { Box } from '../Box';
 import { Flex } from '../Flex';
 
 const BoxGrow = styled(Box)`
-  flex-grow: 1;
   overflow-y: auto;
 `;
 
 export const NavSections = ({ children, spacing = 4, horizontal = false, ...props }) => {
   return (
-    <BoxGrow paddingLeft={3} paddingRight={2} paddingTop={3} paddingBottom={8}>
+    <BoxGrow paddingLeft={3} paddingRight={2} paddingTop={3} paddingBottom={8} grow={1}>
       <Flex
-        as="ul"
+        as="ol"
         gap={spacing}
         direction={horizontal ? 'row' : 'column'}
         alignItems={horizontal ? 'center' : 'stretch'}

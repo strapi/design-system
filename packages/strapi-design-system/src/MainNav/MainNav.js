@@ -7,7 +7,6 @@ import { MainNavContext } from './MainNavContext';
 import { Flex } from '../Flex';
 
 const MainNavWrapper = styled(Flex)`
-  width: ${({ condensed }) => (condensed ? 'max-content' : `${224 / 16}rem`)};
   border-right: 1px solid ${({ theme }) => theme.colors.neutral150};
 `;
 
@@ -23,6 +22,7 @@ export const MainNav = ({ condensed, ...props }) => {
         height="100vh"
         position="sticky"
         top={0}
+        width={`${condensed ? 'max-content' : `${224 / 16}rem`}`}
         zIndex={2}
         {...props}
       />

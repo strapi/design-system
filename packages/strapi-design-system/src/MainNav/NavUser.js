@@ -19,14 +19,14 @@ export const NavUser = React.forwardRef(({ src, children, initials, ...props }, 
 
   return (
     <NavUserBox paddingTop={3} paddingBottom={3} paddingLeft={5} paddingRight={5} {...props}>
-      <Flex as="button" justifyContent={condensed ? 'center' : undefined} ref={ref}>
+      <Flex as="button" gap={2} justifyContent={condensed ? 'center' : undefined} ref={ref}>
         {src ? <Avatar src={src} alt="" aria-hidden /> : <Initials>{initials}</Initials>}
         {condensed ? (
           <VisuallyHidden>
             <span>{children}</span>
           </VisuallyHidden>
         ) : (
-          <Box width={`${130 / 16}rem`} paddingLeft={2} as="span">
+          <Box width={`${130 / 16}rem`}>
             <Typography ellipsis textColor="neutral600">
               {children}
             </Typography>

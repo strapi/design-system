@@ -24,7 +24,7 @@ export const NavSection = ({ label, children, spacing = 2, horizontal = false, .
         </Box>
 
         <Flex
-          as="ul"
+          as="ol"
           gap={spacing}
           direction={horizontal ? 'row' : 'column'}
           alignItems={horizontal ? 'center' : 'stretch'}

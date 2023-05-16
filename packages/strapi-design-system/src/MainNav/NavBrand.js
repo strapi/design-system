@@ -22,7 +22,6 @@ const BrandIconWrapper = styled.div`
 
 const NavLinkWrapper = styled(NavLink)`
   text-decoration: unset;
-  color: inherit;
 `;
 
 export const NavBrand = ({ workplace, title, icon, to }) => {
@@ -46,16 +45,16 @@ export const NavBrand = ({ workplace, title, icon, to }) => {
 
   return (
     <Box paddingLeft={3} paddingRight={3} paddingTop={4} paddingBottom={4}>
-      <Flex>
+      <Flex gap={2}>
         <BrandIconWrapper as={NavLink} to={to} aria-hidden tabIndex={-1}>
           {icon}
         </BrandIconWrapper>
 
-        <Box paddingLeft={2}>
-          <Typography fontWeight="bold" textColor="neutral800" as="span">
-            <NavLinkWrapper to={to}>
+        <Box>
+          <Typography fontWeight="bold" textColor="neutral800">
+            <NavLinkWrapper color="inherit" to={to}>
               {title}
-              <VisuallyHidden as="span">{workplace}</VisuallyHidden>
+              <VisuallyHidden>{workplace}</VisuallyHidden>
             </NavLinkWrapper>
           </Typography>
           <Typography variant="pi" as="p" textColor="neutral600" aria-hidden>
