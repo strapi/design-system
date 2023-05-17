@@ -1,6 +1,5 @@
 import React, { Children, useState } from 'react';
 
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { SubNavSectionLabel } from './SubNavSectionLabel';
@@ -18,7 +17,15 @@ const SubNavSectionWrapper = styled(Box)`
   }
 `;
 
-export const SubNavSection = ({ collapsable, label, badgeLabel, children, id }) => {
+export interface SubNavSectionProps {
+  badgeLabel?: string;
+  children: React.ReactNode;
+  collapsable?: boolean;
+  id?: string;
+  label: string;
+}
+
+export const SubNavSection = ({ collapsable = false, label, badgeLabel, children, id }: SubNavSectionProps) => {
   const [isOpen, setOpenLinks] = useState(true);
   const listId = useId(id);
 
@@ -61,18 +68,4 @@ export const SubNavSection = ({ collapsable, label, badgeLabel, children, id }) 
       )}
     </Flex>
   );
-};
-
-SubNavSection.defaultProps = {
-  badgeLabel: null,
-  collapsable: false,
-  id: undefined,
-};
-
-SubNavSection.propTypes = {
-  badgeLabel: PropTypes.string,
-  children: PropTypes.node.isRequired,
-  collapsable: PropTypes.bool,
-  id: PropTypes.string,
-  label: PropTypes.string.isRequired,
 };
