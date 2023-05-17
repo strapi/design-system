@@ -25,7 +25,7 @@ export const Breadcrumbs = ({ label, children, ...props }: BreadcrumbsProps) => 
 
   return (
     <Box aria-label={label} {...props}>
-      <AlignedList as="ol" horizontal>
+      <AlignedList as="ol">
         {Children.map(childrenArray, (child, index) => {
           const shouldDisplayDivider = childrenArray.length > 1 && index + 1 < childrenArray.length;
 
