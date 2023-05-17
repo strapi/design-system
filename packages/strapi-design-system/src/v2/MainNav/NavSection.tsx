@@ -1,15 +1,20 @@
 import React, { Children } from 'react';
 
-import PropTypes from 'prop-types';
-
 import { useMainNav } from './MainNavContext';
 import { Box } from '../../Box';
 import { Divider } from '../../Divider';
-import { Flex } from '../../Flex';
+import { Flex, FlexProps } from '../../Flex';
 import { Typography } from '../../Typography';
 import { VisuallyHidden } from '../../VisuallyHidden';
 
-export const NavSection = ({ label, children, horizontal = false, spacing = 2, ...props }) => {
+export interface NavSectionProps extends FlexProps<'ul'> {
+  children: React.ReactNode;
+  label: string;
+  horizontal?: boolean;
+  spacing?: number;
+}
+
+export const NavSection = ({ label, children, horizontal = false, spacing = 2, ...props }: NavSectionProps) => {
   const condensed = useMainNav();
 
   if (condensed) {
@@ -61,9 +66,4 @@ export const NavSection = ({ label, children, horizontal = false, spacing = 2, .
       </Flex>
     </Flex>
   );
-};
-
-NavSection.propTypes = {
-  children: PropTypes.node.isRequired,
-  label: PropTypes.string.isRequired,
 };
