@@ -1,9 +1,9 @@
 import React, { useRef, useState, Children, cloneElement, useEffect } from 'react';
 
+import { Placement } from '@floating-ui/react-dom';
 import { CarretDown } from '@strapi/icons';
 import { useCallbackRef } from '@strapi/ui-primitives';
-import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import { NavLink, NavLinkProps } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { getOptionStyle } from './utils';
@@ -13,7 +13,7 @@ import { Flex } from '../Flex';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 import { useId } from '../hooks/useId';
 import { Link } from '../Link';
-import { Popover, POPOVER_PLACEMENTS } from '../Popover';
+import { Popover } from '../Popover';
 import { Typography } from '../Typography';
 
 const OptionButton = styled.button`
@@ -60,8 +60,18 @@ const StyledButtonSmall = styled(Button)`
   padding: ${({ theme }) => `${theme.spaces[1]} ${theme.spaces[3]}`};
 `;
 
-export const MenuItem = ({ children, onClick, to, isFocused, href, ...props }) => {
-  const menuItemRef = useRef();
+export interface MenuItemProps extends Omit<NavLinkProps, 'to'> {
+  as?: React.ElementType;
+  children: React.ReactNode;
+  href?: string;
+  isFocused?: boolean;
+  onClick?: () => void;
+  to?: string;
+  isExternal?: boolean; // todo find out where this is used
+}
+
+export const MenuItem = ({ children, onClick = () => {}, to, isFocused = false, href, ...props }: MenuItemProps) => {
+  const menuItemRef = useRef<HTMLAnchorElement>();
 
   useEffect(() => {
     if (isFocused && menuItemRef.current) {
@@ -111,22 +121,25 @@ export const MenuItem = ({ children, onClick, to, isFocused, href, ...props }) =
   );
 };
 
-MenuItem.defaultProps = {
-  as: undefined,
-  href: undefined,
-  isFocused: false,
-  onClick() {},
-  to: undefined,
-};
-
-MenuItem.propTypes = {
-  as: PropTypes.elementType,
-  children: PropTypes.node.isRequired,
-  href: PropTypes.string,
-  isFocused: PropTypes.bool,
-  onClick: PropTypes.func,
-  to: PropTypes.string,
-};
+export interface SimpleMenuProps {
+  as?: React.ElementType;
+  children: React.ReactNode;
+  id?: string;
+  label: React.ReactElement | string | number;
+  onClose?: () => void;
+  onOpen?: () => void;
+  /**
+   * Callback function to be called when the popover reaches the end of the scrollable content
+   */
+  onReachEnd?: () => void;
+  popoverPlacement?: Placement;
+  /**
+   * Size of the trigger button.
+   * Note: in case a custom component is passed through the "as"
+   * prop, the size prop is passed along too, but needs to be handled there
+   */
+  size?: 'S' | 'M';
+}
 
 export const SimpleMenu = ({
   label,
@@ -135,12 +148,12 @@ export const SimpleMenu = ({
   as: asComp,
   onOpen = () => {},
   onClose = () => {},
-  size,
-  popoverPlacement,
+  size = 'M',
+  popoverPlacement = 'bottom-start',
   onReachEnd,
   ...props
-}) => {
-  const menuButtonRef = useRef();
+}: SimpleMenuProps) => {
+  const menuButtonRef = useRef<HTMLElement>(undefined!);
   const menuId = useId(id);
   const didMount = useRef(false);
   const [visible, setVisible] = useState(false);
@@ -153,7 +166,9 @@ export const SimpleMenu = ({
   useEffect(() => {
     if (['string', 'number'].includes(typeof label)) {
       // Useful to focus the selected item in the list
-      const defaultItemIndexToFocus = childrenArray.findIndex((c) => c.props.children === label);
+      const defaultItemIndexToFocus = childrenArray.findIndex(
+        (c) => (React.isValidElement(c) && c.props.children === label) || c === label,
+      );
 
       if (defaultItemIndexToFocus !== -1) {
         setFocusItem(defaultItemIndexToFocus);
@@ -232,14 +247,16 @@ export const SimpleMenu = ({
   const childrenClone = childrenArray.map((child, index) => (
     // eslint-disable-next-line react/no-array-index-key
     <Flex as="li" key={index} justifyContent="center" role="menuitem">
-      {cloneElement(child, {
-        onClick() {
-          child.props.onClick();
-          setVisible(false);
-          menuButtonRef.current.focus();
-        },
-        isFocused: focusedItemIndex === index,
-      })}
+      {React.isValidElement(child)
+        ? cloneElement<any>(child, {
+            onClick() {
+              child.props.onClick();
+              setVisible(false);
+              menuButtonRef.current.focus();
+            },
+            isFocused: focusedItemIndex === index,
+          })
+        : child}
     </Flex>
   ));
 
@@ -282,40 +299,4 @@ export const SimpleMenu = ({
       )}
     </div>
   );
-};
-
-SimpleMenu.defaultProps = {
-  as: undefined,
-};
-
-SimpleMenu.displayName = 'SimpleMenu';
-
-SimpleMenu.defaultProps = {
-  id: undefined,
-  onOpen: undefined,
-  onClose: undefined,
-  onReachEnd: undefined,
-  popoverPlacement: 'bottom-start',
-  size: 'M',
-};
-
-SimpleMenu.propTypes = {
-  as: PropTypes.any,
-  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
-  id: PropTypes.string,
-  label: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.element]).isRequired,
-  onClose: PropTypes.func,
-  onOpen: PropTypes.func,
-  /**
-   * Callback function to be called when the popover reaches the end of the scrollable content
-   */
-  onReachEnd: PropTypes.func,
-  popoverPlacement: PropTypes.oneOf(POPOVER_PLACEMENTS),
-  /**
-   * Size of the trigger button.
-   * Note: in case a custom component is passed through the "as"
-   * prop, the size prop is passed along too, but needs to be handled there
-   */
-
-  size: PropTypes.oneOf(['S', 'M']),
 };
