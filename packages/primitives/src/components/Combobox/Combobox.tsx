@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/jsx-pascal-case */
 import * as React from 'react';
 
@@ -235,26 +237,7 @@ const Combobox: React.FC<RootProps> = (props) => {
         onFilterValueChange={setFilterValue}
         onVisuallyFocussedItemChange={setVisuallyFocussedItem}
       >
-        <FocusScope
-          // we make sure we're not trapping once it's been closed
-          // (closed !== unmounted when animating out)
-          trapped={open}
-          onMountAutoFocus={(event) => {
-            // we prevent open autofocus because we manually focus the selected item
-            event.preventDefault();
-          }}
-          onUnmountAutoFocus={(event) => {
-            trigger?.focus({ preventScroll: true });
-            /**
-             * In firefox there's a some kind of selection happening after
-             * unmounting all of this, so we make sure we clear that.
-             */
-            document.getSelection()?.empty();
-            event.preventDefault();
-          }}
-        >
-          {children}
-        </FocusScope>
+        {children}
       </ComboboxProvider>
     </ComboboxProviders>
   );
@@ -273,9 +256,76 @@ const ComboboxTrigger = React.forwardRef<ComboboxTriggerElement, TriggerProps>((
   const { ...triggerProps } = props;
   const context = useComboboxContext(TRIGGER_NAME);
 
+  const handleOpen = () => {
+    if (!context.disabled) {
+      context.onOpenChange(true);
+    }
+  };
+
   return (
     <PopperPrimitive.Anchor asChild>
-      <div ref={forwardedRef} data-disabled={context.disabled ? '' : undefined} {...triggerProps} />
+      <FocusScope
+        asChild
+        // we make sure we're not trapping once it's been closed
+        // (closed !== unmounted when animating out)
+        trapped={context.open}
+        onMountAutoFocus={(event) => {
+          // we prevent open autofocus because we manually focus the selected item
+          event.preventDefault();
+        }}
+        onUnmountAutoFocus={(event) => {
+          context.trigger?.focus({ preventScroll: true });
+          /**
+           * In firefox there's a some kind of selection happening after
+           * unmounting all of this, so we make sure we clear that.
+           */
+          document.getSelection()?.empty();
+          event.preventDefault();
+        }}
+      >
+        <div
+          ref={forwardedRef}
+          data-disabled={context.disabled ? '' : undefined}
+          {...triggerProps} // Enable compatibility with native label or custom `Label` "click" for Safari:
+          onClick={composeEventHandlers(triggerProps.onClick, () => {
+            // Whilst browsers generally have no issue focusing the trigger when clicking
+            // on a label, Safari seems to struggle with the fact that there's no `onClick`.
+            // We force `focus` in this case. Note: this doesn't create any other side-effect
+            // because we are preventing default in `onPointerDown` so effectively
+            // this only runs for a label "click"
+            context.trigger?.focus();
+          })}
+          onPointerDown={composeEventHandlers(triggerProps.onPointerDown, (event) => {
+            // prevent implicit pointer capture
+            // https://www.w3.org/TR/pointerevents3/#implicit-pointer-capture
+            const target = event.target as HTMLElement;
+
+            if (target.hasPointerCapture(event.pointerId)) {
+              target.releasePointerCapture(event.pointerId);
+            }
+
+            /**
+             * This has been added to allow events inside the trigger to be easily fired
+             * e.g. the clear button or removing a tag
+             */
+            const buttonTarg = target.closest('button') ?? target.closest('div');
+
+            if (buttonTarg !== event.currentTarget) {
+              return;
+            }
+
+            // only call handler if it's the left button (mousedown gets triggered by all mouse buttons)
+            // but not when the control key is pressed (avoiding MacOS right click)
+            if (event.button === 0 && event.ctrlKey === false) {
+              handleOpen();
+              /**
+               * Firefox had issues focussing the input correctly.
+               */
+              context.trigger?.focus();
+            }
+          })}
+        />
+      </FocusScope>
     </PopperPrimitive.Anchor>
   );
 });
@@ -291,7 +341,7 @@ type ComboboxInputElement = React.ElementRef<'input'>;
 
 const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps>((props, forwardedRef) => {
   const context = useComboboxContext(INPUT_NAME);
-  const inputRef = React.useRef<HTMLInputElement>(null!);
+  const inputRef = React.useRef<HTMLInputElement>(null);
   const { getItems } = useCollection(undefined);
 
   const { startsWith } = useFilter(context.locale, { sensitivity: 'base' });
@@ -330,7 +380,7 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
        * If there's a match, we want to select the text after the match.
        */
       if (firstItem && !context.visuallyFocussedItem && characterChangedAtIndex === context.filterValue.length) {
-        inputRef.current.setSelectionRange(context.filterValue.length, context.textValue.length);
+        inputRef.current?.setSelectionRange(context.filterValue.length, context.textValue.length);
       }
     });
 
@@ -354,26 +404,6 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
       value={context.textValue ?? ''}
       {...props}
       ref={composedRefs}
-      // Enable compatibility with native label or custom `Label` "click" for Safari:
-      onClick={composeEventHandlers(props.onClick, (event) => {
-        // Whilst browsers generally have no issue focusing the trigger when clicking
-        // on a label, Safari seems to struggle with the fact that there's no `onClick`.
-        // We force `focus` in this case. Note: this doesn't create any other side-effect
-        // because we are preventing default in `onPointerDown` so effectively
-        // this only runs for a label "click"
-        event.currentTarget.focus();
-      })}
-      onPointerDown={composeEventHandlers(props.onPointerDown, (event) => {
-        // only call handler if it's the left button (mousedown gets triggered by all mouse buttons)
-        // but not when the control key is pressed (avoiding MacOS right click)
-        if (event.button === 0 && event.ctrlKey === false) {
-          handleOpen();
-          /**
-           * Firefox had issues focussing the input correctly.
-           */
-          event.currentTarget.focus();
-        }
-      })}
       onKeyDown={composeEventHandlers(props.onKeyDown, (event) => {
         if (['ArrowUp', 'ArrowDown', 'Home', 'End'].includes(event.key)) {
           setTimeout(() => {
