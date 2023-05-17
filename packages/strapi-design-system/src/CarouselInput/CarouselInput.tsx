@@ -1,11 +1,13 @@
-import React from 'react';
-
-import PropTypes from 'prop-types';
-
-import { Carousel } from './Carousel';
-import { Field, FieldLabel, FieldHint, FieldError } from '../Field';
+import { Carousel, CarouselProps } from './Carousel';
+import { Field, FieldLabel, FieldHint, FieldError, FieldProps, FieldLabelProps } from '../Field';
 import { Flex } from '../Flex';
 import { useId } from '../hooks/useId';
+
+export interface CarouselInputProps extends CarouselProps, Pick<FieldProps, 'hint' | 'error' | 'required'> {
+  actions?: React.ReactNode;
+  children: React.ReactNode;
+  labelAction?: FieldLabelProps['action'];
+}
 
 export const CarouselInput = ({
   actions,
@@ -23,7 +25,7 @@ export const CarouselInput = ({
   selectedSlide,
   id,
   ...props
-}) => {
+}: CarouselInputProps) => {
   const generatedId = useId(id);
 
   return (
@@ -49,31 +51,4 @@ export const CarouselInput = ({
       </Flex>
     </Field>
   );
-};
-
-CarouselInput.defaultProps = {
-  actions: undefined,
-  error: undefined,
-  hint: undefined,
-  id: undefined,
-  labelAction: undefined,
-  required: false,
-  secondaryLabel: undefined,
-};
-
-CarouselInput.propTypes = {
-  actions: PropTypes.node,
-  children: PropTypes.node.isRequired,
-  error: PropTypes.string,
-  hint: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
-  id: PropTypes.string,
-  label: PropTypes.string.isRequired,
-  labelAction: PropTypes.element,
-  nextLabel: PropTypes.string.isRequired,
-  onNext: PropTypes.func.isRequired,
-  onPrevious: PropTypes.func.isRequired,
-  previousLabel: PropTypes.string.isRequired,
-  required: PropTypes.bool,
-  secondaryLabel: PropTypes.string,
-  selectedSlide: PropTypes.number.isRequired,
 };
