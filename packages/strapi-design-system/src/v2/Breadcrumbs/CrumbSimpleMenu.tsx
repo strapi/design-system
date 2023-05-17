@@ -17,10 +17,11 @@ const StyledButton = styled(Button)`
 
 export interface CrumbSimpleMenuProps extends ButtonProps {
   'aria-label': string;
+  icon?: React.ReactElement;
 }
 
 export const CrumbSimpleMenu = ({ children, ...props }: CrumbSimpleMenuProps) => (
-  <SimpleMenu noBorder icon={<CarretDown />} as={StyledButton} size="S" {...props}>
+  <SimpleMenu icon={<CarretDown />} as={StyledButton} size="S" {...props}>
     {children}
   </SimpleMenu>
 );
