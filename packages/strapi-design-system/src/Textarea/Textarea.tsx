@@ -9,9 +9,14 @@ import { useId } from '../hooks/useId';
 import { inputFocusStyle } from '../themes/utils';
 
 export interface TextareaProps extends TextareaInputBoxProps, Pick<FieldProps, 'hint' | 'error'> {
-  children: string;
+  /**
+   * @preserve
+   * @deprecated use `value` instead
+   */
+  children?: string;
   label?: string;
   labelAction?: string;
+  value?: string;
 }
 
 interface TextareaInputBoxProps extends BoxProps<'textarea'> {}
@@ -71,7 +76,7 @@ const TextareaInput = React.forwardRef<HTMLTextAreaElement, TextareaInputBoxProp
 });
 
 export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
-  ({ name, hint, error, label, children, labelAction, id, required = false, ...props }, ref) => {
+  ({ name, hint, error, label, labelAction, id, required = false, children, value, ...props }, ref) => {
     const generatedId = useId(id);
 
     return (
@@ -79,7 +84,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
         <Flex direction="column" alignItems="stretch" gap={1}>
           {label && <FieldLabel action={labelAction}>{label}</FieldLabel>}
 
-          <TextareaInput ref={ref} value={children} {...props} />
+          <TextareaInput ref={ref} value={children ?? value} {...props} />
 
           <FieldHint />
           <FieldError />
