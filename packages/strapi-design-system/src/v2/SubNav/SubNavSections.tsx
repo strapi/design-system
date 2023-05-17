@@ -1,13 +1,15 @@
-/* eslint-disable react/no-array-index-key */
-
 import React, { Children } from 'react';
 
-import PropTypes from 'prop-types';
-
 import { Box } from '../../Box';
-import { Flex } from '../../Flex';
+import { Flex, FlexProps } from '../../Flex';
 
-export const SubNavSections = ({ children, spacing = 2, horizontal = false, ...props }) => {
+export interface SubNavSectionsProps extends FlexProps<'ol'> {
+  children: React.ReactNode;
+  spacing?: number;
+  horizontal?: boolean;
+}
+
+export const SubNavSections = ({ children, spacing = 2, horizontal = false, ...props }: SubNavSectionsProps) => {
   return (
     <Box paddingTop={2} paddingBottom={4}>
       <Flex
@@ -18,13 +20,10 @@ export const SubNavSections = ({ children, spacing = 2, horizontal = false, ...p
         {...props}
       >
         {Children.map(children, (child, index) => {
+          /* eslint-disable react/no-array-index-key */
           return <li key={index}>{child}</li>;
         })}
       </Flex>
     </Box>
   );
-};
-
-SubNavSections.propTypes = {
-  children: PropTypes.node.isRequired,
 };

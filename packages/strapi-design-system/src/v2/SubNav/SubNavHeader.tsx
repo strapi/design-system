@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 
 import { Search } from '@strapi/icons';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { Box } from '../../Box';
@@ -19,12 +18,34 @@ const CustomDivider = styled(Divider)`
   background-color: ${({ theme }) => theme.colors.neutral200};
 `;
 
-export const SubNavHeader = ({ as, label, searchLabel, searchable, onChange, value, onClear, onSubmit, id }) => {
+export interface SubNavHeaderProps {
+  as?: keyof JSX.IntrinsicElements;
+  id?: string;
+  label: string;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
+  onClear?: React.MouseEventHandler<HTMLInputElement>;
+  onSubmit?: React.FormEventHandler<HTMLInputElement>;
+  searchLabel?: string;
+  searchable?: boolean;
+  value?: string;
+}
+
+export const SubNavHeader = ({
+  as = 'h2',
+  label,
+  searchLabel = '',
+  searchable = false,
+  onChange = () => {},
+  value = '',
+  onClear = () => {},
+  onSubmit = () => {},
+  id,
+}: SubNavHeaderProps) => {
   const [isSearchOpen, setSearchOpen] = useState(false);
   const previousSearchOpenValue = usePrevious(isSearchOpen);
   const clearButtonId = useId(id);
-  const searchRef = useRef();
-  const searchButtonRef = useRef();
+  const searchRef = useRef<HTMLInputElement>(undefined!);
+  const searchButtonRef = useRef<HTMLButtonElement>(undefined!);
 
   useEffect(() => {
     if (isSearchOpen && searchRef.current) {
@@ -98,27 +119,4 @@ export const SubNavHeader = ({ as, label, searchLabel, searchable, onChange, val
       </Box>
     </Box>
   );
-};
-
-SubNavHeader.defaultProps = {
-  as: 'h2',
-  searchable: false,
-  onChange() {},
-  onClear() {},
-  onSubmit() {},
-  value: '',
-  searchLabel: '',
-  id: undefined,
-};
-
-SubNavHeader.propTypes = {
-  as: PropTypes.string,
-  id: PropTypes.string,
-  label: PropTypes.string.isRequired,
-  onChange: PropTypes.func,
-  onClear: PropTypes.func,
-  onSubmit: PropTypes.func,
-  searchLabel: PropTypes.string,
-  searchable: PropTypes.bool,
-  value: PropTypes.string,
 };

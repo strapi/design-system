@@ -1,6 +1,5 @@
 import React from 'react';
 
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { Grid } from '../../Grid';
@@ -18,10 +17,11 @@ const SubNavWrapper = styled(Grid)`
   z-index: 1;
 `;
 
-export const SubNav = ({ ariaLabel, ...props }) => {
-  return <SubNavWrapper aria-label={ariaLabel} as="nav" {...props} />;
-};
+// todo: extend GridProps
+export interface SubNavProps {
+  ariaLabel: string;
+}
 
-SubNav.propTypes = {
-  ariaLabel: PropTypes.string.isRequired,
+export const SubNav = ({ ariaLabel, ...props }: SubNavProps) => {
+  return <SubNavWrapper aria-label={ariaLabel} as="nav" {...props} />;
 };

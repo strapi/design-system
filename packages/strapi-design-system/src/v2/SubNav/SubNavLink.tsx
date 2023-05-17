@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { Dot } from '@strapi/icons';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { BaseLink } from '../../BaseLink';
@@ -39,7 +38,7 @@ const SubNavLinkWrapper = styled(Box)`
     outline-offset: -2px;
   }
 `;
-const CustomBullet = styled(Dot)`
+const CustomBullet = styled(Dot)<{ $active?: boolean }>`
   width: ${12 / 16}rem;
   height: ${4 / 16}rem;
   * {
@@ -53,44 +52,39 @@ const IconWrapper = styled.div`
   }
 `;
 
-export const SubNavLink = React.forwardRef(({ children, icon, withBullet, as, isSubSectionChild, ...props }, ref) => {
-  return (
-    <SubNavLinkWrapper
-      as={as}
-      icon={icon}
-      background="neutral100"
-      paddingLeft={isSubSectionChild ? 9 : 7}
-      paddingBottom={2}
-      paddingTop={2}
-      ref={ref}
-      {...props}
-    >
-      <Flex>
-        {icon ? <IconWrapper>{icon}</IconWrapper> : <CustomBullet />}
-        <Box paddingLeft={2}>
-          <Typography as="span">{children}</Typography>
-        </Box>
-      </Flex>
-      {withBullet && (
-        <Box as={Flex} paddingRight={4}>
-          <CustomBullet $active />
-        </Box>
-      )}
-    </SubNavLinkWrapper>
-  );
-});
+export interface SubNavLinkProps {
+  as?: React.ElementType;
+  children: React.ReactNode;
+  icon?: React.ReactElement;
+  isSubSectionChild?: boolean;
+  withBullet?: boolean;
+}
 
-SubNavLink.displayName = 'SubNavLink';
-SubNavLink.defaultProps = {
-  as: BaseLink,
-  icon: null,
-  isSubSectionChild: false,
-  withBullet: false,
-};
-SubNavLink.propTypes = {
-  as: PropTypes.elementType,
-  children: PropTypes.node.isRequired,
-  icon: PropTypes.element,
-  isSubSectionChild: PropTypes.bool,
-  withBullet: PropTypes.bool,
-};
+export const SubNavLink = React.forwardRef<unknown, SubNavLinkProps>(
+  ({ children, icon = null, withBullet = false, as = BaseLink, isSubSectionChild = false, ...props }, ref) => {
+    return (
+      <SubNavLinkWrapper
+        as={as}
+        icon={icon}
+        background="neutral100"
+        paddingLeft={isSubSectionChild ? 9 : 7}
+        paddingBottom={2}
+        paddingTop={2}
+        ref={ref}
+        {...props}
+      >
+        <Flex>
+          {icon ? <IconWrapper>{icon}</IconWrapper> : <CustomBullet />}
+          <Box paddingLeft={2}>
+            <Typography as="span">{children}</Typography>
+          </Box>
+        </Flex>
+        {withBullet && (
+          <Box as={Flex} paddingRight={4}>
+            <CustomBullet $active />
+          </Box>
+        )}
+      </SubNavLinkWrapper>
+    );
+  },
+);
