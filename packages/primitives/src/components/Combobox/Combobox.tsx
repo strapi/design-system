@@ -388,198 +388,174 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
   }, [context.textValue, context.filterValue, startsWith, context.visuallyFocussedItem, getItems, previousFilter]);
 
   return (
-    <FocusScope
-      // we make sure we're not trapping once it's been closed
-      // (closed !== unmounted when animating out)
-      trapped={context.open}
-      onMountAutoFocus={(event) => {
-        // we prevent open autofocus because we manually focus the selected item
-        event.preventDefault();
-      }}
-      onUnmountAutoFocus={(event) => {
-        inputRef.current?.focus({ preventScroll: true });
-        /**
-         * In firefox there's a some kind of selection happening after
-         * unmounting all of this, so we make sure we clear that.
-         */
-        document.getSelection()?.empty();
-        event.preventDefault();
-      }}
-    >
-      <input
-        type="text"
-        role="combobox"
-        aria-controls={context.contentId}
-        aria-expanded={context.open}
-        aria-required={context.required}
-        aria-autocomplete={context.autocomplete}
-        data-state={context.open ? 'open' : 'closed'}
-        aria-disabled={isDisabled}
-        aria-activedescendant={context.visuallyFocussedItem?.id}
-        disabled={isDisabled}
-        data-disabled={isDisabled ? '' : undefined}
-        data-placeholder={context.textValue === undefined ? '' : undefined}
-        value={context.textValue ?? ''}
-        {...props}
-        ref={composedRefs}
-        onKeyDown={composeEventHandlers(props.onKeyDown, (event) => {
-          if (['ArrowUp', 'ArrowDown', 'Home', 'End'].includes(event.key)) {
-            setTimeout(() => {
-              const items = getItems().filter((item) => !item.disabled);
-              let candidateNodes = items.map((item) => item.ref.current!);
-
-              if (['ArrowUp', 'End'].includes(event.key)) {
-                candidateNodes = candidateNodes.slice().reverse();
-              }
-              if (['ArrowUp', 'ArrowDown'].includes(event.key)) {
-                const currentElement = context.visuallyFocussedItem ?? (event.target as ComboboxItemElement);
-                let currentIndex = candidateNodes.indexOf(currentElement);
-
-                /**
-                 * This lets us go around the items in one big loop.
-                 */
-                if (currentIndex === candidateNodes.length - 1) {
-                  currentIndex = -1;
-                }
-                candidateNodes = candidateNodes.slice(currentIndex + 1);
-              }
-              if (['ArrowDown'].includes(event.key) && context.autocomplete === 'both' && candidateNodes.length > 1) {
-                const [firstItem, ...restItems] = candidateNodes;
-                const firstItemText = getItems().find((item) => item.ref.current === firstItem)!.textValue;
-
-                if (context.textValue === firstItemText) {
-                  candidateNodes = restItems;
-                }
-              }
-              context.focusFirst(candidateNodes, getItems());
-            });
-            event.preventDefault();
-          } else if (['Escape'].includes(event.key)) {
-            if (context.open) {
-              context.onOpenChange(false);
-            } else {
-              context.onValueChange(undefined);
-              context.onTextValueChange('');
-            }
-            event.preventDefault();
-          } else if (SELECTION_KEYS.includes(event.key)) {
-            if (context.visuallyFocussedItem) {
-              const focussedItem = getItems().find((item) => item.ref.current === context.visuallyFocussedItem);
-
-              if (focussedItem) {
-                context.onValueChange(focussedItem.value);
-                context.onTextValueChange(focussedItem.textValue);
-
-                if (context.autocomplete === 'both') {
-                  context.onFilterValueChange(focussedItem.textValue);
-                }
-
-                focussedItem.ref.current?.click();
-              }
-            } else {
-              const matchedItem = getItems().find(
-                (item) => item.type === 'option' && !item.disabled && item.textValue === context.textValue,
-              );
-
-              if (matchedItem) {
-                context.onValueChange(matchedItem.value);
-                context.onTextValueChange(matchedItem.textValue);
-
-                if (context.autocomplete === 'both') {
-                  context.onFilterValueChange(matchedItem.textValue);
-                }
-
-                matchedItem.ref.current?.click();
-              }
-            }
-
-            context.onOpenChange(false);
-            event.preventDefault();
-          } else {
-            context.onVisuallyFocussedItemChange(null);
-          }
-        })}
-        onChange={composeEventHandlers(props.onChange, (event) => {
-          context.onTextValueChange(event.currentTarget.value);
-
-          if (context.autocomplete === 'both') {
-            context.onFilterValueChange(event.currentTarget.value);
-          }
-        })}
-        onKeyUp={composeEventHandlers(props.onKeyUp, (event) => {
-          if (
-            !context.open &&
-            (isPrintableCharacter(event.key) ||
-              ['ArrowUp', 'ArrowDown', 'Home', 'End', 'Backspace'].includes(event.key))
-          ) {
-            handleOpen();
-          }
-
+    <input
+      type="text"
+      role="combobox"
+      aria-controls={context.contentId}
+      aria-expanded={context.open}
+      aria-required={context.required}
+      aria-autocomplete={context.autocomplete}
+      data-state={context.open ? 'open' : 'closed'}
+      aria-disabled={isDisabled}
+      aria-activedescendant={context.visuallyFocussedItem?.id}
+      disabled={isDisabled}
+      data-disabled={isDisabled ? '' : undefined}
+      data-placeholder={context.textValue === undefined ? '' : undefined}
+      value={context.textValue ?? ''}
+      {...props}
+      ref={composedRefs}
+      onKeyDown={composeEventHandlers(props.onKeyDown, (event) => {
+        if (['ArrowUp', 'ArrowDown', 'Home', 'End'].includes(event.key)) {
           setTimeout(() => {
-            if (
-              context.autocomplete === 'both' &&
-              isPrintableCharacter(event.key) &&
-              context.filterValue !== undefined
-            ) {
-              const value = context.filterValue;
-              const firstItem = getItems().find((item) => startsWith(item.textValue, value));
+            const items = getItems().filter((item) => !item.disabled);
+            let candidateNodes = items.map((item) => item.ref.current!);
 
-              if (firstItem) {
-                context.onTextValueChange(firstItem.textValue);
+            if (['ArrowUp', 'End'].includes(event.key)) {
+              candidateNodes = candidateNodes.slice().reverse();
+            }
+            if (['ArrowUp', 'ArrowDown'].includes(event.key)) {
+              const currentElement = context.visuallyFocussedItem ?? (event.target as ComboboxItemElement);
+              let currentIndex = candidateNodes.indexOf(currentElement);
+
+              /**
+               * This lets us go around the items in one big loop.
+               */
+              if (currentIndex === candidateNodes.length - 1) {
+                currentIndex = -1;
+              }
+              candidateNodes = candidateNodes.slice(currentIndex + 1);
+            }
+            if (['ArrowDown'].includes(event.key) && context.autocomplete === 'both' && candidateNodes.length > 1) {
+              const [firstItem, ...restItems] = candidateNodes;
+              const firstItemText = getItems().find((item) => item.ref.current === firstItem)!.textValue;
+
+              if (context.textValue === firstItemText) {
+                candidateNodes = restItems;
               }
             }
+            context.focusFirst(candidateNodes, getItems());
           });
-        })}
-        onBlur={composeEventHandlers(props.onBlur, () => {
-          context.onVisuallyFocussedItemChange(null);
-
-          const [activeItem] = getItems().filter(
-            (item) => item.textValue === context.textValue && item.type === 'option',
-          );
-
-          /**
-           * If we allow custom values and there's an active item (which means
-           * we've typed a value that matches an item), we want to update the
-           * value to that item's value.
-           */
-          if (context.allowCustomValue) {
-            if (activeItem) {
-              context.onValueChange(activeItem.value);
-
-              if (context.autocomplete === 'both') {
-                context.onFilterValueChange(activeItem.textValue);
-              }
-            }
-
-            return;
-          }
-
-          const [previousItem] = getItems().filter((item) => item.value === context.value && item.type === 'option');
-
-          /**
-           * If we've succesfully typed a value that matches an item, we want to
-           * update the value to that item's value. Otherwise, we want to update
-           * the value to the previous value.
-           *
-           * If theres no previous value and we've typed a value that doesn't match
-           * an item, we want to clear the value.
-           */
-
-          if (activeItem) {
-            context.onValueChange(activeItem.value);
-          } else if (previousItem && context.textValue !== '') {
-            context.onTextValueChange(previousItem.textValue);
-
-            if (context.autocomplete === 'both') {
-              context.onFilterValueChange(previousItem.textValue);
-            }
+          event.preventDefault();
+        } else if (['Escape'].includes(event.key)) {
+          if (context.open) {
+            context.onOpenChange(false);
           } else {
             context.onValueChange(undefined);
             context.onTextValueChange('');
           }
-        })}
-      />
-    </FocusScope>
+          event.preventDefault();
+        } else if (SELECTION_KEYS.includes(event.key)) {
+          if (context.visuallyFocussedItem) {
+            const focussedItem = getItems().find((item) => item.ref.current === context.visuallyFocussedItem);
+
+            if (focussedItem) {
+              context.onValueChange(focussedItem.value);
+              context.onTextValueChange(focussedItem.textValue);
+
+              if (context.autocomplete === 'both') {
+                context.onFilterValueChange(focussedItem.textValue);
+              }
+
+              focussedItem.ref.current?.click();
+            }
+          } else {
+            const matchedItem = getItems().find(
+              (item) => item.type === 'option' && !item.disabled && item.textValue === context.textValue,
+            );
+
+            if (matchedItem) {
+              context.onValueChange(matchedItem.value);
+              context.onTextValueChange(matchedItem.textValue);
+
+              if (context.autocomplete === 'both') {
+                context.onFilterValueChange(matchedItem.textValue);
+              }
+
+              matchedItem.ref.current?.click();
+            }
+          }
+
+          context.onOpenChange(false);
+          event.preventDefault();
+        } else {
+          context.onVisuallyFocussedItemChange(null);
+        }
+      })}
+      onChange={composeEventHandlers(props.onChange, (event) => {
+        context.onTextValueChange(event.currentTarget.value);
+
+        if (context.autocomplete === 'both') {
+          context.onFilterValueChange(event.currentTarget.value);
+        }
+      })}
+      onKeyUp={composeEventHandlers(props.onKeyUp, (event) => {
+        if (
+          !context.open &&
+          (isPrintableCharacter(event.key) || ['ArrowUp', 'ArrowDown', 'Home', 'End', 'Backspace'].includes(event.key))
+        ) {
+          handleOpen();
+        }
+
+        setTimeout(() => {
+          if (context.autocomplete === 'both' && isPrintableCharacter(event.key) && context.filterValue !== undefined) {
+            const value = context.filterValue;
+            const firstItem = getItems().find((item) => startsWith(item.textValue, value));
+
+            if (firstItem) {
+              context.onTextValueChange(firstItem.textValue);
+            }
+          }
+        });
+      })}
+      onBlur={composeEventHandlers(props.onBlur, () => {
+        context.onVisuallyFocussedItemChange(null);
+
+        const [activeItem] = getItems().filter(
+          (item) => item.textValue === context.textValue && item.type === 'option',
+        );
+
+        /**
+         * If we allow custom values and there's an active item (which means
+         * we've typed a value that matches an item), we want to update the
+         * value to that item's value.
+         */
+        if (context.allowCustomValue) {
+          if (activeItem) {
+            context.onValueChange(activeItem.value);
+
+            if (context.autocomplete === 'both') {
+              context.onFilterValueChange(activeItem.textValue);
+            }
+          }
+
+          return;
+        }
+
+        const [previousItem] = getItems().filter((item) => item.value === context.value && item.type === 'option');
+
+        /**
+         * If we've succesfully typed a value that matches an item, we want to
+         * update the value to that item's value. Otherwise, we want to update
+         * the value to the previous value.
+         *
+         * If theres no previous value and we've typed a value that doesn't match
+         * an item, we want to clear the value.
+         */
+
+        if (activeItem) {
+          context.onValueChange(activeItem.value);
+        } else if (previousItem && context.textValue !== '') {
+          context.onTextValueChange(previousItem.textValue);
+
+          if (context.autocomplete === 'both') {
+            context.onFilterValueChange(previousItem.textValue);
+          }
+        } else {
+          context.onValueChange(undefined);
+          context.onTextValueChange('');
+        }
+      })}
+    />
   );
 });
 
