@@ -1,10 +1,16 @@
 import * as React from 'react';
 
 import { useFloating, flip, shift, offset, autoUpdate, Placement } from '@floating-ui/react-dom';
+import { FocusScope } from '@radix-ui/react-focus-scope';
+import { useCallbackRef } from '@strapi/ui-primitives';
+import { hideOthers } from 'aria-hidden';
+import { RemoveScroll } from 'react-remove-scroll';
 import styled from 'styled-components';
 
 import { Box, BoxProps } from '../Box';
+import { DismissibleLayer, DismissibleLayerProps } from '../DismissibleLayer';
 import { stripReactIdOfColon } from '../helpers/strings';
+import { useComposedRefs } from '../hooks/useComposeRefs';
 import { useId } from '../hooks/useId';
 import { useIntersection } from '../hooks/useIntersection';
 import { Portal } from '../Portal';
@@ -31,7 +37,9 @@ const PopoverWrapper = styled(Box)`
   background: ${({ theme }) => theme.colors.neutral0};
 `;
 
-interface ContentProps extends BoxProps<HTMLDivElement> {
+interface ContentProps
+  extends BoxProps<HTMLDivElement>,
+    Pick<DismissibleLayerProps, 'onEscapeKeyDown' | 'onPointerDownOutside' | 'onDismiss'> {
   source: React.MutableRefObject<HTMLElement>;
   placement?: Placement;
   fullWidth?: boolean;
@@ -46,8 +54,12 @@ export const Content = ({
   fullWidth = false,
   placement = 'bottom-start',
   centered = false,
+  onEscapeKeyDown,
+  onPointerDownOutside,
+  onDismiss,
   ...props
 }: ContentProps) => {
+  const [content, setContent] = React.useState<HTMLDivElement | null>(null);
   const [width, setWidth] = React.useState<number | undefined>(undefined);
   const { x, y, reference, floating, strategy } = useFloating({
     strategy: 'fixed',
@@ -72,22 +84,74 @@ export const Content = ({
     }
   }, [fullWidth, source]);
 
+  // aria-hide everything except the content (better supported equivalent to setting aria-modal)
+  React.useEffect(() => {
+    if (content) return hideOthers(content);
+  }, [content]);
+
+  const handleDismiss = useCallbackRef(onDismiss);
+
+  React.useEffect(() => {
+    const close = () => {
+      handleDismiss();
+    };
+    window.addEventListener('blur', close);
+    window.addEventListener('resize', close);
+
+    return () => {
+      window.removeEventListener('blur', close);
+      window.removeEventListener('resize', close);
+    };
+  }, [handleDismiss]);
+
+  const composedRefs = useComposedRefs<HTMLDivElement>((node) => setContent(node), floating);
+
   return (
-    <PopoverWrapper
-      ref={floating}
-      style={{
-        left: x,
-        top: y,
-        position: strategy,
-        width: width || undefined,
-      }}
-      hasRadius
-      background="neutral0"
-      padding={1}
-      {...props}
-    >
-      {children}
-    </PopoverWrapper>
+    <RemoveScroll allowPinchZoom>
+      <FocusScope
+        asChild
+        // we make sure we're not trapping once it's been closed
+        // (closed !== unmounted when animating out)
+        trapped
+        onMountAutoFocus={(event) => {
+          // we prevent open autofocus because we manually focus the selected item
+          event.preventDefault();
+        }}
+        onUnmountAutoFocus={(event) => {
+          source.current?.focus({ preventScroll: true });
+          event.preventDefault();
+        }}
+      >
+        <DismissibleLayer
+          asChild
+          disableOutsidePointerEvents
+          onEscapeKeyDown={onEscapeKeyDown}
+          onPointerDownOutside={onPointerDownOutside}
+          // When focus is trapped, a focusout event may still happen.
+          // We make sure we don't trigger our `onDismiss` in such case.
+          onFocusOutside={(event) => {
+            event.preventDefault();
+          }}
+          onDismiss={onDismiss}
+        >
+          <PopoverWrapper
+            ref={composedRefs}
+            style={{
+              left: x,
+              top: y,
+              position: strategy,
+              width: width || undefined,
+            }}
+            hasRadius
+            background="neutral0"
+            padding={1}
+            {...props}
+          >
+            {children}
+          </PopoverWrapper>
+        </DismissibleLayer>
+      </FocusScope>
+    </RemoveScroll>
   );
 };
 
@@ -137,12 +201,43 @@ const PopoverScrollable = styled(Box)`
   }
 `;
 
-type PopoverProps = ScrollingProps & Pick<ContentProps, 'source' | 'spacing' | 'fullWidth' | 'placement' | 'centered'>;
+type PopoverProps = ScrollingProps &
+  Pick<
+    ContentProps,
+    | 'source'
+    | 'spacing'
+    | 'fullWidth'
+    | 'placement'
+    | 'centered'
+    | 'onEscapeKeyDown'
+    | 'onPointerDownOutside'
+    | 'onDismiss'
+  >;
 
-export const Popover = ({ children, source, spacing, fullWidth, placement, centered, ...restProps }: PopoverProps) => {
+export const Popover = ({
+  children,
+  source,
+  spacing,
+  fullWidth,
+  placement,
+  centered,
+  onEscapeKeyDown,
+  onPointerDownOutside,
+  onDismiss,
+  ...restProps
+}: PopoverProps) => {
   return (
     <Portal>
-      <Content source={source} spacing={spacing} fullWidth={fullWidth} placement={placement} centered={centered}>
+      <Content
+        source={source}
+        spacing={spacing}
+        fullWidth={fullWidth}
+        placement={placement}
+        centered={centered}
+        onEscapeKeyDown={onEscapeKeyDown}
+        onPointerDownOutside={onPointerDownOutside}
+        onDismiss={onDismiss}
+      >
         <Scrolling {...restProps}>{children}</Scrolling>
       </Content>
     </Portal>
