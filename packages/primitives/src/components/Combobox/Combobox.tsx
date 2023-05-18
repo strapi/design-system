@@ -436,6 +436,8 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
             context.focusFirst(candidateNodes, getItems());
           });
           event.preventDefault();
+        } else if (['Tab'].includes(event.key) && context.open) {
+          event.preventDefault();
         } else if (['Escape'].includes(event.key)) {
           if (context.open) {
             context.onOpenChange(false);
