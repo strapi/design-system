@@ -32,7 +32,7 @@ The popover can be centered relatively to their triggering element.
             <Typography>Open popover</Typography>
           </button>
           {visible && (
-            <Popover centered source={buttonRef} spacing={16}>
+            <Popover centered source={buttonRef} spacing={16} onDismiss={() => setVisible(false)}>
               <ul style={{ width: '200px' }}>
                 {Array(15)
                   .fill(null)
@@ -63,7 +63,7 @@ The popover can be centered relatively to their triggering element.
             <Typography>Open popover</Typography>
           </button>
           {visible && (
-            <Popover source={buttonRef} fullWidth spacing={16}>
+            <Popover source={buttonRef} fullWidth spacing={16} onDismiss={() => setVisible(false)}>
               <ul style={{ width: '200px' }}>
                 {Array(15)
                   .fill(null)
@@ -103,6 +103,7 @@ You can define an action to be performed when the end of the popover is reached.
               id="on-reach-end"
               intersectionId="test-123"
               onReachEnd={() => setItems(Array(15).fill(null))}
+              onDismiss={() => setVisible(false)}
             >
               <ul style={{ width: '200px' }} id="list" tabIndex={-1}>
                 {items.map((_, index) => (
@@ -136,7 +137,7 @@ The popover will overflow over other elements.
                 <Typography>Open popover</Typography>
               </button>
               {visible && (
-                <Popover centered source={buttonRef} spacing={16}>
+                <Popover centered source={buttonRef} spacing={16} onDismiss={() => setVisible(false)}>
                   <ul style={{ width: '200px' }}>
                     {Array(15)
                       .fill(null)
@@ -149,42 +150,6 @@ The popover will overflow over other elements.
                 </Popover>
               )}
             </div>
-          </div>
-        </div>
-      );
-    }}
-  </Story>
-</Canvas>
-
-## Handle onClose request
-
-The popover will trigger onClose function, when escape key is pressed, an outer element is clicked, focused is moved outside the popover container.
-
-<Canvas>
-  <Story name="handle-onclose">
-    {() => {
-      const [visible, setVisible] = useState(false);
-      const buttonRef = useRef();
-      const handleClose = () => setVisible((s) => !s);
-      return (
-        <div style={{ marginLeft: '200px' }}>
-          <div>
-            <button ref={buttonRef} onClick={handleClose}>
-              <Typography>Open popover</Typography>
-            </button>
-            {visible && (
-              <Popover centered source={buttonRef} spacing={16} onClose={handleClose}>
-                <ul style={{ width: '200px' }}>
-                  {Array(15)
-                    .fill(null)
-                    .map((_, index) => (
-                      <Box color="neutral800" key={index} padding={3} as="li">
-                        Element {index}
-                      </Box>
-                    ))}
-                </ul>
-              </Popover>
-            )}
           </div>
         </div>
       );
