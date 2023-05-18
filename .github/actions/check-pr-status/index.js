@@ -13,9 +13,7 @@ async function main() {
 
     if (blockingLabels.length > 0) {
       core.setFailed(
-        `The PR has been labelled with a blocking label (${blockingLabels
-          .map((label) => label.name)
-          .join(', ')}).`
+        `The PR has been labelled with a blocking label (${blockingLabels.map((label) => label.name).join(', ')}).`,
       );
 
       return;
