@@ -1,6 +1,6 @@
 {
   "name": "@strapi/design-system",
-  "version": "1.7.5",
+  "version": "1.7.6",
   "license": "MIT",
   "type": "module",
   "sideEffects": false,
@@ -23,14 +23,17 @@
     "@internationalized/number": "^3.2.0",
     "@radix-ui/react-dismissable-layer": "^1.0.3",
     "@radix-ui/react-dropdown-menu": "^2.0.4",
-    "@strapi/ui-primitives": "^1.7.5",
+    "@radix-ui/react-focus-scope": "1.0.2",
+    "@strapi/ui-primitives": "^1.7.6",
     "@uiw/react-codemirror": "^4.19.16",
+    "aria-hidden": "^1.2.3",
     "compute-scroll-into-view": "^3.0.3",
-    "prop-types": "^15.8.1"
+    "prop-types": "^15.8.1",
+    "react-remove-scroll": "^2.5.5"
   },
   "devDependencies": {
     "@playwright/test": "1.33.0",
-    "@strapi/icons": "^1.7.5",
+    "@strapi/icons": "^1.7.6",
     "@types/react-router-dom": "^5.3.3",
     "@types/styled-components": "^5.1.26",
     "axe-playwright": "^1.2.3",
