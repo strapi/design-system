@@ -394,8 +394,9 @@ describe('DatePicker', () => {
       const { getByRole, user } = render({ initialDate: new Date('Sept 04 2020'), locale: 'en-GB' });
 
       await user.click(getByRole('combobox', { name: 'date picker' }));
-      await user.clear(getByRole('combobox', { name: 'date picker' }));
       expect(getByRole('gridcell', { name: 'Friday, 4 September 2020' })).toHaveAttribute('aria-selected', 'true');
+
+      await user.clear(getByRole('combobox', { name: 'date picker' }));
 
       getByRole('combobox', { name: 'date picker' }).focus();
 
@@ -413,8 +414,9 @@ describe('DatePicker', () => {
       const { getByRole, user } = render({ initialDate: new Date('Sept 04 2020'), locale: 'en-GB' });
 
       await user.click(getByRole('combobox', { name: 'date picker' }));
-      await user.clear(getByRole('combobox', { name: 'date picker' }));
       expect(getByRole('gridcell', { name: 'Friday, 4 September 2020' })).toHaveAttribute('aria-selected', 'true');
+
+      await user.clear(getByRole('combobox', { name: 'date picker' }));
 
       getByRole('combobox', { name: 'date picker' }).focus();
 

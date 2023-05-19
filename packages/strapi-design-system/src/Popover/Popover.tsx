@@ -34,7 +34,6 @@ const PopoverWrapper = styled(Box)`
   box-shadow: ${({ theme }) => theme.shadows.filterShadow};
   z-index: ${({ theme }) => theme.zIndices[0]};
   border: 1px solid ${({ theme }) => theme.colors.neutral150};
-  background: ${({ theme }) => theme.colors.neutral0};
 `;
 export interface ContentProps
   extends BoxProps<'div'>,
@@ -44,6 +43,7 @@ export interface ContentProps
   fullWidth?: boolean;
   centered?: boolean;
   spacing?: number;
+  hideAria?: boolean;
 }
 
 export const Content = React.forwardRef<HTMLDivElement, ContentProps>(
@@ -127,7 +127,6 @@ export const Content = React.forwardRef<HTMLDivElement, ContentProps>(
         >
           <DismissibleLayer
             asChild
-            disableOutsidePointerEvents
             onEscapeKeyDown={onEscapeKeyDown}
             onPointerDownOutside={onPointerDownOutside}
             // When focus is trapped, a focusout event may still happen.

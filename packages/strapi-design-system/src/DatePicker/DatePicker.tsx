@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unused-prop-types */
 import * as React from 'react';
 
+import { useFloating, flip, shift, offset, autoUpdate } from '@floating-ui/react-dom';
 import {
   startOfWeek,
   today,
@@ -24,7 +25,7 @@ import styled, { ThemeColors } from 'styled-components';
 
 import { Box, BoxProps } from '../Box';
 import { useDesignSystem } from '../DesignSystemProvider';
-import { DismissibleLayer, DismissibleLayerProps } from '../DismissibleLayer';
+import { DismissibleLayer } from '../DismissibleLayer';
 import * as Field from '../Field';
 import { FieldProps } from '../Field';
 import { Flex, FlexProps } from '../Flex';
@@ -397,7 +398,6 @@ const DatePickerTrigger = React.forwardRef<DatePickerTriggerElement, TriggerProp
           event.preventDefault();
         }}
         onUnmountAutoFocus={(event) => {
-          context.trigger?.focus({ preventScroll: true });
           /**
            * In firefox there's a some kind of selection happening after
            * unmounting all of this, so we make sure we clear that.
@@ -734,8 +734,10 @@ const DatePickerContent = React.forwardRef<DatePickerContentElement, ContentProp
 const CONTENT_IMPL_NAME = 'DatePickerContent';
 
 interface ContentImplProps
-  extends Omit<PopoverPrimitives.ContentProps, 'source' | 'spacing'>,
-    Pick<DismissibleLayerProps, 'onEscapeKeyDown' | 'onPointerDownOutside'> {
+  extends Omit<
+    PopoverPrimitives.ContentProps,
+    'source' | 'spacing' | 'trapped' | 'onDismiss' | 'hideAria' | 'disableOutsidePointerEvents'
+  > {
   /**
    * @default 'Choose date'
    */
@@ -746,8 +748,21 @@ type DatePickerContentImplElement = HTMLDivElement;
 
 const DatePickerContentImpl = React.forwardRef<DatePickerContentImplElement, ContentImplProps>(
   (props, forwardedRef) => {
-    const { onPointerDownOutside, onEscapeKeyDown, label = 'Choose date', ...restProps } = props;
+    const { label = 'Choose date', ...restProps } = props;
     const { onOpenChange, ...context } = useDatePickerContext(CONTENT_IMPL_NAME);
+
+    const { x, y, reference, floating, strategy } = useFloating({
+      strategy: 'fixed',
+      placement: 'bottom-start',
+      middleware: [
+        offset({
+          mainAxis: 4,
+        }),
+        shift(),
+        flip(),
+      ],
+      whileElementsMounted: autoUpdate,
+    });
 
     React.useEffect(() => {
       const close = () => {
@@ -762,22 +777,32 @@ const DatePickerContentImpl = React.forwardRef<DatePickerContentImplElement, Con
       };
     }, [onOpenChange]);
 
-    const composedRefs = useComposedRefs(forwardedRef, (node) => context.onContentChange(node));
+    React.useLayoutEffect(() => {
+      reference(context.trigger);
+    }, [reference, context.trigger]);
+
+    const composedRefs = useComposedRefs<DatePickerContentImplElement>(
+      forwardedRef,
+      (node) => context.onContentChange(node),
+      floating,
+    );
 
     useFocusGuards();
 
     return (
       <RemoveScroll allowPinchZoom>
         <DismissibleLayer
-          onEscapeKeyDown={onEscapeKeyDown}
-          onPointerDownOutside={onPointerDownOutside}
-          onFocusOutside={(event) => event.preventDefault()}
+          asChild
+          // When focus is trapped, a focusout event may still happen.
+          // We make sure we don't trigger our `onDismiss` in such case.
+          onFocusOutside={(event) => {
+            event.preventDefault();
+          }}
           onDismiss={() => {
             onOpenChange(false);
-            context.textInput?.focus({ preventScroll: true });
           }}
         >
-          <PopoverPrimitives.Content
+          <ContentElement
             ref={composedRefs}
             data-state={context.open ? 'open' : 'closed'}
             onContextMenu={(event) => event.preventDefault()}
@@ -785,15 +810,27 @@ const DatePickerContentImpl = React.forwardRef<DatePickerContentImplElement, Con
             role="dialog"
             aria-modal="true"
             aria-label={label}
+            style={{
+              left: x,
+              top: y,
+              position: strategy,
+            }}
+            hasRadius
+            background="neutral0"
+            padding={1}
             {...restProps}
-            spacing={4}
-            source={{ current: context.trigger! }}
           />
         </DismissibleLayer>
       </RemoveScroll>
     );
   },
 );
+
+const ContentElement = styled(Box)`
+  box-shadow: ${({ theme }) => theme.shadows.filterShadow};
+  z-index: ${({ theme }) => theme.zIndices[0]};
+  border: 1px solid ${({ theme }) => theme.colors.neutral150};
+`;
 
 /* -------------------------------------------------------------------------------------------------
  *  DatePickerCalendar
