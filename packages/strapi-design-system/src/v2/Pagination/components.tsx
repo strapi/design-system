@@ -1,24 +1,30 @@
 import React from 'react';
 
 import { ChevronLeft, ChevronRight } from '@strapi/icons';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { usePagination } from './PaginationContext';
-import { BaseLink } from '../../BaseLink';
+import { BaseLink, BaseLinkProps } from '../../BaseLink';
+import { Box, BoxProps } from '../../Box';
 import { buttonFocusStyle } from '../../themes/utils';
 import { Typography } from '../../Typography';
 import { VisuallyHidden } from '../../VisuallyHidden';
 
-const PaginationText = styled(Typography)`
-  line-height: revert;
-`;
+interface PaginationLinkProps extends BaseLinkProps {
+  active: boolean;
+}
+
+interface PaginationPageLinkProps extends PaginationLinkProps {
+  number: number;
+}
+
+interface DotsProps extends BoxProps {}
 
 const transientProps = {
   active: true,
 };
 
-const LinkWrapper = styled(BaseLink).withConfig({
+const LinkWrapper = styled(BaseLink).withConfig<PaginationLinkProps>({
   shouldForwardProp: (prop, defPropValFN) => !transientProps[prop] && defPropValFN(prop),
 })`
   padding: ${({ theme }) => theme.spaces[3]};
@@ -30,7 +36,7 @@ const LinkWrapper = styled(BaseLink).withConfig({
   ${buttonFocusStyle}
 `;
 
-const PageLinkWrapper = styled(LinkWrapper)`
+const PageLinkWrapper = styled(LinkWrapper)<PaginationLinkProps>`
   color: ${({ theme, active }) => (active ? theme.colors.primary700 : theme.colors.neutral800)};
   background: ${({ theme, active }) => (active ? theme.colors.neutral0 : undefined)};
 
@@ -60,11 +66,7 @@ const ActionLinkWrapper = styled(LinkWrapper)`
       : undefined}
 `;
 
-const DotsWrapper = styled(LinkWrapper)`
-  color: ${({ theme }) => theme.colors.neutral800};
-`;
-
-export const PreviousLink = React.forwardRef(({ children, ...props }, ref) => {
+export const PreviousLink = React.forwardRef<HTMLAnchorElement, PaginationLinkProps>(({ children, ...props }, ref) => {
   const { activePage } = usePagination();
 
   const disabled = activePage === 1;
@@ -77,9 +79,7 @@ export const PreviousLink = React.forwardRef(({ children, ...props }, ref) => {
   );
 });
 
-PreviousLink.displayName = 'PreviousLink';
-
-export const NextLink = React.forwardRef(({ children, ...props }, ref) => {
+export const NextLink = React.forwardRef<HTMLAnchorElement, PaginationLinkProps>(({ children, ...props }, ref) => {
   const { activePage, pageCount } = usePagination();
 
   const disabled = activePage === pageCount;
@@ -92,46 +92,28 @@ export const NextLink = React.forwardRef(({ children, ...props }, ref) => {
   );
 });
 
-NextLink.displayName = 'NextLink';
+export const PageLink = React.forwardRef<HTMLAnchorElement, PaginationPageLinkProps>(
+  ({ number, children, ...props }, ref) => {
+    const { activePage } = usePagination();
 
-export const PageLink = React.forwardRef(({ number, children, ...props }, ref) => {
-  const { activePage } = usePagination();
+    const isActive = activePage === number;
 
-  const isActive = activePage === number;
-
-  return (
-    <PageLinkWrapper ref={ref} {...props} active={isActive}>
-      <VisuallyHidden>{children}</VisuallyHidden>
-      <PaginationText aria-hidden variant="pi" fontWeight={isActive ? 'bold' : null}>
-        {number}
-      </PaginationText>
-    </PageLinkWrapper>
-  );
-});
-
-PageLink.displayName = 'PageLink';
-
-export const Dots = ({ children, ...props }) => (
-  <DotsWrapper {...props} as="div">
-    <VisuallyHidden>{children}</VisuallyHidden>
-    <PaginationText aria-hidden variant="pi">
-      …
-    </PaginationText>
-  </DotsWrapper>
+    return (
+      <PageLinkWrapper ref={ref} {...props} active={isActive}>
+        <VisuallyHidden>{children}</VisuallyHidden>
+        <Typography aria-hidden fontWeight={isActive ? 'bold' : undefined} lineHeight="revert" variant="pi">
+          {number}
+        </Typography>
+      </PageLinkWrapper>
+    );
+  },
 );
 
-PageLink.propTypes = {
-  children: PropTypes.node.isRequired,
-  number: PropTypes.number.isRequired,
-};
-
-const sharedPropTypes = {
-  children: PropTypes.node.isRequired,
-};
-
-NextLink.propTypes = sharedPropTypes;
-PreviousLink.propTypes = sharedPropTypes;
-
-Dots.propTypes = {
-  children: PropTypes.node.isRequired,
-};
+export const Dots = ({ children, ...props }: DotsProps) => (
+  <Box {...props}>
+    <VisuallyHidden>{children}</VisuallyHidden>
+    <Typography aria-hidden lineHeight="revert" textColor="neutral800" variant="pi">
+      …
+    </Typography>
+  </Box>
+);
