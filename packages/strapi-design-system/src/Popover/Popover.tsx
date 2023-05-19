@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { useFloating, flip, shift, offset, autoUpdate, Placement } from '@floating-ui/react-dom';
 import { FocusScope } from '@radix-ui/react-focus-scope';
-import { useCallbackRef } from '@strapi/ui-primitives';
+import { useCallbackRef, composeEventHandlers } from '@strapi/ui-primitives';
 import { hideOthers } from 'aria-hidden';
 import { RemoveScroll } from 'react-remove-scroll';
 import styled from 'styled-components';
@@ -36,10 +36,9 @@ const PopoverWrapper = styled(Box)`
   border: 1px solid ${({ theme }) => theme.colors.neutral150};
   background: ${({ theme }) => theme.colors.neutral0};
 `;
-
 interface ContentProps
-  extends BoxProps<HTMLDivElement>,
-    Pick<DismissibleLayerProps, 'onEscapeKeyDown' | 'onPointerDownOutside' | 'onDismiss'> {
+  extends BoxProps<'div'>,
+    Pick<DismissibleLayerProps, 'onEscapeKeyDown' | 'onPointerDownOutside' | 'onDismiss' | 'onFocusOutside'> {
   source: React.MutableRefObject<HTMLElement>;
   placement?: Placement;
   fullWidth?: boolean;
@@ -57,9 +56,11 @@ export const Content = ({
   onEscapeKeyDown,
   onPointerDownOutside,
   onDismiss,
+  onFocusOutside,
   ...props
 }: ContentProps) => {
   const [content, setContent] = React.useState<HTMLDivElement | null>(null);
+  const isRightClickOutsideRef = React.useRef(false);
   const [width, setWidth] = React.useState<number | undefined>(undefined);
   const { x, y, reference, floating, strategy } = useFloating({
     strategy: 'fixed',
@@ -110,28 +111,36 @@ export const Content = ({
     <RemoveScroll allowPinchZoom>
       <FocusScope
         asChild
+        loop
         // we make sure we're not trapping once it's been closed
         // (closed !== unmounted when animating out)
         trapped
-        onMountAutoFocus={(event) => {
-          // we prevent open autofocus because we manually focus the selected item
-          event.preventDefault();
-        }}
         onUnmountAutoFocus={(event) => {
-          source.current?.focus({ preventScroll: true });
           event.preventDefault();
+
+          if (!isRightClickOutsideRef.current) source.current?.focus({ preventScroll: true });
         }}
       >
         <DismissibleLayer
           asChild
           disableOutsidePointerEvents
           onEscapeKeyDown={onEscapeKeyDown}
-          onPointerDownOutside={onPointerDownOutside}
-          // When focus is trapped, a focusout event may still happen.
+          onPointerDownOutside={composeEventHandlers(
+            onPointerDownOutside,
+            (event) => {
+              const originalEvent = event.detail.originalEvent;
+              const ctrlLeftClick = originalEvent.button === 0 && originalEvent.ctrlKey === true;
+              const isRightClick = originalEvent.button === 2 || ctrlLeftClick;
+
+              isRightClickOutsideRef.current = isRightClick;
+            },
+            { checkForDefaultPrevented: false },
+          )}
+          // When focus is trapped, a `focusout` event may still happen.
           // We make sure we don't trigger our `onDismiss` in such case.
-          onFocusOutside={(event) => {
-            event.preventDefault();
-          }}
+          onFocusOutside={composeEventHandlers(onFocusOutside, (event) => event.preventDefault(), {
+            checkForDefaultPrevented: false,
+          })}
           onDismiss={onDismiss}
         >
           <PopoverWrapper
@@ -155,7 +164,7 @@ export const Content = ({
   );
 };
 
-export interface ScrollingProps extends BoxProps<HTMLDivElement> {
+export interface ScrollingProps extends BoxProps<'div'> {
   intersectionId?: string;
   onReachEnd?: (entry: IntersectionObserverEntry) => void;
 }

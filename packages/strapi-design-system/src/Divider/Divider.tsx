@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { Box, BoxProps } from '../Box';
 
-export interface DividerProps extends Omit<BoxProps<HTMLHRElement>, 'as' | 'background'> {
+export interface DividerProps extends Omit<BoxProps<'hr'>, 'as' | 'background'> {
   /**
    * @preserve
    * @deprecated use `margin` style props instead

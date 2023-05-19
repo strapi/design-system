@@ -5,7 +5,7 @@ import { Box, BoxProps } from '../Box';
 import { getFocusableNodes, getFocusableNodesWithKeyboardNav } from '../helpers/getFocusableNodes';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 
-export interface RawTdProps extends BoxProps<HTMLTableCellElement> {
+export interface RawTdProps extends BoxProps<'td'> {
   'aria-colindex'?: number;
   as?: 'td' | 'th';
   children: ReactNode;
