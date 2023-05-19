@@ -36,7 +36,7 @@ const PopoverWrapper = styled(Box)`
   border: 1px solid ${({ theme }) => theme.colors.neutral150};
   background: ${({ theme }) => theme.colors.neutral0};
 `;
-interface ContentProps
+export interface ContentProps
   extends BoxProps<'div'>,
     Pick<DismissibleLayerProps, 'onEscapeKeyDown' | 'onPointerDownOutside' | 'onDismiss' | 'onFocusOutside'> {
   source: React.MutableRefObject<HTMLElement>;
@@ -46,123 +46,128 @@ interface ContentProps
   spacing?: number;
 }
 
-export const Content = ({
-  source,
-  children,
-  spacing = 0,
-  fullWidth = false,
-  placement = 'bottom-start',
-  centered = false,
-  onEscapeKeyDown,
-  onPointerDownOutside,
-  onDismiss,
-  onFocusOutside,
-  ...props
-}: ContentProps) => {
-  const [content, setContent] = React.useState<HTMLDivElement | null>(null);
-  const isRightClickOutsideRef = React.useRef(false);
-  const [width, setWidth] = React.useState<number | undefined>(undefined);
-  const { x, y, reference, floating, strategy } = useFloating({
-    strategy: 'fixed',
-    placement: centered ? 'bottom' : placement,
-    middleware: [
-      offset({
-        mainAxis: spacing,
-      }),
-      shift(),
-      flip(),
-    ],
-    whileElementsMounted: autoUpdate,
-  });
+export const Content = React.forwardRef<HTMLDivElement, ContentProps>(
+  (
+    {
+      source,
+      children,
+      spacing = 0,
+      fullWidth = false,
+      placement = 'bottom-start',
+      centered = false,
+      onEscapeKeyDown,
+      onPointerDownOutside,
+      onDismiss,
+      onFocusOutside,
+      ...props
+    },
+    forwardedRef,
+  ) => {
+    const [content, setContent] = React.useState<HTMLDivElement | null>(null);
+    const [width, setWidth] = React.useState<number | undefined>(undefined);
+    const isRightClickOutsideRef = React.useRef(false);
+    const { x, y, reference, floating, strategy } = useFloating({
+      strategy: 'fixed',
+      placement: centered ? 'bottom' : placement,
+      middleware: [
+        offset({
+          mainAxis: spacing,
+        }),
+        shift(),
+        flip(),
+      ],
+      whileElementsMounted: autoUpdate,
+    });
 
-  React.useLayoutEffect(() => {
-    reference(source.current);
-  }, [source, reference]);
+    React.useLayoutEffect(() => {
+      reference(source.current);
+    }, [source, reference]);
 
-  React.useLayoutEffect(() => {
-    if (fullWidth) {
-      setWidth(source.current.offsetWidth);
-    }
-  }, [fullWidth, source]);
+    React.useLayoutEffect(() => {
+      if (fullWidth) {
+        setWidth(source.current.offsetWidth);
+      }
+    }, [fullWidth, source]);
 
-  // aria-hide everything except the content (better supported equivalent to setting aria-modal)
-  React.useEffect(() => {
-    if (content) return hideOthers(content);
-  }, [content]);
+    // aria-hide everything except the content (better supported equivalent to setting aria-modal)
+    React.useEffect(() => {
+      if (content) return hideOthers(content);
+    }, [content]);
 
-  const handleDismiss = useCallbackRef(onDismiss);
+    const handleDismiss = useCallbackRef(onDismiss);
 
-  React.useEffect(() => {
-    const close = () => {
-      handleDismiss();
-    };
-    window.addEventListener('blur', close);
-    window.addEventListener('resize', close);
+    React.useEffect(() => {
+      const close = () => {
+        handleDismiss();
+      };
+      window.addEventListener('blur', close);
+      window.addEventListener('resize', close);
 
-    return () => {
-      window.removeEventListener('blur', close);
-      window.removeEventListener('resize', close);
-    };
-  }, [handleDismiss]);
+      return () => {
+        window.removeEventListener('blur', close);
+        window.removeEventListener('resize', close);
+      };
+    }, [handleDismiss]);
 
-  const composedRefs = useComposedRefs<HTMLDivElement>((node) => setContent(node), floating);
+    const composedRefs = useComposedRefs<HTMLDivElement>(forwardedRef, (node) => setContent(node), floating);
 
-  return (
-    <RemoveScroll allowPinchZoom>
-      <FocusScope
-        asChild
-        loop
-        // we make sure we're not trapping once it's been closed
-        // (closed !== unmounted when animating out)
-        trapped
-        onUnmountAutoFocus={(event) => {
-          event.preventDefault();
-
-          if (!isRightClickOutsideRef.current) source.current?.focus({ preventScroll: true });
-        }}
-      >
-        <DismissibleLayer
+    return (
+      <RemoveScroll allowPinchZoom>
+        <FocusScope
           asChild
-          disableOutsidePointerEvents
-          onEscapeKeyDown={onEscapeKeyDown}
-          onPointerDownOutside={composeEventHandlers(
-            onPointerDownOutside,
-            (event) => {
-              const originalEvent = event.detail.originalEvent;
-              const ctrlLeftClick = originalEvent.button === 0 && originalEvent.ctrlKey === true;
-              const isRightClick = originalEvent.button === 2 || ctrlLeftClick;
+          loop
+          // we make sure we're not trapping once it's been closed
+          // (closed !== unmounted when animating out)
+          trapped
+          onUnmountAutoFocus={(event) => {
+            event.preventDefault();
 
-              isRightClickOutsideRef.current = isRightClick;
-            },
-            { checkForDefaultPrevented: false },
-          )}
-          // When focus is trapped, a `focusout` event may still happen.
-          // We make sure we don't trigger our `onDismiss` in such case.
-          onFocusOutside={composeEventHandlers(onFocusOutside, (event) => event.preventDefault(), {
-            checkForDefaultPrevented: false,
-          })}
-          onDismiss={onDismiss}
+            if (!isRightClickOutsideRef.current) source.current?.focus({ preventScroll: true });
+          }}
         >
-          <PopoverWrapper
-            ref={composedRefs}
-            style={{
-              left: x,
-              top: y,
-              position: strategy,
-              width: width || undefined,
-            }}
-            hasRadius
-            background="neutral0"
-            padding={1}
-            {...props}
+          <DismissibleLayer
+            asChild
+            disableOutsidePointerEvents
+            onEscapeKeyDown={onEscapeKeyDown}
+            onPointerDownOutside={composeEventHandlers(
+              onPointerDownOutside,
+              (event) => {
+                const originalEvent = event.detail.originalEvent;
+                const ctrlLeftClick = originalEvent.button === 0 && originalEvent.ctrlKey === true;
+                const isRightClick = originalEvent.button === 2 || ctrlLeftClick;
+
+                isRightClickOutsideRef.current = isRightClick;
+              },
+              { checkForDefaultPrevented: false },
+            )}
+            // When focus is trapped, a `focusout` event may still happen.
+            // We make sure we don't trigger our `onDismiss` in such case.
+            onFocusOutside={composeEventHandlers(onFocusOutside, (event) => event.preventDefault(), {
+              checkForDefaultPrevented: false,
+            })}
+            onDismiss={onDismiss}
           >
-            {children}
-          </PopoverWrapper>
-        </DismissibleLayer>
-      </FocusScope>
-    </RemoveScroll>
-  );
-};
+            <PopoverWrapper
+              ref={composedRefs}
+              style={{
+                left: x,
+                top: y,
+                position: strategy,
+                width: width || undefined,
+              }}
+              hasRadius
+              background="neutral0"
+              padding={1}
+              {...props}
+            >
+              {children}
+            </PopoverWrapper>
+          </DismissibleLayer>
+        </FocusScope>
+      </RemoveScroll>
+    );
+  },
+);
 
 export interface ScrollingProps extends BoxProps<'div'> {
   intersectionId?: string;
