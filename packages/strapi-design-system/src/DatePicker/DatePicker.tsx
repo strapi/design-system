@@ -744,7 +744,7 @@ const DatePickerContent = React.forwardRef<DatePickerContentElement, ContentProp
 
 const DATE_PICKER_CALENDAR_NAME = 'DatePickerCalendar';
 
-interface CalendarProps extends FlexProps<HTMLDivElement> {
+interface CalendarProps extends FlexProps<'div'> {
   monthSelectLabel?: string;
   yearSelectLabel?: string;
 }
@@ -943,7 +943,7 @@ const ToolbarFlex = styled(Flex)`
  * DatePickerHeaderCell
  * -----------------------------------------------------------------------------------------------*/
 
-interface HeaderCellProps extends Omit<BoxProps<HTMLTableCellElement>, 'children'> {
+interface HeaderCellProps extends Omit<BoxProps<'td'>, 'children'> {
   children: string;
 }
 
@@ -972,7 +972,7 @@ const DATE_PICKER_CALEDNAR_CELL_NAME = 'DatePickerCalendarCell';
 
 type DatePickerCalendarCellElement = HTMLTableCellElement;
 
-interface CalendarCellProps extends BoxProps<DatePickerCalendarCellElement> {
+interface CalendarCellProps extends BoxProps<'td'> {
   date: CalendarDate;
   startDate: CalendarDate;
 }
