@@ -602,8 +602,10 @@ const DatePickerTextInput = React.forwardRef<DatePickerTextInputElement, TextInp
           }
         })}
         onKeyDown={composeEventHandlers(props.onKeyDown, (event) => {
-          if (['ArrowDown'].includes(event.key) && !context.open) {
+          if (!context.open && (isPrintableCharacter(event.key) || ['ArrowDown', 'Backspace'].includes(event.key))) {
             handleOpenChange();
+          } else if (['Tab'].includes(event.key) && context.open) {
+            event.preventDefault();
           } else if (context.open && ['ArrowDown', 'ArrowUp', 'ArrowLeft', 'ArrowRight'].includes(event.key)) {
             event.preventDefault();
 
@@ -658,11 +660,6 @@ const DatePickerTextInput = React.forwardRef<DatePickerTextInputElement, TextInp
             onTextValueChange(context.calendarDate.toString().split('-').reverse().join(separator));
             context.onValueChange(context.calendarDate);
             context.onOpenChange(false);
-          }
-        })}
-        onKeyUp={composeEventHandlers(props.onKeyUp, (event) => {
-          if (!context.open && (isPrintableCharacter(event.key) || ['ArrowDown', 'Backspace'].includes(event.key))) {
-            handleOpenChange();
           }
         })}
       />

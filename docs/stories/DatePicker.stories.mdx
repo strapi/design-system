@@ -29,7 +29,7 @@ By default, the DatePicker is uncontrolled & localised to the user's browser loc
       const [disabled, toggleDisabled] = useState();
       return (
         <Flex direction="column" alignItems="stretch" gap={11}>
-          <DatePicker initialDate={new Date('Sept 04 2020')} label="Your birthday" error={error} disabled={disabled} />
+          <DatePicker label="Your birthday" error={error} disabled={disabled} />
           <Flex gap={2} justifyContent="center">
             <Button
               variant="danger-light"
