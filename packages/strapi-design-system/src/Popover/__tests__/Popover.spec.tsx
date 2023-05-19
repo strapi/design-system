@@ -19,7 +19,7 @@ const Component = () => {
         </button>
         {isVisible && (
           <Popover source={sourceRef} onDismiss={() => setIsVisible(false)}>
-            <div>Hello world</div>
+            <button type="button">Hello world</button>
           </Popover>
         )}
       </div>
@@ -40,7 +40,8 @@ describe('Popover', () => {
 
     await user.click(getByRole('button', { name: 'Source' }));
 
-    expect(queryByText('Hello world')).toBeInTheDocument();
+    expect(getByRole('button', { name: 'Hello world' })).toBeInTheDocument();
+    expect(getByRole('button', { name: 'Hello world' })).toHaveFocus();
   });
 
   it('should close the popover when the escape key is used', async () => {
