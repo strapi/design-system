@@ -121,7 +121,7 @@ describe('DatePicker', () => {
       expect(onChange).toHaveBeenCalledWith(new Date('Sep 14 2021'));
     });
 
-    it('should call onChange with the max date of the month when we blur the input after typing an incorrect partial date', async () => {
+    it('should call onChange with the last correct date when we blur the input after typing an incorrect partial date', async () => {
       const onChange = jest.fn();
 
       const { getByRole, user } = render(
@@ -146,7 +146,7 @@ describe('DatePicker', () => {
 
       await user.tab();
 
-      expect(onChange).toHaveBeenCalledWith(new Date('Sep 30 2021'));
+      expect(onChange).toHaveBeenCalledWith(new Date('Sep 09 2021'));
     });
 
     it('should allow me to control the input value regardless of if a value is present', async () => {
