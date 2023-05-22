@@ -107,24 +107,33 @@ export const TimePickerInput = ({
     }
   };
 
+  const createNewTimeValue = (value: string) => {
+    const [hours, minutes] = value.split(separator);
+
+    if (!hours && !minutes) return undefined;
+
+    const hoursAsNumber = Number(hours ?? '0');
+    const minutesAsNumber = Number(minutes ?? '0');
+
+    if (hoursAsNumber > 23 || minutesAsNumber > 59) return undefined;
+
+    return formatter.format(new Date(0, 0, 0, hoursAsNumber, minutesAsNumber));
+  };
+
   const handleBlur: React.FocusEventHandler<HTMLInputElement> = (event) => {
-    const [hours, minutes] = event.target.value.split(separator);
+    const newValue = createNewTimeValue(event.target.value);
 
-    if (!hours && !minutes) return;
-
-    const newValue = formatter.format(new Date(0, 0, 0, Number(hours ?? '0'), Number(minutes ?? '0')));
-
-    setTextValue(newValue);
-    setValue(newValue);
+    if (newValue) {
+      setTextValue(newValue);
+      setValue(newValue);
+    } else {
+      setTextValue(value);
+    }
   };
 
   const handleChange = (changedValue?: string) => {
     if (typeof changedValue !== 'undefined') {
-      const [hours, minutes] = changedValue.split(separator);
-
-      if (!hours && !minutes) return;
-
-      const newValue = formatter.format(new Date(0, 0, 0, Number(hours ?? '0'), Number(minutes ?? '0')));
+      const newValue = createNewTimeValue(changedValue);
 
       setValue(newValue);
     } else {
