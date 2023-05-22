@@ -590,13 +590,21 @@ const DatePickerTextInput = React.forwardRef<DatePickerTextInputElement, TextInp
               newYear -= 100;
             }
 
-            const newDate = context.calendarDate.set({
-              day: day ? Number(day) : undefined,
-              month: month ? Number(month) : undefined,
-              year: newYear,
+            const newDateWithYear = context.calendarDate.set({ year: newYear });
+
+            const maxMonthNumber = newDateWithYear.calendar.getMonthsInYear(newDateWithYear);
+
+            const newDateWithMonthAndYear = newDateWithYear.set({
+              month: month && Number(month) <= maxMonthNumber ? Number(month) : undefined,
             });
 
-            context.onCalendarDateChange(constrainValue(newDate, context.minDate, context.maxDate));
+            const maxDayNumber = newDateWithMonthAndYear.calendar.getDaysInMonth(newDateWithMonthAndYear);
+
+            const newDateWithDayMonthAndYear = newDateWithMonthAndYear.set({
+              day: day && Number(day) <= maxDayNumber ? Number(day) : undefined,
+            });
+
+            context.onCalendarDateChange(constrainValue(newDateWithDayMonthAndYear, context.minDate, context.maxDate));
 
             context.onTextValueChange(event.target.value);
           }
