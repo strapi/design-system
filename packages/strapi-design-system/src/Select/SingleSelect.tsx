@@ -164,7 +164,7 @@ export const SingleSelectInput = ({
       <SelectParts.Trigger
         ref={triggerRef}
         aria-label={label}
-        aria-describedby={`${hintId} ${errorId}`}
+        aria-describedby={id ? `${hintId} ${errorId}` : undefined}
         id={id}
         startIcon={startIcon}
         size={size}

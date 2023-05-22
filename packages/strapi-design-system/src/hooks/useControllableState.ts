@@ -24,7 +24,10 @@ function useControllableState<TProp>({
   prop,
   defaultProp,
   onChange = () => {},
-}: UseControllableStateParams<TProp>): [TProp | undefined, (nextState: TProp | SetStateFn<TProp>) => void] {
+}: UseControllableStateParams<TProp>): [
+  TProp | undefined,
+  (nextState: TProp | undefined | SetStateFn<TProp | undefined>) => void,
+] {
   const [uncontrolledProp, setUncontrolledProp] = useUncontrolledState({ defaultProp, onChange });
   const isControlled = prop !== undefined;
   const propValue: TProp | undefined = prop instanceof Function ? prop(uncontrolledProp) : prop;

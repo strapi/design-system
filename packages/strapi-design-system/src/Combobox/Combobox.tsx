@@ -30,9 +30,12 @@ export interface ComboboxInputProps
       | 'defaultTextValue'
       | 'required'
       | 'disabled'
+      | 'isPrintableCharacter'
     >,
-    Pick<FieldProps, 'error' | 'id'> {
+    Pick<FieldProps, 'error' | 'id'>,
+    Omit<ComboboxPrimitive.TextInputProps, 'required' | 'disabled' | 'value' | 'onChange' | 'size'> {
   children: React.ReactNode;
+  className?: string;
   clearLabel?: string;
   creatable?: boolean;
   createMessage?: (inputValue: string) => string;
@@ -45,7 +48,7 @@ export interface ComboboxInputProps
   loading?: boolean;
   loadingMessage?: string;
   noOptionsMessage?: (inputValue: string) => string;
-  onChange?: (value: string) => void;
+  onChange?: (value?: string) => void;
   onClear?: (event: React.MouseEvent<HTMLButtonElement> | React.MouseEvent<HTMLDivElement>) => void;
   onCreateOption?: (inputValue: string) => void;
   onFilterValueChange?: (filterValue?: string) => void;
@@ -62,6 +65,7 @@ export const ComboboxInput = ({
   allowCustomValue,
   autocomplete,
   children,
+  className,
   clearLabel = 'clear',
   creatable = false,
   createMessage = (value) => `Create "${value}"`,
@@ -75,6 +79,7 @@ export const ComboboxInput = ({
   filterValue,
   hasMoreItems = false,
   id,
+  isPrintableCharacter,
   loading = false,
   loadingMessage = 'Loading content...',
   noOptionsMessage = () => 'No results found',
@@ -91,6 +96,7 @@ export const ComboboxInput = ({
   startIcon,
   textValue,
   value,
+  ...restProps
 }: ComboboxInputProps) => {
   const [internalIsOpen, setInternalIsOpen] = useControllableState({
     prop: open,
@@ -192,8 +198,9 @@ export const ComboboxInput = ({
       onValueChange={handleChange}
       filterValue={internalFilterValue}
       onFilterValueChange={handleFilterValueChange}
+      isPrintableCharacter={isPrintableCharacter}
     >
-      <Trigger $hasError={Boolean(error)} $size={size}>
+      <Trigger $hasError={Boolean(error)} $size={size} className={className}>
         <Flex flex="1" as="span" gap={3}>
           {startIcon ? (
             <Box as="span" aria-hidden>
@@ -204,9 +211,10 @@ export const ComboboxInput = ({
             placeholder={placeholder}
             id={id}
             aria-invalid={Boolean(error)}
-            aria-labelledby={`${hintId} ${errorId}`}
+            aria-describedby={`${hintId} ${errorId}`}
             onChange={handleInputChange}
             ref={triggerRef}
+            {...restProps}
           />
         </Flex>
         <Flex as="span" gap={3}>
@@ -418,7 +426,7 @@ export const OptionBox = styled.div<{ $hasHover?: boolean }>`
   border-radius: ${({ theme }) => theme.borderRadius};
   user-select: none;
 
-  &[data-selected] {
+  &[data-state='checked'] {
     background-color: ${({ theme }) => theme.colors.primary100};
 
     ${Typography} {
