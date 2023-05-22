@@ -614,6 +614,14 @@ const DatePickerTextInput = React.forwardRef<DatePickerTextInputElement, TextInp
             handleOpenChange();
           } else if (['Tab'].includes(event.key) && context.open) {
             event.preventDefault();
+          } else if (['Escape'].includes(event.key)) {
+            if (context.open) {
+              context.onOpenChange(false);
+            } else {
+              context.onValueChange(undefined);
+              context.onTextValueChange('');
+            }
+            event.preventDefault();
           } else if (context.open && ['ArrowDown', 'ArrowUp', 'ArrowLeft', 'ArrowRight'].includes(event.key)) {
             event.preventDefault();
 
