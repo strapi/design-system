@@ -34,6 +34,10 @@ export interface NavBrandProps extends BaseLinkProps {
 export const NavBrand = React.forwardRef<HTMLAnchorElement, NavBrandProps>(
   ({ workplace, title, icon, ...props }, ref) => {
     const condensed = useMainNav();
+    /**
+     * TODO: this shouldn't be here, because we're assuming you're
+     * passing a ReactRouter Link which isn't necessarily the case.
+     */
     props.to = props?.to ?? '/';
 
     if (condensed) {

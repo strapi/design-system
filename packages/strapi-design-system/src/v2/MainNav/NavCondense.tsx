@@ -4,16 +4,17 @@ import { ChevronRight, ChevronLeft } from '@strapi/icons';
 import styled from 'styled-components';
 
 import { useMainNav } from './MainNavContext';
+import { Flex, FlexProps } from '../../Flex';
 import { Icon } from '../../Icon';
 import { VisuallyHidden } from '../../VisuallyHidden';
 
-const NavCondenseWrapper = styled.button<{ condensed: boolean }>`
+const NavCondenseWrapper = styled(Flex).attrs<FlexProps<'button'>>((props) => ({
+  justifyContent: 'center',
+  ...props,
+}))<{ condensed: boolean }>`
   background: ${({ theme }) => theme.colors.neutral0};
   border: 1px solid ${({ theme }) => theme.colors.neutral150};
   border-radius: ${({ theme }) => theme.borderRadius};
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: absolute;
   bottom: ${(9 + 4) / 16}rem; // 9 is the height of the svg and 4 is the padding below
   right: ${({ theme, condensed }) => (condensed ? 0 : theme.spaces[5])};
@@ -28,7 +29,7 @@ const NavCondenseWrapper = styled.button<{ condensed: boolean }>`
   }
 `;
 
-export interface NavCondenseProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface NavCondenseProps extends FlexProps<'button'> {
   children: string;
 }
 

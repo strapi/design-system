@@ -10,7 +10,7 @@ const MainNavWrapper = styled(Flex)<{ condensed: boolean }>`
   border-right: 1px solid ${({ theme }) => theme.colors.neutral150};
 `;
 
-export interface MainNavProps extends FlexProps {
+export interface MainNavProps extends FlexProps<'nav'> {
   condensed?: boolean;
 }
 
