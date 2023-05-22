@@ -176,7 +176,8 @@ const Combobox: React.FC<RootProps> = (props) => {
       const [firstItem, ...restItems] = allItems;
       const [lastItem] = restItems.slice(-1);
 
-      const PREVIOUSLY_FOCUSED_ELEMENT = visuallyFocussedItem;
+      const PREVIOUSLY_FOCUSED_ELEMENT =
+        visuallyFocussedItem ?? items.find((item) => item.value === value)?.ref.current;
       // eslint-disable-next-line no-restricted-syntax
       for (const candidate of candidates) {
         // if focus is already where we want to go, we don't want to keep going through the candidates
@@ -201,7 +202,7 @@ const Combobox: React.FC<RootProps> = (props) => {
         if (candidate !== PREVIOUSLY_FOCUSED_ELEMENT) return;
       }
     },
-    [autocomplete, setTextValue, viewport, visuallyFocussedItem],
+    [autocomplete, setTextValue, viewport, visuallyFocussedItem, value],
   );
 
   React.useEffect(() => {
@@ -418,16 +419,20 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
               candidateNodes = candidateNodes.slice().reverse();
             }
             if (['ArrowUp', 'ArrowDown'].includes(event.key)) {
-              const currentElement = context.visuallyFocussedItem ?? (event.target as ComboboxItemElement);
-              let currentIndex = candidateNodes.indexOf(currentElement);
+              const currentElement =
+                context.visuallyFocussedItem ?? getItems().find((item) => item.value === context.value)?.ref.current;
 
-              /**
-               * This lets us go around the items in one big loop.
-               */
-              if (currentIndex === candidateNodes.length - 1) {
-                currentIndex = -1;
+              if (currentElement) {
+                let currentIndex = candidateNodes.indexOf(currentElement);
+
+                /**
+                 * This lets us go around the items in one big loop.
+                 */
+                if (currentIndex === candidateNodes.length - 1) {
+                  currentIndex = -1;
+                }
+                candidateNodes = candidateNodes.slice(currentIndex + 1);
               }
-              candidateNodes = candidateNodes.slice(currentIndex + 1);
             }
             if (['ArrowDown'].includes(event.key) && context.autocomplete === 'both' && candidateNodes.length > 1) {
               const [firstItem, ...restItems] = candidateNodes;
@@ -955,6 +960,15 @@ export const ComboboxItem = React.forwardRef<ComboboxItemElement, ItemProps>((pr
       onTextValueChange(textValue);
     }
   }, [textValue, isSelected, contextTextValue, onTextValueChange]);
+
+  useLayoutEffect(() => {
+    if (context.open && context.autocomplete === 'none') {
+      setTimeout(() => {
+        const activeItem = getItems().find((item) => item.value === context.value);
+        activeItem?.ref.current?.scrollIntoView({ block: 'nearest' });
+      });
+    }
+  }, [getItems, context.autocomplete, context.value, context.open]);
 
   const id = useId();
 

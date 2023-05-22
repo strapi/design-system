@@ -426,7 +426,7 @@ export const OptionBox = styled.div<{ $hasHover?: boolean }>`
   border-radius: ${({ theme }) => theme.borderRadius};
   user-select: none;
 
-  &[data-selected] {
+  &[data-state='checked'] {
     background-color: ${({ theme }) => theme.colors.primary100};
 
     ${Typography} {
