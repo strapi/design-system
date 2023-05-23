@@ -1,17 +1,20 @@
 import React from 'react';
 
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { MainNavContext } from './MainNavContext';
-import { Flex } from '../../Flex';
+import { Flex, FlexProps } from '../../Flex';
 
-const MainNavWrapper = styled(Flex)`
+const MainNavWrapper = styled(Flex)<{ condensed: boolean }>`
   width: ${({ condensed }) => (condensed ? 'max-content' : `${224 / 16}rem`)};
   border-right: 1px solid ${({ theme }) => theme.colors.neutral150};
 `;
 
-export const MainNav = ({ condensed, ...props }) => {
+export interface MainNavProps extends FlexProps<'nav'> {
+  condensed?: boolean;
+}
+
+export const MainNav = ({ condensed = false, ...props }: MainNavProps) => {
   return (
     <MainNavContext.Provider value={condensed}>
       <MainNavWrapper
@@ -28,12 +31,4 @@ export const MainNav = ({ condensed, ...props }) => {
       />
     </MainNavContext.Provider>
   );
-};
-
-MainNav.defaultProps = {
-  condensed: false,
-};
-
-MainNav.propTypes = {
-  condensed: PropTypes.bool,
 };

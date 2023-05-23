@@ -1,11 +1,10 @@
 import React from 'react';
 
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { useMainNav } from './MainNavContext';
 import { Badge } from '../../Badge';
-import { BaseLink } from '../../BaseLink';
+import { BaseLink, BaseLinkProps } from '../../BaseLink';
 import { Box } from '../../Box';
 import { Flex } from '../../Flex';
 import { Tooltip } from '../../Tooltip';
@@ -63,7 +62,7 @@ const MainNavRow = styled(Flex)`
   padding: ${({ theme }) => `${theme.spaces[2]} ${theme.spaces[3]}`};
 `;
 
-const CustomBadge = styled(Badge)`
+const CustomBadge = styled(Badge)<{ condensed?: boolean }>`
   ${({ theme, condensed }) =>
     condensed &&
     `
@@ -89,57 +88,52 @@ const CustomBadge = styled(Badge)`
   background: ${({ theme }) => theme.colors.primary600};
 `;
 
-export const NavLink = React.forwardRef(({ children, icon, badgeContent, badgeAriaLabel, ...props }, ref) => {
-  const condensed = useMainNav();
+export interface NavLinkProps extends BaseLinkProps {
+  badgeAriaLabel?: string;
+  badgeContent?: string | number;
+  children: string;
+  icon: React.ReactNode;
+}
 
-  if (condensed) {
+export const NavLink = React.forwardRef<HTMLAnchorElement, NavLinkProps>(
+  ({ children, icon, badgeContent, badgeAriaLabel, ...props }, ref) => {
+    const condensed = useMainNav();
+
+    if (condensed) {
+      return (
+        <MainNavLinkWrapper ref={ref} {...props}>
+          <Tooltip position="right" label={children}>
+            <MainNavRow as="span" justifyContent="center">
+              <IconBox aria-hidden paddingRight={0} as="span">
+                {icon}
+              </IconBox>
+              {badgeContent && (
+                <CustomBadge condensed aria-label={badgeAriaLabel}>
+                  {badgeContent}
+                </CustomBadge>
+              )}
+            </MainNavRow>
+          </Tooltip>
+        </MainNavLinkWrapper>
+      );
+    }
+
     return (
       <MainNavLinkWrapper ref={ref} {...props}>
-        <Tooltip position="right" label={children}>
-          <MainNavRow as="span" justifyContent="center">
-            <IconBox aria-hidden paddingRight={0} as="span">
+        <MainNavRow as="span" justifyContent="space-between">
+          <Flex>
+            <IconBox aria-hidden paddingRight={3} as="span">
               {icon}
             </IconBox>
-            {badgeContent && (
-              <CustomBadge condensed aria-label={badgeAriaLabel}>
-                {badgeContent}
-              </CustomBadge>
-            )}
-          </MainNavRow>
-        </Tooltip>
+            <Typography>{children}</Typography>
+          </Flex>
+          {badgeContent && (
+            <CustomBadge justifyContent="center" aria-label={badgeAriaLabel}>
+              {badgeContent}
+            </CustomBadge>
+          )}
+        </MainNavRow>
       </MainNavLinkWrapper>
     );
-  }
-
-  return (
-    <MainNavLinkWrapper ref={ref} {...props}>
-      <MainNavRow as="span" justifyContent="space-between">
-        <Flex>
-          <IconBox aria-hidden paddingRight={3} as="span">
-            {icon}
-          </IconBox>
-          <Typography>{children}</Typography>
-        </Flex>
-        {badgeContent && (
-          <CustomBadge justifyContent="center" aria-label={badgeAriaLabel}>
-            {badgeContent}
-          </CustomBadge>
-        )}
-      </MainNavRow>
-    </MainNavLinkWrapper>
-  );
-});
-
-NavLink.displayName = 'NavLink';
-
-NavLink.defaultProps = {
-  badgeContent: undefined,
-  badgeAriaLabel: undefined,
-};
-
-NavLink.propTypes = {
-  badgeAriaLabel: PropTypes.string,
-  badgeContent: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  children: PropTypes.string.isRequired,
-  icon: PropTypes.node.isRequired,
-};
+  },
+);
