@@ -1,19 +1,29 @@
 import React, { useState, useRef, useEffect } from 'react';
 
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { useElementOnScreen } from '../hooks/useElementOnScreen';
 import { useResizeObserver } from '../hooks/useResizeObserver';
-import { Typography } from '../Typography';
+import { Typography, TypographyProps } from '../Typography';
 
-const useHeaderSize = () => {
-  const baseHeaderLayoutRef = useRef(null);
-  const [headerSize, setHeaderSize] = useState(null);
+interface BaseHeaderLayoutProps extends TypographyProps {
+  navigationAction?: React.ReactNode;
+  primaryAction?: React.ReactNode;
+  secondaryAction?: React.ReactNode;
+  subtitle?: string | React.ReactNode;
+  sticky?: boolean;
+  width?: number;
+}
 
-  const [containerRef, isVisible] = useElementOnScreen({
+interface HeaderLayoutProps extends BaseHeaderLayoutProps {}
+
+export const HeaderLayout = (props: HeaderLayoutProps) => {
+  const baseHeaderLayoutRef = useRef<HTMLDivElement>(null);
+  const [headerSize, setHeaderSize] = useState<DOMRect | null>(null);
+
+  const [containerRef, isVisible] = useElementOnScreen<HTMLDivElement>({
     root: null,
     rootMargin: '0px',
     threshold: 0,
@@ -31,22 +41,12 @@ const useHeaderSize = () => {
     }
   }, [baseHeaderLayoutRef]);
 
-  return {
-    containerRef,
-    isVisible,
-    baseHeaderLayoutRef,
-    headerSize,
-  };
-};
-
-export const HeaderLayout = (props) => {
-  const { containerRef, isVisible, baseHeaderLayoutRef, headerSize } = useHeaderSize();
-
   return (
     <>
       <div style={{ height: headerSize?.height }} ref={containerRef}>
         {isVisible && <BaseHeaderLayout ref={baseHeaderLayoutRef} {...props} />}
       </div>
+
       {!isVisible && <BaseHeaderLayout {...props} sticky width={headerSize?.width} />}
     </>
   );
@@ -54,12 +54,12 @@ export const HeaderLayout = (props) => {
 
 HeaderLayout.displayName = 'HeaderLayout';
 
-const StickyBox = styled(Box)`
-  width: ${(props) => props.width}px;
+const StickyBox = styled(Box)<{ width?: number }>`
+  width: ${({ width }) => (width ? `${width / 16}rem` : undefined)};
   z-index: ${({ theme }) => theme.zIndices[1]};
 `;
 
-export const BaseHeaderLayout = React.forwardRef(
+export const BaseHeaderLayout = React.forwardRef<HTMLDivElement, BaseHeaderLayoutProps>(
   ({ navigationAction, primaryAction, secondaryAction, subtitle, title, sticky, width, ...props }, ref) => {
     const isSubtitleString = typeof subtitle === 'string';
 
@@ -132,41 +132,3 @@ export const BaseHeaderLayout = React.forwardRef(
     );
   },
 );
-
-BaseHeaderLayout.displayName = 'BaseHeaderLayout';
-
-BaseHeaderLayout.defaultProps = {
-  navigationAction: undefined,
-  primaryAction: undefined,
-  secondaryAction: undefined,
-  subtitle: undefined,
-  sticky: false,
-  width: undefined,
-};
-
-BaseHeaderLayout.propTypes = {
-  navigationAction: PropTypes.node,
-  primaryAction: PropTypes.node,
-  secondaryAction: PropTypes.node,
-  sticky: PropTypes.bool,
-  // TODO V2: Remove the string fallback
-  subtitle: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  title: PropTypes.string.isRequired,
-  width: PropTypes.number,
-};
-
-HeaderLayout.defaultProps = {
-  navigationAction: undefined,
-  primaryAction: undefined,
-  secondaryAction: undefined,
-  subtitle: undefined,
-};
-
-HeaderLayout.propTypes = {
-  navigationAction: PropTypes.node,
-  primaryAction: PropTypes.node,
-  secondaryAction: PropTypes.node,
-  // TODO V2: Remove the string fallback
-  subtitle: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  title: PropTypes.string.isRequired,
-};

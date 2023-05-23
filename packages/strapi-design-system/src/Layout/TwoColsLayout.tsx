@@ -1,11 +1,12 @@
-import React from 'react';
-
-import PropTypes from 'prop-types';
-
 import { Box } from '../Box';
 import { Grid, GridItem } from '../Grid';
 
-export const TwoColsLayout = ({ startCol, endCol }) => {
+interface TwoColsLayoutProps {
+  endCol: React.ReactNode;
+  startCol: React.ReactNode;
+}
+
+export const TwoColsLayout = ({ startCol, endCol }: TwoColsLayoutProps) => {
   return (
     <Grid gap={4}>
       <GridItem col={9} s={12}>
@@ -20,9 +21,4 @@ export const TwoColsLayout = ({ startCol, endCol }) => {
       </GridItem>
     </Grid>
   );
-};
-
-TwoColsLayout.propTypes = {
-  endCol: PropTypes.node.isRequired,
-  startCol: PropTypes.node.isRequired,
 };
