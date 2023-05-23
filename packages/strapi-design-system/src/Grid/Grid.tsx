@@ -2,7 +2,6 @@ import * as React from 'react';
 
 import styled from 'styled-components';
 
-import { GridContext } from './GridContext';
 import { Box, BoxProps } from '../Box';
 import handleResponsiveValues, { ResponsiveValue } from '../helpers/handleResponsiveValues';
 
@@ -18,14 +17,5 @@ const GridWrapper = styled(Box)<Required<Pick<GridProps, 'gridCols' | 'gap'>>>`
 `;
 
 export const Grid: React.FC<GridProps> = ({ gap = '0', gridCols = 12, ...props }) => {
-  const context = React.useMemo<Required<Pick<GridProps, 'gridCols' | 'gap'>>>(
-    () => ({ gap, gridCols }),
-    [gap, gridCols],
-  );
-
-  return (
-    <GridContext.Provider value={context}>
-      <GridWrapper gap={gap} gridCols={gridCols} {...props} />
-    </GridContext.Provider>
-  );
+  return <GridWrapper gap={gap} gridCols={gridCols} {...props} />;
 };

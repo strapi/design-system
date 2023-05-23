@@ -1,20 +1,14 @@
-import React from 'react';
-
 import styled from 'styled-components';
 
-import { useGrid } from './GridContext';
 import { Box, BoxProps } from '../Box';
-import type { ResponsiveValue } from '../helpers/handleResponsiveValues';
 
 export interface GridItemProps extends BoxProps<HTMLDivElement> {
   col: number;
   s: number;
   xs: number;
-  gap: ResponsiveValue;
-  gridCols: number;
 }
 
-const GridItemWrapper = styled.div<GridItemProps>`
+export const GridItem = styled(Box)<GridItemProps>`
   grid-column: span ${({ col }) => col};
   max-width: 100%;
 
@@ -26,13 +20,3 @@ const GridItemWrapper = styled.div<GridItemProps>`
     grid-column: span ${({ xs }) => xs};
   }
 `;
-
-export const GridItem: React.FC<GridItemProps> = ({ col, xs, s, ...props }) => {
-  const { gap, gridCols } = useGrid();
-
-  return (
-    <GridItemWrapper gap={gap} gridCols={gridCols} col={col} xs={xs} s={s}>
-      <Box {...props} />
-    </GridItemWrapper>
-  );
-};
