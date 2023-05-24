@@ -25,7 +25,6 @@ export type BoxProps<TElement extends keyof JSX.IntrinsicElements = 'div'> = Rea
     | 'animation'
     | 'textAlign'
     | 'textTransform'
-    | 'lineHeight'
   > & {
     /**
      * JavaScript hover handler
@@ -101,6 +100,7 @@ export type BoxProps<TElement extends keyof JSX.IntrinsicElements = 'div'> = Rea
      */
     shrink?: CSSProperties['flexShrink'];
 
+    lineHeight?: DefaultThemeOrCSSProp<'lineHeights', 'lineHeight'>;
     width?: DefaultThemeOrCSSProp<'spaces', 'width'>;
     minWidth?: DefaultThemeOrCSSProp<'spaces', 'minWidth'>;
     maxWidth?: DefaultThemeOrCSSProp<'spaces', 'maxWidth'>;
@@ -215,7 +215,7 @@ export const Box = styled.div.withConfig<BoxProps>({
   // Text
   text-align: ${({ textAlign }) => textAlign};
   text-transform: ${({ textTransform }) => textTransform};
-  line-height: ${({ lineHeight }) => lineHeight};
+  line-height: ${({ theme, lineHeight }) => extractStyleFromTheme(theme.lineHeights, lineHeight, lineHeight)};
 
   // Cursor
   cursor: ${({ cursor }) => cursor};
