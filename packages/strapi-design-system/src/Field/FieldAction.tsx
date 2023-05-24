@@ -10,7 +10,7 @@ const FieldActionWrapper = styled(Flex)`
   padding: 0;
 `;
 
-export interface FieldActionProps extends FlexProps<HTMLButtonElement> {
+export interface FieldActionProps extends FlexProps<'button'> {
   label: string;
   children: ReactNode;
 }

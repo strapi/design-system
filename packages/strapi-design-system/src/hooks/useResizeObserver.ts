@@ -1,9 +1,9 @@
-import { MutableRefObject, useLayoutEffect } from 'react';
+import { RefObject, useLayoutEffect } from 'react';
 
-import { useCallbackRef } from '@radix-ui/react-use-callback-ref';
+import { useCallbackRef } from '@strapi/ui-primitives';
 
 export const useResizeObserver = (
-  sources: MutableRefObject<HTMLElement> | MutableRefObject<HTMLElement>[],
+  sources: RefObject<HTMLElement> | RefObject<HTMLElement>[],
   onResize: ResizeObserverCallback,
 ) => {
   const handleResize = useCallbackRef(onResize);

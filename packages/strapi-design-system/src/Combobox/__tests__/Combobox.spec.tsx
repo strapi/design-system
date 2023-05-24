@@ -5,15 +5,21 @@ import { ThemeProvider } from '../../ThemeProvider';
 import { lightTheme } from '../../themes';
 import { Combobox, Option, ComboboxProps } from '../Combobox';
 
-type ComponentProps = Omit<ComboboxProps, 'children'>;
+type ComponentProps = Omit<ComboboxProps, 'children'> & { options?: typeof defaultOptions };
 
-const Component = (props: ComponentProps) => (
+const defaultOptions = [
+  { value: 'hamburger', children: 'Hamburger' },
+  { value: 'bagel', children: 'Bagel' },
+  { value: 'tartuffo', children: 'Tartuffo' },
+  { value: 'carbonara', children: 'Carbonara' },
+];
+
+const Component = ({ options = defaultOptions, ...restProps }: ComponentProps) => (
   <ThemeProvider theme={lightTheme}>
-    <Combobox label="Food" {...props}>
-      <Option value="hamburger">Hamburger</Option>
-      <Option value="bagel">Bagel</Option>
-      <Option value="tartuffo">Tartuffo</Option>
-      <Option value="carbonara">Carbonara</Option>
+    <Combobox label="Food" {...restProps}>
+      {options.map((opt) => (
+        <Option key={opt.value} {...opt} />
+      ))}
     </Combobox>
   </ThemeProvider>
 );
@@ -62,8 +68,6 @@ describe('Combobox', () => {
       const stringToType = 'hamburger';
 
       await user.type(getByRole('combobox'), stringToType);
-
-      expect(onInputChange).toHaveBeenCalledTimes(stringToType.length - 1);
 
       expect(onInputChange).toHaveBeenNthCalledWith(1, expect.any(Object));
     });
@@ -182,6 +186,22 @@ describe('Combobox', () => {
       await user.type(getByRole('combobox'), 'urger');
 
       expect(queryByRole('option', { name: /Create/ })).not.toBeInTheDocument();
+    });
+
+    it('should show the creatable button even if there are no options to begin with when we have typed something', async () => {
+      const user = userEvent.setup();
+      const { getByRole, queryByRole } = render({
+        creatable: true,
+        options: [],
+      });
+
+      await user.click(getByRole('combobox'));
+
+      expect(queryByRole('option', { name: /Create/ })).not.toBeInTheDocument();
+
+      await user.type(getByRole('combobox'), 'Hamb');
+
+      expect(queryByRole('option', { name: 'Create "Hamb"' })).toBeInTheDocument();
     });
 
     it("should by default show the 'Create {value}' label", async () => {

@@ -9,22 +9,22 @@ type DefaultThemeOrCSSProp<T extends keyof DefaultTheme, K extends keyof CSSProp
   | keyof DefaultTheme[T]
   | CSSProperties[K];
 
-export type BoxProps<TElement extends HTMLElement = HTMLDivElement> = Pick<
-  CSSProperties,
-  | 'pointerEvents'
-  | 'display'
-  | 'position'
-  | 'zIndex'
-  | 'overflow'
-  | 'cursor'
-  | 'transition'
-  | 'transform'
-  | 'animation'
-  | 'textAlign'
-  | 'textTransform'
-  | 'lineHeight'
-> &
-  React.HTMLAttributes<TElement> & {
+export type BoxProps<TElement extends keyof JSX.IntrinsicElements = 'div'> = React.ComponentPropsWithoutRef<TElement> &
+  Pick<
+    CSSProperties,
+    | 'pointerEvents'
+    | 'display'
+    | 'position'
+    | 'zIndex'
+    | 'overflow'
+    | 'cursor'
+    | 'transition'
+    | 'transform'
+    | 'animation'
+    | 'textAlign'
+    | 'textTransform'
+    | 'lineHeight'
+  > & {
     /**
      * JavaScript hover handler
      */

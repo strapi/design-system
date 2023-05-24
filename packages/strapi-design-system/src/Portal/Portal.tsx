@@ -4,7 +4,7 @@ import { createPortal } from 'react-dom';
 
 import { Box, BoxProps } from '../Box';
 
-export interface PortalProps extends BoxProps<HTMLDivElement> {
+export interface PortalProps extends BoxProps<'div'> {
   container?: HTMLElement | null;
 }
 

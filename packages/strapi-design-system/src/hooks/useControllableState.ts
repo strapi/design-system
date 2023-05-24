@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { useCallbackRef } from '@radix-ui/react-use-callback-ref';
+import { useCallbackRef } from '@strapi/ui-primitives';
 
 /**
  * this is basically stolen from RadixUI but tweaked to allow the following:
@@ -13,7 +13,7 @@ import { useCallbackRef } from '@radix-ui/react-use-callback-ref';
  */
 
 export interface UseControllableStateParams<TProp> {
-  prop?: TProp | undefined;
+  prop?: TProp | undefined | ((state?: TProp | undefined) => TProp | undefined);
   defaultProp?: TProp | undefined;
   onChange?: (state?: TProp) => void;
 }
@@ -27,7 +27,7 @@ function useControllableState<TProp>({
 }: UseControllableStateParams<TProp>): [TProp | undefined, (nextState: TProp | SetStateFn<TProp>) => void] {
   const [uncontrolledProp, setUncontrolledProp] = useUncontrolledState({ defaultProp, onChange });
   const isControlled = prop !== undefined;
-  const propValue: TProp | undefined = typeof prop === 'function' ? prop(uncontrolledProp) : prop;
+  const propValue: TProp | undefined = prop instanceof Function ? prop(uncontrolledProp) : prop;
   const value = isControlled ? propValue : uncontrolledProp;
   const handleChange = useCallbackRef(onChange);
 

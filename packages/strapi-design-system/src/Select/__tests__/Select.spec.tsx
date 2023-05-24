@@ -103,7 +103,7 @@ describe('Select', () => {
 
       <div
         aria-checked="false"
-        aria-labelledby="radix-:r6:"
+        aria-labelledby="radix-:r7:"
         class="c0"
         data-highlighted=""
         data-radix-collection-item=""
@@ -123,7 +123,7 @@ describe('Select', () => {
           class="c3 c4"
         >
           <span
-            id="radix-:r6:"
+            id="radix-:r7:"
           >
             Option 1
           </span>
