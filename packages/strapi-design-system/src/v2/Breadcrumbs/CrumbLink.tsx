@@ -19,10 +19,6 @@ const StyledLink = styled(BaseLink)`
   }
 `;
 
-export interface CrumbLinkProps extends BaseLinkProps {
-  to?: string | undefined;
-}
-
-export const CrumbLink = ({ children, ...props }: CrumbLinkProps) => <StyledLink {...props}>{children}</StyledLink>;
+export const CrumbLink = ({ children, ...props }: BaseLinkProps) => <StyledLink {...props}>{children}</StyledLink>;
 
 CrumbLink.displayName = 'CrumbLink';
