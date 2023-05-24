@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { Grid } from '../../Grid';
+import { Grid, GridProps } from '../../Grid';
 
 export const subNavWidth = `${232 / 16}rem`;
 
@@ -17,8 +17,7 @@ const SubNavWrapper = styled(Grid)`
   z-index: 1;
 `;
 
-// todo: extend GridProps
-export interface SubNavProps {
+export interface SubNavProps extends GridProps {
   ariaLabel: string;
 }
 
