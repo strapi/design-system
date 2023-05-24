@@ -1,4 +1,3 @@
-import { Box } from '../Box';
 import { Flex } from '../Flex';
 
 interface ActionLayoutProps {
@@ -12,18 +11,14 @@ export const ActionLayout = ({ startActions, endActions }: ActionLayoutProps) =>
   }
 
   return (
-    <Box paddingLeft={10} paddingRight={10}>
-      <Box paddingBottom={4}>
-        <Flex justifyContent="space-between" alignItems="flex-start">
-          <Flex gap={2} wrap="wrap">
-            {startActions}
-          </Flex>
+    <Flex justifyContent="space-between" alignItems="flex-start" paddingBottom={4} paddingLeft={10} paddingRight={10}>
+      <Flex gap={2} wrap="wrap">
+        {startActions}
+      </Flex>
 
-          <Flex gap={2} shrink={0} wrap="wrap">
-            {endActions}
-          </Flex>
-        </Flex>
-      </Box>
-    </Box>
+      <Flex gap={2} shrink={0} wrap="wrap">
+        {endActions}
+      </Flex>
+    </Flex>
   );
 };
