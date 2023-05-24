@@ -4,8 +4,8 @@ import { Box, BoxProps } from '../Box';
 
 export interface GridItemProps extends BoxProps {
   col: number;
-  s: number;
-  xs: number;
+  s?: number;
+  xs?: number;
 }
 
 export const GridItem = styled(Box)<GridItemProps>`
