@@ -1,7 +1,7 @@
-import styled, { CSSProperties, DefaultTheme } from 'styled-components';
+import styled, { CSSProperties } from 'styled-components';
 
 import { Box, BoxProps } from '../Box';
-import handleResponsiveValues from '../helpers/handleResponsiveValues';
+import handleResponsiveValues, { ResponsiveValue } from '../helpers/handleResponsiveValues';
 
 /**
  * Prevents these attributes from being spread on the DOM node
@@ -16,7 +16,7 @@ export type FlexProps<TElement extends keyof JSX.IntrinsicElements = 'div'> = Bo
   /**
    * Supports responsive values
    */
-  gap?: keyof DefaultTheme['spaces'] | Array<keyof DefaultTheme['spaces']>;
+  gap?: ResponsiveValue;
   inline?: boolean;
   justifyContent?: CSSProperties['justifyContent'];
   wrap?: CSSProperties['flexWrap'];
