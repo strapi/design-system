@@ -1009,7 +1009,7 @@ const NO_VALUE_FOUND_NAME = 'ComboboxNoValueFound';
 interface NoValueFoundProps extends PrimitiveDivProps {}
 
 const ComboboxNoValueFound = React.forwardRef<HTMLDivElement, NoValueFoundProps>((props, ref) => {
-  const { textValue = '', locale } = useComboboxContext(NO_VALUE_FOUND_NAME);
+  const { filterValue = '', locale } = useComboboxContext(NO_VALUE_FOUND_NAME);
   const [items, setItems] = React.useState<CollectionData[]>([]);
   const { subscribe } = useCollection(undefined);
 
@@ -1029,7 +1029,7 @@ const ComboboxNoValueFound = React.forwardRef<HTMLDivElement, NoValueFoundProps>
     };
   }, [subscribe]);
 
-  if (items.some((item) => startsWith(item.textValue, textValue))) {
+  if (items.some((item) => startsWith(item.textValue, filterValue))) {
     return null;
   }
 
