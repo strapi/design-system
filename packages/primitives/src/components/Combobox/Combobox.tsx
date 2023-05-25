@@ -406,6 +406,10 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
       ref={composedRefs}
       onKeyDown={composeEventHandlers(props.onKeyDown, (event) => {
         if (['ArrowUp', 'ArrowDown', 'Home', 'End'].includes(event.key)) {
+          if (!context.open) {
+            handleOpen();
+          }
+
           setTimeout(() => {
             const items = getItems().filter((item) => !item.disabled);
             let candidateNodes = items.map((item) => item.ref.current!);
@@ -491,10 +495,7 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
         }
       })}
       onKeyUp={composeEventHandlers(props.onKeyUp, (event) => {
-        if (
-          !context.open &&
-          (isPrintableCharacter(event.key) || ['ArrowUp', 'ArrowDown', 'Home', 'End', 'Backspace'].includes(event.key))
-        ) {
+        if (!context.open && (isPrintableCharacter(event.key) || ['Backspace'].includes(event.key))) {
           handleOpen();
         }
 
