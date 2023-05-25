@@ -1,9 +1,8 @@
 import React from 'react';
 
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { Box } from '../Box';
+import { Box, BoxProps } from '../Box';
 import { Divider } from '../Divider';
 import { Flex } from '../Flex';
 import { Typography } from '../Typography';
@@ -34,7 +33,12 @@ const ButtonBox = styled(Box)`
   border: none;
 `;
 
-export const TFooter = ({ children, icon, ...props }) => {
+export interface TFooterProps extends BoxProps<'button'> {
+  children: React.ReactNode;
+  icon: React.ReactNode;
+}
+
+export const TFooter = ({ children, icon, ...props }: TFooterProps) => {
   return (
     <div>
       <Divider />
@@ -52,9 +56,4 @@ export const TFooter = ({ children, icon, ...props }) => {
       </ButtonBox>
     </div>
   );
-};
-
-TFooter.propTypes = {
-  children: PropTypes.string.isRequired,
-  icon: PropTypes.node.isRequired,
 };

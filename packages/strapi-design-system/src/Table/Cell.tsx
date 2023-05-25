@@ -1,10 +1,9 @@
 import React from 'react';
 
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { Flex } from '../Flex';
-import { RawTh, RawTd } from '../RawTable/RawCell';
+import { RawTh, RawTd, RawTdProps } from '../RawTable/RawCell';
 
 const CellWrapper = styled(RawTd)`
   vertical-align: middle;
@@ -26,7 +25,12 @@ const ActionWrapper = styled.span`
   }
 `;
 
-export const Th = ({ children, action, ...props }) => {
+export interface ThProps extends RawTdProps {
+  children: React.ReactNode;
+  action?: React.ReactNode;
+}
+
+export const Th = ({ children, action, ...props }: ThProps) => {
   return (
     <CellWrapper as={RawTh} {...props}>
       <Flex>
@@ -37,15 +41,6 @@ export const Th = ({ children, action, ...props }) => {
   );
 };
 
-Th.defaultProps = {
-  action: undefined,
-};
-
-Th.propTypes = {
-  action: PropTypes.node,
-  children: PropTypes.node.isRequired,
-};
-
-export const Td = (props) => {
-  return <CellWrapper {...props} />;
+export const Td = ({ children, ...props }: RawTdProps) => {
+  return <CellWrapper {...props}>{children}</CellWrapper>;
 };

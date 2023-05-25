@@ -1,10 +1,9 @@
 import React, { useRef, useState, useEffect } from 'react';
 
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { Box } from '../Box';
-import { RawTable } from '../RawTable/RawTable';
+import { RawTable, RawTableProps } from '../RawTable/RawTable';
 
 const TableContainer = styled(Box)`
   overflow: hidden;
@@ -16,7 +15,9 @@ const TableWrapper = styled(RawTable)`
   white-space: nowrap;
 `;
 
-const TableBox = styled(Box)`
+export type Overflowing = 'both' | 'left' | 'right';
+
+const TableBox = styled(Box)<{ overflowing?: Overflowing }>`
   &:before {
     // TODO: make sure to add a token for this weird stuff
     background: linear-gradient(90deg, #c0c0cf 0%, rgba(0, 0, 0, 0) 100%);
@@ -47,9 +48,13 @@ const ScrollContainer = styled(Box)`
   overflow-x: auto;
 `;
 
-export const Table = ({ colCount, rowCount, footer, ...props }) => {
-  const tableRef = useRef(null);
-  const [overflowing, setOverflowing] = useState();
+export interface TableProps extends RawTableProps {
+  footer?: React.ReactNode;
+}
+
+export const Table = ({ footer, ...props }: TableProps) => {
+  const tableRef = useRef<HTMLDivElement>(null!);
+  const [overflowing, setOverflowing] = useState<Overflowing>();
 
   const handleScroll = (e) => {
     const maxScrollLeft = e.target.scrollWidth - e.target.clientWidth;
@@ -81,20 +86,10 @@ export const Table = ({ colCount, rowCount, footer, ...props }) => {
     <TableContainer shadow="tableShadow" hasRadius background="neutral0">
       <TableBox overflowing={overflowing} position="relative">
         <ScrollContainer ref={tableRef} onScroll={handleScroll} paddingLeft={6} paddingRight={6}>
-          <TableWrapper colCount={colCount} rowCount={rowCount} {...props} />
+          <TableWrapper {...props} />
         </ScrollContainer>
       </TableBox>
       {footer}
     </TableContainer>
   );
-};
-
-Table.defaultProps = {
-  footer: undefined,
-};
-
-Table.propTypes = {
-  colCount: PropTypes.number.isRequired,
-  footer: PropTypes.node,
-  rowCount: PropTypes.number.isRequired,
 };
