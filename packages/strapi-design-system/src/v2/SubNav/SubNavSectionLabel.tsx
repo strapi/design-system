@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { CarretDown } from '@strapi/icons';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { Box } from '../../Box';
@@ -13,13 +12,27 @@ const SubNavSectionLabelWrapper = styled(Flex)`
   padding: 0;
   background: transparent;
 `;
-const DropDownIconWrapper = styled.div`
+const DropDownIconWrapper = styled.div<{ rotated?: boolean }>`
   display: flex;
   align-items: center;
   transform: rotateX(${({ rotated }) => (rotated ? '0deg' : '180deg')});
 `;
 
-export const SubNavSectionLabel = ({ collapsable, label, onClick, ariaExpanded, ariaControls }) => {
+export interface SubNavSectionLabelProps {
+  ariaControls?: string;
+  ariaExpanded?: boolean;
+  collapsable?: boolean;
+  label: string;
+  onClick: React.MouseEventHandler<HTMLButtonElement> & React.MouseEventHandler<HTMLDivElement>;
+}
+
+export const SubNavSectionLabel = ({
+  collapsable = false,
+  label,
+  onClick = () => {},
+  ariaExpanded,
+  ariaControls,
+}: SubNavSectionLabelProps) => {
   if (collapsable) {
     return (
       <SubNavSectionLabelWrapper
@@ -52,18 +65,4 @@ export const SubNavSectionLabel = ({ collapsable, label, onClick, ariaExpanded, 
       </Box>
     </SubNavSectionLabelWrapper>
   );
-};
-
-SubNavSectionLabel.defaultProps = {
-  ariaControls: null,
-  ariaExpanded: null,
-  collapsable: false,
-  onClick() {},
-};
-SubNavSectionLabel.propTypes = {
-  ariaControls: PropTypes.string,
-  ariaExpanded: PropTypes.bool,
-  collapsable: PropTypes.bool,
-  label: PropTypes.string.isRequired,
-  onClick: PropTypes.func,
 };
