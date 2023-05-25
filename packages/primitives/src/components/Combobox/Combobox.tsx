@@ -45,6 +45,7 @@ interface Data {
   value: string;
   disabled: boolean;
   textValue: string;
+  isVisible?: boolean;
 }
 
 interface OptionData extends Data {
@@ -411,7 +412,7 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
           }
 
           setTimeout(() => {
-            const items = getItems().filter((item) => !item.disabled);
+            const items = getItems().filter((item) => !item.disabled && item.isVisible);
             let candidateNodes = items.map((item) => item.ref.current!);
 
             if (['ArrowUp', 'End'].includes(event.key)) {
@@ -860,6 +861,7 @@ interface ComboboxItemContextValue {
   onTextValueChange(node: HTMLSpanElement | null): void;
   textId: string;
   isSelected: boolean;
+  textValue: string;
 }
 
 const [ComboboxItemProvider, useComboboxItemContext] = createContext<ComboboxItemContextValue>(ITEM_NAME);
@@ -868,51 +870,28 @@ const [ComboboxItemProvider, useComboboxItemContext] = createContext<ComboboxIte
  * ComboboxItem
  * -----------------------------------------------------------------------------------------------*/
 
-type ComboboxItemElement = React.ElementRef<typeof Primitive.div>;
+type ComboboxItemElement = ComboboxItemImplElement;
 
-interface ItemProps extends PrimitiveDivProps {
-  value: string;
-  disabled?: boolean;
+interface ItemProps extends ItemImplProps {
   textValue?: string;
 }
 
 export const ComboboxItem = React.forwardRef<ComboboxItemElement, ItemProps>((props, forwardedRef) => {
-  const { value, disabled = false, textValue: textValueProp, ...restProps } = props;
-  const itemRef = React.useRef<HTMLDivElement>(null);
+  const { value, disabled = false, textValue: textValueProp } = props;
+  const [fragment, setFragment] = React.useState<DocumentFragment>();
 
-  const composedRefs = useComposedRefs(forwardedRef, itemRef);
+  // setting the fragment in `useLayoutEffect` as `DocumentFragment` doesn't exist on the server
+  useLayoutEffect(() => {
+    setFragment(new DocumentFragment());
+  }, []);
 
-  const { getItems } = useCollection(undefined);
-  const {
-    onTextValueChange,
-    textValue: contextTextValue,
-    visuallyFocussedItem,
-    ...context
-  } = useComboboxContext(ITEM_NAME);
+  const { onTextValueChange, textValue: contextTextValue, ...context } = useComboboxContext(ITEM_NAME);
 
   const textId = useId();
 
   const [textValue, setTextValue] = React.useState(textValueProp ?? '');
 
-  const isFocused = React.useMemo(() => {
-    return visuallyFocussedItem === getItems().find((item) => item.ref.current === itemRef.current)?.ref.current;
-  }, [getItems, visuallyFocussedItem]);
-
   const isSelected = context.value === value;
-
-  const handleSelect = () => {
-    if (!disabled) {
-      context.onValueChange(value);
-      onTextValueChange(textValue);
-      context.onOpenChange(false);
-
-      if (context.autocomplete === 'both') {
-        context.onFilterValueChange(textValue);
-      }
-
-      context.trigger?.focus({ preventScroll: true });
-    }
-  };
 
   const { startsWith } = useFilter(context.locale, { sensitivity: 'base' });
 
@@ -932,41 +911,116 @@ export const ComboboxItem = React.forwardRef<ComboboxItemElement, ItemProps>((pr
     }
   }, [textValue, isSelected, contextTextValue, onTextValueChange]);
 
-  const id = useId();
-
-  if (context.autocomplete === 'list' && textValue && contextTextValue && !startsWith(textValue, contextTextValue)) {
-    return null;
-  }
-
   if (
-    context.autocomplete === 'both' &&
-    textValue &&
-    context.filterValue &&
-    !startsWith(textValue, context.filterValue)
+    (context.autocomplete === 'both' &&
+      textValue &&
+      context.filterValue &&
+      !startsWith(textValue, context.filterValue)) ||
+    (context.autocomplete === 'list' && textValue && contextTextValue && !startsWith(textValue, contextTextValue))
   ) {
-    return null;
+    return fragment
+      ? ReactDOM.createPortal(
+          <ComboboxItemProvider
+            textId={textId}
+            onTextValueChange={handleTextValueChange}
+            isSelected={isSelected}
+            textValue={textValue}
+          >
+            <Collection.ItemSlot
+              scope={undefined}
+              value={value}
+              textValue={textValue}
+              disabled={disabled}
+              type="option"
+              isVisible={false}
+            >
+              <ComboboxItemImpl ref={forwardedRef} {...props} />
+            </Collection.ItemSlot>
+          </ComboboxItemProvider>,
+          fragment,
+        )
+      : null;
   }
 
   return (
-    <ComboboxItemProvider textId={textId} onTextValueChange={handleTextValueChange} isSelected={isSelected}>
-      <Collection.ItemSlot scope={undefined} value={value} textValue={textValue} disabled={disabled} type="option">
-        <Primitive.div
-          role="option"
-          aria-labelledby={textId}
-          data-highlighted={isFocused ? '' : undefined}
-          // `isFocused` caveat fixes stuttering in VoiceOver
-          aria-selected={isSelected && isFocused}
-          data-state={isSelected ? 'checked' : 'unchecked'}
-          aria-disabled={disabled || undefined}
-          data-disabled={disabled ? '' : undefined}
-          tabIndex={disabled ? undefined : -1}
-          {...restProps}
-          id={id}
-          ref={composedRefs}
-          onPointerUp={composeEventHandlers(restProps.onPointerUp, handleSelect)}
-        />
+    <ComboboxItemProvider
+      textId={textId}
+      onTextValueChange={handleTextValueChange}
+      isSelected={isSelected}
+      textValue={textValue}
+    >
+      <Collection.ItemSlot
+        scope={undefined}
+        value={value}
+        textValue={textValue}
+        disabled={disabled}
+        type="option"
+        isVisible
+      >
+        <ComboboxItemImpl ref={forwardedRef} {...props} />
       </Collection.ItemSlot>
     </ComboboxItemProvider>
+  );
+});
+
+/* -------------------------------------------------------------------------------------------------
+ * ComboboxItemImpl
+ * -----------------------------------------------------------------------------------------------*/
+
+const ITEM_IMPL_NAME = 'ComboboxItemImpl';
+
+type ComboboxItemImplElement = React.ElementRef<typeof Primitive.div>;
+
+interface ItemImplProps extends PrimitiveDivProps {
+  value: string;
+  disabled?: boolean;
+}
+
+const ComboboxItemImpl = React.forwardRef<ComboboxItemImplElement, ItemImplProps>((props, forwardedRef) => {
+  const { value, disabled = false, ...restProps } = props;
+  const itemRef = React.useRef<HTMLDivElement>(null);
+  const composedRefs = useComposedRefs(forwardedRef, itemRef);
+
+  const { getItems } = useCollection(undefined);
+  const { onTextValueChange, visuallyFocussedItem, ...context } = useComboboxContext(ITEM_NAME);
+  const { isSelected, textValue, textId } = useComboboxItemContext(ITEM_IMPL_NAME);
+
+  const handleSelect = () => {
+    if (!disabled) {
+      context.onValueChange(value);
+      onTextValueChange(textValue);
+      context.onOpenChange(false);
+
+      if (context.autocomplete === 'both') {
+        context.onFilterValueChange(textValue);
+      }
+
+      context.trigger?.focus({ preventScroll: true });
+    }
+  };
+
+  const isFocused = React.useMemo(() => {
+    return visuallyFocussedItem === getItems().find((item) => item.ref.current === itemRef.current)?.ref.current;
+  }, [getItems, visuallyFocussedItem]);
+
+  const id = useId();
+
+  return (
+    <Primitive.div
+      role="option"
+      aria-labelledby={textId}
+      data-highlighted={isFocused ? '' : undefined}
+      // `isFocused` caveat fixes stuttering in VoiceOver
+      aria-selected={isSelected && isFocused}
+      data-state={isSelected ? 'checked' : 'unchecked'}
+      aria-disabled={disabled || undefined}
+      data-disabled={disabled ? '' : undefined}
+      tabIndex={disabled ? undefined : -1}
+      {...restProps}
+      id={id}
+      ref={composedRefs}
+      onPointerUp={composeEventHandlers(restProps.onPointerUp, handleSelect)}
+    />
   );
 });
 
@@ -1010,7 +1064,7 @@ const NO_VALUE_FOUND_NAME = 'ComboboxNoValueFound';
 interface NoValueFoundProps extends PrimitiveDivProps {}
 
 const ComboboxNoValueFound = React.forwardRef<HTMLDivElement, NoValueFoundProps>((props, ref) => {
-  const { filterValue = '', locale } = useComboboxContext(NO_VALUE_FOUND_NAME);
+  const { textValue = '', filterValue = '', locale, autocomplete } = useComboboxContext(NO_VALUE_FOUND_NAME);
   const [items, setItems] = React.useState<CollectionData[]>([]);
   const { subscribe } = useCollection(undefined);
 
@@ -1030,7 +1084,13 @@ const ComboboxNoValueFound = React.forwardRef<HTMLDivElement, NoValueFoundProps>
     };
   }, [subscribe]);
 
-  if (items.some((item) => startsWith(item.textValue, filterValue))) {
+  if (items.length === 0) return null;
+
+  if (autocomplete === 'list' && items.some((item) => startsWith(item.textValue, textValue))) {
+    return null;
+  }
+
+  if (autocomplete === 'both' && items.some((item) => startsWith(item.textValue, filterValue))) {
     return null;
   }
 
@@ -1099,6 +1159,7 @@ const ComboboxCreateItem = React.forwardRef<ComboboxItemElement, CreateItemProps
       value={textValue ?? ''}
       textValue={textValue ?? ''}
       disabled={disabled}
+      isVisible
       type="create"
     >
       <Primitive.div
