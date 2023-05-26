@@ -9,34 +9,27 @@ import { Flex } from '../Flex';
 import { buttonFocusStyle } from '../themes/utils';
 import { Typography } from '../Typography';
 
-const AlertBody = styled(Box)`
-  flex: 1;
-  flex-wrap: wrap;
-  display: flex;
-  flex-direction: row;
-`;
+const CloseButton = styled(Box)`
+  svg {
+    height: 100%;
+    width: 100%;
 
-const AlertWrapper = styled(Box)`
-  border: 1px solid ${handleBorderColor};
-  background: ${handleBackgroundColor};
-  box-shadow: ${({ theme }) => theme.shadows.filterShadow};
-`;
-
-const CloseButton = styled.button`
-  border: none;
-  background: transparent;
-  font-size: ${12 / 16}rem;
-  svg path {
-    fill: ${({ theme }) => theme.colors.neutral700};
+    path {
+      fill: ${({ theme }) => theme.colors.neutral700};
+    }
   }
-  margin-top: ${({ theme }) => theme.spaces[1]};
+
   ${buttonFocusStyle};
 `;
 
-const AlertIconWrapper = styled(Box)`
-  font-size: ${20 / 16}rem;
-  svg path {
-    fill: ${handleIconColor};
+const AlertIconWrapper = styled(Flex)`
+  svg {
+    height: 100%;
+    width: 100%;
+
+    path {
+      fill: ${handleIconColor};
+    }
   }
 `;
 
@@ -57,15 +50,12 @@ const AlertIcon = ({ variant, ...props }: AlertIconProps) => {
 };
 
 const ActionBox = styled(Box)`
-  // Checked with the designers, validated
-  padding-top: 1px;
-
   & a > span {
     color: ${handleIconColor};
+  }
 
-    svg path {
-      fill: ${handleIconColor};
-    }
+  svg path {
+    fill: ${handleIconColor};
   }
 `;
 
@@ -113,35 +103,52 @@ export const Alert = ({
   ...props
 }: AlertProps) => {
   return (
-    <AlertWrapper hasRadius paddingLeft={5} paddingRight={6} paddingTop={5} variant={variant} {...props}>
-      <Flex alignItems="flex-start">
-        <AlertIconWrapper paddingRight={3} variant={variant}>
-          <AlertIcon variant={variant} aria-hidden />
-        </AlertIconWrapper>
-        <AlertBody role={variant === 'danger' ? 'alert' : 'status'}>
-          <Box paddingBottom={2} paddingRight={1}>
-            <Typography fontWeight="bold" textColor="neutral800" as={titleAs}>
-              {title}
-            </Typography>
-          </Box>
+    <Flex
+      alignItems="flex-start"
+      background={handleBackgroundColor(variant)}
+      borderColor={handleBorderColor(variant)}
+      boxShadow="filterShadow"
+      gap={3}
+      hasRadius
+      padding={5}
+      paddingRight={6}
+      variant={variant}
+      {...props}
+    >
+      <AlertIconWrapper height={`${20 / 16}rem`} shrink={0} variant={variant} width={`${20 / 16}rem`}>
+        <AlertIcon aria-hidden variant={variant} />
+      </AlertIconWrapper>
 
-          <Box paddingBottom={action ? 2 : 5} paddingRight={2}>
-            <Typography as="p" textColor="neutral800">
-              {children}
-            </Typography>
-          </Box>
+      <Flex
+        alignItems="start"
+        gap={action ? 2 : 1}
+        wrap="wrap"
+        role={variant === 'danger' ? 'alert' : 'status'}
+        width="100%"
+      >
+        <Typography fontWeight="bold" textColor="neutral800" as={titleAs}>
+          {title}
+        </Typography>
 
-          {action && (
-            <ActionBox paddingBottom={5} variant={variant}>
-              {action}
-            </ActionBox>
-          )}
-        </AlertBody>
+        <Typography as="p" textColor="neutral800">
+          {children}
+        </Typography>
 
-        <CloseButton onClick={onClose} aria-label={closeLabel}>
-          <Cross aria-hidden />
-        </CloseButton>
+        {action && <ActionBox variant={variant}>{action}</ActionBox>}
       </Flex>
-    </AlertWrapper>
+
+      <CloseButton
+        as="button"
+        background="transparent"
+        borderColor={undefined}
+        height={`${12 / 16}rem`}
+        marginTop={1}
+        onClick={onClose}
+        width={`${12 / 16}rem`}
+        aria-label={closeLabel}
+      >
+        <Cross aria-hidden />
+      </CloseButton>
+    </Flex>
   );
 };
