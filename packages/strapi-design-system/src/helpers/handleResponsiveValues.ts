@@ -6,10 +6,13 @@ interface ResponsiveValueObject {
   mobile?: keyof DefaultTheme['spaces'];
 }
 
-type ResponsiveValue =
-  | ResponsiveValueObject
-  | Array<keyof DefaultTheme['spaces'] | undefined>
-  | keyof DefaultTheme['spaces'];
+type ResponsiveValueTuple = [
+  desktop?: keyof DefaultTheme['spaces'],
+  tablet?: keyof DefaultTheme['spaces'],
+  mobile?: keyof DefaultTheme['spaces'],
+];
+
+export type ResponsiveValue = ResponsiveValueObject | keyof DefaultTheme['spaces'] | ResponsiveValueTuple;
 
 /* eslint-disable consistent-return */
 const handleResponsiveValues = (property: string, value: ResponsiveValue | undefined, theme: DefaultTheme) => {
@@ -17,7 +20,7 @@ const handleResponsiveValues = (property: string, value: ResponsiveValue | undef
     return undefined;
   }
 
-  let transformedArray = Array.isArray(value) ? value : [];
+  let transformedArray: ResponsiveValueTuple = Array.isArray(value) ? value : [];
 
   if (!Array.isArray(value) && typeof value === 'object') {
     transformedArray = [value?.desktop, value?.tablet, value?.mobile];

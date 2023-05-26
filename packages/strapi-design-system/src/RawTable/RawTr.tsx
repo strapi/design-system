@@ -2,7 +2,7 @@ import { cloneElement, Children, isValidElement, ReactElement } from 'react';
 
 import { Box, BoxProps } from '../Box';
 
-interface RawTrProps extends BoxProps<'tr'> {
+export interface RawTrProps extends BoxProps<'tr'> {
   'aria-rowindex'?: number;
 }
 
