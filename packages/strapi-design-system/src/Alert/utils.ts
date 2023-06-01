@@ -7,36 +7,22 @@ interface StyledProps {
   variant: AlertVariant;
 }
 
-export const handleBackgroundColor = ({ theme, variant }: StyledProps) => {
-  if (variant === 'danger') {
-    return theme.colors.danger100;
+export const handleBackgroundColor = (variant: AlertVariant) => {
+  switch (variant) {
+    case 'danger':
+      return 'danger100';
+    case 'success':
+      return 'success100';
+    case 'warning':
+      return 'warning100';
+    default:
+      return 'primary100';
   }
-
-  if (variant === 'success') {
-    return theme.colors.success100;
-  }
-
-  if (variant === 'warning') {
-    return theme.colors.warning100;
-  }
-
-  return theme.colors.primary100;
 };
 
-export const handleBorderColor = ({ theme, variant }: StyledProps) => {
-  if (variant === 'danger') {
-    return theme.colors.danger200;
-  }
-
-  if (variant === 'success') {
-    return theme.colors.success200;
-  }
-
-  if (variant === 'warning') {
-    return theme.colors.warning200;
-  }
-
-  return theme.colors.primary200;
+// border-color is always 1 shade darker than background-color
+export const handleBorderColor = (variant: AlertVariant) => {
+  return handleBackgroundColor(variant).replace('100', '200');
 };
 
 export const handleIconColor = ({ theme, variant }: StyledProps) => {
