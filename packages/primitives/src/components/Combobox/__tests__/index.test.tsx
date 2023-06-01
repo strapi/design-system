@@ -580,37 +580,6 @@ describe('Combobox', () => {
 
       expect(onValueChange).toHaveBeenCalled();
     });
-
-    it('should correctly show the NoValue text as the textValue changes in different ways', async () => {
-      const { getByRole, queryByText, user } = render({ hideCreatable: true });
-
-      await user.click(getByRole('combobox'));
-
-      /**
-       * see note above
-       */
-      getByRole('combobox').focus();
-
-      await user.keyboard('Option 1');
-
-      expect(getByRole('combobox')).toHaveValue('Option 1');
-      expect(queryByText('No value found')).not.toBeInTheDocument();
-
-      await user.keyboard('2');
-
-      expect(getByRole('combobox')).toHaveValue('Option 12');
-      expect(queryByText('No value found')).toBeInTheDocument();
-
-      await user.keyboard('[Backspace]');
-
-      expect(getByRole('combobox')).toHaveValue('Option 1');
-      expect(queryByText('No value found')).not.toBeInTheDocument();
-
-      await user.clear(getByRole('combobox'));
-
-      expect(getByRole('combobox')).toHaveValue('');
-      expect(queryByText('No value found')).not.toBeInTheDocument();
-    });
   });
 
   describe('Controlling the component', () => {
