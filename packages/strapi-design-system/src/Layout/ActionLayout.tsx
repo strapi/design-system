@@ -6,7 +6,7 @@ interface ActionLayoutProps {
 }
 
 export const ActionLayout = ({ startActions, endActions }: ActionLayoutProps) => {
-  if (!startActions || !endActions) {
+  if (!startActions && !endActions) {
     return null;
   }
 
