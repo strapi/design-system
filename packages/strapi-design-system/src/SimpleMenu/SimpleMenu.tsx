@@ -121,8 +121,11 @@ export const MenuItem = ({ children, onClick = () => {}, to, isFocused = false, 
   );
 };
 
-export interface SimpleMenuProps {
-  as?: React.ElementType;
+export type SimpleMenuProps<As extends React.ElementType = React.ElementType> = Omit<
+  React.ComponentPropsWithoutRef<As>,
+  'as' | 'children' | 'id' | 'label' | 'onClose' | 'onOpen' | 'onReachEnd' | 'popoverPlacement' | 'size'
+> & {
+  as?: As;
   children: React.ReactNode;
   id?: string;
   label: React.ReactElement | string | number;
@@ -139,9 +142,9 @@ export interface SimpleMenuProps {
    * prop, the size prop is passed along too, but needs to be handled there
    */
   size?: 'S' | 'M';
-}
+};
 
-export const SimpleMenu = ({
+export const SimpleMenu = <As extends React.ElementType = typeof Button>({
   label,
   children,
   id,
@@ -152,8 +155,8 @@ export const SimpleMenu = ({
   popoverPlacement = 'bottom-start',
   onReachEnd,
   ...props
-}: SimpleMenuProps) => {
-  const menuButtonRef = useRef<HTMLElement>(undefined!);
+}: SimpleMenuProps<As>) => {
+  const menuButtonRef: React.ComponentProps<As>['ref'] = useRef(undefined!);
   const menuId = useId(id);
   const didMount = useRef(false);
   const [visible, setVisible] = useState(false);
