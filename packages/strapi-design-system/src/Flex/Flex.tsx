@@ -26,7 +26,7 @@ export const Flex = styled(Box).withConfig<FlexProps>({
   shouldForwardProp: (prop, defPropValFN) => !transientProps[prop as keyof FlexProps] && defPropValFN(prop),
 })`
   align-items: ${({ alignItems = 'center' }) => alignItems};
-  display: ${({ inline }) => (inline ? 'inline-flex' : 'flex')};
+  display: ${({ display = 'flex', inline }) => (inline ? 'inline-flex' : display)};
   flex-direction: ${({ direction = 'row' }) => direction};
   flex-shrink: ${({ shrink }) => shrink};
   flex-wrap: ${({ wrap }) => wrap};

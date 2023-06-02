@@ -192,6 +192,11 @@ describe('ModalLayout', () => {
         background: #ffffff;
       }
 
+      .c16 svg {
+        height: 0.75rem;
+        width: auto;
+      }
+
       .c16[aria-disabled='true'] {
         border: 1px solid #dcdce4;
         background: #eaeaef;
@@ -241,6 +246,11 @@ describe('ModalLayout', () => {
         height: 2rem;
         border: 1px solid #d9d8ff;
         background: #f0f0ff;
+      }
+
+      .c19 svg {
+        height: 0.75rem;
+        width: auto;
       }
 
       .c19[aria-disabled='true'] {
@@ -300,6 +310,11 @@ describe('ModalLayout', () => {
 
       .c20 {
         height: 2rem;
+      }
+
+      .c20 svg {
+        height: 0.75rem;
+        width: auto;
       }
 
       .c20[aria-disabled='true'] {
