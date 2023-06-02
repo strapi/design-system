@@ -40,7 +40,7 @@
     "@radix-ui/react-use-callback-ref": "^1.0.0",
     "@radix-ui/react-use-controllable-state": "^1.0.0",
     "@radix-ui/react-use-layout-effect": "1.0.0",
-    "@radix-ui/react-use-previous": "^1.0.0",
+    "@radix-ui/react-use-previous": "^1.0.1",
     "@radix-ui/react-visually-hidden": "^1.0.2",
     "aria-hidden": "^1.2.3",
     "react-remove-scroll": "^2.5.5"
