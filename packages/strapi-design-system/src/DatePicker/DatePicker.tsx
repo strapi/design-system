@@ -673,6 +673,7 @@ const DatePickerTextInput = React.forwardRef<DatePickerTextInputElement, TextInp
                 break;
             }
           } else if (context.open && ['Enter'].includes(event.key)) {
+            event.preventDefault();
             onTextValueChange(context.calendarDate.toString().split('-').reverse().join(separator));
             context.onValueChange(context.calendarDate);
             context.onOpenChange(false);
