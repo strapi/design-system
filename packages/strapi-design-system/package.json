@@ -25,7 +25,7 @@
     "@radix-ui/react-dropdown-menu": "^2.0.4",
     "@radix-ui/react-focus-scope": "1.0.2",
     "@strapi/ui-primitives": "^1.7.10",
-    "@uiw/react-codemirror": "^4.19.16",
+    "@uiw/react-codemirror": "^4.20.4",
     "aria-hidden": "^1.2.3",
     "compute-scroll-into-view": "^3.0.3",
     "prop-types": "^15.8.1",
