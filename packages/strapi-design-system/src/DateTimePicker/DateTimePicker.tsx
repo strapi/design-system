@@ -233,9 +233,11 @@ export const convertUTCDateToCalendarDateTime = (date: Date, resetTime = true): 
 };
 
 const DatePicker = styled(DatePickerInput)`
-  flex: 1 0 70%;
+  flex: 1 1 70%;
+  min-width: 120px;
 `;
 
 const TimePicker = styled(TimePickerInput)`
-  flex: 1 0 30%;
+  flex: 1 1 30%;
+  min-width: 120px;
 `;
