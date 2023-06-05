@@ -16,7 +16,7 @@ const Theme = ({ children }) => {
   }, [isDarkAddon, isDark]);
 
   return (
-    <DesignSystemProvider locale="en-GB" theme={isDark ? darkTheme : lightTheme}>
+    <DesignSystemProvider locale="en" theme={isDark ? darkTheme : lightTheme}>
       <Box padding={2} background="neutral0">
         {children}
       </Box>

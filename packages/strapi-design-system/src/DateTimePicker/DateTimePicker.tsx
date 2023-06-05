@@ -89,6 +89,7 @@ export const DateTimePicker = ({
   const timeFormatter = useDateFormatter(context.locale, {
     hour: '2-digit',
     minute: '2-digit',
+    hour12: false,
   });
 
   const timeValue = dateValue ? timeFormatter.format(dateValue.toDate(getLocalTimeZone())) : '';
