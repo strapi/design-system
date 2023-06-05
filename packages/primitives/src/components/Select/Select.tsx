@@ -39,10 +39,11 @@ import { useControllableState } from '@radix-ui/react-use-controllable-state';
 import { useLayoutEffect } from '@radix-ui/react-use-layout-effect';
 import { usePrevious } from '@radix-ui/react-use-previous';
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
-import { useCallbackRef } from '@strapi/ui-primitives';
 import { hideOthers } from 'aria-hidden';
 import * as ReactDOM from 'react-dom';
 import { RemoveScroll } from 'react-remove-scroll';
+
+import { useCallbackRef } from '../../hooks/useCallbackRef';
 
 type Direction = 'ltr' | 'rtl';
 

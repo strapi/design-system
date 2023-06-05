@@ -916,7 +916,7 @@ interface ItemProps extends ItemImplProps {
 }
 
 export const ComboboxItem = React.forwardRef<ComboboxItemElement, ItemProps>((props, forwardedRef) => {
-  const { value, disabled = false, textValue: textValueProp } = props;
+  const { value, disabled = false, textValue: textValueProp, ...restProps } = props;
   const [fragment, setFragment] = React.useState<DocumentFragment>();
 
   // setting the fragment in `useLayoutEffect` as `DocumentFragment` doesn't exist on the server
@@ -973,7 +973,7 @@ export const ComboboxItem = React.forwardRef<ComboboxItemElement, ItemProps>((pr
               type="option"
               isVisible={false}
             >
-              <ComboboxItemImpl ref={forwardedRef} {...props} />
+              <ComboboxItemImpl ref={forwardedRef} value={value} disabled={disabled} {...restProps} />
             </Collection.ItemSlot>
           </ComboboxItemProvider>,
           fragment,
@@ -996,7 +996,7 @@ export const ComboboxItem = React.forwardRef<ComboboxItemElement, ItemProps>((pr
         type="option"
         isVisible
       >
-        <ComboboxItemImpl ref={forwardedRef} {...props} />
+        <ComboboxItemImpl ref={forwardedRef} value={value} disabled={disabled} {...restProps} />
       </Collection.ItemSlot>
     </ComboboxItemProvider>
   );
