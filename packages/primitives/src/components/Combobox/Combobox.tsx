@@ -1125,6 +1125,10 @@ const ComboboxNoValueFound = React.forwardRef<HTMLDivElement, NoValueFoundProps>
 
   if (items.length === 0) return null;
 
+  if (autocomplete === 'none') {
+    return null;
+  }
+
   if (autocomplete === 'list' && items.some((item) => startsWith(item.textValue, textValue))) {
     return null;
   }

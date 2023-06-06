@@ -84,6 +84,7 @@ export const TimePickerInput = ({
   const formatter = useDateFormatter(context.locale, {
     hour: '2-digit',
     minute: '2-digit',
+    hour12: false,
   });
 
   const separator = React.useMemo(() => {
