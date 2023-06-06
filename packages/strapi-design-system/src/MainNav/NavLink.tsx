@@ -1,7 +1,6 @@
 import React from 'react';
 
-import PropTypes from 'prop-types';
-import { NavLink as RouterLink } from 'react-router-dom';
+import { NavLink as RouterLink, LinkProps } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { useMainNav } from './MainNavContext';
@@ -10,6 +9,13 @@ import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { Tooltip } from '../Tooltip';
 import { Typography } from '../Typography';
+
+export interface NavLinkProps extends LinkProps {
+  badgeAriaLabel: string;
+  badgeContent: string | number;
+  children: React.ReactNode;
+  icon: React.ReactNode;
+}
 
 const IconBox = styled(Box)`
   svg {
@@ -63,7 +69,7 @@ const MainNavRow = styled(Flex)`
   padding: ${({ theme }) => `${theme.spaces[2]} ${theme.spaces[3]}`};
 `;
 
-const CustomBadge = styled(Badge)`
+const CustomBadge = styled(Badge)<{ condensed?: boolean }>`
   ${({ theme, condensed }) =>
     condensed &&
     `
@@ -89,7 +95,7 @@ const CustomBadge = styled(Badge)`
   background: ${({ theme }) => theme.colors.primary600};
 `;
 
-export const NavLink = ({ children, icon, badgeContent, badgeAriaLabel, ...props }) => {
+export const NavLink = ({ children, icon, badgeContent, badgeAriaLabel, ...props }: NavLinkProps) => {
   const condensed = useMainNav();
 
   if (condensed) {
@@ -128,18 +134,4 @@ export const NavLink = ({ children, icon, badgeContent, badgeAriaLabel, ...props
       </MainNavRow>
     </MainNavLinkWrapper>
   );
-};
-
-NavLink.displayName = 'NavLink';
-
-NavLink.defaultProps = {
-  badgeContent: undefined,
-  badgeAriaLabel: undefined,
-};
-
-NavLink.propTypes = {
-  badgeAriaLabel: PropTypes.string,
-  badgeContent: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  children: PropTypes.node.isRequired,
-  icon: PropTypes.node.isRequired,
 };
