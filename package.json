@@ -74,7 +74,7 @@
     "rimraf": "^5.0.0",
     "tiny-glob": "^0.2.9",
     "typescript": "^5.0.4",
-    "vite": "^4.3.2"
+    "vite": "^4.3.9"
   },
   "packageManager": "yarn@3.5.0"
 }
