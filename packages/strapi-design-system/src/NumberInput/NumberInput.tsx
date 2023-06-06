@@ -5,6 +5,7 @@ import { NumberFormatter, NumberParser } from '@internationalized/number';
 import { CarretDown } from '@strapi/icons';
 import styled from 'styled-components';
 
+import { useDesignSystem } from '../DesignSystemProvider';
 import {
   Field,
   FieldLabel,
@@ -16,7 +17,6 @@ import {
   FieldLabelProps,
 } from '../Field';
 import { Flex } from '../Flex';
-import { getDefaultLocale } from '../helpers/getDefaultLocale';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 import { useControllableState } from '../hooks/useControllableState';
 import { useId } from '../hooks/useId';
@@ -70,8 +70,8 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
     ref,
   ) => {
     const generatedId = useId(id);
-
-    const locale = defaultLocale || getDefaultLocale();
+    const designContext = useDesignSystem('NumberInput');
+    const locale = defaultLocale || designContext.locale;
     const numberParserRef = useRef(new NumberParser(locale, { style: 'decimal' }));
     const numberFormaterRef = useRef(new NumberFormatter(locale, { maximumFractionDigits: 20 }));
 

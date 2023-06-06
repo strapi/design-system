@@ -27,7 +27,7 @@ import { createCollection } from '../Collection';
 const OPEN_KEYS = [' ', 'Enter', 'ArrowUp', 'ArrowDown'];
 const SELECTION_KEYS = ['Enter'];
 
-const isPrintableCharacter = (str: string): boolean => {
+const defaultIsPrintableCharacter = (str: string): boolean => {
   return Boolean(str.length === 1 && str.match(/\S| /));
 };
 
@@ -81,6 +81,7 @@ type ComboboxContextValue = {
   filterValue: string | undefined;
   onFilterValueChange: (value: string | undefined) => void;
   onVisuallyFocussedItemChange: (item: HTMLDivElement | null) => void;
+  isPrintableCharacter: (str: string) => boolean;
 };
 
 const [ComboboxProvider, useComboboxContext] = createContext<ComboboxContextValue>(COMBOBOX_NAME);
@@ -104,6 +105,7 @@ interface RootProps {
   defaultFilterValue?: string;
   filterValue?: string;
   onFilterValueChange?(value: string): void;
+  isPrintableCharacter?: (str: string) => boolean;
 }
 
 /**
@@ -135,6 +137,7 @@ const Combobox: React.FC<RootProps> = (props) => {
     filterValue: filterValueProp,
     defaultFilterValue,
     onFilterValueChange,
+    isPrintableCharacter = defaultIsPrintableCharacter,
   } = props;
 
   const [trigger, setTrigger] = React.useState<ComboboxInputElement | null>(null);
@@ -157,7 +160,7 @@ const Combobox: React.FC<RootProps> = (props) => {
   });
   const [textValue, setTextValue] = useControllableState({
     prop: textValueProp,
-    defaultProp: defaultTextValue,
+    defaultProp: allowCustomValue && !defaultTextValue ? valueProp : defaultTextValue,
     onChange: onTextValueChange,
   });
   const [filterValue, setFilterValue] = useControllableState({
@@ -174,7 +177,8 @@ const Combobox: React.FC<RootProps> = (props) => {
       const [firstItem, ...restItems] = allItems;
       const [lastItem] = restItems.slice(-1);
 
-      const PREVIOUSLY_FOCUSED_ELEMENT = visuallyFocussedItem;
+      const PREVIOUSLY_FOCUSED_ELEMENT =
+        visuallyFocussedItem ?? items.find((item) => item.value === value)?.ref.current;
       // eslint-disable-next-line no-restricted-syntax
       for (const candidate of candidates) {
         // if focus is already where we want to go, we don't want to keep going through the candidates
@@ -199,7 +203,7 @@ const Combobox: React.FC<RootProps> = (props) => {
         if (candidate !== PREVIOUSLY_FOCUSED_ELEMENT) return;
       }
     },
-    [autocomplete, setTextValue, viewport, visuallyFocussedItem],
+    [autocomplete, setTextValue, viewport, visuallyFocussedItem, value],
   );
 
   React.useEffect(() => {
@@ -237,6 +241,7 @@ const Combobox: React.FC<RootProps> = (props) => {
         filterValue={filterValue}
         onFilterValueChange={setFilterValue}
         onVisuallyFocussedItemChange={setVisuallyFocussedItem}
+        isPrintableCharacter={isPrintableCharacter}
       >
         {children}
       </ComboboxProvider>
@@ -419,16 +424,20 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
               candidateNodes = candidateNodes.slice().reverse();
             }
             if (['ArrowUp', 'ArrowDown'].includes(event.key)) {
-              const currentElement = context.visuallyFocussedItem ?? (event.target as ComboboxItemElement);
-              let currentIndex = candidateNodes.indexOf(currentElement);
+              const currentElement =
+                context.visuallyFocussedItem ?? getItems().find((item) => item.value === context.value)?.ref.current;
 
-              /**
-               * This lets us go around the items in one big loop.
-               */
-              if (currentIndex === candidateNodes.length - 1) {
-                currentIndex = -1;
+              if (currentElement) {
+                let currentIndex = candidateNodes.indexOf(currentElement);
+
+                /**
+                 * This lets us go around the items in one big loop.
+                 */
+                if (currentIndex === candidateNodes.length - 1) {
+                  currentIndex = -1;
+                }
+                candidateNodes = candidateNodes.slice(currentIndex + 1);
               }
-              candidateNodes = candidateNodes.slice(currentIndex + 1);
             }
             if (['ArrowDown'].includes(event.key) && context.autocomplete === 'both' && candidateNodes.length > 1) {
               const [firstItem, ...restItems] = candidateNodes;
@@ -496,12 +505,16 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
         }
       })}
       onKeyUp={composeEventHandlers(props.onKeyUp, (event) => {
-        if (!context.open && (isPrintableCharacter(event.key) || ['Backspace'].includes(event.key))) {
+        if (!context.open && (context.isPrintableCharacter(event.key) || ['Backspace'].includes(event.key))) {
           handleOpen();
         }
 
         setTimeout(() => {
-          if (context.autocomplete === 'both' && isPrintableCharacter(event.key) && context.filterValue !== undefined) {
+          if (
+            context.autocomplete === 'both' &&
+            context.isPrintableCharacter(event.key) &&
+            context.filterValue !== undefined
+          ) {
             const value = context.filterValue;
             const firstItem = getItems().find((item) => startsWith(item.textValue, value));
 
@@ -510,6 +523,17 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
             }
           }
         });
+
+        if (context.autocomplete === 'none' && context.isPrintableCharacter(event.key)) {
+          const value = context.textValue ?? '';
+
+          const nextItem = getItems().find((item) => startsWith(item.textValue, value));
+
+          if (nextItem) {
+            context.onVisuallyFocussedItemChange(nextItem.ref.current);
+            nextItem.ref.current?.scrollIntoView();
+          }
+        }
       })}
       onBlur={composeEventHandlers(props.onBlur, () => {
         context.onVisuallyFocussedItemChange(null);
@@ -518,18 +542,25 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
           (item) => item.textValue === context.textValue && item.type === 'option',
         );
 
+        if (activeItem) {
+          context.onValueChange(activeItem.value);
+
+          if (context.autocomplete === 'both') {
+            context.onFilterValueChange(activeItem.textValue);
+          }
+
+          return;
+        }
+
         /**
-         * If we allow custom values and there's an active item (which means
-         * we've typed a value that matches an item), we want to update the
-         * value to that item's value.
+         * If we allow custom values and we didn't find an active item
+         * we just want to set it to the text value.
          */
         if (context.allowCustomValue) {
-          if (activeItem) {
-            context.onValueChange(activeItem.value);
+          context.onValueChange(context.textValue);
 
-            if (context.autocomplete === 'both') {
-              context.onFilterValueChange(activeItem.textValue);
-            }
+          if (context.autocomplete === 'both') {
+            context.onFilterValueChange(context.textValue);
           }
 
           return;
@@ -546,9 +577,7 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
          * an item, we want to clear the value.
          */
 
-        if (activeItem) {
-          context.onValueChange(activeItem.value);
-        } else if (previousItem && context.textValue !== '') {
+        if (previousItem && context.textValue !== '') {
           context.onTextValueChange(previousItem.textValue);
 
           if (context.autocomplete === 'both') {
@@ -657,12 +686,22 @@ type ContentProps = ComboboxContentImplProps;
 
 const ComboboxContent = React.forwardRef<ComboboxContentElement, ContentProps>((props, forwardedRef) => {
   const context = useComboboxContext(CONTENT_NAME);
+  const { getItems } = useCollection(undefined);
   const [fragment, setFragment] = React.useState<DocumentFragment>();
 
   // setting the fragment in `useLayoutEffect` as `DocumentFragment` doesn't exist on the server
   useLayoutEffect(() => {
     setFragment(new DocumentFragment());
   }, []);
+
+  useLayoutEffect(() => {
+    if (context.open && context.autocomplete === 'none') {
+      setTimeout(() => {
+        const activeItem = getItems().find((item) => item.value === context.value);
+        activeItem?.ref.current?.scrollIntoView({ block: 'nearest' });
+      });
+    }
+  }, [getItems, context.autocomplete, context.value, context.open]);
 
   if (!context.open) {
     const frag = fragment as Element | undefined;
@@ -877,7 +916,7 @@ interface ItemProps extends ItemImplProps {
 }
 
 export const ComboboxItem = React.forwardRef<ComboboxItemElement, ItemProps>((props, forwardedRef) => {
-  const { value, disabled = false, textValue: textValueProp } = props;
+  const { value, disabled = false, textValue: textValueProp, ...restProps } = props;
   const [fragment, setFragment] = React.useState<DocumentFragment>();
 
   // setting the fragment in `useLayoutEffect` as `DocumentFragment` doesn't exist on the server
@@ -934,7 +973,7 @@ export const ComboboxItem = React.forwardRef<ComboboxItemElement, ItemProps>((pr
               type="option"
               isVisible={false}
             >
-              <ComboboxItemImpl ref={forwardedRef} {...props} />
+              <ComboboxItemImpl ref={forwardedRef} value={value} disabled={disabled} {...restProps} />
             </Collection.ItemSlot>
           </ComboboxItemProvider>,
           fragment,
@@ -957,7 +996,7 @@ export const ComboboxItem = React.forwardRef<ComboboxItemElement, ItemProps>((pr
         type="option"
         isVisible
       >
-        <ComboboxItemImpl ref={forwardedRef} {...props} />
+        <ComboboxItemImpl ref={forwardedRef} value={value} disabled={disabled} {...restProps} />
       </Collection.ItemSlot>
     </ComboboxItemProvider>
   );
@@ -1085,6 +1124,10 @@ const ComboboxNoValueFound = React.forwardRef<HTMLDivElement, NoValueFoundProps>
   }, [subscribe]);
 
   if (items.length === 0) return null;
+
+  if (autocomplete === 'none') {
+    return null;
+  }
 
   if (autocomplete === 'list' && items.some((item) => startsWith(item.textValue, textValue))) {
     return null;

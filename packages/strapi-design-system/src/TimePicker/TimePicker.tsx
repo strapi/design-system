@@ -1,92 +1,214 @@
+import * as React from 'react';
+
 import { Clock } from '@strapi/icons';
 import styled from 'styled-components';
 
+import { ComboboxInput, ComboboxInputProps, Option } from '../Combobox/Combobox';
+import { useDesignSystem } from '../DesignSystemProvider';
+import { Field, FieldError, FieldHint, FieldLabel, FieldProps } from '../Field';
 import { Flex } from '../Flex';
+import { useControllableState } from '../hooks/useControllableState';
+import { useDateFormatter } from '../hooks/useDateFormatter';
 import { useId } from '../hooks/useId';
-import { SingleSelect, SingleSelectOption, SingleSelectProps } from '../Select/SingleSelect';
 
-export interface TimePickerProps extends Omit<SingleSelectProps, 'children' | 'onChange' | 'value'> {
-  onChange: (value: string) => void;
+const isNotAlphabeticalCharacter = (str: string): boolean => {
+  return Boolean(str.match(/^[^a-zA-Z]*$/));
+};
+
+/* -------------------------------------------------------------------------------------------------
+ * TimePickerInput
+ * -----------------------------------------------------------------------------------------------*/
+
+export interface TimePickerInputProps
+  extends Omit<
+    ComboboxInputProps,
+    | 'children'
+    | 'autocomplete'
+    | 'startIcon'
+    | 'placeholder'
+    | 'allowCustomValue'
+    | 'onFilterValueChange'
+    | 'filterValue'
+    | 'value'
+    | 'defaultValue'
+    | 'defaultTextValue'
+    | 'textValue'
+    | 'onTextValueChange'
+  > {
   /**
    * @default 15
    */
   step?: number;
+  /**
+   * @deprecated This is no longer used.
+   */
+  ariaLabel?: string;
+  /**
+   * @preserve
+   * @deprecated This is no longer used.
+   */
+  selectButtonTitle?: string;
   value?: string;
+  defaultValue?: string;
 }
 
-export const TimePicker = ({ id, value, step = 15, onChange, ...props }: TimePickerProps) => {
+export const TimePickerInput = ({
+  id,
+  step = 15,
+  /**
+   * @preserve
+   * @deprecated This is no longer used.
+   */
+  ariaLabel: _ariaLabel,
+  /**
+   * @preserve
+   * @deprecated This is no longer used.
+   */
+  selectButtonTitle: _selectButtonTitle,
+  value: valueProp,
+  defaultValue,
+  onChange,
+  ...restProps
+}: TimePickerInputProps) => {
+  const context = useDesignSystem('TimePicker');
   const generatedId = useId(id);
-  const hoursCount = 24;
-  const times: string[] = [];
-  let min = 0;
 
-  for (let i = 0; i < hoursCount; i++) {
-    min = 0;
+  const [textValue, setTextValue] = React.useState<string | undefined>('');
 
-    while (min < 60) {
-      times.push(`${i < 10 ? `0${i}` : i}:${min < 10 ? `0${min}` : min}`);
-      min += step;
-    }
-  }
+  const [value, setValue] = useControllableState({
+    prop: valueProp,
+    defaultProp: defaultValue,
+    onChange,
+  });
 
-  // The time picker will select the closest value in the list.
-  // This is a temporary fix.
-  // This whole thing needs refactoring – it's nonsensical.
-  const getClosestValue = () => {
-    const [valueHours, valueMinutes] = value?.split(':') ?? [];
+  const formatter = useDateFormatter(context.locale, {
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+  });
 
-    const hours = times.reduce((prev, curr) => {
-      const [h] = curr.split(':');
+  const separator = React.useMemo(() => {
+    const parts = formatter.formatToParts(new Date());
+    const { value: separator } = parts.find((part) => part.type === 'literal')!;
 
-      // @ts-expect-error this is gonna be refactored in an upcoming initiative
-      return Math.abs(h - valueHours) < Math.abs(prev - valueHours) ? h : prev;
-    }, times[0].split(':')[0]);
+    return separator;
+  }, [formatter]);
 
-    const minutes = times.reduce((prev, curr) => {
-      const minutes = curr.split(':')[1];
+  const timeOptions = React.useMemo(() => {
+    const stepCount = 60 / step;
 
-      // @ts-expect-error this is gonna be refactored in an upcoming initiative
-      return Math.abs(minutes - valueMinutes) < Math.abs(prev - valueMinutes) ? minutes : prev;
-    }, times[0].split(':')[1]);
+    return [...Array(24).keys()].flatMap((hour) =>
+      [...Array(stepCount).keys()].map((minuteStep) => formatter.format(new Date(0, 0, 0, hour, minuteStep * step))),
+    );
+  }, [step, formatter]);
 
-    return `${hours}:${minutes}`;
-  };
-
-  const handleChange = (value: string | number | string[]) => {
-    if (onChange) {
-      onChange(value.toString());
+  const handleTextValueChange = (string?: string) => {
+    if (!string || isNotAlphabeticalCharacter(string)) {
+      setTextValue(string);
     }
   };
+
+  const createNewTimeValue = (value: string) => {
+    const [hours, minutes] = value.split(separator);
+
+    if (!hours && !minutes) return undefined;
+
+    const hoursAsNumber = Number(hours ?? '0');
+    const minutesAsNumber = Number(minutes ?? '0');
+
+    if (hoursAsNumber > 23 || minutesAsNumber > 59) return undefined;
+
+    return formatter.format(new Date(0, 0, 0, hoursAsNumber, minutesAsNumber));
+  };
+
+  const handleBlur: React.FocusEventHandler<HTMLInputElement> = (event) => {
+    const newValue = createNewTimeValue(event.target.value);
+
+    if (newValue) {
+      setTextValue(newValue);
+      setValue(newValue);
+    } else {
+      setTextValue(value);
+    }
+  };
+
+  const handleChange = (changedValue?: string) => {
+    if (typeof changedValue !== 'undefined') {
+      const newValue = createNewTimeValue(changedValue);
+
+      setValue(newValue);
+    } else {
+      setValue(changedValue);
+    }
+  };
+
+  /**
+   * Because we allow values that aren't necessarily in the list & we control the text value, we need to
+   * update the text value when the value changes to keep the two in sync.
+   */
+  React.useEffect(() => {
+    const actualValue = typeof valueProp === 'undefined' ? '' : valueProp;
+
+    if (isNotAlphabeticalCharacter(actualValue)) {
+      setTextValue(actualValue);
+    }
+  }, [valueProp, setTextValue]);
 
   return (
-    <SingleSelect
-      id={generatedId}
-      placeholder="--:--"
-      value={value ? getClosestValue() : undefined}
-      startIcon={
-        <TimeIconWrapper as="span">
-          <Clock />
-        </TimeIconWrapper>
-      }
+    <ComboboxInput
+      {...restProps}
+      value={value}
       onChange={handleChange}
-      {...props}
+      isPrintableCharacter={isNotAlphabeticalCharacter}
+      allowCustomValue
+      placeholder={`--${separator}--`}
+      autocomplete="none"
+      startIcon={<StyledClock />}
+      id={generatedId}
+      inputMode="numeric"
+      pattern={`\\d{2}${separator}\\d{2}`}
+      textValue={textValue}
+      onTextValueChange={handleTextValueChange}
+      onBlur={handleBlur}
     >
-      {times.map((time) => (
-        <SingleSelectOption value={time} key={time}>
+      {timeOptions.map((time) => (
+        <Option key={time} value={time}>
           {time}
-        </SingleSelectOption>
+        </Option>
       ))}
-    </SingleSelect>
+    </ComboboxInput>
   );
 };
 
-const TimeIconWrapper = styled(Flex)`
-  & > svg {
-    height: 1rem;
-    width: 1rem;
-  }
+const StyledClock = styled(Clock)`
+  height: 1rem;
+  width: 1rem;
 
-  & > svg path {
+  & > path {
     fill: ${({ theme }) => theme.colors.neutral500};
   }
 `;
+
+/* -------------------------------------------------------------------------------------------------
+ * TimePicker
+ * -----------------------------------------------------------------------------------------------*/
+
+export interface TimePickerProps extends TimePickerInputProps, Pick<FieldProps, 'hint'> {
+  label: string;
+  labelAction?: React.ReactNode;
+}
+
+export const TimePicker = ({ label, error, hint, id, required, labelAction, ...restProps }: TimePickerProps) => {
+  const generatedId = useId(id);
+
+  return (
+    <Field hint={hint} error={error} id={generatedId} required={required}>
+      <Flex direction="column" alignItems="stretch" gap={1}>
+        <FieldLabel action={labelAction}>{label}</FieldLabel>
+        <TimePickerInput id={generatedId} error={error} required={required} {...restProps} />
+        <FieldHint />
+        <FieldError />
+      </Flex>
+    </Field>
+  );
+};

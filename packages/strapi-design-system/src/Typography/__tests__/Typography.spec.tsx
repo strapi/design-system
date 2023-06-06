@@ -1,15 +1,8 @@
-import { render } from '@testing-library/react';
+import { render } from '@test/utils';
 
-import { ThemeProvider } from '../../ThemeProvider';
-import { lightTheme } from '../../themes';
 import { Typography, TypographyProps } from '../Typography';
 
-const setup = (props: TypographyProps) =>
-  render(
-    <ThemeProvider theme={lightTheme}>
-      <Typography {...props} />
-    </ThemeProvider>,
-  );
+const setup = (props: TypographyProps) => render(<Typography {...props} />);
 
 describe('Typography', () => {
   test('textAlign', async () => {
