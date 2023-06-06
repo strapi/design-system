@@ -35,6 +35,34 @@ describe('Combobox', () => {
     expect(getByRole('combobox')).toHaveValue('Hamburger');
   });
 
+  /**
+   * @see https://github.com/strapi/design-system/issues/1074
+   */
+  it('should correctly change the text value and value of the combobox even if two items are very similarly named', async () => {
+    const { getByRole, user } = render({
+      options: [
+        {
+          value: 'strawberry1',
+          children: 'Strawberry 1',
+        },
+        {
+          value: 'strawberry2',
+          children: 'Strawberry 2',
+        },
+      ],
+    });
+
+    getByRole('combobox').focus();
+
+    await user.type(getByRole('combobox'), 'Straw');
+
+    expect(getByRole('combobox')).toHaveValue('Strawberry 1');
+
+    await user.click(getByRole('option', { name: 'Strawberry 2' }));
+
+    expect(getByRole('combobox')).toHaveValue('Strawberry 2');
+  });
+
   describe('callbacks', () => {
     it('should fire onChange only when the value is changed not when the input does', async () => {
       const onChange = jest.fn();
