@@ -1,17 +1,11 @@
-import * as React from 'react';
+import { render, fireEvent } from '@test/utils';
 
-import { render, fireEvent } from '@testing-library/react';
-
-import { ThemeProvider } from '../../ThemeProvider';
-import { lightTheme } from '../../themes';
 import { Avatar } from '../Avatar';
 
 describe('Avatar', () => {
   it('snapshots the component with preview (boolean)', () => {
     const { container } = render(
-      <ThemeProvider theme={lightTheme}>
-        <Avatar src="https://avatars.githubusercontent.com/u/3874873?v=4" alt="marvin frachet" preview />
-      </ThemeProvider>,
+      <Avatar src="https://avatars.githubusercontent.com/u/3874873?v=4" alt="marvin frachet" preview />,
     );
 
     fireEvent.mouseEnter(container.querySelector('img')!);
@@ -83,13 +77,11 @@ describe('Avatar', () => {
 
   it('snapshots the component with preview (string)', () => {
     const { container } = render(
-      <ThemeProvider theme={lightTheme}>
-        <Avatar
-          src="https://avatars.githubusercontent.com/u/3874873?v=4"
-          alt="marvin frachet"
-          preview="https://some-unknown-photo/x.png"
-        />
-      </ThemeProvider>,
+      <Avatar
+        src="https://avatars.githubusercontent.com/u/3874873?v=4"
+        alt="marvin frachet"
+        preview="https://some-unknown-photo/x.png"
+      />,
     );
 
     fireEvent.mouseEnter(container.querySelector('img')!);

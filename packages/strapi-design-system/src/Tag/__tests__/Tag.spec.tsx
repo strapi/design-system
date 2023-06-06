@@ -1,18 +1,13 @@
 import { Cross } from '@strapi/icons';
-import { render as renderRTL } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { render as renderRTL } from '@test/utils';
 
-import { ThemeProvider } from '../../ThemeProvider';
-import { lightTheme } from '../../themes';
 import { Tag, TagProps } from '../Tag';
 
 const render = ({ icon = <Cross />, children = 'hello', ...props }: Partial<TagProps> = {}) =>
   renderRTL(
-    <ThemeProvider theme={lightTheme}>
-      <Tag icon={icon} {...props}>
-        {children}
-      </Tag>
-    </ThemeProvider>,
+    <Tag icon={icon} {...props}>
+      {children}
+    </Tag>,
   );
 
 describe('Tag', () => {
@@ -38,10 +33,9 @@ describe('Tag', () => {
   });
 
   it('should fire the onClick callback', async () => {
-    const user = userEvent.setup();
     const onClick = jest.fn();
 
-    const { getByRole } = render({ onClick });
+    const { getByRole, user } = render({ onClick });
 
     await user.click(getByRole('button', { name: 'hello' }));
 
@@ -49,9 +43,8 @@ describe('Tag', () => {
   });
 
   it('should handle the disabled prop correctly', async () => {
-    const user = userEvent.setup();
     const onClick = jest.fn();
-    const { getByRole } = render({ disabled: true, onClick });
+    const { getByRole, user } = render({ disabled: true, onClick });
 
     expect(getByRole('button', { name: 'hello' })).toBeDisabled();
     expect(getByRole('button', { name: 'hello' })).toHaveAttribute('aria-disabled', 'true');

@@ -1,9 +1,7 @@
 import * as React from 'react';
 
-import { render } from '@testing-library/react';
+import { render } from '@test/utils';
 
-import { ThemeProvider } from '../../ThemeProvider';
-import { lightTheme } from '../../themes';
 import { useNotifyAT } from '../useNotifyAT';
 
 describe('LiveRegions', () => {
@@ -34,11 +32,7 @@ describe('LiveRegions', () => {
       return null;
     };
 
-    const { container } = render(
-      <ThemeProvider theme={lightTheme}>
-        <TestComponent />
-      </ThemeProvider>,
-    );
+    const { container } = render(<TestComponent />);
 
     expect(container).toMatchInlineSnapshot(`
       .c0 {
@@ -93,11 +87,7 @@ describe('LiveRegions', () => {
       return null;
     };
 
-    const { container } = render(
-      <ThemeProvider theme={lightTheme}>
-        <TestComponent />
-      </ThemeProvider>,
-    );
+    const { container } = render(<TestComponent />);
 
     expect(container).toMatchInlineSnapshot(`
       .c0 {
@@ -152,11 +142,7 @@ describe('LiveRegions', () => {
       return null;
     };
 
-    const { container } = render(
-      <ThemeProvider theme={lightTheme}>
-        <TestComponent />
-      </ThemeProvider>,
-    );
+    const { container } = render(<TestComponent />);
 
     expect(container).toMatchInlineSnapshot(`
       .c0 {

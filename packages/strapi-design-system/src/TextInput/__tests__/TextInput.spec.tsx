@@ -1,19 +1,12 @@
 import { PlusCircle } from '@strapi/icons';
-import { render as renderRTL } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { render as renderRTL } from '@test/utils';
 
 import { FieldAction } from '../../Field';
-import { ThemeProvider } from '../../ThemeProvider';
-import { lightTheme } from '../../themes';
 import { TextInput, TextInputProps } from '../TextInput';
 
 type ComponentProps = Partial<TextInputProps>;
 
-const Component = (props: ComponentProps) => (
-  <ThemeProvider theme={lightTheme}>
-    <TextInput label="text label" {...props} />
-  </ThemeProvider>
-);
+const Component = (props: ComponentProps) => <TextInput label="text label" {...props} />;
 
 const render = (props?: ComponentProps) => renderRTL(<Component {...props} />);
 
@@ -38,10 +31,9 @@ describe('TextInput', () => {
   });
 
   it('should pass other props to the underlying FieldInput component', async () => {
-    const user = userEvent.setup();
     const onChange = jest.fn();
 
-    const { getByRole, rerender } = render({
+    const { getByRole, rerender, user } = render({
       onChange,
       value: 'Value',
       startAction: (

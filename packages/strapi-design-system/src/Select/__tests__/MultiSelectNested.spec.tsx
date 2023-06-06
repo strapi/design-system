@@ -1,8 +1,5 @@
-import { render as renderRTL } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { render as renderRTL } from '@test/utils';
 
-import { ThemeProvider } from '../../ThemeProvider';
-import { darkTheme } from '../../themes';
 import { MultiSelectNested, MultiSelectNestedProps } from '../MultiSelectNested';
 
 const defaultOpts: MultiSelectNestedProps['options'] = [
@@ -23,20 +20,15 @@ const Component = (props: Partial<MultiSelectNestedProps>) => (
   <MultiSelectNested options={defaultOpts} placeholder="Choose an option" label="Choose" {...props} />
 );
 
-const render = (props: Partial<MultiSelectNestedProps> = {}) => ({
-  user: userEvent.setup(),
-  ...renderRTL(<Component {...props} />, {
-    wrapper: ({ children }) => <ThemeProvider theme={darkTheme}>{children}</ThemeProvider>,
-  }),
-});
+const render = (props: Partial<MultiSelectNestedProps> = {}) => renderRTL(<Component {...props} />);
 
 describe('MultiSelectNested', () => {
   it('should render the select and the options', async () => {
-    const { getByRole, getByText } = render();
+    const { getByRole, getByText, user } = render();
 
     expect(getByRole('combobox')).toBeInTheDocument();
 
-    await userEvent.click(getByRole('combobox'));
+    await user.click(getByRole('combobox'));
 
     expect(getByText('Group 1')).toBeInTheDocument();
     expect(getByRole('option', { name: 'Option 1' })).toBeInTheDocument();
@@ -45,30 +37,30 @@ describe('MultiSelectNested', () => {
   });
 
   it('should select an option when only one is pressed', async () => {
-    const { getByRole } = render();
+    const { getByRole, user } = render();
 
-    await userEvent.click(getByRole('combobox'));
+    await user.click(getByRole('combobox'));
 
-    await userEvent.click(getByRole('option', { name: 'Option 3' }));
+    await user.click(getByRole('option', { name: 'Option 3' }));
 
     expect(getByRole('option', { name: 'Option 3' })).toHaveAttribute('aria-checked', 'true');
 
-    await userEvent.keyboard('[Escape]');
+    await user.keyboard('[Escape]');
 
     expect(getByRole('combobox')).toHaveTextContent('Option 3');
   });
 
   it('should select all the options in the group if said group item is clicked', async () => {
-    const { getByRole } = render();
+    const { getByRole, user } = render();
 
-    await userEvent.click(getByRole('combobox'));
+    await user.click(getByRole('combobox'));
 
-    await userEvent.click(getByRole('option', { name: 'Group 1' }));
+    await user.click(getByRole('option', { name: 'Group 1' }));
 
     expect(getByRole('option', { name: 'Option 1' })).toHaveAttribute('aria-checked', 'true');
     expect(getByRole('option', { name: 'Option 2' })).toHaveAttribute('aria-checked', 'true');
 
-    await userEvent.keyboard('[Escape]');
+    await user.keyboard('[Escape]');
 
     expect(getByRole('combobox')).toHaveTextContent('Option 1Option 2');
   });

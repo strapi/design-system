@@ -1,8 +1,12 @@
+/**
+ * TODO: remove this in v2 in favour of DesignSystemProvider, but this is rather convienient for now.
+ */
 import * as React from 'react';
 
 import { ThemeProvider as StyledThemeProvider, createGlobalStyle, DefaultTheme } from 'styled-components';
 
 import { LiveRegions } from '../LiveRegions/LiveRegions';
+import { lightTheme } from '../themes';
 
 const GlobalStyle = createGlobalStyle`
  /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -178,17 +182,17 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-interface ThemeProviderProps {
+export interface ThemeProviderProps {
   children: React.ReactNode;
-  theme: DefaultTheme;
+  theme?: DefaultTheme;
 }
 
-export const ThemeProvider = ({ children, theme }: ThemeProviderProps) => {
+export const ThemeProvider = ({ children, theme = lightTheme }: ThemeProviderProps) => {
   return (
     <StyledThemeProvider theme={theme}>
-      <GlobalStyle />
       {children}
       <LiveRegions />
+      <GlobalStyle />
     </StyledThemeProvider>
   );
 };

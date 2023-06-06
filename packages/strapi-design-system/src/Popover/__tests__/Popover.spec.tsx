@@ -1,40 +1,30 @@
-import * as React from 'react';
+import { useRef, useState } from 'react';
 
-import { render as renderRTL, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { render, waitFor } from '@test/utils';
 
-import { ThemeProvider } from '../../ThemeProvider';
-import { lightTheme } from '../../themes';
 import { Popover } from '../Popover';
 
 const Component = () => {
-  const sourceRef = React.useRef<HTMLButtonElement>(null!);
-  const [isVisible, setIsVisible] = React.useState(false);
+  const sourceRef = useRef<HTMLButtonElement>(null!);
+  const [isVisible, setIsVisible] = useState(false);
 
   return (
-    <ThemeProvider theme={lightTheme}>
-      <div>
-        <button type="button" ref={sourceRef} onClick={() => setIsVisible(true)}>
-          Source
-        </button>
-        {isVisible && (
-          <Popover source={sourceRef} onDismiss={() => setIsVisible(false)}>
-            <button type="button">Hello world</button>
-          </Popover>
-        )}
-      </div>
-    </ThemeProvider>
+    <div>
+      <button type="button" ref={sourceRef} onClick={() => setIsVisible(true)}>
+        Source
+      </button>
+      {isVisible && (
+        <Popover source={sourceRef} onDismiss={() => setIsVisible(false)}>
+          <button type="button">Hello world</button>
+        </Popover>
+      )}
+    </div>
   );
 };
 
-const render = () => ({
-  ...renderRTL(<Component />, { container: document.body }),
-  user: userEvent.setup(),
-});
-
 describe('Popover', () => {
   it('should render the popover when visible is true', async () => {
-    const { queryByText, getByRole, user } = render();
+    const { queryByText, getByRole, user } = render(<Component />, { renderOptions: { container: document.body } });
 
     expect(queryByText('Hello world')).not.toBeInTheDocument();
 
@@ -45,7 +35,7 @@ describe('Popover', () => {
   });
 
   it('should close the popover when the escape key is used', async () => {
-    const { getByRole, queryByText, user } = render();
+    const { getByRole, queryByText, user } = render(<Component />, { renderOptions: { container: document.body } });
 
     await user.click(getByRole('button', { name: 'Source' }));
 

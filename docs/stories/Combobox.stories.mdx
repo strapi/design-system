@@ -1,6 +1,14 @@
 import { useState, useEffect } from 'react';
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { Combobox, CreatableCombobox, ComboboxOption } from '@strapi/design-system';
+import {
+  Combobox,
+  CreatableCombobox,
+  ComboboxOption,
+  Flex,
+  Button,
+  SingleSelect,
+  SingleSelectOption,
+} from '@strapi/design-system';
 
 <Meta title="Design System/Components/Combobox" component={Combobox} />
 
@@ -21,13 +29,51 @@ import { Combobox, ComboboxOption, CreatableCombobox } from '@strapi/design-syst
 
 ### Basic Usage
 
-By default, the combobox uses both inline and list autocomplete, that is where as the user types suggestions
+By default, the combobox is uncontrolled & uses both inline and list autocomplete, that is where as the user types suggestions
 (based on the order of the options) are shown in the input field whilst the list gradually gets filtered.
 
 <Canvas>
   <Story name="basic">
     {() => {
-      const [value, setValue] = useState('');
+      const [error, toggleError] = useState();
+      const [disabled, toggleDisabled] = useState();
+      return (
+        <Flex direction="column" alignItems="stretch" gap={11}>
+          <Combobox placeholder="My favourite fruit is..." label="Fruits" error={error} disabled={disabled}>
+            <ComboboxOption value="apple">Apple</ComboboxOption>
+            <ComboboxOption value="avocado">Avocado</ComboboxOption>
+            <ComboboxOption value="banana">Banana</ComboboxOption>
+            <ComboboxOption value="kiwi">Kiwi</ComboboxOption>
+            <ComboboxOption value="mango">Mango</ComboboxOption>
+            <ComboboxOption value="orange">Orange</ComboboxOption>
+            <ComboboxOption value="strawberry">Strawberry</ComboboxOption>
+          </Combobox>
+          <Flex gap={2} justifyContent="center">
+            <Button
+              variant="danger-light"
+              onClick={() => toggleError((s) => (s ? undefined : 'Oh no, the fruits have gone mouldy!'))}
+            >
+              {`${error ? 'Hide' : 'Show'} the error state`}
+            </Button>
+            <Button variant="tertiary" onClick={() => toggleDisabled((s) => !s)}>
+              {`${disabled ? 'Hide' : 'Show'} the disabled state`}
+            </Button>
+          </Flex>
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Controlled
+
+The combobox can be a controlled component by passing a `value` prop and an `onChange` callback, this also
+enables you to have the ability to "clear" the input.
+
+<Canvas>
+  <Story name="controlled">
+    {() => {
+      const [value, setValue] = useState();
       return (
         <Combobox
           placeholder="My favourite fruit is..."
@@ -149,6 +195,46 @@ still pass an `onCreateOption` callback to handle the creation of the new option
             </ComboboxOption>
           ))}
         </CreatableCombobox>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Autocomplete settings
+
+By default, the combobox uses both inline and list autocomplete, however you can change this behaviour
+to only be `list` or `none`. If you set the autocomplete mode to `none`, the first matching option will
+be visually focussed
+
+<Canvas>
+  <Story name="autocomplete">
+    {() => {
+      const [value, setValue] = useState('');
+      const [autocompleteMode, setAutocompleteMode] = useState('both');
+      return (
+        <Flex direction="column" alignItems="stretch" gap={11}>
+          <Combobox
+            placeholder="My favourite fruit is..."
+            label="Fruits"
+            value={value}
+            onChange={setValue}
+            autocomplete={autocompleteMode}
+            onClear={() => setValue('')}
+          >
+            <ComboboxOption value="apple">Apple</ComboboxOption>
+            <ComboboxOption value="avocado">Avocado</ComboboxOption>
+            <ComboboxOption value="banana">Banana</ComboboxOption>
+            <ComboboxOption value="kiwi">Kiwi</ComboboxOption>
+            <ComboboxOption value="mango">Mango</ComboboxOption>
+            <ComboboxOption value="orange">Orange</ComboboxOption>
+            <ComboboxOption value="strawberry">Strawberry</ComboboxOption>
+          </Combobox>
+          <SingleSelect label="Autocomplete Mode" value={autocompleteMode} onValueChange={setAutocompleteMode}>
+            <SingleSelectOption value="both">both</SingleSelectOption>
+            <SingleSelectOption value="list">list</SingleSelectOption>
+            <SingleSelectOption value="none">none</SingleSelectOption>
+          </SingleSelect>
+        </Flex>
       );
     }}
   </Story>
