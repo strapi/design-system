@@ -3749,7 +3749,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-use-controllable-state@npm:1.0.0, @radix-ui/react-use-controllable-state@npm:^1.0.0":
+"@radix-ui/react-use-callback-ref@npm:1.0.1":
+  version: 1.0.1
+  resolution: "@radix-ui/react-use-callback-ref@npm:1.0.1"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+  peerDependencies:
+    "@types/react": "*"
+    react: ^16.8 || ^17.0 || ^18.0
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+  checksum: b9fd39911c3644bbda14a84e4fca080682bef84212b8d8931fcaa2d2814465de242c4cfd8d7afb3020646bead9c5e539d478cea0a7031bee8a8a3bb164f3bc4c
+  languageName: node
+  linkType: hard
+
+"@radix-ui/react-use-controllable-state@npm:1.0.0":
   version: 1.0.0
   resolution: "@radix-ui/react-use-controllable-state@npm:1.0.0"
   dependencies:
@@ -3758,6 +3773,22 @@ __metadata:
   peerDependencies:
     react: ^16.8 || ^17.0 || ^18.0
   checksum: 35f1e714bbe3fc9f5362a133339dd890fb96edb79b63168a99403c65dd5f2b63910e0c690255838029086719e31360fa92544a55bc902cfed4442bb3b55822e2
+  languageName: node
+  linkType: hard
+
+"@radix-ui/react-use-controllable-state@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "@radix-ui/react-use-controllable-state@npm:1.0.1"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@radix-ui/react-use-callback-ref": 1.0.1
+  peerDependencies:
+    "@types/react": "*"
+    react: ^16.8 || ^17.0 || ^18.0
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+  checksum: dee2be1937d293c3a492cb6d279fc11495a8f19dc595cdbfe24b434e917302f9ac91db24e8cc5af9a065f3f209c3423115b5442e65a5be9fd1e9091338972be9
   languageName: node
   linkType: hard
 
@@ -5294,7 +5325,7 @@ __metadata:
     "@radix-ui/react-primitive": ^1.0.2
     "@radix-ui/react-slot": ^1.0.1
     "@radix-ui/react-use-callback-ref": ^1.0.0
-    "@radix-ui/react-use-controllable-state": ^1.0.0
+    "@radix-ui/react-use-controllable-state": ^1.0.1
     "@radix-ui/react-use-layout-effect": 1.0.0
     "@radix-ui/react-use-previous": ^1.0.1
     "@radix-ui/react-visually-hidden": ^1.0.3
