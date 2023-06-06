@@ -1,15 +1,24 @@
-import React, { Children } from 'react';
-
-import PropTypes from 'prop-types';
+import React from 'react';
 
 import { useMainNav } from './MainNavContext';
 import { Box } from '../Box';
 import { Divider } from '../Divider';
-import { Flex } from '../Flex';
+import { Flex, FlexProps } from '../Flex';
 import { Typography } from '../Typography';
 import { VisuallyHidden } from '../VisuallyHidden';
 
-export const NavSection = ({ label, children, spacing = 2, horizontal = false, ...props }) => {
+export interface NavSectionProps extends FlexProps {
+  label: string;
+  horizontal?: boolean;
+
+  /**
+   * @preserve
+   * @deprecated Use gap instead;
+   */
+  spacing?: FlexProps['gap'];
+}
+
+export const NavSection = ({ label, children, spacing = 2, horizontal = false, ...props }: NavSectionProps) => {
   const condensed = useMainNav();
 
   if (condensed) {
@@ -30,7 +39,7 @@ export const NavSection = ({ label, children, spacing = 2, horizontal = false, .
           alignItems={horizontal ? 'center' : 'stretch'}
           {...props}
         >
-          {Children.map(children, (child, index) => {
+          {React.Children.map(children, (child, index) => {
             // eslint-disable-next-line react/no-array-index-key
             return <li key={index}>{child}</li>;
           })}
@@ -54,16 +63,11 @@ export const NavSection = ({ label, children, spacing = 2, horizontal = false, .
         alignItems={horizontal ? 'center' : 'stretch'}
         {...props}
       >
-        {Children.map(children, (child, index) => {
+        {React.Children.map(children, (child, index) => {
           // eslint-disable-next-line react/no-array-index-key
           return <li key={index}>{child}</li>;
         })}
       </Flex>
     </Flex>
   );
-};
-
-NavSection.propTypes = {
-  children: PropTypes.node.isRequired,
-  label: PropTypes.string.isRequired,
 };

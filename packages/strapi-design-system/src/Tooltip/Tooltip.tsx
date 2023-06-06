@@ -21,7 +21,7 @@ export interface TooltipProps extends Omit<BoxProps<'div'>, 'position'> {
   description?: string;
   delay?: number;
   id?: string;
-  label?: string;
+  label?: React.ReactNode;
   position?: TooltipPosition;
 }
 
