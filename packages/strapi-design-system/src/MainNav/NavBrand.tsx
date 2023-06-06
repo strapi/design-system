@@ -1,6 +1,5 @@
 import React from 'react';
 
-import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -10,7 +9,14 @@ import { Flex } from '../Flex';
 import { Typography } from '../Typography';
 import { VisuallyHidden } from '../VisuallyHidden';
 
-const BrandIconWrapper = styled.div`
+export interface NavBrandProps {
+  icon?: React.ReactNode;
+  title: string;
+  to?: string;
+  workplace: string;
+}
+
+const BrandIconWrapper = styled.div<{ condensed?: boolean }>`
   svg,
   img {
     border-radius: ${({ theme }) => theme.borderRadius};
@@ -25,7 +31,7 @@ const NavLinkWrapper = styled(NavLink)`
   color: inherit;
 `;
 
-export const NavBrand = ({ workplace, title, icon, to }) => {
+export const NavBrand = ({ workplace, title, icon, to = '/' }: NavBrandProps) => {
   const condensed = useMainNav();
 
   if (condensed) {
@@ -65,14 +71,4 @@ export const NavBrand = ({ workplace, title, icon, to }) => {
       </Flex>
     </Box>
   );
-};
-
-NavBrand.defaultProps = {
-  to: '/',
-};
-NavBrand.propTypes = {
-  icon: PropTypes.node.isRequired,
-  title: PropTypes.string.isRequired,
-  to: PropTypes.string,
-  workplace: PropTypes.string.isRequired,
 };

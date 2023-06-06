@@ -1,14 +1,21 @@
 import React from 'react';
 
 import { ChevronRight, ChevronLeft } from '@strapi/icons';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { useMainNav } from './MainNavContext';
 import { Icon } from '../Icon';
 import { VisuallyHidden } from '../VisuallyHidden';
 
-const NavCondenseWrapper = styled.button`
+export interface NavCondenseWrapperProps {
+  children: React.ReactNode;
+}
+
+interface NavCondenseWrapperButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+  condensed?: boolean;
+}
+
+const NavCondenseWrapper = styled.button<NavCondenseWrapperButtonProps>`
   background: ${({ theme }) => theme.colors.neutral0};
   border: 1px solid ${({ theme }) => theme.colors.neutral150};
   border-radius: ${({ theme }) => theme.borderRadius};
@@ -29,7 +36,7 @@ const NavCondenseWrapper = styled.button`
   }
 `;
 
-export const NavCondense = ({ children, ...props }) => {
+export const NavCondense = ({ children, ...props }: NavCondenseWrapperProps) => {
   const condensed = useMainNav();
 
   return (
@@ -38,8 +45,4 @@ export const NavCondense = ({ children, ...props }) => {
       <VisuallyHidden>{children}</VisuallyHidden>
     </NavCondenseWrapper>
   );
-};
-
-NavCondense.propTypes = {
-  children: PropTypes.string.isRequired,
 };
