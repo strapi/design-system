@@ -1,6 +1,5 @@
-import React, { Children, useState } from 'react';
+import React from 'react';
 
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { SubNavSectionLabel } from './SubNavSectionLabel';
@@ -8,6 +7,14 @@ import { Badge } from '../Badge';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { useId } from '../hooks/useId';
+
+export interface SubNavSectionProps {
+  badgeLabel: string;
+  children: React.ReactNode;
+  collapsable?: boolean;
+  id: string;
+  label: string;
+}
 
 const SubNavSectionWrapper = styled(Box)`
   svg {
@@ -18,8 +25,8 @@ const SubNavSectionWrapper = styled(Box)`
   }
 `;
 
-export const SubNavSection = ({ collapsable, label, badgeLabel, children, id }) => {
-  const [isOpen, setOpenLinks] = useState(true);
+export const SubNavSection = ({ collapsable = false, label, badgeLabel, children, id }: SubNavSectionProps) => {
+  const [isOpen, setOpenLinks] = React.useState(true);
   const listId = useId(id);
 
   const handleClick = () => {
@@ -53,7 +60,7 @@ export const SubNavSection = ({ collapsable, label, badgeLabel, children, id }) 
       </SubNavSectionWrapper>
       {(!collapsable || isOpen) && (
         <ol id={listId}>
-          {Children.map(children, (child, index) => {
+          {React.Children.map(children, (child, index) => {
             // eslint-disable-next-line react/no-array-index-key
             return <li key={index}>{child}</li>;
           })}
@@ -61,19 +68,4 @@ export const SubNavSection = ({ collapsable, label, badgeLabel, children, id }) 
       )}
     </Flex>
   );
-};
-
-SubNavSection.defaultProps = {
-  badgeLabel: null,
-  children: undefined,
-  collapsable: false,
-  id: undefined,
-};
-
-SubNavSection.propTypes = {
-  badgeLabel: PropTypes.string,
-  children: PropTypes.node,
-  collapsable: PropTypes.bool,
-  id: PropTypes.string,
-  label: PropTypes.string.isRequired,
 };

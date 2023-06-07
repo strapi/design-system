@@ -1,13 +1,18 @@
 import React from 'react';
 
 import { Dot } from '@strapi/icons';
-import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { Box } from '../Box';
+import { Box, BoxProps } from '../Box';
 import { Flex } from '../Flex';
 import { Typography } from '../Typography';
+
+export interface SubNavLinkProps extends BoxProps {
+  icon: React.ReactNode;
+  isSubSectionChild?: boolean;
+  withBullet?: boolean;
+}
 
 const SubNavLinkWrapper = styled(Box)`
   display: flex;
@@ -39,7 +44,7 @@ const SubNavLinkWrapper = styled(Box)`
     outline-offset: -2px;
   }
 `;
-const CustomBullet = styled(Dot)`
+const CustomBullet = styled(Dot)<{ $active?: boolean }>`
   width: ${12 / 16}rem;
   height: ${4 / 16}rem;
   * {
@@ -53,7 +58,13 @@ const IconWrapper = styled.div`
   }
 `;
 
-export const SubNavLink = ({ children, icon, withBullet, isSubSectionChild, ...props }) => {
+export const SubNavLink = ({
+  children,
+  icon,
+  withBullet = false,
+  isSubSectionChild = false,
+  ...props
+}: SubNavLinkProps) => {
   return (
     <SubNavLinkWrapper
       as={NavLink}
@@ -77,17 +88,4 @@ export const SubNavLink = ({ children, icon, withBullet, isSubSectionChild, ...p
       )}
     </SubNavLinkWrapper>
   );
-};
-
-SubNavLink.displayName = 'SubNavLink';
-SubNavLink.defaultProps = {
-  icon: null,
-  isSubSectionChild: false,
-  withBullet: false,
-};
-SubNavLink.propTypes = {
-  children: PropTypes.node.isRequired,
-  icon: PropTypes.element,
-  isSubSectionChild: PropTypes.bool,
-  withBullet: PropTypes.bool,
 };

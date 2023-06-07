@@ -1,11 +1,19 @@
-import React, { Children } from 'react';
-
-import PropTypes from 'prop-types';
+import React from 'react';
 
 import { Box } from '../Box';
-import { Flex } from '../Flex';
+import { Flex, FlexProps } from '../Flex';
 
-export const SubNavSections = ({ children, spacing = 2, horizontal = false, ...props }) => {
+export interface SubNavSectionsProps extends FlexProps {
+  horizontal?: boolean;
+
+  /**
+   * @preserve
+   * @deprecated use `gap` instead
+   */
+  spacing: FlexProps['gap'];
+}
+
+export const SubNavSections = ({ children, spacing = 2, horizontal = false, ...props }: SubNavSectionsProps) => {
   return (
     <Box paddingTop={2} paddingBottom={4}>
       <Flex
@@ -15,15 +23,11 @@ export const SubNavSections = ({ children, spacing = 2, horizontal = false, ...p
         alignItems={horizontal ? 'center' : 'stretch'}
         {...props}
       >
-        {Children.map(children, (child, index) => {
+        {React.Children.map(children, (child, index) => {
           // eslint-disable-next-line react/no-array-index-key
           return <li key={index}>{child}</li>;
         })}
       </Flex>
     </Box>
   );
-};
-
-SubNavSections.propTypes = {
-  children: PropTypes.node.isRequired,
 };
