@@ -3876,7 +3876,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-slot@npm:1.0.1, @radix-ui/react-slot@npm:^1.0.1":
+"@radix-ui/react-slot@npm:1.0.1":
   version: 1.0.1
   resolution: "@radix-ui/react-slot@npm:1.0.1"
   dependencies:
@@ -3888,7 +3888,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-slot@npm:1.0.2":
+"@radix-ui/react-slot@npm:1.0.2, @radix-ui/react-slot@npm:^1.0.2":
   version: 1.0.2
   resolution: "@radix-ui/react-slot@npm:1.0.2"
   dependencies:
@@ -5546,7 +5546,7 @@ __metadata:
     "@radix-ui/react-popper": ^1.1.2
     "@radix-ui/react-portal": ^1.0.2
     "@radix-ui/react-primitive": ^1.0.2
-    "@radix-ui/react-slot": ^1.0.1
+    "@radix-ui/react-slot": ^1.0.2
     "@radix-ui/react-use-callback-ref": ^1.0.0
     "@radix-ui/react-use-controllable-state": ^1.0.1
     "@radix-ui/react-use-layout-effect": 1.0.0
