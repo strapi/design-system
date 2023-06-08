@@ -14,14 +14,14 @@ import { Typography, TypographyProps } from '../Typography';
  * SelectTrigger
  * -----------------------------------------------------------------------------------------------*/
 
-interface TriggerProps extends BoxProps<HTMLSpanElement> {
+interface TriggerProps extends BoxProps<'div'> {
   /**
    * @default "Clear"
    */
   clearLabel?: string;
   disabled?: boolean;
   hasError?: boolean;
-  onClear?: (e: React.MouseEvent<HTMLButtonElement | HTMLSpanElement>) => void;
+  onClear?: (e: React.MouseEvent<HTMLButtonElement | HTMLDivElement>) => void;
   startIcon?: React.ReactElement;
   /**
    * @default "M"
@@ -29,11 +29,11 @@ interface TriggerProps extends BoxProps<HTMLSpanElement> {
   size?: 'S' | 'M';
 }
 
-const SelectTrigger = React.forwardRef<HTMLSpanElement, TriggerProps>(
+const SelectTrigger = React.forwardRef<HTMLDivElement, TriggerProps>(
   ({ onClear, clearLabel = 'Clear', startIcon, disabled, hasError, size = 'M', children, ...restProps }, ref) => {
     const triggerRef = React.useRef<HTMLSpanElement>(null!);
 
-    const handleClearClick = (e: React.MouseEvent<HTMLButtonElement | HTMLSpanElement>) => {
+    const handleClearClick = (e: React.MouseEvent<HTMLButtonElement | HTMLDivElement>) => {
       if (onClear && !disabled) {
         onClear(e);
         triggerRef.current.focus();

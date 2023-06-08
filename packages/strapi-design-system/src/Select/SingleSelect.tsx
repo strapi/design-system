@@ -32,15 +32,55 @@ export type SingleSelectProps = Omit<SelectParts.SingleSelectProps, 'value'> &
   };
 
 export const SingleSelect = ({
-  children,
-  clearLabel = 'Clear',
-  customizeContent,
-  disabled,
   error,
   hint,
   id,
   label,
   labelAction,
+  required,
+  selectButtonTitle: _deprecatedSelectButtonTitle,
+  ...restProps
+}: SingleSelectProps) => {
+  const generatedId = useId(id);
+
+  /**
+   * Because the trigger needs to be a `div` to allow the clear
+   * button & tags to be clickable, we need to manually focus it.
+   */
+  const triggerRef = React.useRef<HTMLDivElement>(null!);
+
+  const handleFieldLabelClick = () => {
+    triggerRef.current.focus();
+  };
+
+  return (
+    <Field hint={hint} error={error} id={generatedId} required={required}>
+      <Flex direction="column" alignItems="stretch" gap={1}>
+        <FieldLabel onClick={handleFieldLabelClick} action={labelAction}>
+          {label}
+        </FieldLabel>
+        <SingleSelectInput label={label} id={generatedId} triggerRef={triggerRef} required={required} {...restProps} />
+        <FieldHint />
+        <FieldError />
+      </Flex>
+    </Field>
+  );
+};
+
+export interface SingleSelectInputProps extends Omit<SingleSelectProps, 'label' | 'labelAction' | 'hint' | 'id'> {
+  id?: string;
+  triggerRef?: React.RefObject<HTMLDivElement>;
+  label?: string;
+}
+
+export const SingleSelectInput = ({
+  id,
+  children,
+  clearLabel = 'Clear',
+  customizeContent,
+  disabled,
+  error,
+  label,
   onChange,
   onClear,
   onReachEnd,
@@ -50,32 +90,15 @@ export const SingleSelect = ({
   startIcon,
   size = 'M',
   value: passedValue,
+  triggerRef,
   ...restProps
-}: SingleSelectProps) => {
+}: SingleSelectInputProps) => {
   /**
    * These values are drawn out from the internals of the Radix component
    * We can then use them to react to visual changes for the component
    */
   const [internalValue, setInternalValue] = React.useState<string>();
   const [internalIsOpen, setInternalIsOpen] = React.useState(false);
-
-  const generatedId = useId(id);
-
-  const hintId = `${generatedId}-hint`;
-  const errorId = `${generatedId}-error`;
-
-  const handleValueChange = (value: string) => {
-    /**
-     * If it's being externally managed then we shouldn't
-     * both setting our copy of the internal value.
-     */
-    if (onChange) {
-      const shouldBeNumber = typeof passedValue === 'number';
-      onChange(shouldBeNumber ? Number(value) : value);
-    } else {
-      setInternalValue(value);
-    }
-  };
 
   const handleOpenChange: SelectParts.SelectProps['onOpenChange'] = (open) => {
     setInternalIsOpen(open);
@@ -91,14 +114,20 @@ export const SingleSelect = ({
     }
   };
 
-  /**
-   * Because the trigger needs to be a `div` to allow the clear
-   * button & tags to be clickable, we need to manually focus it.
-   */
-  const triggerRef = React.useRef<HTMLDivElement>(null!);
+  const hintId = `${id}-hint`;
+  const errorId = `${id}-error`;
 
-  const handleFieldLabelClick = () => {
-    triggerRef.current.focus();
+  const handleValueChange = (value: string) => {
+    /**
+     * If it's being externally managed then we shouldn't
+     * both setting our copy of the internal value.
+     */
+    if (onChange) {
+      const shouldBeNumber = typeof passedValue === 'number';
+      onChange(shouldBeNumber ? Number(value) : value);
+    } else {
+      setInternalValue(value);
+    }
   };
 
   const viewportRef = React.useRef<HTMLDivElement>(null);
@@ -124,48 +153,39 @@ export const SingleSelect = ({
     (typeof passedValue !== 'undefined' && passedValue !== null ? passedValue.toString() : internalValue) ?? '';
 
   return (
-    <Field hint={hint} error={error} id={generatedId} required={required}>
-      <Flex direction="column" alignItems="stretch" gap={1}>
-        <FieldLabel onClick={handleFieldLabelClick} action={labelAction}>
-          {label}
-        </FieldLabel>
-        <SelectParts.Root
-          onOpenChange={handleOpenChange}
-          disabled={disabled}
-          required={required}
-          onValueChange={handleValueChange}
-          value={value}
-          {...restProps}
-        >
-          <SelectParts.Trigger
-            ref={triggerRef}
-            aria-label={label}
-            aria-describedby={`${hintId} ${errorId}`}
-            id={generatedId}
-            startIcon={startIcon}
-            size={size}
-            hasError={Boolean(error)}
-            disabled={disabled}
-            clearLabel={clearLabel}
-            onClear={value && onClear ? handleOnClear : undefined}
-          >
-            <SelectParts.Value placeholder={placeholder} textColor={value ? 'neutral800' : 'neutral600'}>
-              {value && customizeContent ? customizeContent(value) : undefined}
-            </SelectParts.Value>
-          </SelectParts.Trigger>
-          <SelectParts.Portal>
-            <SelectParts.Content position="popper" sideOffset={4}>
-              <SelectParts.Viewport ref={viewportRef}>
-                {children}
-                <Box id={intersectionId} width="100%" height="1px" />
-              </SelectParts.Viewport>
-            </SelectParts.Content>
-          </SelectParts.Portal>
-        </SelectParts.Root>
-        <FieldHint />
-        <FieldError />
-      </Flex>
-    </Field>
+    <SelectParts.Root
+      onOpenChange={handleOpenChange}
+      disabled={disabled}
+      required={required}
+      onValueChange={handleValueChange}
+      value={value}
+      {...restProps}
+    >
+      <SelectParts.Trigger
+        ref={triggerRef}
+        aria-label={label}
+        aria-describedby={id ? `${hintId} ${errorId}` : undefined}
+        id={id}
+        startIcon={startIcon}
+        size={size}
+        hasError={Boolean(error)}
+        disabled={disabled}
+        clearLabel={clearLabel}
+        onClear={value && onClear ? handleOnClear : undefined}
+      >
+        <SelectParts.Value placeholder={placeholder} textColor={value ? 'neutral800' : 'neutral600'}>
+          {value && customizeContent ? customizeContent(value) : undefined}
+        </SelectParts.Value>
+      </SelectParts.Trigger>
+      <SelectParts.Portal>
+        <SelectParts.Content position="popper" sideOffset={4}>
+          <SelectParts.Viewport ref={viewportRef}>
+            {children}
+            <Box id={intersectionId} width="100%" height="1px" />
+          </SelectParts.Viewport>
+        </SelectParts.Content>
+      </SelectParts.Portal>
+    </SelectParts.Root>
   );
 };
 

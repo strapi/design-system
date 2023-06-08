@@ -2,31 +2,28 @@ import * as React from 'react';
 
 import styled, { CSSProperties, DefaultTheme } from 'styled-components';
 
-import handleResponsiveValues from '../helpers/handleResponsiveValues';
+import handleResponsiveValues, { ResponsiveValue } from '../helpers/handleResponsiveValues';
 import { extractStyleFromTheme } from '../helpers/theme';
-
-type SpaceProps = keyof DefaultTheme['spaces'] | Array<keyof DefaultTheme['spaces']>;
 
 type DefaultThemeOrCSSProp<T extends keyof DefaultTheme, K extends keyof CSSProperties> =
   | keyof DefaultTheme[T]
   | CSSProperties[K];
 
-export type BoxProps<TElement extends HTMLElement = HTMLDivElement> = Pick<
-  CSSProperties,
-  | 'pointerEvents'
-  | 'display'
-  | 'position'
-  | 'zIndex'
-  | 'overflow'
-  | 'cursor'
-  | 'transition'
-  | 'transform'
-  | 'animation'
-  | 'textAlign'
-  | 'textTransform'
-  | 'lineHeight'
-> &
-  React.HTMLAttributes<TElement> & {
+export type BoxProps<TElement extends keyof JSX.IntrinsicElements = 'div'> = React.ComponentPropsWithoutRef<TElement> &
+  Pick<
+    CSSProperties,
+    | 'pointerEvents'
+    | 'display'
+    | 'position'
+    | 'zIndex'
+    | 'overflow'
+    | 'cursor'
+    | 'transition'
+    | 'transform'
+    | 'animation'
+    | 'textAlign'
+    | 'textTransform'
+  > & {
     /**
      * JavaScript hover handler
      */
@@ -71,27 +68,27 @@ export type BoxProps<TElement extends HTMLElement = HTMLDivElement> = Pick<
     /**
      * Padding. Supports responsive values
      */
-    padding?: SpaceProps;
+    padding?: ResponsiveValue;
     /**
      * Padding bottom. Supports responsive values
      */
-    paddingBottom?: SpaceProps;
+    paddingBottom?: ResponsiveValue;
     /**
      * Padding left. Supports responsive values
      */
-    paddingLeft?: SpaceProps;
+    paddingLeft?: ResponsiveValue;
     /**
      * Padding right. Supports responsive values
      */
-    paddingRight?: SpaceProps;
+    paddingRight?: ResponsiveValue;
     /**
      * Padding top. Supports responsive values
      */
-    paddingTop?: SpaceProps;
-    marginLeft?: SpaceProps;
-    marginBottom?: SpaceProps;
-    marginRight?: SpaceProps;
-    marginTop?: SpaceProps;
+    paddingTop?: ResponsiveValue;
+    marginLeft?: ResponsiveValue;
+    marginBottom?: ResponsiveValue;
+    marginRight?: ResponsiveValue;
+    marginTop?: ResponsiveValue;
     /**
      * Shadow name (see `theme.shadows`)
      */
@@ -101,6 +98,7 @@ export type BoxProps<TElement extends HTMLElement = HTMLDivElement> = Pick<
      */
     shrink?: CSSProperties['flexShrink'];
 
+    lineHeight?: DefaultThemeOrCSSProp<'lineHeights', 'lineHeight'>;
     width?: DefaultThemeOrCSSProp<'spaces', 'width'>;
     minWidth?: DefaultThemeOrCSSProp<'spaces', 'minWidth'>;
     maxWidth?: DefaultThemeOrCSSProp<'spaces', 'maxWidth'>;
@@ -215,7 +213,7 @@ export const Box = styled.div.withConfig<BoxProps>({
   // Text
   text-align: ${({ textAlign }) => textAlign};
   text-transform: ${({ textTransform }) => textTransform};
-  line-height: ${({ lineHeight }) => lineHeight};
+  line-height: ${({ theme, lineHeight }) => extractStyleFromTheme(theme.lineHeights, lineHeight, lineHeight)};
 
   // Cursor
   cursor: ${({ cursor }) => cursor};

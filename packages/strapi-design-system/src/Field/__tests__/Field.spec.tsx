@@ -1,9 +1,6 @@
 import { PlusCircle } from '@strapi/icons';
-import { render as renderRTL } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { render as renderRTL } from '@test/utils';
 
-import { ThemeProvider } from '../../ThemeProvider';
-import { lightTheme } from '../../themes';
 import {
   Field,
   FieldProps,
@@ -21,14 +18,12 @@ interface ComponentProps extends Pick<FieldProps, 'required' | 'error' | 'hint' 
 }
 
 const Component = ({ required, error, hint, name, labelAction, ...restProps }: ComponentProps) => (
-  <ThemeProvider theme={lightTheme}>
-    <Field required={required} error={error} hint={hint} name={name}>
-      <FieldLabel action={labelAction}>field label</FieldLabel>
-      <FieldInput {...restProps} />
-      <FieldError />
-      <FieldHint />
-    </Field>
-  </ThemeProvider>
+  <Field required={required} error={error} hint={hint} name={name}>
+    <FieldLabel action={labelAction}>field label</FieldLabel>
+    <FieldInput {...restProps} />
+    <FieldError />
+    <FieldHint />
+  </Field>
 );
 
 const render = (props: ComponentProps) => renderRTL(<Component {...props} />);
@@ -109,10 +104,9 @@ describe('Field', () => {
 
   describe('FieldInput props', () => {
     it('should handle the disabled prop correctly', async () => {
-      const user = userEvent.setup();
       const onChange = jest.fn();
 
-      const { getByRole } = render({ disabled: true, onChange });
+      const { getByRole, user } = render({ disabled: true, onChange });
 
       expect(getByRole('textbox')).toBeDisabled();
 
@@ -122,9 +116,8 @@ describe('Field', () => {
     });
 
     it('should handle the onChange prop correctly', async () => {
-      const user = userEvent.setup();
       const onChange = jest.fn();
-      const { getByRole } = render({ onChange });
+      const { getByRole, user } = render({ onChange });
 
       await user.type(getByRole('textbox'), 'test');
 
@@ -132,8 +125,7 @@ describe('Field', () => {
     });
 
     it('should be able to be controlled with a value', async () => {
-      const user = userEvent.setup();
-      const { getByRole } = render({ value: 'test' });
+      const { getByRole, user } = render({ value: 'test' });
 
       expect(getByRole('textbox')).toHaveValue('test');
 
@@ -143,11 +135,10 @@ describe('Field', () => {
     });
 
     it('should render the actions when passed and they should be clickable', async () => {
-      const user = userEvent.setup();
       const startClick = jest.fn();
       const endClick = jest.fn();
 
-      const { getByRole } = render({
+      const { getByRole, user } = render({
         startAction: (
           <FieldAction onClick={startClick} label="start">
             <PlusCircle />

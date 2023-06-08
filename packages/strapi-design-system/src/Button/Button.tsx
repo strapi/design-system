@@ -19,13 +19,18 @@ const rotation = keyframes`
   }
 `;
 
-const LoadingWrapper = styled.div`
+const LoaderAnimated = styled(Loader)`
   animation: ${rotation} 2s infinite linear;
   will-change: transform;
 `;
 
 export const ButtonWrapper = styled(BaseButton)<Required<Pick<ButtonProps, 'size' | 'variant'>>>`
   height: ${({ theme, size }) => theme.sizes.button[size]};
+
+  svg {
+    height: ${12 / 16}rem;
+    width: auto;
+  }
 
   &[aria-disabled='true'] {
     ${getDisabledStyle}
@@ -100,17 +105,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         width={fullWidth ? '100%' : undefined}
         {...props}
       >
-        {(startIcon || loading) && (
-          <Box aria-hidden>
-            {loading ? (
-              <LoadingWrapper>
-                <Loader />
-              </LoadingWrapper>
-            ) : (
-              startIcon
-            )}
-          </Box>
-        )}
+        {(startIcon || loading) && <Box aria-hidden>{loading ? <LoaderAnimated /> : startIcon}</Box>}
 
         <Typography
           variant={size === 'S' ? 'pi' : undefined}

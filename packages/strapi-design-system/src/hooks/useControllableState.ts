@@ -13,7 +13,7 @@ import { useCallbackRef } from '@strapi/ui-primitives';
  */
 
 export interface UseControllableStateParams<TProp> {
-  prop?: TProp | undefined;
+  prop?: TProp | undefined | ((state?: TProp | undefined) => TProp | undefined);
   defaultProp?: TProp | undefined;
   onChange?: (state?: TProp) => void;
 }
@@ -24,10 +24,13 @@ function useControllableState<TProp>({
   prop,
   defaultProp,
   onChange = () => {},
-}: UseControllableStateParams<TProp>): [TProp | undefined, (nextState: TProp | SetStateFn<TProp>) => void] {
+}: UseControllableStateParams<TProp>): [
+  TProp | undefined,
+  (nextState: TProp | undefined | SetStateFn<TProp | undefined>) => void,
+] {
   const [uncontrolledProp, setUncontrolledProp] = useUncontrolledState({ defaultProp, onChange });
   const isControlled = prop !== undefined;
-  const propValue: TProp | undefined = typeof prop === 'function' ? prop(uncontrolledProp) : prop;
+  const propValue: TProp | undefined = prop instanceof Function ? prop(uncontrolledProp) : prop;
   const value = isControlled ? propValue : uncontrolledProp;
   const handleChange = useCallbackRef(onChange);
 

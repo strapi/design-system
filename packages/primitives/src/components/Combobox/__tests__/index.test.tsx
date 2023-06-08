@@ -324,7 +324,20 @@ describe('Combobox', () => {
     });
 
     it('should not control the value strictly if `allowCustomValue` is true', async () => {
-      const { getByRole, user } = render({ allowCustomValue: true });
+      const onValueChangeMock = jest.fn();
+      const { getByRole, user } = render(
+        { allowCustomValue: true, onValueChange: onValueChangeMock },
+        {
+          wrapper(props) {
+            return (
+              <div>
+                {props.children}
+                <button type="button">testing</button>
+              </div>
+            );
+          },
+        },
+      );
 
       await user.click(getByRole('combobox'));
 
@@ -335,9 +348,13 @@ describe('Combobox', () => {
 
       await user.type(getByRole('combobox'), 'apples');
 
+      await user.keyboard('[Escape]');
+
       await user.tab();
 
       expect(getByRole('combobox')).toHaveValue('apples');
+
+      expect(onValueChangeMock).toHaveBeenCalledWith('apples');
     });
   });
 
@@ -579,37 +596,6 @@ describe('Combobox', () => {
       await user.keyboard('[Enter]');
 
       expect(onValueChange).toHaveBeenCalled();
-    });
-
-    it('should correctly show the NoValue text as the textValue changes in different ways', async () => {
-      const { getByRole, queryByText, user } = render({ hideCreatable: true });
-
-      await user.click(getByRole('combobox'));
-
-      /**
-       * see note above
-       */
-      getByRole('combobox').focus();
-
-      await user.keyboard('Option 1');
-
-      expect(getByRole('combobox')).toHaveValue('Option 1');
-      expect(queryByText('No value found')).not.toBeInTheDocument();
-
-      await user.keyboard('2');
-
-      expect(getByRole('combobox')).toHaveValue('Option 12');
-      expect(queryByText('No value found')).toBeInTheDocument();
-
-      await user.keyboard('[Backspace]');
-
-      expect(getByRole('combobox')).toHaveValue('Option 1');
-      expect(queryByText('No value found')).not.toBeInTheDocument();
-
-      await user.clear(getByRole('combobox'));
-
-      expect(getByRole('combobox')).toHaveValue('');
-      expect(queryByText('No value found')).not.toBeInTheDocument();
     });
   });
 

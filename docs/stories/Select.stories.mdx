@@ -53,22 +53,16 @@ The list has built in typeahead meaning pressing the letter `K` will highlight t
 <Canvas>
   <Story name="basic">
     {() => {
-      const [value, setValue] = useState();
       const [error, toggleError] = useState();
       const [disabled, toggleDisabled] = useState();
       return (
-        <Flex direction="column" alignItems="center" gap={11}>
+        <Flex direction="column" alignItems="stretch" gap={11}>
           <SingleSelect
             label="Fruits"
             required
             placeholder="My favourite fruit is..."
             hint="Fruits are not vegetables"
-            onClear={() => {
-              setValue(undefined);
-            }}
             error={error}
-            value={value}
-            onChange={setValue}
             disabled={disabled}
           >
             <SingleSelectOption value="apple">Apple</SingleSelectOption>
@@ -79,7 +73,7 @@ The list has built in typeahead meaning pressing the letter `K` will highlight t
             <SingleSelectOption value="orange">Orange</SingleSelectOption>
             <SingleSelectOption value="strawberry">Strawberry</SingleSelectOption>
           </SingleSelect>
-          <Flex gap={2}>
+          <Flex gap={2} justifyContent="center">
             <Button
               variant="danger-light"
               onClick={() => toggleError((s) => (s ? undefined : 'Oh no, the fruits have gone mouldy!'))}
@@ -91,6 +85,38 @@ The list has built in typeahead meaning pressing the letter `K` will highlight t
             </Button>
           </Flex>
         </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Controlled
+
+All the select variants can be a controlled component by passing a `value` prop and an `onChange` callback, this also
+enables you to have the ability to "clear" the input.
+
+<Canvas>
+  <Story name="controlled">
+    {() => {
+      const [value, setValue] = useState();
+      return (
+        <SingleSelect
+          label="Fruits"
+          placeholder="My favourite fruit is..."
+          onClear={() => {
+            setValue(undefined);
+          }}
+          value={value}
+          onChange={setValue}
+        >
+          <SingleSelectOption value="apple">Apple</SingleSelectOption>
+          <SingleSelectOption value="avocado">Avocado</SingleSelectOption>
+          <SingleSelectOption value="banana">Banana</SingleSelectOption>
+          <SingleSelectOption value="kiwi">Kiwi</SingleSelectOption>
+          <SingleSelectOption value="mango">Mango</SingleSelectOption>
+          <SingleSelectOption value="orange">Orange</SingleSelectOption>
+          <SingleSelectOption value="strawberry">Strawberry</SingleSelectOption>
+        </SingleSelect>
       );
     }}
   </Story>

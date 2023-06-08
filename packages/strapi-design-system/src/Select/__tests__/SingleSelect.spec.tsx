@@ -1,8 +1,5 @@
-import { screen, render, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { screen, render, waitFor } from '@test/utils';
 
-import { ThemeProvider } from '../../ThemeProvider';
-import { darkTheme } from '../../themes';
 import { SingleSelectOption, SingleSelect, SingleSelectProps } from '../SingleSelect';
 
 interface RenderProps extends Partial<Omit<SingleSelectProps, 'children'>> {
@@ -16,15 +13,13 @@ const defaultOpts = [
 ];
 
 const Component = ({ options = defaultOpts, ...restProps }: RenderProps) => (
-  <ThemeProvider theme={darkTheme}>
-    <SingleSelect label="Pick Options" placeholder="Your option" {...restProps}>
-      {options.map((opt) => (
-        <SingleSelectOption key={opt.label} value={opt.value}>
-          {opt.label}
-        </SingleSelectOption>
-      ))}
-    </SingleSelect>
-  </ThemeProvider>
+  <SingleSelect label="Pick Options" placeholder="Your option" {...restProps}>
+    {options.map((opt) => (
+      <SingleSelectOption key={opt.label} value={opt.value}>
+        {opt.label}
+      </SingleSelectOption>
+    ))}
+  </SingleSelect>
 );
 
 const renderComponent = (props: RenderProps = {}) => render(<Component {...props} />);
@@ -32,8 +27,7 @@ const renderComponent = (props: RenderProps = {}) => render(<Component {...props
 describe('Select', () => {
   describe('Interactions', () => {
     it('should open the list when the trigger is clicked', async () => {
-      const user = userEvent.setup();
-      renderComponent();
+      const { user } = renderComponent();
 
       await user.click(screen.getByRole('combobox', { name: 'Pick Options' }));
 
@@ -41,8 +35,7 @@ describe('Select', () => {
     });
 
     it('should close the list when an option is selected', async () => {
-      const user = userEvent.setup();
-      renderComponent();
+      const { user } = renderComponent();
 
       await user.click(screen.getByRole('combobox'));
 
@@ -56,8 +49,7 @@ describe('Select', () => {
     });
 
     it('should not open the menu if the component is disabled', async () => {
-      const user = userEvent.setup();
-      renderComponent({ disabled: true });
+      const { user } = renderComponent({ disabled: true });
 
       await user.click(screen.getByRole('combobox'));
 
@@ -89,8 +81,7 @@ describe('Select', () => {
     });
 
     it('should render the value provided and not update when an option is selected', async () => {
-      const user = userEvent.setup();
-      renderComponent({ value: 'Option 1' });
+      const { user } = renderComponent({ value: 'Option 1' });
 
       expect(screen.getByText('Option 1')).toBeInTheDocument();
 
@@ -102,8 +93,8 @@ describe('Select', () => {
 
     it('should fire the onChange handler if you have a value provided and when you dont', async () => {
       const onChange = jest.fn();
-      const user = userEvent.setup();
-      const { rerender } = renderComponent({ onChange });
+
+      const { rerender, user } = renderComponent({ onChange });
 
       await user.click(screen.getByRole('combobox'));
       await user.click(screen.getByRole('option', { name: 'Option 3' }));
@@ -131,8 +122,7 @@ describe('Select', () => {
     });
 
     it('should not render the clear button when there is a value but onClear is not passed', async () => {
-      const user = userEvent.setup();
-      const { rerender } = renderComponent({ value: 'Option 1' });
+      const { user, rerender } = renderComponent({ value: 'Option 1' });
 
       expect(screen.queryByLabelText('Clear')).not.toBeInTheDocument();
 
@@ -146,8 +136,7 @@ describe('Select', () => {
     });
 
     it('should render the clear button when both a value and onClear are passed', async () => {
-      const user = userEvent.setup();
-      const { rerender } = renderComponent({ value: 'Option 1', onClear: jest.fn() });
+      const { user, rerender } = renderComponent({ value: 'Option 1', onClear: jest.fn() });
 
       expect(screen.getByLabelText('Clear')).toBeInTheDocument();
 
@@ -162,8 +151,8 @@ describe('Select', () => {
 
     it('should call onClear when clicked', async () => {
       const onClear = jest.fn();
-      const user = userEvent.setup();
-      renderComponent({ onClear });
+
+      const { user } = renderComponent({ onClear });
 
       await user.click(screen.getByRole('combobox'));
 
