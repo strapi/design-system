@@ -54,7 +54,7 @@
     "build": "yarn build:prod",
     "build:prod": "vite build",
     "clean": "rimraf dist node_modules",
-    "generate:types": "tsc --noEmit false --emitDeclarationOnly --declarationDir dist",
+    "generate:types": "tsc --noEmit false --declaration --emitDeclarationOnly --declarationDir dist",
     "lint": "eslint . --ext .js,.jsx,.tsx,.ts",
     "format": "yarn lint --fix",
     "test": "jest -c jest.config.js",
