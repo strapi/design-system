@@ -1,7 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, ChangeEventHandler } from 'react';
 
 import { Search } from '@strapi/icons';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { Box } from '../Box';
@@ -14,17 +13,39 @@ import { IconButton } from '../IconButton';
 import { Searchbar, SearchForm } from '../Searchbar';
 import { Typography } from '../Typography';
 
+export interface SubNavHeaderProps {
+  as?: string | React.ComponentType<any>;
+  id: string;
+  label: string;
+  onChange?: ChangeEventHandler<HTMLInputElement>;
+  onClear?: (event: Event) => void;
+  onSubmit?: React.FormEventHandler;
+  searchable: boolean;
+  searchLabel?: string;
+  value?: string;
+}
+
 const CustomDivider = styled(Divider)`
   width: ${24 / 16}rem;
   background-color: ${({ theme }) => theme.colors.neutral200};
 `;
 
-export const SubNavHeader = ({ as, label, searchLabel, searchable, onChange, value, onClear, onSubmit, id }) => {
+export const SubNavHeader = ({
+  as = 'h2',
+  label,
+  searchLabel = '',
+  searchable,
+  onChange = () => {},
+  value = '',
+  onClear = () => {},
+  onSubmit = () => {},
+  id,
+}: SubNavHeaderProps) => {
   const [isSearchOpen, setSearchOpen] = useState(false);
   const previousSearchOpenValue = usePrevious(isSearchOpen);
   const clearButtonId = useId(id);
-  const searchRef = useRef();
-  const searchButtonRef = useRef();
+  const searchRef = useRef<HTMLInputElement>(null);
+  const searchButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (isSearchOpen && searchRef.current) {
@@ -41,7 +62,10 @@ export const SubNavHeader = ({ as, label, searchLabel, searchable, onChange, val
 
   const handleClear = (e) => {
     onClear(e);
-    searchRef.current.focus();
+
+    if (searchRef?.current) {
+      searchRef.current.focus();
+    }
   };
 
   const handleBlur = (e) => {
@@ -98,27 +122,4 @@ export const SubNavHeader = ({ as, label, searchLabel, searchable, onChange, val
       </Box>
     </Box>
   );
-};
-
-SubNavHeader.defaultProps = {
-  as: 'h2',
-  searchable: false,
-  onChange() {},
-  onClear() {},
-  onSubmit() {},
-  value: '',
-  searchLabel: '',
-  id: undefined,
-};
-
-SubNavHeader.propTypes = {
-  as: PropTypes.string,
-  id: PropTypes.string,
-  label: PropTypes.string.isRequired,
-  onChange: PropTypes.func,
-  onClear: PropTypes.func,
-  onSubmit: PropTypes.func,
-  searchLabel: PropTypes.string,
-  searchable: PropTypes.bool,
-  value: PropTypes.string,
 };
