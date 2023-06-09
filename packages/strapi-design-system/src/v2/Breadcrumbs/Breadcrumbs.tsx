@@ -1,11 +1,10 @@
 import React, { Children } from 'react';
 
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { Divider } from './Divider';
 import { Box } from '../../Box';
-import { Flex } from '../../Flex';
+import { Flex, FlexProps } from '../../Flex';
 
 const AlignedList = styled(Flex)`
   // CrumbLinks do have padding-x, because they need to have a
@@ -17,12 +16,16 @@ const AlignedList = styled(Flex)`
   }
 `;
 
-export const Breadcrumbs = ({ label, children, ...props }) => {
+export interface BreadcrumbsProps extends FlexProps {
+  label?: string;
+}
+
+export const Breadcrumbs = ({ label, children, ...props }: BreadcrumbsProps) => {
   const childrenArray = Children.toArray(children);
 
   return (
     <Box aria-label={label} {...props}>
-      <AlignedList as="ol" horizontal>
+      <AlignedList as="ol">
         {Children.map(childrenArray, (child, index) => {
           const shouldDisplayDivider = childrenArray.length > 1 && index + 1 < childrenArray.length;
 
@@ -39,8 +42,3 @@ export const Breadcrumbs = ({ label, children, ...props }) => {
 };
 
 Breadcrumbs.displayName = 'Breadcrumbs';
-
-Breadcrumbs.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
-  label: PropTypes.string.isRequired,
-};

@@ -1,9 +1,8 @@
 import React from 'react';
 
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { BaseLink } from '../../BaseLink';
+import { BaseLink, BaseLinkProps } from '../../BaseLink';
 
 const StyledLink = styled(BaseLink)`
   border-radius: ${({ theme }) => theme.borderRadius};
@@ -20,15 +19,6 @@ const StyledLink = styled(BaseLink)`
   }
 `;
 
-export const CrumbLink = ({ children, ...props }) => <StyledLink {...props}>{children}</StyledLink>;
+export const CrumbLink = ({ children, ...props }: BaseLinkProps) => <StyledLink {...props}>{children}</StyledLink>;
 
 CrumbLink.displayName = 'CrumbLink';
-
-CrumbLink.defaultProps = {
-  to: undefined,
-};
-
-CrumbLink.propTypes = {
-  children: PropTypes.node.isRequired,
-  to: PropTypes.string,
-};

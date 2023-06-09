@@ -1,10 +1,9 @@
 import React from 'react';
 
 import { CarretDown } from '@strapi/icons';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { Button } from '../../Button';
+import { Button, ButtonProps } from '../../Button';
 import { SimpleMenu } from '../SimpleMenu';
 
 const StyledButton = styled(Button)`
@@ -16,15 +15,15 @@ const StyledButton = styled(Button)`
   }
 `;
 
-export const CrumbSimpleMenu = ({ children, ...props }) => (
-  <SimpleMenu noBorder icon={<CarretDown />} as={StyledButton} size="S" {...props}>
+export interface CrumbSimpleMenuProps extends ButtonProps {
+  'aria-label': string;
+  icon?: React.ReactElement;
+}
+
+export const CrumbSimpleMenu = ({ children, ...props }: CrumbSimpleMenuProps) => (
+  <SimpleMenu icon={<CarretDown />} as={StyledButton} size="S" {...props}>
     {children}
   </SimpleMenu>
 );
 
 CrumbSimpleMenu.displayName = 'CrumbSimpleMenu';
-
-CrumbSimpleMenu.propTypes = {
-  'aria-label': PropTypes.string.isRequired,
-  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
-};
