@@ -5477,7 +5477,7 @@ __metadata:
     react-dom: 18.2.0
     react-router-dom: 5.3.4
     storybook-dark-mode: ^2.1.1
-    styled-components: ^5.3.10
+    styled-components: ^5.3.11
   languageName: unknown
   linkType: soft
 
@@ -5505,7 +5505,7 @@ __metadata:
     prop-types: ^15.8.1
     react-remove-scroll: ^2.5.5
     react-router-dom: ^5.3.4
-    styled-components: ^5.3.10
+    styled-components: ^5.3.11
   peerDependencies:
     "@strapi/icons": ^1.5.0
     react: ^17.0.0 || ^18.0.0
@@ -20927,9 +20927,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"styled-components@npm:^5.3.10":
-  version: 5.3.10
-  resolution: "styled-components@npm:5.3.10"
+"styled-components@npm:^5.3.11":
+  version: 5.3.11
+  resolution: "styled-components@npm:5.3.11"
   dependencies:
     "@babel/helper-module-imports": ^7.0.0
     "@babel/traverse": ^7.4.5
@@ -20945,7 +20945,7 @@ __metadata:
     react: ">= 16.8.0"
     react-dom: ">= 16.8.0"
     react-is: ">= 16.8.0"
-  checksum: 46dfea6c435516b22aae25798cf01f9b08423cfb517cfea9db760a18c941bddf79abaad9bedb9b3cca6faad24bd7eb4ef4dd21ae84b356ae29d279b2d571f7b7
+  checksum: 10edd4dae3b0231ec02d86bdd09c88e894eedfa7e9d4f8e562b09fb69c67a27d586cbcf35c785002d59b3bf11e6c0940b0efce40d13ae9ed148b26b1dc8f3284
   languageName: node
   linkType: hard
 
