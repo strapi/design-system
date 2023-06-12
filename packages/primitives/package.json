@@ -23,7 +23,7 @@
     "test:watch": "jest -c jest.config.js --watchAll"
   },
   "dependencies": {
-    "@radix-ui/number": "^1.0.0",
+    "@radix-ui/number": "^1.0.1",
     "@radix-ui/primitive": "^1.0.0",
     "@radix-ui/react-collection": "1.0.3",
     "@radix-ui/react-compose-refs": "^1.0.0",
