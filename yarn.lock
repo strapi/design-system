@@ -3709,6 +3709,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@radix-ui/react-focus-scope@npm:1.0.3":
+  version: 1.0.3
+  resolution: "@radix-ui/react-focus-scope@npm:1.0.3"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@radix-ui/react-compose-refs": 1.0.1
+    "@radix-ui/react-primitive": 1.0.3
+    "@radix-ui/react-use-callback-ref": 1.0.1
+  peerDependencies:
+    "@types/react": "*"
+    "@types/react-dom": "*"
+    react: ^16.8 || ^17.0 || ^18.0
+    react-dom: ^16.8 || ^17.0 || ^18.0
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+    "@types/react-dom":
+      optional: true
+  checksum: e5b1a089071fbe77aca11124a4ad9623fc2bcaf4c019759b0cd044bf0878ecc924131ee09c6a22d38a3f094684ef68ed18fa65c8d891918412e0afc685a464e0
+  languageName: node
+  linkType: hard
+
 "@radix-ui/react-id@npm:1.0.0":
   version: 1.0.0
   resolution: "@radix-ui/react-id@npm:1.0.0"
@@ -5492,7 +5514,7 @@ __metadata:
     "@playwright/test": 1.33.0
     "@radix-ui/react-dismissable-layer": ^1.0.3
     "@radix-ui/react-dropdown-menu": ^2.0.4
-    "@radix-ui/react-focus-scope": 1.0.2
+    "@radix-ui/react-focus-scope": 1.0.3
     "@strapi/icons": ^1.8.0
     "@strapi/ui-primitives": ^1.8.0
     "@types/react-router-dom": ^5.3.3
@@ -5564,7 +5586,7 @@ __metadata:
     "@radix-ui/react-direction": 1.0.0
     "@radix-ui/react-dismissable-layer": ^1.0.3
     "@radix-ui/react-focus-guards": 1.0.0
-    "@radix-ui/react-focus-scope": 1.0.2
+    "@radix-ui/react-focus-scope": 1.0.3
     "@radix-ui/react-id": ^1.0.1
     "@radix-ui/react-popper": ^1.1.2
     "@radix-ui/react-portal": ^1.0.2
