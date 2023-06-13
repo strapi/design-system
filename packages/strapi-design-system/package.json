@@ -33,7 +33,7 @@
     "react-remove-scroll": "^2.5.5"
   },
   "devDependencies": {
-    "@playwright/test": "1.33.0",
+    "@playwright/test": "1.35.0",
     "@strapi/icons": "^1.8.0",
     "@types/react-router-dom": "^5.3.3",
     "@types/styled-components": "^5.1.26",
