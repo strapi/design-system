@@ -3584,7 +3584,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-compose-refs@npm:1.0.0, @radix-ui/react-compose-refs@npm:^1.0.0":
+"@radix-ui/react-compose-refs@npm:1.0.0":
   version: 1.0.0
   resolution: "@radix-ui/react-compose-refs@npm:1.0.0"
   dependencies:
@@ -3595,7 +3595,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-compose-refs@npm:1.0.1":
+"@radix-ui/react-compose-refs@npm:1.0.1, @radix-ui/react-compose-refs@npm:^1.0.1":
   version: 1.0.1
   resolution: "@radix-ui/react-compose-refs@npm:1.0.1"
   dependencies:
@@ -5581,7 +5581,7 @@ __metadata:
     "@radix-ui/number": ^1.0.1
     "@radix-ui/primitive": ^1.0.0
     "@radix-ui/react-collection": 1.0.3
-    "@radix-ui/react-compose-refs": ^1.0.0
+    "@radix-ui/react-compose-refs": ^1.0.1
     "@radix-ui/react-context": ^1.0.0
     "@radix-ui/react-direction": 1.0.0
     "@radix-ui/react-dismissable-layer": ^1.0.3
