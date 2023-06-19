@@ -189,6 +189,7 @@ export const ComboboxInput = ({
     <ComboboxPrimitive.Root
       autocomplete={autocomplete || (creatable ? 'list' : 'both')}
       onOpenChange={handleOpenChange}
+      open={internalIsOpen}
       onTextValueChange={handleTextValueChange}
       textValue={internalTextValue}
       allowCustomValue={creatable || allowCustomValue}
