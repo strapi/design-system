@@ -16,6 +16,8 @@ const GridWrapper = styled(Box)<Required<Pick<GridProps, 'gridCols' | 'gap'>>>`
   ${({ theme, gap }) => handleResponsiveValues('gap', gap, theme)}
 `;
 
-export const Grid: React.FC<GridProps> = ({ gap = '0', gridCols = 12, ...props }) => {
-  return <GridWrapper gap={gap} gridCols={gridCols} {...props} />;
+export const Grid = (props: GridProps) => {
+  const { gap = '0', gridCols = 12, ...rest } = props;
+
+  return <GridWrapper gap={gap} gridCols={gridCols} {...rest} />;
 };
