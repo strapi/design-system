@@ -6392,14 +6392,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:18.2.7":
-  version: 18.2.7
-  resolution: "@types/react@npm:18.2.7"
+"@types/react@npm:18.2.13":
+  version: 18.2.13
+  resolution: "@types/react@npm:18.2.13"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: caa5da4cf929766738ec789301dc6fb6624bd48dd317d851c4c9b84b1f47cd8ebe17fe01398cadaa0bc938cd4d502d67f4b9de9ff771dc132096bdc86228efba
+  checksum: f7c15f19c164a29262993ea2aae2085fa38cddd9b8359fd8fefabfced91010b515a3abe2042b2b7f2f86e6b38a25b191415aa9313a9027175e3a000883c858cc
   languageName: node
   linkType: hard
 
@@ -10345,7 +10345,7 @@ __metadata:
     "@testing-library/user-event": ^14.4.3
     "@tsconfig/node16": ^1.0.4
     "@types/jest": ^29.5.2
-    "@types/react": 18.2.7
+    "@types/react": 18.2.13
     "@types/react-dom": 18.2.4
     "@typescript-eslint/eslint-plugin": ^5.59.1
     "@typescript-eslint/parser": ^5.59.9
