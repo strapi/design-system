@@ -117,7 +117,7 @@ const ComboboxProviders = ({ children }: { children: React.ReactNode }) => (
   </PopperPrimitive.Root>
 );
 
-const Combobox: React.FC<RootProps> = (props) => {
+const Combobox = (props: RootProps) => {
   const {
     allowCustomValue = false,
     autocomplete = 'none',
@@ -669,7 +669,7 @@ interface PortalProps extends Omit<IPortalProps, 'asChild'> {
   children?: React.ReactNode;
 }
 
-const ComboboxPortal: React.FC<PortalProps> = (props) => {
+const ComboboxPortal = (props: PortalProps) => {
   return <PortalPrimitive asChild {...props} />;
 };
 

@@ -124,7 +124,7 @@ interface MultiSelectProps extends SharedSelectProps {
 
 type SelectProps = SingleSelectProps | MultiSelectProps;
 
-const Select: React.FC<SelectProps> = (props: ScopedProps<SelectProps>) => {
+const Select = (props: ScopedProps<SelectProps>) => {
   const {
     __scopeSelect,
     children,
@@ -499,7 +499,7 @@ interface SelectPortalProps extends Omit<PortalProps, 'asChild'> {
   children?: React.ReactNode;
 }
 
-const SelectPortal: React.FC<SelectPortalProps> = (props: ScopedProps<SelectPortalProps>) => {
+const SelectPortal = (props: ScopedProps<SelectPortalProps>) => {
   return <PortalPrimitive asChild {...props} />;
 };
 
