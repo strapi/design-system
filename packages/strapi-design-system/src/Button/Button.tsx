@@ -107,12 +107,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       >
         {(startIcon || loading) && <Box aria-hidden>{loading ? <LoaderAnimated /> : startIcon}</Box>}
 
-        <Typography
-          variant={size === 'S' ? 'pi' : undefined}
-          fontWeight="bold"
-          lineHeight={0}
-          textColor="buttonNeutral0"
-        >
+        <Typography variant={size === 'S' ? 'pi' : undefined} fontWeight="bold" textColor="buttonNeutral0">
           {children}
         </Typography>
 

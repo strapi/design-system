@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { CarretDown } from '@strapi/icons';
 import styled from 'styled-components';
 
 import { Button, ButtonProps } from '../../Button';
 import { SimpleMenu } from '../SimpleMenu';
 
 const StyledButton = styled(Button)`
-  padding: ${({ theme }) => `${theme.spaces[1]} ${theme.spaces[3]}`};
+  padding: ${({ theme }) => `${theme.spaces[1]} ${theme.spaces[2]}`};
+  height: unset;
 
   :hover,
   :focus {
@@ -18,10 +18,11 @@ const StyledButton = styled(Button)`
 export interface CrumbSimpleMenuProps extends ButtonProps {
   'aria-label': string;
   icon?: React.ReactElement;
+  endIcon?: React.ReactNode;
 }
 
 export const CrumbSimpleMenu = ({ children, ...props }: CrumbSimpleMenuProps) => (
-  <SimpleMenu icon={<CarretDown />} as={StyledButton} size="S" {...props}>
+  <SimpleMenu endIcon={null} as={StyledButton} size="S" {...props}>
     {children}
   </SimpleMenu>
 );
