@@ -9,12 +9,25 @@
   },
   "targetDefaults": {
     "build": {
-      "dependsOn": ["^build"],
+      "dependsOn": [
+        "^build"
+      ],
       "outputs": [
         "{projectRoot}/packages/strapi-icons/dist/**",
         "{projectRoot}/packages/strapi-design-system/dist/**",
         "{projectRoot}/docs/storybook-static"
       ]
     }
+  },
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "namedInputs": {
+    "default": [
+      "{projectRoot}/**/*",
+      "sharedGlobals"
+    ],
+    "sharedGlobals": [],
+    "production": [
+      "default"
+    ]
   }
 }
