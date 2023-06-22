@@ -34,7 +34,7 @@
     "@radix-ui/react-focus-scope": "1.0.3",
     "@radix-ui/react-id": "^1.0.1",
     "@radix-ui/react-popper": "^1.1.2",
-    "@radix-ui/react-portal": "^1.0.2",
+    "@radix-ui/react-portal": "^1.0.3",
     "@radix-ui/react-primitive": "^1.0.3",
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-use-callback-ref": "^1.0.0",
