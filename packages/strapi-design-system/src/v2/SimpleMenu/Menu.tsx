@@ -285,6 +285,7 @@ const MenuSubContent = forwardRef<HTMLDivElement, SubContentProps>((props, ref) 
           maxHeight="15rem"
           padding={1}
           alignItems="flex-start"
+          overflow="auto"
           {...props}
         />
       </DropdownMenu.SubContent>

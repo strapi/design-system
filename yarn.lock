@@ -3354,17 +3354,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-compose-refs@npm:1.0.0":
-  version: 1.0.0
-  resolution: "@radix-ui/react-compose-refs@npm:1.0.0"
-  dependencies:
-    "@babel/runtime": ^7.13.10
-  peerDependencies:
-    react: ^16.8 || ^17.0 || ^18.0
-  checksum: fb98be2e275a1a758ccac647780ff5b04be8dcf25dcea1592db3b691fecf719c4c0700126da605b2f512dd89caa111352b9fad59528d736b4e0e9a0e134a74a1
-  languageName: node
-  linkType: hard
-
 "@radix-ui/react-compose-refs@npm:1.0.1, @radix-ui/react-compose-refs@npm:^1.0.1":
   version: 1.0.1
   resolution: "@radix-ui/react-compose-refs@npm:1.0.1"
@@ -3642,19 +3631,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-primitive@npm:1.0.2":
-  version: 1.0.2
-  resolution: "@radix-ui/react-primitive@npm:1.0.2"
-  dependencies:
-    "@babel/runtime": ^7.13.10
-    "@radix-ui/react-slot": 1.0.1
-  peerDependencies:
-    react: ^16.8 || ^17.0 || ^18.0
-    react-dom: ^16.8 || ^17.0 || ^18.0
-  checksum: 070b1770749eb629425ef959c4cdbd86957b83c5286ae4423e55ab1a89fa286a51f5aeee44e3a13eb6ca44771415ac1acbaeb0ba03013b49ecb5253e1a5a8996
-  languageName: node
-  linkType: hard
-
 "@radix-ui/react-primitive@npm:1.0.3, @radix-ui/react-primitive@npm:^1.0.3":
   version: 1.0.3
   resolution: "@radix-ui/react-primitive@npm:1.0.3"
@@ -3700,18 +3676,6 @@ __metadata:
     "@types/react-dom":
       optional: true
   checksum: 69b1c82c2d9db3ba71549a848f2704200dab1b2cd22d050c1e081a78b9a567dbfdc7fd0403ee010c19b79652de69924d8ca2076cd031d6552901e4213493ffc7
-  languageName: node
-  linkType: hard
-
-"@radix-ui/react-slot@npm:1.0.1":
-  version: 1.0.1
-  resolution: "@radix-ui/react-slot@npm:1.0.1"
-  dependencies:
-    "@babel/runtime": ^7.13.10
-    "@radix-ui/react-compose-refs": 1.0.0
-  peerDependencies:
-    react: ^16.8 || ^17.0 || ^18.0
-  checksum: a20693f8ce532bd6cbff12ba543dfcf90d451f22923bd60b57dc9e639f6e53348915e182002b33444feb6ab753434e78e2a54085bf7092aadda4418f0423763f
   languageName: node
   linkType: hard
 
@@ -12439,21 +12403,6 @@ __metadata:
   linkType: hard
 
 "glob@npm:^10.2.2, glob@npm:^10.2.5":
-  version: 10.3.0
-  resolution: "glob@npm:10.3.0"
-  dependencies:
-    foreground-child: ^3.1.0
-    jackspeak: ^2.0.3
-    minimatch: ^9.0.1
-    minipass: ^5.0.0 || ^6.0.2
-    path-scurry: ^1.7.0
-  bin:
-    glob: dist/cjs/src/bin.js
-  checksum: 6fa4ac0a86ffec1c5715a2e6fbdd63e1e7f1c2c8f5db08cc3256cdfcb81093678e7c80a3d100b502a1b9d141369ecf87bc24fe2bcb72acec7b14626d358a4eb0
-  languageName: node
-  linkType: hard
-
-"glob@npm:^10.2.2":
   version: 10.3.0
   resolution: "glob@npm:10.3.0"
   dependencies:
