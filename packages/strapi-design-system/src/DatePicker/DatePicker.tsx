@@ -30,6 +30,7 @@ import * as Field from '../Field';
 import { FieldProps } from '../Field';
 import { Flex, FlexProps } from '../Flex';
 import { createContext } from '../helpers/context';
+import { once } from '../helpers/deprecations';
 import { useComposedRefs } from '../hooks/useComposeRefs';
 import { useControllableState } from '../hooks/useControllableState';
 import { useDateFormatter } from '../hooks/useDateFormatter';
@@ -104,12 +105,12 @@ interface DatePickerInputProps
   /**
    * @default Now
    */
-  initialDate?: Date;
+  initialDate?: Date | string;
   /**
    * onChange function, passed from a parent component, it takes the actual date value and it is used inside the different handlers related to the change event for the DatePicker and the TimePicker and also the clear event for the TimePicker
    */
   onChange?: (date: Date | undefined) => void;
-  selectedDate?: Date;
+  selectedDate?: Date | string;
   /**
    * @deprecated This is no longer used.
    */
@@ -187,7 +188,7 @@ const DatePickerInput = React.forwardRef<DatePickerTextInputElement, DatePickerI
 
     const [value, setValue] = useControllableState<CalendarDate | undefined>({
       defaultProp: initialDate ? convertUTCDateToCalendarDate(initialDate) : undefined,
-      prop: selectedDate ? convertUTCDateToCalendarDate(selectedDate) : selectedDate,
+      prop: selectedDate ? convertUTCDateToCalendarDate(selectedDate) : undefined,
       onChange(date) {
         if (onChange) {
           onChange(date?.toDate('UTC'));
@@ -254,6 +255,7 @@ const DatePickerInput = React.forwardRef<DatePickerTextInputElement, DatePickerI
       if (selectedDate) {
         const date = convertUTCDateToCalendarDate(selectedDate);
         setTextValue(date.toString().split('-').reverse().join(separator));
+        setCalendarDate(date);
       } else {
         setTextValue('');
       }
@@ -1198,7 +1200,25 @@ const DatePickerField = React.forwardRef<HTMLDivElement, DatePickerProps>((props
   );
 });
 
-const convertUTCDateToCalendarDate = (date: Date): CalendarDate => {
+const warnOnce = once(console.warn);
+
+const convertUTCDateToCalendarDate = (date: Date | string): CalendarDate => {
+  /**
+   * TODO: remove this in V2, it's a deprecated API
+   */
+  if (typeof date === 'string') {
+    warnOnce(
+      "It looks like you're passing a string as representation of a Date to the DatePicker. This is deprecated, look to passing a Date instead.",
+    );
+    const timestamp = Date.parse(date);
+
+    if (!Number.isNaN(timestamp)) {
+      date = new Date(timestamp);
+    } else {
+      date = new Date();
+    }
+  }
+
   const utcDateString = date.toISOString();
   const zonedDateTime = parseAbsoluteToLocal(utcDateString);
 
