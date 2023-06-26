@@ -3422,17 +3422,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-focus-guards@npm:1.0.0":
-  version: 1.0.0
-  resolution: "@radix-ui/react-focus-guards@npm:1.0.0"
-  dependencies:
-    "@babel/runtime": ^7.13.10
-  peerDependencies:
-    react: ^16.8 || ^17.0 || ^18.0
-  checksum: 8c714e8caa6032f5402eecb0323addd7456d3496946dbad1b9ee8ebf5845943876945e7af9bca179e9f8ffe5100e61cb4ba54a185873949125c310c406be5aa4
-  languageName: node
-  linkType: hard
-
 "@radix-ui/react-focus-guards@npm:1.0.1":
   version: 1.0.1
   resolution: "@radix-ui/react-focus-guards@npm:1.0.1"
@@ -5302,7 +5291,7 @@ __metadata:
     "@radix-ui/react-context": ^1.0.0
     "@radix-ui/react-direction": 1.0.0
     "@radix-ui/react-dismissable-layer": ^1.0.3
-    "@radix-ui/react-focus-guards": 1.0.0
+    "@radix-ui/react-focus-guards": 1.0.1
     "@radix-ui/react-focus-scope": 1.0.3
     "@radix-ui/react-id": ^1.0.1
     "@radix-ui/react-popper": ^1.1.2
