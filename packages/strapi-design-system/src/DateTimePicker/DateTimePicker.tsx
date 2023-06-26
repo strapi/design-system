@@ -7,6 +7,7 @@ import { DatePickerInput, DatePickerInputProps } from '../DatePicker/DatePicker'
 import { useDesignSystem } from '../DesignSystemProvider';
 import { Field, FieldHint, FieldLabel, FieldError, FieldProps } from '../Field';
 import { Flex } from '../Flex';
+import { once } from '../helpers/deprecations';
 import { useControllableState } from '../hooks/useControllableState';
 import { useDateFormatter } from '../hooks/useDateFormatter';
 import { useId } from '../hooks/useId';
@@ -217,7 +218,25 @@ export const DateTimePicker = ({
   );
 };
 
-export const convertUTCDateToCalendarDateTime = (date: Date, resetTime = true): CalendarDateTime => {
+const warnOnce = once(console.warn);
+
+export const convertUTCDateToCalendarDateTime = (date: Date | string, resetTime = true): CalendarDateTime => {
+  /**
+   * TODO: remove this in V2, it's a deprecated API
+   */
+  if (typeof date === 'string') {
+    warnOnce(
+      "It looks like you're passing a string as representation of a Date to the DatePicker. This is deprecated, look to passing a Date instead.",
+    );
+    const timestamp = Date.parse(date);
+
+    if (!Number.isNaN(timestamp)) {
+      date = new Date(timestamp);
+    } else {
+      date = new Date();
+    }
+  }
+
   const utcDateString = date.toISOString();
   let zonedDateTime = parseAbsoluteToLocal(utcDateString);
 

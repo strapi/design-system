@@ -451,4 +451,42 @@ describe('DatePicker', () => {
       expect(getByRole('gridcell', { name: 'Tuesday, 4 September 2001' })).toHaveAttribute('aria-selected', 'true');
     });
   });
+
+  describe('providing a string as the date props', () => {
+    it('should set the initialDate value when provided as a string', async () => {
+      const { getByRole, user } = render({ initialDate: '2020-09-04' });
+
+      expect(getByRole('combobox', { name: 'date picker' })).toHaveValue('04/09/2020');
+
+      await user.click(getByRole('combobox', { name: 'date picker' }));
+
+      expect(getByRole('gridcell', { name: 'Friday, September 4, 2020' })).toHaveAttribute('aria-selected', 'true');
+    });
+
+    it('should set the selectedDate value when provided as a string', async () => {
+      const { getByRole, user } = render({ selectedDate: '2020-09-04' });
+
+      expect(getByRole('combobox', { name: 'date picker' })).toHaveValue('04/09/2020');
+
+      await user.click(getByRole('combobox', { name: 'date picker' }));
+
+      expect(getByRole('gridcell', { name: 'Friday, September 4, 2020' })).toHaveAttribute('aria-selected', 'true');
+    });
+
+    it('should handle updates to the selectedDate prop when provided as a string', async () => {
+      const { getByRole, user, rerender } = render({ selectedDate: '2020-09-04' });
+
+      expect(getByRole('combobox', { name: 'date picker' })).toHaveValue('04/09/2020');
+
+      await user.click(getByRole('combobox', { name: 'date picker' }));
+
+      expect(getByRole('gridcell', { name: 'Friday, September 4, 2020' })).toHaveAttribute('aria-selected', 'true');
+
+      rerender(<Component selectedDate="09/05/2020" />);
+
+      expect(getByRole('combobox', { name: 'date picker' })).toHaveValue('05/09/2020');
+
+      expect(getByRole('gridcell', { name: 'Saturday, September 5, 2020' })).toHaveAttribute('aria-selected', 'true');
+    });
+  });
 });
