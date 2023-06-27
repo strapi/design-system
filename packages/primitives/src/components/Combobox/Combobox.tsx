@@ -536,6 +536,10 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
         }
       })}
       onBlur={composeEventHandlers(props.onBlur, () => {
+        if (context.open) {
+          return;
+        }
+
         context.onVisuallyFocussedItemChange(null);
 
         const [activeItem] = getItems().filter(
