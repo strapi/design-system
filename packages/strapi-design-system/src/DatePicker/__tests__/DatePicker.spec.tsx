@@ -2,7 +2,7 @@ import { RenderOptions, render as renderRTL } from '@test/utils';
 
 import { DatePicker, DatePickerProps } from '../DatePicker';
 
-const Component = (props: Partial<DatePickerProps>) => <DatePicker locale="en-EN" label="date picker" {...props} />;
+const Component = (props: Partial<DatePickerProps>) => <DatePicker locale="en-GB" label="date picker" {...props} />;
 
 const render = (props?: Partial<DatePickerProps>, renderOptions?: RenderOptions) =>
   renderRTL(<Component {...props} />, { renderOptions });
@@ -33,7 +33,7 @@ describe('DatePicker', () => {
 
       expect(getByRole('dialog')).toBeInTheDocument();
 
-      await user.click(getByRole('gridcell', { name: 'Wednesday, September 1, 2021' }));
+      await user.click(getByRole('gridcell', { name: 'Wednesday, 1 September 2021' }));
 
       expect(onChange).toHaveBeenCalledWith(new Date('Sep 01 2021'));
 
@@ -62,7 +62,7 @@ describe('DatePicker', () => {
 
       await user.click(getByRole('combobox', { name: 'date picker' }));
 
-      await user.click(getByRole('gridcell', { name: 'Wednesday, September 8, 2021' }));
+      await user.click(getByRole('gridcell', { name: 'Wednesday, 8 September 2021' }));
 
       expect(onChange).toHaveBeenCalledWith(new Date('Sep 08 2021'));
     });
@@ -154,7 +154,7 @@ describe('DatePicker', () => {
 
       await user.click(getByRole('combobox', { name: 'date picker' }));
 
-      await user.click(getByRole('gridcell', { name: 'Wednesday, September 8, 2021' }));
+      await user.click(getByRole('gridcell', { name: 'Wednesday, 8 September 2021' }));
 
       expect(getByRole('combobox', { name: 'date picker' })).toHaveValue('08/09/2021');
 
@@ -193,14 +193,14 @@ describe('DatePicker', () => {
 
       await user.click(getByRole('combobox', { name: 'date picker' }));
 
-      expect(getAllByRole('gridcell')[8]).toHaveTextContent('6');
+      expect(getAllByRole('gridcell')[8]).toHaveTextContent('7');
 
       await user.click(getByRole('combobox', { name: 'Month' }));
       await user.click(getByRole('option', { name: 'October' }));
 
       expect(getByRole('combobox', { name: 'Month' })).toHaveTextContent('October');
 
-      expect(getAllByRole('gridcell')[8]).toHaveTextContent('4');
+      expect(getAllByRole('gridcell')[8]).toHaveTextContent('5');
     });
 
     it('should update the grid view when the year is changed', async () => {
@@ -210,14 +210,14 @@ describe('DatePicker', () => {
 
       await user.click(getByRole('combobox', { name: 'date picker' }));
 
-      expect(getAllByRole('gridcell')[8]).toHaveTextContent('6');
+      expect(getAllByRole('gridcell')[8]).toHaveTextContent('7');
 
       await user.click(getByRole('combobox', { name: 'Year' }));
       await user.click(getByRole('option', { name: '2022' }));
 
       expect(getByRole('combobox', { name: 'Year' })).toHaveTextContent('2022');
 
-      expect(getAllByRole('gridcell')[8]).toHaveTextContent('5');
+      expect(getAllByRole('gridcell')[8]).toHaveTextContent('6');
     });
 
     it('should call onChange when a date is selected', async () => {
@@ -227,7 +227,7 @@ describe('DatePicker', () => {
 
       await user.click(getByRole('combobox', { name: 'date picker' }));
 
-      await user.click(getByRole('gridcell', { name: 'Wednesday, September 1, 2021' }));
+      await user.click(getByRole('gridcell', { name: 'Wednesday, 1 September 2021' }));
 
       expect(onChange).toHaveBeenCalledWith(new Date('Sep 01 2021'));
     });
@@ -237,7 +237,7 @@ describe('DatePicker', () => {
 
       await user.click(getByRole('combobox', { name: 'date picker' }));
 
-      expect(getAllByRole('gridcell')[8]).toHaveTextContent('6');
+      expect(getAllByRole('gridcell')[8]).toHaveTextContent('7');
 
       await user.keyboard('[Escape]');
 
@@ -246,7 +246,7 @@ describe('DatePicker', () => {
       await user.click(getByRole('combobox', { name: 'date picker' }));
 
       expect(getByRole('combobox', { name: 'Month' })).toHaveTextContent('October');
-      expect(getAllByRole('gridcell')[8]).toHaveTextContent('4');
+      expect(getAllByRole('gridcell')[8]).toHaveTextContent('5');
     });
 
     ['ArrowDown', 'ArrowUp'].forEach((key) =>
@@ -257,7 +257,7 @@ describe('DatePicker', () => {
 
         await user.click(getByRole('combobox', { name: 'date picker' }));
 
-        const name = key === 'ArrowDown' ? 'Thursday, September 23, 2021' : 'Thursday, September 9, 2021';
+        const name = key === 'ArrowDown' ? 'Thursday, 23 September 2021' : 'Thursday, 9 September 2021';
 
         expect(getByRole('gridcell', { name })).toHaveAttribute('aria-selected', 'false');
 
@@ -275,7 +275,7 @@ describe('DatePicker', () => {
 
         await user.click(getByRole('combobox', { name: 'date picker' }));
 
-        const name = key === 'ArrowLeft' ? 'Wednesday, September 15, 2021' : 'Friday, September 17, 2021';
+        const name = key === 'ArrowLeft' ? 'Wednesday, 15 September 2021' : 'Friday, 17 September 2021';
 
         expect(getByRole('gridcell', { name })).toHaveAttribute('aria-selected', 'false');
 
@@ -295,12 +295,12 @@ describe('DatePicker', () => {
       await user.keyboard('[ArrowRight]');
 
       expect(getByRole('combobox', { name: 'Month' })).toHaveTextContent('October');
-      expect(getByRole('gridcell', { name: 'Friday, October 1, 2021' })).toHaveAttribute('aria-selected', 'true');
+      expect(getByRole('gridcell', { name: 'Friday, 1 October 2021' })).toHaveAttribute('aria-selected', 'true');
 
       await user.keyboard('[ArrowUp]');
 
       expect(getByRole('combobox', { name: 'Month' })).toHaveTextContent('September');
-      expect(getByRole('gridcell', { name: 'Friday, September 24, 2021' })).toHaveAttribute('aria-selected', 'true');
+      expect(getByRole('gridcell', { name: 'Friday, 24 September 2021' })).toHaveAttribute('aria-selected', 'true');
     });
   });
 
@@ -330,10 +330,21 @@ describe('DatePicker', () => {
   });
 
   describe('localisation', () => {
-    it('should format by en-EN locale by default', async () => {
+    it('should format by en-GB locale', async () => {
       const { getByRole, user } = render({ selectedDate: new Date('Tue Sep 06 2022') });
 
       expect(getByRole('combobox')).toHaveValue('06/09/2022');
+
+      await user.click(getByRole('combobox', { name: 'date picker' }));
+
+      expect(getByRole('gridcell', { hidden: true, name: 'Su' })).toBeInTheDocument();
+      expect(getByRole('gridcell', { name: 'Wednesday, 7 September 2022' })).toBeInTheDocument();
+    });
+
+    it('should format by en locale', async () => {
+      const { getByRole, user } = render({ selectedDate: new Date('Tue Sep 06 2022'), locale: 'en' });
+
+      expect(getByRole('combobox')).toHaveValue('9/6/2022');
 
       await user.click(getByRole('combobox', { name: 'date picker' }));
 
@@ -350,6 +361,38 @@ describe('DatePicker', () => {
 
       expect(getByRole('gridcell', { hidden: true, name: 'So' })).toBeInTheDocument();
       expect(getByRole('gridcell', { name: 'Mittwoch, 7. September 2022' })).toBeInTheDocument();
+    });
+
+    it('should format by the JA locale when passed', async () => {
+      const { getByRole, rerender, getByPlaceholderText } = render({ locale: 'ja' });
+
+      expect(getByRole('combobox')).toBe(getByPlaceholderText('YYYY/MM/DD'));
+
+      rerender(<Component locale="ja" selectedDate={new Date('Tue Sep 06 2022')} />);
+
+      expect(getByRole('combobox')).toHaveValue('2022/09/06');
+    });
+
+    it('should allow you to type the date in the same locale style as the placeholder', async () => {
+      const { getByRole, user } = render({ locale: 'ja', initialDate: new Date('Tue Sep 06 2021') });
+
+      await user.clear(getByRole('combobox', { name: 'date picker' }));
+
+      await user.type(getByRole('combobox', { name: 'date picker' }), '2022');
+
+      expect(getByRole('combobox', { name: 'date picker' })).toHaveValue('2022');
+
+      expect(getByRole('gridcell', { name: '2022年1月1日土曜日' })).toHaveAttribute('aria-selected', 'true');
+
+      await user.type(getByRole('combobox', { name: 'date picker' }), '/12');
+
+      expect(getByRole('combobox', { name: 'date picker' })).toHaveValue('2022/12');
+
+      expect(getByRole('gridcell', { name: '2022年12月6日火曜日' })).toHaveAttribute('aria-selected', 'true');
+
+      await user.type(getByRole('combobox', { name: 'date picker' }), '/18');
+
+      expect(getByRole('gridcell', { name: '2022年12月18日日曜日' })).toHaveAttribute('aria-selected', 'true');
     });
   });
 
@@ -375,7 +418,7 @@ describe('DatePicker', () => {
 
       await user.click(getByRole('combobox', { name: 'date picker' }));
 
-      expect(getByRole('gridcell', { name: /September 4, 4000/ })).toHaveAttribute('aria-selected', 'true');
+      expect(getByRole('gridcell', { name: 'Monday, 4 September 4000' })).toHaveAttribute('aria-selected', 'true');
     });
 
     it('should set the intial calendar date to the maximum date if today is after that date', async () => {
@@ -385,7 +428,7 @@ describe('DatePicker', () => {
 
       await user.click(getByRole('combobox', { name: 'date picker' }));
 
-      expect(getByRole('gridcell', { name: /September 4, 2000/ })).toHaveAttribute('aria-selected', 'true');
+      expect(getByRole('gridcell', { name: 'Monday, 4 September 2000' })).toHaveAttribute('aria-selected', 'true');
     });
   });
 
@@ -460,7 +503,7 @@ describe('DatePicker', () => {
 
       await user.click(getByRole('combobox', { name: 'date picker' }));
 
-      expect(getByRole('gridcell', { name: 'Friday, September 4, 2020' })).toHaveAttribute('aria-selected', 'true');
+      expect(getByRole('gridcell', { name: 'Friday, 4 September 2020' })).toHaveAttribute('aria-selected', 'true');
     });
 
     it('should set the selectedDate value when provided as a string', async () => {
@@ -470,7 +513,7 @@ describe('DatePicker', () => {
 
       await user.click(getByRole('combobox', { name: 'date picker' }));
 
-      expect(getByRole('gridcell', { name: 'Friday, September 4, 2020' })).toHaveAttribute('aria-selected', 'true');
+      expect(getByRole('gridcell', { name: 'Friday, 4 September 2020' })).toHaveAttribute('aria-selected', 'true');
     });
 
     it('should handle updates to the selectedDate prop when provided as a string', async () => {
@@ -480,13 +523,13 @@ describe('DatePicker', () => {
 
       await user.click(getByRole('combobox', { name: 'date picker' }));
 
-      expect(getByRole('gridcell', { name: 'Friday, September 4, 2020' })).toHaveAttribute('aria-selected', 'true');
+      expect(getByRole('gridcell', { name: 'Friday, 4 September 2020' })).toHaveAttribute('aria-selected', 'true');
 
       rerender(<Component selectedDate="09/05/2020" />);
 
       expect(getByRole('combobox', { name: 'date picker' })).toHaveValue('05/09/2020');
 
-      expect(getByRole('gridcell', { name: 'Saturday, September 5, 2020' })).toHaveAttribute('aria-selected', 'true');
+      expect(getByRole('gridcell', { name: 'Saturday, 5 September 2020' })).toHaveAttribute('aria-selected', 'true');
     });
   });
 });
