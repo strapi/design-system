@@ -71,11 +71,6 @@ interface DatePickerContextValue {
   onTriggerChange: (trigger: DatePickerTriggerElement | null) => void;
   onValueChange: (value: CalendarDate | undefined) => void;
   required: boolean;
-  /**
-   * Localised separator for date values e.g. `/` if en-GB,
-   * think `os.separator` for dates
-   */
-  separator: string;
   textInput: DatePickerTextInputElement | null;
   textValue?: string;
   timeZone: string;
@@ -170,15 +165,10 @@ const DatePickerInput = React.forwardRef<DatePickerTextInputElement, DatePickerI
     const locale = defaultLocale ?? designContext.locale;
 
     const formatter = useDateFormatter(locale, {
-      dateStyle: 'short',
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
     });
-
-    const separator = React.useMemo(() => {
-      const parts = formatter.formatToParts(new Date());
-      const { value: separator } = parts.find((part) => part.type === 'literal')!;
-
-      return separator;
-    }, [formatter]);
 
     const [open, setOpen] = React.useState(false);
     const [trigger, setTrigger] = React.useState<DatePickerTriggerElement | null>(null);
@@ -254,19 +244,19 @@ const DatePickerInput = React.forwardRef<DatePickerTextInputElement, DatePickerI
     React.useLayoutEffect(() => {
       if (selectedDate) {
         const date = convertUTCDateToCalendarDate(selectedDate);
-        setTextValue(date.toString().split('-').reverse().join(separator));
+        setTextValue(formatter.format(date.toDate('UTC')));
         setCalendarDate(date);
       } else {
         setTextValue('');
       }
-    }, [separator, selectedDate]);
+    }, [selectedDate, formatter]);
 
     React.useLayoutEffect(() => {
       if (initialDate && textValue === undefined) {
         const date = convertUTCDateToCalendarDate(initialDate);
-        setTextValue(date.toString().split('-').reverse().join(separator));
+        setTextValue(formatter.format(date.toDate('UTC')));
       }
-    }, [separator, initialDate, textValue]);
+    }, [initialDate, textValue, formatter]);
 
     const hintId = `${id}-hint`;
     const errorId = `${id}-error`;
@@ -289,7 +279,6 @@ const DatePickerInput = React.forwardRef<DatePickerTextInputElement, DatePickerI
         onTriggerChange={setTrigger}
         onValueChange={setValue}
         required={required}
-        separator={separator}
         textInput={textInput}
         textValue={textValue}
         timeZone="UTC"
@@ -513,7 +502,7 @@ const DatePickerTextInput = React.forwardRef<DatePickerTextInputElement, TextInp
   ({ placeholder, ...props }, forwardedRef) => {
     const context = useDatePickerContext(DATE_PICKER_TEXT_INPUT_NAME);
 
-    const { onTextValueChange, textValue, onTextInputChange, onOpenChange, disabled, separator } = context;
+    const { onTextValueChange, textValue, onTextInputChange, onOpenChange, disabled, locale } = context;
 
     const composedRefs = useComposedRefs(forwardedRef, (node) => onTextInputChange(node));
 
@@ -522,6 +511,39 @@ const DatePickerTextInput = React.forwardRef<DatePickerTextInputElement, TextInp
         onOpenChange(true);
       }
     };
+
+    const formatter = useDateFormatter(locale, {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+    });
+
+    const [dateFormatPlaceholder, separator, dateStructure] = React.useMemo(() => {
+      const parts = formatter.formatToParts(new Date());
+
+      const dateStructure = parts.filter(
+        (part) => part.type === 'year' || part.type === 'month' || part.type === 'day',
+      );
+
+      const placeholder = dateStructure.map((part) => {
+        switch (part.type) {
+          case 'day':
+            return 'DD';
+          case 'month':
+            return 'MM';
+          case 'year':
+            return 'YYYY';
+          default:
+            return '';
+        }
+      });
+
+      const separator = parts.find((part) => part.type === 'literal')?.value ?? '';
+
+      return [placeholder, separator, dateStructure];
+    }, [formatter]);
+
+    const inputPattern = dateFormatPlaceholder.map((part) => `\\d${part.length}`).join(separator);
 
     return (
       <Input
@@ -538,8 +560,8 @@ const DatePickerTextInput = React.forwardRef<DatePickerTextInputElement, TextInp
         data-state={context.open ? 'open' : 'closed'}
         disabled={disabled}
         data-disabled={disabled ? '' : undefined}
-        pattern={`\\d{2}${separator}\\d{2}${separator}\\d{4}`}
-        placeholder={placeholder ?? `DD${separator}MM${separator}YYYY`}
+        pattern={inputPattern}
+        placeholder={placeholder ?? dateFormatPlaceholder.join(separator)}
         {...props}
         value={textValue ?? ''}
         onBlur={composeEventHandlers(props.onBlur, () => {
@@ -549,12 +571,49 @@ const DatePickerTextInput = React.forwardRef<DatePickerTextInputElement, TextInp
             return;
           }
 
-          context.onTextValueChange(context.calendarDate.toString().split('-').reverse().join(separator));
+          context.onTextValueChange(formatter.format(context.calendarDate.toDate('UTC')));
           context.onValueChange(context.calendarDate);
         })}
         onChange={composeEventHandlers(props.onChange, (event) => {
           if (isPrintableCharacter(event.target.value)) {
-            const [day, month, year] = event.target.value.split(separator);
+            const inputByPart = event.target.value.split(separator);
+
+            /**
+             * by using the dateStructure to understand the localised order we split and organise the event.target.value
+             * to DD MM YYYY and return as an array.
+             */
+            const [day, month, year] = dateStructure
+              .map((part, index) => {
+                const value = inputByPart[index];
+
+                return {
+                  ...part,
+                  value,
+                };
+              })
+              /**
+               * TODO: This could probably be better done?
+               */
+              .sort((a, b) => {
+                if (a.type === 'year') {
+                  return 1;
+                }
+
+                if (b.type === 'year') {
+                  return -1;
+                }
+
+                if (a.type === 'month') {
+                  return 1;
+                }
+
+                if (b.type === 'month') {
+                  return -1;
+                }
+
+                return 0;
+              })
+              .map((part) => part.value);
 
             const currentYear = context.calendarDate.year;
 
@@ -676,7 +735,7 @@ const DatePickerTextInput = React.forwardRef<DatePickerTextInputElement, TextInp
             }
           } else if (context.open && ['Enter'].includes(event.key)) {
             event.preventDefault();
-            onTextValueChange(context.calendarDate.toString().split('-').reverse().join(separator));
+            onTextValueChange(formatter.format(context.calendarDate.toDate('UTC')));
             context.onValueChange(context.calendarDate);
             context.onOpenChange(false);
           }
@@ -1089,16 +1148,8 @@ interface CalendarCellProps extends BoxProps<'td'> {
 
 const DatePickerCalendarCell = React.forwardRef<DatePickerCalendarCellElement, CalendarCellProps>(
   ({ date, startDate, ...props }, forwardedRef) => {
-    const {
-      timeZone,
-      locale,
-      calendarDate,
-      onValueChange,
-      onOpenChange,
-      onTextValueChange,
-      separator,
-      onCalendarDateChange,
-    } = useDatePickerContext(DATE_PICKER_CALEDNAR_CELL_NAME);
+    const { timeZone, locale, calendarDate, onValueChange, onOpenChange, onTextValueChange, onCalendarDateChange } =
+      useDatePickerContext(DATE_PICKER_CALEDNAR_CELL_NAME);
 
     const isSelected = isSameDay(calendarDate, date);
 
@@ -1120,6 +1171,12 @@ const DatePickerCalendarCell = React.forwardRef<DatePickerCalendarCellElement, C
       () => cellDateFormatter.formatToParts(date.toDate(timeZone)).find((part) => part.type === 'day')!.value,
       [cellDateFormatter, date, timeZone],
     );
+
+    const textValueFormatter = useDateFormatter(locale, {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+    });
 
     const endDate = endOfMonth(startDate);
     const isOutsideVisibleRange = date.compare(startDate) < 0 || date.compare(endDate) > 0;
@@ -1148,7 +1205,7 @@ const DatePickerCalendarCell = React.forwardRef<DatePickerCalendarCellElement, C
           event.preventDefault();
           onCalendarDateChange(date);
           onValueChange(date);
-          onTextValueChange(date.toString().split('-').reverse().join(separator));
+          onTextValueChange(textValueFormatter.format(date.toDate('UTC')));
           onOpenChange(false);
         })}
       >
