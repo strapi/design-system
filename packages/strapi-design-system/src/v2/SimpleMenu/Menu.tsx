@@ -27,23 +27,25 @@ const MenuRoot = DropdownMenu.Root;
 
 interface TriggerProps extends ButtonProps {}
 
-const MenuTrigger = forwardRef<HTMLButtonElement, TriggerProps>(({ size, ...props }, ref) => {
-  return (
-    <DropdownMenu.Trigger asChild>
-      <Button
-        ref={ref}
-        type="button"
-        variant="ghost"
-        endIcon={<CarretDown width={`${6 / 16}rem`} height={`${4 / 16}rem`} aria-hidden />}
-        paddingTop={size === 'S' ? 1 : 2}
-        paddingBottom={size === 'S' ? 1 : 2}
-        paddingLeft={size === 'S' ? 3 : 4}
-        paddingRight={size === 'S' ? 3 : 4}
-        {...props}
-      />
-    </DropdownMenu.Trigger>
-  );
-});
+const MenuTrigger = forwardRef<HTMLButtonElement, TriggerProps>(
+  ({ size, endIcon = <CarretDown width={`${6 / 16}rem`} height={`${4 / 16}rem`} aria-hidden />, ...props }, ref) => {
+    return (
+      <DropdownMenu.Trigger asChild>
+        <Button
+          ref={ref}
+          type="button"
+          variant="ghost"
+          endIcon={endIcon}
+          paddingTop={size === 'S' ? 1 : 2}
+          paddingBottom={size === 'S' ? 1 : 2}
+          paddingLeft={size === 'S' ? 3 : 4}
+          paddingRight={size === 'S' ? 3 : 4}
+          {...props}
+        />
+      </DropdownMenu.Trigger>
+    );
+  },
+);
 
 /* -------------------------------------------------------------------------------------------------
  * MenuContent
