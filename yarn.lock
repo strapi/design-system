@@ -2218,12 +2218,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@internationalized/number@npm:^3.2.0":
-  version: 3.2.0
-  resolution: "@internationalized/number@npm:3.2.0"
+"@internationalized/number@npm:^3.2.1":
+  version: 3.2.1
+  resolution: "@internationalized/number@npm:3.2.1"
   dependencies:
-    "@swc/helpers": ^0.4.14
-  checksum: 1e61b62a4f763b4327fa5687948792a95eb03b919696c64b27835e6e217462997e1b23d4fc984f45568bcb13174df0db7c0f5177d25fde9824d5a42333fc369a
+    "@swc/helpers": ^0.5.0
+  checksum: 5b716de97a491c8e276679a47a131d9fc94484f27ae7d2dba2d9e312c607fbdd2deabe0702a9faa79ad1d84ea0676061fd051c3565946f520acfdccc73dd1956
   languageName: node
   linkType: hard
 
@@ -5215,7 +5215,7 @@ __metadata:
     "@codemirror/lang-json": ^6.0.1
     "@floating-ui/react-dom": ^1.3.0
     "@internationalized/date": ^3.2.0
-    "@internationalized/number": ^3.2.0
+    "@internationalized/number": ^3.2.1
     "@playwright/test": 1.33.0
     "@radix-ui/react-dismissable-layer": ^1.0.4
     "@radix-ui/react-dropdown-menu": ^2.0.5
@@ -5599,6 +5599,15 @@ __metadata:
   dependencies:
     tslib: ^2.4.0
   checksum: 273fd3f3fc461a92f3790cc551ea054745c6d6959afbe1232e6d7aa1c722bbc114d308aab96bef5c78fc0303c85c7b472ef00e2253251cc89737f3b1af56e5a5
+  languageName: node
+  linkType: hard
+
+"@swc/helpers@npm:^0.5.0":
+  version: 0.5.1
+  resolution: "@swc/helpers@npm:0.5.1"
+  dependencies:
+    tslib: ^2.4.0
+  checksum: 71e0e27234590435e4c62b97ef5e796f88e786841a38c7116a5e27a3eafa7b9ead7cdec5249b32165902076de78446945311c973e59bddf77c1e24f33a8f272a
   languageName: node
   linkType: hard
 
