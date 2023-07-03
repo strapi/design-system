@@ -1,13 +1,18 @@
-import React, { Children, useState } from 'react';
+import React from 'react';
 
 import { CarretDown } from '@strapi/icons';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { useId } from '../hooks/useId';
 import { Typography } from '../Typography';
+
+export interface SubNavLinkSectionProps {
+  children: React.ReactNode;
+  id: string;
+  label: string;
+}
 
 const SubNavLinkSectionWrapper = styled(Box)`
   svg {
@@ -24,15 +29,16 @@ const SubNavLinkSectionButton = styled.button`
   display: flex;
   align-items: center;
 `;
-const DropDownIconWrapper = styled.div`
+
+const DropDownIconWrapper = styled.div<{ rotated?: boolean }>`
   display: flex;
   align-items: center;
   width: ${12 / 16}rem;
   transform: rotateX(${({ rotated }) => (rotated ? '0deg' : '180deg')});
 `;
 
-export const SubNavLinkSection = ({ label, children, id }) => {
-  const [isOpen, setOpenLinks] = useState(true);
+export const SubNavLinkSection = ({ label, children, id }: SubNavLinkSectionProps) => {
+  const [isOpen, setOpenLinks] = React.useState(true);
   const listId = useId(id);
 
   const handleClick = () => {
@@ -57,7 +63,7 @@ export const SubNavLinkSection = ({ label, children, id }) => {
       </SubNavLinkSectionWrapper>
       {isOpen && (
         <ul id={listId}>
-          {Children.map(children, (child, index) => {
+          {React.Children.map(children, (child, index) => {
             // eslint-disable-next-line react/no-array-index-key
             return <li key={index}>{child}</li>;
           })}
@@ -65,15 +71,4 @@ export const SubNavLinkSection = ({ label, children, id }) => {
       )}
     </Box>
   );
-};
-
-SubNavLinkSection.defaultProps = {
-  children: undefined,
-  id: undefined,
-};
-
-SubNavLinkSection.propTypes = {
-  children: PropTypes.node,
-  id: PropTypes.string,
-  label: PropTypes.string.isRequired,
 };

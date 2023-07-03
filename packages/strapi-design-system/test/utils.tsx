@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { render as renderRTL, RenderOptions as RTLRenderOptions } from '@testing-library/react';
+import { render as renderRTL, RenderOptions as RTLRenderOptions, RenderResult } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { DesignSystemProvider } from '../src/DesignSystemProvider';
@@ -10,10 +10,17 @@ interface RenderOptions {
   userEventOptions?: Parameters<typeof userEvent.setup>[0];
 }
 
+type RenderRTLResult = RenderResult & {
+  user: ReturnType<typeof userEvent.setup>;
+};
+
 // eslint-disable-next-line react/jsx-no-useless-fragment
 const fallbackWrapper = ({ children }) => <>{children}</>;
 
-const render = (ui: React.ReactElement, { renderOptions, userEventOptions }: RenderOptions = {}) => {
+export const render = (
+  ui: React.ReactElement,
+  { renderOptions, userEventOptions }: RenderOptions = {},
+): RenderRTLResult => {
   const { wrapper: Wrapper = fallbackWrapper, ...restOptions } = renderOptions ?? {};
 
   return {
@@ -30,4 +37,3 @@ const render = (ui: React.ReactElement, { renderOptions, userEventOptions }: Ren
 };
 
 export * from '@testing-library/react';
-export { render };

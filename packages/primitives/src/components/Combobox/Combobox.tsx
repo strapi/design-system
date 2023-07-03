@@ -117,7 +117,7 @@ const ComboboxProviders = ({ children }: { children: React.ReactNode }) => (
   </PopperPrimitive.Root>
 );
 
-const Combobox: React.FC<RootProps> = (props) => {
+const Combobox = (props: RootProps) => {
   const {
     allowCustomValue = false,
     autocomplete = 'none',
@@ -536,6 +536,10 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
         }
       })}
       onBlur={composeEventHandlers(props.onBlur, () => {
+        if (context.open) {
+          return;
+        }
+
         context.onVisuallyFocussedItemChange(null);
 
         const [activeItem] = getItems().filter(
@@ -669,7 +673,7 @@ interface PortalProps extends Omit<IPortalProps, 'asChild'> {
   children?: React.ReactNode;
 }
 
-const ComboboxPortal: React.FC<PortalProps> = (props) => {
+const ComboboxPortal = (props: PortalProps) => {
   return <PortalPrimitive asChild {...props} />;
 };
 
