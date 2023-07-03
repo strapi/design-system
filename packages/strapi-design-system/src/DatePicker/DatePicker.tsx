@@ -6,7 +6,6 @@ import {
   startOfWeek,
   today,
   getDayOfWeek,
-  parseAbsoluteToLocal,
   isSameDay,
   startOfMonth,
   toCalendarDate,
@@ -14,6 +13,8 @@ import {
   endOfMonth,
   minDate as minDateFn,
   maxDate as maxDateFn,
+  parseAbsolute,
+  getLocalTimeZone,
 } from '@internationalized/date';
 import { useFocusGuards } from '@radix-ui/react-focus-guards';
 import { FocusScope } from '@radix-ui/react-focus-scope';
@@ -160,6 +161,8 @@ const DatePickerInput = React.forwardRef<DatePickerTextInputElement, DatePickerI
     },
     ref,
   ) => {
+    const timeZone = getLocalTimeZone();
+
     const designContext = useDesignSystem('DatePicker');
 
     const locale = defaultLocale ?? designContext.locale;
@@ -181,7 +184,7 @@ const DatePickerInput = React.forwardRef<DatePickerTextInputElement, DatePickerI
       prop: selectedDate ? convertUTCDateToCalendarDate(selectedDate) : undefined,
       onChange(date) {
         if (onChange) {
-          onChange(date?.toDate('UTC'));
+          onChange(date?.toDate(timeZone));
         }
       },
     });
@@ -244,19 +247,19 @@ const DatePickerInput = React.forwardRef<DatePickerTextInputElement, DatePickerI
     React.useLayoutEffect(() => {
       if (selectedDate) {
         const date = convertUTCDateToCalendarDate(selectedDate);
-        setTextValue(formatter.format(date.toDate('UTC')));
+        setTextValue(formatter.format(date.toDate(timeZone)));
         setCalendarDate(date);
       } else {
         setTextValue('');
       }
-    }, [selectedDate, formatter]);
+    }, [selectedDate, formatter, timeZone]);
 
     React.useLayoutEffect(() => {
       if (initialDate && textValue === undefined) {
         const date = convertUTCDateToCalendarDate(initialDate);
-        setTextValue(formatter.format(date.toDate('UTC')));
+        setTextValue(formatter.format(date.toDate(timeZone)));
       }
-    }, [initialDate, textValue, formatter]);
+    }, [initialDate, textValue, formatter, timeZone]);
 
     const hintId = `${id}-hint`;
     const errorId = `${id}-error`;
@@ -281,7 +284,7 @@ const DatePickerInput = React.forwardRef<DatePickerTextInputElement, DatePickerI
         required={required}
         textInput={textInput}
         textValue={textValue}
-        timeZone="UTC"
+        timeZone={timeZone}
         trigger={trigger}
         value={value}
       >
@@ -571,7 +574,7 @@ const DatePickerTextInput = React.forwardRef<DatePickerTextInputElement, TextInp
             return;
           }
 
-          context.onTextValueChange(formatter.format(context.calendarDate.toDate('UTC')));
+          context.onTextValueChange(formatter.format(context.calendarDate.toDate(context.timeZone)));
           context.onValueChange(context.calendarDate);
         })}
         onChange={composeEventHandlers(props.onChange, (event) => {
@@ -735,7 +738,7 @@ const DatePickerTextInput = React.forwardRef<DatePickerTextInputElement, TextInp
             }
           } else if (context.open && ['Enter'].includes(event.key)) {
             event.preventDefault();
-            onTextValueChange(formatter.format(context.calendarDate.toDate('UTC')));
+            onTextValueChange(formatter.format(context.calendarDate.toDate(context.timeZone)));
             context.onValueChange(context.calendarDate);
             context.onOpenChange(false);
           }
@@ -1205,7 +1208,7 @@ const DatePickerCalendarCell = React.forwardRef<DatePickerCalendarCellElement, C
           event.preventDefault();
           onCalendarDateChange(date);
           onValueChange(date);
-          onTextValueChange(textValueFormatter.format(date.toDate('UTC')));
+          onTextValueChange(textValueFormatter.format(date.toDate(timeZone)));
           onOpenChange(false);
         })}
       >
@@ -1277,7 +1280,7 @@ const convertUTCDateToCalendarDate = (date: Date | string): CalendarDate => {
   }
 
   const utcDateString = date.toISOString();
-  const zonedDateTime = parseAbsoluteToLocal(utcDateString);
+  const zonedDateTime = parseAbsolute(utcDateString, 'UTC');
 
   /**
    * ZonedDateTime can't have weeks added,

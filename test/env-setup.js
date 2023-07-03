@@ -1,17 +1,8 @@
 import { ResizeObserver } from '@juggle/resize-observer';
-import IntlPolyfill from 'intl';
 
-import 'intl/locale-data/jsonp/en';
 import 'jest-styled-components';
 
 beforeAll(() => {
-  if (global.Intl) {
-    Intl.NumberFormat = IntlPolyfill.NumberFormat;
-    Intl.DateTimeFormat = IntlPolyfill.DateTimeFormat;
-  } else {
-    global.Intl = IntlPolyfill;
-  }
-
   global.ResizeObserver = ResizeObserver;
 
   class IntersectionObserver {

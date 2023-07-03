@@ -344,7 +344,7 @@ describe('DatePicker', () => {
     it('should format by en locale', async () => {
       const { getByRole, user } = render({ selectedDate: new Date('Tue Sep 06 2022'), locale: 'en' });
 
-      expect(getByRole('combobox')).toHaveValue('9/6/2022');
+      expect(getByRole('combobox')).toHaveValue('09/06/2022');
 
       await user.click(getByRole('combobox', { name: 'date picker' }));
 
@@ -393,6 +393,48 @@ describe('DatePicker', () => {
       await user.type(getByRole('combobox', { name: 'date picker' }), '/18');
 
       expect(getByRole('gridcell', { name: '2022年12月18日日曜日' })).toHaveAttribute('aria-selected', 'true');
+    });
+
+    /**
+     * TODO: the spying doesn't work :(
+     */
+    it.skip('should not change the date automatically if the timezone is not UTC but is America/Los_Angeles', async () => {
+      let resolvedOptions = Intl.DateTimeFormat.prototype.resolvedOptions;
+
+      const resolvedOptionsSpy = jest.spyOn(Intl.DateTimeFormat.prototype, 'resolvedOptions');
+
+      resolvedOptionsSpy.mockImplementation(function (this: Intl.DateTimeFormat) {
+        let s = resolvedOptions.call(this);
+        s.timeZone = 'America/Los_Angeles';
+
+        return s;
+      });
+
+      const { getByRole, user } = render(
+        { initialDate: new Date('1990-01-01') },
+        {
+          wrapper({ children }) {
+            return (
+              <div>
+                {children}
+                <button type="button">testing</button>
+              </div>
+            );
+          },
+        },
+      );
+
+      expect(resolvedOptionsSpy).toHaveBeenCalled();
+
+      expect(getByRole('combobox')).toHaveValue('01/01/1990');
+
+      await user.click(getByRole('combobox', { name: 'date picker' }));
+
+      await user.keyboard('[Escape]');
+
+      await user.tab();
+
+      expect(getByRole('combobox')).toHaveValue('01/01/1990');
     });
   });
 
