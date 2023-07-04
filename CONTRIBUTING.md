@@ -126,6 +126,24 @@ The PR title need to be as clear as possible for users to understand what the ch
 
 Once your Pull Request has been reviewed and is ready to be merged you will need to squash all your commits. To do so you can use the `git rebase -i <commit-hash>` or `git reset --soft <commit-hash>` commands.
 
+### Adding Changesets
+
+We use [Changesets](https://github.com/changesets/changesets) to manage our releasees, there's an automated prompt to help you make the right decisions in what your changeset should be, to activate this use the command `yarn release:add`.
+
+You should then select the "bump" type, we use semver versioning which the spec can be found [here](https://semver.org/). The TLDR is:
+
+- patch – you've made a fix
+- minor – you've added new backward compatible functionality
+- major – you've made a breaking change
+
+If you want to release a pre-release you can signify this by using `yarn prerelease:enter <tag>`, this will set changesets up for pre-releases, a tag could be `beta` for instance. You'll see this error:
+
+```shell
+`changeset pre enter` cannot be run when in pre mode
+```
+
+if we're already in pre-release mode, this is fine and you should continue.
+
 ## Precommit hooks
 
 [Husky](https://typicode.github.io/husky/#/) is used to run handle pre-commit hooks:
