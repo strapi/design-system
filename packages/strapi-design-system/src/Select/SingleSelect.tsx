@@ -9,7 +9,7 @@ import { useId } from '../hooks/useId';
 import { useIntersection } from '../hooks/useIntersection';
 import { Typography } from '../Typography';
 
-export type SingleSelectProps = Omit<SelectParts.SingleSelectProps, 'value'> &
+type SingleSelectPropsWithoutLabel = Omit<SelectParts.SingleSelectProps, 'value'> &
   Pick<SelectParts.TriggerProps, 'clearLabel' | 'onClear' | 'size' | 'startIcon' | 'placeholder'> & {
     /**
      * @default (value) => value.toString()
@@ -18,7 +18,6 @@ export type SingleSelectProps = Omit<SelectParts.SingleSelectProps, 'value'> &
     error?: string | boolean;
     hint?: string | React.ReactNode | React.ReactNode[];
     id?: string | number;
-    label: string;
     labelAction?: React.ReactElement;
     onChange?: (value: string | number) => void;
     onReachEnd?: (entry: IntersectionObserverEntry) => void;
@@ -30,6 +29,10 @@ export type SingleSelectProps = Omit<SelectParts.SingleSelectProps, 'value'> &
     selectButtonTitle?: string;
     value?: string | number | null;
   };
+
+export type SingleSelectProps =
+  | (SingleSelectPropsWithoutLabel & { label: string; 'aria-label'?: never })
+  | (SingleSelectPropsWithoutLabel & { 'aria-label': string; label?: never });
 
 export const SingleSelect = ({
   error,
@@ -56,9 +59,11 @@ export const SingleSelect = ({
   return (
     <Field hint={hint} error={error} id={generatedId} required={required}>
       <Flex direction="column" alignItems="stretch" gap={1}>
-        <FieldLabel onClick={handleFieldLabelClick} action={labelAction}>
-          {label}
-        </FieldLabel>
+        {label ? (
+          <FieldLabel onClick={handleFieldLabelClick} action={labelAction}>
+            {label}
+          </FieldLabel>
+        ) : null}
         <SingleSelectInput label={label} id={generatedId} triggerRef={triggerRef} required={required} {...restProps} />
         <FieldHint />
         <FieldError />
@@ -67,13 +72,15 @@ export const SingleSelect = ({
   );
 };
 
-export interface SingleSelectInputProps extends Omit<SingleSelectProps, 'label' | 'labelAction' | 'hint' | 'id'> {
+export interface SingleSelectInputProps extends Omit<SingleSelectPropsWithoutLabel, 'labelAction' | 'hint' | 'id'> {
+  'aria-label'?: string;
   id?: string;
-  triggerRef?: React.RefObject<HTMLDivElement>;
   label?: string;
+  triggerRef?: React.RefObject<HTMLDivElement>;
 }
 
 export const SingleSelectInput = ({
+  'aria-label': ariaLabel,
   id,
   children,
   clearLabel = 'Clear',
@@ -163,7 +170,7 @@ export const SingleSelectInput = ({
     >
       <SelectParts.Trigger
         ref={triggerRef}
-        aria-label={label}
+        aria-label={label ?? ariaLabel}
         aria-describedby={id ? `${hintId} ${errorId}` : undefined}
         id={id}
         startIcon={startIcon}

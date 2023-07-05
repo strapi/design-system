@@ -274,10 +274,13 @@ export const ComboboxInput = ({
  * Combobox
  * -----------------------------------------------------------------------------------------------*/
 
-export interface ComboboxProps extends ComboboxInputProps, Pick<FieldProps, 'hint'> {
-  label: string;
+interface ComboboxPropsWithoutLabel extends ComboboxInputProps, Pick<FieldProps, 'hint'> {
   labelAction?: React.ReactNode;
 }
+
+export type ComboboxProps =
+  | (ComboboxPropsWithoutLabel & { label: string; 'aria-label'?: never })
+  | (ComboboxPropsWithoutLabel & { label?: never; 'aria-label': string });
 
 export const Combobox = ({ error, hint, id, label, labelAction, required = false, ...restProps }: ComboboxProps) => {
   const generatedId = useId(id);
@@ -285,7 +288,7 @@ export const Combobox = ({ error, hint, id, label, labelAction, required = false
   return (
     <Field hint={hint} error={error} id={generatedId} required={required}>
       <Flex direction="column" alignItems="stretch" gap={1}>
-        <FieldLabel action={labelAction}>{label}</FieldLabel>
+        {label ? <FieldLabel action={labelAction}>{label}</FieldLabel> : null}
         <ComboboxInput id={generatedId} error={error} required={required} {...restProps} />
         <FieldHint />
         <FieldError />
@@ -298,8 +301,12 @@ export const Combobox = ({ error, hint, id, label, labelAction, required = false
  * CreatableCombobox
  * -----------------------------------------------------------------------------------------------*/
 
-export type CreatableComboboxProps = Omit<ComboboxProps, 'onCreateOption'> &
-  Required<Pick<ComboboxProps, 'onCreateOption'>>;
+type CreatableComboboxPropsWithoutLabel = Omit<ComboboxPropsWithoutLabel, 'onCreateOption'> &
+  Required<Pick<ComboboxPropsWithoutLabel, 'onCreateOption'>>;
+
+export type CreatableComboboxProps =
+  | (CreatableComboboxPropsWithoutLabel & { label: string; 'aria-label'?: never })
+  | (CreatableComboboxPropsWithoutLabel & { label?: never; 'aria-label': string });
 
 export const CreatableCombobox = (props: CreatableComboboxProps) => <Combobox {...props} creatable />;
 

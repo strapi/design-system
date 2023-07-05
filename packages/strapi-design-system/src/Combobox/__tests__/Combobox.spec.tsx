@@ -11,7 +11,7 @@ const defaultOptions = [
   { value: 'carbonara', children: 'Carbonara' },
 ];
 
-const Component = ({ options = defaultOptions, ...restProps }: Partial<ComponentProps>) => (
+const Component = ({ options = defaultOptions, ...restProps }: Partial<Omit<ComponentProps, 'aria-label'>>) => (
   <Combobox label="Food" {...restProps}>
     {options.map((opt) => (
       <Option key={opt.value} {...opt} />
@@ -27,6 +27,14 @@ describe('Combobox', () => {
 
     expect(getByText('Food')).toBeInTheDocument();
     expect(getByText('hey!')).toBeInTheDocument();
+  });
+
+  it('should be accessible if I only pass an aria-label', () => {
+    const { getByRole, queryByRole } = render({ 'aria-label': 'Food', label: undefined });
+
+    expect(queryByRole('label')).not.toBeInTheDocument();
+
+    expect(getByRole('combobox', { name: 'Food' })).toBeInTheDocument();
   });
 
   it('if a default value is passed it should set that value on the primitive', () => {
