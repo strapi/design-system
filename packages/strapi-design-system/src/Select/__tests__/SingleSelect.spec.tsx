@@ -2,9 +2,9 @@ import { screen, render, waitFor } from '@test/utils';
 
 import { SingleSelectOption, SingleSelect, SingleSelectProps } from '../SingleSelect';
 
-interface RenderProps extends Partial<Omit<SingleSelectProps, 'children'>> {
+type RenderProps = Partial<Omit<SingleSelectProps, 'children' | 'aria-label'>> & {
   options?: Array<{ value: string; label: string }>;
-}
+};
 
 const defaultOpts = [
   { value: 'Option 1', label: 'Option 1' },
@@ -12,15 +12,17 @@ const defaultOpts = [
   { value: 'Option 3', label: 'Option 3' },
 ];
 
-const Component = ({ options = defaultOpts, ...restProps }: RenderProps) => (
-  <SingleSelect label="Pick Options" placeholder="Your option" {...restProps}>
-    {options.map((opt) => (
-      <SingleSelectOption key={opt.label} value={opt.value}>
-        {opt.label}
-      </SingleSelectOption>
-    ))}
-  </SingleSelect>
-);
+const Component = ({ options = defaultOpts, ...restProps }: RenderProps) => {
+  return (
+    <SingleSelect label="Pick Options" placeholder="Your option" {...restProps}>
+      {options.map((opt) => (
+        <SingleSelectOption key={opt.label} value={opt.value}>
+          {opt.label}
+        </SingleSelectOption>
+      ))}
+    </SingleSelect>
+  );
+};
 
 const renderComponent = (props: RenderProps = {}) => render(<Component {...props} />);
 
@@ -62,6 +64,22 @@ describe('Select', () => {
       renderComponent({ label: 'Label' });
 
       expect(screen.getByText('Label')).toBeInTheDocument();
+    });
+
+    it('should be accessible if I only pass an aria-label', () => {
+      const { getByRole, queryByRole } = render(
+        <SingleSelect aria-label="Label">
+          {defaultOpts.map((opt) => (
+            <SingleSelectOption key={opt.label} value={opt.value}>
+              {opt.label}
+            </SingleSelectOption>
+          ))}
+        </SingleSelect>,
+      );
+
+      expect(queryByRole('label')).not.toBeInTheDocument();
+
+      expect(getByRole('combobox', { name: 'Label' })).toBeInTheDocument();
     });
 
     it('should render a placeholder when provided', () => {
