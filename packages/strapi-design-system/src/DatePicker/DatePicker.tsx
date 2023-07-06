@@ -829,7 +829,7 @@ const DatePickerContentImpl = React.forwardRef<DatePickerContentImplElement, Con
     const { label = 'Choose date', ...restProps } = props;
     const { onOpenChange, ...context } = useDatePickerContext(CONTENT_IMPL_NAME);
 
-    const { x, y, reference, floating, strategy } = useFloating({
+    const { x, y, refs, strategy } = useFloating({
       strategy: 'fixed',
       placement: 'bottom-start',
       middleware: [
@@ -839,6 +839,9 @@ const DatePickerContentImpl = React.forwardRef<DatePickerContentImplElement, Con
         shift(),
         flip(),
       ],
+      elements: {
+        reference: context.trigger,
+      },
       whileElementsMounted: autoUpdate,
     });
 
@@ -855,14 +858,10 @@ const DatePickerContentImpl = React.forwardRef<DatePickerContentImplElement, Con
       };
     }, [onOpenChange]);
 
-    React.useLayoutEffect(() => {
-      reference(context.trigger);
-    }, [reference, context.trigger]);
-
     const composedRefs = useComposedRefs<DatePickerContentImplElement>(
       forwardedRef,
       (node) => context.onContentChange(node),
-      floating,
+      refs.setFloating,
     );
 
     useFocusGuards();

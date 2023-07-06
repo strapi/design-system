@@ -2345,12 +2345,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@floating-ui/dom@npm:^1.2.1":
-  version: 1.2.7
-  resolution: "@floating-ui/dom@npm:1.2.7"
-  dependencies:
-    "@floating-ui/core": ^1.2.6
-  checksum: f330228b909ecf241fea1db780a97c842acaea74d2a5ce99456040f9932a80d12c6a77e1c7d56a2700fe6bc85f961f76a7f3bd2640c3a5b2bc497ccc65074519
+"@floating-ui/core@npm:^1.3.1":
+  version: 1.3.1
+  resolution: "@floating-ui/core@npm:1.3.1"
+  checksum: fe3b40fcaec95b0825c01a98330ae75b60c61c395ca012055a32f9c22ab97fde8ce1bd14fce3d242beb9dbe4564c90ce4a7a767851911d4215b9ec7721440e5b
   languageName: node
   linkType: hard
 
@@ -2363,15 +2361,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@floating-ui/react-dom@npm:^1.3.0":
-  version: 1.3.0
-  resolution: "@floating-ui/react-dom@npm:1.3.0"
+"@floating-ui/dom@npm:^1.3.0":
+  version: 1.4.4
+  resolution: "@floating-ui/dom@npm:1.4.4"
   dependencies:
-    "@floating-ui/dom": ^1.2.1
-  peerDependencies:
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
-  checksum: ce0ad3e3bbe43cfd15a6a0d5cccede02175c845862bfab52027995ab99c6b29630180dc7d146f76ebb34730f90a6ab9bf193c8984fe8d7f56062308e4ca98f77
+    "@floating-ui/core": ^1.3.1
+  checksum: e8e43c786e24f8f111a72d7d17c3a9563cab8eddf2a2b3dacc2785370a97313a8dda0f3470b2b2ef2d3b9d6f1fd706ccf786d9441e54e283ed47c90aa0c0b1e1
   languageName: node
   linkType: hard
 
@@ -2384,6 +2379,18 @@ __metadata:
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
   checksum: c5dd02b7babf9c26d5e11b8ebe58411131b37844f7d6362a767cd1eedfb506ca6db3228fb192e0a5822c9289a5b500e2ef31e069dce28a0fbec4722f22bcdd95
+  languageName: node
+  linkType: hard
+
+"@floating-ui/react-dom@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "@floating-ui/react-dom@npm:2.0.1"
+  dependencies:
+    "@floating-ui/dom": ^1.3.0
+  peerDependencies:
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+  checksum: 00fef2cf69ac2b15952e47505fd9e23f6cc5c20a26adc707862932826d1682f3c30f83c9887abfc93574fdca2d34dd2fc00271527318b1db403549cd6bc9eb00
   languageName: node
   linkType: hard
 
@@ -5517,7 +5524,7 @@ __metadata:
   resolution: "@strapi/design-system@workspace:packages/strapi-design-system"
   dependencies:
     "@codemirror/lang-json": ^6.0.1
-    "@floating-ui/react-dom": ^1.3.0
+    "@floating-ui/react-dom": ^2.0.1
     "@internationalized/date": ^3.3.0
     "@internationalized/number": ^3.2.1
     "@playwright/test": 1.33.0
