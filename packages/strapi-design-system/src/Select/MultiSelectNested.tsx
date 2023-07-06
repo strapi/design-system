@@ -18,9 +18,9 @@ interface MulitSelectNestedGroup extends Omit<MultiSelectGroupProps, 'children'>
   children: Array<MulitSelectNestedOption>;
 }
 
-export interface MultiSelectNestedProps extends MultiSelectProps {
+export type MultiSelectNestedProps = MultiSelectProps & {
   options: Array<MulitSelectNestedOption | MulitSelectNestedGroup>;
-}
+};
 
 export const MultiSelectNested = ({ options, ...props }: MultiSelectNestedProps) => {
   return (

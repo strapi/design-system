@@ -15,7 +15,7 @@ import { useIntersection } from '../hooks/useIntersection';
 import { Tag } from '../Tag';
 import { Typography } from '../Typography';
 
-export type MultiSelectProps = Omit<SelectParts.MultiSelectProps, 'value' | 'multi'> &
+type MultiSelectPropsWithoutLabel = Omit<SelectParts.MultiSelectProps, 'value' | 'multi'> &
   Pick<SelectParts.TriggerProps, 'clearLabel' | 'onClear' | 'size' | 'startIcon' | 'placeholder'> & {
     /**
      * @default (value) => value.join(',')
@@ -24,7 +24,6 @@ export type MultiSelectProps = Omit<SelectParts.MultiSelectProps, 'value' | 'mul
     error?: string | boolean;
     hint?: string | React.ReactNode | React.ReactNode[];
     id?: string | number;
-    label: string;
     labelAction?: React.ReactElement;
     onChange?: (value: string[]) => void;
     onReachEnd?: (entry: IntersectionObserverEntry) => void;
@@ -38,7 +37,12 @@ export type MultiSelectProps = Omit<SelectParts.MultiSelectProps, 'value' | 'mul
     withTags?: boolean;
   };
 
+export type MultiSelectProps =
+  | (MultiSelectPropsWithoutLabel & { label: string; 'aria-label'?: never })
+  | (MultiSelectPropsWithoutLabel & { 'aria-label': string; label?: never });
+
 export const MultiSelect = ({
+  'aria-label': ariaLabel,
   children,
   clearLabel = 'Clear',
   customizeContent,
@@ -150,9 +154,11 @@ export const MultiSelect = ({
   return (
     <Field hint={hint} error={error} id={generatedId} required={required}>
       <Flex direction="column" alignItems="stretch" gap={1}>
-        <FieldLabel onClick={handleFieldLabelClick} action={labelAction}>
-          {label}
-        </FieldLabel>
+        {label ? (
+          <FieldLabel onClick={handleFieldLabelClick} action={labelAction}>
+            {label}
+          </FieldLabel>
+        ) : null}
         <SelectParts.Root
           onOpenChange={handleOpenChange}
           disabled={disabled}
@@ -164,7 +170,7 @@ export const MultiSelect = ({
         >
           <SelectParts.Trigger
             ref={triggerRef}
-            aria-label={label}
+            aria-label={label ?? ariaLabel}
             aria-describedby={`${hintId} ${errorId}`}
             id={generatedId}
             startIcon={startIcon}
