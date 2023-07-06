@@ -66,7 +66,7 @@ export const Content = React.forwardRef<HTMLDivElement, ContentProps>(
     const [content, setContent] = React.useState<HTMLDivElement | null>(null);
     const [width, setWidth] = React.useState<number | undefined>(undefined);
     const isRightClickOutsideRef = React.useRef(false);
-    const { x, y, reference, floating, strategy } = useFloating({
+    const { x, y, refs, strategy } = useFloating({
       strategy: 'fixed',
       placement: centered ? 'bottom' : placement,
       middleware: [
@@ -76,12 +76,11 @@ export const Content = React.forwardRef<HTMLDivElement, ContentProps>(
         shift(),
         flip(),
       ],
+      elements: {
+        reference: source.current,
+      },
       whileElementsMounted: autoUpdate,
     });
-
-    React.useLayoutEffect(() => {
-      reference(source.current);
-    }, [source, reference]);
 
     React.useLayoutEffect(() => {
       if (fullWidth) {
@@ -109,7 +108,7 @@ export const Content = React.forwardRef<HTMLDivElement, ContentProps>(
       };
     }, [handleDismiss]);
 
-    const composedRefs = useComposedRefs<HTMLDivElement>(forwardedRef, (node) => setContent(node), floating);
+    const composedRefs = useComposedRefs<HTMLDivElement>(forwardedRef, (node) => setContent(node), refs.setFloating);
 
     return (
       <RemoveScroll allowPinchZoom>
