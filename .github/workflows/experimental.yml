@@ -18,7 +18,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: yarn setup
+      - run: yarn
+      - run: yarn build
       - run: ./scripts/pre-publish.sh --yes
         env:
           VERSION: '0.0.0-${{ github.sha }}'
