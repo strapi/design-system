@@ -73,6 +73,3 @@ export const variantStyle = ({
     }
   }
 };
-
-export const handleColor = ({ theme, textColor }: { theme: DefaultTheme; textColor?: keyof DefaultTheme['colors'] }) =>
-  theme.colors[textColor || 'neutral800'];

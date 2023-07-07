@@ -1,91 +1,72 @@
 import { useState } from 'react';
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 import { Information } from '@strapi/icons';
-import { ToggleInput, Tooltip } from '@strapi/design-system';
+import { ToggleInput, Tooltip, Flex, Button } from '@strapi/design-system';
 
 <Meta title="Design System/Components/ToggleInput" component={ToggleInput} />
 
 # ToggleInput
 
-This is the doc of the `ToggleInput` component
-
 [View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/ToggleInput)
 
-## Imports
+## Usage
 
 ```js
 import { ToggleInput } from '@strapi/design-system';
 ```
 
-## Usage
+### Basic
+
+By default, the checked state is `false` and uncontrolled.
 
 <Canvas>
   <Story name="base">
     {() => {
-      const [checked, setChecked] = useState(true);
+      const [error, toggleError] = useState();
+      const [disabled, toggleDisabled] = useState();
+      return (
+        <Flex direction="column" alignItems="stretch" gap={11}>
+          <ToggleInput
+            label="Enabled"
+            onLabel="True"
+            offLabel="False"
+            hint="Enable your SSO provider for users"
+            disabled={disabled}
+            error={error}
+          />
+          <Flex gap={2} justifyContent="center">
+            <Button
+              variant="danger-light"
+              onClick={() => toggleError((s) => (s ? undefined : "That's not a boolean option!"))}
+            >
+              {`${error ? 'Hide' : 'Show'} the error state`}
+            </Button>
+            <Button variant="tertiary" onClick={() => toggleDisabled((s) => !s)}>
+              {`${disabled ? 'Hide' : 'Show'} the disabled state`}
+            </Button>
+          </Flex>
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Controlled
+
+By passing an `onChange` handler and a `checked` value, the component becomes controlled.
+Instead of returning the value, the `onChange` handler recieves the `ChangeEvent<HTMLInputElement>`.
+
+<Canvas>
+  <Story name="controlled">
+    {() => {
+      const [checked, setChecked] = useState(false);
       return (
         <ToggleInput
-          hint="Enable provider"
           label="Enabled"
-          name="enable-provider"
-          labelAction={
-            <Tooltip description="Content of the tooltip">
-              <button
-                aria-label="Information about the email"
-                style={{ border: 'none', padding: 0, background: 'transparent' }}
-              >
-                <Information aria-hidden />
-              </button>
-            </Tooltip>
-          }
           onLabel="True"
           offLabel="False"
           checked={checked}
           onChange={(e) => setChecked(e.target.checked)}
-        />
-      );
-    }}
-  </Story>
-</Canvas>
-
-### Error state
-
-<Canvas>
-  <Story name="error">
-    {() => {
-      const [checked, setChecked] = useState(false);
-      return (
-        <ToggleInput
-          hint="Enable provider"
-          error="this field is required"
-          label="Label"
-          name="enable-provider"
-          onLabel="True"
-          offLabel="False"
-          checked={checked}
-          onChange={(e) => setChecked(e.target.checked)}
-        />
-      );
-    }}
-  </Story>
-</Canvas>
-
-### Required state
-
-<Canvas>
-  <Story name="required">
-    {() => {
-      const [checked, setChecked] = useState(false);
-      return (
-        <ToggleInput
-          hint="Enable provider"
-          label="Label"
-          name="enable-provider"
-          onLabel="True"
-          offLabel="False"
-          checked={checked}
-          onChange={(e) => setChecked(e.target.checked)}
-          required
         />
       );
     }}
@@ -94,84 +75,31 @@ import { ToggleInput } from '@strapi/design-system';
 
 ### Size S
 
+Similar to other inputs, we support a `small` size.
+
 <Canvas>
   <Story name="size S">
     {() => {
-      const [checked, setChecked] = useState(false);
-      return (
-        <ToggleInput
-          size="S"
-          hint="Enable provider"
-          label="Label"
-          name="enable-provider"
-          onLabel="True"
-          offLabel="False"
-          checked={checked}
-          onChange={(e) => setChecked(e.target.checked)}
-        />
-      );
+      return <ToggleInput size="S" label="Enabled" onLabel="True" offLabel="False" />;
     }}
   </Story>
 </Canvas>
 
-### Null value
+### Using `null` values
+
+Where desirable you can supply a `null` value to the component. This may be helpful in
+circumstances such whether or not a restaurant is open – `true` / `false` / not yet specified (`null`).
+
+It's additionally possible to "clear" the value by passing an `onClear` handler and a `clearLabel`.
+This label _will not show_ if the value is `null`.
 
 <Canvas>
-  <Story name="null-value">
+  <Story name="nullish">
     {() => {
       const [checked, setChecked] = useState(null);
       return (
         <ToggleInput
-          hint="Enable provider"
-          label="Label"
-          name="enable-provider"
-          onLabel="True"
-          offLabel="False"
-          checked={checked}
-          onChange={(e) => setChecked(e.target.checked)}
-          clearLabel="clear"
-          onClear={() => setChecked(null)}
-        />
-      );
-    }}
-  </Story>
-</Canvas>
-
-### Clear value
-
-<Canvas>
-  <Story name="clear-value">
-    {() => {
-      const [checked, setChecked] = useState(true);
-      return (
-        <ToggleInput
-          hint="Enable provider"
-          label="Label"
-          name="enable-provider"
-          onLabel="True"
-          offLabel="False"
-          checked={checked}
-          onChange={(e) => setChecked(e.target.checked)}
-          clearLabel="clear"
-          onClear={() => setChecked(null)}
-        />
-      );
-    }}
-  </Story>
-</Canvas>
-
-### Disabled
-
-<Canvas>
-  <Story name="disabled">
-    {() => {
-      const [checked, setChecked] = useState(true);
-      return (
-        <ToggleInput
-          disabled
-          hint="Enable provider"
-          label="Label"
-          name="enable-provider"
+          label="Enabled"
           onLabel="True"
           offLabel="False"
           checked={checked}

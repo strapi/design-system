@@ -3,7 +3,7 @@ import * as React from 'react';
 import styled, { CSSProperties, DefaultTheme } from 'styled-components';
 
 import { TEXT_VARIANTS } from './constants';
-import { ellipsisStyle, variantStyle, handleColor } from './utils';
+import { ellipsisStyle, variantStyle } from './utils';
 import { extractStyleFromTheme } from '../helpers/theme';
 
 const transientProps: Partial<Record<keyof TypographyProps, boolean>> = {
@@ -42,7 +42,7 @@ export const Typography = styled.span.withConfig<TypographyProps>({
   font-weight: ${({ theme, fontWeight }) => extractStyleFromTheme(theme.fontWeights, fontWeight, undefined)};
   font-size: ${({ theme, fontSize }) => extractStyleFromTheme(theme.fontSizes, fontSize, undefined)};
   line-height: ${({ theme, lineHeight }) => extractStyleFromTheme(theme.lineHeights, lineHeight, lineHeight)};
-  color: ${handleColor};
+  color: ${({ theme, textColor }) => theme.colors[textColor || 'neutral800']};
   text-align: ${({ textAlign }) => textAlign};
   text-decoration: ${({ textDecoration }) => textDecoration};
   text-transform: ${({ textTransform }) => textTransform};
