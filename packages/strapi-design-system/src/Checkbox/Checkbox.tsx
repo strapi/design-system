@@ -42,7 +42,7 @@ export const Checkbox = ({ children, disabled = false, id, hint, error, ...props
   return (
     <Field id={generatedId} hint={hint} error={error}>
       <Flex direction="column" alignItems="stretch" gap={1}>
-        <CheckboxLabel as="label" textColor="primary700" disabled={disabled}>
+        <CheckboxLabel as="label" textColor="alternative700" disabled={disabled}>
           <CheckboxTick disabled={disabled} aria-describedby={ariaDescription} {...props} />
           <Box paddingLeft={2}>{children}</Box>
         </CheckboxLabel>
