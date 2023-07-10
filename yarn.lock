@@ -3293,21 +3293,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/primitive@npm:1.0.1":
+"@radix-ui/primitive@npm:1.0.1, @radix-ui/primitive@npm:^1.0.1":
   version: 1.0.1
   resolution: "@radix-ui/primitive@npm:1.0.1"
   dependencies:
     "@babel/runtime": ^7.13.10
   checksum: 2b93e161d3fdabe9a64919def7fa3ceaecf2848341e9211520c401181c9eaebb8451c630b066fad2256e5c639c95edc41de0ba59c40eff37e799918d019822d1
-  languageName: node
-  linkType: hard
-
-"@radix-ui/primitive@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "@radix-ui/primitive@npm:1.0.0"
-  dependencies:
-    "@babel/runtime": ^7.13.10
-  checksum: 72996afaf346ec4f4c73422f14f6cb2d0de994801ba7cbb9a4a67b0050e0cd74625182c349ef8017ccae1406579d4b74a34a225ef2efe61e8e5337decf235deb
   languageName: node
   linkType: hard
 
@@ -5284,7 +5275,7 @@ __metadata:
   resolution: "@strapi/ui-primitives@workspace:packages/primitives"
   dependencies:
     "@radix-ui/number": ^1.0.1
-    "@radix-ui/primitive": ^1.0.0
+    "@radix-ui/primitive": ^1.0.1
     "@radix-ui/react-collection": 1.0.3
     "@radix-ui/react-compose-refs": ^1.0.1
     "@radix-ui/react-context": ^1.0.0
