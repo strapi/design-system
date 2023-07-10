@@ -28,7 +28,7 @@
     "@radix-ui/react-collection": "1.0.3",
     "@radix-ui/react-compose-refs": "^1.0.1",
     "@radix-ui/react-context": "^1.0.0",
-    "@radix-ui/react-direction": "1.0.0",
+    "@radix-ui/react-direction": "1.0.1",
     "@radix-ui/react-dismissable-layer": "^1.0.4",
     "@radix-ui/react-focus-guards": "1.0.1",
     "@radix-ui/react-focus-scope": "1.0.3",
