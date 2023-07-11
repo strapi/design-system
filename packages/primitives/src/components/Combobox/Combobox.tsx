@@ -1127,10 +1127,6 @@ const ComboboxNoValueFound = React.forwardRef<HTMLDivElement, NoValueFoundProps>
     };
   }, [subscribe]);
 
-  if (items.length === 0) {
-    return <Primitive.div {...props} ref={ref} />;
-  }
-
   if (autocomplete === 'none') {
     return null;
   }
