@@ -11,7 +11,7 @@ const defaultOpts: MultiSelectOptionProps[] = [
   },
 ];
 
-const Component = (props: Partial<MultiSelectProps>) => (
+const Component = (props: Partial<Omit<MultiSelectProps, 'aria-label'>>) => (
   <MultiSelect placeholder="Choose an option" label="Choose" {...props}>
     {defaultOpts.map((option) => (
       <MultiSelectOption key={option.value.toString()} value={option.value}>
@@ -34,6 +34,14 @@ describe('MultiSelect', () => {
     expect(getByRole('option', { name: 'Option 1' })).toBeInTheDocument();
     expect(getByRole('option', { name: 'Option 2' })).toBeInTheDocument();
     expect(getByRole('option', { name: 'Option 3' })).toBeInTheDocument();
+  });
+
+  it('should be accessible if I only pass an aria-label', () => {
+    const { getByRole, queryByRole } = render({ 'aria-label': 'Choose', label: undefined });
+
+    expect(queryByRole('label')).not.toBeInTheDocument();
+
+    expect(getByRole('combobox', { name: 'Choose' })).toBeInTheDocument();
   });
 
   it('should be able to select multiple options in one go without the listbox dissapearing', async () => {
