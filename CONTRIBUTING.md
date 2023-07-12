@@ -114,6 +114,8 @@ In your application, link your local copy of the design system with [`yarn link`
 yarn link -r ../<relative-path-to-strapi-design-system>
 ```
 
+You should also remove the webpack alias for `@strapi/design-system` in the Strapi monorepo at `packages/core/admin/webpack.alias.js`
+
 Your application should now be using your local copy of the design system.
 
 To revert back to the released version of the design system use [`yarn unlink`](https://yarnpkg.com/cli/unlink#usage):
