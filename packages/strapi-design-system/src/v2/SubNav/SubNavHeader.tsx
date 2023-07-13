@@ -26,6 +26,7 @@ export interface SubNavHeaderProps {
   onClear?: React.MouseEventHandler<HTMLInputElement>;
   onSubmit?: React.FormEventHandler<HTMLInputElement>;
   searchLabel?: string;
+  searchPlaceholder?: string;
   searchable?: boolean;
   value?: string;
 }
@@ -34,6 +35,7 @@ export const SubNavHeader = ({
   as = 'h2',
   label,
   searchLabel = '',
+  searchPlaceholder = '',
   searchable = false,
   onChange = () => {},
   value = '',
@@ -85,7 +87,7 @@ export const SubNavHeader = ({
             name="searchbar"
             value={value}
             onChange={onChange}
-            placeholder="e.g: strapi-plugin-abcd"
+            placeholder={searchPlaceholder}
             onKeyDown={handleKeyDown}
             ref={searchRef}
             onBlur={handleBlur}
