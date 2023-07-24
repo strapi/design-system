@@ -50,6 +50,6 @@
     "react-dom": "^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
-    "vite-plugin-dts": "^3.1.0"
+    "vite-plugin-dts": "^3.3.1"
   }
 }

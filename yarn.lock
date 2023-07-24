@@ -4194,7 +4194,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rushstack/node-core-library@npm:3.59.5, @rushstack/node-core-library@npm:^3.59.4":
+"@rushstack/node-core-library@npm:3.59.5":
   version: 3.59.5
   resolution: "@rushstack/node-core-library@npm:3.59.5"
   dependencies:
@@ -5615,7 +5615,7 @@ __metadata:
     "@radix-ui/react-visually-hidden": ^1.0.3
     aria-hidden: ^1.2.3
     react-remove-scroll: ^2.5.6
-    vite-plugin-dts: ^3.1.0
+    vite-plugin-dts: ^3.3.1
   peerDependencies:
     react: ^17.0.0 || ^18.0.0
     react-dom: ^17.0.0 || ^18.0.0
@@ -18507,7 +18507,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.4.24, postcss@npm:^8.4.25":
+"postcss@npm:^8.4.25":
   version: 8.4.25
   resolution: "postcss@npm:8.4.25"
   dependencies:
@@ -19835,7 +19835,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:*, rollup@npm:^3.25.2":
+"rollup@npm:^3.25.2":
   version: 3.26.2
   resolution: "rollup@npm:3.26.2"
   dependencies:
@@ -22398,67 +22398,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-plugin-dts@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "vite-plugin-dts@npm:3.1.0"
+"vite-plugin-dts@npm:^3.3.1":
+  version: 3.3.1
+  resolution: "vite-plugin-dts@npm:3.3.1"
   dependencies:
     "@microsoft/api-extractor": ^7.36.0
     "@rollup/pluginutils": ^5.0.2
-    "@rushstack/node-core-library": ^3.59.4
     "@vue/language-core": ^1.8.1
     debug: ^4.3.4
     kolorist: ^1.8.0
-    rollup: "*"
-    vite: "*"
     vue-tsc: ^1.8.1
   peerDependencies:
     typescript: "*"
-  dependenciesMeta:
-    rollup:
-      optional: true
+    vite: "*"
+  peerDependenciesMeta:
     vite:
       optional: true
-  checksum: e0258c2997812d59b842db1ac5f3204d78e1f04bb4e1f3b539861a7dafcd006887412a90fd65fa64987f95306f7a7815cbec1eed6bea678115734e624319a5c6
-  languageName: node
-  linkType: hard
-
-"vite@npm:*":
-  version: 4.4.0
-  resolution: "vite@npm:4.4.0"
-  dependencies:
-    esbuild: ^0.18.10
-    fsevents: ~2.3.2
-    postcss: ^8.4.24
-    rollup: ^3.25.2
-  peerDependencies:
-    "@types/node": ">= 14"
-    less: "*"
-    lightningcss: ^1.21.0
-    sass: "*"
-    stylus: "*"
-    sugarss: "*"
-    terser: ^5.4.0
-  dependenciesMeta:
-    fsevents:
-      optional: true
-  peerDependenciesMeta:
-    "@types/node":
-      optional: true
-    less:
-      optional: true
-    lightningcss:
-      optional: true
-    sass:
-      optional: true
-    stylus:
-      optional: true
-    sugarss:
-      optional: true
-    terser:
-      optional: true
-  bin:
-    vite: bin/vite.js
-  checksum: a0565345836d2bd5471aa784a3769c19c2c7b5f1df05f3b30948ccba691c0a37300ff40bcbb288a7a189aba13063b04b91abbb49dffe9ec45472e95bf4a9ab17
+  checksum: 09fe0f5d246c875e3c21856844c5501b7f81cd9f5cdfa7456dc10888425f84a8faefc6fb2781701110ee55c7217616679dfa5df53175a0327616ec305e94803f
   languageName: node
   linkType: hard
 
