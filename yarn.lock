@@ -3220,17 +3220,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nrwl/tao@npm:16.5.2":
-  version: 16.5.2
-  resolution: "@nrwl/tao@npm:16.5.2"
-  dependencies:
-    nx: 16.5.2
-  bin:
-    tao: index.js
-  checksum: 3721fe1a1ce24936e413a0bd6c02fbdf53cdbfc490de80d6a360220cbb47cae4edca5d7efe5e74daf2d9d4a53983c13c50c6b18415c01e3257a8b7a8ce1cdda1
-  languageName: node
-  linkType: hard
-
 "@nrwl/tao@npm:16.5.5":
   version: 16.5.5
   resolution: "@nrwl/tao@npm:16.5.5"
@@ -3258,24 +3247,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nx/nx-darwin-arm64@npm:16.5.2":
-  version: 16.5.2
-  resolution: "@nx/nx-darwin-arm64@npm:16.5.2"
-  conditions: os=darwin & cpu=arm64
-  languageName: node
-  linkType: hard
-
 "@nx/nx-darwin-arm64@npm:16.5.5":
   version: 16.5.5
   resolution: "@nx/nx-darwin-arm64@npm:16.5.5"
   conditions: os=darwin & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"@nx/nx-darwin-x64@npm:16.5.2":
-  version: 16.5.2
-  resolution: "@nx/nx-darwin-x64@npm:16.5.2"
-  conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
@@ -3286,24 +3261,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nx/nx-freebsd-x64@npm:16.5.2":
-  version: 16.5.2
-  resolution: "@nx/nx-freebsd-x64@npm:16.5.2"
-  conditions: os=freebsd & cpu=x64
-  languageName: node
-  linkType: hard
-
 "@nx/nx-freebsd-x64@npm:16.5.5":
   version: 16.5.5
   resolution: "@nx/nx-freebsd-x64@npm:16.5.5"
   conditions: os=freebsd & cpu=x64
-  languageName: node
-  linkType: hard
-
-"@nx/nx-linux-arm-gnueabihf@npm:16.5.2":
-  version: 16.5.2
-  resolution: "@nx/nx-linux-arm-gnueabihf@npm:16.5.2"
-  conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
@@ -3314,24 +3275,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nx/nx-linux-arm64-gnu@npm:16.5.2":
-  version: 16.5.2
-  resolution: "@nx/nx-linux-arm64-gnu@npm:16.5.2"
-  conditions: os=linux & cpu=arm64 & libc=glibc
-  languageName: node
-  linkType: hard
-
 "@nx/nx-linux-arm64-gnu@npm:16.5.5":
   version: 16.5.5
   resolution: "@nx/nx-linux-arm64-gnu@npm:16.5.5"
   conditions: os=linux & cpu=arm64 & libc=glibc
-  languageName: node
-  linkType: hard
-
-"@nx/nx-linux-arm64-musl@npm:16.5.2":
-  version: 16.5.2
-  resolution: "@nx/nx-linux-arm64-musl@npm:16.5.2"
-  conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
@@ -3342,24 +3289,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nx/nx-linux-x64-gnu@npm:16.5.2":
-  version: 16.5.2
-  resolution: "@nx/nx-linux-x64-gnu@npm:16.5.2"
-  conditions: os=linux & cpu=x64 & libc=glibc
-  languageName: node
-  linkType: hard
-
 "@nx/nx-linux-x64-gnu@npm:16.5.5":
   version: 16.5.5
   resolution: "@nx/nx-linux-x64-gnu@npm:16.5.5"
   conditions: os=linux & cpu=x64 & libc=glibc
-  languageName: node
-  linkType: hard
-
-"@nx/nx-linux-x64-musl@npm:16.5.2":
-  version: 16.5.2
-  resolution: "@nx/nx-linux-x64-musl@npm:16.5.2"
-  conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
@@ -3370,24 +3303,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nx/nx-win32-arm64-msvc@npm:16.5.2":
-  version: 16.5.2
-  resolution: "@nx/nx-win32-arm64-msvc@npm:16.5.2"
-  conditions: os=win32 & cpu=arm64
-  languageName: node
-  linkType: hard
-
 "@nx/nx-win32-arm64-msvc@npm:16.5.5":
   version: 16.5.5
   resolution: "@nx/nx-win32-arm64-msvc@npm:16.5.5"
   conditions: os=win32 & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"@nx/nx-win32-x64-msvc@npm:16.5.2":
-  version: 16.5.2
-  resolution: "@nx/nx-win32-x64-msvc@npm:16.5.2"
-  conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
@@ -10526,7 +10445,7 @@ __metadata:
     jest-environment-jsdom: ^29.6.1
     jest-styled-components: ^7.1.1
     lerna: ^7.1.4
-    nx: 16.5.2
+    nx: 16.5.5
     prettier: ^2.8.8
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -17292,89 +17211,6 @@ __metadata:
   version: 2.2.4
   resolution: "nwsapi@npm:2.2.4"
   checksum: a5eb9467158bdf255d27e9c4555e9ca02e4ba84ddce9b683856ed49de23eb1bb28ae3b8e791b7a93d156ad62b324a56f4d44cad827c2ca288c107ed6bdaff8a8
-  languageName: node
-  linkType: hard
-
-"nx@npm:16.5.2":
-  version: 16.5.2
-  resolution: "nx@npm:16.5.2"
-  dependencies:
-    "@nrwl/tao": 16.5.2
-    "@nx/nx-darwin-arm64": 16.5.2
-    "@nx/nx-darwin-x64": 16.5.2
-    "@nx/nx-freebsd-x64": 16.5.2
-    "@nx/nx-linux-arm-gnueabihf": 16.5.2
-    "@nx/nx-linux-arm64-gnu": 16.5.2
-    "@nx/nx-linux-arm64-musl": 16.5.2
-    "@nx/nx-linux-x64-gnu": 16.5.2
-    "@nx/nx-linux-x64-musl": 16.5.2
-    "@nx/nx-win32-arm64-msvc": 16.5.2
-    "@nx/nx-win32-x64-msvc": 16.5.2
-    "@parcel/watcher": 2.0.4
-    "@yarnpkg/lockfile": ^1.1.0
-    "@yarnpkg/parsers": 3.0.0-rc.46
-    "@zkochan/js-yaml": 0.0.6
-    axios: ^1.0.0
-    chalk: ^4.1.0
-    cli-cursor: 3.1.0
-    cli-spinners: 2.6.1
-    cliui: ^7.0.2
-    dotenv: ~10.0.0
-    enquirer: ~2.3.6
-    fast-glob: 3.2.7
-    figures: 3.2.0
-    flat: ^5.0.2
-    fs-extra: ^11.1.0
-    glob: 7.1.4
-    ignore: ^5.0.4
-    js-yaml: 4.1.0
-    jsonc-parser: 3.2.0
-    lines-and-columns: ~2.0.3
-    minimatch: 3.0.5
-    npm-run-path: ^4.0.1
-    open: ^8.4.0
-    semver: 7.5.3
-    string-width: ^4.2.3
-    strong-log-transformer: ^2.1.0
-    tar-stream: ~2.2.0
-    tmp: ~0.2.1
-    tsconfig-paths: ^4.1.2
-    tslib: ^2.3.0
-    v8-compile-cache: 2.3.0
-    yargs: ^17.6.2
-    yargs-parser: 21.1.1
-  peerDependencies:
-    "@swc-node/register": ^1.4.2
-    "@swc/core": ^1.2.173
-  dependenciesMeta:
-    "@nx/nx-darwin-arm64":
-      optional: true
-    "@nx/nx-darwin-x64":
-      optional: true
-    "@nx/nx-freebsd-x64":
-      optional: true
-    "@nx/nx-linux-arm-gnueabihf":
-      optional: true
-    "@nx/nx-linux-arm64-gnu":
-      optional: true
-    "@nx/nx-linux-arm64-musl":
-      optional: true
-    "@nx/nx-linux-x64-gnu":
-      optional: true
-    "@nx/nx-linux-x64-musl":
-      optional: true
-    "@nx/nx-win32-arm64-msvc":
-      optional: true
-    "@nx/nx-win32-x64-msvc":
-      optional: true
-  peerDependenciesMeta:
-    "@swc-node/register":
-      optional: true
-    "@swc/core":
-      optional: true
-  bin:
-    nx: bin/nx.js
-  checksum: 717da8be398dd1d6a19419dc579cb4197c76de49577edf664ce8a9fdb341176823a277988d4b2b625ec7812ef498a6d4dfecf987d9cc0b981628cd235b09b8f0
   languageName: node
   linkType: hard
 
