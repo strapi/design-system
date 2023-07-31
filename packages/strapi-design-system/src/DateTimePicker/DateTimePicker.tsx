@@ -182,7 +182,7 @@ export const DateTimePicker = ({
           </VisuallyHidden>
           <DatePicker
             {...props}
-            selectedDate={dateValue?.toDate(getLocalTimeZone())}
+            selectedDate={dateValue?.toDate('UTC')}
             onChange={handleDateChange}
             error={typeof error === 'string'}
             required={required}
