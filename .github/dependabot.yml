@@ -22,6 +22,7 @@ updates:
           - 'eslint*'
           - '@typescript-eslint/*'
           - 'prettier'
+          - 'eslint-plugin-*'
 
       jest:
         patterns:
@@ -45,6 +46,11 @@ updates:
         patterns:
           - 'react-router-dom'
           - '@types/react-router-dom'
+
+      storybook:
+        patterns:
+          - '@storybook/*'
+          - 'storybook-dark-mode'
 
       styled-components:
         patterns:
