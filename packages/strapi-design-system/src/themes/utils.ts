@@ -7,18 +7,17 @@ export const getThemeSize = <TType extends keyof ThemeSizes>(type: TType) => {
 
 export const inputFocusStyle =
   (rootElement = '&') =>
-  ({ theme, hasError = false }: { theme: DefaultTheme; hasError?: boolean }) =>
-    css`
-      outline: none;
-      box-shadow: 0;
-      transition-property: border-color, box-shadow, fill;
-      transition-duration: 0.2s;
+  ({ theme, hasError = false }: { theme: DefaultTheme; hasError?: boolean }) => css`
+    outline: none;
+    box-shadow: 0;
+    transition-property: border-color, box-shadow, fill;
+    transition-duration: 0.2s;
 
-      ${rootElement}:focus-within {
-        border: 1px solid ${hasError ? theme.colors.danger600 : theme.colors.primary600};
-        box-shadow: ${hasError ? theme.colors.danger600 : theme.colors.primary600} 0px 0px 0px 2px;
-      }
-    `;
+    ${rootElement}:focus-within {
+      border: 1px solid ${hasError ? theme.colors.danger600 : theme.colors.primary600};
+      box-shadow: ${hasError ? theme.colors.danger600 : theme.colors.primary600} 0px 0px 0px 2px;
+    }
+  `;
 
 export const buttonFocusStyle = ({ theme }: { theme: DefaultTheme }) => css`
   position: relative;
