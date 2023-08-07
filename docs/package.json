@@ -4,8 +4,8 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "@storybook/addon-actions": "^6.5.15",
-    "@storybook/addon-essentials": "^6.5.15",
+    "@storybook/addon-actions": "^7.2.1",
+    "@storybook/addon-essentials": "^7.2.1",
     "@storybook/addon-links": "^6.5.15",
     "@storybook/builder-webpack5": "^6.5.16",
     "@storybook/manager-webpack5": "^6.5.15",
@@ -18,7 +18,7 @@
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "18.2.0",
     "react-router-dom": "5.3.4",
-    "storybook-dark-mode": "^2.1.1",
+    "storybook-dark-mode": "^3.0.1",
     "styled-components": "^5.3.11"
   },
   "devDependencies": {
