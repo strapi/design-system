@@ -46,7 +46,7 @@
     "@types/react-dom": "18.2.7",
     "@typescript-eslint/eslint-plugin": "^5.61.0",
     "@typescript-eslint/parser": "^6.2.0",
-    "@vitejs/plugin-react": "^4.0.3",
+    "@vitejs/plugin-react": "^4.0.4",
     "chokidar-cli": "^3.0.0",
     "cross-env": "^7.0.3",
     "eslint": "^8.45.0",
@@ -73,7 +73,7 @@
     "rimraf": "^5.0.1",
     "tiny-glob": "^0.2.9",
     "typescript": "^5.1.6",
-    "vite": "^4.4.7"
+    "vite": "^4.4.8"
   },
   "packageManager": "yarn@3.5.0",
   "engines": {
