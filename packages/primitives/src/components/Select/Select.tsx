@@ -1322,8 +1322,9 @@ const SelectItem = React.forwardRef<SelectItemElement, SelectItemProps>(
       Array.isArray(context.value) && Array.isArray(value) && value.some((v) => context.value?.includes(v));
     const [textValue, setTextValue] = React.useState(textValueProp ?? '');
     const [isFocused, setIsFocused] = React.useState(false);
-    const composedRefs = useComposedRefs(forwardedRef, (node) =>
-      contentContext.itemRefCallback?.(node, value, disabled),
+    const composedRefs = useComposedRefs(
+      forwardedRef,
+      (node) => contentContext.itemRefCallback?.(node, value, disabled),
     );
     const textId = useId();
 
