@@ -40,109 +40,105 @@ const CarouselAction = styled(Box)<{ area: string }>`
   }
 `;
 
-export const Carousel = ({
-  actions,
-  children,
-  label,
-  nextLabel,
-  onNext,
-  onPrevious,
-  previousLabel,
-  secondaryLabel,
-  selectedSlide,
-  ...props
-}: CarouselProps) => {
-  const prevActionRef = React.useRef<HTMLButtonElement>(null);
-  const nextActionRef = React.useRef<HTMLButtonElement>(null);
+export type CarouselElement = HTMLDivElement;
 
-  const childrenArray = React.Children.map(children, (node, index) =>
-    React.cloneElement(node as React.ReactElement, { selected: index === selectedSlide }),
-  );
+export const Carousel = React.forwardRef<CarouselElement, CarouselProps>(
+  (
+    { actions, children, label, nextLabel, onNext, onPrevious, previousLabel, secondaryLabel, selectedSlide, ...props },
+    forwardedRef,
+  ) => {
+    const prevActionRef = React.useRef<HTMLButtonElement>(null);
+    const nextActionRef = React.useRef<HTMLButtonElement>(null);
 
-  const handleKeyDown = (event) => {
-    switch (event.key) {
-      case KeyboardKeys.RIGHT: {
-        event.preventDefault();
+    const childrenArray = React.Children.map(children, (node, index) =>
+      React.cloneElement(node as React.ReactElement, { selected: index === selectedSlide }),
+    );
 
-        if (nextActionRef?.current) {
-          nextActionRef.current.focus();
+    const handleKeyDown = (event) => {
+      switch (event.key) {
+        case KeyboardKeys.RIGHT: {
+          event.preventDefault();
+
+          if (nextActionRef?.current) {
+            nextActionRef.current.focus();
+          }
+
+          onNext();
+
+          break;
         }
 
-        onNext();
+        case KeyboardKeys.LEFT: {
+          event.preventDefault();
 
-        break;
-      }
+          if (prevActionRef?.current) {
+            prevActionRef.current.focus();
+          }
 
-      case KeyboardKeys.LEFT: {
-        event.preventDefault();
-
-        if (prevActionRef?.current) {
-          prevActionRef.current.focus();
+          onPrevious();
+          break;
         }
 
-        onPrevious();
-        break;
+        default:
+          break;
       }
+    };
 
-      default:
-        break;
-    }
-  };
+    return (
+      <Box ref={forwardedRef} {...props} onKeyDown={handleKeyDown}>
+        <Box padding={2} borderColor="neutral200" hasRadius background="neutral100">
+          <CarouselGrid
+            as="section"
+            aria-roledescription="carousel"
+            aria-label={label}
+            display="grid"
+            position="relative"
+          >
+            {childrenArray && childrenArray.length > 1 && (
+              <>
+                <CarouselAction
+                  as="button"
+                  onClick={onPrevious}
+                  area="startAction"
+                  ref={prevActionRef}
+                  aria-label={previousLabel}
+                  type="button"
+                >
+                  <Icon as={ChevronLeft} aria-hidden width="6px" height="10px" color="neutral600" />
+                </CarouselAction>
 
-  return (
-    <Box {...props} onKeyDown={handleKeyDown}>
-      <Box padding={2} borderColor="neutral200" hasRadius background="neutral100">
-        <CarouselGrid
-          as="section"
-          aria-roledescription="carousel"
-          aria-label={label}
-          display="grid"
-          position="relative"
-        >
-          {childrenArray && childrenArray.length > 1 && (
-            <>
-              <CarouselAction
-                as="button"
-                onClick={onPrevious}
-                area="startAction"
-                ref={prevActionRef}
-                aria-label={previousLabel}
-                type="button"
-              >
-                <Icon as={ChevronLeft} aria-hidden width="6px" height="10px" color="neutral600" />
-              </CarouselAction>
+                <CarouselAction
+                  as="button"
+                  onClick={onNext}
+                  area="endAction"
+                  ref={nextActionRef}
+                  aria-label={nextLabel}
+                  type="button"
+                >
+                  <Icon as={ChevronRight} aria-hidden width="6px" height="10px" color="neutral600" />
+                </CarouselAction>
+              </>
+            )}
 
-              <CarouselAction
-                as="button"
-                onClick={onNext}
-                area="endAction"
-                ref={nextActionRef}
-                aria-label={nextLabel}
-                type="button"
-              >
-                <Icon as={ChevronRight} aria-hidden width="6px" height="10px" color="neutral600" />
-              </CarouselAction>
-            </>
+            <CarouselSlides aria-live="polite" paddingLeft={2} paddingRight={2} width="100%" overflow="hidden">
+              {childrenArray}
+            </CarouselSlides>
+            {actions}
+          </CarouselGrid>
+
+          {secondaryLabel && (
+            <Box paddingTop={2} paddingLeft={4} paddingRight={4}>
+              <Tooltip label={secondaryLabel}>
+                <Flex justifyContent="center">
+                  <Typography variant="pi" textColor="neutral600" ellipsis>
+                    {secondaryLabel}
+                  </Typography>
+                </Flex>
+              </Tooltip>
+            </Box>
           )}
-
-          <CarouselSlides aria-live="polite" paddingLeft={2} paddingRight={2} width="100%" overflow="hidden">
-            {childrenArray}
-          </CarouselSlides>
-          {actions}
-        </CarouselGrid>
-
-        {secondaryLabel && (
-          <Box paddingTop={2} paddingLeft={4} paddingRight={4}>
-            <Tooltip label={secondaryLabel}>
-              <Flex justifyContent="center">
-                <Typography variant="pi" textColor="neutral600" ellipsis>
-                  {secondaryLabel}
-                </Typography>
-              </Flex>
-            </Tooltip>
-          </Box>
-        )}
+        </Box>
       </Box>
-    </Box>
-  );
-};
+    );
+  },
+);

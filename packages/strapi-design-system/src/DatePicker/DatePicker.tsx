@@ -1246,16 +1246,16 @@ interface DatePickerProps extends Pick<FieldProps, 'hint'>, DatePickerInputProps
   label: string;
 }
 
-const DatePickerField = React.forwardRef<HTMLDivElement, DatePickerProps>((props, ref) => {
+const DatePickerField = React.forwardRef<DatePickerTextInputElement, DatePickerProps>((props, ref) => {
   const { error, hint, id, required, label, ...restProps } = props;
 
   const generatedId = useId(id);
 
   return (
-    <Field.Field error={error} hint={hint} required={required} ref={ref} id={generatedId}>
+    <Field.Field error={error} hint={hint} required={required} id={generatedId}>
       <Flex direction="column" alignItems="stretch" gap={1}>
         <Field.FieldLabel>{label}</Field.FieldLabel>
-        <DatePickerInput id={generatedId} error={error} required={required} {...restProps} />
+        <DatePickerInput ref={ref} id={generatedId} error={error} required={required} {...restProps} />
         <Field.FieldHint />
         <Field.FieldError />
       </Flex>
@@ -1294,5 +1294,7 @@ const convertUTCDateToCalendarDate = (date: Date | string): CalendarDate => {
 
 const DatePicker = DatePickerField;
 
+type DatePickerElement = DatePickerTextInputElement;
+
 export { DatePicker, DatePickerInput };
-export type { DatePickerProps, DatePickerInputProps };
+export type { DatePickerProps, DatePickerInputProps, DatePickerElement };
