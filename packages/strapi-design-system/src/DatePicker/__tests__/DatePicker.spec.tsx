@@ -162,6 +162,16 @@ describe('DatePicker', () => {
 
       expect(getByRole('combobox', { name: 'date picker' })).toHaveValue('');
     });
+
+    it('should not have a pattern mismatch by using the field as standard', async () => {
+      const { getByRole, user } = render({ initialDate: new Date('Sep 04 2021') });
+
+      await user.click(getByRole('combobox', { name: 'date picker' }));
+
+      await user.click(getByRole('gridcell', { name: 'Wednesday, 8 September 2021' }));
+
+      expect((getByRole('combobox') as HTMLInputElement).validity.patternMismatch).toBe(false);
+    });
   });
 
   describe('Calendar', () => {

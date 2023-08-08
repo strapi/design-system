@@ -546,7 +546,11 @@ const DatePickerTextInput = React.forwardRef<DatePickerTextInputElement, TextInp
       return [placeholder, separator, dateStructure];
     }, [formatter]);
 
-    const inputPattern = dateFormatPlaceholder.map((part) => `\\d${part.length}`).join(separator);
+    /**
+     * the `pattern` prop of an input cannot be a regex it must be a string without the `/` delimiters.
+     * Therefore, we manually escape the separator and `d` character.
+     */
+    const inputPattern = dateFormatPlaceholder.map((part) => `\\d{${part.length}}`).join(`\\${separator}`);
 
     return (
       <Input

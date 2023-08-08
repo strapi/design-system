@@ -152,6 +152,18 @@ describe('TimePicker', () => {
     expect(onChange).toHaveBeenCalledWith('01:01');
   });
 
+  it('should not have a pattern mismatch by using the field as standard', async () => {
+    const { getByRole, user } = render();
+
+    await user.click(getByRole('combobox', { name: 'timepicker' }));
+
+    await user.click(getByRole('option', { name: '01:00' }));
+
+    expect(getByRole('combobox')).toHaveValue('01:00');
+
+    expect((getByRole('combobox') as HTMLInputElement).validity.patternMismatch).toBe(false);
+  });
+
   describe('step prop', () => {
     it('should render 96 options for time by default', async () => {
       const { getAllByRole, getByRole, user } = render();
