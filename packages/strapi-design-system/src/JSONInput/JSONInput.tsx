@@ -1,13 +1,15 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, forwardRef, useImperativeHandle } from 'react';
 
 import { jsonParseLinter, json } from '@codemirror/lang-json';
 import { ViewUpdate } from '@codemirror/view';
 import { useCodeMirror, ReactCodeMirrorRef, ReactCodeMirrorProps } from '@uiw/react-codemirror';
+import styled from 'styled-components';
 
-import { JSONInputContainer } from './JSONInputContainer';
 import { markField, addMarks, filterMarks, lineHighlightMark } from './utils/decorationExtension';
 import { Field, FieldLabel, FieldError, FieldHint } from '../Field';
 import { Flex, FlexProps } from '../Flex';
+import { useComposedRefs } from '../hooks/useComposeRefs';
+import { inputFocusStyle } from '../themes';
 
 interface JSONInputProps extends Omit<FlexProps, 'onChange'> {
   label?: string;
@@ -20,136 +22,189 @@ interface JSONInputProps extends Omit<FlexProps, 'onChange'> {
   onChange?: (value: string) => void;
 }
 
-export const JSONInput = ({
-  label,
-  error,
-  hint,
-  labelAction,
-  value = '',
-  required = false,
-  disabled = false,
-  onChange = () => null,
-  ...boxProps
-}: JSONInputProps) => {
-  const editor = useRef<ReactCodeMirrorRef['editor']>();
-  const editorState = useRef<ReactCodeMirrorRef['state']>();
-  const editorView = useRef<ReactCodeMirrorRef['view']>();
-  const hasError = Boolean(error);
+export interface JSONInputRef extends Partial<HTMLElement> {
+  focus(): void;
+}
 
-  /**
-   * Determines the line to highlight when lintJSON finds an error via jsonParseLinter()
-   */
-  const highglightErrorAtLine = (lineNumber: number) => {
-    const doc = editorState.current?.doc;
+export const JSONInput = forwardRef<JSONInputRef, JSONInputProps>(
+  (
+    {
+      label,
+      error,
+      hint,
+      labelAction,
+      value = '',
+      required = false,
+      disabled = false,
+      onChange = () => null,
+      ...boxProps
+    },
+    forwardedRef,
+  ) => {
+    const editor = useRef<ReactCodeMirrorRef['editor']>();
+    const editorState = useRef<ReactCodeMirrorRef['state']>();
+    const editorView = useRef<ReactCodeMirrorRef['view']>();
+    const hasError = Boolean(error);
 
-    if (doc) {
-      const { text, to: lineEnd } = doc.line(lineNumber);
+    /**
+     * Determines the line to highlight when lintJSON finds an error via jsonParseLinter()
+     */
+    const highglightErrorAtLine = (lineNumber: number) => {
+      const doc = editorState.current?.doc;
 
-      const lineStart = lineEnd - text.trimStart().length;
+      if (doc) {
+        const { text, to: lineEnd } = doc.line(lineNumber);
 
-      if (lineEnd > lineStart) {
+        const lineStart = lineEnd - text.trimStart().length;
+
+        if (lineEnd > lineStart) {
+          editorView.current?.dispatch({
+            effects: addMarks.of([lineHighlightMark.range(lineStart, lineEnd)]),
+          });
+        }
+      }
+    };
+
+    const clearErrorHighlight = () => {
+      const doc = editorState.current?.doc;
+
+      if (doc) {
+        const docEnd = doc.length || 0;
+
         editorView.current?.dispatch({
-          effects: addMarks.of([lineHighlightMark.range(lineStart, lineEnd)]),
+          effects: filterMarks.of((from, to) => to <= 0 || from >= docEnd),
         });
       }
-    }
-  };
+    };
+    /**
+     * Checks code editor for valid json input and then highlights any errors
+     */
+    const lintJSON = ({ state, view }: Pick<ViewUpdate, 'state' | 'view'>) => {
+      editorView.current = view;
+      editorState.current = state;
 
-  const clearErrorHighlight = () => {
-    const doc = editorState.current?.doc;
+      clearErrorHighlight();
+      // Function calls json.parse and returns error message + position
+      const lintJSONForErrrors = jsonParseLinter();
+      const lintErrors = lintJSONForErrrors(view);
 
-    if (doc) {
-      const docEnd = doc.length || 0;
+      if (lintErrors.length) {
+        highglightErrorAtLine(state.doc.lineAt(lintErrors[0].from).number);
+      }
+    };
 
-      editorView.current?.dispatch({
-        effects: filterMarks.of((from, to) => to <= 0 || from >= docEnd),
-      });
-    }
-  };
-  /**
-   * Checks code editor for valid json input and then highlights any errors
-   */
-  const lintJSON = ({ state, view }: Pick<ViewUpdate, 'state' | 'view'>) => {
-    editorView.current = view;
-    editorState.current = state;
+    const onCodeMirrorChange: ReactCodeMirrorProps['onChange'] = (currentValue, viewUpdate) => {
+      lintJSON(viewUpdate);
+      // Call the parent's onChange handler
+      onChange(currentValue);
+    };
 
-    clearErrorHighlight();
-    // Function calls json.parse and returns error message + position
-    const lintJSONForErrrors = jsonParseLinter();
-    const lintErrors = lintJSONForErrrors(view);
+    const onCreateEditor: ReactCodeMirrorProps['onCreateEditor'] = (view, state) => {
+      editorView.current = view;
+      editorState.current = state;
+      // Lint the JSON in case the initial value is invalid
+      lintJSON({ view, state });
+    };
 
-    if (lintErrors.length) {
-      highglightErrorAtLine(state.doc.lineAt(lintErrors[0].from).number);
-    }
-  };
+    const { setContainer, view } = useCodeMirror({
+      value,
+      onCreateEditor,
+      container: editor.current,
+      editable: !disabled,
+      extensions: [json(), markField],
+      onChange: onCodeMirrorChange,
+      theme: 'dark',
+      basicSetup: {
+        lineNumbers: true,
+        bracketMatching: true,
+        closeBrackets: true,
+        indentOnInput: true,
+        syntaxHighlighting: true,
+        highlightSelectionMatches: true,
+        tabSize: 2,
+      },
+    });
 
-  const onCodeMirrorChange: ReactCodeMirrorProps['onChange'] = (currentValue, viewUpdate) => {
-    lintJSON(viewUpdate);
-    // Call the parent's onChange handler
-    onChange(currentValue);
-  };
+    const focusInput = () => {
+      if (!disabled && view) {
+        view.focus();
+      }
+    };
 
-  const onCreateEditor: ReactCodeMirrorProps['onCreateEditor'] = (view, state) => {
-    editorView.current = view;
-    editorState.current = state;
-    // Lint the JSON in case the initial value is invalid
-    lintJSON({ view, state });
-  };
+    const composedRefs = useComposedRefs(editor, setContainer);
 
-  const { setContainer } = useCodeMirror({
-    value,
-    onCreateEditor,
-    container: editor.current,
-    editable: !disabled,
-    extensions: [json(), markField],
-    onChange: onCodeMirrorChange,
-    theme: 'dark',
-    basicSetup: {
-      lineNumbers: true,
-      bracketMatching: true,
-      closeBrackets: true,
-      indentOnInput: true,
-      syntaxHighlighting: true,
-      highlightSelectionMatches: true,
-      tabSize: 2,
-    },
-  });
+    useImperativeHandle(
+      forwardedRef,
+      () => ({
+        ...view?.dom,
+        focus() {
+          if (view) {
+            view.focus();
+          }
+        },
+        scrollIntoView(args?: boolean | ScrollIntoViewOptions) {
+          if (view) {
+            view.dom.scrollIntoView(args);
+          }
+        },
+      }),
+      [view],
+    );
 
-  const focusInput = () => {
-    if (!disabled) {
-      // Focus the content editable element nested in the JSONInputContainer ref
-      const contentEditable = editor.current?.children[0].children[1].children[1] as HTMLElement | null;
-      contentEditable?.focus();
-    }
-  };
+    return (
+      <Field error={error} hint={hint} required={required}>
+        <Flex direction="column" alignItems="stretch" gap={1}>
+          {label && (
+            <FieldLabel onClick={focusInput} action={labelAction}>
+              {label}
+            </FieldLabel>
+          )}
+          <JSONInputContainer
+            ref={composedRefs}
+            hasError={hasError}
+            alignItems="stretch"
+            fontSize={2}
+            hasRadius
+            {...boxProps}
+          />
+          <FieldError />
+          <FieldHint />
+        </Flex>
+      </Field>
+    );
+  },
+);
 
-  useEffect(() => {
-    const currentEditor = editor.current;
+const JSONInputContainer = styled(Flex)`
+  line-height: ${({ theme }) => theme.lineHeights[2]};
 
-    if (currentEditor) {
-      setContainer(currentEditor);
-    }
-  }, [setContainer]);
+  .cm-editor {
+    /** 
+     * Hard coded since the color is the same between themes,
+     * theme.colors.neutral800 changes between themes 
+     */
+    background-color: #32324d;
+    width: 100%;
+    outline: none;
+  }
 
-  return (
-    <Field error={error} hint={hint} required={required}>
-      <Flex direction="column" alignItems="stretch" gap={1}>
-        {label && (
-          <FieldLabel onClick={focusInput} action={labelAction}>
-            {label}
-          </FieldLabel>
-        )}
-        <JSONInputContainer
-          ref={editor}
-          hasError={hasError}
-          alignItems="stretch"
-          fontSize={2}
-          hasRadius
-          {...boxProps}
-        />
-        <FieldError />
-        <FieldHint />
-      </Flex>
-    </Field>
-  );
-};
+  .cm-scroller {
+    border: 1px solid ${({ theme, hasError }) => (hasError ? theme.colors.danger600 : theme.colors.neutral200)};
+    /* inputFocusStyle will receive hasError prop */
+    ${inputFocusStyle()}
+  }
+
+  .cm-editor,
+  .cm-scroller {
+    border-radius: ${({ theme }) => theme.borderRadius};
+  }
+
+  .cm-gutters,
+  .cm-activeLineGutter {
+    /** 
+     * Hard coded since the color is the same between themes,
+     * theme.colors.neutral700 changes between themes 
+     */
+    background-color: #4a4a6a;
+  }
+`;

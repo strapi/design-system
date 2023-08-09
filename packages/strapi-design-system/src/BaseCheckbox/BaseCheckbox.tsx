@@ -6,6 +6,7 @@ import checkmarkIconDisabled from './assets/checkmark-black.svg';
 import checkmarkIcon from './assets/checkmark.svg';
 import { getCheckboxSize } from './utils';
 import { Box } from '../Box';
+import { useComposedRefs } from '../hooks/useComposeRefs';
 
 export type BaseCheckboxSize = 'S' | 'M';
 
@@ -97,43 +98,42 @@ export interface BaseCheckboxProps extends Omit<React.InputHTMLAttributes<HTMLIn
   value?: boolean;
 }
 
-export const BaseCheckbox = ({
-  indeterminate = false,
-  size = 'M',
-  name,
-  value = false,
-  onValueChange,
-  ...inputProps
-}: BaseCheckboxProps) => {
-  const checkboxRef = React.useRef<HTMLInputElement>(null!);
+export type CheckboxElement = HTMLInputElement;
 
-  React.useEffect(() => {
-    if (checkboxRef.current && indeterminate) {
-      checkboxRef.current.indeterminate = indeterminate;
-    } else {
-      checkboxRef.current.indeterminate = false;
-    }
-  }, [indeterminate]);
+export const BaseCheckbox = React.forwardRef<CheckboxElement, BaseCheckboxProps>(
+  ({ indeterminate = false, size = 'M', name, value = false, onValueChange, ...inputProps }, forwardedRef) => {
+    const checkboxRef = React.useRef<HTMLInputElement>(null!);
 
-  const handleValueChange = () => {
-    if (onValueChange) {
-      onValueChange(!value);
-    }
-  };
+    const composedRefs = useComposedRefs(checkboxRef, forwardedRef);
 
-  return (
-    <Box>
-      <CheckboxInput
-        size={size}
-        checked={value}
-        onChange={handleValueChange}
-        type="checkbox"
-        ref={checkboxRef}
-        name={name}
-        {...inputProps}
-      />
-    </Box>
-  );
-};
+    React.useEffect(() => {
+      if (checkboxRef.current && indeterminate) {
+        checkboxRef.current.indeterminate = indeterminate;
+      } else {
+        checkboxRef.current.indeterminate = false;
+      }
+    }, [indeterminate]);
+
+    const handleValueChange = () => {
+      if (onValueChange) {
+        onValueChange(!value);
+      }
+    };
+
+    return (
+      <Box>
+        <CheckboxInput
+          size={size}
+          checked={value}
+          onChange={handleValueChange}
+          type="checkbox"
+          ref={composedRefs}
+          name={name}
+          {...inputProps}
+        />
+      </Box>
+    );
+  },
+);
 
 BaseCheckbox.displayName = 'BaseCheckbox';

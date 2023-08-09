@@ -8,6 +8,7 @@ import { Box } from '../Box';
 import { Field, FieldError, FieldHint, FieldLabel, FieldProps } from '../Field';
 import { Flex } from '../Flex';
 import { stripReactIdOfColon } from '../helpers/strings';
+import { useComposedRefs } from '../hooks/useComposeRefs';
 import { useControllableState } from '../hooks/useControllableState';
 import { useId } from '../hooks/useId';
 import { useIntersection } from '../hooks/useIntersection';
@@ -61,214 +62,227 @@ export interface ComboboxInputProps
   startIcon?: React.ReactNode;
 }
 
-export const ComboboxInput = ({
-  allowCustomValue,
-  autocomplete,
-  children,
-  className,
-  clearLabel = 'clear',
-  creatable = false,
-  createMessage = (value) => `Create "${value}"`,
-  defaultFilterValue,
-  defaultTextValue,
-  defaultOpen = false,
-  open,
-  onOpenChange,
-  disabled = false,
-  error,
-  filterValue,
-  hasMoreItems = false,
-  id,
-  isPrintableCharacter,
-  loading = false,
-  loadingMessage = 'Loading content...',
-  noOptionsMessage = () => 'No results found',
-  onChange,
-  onClear,
-  onCreateOption,
-  onFilterValueChange,
-  onInputChange,
-  onTextValueChange,
-  onLoadMore,
-  placeholder = 'Select or enter a value',
-  required = false,
-  size = 'M',
-  startIcon,
-  textValue,
-  value,
-  ...restProps
-}: ComboboxInputProps) => {
-  const [internalIsOpen, setInternalIsOpen] = useControllableState({
-    prop: open,
-    defaultProp: defaultOpen,
-    onChange: onOpenChange,
-  });
-  const [internalTextValue, setInternalTextValue] = useControllableState({
-    prop: textValue,
-    defaultProp: allowCustomValue && !defaultTextValue ? value : defaultTextValue,
-    onChange: onTextValueChange,
-  });
-  const [internalFilterValue, setInternalFilterValue] = useControllableState({
-    prop: filterValue,
-    defaultProp: defaultFilterValue,
-    onChange: onFilterValueChange,
-  });
+export type ComboboxInputElement = HTMLInputElement;
 
-  /**
-   * Used for the intersection observer
-   */
-  const viewportRef = React.useRef<HTMLDivElement>(null);
-  const triggerRef = React.useRef<HTMLInputElement>(null!);
-
-  const clearRef = React.useRef(null);
-
-  const handleClearClick: React.MouseEventHandler<HTMLButtonElement> & React.MouseEventHandler<HTMLDivElement> = (
-    e: React.MouseEvent<HTMLButtonElement> | React.MouseEvent<HTMLDivElement>,
+export const ComboboxInput = React.forwardRef<ComboboxInputElement, ComboboxInputProps>(
+  (
+    {
+      allowCustomValue,
+      autocomplete,
+      children,
+      className,
+      clearLabel = 'clear',
+      creatable = false,
+      createMessage = (value) => `Create "${value}"`,
+      defaultFilterValue,
+      defaultTextValue,
+      defaultOpen = false,
+      open,
+      onOpenChange,
+      disabled = false,
+      error,
+      filterValue,
+      hasMoreItems = false,
+      id,
+      isPrintableCharacter,
+      loading = false,
+      loadingMessage = 'Loading content...',
+      noOptionsMessage = () => 'No results found',
+      onChange,
+      onClear,
+      onCreateOption,
+      onFilterValueChange,
+      onInputChange,
+      onTextValueChange,
+      onLoadMore,
+      placeholder = 'Select or enter a value',
+      required = false,
+      size = 'M',
+      startIcon,
+      textValue,
+      value,
+      ...restProps
+    },
+    forwardedRef,
   ) => {
-    if (onClear && !disabled) {
-      setInternalTextValue('');
-      setInternalFilterValue('');
-      onClear(e);
-      triggerRef.current.focus();
-    }
-  };
+    const [internalIsOpen, setInternalIsOpen] = useControllableState({
+      prop: open,
+      defaultProp: defaultOpen,
+      onChange: onOpenChange,
+    });
+    const [internalTextValue, setInternalTextValue] = useControllableState({
+      prop: textValue,
+      defaultProp: allowCustomValue && !defaultTextValue ? value : defaultTextValue,
+      onChange: onTextValueChange,
+    });
+    const [internalFilterValue, setInternalFilterValue] = useControllableState({
+      prop: filterValue,
+      defaultProp: defaultFilterValue,
+      onChange: onFilterValueChange,
+    });
 
-  const handleOpenChange: ComboboxPrimitive.RootProps['onOpenChange'] = (open) => {
-    setInternalIsOpen(open);
-  };
-
-  const handleTextValueChange: ComboboxPrimitive.RootProps['onTextValueChange'] = (textValue) => {
-    setInternalTextValue(textValue);
-  };
-
-  const handleFilterValueChange: ComboboxPrimitive.RootProps['onFilterValueChange'] = (filterValue) => {
-    setInternalFilterValue(filterValue);
-  };
-
-  const handleInputChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    if (onInputChange) {
-      onInputChange(e);
-    }
-  };
-
-  const handleChange: ComboboxPrimitive.RootProps['onValueChange'] = (value) => {
-    if (onChange) {
-      onChange(value);
-    }
-  };
-
-  const handleReachEnd = (entry: IntersectionObserverEntry) => {
-    if (onLoadMore && hasMoreItems && !loading) {
-      onLoadMore(entry);
-    }
-  };
-
-  const handleCreateItemClick = () => {
-    if (onCreateOption && internalTextValue) {
-      onCreateOption(internalTextValue);
-    }
-  };
-
-  const generatedId = useId(id);
-  const generatedIntersectionId = useId();
-  const intersectionId = `intersection-${stripReactIdOfColon(generatedIntersectionId)}`;
-
-  useIntersection(viewportRef, handleReachEnd, {
-    selectorToWatch: `#${intersectionId}`,
     /**
-     * We need to know when the select is open because only then will viewportRef
-     * not be null. Because it uses a portal that (sensibly) is not mounted 24/7.
+     * Used for the intersection observer
      */
-    skipWhen: !internalIsOpen,
-  });
+    const viewportRef = React.useRef<HTMLDivElement>(null);
+    const triggerRef = React.useRef<HTMLInputElement>(null!);
 
-  const hintId = `${generatedId}-hint`;
-  const errorId = `${generatedId}-error`;
+    const composedTriggerRefs = useComposedRefs(triggerRef, forwardedRef);
 
-  return (
-    <ComboboxPrimitive.Root
-      autocomplete={autocomplete || (creatable ? 'list' : 'both')}
-      onOpenChange={handleOpenChange}
-      open={internalIsOpen}
-      onTextValueChange={handleTextValueChange}
-      textValue={internalTextValue}
-      allowCustomValue={creatable || allowCustomValue}
-      disabled={disabled}
-      required={required}
-      value={value}
-      onValueChange={handleChange}
-      filterValue={internalFilterValue}
-      onFilterValueChange={handleFilterValueChange}
-      isPrintableCharacter={isPrintableCharacter}
-    >
-      <Trigger $hasError={Boolean(error)} $size={size} className={className}>
-        <Flex flex="1" as="span" gap={3}>
-          {startIcon ? (
-            <Box as="span" aria-hidden>
-              {startIcon}
-            </Box>
-          ) : null}
-          <TextInput
-            placeholder={placeholder}
-            id={id}
-            aria-invalid={Boolean(error)}
-            aria-describedby={`${hintId} ${errorId}`}
-            onChange={handleInputChange}
-            ref={triggerRef}
-            {...restProps}
-          />
-        </Flex>
-        <Flex as="span" gap={3}>
-          {internalTextValue && onClear ? (
-            <IconBox
-              as="button"
-              hasRadius
-              background="transparent"
-              type="button"
-              onClick={handleClearClick}
-              aria-disabled={disabled}
-              aria-label={clearLabel}
-              title={clearLabel}
-              ref={clearRef}
-            >
-              <Cross />
-            </IconBox>
-          ) : null}
-          <DownIcon>
-            <CarretDown />
-          </DownIcon>
-        </Flex>
-      </Trigger>
-      <ComboboxPrimitive.Portal>
-        <Content sideOffset={4}>
-          <Viewport ref={viewportRef}>
-            {children}
-            {creatable ? (
-              <ComboboxPrimitive.CreateItem onPointerUp={handleCreateItemClick} onClick={handleCreateItemClick} asChild>
-                <OptionBox>
-                  <Typography>{createMessage(internalTextValue ?? '')}</Typography>
-                </OptionBox>
-              </ComboboxPrimitive.CreateItem>
+    const clearRef = React.useRef(null);
+
+    const handleClearClick: React.MouseEventHandler<HTMLButtonElement> & React.MouseEventHandler<HTMLDivElement> = (
+      e: React.MouseEvent<HTMLButtonElement> | React.MouseEvent<HTMLDivElement>,
+    ) => {
+      if (onClear && !disabled) {
+        setInternalTextValue('');
+        setInternalFilterValue('');
+        onClear(e);
+        triggerRef.current.focus();
+      }
+    };
+
+    const handleOpenChange: ComboboxPrimitive.RootProps['onOpenChange'] = (open) => {
+      setInternalIsOpen(open);
+    };
+
+    const handleTextValueChange: ComboboxPrimitive.RootProps['onTextValueChange'] = (textValue) => {
+      setInternalTextValue(textValue);
+    };
+
+    const handleFilterValueChange: ComboboxPrimitive.RootProps['onFilterValueChange'] = (filterValue) => {
+      setInternalFilterValue(filterValue);
+    };
+
+    const handleInputChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+      if (onInputChange) {
+        onInputChange(e);
+      }
+    };
+
+    const handleChange: ComboboxPrimitive.RootProps['onValueChange'] = (value) => {
+      if (onChange) {
+        onChange(value);
+      }
+    };
+
+    const handleReachEnd = (entry: IntersectionObserverEntry) => {
+      if (onLoadMore && hasMoreItems && !loading) {
+        onLoadMore(entry);
+      }
+    };
+
+    const handleCreateItemClick = () => {
+      if (onCreateOption && internalTextValue) {
+        onCreateOption(internalTextValue);
+      }
+    };
+
+    const generatedId = useId(id);
+    const generatedIntersectionId = useId();
+    const intersectionId = `intersection-${stripReactIdOfColon(generatedIntersectionId)}`;
+
+    useIntersection(viewportRef, handleReachEnd, {
+      selectorToWatch: `#${intersectionId}`,
+      /**
+       * We need to know when the select is open because only then will viewportRef
+       * not be null. Because it uses a portal that (sensibly) is not mounted 24/7.
+       */
+      skipWhen: !internalIsOpen,
+    });
+
+    const hintId = `${generatedId}-hint`;
+    const errorId = `${generatedId}-error`;
+
+    return (
+      <ComboboxPrimitive.Root
+        autocomplete={autocomplete || (creatable ? 'list' : 'both')}
+        onOpenChange={handleOpenChange}
+        open={internalIsOpen}
+        onTextValueChange={handleTextValueChange}
+        textValue={internalTextValue}
+        allowCustomValue={creatable || allowCustomValue}
+        disabled={disabled}
+        required={required}
+        value={value}
+        onValueChange={handleChange}
+        filterValue={internalFilterValue}
+        onFilterValueChange={handleFilterValueChange}
+        isPrintableCharacter={isPrintableCharacter}
+      >
+        <Trigger $hasError={Boolean(error)} $size={size} className={className}>
+          <Flex flex="1" as="span" gap={3}>
+            {startIcon ? (
+              <Box as="span" aria-hidden>
+                {startIcon}
+              </Box>
             ) : null}
-            {!creatable && !loading ? (
-              <ComboboxPrimitive.NoValueFound asChild>
-                <OptionBox $hasHover={false}>
-                  <Typography>{noOptionsMessage(internalTextValue ?? '')}</Typography>
-                </OptionBox>
-              </ComboboxPrimitive.NoValueFound>
+            <TextInput
+              placeholder={placeholder}
+              id={id}
+              aria-invalid={Boolean(error)}
+              aria-describedby={`${hintId} ${errorId}`}
+              onChange={handleInputChange}
+              ref={composedTriggerRefs}
+              {...restProps}
+            />
+          </Flex>
+          <Flex as="span" gap={3}>
+            {internalTextValue && onClear ? (
+              <IconBox
+                as="button"
+                hasRadius
+                background="transparent"
+                type="button"
+                onClick={handleClearClick}
+                aria-disabled={disabled}
+                aria-label={clearLabel}
+                title={clearLabel}
+                ref={clearRef}
+              >
+                <Cross />
+              </IconBox>
             ) : null}
-            {loading ? (
-              <Flex justifyContent="center" alignItems="center" paddingTop={2} paddingBottom={2}>
-                <Loader small>{loadingMessage}</Loader>
-              </Flex>
-            ) : null}
-            <Box id={intersectionId} width="100%" height="1px" />
-          </Viewport>
-        </Content>
-      </ComboboxPrimitive.Portal>
-    </ComboboxPrimitive.Root>
-  );
-};
+            <DownIcon>
+              <CarretDown />
+            </DownIcon>
+          </Flex>
+        </Trigger>
+        <ComboboxPrimitive.Portal>
+          <Content sideOffset={4}>
+            <Viewport ref={viewportRef}>
+              {children}
+              {creatable ? (
+                <ComboboxPrimitive.CreateItem
+                  onPointerUp={handleCreateItemClick}
+                  onClick={handleCreateItemClick}
+                  asChild
+                >
+                  <OptionBox>
+                    <Typography>{createMessage(internalTextValue ?? '')}</Typography>
+                  </OptionBox>
+                </ComboboxPrimitive.CreateItem>
+              ) : null}
+              {!creatable && !loading ? (
+                <ComboboxPrimitive.NoValueFound asChild>
+                  <OptionBox $hasHover={false}>
+                    <Typography>{noOptionsMessage(internalTextValue ?? '')}</Typography>
+                  </OptionBox>
+                </ComboboxPrimitive.NoValueFound>
+              ) : null}
+              {loading ? (
+                <Flex justifyContent="center" alignItems="center" paddingTop={2} paddingBottom={2}>
+                  <Loader small>{loadingMessage}</Loader>
+                </Flex>
+              ) : null}
+              <Box id={intersectionId} width="100%" height="1px" />
+            </Viewport>
+          </Content>
+        </ComboboxPrimitive.Portal>
+      </ComboboxPrimitive.Root>
+    );
+  },
+);
 
 /* -------------------------------------------------------------------------------------------------
  * Combobox
@@ -282,20 +296,22 @@ export type ComboboxProps =
   | (ComboboxPropsWithoutLabel & { label: string; 'aria-label'?: never })
   | (ComboboxPropsWithoutLabel & { label?: never; 'aria-label': string });
 
-export const Combobox = ({ error, hint, id, label, labelAction, required = false, ...restProps }: ComboboxProps) => {
-  const generatedId = useId(id);
+export const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
+  ({ error, hint, id, label, labelAction, required = false, ...restProps }, forwardedRef) => {
+    const generatedId = useId(id);
 
-  return (
-    <Field hint={hint} error={error} id={generatedId} required={required}>
-      <Flex direction="column" alignItems="stretch" gap={1}>
-        {label ? <FieldLabel action={labelAction}>{label}</FieldLabel> : null}
-        <ComboboxInput id={generatedId} error={error} required={required} {...restProps} />
-        <FieldHint />
-        <FieldError />
-      </Flex>
-    </Field>
-  );
-};
+    return (
+      <Field hint={hint} error={error} id={generatedId} required={required}>
+        <Flex direction="column" alignItems="stretch" gap={1}>
+          {label ? <FieldLabel action={labelAction}>{label}</FieldLabel> : null}
+          <ComboboxInput ref={forwardedRef} id={generatedId} error={error} required={required} {...restProps} />
+          <FieldHint />
+          <FieldError />
+        </Flex>
+      </Field>
+    );
+  },
+);
 
 /* -------------------------------------------------------------------------------------------------
  * CreatableCombobox
