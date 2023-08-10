@@ -1,6 +1,6 @@
 {
   "root": true,
-  "extends": ["@strapi/eslint-config/front", "prettier"],
+  "extends": ["@strapi/eslint-config/front/javascript", "prettier"],
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint", "prettier"],
   "rules": {

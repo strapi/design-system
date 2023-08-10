@@ -1,6 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable react/jsx-pascal-case */
 import * as React from 'react';
 
 import { composeEventHandlers } from '@radix-ui/primitive';
@@ -13,7 +10,6 @@ import { useId } from '@radix-ui/react-id';
 import * as PopperPrimitive from '@radix-ui/react-popper';
 import { Portal as PortalPrimitive } from '@radix-ui/react-portal';
 import { Primitive } from '@radix-ui/react-primitive';
-import type { ComponentPropsWithoutRef } from '@radix-ui/react-primitive';
 import { useControllableState } from '@radix-ui/react-use-controllable-state';
 import { useLayoutEffect } from '@radix-ui/react-use-layout-effect';
 import { hideOthers } from 'aria-hidden';
@@ -23,6 +19,8 @@ import { RemoveScroll } from 'react-remove-scroll';
 import { useFilter } from '../../hooks/useFilter';
 import { usePrev } from '../../hooks/usePrev';
 import { createCollection } from '../Collection';
+
+import type { ComponentPropsWithoutRef } from '@radix-ui/react-primitive';
 
 const OPEN_KEYS = [' ', 'Enter', 'ArrowUp', 'ArrowDown'];
 const SELECTION_KEYS = ['Enter'];
@@ -336,13 +334,15 @@ const ComboboxTrigger = React.forwardRef<ComboboxTriggerElement, TriggerProps>((
   );
 });
 
+ComboboxTrigger.displayName = TRIGGER_NAME;
+
 /* -------------------------------------------------------------------------------------------------
  * ComboboxInput
  * -----------------------------------------------------------------------------------------------*/
 
 const INPUT_NAME = 'ComboboxInput';
 
-interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
+type TextInputProps = React.InputHTMLAttributes<HTMLInputElement>;
 type ComboboxInputElement = React.ElementRef<'input'>;
 
 const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps>((props, forwardedRef) => {
@@ -596,13 +596,15 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
   );
 });
 
+ComboxboxTextInput.displayName = 'ComboboxTextInput';
+
 /* -------------------------------------------------------------------------------------------------
  * ComboboxIcon
  * -----------------------------------------------------------------------------------------------*/
 
 type ComboboxIconElement = React.ElementRef<typeof Primitive.button>;
 type PrimitiveButtonProps = ComponentPropsWithoutRef<typeof Primitive.button>;
-interface IconProps extends PrimitiveButtonProps {}
+type IconProps = PrimitiveButtonProps;
 
 const ComboboxIcon = React.forwardRef<ComboboxIconElement, IconProps>((props, forwardedRef) => {
   const { children, ...iconProps } = props;
@@ -661,6 +663,8 @@ const ComboboxIcon = React.forwardRef<ComboboxIconElement, IconProps>((props, fo
     </Primitive.button>
   );
 });
+
+ComboboxIcon.displayName = 'ComboboxIcon';
 
 /* -------------------------------------------------------------------------------------------------
  * ComboboxPortal
@@ -722,6 +726,8 @@ const ComboboxContent = React.forwardRef<ComboboxContentElement, ContentProps>((
 
   return <ComboboxContentImpl {...props} ref={forwardedRef} />;
 });
+
+ComboboxContent.displayName = CONTENT_NAME;
 
 /* -------------------------------------------------------------------------------------------------
  * ComboboxContentImpl
@@ -814,6 +820,8 @@ const ComboboxContentImpl = React.forwardRef<ComboboxContentImplElement, Combobo
   },
 );
 
+ComboboxContentImpl.displayName = 'ComboboxContentImpl';
+
 /* -------------------------------------------------------------------------------------------------
  * ComboboxPopperPosition
  * -----------------------------------------------------------------------------------------------*/
@@ -850,6 +858,8 @@ const ComboboxPopperPosition = React.forwardRef<ComboboxPopperPositionElement, C
   },
 );
 
+ComboboxPopperPosition.displayName = 'ComboboxPopperPosition';
+
 /* -------------------------------------------------------------------------------------------------
  * ComboboxViewport
  * -----------------------------------------------------------------------------------------------*/
@@ -858,7 +868,7 @@ const VIEWPORT_NAME = 'ComboboxViewport';
 
 type ComboboxViewportElement = React.ElementRef<typeof Primitive.div>;
 type PrimitiveDivProps = ComponentPropsWithoutRef<typeof Primitive.div>;
-interface ViewportProps extends PrimitiveDivProps {}
+type ViewportProps = PrimitiveDivProps;
 
 const ComboboxViewport = React.forwardRef<ComboboxViewportElement, ViewportProps>((props, forwardedRef) => {
   const comboboxContext = useComboboxContext(VIEWPORT_NAME);
@@ -893,6 +903,8 @@ const ComboboxViewport = React.forwardRef<ComboboxViewportElement, ViewportProps
     </>
   );
 });
+
+ComboboxViewport.displayName = VIEWPORT_NAME;
 
 /* -------------------------------------------------------------------------------------------------
  * ComboboxItemContext
@@ -1006,6 +1018,8 @@ export const ComboboxItem = React.forwardRef<ComboboxItemElement, ItemProps>((pr
   );
 });
 
+ComboboxItem.displayName = ITEM_NAME;
+
 /* -------------------------------------------------------------------------------------------------
  * ComboboxItemImpl
  * -----------------------------------------------------------------------------------------------*/
@@ -1067,6 +1081,8 @@ const ComboboxItemImpl = React.forwardRef<ComboboxItemImplElement, ItemImplProps
   );
 });
 
+ComboboxItemImpl.displayName = ITEM_IMPL_NAME;
+
 /* -------------------------------------------------------------------------------------------------
  * ComboboxItemText
  * -----------------------------------------------------------------------------------------------*/
@@ -1085,12 +1101,14 @@ const ComboboxItemText = React.forwardRef<HTMLSpanElement, ItemTextProps>((props
   return <Primitive.span id={itemContext.textId} {...itemTextProps} ref={composedRefs} />;
 });
 
+ComboboxItemText.displayName = ITEM_TEXT_NAME;
+
 /* -------------------------------------------------------------------------------------------------
  * ComboboxItemIndicator
  * -----------------------------------------------------------------------------------------------*/
 
 const ITEM_INDICATOR_NAME = 'ComboboxItemIndicator';
-interface ItemIndicatorProps extends PrimitiveSpanProps {}
+type ItemIndicatorProps = PrimitiveSpanProps;
 
 const ComboboxItemIndicator = React.forwardRef<HTMLSpanElement, ItemIndicatorProps>((props, forwardedRef) => {
   const { isSelected } = useComboboxItemContext(ITEM_INDICATOR_NAME);
@@ -1098,13 +1116,15 @@ const ComboboxItemIndicator = React.forwardRef<HTMLSpanElement, ItemIndicatorPro
   return isSelected ? <Primitive.span aria-hidden {...props} ref={forwardedRef} /> : null;
 });
 
+ComboboxItemIndicator.displayName = ITEM_INDICATOR_NAME;
+
 /* -------------------------------------------------------------------------------------------------
  * ComboboxNoValueFound
  * -----------------------------------------------------------------------------------------------*/
 
 const NO_VALUE_FOUND_NAME = 'ComboboxNoValueFound';
 
-interface NoValueFoundProps extends PrimitiveDivProps {}
+type NoValueFoundProps = PrimitiveDivProps;
 
 const ComboboxNoValueFound = React.forwardRef<HTMLDivElement, NoValueFoundProps>((props, ref) => {
   const { textValue = '', filterValue = '', locale, autocomplete } = useComboboxContext(NO_VALUE_FOUND_NAME);
@@ -1143,6 +1163,8 @@ const ComboboxNoValueFound = React.forwardRef<HTMLDivElement, NoValueFoundProps>
 
   return <Primitive.div {...props} ref={ref} />;
 });
+
+ComboboxNoValueFound.displayName = NO_VALUE_FOUND_NAME;
 
 /* -------------------------------------------------------------------------------------------------
  * ComboboxCreateItem
@@ -1223,6 +1245,8 @@ const ComboboxCreateItem = React.forwardRef<ComboboxItemElement, CreateItemProps
     </Collection.ItemSlot>
   );
 });
+
+ComboboxCreateItem.displayName = 'ComboboxCreateItem';
 
 const Root = Combobox;
 const Trigger = ComboboxTrigger;

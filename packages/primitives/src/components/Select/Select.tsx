@@ -1,7 +1,3 @@
-/* eslint-disable no-nested-ternary */
-/* eslint-disable jsx-a11y/control-has-associated-label */
-/* eslint-disable react/jsx-pascal-case */
-
 /**
  * We've forked this from RadixUI to add primarily support for multi-select.
  * This is on their roadmap – https://github.com/radix-ui/primitives/issues/1193
@@ -23,7 +19,6 @@ import { composeEventHandlers } from '@radix-ui/primitive';
 import { createCollection } from '@radix-ui/react-collection';
 import { useComposedRefs } from '@radix-ui/react-compose-refs';
 import { createContextScope } from '@radix-ui/react-context';
-import type { Scope } from '@radix-ui/react-context';
 import { useDirection } from '@radix-ui/react-direction';
 import { DismissableLayer } from '@radix-ui/react-dismissable-layer';
 import { useFocusGuards } from '@radix-ui/react-focus-guards';
@@ -33,7 +28,6 @@ import * as PopperPrimitive from '@radix-ui/react-popper';
 import { createPopperScope } from '@radix-ui/react-popper';
 import { Portal as PortalPrimitive } from '@radix-ui/react-portal';
 import { Primitive } from '@radix-ui/react-primitive';
-import type * as Radix from '@radix-ui/react-primitive';
 import { Slot } from '@radix-ui/react-slot';
 import { useControllableState } from '@radix-ui/react-use-controllable-state';
 import { useLayoutEffect } from '@radix-ui/react-use-layout-effect';
@@ -44,6 +38,9 @@ import * as ReactDOM from 'react-dom';
 import { RemoveScroll } from 'react-remove-scroll';
 
 import { useCallbackRef } from '../../hooks/useCallbackRef';
+
+import type { Scope } from '@radix-ui/react-context';
+import type * as Radix from '@radix-ui/react-primitive';
 
 type Direction = 'ltr' | 'rtl';
 
@@ -158,10 +155,10 @@ const Select = (props: ScopedProps<SelectProps>) => {
     onChange(value: string | string[]) {
       if (onValueChange) {
         if (Array.isArray(value)) {
-          // @ts-expect-error
+          // @ts-expect-error the type for `onValueChange` is a join of the possible types, this should be fixed...
           onValueChange(value);
         } else {
-          // @ts-expect-error
+          // @ts-expect-error the type for `onValueChange` is a join of the possible types, this should be fixed...
           onValueChange(value);
         }
       }
@@ -253,7 +250,7 @@ const TRIGGER_NAME = 'SelectTrigger';
 
 type SelectTriggerElement = React.ElementRef<typeof Primitive.div>;
 type PrimitiveButtonProps = Radix.ComponentPropsWithoutRef<typeof Primitive.div>;
-interface SelectTriggerProps extends PrimitiveButtonProps {}
+type SelectTriggerProps = PrimitiveButtonProps;
 
 const SelectTrigger = React.forwardRef<SelectTriggerElement, SelectTriggerProps>(
   (props: ScopedProps<SelectTriggerProps>, forwardedRef) => {
@@ -472,7 +469,7 @@ SelectValue.displayName = VALUE_NAME;
 const ICON_NAME = 'SelectIcon';
 
 type SelectIconElement = React.ElementRef<typeof Primitive.span>;
-interface SelectIconProps extends PrimitiveSpanProps {}
+type SelectIconProps = PrimitiveSpanProps;
 
 const SelectIcon = React.forwardRef<SelectIconElement, SelectIconProps>(
   (props: ScopedProps<SelectIconProps>, forwardedRef) => {
@@ -512,7 +509,7 @@ SelectPortal.displayName = PORTAL_NAME;
 const CONTENT_NAME = 'SelectContent';
 
 type SelectContentElement = SelectContentImplElement;
-interface SelectContentProps extends SelectContentImplProps {}
+type SelectContentProps = SelectContentImplProps;
 
 const SelectContent = React.forwardRef<SelectContentElement, SelectContentProps>(
   (props: ScopedProps<SelectContentProps>, forwardedRef) => {
@@ -1161,7 +1158,7 @@ const VIEWPORT_NAME = 'SelectViewport';
 
 type SelectViewportElement = React.ElementRef<typeof Primitive.div>;
 type PrimitiveDivProps = Radix.ComponentPropsWithoutRef<typeof Primitive.div>;
-interface SelectViewportProps extends PrimitiveDivProps {}
+type SelectViewportProps = PrimitiveDivProps;
 
 const SelectViewport = React.forwardRef<SelectViewportElement, SelectViewportProps>(
   (props: ScopedProps<SelectViewportProps>, forwardedRef) => {
@@ -1245,7 +1242,7 @@ type SelectGroupContextValue = { id: string };
 const [SelectGroupContextProvider, useSelectGroupContext] = createSelectContext<SelectGroupContextValue>(GROUP_NAME);
 
 type SelectGroupElement = React.ElementRef<typeof Primitive.div>;
-interface SelectGroupProps extends PrimitiveDivProps {}
+type SelectGroupProps = PrimitiveDivProps;
 
 const SelectGroup = React.forwardRef<SelectGroupElement, SelectGroupProps>(
   (props: ScopedProps<SelectGroupProps>, forwardedRef) => {
@@ -1269,7 +1266,7 @@ SelectGroup.displayName = GROUP_NAME;
 const LABEL_NAME = 'SelectLabel';
 
 type SelectLabelElement = React.ElementRef<typeof Primitive.div>;
-interface SelectLabelProps extends PrimitiveDivProps {}
+type SelectLabelProps = PrimitiveDivProps;
 
 const SelectLabel = React.forwardRef<SelectLabelElement, SelectLabelProps>(
   (props: ScopedProps<SelectLabelProps>, forwardedRef) => {
@@ -1419,7 +1416,7 @@ SelectItem.displayName = ITEM_NAME;
 const ITEM_TEXT_NAME = 'SelectItemText';
 
 type SelectItemTextElement = React.ElementRef<typeof Primitive.span>;
-interface SelectItemTextProps extends PrimitiveSpanProps {}
+type SelectItemTextProps = PrimitiveSpanProps;
 
 const SelectItemText = React.forwardRef<SelectItemTextElement, SelectItemTextProps>(
   (props: ScopedProps<SelectItemTextProps>, forwardedRef) => {
@@ -1526,7 +1523,7 @@ SelectItemIndicator.displayName = ITEM_INDICATOR_NAME;
 const SCROLL_UP_BUTTON_NAME = 'SelectScrollUpButton';
 
 type SelectScrollUpButtonElement = SelectScrollButtonImplElement;
-interface SelectScrollUpButtonProps extends Omit<SelectScrollButtonImplProps, 'onAutoScroll'> {}
+type SelectScrollUpButtonProps = Omit<SelectScrollButtonImplProps, 'onAutoScroll'>;
 
 const SelectScrollUpButton = React.forwardRef<SelectScrollUpButtonElement, SelectScrollUpButtonProps>(
   (props: ScopedProps<SelectScrollUpButtonProps>, forwardedRef) => {
@@ -1574,7 +1571,7 @@ SelectScrollUpButton.displayName = SCROLL_UP_BUTTON_NAME;
 const SCROLL_DOWN_BUTTON_NAME = 'SelectScrollDownButton';
 
 type SelectScrollDownButtonElement = SelectScrollButtonImplElement;
-interface SelectScrollDownButtonProps extends Omit<SelectScrollButtonImplProps, 'onAutoScroll'> {}
+type SelectScrollDownButtonProps = Omit<SelectScrollButtonImplProps, 'onAutoScroll'>;
 
 const SelectScrollDownButton = React.forwardRef<SelectScrollDownButtonElement, SelectScrollDownButtonProps>(
   (props: ScopedProps<SelectScrollDownButtonProps>, forwardedRef) => {
@@ -1671,6 +1668,8 @@ const SelectScrollButtonImpl = React.forwardRef<SelectScrollButtonImplElement, S
   },
 );
 
+SelectScrollButtonImpl.displayName = 'SelectScrollButtonImpl';
+
 /* -------------------------------------------------------------------------------------------------
  * SelectSeparator
  * -----------------------------------------------------------------------------------------------*/
@@ -1678,7 +1677,7 @@ const SelectScrollButtonImpl = React.forwardRef<SelectScrollButtonImplElement, S
 const SEPARATOR_NAME = 'SelectSeparator';
 
 type SelectSeparatorElement = React.ElementRef<typeof Primitive.div>;
-interface SelectSeparatorProps extends PrimitiveDivProps {}
+type SelectSeparatorProps = PrimitiveDivProps;
 
 const SelectSeparator = React.forwardRef<SelectSeparatorElement, SelectSeparatorProps>(
   (props: ScopedProps<SelectSeparatorProps>, forwardedRef) => {
@@ -1698,7 +1697,7 @@ const ARROW_NAME = 'SelectArrow';
 
 type SelectArrowElement = React.ElementRef<typeof PopperPrimitive.Arrow>;
 type PopperArrowProps = Radix.ComponentPropsWithoutRef<typeof PopperPrimitive.Arrow>;
-interface SelectArrowProps extends PopperArrowProps {}
+type SelectArrowProps = PopperArrowProps;
 
 const SelectArrow = React.forwardRef<SelectArrowElement, SelectArrowProps>(
   (props: ScopedProps<SelectArrowProps>, forwardedRef) => {

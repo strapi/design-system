@@ -18,7 +18,7 @@ type ComponentProps = {
 
 const Component = ({ options = defaultOptions, children, ...restProps }: ComponentProps) => (
   <>
-    {/* @ts-expect-error */}
+    {/* @ts-expect-error there's a confusion here over the expected value prop */}
     <Select.Root {...restProps}>
       <Select.Trigger>
         <Select.Value>{children}</Select.Value>
@@ -90,8 +90,8 @@ describe('Select', () => {
       await user.click(getByRole('option', { name: 'Option 1' }));
       await user.click(getByRole('option', { name: 'Option 2' }));
 
-      expect(getByRole('option', { name: 'Option 1' })).toHaveAttribute('aria-checked', 'true');
-      expect(getByRole('option', { name: 'Option 2' })).toHaveAttribute('aria-checked', 'true');
+      expect(getByRole('option', { name: 'Option 1' })).toBeChecked();
+      expect(getByRole('option', { name: 'Option 2' })).toBeChecked();
 
       await user.keyboard('[Escape]');
 

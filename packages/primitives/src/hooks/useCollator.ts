@@ -2,7 +2,7 @@
  * Stolen from @react-aria/i18n
  */
 
-let cache = new Map<string, Intl.Collator>();
+const cache = new Map<string, Intl.Collator>();
 
 /**
  * Provides localized string collation for the current locale. Automatically updates when the locale changes,
@@ -10,7 +10,7 @@ let cache = new Map<string, Intl.Collator>();
  * @param options - Collator options.
  */
 export function useCollator(locale: string, options?: Intl.CollatorOptions): Intl.Collator {
-  let cacheKey =
+  const cacheKey =
     locale +
     (options
       ? Object.entries(options)
@@ -22,7 +22,7 @@ export function useCollator(locale: string, options?: Intl.CollatorOptions): Int
     return cache.get(cacheKey)!;
   }
 
-  let formatter = new Intl.Collator(locale, options);
+  const formatter = new Intl.Collator(locale, options);
   cache.set(cacheKey, formatter);
 
   return formatter;

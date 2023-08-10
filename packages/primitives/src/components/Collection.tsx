@@ -7,12 +7,18 @@ import * as React from 'react';
 
 import { useComposedRefs } from '@radix-ui/react-compose-refs';
 import { createContextScope } from '@radix-ui/react-context';
-import type * as Radix from '@radix-ui/react-primitive';
 import { Slot } from '@radix-ui/react-slot';
+
+import type * as Radix from '@radix-ui/react-primitive';
 
 type SlotProps = Radix.ComponentPropsWithoutRef<typeof Slot>;
 type CollectionElement = HTMLElement;
 interface CollectionProps extends SlotProps {
+  scope: any;
+}
+
+interface CollectionProviderProps {
+  children?: React.ReactNode;
   scope: any;
 }
 
@@ -21,7 +27,7 @@ interface CollectionProps extends SlotProps {
 // This is because we encountered issues with generic types that cannot be statically analysed
 // due to creating them dynamically via createCollection.
 
-function createCollection<ItemElement extends HTMLElement, ItemData = {}>(name: string) {
+function createCollection<ItemElement extends HTMLElement, ItemData = object>(name: string) {
   /* -----------------------------------------------------------------------------------------------
    * CollectionProvider
    * ---------------------------------------------------------------------------------------------*/
@@ -42,11 +48,6 @@ function createCollection<ItemElement extends HTMLElement, ItemData = {}>(name: 
     itemMap: new Map(),
     listeners: new Set<Listener>(),
   });
-
-  interface CollectionProviderProps {
-    children?: React.ReactNode;
-    scope: any;
-  }
 
   const CollectionProvider = (props: CollectionProviderProps) => {
     const { scope, children } = props;
@@ -162,4 +163,4 @@ function createCollection<ItemElement extends HTMLElement, ItemData = {}>(name: 
 }
 
 export { createCollection };
-export type { CollectionProps };
+export type { CollectionProps, CollectionProviderProps };

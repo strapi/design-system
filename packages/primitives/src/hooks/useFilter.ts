@@ -18,7 +18,7 @@ export interface Filter {
  * in a list. Options can be provided to adjust the sensitivity to case, diacritics, and other parameters.
  */
 export function useFilter(locale: string, options?: Intl.CollatorOptions): Filter {
-  let collator = useCollator(locale, {
+  const collator = useCollator(locale, {
     usage: 'search',
     ...options,
   });
@@ -54,9 +54,9 @@ export function useFilter(locale: string, options?: Intl.CollatorOptions): Filte
       substring = substring.normalize('NFC');
 
       let scan = 0;
-      let sliceLen = substring.length;
+      const sliceLen = substring.length;
       for (; scan + sliceLen <= string.length; scan++) {
-        let slice = string.slice(scan, scan + sliceLen);
+        const slice = string.slice(scan, scan + sliceLen);
 
         if (collator.compare(substring, slice) === 0) {
           return true;

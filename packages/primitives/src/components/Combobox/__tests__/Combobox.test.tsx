@@ -59,17 +59,17 @@ describe('Combobox', () => {
     expect(getByRole('combobox')).toHaveAttribute('aria-autocomplete', 'none');
     expect(getByRole('combobox')).toHaveAttribute('aria-controls');
     expect(getByRole('combobox')).toHaveAttribute('aria-expanded', 'false');
-    expect(getByRole('combobox')).toHaveAttribute('aria-required', 'false');
+    expect(getByRole('combobox')).not.toBeRequired();
     expect(getByRole('combobox')).toHaveAttribute('data-placeholder');
     expect(getByRole('combobox')).toHaveAttribute('data-state', 'closed');
     expect(getByRole('combobox')).toHaveAttribute('placeholder', 'combobox test');
     expect(getByRole('combobox')).toHaveAttribute('type', 'text');
-    expect(getByRole('combobox')).toHaveAttribute('value', '');
+    expect(getByRole('combobox')).toHaveValue('');
 
     rerender(<Component disabled />);
 
     expect(getByRole('combobox')).toHaveAttribute('data-disabled');
-    expect(getByRole('combobox')).toHaveAttribute('disabled');
+    expect(getByRole('combobox')).toBeDisabled();
 
     const iconButton = getByRole('button', { hidden: true });
 
@@ -146,7 +146,7 @@ describe('Combobox', () => {
       await user.tab();
       await user.keyboard('[ArrowDown]');
 
-      expect(queryByRole('listbox')).toBeInTheDocument();
+      expect(getByRole('listbox')).toBeInTheDocument();
 
       await user.keyboard('[Escape]');
 
@@ -168,7 +168,7 @@ describe('Combobox', () => {
     });
 
     it('should reopen the menu after a user has clicked an option and then pressed a key', async () => {
-      const { getByRole, queryByRole, queryByText, user } = render();
+      const { getByRole, queryByRole, getByText, user } = render();
 
       await user.click(getByRole('combobox'));
 
@@ -188,11 +188,11 @@ describe('Combobox', () => {
 
       expect(getByRole('combobox')).toHaveValue('Option ');
 
-      expect(queryByRole('listbox')).toBeInTheDocument();
+      expect(getByRole('listbox')).toBeInTheDocument();
 
-      expect(queryByText('Option 1')).toBeInTheDocument();
-      expect(queryByText('Option 2')).toBeInTheDocument();
-      expect(queryByText('Option 3')).toBeInTheDocument();
+      expect(getByText('Option 1')).toBeInTheDocument();
+      expect(getByText('Option 2')).toBeInTheDocument();
+      expect(getByText('Option 3')).toBeInTheDocument();
     });
 
     it('should revert to the related items textValue based on the set value if an unaccepted textValue is left onBlur', async () => {
@@ -529,7 +529,7 @@ describe('Combobox', () => {
     });
 
     it('should show the creatable button when the user starts typing and it does not exactly match a value', async () => {
-      const { getByRole, queryByText, user } = render();
+      const { getByRole, queryByText, getByText, user } = render();
 
       await user.click(getByRole('combobox'));
 
@@ -537,7 +537,7 @@ describe('Combobox', () => {
 
       await user.type(getByRole('combobox'), 'appl');
 
-      expect(queryByText('Create this option')).toBeInTheDocument();
+      expect(getByText('Create this option')).toBeInTheDocument();
 
       await user.clear(getByRole('combobox'));
 
@@ -547,7 +547,7 @@ describe('Combobox', () => {
 
       await user.keyboard('Option ');
 
-      expect(queryByText('Create this option')).toBeInTheDocument();
+      expect(getByText('Create this option')).toBeInTheDocument();
 
       await user.keyboard('1');
 
@@ -557,7 +557,7 @@ describe('Combobox', () => {
     });
 
     it('should show the creatable button if the option is spelt slightly different e.g. lowercase', async () => {
-      const { getByRole, queryByText, user } = render();
+      const { getByRole, queryByText, getByText, user } = render();
 
       await user.click(getByRole('combobox'));
 
@@ -565,7 +565,7 @@ describe('Combobox', () => {
 
       await user.type(getByRole('combobox'), 'option 1');
 
-      expect(queryByText('Create this option')).toBeInTheDocument();
+      expect(getByText('Create this option')).toBeInTheDocument();
     });
 
     it('should allow the createable button to be focussable and trigger the onChange handler', async () => {
@@ -661,7 +661,7 @@ describe('Combobox', () => {
 
   describe('autocomplete prop === list', () => {
     it('should filter the list of visible options when the input is typed', async () => {
-      const { getByRole, queryByText, user } = render({ autocomplete: 'list' });
+      const { getByRole, queryByText, getByText, user } = render({ autocomplete: 'list' });
 
       await user.click(getByRole('combobox'));
 
@@ -672,21 +672,21 @@ describe('Combobox', () => {
 
       await user.type(getByRole('combobox'), 'Option 1');
 
-      expect(queryByText('Option 1')).toBeInTheDocument();
+      expect(getByText('Option 1')).toBeInTheDocument();
       expect(queryByText('Option 2')).not.toBeInTheDocument();
       expect(queryByText('Option 3')).not.toBeInTheDocument();
     });
 
     it('should filter the list if there is a selected option and we re-open the combobox', async () => {
-      const { getByRole, queryByText, user } = render({
+      const { getByRole, queryByText, getByText, user } = render({
         autocomplete: 'list',
       });
 
       await user.click(getByRole('combobox'));
 
-      expect(queryByText('Option 1')).toBeInTheDocument();
-      expect(queryByText('Option 2')).toBeInTheDocument();
-      expect(queryByText('Option 3')).toBeInTheDocument();
+      expect(getByText('Option 1')).toBeInTheDocument();
+      expect(getByText('Option 2')).toBeInTheDocument();
+      expect(getByText('Option 3')).toBeInTheDocument();
 
       await user.click(getByRole('option', { name: 'Option 1' }));
 
@@ -694,13 +694,13 @@ describe('Combobox', () => {
 
       await user.click(getByRole('combobox'));
 
-      expect(queryByText('Option 1')).toBeInTheDocument();
+      expect(getByText('Option 1')).toBeInTheDocument();
       expect(queryByText('Option 2')).not.toBeInTheDocument();
       expect(queryByText('Option 3')).not.toBeInTheDocument();
     });
 
     it('should reopen the menu after a user has clicked an option and then pressed a key assuming there are items that match the filter pattern', async () => {
-      const { getByRole, queryByRole, queryByText, user } = render({
+      const { getByRole, getByText, queryByRole, queryByText, user } = render({
         autocomplete: 'list',
       });
 
@@ -722,23 +722,23 @@ describe('Combobox', () => {
 
       expect(getByRole('combobox')).toHaveValue('Option ');
 
-      expect(queryByRole('listbox')).toBeInTheDocument();
+      expect(getByRole('listbox')).toBeInTheDocument();
 
-      expect(queryByText('Option 1')).toBeInTheDocument();
-      expect(queryByText('Option 2')).toBeInTheDocument();
-      expect(queryByText('Option 3')).toBeInTheDocument();
+      expect(getByText('Option 1')).toBeInTheDocument();
+      expect(getByText('Option 2')).toBeInTheDocument();
+      expect(getByText('Option 3')).toBeInTheDocument();
 
       await user.keyboard('1');
 
       expect(getByRole('combobox')).toHaveValue('Option 1');
 
-      expect(queryByText('Option 1')).toBeInTheDocument();
+      expect(getByText('Option 1')).toBeInTheDocument();
       expect(queryByText('Option 2')).not.toBeInTheDocument();
       expect(queryByText('Option 3')).not.toBeInTheDocument();
     });
 
     it('should correctly show the NoValue text as the textValue changes in different ways while filtering the list', async () => {
-      const { getByRole, getAllByRole, queryByText, queryByRole, queryAllByRole, user } = render({
+      const { getByRole, getAllByRole, queryByText, queryByRole, getByText, user } = render({
         hideCreatable: true,
         autocomplete: 'list',
       });
@@ -753,19 +753,19 @@ describe('Combobox', () => {
       await user.keyboard('Option 1');
 
       expect(getByRole('combobox')).toHaveValue('Option 1');
-      expect(getAllByRole('option')).toHaveLength(1);
+      expect(getByRole('option')).toBeInTheDocument();
       expect(queryByText('No value found')).not.toBeInTheDocument();
 
       await user.keyboard('2');
 
       expect(getByRole('combobox')).toHaveValue('Option 12');
-      expect(queryAllByRole('option')).toHaveLength(0);
-      expect(queryByText('No value found')).toBeInTheDocument();
+      expect(queryByRole('option')).not.toBeInTheDocument();
+      expect(getByText('No value found')).toBeInTheDocument();
 
       await user.keyboard('[Backspace]');
 
       expect(getByRole('combobox')).toHaveValue('Option 1');
-      expect(getAllByRole('option')).toHaveLength(1);
+      expect(getByRole('option')).toBeInTheDocument();
       expect(queryByText('No value found')).not.toBeInTheDocument();
 
       await user.clear(getByRole('combobox'));
@@ -782,7 +782,7 @@ describe('Combobox', () => {
       await user.click(getByRole('combobox'));
 
       expect(getByRole('combobox')).toHaveValue('Option 2');
-      expect(getAllByRole('option')).toHaveLength(1);
+      expect(getByRole('option')).toBeInTheDocument();
       expect(queryByText('No value found')).not.toBeInTheDocument();
     });
   });
@@ -884,7 +884,7 @@ describe('Combobox', () => {
 
       await user.click(getByRole('combobox'));
 
-      expect(queryAllByRole('option')).toHaveLength(1);
+      expect(getByRole('option')).toBeInTheDocument();
 
       await user.clear(getByRole('combobox'));
 
@@ -902,7 +902,7 @@ describe('Combobox', () => {
 
       await user.click(getByRole('combobox'));
 
-      expect(queryAllByRole('option')).toHaveLength(1);
+      expect(getByRole('option')).toBeInTheDocument();
     });
   });
 });
