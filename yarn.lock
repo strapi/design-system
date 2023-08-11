@@ -5662,7 +5662,6 @@ __metadata:
     "@radix-ui/react-visually-hidden": ^1.0.3
     aria-hidden: ^1.2.3
     react-remove-scroll: ^2.5.6
-    vite-plugin-dts: ^3.5.2
   peerDependencies:
     react: ^17.0.0 || ^18.0.0
     react-dom: ^17.0.0 || ^18.0.0
@@ -10626,6 +10625,7 @@ __metadata:
     tiny-glob: ^0.2.9
     typescript: ^5.1.6
     vite: ^4.4.9
+    vite-plugin-dts: ^3.5.1
   languageName: unknown
   linkType: soft
 
@@ -22642,7 +22642,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-plugin-dts@npm:^3.5.2":
+"vite-plugin-dts@npm:^3.5.1":
   version: 3.5.2
   resolution: "vite-plugin-dts@npm:3.5.2"
   dependencies:
