@@ -3603,19 +3603,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@playwright/test@npm:1.35.1":
-  version: 1.35.1
-  resolution: "@playwright/test@npm:1.35.1"
+"@playwright/test@npm:1.37.0":
+  version: 1.37.0
+  resolution: "@playwright/test@npm:1.37.0"
   dependencies:
     "@types/node": "*"
     fsevents: 2.3.2
-    playwright-core: 1.35.1
+    playwright-core: 1.37.0
   dependenciesMeta:
     fsevents:
       optional: true
   bin:
     playwright: cli.js
-  checksum: 3509d2f2c7397f9b0d4f49088cab8625f17d186f7e9b3389ddebf7c52ee8aae6407eab48f66b300b7bf6a33f6e3533fd5951e72bfdb001b68838af98596d5a53
+  checksum: 59ccc519396c5cd66ba27bfc821b6a6483a9a426824eedb85cbd05b1cfb817f62bc1e1d893878582cf88af441a8a45aa83e678ab1d3145b54838c7c2e917b8a2
   languageName: node
   linkType: hard
 
@@ -5544,7 +5544,7 @@ __metadata:
     "@floating-ui/react-dom": ^2.0.1
     "@internationalized/date": ^3.3.0
     "@internationalized/number": ^3.2.1
-    "@playwright/test": 1.35.1
+    "@playwright/test": 1.37.0
     "@radix-ui/react-dismissable-layer": ^1.0.4
     "@radix-ui/react-dropdown-menu": ^2.0.5
     "@radix-ui/react-focus-scope": 1.0.3
@@ -18555,12 +18555,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-core@npm:1.35.1":
-  version: 1.35.1
-  resolution: "playwright-core@npm:1.35.1"
+"playwright-core@npm:1.37.0":
+  version: 1.37.0
+  resolution: "playwright-core@npm:1.37.0"
   bin:
     playwright-core: cli.js
-  checksum: 179abc0051f00474e528935b507fa8cedc986b2803b020d7679878ba28cdd7036ad5a779792aad2ad281f8dc625eb1d2fb77663cb8de0d20c7ffbda7c18febdd
+  checksum: be91857b1bb56890b3929ed8cd529f5f5abe4b748f709abc8dbe5b0ee4c0e158247c3958fbccec6a52394dafe4619bc0e69c93d1b129a71b31ab3697771e4c5a
   languageName: node
   linkType: hard
 
