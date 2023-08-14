@@ -263,7 +263,7 @@ export const ComboboxInput = React.forwardRef<ComboboxInputElement, ComboboxInpu
                   </OptionBox>
                 </ComboboxPrimitive.CreateItem>
               ) : null}
-              {!creatable && !loading ? (
+              {!children && !creatable && !loading ? (
                 <ComboboxPrimitive.NoValueFound asChild>
                   <OptionBox $hasHover={false}>
                     <Typography>{noOptionsMessage(internalTextValue ?? '')}</Typography>
