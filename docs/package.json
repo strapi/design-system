@@ -22,7 +22,7 @@
     "styled-components": "^5.3.11"
   },
   "devDependencies": {
-    "eslint-plugin-mdx": "^1.17.1"
+    "eslint-plugin-mdx": "^2.2.0"
   },
   "scripts": {
     "build": "build-storybook",
