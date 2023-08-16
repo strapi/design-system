@@ -51,6 +51,7 @@ updates:
         patterns:
           - '@storybook/*'
           - 'storybook-dark-mode'
+          - 'storybook'
 
       styled-components:
         patterns:
@@ -67,7 +68,7 @@ updates:
         patterns:
           - 'vite'
           - '@vitejs/*'
-          - 'vite-plugin-dts'
+          - 'vite-plugin-*'
           - '@swc/core'
 
   - package-ecosystem: github-actions
