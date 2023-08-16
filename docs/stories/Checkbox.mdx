@@ -1,0 +1,73 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
+import { Checkbox } from '@strapi/design-system';
+
+import * as CheckboxStories from './Checkbox.stories';
+
+<Meta of={CheckboxStories} />
+
+# Checkbox
+
+Checkboxes allow users to choose one or multiple values from a range of options.
+
+**Best practices**
+
+- Content of the checkbox should be concise and straightforward.
+- Use the Radio button component if the user should select only one value.
+- Start all checkbox labels with a capital letter.
+- Avoid using hint state in tables.
+
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Checkbox)
+
+## Imports
+
+```js
+import { Checkbox } from '@strapi/design-system';
+```
+
+## Usage
+
+<Canvas of={CheckboxStories.Base} />
+
+### Indeterminate checkbox
+
+<Canvas of={CheckboxStories.Indeterminate} />
+
+#### Checked
+
+Checked state is used to show that an option has been selected.
+
+#### Indeterminate
+
+Indeterminate state is used to show partially checked states.
+
+#### Unchecked
+
+Unchecked state is used to show that an option has been selected.
+
+### Disabled
+
+Checkboxes can possibily not be available to selection yet. This state can be related to a lack of permission or a need
+to pursue another action first.
+
+<Canvas of={CheckboxStories.Disabled} />
+
+### Hint
+
+Use hint state to give more information about the purpose of a checkbox.
+
+<Canvas of={CheckboxStories.Hint} />
+
+### Error
+
+Display an error message.
+
+<Canvas of={CheckboxStories.Error} />
+
+## Accessibility
+
+- Checkbox has role of checkbox.
+- When Checkbox has focus, `Space` or `Enter` activates/deactivates it.
+
+## Props
+
+<ArgsTable of={Checkbox} />

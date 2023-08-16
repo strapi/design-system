@@ -1,0 +1,114 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
+import {
+  MultiSelectNested,
+  SingleSelect,
+  SingleSelectOption,
+  MultiSelect,
+  MultiSelectOption,
+  //
+  Select,
+  Option,
+  OptGroup,
+} from '@strapi/design-system';
+
+import * as SelectStories from './Select.stories';
+
+<Meta of={SelectStories} />
+
+# Select
+
+Select components are used for collecting user provided information from a list of options. They can
+be configured to allow single or multiple selections.
+
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Select)
+
+## Usage
+
+```js
+import {
+  SingleSelect,
+  SingleSelectOption,
+  MultiSelect,
+  MultiSelectOption,
+  MultiSelectNested,
+  /**
+   * These imports are still valid, but will be removed in the
+   * next major iteration
+   */
+  Select,
+  Option,
+  OptGroup,
+} from '@strapi/design-system';
+```
+
+### Basic usage
+
+The most common usage would be the `SingleSelect` which allows a user to only select one option from a list.
+The list has built in typeahead meaning pressing the letter `K` will highlight the word "Kiwi" in the example below.
+
+<Canvas of={SelectStories.Basic} />
+
+### Controlled
+
+All the select variants can be a controlled component by passing a `value` prop and an `onChange` callback, this also
+enables you to have the ability to "clear" the input.
+
+<Canvas of={SelectStories.Controlled} />
+
+### Multiple select
+
+It's possible to select multiple options by using the `MultiSelect` component instead of the `SingleSelect`.
+As such, you should should look to use the `MultiSelectOption` as it's visually distinct from the `SingleSelectOption`.
+
+By default, no transformations are made to the rendered value, but you can edit this by passing a `customizeContent` prop,
+which will be called with the selected values and should return a string e.g:
+
+```js
+const customizeContent = (values: string[]) => `${values.length} are currently selected`;
+```
+
+<Canvas of={SelectStories.Multiple} />
+
+### Multiple select with tags
+
+Instead of passing a `customizeContent` prop, you can pass the `withTags` prop which will render the selected values as tags instead.
+
+<Canvas of={SelectStories.MultipleWithTags} />
+
+### Nested multiple select
+
+<Canvas of={SelectStories.MultipleNestedSelect} />
+
+## Props
+
+### SingleSelect
+
+<ArgsTable of={SingleSelect} />
+
+### SingleSelectOption
+
+<ArgsTable of={SingleSelectOption} />
+
+### MultiSelect
+
+<ArgsTable of={MultiSelect} />
+
+### MultiSelectOption
+
+<ArgsTable of={MultiSelectOption} />
+
+### MultiSelectNested
+
+<ArgsTable of={MultiSelectNested} />
+
+### Select
+
+<ArgsTable of={Select} />
+
+### Option
+
+<ArgsTable of={Option} />
+
+### OptGroup
+
+<ArgsTable of={OptGroup} />

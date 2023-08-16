@@ -1,0 +1,50 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
+import { RawTable, RawTh, RawTd, RawTr, RawThead, RawTbody } from '@strapi/design-system';
+
+import * as RawTableStories from './RawTable.stories';
+
+<Meta of={RawTableStories} />
+
+# RawTable
+
+This is the doc of the `RawTable` component
+
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/RawTable)
+
+## Imports
+
+```js
+import { RawTable, RawTh, RawTd, RawTr, RawThead, RawTbody } from '@strapi/design-system';
+```
+
+## Usage
+
+<Canvas of={RawTableStories.Base} />
+
+<Canvas of={RawTableStories.Simple} />
+
+<Canvas of={RawTableStories.Aria} />
+
+## RawTable Props
+
+<ArgsTable of={RawTable} />
+
+## RawThead Props
+
+<ArgsTable of={RawThead} />
+
+## RawTbody Props
+
+<ArgsTable of={RawTbody} />
+
+## RawTr Props
+
+<ArgsTable of={RawTr} />
+
+## RawTh Props
+
+<ArgsTable of={RawTh} />
+
+## RawTd Props
+
+<ArgsTable of={RawTd} />

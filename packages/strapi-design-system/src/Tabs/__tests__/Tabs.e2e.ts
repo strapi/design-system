@@ -1,13 +1,12 @@
 import { test, expect } from '@playwright/test';
-import { injectAxe, checkA11y } from 'axe-playwright';
+import { navigateToStory } from '@test/e2e';
+import { checkA11y } from 'axe-playwright';
 
 test.describe.parallel('Tabs', () => {
   test.describe('light mode', () => {
     test.describe('default variant', () => {
       test.beforeEach(async ({ page }) => {
-        // This is the URL of the Storybook Iframe
-        await page.goto('/iframe.html?id=design-system-components-tabs--base&viewMode=story');
-        await injectAxe(page);
+        await navigateToStory(page, 'design-system-components-tabs--base');
       });
 
       test('triggers axe on the document', async ({ page }) => {
@@ -119,9 +118,7 @@ test.describe.parallel('Tabs', () => {
 
     test.describe('simple variant', () => {
       test.beforeEach(async ({ page }) => {
-        // This is the URL of the Storybook Iframe
-        await page.goto('/iframe.html?id=design-system-components-tabs--simple&viewMode=story');
-        await injectAxe(page);
+        await navigateToStory(page, 'design-system-components-tabs--simple');
       });
 
       test('triggers axe on the document', async ({ page }) => {
@@ -131,9 +128,7 @@ test.describe.parallel('Tabs', () => {
 
     test.skip('Disabled tabs', () => {
       test.beforeEach(async ({ page }) => {
-        // This is the URL of the Storybook Iframe
-        await page.goto('/iframe.html?id=design-system-components-tabs--disabled&viewMode=story');
-        await injectAxe(page);
+        await navigateToStory(page, 'design-system-components-tabs--disabled');
       });
 
       test('triggers axe on the document', async ({ page }) => {
@@ -209,9 +204,7 @@ test.describe.parallel('Tabs', () => {
 
     test.describe('Initial selected tabs', () => {
       test.beforeEach(async ({ page }) => {
-        // This is the URL of the Storybook Iframe
-        await page.goto('/iframe.html?id=design-system-components-tabs--selected&viewMode=story');
-        await injectAxe(page);
+        await navigateToStory(page, 'design-system-components-tabs--selected');
       });
 
       test('verifies that only the first not visible panel is visible at the beginning', async ({ page }) => {
@@ -230,22 +223,17 @@ test.describe.parallel('Tabs', () => {
   test.describe('dark mode', () => {
     test('default tabs A11y', async ({ page }) => {
       // This is the URL of the Storybook Iframe
-      await page.goto('/iframe.html?id=design-system-components-tabs--base&viewMode=story&theme=dark');
-      await injectAxe(page);
+      await navigateToStory(page, 'design-system-components-tabs--base', { isDarkMode: true });
       await checkA11y(page);
     });
 
     test('simple tabs A11y', async ({ page }) => {
-      // This is the URL of the Storybook Iframe
-      await page.goto('/iframe.html?id=design-system-components-tabs--simple&viewMode=story&theme=dark');
-      await injectAxe(page);
+      await navigateToStory(page, 'design-system-components-tabs--simple', { isDarkMode: true });
       await checkA11y(page);
     });
 
     test('disabled tabs A11y', async ({ page }) => {
-      // This is the URL of the Storybook Iframe
-      await page.goto('/iframe.html?id=design-system-components-tabs--disabled&viewMode=story&theme=dark');
-      await injectAxe(page);
+      await navigateToStory(page, 'design-system-components-tabs--disabled', { isDarkMode: true });
       await checkA11y(page);
     });
   });

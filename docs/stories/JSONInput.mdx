@@ -1,0 +1,49 @@
+import { Meta, ArgsTable, Canvas } from '@storybook/blocks';
+import { JSONInput } from '@strapi/design-system';
+
+import * as JsonInputStories from './JSONInput.stories';
+
+<Meta of={JsonInputStories} />
+
+# JSONInput
+
+JSON input allows users to view, add or edit JSON data in a dedicated editor.
+
+**Best practices**
+
+- JSON input should be part of a form and must not take less than 50% of the container.
+- If raw data needs to be displayed, JSON inputs are the best component to use.
+- Use description line as a help to give more details about the required action.
+- Make sure to define the input as required whenever it is absolutely mandatory.
+- The error message will replace the description line. The two of them cannot be on top of each other.
+- The error message can be customized, make sure to write actionable information within it to help resolve an issue.
+
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/JSONInput)
+
+## Imports
+
+```js
+import { JSONInput } from '@strapi/design-system';
+```
+
+## Usage
+
+JSON input allows users to add, edit or view JSON data in a dedicated editor.They can be coupled with a description line to give more hints about their purpose. JSON inputs can also be used to display raw data.
+
+<Canvas of={JsonInputStories.Base} />
+
+## Editable
+
+JSON input can be defined as read-only or can allow you to interact and edit the data.
+
+<Canvas of={JsonInputStories.Editable} />
+
+## With error
+
+JSON input can display an error. The error message is customizable and replaces the description line below the input.
+
+<Canvas of={JsonInputStories.WithError} />
+
+## Props
+
+<ArgsTable of={JSONInput} />

@@ -1,0 +1,55 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
+import { ToggleCheckbox } from '@strapi/design-system';
+
+import { DeprecationNotice } from '../components/DeprecationNotice';
+
+import * as ToggleCheckboxStories from './ToggleCheckbox.stories';
+
+<Meta of={ToggleCheckboxStories} />
+
+# ToggleCheckbox
+
+<DeprecationNotice href="/?path=/story/design-system-components-toggleinput--base">
+  the ToggleInput instead
+</DeprecationNotice>
+
+Toggles are used to switch between two different states. They are mostly used to switch between "On" and "Off" states.
+It is a binary choice.
+
+**Best practices**
+
+- One tap should be enough to change the state.
+- The state labels should only have a single word and be clear.
+- When in a Table component, prefer the usage of a Switch component.
+- Add a description line to give further information.
+  [View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/ToggleCheckbox)
+
+## Imports
+
+```js
+import { ToggleCheckbox } from '@strapi/design-system';
+```
+
+## Usage
+
+Use a toggle whenever the users need to turn something on or off in a form. A toggle can be disabled.
+
+<Canvas of={ToggleCheckboxStories.Base} />
+
+### ToggleCheckbox size S
+
+The deactivated state is one of the two available states for a Toggle.
+
+<Canvas of={ToggleCheckboxStories.SizeS} />
+
+### Null value
+
+<Canvas of={ToggleCheckboxStories.NullValue} />
+
+### Disabled Toggle
+
+<Canvas of={ToggleCheckboxStories.Disabled} />
+
+## Props
+
+<ArgsTable of={ToggleCheckbox} />

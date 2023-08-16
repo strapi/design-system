@@ -1,0 +1,34 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
+import { Typography } from '@strapi/design-system';
+
+import * as TypographyStories from './Typography.stories';
+
+<Meta of={TypographyStories} />
+
+# Text
+
+This is the doc of the different Text / Typography components.
+
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Typography)
+
+## Imports
+
+```js
+import { Typography } from '@strapi/design-system';
+```
+
+## Usage of the different variants
+
+The main way to display text content on the screen
+
+<Canvas of={TypographyStories.Variants} />
+
+### Ellipsis
+
+By using the prop `ellipsis` it is possible to limit the text to one line and to signal to the user there is more to it.
+
+<Canvas of={TypographyStories.Ellipsis} />
+
+## Props
+
+<ArgsTable of={Typography} />

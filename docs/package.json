@@ -4,12 +4,9 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "@storybook/addon-actions": "^6.5.15",
-    "@storybook/addon-essentials": "^6.5.15",
-    "@storybook/addon-links": "^6.5.15",
-    "@storybook/builder-webpack5": "^6.5.16",
-    "@storybook/manager-webpack5": "^6.5.15",
-    "@storybook/react": "^6.5.15",
+    "@storybook/addon-actions": "^7.3.0",
+    "@storybook/addon-essentials": "^7.3.0",
+    "@storybook/react": "^7.3.0",
     "@strapi/design-system": "^1.7.0",
     "@strapi/icons": "^1.7.0",
     "@strapi/ui-primitives": "^1.7.0",
@@ -18,16 +15,22 @@
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "18.2.0",
     "react-router-dom": "5.3.4",
-    "storybook-dark-mode": "^2.1.1",
+    "storybook-dark-mode": "^3.0.1",
     "styled-components": "^5.3.11"
   },
   "devDependencies": {
-    "eslint-plugin-mdx": "^1.17.1"
+    "@storybook/blocks": "^7.3.0",
+    "@storybook/manager-api": "7.3.0",
+    "@storybook/react-vite": "^7.3.0",
+    "@storybook/theming": "7.3.0",
+    "eslint-plugin-mdx": "^2.2.0",
+    "storybook": "^7.3.0"
   },
   "scripts": {
-    "build": "build-storybook",
+    "build": "storybook build",
     "clean": "rimraf storybook-static node_modules",
-    "develop": "start-storybook -p 6006",
-    "lint": "eslint --ext .mdx ."
+    "develop": "storybook dev -p 6006",
+    "lint": "eslint . --ext .mdx,.tsx,.ts",
+    "test:ts": "tsc --noEmit"
   }
 }

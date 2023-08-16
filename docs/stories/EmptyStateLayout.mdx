@@ -1,0 +1,50 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
+import { EmptyStateLayout } from '@strapi/design-system';
+
+import * as EmptyStateLayoutStories from './EmptyStateLayout.stories';
+
+<Meta of={EmptyStateLayoutStories} />
+
+# EmptyStateLayout
+
+EmptyStates are a pattern used to indicate a page or a table is empty.
+
+**Best practices**
+
+- Use everytime a page or a table is empty.
+- Use the most appropriate illustration for the usecase. If related to permissions, choose the eye one.
+- Use the button to help redirecting the user to a more relevant place.
+
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/EmptyStateLayout)
+
+## Imports
+
+```js
+import { EmptyStateLayout } from '@strapi/design-system';
+```
+
+## Usage
+
+A page or a table might be empty for different reasons: no entries have been created yet, a user doesn't have the
+permission to access something, something went wrong, ...
+
+### EmptyStateLayout with action
+
+EmptyStates can be coupled with a button to help redirecting the user to a more relevant place.
+
+<Canvas of={EmptyStateLayoutStories.Base} />
+
+### EmptyStateLayout without action
+
+If no need to redirect the user to a more relevant place or if the context does not suit for that type of action, an
+EmptyState without any particular action can be added.
+
+<Canvas of={EmptyStateLayoutStories.WithoutAction} />
+
+### EmptyStateLayout with longer text
+
+<Canvas of={EmptyStateLayoutStories.WithLargeText} />
+
+## Props
+
+<ArgsTable of={EmptyStateLayout} />

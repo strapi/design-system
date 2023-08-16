@@ -16,13 +16,10 @@
     "noEmit": true,
     "outDir": "dist",
     "declaration": true,
+    /* this can be reverted to "true" once we publish types for the design-system" */
+    "noImplicitAny": false,
     "jsx": "react-jsx",
     "types": ["vite/client"]
   },
-  "include": ["stories", ".storybook", "components"],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    }
-  ]
+  "include": ["styled.d.ts", "custom.d.ts", "stories/**/*", ".storybook/**/*", "components/**/*"]
 }

@@ -1,0 +1,30 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
+import { Link } from '@strapi/design-system';
+
+import { DeprecationNotice } from '../components/DeprecationNotice';
+
+import * as LinkStories from './Link.stories';
+
+# Link
+
+<DeprecationNotice href="/?path=/docs/design-system-components-v2-link--base">the V2 version</DeprecationNotice>
+
+Links are a way to navigate to different pages whether internal or external.
+
+Best practices
+
+- A link should have a relevant and clear label.
+- Be positioned in consistent locations in the interface.
+- Add an icon next to the link to emphasize the required action.
+
+<Meta of={LinkStories} />
+
+<Canvas of={LinkStories.Base} />
+
+### Disabled link
+
+Depending on the permissions a user have or the status of an action, a link can be unreachable or unavailable yet.
+
+## Props
+
+<ArgsTable of={Link} />

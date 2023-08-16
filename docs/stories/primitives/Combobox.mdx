@@ -1,0 +1,143 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
+import { Combobox } from '@strapi/ui-primitives';
+
+import * as ComboboxStories from './Combobox.stories';
+
+<Meta of={ComboboxStories} />
+
+# Combobox
+
+Displays a list of options for the user to pick from—triggered by an input or button. <br />
+Alternatively, can be typed into to filter the list of options and set an option assuming a match.
+
+## Usage
+
+```ts
+import { Combobox } from '@strapi/ui-primitives';
+```
+
+### Single Item
+
+<Canvas of={ComboboxStories.BasicUsage} />
+
+### With List Autocomplete
+
+<Canvas of={ComboboxStories.ListAutocomplete} />
+
+### With Both Autocomplete
+
+NOTE! If you opt to control the `textValue` yourself whilst using `autocomplete === "both"` e.g. to add a clear button,
+then you will also need to control the `filterValue` as well.
+
+<Canvas of={ComboboxStories.BothAutocomplete} />
+
+### Create Custom Values
+
+This would include the rendering logic for when to show the `Create new item` however, it's up to you in how
+you decide to handle the rest e.g. selecting that option will set the value accordingly but it will not add
+it as a new option per say because you haven't added it as a `Combobox.Item`, therefore it's advised you listen
+to the `onValueChange` and handle this appropriately.
+
+<Canvas of={ComboboxStories.CreateCustomValues} />
+
+## Anatomy
+
+The `Combobox` primitive is composed of the following components:
+
+- `Combobox.Root`
+- `Combobox.Trigger`
+- `Combobox.TextInput`
+- `Combobox.Icon`
+- `Combobox.Portal`
+- `Combobox.Content`
+- `Combobox.Viewport`
+- `Combobox.Item`
+- `Combobox.ItemText`
+- `Combobox.ItemIndicator`
+- `Combobox.NoValueFound`
+- `Combobox.CreateItem`
+
+and is combined in the following way:
+
+```tsx
+() => {
+  return (
+    <Combobox.Root>
+      <Combobox.Trigger>
+        <Combobox.TextInput placeholder="Pick me" />
+        <Combobox.Icon />
+      </Combobox.Trigger>
+      <Combobox.Portal>
+        <Combobox.Content>
+          <Combobox.Viewport>
+            <Combobox.Item value="1">
+              <Combobox.ItemText>Option 1</Combobox.ItemText>
+              <Combobox.ItemIndicator>
+                <Check />
+              </Combobox.ItemIndicator>
+            </Combobox.Item>
+            <Combobox.NoValueFound>No value found</Combobox.NoValueFound>
+            <Combobox.CreateItem>Create a new value</Combobox.CreateItem>
+          </Combobox.Viewport>
+        </Combobox.Content>
+      </Combobox.Portal>
+    </Combobox.Root>
+  );
+};
+```
+
+## API Reference
+
+### Root
+
+<ArgsTable of={Combobox.Root} />
+
+### Trigger
+
+<ArgsTable of={Combobox.Trigger} />
+
+### TextInput
+
+<ArgsTable of={Combobox.TextInput} />
+
+### Icon
+
+<ArgsTable of={Combobox.Icon} />
+
+### Portal
+
+<ArgsTable of={Combobox.Portal} />
+
+### Content
+
+<ArgsTable of={Combobox.Content} />
+
+### Viewport
+
+<ArgsTable of={Combobox.Viewport} />
+
+### Item
+
+<ArgsTable of={Combobox.Item} />
+
+### ItemText
+
+<ArgsTable of={Combobox.ItemText} />
+
+### ItemIndicator
+
+<ArgsTable of={Combobox.ItemIndicator} />
+
+### NoValueFound
+
+<ArgsTable of={Combobox.NoValueFound} />
+
+### CreateItem
+
+<ArgsTable of={Combobox.CreateItem} />
+
+## Accessibility
+
+Adheres to the [Combobox WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/)
+
+See the W3C [Combobox with Autocomplete](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-both) example for more information.

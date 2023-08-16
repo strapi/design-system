@@ -1,34 +1,27 @@
 import { test } from '@playwright/test';
-import { injectAxe, checkA11y } from 'axe-playwright';
+import { navigateToStory } from '@test/e2e';
+import { checkA11y } from 'axe-playwright';
 
 test.describe.parallel('TimePicker', () => {
   test('light mode A11y', async ({ page }) => {
-    // This is the URL of the Storybook Iframe
-    await page.goto('/iframe.html?id=design-system-components-timepicker--base&viewMode=story');
-    await injectAxe(page);
+    await navigateToStory(page, 'design-system-components-timepicker--base');
     await checkA11y(page);
 
-    await page.goto('/iframe.html?id=design-system-components-timepicker--steps&viewMode=story');
-    await injectAxe(page);
+    await navigateToStory(page, 'design-system-components-timepicker--steps');
     await checkA11y(page);
 
-    await page.goto('/iframe.html?id=design-system-components-timepicker--sizing&viewMode=story');
-    await injectAxe(page);
+    await navigateToStory(page, 'design-system-components-timepicker--sizing');
     await checkA11y(page);
   });
 
   test('dark mode A11y', async ({ page }) => {
-    // This is the URL of the Storybook Iframe
-    await page.goto('/iframe.html?id=design-system-components-timepicker--base&viewMode=story&theme=dark');
-    await injectAxe(page);
+    await navigateToStory(page, 'design-system-components-timepicker--base', { isDarkMode: true });
     await checkA11y(page);
 
-    await page.goto('/iframe.html?id=design-system-components-timepicker--steps&viewMode=story&theme=dark');
-    await injectAxe(page);
+    await navigateToStory(page, 'design-system-components-timepicker--steps', { isDarkMode: true });
     await checkA11y(page);
 
-    await page.goto('/iframe.html?id=design-system-components-timepicker--sizing&viewMode=story&theme=dark');
-    await injectAxe(page);
+    await navigateToStory(page, 'design-system-components-timepicker--sizing', { isDarkMode: true });
     await checkA11y(page);
   });
 });

@@ -1,0 +1,70 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
+import { Tabs, Tab, TabGroup, TabPanel } from '@strapi/design-system';
+
+import * as TabsStories from './Tabs.stories';
+
+<Meta of={TabsStories} />
+
+# Tabs
+
+Tabs are a set of related views within a same page. They help classify better the different levels of information for a
+same topic.
+
+**Best practices**
+
+- Tabs label should be concise. One word or two maximum is preferable.
+- Tabs navigation should follow a logical order: from Tab 1 to Tab 2 and then to Tab 3.
+- Avoid using more than 5 tabs to keep it easily scannable and readable.
+  [View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Tabs)
+
+## Imports
+
+```js
+import { Tabs, Tab, TabGroup, TabPanels, TabPanel } from '@strapi/design-system';
+```
+
+## Usage
+
+Tabs allow to classify related content in different views within a same page.
+
+### Default Tabs
+
+Default Tabs mostly used in forms.
+
+<Canvas of={TabsStories.Base} />
+
+### Simple Tabs
+
+Simple Tabs are used in modals.
+
+<Canvas of={TabsStories.Simple} />
+
+### Disabled Tabs
+
+Disabled Tabs are used in modals.
+
+<Canvas of={TabsStories.Disabled} />
+
+### Selected Tab
+
+Chose which tab is selected
+
+<Canvas of={TabsStories.Selected} />
+
+## Props
+
+### TabGroup Props
+
+<ArgsTable of={TabGroup} />
+
+### Tabs Props
+
+<ArgsTable of={Tabs} />
+
+### Tab Props
+
+<ArgsTable of={Tab} />
+
+### TabPanel Props
+
+<ArgsTable of={TabPanel} />

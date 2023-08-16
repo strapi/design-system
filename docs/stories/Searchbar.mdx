@@ -1,0 +1,52 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
+import { Searchbar } from '@strapi/design-system';
+
+import * as SearchbarStories from './Searchbar.stories';
+
+<Meta of={SearchbarStories} />
+
+# Searchbar
+
+SearchBars are used to search and navigate through specific content.
+
+**Best practices**
+
+- SearchBar should not be used at a global application level.
+- The search icon or the cancel one should not be changed.
+- SearchBar should always have a "Search" placeholder.
+- SearchBar should be placed above the content to search into.
+- SearchBar do not have a visual label but hidden details should be provided for accessibility matters.
+- If adding a SearchBar, make sure to add a "No results found" state.
+  [View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Searchbar)
+
+## Imports
+
+```js
+import { Searchbar, SearchForm } from '@strapi/design-system';
+```
+
+## Usage
+
+SearchBars are used to search and navigate through specific content.
+
+### Default SearchBar
+
+The default SearchBar.
+
+<Canvas of={SearchbarStories.Base} />
+
+### SearchBar size S
+
+The default SearchBar.
+
+<Canvas of={SearchbarStories.SizeS} />
+
+### Disabled SearchBar
+
+Depending on the status of an action or the permissions, a SearchBar can be disabled.
+
+<Canvas of={SearchbarStories.Disabled} />
+
+## Props
+
+<ArgsTable of={Searchbar} />

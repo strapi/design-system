@@ -1,29 +1,33 @@
 {
   "root": true,
-  "extends": ["plugin:react/recommended", "prettier"],
-  "plugins": ["prettier"],
-  "settings": {
-    "react": {
-      "version": "detect"
-    }
-  },
+  "extends": ["@strapi/eslint-config/front/typescript"],
   "parserOptions": {
-    "ecmaVersion": "latest",
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true
+    "project": ["./tsconfig.eslint.json"]
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "project": "./tsconfig.eslint.json"
+      }
     }
   },
-  "rules": {
-    "no-console": 0
-  },
+  "ignorePatterns": ["**/*.mdx/*.{ts,tsx}"],
   "overrides": [
     {
+      "files": ["*.stories.tsx"],
+      "rules": {
+        "react-hooks/rules-of-hooks": "off",
+        "import/no-default-export": "off",
+        "no-console": "off"
+      }
+    },
+    {
       "files": ["*.mdx"],
-      "settings": {
-        "mdx/code-blocks": true
-      },
-      "extends": ["plugin:mdx/recommended"]
+      "extends": ["plugin:mdx/recommended"],
+      "rules": {
+        "import/namespace": "off",
+        "@typescript-eslint/no-unused-vars": "error"
+      }
     }
   ]
 }

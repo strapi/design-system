@@ -1,0 +1,54 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
+import { HeaderLayout } from '@strapi/design-system';
+
+import * as HeaderLayoutStories from './HeaderLayout.stories';
+
+<Meta of={HeaderLayoutStories} />
+
+# BaseHeaderLayout
+
+Headers can be composed of a main title, a description and buttons. They are placed at the very top of a page.
+
+**Best practices**
+
+- Always use a header on top of a page.
+- Always add a title in the header.
+- The main container should be placed right below the Header.
+
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Layout)
+
+## Imports
+
+```js
+import { BaseHeaderLayout, HeaderLayout } from '@strapi/design-system';
+```
+
+## Usage
+
+\=======
+
+Headers are placed at the very top of each page. Descriptions and buttons are optional.
+
+<Canvas of={HeaderLayoutStories.Base} />
+
+### HeaderLayout without nav action
+
+<Canvas of={HeaderLayoutStories.BaseWithoutNavAction} />
+
+### HeaderLayout with custom subtitle
+
+<Canvas of={HeaderLayoutStories.BaseWithCustomSubtitle} />
+
+### HeaderLayout sticky
+
+<Canvas of={HeaderLayoutStories.Sticky} />
+
+### HeaderLayout
+
+This header is combined with scroll.
+
+<Canvas of={HeaderLayoutStories.CombinedWScroll} />
+
+## Props
+
+<ArgsTable of={HeaderLayout} />

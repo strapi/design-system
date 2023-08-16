@@ -15,6 +15,10 @@ export default defineConfig(async () => {
       exclude: [],
     },
     build: {
+      /**
+       * TODO: when we remove the `preserveModules` option, we need to add the `minify` option back.
+       */
+      minify: false,
       emptyOutDir: false,
       target: 'esnext',
       lib: {

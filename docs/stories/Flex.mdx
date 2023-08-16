@@ -1,0 +1,32 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
+import { Flex } from '@strapi/design-system';
+
+import * as FlexStories from './Flex.stories';
+
+<Meta of={FlexStories} />
+
+# Flex
+
+This is the doc of the `Flex` component
+
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Flex)
+
+## Imports
+
+```js
+import { Flex } from '@strapi/design-system';
+```
+
+## Usage
+
+A Flex Flex
+
+<Canvas of={FlexStories.Base} />
+
+## Props
+
+The Flex component wraps all its children in the
+(Box)\[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base]
+component, so you can pass all Box props to change its style.
+
+<ArgsTable of={Flex} />

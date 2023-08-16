@@ -8,6 +8,7 @@
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
+    "./package.json": "./package.json",
     ".": {
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
@@ -33,7 +34,7 @@
     "react-remove-scroll": "^2.5.6"
   },
   "devDependencies": {
-    "@playwright/test": "1.35.1",
+    "@playwright/test": "1.37.0",
     "@strapi/icons": "^1.9.0",
     "@types/react-router-dom": "^5.3.3",
     "@types/styled-components": "^5.1.26",
@@ -50,12 +51,11 @@
     "styled-components": "^5.2.1"
   },
   "scripts": {
-    "develop": "vite build --watch",
     "build": "yarn build:prod",
     "build:prod": "vite build",
     "clean": "rimraf dist node_modules",
     "generate:types": "tsc --noEmit false --declaration --emitDeclarationOnly --declarationDir dist",
-    "lint": "eslint . --ext .js,.jsx,.tsx,.ts",
+    "lint": "eslint . --ext .tsx,.ts",
     "format": "yarn lint --fix",
     "test": "jest -c jest.config.js",
     "test:ts": "tsc --noEmit",

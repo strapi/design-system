@@ -1,0 +1,27 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
+import { BaseLink } from '@strapi/design-system';
+
+import * as BaseLinkStories from './BaseLink.stories';
+
+<Meta of={BaseLinkStories} />
+
+# BaseLink
+
+BaseLink allow users to navigate to a different location. This is a very basic implementation of the native HTML anchor
+`<a />` element.
+
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/BaseLink)
+
+## Imports
+
+```js
+import { BaseLink } from '@strapi/design-system';
+```
+
+## Usage
+
+<Canvas of={BaseLinkStories.Base} />
+
+## Props
+
+<ArgsTable of={BaseLink} />

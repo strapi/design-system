@@ -1,0 +1,48 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
+import { Badge } from '@strapi/design-system';
+
+import * as BadgeStories from './Badge.stories';
+
+<Meta of={BadgeStories} />
+
+# Badge
+
+Badges are used to give a quick visual indication to the users.
+
+**Best practices**
+
+- Badge component should be filled only with numbers or a single word max.
+- Use them next to a label or a description.
+- Use the active state only with a label.
+- Use Tag component if the information given needs to be related to a performed action.
+
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Badge)
+
+## Imports
+
+```js
+import { Badge } from '@strapi/design-system';
+```
+
+## Usage
+
+Badges are used to give a quick and short scannable information to the users. They are mostly filled with numbers or a
+single word.
+
+<Canvas of={BadgeStories.Base} />
+
+## Active
+
+Badges can be displayed as active:
+
+<Canvas of={BadgeStories.Active} />
+
+## Size
+
+Badges can be displayed in two sizes: S and M:
+
+<Canvas of={BadgeStories.Size} />
+
+## Props
+
+<ArgsTable of={Badge} />
