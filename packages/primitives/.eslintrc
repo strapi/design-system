@@ -12,6 +12,7 @@
     }
   },
   "rules": {
+    "@typescript-eslint/no-explicit-any": "warn",
     "check-file/folder-match-with-fex": [
       "error",
       {

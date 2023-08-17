@@ -40,6 +40,7 @@ const Component = ({ options = defaultOptions, hideCreatable = false, ...restPro
 );
 
 const render = (props?: ComponentProps, renderOptions?: RenderOptions) => ({
+  // eslint-disable-next-line testing-library/await-async-events
   user: userEvent.setup({ document }),
   ...renderRTL(<Component {...props} />, renderOptions),
 });

@@ -40,6 +40,7 @@ const Component = ({ options = defaultOptions, children, ...restProps }: Compone
 );
 
 const render = (props?: ComponentProps) => ({
+  // eslint-disable-next-line testing-library/await-async-events
   user: userEvent.setup({ document }),
   ...renderRTL(<Component {...props} />),
 });
