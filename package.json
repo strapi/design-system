@@ -64,7 +64,7 @@
     "jest-environment-jsdom": "^29.6.2",
     "jest-styled-components": "^7.1.1",
     "lerna": "^7.1.5",
-    "nx": "16.6.0",
+    "nx": "16.7.1",
     "prettier": "^3.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
