@@ -170,6 +170,12 @@ In your application, link your local copy of the design system with [`yarn link`
 yarn link -r ../<relative-path-to-strapi-design-system>
 ```
 
+You can also link a local copy of a specific package. For example, if you want to link the package strapi-design-system, you can run:
+
+```
+yarn link -r ../<relative-path-to-strapi-design-system>/packages/strapi-design-system
+```
+
 You should also remove the webpack alias for `@strapi/design-system` in the Strapi monorepo at `packages/core/admin/webpack.alias.js`
 
 Your application should now be using your local copy of the design system.
