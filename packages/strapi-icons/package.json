@@ -29,7 +29,7 @@
     "build": "yarn generate:icons && yarn build:prod && yarn generate:types",
     "build:prod": "vite build",
     "clean": "rimraf src dist node_modules",
-    "generate:icons": "svgr -- ./assets/icons",
+    "generate:icons": "svgr --template template.cjs -- ./assets/icons",
     "generate:types": "tsc --noEmit false --emitDeclarationOnly --declarationDir dist"
   },
   "gitHead": "c74900b0ee3525510d266dc83c9743cb24dafced"
