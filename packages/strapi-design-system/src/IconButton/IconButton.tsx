@@ -38,7 +38,7 @@ type ChildrenWithAriaLabel = AriaLabelOnlyProps & ChildrenOnlyProps;
 type IconWithLabel = LabelOnlyProps & IconOnlyProps;
 type IconWithAriaLabel = AriaLabelOnlyProps & IconOnlyProps;
 
-type IconButtonProps = ChildrenWithLabel | ChildrenWithAriaLabel | IconWithLabel | IconWithAriaLabel;
+export type IconButtonProps = ChildrenWithLabel | ChildrenWithAriaLabel | IconWithLabel | IconWithAriaLabel;
 
 export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
   (
