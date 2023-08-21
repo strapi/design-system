@@ -16,7 +16,7 @@
     "react-dom": "18.2.0",
     "react-router-dom": "5.3.4",
     "storybook-dark-mode": "^3.0.1",
-    "styled-components": "^5.3.11"
+    "styled-components": "^6.0.7"
   },
   "devDependencies": {
     "@storybook/blocks": "^7.3.0",
