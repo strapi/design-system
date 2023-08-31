@@ -86,6 +86,30 @@ export const Group = {
   name: 'group',
 } satisfies Story;
 
+export const Sizes = {
+  render: () => (
+    <Flex gap={1}>
+      <IconButton label="Small" icon={<Pencil />} size="S" />
+      <IconButton label="Medium" icon={<Pencil />} size="M" />
+      <IconButton label="Large" icon={<Pencil />} size="L" />
+    </Flex>
+  ),
+
+  name: 'sizes',
+} satisfies Story;
+
+export const Variants = {
+  render: () => (
+    <Flex gap={2}>
+      {['default', 'secondary'].map((variant) => (
+        <IconButton icon={<Pencil />} variant={variant} key={variant} label={variant} />
+      ))}
+    </Flex>
+  ),
+
+  name: 'variants',
+} satisfies Story;
+
 export const Children = {
   render: () => {
     const [currentAction, setCurrentAction] = useState('None Selected');

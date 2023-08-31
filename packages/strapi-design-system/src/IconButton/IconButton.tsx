@@ -7,10 +7,23 @@ import { Flex } from '../Flex';
 import { Tooltip } from '../Tooltip';
 import { VisuallyHidden } from '../VisuallyHidden';
 
+// TODO: we should align the default state in v2 with the Button
+// component
+const VARIANT_DEFAULT = 'tertiary';
+const VARIANT_SECONDARY = 'secondary';
+
+const SIZES = ['S', 'M', 'L'] as const;
+const VARIANTS = [VARIANT_DEFAULT, VARIANT_SECONDARY] as const;
+
+type IconButtonSizes = (typeof SIZES)[number];
+type Variant = (typeof VARIANTS)[number];
+
 interface SharedIconButtonProps extends BaseButtonProps {
   disabled?: boolean;
   noBorder?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  size?: IconButtonSizes;
+  variant?: Variant;
 }
 
 interface LabelOnlyProps extends SharedIconButtonProps {
@@ -51,7 +64,9 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
       icon,
       disabled = false,
       onClick,
+      size = SIZES[0],
       'aria-label': ariaLabel,
+      variant = VARIANTS[0],
       ...restProps
     },
     ref,
@@ -68,11 +83,11 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
         background={disabled ? 'neutral150' : background}
         borderWidth={noBorder ? 0 : borderWidth}
         justifyContent="center"
-        height={`${32 / 16}rem`}
-        width={`${32 / 16}rem`}
         {...restProps}
         ref={ref}
+        size={size}
         onClick={handleClick}
+        variant={variant}
       >
         <VisuallyHidden as="span">{label ?? ariaLabel}</VisuallyHidden>
 
@@ -87,28 +102,50 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
   },
 );
 
-const IconButtonWrapper = styled(BaseButton)`
-  svg {
-    > g,
-    path {
-      fill: ${({ theme }) => theme.colors.neutral500};
+const IconButtonWrapper = styled(BaseButton)<Required<Pick<IconButtonProps, 'size' | 'variant'>>>`
+  background: ${({ theme, variant }) => {
+    if (variant === VARIANT_SECONDARY) {
+      return theme.colors.primary100;
     }
-  }
 
-  &:hover {
-    svg {
-      > g,
-      path {
-        fill: ${({ theme }) => theme.colors.neutral600};
+    return undefined;
+  }};
+  border: 1px solid
+    ${({ theme, variant }) => {
+      if (variant === VARIANT_SECONDARY) {
+        return theme.colors.primary200;
       }
+
+      return theme.colors.neutral200;
+    }};
+  height: ${({ theme, size }) => theme.sizes.button[size]};
+  width: ${({ theme, size }) => theme.sizes.button[size]};
+
+  svg {
+    g,
+    path {
+      fill: ${({ theme, variant }) => {
+        if (variant === VARIANT_SECONDARY) {
+          return theme.colors.primary500;
+        }
+
+        return theme.colors.neutral500;
+      }};
     }
   }
 
-  &:active {
+  :hover,
+  :focus {
     svg {
-      > g,
+      g,
       path {
-        fill: ${({ theme }) => theme.colors.neutral400};
+        fill: ${({ theme, variant }) => {
+          if (variant === VARIANT_SECONDARY) {
+            return theme.colors.primary600;
+          }
+
+          return theme.colors.neutral600;
+        }};
       }
     }
   }
