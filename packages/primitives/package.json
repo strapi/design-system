@@ -2,10 +2,9 @@
   "name": "@strapi/ui-primitives",
   "version": "1.9.0",
   "license": "MIT",
-  "type": "module",
   "sideEffects": false,
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
+  "main": "./dist/ui-primitives.js",
+  "module": "./dist/ui-primitives.mjs",
   "types": "./dist/index.d.ts",
   "files": [
     "dist"
@@ -17,9 +16,9 @@
     "clean": "rimraf dist node_modules",
     "lint": "eslint . --ext .js,.jsx,.tsx,.ts",
     "format": "yarn lint --fix",
-    "test": "jest -c jest.config.js",
+    "test": "jest -c jest.config.mjs",
     "test:ts": "tsc --noEmit",
-    "test:watch": "jest -c jest.config.js --watchAll"
+    "test:watch": "jest -c jest.config.mjs --watchAll"
   },
   "dependencies": {
     "@radix-ui/number": "^1.0.1",
