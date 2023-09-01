@@ -19,4 +19,6 @@ if [[ -z "$distTag" ]]; then
 fi
 
 # publish packages
-./node_modules/.bin/lerna publish "$version" --no-push --no-git-tag-version --force-publish --dist-tag "$distTag" $@
+./node_modules/.bin/changeset version --snapshot "$version"
+
+./node_modules/.bin/changeset publish --no-git-tag --snapshot --tag "$distTag"
