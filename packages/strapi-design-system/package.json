@@ -20,7 +20,7 @@
   ],
   "dependencies": {
     "@codemirror/lang-json": "^6.0.1",
-    "@floating-ui/react-dom": "^2.0.1",
+    "@floating-ui/react-dom": "^2.0.2",
     "@internationalized/date": "^3.4.0",
     "@internationalized/number": "^3.2.1",
     "@radix-ui/react-dismissable-layer": "^1.0.4",
