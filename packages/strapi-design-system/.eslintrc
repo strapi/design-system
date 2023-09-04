@@ -3,6 +3,9 @@
   "extends": ["@strapi/eslint-config/front/javascript", "prettier"],
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint", "prettier"],
+  "parserOptions": {
+    "project": ["./tsconfig.eslint.json"]
+  },
   "rules": {
     "consistent-return": "off",
     "no-redeclare": "off",

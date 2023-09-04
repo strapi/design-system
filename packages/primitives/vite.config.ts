@@ -10,9 +10,6 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, './src/index.ts'),
       formats: ['cjs', 'es'],
-      fileName(format) {
-        return `[name].${format === 'es' ? 'js' : format}`;
-      },
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled

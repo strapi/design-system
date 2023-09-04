@@ -25,9 +25,6 @@ export default defineConfig(async () => {
       lib: {
         entry: {},
         formats: ['cjs', 'es'],
-        fileName(format) {
-          return `[name].${format === 'es' ? 'js' : format}`;
-        },
       },
       rollupOptions: {
         input: [resolve(__dirname, './src/index.ts'), ...paths.map((path) => `./${path}`)],
@@ -49,6 +46,6 @@ export default defineConfig(async () => {
     //  "paths": {
     //    "@test/*": ["./test/*"]
     //  }
-    plugins: process.env.DTS !== 'true' ? [react()] : [dts({ entryRoot: 'src' }), react()],
+    plugins: process.env.DTS === 'true' ? [dts({ entryRoot: 'src' }), react()] : [react()],
   };
 });

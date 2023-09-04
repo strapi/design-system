@@ -5847,9 +5847,9 @@ __metadata:
     "@storybook/react": ^7.3.2
     "@storybook/react-vite": ^7.3.2
     "@storybook/theming": 7.3.2
-    "@strapi/design-system": ^1.7.0
-    "@strapi/icons": ^1.7.0
-    "@strapi/ui-primitives": ^1.7.0
+    "@strapi/design-system": "workspace:*"
+    "@strapi/icons": "workspace:*"
+    "@strapi/ui-primitives": "workspace:*"
     eslint-plugin-mdx: ^2.2.0
     qs: ^6.11.2
     react: 18.2.0
@@ -5862,7 +5862,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@strapi/design-system@^1.7.0, @strapi/design-system@workspace:packages/strapi-design-system":
+"@strapi/design-system@workspace:*, @strapi/design-system@workspace:packages/strapi-design-system":
   version: 0.0.0-use.local
   resolution: "@strapi/design-system@workspace:packages/strapi-design-system"
   dependencies:
@@ -5927,7 +5927,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@strapi/icons@^1.7.0, @strapi/icons@^1.9.0, @strapi/icons@workspace:packages/strapi-icons":
+"@strapi/icons@^1.9.0, @strapi/icons@workspace:*, @strapi/icons@workspace:packages/strapi-icons":
   version: 0.0.0-use.local
   resolution: "@strapi/icons@workspace:packages/strapi-icons"
   dependencies:
@@ -5938,7 +5938,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@strapi/ui-primitives@^1.7.0, @strapi/ui-primitives@^1.9.0, @strapi/ui-primitives@workspace:packages/primitives":
+"@strapi/ui-primitives@^1.9.0, @strapi/ui-primitives@workspace:*, @strapi/ui-primitives@workspace:packages/primitives":
   version: 0.0.0-use.local
   resolution: "@strapi/ui-primitives@workspace:packages/primitives"
   dependencies:
@@ -9704,11 +9704,12 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-testing-library: ^6.0.1
     fs-extra: ^11.1.1
-    husky: 8.0.3
+    husky: ^8.0.0
     jest: ^29.6.4
     jest-environment-jsdom: ^29.6.4
     jest-styled-components: ^7.1.1
     nx: 16.7.4
+    pinst: 3.0.0
     prettier: ^3.0.3
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -12411,7 +12412,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"husky@npm:8.0.3":
+"husky@npm:^8.0.0":
   version: 8.0.3
   resolution: "husky@npm:8.0.3"
   bin:
@@ -16271,6 +16272,15 @@ __metadata:
   version: 4.0.1
   resolution: "pify@npm:4.0.1"
   checksum: 9c4e34278cb09987685fa5ef81499c82546c033713518f6441778fbec623fc708777fe8ac633097c72d88470d5963094076c7305cafc7ad340aae27cfacd856b
+  languageName: node
+  linkType: hard
+
+"pinst@npm:3.0.0":
+  version: 3.0.0
+  resolution: "pinst@npm:3.0.0"
+  bin:
+    pinst: bin.js
+  checksum: 4ae48a6a60f79c37071233af51b4d91bfc85cfa3c12b66ccda60cdb642b4d14a4ab0cb3587afc55b1f6192cea1772a5e4822026a0d0d3528296edef00cc2d61f
   languageName: node
   linkType: hard
 

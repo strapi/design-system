@@ -10,7 +10,7 @@ export default defineConfig({
       entry: resolve(__dirname, './src/index.ts'),
       formats: ['cjs', 'es'],
       fileName(format) {
-        return `[name].${format === 'es' ? 'js' : format}`;
+        return `[name].${format === 'es' ? 'mjs' : 'js'}`;
       },
     },
     rollupOptions: {

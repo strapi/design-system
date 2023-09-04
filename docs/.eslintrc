@@ -29,5 +29,8 @@
         "@typescript-eslint/no-unused-vars": "error"
       }
     }
-  ]
+  ],
+  "rules": {
+    "import/no-unresolved": "off"
+  }
 }
