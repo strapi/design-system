@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: 16
       - run: yarn
-      - run: yarn build
+      - run: yarn build --ignore="@strapi/design-system-docs"
       - run: ./scripts/pre-publish.sh --yes
         env:
           VERSION: '0.0.0-${{ github.sha }}'
