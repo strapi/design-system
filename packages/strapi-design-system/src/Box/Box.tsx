@@ -153,21 +153,21 @@ export const Box = styled.div.withConfig<BoxProps>({
   // Responsive hiding
   ${({ theme, hiddenS }) => (hiddenS ? `${theme.mediaQueries.tablet} { display: none; }` : undefined)}
   ${({ theme, hiddenXS }) => (hiddenXS ? `${theme.mediaQueries.mobile} { display: none; }` : undefined)}
-  
 
   // Borders
-  border-radius: ${({ theme, hasRadius, borderRadius }) => (hasRadius ? theme.borderRadius : borderRadius)};
-  border-style: ${({ borderStyle }) => borderStyle};
-  border-width: ${({ borderWidth }) => borderWidth};
   border-color: ${({ borderColor, theme }) => extractStyleFromTheme(theme.colors, borderColor, undefined)};
-  border: ${({ theme, borderColor, borderStyle, borderWidth }) => {
-    // This condition prevents borderColor from override the border-color attribute when not passing borderStyle nor borderWidth
-    if (borderColor && !borderStyle && typeof borderWidth === 'undefined') {
-      return `1px solid ${theme.colors[borderColor]}`;
+  border-radius: ${({ theme, hasRadius, borderRadius }) => (hasRadius ? theme.borderRadius : borderRadius)};
+  border-style: ${({ borderStyle, borderColor }) => {
+    if (borderColor) {
+      return borderStyle ?? 'solid';
     }
 
-    // eslint-disable-next-line consistent-return
-    return undefined;
+    return 'none';
+  }};
+  border-width: ${({ borderWidth, borderColor }) => {
+    if (borderColor) {
+      return borderWidth ?? '1px';
+    }
   }};
 
   // Shadows

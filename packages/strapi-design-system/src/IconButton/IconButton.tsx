@@ -57,7 +57,6 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
   (
     {
       label,
-      background,
       borderWidth,
       noBorder = false,
       children,
@@ -80,8 +79,11 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
     const component = (
       <IconButtonWrapper
         aria-disabled={disabled}
-        background={disabled ? 'neutral150' : background}
-        borderWidth={noBorder ? 0 : borderWidth}
+        // eslint-disable-next-line no-nested-ternary
+        background={disabled ? 'neutral150' : variant === VARIANT_SECONDARY ? 'primary100' : undefined}
+        // eslint-disable-next-line no-nested-ternary
+        borderColor={noBorder ? undefined : variant === VARIANT_SECONDARY ? 'primary200' : 'neutral200'}
+        borderWidth={noBorder ? undefined : borderWidth}
         justifyContent="center"
         {...restProps}
         ref={ref}
@@ -103,21 +105,6 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
 );
 
 const IconButtonWrapper = styled(BaseButton)<Required<Pick<IconButtonProps, 'size' | 'variant'>>>`
-  background: ${({ theme, variant }) => {
-    if (variant === VARIANT_SECONDARY) {
-      return theme.colors.primary100;
-    }
-
-    return undefined;
-  }};
-  border: 1px solid
-    ${({ theme, variant }) => {
-      if (variant === VARIANT_SECONDARY) {
-        return theme.colors.primary200;
-      }
-
-      return theme.colors.neutral200;
-    }};
   height: ${({ theme, size }) => theme.sizes.button[size]};
   width: ${({ theme, size }) => theme.sizes.button[size]};
 
