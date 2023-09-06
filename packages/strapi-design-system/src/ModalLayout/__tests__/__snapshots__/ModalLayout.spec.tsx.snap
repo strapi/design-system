@@ -346,7 +346,7 @@ exports[`ModalLayout should render component and match snapshot 1`] = `
 }
 
 .c10 {
-  border: 1px solid #dcdce4;
+  border-color: #dcdce4;
   height: 2rem;
   width: 2rem;
 }
