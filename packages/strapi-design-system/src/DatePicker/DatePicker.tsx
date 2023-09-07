@@ -22,7 +22,7 @@ import { Calendar, Cross } from '@strapi/icons';
 import { composeEventHandlers } from '@strapi/ui-primitives';
 import { createPortal } from 'react-dom';
 import { RemoveScroll } from 'react-remove-scroll';
-import styled, { ThemeColors } from 'styled-components';
+import styled, { DefaultTheme } from 'styled-components';
 
 import { Box, BoxProps } from '../Box';
 import { useDesignSystem } from '../DesignSystemProvider';
@@ -1187,7 +1187,7 @@ const DatePickerCalendarCell = React.forwardRef<DatePickerCalendarCellElement, C
     const endDate = endOfMonth(startDate);
     const isOutsideVisibleRange = date.compare(startDate) < 0 || date.compare(endDate) > 0;
 
-    let textColor: keyof ThemeColors = 'neutral900';
+    let textColor: keyof DefaultTheme['colors'] = 'neutral900';
 
     if (isSelected) {
       textColor = 'primary600';

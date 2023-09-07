@@ -1,6 +1,6 @@
-import { ThemeColors } from 'styled-components';
+import { Colors } from '../colors';
 
-export const darkColorTokenObject: { color: ThemeColors } = {
+export const darkColorTokenObject: { color: Colors } = {
   color: {
     alternative100: '#181826',
     alternative200: '#4a4a6a',
