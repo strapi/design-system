@@ -1,6 +1,6 @@
 import { ChangeEventHandler, forwardRef } from 'react';
 
-import styled, { css, ThemeSizes } from 'styled-components';
+import styled, { css, DefaultTheme } from 'styled-components';
 
 import { useField } from './FieldContext';
 import { Box } from '../Box';
@@ -17,7 +17,7 @@ export interface FieldInputProps extends Omit<React.InputHTMLAttributes<HTMLInpu
   endAction?: React.ReactNode;
   startAction?: React.ReactNode;
   disabled?: boolean;
-  size?: keyof ThemeSizes['input'];
+  size?: keyof DefaultTheme['sizes']['input'];
   onChange?: ChangeEventHandler<HTMLInputElement>;
 }
 
@@ -77,7 +77,7 @@ export const FieldInput = forwardRef<HTMLInputElement, FieldInputProps>(
 interface InputProps {
   hasLeftAction: boolean;
   hasRightAction: boolean;
-  $size: keyof ThemeSizes['input'];
+  $size: keyof DefaultTheme['sizes']['input'];
 }
 
 const Input = styled.input<InputProps>`

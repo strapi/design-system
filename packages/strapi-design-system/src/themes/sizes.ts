@@ -1,6 +1,23 @@
-import { ThemeSizes } from 'styled-components';
-
-export const sizes: ThemeSizes = {
+export interface Sizes {
+  input: {
+    S: string;
+    M: string;
+  };
+  accordions: {
+    S: string;
+    M: string;
+  };
+  badge: {
+    S: string;
+    M: string;
+  };
+  button: {
+    S: string;
+    M: string;
+    L: string;
+  };
+}
+export const sizes: Sizes = {
   input: {
     S: `${32 / 16}rem`,
     M: `${40 / 16}rem`,
@@ -20,4 +37,4 @@ export const sizes: ThemeSizes = {
   },
 };
 
-export type InputSizes = keyof ThemeSizes['input'];
+export type InputSizes = keyof Sizes['input'];

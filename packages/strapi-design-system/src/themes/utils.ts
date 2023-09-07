@@ -1,6 +1,6 @@
-import { css, DefaultTheme, ThemeSizes } from 'styled-components';
+import { css, DefaultTheme } from 'styled-components';
 
-export const getThemeSize = <TType extends keyof ThemeSizes>(type: TType) => {
+export const getThemeSize = <TType extends keyof DefaultTheme['sizes']>(type: TType) => {
   return ({ theme, size }: { theme: DefaultTheme; size: keyof DefaultTheme['sizes'][TType] }) =>
     theme.sizes[type][size];
 };
