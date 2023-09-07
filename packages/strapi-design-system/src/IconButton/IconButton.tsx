@@ -20,6 +20,10 @@ type Variant = (typeof VARIANTS)[number];
 
 interface SharedIconButtonProps extends BaseButtonProps {
   disabled?: boolean;
+  /**
+   * @preserve
+   * @deprecated use `borderWidth={0}` instead
+   */
   noBorder?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   size?: IconButtonSizes;
@@ -103,21 +107,20 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
 );
 
 const IconButtonWrapper = styled(BaseButton)<Required<Pick<IconButtonProps, 'size' | 'variant'>>>`
-  background: ${({ theme, variant }) => {
+  background-color: ${({ theme, variant }) => {
     if (variant === VARIANT_SECONDARY) {
       return theme.colors.primary100;
     }
 
     return undefined;
   }};
-  border: 1px solid
-    ${({ theme, variant }) => {
-      if (variant === VARIANT_SECONDARY) {
-        return theme.colors.primary200;
-      }
+  border-color: ${({ theme, variant }) => {
+    if (variant === VARIANT_SECONDARY) {
+      return theme.colors.primary200;
+    }
 
-      return theme.colors.neutral200;
-    }};
+    return theme.colors.neutral200;
+  }};
   height: ${({ theme, size }) => theme.sizes.button[size]};
   width: ${({ theme, size }) => theme.sizes.button[size]};
 
