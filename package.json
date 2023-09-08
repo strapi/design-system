@@ -30,7 +30,7 @@
     "prerelease:exit": "changeset pre exit",
     "release:add": "changeset add",
     "release:publish": "changeset publish",
-    "release:version": "changeset version"
+    "release:version": "changeset version && yarn"
   },
   "devDependencies": {
     "@changesets/changelog-git": "0.1.14",

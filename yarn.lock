@@ -5866,8 +5866,8 @@ __metadata:
     "@radix-ui/react-dismissable-layer": ^1.0.4
     "@radix-ui/react-dropdown-menu": ^2.0.5
     "@radix-ui/react-focus-scope": 1.0.3
-    "@strapi/icons": ^1.10.0
-    "@strapi/ui-primitives": ^1.10.0
+    "@strapi/icons": ^1.10.1
+    "@strapi/ui-primitives": ^1.10.1
     "@types/react-router-dom": ^5.3.3
     "@types/styled-components": ^5.1.26
     "@uiw/react-codemirror": ^4.21.13
@@ -5919,7 +5919,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@strapi/icons@^1.10.0, @strapi/icons@workspace:*, @strapi/icons@workspace:packages/strapi-icons":
+"@strapi/icons@^1.10.1, @strapi/icons@workspace:*, @strapi/icons@workspace:packages/strapi-icons":
   version: 0.0.0-use.local
   resolution: "@strapi/icons@workspace:packages/strapi-icons"
   dependencies:
@@ -5930,7 +5930,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@strapi/ui-primitives@^1.10.0, @strapi/ui-primitives@workspace:*, @strapi/ui-primitives@workspace:packages/primitives":
+"@strapi/ui-primitives@^1.10.1, @strapi/ui-primitives@workspace:*, @strapi/ui-primitives@workspace:packages/primitives":
   version: 0.0.0-use.local
   resolution: "@strapi/ui-primitives@workspace:packages/primitives"
   dependencies:
