@@ -1,6 +1,5 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-yarn nx affected --target=lint --uncommitted --parallel
-yarn nx affected --target=test:ts --uncommitted --parallel
-yarn nx affected --target=prettier:write --uncommitted --parallel
+yarn lint
+yarn prettier:check

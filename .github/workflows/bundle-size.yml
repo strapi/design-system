@@ -27,7 +27,7 @@ jobs:
       - run: yarn install
 
       - name: Build packages
-        run: yarn build
+        run: yarn build --filter=\!@strapi/design-system-docs
 
       - uses: preactjs/compressed-size-action@v2
         with:
