@@ -1,13 +1,13 @@
 import React from 'react';
 
-import styled, { ThemeColors } from 'styled-components';
+import styled, { DefaultTheme } from 'styled-components';
 
 import { Box, BoxProps } from '../Box';
 import { Flex } from '../Flex';
 import { Typography } from '../Typography';
 
 interface BulletProps {
-  backgroundColor: keyof ThemeColors;
+  backgroundColor: keyof DefaultTheme['colors'];
 }
 
 const Bullet = styled.div<BulletProps>`
@@ -19,7 +19,7 @@ const Bullet = styled.div<BulletProps>`
 `;
 
 interface StatusWrapperProps {
-  textColor: keyof ThemeColors;
+  textColor: keyof DefaultTheme['colors'];
 }
 
 const StatusWrapper = styled(Box)<StatusWrapperProps>`
@@ -43,10 +43,10 @@ export interface StatusProps extends BoxProps {
 }
 
 export const Status = ({ variant = 'primary', showBullet = true, size = 'M', children, ...props }: StatusProps) => {
-  const backgroundColor = `${variant}100` satisfies keyof ThemeColors;
-  const borderColor = `${variant}200` satisfies keyof ThemeColors;
-  const bulletColor = `${variant}600` satisfies keyof ThemeColors;
-  const textColor = `${variant}600` satisfies keyof ThemeColors;
+  const backgroundColor = `${variant}100` satisfies keyof DefaultTheme['colors'];
+  const borderColor = `${variant}200` satisfies keyof DefaultTheme['colors'];
+  const bulletColor = `${variant}600` satisfies keyof DefaultTheme['colors'];
+  const textColor = `${variant}600` satisfies keyof DefaultTheme['colors'];
 
   const paddingX = size === 'S' ? 2 : 5;
   const paddingY = size === 'S' ? 1 : 4;

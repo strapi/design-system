@@ -1,6 +1,11 @@
 import 'styled-components';
+import type { StrapiTheme } from '@strapi/design-system';
 
 declare module 'styled-components' {
+  /**
+   * TODO: remove this and replace with extending `StrapiTheme` when
+   * we publish types from `@strapi/design-system`.
+   */
   export interface ThemeSizes {
     input: {
       S: string;
