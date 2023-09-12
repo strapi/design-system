@@ -7,7 +7,7 @@ import styled, { css } from 'styled-components';
 import * as SelectParts from './SelectParts';
 import checkmarkIcon from '../BaseCheckbox/assets/checkmark.svg';
 import { Box } from '../Box';
-import { Field, FieldError, FieldHint, FieldLabel } from '../Field';
+import { Field, FieldError, FieldHint, FieldLabel, FieldLabelProps, FieldProps } from '../Field';
 import { Flex } from '../Flex';
 import { stripReactIdOfColon } from '../helpers/strings';
 import { useComposedRefs } from '../hooks/useComposeRefs';
@@ -17,15 +17,13 @@ import { Tag } from '../Tag';
 import { Typography } from '../Typography';
 
 type MultiSelectPropsWithoutLabel = Omit<SelectParts.MultiSelectProps, 'value' | 'multi'> &
-  Pick<SelectParts.TriggerProps, 'clearLabel' | 'onClear' | 'size' | 'startIcon' | 'placeholder'> & {
+  Pick<SelectParts.TriggerProps, 'clearLabel' | 'onClear' | 'size' | 'startIcon' | 'placeholder'> &
+  Pick<FieldProps, 'hint' | 'id' | 'error'> & {
     /**
      * @default (value) => value.join(',')
      */
     customizeContent?(value?: string[]): string;
-    error?: string | boolean;
-    hint?: string | React.ReactNode | React.ReactNode[];
-    id?: string | number;
-    labelAction?: React.ReactElement;
+    labelAction?: FieldLabelProps['action'];
     onChange?: (value: string[]) => void;
     onReachEnd?: (entry: IntersectionObserverEntry) => void;
     /**
