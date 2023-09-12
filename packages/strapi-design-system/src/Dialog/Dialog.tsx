@@ -47,7 +47,7 @@ export const Dialog = ({ onClose, title, as = 'h2', isOpen, id, ...props }: Dial
 
   return (
     <Portal>
-      <DialogWrapper padding={8} position="fixed" zIndex={4}>
+      <DialogWrapper padding={8} position="fixed" zIndex={10}>
         <FocusTrap>
           <DismissibleLayer onEscapeKeyDown={onClose} onPointerDownOutside={onClose}>
             <DialogContainer
