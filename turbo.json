@@ -5,6 +5,11 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**", "storybook-static/**"]
     },
+    "@strapi/icons#build": {
+      "dependsOn": ["^build"],
+      "inputs": ["assets/**"],
+      "outputs": ["dist/**", "src/**"]
+    },
     "clean": {
       "cache": false,
       "persistent": true
