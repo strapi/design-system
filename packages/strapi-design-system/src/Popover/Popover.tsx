@@ -213,7 +213,7 @@ const PopoverScrollable = styled(Box)`
   }
 `;
 
-type PopoverProps = ScrollingProps &
+export type PopoverProps = ScrollingProps &
   Pick<
     ContentProps,
     | 'source'

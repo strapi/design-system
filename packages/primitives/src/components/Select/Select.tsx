@@ -1922,6 +1922,7 @@ export type {
   SelectIconProps,
   SelectPortalProps,
   SelectContentProps,
+  SelectContentImplProps,
   SelectViewportProps,
   SelectGroupProps,
   SelectLabelProps,
