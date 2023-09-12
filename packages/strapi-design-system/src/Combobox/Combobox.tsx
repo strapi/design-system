@@ -5,7 +5,7 @@ import { Combobox as ComboboxPrimitive } from '@strapi/ui-primitives';
 import styled from 'styled-components';
 
 import { Box } from '../Box';
-import { Field, FieldError, FieldHint, FieldLabel, FieldProps } from '../Field';
+import { Field, FieldError, FieldHint, FieldLabel, FieldLabelProps, FieldProps } from '../Field';
 import { Flex } from '../Flex';
 import { stripReactIdOfColon } from '../helpers/strings';
 import { useComposedRefs } from '../hooks/useComposeRefs';
@@ -289,7 +289,7 @@ export const ComboboxInput = React.forwardRef<ComboboxInputElement, ComboboxInpu
  * -----------------------------------------------------------------------------------------------*/
 
 interface ComboboxPropsWithoutLabel extends ComboboxInputProps, Pick<FieldProps, 'hint'> {
-  labelAction?: React.ReactNode;
+  labelAction?: FieldLabelProps['action'];
 }
 
 export type ComboboxProps =

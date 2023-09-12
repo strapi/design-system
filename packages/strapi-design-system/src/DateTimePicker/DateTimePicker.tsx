@@ -1,11 +1,11 @@
-import React, { forwardRef, ReactNode } from 'react';
+import * as React from 'react';
 
 import { CalendarDateTime, parseAbsoluteToLocal, toCalendarDateTime, getLocalTimeZone } from '@internationalized/date';
 import styled from 'styled-components';
 
 import { DatePickerInput, DatePickerInputProps, DatePickerElement } from '../DatePicker/DatePicker';
 import { useDesignSystem } from '../DesignSystemProvider';
-import { Field, FieldHint, FieldLabel, FieldError, FieldProps } from '../Field';
+import { Field, FieldHint, FieldLabel, FieldError, FieldProps, FieldLabelProps } from '../Field';
 import { Flex } from '../Flex';
 import { once } from '../helpers/deprecations';
 import { useComposedRefs } from '../hooks/useComposeRefs';
@@ -36,7 +36,7 @@ export interface DateTimePickerProps
   /**
    * Label Action
    */
-  labelAction?: ReactNode;
+  labelAction?: FieldLabelProps['action'];
   onChange?: (date: Date | undefined) => void;
   /**
    * Value. The Date passed as value
@@ -44,7 +44,7 @@ export interface DateTimePickerProps
   value?: Date | null;
 }
 
-export const DateTimePicker = forwardRef<DatePickerElement, DateTimePickerProps>(
+export const DateTimePicker = React.forwardRef<DatePickerElement, DateTimePickerProps>(
   (
     {
       /**

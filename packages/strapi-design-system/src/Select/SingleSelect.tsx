@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import * as SelectParts from './SelectParts';
 import { Box } from '../Box';
-import { Field, FieldError, FieldHint, FieldLabel } from '../Field';
+import { Field, FieldError, FieldHint, FieldLabel, FieldLabelProps, FieldProps } from '../Field';
 import { Flex } from '../Flex';
 import { stripReactIdOfColon } from '../helpers/strings';
 import { useComposedRefs } from '../hooks/useComposeRefs';
@@ -11,15 +11,13 @@ import { useIntersection } from '../hooks/useIntersection';
 import { Typography } from '../Typography';
 
 type SingleSelectPropsWithoutLabel = Omit<SelectParts.SingleSelectProps, 'value'> &
-  Pick<SelectParts.TriggerProps, 'clearLabel' | 'onClear' | 'size' | 'startIcon' | 'placeholder'> & {
+  Pick<SelectParts.TriggerProps, 'clearLabel' | 'onClear' | 'size' | 'startIcon' | 'placeholder'> &
+  Pick<FieldProps, 'error' | 'hint' | 'id'> & {
     /**
      * @default (value) => value.toString()
      */
     customizeContent?(value?: string | number): string;
-    error?: string | boolean;
-    hint?: string | React.ReactNode | React.ReactNode[];
-    id?: string | number;
-    labelAction?: React.ReactElement;
+    labelAction?: FieldLabelProps['action'];
     onChange?: (value: string | number) => void;
     onReachEnd?: (entry: IntersectionObserverEntry) => void;
     /**

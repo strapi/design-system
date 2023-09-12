@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Box, BoxProps } from '../Box';
-import { Field, FieldLabel, FieldHint, FieldError, FieldProps, useField } from '../Field';
+import { Field, FieldLabel, FieldHint, FieldError, FieldProps, useField, FieldLabelProps } from '../Field';
 import { Flex } from '../Flex';
 import { useId } from '../hooks/useId';
 import { inputFocusStyle } from '../themes/utils';
@@ -15,7 +15,7 @@ export interface TextareaProps extends TextareaInputBoxProps, Pick<FieldProps, '
    */
   children?: string;
   label?: string;
-  labelAction?: string;
+  labelAction?: FieldLabelProps['action'];
   value?: string;
 }
 

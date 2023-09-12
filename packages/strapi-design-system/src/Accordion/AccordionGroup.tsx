@@ -3,6 +3,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 import { Box } from '../Box';
+import { FieldLabelProps } from '../Field';
 import { Flex } from '../Flex';
 import { KeyboardNavigable } from '../KeyboardNavigable';
 import { Typography } from '../Typography';
@@ -64,7 +65,7 @@ export interface AccordionGroupProps {
   error?: string;
   footer?: React.ReactNode;
   label?: string;
-  labelAction?: React.ReactNode;
+  labelAction?: FieldLabelProps['action'];
 }
 
 export const AccordionGroup = ({ children, footer, label, labelAction, error }: AccordionGroupProps) => {

@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import { ComboboxInput, ComboboxInputProps, ComboboxInputElement, Option } from '../Combobox/Combobox';
 import { useDesignSystem } from '../DesignSystemProvider';
-import { Field, FieldError, FieldHint, FieldLabel, FieldProps } from '../Field';
+import { Field, FieldError, FieldHint, FieldLabel, FieldLabelProps, FieldProps } from '../Field';
 import { Flex } from '../Flex';
 import { useControllableState } from '../hooks/useControllableState';
 import { useDateFormatter } from '../hooks/useDateFormatter';
@@ -201,7 +201,7 @@ const StyledClock = styled(Clock)`
 
 export interface TimePickerProps extends TimePickerInputProps, Pick<FieldProps, 'hint'> {
   label: string;
-  labelAction?: React.ReactNode;
+  labelAction?: FieldLabelProps['action'];
 }
 
 export const TimePicker = React.forwardRef<ComboboxInputElement, TimePickerProps>(

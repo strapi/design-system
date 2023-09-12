@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import styled from 'styled-components';
 
-import { Field, FieldHint, FieldError, FieldLabel, type FieldProps, useField } from '../Field';
+import { Field, FieldHint, FieldError, FieldLabel, type FieldProps, useField, FieldLabelProps } from '../Field';
 import { Flex } from '../Flex';
 import { useControllableState } from '../hooks/useControllableState';
 import { useId } from '../hooks/useId';
@@ -151,7 +151,7 @@ interface ToggleInputPropsWithoutLabel
   extends Pick<FieldProps, 'error' | 'hint' | 'name' | 'required' | 'id'>,
     ToggleInputInputProps {
   clearLabel?: string;
-  labelAction?: React.ReactNode;
+  labelAction?: FieldLabelProps['action'];
   onClear?: () => void;
 }
 

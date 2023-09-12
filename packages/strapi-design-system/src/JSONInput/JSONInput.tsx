@@ -6,19 +6,16 @@ import { useCodeMirror, ReactCodeMirrorRef, ReactCodeMirrorProps } from '@uiw/re
 import styled from 'styled-components';
 
 import { markField, addMarks, filterMarks, lineHighlightMark } from './utils/decorationExtension';
-import { Field, FieldLabel, FieldError, FieldHint } from '../Field';
+import { Field, FieldLabel, FieldError, FieldHint, FieldLabelProps, FieldProps } from '../Field';
 import { Flex, FlexProps } from '../Flex';
 import { useComposedRefs } from '../hooks/useComposeRefs';
 import { inputFocusStyle } from '../themes';
 
-interface JSONInputProps extends Omit<FlexProps, 'onChange'> {
+interface JSONInputProps extends Omit<FlexProps, 'onChange'>, Pick<FieldProps, 'hint' | 'error' | 'required'> {
   label?: string;
   value?: string;
-  error?: string | boolean;
-  hint?: string | React.ReactNode | React.ReactNode[];
-  required?: boolean;
   disabled?: boolean;
-  labelAction?: React.ReactNode;
+  labelAction?: FieldLabelProps['action'];
   onChange?: (value: string) => void;
 }
 
