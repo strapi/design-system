@@ -1,5 +1,5 @@
 ---
-'@strapi/icons': major
+'@strapi/icons': minor
 ---
 
 new icons for the RTE
