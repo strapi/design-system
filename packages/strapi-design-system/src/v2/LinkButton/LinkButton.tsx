@@ -17,7 +17,7 @@ interface SharedLinkProps extends BaseLinkProps {
   variant?: (typeof VARIANTS)[number];
 }
 
-type LinkButtonProps = SharedLinkProps & BaseButtonProps;
+export type LinkButtonProps = SharedLinkProps & BaseButtonProps;
 
 const LinkWrapper = styled(BaseButtonWrapper)`
   text-decoration: none;
