@@ -93,7 +93,7 @@ jobs:
       - run: yarn install
 
       - name: Install Playwright
-        run: npx playwright@1.37.0 install
+        run: npx playwright@1.38.0 install
 
       - name: Build
         run: yarn build
