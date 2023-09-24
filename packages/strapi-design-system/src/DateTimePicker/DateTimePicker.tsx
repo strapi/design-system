@@ -192,7 +192,7 @@ export const DateTimePicker = React.forwardRef<DatePickerElement, DateTimePicker
             </VisuallyHidden>
             <DatePicker
               {...props}
-              selectedDate={dateValue?.toDate('UTC')}
+              selectedDate={dateValue ? dateValue.toDate('UTC') : undefined}
               onChange={handleDateChange}
               error={typeof error === 'string'}
               required={required}
