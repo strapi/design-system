@@ -3,6 +3,7 @@ import React, { useRef } from 'react';
 
 import { NumberFormatter, NumberParser } from '@internationalized/number';
 import { CarretDown } from '@strapi/icons';
+import Big from 'big.js'; // use big.js library to accurately perform arithmetic operation on float numbers
 import styled from 'styled-components';
 
 import { useDesignSystem } from '../DesignSystemProvider';
@@ -122,9 +123,8 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
         return;
       }
 
-      const parsedValue = numberParserRef.current.parse(inputValue);
-
-      const newValue = isNaN(parsedValue) ? step : parsedValue + step;
+      const parsedValue = new Big(numberParserRef.current.parse(inputValue)); // making 'parsedValue' of type Big from Big.js
+      const newValue = isNaN(parsedValue) ? step : parsedValue.plus(new Big(step)); // summation using plus() method from Big.js
 
       formatNumberAndSetInput(numberFormaterRef.current.format(newValue));
     };
@@ -136,9 +136,8 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
         return;
       }
 
-      const parsedValue = numberParserRef.current.parse(inputValue);
-
-      const newValue = isNaN(parsedValue) ? -step : parsedValue - step;
+      const parsedValue = new Big(numberParserRef.current.parse(inputValue)); // making 'parsedValue' of type Big from Big.js
+      const newValue = isNaN(parsedValue) ? -step : parsedValue.minus(new Big(step)); // subtraction using minus() method from Big.js
 
       formatNumberAndSetInput(numberFormaterRef.current.format(newValue));
     };

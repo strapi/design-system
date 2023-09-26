@@ -8162,6 +8162,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"big.js@npm:6.2.1":
+  version: 6.2.1
+  resolution: "big.js@npm:6.2.1"
+  checksum: 0b234a2fd56c52bed2798ed2020bcab6fef5e9523b99a05406ad071d1aed6ee97ada9fb8de9576092da74c68825c276e19015743b8d1baea269b60a5c666b0cd
+  languageName: node
+  linkType: hard
+
 "binary-extensions@npm:^2.0.0":
   version: 2.2.0
   resolution: "binary-extensions@npm:2.2.0"
@@ -9567,6 +9574,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^6.7.0
     "@typescript-eslint/parser": ^6.7.0
     "@vitejs/plugin-react": ^4.0.4
+    big.js: 6.2.1
     chokidar-cli: ^3.0.0
     cross-env: ^7.0.3
     eslint: ^8.49.0
