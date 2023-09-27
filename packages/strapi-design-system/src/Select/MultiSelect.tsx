@@ -17,6 +17,7 @@ import { Tag } from '../Tag';
 import { Typography } from '../Typography';
 
 type MultiSelectPropsWithoutLabel = Omit<SelectParts.MultiSelectProps, 'value' | 'multi'> &
+  Pick<SelectParts.ContentProps, 'onCloseAutoFocus'> &
   Pick<SelectParts.TriggerProps, 'clearLabel' | 'onClear' | 'size' | 'startIcon' | 'placeholder'> &
   Pick<FieldProps, 'hint' | 'id' | 'error'> & {
     /**
@@ -55,6 +56,7 @@ export const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
       labelAction,
       onChange,
       onClear,
+      onCloseAutoFocus,
       onReachEnd,
       placeholder,
       required,
@@ -197,7 +199,7 @@ export const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
               </SelectParts.Value>
             </SelectParts.Trigger>
             <SelectParts.Portal>
-              <SelectParts.Content position="popper" sideOffset={4}>
+              <SelectParts.Content position="popper" sideOffset={4} onCloseAutoFocus={onCloseAutoFocus}>
                 <SelectParts.Viewport ref={viewportRef}>
                   {children}
                   <Box id={intersectionId} width="100%" height="1px" />
