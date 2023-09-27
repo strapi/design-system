@@ -269,5 +269,5 @@ const DatePicker = styled(DatePickerInput)`
 
 const TimePicker = styled(TimePickerInput)`
   flex: 1 1 30%;
-  min-width: 120px;
+  min-width: 140px;
 `;
