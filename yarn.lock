@@ -5961,7 +5961,7 @@ __metadata:
     "@uiw/react-codemirror": ^4.21.18
     aria-hidden: ^1.2.3
     axe-playwright: ^1.2.3
-    compute-scroll-into-view: ^3.0.3
+    compute-scroll-into-view: ^3.1.0
     cross-env: ^7.0.3
     prop-types: ^15.8.1
     react-remove-scroll: ^2.5.6
@@ -9082,10 +9082,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"compute-scroll-into-view@npm:^3.0.3":
-  version: 3.0.3
-  resolution: "compute-scroll-into-view@npm:3.0.3"
-  checksum: 7143869648d4de8ff2cb60eb8e96a21b47948c3210d15d1bfaa7e88de722c7f83f06676b97ebff94831dde0c03e42458ecfbde466747945187ee5c7667c68395
+"compute-scroll-into-view@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "compute-scroll-into-view@npm:3.1.0"
+  checksum: 224549d6dd1d40342230de5c6d69cac5c3ed5c2f6a4437310f959aadc8db1d20b03da44a6e0de14d9419c6f9130ce51ec99a91b11bde55d4640f10551c89c213
   languageName: node
   linkType: hard
 
