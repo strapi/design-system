@@ -27,7 +27,7 @@
     "prerelease:enter": "changeset pre enter",
     "prerelease:exit": "changeset pre exit",
     "release:add": "changeset add",
-    "release:publish": "turbo run build lint test:ts test && changeset publish",
+    "release:publish": "DTS=true turbo run build lint test:ts test && changeset publish",
     "release:version": "changeset version && yarn"
   },
   "devDependencies": {

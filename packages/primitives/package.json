@@ -1,6 +1,6 @@
 {
   "name": "@strapi/ui-primitives",
-  "version": "1.19.0",
+  "version": "1.20.0-typescript.0",
   "license": "MIT",
   "sideEffects": false,
   "main": "./dist/ui-primitives.js",
