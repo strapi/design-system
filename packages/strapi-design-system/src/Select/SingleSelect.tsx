@@ -11,6 +11,7 @@ import { useIntersection } from '../hooks/useIntersection';
 import { Typography } from '../Typography';
 
 type SingleSelectPropsWithoutLabel = Omit<SelectParts.SingleSelectProps, 'value'> &
+  Pick<SelectParts.ContentProps, 'onCloseAutoFocus'> &
   Pick<SelectParts.TriggerProps, 'clearLabel' | 'onClear' | 'size' | 'startIcon' | 'placeholder'> &
   Pick<FieldProps, 'error' | 'hint' | 'id'> & {
     /**
@@ -41,7 +42,6 @@ export const SingleSelect = React.forwardRef<SingleSelectInputElement, SingleSel
     forwardedRef,
   ) => {
     const generatedId = useId(id);
-
     /**
      * Because the trigger needs to be a `div` to allow the clear
      * button & tags to be clickable, we need to manually focus it.
@@ -98,6 +98,7 @@ export const SingleSelectInput = React.forwardRef<SingleSelectInputElement, Sing
       label,
       onChange,
       onClear,
+      onCloseAutoFocus,
       onReachEnd,
       placeholder,
       required,
@@ -194,7 +195,7 @@ export const SingleSelectInput = React.forwardRef<SingleSelectInputElement, Sing
           </SelectParts.Value>
         </SelectParts.Trigger>
         <SelectParts.Portal>
-          <SelectParts.Content position="popper" sideOffset={4}>
+          <SelectParts.Content position="popper" sideOffset={4} onCloseAutoFocus={onCloseAutoFocus}>
             <SelectParts.Viewport ref={viewportRef}>
               {children}
               <Box id={intersectionId} width="100%" height="1px" />
