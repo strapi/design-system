@@ -1,0 +1,11 @@
+{
+  "mode": "pre",
+  "tag": "typescript",
+  "initialVersions": {
+    "@strapi/design-system-docs": "1.6.5",
+    "@strapi/ui-primitives": "1.12.0",
+    "@strapi/design-system": "1.12.0",
+    "@strapi/icons": "1.12.0"
+  },
+  "changesets": ["six-flowers-poke"]
+}

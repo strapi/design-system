@@ -46,6 +46,6 @@ export default defineConfig(async () => {
     //  "paths": {
     //    "@test/*": ["./test/*"]
     //  }
-    plugins: process.env.DTS === 'true' ? [dts({ entryRoot: 'src' }), react()] : [react()],
+    plugins: [dts({ entryRoot: 'src' }), react()],
   };
 });
