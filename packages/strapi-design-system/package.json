@@ -36,7 +36,7 @@
     "@strapi/ui-primitives": "^1.11.0",
     "@uiw/react-codemirror": "^4.21.18",
     "aria-hidden": "^1.2.3",
-    "compute-scroll-into-view": "^3.0.3",
+    "compute-scroll-into-view": "^3.1.0",
     "prop-types": "^15.8.1",
     "react-remove-scroll": "^2.5.6"
   },
