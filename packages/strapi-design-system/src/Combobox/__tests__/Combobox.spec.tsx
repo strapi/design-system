@@ -71,6 +71,19 @@ describe('Combobox', () => {
     expect(getByRole('combobox')).toHaveValue('Strawberry 2');
   });
 
+  it('should correctly change the rendered text value of the combobox when the value prop changes externally', async () => {
+    const onTextValueChange = jest.fn();
+    const { rerender } = renderRTL(<Component options={defaultOptions} onTextValueChange={onTextValueChange} />);
+
+    expect(onTextValueChange).toHaveBeenCalledTimes(1);
+    expect(onTextValueChange).toHaveBeenCalledWith('');
+
+    rerender(<Component options={defaultOptions} onTextValueChange={onTextValueChange} value="bagel" />);
+
+    expect(onTextValueChange).toHaveBeenCalledTimes(2);
+    expect(onTextValueChange).toHaveBeenCalledWith('bagel');
+  });
+
   describe('callbacks', () => {
     it('should fire onChange only when the value is changed not when the input does', async () => {
       const onChange = jest.fn();
