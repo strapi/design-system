@@ -84,6 +84,7 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
     const component = (
       <IconButtonWrapper
         aria-disabled={disabled}
+        disabled={disabled}
         background={disabled ? 'neutral150' : background}
         borderWidth={noBorder ? 0 : borderWidth}
         justifyContent="center"
