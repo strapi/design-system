@@ -3,7 +3,9 @@ import * as React from 'react';
 import { TabsContext, type TabsContextState } from './TabsContext';
 import { useId } from '../hooks/useId';
 
-export interface TabGroupProps extends Omit<TabsContextState, 'id'>, React.HTMLAttributes<HTMLDivElement> {
+export interface TabGroupProps
+  extends Omit<TabsContextState, 'id' | 'selectedTabIndex' | 'selectTabIndex'>,
+    React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   id?: string;
   initialSelectedTabIndex?: number;
