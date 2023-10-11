@@ -35,12 +35,12 @@ interface SharedLinkProps extends BaseButtonProps {
 
 interface ToLinkProps extends SharedLinkProps {
   to: NavLinkProps['to'];
-  href: never;
+  href?: never;
 }
 
 interface HrefLinkProps extends SharedLinkProps {
   href: string;
-  to: never;
+  to?: never;
 }
 
 type LinkButtonProps = ToLinkProps | HrefLinkProps;

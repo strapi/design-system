@@ -52,12 +52,12 @@ interface SharedLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> 
 
 interface ToLinkProps extends SharedLinkProps {
   to: NavLinkProps['to'];
-  href: never;
+  href?: never;
 }
 
 interface HrefLinkProps extends SharedLinkProps {
   href: string;
-  to: never;
+  to?: never;
 }
 
 type LinkProps = ToLinkProps | HrefLinkProps;
