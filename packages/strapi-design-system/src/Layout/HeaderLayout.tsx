@@ -12,7 +12,7 @@ interface BaseHeaderLayoutProps extends TypographyProps {
   navigationAction?: React.ReactNode;
   primaryAction?: React.ReactNode;
   secondaryAction?: React.ReactNode;
-  subtitle?: string | React.ReactNode;
+  subtitle?: React.ReactNode;
   sticky?: boolean;
   width?: number;
 }
