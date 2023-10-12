@@ -207,7 +207,7 @@ const OptionLink = styled(Link)`
  * MenuLabel
  * -----------------------------------------------------------------------------------------------*/
 
-interface LabelProps extends TypographyProps<HTMLSpanElement> {}
+interface LabelProps extends TypographyProps {}
 
 const MenuLabel = forwardRef<HTMLSpanElement, LabelProps>((props, ref) => (
   <DropdownMenu.Label asChild>
