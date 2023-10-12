@@ -79,6 +79,7 @@ $RECYCLE.BIN/
 .idea
 nbproject
 .eslintcache
+.turbo
 
 
 ############################

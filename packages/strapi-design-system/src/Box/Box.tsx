@@ -4,10 +4,7 @@ import styled, { CSSProperties, DefaultTheme } from 'styled-components';
 
 import handleResponsiveValues, { ResponsiveValue } from '../helpers/handleResponsiveValues';
 import { extractStyleFromTheme } from '../helpers/theme';
-
-type DefaultThemeOrCSSProp<T extends keyof DefaultTheme, K extends keyof CSSProperties> =
-  | keyof DefaultTheme[T]
-  | CSSProperties[K];
+import { DefaultThemeOrCSSProp } from '../types';
 
 export type BoxProps<TElement extends keyof JSX.IntrinsicElements = 'div'> = React.ComponentPropsWithoutRef<TElement> &
   Pick<
@@ -68,27 +65,27 @@ export type BoxProps<TElement extends keyof JSX.IntrinsicElements = 'div'> = Rea
     /**
      * Padding. Supports responsive values
      */
-    padding?: ResponsiveValue;
+    padding?: ResponsiveValue<'padding'>;
     /**
      * Padding bottom. Supports responsive values
      */
-    paddingBottom?: ResponsiveValue;
+    paddingBottom?: ResponsiveValue<'paddingBottom'>;
     /**
      * Padding left. Supports responsive values
      */
-    paddingLeft?: ResponsiveValue;
+    paddingLeft?: ResponsiveValue<'paddingLeft'>;
     /**
      * Padding right. Supports responsive values
      */
-    paddingRight?: ResponsiveValue;
+    paddingRight?: ResponsiveValue<'paddingRight'>;
     /**
      * Padding top. Supports responsive values
      */
-    paddingTop?: ResponsiveValue;
-    marginLeft?: ResponsiveValue;
-    marginBottom?: ResponsiveValue;
-    marginRight?: ResponsiveValue;
-    marginTop?: ResponsiveValue;
+    paddingTop?: ResponsiveValue<'paddingTop'>;
+    marginLeft?: ResponsiveValue<'marginLeft'>;
+    marginBottom?: ResponsiveValue<'marginBottom'>;
+    marginRight?: ResponsiveValue<'marginRight'>;
+    marginTop?: ResponsiveValue<'marginTop'>;
     /**
      * Shadow name (see `theme.shadows`)
      */

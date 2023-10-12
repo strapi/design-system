@@ -1,4 +1,8 @@
+import type { CSSProperties } from 'react';
+
 import { DefaultTheme } from 'styled-components';
+
+import { DefaultThemeOrCSSProp } from '../types';
 
 interface ResponsiveValueObject {
   desktop?: keyof DefaultTheme['spaces'];
@@ -12,21 +16,40 @@ type ResponsiveValueTuple = [
   mobile?: keyof DefaultTheme['spaces'],
 ];
 
-export type ResponsiveValue = ResponsiveValueObject | keyof DefaultTheme['spaces'] | ResponsiveValueTuple;
+type ResponsiveCSSProperties = Pick<
+  CSSProperties,
+  | 'margin'
+  | 'marginLeft'
+  | 'marginRight'
+  | 'marginTop'
+  | 'marginBottom'
+  | 'padding'
+  | 'paddingLeft'
+  | 'paddingRight'
+  | 'paddingTop'
+  | 'paddingBottom'
+>;
+
+export type ResponsiveValue<TCSSProp extends keyof ResponsiveCSSProperties = any> =
+  | ResponsiveValueObject
+  | DefaultThemeOrCSSProp<'spaces', TCSSProp>
+  | ResponsiveValueTuple;
 
 /* eslint-disable consistent-return */
-const handleResponsiveValues = (property: string, value: ResponsiveValue | undefined, theme: DefaultTheme) => {
+const handleResponsiveValues = <TCSSProp extends keyof ResponsiveCSSProperties>(
+  property: string,
+  value: ResponsiveValue<TCSSProp> | undefined,
+  theme: DefaultTheme,
+) => {
   if (!value) {
     return undefined;
   }
 
-  let transformedArray: ResponsiveValueTuple = Array.isArray(value) ? value : [];
+  if (typeof value === 'object') {
+    const transformedArray: ResponsiveValueTuple = Array.isArray(value)
+      ? value
+      : [value?.desktop, value?.tablet, value?.mobile];
 
-  if (!Array.isArray(value) && typeof value === 'object') {
-    transformedArray = [value?.desktop, value?.tablet, value?.mobile];
-  }
-
-  if (transformedArray.length > 0) {
     const spaces = transformedArray.reduce((acc, curr, index) => {
       if (curr) {
         switch (index) {
@@ -48,7 +71,7 @@ const handleResponsiveValues = (property: string, value: ResponsiveValue | undef
   }
 
   // Fallback to the passed transformedArray when necessary
-  const realValue = theme.spaces[value as keyof DefaultTheme['spaces']] || value;
+  const realValue = theme.spaces[value as keyof DefaultTheme['spaces']] ?? value;
 
   return `${property}: ${realValue};`;
 };
