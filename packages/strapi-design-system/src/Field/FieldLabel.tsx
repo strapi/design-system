@@ -7,7 +7,7 @@ import { Flex } from '../Flex';
 import { once } from '../helpers/deprecations';
 import { Typography, TypographyProps } from '../Typography';
 
-export interface FieldLabelProps extends TypographyProps<HTMLLabelElement> {
+export interface FieldLabelProps extends TypographyProps<'label'> {
   action?: ReactNode;
   /**
    * @preserve
