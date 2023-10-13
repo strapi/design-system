@@ -191,15 +191,6 @@ export const ComboboxInput = React.forwardRef<ComboboxInputElement, ComboboxInpu
       skipWhen: !internalIsOpen,
     });
 
-    React.useEffect(() => {
-      /**
-       * When the value prop changes "externally" update the text input value too
-       */
-      handleTextValueChange(value || '');
-
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [value]);
-
     const hintId = `${generatedId}-hint`;
     const errorId = `${generatedId}-error`;
 
