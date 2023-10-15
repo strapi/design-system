@@ -12,7 +12,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@adobe/css-tools@npm:^4.0.1, @adobe/css-tools@npm:^4.3.0":
+"@adobe/css-tools@npm:^4.0.1, @adobe/css-tools@npm:^4.3.1":
   version: 4.3.1
   resolution: "@adobe/css-tools@npm:4.3.1"
   checksum: ad43456379ff391132aff687ece190cb23ea69395e23c9b96690eeabe2468da89a4aaf266e4f8b6eaab53db3d1064107ce0f63c3a974e864f4a04affc768da3f
@@ -6496,11 +6496,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/jest-dom@npm:6.1.3":
-  version: 6.1.3
-  resolution: "@testing-library/jest-dom@npm:6.1.3"
+"@testing-library/jest-dom@npm:6.1.4":
+  version: 6.1.4
+  resolution: "@testing-library/jest-dom@npm:6.1.4"
   dependencies:
-    "@adobe/css-tools": ^4.3.0
+    "@adobe/css-tools": ^4.3.1
     "@babel/runtime": ^7.9.2
     aria-query: ^5.0.0
     chalk: ^3.0.0
@@ -6522,7 +6522,7 @@ __metadata:
       optional: true
     vitest:
       optional: true
-  checksum: 5bd14ba31fd3d64cff8ca55cccd335bedadf1db1119643954ca8cd30af835defe6f3a21e7d7617d20205b07abba1b2e668be1b9d6743504800f17fdc4344db75
+  checksum: c6bd9469554136a25d94b55ea16736d56b8c5d200526023774dbf35ca35551a721257e6734f1b404bbd07ae0a1950f1912b5be60e113db2ff2ff50af14f7085c
   languageName: node
   linkType: hard
 
@@ -9868,7 +9868,7 @@ __metadata:
     "@strapi/eslint-config": ^0.2.0
     "@swc/core": ^1.3.92
     "@swc/jest": ^0.2.29
-    "@testing-library/jest-dom": 6.1.3
+    "@testing-library/jest-dom": 6.1.4
     "@testing-library/react": 14.0.0
     "@testing-library/user-event": ^14.5.1
     "@tsconfig/node16": ^16.1.1
@@ -9895,7 +9895,7 @@ __metadata:
     husky: ^8.0.3
     jest: ^29.7.0
     jest-environment-jsdom: ^29.7.0
-    jest-styled-components: ^7.1.1
+    jest-styled-components: ^7.2.0
     pinst: 3.0.0
     prettier: ^3.0.3
     react: ^18.2.0
@@ -13918,14 +13918,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-styled-components@npm:^7.1.1":
-  version: 7.1.1
-  resolution: "jest-styled-components@npm:7.1.1"
+"jest-styled-components@npm:^7.2.0":
+  version: 7.2.0
+  resolution: "jest-styled-components@npm:7.2.0"
   dependencies:
     "@adobe/css-tools": ^4.0.1
   peerDependencies:
     styled-components: ">= 5"
-  checksum: 1376d1211855c459e59e6b030af7294519cd2dd78169a2cb0df185ff4390fff417ab51be3dd520f1e975d2f391f50ff266e803c168ff9f03f3ff7ebbb823d2d7
+  checksum: 9eb440fb98571520fa6309ebec5464bdd6a15fd29989c7a583badc24f390264459f21d1d09253e6a449f4f6e41ca0d8f630f762941794b51b327df9bfdcce030
   languageName: node
   linkType: hard
 
