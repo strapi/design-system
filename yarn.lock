@@ -6072,7 +6072,7 @@ __metadata:
     compute-scroll-into-view: ^3.1.0
     cross-env: ^7.0.3
     prop-types: ^15.8.1
-    react-remove-scroll: ^2.5.6
+    react-remove-scroll: ^2.5.7
     react-router-dom: ^5.3.4
     styled-components: ^5.3.11
   peerDependencies:
@@ -6150,7 +6150,7 @@ __metadata:
     "@radix-ui/react-use-previous": ^1.0.1
     "@radix-ui/react-visually-hidden": ^1.0.3
     aria-hidden: ^1.2.3
-    react-remove-scroll: ^2.5.6
+    react-remove-scroll: ^2.5.7
   peerDependencies:
     react: ^17.0.0 || ^18.0.0
     react-dom: ^17.0.0 || ^18.0.0
@@ -16921,9 +16921,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-remove-scroll@npm:^2.5.6":
-  version: 2.5.6
-  resolution: "react-remove-scroll@npm:2.5.6"
+"react-remove-scroll@npm:^2.5.7":
+  version: 2.5.7
+  resolution: "react-remove-scroll@npm:2.5.7"
   dependencies:
     react-remove-scroll-bar: ^2.3.4
     react-style-singleton: ^2.2.1
@@ -16936,7 +16936,7 @@ __metadata:
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: 0a31f822136f4d4cde0c34264b68dd3a0432d36e2ca5162cd2df0f205980debb9a5e107843120220a599275af02df7805f0d5f44e54f2bd8b0c39a7fdd304036
+  checksum: e0dbb6856beaed2cff4996d9ca62d775686ff72e3e9de34043034d932223b588993b2fc7a18644750dd3d73eb19bd3f2cedb8d91f0e424c1ef8403010da24b1d
   languageName: node
   linkType: hard
 
