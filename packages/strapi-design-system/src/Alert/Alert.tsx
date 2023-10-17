@@ -81,7 +81,7 @@ export interface AlertProps extends BoxProps {
   /**
    * The title of the `Alert`.
    */
-  title?: string;
+  title: string;
   /**
    * Changes the element, as which a component will render (similar to styled-components).
    */
@@ -126,11 +126,9 @@ export const Alert = ({
         role={variant === 'danger' ? 'alert' : 'status'}
         width="100%"
       >
-        {title && (
-          <Typography fontWeight="bold" textColor="neutral800" as={titleAs}>
-            {title}
-          </Typography>
-        )}
+        <Typography fontWeight="bold" textColor="neutral800" as={titleAs}>
+          {title}
+        </Typography>
 
         <Typography as="p" textColor="neutral800">
           {children}
