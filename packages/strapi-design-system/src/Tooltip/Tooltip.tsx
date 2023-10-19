@@ -15,6 +15,7 @@ const TooltipWrapper = styled(Box)<{ visible: boolean }>`
   /* z-index exist because of its position inside Modals */
   z-index: 4;
   display: ${({ visible }) => (visible ? 'revert' : 'none')};
+  top: 0;
 `;
 
 export interface TooltipProps extends Omit<BoxProps<'div'>, 'position'> {
