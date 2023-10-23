@@ -2627,12 +2627,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/config-conventional@npm:17.8.0":
-  version: 17.8.0
-  resolution: "@commitlint/config-conventional@npm:17.8.0"
+"@commitlint/config-conventional@npm:18.0.0":
+  version: 18.0.0
+  resolution: "@commitlint/config-conventional@npm:18.0.0"
   dependencies:
-    conventional-changelog-conventionalcommits: ^6.1.0
-  checksum: 33a6f7867e0ef6b39a34246a615a75ea4eaab76852d00ffee8c28560fe0786cf56a4f20d747d2f56b28a4bddc3637a5bf7948b465744edcd890b9c2337a2c741
+    conventional-changelog-conventionalcommits: ^7.0.2
+  checksum: 24bc2e37335cbc0eb8e56b0981ad05322d4c58737764d1029f25733444595317963dab5f4bffdddccc0a1d910ad7dc604b2bb9963cf458c652015ece35d5b255
   languageName: node
   linkType: hard
 
@@ -9237,12 +9237,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"conventional-changelog-conventionalcommits@npm:^6.1.0":
-  version: 6.1.0
-  resolution: "conventional-changelog-conventionalcommits@npm:6.1.0"
+"conventional-changelog-conventionalcommits@npm:^7.0.2":
+  version: 7.0.2
+  resolution: "conventional-changelog-conventionalcommits@npm:7.0.2"
   dependencies:
     compare-func: ^2.0.0
-  checksum: 4383a35cdf72f5964e194a1146e7f78276e301f73bd993b71627bb93586b6470d411b9613507ceb37e0fed0b023199c95e941541fa47172b4e6a7916fc3a53ff
+  checksum: e17ac5970ae09d6e9b0c3a7edaed075b836c0c09c34c514589cbe06554f46ed525067fa8150a8467cc03b1cf9af2073e7ecf48790d4f5ea399921b1cbe313711
   languageName: node
   linkType: hard
 
@@ -9825,7 +9825,7 @@ __metadata:
     "@changesets/changelog-git": 0.1.14
     "@changesets/cli": 2.26.2
     "@commitlint/cli": 18.0.0
-    "@commitlint/config-conventional": 17.8.0
+    "@commitlint/config-conventional": 18.0.0
     "@juggle/resize-observer": ^3.4.0
     "@rollup/plugin-typescript": ^11.1.5
     "@strapi/eslint-config": ^0.2.0
