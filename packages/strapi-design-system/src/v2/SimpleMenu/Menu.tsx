@@ -29,6 +29,11 @@ interface TriggerProps extends ButtonProps {}
 
 const MenuTrigger = forwardRef<HTMLButtonElement, TriggerProps>(
   ({ size, endIcon = <CarretDown width={`${6 / 16}rem`} height={`${4 / 16}rem`} aria-hidden />, ...props }, ref) => {
+    const isSizeS = size === 'S';
+    const isIconButton = (props.as as any)?.displayName === 'IconButton';
+    const paddingY = isSizeS ? 1 : 2;
+    const paddingX = isSizeS ? 3 : 4;
+
     return (
       <DropdownMenu.Trigger asChild>
         <Button
@@ -36,10 +41,11 @@ const MenuTrigger = forwardRef<HTMLButtonElement, TriggerProps>(
           type="button"
           variant="ghost"
           endIcon={endIcon}
-          paddingTop={size === 'S' ? 1 : 2}
-          paddingBottom={size === 'S' ? 1 : 2}
-          paddingLeft={size === 'S' ? 3 : 4}
-          paddingRight={size === 'S' ? 3 : 4}
+          paddingTop={isIconButton ? '0' : paddingY}
+          paddingBottom={isIconButton ? '0' : paddingY}
+          paddingLeft={isIconButton ? '0' : paddingX}
+          paddingRight={isIconButton ? '0' : paddingX}
+          justifyContent={isIconButton ? 'center' : undefined}
           {...props}
         />
       </DropdownMenu.Trigger>

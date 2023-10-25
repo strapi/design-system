@@ -106,6 +106,8 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
   },
 );
 
+IconButton.displayName = 'IconButton';
+
 const IconButtonWrapper = styled(BaseButton)<Required<Pick<IconButtonProps, 'size' | 'variant'>>>`
   background-color: ${({ theme, variant }) => {
     if (variant === VARIANT_SECONDARY) {
@@ -210,3 +212,5 @@ export const IconButtonGroup = styled(Flex)`
     }
   }
 `;
+
+IconButtonGroup.displayName = 'IconButtonGroup';
