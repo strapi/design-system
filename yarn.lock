@@ -145,7 +145,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:^7.18.9":
+"@babel/core@npm:^7.18.9, @babel/core@npm:^7.23.2":
   version: 7.23.2
   resolution: "@babel/core@npm:7.23.2"
   dependencies:
@@ -188,29 +188,6 @@ __metadata:
     json5: ^2.2.2
     semver: ^6.3.1
   checksum: cc4efa09209fe1f733cf512e9e4bb50870b191ab2dee8014e34cd6e731f204e48476cc53b4bbd0825d4d342304d577ae43ff5fd8ab3896080673c343321acb32
-  languageName: node
-  linkType: hard
-
-"@babel/core@npm:^7.22.20":
-  version: 7.22.20
-  resolution: "@babel/core@npm:7.22.20"
-  dependencies:
-    "@ampproject/remapping": ^2.2.0
-    "@babel/code-frame": ^7.22.13
-    "@babel/generator": ^7.22.15
-    "@babel/helper-compilation-targets": ^7.22.15
-    "@babel/helper-module-transforms": ^7.22.20
-    "@babel/helpers": ^7.22.15
-    "@babel/parser": ^7.22.16
-    "@babel/template": ^7.22.15
-    "@babel/traverse": ^7.22.20
-    "@babel/types": ^7.22.19
-    convert-source-map: ^1.7.0
-    debug: ^4.1.0
-    gensync: ^1.0.0-beta.2
-    json5: ^2.2.3
-    semver: ^6.3.1
-  checksum: 73663a079194b5dc406b2e2e5e50db81977d443e4faf7ef2c27e5836cd9a359e81e551115193dc9b1a93471275351a972e54904f4d3aa6cb156f51e26abf6765
   languageName: node
   linkType: hard
 
@@ -284,18 +261,6 @@ __metadata:
     "@jridgewell/trace-mapping": ^0.3.17
     jsesc: ^2.5.1
   checksum: 59a79730abdff9070692834bd3af179e7a9413fa2ff7f83dff3eb888765aeaeb2bfc7b0238a49613ed56e1af05956eff303cc139f2407eda8df974813e486074
-  languageName: node
-  linkType: hard
-
-"@babel/generator@npm:^7.22.15":
-  version: 7.22.15
-  resolution: "@babel/generator@npm:7.22.15"
-  dependencies:
-    "@babel/types": ^7.22.15
-    "@jridgewell/gen-mapping": ^0.3.2
-    "@jridgewell/trace-mapping": ^0.3.17
-    jsesc: ^2.5.1
-  checksum: 5b2a3ccdc3634f6ea86e0a442722bcd430238369432d31f15b428a4ee8013c2f4f917b5b135bf4fc1d0a3e2f87f10fd4ce5d07955ecc2d3b9400a05c2a481374
   languageName: node
   linkType: hard
 
@@ -627,21 +592,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/helper-module-transforms@npm:^7.22.20":
-  version: 7.22.20
-  resolution: "@babel/helper-module-transforms@npm:7.22.20"
-  dependencies:
-    "@babel/helper-environment-visitor": ^7.22.20
-    "@babel/helper-module-imports": ^7.22.15
-    "@babel/helper-simple-access": ^7.22.5
-    "@babel/helper-split-export-declaration": ^7.22.6
-    "@babel/helper-validator-identifier": ^7.22.20
-  peerDependencies:
-    "@babel/core": ^7.0.0
-  checksum: 8fce25362df8711bd4620f41c5c18769edfeafe7f8f1dae9691966ef368e57f9da68dfa1707cd63c834c89dc4eaa82c26f12ea33e88fd262ac62844b11dcc389
-  languageName: node
-  linkType: hard
-
 "@babel/helper-module-transforms@npm:^7.22.5, @babel/helper-module-transforms@npm:^7.22.9":
   version: 7.22.9
   resolution: "@babel/helper-module-transforms@npm:7.22.9"
@@ -914,17 +864,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/helpers@npm:^7.22.15":
-  version: 7.22.15
-  resolution: "@babel/helpers@npm:7.22.15"
-  dependencies:
-    "@babel/template": ^7.22.15
-    "@babel/traverse": ^7.22.15
-    "@babel/types": ^7.22.15
-  checksum: 49f61a93cbae4df3328bda67af5db743fead659ae4242571226c3596b7df78546189cdf991fed1eca33b559de8abf396a90a001f474a1bab351418f07b7ae6ef
-  languageName: node
-  linkType: hard
-
 "@babel/helpers@npm:^7.23.2":
   version: 7.23.2
   resolution: "@babel/helpers@npm:7.23.2"
@@ -1016,7 +955,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/parser@npm:^7.22.15, @babel/parser@npm:^7.22.16":
+"@babel/parser@npm:^7.22.15":
   version: 7.22.16
   resolution: "@babel/parser@npm:7.22.16"
   bin:
@@ -2210,7 +2149,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/traverse@npm:^7.18.9, @babel/traverse@npm:^7.20.7, @babel/traverse@npm:^7.21.0, @babel/traverse@npm:^7.21.2, @babel/traverse@npm:^7.21.4, @babel/traverse@npm:^7.21.5, @babel/traverse@npm:^7.22.10, @babel/traverse@npm:^7.22.15, @babel/traverse@npm:^7.22.20, @babel/traverse@npm:^7.22.8, @babel/traverse@npm:^7.23.2, @babel/traverse@npm:^7.4.5":
+"@babel/traverse@npm:^7.18.9, @babel/traverse@npm:^7.20.7, @babel/traverse@npm:^7.21.0, @babel/traverse@npm:^7.21.2, @babel/traverse@npm:^7.21.4, @babel/traverse@npm:^7.21.5, @babel/traverse@npm:^7.22.10, @babel/traverse@npm:^7.22.8, @babel/traverse@npm:^7.23.2, @babel/traverse@npm:^7.4.5":
   version: 7.23.2
   resolution: "@babel/traverse@npm:7.23.2"
   dependencies:
@@ -2272,7 +2211,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/types@npm:^7.22.15, @babel/types@npm:^7.22.19":
+"@babel/types@npm:^7.22.15":
   version: 7.22.19
   resolution: "@babel/types@npm:7.22.19"
   dependencies:
@@ -6307,90 +6246,90 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@swc/core-darwin-arm64@npm:1.3.95":
-  version: 1.3.95
-  resolution: "@swc/core-darwin-arm64@npm:1.3.95"
+"@swc/core-darwin-arm64@npm:1.3.96":
+  version: 1.3.96
+  resolution: "@swc/core-darwin-arm64@npm:1.3.96"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@swc/core-darwin-x64@npm:1.3.95":
-  version: 1.3.95
-  resolution: "@swc/core-darwin-x64@npm:1.3.95"
+"@swc/core-darwin-x64@npm:1.3.96":
+  version: 1.3.96
+  resolution: "@swc/core-darwin-x64@npm:1.3.96"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@swc/core-linux-arm-gnueabihf@npm:1.3.95":
-  version: 1.3.95
-  resolution: "@swc/core-linux-arm-gnueabihf@npm:1.3.95"
+"@swc/core-linux-arm-gnueabihf@npm:1.3.96":
+  version: 1.3.96
+  resolution: "@swc/core-linux-arm-gnueabihf@npm:1.3.96"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
-"@swc/core-linux-arm64-gnu@npm:1.3.95":
-  version: 1.3.95
-  resolution: "@swc/core-linux-arm64-gnu@npm:1.3.95"
+"@swc/core-linux-arm64-gnu@npm:1.3.96":
+  version: 1.3.96
+  resolution: "@swc/core-linux-arm64-gnu@npm:1.3.96"
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@swc/core-linux-arm64-musl@npm:1.3.95":
-  version: 1.3.95
-  resolution: "@swc/core-linux-arm64-musl@npm:1.3.95"
+"@swc/core-linux-arm64-musl@npm:1.3.96":
+  version: 1.3.96
+  resolution: "@swc/core-linux-arm64-musl@npm:1.3.96"
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
-"@swc/core-linux-x64-gnu@npm:1.3.95":
-  version: 1.3.95
-  resolution: "@swc/core-linux-x64-gnu@npm:1.3.95"
+"@swc/core-linux-x64-gnu@npm:1.3.96":
+  version: 1.3.96
+  resolution: "@swc/core-linux-x64-gnu@npm:1.3.96"
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@swc/core-linux-x64-musl@npm:1.3.95":
-  version: 1.3.95
-  resolution: "@swc/core-linux-x64-musl@npm:1.3.95"
+"@swc/core-linux-x64-musl@npm:1.3.96":
+  version: 1.3.96
+  resolution: "@swc/core-linux-x64-musl@npm:1.3.96"
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
-"@swc/core-win32-arm64-msvc@npm:1.3.95":
-  version: 1.3.95
-  resolution: "@swc/core-win32-arm64-msvc@npm:1.3.95"
+"@swc/core-win32-arm64-msvc@npm:1.3.96":
+  version: 1.3.96
+  resolution: "@swc/core-win32-arm64-msvc@npm:1.3.96"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"@swc/core-win32-ia32-msvc@npm:1.3.95":
-  version: 1.3.95
-  resolution: "@swc/core-win32-ia32-msvc@npm:1.3.95"
+"@swc/core-win32-ia32-msvc@npm:1.3.96":
+  version: 1.3.96
+  resolution: "@swc/core-win32-ia32-msvc@npm:1.3.96"
   conditions: os=win32 & cpu=ia32
   languageName: node
   linkType: hard
 
-"@swc/core-win32-x64-msvc@npm:1.3.95":
-  version: 1.3.95
-  resolution: "@swc/core-win32-x64-msvc@npm:1.3.95"
+"@swc/core-win32-x64-msvc@npm:1.3.96":
+  version: 1.3.96
+  resolution: "@swc/core-win32-x64-msvc@npm:1.3.96"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"@swc/core@npm:^1.3.95":
-  version: 1.3.95
-  resolution: "@swc/core@npm:1.3.95"
+"@swc/core@npm:^1.3.96":
+  version: 1.3.96
+  resolution: "@swc/core@npm:1.3.96"
   dependencies:
-    "@swc/core-darwin-arm64": 1.3.95
-    "@swc/core-darwin-x64": 1.3.95
-    "@swc/core-linux-arm-gnueabihf": 1.3.95
-    "@swc/core-linux-arm64-gnu": 1.3.95
-    "@swc/core-linux-arm64-musl": 1.3.95
-    "@swc/core-linux-x64-gnu": 1.3.95
-    "@swc/core-linux-x64-musl": 1.3.95
-    "@swc/core-win32-arm64-msvc": 1.3.95
-    "@swc/core-win32-ia32-msvc": 1.3.95
-    "@swc/core-win32-x64-msvc": 1.3.95
+    "@swc/core-darwin-arm64": 1.3.96
+    "@swc/core-darwin-x64": 1.3.96
+    "@swc/core-linux-arm-gnueabihf": 1.3.96
+    "@swc/core-linux-arm64-gnu": 1.3.96
+    "@swc/core-linux-arm64-musl": 1.3.96
+    "@swc/core-linux-x64-gnu": 1.3.96
+    "@swc/core-linux-x64-musl": 1.3.96
+    "@swc/core-win32-arm64-msvc": 1.3.96
+    "@swc/core-win32-ia32-msvc": 1.3.96
+    "@swc/core-win32-x64-msvc": 1.3.96
     "@swc/counter": ^0.1.1
     "@swc/types": ^0.1.5
   peerDependencies:
@@ -6419,7 +6358,7 @@ __metadata:
   peerDependenciesMeta:
     "@swc/helpers":
       optional: true
-  checksum: 49856ad64fa16151f7f784956c8134060c5ed612c9b3fcb79e33676c77219f61fa3bb6b9e0dd15d78c7bff92cacc0c944d2b4e60849eb93caca917a8544b1c2c
+  checksum: 41d4a4461b2952aaf8d3be945d373d0f3bd126115ee1aad0f76f2690e2b5635b6ec5bb54a7638deb9afedb1ad6f7d8453468a704e54e5fbb8234dd4a43b80205
   languageName: node
   linkType: hard
 
@@ -6584,7 +6523,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/babel__core@npm:^7.18.0":
+"@types/babel__core@npm:^7.18.0, @types/babel__core@npm:^7.20.3":
   version: 7.20.3
   resolution: "@types/babel__core@npm:7.20.3"
   dependencies:
@@ -6594,19 +6533,6 @@ __metadata:
     "@types/babel__template": "*"
     "@types/babel__traverse": "*"
   checksum: 8d14acc14d99b4b8bf36c00da368f6d597bd9ae3344aa7048f83f0f701b0463fa7c7bf2e50c3e4382fdbcfd1e4187b3452a0f0888b0f3ae8fad975591f7bdb94
-  languageName: node
-  linkType: hard
-
-"@types/babel__core@npm:^7.20.2":
-  version: 7.20.2
-  resolution: "@types/babel__core@npm:7.20.2"
-  dependencies:
-    "@babel/parser": ^7.20.7
-    "@babel/types": ^7.20.7
-    "@types/babel__generator": "*"
-    "@types/babel__template": "*"
-    "@types/babel__traverse": "*"
-  checksum: 564fbaa8ff1305d50807ada0ec227c3e7528bebb2f8fe6b2ed88db0735a31511a74ad18729679c43eeed8025ed29d408f53059289719e95ab1352ed559a100bd
   languageName: node
   linkType: hard
 
@@ -7542,18 +7468,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitejs/plugin-react@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "@vitejs/plugin-react@npm:4.1.0"
+"@vitejs/plugin-react@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "@vitejs/plugin-react@npm:4.1.1"
   dependencies:
-    "@babel/core": ^7.22.20
+    "@babel/core": ^7.23.2
     "@babel/plugin-transform-react-jsx-self": ^7.22.5
     "@babel/plugin-transform-react-jsx-source": ^7.22.5
-    "@types/babel__core": ^7.20.2
+    "@types/babel__core": ^7.20.3
     react-refresh: ^0.14.0
   peerDependencies:
     vite: ^4.2.0
-  checksum: 73dd403f5bca4f3f99f0bd3dcbb0cc0ecf88f758b886fb599711be744ca93f20adafe1af3574a998ac7cbd24aaf67ac7fe06983d87088cbdf535540ab402d496
+  checksum: 275132ab1e4c227326396aeee93084f20bbe5f0fbe92d45813f3eacd0766eb6e8cd83ee222f90411aefad1ce60fbd31766a8e4725e7bb36914f2bba37afbdebf
   languageName: node
   linkType: hard
 
@@ -9842,7 +9768,7 @@ __metadata:
     "@juggle/resize-observer": ^3.4.0
     "@rollup/plugin-typescript": ^11.1.5
     "@strapi/eslint-config": ^0.2.0
-    "@swc/core": ^1.3.95
+    "@swc/core": ^1.3.96
     "@swc/jest": ^0.2.29
     "@testing-library/jest-dom": 6.1.4
     "@testing-library/react": 14.0.0
@@ -9853,7 +9779,7 @@ __metadata:
     "@types/react-dom": 18.2.7
     "@typescript-eslint/eslint-plugin": ^6.9.0
     "@typescript-eslint/parser": ^6.9.0
-    "@vitejs/plugin-react": ^4.1.0
+    "@vitejs/plugin-react": ^4.1.1
     chokidar-cli: ^3.0.0
     cross-env: ^7.0.3
     eslint: ^8.52.0
