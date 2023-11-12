@@ -3255,15 +3255,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@floating-ui/react-dom@npm:^2.0.2":
-  version: 2.0.2
-  resolution: "@floating-ui/react-dom@npm:2.0.2"
+"@floating-ui/react-dom@npm:^2.0.4":
+  version: 2.0.4
+  resolution: "@floating-ui/react-dom@npm:2.0.4"
   dependencies:
     "@floating-ui/dom": ^1.5.1
   peerDependencies:
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
-  checksum: 4797e1f7a19c1e531ed0d578ccdcbe58970743e5a480ba30424857fc953063f36d481f8c5d69248a8f1d521b739e94bf5e1ffb35506400dea3d914f166ed2f7f
+  checksum: 91b2369e25f84888486e48c1656117468248906034ed482d411bb9ed1061b908dd32435b4ca3d0cd0ca6083291510a98ce74d76c671d5cc25b0c41e5fa824bae
   languageName: node
   linkType: hard
 
@@ -5972,7 +5972,7 @@ __metadata:
   resolution: "@strapi/design-system@workspace:packages/strapi-design-system"
   dependencies:
     "@codemirror/lang-json": ^6.0.1
-    "@floating-ui/react-dom": ^2.0.2
+    "@floating-ui/react-dom": ^2.0.4
     "@internationalized/date": ^3.5.0
     "@internationalized/number": ^3.3.0
     "@playwright/test": 1.39.0
