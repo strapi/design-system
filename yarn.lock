@@ -3333,12 +3333,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@internationalized/number@npm:^3.3.0":
-  version: 3.3.0
-  resolution: "@internationalized/number@npm:3.3.0"
+"@internationalized/number@npm:^3.4.0":
+  version: 3.4.0
+  resolution: "@internationalized/number@npm:3.4.0"
   dependencies:
     "@swc/helpers": ^0.5.0
-  checksum: 76e5bd0e7713d8010be90b2d3427371a0ee97e34e6d81da2c10587986503be308ab8bfd8f590e1d88977800f5d79f9e2d91e7ac1d6d34006575216027125f302
+  checksum: 238161e726f49a32fd311c5a864b93fd6e7e0f465ce4c54b51558b028a9c24109d66332f48067114d01f3acd1eae4cfa436070013d88db7f1f4f8158c5ddfb9d
   languageName: node
   linkType: hard
 
@@ -5974,7 +5974,7 @@ __metadata:
     "@codemirror/lang-json": ^6.0.1
     "@floating-ui/react-dom": ^2.0.4
     "@internationalized/date": ^3.5.0
-    "@internationalized/number": ^3.3.0
+    "@internationalized/number": ^3.4.0
     "@playwright/test": 1.39.0
     "@radix-ui/react-dismissable-layer": ^1.0.5
     "@radix-ui/react-dropdown-menu": ^2.0.6
