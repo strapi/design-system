@@ -45,8 +45,8 @@
     "@testing-library/user-event": "^14.5.1",
     "@tsconfig/node16": "^16.1.1",
     "@types/jest": "^29.5.8",
-    "@types/react": "18.2.7",
-    "@types/react-dom": "18.2.7",
+    "@types/react": "18.2.37",
+    "@types/react-dom": "18.2.15",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
     "@typescript-eslint/parser": "^6.10.0",
     "@vitejs/plugin-react": "^4.1.1",
@@ -86,6 +86,6 @@
   },
   "resolutions": {
     "@testing-library/dom": "^9.0.0",
-    "@types/react": "18.2.7"
+    "@types/react": "18.2.37"
   }
 }
