@@ -193,8 +193,8 @@ export const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
                   ? withTags
                     ? renderTags
                     : customizeContent
-                    ? customizeContent(value)
-                    : undefined
+                      ? customizeContent(value)
+                      : undefined
                   : undefined}
               </SelectParts.Value>
             </SelectParts.Trigger>
