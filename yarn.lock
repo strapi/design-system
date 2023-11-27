@@ -5365,24 +5365,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/api@npm:^7.0.0":
-  version: 7.2.3
-  resolution: "@storybook/api@npm:7.2.3"
-  dependencies:
-    "@storybook/client-logger": 7.2.3
-    "@storybook/manager-api": 7.2.3
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    react:
-      optional: true
-    react-dom:
-      optional: true
-  checksum: 0013241a4ade3dcc292284ef1c920ac8cfe119facede8f1d295341a481f25ac082a373afb7a0feb048db1ad790c61b7fcc7174892f5780ead75707d26ce2c74a
-  languageName: node
-  linkType: hard
-
 "@storybook/blocks@npm:7.5.3, @storybook/blocks@npm:^7.5.3":
   version: 7.5.3
   resolution: "@storybook/blocks@npm:7.5.3"
@@ -5849,7 +5831,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/manager-api@npm:7.5.3":
+"@storybook/manager-api@npm:7.5.3, @storybook/manager-api@npm:^7.0.0":
   version: 7.5.3
   resolution: "@storybook/manager-api@npm:7.5.3"
   dependencies:
@@ -6165,7 +6147,7 @@ __metadata:
     react-dom: 18.2.0
     react-router-dom: 5.3.4
     storybook: ^7.5.3
-    storybook-dark-mode: ^3.0.1
+    storybook-dark-mode: ^3.0.3
     styled-components: ^5.3.11
   languageName: unknown
   linkType: soft
@@ -18536,15 +18518,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"storybook-dark-mode@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "storybook-dark-mode@npm:3.0.1"
+"storybook-dark-mode@npm:^3.0.3":
+  version: 3.0.3
+  resolution: "storybook-dark-mode@npm:3.0.3"
   dependencies:
     "@storybook/addons": ^7.0.0
-    "@storybook/api": ^7.0.0
     "@storybook/components": ^7.0.0
     "@storybook/core-events": ^7.0.0
     "@storybook/global": ^5.0.0
+    "@storybook/manager-api": ^7.0.0
     "@storybook/theming": ^7.0.0
     fast-deep-equal: ^3.1.3
     memoizerific: ^1.11.3
@@ -18556,7 +18538,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: d04213c92e8a4af0035e80eb02b75b8da725ba7b1ecbfe050eb04cb4018d91394f08c8fe7c1b106c971b2047ef5a1ba776e78050ae1f6d7563cdfdba5e701a29
+  checksum: 7db89470168e9d15f36c44554ddb80b5aeac7276664904adc7b2d1f1913a4a514b86769eb80d4fcc43070e75d4e79a53b2467e51d628298e2e35e3c47c30bc7f
   languageName: node
   linkType: hard
 
