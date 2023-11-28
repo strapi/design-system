@@ -50,7 +50,6 @@ updates:
 
       styled-components:
         patterns:
-          - '@types/styled-components'
           - 'styled-components'
 
       typescript:
