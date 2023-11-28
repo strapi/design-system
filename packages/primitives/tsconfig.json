@@ -14,7 +14,8 @@
     "resolveJsonModule": true,
     "noEmit": true,
     "noImplicitAny": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "types": ["jest", "@testing-library/jest-dom"]
   },
   "include": ["src"]
 }
