@@ -24,7 +24,8 @@
     "@storybook/react-vite": "^7.5.3",
     "@storybook/theming": "7.5.3",
     "eslint-plugin-mdx": "^2.2.0",
-    "storybook": "^7.5.3"
+    "storybook": "^7.5.3",
+    "vite": "^5.0.2"
   },
   "scripts": {
     "build": "storybook build",

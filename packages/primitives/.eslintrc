@@ -2,12 +2,12 @@
   "root": true,
   "extends": ["@strapi/eslint-config/front/typescript"],
   "parserOptions": {
-    "project": ["./tsconfig.eslint.json"]
+    "project": ["./tsconfig.json"]
   },
   "settings": {
     "import/resolver": {
       "typescript": {
-        "project": "./tsconfig.eslint.json"
+        "project": "./tsconfig.json"
       }
     }
   },
