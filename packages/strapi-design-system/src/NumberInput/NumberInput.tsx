@@ -30,7 +30,7 @@ const ArrowButton = styled.button<{ reverse?: boolean }>`
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : undefined)};
   svg {
     display: block;
-    height: ${4 / 16}rem;
+    height: 0.4rem;
     transform: ${({ reverse }) => (reverse ? 'rotateX(180deg)' : undefined)};
   }
 `;

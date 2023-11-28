@@ -14,9 +14,9 @@ type Story = StoryObj<typeof Icon>;
 export const Base = {
   render: () => (
     <Flex gap={3}>
-      <Icon width={`${25 / 16}rem`} height={`${25 / 16}rem`} color="secondary500" as={Pencil} />
-      <Icon width={`${15 / 16}rem`} height={`${15 / 16}rem`} color="alternative500" as={Play} />
-      <Icon width={`${30 / 16}rem`} height={`${30 / 16}rem`} color="danger500" as={Trash} />
+      <Icon width={`2.5rem`} height={`2.5rem`} color="secondary500" as={Pencil} />
+      <Icon width={`1.5rem`} height={`1.5rem`} color="alternative500" as={Play} />
+      <Icon width={`3rem`} height={`3rem`} color="danger500" as={Trash} />
       <Icon as={Plus} />
     </Flex>
   ),

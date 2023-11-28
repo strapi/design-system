@@ -21,7 +21,7 @@ const CellWrapper = styled(RawTd)`
 
 const ActionWrapper = styled.span`
   svg {
-    height: ${4 / 16}rem;
+    height: 0.4rem;
   }
 `;
 

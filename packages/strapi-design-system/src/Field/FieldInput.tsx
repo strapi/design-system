@@ -9,8 +9,8 @@ import { inputFocusStyle } from '../themes/utils';
 
 // padding-[top|bottom] must ensure, the input matches the height of getThemeSize('input')
 const PADDING_Y = {
-  S: 6.5,
-  M: 10.5,
+  S: 0.6,
+  M: 1,
 } as const;
 
 export interface FieldInputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
@@ -83,10 +83,10 @@ interface InputProps {
 const Input = styled.input<InputProps>`
   border: none;
   border-radius: ${({ theme }) => theme.borderRadius};
-  padding-bottom: ${({ $size }) => `${PADDING_Y[$size] / 16}rem`};
+  padding-bottom: ${({ $size }) => `${PADDING_Y[$size]}rem`};
   padding-left: ${({ theme, hasLeftAction }) => (hasLeftAction ? 0 : theme.spaces[4])};
   padding-right: ${({ theme, hasRightAction }) => (hasRightAction ? 0 : theme.spaces[4])};
-  padding-top: ${({ $size }) => `${PADDING_Y[$size] / 16}rem`};
+  padding-top: ${({ $size }) => `${PADDING_Y[$size]}rem`};
   cursor: ${(props) => (props['aria-disabled'] ? 'not-allowed' : undefined)};
 
   color: ${({ theme }) => theme.colors.neutral800};

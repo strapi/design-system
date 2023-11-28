@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import { Grid, GridProps } from '../../Grid';
 
-export const subNavWidth = `${232 / 16}rem`;
+export const subNavWidth = `23.2rem`;
 
 const SubNavWrapper = styled(Grid)`
   width: ${subNavWidth};

@@ -6,7 +6,7 @@ import { MainNavContext } from './MainNavContext';
 import { Flex, FlexProps } from '../../Flex';
 
 const MainNavWrapper = styled(Flex)<{ condensed: boolean }>`
-  width: ${({ condensed }) => (condensed ? 'max-content' : `${224 / 16}rem`)};
+  width: ${({ condensed }) => (condensed ? 'max-content' : `22.4rem`)};
   border-right: 1px solid ${({ theme }) => theme.colors.neutral150};
 `;
 

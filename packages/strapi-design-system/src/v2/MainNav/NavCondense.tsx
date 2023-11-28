@@ -16,16 +16,16 @@ const NavCondenseWrapper = styled(Flex).attrs<FlexProps<'button'>>((props) => ({
   border: 1px solid ${({ theme }) => theme.colors.neutral150};
   border-radius: ${({ theme }) => theme.borderRadius};
   position: absolute;
-  bottom: ${(9 + 4) / 16}rem; // 9 is the height of the svg and 4 is the padding below
+  bottom: 1.3rem; // 9 is the height of the svg and 4 is the padding below
   right: ${({ theme, condensed }) => (condensed ? 0 : theme.spaces[5])};
   transform: ${({ condensed }) => (condensed ? `translateX(50%)` : undefined)};
   z-index: 2;
-  width: ${18 / 16}rem;
-  height: ${25 / 16}rem;
+  width: 1.8rem;
+  height: 2.5rem;
 
   svg {
-    width: ${6 / 16}rem;
-    height: ${9 / 16}rem;
+    width: 0.6rem;
+    height: 0.9rem;
   }
 `;
 

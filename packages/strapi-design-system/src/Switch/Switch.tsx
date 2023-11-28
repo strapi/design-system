@@ -14,8 +14,8 @@ const SwitchContent = styled.div<SwitchButtonProps>`
   border: none;
   border-radius: 16px;
   position: relative;
-  height: ${24 / 16}rem;
-  width: ${40 / 16}rem;
+  height: 2.4rem;
+  width: 4rem;
 
   & span {
     font-size: ${({ visibleLabels }) => (visibleLabels ? '1rem' : 0)};

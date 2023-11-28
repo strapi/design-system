@@ -21,7 +21,7 @@ const TrWrapper = styled(RawTr)`
   th {
     padding-top: 0;
     padding-bottom: 0;
-    height: ${56 / 16}rem;
+    height: 5.6rem;
   }
 `;
 

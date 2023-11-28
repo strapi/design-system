@@ -12,8 +12,8 @@ interface BulletProps {
 
 const Bullet = styled.div<BulletProps>`
   margin-right: ${({ theme }) => theme.spaces[3]};
-  width: ${6 / 16}rem;
-  height: ${6 / 16}rem;
+  width: 0.6rem;
+  height: 0.6rem;
   border-radius: 50%;
   background: ${({ theme, backgroundColor }) => theme.colors[backgroundColor]};
 `;

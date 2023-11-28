@@ -10,8 +10,9 @@ import { VisuallyHidden } from '../VisuallyHidden';
 
 const CrumbWrapper = styled(Flex)`
   svg {
-    height: ${10 / 16}rem;
-    width: ${10 / 16}rem;
+    height: 1rem;
+    width: 1rem;
+
     path {
       fill: ${({ theme }) => theme.colors.neutral500};
     }

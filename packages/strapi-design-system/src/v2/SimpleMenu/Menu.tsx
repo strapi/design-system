@@ -28,7 +28,7 @@ const MenuRoot = DropdownMenu.Root;
 interface TriggerProps extends ButtonProps {}
 
 const MenuTrigger = forwardRef<HTMLButtonElement, TriggerProps>(
-  ({ size, endIcon = <CarretDown width={`${6 / 16}rem`} height={`${4 / 16}rem`} aria-hidden />, ...props }, ref) => {
+  ({ size, endIcon = <CarretDown width="0.6rem" height="0.4rem" aria-hidden />, ...props }, ref) => {
     return (
       <DropdownMenu.Trigger asChild>
         <Button

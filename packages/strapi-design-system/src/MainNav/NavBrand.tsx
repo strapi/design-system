@@ -21,8 +21,8 @@ const BrandIconWrapper = styled.div<{ condensed?: boolean }>`
   img {
     border-radius: ${({ theme }) => theme.borderRadius};
     object-fit: contain;
-    height: ${({ condensed }) => (condensed ? `${40 / 16}rem` : `${32 / 16}rem`)};
-    width: ${({ condensed }) => (condensed ? `${40 / 16}rem` : `${32 / 16}rem`)};
+    height: ${({ condensed }) => (condensed ? `4rem` : `3.2rem`)};
+    width: ${({ condensed }) => (condensed ? `4rem` : `3.2rem`)};
   }
 `;
 

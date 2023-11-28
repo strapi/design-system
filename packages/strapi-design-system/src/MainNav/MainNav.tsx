@@ -10,7 +10,7 @@ export interface MainNavProps extends FlexProps {
 }
 
 const MainNavWrapper = styled(Flex)<MainNavProps>`
-  width: ${({ condensed }) => (condensed ? 'max-content' : `${224 / 16}rem`)};
+  width: ${({ condensed }) => (condensed ? 'max-content' : `22.4rem`)};
   border-right: 1px solid ${({ theme }) => theme.colors.neutral150};
 `;
 
