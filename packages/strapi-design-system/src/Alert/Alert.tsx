@@ -115,7 +115,7 @@ export const Alert = ({
       variant={variant}
       {...props}
     >
-      <AlertIconWrapper height={`${20 / 16}rem`} shrink={0} variant={variant} width={`${20 / 16}rem`}>
+      <AlertIconWrapper height="2rem" shrink={0} variant={variant} width="2rem">
         <AlertIcon aria-hidden variant={variant} />
       </AlertIconWrapper>
 
@@ -143,10 +143,10 @@ export const Alert = ({
         as="button"
         background="transparent"
         borderColor={undefined}
-        height={`${12 / 16}rem`}
+        height="1.2rem"
+        width="1.2rem"
         marginTop={1}
         onClick={onClose}
-        width={`${12 / 16}rem`}
         aria-label={closeLabel}
       >
         <Cross aria-hidden />

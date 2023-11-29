@@ -20,8 +20,8 @@ const ToggleButton = styled(TextButton)<{ expanded: boolean }>`
   }
 
   svg {
-    width: ${14 / 16}rem;
-    height: ${14 / 16}rem;
+    width: 1.4rem;
+    height: 1.4rem;
 
     path {
       fill: ${({ theme, expanded }) => (expanded ? theme.colors.primary600 : theme.colors.neutral500)};
@@ -93,7 +93,7 @@ export const AccordionToggle = ({
   };
   const descriptionColor = expanded ? 'primary600' : 'neutral600';
   const iconColor = expanded ? 'primary200' : 'neutral200';
-  const iconSize = size === 'M' ? `${32 / 16}rem` : `${24 / 16}rem`;
+  const iconSize = size === 'M' ? `3.2rem` : `2.4rem`;
 
   const handleToggle = () => {
     if (!disabled) {
@@ -123,11 +123,7 @@ export const AccordionToggle = ({
       onClick={handleToggle}
       shrink={0}
     >
-      <Icon
-        as={CarretDown}
-        width={size === 'M' ? `${11 / 16}rem` : `${8 / 16}rem`}
-        color={expanded ? 'primary600' : 'neutral600'}
-      />
+      <Icon as={CarretDown} width={size === 'M' ? `1.1rem` : `0.8rem`} color={expanded ? 'primary600' : 'neutral600'} />
     </Flex>
   );
 

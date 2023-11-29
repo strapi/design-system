@@ -35,7 +35,7 @@ export const ModalLayout = ({ onClose, labelledBy, ...props }: ModalLayoutProps)
                 hasRadius
                 role="dialog"
                 shadow="popupShadow"
-                width={`${830 / 16}rem`}
+                width="83rem"
                 {...props}
               />
             </DismissibleLayer>

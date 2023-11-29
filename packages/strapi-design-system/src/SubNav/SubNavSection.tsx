@@ -18,7 +18,7 @@ export interface SubNavSectionProps {
 
 const SubNavSectionWrapper = styled(Box)`
   svg {
-    height: ${4 / 16}rem;
+    height: 0.4rem;
     path {
       fill: ${({ theme }) => theme.colors.neutral500};
     }

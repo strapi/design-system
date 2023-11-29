@@ -330,8 +330,8 @@ const IconBox = styled(Box)`
   border: none;
 
   svg {
-    height: ${11 / 16}rem;
-    width: ${11 / 16}rem;
+    height: 1.1rem;
+    width: 1.1rem;
   }
 
   svg path {
@@ -374,7 +374,7 @@ const Trigger = styled(ComboboxPrimitive.Trigger)<TriggerProps>`
 
 const TextInput = styled(ComboboxPrimitive.TextInput)`
   width: 100%;
-  font-size: ${14 / 16}rem;
+  font-size: 1.4rem;
   color: ${({ theme }) => theme.colors.neutral800};
   padding: 0;
   border: none;
@@ -391,7 +391,7 @@ const TextInput = styled(ComboboxPrimitive.TextInput)`
 
 const DownIcon = styled(ComboboxPrimitive.Icon)`
   & > svg {
-    width: ${6 / 16}rem;
+    width: 0.6rem;
 
     & > path {
       fill: ${({ theme }) => theme.colors.neutral600};

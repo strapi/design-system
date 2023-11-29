@@ -63,7 +63,7 @@ const TextareaInput = React.forwardRef<HTMLTextAreaElement, TextareaInputBoxProp
         disabled={disabled}
         fontSize={2}
         hasRadius
-        height={`${105 / 16}rem`}
+        height="10.5rem"
         id={id}
         ref={ref}
         lineHeight={4}

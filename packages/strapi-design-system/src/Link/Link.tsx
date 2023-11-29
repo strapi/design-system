@@ -21,7 +21,7 @@ const LinkWrapper = styled.a<{ disabled: boolean }>`
   }
 
   svg {
-    font-size: ${10 / 16}rem;
+    font-size: 1rem;
   }
 
   ${Typography} {

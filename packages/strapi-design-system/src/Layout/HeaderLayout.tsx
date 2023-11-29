@@ -1,7 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 
-import styled from 'styled-components';
-
 import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { useElementOnScreen } from '../hooks/useElementOnScreen';
@@ -54,18 +52,13 @@ export const HeaderLayout = (props: HeaderLayoutProps) => {
 
 HeaderLayout.displayName = 'HeaderLayout';
 
-const StickyBox = styled(Box)<{ width?: number }>`
-  width: ${({ width }) => (width ? `${width / 16}rem` : undefined)};
-  z-index: ${({ theme }) => theme.zIndices[1]};
-`;
-
 export const BaseHeaderLayout = React.forwardRef<HTMLDivElement, BaseHeaderLayoutProps>(
   ({ navigationAction, primaryAction, secondaryAction, subtitle, title, sticky, width, ...props }, ref) => {
     const isSubtitleString = typeof subtitle === 'string';
 
     if (sticky) {
       return (
-        <StickyBox
+        <Box
           paddingLeft={6}
           paddingRight={6}
           paddingTop={3}
@@ -75,7 +68,8 @@ export const BaseHeaderLayout = React.forwardRef<HTMLDivElement, BaseHeaderLayou
           right={0}
           background="neutral0"
           shadow="tableShadow"
-          width={width}
+          width={`${width}rem`}
+          zIndex={1}
           data-strapi-header-sticky
         >
           <Flex justifyContent="space-between">
@@ -97,7 +91,7 @@ export const BaseHeaderLayout = React.forwardRef<HTMLDivElement, BaseHeaderLayou
             </Flex>
             <Flex>{primaryAction ? <Box paddingLeft={2}>{primaryAction}</Box> : undefined}</Flex>
           </Flex>
-        </StickyBox>
+        </Box>
       );
     }
 

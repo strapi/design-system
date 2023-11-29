@@ -45,16 +45,16 @@ const SubNavLinkWrapper = styled(Box)`
   }
 `;
 const CustomBullet = styled(Dot)<{ $active?: boolean }>`
-  width: ${12 / 16}rem;
-  height: ${4 / 16}rem;
+  width: 1.2rem;
+  height: 0.4rem;
   * {
     fill: ${({ theme, $active }) => ($active ? theme.colors.primary600 : theme.colors.neutral600)};
   }
 `;
 const IconWrapper = styled.div`
   svg {
-    height: ${12 / 16}rem;
-    width: ${12 / 16}rem;
+    height: 1.2rem;
+    width: 1.2rem;
   }
 `;
 
