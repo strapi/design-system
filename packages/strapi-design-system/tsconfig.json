@@ -15,17 +15,11 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "types": ["vite/client", "jest", "@testing-library/jest-dom"],
+    "types": ["node", "jest", "@testing-library/jest-dom"],
     "baseUrl": ".",
     "paths": {
       "@test/*": ["./test/*"]
     }
   },
-  "exclude": ["**/*.test.tsx", "**/*.test.ts"],
-  "include": ["src", "styled.d.ts"],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    }
-  ]
+  "include": ["src", "test", "styled.d.ts", "module.d.ts", "*.config.ts", "*.config.mjs"]
 }
