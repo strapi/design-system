@@ -62,7 +62,7 @@ interface HrefLinkProps extends SharedLinkProps {
 
 type LinkProps = ToLinkProps | HrefLinkProps;
 
-export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
+const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
   ({ children, href, to, disabled = false, startIcon, endIcon, ...restProps }, ref) => {
     const target = href ? '_blank' : undefined;
     const rel = href ? 'noreferrer noopener' : undefined;
@@ -101,3 +101,6 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
     );
   },
 );
+
+export { Link };
+export type { LinkProps, SharedLinkProps, ToLinkProps, HrefLinkProps };
