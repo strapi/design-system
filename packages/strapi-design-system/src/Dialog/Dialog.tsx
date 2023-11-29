@@ -18,7 +18,7 @@ const DialogWrapper = styled(Box)`
 `;
 
 const DialogContainer = styled(Box)`
-  max-width: ${412 / 16}rem;
+  max-width: 41.2rem;
   margin: 0 auto;
   overflow: hidden;
   margin-top: 10%;

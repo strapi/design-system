@@ -14,7 +14,7 @@ exports[`ModalLayout should render component and match snapshot 1`] = `
 }
 
 .c18 {
-  font-size: 0.75rem;
+  font-size: 1.2rem;
   line-height: 1.33;
   font-weight: 600;
   color: #ffffff;
@@ -31,7 +31,7 @@ exports[`ModalLayout should render component and match snapshot 1`] = `
   background: #ffffff;
   border-radius: 4px;
   box-shadow: 0px 2px 15px rgba(33,33,52,0.1);
-  width: 51.875rem;
+  width: 83rem;
 }
 
 .c5 {
@@ -167,13 +167,13 @@ exports[`ModalLayout should render component and match snapshot 1`] = `
 }
 
 .c16 {
-  height: 2rem;
+  height: 3.2rem;
   border: 1px solid #dcdce4;
   background: #ffffff;
 }
 
 .c16 svg {
-  height: 0.75rem;
+  height: 1.2rem;
   width: auto;
 }
 
@@ -223,13 +223,13 @@ exports[`ModalLayout should render component and match snapshot 1`] = `
 }
 
 .c19 {
-  height: 2rem;
+  height: 3.2rem;
   border: 1px solid #d9d8ff;
   background: #f0f0ff;
 }
 
 .c19 svg {
-  height: 0.75rem;
+  height: 1.2rem;
   width: auto;
 }
 
@@ -289,11 +289,11 @@ exports[`ModalLayout should render component and match snapshot 1`] = `
 }
 
 .c20 {
-  height: 2rem;
+  height: 3.2rem;
 }
 
 .c20 svg {
-  height: 0.75rem;
+  height: 1.2rem;
   width: auto;
 }
 
@@ -347,8 +347,8 @@ exports[`ModalLayout should render component and match snapshot 1`] = `
 
 .c10 {
   border-color: #dcdce4;
-  height: 2rem;
-  width: 2rem;
+  height: 3.2rem;
+  width: 3.2rem;
 }
 
 .c10 svg g,

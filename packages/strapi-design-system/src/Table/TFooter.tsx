@@ -8,16 +8,16 @@ import { Flex } from '../Flex';
 import { Typography } from '../Typography';
 
 const IconBox = styled(Box)`
-  height: ${24 / 16}rem;
-  width: ${24 / 16}rem;
+  height: 2.4rem;
+  width: 2.4rem;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
 
   svg {
-    height: ${10 / 16}rem;
-    width: ${10 / 16}rem;
+    height: 1rem;
+    width: 1rem;
   }
 
   svg path {

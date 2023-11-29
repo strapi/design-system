@@ -14,8 +14,8 @@ const BrandIconWrapper = styled.div<{ condensed?: boolean }>`
 
   svg,
   img {
-    height: ${({ condensed }) => (condensed ? `${40 / 16}rem` : `${32 / 16}rem`)};
-    width: ${({ condensed }) => (condensed ? `${40 / 16}rem` : `${32 / 16}rem`)};
+    height: ${({ condensed }) => (condensed ? `4rem` : `3.2rem`)};
+    width: ${({ condensed }) => (condensed ? `4rem` : `3.2rem`)};
   }
 `;
 

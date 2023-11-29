@@ -12,7 +12,7 @@ export interface EmptyStateLayoutProps extends Pick<FlexProps, 'hasRadius' | 'sh
 
 const EmptyStateIconWrapper = styled(Box)`
   svg {
-    height: ${88 / 16}rem;
+    height: 8.8rem;
   }
 `;
 

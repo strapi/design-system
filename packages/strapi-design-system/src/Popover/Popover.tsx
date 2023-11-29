@@ -192,8 +192,7 @@ export const Scrolling = ({ children, intersectionId, onReachEnd, ...props }: Sc
 };
 
 const PopoverScrollable = styled(Box)`
-  // 16 is base base size, 3 is the factor to get closer to 40px and 5 is the number of elements visible in the list
-  max-height: ${3 * 5}rem;
+  max-height: 20rem;
   overflow-y: auto;
   overflow-x: hidden;
 

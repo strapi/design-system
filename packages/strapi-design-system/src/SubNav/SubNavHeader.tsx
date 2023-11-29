@@ -26,7 +26,7 @@ export interface SubNavHeaderProps {
 }
 
 const CustomDivider = styled(Divider)`
-  width: ${24 / 16}rem;
+  width: 2.4rem;
   background-color: ${({ theme }) => theme.colors.neutral200};
 `;
 

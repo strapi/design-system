@@ -476,8 +476,8 @@ const IconBox = styled(Box)`
   border: none;
 
   svg {
-    height: ${11 / 16}rem;
-    width: ${11 / 16}rem;
+    height: 1.1rem;
+    width: 1.1rem;
   }
 
   svg path {
@@ -766,7 +766,7 @@ function constrainValue(date: CalendarDate, minValue: CalendarDate, maxValue: Ca
 
 const Input = styled.input`
   width: 100%;
-  font-size: ${14 / 16}rem;
+  font-size: 1.4rem;
   color: ${({ theme }) => theme.colors.neutral800};
   height: 100%;
   border: none;
@@ -1125,7 +1125,7 @@ interface HeaderCellProps extends Omit<BoxProps<'td'>, 'children'> {
 const DatePickerHeaderCell = React.forwardRef<HTMLTableCellElement, HeaderCellProps>(
   ({ children, ...props }, forwardedRef) => {
     return (
-      <Th as="th" role="gridcell" ref={forwardedRef} {...props} height={`${24 / 16}rem`} width={`${32 / 16}rem`}>
+      <Th as="th" role="gridcell" ref={forwardedRef} {...props} height="2.4rem" width="3.2rem">
         <Typography variant="pi" fontWeight="bold" color="neutral800">
           {children.slice(0, 2)}
         </Typography>
@@ -1225,7 +1225,7 @@ const DatePickerCalendarCell = React.forwardRef<DatePickerCalendarCellElement, C
 
 const Cell = styled(Box)`
   text-align: center;
-  padding: ${7 / 16}rem;
+  padding: 0.7rem;
   // Trick to prevent the outline from overflowing because of the general outline-offset
   outline-offset: -2px !important;
 

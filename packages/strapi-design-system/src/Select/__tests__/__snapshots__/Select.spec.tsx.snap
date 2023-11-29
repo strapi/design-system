@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select should infer the multi prop on the options when set to true on the Select component 1`] = `
+.c1 {
+  border-radius: 4px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  width: 18px;
+  height: 18px;
+}
+
+.c4 {
+  font-size: 1.4rem;
+  line-height: 1.43;
+  color: #32324d;
+}
+
+.c0 {
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline-offset: -3px;
+  border-radius: 4px;
+  padding: 8px 16px;
+  padding-left: 16px;
+  background-color: #ffffff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.c0:focus-visible {
+  outline: none;
+  background-color: #f0f0ff;
+}
+
+.c0:hover {
+  background-color: #f0f0ff;
+}
+
+.c0[data-state='checked'] .c3 {
+  font-weight: bold;
+  color: #4945ff;
+}
+
+.c2 {
+  border: 1px solid #c0c0cf;
+  background-color: #ffffff;
+}
+
+<div
+  aria-checked="false"
+  aria-labelledby="radix-:r7:"
+  class="c0"
+  data-highlighted=""
+  data-radix-collection-item=""
+  data-state="unchecked"
+  role="option"
+  tabindex="-1"
+>
+  <span
+    aria-hidden="true"
+  >
+    <div
+      class="c1 c2"
+      overflow="hidden"
+    />
+  </span>
+  <span
+    class="c3 c4"
+  >
+    <span
+      id="radix-:r7:"
+    >
+      Option 1
+    </span>
+  </span>
+</div>
+`;

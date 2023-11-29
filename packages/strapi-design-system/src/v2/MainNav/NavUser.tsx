@@ -31,7 +31,7 @@ export const NavUser = React.forwardRef<any, NavUserProps>(({ src, children, ini
             <span>{children}</span>
           </VisuallyHidden>
         ) : (
-          <Box width={`${130 / 16}rem`} paddingLeft={2} as="span">
+          <Box width="13rem" paddingLeft={2} as="span">
             <Typography ellipsis textColor="neutral600">
               {children}
             </Typography>

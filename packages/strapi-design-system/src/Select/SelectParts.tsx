@@ -102,8 +102,8 @@ const IconBox = styled(Box)`
   border: none;
 
   svg {
-    height: ${11 / 16}rem;
-    width: ${11 / 16}rem;
+    height: 1.1rem;
+    width: 1.1rem;
   }
 
   svg path {
@@ -134,7 +134,7 @@ const StyledTrigger = styled(Flex)<StyledTriggerProps>`
 
 const DownIcon = styled(Select.Icon)`
   & > svg {
-    width: ${6 / 16}rem;
+    width: 0.6rem;
 
     & > path {
       fill: ${({ theme }) => theme.colors.neutral600};

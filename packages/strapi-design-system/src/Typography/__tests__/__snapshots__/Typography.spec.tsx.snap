@@ -14,7 +14,7 @@ exports[`Typography textAlign 1`] = `
 }
 
 .c0 {
-  font-size: 0.875rem;
+  font-size: 1.4rem;
   line-height: 1.43;
   color: #32324d;
   text-align: center;
@@ -65,7 +65,7 @@ exports[`Typography textTransform 1`] = `
 }
 
 .c0 {
-  font-size: 0.875rem;
+  font-size: 1.4rem;
   line-height: 1.43;
   color: #32324d;
   text-transform: uppercase;

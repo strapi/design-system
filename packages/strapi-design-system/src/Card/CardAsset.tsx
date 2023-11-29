@@ -16,14 +16,14 @@ const CardAssetImg = styled.img`
 `;
 
 const sizes = {
-  S: 88,
-  M: 164,
+  S: 8.8,
+  M: 16.4,
 };
 
 const CardAssetWrapper = styled.div<{ size: CardAssetSizes }>`
   display: flex;
   justify-content: center;
-  height: ${({ size }) => sizes[size] / 16}rem;
+  height: ${({ size }) => `${sizes[size]}rem`};
   width: 100%;
   background: repeating-conic-gradient(${({ theme }) => theme.colors.neutral100} 0% 25%, transparent 0% 50%) 50% / 20px
     20px;

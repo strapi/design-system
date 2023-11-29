@@ -29,7 +29,7 @@ export const Tag = ({ children, icon, disabled = false, onClick, ...props }: Tag
       borderStyle="solid"
       borderColor={disabled ? 'neutral300' : 'primary200'}
       hasRadius
-      height={`${32 / 16}rem`}
+      height="3.2rem"
       gap={2}
       {...props}
     >
@@ -43,8 +43,8 @@ export const Tag = ({ children, icon, disabled = false, onClick, ...props }: Tag
 
 const TagWrapper = styled(Flex)`
   & > svg {
-    height: ${8 / 16}rem;
-    width: ${8 / 16}rem;
+    height: 0.8rem;
+    width: 0.8rem;
   }
 
   & > svg path {

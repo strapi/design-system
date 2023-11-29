@@ -16,7 +16,7 @@ export interface SubNavLinkSectionProps {
 
 const SubNavLinkSectionWrapper = styled(Box)`
   svg {
-    height: ${4 / 16}rem;
+    height: 0.4rem;
     path {
       fill: ${({ theme }) => theme.colors.neutral700};
     }
@@ -33,7 +33,7 @@ const SubNavLinkSectionButton = styled.button`
 const DropDownIconWrapper = styled.div<{ rotated?: boolean }>`
   display: flex;
   align-items: center;
-  width: ${12 / 16}rem;
+  width: 1.2rem;
   transform: rotateX(${({ rotated }) => (rotated ? '0deg' : '180deg')});
 `;
 

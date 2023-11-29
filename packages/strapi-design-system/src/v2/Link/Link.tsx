@@ -15,7 +15,7 @@ const LinkWrapper = styled(BaseLink)`
   pointer-events: ${({ disabled }) => (disabled ? 'none' : undefined)};
 
   svg {
-    font-size: ${10 / 16}rem;
+    font-size: 1rem;
 
     path {
       fill: ${({ disabled, theme }) => (disabled ? theme.colors.neutral600 : theme.colors.primary600)};

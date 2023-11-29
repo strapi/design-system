@@ -6,7 +6,7 @@ export interface SubNavProps extends GridProps {
   ariaLabel: string;
 }
 
-export const subNavWidth = `${232 / 16}rem`;
+export const subNavWidth = '23.2rem';
 
 const SubNavWrapper = styled(Grid)`
   width: ${subNavWidth};

@@ -19,21 +19,21 @@ export interface Sizes {
 }
 export const sizes: Sizes = {
   input: {
-    S: `${32 / 16}rem`,
-    M: `${40 / 16}rem`,
+    S: `3.2rem`,
+    M: `4rem`,
   },
   accordions: {
-    S: `${48 / 16}rem`,
-    M: `${88 / 16}rem`,
+    S: `4.8rem`,
+    M: `8.8rem`,
   },
   badge: {
-    S: `${16 / 16}rem`,
-    M: `${24 / 16}rem`,
+    S: `1.6rem`,
+    M: `2.4rem`,
   },
   button: {
-    S: `${32 / 16}rem`,
-    M: `${36 / 16}rem`,
-    L: `${40 / 16}rem`,
+    S: `3.2rem`,
+    M: `3.6rem`,
+    L: `4rem`,
   },
 };
 

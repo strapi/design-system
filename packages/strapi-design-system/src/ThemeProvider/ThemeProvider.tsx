@@ -115,9 +115,6 @@ const GlobalStyle = createGlobalStyle`
   section {
     display: block;
   }
-  body {
-    line-height: 1;
-  }
   ol,
   ul {
     list-style: none;
@@ -156,8 +153,9 @@ const GlobalStyle = createGlobalStyle`
 
   body,html{
     height: 100%;
-  }
-  body {
+    /* Sets 1rem === 10px */
+    font-size: 62.5%;
+    line-height: 1;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
 
