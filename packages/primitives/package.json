@@ -3,22 +3,22 @@
   "version": "1.13.2",
   "license": "MIT",
   "sideEffects": false,
-  "main": "./dist/ui-primitives.js",
-  "module": "./dist/ui-primitives.mjs",
+  "source": "./src/index.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "prebuild": "rimraf dist",
-    "build": "yarn build:prod",
-    "build:prod": "vite build",
+    "build": "pack-up build",
     "clean": "rimraf dist node_modules",
     "lint": "eslint . --ext .js,.jsx,.tsx,.ts",
     "format": "yarn lint --fix",
     "test": "jest -c jest.config.mjs",
     "test:ts": "tsc --noEmit",
-    "test:watch": "jest -c jest.config.mjs --watchAll"
+    "test:watch": "jest -c jest.config.mjs --watchAll",
+    "watch": "pack-up watch"
   },
   "dependencies": {
     "@radix-ui/number": "^1.0.1",

@@ -3,25 +3,10 @@
   "version": "1.13.2",
   "license": "MIT",
   "sideEffects": false,
+  "source": "./src/index.ts",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "exports": {
-    "./package.json": "./package.json",
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js",
-      "default": "./dist/index.js"
-    },
-    "./v2": {
-      "types": "./dist/v2/index.d.ts",
-      "import": "./dist/v2/index.mjs",
-      "require": "./dist/v2/index.js",
-      "default": "./dist/v2/index.js"
-    },
-    "./*": "./dist/*"
-  },
   "files": [
     "dist"
   ],
@@ -37,7 +22,6 @@
     "@uiw/react-codemirror": "^4.21.21",
     "aria-hidden": "^1.2.3",
     "compute-scroll-into-view": "^3.1.0",
-    "prop-types": "^15.8.1",
     "react-remove-scroll": "^2.5.7"
   },
   "devDependencies": {
@@ -58,8 +42,7 @@
     "styled-components": "^5.2.1"
   },
   "scripts": {
-    "build": "yarn clean && yarn build:prod",
-    "build:prod": "vite build",
+    "build": "pack-up build",
     "clean": "rimraf dist node_modules",
     "generate:types": "tsc --noEmit false --declaration --emitDeclarationOnly --declarationDir dist",
     "lint": "eslint . --ext .tsx,.ts",
@@ -70,7 +53,8 @@
     "test:e2e": "playwright test",
     "test:e2e:ci": "cross-env CI=true playwright test",
     "test:e2e:watch": "chokidar '**/__tests__/*.e2e.js' -c 'npm run test:e2e -- --retries=0 {path}'",
-    "test:e2e:debug": "cross-env PWDEBUG=1 playwright test"
+    "test:e2e:debug": "cross-env PWDEBUG=1 playwright test",
+    "watch": "pack-up watch"
   },
   "gitHead": "c74900b0ee3525510d266dc83c9743cb24dafced"
 }
