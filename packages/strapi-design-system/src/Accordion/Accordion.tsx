@@ -32,7 +32,7 @@ const getBorder = ({ theme, expanded, variant, disabled, error }: GetBorderParam
   return `1px solid ${theme.colors.neutral100}`;
 };
 
-export const AccordionTypography = styled(Typography)``;
+const AccordionTypography = styled(Typography)``;
 
 type AccordionWrapperProps = Pick<AccordionProps, 'expanded' | 'disabled' | 'variant' | 'error'>;
 
@@ -60,10 +60,10 @@ const AccordionWrapper = styled(Box)<AccordionWrapperProps>`
   }
 `;
 
-export type AccordionSize = 'S' | 'M';
-export type AccordionVariant = 'primary' | 'secondary';
+type AccordionSize = 'S' | 'M';
+type AccordionVariant = 'primary' | 'secondary';
 
-export interface AccordionProps {
+interface AccordionProps {
   children: React.ReactNode;
   /**
    * If `true`, the accordion will be disabled.
@@ -112,7 +112,7 @@ export interface AccordionProps {
   variant?: AccordionVariant;
 }
 
-export const Accordion = ({
+const Accordion = ({
   children,
   disabled = false,
   error,
@@ -156,3 +156,6 @@ export const Accordion = ({
     </AccordionContext.Provider>
   );
 };
+
+export { Accordion, AccordionTypography };
+export type { AccordionProps, AccordionSize, AccordionVariant };
