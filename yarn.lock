@@ -2401,7 +2401,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@changesets/changelog-git@npm:0.1.14, @changesets/changelog-git@npm:^0.1.14":
+"@changesets/changelog-git@npm:0.2.0":
+  version: 0.2.0
+  resolution: "@changesets/changelog-git@npm:0.2.0"
+  dependencies:
+    "@changesets/types": ^6.0.0
+  checksum: 132660f7fdabbdda00ac803cc822d6427a1a38a17a5f414e87ad32f6dc4cbef5280a147ecdc087a28dc06c8bd0762f8d6e7132d01b8a4142b59fbe1bc2177034
+  languageName: node
+  linkType: hard
+
+"@changesets/changelog-git@npm:^0.1.14":
   version: 0.1.14
   resolution: "@changesets/changelog-git@npm:0.1.14"
   dependencies:
@@ -2586,6 +2595,13 @@ __metadata:
   version: 5.2.1
   resolution: "@changesets/types@npm:5.2.1"
   checksum: 527dc1aa41b040fe35bcd55f7d07bec710320b179b000c429723e25b87aac18be487daf5047d4fecf2781aad78f73abff111e76e411b652f7a2e812a464c69f2
+  languageName: node
+  linkType: hard
+
+"@changesets/types@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "@changesets/types@npm:6.0.0"
+  checksum: d528b5d712f62c26ea422c7d34ccf6eac57a353c0733d96716db3c796ecd9bba5d496d48b37d5d46b784dc45b69c06ce3345fa3515df981bb68456cad68e6465
   languageName: node
   linkType: hard
 
@@ -9990,7 +10006,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "design-system@workspace:."
   dependencies:
-    "@changesets/changelog-git": 0.1.14
+    "@changesets/changelog-git": 0.2.0
     "@changesets/cli": 2.26.2
     "@commitlint/cli": 18.4.3
     "@commitlint/config-conventional": 18.4.3
