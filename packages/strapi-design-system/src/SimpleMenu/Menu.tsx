@@ -4,14 +4,14 @@ import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { CarretDown, ChevronRight } from '@strapi/icons';
 import styled, { css, DefaultTheme } from 'styled-components';
 
-import { BaseLink } from '../../BaseLink';
-import { Box, BoxProps } from '../../Box';
-import { Button, ButtonProps } from '../../Button';
-import { Flex, FlexProps } from '../../Flex';
-import { extractStyleFromTheme } from '../../helpers/theme';
-import { POPOVER_PLACEMENTS } from '../../Popover';
-import { Typography, TypographyProps } from '../../Typography';
+import { BaseLink } from '../BaseLink';
+import { Box, BoxProps } from '../Box';
+import { Button, ButtonProps } from '../Button';
+import { Flex, FlexProps } from '../Flex';
+import { extractStyleFromTheme } from '../helpers/theme';
 import { Link, LinkProps } from '../Link';
+import { POPOVER_PLACEMENTS } from '../Popover';
+import { Typography, TypographyProps } from '../Typography';
 
 /* -------------------------------------------------------------------------------------------------
  * MenuRoot

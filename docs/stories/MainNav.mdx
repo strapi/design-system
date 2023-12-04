@@ -1,15 +1,11 @@
 import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
 import { MainNav } from '@strapi/design-system';
 
-import { DeprecationNotice } from '../components/DeprecationNotice';
-
 import * as MainNavStories from './MainNav.stories';
 
 <Meta of={MainNavStories} />
 
 # MainNav
-
-<DeprecationNotice href="/?path=/docs/design-system-components-v2-mainnav--base">the V2 version</DeprecationNotice>
 
 The Main Navigation is consistenly available and displayed on all the different pages of the admin panel to access the
 different main sections. Thanks to it the users can easily navigation from a section to another. The Main Navigation can
@@ -70,7 +66,7 @@ import { NavLink as RouterNavLink } from 'react-router-dom';
 </NavLink>;
 ```
 
-#### (⚠️ Only for Strapi Design System v1.0.0) NextJS usage
+#### NextJS usage
 
 For NextJS, you'll need to wrap the `NavLink` with the `NextLink` component
 

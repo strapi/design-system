@@ -1,31 +1,15 @@
-import * as React from 'react';
+import React from 'react';
 
-import { NavLink, NavLinkProps } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { BaseButtonWrapper, BaseButtonProps } from '../BaseButton';
+import { BaseLink, BaseLinkProps } from '../BaseLink';
 import { VARIANTS, BUTTON_SIZES } from '../Button/constants';
 import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from '../Button/utils';
 import { Flex } from '../Flex';
 import { Typography } from '../Typography';
 
-const LinkWrapper = styled(BaseButtonWrapper)<Required<Pick<LinkButtonProps, 'variant'>>>`
-  &[aria-disabled='true'] {
-    ${getDisabledStyle}
-    &:active {
-      ${getDisabledStyle}
-    }
-  }
-  &:hover {
-    ${getHoverStyle}
-  }
-  &:active {
-    ${getActiveStyle}
-  }
-  ${getVariantStyle}
-`;
-
-interface SharedLinkProps extends BaseButtonProps {
+interface SharedLinkProps extends BaseLinkProps {
   disabled?: boolean;
   endIcon?: React.ReactNode;
   size?: (typeof BUTTON_SIZES)[number];
@@ -33,23 +17,34 @@ interface SharedLinkProps extends BaseButtonProps {
   variant?: (typeof VARIANTS)[number];
 }
 
-interface ToLinkProps extends SharedLinkProps {
-  to: NavLinkProps['to'];
-  href?: never;
-}
+export type LinkButtonProps = SharedLinkProps & BaseButtonProps;
 
-interface HrefLinkProps extends SharedLinkProps {
-  href: string;
-  to?: never;
-}
+const LinkWrapper = styled(BaseButtonWrapper)`
+  text-decoration: none;
 
-type LinkButtonProps = ToLinkProps | HrefLinkProps;
+  &[aria-disabled='true'] {
+    ${getDisabledStyle}
+    &:active {
+      ${getDisabledStyle}
+    }
+  }
+
+  &:hover {
+    ${getHoverStyle}
+  }
+
+  &:active {
+    ${getActiveStyle}
+  }
+
+  ${getVariantStyle}
+`;
 
 export const LinkButton = React.forwardRef<HTMLAnchorElement, LinkButtonProps>(
-  ({ variant = 'default', startIcon, endIcon, disabled = false, children, size = 'S', href, to, ...props }, ref) => {
-    const target = href ? '_blank' : undefined;
-    const rel = href ? 'noreferrer noopener' : undefined;
-
+  (
+    { variant = 'default', startIcon, endIcon, disabled = false, children, size = 'S', as = BaseLink, ...props },
+    ref,
+  ) => {
     const paddingX = size === 'S' ? 2 : '10px';
     const paddingY = 4;
 
@@ -59,10 +54,6 @@ export const LinkButton = React.forwardRef<HTMLAnchorElement, LinkButtonProps>(
         aria-disabled={disabled}
         size={size}
         variant={variant}
-        target={target}
-        rel={rel}
-        to={disabled ? undefined : to}
-        href={disabled ? '#' : href}
         background="buttonPrimary600"
         borderColor="buttonPrimary600"
         hasRadius
@@ -74,7 +65,7 @@ export const LinkButton = React.forwardRef<HTMLAnchorElement, LinkButtonProps>(
         paddingTop={paddingX}
         pointerEvents={disabled ? 'none' : undefined}
         {...props}
-        as={to && !disabled ? NavLink : 'a'}
+        as={as || BaseLink}
       >
         {startIcon && <Flex aria-hidden>{startIcon}</Flex>}
 
@@ -87,3 +78,5 @@ export const LinkButton = React.forwardRef<HTMLAnchorElement, LinkButtonProps>(
     );
   },
 );
+
+LinkButton.displayName = 'LinkButton';

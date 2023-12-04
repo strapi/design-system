@@ -1,29 +1,79 @@
 import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
 import { Link } from '@strapi/design-system';
 
-import { DeprecationNotice } from '../components/DeprecationNotice';
-
 import * as LinkStories from './Link.stories';
+
+<Meta of={LinkStories} />
 
 # Link
 
-<DeprecationNotice href="/?path=/docs/design-system-components-v2-link--base">the V2 version</DeprecationNotice>
+Links are used to send users to another page or an anchor. They are used for external navigation.
 
-Links are a way to navigate to different pages whether internal or external.
+**Best practices**
 
-Best practices
+- Use TextButton component if an action needs to be triggered within the admin panel (ex: Opening a modal ).
+- Clicking on a Link most of the time opens a new tab.
+- Links should always be used with an icon. If it is an external link, use the ExternalLink icon accordingly.
+- Links text should be concise and describe their purpose. Users need to know exactly what they are about to do.
+- Use capital letters.
 
-- A link should have a relevant and clear label.
-- Be positioned in consistent locations in the interface.
-- Add an icon next to the link to emphasize the required action.
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Link)
 
-<Meta of={LinkStories} />
+## Imports
+
+```js
+import { Link } from '@strapi/design-system';
+```
+
+## Usage
+
+Links are used for external navigation. Moreover, they should be associated with an icon to indicate its external
+navigation purpose.
+
+### Base
+
+The simplest representation of the Link component.
 
 <Canvas of={LinkStories.Base} />
 
 ### Disabled link
 
 Depending on the permissions a user have or the status of an action, a link can be unreachable or unavailable yet.
+
+<Canvas of={LinkStories.Disabled} />
+
+### Start & end icons
+
+Display icons on the left or right side.
+
+<Canvas of={LinkStories.Icons} />
+
+### Usage with other routing libraries
+
+To use the Link component with a routing library (e.g. react-router-dom), you'll need to pass the `NavLink` component to
+the `as` prop in order to replace the default HTML anchor `<a />`. You'll now be able to pass all `NavLink` props.
+
+```jsx
+import { Link } from '@strapi/design-system';
+import { NavLink } from 'react-router-dom';
+
+<Link as={NavLink} to="/home">
+  Home
+</Link>;
+```
+
+#### NextJS usage
+
+For NextJS, you'll need to wrap the `Link` with the `NextLink` component
+
+```jsx
+import { Link } from '@strapi/design-system';
+import NextLink from 'next/link';
+
+<NextLink href="/home" passHref>
+  <Link>Home</Link>
+</NextLink>;
+```
 
 ## Props
 

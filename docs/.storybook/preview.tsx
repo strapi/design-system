@@ -1,5 +1,4 @@
 import { ReactNode, useEffect, useState } from 'react';
-import { MemoryRouter } from 'react-router-dom';
 import { Preview } from '@storybook/react';
 import { useDarkMode } from 'storybook-dark-mode';
 import { parse } from 'qs';
@@ -11,19 +10,17 @@ import { createCustomTheme } from './utils/createCustomTheme';
 const preview: Preview = {
   decorators: [
     (Story) => (
-      <MemoryRouter>
-        <Theme>
-          <main>
-            <VisuallyHidden>
-              {/* Necessary in order to prevent axe core from providing errors on main / heading */}
-              <h1>Storybook story</h1>
-            </VisuallyHidden>
-            <Box height="100%" padding={2}>
-              <Story />
-            </Box>
-          </main>
-        </Theme>
-      </MemoryRouter>
+      <Theme>
+        <main>
+          <VisuallyHidden>
+            {/* Necessary in order to prevent axe core from providing errors on main / heading */}
+            <h1>Storybook story</h1>
+          </VisuallyHidden>
+          <Box height="100%" padding={2}>
+            <Story />
+          </Box>
+        </main>
+      </Theme>
     ),
   ],
   parameters: {

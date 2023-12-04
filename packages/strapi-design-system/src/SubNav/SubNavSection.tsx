@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Children, useState } from 'react';
 
 import styled from 'styled-components';
 
@@ -7,14 +7,6 @@ import { Badge } from '../Badge';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { useId } from '../hooks/useId';
-
-export interface SubNavSectionProps {
-  badgeLabel: string;
-  children: React.ReactNode;
-  collapsable?: boolean;
-  id: string;
-  label: string;
-}
 
 const SubNavSectionWrapper = styled(Box)`
   svg {
@@ -25,8 +17,16 @@ const SubNavSectionWrapper = styled(Box)`
   }
 `;
 
+export interface SubNavSectionProps {
+  badgeLabel?: string;
+  children: React.ReactNode;
+  collapsable?: boolean;
+  id?: string;
+  label: string;
+}
+
 export const SubNavSection = ({ collapsable = false, label, badgeLabel, children, id }: SubNavSectionProps) => {
-  const [isOpen, setOpenLinks] = React.useState(true);
+  const [isOpen, setOpenLinks] = useState(true);
   const listId = useId(id);
 
   const handleClick = () => {
@@ -35,7 +35,7 @@ export const SubNavSection = ({ collapsable = false, label, badgeLabel, children
 
   return (
     <Flex direction="column" alignItems="stretch" gap={1}>
-      <SubNavSectionWrapper paddingLeft={6} paddingTop={1} paddingBottom={1} paddingRight={4}>
+      <SubNavSectionWrapper paddingLeft={6} paddingTop={2} paddingBottom={2} paddingRight={4}>
         <Box position="relative" paddingRight={badgeLabel ? 6 : 0}>
           <SubNavSectionLabel
             onClick={handleClick}
@@ -60,7 +60,7 @@ export const SubNavSection = ({ collapsable = false, label, badgeLabel, children
       </SubNavSectionWrapper>
       {(!collapsable || isOpen) && (
         <ol id={listId}>
-          {React.Children.map(children, (child, index) => {
+          {Children.map(children, (child, index) => {
             // eslint-disable-next-line react/no-array-index-key
             return <li key={index}>{child}</li>;
           })}

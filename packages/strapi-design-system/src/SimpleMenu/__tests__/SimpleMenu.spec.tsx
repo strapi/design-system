@@ -1,67 +1,76 @@
-import * as React from 'react';
+import { render as renderRTL } from '@test/utils';
 
-import { render, screen, fireEvent, waitFor } from '@test/utils';
+import { SimpleMenu, MenuItem, SimpleMenuProps } from '../SimpleMenu';
 
-import { SimpleMenu, MenuItem } from '../SimpleMenu';
+const Component = ({ onClick = () => {}, ...restProps }: SimpleMenuProps) => (
+  <SimpleMenu label="Menu" {...restProps}>
+    <MenuItem onClick={onClick}>January</MenuItem>
+    <MenuItem onClick={onClick}>February</MenuItem>
+    <MenuItem href="https://strapi.io" isExternal>
+      Strapi website
+    </MenuItem>
+    <MenuItem href="/" isLink>
+      Home
+    </MenuItem>
+  </SimpleMenu>
+);
+
+const render = (props: Partial<SimpleMenuProps> = {}) => renderRTL(<Component {...props} />);
 
 describe('SimpleMenu', () => {
-  it('display the menu on click on the menu button', async () => {
-    render(
-      <SimpleMenu label="Menu">
-        <MenuItem onClick={() => {}}>January</MenuItem>
-        <MenuItem onClick={() => {}}>February</MenuItem>
-        <MenuItem href="https://strapi.io" isExternal>
-          Strapi website
-        </MenuItem>
-      </SimpleMenu>,
-    );
+  it('should render only the trigger initially', () => {
+    const { getByRole, queryByRole } = render();
 
-    const button = await waitFor(() => screen.getByText('Menu'));
-    fireEvent.mouseDown(button);
-
-    await waitFor(() => {
-      expect(screen.getByText('February')).toBeInTheDocument();
-    });
+    expect(getByRole('button', { name: 'Menu' })).toBeInTheDocument();
+    expect(queryByRole('menu')).not.toBeInTheDocument();
+    expect(getByRole('button', { name: 'Menu' })).toHaveAttribute('aria-expanded', 'false');
+    expect(getByRole('button', { name: 'Menu' })).toHaveAttribute('aria-haspopup', 'menu');
   });
 
-  it('display the menu and click on a menu item', async () => {
-    const onClickSpy = jest.fn();
+  it('should open the menu when the trigger is clicked', async () => {
+    const { getByRole, user } = render();
 
-    render(
-      <SimpleMenu label="Menu">
-        <MenuItem onClick={onClickSpy}>January</MenuItem>
-        <MenuItem onClick={onClickSpy}>February</MenuItem>
-        <MenuItem href="https://strapi.io" isExternal>
-          Strapi website
-        </MenuItem>
-      </SimpleMenu>,
-    );
+    await user.click(getByRole('button', { name: 'Menu' }));
 
-    const button = await waitFor(() => screen.getByText('Menu'));
-    fireEvent.mouseDown(button);
-
-    const menuItemButton = await waitFor(() => screen.getByText('February'));
-    fireEvent.mouseDown(menuItemButton);
-
-    expect(onClickSpy).toBeCalled();
+    expect(getByRole('menu', { name: 'Menu' })).toBeInTheDocument();
+    expect(getByRole('button', { name: '', hidden: true })).toHaveAttribute('aria-expanded', 'true');
+    expect(getByRole('button', { name: '', hidden: true })).toHaveAttribute('aria-controls', expect.any(String));
+    expect(getByRole('button', { name: '', hidden: true })).toHaveAttribute('aria-hidden', 'true');
+    expect(getByRole('menuitem', { name: 'February' })).toBeInTheDocument();
   });
 
-  it('display the menu on click on the external link menu button', async () => {
-    render(
-      <SimpleMenu label="Menu">
-        <MenuItem onClick={() => {}}>January</MenuItem>
-        <MenuItem onClick={() => {}}>February</MenuItem>
-        <MenuItem href="https://strapi.io" isExternal>
-          Strapi website
-        </MenuItem>
-      </SimpleMenu>,
-    );
+  it('should close the menu when the escape key is pressed after its opened', async () => {
+    const { getByRole, queryByRole, user } = render();
 
-    const button = await waitFor(() => screen.getByText('Menu'));
-    fireEvent.mouseDown(button);
+    await user.click(getByRole('button', { name: 'Menu' }));
+    await user.keyboard('{Escape}');
 
-    await waitFor(() => {
-      expect(screen.getByText('Strapi website').closest('a')).toHaveAttribute('href', 'https://strapi.io');
-    });
+    expect(getByRole('button', { name: 'Menu' })).toHaveAttribute('aria-expanded', 'false');
+    expect(queryByRole('menu')).not.toBeInTheDocument();
   });
+
+  it('should call onOpen when the menu is opened', async () => {
+    const onOpen = jest.fn();
+
+    const { getByRole, user } = render({ onOpen });
+
+    await user.click(getByRole('button', { name: 'Menu' }));
+
+    expect(onOpen).toBeCalled();
+  });
+
+  it('should call onClose when the menu is closed', async () => {
+    const onClose = jest.fn();
+
+    const { getByRole, user } = render({ onClose });
+
+    await user.click(getByRole('button', { name: 'Menu' }));
+    await user.keyboard('[Escape]');
+
+    expect(onClose).toBeCalled();
+  });
+
+  it.todo('should fire onReachEnd');
+
+  it.todo('should handle the popoverPlacement prop');
 });

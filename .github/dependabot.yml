@@ -42,11 +42,6 @@ updates:
           - '@types/react'
           - '@types/react-dom'
 
-      react-router:
-        patterns:
-          - 'react-router-dom'
-          - '@types/react-router-dom'
-
       storybook:
         patterns:
           - '@storybook/*'

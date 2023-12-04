@@ -17,3 +17,29 @@ Users can no longer `import { Combobox } from '@strapi/design-system/Combobox'`,
 ### Change font-size on html,body to 62.5%
 
 The base font-size for the app is now 10px, so 1rem = 10px. This means that users should stop dividing their px values by 16 and instead divide by 10. This will make it easier to convert px to rem.
+
+### Removed deprecated components
+
+The following components have been replaced with their V2 counterpart:
+
+- `Breadcrumbs`
+- `Link`
+- `LinkButton`
+- `MainNav`
+- `Pagination`
+- `SimpleMenu`
+- `SubNav`
+
+The following components have been removed:
+
+#### `Select` / `Option` / `OptGroup` / `SelectList`
+
+These comoponents were deprecated previously. It is recommended to use the new iteration either the `SingleSelect` or `MultiSelect` components to replace them depending on your use case.
+
+#### `Stack`
+
+This was just a wrapped component around `Flex`. You should use `Flex` instead.
+
+#### `ToggleCheckbox`
+
+This is the same component as `ToggleInput` and therefore you should use that instead.

@@ -5,14 +5,14 @@ import { checkA11y } from 'axe-playwright';
 test.describe.parallel('Pagination', () => {
   test.describe('light mode', () => {
     test('triggers axe on the document', async ({ page }) => {
-      await navigateToStory(page, 'design-system-components-pagination--base');
+      await navigateToStory(page, 'design-system-components-v2-pagination--base');
       await checkA11y(page);
     });
   });
 
   test.describe('dark mode', () => {
     test('triggers axe on the document', async ({ page }) => {
-      await navigateToStory(page, 'design-system-components-pagination--base', { isDarkMode: true });
+      await navigateToStory(page, 'design-system-components-v2-pagination--base');
       await checkA11y(page);
     });
   });

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Box } from '../../Box';
-import { Typography, TypographyProps } from '../../Typography';
+import { Box } from '../Box';
+import { Typography, TypographyProps } from '../Typography';
 
 export interface CrumbProps extends TypographyProps {
   isCurrent?: boolean;

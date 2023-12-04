@@ -5,14 +5,14 @@ import { checkA11y } from 'axe-playwright';
 test.describe.parallel('MainNav', () => {
   test.describe('light mode', () => {
     test('triggers axe on the document', async ({ page }) => {
-      await navigateToStory(page, 'design-system-components-mainnav--base');
+      await navigateToStory(page, 'design-system-components-v2-mainnav--base');
       await checkA11y(page);
     });
   });
 
   test.describe('dark mode', () => {
     test('triggers axe on the document', async ({ page }) => {
-      await navigateToStory(page, 'design-system-components-mainnav--base', { isDarkMode: true });
+      await navigateToStory(page, 'design-system-components-v2-mainnav--base');
       await checkA11y(page);
     });
   });

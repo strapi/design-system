@@ -29,7 +29,6 @@ const config: StorybookConfig = {
         ...config.resolve?.alias,
         '@strapi/ui-primitives': resolve(__dirname, '..', '..', 'packages', 'primitives', 'src'),
         '@strapi/design-system': resolve(__dirname, '..', '..', 'packages', 'strapi-design-system', 'src'),
-        '@strapi/design-system/v2': resolve(__dirname, '..', '..', 'packages', 'strapi-design-system', 'src', 'v2'),
         '@strapi/icons': resolve(__dirname, '..', '..', 'packages', 'strapi-icons', 'src'),
       };
     }

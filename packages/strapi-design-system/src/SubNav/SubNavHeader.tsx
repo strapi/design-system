@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, ChangeEventHandler } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 import { Search } from '@strapi/icons';
 import styled from 'styled-components';
@@ -13,28 +13,28 @@ import { IconButton } from '../IconButton';
 import { Searchbar, SearchForm } from '../Searchbar';
 import { Typography } from '../Typography';
 
-export interface SubNavHeaderProps {
-  as?: string | React.ComponentType<any>;
-  id: string;
-  label: string;
-  onChange?: ChangeEventHandler<HTMLInputElement>;
-  onClear?: (event: Event) => void;
-  onSubmit?: React.FormEventHandler;
-  searchable: boolean;
-  searchLabel?: string;
-  value?: string;
-}
-
 const CustomDivider = styled(Divider)`
   width: 2.4rem;
   background-color: ${({ theme }) => theme.colors.neutral200};
 `;
 
+export interface SubNavHeaderProps {
+  as?: keyof JSX.IntrinsicElements;
+  id?: string;
+  label: string;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
+  onClear?: React.MouseEventHandler<HTMLInputElement>;
+  onSubmit?: React.FormEventHandler<HTMLInputElement>;
+  searchLabel?: string;
+  searchable?: boolean;
+  value?: string;
+}
+
 export const SubNavHeader = ({
   as = 'h2',
   label,
   searchLabel = '',
-  searchable,
+  searchable = false,
   onChange = () => {},
   value = '',
   onClear = () => {},
@@ -44,8 +44,8 @@ export const SubNavHeader = ({
   const [isSearchOpen, setSearchOpen] = useState(false);
   const previousSearchOpenValue = usePrevious(isSearchOpen);
   const clearButtonId = useId(id);
-  const searchRef = useRef<HTMLInputElement>(null);
-  const searchButtonRef = useRef<HTMLButtonElement>(null);
+  const searchRef = useRef<HTMLInputElement>(undefined!);
+  const searchButtonRef = useRef<HTMLButtonElement>(undefined!);
 
   useEffect(() => {
     if (isSearchOpen && searchRef.current) {
@@ -62,10 +62,7 @@ export const SubNavHeader = ({
 
   const handleClear = (e) => {
     onClear(e);
-
-    if (searchRef?.current) {
-      searchRef.current.focus();
-    }
+    searchRef.current.focus();
   };
 
   const handleBlur = (e) => {

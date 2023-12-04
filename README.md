@@ -21,11 +21,11 @@ plugins more efficiently.
 Install Strapi Design System and its peer dependencies:
 
 ```sh
-$ yarn add react react-dom @strapi/design-system @strapi/icons styled-components react-router-dom
+$ yarn add react react-dom @strapi/design-system @strapi/icons styled-components
 
 # or
 
-$ npm i react react-dom @strapi/design-system @strapi/icons styled-components react-router-dom
+$ npm i react react-dom @strapi/design-system @strapi/icons styled-components
 ```
 
 ## Getting Started

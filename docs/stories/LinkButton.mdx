@@ -1,15 +1,11 @@
 import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
 import { LinkButton } from '@strapi/design-system';
 
-import { DeprecationNotice } from '../components/DeprecationNotice';
-
 import * as LinkButtonStories from './LinkButton.stories';
 
 <Meta of={LinkButtonStories} />
 
 # LinkButton
-
-<DeprecationNotice href="/?path=/docs/design-system-components-v2-linkbutton--base">the V2 version</DeprecationNotice>
 
 LinkButtons are a way to perform actions that links to a different page component that will stay within one page. They
 help interact with its content via a single click. According to their style, specific labels and icons, they help
@@ -86,7 +82,7 @@ import { NavLink } from 'react-router-dom';
 </LinkButton>;
 ```
 
-#### (⚠️ Only for Strapi Design System v1.0.0) NextJS usage
+#### NextJS usage
 
 For NextJS, you'll need to wrap the `LinkButton` with the `NextLink` component
 

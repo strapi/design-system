@@ -1,16 +1,16 @@
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 import {
+  Box,
+  Flex,
+  TextButton,
   SubNav,
   SubNavHeader,
   SubNavSection,
   SubNavSections,
   SubNavLink,
   SubNavLinkSection,
-  Box,
-  Flex,
-  TextButton,
 } from '@strapi/design-system';
 import { Apps, Plus, ExclamationMarkCircle } from '@strapi/icons';
 
@@ -67,7 +67,7 @@ export const Base = {
               searchable
               value={search}
               onClear={() => setSearch('')}
-              onChange={(e) => setSearch(e.target.value)}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => setSearch(e.target.value)}
               label="Content-Type Builder"
               searchLabel="Search..."
             />
@@ -85,7 +85,7 @@ export const Base = {
               <SubNavSection label="Single Type" collapsable badgeLabel={links.length.toString()}>
                 <SubNavLinkSection label="Default">
                   {links.map((link) => (
-                    <SubNavLink to={link.to} isSubSectionChild key={link.id}>
+                    <SubNavLink to={link.to} key={link.id} isSubSectionChild>
                       {link.label}
                     </SubNavLink>
                   ))}
@@ -114,7 +114,7 @@ export const Base = {
                 {links.map(
                   (link) =>
                     link.icon && (
-                      <SubNavLink to={link.to} active={link.active} icon={link.icon} key={link.id}>
+                      <SubNavLink to={link.to} active={link.active} icon={link.icon} key={link.id} isSubSectionChild>
                         {link.label}
                       </SubNavLink>
                     ),
@@ -149,7 +149,7 @@ export const Base = {
               <SubNavSection label="Global Settings">
                 <SubNavLinkSection label="Sub section">
                   {links.map((link) => (
-                    <SubNavLink to={link.to} active={link.active} icon={link.icon} isSubSectionChild key={link.id}>
+                    <SubNavLink to={link.to} active={link.active} icon={link.icon} key={link.id}>
                       {link.label}
                     </SubNavLink>
                   ))}
