@@ -24,8 +24,11 @@ const LoaderAnimated = styled(Loader)`
   will-change: transform;
 `;
 
-export const ButtonWrapper = styled(BaseButton)<Required<Pick<ButtonProps, 'size' | 'variant'>>>`
-  height: ${({ theme, size }) => theme.sizes.button[size]};
+export const ButtonWrapper = styled(BaseButton)<{
+  $size: NonNullable<ButtonProps['size']>;
+  $variant: NonNullable<ButtonProps['variant']>;
+}>`
+  height: ${({ theme, $size }) => theme.sizes.button[$size]};
 
   svg {
     height: 1.2rem;
@@ -90,24 +93,24 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         aria-disabled={isDisabled}
         disabled={isDisabled}
-        size={size}
-        variant={variant}
+        $size={size}
+        $variant={variant}
         onClick={handleClick}
-        fullWidth={fullWidth}
-        alignItems="center"
-        background="buttonPrimary600"
-        borderColor="buttonPrimary600"
-        gap={2}
-        inline={fullWidth}
-        justifyContent={fullWidth ? 'center' : undefined}
-        paddingLeft={4}
-        paddingRight={4}
-        width={fullWidth ? '100%' : undefined}
+        $fullWidth={fullWidth}
+        $alignItems="center"
+        $background="buttonPrimary600"
+        $borderColor="buttonPrimary600"
+        $gap={2}
+        $inline={fullWidth}
+        $justifyContent={fullWidth ? 'center' : undefined}
+        $paddingLeft={4}
+        $paddingRight={4}
+        $width={fullWidth ? '100%' : undefined}
         {...props}
       >
         {(startIcon || loading) && <Box aria-hidden>{loading ? <LoaderAnimated /> : startIcon}</Box>}
 
-        <Typography variant={size === 'S' ? 'pi' : undefined} fontWeight="bold" textColor="buttonNeutral0">
+        <Typography $variant={size === 'S' ? 'pi' : undefined} $fontWeight="bold" $textColor="buttonNeutral0">
           {children}
         </Typography>
 

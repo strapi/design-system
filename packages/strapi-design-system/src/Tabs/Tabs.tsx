@@ -7,9 +7,9 @@ import { DefaultTabsRow, DefaultTabButton, DefaultTabBox, SimpleTabBox } from '.
 import { useTabs } from './TabsContext';
 import type { FlexProps } from '../Flex';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
-import { Typography } from '../Typography';
+import { Typography, TypographyProps } from '../Typography';
 
-const useTabsFocus = (selectedTabIndex, onTabChange) => {
+const useTabsFocus = (selectedTabIndex: number, onTabChange?: (index: number) => void) => {
   const tabsRef = React.useRef<HTMLDivElement>(null);
   const mountedRef = React.useRef(false);
 
@@ -62,7 +62,7 @@ export const Tabs = ({ children, ...props }: TabsProps) => {
     }),
   );
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
     const hasAllChildrenDisabled = childrenArray.every((node) => node.props.disabled);
 
     if (hasAllChildrenDisabled) {
@@ -72,7 +72,7 @@ export const Tabs = ({ children, ...props }: TabsProps) => {
     switch (e.key) {
       case KeyboardKeys.RIGHT: {
         const nextWantedIndex = selectedTabIndex + 1;
-        const findNextIndex = (ref) => {
+        const findNextIndex = (ref: number): number => {
           const isDisabled = childrenArray[ref].props.disabled;
 
           if (!isDisabled) {
@@ -95,7 +95,7 @@ export const Tabs = ({ children, ...props }: TabsProps) => {
 
       case KeyboardKeys.LEFT: {
         const nextWantedIndex = selectedTabIndex - 1;
-        const findNextIndex = (ref) => {
+        const findNextIndex = (ref: number): number => {
           const isDisabled = childrenArray[ref].props.disabled;
 
           if (!isDisabled) {
@@ -200,7 +200,7 @@ export const Tab = ({
   };
 
   if (variant === 'simple') {
-    let textColor;
+    let textColor: TypographyProps['$textColor'];
 
     if (hasError) {
       textColor = 'danger600';
@@ -224,8 +224,8 @@ export const Tab = ({
         aria-disabled={disabled}
         {...props}
       >
-        <SimpleTabBox padding={4} selected={selected} hasError={hasError}>
-          <Typography variant="sigma" textColor={textColor}>
+        <SimpleTabBox $padding={4} $selected={selected} $hasError={hasError}>
+          <Typography $variant="sigma" $textColor={textColor}>
             {children}
           </Typography>
         </SimpleTabBox>
@@ -249,11 +249,15 @@ export const Tab = ({
       aria-selected={selected}
       onClick={handleClick}
       aria-disabled={disabled}
-      showRightBorder={Boolean(showRightBorder)}
+      $showRightBorder={Boolean(showRightBorder)}
       {...props}
     >
-      <DefaultTabBox padding={selected ? 4 : 3} background={selected ? 'neutral0' : 'neutral100'} selected={selected}>
-        <Typography fontWeight="bold" textColor={selected ? 'primary700' : 'neutral600'}>
+      <DefaultTabBox
+        $padding={selected ? 4 : 3}
+        $background={selected ? 'neutral0' : 'neutral100'}
+        $selected={selected}
+      >
+        <Typography $fontWeight="bold" $textColor={selected ? 'primary700' : 'neutral600'}>
           {children}
         </Typography>
       </DefaultTabBox>

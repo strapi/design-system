@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import { BaseButtonWrapper, BaseButtonProps } from '../BaseButton';
 import { BaseLink, BaseLinkProps } from '../BaseLink';
-import { VARIANTS, BUTTON_SIZES } from '../Button/constants';
+import { VARIANTS, BUTTON_SIZES, Variant } from '../Button/constants';
 import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from '../Button/utils';
 import { Flex } from '../Flex';
 import { Typography } from '../Typography';
@@ -19,7 +19,7 @@ interface SharedLinkProps extends BaseLinkProps {
 
 export type LinkButtonProps = SharedLinkProps & BaseButtonProps;
 
-const LinkWrapper = styled(BaseButtonWrapper)`
+const LinkWrapper = styled(BaseButtonWrapper)<{ $variant: Variant }>`
   text-decoration: none;
 
   &[aria-disabled='true'] {
@@ -52,24 +52,23 @@ export const LinkButton = React.forwardRef<HTMLAnchorElement, LinkButtonProps>(
       <LinkWrapper
         ref={ref}
         aria-disabled={disabled}
-        size={size}
-        variant={variant}
-        background="buttonPrimary600"
-        borderColor="buttonPrimary600"
-        hasRadius
-        gap={2}
-        inline
-        paddingBottom={paddingX}
-        paddingLeft={paddingY}
-        paddingRight={paddingY}
-        paddingTop={paddingX}
-        pointerEvents={disabled ? 'none' : undefined}
+        $variant={variant}
+        $background="buttonPrimary600"
+        $borderColor="buttonPrimary600"
+        $hasRadius
+        $gap={2}
+        $inline
+        $paddingBottom={paddingX}
+        $paddingLeft={paddingY}
+        $paddingRight={paddingY}
+        $paddingTop={paddingX}
+        $pointerEvents={disabled ? 'none' : undefined}
         {...props}
         as={as || BaseLink}
       >
         {startIcon && <Flex aria-hidden>{startIcon}</Flex>}
 
-        <Typography variant={size === 'S' ? 'pi' : undefined} fontWeight="bold" textColor="buttonNeutral0">
+        <Typography $variant={size === 'S' ? 'pi' : undefined} $fontWeight="bold" $textColor="buttonNeutral0">
           {children}
         </Typography>
 

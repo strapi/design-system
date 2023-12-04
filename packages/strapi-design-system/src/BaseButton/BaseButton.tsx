@@ -26,7 +26,7 @@ export const BaseButtonWrapper = styled(Flex)`
 export type BaseButtonProps<TElement extends keyof JSX.IntrinsicElements = 'button'> = FlexProps<TElement>;
 
 export const BaseButton = React.forwardRef<HTMLButtonElement, BaseButtonProps>(
-  ({ disabled, children, background = 'neutral0', ...props }, ref) => {
+  ({ disabled, children, $background = 'neutral0', ...props }, ref) => {
     return (
       <BaseButtonWrapper
         ref={ref}
@@ -34,11 +34,11 @@ export const BaseButton = React.forwardRef<HTMLButtonElement, BaseButtonProps>(
         as="button"
         type="button"
         disabled={disabled}
-        padding={2}
-        hasRadius
-        background={background}
-        borderColor="neutral200"
-        cursor="pointer"
+        $padding={2}
+        $hasRadius
+        $background={$background}
+        $borderColor="neutral200"
+        $cursor="pointer"
         {...props}
       >
         {children}

@@ -9,8 +9,8 @@ interface DeprecationNoticeProps {
 
 export const DeprecationNotice = ({ children, href }: DeprecationNoticeProps) => (
   <DesignSystemProvider theme={lightTheme}>
-    <Flex padding={5} background="danger200" justifyContent="center" marginTop={4} marginBottom={4}>
-      <Typography fontSize={4} fontWeight="bold" as="p">
+    <Flex $padding={5} $background="danger200" $justifyContent="center" $marginTop={4} $marginBottom={4}>
+      <Typography $fontSize={4} $fontWeight="bold" as="p">
         ⛔️
         <strong>
           {' This component has been deprecated. Please use '}

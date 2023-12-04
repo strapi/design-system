@@ -11,38 +11,6 @@ import { Icon } from '../Icon';
 import { TextButton } from '../TextButton';
 import { Typography } from '../Typography';
 
-const ToggleButton = styled(TextButton)<{ expanded: boolean }>`
-  text-align: left;
-
-  // necessary to make the ellipsis prop work on the title
-  > span {
-    max-width: 100%;
-  }
-
-  svg {
-    width: 1.4rem;
-    height: 1.4rem;
-
-    path {
-      fill: ${({ theme, expanded }) => (expanded ? theme.colors.primary600 : theme.colors.neutral500)};
-    }
-  }
-`;
-
-const FlexWithSize = styled(Flex)<{ expanded: boolean; size: AccordionSize }>`
-  min-height: ${({ theme, size }) => theme.sizes.accordions[size]};
-  border-radius: ${({ theme, expanded }) =>
-    expanded ? `${theme.borderRadius} ${theme.borderRadius} 0 0` : theme.borderRadius};
-
-  &:hover {
-    svg {
-      path {
-        fill: ${({ theme }) => theme.colors.primary600};
-      }
-    }
-  }
-`;
-
 interface AccordionToggleProps {
   /**
    * Will render a node to the right of the Accordion component
@@ -63,7 +31,7 @@ interface AccordionToggleProps {
   togglePosition?: 'right' | 'left';
 }
 
-export const AccordionToggle = ({
+const AccordionToggle = ({
   title,
   description,
   as = 'span',
@@ -110,36 +78,40 @@ export const AccordionToggle = ({
 
   const dropdownIcon = (
     <Flex
-      justifyContent="center"
-      borderRadius="50%"
-      height={iconSize}
-      width={iconSize}
-      transform={expanded ? `rotate(180deg)` : undefined}
+      $justifyContent="center"
+      $borderRadius="50%"
+      $height={iconSize}
+      $width={iconSize}
+      $transform={expanded ? `rotate(180deg)` : undefined}
       data-strapi-dropdown
       aria-hidden
       as="span"
-      background={iconColor}
-      cursor={disabled ? 'not-allowed' : 'pointer'}
+      $background={iconColor}
+      $cursor={disabled ? 'not-allowed' : 'pointer'}
       onClick={handleToggle}
-      shrink={0}
+      $shrink={0}
     >
-      <Icon as={CarretDown} width={size === 'M' ? `1.1rem` : `0.8rem`} color={expanded ? 'primary600' : 'neutral600'} />
+      <Icon
+        as={CarretDown}
+        $width={size === 'M' ? `${11 / 16}rem` : `${8 / 16}rem`}
+        $color={expanded ? 'primary600' : 'neutral600'}
+      />
     </Flex>
   );
 
   return (
     <FlexWithSize
-      paddingBottom={boxPaddingY}
-      paddingLeft={boxPaddingX}
-      paddingRight={boxPaddingX}
-      paddingTop={boxPaddingY}
-      background={boxBackground}
-      expanded={expanded}
-      size={size}
-      justifyContent="space-between"
-      cursor={disabled ? 'not-allowed' : ''}
+      $paddingBottom={boxPaddingY}
+      $paddingLeft={boxPaddingX}
+      $paddingRight={boxPaddingX}
+      $paddingTop={boxPaddingY}
+      $background={boxBackground}
+      $expanded={expanded}
+      $size={size}
+      $justifyContent="space-between"
+      $cursor={disabled ? 'not-allowed' : ''}
     >
-      <Flex gap={3} flex={1} maxWidth="100%">
+      <Flex $gap={3} $flex={1} $maxWidth="100%">
         {togglePosition === 'left' && dropdownIcon}
 
         <ToggleButton
@@ -149,17 +121,17 @@ export const AccordionToggle = ({
           aria-controls={ariaControls}
           aria-labelledby={ariaLabelId}
           data-strapi-accordion-toggle
-          expanded={expanded}
+          $expanded={expanded}
           type="button"
-          flex={1}
-          minWidth={0}
+          $flex={1}
+          $minWidth={0}
           {...props}
         >
           <>
             <AccordionTypography {...titleProps}>{title}</AccordionTypography>
 
             {description && (
-              <Typography as="p" id={ariaDescriptionId} textColor={descriptionColor}>
+              <Typography as="p" id={ariaDescriptionId} $textColor={descriptionColor}>
                 {description}
               </Typography>
             )}
@@ -167,7 +139,7 @@ export const AccordionToggle = ({
         </ToggleButton>
 
         {togglePosition === 'right' && (
-          <Flex gap={3}>
+          <Flex $gap={3}>
             {dropdownIcon}
             {action}
           </Flex>
@@ -178,3 +150,38 @@ export const AccordionToggle = ({
     </FlexWithSize>
   );
 };
+
+const ToggleButton = styled(TextButton)<{ $expanded: boolean }>`
+  text-align: left;
+
+  // necessary to make the ellipsis prop work on the title
+  > span {
+    max-width: 100%;
+  }
+
+  svg {
+    width: ${14 / 16}rem;
+    height: ${14 / 16}rem;
+
+    path {
+      fill: ${({ theme, $expanded }) => ($expanded ? theme.colors.primary600 : theme.colors.neutral500)};
+    }
+  }
+`;
+
+const FlexWithSize = styled(Flex)<{ $expanded: boolean; $size: AccordionSize }>`
+  min-height: ${({ theme, $size }) => theme.sizes.accordions[$size]};
+  border-radius: ${({ theme, $expanded }) =>
+    $expanded ? `${theme.borderRadius} ${theme.borderRadius} 0 0` : theme.borderRadius};
+
+  &:hover {
+    svg {
+      path {
+        fill: ${({ theme }) => theme.colors.primary600};
+      }
+    }
+  }
+`;
+
+export { AccordionToggle };
+export type { AccordionToggleProps };

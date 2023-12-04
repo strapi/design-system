@@ -17,14 +17,14 @@ const TableWrapper = styled(RawTable)`
 
 export type Overflowing = 'both' | 'left' | 'right';
 
-const TableBox = styled(Box)<{ overflowing?: Overflowing }>`
+const TableBox = styled(Box)<{ $overflowing?: Overflowing }>`
   &:before {
     // TODO: make sure to add a token for this weird stuff
     background: linear-gradient(90deg, #c0c0cf 0%, rgba(0, 0, 0, 0) 100%);
     opacity: 0.2;
     position: absolute;
     height: 100%;
-    content: ${({ overflowing }) => (overflowing === 'both' || overflowing === 'left' ? "''" : undefined)};
+    content: ${({ $overflowing }) => ($overflowing === 'both' || $overflowing === 'left' ? "''" : undefined)};
     box-shadow: ${({ theme }) => theme.shadows.tableShadow};
     width: ${({ theme }) => theme.spaces[2]};
     left: 0;
@@ -36,7 +36,7 @@ const TableBox = styled(Box)<{ overflowing?: Overflowing }>`
     opacity: 0.2;
     position: absolute;
     height: 100%;
-    content: ${({ overflowing }) => (overflowing === 'both' || overflowing === 'right' ? "''" : undefined)};
+    content: ${({ $overflowing }) => ($overflowing === 'both' || $overflowing === 'right' ? "''" : undefined)};
     box-shadow: ${({ theme }) => theme.shadows.tableShadow};
     width: ${({ theme }) => theme.spaces[2]};
     right: 0;
@@ -56,22 +56,24 @@ export const Table = ({ footer, ...props }: TableProps) => {
   const tableRef = React.useRef<HTMLDivElement>(null!);
   const [overflowing, setOverflowing] = React.useState<Overflowing>();
 
-  const handleScroll = (e) => {
-    const maxScrollLeft = e.target.scrollWidth - e.target.clientWidth;
+  const handleScroll: React.UIEventHandler<HTMLDivElement> = (e) => {
+    const element = e.target as HTMLDivElement;
 
-    if (e.target.scrollLeft === 0) {
+    const maxScrollLeft = element.scrollWidth - element.clientWidth;
+
+    if (element.scrollLeft === 0) {
       setOverflowing('right');
 
       return;
     }
 
-    if (e.target.scrollLeft === maxScrollLeft) {
+    if (element.scrollLeft === maxScrollLeft) {
       setOverflowing('left');
 
       return;
     }
 
-    if (e.target.scrollLeft > 0) {
+    if (element.scrollLeft > 0) {
       setOverflowing('both');
     }
   };
@@ -83,9 +85,9 @@ export const Table = ({ footer, ...props }: TableProps) => {
   }, []);
 
   return (
-    <TableContainer shadow="tableShadow" hasRadius background="neutral0">
-      <TableBox overflowing={overflowing} position="relative">
-        <ScrollContainer ref={tableRef} onScroll={handleScroll} paddingLeft={6} paddingRight={6}>
+    <TableContainer $shadow="tableShadow" $hasRadius $background="neutral0">
+      <TableBox $overflowing={overflowing} $position="relative">
+        <ScrollContainer ref={tableRef} onScroll={handleScroll} $paddingLeft={6} $paddingRight={6}>
           <TableWrapper {...props} />
         </ScrollContainer>
       </TableBox>

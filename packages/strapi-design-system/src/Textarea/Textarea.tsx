@@ -21,7 +21,7 @@ export interface TextareaProps extends TextareaInputBoxProps, Pick<FieldProps, '
 
 interface TextareaInputBoxProps extends BoxProps<'textarea'> {}
 
-const Wrapper = styled(Box)`
+const Wrapper = styled(Box)<{ $hasError: boolean }>`
   ${inputFocusStyle()}
 `;
 
@@ -52,23 +52,23 @@ const TextareaInput = React.forwardRef<HTMLTextAreaElement, TextareaInputBoxProp
   }
 
   return (
-    <Wrapper borderColor={hasError ? 'danger600' : 'neutral200'} hasError={hasError} hasRadius>
+    <Wrapper $borderColor={hasError ? 'danger600' : 'neutral200'} $hasError={hasError} $hasRadius>
       <TextareaElement
         aria-describedby={ariaDescription}
         aria-invalid={hasError}
         aria-required={required}
         as="textarea"
-        background={disabled ? 'neutral150' : 'neutral0'}
-        color={disabled ? 'neutral600' : 'neutral800'}
+        $background={disabled ? 'neutral150' : 'neutral0'}
+        $color={disabled ? 'neutral600' : 'neutral800'}
         disabled={disabled}
-        fontSize={2}
-        hasRadius
-        height="10.5rem"
+        $fontSize={2}
+        $hasRadius
+        $height="10.5rem"
         id={id}
         ref={ref}
-        lineHeight={4}
-        padding={4}
-        width="100%"
+        $lineHeight={4}
+        $padding={4}
+        $width="100%"
         {...props}
       />
     </Wrapper>
@@ -81,7 +81,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
 
     return (
       <Field name={name} hint={hint} error={error} id={generatedId} required={required}>
-        <Flex direction="column" alignItems="stretch" gap={1}>
+        <Flex $direction="column" $alignItems="stretch" $gap={1}>
           {label && <FieldLabel action={labelAction}>{label}</FieldLabel>}
 
           <TextareaInput ref={ref} value={children ?? value} {...props} />

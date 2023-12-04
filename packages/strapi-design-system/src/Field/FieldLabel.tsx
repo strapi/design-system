@@ -32,16 +32,16 @@ export const FieldLabel = React.forwardRef<HTMLLabelElement, FieldLabelProps>(
     return (
       <TypographyFlex
         ref={ref}
-        variant="pi"
-        textColor="neutral800"
+        $variant="pi"
+        $textColor="neutral800"
         htmlFor={id}
-        fontWeight="bold"
+        $fontWeight="bold"
         as="label"
         {...props}
       >
         {children}
-        {required && <TypographyAsterisk textColor="danger600">*</TypographyAsterisk>}
-        {action && <Action marginLeft={1}>{action}</Action>}
+        {required && <TypographyAsterisk $textColor="danger600">*</TypographyAsterisk>}
+        {action && <Action $marginLeft={1}>{action}</Action>}
       </TypographyFlex>
     );
   },

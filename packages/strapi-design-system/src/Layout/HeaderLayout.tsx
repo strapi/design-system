@@ -59,37 +59,37 @@ export const BaseHeaderLayout = React.forwardRef<HTMLDivElement, BaseHeaderLayou
     if (sticky) {
       return (
         <Box
-          paddingLeft={6}
-          paddingRight={6}
-          paddingTop={3}
-          paddingBottom={3}
-          position="fixed"
-          top={0}
-          right={0}
-          background="neutral0"
-          shadow="tableShadow"
-          width={`${width}rem`}
-          zIndex={1}
+          $paddingLeft={6}
+          $paddingRight={6}
+          $paddingTop={3}
+          $paddingBottom={3}
+          $position="fixed"
+          $top={0}
+          $right={0}
+          $background="neutral0"
+          $shadow="tableShadow"
+          $width={`${width}rem`}
+          $zIndex={1}
           data-strapi-header-sticky
         >
-          <Flex justifyContent="space-between">
+          <Flex $justifyContent="space-between">
             <Flex>
-              {navigationAction && <Box paddingRight={3}>{navigationAction}</Box>}
+              {navigationAction && <Box $paddingRight={3}>{navigationAction}</Box>}
               <Box>
-                <Typography variant="beta" as="h1" {...props}>
+                <Typography $variant="beta" as="h1" {...props}>
                   {title}
                 </Typography>
                 {isSubtitleString ? (
-                  <Typography variant="pi" textColor="neutral600">
+                  <Typography $variant="pi" $textColor="neutral600">
                     {subtitle}
                   </Typography>
                 ) : (
                   subtitle
                 )}
               </Box>
-              {secondaryAction ? <Box paddingLeft={4}>{secondaryAction}</Box> : null}
+              {secondaryAction ? <Box $paddingLeft={4}>{secondaryAction}</Box> : null}
             </Flex>
-            <Flex>{primaryAction ? <Box paddingLeft={2}>{primaryAction}</Box> : undefined}</Flex>
+            <Flex>{primaryAction ? <Box $paddingLeft={2}>{primaryAction}</Box> : undefined}</Flex>
           </Flex>
         </Box>
       );
@@ -98,25 +98,25 @@ export const BaseHeaderLayout = React.forwardRef<HTMLDivElement, BaseHeaderLayou
     return (
       <Box
         ref={ref}
-        paddingLeft={10}
-        paddingRight={10}
-        paddingBottom={8}
-        paddingTop={navigationAction ? 6 : 8}
-        background="neutral100"
+        $paddingLeft={10}
+        $paddingRight={10}
+        $paddingBottom={8}
+        $paddingTop={navigationAction ? 6 : 8}
+        $background="neutral100"
         data-strapi-header
       >
-        {navigationAction ? <Box paddingBottom={2}>{navigationAction}</Box> : null}
-        <Flex justifyContent="space-between">
-          <Flex minWidth={0}>
-            <Typography as="h1" variant="alpha" {...props}>
+        {navigationAction ? <Box $paddingBottom={2}>{navigationAction}</Box> : null}
+        <Flex $justifyContent="space-between">
+          <Flex $minWidth={0}>
+            <Typography as="h1" $variant="alpha" {...props}>
               {title}
             </Typography>
-            {secondaryAction ? <Box paddingLeft={4}>{secondaryAction}</Box> : null}
+            {secondaryAction ? <Box $paddingLeft={4}>{secondaryAction}</Box> : null}
           </Flex>
           {primaryAction}
         </Flex>
         {isSubtitleString ? (
-          <Typography variant="epsilon" textColor="neutral600" as="p">
+          <Typography $variant="epsilon" $textColor="neutral600" as="p">
             {subtitle}
           </Typography>
         ) : (

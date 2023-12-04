@@ -10,7 +10,7 @@ export const useId = (initialId?: string | number | undefined): string => {
 
   // React versions older than 18 will have client-side ids only.
   React.useLayoutEffect(() => {
-    if (!initialId) setId((reactId) => reactId ?? String(count++));
+    if (!initialId) setId((reactId: string) => reactId ?? String(count++));
   }, [initialId]);
 
   return initialId?.toString() ?? (id || '');

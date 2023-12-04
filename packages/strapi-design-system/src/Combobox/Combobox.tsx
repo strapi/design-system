@@ -211,7 +211,7 @@ export const ComboboxInput = React.forwardRef<ComboboxInputElement, ComboboxInpu
         isPrintableCharacter={isPrintableCharacter}
       >
         <Trigger $hasError={Boolean(error)} $size={size} className={className}>
-          <Flex flex="1" as="span" gap={3}>
+          <Flex $flex="1" as="span" $gap={3}>
             {startIcon ? (
               <Box as="span" aria-hidden>
                 {startIcon}
@@ -227,12 +227,12 @@ export const ComboboxInput = React.forwardRef<ComboboxInputElement, ComboboxInpu
               {...restProps}
             />
           </Flex>
-          <Flex as="span" gap={3}>
+          <Flex as="span" $gap={3}>
             {internalTextValue && onClear ? (
               <IconBox
                 as="button"
-                hasRadius
-                background="transparent"
+                $hasRadius
+                $background="transparent"
                 type="button"
                 onClick={handleClearClick}
                 aria-disabled={disabled}
@@ -271,11 +271,11 @@ export const ComboboxInput = React.forwardRef<ComboboxInputElement, ComboboxInpu
                 </ComboboxPrimitive.NoValueFound>
               ) : null}
               {loading ? (
-                <Flex justifyContent="center" alignItems="center" paddingTop={2} paddingBottom={2}>
+                <Flex $justifyContent="center" $alignItems="center" $paddingTop={2} $paddingBottom={2}>
                   <Loader small>{loadingMessage}</Loader>
                 </Flex>
               ) : null}
-              <Box id={intersectionId} width="100%" height="1px" />
+              <Box id={intersectionId} $width="100%" $height="1px" />
             </Viewport>
           </Content>
         </ComboboxPrimitive.Portal>
@@ -302,7 +302,7 @@ export const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
 
     return (
       <Field hint={hint} error={error} id={generatedId} required={required}>
-        <Flex direction="column" alignItems="stretch" gap={1}>
+        <Flex $direction="column" $alignItems="stretch" $gap={1}>
           {label ? <FieldLabel action={labelAction}>{label}</FieldLabel> : null}
           <ComboboxInput ref={forwardedRef} id={generatedId} error={error} required={required} {...restProps} />
           <FieldHint />
@@ -356,7 +356,7 @@ const Trigger = styled(ComboboxPrimitive.Trigger)<TriggerProps>`
   align-items: center;
   justify-content: space-between;
   gap: ${({ theme }) => theme.spaces[4]};
-  min-height: ${({ theme, $size }) => getThemeSize('input')({ theme, size: $size })};
+  min-height: ${({ theme, $size }) => getThemeSize('input')({ theme, $size })};
 
   &[data-disabled] {
     color: ${({ theme }) => theme.colors.neutral600};
@@ -369,7 +369,7 @@ const Trigger = styled(ComboboxPrimitive.Trigger)<TriggerProps>`
     outline: none;
   }
 
-  ${({ theme, $hasError }) => inputFocusStyle()({ theme, hasError: $hasError })};
+  ${({ theme, $hasError }) => inputFocusStyle()({ theme, $hasError })};
 `;
 
 const TextInput = styled(ComboboxPrimitive.TextInput)`

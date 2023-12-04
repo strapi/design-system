@@ -23,10 +23,10 @@ export interface DialogBodyProps {
 
 export const DialogBody = ({ children, icon }: DialogBodyProps) => {
   return (
-    <Box paddingTop={8} paddingBottom={8} paddingLeft={6} paddingRight={6}>
+    <Box $paddingTop={8} $paddingBottom={8} $paddingLeft={6} $paddingRight={6}>
       {icon && (
-        <IconContainer paddingBottom={2}>
-          <Flex justifyContent="center">{icon}</Flex>
+        <IconContainer $paddingBottom={2}>
+          <Flex $justifyContent="center">{icon}</Flex>
         </IconContainer>
       )}
       {children}

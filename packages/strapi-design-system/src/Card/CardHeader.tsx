@@ -9,5 +9,5 @@ const CardHeaderWrapper = styled(Flex)`
 export type CardHeaderProps = FlexProps;
 
 export const CardHeader = (props: CardHeaderProps) => {
-  return <CardHeaderWrapper position="relative" justifyContent="center" {...props} />;
+  return <CardHeaderWrapper $position="relative" $justifyContent="center" {...props} />;
 };

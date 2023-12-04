@@ -18,22 +18,22 @@ export const Tag = ({ children, icon, disabled = false, onClick, ...props }: Tag
   return (
     <TagWrapper
       as="button"
-      background={disabled ? 'neutral200' : 'primary100'}
-      color={disabled ? 'neutral700' : 'primary600'}
-      paddingLeft={3}
-      paddingRight={3}
+      $background={disabled ? 'neutral200' : 'primary100'}
+      $color={disabled ? 'neutral700' : 'primary600'}
+      $paddingLeft={3}
+      $paddingRight={3}
       onClick={handleClick}
       aria-disabled={disabled}
       disabled={disabled}
-      borderWidth="1px"
-      borderStyle="solid"
-      borderColor={disabled ? 'neutral300' : 'primary200'}
-      hasRadius
-      height="3.2rem"
-      gap={2}
+      $borderWidth="1px"
+      $borderStyle="solid"
+      $borderColor={disabled ? 'neutral300' : 'primary200'}
+      $hasRadius
+      $height="3.2rem"
+      $gap={2}
       {...props}
     >
-      <TagText $disabled={disabled} variant="pi" fontWeight="bold" as="span">
+      <TagText $disabled={disabled} $variant="pi" $fontWeight="bold" as="span">
         {children}
       </TagText>
       {icon}

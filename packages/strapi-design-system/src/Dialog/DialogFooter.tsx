@@ -22,8 +22,8 @@ export interface DialogFooterProps {
 
 export const DialogFooter = ({ startAction, endAction }: DialogFooterProps) => {
   return (
-    <FooterWrapper padding={4}>
-      <Flex gap={2}>
+    <FooterWrapper $padding={4}>
+      <Flex $gap={2}>
         {startAction}
         {endAction}
       </Flex>

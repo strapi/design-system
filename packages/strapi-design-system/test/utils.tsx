@@ -15,7 +15,7 @@ type RenderRTLResult = RenderResult & {
 };
 
 // eslint-disable-next-line react/jsx-no-useless-fragment
-const fallbackWrapper = ({ children }) => <>{children}</>;
+const fallbackWrapper = ({ children }: { children: React.ReactNode }) => <>{children}</>;
 
 export const render = (
   ui: React.ReactElement,

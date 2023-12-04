@@ -15,10 +15,10 @@ const ModalFooterWrapper = styled(Box)`
 
 export const ModalFooter = ({ startActions, endActions }: ModalFooterProps) => {
   return (
-    <ModalFooterWrapper paddingTop={4} paddingBottom={4} paddingLeft={5} paddingRight={5} background="neutral100">
-      <Flex justifyContent="space-between">
-        <Flex gap={2}>{startActions}</Flex>
-        <Flex gap={2}>{endActions}</Flex>
+    <ModalFooterWrapper $paddingTop={4} $paddingBottom={4} $paddingLeft={5} $paddingRight={5} $background="neutral100">
+      <Flex $justifyContent="space-between">
+        <Flex $gap={2}>{startActions}</Flex>
+        <Flex $gap={2}>{endActions}</Flex>
       </Flex>
     </ModalFooterWrapper>
   );

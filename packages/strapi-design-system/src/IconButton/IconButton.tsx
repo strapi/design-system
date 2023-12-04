@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { BaseButton, BaseButtonProps } from '../BaseButton';
 import { Flex } from '../Flex';
 import { Tooltip } from '../Tooltip';
+import { PrefixWithDollar } from '../types';
 import { VisuallyHidden } from '../VisuallyHidden';
 
 // TODO: we should align the default state in v2 with the Button
@@ -61,8 +62,8 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
   (
     {
       label,
-      background,
-      borderWidth,
+      $background,
+      $borderWidth,
       noBorder = false,
       children,
       icon,
@@ -84,14 +85,14 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
     const component = (
       <IconButtonWrapper
         aria-disabled={disabled}
-        background={disabled ? 'neutral150' : background}
-        borderWidth={noBorder ? 0 : borderWidth}
-        justifyContent="center"
+        $background={disabled ? 'neutral150' : $background}
+        $borderWidth={noBorder ? 0 : $borderWidth}
+        $justifyContent="center"
         {...restProps}
         ref={ref}
-        size={size}
+        $size={size}
         onClick={handleClick}
-        variant={variant}
+        $variant={variant}
       >
         <VisuallyHidden as="span">{label ?? ariaLabel}</VisuallyHidden>
 
@@ -106,29 +107,29 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
   },
 );
 
-const IconButtonWrapper = styled(BaseButton)<Required<Pick<IconButtonProps, 'size' | 'variant'>>>`
-  background-color: ${({ theme, variant }) => {
-    if (variant === VARIANT_SECONDARY) {
+const IconButtonWrapper = styled(BaseButton)<Required<PrefixWithDollar<Pick<IconButtonProps, 'size' | 'variant'>>>>`
+  background-color: ${({ theme, $variant }) => {
+    if ($variant === VARIANT_SECONDARY) {
       return theme.colors.primary100;
     }
 
     return undefined;
   }};
-  border-color: ${({ theme, variant }) => {
-    if (variant === VARIANT_SECONDARY) {
+  border-color: ${({ theme, $variant }) => {
+    if ($variant === VARIANT_SECONDARY) {
       return theme.colors.primary200;
     }
 
     return theme.colors.neutral200;
   }};
-  height: ${({ theme, size }) => theme.sizes.button[size]};
-  width: ${({ theme, size }) => theme.sizes.button[size]};
+  height: ${({ theme, $size }) => theme.sizes.button[$size]};
+  width: ${({ theme, $size }) => theme.sizes.button[$size]};
 
   svg {
     g,
     path {
-      fill: ${({ theme, variant }) => {
-        if (variant === VARIANT_SECONDARY) {
+      fill: ${({ theme, $variant }) => {
+        if ($variant === VARIANT_SECONDARY) {
           return theme.colors.primary500;
         }
 
@@ -142,8 +143,8 @@ const IconButtonWrapper = styled(BaseButton)<Required<Pick<IconButtonProps, 'siz
     svg {
       g,
       path {
-        fill: ${({ theme, variant }) => {
-          if (variant === VARIANT_SECONDARY) {
+        fill: ${({ theme, $variant }) => {
+          if ($variant === VARIANT_SECONDARY) {
             return theme.colors.primary600;
           }
 

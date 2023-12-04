@@ -4,7 +4,7 @@ import type { AlertVariant } from './Alert';
 
 interface StyledProps {
   theme: DefaultTheme;
-  variant: AlertVariant;
+  $variant: AlertVariant;
 }
 
 export const handleBackgroundColor = (variant: AlertVariant) => {
@@ -25,16 +25,16 @@ export const handleBorderColor = (variant: AlertVariant) => {
   return handleBackgroundColor(variant).replace('100', '200');
 };
 
-export const handleIconColor = ({ theme, variant }: StyledProps) => {
-  if (variant === 'danger') {
+export const handleIconColor = ({ theme, $variant }: StyledProps) => {
+  if ($variant === 'danger') {
     return theme.colors.danger700;
   }
 
-  if (variant === 'success') {
+  if ($variant === 'success') {
     return theme.colors.success700;
   }
 
-  if (variant === 'warning') {
+  if ($variant === 'warning') {
     return theme.colors.warning700;
   }
 

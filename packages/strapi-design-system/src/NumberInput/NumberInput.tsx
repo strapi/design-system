@@ -22,16 +22,17 @@ import { useControllableState } from '../hooks/useControllableState';
 import { useId } from '../hooks/useId';
 import { Icon } from '../Icon';
 
-const ArrowButton = styled.button<{ reverse?: boolean }>`
+const ArrowButton = styled.button<{ $reverse?: boolean }>`
   display: flex;
   height: 1rem;
-  align-items: ${({ reverse }) => (reverse ? 'flex-end' : 'flex-start')};
-  transform: translateY(${({ reverse }) => (reverse ? `-2px` : `2px`)});
+  align-items: ${({ $reverse }) => ($reverse ? 'flex-end' : 'flex-start')};
+  transform: ${({ $reverse }) => ($reverse ? `translateY(-2px)` : `translateY(2px)`)};
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : undefined)};
+
   svg {
     display: block;
     height: 0.4rem;
-    transform: ${({ reverse }) => (reverse ? 'rotateX(180deg)' : undefined)};
+    transform: ${({ $reverse }) => ($reverse ? 'rotateX(180deg)' : undefined)};
   }
 `;
 
@@ -143,7 +144,7 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
       formatNumberAndSetInput(numberFormaterRef.current.format(newValue));
     };
 
-    const handleKeyDown = (e) => {
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
       if (disabled) return;
 
       switch (e.key) {
@@ -178,7 +179,7 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
 
     return (
       <Field name={name} hint={hint} error={error} id={generatedId} required={required}>
-        <Flex direction="column" alignItems="stretch" gap={1}>
+        <Flex $direction="column" $alignItems="stretch" $gap={1}>
           {label && <FieldLabel action={labelAction}>{label}</FieldLabel>}
           <FieldInput
             ref={ref}
@@ -196,7 +197,7 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
                 <ArrowButton
                   disabled={disabled}
                   aria-hidden
-                  reverse
+                  $reverse
                   onClick={increment}
                   tabIndex={-1}
                   type="button"

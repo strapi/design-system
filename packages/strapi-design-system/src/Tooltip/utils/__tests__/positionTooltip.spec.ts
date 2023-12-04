@@ -1,16 +1,16 @@
 import { positionTooltip } from '../positionTooltip';
 
 describe('positionTooltip', () => {
-  let tooltipNode;
-  let toggleSourceNode;
+  let tooltipNode: HTMLDivElement;
+  let toggleSourceNode: HTMLDivElement;
 
   beforeEach(() => {
     tooltipNode = {
-      getBoundingClientRect: () => ({ width: 160, height: 40 }),
-    };
+      getBoundingClientRect: () => ({ width: 160, height: 40 }) as DOMRect,
+    } as HTMLDivElement;
     toggleSourceNode = {
-      getBoundingClientRect: () => ({ left: 500, top: 300, width: 100, height: 30 }),
-    };
+      getBoundingClientRect: () => ({ left: 500, top: 300, width: 100, height: 30 }) as DOMRect,
+    } as HTMLDivElement;
 
     window.pageYOffset = 800;
   });
@@ -41,8 +41,8 @@ describe('positionTooltip', () => {
 
   it('positions the tooltip on the right of the toggle source when toggle source pos is top-left', () => {
     toggleSourceNode = {
-      getBoundingClientRect: () => ({ left: 15, top: 15, width: 50, height: 20 }),
-    };
+      getBoundingClientRect: () => ({ left: 15, top: 15, width: 50, height: 20 }) as DOMRect,
+    } as HTMLDivElement;
     window.pageYOffset = 0;
 
     const position = positionTooltip(tooltipNode, toggleSourceNode);
@@ -52,8 +52,8 @@ describe('positionTooltip', () => {
 
   it('positions the tooltip on the right of the toggle source when toggle source pos is bottom-left', () => {
     toggleSourceNode = {
-      getBoundingClientRect: () => ({ left: 15, top: 760, width: 50, height: 20 }),
-    };
+      getBoundingClientRect: () => ({ left: 15, top: 760, width: 50, height: 20 }) as DOMRect,
+    } as HTMLDivElement;
 
     window.pageYOffset = 0;
     window.innerHeight = 800;
@@ -65,8 +65,8 @@ describe('positionTooltip', () => {
 
   it('positions the tooltip below the toggle source when toggle source pos is top-center', () => {
     toggleSourceNode = {
-      getBoundingClientRect: () => ({ left: 400, top: 15, width: 50, height: 20 }),
-    };
+      getBoundingClientRect: () => ({ left: 400, top: 15, width: 50, height: 20 }) as DOMRect,
+    } as HTMLDivElement;
     window.pageYOffset = 0;
     window.innerWidth = 800;
 
@@ -77,8 +77,8 @@ describe('positionTooltip', () => {
 
   it('positions the tooltip above the toggle source when toggle source pos is bottom-center', () => {
     toggleSourceNode = {
-      getBoundingClientRect: () => ({ left: 400, top: 760, width: 50, height: 20 }),
-    };
+      getBoundingClientRect: () => ({ left: 400, top: 760, width: 50, height: 20 }) as DOMRect,
+    } as HTMLDivElement;
     window.pageYOffset = 0;
     window.innerWidth = 800;
 
@@ -89,8 +89,8 @@ describe('positionTooltip', () => {
 
   it('positions the tooltip on the left of the toggle source when toggle source pos is top-right', () => {
     toggleSourceNode = {
-      getBoundingClientRect: () => ({ left: 750, right: 800, top: 15, width: 50, height: 20 }),
-    };
+      getBoundingClientRect: () => ({ left: 750, right: 800, top: 15, width: 50, height: 20 }) as DOMRect,
+    } as HTMLDivElement;
     window.innerWidth = 800;
     window.pageYOffset = 0;
 
@@ -101,8 +101,8 @@ describe('positionTooltip', () => {
 
   it('positions the tooltip on the left of the toggle source when toggle source pos is bottom-right', () => {
     toggleSourceNode = {
-      getBoundingClientRect: () => ({ left: 750, right: 800, top: 760, width: 50, height: 20 }),
-    };
+      getBoundingClientRect: () => ({ left: 750, right: 800, top: 760, width: 50, height: 20 }) as DOMRect,
+    } as HTMLDivElement;
     window.innerWidth = 800;
     window.innerHeight = 800;
     window.pageYOffset = 0;

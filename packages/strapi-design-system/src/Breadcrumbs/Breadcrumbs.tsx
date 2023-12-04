@@ -30,7 +30,7 @@ export const Breadcrumbs = ({ label, children, ...props }: BreadcrumbsProps) => 
           const shouldDisplayDivider = childrenArray.length > 1 && index + 1 < childrenArray.length;
 
           return (
-            <Flex inline as="li">
+            <Flex $inline as="li">
               {child}
               {shouldDisplayDivider && <Divider />}
             </Flex>

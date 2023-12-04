@@ -23,11 +23,12 @@ const SubNavLinkSectionButton = styled.button`
   display: flex;
   align-items: center;
 `;
-const DropDownIconWrapper = styled.div<{ rotated: boolean }>`
+
+const DropDownIconWrapper = styled.div<{ $rotated?: boolean }>`
   display: flex;
   align-items: center;
   width: 1.2rem;
-  transform: rotateX(${({ rotated }) => (rotated ? '0deg' : '180deg')});
+  transform: rotateX(${({ $rotated }) => ($rotated ? '0deg' : '180deg')});
 `;
 
 export interface SubNavLinkSectionProps {
@@ -46,14 +47,14 @@ export const SubNavLinkSection = ({ label, children, id }: SubNavLinkSectionProp
 
   return (
     <Box>
-      <SubNavLinkSectionWrapper paddingLeft={7} paddingTop={2} paddingBottom={2} paddingRight={4}>
-        <Flex justifyContent="space-between">
+      <SubNavLinkSectionWrapper $paddingLeft={7} $paddingTop={2} $paddingBottom={2} $paddingRight={4}>
+        <Flex $justifyContent="space-between">
           <SubNavLinkSectionButton onClick={handleClick} aria-expanded={isOpen} aria-controls={listId}>
-            <DropDownIconWrapper rotated={isOpen}>
+            <DropDownIconWrapper $rotated={isOpen}>
               <CarretDown aria-hidden />
             </DropDownIconWrapper>
-            <Box paddingLeft={2}>
-              <Typography as="span" fontWeight="semiBold" textColor="neutral800">
+            <Box $paddingLeft={2}>
+              <Typography as="span" $fontWeight="semiBold" $textColor="neutral800">
                 {label}
               </Typography>
             </Box>

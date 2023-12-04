@@ -20,14 +20,14 @@ export const SkipToContent = ({ children }: SkipToContentProps) => {
     <AnchorBox
       as="a"
       href="#main-content"
-      background="primary600"
-      color="neutral0"
-      left="-100%"
-      padding={3}
-      position="absolute"
-      top="-100%"
-      hasRadius
-      zIndex={9999}
+      $background="primary600"
+      $color="neutral0"
+      $left="-100%"
+      $padding={3}
+      $position="absolute"
+      $top="-100%"
+      $hasRadius
+      $zIndex={9999}
     >
       {children}
     </AnchorBox>

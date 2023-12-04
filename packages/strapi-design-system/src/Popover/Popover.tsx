@@ -153,9 +153,9 @@ export const Content = React.forwardRef<HTMLDivElement, ContentProps>(
                 position: strategy,
                 width: width || undefined,
               }}
-              hasRadius
-              background="neutral0"
-              padding={1}
+              $hasRadius
+              $background="neutral0"
+              $padding={1}
               {...props}
             >
               {children}
@@ -185,7 +185,7 @@ export const Scrolling = ({ children, intersectionId, onReachEnd, ...props }: Sc
     <PopoverScrollable ref={popoverRef} {...props}>
       {children}
       {intersectionId && onReachEnd && (
-        <Box id={stripReactIdOfColon(generatedIntersectionId)} width="100%" height="1px" />
+        <Box id={stripReactIdOfColon(generatedIntersectionId)} $width="100%" $height="1px" />
       )}
     </PopoverScrollable>
   );

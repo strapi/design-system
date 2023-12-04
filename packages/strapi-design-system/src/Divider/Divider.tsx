@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { Box, BoxProps } from '../Box';
 
-export interface DividerProps extends Omit<BoxProps<'hr'>, 'as' | 'background'> {
+export interface DividerProps extends Omit<BoxProps<'hr'>, 'as' | '$background'> {
   /**
    * @preserve
    * @deprecated use `margin` style props instead
@@ -19,5 +19,5 @@ const DividerWrapper = styled(Box)<DividerProps>`
 `;
 
 export const Divider = ({ unsetMargin = true, ...props }: DividerProps) => {
-  return <DividerWrapper {...props} background="neutral150" as="hr" unsetMargin={unsetMargin} />;
+  return <DividerWrapper {...props} $background="neutral150" as="hr" unsetMargin={unsetMargin} />;
 };

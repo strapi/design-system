@@ -20,10 +20,10 @@ const sizes = {
   M: 16.4,
 };
 
-const CardAssetWrapper = styled.div<{ size: CardAssetSizes }>`
+const CardAssetWrapper = styled.div<{ $size: CardAssetSizes }>`
   display: flex;
   justify-content: center;
-  height: ${({ size }) => `${sizes[size]}rem`};
+  height: ${({ $size }) => `${sizes[$size]}rem`};
   width: 100%;
   background: repeating-conic-gradient(${({ theme }) => theme.colors.neutral100} 0% 25%, transparent 0% 50%) 50% / 20px
     20px;
@@ -40,7 +40,7 @@ export interface CardAssetProps extends React.ImgHTMLAttributes<HTMLImageElement
 
 export const CardAsset = ({ size = 'M', children, ...props }: CardAssetProps) => {
   return (
-    <CardAssetWrapper size={size}>
+    <CardAssetWrapper $size={size}>
       {children ? <Flex>{children}</Flex> : <CardAssetImg {...props} aria-hidden />}
     </CardAssetWrapper>
   );

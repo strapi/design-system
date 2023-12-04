@@ -59,21 +59,21 @@ export const Avatar = ({ src, alt, preview }: AvatarProps) => {
       ) : null}
 
       <Box
-        zIndex={isHovering ? 1 : undefined}
-        position="relative"
+        $zIndex={isHovering ? 1 : undefined}
+        $position="relative"
         onMouseEnter={() => setPreviewVisible(true)}
         onMouseLeave={() => setPreviewVisible(false)}
-        width={`${avatarSize}px`}
-        height={`${avatarSize}px`}
+        $width={`${avatarSize}px`}
+        $height={`${avatarSize}px`}
       >
         {isHovering ? (
           <Overlay
-            background="neutral0"
-            borderRadius="50%"
-            position="absolute"
-            width={`${avatarSize}px`}
-            height={`${avatarSize}px`}
-            zIndex={1}
+            $background="neutral0"
+            $borderRadius="50%"
+            $position="absolute"
+            $width={`${avatarSize}px`}
+            $height={`${avatarSize}px`}
+            $zIndex={1}
           />
         ) : null}
         <AvatarImg src={src} alt={alt} width={`${avatarSize}px`} height={`${avatarSize}px`} />
@@ -88,21 +88,22 @@ const InitialsWrapper = styled(Flex)`
   }
 `;
 
-export type InitialsProps = Pick<FlexProps, 'background'> &
-  Pick<TypographyProps, 'textColor'> & {
-    children: React.ReactNode;
-  };
+export interface InitialsProps {
+  background?: FlexProps['$background'];
+  children: React.ReactNode;
+  textColor?: TypographyProps['$textColor'];
+}
 
 export const Initials = ({ children, background = 'primary600', textColor = 'buttonNeutral0' }: InitialsProps) => {
   return (
     <InitialsWrapper
-      background={background}
-      borderRadius="50%"
-      width={`${avatarSize}px`}
-      height={`${avatarSize}px`}
-      justifyContent="center"
+      $background={background}
+      $borderRadius="50%"
+      $width={`${avatarSize}px`}
+      $height={`${avatarSize}px`}
+      $justifyContent="center"
     >
-      <Typography fontSize={0} fontWeight="bold" textColor={textColor} textTransform="uppercase">
+      <Typography $fontSize={0} $fontWeight="bold" $textColor={textColor} $textTransform="uppercase">
         {children}
       </Typography>
     </InitialsWrapper>

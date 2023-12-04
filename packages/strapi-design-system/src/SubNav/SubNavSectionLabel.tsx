@@ -12,10 +12,12 @@ const SubNavSectionLabelWrapper = styled(Flex)`
   padding: 0;
   background: transparent;
 `;
-const DropDownIconWrapper = styled.div<{ rotated?: boolean }>`
+
+// TODO: these could be props
+const DropDownIconWrapper = styled.div<{ $rotated?: boolean }>`
   display: flex;
   align-items: center;
-  transform: rotateX(${({ rotated }) => (rotated ? '0deg' : '180deg')});
+  transform: rotateX(${({ $rotated }) => ($rotated ? '0deg' : '180deg')});
 `;
 
 export interface SubNavSectionLabelProps {
@@ -40,15 +42,15 @@ export const SubNavSectionLabel = ({
         onClick={onClick}
         aria-expanded={ariaExpanded}
         aria-controls={ariaControls}
-        textAlign="left"
+        $textAlign="left"
       >
-        <Box paddingRight={1}>
-          <Typography variant="sigma" textColor="neutral600">
+        <Box $paddingRight={1}>
+          <Typography $variant="sigma" $textColor="neutral600">
             {label}
           </Typography>
         </Box>
         {collapsable && (
-          <DropDownIconWrapper rotated={ariaExpanded}>
+          <DropDownIconWrapper $rotated={ariaExpanded}>
             <CarretDown aria-hidden />
           </DropDownIconWrapper>
         )}
@@ -58,8 +60,8 @@ export const SubNavSectionLabel = ({
 
   return (
     <SubNavSectionLabelWrapper>
-      <Box paddingRight={1}>
-        <Typography variant="sigma" textColor="neutral600">
+      <Box $paddingRight={1}>
+        <Typography $variant="sigma" $textColor="neutral600">
           {label}
         </Typography>
       </Box>

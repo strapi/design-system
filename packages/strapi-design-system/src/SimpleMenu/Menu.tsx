@@ -36,10 +36,10 @@ const MenuTrigger = React.forwardRef<HTMLButtonElement, TriggerProps>(
           type="button"
           variant="ghost"
           endIcon={endIcon}
-          paddingTop={size === 'S' ? 1 : 2}
-          paddingBottom={size === 'S' ? 1 : 2}
-          paddingLeft={size === 'S' ? 3 : 4}
-          paddingRight={size === 'S' ? 3 : 4}
+          $paddingTop={size === 'S' ? 1 : 2}
+          $paddingBottom={size === 'S' ? 1 : 2}
+          $paddingLeft={size === 'S' ? 3 : 4}
+          $paddingRight={size === 'S' ? 3 : 4}
           {...props}
         />
       </DropdownMenu.Trigger>
@@ -68,22 +68,22 @@ const MenuContent = React.forwardRef<HTMLDivElement, ContentProps>(
         <DropdownMenu.Content align={align} side={side} loop asChild>
           <Viewport
             ref={ref}
-            direction="column"
-            borderStyle="solid"
-            borderWidth="1px"
-            borderColor="neutral150"
-            hasRadius
-            background="neutral0"
-            shadow="filterShadow"
-            maxHeight="15rem"
-            padding={1}
-            alignItems="flex-start"
-            position="relative"
-            overflow="auto"
+            $direction="column"
+            $borderStyle="solid"
+            $borderWidth="1px"
+            $borderColor="neutral150"
+            $hasRadius
+            $background="neutral0"
+            $shadow="filterShadow"
+            $maxHeight="15rem"
+            $padding={1}
+            $alignItems="flex-start"
+            $position="relative"
+            $overflow="auto"
             {...props}
           >
             {children}
-            <Box id={intersectionId} width="100%" height="1px" />
+            <Box id={intersectionId} $width="100%" $height="1px" />
           </Viewport>
         </DropdownMenu.Content>
       </DropdownMenu.Portal>
@@ -139,11 +139,11 @@ const MenuItem = ({ onSelect, disabled = false, ...props }: ItemProps) => {
   return (
     <DropdownMenu.Item asChild onSelect={onSelect} disabled={disabled}>
       {props.isLink || props.isExternal ? (
-        <OptionLink color="neutral800" {...props} isExternal={props.isExternal ?? false}>
+        <OptionLink $color="neutral800" {...props} isExternal={props.isExternal ?? false}>
           <Typography>{props.children}</Typography>
         </OptionLink>
       ) : (
-        <OptionButton cursor="pointer" color="neutral800" background="transparent" borderStyle="none" {...props}>
+        <OptionButton $cursor="pointer" $color="neutral800" $background="transparent" $borderStyle="none" {...props}>
           <Typography>{props.children}</Typography>
         </OptionButton>
       )}
@@ -188,7 +188,7 @@ const OptionButton = styled(Flex)`
 
 const OptionLink = styled(Link)`
   /* We include this here again because typically when people use OptionLink they provide an as prop which cancels the Box props */
-  color: ${({ theme, color }) => extractStyleFromTheme(theme.colors, color, undefined)};
+  color: ${({ theme, $color }) => extractStyleFromTheme(theme.colors, $color, undefined)};
   text-decoration: none;
 
   &:hover {
@@ -211,7 +211,7 @@ interface LabelProps extends TypographyProps {}
 
 const MenuLabel = React.forwardRef<HTMLSpanElement, LabelProps>((props, ref) => (
   <DropdownMenu.Label asChild>
-    <StyledLabel ref={ref} variant="sigma" textColor="neutral600" {...props} />
+    <StyledLabel ref={ref} $variant="sigma" $textColor="neutral600" {...props} />
   </DropdownMenu.Label>
 ));
 
@@ -238,12 +238,12 @@ const MenuSubTrigger = React.forwardRef<HTMLButtonElement, SubTriggerProps>(({ d
     <DropdownMenu.SubTrigger asChild disabled={disabled}>
       <SubmenuTrigger
         ref={ref}
-        color="neutral800"
+        $color="neutral800"
         as="button"
         type="button"
-        background="transparent"
-        borderStyle="none"
-        gap={5}
+        $background="transparent"
+        $borderStyle="none"
+        $gap={5}
         {...props}
       >
         <Typography>{props.children}</Typography>
@@ -278,16 +278,16 @@ const MenuSubContent = React.forwardRef<HTMLDivElement, SubContentProps>((props,
         <Viewport
           ref={ref}
           direction="column"
-          borderStyle="solid"
-          borderWidth="1px"
-          borderColor="neutral150"
-          hasRadius
-          background="neutral0"
-          shadow="filterShadow"
-          maxHeight="15rem"
-          padding={1}
-          alignItems="flex-start"
-          overflow="auto"
+          $borderStyle="solid"
+          $borderWidth="1px"
+          $borderColor="neutral150"
+          $hasRadius
+          $background="neutral0"
+          $shadow="filterShadow"
+          $maxHeight="15rem"
+          $padding={1}
+          $alignItems="flex-start"
+          $overflow="auto"
           {...props}
         />
       </DropdownMenu.SubContent>

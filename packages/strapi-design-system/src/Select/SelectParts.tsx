@@ -49,20 +49,20 @@ const SelectTrigger = React.forwardRef<HTMLDivElement, TriggerProps>(
           $hasError={hasError}
           $size={size}
           ref={composedRefs}
-          alignItems="center"
-          justifyContent="space-between"
-          position="relative"
-          overflow="hidden"
-          hasRadius
-          background={disabled ? 'neutral150' : 'neutral0'}
-          paddingLeft={3}
-          paddingRight={3}
-          gap={4}
-          cursor="default"
-          width="100%"
+          $alignItems="center"
+          $justifyContent="space-between"
+          $position="relative"
+          $overflow="hidden"
+          $hasRadius
+          $background={disabled ? 'neutral150' : 'neutral0'}
+          $paddingLeft={3}
+          $paddingRight={3}
+          $gap={4}
+          $cursor="default"
+          $width="100%"
           {...restProps}
         >
-          <Flex flex="1" as="span" gap={3}>
+          <Flex $flex="1" as="span" $gap={3}>
             {/* TODO: make this composable in v2 – <Select.Icon /> */}
             {startIcon && (
               <Box as="span" aria-hidden>
@@ -71,19 +71,19 @@ const SelectTrigger = React.forwardRef<HTMLDivElement, TriggerProps>(
             )}
             {children}
           </Flex>
-          <Flex as="span" gap={3}>
+          <Flex as="span" $gap={3}>
             {onClear ? (
               <IconBox
                 as="button"
-                hasRadius
-                background="transparent"
+                $hasRadius
+                $background="transparent"
                 role="button"
                 tabIndex={0}
                 onClick={handleClearClick}
                 aria-disabled={disabled}
                 aria-label={clearLabel}
                 title={clearLabel}
-                cursor="pointer"
+                $cursor="pointer"
               >
                 <Cross />
               </IconBox>
@@ -118,7 +118,7 @@ interface StyledTriggerProps {
 
 const StyledTrigger = styled(Flex)<StyledTriggerProps>`
   border: 1px solid ${({ theme, $hasError }) => ($hasError ? theme.colors.danger600 : theme.colors.neutral200)};
-  min-height: ${({ theme, $size }) => getThemeSize('input')({ theme, size: $size })};
+  min-height: ${({ theme, $size }) => getThemeSize('input')({ theme, $size })};
 
   &[aria-disabled='true'] {
     color: ${(props) => props.theme.colors.neutral600};
@@ -129,7 +129,7 @@ const StyledTrigger = styled(Flex)<StyledTriggerProps>`
     outline: none;
   }
 
-  ${({ theme, $hasError }) => inputFocusStyle()({ theme, hasError: $hasError })};
+  ${({ theme, $hasError }) => inputFocusStyle()({ theme, $hasError })};
 `;
 
 const DownIcon = styled(Select.Icon)`
@@ -153,7 +153,7 @@ interface ValueProps
 }
 
 const SelectValue = React.forwardRef<HTMLSpanElement, ValueProps>(({ children, placeholder, ...restProps }, ref) => (
-  <ValueType ref={ref} ellipsis {...restProps}>
+  <ValueType ref={ref} $ellipsis {...restProps}>
     <StyledValue placeholder={placeholder}>{children}</StyledValue>
   </ValueType>
 ));

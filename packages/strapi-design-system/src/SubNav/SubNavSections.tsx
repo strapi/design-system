@@ -5,18 +5,17 @@ import { Flex, FlexProps } from '../Flex';
 
 export interface SubNavSectionsProps extends FlexProps<'ol'> {
   children: React.ReactNode;
-  spacing?: number;
   horizontal?: boolean;
 }
 
-export const SubNavSections = ({ children, spacing = 2, horizontal = false, ...props }: SubNavSectionsProps) => {
+export const SubNavSections = ({ children, $gap = 2, horizontal = false, ...props }: SubNavSectionsProps) => {
   return (
-    <Box paddingTop={2} paddingBottom={4}>
+    <Box $paddingTop={2} $paddingBottom={4}>
       <Flex
         as="ol"
-        gap={spacing}
-        direction={horizontal ? 'row' : 'column'}
-        alignItems={horizontal ? 'center' : 'stretch'}
+        $gap={$gap}
+        $direction={horizontal ? 'row' : 'column'}
+        $alignItems={horizontal ? 'center' : 'stretch'}
         {...props}
       >
         {React.Children.map(children, (child, index) => {

@@ -19,20 +19,17 @@ export const NavSection = ({ label, children, horizontal = false, spacing = 2, .
 
   if (condensed) {
     return (
-      <Flex direction="column" alignItems="stretch" gap={2}>
-        <Box paddingTop={1} paddingBottom={1} background="neutral0" hasRadius as="span">
+      <Flex $direction="column" $alignItems="stretch" $gap={2}>
+        <Box $paddingTop={1} $paddingBottom={1} $background="neutral0" $hasRadius as="span">
           <Divider />
-
-          <VisuallyHidden>
-            <span>{label}</span>
-          </VisuallyHidden>
+          <VisuallyHidden as="span">{label}</VisuallyHidden>
         </Box>
 
         <Flex
           as="ul"
-          gap={spacing}
-          direction={horizontal ? 'row' : 'column'}
-          alignItems={horizontal ? 'center' : 'stretch'}
+          $gap={spacing}
+          $direction={horizontal ? 'row' : 'column'}
+          $alignItems={horizontal ? 'center' : 'stretch'}
           {...props}
         >
           {React.Children.map(children, (child, index) => {
@@ -45,18 +42,26 @@ export const NavSection = ({ label, children, horizontal = false, spacing = 2, .
   }
 
   return (
-    <Flex direction="column" alignItems="stretch" gap={2}>
-      <Box paddingTop={1} paddingBottom={1} background="neutral0" paddingRight={3} paddingLeft={3} hasRadius as="span">
-        <Typography variant="sigma" textColor="neutral600">
+    <Flex $direction="column" $alignItems="stretch" $gap={2}>
+      <Box
+        $paddingTop={1}
+        $paddingBottom={1}
+        $background="neutral0"
+        $paddingRight={3}
+        $paddingLeft={3}
+        $hasRadius
+        as="span"
+      >
+        <Typography $variant="sigma" $textColor="neutral600">
           {label}
         </Typography>
       </Box>
 
       <Flex
         as="ul"
-        gap={spacing}
-        direction={horizontal ? 'row' : 'column'}
-        alignItems={horizontal ? 'center' : 'stretch'}
+        $gap={spacing}
+        $direction={horizontal ? 'row' : 'column'}
+        $alignItems={horizontal ? 'center' : 'stretch'}
         {...props}
       >
         {React.Children.map(children, (child, index) => {

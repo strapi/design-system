@@ -47,8 +47,8 @@ function isEqual(a: DateFormatterOptions, b: DateFormatterOptions) {
     return true;
   }
 
-  let aKeys = Object.keys(a);
-  let bKeys = Object.keys(b);
+  let aKeys = Object.keys(a) as (keyof DateFormatterOptions)[];
+  let bKeys = Object.keys(b) as (keyof DateFormatterOptions)[];
 
   if (aKeys.length !== bKeys.length) {
     return false;

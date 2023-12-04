@@ -75,12 +75,12 @@ export const SubNavLink = React.forwardRef<unknown, SubNavLinkProps>(
       >
         <Flex>
           {icon ? <IconWrapper>{icon}</IconWrapper> : <CustomBullet />}
-          <Box paddingLeft={2}>
+          <Box $paddingLeft={2}>
             <Typography as="span">{children}</Typography>
           </Box>
         </Flex>
         {withBullet && (
-          <Box as={Flex} paddingRight={4}>
+          <Box as={Flex} $paddingRight={4}>
             <CustomBullet $active />
           </Box>
         )}

@@ -42,13 +42,13 @@ export const TFooter = ({ children, icon, ...props }: TFooterProps) => {
   return (
     <div>
       <Divider />
-      <ButtonBox as="button" background="primary100" padding={5} {...props}>
+      <ButtonBox as="button" $background="primary100" $padding={5} {...props}>
         <Flex>
-          <IconBox aria-hidden background="primary200">
+          <IconBox aria-hidden $background="primary200">
             {icon}
           </IconBox>
-          <Box paddingLeft={3}>
-            <Typography variant="pi" fontWeight="bold" textColor="primary600">
+          <Box $paddingLeft={3}>
+            <Typography $variant="pi" $fontWeight="bold" $textColor="primary600">
               {children}
             </Typography>
           </Box>

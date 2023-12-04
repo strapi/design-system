@@ -11,13 +11,13 @@ import { Portal } from '../Portal';
 import { Typography } from '../Typography';
 import { VisuallyHidden } from '../VisuallyHidden';
 
-const TooltipWrapper = styled(Box)<{ visible: boolean }>`
+const TooltipWrapper = styled(Box)<{ $visible: boolean }>`
   /* z-index exist because of its position inside Modals */
   z-index: 4;
-  display: ${({ visible }) => (visible ? 'revert' : 'none')};
+  display: ${({ $visible }) => ($visible ? 'revert' : 'none')};
 `;
 
-export interface TooltipProps extends Omit<BoxProps<'div'>, 'position'> {
+export interface TooltipProps extends Omit<BoxProps<'div'>, '$position'> {
   description?: string;
   delay?: number;
   id?: string;
@@ -51,17 +51,17 @@ export const Tooltip = ({
       <Portal>
         <TooltipWrapper
           id={tooltipId}
-          background="neutral900"
-          hasRadius
-          padding={2}
+          $background="neutral900"
+          $hasRadius
+          $padding={2}
           role="tooltip"
           ref={tooltipWrapperRef}
-          visible={visible}
-          position="absolute"
+          $visible={visible}
+          $position="absolute"
           {...props}
         >
           {visible && <VisuallyHidden id={descriptionId}>{description}</VisuallyHidden>}
-          <Typography as="p" variant="pi" fontWeight="bold" textColor="neutral0">
+          <Typography as="p" $variant="pi" $fontWeight="bold" $textColor="neutral0">
             {label || description}
           </Typography>
         </TooltipWrapper>

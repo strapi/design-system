@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { Box, BoxProps } from '../Box';
+import { PrefixWithDollar } from '../types';
 
 type Enumerate<N extends number, Acc extends number[] = []> = Acc['length'] extends N
   ? Acc[number]
@@ -15,7 +16,7 @@ export interface ProgressBarProps extends Omit<BoxProps, 'background' | 'hasRadi
   value?: IntRange<0, 101>;
 }
 
-const ProgressbarBase = styled(Box)<Required<Pick<ProgressBarProps, 'value'>>>`
+const ProgressbarBase = styled(Box)<PrefixWithDollar<Required<Pick<ProgressBarProps, 'value'>>>>`
   &:before {
     background-color: ${({ theme }) => theme.colors.neutral0};
     border-radius: ${({ theme }) => theme.borderRadius};
@@ -23,24 +24,24 @@ const ProgressbarBase = styled(Box)<Required<Pick<ProgressBarProps, 'value'>>>`
     content: '';
     position: absolute;
     top: 0;
-    width: ${({ value }) => `${value}%`};
+    width: ${({ $value }) => `${$value}%`};
   }
 `;
 
 export const ProgressBar = ({ min = 0, max = 100, value = 0, children, size = 'M', ...props }: ProgressBarProps) => {
   return (
     <ProgressbarBase
-      background="neutral600"
-      hasRadius
+      $background="neutral600"
+      $hasRadius
       aria-label={children}
       aria-valuemax={max}
       aria-valuemin={min}
       aria-valuenow={value}
-      height={size === 'S' ? 1 : 2}
-      position="relative"
+      $height={size === 'S' ? 1 : 2}
+      $position="relative"
       role="progressbar"
-      value={value}
-      width={size === 'S' ? '78px' : '102px'}
+      $value={value}
+      $width={size === 'S' ? '78px' : '102px'}
       {...props}
     />
   );

@@ -17,7 +17,7 @@ export const BaseLink = React.forwardRef<HTMLAnchorElement, BaseLinkProps>(
         rel={isExternal ? rel : undefined}
         href={disabled ? '#' : href}
         aria-disabled={disabled}
-        cursor="pointer"
+        $cursor="pointer"
         {...props}
       />
     );

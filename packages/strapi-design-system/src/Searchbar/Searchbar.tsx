@@ -38,13 +38,13 @@ const SearchbarWrapper = styled.div`
     border: 1px solid transparent;
   }
 
-  ${inputFocusStyle(InputWrapper)}
+  ${inputFocusStyle(InputWrapper as unknown as string)}
 `;
 
 export interface SearchbarProps extends Omit<FieldInputProps, 'id' | 'name'>, Pick<FieldProps, 'id' | 'name'> {
   name: string;
   value?: string;
-  onClear: React.MouseEventHandler<any>;
+  onClear: React.MouseEventHandler<HTMLButtonElement>;
   clearLabel: string;
 }
 
@@ -53,7 +53,7 @@ export const Searchbar = React.forwardRef<HTMLInputElement, SearchbarProps>(
     const inputRef = React.useRef<HTMLInputElement>(null!);
     const isCompleting = value.length > 0;
 
-    const handleClear = (e) => {
+    const handleClear = (e: React.MouseEvent<HTMLButtonElement>) => {
       onClear(e);
       inputRef.current.focus();
     };

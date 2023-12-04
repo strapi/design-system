@@ -12,11 +12,11 @@ const preview: Preview = {
     (Story) => (
       <Theme>
         <main>
-          <VisuallyHidden>
+          <VisuallyHidden as="h1">
             {/* Necessary in order to prevent axe core from providing errors on main / heading */}
-            <h1>Storybook story</h1>
+            Storybook story
           </VisuallyHidden>
-          <Box height="100%" padding={2}>
+          <Box $height="100%" $padding={2}>
             <Story />
           </Box>
         </main>
@@ -32,8 +32,10 @@ const preview: Preview = {
     actions: { argTypesRegex: '^on[A-Z].*' },
     darkMode: {
       // Override the default dark theme
+      // @ts-expect-error – weird TS thing with DefaultTheme from styled-components
       dark: createCustomTheme({ theme: darkTheme, asStorybookTheme: false }),
       // Override the default light theme
+      // @ts-expect-error – weird TS thing with DefaultTheme from styled-components
       light: createCustomTheme({ theme: lightTheme, asStorybookTheme: false }),
     },
   },
@@ -53,7 +55,7 @@ const Theme = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <DesignSystemProvider locale="en" theme={isDark ? darkTheme : lightTheme}>
-      <Box flex="1 0 100%" padding={2} background="neutral0">
+      <Box $flex="1 0 100%" $padding={2} $background="neutral0">
         {children}
       </Box>
     </DesignSystemProvider>

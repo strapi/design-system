@@ -31,8 +31,8 @@ const CarouselSlides = styled(Flex)`
   grid-area: slides;
 `;
 
-const CarouselAction = styled(Box)<{ area: string }>`
-  grid-area: ${({ area }) => area};
+const CarouselAction = styled(Box)<{ $area: string }>`
+  grid-area: ${({ $area }) => $area};
 
   &:focus svg path,
   &:hover svg path {
@@ -54,7 +54,7 @@ export const Carousel = React.forwardRef<CarouselElement, CarouselProps>(
       React.cloneElement(node as React.ReactElement, { selected: index === selectedSlide }),
     );
 
-    const handleKeyDown = (event) => {
+    const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
       switch (event.key) {
         case KeyboardKeys.RIGHT: {
           event.preventDefault();
@@ -86,51 +86,51 @@ export const Carousel = React.forwardRef<CarouselElement, CarouselProps>(
 
     return (
       <Box ref={forwardedRef} {...props} onKeyDown={handleKeyDown}>
-        <Box padding={2} borderColor="neutral200" hasRadius background="neutral100">
+        <Box $padding={2} $borderColor="neutral200" $hasRadius $background="neutral100">
           <CarouselGrid
             as="section"
             aria-roledescription="carousel"
             aria-label={label}
-            display="grid"
-            position="relative"
+            $display="grid"
+            $position="relative"
           >
             {childrenArray && childrenArray.length > 1 && (
               <>
                 <CarouselAction
                   as="button"
                   onClick={onPrevious}
-                  area="startAction"
+                  $area="startAction"
                   ref={prevActionRef}
                   aria-label={previousLabel}
                   type="button"
                 >
-                  <Icon as={ChevronLeft} aria-hidden width="6px" height="10px" color="neutral600" />
+                  <Icon as={ChevronLeft} aria-hidden $width="6px" $height="10px" $color="neutral600" />
                 </CarouselAction>
 
                 <CarouselAction
                   as="button"
                   onClick={onNext}
-                  area="endAction"
+                  $area="endAction"
                   ref={nextActionRef}
                   aria-label={nextLabel}
                   type="button"
                 >
-                  <Icon as={ChevronRight} aria-hidden width="6px" height="10px" color="neutral600" />
+                  <Icon as={ChevronRight} aria-hidden $width="6px" $height="10px" $color="neutral600" />
                 </CarouselAction>
               </>
             )}
 
-            <CarouselSlides aria-live="polite" paddingLeft={2} paddingRight={2} width="100%" overflow="hidden">
+            <CarouselSlides aria-live="polite" $paddingLeft={2} $paddingRight={2} $width="100%" $overflow="hidden">
               {childrenArray}
             </CarouselSlides>
             {actions}
           </CarouselGrid>
 
           {secondaryLabel && (
-            <Box paddingTop={2} paddingLeft={4} paddingRight={4}>
+            <Box $paddingTop={2} $paddingLeft={4} $paddingRight={4}>
               <Tooltip label={secondaryLabel}>
-                <Flex justifyContent="center">
-                  <Typography variant="pi" textColor="neutral600" ellipsis>
+                <Flex $justifyContent="center">
+                  <Typography $variant="pi" $textColor="neutral600" $ellipsis>
                     {secondaryLabel}
                   </Typography>
                 </Flex>

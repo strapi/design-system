@@ -9,13 +9,13 @@ import { Flex } from '../Flex';
 import { Typography } from '../Typography';
 import { VisuallyHidden } from '../VisuallyHidden';
 
-const BrandIconWrapper = styled.div<{ condensed?: boolean }>`
+const BrandIconWrapper = styled.div<{ $condensed?: boolean }>`
   border-radius: ${({ theme }) => theme.borderRadius};
 
   svg,
   img {
-    height: ${({ condensed }) => (condensed ? `4rem` : `3.2rem`)};
-    width: ${({ condensed }) => (condensed ? `4rem` : `3.2rem`)};
+    height: ${({ $condensed }) => ($condensed ? `4rem` : `3.2rem`)};
+    width: ${({ $condensed }) => ($condensed ? `4rem` : `3.2rem`)};
   }
 `;
 
@@ -43,8 +43,8 @@ export const NavBrand = React.forwardRef<HTMLAnchorElement, NavBrandProps>(
     if (condensed) {
       return (
         <BaseLink ref={ref} {...props}>
-          <Box paddingLeft={3} paddingRight={3} paddingTop={4} paddingBottom={4}>
-            <BrandIconWrapper condensed>
+          <Box $paddingLeft={3} $paddingRight={3} $paddingTop={4} $paddingBottom={4}>
+            <BrandIconWrapper $condensed>
               {icon}
               <VisuallyHidden>
                 <span>{title}</span>
@@ -58,18 +58,18 @@ export const NavBrand = React.forwardRef<HTMLAnchorElement, NavBrandProps>(
 
     return (
       <NavLinkWrapper ref={ref} {...props}>
-        <Box paddingLeft={3} paddingRight={3} paddingTop={4} paddingBottom={4}>
+        <Box $paddingLeft={3} $paddingRight={3} $paddingTop={4} $paddingBottom={4}>
           <Flex>
             <BrandIconWrapper aria-hidden tabIndex={-1}>
               {icon}
             </BrandIconWrapper>
 
-            <Box paddingLeft={2}>
-              <Typography fontWeight="bold" textColor="neutral800" as="span">
+            <Box $paddingLeft={2}>
+              <Typography $fontWeight="bold" $textColor="neutral800" as="span">
                 {title}
                 <VisuallyHidden as="span">{workplace}</VisuallyHidden>
               </Typography>
-              <Typography variant="pi" as="p" textColor="neutral600" aria-hidden>
+              <Typography $variant="pi" as="p" $textColor="neutral600" aria-hidden>
                 {workplace}
               </Typography>
             </Box>

@@ -6,59 +6,8 @@ import { AccordionContext } from './AccordionContext';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { useId } from '../hooks/useId';
+import { PrefixWithDollar } from '../types';
 import { Typography } from '../Typography';
-
-interface GetBorderParams extends AccordionWrapperProps {
-  theme: DefaultTheme;
-}
-
-const getBorder = ({ theme, expanded, variant, disabled, error }: GetBorderParams) => {
-  if (error) {
-    return `1px solid ${theme.colors.danger600} !important`;
-  }
-
-  if (disabled) {
-    return `1px solid ${theme.colors.neutral150}`;
-  }
-
-  if (expanded) {
-    return `1px solid ${theme.colors.primary600}`;
-  }
-
-  if (variant === 'primary') {
-    return `1px solid ${theme.colors.neutral0}`;
-  }
-
-  return `1px solid ${theme.colors.neutral100}`;
-};
-
-const AccordionTypography = styled(Typography)``;
-
-type AccordionWrapperProps = Pick<AccordionProps, 'expanded' | 'disabled' | 'variant' | 'error'>;
-
-const AccordionWrapper = styled(Box)<AccordionWrapperProps>`
-  border: ${getBorder};
-
-  &:hover:not([aria-disabled='true']) {
-    border: 1px solid ${({ theme }) => theme.colors.primary600};
-
-    ${AccordionTypography} {
-      color: ${({ theme, expanded }) => (expanded ? undefined : theme.colors.primary700)};
-    }
-
-    ${Typography} {
-      color: ${({ theme, expanded }) => (expanded ? undefined : theme.colors.primary600)};
-    }
-
-    & > ${Flex} {
-      background: ${({ theme }) => theme.colors.primary100};
-    }
-
-    [data-strapi-dropdown='true'] {
-      background: ${({ theme }) => theme.colors.primary200};
-    }
-  }
-`;
 
 type AccordionSize = 'S' | 'M';
 type AccordionVariant = 'primary' | 'secondary';
@@ -136,19 +85,19 @@ const Accordion = ({
     <AccordionContext.Provider value={context}>
       <AccordionWrapper
         data-strapi-expanded={expanded}
-        disabled={disabled}
         aria-disabled={disabled}
-        expanded={expanded}
-        hasRadius
-        variant={variant}
-        error={error}
-        shadow={shadow}
+        $disabled={disabled}
+        $expanded={expanded}
+        $hasRadius
+        $variant={variant}
+        $error={error}
+        $shadow={shadow}
       >
         {children}
       </AccordionWrapper>
       {error && hasErrorMessage && (
-        <Box paddingTop={1}>
-          <Typography variant="pi" textColor="danger600">
+        <Box $paddingTop={1}>
+          <Typography $variant="pi" $textColor="danger600">
             {error}
           </Typography>
         </Box>
@@ -156,6 +105,52 @@ const Accordion = ({
     </AccordionContext.Provider>
   );
 };
+
+const AccordionTypography = styled(Typography)``;
+
+const AccordionWrapper = styled(Box)<
+  PrefixWithDollar<Pick<AccordionProps, 'expanded' | 'disabled' | 'variant' | 'error'>>
+>`
+  border: ${({ theme, $expanded, $variant, $disabled, $error }) => {
+    if ($error) {
+      return `1px solid ${theme.colors.danger600} !important`;
+    }
+
+    if ($disabled) {
+      return `1px solid ${theme.colors.neutral150}`;
+    }
+
+    if ($expanded) {
+      return `1px solid ${theme.colors.primary600}`;
+    }
+
+    if ($variant === 'primary') {
+      return `1px solid ${theme.colors.neutral0}`;
+    }
+
+    return `1px solid ${theme.colors.neutral100}`;
+  }};
+
+  &:hover:not([aria-disabled='true']) {
+    border: 1px solid ${({ theme }) => theme.colors.primary600};
+
+    ${AccordionTypography} {
+      color: ${({ theme, $expanded }) => ($expanded ? undefined : theme.colors.primary700)};
+    }
+
+    ${Typography} {
+      color: ${({ theme, $expanded }) => ($expanded ? undefined : theme.colors.primary600)};
+    }
+
+    & > ${Flex} {
+      background: ${({ theme }) => theme.colors.primary100};
+    }
+
+    [data-strapi-dropdown='true'] {
+      background: ${({ theme }) => theme.colors.primary200};
+    }
+  }
+`;
 
 export { Accordion, AccordionTypography };
 export type { AccordionProps, AccordionSize, AccordionVariant };

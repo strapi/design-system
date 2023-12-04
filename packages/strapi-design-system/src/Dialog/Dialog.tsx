@@ -47,19 +47,19 @@ export const Dialog = ({ onClose, title, as = 'h2', isOpen, id, ...props }: Dial
 
   return (
     <Portal>
-      <DialogWrapper padding={8} position="fixed" zIndex={4}>
+      <DialogWrapper $padding={8} $position="fixed" $zIndex={4}>
         <FocusTrap>
           <DismissibleLayer onEscapeKeyDown={onClose} onPointerDownOutside={onClose}>
             <DialogContainer
               aria-labelledby={labelledBy}
               aria-modal
-              background="neutral0"
-              hasRadius
-              shadow="popupShadow"
+              $background="neutral0"
+              $hasRadius
+              $shadow="popupShadow"
               role="dialog"
             >
-              <DialogHeader padding={6} justifyContent="center">
-                <Typography variant="beta" as={as} id={labelledBy}>
+              <DialogHeader $padding={6} $justifyContent="center">
+                <Typography $variant="beta" as={as} id={labelledBy}>
                   {title}
                 </Typography>
               </DialogHeader>

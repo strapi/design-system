@@ -9,7 +9,7 @@ export const CardCheckbox = (props: CardCheckboxProps) => {
 
   return (
     // @ts-expect-error styled-components can't overwrite the position prop from Stack
-    <CardAction position="start">
+    <CardAction $position="start">
       <BaseCheckbox aria-labelledby={`${id}-title`} {...props} />
     </CardAction>
   );

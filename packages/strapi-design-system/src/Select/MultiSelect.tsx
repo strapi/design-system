@@ -160,7 +160,7 @@ export const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
 
     return (
       <Field hint={hint} error={error} id={generatedId} required={required}>
-        <Flex direction="column" alignItems="stretch" gap={1}>
+        <Flex $direction="column" $alignItems="stretch" $gap={1}>
           {label ? (
             <FieldLabel onClick={handleFieldLabelClick} action={labelAction}>
               {label}
@@ -186,9 +186,9 @@ export const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
               disabled={disabled}
               clearLabel={clearLabel}
               onClear={value?.length ? onClear : undefined}
-              paddingLeft={withTags && value?.length ? 1 : 3}
+              $paddingLeft={withTags && value?.length ? 1 : 3}
             >
-              <SelectParts.Value placeholder={placeholder} textColor={value?.length ? 'neutral800' : 'neutral600'}>
+              <SelectParts.Value placeholder={placeholder} $textColor={value?.length ? 'neutral800' : 'neutral600'}>
                 {value?.length
                   ? withTags
                     ? renderTags
@@ -202,7 +202,7 @@ export const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
               <SelectParts.Content position="popper" sideOffset={4} onCloseAutoFocus={onCloseAutoFocus}>
                 <SelectParts.Viewport ref={viewportRef}>
                   {children}
-                  <Box id={intersectionId} width="100%" height="1px" />
+                  <Box id={intersectionId} $width="100%" $height="1px" />
                 </SelectParts.Viewport>
               </SelectParts.Content>
             </SelectParts.Portal>
@@ -236,18 +236,18 @@ export const MultiSelectOption = React.forwardRef<HTMLDivElement, MultiSelectOpt
         <SelectParts.ItemIndicator>
           {({ isSelected, isIntermediate }) => (
             <CheckMark
-              hasRadius
-              overflow="hidden"
-              position="relative"
+              $hasRadius
+              $overflow="hidden"
+              $position="relative"
               $indeterminate={isIntermediate}
               $selected={isSelected}
-              zIndex={1}
-              height="18px"
-              width="18px"
+              $zIndex={1}
+              $height="18px"
+              $width="18px"
             />
           )}
         </SelectParts.ItemIndicator>
-        <Typography textColor="neutral800">
+        <Typography $textColor="neutral800">
           <SelectParts.ItemText>{children}</SelectParts.ItemText>
         </Typography>
       </SelectParts.Item>
@@ -320,18 +320,18 @@ export const MultiSelectGroup = React.forwardRef<HTMLDivElement, MultiSelectGrou
           <SelectParts.ItemIndicator>
             {({ isSelected, isIntermediate }) => (
               <CheckMark
-                hasRadius
-                overflow="hidden"
-                position="relative"
+                $hasRadius
+                $overflow="hidden"
+                $position="relative"
                 $indeterminate={isIntermediate}
                 $selected={isSelected}
-                zIndex={1}
-                height="18px"
-                width="18px"
+                $zIndex={1}
+                $height="18px"
+                $width="18px"
               />
             )}
           </SelectParts.ItemIndicator>
-          <Typography textColor="neutral800">{label}</Typography>
+          <Typography $textColor="neutral800">{label}</Typography>
         </SelectParts.Item>
         {children}
       </SelectParts.Group>

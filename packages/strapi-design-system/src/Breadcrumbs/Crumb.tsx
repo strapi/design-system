@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import { Box } from '../Box';
 import { Typography, TypographyProps } from '../Typography';
 
@@ -8,11 +6,11 @@ export interface CrumbProps extends TypographyProps {
 }
 
 export const Crumb = ({ children, isCurrent = false, ...props }: CrumbProps) => (
-  <Box paddingLeft={2} paddingRight={2} paddingTop={1} paddingBottom={1}>
+  <Box $paddingLeft={2} $paddingRight={2} $paddingTop={1} $paddingBottom={1}>
     <Typography
-      variant="pi"
-      textColor="neutral800"
-      fontWeight={isCurrent ? 'bold' : 'normal'}
+      $variant="pi"
+      $textColor="neutral800"
+      $fontWeight={isCurrent ? 'bold' : 'regular'}
       aria-current={isCurrent}
       {...props}
     >

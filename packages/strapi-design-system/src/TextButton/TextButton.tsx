@@ -51,13 +51,13 @@ export const TextButton = React.forwardRef<HTMLButtonElement, TextButtonProps>(
 
     return (
       <TextButtonWrapper
+        as="button"
+        type="button"
         ref={ref}
         aria-disabled={isDisabled}
         onClick={handleClick}
-        as="button"
-        type="button"
-        background="transparent"
-        gap={2}
+        $background="transparent"
+        $gap={2}
         {...props}
       >
         {loading ? (
@@ -68,7 +68,7 @@ export const TextButton = React.forwardRef<HTMLButtonElement, TextButtonProps>(
           startIcon
         )}
 
-        <Typography variant="pi" textColor={isDisabled ? 'neutral600' : 'primary600'}>
+        <Typography $variant="pi" $textColor={isDisabled ? 'neutral600' : 'primary600'}>
           {children}
         </Typography>
 

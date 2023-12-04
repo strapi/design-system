@@ -18,12 +18,12 @@ export interface NavSectionsProps extends FlexProps<'ul'> {
 
 export const NavSections = ({ children, spacing = 4, horizontal = false, ...props }: NavSectionsProps) => {
   return (
-    <BoxGrow paddingLeft={3} paddingRight={2} paddingTop={3} paddingBottom={8}>
+    <BoxGrow $paddingLeft={3} $paddingRight={2} $paddingTop={3} $paddingBottom={8}>
       <Flex
         as="ul"
-        gap={spacing}
-        direction={horizontal ? 'row' : 'column'}
-        alignItems={horizontal ? 'center' : 'stretch'}
+        $gap={spacing}
+        $direction={horizontal ? 'row' : 'column'}
+        $alignItems={horizontal ? 'center' : 'stretch'}
         {...props}
       >
         {React.Children.map(children, (child, index) => {

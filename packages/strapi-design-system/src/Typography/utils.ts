@@ -1,10 +1,10 @@
-import { DefaultTheme } from 'styled-components';
+import { DefaultTheme, css } from 'styled-components';
 
 import { ALPHA, BETA, DELTA, EPSILON, OMEGA, PI, SIGMA, TEXT_VARIANTS } from './constants';
 
-export const ellipsisStyle = ({ ellipsis = false }: { ellipsis?: boolean }) =>
-  ellipsis &&
-  `
+export const ellipsisStyle = ({ $ellipsis = false }: { $ellipsis?: boolean }) =>
+  $ellipsis &&
+  css`
     display: block;
     white-space: nowrap;
     overflow: hidden;
@@ -12,54 +12,54 @@ export const ellipsisStyle = ({ ellipsis = false }: { ellipsis?: boolean }) =>
   `;
 
 export const variantStyle = ({
-  variant = OMEGA,
+  $variant = OMEGA,
   theme,
 }: {
-  variant?: (typeof TEXT_VARIANTS)[number];
+  $variant?: (typeof TEXT_VARIANTS)[number];
   theme: DefaultTheme;
 }) => {
-  switch (variant) {
+  switch ($variant) {
     case ALPHA: {
-      return `
+      return css`
         font-weight: ${theme.fontWeights.bold};
         font-size: ${theme.fontSizes[5]};
         line-height: ${theme.lineHeights[2]};
       `;
     }
     case BETA: {
-      return `
+      return css`
         font-weight: ${theme.fontWeights.bold};
         font-size: ${theme.fontSizes[4]};
         line-height: ${theme.lineHeights[1]};
       `;
     }
     case DELTA: {
-      return `
+      return css`
         font-weight: ${theme.fontWeights.semiBold};
         font-size: ${theme.fontSizes[3]};
         line-height: ${theme.lineHeights[2]};
       `;
     }
     case EPSILON: {
-      return `
+      return css`
         font-size: ${theme.fontSizes[3]};
         line-height: ${theme.lineHeights[6]};
       `;
     }
     case OMEGA: {
-      return `
+      return css`
         font-size: ${theme.fontSizes[2]};
         line-height: ${theme.lineHeights[4]};
       `;
     }
     case PI: {
-      return `
+      return css`
         font-size: ${theme.fontSizes[1]};
         line-height: ${theme.lineHeights[3]};
       `;
     }
     case SIGMA: {
-      return `
+      return css`
         font-weight: ${theme.fontWeights.bold};
         font-size: ${theme.fontSizes[0]};
         line-height: ${theme.lineHeights[5]};
@@ -67,7 +67,7 @@ export const variantStyle = ({
       `;
     }
     default: {
-      return `
+      return css`
         font-size: ${theme.fontSizes[2]};
       `;
     }

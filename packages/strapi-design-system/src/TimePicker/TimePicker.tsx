@@ -210,7 +210,7 @@ export const TimePicker = React.forwardRef<ComboboxInputElement, TimePickerProps
 
     return (
       <Field hint={hint} error={error} id={generatedId} required={required}>
-        <Flex direction="column" alignItems="stretch" gap={1}>
+        <Flex $direction="column" $alignItems="stretch" $gap={1}>
           <FieldLabel action={labelAction}>{label}</FieldLabel>
           <TimePickerInput ref={forwardedRef} id={generatedId} error={error} required={required} {...restProps} />
           <FieldHint />

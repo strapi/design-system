@@ -45,25 +45,25 @@ export const getDisabledStyle = ({ theme }: { theme: DefaultTheme }) => {
   `;
 };
 
-export const getHoverStyle = ({ theme, variant }: { theme: DefaultTheme; variant: Variant }) => {
-  if ([...LIGHT_VARIANTS, SECONDARY].includes(variant)) {
+export const getHoverStyle = ({ theme, $variant }: { theme: DefaultTheme; $variant: Variant }) => {
+  if ([...LIGHT_VARIANTS, SECONDARY].includes($variant)) {
     return `
       background-color: ${theme.colors.neutral0};
     `;
   }
-  if (variant === TERTIARY) {
+  if ($variant === TERTIARY) {
     return `
       background-color: ${theme.colors.neutral100};
     `;
   }
 
-  if (variant === GHOST) {
+  if ($variant === GHOST) {
     return `
       background-color: ${theme.colors.neutral100};
     `;
   }
 
-  if (variant === DEFAULT) {
+  if ($variant === DEFAULT) {
     return `
       border: 1px solid ${theme.colors.buttonPrimary500};
       background: ${theme.colors.buttonPrimary500};
@@ -71,52 +71,52 @@ export const getHoverStyle = ({ theme, variant }: { theme: DefaultTheme; variant
   }
 
   return `
-    border: 1px solid ${theme.colors[`${getVariantColorName(variant)}500`]};
-    background: ${theme.colors[`${getVariantColorName(variant)}500`]};
+    border: 1px solid ${theme.colors[`${getVariantColorName($variant)}500`]};
+    background: ${theme.colors[`${getVariantColorName($variant)}500`]};
   `;
 };
 
-export const getActiveStyle = ({ theme, variant }: { theme: DefaultTheme; variant: Variant }) => {
-  if ([...LIGHT_VARIANTS, SECONDARY].includes(variant)) {
+export const getActiveStyle = ({ theme, $variant }: { theme: DefaultTheme; $variant: Variant }) => {
+  if ([...LIGHT_VARIANTS, SECONDARY].includes($variant)) {
     return `
       background-color: ${theme.colors.neutral0};
-      border: 1px solid ${theme.colors[`${getVariantColorName(variant)}600`]};
+      border: 1px solid ${theme.colors[`${getVariantColorName($variant)}600`]};
       ${Typography} {
-        color: ${theme.colors[`${getVariantColorName(variant)}600`]};
+        color: ${theme.colors[`${getVariantColorName($variant)}600`]};
       }
       svg {
         > g, path {
-          fill: ${theme.colors[`${getVariantColorName(variant)}600`]};
+          fill: ${theme.colors[`${getVariantColorName($variant)}600`]};
         }
       }
     `;
   }
-  if (variant === TERTIARY) {
+  if ($variant === TERTIARY) {
     return `
       background-color: ${theme.colors.neutral150};
     `;
   }
 
   return `
-    border: 1px solid ${theme.colors[`${getVariantColorName(variant)}600`]};
-    background: ${theme.colors[`${getVariantColorName(variant)}600`]};
+    border: 1px solid ${theme.colors[`${getVariantColorName($variant)}600`]};
+    background: ${theme.colors[`${getVariantColorName($variant)}600`]};
   `;
 };
 
-export const getVariantStyle = ({ theme, variant }: { theme: DefaultTheme; variant: Variant }) => {
-  switch (variant) {
+export const getVariantStyle = ({ theme, $variant }: { theme: DefaultTheme; $variant: Variant }) => {
+  switch ($variant) {
     case DANGER_LIGHT:
     case SUCCESS_LIGHT:
     case SECONDARY: {
       return `
-          border: 1px solid ${theme.colors[`${getVariantColorName(variant)}200`]};
-          background: ${theme.colors[`${getVariantColorName(variant)}100`]};
+          border: 1px solid ${theme.colors[`${getVariantColorName($variant)}200`]};
+          background: ${theme.colors[`${getVariantColorName($variant)}100`]};
           ${Typography} {
-            color: ${theme.colors[`${getVariantColorName(variant)}700`]};
+            color: ${theme.colors[`${getVariantColorName($variant)}700`]};
           }
           svg {
             > g, path {
-              fill: ${theme.colors[`${getVariantColorName(variant)}700`]};
+              fill: ${theme.colors[`${getVariantColorName($variant)}700`]};
             }
           }
         `;
@@ -154,8 +154,8 @@ export const getVariantStyle = ({ theme, variant }: { theme: DefaultTheme; varia
     case SUCCESS:
     case DANGER: {
       return `
-          border: 1px solid ${theme.colors[`${getVariantColorName(variant)}600`]};
-          background: ${theme.colors[`${getVariantColorName(variant)}600`]};
+          border: 1px solid ${theme.colors[`${getVariantColorName($variant)}600`]};
+          background: ${theme.colors[`${getVariantColorName($variant)}600`]};
           ${Typography} {
             color: ${theme.colors.neutral0};
           }

@@ -11,7 +11,7 @@ import { Flex, FlexProps } from '../Flex';
 import { useComposedRefs } from '../hooks/useComposeRefs';
 import { inputFocusStyle } from '../themes';
 
-interface JSONInputProps extends Omit<FlexProps, 'onChange'>, Pick<FieldProps, 'hint' | 'error' | 'required'> {
+export interface JSONInputProps extends Omit<FlexProps, 'onChange'>, Pick<FieldProps, 'hint' | 'error' | 'required'> {
   label?: string;
   value?: string;
   disabled?: boolean;
@@ -38,7 +38,7 @@ export const JSONInput = React.forwardRef<JSONInputRef, JSONInputProps>(
     },
     forwardedRef,
   ) => {
-    const editor = React.useRef<ReactCodeMirrorRef['editor']>();
+    const editor = React.useRef<ReactCodeMirrorRef['editor']>(null!);
     const editorState = React.useRef<ReactCodeMirrorRef['state']>();
     const editorView = React.useRef<ReactCodeMirrorRef['view']>();
     const hasError = Boolean(error);
@@ -150,7 +150,7 @@ export const JSONInput = React.forwardRef<JSONInputRef, JSONInputProps>(
 
     return (
       <Field error={error} hint={hint} required={required}>
-        <Flex direction="column" alignItems="stretch" gap={1}>
+        <Flex $direction="column" $alignItems="stretch" $gap={1}>
           {label && (
             <FieldLabel onClick={focusInput} action={labelAction}>
               {label}
@@ -158,10 +158,10 @@ export const JSONInput = React.forwardRef<JSONInputRef, JSONInputProps>(
           )}
           <JSONInputContainer
             ref={composedRefs}
-            hasError={hasError}
-            alignItems="stretch"
-            fontSize={2}
-            hasRadius
+            $hasError={hasError}
+            $alignItems="stretch"
+            $fontSize={2}
+            $hasRadius
             {...boxProps}
           />
           <FieldError />
@@ -172,7 +172,7 @@ export const JSONInput = React.forwardRef<JSONInputRef, JSONInputProps>(
   },
 );
 
-const JSONInputContainer = styled(Flex)`
+const JSONInputContainer = styled(Flex)<{ $hasError?: boolean }>`
   line-height: ${({ theme }) => theme.lineHeights[2]};
 
   .cm-editor {
@@ -186,7 +186,7 @@ const JSONInputContainer = styled(Flex)`
   }
 
   .cm-scroller {
-    border: 1px solid ${({ theme, hasError }) => (hasError ? theme.colors.danger600 : theme.colors.neutral200)};
+    border: 1px solid ${({ theme, $hasError }) => ($hasError ? theme.colors.danger600 : theme.colors.neutral200)};
     /* inputFocusStyle will receive hasError prop */
     ${inputFocusStyle()}
   }

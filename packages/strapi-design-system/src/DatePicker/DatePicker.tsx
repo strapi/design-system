@@ -300,8 +300,8 @@ const DatePickerInput = React.forwardRef<DatePickerTextInputElement, DatePickerI
           {textValue && onClear ? (
             <IconBox
               as="button"
-              hasRadius
-              background="transparent"
+              $hasRadius
+              $background="transparent"
               type="button"
               onClick={handleClearClick}
               aria-disabled={disabled}
@@ -456,7 +456,7 @@ const DatePickerTrigger = React.forwardRef<DatePickerTriggerElement, TriggerProp
 
 const TriggerElement = styled(Flex)<{ $hasError: boolean; $size: 'S' | 'M' }>`
   border: 1px solid ${({ theme, $hasError }) => ($hasError ? theme.colors.danger600 : theme.colors.neutral200)};
-  min-height: ${({ theme, $size }) => getThemeSize('input')({ theme, size: $size })};
+  min-height: ${({ theme, $size }) => getThemeSize('input')({ theme, $size })};
 
   &[data-disabled] {
     color: ${({ theme }) => theme.colors.neutral600};
@@ -469,7 +469,7 @@ const TriggerElement = styled(Flex)<{ $hasError: boolean; $size: 'S' | 'M' }>`
     outline: none;
   }
 
-  ${({ theme, $hasError }) => inputFocusStyle()({ theme, hasError: $hasError })};
+  ${({ theme, $hasError }) => inputFocusStyle()({ theme, $hasError })};
 `;
 
 const IconBox = styled(Box)`
@@ -886,7 +886,7 @@ const DatePickerContentImpl = React.forwardRef<DatePickerContentImplElement, Con
           <ContentElement
             ref={composedRefs}
             data-state={context.open ? 'open' : 'closed'}
-            onContextMenu={(event) => event.preventDefault()}
+            onContextMenu={(event: React.SyntheticEvent) => event.preventDefault()}
             id={context.contentId}
             role="dialog"
             aria-modal="true"
@@ -991,8 +991,8 @@ const DatePickerCalendar = React.forwardRef<HTMLDivElement, CalendarProps>(
     const getDatesInWeek = makeGetDatesInWeek(startDate, locale);
 
     return (
-      <Flex ref={ref} direction="column" alignItems="stretch" padding={4} {...restProps}>
-        <ToolbarFlex justifyContent="flex-start" paddingBottom={4} paddingLeft={2} paddingRight={2} gap={2}>
+      <Flex ref={ref} $direction="column" $alignItems="stretch" $padding={4} {...restProps}>
+        <ToolbarFlex $justifyContent="flex-start" $paddingBottom={4} $paddingLeft={2} $paddingRight={2} $gap={2}>
           <SingleSelectInput
             label={monthSelectLabel}
             size="S"
@@ -1125,8 +1125,8 @@ interface HeaderCellProps extends Omit<BoxProps<'td'>, 'children'> {
 const DatePickerHeaderCell = React.forwardRef<HTMLTableCellElement, HeaderCellProps>(
   ({ children, ...props }, forwardedRef) => {
     return (
-      <Th as="th" role="gridcell" ref={forwardedRef} {...props} height="2.4rem" width="3.2rem">
-        <Typography variant="pi" fontWeight="bold" color="neutral800">
+      <Th as="th" role="gridcell" ref={forwardedRef} {...props} $height="2.4rem" $width="3.2rem">
+        <Typography $variant="pi" $fontWeight="bold" $textColor="neutral800">
           {children.slice(0, 2)}
         </Typography>
       </Th>
@@ -1215,7 +1215,7 @@ const DatePickerCalendarCell = React.forwardRef<DatePickerCalendarCellElement, C
           onOpenChange(false);
         })}
       >
-        <Typography variant="pi" textColor={textColor}>
+        <Typography $variant="pi" $textColor={textColor}>
           {formattedDate}
         </Typography>
       </Cell>
@@ -1253,7 +1253,7 @@ const DatePickerField = React.forwardRef<DatePickerTextInputElement, DatePickerP
 
   return (
     <Field.Field error={error} hint={hint} required={required} id={generatedId}>
-      <Flex direction="column" alignItems="stretch" gap={1}>
+      <Flex $direction="column" $alignItems="stretch" $gap={1}>
         <Field.FieldLabel>{label}</Field.FieldLabel>
         <DatePickerInput ref={ref} id={generatedId} error={error} required={required} {...restProps} />
         <Field.FieldHint />

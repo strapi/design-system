@@ -171,7 +171,7 @@ export const DateTimePicker = React.forwardRef<DatePickerElement, DateTimePicker
         error={error}
         required={required}
       >
-        <Flex as="span" direction="column" alignItems="stretch" gap={1}>
+        <Flex as="span" $direction="column" $alignItems="stretch" $gap={1}>
           <FieldLabel
             onClick={() => {
               /**
@@ -186,7 +186,7 @@ export const DateTimePicker = React.forwardRef<DatePickerElement, DateTimePicker
           >
             {label}
           </FieldLabel>
-          <Flex flex="1" gap={1}>
+          <Flex $flex="1" $gap={1}>
             <VisuallyHidden as="label" htmlFor={dateId}>
               {dateLabel}
             </VisuallyHidden>

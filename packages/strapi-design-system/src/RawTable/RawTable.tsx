@@ -12,8 +12,15 @@ export interface RawTableProps extends React.TableHTMLAttributes<HTMLTableElemen
   rowCount: number;
 }
 
-export const RawTable = ({ colCount, rowCount, jumpStep = 3, initialCol = 0, initialRow = 0, ...props }) => {
-  const tableRef = React.useRef(null);
+export const RawTable = ({
+  colCount,
+  rowCount,
+  jumpStep = 3,
+  initialCol = 0,
+  initialRow = 0,
+  ...props
+}: RawTableProps) => {
+  const tableRef = React.useRef(null!);
   const mountedRef = React.useRef(false);
   /**
    * Rows will always have n+1 line because of the <tr><th></th></tr> elements
@@ -21,7 +28,7 @@ export const RawTable = ({ colCount, rowCount, jumpStep = 3, initialCol = 0, ini
   const [rowIndex, setRowIndex] = React.useState(initialRow);
   const [colIndex, setColIndex] = React.useState(initialCol);
 
-  const setTableValues = React.useCallback(({ colIndex, rowIndex }) => {
+  const setTableValues = React.useCallback(({ colIndex, rowIndex }: { colIndex: number; rowIndex: number }) => {
     setColIndex(colIndex);
     setRowIndex(rowIndex);
   }, []);
@@ -36,7 +43,7 @@ export const RawTable = ({ colCount, rowCount, jumpStep = 3, initialCol = 0, ini
     }
   }, [colIndex, rowIndex]);
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTableElement>) => {
     switch (e.key) {
       case KeyboardKeys.RIGHT: {
         e.preventDefault();

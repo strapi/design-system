@@ -6,25 +6,18 @@ import { Box, BoxProps } from '../Box';
 import { Flex } from '../Flex';
 import { Typography } from '../Typography';
 
-interface BulletProps {
-  backgroundColor: keyof DefaultTheme['colors'];
-}
-
-const Bullet = styled.div<BulletProps>`
+const Bullet = styled(Box)`
   margin-right: ${({ theme }) => theme.spaces[3]};
   width: 0.6rem;
   height: 0.6rem;
   border-radius: 50%;
-  background: ${({ theme, backgroundColor }) => theme.colors[backgroundColor]};
 `;
 
-interface StatusWrapperProps {
-  textColor: keyof DefaultTheme['colors'];
-}
-
-const StatusWrapper = styled(Box)<StatusWrapperProps>`
+const StatusWrapper = styled(Box)<{
+  $textColor: keyof DefaultTheme['colors'];
+}>`
   ${Typography} {
-    color: ${({ theme, textColor }) => theme.colors[textColor]};
+    color: ${({ theme, $textColor }) => theme.colors[$textColor]};
   }
 `;
 
@@ -53,19 +46,19 @@ export const Status = ({ variant = 'primary', showBullet = true, size = 'M', chi
 
   return (
     <StatusWrapper
-      borderColor={borderColor}
-      textColor={textColor}
-      background={backgroundColor}
-      hasRadius
-      paddingTop={paddingY}
-      paddingBottom={paddingY}
-      paddingLeft={paddingX}
-      paddingRight={paddingX}
+      $borderColor={borderColor}
+      $textColor={textColor}
+      $background={backgroundColor}
+      $hasRadius
+      $paddingTop={paddingY}
+      $paddingBottom={paddingY}
+      $paddingLeft={paddingX}
+      $paddingRight={paddingX}
       {...props}
     >
       {showBullet ? (
         <Flex>
-          <Bullet backgroundColor={bulletColor} />
+          <Bullet $background={bulletColor} />
           {children}
         </Flex>
       ) : (

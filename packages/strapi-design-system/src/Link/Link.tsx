@@ -47,7 +47,7 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
     return (
       <LinkWrapper ref={ref} href={href} disabled={disabled} isExternal={isExternal} {...props}>
         {startIcon}
-        <Typography textColor={disabled ? 'neutral600' : 'primary600'}>{children}</Typography>
+        <Typography $textColor={disabled ? 'neutral600' : 'primary600'}>{children}</Typography>
         {endIcon}
         {href && !endIcon && isExternal && <ExternalLink />}
       </LinkWrapper>

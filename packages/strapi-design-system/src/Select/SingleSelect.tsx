@@ -56,7 +56,7 @@ export const SingleSelect = React.forwardRef<SingleSelectInputElement, SingleSel
 
     return (
       <Field hint={hint} error={error} id={generatedId} required={required}>
-        <Flex direction="column" alignItems="stretch" gap={1}>
+        <Flex $direction="column" $alignItems="stretch" $gap={1}>
           {label ? (
             <FieldLabel onClick={handleFieldLabelClick} action={labelAction}>
               {label}
@@ -121,7 +121,7 @@ export const SingleSelectInput = React.forwardRef<SingleSelectInputElement, Sing
       setInternalIsOpen(open);
     };
 
-    const handleOnClear = (e) => {
+    const handleOnClear: SelectParts.TriggerProps['onClear'] = (e) => {
       if (onClear) {
         onClear(e);
       }
@@ -190,7 +190,7 @@ export const SingleSelectInput = React.forwardRef<SingleSelectInputElement, Sing
           clearLabel={clearLabel}
           onClear={value && onClear ? handleOnClear : undefined}
         >
-          <SelectParts.Value placeholder={placeholder} textColor={value ? 'neutral800' : 'neutral600'}>
+          <SelectParts.Value placeholder={placeholder} $textColor={value ? 'neutral800' : 'neutral600'}>
             {value && customizeContent ? customizeContent(value) : undefined}
           </SelectParts.Value>
         </SelectParts.Trigger>
@@ -198,7 +198,7 @@ export const SingleSelectInput = React.forwardRef<SingleSelectInputElement, Sing
           <SelectParts.Content position="popper" sideOffset={4} onCloseAutoFocus={onCloseAutoFocus}>
             <SelectParts.Viewport ref={viewportRef}>
               {children}
-              <Box id={intersectionId} width="100%" height="1px" />
+              <Box id={intersectionId} $width="100%" $height="1px" />
             </SelectParts.Viewport>
           </SelectParts.Content>
         </SelectParts.Portal>
@@ -225,7 +225,7 @@ export const SingleSelectOption = React.forwardRef<HTMLDivElement, SingleSelectO
             {startIcon}
           </Box>
         )}
-        <Typography textColor="neutral800">
+        <Typography $textColor="neutral800">
           <SelectParts.ItemText>{children}</SelectParts.ItemText>
         </Typography>
       </SelectParts.Item>

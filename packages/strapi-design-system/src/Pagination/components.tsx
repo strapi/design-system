@@ -20,32 +20,26 @@ interface PaginationPageLinkProps extends PaginationLinkProps {
 
 interface DotsProps extends BoxProps {}
 
-const transientProps = {
-  active: true,
-};
-
-const LinkWrapper = styled(BaseLink).withConfig<PaginationLinkProps>({
-  shouldForwardProp: (prop, defPropValFN) => !transientProps[prop] && defPropValFN(prop),
-})`
+const LinkWrapper = styled(BaseLink)<{ $active?: boolean }>`
   padding: ${({ theme }) => theme.spaces[3]};
   border-radius: ${({ theme }) => theme.borderRadius};
-  box-shadow: ${({ active, theme }) => (active ? theme.shadows.filterShadow : undefined)};
+  box-shadow: ${({ $active, theme }) => ($active ? theme.shadows.filterShadow : undefined)};
   text-decoration: none;
   display: flex;
 
   ${buttonFocusStyle}
 `;
 
-const PageLinkWrapper = styled(LinkWrapper)<PaginationLinkProps>`
-  color: ${({ theme, active }) => (active ? theme.colors.primary700 : theme.colors.neutral800)};
-  background: ${({ theme, active }) => (active ? theme.colors.neutral0 : undefined)};
+const PageLinkWrapper = styled(LinkWrapper)<{ $active: boolean }>`
+  color: ${({ theme, $active }) => ($active ? theme.colors.primary700 : theme.colors.neutral800)};
+  background: ${({ theme, $active }) => ($active ? theme.colors.neutral0 : undefined)};
 
   &:hover {
     box-shadow: ${({ theme }) => theme.shadows.filterShadow};
   }
 `;
 
-const ActionLinkWrapper = styled(LinkWrapper)<PaginationLinkProps>`
+const ActionLinkWrapper = styled(LinkWrapper)`
   font-size: 1.1rem;
 
   svg path {
@@ -67,31 +61,49 @@ const ActionLinkWrapper = styled(LinkWrapper)<PaginationLinkProps>`
       : undefined}
 `;
 
-export const PreviousLink = React.forwardRef<HTMLAnchorElement, PaginationLinkProps>(({ children, ...props }, ref) => {
-  const { activePage } = usePagination();
+export const PreviousLink = React.forwardRef<HTMLAnchorElement, PaginationLinkProps>(
+  ({ children, active, ...props }, ref) => {
+    const { activePage } = usePagination();
 
-  const disabled = activePage === 1;
+    const disabled = activePage === 1;
 
-  return (
-    <ActionLinkWrapper ref={ref} aria-disabled={disabled} tabIndex={disabled ? -1 : undefined} {...props}>
-      <VisuallyHidden>{children}</VisuallyHidden>
-      <ChevronLeft aria-hidden />
-    </ActionLinkWrapper>
-  );
-});
+    return (
+      <ActionLinkWrapper
+        ref={ref}
+        aria-disabled={disabled}
+        tabIndex={disabled ? -1 : undefined}
+        $active={active}
+        {...props}
+      >
+        <VisuallyHidden>{children}</VisuallyHidden>
+        <ChevronLeft aria-hidden />
+      </ActionLinkWrapper>
+    );
+  },
+);
 
-export const NextLink = React.forwardRef<HTMLAnchorElement, PaginationLinkProps>(({ children, ...props }, ref) => {
-  const { activePage, pageCount } = usePagination();
+PreviousLink.displayName = 'PreviousLink';
 
-  const disabled = activePage === pageCount;
+export const NextLink = React.forwardRef<HTMLAnchorElement, PaginationLinkProps>(
+  ({ children, active, ...props }, ref) => {
+    const { activePage, pageCount } = usePagination();
 
-  return (
-    <ActionLinkWrapper ref={ref} aria-disabled={disabled} tabIndex={disabled ? -1 : undefined} {...props}>
-      <VisuallyHidden>{children}</VisuallyHidden>
-      <ChevronRight aria-hidden />
-    </ActionLinkWrapper>
-  );
-});
+    const disabled = activePage === pageCount;
+
+    return (
+      <ActionLinkWrapper
+        ref={ref}
+        aria-disabled={disabled}
+        tabIndex={disabled ? -1 : undefined}
+        $active={active}
+        {...props}
+      >
+        <VisuallyHidden>{children}</VisuallyHidden>
+        <ChevronRight aria-hidden />
+      </ActionLinkWrapper>
+    );
+  },
+);
 
 export const PageLink = React.forwardRef<HTMLAnchorElement, PaginationPageLinkProps>(
   ({ number, children, ...props }, ref) => {
@@ -100,9 +112,9 @@ export const PageLink = React.forwardRef<HTMLAnchorElement, PaginationPageLinkPr
     const isActive = activePage === number;
 
     return (
-      <PageLinkWrapper ref={ref} {...props} active={isActive}>
+      <PageLinkWrapper ref={ref} {...props} $active={isActive}>
         <VisuallyHidden>{children}</VisuallyHidden>
-        <Typography aria-hidden fontWeight={isActive ? 'bold' : undefined} lineHeight="revert" variant="pi">
+        <Typography aria-hidden $fontWeight={isActive ? 'bold' : undefined} $lineHeight="revert" $variant="pi">
           {number}
         </Typography>
       </PageLinkWrapper>
@@ -110,10 +122,12 @@ export const PageLink = React.forwardRef<HTMLAnchorElement, PaginationPageLinkPr
   },
 );
 
+PageLink.displayName = 'PageLink';
+
 export const Dots = ({ children, ...props }: DotsProps) => (
   <Box {...props}>
     <VisuallyHidden>{children}</VisuallyHidden>
-    <Typography aria-hidden lineHeight="revert" textColor="neutral800" variant="pi">
+    <Typography aria-hidden $lineHeight="revert" $textColor="neutral800" $variant="pi">
       …
     </Typography>
   </Box>

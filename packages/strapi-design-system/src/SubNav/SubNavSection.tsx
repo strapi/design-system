@@ -34,9 +34,9 @@ export const SubNavSection = ({ collapsable = false, label, badgeLabel, children
   };
 
   return (
-    <Flex direction="column" alignItems="stretch" gap={1}>
-      <SubNavSectionWrapper paddingLeft={6} paddingTop={2} paddingBottom={2} paddingRight={4}>
-        <Box position="relative" paddingRight={badgeLabel ? 6 : 0}>
+    <Flex $direction="column" $alignItems="stretch" $gap={1}>
+      <SubNavSectionWrapper $paddingLeft={6} $paddingTop={2} $paddingBottom={2} $paddingRight={4}>
+        <Box $position="relative" $paddingRight={badgeLabel ? 6 : 0}>
           <SubNavSectionLabel
             onClick={handleClick}
             ariaExpanded={isOpen}
@@ -48,10 +48,10 @@ export const SubNavSection = ({ collapsable = false, label, badgeLabel, children
             <Badge
               backgroundColor="neutral150"
               textColor="neutral600"
-              position="absolute"
-              right={0}
-              top="50%"
-              transform="translateY(-50%)"
+              $position="absolute"
+              $right={0}
+              $top="50%"
+              $transform="translateY(-50%)"
             >
               {badgeLabel}
             </Badge>

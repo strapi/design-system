@@ -14,5 +14,5 @@ const MainWrapper = styled(Box)`
 `;
 
 export const Main = ({ labelledBy = 'main-content-title', ...props }: MainProps) => {
-  return <MainWrapper aria-labelledby={labelledBy} as="main" id="main-content" tabIndex={-1} {...props} />;
+  return <MainWrapper aria-labelledby={labelledBy} as="main" id="main-content" $tabIndex={-1} {...props} />;
 };

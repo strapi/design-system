@@ -47,7 +47,7 @@ export const TextInput = React.forwardRef<
   return (
     <div ref={inputWrapperRef}>
       <Field name={name} hint={hint} error={error} id={generatedId} required={required}>
-        <Flex direction="column" alignItems="stretch" gap={1}>
+        <Flex $direction="column" $alignItems="stretch" $gap={1}>
           {label && <FieldLabel action={labelAction}>{label}</FieldLabel>}
           <FieldInput ref={inputRef} {...props} />
           <FieldHint />

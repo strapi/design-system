@@ -18,9 +18,9 @@ export interface FieldActionProps extends FlexProps<'button'> {
 export const FieldAction = React.forwardRef<HTMLButtonElement, FieldActionProps>(
   ({ label, children, ...props }, ref) => (
     <FieldActionWrapper
-      justifyContent="unset"
-      background="transparent"
-      borderStyle="none"
+      $justifyContent="unset"
+      $background="transparent"
+      $borderStyle="none"
       type="button"
       {...props}
       as="button"

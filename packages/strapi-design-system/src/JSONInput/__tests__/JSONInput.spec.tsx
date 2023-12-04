@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { render, fireEvent, waitFor } from '@test/utils';
 
-import { JSONInput } from '../JSONInput';
+import { JSONInput, JSONInputProps } from '../JSONInput';
 
 const mockIntersectionObserver = jest.fn();
 mockIntersectionObserver.mockReturnValue({
@@ -28,7 +28,7 @@ const onError = jest.fn();
 
 const JSON_DATA = '[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6\n   }\n]';
 
-const Component = (props) => <JSONInput {...props} />;
+const Component = (props?: Partial<JSONInputProps>) => <JSONInput {...props} />;
 
 describe('JSONInput', () => {
   beforeAll(() => {
@@ -44,7 +44,7 @@ describe('JSONInput', () => {
   });
 
   it("Should call parent's onChange callback with JSON string", async () => {
-    const { container } = render(<Component value={JSON_DATA} onChange={onChange} onError={onError} editable />);
+    const { container } = render(<Component value={JSON_DATA} onChange={onChange} onError={onError} />);
     const JSONInput = container.querySelector('div[contenteditable="true"]');
     expect(JSONInput).not.toBeNull();
     fireEvent.input(JSONInput!, {

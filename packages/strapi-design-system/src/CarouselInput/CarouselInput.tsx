@@ -36,7 +36,7 @@ export const CarouselInput = React.forwardRef<CarouselElement, CarouselInputProp
 
     return (
       <Field hint={hint} error={error} id={generatedId} required={required}>
-        <Flex direction="column" alignItems="stretch" gap={1}>
+        <Flex $direction="column" $alignItems="stretch" $gap={1}>
           {label && <FieldLabel action={labelAction}>{label}</FieldLabel>}
           <Carousel
             ref={forwardedRef}

@@ -7,13 +7,14 @@ import { Box } from '../Box';
 import { Field, FieldHint, FieldError, useField, FieldProps } from '../Field';
 import { Flex } from '../Flex';
 import { useId } from '../hooks/useId';
+import { PrefixWithDollar } from '../types';
 import { Typography } from '../Typography';
 
-const CheckboxLabel = styled(Typography)<Pick<CheckboxProps, 'disabled'>>`
+const CheckboxLabel = styled(Typography)<PrefixWithDollar<Pick<CheckboxProps, 'disabled'>>>`
   display: flex;
   align-items: flex-start;
   * {
-    cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+    cursor: ${({ $disabled }) => ($disabled ? 'not-allowed' : 'pointer')};
   }
 `;
 
@@ -42,10 +43,10 @@ export const Checkbox = React.forwardRef<CheckboxElement, CheckboxProps>(
 
     return (
       <Field id={generatedId} hint={hint} error={error}>
-        <Flex direction="column" alignItems="stretch" gap={1}>
-          <CheckboxLabel as="label" textColor="neutral800" disabled={disabled}>
+        <Flex $direction="column" $alignItems="stretch" $gap={1}>
+          <CheckboxLabel as="label" $textColor="neutral800" $disabled={disabled}>
             <CheckboxTick ref={forwardedRef} disabled={disabled} aria-describedby={ariaDescription} {...props} />
-            <Box paddingLeft={2}>{children}</Box>
+            <Box $paddingLeft={2}>{children}</Box>
           </CheckboxLabel>
 
           <FieldHint />

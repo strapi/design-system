@@ -6,7 +6,7 @@ interface ContentLayoutProps {
 
 export const ContentLayout = ({ children }: ContentLayoutProps) => {
   return (
-    <Box paddingLeft={10} paddingRight={10}>
+    <Box $paddingLeft={10} $paddingRight={10}>
       {children}
     </Box>
   );

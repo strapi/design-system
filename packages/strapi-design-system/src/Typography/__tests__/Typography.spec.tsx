@@ -8,7 +8,7 @@ describe('Typography', () => {
   test('textAlign', async () => {
     const { container } = setup({
       children: 'Test',
-      textAlign: 'center',
+      $textAlign: 'center',
     });
 
     expect(container).toMatchSnapshot();
@@ -17,7 +17,7 @@ describe('Typography', () => {
   test('textTransform', () => {
     const { container } = setup({
       children: 'Test',
-      textTransform: 'uppercase',
+      $textTransform: 'uppercase',
     });
 
     expect(container).toMatchSnapshot();

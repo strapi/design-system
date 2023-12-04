@@ -36,7 +36,7 @@ export const extendTheme = (theme: DefaultTheme | null, overrides: object | null
     throw new Error(error);
   }
 
-  function customizer(objValue, srcValue) {
+  function customizer(objValue: any[] | {}, srcValue: {}) {
     if (Array.isArray(objValue)) {
       return srcValue;
     }

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { useMainNav } from './MainNavContext';
 import { Badge } from '../Badge';
@@ -62,15 +62,15 @@ const MainNavRow = styled(Flex)`
   padding: ${({ theme }) => `${theme.spaces[2]} ${theme.spaces[3]}`};
 `;
 
-const CustomBadge = styled(Badge)<{ condensed?: boolean }>`
-  ${({ theme, condensed }) =>
-    condensed &&
-    `
-	  position: absolute;
-    // Values based on visual aspect 
-    top: -${theme.spaces[3]};
-    right:  -${theme.spaces[1]};
-  `}
+const CustomBadge = styled(Badge)<{ $condensed?: boolean }>`
+  ${({ theme, $condensed }) =>
+    $condensed &&
+    css`
+      position: absolute;
+      // Values based on visual aspect
+      top: -${theme.spaces[3]};
+      right: -${theme.spaces[1]};
+    `}
 
   ${Typography} {
     //find a solution to remove !important
@@ -103,12 +103,12 @@ export const NavLink = React.forwardRef<HTMLAnchorElement, NavLinkProps>(
       return (
         <MainNavLinkWrapper ref={ref} {...props}>
           <Tooltip position="right" label={children}>
-            <MainNavRow as="span" justifyContent="center">
-              <IconBox aria-hidden paddingRight={0} as="span">
+            <MainNavRow as="span" $justifyContent="center">
+              <IconBox aria-hidden $paddingRight={0} as="span">
                 {icon}
               </IconBox>
               {badgeContent && (
-                <CustomBadge condensed aria-label={badgeAriaLabel}>
+                <CustomBadge $condensed aria-label={badgeAriaLabel}>
                   {badgeContent}
                 </CustomBadge>
               )}
@@ -120,15 +120,15 @@ export const NavLink = React.forwardRef<HTMLAnchorElement, NavLinkProps>(
 
     return (
       <MainNavLinkWrapper ref={ref} {...props}>
-        <MainNavRow as="span" justifyContent="space-between">
+        <MainNavRow as="span" $justifyContent="space-between">
           <Flex>
-            <IconBox aria-hidden paddingRight={3} as="span">
+            <IconBox aria-hidden $paddingRight={3} as="span">
               {icon}
             </IconBox>
             <Typography>{children}</Typography>
           </Flex>
           {badgeContent && (
-            <CustomBadge justifyContent="center" aria-label={badgeAriaLabel}>
+            <CustomBadge $justifyContent="center" aria-label={badgeAriaLabel}>
               {badgeContent}
             </CustomBadge>
           )}

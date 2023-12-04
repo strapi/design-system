@@ -23,7 +23,7 @@ export interface SubNavHeaderProps {
   id?: string;
   label: string;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
-  onClear?: React.MouseEventHandler<HTMLInputElement>;
+  onClear?: React.MouseEventHandler<HTMLButtonElement>;
   onSubmit?: React.FormEventHandler<HTMLInputElement>;
   searchLabel?: string;
   searchable?: boolean;
@@ -44,8 +44,8 @@ export const SubNavHeader = ({
   const [isSearchOpen, setSearchOpen] = React.useState(false);
   const previousSearchOpenValue = usePrevious(isSearchOpen);
   const clearButtonId = useId(id);
-  const searchRef = React.useRef<HTMLInputElement>(undefined!);
-  const searchButtonRef = React.useRef<HTMLButtonElement>(undefined!);
+  const searchRef = React.useRef<HTMLInputElement>(null!);
+  const searchButtonRef = React.useRef<HTMLButtonElement>(null!);
 
   React.useEffect(() => {
     if (isSearchOpen && searchRef.current) {
@@ -60,18 +60,18 @@ export const SubNavHeader = ({
     setSearchOpen((isOpen) => !isOpen);
   };
 
-  const handleClear = (e) => {
+  const handleClear = (e: React.MouseEvent<HTMLButtonElement>) => {
     onClear(e);
     searchRef.current.focus();
   };
 
-  const handleBlur = (e) => {
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     if (e.relatedTarget?.id !== clearButtonId) {
       setSearchOpen(false);
     }
   };
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === KeyboardKeys.ESCAPE) {
       setSearchOpen(false);
     }
@@ -79,7 +79,7 @@ export const SubNavHeader = ({
 
   if (isSearchOpen) {
     return (
-      <Box paddingLeft={4} paddingTop={5} paddingBottom={2} paddingRight={4}>
+      <Box $paddingLeft={4} $paddingTop={5} $paddingBottom={2} $paddingRight={4}>
         <SearchForm>
           <Searchbar
             name="searchbar"
@@ -97,7 +97,7 @@ export const SubNavHeader = ({
             {searchLabel}
           </Searchbar>
         </SearchForm>
-        <Box paddingLeft={2} paddingTop={4}>
+        <Box $paddingLeft={2} $paddingTop={4}>
           <CustomDivider />
         </Box>
       </Box>
@@ -105,16 +105,16 @@ export const SubNavHeader = ({
   }
 
   return (
-    <Box paddingLeft={6} paddingTop={6} paddingBottom={2} paddingRight={4}>
-      <Flex justifyContent="space-between" alignItems="flex-start">
-        <Typography variant="beta" as={as}>
+    <Box $paddingLeft={6} $paddingTop={6} $paddingBottom={2} $paddingRight={4}>
+      <Flex $justifyContent="space-between" $alignItems="flex-start">
+        <Typography $variant="beta" as={as}>
           {label}
         </Typography>
         {searchable && (
           <IconButton ref={searchButtonRef} onClick={toggleSearch} label={searchLabel} icon={<Search />} />
         )}
       </Flex>
-      <Box paddingTop={4}>
+      <Box $paddingTop={4}>
         <CustomDivider />
       </Box>
     </Box>

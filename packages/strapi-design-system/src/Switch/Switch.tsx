@@ -5,21 +5,13 @@ import styled from 'styled-components';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
 
-interface SwitchButtonProps {
-  visibleLabels?: boolean;
-}
-
-const SwitchContent = styled.div<SwitchButtonProps>`
+const SwitchContent = styled.div`
   background: ${({ theme }) => theme.colors.danger500};
   border: none;
   border-radius: 16px;
   position: relative;
   height: 2.4rem;
   width: 4rem;
-
-  & span {
-    font-size: ${({ visibleLabels }) => (visibleLabels ? '1rem' : 0)};
-  }
 
   &:before {
     content: '';
@@ -40,7 +32,7 @@ const SwitchContent = styled.div<SwitchButtonProps>`
   }
 `;
 
-const SwitchButton = styled.button<SwitchButtonProps>`
+const SwitchButton = styled.button`
   background: transparent;
   padding: 0;
   border: none;
@@ -54,14 +46,13 @@ const SwitchButton = styled.button<SwitchButtonProps>`
   }
 `;
 
-export interface SwitchProps
-  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'onChange'>,
-    SwitchButtonProps {
+export interface SwitchProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'onChange'> {
   label: string;
   onChange: React.MouseEventHandler<HTMLButtonElement>;
   onLabel?: string;
   offLabel?: string;
   selected?: boolean;
+  visibleLabels?: boolean;
 }
 
 export const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>(
@@ -73,7 +64,6 @@ export const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>(
         aria-checked={selected}
         aria-label={label}
         onClick={onChange}
-        visibleLabels={visibleLabels}
         type="button"
         {...props}
       >
@@ -84,7 +74,7 @@ export const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>(
           </SwitchContent>
 
           {visibleLabels && (
-            <Box as="span" aria-hidden paddingLeft={2} color={selected ? 'success600' : 'danger600'}>
+            <Box as="span" aria-hidden $paddingLeft={2} $color={selected ? 'success600' : 'danger600'}>
               {selected ? onLabel : offLabel}
             </Box>
           )}
