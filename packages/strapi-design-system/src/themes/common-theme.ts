@@ -3,7 +3,20 @@ import { Sizes, sizes } from './sizes';
 export interface CommonTheme {
   sizes: Sizes;
   zIndices: [5, 10, 15, 20];
-  spaces: ['0px', '4px', '8px', '12px', '16px', '20px', '24px', '32px', '40px', '48px', '56px', '64px'];
+  spaces: [
+    '0rem',
+    '0.4rem',
+    '0.8rem',
+    '1.2rem',
+    '1.6rem',
+    '2rem',
+    '2.4rem',
+    '3.2rem',
+    '4rem',
+    '4.8rem',
+    '5.6rem',
+    '6.4rem',
+  ];
   borderRadius: '4px';
   mediaQueries: {
     tablet: string;
@@ -21,7 +34,20 @@ export interface CommonTheme {
 export const commonTheme: CommonTheme = {
   sizes,
   zIndices: [5, 10, 15, 20], // TBD
-  spaces: ['0px', '4px', '8px', '12px', '16px', '20px', '24px', '32px', '40px', '48px', '56px', '64px'],
+  spaces: [
+    '0rem',
+    '0.4rem',
+    '0.8rem',
+    '1.2rem',
+    '1.6rem',
+    '2rem',
+    '2.4rem',
+    '3.2rem',
+    '4rem',
+    '4.8rem',
+    '5.6rem',
+    '6.4rem',
+  ],
   borderRadius: '4px',
   mediaQueries: {
     tablet: `@media (max-width: 110rem)`,

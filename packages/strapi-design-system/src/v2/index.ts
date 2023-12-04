@@ -1,3 +1,4 @@
+export * from './Accordion';
 export * from './Breadcrumbs';
 export * from './Link';
 export * from './LinkButton';

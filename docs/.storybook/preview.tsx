@@ -14,13 +14,11 @@ const preview: Preview = {
       <MemoryRouter>
         <Theme>
           <main>
-            <VisuallyHidden>
+            <VisuallyHidden as="h1">
               {/* Necessary in order to prevent axe core from providing errors on main / heading */}
-              <h1>Storybook story</h1>
+              Storybook story
             </VisuallyHidden>
-            <Box height="100%" padding={2}>
-              <Story />
-            </Box>
+            <Story />
           </main>
         </Theme>
       </MemoryRouter>
