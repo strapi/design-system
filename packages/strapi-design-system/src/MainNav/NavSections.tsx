@@ -1,24 +1,20 @@
-import React from 'react';
+import * as React from 'react';
 
 import styled from 'styled-components';
 
 import { Box } from '../Box';
 import { Flex, FlexProps } from '../Flex';
 
-export interface NavSectionsProps extends FlexProps {
-  horizontal?: boolean;
-
-  /**
-   * @preserve
-   * @deprecated Use gap instead;
-   */
-  spacing?: FlexProps['gap'];
-}
-
 const BoxGrow = styled(Box)`
   flex-grow: 1;
   overflow-y: auto;
 `;
+
+export interface NavSectionsProps extends FlexProps<'ul'> {
+  children: React.ReactNode;
+  spacing?: number;
+  horizontal?: boolean;
+}
 
 export const NavSections = ({ children, spacing = 4, horizontal = false, ...props }: NavSectionsProps) => {
   return (

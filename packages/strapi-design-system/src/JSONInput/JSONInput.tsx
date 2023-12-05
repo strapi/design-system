@@ -1,4 +1,4 @@
-import React, { useRef, forwardRef, useImperativeHandle } from 'react';
+import * as React from 'react';
 
 import { jsonParseLinter, json } from '@codemirror/lang-json';
 import { ViewUpdate } from '@codemirror/view';
@@ -23,7 +23,7 @@ export interface JSONInputRef extends Partial<HTMLElement> {
   focus(): void;
 }
 
-export const JSONInput = forwardRef<JSONInputRef, JSONInputProps>(
+export const JSONInput = React.forwardRef<JSONInputRef, JSONInputProps>(
   (
     {
       label,
@@ -38,9 +38,9 @@ export const JSONInput = forwardRef<JSONInputRef, JSONInputProps>(
     },
     forwardedRef,
   ) => {
-    const editor = useRef<ReactCodeMirrorRef['editor']>();
-    const editorState = useRef<ReactCodeMirrorRef['state']>();
-    const editorView = useRef<ReactCodeMirrorRef['view']>();
+    const editor = React.useRef<ReactCodeMirrorRef['editor']>();
+    const editorState = React.useRef<ReactCodeMirrorRef['state']>();
+    const editorView = React.useRef<ReactCodeMirrorRef['view']>();
     const hasError = Boolean(error);
 
     /**
@@ -130,7 +130,7 @@ export const JSONInput = forwardRef<JSONInputRef, JSONInputProps>(
 
     const composedRefs = useComposedRefs(editor, setContainer);
 
-    useImperativeHandle(
+    React.useImperativeHandle(
       forwardedRef,
       () => ({
         ...view?.dom,

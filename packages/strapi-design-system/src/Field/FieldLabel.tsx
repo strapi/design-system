@@ -1,4 +1,4 @@
-import { forwardRef, ReactNode } from 'react';
+import * as React from 'react';
 
 import styled from 'styled-components';
 
@@ -8,7 +8,7 @@ import { once } from '../helpers/deprecations';
 import { Typography, TypographyProps } from '../Typography';
 
 export interface FieldLabelProps extends TypographyProps<'label'> {
-  action?: ReactNode;
+  action?: React.ReactNode;
   /**
    * @preserve
    * @deprecated "required" should be given to Field component to share the value across components
@@ -18,7 +18,7 @@ export interface FieldLabelProps extends TypographyProps<'label'> {
 
 const warnOnce = once(console.warn);
 
-export const FieldLabel = forwardRef<HTMLLabelElement, FieldLabelProps>(
+export const FieldLabel = React.forwardRef<HTMLLabelElement, FieldLabelProps>(
   ({ children, action, required: requiredDeprecatedProp, ...props }, ref) => {
     const { id, required: requiredField } = useField();
     const required = requiredField || requiredDeprecatedProp;

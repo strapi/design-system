@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import * as React from 'react';
 
 import { LiveRegionIds } from './constants';
 
@@ -27,7 +27,7 @@ const notifyAlert = (message: string) => {
 };
 
 export const useNotifyAT = () => {
-  useEffect(() => {
+  React.useEffect(() => {
     return () => {
       notifyLog('');
       notifyAlert('');

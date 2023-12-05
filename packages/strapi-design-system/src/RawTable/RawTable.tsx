@@ -1,10 +1,10 @@
-import { TableHTMLAttributes, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import * as React from 'react';
 
 import { focusFocusable } from './focusFocusable';
 import { RawTableContext } from './RawTableContext';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 
-export interface RawTableProps extends TableHTMLAttributes<HTMLTableElement> {
+export interface RawTableProps extends React.TableHTMLAttributes<HTMLTableElement> {
   colCount: number;
   initialCol?: number;
   initialRow?: number;
@@ -13,20 +13,20 @@ export interface RawTableProps extends TableHTMLAttributes<HTMLTableElement> {
 }
 
 export const RawTable = ({ colCount, rowCount, jumpStep = 3, initialCol = 0, initialRow = 0, ...props }) => {
-  const tableRef = useRef(null);
-  const mountedRef = useRef(false);
+  const tableRef = React.useRef(null);
+  const mountedRef = React.useRef(false);
   /**
    * Rows will always have n+1 line because of the <tr><th></th></tr> elements
    */
-  const [rowIndex, setRowIndex] = useState(initialRow);
-  const [colIndex, setColIndex] = useState(initialCol);
+  const [rowIndex, setRowIndex] = React.useState(initialRow);
+  const [colIndex, setColIndex] = React.useState(initialCol);
 
-  const setTableValues = useCallback(({ colIndex, rowIndex }) => {
+  const setTableValues = React.useCallback(({ colIndex, rowIndex }) => {
     setColIndex(colIndex);
     setRowIndex(rowIndex);
   }, []);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (mountedRef.current) {
       focusFocusable(tableRef.current);
     }
@@ -111,7 +111,7 @@ export const RawTable = ({ colCount, rowCount, jumpStep = 3, initialCol = 0, ini
     }
   };
 
-  const context = useMemo(() => ({ rowIndex, colIndex, setTableValues }), [colIndex, rowIndex, setTableValues]);
+  const context = React.useMemo(() => ({ rowIndex, colIndex, setTableValues }), [colIndex, rowIndex, setTableValues]);
 
   return (
     <RawTableContext.Provider value={context}>

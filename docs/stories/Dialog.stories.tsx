@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 import { Typography, Flex, Button, Dialog, DialogBody, DialogFooter } from '@strapi/design-system';
@@ -15,7 +15,7 @@ type Story = StoryObj<typeof Dialog>;
 
 export const Base = {
   render: () => {
-    const [isVisible, setIsVisible] = useState(false);
+    const [isVisible, setIsVisible] = React.useState(false);
 
     return (
       <>

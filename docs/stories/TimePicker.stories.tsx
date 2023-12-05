@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 import { TimePicker, Flex, Button } from '@strapi/design-system';
@@ -14,8 +14,8 @@ type Story = StoryObj<typeof TimePicker>;
 
 export const Base = {
   render: () => {
-    const [error, toggleError] = useState<string>();
-    const [disabled, toggleDisabled] = useState(false);
+    const [error, toggleError] = React.useState<string>();
+    const [disabled, toggleDisabled] = React.useState(false);
 
     return (
       <Flex direction="column" alignItems="stretch" gap={11}>
@@ -40,7 +40,7 @@ export const Base = {
 
 export const Controlled = {
   render: () => {
-    const [value, setValue] = useState();
+    const [value, setValue] = React.useState();
 
     return <TimePicker label="Lunchtime" onClear={() => setValue(undefined)} onChange={setValue} value={value} />;
   },
@@ -50,7 +50,7 @@ export const Controlled = {
 
 export const Steps = {
   render: () => {
-    const [value, setValue] = useState();
+    const [value, setValue] = React.useState();
     return <TimePicker step={60} label="Lunch hour" onChange={setValue} value={value} />;
   },
 
@@ -59,7 +59,7 @@ export const Steps = {
 
 export const Sizing = {
   render: () => {
-    const [size, setSize] = useState('S');
+    const [size, setSize] = React.useState('S');
 
     return (
       <Flex direction="column" alignItems="stretch" gap={11}>

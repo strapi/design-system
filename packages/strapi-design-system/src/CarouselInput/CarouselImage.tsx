@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import * as React from 'react';
 
 import styled from 'styled-components';
 
@@ -16,7 +16,7 @@ const StyledImage = styled(Box)`
 `;
 
 export const CarouselImage = (props: CarouselImageProps) => {
-  const [isError, setIsError] = useState(false);
+  const [isError, setIsError] = React.useState(false);
 
   const handleImageError = () => {
     setIsError(true);

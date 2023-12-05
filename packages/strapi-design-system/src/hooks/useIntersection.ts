@@ -1,4 +1,4 @@
-import { MutableRefObject, useEffect } from 'react';
+import * as React from 'react';
 
 import { useCallbackRef } from '@strapi/ui-primitives';
 
@@ -8,13 +8,13 @@ interface UseIntersectionOptions {
 }
 
 export const useIntersection = (
-  scrollableAreaRef: MutableRefObject<HTMLElement | null>,
+  scrollableAreaRef: React.MutableRefObject<HTMLElement | null>,
   callback: (entry: IntersectionObserverEntry) => void,
   { selectorToWatch, skipWhen = false }: UseIntersectionOptions,
 ) => {
   const handleIntersection = useCallbackRef(callback);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (skipWhen || !scrollableAreaRef.current) return;
 
     const options = {

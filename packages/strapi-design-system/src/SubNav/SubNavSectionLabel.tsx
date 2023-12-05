@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 import { CarretDown } from '@strapi/icons';
 import styled from 'styled-components';
 
@@ -5,27 +7,24 @@ import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { Typography } from '../Typography';
 
-export interface SubNavSectionLabelProps {
-  ariaControls: string;
-  ariaExpanded: boolean;
-  collapsable?: boolean;
-  label: string;
-  onClick?: React.MouseEventHandler;
-}
-
-// TODO: these could be props
 const SubNavSectionLabelWrapper = styled(Flex)`
   border: none;
   padding: 0;
   background: transparent;
 `;
-
-// TODO: these could be props
 const DropDownIconWrapper = styled.div<{ rotated?: boolean }>`
   display: flex;
   align-items: center;
   transform: rotateX(${({ rotated }) => (rotated ? '0deg' : '180deg')});
 `;
+
+export interface SubNavSectionLabelProps {
+  ariaControls?: string;
+  ariaExpanded?: boolean;
+  collapsable?: boolean;
+  label: string;
+  onClick: React.MouseEventHandler<HTMLButtonElement> & React.MouseEventHandler<HTMLDivElement>;
+}
 
 export const SubNavSectionLabel = ({
   collapsable = false,

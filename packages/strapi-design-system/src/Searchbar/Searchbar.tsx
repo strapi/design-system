@@ -1,4 +1,4 @@
-import React, { forwardRef, MouseEventHandler, useRef } from 'react';
+import * as React from 'react';
 
 import { Search, Cross } from '@strapi/icons';
 import styled from 'styled-components';
@@ -44,13 +44,13 @@ const SearchbarWrapper = styled.div`
 export interface SearchbarProps extends Omit<FieldInputProps, 'id' | 'name'>, Pick<FieldProps, 'id' | 'name'> {
   name: string;
   value?: string;
-  onClear: MouseEventHandler<any>;
+  onClear: React.MouseEventHandler<any>;
   clearLabel: string;
 }
 
-export const Searchbar = forwardRef<HTMLInputElement, SearchbarProps>(
+export const Searchbar = React.forwardRef<HTMLInputElement, SearchbarProps>(
   ({ name, size = 'M', children, value = '', onClear, clearLabel, ...props }, ref) => {
-    const inputRef = useRef<HTMLInputElement>(null!);
+    const inputRef = React.useRef<HTMLInputElement>(null!);
     const isCompleting = value.length > 0;
 
     const handleClear = (e) => {

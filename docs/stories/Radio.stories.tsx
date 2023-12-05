@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 import { Radio, RadioGroup, Typography } from '@strapi/design-system';
@@ -14,7 +14,7 @@ type Story = StoryObj<typeof Radio>;
 
 export const Base = {
   render: () => {
-    const [selected, setSelected] = useState();
+    const [selected, setSelected] = React.useState();
 
     return (
       <div>

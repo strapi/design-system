@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { LinkButton, Box, Flex } from '@strapi/design-system';
+import { Box, Flex, LinkButton } from '@strapi/design-system';
 import { Information, Write } from '@strapi/icons';
 
 const meta: Meta<typeof LinkButton> = {
@@ -14,7 +14,7 @@ type Story = StoryObj<typeof LinkButton>;
 export const Base = {
   render: () => (
     <Box paddingBottom={2}>
-      <LinkButton variant="default" href="https://strapi.io/">
+      <LinkButton variant="default" isExternal href="https://strapi.io/">
         Default
       </LinkButton>
     </Box>

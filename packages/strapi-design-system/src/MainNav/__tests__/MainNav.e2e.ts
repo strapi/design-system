@@ -12,7 +12,7 @@ test.describe.parallel('MainNav', () => {
 
   test.describe('dark mode', () => {
     test('triggers axe on the document', async ({ page }) => {
-      await navigateToStory(page, 'design-system-components-mainnav--base', { isDarkMode: true });
+      await navigateToStory(page, 'design-system-components-mainnav--base');
       await checkA11y(page);
     });
   });

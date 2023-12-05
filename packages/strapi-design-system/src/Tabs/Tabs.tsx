@@ -1,4 +1,4 @@
-import React, { Children, cloneElement, useEffect, useRef } from 'react';
+import * as React from 'react';
 
 import { useCallbackRef } from '@strapi/ui-primitives';
 import styled from 'styled-components';
@@ -10,12 +10,12 @@ import { KeyboardKeys } from '../helpers/keyboardKeys';
 import { Typography } from '../Typography';
 
 const useTabsFocus = (selectedTabIndex, onTabChange) => {
-  const tabsRef = useRef<HTMLDivElement>(null);
-  const mountedRef = useRef(false);
+  const tabsRef = React.useRef<HTMLDivElement>(null);
+  const mountedRef = React.useRef(false);
 
   const handleTabChange = useCallbackRef(onTabChange);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (!tabsRef.current) return;
 
     // We don't' want to send the focus to the tab when it mounts
@@ -52,8 +52,8 @@ export const Tabs = ({ children, ...props }: TabsProps) => {
   const { id, selectedTabIndex, selectTabIndex, label, variant, onTabChange } = useTabs();
   const tabsRef = useTabsFocus(selectedTabIndex, onTabChange);
 
-  const childrenArray = Children.toArray(children).map((node, index) =>
-    cloneElement(node as React.ReactElement, {
+  const childrenArray = React.Children.toArray(children).map((node, index) =>
+    React.cloneElement(node as React.ReactElement, {
       id: `${id}-${index}`,
       index,
       selectedTabIndex,

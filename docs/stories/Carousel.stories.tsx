@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 import { CarouselInput, CarouselSlide, CarouselImage, CarouselActions, IconButton } from '@strapi/design-system';
@@ -15,7 +15,7 @@ type Story = StoryObj<typeof CarouselInput>;
 
 export const Base = {
   render: () => {
-    const [selectedIndex, setSelectedIndex] = useState(0);
+    const [selectedIndex, setSelectedIndex] = React.useState(0);
 
     const handleNext = () => {
       setSelectedIndex((current) => (current < 2 ? current + 1 : 0));

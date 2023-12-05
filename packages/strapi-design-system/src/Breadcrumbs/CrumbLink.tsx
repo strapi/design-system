@@ -1,8 +1,8 @@
-import React from 'react';
+import * as React from 'react';
 
 import styled from 'styled-components';
 
-import { BaseLink, BaseLinkProps } from '../../BaseLink';
+import { BaseLink, BaseLinkProps } from '../BaseLink';
 
 const StyledLink = styled(BaseLink)`
   border-radius: ${({ theme }) => theme.borderRadius};

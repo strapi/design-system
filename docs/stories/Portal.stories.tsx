@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 import { Portal, Typography } from '@strapi/design-system';
@@ -14,7 +14,7 @@ type Story = StoryObj<typeof Portal>;
 
 export const Base = {
   render: () => {
-    const [container, setContainer] = useState<HTMLDivElement | null>(null);
+    const [container, setContainer] = React.useState<HTMLDivElement | null>(null);
 
     return (
       <>

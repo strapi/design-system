@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 import { IconButton, IconButtonGroup, Box, Flex, Typography } from '@strapi/design-system';
@@ -15,7 +15,7 @@ type Story = StoryObj<typeof IconButton>;
 
 export const Base = {
   render: () => {
-    const [currentAction, setCurrentAction] = useState('None Selected');
+    const [currentAction, setCurrentAction] = React.useState('None Selected');
 
     return (
       <Box padding={7}>
@@ -37,7 +37,7 @@ export const Base = {
 
 export const Disabled = {
   render: () => {
-    const [currentAction, setCurrentAction] = useState('None Selected');
+    const [currentAction, setCurrentAction] = React.useState('None Selected');
 
     return (
       <Box padding={7}>
@@ -112,7 +112,7 @@ export const Variants = {
 
 export const Children = {
   render: () => {
-    const [currentAction, setCurrentAction] = useState('None Selected');
+    const [currentAction, setCurrentAction] = React.useState('None Selected');
 
     return (
       <Box padding={7}>

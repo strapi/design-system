@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import * as React from 'react';
 
 import styled from 'styled-components';
 
@@ -47,7 +47,7 @@ export interface BaseRadioProps extends React.InputHTMLAttributes<HTMLInputEleme
 export const BaseRadio = React.forwardRef<HTMLInputElement, BaseRadioProps>(
   ({ value, disabled = false, ...props }, ref) => {
     const generatedId = useId();
-    const { onChange, selected, name, size } = useContext(RadioContext);
+    const { onChange, selected, name, size } = React.useContext(RadioContext);
     const isSelected = selected === value;
 
     return (

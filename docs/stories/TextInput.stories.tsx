@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 import { TextInput } from '@strapi/design-system';
@@ -15,7 +15,7 @@ type Story = StoryObj<typeof TextInput>;
 
 export const Base = {
   render: () => {
-    const [content, setContent] = useState('');
+    const [content, setContent] = React.useState('');
 
     return (
       <TextInput

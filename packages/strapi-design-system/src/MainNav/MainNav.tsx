@@ -1,18 +1,18 @@
-import React from 'react';
+import * as React from 'react';
 
 import styled from 'styled-components';
 
 import { MainNavContext } from './MainNavContext';
 import { Flex, FlexProps } from '../Flex';
 
-export interface MainNavProps extends FlexProps {
-  condensed?: boolean;
-}
-
-const MainNavWrapper = styled(Flex)<MainNavProps>`
+const MainNavWrapper = styled(Flex)<{ condensed: boolean }>`
   width: ${({ condensed }) => (condensed ? 'max-content' : `22.4rem`)};
   border-right: 1px solid ${({ theme }) => theme.colors.neutral150};
 `;
+
+export interface MainNavProps extends FlexProps<'nav'> {
+  condensed?: boolean;
+}
 
 export const MainNav = ({ condensed = false, ...props }: MainNavProps) => {
   return (

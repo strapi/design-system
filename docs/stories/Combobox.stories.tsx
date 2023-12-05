@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 import {
@@ -22,8 +22,8 @@ type Story = StoryObj<typeof Combobox>;
 
 export const Basic = {
   render: () => {
-    const [error, toggleError] = useState<string>();
-    const [disabled, toggleDisabled] = useState(false);
+    const [error, toggleError] = React.useState<string>();
+    const [disabled, toggleDisabled] = React.useState(false);
 
     return (
       <Flex direction="column" alignItems="stretch" gap={11}>
@@ -56,7 +56,7 @@ export const Basic = {
 
 export const Controlled = {
   render: () => {
-    const [value, setValue] = useState('');
+    const [value, setValue] = React.useState('');
 
     return (
       <Combobox
@@ -82,10 +82,10 @@ export const Controlled = {
 
 export const Loading = {
   render: () => {
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = React.useState(false);
     const handleLoadMore = () => setIsLoading(true);
 
-    useEffect(() => {
+    React.useEffect(() => {
       if (isLoading) {
         const timeout = setTimeout(() => {
           setIsLoading(false);
@@ -119,9 +119,9 @@ export const Loading = {
 
 export const Creatable = {
   render: () => {
-    const [value, setValue] = useState('');
+    const [value, setValue] = React.useState('');
 
-    const [options, setOptions] = useState([
+    const [options, setOptions] = React.useState([
       {
         name: 'Apple',
         value: 'apple',
@@ -186,8 +186,8 @@ export const Creatable = {
 
 export const Autocomplete = {
   render: () => {
-    const [value, setValue] = useState('');
-    const [autocompleteMode, setAutocompleteMode] = useState('both');
+    const [value, setValue] = React.useState('');
+    const [autocompleteMode, setAutocompleteMode] = React.useState('both');
 
     return (
       <Flex direction="column" alignItems="stretch" gap={11}>

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 import { Typography, DismissibleLayer } from '@strapi/design-system';
@@ -14,9 +14,9 @@ type Story = StoryObj<typeof DismissibleLayer>;
 
 export const Base = {
   render: () => {
-    const [isVisible, setIsVisible] = useState(true);
+    const [isVisible, setIsVisible] = React.useState(true);
 
-    useEffect(() => {
+    React.useEffect(() => {
       let timeout: NodeJS.Timeout | null = null;
 
       if (!isVisible) {

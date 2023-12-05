@@ -1,8 +1,8 @@
-import React from 'react';
+import * as React from 'react';
 
 import styled from 'styled-components';
 
-import { Button, ButtonProps } from '../../Button';
+import { Button, ButtonProps } from '../Button';
 import { SimpleMenu } from '../SimpleMenu';
 
 const StyledButton = styled(Button)`

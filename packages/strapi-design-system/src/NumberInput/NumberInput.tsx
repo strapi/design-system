@@ -1,5 +1,5 @@
 /* eslint-disable no-restricted-globals */
-import React, { useRef } from 'react';
+import * as React from 'react';
 
 import { NumberFormatter, NumberParser } from '@internationalized/number';
 import { CarretDown } from '@strapi/icons';
@@ -72,8 +72,8 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
     const generatedId = useId(id);
     const designContext = useDesignSystem('NumberInput');
     const locale = defaultLocale || designContext.locale;
-    const numberParserRef = useRef(new NumberParser(locale, { style: 'decimal' }));
-    const numberFormaterRef = useRef(new NumberFormatter(locale, { maximumFractionDigits: 20 }));
+    const numberParserRef = React.useRef(new NumberParser(locale, { style: 'decimal' }));
+    const numberFormaterRef = React.useRef(new NumberFormatter(locale, { maximumFractionDigits: 20 }));
 
     const [inputValue, setInputValue] = useControllableState({
       prop(currentInputValue) {

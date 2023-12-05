@@ -1,15 +1,11 @@
 import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
-import { SubNav, SubNavHeader, SubNavSection, SubNavLink, SubNavLinkSection } from '@strapi/design-system';
-
-import { DeprecationNotice } from '../components/DeprecationNotice';
+import { SubNav, SubNavHeader, SubNavSection, SubNavLinkSection, SubNavLink } from '@strapi/design-system';
 
 import * as SubNavStories from './SubNav.stories';
 
 <Meta of={SubNavStories} />
 
 # SubNav
-
-<DeprecationNotice href="/?path=/docs/design-system-components-v2-subnav--base">the V2 version</DeprecationNotice>
 
 The Sub Navigation is available and displayed on predefined sections of the admin panel to access advanced options (i.e.
 Content Manager, Content-types Builder and Settings). Thanks to it the users can easily navigation from an entry or a
@@ -69,12 +65,12 @@ import { NavLink } from 'react-router-dom';
 </SubNavLink>;
 ```
 
-#### (⚠️ Only for Strapi Design System v1.0.0) NextJS usage
+#### NextJS usage
 
 For NextJS, you'll need to wrap the `NavLink` with the `NextLink` component
 
 ```jsx
-import { SubNavLink } from '@strapi/design-system';
+import { SubNavLink } from '@strapi/design-system/SubNavLink';
 import NextLink from 'next/link';
 
 <NextLink href="/home" passHref>

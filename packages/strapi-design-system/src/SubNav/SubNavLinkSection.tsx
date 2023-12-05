@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { CarretDown } from '@strapi/icons';
 import styled from 'styled-components';
@@ -7,12 +7,6 @@ import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { useId } from '../hooks/useId';
 import { Typography } from '../Typography';
-
-export interface SubNavLinkSectionProps {
-  children: React.ReactNode;
-  id: string;
-  label: string;
-}
 
 const SubNavLinkSectionWrapper = styled(Box)`
   svg {
@@ -29,13 +23,18 @@ const SubNavLinkSectionButton = styled.button`
   display: flex;
   align-items: center;
 `;
-
-const DropDownIconWrapper = styled.div<{ rotated?: boolean }>`
+const DropDownIconWrapper = styled.div<{ rotated: boolean }>`
   display: flex;
   align-items: center;
   width: 1.2rem;
   transform: rotateX(${({ rotated }) => (rotated ? '0deg' : '180deg')});
 `;
+
+export interface SubNavLinkSectionProps {
+  children: React.ReactNode;
+  id?: string;
+  label: string;
+}
 
 export const SubNavLinkSection = ({ label, children, id }: SubNavLinkSectionProps) => {
   const [isOpen, setOpenLinks] = React.useState(true);

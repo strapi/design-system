@@ -1,16 +1,15 @@
-import { createContext } from 'react';
-import type { ChangeEventHandler } from 'react';
+import * as React from 'react';
 
 import type { RadioGroupSize } from './RadioGroup';
 
 export interface RadioContextValue {
-  onChange?: ChangeEventHandler<HTMLInputElement>;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
   name: string;
   size: RadioGroupSize;
   selected: string;
 }
 
-export const RadioContext = createContext<RadioContextValue>({
+export const RadioContext = React.createContext<RadioContextValue>({
   onChange: undefined,
   name: '',
   size: 'M',

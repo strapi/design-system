@@ -21,24 +21,20 @@
     "@strapi/ui-primitives": "^1.13.2",
     "@uiw/react-codemirror": "^4.21.21",
     "aria-hidden": "^1.2.3",
-    "compute-scroll-into-view": "^3.1.0",
     "react-remove-scroll": "^2.5.7"
   },
   "devDependencies": {
     "@playwright/test": "1.40.1",
     "@strapi/icons": "^1.13.2",
-    "@types/react-router-dom": "^5.3.3",
     "@types/styled-components": "^5.1.26",
     "axe-playwright": "^1.2.3",
     "cross-env": "^7.0.3",
-    "react-router-dom": "^5.3.4",
     "styled-components": "^5.3.11"
   },
   "peerDependencies": {
     "@strapi/icons": "^1.5.0",
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0",
-    "react-router-dom": "^5.2.0",
     "styled-components": "^5.2.1"
   },
   "scripts": {

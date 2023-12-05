@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import * as React from 'react';
 
 import { RenderOptions, render as renderRTL } from '@test/utils';
 
 import { TimePicker, TimePickerProps } from '../TimePicker';
 
 const Component = (props: Partial<TimePickerProps>) => {
-  const [value, setValue] = useState<string>();
+  const [value, setValue] = React.useState<string>();
 
   return <TimePicker label="timepicker" value={value} onChange={setValue} {...props} />;
 };

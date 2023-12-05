@@ -1,29 +1,22 @@
-import React from 'react';
+import * as React from 'react';
 
 import { ChevronRight, ChevronLeft } from '@strapi/icons';
 import styled from 'styled-components';
 
 import { useMainNav } from './MainNavContext';
+import { Flex, FlexProps } from '../Flex';
 import { Icon } from '../Icon';
 import { VisuallyHidden } from '../VisuallyHidden';
 
-export interface NavCondenseWrapperProps {
-  children: React.ReactNode;
-}
-
-interface NavCondenseWrapperButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
-  condensed?: boolean;
-}
-
-const NavCondenseWrapper = styled.button<NavCondenseWrapperButtonProps>`
+const NavCondenseWrapper = styled(Flex).attrs<FlexProps<'button'>>((props) => ({
+  justifyContent: 'center',
+  ...props,
+}))<{ condensed: boolean }>`
   background: ${({ theme }) => theme.colors.neutral0};
   border: 1px solid ${({ theme }) => theme.colors.neutral150};
   border-radius: ${({ theme }) => theme.borderRadius};
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: absolute;
-  bottom: 1.3rem;
+  bottom: 1.3rem; // 9 is the height of the svg and 4 is the padding below
   right: ${({ theme, condensed }) => (condensed ? 0 : theme.spaces[5])};
   transform: ${({ condensed }) => (condensed ? `translateX(50%)` : undefined)};
   z-index: 2;
@@ -36,7 +29,11 @@ const NavCondenseWrapper = styled.button<NavCondenseWrapperButtonProps>`
   }
 `;
 
-export const NavCondense = ({ children, ...props }: NavCondenseWrapperProps) => {
+export interface NavCondenseProps extends FlexProps<'button'> {
+  children: string;
+}
+
+export const NavCondense = ({ children, ...props }: NavCondenseProps) => {
   const condensed = useMainNav();
 
   return (

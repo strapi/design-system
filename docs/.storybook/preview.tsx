@@ -1,5 +1,4 @@
-import { ReactNode, useEffect, useState } from 'react';
-import { MemoryRouter } from 'react-router-dom';
+import * as React from 'react';
 import { Preview } from '@storybook/react';
 import { useDarkMode } from 'storybook-dark-mode';
 import { parse } from 'qs';
@@ -11,19 +10,17 @@ import { createCustomTheme } from './utils/createCustomTheme';
 const preview: Preview = {
   decorators: [
     (Story) => (
-      <MemoryRouter>
-        <Theme>
-          <main>
-            <VisuallyHidden>
-              {/* Necessary in order to prevent axe core from providing errors on main / heading */}
-              <h1>Storybook story</h1>
-            </VisuallyHidden>
-            <Box height="100%" padding={2}>
-              <Story />
-            </Box>
-          </main>
-        </Theme>
-      </MemoryRouter>
+      <Theme>
+        <main>
+          <VisuallyHidden>
+            {/* Necessary in order to prevent axe core from providing errors on main / heading */}
+            <h1>Storybook story</h1>
+          </VisuallyHidden>
+          <Box height="100%" padding={2}>
+            <Story />
+          </Box>
+        </main>
+      </Theme>
     ),
   ],
   parameters: {
@@ -44,11 +41,11 @@ const preview: Preview = {
 
 const themeQueryURL = parse(document.location.search).theme;
 
-const Theme = ({ children }: { children: ReactNode }) => {
+const Theme = ({ children }: { children: React.ReactNode }) => {
   const isDarkAddon = useDarkMode();
-  const [isDark, setIsDark] = useState(themeQueryURL || isDarkAddon);
+  const [isDark, setIsDark] = React.useState(themeQueryURL || isDarkAddon);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (!themeQueryURL && isDarkAddon !== isDark) {
       setIsDark(isDarkAddon);
     }

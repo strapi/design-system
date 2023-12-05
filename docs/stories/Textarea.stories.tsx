@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 import { Textarea, Tooltip, Box } from '@strapi/design-system';
@@ -15,7 +15,7 @@ type Story = StoryObj<typeof Textarea>;
 
 export const Base = {
   render: () => {
-    const [content, setContent] = useState('');
+    const [content, setContent] = React.useState('');
 
     return (
       <Box padding={10}>
@@ -51,7 +51,7 @@ export const Base = {
 
 export const Error = {
   render: () => {
-    const [content, setContent] = useState('');
+    const [content, setContent] = React.useState('');
 
     return (
       <Box padding={10}>
@@ -88,7 +88,7 @@ export const Error = {
 
 export const Disabled = {
   render: () => {
-    const [content, setContent] = useState('');
+    const [content, setContent] = React.useState('');
 
     return (
       <Box padding={10}>
@@ -125,7 +125,7 @@ export const Disabled = {
 
 export const Required = {
   render: () => {
-    const [content, setContent] = useState('');
+    const [content, setContent] = React.useState('');
 
     return (
       <Box padding={10}>

@@ -1,4 +1,4 @@
-import { createContext, useContext } from 'react';
+import * as React from 'react';
 
 export interface TabsContextState {
   id: string;
@@ -9,7 +9,7 @@ export interface TabsContextState {
   selectTabIndex: (index: number) => void;
 }
 
-export const TabsContext = createContext<TabsContextState>({
+export const TabsContext = React.createContext<TabsContextState>({
   id: '',
   label: '',
   selectedTabIndex: 0,
@@ -18,4 +18,4 @@ export const TabsContext = createContext<TabsContextState>({
   },
 });
 
-export const useTabs = () => useContext(TabsContext);
+export const useTabs = () => React.useContext(TabsContext);

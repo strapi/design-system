@@ -1,9 +1,9 @@
-import { ReactNode } from 'react';
+import * as React from 'react';
 
 import { Flex, Typography, DesignSystemProvider, lightTheme } from '@strapi/design-system';
 
 interface DeprecationNoticeProps {
-  children: ReactNode;
+  children: React.ReactNode;
   href: string;
 }
 

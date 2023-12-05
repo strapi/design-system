@@ -1,12 +1,12 @@
-import { useRef, useState } from 'react';
+import * as React from 'react';
 
 import { render, waitFor } from '@test/utils';
 
 import { Popover } from '../Popover';
 
 const Component = () => {
-  const sourceRef = useRef<HTMLButtonElement>(null!);
-  const [isVisible, setIsVisible] = useState(false);
+  const sourceRef = React.useRef<HTMLButtonElement>(null!);
+  const [isVisible, setIsVisible] = React.useState(false);
 
   return (
     <div>

@@ -1,12 +1,12 @@
-import { useRef, useLayoutEffect } from 'react';
+import * as React from 'react';
 
 import { positionTooltip, TooltipPosition } from '../utils/positionTooltip';
 
 export const useTooltipLayout = (visible: boolean, position: TooltipPosition) => {
-  const tooltipWrapperRef = useRef<HTMLDivElement | null>(null);
-  const toggleSourceRef = useRef<HTMLSpanElement | null>(null);
+  const tooltipWrapperRef = React.useRef<HTMLDivElement | null>(null);
+  const toggleSourceRef = React.useRef<HTMLSpanElement | null>(null);
 
-  useLayoutEffect(() => {
+  React.useLayoutEffect(() => {
     if (visible) {
       const tooltip = tooltipWrapperRef.current;
       const toggleSource = toggleSourceRef.current;

@@ -1,60 +1,44 @@
 import * as React from 'react';
 
-import { ChevronRight } from '@strapi/icons';
 import styled from 'styled-components';
 
+import { Divider } from './Divider';
 import { Box } from '../Box';
 import { Flex, FlexProps } from '../Flex';
-import { Typography } from '../Typography';
-import { VisuallyHidden } from '../VisuallyHidden';
 
-const CrumbWrapper = styled(Flex)`
-  svg {
-    height: 1rem;
-    width: 1rem;
-
-    path {
-      fill: ${({ theme }) => theme.colors.neutral500};
-    }
-  }
-  :last-of-type ${Box} {
-    display: none;
-  }
-  :last-of-type ${Typography} {
-    color: ${({ theme }) => theme.colors.neutral800};
-    font-weight: ${({ theme }) => theme.fontWeights.bold};
+const AlignedList = styled(Flex)`
+  // CrumbLinks do have padding-x, because they need to have a
+  // interaction effect, which mis-aligns the breadcrumbs on the left.
+  // This normalizes the behavior by moving the first item to left by
+  // the same amount it has inner padding
+  :first-child {
+    margin-left: ${({ theme }) => `calc(-1*${theme.spaces[2]})`};
   }
 `;
 
-export interface CrumbProps {
-  children: React.ReactNode;
+export interface BreadcrumbsProps extends FlexProps {
+  label?: string;
 }
 
-export const Crumb = ({ children }: CrumbProps) => {
+export const Breadcrumbs = ({ label, children, ...props }: BreadcrumbsProps) => {
+  const childrenArray = React.Children.toArray(children);
+
   return (
-    <CrumbWrapper inline as="li">
-      <Typography variant="pi" textColor="neutral600">
-        {children}
-      </Typography>
-      <Box aria-hidden paddingLeft={3} paddingRight={3}>
-        <ChevronRight />
-      </Box>
-    </CrumbWrapper>
+    <Box aria-label={label} {...props}>
+      <AlignedList as="ol">
+        {React.Children.map(childrenArray, (child, index) => {
+          const shouldDisplayDivider = childrenArray.length > 1 && index + 1 < childrenArray.length;
+
+          return (
+            <Flex inline as="li">
+              {child}
+              {shouldDisplayDivider && <Divider />}
+            </Flex>
+          );
+        })}
+      </AlignedList>
+    </Box>
   );
 };
-
-Crumb.displayName = 'Crumb';
-
-export interface BreadcrumbsProps extends FlexProps {
-  children: React.ReactNode;
-  label: string;
-}
-
-export const Breadcrumbs = ({ children, label, ...props }: BreadcrumbsProps) => (
-  <Flex {...props}>
-    <VisuallyHidden>{label}</VisuallyHidden>
-    <ol aria-hidden>{children}</ol>
-  </Flex>
-);
 
 Breadcrumbs.displayName = 'Breadcrumbs';

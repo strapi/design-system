@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import * as React from 'react';
 
 import styled from 'styled-components';
 
@@ -53,8 +53,8 @@ export interface TableProps extends RawTableProps {
 }
 
 export const Table = ({ footer, ...props }: TableProps) => {
-  const tableRef = useRef<HTMLDivElement>(null!);
-  const [overflowing, setOverflowing] = useState<Overflowing>();
+  const tableRef = React.useRef<HTMLDivElement>(null!);
+  const [overflowing, setOverflowing] = React.useState<Overflowing>();
 
   const handleScroll = (e) => {
     const maxScrollLeft = e.target.scrollWidth - e.target.clientWidth;
@@ -76,7 +76,7 @@ export const Table = ({ footer, ...props }: TableProps) => {
     }
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (tableRef.current.scrollWidth > tableRef.current.clientWidth) {
       setOverflowing('right');
     }

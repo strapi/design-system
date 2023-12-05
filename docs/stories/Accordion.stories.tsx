@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 import {
@@ -28,7 +28,7 @@ type Story = StoryObj<typeof Accordion>;
 
 export const Base = {
   render: () => {
-    const [expanded, setExpanded] = useState(false);
+    const [expanded, setExpanded] = React.useState(false);
 
     return (
       <div>
@@ -99,7 +99,7 @@ export const Base = {
 
 export const Group = {
   render: () => {
-    const [expandedID, setExpandedID] = useState<string | null>(null);
+    const [expandedID, setExpandedID] = React.useState<string | null>(null);
 
     const handleToggle = (id: string) => () => {
       setExpandedID((s) => (s === id ? null : id));

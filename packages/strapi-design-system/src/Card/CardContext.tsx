@@ -1,5 +1,5 @@
-import { createContext, useContext } from 'react';
+import * as React from 'react';
 
-export const CardContext = createContext({ id: '' });
+export const CardContext = React.createContext({ id: '' });
 
-export const useCard = () => useContext(CardContext);
+export const useCard = () => React.useContext(CardContext);

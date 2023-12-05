@@ -1,4 +1,4 @@
-import React, { Children, cloneElement } from 'react';
+import * as React from 'react';
 
 import { useTabs } from './TabsContext';
 
@@ -9,8 +9,8 @@ export interface TabPanelsProps extends React.HTMLAttributes<HTMLDivElement> {
 export const TabPanels = ({ children, ...props }: TabPanelsProps) => {
   const { id, selectedTabIndex } = useTabs();
 
-  const childrenArray = Children.toArray(children)
-    .map((node, index) => cloneElement(node as React.ReactElement, { id: `${id}-${index}` }))
+  const childrenArray = React.Children.toArray(children)
+    .map((node, index) => React.cloneElement(node as React.ReactElement, { id: `${id}-${index}` }))
     .filter((_, index) => index === selectedTabIndex);
 
   return <div {...props}>{childrenArray}</div>;

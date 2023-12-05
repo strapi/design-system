@@ -1,4 +1,4 @@
-import { useCallback, useLayoutEffect, useRef, useState, KeyboardEventHandler, ReactNode } from 'react';
+import * as React from 'react';
 
 import { useTable } from './RawTableContext';
 import { Box, BoxProps } from '../Box';
@@ -8,7 +8,7 @@ import { KeyboardKeys } from '../helpers/keyboardKeys';
 export interface RawTdProps extends BoxProps<'td'> {
   'aria-colindex'?: number;
   as?: 'td' | 'th';
-  children?: ReactNode;
+  children?: React.ReactNode;
   coords?: {
     col: number;
     row: number;
@@ -20,11 +20,11 @@ export type RawThProps = Omit<RawTdProps, 'as'>;
 export const RawTh = (props: RawThProps) => <RawTd {...props} as="th" />;
 
 export const RawTd = ({ coords = { col: 0, row: 0 }, as = 'td', ...props }: RawTdProps) => {
-  const tdRef = useRef<HTMLTableCellElement>(null!);
+  const tdRef = React.useRef<HTMLTableCellElement>(null!);
   const { rowIndex, colIndex, setTableValues } = useTable();
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = React.useState(false);
 
-  const handleKeyDown: KeyboardEventHandler<HTMLTableCellElement> = (e) => {
+  const handleKeyDown: React.KeyboardEventHandler<HTMLTableCellElement> = (e) => {
     const focusableNodes = getFocusableNodes(tdRef.current, true);
 
     /**
@@ -98,7 +98,7 @@ export const RawTd = ({ coords = { col: 0, row: 0 }, as = 'td', ...props }: RawT
   /**
    * Handles tabindex of the rendered cell element
    */
-  useLayoutEffect(() => {
+  React.useLayoutEffect(() => {
     const focusableNodes = getFocusableNodes(tdRef.current, true);
 
     /**
@@ -132,7 +132,7 @@ export const RawTd = ({ coords = { col: 0, row: 0 }, as = 'td', ...props }: RawT
     }
   }, [isActive, isFocused]);
 
-  const handleFocusableNodeFocus = useCallback(() => {
+  const handleFocusableNodeFocus = React.useCallback(() => {
     const focusableNodes = getFocusableNodes(tdRef.current, true);
 
     /**
@@ -157,7 +157,7 @@ export const RawTd = ({ coords = { col: 0, row: 0 }, as = 'td', ...props }: RawT
    * This handles the case where you click on a focusable
    * node that has it's own keyboard nav (e.g. Input)
    */
-  useLayoutEffect(() => {
+  React.useLayoutEffect(() => {
     const cell = tdRef.current;
     const focusableNodes = getFocusableNodes(cell, true);
 

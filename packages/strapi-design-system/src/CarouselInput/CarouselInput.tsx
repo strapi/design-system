@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import * as React from 'react';
 
 import { Carousel, CarouselElement, CarouselProps } from './Carousel';
 import { Field, FieldLabel, FieldHint, FieldError, FieldProps, FieldLabelProps } from '../Field';
@@ -11,7 +11,7 @@ export interface CarouselInputProps extends CarouselProps, Pick<FieldProps, 'hin
   labelAction?: FieldLabelProps['action'];
 }
 
-export const CarouselInput = forwardRef<CarouselElement, CarouselInputProps>(
+export const CarouselInput = React.forwardRef<CarouselElement, CarouselInputProps>(
   (
     {
       actions,

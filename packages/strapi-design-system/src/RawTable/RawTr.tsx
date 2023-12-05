@@ -1,4 +1,4 @@
-import { cloneElement, Children, isValidElement, ReactElement } from 'react';
+import * as React from 'react';
 
 import { Box, BoxProps } from '../Box';
 
@@ -7,9 +7,9 @@ export interface RawTrProps extends BoxProps<'tr'> {
 }
 
 export const RawTr = ({ children, ...props }: RawTrProps) => {
-  const childrenClone = Children.toArray(children).map((child, index) => {
-    if (isValidElement(child)) {
-      return cloneElement(child as ReactElement, {
+  const childrenClone = React.Children.toArray(children).map((child, index) => {
+    if (React.isValidElement(child)) {
+      return React.cloneElement(child as React.ReactElement, {
         'aria-colindex': index + 1,
         coords: { col: index + 1, row: props['aria-rowindex'] },
       });

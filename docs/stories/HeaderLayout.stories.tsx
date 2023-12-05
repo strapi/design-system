@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 import {
@@ -115,7 +115,7 @@ export const Sticky = {
 
 export const CombinedWScroll = {
   render: () => {
-    const [isVisible, setIsVisible] = useState(false);
+    const [isVisible, setIsVisible] = React.useState(false);
 
     return (
       <Box

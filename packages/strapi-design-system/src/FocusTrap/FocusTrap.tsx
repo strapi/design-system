@@ -1,9 +1,9 @@
-import { HTMLAttributes, KeyboardEventHandler, useEffect, useRef } from 'react';
+import * as React from 'react';
 
 import { getFocusableNodes } from '../helpers/getFocusableNodes';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 
-export interface FocusTrapProps extends HTMLAttributes<HTMLDivElement> {
+export interface FocusTrapProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * A callback called on escape key. Useful to deactivate the focus trap.
    */
@@ -15,12 +15,12 @@ export interface FocusTrapProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const FocusTrap = ({ onEscape, restoreFocus = true, ...props }: FocusTrapProps) => {
-  const trappedRef = useRef<HTMLDivElement>(null!);
+  const trappedRef = React.useRef<HTMLDivElement>(null!);
 
   /**
    * Restore the focus to the previously focused element (often, it's the CTA that opened the trap)
    */
-  useEffect(() => {
+  React.useEffect(() => {
     let currentFocus: HTMLElement | null = null;
 
     if (restoreFocus) {
@@ -37,7 +37,7 @@ export const FocusTrap = ({ onEscape, restoreFocus = true, ...props }: FocusTrap
   /**
    * Sends the focus to the first element of the focus trap tree
    */
-  useEffect(() => {
+  React.useEffect(() => {
     if (!trappedRef.current) return;
 
     const focusableChildren = getFocusableNodes(trappedRef.current);
@@ -53,7 +53,7 @@ export const FocusTrap = ({ onEscape, restoreFocus = true, ...props }: FocusTrap
     }
   }, []);
 
-  const handleKeyDown: KeyboardEventHandler<HTMLDivElement> = (e) => {
+  const handleKeyDown: React.KeyboardEventHandler<HTMLDivElement> = (e) => {
     if (e.key === KeyboardKeys.ESCAPE && onEscape) {
       onEscape();
 

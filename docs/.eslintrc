@@ -18,7 +18,14 @@
       "rules": {
         "react-hooks/rules-of-hooks": "off",
         "import/no-default-export": "off",
-        "no-console": "off"
+        "no-console": "off",
+        "no-restricted-syntax": [
+          "error",
+          {
+            "selector": "ImportDeclaration[source.value='react'][specifiers.0.type='ImportDefaultSpecifier']",
+            "message": "Default React import not allowed"
+          }
+        ]
       }
     },
     {

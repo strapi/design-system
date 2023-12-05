@@ -1,18 +1,12 @@
-import React from 'react';
+import * as React from 'react';
 
 import { Dot } from '@strapi/icons';
-import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { Box, BoxProps } from '../Box';
+import { BaseLink } from '../BaseLink';
+import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { Typography } from '../Typography';
-
-export interface SubNavLinkProps extends BoxProps {
-  icon: React.ReactNode;
-  isSubSectionChild?: boolean;
-  withBullet?: boolean;
-}
 
 const SubNavLinkWrapper = styled(Box)`
   display: flex;
@@ -58,34 +52,39 @@ const IconWrapper = styled.div`
   }
 `;
 
-export const SubNavLink = ({
-  children,
-  icon,
-  withBullet = false,
-  isSubSectionChild = false,
-  ...props
-}: SubNavLinkProps) => {
-  return (
-    <SubNavLinkWrapper
-      as={NavLink}
-      icon={icon}
-      background="neutral100"
-      paddingLeft={isSubSectionChild ? 9 : 7}
-      paddingBottom={2}
-      paddingTop={2}
-      {...props}
-    >
-      <Flex>
-        {icon ? <IconWrapper>{icon}</IconWrapper> : <CustomBullet />}
-        <Box paddingLeft={2}>
-          <Typography as="span">{children}</Typography>
-        </Box>
-      </Flex>
-      {withBullet && (
-        <Box as={Flex} paddingRight={4}>
-          <CustomBullet $active />
-        </Box>
-      )}
-    </SubNavLinkWrapper>
-  );
-};
+export interface SubNavLinkProps {
+  as?: React.ElementType;
+  children: React.ReactNode;
+  icon?: React.ReactElement;
+  isSubSectionChild?: boolean;
+  withBullet?: boolean;
+}
+
+export const SubNavLink = React.forwardRef<unknown, SubNavLinkProps>(
+  ({ children, icon = null, withBullet = false, as = BaseLink, isSubSectionChild = false, ...props }, ref) => {
+    return (
+      <SubNavLinkWrapper
+        as={as}
+        icon={icon}
+        background="neutral100"
+        paddingLeft={isSubSectionChild ? 9 : 7}
+        paddingBottom={2}
+        paddingTop={2}
+        ref={ref}
+        {...props}
+      >
+        <Flex>
+          {icon ? <IconWrapper>{icon}</IconWrapper> : <CustomBullet />}
+          <Box paddingLeft={2}>
+            <Typography as="span">{children}</Typography>
+          </Box>
+        </Flex>
+        {withBullet && (
+          <Box as={Flex} paddingRight={4}>
+            <CustomBullet $active />
+          </Box>
+        )}
+      </SubNavLinkWrapper>
+    );
+  },
+);

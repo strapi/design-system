@@ -1,17 +1,17 @@
-import { useState } from 'react';
+import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 import {
+  Box,
+  Divider,
   MainNav,
   NavSection,
   NavSections,
   NavCondense,
   NavLink,
-  NavFooter,
   NavUser,
   NavBrand,
-  Box,
-  Divider,
+  NavFooter,
 } from '@strapi/design-system';
 import { Write, Layer, Landscape, Information, Puzzle, ShoppingCart, Cog } from '@strapi/icons';
 
@@ -26,7 +26,7 @@ type Story = StoryObj<typeof MainNav>;
 
 export const Base = {
   render: () => {
-    const [condensed, setCondensed] = useState(false);
+    const [condensed, setCondensed] = React.useState(false);
 
     return (
       <Box background="neutral100" height="100vh" paddingLeft={10}>
@@ -78,11 +78,11 @@ export const Base = {
 
 export const Notifications = {
   render: () => {
-    const [condensed, setCondensed] = useState(false);
+    const [condensed, setCondensed] = React.useState(false);
     const numberOfNotifications = 2;
 
     return (
-      <Box background="neutral100" paddingLeft={10} height="100vh">
+      <Box background="neutral100" height="100vh" paddingLeft={10}>
         <MainNav condensed={condensed}>
           <NavBrand workplace="Workplace" title="Strapi Dashboard" icon={<img src={'/strapi-img.png'} alt="" />} />
           <Divider />

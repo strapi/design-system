@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Link, Flex } from '@strapi/design-system';
-import { ChevronRight, ArrowLeft } from '@strapi/icons';
+import { Flex, Link } from '@strapi/design-system';
+import { Strapi } from '@strapi/icons';
 
 const meta: Meta<typeof Link> = {
   title: 'Design System/Components/Link',
@@ -13,29 +13,43 @@ type Story = StoryObj<typeof Link>;
 
 export const Base = {
   render: () => (
-    <Flex direction="column" alignItems="center" gap={5}>
+    <Flex direction="column" alignItems="stretch" gap={5}>
+      <Link isExternal href="https://strapi.io/">
+        External link
+      </Link>
+    </Flex>
+  ),
+
+  name: 'base',
+} satisfies Story;
+
+export const Disabled = {
+  render: () => (
+    <Flex direction="column" alignItems="stretch" gap={5}>
+      <Link isExternal href="https://strapi.io/" disabled>
+        Disabled link
+      </Link>
+    </Flex>
+  ),
+
+  name: 'disabled',
+} satisfies Story;
+
+export const Icons = {
+  render: () => (
+    <Flex direction="column" alignItems="stretch" gap={5}>
       <div>
-        <Link href="https://strapi.io/" isExternal>
-          External link
+        <Link isExternal href="https://strapi.io/" startIcon={<Strapi />}>
+          Strapi
         </Link>
       </div>
       <div>
-        <Link to="/somewhere-internal" startIcon={<ArrowLeft />}>
-          Internal link
-        </Link>
-      </div>
-      <div>
-        <Link isExternal href="http://strapi.io" disabled>
-          External disabled link
-        </Link>
-      </div>
-      <div>
-        <Link to="/somewhere-internal" disabled startIcon={<ArrowLeft />} endIcon={<ChevronRight />}>
-          Internal disabled link
+        <Link isExternal href="https://strapi.io/" endIcon={<Strapi />}>
+          Strapi
         </Link>
       </div>
     </Flex>
   ),
 
-  name: 'base',
+  name: 'icons',
 } satisfies Story;

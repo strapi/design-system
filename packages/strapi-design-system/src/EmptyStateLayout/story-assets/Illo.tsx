@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 export const Illo = () => (
   <svg width="159" height="88" viewBox="0 0 159 88" fill="none" xmlns="http://www.w3.org/2000/svg">
