@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import * as React from 'react';
 
 import { Search } from '@strapi/icons';
 import styled from 'styled-components';
@@ -41,13 +41,13 @@ export const SubNavHeader = ({
   onSubmit = () => {},
   id,
 }: SubNavHeaderProps) => {
-  const [isSearchOpen, setSearchOpen] = useState(false);
+  const [isSearchOpen, setSearchOpen] = React.useState(false);
   const previousSearchOpenValue = usePrevious(isSearchOpen);
   const clearButtonId = useId(id);
-  const searchRef = useRef<HTMLInputElement>(undefined!);
-  const searchButtonRef = useRef<HTMLButtonElement>(undefined!);
+  const searchRef = React.useRef<HTMLInputElement>(undefined!);
+  const searchButtonRef = React.useRef<HTMLButtonElement>(undefined!);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (isSearchOpen && searchRef.current) {
       searchRef.current.focus();
     }

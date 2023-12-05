@@ -1,14 +1,14 @@
-import { RefObject, useLayoutEffect } from 'react';
+import * as React from 'react';
 
 import { useCallbackRef } from '@strapi/ui-primitives';
 
 export const useResizeObserver = (
-  sources: RefObject<HTMLElement> | RefObject<HTMLElement>[],
+  sources: React.RefObject<HTMLElement> | React.RefObject<HTMLElement>[],
   onResize: ResizeObserverCallback,
 ) => {
   const handleResize = useCallbackRef(onResize);
 
-  useLayoutEffect(() => {
+  React.useLayoutEffect(() => {
     const resizeObs = new ResizeObserver(handleResize);
 
     if (Array.isArray(sources)) {

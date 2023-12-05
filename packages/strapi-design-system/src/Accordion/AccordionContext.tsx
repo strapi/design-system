@@ -1,4 +1,4 @@
-import { createContext, useContext } from 'react';
+import * as React from 'react';
 
 import type { AccordionSize, AccordionVariant } from './Accordion';
 
@@ -12,7 +12,7 @@ export interface AccordionContextValue {
   variant: AccordionVariant;
 }
 
-export const AccordionContext = createContext<AccordionContextValue>({
+export const AccordionContext = React.createContext<AccordionContextValue>({
   disabled: false,
   expanded: false,
   id: '',
@@ -20,4 +20,4 @@ export const AccordionContext = createContext<AccordionContextValue>({
   variant: 'primary',
 });
 
-export const useAccordion = () => useContext(AccordionContext);
+export const useAccordion = () => React.useContext(AccordionContext);

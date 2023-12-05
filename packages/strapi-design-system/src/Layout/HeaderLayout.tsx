@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import * as React from 'react';
 
 import { Box } from '../Box';
 import { Flex } from '../Flex';
@@ -18,8 +18,8 @@ interface BaseHeaderLayoutProps extends TypographyProps {
 interface HeaderLayoutProps extends BaseHeaderLayoutProps {}
 
 export const HeaderLayout = (props: HeaderLayoutProps) => {
-  const baseHeaderLayoutRef = useRef<HTMLDivElement>(null);
-  const [headerSize, setHeaderSize] = useState<DOMRect | null>(null);
+  const baseHeaderLayoutRef = React.useRef<HTMLDivElement>(null);
+  const [headerSize, setHeaderSize] = React.useState<DOMRect | null>(null);
 
   const [containerRef, isVisible] = useElementOnScreen<HTMLDivElement>({
     root: null,
@@ -33,7 +33,7 @@ export const HeaderLayout = (props: HeaderLayoutProps) => {
     }
   });
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (baseHeaderLayoutRef.current) {
       setHeaderSize(baseHeaderLayoutRef.current.getBoundingClientRect());
     }

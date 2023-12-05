@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useState } from 'react';
+import * as React from 'react';
 import { Preview } from '@storybook/react';
 import { useDarkMode } from 'storybook-dark-mode';
 import { parse } from 'qs';
@@ -41,11 +41,11 @@ const preview: Preview = {
 
 const themeQueryURL = parse(document.location.search).theme;
 
-const Theme = ({ children }: { children: ReactNode }) => {
+const Theme = ({ children }: { children: React.ReactNode }) => {
   const isDarkAddon = useDarkMode();
-  const [isDark, setIsDark] = useState(themeQueryURL || isDarkAddon);
+  const [isDark, setIsDark] = React.useState(themeQueryURL || isDarkAddon);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (!themeQueryURL && isDarkAddon !== isDark) {
       setIsDark(isDarkAddon);
     }

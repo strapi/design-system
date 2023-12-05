@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 import { FocusTrap, Box, Flex, Typography, Button } from '@strapi/design-system';
@@ -19,7 +19,7 @@ export const Base = {
 } satisfies Story;
 
 const TrappedComponent = ({ onClose }) => {
-  const [newLastVisible, setNewLastVisible] = useState(false);
+  const [newLastVisible, setNewLastVisible] = React.useState(false);
 
   return (
     <FocusTrap onEscape={onClose}>
@@ -60,7 +60,7 @@ const TrappedComponent = ({ onClose }) => {
 };
 
 export const ExampleComponent = () => {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = React.useState(false);
 
   return (
     <Box background="neutral150" padding={10}>

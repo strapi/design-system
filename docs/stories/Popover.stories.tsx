@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 import { Popover, Box, Typography } from '@strapi/design-system';
@@ -14,8 +14,8 @@ type Story = StoryObj<typeof Popover>;
 
 export const Centered = {
   render: () => {
-    const [visible, setVisible] = useState(false);
-    const buttonRef = useRef<HTMLButtonElement>(null!);
+    const [visible, setVisible] = React.useState(false);
+    const buttonRef = React.useRef<HTMLButtonElement>(null!);
 
     return (
       <div
@@ -52,8 +52,8 @@ export const Centered = {
 
 export const FullWidth = {
   render: () => {
-    const [visible, setVisible] = useState(false);
-    const buttonRef = useRef<HTMLButtonElement>(null!);
+    const [visible, setVisible] = React.useState(false);
+    const buttonRef = React.useRef<HTMLButtonElement>(null!);
 
     return (
       <Box padding={10}>
@@ -86,9 +86,9 @@ export const FullWidth = {
 
 export const OnReachEnd = {
   render: () => {
-    const [visible, setVisible] = useState(false);
-    const [items, setItems] = useState(Array(10).fill(null));
-    const buttonRef = useRef<HTMLButtonElement>(null!);
+    const [visible, setVisible] = React.useState(false);
+    const [items, setItems] = React.useState(Array(10).fill(null));
+    const buttonRef = React.useRef<HTMLButtonElement>(null!);
 
     return (
       <Box padding={10}>
@@ -128,8 +128,8 @@ export const OnReachEnd = {
 
 export const OverflowRight = {
   render: () => {
-    const [visible, setVisible] = useState(false);
-    const buttonRef = useRef<HTMLButtonElement>(null!);
+    const [visible, setVisible] = React.useState(false);
+    const buttonRef = React.useRef<HTMLButtonElement>(null!);
 
     return (
       <div

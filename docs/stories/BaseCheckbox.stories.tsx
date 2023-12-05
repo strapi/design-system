@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 import { BaseCheckbox } from '@strapi/design-system';
@@ -14,7 +14,7 @@ type Story = StoryObj<typeof BaseCheckbox>;
 
 export const Base = {
   render: () => {
-    const [val, setValue] = useState(false);
+    const [val, setValue] = React.useState(false);
 
     return (
       <BaseCheckbox
@@ -31,7 +31,7 @@ export const Base = {
 
 export const Indeterminate = {
   render: () => {
-    const [checkedItems, setCheckedItems] = useState([true, false]);
+    const [checkedItems, setCheckedItems] = React.useState([true, false]);
     const allChecked = checkedItems.every(Boolean);
     const isIndeterminate = checkedItems.some(Boolean) && !allChecked;
 

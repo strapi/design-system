@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 import { DateTimePicker, Flex, Button } from '@strapi/design-system';
@@ -14,8 +14,8 @@ type Story = StoryObj<typeof DateTimePicker>;
 
 export const Base = {
   render: () => {
-    const [error, toggleError] = useState<string>();
-    const [disabled, toggleDisabled] = useState(false);
+    const [error, toggleError] = React.useState<string>();
+    const [disabled, toggleDisabled] = React.useState(false);
 
     return (
       <Flex direction="column" alignItems="stretch" gap={11}>
@@ -37,7 +37,7 @@ export const Base = {
 
 export const Controlled = {
   render: () => {
-    const [value, setValue] = useState();
+    const [value, setValue] = React.useState();
 
     return (
       <DateTimePicker

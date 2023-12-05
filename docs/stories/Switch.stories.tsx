@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 import { Switch } from '@strapi/design-system';
@@ -14,7 +14,7 @@ type Story = StoryObj<typeof Switch>;
 
 export const Activated = {
   render: () => {
-    const [activated, setActivated] = useState(true);
+    const [activated, setActivated] = React.useState(true);
 
     return (
       <Switch
@@ -31,7 +31,7 @@ export const Activated = {
 
 export const NotActivated = {
   render: () => {
-    const [activated, setActivated] = useState(false);
+    const [activated, setActivated] = React.useState(false);
 
     return (
       <Switch

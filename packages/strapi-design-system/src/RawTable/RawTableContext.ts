@@ -1,4 +1,4 @@
-import { createContext, useContext } from 'react';
+import * as React from 'react';
 
 export interface RawTableContextValue {
   rowIndex: number;
@@ -6,11 +6,11 @@ export interface RawTableContextValue {
   setTableValues: ({ rowIndex, colIndex }: { rowIndex: number; colIndex: number }) => void;
 }
 
-export const RawTableContext = createContext<RawTableContextValue>({
+export const RawTableContext = React.createContext<RawTableContextValue>({
   rowIndex: 0,
   colIndex: 0,
   setTableValues() {
     throw new Error('setTableValues must be initialized via the RawTableContext.Provider');
   },
 });
-export const useTable = () => useContext(RawTableContext);
+export const useTable = () => React.useContext(RawTableContext);

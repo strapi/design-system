@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 import {
@@ -26,7 +26,7 @@ type Story = StoryObj<typeof MainNav>;
 
 export const Base = {
   render: () => {
-    const [condensed, setCondensed] = useState(false);
+    const [condensed, setCondensed] = React.useState(false);
 
     return (
       <Box background="neutral100" height="100vh" paddingLeft={10}>
@@ -78,7 +78,7 @@ export const Base = {
 
 export const Notifications = {
   render: () => {
-    const [condensed, setCondensed] = useState(false);
+    const [condensed, setCondensed] = React.useState(false);
     const numberOfNotifications = 2;
 
     return (

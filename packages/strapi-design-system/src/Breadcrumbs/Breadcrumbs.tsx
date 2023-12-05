@@ -1,4 +1,4 @@
-import React, { Children } from 'react';
+import * as React from 'react';
 
 import styled from 'styled-components';
 
@@ -21,12 +21,12 @@ export interface BreadcrumbsProps extends FlexProps {
 }
 
 export const Breadcrumbs = ({ label, children, ...props }: BreadcrumbsProps) => {
-  const childrenArray = Children.toArray(children);
+  const childrenArray = React.Children.toArray(children);
 
   return (
     <Box aria-label={label} {...props}>
       <AlignedList as="ol">
-        {Children.map(childrenArray, (child, index) => {
+        {React.Children.map(childrenArray, (child, index) => {
           const shouldDisplayDivider = childrenArray.length > 1 && index + 1 < childrenArray.length;
 
           return (

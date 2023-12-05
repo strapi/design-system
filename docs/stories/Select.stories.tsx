@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 import {
@@ -21,8 +21,8 @@ type SingleSelectStory = StoryObj<typeof SingleSelect>;
 
 export const Basic = {
   render: () => {
-    const [error, toggleError] = useState<string>();
-    const [disabled, toggleDisabled] = useState(false);
+    const [error, toggleError] = React.useState<string>();
+    const [disabled, toggleDisabled] = React.useState(false);
 
     return (
       <Flex direction="column" alignItems="stretch" gap={11}>
@@ -62,7 +62,7 @@ export const Basic = {
 
 export const Controlled = {
   render: () => {
-    const [value, setValue] = useState();
+    const [value, setValue] = React.useState();
 
     return (
       <SingleSelect
@@ -92,7 +92,7 @@ type MultipleSelectStory = StoryObj<typeof MultiSelect>;
 
 export const Multiple = {
   render: () => {
-    const [values, setValues] = useState([]);
+    const [values, setValues] = React.useState([]);
 
     return (
       <MultiSelect
@@ -121,7 +121,7 @@ export const Multiple = {
 
 export const MultipleWithTags = {
   render: () => {
-    const [values, setValues] = useState([]);
+    const [values, setValues] = React.useState([]);
 
     return (
       <MultiSelect
@@ -196,7 +196,7 @@ export const MultipleNestedSelect = {
       },
     ];
 
-    const [values, setValues] = useState([]);
+    const [values, setValues] = React.useState([]);
 
     return (
       <MultiSelectNested

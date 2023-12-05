@@ -1,5 +1,5 @@
-import { createContext, useContext } from 'react';
+import * as React from 'react';
 
-export const MainNavContext = createContext<boolean>(false);
+export const MainNavContext = React.createContext<boolean>(false);
 
-export const useMainNav = () => useContext(MainNavContext);
+export const useMainNav = () => React.useContext(MainNavContext);

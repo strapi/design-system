@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 import {
@@ -150,7 +150,7 @@ export const Spaces = {
 
 export const Icons = {
   render: () => {
-    const [value, setValue] = useState('');
+    const [value, setValue] = React.useState('');
 
     const iconsArray = Object.keys(Icons)
       .filter((icon) => {

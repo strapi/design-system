@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { ExternalLink } from '@strapi/icons';
 import styled from 'styled-components';

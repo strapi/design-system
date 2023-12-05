@@ -1,4 +1,4 @@
-import { cloneElement, forwardRef, ReactNode } from 'react';
+import * as React from 'react';
 
 import styled from 'styled-components';
 
@@ -12,23 +12,25 @@ const FieldActionWrapper = styled(Flex)`
 
 export interface FieldActionProps extends FlexProps<'button'> {
   label: string;
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
-export const FieldAction = forwardRef<HTMLButtonElement, FieldActionProps>(({ label, children, ...props }, ref) => (
-  <FieldActionWrapper
-    justifyContent="unset"
-    background="transparent"
-    borderStyle="none"
-    type="button"
-    {...props}
-    as="button"
-    ref={ref}
-  >
-    <VisuallyHidden as="span">{label}</VisuallyHidden>
-    {cloneElement(children as React.ReactElement, {
-      'aria-hidden': true,
-      focusable: false, // See: https://allyjs.io/tutorials/focusing-in-svg.html#making-svg-elements-focusable
-    })}
-  </FieldActionWrapper>
-));
+export const FieldAction = React.forwardRef<HTMLButtonElement, FieldActionProps>(
+  ({ label, children, ...props }, ref) => (
+    <FieldActionWrapper
+      justifyContent="unset"
+      background="transparent"
+      borderStyle="none"
+      type="button"
+      {...props}
+      as="button"
+      ref={ref}
+    >
+      <VisuallyHidden as="span">{label}</VisuallyHidden>
+      {React.cloneElement(children as React.ReactElement, {
+        'aria-hidden': true,
+        focusable: false, // See: https://allyjs.io/tutorials/focusing-in-svg.html#making-svg-elements-focusable
+      })}
+    </FieldActionWrapper>
+  ),
+);

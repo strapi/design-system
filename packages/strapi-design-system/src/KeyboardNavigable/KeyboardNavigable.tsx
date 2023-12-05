@@ -1,4 +1,4 @@
-import { KeyboardEvent } from 'react';
+import * as React from 'react';
 
 import { Box, BoxProps } from '../Box';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
@@ -31,7 +31,7 @@ export const KeyboardNavigable = ({ tagName, attributeName = '', ...props }: Key
     return parentEl.querySelectorAll(`[${attributeName}]`);
   };
 
-  const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
     switch (e.key) {
       case KeyboardKeys.RIGHT:
       case KeyboardKeys.DOWN: {

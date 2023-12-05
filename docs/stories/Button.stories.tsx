@@ -1,4 +1,4 @@
-import { MouseEvent } from 'react';
+import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 import { Button, Box, Flex } from '@strapi/design-system';
@@ -35,7 +35,7 @@ export const Variants = {
     <Flex gap={2}>
       {['default', 'secondary', 'tertiary', 'success', 'danger', 'success-light', 'danger-light', 'ghost'].map(
         (variant) => (
-          <Button onClick={(e: MouseEvent<HTMLButtonElement>) => console.log(e)} variant={variant} key={variant}>
+          <Button onClick={(e: React.MouseEvent<HTMLButtonElement>) => console.log(e)} variant={variant} key={variant}>
             {variant}
           </Button>
         ),

@@ -1,4 +1,4 @@
-import { forwardRef, MutableRefObject, useImperativeHandle, useRef } from 'react';
+import * as React from 'react';
 
 import {
   Field,
@@ -20,13 +20,13 @@ export interface TextInputProps
   labelAction?: FieldLabelProps['action'];
 }
 
-export const TextInput = forwardRef<
-  { inputWrapperRef: MutableRefObject<HTMLDivElement>; input: MutableRefObject<HTMLInputElement> },
+export const TextInput = React.forwardRef<
+  { inputWrapperRef: React.MutableRefObject<HTMLDivElement>; input: React.MutableRefObject<HTMLInputElement> },
   TextInputProps
 >(({ name, hint, error, label, labelAction, id, required, ...props }, ref) => {
   const generatedId = useId(id);
-  const inputWrapperRef = useRef<HTMLDivElement>(null!);
-  const inputRef = useRef<HTMLInputElement>(null!);
+  const inputWrapperRef = React.useRef<HTMLDivElement>(null!);
+  const inputRef = React.useRef<HTMLInputElement>(null!);
 
   if (!label && !props['aria-label']) {
     throw new Error('The TextInput component needs a "label" or an "aria-label" props');
@@ -35,7 +35,7 @@ export const TextInput = forwardRef<
   /**
    * TODO: for V2, remove this.
    */
-  useImperativeHandle(
+  React.useImperativeHandle(
     ref,
     () => ({
       input: inputRef,

@@ -1,4 +1,4 @@
-import { ChangeEventHandler, forwardRef } from 'react';
+import * as React from 'react';
 
 import styled, { css, DefaultTheme } from 'styled-components';
 
@@ -18,10 +18,10 @@ export interface FieldInputProps extends Omit<React.InputHTMLAttributes<HTMLInpu
   startAction?: React.ReactNode;
   disabled?: boolean;
   size?: keyof DefaultTheme['sizes']['input'];
-  onChange?: ChangeEventHandler<HTMLInputElement>;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
 
-export const FieldInput = forwardRef<HTMLInputElement, FieldInputProps>(
+export const FieldInput = React.forwardRef<HTMLInputElement, FieldInputProps>(
   ({ endAction, startAction, disabled = false, onChange, size = 'M', ...props }, ref) => {
     const { id, error, hint, name, required } = useField();
 
@@ -35,7 +35,7 @@ export const FieldInput = forwardRef<HTMLInputElement, FieldInputProps>(
 
     const hasError = Boolean(error);
 
-    const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+    const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
       if (!disabled && onChange) {
         onChange(e);
       }

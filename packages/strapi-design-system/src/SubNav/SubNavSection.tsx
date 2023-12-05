@@ -1,4 +1,4 @@
-import React, { Children, useState } from 'react';
+import * as React from 'react';
 
 import styled from 'styled-components';
 
@@ -26,7 +26,7 @@ export interface SubNavSectionProps {
 }
 
 export const SubNavSection = ({ collapsable = false, label, badgeLabel, children, id }: SubNavSectionProps) => {
-  const [isOpen, setOpenLinks] = useState(true);
+  const [isOpen, setOpenLinks] = React.useState(true);
   const listId = useId(id);
 
   const handleClick = () => {
@@ -60,7 +60,7 @@ export const SubNavSection = ({ collapsable = false, label, badgeLabel, children
       </SubNavSectionWrapper>
       {(!collapsable || isOpen) && (
         <ol id={listId}>
-          {Children.map(children, (child, index) => {
+          {React.Children.map(children, (child, index) => {
             // eslint-disable-next-line react/no-array-index-key
             return <li key={index}>{child}</li>;
           })}

@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import * as React from 'react';
 
 import { CardContext } from './CardContext';
 import { Box, BoxProps } from '../Box';
@@ -11,7 +11,7 @@ export interface CardProps extends BoxProps {
 export const Card = ({ id, ...props }: CardProps) => {
   const generatedId = useId(id);
 
-  const context = useMemo(() => ({ id: generatedId }), [generatedId]);
+  const context = React.useMemo(() => ({ id: generatedId }), [generatedId]);
 
   return (
     <CardContext.Provider value={context}>

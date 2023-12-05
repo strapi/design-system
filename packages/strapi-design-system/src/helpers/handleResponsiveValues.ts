@@ -1,4 +1,4 @@
-import type { CSSProperties } from 'react';
+import * as React from 'react';
 
 import { DefaultTheme } from 'styled-components';
 
@@ -17,7 +17,7 @@ type ResponsiveValueTuple = [
 ];
 
 type ResponsiveCSSProperties = Pick<
-  CSSProperties,
+  React.CSSProperties,
   | 'margin'
   | 'marginLeft'
   | 'marginRight'

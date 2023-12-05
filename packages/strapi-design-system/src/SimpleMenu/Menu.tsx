@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, forwardRef } from 'react';
+import * as React from 'react';
 
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { CarretDown, ChevronRight } from '@strapi/icons';
@@ -27,7 +27,7 @@ const MenuRoot = DropdownMenu.Root;
 
 interface TriggerProps extends ButtonProps {}
 
-const MenuTrigger = forwardRef<HTMLButtonElement, TriggerProps>(
+const MenuTrigger = React.forwardRef<HTMLButtonElement, TriggerProps>(
   ({ size, endIcon = <CarretDown width="0.6rem" height="0.4rem" aria-hidden />, ...props }, ref) => {
     return (
       <DropdownMenu.Trigger asChild>
@@ -56,7 +56,7 @@ interface ContentProps extends FlexProps<'div'> {
   popoverPlacement?: (typeof POPOVER_PLACEMENTS)[number];
 }
 
-const MenuContent = forwardRef<HTMLDivElement, ContentProps>(
+const MenuContent = React.forwardRef<HTMLDivElement, ContentProps>(
   ({ children, intersectionId, popoverPlacement = 'bottom-start', ...props }, ref) => {
     const [side, align] = popoverPlacement.split('-') as [
       DropdownMenu.DropdownMenuContentProps['side'],
@@ -118,7 +118,7 @@ interface ItemExternalLinkProps extends ItemSharedProps, Omit<LinkProps, 'onSele
 }
 
 type ItemInternalLinkProps<TComponent extends React.ComponentType = typeof BaseLink> = ItemSharedProps &
-  ComponentPropsWithoutRef<TComponent> & {
+  React.ComponentPropsWithoutRef<TComponent> & {
     as?: TComponent;
     isLink?: true;
     isExternal?: false;
@@ -209,7 +209,7 @@ const OptionLink = styled(Link)`
 
 interface LabelProps extends TypographyProps {}
 
-const MenuLabel = forwardRef<HTMLSpanElement, LabelProps>((props, ref) => (
+const MenuLabel = React.forwardRef<HTMLSpanElement, LabelProps>((props, ref) => (
   <DropdownMenu.Label asChild>
     <StyledLabel ref={ref} variant="sigma" textColor="neutral600" {...props} />
   </DropdownMenu.Label>
@@ -233,7 +233,7 @@ const MenuSubRoot = DropdownMenu.Sub;
 
 interface SubTriggerProps extends BoxProps<'button'> {}
 
-const MenuSubTrigger = forwardRef<HTMLButtonElement, SubTriggerProps>(({ disabled = false, ...props }, ref) => {
+const MenuSubTrigger = React.forwardRef<HTMLButtonElement, SubTriggerProps>(({ disabled = false, ...props }, ref) => {
   return (
     <DropdownMenu.SubTrigger asChild disabled={disabled}>
       <SubmenuTrigger
@@ -271,7 +271,7 @@ const TriggerArrow = styled(ChevronRight)`
 
 interface SubContentProps extends FlexProps<'div'> {}
 
-const MenuSubContent = forwardRef<HTMLDivElement, SubContentProps>((props, ref) => {
+const MenuSubContent = React.forwardRef<HTMLDivElement, SubContentProps>((props, ref) => {
   return (
     <DropdownMenu.Portal>
       <DropdownMenu.SubContent sideOffset={8} asChild>

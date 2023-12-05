@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 import { ToggleInput, Flex, Button } from '@strapi/design-system';
@@ -14,8 +14,8 @@ type Story = StoryObj<typeof ToggleInput>;
 
 export const Base = {
   render: () => {
-    const [error, toggleError] = useState<string>();
-    const [disabled, toggleDisabled] = useState(false);
+    const [error, toggleError] = React.useState<string>();
+    const [disabled, toggleDisabled] = React.useState(false);
 
     return (
       <Flex direction="column" alignItems="stretch" gap={11}>
@@ -47,7 +47,7 @@ export const Base = {
 
 export const Controlled = {
   render: () => {
-    const [checked, setChecked] = useState(false);
+    const [checked, setChecked] = React.useState(false);
 
     return (
       <ToggleInput
@@ -73,7 +73,7 @@ export const SizeS = {
 
 export const Nullish = {
   render: () => {
-    const [checked, setChecked] = useState(null);
+    const [checked, setChecked] = React.useState(null);
 
     return (
       <ToggleInput

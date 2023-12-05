@@ -1,8 +1,8 @@
-import { useRef, useEffect } from 'react';
+import * as React from 'react';
 
 export const usePrevious = <TValue>(value: TValue): TValue | undefined => {
-  const ref = useRef<TValue>();
-  useEffect(() => {
+  const ref = React.useRef<TValue>();
+  React.useEffect(() => {
     ref.current = value;
   });
 

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 import { FieldLabel, FieldHint, FieldError, FieldInput, Field, Flex, FieldAction } from '@strapi/design-system';
@@ -42,7 +42,7 @@ export const WithDescription = {
 
 export const WithError = {
   render: () => {
-    const [value, setValue] = useState('john.smith@google.com');
+    const [value, setValue] = React.useState('john.smith@google.com');
 
     const handleOnChange = (event) => {
       setValue(event.target.value);
@@ -65,8 +65,8 @@ export const WithError = {
 
 export const AddingActions = {
   render: () => {
-    const [password, setPassword] = useState('');
-    const [showPassword, setShowPassword] = useState(false);
+    const [password, setPassword] = React.useState('');
+    const [showPassword, setShowPassword] = React.useState(false);
 
     return (
       <Field name="password">

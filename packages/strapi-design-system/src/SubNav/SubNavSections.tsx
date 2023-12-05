@@ -1,4 +1,4 @@
-import React, { Children } from 'react';
+import * as React from 'react';
 
 import { Box } from '../Box';
 import { Flex, FlexProps } from '../Flex';
@@ -19,7 +19,7 @@ export const SubNavSections = ({ children, spacing = 2, horizontal = false, ...p
         alignItems={horizontal ? 'center' : 'stretch'}
         {...props}
       >
-        {Children.map(children, (child, index) => {
+        {React.Children.map(children, (child, index) => {
           /* eslint-disable react/no-array-index-key */
           return <li key={index}>{child}</li>;
         })}

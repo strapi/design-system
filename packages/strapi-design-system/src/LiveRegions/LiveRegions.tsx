@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { LiveRegionIds } from './constants';
 import { VisuallyHidden } from '../VisuallyHidden';

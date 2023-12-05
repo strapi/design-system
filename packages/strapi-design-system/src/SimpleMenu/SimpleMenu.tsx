@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import * as React from 'react';
 
 import * as Menu from './Menu';
 import { stripReactIdOfColon } from '../helpers/strings';
@@ -26,9 +26,9 @@ const SimpleMenu = ({ children, onOpen, onClose, popoverPlacement, onReachEnd, .
   /**
    * Used for the intersection observer
    */
-  const contentRef = useRef<HTMLDivElement>(null);
+  const contentRef = React.useRef<HTMLDivElement>(null);
 
-  const [internalIsOpen, setInternalIsOpen] = useState(false);
+  const [internalIsOpen, setInternalIsOpen] = React.useState(false);
 
   const handleReachEnd = (entry: IntersectionObserverEntry) => {
     if (onReachEnd) {

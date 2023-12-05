@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 import { Checkbox } from '@strapi/design-system';
@@ -14,7 +14,7 @@ type Story = StoryObj<typeof Checkbox>;
 
 export const Base = {
   render: () => {
-    const [val, setValue] = useState(false);
+    const [val, setValue] = React.useState(false);
     return (
       <Checkbox name="default" onValueChange={(value) => setValue(value)} value={val}>
         Label
@@ -35,7 +35,7 @@ export const Base = {
 
 export const Indeterminate = {
   render: () => {
-    const [checkedItems, setCheckedItems] = useState([true, false]);
+    const [checkedItems, setCheckedItems] = React.useState([true, false]);
     const allChecked = checkedItems.every(Boolean);
     const isIndeterminate = checkedItems.some(Boolean) && !allChecked;
 
@@ -85,7 +85,7 @@ export const Indeterminate = {
 
 export const Disabled = {
   render: () => {
-    const [val, setValue] = useState(false);
+    const [val, setValue] = React.useState(false);
 
     return (
       <Checkbox disabled name="default" onValueChange={(value) => setValue(value)} value={val}>
@@ -107,7 +107,7 @@ export const Disabled = {
 
 export const Hint = {
   render: () => {
-    const [val, setValue] = useState(false);
+    const [val, setValue] = React.useState(false);
 
     return (
       <Checkbox
@@ -134,7 +134,7 @@ export const Hint = {
 
 export const Error = {
   render: () => {
-    const [val, setValue] = useState(false);
+    const [val, setValue] = React.useState(false);
 
     return (
       <Checkbox

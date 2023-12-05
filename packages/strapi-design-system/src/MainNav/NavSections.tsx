@@ -1,4 +1,4 @@
-import React, { Children } from 'react';
+import * as React from 'react';
 
 import styled from 'styled-components';
 
@@ -26,7 +26,7 @@ export const NavSections = ({ children, spacing = 4, horizontal = false, ...prop
         alignItems={horizontal ? 'center' : 'stretch'}
         {...props}
       >
-        {Children.map(children, (child, index) => {
+        {React.Children.map(children, (child, index) => {
           // eslint-disable-next-line react/no-array-index-key
           return <li key={index}>{child}</li>;
         })}

@@ -1,4 +1,4 @@
-import { MouseEventHandler } from 'react';
+import * as React from 'react';
 
 import styled from 'styled-components';
 
@@ -10,7 +10,7 @@ export interface TagProps extends FlexProps<'button'> {
 }
 
 export const Tag = ({ children, icon, disabled = false, onClick, ...props }: TagProps) => {
-  const handleClick: MouseEventHandler<HTMLButtonElement> = (e) => {
+  const handleClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
     if (disabled || !onClick) return;
     onClick(e);
   };

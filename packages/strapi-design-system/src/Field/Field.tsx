@@ -1,13 +1,13 @@
-import { forwardRef, ReactNode, useMemo } from 'react';
+import * as React from 'react';
 
 import { FieldContext } from './FieldContext';
 import { Box, BoxProps } from '../Box';
 import { useId } from '../hooks/useId';
 
 export interface FieldProps extends BoxProps {
-  children: ReactNode;
+  children: React.ReactNode;
   error?: string | boolean;
-  hint?: ReactNode;
+  hint?: React.ReactNode;
   id?: string;
   name?: string;
   /**
@@ -16,11 +16,11 @@ export interface FieldProps extends BoxProps {
   required?: boolean;
 }
 
-export const Field = forwardRef<HTMLDivElement, FieldProps>(
+export const Field = React.forwardRef<HTMLDivElement, FieldProps>(
   ({ children, name, error, hint, id, required = false, ...props }, ref) => {
     const generatedId = useId(id);
 
-    const context = useMemo(
+    const context = React.useMemo(
       () => ({ name, id: generatedId, error, hint, required }),
       [error, generatedId, hint, name, required],
     );

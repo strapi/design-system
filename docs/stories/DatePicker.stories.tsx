@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 import { DatePicker, Flex, Button } from '@strapi/design-system';
@@ -14,8 +14,8 @@ type Story = StoryObj<typeof DatePicker>;
 
 export const Base = {
   render: () => {
-    const [error, toggleError] = useState<string>();
-    const [disabled, toggleDisabled] = useState(false);
+    const [error, toggleError] = React.useState<string>();
+    const [disabled, toggleDisabled] = React.useState(false);
 
     return (
       <Flex direction="column" alignItems="stretch" gap={11}>
@@ -37,7 +37,7 @@ export const Base = {
 
 export const Controlled = {
   render: () => {
-    const [date, setDate] = useState<undefined | Date>(new Date('1990-01-01'));
+    const [date, setDate] = React.useState<undefined | Date>(new Date('1990-01-01'));
 
     return (
       <DatePicker onChange={setDate} selectedDate={date} label="Your birthday" onClear={() => setDate(undefined)} />
@@ -49,7 +49,7 @@ export const Controlled = {
 
 export const MinMaxDate = {
   render: () => {
-    const [date, setDate] = useState();
+    const [date, setDate] = React.useState();
 
     return (
       <DatePicker
@@ -68,7 +68,7 @@ export const MinMaxDate = {
 
 export const Locale = {
   render: () => {
-    const [date, setDate] = useState();
+    const [date, setDate] = React.useState();
 
     return (
       <DatePicker
@@ -86,7 +86,7 @@ export const Locale = {
 
 export const Sizing = {
   render: () => {
-    const [size, setSize] = useState('S');
+    const [size, setSize] = React.useState('S');
 
     return (
       <Flex direction="column" alignItems="stretch" gap={11}>

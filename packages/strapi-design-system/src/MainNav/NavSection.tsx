@@ -1,4 +1,4 @@
-import React, { Children } from 'react';
+import * as React from 'react';
 
 import { useMainNav } from './MainNavContext';
 import { Box } from '../Box';
@@ -35,7 +35,7 @@ export const NavSection = ({ label, children, horizontal = false, spacing = 2, .
           alignItems={horizontal ? 'center' : 'stretch'}
           {...props}
         >
-          {Children.map(children, (child, index) => {
+          {React.Children.map(children, (child, index) => {
             // eslint-disable-next-line react/no-array-index-key
             return <li key={index}>{child}</li>;
           })}
@@ -59,7 +59,7 @@ export const NavSection = ({ label, children, horizontal = false, spacing = 2, .
         alignItems={horizontal ? 'center' : 'stretch'}
         {...props}
       >
-        {Children.map(children, (child, index) => {
+        {React.Children.map(children, (child, index) => {
           // eslint-disable-next-line react/no-array-index-key
           return <li key={index}>{child}</li>;
         })}

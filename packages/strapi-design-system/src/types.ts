@@ -1,7 +1,7 @@
-import { CSSProperties } from 'react';
+import * as React from 'react';
 
 import { DefaultTheme } from 'styled-components';
 
-export type DefaultThemeOrCSSProp<T extends keyof DefaultTheme, K extends keyof CSSProperties> =
+export type DefaultThemeOrCSSProp<T extends keyof DefaultTheme, K extends keyof React.CSSProperties> =
   | keyof DefaultTheme[T]
-  | CSSProperties[K];
+  | React.CSSProperties[K];

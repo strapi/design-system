@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 import { BaseRadio, RadioGroup, Typography, useTheme } from '@strapi/design-system';
@@ -18,7 +18,7 @@ export const Base = {
       colors: { neutral800 },
     } = useTheme();
 
-    const [selected, setSelected] = useState<string>();
+    const [selected, setSelected] = React.useState<string>();
 
     return (
       <div>
@@ -27,7 +27,7 @@ export const Base = {
         </Typography>
         <RadioGroup
           labelledBy="trophy-champions"
-          onChange={(e: ChangeEvent<HTMLInputElement>) => setSelected(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSelected(e.target.value)}
           value={selected}
           name="prefered-meal"
         >
@@ -67,7 +67,7 @@ export const Disabled = {
       colors: { neutral800 },
     } = useTheme();
 
-    const [selected, setSelected] = useState<string>();
+    const [selected, setSelected] = React.useState<string>();
 
     return (
       <div>
@@ -76,7 +76,7 @@ export const Disabled = {
         </Typography>
         <RadioGroup
           labelledBy="trophy-champions"
-          onChange={(e: ChangeEvent<HTMLInputElement>) => setSelected(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSelected(e.target.value)}
           value={selected}
           name="prefered-meal"
         >

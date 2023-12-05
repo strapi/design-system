@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { ChevronRight, ChevronLeft } from '@strapi/icons';
 import styled from 'styled-components';

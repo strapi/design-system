@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 import {
@@ -25,7 +25,7 @@ type Story = StoryObj<typeof SubNav>;
 
 export const Base = {
   render: () => {
-    const [search, setSearch] = useState('');
+    const [search, setSearch] = React.useState('');
 
     const links = [
       {
@@ -67,7 +67,7 @@ export const Base = {
               searchable
               value={search}
               onClear={() => setSearch('')}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => setSearch(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearch(e.target.value)}
               label="Content-Type Builder"
               searchLabel="Search..."
             />

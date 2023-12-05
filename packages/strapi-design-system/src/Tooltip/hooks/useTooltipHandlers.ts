@@ -1,8 +1,8 @@
-import { useRef, useState, useEffect } from 'react';
+import * as React from 'react';
 
 export const useTooltipHandlers = (delay: number) => {
-  const [visible, setVisible] = useState(false);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const [visible, setVisible] = React.useState(false);
+  const timerRef = React.useRef<NodeJS.Timeout | null>(null);
 
   const clearTimer = () => {
     if (typeof timerRef.current === 'number') {
@@ -11,7 +11,7 @@ export const useTooltipHandlers = (delay: number) => {
     }
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     return () => {
       clearTimer();
     };
