@@ -6,14 +6,14 @@ test.describe.parallel('Breadcrumbs', () => {
   test.describe('with CrumbLink', () => {
     test.describe('light mode', () => {
       test('triggers axe on the document', async ({ page }) => {
-        await navigateToStory(page, 'design-system-components-v2-breadcrumbs--base');
+        await navigateToStory(page, 'design-system-components-breadcrumbs--base');
         await checkA11y(page);
       });
     });
 
     test.describe('dark mode', () => {
       test('triggers axe on the document', async ({ page }) => {
-        await navigateToStory(page, 'design-system-components-v2-breadcrumbs--base', { isDarkMode: true });
+        await navigateToStory(page, 'design-system-components-breadcrumbs--base', { isDarkMode: true });
         await checkA11y(page);
       });
     });
@@ -22,14 +22,14 @@ test.describe.parallel('Breadcrumbs', () => {
   test.describe('with Crumb', () => {
     test.describe('light mode', () => {
       test('triggers axe on the document', async ({ page }) => {
-        await navigateToStory(page, 'design-system-components-v2-breadcrumbs--without-nagivation');
+        await navigateToStory(page, 'design-system-components-breadcrumbs--without-nagivation');
         await checkA11y(page);
       });
     });
 
     test.describe('dark mode', () => {
       test('triggers axe on the document', async ({ page }) => {
-        await navigateToStory(page, 'design-system-components-v2-breadcrumbs--without-nagivation', {
+        await navigateToStory(page, 'design-system-components-breadcrumbs--without-nagivation', {
           isDarkMode: true,
         });
         await checkA11y(page);
