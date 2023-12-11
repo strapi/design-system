@@ -23,7 +23,7 @@
     "@storybook/manager-api": "7.5.3",
     "@storybook/react-vite": "^7.5.3",
     "@storybook/theming": "7.5.3",
-    "eslint-plugin-mdx": "^2.2.0",
+    "eslint-plugin-mdx": "^3.0.0",
     "storybook": "^7.5.3"
   },
   "scripts": {
