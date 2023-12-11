@@ -73,7 +73,7 @@
     "react-dom": "^18.2.0",
     "rimraf": "^5.0.5",
     "tiny-glob": "^0.2.9",
-    "turbo": "1.10.16",
+    "turbo": "1.11.1",
     "typescript": "^5.3.2",
     "vite": "^5.0.5",
     "vite-plugin-dts": "^3.6.4"
