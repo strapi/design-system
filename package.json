@@ -74,7 +74,7 @@
     "rimraf": "^5.0.5",
     "tiny-glob": "^0.2.9",
     "turbo": "1.11.1",
-    "typescript": "^5.3.2",
+    "typescript": "^5.3.3",
     "vite": "^5.0.7",
     "vite-plugin-dts": "^3.6.4"
   },
