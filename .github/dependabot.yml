@@ -50,6 +50,7 @@ updates:
       storybook:
         patterns:
           - '@storybook/*'
+          - '@storybook/react'
           - 'storybook-dark-mode'
           - 'storybook'
 
