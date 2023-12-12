@@ -4,9 +4,9 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "@storybook/addon-actions": "^7.5.3",
-    "@storybook/addon-essentials": "^7.5.3",
-    "@storybook/react": "^7.5.3",
+    "@storybook/addon-actions": "^7.6.4",
+    "@storybook/addon-essentials": "^7.6.4",
+    "@storybook/react": "^7.6.4",
     "@strapi/design-system": "workspace:*",
     "@strapi/icons": "workspace:*",
     "@strapi/ui-primitives": "workspace:*",
@@ -19,12 +19,12 @@
     "styled-components": "^5.3.11"
   },
   "devDependencies": {
-    "@storybook/blocks": "^7.5.3",
-    "@storybook/manager-api": "7.5.3",
-    "@storybook/react-vite": "^7.5.3",
-    "@storybook/theming": "7.5.3",
+    "@storybook/blocks": "^7.6.4",
+    "@storybook/manager-api": "7.6.4",
+    "@storybook/react-vite": "^7.6.4",
+    "@storybook/theming": "7.6.4",
     "eslint-plugin-mdx": "^3.0.0",
-    "storybook": "^7.5.3"
+    "storybook": "^7.6.4"
   },
   "scripts": {
     "build": "storybook build",
