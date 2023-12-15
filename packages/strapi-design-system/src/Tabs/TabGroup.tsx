@@ -21,6 +21,10 @@ export const TabGroup = React.forwardRef<
 
   const [selectedTabIndex, setSelectedTabIndex] = React.useState(initialSelectedTabIndex);
 
+  React.useEffect(() => {
+    setSelectedTabIndex(initialSelectedTabIndex);
+  }, [initialSelectedTabIndex]);
+
   React.useImperativeHandle(ref, () => ({
     _handlers: { setSelectedTabIndex },
   }));
