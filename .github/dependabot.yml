@@ -35,6 +35,14 @@ updates:
         patterns:
           - '@radix-ui/*'
 
+      # this is out of sequence to see if it captures `@storybook/react` as it might be being caught by `react`.
+      storybook:
+        patterns:
+          - '@storybook/*'
+          - '@storybook/react'
+          - 'storybook-dark-mode'
+          - 'storybook'
+
       react:
         patterns:
           - 'react'
@@ -46,13 +54,6 @@ updates:
         patterns:
           - 'react-router-dom'
           - '@types/react-router-dom'
-
-      storybook:
-        patterns:
-          - '@storybook/*'
-          - '@storybook/react'
-          - 'storybook-dark-mode'
-          - 'storybook'
 
       styled-components:
         patterns:
