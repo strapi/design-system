@@ -8645,7 +8645,7 @@ __metadata:
     tiny-glob: ^0.2.9
     turbo: 1.11.1
     typescript: ^5.3.3
-    vite: ^5.0.7
+    vite: ^5.0.10
     vite-plugin-dts: ^3.6.4
   languageName: unknown
   linkType: soft
@@ -17759,9 +17759,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^5.0.7":
-  version: 5.0.7
-  resolution: "vite@npm:5.0.7"
+"vite@npm:^5.0.10":
+  version: 5.0.10
+  resolution: "vite@npm:5.0.10"
   dependencies:
     esbuild: ^0.19.3
     fsevents: ~2.3.3
@@ -17795,7 +17795,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 18dcf69ccdb6d79d28c678dec4054ac92fd352fd8b2a1a1eb9512a7791d7036bc625bc1ee7c255edc940ad63ebbde8cc4407954e82c71dcbb70b1afeb345c267
+  checksum: a1c96be1dc8bafb981c0874813a6b783ee9c4cd235188d7dc746133972d8992fe85111b7402365fee698ffcb626cd31b39bf2f2523140e50b07b81ce3c0139d1
   languageName: node
   linkType: hard
 
