@@ -289,7 +289,7 @@ const CheckMark = styled(Box)<CheckMarkProps>`
     css`
       &::after {
         content: '';
-        background: url(${checkmarkIcon}) no-repeat no-repeat center center;
+        background: ${() => `url("${checkmarkIcon}") no-repeat no-repeat center center`};
         width: 100%;
         height: 100%;
         position: absolute;
