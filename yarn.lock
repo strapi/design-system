@@ -5150,7 +5150,7 @@ __metadata:
     "@types/styled-components": ^5.1.26
     "@uiw/react-codemirror": ^4.21.21
     aria-hidden: ^1.2.3
-    axe-playwright: ^1.2.3
+    axe-playwright: ^2.0.1
     compute-scroll-into-view: ^3.1.0
     cross-env: ^7.0.3
     prop-types: ^15.8.1
@@ -5974,6 +5974,13 @@ __metadata:
   version: 0.0.29
   resolution: "@types/json5@npm:0.0.29"
   checksum: e60b153664572116dfea673c5bda7778dbff150498f44f998e34b5886d8afc47f16799280e4b6e241c0472aef1bc36add771c569c68fc5125fc2ae519a3eb9ac
+  languageName: node
+  linkType: hard
+
+"@types/junit-report-builder@npm:^3.0.0":
+  version: 3.0.2
+  resolution: "@types/junit-report-builder@npm:3.0.2"
+  checksum: 7fead0b771f95cd8e607223ace2f43cc881b3e7944db405f903590b56379d14132032b7d89c9afa7dff266b95f516a476a39ad40f9200bfb61fc8ed7f6b1bff6
   languageName: node
   linkType: hard
 
@@ -7244,16 +7251,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axe-playwright@npm:^1.2.3":
-  version: 1.2.3
-  resolution: "axe-playwright@npm:1.2.3"
+"axe-playwright@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "axe-playwright@npm:2.0.1"
   dependencies:
+    "@types/junit-report-builder": ^3.0.0
     axe-core: ^4.5.1
     axe-html-reporter: 2.2.3
+    junit-report-builder: ^3.0.1
     picocolors: ^1.0.0
   peerDependencies:
     playwright: ">1.0.0"
-  checksum: f538d8e36eb7266825f0b82b9e169b937d5bc753ca5911f89c07328b739f1c1a3101bc276fcebfe75cbd15306e67c1ce78da1e32b87b4d65366ac91bc917aef9
+  checksum: 193b345991138fa94262e55d87b231894002786b1df72817ca210637893aee4e402a9d78477056afd75a7823397edbe709eb266c1dae6feadafe18a7cff61f6c
   languageName: node
   linkType: hard
 
@@ -8547,6 +8556,13 @@ __metadata:
     whatwg-mimetype: ^3.0.0
     whatwg-url: ^11.0.0
   checksum: 033fc3dd0fba6d24bc9a024ddcf9923691dd24f90a3d26f6545d6a2f71ec6956f93462f2cdf2183cc46f10dc01ed3bcb36731a8208456eb1a08147e571fe2a76
+  languageName: node
+  linkType: hard
+
+"date-format@npm:4.0.3":
+  version: 4.0.3
+  resolution: "date-format@npm:4.0.3"
+  checksum: 8ae4d9de3532010169a89bc7b079342051ba3ec88552636aa677bfb53e8eb15113af8394679aea7d41367dc8bb6e9865da17f21ac2802202180b09d6e3f2339e
   languageName: node
   linkType: hard
 
@@ -12817,6 +12833,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"junit-report-builder@npm:^3.0.1":
+  version: 3.1.0
+  resolution: "junit-report-builder@npm:3.1.0"
+  dependencies:
+    date-format: 4.0.3
+    lodash: ^4.17.21
+    make-dir: ^3.1.0
+    xmlbuilder: ^15.1.1
+  checksum: 3dbb221e217480794076e8a176efe113a88c8e0c350a3bad6cb1f6777d7bf2bf34ed6ce4239cd4313af9bc70479c348e872286f9fd884815bb39a5999ed58e85
+  languageName: node
+  linkType: hard
+
 "kind-of@npm:^6.0.2, kind-of@npm:^6.0.3":
   version: 6.0.3
   resolution: "kind-of@npm:6.0.3"
@@ -13174,7 +13202,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"make-dir@npm:^3.0.0, make-dir@npm:^3.0.2":
+"make-dir@npm:^3.0.0, make-dir@npm:^3.0.2, make-dir@npm:^3.1.0":
   version: 3.1.0
   resolution: "make-dir@npm:3.1.0"
   dependencies:
@@ -18382,6 +18410,13 @@ __metadata:
   version: 4.0.0
   resolution: "xml-name-validator@npm:4.0.0"
   checksum: af100b79c29804f05fa35aa3683e29a321db9b9685d5e5febda3fa1e40f13f85abc40f45a6b2bf7bee33f68a1dc5e8eaef4cec100a304a9db565e6061d4cb5ad
+  languageName: node
+  linkType: hard
+
+"xmlbuilder@npm:^15.1.1":
+  version: 15.1.1
+  resolution: "xmlbuilder@npm:15.1.1"
+  checksum: 14f7302402e28d1f32823583d121594a9dca36408d40320b33f598bd589ca5163a352d076489c9c64d2dc1da19a790926a07bf4191275330d4de2b0d85bb1843
   languageName: node
   linkType: hard
 
