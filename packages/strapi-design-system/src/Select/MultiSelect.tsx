@@ -18,7 +18,8 @@ import { Typography } from '../Typography';
 
 type MultiSelectPropsWithoutLabel = Omit<SelectParts.MultiSelectProps, 'value' | 'multi'> &
   Pick<SelectParts.ContentProps, 'onCloseAutoFocus'> &
-  Pick<SelectParts.TriggerProps, 'clearLabel' | 'onClear' | 'size' | 'startIcon' | 'placeholder'> &
+  Pick<SelectParts.TriggerProps, 'clearLabel' | 'onClear' | 'size' | 'startIcon'> &
+  Pick<SelectParts.ValueProps, 'placeholder'> &
   Pick<FieldProps, 'hint' | 'id' | 'error'> & {
     /**
      * @default (value) => value.join(',')
