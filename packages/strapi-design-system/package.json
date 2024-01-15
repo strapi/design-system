@@ -45,7 +45,7 @@
     "@strapi/icons": "^1.14.1",
     "@types/react-router-dom": "^5.3.3",
     "@types/styled-components": "^5.1.26",
-    "axe-playwright": "^1.2.3",
+    "axe-playwright": "^2.0.1",
     "cross-env": "^7.0.3",
     "react-router-dom": "^5.3.4",
     "styled-components": "^5.3.11"
