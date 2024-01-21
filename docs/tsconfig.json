@@ -19,7 +19,7 @@
     /* this can be reverted to "true" once we publish types for the design-system" */
     "noImplicitAny": false,
     "jsx": "react-jsx",
-    "types": ["vite/client"]
+    "types": ["vite/client"],
   },
-  "include": ["styled.d.ts", "custom.d.ts", "stories/**/*", ".storybook/**/*", "components/**/*"]
+  "include": ["styled.d.ts", "custom.d.ts", "stories/**/*", ".storybook/**/*", "components/**/*"],
 }

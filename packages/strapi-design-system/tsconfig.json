@@ -18,14 +18,14 @@
     "types": ["vite/client", "jest", "@testing-library/jest-dom"],
     "baseUrl": ".",
     "paths": {
-      "@test/*": ["./test/*"]
-    }
+      "@test/*": ["./test/*"],
+    },
   },
   "exclude": ["**/*.test.tsx", "**/*.test.ts"],
   "include": ["src", "styled.d.ts"],
   "references": [
     {
-      "path": "./tsconfig.node.json"
-    }
-  ]
+      "path": "./tsconfig.node.json",
+    },
+  ],
 }
