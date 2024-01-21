@@ -5411,90 +5411,90 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@swc/core-darwin-arm64@npm:1.3.102":
-  version: 1.3.102
-  resolution: "@swc/core-darwin-arm64@npm:1.3.102"
+"@swc/core-darwin-arm64@npm:1.3.105":
+  version: 1.3.105
+  resolution: "@swc/core-darwin-arm64@npm:1.3.105"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@swc/core-darwin-x64@npm:1.3.102":
-  version: 1.3.102
-  resolution: "@swc/core-darwin-x64@npm:1.3.102"
+"@swc/core-darwin-x64@npm:1.3.105":
+  version: 1.3.105
+  resolution: "@swc/core-darwin-x64@npm:1.3.105"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@swc/core-linux-arm-gnueabihf@npm:1.3.102":
-  version: 1.3.102
-  resolution: "@swc/core-linux-arm-gnueabihf@npm:1.3.102"
+"@swc/core-linux-arm-gnueabihf@npm:1.3.105":
+  version: 1.3.105
+  resolution: "@swc/core-linux-arm-gnueabihf@npm:1.3.105"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
-"@swc/core-linux-arm64-gnu@npm:1.3.102":
-  version: 1.3.102
-  resolution: "@swc/core-linux-arm64-gnu@npm:1.3.102"
+"@swc/core-linux-arm64-gnu@npm:1.3.105":
+  version: 1.3.105
+  resolution: "@swc/core-linux-arm64-gnu@npm:1.3.105"
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@swc/core-linux-arm64-musl@npm:1.3.102":
-  version: 1.3.102
-  resolution: "@swc/core-linux-arm64-musl@npm:1.3.102"
+"@swc/core-linux-arm64-musl@npm:1.3.105":
+  version: 1.3.105
+  resolution: "@swc/core-linux-arm64-musl@npm:1.3.105"
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
-"@swc/core-linux-x64-gnu@npm:1.3.102":
-  version: 1.3.102
-  resolution: "@swc/core-linux-x64-gnu@npm:1.3.102"
+"@swc/core-linux-x64-gnu@npm:1.3.105":
+  version: 1.3.105
+  resolution: "@swc/core-linux-x64-gnu@npm:1.3.105"
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@swc/core-linux-x64-musl@npm:1.3.102":
-  version: 1.3.102
-  resolution: "@swc/core-linux-x64-musl@npm:1.3.102"
+"@swc/core-linux-x64-musl@npm:1.3.105":
+  version: 1.3.105
+  resolution: "@swc/core-linux-x64-musl@npm:1.3.105"
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
-"@swc/core-win32-arm64-msvc@npm:1.3.102":
-  version: 1.3.102
-  resolution: "@swc/core-win32-arm64-msvc@npm:1.3.102"
+"@swc/core-win32-arm64-msvc@npm:1.3.105":
+  version: 1.3.105
+  resolution: "@swc/core-win32-arm64-msvc@npm:1.3.105"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"@swc/core-win32-ia32-msvc@npm:1.3.102":
-  version: 1.3.102
-  resolution: "@swc/core-win32-ia32-msvc@npm:1.3.102"
+"@swc/core-win32-ia32-msvc@npm:1.3.105":
+  version: 1.3.105
+  resolution: "@swc/core-win32-ia32-msvc@npm:1.3.105"
   conditions: os=win32 & cpu=ia32
   languageName: node
   linkType: hard
 
-"@swc/core-win32-x64-msvc@npm:1.3.102":
-  version: 1.3.102
-  resolution: "@swc/core-win32-x64-msvc@npm:1.3.102"
+"@swc/core-win32-x64-msvc@npm:1.3.105":
+  version: 1.3.105
+  resolution: "@swc/core-win32-x64-msvc@npm:1.3.105"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"@swc/core@npm:^1.3.102":
-  version: 1.3.102
-  resolution: "@swc/core@npm:1.3.102"
+"@swc/core@npm:^1.3.105":
+  version: 1.3.105
+  resolution: "@swc/core@npm:1.3.105"
   dependencies:
-    "@swc/core-darwin-arm64": 1.3.102
-    "@swc/core-darwin-x64": 1.3.102
-    "@swc/core-linux-arm-gnueabihf": 1.3.102
-    "@swc/core-linux-arm64-gnu": 1.3.102
-    "@swc/core-linux-arm64-musl": 1.3.102
-    "@swc/core-linux-x64-gnu": 1.3.102
-    "@swc/core-linux-x64-musl": 1.3.102
-    "@swc/core-win32-arm64-msvc": 1.3.102
-    "@swc/core-win32-ia32-msvc": 1.3.102
-    "@swc/core-win32-x64-msvc": 1.3.102
+    "@swc/core-darwin-arm64": 1.3.105
+    "@swc/core-darwin-x64": 1.3.105
+    "@swc/core-linux-arm-gnueabihf": 1.3.105
+    "@swc/core-linux-arm64-gnu": 1.3.105
+    "@swc/core-linux-arm64-musl": 1.3.105
+    "@swc/core-linux-x64-gnu": 1.3.105
+    "@swc/core-linux-x64-musl": 1.3.105
+    "@swc/core-win32-arm64-msvc": 1.3.105
+    "@swc/core-win32-ia32-msvc": 1.3.105
+    "@swc/core-win32-x64-msvc": 1.3.105
     "@swc/counter": ^0.1.1
     "@swc/types": ^0.1.5
   peerDependencies:
@@ -5523,7 +5523,7 @@ __metadata:
   peerDependenciesMeta:
     "@swc/helpers":
       optional: true
-  checksum: 45c0edb06f87a811e28fb3ed587fbe6b7ca67ff2440fe15666d43729788903a4af61e3b57842aecc0b2b70e3c9981b698d8233746ba94dfb5a19e1c62eea33ad
+  checksum: 5baa880bc92748ef4845d9c65eba5d6dd01adaa673854e20a5116f5e267c12180db50e563cf3c34a415772b9742d021176a9d9a91065c190ef6f54fefe85728c
   languageName: node
   linkType: hard
 
@@ -8826,7 +8826,7 @@ __metadata:
     "@juggle/resize-observer": ^3.4.0
     "@rollup/plugin-typescript": ^11.1.6
     "@strapi/eslint-config": ^0.2.0
-    "@swc/core": ^1.3.102
+    "@swc/core": ^1.3.105
     "@swc/jest": ^0.2.29
     "@testing-library/jest-dom": 6.2.0
     "@testing-library/react": 14.1.2
@@ -8863,8 +8863,8 @@ __metadata:
     tiny-glob: ^0.2.9
     turbo: 1.11.3
     typescript: ^5.3.3
-    vite: ^5.0.11
-    vite-plugin-dts: ^3.7.0
+    vite: ^5.0.12
+    vite-plugin-dts: ^3.7.1
   languageName: unknown
   linkType: soft
 
@@ -18006,9 +18006,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-plugin-dts@npm:^3.7.0":
-  version: 3.7.0
-  resolution: "vite-plugin-dts@npm:3.7.0"
+"vite-plugin-dts@npm:^3.7.1":
+  version: 3.7.1
+  resolution: "vite-plugin-dts@npm:3.7.1"
   dependencies:
     "@microsoft/api-extractor": 7.39.0
     "@rollup/pluginutils": ^5.1.0
@@ -18022,13 +18022,13 @@ __metadata:
   peerDependenciesMeta:
     vite:
       optional: true
-  checksum: e03373797cca2f8f2d906dc28977caad386dd19165ce7c54b2fc632d393b55d7bc642b0be618242cfa97dcec4ffdb4f5147f64dcfb822c96690af034c7bba062
+  checksum: bd6cd45d0b5efa1b3a1eea003f4c67c9811bfc222d7616f6def1cd5284a175733340ea3646234df4c55f5929dfcb8b97c3c1e5c9b73bbad4622f9a2a1042d7e7
   languageName: node
   linkType: hard
 
-"vite@npm:^5.0.11":
-  version: 5.0.11
-  resolution: "vite@npm:5.0.11"
+"vite@npm:^5.0.12":
+  version: 5.0.12
+  resolution: "vite@npm:5.0.12"
   dependencies:
     esbuild: ^0.19.3
     fsevents: ~2.3.3
@@ -18062,7 +18062,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 262e41f25ce0cc5fc3c2065b1796f64ec115d3ac2d9625dbfb36d6628ba10e63684ef5515bb2ff1aa8e34c6f89e9c10e8211cb88f6c7f0da6869362851345437
+  checksum: b97b6f1c204d9091d0973626827a6e9d8e8b1959ebd0877b6f76e7068e1e7adf9ecd3b1cc382cbab9d421e3eeca5e1a95f27f9c1734439b229f5a58ef2052fa4
   languageName: node
   linkType: hard
 
