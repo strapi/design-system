@@ -27,7 +27,7 @@
   ],
   "dependencies": {
     "@codemirror/lang-json": "^6.0.1",
-    "@floating-ui/react-dom": "^2.0.5",
+    "@floating-ui/react-dom": "^2.0.6",
     "@internationalized/date": "^3.5.1",
     "@internationalized/number": "^3.5.0",
     "@radix-ui/react-dismissable-layer": "^1.0.5",
