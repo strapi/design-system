@@ -17,13 +17,13 @@
     "outDir": "dist",
     "declaration": true,
     "jsx": "react-jsx",
-    "types": ["vite/client"],
+    "types": ["vite/client"]
   },
   "exclude": ["**/*.test.tsx", "**/*.test.ts"],
   "include": ["src"],
   "references": [
     {
-      "path": "./tsconfig.node.json",
-    },
-  ],
+      "path": "./tsconfig.node.json"
+    }
+  ]
 }
