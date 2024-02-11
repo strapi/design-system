@@ -47,7 +47,7 @@
     "@types/styled-components": "^5.1.26",
     "axe-playwright": "^2.0.1",
     "cross-env": "^7.0.3",
-    "react-router-dom": "^5.3.4",
+    "react-router-dom": "^6.22.0",
     "styled-components": "^5.3.11"
   },
   "peerDependencies": {
