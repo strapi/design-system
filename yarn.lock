@@ -8849,7 +8849,7 @@ __metadata:
     react-dom: ^18.2.0
     rimraf: ^5.0.5
     tiny-glob: ^0.2.9
-    turbo: 1.12.2
+    turbo: 1.12.3
     typescript: ^5.3.3
     vite: ^5.0.12
     vite-plugin-dts: ^3.7.2
@@ -17252,58 +17252,58 @@ __metadata:
   languageName: node
   linkType: hard
 
-"turbo-darwin-64@npm:1.12.2":
-  version: 1.12.2
-  resolution: "turbo-darwin-64@npm:1.12.2"
+"turbo-darwin-64@npm:1.12.3":
+  version: 1.12.3
+  resolution: "turbo-darwin-64@npm:1.12.3"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-darwin-arm64@npm:1.12.2":
-  version: 1.12.2
-  resolution: "turbo-darwin-arm64@npm:1.12.2"
+"turbo-darwin-arm64@npm:1.12.3":
+  version: 1.12.3
+  resolution: "turbo-darwin-arm64@npm:1.12.3"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-linux-64@npm:1.12.2":
-  version: 1.12.2
-  resolution: "turbo-linux-64@npm:1.12.2"
+"turbo-linux-64@npm:1.12.3":
+  version: 1.12.3
+  resolution: "turbo-linux-64@npm:1.12.3"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-linux-arm64@npm:1.12.2":
-  version: 1.12.2
-  resolution: "turbo-linux-arm64@npm:1.12.2"
+"turbo-linux-arm64@npm:1.12.3":
+  version: 1.12.3
+  resolution: "turbo-linux-arm64@npm:1.12.3"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-windows-64@npm:1.12.2":
-  version: 1.12.2
-  resolution: "turbo-windows-64@npm:1.12.2"
+"turbo-windows-64@npm:1.12.3":
+  version: 1.12.3
+  resolution: "turbo-windows-64@npm:1.12.3"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-windows-arm64@npm:1.12.2":
-  version: 1.12.2
-  resolution: "turbo-windows-arm64@npm:1.12.2"
+"turbo-windows-arm64@npm:1.12.3":
+  version: 1.12.3
+  resolution: "turbo-windows-arm64@npm:1.12.3"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo@npm:1.12.2":
-  version: 1.12.2
-  resolution: "turbo@npm:1.12.2"
+"turbo@npm:1.12.3":
+  version: 1.12.3
+  resolution: "turbo@npm:1.12.3"
   dependencies:
-    turbo-darwin-64: 1.12.2
-    turbo-darwin-arm64: 1.12.2
-    turbo-linux-64: 1.12.2
-    turbo-linux-arm64: 1.12.2
-    turbo-windows-64: 1.12.2
-    turbo-windows-arm64: 1.12.2
+    turbo-darwin-64: 1.12.3
+    turbo-darwin-arm64: 1.12.3
+    turbo-linux-64: 1.12.3
+    turbo-linux-arm64: 1.12.3
+    turbo-windows-64: 1.12.3
+    turbo-windows-arm64: 1.12.3
   dependenciesMeta:
     turbo-darwin-64:
       optional: true
@@ -17319,7 +17319,7 @@ __metadata:
       optional: true
   bin:
     turbo: bin/turbo
-  checksum: a889988310fbd088e241a4aeb1f5ea34a9dba231ab77cd6764dbe53a81e07ec1dde4d7123f543e06cc6cd653f350886424ccc9d883af645816e859d455042cf1
+  checksum: d1f21a7dde12412ae17bd20ec7ff9e8b93eac4b0c2e10e918b0f0ec6711cb8e60f1a76bea74920978cbec8216b429fa27c4215be1221779a55417901ffc03e9a
   languageName: node
   linkType: hard
 
