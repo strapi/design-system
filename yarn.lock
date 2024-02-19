@@ -1874,12 +1874,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/config-conventional@npm:18.6.0":
-  version: 18.6.0
-  resolution: "@commitlint/config-conventional@npm:18.6.0"
+"@commitlint/config-conventional@npm:18.6.2":
+  version: 18.6.2
+  resolution: "@commitlint/config-conventional@npm:18.6.2"
   dependencies:
+    "@commitlint/types": ^18.6.1
     conventional-changelog-conventionalcommits: ^7.0.2
-  checksum: 96f96966efe2dca58fa876668c3ef34326d617a78bc467bd163a232aec7a541e6da5f462bb76b6dcecf0344bec8f82e02ca89b3b64f60527084289c58bfc9b84
+  checksum: 139453f333d9a36cafff33aca9a52c06e308fc2e86d044f22756054f424b19d5871c559be3df8468df2d8901221e3b9f3b7e3ea23b9b06c8dc35b591d93caa84
   languageName: node
   linkType: hard
 
@@ -2044,6 +2045,15 @@ __metadata:
   dependencies:
     chalk: ^4.1.0
   checksum: c0b256998d8b5fe8f31f6009efe6953dcd506a625411bd13082d07548f0fe792b4de10ca97eaa78e403bf6e0f254dbd1f5d545a6be2f9a67f36a49a6111eafca
+  languageName: node
+  linkType: hard
+
+"@commitlint/types@npm:^18.6.1":
+  version: 18.6.1
+  resolution: "@commitlint/types@npm:18.6.1"
+  dependencies:
+    chalk: ^4.1.0
+  checksum: fb37bdefd25e05e353eb568b26a7dd5aff488f1e3fbfc42080bde49ae6834ffde996acac4b7767df650b38e03692889b636b8290465823cd27276662d3b471cf
   languageName: node
   linkType: hard
 
@@ -8810,7 +8820,7 @@ __metadata:
     "@changesets/changelog-git": 0.2.0
     "@changesets/cli": 2.27.1
     "@commitlint/cli": 18.6.0
-    "@commitlint/config-conventional": 18.6.0
+    "@commitlint/config-conventional": 18.6.2
     "@juggle/resize-observer": ^3.4.0
     "@rollup/plugin-typescript": ^11.1.6
     "@strapi/eslint-config": ^0.2.0
