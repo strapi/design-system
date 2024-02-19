@@ -2565,12 +2565,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@internationalized/date@npm:^3.5.1":
-  version: 3.5.1
-  resolution: "@internationalized/date@npm:3.5.1"
+"@internationalized/date@npm:^3.5.2":
+  version: 3.5.2
+  resolution: "@internationalized/date@npm:3.5.2"
   dependencies:
     "@swc/helpers": ^0.5.0
-  checksum: d61db2529e5a2e5012d6f5924051d75b4cf9482374043b14f574757d2008c89b638365d66baef62badbdcdd6b99481af8d235a03006ff68832b6be8c17cbcecd
+  checksum: 7cd31aebe1bfa7307cb31d24366a9cc18c598e38a7eb6cd68a86b3c2d9e7c4f03376fe8a3ac6c6556fb80e58fa7697238af2ee9d753058e063f9a136143dafc2
   languageName: node
   linkType: hard
 
@@ -5124,7 +5124,7 @@ __metadata:
   dependencies:
     "@codemirror/lang-json": ^6.0.1
     "@floating-ui/react-dom": ^2.0.8
-    "@internationalized/date": ^3.5.1
+    "@internationalized/date": ^3.5.2
     "@internationalized/number": ^3.5.0
     "@playwright/test": 1.41.2
     "@radix-ui/react-dismissable-layer": ^1.0.5
