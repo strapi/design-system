@@ -350,7 +350,7 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
   const inputRef = React.useRef<HTMLInputElement>(null);
   const { getItems } = useCollection(undefined);
 
-  const { startsWith } = useFilter(context.locale, { sensitivity: 'base' });
+  const { contains } = useFilter(context.locale, { sensitivity: 'base' });
 
   const isDisabled = context.disabled;
   const composedRefs = useComposedRefs(inputRef, forwardedRef, context.onTriggerChange);
@@ -377,7 +377,7 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
         return;
 
       const firstItem = getItems().find(
-        (item) => item.type === 'option' && startsWith(item.textValue, context.textValue!),
+        (item) => item.type === 'option' && contains(item.textValue, context.textValue!),
       );
 
       const characterChangedAtIndex = findChangedIndex(previousFilter ?? '', context.filterValue);
@@ -391,7 +391,7 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
     });
 
     return () => clearTimeout(timeout);
-  }, [context.textValue, context.filterValue, startsWith, context.visuallyFocussedItem, getItems, previousFilter]);
+  }, [context.textValue, context.filterValue, contains, context.visuallyFocussedItem, getItems, previousFilter]);
 
   return (
     <input
@@ -516,7 +516,7 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
             context.filterValue !== undefined
           ) {
             const value = context.filterValue;
-            const firstItem = getItems().find((item) => startsWith(item.textValue, value));
+            const firstItem = getItems().find((item) => contains(item.textValue, value));
 
             if (firstItem) {
               context.onTextValueChange(firstItem.textValue);
@@ -527,7 +527,7 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
         if (context.autocomplete === 'none' && context.isPrintableCharacter(event.key)) {
           const value = context.textValue ?? '';
 
-          const nextItem = getItems().find((item) => startsWith(item.textValue, value));
+          const nextItem = getItems().find((item) => contains(item.textValue, value));
 
           if (nextItem) {
             context.onVisuallyFocussedItemChange(nextItem.ref.current);
@@ -948,7 +948,7 @@ export const ComboboxItem = React.forwardRef<ComboboxItemElement, ItemProps>((pr
 
   const isSelected = context.value === value;
 
-  const { startsWith } = useFilter(context.locale, { sensitivity: 'base' });
+  const { contains } = useFilter(context.locale, { sensitivity: 'base' });
 
   const handleTextValueChange = React.useCallback((node: HTMLSpanElement | null) => {
     setTextValue((prevTextValue) => {
@@ -970,8 +970,8 @@ export const ComboboxItem = React.forwardRef<ComboboxItemElement, ItemProps>((pr
     (context.autocomplete === 'both' &&
       textValue &&
       context.filterValue &&
-      !startsWith(textValue, context.filterValue)) ||
-    (context.autocomplete === 'list' && textValue && contextTextValue && !startsWith(textValue, contextTextValue))
+      !contains(textValue, context.filterValue)) ||
+    (context.autocomplete === 'list' && textValue && contextTextValue && !contains(textValue, contextTextValue))
   ) {
     return fragment
       ? ReactDOM.createPortal(
@@ -1131,7 +1131,7 @@ const ComboboxNoValueFound = React.forwardRef<HTMLDivElement, NoValueFoundProps>
   const [items, setItems] = React.useState<CollectionData[]>([]);
   const { subscribe } = useCollection(undefined);
 
-  const { startsWith } = useFilter(locale, { sensitivity: 'base' });
+  const { contains } = useFilter(locale, { sensitivity: 'base' });
 
   /**
    * We need to use a subscription here so we know *exactly*
@@ -1153,11 +1153,11 @@ const ComboboxNoValueFound = React.forwardRef<HTMLDivElement, NoValueFoundProps>
     return null;
   }
 
-  if (autocomplete === 'list' && items.some((item) => startsWith(item.textValue, textValue))) {
+  if (autocomplete === 'list' && items.some((item) => contains(item.textValue, textValue))) {
     return null;
   }
 
-  if (autocomplete === 'both' && items.some((item) => startsWith(item.textValue, filterValue))) {
+  if (autocomplete === 'both' && items.some((item) => contains(item.textValue, filterValue))) {
     return null;
   }
 
