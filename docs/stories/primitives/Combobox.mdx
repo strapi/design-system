@@ -22,9 +22,20 @@ import { Combobox } from '@strapi/ui-primitives';
 
 ### With List Autocomplete
 
+Default `autocomplete="list"` filters text by matching starting character, recently we have introduced filter by options `startsWith`,`contains`,
+so we can also say `autocomplete={{type: 'list', filter: 'startsWith'}}`
+
 <Canvas of={ComboboxStories.ListAutocomplete} />
 
+### With List Autocomplete "contains"
+
+To filter list by substring value we have `autocomplete={{type: 'list', filter: 'contains'}}`
+
+<Canvas of={ComboboxStories.ListContainsAutocomplete} />
+
 ### With Both Autocomplete
+
+For `autocomplete = "both"`, only default filter is available `autocomplete={{type: 'both', filter: 'startsWith'}}`, filter by `contains` is not supported.
 
 NOTE! If you opt to control the `textValue` yourself whilst using `autocomplete === "both"` e.g. to add a clear button,
 then you will also need to control the `filterValue` as well.

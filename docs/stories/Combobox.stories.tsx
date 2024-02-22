@@ -184,10 +184,18 @@ export const Creatable = {
   name: 'creatable',
 } satisfies Story;
 
+type TAutocomplete = 'none' | 'list' | 'both' | { type: 'list'; filter: 'startsWith' | 'contains' };
+
 export const Autocomplete = {
   render: () => {
     const [value, setValue] = useState('');
-    const [autocompleteMode, setAutocompleteMode] = useState('both');
+    const [autocompleteMode, setAutocompleteMode] = useState<TAutocomplete>('both');
+
+    const handleChange = (value) => {
+      if (value === 'list-contains') {
+        setAutocompleteMode({ type: 'list', filter: 'contains' });
+      } else setAutocompleteMode(value);
+    };
 
     return (
       <Flex direction="column" alignItems="stretch" gap={11}>
@@ -207,9 +215,10 @@ export const Autocomplete = {
           <ComboboxOption value="orange">Orange</ComboboxOption>
           <ComboboxOption value="strawberry">Strawberry</ComboboxOption>
         </Combobox>
-        <SingleSelect label="Autocomplete Mode" value={autocompleteMode} onValueChange={setAutocompleteMode}>
+        <SingleSelect label="Autocomplete Mode" value={autocompleteMode} onValueChange={handleChange}>
           <SingleSelectOption value="both">both</SingleSelectOption>
-          <SingleSelectOption value="list">list</SingleSelectOption>
+          <SingleSelectOption value="list">list (filter: startsWith)</SingleSelectOption>
+          <SingleSelectOption value="list-contains">list (filter: contains)</SingleSelectOption>
           <SingleSelectOption value="none">none</SingleSelectOption>
         </SingleSelect>
       </Flex>
