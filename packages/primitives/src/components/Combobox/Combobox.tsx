@@ -55,7 +55,7 @@ interface CreateData extends Data {
 }
 
 type TAutocompleteObject =
-  | { type: 'none'; filter?: undefined }
+  | { type: 'none'; filter?: never }
   | { type: 'list'; filter: 'contains' | 'startsWith' }
   | { type: 'both'; filter: 'startsWith' };
 
