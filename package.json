@@ -33,7 +33,7 @@
   "devDependencies": {
     "@changesets/changelog-git": "0.2.0",
     "@changesets/cli": "2.27.1",
-    "@commitlint/cli": "18.6.0",
+    "@commitlint/cli": "18.6.1",
     "@commitlint/config-conventional": "18.6.2",
     "@juggle/resize-observer": "^3.4.0",
     "@rollup/plugin-typescript": "^11.1.6",
