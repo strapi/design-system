@@ -54,16 +54,16 @@ interface CreateData extends Data {
   type: 'create';
 }
 
-type TAutocompleteObject =
+type AutocompleteObject =
   | { type: 'none'; filter?: never }
   | { type: 'list'; filter: 'contains' | 'startsWith' }
   | { type: 'both'; filter: 'startsWith' };
 
-type TAutocomplete = 'none' | 'list' | 'both' | TAutocompleteObject;
+type Autocomplete = 'none' | 'list' | 'both' | AutocompleteObject;
 
 type ComboboxContextValue = {
   allowCustomValue: boolean;
-  autocomplete: TAutocompleteObject;
+  autocomplete: AutocompleteObject;
   contentId: string;
   disabled?: boolean;
   locale: string;
@@ -93,7 +93,7 @@ const [ComboboxProvider, useComboboxContext] = createContext<ComboboxContextValu
 
 interface RootProps {
   allowCustomValue?: boolean;
-  autocomplete?: TAutocomplete;
+  autocomplete?: Autocomplete;
   children?: React.ReactNode;
   defaultOpen?: boolean;
   defaultValue?: string;
@@ -122,7 +122,7 @@ const ComboboxProviders = ({ children }: { children: React.ReactNode }) => (
   </PopperPrimitive.Root>
 );
 
-const formatAutocomplete = (autocomplete: TAutocomplete) => {
+const formatAutocomplete = (autocomplete: Autocomplete) => {
   if (typeof autocomplete === 'string') {
     if (autocomplete === 'none') {
       return {
@@ -227,7 +227,7 @@ const Combobox = (props: RootProps) => {
     [autocomplete, setTextValue, viewport, visuallyFocussedItem, value],
   );
 
-  const autocompleteObject: TAutocompleteObject = formatAutocomplete(autocomplete);
+  const autocompleteObject: AutocompleteObject = formatAutocomplete(autocomplete);
 
   React.useEffect(() => {
     if (autocomplete !== 'both') {
@@ -1339,8 +1339,8 @@ export type {
   ItemIndicatorProps,
   NoValueFoundProps,
   CreateItemProps,
-  TAutocomplete,
-  TAutocompleteObject,
+  Autocomplete,
+  AutocompleteObject,
 };
 
 /**

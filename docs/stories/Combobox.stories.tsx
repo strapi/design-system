@@ -184,12 +184,12 @@ export const Creatable = {
   name: 'creatable',
 } satisfies Story;
 
-type TAutocomplete = 'none' | 'list' | 'both' | { type: 'list'; filter: 'startsWith' | 'contains' };
+type Autocomplete = 'none' | 'list' | 'both' | { type: 'list'; filter: 'startsWith' | 'contains' };
 
 export const Autocomplete = {
   render: () => {
     const [value, setValue] = useState('');
-    const [autocompleteMode, setAutocompleteMode] = useState<TAutocomplete>('both');
+    const [autocompleteMode, setAutocompleteMode] = useState<Autocomplete>('both');
 
     const handleChange = (value) => {
       if (value === 'list-contains') {
