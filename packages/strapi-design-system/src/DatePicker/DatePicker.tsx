@@ -1038,6 +1038,7 @@ const DatePickerCalendar = React.forwardRef<HTMLDivElement, CalendarProps>(
                       aria-colindex={index + 1}
                       date={date}
                       startDate={startDate}
+                      disabled={minDate.compare(date) > 0 || date.compare(maxDate) > 0}
                     />
                   ) : (
                     <Cell aria-colindex={index + 1} />
@@ -1150,10 +1151,11 @@ type DatePickerCalendarCellElement = HTMLTableCellElement;
 interface CalendarCellProps extends BoxProps<'td'> {
   date: CalendarDate;
   startDate: CalendarDate;
+  disabled: boolean;
 }
 
 const DatePickerCalendarCell = React.forwardRef<DatePickerCalendarCellElement, CalendarCellProps>(
-  ({ date, startDate, ...props }, forwardedRef) => {
+  ({ date, startDate, disabled, ...props }, forwardedRef) => {
     const { timeZone, locale, calendarDate, onValueChange, onOpenChange, onTextValueChange, onCalendarDateChange } =
       useDatePickerContext(DATE_PICKER_CALEDNAR_CELL_NAME);
 
@@ -1214,6 +1216,7 @@ const DatePickerCalendarCell = React.forwardRef<DatePickerCalendarCellElement, C
           onTextValueChange(textValueFormatter.format(date.toDate(timeZone)));
           onOpenChange(false);
         })}
+        aria-disabled={disabled}
       >
         <Typography variant="pi" textColor={textColor}>
           {formattedDate}
@@ -1228,12 +1231,18 @@ const Cell = styled(Box)`
   padding: ${7 / 16}rem;
   // Trick to prevent the outline from overflowing because of the general outline-offset
   outline-offset: -2px !important;
+  &[aria-disabled='true'] {
+    pointer-events: none;
+    opacity: 0.5;
+  }
 
-  &:hover {
-    background: ${({ theme }) => theme.colors.primary100};
+  &[aria-disabled='false'] {
+    &:hover {
+      background: ${({ theme }) => theme.colors.primary100};
 
-    & > ${Typography} {
-      color: ${({ theme }) => theme.colors.primary600};
+      & > ${Typography} {
+        color: ${({ theme }) => theme.colors.primary600};
+      }
     }
   }
 `;
