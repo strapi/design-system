@@ -463,6 +463,28 @@ describe('DatePicker', () => {
       expect(queryByRole('option', { name: '2014' })).not.toBeInTheDocument();
     });
 
+    it('should limit the date selection to given min date', async () => {
+      const { getByRole, user } = render({
+        minDate: new Date('Mon Sep 04 2020'),
+        initialDate: new Date('Sep 04 2020'),
+      });
+
+      await user.click(getByRole('combobox', { name: 'date picker' }));
+      expect(getByRole('gridcell', { name: 'Thursday, 3 September 2020' })).toHaveAttribute('aria-disabled', 'true');
+      expect(getByRole('gridcell', { name: 'Saturday, 5 September 2020' })).toHaveAttribute('aria-disabled', 'false');
+    });
+
+    it('should limit the date selection to given max date', async () => {
+      const { getByRole, user } = render({
+        maxDate: new Date('Mon Sep 04 2020'),
+        initialDate: new Date('Sep 04 2020'),
+      });
+
+      await user.click(getByRole('combobox', { name: 'date picker' }));
+      expect(getByRole('gridcell', { name: 'Thursday, 3 September 2020' })).toHaveAttribute('aria-disabled', 'false');
+      expect(getByRole('gridcell', { name: 'Saturday, 5 September 2020' })).toHaveAttribute('aria-disabled', 'true');
+    });
+
     it('should set the initial calendar date to the minimum date if today is before that date', async () => {
       const { getByRole, user } = render({
         minDate: new Date('Sep 04 4000'),
