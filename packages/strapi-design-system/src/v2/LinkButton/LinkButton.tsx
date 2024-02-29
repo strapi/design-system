@@ -42,11 +42,23 @@ const LinkWrapper = styled(BaseButtonWrapper)`
 
 export const LinkButton = React.forwardRef<HTMLAnchorElement, LinkButtonProps>(
   (
-    { variant = 'default', startIcon, endIcon, disabled = false, children, size = 'S', as = BaseLink, ...props },
+    {
+      variant = 'default',
+      startIcon,
+      endIcon,
+      disabled = false,
+      children,
+      isExternal,
+      size = 'S',
+      as = BaseLink,
+      ...props
+    },
     ref,
   ) => {
     const paddingX = size === 'S' ? 2 : '10px';
     const paddingY = 4;
+    const target = isExternal ? '_blank' : undefined;
+    const rel = isExternal ? 'noreferrer noopener' : undefined;
 
     return (
       <LinkWrapper
@@ -64,6 +76,8 @@ export const LinkButton = React.forwardRef<HTMLAnchorElement, LinkButtonProps>(
         paddingRight={paddingY}
         paddingTop={paddingX}
         pointerEvents={disabled ? 'none' : undefined}
+        target={target}
+        rel={rel}
         {...props}
         as={as || BaseLink}
       >
