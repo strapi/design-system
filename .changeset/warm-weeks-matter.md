@@ -1,5 +1,5 @@
 ---
-"@strapi/icons": minor
+'@strapi/icons': minor
 ---
 
 add history icon
