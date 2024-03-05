@@ -67,3 +67,8 @@ export * from './Tooltip';
 export * from './Typography';
 export * from './VisuallyHidden';
 export * from './themes';
+
+export * from './hooks/useComposeRefs';
+export * from './hooks/useDateFormatter';
+
+export { useFilter, useCollator, type Filter, useCallbackRef, composeEventHandlers } from '@strapi/ui-primitives';
