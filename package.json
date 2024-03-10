@@ -38,7 +38,7 @@
     "@juggle/resize-observer": "^3.4.0",
     "@rollup/plugin-typescript": "^11.1.6",
     "@strapi/eslint-config": "^0.2.0",
-    "@swc/core": "^1.4.2",
+    "@swc/core": "^1.4.6",
     "@swc/jest": "^0.2.36",
     "@testing-library/jest-dom": "6.4.2",
     "@testing-library/react": "14.2.1",
@@ -75,7 +75,7 @@
     "tiny-glob": "^0.2.9",
     "turbo": "1.12.4",
     "typescript": "^5.3.3",
-    "vite": "^5.1.4",
+    "vite": "^5.1.5",
     "vite-plugin-dts": "^3.7.3"
   },
   "packageManager": "yarn@3.5.0",
