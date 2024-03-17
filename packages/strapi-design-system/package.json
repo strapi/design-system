@@ -38,7 +38,7 @@
     "aria-hidden": "^1.2.3",
     "compute-scroll-into-view": "^3.1.0",
     "prop-types": "^15.8.1",
-    "react-remove-scroll": "^2.5.7"
+    "react-remove-scroll": "^2.5.9"
   },
   "devDependencies": {
     "@playwright/test": "1.42.1",
