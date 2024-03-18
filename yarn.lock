@@ -5169,9 +5169,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@strapi/eslint-config@npm:^0.2.0":
-  version: 0.2.0
-  resolution: "@strapi/eslint-config@npm:0.2.0"
+"@strapi/eslint-config@npm:^0.2.1":
+  version: 0.2.1
+  resolution: "@strapi/eslint-config@npm:0.2.1"
   dependencies:
     "@babel/eslint-parser": ^7.19.1
     "@typescript-eslint/eslint-plugin": ^5.62.0
@@ -5196,7 +5196,7 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: e2c9e8d27f7b673294003bd75483e8f708befe4f24448a356f06b3b0acd7e170685a35edba1983e6e5eba8ea717e7e1f1212d48432ed2ca33818494d72b50052
+  checksum: f725ed6ef80094853320d4469971f74a1d72989d2ef36a845033ee23ea04ff31806dceb3c2aa42bd4b7f9af2f096802331bca72b752790dad483d25f68680c67
   languageName: node
   linkType: hard
 
@@ -8986,7 +8986,7 @@ __metadata:
     "@commitlint/config-conventional": 19.1.0
     "@juggle/resize-observer": ^3.4.0
     "@rollup/plugin-typescript": ^11.1.6
-    "@strapi/eslint-config": ^0.2.0
+    "@strapi/eslint-config": ^0.2.1
     "@swc/core": ^1.4.8
     "@swc/jest": ^0.2.36
     "@testing-library/jest-dom": 6.4.2

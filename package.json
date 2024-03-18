@@ -37,7 +37,7 @@
     "@commitlint/config-conventional": "19.1.0",
     "@juggle/resize-observer": "^3.4.0",
     "@rollup/plugin-typescript": "^11.1.6",
-    "@strapi/eslint-config": "^0.2.0",
+    "@strapi/eslint-config": "^0.2.1",
     "@swc/core": "^1.4.8",
     "@swc/jest": "^0.2.36",
     "@testing-library/jest-dom": "6.4.2",
