@@ -34,7 +34,7 @@
     "@changesets/changelog-git": "0.2.0",
     "@changesets/cli": "2.27.1",
     "@commitlint/cli": "19.2.0",
-    "@commitlint/config-conventional": "19.0.3",
+    "@commitlint/config-conventional": "19.1.0",
     "@juggle/resize-observer": "^3.4.0",
     "@rollup/plugin-typescript": "^11.1.6",
     "@strapi/eslint-config": "^0.2.0",
