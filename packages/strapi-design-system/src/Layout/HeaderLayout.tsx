@@ -21,6 +21,7 @@ interface HeaderLayoutProps extends BaseHeaderLayoutProps {}
 
 export const HeaderLayout = (props: HeaderLayoutProps) => {
   const baseHeaderLayoutRef = useRef<HTMLDivElement>(null);
+  const stickyBaseHeaderLayoutRef = useRef<HTMLDivElement>(null);
   const [headerSize, setHeaderSize] = useState<DOMRect | null>(null);
 
   const [containerRef, isVisible] = useElementOnScreen<HTMLDivElement>({
@@ -29,9 +30,9 @@ export const HeaderLayout = (props: HeaderLayoutProps) => {
     threshold: 0,
   });
 
-  useResizeObserver(containerRef, () => {
-    if (containerRef.current) {
-      setHeaderSize(containerRef.current.getBoundingClientRect());
+  useResizeObserver(isVisible ? baseHeaderLayoutRef : stickyBaseHeaderLayoutRef, () => {
+    if (baseHeaderLayoutRef.current) {
+      setHeaderSize(baseHeaderLayoutRef.current.getBoundingClientRect());
     }
   });
 
@@ -39,7 +40,7 @@ export const HeaderLayout = (props: HeaderLayoutProps) => {
     if (baseHeaderLayoutRef.current) {
       setHeaderSize(baseHeaderLayoutRef.current.getBoundingClientRect());
     }
-  }, [baseHeaderLayoutRef]);
+  }, []);
 
   return (
     <>
@@ -47,7 +48,7 @@ export const HeaderLayout = (props: HeaderLayoutProps) => {
         {isVisible && <BaseHeaderLayout ref={baseHeaderLayoutRef} {...props} />}
       </div>
 
-      {!isVisible && <BaseHeaderLayout {...props} sticky width={headerSize?.width} />}
+      {!isVisible && <BaseHeaderLayout ref={stickyBaseHeaderLayoutRef} {...props} sticky width={headerSize?.width} />}
     </>
   );
 };
