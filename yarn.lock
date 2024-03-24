@@ -5152,7 +5152,7 @@ __metadata:
     "@types/react-router-dom": ^5.3.3
     "@types/styled-components": ^5.1.26
     "@uiw/react-codemirror": ^4.21.24
-    aria-hidden: ^1.2.3
+    aria-hidden: ^1.2.4
     axe-playwright: ^2.0.1
     compute-scroll-into-view: ^3.1.0
     cross-env: ^7.0.3
@@ -5234,7 +5234,7 @@ __metadata:
     "@radix-ui/react-use-layout-effect": 1.0.1
     "@radix-ui/react-use-previous": ^1.0.1
     "@radix-ui/react-visually-hidden": ^1.0.3
-    aria-hidden: ^1.2.3
+    aria-hidden: ^1.2.4
     react-remove-scroll: ^2.5.9
   peerDependencies:
     react: ^17.0.0 || ^18.0.0
@@ -7039,12 +7039,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"aria-hidden@npm:^1.1.1, aria-hidden@npm:^1.2.3":
+"aria-hidden@npm:^1.1.1":
   version: 1.2.3
   resolution: "aria-hidden@npm:1.2.3"
   dependencies:
     tslib: ^2.0.0
   checksum: 7d7d211629eef315e94ed3b064c6823d13617e609d3f9afab1c2ed86399bb8e90405f9bdd358a85506802766f3ecb468af985c67c846045a34b973bcc0289db9
+  languageName: node
+  linkType: hard
+
+"aria-hidden@npm:^1.2.4":
+  version: 1.2.4
+  resolution: "aria-hidden@npm:1.2.4"
+  dependencies:
+    tslib: ^2.0.0
+  checksum: 2ac90b70d29c6349d86d90e022cf01f4885f9be193932d943a14127cf28560dd0baf068a6625f084163437a4be0578f513cf7892f4cc63bfe91aa41dce27c6b2
   languageName: node
   linkType: hard
 
