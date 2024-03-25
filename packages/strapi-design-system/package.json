@@ -35,7 +35,7 @@
     "@radix-ui/react-focus-scope": "1.0.4",
     "@strapi/ui-primitives": "^1.16.0",
     "@uiw/react-codemirror": "^4.21.24",
-    "aria-hidden": "^1.2.3",
+    "aria-hidden": "^1.2.4",
     "compute-scroll-into-view": "^3.1.0",
     "prop-types": "^15.8.1",
     "react-remove-scroll": "^2.5.9"
