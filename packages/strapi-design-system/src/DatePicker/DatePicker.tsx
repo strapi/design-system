@@ -1156,10 +1156,12 @@ interface CalendarCellProps extends BoxProps<'td'> {
 
 const DatePickerCalendarCell = React.forwardRef<DatePickerCalendarCellElement, CalendarCellProps>(
   ({ date, startDate, disabled, ...props }, forwardedRef) => {
-    const { timeZone, locale, calendarDate, onValueChange, onOpenChange, onTextValueChange, onCalendarDateChange } =
+    const { timeZone, locale, value, onValueChange, onOpenChange, onTextValueChange, onCalendarDateChange } =
       useDatePickerContext(DATE_PICKER_CALEDNAR_CELL_NAME);
 
-    const isSelected = isSameDay(calendarDate, date);
+    const todayDate = today('UTC');
+    const selectedDate = value || todayDate;
+    const isSelected = isSameDay(selectedDate, date);
 
     const dateFormatter = useDateFormatter(locale, {
       weekday: 'long',
