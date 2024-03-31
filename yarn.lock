@@ -5652,10 +5652,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsconfig/node16@npm:^16.1.2":
-  version: 16.1.2
-  resolution: "@tsconfig/node16@npm:16.1.2"
-  checksum: 6ac44eca28ba4df832a4c576b942dc17c377db12df412de769d5c52df73756466a5e550266eb6e970c8dc4248669a0fc91319fd8df7af7263b12f371ad933695
+"@tsconfig/node16@npm:^16.1.3":
+  version: 16.1.3
+  resolution: "@tsconfig/node16@npm:16.1.3"
+  checksum: 097f33cb7fe9577cc3c4b7a8d26c7e8b6c45c868d3bda1e2cd120111693b98f88a5138e643e7a6f79d53d94717c3624dc33398804647bf6e0e8782604bbfad53
   languageName: node
   linkType: hard
 
@@ -9001,7 +9001,7 @@ __metadata:
     "@testing-library/jest-dom": 6.4.2
     "@testing-library/react": 14.2.2
     "@testing-library/user-event": ^14.5.2
-    "@tsconfig/node16": ^16.1.2
+    "@tsconfig/node16": ^16.1.3
     "@types/jest": ^29.5.12
     "@types/react": 18.2.69
     "@types/react-dom": 18.2.22
