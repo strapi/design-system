@@ -75,7 +75,7 @@
     "tiny-glob": "^0.2.9",
     "turbo": "1.13.2",
     "typescript": "^5.4.4",
-    "vite": "^5.1.6",
+    "vite": "^5.1.7",
     "vite-plugin-dts": "^3.7.3"
   },
   "packageManager": "yarn@3.5.0",
