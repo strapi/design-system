@@ -2,4 +2,4 @@
 '@strapi/design-system': patch
 ---
 
-select padding
+fix select padding
