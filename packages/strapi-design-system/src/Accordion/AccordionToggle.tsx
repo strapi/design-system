@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import { AccordionSize, AccordionTypography } from './Accordion';
 import { useAccordion } from './AccordionContext';
 import { getBackground } from './utils';
+import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { Icon } from '../Icon';
 import { TextButton } from '../TextButton';
@@ -120,7 +121,6 @@ export const AccordionToggle = ({
       as="span"
       background={iconColor}
       cursor={disabled ? 'not-allowed' : 'pointer'}
-      onClick={handleToggle}
       shrink={0}
     >
       <Icon
@@ -130,6 +130,10 @@ export const AccordionToggle = ({
       />
     </Flex>
   );
+
+  const stopPropagation = (e: React.MouseEvent) => {
+    e.stopPropagation();
+  };
 
   return (
     <FlexWithSize
@@ -141,13 +145,13 @@ export const AccordionToggle = ({
       expanded={expanded}
       size={size}
       justifyContent="space-between"
-      cursor={disabled ? 'not-allowed' : ''}
+      cursor={disabled ? 'not-allowed' : 'pointer'}
+      onClick={handleToggle}
     >
       <Flex gap={3} flex={1} maxWidth="100%">
         {togglePosition === 'left' && dropdownIcon}
 
         <ToggleButton
-          onClick={handleToggle}
           aria-disabled={disabled}
           aria-expanded={expanded}
           aria-controls={ariaControls}
@@ -173,11 +177,17 @@ export const AccordionToggle = ({
         {togglePosition === 'right' && (
           <Flex gap={3}>
             {dropdownIcon}
-            {action}
+            <Box as="span" onClick={stopPropagation}>
+              {action}
+            </Box>
           </Flex>
         )}
 
-        {togglePosition === 'left' && action}
+        {togglePosition === 'left' && (
+          <Box as="span" onClick={stopPropagation}>
+            {action}
+          </Box>
+        )}
       </Flex>
     </FlexWithSize>
   );
