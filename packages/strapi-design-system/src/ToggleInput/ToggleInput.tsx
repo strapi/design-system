@@ -65,10 +65,10 @@ const ToggleInputInput = React.forwardRef<ToggleInputInputElement, ToggleInputIn
             disabled && isFalseyChecked
               ? 'neutral300'
               : isFalseyChecked
-              ? 'neutral200'
-              : disabled
-              ? 'neutral150'
-              : 'neutral100'
+                ? 'neutral200'
+                : disabled
+                  ? 'neutral150'
+                  : 'neutral100'
           }
           size={size}
         >

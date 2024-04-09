@@ -32,7 +32,7 @@ const CheckboxInput = styled.input`
       content: '';
       display: block;
       position: relative;
-      background: url(${checkmarkIcon}) no-repeat no-repeat center center;
+      background: ${() => `url("${checkmarkIcon}") no-repeat no-repeat center center`};
       width: 10px;
       height: 10px;
       left: 50%;
@@ -41,7 +41,7 @@ const CheckboxInput = styled.input`
     }
 
     &:disabled:after {
-      background: url(${checkmarkIconDisabled}) no-repeat no-repeat center center;
+      background: ${() => `url("${checkmarkIconDisabled}") no-repeat no-repeat center center`};
     }
   }
 

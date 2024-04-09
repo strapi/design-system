@@ -1,6 +1,6 @@
 {
   "name": "@strapi/design-system",
-  "version": "1.12.2",
+  "version": "1.17.0",
   "license": "MIT",
   "sideEffects": false,
   "main": "./dist/index.js",
@@ -27,25 +27,25 @@
   ],
   "dependencies": {
     "@codemirror/lang-json": "^6.0.1",
-    "@floating-ui/react-dom": "^2.0.2",
-    "@internationalized/date": "^3.5.0",
-    "@internationalized/number": "^3.3.0",
+    "@floating-ui/react-dom": "^2.0.8",
+    "@internationalized/date": "^3.5.2",
+    "@internationalized/number": "^3.5.1",
     "@radix-ui/react-dismissable-layer": "^1.0.5",
     "@radix-ui/react-dropdown-menu": "^2.0.6",
     "@radix-ui/react-focus-scope": "1.0.4",
-    "@strapi/ui-primitives": "^1.12.2",
-    "@uiw/react-codemirror": "^4.21.20",
-    "aria-hidden": "^1.2.3",
+    "@strapi/ui-primitives": "^1.17.0",
+    "@uiw/react-codemirror": "^4.21.25",
+    "aria-hidden": "^1.2.4",
     "compute-scroll-into-view": "^3.1.0",
     "prop-types": "^15.8.1",
-    "react-remove-scroll": "^2.5.7"
+    "react-remove-scroll": "^2.5.9"
   },
   "devDependencies": {
-    "@playwright/test": "1.39.0",
-    "@strapi/icons": "^1.12.2",
+    "@playwright/test": "1.43.0",
+    "@strapi/icons": "^1.17.0",
     "@types/react-router-dom": "^5.3.3",
     "@types/styled-components": "^5.1.26",
-    "axe-playwright": "^1.2.3",
+    "axe-playwright": "^2.0.1",
     "cross-env": "^7.0.3",
     "react-router-dom": "^5.3.4",
     "styled-components": "^5.3.11"

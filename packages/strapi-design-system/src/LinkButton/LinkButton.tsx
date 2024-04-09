@@ -25,7 +25,7 @@ const LinkWrapper = styled(BaseButtonWrapper)<Required<Pick<LinkButtonProps, 'va
   ${getVariantStyle}
 `;
 
-interface SharedLinkProps extends BaseButtonProps {
+interface SharedLinkButtonProps extends BaseButtonProps {
   disabled?: boolean;
   endIcon?: React.ReactNode;
   size?: (typeof BUTTON_SIZES)[number];
@@ -33,19 +33,19 @@ interface SharedLinkProps extends BaseButtonProps {
   variant?: (typeof VARIANTS)[number];
 }
 
-interface ToLinkProps extends SharedLinkProps {
+interface ToLinkButtonProps extends SharedLinkButtonProps {
   to: NavLinkProps['to'];
   href?: never;
 }
 
-interface HrefLinkProps extends SharedLinkProps {
+interface HrefLinkButtonProps extends SharedLinkButtonProps {
   href: string;
   to?: never;
 }
 
-type LinkButtonProps = ToLinkProps | HrefLinkProps;
+type LinkButtonProps = ToLinkButtonProps | HrefLinkButtonProps;
 
-export const LinkButton = React.forwardRef<HTMLAnchorElement, LinkButtonProps>(
+const LinkButton = React.forwardRef<HTMLAnchorElement, LinkButtonProps>(
   ({ variant = 'default', startIcon, endIcon, disabled = false, children, size = 'S', href, to, ...props }, ref) => {
     const target = href ? '_blank' : undefined;
     const rel = href ? 'noreferrer noopener' : undefined;
@@ -87,3 +87,6 @@ export const LinkButton = React.forwardRef<HTMLAnchorElement, LinkButtonProps>(
     );
   },
 );
+
+export { LinkButton };
+export type { LinkButtonProps, SharedLinkButtonProps, ToLinkButtonProps, HrefLinkButtonProps };

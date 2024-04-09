@@ -12,7 +12,8 @@ import { Typography } from '../Typography';
 
 type SingleSelectPropsWithoutLabel = Omit<SelectParts.SingleSelectProps, 'value'> &
   Pick<SelectParts.ContentProps, 'onCloseAutoFocus'> &
-  Pick<SelectParts.TriggerProps, 'clearLabel' | 'onClear' | 'size' | 'startIcon' | 'placeholder'> &
+  Pick<SelectParts.TriggerProps, 'clearLabel' | 'onClear' | 'size' | 'startIcon'> &
+  Pick<SelectParts.ValueProps, 'placeholder'> &
   Pick<FieldProps, 'error' | 'hint' | 'id'> & {
     /**
      * @default (value) => value.toString()
