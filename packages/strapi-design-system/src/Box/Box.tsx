@@ -82,10 +82,31 @@ export type BoxProps<TElement extends keyof JSX.IntrinsicElements = 'div'> = Rea
      * Padding top. Supports responsive values
      */
     paddingTop?: ResponsiveValue<'paddingTop'>;
+    /**
+     * Padding logical properties, supports responsive values
+     */
+    paddingBlock?: ResponsiveValue<'paddingBlock'>;
+    paddingBlockStart?: ResponsiveValue<'paddingBlockStart'>;
+    paddingBlockEnd?: ResponsiveValue<'paddingBlockEnd'>;
+    paddingInline?: ResponsiveValue<'paddingInline'>;
+    paddingInlineStart?: ResponsiveValue<'paddingInlineStart'>;
+    paddingInlineEnd?: ResponsiveValue<'paddingInlineEnd'>;
+    /**
+     * Margin. Supports responsive values
+     */
     marginLeft?: ResponsiveValue<'marginLeft'>;
     marginBottom?: ResponsiveValue<'marginBottom'>;
     marginRight?: ResponsiveValue<'marginRight'>;
     marginTop?: ResponsiveValue<'marginTop'>;
+    /**
+     * Margin logical properties, supports responsive values
+     */
+    marginBlock?: ResponsiveValue<'marginBlock'>;
+    marginBlockStart?: ResponsiveValue<'marginBlockStart'>;
+    marginBlockEnd?: ResponsiveValue<'marginBlockEnd'>;
+    marginInline?: ResponsiveValue<'marginInline'>;
+    marginInlineStart?: ResponsiveValue<'marginInlineStart'>;
+    marginInlineEnd?: ResponsiveValue<'marginInlineEnd'>;
     /**
      * Shadow name (see `theme.shadows`)
      */
@@ -142,11 +163,22 @@ export const Box = styled.div.withConfig<BoxProps>({
   ${({ theme, paddingRight }) => handleResponsiveValues('padding-right', paddingRight, theme)}
   ${({ theme, paddingBottom }) => handleResponsiveValues('padding-bottom', paddingBottom, theme)}
   ${({ theme, paddingLeft }) => handleResponsiveValues('padding-left', paddingLeft, theme)}
+  ${({ theme, paddingBlock }) => handleResponsiveValues('padding-block', paddingBlock, theme)}
+  ${({ theme, paddingBlockStart }) => handleResponsiveValues('padding-block-start', paddingBlockStart, theme)}
+  ${({ theme, paddingBlockEnd }) => handleResponsiveValues('padding-block-end', paddingBlockEnd, theme)}
+  ${({ theme, paddingInline }) => handleResponsiveValues('padding-inline', paddingInline, theme)}
+  ${({ theme, paddingInlineStart }) => handleResponsiveValues('padding-inline-start', paddingInlineStart, theme)}
+  ${({ theme, paddingInlineEnd }) => handleResponsiveValues('padding-inline-end', paddingInlineEnd, theme)}
   ${({ theme, marginLeft }) => handleResponsiveValues('margin-left', marginLeft, theme)}
   ${({ theme, marginRight }) => handleResponsiveValues('margin-right', marginRight, theme)}
   ${({ theme, marginTop }) => handleResponsiveValues('margin-top', marginTop, theme)}
   ${({ theme, marginBottom }) => handleResponsiveValues('margin-bottom', marginBottom, theme)}
-
+  ${({ theme, marginBlock }) => handleResponsiveValues('margin-block', marginBlock, theme)}
+  ${({ theme, marginBlockStart }) => handleResponsiveValues('margin-block-start', marginBlockStart, theme)}
+  ${({ theme, marginBlockEnd }) => handleResponsiveValues('margin-block-end', marginBlockEnd, theme)}
+  ${({ theme, marginInline }) => handleResponsiveValues('margin-inline', marginInline, theme)}
+  ${({ theme, marginInlineStart }) => handleResponsiveValues('margin-inline-start', marginInlineStart, theme)}
+  ${({ theme, marginInlineEnd }) => handleResponsiveValues('margin-inline-end', marginInlineEnd, theme)}
   // Responsive hiding
   ${({ theme, hiddenS }) => (hiddenS ? `${theme.mediaQueries.tablet} { display: none; }` : undefined)}
   ${({ theme, hiddenXS }) => (hiddenXS ? `${theme.mediaQueries.mobile} { display: none; }` : undefined)}

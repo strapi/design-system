@@ -23,11 +23,23 @@ type ResponsiveCSSProperties = Pick<
   | 'marginRight'
   | 'marginTop'
   | 'marginBottom'
+  | 'marginBlock'
+  | 'marginBlockStart'
+  | 'marginBlockEnd'
+  | 'marginInline'
+  | 'marginInlineStart'
+  | 'marginInlineEnd'
   | 'padding'
   | 'paddingLeft'
   | 'paddingRight'
   | 'paddingTop'
   | 'paddingBottom'
+  | 'paddingBlock'
+  | 'paddingBlockStart'
+  | 'paddingBlockEnd'
+  | 'paddingInline'
+  | 'paddingInlineStart'
+  | 'paddingInlineEnd'
 >;
 
 export type ResponsiveValue<TCSSProp extends keyof ResponsiveCSSProperties = any> =
@@ -52,13 +64,24 @@ const handleResponsiveValues = <TCSSProp extends keyof ResponsiveCSSProperties>(
 
     const spaces = transformedArray.reduce((acc, curr, index) => {
       if (curr) {
+        let formattedCurr = '';
+
+        if (Array.isArray(curr)) {
+          const [start, end] = curr;
+          const startValue = theme.spaces[start as keyof DefaultTheme['spaces']] ?? start;
+          const endValue = theme.spaces[end as keyof DefaultTheme['spaces']] ?? end;
+          formattedCurr = `${startValue} ${endValue}`;
+        }
+
+        const value = Array.isArray(curr) ? formattedCurr : theme.spaces[curr];
+
         switch (index) {
           case 0:
-            return `${acc}${property}: ${theme.spaces[curr]};`;
+            return `${acc}${property}: ${value};`;
           case 1:
-            return `${acc}${theme.mediaQueries.tablet}{${property}: ${theme.spaces[curr]};}`;
+            return `${acc}${theme.mediaQueries.tablet} { ${property}: ${value}; }`;
           case 2:
-            return `${acc}${theme.mediaQueries.mobile}{${property}: ${theme.spaces[curr]};}`;
+            return `${acc}${theme.mediaQueries.mobile} { ${property}: ${value}; }`;
           default:
             return acc;
         }
