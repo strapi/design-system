@@ -95,6 +95,23 @@ import { Select } from '@strapi/ui-primitives';
 };
 ```
 
+## Hook Documentation
+
+### useCallbackRef
+
+Converts a callback to a ref to avoid triggering re-renders when passed as a prop or avoid re-executing
+effects when passed as a dependency
+
+### useCollator
+
+Provides localized string collation for the current locale. Automatically updates when the locale changes,
+and handles caching of the collator for performance.
+
+### useFilter
+
+Provides localized string search functionality that is useful for filtering or matching items
+in a list. Options can be provided to adjust the sensitivity to case, diacritics, and other parameters.
+
 ## Contributing
 
 Please follow our [CONTRIBUTING](https://github.com/strapi/design-system/blob/main/CONTRIBUTING.md) guidelines.

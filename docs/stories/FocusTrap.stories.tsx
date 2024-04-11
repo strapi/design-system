@@ -18,11 +18,16 @@ export const Base = {
   name: 'base',
 } satisfies Story;
 
-const TrappedComponent = ({ onClose }) => {
-  const [newLastVisible, setNewLastVisible] = React.useState(false);
+export const WithoutAutoFocus = {
+  render: () => <ExampleComponent skipAutoFocus />,
+  name: 'withoutAutoFocus',
+} satisfies Story;
+
+const TrappedComponent = ({ onClose, skipAutoFocus }) => {
+  const [newLastVisible, setNewLastVisible] = useState(false);
 
   return (
-    <FocusTrap onEscape={onClose}>
+    <FocusTrap onEscape={onClose} skipAutoFocus={skipAutoFocus}>
       <Box background="neutral0" padding={4} hasRadius style={{ width: '600px' }}>
         <Flex direction="column" alignItems="center" gap={4}>
           <Flex justifyContent="space-between">
@@ -59,13 +64,13 @@ const TrappedComponent = ({ onClose }) => {
   );
 };
 
-export const ExampleComponent = () => {
+export const ExampleComponent = ({ skipAutoFocus = false }) => {
   const [visible, setVisible] = React.useState(false);
 
   return (
     <Box background="neutral150" padding={10}>
       <Flex direction="column" alignItems="center" gap={2}>
-        {visible && <TrappedComponent onClose={() => setVisible(false)} />}
+        {visible && <TrappedComponent onClose={() => setVisible(false)} skipAutoFocus={skipAutoFocus} />}
         <Box background="neutral0" padding={4} hasRadius style={{ width: '600px' }}>
           <Typography variant="beta" as="h2">
             Outside the trap!

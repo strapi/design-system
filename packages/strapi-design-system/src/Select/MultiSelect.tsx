@@ -18,7 +18,8 @@ import { Typography } from '../Typography';
 
 type MultiSelectPropsWithoutLabel = Omit<SelectParts.MultiSelectProps, 'value' | 'multi'> &
   Pick<SelectParts.ContentProps, 'onCloseAutoFocus'> &
-  Pick<SelectParts.TriggerProps, 'clearLabel' | 'onClear' | 'size' | 'startIcon' | 'placeholder'> &
+  Pick<SelectParts.TriggerProps, 'clearLabel' | 'onClear' | 'size' | 'startIcon'> &
+  Pick<SelectParts.ValueProps, 'placeholder'> &
   Pick<FieldProps, 'hint' | 'id' | 'error'> & {
     /**
      * @default (value) => value.join(',')
@@ -289,7 +290,7 @@ const CheckMark = styled(Box)<CheckMarkProps>`
     css`
       &::after {
         content: '';
-        background: url(${checkmarkIcon}) no-repeat no-repeat center center;
+        background: ${() => `url("${checkmarkIcon}") no-repeat no-repeat center center`};
         width: 100%;
         height: 100%;
         position: absolute;

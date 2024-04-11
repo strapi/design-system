@@ -1,6 +1,6 @@
 {
   "name": "@strapi/ui-primitives",
-  "version": "1.13.2",
+  "version": "1.17.0",
   "license": "MIT",
   "sideEffects": false,
   "source": "./src/index.ts",
@@ -40,8 +40,8 @@
     "@radix-ui/react-use-layout-effect": "1.0.1",
     "@radix-ui/react-use-previous": "^1.0.1",
     "@radix-ui/react-visually-hidden": "^1.0.3",
-    "aria-hidden": "^1.2.3",
-    "react-remove-scroll": "^2.5.7"
+    "aria-hidden": "^1.2.4",
+    "react-remove-scroll": "^2.5.9"
   },
   "peerDependencies": {
     "react": "^17.0.0 || ^18.0.0",

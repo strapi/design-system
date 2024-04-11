@@ -12,9 +12,11 @@ export interface FocusTrapProps extends React.HTMLAttributes<HTMLDivElement> {
    * A boolean value to define whether the focus should be restored or not.
    */
   restoreFocus?: boolean;
+  // Skip focusing default first element if user needs to set it manually
+  skipAutoFocus?: boolean;
 }
 
-export const FocusTrap = ({ onEscape, restoreFocus = true, ...props }: FocusTrapProps) => {
+export const FocusTrap = ({ onEscape, restoreFocus = true, skipAutoFocus = false, ...props }: FocusTrapProps) => {
   const trappedRef = React.useRef<HTMLDivElement>(null!);
 
   /**
@@ -38,7 +40,7 @@ export const FocusTrap = ({ onEscape, restoreFocus = true, ...props }: FocusTrap
    * Sends the focus to the first element of the focus trap tree
    */
   React.useEffect(() => {
-    if (!trappedRef.current) return;
+    if (!trappedRef.current || skipAutoFocus) return;
 
     const focusableChildren = getFocusableNodes(trappedRef.current);
 
@@ -51,7 +53,7 @@ export const FocusTrap = ({ onEscape, restoreFocus = true, ...props }: FocusTrap
         '[FocusTrap]: it seems there are no focusable elements in the focus trap tree. Make sure there s at least one.',
       );
     }
-  }, []);
+  }, [skipAutoFocus]);
 
   const handleKeyDown: React.KeyboardEventHandler<HTMLDivElement> = (e) => {
     if (e.key === KeyboardKeys.ESCAPE && onEscape) {
