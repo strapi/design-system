@@ -64,24 +64,13 @@ const handleResponsiveValues = <TCSSProp extends keyof ResponsiveCSSProperties>(
 
     const spaces = transformedArray.reduce((acc, curr, index) => {
       if (curr) {
-        let formattedCurr = '';
-
-        if (Array.isArray(curr)) {
-          const [start, end] = curr;
-          const startValue = theme.spaces[start as keyof DefaultTheme['spaces']] ?? start;
-          const endValue = theme.spaces[end as keyof DefaultTheme['spaces']] ?? end;
-          formattedCurr = `${startValue} ${endValue}`;
-        }
-
-        const value = Array.isArray(curr) ? formattedCurr : theme.spaces[curr];
-
         switch (index) {
           case 0:
-            return `${acc}${property}: ${value};`;
+            return `${acc}${property}: ${theme.spaces[curr]};`;
           case 1:
-            return `${acc}${theme.mediaQueries.tablet} { ${property}: ${value}; }`;
+            return `${acc}${theme.mediaQueries.tablet}{${property}: ${theme.spaces[curr]};}`;
           case 2:
-            return `${acc}${theme.mediaQueries.mobile} { ${property}: ${value}; }`;
+            return `${acc}${theme.mediaQueries.mobile}{${property}: ${theme.spaces[curr]};}`;
           default:
             return acc;
         }

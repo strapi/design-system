@@ -41,13 +41,12 @@ export const ResponsiveSpaces = {
 export const LogicalProperties = {
   render: () => (
     <Box
-      paddingBlockStart={6}
-      paddingBlockEnd={2}
-      marginBlock={[
-        [3, 6],
-        [2, 5],
-        [1, 4],
-      ]}
+      paddingTop={4}
+      padding={[6, 4, 1]}
+      paddingRight={2}
+      marginBottom={4}
+      margin={2}
+      marginLeft={[8, 4, 2]}
       background="primary700"
       shadow="filterShadow"
       hiddenXS
