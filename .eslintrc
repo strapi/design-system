@@ -1,14 +1,4 @@
 {
   "extends": ["@strapi/eslint-config/front/typescript"],
-  "parserOptions": {
-    "project": ["./tsconfig.json"]
-  },
-  "settings": {
-    "import/resolver": {
-      "typescript": {
-        "project": "./tsconfig.json"
-      }
-    }
-  },
-  "ignorePatterns": ["./packages/**"]
+  "ignorePatterns": ["./packages/**"],
 }

@@ -24,7 +24,7 @@ export const WithoutAutoFocus = {
 } satisfies Story;
 
 const TrappedComponent = ({ onClose, skipAutoFocus }) => {
-  const [newLastVisible, setNewLastVisible] = useState(false);
+  const [newLastVisible, setNewLastVisible] = React.useState(false);
 
   return (
     <FocusTrap onEscape={onClose} skipAutoFocus={skipAutoFocus}>

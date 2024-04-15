@@ -23,7 +23,6 @@
     "lint": { "dependsOn": ["^build"] },
     "test": { "dependsOn": ["^build"] },
     "test:ts": { "dependsOn": ["^build"] },
-    "test:e2e": {},
-    "test:e2e:ci": {}
+    "test:e2e": {}
   }
 }
