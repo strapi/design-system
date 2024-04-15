@@ -8,7 +8,7 @@ making a pull request that may not align with the project roadmap.
 
 ## Contribution Prerequisites
 
-- You have [Node.js](https://nodejs.org/en/) at version >= v16 and [Yarn](https://yarnpkg.com/en/) at v1.2.0+ installed.
+- You have [Node.js](https://nodejs.org/en/) at version >= v20 and [Yarn](https://yarnpkg.com/en/) at v1.2.0+ installed.
 - You are familiar with [Git](https://git-scm.com).
 
 **Before submitting your pull request** make sure the following requirements are fulfilled:
@@ -168,9 +168,7 @@ if we're already in pre-release mode, this is fine and you should continue.
 - `yarn prettier:write` Fix any prettier issues.
 - `yarn test` Run the design system tests.
 - `yarn test:ts`: Run the TypeScript tests.
-- `yarn test:watch` Run an interactive test watcher.
 - `yarn test:e2e` Run the end-to-end test suite.
-- `yarn test:e2e:watch` Run an interactive end-to-end test watcher.
 
 ## Linking the design system
 

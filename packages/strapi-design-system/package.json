@@ -41,15 +41,12 @@
   "scripts": {
     "build": "pack-up build",
     "clean": "rimraf dist node_modules",
-    "generate:types": "tsc --noEmit false --declaration --emitDeclarationOnly --declarationDir dist",
     "lint": "eslint . --ext .tsx,.ts",
     "format": "yarn lint --fix",
     "test": "jest -c jest.config.mjs",
     "test:ts": "tsc --noEmit",
     "test:watch": "jest -c jest.config.mjs --watchAll",
     "test:e2e": "playwright test",
-    "test:e2e:ci": "cross-env CI=true playwright test",
-    "test:e2e:watch": "chokidar '**/__tests__/*.e2e.js' -c 'npm run test:e2e -- --retries=0 {path}'",
     "test:e2e:debug": "cross-env PWDEBUG=1 playwright test",
     "watch": "pack-up watch"
   },
