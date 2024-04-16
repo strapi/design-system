@@ -2,6 +2,11 @@ name: 'Experimental Releases'
 
 on:
   workflow_dispatch:
+    inputs:
+      branch:
+        required: true
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 permissions:
   contents: read # to fetch code (actions/checkout)
@@ -12,14 +17,34 @@ jobs:
     runs-on: ubuntu-latest
     if: github.repository == 'strapi/design-system'
     steps:
-      - uses: actions/checkout@v4
-      - name: Setup npmrc
-        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
-      - uses: actions/setup-node@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4
         with:
-          node-version: 16
-      - run: yarn
-      - run: yarn build --ignore="@strapi/design-system-docs"
+          fetch-depth: 0
+
+      - name: Setup npm auth
+        run: |
+          echo "registry=https://registry.npmjs.org" >> ~/.npmrc
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> ~/.npmrc
+
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'yarn'
+
+      - name: 'Restore cache'
+        uses: actions/cache@v4
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install deps
+        run: yarn install
+
+      - name: Build
+        run: yarn build --filter=\!@strapi/design-system-docs
+
       - run: ./scripts/pre-publish.sh --yes
         env:
           VERSION: '0.0.0-${{ github.sha }}'

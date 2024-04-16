@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { TabsContext, type TabsContextState } from './TabsContext';
+import { useControllableState } from '../hooks/useControllableState';
 import { useId } from '../hooks/useId';
 
 export interface TabGroupProps
@@ -8,6 +9,7 @@ export interface TabGroupProps
     React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   id?: string;
+  selectedTabIndex?: number;
   initialSelectedTabIndex?: number;
 }
 
@@ -16,25 +18,35 @@ export type SetSelectedTabIndexHandler = (tabIndex: number) => void;
 export const TabGroup = React.forwardRef<
   { _handlers: { setSelectedTabIndex: SetSelectedTabIndexHandler } },
   TabGroupProps
->(({ id, initialSelectedTabIndex = 0, label, onTabChange, variant, ...props }, ref) => {
-  const tabsId = useId(id);
+>(
+  (
+    { id, initialSelectedTabIndex, label, onTabChange, selectedTabIndex: selectedTabIndexProp, variant, ...props },
+    ref,
+  ) => {
+    const tabsId = useId(id);
 
-  const [selectedTabIndex, setSelectedTabIndex] = React.useState(initialSelectedTabIndex);
+    const [selectedTabIndex = 0, setSelectedTabIndex] = useControllableState({
+      prop: selectedTabIndexProp,
+      defaultProp: initialSelectedTabIndex,
+      // @ts-expect-error
+      onChange: onTabChange,
+    });
 
-  React.useImperativeHandle(ref, () => ({
-    _handlers: { setSelectedTabIndex },
-  }));
+    React.useImperativeHandle(ref, () => ({
+      _handlers: { setSelectedTabIndex },
+    }));
 
-  const context = React.useMemo(
-    () => ({ id: tabsId, selectedTabIndex, selectTabIndex: setSelectedTabIndex, label, variant, onTabChange }),
-    [label, onTabChange, selectedTabIndex, tabsId, variant],
-  );
+    const context = React.useMemo(
+      () => ({ id: tabsId, selectedTabIndex, selectTabIndex: setSelectedTabIndex, label, variant, onTabChange }),
+      [label, onTabChange, selectedTabIndex, tabsId, variant, setSelectedTabIndex],
+    );
 
-  return (
-    <TabsContext.Provider value={context}>
-      <div {...props} />
-    </TabsContext.Provider>
-  );
-});
+    return (
+      <TabsContext.Provider value={context}>
+        <div {...props} />
+      </TabsContext.Provider>
+    );
+  },
+);
 
 TabGroup.displayName = 'TabGroup';

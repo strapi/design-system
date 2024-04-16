@@ -1,23 +1,13 @@
 {
   "root": true,
   "extends": ["@strapi/eslint-config/front/typescript"],
-  "parserOptions": {
-    "project": ["./tsconfig.json"]
-  },
-  "settings": {
-    "import/resolver": {
-      "typescript": {
-        "project": "./tsconfig.json"
-      }
-    }
-  },
   "rules": {
     "@typescript-eslint/no-explicit-any": "warn",
     "check-file/folder-match-with-fex": [
       "error",
       {
-        "*.test.{js,jsx,ts,tsx}": "**/__tests__/"
-      }
-    ]
-  }
+        "*.test.{js,jsx,ts,tsx}": "**/__tests__/",
+      },
+    ],
+  },
 }

@@ -108,7 +108,7 @@ describe('DateTimePicker', () => {
       const { getByRole, user } = render({ initialDate: new Date('12/01/2023') });
 
       await user.click(getByRole('combobox', { name: 'Choose date' }));
-      await user.click(getByRole('gridcell', { name: 'Friday, 15 December 2023' }));
+      await user.click(getByRole('gridcell', { name: 'Friday 15 December 2023' }));
 
       expect(getByRole('combobox', { name: 'Choose date' })).toHaveValue('15/12/2023');
 

@@ -34,7 +34,7 @@ export interface DialogProps extends BoxProps {
   isOpen: boolean;
 }
 
-export const Dialog = ({ onClose, title, as = 'h2', isOpen, id, ...props }: DialogProps) => {
+export const Dialog = ({ onClose, title, as = 'h2', isOpen, id, zIndex = 4, ...props }: DialogProps) => {
   const generatedId = useId(id);
 
   useLockScroll(isOpen);
@@ -47,7 +47,7 @@ export const Dialog = ({ onClose, title, as = 'h2', isOpen, id, ...props }: Dial
 
   return (
     <Portal>
-      <DialogWrapper padding={8} position="fixed" zIndex={4}>
+      <DialogWrapper padding={8} position="fixed" zIndex={zIndex}>
         <FocusTrap>
           <DismissibleLayer onEscapeKeyDown={onClose} onPointerDownOutside={onClose}>
             <DialogContainer

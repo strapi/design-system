@@ -1,8 +1,12 @@
 name: Tests
+
 on:
   push:
     branches:
       - main
+      - develop
+      - releases/*
+
   pull_request: {}
 
 concurrency:
@@ -11,86 +15,126 @@ concurrency:
 
 jobs:
   typecheck:
-    name: 'Typecheck'
-    runs-on: macos-latest
+    name: 'typecheck'
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4
         with:
-          node-version: '18'
+          fetch-depth: 0
+
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
           cache: 'yarn'
-      - uses: actions/cache@v3
+
+      - name: 'Restore cache'
+        uses: actions/cache@v4
         with:
           path: '**/node_modules'
-          key: ${{ runner.os }}-${{ matrix.node }}-${{ hashFiles('**/yarn.lock') }}
-      - run: yarn install
+          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install deps
+        run: yarn install
 
       - name: Build
         run: yarn build --filter=\!@strapi/design-system-docs
 
-      - name: Run TSC
+      - name: Run tsc
         run: yarn test:ts
+
   lint:
-    name: 'Lint'
-    runs-on: macos-latest
+    name: 'lint'
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4
         with:
-          node-version: '18'
+          fetch-depth: 0
+
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
           cache: 'yarn'
-      - uses: actions/cache@v3
+
+      - name: 'Restore cache'
+        uses: actions/cache@v4
         with:
           path: '**/node_modules'
-          key: ${{ runner.os }}-${{ matrix.node }}-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
-      - run: yarn install
+      - name: Install deps
+        run: yarn install
 
-      - run: yarn build --filter=\!@strapi/design-system-docs
+      - name: Build
+        run: yarn build --filter=\!@strapi/design-system-docs
 
       - name: Run lint
         run: yarn lint
 
       - name: Run prettier
         run: yarn prettier:check
+
   unit_tests:
     name: 'unit tests'
     needs: [lint, typecheck]
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4
         with:
-          node-version: '18'
-          cache: yarn
-      - uses: actions/cache@v3
+          fetch-depth: 0
+
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'yarn'
+
+      - name: 'Restore cache'
+        uses: actions/cache@v4
         with:
           path: '**/node_modules'
-          key: ${{ runner.os }}-${{ matrix.node }}-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
-      - run: yarn install
+      - name: Install deps
+        run: yarn install
 
       - name: Build
         run: yarn build --filter=\!@strapi/design-system-docs
 
-      - name: Unit / Integration tests
+      - name: unit tests
         run: yarn test
+
   e2e_tests:
     name: 'e2e tests (browser: ${{ matrix.browser }})'
     needs: [lint, typecheck, unit_tests]
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         browser: [chromium, webkit, firefox]
     steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4
         with:
-          node-version: '18'
-          cache: yarn
+          fetch-depth: 0
 
-      - run: yarn install
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'yarn'
+
+      - name: 'Restore cache'
+        uses: actions/cache@v4
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install deps
+        run: yarn install
 
       - name: Install Playwright
         run: npx playwright install --with-deps
@@ -99,4 +143,4 @@ jobs:
         run: yarn build
 
       - name: Run the tests
-        run: yarn test:e2e:ci -- --project=${{ matrix.browser }}
+        run: yarn test:e2e -- --project=${{ matrix.browser }}
