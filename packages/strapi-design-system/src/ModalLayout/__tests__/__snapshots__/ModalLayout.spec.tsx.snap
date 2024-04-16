@@ -21,8 +21,8 @@ exports[`ModalLayout should render component and match snapshot 1`] = `
 }
 
 .c1 {
-  padding-right: 40px;
-  padding-left: 40px;
+  padding-inline-end: 40px;
+  padding-inline-start: 40px;
   position: fixed;
   z-index: 4;
 }
@@ -36,15 +36,16 @@ exports[`ModalLayout should render component and match snapshot 1`] = `
 
 .c5 {
   background: #f6f6f9;
-  padding-top: 16px;
-  padding-right: 20px;
-  padding-bottom: 16px;
-  padding-left: 20px;
+  padding-block-start: 16px;
+  padding-inline-end: 20px;
+  padding-block-end: 16px;
+  padding-inline-start: 20px;
 }
 
 .c8 {
   background: #ffffff;
-  padding: 8px;
+  padding-block: 8px;
+  padding-inline: 8px;
   border-radius: 4px;
   border-color: #dcdce4;
   border: 1px solid #dcdce4;
@@ -52,14 +53,16 @@ exports[`ModalLayout should render component and match snapshot 1`] = `
 }
 
 .c11 {
-  padding: 32px;
+  padding-block: 32px;
+  padding-inline: 32px;
 }
 
 .c15 {
   background: #4945ff;
-  padding: 8px;
-  padding-right: 16px;
-  padding-left: 16px;
+  padding-block: 8px;
+  padding-inline: 8px;
+  padding-inline-end: 16px;
+  padding-inline-start: 16px;
   border-radius: 4px;
   border-color: #4945ff;
   border: 1px solid #4945ff;
