@@ -1,9 +1,8 @@
 import * as React from 'react';
 
-import { Dot } from '@strapi/icons';
 import styled from 'styled-components';
 
-import { BaseLink } from '../BaseLink';
+import { BaseLink, BaseLinkProps } from '../BaseLink';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { Typography } from '../Typography';
@@ -38,21 +37,21 @@ const SubNavLinkWrapper = styled(Box)`
     outline-offset: -2px;
   }
 `;
-const CustomBullet = styled(Dot)<{ $active?: boolean }>`
-  width: 1.2rem;
+const CustomBullet = styled.span<{ $active?: boolean }>`
+  width: 0.4rem;
   height: 0.4rem;
-  * {
-    fill: ${({ theme, $active }) => ($active ? theme.colors.primary600 : theme.colors.neutral600)};
-  }
+  background-color: ${({ theme, $active }) => ($active ? theme.colors.primary600 : theme.colors.neutral600)};
+  border-radius: 50%;
 `;
 const IconWrapper = styled.div`
   svg {
-    height: 1.2rem;
-    width: 1.2rem;
+    height: 1.6rem;
+    width: 1.6rem;
   }
 `;
 
-export interface SubNavLinkProps {
+export interface SubNavLinkProps extends BaseLinkProps {
+  active?: boolean;
   as?: React.ElementType;
   children: React.ReactNode;
   icon?: React.ReactElement;
@@ -61,7 +60,7 @@ export interface SubNavLinkProps {
 }
 
 export const SubNavLink = React.forwardRef<unknown, SubNavLinkProps>(
-  ({ children, icon = null, withBullet = false, as = BaseLink, isSubSectionChild = false, ...props }, ref) => {
+  ({ active, children, icon = null, withBullet = false, as = BaseLink, isSubSectionChild = false, ...props }, ref) => {
     return (
       <SubNavLinkWrapper
         as={as}
@@ -74,7 +73,7 @@ export const SubNavLink = React.forwardRef<unknown, SubNavLinkProps>(
         {...props}
       >
         <Flex>
-          {icon ? <IconWrapper>{icon}</IconWrapper> : <CustomBullet />}
+          {icon ? <IconWrapper>{icon}</IconWrapper> : <CustomBullet $active={active} />}
           <Box paddingLeft={2}>
             <Typography as="span">{children}</Typography>
           </Box>

@@ -17,7 +17,10 @@ const IconWrapper = styled(Box)<IconWrapperProps>`
 `;
 
 export interface IconProps extends BoxProps {
-  colors?: (theme: DefaultTheme) => string;
+  /**
+   * TODO: remove this api.
+   */
+  colors?: (theme: DefaultTheme) => any;
 }
 
 export const Icon = React.forwardRef<HTMLDivElement, IconProps>(

@@ -1,21 +1,14 @@
 import * as React from 'react';
 
-import { CarretDown } from '@strapi/icons';
+import { CaretDown } from '@strapi/icons';
 import styled from 'styled-components';
 
 import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { useId } from '../hooks/useId';
+import { Icon } from '../Icon';
 import { Typography } from '../Typography';
 
-const SubNavLinkSectionWrapper = styled(Box)`
-  svg {
-    height: 0.4rem;
-    path {
-      fill: ${({ theme }) => theme.colors.neutral700};
-    }
-  }
-`;
 const SubNavLinkSectionButton = styled.button`
   border: none;
   padding: 0;
@@ -23,13 +16,6 @@ const SubNavLinkSectionButton = styled.button`
   display: flex;
   align-items: center;
 `;
-const DropDownIconWrapper = styled.div<{ rotated: boolean }>`
-  display: flex;
-  align-items: center;
-  width: 1.2rem;
-  transform: rotateX(${({ rotated }) => (rotated ? '0deg' : '180deg')});
-`;
-
 export interface SubNavLinkSectionProps {
   children: React.ReactNode;
   id?: string;
@@ -46,12 +32,17 @@ export const SubNavLinkSection = ({ label, children, id }: SubNavLinkSectionProp
 
   return (
     <Box>
-      <SubNavLinkSectionWrapper paddingLeft={7} paddingTop={2} paddingBottom={2} paddingRight={4}>
+      <Box paddingLeft={7} paddingTop={2} paddingBottom={2} paddingRight={4}>
         <Flex justifyContent="space-between">
           <SubNavLinkSectionButton onClick={handleClick} aria-expanded={isOpen} aria-controls={listId}>
-            <DropDownIconWrapper rotated={isOpen}>
-              <CarretDown aria-hidden />
-            </DropDownIconWrapper>
+            <Icon
+              as={CaretDown}
+              width="1.2rem"
+              height="1.2rem"
+              aria-hidden
+              color="neutral700"
+              style={{ transform: `rotateX(${isOpen ? '0deg' : '180deg'})` }}
+            />
             <Box paddingLeft={2}>
               <Typography as="span" fontWeight="semiBold" textColor="neutral800">
                 {label}
@@ -59,7 +50,7 @@ export const SubNavLinkSection = ({ label, children, id }: SubNavLinkSectionProp
             </Box>
           </SubNavLinkSectionButton>
         </Flex>
-      </SubNavLinkSectionWrapper>
+      </Box>
       {isOpen && (
         <ul id={listId}>
           {React.Children.map(children, (child, index) => {

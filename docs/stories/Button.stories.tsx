@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 import { Button, Box, Flex } from '@strapi/design-system';
-import { Information, Plus, Write } from '@strapi/icons';
+import { Feather, Information, Plus } from '@strapi/icons';
 
 const meta: Meta<typeof Button> = {
   title: 'Design System/Components/Button',
@@ -33,13 +33,13 @@ export const Sizes = {
 export const Variants = {
   render: () => (
     <Flex gap={2}>
-      {['default', 'secondary', 'tertiary', 'success', 'danger', 'success-light', 'danger-light', 'ghost'].map(
-        (variant) => (
-          <Button onClick={(e: React.MouseEvent<HTMLButtonElement>) => console.log(e)} variant={variant} key={variant}>
-            {variant}
-          </Button>
-        ),
-      )}
+      {(
+        ['default', 'secondary', 'tertiary', 'success', 'danger', 'success-light', 'danger-light', 'ghost'] as const
+      ).map((variant) => (
+        <Button onClick={(e) => console.log(e)} variant={variant} key={variant}>
+          {variant}
+        </Button>
+      ))}
     </Flex>
   ),
 
@@ -50,7 +50,7 @@ export const Icons = {
   render: () => (
     <Flex gap={2}>
       <Button startIcon={<Information />}>Information</Button>
-      <Button variant="secondary" endIcon={<Write />}>
+      <Button variant="secondary" endIcon={<Feather />}>
         Write content
       </Button>
       <Button startIcon={<Information />} loading>

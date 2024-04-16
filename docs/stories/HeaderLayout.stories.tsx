@@ -28,7 +28,7 @@ export const Base = {
     <Box background="neutral100">
       <BaseHeaderLayout
         navigationAction={
-          <Link startIcon={<ArrowLeft />} to="/">
+          <Link startIcon={<ArrowLeft />} href="/">
             Go back
           </Link>
         }
@@ -93,7 +93,7 @@ export const Sticky = {
       <BaseHeaderLayout
         sticky
         navigationAction={
-          <Link startIcon={<ArrowLeft />} to="/">
+          <Link startIcon={<ArrowLeft />} href="/">
             <VisuallyHidden>Go back</VisuallyHidden>
           </Link>
         }
@@ -126,7 +126,7 @@ export const CombinedWScroll = {
       >
         <HeaderLayout
           navigationAction={
-            <Link startIcon={<ArrowLeft />} to="/">
+            <Link startIcon={<ArrowLeft />} href="/">
               Go back
             </Link>
           }

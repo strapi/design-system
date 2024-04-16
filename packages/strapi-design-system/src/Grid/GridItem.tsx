@@ -3,13 +3,13 @@ import styled from 'styled-components';
 import { Box, BoxProps } from '../Box';
 
 export interface GridItemProps extends BoxProps {
-  col: number;
+  col?: number;
   s?: number;
   xs?: number;
 }
 
 export const GridItem = styled(Box)<GridItemProps>`
-  grid-column: span ${({ col }) => col};
+  grid-column: span ${({ col }) => col ?? 1};
   max-width: 100%;
 
   ${({ theme }) => theme.mediaQueries.tablet} {

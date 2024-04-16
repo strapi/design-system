@@ -73,7 +73,7 @@ export const SizeS = {
 
 export const Nullish = {
   render: () => {
-    const [checked, setChecked] = React.useState(null);
+    const [checked, setChecked] = React.useState<boolean | null>(null);
 
     return (
       <ToggleInput

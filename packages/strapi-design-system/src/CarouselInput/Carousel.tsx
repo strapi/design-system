@@ -15,8 +15,8 @@ export interface CarouselProps extends BoxProps {
   children: React.ReactNode;
   label: string;
   nextLabel: string;
-  onNext: () => void;
-  onPrevious: () => void;
+  onNext?: () => void;
+  onPrevious?: () => void;
   previousLabel: string;
   secondaryLabel?: string;
   selectedSlide: number;
@@ -63,7 +63,9 @@ export const Carousel = React.forwardRef<CarouselElement, CarouselProps>(
             nextActionRef.current.focus();
           }
 
-          onNext();
+          if (onNext) {
+            onNext();
+          }
 
           break;
         }
@@ -75,7 +77,9 @@ export const Carousel = React.forwardRef<CarouselElement, CarouselProps>(
             prevActionRef.current.focus();
           }
 
-          onPrevious();
+          if (onPrevious) {
+            onPrevious();
+          }
           break;
         }
 

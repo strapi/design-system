@@ -17,6 +17,7 @@ import {
 } from '@strapi/design-system';
 import * as AllIcons from '@strapi/icons';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { ThemeShadows } from 'styled-components';
 
 const meta: Meta = {
   title: 'Design System/Components/Theme',
@@ -107,7 +108,7 @@ export const DarkColors = {
 export const Shadows = {
   render: () => {
     const theme = useTheme();
-    const shadows = Object.keys(theme.shadows);
+    const shadows = Object.keys(theme.shadows) as Array<keyof ThemeShadows>;
 
     return (
       <Box padding={8} background="neutral100">

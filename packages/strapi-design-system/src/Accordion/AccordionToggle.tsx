@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { CarretDown } from '@strapi/icons';
+import { CaretDown } from '@strapi/icons';
 import styled from 'styled-components';
 
 import { AccordionSize, AccordionTypography } from './Accordion';
@@ -9,7 +9,7 @@ import { getBackground } from './utils';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { Icon } from '../Icon';
-import { TextButton } from '../TextButton';
+import { TextButton, TextButtonProps } from '../TextButton';
 import { Typography } from '../Typography';
 
 const ToggleButton = styled(TextButton)<{ expanded: boolean }>`
@@ -20,7 +20,7 @@ const ToggleButton = styled(TextButton)<{ expanded: boolean }>`
     max-width: 100%;
   }
 
-  svg {
+  & > svg {
     width: 1.4rem;
     height: 1.4rem;
 
@@ -36,20 +36,21 @@ const FlexWithSize = styled(Flex)<{ expanded: boolean; size: AccordionSize }>`
     expanded ? `${theme.borderRadius} ${theme.borderRadius} 0 0` : theme.borderRadius};
 
   &:hover {
-    svg {
-      path {
-        fill: ${({ theme }) => theme.colors.primary600};
+    ${ToggleButton} {
+      svg {
+        path {
+          fill: ${({ theme }) => theme.colors.primary600};
+        }
       }
     }
   }
 `;
 
-interface AccordionToggleProps {
+interface AccordionToggleProps extends TextButtonProps {
   /**
    * Will render a node to the right of the Accordion component
    */
   action?: React.ReactNode;
-  as?: string | React.ComponentType<any>;
   /**
    * Show the secondary text of the Accordion component
    */
@@ -123,7 +124,7 @@ export const AccordionToggle = ({
       cursor={disabled ? 'not-allowed' : 'pointer'}
       shrink={0}
     >
-      <Icon as={CarretDown} width={size === 'M' ? `1.1rem` : `0.8rem`} color={expanded ? 'primary600' : 'neutral600'} />
+      <Icon as={CaretDown} width={size === 'M' ? `1.6rem` : `1.2rem`} color={expanded ? 'primary600' : 'neutral600'} />
     </Flex>
   );
 

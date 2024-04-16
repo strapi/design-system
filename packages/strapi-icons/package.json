@@ -11,7 +11,9 @@
     "dist"
   ],
   "devDependencies": {
-    "@svgr/cli": "8.1.0"
+    "@strapi/pack-up": "^5.0.0",
+    "@svgr/cli": "8.1.0",
+    "rimraf": "^5.0.5"
   },
   "peerDependencies": {
     "react": "^17.0.0 || ^18.0.0",
@@ -20,8 +22,8 @@
   "scripts": {
     "build": "yarn generate:icons && yarn build:prod",
     "build:prod": "pack-up build",
-    "clean": "rimraf src dist node_modules",
-    "generate:icons": "svgr -- ./assets/icons"
+    "clean": "rimraf dist node_modules",
+    "generate:icons": "svgr -- ./assets"
   },
   "gitHead": "c74900b0ee3525510d266dc83c9743cb24dafced"
 }

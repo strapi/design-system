@@ -56,7 +56,7 @@ export const Basic = {
 
 export const Controlled = {
   render: () => {
-    const [value, setValue] = React.useState('');
+    const [value, setValue] = React.useState<string | undefined>('');
 
     return (
       <Combobox
@@ -119,7 +119,7 @@ export const Loading = {
 
 export const Creatable = {
   render: () => {
-    const [value, setValue] = React.useState('');
+    const [value, setValue] = React.useState<string | undefined>('');
 
     const [options, setOptions] = React.useState([
       {
@@ -152,7 +152,7 @@ export const Creatable = {
       },
     ]);
 
-    const onCreateOption = (value) => {
+    const onCreateOption = (value: string) => {
       setOptions((opt) => [
         ...opt,
         {
@@ -188,7 +188,7 @@ type Autocomplete = 'none' | 'list' | 'both' | { type: 'list'; filter: 'startsWi
 
 export const Autocomplete = {
   render: () => {
-    const [value, setValue] = React.useState('');
+    const [value, setValue] = React.useState<string | undefined>('');
     const [autocompleteMode, setAutocompleteMode] = React.useState<Autocomplete>('both');
 
     const handleChange = (value) => {
@@ -215,7 +215,11 @@ export const Autocomplete = {
           <ComboboxOption value="orange">Orange</ComboboxOption>
           <ComboboxOption value="strawberry">Strawberry</ComboboxOption>
         </Combobox>
-        <SingleSelect label="Autocomplete Mode" value={autocompleteMode} onValueChange={handleChange}>
+        <SingleSelect
+          label="Autocomplete Mode"
+          value={typeof autocompleteMode === 'object' ? autocompleteMode.type : autocompleteMode}
+          onValueChange={handleChange}
+        >
           <SingleSelectOption value="both">both</SingleSelectOption>
           <SingleSelectOption value="list">list (filter: startsWith)</SingleSelectOption>
           <SingleSelectOption value="list-contains">list (filter: contains)</SingleSelectOption>

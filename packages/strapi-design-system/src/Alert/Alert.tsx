@@ -1,24 +1,16 @@
 import * as React from 'react';
 
-import { Information, CheckCircle, ExclamationMarkCircle, Cross } from '@strapi/icons';
+import { Information, CheckCircle, WarningCircle, Cross } from '@strapi/icons';
 import styled from 'styled-components';
 
 import { handleBackgroundColor, handleBorderColor, handleIconColor } from './utils';
 import { Box, BoxProps } from '../Box';
 import { Flex } from '../Flex';
+import { Icon } from '../Icon';
 import { buttonFocusStyle } from '../themes/utils';
 import { Typography } from '../Typography';
 
 const CloseButton = styled(Box)`
-  svg {
-    height: 100%;
-    width: 100%;
-
-    path {
-      fill: ${({ theme }) => theme.colors.neutral700};
-    }
-  }
-
   ${buttonFocusStyle};
 `;
 
@@ -43,7 +35,7 @@ const AlertIcon = ({ variant, ...props }: AlertIconProps) => {
   }
 
   if (variant === 'danger' || variant === 'warning') {
-    return <ExclamationMarkCircle {...props} />;
+    return <WarningCircle {...props} />;
   }
 
   return <Information {...props} />;
@@ -77,7 +69,7 @@ export interface AlertProps extends BoxProps {
   /**
    * The callback invoked when click on the close icon button.
    */
-  onClose: () => void;
+  onClose?: () => void;
   /**
    * The title of the `Alert`.
    */
@@ -143,13 +135,13 @@ export const Alert = ({
         as="button"
         background="transparent"
         borderColor={undefined}
-        height="1.2rem"
-        width="1.2rem"
+        height="1.6rem"
+        width="1.6rem"
         marginTop={1}
         onClick={onClose}
         aria-label={closeLabel}
       >
-        <Cross aria-hidden />
+        <Icon as={Cross} aria-hidden color="neutral700" />
       </CloseButton>
     </Flex>
   );

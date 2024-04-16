@@ -37,7 +37,7 @@ export const Base = {
 
 export const Controlled = {
   render: () => {
-    const [value, setValue] = React.useState();
+    const [value, setValue] = React.useState<Date>();
 
     return (
       <DateTimePicker

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import { CarretDown, ChevronRight } from '@strapi/icons';
+import { CaretDown, ChevronRight } from '@strapi/icons';
 import styled, { css, DefaultTheme } from 'styled-components';
 
 import { BaseLink } from '../BaseLink';
@@ -28,7 +28,7 @@ const MenuRoot = DropdownMenu.Root;
 interface TriggerProps extends ButtonProps {}
 
 const MenuTrigger = React.forwardRef<HTMLButtonElement, TriggerProps>(
-  ({ size, endIcon = <CarretDown width="0.6rem" height="0.4rem" aria-hidden />, ...props }, ref) => {
+  ({ size, endIcon = <CaretDown width="0.6rem" height="0.4rem" aria-hidden />, ...props }, ref) => {
     return (
       <DropdownMenu.Trigger asChild>
         <Button
@@ -36,6 +36,7 @@ const MenuTrigger = React.forwardRef<HTMLButtonElement, TriggerProps>(
           type="button"
           variant="ghost"
           endIcon={endIcon}
+          background="pink"
           paddingTop={size === 'S' ? 1 : 2}
           paddingBottom={size === 'S' ? 1 : 2}
           paddingLeft={size === 'S' ? 3 : 4}

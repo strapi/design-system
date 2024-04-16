@@ -34,7 +34,6 @@
     "@commitlint/config-conventional": "19.1.0",
     "@juggle/resize-observer": "^3.4.0",
     "@strapi/eslint-config": "^0.2.0",
-    "@strapi/pack-up": "^5.0.0",
     "@swc/core": "^1.4.8",
     "@swc/jest": "^0.2.36",
     "@testing-library/jest-dom": "6.4.2",
@@ -65,7 +64,6 @@
     "jest-watch-typeahead": "2.2.2",
     "prettier": "^3.2.5",
     "prettier-2": "npm:prettier@^2",
-    "rimraf": "^5.0.5",
     "turbo": "1.13.2",
     "typescript": "^5.4.4"
   },

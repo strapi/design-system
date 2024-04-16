@@ -1,6 +1,9 @@
 # https://react-svgr.com/docs/options/
 
-dimensions: true     # keep viewBox
-icon: "1rem"         # instead of 1em
+dimensions: true # keep viewBox
+icon: '1.6rem'
+svgProps: { 'fill': 'currentColor' }
+jsxRuntime: 'automatic'
 outDir: './src'
+ref: true
 typescript: true

@@ -24,7 +24,7 @@ type Story = StoryObj<typeof ModalLayout>;
 export const Base = {
   render: () => {
     const [isVisible, setIsVisible] = React.useState(false);
-    const [date, setDate] = React.useState();
+    const [date, setDate] = React.useState<Date>();
 
     return (
       <>

@@ -15,7 +15,7 @@ type Story = StoryObj<typeof NumberInput>;
 
 export const Base = {
   render: () => {
-    const [content, setContent] = React.useState(3.14159265359);
+    const [content, setContent] = React.useState<number | undefined>(3.14159265359);
 
     return (
       <Box padding={10}>
@@ -57,7 +57,7 @@ export const Base = {
 
 export const WithoutLabel = {
   render: () => {
-    const [content, setContent] = React.useState(0);
+    const [content, setContent] = React.useState<number | undefined>(0);
 
     return (
       <Box padding={10}>
@@ -99,7 +99,7 @@ export const WithoutLabel = {
 
 export const SizeS = {
   render: () => {
-    const [content, setContent] = React.useState();
+    const [content, setContent] = React.useState<number | undefined>();
 
     return (
       <Box padding={10}>
@@ -142,7 +142,7 @@ export const SizeS = {
 
 export const Required = {
   render: () => {
-    const [content, setContent] = React.useState();
+    const [content, setContent] = React.useState<number | undefined>();
 
     return (
       <Box padding={10}>
@@ -165,7 +165,7 @@ export const Required = {
 
 export const Disabled = {
   render: () => {
-    const [content, setContent] = React.useState();
+    const [content, setContent] = React.useState<number | undefined>();
 
     return (
       <Box padding={10}>
@@ -188,7 +188,7 @@ export const Disabled = {
 
 export const Error = {
   render: () => {
-    const [content, setContent] = React.useState();
+    const [content, setContent] = React.useState<number | undefined>();
 
     return (
       <Box padding={10}>
@@ -210,7 +210,7 @@ export const Error = {
 
 export const WithInitialEmpty = {
   render: () => {
-    const [content, setContent] = React.useState('');
+    const [content, setContent] = React.useState<number | undefined>();
 
     return (
       <Box padding={10}>
@@ -252,7 +252,7 @@ export const WithInitialEmpty = {
 
 export const Locale = {
   render: () => {
-    const [content, setContent] = React.useState();
+    const [content, setContent] = React.useState<number | undefined>();
 
     return (
       <Box padding={10}>
