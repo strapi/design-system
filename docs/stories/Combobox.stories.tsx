@@ -59,13 +59,7 @@ export const Controlled = {
     const [value, setValue] = React.useState('');
 
     return (
-      <Combobox
-        placeholder="My favourite fruit is..."
-        label="Fruits"
-        value={value}
-        onChange={setValue}
-        onClear={() => setValue('')}
-      >
+      <Combobox placeholder="My favourite fruit is..." value={value} onChange={setValue} onClear={() => setValue('')}>
         <ComboboxOption value="apple">Apple</ComboboxOption>
         <ComboboxOption value="avocado">Avocado</ComboboxOption>
         <ComboboxOption value="banana">Banana</ComboboxOption>
@@ -96,13 +90,7 @@ export const Loading = {
     }, [isLoading]);
 
     return (
-      <Combobox
-        label="Async Fruits"
-        placeholder="My favourite fruit is..."
-        loading={isLoading}
-        onLoadMore={handleLoadMore}
-        hasMoreItems
-      >
+      <Combobox placeholder="My favourite fruit is..." loading={isLoading} onLoadMore={handleLoadMore} hasMoreItems>
         <ComboboxOption value="apple">Apple</ComboboxOption>
         <ComboboxOption value="avocado">Avocado</ComboboxOption>
         <ComboboxOption value="banana">Banana</ComboboxOption>
@@ -166,7 +154,7 @@ export const Creatable = {
 
     return (
       <CreatableCombobox
-        label="Fruits"
+        aria-describedby="creatable component description"
         placeholder="My favourite fruit is..."
         value={value}
         onChange={setValue}
@@ -193,7 +181,6 @@ export const Autocomplete = {
       <Flex direction="column" alignItems="stretch" gap={11}>
         <Combobox
           placeholder="My favourite fruit is..."
-          label="Fruits"
           value={value}
           onChange={setValue}
           autocomplete={autocompleteMode}

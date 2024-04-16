@@ -1,61 +1,16 @@
 import * as React from 'react';
 
-import {
-  Field,
-  FieldLabel,
-  FieldHint,
-  FieldError,
-  FieldInput,
-  FieldInputProps,
-  FieldProps,
-  FieldLabelProps,
-} from '../Field';
-import { Flex } from '../Flex';
-import { useId } from '../hooks/useId';
+import { FieldInput, FieldProps } from '../Field';
 
-export interface TextInputProps
-  extends Omit<FieldInputProps, 'id' | 'name'>,
-    Pick<FieldProps, 'hint' | 'error' | 'id' | 'name'> {
-  label: string;
-  labelAction?: FieldLabelProps['action'];
+export interface TextInputProps extends Pick<FieldProps, 'error'> {
+  'aria-label': string;
+  'aria-describedby'?: string;
+  required?: boolean;
+  name?: string;
 }
 
-export const TextInput = React.forwardRef<
-  { inputWrapperRef: React.MutableRefObject<HTMLDivElement>; input: React.MutableRefObject<HTMLInputElement> },
-  TextInputProps
->(({ name, hint, error, label, labelAction, id, required, ...props }, ref) => {
-  const generatedId = useId(id);
-  const inputWrapperRef = React.useRef<HTMLDivElement>(null!);
-  const inputRef = React.useRef<HTMLInputElement>(null!);
-
-  if (!label && !props['aria-label']) {
-    throw new Error('The TextInput component needs a "label" or an "aria-label" props');
-  }
-
-  /**
-   * TODO: for V2, remove this.
-   */
-  React.useImperativeHandle(
-    ref,
-    () => ({
-      input: inputRef,
-      inputWrapperRef,
-    }),
-    [],
-  );
-
-  return (
-    <div ref={inputWrapperRef}>
-      <Field name={name} hint={hint} error={error} id={generatedId} required={required}>
-        <Flex direction="column" alignItems="stretch" gap={1}>
-          {label && <FieldLabel action={labelAction}>{label}</FieldLabel>}
-          <FieldInput ref={inputRef} {...props} />
-          <FieldHint />
-          <FieldError />
-        </Flex>
-      </Field>
-    </div>
-  );
+export const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>((props, ref) => {
+  return <FieldInput ref={ref} {...props} />;
 });
 
 TextInput.displayName = 'TextInput';

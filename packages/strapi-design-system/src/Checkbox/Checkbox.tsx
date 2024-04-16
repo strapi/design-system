@@ -4,9 +4,7 @@ import styled from 'styled-components';
 
 import { BaseCheckbox, BaseCheckboxProps, CheckboxElement } from '../BaseCheckbox';
 import { Box } from '../Box';
-import { Field, FieldHint, FieldError, useField, FieldProps } from '../Field';
-import { Flex } from '../Flex';
-import { useId } from '../hooks/useId';
+import { useField } from '../Field';
 import { Typography } from '../Typography';
 
 const CheckboxLabel = styled(Typography)<Pick<CheckboxProps, 'disabled'>>`
@@ -23,35 +21,19 @@ const CheckboxTick = React.forwardRef<CheckboxElement, BaseCheckboxProps>((props
   return <BaseCheckbox ref={forwardedRef} id={id} {...props} />;
 });
 
-interface CheckboxProps extends BaseCheckboxProps, Pick<FieldProps, 'hint' | 'error'> {
+interface CheckboxProps extends BaseCheckboxProps {
   children: React.ReactNode;
   disabled?: boolean;
+  'aria-describedby'?: string;
 }
 
 export const Checkbox = React.forwardRef<CheckboxElement, CheckboxProps>(
-  ({ children, disabled = false, id, hint, error, ...props }, forwardedRef) => {
-    const generatedId = useId(id);
-
-    let ariaDescription: string | undefined;
-
-    if (error) {
-      ariaDescription = `${generatedId}-error`;
-    } else if (hint) {
-      ariaDescription = `${generatedId}-hint`;
-    }
-
+  ({ children, disabled = false, ...props }, forwardedRef) => {
     return (
-      <Field id={generatedId} hint={hint} error={error}>
-        <Flex direction="column" alignItems="stretch" gap={1}>
-          <CheckboxLabel as="label" textColor="neutral800" disabled={disabled}>
-            <CheckboxTick ref={forwardedRef} disabled={disabled} aria-describedby={ariaDescription} {...props} />
-            <Box paddingLeft={2}>{children}</Box>
-          </CheckboxLabel>
-
-          <FieldHint />
-          <FieldError />
-        </Flex>
-      </Field>
+      <CheckboxLabel as="label" textColor="neutral800" disabled={disabled}>
+        <CheckboxTick ref={forwardedRef} disabled={disabled} {...props} />
+        <Box paddingLeft={2}>{children}</Box>
+      </CheckboxLabel>
     );
   },
 );

@@ -20,13 +20,10 @@ export const Base = {
     return (
       <TextInput
         placeholder="This is a content placeholder"
-        label="Content"
         name="content"
-        hint="Description line"
         error={content.length > 5 ? 'Content is too long' : undefined}
         onChange={(e) => setContent(e.target.value)}
         value={content}
-        labelAction={<Information aria-hidden />}
       />
     );
   },
@@ -36,66 +33,25 @@ export const Base = {
 
 export const Disabled = {
   render: () => (
-    <TextInput
-      placeholder="This is a content placeholder"
-      label="Content"
-      name="content"
-      hint="Description line"
-      value="Disabled ontent"
-      disabled
-      labelAction={<Information aria-hidden />}
-    />
+    <TextInput placeholder="This is a content placeholder" name="content" value="Disabled ontent" disabled />
   ),
 
   name: 'disabled',
 } satisfies Story;
 
 export const SizeS = {
-  render: () => (
-    <TextInput
-      placeholder="This is a content placeholder"
-      label="Content"
-      name="content"
-      hint="Description line"
-      value="size S input"
-      size="S"
-      labelAction={<Information aria-hidden />}
-    />
-  ),
+  render: () => <TextInput placeholder="This is a content placeholder" name="content" value="size S input" size="S" />,
 
   name: 'size S',
 } satisfies Story;
 
+//TODO: fix FieldInput to accept error prop without using Field wrapper
 export const WithError = {
   render: () => (
-    <TextInput
-      placeholder="This is a content placeholder"
-      label="Content"
-      name="content"
-      hint="Description line"
-      error="Content is too long"
-      value="content"
-      labelAction={<Information aria-hidden />}
-    />
+    <TextInput placeholder="This is a content placeholder" name="content" error="Content is too long" value="content" />
   ),
 
   name: 'with error',
-} satisfies Story;
-
-export const Required = {
-  render: () => (
-    <TextInput
-      placeholder="This is a content placeholder"
-      label="Content"
-      name="content"
-      hint="Description line"
-      value="content"
-      required
-      labelAction={<Information aria-hidden />}
-    />
-  ),
-
-  name: 'required',
 } satisfies Story;
 
 export const Password = {
@@ -112,20 +68,4 @@ export const Password = {
   ),
 
   name: 'password',
-} satisfies Story;
-
-export const WithoutLabel = {
-  render: () => (
-    <TextInput
-      placeholder="This is a password placeholder"
-      type="password"
-      aria-label="Password"
-      name="password"
-      hint="Description line"
-      value="content"
-      labelAction={<Information aria-hidden />}
-    />
-  ),
-
-  name: 'withoutLabel',
 } satisfies Story;

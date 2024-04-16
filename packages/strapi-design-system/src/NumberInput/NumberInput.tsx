@@ -6,20 +6,9 @@ import { CarretDown } from '@strapi/icons';
 import styled from 'styled-components';
 
 import { useDesignSystem } from '../DesignSystemProvider';
-import {
-  Field,
-  FieldLabel,
-  FieldHint,
-  FieldError,
-  FieldInput,
-  FieldInputProps,
-  FieldProps,
-  FieldLabelProps,
-} from '../Field';
-import { Flex } from '../Flex';
+import { FieldInput, FieldInputProps } from '../Field';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 import { useControllableState } from '../hooks/useControllableState';
-import { useId } from '../hooks/useId';
 import { Icon } from '../Icon';
 
 const ArrowButton = styled.button<{ reverse?: boolean }>`
@@ -35,11 +24,7 @@ const ArrowButton = styled.button<{ reverse?: boolean }>`
   }
 `;
 
-export interface NumberInputProps
-  extends Omit<FieldInputProps, 'id' | 'name' | 'onChange' | 'value'>,
-    Pick<FieldProps, 'hint' | 'error' | 'id' | 'name'> {
-  label?: string;
-  labelAction?: FieldLabelProps['action'];
+export interface NumberInputProps extends Omit<FieldInputProps, 'id' | 'name' | 'onChange' | 'value'> {
   onValueChange: (value: number | undefined) => void;
   locale?: string;
   value?: number;
@@ -50,26 +35,9 @@ const INITIAL_VALUE = '';
 
 export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
   (
-    {
-      size = 'M',
-      startAction,
-      name,
-      hint,
-      error,
-      label,
-      labelAction,
-      locale: defaultLocale,
-      id,
-      onValueChange,
-      value,
-      step = 1,
-      required = false,
-      disabled = false,
-      ...props
-    },
+    { size = 'M', startAction, locale: defaultLocale, onValueChange, value, step = 1, disabled = false, ...props },
     ref,
   ) => {
-    const generatedId = useId(id);
     const designContext = useDesignSystem('NumberInput');
     const locale = defaultLocale || designContext.locale;
     const numberParserRef = React.useRef(new NumberParser(locale, { style: 'decimal' }));
@@ -177,51 +145,44 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
     };
 
     return (
-      <Field name={name} hint={hint} error={error} id={generatedId} required={required}>
-        <Flex direction="column" alignItems="stretch" gap={1}>
-          {label && <FieldLabel action={labelAction}>{label}</FieldLabel>}
-          <FieldInput
-            ref={ref}
-            startAction={startAction}
-            disabled={disabled}
-            type="text"
-            inputMode="decimal"
-            onChange={handelInputChange}
-            onKeyDown={handleKeyDown}
-            onBlur={handleBlur}
-            value={inputValue}
-            size={size}
-            endAction={
-              <>
-                <ArrowButton
-                  disabled={disabled}
-                  aria-hidden
-                  reverse
-                  onClick={increment}
-                  tabIndex={-1}
-                  type="button"
-                  data-testid="ArrowUp"
-                >
-                  <Icon as={CarretDown} color="neutral500" />
-                </ArrowButton>
-                <ArrowButton
-                  disabled={disabled}
-                  aria-hidden
-                  onClick={decrement}
-                  tabIndex={-1}
-                  type="button"
-                  data-testid="ArrowDown"
-                >
-                  <Icon as={CarretDown} color="neutral500" />
-                </ArrowButton>
-              </>
-            }
-            {...props}
-          />
-          <FieldHint />
-          <FieldError />
-        </Flex>
-      </Field>
+      <FieldInput
+        ref={ref}
+        startAction={startAction}
+        disabled={disabled}
+        type="text"
+        inputMode="decimal"
+        onChange={handelInputChange}
+        onKeyDown={handleKeyDown}
+        onBlur={handleBlur}
+        value={inputValue}
+        size={size}
+        endAction={
+          <>
+            <ArrowButton
+              disabled={disabled}
+              aria-hidden
+              reverse
+              onClick={increment}
+              tabIndex={-1}
+              type="button"
+              data-testid="ArrowUp"
+            >
+              <Icon as={CarretDown} color="neutral500" />
+            </ArrowButton>
+            <ArrowButton
+              disabled={disabled}
+              aria-hidden
+              onClick={decrement}
+              tabIndex={-1}
+              type="button"
+              data-testid="ArrowDown"
+            >
+              <Icon as={CarretDown} color="neutral500" />
+            </ArrowButton>
+          </>
+        }
+        {...props}
+      />
     );
   },
 );

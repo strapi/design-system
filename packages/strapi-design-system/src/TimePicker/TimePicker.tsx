@@ -5,8 +5,6 @@ import styled from 'styled-components';
 
 import { ComboboxInput, ComboboxInputProps, ComboboxInputElement, Option } from '../Combobox/Combobox';
 import { useDesignSystem } from '../DesignSystemProvider';
-import { Field, FieldError, FieldHint, FieldLabel, FieldLabelProps, FieldProps } from '../Field';
-import { Flex } from '../Flex';
 import { useControllableState } from '../hooks/useControllableState';
 import { useDateFormatter } from '../hooks/useDateFormatter';
 import { useId } from '../hooks/useId';
@@ -39,41 +37,12 @@ export interface TimePickerInputProps
    * @default 15
    */
   step?: number;
-  /**
-   * @deprecated This is no longer used.
-   */
-  ariaLabel?: string;
-  /**
-   * @preserve
-   * @deprecated This is no longer used.
-   */
-  selectButtonTitle?: string;
   value?: string;
   defaultValue?: string;
 }
 
 export const TimePickerInput = React.forwardRef<ComboboxInputElement, TimePickerInputProps>(
-  (
-    {
-      id,
-      step = 15,
-      /**
-       * @preserve
-       * @deprecated This is no longer used.
-       */
-      ariaLabel: _ariaLabel,
-      /**
-       * @preserve
-       * @deprecated This is no longer used.
-       */
-      selectButtonTitle: _selectButtonTitle,
-      value: valueProp,
-      defaultValue,
-      onChange,
-      ...restProps
-    },
-    forwardedRef,
-  ) => {
+  ({ id, step = 15, value: valueProp, defaultValue, onChange, ...restProps }, forwardedRef) => {
     const context = useDesignSystem('TimePicker');
     const generatedId = useId(id);
 
@@ -199,24 +168,8 @@ const StyledClock = styled(Clock)`
  * TimePicker
  * -----------------------------------------------------------------------------------------------*/
 
-export interface TimePickerProps extends TimePickerInputProps, Pick<FieldProps, 'hint'> {
-  label: string;
-  labelAction?: FieldLabelProps['action'];
-}
+export interface TimePickerProps extends TimePickerInputProps {}
 
-export const TimePicker = React.forwardRef<ComboboxInputElement, TimePickerProps>(
-  ({ label, error, hint, id, required, labelAction, ...restProps }, forwardedRef) => {
-    const generatedId = useId(id);
-
-    return (
-      <Field hint={hint} error={error} id={generatedId} required={required}>
-        <Flex direction="column" alignItems="stretch" gap={1}>
-          <FieldLabel action={labelAction}>{label}</FieldLabel>
-          <TimePickerInput ref={forwardedRef} id={generatedId} error={error} required={required} {...restProps} />
-          <FieldHint />
-          <FieldError />
-        </Flex>
-      </Field>
-    );
-  },
-);
+export const TimePicker = React.forwardRef<ComboboxInputElement, TimePickerProps>(({ ...restProps }, forwardedRef) => {
+  return <TimePickerInput ref={forwardedRef} {...restProps} />;
+});

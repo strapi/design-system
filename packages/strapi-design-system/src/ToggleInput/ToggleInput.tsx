@@ -3,10 +3,9 @@ import * as React from 'react';
 
 import styled from 'styled-components';
 
-import { Field, FieldHint, FieldError, FieldLabel, type FieldProps, useField, FieldLabelProps } from '../Field';
+import { FieldLabel, useField, FieldLabelProps } from '../Field';
 import { Flex } from '../Flex';
 import { useControllableState } from '../hooks/useControllableState';
-import { useId } from '../hooks/useId';
 import { TextButton } from '../TextButton';
 import { inputFocusStyle } from '../themes';
 import type { InputSizes } from '../themes/sizes';
@@ -18,6 +17,7 @@ interface ToggleInputInputProps
   offLabel: string;
   checked?: boolean | null;
   size?: InputSizes;
+  'aria-describedby'?: string;
 }
 
 type ToggleInputInputElement = HTMLInputElement;
@@ -35,9 +35,6 @@ const ToggleInputInput = React.forwardRef<ToggleInputInputElement, ToggleInputIn
     const { error, id, name, required } = useField();
 
     const isFalseyChecked = checked !== null && !checked;
-
-    const hintId = `${id}-hint`;
-    const errorId = `${id}-error`;
 
     return (
       <ToggleWrapper
@@ -115,7 +112,6 @@ const ToggleInputInput = React.forwardRef<ToggleInputInputElement, ToggleInputIn
           aria-required={required}
           disabled={disabled}
           aria-disabled={disabled}
-          aria-describedby={id ? `${hintId} ${errorId}` : undefined}
           checked={Boolean(checked)}
         />
       </ToggleWrapper>
@@ -147,9 +143,7 @@ const Input = styled.input`
   width: 100%;
 `;
 
-interface ToggleInputPropsWithoutLabel
-  extends Pick<FieldProps, 'error' | 'hint' | 'name' | 'required' | 'id'>,
-    ToggleInputInputProps {
+interface ToggleInputPropsWithoutLabel extends ToggleInputInputProps {
   clearLabel?: string;
   labelAction?: FieldLabelProps['action'];
   onClear?: () => void;
@@ -160,39 +154,17 @@ type ToggleInputProps =
   | (ToggleInputPropsWithoutLabel & { label?: never; 'aria-label': string });
 
 const ToggleInput = React.forwardRef<ToggleInputInputElement, ToggleInputProps>(
-  (
-    {
-      disabled = false,
-      error,
-      hint,
-      label,
-      name,
-      labelAction,
-      required = false,
-      id,
-      onClear,
-      clearLabel,
-      checked,
-      ...props
-    },
-    forwardedRef,
-  ) => {
-    const generatedId = useId(id);
-
+  ({ disabled = false, label, labelAction, onClear, clearLabel, checked, ...props }, forwardedRef) => {
     return (
-      <Field name={name} hint={hint} error={error} id={generatedId} required={required} maxWidth="320px">
-        <Flex direction="column" alignItems="stretch" gap={1}>
-          <Flex>
-            {label ? <FieldLabel action={labelAction}>{label}</FieldLabel> : null}
-            {clearLabel && onClear && checked !== null && !disabled && (
-              <ClearButton onClick={onClear}>{clearLabel}</ClearButton>
-            )}
-          </Flex>
-          <ToggleInputInput ref={forwardedRef} checked={checked} disabled={disabled} {...props} />
-          <FieldHint />
-          <FieldError />
+      <Flex direction="column" alignItems="stretch" gap={1}>
+        <Flex>
+          {label ? <FieldLabel action={labelAction}>{label}</FieldLabel> : null}
+          {clearLabel && onClear && checked !== null && !disabled && (
+            <ClearButton onClick={onClear}>{clearLabel}</ClearButton>
+          )}
         </Flex>
-      </Field>
+        <ToggleInputInput ref={forwardedRef} checked={checked} disabled={disabled} {...props} />
+      </Flex>
     );
   },
 );
