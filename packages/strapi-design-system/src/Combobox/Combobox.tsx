@@ -60,7 +60,7 @@ export interface ComboboxInputProps
   placeholder?: string;
   size?: 'S' | 'M';
   startIcon?: React.ReactNode;
-  'aria-label': string;
+  'aria-label'?: string;
   'aria-describedby'?: string;
 }
 

@@ -10,7 +10,8 @@ import { Typography } from '../Typography';
 
 type SingleSelectPropsWithoutLabel = Omit<SelectParts.SingleSelectProps, 'value'> &
   Pick<SelectParts.ContentProps, 'onCloseAutoFocus'> &
-  Pick<SelectParts.TriggerProps, 'clearLabel' | 'onClear' | 'size' | 'startIcon' | 'placeholder'> &
+  Pick<SelectParts.TriggerProps, 'clearLabel' | 'onClear' | 'size' | 'startIcon'> &
+  Pick<SelectParts.ValueProps, 'placeholder'> &
   Pick<FieldProps, 'error'> & {
     /**
      * @default (value) => value.toString()
@@ -18,21 +19,15 @@ type SingleSelectPropsWithoutLabel = Omit<SelectParts.SingleSelectProps, 'value'
     customizeContent?(value?: string | number): string;
     onChange?: (value: string | number) => void;
     onReachEnd?: (entry: IntersectionObserverEntry) => void;
-    /**
-     * @preserve
-     * @deprecated This prop is no longer required and will be removed in v2 of the DS.
-     * It has no effect on the component.
-     */
-    selectButtonTitle?: string;
     value?: string | number | null;
   };
 
-export type SingleSelectProps = SingleSelectPropsWithoutLabel & { 'aria-label': string; 'aria-describedby'?: string };
+export type SingleSelectProps = SingleSelectPropsWithoutLabel & { 'aria-label'?: string; 'aria-describedby'?: string };
 
 export type SingleSelectElement = SingleSelectInputElement;
 
 export const SingleSelect = React.forwardRef<SingleSelectInputElement, SingleSelectProps>(
-  ({ required, selectButtonTitle: _deprecatedSelectButtonTitle, ...restProps }, forwardedRef) => {
+  ({ required, ...restProps }, forwardedRef) => {
     return <SingleSelectInput ref={forwardedRef} required={required} {...restProps} />;
   },
 );
@@ -53,7 +48,6 @@ export const SingleSelectInput = React.forwardRef<SingleSelectInputElement, Sing
       onReachEnd,
       placeholder,
       required,
-      selectButtonTitle: _deprecatedSelectButtonTitle,
       startIcon,
       size = 'M',
       value: passedValue,

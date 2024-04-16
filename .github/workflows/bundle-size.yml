@@ -12,23 +12,30 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4
         with:
-          node-version: 18
-          cache: yarn
+          fetch-depth: 0
 
-      - uses: actions/cache@v3
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'yarn'
+
+      - name: 'Restore cache'
+        uses: actions/cache@v4
         with:
           path: '**/node_modules'
-          key: ${{ runner.os }}-${{ matrix.node }}-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
-      - run: yarn install
+      - name: Install deps
+        run: yarn install
 
-      - name: Build packages
+      - name: Build
         run: yarn build --filter=\!@strapi/design-system-docs
 
-      - uses: preactjs/compressed-size-action@v2
+      - name: Calculate size
+        uses: preactjs/compressed-size-action@v2
         with:
           pattern: '**/dist/**/*.{cjs,js,mjs,svg}'

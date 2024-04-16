@@ -3,7 +3,7 @@ import * as React from 'react';
 import { FieldInput, FieldProps } from '../Field';
 
 export interface TextInputProps extends Pick<FieldProps, 'error'> {
-  'aria-label': string;
+  'aria-label'?: string;
   'aria-describedby'?: string;
   required?: boolean;
   name?: string;

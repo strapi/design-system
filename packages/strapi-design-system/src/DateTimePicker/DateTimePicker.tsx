@@ -17,7 +17,7 @@ import { VisuallyHidden } from '../VisuallyHidden';
 
 export interface DateTimePickerProps
   extends Omit<DatePickerInputProps, 'step' | 'onChange' | 'error' | 'selectedDate'>,
-    Pick<TimePickerProps, 'step' | 'selectButtonTitle'>,
+    Pick<TimePickerProps, 'step'>,
     Pick<FieldProps, 'name' | 'hint' | 'error'> {
   /**
    * Label for the DatePicker field
@@ -47,11 +47,6 @@ export interface DateTimePickerProps
 export const DateTimePicker = React.forwardRef<DatePickerElement, DateTimePickerProps>(
   (
     {
-      /**
-       * @preserve
-       * @deprecated This is no longer used.
-       */
-      ariaLabel: _ariaLabel,
       clearLabel = 'clear',
       dateLabel = 'Choose date',
       timeLabel = 'Choose time',
@@ -65,11 +60,6 @@ export const DateTimePicker = React.forwardRef<DatePickerElement, DateTimePicker
       onClear,
       name,
       required = false,
-      /**
-       * @preserve
-       * @deprecated This is no longer used.
-       */
-      selectButtonTitle: _selectButtonTitle,
       size = 'M',
       step,
       value,

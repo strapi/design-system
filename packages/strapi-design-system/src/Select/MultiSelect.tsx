@@ -16,7 +16,8 @@ import { Typography } from '../Typography';
 
 type MultiSelectPropsWithoutLabel = Omit<SelectParts.MultiSelectProps, 'value' | 'multi'> &
   Pick<SelectParts.ContentProps, 'onCloseAutoFocus'> &
-  Pick<SelectParts.TriggerProps, 'clearLabel' | 'onClear' | 'size' | 'startIcon' | 'placeholder'> &
+  Pick<SelectParts.TriggerProps, 'clearLabel' | 'onClear' | 'size' | 'startIcon'> &
+  Pick<SelectParts.ValueProps, 'placeholder'> &
   Pick<FieldProps, 'error'> & {
     /**
      * @default (value) => value.join(',')
@@ -34,7 +35,7 @@ type MultiSelectPropsWithoutLabel = Omit<SelectParts.MultiSelectProps, 'value' |
     withTags?: boolean;
   };
 
-export type MultiSelectProps = MultiSelectPropsWithoutLabel & { 'aria-label': string; 'aria-describedby'?: string };
+export type MultiSelectProps = MultiSelectPropsWithoutLabel & { 'aria-label'?: string; 'aria-describedby'?: string };
 
 export const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
   (
@@ -251,7 +252,7 @@ const CheckMark = styled(Box)<CheckMarkProps>`
     css`
       &::after {
         content: '';
-        background: url(${checkmarkIcon}) no-repeat no-repeat center center;
+        background: ${() => `url("${checkmarkIcon}") no-repeat no-repeat center center`};
         width: 100%;
         height: 100%;
         position: absolute;

@@ -33,7 +33,7 @@ describe.skip('DatePicker', () => {
 
       expect(getByRole('dialog')).toBeInTheDocument();
 
-      await user.click(getByRole('gridcell', { name: 'Wednesday, 1 September 2021' }));
+      await user.click(getByRole('gridcell', { name: 'Wednesday 1 September 2021' }));
 
       expect(onChange).toHaveBeenCalledWith(new Date('Sep 01 2021'));
 
@@ -62,7 +62,7 @@ describe.skip('DatePicker', () => {
 
       await user.click(getByRole('combobox', { name: 'date picker' }));
 
-      await user.click(getByRole('gridcell', { name: 'Wednesday, 8 September 2021' }));
+      await user.click(getByRole('gridcell', { name: 'Wednesday 8 September 2021' }));
 
       expect(onChange).toHaveBeenCalledWith(new Date('Sep 08 2021'));
     });
@@ -154,7 +154,7 @@ describe.skip('DatePicker', () => {
 
       await user.click(getByRole('combobox', { name: 'date picker' }));
 
-      await user.click(getByRole('gridcell', { name: 'Wednesday, 8 September 2021' }));
+      await user.click(getByRole('gridcell', { name: 'Wednesday 8 September 2021' }));
 
       expect(getByRole('combobox', { name: 'date picker' })).toHaveValue('08/09/2021');
 
@@ -168,7 +168,7 @@ describe.skip('DatePicker', () => {
 
       await user.click(getByRole('combobox', { name: 'date picker' }));
 
-      await user.click(getByRole('gridcell', { name: 'Wednesday, 8 September 2021' }));
+      await user.click(getByRole('gridcell', { name: 'Wednesday 8 September 2021' }));
 
       expect((getByRole('combobox') as HTMLInputElement).validity.patternMismatch).toBe(false);
     });
@@ -237,7 +237,7 @@ describe.skip('DatePicker', () => {
 
       await user.click(getByRole('combobox', { name: 'date picker' }));
 
-      await user.click(getByRole('gridcell', { name: 'Wednesday, 1 September 2021' }));
+      await user.click(getByRole('gridcell', { name: 'Wednesday 1 September 2021' }));
 
       expect(onChange).toHaveBeenCalledWith(new Date('Sep 01 2021'));
     });
@@ -267,7 +267,7 @@ describe.skip('DatePicker', () => {
 
         await user.click(getByRole('combobox', { name: 'date picker' }));
 
-        const name = key === 'ArrowDown' ? 'Thursday, 23 September 2021' : 'Thursday, 9 September 2021';
+        const name = key === 'ArrowDown' ? 'Thursday 23 September 2021' : 'Thursday 9 September 2021';
 
         expect(getByRole('gridcell', { name })).toHaveAttribute('aria-selected', 'false');
 
@@ -285,7 +285,7 @@ describe.skip('DatePicker', () => {
 
         await user.click(getByRole('combobox', { name: 'date picker' }));
 
-        const name = key === 'ArrowLeft' ? 'Wednesday, 15 September 2021' : 'Friday, 17 September 2021';
+        const name = key === 'ArrowLeft' ? 'Wednesday 15 September 2021' : 'Friday 17 September 2021';
 
         expect(getByRole('gridcell', { name })).toHaveAttribute('aria-selected', 'false');
 
@@ -305,12 +305,12 @@ describe.skip('DatePicker', () => {
       await user.keyboard('[ArrowRight]');
 
       expect(getByRole('combobox', { name: 'Month' })).toHaveTextContent('October');
-      expect(getByRole('gridcell', { name: 'Friday, 1 October 2021' })).toHaveAttribute('aria-selected', 'true');
+      expect(getByRole('gridcell', { name: 'Friday 1 October 2021' })).toHaveAttribute('aria-selected', 'true');
 
       await user.keyboard('[ArrowUp]');
 
       expect(getByRole('combobox', { name: 'Month' })).toHaveTextContent('September');
-      expect(getByRole('gridcell', { name: 'Friday, 24 September 2021' })).toHaveAttribute('aria-selected', 'true');
+      expect(getByRole('gridcell', { name: 'Friday 24 September 2021' })).toHaveAttribute('aria-selected', 'true');
     });
   });
 
@@ -348,7 +348,7 @@ describe.skip('DatePicker', () => {
       await user.click(getByRole('combobox', { name: 'date picker' }));
 
       expect(getByRole('gridcell', { hidden: true, name: 'Su' })).toBeInTheDocument();
-      expect(getByRole('gridcell', { name: 'Wednesday, 7 September 2022' })).toBeInTheDocument();
+      expect(getByRole('gridcell', { name: 'Wednesday 7 September 2022' })).toBeInTheDocument();
     });
 
     it('should format by en locale', async () => {
@@ -463,6 +463,28 @@ describe.skip('DatePicker', () => {
       expect(queryByRole('option', { name: '2014' })).not.toBeInTheDocument();
     });
 
+    it('should limit the date selection to given min date', async () => {
+      const { getByRole, user } = render({
+        minDate: new Date('Mon Sep 04 2020'),
+        initialDate: new Date('Sep 04 2020'),
+      });
+
+      await user.click(getByRole('combobox', { name: 'date picker' }));
+      expect(getByRole('gridcell', { name: 'Thursday 3 September 2020' })).toHaveAttribute('aria-disabled', 'true');
+      expect(getByRole('gridcell', { name: 'Saturday 5 September 2020' })).toHaveAttribute('aria-disabled', 'false');
+    });
+
+    it('should limit the date selection to given max date', async () => {
+      const { getByRole, user } = render({
+        maxDate: new Date('Mon Sep 04 2020'),
+        initialDate: new Date('Sep 04 2020'),
+      });
+
+      await user.click(getByRole('combobox', { name: 'date picker' }));
+      expect(getByRole('gridcell', { name: 'Thursday 3 September 2020' })).toHaveAttribute('aria-disabled', 'false');
+      expect(getByRole('gridcell', { name: 'Saturday 5 September 2020' })).toHaveAttribute('aria-disabled', 'true');
+    });
+
     it('should set the initial calendar date to the minimum date if today is before that date', async () => {
       const { getByRole, user } = render({
         minDate: new Date('Sep 04 4000'),
@@ -470,7 +492,7 @@ describe.skip('DatePicker', () => {
 
       await user.click(getByRole('combobox', { name: 'date picker' }));
 
-      expect(getByRole('gridcell', { name: 'Monday, 4 September 4000' })).toHaveAttribute('aria-selected', 'true');
+      expect(getByRole('gridcell', { name: 'Monday 4 September 4000' })).toHaveAttribute('aria-selected', 'true');
     });
 
     it('should set the intial calendar date to the maximum date if today is after that date', async () => {
@@ -480,7 +502,7 @@ describe.skip('DatePicker', () => {
 
       await user.click(getByRole('combobox', { name: 'date picker' }));
 
-      expect(getByRole('gridcell', { name: 'Monday, 4 September 2000' })).toHaveAttribute('aria-selected', 'true');
+      expect(getByRole('gridcell', { name: 'Monday 4 September 2000' })).toHaveAttribute('aria-selected', 'true');
     });
   });
 
@@ -489,43 +511,43 @@ describe.skip('DatePicker', () => {
       const { getByRole, user } = render({ initialDate: new Date('Sept 04 2020'), locale: 'en-GB' });
 
       await user.click(getByRole('combobox', { name: 'date picker' }));
-      expect(getByRole('gridcell', { name: 'Friday, 4 September 2020' })).toHaveAttribute('aria-selected', 'true');
+      expect(getByRole('gridcell', { name: 'Friday 4 September 2020' })).toHaveAttribute('aria-selected', 'true');
 
       await user.clear(getByRole('combobox', { name: 'date picker' }));
 
       getByRole('combobox', { name: 'date picker' }).focus();
 
       await user.keyboard('05');
-      expect(getByRole('gridcell', { name: 'Saturday, 5 September 2020' })).toHaveAttribute('aria-selected', 'true');
+      expect(getByRole('gridcell', { name: 'Saturday 5 September 2020' })).toHaveAttribute('aria-selected', 'true');
 
       await user.keyboard('/10');
-      expect(getByRole('gridcell', { name: 'Monday, 5 October 2020' })).toHaveAttribute('aria-selected', 'true');
+      expect(getByRole('gridcell', { name: 'Monday 5 October 2020' })).toHaveAttribute('aria-selected', 'true');
 
       await user.keyboard('/2022');
-      expect(getByRole('gridcell', { name: 'Wednesday, 5 October 2022' })).toHaveAttribute('aria-selected', 'true');
+      expect(getByRole('gridcell', { name: 'Wednesday 5 October 2022' })).toHaveAttribute('aria-selected', 'true');
     });
 
     it('should correctly update the calendar when typing D/M/Y & D/M/YY', async () => {
       const { getByRole, user } = render({ initialDate: new Date('Sept 04 2020'), locale: 'en-GB' });
 
       await user.click(getByRole('combobox', { name: 'date picker' }));
-      expect(getByRole('gridcell', { name: 'Friday, 4 September 2020' })).toHaveAttribute('aria-selected', 'true');
+      expect(getByRole('gridcell', { name: 'Friday 4 September 2020' })).toHaveAttribute('aria-selected', 'true');
 
       await user.clear(getByRole('combobox', { name: 'date picker' }));
 
       getByRole('combobox', { name: 'date picker' }).focus();
 
       await user.keyboard('5');
-      expect(getByRole('gridcell', { name: 'Saturday, 5 September 2020' })).toHaveAttribute('aria-selected', 'true');
+      expect(getByRole('gridcell', { name: 'Saturday 5 September 2020' })).toHaveAttribute('aria-selected', 'true');
 
       await user.keyboard('/1');
-      expect(getByRole('gridcell', { name: 'Sunday, 5 January 2020' })).toHaveAttribute('aria-selected', 'true');
+      expect(getByRole('gridcell', { name: 'Sunday 5 January 2020' })).toHaveAttribute('aria-selected', 'true');
 
       await user.keyboard('/2');
-      expect(getByRole('gridcell', { name: 'Saturday, 5 January 2002' })).toHaveAttribute('aria-selected', 'true');
+      expect(getByRole('gridcell', { name: 'Saturday 5 January 2002' })).toHaveAttribute('aria-selected', 'true');
 
       await user.keyboard('2');
-      expect(getByRole('gridcell', { name: 'Wednesday, 5 January 2022' })).toHaveAttribute('aria-selected', 'true');
+      expect(getByRole('gridcell', { name: 'Wednesday 5 January 2022' })).toHaveAttribute('aria-selected', 'true');
     });
 
     it('should not go past the minimum date when typing in the input', async () => {
@@ -534,7 +556,7 @@ describe.skip('DatePicker', () => {
       await user.click(getByRole('combobox', { name: 'date picker' }));
       await user.type(getByRole('combobox', { name: 'date picker' }), '09/03/1994');
 
-      expect(getByRole('gridcell', { name: 'Tuesday, 4 September 2001' })).toHaveAttribute('aria-selected', 'true');
+      expect(getByRole('gridcell', { name: 'Tuesday 4 September 2001' })).toHaveAttribute('aria-selected', 'true');
     });
 
     it('should not go past the maximum date when typing in the input', async () => {
@@ -543,7 +565,7 @@ describe.skip('DatePicker', () => {
       await user.click(getByRole('combobox', { name: 'date picker' }));
       await user.type(getByRole('combobox', { name: 'date picker' }), '09/03/2004');
 
-      expect(getByRole('gridcell', { name: 'Tuesday, 4 September 2001' })).toHaveAttribute('aria-selected', 'true');
+      expect(getByRole('gridcell', { name: 'Tuesday 4 September 2001' })).toHaveAttribute('aria-selected', 'true');
     });
   });
 
@@ -555,7 +577,7 @@ describe.skip('DatePicker', () => {
 
       await user.click(getByRole('combobox', { name: 'date picker' }));
 
-      expect(getByRole('gridcell', { name: 'Friday, 4 September 2020' })).toHaveAttribute('aria-selected', 'true');
+      expect(getByRole('gridcell', { name: 'Friday 4 September 2020' })).toHaveAttribute('aria-selected', 'true');
     });
 
     it('should set the selectedDate value when provided as a string', async () => {
@@ -565,7 +587,7 @@ describe.skip('DatePicker', () => {
 
       await user.click(getByRole('combobox', { name: 'date picker' }));
 
-      expect(getByRole('gridcell', { name: 'Friday, 4 September 2020' })).toHaveAttribute('aria-selected', 'true');
+      expect(getByRole('gridcell', { name: 'Friday 4 September 2020' })).toHaveAttribute('aria-selected', 'true');
     });
 
     it('should handle updates to the selectedDate prop when provided as a string', async () => {
@@ -575,13 +597,13 @@ describe.skip('DatePicker', () => {
 
       await user.click(getByRole('combobox', { name: 'date picker' }));
 
-      expect(getByRole('gridcell', { name: 'Friday, 4 September 2020' })).toHaveAttribute('aria-selected', 'true');
+      expect(getByRole('gridcell', { name: 'Friday 4 September 2020' })).toHaveAttribute('aria-selected', 'true');
 
       rerender(<Component selectedDate="09/05/2020" />);
 
       expect(getByRole('combobox', { name: 'date picker' })).toHaveValue('05/09/2020');
 
-      expect(getByRole('gridcell', { name: 'Saturday, 5 September 2020' })).toHaveAttribute('aria-selected', 'true');
+      expect(getByRole('gridcell', { name: 'Saturday 5 September 2020' })).toHaveAttribute('aria-selected', 'true');
     });
   });
 });

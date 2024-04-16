@@ -1,9 +1,0 @@
-.env
-.vscode
-node_modules
-.DS_Store
-yarn-debug.log*
-yarn-error.log*
-example
-plop-templates
-tools
