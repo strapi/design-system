@@ -43,3 +43,7 @@ This was just a wrapped component around `Flex`. You should use `Flex` instead.
 #### `ToggleCheckbox`
 
 This is the same component as `ToggleInput` and therefore you should use that instead.
+
+### Removed field wrapper components from inputs
+
+We are streamlining inputs by removing unnecessary components like labels, hints, and error messages, focusing solely on the inputs themselves. This simplifies the structure and reduces DOM size, especially in cases where only aria-labels are needed. Users can still use Field components they used alongside inputs.
