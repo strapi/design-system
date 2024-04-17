@@ -7,8 +7,26 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "source": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "source": "./src/index.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./symbols": {
+      "types": "./dist/symbols.d.ts",
+      "source": "./src/symbols.ts",
+      "import": "./dist/symbols.mjs",
+      "require": "./dist/symbols.js",
+      "default": "./dist/symbols.js"
+    },
+    "./package.json": "./package.json"
+  },
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "devDependencies": {
     "@strapi/pack-up": "^5.0.0",

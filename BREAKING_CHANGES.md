@@ -60,11 +60,11 @@ Replaced with `Paperclip`
 
 #### Blocks
 
-Replaced with `BlocksField`
+Replaced with `BlocksField` and exported from `@strapi/icons/symbols`.
 
 #### Boolean
 
-Replaced with `BooleanField`
+Replaced with `BooleanField` and exported from `@strapi/icons/symbols`
 
 #### Brush
 
@@ -78,9 +78,13 @@ Replaced with `CaretDown`
 
 Replaced with `CaretUp`
 
+#### CodeSquare
+
+Now exported from `@strapi/icons/symbols`
+
 #### Component
 
-Replaced with `ComponentField`
+Replaced with `ComponentField` and exported from `@strapi/icons/symbols`
 
 #### Connector
 
@@ -102,6 +106,14 @@ Replaced with `SquareFour`
 
 Replaced with `DateField`
 
+#### Discord
+
+Now exported from `@strapi/icons/symbols`
+
+#### Discourse
+
+Now exported from `@strapi/icons/symbols`
+
 #### Doctor
 
 Replaced with `Stethoscope`
@@ -112,15 +124,31 @@ Removed.
 
 #### DynamicZone
 
-Replaced with `DynamicZoneField`
+Replaced with `DynamicZoneField` and exported from `@strapi/icons/symbols`
 
 #### Email
 
-Replaced with `EmailField`
+Replaced with `EmailField` and exported from `@strapi/icons/symbols`
+
+#### EmptyData
+
+Now exported from `@strapi/icons/symbols`
+
+#### EmptyDocuments
+
+Now exported from `@strapi/icons/symbols`
+
+#### EmptyPermissions
+
+Now exported from `@strapi/icons/symbols`
+
+#### EmptyPictures
+
+Now exported from `@strapi/icons/symbols`
 
 #### Enumeration
 
-Replaced with `EnumerationField`
+Replaced with `EnumerationField` and exported from `@strapi/icons/symbols`
 
 #### Envelop
 
@@ -138,9 +166,25 @@ Replaced with `WarningCircle`
 
 Replaced with `SignOut`
 
+#### Facebook
+
+Now exported from `@strapi/icons/symbols`
+
+#### FeatherSquare
+
+Now exported from `@strapi/icons/symbols`
+
 #### Gate
 
 Replaced with `CastleTurret`
+
+#### Github
+
+Now exported from `@strapi/icons/symbols`
+
+#### GlassesSquare
+
+Now exported from `@strapi/icons/symbols`
 
 #### Grid
 
@@ -154,9 +198,13 @@ Replaced with `Headphones`
 
 Replaced with `ClockCounterClockwise`
 
+#### InformationSquare
+
+Now exported from `@strapi/icons/symbols`
+
 #### Json
 
-Replaced with `JsonField`
+Replaced with `JsonField` and exported from `@strapi/icons/symbols`
 
 #### Landscape
 
@@ -176,7 +224,11 @@ Replaced with `Link`
 
 #### Media
 
-Replaced with `MediaField`
+Replaced with `MediaField` and exported from `@strapi/icons/symbols`
+
+#### Medium
+
+Now exported from `@strapi/icons/symbols`
 
 #### MenuBurger
 
@@ -192,7 +244,7 @@ Replaced with `MusicNotes`
 
 #### Number
 
-Replaced with `NumberField`
+Replaced with `NumberField` and exported from `@strapi/icons/symbols`
 
 #### OnholdCarretDown
 
@@ -218,6 +270,10 @@ Replaced with `Image`
 
 Replaced with `PlusCircle`
 
+#### PlaySquare
+
+Now exported from `@strapi/icons/symbols`
+
 #### Puzzle
 
 Replaced with `PuzzlePiece`
@@ -230,13 +286,17 @@ Replaced with `Quotes`
 
 Replaced with `Quotes`
 
+#### Reddit
+
+Now exported from `@strapi/icons/symbols`
+
 #### Refresh
 
 Replaced with `ArrowClockwise`
 
 #### Relation
 
-Replaced with `RelationField`
+Replaced with `RelationField` and exported from `@strapi/icons/symbols`
 
 #### Repeat
 
@@ -244,7 +304,7 @@ Removed.
 
 #### RichText
 
-Replaced with `RichTextField`
+Replaced with `RichTextField` and exported from `@strapi/icons/symbols`
 
 #### Rotate
 
@@ -270,17 +330,21 @@ Replaced with `Sparkle`
 
 Replaced with `Loader`
 
+#### Strapi
+
+Now exported from `@strapi/icons/symbols`
+
 #### Text
 
-Replace with `TextField`
+Replace with `TextField` and exported from `@strapi/icons/symbols`
 
 #### Twitter
 
-Replaced with `X`
+Replaced with `X` and exported from `@strapi/icons/symbols`
 
 #### Uid
 
-Replaced with `UidField`
+Replaced with `UidField` and exported from `@strapi/icons/symbols`
 
 #### Write
 
