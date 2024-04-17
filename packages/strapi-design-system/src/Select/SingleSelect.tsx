@@ -24,17 +24,9 @@ type SingleSelectPropsWithoutLabel = Omit<SelectParts.SingleSelectProps, 'value'
 
 export type SingleSelectProps = SingleSelectPropsWithoutLabel & { 'aria-label'?: string; 'aria-describedby'?: string };
 
-export type SingleSelectElement = SingleSelectInputElement;
+export type SingleSelectElement = HTMLDivElement;
 
-export const SingleSelect = React.forwardRef<SingleSelectInputElement, SingleSelectProps>(
-  ({ required, ...restProps }, forwardedRef) => {
-    return <SingleSelectInput ref={forwardedRef} required={required} {...restProps} />;
-  },
-);
-
-export type SingleSelectInputElement = HTMLDivElement;
-
-export const SingleSelectInput = React.forwardRef<SingleSelectInputElement, SingleSelectProps>(
+export const SingleSelect = React.forwardRef<SingleSelectElement, SingleSelectProps>(
   (
     {
       children,

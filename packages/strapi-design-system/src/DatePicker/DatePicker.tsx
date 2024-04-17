@@ -38,7 +38,7 @@ import { useDateFormatter } from '../hooks/useDateFormatter';
 import { useId } from '../hooks/useId';
 import { PopoverPrimitives } from '../Popover';
 import { Portal } from '../Portal';
-import { SingleSelectInput, SingleSelectOption } from '../Select/SingleSelect';
+import { SingleSelect, SingleSelectOption } from '../Select/SingleSelect';
 import { getThemeSize, inputFocusStyle } from '../themes';
 import { Typography } from '../Typography';
 
@@ -993,8 +993,8 @@ const DatePickerCalendar = React.forwardRef<HTMLDivElement, CalendarProps>(
     return (
       <Flex ref={ref} direction="column" alignItems="stretch" padding={4} {...restProps}>
         <ToolbarFlex justifyContent="flex-start" paddingBottom={4} paddingLeft={2} paddingRight={2} gap={2}>
-          <SingleSelectInput
-            label={monthSelectLabel}
+          <SingleSelect
+            aria-label={monthSelectLabel}
             size="S"
             value={months[calendarDate.month - 1]}
             onChange={handleMonthChange}
@@ -1004,11 +1004,11 @@ const DatePickerCalendar = React.forwardRef<HTMLDivElement, CalendarProps>(
                 {month}
               </SingleSelectOption>
             ))}
-          </SingleSelectInput>
-          <SingleSelectInput
+          </SingleSelect>
+          <SingleSelect
             size="S"
             value={calendarDate.year.toString()}
-            label={yearSelectLabel}
+            aria-label={yearSelectLabel}
             onChange={handleYearChange}
           >
             {years.map((year) => (
@@ -1016,7 +1016,7 @@ const DatePickerCalendar = React.forwardRef<HTMLDivElement, CalendarProps>(
                 {year}
               </SingleSelectOption>
             ))}
-          </SingleSelectInput>
+          </SingleSelect>
         </ToolbarFlex>
         <table role="grid">
           <thead aria-hidden>
