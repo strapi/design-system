@@ -22,11 +22,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup npm auth
-        run: |
-          echo "registry=https://registry.npmjs.org" >> ~/.npmrc
-          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> ~/.npmrc
-
       - name: Setup node
         uses: actions/setup-node@v4
         with:
@@ -108,7 +103,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "Checkout the *<"https://github.com/strapi/design-system/releases"|release note>*"
+                    "text": "Checkout the *<https://github.com/strapi/design-system/releases|release note>*"
                   }
                 },
                 {

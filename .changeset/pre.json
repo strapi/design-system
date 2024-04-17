@@ -7,5 +7,5 @@
     "@strapi/design-system": "1.17.0",
     "@strapi/icons": "1.17.0"
   },
-  "changesets": []
+  "changesets": ["clean-maps-double", "quiet-roses-rule", "soft-nails-matter"]
 }
