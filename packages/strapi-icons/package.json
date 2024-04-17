@@ -16,11 +16,11 @@
       "default": "./dist/index.js"
     },
     "./symbols": {
-      "types": "./dist/symbols.d.ts",
-      "source": "./src/symbols.ts",
-      "import": "./dist/symbols.mjs",
-      "require": "./dist/symbols.js",
-      "default": "./dist/symbols.js"
+      "types": "./dist/symbols-index.d.ts",
+      "source": "./src/symbols-index.ts",
+      "import": "./dist/symbols-index.mjs",
+      "require": "./dist/symbols-index.js",
+      "default": "./dist/symbols-index.js"
     },
     "./package.json": "./package.json"
   },

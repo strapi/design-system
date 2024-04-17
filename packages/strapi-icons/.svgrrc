@@ -7,3 +7,5 @@ jsxRuntime: 'automatic'
 outDir: './src'
 ref: true
 typescript: true
+svgoConfig:
+  { plugins: [{ name: 'removeUselessStrokeAndFill', params: { stroke: true, fill: true, removeNone: false } }] }

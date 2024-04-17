@@ -26,10 +26,18 @@ const preview: Preview = {
   parameters: {
     options: {
       storySort: {
-        order: ['Design System', ['Primitives', 'Technical Components', 'Components']],
+        order: [
+          'Foundations',
+          ['Icons', ['Overview', '*']],
+          'Design System',
+          ['Primitives', 'Technical Components', 'Components'],
+        ],
       },
     },
     actions: { argTypesRegex: '^on[A-Z].*' },
+    controls: {
+      expanded: true,
+    },
     darkMode: {
       // Override the default dark theme
       dark: createCustomTheme({ theme: darkTheme, asStorybookTheme: false }),

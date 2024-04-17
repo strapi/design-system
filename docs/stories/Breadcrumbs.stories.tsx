@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { Flex, Breadcrumbs, Crumb, CrumbLink, CrumbSimpleMenu, MenuItem } from '@strapi/design-system';
-import { CollectionType } from '@strapi/icons';
+import { CollectionType } from '@strapi/icons/symbols';
 
 const meta: Meta<typeof Breadcrumbs> = {
   title: 'Design System/Components/Breadcrumbs',

@@ -12,6 +12,9 @@ const config: StorybookConfig = {
         allowSyntheticDefaultImports: false,
         esModuleInterop: false,
       },
+      propFilter: () => {
+        return true;
+      },
     },
   },
   viteFinal: (config) => {
@@ -39,10 +42,6 @@ const config: StorybookConfig = {
   framework: {
     name: getAbsolutePath('@storybook/react-vite'),
     options: {},
-  },
-
-  docs: {
-    autodocs: true,
   },
 };
 
