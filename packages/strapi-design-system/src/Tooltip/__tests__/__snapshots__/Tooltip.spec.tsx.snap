@@ -15,7 +15,8 @@ exports[`Tooltip snapshots document.body when the button is focused (aria-descri
 
 .c1 {
   background: #212134;
-  padding: 8px;
+  padding-block: 8px;
+  padding-inline: 8px;
   border-radius: 4px;
   position: absolute;
 }
@@ -106,7 +107,8 @@ exports[`Tooltip snapshots document.body when the tooltip is not visible but exi
 
 .c1 {
   background: #212134;
-  padding: 8px;
+  padding-block: 8px;
+  padding-inline: 8px;
   border-radius: 4px;
   position: absolute;
 }
@@ -190,7 +192,8 @@ exports[`Tooltip snapshots document.body with a label 1`] = `
 
 .c1 {
   background: #212134;
-  padding: 8px;
+  padding-block: 8px;
+  padding-inline: 8px;
   border-radius: 4px;
   position: absolute;
 }
