@@ -274,7 +274,7 @@ export const WithField = {
     );
   },
 
-  name: 'With field',
+  name: 'with field',
 
   parameters: {
     docs: {

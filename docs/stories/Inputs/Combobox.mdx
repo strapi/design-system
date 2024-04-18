@@ -54,6 +54,13 @@ By default, the combobox is uncontrolled & uses both inline and list autocomplet
 
 <Canvas of={ComboboxStories.Basic} />
 
+### Disabled
+
+Combobox can possibly not be available to selection yet. This state can be related to a lack of permission or a need
+to pursue another action first.
+
+<Canvas of={ComboboxStories.Disabled} />
+
 ### Async data
 
 In some situations it might not be optimal to load all the data at once. In this case,
@@ -79,13 +86,6 @@ to only be `list (filter: startswith)`, `list (filter: contains)` or `none`. If 
 be visually focussed
 
 <Canvas of={ComboboxStories.Autocomplete} />
-
-### Disabled
-
-Combobox can possibly not be available to selection yet. This state can be related to a lack of permission or a need
-to pursue another action first.
-
-<Canvas of={ComboboxStories.Disabled} />
 
 ### With field
 
