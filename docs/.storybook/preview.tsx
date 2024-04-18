@@ -26,7 +26,7 @@ const preview: Preview = {
   parameters: {
     options: {
       storySort: {
-        order: ['Design System', ['Primitives', 'Technical Components', 'Components']],
+        order: ['Design System', ['Primitives', 'Technical Components', 'Inputs', 'Components']],
       },
     },
     actions: { argTypesRegex: '^on[A-Z].*' },

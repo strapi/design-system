@@ -7,16 +7,19 @@ import * as CheckboxStories from './Checkbox.stories';
 
 # Checkbox
 
+- [Overview](#overview)
+- [Imports](#imports)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Accessibility](#accessibility)
+
+## Overview
+
 Checkboxes allow users to choose one or multiple values from a range of options.
-
-**Best practices**
-
-- Content of the checkbox should be concise and straightforward.
-- Use the Radio button component if the user should select only one value.
-- Start all checkbox labels with a capital letter.
-- Avoid using hint state in tables.
-
 [View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Checkbox)
+
+<Canvas of={CheckboxStories.Base} />
 
 ## Imports
 
@@ -24,7 +27,21 @@ Checkboxes allow users to choose one or multiple values from a range of options.
 import { Checkbox } from '@strapi/design-system';
 ```
 
+## Props
+
+<ArgsTable of={Checkbox} />
+
 ## Usage
+
+- Content of the checkbox should be concise and straightforward.
+- Use the Radio button component if the user should select only one value.
+- Start all checkbox labels with a capital letter.
+- Avoid using hint state in tables.
+- Checkbox labels are aligned differently based on language direction: to the right in LTR languages and to the left in RTL languages.
+
+## Variants
+
+### Basic checkbox
 
 <Canvas of={CheckboxStories.Base} />
 
@@ -46,16 +63,18 @@ Unchecked state is used to show that an option has been selected.
 
 ### Disabled
 
-Checkboxes can possibily not be available to selection yet. This state can be related to a lack of permission or a need
+Checkboxes can possibly not be available to selection yet. This state can be related to a lack of permission or a need
 to pursue another action first.
 
 <Canvas of={CheckboxStories.Disabled} />
+
+### Checkbox field
+
+Checkbox field with hint and error.
+
+<Canvas of={CheckboxStories.CheckboxField} />
 
 ## Accessibility
 
 - Checkbox has role of checkbox.
 - When Checkbox has focus, `Space` or `Enter` activates/deactivates it.
-
-## Props
-
-<ArgsTable of={Checkbox} />

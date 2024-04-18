@@ -1,10 +1,10 @@
 import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
-import { Checkbox } from '@strapi/design-system';
+import { Checkbox, Field, FieldHint, FieldError } from '@strapi/design-system';
 
 const meta: Meta<typeof Checkbox> = {
-  title: 'Design System/Components/Checkbox',
+  title: 'Design System/Inputs/Checkbox',
   component: Checkbox,
 };
 
@@ -100,6 +100,82 @@ export const Disabled = {
     docs: {
       source: {
         code: '<Checkbox disabled>Label</Checkbox>',
+      },
+    },
+  },
+} satisfies Story;
+
+export const CheckboxField = {
+  render: () => {
+    const [checkedItems, setCheckedItems] = React.useState([true, false]);
+
+    return (
+      <ul>
+        <Field as="li" id="child 1" hint="Description line lorem ipsum">
+          <Checkbox
+            id="child1"
+            name="child1"
+            onValueChange={(value) => setCheckedItems([value, checkedItems[1]])}
+            value={checkedItems[0]}
+          >
+            Child 1
+          </Checkbox>
+          <FieldHint />
+        </Field>
+        <Field as="li" id="child 2" error="Error">
+          <Checkbox
+            id="child2"
+            name="child2"
+            onValueChange={(value) => setCheckedItems([checkedItems[0], value])}
+            value={checkedItems[1]}
+          >
+            Child 2
+          </Checkbox>
+          <FieldError />
+        </Field>
+      </ul>
+    );
+  },
+
+  name: 'CheckboxField',
+
+  parameters: {
+    docs: {
+      source: {
+        code: `
+import { Checkbox, Field, FieldHint, FieldError } from '@strapi/design-system';
+
+export const CheckboxField = () => {
+  const [checkedItems, setCheckedItems] = React.useState([true, false]);
+
+  return (
+    <ul>
+      <Field as="li" id="child 1" hint="Description line lorem ipsum">
+        <Checkbox
+          id="child1"
+          name="child1"
+          onValueChange={(value) => setCheckedItems([value, checkedItems[1]])}
+          value={checkedItems[0]}
+        >
+          Child 1
+        </Checkbox>
+        <FieldHint />
+      </Field>
+      <Field as="li" id="child 2" error="Error">
+        <Checkbox
+          id="child2"
+          name="child2"
+          onValueChange={(value) => setCheckedItems([checkedItems[0], value])}
+          value={checkedItems[1]}
+        >
+          Child 2
+        </Checkbox>
+        <FieldError />
+      </Field>
+    </ul>
+  );
+};
+        `,
       },
     },
   },
