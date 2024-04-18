@@ -1,4 +1,4 @@
-import { Icon, Typography, lightTheme } from '@strapi/design-system';
+import { Typography, lightTheme } from '@strapi/design-system';
 import * as Icons from '@strapi/icons';
 import styled, { DefaultTheme } from 'styled-components';
 
@@ -40,7 +40,7 @@ const AllIcons = ({ color, size }: AllIconsProps) => {
     >
       {Object.entries(Icons).map(([name, Component]) => (
         <IconGridItem key={name} style={{ width: gridSize, height: gridSize }} onClick={handleClick(name)}>
-          <Icon color={color} as={Component} width={`${size}px`} height={`${size}px`} />
+          <Component fill={color} width={`${size}px`} height={`${size}px`} />
           <IconTitle variant="pi">{name}</IconTitle>
         </IconGridItem>
       ))}

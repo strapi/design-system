@@ -1,12 +1,26 @@
-import * as React from 'react';
-
 import { ChevronRight, ChevronLeft } from '@strapi/icons';
 import styled from 'styled-components';
 
 import { useMainNav } from './MainNavContext';
 import { Flex, FlexProps } from '../Flex';
-import { Icon } from '../Icon';
 import { VisuallyHidden } from '../VisuallyHidden';
+
+export interface NavCondenseProps extends FlexProps<'button'> {
+  children: string;
+}
+
+export const NavCondense = ({ children, ...props }: NavCondenseProps) => {
+  const condensed = useMainNav();
+
+  const Icon = condensed ? ChevronRight : ChevronLeft;
+
+  return (
+    <NavCondenseWrapper as="button" condensed={condensed} {...props}>
+      <Icon aria-hidden fill="neutral600" />
+      <VisuallyHidden>{children}</VisuallyHidden>
+    </NavCondenseWrapper>
+  );
+};
 
 const NavCondenseWrapper = styled(Flex).attrs<FlexProps<'button'>>((props) => ({
   justifyContent: 'center',
@@ -28,18 +42,3 @@ const NavCondenseWrapper = styled(Flex).attrs<FlexProps<'button'>>((props) => ({
     height: 0.9rem;
   }
 `;
-
-export interface NavCondenseProps extends FlexProps<'button'> {
-  children: string;
-}
-
-export const NavCondense = ({ children, ...props }: NavCondenseProps) => {
-  const condensed = useMainNav();
-
-  return (
-    <NavCondenseWrapper as="button" condensed={condensed} {...props}>
-      <Icon as={condensed ? ChevronRight : ChevronLeft} aria-hidden color="neutral600" />
-      <VisuallyHidden>{children}</VisuallyHidden>
-    </NavCondenseWrapper>
-  );
-};

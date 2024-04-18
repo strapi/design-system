@@ -349,3 +349,15 @@ Replaced with `UidField` and exported from `@strapi/icons/symbols`
 #### Write
 
 Replaced with `Feather`
+
+## Icon has been removed
+
+The `Icon` component has been removed. It's primary function was to allow you to apply theme colors to icons, this is now doable with the actual icon:
+
+```ts
+// before
+<Icon as={Plus} color="primary700" />
+
+// after
+<Plus fill="primary700" />
+```

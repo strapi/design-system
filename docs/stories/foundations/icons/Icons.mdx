@@ -13,13 +13,14 @@ inherit the `color` of the parent container. It's not advised to overwrite the `
 <Subtitle>Usage</Subtitle>
 
 ```tsx
-import { Icon } from '@strapi/design-system';
 import { ICON_NAME } from '@strapi/icons';
 
 const MyComponent = () => {
-  return <Icon as={ICON_NAME} color="primary700" />;
+  return <ICON_NAME fill="primary700" />;
 };
 ```
+
+All `SVGProps` are accepted with `fill` & `stroke` being enhanced to support either theme colors or regular string values as expected.
 
 <Subtitle>All Icons</Subtitle>
 

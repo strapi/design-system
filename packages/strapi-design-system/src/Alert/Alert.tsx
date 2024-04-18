@@ -6,9 +6,9 @@ import styled from 'styled-components';
 import { handleBackgroundColor, handleBorderColor, handleIconColor } from './utils';
 import { Box, BoxProps } from '../Box';
 import { Flex } from '../Flex';
-import { Icon } from '../Icon';
 import { buttonFocusStyle } from '../themes/utils';
 import { Typography } from '../Typography';
+import { AccessibleIcon } from '../utilities/AccessibleIcon';
 
 const CloseButton = styled(Box)`
   ${buttonFocusStyle};
@@ -139,9 +139,11 @@ export const Alert = ({
         width="1.6rem"
         marginTop={1}
         onClick={onClose}
-        aria-label={closeLabel}
+        color="neutral700"
       >
-        <Icon as={Cross} aria-hidden color="neutral700" />
+        <AccessibleIcon label={closeLabel}>
+          <Cross />
+        </AccessibleIcon>
       </CloseButton>
     </Flex>
   );

@@ -18,5 +18,5 @@
     "declarationMap": true,
     "jsx": "react-jsx"
   },
-  "include": ["src"]
+  "include": ["src", "styled.d.ts"]
 }

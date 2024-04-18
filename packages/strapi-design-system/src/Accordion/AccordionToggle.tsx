@@ -8,7 +8,6 @@ import { useAccordion } from './AccordionContext';
 import { getBackground } from './utils';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
-import { Icon } from '../Icon';
 import { TextButton, TextButtonProps } from '../TextButton';
 import { Typography } from '../Typography';
 
@@ -23,10 +22,7 @@ const ToggleButton = styled(TextButton)<{ expanded: boolean }>`
   & > svg {
     width: 1.4rem;
     height: 1.4rem;
-
-    path {
-      fill: ${({ theme, expanded }) => (expanded ? theme.colors.primary600 : theme.colors.neutral500)};
-    }
+    fill: ${({ theme, expanded }) => (expanded ? theme.colors.primary600 : theme.colors.neutral500)};
   }
 `;
 
@@ -38,9 +34,7 @@ const FlexWithSize = styled(Flex)<{ expanded: boolean; size: AccordionSize }>`
   &:hover {
     ${ToggleButton} {
       svg {
-        path {
-          fill: ${({ theme }) => theme.colors.primary600};
-        }
+        fill: ${({ theme }) => theme.colors.primary600};
       }
     }
   }
@@ -124,7 +118,7 @@ export const AccordionToggle = ({
       cursor={disabled ? 'not-allowed' : 'pointer'}
       shrink={0}
     >
-      <Icon as={CaretDown} width={size === 'M' ? `1.6rem` : `1.2rem`} color={expanded ? 'primary600' : 'neutral600'} />
+      <CaretDown width={size === 'M' ? `1.6rem` : `1.2rem`} fill={expanded ? 'primary600' : 'neutral600'} />
     </Flex>
   );
 

@@ -6,9 +6,9 @@ import styled from 'styled-components';
 import { Box, BoxProps } from '../Box';
 import { Flex } from '../Flex';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
-import { Icon } from '../Icon';
 import { Tooltip } from '../Tooltip';
 import { Typography } from '../Typography';
+import { AccessibleIcon } from '../utilities/AccessibleIcon';
 
 export interface CarouselProps extends BoxProps {
   actions?: React.ReactNode;
@@ -100,26 +100,16 @@ export const Carousel = React.forwardRef<CarouselElement, CarouselProps>(
           >
             {childrenArray && childrenArray.length > 1 && (
               <>
-                <CarouselAction
-                  as="button"
-                  onClick={onPrevious}
-                  area="startAction"
-                  ref={prevActionRef}
-                  aria-label={previousLabel}
-                  type="button"
-                >
-                  <Icon as={ChevronLeft} aria-hidden width="6px" height="10px" color="neutral600" />
+                <CarouselAction as="button" onClick={onPrevious} area="startAction" ref={prevActionRef} type="button">
+                  <AccessibleIcon label={previousLabel}>
+                    <ChevronLeft width="6px" height="10px" fill="neutral600" />
+                  </AccessibleIcon>
                 </CarouselAction>
 
-                <CarouselAction
-                  as="button"
-                  onClick={onNext}
-                  area="endAction"
-                  ref={nextActionRef}
-                  aria-label={nextLabel}
-                  type="button"
-                >
-                  <Icon as={ChevronRight} aria-hidden width="6px" height="10px" color="neutral600" />
+                <CarouselAction as="button" onClick={onNext} area="endAction" ref={nextActionRef} type="button">
+                  <AccessibleIcon label={nextLabel}>
+                    <ChevronRight width="6px" height="10px" fill="neutral600" />
+                  </AccessibleIcon>
                 </CarouselAction>
               </>
             )}

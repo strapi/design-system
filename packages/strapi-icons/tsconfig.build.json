@@ -4,5 +4,5 @@
     "outDir": "./dist"
   },
   "exclude": ["**/*.test.tsx", "**/*.test.ts"],
-  "include": ["src"]
+  "include": ["src", "styled.d.ts"]
 }

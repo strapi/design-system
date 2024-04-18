@@ -1,0 +1,31 @@
+import { Title, Subtitle, Meta, ArgTypes } from '@storybook/blocks';
+import { VisuallyHidden } from '@strapi/design-system';
+
+<Meta title="Utilities/Visually Hidden" parameters={{ viewMode: 'docs' }} />
+
+<Title>Visually Hidden</Title>
+<Subtitle>Hides content from the screen in an accessible way.</Subtitle>
+
+## Usage
+
+```tsx
+import { VisuallyHidden } from '@strapi/design-system';
+import { Cross } from '@strapi/icons';
+
+const CloseButton = ({ onClose }) => {
+  return (
+    <button onClick={onClose}>
+      <Cross />
+      <VisuallyHidden>Close</VisuallyHidden>
+    </button>
+  );
+};
+```
+
+## Props
+
+<ArgTypes of={VisuallyHidden} />
+
+## Accessibility
+
+This is useful in certain scenarios as an alternative to traditional labelling with aria-label or aria-labelledby.

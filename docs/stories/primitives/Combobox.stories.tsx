@@ -3,7 +3,7 @@ import { Check } from '@strapi/icons';
 import { Combobox } from '@strapi/ui-primitives';
 
 const meta: Meta<typeof Combobox.Root> = {
-  title: 'Design System/Primitives/Combobox',
+  title: 'Primitives/Combobox',
   component: Combobox.Root,
 };
 

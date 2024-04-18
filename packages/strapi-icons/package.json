@@ -38,10 +38,12 @@
     "react-dom": "^17.0.0 || ^18.0.0"
   },
   "scripts": {
-    "build": "yarn generate:icons && yarn build:prod",
+    "build": "yarn clean:generated && yarn generate:icons && yarn generate:symbols && yarn build:prod",
     "build:prod": "pack-up build",
     "clean": "rimraf dist node_modules",
-    "generate:icons": "svgr -- ./assets"
+    "clean:generated": "rimraf src/icons src/symbols",
+    "generate:icons": "svgr --config-file svgr.icons.config.js -- ./assets/icons",
+    "generate:symbols": "svgr --config-file svgr.symbols.config.js -- ./assets/symbols"
   },
   "gitHead": "c74900b0ee3525510d266dc83c9743cb24dafced"
 }
