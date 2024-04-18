@@ -37,3 +37,26 @@ export const ResponsiveSpaces = {
 
   name: 'responsive spaces',
 } satisfies Story;
+
+export const LogicalProperties = {
+  render: () => (
+    <Box
+      paddingTop={4}
+      padding={[6, 4, 1]}
+      paddingRight={2}
+      marginBottom={4}
+      margin={2}
+      marginLeft={[8, 4, 2]}
+      background="primary700"
+      shadow="filterShadow"
+      hiddenXS
+      borderColor="danger600"
+      borderStyle="dotted"
+      borderWidth="2px"
+    >
+      <Typography textColor="neutral0">Hello world</Typography>
+    </Box>
+  ),
+
+  name: 'logical properties',
+} satisfies Story;

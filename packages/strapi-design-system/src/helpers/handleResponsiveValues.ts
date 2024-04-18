@@ -23,11 +23,23 @@ type ResponsiveCSSProperties = Pick<
   | 'marginRight'
   | 'marginTop'
   | 'marginBottom'
+  | 'marginBlock'
+  | 'marginBlockStart'
+  | 'marginBlockEnd'
+  | 'marginInline'
+  | 'marginInlineStart'
+  | 'marginInlineEnd'
   | 'padding'
   | 'paddingLeft'
   | 'paddingRight'
   | 'paddingTop'
   | 'paddingBottom'
+  | 'paddingBlock'
+  | 'paddingBlockStart'
+  | 'paddingBlockEnd'
+  | 'paddingInline'
+  | 'paddingInlineStart'
+  | 'paddingInlineEnd'
 >;
 
 export type ResponsiveValue<TCSSProp extends keyof ResponsiveCSSProperties = any> =
