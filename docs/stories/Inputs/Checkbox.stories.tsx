@@ -2,10 +2,18 @@ import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 import { Checkbox, Field, FieldHint, FieldError } from '@strapi/design-system';
+import { default as outdent } from 'outdent';
 
 const meta: Meta<typeof Checkbox> = {
   title: 'Design System/Inputs/Checkbox',
-  component: Checkbox,
+  component: ({ label, ...props }) => {
+    const [val, setValue] = React.useState(false);
+    return (
+      <Checkbox name="default" onValueChange={(value) => setValue(value)} value={val} {...props}>
+        {label}
+      </Checkbox>
+    );
+  },
 };
 
 export default meta;
@@ -13,16 +21,10 @@ export default meta;
 type Story = StoryObj<typeof Checkbox>;
 
 export const Base = {
-  render: () => {
-    const [val, setValue] = React.useState(false);
-    return (
-      <Checkbox name="default" onValueChange={(value) => setValue(value)} value={val}>
-        Label
-      </Checkbox>
-    );
-  },
-
   name: 'base',
+  args: {
+    label: 'Label',
+  },
 
   parameters: {
     docs: {
@@ -84,16 +86,10 @@ export const Indeterminate = {
 } satisfies Story;
 
 export const Disabled = {
-  render: () => {
-    const [val, setValue] = React.useState(false);
-
-    return (
-      <Checkbox disabled name="default" onValueChange={(value) => setValue(value)} value={val}>
-        Label
-      </Checkbox>
-    );
+  args: {
+    ...Base.args,
+    disabled: true,
   },
-
   name: 'disabled',
 
   parameters: {
@@ -105,30 +101,18 @@ export const Disabled = {
   },
 } satisfies Story;
 
-export const CheckboxField = {
+export const WithField = {
   render: () => {
-    const [checkedItems, setCheckedItems] = React.useState([true, false]);
-
     return (
       <ul>
-        <Field as="li" id="child 1" hint="Description line lorem ipsum">
-          <Checkbox
-            id="child1"
-            name="child1"
-            onValueChange={(value) => setCheckedItems([value, checkedItems[1]])}
-            value={checkedItems[0]}
-          >
+        <Field as="li" id="with_hint" hint="Description line lorem ipsum">
+          <Checkbox id="child1" name="child1">
             Child 1
           </Checkbox>
           <FieldHint />
         </Field>
-        <Field as="li" id="child 2" error="Error">
-          <Checkbox
-            id="child2"
-            name="child2"
-            onValueChange={(value) => setCheckedItems([checkedItems[0], value])}
-            value={checkedItems[1]}
-          >
+        <Field as="li" id="with_error" error="Error">
+          <Checkbox id="child2" name="child2">
             Child 2
           </Checkbox>
           <FieldError />
@@ -137,45 +121,36 @@ export const CheckboxField = {
     );
   },
 
-  name: 'CheckboxField',
+  name: 'With field',
 
   parameters: {
     docs: {
       source: {
-        code: `
-import { Checkbox, Field, FieldHint, FieldError } from '@strapi/design-system';
+        code: outdent`
+    import * as React from 'react';
+    import { Checkbox, Field, FieldHint, FieldError } from '@strapi/design-system';
 
-export const CheckboxField = () => {
-  const [checkedItems, setCheckedItems] = React.useState([true, false]);
+    export const WithField = () => {
+      const [checkedItems, setCheckedItems] = React.useState([true, false]);
 
-  return (
-    <ul>
-      <Field as="li" id="child 1" hint="Description line lorem ipsum">
-        <Checkbox
-          id="child1"
-          name="child1"
-          onValueChange={(value) => setCheckedItems([value, checkedItems[1]])}
-          value={checkedItems[0]}
-        >
-          Child 1
-        </Checkbox>
-        <FieldHint />
-      </Field>
-      <Field as="li" id="child 2" error="Error">
-        <Checkbox
-          id="child2"
-          name="child2"
-          onValueChange={(value) => setCheckedItems([checkedItems[0], value])}
-          value={checkedItems[1]}
-        >
-          Child 2
-        </Checkbox>
-        <FieldError />
-      </Field>
-    </ul>
-  );
-};
-        `,
+      return (
+        <ul>
+        <Field as="li" id="with_hint" hint="Description line lorem ipsum">
+          <Checkbox id="child1" name="child1">
+            Child 1
+          </Checkbox>
+          <FieldHint />
+        </Field>
+        <Field as="li" id="with_error" error="Error">
+          <Checkbox id="child2" name="child2">
+            Child 2
+          </Checkbox>
+          <FieldError />
+        </Field>
+      </ul>
+      );
+    };
+    `,
       },
     },
   },

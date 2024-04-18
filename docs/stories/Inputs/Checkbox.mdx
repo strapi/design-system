@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/blocks';
 import { Checkbox } from '@strapi/design-system';
 
 import * as CheckboxStories from './Checkbox.stories';
@@ -21,23 +21,18 @@ Checkboxes allow users to choose one or multiple values from a range of options.
 
 <Canvas of={CheckboxStories.Base} />
 
-## Imports
+## Usage
 
 ```js
 import { Checkbox } from '@strapi/design-system';
 ```
 
+- Use the Radio button component if the user should select only one value.
+- Checkbox labels are aligned differently based on language direction: to the right in LTR languages and to the left in RTL languages.
+
 ## Props
 
-<ArgsTable of={Checkbox} />
-
-## Usage
-
-- Content of the checkbox should be concise and straightforward.
-- Use the Radio button component if the user should select only one value.
-- Start all checkbox labels with a capital letter.
-- Avoid using hint state in tables.
-- Checkbox labels are aligned differently based on language direction: to the right in LTR languages and to the left in RTL languages.
+<ArgTypes of={Checkbox} />
 
 ## Variants
 
@@ -68,11 +63,11 @@ to pursue another action first.
 
 <Canvas of={CheckboxStories.Disabled} />
 
-### Checkbox field
+### With field
 
 Checkbox field with hint and error.
 
-<Canvas of={CheckboxStories.CheckboxField} />
+<Canvas of={CheckboxStories.WithField} />
 
 ## Accessibility
 
