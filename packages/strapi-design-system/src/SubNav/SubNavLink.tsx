@@ -7,6 +7,8 @@ import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { Typography } from '../Typography';
 
+const SubNavLinkTypography = styled(Typography)``;
+
 const SubNavLinkWrapper = styled(Box)`
   display: flex;
   align-items: center;
@@ -25,7 +27,7 @@ const SubNavLinkWrapper = styled(Box)`
       svg > * {
         fill: ${theme.colors.primary700};
       }
-      ${Typography} {
+      ${SubNavLinkTypography} {
         color: ${theme.colors.primary700};
         font-weight: 500;
       }

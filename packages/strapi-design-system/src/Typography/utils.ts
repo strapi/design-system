@@ -2,8 +2,8 @@ import { DefaultTheme } from 'styled-components';
 
 import { ALPHA, BETA, DELTA, EPSILON, OMEGA, PI, SIGMA, TEXT_VARIANTS } from './constants';
 
-export const ellipsisStyle = ({ ellipsis = false }: { ellipsis?: boolean }) =>
-  ellipsis &&
+export const ellipsisStyle = ({ $ellipsis = false }: { $ellipsis?: boolean }) =>
+  $ellipsis &&
   `
     display: block;
     white-space: nowrap;

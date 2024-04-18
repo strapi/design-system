@@ -151,20 +151,22 @@ const MenuItem = ({ onSelect, disabled = false, ...props }: ItemProps) => {
   );
 };
 
+const OptionTypography = styled(Typography)``;
+
 const getOptionStyle = ({ theme }: { theme: DefaultTheme }) => css`
   text-align: left;
   width: 100%;
   border-radius: ${theme.borderRadius};
   padding: ${theme.spaces[2]} ${theme.spaces[4]};
 
-  ${Typography} {
+  ${OptionTypography} {
     color: inherit;
   }
 
   &[aria-disabled] {
     cursor: not-allowed;
 
-    ${Typography} {
+    ${OptionTypography} {
       color: ${theme.colors.neutral500};
     }
   }

@@ -14,7 +14,7 @@ const CloseButton = styled(Box)`
   ${buttonFocusStyle};
 `;
 
-const AlertIconWrapper = styled(Flex)`
+const AlertIconWrapper = styled(Flex)<{ variant: AlertVariant }>`
   svg {
     height: 100%;
     width: 100%;
@@ -41,7 +41,7 @@ const AlertIcon = ({ variant, ...props }: AlertIconProps) => {
   return <Information {...props} />;
 };
 
-const ActionBox = styled(Box)`
+const ActionBox = styled(Box)<{ variant: AlertVariant }>`
   & a > span {
     color: ${handleIconColor};
   }

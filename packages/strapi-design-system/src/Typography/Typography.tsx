@@ -8,15 +8,7 @@ import { Box, BoxProps } from '../Box';
 import { extractStyleFromTheme } from '../helpers/theme';
 import { DefaultThemeOrCSSProp } from '../types';
 
-const transientProps: Partial<Record<keyof TypographyProps, boolean>> = {
-  fontSize: true,
-  fontWeight: true,
-};
-
-export type TypographyProps<TElement extends keyof JSX.IntrinsicElements = 'span'> = BoxProps<TElement> & {
-  as?: string | React.ComponentType<any>;
-  forwardedAs?: string | React.ComponentType<any>;
-  children?: React.ReactNode;
+type TransientTypographyProps = {
   ellipsis?: boolean;
   fontSize?: keyof DefaultTheme['fontSizes'];
   fontWeight?: keyof DefaultTheme['fontWeights'];
@@ -28,24 +20,58 @@ export type TypographyProps<TElement extends keyof JSX.IntrinsicElements = 'span
   variant?: (typeof TEXT_VARIANTS)[number];
 };
 
-export const Typography = styled(Box)
-  .withConfig<TypographyProps>({
-    shouldForwardProp: (prop, defPropValFN) => !transientProps[prop as keyof TypographyProps] && defPropValFN(prop),
-  })
-  .attrs((props) => ({
-    as: 'span',
-    ...props,
-  }))`
+export type TypographyProps<TElement extends keyof JSX.IntrinsicElements = 'span'> = BoxProps<TElement> & {
+  as?: string | React.ComponentType<any>;
+  forwardedAs?: string | React.ComponentType<any>;
+  children?: React.ReactNode;
+} & TransientTypographyProps;
+
+type StyledTypographyProps = Omit<TypographyProps, keyof TransientTypographyProps> & {
+  [key in keyof TransientTypographyProps as `$${key}`]: TransientTypographyProps[key];
+};
+
+export const StyledTypography = styled(Box)<StyledTypographyProps>`
   ${variantStyle}
   ${ellipsisStyle}
 
   // These properties need to come after {variantStyle}, because they might
   // overwrite a variant attribute
-  font-weight: ${({ theme, fontWeight }) => extractStyleFromTheme(theme.fontWeights, fontWeight, undefined)};
-  font-size: ${({ theme, fontSize }) => extractStyleFromTheme(theme.fontSizes, fontSize, undefined)};
-  line-height: ${({ theme, lineHeight }) => extractStyleFromTheme(theme.lineHeights, lineHeight, lineHeight)};
-  color: ${({ theme, textColor }) => theme.colors[textColor || 'neutral800']};
-  text-align: ${({ textAlign }) => textAlign};
-  text-decoration: ${({ textDecoration }) => textDecoration};
-  text-transform: ${({ textTransform }) => textTransform};
+  font-weight: ${({ theme, $fontWeight }) => extractStyleFromTheme(theme.fontWeights, $fontWeight, undefined)};
+  font-size: ${({ theme, $fontSize }) => extractStyleFromTheme(theme.fontSizes, $fontSize, undefined)};
+  line-height: ${({ theme, $lineHeight }) => extractStyleFromTheme(theme.lineHeights, $lineHeight, $lineHeight)};
+  color: ${({ theme, $textColor }) => theme.colors[$textColor || 'neutral800']};
+  text-align: ${({ $textAlign }) => $textAlign};
+  text-decoration: ${({ $textDecoration }) => $textDecoration};
+  text-transform: ${({ $textTransform }) => $textTransform};
 `;
+
+export const Typography = React.forwardRef(
+  <T extends keyof JSX.IntrinsicElements, R>(props: TypographyProps<T>, ref: React.ForwardedRef<R>) => {
+    const {
+      ellipsis,
+      fontSize,
+      fontWeight,
+      lineHeight,
+      textAlign,
+      textColor,
+      textDecoration,
+      textTransform,
+      variant,
+      ...rest
+    } = props;
+    const mappedProps = {
+      $ellipsis: ellipsis,
+      $fontSize: fontSize,
+      $fontWeight: fontWeight,
+      $lineHeight: lineHeight,
+      $textAlign: textAlign,
+      $textColor: textColor,
+      $textDecoration: textDecoration,
+      $textTransform: textTransform,
+      $variant: variant,
+      ...rest,
+    };
+
+    return <StyledTypography ref={ref} {...mappedProps} />;
+  },
+);

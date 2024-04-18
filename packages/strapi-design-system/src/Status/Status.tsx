@@ -22,8 +22,10 @@ interface StatusWrapperProps {
   textColor: keyof DefaultTheme['colors'];
 }
 
+const StatusWrapperTypography = styled(Typography)``;
+
 const StatusWrapper = styled(Box)<StatusWrapperProps>`
-  ${Typography} {
+  ${StatusWrapperTypography} {
     color: ${({ theme, textColor }) => theme.colors[textColor]};
   }
 `;

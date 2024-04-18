@@ -140,7 +140,7 @@ const JSONInput = React.forwardRef<JSONInputRef, JSONInputProps>(
   },
 );
 
-const JSONInputContainer = styled(Flex)`
+const JSONInputContainer = styled(Flex)<{ hasError: boolean }>`
   line-height: ${({ theme }) => theme.lineHeights[2]};
 
   .cm-editor {

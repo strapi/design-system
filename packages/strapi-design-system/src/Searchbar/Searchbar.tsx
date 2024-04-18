@@ -38,7 +38,7 @@ const SearchbarWrapper = styled.div`
     border: 1px solid transparent;
   }
 
-  ${inputFocusStyle(InputWrapper)}
+  ${inputFocusStyle(InputWrapper as unknown as string)}
 `;
 
 export interface SearchbarProps extends Omit<FieldInputProps, 'id' | 'name'>, Pick<FieldProps, 'id' | 'name'> {

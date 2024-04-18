@@ -117,7 +117,7 @@ const Toggle = React.forwardRef<ToggleInputElement, ToggleProps>(
   },
 );
 
-const ToggleWrapper = styled(Flex)`
+const ToggleWrapper = styled(Flex)<{ hasError: boolean }>`
   ${inputFocusStyle()}
 `;
 

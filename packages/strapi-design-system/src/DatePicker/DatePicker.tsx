@@ -1082,13 +1082,15 @@ const makeGetDatesInWeek = (from: CalendarDate, locale: string) => (weekIndex: n
   return dates;
 };
 
+const ToolbarTypography = styled(Typography)``;
+
 const ToolbarFlex = styled(Flex)`
   div[role='combobox'] {
     border: 1px solid transparent;
     background: transparent;
     font-weight: ${(props) => props.theme.fontWeights.bold};
 
-    ${Typography} {
+    ${ToolbarTypography} {
       color: ${({ theme }) => theme.colors.neutral800};
     }
 
@@ -1215,6 +1217,7 @@ const DatePickerCalendarCell = React.forwardRef<DatePickerCalendarCellElement, C
     );
   },
 );
+const CellTypography = styled(Typography)``;
 
 const Cell = styled(Box)`
   text-align: center;
@@ -1230,7 +1233,7 @@ const Cell = styled(Box)`
     &:hover {
       background: ${({ theme }) => theme.colors.primary100};
 
-      & > ${Typography} {
+      & > ${CellTypography} {
         color: ${({ theme }) => theme.colors.primary600};
       }
     }

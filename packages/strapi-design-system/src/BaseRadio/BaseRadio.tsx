@@ -61,7 +61,6 @@ export const BaseRadio = React.forwardRef<HTMLInputElement, BaseRadioProps>(
         checked={isSelected}
         disabled={disabled}
         id={generatedId}
-        // @ts-expect-error size is a html prop already.
         size={size}
         onChange={onChange}
         {...props}

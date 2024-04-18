@@ -10,6 +10,8 @@ import { Flex } from '../Flex';
 import { Tooltip } from '../Tooltip';
 import { Typography } from '../Typography';
 
+const MainNavLinkTypography = styled(Typography)``;
+
 const MainNavLinkWrapper = styled(BaseLink)`
   position: relative;
   text-decoration: none;
@@ -17,7 +19,7 @@ const MainNavLinkWrapper = styled(BaseLink)`
   border-radius: ${({ theme }) => theme.borderRadius};
   background: ${({ theme }) => theme.colors.neutral0};
 
-  ${Typography} {
+  ${MainNavLinkTypography} {
     color: ${({ theme }) => theme.colors.neutral600};
   }
 
@@ -28,7 +30,7 @@ const MainNavLinkWrapper = styled(BaseLink)`
   &:hover {
     background: ${({ theme }) => theme.colors.neutral100};
 
-    ${Typography} {
+    ${MainNavLinkTypography} {
       color: ${({ theme }) => theme.colors.neutral700};
     }
 
@@ -44,7 +46,7 @@ const MainNavLinkWrapper = styled(BaseLink)`
       fill: ${({ theme }) => theme.colors.primary600};
     }
 
-    ${Typography} {
+    ${MainNavLinkTypography} {
       color: ${({ theme }) => theme.colors.primary600};
       font-weight: 500;
     }
@@ -54,6 +56,8 @@ const MainNavLinkWrapper = styled(BaseLink)`
 const MainNavRow = styled(Flex)`
   padding: ${({ theme }) => `${theme.spaces[2]} ${theme.spaces[3]}`};
 `;
+
+const CustomBadgeTypography = styled(Typography)``;
 
 const CustomBadge = styled(Badge)<{ condensed?: boolean }>`
   ${({ theme, condensed }) =>
@@ -65,7 +69,7 @@ const CustomBadge = styled(Badge)<{ condensed?: boolean }>`
     right:  -${theme.spaces[1]};
   `}
 
-  ${Typography} {
+  ${CustomBadgeTypography} {
     //find a solution to remove !important
     color: ${({ theme }) => theme.colors.neutral0} !important;
     line-height: 0;

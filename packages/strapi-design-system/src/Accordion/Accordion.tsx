@@ -33,6 +33,7 @@ const getBorder = ({ theme, expanded, variant, disabled, error }: GetBorderParam
 };
 
 const AccordionTypography = styled(Typography)``;
+const AccordionFlex = styled(Flex)``;
 
 type AccordionWrapperProps = Pick<AccordionProps, 'expanded' | 'disabled' | 'variant' | 'error'>;
 
@@ -46,11 +47,11 @@ const AccordionWrapper = styled(Box)<AccordionWrapperProps>`
       color: ${({ theme, expanded }) => (expanded ? undefined : theme.colors.primary700)};
     }
 
-    ${Typography} {
+    ${AccordionTypography} {
       color: ${({ theme, expanded }) => (expanded ? undefined : theme.colors.primary600)};
     }
 
-    & > ${Flex} {
+    & > ${AccordionFlex} {
       background: ${({ theme }) => theme.colors.primary100};
     }
 

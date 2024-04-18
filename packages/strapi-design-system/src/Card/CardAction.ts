@@ -11,7 +11,6 @@ export const CardAction = styled(Flex).attrs({
   position: absolute;
   top: ${({ theme }) => theme.spaces[3]};
   right: ${({ position, theme }) => {
-    // @ts-expect-error styled-components can't overwrite the position prop from Flex
     if (position === 'end') {
       return theme.spaces[3];
     }
@@ -19,7 +18,6 @@ export const CardAction = styled(Flex).attrs({
     return undefined;
   }};
   left: ${({ position, theme }) => {
-    // @ts-expect-error styled-components can't overwrite the position prop from Flex
     if (position === 'start') {
       return theme.spaces[3];
     }

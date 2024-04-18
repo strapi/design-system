@@ -393,6 +393,8 @@ export const Option = React.forwardRef<HTMLDivElement, ComboboxOptionProps>(
   },
 );
 
+const OptionBoxTypography = styled(Typography)``;
+
 export const OptionBox = styled.div<{ $hasHover?: boolean }>`
   width: 100%;
   border: none;
@@ -406,7 +408,7 @@ export const OptionBox = styled.div<{ $hasHover?: boolean }>`
   &[data-state='checked'] {
     background-color: ${({ theme }) => theme.colors.primary100};
 
-    ${Typography} {
+    ${OptionBoxTypography} {
       color: ${({ theme }) => theme.colors.primary600};
       font-weight: bold;
     }
@@ -419,7 +421,7 @@ export const OptionBox = styled.div<{ $hasHover?: boolean }>`
   }
 
   &[data-highlighted] {
-    ${Typography} {
+    ${OptionBoxTypography} {
       color: ${({ theme }) => theme.colors.primary600};
       font-weight: bold;
     }
