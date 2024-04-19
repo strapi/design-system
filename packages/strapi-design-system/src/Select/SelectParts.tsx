@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { CarretDown, Cross } from '@strapi/icons';
+import { CaretDown, Cross } from '@strapi/icons';
 import { Select } from '@strapi/ui-primitives';
 import styled, { css } from 'styled-components';
 
@@ -91,7 +91,7 @@ const SelectTrigger = React.forwardRef<HTMLDivElement, TriggerProps>(
               </IconBox>
             ) : null}
             <DownIcon>
-              <CarretDown />
+              <CaretDown />
             </DownIcon>
           </Flex>
         </StyledTrigger>

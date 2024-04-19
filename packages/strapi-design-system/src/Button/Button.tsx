@@ -29,7 +29,6 @@ export const ButtonWrapper = styled(BaseButton)<Required<Pick<ButtonProps, 'size
 
   svg {
     height: 1.2rem;
-    width: auto;
   }
 
   &[aria-disabled='true'] {

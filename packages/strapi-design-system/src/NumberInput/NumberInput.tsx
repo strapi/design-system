@@ -2,7 +2,7 @@
 import * as React from 'react';
 
 import { NumberFormatter, NumberParser } from '@internationalized/number';
-import { CarretDown } from '@strapi/icons';
+import { CaretDown } from '@strapi/icons';
 import styled from 'styled-components';
 
 import { useDesignSystem } from '../DesignSystemProvider';
@@ -20,7 +20,6 @@ import { Flex } from '../Flex';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 import { useControllableState } from '../hooks/useControllableState';
 import { useId } from '../hooks/useId';
-import { Icon } from '../Icon';
 
 const ArrowButton = styled.button<{ reverse?: boolean }>`
   display: flex;
@@ -202,7 +201,7 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
                   type="button"
                   data-testid="ArrowUp"
                 >
-                  <Icon as={CarretDown} color="neutral500" />
+                  <CaretDown fill="neutral500" />
                 </ArrowButton>
                 <ArrowButton
                   disabled={disabled}
@@ -212,7 +211,7 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
                   type="button"
                   data-testid="ArrowDown"
                 >
-                  <Icon as={CarretDown} color="neutral500" />
+                  <CaretDown fill="neutral500" />
                 </ArrowButton>
               </>
             }

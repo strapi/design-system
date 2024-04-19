@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Icon, TextButton } from '@strapi/design-system';
+import { TextButton } from '@strapi/design-system';
 import { ArrowLeft, ArrowRight } from '@strapi/icons';
 
 const meta: Meta<typeof TextButton> = {
@@ -19,7 +19,7 @@ export const Base = {
 
 export const Icons = {
   render: () => (
-    <TextButton endIcon={<Icon as={ArrowRight} />} startIcon={<Icon as={ArrowLeft} />}>
+    <TextButton endIcon={<ArrowRight />} startIcon={<ArrowLeft />}>
       Click on me
     </TextButton>
   ),
@@ -29,7 +29,7 @@ export const Icons = {
 
 export const Disabled = {
   render: () => (
-    <TextButton disabled startIcon={<Icon as={ArrowLeft} />}>
+    <TextButton disabled startIcon={<ArrowLeft />}>
       Disabled TextButton
     </TextButton>
   ),
@@ -39,7 +39,7 @@ export const Disabled = {
 
 export const Loading = {
   render: () => (
-    <TextButton loading startIcon={<Icon as={ArrowLeft} />}>
+    <TextButton loading startIcon={<ArrowLeft />}>
       Loading
     </TextButton>
   ),

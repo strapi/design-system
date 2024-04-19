@@ -1,0 +1,4 @@
+{
+  "root": true,
+  "extends": ["@strapi/eslint-config/front/typescript"],
+}

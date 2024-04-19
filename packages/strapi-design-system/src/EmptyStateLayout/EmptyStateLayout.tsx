@@ -7,7 +7,7 @@ import { Typography } from '../Typography';
 export interface EmptyStateLayoutProps extends Pick<FlexProps, 'hasRadius' | 'shadow'> {
   action?: React.ReactNode;
   content: string;
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
 }
 
 const EmptyStateIconWrapper = styled(Box)`
@@ -32,9 +32,11 @@ export const EmptyStateLayout = ({
       hasRadius={hasRadius}
       shadow={shadow}
     >
-      <EmptyStateIconWrapper paddingBottom={6} aria-hidden>
-        {icon}
-      </EmptyStateIconWrapper>
+      {icon ? (
+        <EmptyStateIconWrapper paddingBottom={6} aria-hidden>
+          {icon}
+        </EmptyStateIconWrapper>
+      ) : null}
 
       <Box paddingBottom={4}>
         <Typography variant="delta" as="p" textAlign="center" textColor="neutral600">

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { CarretDown, Cross } from '@strapi/icons';
+import { CaretDown, Cross } from '@strapi/icons';
 import { Combobox as ComboboxPrimitive } from '@strapi/ui-primitives';
 import styled from 'styled-components';
 
@@ -244,7 +244,7 @@ export const ComboboxInput = React.forwardRef<ComboboxInputElement, ComboboxInpu
               </IconBox>
             ) : null}
             <DownIcon>
-              <CarretDown />
+              <CaretDown />
             </DownIcon>
           </Flex>
         </Trigger>

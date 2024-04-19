@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { Flex, Breadcrumbs, Crumb, CrumbLink, CrumbSimpleMenu, MenuItem } from '@strapi/design-system';
-import { CollectionType } from '@strapi/icons';
+import { CollectionType } from '@strapi/icons/symbols';
 
 const meta: Meta<typeof Breadcrumbs> = {
   title: 'Design System/Components/Breadcrumbs',
@@ -30,8 +30,8 @@ export const WithMenu = {
       <Breadcrumbs label="Folder navigatation" as="nav">
         <CrumbLink href="/">Media Library</CrumbLink>
         <CrumbSimpleMenu aria-label="See more ascendants folders" label="...">
-          <MenuItem to="/">Home</MenuItem>
-          <MenuItem to="/somewhere">Somewhere internal</MenuItem>
+          <MenuItem href="/">Home</MenuItem>
+          <MenuItem href="/somewhere">Somewhere internal</MenuItem>
         </CrumbSimpleMenu>
         <Crumb isCurrent>Cats</Crumb>
       </Breadcrumbs>

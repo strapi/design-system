@@ -30,6 +30,7 @@ export const Basic = {
 
 export const WithIcons = {
   render: () => (
+    // @ts-expect-error the as prop does not correctly infer props.
     <SimpleMenu aria-label="Notifications" as={IconButton} icon={<Bell />}>
       <MenuItem onSelect={() => console.log('view notification')}>Your review has been requested!</MenuItem>
       <MenuItem onSelect={() => console.log('view notification')}>There was an error with your billing.</MenuItem>

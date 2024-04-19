@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
-import { TimePicker, Flex, Button } from '@strapi/design-system';
+import { TimePicker, Flex, Button, TimePickerProps } from '@strapi/design-system';
 
 const meta: Meta<typeof TimePicker> = {
   title: 'Design System/Components/TimePicker',
@@ -40,7 +40,7 @@ export const Base = {
 
 export const Controlled = {
   render: () => {
-    const [value, setValue] = React.useState();
+    const [value, setValue] = React.useState<string>();
 
     return <TimePicker label="Lunchtime" onClear={() => setValue(undefined)} onChange={setValue} value={value} />;
   },
@@ -50,7 +50,7 @@ export const Controlled = {
 
 export const Steps = {
   render: () => {
-    const [value, setValue] = React.useState();
+    const [value, setValue] = React.useState<string>();
     return <TimePicker step={60} label="Lunch hour" onChange={setValue} value={value} />;
   },
 
@@ -59,13 +59,13 @@ export const Steps = {
 
 export const Sizing = {
   render: () => {
-    const [size, setSize] = React.useState('S');
+    const [size, setSize] = React.useState<TimePickerProps['size']>('S');
 
     return (
       <Flex direction="column" alignItems="stretch" gap={11}>
         <TimePicker required size={size} label={size === 'S' ? 'Small date picker' : 'Medium date picker'} />
         <Flex justifyContent="center">
-          <Button variant="primary" onClick={() => setSize((s) => (s === 'S' ? 'M' : 'S'))}>
+          <Button variant="default" onClick={() => setSize((s) => (s === 'S' ? 'M' : 'S'))}>
             {size === 'S' ? `Show medium size` : `Show small size`}
           </Button>
         </Flex>

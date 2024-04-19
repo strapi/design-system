@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 import { Typography, Flex, Button, Dialog, DialogBody, DialogFooter } from '@strapi/design-system';
-import { ExclamationMarkCircle, Trash } from '@strapi/icons';
+import { WarningCircle, Trash } from '@strapi/icons';
 
 const meta: Meta<typeof Dialog> = {
   title: 'Design System/Components/Dialog',
@@ -21,7 +21,7 @@ export const Base = {
       <>
         <Button onClick={() => setIsVisible(true)}>Click me</Button>
         <Dialog onClose={() => setIsVisible(false)} title="Confirmation" isOpen={isVisible}>
-          <DialogBody icon={<ExclamationMarkCircle />}>
+          <DialogBody icon={<WarningCircle />}>
             <Flex direction="column" alignItems="center" gap={2}>
               <Flex justifyContent="center">
                 <Typography id="confirm-description">Are you sure you want to delete this?</Typography>

@@ -14,7 +14,7 @@ type Story = StoryObj<typeof BaseButton>;
 
 export const Base = {
   render: () => (
-    <BaseButton onClick={(e: React.MouseEvent<HTMLButtonElement>) => console.log(e)}>
+    <BaseButton onClick={(e) => console.log(e)}>
       <Typography>button</Typography>
     </BaseButton>
   ),

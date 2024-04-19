@@ -13,7 +13,7 @@ import {
   NavBrand,
   NavFooter,
 } from '@strapi/design-system';
-import { Write, Layer, Landscape, Information, Puzzle, ShoppingCart, Cog } from '@strapi/icons';
+import { Feather, ListPlus, Images, Information, PuzzlePiece, ShoppingCart, Cog } from '@strapi/icons';
 
 const meta: Meta<typeof MainNav> = {
   title: 'Design System/Components/MainNav',
@@ -34,36 +34,34 @@ export const Base = {
           <NavBrand workplace="Workplace" title="Strapi Dashboard" icon={<img src={'/strapi-img.png'} alt="" />} />
           <Divider />
           <NavSections>
-            <NavLink to="/cm" icon={<Write />} className="active">
+            <NavLink href="/cm" icon={<Feather />} className="active">
               Content-type-builder
             </NavLink>
             <NavSection label="Plugins">
-              <NavLink to="/builder" icon={<Layer />}>
+              <NavLink href="/builder" icon={<ListPlus />}>
                 Builder
               </NavLink>
-              <NavLink to="/content" icon={<Landscape />}>
+              <NavLink href="/content" icon={<Images />}>
                 Media library
               </NavLink>
-              <NavLink to="/content" icon={<Information />}>
+              <NavLink href="/content" icon={<Information />}>
                 Documentation
               </NavLink>
             </NavSection>
             <NavSection label="General">
-              <NavLink to="/builder" icon={<Puzzle />}>
+              <NavLink href="/builder" icon={<PuzzlePiece />}>
                 Plugins
               </NavLink>
-              <NavLink to="/content" icon={<ShoppingCart />}>
+              <NavLink href="/content" icon={<ShoppingCart />}>
                 Marketplace
               </NavLink>
-              <NavLink to="/content" icon={<Cog />}>
+              <NavLink href="/content" icon={<Cog />}>
                 Settings
               </NavLink>
             </NavSection>
           </NavSections>
           <NavFooter>
-            <NavUser src="https://avatars.githubusercontent.com/u/3874873?v=4" to="/somewhere-i-belong">
-              John Duff
-            </NavUser>
+            <NavUser src="https://avatars.githubusercontent.com/u/3874873?v=4">John Duff</NavUser>
             <NavCondense onClick={() => setCondensed((s) => !s)}>
               {condensed ? 'Expanded the navbar' : 'Collapse the navbar'}
             </NavCondense>
@@ -87,29 +85,29 @@ export const Notifications = {
           <NavBrand workplace="Workplace" title="Strapi Dashboard" icon={<img src={'/strapi-img.png'} alt="" />} />
           <Divider />
           <NavSections>
-            <NavLink to="/cm" icon={<Write />} className="active">
+            <NavLink href="/cm" icon={<Feather />} className="active">
               Content
             </NavLink>
             <NavSection label="Plugins">
-              <NavLink to="/builder" icon={<Layer />}>
+              <NavLink href="/builder" icon={<ListPlus />}>
                 Builder
               </NavLink>
-              <NavLink to="/content" icon={<Landscape />}>
+              <NavLink href="/content" icon={<Images />}>
                 Media library
               </NavLink>
-              <NavLink to="/content" icon={<Information />}>
+              <NavLink href="/content" icon={<Information />}>
                 Documentation
               </NavLink>
             </NavSection>
             <NavSection label="General">
-              <NavLink to="/builder" icon={<Puzzle />}>
+              <NavLink href="/builder" icon={<PuzzlePiece />}>
                 Plugins
               </NavLink>
-              <NavLink to="/content" badgeContent="33" icon={<ShoppingCart />} badgeAriaLabel="new content">
+              <NavLink href="/content" badgeContent="33" icon={<ShoppingCart />} badgeAriaLabel="new content">
                 Marketplace
               </NavLink>
               <NavLink
-                to="/content"
+                href="/content"
                 badgeContent={numberOfNotifications}
                 icon={<Cog />}
                 badgeAriaLabel={`${numberOfNotifications} notifications`}

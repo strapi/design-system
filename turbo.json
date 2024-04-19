@@ -7,7 +7,7 @@
     },
     "@strapi/icons#build": {
       "dependsOn": ["^build"],
-      "inputs": ["assets/**"],
+      "inputs": ["assets/**", ".svgrrc", "src/index.ts"],
       "outputs": ["dist/**", "src/**"]
     },
     "clean": {

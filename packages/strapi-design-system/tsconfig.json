@@ -17,6 +17,8 @@
     "jsx": "react-jsx",
     "types": ["node", "jest", "@testing-library/jest-dom"],
     "baseUrl": ".",
+    "declaration": true,
+    "declarationMap": true,
     "paths": {
       "@test/*": ["./test/*"]
     }

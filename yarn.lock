@@ -5075,11 +5075,11 @@ __metadata:
     eslint-plugin-mdx: ^3.1.5
     qs: ^6.12.0
     react: 18.2.0
-    react-copy-to-clipboard: ^5.1.0
     react-dom: 18.2.0
     storybook: ^7.6.17
     storybook-dark-mode: ^3.0.3
     styled-components: ^5.3.11
+    typescript: 5.4.5
     vite: ^5.0.2
   languageName: unknown
   linkType: soft
@@ -5096,6 +5096,7 @@ __metadata:
     "@radix-ui/react-dropdown-menu": ^2.0.6
     "@radix-ui/react-focus-scope": 1.0.4
     "@strapi/icons": ^2.0.0-beta.0
+    "@strapi/pack-up": ^5.0.0
     "@strapi/ui-primitives": ^2.0.0-beta.0
     "@types/react-router-dom": ^5.3.3
     "@types/styled-components": ^5.1.26
@@ -5103,7 +5104,9 @@ __metadata:
     aria-hidden: ^1.2.4
     cross-env: ^7.0.3
     react-remove-scroll: ^2.5.9
+    rimraf: ^5.0.5
     styled-components: ^5.3.11
+    typescript: ^5.4.4
   peerDependencies:
     "@strapi/icons": ^2.0.0-beta.0
     react: ^17.0.0 || ^18.0.0
@@ -5147,7 +5150,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@strapi/icons@workspace:packages/strapi-icons"
   dependencies:
+    "@strapi/pack-up": ^5.0.0
     "@svgr/cli": 8.1.0
+    rimraf: ^5.0.5
   peerDependencies:
     react: ^17.0.0 || ^18.0.0
     react-dom: ^17.0.0 || ^18.0.0
@@ -5208,8 +5213,11 @@ __metadata:
     "@radix-ui/react-use-layout-effect": 1.0.1
     "@radix-ui/react-use-previous": ^1.0.1
     "@radix-ui/react-visually-hidden": ^1.0.3
+    "@strapi/pack-up": ^5.0.0
     aria-hidden: ^1.2.4
     react-remove-scroll: ^2.5.9
+    rimraf: ^5.0.5
+    typescript: ^5.4.4
   peerDependencies:
     react: ^17.0.0 || ^18.0.0
     react-dom: ^17.0.0 || ^18.0.0
@@ -8420,15 +8428,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"copy-to-clipboard@npm:^3.3.1":
-  version: 3.3.3
-  resolution: "copy-to-clipboard@npm:3.3.3"
-  dependencies:
-    toggle-selection: ^1.0.6
-  checksum: e0a325e39b7615108e6c1c8ac110ae7b829cdc4ee3278b1df6a0e4228c490442cc86444cd643e2da344fbc424b3aab8909e2fec82f8bc75e7e5b190b7c24eecf
-  languageName: node
-  linkType: hard
-
 "core-js-compat@npm:^3.31.0, core-js-compat@npm:^3.36.1":
   version: 3.36.1
   resolution: "core-js-compat@npm:3.36.1"
@@ -9036,7 +9035,6 @@ __metadata:
     "@commitlint/config-conventional": 19.1.0
     "@juggle/resize-observer": ^3.4.0
     "@strapi/eslint-config": ^0.2.0
-    "@strapi/pack-up": ^5.0.0
     "@swc/core": ^1.4.8
     "@swc/jest": ^0.2.36
     "@testing-library/jest-dom": 6.4.2
@@ -9067,7 +9065,6 @@ __metadata:
     jest-watch-typeahead: 2.2.2
     prettier: ^3.2.5
     prettier-2: "npm:prettier@^2"
-    rimraf: ^5.0.5
     turbo: 1.13.2
     typescript: ^5.4.4
   languageName: unknown
@@ -16056,18 +16053,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-copy-to-clipboard@npm:^5.1.0":
-  version: 5.1.0
-  resolution: "react-copy-to-clipboard@npm:5.1.0"
-  dependencies:
-    copy-to-clipboard: ^3.3.1
-    prop-types: ^15.8.1
-  peerDependencies:
-    react: ^15.3.0 || 16 || 17 || 18
-  checksum: f00a4551b9b63c944a041a6ab46af5ef20ba1106b3bc25173e7ef9bffbfba17a613368682ab8820cfe8d4b3acc5335cd9ce20229145bcc1e6aa8d1db04c512e5
-  languageName: node
-  linkType: hard
-
 "react-docgen-typescript@npm:^2.2.2":
   version: 2.2.2
   resolution: "react-docgen-typescript@npm:2.2.2"
@@ -18021,13 +18006,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"toggle-selection@npm:^1.0.6":
-  version: 1.0.6
-  resolution: "toggle-selection@npm:1.0.6"
-  checksum: a90dc80ed1e7b18db8f4e16e86a5574f87632dc729cfc07d9ea3ced50021ad42bb4e08f22c0913e0b98e3837b0b717e0a51613c65f30418e21eb99da6556a74c
-  languageName: node
-  linkType: hard
-
 "toidentifier@npm:1.0.1":
   version: 1.0.1
   resolution: "toidentifier@npm:1.0.1"
@@ -18444,6 +18422,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"typescript@npm:5.4.5":
+  version: 5.4.5
+  resolution: "typescript@npm:5.4.5"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 53c879c6fa1e3bcb194b274d4501ba1985894b2c2692fa079db03c5a5a7140587a1e04e1ba03184605d35f439b40192d9e138eb3279ca8eee313c081c8bcd9b0
+  languageName: node
+  linkType: hard
+
 "typescript@patch:typescript@5.4.4#~builtin<compat/typescript>, typescript@patch:typescript@^5.4.4#~builtin<compat/typescript>":
   version: 5.4.4
   resolution: "typescript@patch:typescript@npm%3A5.4.4#~builtin<compat/typescript>::version=5.4.4&hash=85af82"
@@ -18451,6 +18439,16 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 34e8fe6b892736204c6c72ae9e3027fb37f23e34cf748340712101cbe9c55527c379c4d275c407e5c66ff73eca56c7425b1fb4ac5b23dc7a62413cf6a8af98e8
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@5.4.5#~builtin<compat/typescript>":
+  version: 5.4.5
+  resolution: "typescript@patch:typescript@npm%3A5.4.5#~builtin<compat/typescript>::version=5.4.5&hash=85af82"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 2373c693f3b328f3b2387c3efafe6d257b057a142f9a79291854b14ff4d5367d3d730810aee981726b677ae0fd8329b23309da3b6aaab8263dbdccf1da07a3ba
   languageName: node
   linkType: hard
 

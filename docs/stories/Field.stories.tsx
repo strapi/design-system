@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 import { FieldLabel, FieldHint, FieldError, FieldInput, Field, Flex, FieldAction } from '@strapi/design-system';
-import { Password } from '@strapi/icons';
+import { PasswordField } from '@strapi/icons/symbols';
 
 const meta: Meta<typeof Field> = {
   title: 'Design System/Components/Field',
@@ -81,7 +81,7 @@ export const AddingActions = {
                 onClick={() => setShowPassword((s) => !s)}
                 label={`${showPassword ? 'hide' : 'show'} password`}
               >
-                <Password />
+                <PasswordField />
               </FieldAction>
             }
           />

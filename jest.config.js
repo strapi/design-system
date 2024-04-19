@@ -7,7 +7,7 @@ const path = require('path');
  */
 module.exports = {
   rootDir: __dirname,
-  testMatch: ['/**/__tests__/**/?(*.)+(spec|test).[jt]s?(x)'],
+  testMatch: ['/**/(*.)+(spec|test).[jt]s?(x)'],
   moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx'],
   globalSetup: '<rootDir>/test/global-setup.js',
   setupFilesAfterEnv: ['@testing-library/jest-dom', '<rootDir>/test/env-setup.js'],
@@ -17,6 +17,7 @@ module.exports = {
     '\\.(css|less)$': '<rootDir>/__mocks__/styleMock.js',
     '^@strapi/design-system$': '<rootDir>/packages/strapi-design-system/src',
     '^@strapi/ui-primitives$': '<rootDir>/packages/primitives/src',
+    '^@strapi/icons$': '<rootDir>/packages/strapi-icons/src',
     '^react$': path.join(__dirname, 'node_modules/react'),
     '^react-dom$': path.join(__dirname, 'node_modules/react-dom'),
     '^react-router-dom$': path.join(__dirname, 'node_modules/react-router-dom'),

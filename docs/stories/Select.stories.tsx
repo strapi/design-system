@@ -62,7 +62,7 @@ export const Basic = {
 
 export const Controlled = {
   render: () => {
-    const [value, setValue] = React.useState();
+    const [value, setValue] = React.useState<string | number>();
 
     return (
       <SingleSelect
@@ -92,7 +92,7 @@ type MultipleSelectStory = StoryObj<typeof MultiSelect>;
 
 export const Multiple = {
   render: () => {
-    const [values, setValues] = React.useState([]);
+    const [values, setValues] = React.useState<string[]>([]);
 
     return (
       <MultiSelect
@@ -121,7 +121,7 @@ export const Multiple = {
 
 export const MultipleWithTags = {
   render: () => {
-    const [values, setValues] = React.useState([]);
+    const [values, setValues] = React.useState<string[]>([]);
 
     return (
       <MultiSelect
@@ -196,7 +196,7 @@ export const MultipleNestedSelect = {
       },
     ];
 
-    const [values, setValues] = React.useState([]);
+    const [values, setValues] = React.useState<Array<string>>([]);
 
     return (
       <MultiSelectNested

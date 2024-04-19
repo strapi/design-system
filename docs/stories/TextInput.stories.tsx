@@ -113,19 +113,3 @@ export const Password = {
 
   name: 'password',
 } satisfies Story;
-
-export const WithoutLabel = {
-  render: () => (
-    <TextInput
-      placeholder="This is a password placeholder"
-      type="password"
-      aria-label="Password"
-      name="password"
-      hint="Description line"
-      value="content"
-      labelAction={<Information aria-hidden />}
-    />
-  ),
-
-  name: 'withoutLabel',
-} satisfies Story;

@@ -123,42 +123,27 @@ const IconButtonWrapper = styled(BaseButton)<Required<Pick<IconButtonProps, 'siz
   }};
   height: ${({ theme, size }) => theme.sizes.button[size]};
   width: ${({ theme, size }) => theme.sizes.button[size]};
-
-  svg {
-    g,
-    path {
-      fill: ${({ theme, variant }) => {
-        if (variant === VARIANT_SECONDARY) {
-          return theme.colors.primary500;
-        }
-
-        return theme.colors.neutral500;
-      }};
+  color: ${({ theme, variant }) => {
+    if (variant === VARIANT_SECONDARY) {
+      return theme.colors.primary500;
     }
-  }
 
-  :hover,
-  :focus {
-    svg {
-      g,
-      path {
-        fill: ${({ theme, variant }) => {
-          if (variant === VARIANT_SECONDARY) {
-            return theme.colors.primary600;
-          }
+    return theme.colors.neutral500;
+  }};
 
-          return theme.colors.neutral600;
-        }};
+  &:hover,
+  &:focus {
+    color: ${({ theme, variant }) => {
+      if (variant === VARIANT_SECONDARY) {
+        return theme.colors.primary600;
       }
-    }
+
+      return theme.colors.neutral600;
+    }};
   }
 
   &[aria-disabled='true'] {
-    svg {
-      path {
-        fill: ${({ theme }) => theme.colors.neutral600};
-      }
-    }
+    color: ${({ theme }) => theme.colors.neutral600};
   }
 `;
 
@@ -175,38 +160,20 @@ export const IconButtonGroup = styled(Flex)`
   & ${IconButtonWrapper} {
     border-radius: 0;
     border-left: none;
-
-    svg {
-      path {
-        fill: ${({ theme }) => theme.colors.neutral700};
-      }
-    }
+    color: ${({ theme }) => theme.colors.neutral700};
 
     &:hover {
       background-color: ${({ theme }) => theme.colors.neutral100};
-
-      svg {
-        path {
-          fill: ${({ theme }) => theme.colors.neutral800};
-        }
-      }
+      color: ${({ theme }) => theme.colors.neutral800};
     }
 
     &:active {
       background-color: ${({ theme }) => theme.colors.neutral150};
-      svg {
-        path {
-          fill: ${({ theme }) => theme.colors.neutral900};
-        }
-      }
+      color: ${({ theme }) => theme.colors.neutral900};
     }
 
     &[aria-disabled='true'] {
-      svg {
-        path {
-          fill: ${({ theme }) => theme.colors.neutral600};
-        }
-      }
+      color: ${({ theme }) => theme.colors.neutral600};
     }
   }
 `;
