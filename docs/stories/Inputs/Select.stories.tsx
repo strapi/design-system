@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import { useArgs } from '@storybook/preview-api';
 import { Meta, StoryObj } from '@storybook/react';
 import {
   Flex,
@@ -9,10 +10,15 @@ import {
   SingleSelectOption,
   MultiSelect,
   MultiSelectOption,
+  Field,
+  FieldHint,
+  FieldError,
+  FieldLabel,
 } from '@strapi/design-system';
+import { default as outdent } from 'outdent';
 
 const meta: Meta = {
-  title: 'Design System/Components/Select',
+  title: 'Design System/Inputs/Select',
 };
 
 export default meta;
@@ -21,7 +27,6 @@ type SingleSelectStory = StoryObj<typeof SingleSelect>;
 
 export const Basic = {
   render: () => {
-    const [error, toggleError] = React.useState<string>();
     const [disabled, toggleDisabled] = React.useState(false);
 
     return (
@@ -31,7 +36,6 @@ export const Basic = {
           required
           placeholder="My favourite fruit is..."
           hint="Fruits are not vegetables"
-          error={error}
           disabled={disabled}
         >
           <SingleSelectOption value="apple">Apple</SingleSelectOption>
@@ -43,12 +47,6 @@ export const Basic = {
           <SingleSelectOption value="strawberry">Strawberry</SingleSelectOption>
         </SingleSelect>
         <Flex gap={2} justifyContent="center">
-          <Button
-            variant="danger-light"
-            onClick={() => toggleError((s) => (s ? undefined : 'Oh no, the fruits have gone mouldy!'))}
-          >
-            {`${error ? 'Hide' : 'Show'} the error state`}
-          </Button>
           <Button variant="tertiary" onClick={() => toggleDisabled((s) => !s)}>
             {`${disabled ? 'Hide' : 'Show'} the disabled state`}
           </Button>
@@ -215,3 +213,74 @@ export const MultipleNestedSelect = {
 
   name: 'multiple nested select',
 } satisfies MultipleSelectNestedStory;
+
+export const WithField = {
+  render: ({ error }) => {
+    const [, updateArgs] = useArgs();
+
+    return (
+      <Field
+        id="with_field"
+        error={error ? 'Error' : undefined}
+        hint={error ? undefined : 'Description line lorem ipsum'}
+      >
+        <FieldLabel>Fruits</FieldLabel>
+        <SingleSelect
+          placeholder="My favourite fruit is..."
+          hint="Fruits are not vegetables"
+          error={error ? 'Error' : undefined}
+        >
+          <SingleSelectOption value="apple">Apple</SingleSelectOption>
+          <SingleSelectOption value="avocado">Avocado</SingleSelectOption>
+          <SingleSelectOption value="banana">Banana</SingleSelectOption>
+          <SingleSelectOption value="kiwi">Kiwi</SingleSelectOption>
+          <SingleSelectOption value="mango">Mango</SingleSelectOption>
+          <SingleSelectOption value="orange">Orange</SingleSelectOption>
+          <SingleSelectOption value="strawberry">Strawberry</SingleSelectOption>
+        </SingleSelect>
+        <FieldError />
+        <FieldHint />
+        <Button variant="danger-light" onClick={() => updateArgs({ error: !error })}>
+          {`${error ? 'Hide' : 'Show'} the error state`}
+        </Button>
+      </Field>
+    );
+  },
+  args: {
+    error: false,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+        <Field
+          id="with_field"
+          disabled={disabled}
+          error={error ? 'Error' : undefined}
+          hint={error ? undefined : 'Description line lorem ipsum'}
+        >
+          <FieldLabel>Fruits</FieldLabel>
+          <SingleSelect
+          placeholder="My favourite fruit is..."
+          hint="Fruits are not vegetables"
+          error={error ? 'Error' : undefined}
+          disabled={disabled}
+        >
+          <SingleSelectOption value="apple">Apple</SingleSelectOption>
+          <SingleSelectOption value="avocado">Avocado</SingleSelectOption>
+          <SingleSelectOption value="banana">Banana</SingleSelectOption>
+          <SingleSelectOption value="kiwi">Kiwi</SingleSelectOption>
+          <SingleSelectOption value="mango">Mango</SingleSelectOption>
+          <SingleSelectOption value="orange">Orange</SingleSelectOption>
+          <SingleSelectOption value="strawberry">Strawberry</SingleSelectOption>
+        </SingleSelect>
+          <FieldError />
+          <FieldHint />
+        </Field>
+        `,
+      },
+    },
+  },
+
+  name: 'with field',
+} satisfies SingleSelectStory;

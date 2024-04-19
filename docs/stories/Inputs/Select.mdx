@@ -13,6 +13,13 @@ import * as SelectStories from './Select.stories';
 
 # Select
 
+- [Overview](#overview)
+- [Usage](#usage)
+- [Props](#props)
+- [Variants](#variants)
+
+## Overview
+
 Select components are used for collecting user provided information from a list of options. They can
 be configured to allow single or multiple selections.
 
@@ -27,15 +34,32 @@ import {
   MultiSelect,
   MultiSelectOption,
   MultiSelectNested,
-  /**
-   * These imports are still valid, but will be removed in the
-   * next major iteration
-   */
-  Select,
-  Option,
-  OptGroup,
 } from '@strapi/design-system';
 ```
+
+<Canvas of={SelectStories.Basic} />
+
+## Props
+
+### SingleSelect
+
+<ArgsTable of={SingleSelect} />
+
+### SingleSelectOption
+
+<ArgsTable of={SingleSelectOption} />
+
+### MultiSelect
+
+<ArgsTable of={MultiSelect} />
+
+### MultiSelectOption
+
+<ArgsTable of={MultiSelectOption} />
+
+### MultiSelectNested
+
+<ArgsTable of={MultiSelectNested} />
 
 ### Basic usage
 
@@ -75,24 +99,8 @@ Instead of passing a `customizeContent` prop, you can pass the `withTags` prop w
 
 <Canvas of={SelectStories.MultipleNestedSelect} />
 
-## Props
+### With Field
 
-### SingleSelect
+select with field hint or error
 
-<ArgsTable of={SingleSelect} />
-
-### SingleSelectOption
-
-<ArgsTable of={SingleSelectOption} />
-
-### MultiSelect
-
-<ArgsTable of={MultiSelect} />
-
-### MultiSelectOption
-
-<ArgsTable of={MultiSelectOption} />
-
-### MultiSelectNested
-
-<ArgsTable of={MultiSelectNested} />
+<Canvas of={SelectStories.WithField} />
