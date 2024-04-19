@@ -1,0 +1,47 @@
+import { Meta, ArgsTable, Canvas } from '@storybook/blocks';
+import { JSONInput } from '@strapi/design-system';
+
+import * as JsonInputStories from './JSONInput.stories';
+
+<Meta of={JsonInputStories} />
+
+# JSONInput
+
+- [Overview](#overview)
+- [Usage](#usage)
+- [Props](#props)
+- [Variants](#variants)
+
+## Overview
+
+JSON input allows users to view, add or edit JSON data in a dedicated editor.
+JSON inputs can also be used to display raw data.
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/JSONInput)
+
+## Usage
+
+```js
+import { JSONInput } from '@strapi/design-system';
+```
+
+<Canvas of={JsonInputStories.Basic} />
+
+## Props
+
+<ArgsTable of={JSONInput} />
+
+## variants
+
+### Basic
+
+<Canvas of={JsonInputStories.Basic} />
+
+### Disabled
+
+<Canvas of={JsonInputStories.Disabled} />
+
+### With field
+
+JSON input field with hint or errror.
+
+<Canvas of={JsonInputStories.WithField} />

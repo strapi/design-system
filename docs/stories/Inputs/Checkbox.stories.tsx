@@ -1,39 +1,53 @@
 import * as React from 'react';
 
+import { useArgs } from '@storybook/preview-api';
 import { Meta, StoryObj } from '@storybook/react';
-import { Checkbox, Field, FieldHint, FieldError } from '@strapi/design-system';
+import { Checkbox, Field, FieldHint, FieldError, Button } from '@strapi/design-system';
 import { default as outdent } from 'outdent';
 
 const meta: Meta<typeof Checkbox> = {
   title: 'Design System/Inputs/Checkbox',
-  component: ({ label, ...props }) => {
-    const [val, setValue] = React.useState(false);
+  component: Checkbox,
+};
+export default meta;
+
+type Story = StoryObj<typeof Checkbox>;
+
+const Template: Story = {
+  render: ({ label, checked, ...props }) => {
+    const [, updateArgs] = useArgs();
+
+    const handleChange = () => {
+      updateArgs({ checked: !checked });
+    };
+
     return (
-      <Checkbox name="default" onValueChange={(value) => setValue(value)} value={val} {...props}>
+      <Checkbox value={checked} onChange={handleChange} {...props}>
         {label}
       </Checkbox>
     );
   },
 };
 
-export default meta;
-
-type Story = StoryObj<typeof Checkbox>;
-
 export const Base = {
-  name: 'base',
+  ...Template,
   args: {
     label: 'Label',
+    checked: false,
   },
 
   parameters: {
     docs: {
       source: {
-        code: '<Checkbox>Label</Checkbox>',
+        code: outdent`
+        <Checkbox value={checked} onChange={handleChange}>
+          {label}
+        </Checkbox>`,
       },
     },
   },
-} satisfies Story;
+  name: 'base',
+};
 
 export const Indeterminate = {
   render: () => {
@@ -86,6 +100,7 @@ export const Indeterminate = {
 } satisfies Story;
 
 export const Disabled = {
+  ...Template,
   args: {
     ...Base.args,
     disabled: true,
@@ -102,56 +117,47 @@ export const Disabled = {
 } satisfies Story;
 
 export const WithField = {
-  render: () => {
+  render: ({ error, label, disabled }) => {
+    const [, updateArgs] = useArgs();
+
     return (
-      <ul>
-        <Field as="li" id="with_hint" hint="Description line lorem ipsum">
-          <Checkbox id="child1" name="child1">
-            Child 1
-          </Checkbox>
-          <FieldHint />
-        </Field>
-        <Field as="li" id="with_error" error="Error">
-          <Checkbox id="child2" name="child2">
-            Child 2
-          </Checkbox>
-          <FieldError />
-        </Field>
-      </ul>
+      <Field
+        id="with_field"
+        disabled={disabled}
+        error={error ? 'Error' : undefined}
+        hint={error ? undefined : 'Description line lorem ipsum'}
+      >
+        <Checkbox id="checkbox">{label}</Checkbox>
+        <FieldError />
+        <FieldHint />
+        <Button variant="danger-light" onClick={() => updateArgs({ error: !error })}>
+          {`${error ? 'Hide' : 'Show'} the error state`}
+        </Button>
+      </Field>
     );
   },
-
-  name: 'with field',
-
+  args: {
+    ...Disabled.args,
+    error: false,
+  },
   parameters: {
     docs: {
       source: {
         code: outdent`
-    import * as React from 'react';
-    import { Checkbox, Field, FieldHint, FieldError } from '@strapi/design-system';
-
-    export const WithField = () => {
-      const [checkedItems, setCheckedItems] = React.useState([true, false]);
-
-      return (
-        <ul>
-        <Field as="li" id="with_hint" hint="Description line lorem ipsum">
-          <Checkbox id="child1" name="child1">
-            Child 1
-          </Checkbox>
+        <Field
+          id="with_field"
+          disabled={disabled}
+          error={error ? 'Error' : undefined}
+          hint={error ? undefined : 'Description line lorem ipsum'}
+        >
+          <Checkbox id="checkbox">{label}</Checkbox>
+          <FieldError />
           <FieldHint />
         </Field>
-        <Field as="li" id="with_error" error="Error">
-          <Checkbox id="child2" name="child2">
-            Child 2
-          </Checkbox>
-          <FieldError />
-        </Field>
-      </ul>
-      );
-    };
-    `,
+        `,
       },
     },
   },
+
+  name: 'with field',
 } satisfies Story;

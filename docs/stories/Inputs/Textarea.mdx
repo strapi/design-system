@@ -1,0 +1,46 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
+import { Textarea } from '@strapi/design-system';
+
+import * as TextareaStories from './Textarea.stories';
+
+<Meta of={TextareaStories} />
+
+# Textarea
+
+- [Overview](#overview)
+- [Usage](#usage)
+- [Props](#props)
+- [Variants](#variants)
+
+## Overview
+
+TextAreas allows user to enter a sizeable amount of free-form text.
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Textarea)
+
+## Usage
+
+```js
+import { Textarea } from '@strapi/design-system';
+```
+
+<Canvas of={TextareaStories.Base} />
+
+## Props
+
+<ArgsTable of={Textarea} />
+
+## variants
+
+### Base
+
+<Canvas of={TextareaStories.Base} />
+
+### Disabled
+
+<Canvas of={TextareaStories.Disabled} />
+
+### With field
+
+Textarea with field hint or error
+
+<Canvas of={TextareaStories.WithField} />

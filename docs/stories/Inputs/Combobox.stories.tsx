@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import { useArgs } from '@storybook/preview-api';
 import { Meta, StoryObj } from '@storybook/react';
 import {
   Combobox,
@@ -11,12 +12,22 @@ import {
   Field,
   FieldHint,
   FieldError,
+  Button,
+  FieldLabel,
 } from '@strapi/design-system';
 import { default as outdent } from 'outdent';
 
 const meta: Meta<typeof Combobox> = {
   title: 'Design System/Inputs/Combobox',
-  component: ({ ...props }) => {
+  component: Combobox,
+};
+
+export default meta;
+
+type Story = StoryObj<typeof Combobox>;
+
+const Template: Story = {
+  render: ({ ...props }) => {
     const [value, setValue] = React.useState('');
 
     return (
@@ -39,12 +50,9 @@ const meta: Meta<typeof Combobox> = {
   },
 };
 
-export default meta;
-
-type Story = StoryObj<typeof Combobox>;
-
 export const Basic = {
-  name: 'basic',
+  ...Template,
+  name: 'base',
   parameters: {
     docs: {
       source: {
@@ -71,6 +79,7 @@ export const Basic = {
 } satisfies Story;
 
 export const Disabled = {
+  ...Template,
   args: {
     disabled: true,
   },
@@ -243,62 +252,51 @@ export const Autocomplete = {
 } satisfies Story;
 
 export const WithField = {
-  render: () => {
+  args: {
+    ...Disabled.args,
+    error: false,
+  },
+  render: ({ error, disabled }) => {
+    const [, updateArgs] = useArgs();
+
     return (
-      <Flex direction="column" alignItems="stretch" gap={8}>
-        <Field id="with_hint" hint="Description line lorem ipsum">
-          <Combobox placeholder="My favourite fruit is...">
-            <ComboboxOption value="apple">Apple</ComboboxOption>
-            <ComboboxOption value="avocado">Avocado</ComboboxOption>
-            <ComboboxOption value="banana">Banana</ComboboxOption>
-            <ComboboxOption value="kiwi">Kiwi</ComboboxOption>
-            <ComboboxOption value="mango">Mango</ComboboxOption>
-            <ComboboxOption value="orange">Orange</ComboboxOption>
-            <ComboboxOption value="strawberry">Strawberry</ComboboxOption>
-          </Combobox>
-          <FieldHint />
-        </Field>
-        <Field id="with_error" error="Error">
-          <Combobox placeholder="My favourite fruit is..." error="error">
-            <ComboboxOption value="apple">Apple</ComboboxOption>
-            <ComboboxOption value="avocado">Avocado</ComboboxOption>
-            <ComboboxOption value="banana">Banana</ComboboxOption>
-            <ComboboxOption value="kiwi">Kiwi</ComboboxOption>
-            <ComboboxOption value="mango">Mango</ComboboxOption>
-            <ComboboxOption value="orange">Orange</ComboboxOption>
-            <ComboboxOption value="strawberry">Strawberry</ComboboxOption>
-          </Combobox>
-          <FieldError />
-        </Field>
-      </Flex>
+      <Field
+        id="with_field"
+        disabled={disabled}
+        error={error ? 'Error' : undefined}
+        hint={error ? undefined : 'Description line lorem ipsum'}
+      >
+        <FieldLabel>Fruits</FieldLabel>
+        <Combobox disabled={disabled} placeholder="My favourite fruit is..." error={error ? 'Error' : undefined}>
+          <ComboboxOption value="apple">Apple</ComboboxOption>
+          <ComboboxOption value="avocado">Avocado</ComboboxOption>
+          <ComboboxOption value="banana">Banana</ComboboxOption>
+          <ComboboxOption value="kiwi">Kiwi</ComboboxOption>
+          <ComboboxOption value="mango">Mango</ComboboxOption>
+          <ComboboxOption value="orange">Orange</ComboboxOption>
+          <ComboboxOption value="strawberry">Strawberry</ComboboxOption>
+        </Combobox>
+        <FieldError />
+        <FieldHint />
+        <Button variant="danger-light" onClick={() => updateArgs({ error: !error })}>
+          {`${error ? 'Hide' : 'Show'} the error state`}
+        </Button>
+      </Field>
     );
   },
-
-  name: 'with field',
 
   parameters: {
     docs: {
       source: {
         code: outdent`
-    import { Combobox, ComboboxOption, Field, FieldHint, FieldError } from '@strapi/design-system';
-
-    export const WithField = () => {
-      return (
-        <Flex direction="column" alignItems="stretch" gap={8}>
-        <Field id="with_hint" hint="Description line lorem ipsum">
-          <Combobox placeholder="My favourite fruit is...">
-            <ComboboxOption value="apple">Apple</ComboboxOption>
-            <ComboboxOption value="avocado">Avocado</ComboboxOption>
-            <ComboboxOption value="banana">Banana</ComboboxOption>
-            <ComboboxOption value="kiwi">Kiwi</ComboboxOption>
-            <ComboboxOption value="mango">Mango</ComboboxOption>
-            <ComboboxOption value="orange">Orange</ComboboxOption>
-            <ComboboxOption value="strawberry">Strawberry</ComboboxOption>
-          </Combobox>
-          <FieldHint />
-        </Field>
-        <Field id="with_error" error="Error">
-          <Combobox placeholder="My favourite fruit is..." error="error">
+        <Field
+          id="with_field"
+          disabled={disabled}
+          error={error ? 'Error' : undefined}
+          hint={error ? undefined : 'Description line lorem ipsum'}
+        >
+          <FieldLabel>Fruits</FieldLabel>
+          <Combobox disabled={disabled} placeholder="My favourite fruit is..." error={error ? 'Error' : undefined}>
             <ComboboxOption value="apple">Apple</ComboboxOption>
             <ComboboxOption value="avocado">Avocado</ComboboxOption>
             <ComboboxOption value="banana">Banana</ComboboxOption>
@@ -308,12 +306,12 @@ export const WithField = {
             <ComboboxOption value="strawberry">Strawberry</ComboboxOption>
           </Combobox>
           <FieldError />
+          <FieldHint />
         </Field>
-      </Flex>
-      );
-    };
-    `,
+        `,
       },
     },
   },
+
+  name: 'with field',
 } satisfies Story;

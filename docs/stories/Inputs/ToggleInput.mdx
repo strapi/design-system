@@ -7,6 +7,15 @@ import * as ToggleInputStories from './ToggleInput.stories';
 
 # ToggleInput
 
+- [Overview](#overview)
+- [Usage](#usage)
+- [Props](#props)
+- [Variants](#variants)
+
+## Overview
+
+Enable users to switch a single option between on and off states
+
 [View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/ToggleInput)
 
 ## Usage
@@ -15,22 +24,21 @@ import * as ToggleInputStories from './ToggleInput.stories';
 import { ToggleInput } from '@strapi/design-system';
 ```
 
-### Basic
+<Canvas of={ToggleInputStories.Base} />
 
-By default, the checked state is `false` and uncontrolled.
+## Props
+
+<ArgsTable of={ToggleInput} />
+
+## Variants
+
+### Base
 
 <Canvas of={ToggleInputStories.Base} />
 
-### Controlled
-
-By passing an `onChange` handler and a `checked` value, the component becomes controlled.
-Instead of returning the value, the `onChange` handler recieves the `ChangeEvent<HTMLInputElement>`.
-
-<Canvas of={ToggleInputStories.Controlled} />
-
 ### Size S
 
-Similar to other inputs, we support a `small` size.
+Toggle input with `small` size.
 
 <Canvas of={ToggleInputStories.SizeS} />
 
@@ -38,12 +46,13 @@ Similar to other inputs, we support a `small` size.
 
 Where desirable you can supply a `null` value to the component. This may be helpful in
 circumstances such whether or not a restaurant is open – `true` / `false` / not yet specified (`null`).
-
 It's additionally possible to "clear" the value by passing an `onClear` handler and a `clearLabel`.
 This label _will not show_ if the value is `null`.
 
 <Canvas of={ToggleInputStories.Nullish} />
 
-## Props
+### With field
 
-<ArgsTable of={ToggleInput} />
+Toggle input with field hint or error
+
+<Canvas of={ToggleInputStories.WithField} />
