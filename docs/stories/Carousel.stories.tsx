@@ -48,13 +48,13 @@ export const Base = {
         }}
       >
         <CarouselSlide label="1 of 3 slides">
-          <CarouselImage src={'/first.jpg'} alt="First" />
+          <CarouselImage src={'/stories/carousel/first.jpg'} alt="First" />
         </CarouselSlide>
         <CarouselSlide label="2 of 3 slides">
-          <CarouselImage src={'/second.png'} alt="second" />
+          <CarouselImage src={'/stories/carousel/second.png'} alt="second" />
         </CarouselSlide>
         <CarouselSlide label="3 of 3 slides">
-          <CarouselImage src={'/third.png'} alt="third" />
+          <CarouselImage src={'/stories/carousel/third.png'} alt="third" />
         </CarouselSlide>
       </CarouselInput>
     );
@@ -85,7 +85,7 @@ export const OneSlideOnly = {
         }}
       >
         <CarouselSlide label="1 of 1 slides">
-          <CarouselImage src={'/first.jpg'} alt="First" />
+          <CarouselImage src={'/stories/carousel/first.jpg'} alt="First" />
         </CarouselSlide>
       </CarouselInput>
     );

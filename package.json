@@ -74,5 +74,8 @@
   "resolutions": {
     "@testing-library/dom": "^9.0.0",
     "@types/react": "18.2.74"
+  },
+  "dependencies": {
+    "tinycolor2": "1.6.0"
   }
 }

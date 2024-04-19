@@ -9074,6 +9074,7 @@ __metadata:
     jest-watch-typeahead: 2.2.2
     prettier: ^3.2.5
     prettier-2: "npm:prettier@^2"
+    tinycolor2: 1.6.0
     turbo: 1.13.2
     typescript: ^5.4.4
   languageName: unknown
@@ -17966,6 +17967,13 @@ __metadata:
   version: 1.3.3
   resolution: "tiny-invariant@npm:1.3.3"
   checksum: 5e185c8cc2266967984ce3b352a4e57cb89dad5a8abb0dea21468a6ecaa67cd5bb47a3b7a85d08041008644af4f667fb8b6575ba38ba5fb00b3b5068306e59fe
+  languageName: node
+  linkType: hard
+
+"tinycolor2@npm:1.6.0":
+  version: 1.6.0
+  resolution: "tinycolor2@npm:1.6.0"
+  checksum: 6df4d07fceeedc0a878d7bac47e2cd47c1ceeb1078340a9eb8a295bc0651e17c750f73d47b3028d829f30b85c15e0572c0fd4142083e4c21a30a597e47f47230
   languageName: node
   linkType: hard
 

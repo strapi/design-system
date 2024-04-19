@@ -21,18 +21,40 @@ const config: StorybookConfig = {
     if (config.mode !== 'production') {
       config.optimizeDeps = {
         ...config.optimizeDeps,
-        exclude: ['@strapi/ui-primtivies', '@strapi/design-system', '@strapi/icons'],
+        include: [
+          ...(config.optimizeDeps?.include ?? []),
+          'react',
+          `react/jsx-runtime`,
+          'react-dom/client',
+          'styled-components',
+          'react-router-dom',
+        ],
+        exclude: [
+          ...(config.optimizeDeps?.exclude ?? []),
+          '@strapi/ui-primtivies',
+          '@strapi/design-system',
+          '@strapi/icons',
+        ],
       };
 
       if (!config.resolve) {
         config.resolve = {};
       }
 
+      config.resolve.dedupe = [
+        ...(config.resolve?.dedupe ?? []),
+        'react',
+        'react-dom',
+        'react-router-dom',
+        'styled-components',
+      ];
+
       config.resolve.alias = {
         ...config.resolve?.alias,
         '@strapi/ui-primitives': resolve(__dirname, '..', '..', 'packages', 'primitives', 'src'),
         '@strapi/design-system': resolve(__dirname, '..', '..', 'packages', 'strapi-design-system', 'src'),
         '@strapi/icons': resolve(__dirname, '..', '..', 'packages', 'strapi-icons', 'src'),
+        'styled-components': resolve(__dirname, '..', '..', 'node_modules', 'styled-components'),
       };
     }
 

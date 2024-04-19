@@ -3,30 +3,36 @@ import { Preview } from '@storybook/react';
 import { useDarkMode } from 'storybook-dark-mode';
 import { parse } from 'qs';
 
-import { VisuallyHidden, DesignSystemProvider, Box, darkTheme, lightTheme } from '@strapi/design-system';
+import { DesignSystemProvider, Box, darkTheme, lightTheme } from '@strapi/design-system';
 
 import { createCustomTheme } from './utils/createCustomTheme';
+
+import type { BoxProps } from '@strapi/design-system';
 
 const preview: Preview = {
   decorators: [
     (Story) => (
-      <Theme>
-        <main>
-          <VisuallyHidden>
-            {/* Necessary in order to prevent axe core from providing errors on main / heading */}
-            <h1>Storybook story</h1>
-          </VisuallyHidden>
-          <Box height="100%" padding={2}>
-            <Story />
-          </Box>
-        </main>
+      <Theme padding={2}>
+        <Story />
       </Theme>
     ),
   ],
   parameters: {
+    docs: {
+      container: ({ children, ...props }) => (
+        <Theme padding={6} paddingLeft={10} paddingRight={10} {...props}>
+          <Box maxWidth="80rem" margin="auto">
+            {children}
+          </Box>
+        </Theme>
+      ),
+      toc: true,
+    },
     options: {
       storySort: {
         order: [
+          'Getting Started',
+          ['Welcome', 'Contributing', 'Changelog'],
           'Foundations',
           ['Overview', 'Icons', ['Overview', '*']],
           'Primitives',
@@ -53,7 +59,7 @@ const preview: Preview = {
 
 const themeQueryURL = parse(document.location.search).theme;
 
-const Theme = ({ children }: { children: React.ReactNode }) => {
+const Theme = ({ children, ...props }: BoxProps) => {
   const isDarkAddon = useDarkMode();
   const [isDark, setIsDark] = React.useState(themeQueryURL || isDarkAddon);
 
@@ -65,8 +71,12 @@ const Theme = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <DesignSystemProvider locale="en" theme={isDark ? darkTheme : lightTheme}>
-      <Box flex="1 0 100%" padding={2} background="neutral0">
-        {children}
+      <Box flex="1 0 100%" background="neutral0">
+        <main>
+          <Box height="100%" {...props}>
+            {children}
+          </Box>
+        </main>
       </Box>
     </DesignSystemProvider>
   );

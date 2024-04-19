@@ -20,8 +20,8 @@ import * as SelectStories from './Select.stories';
 
 ## Overview
 
-Select components are used for collecting user provided information from a list of options. They can
-be configured to allow single or multiple selections.
+Select components are used for collecting user provided information from a list of options. They can be configured to
+allow single or multiple selections.
 
 [View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Select)
 
@@ -63,8 +63,8 @@ import {
 
 ### Basic usage
 
-The most common usage would be the `SingleSelect` which allows a user to only select one option from a list.
-The list has built in typeahead meaning pressing the letter `K` will highlight the word "Kiwi" in the example below.
+The most common usage would be the `SingleSelect` which allows a user to only select one option from a list. The list
+has built in typeahead meaning pressing the letter `K` will highlight the word "Kiwi" in the example below.
 
 <Canvas of={SelectStories.Base} />
 
@@ -81,11 +81,11 @@ enables you to have the ability to "clear" the input.
 
 ### Multiple select
 
-It's possible to select multiple options by using the `MultiSelect` component instead of the `SingleSelect`.
-As such, you should should look to use the `MultiSelectOption` as it's visually distinct from the `SingleSelectOption`.
+It's possible to select multiple options by using the `MultiSelect` component instead of the `SingleSelect`. As such,
+you should should look to use the `MultiSelectOption` as it's visually distinct from the `SingleSelectOption`.
 
-By default, no transformations are made to the rendered value, but you can edit this by passing a `customizeContent` prop,
-which will be called with the selected values and should return a string e.g:
+By default, no transformations are made to the rendered value, but you can edit this by passing a `customizeContent`
+prop, which will be called with the selected values and should return a string e.g:
 
 ```js
 const customizeContent = (values: string[]) => `${values.length} are currently selected`;
@@ -95,7 +95,8 @@ const customizeContent = (values: string[]) => `${values.length} are currently s
 
 ### Multiple select with tags
 
-Instead of passing a `customizeContent` prop, you can pass the `withTags` prop which will render the selected values as tags instead.
+Instead of passing a `customizeContent` prop, you can pass the `withTags` prop which will render the selected values as
+tags instead.
 
 <Canvas of={SelectStories.MultipleWithTags} />
 
@@ -105,12 +106,14 @@ Instead of passing a `customizeContent` prop, you can pass the `withTags` prop w
 
 ### Single Select Field
 
-SingleSelect decorated with the [`Field`](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Field) component
+SingleSelect decorated with the
+[`Field`](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Field) component
 
 <Canvas of={SelectStories.SingleSelectField} />
 
 ### Multiple Select Field
 
-MultiSelect decorated with the [`Field`](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Field) component
+MultiSelect decorated with the
+[`Field`](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Field) component
 
 <Canvas of={SelectStories.MultiSelectField} />
