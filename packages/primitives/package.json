@@ -15,9 +15,8 @@
     "clean": "rimraf dist node_modules",
     "lint": "eslint . --ext .js,.jsx,.tsx,.ts",
     "format": "yarn lint --fix",
-    "test": "jest -c jest.config.mjs",
     "test:ts": "tsc --noEmit",
-    "test:watch": "jest -c jest.config.mjs --watchAll",
+    "test:unit": "jest -c jest.config.mjs",
     "watch": "pack-up watch"
   },
   "dependencies": {

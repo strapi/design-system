@@ -3418,17 +3418,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@playwright/test@npm:1.43.0":
-  version: 1.43.0
-  resolution: "@playwright/test@npm:1.43.0"
-  dependencies:
-    playwright: 1.43.0
-  bin:
-    playwright: cli.js
-  checksum: c7c0c6e8fde4e9dceea22d48384642b78c3d539fb0512edeaa581dc4dc07cedfd166dba92c5e9e69a378b7fd63362b142450dbdd5c9b65d76c4def162a5c470d
-  languageName: node
-  linkType: hard
-
 "@pnpm/config.env-replace@npm:^1.1.0":
   version: 1.1.0
   resolution: "@pnpm/config.env-replace@npm:1.1.0"
@@ -5103,7 +5092,6 @@ __metadata:
     "@floating-ui/react-dom": ^2.0.8
     "@internationalized/date": ^3.5.2
     "@internationalized/number": ^3.5.1
-    "@playwright/test": 1.43.0
     "@radix-ui/react-dismissable-layer": ^1.0.5
     "@radix-ui/react-dropdown-menu": ^2.0.6
     "@radix-ui/react-focus-scope": 1.0.4
@@ -5113,7 +5101,6 @@ __metadata:
     "@types/styled-components": ^5.1.26
     "@uiw/react-codemirror": ^4.21.25
     aria-hidden: ^1.2.4
-    axe-playwright: ^2.0.1
     cross-env: ^7.0.3
     react-remove-scroll: ^2.5.9
     styled-components: ^5.3.11
@@ -6088,13 +6075,6 @@ __metadata:
   version: 0.0.29
   resolution: "@types/json5@npm:0.0.29"
   checksum: e60b153664572116dfea673c5bda7778dbff150498f44f998e34b5886d8afc47f16799280e4b6e241c0472aef1bc36add771c569c68fc5125fc2ae519a3eb9ac
-  languageName: node
-  linkType: hard
-
-"@types/junit-report-builder@npm:^3.0.0":
-  version: 3.0.2
-  resolution: "@types/junit-report-builder@npm:3.0.2"
-  checksum: 7fead0b771f95cd8e607223ace2f43cc881b3e7944db405f903590b56379d14132032b7d89c9afa7dff266b95f516a476a39ad40f9200bfb61fc8ed7f6b1bff6
   languageName: node
   linkType: hard
 
@@ -7359,40 +7339,6 @@ __metadata:
   version: 4.7.0
   resolution: "axe-core@npm:4.7.0"
   checksum: f086bcab42be1761ba2b0b127dec350087f4c3a853bba8dd58f69d898cefaac31a1561da23146f6f3c07954c76171d1f2ce460e555e052d2b02cd79af628fa4a
-  languageName: node
-  linkType: hard
-
-"axe-core@npm:^4.5.1":
-  version: 4.9.0
-  resolution: "axe-core@npm:4.9.0"
-  checksum: cabaa07586a92510f4befc742744b548c30033dfda99dd439c21d736f51913d52022c8836180084b13f2098f06a01c716dc42d8e91599c43c9db25905ba5403f
-  languageName: node
-  linkType: hard
-
-"axe-html-reporter@npm:2.2.3":
-  version: 2.2.3
-  resolution: "axe-html-reporter@npm:2.2.3"
-  dependencies:
-    mustache: ^4.0.1
-    rimraf: ^3.0.2
-  peerDependencies:
-    axe-core: ">=3"
-  checksum: 758e358d1a8e4b1e5a8b54521cac928966ad797e9d8aa27964a923a13fc43ddcfe01b9238d98565e30d79b28361f93de64da5ebd2f5df051b469f46b6a1fd445
-  languageName: node
-  linkType: hard
-
-"axe-playwright@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "axe-playwright@npm:2.0.1"
-  dependencies:
-    "@types/junit-report-builder": ^3.0.0
-    axe-core: ^4.5.1
-    axe-html-reporter: 2.2.3
-    junit-report-builder: ^3.0.1
-    picocolors: ^1.0.0
-  peerDependencies:
-    playwright: ">1.0.0"
-  checksum: 193b345991138fa94262e55d87b231894002786b1df72817ca210637893aee4e402a9d78477056afd75a7823397edbe709eb266c1dae6feadafe18a7cff61f6c
   languageName: node
   linkType: hard
 
@@ -8817,13 +8763,6 @@ __metadata:
   version: 1.4.0
   resolution: "dataloader@npm:1.4.0"
   checksum: e2c93d43afde68980efc0cd9ff48e9851116e27a9687f863e02b56d46f7e7868cc762cd6dcbaf4197e1ca850a03651510c165c2ae24b8e9843fd894002ad0e20
-  languageName: node
-  linkType: hard
-
-"date-format@npm:4.0.3":
-  version: 4.0.3
-  resolution: "date-format@npm:4.0.3"
-  checksum: 8ae4d9de3532010169a89bc7b079342051ba3ec88552636aa677bfb53e8eb15113af8394679aea7d41367dc8bb6e9865da17f21ac2802202180b09d6e3f2339e
   languageName: node
   linkType: hard
 
@@ -11164,31 +11103,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fsevents@npm:2.3.2":
-  version: 2.3.2
-  resolution: "fsevents@npm:2.3.2"
-  dependencies:
-    node-gyp: latest
-  checksum: 97ade64e75091afee5265e6956cb72ba34db7819b4c3e94c431d4be2b19b8bb7a2d4116da417950c3425f17c8fe693d25e20212cac583ac1521ad066b77ae31f
-  conditions: os=darwin
-  languageName: node
-  linkType: hard
-
 "fsevents@npm:^2.3.2, fsevents@npm:~2.3.2, fsevents@npm:~2.3.3":
   version: 2.3.3
   resolution: "fsevents@npm:2.3.3"
   dependencies:
     node-gyp: latest
   checksum: 11e6ea6fea15e42461fc55b4b0e4a0a3c654faa567f1877dbd353f39156f69def97a69936d1746619d656c4b93de2238bf731f6085a03a50cabf287c9d024317
-  conditions: os=darwin
-  languageName: node
-  linkType: hard
-
-"fsevents@patch:fsevents@2.3.2#~builtin<compat/fsevents>":
-  version: 2.3.2
-  resolution: "fsevents@patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=df0bf1"
-  dependencies:
-    node-gyp: latest
   conditions: os=darwin
   languageName: node
   linkType: hard
@@ -13584,18 +13504,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"junit-report-builder@npm:^3.0.1":
-  version: 3.2.1
-  resolution: "junit-report-builder@npm:3.2.1"
-  dependencies:
-    date-format: 4.0.3
-    lodash: ^4.17.21
-    make-dir: ^3.1.0
-    xmlbuilder: ^15.1.1
-  checksum: 6d9432630494a388a69a380c86aa527b12de3bca9e5ec4c97fd84166b9a55a4255cebcabe391d897259dacbdfd985f62af807d99164ea488110b30ecac0bb8de
-  languageName: node
-  linkType: hard
-
 "kind-of@npm:^6.0.2, kind-of@npm:^6.0.3":
   version: 6.0.3
   resolution: "kind-of@npm:6.0.3"
@@ -13941,7 +13849,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"make-dir@npm:^3.0.0, make-dir@npm:^3.0.2, make-dir@npm:^3.1.0":
+"make-dir@npm:^3.0.0, make-dir@npm:^3.0.2":
   version: 3.1.0
   resolution: "make-dir@npm:3.1.0"
   dependencies:
@@ -14883,15 +14791,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mustache@npm:^4.0.1":
-  version: 4.2.0
-  resolution: "mustache@npm:4.2.0"
-  bin:
-    mustache: bin/mustache
-  checksum: 928fcb63e3aa44a562bfe9b59ba202cccbe40a46da50be6f0dd831b495be1dd7e38ca4657f0ecab2c1a89dc7bccba0885eab7ee7c1b215830da765758c7e0506
-  languageName: node
-  linkType: hard
-
 "nanoclone@npm:^0.2.1":
   version: 0.2.1
   resolution: "nanoclone@npm:0.2.1"
@@ -15750,30 +15649,6 @@ __metadata:
   dependencies:
     find-up: ^3.0.0
   checksum: 5bac346b7c7c903613c057ae3ab722f320716199d753f4a7d053d38f2b5955460f3e6ab73b4762c62fd3e947f58e04f1343e92089e7bb6091c90877406fcd8c8
-  languageName: node
-  linkType: hard
-
-"playwright-core@npm:1.43.0":
-  version: 1.43.0
-  resolution: "playwright-core@npm:1.43.0"
-  bin:
-    playwright-core: cli.js
-  checksum: b35265d356d87eb4114997e6af985ee3cb5a473f15a465d6e02834288a55f0cae4233a18178658389ff443f92405e020815fc165274d2262c3ca1c2b5be948cf
-  languageName: node
-  linkType: hard
-
-"playwright@npm:1.43.0":
-  version: 1.43.0
-  resolution: "playwright@npm:1.43.0"
-  dependencies:
-    fsevents: 2.3.2
-    playwright-core: 1.43.0
-  dependenciesMeta:
-    fsevents:
-      optional: true
-  bin:
-    playwright: cli.js
-  checksum: edd4ef9644398c197d20e957cf2a5e5a95d7e0144f3c971923e709247f5b48551bf6168c74b34909f263ab96fac6e49466b65a9cd1349ad400dabd4b8b364acf
   languageName: node
   linkType: hard
 
@@ -19492,13 +19367,6 @@ __metadata:
   version: 4.0.0
   resolution: "xml-name-validator@npm:4.0.0"
   checksum: af100b79c29804f05fa35aa3683e29a321db9b9685d5e5febda3fa1e40f13f85abc40f45a6b2bf7bee33f68a1dc5e8eaef4cec100a304a9db565e6061d4cb5ad
-  languageName: node
-  linkType: hard
-
-"xmlbuilder@npm:^15.1.1":
-  version: 15.1.1
-  resolution: "xmlbuilder@npm:15.1.1"
-  checksum: 14f7302402e28d1f32823583d121594a9dca36408d40320b33f598bd589ca5163a352d076489c9c64d2dc1da19a790926a07bf4191275330d4de2b0d85bb1843
   languageName: node
   linkType: hard
 

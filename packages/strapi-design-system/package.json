@@ -24,11 +24,9 @@
     "react-remove-scroll": "^2.5.9"
   },
   "devDependencies": {
-    "@playwright/test": "1.43.0",
     "@strapi/icons": "^2.0.0-beta.0",
     "@types/react-router-dom": "^5.3.3",
     "@types/styled-components": "^5.1.26",
-    "axe-playwright": "^2.0.1",
     "cross-env": "^7.0.3",
     "styled-components": "^5.3.11"
   },
@@ -43,11 +41,8 @@
     "clean": "rimraf dist node_modules",
     "lint": "eslint . --ext .tsx,.ts",
     "format": "yarn lint --fix",
-    "test": "jest -c jest.config.mjs",
     "test:ts": "tsc --noEmit",
-    "test:watch": "jest -c jest.config.mjs --watchAll",
-    "test:e2e": "playwright test",
-    "test:e2e:debug": "cross-env PWDEBUG=1 playwright test",
+    "test:unit": "jest -c jest.config.mjs",
     "watch": "pack-up watch"
   },
   "gitHead": "c74900b0ee3525510d266dc83c9743cb24dafced"

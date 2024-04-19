@@ -166,9 +166,8 @@ if we're already in pre-release mode, this is fine and you should continue.
 - `yarn format` Automatically fix lint errors.
 - `yarn prettier:check` Check the codebase for pretty-ness.
 - `yarn prettier:write` Fix any prettier issues.
-- `yarn test` Run the design system tests.
 - `yarn test:ts`: Run the TypeScript tests.
-- `yarn test:e2e` Run the end-to-end test suite.
+- `yarn test:unit` Run the design system tests.
 
 ## Linking the design system
 
