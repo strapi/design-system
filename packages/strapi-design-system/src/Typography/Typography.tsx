@@ -10,6 +10,13 @@ import { DefaultThemeOrCSSProp } from '../types';
 const transientProps: Partial<Record<keyof TypographyProps, boolean>> = {
   fontSize: true,
   fontWeight: true,
+  lineHeight: true,
+  textAlign: true,
+  textColor: true,
+  textDecoration: true,
+  textTransform: true,
+  ellipsis: true,
+  variant: true,
 };
 
 export type TypographyProps<TElement extends keyof JSX.IntrinsicElements = 'span'> =
@@ -28,9 +35,9 @@ export type TypographyProps<TElement extends keyof JSX.IntrinsicElements = 'span
     variant?: (typeof TEXT_VARIANTS)[number];
   };
 
-export const Typography = styled.span.withConfig<TypographyProps>({
-  shouldForwardProp: (prop, defPropValFN) => !transientProps[prop as keyof TypographyProps] && defPropValFN(prop),
-})`
+export const Typography = styled.span.withConfig({
+  shouldForwardProp: (prop) => !transientProps[prop],
+})<TypographyProps>`
   ${variantStyle}
   ${ellipsisStyle}
 

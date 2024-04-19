@@ -24,9 +24,9 @@ const transientProps = {
   active: true,
 };
 
-const LinkWrapper = styled(BaseLink).withConfig<PaginationLinkProps>({
-  shouldForwardProp: (prop, defPropValFN) => !transientProps[prop] && defPropValFN(prop),
-})`
+const LinkWrapper = styled(BaseLink).withConfig({
+  shouldForwardProp: (prop) => !transientProps[prop],
+})<PaginationLinkProps>`
   padding: ${({ theme }) => theme.spaces[3]};
   border-radius: ${({ theme }) => theme.borderRadius};
   box-shadow: ${({ active, theme }) => (active ? theme.shadows.filterShadow : undefined)};

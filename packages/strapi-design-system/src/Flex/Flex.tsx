@@ -8,6 +8,11 @@ import handleResponsiveValues, { ResponsiveValue } from '../helpers/handleRespon
  */
 const transientProps: Partial<Record<keyof FlexProps, boolean>> = {
   direction: true,
+  gap: true,
+  inline: true,
+  alignItems: true,
+  justifyContent: true,
+  wrap: true,
 };
 
 export type FlexProps<TElement extends keyof JSX.IntrinsicElements = 'div'> = BoxProps<TElement> & {
@@ -22,9 +27,9 @@ export type FlexProps<TElement extends keyof JSX.IntrinsicElements = 'div'> = Bo
   wrap?: CSSProperties['flexWrap'];
 };
 
-export const Flex = styled(Box).withConfig<FlexProps>({
-  shouldForwardProp: (prop, defPropValFN) => !transientProps[prop as keyof FlexProps] && defPropValFN(prop),
-})`
+export const Flex = styled(Box).withConfig({
+  shouldForwardProp: (prop) => !transientProps[prop as keyof FlexProps],
+})<FlexProps>`
   align-items: ${({ alignItems = 'center' }) => alignItems};
   display: ${({ display = 'flex', inline }) => (inline ? 'inline-flex' : display)};
   flex-direction: ${({ direction = 'row' }) => direction};
