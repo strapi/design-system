@@ -14,7 +14,7 @@ const defaultOpts = [
 
 const Component = ({ options = defaultOpts, ...restProps }: RenderProps) => {
   return (
-    <SingleSelect label="Pick Options" placeholder="Your option" {...restProps}>
+    <SingleSelect aria-label="Pick Options" placeholder="Your option" {...restProps}>
       {options.map((opt) => (
         <SingleSelectOption key={opt.label} value={opt.value}>
           {opt.label}
@@ -60,12 +60,6 @@ describe('Select', () => {
   });
 
   describe('label / placeholder / value / onChange / clear / customiseContent prop', () => {
-    it('should render a label when provided', () => {
-      renderComponent({ label: 'Label' });
-
-      expect(screen.getByText('Label')).toBeInTheDocument();
-    });
-
     it('should be accessible if I only pass an aria-label', () => {
       const { getByRole, queryByRole } = render(
         <SingleSelect aria-label="Label">

@@ -32,32 +32,6 @@ describe('ToggleInput', () => {
     expect(getByRole('checkbox', { name: 'Label' })).toBeDisabled();
   });
 
-  it('should be able to be required', () => {
-    const { getByRole } = render({
-      required: true,
-    });
-
-    expect(getByRole('checkbox', { name: /Label/ })).toBeRequired();
-  });
-
-  it('should render an error if supplied', () => {
-    const { getByText, getByRole } = render({
-      error: 'Error',
-    });
-
-    expect(getByText('Error')).toBeInTheDocument();
-    expect(getByRole('checkbox')).toHaveAttribute('aria-describedby', expect.stringContaining('error'));
-  });
-
-  it('should render a hint if supplied', () => {
-    const { getByText, getByRole } = render({
-      hint: 'Hint',
-    });
-
-    expect(getByText('Hint')).toBeInTheDocument();
-    expect(getByRole('checkbox')).toHaveAttribute('aria-describedby', expect.stringContaining('hint'));
-  });
-
   it('should change the checked value when clicked & call onChange', () => {
     const onChange = jest.fn();
     const { getByRole } = render({

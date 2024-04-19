@@ -147,6 +147,8 @@ export const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
         <SelectParts.Trigger
           ref={forwardedRef}
           id={id}
+          aria-label={restProps['aria-label']}
+          aria-describedby={restProps['aria-describedby']}
           startIcon={startIcon}
           size={size}
           hasError={Boolean(error)}

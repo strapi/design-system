@@ -7,7 +7,7 @@ import { TimePicker, TimePickerProps } from '../TimePicker';
 const Component = (props: Partial<TimePickerProps>) => {
   const [value, setValue] = React.useState<string>();
 
-  return <TimePicker label="timepicker" value={value} onChange={setValue} {...props} />;
+  return <TimePicker aria-label="timepicker" value={value} onChange={setValue} {...props} />;
 };
 
 const render = (props?: Partial<TimePickerProps>, renderOptions?: RenderOptions) =>

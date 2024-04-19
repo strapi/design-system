@@ -31,13 +31,7 @@ export const Basic = {
 
     return (
       <Flex direction="column" alignItems="stretch" gap={11}>
-        <SingleSelect
-          label="Fruits"
-          required
-          placeholder="My favourite fruit is..."
-          hint="Fruits are not vegetables"
-          disabled={disabled}
-        >
+        <SingleSelect disabled={disabled}>
           <SingleSelectOption value="apple">Apple</SingleSelectOption>
           <SingleSelectOption value="avocado">Avocado</SingleSelectOption>
           <SingleSelectOption value="banana">Banana</SingleSelectOption>
@@ -64,13 +58,13 @@ export const Controlled = {
 
     return (
       <SingleSelect
-        label="Fruits"
         placeholder="My favourite fruit is..."
         onClear={() => {
           setValue(undefined);
         }}
         value={value}
         onChange={setValue}
+        aria-label="fruit Label"
       >
         <SingleSelectOption value="apple">Apple</SingleSelectOption>
         <SingleSelectOption value="avocado">Avocado</SingleSelectOption>
@@ -94,14 +88,13 @@ export const Multiple = {
 
     return (
       <MultiSelect
-        label="Fruits"
-        required
         placeholder="My favourite fruit is..."
         onClear={() => {
           setValues([]);
         }}
         value={values}
         onChange={setValues}
+        aria-label="fruit Label"
       >
         <MultiSelectOption value="apple">Apple</MultiSelectOption>
         <MultiSelectOption value="avocado">Avocado</MultiSelectOption>
@@ -123,8 +116,6 @@ export const MultipleWithTags = {
 
     return (
       <MultiSelect
-        label="Fruits"
-        required
         placeholder="My favourite fruit is..."
         onClear={() => {
           setValues([]);
@@ -132,6 +123,7 @@ export const MultipleWithTags = {
         value={values}
         onChange={setValues}
         withTags
+        aria-label="fruit Label"
       >
         <MultiSelectOption value="apple">Apple</MultiSelectOption>
         <MultiSelectOption value="avocado">Avocado</MultiSelectOption>
@@ -198,8 +190,6 @@ export const MultipleNestedSelect = {
 
     return (
       <MultiSelectNested
-        label="Fruits"
-        required
         placeholder="My favourite fruit is..."
         onClear={() => {
           setValues([]);
@@ -207,6 +197,7 @@ export const MultipleNestedSelect = {
         value={values}
         onChange={setValues}
         options={options}
+        aria-label="fruit Label"
       />
     );
   },

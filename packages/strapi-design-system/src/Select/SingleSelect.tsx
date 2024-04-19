@@ -122,6 +122,8 @@ export const SingleSelect = React.forwardRef<SingleSelectElement, SingleSelectPr
           disabled={disabled}
           clearLabel={clearLabel}
           onClear={value && onClear ? handleOnClear : undefined}
+          aria-label={restProps['aria-label']}
+          aria-describedby={restProps['aria-describedby']}
         >
           <SelectParts.Value placeholder={placeholder} textColor={value ? 'neutral800' : 'neutral600'}>
             {value && customizeContent ? customizeContent(value) : undefined}

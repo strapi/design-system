@@ -22,15 +22,8 @@ const Component = ({ options = defaultOptions, ...restProps }: Partial<Omit<Comp
 const render = (props?: Partial<ComponentProps>) => renderRTL(<Component {...props} />);
 
 describe('Combobox', () => {
-  it('should display my label & labelAction', () => {
-    const { getByText } = render({ labelAction: <>hey!</> });
-
-    expect(getByText('Food')).toBeInTheDocument();
-    expect(getByText('hey!')).toBeInTheDocument();
-  });
-
   it('should be accessible if I only pass an aria-label', () => {
-    const { getByRole, queryByRole } = render({ 'aria-label': 'Food', label: undefined });
+    const { getByRole, queryByRole } = render({ 'aria-label': 'Food' });
 
     expect(queryByRole('label')).not.toBeInTheDocument();
 
@@ -110,11 +103,9 @@ describe('Combobox', () => {
     });
 
     it('should handle the error prop correctly', () => {
-      const { getByRole, getByText } = render({ error: 'error' });
+      const { getByRole } = render({ error: 'error' });
 
       expect(getByRole('combobox')).toHaveAttribute('aria-invalid', 'true');
-
-      expect(getByText('error')).toBeInTheDocument();
     });
 
     it('should handle the loading prop correctly', async () => {

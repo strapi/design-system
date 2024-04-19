@@ -18,6 +18,7 @@ interface ToggleInputInputProps
   checked?: boolean | null;
   size?: InputSizes;
   'aria-describedby'?: string;
+  'aria-label'?: string;
 }
 
 type ToggleInputInputElement = HTMLInputElement;
@@ -112,6 +113,8 @@ const ToggleInputInput = React.forwardRef<ToggleInputInputElement, ToggleInputIn
           aria-required={required}
           disabled={disabled}
           aria-disabled={disabled}
+          aria-label={props['aria-label']}
+          aria-describedby={props['aria-describedby']}
           checked={Boolean(checked)}
         />
       </ToggleWrapper>
@@ -163,7 +166,7 @@ const ToggleInput = React.forwardRef<ToggleInputInputElement, ToggleInputProps>(
             <ClearButton onClick={onClear}>{clearLabel}</ClearButton>
           )}
         </Flex>
-        <ToggleInputInput ref={forwardedRef} checked={checked} disabled={disabled} {...props} />
+        <ToggleInputInput aria-label={label} ref={forwardedRef} checked={checked} disabled={disabled} {...props} />
       </Flex>
     );
   },
