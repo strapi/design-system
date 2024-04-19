@@ -36,7 +36,6 @@ const MenuTrigger = React.forwardRef<HTMLButtonElement, TriggerProps>(
           type="button"
           variant="ghost"
           endIcon={endIcon}
-          background="pink"
           paddingTop={size === 'S' ? 1 : 2}
           paddingBottom={size === 'S' ? 1 : 2}
           paddingLeft={size === 'S' ? 3 : 4}

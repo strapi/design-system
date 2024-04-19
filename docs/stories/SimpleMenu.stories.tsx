@@ -13,7 +13,7 @@ type Story = StoryObj<typeof SimpleMenu>;
 
 export const Basic = {
   render: () => (
-    <SimpleMenu label="Actionssss">
+    <SimpleMenu label="Actions">
       <MenuItem onSelect={() => console.log('opening')}>Open</MenuItem>
       <MenuItem disabled onSelect={() => console.log('cloning')}>
         Clone

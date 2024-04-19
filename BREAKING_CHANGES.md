@@ -46,7 +46,7 @@ This is the same component as `ToggleInput` and therefore you should use that in
 
 ### Icon Updates
 
-Many of the icons have been updated visually, this will effect snapshot tests. The default size is `1.6rem` for an icon, in the Strapi design-system this equates to 16px. We have also ensured that `paths` do not have any `fill` or `stroke` properties set, this allows the icon to be styled with CSS except for specific use cases we don't expect users to encounter. The default `color` is `currentColor` which means it will inherit the color of the parent element. We encourage users to use the `Icon` component to render icons as it gives access to the `theme` object in styled-components.
+Many of the icons have been updated visually, this will effect snapshot tests. The default size is `1.6rem` for an icon, in the Strapi design-system this equates to 16px. We have also ensured that `paths` do not have any `fill` or `stroke` properties set, this allows the icon to be styled with CSS except for specific use cases we don't expect users to encounter. The default `color` is `currentColor` which means it will inherit the color of the parent element.
 
 The following icons have been removed:
 

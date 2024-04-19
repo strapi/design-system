@@ -101,8 +101,6 @@ export const Group = {
   render: () => {
     const [expandedID, setExpandedID] = React.useState<string | null>(null);
 
-    console.log(expandedID);
-
     const handleToggle = (id: string) => () => {
       setExpandedID((s) => (s === id ? null : id));
     };
