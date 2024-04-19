@@ -1,68 +1,47 @@
-import { lightTheme, Box, Flex, Grid, Typography } from '@strapi/design-system';
+import {
+  lightTheme,
+  Box,
+  Flex,
+  Grid,
+  Typography,
+  useCollator,
+  useDesignSystem,
+  darkTheme,
+} from '@strapi/design-system';
+import { useDarkMode } from 'storybook-dark-mode';
 import tinycolor2 from 'tinycolor2';
 
-const COLOR_SHADES = [100, 200, 500, 600, 700];
-const COLOR_SHADES_REVERSE = COLOR_SHADES.reverse();
-const COLOR_SUMMARY_NAMES = ['Neutral', 'Primary', 'Success', 'Danger', 'Warning', 'Secondary', 'Alternative'];
-const COLOR_CARD_NAMES = COLOR_SUMMARY_NAMES.filter((colorName) => !['Neutral'].includes(colorName));
+import { H2 } from './Typography';
 
-const H2 = (props) => (
-  <Box paddingBottom={4}>
-    <Typography as="h2" variant="beta" textColor="neutral800" {...props} />
-  </Box>
-);
-
-const ColorCardInfoContrast = ({ backgroundColor = '', isLighter = false, isSmall = false }) => {
-  const textColor = isLighter ? '#FFF' : '#000';
-
-  return (
-    <Flex alignItems="stretch" direction="column" flex={1} textAlign="center">
-      <Box
-        as="dt"
-        aria-label={`${isSmall ? 'Small' : 'Large'} font and ${isLighter ? 'lighter' : 'darker'} text.`}
-        paddingBottom={2}
-        style={{ color: textColor, fontSize: isSmall ? '12px' : '16px' }}
-      >
-        A
-      </Box>
-      <Box
-        as="dd"
-        background="neutral1000"
-        borderRadius="4px"
-        color="neutral0"
-        padding="4px 2px"
-        textAlign="center"
-        style={{ fontSize: '12px', textTransform: 'uppercase' }}
-      >
-        {tinycolor2.isReadable(textColor, backgroundColor, { level: 'AAA', size: isSmall ? 'small' : 'large' })
-          ? 'Pass'
-          : 'Fail'}
-      </Box>
-    </Flex>
-  );
-};
+const COLOR_CARD_NAMES = ['Neutral', 'Primary', 'Secondary', 'Alternative', 'Success', 'Warning', 'Danger'];
 
 /* -------------------------------------------------------------------------------------------------
- * ColorShades
+ * ColorCards
  * -----------------------------------------------------------------------------------------------*/
 
-const ColorShades = () => {
+const ColorCards = () => {
+  const allColors = lightTheme.colors;
+
+  const { locale } = useDesignSystem('ColorCards');
+
+  const { compare } = useCollator(locale);
+
   return (
-    <Flex as="article" alignItems="stretch" direction="column" gap={8} paddingBottom={8}>
+    <Flex as="article" alignItems="stretch" direction="column">
       {COLOR_CARD_NAMES.map((colorName) => {
+        const colorKeys = Object.keys(allColors).filter((colorKey) => colorKey.startsWith(colorName.toLowerCase()));
+
         return (
-          <Box key={colorName}>
-            <H2>{colorName} colors</H2>
+          <Box key={colorName} as="section">
+            <H2>{`${colorName} colors`}</H2>
             <Grid as="ol" gap={6} gridCols={3}>
-              {COLOR_SHADES_REVERSE.map((colorShade) => (
-                <li key={`${colorName}${colorShade}`}>
-                  <Card
-                    colorKey={`${colorName.toLowerCase()}${colorShade}`}
-                    colorName={colorName}
-                    colorShade={colorShade}
-                  />
-                </li>
-              ))}
+              {colorKeys
+                .toSorted((a, b) => compare(a, b))
+                .map((key) => (
+                  <li key={key}>
+                    <Card colorKey={key} colorName={colorName} colorShade={key.split(colorName.toLowerCase())[1]} />
+                  </li>
+                ))}
             </Grid>
           </Box>
         );
@@ -78,11 +57,13 @@ const ColorShades = () => {
 interface CardProps {
   colorKey: string;
   colorName: string;
-  colorShade: number;
+  colorShade: string;
 }
 
 const Card = ({ colorKey, colorName, colorShade }: CardProps) => {
-  const colorHex = lightTheme.colors[colorKey];
+  const isDark = useDarkMode();
+
+  const colorHex = (isDark ? darkTheme : lightTheme).colors[colorKey];
 
   if (!colorHex) {
     return null;
@@ -92,7 +73,7 @@ const Card = ({ colorKey, colorName, colorShade }: CardProps) => {
   const colorRGB = `${colorRef.toRgb().r}, ${colorRef.toRgb().g}, ${colorRef.toRgb().b}`;
 
   return (
-    <Box as="article" background="neutral100" borderRadius="8px" tabIndex="0" aria-label={`${colorName} ${colorShade}`}>
+    <Box as="article" background="neutral100" borderRadius="8px">
       <Flex
         as="dl"
         alignItems="end"
@@ -104,10 +85,10 @@ const Card = ({ colorKey, colorName, colorShade }: CardProps) => {
         aria-label={`Contrast accessibility checks for ${colorName} ${colorShade}`}
         gap={2}
       >
-        <ColorCardInfoContrast backgroundColor={colorHex} />
-        <ColorCardInfoContrast backgroundColor={colorHex} isSmall />
-        <ColorCardInfoContrast backgroundColor={colorHex} isLighter />
-        <ColorCardInfoContrast backgroundColor={colorHex} isLighter isSmall />
+        <ContrastInfo backgroundColor={colorHex} />
+        <ContrastInfo backgroundColor={colorHex} isSmall />
+        <ContrastInfo backgroundColor={colorHex} isLighter />
+        <ContrastInfo backgroundColor={colorHex} isLighter isSmall />
       </Flex>
       <Grid
         as="dl"
@@ -149,4 +130,40 @@ const Card = ({ colorKey, colorName, colorShade }: CardProps) => {
   );
 };
 
-export { ColorShades as ColorCards };
+/* -------------------------------------------------------------------------------------------------
+ * ContrastInfo
+ * -----------------------------------------------------------------------------------------------*/
+
+const ContrastInfo = ({ backgroundColor = '', isLighter = false, isSmall = false }) => {
+  const isDark = useDarkMode();
+  const theme = isDark ? darkTheme : lightTheme;
+  const textColor = isLighter ? theme.colors.neutral0 : theme.colors.neutral1000;
+
+  return (
+    <Flex alignItems="stretch" direction="column" flex={1} textAlign="center">
+      <Box
+        as="dt"
+        aria-label={`${isSmall ? 'Small' : 'Large'} font and ${isLighter ? 'lighter' : 'darker'} text.`}
+        paddingBottom={2}
+        style={{ color: textColor, fontSize: isSmall ? '12px' : '16px' }}
+      >
+        A
+      </Box>
+      <Box
+        as="dd"
+        background="neutral1000"
+        borderRadius="4px"
+        color="neutral0"
+        padding="4px 2px"
+        textAlign="center"
+        style={{ fontSize: '12px', textTransform: 'uppercase' }}
+      >
+        {tinycolor2.isReadable(textColor, backgroundColor, { level: 'AAA', size: isSmall ? 'small' : 'large' })
+          ? 'Pass'
+          : 'Fail'}
+      </Box>
+    </Flex>
+  );
+};
+
+export { ColorCards };

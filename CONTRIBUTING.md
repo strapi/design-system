@@ -13,7 +13,7 @@ making a pull request that may not align with the project roadmap.
 
 **Before submitting your pull request** make sure the following requirements are fulfilled:
 
-- Fork the repository and create your new branch from `main`.
+- Fork the repository and create your new branch from `develop`.
 - Run `yarn` in the root of the repository.
 - If you've fixed a bug or added code that should be tested, please make sure to add tests
 - Ensure the following test suites are passing:
@@ -45,18 +45,6 @@ yarn develop
 ```
 
 Storybook will be running on `localhost:6006` for you to test your changes to components or their documentation.
-
-### 4. Start the website for documentation changes (optional)
-
-Start the DS website to test your changes on the design-system website, not all changes would require this step.
-
-```bash
-cd website
-yarn
-yarn dev
-```
-
-**Awesome! You are now able to contribute to Strapi Design System.**
 
 ---
 

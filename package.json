@@ -73,7 +73,9 @@
   },
   "resolutions": {
     "@testing-library/dom": "^9.0.0",
-    "@types/react": "18.2.74"
+    "@types/react": "18.2.74",
+    "@storybook/blocks@^7.6.17": "patch:@storybook/blocks@npm%3A7.6.17#./.yarn/patches/@storybook-blocks-npm-7.6.17-481e2fff02.patch",
+    "@storybook/blocks@7.6.17": "patch:@storybook/blocks@npm%3A7.6.17#./.yarn/patches/@storybook-blocks-npm-7.6.17-481e2fff02.patch"
   },
   "dependencies": {
     "tinycolor2": "1.6.0"

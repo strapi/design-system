@@ -27,7 +27,6 @@ const config: StorybookConfig = {
           `react/jsx-runtime`,
           'react-dom/client',
           'styled-components',
-          'react-router-dom',
         ],
         exclude: [
           ...(config.optimizeDeps?.exclude ?? []),

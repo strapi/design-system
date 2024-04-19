@@ -1,22 +1,29 @@
-# Breaking Changes Migration guide
+import { Meta } from '@storybook/blocks';
 
-## What is this?
+<Meta title="Getting Started/Migration Guides/V1 to V2" />
 
-This is a living document of all the breaking changes in v2 of the design system. If you've added a breaking change, you'll be expected to update this document accordingly.
+# Migrating to V2
 
-## Changelog
+## Design System
 
 ### Remove direct imports
 
-Users can no longer `import { Combobox } from '@strapi/design-system/Combobox'`, instead they should import _all_ things from the root of the project.
+Users can no longer `import { Combobox } from '@strapi/design-system/Combobox'`, instead they should import _all_ things
+from the root of the project.
+
+```diff
+- import { Combobox } from '@strapi/design-system/Combobox';
++ import { Combobox } from '@strapi/design-system';
+```
 
 ### Published types
 
-`@strapi/design-system` now comes with typescript definitions. This means you can remove any overrides you may have. They've been tested against the CMS, if you feel there are mistakes, please open a PR to fix them.
+`@strapi/design-system` now comes with typescript definitions. This means you can remove any overrides you may have.
 
 ### Change font-size on html,body to 62.5%
 
-The base font-size for the app is now 10px, so 1rem = 10px. This means that users should stop dividing their px values by 16 and instead divide by 10. This will make it easier to convert px to rem.
+The base font-size for the app is now 10px, so 1rem = 10px. This means that users should stop dividing their px values
+by 16 and instead divide by 10. This will make it easier to convert px to rem.
 
 ### Removed deprecated components
 
@@ -34,7 +41,8 @@ The following components have been removed:
 
 #### `Select` / `Option` / `OptGroup` / `SelectList`
 
-These comoponents were deprecated previously. It is recommended to use the new iteration either the `SingleSelect` or `MultiSelect` components to replace them depending on your use case.
+These comoponents were deprecated previously. It is recommended to use the new iteration either the `SingleSelect` or
+`MultiSelect` components to replace them depending on your use case.
 
 #### `Stack`
 
@@ -44,9 +52,21 @@ This was just a wrapped component around `Flex`. You should use `Flex` instead.
 
 This is the same component as `ToggleInput` and therefore you should use that instead.
 
+### Icon has been removed
+
+The `Icon` component has been removed. It's primary function was to allow you to apply theme colors to icons, this is
+now doable with the actual icon:
+
+```diff
++ <Icon as={Plus} color="primary700" />
+- <Plus fill="primary700" />
+```
+
 ### Removed field wrapper components from inputs
 
-We're making inputs more composable by breaking down the pieces from components like labels, hints, and error messages, focusing solely on exporting the inputs themselves. This simplifies the structure and reduces DOM size, especially in cases where only aria-labels are needed. Users can still use Field components they used alongside inputs.
+We're making inputs more composable by breaking down the pieces from components like labels, hints, and error messages,
+focusing solely on exporting the inputs themselves. This simplifies the structure and reduces DOM size, especially in
+cases where only aria-labels are needed. Users can still use Field components they used alongside inputs.
 
 ```tsx
 // before
@@ -63,7 +83,7 @@ return (
 );
 ```
 
-### Components renaming
+### ToggleInput rename
 
 `ToggleInput` has been renamed to just `Toggle`.
 
@@ -72,320 +92,317 @@ return (
 + import { Toggle } from '@strapi/design-system'
 ```
 
-### Icon Updates
+---
 
-Many of the icons have been updated visually, this will effect snapshot tests. The default size is `1.6rem` for an icon, in the Strapi design-system this equates to 16px. We have also ensured that `paths` do not have any `fill` or `stroke` properties set, this allows the icon to be styled with CSS except for specific use cases we don't expect users to encounter. The default `color` is `currentColor` which means it will inherit the color of the parent element.
+## Icons
+
+Many of the icons have been updated visually, this will effect snapshot tests. The default size is `1.6rem` for an icon,
+in the Strapi design-system this equates to 16px. We have also ensured that `paths` do not have any `fill` or `stroke`
+properties set, this allows the icon to be styled with CSS except for specific use cases we don't expect users to
+encounter. The default `color` is `currentColor` which means it will inherit the color of the parent element.
 
 The following icons have been removed:
 
-#### Apps
+### Apps
 
 Replaced with `GridNine`
 
-#### Attachment
+### Attachment
 
 Replaced with `Paperclip`
 
-#### Blocks
+### Blocks
 
 Replaced with `BlocksField` and exported from `@strapi/icons/symbols`.
 
-#### Boolean
+### Boolean
 
 Replaced with `BooleanField` and exported from `@strapi/icons/symbols`
 
-#### Brush
+### Brush
 
 Replaced with `PaintBrush`
 
-#### CarretDown
+### CarretDown
 
 Replaced with `CaretDown`
 
-#### CarretUp
+### CarretUp
 
 Replaced with `CaretUp`
 
-#### CodeSquare
+### CodeSquare
 
 Now exported from `@strapi/icons/symbols`
 
-#### Component
+### Component
 
 Replaced with `ComponentField` and exported from `@strapi/icons/symbols`
 
-#### Connector
+### Connector
 
 Replaced with `Faders`
 
-#### Cube
+### Cube
 
 Removed.
 
-#### Cup
+### Cup
 
 Replaced with `Coffee`
 
-#### Dashboard
+### Dashboard
 
 Replaced with `SquareFour`
 
-#### Date
+### Date
 
 Replaced with `DateField`
 
-#### Discord
+### Discord
 
 Now exported from `@strapi/icons/symbols`
 
-#### Discourse
+### Discourse
 
 Now exported from `@strapi/icons/symbols`
 
-#### Doctor
+### Doctor
 
 Replaced with `Stethoscope`
 
-#### Dot
+### Dot
 
 Removed.
 
-#### DynamicZone
+### DynamicZone
 
 Replaced with `DynamicZoneField` and exported from `@strapi/icons/symbols`
 
-#### Email
+### Email
 
 Replaced with `EmailField` and exported from `@strapi/icons/symbols`
 
-#### EmptyData
+### EmptyData
 
 Now exported from `@strapi/icons/symbols`
 
-#### EmptyDocuments
+### EmptyDocuments
 
 Now exported from `@strapi/icons/symbols`
 
-#### EmptyPermissions
+### EmptyPermissions
 
 Now exported from `@strapi/icons/symbols`
 
-#### EmptyPictures
+### EmptyPictures
 
 Now exported from `@strapi/icons/symbols`
 
-#### Enumeration
+### Enumeration
 
 Replaced with `EnumerationField` and exported from `@strapi/icons/symbols`
 
-#### Envelop
+### Envelop
 
 Replaced with `Mail`
 
-#### Equalizer
+### Equalizer
 
 Replaced with `SlidersHorizontal`
 
-#### ExclamationMarkCircle
+### ExclamationMarkCircle
 
 Replaced with `WarningCircle`
 
-#### Exit
+### Exit
 
 Replaced with `SignOut`
 
-#### Facebook
+### Facebook
 
 Now exported from `@strapi/icons/symbols`
 
-#### FeatherSquare
+### FeatherSquare
 
 Now exported from `@strapi/icons/symbols`
 
-#### Gate
+### Gate
 
 Replaced with `CastleTurret`
 
-#### Github
+### Github
 
 Now exported from `@strapi/icons/symbols`
 
-#### GlassesSquare
+### GlassesSquare
 
 Now exported from `@strapi/icons/symbols`
 
-#### Grid
+### Grid
 
 Replaced with `GridFour`
 
-#### Headphone
+### Headphone
 
 Replaced with `Headphones`
 
-#### History
+### History
 
 Replaced with `ClockCounterClockwise`
 
-#### InformationSquare
+### InformationSquare
 
 Now exported from `@strapi/icons/symbols`
 
-#### Json
+### Json
 
 Replaced with `JsonField` and exported from `@strapi/icons/symbols`
 
-#### Landscape
+### Landscape
 
 Replaced with `Images`
 
-#### LandscapeSmall
+### LandscapeSmall
 
 Replaced with `Images`
 
-#### Layer
+### Layer
 
 Replaced with `ListPlus`
 
-#### LinkSmall
+### LinkSmall
 
 Replaced with `Link`
 
-#### Media
+### Media
 
 Replaced with `MediaField` and exported from `@strapi/icons/symbols`
 
-#### Medium
+### Medium
 
 Now exported from `@strapi/icons/symbols`
 
-#### MenuBurger
+### MenuBurger
 
 Replaced with `List`
 
-#### MinusOutlined
+### MinusOutlined
 
 Replaced with `MinusCircle`
 
-#### Music
+### Music
 
 Replaced with `MusicNotes`
 
-#### Number
+### Number
 
 Replaced with `NumberField` and exported from `@strapi/icons/symbols`
 
-#### OnholdCarretDown
+### OnholdCarretDown
 
 Replaced with `CaretDown`
 
-#### OnholdCarretUp
+### OnholdCarretUp
 
 Replaced with `CaretUp`
 
-#### Paint
+### Paint
 
 Replaced with `PaintBrush`
 
-#### Password
+### Password
 
 Replaced with `PasswordField`
 
-#### Picture
+### Picture
 
 Replaced with `Image`
 
-#### PicturePlus
+### PicturePlus
 
 Replaced with `PlusCircle`
 
-#### PlaySquare
+### PlaySquare
 
 Now exported from `@strapi/icons/symbols`
 
-#### Puzzle
+### Puzzle
 
 Replaced with `PuzzlePiece`
 
-#### Quote
+### Quote
 
 Replaced with `Quotes`
 
-#### QuoteClosed
+### QuoteClosed
 
 Replaced with `Quotes`
 
-#### Reddit
+### Reddit
 
 Now exported from `@strapi/icons/symbols`
 
-#### Refresh
+### Refresh
 
 Replaced with `ArrowClockwise`
 
-#### Relation
+### Relation
 
 Replaced with `RelationField` and exported from `@strapi/icons/symbols`
 
-#### Repeat
+### Repeat
 
 Removed.
 
-#### RichText
+### RichText
 
 Replaced with `RichTextField` and exported from `@strapi/icons/symbols`
 
-#### Rotate
+### Rotate
 
 Replaced with `ArrowsCounterClockwise`
 
-#### SearchIcon
+### SearchIcon
 
 Removed, use `Search` instead.
 
-#### Seed
+### Seed
 
 Replaced with `Plant`
 
-#### Slideshow
+### Slideshow
 
 Replaced with `PresentationChart`
 
-#### Spark
+### Spark
 
 Replaced with `Sparkle`
 
-#### Spinner
+### Spinner
 
 Replaced with `Loader`
 
-#### Strapi
+### Strapi
 
 Now exported from `@strapi/icons/symbols`
 
-#### Text
+### Text
 
 Replace with `TextField` and exported from `@strapi/icons/symbols`
 
-#### Twitter
+### Twitter
 
 Replaced with `X` and exported from `@strapi/icons/symbols`
 
-#### Uid
+### Uid
 
 Replaced with `UidField` and exported from `@strapi/icons/symbols`
 
-#### Write
+### Write
 
 Replaced with `Feather`
 
-## Icon has been removed
+---
 
-The `Icon` component has been removed. It's primary function was to allow you to apply theme colors to icons, this is now doable with the actual icon:
-
-```ts
-// before
-<Icon as={Plus} color="primary700" />
-
-// after
-<Plus fill="primary700" />
-```
+## Primitives

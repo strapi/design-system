@@ -3,58 +3,43 @@ import { Preview } from '@storybook/react';
 import { useDarkMode } from 'storybook-dark-mode';
 import { parse } from 'qs';
 
-import { DesignSystemProvider, Box, darkTheme, lightTheme } from '@strapi/design-system';
+import { DesignSystemProvider, Box, darkTheme, lightTheme, type BoxProps } from '@strapi/design-system';
 
-import { createCustomTheme } from './utils/createCustomTheme';
+import { DocsContainer, Unstyled } from '@storybook/blocks';
+import styled, { DefaultTheme } from 'styled-components';
+import { MARKDOWN_OVERRIDES, Markdown } from '../components/Markdown';
 
-import type { BoxProps } from '@strapi/design-system';
+const createCustomTheme = (theme: DefaultTheme, base: 'light' | 'dark' = 'light') => {
+  return {
+    base,
+    brandTitle: 'Strapi Design System',
+    brandUrl: 'https://strapi.io/',
 
-const preview: Preview = {
-  decorators: [
-    (Story) => (
-      <Theme padding={2}>
-        <Story />
-      </Theme>
-    ),
-  ],
-  parameters: {
-    docs: {
-      container: ({ children, ...props }) => (
-        <Theme padding={6} paddingLeft={10} paddingRight={10} {...props}>
-          <Box maxWidth="80rem" margin="auto">
-            {children}
-          </Box>
-        </Theme>
-      ),
-      toc: true,
-    },
-    options: {
-      storySort: {
-        order: [
-          'Getting Started',
-          ['Welcome', 'Contributing', 'Changelog'],
-          'Foundations',
-          ['Overview', 'Icons', ['Overview', '*']],
-          'Primitives',
-          ['Overview', '*'],
-          'Inputs',
-          'Design System',
-          ['Technical Components', 'Components'],
-          'Utilities',
-        ],
-      },
-    },
-    actions: { argTypesRegex: '^on[A-Z].*' },
-    controls: {
-      expanded: true,
-    },
-    darkMode: {
-      // Override the default dark theme
-      dark: createCustomTheme({ theme: darkTheme, asStorybookTheme: false }),
-      // Override the default light theme
-      light: createCustomTheme({ theme: lightTheme, asStorybookTheme: false }),
-    },
-  },
+    //
+    colorPrimary: theme.colors.primary600,
+    colorSecondary: theme.colors.secondary600,
+
+    // UI
+    appBg: theme.colors.neutral100,
+    appContentBg: theme.colors.neutral0,
+    appPreviewBg: theme.colors.neutral0,
+    appBorderColor: theme.colors.neutral200,
+
+    // Text colors
+    textColor: theme.colors.neutral800,
+    textInverseColor: theme.colors.neutral800,
+
+    // Toolbar default and active colors
+    barTextColor: theme.colors.neutral800,
+    barSelectedColor: theme.colors.primary600,
+    barHoverColor: theme.colors.primary600,
+    barBg: theme.colors.neutral0,
+
+    // Form colors
+    inputBg: theme.colors.neutral0,
+    inputBorder: theme.colors.neutral800,
+    inputTextColor: theme.colors.neutral800,
+  };
 };
 
 const themeQueryURL = parse(document.location.search).theme;
@@ -71,15 +56,98 @@ const Theme = ({ children, ...props }: BoxProps) => {
 
   return (
     <DesignSystemProvider locale="en" theme={isDark ? darkTheme : lightTheme}>
-      <Box flex="1 0 100%" background="neutral0">
-        <main>
-          <Box height="100%" {...props}>
-            {children}
-          </Box>
-        </main>
-      </Box>
+      <Main as="main" background="neutral0" padding="4rem" paddingBottom="8rem" height="100%">
+        <Box maxWidth="84rem" margin="auto" height="100%" {...props}>
+          {children}
+        </Box>
+      </Main>
     </DesignSystemProvider>
   );
+};
+
+const Main = styled(Box)`
+  .sbdocs-preview {
+    border: solid 1px ${(props) => props.theme.colors.neutral200};
+
+    .docs-story > div {
+      background: ${(props) => props.theme.colors.neutral0};
+    }
+  }
+
+  .docblock-argstable {
+    border: solid 1px ${(props) => props.theme.colors.neutral200};
+
+    table > tbody {
+      border: solid 1px ${(props) => props.theme.colors.neutral200} !important;
+    }
+  }
+
+  .docblock-argstable tr th {
+    color: ${(props) => props.theme.colors.neutral800};
+  }
+
+  .docblock-argstable tr td {
+    color: ${(props) => props.theme.colors.neutral800} !important;
+    background-color: ${(props) => props.theme.colors.neutral0} !important;
+    border-inline: unset !important;
+    border-block: unset !important;
+    border-top: solid 1px ${(props) => props.theme.colors.neutral200} !important;
+  }
+
+  .docblock-code-toggle {
+    cursor: pointer;
+    border: 1px solid ${(props) => props.theme.colors.neutral200};
+    background: ${(props) => props.theme.colors.neutral150};
+    color: ${(props) => props.theme.colors.neutral800};
+  }
+
+  .docblock-code-toggle:hover {
+    background-color: ${(props) => props.theme.colors.neutral100};
+  }
+`;
+
+const preview: Preview = {
+  decorators: [
+    (Story) => (
+      <Theme>
+        <Story />
+      </Theme>
+    ),
+  ],
+  parameters: {
+    docs: {
+      container: ({ children, ...props }: { children: any; context: any }) => (
+        <DocsContainer {...props}>
+          <Unstyled>
+            <Theme>{children}</Theme>
+          </Unstyled>
+        </DocsContainer>
+      ),
+      components: MARKDOWN_OVERRIDES,
+    },
+    options: {
+      storySort: {
+        order: [
+          'Getting Started',
+          ['Welcome', 'Contributing', 'Changelog', 'Migration Guides', ['V1 to V2']],
+          'Foundations',
+          ['Accessibility', 'Color', 'Icons', ['Overview', '*']],
+          'Primitives',
+          ['Overview', '*'],
+          'Inputs',
+          'Design System',
+          ['Technical Components', 'Components'],
+          'Utilities',
+        ],
+      },
+    },
+    darkMode: {
+      // Override the default dark theme
+      dark: createCustomTheme(darkTheme, 'dark'),
+      // Override the default light theme
+      light: createCustomTheme(lightTheme),
+    },
+  },
 };
 
 export default preview;
