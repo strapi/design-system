@@ -43,7 +43,7 @@ export const Base = {
         <NumberInput
           placeholder="This is a content placeholder"
           name="content"
-          value="3.14159265359"
+          value={3.14159265359}
         />`,
       },
     },
@@ -53,9 +53,6 @@ export const Base = {
 
 export const WithInitialEmpty = {
   ...Template,
-  args: {
-    value: '',
-  },
   parameters: {
     docs: {
       source: {
@@ -63,7 +60,6 @@ export const WithInitialEmpty = {
         <NumberInput
           placeholder="This is a content placeholder"
           name="content"
-          value=""
         />`,
       },
     },
@@ -86,7 +82,7 @@ export const Locale = {
         <NumberInput
           placeholder="This is a content placeholder"
           name="content"
-          value="3.14159265359"
+          value={3.14159265359}
           locale: "fr"
         />`,
       },
@@ -109,7 +105,7 @@ export const SizeS = {
         <NumberInput
           placeholder="This is a content placeholder"
           name="content"
-          value="3.14159265359"
+          value={3.14159265359}
           locale: "fr"
           size: "S"
         />`,
@@ -133,7 +129,7 @@ export const Disabled = {
         <NumberInput
           placeholder="This is a content placeholder"
           name="content"
-          value="3.14159265359"
+          value={3.14159265359}
           locale="fr"
           size="S"
           disabled
@@ -158,9 +154,8 @@ export const WithField = {
         <FieldLabel>Number</FieldLabel>
         <NumberInput
           placeholder="This is a content placeholder"
-          value=""
-          name="content"
-          error={error ? 'Error' : undefined}
+          onValueChange={(value) => updateArgs({ value: value })}
+          value={3.14159265359}
           disabled={disabled}
         />
         <FieldError />
@@ -187,9 +182,9 @@ export const WithField = {
           <FieldLabel>Number</FieldLabel>
           <NumberInput
             placeholder="This is a content placeholder"
-            value=""
-            name="content"
-            error={error ? 'Error' : undefined} />
+            value={3.14159265359}
+            onValueChange={onChange}
+            name="content" />
           <FieldError />
           <FieldHint />
         </Field>

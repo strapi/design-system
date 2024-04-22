@@ -28,7 +28,7 @@ type Story = StoryObj<typeof Combobox>;
 
 const Template: Story = {
   render: ({ ...props }) => {
-    const [value, setValue] = React.useState<string>('');
+    const [value, setValue] = React.useState<string | undefined>('');
 
     return (
       <Combobox

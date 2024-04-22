@@ -48,6 +48,10 @@ This is the same component as `ToggleInput` and therefore you should use that in
 
 We are streamlining inputs by removing unnecessary components like labels, hints, and error messages, focusing solely on the inputs themselves. This simplifies the structure and reduces DOM size, especially in cases where only aria-labels are needed. Users can still use Field components they used alongside inputs.
 
+### Components renaming
+
+ToggleInput is renamed to just Toggle.
+
 ### Icon Updates
 
 Many of the icons have been updated visually, this will effect snapshot tests. The default size is `1.6rem` for an icon, in the Strapi design-system this equates to 16px. We have also ensured that `paths` do not have any `fill` or `stroke` properties set, this allows the icon to be styled with CSS except for specific use cases we don't expect users to encounter. The default `color` is `currentColor` which means it will inherit the color of the parent element.

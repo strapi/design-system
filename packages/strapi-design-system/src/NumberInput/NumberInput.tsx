@@ -6,7 +6,7 @@ import { CaretDown } from '@strapi/icons';
 import styled from 'styled-components';
 
 import { useDesignSystem } from '../DesignSystemProvider';
-import { FieldInput, FieldInputProps } from '../Field';
+import { FieldInput, FieldInputProps, type FieldProps } from '../Field';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 import { useControllableState } from '../hooks/useControllableState';
 
@@ -23,7 +23,9 @@ const ArrowButton = styled.button<{ reverse?: boolean }>`
   }
 `;
 
-export interface NumberInputProps extends Omit<FieldInputProps, 'id' | 'name' | 'onChange' | 'value'> {
+export interface NumberInputProps
+  extends Omit<FieldInputProps, 'id' | 'name' | 'onChange' | 'value'>,
+    Pick<FieldProps, 'id' | 'name'> {
   onValueChange: (value: number | undefined) => void;
   locale?: string;
   value?: number;

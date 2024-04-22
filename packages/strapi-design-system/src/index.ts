@@ -59,7 +59,7 @@ export * from './TextInput';
 export * from './Textarea';
 export * from './ThemeProvider';
 export * from './TimePicker';
-export * from './ToggleInput';
+export * from './Toggle';
 export * from './Tooltip';
 export * from './Typography';
 export * from './VisuallyHidden';

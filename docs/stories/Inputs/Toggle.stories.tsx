@@ -2,30 +2,31 @@ import * as React from 'react';
 
 import { useArgs } from '@storybook/preview-api';
 import { Meta, StoryObj } from '@storybook/react';
-import { ToggleInput, Button, Field, FieldHint, FieldError } from '@strapi/design-system';
+import { Toggle, Button, Field, FieldHint, FieldError } from '@strapi/design-system';
 import { default as outdent } from 'outdent';
 
-const meta: Meta<typeof ToggleInput> = {
-  title: 'Design System/Inputs/ToggleInput',
-  component: ToggleInput,
+const meta: Meta<typeof Toggle> = {
+  title: 'Design System/Inputs/Toggle',
+  component: Toggle,
 };
 
 export default meta;
 
-type Story = StoryObj<typeof ToggleInput>;
+type Story = StoryObj<typeof Toggle>;
 
 const Template: Story = {
   render: ({ checked, ...props }) => {
     const [, updateArgs] = useArgs();
 
     return (
-      <ToggleInput
+      <Toggle
+        {...props}
         label="Enabled"
         checked={checked}
-        {...props}
         onLabel="True"
         offLabel="False"
-        onChange={(e) => updateArgs({ checked: !checked })}
+        onChange={() => updateArgs({ checked: !checked })}
+        onClear={() => updateArgs({ checked: null })}
       />
     );
   },
@@ -84,6 +85,7 @@ export const Nullish = {
   args: {
     ...Base.args,
     checked: null,
+    clearLabel: 'clear',
   },
   parameters: {
     docs: {
@@ -94,6 +96,8 @@ export const Nullish = {
           onLabel="True"
           offLabel="False"
           checked={null}
+          clearLabel="clear"
+          onClear={handleClear}
           onChange={handleChange}
         />
         `,
@@ -113,7 +117,7 @@ export const WithField = {
         error={error ? 'Error' : undefined}
         hint={error ? undefined : 'Description line lorem ipsum'}
       >
-        <ToggleInput label="Enabled" onLabel="True" offLabel="False" error={error ? 'Error' : undefined} />
+        <Toggle label="Enabled" onLabel="True" offLabel="False" error={error ? 'Error' : undefined} />
         <FieldError />
         <FieldHint />
         <Button variant="danger-light" onClick={() => updateArgs({ error: !error })}>
@@ -147,4 +151,4 @@ export const WithField = {
   },
 
   name: 'with field',
-} satisfies Story;
+};

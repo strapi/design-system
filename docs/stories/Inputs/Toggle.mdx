@@ -1,11 +1,11 @@
 import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
-import { ToggleInput } from '@strapi/design-system';
+import { Toggle } from '@strapi/design-system';
 
-import * as ToggleInputStories from './ToggleInput.stories';
+import * as ToggleStories from './Toggle.stories';
 
-<Meta of={ToggleInputStories} />
+<Meta of={ToggleStories} />
 
-# ToggleInput
+# Toggle
 
 - [Overview](#overview)
 - [Usage](#usage)
@@ -21,26 +21,26 @@ Enable users to switch a single option between on and off states
 ## Usage
 
 ```js
-import { ToggleInput } from '@strapi/design-system';
+import { Toggle } from '@strapi/design-system';
 ```
 
-<Canvas of={ToggleInputStories.Base} />
+<Canvas of={ToggleStories.Base} />
 
 ## Props
 
-<ArgsTable of={ToggleInput} />
+<ArgsTable of={Toggle} />
 
 ## Variants
 
 ### Base
 
-<Canvas of={ToggleInputStories.Base} />
+<Canvas of={ToggleStories.Base} />
 
 ### Size S
 
 Toggle input with `small` size.
 
-<Canvas of={ToggleInputStories.SizeS} />
+<Canvas of={ToggleStories.SizeS} />
 
 ### Using `null` values
 
@@ -49,10 +49,10 @@ circumstances such whether or not a restaurant is open – `true` / `false` / no
 It's additionally possible to "clear" the value by passing an `onClear` handler and a `clearLabel`.
 This label _will not show_ if the value is `null`.
 
-<Canvas of={ToggleInputStories.Nullish} />
+<Canvas of={ToggleStories.Nullish} />
 
 ### With field
 
 Toggle input with field hint or error
 
-<Canvas of={ToggleInputStories.WithField} />
+<Canvas of={ToggleStories.WithField} />

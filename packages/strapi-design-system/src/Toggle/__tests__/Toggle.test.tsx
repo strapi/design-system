@@ -1,11 +1,11 @@
 import { fireEvent, render as renderHarness } from '@test/utils';
 
-import { ToggleInput, ToggleInputProps } from '../ToggleInput';
+import { Toggle, type ToggleProps } from '../Toggle';
 
-const render = (props: Partial<Omit<ToggleInputProps, 'aria-label'>> = {}) =>
-  renderHarness(<ToggleInput onLabel="On" offLabel="Off" label="Label" {...props} />);
+const render = (props: Partial<Omit<ToggleProps, 'aria-label'>> = {}) =>
+  renderHarness(<Toggle onLabel="On" offLabel="Off" label="Label" {...props} />);
 
-describe('ToggleInput', () => {
+describe('Toggle', () => {
   it('should render and be accesisble with a label', () => {
     const { getByRole, getByText } = render();
 
