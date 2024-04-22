@@ -12,8 +12,18 @@ import { useComposedRefs } from '../hooks/useComposeRefs';
 import { useControllableState } from '../hooks/useControllableState';
 import { useDateFormatter } from '../hooks/useDateFormatter';
 import { useId } from '../hooks/useId';
-import { TimePickerInput, TimePickerProps } from '../TimePicker';
+import { TimePicker as BaseTimePicker, TimePickerProps } from '../TimePicker';
 import { VisuallyHidden } from '../VisuallyHidden';
+
+const DatePicker = styled(DatePickerInput)`
+  flex: 1 1 70%;
+  min-width: 120px;
+`;
+
+const TimePicker = styled(BaseTimePicker)`
+  flex: 1 1 30%;
+  min-width: 140px;
+`;
 
 export interface DateTimePickerProps
   extends Omit<DatePickerInputProps, 'step' | 'onChange' | 'error' | 'selectedDate'>,
@@ -251,13 +261,3 @@ export const convertUTCDateToCalendarDateTime = (date: Date | string, resetTime 
    */
   return toCalendarDateTime(zonedDateTime);
 };
-
-const DatePicker = styled(DatePickerInput)`
-  flex: 1 1 70%;
-  min-width: 120px;
-`;
-
-const TimePicker = styled(TimePickerInput)`
-  flex: 1 1 30%;
-  min-width: 140px;
-`;

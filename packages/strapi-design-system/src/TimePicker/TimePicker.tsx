@@ -14,10 +14,10 @@ const isNotAlphabeticalCharacter = (str: string): boolean => {
 };
 
 /* -------------------------------------------------------------------------------------------------
- * TimePickerInput
+ * TimePicker
  * -----------------------------------------------------------------------------------------------*/
 
-export interface TimePickerInputProps
+export interface TimePickerProps
   extends Omit<
     ComboboxInputProps,
     | 'children'
@@ -41,7 +41,7 @@ export interface TimePickerInputProps
   defaultValue?: string;
 }
 
-export const TimePickerInput = React.forwardRef<ComboboxInputElement, TimePickerInputProps>(
+export const TimePicker = React.forwardRef<ComboboxInputElement, TimePickerProps>(
   ({ id, step = 15, value: valueProp, defaultValue, onChange, ...restProps }, forwardedRef) => {
     const context = useDesignSystem('TimePicker');
     const generatedId = useId(id);
@@ -163,13 +163,3 @@ const StyledClock = styled(Clock)`
     fill: ${({ theme }) => theme.colors.neutral500};
   }
 `;
-
-/* -------------------------------------------------------------------------------------------------
- * TimePicker
- * -----------------------------------------------------------------------------------------------*/
-
-export interface TimePickerProps extends TimePickerInputProps {}
-
-export const TimePicker = React.forwardRef<ComboboxInputElement, TimePickerProps>(({ ...restProps }, forwardedRef) => {
-  return <TimePickerInput ref={forwardedRef} {...restProps} />;
-});

@@ -32,6 +32,14 @@ describe('Toggle', () => {
     expect(getByRole('checkbox', { name: 'Label' })).toBeDisabled();
   });
 
+  it('should be able to be required', () => {
+    const { getByRole } = render({
+      required: true,
+    });
+
+    expect(getByRole('checkbox', { name: /Label/ })).toBeRequired();
+  });
+
   it('should change the checked value when clicked & call onChange', () => {
     const onChange = jest.fn();
     const { getByRole } = render({

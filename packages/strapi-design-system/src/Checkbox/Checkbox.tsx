@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 import { BaseCheckbox, BaseCheckboxProps, CheckboxElement } from '../BaseCheckbox';
 import { Box } from '../Box';
-import { useId } from '../hooks/useId';
 import { Typography } from '../Typography';
 
 const CheckboxLabel = styled(Typography)<Pick<CheckboxProps, 'disabled'>>`
@@ -16,15 +15,12 @@ const CheckboxLabel = styled(Typography)<Pick<CheckboxProps, 'disabled'>>`
 `;
 
 const CheckboxTick = React.forwardRef<CheckboxElement, BaseCheckboxProps>((props, forwardedRef) => {
-  const id = useId();
-
-  return <BaseCheckbox ref={forwardedRef} id={id} {...props} />;
+  return <BaseCheckbox ref={forwardedRef} {...props} />;
 });
 
 interface CheckboxProps extends BaseCheckboxProps {
   children: React.ReactNode;
   disabled?: boolean;
-  'aria-describedby'?: string;
 }
 
 export const Checkbox = React.forwardRef<CheckboxElement, CheckboxProps>(

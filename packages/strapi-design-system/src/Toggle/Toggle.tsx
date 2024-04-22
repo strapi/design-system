@@ -19,7 +19,6 @@ interface ToggleInputProps
   offLabel: string;
   checked?: boolean | null;
   size?: InputSizes;
-  'aria-describedby'?: string;
 }
 
 type ToggleInputElement = HTMLInputElement;
