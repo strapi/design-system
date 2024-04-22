@@ -14,6 +14,7 @@ const createCustomTheme = (theme: DefaultTheme, base: 'light' | 'dark' = 'light'
     base,
     brandTitle: 'Strapi Design System',
     brandUrl: 'https://strapi.io/',
+    brandImage: base === 'light' ? '/site/logo.svg' : '/site/logo_dark.svg',
 
     //
     colorPrimary: theme.colors.primary600,
@@ -131,7 +132,7 @@ const preview: Preview = {
           'Getting Started',
           ['Welcome', 'Contributing', 'Changelog', 'Migration Guides', ['V1 to V2']],
           'Foundations',
-          ['Accessibility', 'Color', 'Icons', ['Overview', '*']],
+          ['Accessibility', 'Color', 'Grid', 'Icons', ['Overview', '*'], 'Typography'],
           'Primitives',
           ['Overview', '*'],
           'Inputs',

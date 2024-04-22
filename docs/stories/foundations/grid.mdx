@@ -1,0 +1,43 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Foundations/Grid" />
+
+# Grid
+
+A grid system helps the content to follow a logical order and increase readability.
+
+## Baseline
+
+The Strapi type system specifies `14px/1.4rem` for the base font size, which produces an `8px` x-height. The x-height is
+halved to produce a `4px` baseline.
+
+![Baseline](/foundations/baseline.png) This baseline convention naturally flows on to the rest of the grid system, which
+includes icons, components, and layout dimensions. Always try to align objects on the 8px grid, but where necessary use
+good judgement to fine tune your designs to `4px`. The `4px` baseline is there to allow more flexibility for line
+heights and smaller adjustments.
+
+## Spacing System
+
+Use multiples of `4px` when defining measurements, spacing, and positioning elements.
+
+![Spacing system](/foundations/spacing-system.png)
+
+## Best practice
+
+- When necessary use `4px` to make more fine tuned adjustments.
+- Whenever possible, make sure that objects line up, both vertically and horizontally.
+- Align your bounding box to the grid, not the baseline of your text.
+
+## Responsive grid
+
+A 12-column responsive grid is applied to the entire interface, except the main and secondary navigation.
+
+We use fixed margin of 56px and fixed gutters of 20px to ensure consistencies in our alignement. The column width varies
+depending on screen sizes.
+
+1. Margin – `56px`
+2. Gutters – `20px`
+3. Columns – `12`
+
+![Responsive grid](/foundations/responsive-grid.png) Fixed gutters of 20px to ensure consistencies in our alignement.
+The column width varies depending on screen sizes.

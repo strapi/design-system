@@ -10,6 +10,7 @@ const Image = (props: ImageProps) => {
 
 const Img = styled.img`
   width: 100%;
+  margin-block-end: 1.6rem;
 `;
 
 export { Image };
