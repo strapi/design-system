@@ -2,24 +2,24 @@ import * as React from 'react';
 
 import { useArgs } from '@storybook/preview-api';
 import { Meta, StoryObj } from '@storybook/react';
-import { Toggle, Button, Field, FieldHint, FieldError } from '@strapi/design-system';
+import { ToggleInput, Button, Field, FieldHint, FieldError } from '@strapi/design-system';
 import { default as outdent } from 'outdent';
 
-const meta: Meta<typeof Toggle> = {
-  title: 'Design System/Inputs/Toggle',
-  component: Toggle,
+const meta: Meta<typeof ToggleInput> = {
+  title: 'Design System/Inputs/ToggleInput',
+  component: ToggleInput,
 };
 
 export default meta;
 
-type Story = StoryObj<typeof Toggle>;
+type Story = StoryObj<typeof ToggleInput>;
 
 const Template: Story = {
   render: ({ checked, ...props }) => {
     const [, updateArgs] = useArgs();
 
     return (
-      <Toggle
+      <ToggleInput
         {...props}
         label="Enabled"
         checked={checked}
@@ -117,7 +117,7 @@ export const WithField = {
         error={error ? 'Error' : undefined}
         hint={error ? undefined : 'Description line lorem ipsum'}
       >
-        <Toggle label="Enabled" onLabel="True" offLabel="False" error={error ? 'Error' : undefined} />
+        <ToggleInput label="Enabled" onLabel="True" offLabel="False" error={error ? 'Error' : undefined} />
         <FieldError />
         <FieldHint />
         <Button variant="danger-light" onClick={() => updateArgs({ error: !error })}>

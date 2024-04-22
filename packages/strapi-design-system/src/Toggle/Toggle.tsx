@@ -12,7 +12,7 @@ import { inputFocusStyle } from '../themes';
 import type { InputSizes } from '../themes/sizes';
 import { Typography } from '../Typography';
 
-interface ToggleInputProps
+interface ToggleProps
   extends Omit<React.ComponentPropsWithoutRef<'input'>, 'name' | 'children' | 'required' | 'id' | 'size' | 'checked'>,
     Pick<FieldProps, 'error' | 'name' | 'id' | 'required'> {
   onLabel: string;
@@ -27,7 +27,7 @@ type ToggleInputElement = HTMLInputElement;
  * TODO: This should probably follow the switch button pattern
  * as seen – https://www.w3.org/WAI/ARIA/apg/patterns/switch/examples/switch-button/
  */
-const ToggleInput = React.forwardRef<ToggleInputElement, ToggleInputProps>(
+const Toggle = React.forwardRef<ToggleInputElement, ToggleProps>(
   (
     { offLabel, onLabel, disabled, name, id, error, required, checked: checkedProp, onChange, size = 'M', ...props },
     forwardedRef,
@@ -148,17 +148,17 @@ const Input = styled.input`
   width: 100%;
 `;
 
-interface TogglePropsWithoutLabel extends ToggleInputProps {
+interface ToggleInputPropsWithoutLabel extends ToggleProps {
   clearLabel?: string;
   labelAction?: FieldLabelProps['action'];
   onClear?: () => void;
 }
 
-type ToggleProps =
-  | (TogglePropsWithoutLabel & { label: string; 'aria-label'?: string })
-  | (TogglePropsWithoutLabel & { label?: never; 'aria-label': string });
+type ToggleInputProps =
+  | (ToggleInputPropsWithoutLabel & { label: string; 'aria-label'?: string })
+  | (ToggleInputPropsWithoutLabel & { label?: never; 'aria-label': string });
 
-const Toggle = React.forwardRef<ToggleInputElement, ToggleProps>(
+const ToggleInput = React.forwardRef<ToggleInputElement, ToggleInputProps>(
   ({ disabled = false, label, labelAction, onClear, clearLabel, checked, ...props }, forwardedRef) => {
     return (
       <Flex direction="column" alignItems="stretch" gap={1}>
@@ -168,7 +168,7 @@ const Toggle = React.forwardRef<ToggleInputElement, ToggleProps>(
             <ClearButton onClick={onClear}>{clearLabel}</ClearButton>
           )}
         </Flex>
-        <ToggleInput ref={forwardedRef} checked={checked} disabled={disabled} aria-label={label} {...props} />
+        <Toggle ref={forwardedRef} checked={checked} disabled={disabled} aria-label={label} {...props} />
       </Flex>
     );
   },
@@ -179,5 +179,5 @@ const ClearButton = styled(TextButton)`
   margin-left: auto;
 `;
 
-export { Toggle };
-export type { ToggleProps };
+export { ToggleInput, Toggle };
+export type { ToggleInputProps, ToggleProps };
