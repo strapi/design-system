@@ -6,7 +6,7 @@ import { ToggleInput, Button, Field, FieldHint, FieldError } from '@strapi/desig
 import { default as outdent } from 'outdent';
 
 const meta: Meta<typeof ToggleInput> = {
-  title: 'Design System/Inputs/ToggleInput',
+  title: 'Inputs/ToggleInput',
   component: ToggleInput,
 };
 

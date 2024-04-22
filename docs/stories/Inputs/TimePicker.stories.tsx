@@ -6,7 +6,7 @@ import { TimePicker, Button, Field, FieldLabel, FieldHint, FieldError } from '@s
 import { default as outdent } from 'outdent';
 
 const meta: Meta<typeof TimePicker> = {
-  title: 'Design System/Inputs/TimePicker',
+  title: 'Inputs/TimePicker',
   component: TimePicker,
 };
 

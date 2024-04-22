@@ -18,7 +18,7 @@ import {
 import { default as outdent } from 'outdent';
 
 const meta: Meta<typeof Combobox> = {
-  title: 'Design System/Inputs/Combobox',
+  title: 'Inputs/Combobox',
   component: Combobox,
 };
 

@@ -6,7 +6,7 @@ import { NumberInput, Flex, Button, Field, FieldLabel, FieldHint, FieldError } f
 import { default as outdent } from 'outdent';
 
 const meta: Meta<typeof NumberInput> = {
-  title: 'Design System/Inputs/NumberInput',
+  title: 'Inputs/NumberInput',
   component: NumberInput,
 };
 

@@ -6,7 +6,7 @@ import { Checkbox, Field, FieldHint, FieldError, Button } from '@strapi/design-s
 import { default as outdent } from 'outdent';
 
 const meta: Meta<typeof Checkbox> = {
-  title: 'Design System/Inputs/Checkbox',
+  title: 'Inputs/Checkbox',
   component: Checkbox,
 };
 export default meta;

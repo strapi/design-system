@@ -18,7 +18,7 @@ import {
 import { default as outdent } from 'outdent';
 
 const meta: Meta = {
-  title: 'Design System/Inputs/Select',
+  title: 'Inputs/Select',
 };
 
 export default meta;

@@ -6,7 +6,7 @@ import { TextInput, Field, FieldLabel, FieldHint, FieldError, Button } from '@st
 import { default as outdent } from 'outdent';
 
 const meta: Meta<typeof TextInput> = {
-  title: 'Design System/Inputs/TextInput',
+  title: 'Inputs/TextInput',
   component: TextInput,
 };
 

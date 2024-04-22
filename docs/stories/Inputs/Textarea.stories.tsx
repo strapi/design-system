@@ -6,7 +6,7 @@ import { Textarea, Button, Field, FieldLabel, FieldHint, FieldError } from '@str
 import { default as outdent } from 'outdent';
 
 const meta: Meta<typeof Textarea> = {
-  title: 'Design System/Inputs/Textarea',
+  title: 'Inputs/Textarea',
   component: Textarea,
 };
 

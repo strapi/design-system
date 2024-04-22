@@ -6,7 +6,7 @@ import { Button, Field, FieldLabel, FieldHint, FieldError, JSONInput } from '@st
 import { default as outdent } from 'outdent';
 
 const meta: Meta<typeof JSONInput> = {
-  title: 'Design System/Inputs/JSONInput',
+  title: 'Inputs/JSONInput',
   component: ({ ...props }) => {
     const editorRef = React.useRef<HTMLInputElement | null>(null);
 
