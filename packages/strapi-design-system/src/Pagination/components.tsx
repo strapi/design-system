@@ -11,7 +11,7 @@ import { Typography } from '../Typography';
 import { VisuallyHidden } from '../VisuallyHidden';
 
 interface PaginationLinkProps extends BaseLinkProps {
-  active: boolean;
+  active?: boolean;
 }
 
 interface PaginationPageLinkProps extends PaginationLinkProps {

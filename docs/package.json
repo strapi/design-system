@@ -12,7 +12,6 @@
     "@strapi/ui-primitives": "workspace:*",
     "qs": "^6.12.0",
     "react": "18.2.0",
-    "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "18.2.0",
     "storybook-dark-mode": "^3.0.3",
     "styled-components": "^5.3.11"
@@ -24,6 +23,7 @@
     "@storybook/theming": "7.6.17",
     "eslint-plugin-mdx": "^3.1.5",
     "storybook": "^7.6.17",
+    "typescript": "5.4.5",
     "vite": "^5.0.2"
   },
   "scripts": {

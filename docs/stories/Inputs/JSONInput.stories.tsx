@@ -12,11 +12,11 @@ const meta: Meta<typeof JSONInput> = {
 
     return (
       <JSONInput
+        {...props}
         value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6\n   }\n]'}
         aria-label="JSON"
         minHeight="235px"
         ref={editorRef}
-        {...props}
       />
     );
   },
@@ -70,14 +70,13 @@ export const WithField = {
     return (
       <Field
         id="with_field"
-        disabled={disabled}
         error={error ? 'Error' : undefined}
         hint={error ? undefined : 'Description line lorem ipsum'}
       >
         <FieldLabel>JSON</FieldLabel>
         <JSONInput
           value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6\n   }\n]'}
-          label="JSON"
+          aria-label="JSON"
           minHeight="235px"
           error={error ? 'Error' : undefined}
           disabled={disabled}
@@ -100,14 +99,13 @@ export const WithField = {
         code: outdent`
         <Field
           id="with_field"
-          disabled={disabled}
           error={error ? 'Error' : undefined}
           hint={error ? undefined : 'Description line lorem ipsum'}
         >
           <FieldLabel>JSON</FieldLabel>
           <JSONInput
             value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6\n   }\n]'}
-            label="JSON"
+            aria-label="JSON"
             minHeight="235px"
             error={error ? 'Error' : undefined}
             disabled={disabled}

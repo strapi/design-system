@@ -27,7 +27,7 @@ import {
   Tag,
   Avatar,
 } from '@strapi/design-system';
-import { Apps, ExclamationMarkCircle, Plus, Pencil, Trash } from '@strapi/icons';
+import { GridNine, WarningCircle, Plus, Pencil, Trash } from '@strapi/icons';
 
 const meta: Meta<typeof Layout> = {
   title: 'Design System/Components/Layout',
@@ -44,7 +44,7 @@ export const Base = {
       {
         id: 1,
         label: 'Addresses',
-        icon: <ExclamationMarkCircle />,
+        icon: <WarningCircle />,
         to: '/address',
       },
       {
@@ -55,7 +55,7 @@ export const Base = {
       {
         id: 3,
         label: 'Cities',
-        icon: <Apps />,
+        icon: <GridNine />,
         to: '/city',
         active: true,
       },
@@ -94,7 +94,7 @@ export const Base = {
               <SubNavSections>
                 <SubNavSection label="Collection Type" collapsable badgeLabel={links.length.toString()}>
                   {links.map((link) => (
-                    <SubNavLink to={link.to} active={link.active} key={link.id}>
+                    <SubNavLink href={link.to} active={link.active} key={link.id}>
                       {link.label}
                     </SubNavLink>
                   ))}
@@ -102,7 +102,7 @@ export const Base = {
                 <SubNavSection label="Single Type" collapsable badgeLabel={links.length.toString()}>
                   <SubNavLinkSection label="Default">
                     {links.map((link) => (
-                      <SubNavLink to={link.to} key={link.id}>
+                      <SubNavLink href={link.to} key={link.id}>
                         {link.label}
                       </SubNavLink>
                     ))}

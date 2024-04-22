@@ -2,8 +2,8 @@ import * as React from 'react';
 
 import styled from 'styled-components';
 
-import { Button, ButtonProps } from '../Button';
-import { SimpleMenu } from '../SimpleMenu';
+import { Button } from '../Button';
+import { SimpleMenu, SimpleMenuProps } from '../SimpleMenu';
 
 const StyledButton = styled(Button)`
   padding: ${({ theme }) => `${theme.spaces[1]} ${theme.spaces[2]}`};
@@ -15,7 +15,7 @@ const StyledButton = styled(Button)`
   }
 `;
 
-export interface CrumbSimpleMenuProps extends ButtonProps {
+export interface CrumbSimpleMenuProps extends SimpleMenuProps {
   'aria-label': string;
   icon?: React.ReactElement;
   endIcon?: React.ReactNode;

@@ -3,7 +3,7 @@ import { Check } from '@strapi/icons';
 import { Select } from '@strapi/ui-primitives';
 
 const meta: Meta<typeof Select.Root> = {
-  title: 'Design System/Primitives/Select',
+  title: 'Primitives/Select',
   component: Select.Root,
 };
 

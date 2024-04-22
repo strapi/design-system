@@ -14,7 +14,9 @@
     "resolveJsonModule": true,
     "noEmit": true,
     "noImplicitAny": true,
+    "declaration": true,
+    "declarationMap": true,
     "jsx": "react-jsx"
   },
-  "include": ["src"]
+  "include": ["src", "styled.d.ts"]
 }

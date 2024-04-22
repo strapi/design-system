@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { Box, Flex, LinkButton } from '@strapi/design-system';
-import { Information, Write } from '@strapi/icons';
+import { Feather, Information } from '@strapi/icons';
 
 const meta: Meta<typeof LinkButton> = {
   title: 'Design System/Components/LinkButton',
@@ -27,11 +27,11 @@ export const Sizes = {
   render: () => (
     <Flex>
       <Box paddingRight={1}>
-        <LinkButton size="S" to="/">
+        <LinkButton size="S" href="/">
           Small
         </LinkButton>
       </Box>
-      <LinkButton size="L" to="/">
+      <LinkButton size="L" href="/">
         Large
       </LinkButton>
     </Flex>
@@ -43,13 +43,15 @@ export const Sizes = {
 export const Variants = {
   render: () => (
     <Flex>
-      {['default', 'secondary', 'tertiary', 'success', 'danger', 'success-light', 'danger-light'].map((variant) => (
-        <Box key={variant} paddingRight={2}>
-          <LinkButton variant={variant} to="/">
-            {variant}
-          </LinkButton>
-        </Box>
-      ))}
+      {(['default', 'secondary', 'tertiary', 'success', 'danger', 'success-light', 'danger-light'] as const).map(
+        (variant) => (
+          <Box key={variant} paddingRight={2}>
+            <LinkButton variant={variant} href="/">
+              {variant}
+            </LinkButton>
+          </Box>
+        ),
+      )}
     </Flex>
   ),
 
@@ -60,11 +62,11 @@ export const Icons = {
   render: () => (
     <Flex>
       <Box paddingRight={1}>
-        <LinkButton startIcon={<Information />} to="/">
+        <LinkButton startIcon={<Information />} href="/">
           Information
         </LinkButton>
       </Box>
-      <LinkButton variant="secondary" endIcon={<Write />} to="/">
+      <LinkButton variant="secondary" endIcon={<Feather />} href="/">
         Write content
       </LinkButton>
     </Flex>
@@ -76,7 +78,7 @@ export const Icons = {
 export const Disabled = {
   render: () => (
     <Box paddingRight={1}>
-      <LinkButton disabled to="/" startIcon={<Information />}>
+      <LinkButton disabled href="/" startIcon={<Information />}>
         Information
       </LinkButton>
     </Box>

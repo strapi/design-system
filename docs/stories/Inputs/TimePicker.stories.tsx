@@ -20,11 +20,11 @@ const Template: Story = {
 
     return (
       <TimePicker
-        label="Lunchtime"
+        {...props}
+        aria-label="Lunchtime"
         value={value}
         onChange={(value) => updateArgs({ value })}
         onClear={() => updateArgs({ value: '' })}
-        {...props}
       />
     );
   },
@@ -100,18 +100,17 @@ export const Sizing = {
 } satisfies Story;
 
 export const WithField = {
-  render: ({ error, disabled }) => {
+  render: ({ error }) => {
     const [, updateArgs] = useArgs();
 
     return (
       <Field
         id="with_field"
-        disabled={disabled}
         error={error ? 'Error' : undefined}
         hint={error ? undefined : 'Description line lorem ipsum'}
       >
         <FieldLabel>Time picker</FieldLabel>
-        <TimePicker label="Lunchtime" error={error ? 'Error' : undefined} />
+        <TimePicker aria-label="Lunchtime" error={error ? 'Error' : undefined} />
         <FieldError />
         <FieldHint />
         <Button variant="danger-light" onClick={() => updateArgs({ error: !error })}>
@@ -131,7 +130,6 @@ export const WithField = {
         code: outdent`
         <Field
           id="with_field"
-          disabled={disabled}
           error={error ? 'Error' : undefined}
           hint={error ? undefined : 'Description line lorem ipsum'}
         >

@@ -101,7 +101,7 @@ export const Sizes = {
 export const Variants = {
   render: () => (
     <Flex gap={2}>
-      {['default', 'secondary'].map((variant) => (
+      {(['tertiary', 'secondary'] as const).map((variant) => (
         <IconButton icon={<Pencil />} variant={variant} key={variant} label={variant} />
       ))}
     </Flex>

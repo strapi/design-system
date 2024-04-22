@@ -54,7 +54,7 @@ export const Basic = {
 
 export const Controlled = {
   render: () => {
-    const [value, setValue] = React.useState();
+    const [value, setValue] = React.useState<string | number>();
 
     return (
       <SingleSelect
@@ -84,7 +84,7 @@ type MultipleSelectStory = StoryObj<typeof MultiSelect>;
 
 export const Multiple = {
   render: () => {
-    const [values, setValues] = React.useState([]);
+    const [values, setValues] = React.useState<string[]>([]);
 
     return (
       <MultiSelect
@@ -112,7 +112,7 @@ export const Multiple = {
 
 export const MultipleWithTags = {
   render: () => {
-    const [values, setValues] = React.useState([]);
+    const [values, setValues] = React.useState<string[]>([]);
 
     return (
       <MultiSelect
@@ -186,7 +186,7 @@ export const MultipleNestedSelect = {
       },
     ];
 
-    const [values, setValues] = React.useState([]);
+    const [values, setValues] = React.useState<Array<string>>([]);
 
     return (
       <MultiSelectNested
@@ -216,11 +216,7 @@ export const WithField = {
         hint={error ? undefined : 'Description line lorem ipsum'}
       >
         <FieldLabel>Fruits</FieldLabel>
-        <SingleSelect
-          placeholder="My favourite fruit is..."
-          hint="Fruits are not vegetables"
-          error={error ? 'Error' : undefined}
-        >
+        <SingleSelect placeholder="My favourite fruit is..." error={error ? 'Error' : undefined}>
           <SingleSelectOption value="apple">Apple</SingleSelectOption>
           <SingleSelectOption value="avocado">Avocado</SingleSelectOption>
           <SingleSelectOption value="banana">Banana</SingleSelectOption>
@@ -253,7 +249,6 @@ export const WithField = {
           <FieldLabel>Fruits</FieldLabel>
           <SingleSelect
           placeholder="My favourite fruit is..."
-          hint="Fruits are not vegetables"
           error={error ? 'Error' : undefined}
           disabled={disabled}
         >

@@ -20,10 +20,10 @@ const Template: Story = {
 
     return (
       <Textarea
+        {...props}
         placeholder="This is a content placeholder"
         name="content"
         onChange={(e) => updateArgs({ value: e.target.value })}
-        {...props}
       >
         {value}
       </Textarea>
@@ -50,13 +50,12 @@ export const Disabled = {
 } satisfies Story;
 
 export const WithField = {
-  render: ({ value, error, disabled }) => {
+  render: ({ value, error }) => {
     const [, updateArgs] = useArgs();
 
     return (
       <Field
         id="with_field"
-        disabled={disabled}
         error={error ? 'Error' : undefined}
         hint={error ? undefined : 'Description line lorem ipsum'}
       >
@@ -82,7 +81,6 @@ export const WithField = {
         code: outdent`
         <Field
           id="with_field"
-          disabled={disabled}
           error={error ? 'Error' : undefined}
           hint={error ? undefined : 'Description line lorem ipsum'}
         >

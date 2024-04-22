@@ -1,22 +1,8 @@
 import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
-import {
-  Box,
-  Flex,
-  Typography,
-  Grid,
-  GridItem,
-  useTheme,
-  Searchbar,
-  SearchForm,
-  Icon,
-  Tooltip,
-  darkTheme,
-  lightTheme,
-} from '@strapi/design-system';
-import * as AllIcons from '@strapi/icons';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { Box, Flex, Typography, Grid, GridItem, useTheme, darkTheme, lightTheme } from '@strapi/design-system';
+import { DefaultTheme } from 'styled-components';
 
 const meta: Meta = {
   title: 'Design System/Components/Theme',
@@ -107,7 +93,7 @@ export const DarkColors = {
 export const Shadows = {
   render: () => {
     const theme = useTheme();
-    const shadows = Object.keys(theme.shadows);
+    const shadows = Object.keys(theme.shadows) as Array<keyof DefaultTheme['shadows']>;
 
     return (
       <Box padding={8} background="neutral100">
@@ -146,77 +132,6 @@ export const Spaces = {
   },
 
   name: 'spaces',
-} satisfies Story;
-
-export const Icons = {
-  render: () => {
-    const [value, setValue] = React.useState('');
-
-    const iconsArray = Object.keys(Icons)
-      .filter((icon) => {
-        if (!value) {
-          return true;
-        }
-
-        return icon.toLowerCase().includes(value.toLowerCase());
-      })
-      .sort();
-
-    return (
-      <Box>
-        <Box paddingBottom={8}>
-          <SearchForm>
-            <Searchbar
-              name="searchbar"
-              onClear={() => setValue('')}
-              value={value}
-              onChange={(e) => setValue(e.target.value)}
-              clearLabel="Clearing the asset search"
-              placeholder="e.g: AddAsset"
-            >
-              Search for an icon
-            </Searchbar>
-          </SearchForm>
-        </Box>
-        <Box padding={8} background="neutral100">
-          <Grid gap={2}>
-            {iconsArray.map((icon) => {
-              // eslint-disable-next-line import/namespace
-              const RealIcon = AllIcons[icon];
-
-              return (
-                <GridItem padding={2} col={2} key={icon} background="neutral0">
-                  <Box>
-                    <Icon
-                      aria-hidden
-                      colors={(theme) => ({
-                        rect: {
-                          fill: theme.colors.danger600,
-                        },
-                      })}
-                      as={RealIcon}
-                      fontSize={5}
-                    />
-                  </Box>
-                  <Box>
-                    <Tooltip description="Copy import">
-                      <CopyToClipboard text={`import ${icon} from '@strapi/icons/${icon}';`}>
-                        <Typography fontWeight="bold" as="button" type="button">
-                          {icon}
-                        </Typography>
-                      </CopyToClipboard>
-                    </Tooltip>
-                  </Box>
-                </GridItem>
-              );
-            })}
-          </Grid>
-        </Box>
-      </Box>
-    );
-  },
-
-  name: 'icons',
 } satisfies Story;
 
 interface ColorButtonProps {

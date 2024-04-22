@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { Flex, Link } from '@strapi/design-system';
-import { Strapi } from '@strapi/icons';
+import { Strapi } from '@strapi/icons/symbols';
 
 const meta: Meta<typeof Link> = {
   title: 'Design System/Components/Link',

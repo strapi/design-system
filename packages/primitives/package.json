@@ -15,9 +15,8 @@
     "clean": "rimraf dist node_modules",
     "lint": "eslint . --ext .js,.jsx,.tsx,.ts",
     "format": "yarn lint --fix",
-    "test": "jest -c jest.config.mjs",
     "test:ts": "tsc --noEmit",
-    "test:watch": "jest -c jest.config.mjs --watchAll",
+    "test:unit": "jest -c jest.config.mjs",
     "watch": "pack-up watch"
   },
   "dependencies": {
@@ -42,6 +41,11 @@
     "@radix-ui/react-visually-hidden": "^1.0.3",
     "aria-hidden": "^1.2.4",
     "react-remove-scroll": "^2.5.9"
+  },
+  "devDependencies": {
+    "@strapi/pack-up": "^5.0.0",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.4.4"
   },
   "peerDependencies": {
     "react": "^17.0.0 || ^18.0.0",

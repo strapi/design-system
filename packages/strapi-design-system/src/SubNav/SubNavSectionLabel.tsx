@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { CarretDown } from '@strapi/icons';
+import { CaretDown } from '@strapi/icons';
 import styled from 'styled-components';
 
 import { Box } from '../Box';
@@ -49,7 +49,7 @@ export const SubNavSectionLabel = ({
         </Box>
         {collapsable && (
           <DropDownIconWrapper rotated={ariaExpanded}>
-            <CarretDown aria-hidden />
+            <CaretDown aria-hidden />
           </DropDownIconWrapper>
         )}
       </SubNavSectionLabelWrapper>

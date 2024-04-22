@@ -14,7 +14,7 @@ type Story = StoryObj<typeof Radio>;
 
 export const Base = {
   render: () => {
-    const [selected, setSelected] = React.useState();
+    const [selected, setSelected] = React.useState<string>();
 
     return (
       <div>

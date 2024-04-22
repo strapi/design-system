@@ -21,11 +21,10 @@ const Template: Story = {
     return (
       <Flex direction="column" alignItems="stretch" gap={4}>
         <NumberInput
-          placeholder="This is a content placeholder"
-          name="content"
-          onValueChange={(value) => updateArgs({ value: value })}
-          value={value}
           {...props}
+          placeholder="This is a content placeholder"
+          value={value}
+          onValueChange={(value) => updateArgs({ value: value })}
         />
       </Flex>
     );
@@ -153,7 +152,6 @@ export const WithField = {
     return (
       <Field
         id="with_field"
-        disabled={disabled}
         error={error ? 'Error' : undefined}
         hint={error ? undefined : 'Description line lorem ipsum'}
       >
@@ -183,7 +181,6 @@ export const WithField = {
         code: outdent`
         <Field
           id="with_field"
-          disabled={disabled}
           error={error ? 'Error' : undefined}
           hint={error ? undefined : 'Description line lorem ipsum'}
         >
@@ -202,4 +199,4 @@ export const WithField = {
   },
 
   name: 'with field',
-} satisfies Story;
+};

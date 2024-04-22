@@ -3,16 +3,18 @@ import * as React from 'react';
 
 import styled from 'styled-components';
 
-import { FieldLabel, useField, FieldLabelProps } from '../Field';
+import { FieldLabel, type FieldProps, FieldLabelProps } from '../Field';
 import { Flex } from '../Flex';
 import { useControllableState } from '../hooks/useControllableState';
+import { useId } from '../hooks/useId';
 import { TextButton } from '../TextButton';
 import { inputFocusStyle } from '../themes';
 import type { InputSizes } from '../themes/sizes';
 import { Typography } from '../Typography';
 
 interface ToggleInputInputProps
-  extends Omit<React.ComponentPropsWithoutRef<'input'>, 'name' | 'children' | 'required' | 'id' | 'size' | 'checked'> {
+  extends Omit<React.ComponentPropsWithoutRef<'input'>, 'name' | 'children' | 'required' | 'id' | 'size' | 'checked'>,
+    Pick<FieldProps, 'error' | 'name' | 'id' | 'required'> {
   onLabel: string;
   offLabel: string;
   checked?: boolean | null;
@@ -28,14 +30,16 @@ type ToggleInputInputElement = HTMLInputElement;
  * as seen – https://www.w3.org/WAI/ARIA/apg/patterns/switch/examples/switch-button/
  */
 const ToggleInputInput = React.forwardRef<ToggleInputInputElement, ToggleInputInputProps>(
-  ({ offLabel, onLabel, disabled, checked: checkedProp, onChange, size = 'M', ...props }, forwardedRef) => {
+  (
+    { offLabel, onLabel, disabled, name, id, error, required, checked: checkedProp, onChange, size = 'M', ...props },
+    forwardedRef,
+  ) => {
     const [checked = false, setChecked] = useControllableState<boolean | null>({
       prop: checkedProp,
     });
 
-    const { error, id, name, required } = useField();
-
     const isFalseyChecked = checked !== null && !checked;
+    const generatedId = useId(id);
 
     return (
       <ToggleWrapper
@@ -108,7 +112,7 @@ const ToggleInputInput = React.forwardRef<ToggleInputInputElement, ToggleInputIn
             onChange?.(e);
           }}
           type="checkbox"
-          id={id}
+          id={generatedId}
           name={name}
           aria-required={required}
           disabled={disabled}

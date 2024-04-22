@@ -14,7 +14,7 @@ export default meta;
 type Story = StoryObj<typeof Checkbox>;
 
 const Template: Story = {
-  render: ({ label, checked, ...props }) => {
+  render: ({ children, checked, ...props }) => {
     const [, updateArgs] = useArgs();
 
     const handleChange = () => {
@@ -22,8 +22,8 @@ const Template: Story = {
     };
 
     return (
-      <Checkbox value={checked} onChange={handleChange} {...props}>
-        {label}
+      <Checkbox {...props} value={checked} onChange={handleChange}>
+        {children}
       </Checkbox>
     );
   },
@@ -32,7 +32,7 @@ const Template: Story = {
 export const Base = {
   ...Template,
   args: {
-    label: 'Label',
+    children: 'Label',
     checked: false,
   },
 
@@ -117,13 +117,12 @@ export const Disabled = {
 } satisfies Story;
 
 export const WithField = {
-  render: ({ error, label, disabled }) => {
+  render: ({ error, label }) => {
     const [, updateArgs] = useArgs();
 
     return (
       <Field
         id="with_field"
-        disabled={disabled}
         error={error ? 'Error' : undefined}
         hint={error ? undefined : 'Description line lorem ipsum'}
       >
@@ -146,7 +145,6 @@ export const WithField = {
         code: outdent`
         <Field
           id="with_field"
-          disabled={disabled}
           error={error ? 'Error' : undefined}
           hint={error ? undefined : 'Description line lorem ipsum'}
         >
@@ -160,4 +158,4 @@ export const WithField = {
   },
 
   name: 'with field',
-} satisfies Story;
+};

@@ -26,7 +26,6 @@ export * from './EmptyStateLayout';
 export * from './Field';
 export * from './FocusTrap';
 export * from './Grid';
-export * from './Icon';
 export * from './IconButton';
 export * from './JSONInput';
 export * from './KeyboardNavigable';
@@ -66,7 +65,18 @@ export * from './Typography';
 export * from './VisuallyHidden';
 export * from './themes';
 
+/* -------------------------------------------------------------------------------------------------
+ * Hooks
+ * -----------------------------------------------------------------------------------------------*/
 export * from './hooks/useComposeRefs';
 export * from './hooks/useDateFormatter';
 
+/* -------------------------------------------------------------------------------------------------
+ * Utilities
+ * -----------------------------------------------------------------------------------------------*/
+export * from './utilities/AccessibleIcon';
+
+/* -------------------------------------------------------------------------------------------------
+ * Primitives re-exports
+ * -----------------------------------------------------------------------------------------------*/
 export { useFilter, useCollator, type Filter, useCallbackRef, composeEventHandlers } from '@strapi/ui-primitives';

@@ -15,7 +15,7 @@ import {
   IconButton,
   TFooter,
 } from '@strapi/design-system';
-import { Pencil, Trash, CarretDown, Plus } from '@strapi/icons';
+import { Pencil, Trash, CaretDown, Plus } from '@strapi/icons';
 
 const meta: Meta<typeof Table> = {
   title: 'Design System/Components/Table',
@@ -244,7 +244,7 @@ export const WithThActions = {
               <Th>
                 <BaseCheckbox aria-label="Select all entries" />
               </Th>
-              <Th action={<IconButton label="Sort on ID" icon={<CarretDown />} noBorder />}>
+              <Th action={<IconButton label="Sort on ID" icon={<CaretDown />} noBorder />}>
                 <Typography variant="sigma">ID</Typography>
               </Th>
               <Th>

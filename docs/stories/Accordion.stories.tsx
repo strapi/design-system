@@ -143,7 +143,7 @@ export const Group = {
               <AccordionToggle
                 startIcon={<User aria-hidden />}
                 action={
-                  <Flex horizontal gap={0}>
+                  <Flex gap={0}>
                     <IconButton noBorder onClick={() => console.log('edit')} label="Edit" icon={<Pencil />} />
                     <IconButton noBorder onClick={() => console.log('delete')} label="Delete" icon={<Trash />} />
                   </Flex>
@@ -153,7 +153,7 @@ export const Group = {
               />
               <AccordionContent>
                 <Box padding={3}>
-                  <TextInput label="Name" />
+                  <TextInput aria-label="Name" />
                 </Box>
               </AccordionContent>
             </Accordion>
@@ -216,7 +216,6 @@ export const Keyboard = {
         <Box padding={8} background="neutral0">
           <Accordion expanded={false} id="acc-2">
             <AccordionToggle
-              variant="secondary"
               title="User informations 2"
               description="The following contains information about the current user 2"
             />
@@ -244,7 +243,6 @@ export const Keyboard = {
         <Box padding={8} background="neutral0">
           <Accordion expanded={false} id="acc-4">
             <AccordionToggle
-              variant="secondary"
               togglePosition="left"
               title="User informations 4"
               action={<IconButton onClick={() => console.log('edit')} label="Edit" icon={<Pencil />} />}

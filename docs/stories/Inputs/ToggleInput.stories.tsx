@@ -21,11 +21,11 @@ const Template: Story = {
     return (
       <ToggleInput
         label="Enabled"
+        checked={checked}
+        {...props}
         onLabel="True"
         offLabel="False"
-        checked={checked}
         onChange={(e) => updateArgs({ checked: !checked })}
-        {...props}
       />
     );
   },
@@ -104,13 +104,12 @@ export const Nullish = {
 } satisfies Story;
 
 export const WithField = {
-  render: ({ error, disabled }) => {
+  render: ({ error }) => {
     const [, updateArgs] = useArgs();
 
     return (
       <Field
         id="with_field"
-        disabled={disabled}
         error={error ? 'Error' : undefined}
         hint={error ? undefined : 'Description line lorem ipsum'}
       >
@@ -134,7 +133,6 @@ export const WithField = {
         code: outdent`
         <Field
           id="with_field"
-          disabled={disabled}
           error={error ? 'Error' : undefined}
           hint={error ? undefined : 'Description line lorem ipsum'}
         >

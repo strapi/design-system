@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
-import { DatePicker, Flex, Button } from '@strapi/design-system';
+import { DatePicker, Flex, Button, DatePickerProps } from '@strapi/design-system';
 
 const meta: Meta<typeof DatePicker> = {
   title: 'Design System/Components/DatePicker',
@@ -49,12 +49,12 @@ export const Controlled = {
 
 export const MinMaxDate = {
   render: () => {
-    const [date, setDate] = React.useState();
+    const [date, setDate] = React.useState<Date>();
 
     return (
       <DatePicker
         onChange={setDate}
-        value={date}
+        selectedDate={date}
         label="Favourite day of 2022"
         minDate={new Date('2022-01-01')}
         maxDate={new Date('2022-12-31')}
@@ -68,12 +68,12 @@ export const MinMaxDate = {
 
 export const Locale = {
   render: () => {
-    const [date, setDate] = React.useState();
+    const [date, setDate] = React.useState<Date>();
 
     return (
       <DatePicker
         onChange={setDate}
-        value={date}
+        selectedDate={date}
         label="German date picker"
         locale="de-DE"
         onClear={() => setDate(undefined)}
@@ -86,13 +86,13 @@ export const Locale = {
 
 export const Sizing = {
   render: () => {
-    const [size, setSize] = React.useState('S');
+    const [size, setSize] = React.useState<DatePickerProps['size']>('S');
 
     return (
       <Flex direction="column" alignItems="stretch" gap={11}>
         <DatePicker required size={size} label={size === 'S' ? 'Small date picker' : 'Medium date picker'} />
         <Flex justifyContent="center">
-          <Button variant="primary" onClick={() => setSize((s) => (s === 'S' ? 'M' : 'S'))}>
+          <Button variant="default" onClick={() => setSize((s) => (s === 'S' ? 'M' : 'S'))}>
             {size === 'S' ? `Show medium size` : `Show small size`}
           </Button>
         </Flex>

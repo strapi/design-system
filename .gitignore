@@ -106,6 +106,8 @@ package-lock.json
 dist
 storybook-static
 **/strapi-icons/src/*
+!**/strapi-icons/src/index.ts
+!**/strapi-icons/src/symbols-index.ts
 
 ############################
 # Visual Studio Code

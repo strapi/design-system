@@ -28,7 +28,7 @@ type Story = StoryObj<typeof Combobox>;
 
 const Template: Story = {
   render: ({ ...props }) => {
-    const [value, setValue] = React.useState('');
+    const [value, setValue] = React.useState<string>('');
 
     return (
       <Combobox
@@ -141,7 +141,7 @@ export const Loading = {
 
 export const Creatable = {
   render: () => {
-    const [value, setValue] = React.useState('');
+    const [value, setValue] = React.useState<string | undefined>('');
 
     const [options, setOptions] = React.useState([
       {
@@ -174,7 +174,7 @@ export const Creatable = {
       },
     ]);
 
-    const onCreateOption = (value) => {
+    const onCreateOption = (value: string) => {
       setOptions((opt) => [
         ...opt,
         {
@@ -210,12 +210,10 @@ type Autocomplete = 'none' | 'list' | 'both' | { type: 'list'; filter: 'startsWi
 
 export const Autocomplete = {
   render: () => {
-    const [value, setValue] = React.useState('');
-    const [mode, setMode] = React.useState('both');
+    const [value, setValue] = React.useState<string | undefined>('');
     const [autocompleteMode, setAutocompleteMode] = React.useState<Autocomplete>('both');
 
     const handleChange = (value) => {
-      setMode(value);
       if (value === 'list-contains') {
         setAutocompleteMode({ type: 'list', filter: 'contains' });
       } else setAutocompleteMode(value);
@@ -238,7 +236,11 @@ export const Autocomplete = {
           <ComboboxOption value="orange">Orange</ComboboxOption>
           <ComboboxOption value="strawberry">Strawberry</ComboboxOption>
         </Combobox>
-        <SingleSelect label="Autocomplete Mode" value={mode} onValueChange={handleChange}>
+        <SingleSelect
+          aria-label="Autocomplete Mode"
+          value={typeof autocompleteMode === 'object' ? autocompleteMode.type : autocompleteMode}
+          onValueChange={handleChange}
+        >
           <SingleSelectOption value="both">both</SingleSelectOption>
           <SingleSelectOption value="list">list (filter: startsWith)</SingleSelectOption>
           <SingleSelectOption value="list-contains">list (filter: contains)</SingleSelectOption>
@@ -262,7 +264,6 @@ export const WithField = {
     return (
       <Field
         id="with_field"
-        disabled={disabled}
         error={error ? 'Error' : undefined}
         hint={error ? undefined : 'Description line lorem ipsum'}
       >
@@ -291,7 +292,6 @@ export const WithField = {
         code: outdent`
         <Field
           id="with_field"
-          disabled={disabled}
           error={error ? 'Error' : undefined}
           hint={error ? undefined : 'Description line lorem ipsum'}
         >
@@ -314,4 +314,4 @@ export const WithField = {
   },
 
   name: 'with field',
-} satisfies Story;
+};
