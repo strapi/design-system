@@ -28,9 +28,14 @@ export type TypographyProps<TElement extends keyof JSX.IntrinsicElements = 'span
   variant?: (typeof TEXT_VARIANTS)[number];
 };
 
-export const Typography = styled(Box).withConfig<TypographyProps>({
-  shouldForwardProp: (prop, defPropValFN) => !transientProps[prop as keyof TypographyProps] && defPropValFN(prop),
-})`
+export const Typography = styled(Box)
+  .withConfig<TypographyProps>({
+    shouldForwardProp: (prop, defPropValFN) => !transientProps[prop as keyof TypographyProps] && defPropValFN(prop),
+  })
+  .attrs((props) => ({
+    as: 'span',
+    ...props,
+  }))`
   ${variantStyle}
   ${ellipsisStyle}
 

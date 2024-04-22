@@ -13,13 +13,6 @@ exports[`ModalLayout should render component and match snapshot 1`] = `
   width: 1px;
 }
 
-.c18 {
-  font-size: 1.2rem;
-  line-height: 1.33;
-  font-weight: 600;
-  color: #ffffff;
-}
-
 .c1 {
   padding-inline-end: 40px;
   padding-inline-start: 40px;
@@ -67,6 +60,13 @@ exports[`ModalLayout should render component and match snapshot 1`] = `
   border-color: #4945ff;
   border: 1px solid #4945ff;
   cursor: pointer;
+}
+
+.c18 {
+  font-size: 1.2rem;
+  line-height: 1.33;
+  font-weight: 600;
+  color: #ffffff;
 }
 
 .c2 {
