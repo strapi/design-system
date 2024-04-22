@@ -142,7 +142,7 @@ export const Disabled = {
 } satisfies Story;
 
 export const WithField = {
-  render: ({ error, disabled }) => {
+  render: ({ error }) => {
     const [, updateArgs] = useArgs();
 
     return (
@@ -156,7 +156,7 @@ export const WithField = {
           placeholder="This is a content placeholder"
           onValueChange={(value) => updateArgs({ value: value })}
           value={3.14159265359}
-          disabled={disabled}
+          id="with_field"
         />
         <FieldError />
         <FieldHint />

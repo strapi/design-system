@@ -12,7 +12,7 @@ type SingleSelectPropsWithoutLabel = Omit<SelectParts.SingleSelectProps, 'value'
   Pick<SelectParts.ContentProps, 'onCloseAutoFocus'> &
   Pick<SelectParts.TriggerProps, 'clearLabel' | 'onClear' | 'size' | 'startIcon'> &
   Pick<SelectParts.ValueProps, 'placeholder'> &
-  Pick<FieldProps, 'error'> & {
+  Pick<FieldProps, 'error' | 'id'> & {
     /**
      * @default (value) => value.toString()
      */
@@ -34,6 +34,7 @@ export const SingleSelect = React.forwardRef<SingleSelectElement, SingleSelectPr
       customizeContent,
       disabled,
       error,
+      id,
       onChange,
       onClear,
       onCloseAutoFocus,
@@ -53,7 +54,6 @@ export const SingleSelect = React.forwardRef<SingleSelectElement, SingleSelectPr
      */
     const [internalValue, setInternalValue] = React.useState<string>();
     const [internalIsOpen, setInternalIsOpen] = React.useState(false);
-    const id = useId();
 
     const handleOpenChange: SelectParts.SelectProps['onOpenChange'] = (open) => {
       setInternalIsOpen(open);

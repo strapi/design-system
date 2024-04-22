@@ -216,7 +216,7 @@ export const WithField = {
         hint={error ? undefined : 'Description line lorem ipsum'}
       >
         <FieldLabel>Fruits</FieldLabel>
-        <SingleSelect placeholder="My favourite fruit is..." error={error ? 'Error' : undefined}>
+        <SingleSelect id="with_field" placeholder="My favourite fruit is..." error={error ? 'Error' : undefined}>
           <SingleSelectOption value="apple">Apple</SingleSelectOption>
           <SingleSelectOption value="avocado">Avocado</SingleSelectOption>
           <SingleSelectOption value="banana">Banana</SingleSelectOption>

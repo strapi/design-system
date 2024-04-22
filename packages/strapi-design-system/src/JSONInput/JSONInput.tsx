@@ -128,16 +128,14 @@ export const JSONInput = React.forwardRef<JSONInputRef, JSONInputProps>(
     );
 
     return (
-      <Flex direction="column" alignItems="stretch" gap={1}>
-        <JSONInputContainer
-          ref={composedRefs}
-          hasError={hasError}
-          alignItems="stretch"
-          fontSize={2}
-          hasRadius
-          {...boxProps}
-        />
-      </Flex>
+      <JSONInputContainer
+        ref={composedRefs}
+        hasError={hasError}
+        alignItems="stretch"
+        fontSize={2}
+        hasRadius
+        {...boxProps}
+      />
     );
   },
 );

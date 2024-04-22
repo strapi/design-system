@@ -36,7 +36,7 @@ const INITIAL_VALUE = '';
 
 export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
   (
-    { size = 'M', startAction, locale: defaultLocale, onValueChange, value, step = 1, disabled = false, ...props },
+    { id, size = 'M', startAction, locale: defaultLocale, onValueChange, value, step = 1, disabled = false, ...props },
     ref,
   ) => {
     const designContext = useDesignSystem('NumberInput');
@@ -157,6 +157,7 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
         onBlur={handleBlur}
         value={inputValue}
         size={size}
+        id={id}
         endAction={
           <>
             <ArrowButton
