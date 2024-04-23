@@ -24,7 +24,6 @@ type SingleSelectStory = StoryObj<typeof SingleSelect>;
 
 export const Base = {
   args: {
-    disabled: false,
     placeholder: 'My favourite fruit is...',
   },
   render: ({ ...props }) => {
@@ -42,6 +41,28 @@ export const Base = {
   },
 
   name: 'basic',
+} satisfies SingleSelectStory;
+
+export const Disabled = {
+  args: {
+    ...Base.args,
+    disabled: true,
+  },
+  render: ({ ...props }) => {
+    return (
+      <SingleSelect {...props}>
+        <SingleSelectOption value="apple">Apple</SingleSelectOption>
+        <SingleSelectOption value="avocado">Avocado</SingleSelectOption>
+        <SingleSelectOption value="banana">Banana</SingleSelectOption>
+        <SingleSelectOption value="kiwi">Kiwi</SingleSelectOption>
+        <SingleSelectOption value="mango">Mango</SingleSelectOption>
+        <SingleSelectOption value="orange">Orange</SingleSelectOption>
+        <SingleSelectOption value="strawberry">Strawberry</SingleSelectOption>
+      </SingleSelect>
+    );
+  },
+
+  name: 'disabled',
 } satisfies SingleSelectStory;
 
 export const Controlled = {
@@ -209,10 +230,12 @@ export const SingleSelectField = {
     hint: 'Description line lorem ipsum',
   },
   render: ({ label, error, hint, ...props }) => {
+    const selectRef = React.useRef<HTMLDivElement | null>(null);
+
     return (
-      <Field id="with_field" error={error} hint={hint}>
-        <FieldLabel>{label}</FieldLabel>
-        <SingleSelect id="with_field" error={error} {...props}>
+      <Field error={error} hint={hint}>
+        <FieldLabel onClick={() => selectRef.current?.focus()}>{label}</FieldLabel>
+        <SingleSelect ref={selectRef} error={error} {...props}>
           <SingleSelectOption value="apple">Apple</SingleSelectOption>
           <SingleSelectOption value="avocado">Avocado</SingleSelectOption>
           <SingleSelectOption value="banana">Banana</SingleSelectOption>
@@ -230,24 +253,88 @@ export const SingleSelectField = {
     docs: {
       source: {
         code: outdent`
-        <Field id="with_field" error={error} hint={hint}>
-          <FieldLabel>{label}</FieldLabel>
-          <SingleSelect id="with_field" placeholder="My favourite fruit is..." error={error}>
-            <SingleSelectOption value="apple">Apple</SingleSelectOption>
-            <SingleSelectOption value="avocado">Avocado</SingleSelectOption>
-            <SingleSelectOption value="banana">Banana</SingleSelectOption>
-            <SingleSelectOption value="kiwi">Kiwi</SingleSelectOption>
-            <SingleSelectOption value="mango">Mango</SingleSelectOption>
-            <SingleSelectOption value="orange">Orange</SingleSelectOption>
-            <SingleSelectOption value="strawberry">Strawberry</SingleSelectOption>
-          </SingleSelect>
-          <FieldError />
-          <FieldHint />
-        </Field>
+        render: ({ label, error, hint, ...props }) => {
+          const selectRef = React.useRef<HTMLDivElement | null>(null);
+      
+          return (
+            <Field error={error} hint={hint}>
+              <FieldLabel>{label}</FieldLabel>
+              <SingleSelect ref={selectRef} placeholder="My favourite fruit is..." error={error}>
+                <SingleSelectOption value="apple">Apple</SingleSelectOption>
+                <SingleSelectOption value="avocado">Avocado</SingleSelectOption>
+                <SingleSelectOption value="banana">Banana</SingleSelectOption>
+                <SingleSelectOption value="kiwi">Kiwi</SingleSelectOption>
+                <SingleSelectOption value="mango">Mango</SingleSelectOption>
+                <SingleSelectOption value="orange">Orange</SingleSelectOption>
+                <SingleSelectOption value="strawberry">Strawberry</SingleSelectOption>
+              </SingleSelect>
+              <FieldError />
+              <FieldHint />
+            </Field>
+          );
+        },
         `,
       },
     },
   },
 
   name: 'single select field',
+};
+
+export const MultiSelectField = {
+  args: {
+    ...Base.args,
+    label: 'Fruits',
+    error: 'Error',
+    hint: 'Description line lorem ipsum',
+  },
+  render: ({ label, error, hint, ...props }) => {
+    const multiSelectRef = React.useRef<HTMLDivElement | null>(null);
+
+    return (
+      <Field error={error} hint={hint}>
+        <FieldLabel onClick={() => multiSelectRef.current?.focus()}>{label}</FieldLabel>
+        <MultiSelect {...props} withTags aria-label="fruit multi select" error={error} ref={multiSelectRef}>
+          <MultiSelectOption value="apple">Apple</MultiSelectOption>
+          <MultiSelectOption value="avocado">Avocado</MultiSelectOption>
+          <MultiSelectOption value="banana">Banana</MultiSelectOption>
+          <MultiSelectOption value="kiwi">Kiwi</MultiSelectOption>
+          <MultiSelectOption value="mango">Mango</MultiSelectOption>
+          <MultiSelectOption value="orange">Orange</MultiSelectOption>
+          <MultiSelectOption value="strawberry">Strawberry</MultiSelectOption>
+        </MultiSelect>
+        <FieldError />
+        <FieldHint />
+      </Field>
+    );
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+        render: ({ label, error, hint, ...props }) => {
+          const multiSelectRef = React.useRef<HTMLDivElement | null>(null);
+          return (
+            <Field error={error} hint={hint}>
+              <FieldLabel onClick={() => multiSelectRef.current?.focus()}>{label}</FieldLabel>
+              <MultiSelect ref={multiSelectRef} placeholder="My favourite fruit is..." error={error}>
+                <MultiSelectOption value="apple">Apple</MultiSelectOption>
+                <MultiSelectOption value="avocado">Avocado</MultiSelectOption>
+                <MultiSelectOption value="banana">Banana</MultiSelectOption>
+                <MultiSelectOption value="kiwi">Kiwi</MultiSelectOption>
+                <MultiSelectOption value="mango">Mango</MultiSelectOption>
+                <MultiSelectOption value="orange">Orange</MultiSelectOption>
+                <MultiSelectOption value="strawberry">Strawberry</MultiSelectOption>
+              </MultiSelect>
+              <FieldError />
+              <FieldHint />
+            </Field>
+          );
+        },
+        `,
+      },
+    },
+  },
+
+  name: 'multiple select field',
 };
