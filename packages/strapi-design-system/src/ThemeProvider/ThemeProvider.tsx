@@ -97,8 +97,6 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 100%;
-    font: inherit;
     vertical-align: baseline;
   }
   /* HTML5 display-role reset for older browsers */
@@ -151,10 +149,13 @@ const GlobalStyle = createGlobalStyle`
     outline: none;
   }
 
-  body,html{
-    height: 100%;
+  html {
     /* Sets 1rem === 10px */
     font-size: 62.5%;
+  }
+
+  body,html{
+    height: 100%;
     line-height: 1;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
@@ -165,7 +166,6 @@ const GlobalStyle = createGlobalStyle`
     border: none;
     background: none;
     color: inherit;
-    font-size: 100%;
     cursor: pointer;
     font: inherit;
   }
