@@ -1,10 +1,7 @@
 import * as React from 'react';
 
-import { useArgs } from '@storybook/preview-api';
 import { Meta, StoryObj } from '@storybook/react';
 import {
-  Flex,
-  Button,
   MultiSelectNested,
   SingleSelect,
   SingleSelectOption,
@@ -25,27 +22,22 @@ export default meta;
 
 type SingleSelectStory = StoryObj<typeof SingleSelect>;
 
-export const Basic = {
-  render: () => {
-    const [disabled, toggleDisabled] = React.useState(false);
-
+export const Base = {
+  args: {
+    disabled: false,
+    placeholder: 'My favourite fruit is...',
+  },
+  render: ({ ...props }) => {
     return (
-      <Flex direction="column" alignItems="stretch" gap={11}>
-        <SingleSelect disabled={disabled}>
-          <SingleSelectOption value="apple">Apple</SingleSelectOption>
-          <SingleSelectOption value="avocado">Avocado</SingleSelectOption>
-          <SingleSelectOption value="banana">Banana</SingleSelectOption>
-          <SingleSelectOption value="kiwi">Kiwi</SingleSelectOption>
-          <SingleSelectOption value="mango">Mango</SingleSelectOption>
-          <SingleSelectOption value="orange">Orange</SingleSelectOption>
-          <SingleSelectOption value="strawberry">Strawberry</SingleSelectOption>
-        </SingleSelect>
-        <Flex gap={2} justifyContent="center">
-          <Button variant="tertiary" onClick={() => toggleDisabled((s) => !s)}>
-            {`${disabled ? 'Hide' : 'Show'} the disabled state`}
-          </Button>
-        </Flex>
-      </Flex>
+      <SingleSelect {...props}>
+        <SingleSelectOption value="apple">Apple</SingleSelectOption>
+        <SingleSelectOption value="avocado">Avocado</SingleSelectOption>
+        <SingleSelectOption value="banana">Banana</SingleSelectOption>
+        <SingleSelectOption value="kiwi">Kiwi</SingleSelectOption>
+        <SingleSelectOption value="mango">Mango</SingleSelectOption>
+        <SingleSelectOption value="orange">Orange</SingleSelectOption>
+        <SingleSelectOption value="strawberry">Strawberry</SingleSelectOption>
+      </SingleSelect>
     );
   },
 
@@ -53,12 +45,13 @@ export const Basic = {
 } satisfies SingleSelectStory;
 
 export const Controlled = {
-  render: () => {
+  args: Base.args,
+  render: ({ ...props }) => {
     const [value, setValue] = React.useState<string | number>();
 
     return (
       <SingleSelect
-        placeholder="My favourite fruit is..."
+        {...props}
         onClear={() => {
           setValue(undefined);
         }}
@@ -83,12 +76,13 @@ export const Controlled = {
 type MultipleSelectStory = StoryObj<typeof MultiSelect>;
 
 export const Multiple = {
-  render: () => {
+  args: Base.args,
+  render: ({ ...props }) => {
     const [values, setValues] = React.useState<string[]>([]);
 
     return (
       <MultiSelect
-        placeholder="My favourite fruit is..."
+        {...props}
         onClear={() => {
           setValues([]);
         }}
@@ -111,12 +105,13 @@ export const Multiple = {
 } satisfies MultipleSelectStory;
 
 export const MultipleWithTags = {
-  render: () => {
+  args: Base.args,
+  render: ({ ...props }) => {
     const [values, setValues] = React.useState<string[]>([]);
 
     return (
       <MultiSelect
-        placeholder="My favourite fruit is..."
+        {...props}
         onClear={() => {
           setValues([]);
         }}
@@ -142,7 +137,8 @@ export const MultipleWithTags = {
 type MultipleSelectNestedStory = StoryObj<typeof MultiSelectNested>;
 
 export const MultipleNestedSelect = {
-  render: () => {
+  args: Base.args,
+  render: ({ ...props }) => {
     const options = [
       {
         label: 'Banana',
@@ -190,7 +186,7 @@ export const MultipleNestedSelect = {
 
     return (
       <MultiSelectNested
-        placeholder="My favourite fruit is..."
+        {...props}
         onClear={() => {
           setValues([]);
         }}
@@ -205,18 +201,18 @@ export const MultipleNestedSelect = {
   name: 'multiple nested select',
 } satisfies MultipleSelectNestedStory;
 
-export const WithField = {
-  render: ({ error }) => {
-    const [, updateArgs] = useArgs();
-
+export const SingleSelectField = {
+  args: {
+    ...Base.args,
+    label: 'Fruits',
+    error: 'Error',
+    hint: 'Description line lorem ipsum',
+  },
+  render: ({ label, error, hint, ...props }) => {
     return (
-      <Field
-        id="with_field"
-        error={error ? 'Error' : undefined}
-        hint={error ? undefined : 'Description line lorem ipsum'}
-      >
-        <FieldLabel>Fruits</FieldLabel>
-        <SingleSelect id="with_field" placeholder="My favourite fruit is..." error={error ? 'Error' : undefined}>
+      <Field id="with_field" error={error} hint={hint}>
+        <FieldLabel>{label}</FieldLabel>
+        <SingleSelect id="with_field" error={error} {...props}>
           <SingleSelectOption value="apple">Apple</SingleSelectOption>
           <SingleSelectOption value="avocado">Avocado</SingleSelectOption>
           <SingleSelectOption value="banana">Banana</SingleSelectOption>
@@ -227,39 +223,24 @@ export const WithField = {
         </SingleSelect>
         <FieldError />
         <FieldHint />
-        <Button variant="danger-light" onClick={() => updateArgs({ error: !error })}>
-          {`${error ? 'Hide' : 'Show'} the error state`}
-        </Button>
       </Field>
     );
-  },
-  args: {
-    error: false,
   },
   parameters: {
     docs: {
       source: {
         code: outdent`
-        <Field
-          id="with_field"
-          disabled={disabled}
-          error={error ? 'Error' : undefined}
-          hint={error ? undefined : 'Description line lorem ipsum'}
-        >
-          <FieldLabel>Fruits</FieldLabel>
-          <SingleSelect
-          placeholder="My favourite fruit is..."
-          error={error ? 'Error' : undefined}
-          disabled={disabled}
-        >
-          <SingleSelectOption value="apple">Apple</SingleSelectOption>
-          <SingleSelectOption value="avocado">Avocado</SingleSelectOption>
-          <SingleSelectOption value="banana">Banana</SingleSelectOption>
-          <SingleSelectOption value="kiwi">Kiwi</SingleSelectOption>
-          <SingleSelectOption value="mango">Mango</SingleSelectOption>
-          <SingleSelectOption value="orange">Orange</SingleSelectOption>
-          <SingleSelectOption value="strawberry">Strawberry</SingleSelectOption>
-        </SingleSelect>
+        <Field id="with_field" error={error} hint={hint}>
+          <FieldLabel>{label}</FieldLabel>
+          <SingleSelect id="with_field" placeholder="My favourite fruit is..." error={error}>
+            <SingleSelectOption value="apple">Apple</SingleSelectOption>
+            <SingleSelectOption value="avocado">Avocado</SingleSelectOption>
+            <SingleSelectOption value="banana">Banana</SingleSelectOption>
+            <SingleSelectOption value="kiwi">Kiwi</SingleSelectOption>
+            <SingleSelectOption value="mango">Mango</SingleSelectOption>
+            <SingleSelectOption value="orange">Orange</SingleSelectOption>
+            <SingleSelectOption value="strawberry">Strawberry</SingleSelectOption>
+          </SingleSelect>
           <FieldError />
           <FieldHint />
         </Field>
@@ -268,5 +249,5 @@ export const WithField = {
     },
   },
 
-  name: 'with field',
-} satisfies SingleSelectStory;
+  name: 'single select field',
+};

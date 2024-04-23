@@ -62,7 +62,6 @@
     "jest-styled-components": "^7.2.0",
     "jest-watch-select-projects": "2.0.0",
     "jest-watch-typeahead": "2.2.2",
-    "outdent": "0.8.0",
     "prettier": "^3.2.5",
     "prettier-2": "npm:prettier@^2",
     "turbo": "1.13.2",

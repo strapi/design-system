@@ -21,7 +21,7 @@ component!
 
 [View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Combobox)
 
-<Canvas of={ComboboxStories.Basic} />
+<Canvas of={ComboboxStories.Base} />
 
 ## Usage
 
@@ -50,7 +50,7 @@ import { Combobox, ComboboxOption, CreatableCombobox } from '@strapi/design-syst
 By default, the combobox is uncontrolled & uses both inline and list autocomplete, that is where as the user types suggestions
 (based on the order of the options) are shown in the input field whilst the list gradually gets filtered.
 
-<Canvas of={ComboboxStories.Basic} />
+<Canvas of={ComboboxStories.Base} />
 
 ### Disabled
 
@@ -85,8 +85,8 @@ be visually focussed
 
 <Canvas of={ComboboxStories.Autocomplete} />
 
-### With field
+### Combobox field
 
-Checkbox field with hint or error.
+Wrap the input in the necessary [`Field`](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Field) component to create a powerful complete form input
 
 <Canvas of={ComboboxStories.WithField} />

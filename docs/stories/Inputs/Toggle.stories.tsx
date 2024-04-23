@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { useArgs } from '@storybook/preview-api';
 import { Meta, StoryObj } from '@storybook/react';
-import { ToggleInput, Button, Field, FieldHint, FieldError } from '@strapi/design-system';
+import { ToggleInput, Field, FieldHint, FieldError } from '@strapi/design-system';
 import { default as outdent } from 'outdent';
 
 const meta: Meta<typeof ToggleInput> = {
@@ -21,7 +21,6 @@ const Template: Story = {
     return (
       <ToggleInput
         {...props}
-        label="Enabled"
         checked={checked}
         onLabel="True"
         offLabel="False"
@@ -36,6 +35,7 @@ export const Base = {
   ...Template,
   args: {
     checked: true,
+    label: 'Enabled',
   },
   parameters: {
     docs: {
@@ -108,27 +108,19 @@ export const Nullish = {
 } satisfies Story;
 
 export const WithField = {
-  render: ({ error }) => {
-    const [, updateArgs] = useArgs();
-
+  render: ({ hint, error, label, ...props }) => {
     return (
-      <Field
-        id="with_field"
-        error={error ? 'Error' : undefined}
-        hint={error ? undefined : 'Description line lorem ipsum'}
-      >
-        <ToggleInput label="Enabled" onLabel="True" offLabel="False" error={error ? 'Error' : undefined} />
+      <Field id="with_field" error={error} hint={hint}>
+        <ToggleInput id="with_field" onLabel="True" offLabel="False" error={error} label={label} {...props} />
         <FieldError />
         <FieldHint />
-        <Button variant="danger-light" onClick={() => updateArgs({ error: !error })}>
-          {`${error ? 'Hide' : 'Show'} the error state`}
-        </Button>
       </Field>
     );
   },
   args: {
     ...Base.args,
-    error: false,
+    error: 'Error',
+    hint: 'Description line lorem ipsum',
   },
 
   parameters: {
@@ -137,11 +129,11 @@ export const WithField = {
         code: outdent`
         <Field
           id="with_field"
-          error={error ? 'Error' : undefined}
-          hint={error ? undefined : 'Description line lorem ipsum'}
+          error={error}
+          hint={hint}
         >
           <FieldLabel>Toggle input</FieldLabel>
-          <ToggleInput label="Enabled" onLabel="True" offLabel="False" error={error ? 'Error' : undefined} />
+          <ToggleInput id="with_field" label="Enabled" onLabel="True" offLabel="False" error={error} />
           <FieldError />
           <FieldHint />
         </Field>

@@ -14,8 +14,7 @@ import * as JsonInputStories from './JSONInput.stories';
 
 ## Overview
 
-JSON input allows users to view, add or edit JSON data in a dedicated editor.
-JSON inputs can also be used to display raw data.
+The `JSONInput` allows users to view, add or edit JSON data in a dedicated editor. It can also be used to display raw data.
 [View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/JSONInput)
 
 ## Usage
@@ -24,24 +23,24 @@ JSON inputs can also be used to display raw data.
 import { JSONInput } from '@strapi/design-system';
 ```
 
-<Canvas of={JsonInputStories.Basic} />
+<Canvas of={JsonInputStories.Base} />
 
 ## Props
 
 <ArgsTable of={JSONInput} />
 
-## variants
+## Variants
 
 ### Basic
 
-<Canvas of={JsonInputStories.Basic} />
+<Canvas of={JsonInputStories.Base} />
 
 ### Disabled
 
 <Canvas of={JsonInputStories.Disabled} />
 
-### With field
+### JSONInput field
 
-JSON input field with hint or errror.
+JSONInput wrapped in [`Field`](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Field) component
 
 <Canvas of={JsonInputStories.WithField} />

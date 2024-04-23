@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { useArgs } from '@storybook/preview-api';
 import { Meta, StoryObj } from '@storybook/react';
-import { TextInput, Field, FieldLabel, FieldHint, FieldError, Button } from '@strapi/design-system';
+import { TextInput, Field, FieldLabel, FieldHint, FieldError } from '@strapi/design-system';
 import { default as outdent } from 'outdent';
 
 const meta: Meta<typeof TextInput> = {
@@ -19,13 +19,7 @@ const Template: Story = {
     const [, updateArgs] = useArgs();
 
     return (
-      <TextInput
-        {...props}
-        placeholder="This is a content placeholder"
-        name="content"
-        onChange={(e) => updateArgs({ value: e.target.value })}
-        value={value}
-      />
+      <TextInput {...props} name="content" onChange={(e) => updateArgs({ value: e.target.value })} value={value} />
     );
   },
 };
@@ -34,6 +28,7 @@ export const Base = {
   ...Template,
   args: {
     value: '',
+    placeholder: 'This is a content placeholder',
   },
   name: 'base',
 } satisfies Story;
@@ -52,6 +47,7 @@ export const Password = {
   ...Template,
   args: {
     ...SizeS.args,
+    value: 'admin1234',
     type: 'password',
   },
 
@@ -70,41 +66,33 @@ export const Disabled = {
 } satisfies Story;
 
 export const WithField = {
-  render: ({ error }) => {
-    const [, updateArgs] = useArgs();
-
+  args: {
+    ...Base.args,
+    label: 'Text',
+    error: 'Error',
+    hint: 'Description line lorem ipsum',
+  },
+  render: ({ error, hint, label, ...props }) => {
     return (
-      <Field
-        id="with_field"
-        error={error ? 'Error' : undefined}
-        hint={error ? undefined : 'Description line lorem ipsum'}
-      >
-        <FieldLabel>Text</FieldLabel>
-        <TextInput placeholder="This is a content placeholder" name="content" error={error ? 'Error' : undefined} />
+      <Field id="with_field" error={error} hint={hint}>
+        <FieldLabel>{label}</FieldLabel>
+        <TextInput name="content" error={error} {...props} />
         <FieldError />
         <FieldHint />
-        <Button variant="danger-light" onClick={() => updateArgs({ error: !error })}>
-          {`${error ? 'Hide' : 'Show'} the error state`}
-        </Button>
       </Field>
     );
   },
-  args: {
-    ...Disabled.args,
-    error: false,
-  },
-
   parameters: {
     docs: {
       source: {
         code: outdent`
         <Field
           id="with_field"
-          error={error ? 'Error' : undefined}
-          hint={error ? undefined : 'Description line lorem ipsum'}
+          error={error}
+          hint={hint}
         >
-          <FieldLabel>Text</FieldLabel>
-          <TextInput placeholder="This is a content placeholder" name="content" error={error ? 'Error' : undefined} />
+          <FieldLabel>{label}</FieldLabel>
+          <TextInput placeholder="This is a content placeholder" name="content" error={error} />
           <FieldError />
           <FieldHint />
         </Field>
@@ -114,4 +102,4 @@ export const WithField = {
   },
 
   name: 'with field',
-} satisfies Story;
+};

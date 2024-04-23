@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { useArgs } from '@storybook/preview-api';
 import { Meta, StoryObj } from '@storybook/react';
-import { Textarea, Button, Field, FieldLabel, FieldHint, FieldError } from '@strapi/design-system';
+import { Textarea, Field, FieldLabel, FieldHint, FieldError } from '@strapi/design-system';
 import { default as outdent } from 'outdent';
 
 const meta: Meta<typeof Textarea> = {
@@ -19,12 +19,7 @@ const Template: Story = {
     const [, updateArgs] = useArgs();
 
     return (
-      <Textarea
-        {...props}
-        placeholder="This is a content placeholder"
-        name="content"
-        onChange={(e) => updateArgs({ value: e.target.value })}
-      >
+      <Textarea {...props} name="content" onChange={(e) => updateArgs({ value: e.target.value })}>
         {value}
       </Textarea>
     );
@@ -35,8 +30,22 @@ export const Base = {
   ...Template,
   args: {
     value: '',
+    placeholder: 'This is a content placeholder',
   },
   name: 'base',
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+        <Textarea
+          placeholder="This is a content placeholder"
+          name="content"
+          value={value}
+          onChange={handleChange}
+        />`,
+      },
+    },
+  },
 } satisfies Story;
 
 export const Disabled = {
@@ -46,46 +55,49 @@ export const Disabled = {
     ...Base.args,
     disabled: true,
   },
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+        <Textarea
+          placeholder="This is a content placeholder"
+          name="content"
+          value={value}
+          onChange={handleChange}
+          disabled
+        />`,
+      },
+    },
+  },
   name: 'disabled',
 } satisfies Story;
 
 export const WithField = {
-  render: ({ value, error }) => {
-    const [, updateArgs] = useArgs();
-
+  render: ({ value, error, hint, label, ...props }) => {
     return (
-      <Field
-        id="with_field"
-        error={error ? 'Error' : undefined}
-        hint={error ? undefined : 'Description line lorem ipsum'}
-      >
-        <FieldLabel>Textarea</FieldLabel>
-        <Textarea placeholder="This is a content placeholder" name="content" error={error ? 'Error' : undefined}>
+      <Field id="with_field" error={error} hint={hint}>
+        <FieldLabel>{label}</FieldLabel>
+        <Textarea id="with_field" name="textarea" error={error} {...props}>
           {value}
         </Textarea>
         <FieldError />
         <FieldHint />
-        <Button variant="danger-light" onClick={() => updateArgs({ error: !error })}>
-          {`${error ? 'Hide' : 'Show'} the error state`}
-        </Button>
       </Field>
     );
   },
   args: {
-    ...Disabled.args,
-    error: false,
+    ...Base.args,
+    label: 'Textarea',
+    error: 'Error',
+    hint: 'Description line lorem ipsum',
   },
   parameters: {
     docs: {
       source: {
         code: outdent`
-        <Field
-          id="with_field"
-          error={error ? 'Error' : undefined}
-          hint={error ? undefined : 'Description line lorem ipsum'}
-        >
-          <FieldLabel>Textarea</FieldLabel>
-          <Textarea error={error ? 'Error' : undefined} placeholder="This is a content placeholder" name="content">
+        <Field id="with_field" error={error} hint={hint}>
+          <FieldLabel>{label}</FieldLabel>
+          <Textarea id="with_field" name="textarea" error={error} {...props}>
             {value}
           </Textarea>
           <FieldError />
@@ -95,6 +107,5 @@ export const WithField = {
       },
     },
   },
-
   name: 'with field',
-} satisfies Story;
+};

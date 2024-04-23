@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { useArgs } from '@storybook/preview-api';
 import { Meta, StoryObj } from '@storybook/react';
-import { TimePicker, Button, Field, FieldLabel, FieldHint, FieldError } from '@strapi/design-system';
+import { TimePicker, Field, FieldLabel, FieldHint, FieldError } from '@strapi/design-system';
 import { default as outdent } from 'outdent';
 
 const meta: Meta<typeof TimePicker> = {
@@ -53,6 +53,7 @@ export const Steps = {
   ...Template,
   args: {
     ...Base.args,
+    value: '12:00',
     step: 60,
   },
   parameters: {
@@ -77,7 +78,7 @@ export const Steps = {
 export const Sizing = {
   ...Template,
   args: {
-    ...Base.args,
+    ...Steps.args,
     size: 'S',
   },
   parameters: {
@@ -100,28 +101,21 @@ export const Sizing = {
 } satisfies Story;
 
 export const WithField = {
-  render: ({ error }) => {
-    const [, updateArgs] = useArgs();
-
+  render: ({ error, hint, label, ...props }) => {
     return (
-      <Field
-        id="with_field"
-        error={error ? 'Error' : undefined}
-        hint={error ? undefined : 'Description line lorem ipsum'}
-      >
-        <FieldLabel>Time picker</FieldLabel>
-        <TimePicker aria-label="Lunchtime" error={error ? 'Error' : undefined} />
+      <Field id="with_field" error={error} hint={hint}>
+        <FieldLabel>{label}</FieldLabel>
+        <TimePicker id="with_field" aria-label="Lunchtime" error={error} {...props} />
         <FieldError />
         <FieldHint />
-        <Button variant="danger-light" onClick={() => updateArgs({ error: !error })}>
-          {`${error ? 'Hide' : 'Show'} the error state`}
-        </Button>
       </Field>
     );
   },
   args: {
     ...Steps.args,
-    error: false,
+    label: 'Time picker',
+    error: 'Error',
+    hint: 'Description line lorem ipsum',
   },
 
   parameters: {
@@ -130,11 +124,11 @@ export const WithField = {
         code: outdent`
         <Field
           id="with_field"
-          error={error ? 'Error' : undefined}
-          hint={error ? undefined : 'Description line lorem ipsum'}
+          error={error}
+          hint={hint}
         >
-          <FieldLabel>Time picker</FieldLabel>
-          <TimePicker label="Lunchtime" error={error ? 'Error' : undefined} />
+          <FieldLabel>{label}</FieldLabel>
+          <TimePicker id="with_field" label="Lunchtime" error={error} />
           <FieldError />
           <FieldHint />
         </Field>
@@ -144,4 +138,4 @@ export const WithField = {
   },
 
   name: 'with field',
-} satisfies Story;
+};

@@ -15,7 +15,7 @@ import * as TextInputStories from './TextInput.stories';
 ## Overview
 
 TextInputs are inputs that allow users to add or edit text. They support several text formats including numbers.
-If a single line is not enough for the amount of text required, use TextArea component.
+If a single line is not enough for the amount of text required, use [`TextArea`](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/TextArea) component.
 [View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/TextInput)
 
 ## Props
@@ -33,8 +33,6 @@ import { TextInput } from '@strapi/design-system';
 ## Variants
 
 ### Base
-
-`TextInput` can include a placeholder and a description line.
 
 <Canvas of={TextInputStories.Base} />
 
@@ -55,8 +53,8 @@ the right side, it is possible to actually read the password.
 
 <Canvas of={TextInputStories.Disabled} />
 
-### With field
+### TextInput field
 
-TextInputs with field hint or error
+TextInput wrapped with [`Field`](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Field) component
 
 <Canvas of={TextInputStories.WithField} />

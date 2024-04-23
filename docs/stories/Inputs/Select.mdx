@@ -37,7 +37,7 @@ import {
 } from '@strapi/design-system';
 ```
 
-<Canvas of={SelectStories.Basic} />
+<Canvas of={SelectStories.Base} />
 
 ## Props
 
@@ -66,7 +66,7 @@ import {
 The most common usage would be the `SingleSelect` which allows a user to only select one option from a list.
 The list has built in typeahead meaning pressing the letter `K` will highlight the word "Kiwi" in the example below.
 
-<Canvas of={SelectStories.Basic} />
+<Canvas of={SelectStories.Base} />
 
 ### Controlled
 
@@ -99,8 +99,8 @@ Instead of passing a `customizeContent` prop, you can pass the `withTags` prop w
 
 <Canvas of={SelectStories.MultipleNestedSelect} />
 
-### With Field
+### Single Select Field
 
-select with field hint or error
+SingleSelect decorated with the [`Field`](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Field) component
 
-<Canvas of={SelectStories.WithField} />
+<Canvas of={SelectStories.SingleSelectField} />

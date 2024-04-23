@@ -1,18 +1,13 @@
 import * as React from 'react';
 
-import { useArgs } from '@storybook/preview-api';
 import { Meta, StoryObj } from '@storybook/react';
 import {
   Combobox,
   CreatableCombobox,
   ComboboxOption,
-  Flex,
-  SingleSelect,
-  SingleSelectOption,
   Field,
   FieldHint,
   FieldError,
-  Button,
   FieldLabel,
 } from '@strapi/design-system';
 import { default as outdent } from 'outdent';
@@ -31,13 +26,7 @@ const Template: Story = {
     const [value, setValue] = React.useState<string | undefined>('');
 
     return (
-      <Combobox
-        placeholder="My favourite fruit is..."
-        value={value}
-        onChange={setValue}
-        onClear={() => setValue('')}
-        {...props}
-      >
+      <Combobox value={value} onChange={setValue} onClear={() => setValue('')} {...props}>
         <ComboboxOption value="apple">Apple</ComboboxOption>
         <ComboboxOption value="avocado">Avocado</ComboboxOption>
         <ComboboxOption value="banana">Banana</ComboboxOption>
@@ -50,9 +39,11 @@ const Template: Story = {
   },
 };
 
-export const Basic = {
+export const Base = {
   ...Template,
-  name: 'base',
+  args: {
+    placeholder: 'My favourite fruit is...',
+  },
   parameters: {
     docs: {
       source: {
@@ -76,11 +67,13 @@ export const Basic = {
       },
     },
   },
+  name: 'base',
 } satisfies Story;
 
 export const Disabled = {
   ...Template,
   args: {
+    ...Base.args,
     disabled: true,
   },
 
@@ -209,66 +202,67 @@ export const Creatable = {
 type Autocomplete = 'none' | 'list' | 'both' | { type: 'list'; filter: 'startsWith' | 'contains' };
 
 export const Autocomplete = {
-  render: () => {
-    const [value, setValue] = React.useState<string | undefined>('');
-    const [autocompleteMode, setAutocompleteMode] = React.useState<Autocomplete>('both');
+  args: {
+    placeholder: 'My favourite fruit is...',
+    autocompleteMode: 'both' as Autocomplete,
+  },
+  argTypes: {
+    autocompleteMode: { type: 'select', options: ['none', 'list', 'both', 'list-contains'] },
+  },
 
-    const handleChange = (value) => {
-      if (value === 'list-contains') {
+  render: ({ autocompleteMode: mode, ...props }) => {
+    const [value, setValue] = React.useState<string | undefined>('');
+    const [autocompleteMode, setAutocompleteMode] = React.useState<Autocomplete>(mode);
+
+    React.useEffect(() => {
+      if (mode === 'list-contains') {
         setAutocompleteMode({ type: 'list', filter: 'contains' });
-      } else setAutocompleteMode(value);
-    };
+      } else setAutocompleteMode(mode);
+    }, [mode]);
 
     return (
-      <Flex direction="column" alignItems="stretch" gap={11}>
-        <Combobox
-          placeholder="My favourite fruit is..."
-          value={value}
-          onChange={setValue}
-          autocomplete={autocompleteMode}
-          onClear={() => setValue('')}
-        >
-          <ComboboxOption value="apple">Apple</ComboboxOption>
-          <ComboboxOption value="avocado">Avocado</ComboboxOption>
-          <ComboboxOption value="banana">Banana</ComboboxOption>
-          <ComboboxOption value="kiwi">Kiwi</ComboboxOption>
-          <ComboboxOption value="mango">Mango</ComboboxOption>
-          <ComboboxOption value="orange">Orange</ComboboxOption>
-          <ComboboxOption value="strawberry">Strawberry</ComboboxOption>
-        </Combobox>
-        <SingleSelect
-          aria-label="Autocomplete Mode"
-          value={typeof autocompleteMode === 'object' ? autocompleteMode.type : autocompleteMode}
-          onValueChange={handleChange}
-        >
-          <SingleSelectOption value="both">both</SingleSelectOption>
-          <SingleSelectOption value="list">list (filter: startsWith)</SingleSelectOption>
-          <SingleSelectOption value="list-contains">list (filter: contains)</SingleSelectOption>
-          <SingleSelectOption value="none">none</SingleSelectOption>
-        </SingleSelect>
-      </Flex>
+      <Combobox
+        value={value}
+        onChange={setValue}
+        autocomplete={autocompleteMode}
+        onClear={() => setValue('')}
+        {...props}
+      >
+        <ComboboxOption value="apple">Apple</ComboboxOption>
+        <ComboboxOption value="avocado">Avocado</ComboboxOption>
+        <ComboboxOption value="banana">Banana</ComboboxOption>
+        <ComboboxOption value="kiwi">Kiwi</ComboboxOption>
+        <ComboboxOption value="mango">Mango</ComboboxOption>
+        <ComboboxOption value="orange">Orange</ComboboxOption>
+        <ComboboxOption value="strawberry">Strawberry</ComboboxOption>
+      </Combobox>
     );
   },
 
   name: 'autocomplete',
-} satisfies Story;
+};
 
 export const WithField = {
   args: {
-    ...Disabled.args,
-    error: false,
+    ...Base.args,
+    label: 'Fruits',
+    error: 'Error',
+    hint: 'Description line lorem ipsum',
   },
-  render: ({ error, disabled }) => {
-    const [, updateArgs] = useArgs();
+  render: ({ error, hint, label, ...props }) => {
+    const [value, setValue] = React.useState<string | undefined>('');
 
     return (
-      <Field
-        id="with_field"
-        error={error ? 'Error' : undefined}
-        hint={error ? undefined : 'Description line lorem ipsum'}
-      >
-        <FieldLabel>Fruits</FieldLabel>
-        <Combobox disabled={disabled} placeholder="My favourite fruit is..." error={error ? 'Error' : undefined}>
+      <Field id="with_field" error={error} hint={hint}>
+        <FieldLabel>{label}</FieldLabel>
+        <Combobox
+          id="with_field"
+          value={value}
+          onChange={setValue}
+          onClear={() => setValue('')}
+          error={error}
+          {...props}
+        >
           <ComboboxOption value="apple">Apple</ComboboxOption>
           <ComboboxOption value="avocado">Avocado</ComboboxOption>
           <ComboboxOption value="banana">Banana</ComboboxOption>
@@ -279,9 +273,6 @@ export const WithField = {
         </Combobox>
         <FieldError />
         <FieldHint />
-        <Button variant="danger-light" onClick={() => updateArgs({ error: !error })}>
-          {`${error ? 'Hide' : 'Show'} the error state`}
-        </Button>
       </Field>
     );
   },
@@ -290,13 +281,16 @@ export const WithField = {
     docs: {
       source: {
         code: outdent`
-        <Field
-          id="with_field"
-          error={error ? 'Error' : undefined}
-          hint={error ? undefined : 'Description line lorem ipsum'}
-        >
-          <FieldLabel>Fruits</FieldLabel>
-          <Combobox disabled={disabled} placeholder="My favourite fruit is..." error={error ? 'Error' : undefined}>
+        <Field id="with_field" error={error} hint={hint}>
+          <FieldLabel>{label}</FieldLabel>
+          <Combobox
+            id="with_field"
+            value={value}
+            onChange={setValue}
+            onClear={() => setValue('')}
+            error={error}
+            {...props}
+          >
             <ComboboxOption value="apple">Apple</ComboboxOption>
             <ComboboxOption value="avocado">Avocado</ComboboxOption>
             <ComboboxOption value="banana">Banana</ComboboxOption>

@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { useArgs } from '@storybook/preview-api';
 import { Meta, StoryObj } from '@storybook/react';
-import { Checkbox, Field, FieldHint, FieldError, Button } from '@strapi/design-system';
+import { Checkbox, Field, FieldHint, FieldError } from '@strapi/design-system';
 import { default as outdent } from 'outdent';
 
 const meta: Meta<typeof Checkbox> = {
@@ -49,45 +49,121 @@ export const Base = {
   name: 'base',
 };
 
-export const Indeterminate = {
+export const CheckboxGroup = {
   render: () => {
-    const [checkedItems, setCheckedItems] = React.useState([true, false]);
-    const allChecked = checkedItems.every(Boolean);
-    const isIndeterminate = checkedItems.some(Boolean) && !allChecked;
+    const [fruitsChecked, setFruitsChecked] = React.useState([true, false]);
+    const [veggiesChecked, setVeggiesChecked] = React.useState([true, true]);
+    const [sweetsChecked, setSweetsChecked] = React.useState([false, false]);
+    const allFruitsChecked = fruitsChecked.every(Boolean);
+    const allVeggiesChecked = veggiesChecked.every(Boolean);
+    const allSweetsChecked = sweetsChecked.every(Boolean);
+    const isFruitsIndeterminate = fruitsChecked.some(Boolean) && !allFruitsChecked;
+    const isVeggiesIndeterminate = veggiesChecked.some(Boolean) && !allVeggiesChecked;
+    const isSweetsIndeterminate = sweetsChecked.some(Boolean) && !allSweetsChecked;
 
     return (
       <ul>
         <li>
           <Checkbox
-            id="parent"
-            name="parent"
-            indeterminate={isIndeterminate}
-            onValueChange={(value) => setCheckedItems([value, value])}
-            value={allChecked}
+            id="fruits"
+            name="fruits"
+            indeterminate={isFruitsIndeterminate}
+            onValueChange={(value) => setFruitsChecked([value, value])}
+            value={allFruitsChecked}
           >
-            Parent
+            Fruits
           </Checkbox>
         </li>
         <li>
-          <ul>
+          <ul style={{ paddingLeft: '24px' }}>
             <li>
               <Checkbox
-                id="child1"
-                name="child1"
-                onValueChange={(value) => setCheckedItems([value, checkedItems[1]])}
-                value={checkedItems[0]}
+                id="apple"
+                name="apple"
+                onValueChange={(value) => setFruitsChecked([value, fruitsChecked[1]])}
+                value={fruitsChecked[0]}
               >
-                Child 1
+                Apple
               </Checkbox>
             </li>
             <li>
               <Checkbox
-                id="child2"
-                name="child2"
-                onValueChange={(value) => setCheckedItems([checkedItems[0], value])}
-                value={checkedItems[1]}
+                id="banana"
+                name="banana"
+                onValueChange={(value) => setFruitsChecked([fruitsChecked[0], value])}
+                value={fruitsChecked[1]}
               >
-                Child 2
+                Banana
+              </Checkbox>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <Checkbox
+            id="vegetables"
+            name="vegetables"
+            indeterminate={isVeggiesIndeterminate}
+            onValueChange={(value) => setVeggiesChecked([value, value])}
+            value={allVeggiesChecked}
+          >
+            Vegetables
+          </Checkbox>
+        </li>
+        <li>
+          <ul style={{ paddingLeft: '24px' }}>
+            <li>
+              <Checkbox
+                id="beans"
+                name="beans"
+                onValueChange={(value) => setVeggiesChecked([value, veggiesChecked[1]])}
+                value={veggiesChecked[0]}
+              >
+                Beans
+              </Checkbox>
+            </li>
+            <li>
+              <Checkbox
+                id="pumpkin"
+                name="pumpkin"
+                onValueChange={(value) => setVeggiesChecked([veggiesChecked[0], value])}
+                value={veggiesChecked[1]}
+              >
+                Pumpkin
+              </Checkbox>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <Checkbox
+            id="sweets"
+            name="sweets"
+            indeterminate={isSweetsIndeterminate}
+            onValueChange={(value) => setSweetsChecked([value, value])}
+            value={allSweetsChecked}
+          >
+            Sweets
+          </Checkbox>
+        </li>
+        <li>
+          <ul style={{ paddingLeft: '24px' }}>
+            <li>
+              <Checkbox
+                id="chocolate"
+                name="chocolate"
+                onValueChange={(value) => setSweetsChecked([value, sweetsChecked[1]])}
+                value={sweetsChecked[0]}
+              >
+                Chocolate
+              </Checkbox>
+            </li>
+            <li>
+              <Checkbox
+                id="candy"
+                name="candy"
+                onValueChange={(value) => setSweetsChecked([sweetsChecked[0], value])}
+                value={sweetsChecked[1]}
+              >
+                Candy
               </Checkbox>
             </li>
           </ul>
@@ -96,7 +172,7 @@ export const Indeterminate = {
     );
   },
 
-  name: 'indeterminate',
+  name: 'checkbox group',
 } satisfies Story;
 
 export const Disabled = {
@@ -117,38 +193,36 @@ export const Disabled = {
 } satisfies Story;
 
 export const WithField = {
-  render: ({ error, label }) => {
+  render: ({ checked, error, hint, children }) => {
     const [, updateArgs] = useArgs();
 
+    const handleChange = () => {
+      updateArgs({ checked: !checked });
+    };
+
     return (
-      <Field
-        id="with_field"
-        error={error ? 'Error' : undefined}
-        hint={error ? undefined : 'Description line lorem ipsum'}
-      >
-        <Checkbox id="checkbox">{label}</Checkbox>
+      <Field id="with_field" error={error} hint={hint}>
+        <Checkbox value={checked} onChange={handleChange}>
+          {children}
+        </Checkbox>
         <FieldError />
         <FieldHint />
-        <Button variant="danger-light" onClick={() => updateArgs({ error: !error })}>
-          {`${error ? 'Hide' : 'Show'} the error state`}
-        </Button>
       </Field>
     );
   },
   args: {
-    ...Disabled.args,
-    error: false,
+    ...Base.args,
+    error: 'Error',
+    hint: 'Description line lorem ipsum',
   },
   parameters: {
     docs: {
       source: {
         code: outdent`
-        <Field
-          id="with_field"
-          error={error ? 'Error' : undefined}
-          hint={error ? undefined : 'Description line lorem ipsum'}
-        >
-          <Checkbox id="checkbox">{label}</Checkbox>
+        <Field id="with_field" error={error} hint={hint}>
+          <Checkbox value={checked} onChange={handleChange}>
+            {children}
+          </Checkbox>
           <FieldError />
           <FieldHint />
         </Field>
@@ -156,6 +230,5 @@ export const WithField = {
       },
     },
   },
-
   name: 'with field',
 };

@@ -46,11 +46,49 @@ This is the same component as `ToggleInput` and therefore you should use that in
 
 ### Removed field wrapper components from inputs
 
-We are streamlining inputs by removing unnecessary components like labels, hints, and error messages, focusing solely on the inputs themselves. This simplifies the structure and reduces DOM size, especially in cases where only aria-labels are needed. Users can still use Field components they used alongside inputs.
+We're making inputs more composable by breaking down the pieces from components like labels, hints, and error messages, focusing solely on exporting the inputs themselves. This simplifies the structure and reduces DOM size, especially in cases where only aria-labels are needed. Users can still use Field components they used alongside inputs.
+
+```ts
+// before
+ return (
+      <Field hint={hint} error={error} id={generatedId} required={required}>
+        <Flex direction="column" alignItems="stretch" gap={1}>
+          {label ? (
+            <FieldLabel onClick={handleFieldLabelClick} action={labelAction}>
+              {label}
+            </FieldLabel>
+          ) : null}
+          <SingleSelectInput
+            label={label}
+            id={generatedId}
+            ref={composedTriggerRefs}
+            required={required}
+            {...props}
+          />
+          <FieldHint />
+          <FieldError />
+        </Flex>
+      </Field>
+ );
+
+// after
+return (
+          <SingleSelect
+            aria-label={label}
+            id={generatedId}
+            {...props}
+          />
+    );
+```
 
 ### Components renaming
 
-ToggleInput is renamed to just Toggle.
+`ToggleInput` has been renamed to just `Toggle`.
+
+```ts
+- import { ToggleInput } from '@strapi/design-system'
++ import { Toggle } from '@strapi/design-system'
+```
 
 ### Icon Updates
 

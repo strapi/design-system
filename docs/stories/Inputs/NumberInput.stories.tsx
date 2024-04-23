@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { useArgs } from '@storybook/preview-api';
 import { Meta, StoryObj } from '@storybook/react';
-import { NumberInput, Flex, Button, Field, FieldLabel, FieldHint, FieldError } from '@strapi/design-system';
+import { NumberInput, Flex, Field, FieldLabel, FieldHint, FieldError } from '@strapi/design-system';
 import { default as outdent } from 'outdent';
 
 const meta: Meta<typeof NumberInput> = {
@@ -20,12 +20,7 @@ const Template: Story = {
 
     return (
       <Flex direction="column" alignItems="stretch" gap={4}>
-        <NumberInput
-          {...props}
-          placeholder="This is a content placeholder"
-          value={value}
-          onValueChange={(value) => updateArgs({ value: value })}
-        />
+        <NumberInput {...props} value={value} onValueChange={(value) => updateArgs({ value: value })} />
       </Flex>
     );
   },
@@ -35,14 +30,15 @@ export const Base = {
   ...Template,
   args: {
     value: 3.14159265359,
+    placeholder: 'Price(Eur)',
   },
   parameters: {
     docs: {
       source: {
         code: outdent`
         <NumberInput
-          placeholder="This is a content placeholder"
-          name="content"
+          placeholder="Price(Eur)"
+          name="price"
           value={3.14159265359}
         />`,
       },
@@ -53,13 +49,16 @@ export const Base = {
 
 export const WithInitialEmpty = {
   ...Template,
+  args: {
+    placeholder: 'Price(Eur)',
+  },
   parameters: {
     docs: {
       source: {
         code: outdent`
         <NumberInput
-          placeholder="This is a content placeholder"
-          name="content"
+          placeholder="Price(Eur)"
+          name="price"
         />`,
       },
     },
@@ -80,10 +79,10 @@ export const Locale = {
       source: {
         code: outdent`
         <NumberInput
-          placeholder="This is a content placeholder"
-          name="content"
+          placeholder="Price(Eur)"
+          name="price"
           value={3.14159265359}
-          locale: "fr"
+          locale="fr"
         />`,
       },
     },
@@ -103,11 +102,11 @@ export const SizeS = {
       source: {
         code: outdent`
         <NumberInput
-          placeholder="This is a content placeholder"
-          name="content"
+          placeholder="Price(Eur)"
+          name="price"
           value={3.14159265359}
-          locale: "fr"
-          size: "S"
+          locale="fr"
+          size="S"
         />`,
       },
     },
@@ -127,8 +126,8 @@ export const Disabled = {
       source: {
         code: outdent`
         <NumberInput
-          placeholder="This is a content placeholder"
-          name="content"
+          placeholder="Price(Eur)"
+          name="price"
           value={3.14159265359}
           locale="fr"
           size="S"
@@ -142,49 +141,41 @@ export const Disabled = {
 } satisfies Story;
 
 export const WithField = {
-  render: ({ error }) => {
+  render: ({ error, hint, label }) => {
     const [, updateArgs] = useArgs();
 
     return (
-      <Field
-        id="with_field"
-        error={error ? 'Error' : undefined}
-        hint={error ? undefined : 'Description line lorem ipsum'}
-      >
-        <FieldLabel>Number</FieldLabel>
+      <Field id="with_field" error={error} hint={hint}>
+        <FieldLabel>{label}</FieldLabel>
         <NumberInput
-          placeholder="This is a content placeholder"
+          id="with_field"
+          placeholder="Price(Eur)"
           onValueChange={(value) => updateArgs({ value: value })}
           value={3.14159265359}
-          id="with_field"
         />
         <FieldError />
         <FieldHint />
-        <Button variant="danger-light" onClick={() => updateArgs({ error: !error })}>
-          {`${error ? 'Hide' : 'Show'} the error state`}
-        </Button>
       </Field>
     );
   },
   args: {
-    ...Disabled.args,
-    error: false,
+    ...Base.args,
+    label: 'Number',
+    error: 'Error',
+    hint: 'Description line lorem ipsum',
   },
   parameters: {
     docs: {
       source: {
         code: outdent`
-        <Field
-          id="with_field"
-          error={error ? 'Error' : undefined}
-          hint={error ? undefined : 'Description line lorem ipsum'}
-        >
-          <FieldLabel>Number</FieldLabel>
+        <Field id="with_field" error={error} hint={hint}>
+          <FieldLabel>{label}</FieldLabel>
           <NumberInput
-            placeholder="This is a content placeholder"
-            value={3.14159265359}
+            id="with_field"
+            placeholder="Price(Eur)"
             onValueChange={onChange}
-            name="content" />
+            value={value}
+          />
           <FieldError />
           <FieldHint />
         </Field>
@@ -192,6 +183,5 @@ export const WithField = {
       },
     },
   },
-
   name: 'with field',
 };

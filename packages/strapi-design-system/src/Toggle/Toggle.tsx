@@ -6,7 +6,6 @@ import styled from 'styled-components';
 import { FieldLabel, type FieldProps, FieldLabelProps } from '../Field';
 import { Flex } from '../Flex';
 import { useControllableState } from '../hooks/useControllableState';
-import { useId } from '../hooks/useId';
 import { TextButton } from '../TextButton';
 import { inputFocusStyle } from '../themes';
 import type { InputSizes } from '../themes/sizes';
@@ -37,7 +36,6 @@ const Toggle = React.forwardRef<ToggleInputElement, ToggleProps>(
     });
 
     const isFalseyChecked = checked !== null && !checked;
-    const generatedId = useId(id);
 
     return (
       <ToggleWrapper
@@ -110,7 +108,7 @@ const Toggle = React.forwardRef<ToggleInputElement, ToggleProps>(
             onChange?.(e);
           }}
           type="checkbox"
-          id={generatedId}
+          id={id}
           name={name}
           aria-required={required}
           disabled={disabled}
