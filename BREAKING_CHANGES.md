@@ -48,37 +48,19 @@ This is the same component as `ToggleInput` and therefore you should use that in
 
 We're making inputs more composable by breaking down the pieces from components like labels, hints, and error messages, focusing solely on exporting the inputs themselves. This simplifies the structure and reduces DOM size, especially in cases where only aria-labels are needed. Users can still use Field components they used alongside inputs.
 
-```ts
+```tsx
 // before
- return (
-      <Field hint={hint} error={error} id={generatedId} required={required}>
-        <Flex direction="column" alignItems="stretch" gap={1}>
-          {label ? (
-            <FieldLabel onClick={handleFieldLabelClick} action={labelAction}>
-              {label}
-            </FieldLabel>
-          ) : null}
-          <SingleSelectInput
-            label={label}
-            id={generatedId}
-            ref={composedTriggerRefs}
-            required={required}
-            {...props}
-          />
-          <FieldHint />
-          <FieldError />
-        </Flex>
-      </Field>
- );
+return <SingleSelect label={label} error={error} required={required} value={value} onChange={handleChange} />;
 
 // after
 return (
-          <SingleSelect
-            aria-label={label}
-            id={generatedId}
-            {...props}
-          />
-    );
+  <Field>
+    <FieldLabel>{label}</FieldLabel>
+    <SingleSelect label={label} error={error} required={required} value={value} onChange={handleChange} />
+    <FieldError />
+    <FieldHint />
+  </Field>
+);
 ```
 
 ### Components renaming
