@@ -7,5 +7,13 @@
     "@strapi/design-system": "1.17.0",
     "@strapi/icons": "1.17.0"
   },
-  "changesets": ["clean-maps-double", "quiet-roses-rule", "soft-nails-matter"]
+  "changesets": [
+    "angry-tigers-scream",
+    "clean-maps-double",
+    "fresh-turkeys-approve",
+    "nasty-laws-agree",
+    "proud-kings-relate",
+    "quiet-roses-rule",
+    "soft-nails-matter"
+  ]
 }

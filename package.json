@@ -23,7 +23,7 @@
     "prerelease:enter": "changeset pre enter",
     "prerelease:exit": "changeset pre exit",
     "release:add": "changeset add",
-    "release:publish": "turbo run build lint test:ts test && changeset publish",
+    "release:publish": "turbo run build lint test:ts test:unit && changeset publish",
     "release:version": "changeset version && yarn install",
     "watch": "turbo run watch"
   },
