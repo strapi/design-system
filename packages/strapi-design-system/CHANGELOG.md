@@ -1,5 +1,24 @@
 # @strapi/design-system
 
+## 2.0.0-beta.1
+
+### Major Changes
+
+- [#1696](https://github.com/strapi/design-system/pull/1696) [`1622c2b`](https://github.com/strapi/design-system/commit/1622c2be3fd2379cbbc15e6a408ccb6bedc6ea61) Thanks [@joshuaellis](https://github.com/joshuaellis)! - chore!: remove the Icon component
+
+  Users should instead apply `fill` and `stroke` directly to the icon component as theme colors are now possible.
+
+### Minor Changes
+
+- [#1693](https://github.com/strapi/design-system/pull/1693) [`732330a`](https://github.com/strapi/design-system/commit/732330af34a9e60f21fd2565b01650f915e87ab8) Thanks [@madhurisandbhor](https://github.com/madhurisandbhor)! - feat: add logic spacing properties
+
+### Patch Changes
+
+- [`cb0147b`](https://github.com/strapi/design-system/commit/cb0147bc319d8bff9f5b76fdc046856d2c91c5f1) Thanks [@joshuaellis](https://github.com/joshuaellis)! - fix: use px for media queries as font-size won't affect media queries
+
+- Updated dependencies []:
+  - @strapi/ui-primitives@2.0.0-beta.1
+
 ## 2.0.0-beta.0
 
 ### Major Changes
