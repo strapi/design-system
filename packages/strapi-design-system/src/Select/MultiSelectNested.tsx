@@ -18,11 +18,11 @@ interface MulitSelectNestedGroup extends Omit<MultiSelectGroupProps, 'children'>
   children: Array<MulitSelectNestedOption>;
 }
 
-export type MultiSelectNestedProps = MultiSelectProps & {
+type MultiSelectNestedProps = MultiSelectProps & {
   options: Array<MulitSelectNestedOption | MulitSelectNestedGroup>;
 };
 
-export const MultiSelectNested = ({ options, ...props }: MultiSelectNestedProps) => {
+const MultiSelectNested = ({ options, ...props }: MultiSelectNestedProps) => {
   return (
     <MultiSelect {...props}>
       {options.map((opt) => {
@@ -55,3 +55,6 @@ export const MultiSelectNested = ({ options, ...props }: MultiSelectNestedProps)
 const NestedOption = styled(MultiSelectOption)`
   padding-left: ${({ theme }) => theme.spaces[7]};
 `;
+
+export { MultiSelectNested };
+export type { MultiSelectNestedProps, MulitSelectNestedOption, MulitSelectNestedGroup };

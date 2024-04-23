@@ -3,11 +3,10 @@ import * as React from 'react';
 import { Clock } from '@strapi/icons';
 import styled from 'styled-components';
 
-import { ComboboxInput, ComboboxInputProps, ComboboxInputElement, Option } from '../Combobox/Combobox';
+import { Combobox, ComboboxProps, ComboboxInputElement, Option } from '../Combobox/Combobox';
 import { useDesignSystem } from '../DesignSystemProvider';
 import { useControllableState } from '../hooks/useControllableState';
 import { useDateFormatter } from '../hooks/useDateFormatter';
-import { useId } from '../hooks/useId';
 
 const isNotAlphabeticalCharacter = (str: string): boolean => {
   return Boolean(str.match(/^[^a-zA-Z]*$/));
@@ -19,7 +18,7 @@ const isNotAlphabeticalCharacter = (str: string): boolean => {
 
 export interface TimePickerProps
   extends Omit<
-    ComboboxInputProps,
+    ComboboxProps,
     | 'children'
     | 'autocomplete'
     | 'startIcon'
@@ -42,9 +41,8 @@ export interface TimePickerProps
 }
 
 export const TimePicker = React.forwardRef<ComboboxInputElement, TimePickerProps>(
-  ({ id, step = 15, value: valueProp, defaultValue, onChange, ...restProps }, forwardedRef) => {
+  ({ step = 15, value: valueProp, defaultValue, onChange, ...restProps }, forwardedRef) => {
     const context = useDesignSystem('TimePicker');
-    const generatedId = useId(id);
 
     const [textValue, setTextValue] = React.useState<string | undefined>('');
 
@@ -128,7 +126,7 @@ export const TimePicker = React.forwardRef<ComboboxInputElement, TimePickerProps
     }, [valueProp, setTextValue]);
 
     return (
-      <ComboboxInput
+      <Combobox
         {...restProps}
         ref={forwardedRef}
         value={value}
@@ -138,7 +136,6 @@ export const TimePicker = React.forwardRef<ComboboxInputElement, TimePickerProps
         placeholder={`--${separator}--`}
         autocomplete="none"
         startIcon={<StyledClock />}
-        id={generatedId}
         inputMode="numeric"
         pattern={`\\d{2}\\${separator}\\d{2}`}
         textValue={textValue}
@@ -150,7 +147,7 @@ export const TimePicker = React.forwardRef<ComboboxInputElement, TimePickerProps
             {time}
           </Option>
         ))}
-      </ComboboxInput>
+      </Combobox>
     );
   },
 );

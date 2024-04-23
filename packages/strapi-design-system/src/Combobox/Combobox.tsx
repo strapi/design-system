@@ -20,7 +20,7 @@ import { Typography } from '../Typography';
  * ComboboxInput
  * -----------------------------------------------------------------------------------------------*/
 
-export interface ComboboxInputProps
+export interface ComboboxProps
   extends Pick<
       ComboboxPrimitive.RootProps,
       | 'allowCustomValue'
@@ -64,7 +64,7 @@ export interface ComboboxInputProps
 
 export type ComboboxInputElement = HTMLInputElement;
 
-export const ComboboxInput = React.forwardRef<ComboboxInputElement, ComboboxInputProps>(
+export const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
   (
     {
       allowCustomValue,
@@ -278,27 +278,6 @@ export const ComboboxInput = React.forwardRef<ComboboxInputElement, ComboboxInpu
     );
   },
 );
-
-/* -------------------------------------------------------------------------------------------------
- * Combobox
- * -----------------------------------------------------------------------------------------------*/
-
-export interface ComboboxProps extends ComboboxInputProps {}
-
-export const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
-  ({ required = false, ...restProps }, forwardedRef) => {
-    return <ComboboxInput ref={forwardedRef} required={required} {...restProps} />;
-  },
-);
-
-/* -------------------------------------------------------------------------------------------------
- * CreatableCombobox
- * -----------------------------------------------------------------------------------------------*/
-
-type CreatableComboboxProps = Omit<ComboboxInputProps, 'onCreateOption'> &
-  Required<Pick<ComboboxInputProps, 'onCreateOption'>>;
-
-export const CreatableCombobox = (props: CreatableComboboxProps) => <Combobox {...props} creatable />;
 
 const IconBox = styled(Box)`
   border: none;

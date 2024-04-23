@@ -4,20 +4,39 @@ import styled from 'styled-components';
 
 import { Box, BoxProps } from '../Box';
 import { FieldProps } from '../Field';
-import { useId } from '../hooks/useId';
 import { inputFocusStyle } from '../themes/utils';
 
-export interface TextareaProps extends TextareaInputBoxProps, Pick<FieldProps, 'error'> {
-  /**
-   * @preserve
-   * @deprecated use `value` instead
-   */
-  children?: string;
+interface TextareaProps extends BoxProps<'textarea'>, Pick<FieldProps, 'error'> {
   value?: string;
   'aria-describedby'?: string;
 }
 
-interface TextareaInputBoxProps extends Pick<FieldProps, 'error'>, BoxProps<'textarea'> {}
+const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
+  ({ disabled, error, required, ...props }, ref) => {
+    const hasError = Boolean(error);
+
+    return (
+      <Wrapper borderColor={hasError ? 'danger600' : 'neutral200'} hasError={hasError} hasRadius>
+        <TextareaElement
+          aria-invalid={hasError}
+          aria-required={required}
+          as="textarea"
+          background={disabled ? 'neutral150' : 'neutral0'}
+          color={disabled ? 'neutral600' : 'neutral800'}
+          disabled={disabled}
+          fontSize={2}
+          hasRadius
+          height="10.5rem"
+          ref={ref}
+          lineHeight={4}
+          padding={4}
+          width="100%"
+          {...props}
+        />
+      </Wrapper>
+    );
+  },
+);
 
 const Wrapper = styled(Box)`
   ${inputFocusStyle()}
@@ -39,36 +58,5 @@ const TextareaElement = styled(Box)`
   }
 `;
 
-const TextareaInput = React.forwardRef<HTMLTextAreaElement, TextareaInputBoxProps>(
-  ({ disabled, error, required, ...props }, ref) => {
-    const id = useId();
-
-    const hasError = Boolean(error);
-
-    return (
-      <Wrapper borderColor={hasError ? 'danger600' : 'neutral200'} hasError={hasError} hasRadius>
-        <TextareaElement
-          aria-invalid={hasError}
-          aria-required={required}
-          as="textarea"
-          background={disabled ? 'neutral150' : 'neutral0'}
-          color={disabled ? 'neutral600' : 'neutral800'}
-          disabled={disabled}
-          fontSize={2}
-          hasRadius
-          height="10.5rem"
-          id={id}
-          ref={ref}
-          lineHeight={4}
-          padding={4}
-          width="100%"
-          {...props}
-        />
-      </Wrapper>
-    );
-  },
-);
-
-export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(({ children, value, ...props }, ref) => {
-  return <TextareaInput ref={ref} value={children ?? value} {...props} />;
-});
+export { Textarea };
+export type { TextareaProps };

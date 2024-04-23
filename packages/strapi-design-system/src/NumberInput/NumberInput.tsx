@@ -10,20 +10,7 @@ import { FieldInput, FieldInputProps, type FieldProps } from '../Field';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 import { useControllableState } from '../hooks/useControllableState';
 
-const ArrowButton = styled.button<{ reverse?: boolean }>`
-  display: flex;
-  height: 1rem;
-  align-items: ${({ reverse }) => (reverse ? 'flex-end' : 'flex-start')};
-  transform: translateY(${({ reverse }) => (reverse ? `-2px` : `2px`)});
-  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : undefined)};
-  svg {
-    display: block;
-    height: 0.4rem;
-    transform: ${({ reverse }) => (reverse ? 'rotateX(180deg)' : undefined)};
-  }
-`;
-
-export interface NumberInputProps
+interface NumberInputProps
   extends Omit<FieldInputProps, 'id' | 'name' | 'onChange' | 'value'>,
     Pick<FieldProps, 'id' | 'name'> {
   onValueChange: (value: number | undefined) => void;
@@ -34,9 +21,9 @@ export interface NumberInputProps
 
 const INITIAL_VALUE = '';
 
-export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
+const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
   (
-    { id, size = 'M', startAction, locale: defaultLocale, onValueChange, value, step = 1, disabled = false, ...props },
+    { size = 'M', startAction, locale: defaultLocale, onValueChange, value, step = 1, disabled = false, ...props },
     ref,
   ) => {
     const designContext = useDesignSystem('NumberInput');
@@ -157,7 +144,6 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
         onBlur={handleBlur}
         value={inputValue}
         size={size}
-        id={id}
         endAction={
           <>
             <ArrowButton
@@ -188,3 +174,19 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
     );
   },
 );
+
+const ArrowButton = styled.button<{ reverse?: boolean }>`
+  display: flex;
+  height: 1rem;
+  align-items: ${({ reverse }) => (reverse ? 'flex-end' : 'flex-start')};
+  transform: translateY(${({ reverse }) => (reverse ? `-2px` : `2px`)});
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : undefined)};
+  svg {
+    display: block;
+    height: 0.4rem;
+    transform: ${({ reverse }) => (reverse ? 'rotateX(180deg)' : undefined)};
+  }
+`;
+
+export { NumberInput };
+export type { NumberInputProps };

@@ -1,15 +1,7 @@
 import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
-import {
-  Combobox,
-  CreatableCombobox,
-  ComboboxOption,
-  Field,
-  FieldHint,
-  FieldError,
-  FieldLabel,
-} from '@strapi/design-system';
+import { Combobox, ComboboxOption, Field, FieldHint, FieldError, FieldLabel } from '@strapi/design-system';
 import { default as outdent } from 'outdent';
 
 const meta: Meta<typeof Combobox> = {
@@ -180,19 +172,20 @@ export const Creatable = {
     };
 
     return (
-      <CreatableCombobox
+      <Combobox
         aria-describedby="creatable component description"
         placeholder="My favourite fruit is..."
         value={value}
         onChange={setValue}
         onCreateOption={onCreateOption}
+        creatable
       >
         {options.map(({ name, value }) => (
           <ComboboxOption key={value} value={value}>
             {name}
           </ComboboxOption>
         ))}
-      </CreatableCombobox>
+      </Combobox>
     );
   },
 

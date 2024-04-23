@@ -17,11 +17,11 @@ interface JSONInputProps extends Omit<FlexProps, 'onChange'>, Pick<FieldProps, '
   onChange?: (value: string) => void;
 }
 
-export interface JSONInputRef extends Partial<HTMLElement> {
+interface JSONInputRef extends Partial<HTMLElement> {
   focus(): void;
 }
 
-export const JSONInput = React.forwardRef<JSONInputRef, JSONInputProps>(
+const JSONInput = React.forwardRef<JSONInputRef, JSONInputProps>(
   ({ error, value = '', disabled = false, onChange = () => null, ...boxProps }, forwardedRef) => {
     const editor = React.useRef<ReactCodeMirrorRef['editor']>();
     const editorState = React.useRef<ReactCodeMirrorRef['state']>();
@@ -173,3 +173,6 @@ const JSONInputContainer = styled(Flex)`
     background-color: #4a4a6a;
   }
 `;
+
+export { JSONInput };
+export type { JSONInputProps, JSONInputRef };

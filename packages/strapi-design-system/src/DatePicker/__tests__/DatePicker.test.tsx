@@ -7,7 +7,7 @@ const Component = (props: Partial<DatePickerProps>) => <DatePicker locale="en-GB
 const render = (props?: Partial<DatePickerProps>, renderOptions?: RenderOptions) =>
   renderRTL(<Component {...props} />, { renderOptions });
 
-describe.skip('DatePicker', () => {
+describe('DatePicker', () => {
   describe('Input', () => {
     it('should render by default no date', () => {
       const { getByRole, queryByRole } = render();

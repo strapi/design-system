@@ -3,10 +3,9 @@ import * as React from 'react';
 
 import styled from 'styled-components';
 
-import { FieldLabel, type FieldProps, FieldLabelProps } from '../Field';
+import { type FieldProps } from '../Field';
 import { Flex } from '../Flex';
 import { useControllableState } from '../hooks/useControllableState';
-import { TextButton } from '../TextButton';
 import { inputFocusStyle } from '../themes';
 import type { InputSizes } from '../themes/sizes';
 import { Typography } from '../Typography';
@@ -28,7 +27,7 @@ type ToggleInputElement = HTMLInputElement;
  */
 const Toggle = React.forwardRef<ToggleInputElement, ToggleProps>(
   (
-    { offLabel, onLabel, disabled, name, id, error, required, checked: checkedProp, onChange, size = 'M', ...props },
+    { offLabel, onLabel, disabled, error, required, checked: checkedProp, onChange, size = 'M', ...props },
     forwardedRef,
   ) => {
     const [checked = false, setChecked] = useControllableState<boolean | null>({
@@ -108,13 +107,9 @@ const Toggle = React.forwardRef<ToggleInputElement, ToggleProps>(
             onChange?.(e);
           }}
           type="checkbox"
-          id={id}
-          name={name}
           aria-required={required}
           disabled={disabled}
           aria-disabled={disabled}
-          aria-label={props['aria-label']}
-          aria-describedby={props['aria-describedby']}
           checked={Boolean(checked)}
         />
       </ToggleWrapper>
@@ -146,36 +141,5 @@ const Input = styled.input`
   width: 100%;
 `;
 
-interface ToggleInputPropsWithoutLabel extends ToggleProps {
-  clearLabel?: string;
-  labelAction?: FieldLabelProps['action'];
-  onClear?: () => void;
-}
-
-type ToggleInputProps =
-  | (ToggleInputPropsWithoutLabel & { label: string; 'aria-label'?: string })
-  | (ToggleInputPropsWithoutLabel & { label?: never; 'aria-label': string });
-
-const ToggleInput = React.forwardRef<ToggleInputElement, ToggleInputProps>(
-  ({ disabled = false, label, labelAction, onClear, clearLabel, checked, ...props }, forwardedRef) => {
-    return (
-      <Flex direction="column" alignItems="stretch" gap={1}>
-        <Flex>
-          {label ? <FieldLabel action={labelAction}>{label}</FieldLabel> : null}
-          {clearLabel && onClear && checked !== null && !disabled && (
-            <ClearButton onClick={onClear}>{clearLabel}</ClearButton>
-          )}
-        </Flex>
-        <Toggle ref={forwardedRef} checked={checked} disabled={disabled} aria-label={label} {...props} />
-      </Flex>
-    );
-  },
-);
-
-const ClearButton = styled(TextButton)`
-  align-self: flex-end;
-  margin-left: auto;
-`;
-
-export { ToggleInput, Toggle };
-export type { ToggleInputProps, ToggleProps };
+export { Toggle };
+export type { ToggleProps };
