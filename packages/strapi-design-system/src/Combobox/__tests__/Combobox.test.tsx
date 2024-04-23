@@ -1,5 +1,6 @@
 import { render as renderRTL } from '@test/utils';
 
+import { Field, FieldError, FieldHint, type FieldProps } from '../../Field';
 import { Combobox, Option, ComboboxProps } from '../Combobox';
 
 type ComponentProps = Omit<ComboboxProps, 'children'> & { options?: typeof defaultOptions };
@@ -103,9 +104,30 @@ describe('Combobox', () => {
     });
 
     it('should handle the error prop correctly', () => {
-      const { getByRole } = render({ error: 'error' });
+      const render = (props: Partial<ComponentProps> & Pick<FieldProps, 'error'> = {}) =>
+        renderRTL(
+          <Field error={props.error}>
+            <Component error={props.error} {...props} />
+            <FieldError />
+          </Field>,
+        );
+      const { getByRole, getByText } = render({ error: 'error' });
 
       expect(getByRole('combobox')).toHaveAttribute('aria-invalid', 'true');
+      expect(getByText('error')).toBeInTheDocument();
+    });
+
+    it('should handle the hint prop correctly', () => {
+      const render = (props: Partial<ComponentProps> & Pick<FieldProps, 'hint'> = {}) =>
+        renderRTL(
+          <Field hint={props.hint}>
+            <Component {...props} />
+            <FieldHint />
+          </Field>,
+        );
+      const { getByText } = render({ hint: 'hint' });
+
+      expect(getByText('hint')).toBeInTheDocument();
     });
 
     it('should handle the loading prop correctly', async () => {

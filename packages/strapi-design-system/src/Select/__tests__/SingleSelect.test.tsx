@@ -1,5 +1,6 @@
 import { screen, render, waitFor } from '@test/utils';
 
+import { FieldHint, FieldLabel, Field, FieldError, type FieldProps } from '../../Field';
 import { SingleSelectOption, SingleSelect, SingleSelectProps } from '../SingleSelect';
 
 type RenderProps = Partial<Omit<SingleSelectProps, 'children' | 'aria-label'>> & {
@@ -60,6 +61,33 @@ describe('Select', () => {
   });
 
   describe('label / placeholder / value / onChange / clear / customiseContent prop', () => {
+    it('should render a label and hint when provided', () => {
+      const renderComponent = (props: RenderProps & Pick<FieldProps, 'hint'> & { label: string } = { label: '' }) =>
+        render(
+          <Field id="with_field" hint={props.hint}>
+            <FieldLabel>{props.label}</FieldLabel>
+            <Component {...props} />
+            <FieldHint />
+          </Field>,
+        );
+      renderComponent({ label: 'Label', hint: 'hint' });
+
+      expect(screen.getByText('Label')).toBeInTheDocument();
+      expect(screen.getByText('hint')).toBeInTheDocument();
+    });
+
+    it('should render an error when provided', () => {
+      const renderComponent = (props: RenderProps & Pick<FieldProps, 'error'>) =>
+        render(
+          <Field id="with_field" error={props.error}>
+            <Component error={props.error} {...props} />
+            <FieldError />
+          </Field>,
+        );
+      renderComponent({ error: 'error' });
+      expect(screen.getByText('error')).toBeInTheDocument();
+    });
+
     it('should be accessible if I only pass an aria-label', () => {
       const { getByRole, queryByRole } = render(
         <SingleSelect aria-label="Label">

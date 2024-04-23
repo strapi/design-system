@@ -1,7 +1,7 @@
 import { PlusCircle } from '@strapi/icons';
 import { render as renderRTL } from '@test/utils';
 
-import { FieldAction } from '../../Field';
+import { FieldAction, Field, FieldHint, FieldLabel, FieldError, type FieldProps } from '../../Field';
 import { TextInput, TextInputProps } from '../TextInput';
 
 type ComponentProps = Partial<TextInputProps>;
@@ -18,6 +18,47 @@ describe('TextInput', () => {
     expect(getByRole('textbox')).toHaveAttribute('name', 'name');
 
     rerender(<Component error="text error" />);
+  });
+
+  it('should render an error with label if supplied', () => {
+    const renderField = (
+      props: Partial<TextInputProps> & Pick<FieldProps, 'error'> & { label: string } = { label: '' },
+    ) =>
+      renderRTL(
+        <Field id="with_field" error={props.error}>
+          <FieldLabel>{props.label}</FieldLabel>
+          <TextInput id="with_field" error={props.error} {...props} />
+          <FieldError />
+        </Field>,
+      );
+
+    const { getByText } = renderField({
+      error: 'error',
+      label: 'Label',
+    });
+
+    expect(getByText('Label')).toBeInTheDocument();
+    expect(getByText('error')).toBeInTheDocument();
+  });
+
+  it('should render a hint if supplied', () => {
+    const renderField = (
+      props: Partial<TextInputProps> & Pick<FieldProps, 'hint'> & { label: string } = { label: '' },
+    ) =>
+      renderRTL(
+        <Field id="with_field" hint={props.hint}>
+          <FieldLabel>{props.label}</FieldLabel>
+          <TextInput id="with_field" {...props} />
+          <FieldHint />
+        </Field>,
+      );
+
+    const { getByText } = renderField({
+      hint: 'hint',
+      label: 'Label',
+    });
+
+    expect(getByText('hint')).toBeInTheDocument();
   });
 
   it('should pass other props to the underlying FieldInput component', async () => {

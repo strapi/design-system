@@ -1,5 +1,6 @@
 import { fireEvent, render as renderHarness } from '@test/utils';
 
+import { Field, FieldHint, FieldError, type FieldProps } from '../../Field';
 import { ToggleInput, type ToggleInputProps } from '../Toggle';
 
 const render = (props: Partial<Omit<ToggleInputProps, 'aria-label'>> = {}) =>
@@ -38,6 +39,38 @@ describe('Toggle', () => {
     });
 
     expect(getByRole('checkbox', { name: /Label/ })).toBeRequired();
+  });
+
+  it('should render an error if supplied', () => {
+    const renderField = (props: Partial<Omit<ToggleInputProps, 'aria-label'> & Pick<FieldProps, 'error'>> = {}) =>
+      renderHarness(
+        <Field id="with_field" error={props.error}>
+          <ToggleInput onLabel="On" offLabel="Off" label="Label" {...props} />
+          <FieldError />
+        </Field>,
+      );
+
+    const { getByText } = renderField({
+      error: 'error',
+    });
+
+    expect(getByText('error')).toBeInTheDocument();
+  });
+
+  it('should render a hint if supplied', () => {
+    const renderField = (props: Partial<Omit<ToggleInputProps, 'aria-label'> & Pick<FieldProps, 'hint'>> = {}) =>
+      renderHarness(
+        <Field id="with_field" hint={props.hint}>
+          <ToggleInput onLabel="On" offLabel="Off" label="Label" {...props} />
+          <FieldHint />
+        </Field>,
+      );
+
+    const { getByText } = renderField({
+      hint: 'Hint',
+    });
+
+    expect(getByText('Hint')).toBeInTheDocument();
   });
 
   it('should change the checked value when clicked & call onChange', () => {
