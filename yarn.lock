@@ -5103,6 +5103,8 @@ __metadata:
     "@uiw/react-codemirror": ^4.21.25
     aria-hidden: ^1.2.4
     cross-env: ^7.0.3
+    react: 18.2.0
+    react-dom: 18.2.0
     react-remove-scroll: ^2.5.9
     rimraf: ^5.0.5
     styled-components: ^5.3.11
@@ -5152,10 +5154,14 @@ __metadata:
   dependencies:
     "@strapi/pack-up": ^5.0.0
     "@svgr/cli": 8.1.0
+    react: 18.2.0
+    react-dom: 18.2.0
     rimraf: ^5.0.5
+    styled-components: ^5.3.11
   peerDependencies:
     react: ^17.0.0 || ^18.0.0
     react-dom: ^17.0.0 || ^18.0.0
+    styled-components: ^5.2.1
   languageName: unknown
   linkType: soft
 
@@ -5215,6 +5221,8 @@ __metadata:
     "@radix-ui/react-visually-hidden": ^1.0.3
     "@strapi/pack-up": ^5.0.0
     aria-hidden: ^1.2.4
+    react: 18.2.0
+    react-dom: 18.2.0
     react-remove-scroll: ^2.5.9
     rimraf: ^5.0.5
     typescript: ^5.4.4
