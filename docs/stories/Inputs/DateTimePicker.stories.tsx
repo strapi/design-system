@@ -21,7 +21,7 @@ const Template: Story = {
     return (
       <DateTimePicker
         {...props}
-        onChange={updateArgs}
+        onChange={(value) => updateArgs({ value })}
         onClear={() =>
           updateArgs(() => {
             value: undefined;
@@ -37,6 +37,20 @@ export const Base = {
   args: {
     initialDate: new Date('1994-12-18T15:00:00.000Z'),
   },
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+        <DateTimePicker
+          value={value}
+          onChange={handleChange}
+          onClear={handleClear}
+          initialDate={new Date('1994-12-18T15:00:00.000Z')}
+        />
+        `,
+      },
+    },
+  },
   name: 'base',
 } satisfies Story;
 
@@ -45,6 +59,21 @@ export const Disabled = {
   args: {
     ...Base.args,
     disabled: true,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+        <DateTimePicker
+          value={value}
+          onChange={handleChange}
+          onClear={handleClear}
+          initialDate={new Date('1994-12-18T15:00:00.000Z')}
+          disabled
+        />
+        `,
+      },
+    },
   },
   name: 'disabled',
 } satisfies Story;

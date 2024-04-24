@@ -21,7 +21,7 @@ const Template: Story = {
     return (
       <DatePicker
         {...props}
-        onChange={updateArgs}
+        onChange={(value) => updateArgs({ value })}
         onClear={() =>
           updateArgs(() => {
             value: undefined;
