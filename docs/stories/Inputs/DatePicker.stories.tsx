@@ -2,29 +2,31 @@ import * as React from 'react';
 
 import { useArgs } from '@storybook/preview-api';
 import { Meta, StoryObj } from '@storybook/react';
-import { TimePicker, Field, FieldLabel, FieldHint, FieldError } from '@strapi/design-system';
+import { DatePicker, Field, FieldLabel, FieldHint, FieldError } from '@strapi/design-system';
 import { default as outdent } from 'outdent';
 
-const meta: Meta<typeof TimePicker> = {
-  title: 'Inputs/TimePicker',
-  component: TimePicker,
+const meta: Meta<typeof DatePicker> = {
+  title: 'Inputs/DatePicker',
+  component: DatePicker,
 };
 
 export default meta;
 
-type Story = StoryObj<typeof TimePicker>;
+type Story = StoryObj<typeof DatePicker>;
 
 const Template: Story = {
-  render: ({ value, ...props }) => {
+  render: ({ ...props }) => {
     const [, updateArgs] = useArgs();
 
     return (
-      <TimePicker
+      <DatePicker
         {...props}
-        aria-label="Lunchtime"
-        value={value}
-        onChange={(value) => updateArgs({ value })}
-        onClear={() => updateArgs({ value: '' })}
+        onChange={updateArgs}
+        onClear={() =>
+          updateArgs(() => {
+            value: undefined;
+          })
+        }
       />
     );
   },
@@ -32,61 +34,108 @@ const Template: Story = {
 
 export const Base = {
   ...Template,
-  parameters: {
-    docs: {
-      source: {
-        code: outdent`
-        <TimePicker
-          label="Lunchtime"
-          value={value}
-          onChange={handleChange}
-          onClear={handleClear}
-        />
-        `,
-      },
-    },
+  args: {
+    initialDate: new Date(),
   },
   name: 'base',
-} satisfies Story;
-
-export const Steps = {
-  ...Template,
-  args: {
-    ...Base.args,
-    value: '12:00',
-    step: 60,
-  },
   parameters: {
     docs: {
       source: {
         code: outdent`
-        <TimePicker
-          label="Lunchtime"
+        <DatePicker
           value={value}
           onChange={handleChange}
           onClear={handleClear}
-          step={60}
         />
         `,
       },
     },
   },
+} satisfies Story;
 
-  name: 'steps',
+export const Disabled = {
+  ...Template,
+  name: 'disabled',
+  args: {
+    ...Base.args,
+    disabled: true,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+        <DatePicker
+          value={value}
+          onChange={handleChange}
+          onClear={handleClear}
+          disabled
+        />
+        `,
+      },
+    },
+  },
+} satisfies Story;
+
+export const MinMaxDate = {
+  args: {
+    ...Base.args,
+    minDate: new Date('2022-01-01'),
+    maxDate: new Date('2022-12-31'),
+  },
+
+  name: 'min/max date',
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+        <DatePicker
+          value={value}
+          onChange={handleChange}
+          onClear={handleClear}
+          minDate={new Date('2022-01-01')}
+          maxDate={new Date('2022-12-31')}
+        />
+        `,
+      },
+    },
+  },
+} satisfies Story;
+
+export const Locale = {
+  args: {
+    ...MinMaxDate.args,
+    locale: 'de-DE',
+  },
+
+  name: 'locale',
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+        <DatePicker
+          value={value}
+          onChange={handleChange}
+          onClear={handleClear}
+          locale="de-DE"
+        />
+        `,
+      },
+    },
+  },
 } satisfies Story;
 
 export const Sizing = {
-  ...Template,
   args: {
-    ...Steps.args,
+    ...Locale.args,
     size: 'S',
   },
+
+  name: 'sizing',
   parameters: {
     docs: {
       source: {
         code: outdent`
-        <TimePicker
-          label="Lunchtime"
+        <DatePicker
           value={value}
           onChange={handleChange}
           onClear={handleClear}
@@ -96,8 +145,6 @@ export const Sizing = {
       },
     },
   },
-
-  name: 'sizing',
 } satisfies Story;
 
 export const WithField = {
@@ -105,15 +152,15 @@ export const WithField = {
     return (
       <Field id="with_field" error={error} hint={hint}>
         <FieldLabel>{label}</FieldLabel>
-        <TimePicker id="with_field" error={error} {...props} />
+        <DatePicker id="with_field" error={error} {...props} />
         <FieldError />
         <FieldHint />
       </Field>
     );
   },
   args: {
-    ...Steps.args,
-    label: 'Time picker',
+    ...Base.args,
+    label: 'Date',
     error: 'Error',
     hint: 'Description line lorem ipsum',
   },
@@ -128,7 +175,7 @@ export const WithField = {
           hint={hint}
         >
           <FieldLabel>{label}</FieldLabel>
-          <TimePicker id="with_field" error={error} />
+          <DatePicker id="with_field" error={error} />
           <FieldError />
           <FieldHint />
         </Field>

@@ -1,40 +1,44 @@
 import { render as renderRTL } from '@test/utils';
 
+import { Field, FieldError, FieldHint, type FieldProps } from '../../Field';
 import { DateTimePicker, DateTimePickerProps } from '../DateTimePicker';
 
-const Component = (props: Partial<DateTimePickerProps>) => (
-  <DateTimePicker label="datetime picker" locale="en-GB" {...props} />
-);
+const Component = (props: Partial<DateTimePickerProps>) => <DateTimePicker locale="en-GB" {...props} />;
 
 const render = (props: Partial<DateTimePickerProps> = {}) => renderRTL(<Component {...props} />);
 
 describe('DateTimePicker', () => {
   describe('rendering', () => {
     it('should render the DatePicker and TimePicker components and only one label', () => {
-      const { getByText, getByRole } = render();
+      const { getByRole } = render();
 
-      expect(getByText('datetime picker')).toBeInTheDocument();
       expect(getByRole('combobox', { name: 'Choose date' })).toHaveValue('');
       expect(getByRole('combobox', { name: 'Choose time' })).toHaveValue('');
-
-      const id = getByText('datetime picker').getAttribute('for');
-      expect(getByRole('combobox', { name: 'Choose date' })).not.toHaveAttribute('id', id);
-      expect(getByRole('combobox', { name: 'Choose time' })).not.toHaveAttribute('id', id);
     });
 
-    it("should handle an error being passed to the component where it's only rendered once", () => {
-      const { getByText, getByRole } = render({ error: 'error' });
-
-      const id = getByText('error').getAttribute('id')!;
-      expect(getByRole('combobox', { name: 'Choose date' })).toHaveAttribute(
-        'aria-describedby',
-        expect.stringContaining(id),
-      );
-      expect(getByRole('combobox', { name: 'Choose time' })).toHaveAttribute(
-        'aria-describedby',
-        expect.stringContaining(id),
-      );
+    it('should handle an error being passed to the component', () => {
+      const render = (props: Partial<DateTimePickerProps> & Pick<FieldProps, 'error'> = {}) =>
+        renderRTL(
+          <Field id="with_field" error={props.error}>
+            <Component {...props} />
+            <FieldError />
+          </Field>,
+        );
+      const { getByText } = render({ error: 'error' });
+      expect(getByText('error')).toBeInTheDocument();
     });
+  });
+
+  it('should handle an hint being passed to the component', () => {
+    const render = (props: Partial<DateTimePickerProps> & Pick<FieldProps, 'hint'> = {}) =>
+      renderRTL(
+        <Field id="with_field" hint={props.hint}>
+          <Component {...props} />
+          <FieldHint />
+        </Field>,
+      );
+    const { getByText } = render({ hint: 'hint' });
+    expect(getByText('hint')).toBeInTheDocument();
   });
 
   describe('interactions', () => {
