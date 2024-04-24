@@ -97,7 +97,7 @@ Use `kebab-case` to name your branches: `prefix/branch-name-something`
 
 - `fix`: When fixing an issue: `fix/some-bug`
 - `chore`: When doing some cleanup, working on tooling, some refactoring: `chore/update-dependencies`
-- `doc`: When writing documentation: `doc/documentation-subject`
+- `docs`: When writing documentation: `doc/documentation-subject`
 - `feature`: When you are working on a feature. Start by creating a `feature/name-of-feature` branch & create tasks branches with the feature name as prefix:
   - `feature/i18n` is the main feature branch
   - `i18n/init-plugin` is a task for this feature
@@ -106,7 +106,7 @@ The most important thing to remember is to make your intention explicit. Try to 
 
 ## Pull Requests
 
-New pull requests should be done either against `main` or against the related feature branch (see [Git Conventions](#branches)). You can reference the Jira task ID in the Pull Request description.
+New pull requests should be done either against `develop` or against the related feature branch (see [Git Conventions](#branches)). You can reference the Jira task ID in the Pull Request description.
 
 If your pull request is against `main` don't forget to add it to the relevant milestone. If you are not sure which one to select, use the one for the next release.
 

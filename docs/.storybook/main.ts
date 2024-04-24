@@ -30,7 +30,7 @@ const config: StorybookConfig = {
         ],
         exclude: [
           ...(config.optimizeDeps?.exclude ?? []),
-          '@strapi/ui-primtivies',
+          '@strapi/ui-primitives',
           '@strapi/design-system',
           '@strapi/icons',
         ],
