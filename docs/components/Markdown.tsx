@@ -48,8 +48,12 @@ const Anchor = styled(BaseLink)`
   text-decoration: none;
   color: ${({ theme }) => theme.colors.primary700};
 
-  &:visited {
+  & > code {
     color: inherit;
+  }
+
+  &:visited {
+    color: ${({ theme }) => theme.colors.primary700};
   }
 `;
 
@@ -75,7 +79,8 @@ const BASE_MARKDOWN_OVERRIDES = {
   ul: Unorderedlist,
   ol: Orderedlist,
   li: Li,
-  a: Anchor,
+  // Must use target="_parent" to open links in the same window otherwise the iframes start nesting.
+  a: (props) => <Anchor {...props} target="_parent" />,
   hr: Divider,
 };
 
