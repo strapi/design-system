@@ -2,12 +2,19 @@ import * as React from 'react';
 
 import { useArgs } from '@storybook/preview-api';
 import { Meta, StoryObj } from '@storybook/react';
-import { Checkbox, Field, FieldHint, FieldError } from '@strapi/design-system';
+import { Checkbox, Field, FieldHint, FieldError, Flex } from '@strapi/design-system';
 import { default as outdent } from 'outdent';
 
 const meta: Meta<typeof Checkbox> = {
   title: 'Inputs/Checkbox',
   component: Checkbox,
+  decorators: [
+    (Story) => (
+      <Flex justifyContent="center">
+        <Story />
+      </Flex>
+    ),
+  ],
 };
 export default meta;
 
