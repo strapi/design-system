@@ -6,38 +6,23 @@ import { useCodeMirror, ReactCodeMirrorRef, ReactCodeMirrorProps } from '@uiw/re
 import styled from 'styled-components';
 
 import { markField, addMarks, filterMarks, lineHighlightMark } from './utils/decorationExtension';
-import { Field, FieldLabel, FieldError, FieldHint, FieldLabelProps, FieldProps } from '../Field';
+import { FieldProps } from '../Field';
 import { Flex, FlexProps } from '../Flex';
 import { useComposedRefs } from '../hooks/useComposeRefs';
 import { inputFocusStyle } from '../themes';
 
-interface JSONInputProps extends Omit<FlexProps, 'onChange'>, Pick<FieldProps, 'hint' | 'error' | 'required'> {
-  label?: string;
+interface JSONInputProps extends Omit<FlexProps, 'onChange'>, Pick<FieldProps, 'error'> {
   value?: string;
   disabled?: boolean;
-  labelAction?: FieldLabelProps['action'];
   onChange?: (value: string) => void;
 }
 
-export interface JSONInputRef extends Partial<HTMLElement> {
+interface JSONInputRef extends Partial<HTMLElement> {
   focus(): void;
 }
 
-export const JSONInput = React.forwardRef<JSONInputRef, JSONInputProps>(
-  (
-    {
-      label,
-      error,
-      hint,
-      labelAction,
-      value = '',
-      required = false,
-      disabled = false,
-      onChange = () => null,
-      ...boxProps
-    },
-    forwardedRef,
-  ) => {
+const JSONInput = React.forwardRef<JSONInputRef, JSONInputProps>(
+  ({ error, value = '', disabled = false, onChange = () => null, ...boxProps }, forwardedRef) => {
     const editor = React.useRef<ReactCodeMirrorRef['editor']>();
     const editorState = React.useRef<ReactCodeMirrorRef['state']>();
     const editorView = React.useRef<ReactCodeMirrorRef['view']>();
@@ -122,12 +107,6 @@ export const JSONInput = React.forwardRef<JSONInputRef, JSONInputProps>(
       },
     });
 
-    const focusInput = () => {
-      if (!disabled && view) {
-        view.focus();
-      }
-    };
-
     const composedRefs = useComposedRefs(editor, setContainer);
 
     React.useImperativeHandle(
@@ -149,25 +128,14 @@ export const JSONInput = React.forwardRef<JSONInputRef, JSONInputProps>(
     );
 
     return (
-      <Field error={error} hint={hint} required={required}>
-        <Flex direction="column" alignItems="stretch" gap={1}>
-          {label && (
-            <FieldLabel onClick={focusInput} action={labelAction}>
-              {label}
-            </FieldLabel>
-          )}
-          <JSONInputContainer
-            ref={composedRefs}
-            hasError={hasError}
-            alignItems="stretch"
-            fontSize={2}
-            hasRadius
-            {...boxProps}
-          />
-          <FieldError />
-          <FieldHint />
-        </Flex>
-      </Field>
+      <JSONInputContainer
+        ref={composedRefs}
+        hasError={hasError}
+        alignItems="stretch"
+        fontSize={2}
+        hasRadius
+        {...boxProps}
+      />
     );
   },
 );
@@ -205,3 +173,6 @@ const JSONInputContainer = styled(Flex)`
     background-color: #4a4a6a;
   }
 `;
+
+export { JSONInput };
+export type { JSONInputProps, JSONInputRef };

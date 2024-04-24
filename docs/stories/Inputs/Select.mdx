@@ -13,6 +13,13 @@ import * as SelectStories from './Select.stories';
 
 # Select
 
+- [Overview](#overview)
+- [Usage](#usage)
+- [Props](#props)
+- [Variants](#variants)
+
+## Overview
+
 Select components are used for collecting user provided information from a list of options. They can
 be configured to allow single or multiple selections.
 
@@ -27,22 +34,43 @@ import {
   MultiSelect,
   MultiSelectOption,
   MultiSelectNested,
-  /**
-   * These imports are still valid, but will be removed in the
-   * next major iteration
-   */
-  Select,
-  Option,
-  OptGroup,
 } from '@strapi/design-system';
 ```
+
+<Canvas of={SelectStories.Base} />
+
+## Props
+
+### SingleSelect
+
+<ArgsTable of={SingleSelect} />
+
+### SingleSelectOption
+
+<ArgsTable of={SingleSelectOption} />
+
+### MultiSelect
+
+<ArgsTable of={MultiSelect} />
+
+### MultiSelectOption
+
+<ArgsTable of={MultiSelectOption} />
+
+### MultiSelectNested
+
+<ArgsTable of={MultiSelectNested} />
 
 ### Basic usage
 
 The most common usage would be the `SingleSelect` which allows a user to only select one option from a list.
 The list has built in typeahead meaning pressing the letter `K` will highlight the word "Kiwi" in the example below.
 
-<Canvas of={SelectStories.Basic} />
+<Canvas of={SelectStories.Base} />
+
+### Disabled
+
+<Canvas of={SelectStories.Disabled} />
 
 ### Controlled
 
@@ -75,24 +103,14 @@ Instead of passing a `customizeContent` prop, you can pass the `withTags` prop w
 
 <Canvas of={SelectStories.MultipleNestedSelect} />
 
-## Props
+### Single Select Field
 
-### SingleSelect
+SingleSelect decorated with the [`Field`](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Field) component
 
-<ArgsTable of={SingleSelect} />
+<Canvas of={SelectStories.SingleSelectField} />
 
-### SingleSelectOption
+### Multiple Select Field
 
-<ArgsTable of={SingleSelectOption} />
+MultiSelect decorated with the [`Field`](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Field) component
 
-### MultiSelect
-
-<ArgsTable of={MultiSelect} />
-
-### MultiSelectOption
-
-<ArgsTable of={MultiSelectOption} />
-
-### MultiSelectNested
-
-<ArgsTable of={MultiSelectNested} />
+<Canvas of={SelectStories.MultiSelectField} />

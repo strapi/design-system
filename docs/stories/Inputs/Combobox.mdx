@@ -1,11 +1,18 @@
 import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
-import { Combobox, CreatableCombobox, ComboboxOption } from '@strapi/design-system';
+import { Combobox, ComboboxOption } from '@strapi/design-system';
 
 import * as ComboboxStories from './Combobox.stories';
 
 <Meta of={ComboboxStories} />
 
 # Combobox
+
+- [Overview](#overview)
+- [Usage](#usage)
+- [Props](#props)
+- [Variants](#variants)
+
+## Overview
 
 An input field designed to not only offer users the ability to type the value they want,
 but also display a panel of suggestions which filter & autocomplete as the user types for a
@@ -14,25 +21,39 @@ component!
 
 [View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Combobox)
 
+<Canvas of={ComboboxStories.Base} />
+
 ## Usage
 
 ```js
 import { Combobox, ComboboxOption, CreatableCombobox } from '@strapi/design-system';
 ```
 
-### Basic Usage
+## Props
+
+### Combobox
+
+<ArgsTable of={Combobox} />
+
+### ComboboxOption
+
+<ArgsTable of={ComboboxOption} />
+
+## Variants
+
+### Basic Combobox
 
 By default, the combobox is uncontrolled & uses both inline and list autocomplete, that is where as the user types suggestions
 (based on the order of the options) are shown in the input field whilst the list gradually gets filtered.
 
-<Canvas of={ComboboxStories.Basic} />
+<Canvas of={ComboboxStories.Base} />
 
-### Controlled
+### Disabled
 
-The combobox can be a controlled component by passing a `value` prop and an `onChange` callback, this also
-enables you to have the ability to "clear" the input.
+Combobox can possibly not be available to selection yet. This state can be related to a lack of permission or a need
+to pursue another action first.
 
-<Canvas of={ComboboxStories.Controlled} />
+<Canvas of={ComboboxStories.Disabled} />
 
 ### Async data
 
@@ -60,16 +81,8 @@ be visually focussed
 
 <Canvas of={ComboboxStories.Autocomplete} />
 
-## Props
+### Combobox field
 
-### Combobox
+Wrap the input in the necessary [`Field`](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Field) component to create a powerful complete form input
 
-<ArgsTable of={Combobox} />
-
-### ComboboxOption
-
-<ArgsTable of={ComboboxOption} />
-
-### CreatableCombobox
-
-<ArgsTable of={CreatableCombobox} />
+<Canvas of={ComboboxStories.WithField} />

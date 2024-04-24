@@ -2,7 +2,9 @@ import { RenderOptions, render as renderRTL } from '@test/utils';
 
 import { DatePicker, DatePickerProps } from '../DatePicker';
 
-const Component = (props: Partial<DatePickerProps>) => <DatePicker locale="en-GB" label="date picker" {...props} />;
+const Component = (props: Partial<DatePickerProps>) => (
+  <DatePicker locale="en-GB" aria-label="date picker" {...props} />
+);
 
 const render = (props?: Partial<DatePickerProps>, renderOptions?: RenderOptions) =>
   renderRTL(<Component {...props} />, { renderOptions });

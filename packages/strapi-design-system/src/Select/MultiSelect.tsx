@@ -7,10 +7,8 @@ import styled, { css } from 'styled-components';
 import * as SelectParts from './SelectParts';
 import checkmarkIcon from '../BaseCheckbox/assets/checkmark.svg';
 import { Box } from '../Box';
-import { Field, FieldError, FieldHint, FieldLabel, FieldLabelProps, FieldProps } from '../Field';
-import { Flex } from '../Flex';
+import { FieldProps } from '../Field';
 import { stripReactIdOfColon } from '../helpers/strings';
-import { useComposedRefs } from '../hooks/useComposeRefs';
 import { useId } from '../hooks/useId';
 import { useIntersection } from '../hooks/useIntersection';
 import { Tag } from '../Tag';
@@ -20,12 +18,11 @@ type MultiSelectPropsWithoutLabel = Omit<SelectParts.MultiSelectProps, 'value' |
   Pick<SelectParts.ContentProps, 'onCloseAutoFocus'> &
   Pick<SelectParts.TriggerProps, 'clearLabel' | 'onClear' | 'size' | 'startIcon'> &
   Pick<SelectParts.ValueProps, 'placeholder'> &
-  Pick<FieldProps, 'hint' | 'id' | 'error'> & {
+  Pick<FieldProps, 'id' | 'error'> & {
     /**
      * @default (value) => value.join(',')
      */
     customizeContent?(value?: string[]): string;
-    labelAction?: FieldLabelProps['action'];
     onChange?: (value: string[]) => void;
     onReachEnd?: (entry: IntersectionObserverEntry) => void;
     /**
@@ -38,23 +35,17 @@ type MultiSelectPropsWithoutLabel = Omit<SelectParts.MultiSelectProps, 'value' |
     withTags?: boolean;
   };
 
-export type MultiSelectProps =
-  | (MultiSelectPropsWithoutLabel & { label: string; 'aria-label'?: never })
-  | (MultiSelectPropsWithoutLabel & { 'aria-label': string; label?: never });
+export type MultiSelectProps = MultiSelectPropsWithoutLabel & { 'aria-label'?: string; 'aria-describedby'?: string };
 
 export const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
   (
     {
-      'aria-label': ariaLabel,
       children,
       clearLabel = 'Clear',
       customizeContent,
       disabled,
       error,
-      hint,
       id,
-      label,
-      labelAction,
       onChange,
       onClear,
       onCloseAutoFocus,
@@ -84,9 +75,6 @@ export const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
 
     const generatedId = useId(id);
 
-    const hintId = `${generatedId}-hint`;
-    const errorId = `${generatedId}-error`;
-
     const handleValueChange = (value: string[]) => {
       /**
        * If it's being externally managed then we shouldn't
@@ -113,16 +101,6 @@ export const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
 
     const handleOpenChange: SelectParts.SelectProps['onOpenChange'] = (open) => {
       setInternalIsOpen(open);
-    };
-
-    /**
-     * Because the trigger needs to be a `div` to allow the clear
-     * button & tags to be clickable, we need to manually focus it.
-     */
-    const triggerRef = React.useRef<HTMLDivElement>(null!);
-
-    const handleFieldLabelClick = () => {
-      triggerRef.current.focus();
     };
 
     const generatedIntersectionId = useId();
@@ -157,61 +135,48 @@ export const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
       return null;
     };
 
-    const composedTriggerRefs = useComposedRefs(triggerRef, forwardedRef);
-
     return (
-      <Field hint={hint} error={error} id={generatedId} required={required}>
-        <Flex direction="column" alignItems="stretch" gap={1}>
-          {label ? (
-            <FieldLabel onClick={handleFieldLabelClick} action={labelAction}>
-              {label}
-            </FieldLabel>
-          ) : null}
-          <SelectParts.Root
-            onOpenChange={handleOpenChange}
-            disabled={disabled}
-            required={required}
-            onValueChange={handleValueChange}
-            value={value}
-            {...restProps}
-            multi
-          >
-            <SelectParts.Trigger
-              ref={composedTriggerRefs}
-              aria-label={label ?? ariaLabel}
-              aria-describedby={`${hintId} ${errorId}`}
-              id={generatedId}
-              startIcon={startIcon}
-              size={size}
-              hasError={Boolean(error)}
-              disabled={disabled}
-              clearLabel={clearLabel}
-              onClear={value?.length ? onClear : undefined}
-              paddingLeft={withTags && value?.length ? 1 : 3}
-            >
-              <SelectParts.Value placeholder={placeholder} textColor={value?.length ? 'neutral800' : 'neutral600'}>
-                {value?.length
-                  ? withTags
-                    ? renderTags
-                    : customizeContent
-                      ? customizeContent(value)
-                      : undefined
-                  : undefined}
-              </SelectParts.Value>
-            </SelectParts.Trigger>
-            <SelectParts.Portal>
-              <SelectParts.Content position="popper" sideOffset={4} onCloseAutoFocus={onCloseAutoFocus}>
-                <SelectParts.Viewport ref={viewportRef}>
-                  {children}
-                  <Box id={intersectionId} width="100%" height="1px" />
-                </SelectParts.Viewport>
-              </SelectParts.Content>
-            </SelectParts.Portal>
-          </SelectParts.Root>
-          <FieldHint />
-          <FieldError />
-        </Flex>
-      </Field>
+      <SelectParts.Root
+        onOpenChange={handleOpenChange}
+        disabled={disabled}
+        required={required}
+        onValueChange={handleValueChange}
+        value={value}
+        {...restProps}
+        multi
+      >
+        <SelectParts.Trigger
+          ref={forwardedRef}
+          id={generatedId}
+          aria-label={restProps['aria-label']}
+          aria-describedby={restProps['aria-describedby']}
+          startIcon={startIcon}
+          size={size}
+          hasError={Boolean(error)}
+          disabled={disabled}
+          clearLabel={clearLabel}
+          onClear={value?.length ? onClear : undefined}
+          paddingLeft={withTags && value?.length ? 1 : 3}
+        >
+          <SelectParts.Value placeholder={placeholder} textColor={value?.length ? 'neutral800' : 'neutral600'}>
+            {value?.length
+              ? withTags
+                ? renderTags
+                : customizeContent
+                  ? customizeContent(value)
+                  : undefined
+              : undefined}
+          </SelectParts.Value>
+        </SelectParts.Trigger>
+        <SelectParts.Portal>
+          <SelectParts.Content position="popper" sideOffset={4} onCloseAutoFocus={onCloseAutoFocus}>
+            <SelectParts.Viewport ref={viewportRef}>
+              {children}
+              <Box id={intersectionId} width="100%" height="1px" />
+            </SelectParts.Viewport>
+          </SelectParts.Content>
+        </SelectParts.Portal>
+      </SelectParts.Root>
     );
   },
 );

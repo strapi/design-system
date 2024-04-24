@@ -31,6 +31,7 @@ const preview: Preview = {
           ['Overview', 'Icons', ['Overview', '*']],
           'Primitives',
           ['Overview', '*'],
+          'Inputs',
           'Design System',
           ['Technical Components', 'Components'],
           'Utilities',

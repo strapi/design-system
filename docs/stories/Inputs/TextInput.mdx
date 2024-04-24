@@ -1,0 +1,60 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
+import { TextInput } from '@strapi/design-system';
+
+import * as TextInputStories from './TextInput.stories';
+
+<Meta of={TextInputStories} />
+
+# TextInput
+
+- [Overview](#overview)
+- [Usage](#usage)
+- [Props](#props)
+- [Variants](#variants)
+
+## Overview
+
+TextInputs are inputs that allow users to add or edit text. They support several text formats including numbers.
+If a single line is not enough for the amount of text required, use [`TextArea`](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/TextArea) component.
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/TextInput)
+
+## Props
+
+<ArgsTable of={TextInput} />
+
+## Usage
+
+```js
+import { TextInput } from '@strapi/design-system';
+```
+
+<Canvas of={TextInputStories.Base} />
+
+## Variants
+
+### Base
+
+<Canvas of={TextInputStories.Base} />
+
+### Size S
+
+`TextInput` can be displayed with a smaller size.
+
+<Canvas of={TextInputStories.SizeS} />
+
+### Passwords
+
+Password TextInputs are specific. They offer the possibility to have unreadable content. By clicking on the eye icon on
+the right side, it is possible to actually read the password.
+
+<Canvas of={TextInputStories.Password} />
+
+### Disabled
+
+<Canvas of={TextInputStories.Disabled} />
+
+### TextInput field
+
+TextInput wrapped with [`Field`](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Field) component
+
+<Canvas of={TextInputStories.WithField} />

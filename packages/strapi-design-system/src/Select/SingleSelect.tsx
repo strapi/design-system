@@ -2,10 +2,8 @@ import * as React from 'react';
 
 import * as SelectParts from './SelectParts';
 import { Box } from '../Box';
-import { Field, FieldError, FieldHint, FieldLabel, FieldLabelProps, FieldProps } from '../Field';
-import { Flex } from '../Flex';
+import { FieldProps } from '../Field';
 import { stripReactIdOfColon } from '../helpers/strings';
-import { useComposedRefs } from '../hooks/useComposeRefs';
 import { useId } from '../hooks/useId';
 import { useIntersection } from '../hooks/useIntersection';
 import { Typography } from '../Typography';
@@ -14,96 +12,35 @@ type SingleSelectPropsWithoutLabel = Omit<SelectParts.SingleSelectProps, 'value'
   Pick<SelectParts.ContentProps, 'onCloseAutoFocus'> &
   Pick<SelectParts.TriggerProps, 'clearLabel' | 'onClear' | 'size' | 'startIcon'> &
   Pick<SelectParts.ValueProps, 'placeholder'> &
-  Pick<FieldProps, 'error' | 'hint' | 'id'> & {
+  Pick<FieldProps, 'error' | 'id'> & {
     /**
      * @default (value) => value.toString()
      */
     customizeContent?(value?: string | number): string;
-    labelAction?: FieldLabelProps['action'];
     onChange?: (value: string | number) => void;
     onReachEnd?: (entry: IntersectionObserverEntry) => void;
-    /**
-     * @preserve
-     * @deprecated This prop is no longer required and will be removed in v2 of the DS.
-     * It has no effect on the component.
-     */
-    selectButtonTitle?: string;
     value?: string | number | null;
   };
 
-export type SingleSelectProps =
-  | (SingleSelectPropsWithoutLabel & { label: string; 'aria-label'?: never })
-  | (SingleSelectPropsWithoutLabel & { 'aria-label': string; label?: never });
+export type SingleSelectProps = SingleSelectPropsWithoutLabel & { 'aria-label'?: string; 'aria-describedby'?: string };
 
-export type SingleSelectElement = SingleSelectInputElement;
+export type SingleSelectElement = HTMLDivElement;
 
-export const SingleSelect = React.forwardRef<SingleSelectInputElement, SingleSelectProps>(
-  (
-    { error, hint, id, label, labelAction, required, selectButtonTitle: _deprecatedSelectButtonTitle, ...restProps },
-    forwardedRef,
-  ) => {
-    const generatedId = useId(id);
-    /**
-     * Because the trigger needs to be a `div` to allow the clear
-     * button & tags to be clickable, we need to manually focus it.
-     */
-    const triggerRef = React.useRef<HTMLDivElement>(null!);
-
-    const handleFieldLabelClick = () => {
-      triggerRef.current.focus();
-    };
-
-    const composedTriggerRefs = useComposedRefs(forwardedRef, triggerRef);
-
-    return (
-      <Field hint={hint} error={error} id={generatedId} required={required}>
-        <Flex direction="column" alignItems="stretch" gap={1}>
-          {label ? (
-            <FieldLabel onClick={handleFieldLabelClick} action={labelAction}>
-              {label}
-            </FieldLabel>
-          ) : null}
-          <SingleSelectInput
-            label={label}
-            id={generatedId}
-            ref={composedTriggerRefs}
-            required={required}
-            {...restProps}
-          />
-          <FieldHint />
-          <FieldError />
-        </Flex>
-      </Field>
-    );
-  },
-);
-
-export interface SingleSelectInputProps extends Omit<SingleSelectPropsWithoutLabel, 'labelAction' | 'hint' | 'id'> {
-  'aria-label'?: string;
-  id?: string;
-  label?: string;
-}
-
-export type SingleSelectInputElement = HTMLDivElement;
-
-export const SingleSelectInput = React.forwardRef<SingleSelectInputElement, SingleSelectInputProps>(
+export const SingleSelect = React.forwardRef<SingleSelectElement, SingleSelectProps>(
   (
     {
-      'aria-label': ariaLabel,
-      id,
       children,
       clearLabel = 'Clear',
       customizeContent,
       disabled,
       error,
-      label,
+      id,
       onChange,
       onClear,
       onCloseAutoFocus,
       onReachEnd,
       placeholder,
       required,
-      selectButtonTitle: _deprecatedSelectButtonTitle,
       startIcon,
       size = 'M',
       value: passedValue,
@@ -131,9 +68,6 @@ export const SingleSelectInput = React.forwardRef<SingleSelectInputElement, Sing
         setInternalValue('');
       }
     };
-
-    const hintId = `${id}-hint`;
-    const errorId = `${id}-error`;
 
     const handleValueChange = (value: string) => {
       /**
@@ -181,8 +115,6 @@ export const SingleSelectInput = React.forwardRef<SingleSelectInputElement, Sing
       >
         <SelectParts.Trigger
           ref={forwardedRef}
-          aria-label={label ?? ariaLabel}
-          aria-describedby={id ? `${hintId} ${errorId}` : undefined}
           id={id}
           startIcon={startIcon}
           size={size}
@@ -190,6 +122,8 @@ export const SingleSelectInput = React.forwardRef<SingleSelectInputElement, Sing
           disabled={disabled}
           clearLabel={clearLabel}
           onClear={value && onClear ? handleOnClear : undefined}
+          aria-label={restProps['aria-label']}
+          aria-describedby={restProps['aria-describedby']}
         >
           <SelectParts.Value placeholder={placeholder} textColor={value ? 'neutral800' : 'neutral600'}>
             {value && customizeContent ? customizeContent(value) : undefined}

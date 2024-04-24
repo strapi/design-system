@@ -17,7 +17,7 @@ const defaultOpts: MultiSelectNestedProps['options'] = [
 ];
 
 const Component = (props: Partial<Omit<MultiSelectNestedProps, 'aria-label'>>) => (
-  <MultiSelectNested options={defaultOpts} placeholder="Choose an option" label="Choose" {...props} />
+  <MultiSelectNested options={defaultOpts} placeholder="Choose an option" aria-label="Choose" {...props} />
 );
 
 const render = (props: Partial<MultiSelectNestedProps> = {}) => renderRTL(<Component {...props} />);

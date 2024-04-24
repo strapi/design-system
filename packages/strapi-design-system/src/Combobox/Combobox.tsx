@@ -5,7 +5,7 @@ import { Combobox as ComboboxPrimitive } from '@strapi/ui-primitives';
 import styled from 'styled-components';
 
 import { Box } from '../Box';
-import { Field, FieldError, FieldHint, FieldLabel, FieldLabelProps, FieldProps } from '../Field';
+import { FieldProps } from '../Field';
 import { Flex } from '../Flex';
 import { stripReactIdOfColon } from '../helpers/strings';
 import { useComposedRefs } from '../hooks/useComposeRefs';
@@ -20,7 +20,7 @@ import { Typography } from '../Typography';
  * ComboboxInput
  * -----------------------------------------------------------------------------------------------*/
 
-export interface ComboboxInputProps
+export interface ComboboxProps
   extends Pick<
       ComboboxPrimitive.RootProps,
       | 'allowCustomValue'
@@ -33,7 +33,7 @@ export interface ComboboxInputProps
       | 'disabled'
       | 'isPrintableCharacter'
     >,
-    Pick<FieldProps, 'error' | 'id'>,
+    Pick<FieldProps, 'error'>,
     Omit<ComboboxPrimitive.TextInputProps, 'required' | 'disabled' | 'value' | 'onChange' | 'size'> {
   children: React.ReactNode;
   className?: string;
@@ -64,7 +64,7 @@ export interface ComboboxInputProps
 
 export type ComboboxInputElement = HTMLInputElement;
 
-export const ComboboxInput = React.forwardRef<ComboboxInputElement, ComboboxInputProps>(
+export const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
   (
     {
       allowCustomValue,
@@ -83,7 +83,6 @@ export const ComboboxInput = React.forwardRef<ComboboxInputElement, ComboboxInpu
       error,
       filterValue,
       hasMoreItems = false,
-      id,
       isPrintableCharacter,
       loading = false,
       loadingMessage = 'Loading content...',
@@ -120,6 +119,7 @@ export const ComboboxInput = React.forwardRef<ComboboxInputElement, ComboboxInpu
       defaultProp: defaultFilterValue,
       onChange: onFilterValueChange,
     });
+    const id = useId();
 
     /**
      * Used for the intersection observer
@@ -178,7 +178,6 @@ export const ComboboxInput = React.forwardRef<ComboboxInputElement, ComboboxInpu
       }
     };
 
-    const generatedId = useId(id);
     const generatedIntersectionId = useId();
     const intersectionId = `intersection-${stripReactIdOfColon(generatedIntersectionId)}`;
 
@@ -190,9 +189,6 @@ export const ComboboxInput = React.forwardRef<ComboboxInputElement, ComboboxInpu
        */
       skipWhen: !internalIsOpen,
     });
-
-    const hintId = `${generatedId}-hint`;
-    const errorId = `${generatedId}-error`;
 
     return (
       <ComboboxPrimitive.Root
@@ -221,7 +217,6 @@ export const ComboboxInput = React.forwardRef<ComboboxInputElement, ComboboxInpu
               placeholder={placeholder}
               id={id}
               aria-invalid={Boolean(error)}
-              aria-describedby={`${hintId} ${errorId}`}
               onChange={handleInputChange}
               ref={composedTriggerRefs}
               {...restProps}
@@ -283,48 +278,6 @@ export const ComboboxInput = React.forwardRef<ComboboxInputElement, ComboboxInpu
     );
   },
 );
-
-/* -------------------------------------------------------------------------------------------------
- * Combobox
- * -----------------------------------------------------------------------------------------------*/
-
-interface ComboboxPropsWithoutLabel extends ComboboxInputProps, Pick<FieldProps, 'hint'> {
-  labelAction?: FieldLabelProps['action'];
-}
-
-export type ComboboxProps =
-  | (ComboboxPropsWithoutLabel & { label: string; 'aria-label'?: never })
-  | (ComboboxPropsWithoutLabel & { label?: never; 'aria-label': string });
-
-export const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
-  ({ error, hint, id, label, labelAction, required = false, ...restProps }, forwardedRef) => {
-    const generatedId = useId(id);
-
-    return (
-      <Field hint={hint} error={error} id={generatedId} required={required}>
-        <Flex direction="column" alignItems="stretch" gap={1}>
-          {label ? <FieldLabel action={labelAction}>{label}</FieldLabel> : null}
-          <ComboboxInput ref={forwardedRef} id={generatedId} error={error} required={required} {...restProps} />
-          <FieldHint />
-          <FieldError />
-        </Flex>
-      </Field>
-    );
-  },
-);
-
-/* -------------------------------------------------------------------------------------------------
- * CreatableCombobox
- * -----------------------------------------------------------------------------------------------*/
-
-type CreatableComboboxPropsWithoutLabel = Omit<ComboboxPropsWithoutLabel, 'onCreateOption'> &
-  Required<Pick<ComboboxPropsWithoutLabel, 'onCreateOption'>>;
-
-export type CreatableComboboxProps =
-  | (CreatableComboboxPropsWithoutLabel & { label: string; 'aria-label'?: never })
-  | (CreatableComboboxPropsWithoutLabel & { label?: never; 'aria-label': string });
-
-export const CreatableCombobox = (props: CreatableComboboxProps) => <Combobox {...props} creatable />;
 
 const IconBox = styled(Box)`
   border: none;

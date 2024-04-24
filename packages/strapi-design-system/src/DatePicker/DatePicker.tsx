@@ -27,8 +27,7 @@ import styled, { DefaultTheme } from 'styled-components';
 import { Box, BoxProps } from '../Box';
 import { useDesignSystem } from '../DesignSystemProvider';
 import { DismissibleLayer } from '../DismissibleLayer';
-import * as Field from '../Field';
-import { FieldProps } from '../Field';
+import { type FieldProps } from '../Field';
 import { Flex, FlexProps } from '../Flex';
 import { createContext } from '../helpers/context';
 import { once } from '../helpers/deprecations';
@@ -38,7 +37,7 @@ import { useDateFormatter } from '../hooks/useDateFormatter';
 import { useId } from '../hooks/useId';
 import { PopoverPrimitives } from '../Popover';
 import { Portal } from '../Portal';
-import { SingleSelectInput, SingleSelectOption } from '../Select/SingleSelect';
+import { SingleSelect, SingleSelectOption } from '../Select/SingleSelect';
 import { getThemeSize, inputFocusStyle } from '../themes';
 import { Typography } from '../Typography';
 
@@ -46,7 +45,7 @@ const DEFAULT_PAST_RANGE = 200;
 const DEFAULT_FUTURE_RANGE = 15;
 
 /* -------------------------------------------------------------------------------------------------
- * DatePickerInput
+ * DatePicker
  * -----------------------------------------------------------------------------------------------*/
 
 interface DatePickerContextValue {
@@ -81,7 +80,7 @@ interface DatePickerContextValue {
 
 const [DatePickerProvider, useDatePickerContext] = createContext<DatePickerContextValue>('DatePicker');
 
-interface DatePickerInputProps
+interface DatePickerProps
   extends Pick<FieldProps, 'required' | 'id' | 'error'>,
     Pick<Partial<DatePickerContextValue>, 'disabled' | 'locale'>,
     Pick<TextInputProps, 'placeholder'>,
@@ -120,7 +119,7 @@ interface DatePickerInputProps
   clearLabel?: string;
 }
 
-const DatePickerInput = React.forwardRef<DatePickerTextInputElement, DatePickerInputProps>(
+const DatePicker = React.forwardRef<DatePickerTextInputElement, DatePickerProps>(
   (
     {
       /**
@@ -261,9 +260,6 @@ const DatePickerInput = React.forwardRef<DatePickerTextInputElement, DatePickerI
       }
     }, [initialDate, textValue, formatter, timeZone]);
 
-    const hintId = `${id}-hint`;
-    const errorId = `${id}-error`;
-
     return (
       <DatePickerProvider
         calendarDate={calendarDate}
@@ -290,13 +286,7 @@ const DatePickerInput = React.forwardRef<DatePickerTextInputElement, DatePickerI
       >
         <DatePickerTrigger className={className} size={size} hasError={Boolean(error)}>
           <StyledCalendarIcon aria-hidden />
-          <DatePickerTextInput
-            ref={ref}
-            placeholder={placeholder}
-            aria-describedby={`${hintId} ${errorId}`}
-            id={id}
-            {...restProps}
-          />
+          <DatePickerTextInput id={id} ref={ref} placeholder={placeholder} {...restProps} />
           {textValue && onClear ? (
             <IconBox
               as="button"
@@ -993,8 +983,8 @@ const DatePickerCalendar = React.forwardRef<HTMLDivElement, CalendarProps>(
     return (
       <Flex ref={ref} direction="column" alignItems="stretch" padding={4} {...restProps}>
         <ToolbarFlex justifyContent="flex-start" paddingBottom={4} paddingLeft={2} paddingRight={2} gap={2}>
-          <SingleSelectInput
-            label={monthSelectLabel}
+          <SingleSelect
+            aria-label={monthSelectLabel}
             size="S"
             value={months[calendarDate.month - 1]}
             onChange={handleMonthChange}
@@ -1004,11 +994,11 @@ const DatePickerCalendar = React.forwardRef<HTMLDivElement, CalendarProps>(
                 {month}
               </SingleSelectOption>
             ))}
-          </SingleSelectInput>
-          <SingleSelectInput
+          </SingleSelect>
+          <SingleSelect
             size="S"
             value={calendarDate.year.toString()}
-            label={yearSelectLabel}
+            aria-label={yearSelectLabel}
             onChange={handleYearChange}
           >
             {years.map((year) => (
@@ -1016,7 +1006,7 @@ const DatePickerCalendar = React.forwardRef<HTMLDivElement, CalendarProps>(
                 {year}
               </SingleSelectOption>
             ))}
-          </SingleSelectInput>
+          </SingleSelect>
         </ToolbarFlex>
         <table role="grid">
           <thead aria-hidden>
@@ -1247,31 +1237,6 @@ const Cell = styled(Box)`
   }
 `;
 
-/* -------------------------------------------------------------------------------------------------
- * DatePickerField
- * -----------------------------------------------------------------------------------------------*/
-
-interface DatePickerProps extends Pick<FieldProps, 'hint'>, DatePickerInputProps {
-  label: string;
-}
-
-const DatePickerField = React.forwardRef<DatePickerTextInputElement, DatePickerProps>((props, ref) => {
-  const { error, hint, id, required, label, ...restProps } = props;
-
-  const generatedId = useId(id);
-
-  return (
-    <Field.Field error={error} hint={hint} required={required} id={generatedId}>
-      <Flex direction="column" alignItems="stretch" gap={1}>
-        <Field.FieldLabel>{label}</Field.FieldLabel>
-        <DatePickerInput ref={ref} id={generatedId} error={error} required={required} {...restProps} />
-        <Field.FieldHint />
-        <Field.FieldError />
-      </Flex>
-    </Field.Field>
-  );
-});
-
 const warnOnce = once(console.warn);
 
 const convertUTCDateToCalendarDate = (date: Date | string): CalendarDate => {
@@ -1301,9 +1266,7 @@ const convertUTCDateToCalendarDate = (date: Date | string): CalendarDate => {
   return toCalendarDate(zonedDateTime);
 };
 
-const DatePicker = DatePickerField;
-
 type DatePickerElement = DatePickerTextInputElement;
 
-export { DatePicker, DatePickerInput };
-export type { DatePickerProps, DatePickerInputProps, DatePickerElement };
+export { DatePicker };
+export type { DatePickerProps, DatePickerElement };

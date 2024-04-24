@@ -3,22 +3,32 @@ import * as React from 'react';
 import { CalendarDateTime, parseAbsoluteToLocal, toCalendarDateTime, getLocalTimeZone } from '@internationalized/date';
 import styled from 'styled-components';
 
-import { DatePickerInput, DatePickerInputProps, DatePickerElement } from '../DatePicker/DatePicker';
+import { DatePicker as DatePickerInput, DatePickerProps, DatePickerElement } from '../DatePicker/DatePicker';
 import { useDesignSystem } from '../DesignSystemProvider';
-import { Field, FieldHint, FieldLabel, FieldError, FieldProps, FieldLabelProps } from '../Field';
+import { type FieldProps } from '../Field';
 import { Flex } from '../Flex';
 import { once } from '../helpers/deprecations';
 import { useComposedRefs } from '../hooks/useComposeRefs';
 import { useControllableState } from '../hooks/useControllableState';
 import { useDateFormatter } from '../hooks/useDateFormatter';
 import { useId } from '../hooks/useId';
-import { TimePickerInput, TimePickerProps } from '../TimePicker';
+import { TimePicker as BaseTimePicker, TimePickerProps } from '../TimePicker';
 import { VisuallyHidden } from '../VisuallyHidden';
 
+const DatePicker = styled(DatePickerInput)`
+  flex: 1 1 70%;
+  min-width: 120px;
+`;
+
+const TimePicker = styled(BaseTimePicker)`
+  flex: 1 1 30%;
+  min-width: 140px;
+`;
+
 export interface DateTimePickerProps
-  extends Omit<DatePickerInputProps, 'step' | 'onChange' | 'error' | 'selectedDate'>,
-    Pick<TimePickerProps, 'step' | 'selectButtonTitle'>,
-    Pick<FieldProps, 'name' | 'hint' | 'error'> {
+  extends Omit<DatePickerProps, 'step' | 'onChange' | 'error' | 'selectedDate'>,
+    Pick<TimePickerProps, 'step'>,
+    Pick<FieldProps, 'name' | 'error'> {
   /**
    * Label for the DatePicker field
    * @default "Date"
@@ -29,14 +39,6 @@ export interface DateTimePickerProps
    * @default "Time"
    */
   timeLabel?: string;
-  /**
-   * Label used to describe the DateTimePicker fieldset
-   */
-  label: string;
-  /**
-   * Label Action
-   */
-  labelAction?: FieldLabelProps['action'];
   onChange?: (date: Date | undefined) => void;
   /**
    * Value. The Date passed as value
@@ -47,29 +49,14 @@ export interface DateTimePickerProps
 export const DateTimePicker = React.forwardRef<DatePickerElement, DateTimePickerProps>(
   (
     {
-      /**
-       * @preserve
-       * @deprecated This is no longer used.
-       */
-      ariaLabel: _ariaLabel,
       clearLabel = 'clear',
       dateLabel = 'Choose date',
       timeLabel = 'Choose time',
       disabled = false,
       error,
-      hint,
-      id,
-      label,
-      labelAction,
       onChange,
       onClear,
-      name,
       required = false,
-      /**
-       * @preserve
-       * @deprecated This is no longer used.
-       */
-      selectButtonTitle: _selectButtonTitle,
       size = 'M',
       step,
       value,
@@ -138,7 +125,7 @@ export const DateTimePicker = React.forwardRef<DatePickerElement, DateTimePicker
       setDateValue(dateToSet);
     };
 
-    const handleDateClear: DatePickerInputProps['onClear'] = (e) => {
+    const handleDateClear: DatePickerProps['onClear'] = (e) => {
       setDateValue(undefined);
       // setTimeTextValue('');
 
@@ -154,77 +141,45 @@ export const DateTimePicker = React.forwardRef<DatePickerElement, DateTimePicker
       // setTimeTextValue('');
     };
 
-    const generatedId = useId(id);
-
     const timeId = useId();
     const dateId = useId();
 
     const composedRefs = useComposedRefs(DatePickerElement, forwardedRef);
 
     return (
-      <Field
-        name={name}
-        as="fieldset"
-        id={generatedId}
-        aria-labelledby={generatedId}
-        hint={hint}
-        error={error}
-        required={required}
-      >
-        <Flex as="span" direction="column" alignItems="stretch" gap={1}>
-          <FieldLabel
-            onClick={() => {
-              /**
-               * We're using fieldsets and legends and because they're not directly associated with the input
-               * we want to manually focus the input because the labels for these inputs are visually hidden.
-               */
-              DatePickerElement.current.focus();
-            }}
-            as="legend"
-            id={generatedId}
-            action={labelAction}
-          >
-            {label}
-          </FieldLabel>
-          <Flex flex="1" gap={1}>
-            <VisuallyHidden as="label" htmlFor={dateId}>
-              {dateLabel}
-            </VisuallyHidden>
-            <DatePicker
-              {...props}
-              selectedDate={dateValue?.toDate('UTC')}
-              onChange={handleDateChange}
-              error={typeof error === 'string'}
-              required={required}
-              size={size}
-              onClear={onClear ? handleDateClear : undefined}
-              clearLabel={`${clearLabel} date`}
-              disabled={disabled}
-              id={dateId}
-              ref={composedRefs}
-              aria-describedby={`${generatedId}-hint ${generatedId}-error`}
-            />
-            <VisuallyHidden as="label" htmlFor={timeId}>
-              {timeLabel}
-            </VisuallyHidden>
-            <TimePicker
-              size={size}
-              error={typeof error === 'string'}
-              value={timeValue}
-              onChange={handleTimeChange}
-              onClear={onClear && timeValue !== undefined && timeValue !== '00:00' ? handleTimeClear : undefined}
-              clearLabel={`${clearLabel} time`}
-              required={required}
-              disabled={disabled}
-              step={step}
-              id={timeId}
-              aria-describedby={`${generatedId}-hint ${generatedId}-error`}
-            />
-          </Flex>
-          <FieldHint />
-          <FieldError />
-        </Flex>
-      </Field>
+      <Flex flex="1" gap={1}>
+        <VisuallyHidden as="label" htmlFor={dateId}>
+          {dateLabel}
+        </VisuallyHidden>
+        <DatePicker
+          {...props}
+          selectedDate={dateValue?.toDate('UTC')}
+          onChange={handleDateChange}
+          error={typeof error === 'string'}
+          required={required}
+          size={size}
+          onClear={onClear ? handleDateClear : undefined}
+          clearLabel={`${clearLabel} date`}
+          disabled={disabled}
+          ref={composedRefs}
+          id={dateId}
+        />
+        <VisuallyHidden as="label" htmlFor={timeId}>
+          {timeLabel}
+        </VisuallyHidden>
+        <TimePicker
+          size={size}
+          error={typeof error === 'string'}
+          value={timeValue}
+          onChange={handleTimeChange}
+          onClear={onClear && timeValue !== undefined && timeValue !== '00:00' ? handleTimeClear : undefined}
+          clearLabel={`${clearLabel} time`}
+          required={required}
+          disabled={disabled}
+          step={step}
+          id={timeId}
+        />
+      </Flex>
     );
   },
 );
@@ -261,13 +216,3 @@ export const convertUTCDateToCalendarDateTime = (date: Date | string, resetTime 
    */
   return toCalendarDateTime(zonedDateTime);
 };
-
-const DatePicker = styled(DatePickerInput)`
-  flex: 1 1 70%;
-  min-width: 120px;
-`;
-
-const TimePicker = styled(TimePickerInput)`
-  flex: 1 1 30%;
-  min-width: 140px;
-`;

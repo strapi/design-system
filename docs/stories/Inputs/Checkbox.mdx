@@ -1,0 +1,64 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/blocks';
+import { Checkbox } from '@strapi/design-system';
+
+import * as CheckboxStories from './Checkbox.stories';
+
+<Meta of={CheckboxStories} />
+
+# Checkbox
+
+- [Overview](#overview)
+- [Usage](#usage)
+- [Props](#props)
+- [Variants](#variants)
+- [Accessibility](#accessibility)
+
+## Overview
+
+Checkboxes allow users to choose one or multiple values from a range of options.
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Checkbox)
+
+<Canvas of={CheckboxStories.Base} />
+
+## Usage
+
+```js
+import { Checkbox } from '@strapi/design-system';
+```
+
+- Use the [Radio](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Radio) button component if the user should select only one value.
+- Checkbox labels are aligned differently based on language direction: to the right in LTR languages and to the left in RTL languages.
+
+## Props
+
+<ArgTypes of={Checkbox} />
+
+## Variants
+
+### Basic checkbox
+
+<Canvas of={CheckboxStories.Base} />
+
+### Checkbox Group
+
+Partially selected options display as an indeterminate state at parent level
+
+<Canvas of={CheckboxStories.CheckboxGroup} />
+
+### Disabled
+
+Checkboxes may not be available to select yet. This state can be related to a lack of permission or a need
+to pursue another action first.
+
+<Canvas of={CheckboxStories.Disabled} />
+
+### Checkbox field
+
+Wrap the input in the necessary [`Field`](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Field) component to create a powerful complete form input
+
+<Canvas of={CheckboxStories.WithField} />
+
+## Accessibility
+
+- Checkbox has role of checkbox.
+- When Checkbox has focus, `Space` or `Enter` activates/deactivates it.

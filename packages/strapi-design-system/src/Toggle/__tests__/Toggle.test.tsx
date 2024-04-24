@@ -1,11 +1,12 @@
 import { fireEvent, render as renderHarness } from '@test/utils';
 
-import { ToggleInput, ToggleInputProps } from '../ToggleInput';
+import { Field, FieldHint, FieldError, type FieldProps, FieldLabel } from '../../Field';
+import { Toggle, type ToggleProps } from '../Toggle';
 
-const render = (props: Partial<Omit<ToggleInputProps, 'aria-label'>> = {}) =>
-  renderHarness(<ToggleInput onLabel="On" offLabel="Off" label="Label" {...props} />);
+const render = (props: Partial<Omit<ToggleProps, 'aria-label'>> = {}) =>
+  renderHarness(<Toggle onLabel="On" offLabel="Off" aria-label="Label" {...props} />);
 
-describe('ToggleInput', () => {
+describe('Toggle', () => {
   it('should render and be accesisble with a label', () => {
     const { getByRole, getByText } = render();
 
@@ -16,7 +17,6 @@ describe('ToggleInput', () => {
 
   it('should be accessible by only supplying aria-label', () => {
     const { getByRole } = render({
-      label: undefined,
       // @ts-ignore
       'aria-label': 'Label',
     });
@@ -41,21 +41,37 @@ describe('ToggleInput', () => {
   });
 
   it('should render an error if supplied', () => {
-    const { getByText, getByRole } = render({
-      error: 'Error',
+    const renderField = (props: Partial<Omit<ToggleProps, 'aria-label'> & Pick<FieldProps, 'error'>> = {}) =>
+      renderHarness(
+        <Field id="with_field" error={props.error}>
+          <FieldLabel>Label</FieldLabel>
+          <Toggle onLabel="On" offLabel="Off" {...props} />
+          <FieldError />
+        </Field>,
+      );
+
+    const { getByText } = renderField({
+      error: 'error',
     });
 
-    expect(getByText('Error')).toBeInTheDocument();
-    expect(getByRole('checkbox')).toHaveAttribute('aria-describedby', expect.stringContaining('error'));
+    expect(getByText('error')).toBeInTheDocument();
   });
 
   it('should render a hint if supplied', () => {
-    const { getByText, getByRole } = render({
+    const renderField = (props: Partial<Omit<ToggleProps, 'aria-label'> & Pick<FieldProps, 'hint'>> = {}) =>
+      renderHarness(
+        <Field id="with_field" hint={props.hint}>
+          <FieldLabel>Label</FieldLabel>
+          <Toggle onLabel="On" offLabel="Off" {...props} />
+          <FieldHint />
+        </Field>,
+      );
+
+    const { getByText } = renderField({
       hint: 'Hint',
     });
 
     expect(getByText('Hint')).toBeInTheDocument();
-    expect(getByRole('checkbox')).toHaveAttribute('aria-describedby', expect.stringContaining('hint'));
   });
 
   it('should change the checked value when clicked & call onChange', () => {
@@ -75,25 +91,5 @@ describe('ToggleInput', () => {
     expect(getByRole('checkbox', { name: 'Label' })).toBeChecked();
 
     expect(onChange).toHaveBeenCalledTimes(1);
-  });
-
-  it("should render the clear button if 'onClear' and 'clearLabel' are supplied and input is not disabled", async () => {
-    const onClear = jest.fn();
-    const { getByRole, user } = render({
-      onClear,
-      clearLabel: 'Clear',
-    });
-
-    expect(getByRole('button', { name: 'Clear' })).toBeInTheDocument();
-
-    /**
-     * we use fireEvent.click here because user.click doesn't work with the
-     * way the input is setup/styled
-     */
-    fireEvent.click(getByRole('checkbox', { name: 'Label' }));
-
-    expect(getByRole('checkbox', { name: 'Label' })).toBeChecked();
-
-    await user.click(getByRole('button', { name: 'Clear' }));
   });
 });

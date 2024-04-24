@@ -1,5 +1,6 @@
 import { render as renderRTL } from '@test/utils';
 
+import { Field, FieldError, FieldHint, type FieldProps } from '../../Field';
 import { Combobox, Option, ComboboxProps } from '../Combobox';
 
 type ComponentProps = Omit<ComboboxProps, 'children'> & { options?: typeof defaultOptions };
@@ -12,7 +13,7 @@ const defaultOptions = [
 ];
 
 const Component = ({ options = defaultOptions, ...restProps }: Partial<Omit<ComponentProps, 'aria-label'>>) => (
-  <Combobox label="Food" {...restProps}>
+  <Combobox aria-label="Food" {...restProps}>
     {options.map((opt) => (
       <Option key={opt.value} {...opt} />
     ))}
@@ -22,15 +23,8 @@ const Component = ({ options = defaultOptions, ...restProps }: Partial<Omit<Comp
 const render = (props?: Partial<ComponentProps>) => renderRTL(<Component {...props} />);
 
 describe('Combobox', () => {
-  it('should display my label & labelAction', () => {
-    const { getByText } = render({ labelAction: <>hey!</> });
-
-    expect(getByText('Food')).toBeInTheDocument();
-    expect(getByText('hey!')).toBeInTheDocument();
-  });
-
   it('should be accessible if I only pass an aria-label', () => {
-    const { getByRole, queryByRole } = render({ 'aria-label': 'Food', label: undefined });
+    const { getByRole, queryByRole } = render({ 'aria-label': 'Food' });
 
     expect(queryByRole('label')).not.toBeInTheDocument();
 
@@ -110,11 +104,30 @@ describe('Combobox', () => {
     });
 
     it('should handle the error prop correctly', () => {
+      const render = (props: Partial<ComponentProps> & Pick<FieldProps, 'error'> = {}) =>
+        renderRTL(
+          <Field error={props.error}>
+            <Component error={props.error} {...props} />
+            <FieldError />
+          </Field>,
+        );
       const { getByRole, getByText } = render({ error: 'error' });
 
       expect(getByRole('combobox')).toHaveAttribute('aria-invalid', 'true');
-
       expect(getByText('error')).toBeInTheDocument();
+    });
+
+    it('should handle the hint prop correctly', () => {
+      const render = (props: Partial<ComponentProps> & Pick<FieldProps, 'hint'> = {}) =>
+        renderRTL(
+          <Field hint={props.hint}>
+            <Component {...props} />
+            <FieldHint />
+          </Field>,
+        );
+      const { getByText } = render({ hint: 'hint' });
+
+      expect(getByText('hint')).toBeInTheDocument();
     });
 
     it('should handle the loading prop correctly', async () => {

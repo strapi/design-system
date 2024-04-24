@@ -1,0 +1,49 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
+import { Toggle } from '@strapi/design-system';
+
+import * as ToggleStories from './Toggle.stories';
+
+<Meta of={ToggleStories} />
+
+# Toggle
+
+- [Overview](#overview)
+- [Usage](#usage)
+- [Props](#props)
+- [Variants](#variants)
+
+## Overview
+
+Enable users to switch a single option between on and off states
+
+[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/ToggleInput)
+
+## Usage
+
+```js
+import { Toggle } from '@strapi/design-system';
+```
+
+<Canvas of={ToggleStories.Base} />
+
+## Props
+
+<ArgsTable of={Toggle} />
+
+## Variants
+
+### Base
+
+<Canvas of={ToggleStories.Base} />
+
+### Size S
+
+Toggle input with `small` size.
+
+<Canvas of={ToggleStories.SizeS} />
+
+### ToggleInput field
+
+ToggleInput wrapped with [`Field`](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Field) component to create a powerful complete form input
+
+<Canvas of={ToggleStories.WithField} />

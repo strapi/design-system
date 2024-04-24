@@ -12,7 +12,7 @@ const defaultOpts: MultiSelectOptionProps[] = [
 ];
 
 const Component = (props: Partial<Omit<MultiSelectProps, 'aria-label'>>) => (
-  <MultiSelect placeholder="Choose an option" label="Choose" {...props}>
+  <MultiSelect placeholder="Choose an option" {...props}>
     {defaultOpts.map((option) => (
       <MultiSelectOption key={option.value.toString()} value={option.value}>
         {option.children}
@@ -37,7 +37,7 @@ describe('MultiSelect', () => {
   });
 
   it('should be accessible if I only pass an aria-label', () => {
-    const { getByRole, queryByRole } = render({ 'aria-label': 'Choose', label: undefined });
+    const { getByRole, queryByRole } = render({ 'aria-label': 'Choose' });
 
     expect(queryByRole('label')).not.toBeInTheDocument();
 

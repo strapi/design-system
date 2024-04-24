@@ -153,7 +153,7 @@ export const Group = {
               />
               <AccordionContent>
                 <Box padding={3}>
-                  <TextInput label="Name" />
+                  <TextInput aria-label="Name" />
                 </Box>
               </AccordionContent>
             </Accordion>

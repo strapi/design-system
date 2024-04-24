@@ -201,7 +201,7 @@ export const Aria = {
                 {row.map((cell, cellIndex) =>
                   cellIndex === 3 ? (
                     <RawTd key={cellIndex}>
-                      <TextInput label="name" />
+                      <TextInput aria-label="name" />
                     </RawTd>
                   ) : cellIndex === row.length - 1 ? (
                     <RawTd key={cellIndex}>

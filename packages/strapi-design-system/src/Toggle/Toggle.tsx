@@ -3,41 +3,38 @@ import * as React from 'react';
 
 import styled from 'styled-components';
 
-import { Field, FieldHint, FieldError, FieldLabel, type FieldProps, useField, FieldLabelProps } from '../Field';
+import { type FieldProps } from '../Field';
 import { Flex } from '../Flex';
 import { useControllableState } from '../hooks/useControllableState';
-import { useId } from '../hooks/useId';
-import { TextButton } from '../TextButton';
 import { inputFocusStyle } from '../themes';
 import type { InputSizes } from '../themes/sizes';
 import { Typography } from '../Typography';
 
-interface ToggleInputInputProps
-  extends Omit<React.ComponentPropsWithoutRef<'input'>, 'name' | 'children' | 'required' | 'id' | 'size' | 'checked'> {
+interface ToggleProps
+  extends Omit<React.ComponentPropsWithoutRef<'input'>, 'name' | 'children' | 'required' | 'id' | 'size' | 'checked'>,
+    Pick<FieldProps, 'error' | 'name' | 'id' | 'required'> {
   onLabel: string;
   offLabel: string;
   checked?: boolean | null;
   size?: InputSizes;
 }
 
-type ToggleInputInputElement = HTMLInputElement;
+type ToggleInputElement = HTMLInputElement;
 
 /**
  * TODO: This should probably follow the switch button pattern
  * as seen – https://www.w3.org/WAI/ARIA/apg/patterns/switch/examples/switch-button/
  */
-const ToggleInputInput = React.forwardRef<ToggleInputInputElement, ToggleInputInputProps>(
-  ({ offLabel, onLabel, disabled, checked: checkedProp, onChange, size = 'M', ...props }, forwardedRef) => {
+const Toggle = React.forwardRef<ToggleInputElement, ToggleProps>(
+  (
+    { offLabel, onLabel, disabled, error, required, checked: checkedProp, onChange, size = 'M', ...props },
+    forwardedRef,
+  ) => {
     const [checked = false, setChecked] = useControllableState<boolean | null>({
       prop: checkedProp,
     });
 
-    const { error, id, name, required } = useField();
-
     const isFalseyChecked = checked !== null && !checked;
-
-    const hintId = `${id}-hint`;
-    const errorId = `${id}-error`;
 
     return (
       <ToggleWrapper
@@ -110,12 +107,9 @@ const ToggleInputInput = React.forwardRef<ToggleInputInputElement, ToggleInputIn
             onChange?.(e);
           }}
           type="checkbox"
-          id={id}
-          name={name}
           aria-required={required}
           disabled={disabled}
           aria-disabled={disabled}
-          aria-describedby={id ? `${hintId} ${errorId}` : undefined}
           checked={Boolean(checked)}
         />
       </ToggleWrapper>
@@ -147,60 +141,5 @@ const Input = styled.input`
   width: 100%;
 `;
 
-interface ToggleInputPropsWithoutLabel
-  extends Pick<FieldProps, 'error' | 'hint' | 'name' | 'required' | 'id'>,
-    ToggleInputInputProps {
-  clearLabel?: string;
-  labelAction?: FieldLabelProps['action'];
-  onClear?: () => void;
-}
-
-type ToggleInputProps =
-  | (ToggleInputPropsWithoutLabel & { label: string; 'aria-label'?: never })
-  | (ToggleInputPropsWithoutLabel & { label?: never; 'aria-label': string });
-
-const ToggleInput = React.forwardRef<ToggleInputInputElement, ToggleInputProps>(
-  (
-    {
-      disabled = false,
-      error,
-      hint,
-      label,
-      name,
-      labelAction,
-      required = false,
-      id,
-      onClear,
-      clearLabel,
-      checked,
-      ...props
-    },
-    forwardedRef,
-  ) => {
-    const generatedId = useId(id);
-
-    return (
-      <Field name={name} hint={hint} error={error} id={generatedId} required={required} maxWidth="320px">
-        <Flex direction="column" alignItems="stretch" gap={1}>
-          <Flex>
-            {label ? <FieldLabel action={labelAction}>{label}</FieldLabel> : null}
-            {clearLabel && onClear && checked !== null && !disabled && (
-              <ClearButton onClick={onClear}>{clearLabel}</ClearButton>
-            )}
-          </Flex>
-          <ToggleInputInput ref={forwardedRef} checked={checked} disabled={disabled} {...props} />
-          <FieldHint />
-          <FieldError />
-        </Flex>
-      </Field>
-    );
-  },
-);
-
-const ClearButton = styled(TextButton)`
-  align-self: flex-end;
-  margin-left: auto;
-`;
-
-export { ToggleInput };
-export type { ToggleInputProps };
+export { Toggle };
+export type { ToggleProps };

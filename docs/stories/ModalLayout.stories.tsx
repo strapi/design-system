@@ -47,7 +47,6 @@ export const Base = {
               <DatePicker
                 onChange={setDate}
                 selectedDate={date}
-                label="Date picker"
                 name="datepicker"
                 clearLabel="Clear the datepicker"
                 onClear={() => setDate(undefined)}

@@ -3,25 +3,22 @@ import * as React from 'react';
 import { Clock } from '@strapi/icons';
 import styled from 'styled-components';
 
-import { ComboboxInput, ComboboxInputProps, ComboboxInputElement, Option } from '../Combobox/Combobox';
+import { Combobox, ComboboxProps, ComboboxInputElement, Option } from '../Combobox/Combobox';
 import { useDesignSystem } from '../DesignSystemProvider';
-import { Field, FieldError, FieldHint, FieldLabel, FieldLabelProps, FieldProps } from '../Field';
-import { Flex } from '../Flex';
 import { useControllableState } from '../hooks/useControllableState';
 import { useDateFormatter } from '../hooks/useDateFormatter';
-import { useId } from '../hooks/useId';
 
 const isNotAlphabeticalCharacter = (str: string): boolean => {
   return Boolean(str.match(/^[^a-zA-Z]*$/));
 };
 
 /* -------------------------------------------------------------------------------------------------
- * TimePickerInput
+ * TimePicker
  * -----------------------------------------------------------------------------------------------*/
 
-export interface TimePickerInputProps
+export interface TimePickerProps
   extends Omit<
-    ComboboxInputProps,
+    ComboboxProps,
     | 'children'
     | 'autocomplete'
     | 'startIcon'
@@ -39,43 +36,13 @@ export interface TimePickerInputProps
    * @default 15
    */
   step?: number;
-  /**
-   * @deprecated This is no longer used.
-   */
-  ariaLabel?: string;
-  /**
-   * @preserve
-   * @deprecated This is no longer used.
-   */
-  selectButtonTitle?: string;
   value?: string;
   defaultValue?: string;
 }
 
-export const TimePickerInput = React.forwardRef<ComboboxInputElement, TimePickerInputProps>(
-  (
-    {
-      id,
-      step = 15,
-      /**
-       * @preserve
-       * @deprecated This is no longer used.
-       */
-      ariaLabel: _ariaLabel,
-      /**
-       * @preserve
-       * @deprecated This is no longer used.
-       */
-      selectButtonTitle: _selectButtonTitle,
-      value: valueProp,
-      defaultValue,
-      onChange,
-      ...restProps
-    },
-    forwardedRef,
-  ) => {
+export const TimePicker = React.forwardRef<ComboboxInputElement, TimePickerProps>(
+  ({ step = 15, value: valueProp, defaultValue, onChange, ...restProps }, forwardedRef) => {
     const context = useDesignSystem('TimePicker');
-    const generatedId = useId(id);
 
     const [textValue, setTextValue] = React.useState<string | undefined>('');
 
@@ -159,7 +126,7 @@ export const TimePickerInput = React.forwardRef<ComboboxInputElement, TimePicker
     }, [valueProp, setTextValue]);
 
     return (
-      <ComboboxInput
+      <Combobox
         {...restProps}
         ref={forwardedRef}
         value={value}
@@ -169,7 +136,6 @@ export const TimePickerInput = React.forwardRef<ComboboxInputElement, TimePicker
         placeholder={`--${separator}--`}
         autocomplete="none"
         startIcon={<StyledClock />}
-        id={generatedId}
         inputMode="numeric"
         pattern={`\\d{2}\\${separator}\\d{2}`}
         textValue={textValue}
@@ -181,7 +147,7 @@ export const TimePickerInput = React.forwardRef<ComboboxInputElement, TimePicker
             {time}
           </Option>
         ))}
-      </ComboboxInput>
+      </Combobox>
     );
   },
 );
@@ -194,29 +160,3 @@ const StyledClock = styled(Clock)`
     fill: ${({ theme }) => theme.colors.neutral500};
   }
 `;
-
-/* -------------------------------------------------------------------------------------------------
- * TimePicker
- * -----------------------------------------------------------------------------------------------*/
-
-export interface TimePickerProps extends TimePickerInputProps, Pick<FieldProps, 'hint'> {
-  label: string;
-  labelAction?: FieldLabelProps['action'];
-}
-
-export const TimePicker = React.forwardRef<ComboboxInputElement, TimePickerProps>(
-  ({ label, error, hint, id, required, labelAction, ...restProps }, forwardedRef) => {
-    const generatedId = useId(id);
-
-    return (
-      <Field hint={hint} error={error} id={generatedId} required={required}>
-        <Flex direction="column" alignItems="stretch" gap={1}>
-          <FieldLabel action={labelAction}>{label}</FieldLabel>
-          <TimePickerInput ref={forwardedRef} id={generatedId} error={error} required={required} {...restProps} />
-          <FieldHint />
-          <FieldError />
-        </Flex>
-      </Field>
-    );
-  },
-);
