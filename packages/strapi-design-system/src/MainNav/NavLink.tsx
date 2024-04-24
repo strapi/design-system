@@ -10,13 +10,6 @@ import { Flex } from '../Flex';
 import { Tooltip } from '../Tooltip';
 import { Typography } from '../Typography';
 
-const IconBox = styled(Box)`
-  svg {
-    width: 1rem;
-    height: 1rem;
-  }
-`;
-
 const MainNavLinkWrapper = styled(BaseLink)`
   position: relative;
   text-decoration: none;
@@ -104,9 +97,9 @@ export const NavLink = React.forwardRef<HTMLAnchorElement, NavLinkProps>(
         <MainNavLinkWrapper ref={ref} {...props}>
           <Tooltip position="right" label={children}>
             <MainNavRow as="span" justifyContent="center">
-              <IconBox aria-hidden paddingRight={0} as="span">
+              <Box aria-hidden paddingRight={0} as="span">
                 {icon}
-              </IconBox>
+              </Box>
               {badgeContent && (
                 <CustomBadge condensed aria-label={badgeAriaLabel}>
                   {badgeContent}
@@ -122,9 +115,9 @@ export const NavLink = React.forwardRef<HTMLAnchorElement, NavLinkProps>(
       <MainNavLinkWrapper ref={ref} {...props}>
         <MainNavRow as="span" justifyContent="space-between">
           <Flex>
-            <IconBox aria-hidden paddingRight={3} as="span">
+            <Box aria-hidden paddingRight={3} as="span">
               {icon}
-            </IconBox>
+            </Box>
             <Typography>{children}</Typography>
           </Flex>
           {badgeContent && (
