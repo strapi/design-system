@@ -26,8 +26,10 @@ Checkboxes allow users to choose one or multiple values from a range of options.
 import { Checkbox } from '@strapi/design-system';
 ```
 
-- Use the [Radio](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Radio) button component if the user should select only one value.
-- Checkbox labels are aligned differently based on language direction: to the right in LTR languages and to the left in RTL languages.
+- Use the [Radio](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Radio) button
+  component if the user should select only one value.
+- Checkbox labels are aligned differently based on language direction: to the right in LTR languages and to the left in
+  RTL languages.
 
 ## Props
 
@@ -47,14 +49,16 @@ Partially selected options display as an indeterminate state at parent level
 
 ### Disabled
 
-Checkboxes may not be available to select yet. This state can be related to a lack of permission or a need
-to pursue another action first.
+Checkboxes may not be available to select yet. This state can be related to a lack of permission or a need to pursue
+another action first.
 
 <Canvas of={CheckboxStories.Disabled} />
 
 ### Checkbox field
 
-Wrap the input in the necessary [`Field`](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Field) component to create a powerful complete form input
+Wrap the input in the necessary
+[`Field`](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Field) component to create
+a powerful complete form input
 
 <Canvas of={CheckboxStories.WithField} />
 
