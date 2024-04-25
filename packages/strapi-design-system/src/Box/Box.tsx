@@ -4,9 +4,29 @@ import styled, { CSSProperties, DefaultTheme } from 'styled-components';
 
 import handleResponsiveValues, { ResponsiveValue } from '../helpers/handleResponsiveValues';
 import { extractStyleFromTheme } from '../helpers/theme';
-import { DefaultThemeOrCSSProp } from '../types';
+import {
+  DefaultThemeOrCSSProp,
+  PolymorphicComponentPropsWithRef,
+  PolymorphicRef,
+  PropsToTransientProps,
+} from '../types';
+import { forwardRef } from '../utilities/forwardRef';
 
-type TransientBoxProps = {
+interface TransientBoxProps
+  extends Pick<
+    CSSProperties,
+    | 'pointerEvents'
+    | 'display'
+    | 'position'
+    | 'zIndex'
+    | 'overflow'
+    | 'cursor'
+    | 'transition'
+    | 'transform'
+    | 'animation'
+    | 'textAlign'
+    | 'textTransform'
+  > {
   /**
    * Background color
    */
@@ -95,40 +115,101 @@ type TransientBoxProps = {
   borderRadius?: CSSProperties['borderRadius'];
   borderStyle?: CSSProperties['borderStyle'];
   borderWidth?: CSSProperties['borderWidth'];
-};
+}
 
-export type BoxProps<TElement extends keyof JSX.IntrinsicElements = 'div'> = React.ComponentPropsWithoutRef<TElement> &
-  Pick<
-    CSSProperties,
-    | 'pointerEvents'
-    | 'display'
-    | 'position'
-    | 'zIndex'
-    | 'overflow'
-    | 'cursor'
-    | 'transition'
-    | 'transform'
-    | 'animation'
-    | 'textAlign'
-    | 'textTransform'
-  > &
-  TransientBoxProps & {
-    /**
-     * JavaScript hover handler
-     */
-    _hover?: (theme: DefaultTheme) => string;
+interface Props extends TransientBoxProps {
+  children?: React.ReactNode;
+}
 
-    children?: React.ReactNode;
+type BoxProps<C extends React.ElementType = 'div'> = PolymorphicComponentPropsWithRef<C, Props>;
 
-    as?: string | React.ComponentType<any>;
-    forwardedAs?: string | React.ComponentType<any>;
+const Box = forwardRef(<C extends React.ElementType = 'div'>(props: BoxProps<C>, ref: PolymorphicRef<C>) => {
+  const {
+    background,
+    basis,
+    borderColor,
+    color,
+    flex,
+    fontSize,
+    grow,
+    hasRadius,
+    hiddenS,
+    hiddenXS,
+    padding,
+    paddingBottom,
+    paddingLeft,
+    paddingRight,
+    paddingTop,
+    margin,
+    marginLeft,
+    marginBottom,
+    marginRight,
+    marginTop,
+    shadow,
+    shrink,
+    lineHeight,
+    width,
+    minWidth,
+    maxWidth,
+    height,
+    minHeight,
+    maxHeight,
+    top,
+    left,
+    bottom,
+    right,
+    borderRadius,
+    borderStyle,
+    borderWidth,
+    tag,
+    ...rest
+  } = props;
+
+  const AsComponent = tag || 'div';
+
+  const mappedProps: PropsToTransientProps<TransientBoxProps> = {
+    $background: background,
+    $basis: basis,
+    $borderColor: borderColor,
+    $color: color,
+    $flex: flex,
+    $fontSize: fontSize,
+    $grow: grow,
+    $hasRadius: hasRadius,
+    $hiddenS: hiddenS,
+    $hiddenXS: hiddenXS,
+    $padding: padding,
+    $paddingBottom: paddingBottom,
+    $paddingLeft: paddingLeft,
+    $paddingRight: paddingRight,
+    $paddingTop: paddingTop,
+    $margin: margin,
+    $marginLeft: marginLeft,
+    $marginBottom: marginBottom,
+    $marginRight: marginRight,
+    $marginTop: marginTop,
+    $shadow: shadow,
+    $shrink: shrink,
+    $lineHeight: lineHeight,
+    $width: width,
+    $minWidth: minWidth,
+    $maxWidth: maxWidth,
+    $height: height,
+    $minHeight: minHeight,
+    $maxHeight: maxHeight,
+    $top: top,
+    $left: left,
+    $bottom: bottom,
+    $right: right,
+    $borderRadius: borderRadius,
+    $borderStyle: borderStyle,
+    $borderWidth: borderWidth,
   };
 
-type StyledBoxProps = Omit<BoxProps, keyof TransientBoxProps> & {
-  [key in keyof TransientBoxProps as `$${key}`]: TransientBoxProps[key];
-};
+  return <StyledBox as={AsComponent} ref={ref} {...mappedProps} {...rest} />;
+});
 
-export const StyledBox = styled.div<StyledBoxProps>`
+const StyledBox = styled.div<PropsToTransientProps<TransientBoxProps>>`
   // Font
   font-size: ${({ $fontSize, theme }) => extractStyleFromTheme(theme.fontSizes, $fontSize, $fontSize)};
 
@@ -175,22 +256,19 @@ export const StyledBox = styled.div<StyledBoxProps>`
   box-shadow: ${({ theme, $shadow }) => extractStyleFromTheme(theme.shadows, $shadow, undefined)};
 
   // Handlers
-  pointer-events: ${({ pointerEvents }) => pointerEvents};
-  &:hover {
-    ${({ _hover, theme }) => (_hover ? _hover(theme) : undefined)}
-  }
+  pointer-events: ${({ $pointerEvents }) => $pointerEvents};
 
   // Display
-  display: ${({ display }) => display};
+  display: ${({ $display }) => $display};
 
   // Position
-  position: ${({ position }) => position};
+  position: ${({ $position }) => $position};
   left: ${({ $left, theme }) => extractStyleFromTheme(theme.spaces, $left, $left)};
   right: ${({ $right, theme }) => extractStyleFromTheme(theme.spaces, $right, $right)};
   top: ${({ $top, theme }) => extractStyleFromTheme(theme.spaces, $top, $top)};
   bottom: ${({ $bottom, theme }) => extractStyleFromTheme(theme.spaces, $bottom, $bottom)};
-  z-index: ${({ zIndex }) => zIndex};
-  overflow: ${({ overflow }) => overflow};
+  z-index: ${({ $zIndex }) => $zIndex};
+  overflow: ${({ $overflow }) => $overflow};
 
   // Size
   width: ${({ $width, theme }) => extractStyleFromTheme(theme.spaces, $width, $width)};
@@ -201,9 +279,9 @@ export const StyledBox = styled.div<StyledBoxProps>`
   min-height: ${({ $minHeight, theme }) => extractStyleFromTheme(theme.spaces, $minHeight, $minHeight)};
 
   // Animation
-  transition: ${({ transition }) => transition};
-  transform: ${({ transform }) => transform};
-  animation: ${({ animation }) => animation};
+  transition: ${({ $transition }) => $transition};
+  transform: ${({ $transform }) => $transform};
+  animation: ${({ $animation }) => $animation};
 
   //Flexbox children props
   flex-shrink: ${({ $shrink }) => $shrink};
@@ -212,98 +290,15 @@ export const StyledBox = styled.div<StyledBoxProps>`
   flex: ${({ $flex }) => $flex};
 
   // Text
-  text-align: ${({ textAlign }) => textAlign};
-  text-transform: ${({ textTransform }) => textTransform};
+  text-align: ${({ $textAlign }) => $textAlign};
+  text-transform: ${({ $textTransform }) => $textTransform};
   line-height: ${({ theme, $lineHeight }) => extractStyleFromTheme(theme.lineHeights, $lineHeight, $lineHeight)};
 
   // Cursor
-  cursor: ${({ cursor }) => cursor};
+  cursor: ${({ $cursor }) => $cursor};
 `;
 
-const Box = <T extends keyof JSX.IntrinsicElements, R>(props: BoxProps<T>, ref: React.ForwardedRef<R>) => {
-  const {
-    background,
-    basis,
-    borderColor,
-    color,
-    flex,
-    fontSize,
-    grow,
-    hasRadius,
-    hiddenS,
-    hiddenXS,
-    padding,
-    paddingBottom,
-    paddingLeft,
-    paddingRight,
-    paddingTop,
-    margin,
-    marginLeft,
-    marginBottom,
-    marginRight,
-    marginTop,
-    shadow,
-    shrink,
-    lineHeight,
-    width,
-    minWidth,
-    maxWidth,
-    height,
-    minHeight,
-    maxHeight,
-    top,
-    left,
-    bottom,
-    right,
-    borderRadius,
-    borderStyle,
-    borderWidth,
-    ...rest
-  } = props;
+type BoxComponent<C extends React.ElementType = 'div'> = typeof Box<C>;
 
-  const mappedProps = {
-    $background: background,
-    $basis: basis,
-    $borderColor: borderColor,
-    $color: color,
-    $flex: flex,
-    $fontSize: fontSize,
-    $grow: grow,
-    $hasRadius: hasRadius,
-    $hiddenS: hiddenS,
-    $hiddenXS: hiddenXS,
-    $padding: padding,
-    $paddingBottom: paddingBottom,
-    $paddingLeft: paddingLeft,
-    $paddingRight: paddingRight,
-    $paddingTop: paddingTop,
-    $margin: margin,
-    $marginLeft: marginLeft,
-    $marginBottom: marginBottom,
-    $marginRight: marginRight,
-    $marginTop: marginTop,
-    $shadow: shadow,
-    $shrink: shrink,
-    $lineHeight: lineHeight,
-    $width: width,
-    $minWidth: minWidth,
-    $maxWidth: maxWidth,
-    $height: height,
-    $minHeight: minHeight,
-    $maxHeight: maxHeight,
-    $top: top,
-    $left: left,
-    $bottom: bottom,
-    $right: right,
-    $borderRadius: borderRadius,
-    $borderStyle: borderStyle,
-    $borderWidth: borderWidth,
-    ...rest,
-  };
-
-  return <StyledBox ref={ref} {...mappedProps} />;
-};
-
-const ForwardedBox = React.forwardRef(Box);
-
-export { ForwardedBox as Box };
+export { Box };
+export type { BoxComponent, BoxProps, Props, TransientBoxProps };

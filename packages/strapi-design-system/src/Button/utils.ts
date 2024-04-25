@@ -1,4 +1,4 @@
-import styled, { DefaultTheme } from 'styled-components';
+import { DefaultTheme } from 'styled-components';
 
 import {
   LIGHT_VARIANTS,
@@ -14,8 +14,6 @@ import {
   Variant,
 } from './constants';
 import { Typography } from '../Typography';
-
-const ColoredTypography = styled(Typography)``;
 
 export const getVariantColorName = (variant: Variant): 'success' | 'danger' | 'neutral' | 'primary' => {
   if (variant === SUCCESS_LIGHT || variant === DANGER_LIGHT) {
@@ -36,7 +34,7 @@ export const getDisabledStyle = ({ theme }: { theme: DefaultTheme }) => {
   return `
     border: 1px solid ${theme.colors.neutral200};
     background: ${theme.colors.neutral150};
-    ${ColoredTypography} {
+    ${Typography} {
       color: ${theme.colors.neutral600};
     }
     svg {
@@ -83,7 +81,7 @@ export const getActiveStyle = ({ theme, variant }: { theme: DefaultTheme; varian
     return `
       background-color: ${theme.colors.neutral0};
       border: 1px solid ${theme.colors[`${getVariantColorName(variant)}600`]};
-      ${ColoredTypography} {
+      ${Typography} {
         color: ${theme.colors[`${getVariantColorName(variant)}600`]};
       }
       svg {
@@ -113,7 +111,7 @@ export const getVariantStyle = ({ theme, variant }: { theme: DefaultTheme; varia
       return `
           border: 1px solid ${theme.colors[`${getVariantColorName(variant)}200`]};
           background: ${theme.colors[`${getVariantColorName(variant)}100`]};
-          ${ColoredTypography} {
+          ${Typography} {
             color: ${theme.colors[`${getVariantColorName(variant)}700`]};
           }
           svg {
@@ -127,7 +125,7 @@ export const getVariantStyle = ({ theme, variant }: { theme: DefaultTheme; varia
       return `
           border: 1px solid ${theme.colors.neutral200};
           background: ${theme.colors.neutral0};
-          ${ColoredTypography} {
+          ${Typography} {
             color: ${theme.colors.neutral800};
           }
           svg {
@@ -142,7 +140,7 @@ export const getVariantStyle = ({ theme, variant }: { theme: DefaultTheme; varia
         border: 1px solid transparent;
         background: transparent;
 
-        ${ColoredTypography} {
+        ${Typography} {
           color: ${theme.colors.neutral800};
         }
 
@@ -158,7 +156,7 @@ export const getVariantStyle = ({ theme, variant }: { theme: DefaultTheme; varia
       return `
           border: 1px solid ${theme.colors[`${getVariantColorName(variant)}600`]};
           background: ${theme.colors[`${getVariantColorName(variant)}600`]};
-          ${ColoredTypography} {
+          ${Typography} {
             color: ${theme.colors.neutral0};
           }
         `;

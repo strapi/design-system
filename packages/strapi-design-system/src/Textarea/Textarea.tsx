@@ -38,7 +38,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   },
 );
 
-const Wrapper = styled(Box)<{ hasError: boolean }>`
+const Wrapper = styled(Box)`
   ${inputFocusStyle()}
 `;
 

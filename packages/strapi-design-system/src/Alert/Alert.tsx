@@ -6,15 +6,15 @@ import styled from 'styled-components';
 import { handleBackgroundColor, handleBorderColor, handleIconColor } from './utils';
 import { Box, BoxProps } from '../Box';
 import { Flex } from '../Flex';
-import { buttonFocusStyle } from '../themes/utils';
+import { focus } from '../styles/buttons';
 import { Typography } from '../Typography';
 import { AccessibleIcon } from '../utilities/AccessibleIcon';
 
 const CloseButton = styled(Box)`
-  ${buttonFocusStyle};
+  ${focus};
 `;
 
-const AlertIconWrapper = styled(Flex)<{ variant: AlertVariant }>`
+const AlertIconWrapper = styled(Flex)<{ $variant: AlertVariant }>`
   svg {
     height: 100%;
     width: 100%;
@@ -41,7 +41,7 @@ const AlertIcon = ({ variant, ...props }: AlertIconProps) => {
   return <Information {...props} />;
 };
 
-const ActionBox = styled(Box)<{ variant: AlertVariant }>`
+const ActionBox = styled(Box)<{ $variant: AlertVariant }>`
   & a > span {
     color: ${handleIconColor};
   }
@@ -77,7 +77,7 @@ export interface AlertProps extends BoxProps {
   /**
    * Changes the element, as which a component will render (similar to styled-components).
    */
-  titleAs?: string | React.ComponentType<any>;
+  titleAs?: React.ElementType;
   /**
    * `Alert` color variant.
    */
@@ -99,15 +99,14 @@ export const Alert = ({
       alignItems="flex-start"
       background={handleBackgroundColor(variant)}
       borderColor={handleBorderColor(variant)}
-      boxShadow="filterShadow"
+      shadow="filterShadow"
       gap={3}
       hasRadius
       padding={5}
       paddingRight={6}
-      variant={variant}
       {...props}
     >
-      <AlertIconWrapper height="2rem" shrink={0} variant={variant} width="2rem">
+      <AlertIconWrapper height="2rem" shrink={0} $variant={variant} width="2rem">
         <AlertIcon aria-hidden variant={variant} />
       </AlertIconWrapper>
 
@@ -119,16 +118,16 @@ export const Alert = ({
         width="100%"
       >
         {title && (
-          <Typography fontWeight="bold" textColor="neutral800" as={titleAs}>
+          <Typography fontWeight="bold" textColor="neutral800" tag={titleAs}>
             {title}
           </Typography>
         )}
 
-        <Typography as="p" textColor="neutral800">
+        <Typography tag="p" textColor="neutral800">
           {children}
         </Typography>
 
-        {action && <ActionBox variant={variant}>{action}</ActionBox>}
+        {action && <ActionBox $variant={variant}>{action}</ActionBox>}
       </Flex>
 
       <CloseButton

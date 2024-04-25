@@ -14,7 +14,7 @@ export interface CheckboxInputProps {
   size: BaseCheckboxSize;
 }
 
-const CheckboxInput = styled.input<{ size: BaseCheckboxSize }>`
+const CheckboxInput = styled.input`
   height: ${getCheckboxSize};
   min-width: ${getCheckboxSize};
   margin: 0;

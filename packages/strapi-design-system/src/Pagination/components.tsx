@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { usePagination } from './PaginationContext';
 import { BaseLink, BaseLinkProps } from '../BaseLink';
 import { Box, BoxProps } from '../Box';
-import { buttonFocusStyle } from '../themes/utils';
+import { focus } from '../styles/buttons';
 import { Typography } from '../Typography';
 import { VisuallyHidden } from '../VisuallyHidden';
 
@@ -25,15 +25,15 @@ const transientProps = {
 };
 
 const LinkWrapper = styled(BaseLink).withConfig({
-  shouldForwardProp: (prop) => !transientProps[prop],
-})<PaginationLinkProps>`
+  shouldForwardProp: (prop, defPropValFN) => !transientProps[prop] && defPropValFN(prop),
+})`
   padding: ${({ theme }) => theme.spaces[3]};
   border-radius: ${({ theme }) => theme.borderRadius};
   box-shadow: ${({ active, theme }) => (active ? theme.shadows.filterShadow : undefined)};
   text-decoration: none;
   display: flex;
 
-  ${buttonFocusStyle}
+  ${focus}
 `;
 
 const PageLinkWrapper = styled(LinkWrapper)<PaginationLinkProps>`

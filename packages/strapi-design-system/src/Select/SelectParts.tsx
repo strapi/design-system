@@ -224,8 +224,6 @@ const itemStyles = css`
   }
 `;
 
-const SelectItemTypography = styled(Typography)``;
-
 const StyledSelectItem = styled(Select.Item)`
   ${itemStyles}
 
@@ -234,7 +232,7 @@ const StyledSelectItem = styled(Select.Item)`
   }
 
   &[data-state='checked'] {
-    ${SelectItemTypography} {
+    ${Typography} {
       font-weight: bold;
       color: ${({ theme }) => theme.colors.primary600};
     }

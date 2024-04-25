@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { jsonParseLinter, json } from '@codemirror/lang-json';
-import { ViewUpdate } from '@codemirror/view';
+import type { ViewUpdate } from '@codemirror/view';
 import { useCodeMirror, ReactCodeMirrorRef, ReactCodeMirrorProps } from '@uiw/react-codemirror';
 import styled from 'styled-components';
 

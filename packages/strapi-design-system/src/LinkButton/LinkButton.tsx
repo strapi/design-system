@@ -2,11 +2,11 @@ import * as React from 'react';
 
 import styled from 'styled-components';
 
-import { BaseButtonWrapper, BaseButtonProps } from '../BaseButton';
 import { BaseLink, BaseLinkProps } from '../BaseLink';
 import { VARIANTS, BUTTON_SIZES } from '../Button/constants';
 import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from '../Button/utils';
 import { Flex } from '../Flex';
+import { focus } from '../styles/buttons';
 import { Typography } from '../Typography';
 
 interface SharedLinkProps extends BaseLinkProps {
@@ -17,9 +17,15 @@ interface SharedLinkProps extends BaseLinkProps {
   variant?: (typeof VARIANTS)[number];
 }
 
-export type LinkButtonProps = SharedLinkProps & BaseButtonProps;
+export type LinkButtonProps = SharedLinkProps;
 
-const LinkWrapper = styled(BaseButtonWrapper)<{ variant: (typeof VARIANTS)[number] }>`
+const LinkWrapper = styled(Flex)<{ variant: (typeof VARIANTS)[number] }>`
+  ${focus}
+
+  &[aria-disabled='true'] {
+    pointer-events: none;
+  }
+
   text-decoration: none;
 
   &[aria-disabled='true'] {

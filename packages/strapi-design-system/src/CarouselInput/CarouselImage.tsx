@@ -3,8 +3,8 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 import { Box, BoxProps } from '../Box';
+import { ellipsis } from '../styles/type';
 import { Tooltip } from '../Tooltip';
-import { ellipsisStyle } from '../Typography/utils';
 
 export interface CarouselImageProps extends BoxProps<'img'> {
   alt: string;
@@ -12,7 +12,7 @@ export interface CarouselImageProps extends BoxProps<'img'> {
 }
 
 const StyledImage = styled(Box)`
-  ${ellipsisStyle({ ellipsis: true })}
+  ${ellipsis}
 `;
 
 export const CarouselImage = (props: CarouselImageProps) => {

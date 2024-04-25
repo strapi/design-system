@@ -4,7 +4,7 @@ import { Loader } from '@strapi/icons';
 import styled, { keyframes } from 'styled-components';
 
 import { Flex, FlexProps } from '../Flex';
-import { buttonFocusStyle } from '../themes/utils';
+import { focus } from '../styles/buttons';
 import { Typography } from '../Typography';
 
 const rotation = keyframes`
@@ -35,7 +35,7 @@ const TextButtonWrapper = styled(Flex)`
     fill: ${({ theme }) => theme.colors.primary600};
   }
 
-  ${buttonFocusStyle}
+  ${focus}
 `;
 
 export interface TextButtonProps extends FlexProps<'button'> {

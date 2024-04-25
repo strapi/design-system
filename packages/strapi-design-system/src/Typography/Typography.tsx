@@ -2,13 +2,13 @@ import * as React from 'react';
 
 import styled, { CSSProperties, DefaultTheme } from 'styled-components';
 
-import { TEXT_VARIANTS } from './constants';
-import { ellipsisStyle, variantStyle } from './utils';
 import { Box, BoxProps } from '../Box';
 import { extractStyleFromTheme } from '../helpers/theme';
-import { DefaultThemeOrCSSProp } from '../types';
+import { ellipsis, variant, type TEXT_VARIANTS } from '../styles/type';
+import { DefaultThemeOrCSSProp, PolymorphicRef, PropsToTransientProps } from '../types';
+import { forwardRef } from '../utilities/forwardRef';
 
-type TransientTypographyProps = {
+interface TransientTypographyProps {
   ellipsis?: boolean;
   fontSize?: keyof DefaultTheme['fontSizes'];
   fontWeight?: keyof DefaultTheme['fontWeights'];
@@ -18,35 +18,12 @@ type TransientTypographyProps = {
   textDecoration?: CSSProperties['textDecoration'];
   textTransform?: CSSProperties['textTransform'];
   variant?: (typeof TEXT_VARIANTS)[number];
-};
+}
 
-export type TypographyProps<TElement extends keyof JSX.IntrinsicElements = 'span'> = BoxProps<TElement> & {
-  as?: string | React.ComponentType<any>;
-  forwardedAs?: string | React.ComponentType<any>;
-  children?: React.ReactNode;
-} & TransientTypographyProps;
+type TypographyProps<C extends React.ElementType = 'span'> = BoxProps<C> & TransientTypographyProps;
 
-type StyledTypographyProps = Omit<TypographyProps, keyof TransientTypographyProps> & {
-  [key in keyof TransientTypographyProps as `$${key}`]: TransientTypographyProps[key];
-};
-
-export const StyledTypography = styled(Box)<StyledTypographyProps>`
-  ${variantStyle}
-  ${ellipsisStyle}
-
-  // These properties need to come after {variantStyle}, because they might
-  // overwrite a variant attribute
-  font-weight: ${({ theme, $fontWeight }) => extractStyleFromTheme(theme.fontWeights, $fontWeight, undefined)};
-  font-size: ${({ theme, $fontSize }) => extractStyleFromTheme(theme.fontSizes, $fontSize, undefined)};
-  line-height: ${({ theme, $lineHeight }) => extractStyleFromTheme(theme.lineHeights, $lineHeight, $lineHeight)};
-  color: ${({ theme, $textColor }) => theme.colors[$textColor || 'neutral800']};
-  text-align: ${({ $textAlign }) => $textAlign};
-  text-decoration: ${({ $textDecoration }) => $textDecoration};
-  text-transform: ${({ $textTransform }) => $textTransform};
-`;
-
-export const Typography = React.forwardRef(
-  <T extends keyof JSX.IntrinsicElements, R>(props: TypographyProps<T>, ref: React.ForwardedRef<R>) => {
+const Typography = forwardRef(
+  <C extends React.ElementType = 'span'>(props: TypographyProps<C>, ref: PolymorphicRef<C>) => {
     const {
       ellipsis,
       fontSize,
@@ -59,7 +36,8 @@ export const Typography = React.forwardRef(
       variant,
       ...rest
     } = props;
-    const mappedProps = {
+
+    const mappedProps: PropsToTransientProps<TransientTypographyProps> = {
       $ellipsis: ellipsis,
       $fontSize: fontSize,
       $fontWeight: fontWeight,
@@ -69,9 +47,28 @@ export const Typography = React.forwardRef(
       $textDecoration: textDecoration,
       $textTransform: textTransform,
       $variant: variant,
-      ...rest,
     };
 
-    return <StyledTypography ref={ref} {...mappedProps} />;
+    return <StyledTypography ref={ref} as="span" {...mappedProps} {...rest} />;
   },
 );
+
+type TypographyComponent<C extends React.ElementType = 'div'> = typeof Typography<C>;
+
+const StyledTypography = styled(Box)<PropsToTransientProps<TransientTypographyProps>>`
+  ${variant}
+  ${({ $ellipsis }) => ($ellipsis ? ellipsis : '')}
+
+  // These properties need to come after {variantStyle}, because they might
+  // overwrite a variant attribute
+  font-weight: ${({ theme, $fontWeight }) => extractStyleFromTheme(theme.fontWeights, $fontWeight, undefined)};
+  font-size: ${({ theme, $fontSize }) => extractStyleFromTheme(theme.fontSizes, $fontSize, undefined)};
+  line-height: ${({ theme, $lineHeight }) => extractStyleFromTheme(theme.lineHeights, $lineHeight, $lineHeight)};
+  color: ${({ theme, $textColor }) => theme.colors[$textColor || 'neutral800']};
+  text-align: ${({ $textAlign }) => $textAlign};
+  text-decoration: ${({ $textDecoration }) => $textDecoration};
+  text-transform: ${({ $textTransform }) => $textTransform};
+`;
+
+export { Typography };
+export type { TypographyProps, TypographyComponent, TransientTypographyProps };

@@ -87,9 +87,29 @@ return (
 
 `ToggleInput` has been renamed to just `Toggle`.
 
-```ts
+```diff
 - import { ToggleInput } from '@strapi/design-system'
 + import { Toggle } from '@strapi/design-system'
+```
+
+### Box, Flex & Typography are now all react components
+
+These components are no longer styled-components. This means that users can not directly reference them in other styled
+components:
+
+```diff
+- const StyledComponent = styled.section`
+-  ${Box} {
+-    background-color: red;
+-  }
+- `;
++ const MyBox = styled(Box)``;
++
++ const StyledComponent = styled.section`
++   ${MyBox} {
++     background-color: red;
++   }
++ `;
 ```
 
 ---

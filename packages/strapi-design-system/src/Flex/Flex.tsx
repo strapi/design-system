@@ -4,8 +4,10 @@ import styled, { CSSProperties } from 'styled-components';
 
 import { Box, BoxProps } from '../Box';
 import handleResponsiveValues, { ResponsiveValue } from '../helpers/handleResponsiveValues';
+import { PolymorphicRef, PropsToTransientProps } from '../types';
+import { forwardRef } from '../utilities/forwardRef';
 
-type FlexTransientProps = {
+interface TransientFlexProps {
   alignItems?: CSSProperties['alignItems'];
   direction?: CSSProperties['flexDirection'];
   /**
@@ -15,15 +17,27 @@ type FlexTransientProps = {
   inline?: boolean;
   justifyContent?: CSSProperties['justifyContent'];
   wrap?: CSSProperties['flexWrap'];
-};
+}
 
-export type FlexProps<TElement extends keyof JSX.IntrinsicElements = 'div'> = BoxProps<TElement> & FlexTransientProps;
+type FlexProps<C extends React.ElementType = 'div'> = BoxProps<C> & TransientFlexProps;
 
-export type StyledFlexProps = Omit<FlexProps, keyof FlexTransientProps> & {
-  [key in keyof FlexTransientProps as `$${key}`]: FlexTransientProps[key];
-};
+const Flex = forwardRef(<C extends React.ElementType = 'div'>(props: FlexProps<C>, ref: PolymorphicRef<C>) => {
+  const { className, alignItems, direction, gap, inline, justifyContent, wrap, ...rest } = props;
+  const mappedProps = {
+    $alignItems: alignItems,
+    $direction: direction,
+    $gap: gap,
+    $inline: inline,
+    $justifyContent: justifyContent,
+    $wrap: wrap,
+  };
 
-export const StyledFlex = styled(Box)<StyledFlexProps>`
+  return <StyledFlex className={className} ref={ref} {...mappedProps} {...rest} />;
+});
+
+type FlexComponent<C extends React.ElementType = 'div'> = typeof Flex<C>;
+
+const StyledFlex = styled(Box)<PropsToTransientProps<TransientFlexProps>>`
   align-items: ${({ $alignItems = 'center' }) => $alignItems};
   display: ${({ display = 'flex', $inline }) => ($inline ? 'inline-flex' : display)};
   flex-direction: ${({ $direction = 'row' }) => $direction};
@@ -33,18 +47,5 @@ export const StyledFlex = styled(Box)<StyledFlexProps>`
   justify-content: ${({ $justifyContent }) => $justifyContent};
 `;
 
-export const Flex = React.forwardRef(
-  <T extends keyof JSX.IntrinsicElements, R>(props: FlexProps<T>, ref: React.ForwardedRef<R>) => {
-    const { alignItems, direction, gap, inline, justifyContent, wrap, ...rest } = props;
-    const mappedProps = {
-      $alignItems: alignItems,
-      $direction: direction,
-      $gap: gap,
-      $inline: inline,
-      $justifyContent: justifyContent,
-      $wrap: wrap,
-    };
-
-    return <StyledFlex ref={ref} {...mappedProps} {...rest} />;
-  },
-);
+export { Flex };
+export type { FlexComponent, FlexProps, TransientFlexProps };
