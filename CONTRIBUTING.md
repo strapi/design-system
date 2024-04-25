@@ -13,7 +13,7 @@ making a pull request that may not align with the project roadmap.
 
 **Before submitting your pull request** make sure the following requirements are fulfilled:
 
-- Fork the repository and create your new branch from `main`.
+- Fork the repository and create your new branch from `develop`.
 - Run `yarn` in the root of the repository.
 - If you've fixed a bug or added code that should be tested, please make sure to add tests
 - Ensure the following test suites are passing:
@@ -45,18 +45,6 @@ yarn develop
 ```
 
 Storybook will be running on `localhost:6006` for you to test your changes to components or their documentation.
-
-### 4. Start the website for documentation changes (optional)
-
-Start the DS website to test your changes on the design-system website, not all changes would require this step.
-
-```bash
-cd website
-yarn
-yarn dev
-```
-
-**Awesome! You are now able to contribute to Strapi Design System.**
 
 ---
 
@@ -109,7 +97,7 @@ Use `kebab-case` to name your branches: `prefix/branch-name-something`
 
 - `fix`: When fixing an issue: `fix/some-bug`
 - `chore`: When doing some cleanup, working on tooling, some refactoring: `chore/update-dependencies`
-- `doc`: When writing documentation: `doc/documentation-subject`
+- `docs`: When writing documentation: `doc/documentation-subject`
 - `feature`: When you are working on a feature. Start by creating a `feature/name-of-feature` branch & create tasks branches with the feature name as prefix:
   - `feature/i18n` is the main feature branch
   - `i18n/init-plugin` is a task for this feature
@@ -118,7 +106,7 @@ The most important thing to remember is to make your intention explicit. Try to 
 
 ## Pull Requests
 
-New pull requests should be done either against `main` or against the related feature branch (see [Git Conventions](#branches)). You can reference the Jira task ID in the Pull Request description.
+New pull requests should be done either against `develop` or against the related feature branch (see [Git Conventions](#branches)). You can reference the Jira task ID in the Pull Request description.
 
 If your pull request is against `main` don't forget to add it to the relevant milestone. If you are not sure which one to select, use the one for the next release.
 

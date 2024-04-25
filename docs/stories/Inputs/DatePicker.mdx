@@ -14,8 +14,9 @@ import * as DatePickerStories from './DatePicker.stories';
 
 ## Overview
 
-A `DatePicker` is used to select a date. The input is modelled around the [`Combobox`](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Combobox) ARIA pattern with a `dialog`
-Calendar that can be navigated via keyboard arrows
+A `DatePicker` is used to select a date. The input is modelled around the
+[`Combobox`](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Combobox) ARIA pattern
+with a `dialog` Calendar that can be navigated via keyboard arrows
 [View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/DatePicker)
 
 ## Usage
@@ -34,7 +35,8 @@ import { DatePicker } from '@strapi/design-system';
 
 ### Basic Usage
 
-By default, the DatePicker is localised to the user's browser locale whilst the calendar's initial date is set to `today`.
+By default, the DatePicker is localised to the user's browser locale whilst the calendar's initial date is set to
+`today`.
 
 <Canvas of={DatePickerStories.Base} />
 
@@ -44,8 +46,8 @@ By default, the DatePicker is localised to the user's browser locale whilst the 
 
 ### Min/Max date
 
-It's also possible to cap the date range that can be selected. If you don't supply an intial date when using the
-min/max date props and `today` is outside of the date range it automatically sets to the minimum date.
+It's also possible to cap the date range that can be selected. If you don't supply an intial date when using the min/max
+date props and `today` is outside of the date range it automatically sets to the minimum date.
 
 <Canvas of={DatePickerStories.MinMaxDate} />
 
@@ -63,6 +65,8 @@ As with most inputs, we offer the ability to change the `size`.
 
 ### DatePicker field
 
-DatePicker wrapped with [`Field`](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Field) component to create a powerful complete form input
+DatePicker wrapped with
+[`Field`](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Field) component to create
+a powerful complete form input
 
 <Canvas of={DatePickerStories.WithField} />

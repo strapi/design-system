@@ -40,7 +40,7 @@ export const Base = {
         <CardAction position="end">
           <IconButton label="Edit the thing" icon={<Pencil />} />
         </CardAction>
-        <CardAsset src={'/first.jpg'} />
+        <CardAsset src={'/stories/carousel/first.jpg'} />
         <CardTimer>05:39</CardTimer>
       </CardHeader>
       <CardBody>
@@ -66,7 +66,7 @@ export const WithoutAssetAction = {
     >
       <CardHeader>
         <CardCheckbox value />
-        <CardAsset src={'/first.jpg'} />
+        <CardAsset src={'/stories/carousel/first.jpg'} />
         <CardTimer>05:39</CardTimer>
       </CardHeader>
       <CardBody>
@@ -120,7 +120,7 @@ export const WithoutAssetActionNorTimer = {
     >
       <CardHeader>
         <CardCheckbox value />
-        <CardAsset src={'/first.jpg'} />
+        <CardAsset src={'/stories/carousel/first.jpg'} />
       </CardHeader>
       <CardBody>
         <CardContent>

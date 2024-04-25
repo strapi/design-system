@@ -1,18 +1,19 @@
-import { Title, Meta, Subtitle } from '@storybook/blocks';
+import { Meta } from '@storybook/blocks';
 
 <Meta title="Foundations/Icons/Overview" parameters={{ viewMode: 'docs' }} />
 
-<Title>Overview</Title>
+# Overview
 
 Icons are stored in the design-system as `svgs` in two categories:
 
 - `icons` – those that can & should be customised
-- `symbols` – those that should not be customised, these will likely have `fill` & `stroke` applied to the specific path.
+- `symbols` – those that should not be customised, these will likely have `fill` & `stroke` applied to the specific
+  path.
 
-They're then converted to React components using [SVGR](https://react-svgr.com/). This step is done automatically when building
-the package.
+They're then converted to React components using [`SVGR`](https://react-svgr.com/). This step is done automatically when
+building the package.
 
-<Subtitle>Icon Template</Subtitle>
+## Icon Template
 
 All the icon components regardless of which folder they're located in are typed & support forwarding refs if required:
 
@@ -34,7 +35,7 @@ const ForwardRef = forwardRef(CaretDown);
 export default ForwardRef;
 ```
 
-<Subtitle>Adding new icons</Subtitle>
+## Adding new icons
 
 It's important when exporting an icon that they are designed "correctly" i.e. contained within a 32x32px bounding box,
 this ensures all our icons are uniform and scale similarly across the application when used. Typically, icons come from
@@ -60,7 +61,8 @@ This svg then becomes:
 </svg>
 ```
 
-If figma exports a `clipPath` element, consult whether it's necessary for the icon to function correctly. If it's not, remove it:
+If figma exports a `clipPath` element, consult whether it's necessary for the icon to function correctly. If it's not,
+remove it:
 
 ```xml
 // Before
@@ -81,5 +83,5 @@ If figma exports a `clipPath` element, consult whether it's necessary for the ic
 </svg>
 ```
 
-If you're adding an icon that shouldn't be customised i.e. a symbol, add it to the corresponding folder following the same steps as above,
-except omit removing fill values from `path` elements.
+If you're adding an icon that shouldn't be customised i.e. a symbol, add it to the corresponding folder following the
+same steps as above, except omit removing fill values from `path` elements.

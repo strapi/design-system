@@ -1,14 +1,15 @@
-import { Canvas, Meta, Title, Subtitle, Controls } from '@storybook/blocks';
+import { Canvas, Meta, Controls } from '@storybook/blocks';
 
 import * as SymbolsStories from './Symbols.stories';
 
 <Meta of={SymbolsStories} name="Docs" />
 
-<Title>Symbols</Title>
+# Symbols
 
-Symbols are a lot stricter, they have pre-set colors and should only have their `width` and `height` set to accomodate the design you're trying to achieve.
+Symbols are a lot stricter, they have pre-set colors and should only have their `width` and `height` set to accomodate
+the design you're trying to achieve.
 
-<Subtitle>Usage</Subtitle>
+## Usage
 
 ```tsx
 import { SYMBOL_NAME } from '@strapi/icons/symbol';
@@ -18,7 +19,7 @@ const MyComponent = () => {
 };
 ```
 
-<Subtitle>All Symbols</Subtitle>
+## All Symbols
 
 Click on a symbol to copy it's import statement.
 

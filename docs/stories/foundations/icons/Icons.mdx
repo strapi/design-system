@@ -1,16 +1,16 @@
-import { Canvas, Meta, Title, Subtitle, Controls } from '@storybook/blocks';
+import { Canvas, Meta, Controls } from '@storybook/blocks';
 
 import * as IconsStories from './Icons.stories';
 
 <Meta of={IconsStories} name="Docs" />
 
-<Title>Icons</Title>
+# Icons
 
 They by default, do not have a `width` or `height` set, but the default viewBox is set to `0 0 32 32` which means they
 will scale to fit the parent container whatever that may be. The default `fill` is `currentColor` meaning they will
 inherit the `color` of the parent container. It's not advised to overwrite the `viewBox` property.
 
-<Subtitle>Usage</Subtitle>
+## Usage
 
 ```tsx
 import { ICON_NAME } from '@strapi/icons';
@@ -20,9 +20,10 @@ const MyComponent = () => {
 };
 ```
 
-All `SVGProps` are accepted with `fill` & `stroke` being enhanced to support either theme colors or regular string values as expected.
+All `SVGProps` are accepted with `fill` & `stroke` being enhanced to support either theme colors or regular string
+values as expected.
 
-<Subtitle>All Icons</Subtitle>
+## All Icons
 
 Click on an icon to copy it's import statement.
 

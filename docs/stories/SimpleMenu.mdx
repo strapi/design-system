@@ -7,10 +7,10 @@ import * as SimpleMenuStories from './SimpleMenu.stories';
 
 # SimpleMenu
 
-Displays a menu to the user – typically a list of actions or functions which is triggered
-by a `button`. This menu is built on top of the [RadixUI Dropdown Menu](https://www.radix-ui.com/docs/primitives/components/dropdown-menu)
-component. This component exports an easy to use `SimpleMenu` component but if you need
-more fine-grained control you can use it's styled primitives countpart `Menu`.
+Displays a menu to the user – typically a list of actions or functions which is triggered by a `button`. This menu is
+built on top of the [RadixUI Dropdown Menu](https://www.radix-ui.com/docs/primitives/components/dropdown-menu)
+component. This component exports an easy to use `SimpleMenu` component but if you need more fine-grained control you
+can use it's styled primitives countpart `Menu`.
 
 [View source](https://github.com/strapi/design-system-experiments/tree/main/packages/strapi-design-system/src/SimpleMenu)
 
@@ -26,21 +26,21 @@ import { SimpleMenu, MenuItem } from '@strapi/design-system';
 
 ### With Icon
 
-In situatuions where you'd rather have an icon e.g. a notification system you can use
-the `as` prop to pass a custom component. In the following example, we supply the `IconButton`
-component. However, for accessibility you should still pass a label.
+In situatuions where you'd rather have an icon e.g. a notification system you can use the `as` prop to pass a custom
+component. In the following example, we supply the `IconButton` component. However, for accessibility you should still
+pass a label.
 
 <Canvas of={SimpleMenuStories.WithIcons} />
 
 ### Using Links & Routing Libraries
 
-By default you can define links in your menu by providing either the `isLink` or `isExternal` prop, the former infers
-an internal link so specific defaults may be different to what you expect.
+By default you can define links in your menu by providing either the `isLink` or `isExternal` prop, the former infers an
+internal link so specific defaults may be different to what you expect.
 
 <Canvas of={SimpleMenuStories.WithLinks} />
 
-If you're using a framework e.g. `react-router-dom` or `nextjs` you'll probably want to use their `Link` component as
-a base. This is completely possible by using the `as` prop:
+If you're using a framework e.g. `react-router-dom` or `nextjs` you'll probably want to use their `Link` component as a
+base. This is completely possible by using the `as` prop:
 
 ```jsx
 import { SimpleMenu, MenuItem } from '@strapi/design-system';
@@ -65,9 +65,9 @@ const MyMenu = () => {
 
 ### Nested Menus & Labels
 
-In some circumstances you'll want to create a more complex menu, this could be to section items with a label or to
-add a submenu. Both of these are possible with the `Menu` component collection, note we do not export the submenu or
-label feature separately like we do `SimpleMenu` and `MenuItem`, however the two work together perfectly.
+In some circumstances you'll want to create a more complex menu, this could be to section items with a label or to add a
+submenu. Both of these are possible with the `Menu` component collection, note we do not export the submenu or label
+feature separately like we do `SimpleMenu` and `MenuItem`, however the two work together perfectly.
 
 <Canvas of={SimpleMenuStories.NestedMenu} />
 

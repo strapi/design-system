@@ -1,17 +1,6 @@
 {
   "root": true,
   "extends": ["@strapi/eslint-config/front/typescript"],
-  "parserOptions": {
-    "project": ["./tsconfig.eslint.json"]
-  },
-  "settings": {
-    "import/resolver": {
-      "typescript": {
-        "project": "./tsconfig.eslint.json"
-      }
-    }
-  },
-  "ignorePatterns": ["**/*.mdx/*.{ts,tsx}"],
   "overrides": [
     {
       "files": ["*.stories.tsx"],
@@ -23,21 +12,19 @@
           "error",
           {
             "selector": "ImportDeclaration[source.value='react'][specifiers.0.type='ImportDefaultSpecifier']",
-            "message": "Default React import not allowed"
-          }
-        ]
-      }
+            "message": "Default React import not allowed",
+          },
+        ],
+      },
     },
     {
       "files": ["*.mdx"],
       "extends": ["plugin:mdx/recommended"],
       "rules": {
+        "react/jsx-no-undef": "off",
         "import/namespace": "off",
-        "@typescript-eslint/no-unused-vars": "error"
-      }
-    }
+        "@typescript-eslint/no-unused-vars": "error",
+      },
+    },
   ],
-  "rules": {
-    "import/no-unresolved": "off"
-  }
 }

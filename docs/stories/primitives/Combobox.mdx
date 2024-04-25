@@ -7,8 +7,8 @@ import * as ComboboxStories from './Combobox.stories';
 
 # Combobox
 
-Displays a list of options for the user to pick from—triggered by an input or button. <br />
-Alternatively, can be typed into to filter the list of options and set an option assuming a match.
+Displays a list of options for the user to pick from—triggered by an input or button. <br /> Alternatively, can be typed
+into to filter the list of options and set an option assuming a match.
 
 ## Usage
 
@@ -22,8 +22,8 @@ import { Combobox } from '@strapi/ui-primitives';
 
 ### With List Autocomplete
 
-Default `autocomplete="list"` filters text by matching starting character, recently we have introduced filter by options `startsWith`,`contains`,
-so we can also say `autocomplete={{type: 'list', filter: 'startsWith'}}`
+Default `autocomplete="list"` filters text by matching starting character, recently we have introduced filter by options
+`startsWith`,`contains`, so we can also say `autocomplete={{type: 'list', filter: 'startsWith'}}`
 
 <Canvas of={ComboboxStories.ListAutocomplete} />
 
@@ -35,7 +35,8 @@ To filter list by substring value we have `autocomplete={{type: 'list', filter: 
 
 ### With Both Autocomplete
 
-For `autocomplete = "both"`, only default filter is available `autocomplete={{type: 'both', filter: 'startsWith'}}`, filter by `contains` is not supported.
+For `autocomplete = "both"`, only default filter is available `autocomplete={{type: 'both', filter: 'startsWith'}}`,
+filter by `contains` is not supported.
 
 NOTE! If you opt to control the `textValue` yourself whilst using `autocomplete === "both"` e.g. to add a clear button,
 then you will also need to control the `filterValue` as well.
@@ -44,10 +45,10 @@ then you will also need to control the `filterValue` as well.
 
 ### Create Custom Values
 
-This would include the rendering logic for when to show the `Create new item` however, it's up to you in how
-you decide to handle the rest e.g. selecting that option will set the value accordingly but it will not add
-it as a new option per say because you haven't added it as a `Combobox.Item`, therefore it's advised you listen
-to the `onValueChange` and handle this appropriately.
+This would include the rendering logic for when to show the `Create new item` however, it's up to you in how you decide
+to handle the rest e.g. selecting that option will set the value accordingly but it will not add it as a new option per
+say because you haven't added it as a `Combobox.Item`, therefore it's advised you listen to the `onValueChange` and
+handle this appropriately.
 
 <Canvas of={ComboboxStories.CreateCustomValues} />
 
@@ -151,4 +152,6 @@ and is combined in the following way:
 
 Adheres to the [Combobox WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/)
 
-See the W3C [Combobox with Autocomplete](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-both) example for more information.
+See the W3C
+[Combobox with Autocomplete](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-both)
+example for more information.

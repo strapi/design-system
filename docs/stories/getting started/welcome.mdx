@@ -1,0 +1,58 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Getting Started/Welcome" />
+
+![Design System cover](/getting-started/cover.png)
+
+<div style={{ padding: '1rem' }} />
+
+# Welcome
+
+The Strapi Design System is a collection of standards, foundations, components & hooks to help anyone make Strapi's
+contributions more cohesive and to build plugins more efficiently.
+
+## Our approach
+
+### Consistency
+
+The design-system we provide empowers individuals to build consistent experiences across the Strapi application. This
+cohorent journey creates a more enjoyable experience for our users.
+
+### Composability
+
+Our APIs are designed to be flexible and composable, allowing you to build the experience you want. This is delivered
+within the confines of Strapi's design styles. When adding new ones, think about how we can promote this flexibility
+without complex prop drilling.
+
+## Installation
+
+```sh
+$ yarn add react react-dom @strapi/design-system @strapi/icons styled-components
+
+# or
+
+$ npm i react react-dom @strapi/design-system @strapi/icons styled-components
+
+# or
+
+$ pnpm add react react-dom @strapi/design-system @strapi/icons styled-components
+```
+
+## Getting Started
+
+Wrap your application with the [`DesignSystemProvider`](../?path=/docs/designsystemprovider--docs). You can additionally
+pass a theme and/or locale, although you don't have to as we have default values for both.
+
+```jsx
+import { DesignSystemProvider, lightTheme } from '@strapi/design-system';
+
+function MyApp({ children }) {
+  return (
+    <DesignSystemProvider locale="en-GB" theme={lightTheme}>
+      {children}
+    </DesignSystemProvider>
+  );
+}
+
+export default App;
+```
