@@ -84,7 +84,7 @@ export const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>(
           </SwitchContent>
 
           {visibleLabels && (
-            <Box as="span" aria-hidden paddingLeft={2} color={selected ? 'success600' : 'danger600'}>
+            <Box tag="span" aria-hidden paddingLeft={2} color={selected ? 'success600' : 'danger600'}>
               {selected ? onLabel : offLabel}
             </Box>
           )}

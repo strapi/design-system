@@ -2,7 +2,7 @@ import { ChevronRight, ChevronLeft } from '@strapi/icons';
 import styled from 'styled-components';
 
 import { useMainNav } from './MainNavContext';
-import { Flex, FlexProps } from '../Flex';
+import { Flex, FlexComponent, FlexProps } from '../Flex';
 import { VisuallyHidden } from '../VisuallyHidden';
 
 export interface NavCondenseProps extends FlexProps<'button'> {
@@ -15,14 +15,14 @@ export const NavCondense = ({ children, ...props }: NavCondenseProps) => {
   const Icon = condensed ? ChevronRight : ChevronLeft;
 
   return (
-    <NavCondenseWrapper as="button" condensed={condensed} {...props}>
+    <NavCondenseWrapper tag="button" condensed={condensed} {...props}>
       <Icon aria-hidden fill="neutral600" />
       <VisuallyHidden>{children}</VisuallyHidden>
     </NavCondenseWrapper>
   );
 };
 
-const NavCondenseWrapper = styled(Flex).attrs<FlexProps<'button'>>((props) => ({
+const NavCondenseWrapper = styled<FlexComponent>(Flex).attrs<FlexProps<'button'>>((props) => ({
   justifyContent: 'center',
   ...props,
 }))<{ condensed: boolean }>`

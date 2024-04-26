@@ -3,7 +3,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 import { BaseButton, BaseButtonProps } from '../BaseButton';
-import { Flex } from '../Flex';
+import { Flex, FlexComponent } from '../Flex';
 import { Tooltip } from '../Tooltip';
 import { VisuallyHidden } from '../VisuallyHidden';
 
@@ -93,7 +93,7 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
         onClick={handleClick}
         variant={variant}
       >
-        <VisuallyHidden as="span">{label ?? ariaLabel}</VisuallyHidden>
+        <VisuallyHidden>{label ?? ariaLabel}</VisuallyHidden>
 
         {React.cloneElement((icon || children) as React.ReactElement, {
           'aria-hidden': true,
@@ -147,7 +147,7 @@ const IconButtonWrapper = styled(BaseButton)<Required<Pick<IconButtonProps, 'siz
   }
 `;
 
-export const IconButtonGroup = styled(Flex)`
+export const IconButtonGroup = styled<FlexComponent>(Flex)`
   & span:first-child button {
     border-left: 1px solid ${({ theme }) => theme.colors.neutral200};
     border-radius: ${({ theme }) => `${theme.borderRadius} 0 0 ${theme.borderRadius}`};

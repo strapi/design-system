@@ -7,7 +7,7 @@ import { AccordionSize, AccordionTypography } from './Accordion';
 import { useAccordion } from './AccordionContext';
 import { getBackground } from './utils';
 import { Box } from '../Box';
-import { Flex } from '../Flex';
+import { Flex, FlexComponent } from '../Flex';
 import { TextButton, TextButtonProps } from '../TextButton';
 import { Typography } from '../Typography';
 
@@ -26,7 +26,7 @@ const ToggleButton = styled(TextButton)<{ expanded: boolean }>`
   }
 `;
 
-const FlexWithSize = styled(Flex)<{ expanded: boolean; size: AccordionSize }>`
+const FlexWithSize = styled<FlexComponent>(Flex)<{ expanded: boolean; size: AccordionSize }>`
   min-height: ${({ theme, size }) => theme.sizes.accordions[size]};
   border-radius: ${({ theme, expanded }) =>
     expanded ? `${theme.borderRadius} ${theme.borderRadius} 0 0` : theme.borderRadius};
@@ -113,7 +113,7 @@ export const AccordionToggle = ({
       transform={expanded ? `rotate(180deg)` : undefined}
       data-strapi-dropdown
       aria-hidden
-      as="span"
+      tag="span"
       background={iconColor}
       cursor={disabled ? 'not-allowed' : 'pointer'}
       shrink={0}
@@ -158,7 +158,7 @@ export const AccordionToggle = ({
             <AccordionTypography {...titleProps}>{title}</AccordionTypography>
 
             {description && (
-              <Typography as="p" id={ariaDescriptionId} textColor={descriptionColor}>
+              <Typography tag="p" id={ariaDescriptionId} textColor={descriptionColor}>
                 {description}
               </Typography>
             )}
@@ -168,14 +168,14 @@ export const AccordionToggle = ({
         {togglePosition === 'right' && (
           <Flex gap={3}>
             {dropdownIcon}
-            <Box as="span" onClick={stopPropagation}>
+            <Box tag="span" onClick={stopPropagation}>
               {action}
             </Box>
           </Flex>
         )}
 
         {togglePosition === 'left' && (
-          <Box as="span" onClick={stopPropagation}>
+          <Box tag="span" onClick={stopPropagation}>
             {action}
           </Box>
         )}

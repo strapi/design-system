@@ -7,7 +7,7 @@ import { Box, BoxComponent } from '../Box';
 import { Flex } from '../Flex';
 import { useId } from '../hooks/useId';
 import { PropsToTransientProps } from '../types';
-import { Typography } from '../Typography';
+import { Typography, TypographyComponent } from '../Typography';
 
 type AccordionSize = 'S' | 'M';
 type AccordionVariant = 'primary' | 'secondary';
@@ -108,7 +108,7 @@ const Accordion = ({
 
 type AccordionWrapperProps = Pick<AccordionProps, 'expanded' | 'disabled' | 'variant' | 'error'>;
 
-const AccordionTypography = styled(Typography)``;
+const AccordionTypography = styled<TypographyComponent>(Typography)``;
 
 const AccordionWrapper = styled<BoxComponent<'div'>>(Box)<PropsToTransientProps<AccordionWrapperProps>>`
   border: ${({ theme, $expanded, $variant, $disabled, $error }) => {

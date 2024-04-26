@@ -4,11 +4,11 @@ import { CaretDown, Cross } from '@strapi/icons';
 import { Select } from '@strapi/ui-primitives';
 import styled, { css } from 'styled-components';
 
-import { Box, BoxProps } from '../Box';
-import { Flex } from '../Flex';
+import { Box, BoxComponent, BoxProps } from '../Box';
+import { Flex, FlexComponent } from '../Flex';
 import { useComposedRefs } from '../hooks/useComposeRefs';
 import { getThemeSize, inputFocusStyle } from '../themes';
-import { Typography, TypographyProps } from '../Typography';
+import { Typography, TypographyComponent, TypographyProps } from '../Typography';
 
 /* -------------------------------------------------------------------------------------------------
  * SelectTrigger
@@ -64,19 +64,19 @@ const SelectTrigger = React.forwardRef<HTMLDivElement, TriggerProps>(
           width="100%"
           {...restProps}
         >
-          <Flex flex="1" as="span" gap={3}>
+          <Flex flex="1" tag="span" gap={3}>
             {/* TODO: make this composable in v2 – <Select.Icon /> */}
             {startIcon && (
-              <Box as="span" aria-hidden>
+              <Box tag="span" aria-hidden>
                 {startIcon}
               </Box>
             )}
             {children}
           </Flex>
-          <Flex as="span" gap={3}>
+          <Flex tag="span" gap={3}>
             {onClear ? (
               <IconBox
-                as="button"
+                tag="button"
                 hasRadius
                 background="transparent"
                 role="button"
@@ -100,7 +100,7 @@ const SelectTrigger = React.forwardRef<HTMLDivElement, TriggerProps>(
   },
 );
 
-const IconBox = styled(Box)`
+const IconBox = styled<BoxComponent<'button'>>(Box)`
   border: none;
 
   svg {
@@ -118,7 +118,7 @@ interface StyledTriggerProps {
   $size: Required<TriggerProps>['size'];
 }
 
-const StyledTrigger = styled(Flex)<StyledTriggerProps>`
+const StyledTrigger = styled<FlexComponent>(Flex)<StyledTriggerProps>`
   border: 1px solid ${({ theme, $hasError }) => ($hasError ? theme.colors.danger600 : theme.colors.neutral200)};
   min-height: ${({ theme, $size }) => getThemeSize('input')({ theme, size: $size })};
 
@@ -160,7 +160,7 @@ const SelectValue = React.forwardRef<HTMLSpanElement, ValueProps>(({ children, p
   </ValueType>
 ));
 
-const ValueType = styled(Typography)`
+const ValueType = styled<TypographyComponent>(Typography)`
   flex: 1;
 `;
 

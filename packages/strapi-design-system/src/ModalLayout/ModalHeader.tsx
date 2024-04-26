@@ -2,7 +2,7 @@ import { Cross } from '@strapi/icons';
 import styled from 'styled-components';
 
 import { useModal } from './ModalContext';
-import { Box } from '../Box';
+import { Box, BoxComponent } from '../Box';
 import { Flex } from '../Flex';
 import { IconButton } from '../IconButton';
 
@@ -11,7 +11,7 @@ interface ModalHeaderProps {
   closeLabel?: string;
 }
 
-const ModalHeaderWrapper = styled(Box)`
+const ModalHeaderWrapper = styled<BoxComponent>(Box)`
   border-radius: ${({ theme }) => theme.borderRadius} ${({ theme }) => theme.borderRadius} 0 0;
   border-bottom: 1px solid ${({ theme }) => theme.colors.neutral150};
 `;

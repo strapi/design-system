@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import styled from 'styled-components';
 
-import { Box } from '../Box';
+import { Box, BoxComponent } from '../Box';
 import { FieldLabelProps } from '../Field';
 import { Flex } from '../Flex';
 import { KeyboardNavigable } from '../KeyboardNavigable';
@@ -44,14 +44,14 @@ const AccordionGroup = ({ children, footer, label, labelAction, error }: Accordi
   );
 };
 
-const AccordionFooter = styled(Box)`
+const AccordionFooter = styled<BoxComponent>(Box)`
   border-bottom: 1px solid ${({ theme }) => theme.colors.neutral200};
   border-right: 1px solid ${({ theme }) => theme.colors.neutral200};
   border-left: 1px solid ${({ theme }) => theme.colors.neutral200};
   border-radius: 0 0 ${({ theme }) => theme.borderRadius} ${({ theme }) => theme.borderRadius};
 `;
 
-const EnhancedGroup = styled(Box)<{ $footer: React.ReactNode }>`
+const EnhancedGroup = styled<BoxComponent>(Box)<{ $footer: React.ReactNode }>`
   & > * {
     & > * {
       border-radius: unset;
@@ -90,7 +90,7 @@ const EnhancedGroup = styled(Box)<{ $footer: React.ReactNode }>`
   `}
 `;
 
-const LabelAction = styled(Box)`
+const LabelAction = styled<BoxComponent>(Box)`
   svg path {
     fill: ${({ theme }) => theme.colors.neutral500};
   }

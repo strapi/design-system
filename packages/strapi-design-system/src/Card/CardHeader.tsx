@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import { Flex, FlexProps } from '../Flex';
+import { Flex, FlexComponent, FlexProps } from '../Flex';
 
-const CardHeaderWrapper = styled(Flex)`
+const CardHeaderWrapper = styled<FlexComponent>(Flex)`
   border-bottom: 1px solid ${({ theme }) => theme.colors.neutral150};
 `;
 

@@ -4,7 +4,7 @@ import { CaretDown, Cross } from '@strapi/icons';
 import { Combobox as ComboboxPrimitive } from '@strapi/ui-primitives';
 import styled from 'styled-components';
 
-import { Box } from '../Box';
+import { Box, BoxComponent } from '../Box';
 import { FieldProps } from '../Field';
 import { Flex } from '../Flex';
 import { stripReactIdOfColon } from '../helpers/strings';
@@ -207,9 +207,9 @@ export const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
         isPrintableCharacter={isPrintableCharacter}
       >
         <Trigger $hasError={Boolean(error)} $size={size} className={className}>
-          <Flex flex="1" as="span" gap={3}>
+          <Flex flex="1" tag="span" gap={3}>
             {startIcon ? (
-              <Box as="span" aria-hidden>
+              <Box tag="span" aria-hidden>
                 {startIcon}
               </Box>
             ) : null}
@@ -222,10 +222,10 @@ export const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
               {...restProps}
             />
           </Flex>
-          <Flex as="span" gap={3}>
+          <Flex tag="span" gap={3}>
             {internalTextValue && onClear ? (
               <IconBox
-                as="button"
+                tag="button"
                 hasRadius
                 background="transparent"
                 type="button"
@@ -279,7 +279,7 @@ export const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
   },
 );
 
-const IconBox = styled(Box)`
+const IconBox = styled<BoxComponent<'button'>>(Box)`
   border: none;
 
   svg {

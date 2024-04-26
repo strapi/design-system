@@ -13,7 +13,7 @@ export const SubNavSections = ({ children, spacing = 2, horizontal = false, ...p
   return (
     <Box paddingTop={2} paddingBottom={4}>
       <Flex
-        as="ol"
+        tag="ol"
         gap={spacing}
         direction={horizontal ? 'row' : 'column'}
         alignItems={horizontal ? 'center' : 'stretch'}

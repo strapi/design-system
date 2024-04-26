@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import styled, { DefaultTheme } from 'styled-components';
 
-import { Box, BoxProps } from '../Box';
+import { Box, BoxComponent, BoxProps } from '../Box';
 import { Flex } from '../Flex';
 import { Typography } from '../Typography';
 
@@ -22,7 +22,7 @@ interface StatusWrapperProps {
   textColor: keyof DefaultTheme['colors'];
 }
 
-const StatusWrapper = styled(Box)<StatusWrapperProps>`
+const StatusWrapper = styled<BoxComponent>(Box)<StatusWrapperProps>`
   ${Typography} {
     color: ${({ theme, textColor }) => theme.colors[textColor]};
   }

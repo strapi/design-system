@@ -3,8 +3,8 @@ import * as React from 'react';
 import { ChevronRight, ChevronLeft } from '@strapi/icons';
 import styled from 'styled-components';
 
-import { Box, BoxProps } from '../Box';
-import { Flex } from '../Flex';
+import { Box, BoxComponent, BoxProps } from '../Box';
+import { Flex, FlexComponent } from '../Flex';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 import { Tooltip } from '../Tooltip';
 import { Typography } from '../Typography';
@@ -22,16 +22,16 @@ export interface CarouselProps extends BoxProps {
   selectedSlide: number;
 }
 
-const CarouselGrid = styled(Box)`
+const CarouselGrid = styled<BoxComponent<'section'>>(Box)`
   grid-template-columns: auto 1fr auto;
   grid-template-areas: 'startAction slides endAction';
 `;
 
-const CarouselSlides = styled(Flex)`
+const CarouselSlides = styled<FlexComponent>(Flex)`
   grid-area: slides;
 `;
 
-const CarouselAction = styled(Box)<{ area: string }>`
+const CarouselAction = styled<BoxComponent<'button'>>(Box)<{ area: string }>`
   grid-area: ${({ area }) => area};
 
   &:focus svg path,
@@ -92,7 +92,7 @@ export const Carousel = React.forwardRef<CarouselElement, CarouselProps>(
       <Box ref={forwardedRef} {...props} onKeyDown={handleKeyDown}>
         <Box padding={2} borderColor="neutral200" hasRadius background="neutral100">
           <CarouselGrid
-            as="section"
+            tag="section"
             aria-roledescription="carousel"
             aria-label={label}
             display="grid"
@@ -100,13 +100,13 @@ export const Carousel = React.forwardRef<CarouselElement, CarouselProps>(
           >
             {childrenArray && childrenArray.length > 1 && (
               <>
-                <CarouselAction as="button" onClick={onPrevious} area="startAction" ref={prevActionRef} type="button">
+                <CarouselAction tag="button" onClick={onPrevious} area="startAction" ref={prevActionRef} type="button">
                   <AccessibleIcon label={previousLabel}>
                     <ChevronLeft width="6px" height="10px" fill="neutral600" />
                   </AccessibleIcon>
                 </CarouselAction>
 
-                <CarouselAction as="button" onClick={onNext} area="endAction" ref={nextActionRef} type="button">
+                <CarouselAction tag="button" onClick={onNext} area="endAction" ref={nextActionRef} type="button">
                   <AccessibleIcon label={nextLabel}>
                     <ChevronRight width="6px" height="10px" fill="neutral600" />
                   </AccessibleIcon>

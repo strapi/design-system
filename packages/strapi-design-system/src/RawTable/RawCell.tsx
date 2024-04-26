@@ -17,7 +17,7 @@ export interface RawTdProps extends BoxProps<'td'> {
 
 export type RawThProps = Omit<RawTdProps, 'as'>;
 
-export const RawTh = (props: RawThProps) => <RawTd {...props} as="th" />;
+export const RawTh = (props: RawThProps) => <RawTd {...props} tag="th" />;
 
 export const RawTd = ({ coords = { col: 0, row: 0 }, as = 'td', ...props }: RawTdProps) => {
   const tdRef = React.useRef<HTMLTableCellElement>(null!);

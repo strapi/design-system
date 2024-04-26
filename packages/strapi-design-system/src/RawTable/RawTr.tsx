@@ -19,7 +19,7 @@ export const RawTr = ({ children, ...props }: RawTrProps) => {
   });
 
   return (
-    <Box as="tr" {...props}>
+    <Box tag="tr" {...props}>
       {childrenClone}
     </Box>
   );

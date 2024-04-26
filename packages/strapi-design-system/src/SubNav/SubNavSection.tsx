@@ -4,11 +4,11 @@ import styled from 'styled-components';
 
 import { SubNavSectionLabel } from './SubNavSectionLabel';
 import { Badge } from '../Badge';
-import { Box } from '../Box';
+import { Box, BoxComponent } from '../Box';
 import { Flex } from '../Flex';
 import { useId } from '../hooks/useId';
 
-const SubNavSectionWrapper = styled(Box)`
+const SubNavSectionWrapper = styled<BoxComponent>(Box)`
   svg {
     height: 0.4rem;
     path {

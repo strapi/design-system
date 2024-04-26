@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import styled from 'styled-components';
 
-import { Flex, FlexProps } from '../Flex';
+import { Flex, FlexComponent, FlexProps } from '../Flex';
 import { focus } from '../styles/buttons';
 
 type BaseButtonProps<C extends React.ElementType = 'button'> = FlexProps<C>;
@@ -31,7 +31,7 @@ const BaseButton = React.forwardRef<HTMLButtonElement, BaseButtonProps>(
 
 BaseButton.displayName = 'BaseButton';
 
-const BaseButtonWrapper = styled(Flex)`
+const BaseButtonWrapper = styled<FlexComponent<'button'>>(Flex)`
   &[aria-disabled='true'] {
     pointer-events: none;
   }

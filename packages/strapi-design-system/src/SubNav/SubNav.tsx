@@ -22,5 +22,5 @@ export interface SubNavProps extends GridProps {
 }
 
 export const SubNav = ({ ariaLabel, ...props }: SubNavProps) => {
-  return <SubNavWrapper aria-label={ariaLabel} as="nav" {...props} />;
+  return <SubNavWrapper aria-label={ariaLabel} tag="nav" {...props} />;
 };

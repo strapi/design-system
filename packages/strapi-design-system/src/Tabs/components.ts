@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-import { Box } from '../Box';
-import { Flex } from '../Flex';
+import { Box, BoxComponent } from '../Box';
+import { Flex, FlexComponent } from '../Flex';
 
 /** Simple variant */
-export const SimpleTabBox = styled(Box)<{ selected?: boolean; hasError?: boolean }>`
+export const SimpleTabBox = styled<BoxComponent>(Box)<{ selected?: boolean; hasError?: boolean }>`
   border-bottom: 2px solid
     ${({ theme, selected, hasError }) => {
       if (selected) {
@@ -20,7 +20,7 @@ export const SimpleTabBox = styled(Box)<{ selected?: boolean; hasError?: boolean
 `;
 
 /** Default variant */
-export const DefaultTabBox = styled(Box)<{ selected?: boolean }>`
+export const DefaultTabBox = styled<BoxComponent>(Box)<{ selected?: boolean }>`
   border-bottom: 1px solid ${({ theme, selected }) => (selected ? theme.colors.neutral0 : theme.colors.neutral150)};
 `;
 
@@ -46,7 +46,7 @@ export const DefaultTabButton = styled.button<{ selected?: boolean; showRightBor
   }
 `;
 
-export const DefaultTabsRow = styled(Flex)`
+export const DefaultTabsRow = styled<FlexComponent>(Flex)`
   & > * {
     flex: 1;
   }

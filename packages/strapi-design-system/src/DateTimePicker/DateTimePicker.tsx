@@ -148,7 +148,7 @@ export const DateTimePicker = React.forwardRef<DatePickerElement, DateTimePicker
 
     return (
       <Flex flex="1" gap={1}>
-        <VisuallyHidden as="label" htmlFor={dateId}>
+        <VisuallyHidden tag="label" htmlFor={dateId}>
           {dateLabel}
         </VisuallyHidden>
         <DatePicker
@@ -164,7 +164,7 @@ export const DateTimePicker = React.forwardRef<DatePickerElement, DateTimePicker
           ref={composedRefs}
           id={dateId}
         />
-        <VisuallyHidden as="label" htmlFor={timeId}>
+        <VisuallyHidden tag="label" htmlFor={timeId}>
           {timeLabel}
         </VisuallyHidden>
         <TimePicker

@@ -2,10 +2,10 @@ import * as React from 'react';
 
 import styled from 'styled-components';
 
-import { Box } from '../Box';
+import { Box, BoxComponent } from '../Box';
 import { Flex, FlexProps } from '../Flex';
 
-const BoxGrow = styled(Box)`
+const BoxGrow = styled<BoxComponent>(Box)`
   flex-grow: 1;
   overflow-y: auto;
 `;
@@ -20,7 +20,7 @@ export const NavSections = ({ children, spacing = 4, horizontal = false, ...prop
   return (
     <BoxGrow paddingLeft={3} paddingRight={2} paddingTop={3} paddingBottom={8}>
       <Flex
-        as="ul"
+        tag="ul"
         gap={spacing}
         direction={horizontal ? 'row' : 'column'}
         alignItems={horizontal ? 'center' : 'stretch'}

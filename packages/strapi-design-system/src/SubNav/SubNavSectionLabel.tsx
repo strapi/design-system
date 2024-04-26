@@ -4,10 +4,10 @@ import { CaretDown } from '@strapi/icons';
 import styled from 'styled-components';
 
 import { Box } from '../Box';
-import { Flex } from '../Flex';
+import { Flex, FlexComponent } from '../Flex';
 import { Typography } from '../Typography';
 
-const SubNavSectionLabelWrapper = styled(Flex)`
+const SubNavSectionLabelWrapper = styled<FlexComponent<'button'>>(Flex)`
   border: none;
   padding: 0;
   background: transparent;
@@ -36,7 +36,7 @@ export const SubNavSectionLabel = ({
   if (collapsable) {
     return (
       <SubNavSectionLabelWrapper
-        as="button"
+        tag="button"
         onClick={onClick}
         aria-expanded={ariaExpanded}
         aria-controls={ariaControls}

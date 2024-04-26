@@ -24,11 +24,11 @@ import { createPortal } from 'react-dom';
 import { RemoveScroll } from 'react-remove-scroll';
 import styled, { DefaultTheme } from 'styled-components';
 
-import { Box, BoxProps } from '../Box';
+import { Box, BoxComponent, BoxProps } from '../Box';
 import { useDesignSystem } from '../DesignSystemProvider';
 import { DismissibleLayer } from '../DismissibleLayer';
 import { type FieldProps } from '../Field';
-import { Flex, FlexProps } from '../Flex';
+import { Flex, FlexComponent, FlexProps } from '../Flex';
 import { createContext } from '../helpers/context';
 import { once } from '../helpers/deprecations';
 import { useComposedRefs } from '../hooks/useComposeRefs';
@@ -289,7 +289,7 @@ const DatePicker = React.forwardRef<DatePickerTextInputElement, DatePickerProps>
           <DatePickerTextInput id={id} ref={ref} placeholder={placeholder} {...restProps} />
           {textValue && onClear ? (
             <IconBox
-              as="button"
+              tag="button"
               hasRadius
               background="transparent"
               type="button"
@@ -444,7 +444,7 @@ const DatePickerTrigger = React.forwardRef<DatePickerTriggerElement, TriggerProp
   },
 );
 
-const TriggerElement = styled(Flex)<{ $hasError: boolean; $size: 'S' | 'M' }>`
+const TriggerElement = styled<FlexComponent>(Flex)<{ $hasError: boolean; $size: 'S' | 'M' }>`
   border: 1px solid ${({ theme, $hasError }) => ($hasError ? theme.colors.danger600 : theme.colors.neutral200)};
   min-height: ${({ theme, $size }) => getThemeSize('input')({ theme, size: $size })};
 
@@ -462,7 +462,7 @@ const TriggerElement = styled(Flex)<{ $hasError: boolean; $size: 'S' | 'M' }>`
   ${({ theme, $hasError }) => inputFocusStyle()({ theme, hasError: $hasError })};
 `;
 
-const IconBox = styled(Box)`
+const IconBox = styled<BoxComponent<'button'>>(Box)`
   border: none;
 
   svg {
@@ -897,7 +897,7 @@ const DatePickerContentImpl = React.forwardRef<DatePickerContentImplElement, Con
   },
 );
 
-const ContentElement = styled(Box)`
+const ContentElement = styled<BoxComponent>(Box)`
   box-shadow: ${({ theme }) => theme.shadows.filterShadow};
   z-index: ${({ theme }) => theme.zIndices[0]};
   border: 1px solid ${({ theme }) => theme.colors.neutral150};
@@ -1082,7 +1082,7 @@ const makeGetDatesInWeek = (from: CalendarDate, locale: string) => (weekIndex: n
   return dates;
 };
 
-const ToolbarFlex = styled(Flex)`
+const ToolbarFlex = styled<FlexComponent>(Flex)`
   div[role='combobox'] {
     border: 1px solid transparent;
     background: transparent;
@@ -1116,7 +1116,7 @@ interface HeaderCellProps extends Omit<BoxProps<'td'>, 'children'> {
 const DatePickerHeaderCell = React.forwardRef<HTMLTableCellElement, HeaderCellProps>(
   ({ children, ...props }, forwardedRef) => {
     return (
-      <Th as="th" role="gridcell" ref={forwardedRef} {...props} height="2.4rem" width="3.2rem">
+      <Th tag="th" role="gridcell" ref={forwardedRef} {...props} height="2.4rem" width="3.2rem">
         <Typography variant="pi" fontWeight="bold" color="neutral800">
           {children.slice(0, 2)}
         </Typography>
@@ -1125,7 +1125,7 @@ const DatePickerHeaderCell = React.forwardRef<HTMLTableCellElement, HeaderCellPr
   },
 );
 
-const Th = styled(Box)`
+const Th = styled<BoxComponent<'th' | 'td'>>(Box)`
   border-radius: ${({ theme }) => theme.borderRadius};
   text-transform: capitalize;
 `;
@@ -1189,7 +1189,7 @@ const DatePickerCalendarCell = React.forwardRef<DatePickerCalendarCellElement, C
 
     return (
       <Cell
-        as="td"
+        tag="td"
         role="gridcell"
         ref={forwardedRef}
         aria-selected={isSelected}
@@ -1216,7 +1216,7 @@ const DatePickerCalendarCell = React.forwardRef<DatePickerCalendarCellElement, C
   },
 );
 
-const Cell = styled(Box)`
+const Cell = styled<BoxComponent<'th' | 'td'>>(Box)`
   text-align: center;
   padding: 0.7rem;
   // Trick to prevent the outline from overflowing because of the general outline-offset

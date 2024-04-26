@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import styled from 'styled-components';
 
-import { Box, BoxProps } from '../Box';
+import { Box, BoxComponent, BoxProps } from '../Box';
 import handleResponsiveValues, { ResponsiveValue } from '../helpers/handleResponsiveValues';
 
 export interface GridProps extends BoxProps {
@@ -10,7 +10,7 @@ export interface GridProps extends BoxProps {
   gap?: ResponsiveValue;
 }
 
-const GridWrapper = styled(Box)<Required<Pick<GridProps, 'gridCols' | 'gap'>>>`
+const GridWrapper = styled<BoxComponent>(Box)<Required<Pick<GridProps, 'gridCols' | 'gap'>>>`
   display: grid;
   grid-template-columns: repeat(${({ gridCols }) => gridCols}, 1fr);
   ${({ theme, gap }) => handleResponsiveValues('gap', gap, theme)}

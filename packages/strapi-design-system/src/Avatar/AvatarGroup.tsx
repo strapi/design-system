@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 import { avatarSize } from './constants';
-import { Flex } from '../Flex';
+import { Flex, FlexComponent } from '../Flex';
 
-export const AvatarGroup = styled(Flex)`
+export const AvatarGroup = styled<FlexComponent>(Flex)`
   & > * + * {
     margin-left: -${avatarSize / 2}px;
   }

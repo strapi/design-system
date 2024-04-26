@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Box, BoxProps } from '../Box';
+import { Box, BoxComponent, BoxProps } from '../Box';
 
 type Enumerate<N extends number, Acc extends number[] = []> = Acc['length'] extends N
   ? Acc[number]
@@ -8,14 +8,16 @@ type Enumerate<N extends number, Acc extends number[] = []> = Acc['length'] exte
 
 type IntRange<F extends number, T extends number> = Exclude<Enumerate<T>, Enumerate<F>>;
 
-export interface ProgressBarProps extends Omit<BoxProps, 'background' | 'hasRadius' | 'height' | 'position' | 'width'> {
+export interface ProgressBarProps
+  extends Omit<BoxProps, 'background' | 'children' | 'hasRadius' | 'height' | 'position' | 'width'> {
+  children?: string;
   max?: IntRange<0, 101>;
   min?: IntRange<0, 101>;
   size?: 'S' | 'M';
   value?: IntRange<0, 101>;
 }
 
-const ProgressbarBase = styled(Box)<Required<Pick<ProgressBarProps, 'value'>>>`
+const ProgressbarBase = styled<BoxComponent>(Box)<Required<Pick<ProgressBarProps, 'value'>>>`
   &:before {
     background-color: ${({ theme }) => theme.colors.neutral0};
     border-radius: ${({ theme }) => theme.borderRadius};

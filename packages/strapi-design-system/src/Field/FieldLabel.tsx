@@ -3,9 +3,9 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 import { useField } from './FieldContext';
-import { Flex } from '../Flex';
+import { Flex, FlexComponent } from '../Flex';
 import { once } from '../helpers/deprecations';
-import { Typography, TypographyProps } from '../Typography';
+import { Typography, TypographyComponent, TypographyProps } from '../Typography';
 
 export interface FieldLabelProps extends TypographyProps<'label'> {
   action?: React.ReactNode;
@@ -36,7 +36,7 @@ export const FieldLabel = React.forwardRef<HTMLLabelElement, FieldLabelProps>(
         textColor="neutral800"
         htmlFor={id}
         fontWeight="bold"
-        as="label"
+        tag="label"
         {...props}
       >
         {children}
@@ -54,16 +54,16 @@ export const FieldLabel = React.forwardRef<HTMLLabelElement, FieldLabelProps>(
  * but also because we don't need to add DOM nesting here when it's
  * easier to just add a new class.
  */
-const TypographyFlex = styled(Typography)`
+const TypographyFlex = styled<TypographyComponent<'label'>>(Typography)`
   display: flex;
   align-items: center;
 `;
 
-const TypographyAsterisk = styled(Typography)`
+const TypographyAsterisk = styled<TypographyComponent>(Typography)`
   line-height: 0;
 `;
 
-const Action = styled(Flex)`
+const Action = styled<FlexComponent>(Flex)`
   line-height: 0;
 
   svg path {

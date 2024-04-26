@@ -7,11 +7,11 @@ import styled, { css, DefaultTheme } from 'styled-components';
 import { BaseLink } from '../BaseLink';
 import { Box, BoxProps } from '../Box';
 import { Button, ButtonProps } from '../Button';
-import { Flex, FlexProps } from '../Flex';
+import { Flex, FlexComponent, FlexProps } from '../Flex';
 import { extractStyleFromTheme } from '../helpers/theme';
 import { Link, LinkProps } from '../Link';
 import { POPOVER_PLACEMENTS } from '../Popover';
-import { Typography, TypographyProps } from '../Typography';
+import { Typography, TypographyComponent, TypographyProps } from '../Typography';
 
 /* -------------------------------------------------------------------------------------------------
  * MenuRoot
@@ -91,7 +91,7 @@ const MenuContent = React.forwardRef<HTMLDivElement, ContentProps>(
   },
 );
 
-const Viewport = styled(Flex)`
+const Viewport = styled<FlexComponent>(Flex)`
   scrollbar-width: none;
   -ms-overflow-style: none;
   -webkit-overflow-scrolling: touch;
@@ -151,22 +151,20 @@ const MenuItem = ({ onSelect, disabled = false, ...props }: ItemProps) => {
   );
 };
 
-const OptionTypography = styled(Typography)``;
-
 const getOptionStyle = ({ theme }: { theme: DefaultTheme }) => css`
   text-align: left;
   width: 100%;
   border-radius: ${theme.borderRadius};
   padding: ${theme.spaces[2]} ${theme.spaces[4]};
 
-  ${OptionTypography} {
+  ${Typography} {
     color: inherit;
   }
 
   &[aria-disabled] {
     cursor: not-allowed;
 
-    ${OptionTypography} {
+    ${Typography} {
       color: ${theme.colors.neutral500};
     }
   }
@@ -184,7 +182,7 @@ const getOptionStyle = ({ theme }: { theme: DefaultTheme }) => css`
   }
 `;
 
-const OptionButton = styled(Flex)`
+const OptionButton = styled<FlexComponent<'button' | 'a'>>(Flex)`
   ${getOptionStyle}
 `;
 
@@ -217,7 +215,7 @@ const MenuLabel = React.forwardRef<HTMLSpanElement, LabelProps>((props, ref) => 
   </DropdownMenu.Label>
 ));
 
-const StyledLabel = styled(Typography)`
+const StyledLabel = styled<TypographyComponent>(Typography)`
   padding: ${({ theme }) => theme.spaces[2]} ${({ theme }) => theme.spaces[4]};
 `;
 
@@ -241,7 +239,7 @@ const MenuSubTrigger = React.forwardRef<HTMLButtonElement, SubTriggerProps>(({ d
       <SubmenuTrigger
         ref={ref}
         color="neutral800"
-        as="button"
+        tag="button"
         type="button"
         background="transparent"
         borderStyle="none"

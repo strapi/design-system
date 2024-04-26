@@ -4,17 +4,17 @@ import { Information, CheckCircle, WarningCircle, Cross } from '@strapi/icons';
 import styled from 'styled-components';
 
 import { handleBackgroundColor, handleBorderColor, handleIconColor } from './utils';
-import { Box, BoxProps } from '../Box';
-import { Flex } from '../Flex';
+import { Box, BoxComponent, BoxProps } from '../Box';
+import { Flex, FlexComponent } from '../Flex';
 import { focus } from '../styles/buttons';
 import { Typography } from '../Typography';
 import { AccessibleIcon } from '../utilities/AccessibleIcon';
 
-const CloseButton = styled(Box)`
+const CloseButton = styled<BoxComponent<'button'>>(Box)`
   ${focus};
 `;
 
-const AlertIconWrapper = styled(Flex)<{ $variant: AlertVariant }>`
+const AlertIconWrapper = styled<FlexComponent>(Flex)<{ $variant: AlertVariant }>`
   svg {
     height: 100%;
     width: 100%;
@@ -41,7 +41,7 @@ const AlertIcon = ({ variant, ...props }: AlertIconProps) => {
   return <Information {...props} />;
 };
 
-const ActionBox = styled(Box)<{ $variant: AlertVariant }>`
+const ActionBox = styled<BoxComponent>(Box)<{ $variant: AlertVariant }>`
   & a > span {
     color: ${handleIconColor};
   }
@@ -131,7 +131,7 @@ export const Alert = ({
       </Flex>
 
       <CloseButton
-        as="button"
+        tag="button"
         background="transparent"
         borderColor={undefined}
         height="1.6rem"

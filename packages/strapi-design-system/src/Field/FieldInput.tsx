@@ -4,7 +4,7 @@ import styled, { css, DefaultTheme } from 'styled-components';
 
 import { useField } from './FieldContext';
 import { Box } from '../Box';
-import { Flex } from '../Flex';
+import { Flex, FlexComponent } from '../Flex';
 import { inputFocusStyle } from '../themes/utils';
 
 // padding-[top|bottom] must ensure, the input matches the height of getThemeSize('input')
@@ -112,7 +112,7 @@ const Input = styled.input<InputProps>`
   }
 `;
 
-export const InputWrapper = styled(Flex)<{ disabled: boolean; hasError: boolean }>`
+export const InputWrapper = styled<FlexComponent>(Flex)<{ disabled: boolean; hasError: boolean }>`
   border: 1px solid ${({ theme, hasError }) => (hasError ? theme.colors.danger600 : theme.colors.neutral200)};
   border-radius: ${({ theme }) => theme.borderRadius};
   background: ${({ theme }) => theme.colors.neutral0};

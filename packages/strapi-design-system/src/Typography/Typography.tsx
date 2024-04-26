@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import styled, { CSSProperties, DefaultTheme } from 'styled-components';
 
-import { Box, BoxProps } from '../Box';
+import { Box, BoxComponent, BoxProps } from '../Box';
 import { extractStyleFromTheme } from '../helpers/theme';
 import { ellipsis, variant, type TEXT_VARIANTS } from '../styles/type';
 import { DefaultThemeOrCSSProp, PolymorphicRef, PropsToTransientProps } from '../types';
@@ -49,13 +49,13 @@ const Typography = forwardRef(
       $variant: variant,
     };
 
-    return <StyledTypography ref={ref} as="span" {...mappedProps} {...rest} />;
+    return <StyledTypography ref={ref} tag="span" {...mappedProps} {...rest} />;
   },
 );
 
-type TypographyComponent<C extends React.ElementType = 'div'> = typeof Typography<C>;
+type TypographyComponent<C extends React.ElementType = 'span'> = typeof Typography<C>;
 
-const StyledTypography = styled(Box)<PropsToTransientProps<TransientTypographyProps>>`
+const StyledTypography = styled<BoxComponent<'span'>>(Box)<PropsToTransientProps<TransientTypographyProps>>`
   ${variant}
   ${({ $ellipsis }) => ($ellipsis ? ellipsis : '')}
 

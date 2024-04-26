@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import styled, { CSSProperties } from 'styled-components';
 
-import { Box, BoxProps } from '../Box';
+import { Box, BoxComponent, BoxProps } from '../Box';
 import handleResponsiveValues, { ResponsiveValue } from '../helpers/handleResponsiveValues';
 import { PolymorphicRef, PropsToTransientProps } from '../types';
 import { forwardRef } from '../utilities/forwardRef';
@@ -37,7 +37,7 @@ const Flex = forwardRef(<C extends React.ElementType = 'div'>(props: FlexProps<C
 
 type FlexComponent<C extends React.ElementType = 'div'> = typeof Flex<C>;
 
-const StyledFlex = styled(Box)<PropsToTransientProps<TransientFlexProps>>`
+const StyledFlex = styled<BoxComponent>(Box)<PropsToTransientProps<TransientFlexProps>>`
   align-items: ${({ $alignItems = 'center' }) => $alignItems};
   display: ${({ display = 'flex', $inline }) => ($inline ? 'inline-flex' : display)};
   flex-direction: ${({ $direction = 'row' }) => $direction};

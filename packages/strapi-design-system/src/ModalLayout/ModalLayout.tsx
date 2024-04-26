@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { ModalContext } from './ModalContext';
 import { Box, BoxProps } from '../Box';
 import { DismissibleLayer } from '../DismissibleLayer';
-import { Flex } from '../Flex';
+import { Flex, FlexComponent } from '../Flex';
 import { FocusTrap } from '../FocusTrap';
 import useLockScroll from '../hooks/useLockScroll';
 import { Portal } from '../Portal';
@@ -13,7 +13,7 @@ export interface ModalLayoutProps extends BoxProps {
   onClose: () => void;
 }
 
-const ModalWrapper = styled(Flex)`
+const ModalWrapper = styled<FlexComponent>(Flex)`
   background: ${({ theme }) => `${theme.colors.neutral800}1F`};
   inset: 0;
 `;

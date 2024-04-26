@@ -9,7 +9,7 @@ export const FieldHint = () => {
   }
 
   return (
-    <Typography variant="pi" as="p" id={`${id}-hint`} textColor="neutral600">
+    <Typography variant="pi" tag="p" id={`${id}-hint`} textColor="neutral600">
       {hint}
     </Typography>
   );

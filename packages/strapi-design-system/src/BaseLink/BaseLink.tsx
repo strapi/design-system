@@ -11,7 +11,7 @@ export const BaseLink = React.forwardRef<HTMLAnchorElement, BaseLinkProps>(
   ({ href, rel = 'noreferrer noopener', target = '_self', disabled = false, isExternal = false, ...props }, ref) => {
     return (
       <Box
-        as="a"
+        tag="a"
         ref={ref}
         target={isExternal ? '_blank' : target}
         rel={isExternal ? rel : undefined}

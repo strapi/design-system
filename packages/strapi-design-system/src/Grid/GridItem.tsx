@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Box, BoxProps } from '../Box';
+import { Box, BoxComponent, BoxProps } from '../Box';
 
 export interface GridItemProps extends BoxProps {
   col?: number;
@@ -8,7 +8,7 @@ export interface GridItemProps extends BoxProps {
   xs?: number;
 }
 
-export const GridItem = styled(Box)<GridItemProps>`
+export const GridItem = styled<BoxComponent>(Box)<GridItemProps>`
   grid-column: span ${({ col }) => col ?? 1};
   max-width: 100%;
 

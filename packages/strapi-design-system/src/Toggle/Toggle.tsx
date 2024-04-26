@@ -4,7 +4,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 import { type FieldProps } from '../Field';
-import { Flex } from '../Flex';
+import { Flex, FlexComponent } from '../Flex';
 import { useControllableState } from '../hooks/useControllableState';
 import { inputFocusStyle } from '../themes';
 import type { InputSizes } from '../themes/sizes';
@@ -117,11 +117,11 @@ const Toggle = React.forwardRef<ToggleInputElement, ToggleProps>(
   },
 );
 
-const ToggleWrapper = styled(Flex)`
+const ToggleWrapper = styled<FlexComponent>(Flex)`
   ${inputFocusStyle()}
 `;
 
-const ToggleOption = styled(Flex)<{ size: InputSizes }>`
+const ToggleOption = styled<FlexComponent>(Flex)<{ size: InputSizes }>`
   /**
     We declare the defined value because we want the height of the input when 
     the values are in a row to be 40px. But defining a height on the label

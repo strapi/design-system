@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Loader } from '@strapi/icons';
 import styled, { keyframes } from 'styled-components';
 
-import { Flex, FlexProps } from '../Flex';
+import { Flex, FlexComponent, FlexProps } from '../Flex';
 import { focus } from '../styles/buttons';
 import { Typography } from '../Typography';
 
@@ -21,7 +21,7 @@ const LoadingWrapper = styled.div`
   will-change: transform;
 `;
 
-const TextButtonWrapper = styled(Flex)`
+const TextButtonWrapper = styled<FlexComponent<'button'>>(Flex)`
   border: none;
 
   &[aria-disabled='true'] {
@@ -54,7 +54,7 @@ export const TextButton = React.forwardRef<HTMLButtonElement, TextButtonProps>(
         ref={ref}
         aria-disabled={isDisabled}
         onClick={handleClick}
-        as="button"
+        tag="button"
         type="button"
         background="transparent"
         gap={2}

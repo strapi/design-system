@@ -6,7 +6,7 @@ import { useMainNav } from './MainNavContext';
 import { Badge } from '../Badge';
 import { BaseLink, BaseLinkProps } from '../BaseLink';
 import { Box } from '../Box';
-import { Flex } from '../Flex';
+import { Flex, FlexComponent } from '../Flex';
 import { Tooltip } from '../Tooltip';
 import { Typography } from '../Typography';
 
@@ -51,7 +51,7 @@ const MainNavLinkWrapper = styled(BaseLink)`
   }
 `;
 
-const MainNavRow = styled(Flex)`
+const MainNavRow = styled<FlexComponent<'span'>>(Flex)`
   padding: ${({ theme }) => `${theme.spaces[2]} ${theme.spaces[3]}`};
 `;
 
@@ -96,8 +96,8 @@ export const NavLink = React.forwardRef<HTMLAnchorElement, NavLinkProps>(
       return (
         <MainNavLinkWrapper ref={ref} {...props}>
           <Tooltip position="right" label={children}>
-            <MainNavRow as="span" justifyContent="center">
-              <Box aria-hidden paddingRight={0} as="span">
+            <MainNavRow tag="span" justifyContent="center">
+              <Box aria-hidden paddingRight={0} tag="span">
                 {icon}
               </Box>
               {badgeContent && (
@@ -113,9 +113,9 @@ export const NavLink = React.forwardRef<HTMLAnchorElement, NavLinkProps>(
 
     return (
       <MainNavLinkWrapper ref={ref} {...props}>
-        <MainNavRow as="span" justifyContent="space-between">
+        <MainNavRow tag="span" justifyContent="space-between">
           <Flex>
-            <Box aria-hidden paddingRight={3} as="span">
+            <Box aria-hidden paddingRight={3} tag="span">
               {icon}
             </Box>
             <Typography>{children}</Typography>

@@ -3,11 +3,11 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 import { BaseLink, BaseLinkProps } from '../BaseLink';
-import { Box } from '../Box';
+import { Box, BoxComponent } from '../Box';
 import { Flex } from '../Flex';
 import { Typography } from '../Typography';
 
-const SubNavLinkWrapper = styled(Box)`
+const SubNavLinkWrapper = styled<BoxComponent>(Box)`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -75,7 +75,7 @@ export const SubNavLink = React.forwardRef<unknown, SubNavLinkProps>(
         <Flex>
           {icon ? <IconWrapper>{icon}</IconWrapper> : <CustomBullet $active={active} />}
           <Box paddingLeft={2}>
-            <Typography as="span">{children}</Typography>
+            <Typography tag="span">{children}</Typography>
           </Box>
         </Flex>
         {withBullet && (

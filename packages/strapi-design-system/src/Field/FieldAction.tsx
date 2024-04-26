@@ -2,10 +2,10 @@ import * as React from 'react';
 
 import styled from 'styled-components';
 
-import { Flex, FlexProps } from '../Flex';
+import { Flex, FlexComponent, FlexProps } from '../Flex';
 import { VisuallyHidden } from '../VisuallyHidden';
 
-const FieldActionWrapper = styled(Flex)`
+const FieldActionWrapper = styled<FlexComponent<'button'>>(Flex)`
   font-size: 1.6rem;
   padding: 0;
 `;
@@ -23,10 +23,10 @@ export const FieldAction = React.forwardRef<HTMLButtonElement, FieldActionProps>
       borderStyle="none"
       type="button"
       {...props}
-      as="button"
+      tag="button"
       ref={ref}
     >
-      <VisuallyHidden as="span">{label}</VisuallyHidden>
+      <VisuallyHidden>{label}</VisuallyHidden>
       {React.cloneElement(children as React.ReactElement, {
         'aria-hidden': true,
         focusable: false, // See: https://allyjs.io/tutorials/focusing-in-svg.html#making-svg-elements-focusable

@@ -2,10 +2,10 @@ import * as React from 'react';
 
 import styled from 'styled-components';
 
-import { Box } from '../Box';
+import { Box, BoxComponent } from '../Box';
 import { RawTable, RawTableProps } from '../RawTable/RawTable';
 
-const TableContainer = styled(Box)`
+const TableContainer = styled<BoxComponent>(Box)`
   overflow: hidden;
   border: 1px solid ${({ theme }) => theme.colors.neutral150};
 `;
@@ -17,7 +17,7 @@ const TableWrapper = styled(RawTable)`
 
 export type Overflowing = 'both' | 'left' | 'right';
 
-const TableBox = styled(Box)<{ overflowing?: Overflowing }>`
+const TableBox = styled<BoxComponent>(Box)<{ overflowing?: Overflowing }>`
   &:before {
     // TODO: make sure to add a token for this weird stuff
     background: linear-gradient(90deg, #c0c0cf 0%, rgba(0, 0, 0, 0) 100%);
@@ -44,7 +44,7 @@ const TableBox = styled(Box)<{ overflowing?: Overflowing }>`
   }
 `;
 
-const ScrollContainer = styled(Box)`
+const ScrollContainer = styled<BoxComponent>(Box)`
   overflow-x: auto;
 `;
 

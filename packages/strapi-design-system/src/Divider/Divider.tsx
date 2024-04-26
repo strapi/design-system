@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Box, BoxProps } from '../Box';
+import { Box, BoxComponent, BoxProps } from '../Box';
 
 export interface DividerProps extends Omit<BoxProps<'hr'>, 'as' | 'background'> {
   /**
@@ -10,7 +10,7 @@ export interface DividerProps extends Omit<BoxProps<'hr'>, 'as' | 'background'> 
   unsetMargin?: boolean;
 }
 
-const DividerWrapper = styled(Box)<DividerProps>`
+const DividerWrapper = styled<BoxComponent>(Box)<DividerProps>`
   height: 1px;
   border: none;
   /* If contained in a Flex parent we want to prevent the Divider to shink */
@@ -19,5 +19,5 @@ const DividerWrapper = styled(Box)<DividerProps>`
 `;
 
 export const Divider = ({ unsetMargin = true, ...props }: DividerProps) => {
-  return <DividerWrapper {...props} background="neutral150" as="hr" unsetMargin={unsetMargin} />;
+  return <DividerWrapper {...props} background="neutral150" tag="hr" unsetMargin={unsetMargin} />;
 };

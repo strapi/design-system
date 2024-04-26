@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-import { Box } from '../Box';
+import { Box, BoxComponent } from '../Box';
 
 export interface SkipToContentProps {
   children?: React.ReactNode;
 }
 
-const AnchorBox = styled(Box)`
+const AnchorBox = styled<BoxComponent<'a'>>(Box)`
   text-decoration: none;
 
   &:focus {
@@ -18,7 +18,7 @@ const AnchorBox = styled(Box)`
 export const SkipToContent = ({ children }: SkipToContentProps) => {
   return (
     <AnchorBox
-      as="a"
+      tag="a"
       href="#main-content"
       background="primary600"
       color="neutral0"

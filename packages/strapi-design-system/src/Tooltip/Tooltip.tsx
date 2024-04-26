@@ -5,13 +5,13 @@ import styled from 'styled-components';
 import { useTooltipHandlers } from './hooks/useTooltipHandlers';
 import { useTooltipLayout } from './hooks/useTooltipLayout';
 import { TooltipPosition } from './utils/positionTooltip';
-import { Box, BoxProps } from '../Box';
+import { Box, BoxComponent, BoxProps } from '../Box';
 import { useId } from '../hooks/useId';
 import { Portal } from '../Portal';
 import { Typography } from '../Typography';
 import { VisuallyHidden } from '../VisuallyHidden';
 
-const TooltipWrapper = styled(Box)<{ visible: boolean }>`
+const TooltipWrapper = styled<BoxComponent>(Box)<{ visible: boolean }>`
   /* z-index exist because of its position inside Modals */
   z-index: 4;
   display: ${({ visible }) => (visible ? 'revert' : 'none')};
@@ -61,7 +61,7 @@ export const Tooltip = ({
           {...props}
         >
           {visible && <VisuallyHidden id={descriptionId}>{description}</VisuallyHidden>}
-          <Typography as="p" variant="pi" fontWeight="bold" textColor="neutral0">
+          <Typography tag="p" variant="pi" fontWeight="bold" textColor="neutral0">
             {label || description}
           </Typography>
         </TooltipWrapper>

@@ -2,9 +2,9 @@ import * as React from 'react';
 
 import styled from 'styled-components';
 
-import { Box, BoxProps } from '../Box';
+import { Box, BoxComponent, BoxProps } from '../Box';
 
-const BreakBox = styled(Box)`
+const BreakBox = styled<BoxComponent>(Box)`
   word-break: break-all;
 `;
 

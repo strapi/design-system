@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-import { Flex, FlexProps } from '../Flex';
+import { Flex, FlexComponent, FlexProps } from '../Flex';
 
 export type CardActionPosition = 'end' | 'start';
 
-export const CardAction = styled(Flex).attrs({
+export const CardAction = styled<FlexComponent>(Flex).attrs({
   direction: 'row',
   gap: 2,
 })<{ position: FlexProps['position'] | CardActionPosition }>`

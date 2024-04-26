@@ -9,7 +9,7 @@ export interface CardTimerProps extends BoxProps {
 
 export const CardTimer = ({ children, ...props }: CardTimerProps) => (
   <Box
-    as="time"
+    tag="time"
     background="neutral800"
     bottom={1}
     right={1}

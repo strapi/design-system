@@ -7,7 +7,7 @@ import { hideOthers } from 'aria-hidden';
 import { RemoveScroll } from 'react-remove-scroll';
 import styled from 'styled-components';
 
-import { Box, BoxProps } from '../Box';
+import { Box, BoxComponent, BoxProps } from '../Box';
 import { DismissibleLayer, DismissibleLayerProps } from '../DismissibleLayer';
 import { stripReactIdOfColon } from '../helpers/strings';
 import { useComposedRefs } from '../hooks/useComposeRefs';
@@ -30,7 +30,7 @@ export const POPOVER_PLACEMENTS = [
   'left-end',
 ] as const;
 
-const PopoverWrapper = styled(Box)`
+const PopoverWrapper = styled<BoxComponent>(Box)`
   box-shadow: ${({ theme }) => theme.shadows.filterShadow};
   z-index: ${({ theme }) => theme.zIndices[0]};
   border: 1px solid ${({ theme }) => theme.colors.neutral150};
@@ -191,7 +191,7 @@ export const Scrolling = ({ children, intersectionId, onReachEnd, ...props }: Sc
   );
 };
 
-const PopoverScrollable = styled(Box)`
+const PopoverScrollable = styled<BoxComponent>(Box)`
   max-height: 20rem;
   overflow-y: auto;
   overflow-x: hidden;

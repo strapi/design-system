@@ -7,7 +7,7 @@ import styled from 'styled-components';
 
 import { markField, addMarks, filterMarks, lineHighlightMark } from './utils/decorationExtension';
 import { FieldProps } from '../Field';
-import { Flex, FlexProps } from '../Flex';
+import { Flex, FlexComponent, FlexProps } from '../Flex';
 import { useComposedRefs } from '../hooks/useComposeRefs';
 import { inputFocusStyle } from '../themes';
 
@@ -140,7 +140,7 @@ const JSONInput = React.forwardRef<JSONInputRef, JSONInputProps>(
   },
 );
 
-const JSONInputContainer = styled(Flex)<{ hasError: boolean }>`
+const JSONInputContainer = styled<FlexComponent>(Flex)<{ hasError: boolean }>`
   line-height: ${({ theme }) => theme.lineHeights[2]};
 
   .cm-editor {

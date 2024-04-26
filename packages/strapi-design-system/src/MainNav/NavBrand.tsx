@@ -65,11 +65,11 @@ export const NavBrand = React.forwardRef<HTMLAnchorElement, NavBrandProps>(
             </BrandIconWrapper>
 
             <Box paddingLeft={2}>
-              <Typography fontWeight="bold" textColor="neutral800" as="span">
+              <Typography fontWeight="bold" textColor="neutral800" tag="span">
                 {title}
-                <VisuallyHidden as="span">{workplace}</VisuallyHidden>
+                <VisuallyHidden tag="span">{workplace}</VisuallyHidden>
               </Typography>
-              <Typography variant="pi" as="p" textColor="neutral600" aria-hidden>
+              <Typography variant="pi" tag="p" textColor="neutral600" aria-hidden>
                 {workplace}
               </Typography>
             </Box>
