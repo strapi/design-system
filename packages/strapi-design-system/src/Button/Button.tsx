@@ -8,6 +8,7 @@ import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from
 import { BaseButton, BaseButtonProps } from '../BaseButton';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
+import { PropsToTransientProps } from '../types';
 import { Typography } from '../Typography';
 
 const rotation = keyframes`
@@ -24,8 +25,8 @@ const LoaderAnimated = styled(Loader)`
   will-change: transform;
 `;
 
-export const ButtonWrapper = styled(BaseButton)<Required<Pick<ButtonProps, 'size' | 'variant'>>>`
-  height: ${({ theme, size }) => theme.sizes.button[size]};
+export const ButtonWrapper = styled(BaseButton)<PropsToTransientProps<Required<Pick<ButtonProps, 'size' | 'variant'>>>>`
+  height: ${({ theme, $size }) => theme.sizes.button[$size]};
 
   svg {
     height: 1.2rem;

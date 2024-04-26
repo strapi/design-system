@@ -11,7 +11,7 @@ import { Flex, FlexComponent } from '../Flex';
 import { TextButton, TextButtonProps } from '../TextButton';
 import { Typography } from '../Typography';
 
-const ToggleButton = styled(TextButton)<{ expanded: boolean }>`
+const ToggleButton = styled(TextButton)<{ $expanded: boolean }>`
   text-align: left;
 
   // necessary to make the ellipsis prop work on the title
@@ -22,14 +22,14 @@ const ToggleButton = styled(TextButton)<{ expanded: boolean }>`
   & > svg {
     width: 1.4rem;
     height: 1.4rem;
-    fill: ${({ theme, expanded }) => (expanded ? theme.colors.primary600 : theme.colors.neutral500)};
+    fill: ${({ theme, $expanded }) => ($expanded ? theme.colors.primary600 : theme.colors.neutral500)};
   }
 `;
 
-const FlexWithSize = styled<FlexComponent>(Flex)<{ expanded: boolean; size: AccordionSize }>`
-  min-height: ${({ theme, size }) => theme.sizes.accordions[size]};
-  border-radius: ${({ theme, expanded }) =>
-    expanded ? `${theme.borderRadius} ${theme.borderRadius} 0 0` : theme.borderRadius};
+const FlexWithSize = styled<FlexComponent>(Flex)<{ $expanded: boolean; $size: AccordionSize }>`
+  min-height: ${({ theme, $size }) => theme.sizes.accordions[$size]};
+  border-radius: ${({ theme, $expanded }) =>
+    $expanded ? `${theme.borderRadius} ${theme.borderRadius} 0 0` : theme.borderRadius};
 
   &:hover {
     ${ToggleButton} {

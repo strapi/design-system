@@ -11,10 +11,10 @@ import { Portal } from '../Portal';
 import { Typography } from '../Typography';
 import { VisuallyHidden } from '../VisuallyHidden';
 
-const TooltipWrapper = styled<BoxComponent>(Box)<{ visible: boolean }>`
+const TooltipWrapper = styled<BoxComponent>(Box)<{ $visible: boolean }>`
   /* z-index exist because of its position inside Modals */
   z-index: 4;
-  display: ${({ visible }) => (visible ? 'revert' : 'none')};
+  display: ${({ $visible }) => ($visible ? 'revert' : 'none')};
 `;
 
 export interface TooltipProps extends Omit<BoxProps<'div'>, 'position'> {

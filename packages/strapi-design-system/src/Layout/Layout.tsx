@@ -7,9 +7,9 @@ interface LayoutProps {
   sideNav?: React.ReactNode;
 }
 
-const GridContainer = styled<BoxComponent>(Box)<{ hasSideNav: boolean }>`
+const GridContainer = styled<BoxComponent>(Box)<{ $hasSideNav: boolean }>`
   display: grid;
-  grid-template-columns: ${({ hasSideNav }) => (hasSideNav ? `auto 1fr` : '1fr')};
+  grid-template-columns: ${({ $hasSideNav }) => ($hasSideNav ? `auto 1fr` : '1fr')};
 `;
 
 const OverflowingItem = styled<BoxComponent>(Box)`

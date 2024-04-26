@@ -31,8 +31,8 @@ const CarouselSlides = styled<FlexComponent>(Flex)`
   grid-area: slides;
 `;
 
-const CarouselAction = styled<BoxComponent<'button'>>(Box)<{ area: string }>`
-  grid-area: ${({ area }) => area};
+const CarouselAction = styled<BoxComponent<'button'>>(Box)<{ $area: string }>`
+  grid-area: ${({ $area }) => $area};
 
   &:focus svg path,
   &:hover svg path {

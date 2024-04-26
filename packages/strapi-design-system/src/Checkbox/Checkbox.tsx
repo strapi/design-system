@@ -22,11 +22,11 @@ const Checkbox = React.forwardRef<CheckboxElement, CheckboxProps>(
   },
 );
 
-const CheckboxLabel = styled<TypographyComponent<'label'>>(Typography)<Pick<CheckboxProps, 'disabled'>>`
+const CheckboxLabel = styled<TypographyComponent<'label'>>(Typography)<{ $disabled?: boolean }>`
   display: flex;
   align-items: flex-start;
   * {
-    cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+    cursor: ${({ $disabled }) => ($disabled ? 'not-allowed' : 'pointer')};
   }
 `;
 

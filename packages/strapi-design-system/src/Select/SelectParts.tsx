@@ -113,12 +113,10 @@ const IconBox = styled<BoxComponent<'button'>>(Box)`
   }
 `;
 
-interface StyledTriggerProps {
+const StyledTrigger = styled<FlexComponent>(Flex)<{
   $hasError: boolean;
   $size: Required<TriggerProps>['size'];
-}
-
-const StyledTrigger = styled<FlexComponent>(Flex)<StyledTriggerProps>`
+}>`
   border: 1px solid ${({ theme, $hasError }) => ($hasError ? theme.colors.danger600 : theme.colors.neutral200)};
   min-height: ${({ theme, $size }) => getThemeSize('input')({ theme, size: $size })};
 

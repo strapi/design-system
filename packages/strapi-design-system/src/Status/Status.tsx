@@ -6,25 +6,21 @@ import { Box, BoxComponent, BoxProps } from '../Box';
 import { Flex } from '../Flex';
 import { Typography } from '../Typography';
 
-interface BulletProps {
-  backgroundColor: keyof DefaultTheme['colors'];
-}
-
-const Bullet = styled.div<BulletProps>`
+const Bullet = styled.div<{
+  $backgroundColor: keyof DefaultTheme['colors'];
+}>`
   margin-right: ${({ theme }) => theme.spaces[3]};
   width: 0.6rem;
   height: 0.6rem;
   border-radius: 50%;
-  background: ${({ theme, backgroundColor }) => theme.colors[backgroundColor]};
+  background: ${({ theme, $backgroundColor }) => theme.colors[$backgroundColor]};
 `;
 
-interface StatusWrapperProps {
-  textColor: keyof DefaultTheme['colors'];
-}
-
-const StatusWrapper = styled<BoxComponent>(Box)<StatusWrapperProps>`
+const StatusWrapper = styled<BoxComponent>(Box)<{
+  $textColor: keyof DefaultTheme['colors'];
+}>`
   ${Typography} {
-    color: ${({ theme, textColor }) => theme.colors[textColor]};
+    color: ${({ theme, $textColor }) => theme.colors[$textColor]};
   }
 `;
 

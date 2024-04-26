@@ -74,18 +74,16 @@ export const FieldInput = React.forwardRef<HTMLInputElement, FieldInputProps>(
   },
 );
 
-interface InputProps {
-  hasLeftAction: boolean;
-  hasRightAction: boolean;
+const Input = styled.input<{
+  $hasLeftAction: boolean;
+  $hasRightAction: boolean;
   $size: keyof DefaultTheme['sizes']['input'];
-}
-
-const Input = styled.input<InputProps>`
+}>`
   border: none;
   border-radius: ${({ theme }) => theme.borderRadius};
   padding-bottom: ${({ $size }) => `${PADDING_Y[$size]}rem`};
-  padding-left: ${({ theme, hasLeftAction }) => (hasLeftAction ? 0 : theme.spaces[4])};
-  padding-right: ${({ theme, hasRightAction }) => (hasRightAction ? 0 : theme.spaces[4])};
+  padding-left: ${({ theme, $hasLeftAction }) => ($hasLeftAction ? 0 : theme.spaces[4])};
+  padding-right: ${({ theme, $hasRightAction }) => ($hasRightAction ? 0 : theme.spaces[4])};
   padding-top: ${({ $size }) => `${PADDING_Y[$size]}rem`};
   cursor: ${(props) => (props['aria-disabled'] ? 'not-allowed' : undefined)};
 
@@ -112,14 +110,14 @@ const Input = styled.input<InputProps>`
   }
 `;
 
-export const InputWrapper = styled<FlexComponent>(Flex)<{ disabled: boolean; hasError: boolean }>`
-  border: 1px solid ${({ theme, hasError }) => (hasError ? theme.colors.danger600 : theme.colors.neutral200)};
+export const InputWrapper = styled<FlexComponent>(Flex)<{ $disabled: boolean; $hasError: boolean }>`
+  border: 1px solid ${({ theme, $hasError }) => ($hasError ? theme.colors.danger600 : theme.colors.neutral200)};
   border-radius: ${({ theme }) => theme.borderRadius};
   background: ${({ theme }) => theme.colors.neutral0};
   ${inputFocusStyle()}
 
-  ${({ theme, disabled }) =>
-    disabled
+  ${({ theme, $disabled }) =>
+    $disabled
       ? css`
           color: ${theme.colors.neutral600};
           background: ${theme.colors.neutral150};

@@ -121,14 +121,14 @@ const ToggleWrapper = styled<FlexComponent>(Flex)`
   ${inputFocusStyle()}
 `;
 
-const ToggleOption = styled<FlexComponent>(Flex)<{ size: InputSizes }>`
+const ToggleOption = styled<FlexComponent>(Flex)<{ $size: InputSizes }>`
   /**
     We declare the defined value because we want the height of the input when 
     the values are in a row to be 40px. But defining a height on the label
     would break the input when it wraps.
   */
-  padding-top: ${({ size }) => `${size === 'S' ? '2px' : '6px'}`};
-  padding-bottom: ${({ size }) => `${size === 'S' ? '2px' : '6px'}`};
+  padding-top: ${({ $size }) => `${$size === 'S' ? '2px' : '6px'}`};
+  padding-bottom: ${({ $size }) => `${$size === 'S' ? '2px' : '6px'}`};
 `;
 
 const Input = styled.input`

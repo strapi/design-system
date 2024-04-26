@@ -9,13 +9,13 @@ import { Flex } from '../Flex';
 import { Typography } from '../Typography';
 import { VisuallyHidden } from '../VisuallyHidden';
 
-const BrandIconWrapper = styled.div<{ condensed?: boolean }>`
+const BrandIconWrapper = styled.div<{ $condensed?: boolean }>`
   border-radius: ${({ theme }) => theme.borderRadius};
 
   svg,
   img {
-    height: ${({ condensed }) => (condensed ? `4rem` : `3.2rem`)};
-    width: ${({ condensed }) => (condensed ? `4rem` : `3.2rem`)};
+    height: ${({ $condensed }) => ($condensed ? `4rem` : `3.2rem`)};
+    width: ${({ $condensed }) => ($condensed ? `4rem` : `3.2rem`)};
   }
 `;
 
@@ -44,7 +44,7 @@ export const NavBrand = React.forwardRef<HTMLAnchorElement, NavBrandProps>(
       return (
         <BaseLink ref={ref} {...props}>
           <Box paddingLeft={3} paddingRight={3} paddingTop={4} paddingBottom={4}>
-            <BrandIconWrapper condensed>
+            <BrandIconWrapper $condensed>
               {icon}
               <VisuallyHidden>
                 <span>{title}</span>
@@ -67,7 +67,7 @@ export const NavBrand = React.forwardRef<HTMLAnchorElement, NavBrandProps>(
             <Box paddingLeft={2}>
               <Typography fontWeight="bold" textColor="neutral800" tag="span">
                 {title}
-                <VisuallyHidden tag="span">{workplace}</VisuallyHidden>
+                <VisuallyHidden>{workplace}</VisuallyHidden>
               </Typography>
               <Typography variant="pi" tag="p" textColor="neutral600" aria-hidden>
                 {workplace}

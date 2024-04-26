@@ -5,8 +5,8 @@ import styled from 'styled-components';
 import { MainNavContext } from './MainNavContext';
 import { Flex, FlexComponent, FlexProps } from '../Flex';
 
-const MainNavWrapper = styled<FlexComponent<'nav'>>(Flex)<{ condensed: boolean }>`
-  width: ${({ condensed }) => (condensed ? 'max-content' : `22.4rem`)};
+const MainNavWrapper = styled<FlexComponent<'nav'>>(Flex)<{ $condensed: boolean }>`
+  width: ${({ $condensed }) => ($condensed ? 'max-content' : `22.4rem`)};
   border-right: 1px solid ${({ theme }) => theme.colors.neutral150};
 `;
 

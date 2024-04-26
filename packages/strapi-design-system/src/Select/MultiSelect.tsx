@@ -221,12 +221,10 @@ export const MultiSelectOption = React.forwardRef<HTMLDivElement, MultiSelectOpt
   },
 );
 
-interface CheckMarkProps {
+const CheckMark = styled<BoxComponent>(Box)<{
   $selected?: boolean;
   $indeterminate?: boolean;
-}
-
-const CheckMark = styled<BoxComponent>(Box)<CheckMarkProps>`
+}>`
   border: 1px solid
     ${({ theme, $selected, $indeterminate }) =>
       $selected || $indeterminate ? theme.colors.primary600 : theme.colors.neutral300};

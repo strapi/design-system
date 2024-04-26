@@ -19,7 +19,7 @@ interface SharedLinkProps extends BaseLinkProps {
 
 export type LinkButtonProps = SharedLinkProps;
 
-const LinkWrapper = styled<FlexComponent<'a' | typeof BaseLink>>(Flex)<{ variant: (typeof VARIANTS)[number] }>`
+const LinkWrapper = styled<FlexComponent<'a' | typeof BaseLink>>(Flex)<{ $variant: (typeof VARIANTS)[number] }>`
   ${focus}
 
   &[aria-disabled='true'] {

@@ -175,16 +175,16 @@ const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
   },
 );
 
-const ArrowButton = styled.button<{ reverse?: boolean }>`
+const ArrowButton = styled.button<{ $reverse?: boolean }>`
   display: flex;
   height: 1rem;
-  align-items: ${({ reverse }) => (reverse ? 'flex-end' : 'flex-start')};
-  transform: translateY(${({ reverse }) => (reverse ? `-2px` : `2px`)});
+  align-items: ${({ $reverse }) => ($reverse ? 'flex-end' : 'flex-start')};
+  transform: translateY(${({ $reverse }) => ($reverse ? `-2px` : `2px`)});
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : undefined)};
   svg {
     display: block;
     height: 0.4rem;
-    transform: ${({ reverse }) => (reverse ? 'rotateX(180deg)' : undefined)};
+    transform: ${({ $reverse }) => ($reverse ? 'rotateX(180deg)' : undefined)};
   }
 `;
 

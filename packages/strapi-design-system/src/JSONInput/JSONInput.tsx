@@ -140,7 +140,7 @@ const JSONInput = React.forwardRef<JSONInputRef, JSONInputProps>(
   },
 );
 
-const JSONInputContainer = styled<FlexComponent>(Flex)<{ hasError: boolean }>`
+const JSONInputContainer = styled<FlexComponent>(Flex)<{ $hasError: boolean }>`
   line-height: ${({ theme }) => theme.lineHeights[2]};
 
   .cm-editor {
@@ -154,7 +154,7 @@ const JSONInputContainer = styled<FlexComponent>(Flex)<{ hasError: boolean }>`
   }
 
   .cm-scroller {
-    border: 1px solid ${({ theme, hasError }) => (hasError ? theme.colors.danger600 : theme.colors.neutral200)};
+    border: 1px solid ${({ theme, $hasError }) => ($hasError ? theme.colors.danger600 : theme.colors.neutral200)};
     /* inputFocusStyle will receive hasError prop */
     ${inputFocusStyle()}
   }

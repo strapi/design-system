@@ -3,6 +3,7 @@ import * as React from 'react';
 import styled, { keyframes } from 'styled-components';
 
 import loaderSvg from './assets/loader.svg';
+import { PropsToTransientProps } from '../types';
 import { VisuallyHidden } from '../VisuallyHidden';
 
 const rotation = keyframes`
@@ -14,10 +15,10 @@ const rotation = keyframes`
   }
 `;
 
-const LoaderImg = styled.img<Required<Pick<LoaderProps, 'small'>>>`
+const LoaderImg = styled.img<PropsToTransientProps<Required<Pick<LoaderProps, 'small'>>>>`
   animation: ${rotation} 1s infinite linear;
   will-change: transform;
-  ${({ small, theme }) => small && `width: ${theme.spaces[6]}; height: ${theme.spaces[6]};`}
+  ${({ $small, theme }) => $small && `width: ${theme.spaces[6]}; height: ${theme.spaces[6]};`}
 `;
 
 interface LoaderProps extends React.HTMLAttributes<HTMLDivElement> {

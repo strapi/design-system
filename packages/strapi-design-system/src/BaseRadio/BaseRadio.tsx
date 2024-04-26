@@ -7,14 +7,14 @@ import { RadioGroupSize } from './RadioGroup';
 import { getRadioSize, getSelectedRadioSize, getSelectedRadioPosition } from './utils';
 import { useId } from '../hooks/useId';
 
-const RadioInput = styled.input<{ size: RadioGroupSize | number }>`
+const RadioInput = styled.input<{ $size: RadioGroupSize | number }>`
   margin: 0;
   padding: 0;
   background-color: ${({ theme }) => theme.colors.neutral0};
   border: 1px solid ${({ theme }) => theme.colors.primary600};
   border-radius: 50%;
-  height: ${({ size }) => (typeof size === 'number' ? size : getRadioSize(size))};
-  width: ${({ size }) => (typeof size === 'number' ? size : getRadioSize(size))};
+  height: ${({ $size }) => (typeof $size === 'number' ? $size : getRadioSize($size))};
+  width: ${({ $size }) => (typeof $size === 'number' ? $size : getRadioSize($size))};
   -webkit-appearance: none;
 
   &:after {
@@ -23,8 +23,8 @@ const RadioInput = styled.input<{ size: RadioGroupSize | number }>`
     position: relative;
     z-index: 1;
     display: block;
-    height: ${({ size }) => (typeof size === 'number' ? size : getSelectedRadioSize(size))};
-    width: ${({ size }) => (typeof size === 'number' ? size : getSelectedRadioSize(size))};
+    height: ${({ $size }) => (typeof $size === 'number' ? $size : getSelectedRadioSize($size))};
+    width: ${({ $size }) => (typeof $size === 'number' ? $size : getSelectedRadioSize($size))};
     left: ${getSelectedRadioPosition};
     top: ${getSelectedRadioPosition};
   }

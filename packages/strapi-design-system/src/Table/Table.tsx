@@ -17,14 +17,14 @@ const TableWrapper = styled(RawTable)`
 
 export type Overflowing = 'both' | 'left' | 'right';
 
-const TableBox = styled<BoxComponent>(Box)<{ overflowing?: Overflowing }>`
+const TableBox = styled<BoxComponent>(Box)<{ $overflowing?: Overflowing }>`
   &:before {
     // TODO: make sure to add a token for this weird stuff
     background: linear-gradient(90deg, #c0c0cf 0%, rgba(0, 0, 0, 0) 100%);
     opacity: 0.2;
     position: absolute;
     height: 100%;
-    content: ${({ overflowing }) => (overflowing === 'both' || overflowing === 'left' ? "''" : undefined)};
+    content: ${({ $overflowing }) => ($overflowing === 'both' || $overflowing === 'left' ? "''" : undefined)};
     box-shadow: ${({ theme }) => theme.shadows.tableShadow};
     width: ${({ theme }) => theme.spaces[2]};
     left: 0;
@@ -36,7 +36,7 @@ const TableBox = styled<BoxComponent>(Box)<{ overflowing?: Overflowing }>`
     opacity: 0.2;
     position: absolute;
     height: 100%;
-    content: ${({ overflowing }) => (overflowing === 'both' || overflowing === 'right' ? "''" : undefined)};
+    content: ${({ $overflowing }) => ($overflowing === 'both' || $overflowing === 'right' ? "''" : undefined)};
     box-shadow: ${({ theme }) => theme.shadows.tableShadow};
     width: ${({ theme }) => theme.spaces[2]};
     right: 0;

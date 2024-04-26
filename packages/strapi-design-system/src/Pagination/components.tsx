@@ -20,32 +20,26 @@ interface PaginationPageLinkProps extends PaginationLinkProps {
 
 interface DotsProps extends BoxProps {}
 
-const transientProps = {
-  active: true,
-};
-
-const LinkWrapper = styled(BaseLink).withConfig({
-  shouldForwardProp: (prop, defPropValFN) => !transientProps[prop] && defPropValFN(prop),
-})`
+const LinkWrapper = styled(BaseLink)<{ $active?: boolean }>`
   padding: ${({ theme }) => theme.spaces[3]};
   border-radius: ${({ theme }) => theme.borderRadius};
-  box-shadow: ${({ active, theme }) => (active ? theme.shadows.filterShadow : undefined)};
+  box-shadow: ${({ $active, theme }) => ($active ? theme.shadows.filterShadow : undefined)};
   text-decoration: none;
   display: flex;
 
   ${focus}
 `;
 
-const PageLinkWrapper = styled(LinkWrapper)<PaginationLinkProps>`
-  color: ${({ theme, active }) => (active ? theme.colors.primary700 : theme.colors.neutral800)};
-  background: ${({ theme, active }) => (active ? theme.colors.neutral0 : undefined)};
+const PageLinkWrapper = styled(LinkWrapper)<{ $active?: boolean }>`
+  color: ${({ theme, $active }) => ($active ? theme.colors.primary700 : theme.colors.neutral800)};
+  background: ${({ theme, $active }) => ($active ? theme.colors.neutral0 : undefined)};
 
   &:hover {
     box-shadow: ${({ theme }) => theme.shadows.filterShadow};
   }
 `;
 
-const ActionLinkWrapper = styled(LinkWrapper)<PaginationLinkProps>`
+const ActionLinkWrapper = styled(LinkWrapper)`
   font-size: 1.1rem;
 
   svg path {

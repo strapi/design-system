@@ -12,10 +12,10 @@ const SubNavSectionLabelWrapper = styled<FlexComponent<'button'>>(Flex)`
   padding: 0;
   background: transparent;
 `;
-const DropDownIconWrapper = styled.div<{ rotated?: boolean }>`
+const DropDownIconWrapper = styled.div<{ $rotated?: boolean }>`
   display: flex;
   align-items: center;
-  transform: rotateX(${({ rotated }) => (rotated ? '0deg' : '180deg')});
+  transform: rotateX(${({ $rotated }) => ($rotated ? '0deg' : '180deg')});
 `;
 
 export interface SubNavSectionLabelProps {

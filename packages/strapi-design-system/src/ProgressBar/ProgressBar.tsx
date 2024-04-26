@@ -17,7 +17,7 @@ export interface ProgressBarProps
   value?: IntRange<0, 101>;
 }
 
-const ProgressbarBase = styled<BoxComponent>(Box)<Required<Pick<ProgressBarProps, 'value'>>>`
+const ProgressbarBase = styled<BoxComponent>(Box)<{ $value: number }>`
   &:before {
     background-color: ${({ theme }) => theme.colors.neutral0};
     border-radius: ${({ theme }) => theme.borderRadius};
@@ -25,7 +25,7 @@ const ProgressbarBase = styled<BoxComponent>(Box)<Required<Pick<ProgressBarProps
     content: '';
     position: absolute;
     top: 0;
-    width: ${({ value }) => `${value}%`};
+    width: ${({ $value }) => `${$value}%`};
   }
 `;
 
