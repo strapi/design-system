@@ -8,8 +8,8 @@ const SUBNAV_WIDTH = `23.2rem`;
 
 interface SubNavProps extends Omit<BoxProps<'nav'>, 'tag'> {}
 
-const SubNav = React.forwardRef(({ ...props }: SubNavProps) => {
-  return <SubNavWrapper {...props} tag="nav" />;
+const SubNav = React.forwardRef<HTMLDivElement, SubNavProps>(({ ...props }, ref) => {
+  return <SubNavWrapper ref={ref} {...props} tag="nav" />;
 });
 
 const SubNavWrapper = styled<BoxComponent<'nav'>>(Box)`

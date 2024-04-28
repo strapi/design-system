@@ -37,7 +37,6 @@ describe('LiveRegions', () => {
     expect(container).toMatchInlineSnapshot(`
       .c0 {
         border: 0;
-        -webkit-clip: rect(0 0 0 0);
         clip: rect(0 0 0 0);
         height: 1px;
         margin: -1px;
@@ -48,7 +47,7 @@ describe('LiveRegions', () => {
       }
 
       <div>
-        <div
+        <span
           class="c0"
         >
           <p
@@ -71,7 +70,7 @@ describe('LiveRegions', () => {
             id="live-region-alert"
             role="alert"
           />
-        </div>
+        </span>
       </div>
     `);
   });
@@ -92,7 +91,6 @@ describe('LiveRegions', () => {
     expect(container).toMatchInlineSnapshot(`
       .c0 {
         border: 0;
-        -webkit-clip: rect(0 0 0 0);
         clip: rect(0 0 0 0);
         height: 1px;
         margin: -1px;
@@ -103,7 +101,7 @@ describe('LiveRegions', () => {
       }
 
       <div>
-        <div
+        <span
           class="c0"
         >
           <p
@@ -126,7 +124,7 @@ describe('LiveRegions', () => {
             id="live-region-alert"
             role="alert"
           />
-        </div>
+        </span>
       </div>
     `);
   });
@@ -147,7 +145,6 @@ describe('LiveRegions', () => {
     expect(container).toMatchInlineSnapshot(`
       .c0 {
         border: 0;
-        -webkit-clip: rect(0 0 0 0);
         clip: rect(0 0 0 0);
         height: 1px;
         margin: -1px;
@@ -158,7 +155,7 @@ describe('LiveRegions', () => {
       }
 
       <div>
-        <div
+        <span
           class="c0"
         >
           <p
@@ -181,7 +178,7 @@ describe('LiveRegions', () => {
           >
             An alert message
           </p>
-        </div>
+        </span>
       </div>
     `);
   });

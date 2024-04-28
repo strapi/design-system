@@ -20,7 +20,7 @@ describe('Breadcrumb', () => {
     const spanList = container.querySelectorAll('span');
 
     expect(crumbList.length).toEqual(1);
-    expect(spanList.length).toEqual(1);
+    expect(spanList.length).toEqual(2);
   });
 
   it('should render two crumbs with only one separator', async () => {
@@ -38,6 +38,6 @@ describe('Breadcrumb', () => {
     const spanList = container.querySelectorAll('span');
 
     expect(crumbList.length).toEqual(2);
-    expect(spanList.length).toEqual(3);
+    expect(spanList.length).toEqual(4);
   });
 });

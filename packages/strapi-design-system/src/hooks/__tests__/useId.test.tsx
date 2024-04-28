@@ -14,7 +14,6 @@ describe('useId', () => {
     expect(container).toMatchInlineSnapshot(`
       .c0 {
         border: 0;
-        -webkit-clip: rect(0 0 0 0);
         clip: rect(0 0 0 0);
         height: 1px;
         margin: -1px;
@@ -28,7 +27,7 @@ describe('useId', () => {
         <div
           id=":r0:"
         />
-        <div
+        <span
           class="c0"
         >
           <p
@@ -49,7 +48,7 @@ describe('useId', () => {
             id="live-region-alert"
             role="alert"
           />
-        </div>
+        </span>
       </div>
     `);
   });
@@ -65,7 +64,6 @@ describe('useId', () => {
     expect(container).toMatchInlineSnapshot(`
       .c0 {
         border: 0;
-        -webkit-clip: rect(0 0 0 0);
         clip: rect(0 0 0 0);
         height: 1px;
         margin: -1px;
@@ -79,7 +77,7 @@ describe('useId', () => {
         <div
           id="my-custom-id"
         />
-        <div
+        <span
           class="c0"
         >
           <p
@@ -100,7 +98,7 @@ describe('useId', () => {
             id="live-region-alert"
             role="alert"
           />
-        </div>
+        </span>
       </div>
     `);
   });
