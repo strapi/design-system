@@ -7,19 +7,21 @@ import { extractStyleFromTheme } from '../helpers/theme';
 import { DefaultThemeOrCSSProp } from '../types';
 
 export type BoxProps<TElement extends keyof JSX.IntrinsicElements = 'div'> = React.ComponentPropsWithoutRef<TElement> &
-  Pick<
-    CSSProperties,
-    | 'pointerEvents'
-    | 'display'
-    | 'position'
-    | 'zIndex'
-    | 'overflow'
-    | 'cursor'
-    | 'transition'
-    | 'transform'
-    | 'animation'
-    | 'textAlign'
-    | 'textTransform'
+  Partial<
+    Pick<
+      CSSProperties,
+      | 'pointerEvents'
+      | 'display'
+      | 'position'
+      | 'zIndex'
+      | 'overflow'
+      | 'cursor'
+      | 'transition'
+      | 'transform'
+      | 'animation'
+      | 'textAlign'
+      | 'textTransform'
+    >
   > & {
     /**
      * JavaScript hover handler
