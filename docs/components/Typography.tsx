@@ -2,20 +2,20 @@ import { Typography, TypographyProps } from '@strapi/design-system';
 import styled, { css } from 'styled-components';
 
 const H1 = (props: TypographyProps) => (
-  <Typography as="h1" variant="alpha" textColor="neutral800" marginBottom="0.5em" {...props} />
+  <Typography tag="h1" variant="alpha" textColor="neutral800" marginBottom="0.5em" {...props} />
 );
 
 const H2 = (props: TypographyProps) => (
-  <Typography as="h2" variant="beta" textColor="neutral800" marginBottom="1em" marginTop="2em" {...props} />
+  <Typography tag="h2" variant="beta" textColor="neutral800" marginBottom="1em" marginTop="2em" {...props} />
 );
 
 const H3 = (props: TypographyProps) => (
-  <Typography as="h3" variant="delta" textColor="neutral800" marginBottom="1em" marginTop="1.4em" {...props} />
+  <Typography tag="h3" variant="delta" textColor="neutral800" marginBottom="1em" marginTop="1.4em" {...props} />
 );
 
 const H4 = (props: TypographyProps) => (
   <Typography
-    as="h4"
+    tag="h4"
     variant="epsilon"
     textColor="neutral800"
     marginBottom="1em"
@@ -25,7 +25,7 @@ const H4 = (props: TypographyProps) => (
   />
 );
 
-const P = (props: TypographyProps) => <Paragraph as="p" variant="epsilon" textColor="neutral700" {...props} />;
+const P = (props: TypographyProps) => <Paragraph tag="p" variant="epsilon" textColor="neutral700" {...props} />;
 
 const codeStyles = css`
   color: ${({ theme }) => theme.colors.neutral700};
@@ -44,7 +44,7 @@ const Paragraph = styled(Typography)`
   }
 `;
 
-const Li = (props: TypographyProps) => <ListItem as="li" variant="epsilon" textColor="neutral700" {...props} />;
+const Li = (props: TypographyProps) => <ListItem tag="li" variant="epsilon" textColor="neutral700" {...props} />;
 
 const ListItem = styled(Typography)`
   & code {

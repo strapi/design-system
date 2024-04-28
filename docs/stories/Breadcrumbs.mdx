@@ -54,7 +54,7 @@ the `as` prop in order to replace the default HTML anchor `<a />`. You'll now be
 import { Breadcrumbs, CrumbLink } from '@strapi/design-system';
 import { NavLink } from 'react-router-dom';
 
-<Breadcrumbs label="Folder navigatation" as="nav">
+<Breadcrumbs label="Folder navigatation" tag="nav">
   <CrumbLink as={NavLink} to="/">
     Media Library
   </CrumbLink>
@@ -69,7 +69,7 @@ For NextJS, you'll need to wrap the `CrumbLink` with the `NextLink` component
 import { Breadcrumbs, CrumbLink } from '@strapi/design-system';
 import NextLink from 'next/link';
 
-<Breadcrumbs label="Folder navigatation" as="nav">
+<Breadcrumbs label="Folder navigatation" tag="nav">
   <NextLink href="/home" passHref>
     <CrumbLink>Media Library</CrumbLink>
   </NextLink>

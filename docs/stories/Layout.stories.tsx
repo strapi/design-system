@@ -89,7 +89,7 @@ export const Base = {
       <Box background="neutral100">
         <Layout
           sideNav={
-            <SubNav ariaLabel="Builder sub nav">
+            <SubNav aria-label="Builder sub nav">
               <SubNavHeader searchable value="" label="Builder" searchLabel="Search..." />
               <SubNavSections>
                 <SubNavSection label="Collection Type" collapsable badgeLabel={links.length.toString()}>
@@ -122,7 +122,7 @@ export const Base = {
               }
               title="Other CT"
               subtitle="36 entries found"
-              as="h2"
+              tag="h2"
             />
             <ActionLayout
               startActions={

@@ -62,7 +62,7 @@ export const Base = {
           }}
           background="neutral200"
         >
-          <SubNav ariaLabel="Builder sub nav">
+          <SubNav aria-label="Builder sub nav">
             <SubNavHeader
               searchable
               value={search}
@@ -104,7 +104,7 @@ export const Base = {
           }}
           background="neutral200"
         >
-          <SubNav ariaLabel="Settings sub nav">
+          <SubNav aria-label="Settings sub nav">
             <SubNavHeader label="Settings" />
             <SubNavSections>
               <SubNavLink href="/blabla" withBullet className="active">
@@ -146,7 +146,7 @@ export const Base = {
           }}
           background="neutral200"
         >
-          <SubNav ariaLabel="Mixed sub nav">
+          <SubNav aria-label="Mixed sub nav">
             <SubNavHeader label="Mixed" />
             <SubNavSections>
               <SubNavLink href="/blabla" withBullet icon={<GridNine />}>

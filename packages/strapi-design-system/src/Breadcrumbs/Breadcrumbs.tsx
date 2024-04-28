@@ -24,7 +24,7 @@ export const Breadcrumbs = ({ label, children, ...props }: BreadcrumbsProps) => 
   const childrenArray = React.Children.toArray(children);
 
   return (
-    <Box aria-label={label} {...props}>
+    <Box aria-label={label} tag="nav" {...props}>
       <AlignedList tag="ol">
         {React.Children.map(childrenArray, (child, index) => {
           const shouldDisplayDivider = childrenArray.length > 1 && index + 1 < childrenArray.length;

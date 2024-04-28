@@ -14,7 +14,7 @@ type Story = StoryObj<typeof Breadcrumbs>;
 export const Base = {
   render: () => (
     <Flex direction="column" alignItems="stretch" gap={3}>
-      <Breadcrumbs label="Folder navigatation" as="nav">
+      <Breadcrumbs label="Folder navigatation">
         <CrumbLink href="/">Media Library</CrumbLink>
         <Crumb isCurrent>Cats</Crumb>
       </Breadcrumbs>
@@ -27,7 +27,7 @@ export const Base = {
 export const WithMenu = {
   render: () => (
     <Flex gap={3}>
-      <Breadcrumbs label="Folder navigatation" as="nav">
+      <Breadcrumbs label="Folder navigatation">
         <CrumbLink href="/">Media Library</CrumbLink>
         <CrumbSimpleMenu aria-label="See more ascendants folders" label="...">
           <MenuItem href="/">Home</MenuItem>

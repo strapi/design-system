@@ -27,14 +27,14 @@ const ColorCards = () => {
   const { compare } = useCollator(locale);
 
   return (
-    <Flex as="article" alignItems="stretch" direction="column">
+    <Flex tag="article" alignItems="stretch" direction="column">
       {COLOR_CARD_NAMES.map((colorName) => {
         const colorKeys = Object.keys(allColors).filter((colorKey) => colorKey.startsWith(colorName.toLowerCase()));
 
         return (
-          <Box key={colorName} as="section">
+          <Box key={colorName} tag="section">
             <H2>{`${colorName} colors`}</H2>
-            <Grid as="ol" gap={6} gridCols={3}>
+            <Grid tag="ol" gap={6} gridCols={3}>
               {colorKeys
                 .toSorted((a, b) => compare(a, b))
                 .map((key) => (
@@ -73,9 +73,9 @@ const Card = ({ colorKey, colorName, colorShade }: CardProps) => {
   const colorRGB = `${colorRef.toRgb().r}, ${colorRef.toRgb().g}, ${colorRef.toRgb().b}`;
 
   return (
-    <Box as="article" background="neutral100" borderRadius="8px">
+    <Box tag="article" background="neutral100" borderRadius="8px">
       <Flex
-        as="dl"
+        tag="dl"
         alignItems="end"
         direction="row"
         background={colorKey}
@@ -91,7 +91,7 @@ const Card = ({ colorKey, colorName, colorShade }: CardProps) => {
         <ContrastInfo backgroundColor={colorHex} isLighter isSmall />
       </Flex>
       <Grid
-        as="dl"
+        tag="dl"
         aria-label={`Table properties for ${colorName} ${colorShade}`}
         gap={2}
         gridCols={2}
@@ -117,10 +117,10 @@ const Card = ({ colorKey, colorName, colorShade }: CardProps) => {
           },
         ].map((props) => (
           <Box key={props.label}>
-            <Typography as="dt" variant="sigma">
+            <Typography tag="dt" variant="sigma">
               {props.label}
             </Typography>
-            <Typography as="dd" variant="pi">
+            <Typography tag="dd" variant="pi">
               {props.content}
             </Typography>
           </Box>
@@ -142,7 +142,7 @@ const ContrastInfo = ({ backgroundColor = '', isLighter = false, isSmall = false
   return (
     <Flex alignItems="stretch" direction="column" flex={1} textAlign="center">
       <Box
-        as="dt"
+        tag="dt"
         aria-label={`${isSmall ? 'Small' : 'Large'} font and ${isLighter ? 'lighter' : 'darker'} text.`}
         paddingBottom={2}
         style={{ color: textColor, fontSize: isSmall ? '12px' : '16px' }}
@@ -150,7 +150,7 @@ const ContrastInfo = ({ backgroundColor = '', isLighter = false, isSmall = false
         A
       </Box>
       <Box
-        as="dd"
+        tag="dd"
         background="neutral1000"
         borderRadius="4px"
         color="neutral0"

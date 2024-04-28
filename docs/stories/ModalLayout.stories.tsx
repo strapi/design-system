@@ -39,7 +39,7 @@ export const Base = {
         {isVisible && (
           <ModalLayout onClose={() => setIsVisible((prev) => !prev)} labelledBy="title">
             <ModalHeader>
-              <Typography fontWeight="bold" textColor="neutral800" as="h2" id="title">
+              <Typography fontWeight="bold" textColor="neutral800" tag="h2" id="title">
                 Title
               </Typography>
             </ModalHeader>

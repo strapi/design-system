@@ -57,7 +57,7 @@ const Theme = ({ children, ...props }: BoxProps) => {
 
   return (
     <DesignSystemProvider locale="en" theme={isDark ? darkTheme : lightTheme}>
-      <Main as="main" background="neutral0" padding="4rem" paddingBottom="8rem" height="100%">
+      <Main tag="main" background="neutral0" padding="4rem" paddingBottom="8rem" height="100%">
         <Box maxWidth="84rem" margin="auto" height="100%" {...props}>
           {children}
         </Box>

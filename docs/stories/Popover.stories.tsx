@@ -36,7 +36,7 @@ export const Centered = {
               {Array(15)
                 .fill(null)
                 .map((_, index) => (
-                  <Box color="neutral800" key={index} padding={3} as="li">
+                  <Box color="neutral800" key={index} padding={3} tag="li">
                     Element{index}
                   </Box>
                 ))}
@@ -70,7 +70,7 @@ export const FullWidth = {
               {Array(15)
                 .fill(null)
                 .map((_, index) => (
-                  <Box color="neutral800" key={index} padding={3} as="li">
+                  <Box color="neutral800" key={index} padding={3} tag="li">
                     Element{index}
                   </Box>
                 ))}
@@ -112,7 +112,7 @@ export const OnReachEnd = {
               tabIndex={-1}
             >
               {items.map((_, index) => (
-                <Box color="neutral800" key={index} padding={3} as="li" id={`item-${index}`}>
+                <Box color="neutral800" key={index} padding={3} tag="li" id={`item-${index}`}>
                   Element{index}
                 </Box>
               ))}
@@ -158,7 +158,7 @@ export const OverflowRight = {
                   {Array(15)
                     .fill(null)
                     .map((_, index) => (
-                      <Box color="neutral800" key={index} padding={3} as="li">
+                      <Box color="neutral800" key={index} padding={3} tag="li">
                         Element{index}
                       </Box>
                     ))}
