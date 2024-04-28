@@ -14,7 +14,7 @@ interface TransientTypographyProps {
   fontWeight?: keyof DefaultTheme['fontWeights'];
   lineHeight?: DefaultThemeOrCSSProp<'lineHeights', 'lineHeight'>;
   textAlign?: CSSProperties['textAlign'];
-  textColor?: keyof DefaultTheme['colors'];
+  textColor?: DefaultThemeOrCSSProp<'colors', 'color'>;
   textDecoration?: CSSProperties['textDecoration'];
   textTransform?: CSSProperties['textTransform'];
   variant?: (typeof TEXT_VARIANTS)[number];
@@ -30,7 +30,7 @@ const Typography = forwardRef(
       fontWeight,
       lineHeight,
       textAlign,
-      textColor,
+      textColor = 'currentcolor',
       textDecoration,
       textTransform,
       variant,
@@ -64,7 +64,7 @@ const StyledTypography = styled<BoxComponent<'span'>>(Box)<PropsToTransientProps
   font-weight: ${({ theme, $fontWeight }) => extractStyleFromTheme(theme.fontWeights, $fontWeight, undefined)};
   font-size: ${({ theme, $fontSize }) => extractStyleFromTheme(theme.fontSizes, $fontSize, undefined)};
   line-height: ${({ theme, $lineHeight }) => extractStyleFromTheme(theme.lineHeights, $lineHeight, $lineHeight)};
-  color: ${({ theme, $textColor }) => theme.colors[$textColor || 'neutral800']};
+  color: ${({ theme, $textColor }) => extractStyleFromTheme(theme.colors, $textColor, $textColor)};
   text-align: ${({ $textAlign }) => $textAlign};
   text-decoration: ${({ $textDecoration }) => $textDecoration};
   text-transform: ${({ $textTransform }) => $textTransform};

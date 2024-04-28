@@ -90,10 +90,9 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         aria-disabled={isDisabled}
         disabled={isDisabled}
-        size={size}
-        variant={variant}
+        $size={size}
+        $variant={variant}
         onClick={handleClick}
-        fullWidth={fullWidth}
         alignItems="center"
         background="buttonPrimary600"
         borderColor="buttonPrimary600"
@@ -107,7 +106,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       >
         {(startIcon || loading) && <Box aria-hidden>{loading ? <LoaderAnimated /> : startIcon}</Box>}
 
-        <Typography variant={size === 'S' ? 'pi' : undefined} fontWeight="bold" textColor="buttonNeutral0">
+        <Typography variant={size === 'S' ? 'pi' : undefined} fontWeight="bold">
           {children}
         </Typography>
 

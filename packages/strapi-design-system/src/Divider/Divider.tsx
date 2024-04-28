@@ -20,5 +20,5 @@ const DividerWrapper = styled<BoxComponent<'hr'>>(Box)<PropsToTransientProps<Div
 `;
 
 export const Divider = ({ unsetMargin = true, ...props }: DividerProps) => {
-  return <DividerWrapper {...props} background="neutral150" tag="hr" unsetMargin={unsetMargin} />;
+  return <DividerWrapper {...props} background="neutral150" tag="hr" $unsetMargin={unsetMargin} />;
 };

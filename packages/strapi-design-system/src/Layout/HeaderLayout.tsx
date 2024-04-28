@@ -6,7 +6,7 @@ import { useElementOnScreen } from '../hooks/useElementOnScreen';
 import { useResizeObserver } from '../hooks/useResizeObserver';
 import { Typography, TypographyProps } from '../Typography';
 
-interface BaseHeaderLayoutProps extends TypographyProps {
+interface BaseHeaderLayoutProps extends Omit<TypographyProps, 'ref'> {
   navigationAction?: React.ReactNode;
   primaryAction?: React.ReactNode;
   secondaryAction?: React.ReactNode;
@@ -34,10 +34,10 @@ export const HeaderLayout = (props: HeaderLayoutProps) => {
   });
 
   React.useEffect(() => {
-    if (baseHeaderLayoutRef.current) {
+    if (isVisible && baseHeaderLayoutRef.current) {
       setHeaderSize(baseHeaderLayoutRef.current.getBoundingClientRect());
     }
-  }, [baseHeaderLayoutRef]);
+  }, [isVisible]);
 
   return (
     <>

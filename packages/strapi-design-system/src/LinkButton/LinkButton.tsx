@@ -58,8 +58,7 @@ export const LinkButton = React.forwardRef<HTMLAnchorElement, LinkButtonProps>(
       <LinkWrapper
         ref={ref}
         aria-disabled={disabled}
-        size={size}
-        variant={variant}
+        $variant={variant}
         background="buttonPrimary600"
         borderColor="buttonPrimary600"
         hasRadius

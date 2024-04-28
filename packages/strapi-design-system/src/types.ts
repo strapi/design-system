@@ -21,10 +21,8 @@ type PropsToTransientProps<TProps extends Record<string, any>> = {
 /**
  * A more precise version of just React.ComponentPropsWithoutRef on its own
  */
-type PropsOf<C extends keyof JSX.IntrinsicElements | React.JSXElementConstructor<any>> = JSX.LibraryManagedAttributes<
-  C,
-  React.ComponentPropsWithoutRef<C>
->;
+type PropsOf<C extends keyof JSX.IntrinsicElements | React.JSXElementConstructor<any>> =
+  React.ComponentPropsWithoutRef<C>;
 
 type AsProp<C extends React.ElementType> = {
   /**

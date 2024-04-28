@@ -21,7 +21,7 @@ export const MainNav = ({ condensed = false, ...props }: MainNavProps) => {
         alignItems="normal"
         tag="nav"
         background="neutral0"
-        condensed={condensed}
+        $condensed={condensed}
         direction="column"
         height="100vh"
         position="sticky"

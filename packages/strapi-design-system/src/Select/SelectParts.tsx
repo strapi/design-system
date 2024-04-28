@@ -114,7 +114,7 @@ const IconBox = styled<BoxComponent<'button'>>(Box)`
 `;
 
 const StyledTrigger = styled<FlexComponent>(Flex)<{
-  $hasError: boolean;
+  $hasError?: boolean;
   $size: Required<TriggerProps>['size'];
 }>`
   border: 1px solid ${({ theme, $hasError }) => ($hasError ? theme.colors.danger600 : theme.colors.neutral200)};
@@ -129,16 +129,13 @@ const StyledTrigger = styled<FlexComponent>(Flex)<{
     outline: none;
   }
 
-  ${({ theme, $hasError }) => inputFocusStyle()({ theme, hasError: $hasError })};
+  ${({ theme, $hasError }) => inputFocusStyle()({ theme, $hasError })};
 `;
 
 const DownIcon = styled(Select.Icon)`
   & > svg {
-    width: 0.6rem;
-
-    & > path {
-      fill: ${({ theme }) => theme.colors.neutral600};
-    }
+    width: 1.2rem;
+    fill: ${({ theme }) => theme.colors.neutral600};
   }
 `;
 
@@ -230,10 +227,8 @@ const StyledSelectItem = styled(Select.Item)`
   }
 
   &[data-state='checked'] {
-    ${Typography} {
-      font-weight: bold;
-      color: ${({ theme }) => theme.colors.primary600};
-    }
+    font-weight: bold;
+    color: ${({ theme }) => theme.colors.primary600};
   }
 `;
 

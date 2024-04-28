@@ -90,9 +90,9 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
         justifyContent="center"
         {...restProps}
         ref={ref}
-        size={size}
+        $size={size}
         onClick={handleClick}
-        variant={variant}
+        $variant={variant}
       >
         <VisuallyHidden>{label ?? ariaLabel}</VisuallyHidden>
 

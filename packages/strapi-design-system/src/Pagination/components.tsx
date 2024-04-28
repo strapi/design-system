@@ -94,7 +94,7 @@ export const PageLink = React.forwardRef<HTMLAnchorElement, PaginationPageLinkPr
     const isActive = activePage === number;
 
     return (
-      <PageLinkWrapper ref={ref} {...props} active={isActive}>
+      <PageLinkWrapper ref={ref} {...props} $active={isActive}>
         <VisuallyHidden>{children}</VisuallyHidden>
         <Typography aria-hidden fontWeight={isActive ? 'bold' : undefined} lineHeight="revert" variant="pi">
           {number}

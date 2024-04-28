@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
-import { Flex, FlexComponent, FlexProps } from '../Flex';
+import { Flex, FlexComponent } from '../Flex';
 
 export type CardActionPosition = 'end' | 'start';
 
 export const CardAction = styled<FlexComponent>(Flex).attrs({
   direction: 'row',
   gap: 2,
-})<{ $position: FlexProps['position'] | CardActionPosition }>`
+})<{ $position: CardActionPosition }>`
   position: absolute;
   top: ${({ theme }) => theme.spaces[3]};
   right: ${({ $position, theme }) => {

@@ -42,7 +42,7 @@ export const FieldInput = React.forwardRef<HTMLInputElement, FieldInputProps>(
     };
 
     return (
-      <InputWrapper justifyContent="space-between" hasError={hasError} disabled={disabled}>
+      <InputWrapper justifyContent="space-between" $hasError={hasError} $disabled={disabled}>
         {startAction ? (
           <Box paddingLeft={3} paddingRight={2}>
             {startAction}
@@ -57,8 +57,8 @@ export const FieldInput = React.forwardRef<HTMLInputElement, FieldInputProps>(
           aria-disabled={disabled}
           disabled={disabled}
           data-disabled={disabled ? '' : undefined}
-          hasLeftAction={Boolean(startAction)}
-          hasRightAction={Boolean(endAction)}
+          $hasLeftAction={Boolean(startAction)}
+          $hasRightAction={Boolean(endAction)}
           onChange={handleChange}
           aria-required={required}
           $size={size}

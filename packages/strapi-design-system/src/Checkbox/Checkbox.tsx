@@ -14,7 +14,7 @@ interface CheckboxProps extends BaseCheckboxProps {
 const Checkbox = React.forwardRef<CheckboxElement, CheckboxProps>(
   ({ children, disabled = false, ...props }, forwardedRef) => {
     return (
-      <CheckboxLabel tag="label" textColor="neutral800" disabled={disabled}>
+      <CheckboxLabel tag="label" textColor="neutral800" $disabled={disabled}>
         <BaseCheckbox ref={forwardedRef} disabled={disabled} {...props} />
         <Box paddingLeft={2}>{children}</Box>
       </CheckboxLabel>

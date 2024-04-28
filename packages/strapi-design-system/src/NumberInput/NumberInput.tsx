@@ -149,7 +149,7 @@ const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
             <ArrowButton
               disabled={disabled}
               aria-hidden
-              reverse
+              $reverse
               onClick={increment}
               tabIndex={-1}
               type="button"

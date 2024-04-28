@@ -47,7 +47,7 @@ const Toggle = React.forwardRef<ToggleInputElement, ToggleProps>(
         borderColor="neutral200"
         wrap="wrap"
         cursor={disabled ? 'not-allowed' : 'pointer'}
-        hasError={Boolean(error)}
+        $hasError={Boolean(error)}
       >
         <ToggleOption
           hasRadius
@@ -67,7 +67,7 @@ const Toggle = React.forwardRef<ToggleInputElement, ToggleProps>(
                   ? 'neutral150'
                   : 'neutral100'
           }
-          size={size}
+          $size={size}
         >
           <Typography
             variant="pi"
@@ -88,7 +88,7 @@ const Toggle = React.forwardRef<ToggleInputElement, ToggleProps>(
           borderColor={
             disabled && checked ? 'neutral300' : checked ? 'neutral200' : disabled ? 'neutral150' : 'neutral100'
           }
-          size={size}
+          $size={size}
         >
           <Typography
             variant="pi"
@@ -117,7 +117,7 @@ const Toggle = React.forwardRef<ToggleInputElement, ToggleProps>(
   },
 );
 
-const ToggleWrapper = styled<FlexComponent>(Flex)`
+const ToggleWrapper = styled<FlexComponent>(Flex)<{ $hasError?: boolean }>`
   ${inputFocusStyle()}
 `;
 

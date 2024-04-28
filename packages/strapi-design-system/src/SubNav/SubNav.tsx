@@ -2,12 +2,18 @@ import * as React from 'react';
 
 import styled from 'styled-components';
 
-import { Grid, GridProps } from '../Grid';
+import { Box, BoxComponent, BoxProps } from '../Box';
 
-export const subNavWidth = `23.2rem`;
+const SUBNAV_WIDTH = `23.2rem`;
 
-const SubNavWrapper = styled(Grid)`
-  width: ${subNavWidth};
+interface SubNavProps extends Omit<BoxProps<'nav'>, 'tag'> {}
+
+const SubNav = React.forwardRef(({ ...props }: SubNavProps) => {
+  return <SubNavWrapper {...props} tag="nav" />;
+});
+
+const SubNavWrapper = styled<BoxComponent<'nav'>>(Box)`
+  width: ${SUBNAV_WIDTH};
   background: ${({ theme }) => theme.colors.neutral100};
   position: sticky;
   top: 0;
@@ -17,10 +23,5 @@ const SubNavWrapper = styled(Grid)`
   z-index: 1;
 `;
 
-export interface SubNavProps extends GridProps {
-  ariaLabel: string;
-}
-
-export const SubNav = ({ ariaLabel, ...props }: SubNavProps) => {
-  return <SubNavWrapper aria-label={ariaLabel} tag="nav" {...props} />;
-};
+export { SubNav };
+export type { SubNavProps };

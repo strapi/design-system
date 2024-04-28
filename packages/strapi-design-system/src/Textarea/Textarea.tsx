@@ -16,7 +16,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
     const hasError = Boolean(error);
 
     return (
-      <Wrapper borderColor={hasError ? 'danger600' : 'neutral200'} hasError={hasError} hasRadius>
+      <Wrapper borderColor={hasError ? 'danger600' : 'neutral200'} $hasError={hasError} hasRadius>
         <TextareaElement
           aria-invalid={hasError}
           aria-required={required}
@@ -38,7 +38,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   },
 );
 
-const Wrapper = styled<BoxComponent>(Box)`
+const Wrapper = styled<BoxComponent>(Box)<{ $hasError?: boolean }>`
   ${inputFocusStyle()}
 `;
 

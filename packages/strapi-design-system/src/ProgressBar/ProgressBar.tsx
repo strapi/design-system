@@ -41,7 +41,7 @@ export const ProgressBar = ({ min = 0, max = 100, value = 0, children, size = 'M
       height={size === 'S' ? 1 : 2}
       position="relative"
       role="progressbar"
-      value={value}
+      $value={value}
       width={size === 'S' ? '78px' : '102px'}
       {...props}
     />

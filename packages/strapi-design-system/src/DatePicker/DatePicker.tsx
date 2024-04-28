@@ -444,7 +444,7 @@ const DatePickerTrigger = React.forwardRef<DatePickerTriggerElement, TriggerProp
   },
 );
 
-const TriggerElement = styled<FlexComponent>(Flex)<{ $hasError: boolean; $size: 'S' | 'M' }>`
+const TriggerElement = styled<FlexComponent>(Flex)<{ $hasError?: boolean; $size: 'S' | 'M' }>`
   border: 1px solid ${({ theme, $hasError }) => ($hasError ? theme.colors.danger600 : theme.colors.neutral200)};
   min-height: ${({ theme, $size }) => getThemeSize('input')({ theme, size: $size })};
 
@@ -459,7 +459,7 @@ const TriggerElement = styled<FlexComponent>(Flex)<{ $hasError: boolean; $size: 
     outline: none;
   }
 
-  ${({ theme, $hasError }) => inputFocusStyle()({ theme, hasError: $hasError })};
+  ${({ theme, $hasError }) => inputFocusStyle()({ theme, $hasError })};
 `;
 
 const IconBox = styled<BoxComponent<'button'>>(Box)`
@@ -1088,15 +1088,8 @@ const ToolbarFlex = styled<FlexComponent>(Flex)`
     background: transparent;
     font-weight: ${(props) => props.theme.fontWeights.bold};
 
-    ${Typography} {
-      color: ${({ theme }) => theme.colors.neutral800};
-    }
-
     svg {
-      > g,
-      path {
-        fill: ${({ theme }) => theme.colors.neutral500};
-      }
+      fill: ${({ theme }) => theme.colors.neutral500};
     }
 
     &:hover {
@@ -1229,10 +1222,7 @@ const Cell = styled<BoxComponent<'th' | 'td'>>(Box)`
   &[aria-disabled='false'] {
     &:hover {
       background: ${({ theme }) => theme.colors.primary100};
-
-      & > ${Typography} {
-        color: ${({ theme }) => theme.colors.primary600};
-      }
+      color: ${({ theme }) => theme.colors.primary600};
     }
   }
 `;

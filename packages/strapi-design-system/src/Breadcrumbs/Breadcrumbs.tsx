@@ -11,7 +11,7 @@ const AlignedList = styled<FlexComponent<'ol'>>(Flex)`
   // interaction effect, which mis-aligns the breadcrumbs on the left.
   // This normalizes the behavior by moving the first item to left by
   // the same amount it has inner padding
-  :first-child {
+  & > *:first-child {
     margin-left: ${({ theme }) => `calc(-1*${theme.spaces[2]})`};
   }
 `;

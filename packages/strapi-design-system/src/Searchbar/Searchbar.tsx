@@ -28,8 +28,8 @@ const SearchbarWrapper = styled.div`
 
   &:focus-within {
     ${SearchIcon} {
+      fill: ${({ theme }) => theme.colors.primary600};
       path {
-        fill: ${({ theme }) => theme.colors.primary600};
       }
     }
   }

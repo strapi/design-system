@@ -1,13 +1,45 @@
 import * as React from 'react';
 
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { BaseLink, BaseLinkProps } from '../BaseLink';
-import { Box, BoxComponent } from '../Box';
+import { BaseLink, BaseLinkProps, BaseLinkComponent } from '../BaseLink';
 import { Flex } from '../Flex';
 import { Typography } from '../Typography';
 
-const SubNavLinkWrapper = styled<BoxComponent>(Box)`
+interface SubNavLinkProps extends BaseLinkProps {
+  active?: boolean;
+  children: React.ReactNode;
+  icon?: React.ReactElement;
+  isSubSectionChild?: boolean;
+  withBullet?: boolean;
+}
+
+const SubNavLink = React.forwardRef<HTMLAnchorElement, SubNavLinkProps>(
+  ({ active, children, icon = null, withBullet = false, isSubSectionChild = false, ...props }, ref) => {
+    return (
+      <SubNavLinkWrapper
+        background="neutral100"
+        paddingLeft={isSubSectionChild ? 9 : 7}
+        paddingBottom={2}
+        paddingTop={2}
+        ref={ref}
+        {...props}
+      >
+        <Flex>
+          {icon ? <IconWrapper>{icon}</IconWrapper> : <CustomBullet $active={active} />}
+          <Typography paddingLeft={2}>{children}</Typography>
+        </Flex>
+        {withBullet && (
+          <Flex paddingRight={4}>
+            <CustomBullet $active />
+          </Flex>
+        )}
+      </SubNavLinkWrapper>
+    );
+  },
+);
+
+const SubNavLinkWrapper = styled<BaseLinkComponent>(BaseLink)`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -19,16 +51,11 @@ const SubNavLinkWrapper = styled<BoxComponent>(Box)`
 
   &.active {
     ${({ theme }) => {
-      return `
-      background-color: ${theme.colors.primary100};
-      border-right: 2px solid ${theme.colors.primary600};
-      svg > * {
-        fill: ${theme.colors.primary700};
-      }
-      ${Typography} {
+      return css`
+        background-color: ${theme.colors.primary100};
+        border-right: 2px solid ${theme.colors.primary600};
         color: ${theme.colors.primary700};
         font-weight: 500;
-      }
       `;
     }}
   }
@@ -37,12 +64,14 @@ const SubNavLinkWrapper = styled<BoxComponent>(Box)`
     outline-offset: -2px;
   }
 `;
+
 const CustomBullet = styled.span<{ $active?: boolean }>`
   width: 0.4rem;
   height: 0.4rem;
   background-color: ${({ theme, $active }) => ($active ? theme.colors.primary600 : theme.colors.neutral600)};
   border-radius: 50%;
 `;
+
 const IconWrapper = styled.div`
   svg {
     height: 1.6rem;
@@ -50,40 +79,5 @@ const IconWrapper = styled.div`
   }
 `;
 
-export interface SubNavLinkProps extends BaseLinkProps {
-  active?: boolean;
-  as?: React.ElementType;
-  children: React.ReactNode;
-  icon?: React.ReactElement;
-  isSubSectionChild?: boolean;
-  withBullet?: boolean;
-}
-
-export const SubNavLink = React.forwardRef<unknown, SubNavLinkProps>(
-  ({ active, children, icon = null, withBullet = false, as = BaseLink, isSubSectionChild = false, ...props }, ref) => {
-    return (
-      <SubNavLinkWrapper
-        as={as}
-        icon={icon}
-        background="neutral100"
-        paddingLeft={isSubSectionChild ? 9 : 7}
-        paddingBottom={2}
-        paddingTop={2}
-        ref={ref}
-        {...props}
-      >
-        <Flex>
-          {icon ? <IconWrapper>{icon}</IconWrapper> : <CustomBullet $active={active} />}
-          <Box paddingLeft={2}>
-            <Typography tag="span">{children}</Typography>
-          </Box>
-        </Flex>
-        {withBullet && (
-          <Box as={Flex} paddingRight={4}>
-            <CustomBullet $active />
-          </Box>
-        )}
-      </SubNavLinkWrapper>
-    );
-  },
-);
+export { SubNavLink };
+export type { SubNavLinkProps };

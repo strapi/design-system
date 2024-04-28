@@ -1,13 +1,14 @@
 import * as React from 'react';
 
 import { Box, BoxProps } from '../Box';
+import { forwardRef } from '../utilities/forwardRef';
 
-export type BaseLinkProps = BoxProps<'a'> & {
+type BaseLinkProps<C extends React.ElementType = 'a'> = BoxProps<C> & {
   disabled?: boolean;
   isExternal?: boolean;
 };
 
-export const BaseLink = React.forwardRef<HTMLAnchorElement, BaseLinkProps>(
+const BaseLink = forwardRef<HTMLAnchorElement, BaseLinkProps>(
   ({ href, rel = 'noreferrer noopener', target = '_self', disabled = false, isExternal = false, ...props }, ref) => {
     return (
       <Box
@@ -24,4 +25,7 @@ export const BaseLink = React.forwardRef<HTMLAnchorElement, BaseLinkProps>(
   },
 );
 
-BaseLink.displayName = 'BaseLink';
+type BaseLinkComponent<C extends React.ElementType = 'a'> = (props: BaseLinkProps<C>) => React.ReactNode;
+
+export { BaseLink };
+export type { BaseLinkProps, BaseLinkComponent };

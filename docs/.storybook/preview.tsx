@@ -136,6 +136,7 @@ const preview: Preview = {
           'Primitives',
           ['Overview', '*'],
           'Inputs',
+          'Components',
           'Design System',
           ['Technical Components', 'Components'],
           'Utilities',

@@ -11,13 +11,7 @@ import { Portal } from '../Portal';
 import { Typography } from '../Typography';
 import { VisuallyHidden } from '../VisuallyHidden';
 
-const TooltipWrapper = styled<BoxComponent>(Box)<{ $visible: boolean }>`
-  /* z-index exist because of its position inside Modals */
-  z-index: 4;
-  display: ${({ $visible }) => ($visible ? 'revert' : 'none')};
-`;
-
-export interface TooltipProps extends Omit<BoxProps<'div'>, 'position'> {
+interface TooltipProps extends Omit<BoxProps<'div'>, 'position'> {
   description?: string;
   delay?: number;
   id?: string;
@@ -25,15 +19,7 @@ export interface TooltipProps extends Omit<BoxProps<'div'>, 'position'> {
   position?: TooltipPosition;
 }
 
-export const Tooltip = ({
-  children,
-  label,
-  description,
-  delay = 500,
-  position = 'top',
-  id,
-  ...props
-}: TooltipProps) => {
+const Tooltip = ({ children, label, description, delay = 500, position = 'top', id, ...props }: TooltipProps) => {
   const tooltipId = useId(id);
   const descriptionId = useId();
   const { visible, ...tooltipHandlers } = useTooltipHandlers(delay);
@@ -56,7 +42,7 @@ export const Tooltip = ({
           padding={2}
           role="tooltip"
           ref={tooltipWrapperRef}
-          visible={visible}
+          $visible={visible}
           position="absolute"
           {...props}
         >
@@ -71,3 +57,12 @@ export const Tooltip = ({
     </>
   );
 };
+
+const TooltipWrapper = styled<BoxComponent>(Box)<{ $visible: boolean }>`
+  /* z-index exist because of its position inside Modals */
+  z-index: 4;
+  display: ${({ $visible }) => ($visible ? 'revert' : 'none')};
+`;
+
+export { Tooltip };
+export type { TooltipProps };

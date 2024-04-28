@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import styled from 'styled-components';
 
+import { AccordionWrapper } from './Accordion';
 import { Box, BoxComponent } from '../Box';
 import { FieldLabelProps } from '../Field';
 import { Flex } from '../Flex';
@@ -58,14 +59,14 @@ const EnhancedGroup = styled<BoxComponent>(Box)<{ $footer: React.ReactNode }>`
     }
   }
 
-  & > * {
+  & > ${AccordionWrapper} {
     border-radius: unset;
     border-right: 1px solid ${({ theme }) => theme.colors.neutral200};
     border-left: 1px solid ${({ theme }) => theme.colors.neutral200};
     border-bottom: 1px solid ${({ theme }) => theme.colors.neutral200};
   }
 
-  & > *:first-of-type {
+  & > ${AccordionWrapper}:first-of-type {
     border-top: 1px solid ${({ theme }) => theme.colors.neutral200};
     border-radius: ${({ theme }) => theme.borderRadius} ${({ theme }) => theme.borderRadius} 0 0;
     & > * {

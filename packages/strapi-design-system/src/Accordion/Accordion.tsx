@@ -3,11 +3,11 @@ import * as React from 'react';
 import styled, { DefaultTheme } from 'styled-components';
 
 import { AccordionContext } from './AccordionContext';
+import { AccordionDescription, AccordionTitle } from './AccordionToggle';
 import { Box, BoxComponent } from '../Box';
-import { Flex } from '../Flex';
 import { useId } from '../hooks/useId';
 import { PropsToTransientProps } from '../types';
-import { Typography, TypographyComponent } from '../Typography';
+import { Typography } from '../Typography';
 
 type AccordionSize = 'S' | 'M';
 type AccordionVariant = 'primary' | 'secondary';
@@ -108,8 +108,6 @@ const Accordion = ({
 
 type AccordionWrapperProps = Pick<AccordionProps, 'expanded' | 'disabled' | 'variant' | 'error'>;
 
-const AccordionTypography = styled<TypographyComponent>(Typography)``;
-
 const AccordionWrapper = styled<BoxComponent<'div'>>(Box)<PropsToTransientProps<AccordionWrapperProps>>`
   border: ${({ theme, $expanded, $variant, $disabled, $error }) => {
     if ($error) {
@@ -134,15 +132,15 @@ const AccordionWrapper = styled<BoxComponent<'div'>>(Box)<PropsToTransientProps<
   &:hover:not([aria-disabled='true']) {
     border: 1px solid ${({ theme }) => theme.colors.primary600};
 
-    ${AccordionTypography} {
+    ${AccordionTitle} {
       color: ${({ theme, $expanded }) => ($expanded ? undefined : theme.colors.primary700)};
     }
 
-    ${Typography} {
+    ${AccordionDescription} {
       color: ${({ theme, $expanded }) => ($expanded ? undefined : theme.colors.primary600)};
     }
 
-    & > ${Flex} {
+    & > div:first-child {
       background: ${({ theme }) => theme.colors.primary100};
     }
 
@@ -152,5 +150,5 @@ const AccordionWrapper = styled<BoxComponent<'div'>>(Box)<PropsToTransientProps<
   }
 `;
 
-export { Accordion, AccordionTypography };
+export { Accordion, AccordionWrapper };
 export type { AccordionProps, AccordionSize, AccordionVariant };

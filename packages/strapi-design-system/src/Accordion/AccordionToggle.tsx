@@ -1,46 +1,16 @@
 import * as React from 'react';
 
 import { CaretDown } from '@strapi/icons';
-import styled from 'styled-components';
+import styled, { DefaultTheme } from 'styled-components';
 
-import { AccordionSize, AccordionTypography } from './Accordion';
+import { AccordionSize } from './Accordion';
 import { useAccordion } from './AccordionContext';
-import { getBackground } from './utils';
 import { Box } from '../Box';
 import { Flex, FlexComponent } from '../Flex';
 import { TextButton, TextButtonProps } from '../TextButton';
-import { Typography } from '../Typography';
+import { Typography, TypographyComponent, TypographyProps } from '../Typography';
 
-const ToggleButton = styled(TextButton)<{ $expanded: boolean }>`
-  text-align: left;
-
-  // necessary to make the ellipsis prop work on the title
-  > span {
-    max-width: 100%;
-  }
-
-  & > svg {
-    width: 1.4rem;
-    height: 1.4rem;
-    fill: ${({ theme, $expanded }) => ($expanded ? theme.colors.primary600 : theme.colors.neutral500)};
-  }
-`;
-
-const FlexWithSize = styled<FlexComponent>(Flex)<{ $expanded: boolean; $size: AccordionSize }>`
-  min-height: ${({ theme, $size }) => theme.sizes.accordions[$size]};
-  border-radius: ${({ theme, $expanded }) =>
-    $expanded ? `${theme.borderRadius} ${theme.borderRadius} 0 0` : theme.borderRadius};
-
-  &:hover {
-    ${ToggleButton} {
-      svg {
-        fill: ${({ theme }) => theme.colors.primary600};
-      }
-    }
-  }
-`;
-
-interface AccordionToggleProps extends TextButtonProps {
+interface AccordionToggleProps extends Omit<TextButtonProps, 'tag'>, Pick<TypographyProps, 'tag'> {
   /**
    * Will render a node to the right of the Accordion component
    */
@@ -59,10 +29,10 @@ interface AccordionToggleProps extends TextButtonProps {
   togglePosition?: 'right' | 'left';
 }
 
-export const AccordionToggle = ({
+const AccordionToggle = ({
   title,
   description,
-  as = 'span',
+  tag,
   togglePosition = 'right',
   action,
   ...props
@@ -77,10 +47,20 @@ export const AccordionToggle = ({
   // Style overrides
   const boxPaddingX = size === 'M' ? 6 : 4;
   const boxPaddingY = size === 'M' ? boxPaddingX : boxPaddingX - 2;
-  const boxBackground = getBackground({ expanded, disabled, variant });
+
+  let boxBackground: keyof DefaultTheme['colors'] = 'neutral100';
+
+  if (expanded) {
+    boxBackground = 'primary100';
+  } else if (disabled) {
+    boxBackground = 'neutral150';
+  } else if (variant === 'primary') {
+    boxBackground = 'neutral0';
+  }
+
   const titleColor = expanded ? 'primary600' : 'neutral700';
-  const titleProps = {
-    as,
+  const titleProps: TypographyProps = {
+    tag,
     fontWeight: size === 'S' ? 'bold' : undefined,
     id: ariaLabelId,
     textColor: titleColor,
@@ -133,8 +113,8 @@ export const AccordionToggle = ({
       paddingRight={boxPaddingX}
       paddingTop={boxPaddingY}
       background={boxBackground}
-      expanded={expanded}
-      size={size}
+      $expanded={expanded}
+      $size={size}
       justifyContent="space-between"
       cursor={disabled ? 'not-allowed' : 'pointer'}
       onClick={handleToggle}
@@ -148,21 +128,18 @@ export const AccordionToggle = ({
           aria-controls={ariaControls}
           aria-labelledby={ariaLabelId}
           data-strapi-accordion-toggle
-          expanded={expanded}
+          $expanded={expanded}
           type="button"
           flex={1}
           minWidth={0}
           {...props}
         >
-          <>
-            <AccordionTypography {...titleProps}>{title}</AccordionTypography>
-
-            {description && (
-              <Typography tag="p" id={ariaDescriptionId} textColor={descriptionColor}>
-                {description}
-              </Typography>
-            )}
-          </>
+          <AccordionTitle {...titleProps}>{title}</AccordionTitle>
+          {description && (
+            <AccordionDescription tag="p" id={ariaDescriptionId} textColor={descriptionColor}>
+              {description}
+            </AccordionDescription>
+          )}
         </ToggleButton>
 
         {togglePosition === 'right' && (
@@ -183,3 +160,39 @@ export const AccordionToggle = ({
     </FlexWithSize>
   );
 };
+
+const AccordionDescription = styled<TypographyComponent<'p'>>(Typography)``;
+
+const AccordionTitle = styled<TypographyComponent>(Typography)``;
+
+const ToggleButton = styled(TextButton)<{ $expanded: boolean }>`
+  text-align: left;
+
+  // necessary to make the ellipsis prop work on the title
+  > span {
+    max-width: 100%;
+  }
+
+  & > svg {
+    width: 1.4rem;
+    height: 1.4rem;
+    fill: ${({ theme, $expanded }) => ($expanded ? theme.colors.primary600 : theme.colors.neutral500)};
+  }
+`;
+
+const FlexWithSize = styled<FlexComponent>(Flex)<{ $expanded: boolean; $size: AccordionSize }>`
+  min-height: ${({ theme, $size }) => theme.sizes.accordions[$size]};
+  border-radius: ${({ theme, $expanded }) =>
+    $expanded ? `${theme.borderRadius} ${theme.borderRadius} 0 0` : theme.borderRadius};
+
+  &:hover {
+    ${ToggleButton} {
+      svg {
+        fill: ${({ theme }) => theme.colors.primary600};
+      }
+    }
+  }
+`;
+
+export { AccordionToggle, AccordionTitle, AccordionDescription };
+export type { AccordionToggleProps };

@@ -5,9 +5,12 @@ import { Box, BoxProps } from '../Box';
 import { getFocusableNodes, getFocusableNodesWithKeyboardNav } from '../helpers/getFocusableNodes';
 import { KeyboardKeys } from '../helpers/keyboardKeys';
 
-export interface RawTdProps extends BoxProps<'td'> {
+/* -------------------------------------------------------------------------------------------------
+ * RawTd
+ * -----------------------------------------------------------------------------------------------*/
+
+interface RawTdProps extends BoxProps<'td' | 'th'> {
   'aria-colindex'?: number;
-  as?: 'td' | 'th';
   children?: React.ReactNode;
   coords?: {
     col: number;
@@ -15,11 +18,7 @@ export interface RawTdProps extends BoxProps<'td'> {
   };
 }
 
-export type RawThProps = Omit<RawTdProps, 'as'>;
-
-export const RawTh = (props: RawThProps) => <RawTd {...props} tag="th" />;
-
-export const RawTd = ({ coords = { col: 0, row: 0 }, as = 'td', ...props }: RawTdProps) => {
+const RawTd = ({ coords = { col: 0, row: 0 }, tag = 'td', ...props }: RawTdProps) => {
   const tdRef = React.useRef<HTMLTableCellElement>(null!);
   const { rowIndex, colIndex, setTableValues } = useTable();
   const [isActive, setIsActive] = React.useState(false);
@@ -173,5 +172,16 @@ export const RawTd = ({ coords = { col: 0, row: 0 }, as = 'td', ...props }: RawT
     };
   }, [handleFocusableNodeFocus]);
 
-  return <Box role="gridcell" as={as} ref={tdRef} onKeyDown={handleKeyDown} {...props} />;
+  return <Box role="gridcell" tag={tag} ref={tdRef} onKeyDown={handleKeyDown} {...props} />;
 };
+
+/* -------------------------------------------------------------------------------------------------
+ * RawTh
+ * -----------------------------------------------------------------------------------------------*/
+
+type RawThProps = Omit<RawTdProps, 'as'>;
+
+const RawTh = (props: RawThProps) => <RawTd {...props} tag="th" />;
+
+export { RawTd, RawTh };
+export type { RawTdProps, RawThProps };

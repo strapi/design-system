@@ -322,7 +322,7 @@ const Trigger = styled(ComboboxPrimitive.Trigger)<TriggerProps>`
     outline: none;
   }
 
-  ${({ theme, $hasError }) => inputFocusStyle()({ theme, hasError: $hasError })};
+  ${({ theme, $hasError }) => inputFocusStyle()({ theme, $hasError })};
 `;
 
 const TextInput = styled(ComboboxPrimitive.TextInput)`
@@ -405,11 +405,8 @@ export const OptionBox = styled.div<{ $hasHover?: boolean }>`
 
   &[data-state='checked'] {
     background-color: ${({ theme }) => theme.colors.primary100};
-
-    ${Typography} {
-      color: ${({ theme }) => theme.colors.primary600};
-      font-weight: bold;
-    }
+    color: ${({ theme }) => theme.colors.primary600};
+    font-weight: bold;
   }
 
   &:hover,
@@ -419,9 +416,7 @@ export const OptionBox = styled.div<{ $hasHover?: boolean }>`
   }
 
   &[data-highlighted] {
-    ${Typography} {
-      color: ${({ theme }) => theme.colors.primary600};
-      font-weight: bold;
-    }
+    color: ${({ theme }) => theme.colors.primary600};
+    font-weight: bold;
   }
 `;

@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import { Box } from '../Box';
 import { Typography, TypographyProps } from '../Typography';
 
@@ -12,7 +10,7 @@ export const Crumb = ({ children, isCurrent = false, ...props }: CrumbProps) => 
     <Typography
       variant="pi"
       textColor="neutral800"
-      fontWeight={isCurrent ? 'bold' : 'normal'}
+      fontWeight={isCurrent ? 'bold' : 'regular'}
       aria-current={isCurrent}
       {...props}
     >

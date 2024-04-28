@@ -15,8 +15,8 @@ export const NavCondense = ({ children, ...props }: NavCondenseProps) => {
   const Icon = condensed ? ChevronRight : ChevronLeft;
 
   return (
-    <NavCondenseWrapper tag="button" condensed={condensed} {...props}>
-      <Icon aria-hidden fill="neutral600" />
+    <NavCondenseWrapper tag="button" $condensed={condensed} {...props}>
+      <Icon width="1.2rem" aria-hidden fill="neutral600" />
       <VisuallyHidden>{children}</VisuallyHidden>
     </NavCondenseWrapper>
   );
@@ -36,9 +36,4 @@ const NavCondenseWrapper = styled<FlexComponent>(Flex).attrs<FlexProps<'button'>
   z-index: 2;
   width: 1.8rem;
   height: 2.5rem;
-
-  svg {
-    width: 0.6rem;
-    height: 0.9rem;
-  }
 `;

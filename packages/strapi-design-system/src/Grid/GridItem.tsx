@@ -1,14 +1,17 @@
 import styled from 'styled-components';
 
-import { Box, BoxComponent } from '../Box';
+import { Box, BoxComponent, BoxProps } from '../Box';
+import { PropsToTransientProps } from '../types';
 
-export interface GridItemProps {
-  $col?: number;
-  $s?: number;
-  $xs?: number;
+interface GridItemProps extends BoxProps {
+  col?: number;
+  s?: number;
+  xs?: number;
 }
 
-export const GridItem = styled<BoxComponent>(Box)<GridItemProps>`
+const GridItemImpl = ({ col, s, xs, ...props }: GridItemProps) => <GridItem $col={col} $s={s} $xs={xs} {...props} />;
+
+const GridItem = styled<BoxComponent>(Box)<PropsToTransientProps<GridItemProps>>`
   grid-column: span ${({ $col }) => $col ?? 1};
   max-width: 100%;
 
@@ -20,3 +23,5 @@ export const GridItem = styled<BoxComponent>(Box)<GridItemProps>`
     grid-column: span ${({ $xs }) => $xs};
   }
 `;
+
+export { GridItemImpl as GridItem };

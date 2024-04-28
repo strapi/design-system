@@ -40,7 +40,7 @@ export const Badge = ({
       paddingLeft={paddingX}
       paddingRight={paddingX}
       background={active ? 'primary200' : backgroundColor}
-      size={size}
+      $size={size}
       {...props}
     >
       <Typography variant="sigma" textColor={active ? 'primary600' : textColor}>

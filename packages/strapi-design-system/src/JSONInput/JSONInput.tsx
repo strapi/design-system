@@ -130,7 +130,7 @@ const JSONInput = React.forwardRef<JSONInputRef, JSONInputProps>(
     return (
       <JSONInputContainer
         ref={composedRefs}
-        hasError={hasError}
+        $hasError={hasError}
         alignItems="stretch"
         fontSize={2}
         hasRadius

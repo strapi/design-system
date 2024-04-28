@@ -1,14 +1,71 @@
 import * as React from 'react';
 
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import { useMainNav } from './MainNavContext';
 import { Badge } from '../Badge';
 import { BaseLink, BaseLinkProps } from '../BaseLink';
 import { Box } from '../Box';
-import { Flex, FlexComponent } from '../Flex';
+import { Flex } from '../Flex';
 import { Tooltip } from '../Tooltip';
 import { Typography } from '../Typography';
+
+interface NavLinkProps extends BaseLinkProps {
+  badgeAriaLabel?: string;
+  badgeContent?: string | number;
+  children: string;
+  icon: React.ReactNode;
+}
+
+const NavLink = React.forwardRef<HTMLAnchorElement, NavLinkProps>(
+  ({ children, icon, badgeContent, badgeAriaLabel, ...props }, ref) => {
+    const condensed = useMainNav();
+
+    if (condensed) {
+      return (
+        <MainNavLinkWrapper ref={ref} {...props}>
+          <Tooltip position="right" label={children}>
+            <Flex paddingLeft={3} paddingRight={3} paddingTop={2} paddingBottom={2} tag="span" justifyContent="center">
+              <Box aria-hidden paddingRight={0} tag="span">
+                {icon}
+              </Box>
+              {badgeContent && (
+                <CustomBadge $condensed aria-label={badgeAriaLabel}>
+                  {badgeContent}
+                </CustomBadge>
+              )}
+            </Flex>
+          </Tooltip>
+        </MainNavLinkWrapper>
+      );
+    }
+
+    return (
+      <MainNavLinkWrapper ref={ref} {...props}>
+        <Flex
+          paddingLeft={3}
+          paddingRight={3}
+          paddingTop={2}
+          paddingBottom={2}
+          tag="span"
+          justifyContent="space-between"
+        >
+          <Flex>
+            <Box aria-hidden paddingRight={3} tag="span">
+              {icon}
+            </Box>
+            <Typography>{children}</Typography>
+          </Flex>
+          {badgeContent && (
+            <CustomBadge justifyContent="center" aria-label={badgeAriaLabel}>
+              {badgeContent}
+            </CustomBadge>
+          )}
+        </Flex>
+      </MainNavLinkWrapper>
+    );
+  },
+);
 
 const MainNavLinkWrapper = styled(BaseLink)`
   position: relative;
@@ -16,43 +73,30 @@ const MainNavLinkWrapper = styled(BaseLink)`
   display: block;
   border-radius: ${({ theme }) => theme.borderRadius};
   background: ${({ theme }) => theme.colors.neutral0};
+  color: ${({ theme }) => theme.colors.neutral600};
 
-  ${Typography} {
-    color: ${({ theme }) => theme.colors.neutral600};
-  }
-
-  svg path {
+  svg {
     fill: ${({ theme }) => theme.colors.neutral500};
   }
 
   &:hover {
     background: ${({ theme }) => theme.colors.neutral100};
+    color: ${({ theme }) => theme.colors.neutral700};
 
-    ${Typography} {
-      color: ${({ theme }) => theme.colors.neutral700};
-    }
-
-    svg path {
+    svg {
       fill: ${({ theme }) => theme.colors.neutral600};
     }
   }
 
   &.active {
     background: ${({ theme }) => theme.colors.primary100};
+    color: ${({ theme }) => theme.colors.primary600};
+    font-weight: 500;
 
-    svg path {
+    svg {
       fill: ${({ theme }) => theme.colors.primary600};
     }
-
-    ${Typography} {
-      color: ${({ theme }) => theme.colors.primary600};
-      font-weight: 500;
-    }
   }
-`;
-
-const MainNavRow = styled<FlexComponent<'span'>>(Flex)`
-  padding: ${({ theme }) => `${theme.spaces[2]} ${theme.spaces[3]}`};
 `;
 
 const CustomBadge = styled(Badge)<{ $condensed?: boolean }>`
@@ -65,12 +109,12 @@ const CustomBadge = styled(Badge)<{ $condensed?: boolean }>`
       right: -${theme.spaces[1]};
     `}
 
-  ${Typography} {
-    //find a solution to remove !important
-    color: ${({ theme }) => theme.colors.neutral0} !important;
-    line-height: 0;
+  // overwrite to ensure the badge typography is white on blue.
+  & > * {
+    color: ${({ theme }) => theme.colors.neutral0};
   }
 
+  line-height: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -81,52 +125,5 @@ const CustomBadge = styled(Badge)<{ $condensed?: boolean }>`
   background: ${({ theme }) => theme.colors.primary600};
 `;
 
-export interface NavLinkProps extends BaseLinkProps {
-  badgeAriaLabel?: string;
-  badgeContent?: string | number;
-  children: string;
-  icon: React.ReactNode;
-}
-
-export const NavLink = React.forwardRef<HTMLAnchorElement, NavLinkProps>(
-  ({ children, icon, badgeContent, badgeAriaLabel, ...props }, ref) => {
-    const condensed = useMainNav();
-
-    if (condensed) {
-      return (
-        <MainNavLinkWrapper ref={ref} {...props}>
-          <Tooltip position="right" label={children}>
-            <MainNavRow tag="span" justifyContent="center">
-              <Box aria-hidden paddingRight={0} tag="span">
-                {icon}
-              </Box>
-              {badgeContent && (
-                <CustomBadge condensed aria-label={badgeAriaLabel}>
-                  {badgeContent}
-                </CustomBadge>
-              )}
-            </MainNavRow>
-          </Tooltip>
-        </MainNavLinkWrapper>
-      );
-    }
-
-    return (
-      <MainNavLinkWrapper ref={ref} {...props}>
-        <MainNavRow tag="span" justifyContent="space-between">
-          <Flex>
-            <Box aria-hidden paddingRight={3} tag="span">
-              {icon}
-            </Box>
-            <Typography>{children}</Typography>
-          </Flex>
-          {badgeContent && (
-            <CustomBadge justifyContent="center" aria-label={badgeAriaLabel}>
-              {badgeContent}
-            </CustomBadge>
-          )}
-        </MainNavRow>
-      </MainNavLinkWrapper>
-    );
-  },
-);
+export { NavLink };
+export type { NavLinkProps };

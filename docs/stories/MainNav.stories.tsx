@@ -31,7 +31,11 @@ export const Base = {
     return (
       <Box background="neutral100" height="100vh" paddingLeft={10}>
         <MainNav condensed={condensed}>
-          <NavBrand workplace="Workplace" title="Strapi Dashboard" icon={<img src={'/strapi-img.png'} alt="" />} />
+          <NavBrand
+            workplace="Workplace"
+            title="Strapi Dashboard"
+            icon={<img src={'/stories/strapi-img.png'} alt="" />}
+          />
           <Divider />
           <NavSections>
             <NavLink href="/cm" icon={<Feather />} className="active">

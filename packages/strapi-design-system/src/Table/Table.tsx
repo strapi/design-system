@@ -84,7 +84,7 @@ export const Table = ({ footer, ...props }: TableProps) => {
 
   return (
     <TableContainer shadow="tableShadow" hasRadius background="neutral0">
-      <TableBox overflowing={overflowing} position="relative">
+      <TableBox $overflowing={overflowing} position="relative">
         <ScrollContainer ref={tableRef} onScroll={handleScroll} paddingLeft={6} paddingRight={6}>
           <TableWrapper {...props} />
         </ScrollContainer>
