@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { Information, CheckCircle, WarningCircle, Cross } from '@strapi/icons';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { handleBackgroundColor, handleBorderColor, handleIconColor } from './utils';
 import { Box, BoxComponent, BoxProps } from '../Box';

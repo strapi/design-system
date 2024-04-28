@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { ModalContext } from './ModalContext';
 import { Box, BoxProps } from '../Box';

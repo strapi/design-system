@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { avatarSize } from './constants';
 import { Flex, FlexComponent } from '../Flex';

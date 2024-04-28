@@ -1,5 +1,5 @@
 import { Typography, TypographyProps } from '@strapi/design-system';
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 const H1 = (props: TypographyProps) => (
   <Typography tag="h1" variant="alpha" textColor="neutral800" marginBottom="0.5em" {...props} />

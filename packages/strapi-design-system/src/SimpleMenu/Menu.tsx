@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { CaretDown, ChevronRight } from '@strapi/icons';
-import styled, { css, DefaultTheme } from 'styled-components';
+import { styled, css, type DefaultTheme } from 'styled-components';
 
 import { BaseLink } from '../BaseLink';
 import { Box, BoxProps } from '../Box';

@@ -3,7 +3,7 @@ import * as React from 'react';
 import { jsonParseLinter, json } from '@codemirror/lang-json';
 import type { ViewUpdate } from '@codemirror/view';
 import { useCodeMirror, ReactCodeMirrorRef, ReactCodeMirrorProps } from '@uiw/react-codemirror';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { markField, addMarks, filterMarks, lineHighlightMark } from './utils/decorationExtension';
 import { FieldProps } from '../Field';

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import styled, { CSSProperties, DefaultTheme } from 'styled-components';
+import { styled, type CSSProperties, type DefaultTheme } from 'styled-components';
 
 import { Box, BoxComponent, BoxProps } from '../Box';
 import { extractStyleFromTheme } from '../helpers/theme';

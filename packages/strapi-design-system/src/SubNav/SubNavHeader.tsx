@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { Search } from '@strapi/icons';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { Box } from '../Box';
 import { Divider } from '../Divider';

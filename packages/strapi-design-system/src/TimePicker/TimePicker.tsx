@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { Clock } from '@strapi/icons';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { Combobox, ComboboxProps, ComboboxInputElement, Option } from '../Combobox/Combobox';
 import { useDesignSystem } from '../DesignSystemProvider';

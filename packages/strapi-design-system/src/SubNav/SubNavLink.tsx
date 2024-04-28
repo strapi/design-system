@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import { BaseLink, BaseLinkProps, BaseLinkComponent } from '../BaseLink';
 import { Flex } from '../Flex';

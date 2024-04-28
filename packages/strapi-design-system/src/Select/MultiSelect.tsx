@@ -2,7 +2,7 @@
 import * as React from 'react';
 
 import { Cross } from '@strapi/icons';
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import * as SelectParts from './SelectParts';
 import checkmarkIcon from '../BaseCheckbox/assets/checkmark.svg';

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import styled, { css, DefaultTheme } from 'styled-components';
+import { styled, css, DefaultTheme } from 'styled-components';
 
 import { useField } from './FieldContext';
 import { Box } from '../Box';

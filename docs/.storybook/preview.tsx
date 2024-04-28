@@ -6,7 +6,7 @@ import { parse } from 'qs';
 import { DesignSystemProvider, Box, darkTheme, lightTheme, type BoxProps } from '@strapi/design-system';
 
 import { DocsContainer, Unstyled } from '@storybook/blocks';
-import styled, { DefaultTheme } from 'styled-components';
+import { styled, DefaultTheme } from 'styled-components';
 import { MARKDOWN_OVERRIDES, Markdown } from '../components/Markdown';
 
 const createCustomTheme = (theme: DefaultTheme, base: 'light' | 'dark' = 'light') => {

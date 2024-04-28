@@ -1,5 +1,5 @@
 import { Typography } from '@strapi/design-system';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 const TEXT_VARIANTS = ['alpha', 'beta', 'delta', 'epsilon', 'omega', 'pi', 'sigma'] as const;
 

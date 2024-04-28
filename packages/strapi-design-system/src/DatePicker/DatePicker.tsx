@@ -22,7 +22,7 @@ import { Calendar, Cross } from '@strapi/icons';
 import { composeEventHandlers } from '@strapi/ui-primitives';
 import { createPortal } from 'react-dom';
 import { RemoveScroll } from 'react-remove-scroll';
-import styled, { DefaultTheme } from 'styled-components';
+import { styled, type DefaultTheme } from 'styled-components';
 
 import { Box, BoxComponent, BoxProps } from '../Box';
 import { useDesignSystem } from '../DesignSystemProvider';

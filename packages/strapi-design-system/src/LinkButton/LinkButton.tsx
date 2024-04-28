@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { BaseLink, BaseLinkProps } from '../BaseLink';
 import { VARIANTS, BUTTON_SIZES } from '../Button/constants';

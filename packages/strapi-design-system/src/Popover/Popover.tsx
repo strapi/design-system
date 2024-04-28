@@ -5,7 +5,7 @@ import { FocusScope } from '@radix-ui/react-focus-scope';
 import { useCallbackRef, composeEventHandlers } from '@strapi/ui-primitives';
 import { hideOthers } from 'aria-hidden';
 import { RemoveScroll } from 'react-remove-scroll';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { Box, BoxComponent, BoxProps } from '../Box';
 import { DismissibleLayer, DismissibleLayerProps } from '../DismissibleLayer';

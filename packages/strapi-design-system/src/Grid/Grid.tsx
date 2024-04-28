@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { Box, BoxComponent, BoxProps } from '../Box';
 import handleResponsiveValues, { ResponsiveValue } from '../helpers/handleResponsiveValues';

@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { CaretDown, Cross } from '@strapi/icons';
 import { Combobox as ComboboxPrimitive } from '@strapi/ui-primitives';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { Box, BoxComponent } from '../Box';
 import { FieldProps } from '../Field';

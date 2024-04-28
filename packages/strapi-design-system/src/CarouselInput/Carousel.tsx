@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { ChevronRight, ChevronLeft } from '@strapi/icons';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { Box, BoxComponent, BoxProps } from '../Box';
 import { Flex, FlexComponent } from '../Flex';

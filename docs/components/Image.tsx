@@ -1,6 +1,6 @@
 import { ComponentPropsWithoutRef } from 'react';
 
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 interface ImageProps extends ComponentPropsWithoutRef<'img'> {}
 

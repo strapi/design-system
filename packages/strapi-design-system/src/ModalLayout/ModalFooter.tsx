@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { Box, BoxComponent } from '../Box';
 import { Flex } from '../Flex';

@@ -1,6 +1,6 @@
 import { Typography } from '@strapi/design-system';
 import * as Icons from '@strapi/icons/symbols';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import type { Meta, StoryObj } from '@storybook/react';
 

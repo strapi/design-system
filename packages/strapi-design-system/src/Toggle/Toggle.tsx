@@ -1,7 +1,7 @@
 /* eslint-disable no-nested-ternary */
 import * as React from 'react';
 
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { type FieldProps } from '../Field';
 import { Flex, FlexComponent } from '../Flex';

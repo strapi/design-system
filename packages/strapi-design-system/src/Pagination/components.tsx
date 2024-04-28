@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { ChevronLeft, ChevronRight } from '@strapi/icons';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { usePagination } from './PaginationContext';
 import { BaseLink, BaseLinkProps } from '../BaseLink';

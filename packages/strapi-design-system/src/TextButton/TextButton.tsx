@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { Loader } from '@strapi/icons';
-import styled, { keyframes } from 'styled-components';
+import { styled, keyframes } from 'styled-components';
 
 import { Flex, FlexComponent, FlexProps } from '../Flex';
 import { focus } from '../styles/buttons';

@@ -1,5 +1,5 @@
 import { ChevronRight, ChevronLeft } from '@strapi/icons';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { useMainNav } from './MainNavContext';
 import { Flex, FlexComponent, FlexProps } from '../Flex';

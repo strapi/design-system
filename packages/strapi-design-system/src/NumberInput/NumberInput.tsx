@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import { NumberFormatter, NumberParser } from '@internationalized/number';
 import { CaretDown } from '@strapi/icons';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { useDesignSystem } from '../DesignSystemProvider';
 import { FieldInput, FieldInputProps, type FieldProps } from '../Field';

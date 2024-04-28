@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { CaretDown, Cross } from '@strapi/icons';
 import { Select } from '@strapi/ui-primitives';
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import { Box, BoxComponent, BoxProps } from '../Box';
 import { Flex, FlexComponent } from '../Flex';

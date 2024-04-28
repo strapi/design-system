@@ -1,5 +1,5 @@
 import { Cross } from '@strapi/icons';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { useModal } from './ModalContext';
 import { Box, BoxComponent } from '../Box';

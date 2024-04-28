@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { Search, Cross } from '@strapi/icons';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { Field, FieldLabel, FieldAction, FieldInput, InputWrapper, FieldInputProps, FieldProps } from '../Field';
 import { composeRefs } from '../hooks/useComposeRefs';

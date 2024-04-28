@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import checkmarkIconDisabled from './assets/checkmark-black.svg';
 import checkmarkIcon from './assets/checkmark.svg';

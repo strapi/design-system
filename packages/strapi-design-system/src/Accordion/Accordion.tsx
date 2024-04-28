@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import styled, { DefaultTheme } from 'styled-components';
+import { styled, type DefaultTheme } from 'styled-components';
 
 import { AccordionContext } from './AccordionContext';
 import { AccordionDescription, AccordionTitle } from './AccordionToggle';

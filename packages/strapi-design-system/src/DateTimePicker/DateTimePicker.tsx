@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { CalendarDateTime, parseAbsoluteToLocal, toCalendarDateTime, getLocalTimeZone } from '@internationalized/date';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { DatePicker as DatePickerInput, DatePickerProps, DatePickerElement } from '../DatePicker/DatePicker';
 import { useDesignSystem } from '../DesignSystemProvider';

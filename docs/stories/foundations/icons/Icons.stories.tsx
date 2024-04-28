@@ -1,6 +1,6 @@
 import { Typography, lightTheme } from '@strapi/design-system';
 import * as Icons from '@strapi/icons';
-import styled, { DefaultTheme } from 'styled-components';
+import { styled, type DefaultTheme } from 'styled-components';
 
 import type { Meta, StoryObj } from '@storybook/react';
 

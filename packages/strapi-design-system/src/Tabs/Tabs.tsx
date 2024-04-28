@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { useCallbackRef } from '@strapi/ui-primitives';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { DefaultTabsRow, DefaultTabButton, DefaultTabBox, SimpleTabBox } from './components';
 import { useTabs } from './TabsContext';

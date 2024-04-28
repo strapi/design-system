@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { Flex, FlexComponent, FlexProps } from '../Flex';
 import { VisuallyHidden } from '../VisuallyHidden';

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { Loader } from '@strapi/icons';
-import styled, { keyframes } from 'styled-components';
+import { styled, keyframes } from 'styled-components';
 
 import { BUTTON_SIZES, Variant, ButtonSizes, DEFAULT } from './constants';
 import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from './utils';

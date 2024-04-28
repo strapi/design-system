@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { CaretDown } from '@strapi/icons';
-import styled, { DefaultTheme } from 'styled-components';
+import { styled, type DefaultTheme } from 'styled-components';
 
 import { AccordionSize } from './Accordion';
 import { useAccordion } from './AccordionContext';

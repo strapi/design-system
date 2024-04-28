@@ -1,4 +1,4 @@
-import styled, { DefaultTheme } from 'styled-components';
+import { styled, type DefaultTheme } from 'styled-components';
 
 import { Flex, FlexComponent, FlexProps } from '../Flex';
 import { Typography } from '../Typography';

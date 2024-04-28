@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { Flex } from '../Flex';
 import { RawTh, RawTd, RawTdProps } from '../RawTable/RawCell';

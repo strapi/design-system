@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { avatarSize, previewSize } from './constants';
 import { Box, BoxComponent } from '../Box';
