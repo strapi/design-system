@@ -3,140 +3,75 @@
  */
 import * as React from 'react';
 
-import { ThemeProvider as StyledThemeProvider, createGlobalStyle, DefaultTheme } from 'styled-components';
+import { ThemeProvider as StyledThemeProvider, createGlobalStyle, DefaultTheme, css } from 'styled-components';
 
 import { LiveRegions } from '../LiveRegions/LiveRegions';
 import { lightTheme } from '../themes';
 
 const GlobalStyle = createGlobalStyle`
- /* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-  html,
-  body,
-  div,
-  span,
-  applet,
-  object,
-  iframe,
+${css`
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+  }
+
+  html {
+    /* Sets 1rem === 10px */
+    font-size: 62.5%;
+  }
+
+  body {
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+      'Helvetica Neue', sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  p,
   h1,
   h2,
   h3,
   h4,
   h5,
-  h6,
-  p,
-  blockquote,
-  pre,
-  a,
-  abbr,
-  acronym,
-  address,
-  big,
-  cite,
-  code,
-  del,
-  dfn,
-  em,
-  img,
-  ins,
-  kbd,
-  q,
-  s,
-  samp,
-  small,
-  strike,
-  strong,
-  sub,
-  sup,
-  tt,
-  var,
-  b,
-  u,
-  i,
-  center,
-  dl,
-  dt,
-  dd,
-  ol,
-  ul,
-  li,
-  fieldset,
-  form,
-  label,
-  legend,
-  table,
-  caption,
-  tbody,
-  tfoot,
-  thead,
-  tr,
-  th,
-  td,
-  article,
-  aside,
-  canvas,
-  details,
-  embed,
-  figure,
-  figcaption,
-  footer,
-  header,
-  hgroup,
-  menu,
-  nav,
-  output,
-  ruby,
-  section,
-  summary,
-  time,
-  mark,
-  audio,
-  video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    vertical-align: baseline;
+  h6 {
+    overflow-wrap: break-word;
+    font: unset;
   }
-  /* HTML5 display-role reset for older browsers */
-  article,
-  aside,
-  details,
-  figcaption,
-  figure,
-  footer,
-  header,
-  hgroup,
-  menu,
-  nav,
-  section {
-    display: block;
+
+  #root {
+    isolation: isolate;
   }
+
   ol,
   ul {
     list-style: none;
   }
-  blockquote,
-  q {
-    quotes: none;
-  }
-  blockquote:before,
-  blockquote:after,
-  q:before,
-  q:after {
-    content: "";
-    content: none;
-  }
+
   table {
     border-collapse: collapse;
     border-spacing: 0;
-  }
-  /* My styles */
-  *,
-  *:before,
-  *:after {
-    box-sizing: border-box;
   }
 
   *:focus-visible {
@@ -149,35 +84,11 @@ const GlobalStyle = createGlobalStyle`
     outline: none;
   }
 
-  html {
-    /* Sets 1rem === 10px */
-    font-size: 62.5%;
-  }
-
-  body,html{
-    height: 100%;
-    line-height: 1;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  }
-
-  button {
-    margin: 0;
-    padding: 0;
-    border: none;
-    background: none;
-    color: inherit;
-    cursor: pointer;
-    font: inherit;
-  }
-
-  textarea,input {
-    font: inherit;
-  }
-
   .lock-body-scroll {
     height: 100vh;
     overflow-y: hidden;
   }
+`}
 `;
 
 export interface ThemeProviderProps {

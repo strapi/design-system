@@ -6,6 +6,23 @@ import { Meta } from '@storybook/blocks';
 
 ## Design System
 
+### Peer dependency updates
+
+The design-system & icons peer-deps have been updated, we removed `react-router-dom` and updated `styled-components`.
+
+```diff
+// package.json
+{
+  peerDependencies: {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+-   "react-router-dom": "^5.2.0",
+-   "styled-components": "^5.3.0",
++   "styled-components": "^6.0.0"
+  }
+}
+```
+
 ### Remove direct imports
 
 Users can no longer `import { Combobox } from '@strapi/design-system/Combobox'`, instead they should import _all_ things
@@ -92,7 +109,29 @@ return (
 + import { Toggle } from '@strapi/design-system'
 ```
 
-### Box, Flex & Typography are now all react components
+### Upgraded styled-components to V6
+
+#### `as` is no longer a prop, use `tag` instead
+
+A common issue we faced in Strapi was the behaviour of the `as` prop in conjunction with how we built our design-system
+– everything is based off `Box`. This meant that when we used `as` on a styled component it would not be passed down to
+the `Box` component. This is because `as` is a prop that styled-components uses to change the underlying element to the
+closest `styled` component, but we were using it to change the `tag` prop of `Box`.
+
+We've now introduced the `tag` prop which behaves as we expect.
+
+```diff
+import { Link } from 'react-router-dom'
+
+const MyLink = () => {
+  // the below prop would throw a TS error
+- return <BaseLink as={NavLink} to="/home">
+  // It now, should not.
++ return <BaseLink tag={NavLink} to="/home">
+}
+```
+
+#### Box, Flex, Grid & Typography are now all react components
 
 These components are no longer styled-components. This means that users can not directly reference them in other styled
 components:
@@ -111,6 +150,24 @@ components:
 +   }
 + `;
 ```
+
+Because they are now polymoprhic react components that are correctly typed i.e. it will infer the props of the `tag` the
+type signature of the component uses generics, `styled-components` has an issue surrounding the poor auto-inference of
+this. We therefore recommend you type your `styled` functions where you use them:
+
+```tsx
+import { Box, BoxComponent } from '@strapi/design-system';
+
+const MyBox = styled<BoxComponent<'article'>>(Box)`
+  background-color: red;
+`;
+
+const MyComponent = () => {
+  return <MyBox tag="article">Hello</MyBox>;
+};
+```
+
+If you don't do this, the props for `MyBox` are all inferred as `Record<string, any>`, which is incorrect.
 
 ---
 

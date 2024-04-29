@@ -1,31 +1,41 @@
-import { Typography, TypographyProps } from '@strapi/design-system';
+import { Typography, TypographyComponent, TypographyProps } from '@strapi/design-system';
 import { styled, css } from 'styled-components';
 
 const H1 = (props: TypographyProps) => (
-  <Typography tag="h1" variant="alpha" textColor="neutral800" marginBottom="0.5em" {...props} />
+  <Typography {...props} tag="h1" variant="alpha" textColor="neutral800" marginBottom="0.5em" />
 );
 
 const H2 = (props: TypographyProps) => (
-  <Typography tag="h2" variant="beta" textColor="neutral800" marginBottom="1em" marginTop="2em" {...props} />
+  <Typography {...props} tag="h2" variant="beta" textColor="neutral800" marginBottom="1em" marginTop="2em" />
 );
 
 const H3 = (props: TypographyProps) => (
-  <Typography tag="h3" variant="delta" textColor="neutral800" marginBottom="1em" marginTop="1.4em" {...props} />
+  <Typography
+    {...props}
+    tag="h3"
+    variant="delta"
+    textColor="neutral800"
+    marginBottom="1em"
+    marginTop="1.4em"
+    fontSize={4}
+  />
 );
 
 const H4 = (props: TypographyProps) => (
   <Typography
+    {...props}
     tag="h4"
     variant="epsilon"
     textColor="neutral800"
     marginBottom="1em"
     marginTop="1.4em"
-    fontWeight="bold"
-    {...props}
+    fontWeight="semiBold"
   />
 );
 
-const P = (props: TypographyProps) => <Paragraph tag="p" variant="epsilon" textColor="neutral700" {...props} />;
+const P = (props: TypographyProps) => (
+  <Paragraph {...props} tag="p" variant="epsilon" textColor="neutral700" fontSize={2} />
+);
 
 const codeStyles = css`
   color: ${({ theme }) => theme.colors.neutral700};
@@ -34,7 +44,7 @@ const codeStyles = css`
   padding: 0.6rem;
 `;
 
-const Paragraph = styled(Typography)`
+const Paragraph = styled<TypographyComponent<'p'>>(Typography)`
   & code {
     ${codeStyles}
   }
