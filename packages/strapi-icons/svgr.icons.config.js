@@ -1,7 +1,7 @@
 // https://react-svgr.com/docs/options/
 module.exports = {
   dimensions: true,
-  icon: '1.6rem',
+  icon: 16,
   svgProps: { fill: '{fill}', stroke: '{stroke}' },
   jsxRuntime: 'automatic',
   outDir: './src/icons',
