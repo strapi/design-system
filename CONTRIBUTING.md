@@ -159,35 +159,7 @@ if we're already in pre-release mode, this is fine and you should continue.
 
 ## Linking the design system
 
-### Strapi monorepo
-
-To link the design system to the Strapi monorepo follow the steps outlined in the [contributor documentation](https://contributor.strapi.io/core/admin/link-strapi-design-system)
-
-### React application
-
-In your local copy of the design system run `yarn build` to generate the bundle.
-
-In your application, link your local copy of the design system with [`yarn link`](https://yarnpkg.com/cli/link):
-
-```
-yarn link -r ../<relative-path-to-strapi-design-system>
-```
-
-You can also link a local copy of a specific package. For example, if you want to link the package strapi-design-system, you can run:
-
-```
-yarn link -r ../<relative-path-to-strapi-design-system>/packages/strapi-design-system
-```
-
-You should also remove the webpack alias for `@strapi/design-system` in the Strapi monorepo at `packages/core/admin/webpack.alias.js`
-
-Your application should now be using your local copy of the design system.
-
-To revert back to the released version of the design system use [`yarn unlink`](https://yarnpkg.com/cli/unlink#usage):
-
-```
-yarn unlink ../<relative-path-to-strapi-design-system>
-```
+We recommend you use [`yalc`](https://github.com/wclr/yalc). If you're working in a monorepo setup (e.g. the Strapi monorepo), then ensure you use the `--pure` option and follow the [advanced guide](https://github.com/wclr/yalc#use-with-yarnpnpm-workspaces). This works a lot better than `yarn link`.
 
 ### If You've Found a Bug
 

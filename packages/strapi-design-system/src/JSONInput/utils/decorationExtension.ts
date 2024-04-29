@@ -1,4 +1,4 @@
-import { StateField, StateEffect, Range } from '@codemirror/state';
+import { StateField, StateEffect, type Range } from '@codemirror/state';
 import { EditorView, Decoration } from '@codemirror/view';
 
 // Effects can be attached to transactions to communicate with the extension
