@@ -1,7 +1,7 @@
 // https://react-svgr.com/docs/options/
 module.exports = {
   dimensions: true,
-  icon: '1.6rem',
+  icon: 16,
   jsxRuntime: 'automatic',
   outDir: './src/symbols',
   ref: true,
