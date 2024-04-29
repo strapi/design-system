@@ -161,6 +161,19 @@ if we're already in pre-release mode, this is fine and you should continue.
 
 We recommend you use [`yalc`](https://github.com/wclr/yalc). If you're working in a monorepo setup (e.g. the Strapi monorepo), then ensure you use the `--pure` option and follow the [advanced guide](https://github.com/wclr/yalc#use-with-yarnpnpm-workspaces). This works a lot better than `yarn link`.
 
+### Example steps
+
+These steps assume you're in the root of the design-system project and on MacOS and adding to the Strapi Monorepo (a normal use case).
+
+```shell
+cd packages/strapi-design-system # this could be icons too if you preferred.
+yalc publish
+cd ../../your-strapi-repo
+yalc add @strapi/design-system --pure
+```
+
+You'll then want to add `.yalc/*` to your workspaces entry in the package.json. You should not commit the changes these steps occur on the target repo (in this case, the Strapi Monorepo).
+
 ### If You've Found a Bug
 
 We are using [GitHub Issues](https://github.com/strapi/design-system/issues) to manage our public bugs. We keep a close
