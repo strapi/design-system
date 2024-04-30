@@ -159,35 +159,20 @@ if we're already in pre-release mode, this is fine and you should continue.
 
 ## Linking the design system
 
-### Strapi monorepo
+We recommend you use [`yalc`](https://github.com/wclr/yalc). If you're working in a monorepo setup (e.g. the Strapi monorepo), then ensure you use the `--pure` option and follow the [advanced guide](https://github.com/wclr/yalc#use-with-yarnpnpm-workspaces). This works a lot better than `yarn link`.
 
-To link the design system to the Strapi monorepo follow the steps outlined in the [contributor documentation](https://contributor.strapi.io/core/admin/link-strapi-design-system)
+### Example steps
 
-### React application
+These steps assume you're in the root of the design-system project and on MacOS and adding to the Strapi Monorepo (a normal use case).
 
-In your local copy of the design system run `yarn build` to generate the bundle.
-
-In your application, link your local copy of the design system with [`yarn link`](https://yarnpkg.com/cli/link):
-
-```
-yarn link -r ../<relative-path-to-strapi-design-system>
-```
-
-You can also link a local copy of a specific package. For example, if you want to link the package strapi-design-system, you can run:
-
-```
-yarn link -r ../<relative-path-to-strapi-design-system>/packages/strapi-design-system
+```shell
+cd packages/strapi-design-system # this could be icons too if you preferred.
+yalc publish
+cd ../../your-strapi-repo
+yalc add @strapi/design-system --pure
 ```
 
-You should also remove the webpack alias for `@strapi/design-system` in the Strapi monorepo at `packages/core/admin/webpack.alias.js`
-
-Your application should now be using your local copy of the design system.
-
-To revert back to the released version of the design system use [`yarn unlink`](https://yarnpkg.com/cli/unlink#usage):
-
-```
-yarn unlink ../<relative-path-to-strapi-design-system>
-```
+You'll then want to add `.yalc/*` to your workspaces entry in the package.json. You should not commit the changes these steps occur on the target repo (in this case, the Strapi Monorepo).
 
 ### If You've Found a Bug
 
