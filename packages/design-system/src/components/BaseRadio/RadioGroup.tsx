@@ -1,29 +1,37 @@
 import * as React from 'react';
 
+import { createContext } from '../../helpers/context';
 import { setTabIndexOnFirstItem } from '../../helpers/setTabIndexOnFirstItem';
 
-import { RadioContext } from './context';
+/* -------------------------------------------------------------------------------------------------
+ * RadioContext
+ * -----------------------------------------------------------------------------------------------*/
 
-export type RadioGroupSize = 'M' | 'L';
+interface RadioContextValue {
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
+  name: string;
+  selected: string;
+}
+
+const [RadioProvider, useRadioGroup] = createContext<RadioContextValue>('RadioGroup', {
+  onChange: undefined,
+  name: '',
+  selected: '',
+});
+
+/* -------------------------------------------------------------------------------------------------
+ * RadioGroup
+ * -----------------------------------------------------------------------------------------------*/
 
 interface RadioGroupProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   labelledBy: string;
   name: string;
   onChange: React.ChangeEventHandler<HTMLInputElement>;
-  size?: RadioGroupSize;
   value?: string;
 }
 
-export const RadioGroup = ({
-  children,
-  labelledBy,
-  onChange,
-  value = '',
-  size = 'M',
-  name,
-  ...props
-}: RadioGroupProps) => {
+const RadioGroup = ({ children, labelledBy, onChange, value = '', name, ...props }: RadioGroupProps) => {
   const radioGroupRef = React.useRef<HTMLDivElement>(null!);
 
   React.useLayoutEffect(() => {
@@ -32,13 +40,14 @@ export const RadioGroup = ({
     }
   }, [value, name]);
 
-  const context = React.useMemo(() => ({ onChange, selected: value, name, size }), [name, onChange, size, value]);
-
   return (
-    <RadioContext.Provider value={context}>
+    <RadioProvider onChange={onChange} selected={value} name={name}>
       <div ref={radioGroupRef} role="radiogroup" aria-labelledby={labelledBy} {...props}>
         {children}
       </div>
-    </RadioContext.Provider>
+    </RadioProvider>
   );
 };
+
+export { RadioGroup, useRadioGroup };
+export type { RadioGroupProps, RadioContextValue };

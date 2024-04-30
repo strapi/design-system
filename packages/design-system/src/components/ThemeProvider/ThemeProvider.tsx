@@ -47,6 +47,7 @@ ${css`
   button,
   textarea,
   select {
+    padding: 0;
     font: inherit;
   }
 

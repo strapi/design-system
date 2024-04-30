@@ -5,7 +5,7 @@ import { Select } from '@strapi/ui-primitives';
 import { styled, css } from 'styled-components';
 
 import { useComposedRefs } from '../../hooks/useComposeRefs';
-import { getThemeSize, inputFocusStyle } from '../../themes';
+import { inputFocusStyle } from '../../themes';
 import { Box, BoxComponent, BoxProps } from '../Box';
 import { Field, useField } from '../Field';
 import { Flex, FlexComponent } from '../Flex';
@@ -24,14 +24,10 @@ interface TriggerProps extends BoxProps<'div'>, Pick<Field.InputProps, 'name' | 
   hasError?: boolean;
   onClear?: (e: React.MouseEvent<HTMLButtonElement | HTMLDivElement>) => void;
   startIcon?: React.ReactElement;
-  /**
-   * @default "M"
-   */
-  size?: 'S' | 'M';
 }
 
 const SelectTrigger = React.forwardRef<HTMLDivElement, TriggerProps>(
-  ({ onClear, clearLabel = 'Clear', startIcon, disabled, hasError, size = 'M', children, id, ...restProps }, ref) => {
+  ({ onClear, clearLabel = 'Clear', startIcon, disabled, hasError, children, id, ...restProps }, ref) => {
     const triggerRef = React.useRef<HTMLSpanElement>(null!);
 
     const handleClearClick = (e: React.MouseEvent<HTMLButtonElement | HTMLDivElement>) => {
@@ -50,7 +46,6 @@ const SelectTrigger = React.forwardRef<HTMLDivElement, TriggerProps>(
         <StyledTrigger
           aria-disabled={disabled}
           $hasError={hasError}
-          $size={size}
           ref={composedRefs}
           alignItems="center"
           justifyContent="space-between"
@@ -60,8 +55,8 @@ const SelectTrigger = React.forwardRef<HTMLDivElement, TriggerProps>(
           background={disabled ? 'neutral150' : 'neutral0'}
           paddingLeft={3}
           paddingRight={3}
-          paddingTop={1}
-          paddingBottom={1}
+          paddingTop={2}
+          paddingBottom={2}
           gap={4}
           cursor="default"
           aria-labelledby={labelNode ? `${id}-label` : undefined}
@@ -118,10 +113,8 @@ const IconBox = styled<BoxComponent<'button'>>(Box)`
 
 const StyledTrigger = styled<FlexComponent>(Flex)<{
   $hasError?: boolean;
-  $size: Required<TriggerProps>['size'];
 }>`
   border: 1px solid ${({ theme, $hasError }) => ($hasError ? theme.colors.danger600 : theme.colors.neutral200)};
-  min-height: ${({ theme, $size }) => getThemeSize('input')({ theme, size: $size })};
 
   &[aria-disabled='true'] {
     color: ${(props) => props.theme.colors.neutral600};
@@ -137,7 +130,6 @@ const StyledTrigger = styled<FlexComponent>(Flex)<{
 
 const DownIcon = styled(Select.Icon)`
   & > svg {
-    width: 1.2rem;
     fill: ${({ theme }) => theme.colors.neutral600};
   }
 `;
@@ -160,6 +152,8 @@ const SelectValue = React.forwardRef<HTMLSpanElement, ValueProps>(({ children, p
 
 const ValueType = styled<TypographyComponent>(Typography)`
   flex: 1;
+  font-size: 1.4rem;
+  line-height: 2.2rem;
 `;
 
 const StyledValue = styled(Select.Value)`

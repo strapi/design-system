@@ -90,7 +90,6 @@ export const SubNavHeader = ({
             onClear={handleClear}
             onSubmit={onSubmit}
             clearLabel="Clear"
-            size="S"
           >
             {searchLabel}
           </Searchbar>

@@ -9,15 +9,12 @@ import { Field, useField } from '../Field';
 import { Flex, FlexComponent } from '../Flex';
 import { Typography } from '../Typography';
 
-import type { InputSizes } from '../../themes/sizes';
-
 interface ToggleProps
   extends Omit<React.ComponentPropsWithoutRef<'input'>, 'name' | 'children' | 'required' | 'id' | 'size' | 'checked'>,
     Pick<Field.InputProps, 'required' | 'name' | 'id' | 'hasError'> {
   onLabel: string;
   offLabel: string;
   checked?: boolean | null;
-  size?: InputSizes;
 }
 
 type ToggleInputElement = HTMLInputElement;
@@ -38,7 +35,6 @@ const Toggle = React.forwardRef<ToggleInputElement, ToggleProps>(
       name: nameProp,
       checked: checkedProp,
       onChange,
-      size = 'M',
       ...props
     },
     forwardedRef,
@@ -93,7 +89,6 @@ const Toggle = React.forwardRef<ToggleInputElement, ToggleProps>(
                   ? 'neutral150'
                   : 'neutral100'
           }
-          $size={size}
         >
           <Typography
             variant="pi"
@@ -114,7 +109,6 @@ const Toggle = React.forwardRef<ToggleInputElement, ToggleProps>(
           borderColor={
             disabled && checked ? 'neutral300' : checked ? 'neutral200' : disabled ? 'neutral150' : 'neutral100'
           }
-          $size={size}
         >
           <Typography
             variant="pi"
@@ -150,14 +144,8 @@ const ToggleWrapper = styled<FlexComponent>(Flex)<{ $hasError?: boolean }>`
   ${inputFocusStyle()}
 `;
 
-const ToggleOption = styled<FlexComponent>(Flex)<{ $size: InputSizes }>`
-  /**
-    We declare the defined value because we want the height of the input when 
-    the values are in a row to be 40px. But defining a height on the label
-    would break the input when it wraps.
-  */
-  padding-top: ${({ $size }) => `${$size === 'S' ? '2px' : '6px'}`};
-  padding-bottom: ${({ $size }) => `${$size === 'S' ? '2px' : '6px'}`};
+const ToggleOption = styled<FlexComponent>(Flex)`
+  padding-block: 0.6rem;
 `;
 
 const Input = styled.input`

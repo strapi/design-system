@@ -1,26 +1,28 @@
-import { styled, type DefaultTheme } from 'styled-components';
+import { css, styled, type DefaultTheme } from 'styled-components';
 
 import { Flex, FlexComponent, FlexProps } from '../Flex';
 import { Typography } from '../Typography';
 
-const Base = styled<FlexComponent>(Flex)<{ $size: BadgeSize }>`
-  border-radius: ${({ theme, $size }) => ($size === 'S' ? '2px' : theme.borderRadius)};
-  height: ${({ $size, theme }) => theme.sizes.badge[$size]};
-`;
+type BadgeSizes = 'S' | 'M';
+/**
+ * @deprecated use `BadgeSizes` instead.
+ */
+type BadgeSize = BadgeSizes;
 
-export type BadgeSize = 'S' | 'M';
-
-export interface BadgeProps extends FlexProps {
+interface BadgeProps extends FlexProps {
   /**
    * If `true`, it changes the `backgroundColor` to `primary200` and the `textColor` to `primary600`
    */
   active?: boolean;
   backgroundColor?: keyof DefaultTheme['colors'];
-  size?: BadgeSize;
+  /**
+   * @default 'M'
+   */
+  size?: BadgeSizes;
   textColor?: keyof DefaultTheme['colors'];
 }
 
-export const Badge = ({
+const Badge = ({
   active = false,
   size = 'M',
   textColor = 'neutral600',
@@ -43,9 +45,29 @@ export const Badge = ({
       $size={size}
       {...props}
     >
-      <Typography variant="sigma" textColor={active ? 'primary600' : textColor}>
+      <Typography variant="sigma" textColor={active ? 'primary600' : textColor} lineHeight="1rem">
         {children}
       </Typography>
     </Base>
   );
 };
+
+const Base = styled<FlexComponent>(Flex)<{ $size: BadgeSizes }>`
+  border-radius: ${({ theme, $size }) => ($size === 'S' ? '2px' : theme.borderRadius)};
+  ${({ $size, theme }) => {
+    if ($size === 'S') {
+      return css`
+        padding-block: 0.3rem;
+        padding-inline ${theme.spaces[1]}
+      `;
+    }
+
+    return css`
+      padding-block: 0.7rem;
+      padding-inline ${theme.spaces[2]}
+    `;
+  }};
+`;
+
+export { Badge };
+export type { BadgeProps, BadgeSizes, BadgeSize };

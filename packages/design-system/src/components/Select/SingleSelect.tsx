@@ -11,7 +11,7 @@ import * as SelectParts from './SelectParts';
 
 type SingleSelectPropsWithoutLabel = Omit<SelectParts.SingleSelectProps, 'value'> &
   Pick<SelectParts.ContentProps, 'onCloseAutoFocus'> &
-  Pick<SelectParts.TriggerProps, 'clearLabel' | 'onClear' | 'size' | 'startIcon' | 'name' | 'id' | 'hasError'> &
+  Pick<SelectParts.TriggerProps, 'clearLabel' | 'onClear' | 'startIcon' | 'name' | 'id' | 'hasError'> &
   Pick<SelectParts.ValueProps, 'placeholder'> & {
     /**
      * @default (value) => value.toString()
@@ -43,7 +43,6 @@ export const SingleSelect = React.forwardRef<SingleSelectElement, SingleSelectPr
       placeholder,
       required: requiredProp,
       startIcon,
-      size = 'M',
       value: passedValue,
       ...restProps
     },
@@ -130,7 +129,6 @@ export const SingleSelect = React.forwardRef<SingleSelectElement, SingleSelectPr
           id={id}
           name={name}
           startIcon={startIcon}
-          size={size}
           hasError={hasError}
           disabled={disabled}
           clearLabel={clearLabel}

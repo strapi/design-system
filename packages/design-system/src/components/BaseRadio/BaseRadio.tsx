@@ -4,9 +4,7 @@ import { styled } from 'styled-components';
 
 import { useId } from '../../hooks/useId';
 
-import { RadioContext } from './context';
-import { RadioGroupSize } from './RadioGroup';
-import { getRadioSize, getSelectedRadioSize, getSelectedRadioPosition } from './utils';
+import { useRadioGroup } from './RadioGroup';
 
 interface BaseRadioProps extends React.InputHTMLAttributes<HTMLInputElement> {
   disabled?: boolean;
@@ -15,7 +13,7 @@ interface BaseRadioProps extends React.InputHTMLAttributes<HTMLInputElement> {
 
 const BaseRadio = React.forwardRef<HTMLInputElement, BaseRadioProps>(({ value, disabled = false, ...props }, ref) => {
   const generatedId = useId();
-  const { onChange, selected, name, size } = React.useContext(RadioContext);
+  const { onChange, selected, name } = useRadioGroup('BaseRadio');
   const isSelected = selected === value;
 
   return (
@@ -29,7 +27,6 @@ const BaseRadio = React.forwardRef<HTMLInputElement, BaseRadioProps>(({ value, d
       checked={isSelected}
       disabled={disabled}
       id={generatedId}
-      $size={size}
       onChange={onChange}
       {...props}
     />
@@ -38,15 +35,14 @@ const BaseRadio = React.forwardRef<HTMLInputElement, BaseRadioProps>(({ value, d
 
 BaseRadio.displayName = 'Radio';
 
-const RadioInput = styled.input<{ $size: RadioGroupSize }>`
+const RadioInput = styled.input`
   margin: 0;
   padding: 0;
   background-color: ${({ theme }) => theme.colors.neutral0};
   border: 1px solid ${({ theme }) => theme.colors.primary600};
   border-radius: 50%;
-  height: ${({ $size }) => getRadioSize($size)};
-  width: ${({ $size }) => getRadioSize($size)};
-  -webkit-appearance: none;
+  height: 1.8rem;
+  width: 1.8rem;
 
   &:after {
     border-radius: 50%;
@@ -54,10 +50,10 @@ const RadioInput = styled.input<{ $size: RadioGroupSize }>`
     position: relative;
     z-index: 1;
     display: block;
-    height: ${({ $size }) => (typeof $size === 'number' ? $size : getSelectedRadioSize($size))};
-    width: ${({ $size }) => (typeof $size === 'number' ? $size : getSelectedRadioSize($size))};
-    left: ${getSelectedRadioPosition};
-    top: ${getSelectedRadioPosition};
+    height: 1rem;
+    width: 1rem;
+    left: 0.3rem;
+    top: 0.3rem;
   }
 
   &:checked:after {

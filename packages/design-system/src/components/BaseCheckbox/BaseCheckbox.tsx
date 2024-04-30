@@ -7,9 +7,6 @@ import { Box } from '../Box';
 
 import checkmarkIconDisabled from './assets/checkmark-black.svg';
 import checkmarkIcon from './assets/checkmark.svg';
-import { getCheckboxSize } from './utils';
-
-type BaseCheckboxSize = 'S' | 'M';
 
 interface BaseCheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'value'> {
   /**
@@ -25,17 +22,13 @@ interface BaseCheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputElem
    * `(value: Bool) => {}`
    */
   onValueChange?: (isChecked: boolean) => void;
-  /**
-   * Set the size of the checkbox
-   */
-  size?: BaseCheckboxSize;
   value?: boolean;
 }
 
 type CheckboxElement = HTMLInputElement;
 
 const BaseCheckbox = React.forwardRef<CheckboxElement, BaseCheckboxProps>(
-  ({ indeterminate = false, size = 'M', name, value = false, onValueChange, ...inputProps }, forwardedRef) => {
+  ({ indeterminate = false, name, value = false, onValueChange, ...inputProps }, forwardedRef) => {
     const checkboxRef = React.useRef<HTMLInputElement>(null!);
 
     const composedRefs = useComposedRefs(checkboxRef, forwardedRef);
@@ -57,7 +50,6 @@ const BaseCheckbox = React.forwardRef<CheckboxElement, BaseCheckboxProps>(
     return (
       <Box>
         <CheckboxInput
-          $size={size}
           checked={value}
           onChange={handleValueChange}
           type="checkbox"
@@ -72,13 +64,12 @@ const BaseCheckbox = React.forwardRef<CheckboxElement, BaseCheckboxProps>(
 
 BaseCheckbox.displayName = 'BaseCheckbox';
 
-const CheckboxInput = styled.input<{ $size: BaseCheckboxSize }>`
-  height: ${getCheckboxSize};
-  min-width: ${getCheckboxSize};
+const CheckboxInput = styled.input`
+  min-width: 1.8rem;
+  height: 1.8rem;
   margin: 0;
   border-radius: ${({ theme }) => theme.borderRadius};
   border: 1px solid ${({ theme }) => theme.colors.neutral300};
-  -webkit-appearance: none;
   background-color: ${({ theme }) => theme.colors.neutral0};
   cursor: pointer;
 
@@ -136,4 +127,4 @@ const CheckboxInput = styled.input<{ $size: BaseCheckboxSize }>`
 `;
 
 export { BaseCheckbox };
-export type { BaseCheckboxProps, BaseCheckboxSize, CheckboxElement };
+export type { BaseCheckboxProps, CheckboxElement };

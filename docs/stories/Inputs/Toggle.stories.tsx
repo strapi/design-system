@@ -47,30 +47,6 @@ export const Base = {
   name: 'base',
 } satisfies Story;
 
-export const SizeS = {
-  ...Template,
-  args: {
-    ...Base.args,
-    size: 'S',
-  },
-  parameters: {
-    docs: {
-      source: {
-        code: outdent`
-        <ToggleInput
-          onLabel="True"
-          offLabel="False"
-          checked={checked}
-          onChange={handleChange}
-          size='S'
-        />
-        `,
-      },
-    },
-  },
-  name: 'size S',
-} satisfies Story;
-
 export const WithField = {
   render: ({ hint, error, label, ...props }) => {
     const [, updateArgs] = useArgs();
