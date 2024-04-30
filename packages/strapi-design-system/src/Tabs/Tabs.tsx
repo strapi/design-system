@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { useCallbackRef } from '@strapi/ui-primitives';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { DefaultTabsRow, DefaultTabButton, DefaultTabBox, SimpleTabBox } from './components';
 import { useTabs } from './TabsContext';
@@ -224,7 +224,7 @@ export const Tab = ({
         aria-disabled={disabled}
         {...props}
       >
-        <SimpleTabBox padding={4} selected={selected} hasError={hasError}>
+        <SimpleTabBox padding={4} $selected={selected} $hasError={hasError}>
           <Typography variant="sigma" textColor={textColor}>
             {children}
           </Typography>
@@ -249,10 +249,10 @@ export const Tab = ({
       aria-selected={selected}
       onClick={handleClick}
       aria-disabled={disabled}
-      showRightBorder={Boolean(showRightBorder)}
+      $showRightBorder={Boolean(showRightBorder)}
       {...props}
     >
-      <DefaultTabBox padding={selected ? 4 : 3} background={selected ? 'neutral0' : 'neutral100'} selected={selected}>
+      <DefaultTabBox padding={selected ? 4 : 3} background={selected ? 'neutral0' : 'neutral100'} $selected={selected}>
         <Typography fontWeight="bold" textColor={selected ? 'primary700' : 'neutral600'}>
           {children}
         </Typography>

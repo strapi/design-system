@@ -1,10 +1,10 @@
 import * as React from 'react';
 
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { avatarSize, previewSize } from './constants';
-import { Box } from '../Box';
-import { Flex, FlexProps } from '../Flex';
+import { Box, BoxComponent } from '../Box';
+import { Flex, FlexComponent, FlexProps } from '../Flex';
 import { Typography, TypographyProps } from '../Typography';
 
 const AvatarImg = styled.img`
@@ -22,7 +22,7 @@ const PreviewContainer = styled.img`
   margin-top: -${({ theme }) => theme.spaces[1]};
 `;
 
-const Overlay = styled(Box)`
+const Overlay = styled<BoxComponent>(Box)`
   opacity: 0.4;
 `;
 
@@ -82,7 +82,7 @@ export const Avatar = ({ src, alt, preview }: AvatarProps) => {
   );
 };
 
-const InitialsWrapper = styled(Flex)`
+const InitialsWrapper = styled<FlexComponent>(Flex)`
   span {
     line-height: 0;
   }

@@ -6,7 +6,7 @@ import { parse } from 'qs';
 import { DesignSystemProvider, Box, darkTheme, lightTheme, type BoxProps } from '@strapi/design-system';
 
 import { DocsContainer, Unstyled } from '@storybook/blocks';
-import styled, { DefaultTheme } from 'styled-components';
+import { styled, DefaultTheme } from 'styled-components';
 import { MARKDOWN_OVERRIDES, Markdown } from '../components/Markdown';
 
 const createCustomTheme = (theme: DefaultTheme, base: 'light' | 'dark' = 'light') => {
@@ -57,7 +57,7 @@ const Theme = ({ children, ...props }: BoxProps) => {
 
   return (
     <DesignSystemProvider locale="en" theme={isDark ? darkTheme : lightTheme}>
-      <Main as="main" background="neutral0" padding="4rem" paddingBottom="8rem" height="100%">
+      <Main tag="main" background="neutral0" padding="4rem" paddingBottom="8rem" height="100%">
         <Box maxWidth="84rem" margin="auto" height="100%" {...props}>
           {children}
         </Box>
@@ -136,6 +136,7 @@ const preview: Preview = {
           'Primitives',
           ['Overview', '*'],
           'Inputs',
+          'Components',
           'Design System',
           ['Technical Components', 'Components'],
           'Utilities',

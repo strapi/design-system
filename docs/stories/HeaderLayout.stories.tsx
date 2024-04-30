@@ -40,7 +40,7 @@ export const Base = {
         }
         title="Restaurants"
         subtitle="36 entries found"
-        as="h2"
+        tag="h2"
       />
     </Box>
   ),
@@ -60,7 +60,7 @@ export const BaseWithoutNavAction = {
         }
         title="Other CT"
         subtitle="36 entries found"
-        as="h2"
+        tag="h2"
       />
     </Box>
   ),
@@ -79,7 +79,7 @@ export const BaseWithCustomSubtitle = {
             <Crumb>Cats</Crumb>
           </Breadcrumbs>
         }
-        as="h2"
+        tag="h2"
       />
     </Box>
   ),
@@ -105,7 +105,7 @@ export const Sticky = {
         }
         title="Restaurants"
         subtitle="36 entries found"
-        as="h2"
+        tag="h2"
       />
     </Box>
   ),
@@ -142,7 +142,7 @@ export const CombinedWScroll = {
           }
           title="Restaurants"
           subtitle="36 entries found"
-          as="h2"
+          tag="h2"
         />
         {isVisible && (
           <ModalLayout onClose={() => setIsVisible(false)} labelledBy="subtitle">

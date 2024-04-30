@@ -1,19 +1,17 @@
 import * as React from 'react';
 
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { SubNavSectionLabel } from './SubNavSectionLabel';
 import { Badge } from '../Badge';
-import { Box } from '../Box';
+import { Box, BoxComponent } from '../Box';
 import { Flex } from '../Flex';
 import { useId } from '../hooks/useId';
 
-const SubNavSectionWrapper = styled(Box)`
-  svg {
+const SubNavSectionWrapper = styled<BoxComponent>(Box)`
+  & > svg {
     height: 0.4rem;
-    path {
-      fill: ${({ theme }) => theme.colors.neutral500};
-    }
+    fill: ${({ theme }) => theme.colors.neutral500};
   }
 `;
 

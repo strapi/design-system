@@ -1,11 +1,11 @@
 import * as React from 'react';
 
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
-import { Box } from '../Box';
+import { Box, BoxComponent } from '../Box';
 import { Flex } from '../Flex';
 
-const IconContainer = styled(Box)`
+const IconContainer = styled<BoxComponent>(Box)`
   svg {
     width: ${({ theme }) => theme.spaces[6]};
     height: ${({ theme }) => theme.spaces[6]};

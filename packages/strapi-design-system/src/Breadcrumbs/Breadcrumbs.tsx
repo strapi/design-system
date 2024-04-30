@@ -1,17 +1,17 @@
 import * as React from 'react';
 
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { Divider } from './Divider';
 import { Box } from '../Box';
-import { Flex, FlexProps } from '../Flex';
+import { Flex, FlexComponent, FlexProps } from '../Flex';
 
-const AlignedList = styled(Flex)`
+const AlignedList = styled<FlexComponent<'ol'>>(Flex)`
   // CrumbLinks do have padding-x, because they need to have a
   // interaction effect, which mis-aligns the breadcrumbs on the left.
   // This normalizes the behavior by moving the first item to left by
   // the same amount it has inner padding
-  :first-child {
+  & > *:first-child {
     margin-left: ${({ theme }) => `calc(-1*${theme.spaces[2]})`};
   }
 `;
@@ -24,13 +24,13 @@ export const Breadcrumbs = ({ label, children, ...props }: BreadcrumbsProps) => 
   const childrenArray = React.Children.toArray(children);
 
   return (
-    <Box aria-label={label} {...props}>
-      <AlignedList as="ol">
+    <Box aria-label={label} tag="nav" {...props}>
+      <AlignedList tag="ol">
         {React.Children.map(childrenArray, (child, index) => {
           const shouldDisplayDivider = childrenArray.length > 1 && index + 1 < childrenArray.length;
 
           return (
-            <Flex inline as="li">
+            <Flex inline tag="li">
               {child}
               {shouldDisplayDivider && <Divider />}
             </Flex>

@@ -156,7 +156,7 @@ export const SingleSelectOption = React.forwardRef<HTMLDivElement, SingleSelectO
     return (
       <SelectParts.Item ref={ref} value={value.toString()} {...restProps}>
         {startIcon && (
-          <Box as="span" aria-hidden>
+          <Box tag="span" aria-hidden>
             {startIcon}
           </Box>
         )}

@@ -9,7 +9,7 @@ export const FieldError = () => {
   }
 
   return (
-    <Typography variant="pi" as="p" id={`${id}-error`} textColor="danger600" data-strapi-field-error>
+    <Typography variant="pi" tag="p" id={`${id}-error`} textColor="danger600" data-strapi-field-error>
       {error}
     </Typography>
   );

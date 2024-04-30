@@ -1,10 +1,10 @@
 /* eslint-disable no-nested-ternary */
 import * as React from 'react';
 
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { type FieldProps } from '../Field';
-import { Flex } from '../Flex';
+import { Flex, FlexComponent } from '../Flex';
 import { useControllableState } from '../hooks/useControllableState';
 import { inputFocusStyle } from '../themes';
 import type { InputSizes } from '../themes/sizes';
@@ -47,7 +47,7 @@ const Toggle = React.forwardRef<ToggleInputElement, ToggleProps>(
         borderColor="neutral200"
         wrap="wrap"
         cursor={disabled ? 'not-allowed' : 'pointer'}
-        hasError={Boolean(error)}
+        $hasError={Boolean(error)}
       >
         <ToggleOption
           hasRadius
@@ -67,7 +67,7 @@ const Toggle = React.forwardRef<ToggleInputElement, ToggleProps>(
                   ? 'neutral150'
                   : 'neutral100'
           }
-          size={size}
+          $size={size}
         >
           <Typography
             variant="pi"
@@ -88,7 +88,7 @@ const Toggle = React.forwardRef<ToggleInputElement, ToggleProps>(
           borderColor={
             disabled && checked ? 'neutral300' : checked ? 'neutral200' : disabled ? 'neutral150' : 'neutral100'
           }
-          size={size}
+          $size={size}
         >
           <Typography
             variant="pi"
@@ -117,18 +117,18 @@ const Toggle = React.forwardRef<ToggleInputElement, ToggleProps>(
   },
 );
 
-const ToggleWrapper = styled(Flex)`
+const ToggleWrapper = styled<FlexComponent>(Flex)<{ $hasError?: boolean }>`
   ${inputFocusStyle()}
 `;
 
-const ToggleOption = styled(Flex)<{ size: InputSizes }>`
+const ToggleOption = styled<FlexComponent>(Flex)<{ $size: InputSizes }>`
   /**
     We declare the defined value because we want the height of the input when 
     the values are in a row to be 40px. But defining a height on the label
     would break the input when it wraps.
   */
-  padding-top: ${({ size }) => `${size === 'S' ? '2px' : '6px'}`};
-  padding-bottom: ${({ size }) => `${size === 'S' ? '2px' : '6px'}`};
+  padding-top: ${({ $size }) => `${$size === 'S' ? '2px' : '6px'}`};
+  padding-bottom: ${({ $size }) => `${$size === 'S' ? '2px' : '6px'}`};
 `;
 
 const Input = styled.input`

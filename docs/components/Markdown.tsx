@@ -1,6 +1,6 @@
 import { Markdown as MarkdownImpl } from '@storybook/blocks';
 import { BaseLink } from '@strapi/design-system';
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import { DeprecationNotice } from './DeprecationNotice';
 import { Image } from './Image';

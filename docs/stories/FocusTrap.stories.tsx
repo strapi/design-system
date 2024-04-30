@@ -31,7 +31,7 @@ const TrappedComponent = ({ onClose, skipAutoFocus }) => {
       <Box background="neutral0" padding={4} hasRadius style={{ width: '600px' }}>
         <Flex direction="column" alignItems="center" gap={4}>
           <Flex justifyContent="space-between">
-            <Typography variant="beta" as="h2">
+            <Typography variant="beta" tag="h2">
               Hey folks!
             </Typography>
             <button
@@ -72,7 +72,7 @@ export const ExampleComponent = ({ skipAutoFocus = false }) => {
       <Flex direction="column" alignItems="center" gap={2}>
         {visible && <TrappedComponent onClose={() => setVisible(false)} skipAutoFocus={skipAutoFocus} />}
         <Box background="neutral0" padding={4} hasRadius style={{ width: '600px' }}>
-          <Typography variant="beta" as="h2">
+          <Typography variant="beta" tag="h2">
             Outside the trap!
           </Typography>
 

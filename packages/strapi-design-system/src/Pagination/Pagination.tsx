@@ -16,8 +16,8 @@ export const Pagination = ({ children, label = 'Pagination', activePage, pageCou
 
   return (
     <PaginationContext.Provider value={context}>
-      <Box aria-label={label} as="nav">
-        <Flex as="ol" gap={1}>
+      <Box aria-label={label} tag="nav">
+        <Flex tag="ol" gap={1}>
           {React.Children.map(children, (child, index) => {
             // eslint-disable-next-line react/no-array-index-key
             return <li key={index}>{child}</li>;

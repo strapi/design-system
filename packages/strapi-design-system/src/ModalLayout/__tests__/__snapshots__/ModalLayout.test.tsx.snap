@@ -3,7 +3,6 @@
 exports[`ModalLayout should render component and match snapshot 1`] = `
 .c0 {
   border: 0;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   margin: -1px;
@@ -23,7 +22,7 @@ exports[`ModalLayout should render component and match snapshot 1`] = `
 .c4 {
   background: #ffffff;
   border-radius: 4px;
-  box-shadow: 0px 2px 15px rgba(33,33,52,0.1);
+  box-shadow: 0px 2px 15px rgba(33, 33, 52, 0.1);
   width: 83rem;
 }
 
@@ -62,60 +61,23 @@ exports[`ModalLayout should render component and match snapshot 1`] = `
   cursor: pointer;
 }
 
-.c18 {
-  font-size: 1.2rem;
-  line-height: 1.33;
-  font-weight: 600;
-  color: #ffffff;
-}
-
 .c2 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
 }
 
 .c7 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
 .c14 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
   flex-direction: row;
   gap: 8px;
 }
@@ -130,9 +92,7 @@ exports[`ModalLayout should render component and match snapshot 1`] = `
 }
 
 .c9:after {
-  -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 0.2s;
   transition-duration: 0.2s;
   border-radius: 8px;
   content: '';
@@ -159,10 +119,18 @@ exports[`ModalLayout should render component and match snapshot 1`] = `
   border: 2px solid #4945ff;
 }
 
+.c17 {
+  font-size: 1.2rem;
+  line-height: 1.33;
+  font-weight: 600;
+  color: currentcolor;
+}
+
 .c16 {
   height: 3.2rem;
   border: 1px solid #dcdce4;
   background: #ffffff;
+  color: #32324d;
 }
 
 .c16 svg {
@@ -172,29 +140,13 @@ exports[`ModalLayout should render component and match snapshot 1`] = `
 .c16[aria-disabled='true'] {
   border: 1px solid #dcdce4;
   background: #eaeaef;
-}
-
-.c16[aria-disabled='true'] .c17 {
   color: #666687;
-}
-
-.c16[aria-disabled='true'] svg > g,
-.c16[aria-disabled='true'] svg path {
-  fill: #666687;
 }
 
 .c16[aria-disabled='true']:active {
   border: 1px solid #dcdce4;
   background: #eaeaef;
-}
-
-.c16[aria-disabled='true']:active .c17 {
   color: #666687;
-}
-
-.c16[aria-disabled='true']:active svg > g,
-.c16[aria-disabled='true']:active svg path {
-  fill: #666687;
 }
 
 .c16:hover {
@@ -205,19 +157,42 @@ exports[`ModalLayout should render component and match snapshot 1`] = `
   background-color: #eaeaef;
 }
 
-.c16 .c17 {
-  color: #32324d;
+.c18 {
+  height: 3.2rem;
+  border: 1px solid #d9d8ff;
+  background: #f0f0ff;
+  color: #271fe0;
 }
 
-.c16 svg > g,
-.c16 svg path {
-  fill: #32324d;
+.c18 svg {
+  height: 1.2rem;
+}
+
+.c18[aria-disabled='true'] {
+  border: 1px solid #dcdce4;
+  background: #eaeaef;
+  color: #666687;
+}
+
+.c18[aria-disabled='true']:active {
+  border: 1px solid #dcdce4;
+  background: #eaeaef;
+  color: #666687;
+}
+
+.c18:hover {
+  background-color: #ffffff;
+}
+
+.c18:active {
+  background-color: #ffffff;
+  border: 1px solid #4945ff;
+  color: #4945ff;
 }
 
 .c19 {
   height: 3.2rem;
-  border: 1px solid #d9d8ff;
-  background: #f0f0ff;
+  color: #ffffff;
 }
 
 .c19 svg {
@@ -227,107 +202,23 @@ exports[`ModalLayout should render component and match snapshot 1`] = `
 .c19[aria-disabled='true'] {
   border: 1px solid #dcdce4;
   background: #eaeaef;
-}
-
-.c19[aria-disabled='true'] .c17 {
   color: #666687;
-}
-
-.c19[aria-disabled='true'] svg > g,
-.c19[aria-disabled='true'] svg path {
-  fill: #666687;
 }
 
 .c19[aria-disabled='true']:active {
   border: 1px solid #dcdce4;
   background: #eaeaef;
-}
-
-.c19[aria-disabled='true']:active .c17 {
   color: #666687;
-}
-
-.c19[aria-disabled='true']:active svg > g,
-.c19[aria-disabled='true']:active svg path {
-  fill: #666687;
 }
 
 .c19:hover {
-  background-color: #ffffff;
-}
-
-.c19:active {
-  background-color: #ffffff;
-  border: 1px solid #4945ff;
-}
-
-.c19:active .c17 {
-  color: #4945ff;
-}
-
-.c19:active svg > g,
-.c19:active svg path {
-  fill: #4945ff;
-}
-
-.c19 .c17 {
-  color: #271fe0;
-}
-
-.c19 svg > g,
-.c19 svg path {
-  fill: #271fe0;
-}
-
-.c20 {
-  height: 3.2rem;
-}
-
-.c20 svg {
-  height: 1.2rem;
-}
-
-.c20[aria-disabled='true'] {
-  border: 1px solid #dcdce4;
-  background: #eaeaef;
-}
-
-.c20[aria-disabled='true'] .c17 {
-  color: #666687;
-}
-
-.c20[aria-disabled='true'] svg > g,
-.c20[aria-disabled='true'] svg path {
-  fill: #666687;
-}
-
-.c20[aria-disabled='true']:active {
-  border: 1px solid #dcdce4;
-  background: #eaeaef;
-}
-
-.c20[aria-disabled='true']:active .c17 {
-  color: #666687;
-}
-
-.c20[aria-disabled='true']:active svg > g,
-.c20[aria-disabled='true']:active svg path {
-  fill: #666687;
-}
-
-.c20:hover {
   border: 1px solid #7b79ff;
   background: #7b79ff;
 }
 
-.c20:active {
+.c19:active {
   border: 1px solid #4945ff;
   background: #4945ff;
-}
-
-.c20 svg > g,
-.c20 svg path {
-  fill: #ffffff;
 }
 
 .c3 {
@@ -370,7 +261,7 @@ exports[`ModalLayout should render component and match snapshot 1`] = `
   class="lock-body-scroll"
 >
   <div>
-    <div
+    <span
       class="c0"
     >
       <p
@@ -391,7 +282,7 @@ exports[`ModalLayout should render component and match snapshot 1`] = `
         id="live-region-alert"
         role="alert"
       />
-    </div>
+    </span>
   </div>
   <div
     class=""
@@ -460,7 +351,7 @@ exports[`ModalLayout should render component and match snapshot 1`] = `
                     type="button"
                   >
                     <span
-                      class="c17 c18"
+                      class="c17"
                     >
                       Cancel
                     </span>
@@ -471,22 +362,22 @@ exports[`ModalLayout should render component and match snapshot 1`] = `
                 >
                   <button
                     aria-disabled="false"
-                    class="c15 c14 c9 c19"
+                    class="c15 c14 c9 c18"
                     type="button"
                   >
                     <span
-                      class="c17 c18"
+                      class="c17"
                     >
                       Add new stuff
                     </span>
                   </button>
                   <button
                     aria-disabled="false"
-                    class="c15 c14 c9 c20"
+                    class="c15 c14 c9 c19"
                     type="button"
                   >
                     <span
-                      class="c17 c18"
+                      class="c17"
                     >
                       Finish
                     </span>

@@ -1,13 +1,13 @@
 import * as React from 'react';
 
 import { jsonParseLinter, json } from '@codemirror/lang-json';
-import { ViewUpdate } from '@codemirror/view';
+import type { ViewUpdate } from '@codemirror/view';
 import { useCodeMirror, ReactCodeMirrorRef, ReactCodeMirrorProps } from '@uiw/react-codemirror';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { markField, addMarks, filterMarks, lineHighlightMark } from './utils/decorationExtension';
 import { FieldProps } from '../Field';
-import { Flex, FlexProps } from '../Flex';
+import { Flex, FlexComponent, FlexProps } from '../Flex';
 import { useComposedRefs } from '../hooks/useComposeRefs';
 import { inputFocusStyle } from '../themes';
 
@@ -130,7 +130,7 @@ const JSONInput = React.forwardRef<JSONInputRef, JSONInputProps>(
     return (
       <JSONInputContainer
         ref={composedRefs}
-        hasError={hasError}
+        $hasError={hasError}
         alignItems="stretch"
         fontSize={2}
         hasRadius
@@ -140,7 +140,7 @@ const JSONInput = React.forwardRef<JSONInputRef, JSONInputProps>(
   },
 );
 
-const JSONInputContainer = styled(Flex)`
+const JSONInputContainer = styled<FlexComponent>(Flex)<{ $hasError: boolean }>`
   line-height: ${({ theme }) => theme.lineHeights[2]};
 
   .cm-editor {
@@ -154,7 +154,7 @@ const JSONInputContainer = styled(Flex)`
   }
 
   .cm-scroller {
-    border: 1px solid ${({ theme, hasError }) => (hasError ? theme.colors.danger600 : theme.colors.neutral200)};
+    border: 1px solid ${({ theme, $hasError }) => ($hasError ? theme.colors.danger600 : theme.colors.neutral200)};
     /* inputFocusStyle will receive hasError prop */
     ${inputFocusStyle()}
   }

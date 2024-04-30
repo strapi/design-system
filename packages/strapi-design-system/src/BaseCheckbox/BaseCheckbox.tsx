@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import checkmarkIconDisabled from './assets/checkmark-black.svg';
 import checkmarkIcon from './assets/checkmark.svg';
@@ -8,13 +8,70 @@ import { getCheckboxSize } from './utils';
 import { Box } from '../Box';
 import { useComposedRefs } from '../hooks/useComposeRefs';
 
-export type BaseCheckboxSize = 'S' | 'M';
+type BaseCheckboxSize = 'S' | 'M';
 
-export interface CheckboxInputProps {
-  size: BaseCheckboxSize;
+interface BaseCheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'value'> {
+  /**
+   * If `true`, display the indeterminate state.
+   */
+  indeterminate?: boolean;
+  /**
+   * `Checkbox` input name
+   */
+  name?: string;
+  /**
+   * The callback invoked when click on the `Checkbox`
+   * `(value: Bool) => {}`
+   */
+  onValueChange?: (isChecked: boolean) => void;
+  /**
+   * Set the size of the checkbox
+   */
+  size?: BaseCheckboxSize;
+  value?: boolean;
 }
 
-const CheckboxInput = styled.input`
+type CheckboxElement = HTMLInputElement;
+
+const BaseCheckbox = React.forwardRef<CheckboxElement, BaseCheckboxProps>(
+  ({ indeterminate = false, size = 'M', name, value = false, onValueChange, ...inputProps }, forwardedRef) => {
+    const checkboxRef = React.useRef<HTMLInputElement>(null!);
+
+    const composedRefs = useComposedRefs(checkboxRef, forwardedRef);
+
+    React.useEffect(() => {
+      if (checkboxRef.current && indeterminate) {
+        checkboxRef.current.indeterminate = indeterminate;
+      } else {
+        checkboxRef.current.indeterminate = false;
+      }
+    }, [indeterminate]);
+
+    const handleValueChange = () => {
+      if (onValueChange) {
+        onValueChange(!value);
+      }
+    };
+
+    return (
+      <Box>
+        <CheckboxInput
+          $size={size}
+          checked={value}
+          onChange={handleValueChange}
+          type="checkbox"
+          ref={composedRefs}
+          name={name}
+          {...inputProps}
+        />
+      </Box>
+    );
+  },
+);
+
+BaseCheckbox.displayName = 'BaseCheckbox';
+
+const CheckboxInput = styled.input<{ $size: BaseCheckboxSize }>`
   height: ${getCheckboxSize};
   min-width: ${getCheckboxSize};
   margin: 0;
@@ -77,63 +134,5 @@ const CheckboxInput = styled.input`
   }
 `;
 
-export interface BaseCheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'value'> {
-  /**
-   * If `true`, display the indeterminate state.
-   */
-  indeterminate?: boolean;
-  /**
-   * `Checkbox` input name
-   */
-  name?: string;
-  /**
-   * The callback invoked when click on the `Checkbox`
-   * `(value: Bool) => {}`
-   */
-  onValueChange?: (isChecked: boolean) => void;
-  /**
-   * Set the size of the checkbox
-   */
-  size?: BaseCheckboxSize;
-  value?: boolean;
-}
-
-export type CheckboxElement = HTMLInputElement;
-
-export const BaseCheckbox = React.forwardRef<CheckboxElement, BaseCheckboxProps>(
-  ({ indeterminate = false, size = 'M', name, value = false, onValueChange, ...inputProps }, forwardedRef) => {
-    const checkboxRef = React.useRef<HTMLInputElement>(null!);
-
-    const composedRefs = useComposedRefs(checkboxRef, forwardedRef);
-
-    React.useEffect(() => {
-      if (checkboxRef.current && indeterminate) {
-        checkboxRef.current.indeterminate = indeterminate;
-      } else {
-        checkboxRef.current.indeterminate = false;
-      }
-    }, [indeterminate]);
-
-    const handleValueChange = () => {
-      if (onValueChange) {
-        onValueChange(!value);
-      }
-    };
-
-    return (
-      <Box>
-        <CheckboxInput
-          size={size}
-          checked={value}
-          onChange={handleValueChange}
-          type="checkbox"
-          ref={composedRefs}
-          name={name}
-          {...inputProps}
-        />
-      </Box>
-    );
-  },
-);
-
-BaseCheckbox.displayName = 'BaseCheckbox';
+export { BaseCheckbox };
+export type { BaseCheckboxProps, BaseCheckboxSize, CheckboxElement };

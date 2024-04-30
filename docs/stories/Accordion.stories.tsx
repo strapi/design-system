@@ -1,24 +1,19 @@
 import * as React from 'react';
 
+import { useArgs } from '@storybook/preview-api';
 import { Meta, StoryObj } from '@storybook/react';
 import {
   Accordion,
   AccordionToggle,
   AccordionContent,
   AccordionGroup,
-  KeyboardNavigable,
-  Box,
-  Flex,
   Typography,
-  IconButton,
   TextButton,
-  TextInput,
-  Tooltip,
 } from '@strapi/design-system';
-import { Pencil, Information, Trash, User, Plus } from '@strapi/icons';
+import { Plus } from '@strapi/icons';
 
 const meta: Meta<typeof Accordion> = {
-  title: 'Design System/Components/Accordion',
+  title: 'Components/Accordion',
   component: Accordion,
 };
 
@@ -26,79 +21,51 @@ export default meta;
 
 type Story = StoryObj<typeof Accordion>;
 
-export const Base = {
-  render: () => {
-    const [expanded, setExpanded] = React.useState(false);
+const Template: Story = {
+  args: {
+    expanded: false,
+    error: '',
+    size: 'S',
+  },
+  render: ({ ...args }) => {
+    const [{ expanded }, updateArgs] = useArgs();
 
     return (
-      <div>
-        <Box padding={8} background="neutral100">
-          <Accordion
-            error="The component contain error(s)"
-            expanded={expanded}
-            onToggle={() => setExpanded((s) => !s)}
-            id="acc-1"
-            size="S"
-          >
-            <AccordionToggle title="User informations" />
-            <AccordionContent>
-              <Box padding={3}>
-                <Typography>My name is John Duff</Typography>
-              </Box>
-            </AccordionContent>
-          </Accordion>
-        </Box>
-        <Box padding={8} background="neutral0">
-          <Accordion expanded={expanded} onToggle={() => setExpanded((s) => !s)} id="acc-2" variant="secondary">
-            <AccordionToggle
-              title="User informations 2"
-              description="The following contains information about the current user 2"
-              action={<IconButton onClick={() => console.log('edit')} label="Edit" icon={<Pencil />} />}
-            />
-            <AccordionContent>
-              <Box padding={3}>
-                <Typography>My name is John Duff</Typography>
-              </Box>
-            </AccordionContent>
-          </Accordion>
-        </Box>
-        <Box padding={8} background="neutral100">
-          <Accordion expanded={expanded} onToggle={() => setExpanded((s) => !s)} id="acc-3">
-            <AccordionToggle
-              togglePosition="left"
-              title="User informations 3"
-              description="The following contains information about the current user 3"
-            />
-            <AccordionContent>
-              <Box padding={3}>
-                <Typography>My name is John Duff</Typography>
-              </Box>
-            </AccordionContent>
-          </Accordion>
-        </Box>
-        <Box padding={8} background="neutral0">
-          <Accordion expanded={expanded} onToggle={() => setExpanded((s) => !s)} id="acc-4" variant="secondary">
-            <AccordionToggle
-              togglePosition="left"
-              title="User informations 4"
-              action={<IconButton onClick={() => console.log('edit')} label="Edit" icon={<Pencil />} />}
-            />
-            <AccordionContent>
-              <Box padding={3}>
-                <Typography>My name is John Duff</Typography>
-              </Box>
-            </AccordionContent>
-          </Accordion>
-        </Box>
-      </div>
+      <Accordion {...args} expanded={expanded} onToggle={() => updateArgs({ expanded: !expanded })}>
+        <AccordionToggle title="User information" description="Your personal information" />
+        <AccordionContent>
+          <Typography>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat.
+          </Typography>
+        </AccordionContent>
+      </Accordion>
     );
   },
+};
 
-  name: 'base',
+export const Base = {
+  ...Template,
+  name: 'basic',
+} satisfies Story;
+
+export const WithAction = {
+  ...Template,
+  name: 'with action',
+} satisfies Story;
+
+export const WithIcon = {
+  ...Template,
+  name: 'with icon',
 } satisfies Story;
 
 export const Group = {
-  render: () => {
+  args: {
+    error: '',
+    label: 'Users Information',
+  },
+  render: ({ ...args }) => {
     const [expandedID, setExpandedID] = React.useState<string | null>(null);
 
     const handleToggle = (id: string) => () => {
@@ -106,175 +73,48 @@ export const Group = {
     };
 
     return (
-      <div>
-        <Box padding={8} background="neutral0">
-          <AccordionGroup
-            error="The components contain error(s)"
-            footer={
-              <Flex justifyContent="center" height="48px" background="neutral150">
-                <TextButton disabled startIcon={<Plus />}>
-                  Add an entry
-                </TextButton>
-              </Flex>
-            }
-            label="Label"
-            labelAction={
-              <Tooltip description="Content of the tooltip">
-                <button
-                  aria-label="Information about the email"
-                  style={{
-                    border: 'none',
-                    padding: 0,
-                    background: 'transparent',
-                  }}
-                >
-                  <Information aria-hidden />
-                </button>
-              </Tooltip>
-            }
+      <AccordionGroup
+        footer={
+          <TextButton
+            justifyContent="center"
+            width="100%"
+            height="48px"
+            disabled
+            startIcon={<Plus />}
+            background="neutral150"
           >
-            <Accordion
-              error="The components contain error(s)"
-              expanded={expandedID === 'acc-1'}
-              onToggle={handleToggle('acc-1')}
-              id="acc-1"
-              size="S"
-            >
-              <AccordionToggle
-                startIcon={<User aria-hidden />}
-                action={
-                  <Flex gap={0}>
-                    <IconButton noBorder onClick={() => console.log('edit')} label="Edit" icon={<Pencil />} />
-                    <IconButton noBorder onClick={() => console.log('delete')} label="Delete" icon={<Trash />} />
-                  </Flex>
-                }
-                title="User informations"
-                togglePosition="left"
-              />
-              <AccordionContent>
-                <Box padding={3}>
-                  <TextInput aria-label="Name" />
-                </Box>
-              </AccordionContent>
-            </Accordion>
-            <Accordion
-              error="The component contain error(s)"
-              expanded={expandedID === 'acc-2'}
-              onToggle={handleToggle('acc-2')}
-              id="acc-2"
-              size="S"
-            >
-              <AccordionToggle title="User informations" togglePosition="left" />
-              <AccordionContent>
-                <Box padding={3}>
-                  <Typography>My name is John Duff</Typography>
-                </Box>
-              </AccordionContent>
-            </Accordion>
-            <Accordion expanded={expandedID === 'acc-3'} onToggle={handleToggle('acc-3')} id="acc-3" size="S">
-              <AccordionToggle title="User informations" togglePosition="left" />
-              <AccordionContent>
-                <Box padding={3}>
-                  <Typography>My name is Michka</Typography>
-                </Box>
-              </AccordionContent>
-            </Accordion>
-            <Accordion expanded={expandedID === 'acc-4'} onToggle={handleToggle('acc-4')} id="acc-4" size="S">
-              <AccordionToggle startIcon={<User aria-hidden />} title="User informations" togglePosition="left" />
-              <AccordionContent>
-                <Box padding={3}>
-                  <Typography>My name is John Duff</Typography>
-                </Box>
-              </AccordionContent>
-            </Accordion>
-          </AccordionGroup>
-        </Box>
-      </div>
+            Add an entry
+          </TextButton>
+        }
+        {...args}
+      >
+        <Accordion expanded={expandedID === 'acc-1'} onToggle={handleToggle('acc-1')} id="acc-1" size="S">
+          <AccordionToggle title="Ted Lasso" togglePosition="left" />
+          <AccordionContent>
+            <Typography>My name is Ted Lasso</Typography>
+          </AccordionContent>
+        </Accordion>
+        <Accordion expanded={expandedID === 'acc-2'} onToggle={handleToggle('acc-2')} id="acc-2" size="S">
+          <AccordionToggle title="Coach Beard" togglePosition="left" />
+          <AccordionContent>
+            <Typography>My name is Coach.</Typography>
+          </AccordionContent>
+        </Accordion>
+        <Accordion expanded={expandedID === 'acc-3'} onToggle={handleToggle('acc-3')} id="acc-3" size="S">
+          <AccordionToggle title="Jamie Tart" togglePosition="left" />
+          <AccordionContent>
+            <Typography>My name is Jamie Tart</Typography>
+          </AccordionContent>
+        </Accordion>
+        <Accordion expanded={expandedID === 'acc-4'} onToggle={handleToggle('acc-4')} id="acc-4" size="S">
+          <AccordionToggle title="Nate" togglePosition="left" />
+          <AccordionContent>
+            <Typography>My name is Nate</Typography>
+          </AccordionContent>
+        </Accordion>
+      </AccordionGroup>
     );
   },
 
-  name: 'accordion-group',
-} satisfies Story;
-
-export const Keyboard = {
-  render: () => {
-    return (
-      <KeyboardNavigable attributeName="data-strapi-accordion-toggle">
-        <Box padding={8} background="neutral100">
-          <Accordion expanded={false} id="acc-1">
-            <AccordionToggle
-              title="User informations"
-              description="The following contains information about the current user"
-            />
-            <AccordionContent>
-              <Box padding={3}>
-                <Typography>My name is John Duff</Typography>
-              </Box>
-            </AccordionContent>
-          </Accordion>
-        </Box>
-        <Box padding={8} background="neutral0">
-          <Accordion expanded={false} id="acc-2">
-            <AccordionToggle
-              title="User informations 2"
-              description="The following contains information about the current user 2"
-            />
-            <AccordionContent>
-              <Box padding={3}>
-                <Typography>My name is John Duff</Typography>
-              </Box>
-            </AccordionContent>
-          </Accordion>
-        </Box>
-        <Box padding={8} background="neutral100">
-          <Accordion expanded={false} id="acc-3">
-            <AccordionToggle
-              togglePosition="left"
-              title="User informations 3"
-              description="The following contains information about the current user 3"
-            />
-            <AccordionContent>
-              <Box padding={3}>
-                <Typography>My name is John Duff</Typography>
-              </Box>
-            </AccordionContent>
-          </Accordion>
-        </Box>
-        <Box padding={8} background="neutral0">
-          <Accordion expanded={false} id="acc-4">
-            <AccordionToggle
-              togglePosition="left"
-              title="User informations 4"
-              action={<IconButton onClick={() => console.log('edit')} label="Edit" icon={<Pencil />} />}
-            />
-            <AccordionContent>
-              <Box padding={3}>
-                <Typography>My name is John Duff</Typography>
-              </Box>
-            </AccordionContent>
-          </Accordion>
-        </Box>
-      </KeyboardNavigable>
-    );
-  },
-
-  name: 'keyboard navigable',
-} satisfies Story;
-
-export const Expanded = {
-  render: () => (
-    <Accordion expanded id="acc-1">
-      <AccordionToggle
-        title="User informations"
-        description="The following contains information about the current user"
-      />
-      <AccordionContent>
-        <Box padding={3}>
-          <Typography>My name is John Duff</Typography>
-        </Box>
-      </AccordionContent>
-    </Accordion>
-  ),
-
-  name: 'expanded',
-} satisfies Story;
+  name: 'group',
+} satisfies StoryObj<typeof AccordionGroup>;

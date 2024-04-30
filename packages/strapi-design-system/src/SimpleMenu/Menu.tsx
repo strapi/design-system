@@ -2,16 +2,16 @@ import * as React from 'react';
 
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { CaretDown, ChevronRight } from '@strapi/icons';
-import styled, { css, DefaultTheme } from 'styled-components';
+import { styled, css, type DefaultTheme } from 'styled-components';
 
 import { BaseLink } from '../BaseLink';
 import { Box, BoxProps } from '../Box';
 import { Button, ButtonProps } from '../Button';
-import { Flex, FlexProps } from '../Flex';
+import { Flex, FlexComponent, FlexProps } from '../Flex';
 import { extractStyleFromTheme } from '../helpers/theme';
 import { Link, LinkProps } from '../Link';
 import { POPOVER_PLACEMENTS } from '../Popover';
-import { Typography, TypographyProps } from '../Typography';
+import { Typography, TypographyComponent, TypographyProps } from '../Typography';
 
 /* -------------------------------------------------------------------------------------------------
  * MenuRoot
@@ -91,7 +91,7 @@ const MenuContent = React.forwardRef<HTMLDivElement, ContentProps>(
   },
 );
 
-const Viewport = styled(Flex)`
+const Viewport = styled<FlexComponent>(Flex)`
   scrollbar-width: none;
   -ms-overflow-style: none;
   -webkit-overflow-scrolling: touch;
@@ -157,16 +157,9 @@ const getOptionStyle = ({ theme }: { theme: DefaultTheme }) => css`
   border-radius: ${theme.borderRadius};
   padding: ${theme.spaces[2]} ${theme.spaces[4]};
 
-  ${Typography} {
-    color: inherit;
-  }
-
   &[aria-disabled] {
     cursor: not-allowed;
-
-    ${Typography} {
-      color: ${theme.colors.neutral500};
-    }
+    color: ${theme.colors.neutral500};
   }
 
   &[data-highlighted] {
@@ -182,7 +175,7 @@ const getOptionStyle = ({ theme }: { theme: DefaultTheme }) => css`
   }
 `;
 
-const OptionButton = styled(Flex)`
+const OptionButton = styled<FlexComponent<'button' | 'a'>>(Flex)`
   ${getOptionStyle}
 `;
 
@@ -195,6 +188,7 @@ const OptionLink = styled(Link)`
     color: unset;
   }
 
+  /* TODO: do we need this? */
   svg > path,
   &:focus-visible svg > path {
     fill: currentColor;
@@ -215,7 +209,7 @@ const MenuLabel = React.forwardRef<HTMLSpanElement, LabelProps>((props, ref) => 
   </DropdownMenu.Label>
 ));
 
-const StyledLabel = styled(Typography)`
+const StyledLabel = styled<TypographyComponent>(Typography)`
   padding: ${({ theme }) => theme.spaces[2]} ${({ theme }) => theme.spaces[4]};
 `;
 
@@ -239,7 +233,7 @@ const MenuSubTrigger = React.forwardRef<HTMLButtonElement, SubTriggerProps>(({ d
       <SubmenuTrigger
         ref={ref}
         color="neutral800"
-        as="button"
+        tag="button"
         type="button"
         background="transparent"
         borderStyle="none"
@@ -247,7 +241,7 @@ const MenuSubTrigger = React.forwardRef<HTMLButtonElement, SubTriggerProps>(({ d
         {...props}
       >
         <Typography>{props.children}</Typography>
-        <TriggerArrow height={12} width={12} />
+        <ChevronRight fill="neutral500" height="1.2rem" width="1.2rem" />
       </SubmenuTrigger>
     </DropdownMenu.SubTrigger>
   );
@@ -256,12 +250,6 @@ const MenuSubTrigger = React.forwardRef<HTMLButtonElement, SubTriggerProps>(({ d
 const SubmenuTrigger = styled(OptionButton)`
   &[data-state='open'] {
     background-color: ${({ theme }) => theme.colors.primary100};
-  }
-`;
-
-const TriggerArrow = styled(ChevronRight)`
-  path {
-    fill: ${({ theme }) => theme.colors.neutral500};
   }
 `;
 

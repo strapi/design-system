@@ -20,7 +20,7 @@ export const NavSection = ({ label, children, horizontal = false, spacing = 2, .
   if (condensed) {
     return (
       <Flex direction="column" alignItems="stretch" gap={2}>
-        <Box paddingTop={1} paddingBottom={1} background="neutral0" hasRadius as="span">
+        <Box paddingTop={1} paddingBottom={1} background="neutral0" hasRadius tag="span">
           <Divider />
 
           <VisuallyHidden>
@@ -29,7 +29,7 @@ export const NavSection = ({ label, children, horizontal = false, spacing = 2, .
         </Box>
 
         <Flex
-          as="ul"
+          tag="ul"
           gap={spacing}
           direction={horizontal ? 'row' : 'column'}
           alignItems={horizontal ? 'center' : 'stretch'}
@@ -46,14 +46,14 @@ export const NavSection = ({ label, children, horizontal = false, spacing = 2, .
 
   return (
     <Flex direction="column" alignItems="stretch" gap={2}>
-      <Box paddingTop={1} paddingBottom={1} background="neutral0" paddingRight={3} paddingLeft={3} hasRadius as="span">
+      <Box paddingTop={1} paddingBottom={1} background="neutral0" paddingRight={3} paddingLeft={3} hasRadius tag="span">
         <Typography variant="sigma" textColor="neutral600">
           {label}
         </Typography>
       </Box>
 
       <Flex
-        as="ul"
+        tag="ul"
         gap={spacing}
         direction={horizontal ? 'row' : 'column'}
         alignItems={horizontal ? 'center' : 'stretch'}

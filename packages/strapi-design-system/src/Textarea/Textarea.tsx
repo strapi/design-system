@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
-import { Box, BoxProps } from '../Box';
+import { Box, BoxComponent, BoxProps } from '../Box';
 import { FieldProps } from '../Field';
 import { inputFocusStyle } from '../themes/utils';
 
@@ -16,11 +16,11 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
     const hasError = Boolean(error);
 
     return (
-      <Wrapper borderColor={hasError ? 'danger600' : 'neutral200'} hasError={hasError} hasRadius>
+      <Wrapper borderColor={hasError ? 'danger600' : 'neutral200'} $hasError={hasError} hasRadius>
         <TextareaElement
           aria-invalid={hasError}
           aria-required={required}
-          as="textarea"
+          tag="textarea"
           background={disabled ? 'neutral150' : 'neutral0'}
           color={disabled ? 'neutral600' : 'neutral800'}
           disabled={disabled}
@@ -38,11 +38,11 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   },
 );
 
-const Wrapper = styled(Box)`
+const Wrapper = styled<BoxComponent>(Box)<{ $hasError?: boolean }>`
   ${inputFocusStyle()}
 `;
 
-const TextareaElement = styled(Box)`
+const TextareaElement = styled<BoxComponent<'textarea'>>(Box)`
   border: none;
   resize: none;
 

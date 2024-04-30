@@ -3,7 +3,6 @@
 exports[`Tooltip snapshots document.body when the button is focused (aria-describedby exists) 1`] = `
 .c0 {
   border: 0;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   margin: -1px;
@@ -44,7 +43,7 @@ exports[`Tooltip snapshots document.body when the button is focused (aria-descri
         Show tooltip
       </button>
     </span>
-    <div
+    <span
       class="c0"
     >
       <p
@@ -65,7 +64,7 @@ exports[`Tooltip snapshots document.body when the button is focused (aria-descri
         id="live-region-alert"
         role="alert"
       />
-    </div>
+    </span>
   </div>
   <div
     class=""
@@ -76,12 +75,12 @@ exports[`Tooltip snapshots document.body when the button is focused (aria-descri
       role="tooltip"
       style="left: 0px; top: -8px;"
     >
-      <div
+      <span
         class="c0"
         id=":r3:"
       >
         Content of the tooltip fefe
-      </div>
+      </span>
       <p
         class="c3"
       >
@@ -95,7 +94,6 @@ exports[`Tooltip snapshots document.body when the button is focused (aria-descri
 exports[`Tooltip snapshots document.body when the tooltip is not visible but exists in the DOM 1`] = `
 .c0 {
   border: 0;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   margin: -1px;
@@ -136,7 +134,7 @@ exports[`Tooltip snapshots document.body when the tooltip is not visible but exi
         Show tooltip
       </button>
     </span>
-    <div
+    <span
       class="c0"
     >
       <p
@@ -157,7 +155,7 @@ exports[`Tooltip snapshots document.body when the tooltip is not visible but exi
         id="live-region-alert"
         role="alert"
       />
-    </div>
+    </span>
   </div>
   <div
     class=""
@@ -180,7 +178,6 @@ exports[`Tooltip snapshots document.body when the tooltip is not visible but exi
 exports[`Tooltip snapshots document.body with a label 1`] = `
 .c0 {
   border: 0;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   margin: -1px;
@@ -221,7 +218,7 @@ exports[`Tooltip snapshots document.body with a label 1`] = `
         +
       </button>
     </span>
-    <div
+    <span
       class="c0"
     >
       <p
@@ -242,7 +239,7 @@ exports[`Tooltip snapshots document.body with a label 1`] = `
         id="live-region-alert"
         role="alert"
       />
-    </div>
+    </span>
   </div>
   <div
     class=""
@@ -253,7 +250,7 @@ exports[`Tooltip snapshots document.body with a label 1`] = `
       role="tooltip"
       style="left: 0px; top: -8px;"
     >
-      <div
+      <span
         class="c0"
         id=":r5:"
       />

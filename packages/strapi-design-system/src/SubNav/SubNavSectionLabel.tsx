@@ -1,24 +1,12 @@
 import * as React from 'react';
 
 import { CaretDown } from '@strapi/icons';
-import styled from 'styled-components';
 
 import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { Typography } from '../Typography';
 
-const SubNavSectionLabelWrapper = styled(Flex)`
-  border: none;
-  padding: 0;
-  background: transparent;
-`;
-const DropDownIconWrapper = styled.div<{ rotated?: boolean }>`
-  display: flex;
-  align-items: center;
-  transform: rotateX(${({ rotated }) => (rotated ? '0deg' : '180deg')});
-`;
-
-export interface SubNavSectionLabelProps {
+interface SubNavSectionLabelProps {
   ariaControls?: string;
   ariaExpanded?: boolean;
   collapsable?: boolean;
@@ -26,7 +14,7 @@ export interface SubNavSectionLabelProps {
   onClick: React.MouseEventHandler<HTMLButtonElement> & React.MouseEventHandler<HTMLDivElement>;
 }
 
-export const SubNavSectionLabel = ({
+const SubNavSectionLabel = ({
   collapsable = false,
   label,
   onClick = () => {},
@@ -35,12 +23,13 @@ export const SubNavSectionLabel = ({
 }: SubNavSectionLabelProps) => {
   if (collapsable) {
     return (
-      <SubNavSectionLabelWrapper
-        as="button"
+      <Flex
+        tag="button"
         onClick={onClick}
         aria-expanded={ariaExpanded}
         aria-controls={ariaControls}
         textAlign="left"
+        alignItems="center"
       >
         <Box paddingRight={1}>
           <Typography variant="sigma" textColor="neutral600">
@@ -48,21 +37,27 @@ export const SubNavSectionLabel = ({
           </Typography>
         </Box>
         {collapsable && (
-          <DropDownIconWrapper rotated={ariaExpanded}>
-            <CaretDown aria-hidden />
-          </DropDownIconWrapper>
+          <CaretDown
+            width="1.2rem"
+            aria-hidden
+            fill="neutral500"
+            style={{ transform: ariaExpanded ? 'rotateX(0deg)' : 'rotateX(180deg)' }}
+          />
         )}
-      </SubNavSectionLabelWrapper>
+      </Flex>
     );
   }
 
   return (
-    <SubNavSectionLabelWrapper>
+    <Flex>
       <Box paddingRight={1}>
         <Typography variant="sigma" textColor="neutral600">
           {label}
         </Typography>
       </Box>
-    </SubNavSectionLabelWrapper>
+    </Flex>
   );
 };
+
+export { SubNavSectionLabel };
+export type { SubNavSectionLabelProps };

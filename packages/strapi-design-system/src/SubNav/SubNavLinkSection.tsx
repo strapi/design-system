@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { CaretDown } from '@strapi/icons';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { Box } from '../Box';
 import { Flex } from '../Flex';
@@ -42,7 +42,7 @@ export const SubNavLinkSection = ({ label, children, id }: SubNavLinkSectionProp
               style={{ transform: `rotateX(${isOpen ? '0deg' : '180deg'})` }}
             />
             <Box paddingLeft={2}>
-              <Typography as="span" fontWeight="semiBold" textColor="neutral800">
+              <Typography tag="span" fontWeight="semiBold" textColor="neutral800">
                 {label}
               </Typography>
             </Box>

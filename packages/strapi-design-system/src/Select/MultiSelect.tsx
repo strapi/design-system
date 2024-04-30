@@ -2,11 +2,11 @@
 import * as React from 'react';
 
 import { Cross } from '@strapi/icons';
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import * as SelectParts from './SelectParts';
 import checkmarkIcon from '../BaseCheckbox/assets/checkmark.svg';
-import { Box } from '../Box';
+import { Box, BoxComponent } from '../Box';
 import { FieldProps } from '../Field';
 import { stripReactIdOfColon } from '../helpers/strings';
 import { useId } from '../hooks/useId';
@@ -195,7 +195,7 @@ export const MultiSelectOption = React.forwardRef<HTMLDivElement, MultiSelectOpt
     return (
       <SelectParts.Item ref={ref} value={value.toString()} {...restProps}>
         {startIcon && (
-          <Box as="span" aria-hidden>
+          <Box tag="span" aria-hidden>
             {startIcon}
           </Box>
         )}
@@ -221,12 +221,10 @@ export const MultiSelectOption = React.forwardRef<HTMLDivElement, MultiSelectOpt
   },
 );
 
-interface CheckMarkProps {
+const CheckMark = styled<BoxComponent>(Box)<{
   $selected?: boolean;
   $indeterminate?: boolean;
-}
-
-const CheckMark = styled(Box)<CheckMarkProps>`
+}>`
   border: 1px solid
     ${({ theme, $selected, $indeterminate }) =>
       $selected || $indeterminate ? theme.colors.primary600 : theme.colors.neutral300};
@@ -279,7 +277,7 @@ export const MultiSelectGroup = React.forwardRef<HTMLDivElement, MultiSelectGrou
       <SelectParts.Group ref={ref}>
         <SelectParts.Item value={values} {...restProps}>
           {startIcon && (
-            <Box as="span" aria-hidden>
+            <Box tag="span" aria-hidden>
               {startIcon}
             </Box>
           )}

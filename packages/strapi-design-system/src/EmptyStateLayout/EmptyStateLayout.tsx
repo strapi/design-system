@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
-import { Box } from '../Box';
+import { Box, BoxComponent } from '../Box';
 import { Flex, FlexProps } from '../Flex';
 import { Typography } from '../Typography';
 
@@ -10,7 +10,7 @@ export interface EmptyStateLayoutProps extends Pick<FlexProps, 'hasRadius' | 'sh
   icon?: React.ReactNode;
 }
 
-const EmptyStateIconWrapper = styled(Box)`
+const EmptyStateIconWrapper = styled<BoxComponent>(Box)`
   svg {
     height: 8.8rem;
   }
@@ -39,7 +39,7 @@ export const EmptyStateLayout = ({
       ) : null}
 
       <Box paddingBottom={4}>
-        <Typography variant="delta" as="p" textAlign="center" textColor="neutral600">
+        <Typography variant="delta" tag="p" textAlign="center" textColor="neutral600">
           {content}
         </Typography>
       </Box>

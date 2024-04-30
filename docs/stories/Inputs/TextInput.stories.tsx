@@ -76,7 +76,7 @@ export const WithField = {
     return (
       <Field id="with_field" error={error} hint={hint}>
         <FieldLabel>{label}</FieldLabel>
-        <TextInput name="content" error={error} {...props} />
+        <TextInput name="content" {...props} />
         <FieldError />
         <FieldHint />
       </Field>

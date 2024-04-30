@@ -1,37 +1,14 @@
 import * as React from 'react';
 
-import styled, { DefaultTheme } from 'styled-components';
+import { DefaultTheme } from 'styled-components';
 
 import { Box, BoxProps } from '../Box';
 import { Flex } from '../Flex';
-import { Typography } from '../Typography';
 
-interface BulletProps {
-  backgroundColor: keyof DefaultTheme['colors'];
-}
+type StatusVariant = 'alternative' | 'danger' | 'neutral' | 'primary' | 'secondary' | 'success' | 'warning';
+type StatusSize = 'S' | 'M';
 
-const Bullet = styled.div<BulletProps>`
-  margin-right: ${({ theme }) => theme.spaces[3]};
-  width: 0.6rem;
-  height: 0.6rem;
-  border-radius: 50%;
-  background: ${({ theme, backgroundColor }) => theme.colors[backgroundColor]};
-`;
-
-interface StatusWrapperProps {
-  textColor: keyof DefaultTheme['colors'];
-}
-
-const StatusWrapper = styled(Box)<StatusWrapperProps>`
-  ${Typography} {
-    color: ${({ theme, textColor }) => theme.colors[textColor]};
-  }
-`;
-
-export type StatusVariant = 'alternative' | 'danger' | 'neutral' | 'primary' | 'secondary' | 'success' | 'warning';
-export type StatusSize = 'S' | 'M';
-
-export interface StatusProps extends BoxProps {
+interface StatusProps extends BoxProps {
   variant?: StatusVariant;
   /**
    * If `false`, the preceeding bullet of the status won't be displayed.
@@ -42,7 +19,7 @@ export interface StatusProps extends BoxProps {
   children: React.ReactNode;
 }
 
-export const Status = ({ variant = 'primary', showBullet = true, size = 'M', children, ...props }: StatusProps) => {
+const Status = ({ variant = 'primary', showBullet = true, size = 'M', children, ...props }: StatusProps) => {
   const backgroundColor = `${variant}100` satisfies keyof DefaultTheme['colors'];
   const borderColor = `${variant}200` satisfies keyof DefaultTheme['colors'];
   const bulletColor = `${variant}600` satisfies keyof DefaultTheme['colors'];
@@ -52,9 +29,9 @@ export const Status = ({ variant = 'primary', showBullet = true, size = 'M', chi
   const paddingY = size === 'S' ? 1 : 4;
 
   return (
-    <StatusWrapper
+    <Box
       borderColor={borderColor}
-      textColor={textColor}
+      color={textColor}
       background={backgroundColor}
       hasRadius
       paddingTop={paddingY}
@@ -64,13 +41,16 @@ export const Status = ({ variant = 'primary', showBullet = true, size = 'M', chi
       {...props}
     >
       {showBullet ? (
-        <Flex>
-          <Bullet backgroundColor={bulletColor} />
+        <Flex gap={3}>
+          <Box background={bulletColor} width="0.6rem" height="0.6rem" borderRadius="50%" />
           {children}
         </Flex>
       ) : (
         children
       )}
-    </StatusWrapper>
+    </Box>
   );
 };
+
+export { Status };
+export type { StatusProps, StatusSize, StatusVariant };

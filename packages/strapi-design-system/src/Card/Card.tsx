@@ -24,7 +24,7 @@ export const Card = ({ id, ...props }: CardProps) => {
         borderWidth="1px"
         borderColor="neutral150"
         shadow="tableShadow"
-        as="article"
+        tag="article"
         aria-labelledby={`${generatedId}-title`}
         {...props}
       />

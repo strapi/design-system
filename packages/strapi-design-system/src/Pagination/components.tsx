@@ -1,12 +1,12 @@
 import * as React from 'react';
 
 import { ChevronLeft, ChevronRight } from '@strapi/icons';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { usePagination } from './PaginationContext';
 import { BaseLink, BaseLinkProps } from '../BaseLink';
 import { Box, BoxProps } from '../Box';
-import { buttonFocusStyle } from '../themes/utils';
+import { focus } from '../styles/buttons';
 import { Typography } from '../Typography';
 import { VisuallyHidden } from '../VisuallyHidden';
 
@@ -20,32 +20,26 @@ interface PaginationPageLinkProps extends PaginationLinkProps {
 
 interface DotsProps extends BoxProps {}
 
-const transientProps = {
-  active: true,
-};
-
-const LinkWrapper = styled(BaseLink).withConfig<PaginationLinkProps>({
-  shouldForwardProp: (prop, defPropValFN) => !transientProps[prop] && defPropValFN(prop),
-})`
+const LinkWrapper = styled(BaseLink)<{ $active?: boolean }>`
   padding: ${({ theme }) => theme.spaces[3]};
   border-radius: ${({ theme }) => theme.borderRadius};
-  box-shadow: ${({ active, theme }) => (active ? theme.shadows.filterShadow : undefined)};
+  box-shadow: ${({ $active, theme }) => ($active ? theme.shadows.filterShadow : undefined)};
   text-decoration: none;
   display: flex;
 
-  ${buttonFocusStyle}
+  ${focus}
 `;
 
-const PageLinkWrapper = styled(LinkWrapper)<PaginationLinkProps>`
-  color: ${({ theme, active }) => (active ? theme.colors.primary700 : theme.colors.neutral800)};
-  background: ${({ theme, active }) => (active ? theme.colors.neutral0 : undefined)};
+const PageLinkWrapper = styled(LinkWrapper)<{ $active?: boolean }>`
+  color: ${({ theme, $active }) => ($active ? theme.colors.primary700 : theme.colors.neutral800)};
+  background: ${({ theme, $active }) => ($active ? theme.colors.neutral0 : undefined)};
 
   &:hover {
     box-shadow: ${({ theme }) => theme.shadows.filterShadow};
   }
 `;
 
-const ActionLinkWrapper = styled(LinkWrapper)<PaginationLinkProps>`
+const ActionLinkWrapper = styled(LinkWrapper)`
   font-size: 1.1rem;
 
   svg path {
@@ -100,7 +94,7 @@ export const PageLink = React.forwardRef<HTMLAnchorElement, PaginationPageLinkPr
     const isActive = activePage === number;
 
     return (
-      <PageLinkWrapper ref={ref} {...props} active={isActive}>
+      <PageLinkWrapper ref={ref} {...props} $active={isActive}>
         <VisuallyHidden>{children}</VisuallyHidden>
         <Typography aria-hidden fontWeight={isActive ? 'bold' : undefined} lineHeight="revert" variant="pi">
           {number}

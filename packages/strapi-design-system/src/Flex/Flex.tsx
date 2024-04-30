@@ -1,16 +1,13 @@
-import styled, { CSSProperties } from 'styled-components';
+import * as React from 'react';
 
-import { Box, BoxProps } from '../Box';
+import { styled, type CSSProperties } from 'styled-components';
+
+import { Box, BoxComponent, BoxProps } from '../Box';
 import handleResponsiveValues, { ResponsiveValue } from '../helpers/handleResponsiveValues';
+import { PolymorphicRef, PropsToTransientProps } from '../types';
+import { forwardRef } from '../utilities/forwardRef';
 
-/**
- * Prevents these attributes from being spread on the DOM node
- */
-const transientProps: Partial<Record<keyof FlexProps, boolean>> = {
-  direction: true,
-};
-
-export type FlexProps<TElement extends keyof JSX.IntrinsicElements = 'div'> = BoxProps<TElement> & {
+interface TransientFlexProps {
   alignItems?: CSSProperties['alignItems'];
   direction?: CSSProperties['flexDirection'];
   /**
@@ -20,16 +17,35 @@ export type FlexProps<TElement extends keyof JSX.IntrinsicElements = 'div'> = Bo
   inline?: boolean;
   justifyContent?: CSSProperties['justifyContent'];
   wrap?: CSSProperties['flexWrap'];
-};
+}
 
-export const Flex = styled(Box).withConfig<FlexProps>({
-  shouldForwardProp: (prop, defPropValFN) => !transientProps[prop as keyof FlexProps] && defPropValFN(prop),
-})`
-  align-items: ${({ alignItems = 'center' }) => alignItems};
-  display: ${({ display = 'flex', inline }) => (inline ? 'inline-flex' : display)};
-  flex-direction: ${({ direction = 'row' }) => direction};
+type FlexProps<C extends React.ElementType = 'div'> = BoxProps<C> & TransientFlexProps;
+
+const Flex = forwardRef(<C extends React.ElementType = 'div'>(props: FlexProps<C>, ref: PolymorphicRef<C>) => {
+  const { className, alignItems, direction, gap, inline, justifyContent, wrap, ...rest } = props;
+  const mappedProps = {
+    $alignItems: alignItems,
+    $direction: direction,
+    $gap: gap,
+    $inline: inline,
+    $justifyContent: justifyContent,
+    $wrap: wrap,
+  };
+
+  return <StyledFlex className={className} ref={ref} {...mappedProps} {...rest} />;
+});
+
+type FlexComponent<C extends React.ElementType = 'div'> = typeof Flex<C>;
+
+const StyledFlex = styled<BoxComponent>(Box)<PropsToTransientProps<TransientFlexProps>>`
+  align-items: ${({ $alignItems = 'center' }) => $alignItems};
+  display: ${({ display = 'flex', $inline }) => ($inline ? 'inline-flex' : display)};
+  flex-direction: ${({ $direction = 'row' }) => $direction};
   flex-shrink: ${({ shrink }) => shrink};
-  flex-wrap: ${({ wrap }) => wrap};
-  ${({ gap, theme }) => handleResponsiveValues('gap', gap, theme)};
-  justify-content: ${({ justifyContent }) => justifyContent};
+  flex-wrap: ${({ $wrap }) => $wrap};
+  ${({ $gap, theme }) => handleResponsiveValues('gap', $gap, theme)};
+  justify-content: ${({ $justifyContent }) => $justifyContent};
 `;
+
+export { Flex };
+export type { FlexComponent, FlexProps, TransientFlexProps };

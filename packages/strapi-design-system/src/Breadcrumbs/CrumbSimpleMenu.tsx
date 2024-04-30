@@ -1,11 +1,10 @@
 import * as React from 'react';
 
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
-import { Button } from '../Button';
 import { SimpleMenu, SimpleMenuProps } from '../SimpleMenu';
 
-const StyledButton = styled(Button)`
+const StyledButton = styled(SimpleMenu)`
   padding: ${({ theme }) => `${theme.spaces[1]} ${theme.spaces[2]}`};
   height: unset;
 
@@ -22,9 +21,9 @@ export interface CrumbSimpleMenuProps extends SimpleMenuProps {
 }
 
 export const CrumbSimpleMenu = ({ children, ...props }: CrumbSimpleMenuProps) => (
-  <SimpleMenu endIcon={null} as={StyledButton} size="S" {...props}>
+  <StyledButton endIcon={null} size="S" {...props}>
     {children}
-  </SimpleMenu>
+  </StyledButton>
 );
 
 CrumbSimpleMenu.displayName = 'CrumbSimpleMenu';

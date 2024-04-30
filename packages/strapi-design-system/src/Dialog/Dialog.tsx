@@ -1,30 +1,30 @@
 import * as React from 'react';
 
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
-import { Box, BoxProps } from '../Box';
+import { Box, BoxComponent, BoxProps } from '../Box';
 import { DismissibleLayer } from '../DismissibleLayer';
-import { Flex } from '../Flex';
+import { Flex, FlexComponent } from '../Flex';
 import { FocusTrap } from '../FocusTrap';
 import { setOpacity } from '../helpers/setOpacity';
 import { useId } from '../hooks/useId';
 import useLockScroll from '../hooks/useLockScroll';
 import { Portal } from '../Portal';
-import { Typography } from '../Typography';
+import { Typography, TypographyProps } from '../Typography';
 
-const DialogWrapper = styled(Box)`
+const DialogWrapper = styled<BoxComponent>(Box)`
   inset: 0;
   background: ${({ theme }) => setOpacity(theme.colors.neutral800, 0.2)};
 `;
 
-const DialogContainer = styled(Box)`
+const DialogContainer = styled<BoxComponent>(Box)`
   max-width: 41.2rem;
   margin: 0 auto;
   overflow: hidden;
   margin-top: 10%;
 `;
 
-const DialogHeader = styled(Flex)`
+const DialogHeader = styled<FlexComponent>(Flex)`
   border-bottom: 1px solid ${({ theme }) => theme.colors.neutral150};
 `;
 
@@ -32,6 +32,7 @@ export interface DialogProps extends BoxProps {
   onClose: () => void;
   title: string;
   isOpen: boolean;
+  as?: TypographyProps<any>['tag'];
 }
 
 export const Dialog = ({ onClose, title, as = 'h2', isOpen, id, zIndex = 4, ...props }: DialogProps) => {

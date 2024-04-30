@@ -1,11 +1,11 @@
 import * as React from 'react';
 
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
-import { Box } from '../Box';
+import { Box, BoxComponent } from '../Box';
 import { Flex } from '../Flex';
 
-const FooterWrapper = styled(Box)`
+const FooterWrapper = styled<BoxComponent>(Box)`
   border-top: 1px solid ${({ theme }) => theme.colors.neutral150};
 
   button {

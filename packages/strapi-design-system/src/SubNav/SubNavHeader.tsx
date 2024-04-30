@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { Search } from '@strapi/icons';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { Box } from '../Box';
 import { Divider } from '../Divider';
@@ -10,28 +10,26 @@ import { KeyboardKeys } from '../helpers/keyboardKeys';
 import { useId } from '../hooks/useId';
 import { usePrevious } from '../hooks/usePrevious';
 import { IconButton } from '../IconButton';
-import { Searchbar, SearchForm } from '../Searchbar';
-import { Typography } from '../Typography';
+import { Searchbar, SearchbarProps, SearchForm } from '../Searchbar';
+import { Typography, TypographyProps } from '../Typography';
 
 const CustomDivider = styled(Divider)`
   width: 2.4rem;
   background-color: ${({ theme }) => theme.colors.neutral200};
 `;
 
-export interface SubNavHeaderProps {
-  as?: keyof JSX.IntrinsicElements;
+export interface SubNavHeaderProps
+  extends Pick<TypographyProps<'h2'>, 'tag'>,
+    Partial<Pick<SearchbarProps, 'onClear' | 'onChange' | 'onSubmit'>> {
   id?: string;
   label: string;
-  onChange?: React.ChangeEventHandler<HTMLInputElement>;
-  onClear?: React.MouseEventHandler<HTMLInputElement>;
-  onSubmit?: React.FormEventHandler<HTMLInputElement>;
   searchLabel?: string;
   searchable?: boolean;
   value?: string;
 }
 
 export const SubNavHeader = ({
-  as = 'h2',
+  tag = 'h2',
   label,
   searchLabel = '',
   searchable = false,
@@ -60,18 +58,18 @@ export const SubNavHeader = ({
     setSearchOpen((isOpen) => !isOpen);
   };
 
-  const handleClear = (e) => {
+  const handleClear: SearchbarProps['onClear'] = (e) => {
     onClear(e);
     searchRef.current.focus();
   };
 
-  const handleBlur = (e) => {
+  const handleBlur: SearchbarProps['onBlur'] = (e) => {
     if (e.relatedTarget?.id !== clearButtonId) {
       setSearchOpen(false);
     }
   };
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown: SearchbarProps['onKeyDown'] = (e) => {
     if (e.key === KeyboardKeys.ESCAPE) {
       setSearchOpen(false);
     }
@@ -105,9 +103,9 @@ export const SubNavHeader = ({
   }
 
   return (
-    <Box paddingLeft={6} paddingTop={6} paddingBottom={2} paddingRight={4}>
+    <Flex direction="column" alignItems="flex-start" paddingLeft={6} paddingTop={6} paddingBottom={2} paddingRight={4}>
       <Flex justifyContent="space-between" alignItems="flex-start">
-        <Typography variant="beta" as={as}>
+        <Typography variant="beta" tag={tag}>
           {label}
         </Typography>
         {searchable && (
@@ -117,6 +115,6 @@ export const SubNavHeader = ({
       <Box paddingTop={4}>
         <CustomDivider />
       </Box>
-    </Box>
+    </Flex>
   );
 };

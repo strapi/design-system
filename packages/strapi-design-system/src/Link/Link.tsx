@@ -1,10 +1,10 @@
 import * as React from 'react';
 
 import { ExternalLink } from '@strapi/icons';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { BaseLink, BaseLinkProps } from '../BaseLink';
-import { buttonFocusStyle } from '../themes/utils';
+import { focus } from '../styles/buttons';
 import { Typography } from '../Typography';
 
 const LinkWrapper = styled(BaseLink)`
@@ -30,7 +30,7 @@ const LinkWrapper = styled(BaseLink)`
     color: ${({ theme }) => theme.colors.primary700};
   }
 
-  ${buttonFocusStyle};
+  ${focus};
 `;
 
 export interface LinkProps extends BaseLinkProps {

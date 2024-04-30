@@ -1,13 +1,14 @@
 import * as React from 'react';
 
 import { Loader } from '@strapi/icons';
-import styled, { keyframes } from 'styled-components';
+import { styled, keyframes } from 'styled-components';
 
 import { BUTTON_SIZES, Variant, ButtonSizes, DEFAULT } from './constants';
 import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from './utils';
 import { BaseButton, BaseButtonProps } from '../BaseButton';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
+import { PropsToTransientProps } from '../types';
 import { Typography } from '../Typography';
 
 const rotation = keyframes`
@@ -24,8 +25,8 @@ const LoaderAnimated = styled(Loader)`
   will-change: transform;
 `;
 
-export const ButtonWrapper = styled(BaseButton)<Required<Pick<ButtonProps, 'size' | 'variant'>>>`
-  height: ${({ theme, size }) => theme.sizes.button[size]};
+export const ButtonWrapper = styled(BaseButton)<PropsToTransientProps<Required<Pick<ButtonProps, 'size' | 'variant'>>>>`
+  height: ${({ theme, $size }) => theme.sizes.button[$size]};
 
   svg {
     height: 1.2rem;
@@ -89,10 +90,9 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         aria-disabled={isDisabled}
         disabled={isDisabled}
-        size={size}
-        variant={variant}
+        $size={size}
+        $variant={variant}
         onClick={handleClick}
-        fullWidth={fullWidth}
         alignItems="center"
         background="buttonPrimary600"
         borderColor="buttonPrimary600"
@@ -106,7 +106,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       >
         {(startIcon || loading) && <Box aria-hidden>{loading ? <LoaderAnimated /> : startIcon}</Box>}
 
-        <Typography variant={size === 'S' ? 'pi' : undefined} fontWeight="bold" textColor="buttonNeutral0">
+        <Typography variant={size === 'S' ? 'pi' : undefined} fontWeight="bold">
           {children}
         </Typography>
 

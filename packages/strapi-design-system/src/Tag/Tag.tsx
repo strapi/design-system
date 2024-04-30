@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
-import { Flex, FlexProps } from '../Flex';
-import { Typography } from '../Typography';
+import { Flex, FlexComponent, FlexProps } from '../Flex';
+import { Typography, TypographyComponent } from '../Typography';
 
 export interface TagProps extends FlexProps<'button'> {
   icon: React.ReactNode;
@@ -17,7 +17,7 @@ export const Tag = ({ children, icon, disabled = false, onClick, ...props }: Tag
 
   return (
     <TagWrapper
-      as="button"
+      tag="button"
       background={disabled ? 'neutral200' : 'primary100'}
       color={disabled ? 'neutral700' : 'primary600'}
       paddingLeft={3}
@@ -33,7 +33,7 @@ export const Tag = ({ children, icon, disabled = false, onClick, ...props }: Tag
       gap={2}
       {...props}
     >
-      <TagText $disabled={disabled} variant="pi" fontWeight="bold" as="span">
+      <TagText $disabled={disabled} variant="pi" fontWeight="bold">
         {children}
       </TagText>
       {icon}
@@ -41,7 +41,7 @@ export const Tag = ({ children, icon, disabled = false, onClick, ...props }: Tag
   );
 };
 
-const TagWrapper = styled(Flex)`
+const TagWrapper = styled<FlexComponent<'button'>>(Flex)`
   & > svg {
     height: 0.8rem;
     width: 0.8rem;
@@ -52,7 +52,7 @@ const TagWrapper = styled(Flex)`
   }
 `;
 
-const TagText = styled(Typography)<{ $disabled: boolean }>`
+const TagText = styled<TypographyComponent>(Typography)<{ $disabled: boolean }>`
   color: inherit;
   border-right: 1px solid ${({ theme, $disabled }) => ($disabled ? theme.colors.neutral300 : theme.colors.primary200)};
   padding-right: ${({ theme }) => theme.spaces[2]};

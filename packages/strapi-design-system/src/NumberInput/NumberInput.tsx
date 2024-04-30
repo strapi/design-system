@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import { NumberFormatter, NumberParser } from '@internationalized/number';
 import { CaretDown } from '@strapi/icons';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { useDesignSystem } from '../DesignSystemProvider';
 import { FieldInput, FieldInputProps, type FieldProps } from '../Field';
@@ -149,7 +149,7 @@ const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
             <ArrowButton
               disabled={disabled}
               aria-hidden
-              reverse
+              $reverse
               onClick={increment}
               tabIndex={-1}
               type="button"
@@ -175,16 +175,16 @@ const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
   },
 );
 
-const ArrowButton = styled.button<{ reverse?: boolean }>`
+const ArrowButton = styled.button<{ $reverse?: boolean }>`
   display: flex;
   height: 1rem;
-  align-items: ${({ reverse }) => (reverse ? 'flex-end' : 'flex-start')};
-  transform: translateY(${({ reverse }) => (reverse ? `-2px` : `2px`)});
+  align-items: ${({ $reverse }) => ($reverse ? 'flex-end' : 'flex-start')};
+  transform: translateY(${({ $reverse }) => ($reverse ? `-2px` : `2px`)});
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : undefined)};
   svg {
     display: block;
     height: 0.4rem;
-    transform: ${({ reverse }) => (reverse ? 'rotateX(180deg)' : undefined)};
+    transform: ${({ $reverse }) => ($reverse ? 'rotateX(180deg)' : undefined)};
   }
 `;
 

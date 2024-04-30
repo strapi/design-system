@@ -1,8 +1,28 @@
 import * as React from 'react';
 
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { Flex } from '../Flex';
+
+type CardAssetSizes = 'S' | 'M';
+
+const CARD_SIZES: Record<CardAssetSizes, number> = {
+  S: 8.8,
+  M: 16.4,
+};
+
+interface CardAssetProps extends React.ImgHTMLAttributes<HTMLImageElement> {
+  size?: CardAssetSizes;
+  children?: React.ReactNode;
+}
+
+const CardAsset = ({ size = 'M', children, ...props }: CardAssetProps) => {
+  return (
+    <CardAssetWrapper $size={size}>
+      {children ? <Flex>{children}</Flex> : <CardAssetImg {...props} aria-hidden />}
+    </CardAssetWrapper>
+  );
+};
 
 const CardAssetImg = styled.img`
   // inline flows is based on typography and displays an extra white space below the image
@@ -15,15 +35,10 @@ const CardAssetImg = styled.img`
   object-fit: contain;
 `;
 
-const sizes = {
-  S: 8.8,
-  M: 16.4,
-};
-
-const CardAssetWrapper = styled.div<{ size: CardAssetSizes }>`
+const CardAssetWrapper = styled.div<{ $size: CardAssetSizes }>`
   display: flex;
   justify-content: center;
-  height: ${({ size }) => `${sizes[size]}rem`};
+  height: ${({ $size }) => `${CARD_SIZES[$size]}rem`};
   width: 100%;
   background: repeating-conic-gradient(${({ theme }) => theme.colors.neutral100} 0% 25%, transparent 0% 50%) 50% / 20px
     20px;
@@ -31,17 +46,5 @@ const CardAssetWrapper = styled.div<{ size: CardAssetSizes }>`
   border-top-right-radius: ${({ theme }) => theme.borderRadius};
 `;
 
-export type CardAssetSizes = 'S' | 'M';
-
-export interface CardAssetProps extends React.ImgHTMLAttributes<HTMLImageElement> {
-  size?: CardAssetSizes;
-  children?: React.ReactNode;
-}
-
-export const CardAsset = ({ size = 'M', children, ...props }: CardAssetProps) => {
-  return (
-    <CardAssetWrapper size={size}>
-      {children ? <Flex>{children}</Flex> : <CardAssetImg {...props} aria-hidden />}
-    </CardAssetWrapper>
-  );
-};
+export { CardAsset };
+export type { CardAssetProps };

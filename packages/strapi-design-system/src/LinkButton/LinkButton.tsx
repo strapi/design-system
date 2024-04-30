@@ -1,12 +1,12 @@
 import * as React from 'react';
 
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
-import { BaseButtonWrapper, BaseButtonProps } from '../BaseButton';
 import { BaseLink, BaseLinkProps } from '../BaseLink';
 import { VARIANTS, BUTTON_SIZES } from '../Button/constants';
 import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from '../Button/utils';
-import { Flex } from '../Flex';
+import { Flex, FlexComponent } from '../Flex';
+import { focus } from '../styles/buttons';
 import { Typography } from '../Typography';
 
 interface SharedLinkProps extends BaseLinkProps {
@@ -17,9 +17,15 @@ interface SharedLinkProps extends BaseLinkProps {
   variant?: (typeof VARIANTS)[number];
 }
 
-export type LinkButtonProps = SharedLinkProps & BaseButtonProps;
+export type LinkButtonProps = SharedLinkProps;
 
-const LinkWrapper = styled(BaseButtonWrapper)`
+const LinkWrapper = styled<FlexComponent<'a' | typeof BaseLink>>(Flex)<{ $variant: (typeof VARIANTS)[number] }>`
+  ${focus}
+
+  &[aria-disabled='true'] {
+    pointer-events: none;
+  }
+
   text-decoration: none;
 
   &[aria-disabled='true'] {
@@ -42,7 +48,7 @@ const LinkWrapper = styled(BaseButtonWrapper)`
 
 export const LinkButton = React.forwardRef<HTMLAnchorElement, LinkButtonProps>(
   (
-    { variant = 'default', startIcon, endIcon, disabled = false, children, size = 'S', as = BaseLink, ...props },
+    { variant = 'default', startIcon, endIcon, disabled = false, children, size = 'S', tag = BaseLink, ...props },
     ref,
   ) => {
     const paddingX = size === 'S' ? 2 : '10px';
@@ -52,8 +58,7 @@ export const LinkButton = React.forwardRef<HTMLAnchorElement, LinkButtonProps>(
       <LinkWrapper
         ref={ref}
         aria-disabled={disabled}
-        size={size}
-        variant={variant}
+        $variant={variant}
         background="buttonPrimary600"
         borderColor="buttonPrimary600"
         hasRadius
@@ -65,7 +70,7 @@ export const LinkButton = React.forwardRef<HTMLAnchorElement, LinkButtonProps>(
         paddingTop={paddingX}
         pointerEvents={disabled ? 'none' : undefined}
         {...props}
-        as={as || BaseLink}
+        tag={tag || BaseLink}
       >
         {startIcon && <Flex aria-hidden>{startIcon}</Flex>}
 

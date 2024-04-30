@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
-import { Box } from '../Box';
+import { Box, BoxComponent } from '../Box';
 import { Flex } from '../Flex';
 
 export interface ModalFooterProps {
@@ -8,7 +8,7 @@ export interface ModalFooterProps {
   startActions?: React.ReactNode;
 }
 
-const ModalFooterWrapper = styled(Box)`
+const ModalFooterWrapper = styled<BoxComponent>(Box)`
   border-radius: 0 0 ${({ theme }) => theme.borderRadius} ${({ theme }) => theme.borderRadius};
   border-top: 1px solid ${({ theme }) => theme.colors.neutral150};
 `;

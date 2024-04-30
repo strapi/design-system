@@ -38,9 +38,7 @@ describe('Avatar', () => {
         border-radius: 50%;
         object-fit: cover;
         position: absolute;
-        -webkit-transform: translate(-16px,-100%);
-        -ms-transform: translate(-16px,-100%);
-        transform: translate(-16px,-100%);
+        transform: translate(-16px, -100%);
         margin-top: -4px;
       }
 
@@ -114,9 +112,7 @@ describe('Avatar', () => {
         border-radius: 50%;
         object-fit: cover;
         position: absolute;
-        -webkit-transform: translate(-16px,-100%);
-        -ms-transform: translate(-16px,-100%);
-        transform: translate(-16px,-100%);
+        transform: translate(-16px, -100%);
         margin-top: -4px;
       }
 

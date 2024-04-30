@@ -1,13 +1,13 @@
 import * as React from 'react';
 
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
-import { Box, BoxProps } from '../Box';
+import { Box, BoxComponent, BoxProps } from '../Box';
 import { Divider } from '../Divider';
 import { Flex } from '../Flex';
 import { Typography } from '../Typography';
 
-const IconBox = styled(Box)`
+const IconBox = styled<BoxComponent>(Box)`
   height: 2.4rem;
   width: 2.4rem;
   border-radius: 50%;
@@ -26,7 +26,7 @@ const IconBox = styled(Box)`
 `;
 
 // TODO: remove when the reset css button is merged
-const ButtonBox = styled(Box)`
+const ButtonBox = styled<BoxComponent<'button'>>(Box)`
   border-radius: 0 0 ${({ theme }) => theme.borderRadius} ${({ theme }) => theme.borderRadius};
   display: block;
   width: 100%;
@@ -42,7 +42,7 @@ export const TFooter = ({ children, icon, ...props }: TFooterProps) => {
   return (
     <div>
       <Divider />
-      <ButtonBox as="button" background="primary100" padding={5} {...props}>
+      <ButtonBox tag="button" background="primary100" padding={5} {...props}>
         <Flex>
           <IconBox aria-hidden background="primary200">
             {icon}

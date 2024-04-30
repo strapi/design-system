@@ -1,10 +1,10 @@
 import * as React from 'react';
 
 import { Loader } from '@strapi/icons';
-import styled, { keyframes } from 'styled-components';
+import { styled, keyframes } from 'styled-components';
 
-import { Flex, FlexProps } from '../Flex';
-import { buttonFocusStyle } from '../themes/utils';
+import { Flex, FlexComponent, FlexProps } from '../Flex';
+import { focus } from '../styles/buttons';
 import { Typography } from '../Typography';
 
 const rotation = keyframes`
@@ -21,7 +21,7 @@ const LoadingWrapper = styled.div`
   will-change: transform;
 `;
 
-const TextButtonWrapper = styled(Flex)`
+const TextButtonWrapper = styled<FlexComponent<'button'>>(Flex)`
   border: none;
 
   &[aria-disabled='true'] {
@@ -35,7 +35,7 @@ const TextButtonWrapper = styled(Flex)`
     fill: ${({ theme }) => theme.colors.primary600};
   }
 
-  ${buttonFocusStyle}
+  ${focus}
 `;
 
 export interface TextButtonProps extends FlexProps<'button'> {
@@ -54,7 +54,7 @@ export const TextButton = React.forwardRef<HTMLButtonElement, TextButtonProps>(
         ref={ref}
         aria-disabled={isDisabled}
         onClick={handleClick}
-        as="button"
+        tag="button"
         type="button"
         background="transparent"
         gap={2}

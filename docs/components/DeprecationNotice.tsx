@@ -9,7 +9,7 @@ interface DeprecationNoticeProps {
 
 const DeprecationNotice = ({ children, href }: DeprecationNoticeProps) => (
   <Flex padding={5} background="danger500" justifyContent="center" marginTop={4} marginBottom={4} hasRadius>
-    <Typography fontSize={4} fontWeight="bold" as="p">
+    <Typography fontSize={4} fontWeight="bold" tag="p">
       ⛔️
       <strong>
         {' This component has been deprecated. Please use '}

@@ -1,9 +1,9 @@
 import { useAccordion } from './AccordionContext';
 import { Box, BoxProps } from '../Box';
 
-export type AccordionContentProps = BoxProps;
+type AccordionContentProps = Omit<BoxProps, 'tag'>;
 
-export const AccordionContent = ({ children, ...props }: AccordionContentProps) => {
+const AccordionContent = ({ children, ...props }: AccordionContentProps) => {
   const { expanded, id } = useAccordion();
 
   if (!expanded) {
@@ -20,3 +20,6 @@ export const AccordionContent = ({ children, ...props }: AccordionContentProps) 
     </Box>
   );
 };
+
+export { AccordionContent };
+export type { AccordionContentProps };
