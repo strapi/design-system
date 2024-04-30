@@ -14,7 +14,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "storybook-dark-mode": "^3.0.3",
-    "styled-components": "6.1.8"
+    "styled-components": "6.1.8",
+    "tinycolor2": "1.6.0"
   },
   "devDependencies": {
     "@storybook/blocks": "^7.6.17",

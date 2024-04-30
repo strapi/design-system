@@ -1,9 +1,5 @@
 {
   "files": [],
   "include": ["*.config.js", "scripts/**/*.js"],
-  "references": [
-    { "path": "packages/strapi-design-system" },
-    { "path": "packages/strapi-icons" },
-    { "path": "packages/primitives" }
-  ]
+  "references": [{ "path": "packages/design-system" }, { "path": "packages/icons" }, { "path": "packages/primitives" }]
 }

@@ -166,7 +166,7 @@ We recommend you use [`yalc`](https://github.com/wclr/yalc). If you're working i
 These steps assume you're in the root of the design-system project and on MacOS and adding to the Strapi Monorepo (a normal use case).
 
 ```shell
-cd packages/strapi-design-system # this could be icons too if you preferred.
+cd packages/design-system # this could be icons too if you preferred.
 yalc publish
 cd ../../your-strapi-repo
 yalc add @strapi/design-system --pure

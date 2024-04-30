@@ -29,7 +29,7 @@ export const Base = {
       <CarouselInput
         label={`Carousel of numbers (${selectedIndex + 1}/3)`}
         selectedSlide={selectedIndex}
-        secondaryLabel="/packages/strapi-design-system/src/Carousel/story-assets/first.jpg"
+        secondaryLabel="/packages/design-system/src/Carousel/story-assets/first.jpg"
         previousLabel="Previous slide"
         nextLabel="Next slide"
         onNext={handleNext}
