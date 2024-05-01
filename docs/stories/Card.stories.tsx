@@ -36,7 +36,6 @@ export const Base = {
     >
       <CardHeader>
         <CardCheckbox value />
-        {/* @ts-expect-error – fix this */}
         <CardAction position="end">
           <IconButton label="Edit the thing" icon={<Pencil />} />
         </CardAction>
